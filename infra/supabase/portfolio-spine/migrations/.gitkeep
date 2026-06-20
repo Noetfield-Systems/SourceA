@@ -1,0 +1,3 @@
+-- Portfolio Spine migrations
+-- Apply via Supabase CLI linked to portfolio-spine project only.
+-- Example: supabase db push (with project ref from ~/.sourcea-secrets/portfolio-spine.env)

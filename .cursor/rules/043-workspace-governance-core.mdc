@@ -1,0 +1,45 @@
+---
+description: Governance source of truth — brain-os law plane + cleanup manifest law
+alwaysApply: true
+---
+
+# Workspace governance core
+
+**Primary law plane:** `brain-os/law/` · **Entry:** `brain-os/entry/START_HERE_LOCKED_v1.md`  
+**Portfolio SSOT:** `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md`  
+**Supabase tiers:** `data/supabase-portfolio-tiers-v1.json` · `040-workspace-supabase-core.mdc`
+
+## Read order (structure questions)
+
+1. `brain-os/entry/START_HERE_LOCKED_v1.md`
+2. `brain-os/law/` — BRAIN_UNIFIED, layer stack, enforcement
+3. `SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md` — authority rows
+4. Module-specific SSOT under `docs/` or `labs/<module>/README.md`
+
+**Code and README are not structural authority** — declared law in repository wins.
+
+## Root sprawl cleanup (mandatory process)
+
+Before relocating root `*.md` files:
+
+1. `bash infra/cleanup/scan-secrets-v1.sh` — clear hits before any snapshot commit
+2. `bash infra/cleanup/generate-inventory-v1.sh`
+3. Agent fills `infra/cleanup/cleanup-manifest.md` — **does not execute**
+4. ASF sets manifest **APPROVED**
+5. Execute **one batch per commit** — never bulk `git reset --hard`
+
+**Delete without manifest:** only `__pycache__`, `.pytest_cache`, `.DS_Store`, `*.pyc`  
+**Logs:** move to `archive/logs/` — never delete
+
+## Labs modules
+
+| Path | Rule |
+|------|------|
+| `labs/virlux/` | Static/pre-product only until graduation ADR |
+| `labs/*` | Disposable — see Virlux README graduation trigger |
+
+**Virlux graduation:** real money or financial/user data → isolated Supabase project **before** ship, not after.
+
+## Agent mode note
+
+`.cursorrules` is a pointer only. These `.mdc` files load in Agent mode. Structural enforcement = tier boundaries + secrets outside workspace + manifest-gated moves.

@@ -1,0 +1,46 @@
+{
+  "schema": "supabase-portfolio-tiers-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T00:00:00Z",
+  "authority": "ASF",
+  "decision": {
+    "id": "ASF-2026-06-19-VIRLUX-TO-LABS",
+    "summary": "Virlux is Labs Sandbox only — not Portfolio Spine, not ring-fenced production.",
+    "supersedes": "Hybrid Sovereign Path placing virlux inside Portfolio Spine"
+  },
+  "projects": [
+    {
+      "id": "portfolio-spine",
+      "tier": "production",
+      "disposable": false,
+      "modules": ["noetfield", "trustfield", "witnessbc", "foundation"],
+      "schemas": ["gov", "noetfield", "trustfield", "witnessbc", "foundation", "audit"],
+      "secrets_file": "~/.sourcea-secrets/portfolio-spine.env",
+      "infra_path": "infra/supabase/portfolio-spine",
+      "agent_db_access": "restricted — no direct prod writes from autonomous agents"
+    },
+    {
+      "id": "labs-sandbox",
+      "tier": "labs",
+      "disposable": true,
+      "modules": ["virlux", "labs", "research", "experiments"],
+      "schemas": ["virlux_ops", "labs", "research"],
+      "secrets_file": "~/.sourcea-secrets/labs-sandbox.env",
+      "infra_path": "infra/supabase/labs-sandbox",
+      "labs_path": "labs/virlux",
+      "agent_db_access": "allowed — only credential agents may hold",
+      "graduation_trigger": "Real money or real financial/user data → isolated Supabase project BEFORE ship, not after. See labs/virlux/README.md"
+    }
+  ],
+  "integration": {
+    "cross_project_joins": false,
+    "pattern": "async_only",
+    "mechanisms": ["signed_webhook", "signed_event_row", "status_token"],
+    "assumption_pending_founder_confirm": "Noetfield/TrustField do not require live reads of Virlux transactional tables"
+  },
+  "secrets": {
+    "workspace_forbidden": true,
+    "canonical_dir": "~/.sourcea-secrets",
+    "repo_pointer": "infra/secrets/README.md"
+  }
+}

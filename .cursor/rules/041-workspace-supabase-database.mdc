@@ -1,0 +1,62 @@
+---
+description: Supabase migrations, schemas, SQL — tier boundaries and Virlux labs isolation
+globs:
+  - infra/supabase/**
+  - infra/scripts/**
+  - "**/*.sql"
+  - "**/supabase/migrations/**"
+alwaysApply: false
+---
+
+# Supabase database boundaries
+
+**SSOT:** `data/supabase-portfolio-tiers-v1.json`
+
+## Project routing
+
+| Path prefix | Supabase project | Virlux allowed? |
+|-------------|------------------|-----------------|
+| `infra/supabase/portfolio-spine/**` | portfolio-spine | **NO** |
+| `infra/supabase/labs-sandbox/**` | labs-sandbox | **YES** (ASF: Virlux home) |
+
+## Schema law — Portfolio Spine
+
+Allowed schemas: `gov`, `noetfield`, `trustfield`, `witnessbc`, `foundation`, `audit`.
+
+- RLS on every table.
+- Per-schema DB roles — no blanket `public` write access.
+- Cross-schema queries **within** portfolio-spine only.
+
+## Schema law — Labs Sandbox
+
+Allowed schemas: `virlux_ops`, `labs`, `research`.
+
+- Disposable — migrations may be rewritten.
+- **Do not** add `virlux_ops` or payment-rail tables to portfolio-spine while ASF decision stands.
+
+## Forbidden actions
+
+- Copying `SUPABASE_*` keys from `~/.sourcea-secrets/portfolio-spine.env` into repo `.env` files
+- Foreign keys or views spanning two Supabase projects
+- Placing Virlux migrations under `portfolio-spine/migrations/`
+- Hardcoding service-role keys in app code or agent prompts
+
+## Async integration seam (Virlux → Spine)
+
+When labs emits an outcome governance needs:
+
+1. Virlux writes completion in `virlux_ops` (labs project)
+2. Emit signed payload (webhook or outbox event) — **not** a spine DB read
+3. Spine ingests into `audit` or module schema via Edge Function / verified webhook
+
+**Founder must choose:** push webhook vs polled signed event row. Do not implement both silently.
+
+## Load secrets (founder/CI only)
+
+```bash
+source infra/scripts/load-supabase-secrets-v1.sh portfolio-spine
+# or
+source infra/scripts/load-supabase-secrets-v1.sh labs-sandbox
+```
+
+Agents: use labs-sandbox scope only unless founder pastes `EDIT ALLOWED` with explicit spine migration task.

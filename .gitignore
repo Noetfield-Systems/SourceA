@@ -1,0 +1,31 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+**/.env.local
+**/.env.*.local
+infra/secrets/*.env
+infra/secrets/*.local
+*.pem
+*.key
+id_rsa*
+
+# Local secrets dir (outside repo — block if ever copied in)
+.sourcea-secrets/
+**/.sourcea-secrets/
+
+# Supabase local CLI artifacts
+.supabase/
+
+# Python / test caches (safe to delete)
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Cleanup scan output may list paths — ok to commit report without keys
+# infra/cleanup/secret-scan-report.txt
