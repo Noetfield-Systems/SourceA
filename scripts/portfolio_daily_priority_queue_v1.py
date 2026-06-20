@@ -105,7 +105,7 @@ def _probe_virlux_copy() -> dict:
 
 def _probe_supabase_secrets() -> dict:
     missing = []
-    for name in ("portfolio-spine.env", "labs-sandbox.env"):
+    for name in ("portfolio-spine.env", "noetfield.env"):
         path = SECRETS_DIR / name
         if not path.is_file():
             missing.append(name)
