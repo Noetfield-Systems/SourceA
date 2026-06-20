@@ -34,13 +34,11 @@
     {
       "priority": "P0",
       "id": "sourcea-vercel-home",
-      "status": "done",
       "repo": "SourceA",
-      "blocker": "RESOLVED — source-a live on the-777-foundation · GitHub SourceA linked",
+      "blocker": "source-a 404 — vercel.json + build script pushed · redeploy on Vercel",
       "owner": "founder",
-      "acceptance": "source-a.vercel.app green · Gate K /sourcea/trust/",
-      "completed_at": "2026-06-20T23:30:00Z",
-      "probe": "vercel_portfolio_map"
+      "acceptance": "https://source-a.vercel.app/sourcea/ green · Gate K /sourcea/trust/",
+      "founder_action": "Vercel source-a → Redeploy (or wait for Git hook) · Root Directory must be SourceA-landing/green-unified",
     },
     {
       "priority": "P0",
