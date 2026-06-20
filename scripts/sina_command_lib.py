@@ -816,7 +816,7 @@ def founder_automation_p0(bowl: dict) -> dict:
         "priority": 1,
         "phase": "T4 spine",
         "next_action": next_action,
-        "hook": "GOAL_HIERARCHY_LOCKED_v1.md",
+        "hook": "brain-os/system/GOAL_HIERARCHY_LOCKED_v1.md",
         "runreceipt_parallel": {
             "id": factory_p0.get("id"),
             "thread": factory_p0.get("thread"),
@@ -1015,9 +1015,9 @@ def sources_registry(bowl: dict) -> dict:
         {"label": "Program progress", "path": "PROGRAM_PROGRESS.json"},
         {"label": "Drift", "path": "sina-bowl/DRIFT.json"},
         {"label": "Document registry", "path": "brain-os/system/SOURCE_A_DOCUMENT_SEQUENCE_REGISTRY_LOCKED_v1.md"},
-        {"label": "Agent governance index", "path": "AGENT_GOVERNANCE_INDEX_LOCKED_v1.md"},
-        {"label": "Private agent workspaces law", "path": "SINA_AGENT_PRIVATE_WORKSPACES_LOCKED_v1.md"},
-        {"label": "Sina Command edit lock", "path": "SINA_COMMAND_EDIT_LOCK_LOCKED_v1.md"},
+        {"label": "Agent governance index", "path": "brain-os/law/AGENT_GOVERNANCE_INDEX_LOCKED_v1.md"},
+        {"label": "Private agent workspaces law", "path": "brain-os/law/SINA_AGENT_PRIVATE_WORKSPACES_LOCKED_v1.md"},
+        {"label": "Sina Command edit lock", "path": "archive/legacy/sina-command/SINA_COMMAND_EDIT_LOCK_LOCKED_v1.md"},
         {"label": "Agents blueprint", "path": "brain-os/law/SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md"},
     ]
     seen = set()
@@ -1834,7 +1834,7 @@ def founder_actions_flat() -> list[dict]:
             "icon": "📋",
             "kind": "open",
             "group": "integrity",
-            "path": str(SOURCE_A / "SOURCEA_SYSTEM_INTEGRITY_100_STEP_PLAYBOOK_LOCKED_v1.md"),
+            "path": str(SOURCE_A / "brain-os/law/SOURCEA_SYSTEM_INTEGRITY_100_STEP_PLAYBOOK_LOCKED_v1.md"),
             "hint": "Q-SYS-INTEGRITY-RESUME YES · index-only · 3.07 NO GOV_UNIFY",
         },
         {
@@ -3587,7 +3587,7 @@ def mandatory_reads_for_agents() -> dict:
 
 
 def guides_payload() -> dict:
-    guide_path = SOURCE_A / "SINA_COMMAND_GUIDE_LOCKED_v1.md"
+    guide_path = SOURCE_A / "archive/legacy/sina-command/SINA_COMMAND_GUIDE_LOCKED_v1.md"
     apps_path = SOURCE_A / "brain-os/law/SINA_APPS_GUIDE_FOR_SINA_v1.md"
     human = guide_path.read_text(encoding="utf-8") if guide_path.is_file() else ""
     apps_md = apps_path.read_text(encoding="utf-8") if apps_path.is_file() else ""
