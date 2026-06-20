@@ -1,0 +1,7 @@
+{
+  "name": "witnessbc-site",
+  "private": true,
+  "scripts": {
+    "build": "echo 'static — no build'"
+  }
+}

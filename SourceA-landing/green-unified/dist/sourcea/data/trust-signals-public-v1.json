@@ -1,0 +1,12 @@
+{
+  "schema": "trust-signals-public-v1",
+  "saved_at": "2026-06-19T06:35:01Z",
+  "disclosure_line": "Prove every agent action \u2014 before the model runs, after it ships.",
+  "perimeter": "Powered by SourceA governed execution \u2014 advisory only \u00b7 no custody \u00b7 no payment initiation.",
+  "mcp_free_tier_summary": "MCP free-tier",
+  "proof_urls": [
+    "https://sourcea-landing.vercel.app/sourcea/",
+    "https://www.noetfield.com/copilot/pilot/",
+    "https://www.trustfield.ca/demo"
+  ]
+}

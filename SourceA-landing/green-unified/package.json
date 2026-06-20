@@ -1,0 +1,7 @@
+{
+  "name": "sourcea-landing-green-unified",
+  "private": true,
+  "scripts": {
+    "build": "python3 ../../scripts/build_sourcea_vercel_output_v1.py"
+  }
+}
