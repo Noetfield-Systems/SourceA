@@ -1,0 +1,301 @@
+{
+  "schema": "batch-6-preflight-audit-v1",
+  "saved_at": "2026-06-20T18:44:00Z",
+  "inventory_root_files": 2,
+  "secret_scan": "archive evidence metadata only \u2014 no raw keys in commit scope",
+  "broken_pointers": [
+    {
+      "script": "scripts/validate-thread-room-second-hop-v1.sh",
+      "stale": "SINA_THREAD_ROOM_LOCKED_v1.md",
+      "canonical": "brain-os/law/SINA_THREAD_ROOM_LOCKED_v1.md"
+    },
+    {
+      "script": "scripts/validate-gate-receipts-routes-v1.sh",
+      "stale": "ENFORCE_BYPASS_MAP_LOCKED_v1.md",
+      "canonical": "brain-os/law/enforcement/ENFORCE_BYPASS_MAP_LOCKED_v1.md"
+    },
+    {
+      "script": "scripts/validate-gate-receipts-route-alignment-v1.sh",
+      "stale": "ENFORCE_BYPASS_MAP_LOCKED_v1.md",
+      "canonical": "brain-os/law/enforcement/ENFORCE_BYPASS_MAP_LOCKED_v1.md"
+    },
+    {
+      "script": "scripts/validate-enforce-bypass-map-v1.sh",
+      "stale": "ENFORCE_BYPASS_MAP_LOCKED_v1.md",
+      "canonical": "brain-os/law/enforcement/ENFORCE_BYPASS_MAP_LOCKED_v1.md"
+    },
+    {
+      "script": "scripts/validate-hub-copy-no-terminal-v1.sh",
+      "stale": "SINA_COMMAND_NO_TERMINAL_FOUNDER_LOCKED_v1.md",
+      "canonical": "brain-os/law/SINA_COMMAND_NO_TERMINAL_FOUNDER_LOCKED_v1.md"
+    },
+    {
+      "script": "scripts/validate-batch-sa-0318-0424-v1.sh",
+      "stale": "AGENT_SCOREBOARD_LOCKED_v1.md",
+      "canonical": "brain-os/law/AGENT_SCOREBOARD_LOCKED_v1.md"
+    },
+    {
+      "script": "scripts/agent_private_workspaces.py",
+      "stale": "root path refs",
+      "canonical": "brain-os/law/"
+    }
+  ],
+  "archive_root_stubs": {
+    "count": 36,
+    "safe_delete_candidates": 20,
+    "items": [
+      {
+        "stub": "archive/root-stubs/AGENT_RULES_IN_CHARGE_LOCKED_v1.md",
+        "canonical": "brain-os/law/AGENT_RULES_IN_CHARGE_LOCKED_v1.md",
+        "stub_path_refs": 3,
+        "filename_refs_outside_stubs": 131,
+        "safe_delete_candidate": false
+      },
+      {
+        "stub": "archive/root-stubs/AGENT_RULE_CONFLICT_AND_STALE_TRUTH_AUDIT_LOCKED_v1.md",
+        "canonical": "brain-os/incidents/AGENT_RULE_CONFLICT_AND_STALE_TRUTH_AUDIT_LOCKED_v1.md",
+        "stub_path_refs": 3,
+        "filename_refs_outside_stubs": 14,
+        "safe_delete_candidate": false
+      },
+      {
+        "stub": "archive/root-stubs/AGENT_VERBS_SAVE_WORK_EDIT_LOCKED_v1.md",
+        "canonical": "brain-os/law/enforcement/AGENT_VERBS_SAVE_WORK_EDIT_LOCKED_v1.md",
+        "stub_path_refs": 3,
+        "filename_refs_outside_stubs": 18,
+        "safe_delete_candidate": false
+      },
+      {
+        "stub": "archive/root-stubs/CHATGPT_EXTERNAL_CRITIC_LAW_LOCKED_v1.md",
+        "canonical": "brain-os/law/CHATGPT_EXTERNAL_CRITIC_LAW_LOCKED_v1.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 1065,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/CHAT_EXTRACT_UNIFY_PROMPT.txt",
+        "canonical": null,
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 12,
+        "safe_delete_candidate": false
+      },
+      {
+        "stub": "archive/root-stubs/CHAT_UNIFY_ROLLUP_PROMPT.txt",
+        "canonical": null,
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 19,
+        "safe_delete_candidate": false
+      },
+      {
+        "stub": "archive/root-stubs/CROSS_LANE_EDIT_FORBIDDEN_LOCKED_v1.md",
+        "canonical": null,
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 9,
+        "safe_delete_candidate": false
+      },
+      {
+        "stub": "archive/root-stubs/CURSOR_AGENT_CONTEXT_MEMORY_INCIDENT_LOCKED_v1.md",
+        "canonical": "brain-os/incidents/CURSOR_AGENT_CONTEXT_MEMORY_INCIDENT_LOCKED_v1.md",
+        "stub_path_refs": 3,
+        "filename_refs_outside_stubs": 45,
+        "safe_delete_candidate": false
+      },
+      {
+        "stub": "archive/root-stubs/DISPATCH_POLICY_LOCKED_v1.md",
+        "canonical": "brain-os/law/DISPATCH_POLICY_LOCKED_v1.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 62,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/ECOSYSTEM_IMPORTANT_DOCS_INDEX_LOCKED_v1.md",
+        "canonical": null,
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 14,
+        "safe_delete_candidate": false
+      },
+      {
+        "stub": "archive/root-stubs/FOUNDER_BUSY_OPERATING_MODEL_REPORT_LOCKED_v1.md",
+        "canonical": null,
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 7,
+        "safe_delete_candidate": false
+      },
+      {
+        "stub": "archive/root-stubs/GOVERNANCE_DRIFT_DETECTION_INSIGHTS_2026.md",
+        "canonical": null,
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 5,
+        "safe_delete_candidate": false
+      },
+      {
+        "stub": "archive/root-stubs/HONEST_P0_SCREEN_LOCKED_v1.md",
+        "canonical": null,
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 6,
+        "safe_delete_candidate": false
+      },
+      {
+        "stub": "archive/root-stubs/MAC_GUARD_AGENCY_DEMO_SCRIPT_LOCKED_v1.md",
+        "canonical": null,
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 8,
+        "safe_delete_candidate": false
+      },
+      {
+        "stub": "archive/root-stubs/MAC_SNAPSHOT_PROMPT.txt",
+        "canonical": null,
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 6,
+        "safe_delete_candidate": false
+      },
+      {
+        "stub": "archive/root-stubs/SINAAI_AUTO_PASTE_INCIDENT_REPORT_LOCKED_v1.md",
+        "canonical": "brain-os/incidents/SINAAI_AUTO_PASTE_INCIDENT_REPORT_LOCKED_v1.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 48,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/SINA_AGENT_INCIDENT_ROOM_LOCKED_v1.md",
+        "canonical": "brain-os/incidents/SINA_AGENT_INCIDENT_ROOM_LOCKED_v1.md",
+        "stub_path_refs": 3,
+        "filename_refs_outside_stubs": 24,
+        "safe_delete_candidate": false
+      },
+      {
+        "stub": "archive/root-stubs/SINA_BRAIN_WORKER_LANE_CROSS_INCIDENT_LOCKED_v1.md",
+        "canonical": "brain-os/incidents/SINA_BRAIN_WORKER_LANE_CROSS_INCIDENT_LOCKED_v1.md",
+        "stub_path_refs": 3,
+        "filename_refs_outside_stubs": 31,
+        "safe_delete_candidate": false
+      },
+      {
+        "stub": "archive/root-stubs/SINA_COMMAND_MAINTAINER_SELF_AUDIT_INCIDENT_LOCKED_v1.md",
+        "canonical": "brain-os/incidents/SINA_COMMAND_MAINTAINER_SELF_AUDIT_INCIDENT_LOCKED_v1.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 21,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/SINA_CROSS_LANE_EDIT_FORBIDDEN_INCIDENT_LOCKED_v1.md",
+        "canonical": "brain-os/incidents/SINA_CROSS_LANE_EDIT_FORBIDDEN_INCIDENT_LOCKED_v1.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 28,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/SINA_FACTORY_STOP_IGNORED_AUTODRAIN_INCIDENT_023_REPORT_LOCKED_v1.md",
+        "canonical": "brain-os/incidents/SINA_FACTORY_STOP_IGNORED_AUTODRAIN_INCIDENT_023_REPORT_LOCKED_v1.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 10,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/SINA_GOAL1_LOOP_UNVALIDATED_PROOF_INCIDENT_LOCKED_v1.md",
+        "canonical": "brain-os/incidents/SINA_GOAL1_LOOP_UNVALIDATED_PROOF_INCIDENT_LOCKED_v1.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 33,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/SINA_GPT_CLAUDE_WTM_SYNTHESIS_LOCKED_v1.md",
+        "canonical": "brain-os/wtm/SINA_GPT_CLAUDE_WTM_SYNTHESIS_LOCKED_v1.md",
+        "stub_path_refs": 3,
+        "filename_refs_outside_stubs": 1049,
+        "safe_delete_candidate": false
+      },
+      {
+        "stub": "archive/root-stubs/SINA_HEALTHY_DRAIN_PROMPT_FEASIBILITY_INCIDENT_REPORT_LOCKED_v1.md",
+        "canonical": "brain-os/incidents/SINA_HEALTHY_DRAIN_PROMPT_FEASIBILITY_INCIDENT_REPORT_LOCKED_v1.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 28,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/SINA_PRE_LLM_WORLD_MODEL_ROADMAP_LOCKED_v2.md",
+        "canonical": "brain-os/wtm/SINA_PRE_LLM_WORLD_MODEL_ROADMAP_LOCKED_v2.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 26,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md",
+        "canonical": "brain-os/law/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 29,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/WORLD_TARGET_MODEL_ARCHITECTURE_DIAGRAM_LOCKED_v1.md",
+        "canonical": "brain-os/wtm/WORLD_TARGET_MODEL_ARCHITECTURE_DIAGRAM_LOCKED_v1.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 19,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/WORLD_TARGET_MODEL_AUTHORITY_LAW_LOCKED_v1.md",
+        "canonical": "brain-os/wtm/WORLD_TARGET_MODEL_AUTHORITY_LAW_LOCKED_v1.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 26,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/WORLD_TARGET_MODEL_FULL_BLUEPRINT_FOR_REVIEW_v1.md",
+        "canonical": "brain-os/wtm/WORLD_TARGET_MODEL_FULL_BLUEPRINT_FOR_REVIEW_v1.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 11,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/WORLD_TARGET_MODEL_FULL_BLUEPRINT_FOR_REVIEW_v2.md",
+        "canonical": "brain-os/wtm/WORLD_TARGET_MODEL_FULL_BLUEPRINT_FOR_REVIEW_v2.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 11,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/WORLD_TARGET_MODEL_MAP_LOCKED_v5.md",
+        "canonical": "brain-os/wtm/WORLD_TARGET_MODEL_MAP_LOCKED_v5.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 1080,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/WORLD_TARGET_MODEL_PHASE_NAMING_INCIDENT_REPORT_LOCKED_v1.md",
+        "canonical": "brain-os/wtm/WORLD_TARGET_MODEL_PHASE_NAMING_INCIDENT_REPORT_LOCKED_v1.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 26,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/WORLD_TARGET_MODEL_ROADMAP_LAW_LOCKED_v2.md",
+        "canonical": "brain-os/wtm/WORLD_TARGET_MODEL_ROADMAP_LAW_LOCKED_v2.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 32,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/WORLD_TARGET_MODEL_STEP_ID_MIGRATION_LOCKED_v1.md",
+        "canonical": "brain-os/wtm/WORLD_TARGET_MODEL_STEP_ID_MIGRATION_LOCKED_v1.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 25,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/WORLD_TARGET_MODEL_UI_INCIDENT_REPORT_LOCKED_v1.md",
+        "canonical": "brain-os/wtm/WORLD_TARGET_MODEL_UI_INCIDENT_REPORT_LOCKED_v1.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 29,
+        "safe_delete_candidate": true
+      },
+      {
+        "stub": "archive/root-stubs/WORLD_TARGET_MODEL_UI_RESEARCH_LOCKED_v1.md",
+        "canonical": "brain-os/wtm/WORLD_TARGET_MODEL_UI_RESEARCH_LOCKED_v1.md",
+        "stub_path_refs": 0,
+        "filename_refs_outside_stubs": 20,
+        "safe_delete_candidate": true
+      }
+    ]
+  }
+}

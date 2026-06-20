@@ -1,0 +1,84 @@
+{
+  "schema": "mac-law-agent-execution-plane-lock-v1",
+  "version": "1.2.0",
+  "saved_at": "2026-06-20T18:05:00Z",
+  "locked_forever": true,
+  "authority": "Mac Law — supreme after ASF",
+  "one_law": "Mac = control panel only. AGENTS never run factory build, motors, render, or factory-body pipelines on Mac — cloud/API/FORGE/Railway executes all factory work.",
+  "not_this_law": "Founder Terminal etiquette is a separate rule — Mac Law is agent execution plane only",
+  "worker_vs_factory_ssot": "data/mac-worker-vs-factory-vocabulary-v1.json",
+  "incident_038": "brain-os/incidents/SINA_AGENT_WORKER_FACTORY_PLANE_CONFLATION_INCIDENT_038_LOCKED_v1.md",
+  "incident_039": "brain-os/incidents/SINA_MAC_FOUNDER_SESSION_VALIDATOR_STUCK_INCIDENT_039_LOCKED_v1.md",
+  "clarification": {
+    "no_factory_on_mac_means": "No factory body/motors/render/autorun/plan implement on Mac hardware",
+    "mac_control_means": "Hub · form · glance · optional ONE cloud dispatch POST · read receipts",
+    "secondary__5000": "cloud/API batch only — Mac NEVER executes — NOT Worker · NOT RUN INBOX per sa-mkt",
+    "forbidden_phrase": "Worker on Mac runs every plan",
+    "cloud_role": "FORGE/Railway/cloud_api_worker runs ALL factory job bodies — free tier first · OpenRouter affordable second"
+  },
+  "boss_docs": {
+    "mac_law_ssot": "~/Desktop/MacLaw/MAC_LAW_SSOT_LOCKED.md",
+    "mac_control_plane": "~/Desktop/MacLaw/MAC_CONTROL_PLANE_LOCKED.md"
+  },
+  "machine_stack": {
+    "lock": "data/mac-law-agent-execution-plane-lock-v1.json",
+    "universal_wire": "data/mac-law-universal-wire-v1.json",
+    "machine_enforce": "data/mac-law-machine-enforceable-v1.json",
+    "mandatory": "data/mac-law-mandatory-v1.json",
+    "execution_model": "data/founder-execution-model-v1.json",
+    "machine_registry": "data/machine-execution-plane-registry-v1.json"
+  },
+  "agents_forbidden_on_mac_body": [
+    "fbe_motor_delegate local drain",
+    "autorun_dispatcher local ACT",
+    "playwright film render on Mac",
+    "local OpenRouter/fal as factory body",
+    "bootstrap com.sourcea.autorun-worker",
+    "stacked anti_staleness / governance full tier during founder chat",
+    "validate-*-e2e on Mac body",
+    "implementing cloud_forge / mac_build_forbidden tasks on Mac disk body",
+    "RUN INBOX per sa-mkt secondary  plan on Mac",
+    "phrase Worker on Mac runs every plan",
+    "validator marathon or stuck validators on Mac founder session",
+    "validate-law-supersession-surfaces-v1.sh on Mac founder session before reply"
+  ],
+  "agents_must": [
+    "Keep Mac as control_plane_only — Hub form glance receipts optional cloud dispatch POST",
+    "Route ALL factory BODY to cloud_api_worker / cloud_forge / FBE Railway",
+    "Treat secondary -1000 as cloud-only — Mac never executes",
+    "Keep mac_role control_plane_only logged receipts",
+    "Pass mac_law_agent_no_factory_on_mac ship gate before nerve PASS",
+    "Read mac-worker-vs-factory-vocabulary-v1.json when Mac Law and plans in same turn"
+  ],
+  "triple_sync_locked": {
+    "anti_staleness": "session tier on Mac · paired with vocabulary",
+    "zero_drift": "drift_score >= 85 · drift_items = 0",
+    "anti_fragmentation": "single queue_sa across factory-now · surfaces · inbox"
+  },
+  "nerve": {
+    "orchestrator": "scripts/agent_nerve_system_v1.py",
+    "node_ids": ["mac_law_universal_wire", "mac_law_machine_enforce", "mac_law_agent_lock"],
+    "ship_gate_key": "mac_law_agent_no_factory_on_mac",
+    "lines": ["mac_law_universal_line", "mac_law_machine_line", "mac_law_agent_lock_line"],
+    "receipt": "~/.sina/mac-law-agent-execution-plane-lock-receipt-v1.json"
+  },
+  "pipeline_node": {
+    "graph_id": "mac_law_universal_wire",
+    "tier": "T0_safety",
+    "cmd": ["python3", "scripts/mac_law_universal_wire_v1.py", "--sync-receipt", "--enforce", "--json"]
+  },
+  "cursor_rules": [
+    ".cursor/rules/mac-law-mandatory.mdc",
+    ".cursor/rules/031-mac-law-machine-enforceable-v1.mdc",
+    ".cursor/rules/032-mac-law-universal-wire-v1.mdc"
+  ],
+  "validators": [
+    "scripts/validate-mac-law-agent-execution-plane-lock-v1.sh",
+    "scripts/validate-mac-law-universal-wire-v1.sh",
+    "scripts/validate-mac-law-machine-enforceable-v1.sh",
+    "scripts/validate-mac-law-mandatory-v1.sh",
+    "scripts/validate-mac-worker-vs-factory-vocabulary-v1.sh"
+  ],
+  "lock_flag": "~/.sina/mac-law-agent-no-factory-on-mac-locked-v1.flag",
+  "script": "scripts/mac_law_agent_execution_plane_lock_v1.py"
+}

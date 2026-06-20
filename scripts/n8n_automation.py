@@ -33,7 +33,7 @@ HEALTH_PING_WORKFLOW = WORKFLOW_DIR / "sinaai-stack-health-ping.json"
 FIXTURE_DIR = SOURCE_A / "scripts/fixtures/n8n"
 MANIFEST_PATH = FIXTURE_DIR / "workflow_manifest.json"
 START_SCRIPT = SOURCE_A / "scripts/founder-start-n8n.sh"
-LAW_PATH = SOURCE_A / "SINA_AUTOMATION_SPINE_AND_N8N_LOCKED_v1.md"
+from governance_paths_v1 import SINA_AUTOMATION_SPINE as LAW_PATH
 SETUP_DOC = MONO_ROOT / "SinaaiDataBase/governance/N8N_SETUP.md"
 HUB_HEALTH = "http://127.0.0.1:13020/health"
 MAC_HEALTH_HEALTH = "http://127.0.0.1:13024/health"

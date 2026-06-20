@@ -47,7 +47,7 @@ DEFAULT_CONTACTS: dict[str, dict] = {
         "from_email": "operation@noetfield.com",
         "from_name": "Noetfield",
         "calendar": "https://www.noetfield.com/copilot/pilot/",
-        "attach": ROOT / "NOETFIELD_FOUNDING_CUSTOMER_PILOT_ONEPAGER_MERGED_EXTERNAL_v1.md",
+        "attach": ROOT / "brain-os/law/NOETFIELD_FOUNDING_CUSTOMER_PILOT_ONEPAGER_MERGED_EXTERNAL_v1.md",
     },
 }
 

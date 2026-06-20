@@ -124,9 +124,9 @@ memory_mirror_sync → truth_bundle → rules_loop → conduct_gate → entry_ga
 
 ## 7. Cursor agent law (all chats)
 
-1. Run session gate before substantive work.  
+1. Run session gate once per chat — read receipt; **do not re-run gate stack mid-turn**.  
 2. Read conduct block from receipt `conduct` field.  
-3. On law ship: seven surfaces + `validate-law-supersession-surfaces-v1.sh`.  
+3. **On law ship (maintainer / cloud CI only):** seven surfaces + `validate-law-supersession-surfaces-v1.sh` — **never** before Mac founder chat reply (INCIDENT-039).  
 4. On research: knowledge-library pipeline before chat-only synthesis.  
 5. On STOP: `plan_revoked_v1.py` + cancel todos.  
 6. Session close: `cursor_agent_self_audit.py session-close` on maintainer hub work.
@@ -135,7 +135,14 @@ memory_mirror_sync → truth_bundle → rules_loop → conduct_gate → entry_ga
 
 ---
 
-## 8. Verify
+## 8. Verify (maintainer / cloud CI / ship window ONLY — never Mac founder chat pre-reply)
+
+```bash
+python3 scripts/agent_mirror_poison_scrub_v1.py --validate --json
+bash scripts/validate-agent-law-poison-free-v1.sh
+```
+
+Full stack — **maintainer ship only:**
 
 ```bash
 python3 scripts/agent_session_gate_run_v1.py --role any --json

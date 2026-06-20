@@ -175,7 +175,7 @@ def personal_db_payload() -> dict:
         {"id": "agent", "desc": "Copy agents may read when training"},
         {"id": "public", "desc": "Rare — safe external cite"},
     ]
-    detail["law_path"] = "SINA_PERSONAL_DATABASE_LAYER_A_LOCKED_v1.md"
+    detail["law_path"] = "brain-os/law/SINA_PERSONAL_DATABASE_LAYER_A_LOCKED_v1.md"
     return detail
 
 

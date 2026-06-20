@@ -9,8 +9,10 @@ from typing import Any
 
 ROOT = Path.home() / ".sina" / "founder-agent-guide"
 STATE_PATH = ROOT / "state.json"
-LAW_PATH = Path(__file__).resolve().parents[1] / "FOUNDER_AGENT_USE_GUIDE_LOCKED_v1.md"
-SAVE_LOCK_LAW = Path(__file__).resolve().parents[1] / "FOUNDER_SAVE_AND_LOCK_IMMEDIATE_APP_LAW_LOCKED_v1.md"
+from governance_paths_v1 import (
+    FOUNDER_AGENT_USE_GUIDE as LAW_PATH,
+    FOUNDER_SAVE_AND_LOCK as SAVE_LOCK_LAW,
+)
 
 # ASF priority picks — Noetfield credibility stack
 FOUNDER_PRIORITY_IDS = frozenset({1, 5, 10, 22, 35, 66, 86, 94, 96, 100, 93})

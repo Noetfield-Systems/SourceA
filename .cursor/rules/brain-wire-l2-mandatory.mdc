@@ -10,11 +10,13 @@ alwaysApply: false
 
 If you are **Layer 2** (Worker `fd67502f` · Researcher 2 `20b12e67` · Maintainer 2 `74f5ccab` · Maintainer 3 `3369d11c`) — **Brain decisions bind you before any build/heal/reply.**
 
-## Every session + every turn
+## Session start only (not every founder reply)
 
 ```bash
 python3 scripts/brain_governance_wire_v1.py --json
 ```
+
+Read `~/.sina/governance-brain-wire-v1.json` each turn — **do not re-run** wire script mid-turn on Mac founder session.
 
 **Read:** `~/.sina/governance-brain-wire-v1.json` (alias `~/.sina/brain-wire-v1.json`)
 

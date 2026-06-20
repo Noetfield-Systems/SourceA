@@ -489,7 +489,7 @@ def main() -> None:
         "sources": [
             "SINA_OS_SSOT_LOCKED.md",
             "SINA_GPT_CLAUDE_WTM_SYNTHESIS_LOCKED_v1.md",
-            "STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md",
+            "brain-os/law/STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md",
             "WORLD_TARGET_MODEL_MAP_LOCKED_v5.md",
             "execute_v6_no_asf plan (maintainer phases 0/2/5)",
             "brain-os/plan-registry/SOURCEA-PRIORITY.md",

@@ -253,11 +253,13 @@ def sync_orchestrator_from_queue() -> dict:
         st = json.loads(ORCH_PATH.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         return {"ok": False, "error": str(exc)}
+    ghost_on_idle = not sa_id and bool(st.get("last_completed_sa"))
     if (
         st.get("status") == "idle"
         and int(st.get("expected_pos") or 0) == pos
         and str(st.get("expected_sa") or "") == sa_id
         and str(st.get("expected_role") or "") == role
+        and not ghost_on_idle
     ):
         return {"ok": True, "synced": False, "reason": "already_aligned", "expected_sa": sa_id, "expected_role": role}
     state_path = Path.home() / ".sina" / "healthy-queue-state-v1.json"
@@ -269,11 +271,17 @@ def sync_orchestrator_from_queue() -> dict:
             qpath = Path.home() / ".sina" / "healthy-queue-30-active.json"
             items: list = []
             thread = ""
+            hq: dict = {}
             if qpath.is_file():
                 hq = json.loads(qpath.read_text(encoding="utf-8"))
                 items = hq.get("queue") or []
                 thread = str(hq.get("thread") or "")
-            if lcp == 0 or thread == "OUTBOUND-FACTORY":
+            exhausted = bool(qs.get("queue_exhausted")) or bool(hq.get("queue_exhausted")) or not items
+            if exhausted and not sa_id:
+                st["last_completed_sa"] = ""
+                st["last_completed_role"] = ""
+                st["last_completed_pos"] = 0
+            elif lcp == 0 or thread == "OUTBOUND-FACTORY":
                 rr_path = Path.home() / ".sina" / "worker_round_report_v1.json"
                 rr: dict = {}
                 if rr_path.is_file():
@@ -281,7 +289,12 @@ def sync_orchestrator_from_queue() -> dict:
                         rr = json.loads(rr_path.read_text(encoding="utf-8"))
                     except (OSError, json.JSONDecodeError):
                         rr = {}
-                if thread == "OUTBOUND-FACTORY" and rr.get("turn_closed") and rr.get("sa_focus"):
+                if (
+                    thread == "OUTBOUND-FACTORY"
+                    and not exhausted
+                    and rr.get("turn_closed")
+                    and rr.get("sa_focus")
+                ):
                     st["last_completed_sa"] = str(rr.get("sa_focus") or "")
                     st["last_completed_role"] = str(rr.get("round_type") or "act")
                     st["last_completed_pos"] = max(lcp, int(st.get("expected_pos") or 1) - 1)

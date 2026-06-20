@@ -76,6 +76,19 @@ def check_pre_write(*, agent: str, path: str, explicit_order: str = "") -> dict:
                 blockers.append("UI_BASELINE_FAIL")
 
     allowed = bool(guard.get("allowed")) and not blockers
+
+    if allowed and not explicit_order.strip():
+        try:
+            from mac_law_universal_wire_v1 import check_pre_write  # noqa: WPS433
+
+            ml = check_pre_write(path=path)
+            if not ml.get("ok"):
+                for b in ml.get("blockers") or []:
+                    blockers.append(str(b))
+        except Exception:
+            pass
+
+    allowed = bool(guard.get("allowed")) and not blockers
     return {
         "ok": allowed,
         "allowed": allowed,

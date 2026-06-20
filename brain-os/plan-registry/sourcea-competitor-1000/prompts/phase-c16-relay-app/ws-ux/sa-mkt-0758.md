@@ -1,0 +1,43 @@
+# sa-mkt-0758 — Relay.app · Buyer-visible UX
+
+**Version:** 2 · **Tier:** T3 · **Workstream:** ws-ux
+**Stack:** SourceA · ** row:** 16 · **Phase:** phase-c16-relay-app
+**Market SSOT:** `docs/PORTFOLIO_100_COMPARABLES_MARKET_REALITY_v1.md`
+
+##  evidence
+
+| Field | Value |
+|-------|-------|
+| Company | Relay.app |
+| Product | Human-in-the-loop automation |
+| What they sell | Collaborative automations with approval steps |
+| Who buys | Ops and rev teams |
+| Pricing | From ~$19/mo (market) |
+| How it runs | Workflow pauses for human approval; then continues |
+| Source links | https://www.relay.app |
+| Portfolio lesson | Approval step before ACT/implement in worker loop |
+
+## Task (Low — research, defer note, or compare-only)
+
+Reject abstract rename — keep market words buyers know from Relay.app (Human-in-the-loop automation)
+
+## Implementation extraction
+
+`Relay.app · Buyer-visible UX` → what buyer sees at vendor → what we ship logged with receipt.
+
+## Verify
+
+```bash
+cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh
+```
+
+## Closeout
+
+1. `status: done` in REGISTRY.json for `sa-mkt-0758`
+2. Evidence row in `AGENT-AUTO-SOURCEA` PRIORITY/AUDIT with `Relay.app` link
+3. No abstract rename — concrete behavior only
+
+---
+agent_tag: AGENT-AUTO-SOURCEA
+trigger: PLAN WITH NO ASF
+generator: generate_portfolio__1000_plans_v1.py v2

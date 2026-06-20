@@ -200,7 +200,56 @@ def _load_ready_to_paste(lane: str) -> str | None:
     return path.read_text(encoding="utf-8").strip()
 
 
-def _pick_for_lane(lane: str) -> dict[str, Any] | None:
+def _pick__plan(stack: str) -> dict[str, Any] | None:
+    pick_script = SCRIPTS / "pick-portfolio--plan.py"
+    if not pick_script.is_file():
+        return None
+    proc = subprocess.run(
+        [
+            sys.executable,
+            str(pick_script),
+            "--stack",
+            stack,
+            "--any-tier",
+            "--limit",
+            "1",
+            "--json",
+            "--forge",
+        ],
+        capture_output=True,
+        text=True,
+        cwd=str(ROOT),
+        check=False,
+    )
+    if proc.returncode != 0 or not proc.stdout.strip():
+        return None
+    try:
+        picked = json.loads(proc.stdout)
+    except json.JSONDecodeError:
+        return None
+    if not picked:
+        return None
+    row = picked[0]
+    if not row.get("agent_prompt"):
+        row["agent_prompt"] = f"PLAN WITH NO ASF — {row.get('id')}: {row.get('title', '')}"
+    return row
+
+
+_LANE_STACK = {
+    "sourcea": "sourcea",
+    "witnessbc": "witnessbc",
+    "noetfield": "noetfield",
+    "trustfield": "trustfield",
+    "virlux": "virlux",
+}
+
+
+def _pick_for_lane(lane: str, *, pack: str = "") -> dict[str, Any] | None:
+    if pack == "":
+        stack = _LANE_STACK.get(lane)
+        if stack:
+            return _pick__plan(stack)
+        return None
     if lane == "sourcea":
         return _pick_sourcea_plan()
     if lane == "mono":
@@ -637,9 +686,15 @@ def main() -> None:
         action="store_true",
         help="L1 semi-auto: ingest closeout YAML → route next prompt → packet tail reducer",
     )
+    parser.add_argument(
+        "--pack",
+        default=os.environ.get("SINA_PROMPT_PACK", ""),
+        help=" — portfolio -1000 pack (FORGE cloud)",
+    )
     args = parser.parse_args()
 
     lane = (args.lane or "sourcea").strip().lower()
+    pack = (args.pack or "").strip().lower()
     kw_raw = (args.keyword or args.keyword_pos or "implement").strip()
     if not kw_raw:
         raise SystemExit("--keyword required (or positional: implement)")
@@ -679,8 +734,10 @@ def main() -> None:
             pick = _pick_by_id(lane, tid)
             if not pick:
                 raise SystemExit(f"task-id not found in REGISTRY: {args.task_id}")
+    elif lane in _LANE_STACK and pack == "":
+        pick = _pick_for_lane(lane, pack="")
     elif lane in ("sourcea", "mono") or keyword in ("implement", "plan with no asf"):
-        pick = _pick_for_lane(lane if lane in ("sourcea", "mono") else "sourcea")
+        pick = _pick_for_lane(lane if lane in ("sourcea", "mono") else "sourcea", pack=pack)
         if not pick and lane == "sourcea" and _sourcea_registry_exhausted():
             pick = _registry_idle_pick()
 

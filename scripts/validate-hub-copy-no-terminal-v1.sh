@@ -13,8 +13,8 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-law = ROOT / "SINA_COMMAND_NO_TERMINAL_FOUNDER_LOCKED_v1.md"
-assert law.is_file(), "SINA_COMMAND_NO_TERMINAL_FOUNDER_LOCKED_v1.md missing"
+law = ROOT / "brain-os/law/SINA_COMMAND_NO_TERMINAL_FOUNDER_LOCKED_v1.md"
+assert law.is_file(), "brain-os/law/SINA_COMMAND_NO_TERMINAL_FOUNDER_LOCKED_v1.md missing"
 
 app = (ROOT / "agent-control-panel/assets/app.js").read_text(encoding="utf-8")
 assert "no Terminal" in app or "never Terminal" in app, "app.js missing no-Terminal founder copy"

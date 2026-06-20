@@ -65,18 +65,24 @@ def _run_railway_http(
     template_id: str,
     tenant: str,
     work_order_id: str,
+    forge_context: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     base = _cloud_worker_url()
     if not base:
         return {"ok": False, "error": "missing_cloud_worker_url", "mode": "railway_fbe"}
     path = _route_for_run_mode(run_mode)
-    body = {
+    body: dict[str, Any] = {
         "bay_slug": bay_slug,
         "template_id": template_id,
         "tenant": tenant,
         "work_order_id": work_order_id,
         "execution_mode": "CLOUD_ONLY",
     }
+    if forge_context:
+        body["forge_context"] = forge_context
+        for key in ("stack", "", "workstream", "prompt_abs", "task_graph_path", "run_id"):
+            if forge_context.get(key) is not None:
+                body[key] = forge_context[key]
     payload = json.dumps(body).encode("utf-8")
     headers = {"Content-Type": "application/json"}
     secret = os.environ.get("FBE_INTERNAL_SECRET", "").strip()
@@ -172,8 +178,9 @@ def submit_job(
     tenant: str = "wil_ai_design_partner",
     bay_slug: str = "sample-bay",
     dry_run: bool = False,
-    mode: str = "local_docker",
+    mode: str = "railway_fbe",
     run_mode: str = "refinery",
+    forge_context: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     skel = skeleton_ready()
     ok = all(skel.values())
@@ -189,6 +196,7 @@ def submit_job(
                 template_id=template_id,
                 tenant=tenant,
                 work_order_id=work_order_id,
+                forge_context=forge_context,
             )
             ok = bool(run_result.get("ok"))
         elif mode == "local_docker":
@@ -222,6 +230,7 @@ def submit_job(
         "dry_run": dry_run,
         "skeleton": skel,
         "run_result": run_result,
+        "forge_context": forge_context,
         "remote_status": "local_primary" if not dry_run else "deferred_w2",
         "wave": wave,
     }

@@ -45,7 +45,7 @@ MAP_POINTER_DOCS = [
     "brain-os/law/entry/SINA_GOVERNANCE_ENTRY_LOCKED_v1.md",
     "brain-os/system/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md",
     "AGENT_DECISION_STACK_AND_SMART_JUDGMENT_LOCKED_v1.md",
-    "GOVERNANCE_UNIFICATION_ENGINE_LOCKED_v1.md",
+    "brain-os/law/GOVERNANCE_UNIFICATION_ENGINE_LOCKED_v1.md",
     "AGENT_ECOSYSTEM_SPRINT_CONSOLIDATION_LOCKED_v1.md",
 ]
 
@@ -251,7 +251,7 @@ def _check_honest_score_not_here_regression(errors: list[str], payload: dict) ->
 
 def _check_llm_context_packet_law_vs_builder_regression(errors: list[str]) -> None:
     """sa-0652 — mirror validate-llm-context-packet-law-vs-builder-v1."""
-    law_path = SOURCE_A / "LLM_CONTEXT_PACKET_SCHEMA_LOCKED_v1.md"
+    law_path = SOURCE_A / "brain-os/law/LLM_CONTEXT_PACKET_SCHEMA_LOCKED_v1.md"
     try:
         from pre_llm.context_packet.schema import (  # noqa: WPS433
             FIELD_PRODUCERS,
@@ -1314,13 +1314,13 @@ def main() -> int:
     gr = payload.get("gate_receipts") or {}
     if not gr.get("ok"):
         errors.append("system_roadmap.gate_receipts missing or not ok — ENFORCE bypass panel")
-    elif gr.get("bypass_doc") != "ENFORCE_BYPASS_MAP_LOCKED_v1.md":
+    elif gr.get("bypass_doc") != "brain-os/law/enforcement/law/enforcement/ENFORCE_BYPASS_MAP_LOCKED_v1.md":
         errors.append(f"gate_receipts.bypass_doc drift: {gr.get('bypass_doc')!r}")
     elif len(gr.get("bypass_routes") or []) != 8:
         errors.append(
             f"gate_receipts.bypass_routes count != 8: {len(gr.get('bypass_routes') or [])}"
         )
-    bypass_doc = SOURCE_A / "ENFORCE_BYPASS_MAP_LOCKED_v1.md"
+    bypass_doc = SOURCE_A / "brain-os/law/enforcement/law/enforcement/ENFORCE_BYPASS_MAP_LOCKED_v1.md"
     if not bypass_doc.is_file():
         errors.append("ENFORCE_BYPASS_MAP_LOCKED_v1.md missing locally")
     elif APP_JS.is_file() and not worker_hub_mode():

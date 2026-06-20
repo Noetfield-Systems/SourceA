@@ -1,0 +1,48 @@
+{
+  "schema": "incident-040-mac-validator-marathon-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-06-20T20:00:00Z",
+  "locked": true,
+  "incident_id": "INCIDENT-040",
+  "title": "Mac Law wiring session validator marathon on Mac",
+  "severity": "P0",
+  "red_flag": true,
+  "status": "OPEN",
+  "authority": "ASF",
+  "one_law": "Mac founder session: NEVER stuck in validators. Reply <30s STOP. One light check <=90s. No chains. Wiring Mac Law = Read receipts not bash validate marathon.",
+  "incident_body": "brain-os/incidents/SINA_MAC_LAW_WIRING_VALIDATOR_MARATHON_INCIDENT_040_LOCKED_v1.md",
+  "incident_report": "SINA_MAC_LAW_WIRING_VALIDATOR_MARATHON_INCIDENT_040_REPORT_LOCKED_v1.md",
+  "related_incidents": ["INCIDENT-039", "INCIDENT-026", "INCIDENT-038", "INCIDENT-031"],
+  "observed_max_sec": 1656,
+  "observed_max_min": 27.6,
+  "red_flag_threshold_sec": 660,
+  "single_shell_cap_sec": 90,
+  "founder_reply_cap_sec": 30,
+  "terminal_evidence": ["863581", "804216"],
+  "forbidden_command_pattern": "validate-.*&&.*validate-",
+  "asf_quotes": [
+    "you are never allow to stuck in validator — 11 min is a harmful action in mac — red flag and incident write fully",
+    "i said write new"
+  ],
+  "agent_errors": [
+    "chained_validate_mac_law_on_mac_body",
+    "await_28_min_no_founder_reply",
+    "ignored_rule_034_always_apply",
+    "updated_incident_039_instead_of_new_040"
+  ],
+  "flag_path": "~/.sina/incident-040-validator-marathon-red-flag-v1.flag",
+  "receipt_path": "~/.sina/incident-040-validator-marathon-receipt-v1.json",
+  "inject_line": "INCIDENT-040 REMEDIATED v1.1: Mac Law validators = light assess only · --full-stack-sync cloud CI only",
+  "machine_remediation_v1_1": {
+    "light_assess": "scripts/mac_law_validator_light_assess_v1.py",
+    "validators_rewritten": [
+      "validate-mac-law-universal-wire-v1.sh",
+      "validate-mac-law-agent-execution-plane-lock-v1.sh",
+      "validate-mac-law-machine-enforceable-v1.sh",
+      "validate-mac-law-mandatory-v1.sh",
+      "validate-mac-law-full-stack-v1.sh"
+    ],
+    "heavy_ship_only": "validate-mac-law-mandatory-ship-v1.sh",
+    "decoupled": "--enforce no longer triggers nested sync_stack on Mac"
+  }
+}

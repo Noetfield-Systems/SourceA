@@ -1,7 +1,7 @@
 {
   "schema": "fbe-forge-step-receipt-v1",
   "ok": true,
-  "at": "2026-06-17T14:09:28Z",
+  "at": "2026-06-20T17:15:12Z",
   "node_id": "forge-deploy-pack-v1",
   "bay_slug": "forge-bay",
   "tenant": "forge",
@@ -14,7 +14,12 @@
     "schema": "fbe-forge-deploy-manifest-v1",
     "artifact": "controlled_app_receipt_pack",
     "ship_gate": "G0-G3",
-    "deliveryMode": "prove_only"
+    "deliveryMode": "prove_only",
+    "preview_url": "https://mock-forge-preview.local/forge/sa-mkt-0001",
+    "mock_only": true,
+    "work_order_id": "sa-mkt-0001",
+    "stack": "SourceA",
+    "": "Trigger.dev"
   },
   "note": "Deploy-only assembly \u2014 prove_only artifact manifest"
 }

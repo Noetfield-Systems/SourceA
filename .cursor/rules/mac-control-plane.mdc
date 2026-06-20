@@ -1,5 +1,5 @@
 ---
-description: Mac control plane — cloud executes, Mac manages agentic factories only
+description: Mac control plane only — no factory body on Mac · secondary plans cloud/API only
 globs:
   - "**/*"
 alwaysApply: true
@@ -22,6 +22,7 @@ Read `~/Desktop/MacLaw/MAC_CONTROL_PLANE_LOCKED.md` when Mac, SourceA, factory, 
 4. Keep factory mode **FREEZE** — never bootstrap `com.sourcea.autorun-worker` without ASF
 5. Route ACT/implement/build work to cloud workers — not `fbe_motor_delegate_v1` on Mac
 6. **Founder session: NO heavy validators/E2E** — no `validate-all-e2e`, no surfaces E2E, no recipe `--build`, no Playwright/Chrome debug stacks while founder works in Cursor
+7. **INCIDENT-039 RED FLAG:** NEVER stuck in validators on Mac — reply <30s · one light check ≤90s · proof=receipts · 11+ min = P0 harm
 
 ## Boot
 

@@ -10,7 +10,7 @@ SOURCE_A = Path(__file__).resolve().parents[1]
 OUT_DIR = SOURCE_A / "founder" / "repo-agent-notices"
 PROMPTOS_PASTE = Path.home() / "Desktop/SinaPromptOS/outputs/ready_to_paste"
 MASTER = SOURCE_A / "SINA_COMMAND_SYSTEM_UPDATE_NOTICE_LOCKED_v1.md"
-SEMI_MASTER = SOURCE_A / "SINA_SEMI_SEPARATE_AGENT_NOTICE_LOCKED_v1.md"
+from governance_paths_v1 import SINA_SEMI_SEPARATE as SEMI_MASTER
 
 sys.path.insert(0, str(SOURCE_A / "scripts"))
 
@@ -122,7 +122,7 @@ SEMI_TASKS: dict[str, dict] = {
             "SINA_COMMAND_SYSTEM_UPDATE_NOTICE_LOCKED_v1.md",
             "SINA_SEMI_SEPARATE_AGENT_NOTICE_LOCKED_v1.md",
             "SourceA/founder/ASF_WIRE_AND_PHONE.md",
-            "SourceA/WIRE_LANE_PROGRESS.md",
+            "SourceA/law/WIRE_LANE_PROGRESS.md",
             "config/locked_plan.json → chat_lanes.ai_dev_bridge",
         ],
         "updated_tasks": [
@@ -186,7 +186,7 @@ SEMI_TASKS: dict[str, dict] = {
         "must_read": [
             "SINA_COMMAND_SYSTEM_UPDATE_NOTICE_LOCKED_v1.md",
             "SINA_SEMI_SEPARATE_AGENT_NOTICE_LOCKED_v1.md",
-            "SINAAI_PROMPT_OS_CORE_FINAL_DECISION_LOCKED_v1.md",
+            "brain-os/law/SINAAI_PROMPT_OS_CORE_FINAL_DECISION_LOCKED_v1.md",
         ],
         "updated_tasks": [
             "Morning dispatch + ready_to_paste for five repos + semi lanes when ASF runs Actions",

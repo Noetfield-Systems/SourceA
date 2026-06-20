@@ -118,7 +118,7 @@ def roadmaps_goals_payload() -> dict:
             "note": "System upgrade roadmap — NOT this tab",
             "hub_tab": "system-roadmap",
             "hub_url": "http://127.0.0.1:13020/?tab=system-roadmap",
-            "law_doc": "WORLD_TARGET_MODEL_ROADMAP_LAW_LOCKED_v2.md",
+            "law_doc": "brain-os/wtm/WORLD_TARGET_MODEL_ROADMAP_LAW_LOCKED_v2.md",
             "map_doc": "brain-os/wtm/WORLD_TARGET_MODEL_MAP_LOCKED_v5.md",
         },
     }

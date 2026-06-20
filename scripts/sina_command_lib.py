@@ -1014,11 +1014,11 @@ def sources_registry(bowl: dict) -> dict:
         {"label": "Bowl state", "path": "sina-bowl/state.json"},
         {"label": "Program progress", "path": "PROGRAM_PROGRESS.json"},
         {"label": "Drift", "path": "sina-bowl/DRIFT.json"},
-        {"label": "Document registry", "path": "SOURCE_A_DOCUMENT_SEQUENCE_REGISTRY_LOCKED_v1.md"},
+        {"label": "Document registry", "path": "brain-os/system/SOURCE_A_DOCUMENT_SEQUENCE_REGISTRY_LOCKED_v1.md"},
         {"label": "Agent governance index", "path": "AGENT_GOVERNANCE_INDEX_LOCKED_v1.md"},
         {"label": "Private agent workspaces law", "path": "SINA_AGENT_PRIVATE_WORKSPACES_LOCKED_v1.md"},
         {"label": "Sina Command edit lock", "path": "SINA_COMMAND_EDIT_LOCK_LOCKED_v1.md"},
-        {"label": "Agents blueprint", "path": "SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md"},
+        {"label": "Agents blueprint", "path": "brain-os/law/SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md"},
     ]
     seen = set()
     links = []
@@ -1305,7 +1305,7 @@ def live_products_registry() -> list[dict]:
             "category": "wire",
             "open_url": None,
             "local_path": str(Path.home() / "Desktop/AI Dev Bridge OS"),
-            "doc_path": str(SOURCE_A / "WIRE_LANE_PROGRESS.md"),
+            "doc_path": str(SOURCE_A / "brain-os/law/WIRE_LANE_PROGRESS.md"),
         },
     ]
     for row in items:
@@ -1900,7 +1900,7 @@ def founder_actions_flat() -> list[dict]:
             "hint": "Probes UI/KPI — updates mergepack_ship_status_v1.json",
         },
         {"id": "founder-open-wire-progress", "title": "Wire progress", "icon": "◎", "kind": "open",
-         "path": str(SOURCE_A / "WIRE_LANE_PROGRESS.md"), "group": "law"},
+         "path": str(SOURCE_A / "brain-os/law/WIRE_LANE_PROGRESS.md"), "group": "law"},
         {
             "id": "founder-wire-preflight",
             "title": "Wire preflight check",
@@ -2122,7 +2122,7 @@ def founder_actions_flat() -> list[dict]:
         {"id": "founder-n8n-open", "title": "Open n8n UI", "icon": "⎇", "kind": "url",
          "url": "http://127.0.0.1:5678", "group": "automation"},
         {"id": "founder-n8n-doc", "title": "Automation & n8n law", "icon": "📜", "kind": "open",
-         "path": str(SOURCE_A / "SINA_AUTOMATION_SPINE_AND_N8N_LOCKED_v1.md"), "group": "automation"},
+         "path": "brain-os/law/SINA_AUTOMATION_SPINE_AND_N8N_LOCKED_v1.md", "group": "automation"},
     ]
     for repo_id, label in ingest_repos:
         rows.append({
@@ -3588,7 +3588,7 @@ def mandatory_reads_for_agents() -> dict:
 
 def guides_payload() -> dict:
     guide_path = SOURCE_A / "SINA_COMMAND_GUIDE_LOCKED_v1.md"
-    apps_path = SOURCE_A / "SINA_APPS_GUIDE_FOR_SINA_v1.md"
+    apps_path = SOURCE_A / "brain-os/law/SINA_APPS_GUIDE_FOR_SINA_v1.md"
     human = guide_path.read_text(encoding="utf-8") if guide_path.is_file() else ""
     apps_md = apps_path.read_text(encoding="utf-8") if apps_path.is_file() else ""
     return {
@@ -3609,7 +3609,7 @@ def guides_payload() -> dict:
             "sina-bowl/DAILY_BOWL.md",
             "SINA_APPS_GUIDE_FOR_SINA_v1.md",
             "SINA_COMMAND_GUIDE_LOCKED_v1.md",
-            "UNDERSTANDING_ROLES_CURSOR_ECOSYSTEM_v1.md",
+            "brain-os/law/UNDERSTANDING_ROLES_CURSOR_ECOSYSTEM_v1.md",
             "ASF_PROGRAM_THREADS_REGISTRY_LOCKED_v1.md",
         ],
     }

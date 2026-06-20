@@ -40,7 +40,7 @@ Wired inside `agent_session_gate_run_v1.py` · `brain-session-start.sh` · `work
 | Wire receipt | `~/.sina/disk-live-wire-receipt-v1.json` |
 | Memory mirror | `~/.sina/agent-memory-mirror-v1.json` |
 
-**Validator:** `bash scripts/validate-disk-live-wire-v1.sh`
+**Validator (ship window / cloud CI only — not Mac founder chat pre-reply):** `bash scripts/validate-disk-live-wire-v1.sh`
 
 ---
 

@@ -1,8 +1,8 @@
 # Cleanup manifest — SourceA root sprawl
 
-**Status:** APPROVED — Batch 5a (ASF implement plan · Option A + Path 2)  
-**Updated:** 2026-06-20T17:20:00Z  
-**Inventory:** `infra/cleanup/inventory-root.tsv` (**158** files after batch 5a)  
+**Status:** CLEANUP_COMPLETE — Batch 6 closeout (Option A + Path 2)  
+**Updated:** 2026-06-20T22:50:00Z  
+**Inventory:** `infra/cleanup/inventory-root.tsv` (**2** files after batch 5f — keep-root only)  
 **Machine receipt:** `data/cleanup-track-progress-v1.json`
 
 ## Patch tree — cleanup track (do not lose thread)
@@ -16,11 +16,15 @@ SourceA root cleanup
 ├── ✅ Batch 3.5b archive path-string rollback      (11 · 305a666a)
 ├── ✅ Batch 4   SINA_COMMAND_* + incidents        (25 · executed 2026-06-20)
 ├── ✅ Batch 5a  SOURCEA_* → brain-os/law/          (69 · executed 2026-06-20)
-├── 📋 Batch 5b–5f remainder                      (158 · batch-5-triage-draft.md)
+├── ✅ Batch 5b  WORLD_* stubs → archive/root-stubs/  (10 · executed 2026-06-20)
+├── ✅ Batch 5c  FOUNDER_* → enforcement               (7 · executed 2026-06-20)
+├── ✅ Batch 5d  CURSOR_* → law + archive              (5 · executed 2026-06-20)
+├── ✅ Batch 5e  SINA_* → law + incidents              (51 · executed 2026-06-20)
+├── ✅ Batch 5f  OTHER → law/system/archive            (86 · executed 2026-06-20)
 ├── ✅ Taxonomy  Option A                         (ASF 2026-06-20)
 ├── ✅ Lineage   Path 2                           (ASF 2026-06-20)
-├── ⬜ Archive trim batch                           (superseded · grep-first)
-└── ⬜ Runtime trim ~/.sina inject/mirrors         (after law plane stable)
+├── ✅ Batch 6   archive trim duplicate root-stubs      (20 deleted · 2026-06-20)
+├── ✅ Runtime trim ~/.sina inject + vector reindex     (2026-06-20)
 ```
 
 **North star:** one canonical tree · agents read one path · zero drift · trim everywhere (not museum).
@@ -39,6 +43,7 @@ SourceA root cleanup
 - [x] **Taxonomy Option A** — ASF 2026-06-20
 - [x] **Lineage Path 2** — ASF 2026-06-20
 - [x] **Batch 5a executed** — 2026-06-20 (69 moved · root **158** files)
+- [x] **Batch 5b executed** — 2026-06-20 (10 archived · root **148** files)
 - [x] Critic packet 5a: `infra/cleanup/batch-5a-diff-for-critics.md`
 - [x] **Batch 4 executed** — 2026-06-20 (25 moved/archived · root **227** files)
 - [x] Critic packet + pre-flight: `infra/cleanup/batch-4-diff-for-critics.md` (25/25 sources · scan clear · dupe fixed)
@@ -278,7 +283,197 @@ SourceA root cleanup
 
 **Post-batch 5a pointer follow-up:** `governance_paths_v1.py` extended · ~20 scripts patched · `hub_essentials_index.py` READ_CHAIN SOURCEA paths → `brain-os/law/`.
 
+## Batch 5b — manifest rows (`WORLD_*` root stubs → `archive/root-stubs/`)
 
+**Theme:** Canonical SSOT already at `brain-os/wtm/` — retire root MOVED stubs only (action **archive**, not move).
+
+| source | size | first_heading | proposed_dest | batch | action |
+|--------|------|---------------|---------------|-------|--------|
+| `./WORLD_TARGET_MODEL_ARCHITECTURE_DIAGRAM_LOCKED_v1.md` | 4.0K | # MOVED — canonical SSOT | `archive/root-stubs/` | 5b | archive |
+| `./WORLD_TARGET_MODEL_AUTHORITY_LAW_LOCKED_v1.md` | 4.0K | # MOVED — canonical SSOT | `archive/root-stubs/` | 5b | archive |
+| `./WORLD_TARGET_MODEL_FULL_BLUEPRINT_FOR_REVIEW_v1.md` | 4.0K | # MOVED — canonical SSOT | `archive/root-stubs/` | 5b | archive |
+| `./WORLD_TARGET_MODEL_FULL_BLUEPRINT_FOR_REVIEW_v2.md` | 4.0K | # MOVED — canonical SSOT | `archive/root-stubs/` | 5b | archive |
+| `./WORLD_TARGET_MODEL_MAP_LOCKED_v5.md` | 4.0K | # MOVED — canonical SSOT | `archive/root-stubs/` | 5b | archive |
+| `./WORLD_TARGET_MODEL_PHASE_NAMING_INCIDENT_REPORT_LOCKED_v1.md` | 4.0K | # MOVED — canonical SSOT | `archive/root-stubs/` | 5b | archive |
+| `./WORLD_TARGET_MODEL_ROADMAP_LAW_LOCKED_v2.md` | 4.0K | # MOVED — canonical SSOT | `archive/root-stubs/` | 5b | archive |
+| `./WORLD_TARGET_MODEL_STEP_ID_MIGRATION_LOCKED_v1.md` | 4.0K | # MOVED — canonical SSOT | `archive/root-stubs/` | 5b | archive |
+| `./WORLD_TARGET_MODEL_UI_INCIDENT_REPORT_LOCKED_v1.md` | 4.0K | # MOVED — canonical SSOT | `archive/root-stubs/` | 5b | archive |
+| `./WORLD_TARGET_MODEL_UI_RESEARCH_LOCKED_v1.md` | 4.0K | # MOVED — canonical SSOT | `archive/root-stubs/` | 5b | archive |
+
+**Post-batch 5b pointer follow-up:** `governance_paths_v1.py` `wtm_doc()` + REL_WTM_* · `important_docs_index.py` · `agent_system_unified.py` · `ecosystem_incidents_index.py` · `agent_rules_in_charge.py` · `roadmaps_goals.py`.
+
+## Batch 5c — manifest rows (`FOUNDER_*` → `brain-os/law/enforcement/` + pointer archive)
+
+| source | size | first_heading | proposed_dest | batch | action |
+|--------|------|---------------|---------------|-------|--------|
+| `./FOUNDER_AGENT_USE_GUIDE_LOCKED_v1.md` | 8.0K | # Founder — Agents Window use guide | `brain-os/law/enforcement/` | 5c | move |
+| `./FOUNDER_BRAIN_MAINTAINER_STRATEGIC_EXTRACTION_100M_v2.md` | 24K | # Founder × Brain × Maintainer | `brain-os/law/enforcement/` | 5c | move |
+| `./FOUNDER_BUSY_OPERATING_MODEL_REPORT_LOCKED_v1.md` | 4.0K | # Operating Model SSOT — root pointer | `archive/root-stubs/` | 5c | archive |
+| `./FOUNDER_DAILY_PROMPT_PACK_LOCKED_v1.md` | 4.0K | # Founder daily prompt pack | `brain-os/law/enforcement/` | 5c | move |
+| `./FOUNDER_FIRST_ASSISTANT_TRACKING_LAW_LOCKED_v1.md` | 4.0K | # Founder First Assistant — Tracking Law | `brain-os/law/enforcement/` | 5c | move |
+| `./FOUNDER_NO_CREDIT_CARD_INFRA_LOCKED_v1.md` | 4.0K | # Founder rule — NO credit card | `brain-os/law/enforcement/` | 5c | move |
+| `./FOUNDER_SAVE_AND_LOCK_IMMEDIATE_APP_LAW_LOCKED_v1.md` | 4.0K | # Founder save & lock | `brain-os/law/enforcement/` | 5c | move |
+
+**Post-batch 5c pointer follow-up:** `governance_paths_v1.py` `enforcement_doc()` · `founder_agent_use_guide.py` · `founder_request_tracker.py` · `founder_prompt_pack_build_v1.py` · hub/important docs indexes.
+
+## Batch 5d — manifest rows (`CURSOR_*` → law + archive)
+
+| source | size | first_heading | proposed_dest | batch | action |
+|--------|------|---------------|---------------|-------|--------|
+| `./CURSOR_FIND_BUGS_AUTOMATION_LOCKED_v1.md` | 4.0K | # Cursor Find Bugs automation | `brain-os/law/` | 5d | move |
+| `./CURSOR_FIX_OVERNIGHT.md` | 4.0K | # CURSOR FIX — Overnight Loop Reset | `docs/archive/cursor-tooling/` | 5d | move |
+| `./CURSOR_REPO_AGENT_NOTICE_PROMPTS_v1.md` | 16K | # Cursor Repo Agent — Notice Prompts | `docs/archive/cursor-tooling/` | 5d | move |
+| `./CURSOR_REPO_SPECIALIZED_NOTICES_v2.md` | 4.0K | # Five Specialized Repo Notice Prompts | `docs/archive/cursor-tooling/` | 5d | move |
+| `./CURSOR_SYSTEM_EXECUTION_MODE_START_v1.md` | 8.0K | # START SYSTEM EXECUTION MODE | `docs/archive/cursor-tooling/` | 5d | move |
+
+## Batch 5e — manifest rows (`SINA_*` → `brain-os/law/` + incidents + stub archive)
+
+**Files:** 51 (33 law · 17 incidents · 1 stub archive)
+
+| source | size | first_heading | proposed_dest | batch | action |
+|--------|------|---------------|---------------|-------|--------|
+| `./SINA_ADVISOR_CURSOR_CONNECT_v1.md` | 1.0K | # Connect Cursor as Advisor in Sina Command | `brain-os/law/` | 5e | move |
+| `./SINA_ADVISOR_TRACK_OPERATIONAL_POINTER_LOCKED_v1.md` | 1.0K | # Advisor track — operational pointer (LOCKED v1) | `brain-os/law/` | 5e | move |
+| `./SINA_AGENT_WORKER_FACTORY_PLANE_CONFLATION_INCIDENT_038_REPORT_LOCKED_v1.md` | 1.0K | # INCIDENT-038 — Mac control vs cloud factory | `brain-os/incidents/` | 5e | move |
+| `./SINA_APPS_GUIDE_FOR_SINA_v1.md` | 2.0K | # Sina apps — teacher guide (for Sina) | `brain-os/law/` | 5e | move |
+| `./SINA_AUTOMATION_SPINE_AND_N8N_LOCKED_v1.md` | 2.0K | # Automation spine + n8n (LOCKED) | `brain-os/law/` | 5e | move |
+| `./SINA_BRAIN_JOB_TITLES_COMPREHENSIVE_LOCKED_v1.md` | 27.0K | # Sina Brain — Job Titles Comprehensive Manual | `brain-os/law/` | 5e | move |
+| `./SINA_BRAIN_JOB_TITLES_DAILY_ONE_PAGE_LOCKED_v1.md` | 3.0K | # Brain Daily Card — One Page (LOCKED v1) | `brain-os/law/` | 5e | move |
+| `./SINA_BRAIN_JOB_TITLES_LOCKED_v1.md` | 7.0K | # Sina Brain — Job Titles Catalog (LOCKED v1) | `brain-os/law/` | 5e | move |
+| `./SINA_BRAIN_PLATFORM_UNIFICATION_LOCKED_v1.md` | 11.0K | # Sina Brain — Platform Unification (LOCKED v1) | `brain-os/law/` | 5e | move |
+| `./SINA_CURSOR_PROMPT_QUEUE_ORDER_v1.md` | 4.0K | # Order for Cursor agents — Prompt queue (LOCKED) | `brain-os/law/` | 5e | move |
+| `./SINA_DAILY_BOWL_LOCKED_v1.md` | 1.0K | # Sina Daily Bowl — unified morning read (LOCKED) | `brain-os/law/` | 5e | move |
+| `./SINA_EXECUTION_INTELLIGENCE_STACK_LOCKED_v1.md` | 7.0K | # Execution Intelligence Stack | `brain-os/law/` | 5e | move |
+| `./SINA_HUB_E2E_CANCELLED_LOCKED_v1.md` | 1.0K | # SINA Hub E2E — CANCELLED | `brain-os/law/` | 5e | move |
+| `./SINA_HUB_ESSENTIALS_LOCKED_v1.md` | 1.0K | # Hub Essentials — locked unified map law | `brain-os/law/` | 5e | move |
+| `./SINA_JUDGE_STACK_LOCKED_v1.md` | 2.0K | # Sina Judge Stack — LOCKED v1 | `brain-os/law/` | 5e | move |
+| `./SINA_LOOP_PORTFOLIO_PACKS_v1.md` | 1.0K | # Sina Command — private agent loop packs | `brain-os/law/` | 5e | move |
+| `./SINA_MAC_FOUNDER_SESSION_VALIDATOR_STUCK_INCIDENT_039_REPORT_LOCKED_v1.md` | 4.0K | # INCIDENT-039 — Mac stuck in validators | `brain-os/incidents/` | 5e | move |
+| `./SINA_MAC_HEALTH_GUARD_LOCKED_v1.md` | 4.0K | # Mac Health Guard — locked mini app law | `brain-os/law/` | 5e | move |
+| `./SINA_MAC_LAW_WIRING_VALIDATOR_MARATHON_INCIDENT_040_REPORT_LOCKED_v1.md` | 1.0K | # INCIDENT-040 — Mac Law wiring validator marathon | `brain-os/incidents/` | 5e | move |
+| `./SINA_MONITOR_BRAIN_COLUMN_SNAPSHOT_DRIFT_INCIDENT_014_REPORT_LOCKED_v1.md` | 1.0K | # INCIDENT-014 — Monitor Brain column PEND | `brain-os/incidents/` | 5e | move |
+| `./SINA_MONITOR_FOUNDER_SCROLL_RESPECT_INCIDENT_018_REPORT_LOCKED_v1.md` | 1.0K | # INCIDENT-018 pointer — Monitor auto-scroll | `brain-os/incidents/` | 5e | move |
+| `./SINA_MULTIDIMENSIONAL_ENGINE_MAP_LOCKED_v1.md` | 10.0K | # Sina Multidimensional Parallel Engine | `brain-os/law/` | 5e | move |
+| `./SINA_P0_PORTFOLIO_AUTOMATION_AND_EVIDENCE_LAW_DRAFT_v1.md` | 15.0K | # Sina P0 Portfolio — Automation (DRAFT) | `brain-os/law/` | 5e | move |
+| `./SINA_P0_PORTFOLIO_AUTOMATION_AND_EVIDENCE_LAW_LOCKED_v1.md` | 14.0K | # Sina P0 Portfolio — Automation (LOCKED) | `brain-os/law/` | 5e | move |
+| `./SINA_PERSONAL_DATABASE_LAYER_A_LOCKED_v1.md` | 2.0K | # Personal Database (Layer A) — locked law | `brain-os/law/` | 5e | move |
+| `./SINA_POISON_TRACKING_METHOD_LOCKED_v1.md` | 12.0K | # Sina poison tracking method — PT-METHOD | `brain-os/law/` | 5e | move |
+| `./SINA_POST_CLAUDE_ANALYSIS_SHIP_READY_COMPANION_v1.md` | 8.0K | # Post–Claude Analysis · Ship-Ready Companion | `brain-os/law/` | 5e | move |
+| `./SINA_POST_CLOUD_ANALYSIS_SHIP_READY_COMPANION_v1.md` | 1.0K | # RENAMED — was mislabeled cloud | `brain-os/law/` | 5e | move |
+| `./SINA_PRE_LLM_WORLD_MODEL_ROADMAP_LOCKED_v2.md` | 1.0K | # MOVED — canonical SSOT | `archive/root-stubs/` | 5e | archive |
+| `./SINA_PROHIBITION_INSTEAD_OF_DISK_WIRE_INCIDENT_034_REPORT_LOCKED_v1.md` | 1.0K | # INCIDENT-034 report | `brain-os/incidents/` | 5e | move |
+| `./SINA_PROMPT_FAST_LOOP_LOCKED_v1.md` | 4.0K | # Sina Prompt-Fast Loop — Canonical 10 | `brain-os/law/` | 5e | move |
+| `./SINA_PROMPT_OS_CORE_v1.md` | 1.0K | # Sina Prompt OS — Index (subordinate) | `brain-os/law/` | 5e | move |
+| `./SINA_PROMPT_OS_SYSTEM_LOCKED_v1.md` | 12.0K | # Sina Prompt OS — System Definition (LOCKED) | `brain-os/law/` | 5e | move |
+| `./SINA_REGISTRY_BATCH_FAKE_PROGRESS_INCIDENT_REPORT_LOCKED_v1.md` | 1.0K | # REGISTRY batch fake progress — incident | `brain-os/incidents/` | 5e | move |
+| `./SINA_RUNTIME_STACK_LOCKED_v1.md` | 4.0K | # Runtime Stack — Locked Plan (Phase 2) | `brain-os/law/` | 5e | move |
+| `./SINA_S10_WRONG_BASH_CWD_INCIDENT_019_REPORT_LOCKED_v1.md` | 1.0K | # SUPERSEDED — wrong topic S10/bash | `brain-os/incidents/` | 5e | move |
+| `./SINA_SEMEJ_AGENT_v1.md` | 1.0K | # SEMEJ — multi-AI Chrome agent | `brain-os/law/` | 5e | move |
+| `./SINA_SEMI_SEPARATE_AGENT_NOTICE_LOCKED_v1.md` | 3.0K | # Semi-separate Cursor lanes — agent notice | `brain-os/law/` | 5e | move |
+| `./SINA_STATIC_PROMPT_FEED_STALE_LIST_INCIDENT_024_REPORT_LOCKED_v1.md` | 1.0K | # INCIDENT-024 pointer | `brain-os/incidents/` | 5e | move |
+| `./SINA_THREAD_ACTIVATION_AND_READINESS_LOCKED_v1.md` | 10.0K | # Sina Thread Activation & Test Readiness | `brain-os/law/` | 5e | move |
+| `./SINA_THREAD_ROOM_LOCKED_v1.md` | 2.0K | # Sina Thread Room — LOCKED v1 | `brain-os/law/` | 5e | move |
+| `./SINA_THUNDERFIELD_VC_LEGAL_RELATIONSHIP_PLATFORM_LOCKED_v1.md` | 13.0K | # Thunderfield — VC Legal Platform | `brain-os/law/` | 5e | move |
+| `./SINA_VOYAGE_P05_FAKE_GREEN_STALE_LABELS_INCIDENT_036_REPORT_LOCKED_v1.md` | 1.0K | # Voyage P05 fake-green stale labels | `brain-os/incidents/` | 5e | move |
+| `./SINA_WORKER_AUTORUN_STALL_AND_TIMING_INCIDENT_REPORT_LOCKED_v1.md` | 1.0K | # Worker auto-run stall — incident report | `brain-os/incidents/` | 5e | move |
+| `./SINA_WORKER_IGNORED_ASF_NO_HUB_STOP_STALE_STEERING_INCIDENT_031_REPORT_LOCKED_v1.md` | 1.0K | # INCIDENT-031 — Worker ignored ASF no-hub stop | `brain-os/incidents/` | 5e | move |
+| `./SINA_WORKER_INCIDENT_028_REPEAT_REPORT_LOCKED_v1.md` | 1.0K | # INCIDENT-028-REPEAT | `brain-os/incidents/` | 5e | move |
+| `./SINA_WORKER_SESSION_MISTAKES_CLOSEOUT_INCIDENT_REPORT_LOCKED_v1.md` | 1.0K | # Worker session mistakes — incident report | `brain-os/incidents/` | 5e | move |
+| `./SINA_WORKER_STALE_GOAL_PROGRESS_CHAT_INCIDENT_012_REPORT_LOCKED_v1.md` | 1.0K | # SUPERSEDED — use INCIDENT-013 | `brain-os/incidents/` | 5e | move |
+| `./SINA_WORKER_STALE_GOAL_PROGRESS_CHAT_INCIDENT_013_REPORT_LOCKED_v1.md` | 1.0K | # INCIDENT-013 — Worker stale goal_progress | `brain-os/incidents/` | 5e | move |
+| `./SINA_WORKER_STALE_GOAL_PROGRESS_CHAT_REPORT_INCIDENT_REPORT_LOCKED_v1.md` | 1.0K | # Worker chat stale goal_progress | `brain-os/incidents/` | 5e | move |
+| `./SINA_WORKER_YAML_ONLY_CLOSEOUT_FAKE_GREEN_INCIDENT_030_REPORT_LOCKED_v1.md` | 1.0K | # INCIDENT-030 — YAML-only closeout fake green | `brain-os/incidents/` | 5e | move |
+
+## Batch 5f — manifest rows (`OTHER` remainder → law / system / archive)
+
+| source | size | first_heading | proposed_dest | batch | action |
+|--------|------|---------------|---------------|-------|--------|
+| `./AI_INFRA_PARTNERSHIP_PROPOSALS_LOCKED_v1.md` | 8.0K | # AI infrastructure partnership proposals — LOCKED v1 | `brain-os/law/` | 5f | move |
+| `./ASF_100_NEXT_PLANS_ENTERPRISE_SHIP_LOCKED_v1.md` |  12K | # ASF — 100 next plans · enterprise ship (LOCKED v1) | `brain-os/system/` | 5f | move |
+| `./ASF_FIVE_REPOS_PLUS_COMMAND_CHAT_v1.md` | 4.0K | # Five product repos + Lane 0 command chat | `brain-os/system/` | 5f | move |
+| `./ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md` | 4.0K | # ASF override — parallel = 5 product repos + Lane 0 command | `brain-os/system/` | 5f | move |
+| `./AUTO_CONFLICT_ENGINE_V3_LOCKED.md` | 8.0K | # Auto-Conflict Engine v3 — Layer Sovereignty (FINAL LOCKED) | `brain-os/law/` | 5f | move |
+| `./AUTO_CONFLICT_EXAMPLE_AGENT_STACK_POLICY_v1_LOCKED.md` | 8.0K | # AUTO-CONFLICT Example — Agent Stack Policy v1 (LOCKED) | `brain-os/law/` | 5f | move |
+| `./BRAIN_OS_POINTER_LOCKED_v1.md` | 4.0K | # Brain-OS — unified SSOT pointer (LOCKED v2) | `brain-os/law/entry/` | 5f | move |
+| `./CHATGPT_EXTERNAL_CRITIC_LAW_LOCKED_v1.md` | 4.0K | # MOVED — canonical SSOT | `archive/root-stubs/` | 5f | archive |
+| `./CHAT_EXTRACT_UNIFY_PROMPT.txt` | 4.0K | CHAT EXTRACT — this conversation only | `archive/root-sprawl/` | 5f | archive |
+| `./CHAT_UNIFY_ROLLUP_PROMPT.txt` | 4.0K | CHAT UNIFY — merge extractions into one master brief | `archive/root-sprawl/` | 5f | archive |
+| `./COUNCIL_BRIEF_STRATEGIC_SLICE_EVAL_L0_ENFORCE_LOCKED_v1.md` |  12K | # Council Brief — Strategic Slice (LOCKED v1) | `brain-os/law/` | 5f | move |
+| `./CROSS_LANE_EDIT_FORBIDDEN_LOCKED_v1.md` | 4.0K | # Cross-lane edit forbidden — LOCKED v1 (stub) | `archive/root-stubs/` | 5f | archive |
+| `./DEVBRIDGE_EXTENSION_NO_CODE_300_STEP_PLAN_LOCKED_v1.md` |  40K | # DevBridge for Cursor — Unified 300-Step Plan (LOCKED v2.1) | `brain-os/law/` | 5f | move |
+| `./DISPATCH_POLICY_LOCKED_v1.md` | 4.0K | # MOVED — canonical SSOT | `archive/root-stubs/` | 5f | archive |
+| `./ECOSYSTEM_IMPORTANT_DOCS_INDEX_LOCKED_v1.md` | 4.0K | # Ecosystem important docs — index (LOCKED pointer) | `archive/root-stubs/` | 5f | archive |
+| `./ECOSYSTEM_STATUS.md` | 8.0K | # Ecosystem Status (generated — do not edit by hand) | `brain-os/system/` | 5f | move |
+| `./ENFORCEMENT-6MO-MASTER-PLAN-v1.md` |  24K | # ENFORCEMENT-6MO MASTER EXECUTION PLAN | `brain-os/law/` | 5f | move |
+| `./ENFORCEMENT-6MO-VC-ROADMAP-v1.md` |  28K | # ENFORCEMENT-6MO — VC-GRADE EXECUTION ROADMAP | `brain-os/law/` | 5f | move |
+| `./ENFORCE_BYPASS_MAP_LOCKED_v1.md` | 4.0K | # ENFORCE bypass map (LOCKED v1) | `brain-os/law/enforcement/` | 5f | move |
+| `./FULL_STACK_ACTIVATION.md` | 4.0K | # Full Stack Activation — Brain/Worker Run This Once | `brain-os/law/` | 5f | move |
+| `./GOVERNANCE_DRIFT_DETECTION_INSIGHTS_2026.md` | 4.0K | # MOVED — Canonical copy under Noetfield Runtime agent vault | `archive/root-stubs/` | 5f | archive |
+| `./GOVERNANCE_DRIFT_ENGINE_LOCKED_v1.md` | 4.0K | # Governance Drift Engine (LOCKED) | `brain-os/law/` | 5f | move |
+| `./GOVERNANCE_UNIFICATION_ENGINE_LOCKED_v1.md` |  12K | # Governance Unification Engine (LOCKED) | `brain-os/law/` | 5f | move |
+| `./HONEST_P0_SCREEN_LOCKED_v1.md` | 4.0K | # Honest P0 screen (pointer) | `archive/root-stubs/` | 5f | archive |
+| `./HUB_LITE_REBUILD_PHASE0_LOCKED_v1.md` | 4.0K | # HUB-LITE-REBUILD Phase 0 — LOCKED v1 | `brain-os/law/` | 5f | move |
+| `./HUB_PROOF_UX_P0_LOCKED_v1.md` | 4.0K | # Hub proof UX P0 — LOCKED v1 | `brain-os/law/` | 5f | move |
+| `./HUB_SOURCE_UI_ALIGNMENT_PROCEDURE_LOCKED_v1.md` | 8.0K | # Hub ↔ Source ↔ UI Alignment Procedure (LOCKED) | `brain-os/law/` | 5f | move |
+| `./HUB_STABILIZATION_v5.1_FINAL.md` |  24K | # HUB_STABILIZATION_v5.1_FINAL | `brain-os/law/` | 5f | move |
+| `./HUB_WORKER_ONLY_ARCHIVED_MONOLITH_LOCKED_v1.md` | 4.0K | # Worker Hub only — monolith archived — LOCKED v1 | `brain-os/law/` | 5f | move |
+| `./IPHONE_CLOUD_ORGANIZATION_SPEC_LOCKED_v1.md` |  12K | # iPhone Cloud — organization spec (LOCKED) | `brain-os/law/` | 5f | move |
+| `./LLM_CONTEXT_PACKET_SCHEMA_LOCKED_v1.md` | 4.0K | # LLM Context Packet — Schema Contract (LOCKED v1) | `brain-os/law/` | 5f | move |
+| `./MACHINE_THREE_PIPELINES_CALIBRATE_TUNE_FORGE_LOCKED_v1.md` | 4.0K | # Machine three pipelines — Calibrate · Tune · machine prove | `brain-os/law/` | 5f | move |
+| `./MAC_GUARD_AGENCY_DEMO_SCRIPT_LOCKED_v1.md` | 4.0K | # Mac Guard Agency Demo Script — SUPERSEDED | `archive/root-stubs/` | 5f | archive |
+| `./MAC_SNAPSHOT_PROMPT.txt` | 4.0K | MAC SNAPSHOT — run now | `archive/root-sprawl/` | 5f | archive |
+| `./META_REASONING_POLICY_STACK_LOCKED_v1.md` |  24K | # Meta-Reasoning Policy Stack — Decision Governance Layer (L | `brain-os/law/` | 5f | move |
+| `./N8N_AUTOMATION_EXECUTION_PLAN_LOCKED_v2.md` | 8.0K | # n8n Automation — Execution Plan (LOCKED) | `brain-os/law/` | 5f | move |
+| `./N8N_COMMERCIAL_GRADE_LOCKED_v1.md` | 4.0K | # n8n Commercial Grade — LOCKED v1 | `brain-os/law/` | 5f | move |
+| `./N8N_FOUNDER_MASTER_CARD_LOCKED_v1.md` | 4.0K | # N8N Founder Master Card (LOCKED) | `brain-os/law/` | 5f | move |
+| `./NOETFIELD_CLOUD_GIT_AND_AGENT_ENTRY_UNIFIED_LOCKED_v1.md` | 8.0K | # Noetfield — cloud git, Mac hub, and agent entry (unified) | `brain-os/law/` | 5f | move |
+| `./NOETFIELD_COMPLIANCE_DEMO_SCRIPT_LOCKED_v1.md` | 8.0K | # Noetfield Compliance Demo Script — LOCKED v1 | `brain-os/law/` | 5f | move |
+| `./NOETFIELD_FOUNDING_CUSTOMER_PILOT_ONEPAGER_LOCKED_v1.md` | 8.0K | # Noetfield — Founding Customer Pilot (NW1) | `brain-os/law/` | 5f | move |
+| `./NOETFIELD_FOUNDING_CUSTOMER_PILOT_ONEPAGER_MERGED_EXTERNAL_v1.md` | 4.0K | # Noetfield — Founding Customer Pilot (External Send) | `brain-os/law/` | 5f | move |
+| `./NOETFIELD_NW1_BATTLE_CARD_LOCKED_v1.md` | 8.0K | # Noetfield NW1 Battle Card — LOCKED v1 | `brain-os/law/` | 5f | move |
+| `./ORDER_GUARDIAN_AGENT_LOCKED_v1.md` | 4.0K | # Order Guardian — in-app task orders agent (LOCKED) | `brain-os/law/` | 5f | move |
+| `./PHASE1_UNIFIED_BLUEPRINT_v2_3.md` |  36K | > **INTERNAL ONLY — Phase 1 work plan — NOT SSOT.** | `docs/archive/` | 5f | move |
+| `./PLAN_STATUS_VOCAB_LOCKED_v1.md` | 4.0K | # Plan status vocabulary + factory scoring vs growth (LOCKED | `brain-os/law/` | 5f | move |
+| `./PORT_NOTICE_BOARD.md` | 4.0K | # PORT NOTICE BOARD (live — agents read this first) | `brain-os/system/` | 5f | move |
+| `./PORT_NOTICE_BOARD_LOCKED_v1.md` | 4.0K | # Port Notice Board — LOCKED (agent entry point) | `brain-os/law/` | 5f | move |
+| `./PORT_REGISTRY.md` | 8.0K | # Port Registry (live — do not edit by hand) | `brain-os/system/` | 5f | move |
+| `./PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md` | 4.0K | # Product factory roadmap — LOCKED v1 | `brain-os/law/` | 5f | move |
+| `./PROMPT_OS_CORE_MVP_BUILD_ORDER_LOCKED_v1.md` | 8.0K | # Prompt OS Core — MVP Build Order (LOCKED) | `brain-os/law/` | 5f | move |
+| `./README_SOURCE_A.md` | 4.0K | # Source A — read this first | `brain-os/law/entry/` | 5f | move |
+| `./REFINEMENT_UNIFIED_AGENT_MACHINE_LOCKED_v1.md` | 8.0K | # Refinement unified — Agent · Machine · Founder (LOCKED v1) | `brain-os/law/` | 5f | move |
+| `./RESEARCH_INTAKE_AND_SAVE_LOCK_LOCKED_v1.md` | 8.0K | # Research intake & save — LOCKED v1 | `brain-os/law/enforcement/` | 5f | move |
+| `./RUN_INBOX_DISK_TRUTH_EXECUTION_LOCKED_v1.md` | 4.0K | # Run inbox disk truth execution (LOCKED v1) | `brain-os/law/enforcement/` | 5f | move |
+| `./SECRETS_VAULT.md` | 4.0K | # Sina Secret Vault (one place) | `brain-os/system/` | 5f | move |
+| `./SINAAI_10X_AUTOMATION_ARCHITECTURE_LOCKED_v1.md` | 8.0K | # Sinaai — 10x Automation Architecture (LOCKED) | `brain-os/law/` | 5f | move |
+| `./SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md` |  24K | # Sinaai — Agents & Automation Unified Blueprint (LOCKED) | `brain-os/law/` | 5f | move |
+| `./SINAAI_AGENT_STACK_POLICY_v1.md` | 8.0K | # Sinaai Agent Stack Policy — One Pager | `brain-os/law/` | 5f | move |
+| `./SINAAI_AGENT_YAML_INGEST_LOCKED_v1.md` | 8.0K | # Sinaai Agent YAML Ingest & Self-Healing Loop — FINAL LOCKE | `brain-os/law/` | 5f | move |
+| `./SINAAI_ARCHITECT_V2_INDUSTRIAL_POLICY_LOCKED_v1.md` | 4.0K | # Architect v2 — Industrial System Cleaner (LOCKED) | `brain-os/law/` | 5f | move |
+| `./SINAAI_AUTO_PASTE_INCIDENT_REPORT_LOCKED_v1.md` | 4.0K | # MOVED — canonical SSOT | `archive/root-stubs/` | 5f | archive |
+| `./SINAAI_ECOSYSTEM_FINAL_STATE_AND_NEXT_PLAN_LOCKED_v1.md` | 8.0K | # Sinaai Ecosystem — Final State & Next Plan (LOCKED) | `brain-os/law/` | 5f | move |
+| `./SINAAI_EXECUTION_TRUTH_LAYER_LOCKED_v1.md` | 8.0K | # Sinaai — Execution Truth Layer (LOCKED) | `brain-os/law/` | 5f | move |
+| `./SINAAI_FAST_TRACK_FORCE_MAJEURE_LOCKED_v1.md` | 4.0K | # FAST TRACK — FORCE MAJEURE (LOCKED) | `brain-os/law/` | 5f | move |
+| `./SINAAI_MASTER_BLUEPRINT_END_TO_END_v1.md` |  24K | # Sinaai — Master Blueprint (End-to-End) | `brain-os/law/` | 5f | move |
+| `./SINAAI_MASTER_PLAN_FA_SHARE_v1.md` |  16K | # برنامهٔ جامع اکوسیستم سینا — نقشهٔ شهر، مراحل M، تلگرام، و | `brain-os/law/` | 5f | move |
+| `./SINAAI_PARALLEL_LANES_NO_BLOCK_PROGRESS_LOCKED_v1.md` | 4.0K | # Parallel lanes — repo work MUST NOT block wire progress (L | `brain-os/law/` | 5f | move |
+| `./SINAAI_PERMANENT_ARCHITECT_AGENT_LOCKED_v1.md` | 4.0K | # Permanent Architect Agent — LOCKED | `brain-os/law/` | 5f | move |
+| `./SINAAI_PHASE1_STABILIZATION_ONLY_LOCKED_v1.md` | 4.0K | # Phase 1 stabilization ONLY — scope freeze (LOCKED) | `brain-os/law/` | 5f | move |
+| `./SINAAI_PHASE2_AI_CONTROLLED_EXECUTION_LOCKED_v1.md` | 8.0K | # Sinaai — Phase 2: AI-Controlled Execution OS (LOCKED) | `brain-os/law/` | 5f | move |
+| `./SINAAI_PORT_REGISTRY_LAW_LOCKED_v1.md` | 8.0K | # Sinaai — Port Registry Law (LOCKED) | `brain-os/law/` | 5f | move |
+| `./SINAAI_PROMPT_OS_CORE_FINAL_DECISION_LOCKED_v1.md` | 8.0K | # Sinaai — Prompt OS Core Final Decision (LOCKED) | `brain-os/law/` | 5f | move |
+| `./SOURCE_A_DOCUMENT_SEQUENCE_REGISTRY_LOCKED_v1.md` |  12K | # Source A — Document Sequence & Dating Registry (LOCKED) | `brain-os/system/` | 5f | move |
+| `./STALE_ADVICE_RESULTS_POLICY_OWNERSHIP_TRACKING_LOCKED_v1.md` |  12K | # Stale advice — results policy · ownership · tracking (LOCK | `brain-os/law/` | 5f | move |
+| `./STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md` | 8.0K | # Strategic next steps — big picture synthesis (LOCKED v2) | `brain-os/law/` | 5f | move |
+| `./TASK_ORDERS_OPEN_REGISTER_LOCKED_v1.md` | 4.0K | # Task orders — open register (LOCKED v1) | `brain-os/law/` | 5f | move |
+| `./TRUSTFIELD_ENTITY_CORRECTION_v3_1.md` | 4.0K | # TrustField entity correction — APPLIED v3.1 | `brain-os/law/` | 5f | move |
+| `./TRUST_LEDGER_SCHEMA_LOCKED_v1.md` | 4.0K | # Trust ledger schema (LOCKED v1) | `brain-os/law/` | 5f | move |
+| `./UNDERSTANDING_ROLES_CURSOR_ECOSYSTEM_v1.md` |  12K | # Understanding roles — Cursor & agent ecosystem (ASF refere | `brain-os/law/` | 5f | move |
+| `./VIRELUX_REPO_ALIGNMENT.md` | 4.0K | # VIRLUX repo alignment — DESIGN ↔ DELIVERY bridge | `docs/` | 5f | move |
+| `./WIRE_LANE_PROGRESS.md` | 4.0K | # Wire lane progress — single checklist (ASF) | `brain-os/law/` | 5f | move |
+| `./WORKER_FAST_ANTI_STALENESS_AUTO_HEAL_LOCKED_v1.md` | 4.0K | # Worker — Fast Anti-Staleness Auto-Heal (LOCKED v1) | `brain-os/law/enforcement/` | 5f | move |
+| `./WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md` | 4.0K | # Worker full-round evidence enforcement (pointer) | `archive/root-stubs/` | 5f | archive |
+| `./WORKER_NO_SLOW_VERIFY_SHELL_LOCKED_v1.md` | 4.0K | # Worker — No Slow VERIFY Shell (LOCKED v1) | `brain-os/law/enforcement/` | 5f | move |
+| `./sourcea-site-v1-QUARANTINE.md` | 4.0K | # SourceA Site v1 — QUARANTINED (UI experiment) | `docs/archive/` | 5f | move |
 
 ## Batch 3.5 — emergency (taxonomy + pointers)
 
@@ -294,7 +489,6 @@ SourceA root cleanup
 **Gate scripts verified (file resolve):** conduct gate, critic boot, stairlift, monitor, authority audit, ecosystem catalog, projection g3.
 
 **Not in 3.5:** `ASF_RETIRE_SINA_COMMAND` archive move — defer to batch 4 triage with ASF.
-
 
 ## Batch 3 pointer fix (superseded by 3.5)
 

@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "brain-os/plan-registry/devbridge-extension-300/REGISTRY.json"
-PLAN = ROOT / "DEVBRIDGE_EXTENSION_NO_CODE_300_STEP_PLAN_LOCKED_v1.md"
+PLAN = ROOT / "brain-os/law/DEVBRIDGE_EXTENSION_NO_CODE_300_STEP_PLAN_LOCKED_v1.md"
 STEP_RE = re.compile(
     r"^\|\s*(adb-ext-\d{3})\s*\|\s*D(\d+)\s*\|\s*\[([^\]]+)\]\s*\|\s*(.+?)\s*\|$"
 )

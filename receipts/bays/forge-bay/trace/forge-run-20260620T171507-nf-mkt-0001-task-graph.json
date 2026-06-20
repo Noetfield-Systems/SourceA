@@ -1,0 +1,86 @@
+{
+  "schema": "forge-task-graph-v0.1",
+  "version": "0.1.0",
+  "run_id": "forge-run-20260620T171507-nf-mkt-0001",
+  "saved_at": "2026-06-20T17:15:07Z",
+  "prompt": {
+    "raw": "Open https://verifywise.ai \u00b7 https://verifywise.ai/pricing \u2014 screenshot or quote the exact buyer-facing Buyer-visible UX sentence VerifyWise uses; paste into plan evidence (vendor says: Register, asse",
+    "intent": "Noetfield  parity \u00b7 VerifyWise \u00b7 ws-ux",
+    "constraints": [
+      "cloud_only",
+      "receipt_required",
+      "mac_build_forbidden"
+    ],
+    "entities": [
+      "VerifyWise",
+      "ws-ux"
+    ],
+    "risk_signals": []
+  },
+  "tasks": [
+    {
+      "id": "T1",
+      "kind": "research",
+      "title": "VerifyWise \u00b7 ws-ux \u00b7 research",
+      "depends_on": [],
+      "route_hint": "gemini_context",
+      "artifact_out": "forge-run-20260620T171507-nf-mkt-0001/T1"
+    },
+    {
+      "id": "T2",
+      "kind": "ui_gen",
+      "title": "VerifyWise \u00b7 ws-ux \u00b7 ui_gen",
+      "depends_on": [
+        "T1"
+      ],
+      "route_hint": "openrouter_bulk",
+      "artifact_out": "forge-run-20260620T171507-nf-mkt-0001/T2"
+    },
+    {
+      "id": "T3",
+      "kind": "validate",
+      "title": "VerifyWise \u00b7 ws-ux \u00b7 validate",
+      "depends_on": [
+        "T2"
+      ],
+      "route_hint": "sandbox",
+      "artifact_out": "forge-run-20260620T171507-nf-mkt-0001/T3"
+    },
+    {
+      "id": "T4",
+      "kind": "evaluate",
+      "title": "Critic evaluate vs intent",
+      "depends_on": [
+        "T3"
+      ],
+      "route_hint": "gpt_control"
+    }
+  ],
+  "edges": [
+    {
+      "from": "T1",
+      "to": "T2"
+    },
+    {
+      "from": "T2",
+      "to": "T3"
+    },
+    {
+      "from": "T3",
+      "to": "T4"
+    }
+  ],
+  "meta_loop": {
+    "max_replan": 2,
+    "on_fail": "replan"
+  },
+  "work_order": {
+    "plan_id": "nf-mkt-0001",
+    "stack": "Noetfield",
+    "stack_key": "noetfield",
+    "tenant": "noetfield",
+    "": "VerifyWise",
+    "workstream": "ws-ux",
+    "prompt_abs": "/Users/sinakazemnezhad/Desktop/Noetfield/Noetfield-All-Documents/Noetfield/os/plan-library/noetfield--1000/prompts/phase-c01-verifywise/ws-ux/nf-mkt-0001.md"
+  }
+}

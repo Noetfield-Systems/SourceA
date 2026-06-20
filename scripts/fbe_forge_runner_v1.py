@@ -40,19 +40,29 @@ def _read_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def _run_step(node_id: str, wrapper: str, *, bay: str, tenant: str) -> dict[str, Any]:
+def _run_step(
+    node_id: str,
+    wrapper: str,
+    *,
+    bay: str,
+    tenant: str,
+    work_order_id: str = "",
+    run_id: str = "",
+) -> dict[str, Any]:
     script = ROOT / wrapper
     cmd = [PY, str(script), "--bay", bay, "--tenant", tenant, "--json"]
     t0 = time.monotonic()
     try:
         out = subprocess.check_output(cmd, cwd=str(ROOT), stderr=subprocess.STDOUT, text=True, timeout=120)
         row = json.loads(out)
+        elapsed = round(time.monotonic() - t0, 2)
+        _trace_step(bay, node_id=node_id, elapsed=elapsed, tenant=tenant, work_order_id=work_order_id, run_id=run_id, ok=bool(row.get("ok")))
         return {
             "node_id": node_id,
             "ok": True,
             "executed": True,
             "step_ok": bool(row.get("ok")),
-            "elapsed_sec": round(time.monotonic() - t0, 2),
+            "elapsed_sec": elapsed,
         }
     except subprocess.CalledProcessError as e:
         step_ok = False
@@ -60,19 +70,53 @@ def _run_step(node_id: str, wrapper: str, *, bay: str, tenant: str) -> dict[str,
             step_ok = bool(json.loads(e.output or "{}").get("ok"))
         except json.JSONDecodeError:
             pass
+        elapsed = round(time.monotonic() - t0, 2)
+        _trace_step(bay, node_id=node_id, elapsed=elapsed, tenant=tenant, work_order_id=work_order_id, run_id=run_id, ok=step_ok)
         return {
             "node_id": node_id,
             "ok": True,
             "executed": True,
             "step_ok": step_ok,
             "exit": e.returncode,
+            "elapsed_sec": elapsed,
             "tail": (e.output or "")[-400:],
         }
     except Exception as exc:
         return {"node_id": node_id, "ok": False, "executed": False, "error": str(exc)}
 
 
-def run_forge(*, bay_slug: str = "forge-bay", tenant: str = "forge") -> dict:
+def _trace_step(
+    bay: str,
+    *,
+    node_id: str,
+    elapsed: float,
+    tenant: str,
+    work_order_id: str,
+    run_id: str,
+    ok: bool,
+) -> None:
+    try:
+        sys.path.insert(0, str(ROOT / "scripts" / "fbe" / "forge"))
+        from fbe_forge_lib_v1 import append_trace  # noqa: WPS433
+
+        append_trace(
+            bay,
+            "cost",
+            {
+                "step": node_id,
+                "elapsed_sec": elapsed,
+                "tenant": tenant,
+                "work_order_id": work_order_id,
+                "run_id": run_id,
+                "ok": ok,
+                "source": "fbe_forge_runner",
+            },
+        )
+    except Exception:
+        pass
+
+
+def run_forge(*, bay_slug: str = "forge-bay", tenant: str = "forge", work_order_id: str = "", run_id: str = "") -> dict:
     jobs = _read_json(BAY_JOBS)
     ref_pipeline = (jobs.get("pipelines") or {}).get("forge_refinery_w5") or {}
     asm_pipeline = (jobs.get("pipelines") or {}).get("forge_assembly_w5") or {}
@@ -86,7 +130,7 @@ def run_forge(*, bay_slug: str = "forge-bay", tenant: str = "forge") -> dict:
         if not wrapper:
             continue
         wrapper_path = wrapper if wrapper.startswith("scripts/") else f"scripts/fbe/forge/{wrapper}"
-        row = _run_step(node_id, wrapper_path, bay=bay_slug, tenant=tenant)
+        row = _run_step(node_id, wrapper_path, bay=bay_slug, tenant=tenant, work_order_id=work_order_id, run_id=run_id)
         results.append({**row, "line": "refinery"})
         if row.get("executed"):
             executed += 1
@@ -99,7 +143,7 @@ def run_forge(*, bay_slug: str = "forge-bay", tenant: str = "forge") -> dict:
         if not wrapper:
             continue
         wrapper_path = wrapper if wrapper.startswith("scripts/") else f"scripts/fbe/forge/{wrapper}"
-        row = _run_step(node_id, wrapper_path, bay=bay_slug, tenant=tenant)
+        row = _run_step(node_id, wrapper_path, bay=bay_slug, tenant=tenant, work_order_id=work_order_id, run_id=run_id)
         results.append({**row, "line": "assembly"})
         if row.get("executed"):
             executed += 1
@@ -115,6 +159,8 @@ def run_forge(*, bay_slug: str = "forge-bay", tenant: str = "forge") -> dict:
         "wave": "W5",
         "bay_slug": bay_slug,
         "tenant": tenant,
+        "work_order_id": work_order_id or None,
+        "run_id": run_id or None,
         "template_id": "forge-app-factory-v1",
         "factory_id": "factory_3",
         "steps_total": total,

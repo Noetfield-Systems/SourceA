@@ -59,6 +59,8 @@ ON session start OR before first disk mutation:
 | `research_root_sync` register/sync | Explicit founder order | **T0 required** | No auto-register from refresh scripts alone |
 | Worker INBOX / `sa-*` WORK | Cross-lane Brain/SSOT path | **WORK scope only** | `cross_lane_edit_guard_v1.py` |
 | Brain chat | Worker execute prompt | **Brain REFUSE** (INCIDENT-003b) | Route to Worker chat |
+| **agent-memory-mirror pre-ship** (`validate-law-supersession-surfaces-v1.sh`) | **INCIDENT-039 Mac founder session** | **INCIDENT-039** | Pre-ship text scan only · read receipts · reply <30s · no validate stack on Mac |
+| **Daily duty W1–W10 check cart** | **INCIDENT-039 Mac founder session** | **INCIDENT-039** | Defer cart to cloud CI or ASF ship window — not pre-reply marathon |
 | Noetfield ship-first / plan.json | Ask-first (SKILL-006) | **SKILL-006** | T0 ship order first |
 | Mandatory SourceA file missing locally | Any implement | **Block** (R-009 pattern) | Sync or paste; no pseudo-ACK |
 | TrustField / wrong portfolio repo | Any rule | **Scope gate** | STOP always |

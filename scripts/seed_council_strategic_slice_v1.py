@@ -16,7 +16,7 @@ DIRECTIVES_PATH = SINA_HOME / "founder-directives.jsonl"
 COMMITMENTS_PATH = SINA_HOME / "founder-commitments.json"
 SEED_MARKER = COUNCIL_ROOT / "strategic-slice-v1.seed.json"
 
-BRIEF_DOC = "COUNCIL_BRIEF_STRATEGIC_SLICE_EVAL_L0_ENFORCE_LOCKED_v1.md"
+BRIEF_DOC = "brain-os/law/COUNCIL_BRIEF_STRATEGIC_SLICE_EVAL_L0_ENFORCE_LOCKED_v1.md"
 TOPIC_TITLE = "Strategic slice: Eval-1 + L0/L1 + ENFORCE map (not new D-module)"
 TOPIC_NOTE = (
     "Founder verdict: GPT/Claude architecture reviews are compare-only. "

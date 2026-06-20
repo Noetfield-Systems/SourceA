@@ -22,6 +22,7 @@ if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
 from founder_prompt_pack_versions import V1_MINED, V2_SMART
+from governance_paths_v1 import FOUNDER_DAILY_PROMPT_PACK
 
 ROOT = Path(__file__).resolve().parents[1]
 SINA = Path.home() / ".sina"
@@ -35,7 +36,7 @@ OUT_MD_V3 = ATTACH / "FOUNDER_DAILY_PROMPT_PACK_v3_PRO_LOCKED.md"
 OUT_MD_V2 = ATTACH / "FOUNDER_DAILY_PROMPT_PACK_v2_SMART_LOCKED.md"
 OUT_MD_V1 = ATTACH / "FOUNDER_DAILY_PROMPT_PACK_v1_MINED_LOCKED.md"
 OUT_MD_LEGACY = ATTACH / "FOUNDER_DAILY_PROMPT_PACK_LOCKED_v1.md"  # alias → v3
-ROUTER_MD = ROOT / "FOUNDER_DAILY_PROMPT_PACK_LOCKED_v1.md"
+ROUTER_MD = FOUNDER_DAILY_PROMPT_PACK
 PACK_SIZE = 100
 
 CURSOR = {
