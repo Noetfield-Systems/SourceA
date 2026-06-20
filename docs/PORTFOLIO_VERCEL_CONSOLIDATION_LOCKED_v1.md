@@ -31,9 +31,33 @@ python3 scripts/build_sourcea_vercel_output_v1.py
 
 `SourceA-landing/green-unified/vercel.json` runs this on Vercel → output `dist/`.
 
-**Vercel settings for source-a:** Root Directory = `SourceA-landing/green-unified` · Framework = **Other** · Build Command = **empty** · Output = **`dist`** (committed to Git — no Python build on cloud)
+## Vercel dashboard — MUST match (404 fix)
 
-**Vercel settings for deploy-witnessbc-agents-governance:** Root Directory = `witnessbc-site` · Framework = **Other** · Build Command = **empty**
+### Project `source-a`
+
+| Setting | Value |
+|---------|--------|
+| **Root Directory** | leave **empty** (repo root) **OR** `SourceA-landing/green-unified` |
+| **Framework Preset** | **Other** (not Next.js) |
+| **Build Command** | **empty** (override ON · clear field) |
+| **Output Directory** | empty if root=repo · **`dist`** if root=green-unified |
+| **Install Command** | empty |
+
+After save → **Deployments → Redeploy** latest commit `e2279eb8` or newer.
+
+Test: https://source-a.vercel.app/sourcea/
+
+### Project `deploy-witnessbc-agents-governance`
+
+| Setting | Value |
+|---------|--------|
+| **Root Directory** | **`witnessbc-site`** (required) |
+| **Framework Preset** | **Other** |
+| **Build / Install** | empty |
+
+Test: https://deploy-witnessbc-agents-governance.vercel.app/
+
+If still 404 → Deployment log likely shows wrong output path or failed build.
 
 ## Cloudflare (unchanged — separate logins)
 
