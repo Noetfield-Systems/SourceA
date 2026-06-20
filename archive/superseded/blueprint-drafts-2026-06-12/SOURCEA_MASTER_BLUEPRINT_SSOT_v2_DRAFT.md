@@ -2,7 +2,7 @@
 
 **Saved:** 2026-06-16T04:33:35Z · **Retrofit:** doc-datetime-law batch retrofit
 **Status:** DRAFT · **VOID as LOCKED** — mistakenly superseded v1 plans · demoted ASF order 2026-06-12
-**Canonical SSOT (v1):** `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` · `ENFORCEMENT-6MO-MASTER-PLAN-v1.md` · `ENFORCEMENT-6MO-VC-ROADMAP-v1.md`
+**Canonical SSOT (v1):** `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` · `ENFORCEMENT-6MO-MASTER-PLAN-v1.md` · `ENFORCEMENT-6MO-VC-ROADMAP-v1.md`
 **Written:** 2026-06-12 | **Authority:** Claude + GPT + Gemini convergence — **inform only**
 **Do not cite as law** until ASF FIVE-STEP LOCK pick
 
