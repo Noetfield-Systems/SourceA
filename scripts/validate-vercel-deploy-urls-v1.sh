@@ -4,12 +4,13 @@ set -euo pipefail
 FAIL=0
 check() {
   local url="$1"
-  local code
+  local code body
   code="$(curl -sI -m 15 -o /dev/null -w '%{http_code}' "$url")"
   if [[ "$code" =~ ^2 ]]; then
     echo "PASS $code $url"
   else
-    echo "FAIL $code $url"
+    err="$(curl -sI -m 15 "$url" 2>/dev/null | rg -i '^x-vercel-error:' | head -1 | tr -d '\r' || true)"
+    echo "FAIL $code $url${err:+ · $err}"
     FAIL=1
   fi
 }
