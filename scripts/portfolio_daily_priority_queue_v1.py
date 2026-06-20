@@ -113,6 +113,11 @@ def _probe_supabase_secrets() -> dict:
         body = path.read_text(encoding="utf-8", errors="replace")
         if "YOUR_" in body or "SUPABASE_URL=\n" in body or re.search(r"SUPABASE_URL=\s*$", body, re.M):
             missing.append(f"{name}(placeholder)")
+            continue
+        anon_m = re.search(r"^SUPABASE_ANON_KEY=(.+)$", body, re.M)
+        anon_val = (anon_m.group(1).strip() if anon_m else "")
+        if not anon_val or not (anon_val.startswith("eyJ") or anon_val.startswith("sb_publishable_")):
+            missing.append(f"{name}(no publishable/anon key)")
     return {
         "id": "supabase-secrets",
         "status": "green" if not missing else "red",
