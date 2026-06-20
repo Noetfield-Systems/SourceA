@@ -2,15 +2,21 @@
 
 **Saved:** 2026-06-20T22:15:00Z · **Authority:** ASF · **Live ref:** `ldfruywifqnfpwsfgmdl`
 
-## NEVER RESUME (ASF locked)
+## NEVER RESUME (ASF locked — founder confirmed paused)
 
 | Ref | Project | Law |
 |-----|---------|-----|
-| `bueoakgiisvufxfbdvoa` | virlux-staging | **NEVER restore** — VIRLUX = repo + Vercel |
-| `mmdhnktybjpwlwdczgbq` | the777foundation | **NEVER restore** — 777 = repo migrations |
+| `bueoakgiisvufxfbdvoa` | virlux-staging | **NEVER Restore** — paused · repo + Vercel |
+| `mmdhnktybjpwlwdczgbq` | the777foundation | **NEVER Restore** — paused · repo migrations |
 
-**Live only:** `ldfruywifqnfpwsfgmdl` → `~/.sourcea-secrets/portfolio-spine.env`  
-**SSOT:** `data/supabase-never-resume-refs-v1.json`  
+## Live projects (2 active — free org max)
+
+| Ref | Module | Secrets |
+|-----|--------|---------|
+| `ldfruywifqnfpwsfgmdl` | SourceA portfolio-spine | `~/.sourcea-secrets/portfolio-spine.env` |
+| `tkgpapowwplupyekpivy` | Noetfield | `~/.sourcea-secrets/noetfield.env` |
+
+**SSOT:** `data/supabase-never-resume-refs-v1.json` · `data/supabase-cloud-project-map-v1.json`  
 **Map:** `data/supabase-cloud-project-map-v1.json`
 
 Your org has **3 projects**. Free tier allows **2 active** at once. **Pause or delete** VIRLUX + 777 first — then unpause SourceA.
