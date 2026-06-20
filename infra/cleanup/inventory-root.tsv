@@ -1,9 +1,5 @@
 path	size	first_line
 ./ACTIVE_NOW.md	4.0K	# ACTIVE NOW — single scoreboard (ASF law)
-./AGENT_DESK_START_HERE.md	4.0K	# ASF Agent Desk — start here
-./AGENT_RULE_CONFLICT_AND_STALE_TRUTH_AUDIT_LOCKED_v1.md	4.0K	# Agent rule conflict & stale truth audit — root pointer
-./AGENT_RULE_CONFLICT_AND_STALE_TRUTH_AUDIT_REPORT_LOCKED_v1.md	4.0K	# Agent rule conflict audit — pointer
-./AGENT_SELF_AUDIT_ASF_REPORT_2026-06-04.md	8.0K	# Agent self-audit — full ecosystem (ASF presentation)
 ./AI_INFRA_PARTNERSHIP_PROPOSALS_LOCKED_v1.md	8.0K	# AI infrastructure partnership proposals — LOCKED v1
 ./ASF_100_NEXT_PLANS_ENTERPRISE_SHIP_LOCKED_v1.md	 12K	# ASF — 100 next plans · enterprise ship (LOCKED v1)
 ./ASF_FIVE_REPOS_PLUS_COMMAND_CHAT_v1.md	4.0K	# Five product repos + Lane 0 command chat
@@ -22,8 +18,6 @@ path	size	first_line
 ./CHATGPT_EXTERNAL_CRITIC_LAW_LOCKED_v1.md	4.0K	# MOVED — canonical SSOT
 ./COUNCIL_BRIEF_STRATEGIC_SLICE_EVAL_L0_ENFORCE_LOCKED_v1.md	 12K	# Council Brief — Strategic Slice (LOCKED v1)
 ./CROSS_LANE_EDIT_FORBIDDEN_LOCKED_v1.md	4.0K	# Cross-lane edit forbidden — LOCKED v1 (stub)
-./CURSOR_AGENT_CONTEXT_MEMORY_INCIDENT_LOCKED_v1.md	4.0K	# MOVED — canonical SSOT
-./CURSOR_AGENT_CONTEXT_MEMORY_INCIDENT_REPORT_LOCKED_v1.md	4.0K	# Cursor context / memory / closeout — incident report (pointer)
 ./CURSOR_FIND_BUGS_AUTOMATION_LOCKED_v1.md	4.0K	# Cursor Find Bugs automation — SourceA adaptation (LOCKED)
 ./CURSOR_FIX_OVERNIGHT.md	4.0K	# CURSOR FIX — SourceA Overnight Loop Reset
 ./CURSOR_REPO_AGENT_NOTICE_PROMPTS_v1.md	 16K	# Cursor Repo Agent — Unifying Notice Prompts (v1)
@@ -84,31 +78,14 @@ path	size	first_line
 ./SECRETS_VAULT.md	4.0K	# Sina Secret Vault (one place)
 ./SINA_ADVISOR_CURSOR_CONNECT_v1.md	4.0K	# Connect Cursor as Advisor in Sina Command
 ./SINA_ADVISOR_TRACK_OPERATIONAL_POINTER_LOCKED_v1.md	4.0K	# Advisor track — operational pointer (LOCKED v1)
-./SINA_AGENT_CONFLICT_ROOM_LOCKED_v1.md	4.0K	# Agent Conflict Room — LOCKED v1
-./SINA_AGENT_FOUNDER_BASH_COMMUNICATION_INCIDENT_019_REPORT_LOCKED_v1.md	4.0K	# INCIDENT-019 pointer — Agent-founder bash communication
-./SINA_AGENT_HUB_NAME_FRAGMENTATION_ADVISOR_TRACK_INCIDENT_025_REPORT_LOCKED_v1.md	4.0K	# INCIDENT-025 pointer — Hub tab name fragmentation (Advisor track)
-./SINA_AGENT_INCIDENT_ID_COLLISION_WITHOUT_REGISTRY_CHECK_INCIDENT_015_REPORT_LOCKED_v1.md	4.0K	# INCIDENT-015 — Incident ID filed without registry check — pointer
-./SINA_AGENT_INCIDENT_ROOM_LOCKED_v1.md	4.0K	# Agent Incident Room procedure — root pointer
-./SINA_AGENT_INCIDENT_WRONG_FOLDER_FILING_INCIDENT_021_REPORT_LOCKED_v1.md	4.0K	# INCIDENT-021 pointer — Incident filed outside canonical folder
-./SINA_AGENT_LOOP_10_PREP_v1.md	4.0K	# Agent loop — 10-round prep (v1) · founder = clicks only
-./SINA_AGENT_LOOP_ORDER_v1.md	4.0K	# Sina Agent Loop — 10 rounds (LOCKED)
-./SINA_AGENT_PIPELINE_MAZE_SPEED_TRAP_INCIDENT_035_REPORT_LOCKED_v1.md	4.0K	# INCIDENT-035 report — Pipeline / Maze speed trap
-./SINA_AGENT_PLAN_TODO_GHOST_REACTIVATION_INCIDENT_016_REPORT_LOCKED_v1.md	4.0K	# INCIDENT-016 — Plan todo ghost reactivation (pointer)
-./SINA_AGENT_PRIVATE_WORKSPACES_LOCKED_v1.md	4.0K	# Private agent workspaces + governance (LOCKED)
-./SINA_AGENT_REWRITE_UNAUTHORIZED_DISK_EDIT_INCIDENT_REPORT_LOCKED_v1.md	4.0K	# INCIDENT-011 — REWRITE treated as disk edit — incident report (point
-./SINA_AGENT_TOPIC_CONFLATION_INCIDENT_020_REPORT_LOCKED_v1.md	4.0K	# INCIDENT-020 pointer — Agent topic conflation
 ./SINA_APPS_GUIDE_FOR_SINA_v1.md	4.0K	# Sina apps — teacher guide (for Sina)
 ./SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md	 52K	# Sina Authority Index Map (LOCKED)
 ./SINA_AUTOMATION_SPINE_AND_N8N_LOCKED_v1.md	4.0K	# Automation spine + n8n (LOCKED)
 ./SINA_BIG_PICTURE_ROADMAP_LOCKED_v2.md	4.0K	# Sina System — Big Picture Roadmap (Locked)
-./SINA_BRAIN_CHAT_VALIDATOR_RECURSION_INCIDENT_026_REPORT_LOCKED_v1.md	4.0K	# INCIDENT-026 — Brain chat validator recursion (report pointer)
 ./SINA_BRAIN_JOB_TITLES_COMPREHENSIVE_LOCKED_v1.md	 28K	# Sina Brain — Job Titles Comprehensive Manual (LOCKED v1)
 ./SINA_BRAIN_JOB_TITLES_DAILY_ONE_PAGE_LOCKED_v1.md	4.0K	# Brain Daily Card — One Page (LOCKED v1)
 ./SINA_BRAIN_JOB_TITLES_LOCKED_v1.md	8.0K	# Sina Brain — Job Titles Catalog (LOCKED v1)
 ./SINA_BRAIN_PLATFORM_UNIFICATION_LOCKED_v1.md	 12K	# Sina Brain — Platform Unification (LOCKED v1)
-./SINA_BRAIN_STALE_COMMAND_DATA_GOVERNANCE_FAILURE_INCIDENT_033_REPORT_LOCKED_v1.md	4.0K	# INCIDENT-033 report — Brain stale · command-data SSOT · false cart P
-./SINA_BRAIN_WORKER_LANE_CROSS_INCIDENT_LOCKED_v1.md	4.0K	# MOVED — canonical SSOT
-./SINA_BRAIN_WORKER_LANE_CROSS_INCIDENT_REPORT_LOCKED_v1.md	4.0K	# Brain / Worker lane cross — incident report (pointer)
 ./SINA_COMMAND_CENTER_VISION_LOCKED_v1.md	 12K	# Sina Command Center — vision & architecture (LOCKED)
 ./SINA_COMMAND_DEACTIVATED_INCIDENT_READ_POLICY_LOCKED_v1.md	4.0K	# Sina Command deactivated + incident read policy — LOCKED v1.1
 ./SINA_COMMAND_EDIT_LOCK_LOCKED_v1.md	4.0K	# Sina Command edit lock (LOCKED)
@@ -203,8 +180,6 @@ path	size	first_line
 ./SOURCEA_1000PACK_AUDIT_JUDGE_LOCKED_v1.md	4.0K	# SourceA 1000-Pack Audit Judge (LOCKED v1)
 ./SOURCEA_ADVERSARIAL_PROBE_PACK_LOCKED_v1.md	8.0K	# SourceA — Adversarial Probe Pack (LOCKED v1)
 ./SOURCEA_AGENCY_PRODUCT_DEMO_SCRIPT_LOCKED_v1.md	8.0K	# SourceA Agency Product Demo Script — LOCKED v1
-./SOURCEA_AGENTIC_ENFORCEMENT_STACK_LOCKED_v2.md	8.0K	# SourceA — Agentic enforcement stack (LOCKED v2)
-./SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md	8.0K	# SourceA — Agentic layer stack (LOCKED v2)
 ./SOURCEA_ANTI_STALENESS_AUTO_WIRE_LAYER_SYNC_LOCKED_v1.md	4.0K	# Anti-staleness auto wire — layer sync law (LOCKED v1)
 ./SOURCEA_ANTI_STALENESS_MACHINE_ENFORCEMENT_PLAN_LOCKED_v1.md	 12K	# SourceA — Anti-staleness machine enforcement plan (LOCKED v1)
 ./SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md	8.0K	# Asset B — Controlled Agentic Automation (DFY) — LOCKED v1
