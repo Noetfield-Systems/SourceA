@@ -31,7 +31,7 @@ moved=0
 skipped=0
 
 while IFS='|' read -r _col1 src _size _heading dest batch action _rest; do
-  src="$(echo "$src" | xargs)"
+  src="$(echo "$src" | xargs | sed 's/`//g')"
   dest="$(echo "$dest" | xargs | sed 's/`//g')"
   batch="$(echo "$batch" | xargs)"
   action="$(echo "$action" | xargs)"
