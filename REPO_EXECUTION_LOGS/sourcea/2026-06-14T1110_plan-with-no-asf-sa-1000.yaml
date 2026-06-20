@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-1000 — Append phase s9 research index to SOURCEA-1000-LOCK.md bibliography
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-1000
+tests:
+  status: passed
+  output_snippet: T3 s9 bibliography cross-ref dedup sa-0975 · worker_verify_ultra PASS · validate-s9-bibliography-crossref-v1 PASS · phase-s9 156/156
+reported_at: '2026-06-14T11:10:18Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

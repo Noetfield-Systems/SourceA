@@ -1,0 +1,7 @@
+{
+  "schema": "aeg-config-v1",
+  "base_url": "https://sourcea.com/proof",
+  "ui_url": "http://127.0.0.1:13023/",
+  "ui_capture_seconds": 5,
+  "note": "Copy to ~/.sina/aeg-config-v1.json · set base_url after host_aeg_bundle_v1.py deploy"
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U003",
+  "title": "Subject-line marketing fluff gate",
+  "evidence": "check_subject_fluff() wired; buzzword subjects score 0/4",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:01:26Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

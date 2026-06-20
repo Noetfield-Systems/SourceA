@@ -1,0 +1,9 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "cloud/Dockerfile.fbe-runner"
+
+[deploy]
+startCommand = "/entrypoint.sh --serve-http"
+healthcheckPath = "/health"
+healthcheckTimeout = 120
+restartPolicyType = "ON_FAILURE"

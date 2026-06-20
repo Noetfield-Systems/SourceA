@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0523",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0523 VERIFY PASS \u2014 mergepack progress json non-blocking read closed",
+  "at": "2026-06-14T13:34:56Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,59 @@
+{
+  "schema": "fbe-cloud-workspace-map-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-06-17T14:00:00Z",
+  "authority_rule": "local_mac_wins_for_law",
+  "summary": "FBE bay + assembly receipts sync cloud→Mac. Law and graph never authored in cloud.",
+  "never_sync_as_authority": [
+    "docs/**",
+    "brain-os/**",
+    "data/fbe_node_graph_v1.json",
+    "data/fbe_factory_builder_bundle_v1.json",
+    "data/fbe_full_job_v1.json",
+    "~/.sina/agent-session-gate-receipt-v1.json",
+    "~/.sina/stranger-agent-safety-live-wire-v1.json"
+  ],
+  "bundles": [
+    {
+      "id": "fbe_bay_receipts",
+      "label": "Bay stage receipts + ledger",
+      "direction": "cloud_to_local",
+      "local_glob": "receipts/bays/**",
+      "merge_rule": "newest_at_wins"
+    },
+    {
+      "id": "fbe_assembly_receipts",
+      "label": "Assembly line receipts + ledger",
+      "direction": "cloud_to_local",
+      "local_glob": "receipts/bays/**/assembly/**",
+      "merge_rule": "newest_at_wins"
+    },
+    {
+      "id": "fbe_run_receipt_pack",
+      "label": "Full job RunReceipt ZIP packs",
+      "direction": "cloud_to_local",
+      "local_glob": "receipts/packs/**",
+      "merge_rule": "newest_at_wins",
+      "read_only_cloud": true
+    },
+    {
+      "id": "fbe_work_orders",
+      "label": "Signed work orders snapshot",
+      "direction": "local_to_cloud",
+      "local_path": "~/.sina/fbe-work-orders-v1.json",
+      "read_only_cloud": true
+    },
+    {
+      "id": "fbe_bay_events",
+      "label": "Mono bridge inbox events",
+      "direction": "local_to_cloud",
+      "local_path": "cloud/sync-inbox/fbe_bay_events.jsonl",
+      "merge_rule": "append_only"
+    }
+  ],
+  "mono_mirror": {
+    "farm_url": "https://sinaai-cloud-farm-production.up.railway.app",
+    "result_shape": "RESULT-latest.json",
+    "note": "Secondary mirror only — FBE runner primary"
+  }
+}

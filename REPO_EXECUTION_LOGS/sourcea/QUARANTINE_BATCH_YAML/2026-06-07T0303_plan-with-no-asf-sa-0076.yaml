@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0076 — Run python3 audit_hub_source_alignment.py strict; fix honest_score not_here drift
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0076
+tests:
+  status: passed
+  output_snippet: validate-honest-score-not-here-drift-v1 · audit regression · structural_only not_here
+reported_at: '2026-06-07T03:03:13Z'
+reporter: cursor-worker-batch

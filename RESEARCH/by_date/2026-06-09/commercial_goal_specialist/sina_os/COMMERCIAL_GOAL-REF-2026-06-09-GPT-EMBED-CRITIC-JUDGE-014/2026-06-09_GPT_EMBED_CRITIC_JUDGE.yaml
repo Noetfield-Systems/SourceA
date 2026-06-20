@@ -1,0 +1,77 @@
+# [COMMERCIAL_GOAL_AGENT_REF · commercial_goal_specialist · COMMERCIAL_GOAL-REF-2026-06-09-GPT-EMBED-CRITIC-JUDGE-014] rr-20260609-embed014
+trace:
+  agent_ref: COMMERCIAL_GOAL_AGENT_REF
+  agent_name: Commercial Goal Specialist
+  agent_id: commercial_goal_specialist
+  trace_id: COMMERCIAL_GOAL-REF-2026-06-09-GPT-EMBED-CRITIC-JUDGE-014
+  ref_tag: COMMERCIAL_GOAL-REF-GPT-EMBED-CRITIC-JUDGE-014
+  registry_id: rr-20260609-embed014
+  parent_trace_id: COMMERCIAL_GOAL-REF-2026-06-07-MANIFEST-009
+module: commercial_goal
+date: 2026-06-09
+type: external_critic_judgment
+input_class: EXTERNAL_CRITIC
+execution_authority: false
+
+research_save:
+  trace_id: COMMERCIAL_GOAL-REF-2026-06-09-GPT-EMBED-CRITIC-JUDGE-014
+  worker_id: commercial_goal_specialist
+  subject: sina_os
+  vault_path: ~/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-09_GPT_EMBED_CRITIC_JUDGE.yaml
+  research_mirror_path: RESEARCH/by_date/2026-06-09/commercial_goal_specialist/sina_os/COMMERCIAL_GOAL-REF-2026-06-09-GPT-EMBED-CRITIC-JUDGE-014/
+  execution_authority: false
+
+sources_compared:
+  - id: GPT3.1
+    topic: embedding layer as sole structural failure
+  - id: GPT0
+    topic: SHA256 vs semantic consensus
+  - id: disk
+    path: scripts/pre_llm/vector_retrieval/embedding_provider.py
+  - id: tracker
+    path: brain-os/system/SOURCEA_MASTER_OPERATING_TRACKER_LOCKED_v1.md
+
+verdict:
+  gpt3_1_vs_gpt0: duplicate_opinion — same thesis, GPT3.1 slightly clearer tables
+  disk_code_state: embedding_provider v2 already ships Voyage/OpenAI + hash fallback
+  disk_runtime_state:
+    mode: hash_local
+    semantic: false
+    reason: no VOYAGE_API_KEY or OPENAI_API_KEY configured on host
+  critic_accuracy:
+    architecture_correct: accept
+    hash_only_code_claim: reject — superseded by v2 logged
+    only_blocker_claim: reject — P0 is GOAL-AUTH-LIVE Rail A AUTO-RUN proof
+    preserve_interface: accept — already implemented
+
+priority_vs_founder_objective:
+  p0: GOAL-AUTH-LIVE — Hub AUTO-RUN full event chain
+  p1_semantic_memory: configure API key + rebuild vector index (not file rewrite)
+  portfolio_parallel: TrustField/Noetfield GTM unchanged
+
+recommended_actions:
+  - order: 1
+    action: ASF tap Hub AUTO-RUN Rail A — prove event chain before embedding work
+    owner: ASF
+  - order: 2
+    action: Set VOYAGE_API_KEY or OPENAI_API_KEY (Tier 3 secrets)
+    owner: ASF/Brain
+  - order: 3
+    action: Rebuild vector_index_v1.json under semantic mode
+    owner: SourceA Worker
+    sa_hint: new sa-XXXX after AUTH-LIVE PASS
+  - order: 4
+    action: Verify provider_payload semantic true + validate-vector-retrieval-v1.sh
+    owner: Worker
+  - order: 5
+    action: Register GOAL-SEMANTIC-MEMORY in tracker Section 2
+    owner: Brain
+
+reject:
+  - another embedding_provider.py rewrite
+  - Redis/Temporal/Supabase stack redesign from critic paste
+  - derailing GOAL-AUTH-LIVE for embedding config
+
+one_line_truth: >
+  GPT3.1 and GPT0 describe yesterday's fix — code is patched but runtime is hash_local
+  without API keys; operational gap tonight is observed AUTO-RUN behavior not missing architecture.

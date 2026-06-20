@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0596",
+  "status": "DONE",
+  "round_type": "act",
+  "critical_bugs": 0,
+  "engine": "COMMERCIAL",
+  "source": "commercial-6245d9dd",
+  "evidence": "ACT — validate-commercial-attests-priority-t3-crossref-v1 PASS · founder section sa-0521 · signals_auto commercial_attests_checklist + t3_crossref · worker CHECK unblock",
+  "at": "2026-06-15T01:00:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

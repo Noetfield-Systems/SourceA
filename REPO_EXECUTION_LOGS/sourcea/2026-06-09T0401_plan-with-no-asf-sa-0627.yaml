@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0627 — Cross-check LLM_CONTEXT_PACKET_SCHEMA_LOCKED_v1 vs packet builder
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0627
+tests:
+  status: passed
+  output_snippet: sa-0627 VERIFY closeout — schema vs packet builder aligned; REGISTRY done; pack 1000
+reported_at: '2026-06-09T04:01:37Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

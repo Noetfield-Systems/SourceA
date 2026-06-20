@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U041",
+  "title": "CIL bar 92 fleet receipt per account",
+  "evidence": "build_fleet_cil_receipt() + --check-fleet-pack PASS \u00b7 fundmore/ocree cil_pct on pack \u00b7 ~/.sina/cil-fleet-receipt-v1.json",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:31:09Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

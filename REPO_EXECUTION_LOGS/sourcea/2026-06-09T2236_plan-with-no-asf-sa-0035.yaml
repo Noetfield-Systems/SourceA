@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0035 — Cross-check STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md vs /api/strategic-synthesis-v1
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0035
+tests:
+  status: passed
+  output_snippet: sa-0035 VERIFY replay — already done logged; phase-s0 PASS
+reported_at: '2026-06-09T22:36:10Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

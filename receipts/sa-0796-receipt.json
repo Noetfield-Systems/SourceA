@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0796",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0796 VERIFY DONE \u2014 council strategic slice seed on build; build hook sa-0218; marker idempotent; dispatch+fleet+spine+fcb PASS",
+  "at": "2026-06-11T19:37:06Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

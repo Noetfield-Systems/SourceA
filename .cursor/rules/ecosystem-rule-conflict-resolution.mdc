@@ -1,0 +1,54 @@
+---
+description: Auto conflict resolution when ecosystem rules disagree — all agents
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# SourceA ecosystem — AUTO CONFLICT RESOLUTION
+
+**When any rules conflict → run SKILL-007 before disk edits.**
+
+## Precedence (short)
+
+1. **Founder current message** (`SAVE TO:`, `EDIT ALLOWED:` + `ACTION:`, `ASF:`, bounded `WORK:`)
+2. **Permission / ask-first** (`001-founder-verbs`, SAVE · WORK · EDIT ALLOWED)
+3. **Open P0/P1 incidents** (INCIDENT-010/011, CIR-COSPRO)
+4. **`execution_authority: false`**
+5. **Workflow bundles** (RESEARCH 4-step, INBOX — only after T0)
+6. **Ship-first / plan.json / mandatory paste alone** — never self-start
+
+## Hard law
+
+> Ship-first, RESEARCH mandatory paste, and bare **save** **never** override ask-first or `001-founder-verbs`.
+
+## Name unification (INCIDENT-025 — mandatory every session)
+
+Before renaming or creating any **tab · category · thread · tag · link label · Hub title**:
+
+1. **Read conversation + locked SSOT** — `rg` the proposed name and related terms across `SourceA/`.
+2. **Cite existing canonical** — authority index row · `NAV_TABS` · locked doc · registry id.
+3. **Never replace a registered title** with a status word (*pending*, *live*, *new*) — put status in subtitle/badge/desc only.
+4. **Remind founder proactively** of related names when answering (e.g. **Advisor track** `advisor-discussion` ≠ **AI Advisory** `ai-advisory`).
+5. **Hub advisor crisis table:** title **Advisor track** only · id `advisor-discussion` · doc `SOURCEA_FOUNDER_ADVISOR_DISCUSSION_TRACK_LOCKED_v1.md`.
+
+Validator: `bash scripts/validate-hub-advisor-track-naming-v1.sh`
+
+## On conflict
+
+1. Stop — no edits
+2. Name both rules + winner
+3. Propose A/B/C
+4. **ASK founder**
+5. Implement only bounded T0 order
+
+## Full algorithm
+
+[.cursor/skills/skill-007-ecosystem-conflict-resolution/SKILL.md](../skills/skill-007-ecosystem-conflict-resolution/SKILL.md)
+
+## Related
+
+- [skill-006-ask-before-implement](../skills/skill-006-ask-before-implement/SKILL.md)
+- [000-cross-lane-edit-forbidden.mdc](000-cross-lane-edit-forbidden.mdc)
+- [001-founder-verbs-rewrite-save-asf-mandatory.mdc](001-founder-verbs-rewrite-save-asf-mandatory.mdc)
+- `.cursor/agent-memory/ECOSYSTEM_HARD_RULES.yaml` — R-007–R-010

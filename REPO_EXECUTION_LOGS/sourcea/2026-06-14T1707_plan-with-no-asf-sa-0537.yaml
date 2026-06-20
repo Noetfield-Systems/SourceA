@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0537 — Validate wire lane progress md exists in the repository for Wire agent
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0537
+tests:
+  status: passed
+  output_snippet: sa-0537 VERIFY PASS — T1 wire lane progress dedup via crossref canonical sa-0512
+reported_at: '2026-06-14T17:07:25Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

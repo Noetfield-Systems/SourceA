@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0991 — Compare ENFORCE IDE bypass gap to industry gate patterns
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0991
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — T3 ENFORCE IDE bypass cross-ref closed canonical sa-0966
+reported_at: '2026-06-14T05:04:11Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

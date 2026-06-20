@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0520 — Compare best-in-world GTM moat notes to governance scoreboard law
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0520
+tests:
+  status: passed
+  output_snippet: sa-0520 VERIFY PASS — validate-gtm-moat-governance-scoreboard-v1 · GTM moat ↔ scoreboard law
+reported_at: '2026-06-14T13:17:16Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

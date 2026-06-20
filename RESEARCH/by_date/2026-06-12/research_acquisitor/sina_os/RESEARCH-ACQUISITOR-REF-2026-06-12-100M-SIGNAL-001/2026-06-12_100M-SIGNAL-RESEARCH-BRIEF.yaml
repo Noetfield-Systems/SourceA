@@ -1,0 +1,141 @@
+# [Research Acquisitor · RESEARCH-ACQUISITOR-REF-2026-06-12-100M-SIGNAL-001]
+trace:
+  agent_name: Research Acquisitor
+  agent_id: research_acquisitor
+  trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-100M-SIGNAL-001
+  ref_tag: RESEARCH-ACQUISITOR-100M-SIGNAL-2026-06-12
+  session_transcript: 85dd7cd4-0977-4cfc-9449-ea278ea0baee
+  execution_authority: false
+  ship_order: ~/.sina/founder-ship-order-30d-v1.json
+  pick: 9.07 A
+
+module: research_acquisitor
+date: 2026-06-12
+type: hundred_m_signal_routing_brief
+
+question: >
+  Routing-grade synthesis for Execution Core — W1/W2/W3 gaps, W1 buyer, W3 NF/TF proof path,
+   contrast; SourceA sells governance proof not TF/NF SKUs.
+
+apex: >
+  SourceA L1 motor — pre-LLM controlled execution proof. NF/TF are W3 lanes on same stack.
+  $100M = narrative upside if W1+W2+W3; seed $3–10M honest target.
+
+# ─── Execution Core routing (≤1 page) ───────────────────────────────────────
+open_gaps:
+  - "W1 FILM: not present locally — demo script PASS (validate-demo-enforcement-v1.sh) · runbook exists · investor room blocked"
+  - "W2 WRITE-PATH: validate-demo-write-path-v1.sh EXISTS · probe 2026-06-12 — confirm Worker green on next run"
+  - "W3 MONEY: $0 · NF-001 primary · TF-001 backup · agentic batch per ENF-02 APPROVE + ship-order 9.07 A"
+  - "FORM_OFFICIAL: 43 open §OPEN on live form — M1 Canvas UI sync pending (INCIDENT-029) — picks on JSON not sidebar"
+  - "DIGEST: was registration stubs until this brief — drill artifact_path for depth"
+
+findings:
+  - id: RF-01
+    fact: "Paid.ai raised ~$21M seed (May 2026) for agent economy runtime — validates category appetite; they sell run, SourceA sells prove (BLOCK/ALLOW/tamper FAIL)."
+    source: "archive/attachments/2026-06-12/SINA__AND_REFERENCE_MATRIX_v1.yaml"
+    confidence: high
+  - id: RF-02
+    fact: "Botpress $25M Series B — agent infra funded; governance column is differentiated wedge vs runtime-only players."
+    source: "FOUNDER_BRAIN_MAINTAINER_STRATEGIC_EXTRACTION_100M_v2.md §VII"
+    confidence: high
+  - id: RF-03
+    fact: "Devin/Cursor autonomy claims exceed measured reliability (Answer.AI 3/20; SWE-bench verified drop) — buyer appetite for auditable execution proof is rational."
+    source: "~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-06_RESEARCH_BRIEF.yaml F07-F08"
+    confidence: high
+
+gaps:
+  - "Brain digest was non-routing (registered stubs) — fixed 2026-06-12 by this brief + manual execution_core.digest refresh"
+  - "Commercial.signal had stale MSB vertical PRIORITY — superseded by ENFORCEMENT NF Copilot wedge per ENG-05"
+  - "No second judge chat — FORM_OFFICIAL + validators + ASF PICK per MAINTAINER_2_CROSS_CHAT synthesis"
+
+# ─── Commercial signal (9.07 A + ENF W3) ──────────────────────────────────────
+channel: "Agentic NF outreach batch 1 — n8n + Apollo · hub approve · founder final contact only (P0 law)"
+offer: "Noetfield AI Trust Brief pilot — Copilot policy BLOCK/ALLOW + receipt; CAD 2K+ or LOI/SOW bar"
+vertical: "Enterprise Copilot governance · regulated policy-change scenarios (not MSB corridor hero)"
+gtm: "Parallel W1 film + W3 discovery — terminal demo sufficient for first calls per ENG-25 + 9.07 A"
+revenue: "W3 PASS = deposit ≥CAD 2K or signed LOI — disk today $0"
+
+commercial_traces:
+  - trace: COMMERCIAL_GOAL-REF-2026-06-11-100M-SIGNAL-6MO
+    path: ~/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-11_100M-SIGNAL-6MO_JUDGE.yaml
+  - trace: COMMERCIAL_GOAL-REF-2026-06-12-FULL-EXTRACTION-037
+    path: RESEARCH/by_date/2026-06-12/commercial_goal_specialist/sina_os/COMMERCIAL_GOAL-REF-2026-06-12-FULL-EXTRACTION-037/
+  - trace: COMMERCIAL_GOAL-REF-2026-06-12-TERMINOLOGY-DIRECTION-LOCK-041
+    path: RESEARCH/by_date/2026-06-12/commercial_goal_specialist/sina_os/COMMERCIAL_GOAL-REF-2026-06-12-TERMINOLOGY-DIRECTION-LOCK-041/
+  - spec: AGENTIC_W3_OUTREACH_WORKFLOW_SPEC_v1.md
+    path: archive/attachments/2026-06-12/AGENTIC_W3_OUTREACH_WORKFLOW_SPEC_v1.md
+
+# ─── W1 buyer · W3 proof ────────────────────────────────────────────────────
+w1_buyer:
+  persona: "Seed VC + regulated enterprise risk/CISO — needs live tamper FAIL not deck essay"
+  proof_ask: "5-min BLOCK/ALLOW/TAMPER on camera + demo-scope bypass honesty"
+  not_buying: "Trust OS · factory 616 hero · $100M close in 6mo"
+
+w3_proof:
+  primary: "NF-001 — Copilot governance pilot · AI Trust Brief SKU"
+  backup: "TF-001 — FINTRAC/regulated receipt lane if NF cold"
+  pass_bar: "Signed LOI/SOW or ≥CAD 2K deposit logged"
+  parallel: "9.07 A — outreach Week 1 does not wait for film"
+
+# ───  contrast (governance column) ────────────────────────────────
+comparisons:
+  - name: Paid.ai
+    they_sell: "Agent economy runtime / orchestration"
+    we_sell: "Governance proof — commit gate · receipt · validator FAIL on tamper"
+  - name: Botpress / Vybe
+    they_sell: "Agent build surface"
+    we_sell: "Pre-LLM policy gate before agent executes"
+  - name: Lovable / Bolt
+    they_sell: "Speed to app"
+    we_sell: "Forge lane — speed + receipt (post-W1)"
+  - name: Devin / Cursor agents
+    they_sell: "Autonomous SWE"
+    we_sell: "Prove what ran · what was blocked · audit trail"
+
+_sources:
+  - "~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-06_RESEARCH_BRIEF.yaml"
+  - "archive/attachments/2026-06-12/SINA__AND_REFERENCE_MATRIX_v1.yaml"
+
+# ─── Alarm footer — Researcher 2 / external vs disk ─────────────────────────
+alarm_tags:
+  - id: ALM-01
+    claim: "Demo kernel not shipped"
+    source: stale VC-ROADMAP / early Brain paste
+    disk: "validate-demo-enforcement-v1.sh PASS · S1–S6 shipped"
+    verdict: STALE
+  - id: ALM-02
+    claim: "TrustField is the company / Phase 0 legal first"
+    source: Gov 009 v1 / TF-heavy outreach
+    disk: "SourceA L1 motor · ENG-01..03 · unified story"
+    verdict: STALE
+  - id: ALM-03
+    claim: "W2 write-path missing"
+    source: prior session probes
+    disk: "validate-demo-write-path-v1.sh EXISTS 2026-06-12 — Worker must run PASS"
+    verdict: RIGHT_UNVERIFIED
+  - id: ALM-04
+    claim: "W3 $0 — no economic signal"
+    source: disk truth
+    disk: "confirmed"
+    verdict: RIGHT
+  - id: ALM-05
+    claim: "New judge agent chat needed"
+    source: chat opinion wars
+    disk: "FORM_OFFICIAL + Fork Machine — reject 9th chat"
+    verdict: BAD
+  - id: ALM-06
+    claim: "Prompt feed Confirm auto-sends"
+    source: stale Worker copy
+    disk: "INCIDENT-028 remediated · live next-10 only"
+    verdict: STALE
+  - id: ALM-07
+    claim: "Category: impossible to bypass governance (demo path)"
+    source: ENFORCEMENT WIN locked
+    disk: "PASS validators · pair with demo-scope honesty"
+    verdict: RIGHT
+
+forbidden:
+  - assign sa-XXXX
+  - change SourceA spine
+  - duplicate investor-data-200 matrix
+  - new judge chat

@@ -1,0 +1,102 @@
+$ python3 /Users/sinakazemnezhad/Desktop/SourceA/scripts/critic_boot_v1.py --json
+
+--- stdout ---
+{
+  "schema": "critic-boot-v1",
+  "at": "2026-06-15T17:42:05Z",
+  "verdict": "BLOCK",
+  "ok": false,
+  "agent_id": "AGENT-AUTO-MONO",
+  "checks": [
+    {
+      "id": "C1",
+      "name": "ssot_brief",
+      "ok": true,
+      "reason": "SSOT v3.1 brief current",
+      "version": "3.2",
+      "briefed_at": "2026-06-15T12:54:18Z",
+      "briefing_path": "/Users/sinakazemnezhad/.sina/agent-briefing/AGENT-AUTO-MONO-latest.json"
+    },
+    {
+      "id": "C2",
+      "name": "voyage_provider",
+      "ok": true,
+      "reason": "voyage",
+      "mode": "voyage",
+      "semantic": true,
+      "secrets_env": true
+    },
+    {
+      "id": "C3",
+      "name": "truth_match",
+      "ok": true,
+      "reason": "inbox matches queue head",
+      "sa_id": "sa-0886"
+    },
+    {
+      "id": "C4",
+      "name": "gate_fresh",
+      "ok": false,
+      "reason": "last session gate receipt ok=false",
+      "gate_id": "ASG-20260615-7519cd3f"
+    }
+  ],
+  "blockers": [
+    "last session gate receipt ok=false"
+  ],
+  "founder_line": "CRITIC BOOT BLOCK \u2014 last session gate receipt ok=false",
+  "law": "Layer 1 local boot \u2014 no cloud",
+  "receipt_path": "/Users/sinakazemnezhad/.sina/critic-boot-v1.json",
+  "aeg": {
+    "schema": "aeg-evidence-bundle-v1",
+    "evidence_id": "aeg-20260615T174205Z-712435bd",
+    "at": "2026-06-15T17:42:05Z",
+    "verdict": "BLOCK",
+    "blockers": [
+      "last session gate receipt ok=false"
+    ],
+    "proof_url": "https://studio-earning-olympic-don.trycloudflare.com/aeg-20260615T174205Z-712435bd/",
+    "bundle_dir": "/Users/sinakazemnezhad/.sina/aeg/aeg-20260615T174205Z-712435bd",
+    "archive_dir": "/Users/sinakazemnezhad/Desktop/SourceA/archive/attachments/evidence/aeg/aeg-20260615T174205Z-712435bd",
+    "terminal": {
+      "ok": true,
+      "mode": "transcript",
+      "path": "/Users/sinakazemnezhad/.sina/aeg/aeg-20260615T174205Z-712435bd/terminal.txt",
+      "exit_code": 1,
+      "asciinema_missing": true
+    },
+    "ui": {
+      "ok": false,
+      "ui_url": "http://127.0.0.1:13023/",
+      "error": "Page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:13023/\nCall log:\n  - navigating to \"http://127.0.0.1:13023/\", waiting until \"domcontentloaded\"\n"
+    },
+    "heal_verdict": null
+  },
+  "visual_proof": {
+    "status": "captured_fallback",
+    "method": "fallback_display",
+    "session_id": "sess_AGENT-AUTO-MONO_20260615174205",
+    "verdict": "BLOCK",
+    "artifact_path": "/Users/sinakazemnezhad/.sina/proofs/sess_AGENT-AUTO-MONO_20260615174205_20260615T174222Z_BLOCK.png",
+    "filename": "sess_AGENT-AUTO-MONO_20260615174205_20260615T174222Z_BLOCK.png",
+    "window_id": null,
+    "timestamp": "20260615T174222Z",
+    "engine": "macos_native_core",
+    "include_shadow": false,
+    "session_proof_count": 2,
+    "purge": {
+      "purged": 0,
+      "days": 7
+    },
+    "compress": {
+      "ok": true,
+      "before_bytes": 5589668,
+      "after_bytes": 5458883
+    }
+  }
+}
+
+--- stderr ---
+
+--- exit ---
+1

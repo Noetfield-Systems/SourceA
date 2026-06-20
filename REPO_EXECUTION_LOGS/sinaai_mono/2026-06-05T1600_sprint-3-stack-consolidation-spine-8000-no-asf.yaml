@@ -1,0 +1,24 @@
+schema_version: 1
+repo: sinaai_mono
+task: Sprint 3 — stack consolidation spine :8000 (no ASF)
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - scripts/verify-stack-consolidation.sh
+  - SinaaiRuntime/integrations/telegram_v4/FROZEN_DEVTOOLS.md
+  - SinaaiDataBase/data/L2-knowledge/009-stack-consolidation-spine-8000.md
+  diff_summary: ''
+  note: ''
+tests:
+  status: passed
+  command: bash scripts/full-e2e-mono.sh && cd SinaaiDataBase && python3 scripts/sinaai.py
+    validate
+  output_snippet: full-e2e-mono PASS incl verify-stack-consolidation; sinaai validate
+    41 entries
+real_output: full-e2e-mono PASS incl verify-stack-consolidation; sinaai validate 41
+  entries
+reported_at: '2026-06-05T16:00:00Z'
+reporter: cursor
+execution_id: ''

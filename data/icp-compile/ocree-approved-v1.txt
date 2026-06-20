@@ -1,0 +1,19 @@
+Hi Anne,
+
+With Ocree's Winnipeg CRE issuance on Polymesh, CSA Collaboratory-style reviews usually end up on a very specific question: not whether tokenization works, but whether each issuance step can be proven as permitted after the fact.
+
+That gap is where we've been focusing at TrustField — producing a step-by-step replay of regulated workflows so an external reviewer can reconstruct what actually happened, not just what was intended.
+
+Curious if that's something your team is already preparing for ahead of the live tests, or still something being defined?
+
+CASL: industry context — CSA Project Tokenization workshop (June 11, 2026, Toronto).
+
+If useful — quick end-to-end replay example:
+https://www.trustfield.ca/start
+
+Sina Kazemnezhad · TrustField Technologies
+hello@trustfield.ca · Canada
+
+Powered by SourceA — advisory only · no custody · no payment initiation.
+
+Reply **stop** — no further messages.

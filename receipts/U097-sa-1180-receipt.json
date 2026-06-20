@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1180",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U097",
+  "title": "Proxycurl executive DNA \u2014 REJECT",
+  "evidence": "REJECT Proxycurl executive DNA \u2014 dead API \u00b7 manual LinkedIn read only",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:24:47Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

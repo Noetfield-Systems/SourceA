@@ -1,0 +1,23 @@
+schema_version: 1
+repo: sinaai_mono
+task: AGENT-AUTO-MONO category INDEX filing update
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - reports/agent-auto/INCIDENTS/INDEX.md
+  - reports/agent-auto/AUDIT-LOG/INDEX.md
+  - reports/agent-auto/agent-auto-mono-2026-06-05-tag-convention.md
+  - reports/agent-auto/AUDIT-LOG/agent-auto-mono-2026-06-11-category-index-filing-pass.md
+  diff_summary: ''
+  note: 'ASF: PLAN WITH NO ASF mx-0017'
+tests:
+  status: passed
+  command: bash scripts/agent-auto-audit.sh
+  output_snippet: INCIDENTS=2; INDEX per category; compendium in REFERENCE; audit
+    PASS
+real_output: INCIDENTS=2; INDEX per category; compendium in REFERENCE; audit PASS
+reported_at: '2026-06-11T13:15:00Z'
+reporter: cursor-auto-mono
+execution_id: ''

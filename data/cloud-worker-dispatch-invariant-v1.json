@@ -1,0 +1,25 @@
+{
+  "schema": "cloud-worker-dispatch-invariant-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T07:42:00Z",
+  "upgrade_id": "B0101",
+  "epic": "E02",
+  "lane": "control_plane",
+  "endpoint": "POST /api/cloud-worker/dispatch/v1",
+  "law": "L0 control-plane gate — any honest surface (phone PWA · web hub · desktop · CI)",
+  "invariant": "Dispatch stays on Mac Hub control plane; cloud workers receive work-orders only after Hub gate PASS — never direct Cursor Worker bypass.",
+  "control_plane": "mac_hub",
+  "execution_plane": "cloud_api_worker",
+  "forbidden": [
+    "Cursor Worker direct dispatch without Hub receipt",
+    "GET /api/fbe/runs/v1 on cloud execution workers (B0102)",
+    "local_primary LLM on federated path"
+  ],
+  "wired_to": [
+    "docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
+    "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md",
+    "data/platform-neutral-world-model-v1.json"
+  ],
+  "federated_proof": "receipts/federated-run-v1.json",
+  "brain_receipt": "~/.sina/brain-reasoning-receipt-b0101.json"
+}

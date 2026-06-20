@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0543",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0543 VERIFY PASS \u2014 T1 TrustField P10 strategic pendings dedup via crossref canonical sa-0518",
+  "at": "2026-06-14T17:37:59Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,72 @@
+# session_closeout_2026-06-12_research_lane_b.yaml
+# trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-SESSION-CLOSEOUT
+# execution_authority: false · Session index — Cursor OS Pro Research Lane B
+
+meta:
+  session_date: "2026-06-12"
+  lane: cursor_os_pro_research_lane_b
+  thread: THREAD-CURSOR-OS-PRO
+  execution_authority: false
+  transcript_hint: "4374f3ff-aa55-4923-b4f9-53513b0da610 (prior) + current session"
+  enforcer_verify: pending_after_mirror
+
+topics_delivered_today:
+  - id: T1
+    title: AI video market ~100 tools June 2026
+    vault: docs/research/ai_video_commercial_tier1_research_v1.yaml
+    trace: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-AI-VIDEO-TIER1
+  - id: T2
+    title: Cost intelligence tier-1 commercial video
+    vault: docs/research/ai_video_commercial_tier1_research_v1.yaml#cost_intelligence
+  - id: T3
+    title: 90s tier-1 stack + budget
+    vault: docs/research/ai_video_commercial_tier1_research_v1.yaml#ninety_second_tier1
+  - id: T4
+    title: Eleven Flows vs Runway head-to-head
+    vault: docs/research/ai_video_commercial_tier1_research_v1.yaml#head_to_head
+  - id: T5
+    title: Linear 4K product film analysis (LinearH264Version_1.mp4)
+    vault: docs/research/ai_video_commercial_tier1_research_v1.yaml#linear_reference_video
+  - id: T6
+    title: Ecosystem incidents compendium digest
+    vault: docs/research/ecosystem_incidents_compendium_digest_2026-06-12.yaml
+    trace: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-INCIDENTS-DIGEST
+  - id: T7
+    title: Lane probe + foundational bind ack (chat)
+    note: governance context only — not product build
+  - id: T8
+    title: npm run check PASS
+    note: product verify only — not research artifact
+
+sourcea_mirrors_today:
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-AI-VIDEO-TIER1
+    path: RESEARCH/by_date/2026-06-12/cursor_os_pro_research_lane_b/sina_os/RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-AI-VIDEO-TIER1/
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-INCIDENTS-DIGEST
+    path: RESEARCH/by_date/2026-06-12/cursor_os_pro_research_lane_b/sina_os/RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-INCIDENTS-DIGEST/
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-SESSION-CLOSEOUT
+    path: RESEARCH/by_date/2026-06-12/cursor_os_pro_research_lane_b/sina_os/RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-SESSION-CLOSEOUT/
+
+lane_vault_all_files:
+  - docs/research/ai_video_commercial_tier1_research_v1.yaml
+  - docs/research/ecosystem_incidents_compendium_digest_2026-06-12.yaml
+  - docs/research/session_closeout_2026-06-12_research_lane_b.yaml
+  - docs/research/README.md
+  - docs/research/voice_composition_market_brain_v1.yaml
+  - docs/research/voice_dev_peer_comparison_v1.yaml
+  - docs/research/canada-voice-100.yaml
+  - docs/research/market-brain-june-2026.yaml
+  - docs/research/incidents/CIR-COSPRO-RESEARCH-SAVE-2026-06-07.yaml
+
+golden_insight: "Tier-1 B2B video = Screen Studio truth + AI for B-roll/voice; Form Office > chat for PICKs."
+
+next_disk_deliverable: none until founder SAVE TO or Brain routes sa
+
+risks:
+  - conflating research lane with product ship
+  - save without SAVE TO path
+  - registry sync without explicit order
+
+research_save:
+  worker_id: cursor_os_pro_research_lane_b
+  subject: sina_os
+  execution_authority: false

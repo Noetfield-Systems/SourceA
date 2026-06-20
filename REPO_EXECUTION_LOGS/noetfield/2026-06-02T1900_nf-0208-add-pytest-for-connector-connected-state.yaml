@@ -1,0 +1,19 @@
+schema_version: 1
+repo: noetfield
+task: nf-0208 — Add pytest for connector connected state persistence
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - governance-console/backend/tests/test_tle_flow.py
+  diff_summary: ''
+  note: make smoke-pick-no-asf-plan for next phase-2 T0 prompt (nf-0209)
+tests:
+  status: passed
+  command: make verify-gtm
+  output_snippet: verify-gtm passed — safe to run external demo
+real_output: verify-gtm passed — safe to run external demo
+reported_at: '2026-06-02T19:00:00Z'
+reporter: cursor
+execution_id: ''

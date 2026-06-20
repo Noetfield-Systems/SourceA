@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "P0-05",
+  "title": "Noetfield TLE reference narrative",
+  "evidence": "validate-noetfield-tle-reference-v1 PASS · lane keywords routed · platform-neutral (no Mac-only) · data/noetfield-tle-reference-narrative-v1.json · ~/.sina/noetfield-tle-reference-receipt-v1.json",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T08:45:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

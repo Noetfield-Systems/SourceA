@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0031 — Sync SINA_GPT_CLAUDE_WTM_SYNTHESIS_LOCKED_v1.md Eval line to 5/5 · 100% live
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0031
+tests:
+  status: passed
+  output_snippet: sa-0031 VERIFY CLOSEOUT: Eval line validator wired; synthesis aligned 4/5·80% honest; Valid YES 99/1000.
+reported_at: '2026-06-09T14:47:46Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

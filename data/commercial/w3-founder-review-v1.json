@@ -1,0 +1,23 @@
+{
+  "schema": "w3-founder-review-v1",
+  "version": "2.0.0",
+  "law": "docs/SOURCEA_FOUNDER_EMAIL_FACTORY_v2_SPEC_LOCKED_v1.md",
+  "vocabulary_law": "docs/SOURCEA_FACTORY_VOCABULARY_FOUNDER_HUMAN_ONLY_LOCKED_v1.md",
+  "note": "Template — live at ~/.sina/w3-founder-review-v1.json · Founder = Sina human only",
+  "score_ladder": {
+    "1_machine_oqg": "Machine — not ship authority",
+    "2_conversation_interest": "CIL — not ship authority",
+    "3_receiver_interest": "RIL — not ship authority",
+    "4_brain_lane_line": "Inject only — NOT ship authority",
+    "5_pipeline_send_slot": "Hub workflow — NOT Sina read",
+    "6_sina_read_score_pct": "Sina (human founder) only — ship authority",
+    "7_advisor_critique": "GPT/Gemini — NEVER ship authority · NEVER labeled founder"
+  },
+  "deprecated_terms": {
+    "hub_approve_slot": "pipeline_send_slot",
+    "founder_approved": "pipeline_send_cleared",
+    "founder_score_pct": "sina_read_score_pct (when set by Sina only)",
+    "gpt_founder_score": "advisor_critique — forbidden label"
+  },
+  "artifacts": []
+}

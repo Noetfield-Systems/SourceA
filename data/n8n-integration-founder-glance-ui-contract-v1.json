@@ -1,0 +1,19 @@
+{
+  "schema": "founder-glance-ui-contract-v1",
+  "app_id": "n8n_integration",
+  "version": "1.1.0",
+  "ui_mode": "founder_glance",
+  "saved_at": "2026-06-19T20:39:27Z",
+  "url": "http://127.0.0.1:13026/",
+  "primary_cta": "Capture intelligence",
+  "primary_button_id": "btn-primary",
+  "stat_tiles": ["n8n", "runtime", "hub", "workflows"],
+  "dom_must_contain": [
+    "n8-founder-glance",
+    "btn-primary",
+    "Capture intelligence",
+    "n8-status-grid",
+    "panel-more"
+  ],
+  "dom_must_not_contain": ["n8-actions", "n8-logo"]
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "commercial-short-film-beats-v1",
+  "status": "placeholder",
+  "routing_lane": "fitness",
+  "routing_tier": "C_social",
+  "routing_ref": "data/commercial-film-routing-v1.json#fitness",
+  "note": "Consumer lane — HeyGen · CapCut · UGC · founder selfie all open. No trust-product constraint.",
+  "runtime_target_seconds": 30,
+  "title": "Fitness — 30s Social (TBD brand)",
+  "brand": {
+    "name": "TBD",
+    "domain": "TBD"
+  },
+  "tier_C_options": {
+    "heygen_avatar": "allowed",
+    "founder_selfie": "allowed",
+    "capcut_canva": "allowed",
+    "motion_graphics_only": "allowed"
+  },
+  "advisor_source": "Soonet Option A/B/C — fully routed here not WitnessBC"
+}

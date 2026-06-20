@@ -1,0 +1,5 @@
+Subject: OSFI timing question
+
+When your team signs off on a model change, how do you prove the reviewer actually saw the same evidence the auditor will ask for six months later?
+
+If that proof lives in email threads, what breaks first when someone leaves?

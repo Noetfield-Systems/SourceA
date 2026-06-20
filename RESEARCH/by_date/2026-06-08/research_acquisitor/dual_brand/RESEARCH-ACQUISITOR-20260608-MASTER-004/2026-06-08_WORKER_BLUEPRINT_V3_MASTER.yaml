@@ -1,0 +1,43 @@
+trace_id: RESEARCH-ACQUISITOR-20260608-MASTER-004
+trace_family: RESEARCH-ACQUISITOR-20260608
+trace_owner: research_acquisitor
+trace_type: worker_blueprint_master_index
+trace_author: research_acquisitor
+trace_created: 2026-06-08
+trace_supersedes: worker_blueprints V2 block in research INDEX
+
+module: research_acquisitor
+date: 2026-06-08
+brief_type: worker_blueprint_v3_master
+execution_authority: false
+
+summary: >
+  Final V3 worker package blueprints for TrustField.ca and Noetfield.com —
+  grounded in June 2026 Canada/global money-flow research. V3 supersedes V2;
+  pilot-first TrustField wedge; three Noetfield offerings with Copilot sub-tiers.
+
+trace_registry:
+  RESEARCH-ACQUISITOR-20260608-MATRIX-003:
+    path: ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-08_TRUSTFIELD_NOETFIELD_MARKET_SKU_MATRIX.yaml
+    role: market_sku_evidence
+  RESEARCH-ACQUISITOR-20260608-TF-001:
+    path: ~/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-08_TRUSTFIELD_WORKER_BLUEPRINT_V3_FULL.yaml
+    full_prompt: ~/Desktop/TrustField Technologies/docs/considerations/WORKER_BLUEPRINT_V3_TRUSTFIELD_CA_FULL_PROMPT.md
+    domain: trustfield.ca
+  RESEARCH-ACQUISITOR-20260608-NF-002:
+    path: ~/.sina/agent-workspaces/noetfield_cloud/commercial-goal/2026-06-08_NOETFIELD_WORKER_BLUEPRINT_V3_FULL.yaml
+    full_prompt: ~/Desktop/Noetfield-All-Documents/Noetfield/docs/WORKER_BLUEPRINT_V3_NOETFIELD_COM_FULL_PROMPT.md
+    domain: noetfield.com
+
+decision_locks:
+  trustfield_lead_sku: TF-P1
+  trustfield_primary_cta: /demo
+  trustfield_single_wedge: MSB_RPAA_until_3_demos_and_deposit
+  noetfield_offerings_count: 3
+  noetfield_lead_sub_sku: NF-RD
+  invoicing: TrustField_only
+  v2_superseded: true
+
+worker_handoff:
+  trustfield: Paste docs/considerations/WORKER_BLUEPRINT_V3_TRUSTFIELD_CA_FULL_PROMPT.md §PASTE BLOCK
+  noetfield: Paste docs/WORKER_BLUEPRINT_V3_NOETFIELD_COM_FULL_PROMPT.md §PASTE BLOCK

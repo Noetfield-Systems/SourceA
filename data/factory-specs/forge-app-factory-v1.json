@@ -1,0 +1,47 @@
+{
+  "schema": "fbe-factory-spec-v1",
+  "factory_id": "forge-app-factory-v1",
+  "spec_version": "1.0.0",
+  "saved_at": "2026-06-17T16:00:00Z",
+  "kind": "engine",
+  "kernel": {
+    "id": "fbe-v1",
+    "min_version": "fbe-v1.0.0",
+    "graph_source": "data/fbe_node_graph_v1.json",
+    "line_node_count": 76
+  },
+  "lines": ["trust_motor", "refinery", "assembly"],
+  "runtime": {
+    "bay_slug": "forge-bay",
+    "default_tenant": "forge",
+    "wave": "W5",
+    "factory_id_internal": "factory_3",
+    "pipelines": ["forge_refinery_w5", "forge_assembly_w5", "full_job_w5"],
+    "api_route": "/api/fbe/run-forge/v1",
+    "cloud_entry": "--run-forge",
+    "execution_mode": "CLOUD_ONLY"
+  },
+  "io": {
+    "input_schema": "data/schemas/forge-input-v1.json",
+    "output_schema": "data/schemas/run-receipt-output-v1.json",
+    "output_artifact": "Controlled deploy pack + RunReceipt",
+    "certainty_report": true
+  },
+  "governance": {
+    "policy_pack": "trust_motor",
+    "tier_cap_honest": "GOLD",
+    "delivery_mode": "prove_only"
+  },
+  "commercial": {
+    "name": "Controlled App Factory",
+    "display_name": "Controlled App Factory",
+    "product_tenant": "Forge",
+    "vocabulary_ssot": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+    "tagline": "App spec and inbox in — controlled G0–G3 prove pack out for Forge product SKU.",
+    "tier_label": "engine",
+    "buyer": "Forge product · THREAD-FORGE",
+    "hero": false,
+    "maintenance_fee_usd": 3500,
+    "compute_note": "Pay-as-you-go MicroVM seconds"
+  }
+}

@@ -1,0 +1,18 @@
+schema_version: 1
+repo: virlux
+task: staging smoke test
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed: []
+  diff_summary: ''
+  note: ''
+tests:
+  status: passed
+  command: ./scripts/live-pilot-deploy-check.sh
+  output_snippet: all gates PASS
+real_output: all gates PASS
+reported_at: '2026-06-02T12:00:00Z'
+reporter: cursor
+execution_id: ''

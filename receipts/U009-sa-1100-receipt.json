@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U009",
+  "title": "URL reachability cache 24h for interest assets",
+  "evidence": "check_url_reachability() 24h cache via _url_ok_cached; stale unreachable flagged once (probed=1 then cached=1, no re-probe)",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:30:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

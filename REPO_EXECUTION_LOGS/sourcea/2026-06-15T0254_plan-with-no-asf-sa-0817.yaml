@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0817 — Validate H2 light refresh does not trigger build-sina-command-panel
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0817
+tests:
+  status: passed
+  output_snippet: archive/attachments/2026-06-15/sa-0817-h2-light-refresh-no-panel-build_LOCKED_v1.md
+reported_at: '2026-06-15T02:54:38Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

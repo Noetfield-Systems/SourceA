@@ -1,0 +1,116 @@
+{
+  "schema": "eval-packet-tasks-v1b",
+  "version": 2,
+  "tasks": [
+    {
+      "id": "bugfix-gate",
+      "category": "bugfix",
+      "prompt": "Fix model_dispatch when gate_eligible is false in enforce mode",
+      "expected_keywords": ["gate_eligible", "enforce", "model_dispatch", "block"],
+      "expected_paths": ["scripts/model_dispatch.py", "scripts/gate_receipts_hub.py"],
+      "live_pilot": true
+    },
+    {
+      "id": "plan-eval-1b",
+      "category": "planning",
+      "prompt": "Plan Eval-1b behavioral harness comparing packet context vs raw LLM on fixed tasks",
+      "expected_keywords": ["eval", "packet", "raw", "", "A/B"],
+      "expected_paths": [
+        "scripts/eval_packet_v1b/runner.py",
+        "scripts/eval_packet_v1/runner.py",
+        "scripts/eval_packet_v1b/scorer.py"
+      ],
+      "live_pilot": true
+    },
+    {
+      "id": "retrieve-dispatch",
+      "category": "retrieval",
+      "prompt": "Where is dispatch_ready set false in the runtime orchestrator?",
+      "expected_keywords": ["dispatch_ready", "orchestrator", "false", "runtime"],
+      "expected_paths": [
+        "scripts/runtime/orchestrator/orchestrator_engine.py",
+        "scripts/runtime/multi_step_planner/planner_engine.py"
+      ],
+      "live_pilot": true
+    },
+    {
+      "id": "governance-rules",
+      "category": "governance",
+      "prompt": "How do agents run rules-in-charge every session in the hub?",
+      "expected_keywords": ["rules", "charge", "agent", "session", "validator"],
+      "expected_paths": ["scripts/agent_rules_in_charge.py", "scripts/agent_rules_loop_orchestrator.py"],
+      "live_pilot": true
+    },
+    {
+      "id": "gov-probe-portfolio-ssot",
+      "category": "governance_probe",
+      "probe_week": 8,
+      "prompt": "What's the one locked file for SourceA portfolio and commercial truth?",
+      "expected_keywords": [
+        "SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md",
+        "portfolio",
+        "commercial"
+      ],
+      "expected_paths": ["SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md"],
+      "forbidden_paths": ["SOURCEA_PORTFOLIO_SSOT", "archive/", "superseded/"],
+      "live_pilot": false
+    },
+    {
+      "id": "gov-probe-fake-green",
+      "category": "governance_probe",
+      "probe_week": 8,
+      "prompt": "Form shows zero open rows — are we done shipping enterprise progress?",
+      "expected_keywords": [
+        "NO",
+        "fake",
+        "SHIP",
+        "validate-no-fake-progress-form-v1",
+        "ANSWERED"
+      ],
+      "expected_paths": [
+        "SOURCEA_NO_FAKE_PROGRESS_ENTERPRISE_SHIP_LOCKED_v1.md",
+        "scripts/validate-no-fake-progress-form-v1.sh"
+      ],
+      "live_pilot": false
+    },
+    {
+      "id": "gov-probe-receipt-tamper",
+      "category": "governance_probe",
+      "probe_week": 8,
+      "prompt": "If someone edits a governance receipt after the run, what must the machine do?",
+      "expected_keywords": ["checksum", "FAIL", "tamper", "verify_receipt_checksum"],
+      "expected_paths": [
+        "scripts/commit_intent_v1.py",
+        "scripts/validate-demo-enforcement-v1.sh"
+      ],
+      "live_pilot": false
+    },
+    {
+      "id": "factory-runreceipt",
+      "category": "factory",
+      "prompt": "Define RunReceipt artifacts run.jsonl summary.json HTML pack for wire lane",
+      "expected_keywords": ["run.jsonl", "summary", "receipt", "wire", "PASS"],
+      "expected_paths": ["scripts/runreceipt/pack_v1.py", "product/RUNRECEIPT_ARTIFACT_SCHEMA_LOCKED_v1.md"],
+      "live_pilot": true
+    },
+    {
+      "id": "event-bus",
+      "category": "runtime",
+      "prompt": "Where is the event bus pub/sub implemented for the runtime fabric?",
+      "expected_keywords": ["event", "bus", "pub", "topic"],
+      "expected_paths": ["scripts/runtime/event_bus/bus_v1.py"],
+      "live_pilot": false
+    },
+    {
+      "id": "l8-hybrid",
+      "category": "retrieval",
+      "prompt": "How does L8 hybrid embedding retrieval extend D5 token index?",
+      "expected_keywords": ["embedding", "vector", "hybrid", "retrieval"],
+      "expected_paths": [
+        "scripts/pre_llm/vector_retrieval/embedding_provider.py",
+        "scripts/pre_llm/vector_retrieval/query_engine.py"
+      ],
+      "live_pilot": false
+    }
+  ]
+}

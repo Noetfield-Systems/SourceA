@@ -1,0 +1,94 @@
+{
+  "schema": "mcp-chain-campus-registries-v1",
+  "saved_at": "2026-06-19T12:00:00Z",
+  "authority": "docs/suggestion-packs/CROSS_REPO_MCP_CHAIN_MASTER_INDEX_LOCKED_v1.md",
+  "mac_role": "control_plane_only",
+  "cloud_role": "execution_plane_headless",
+  "cursor_bootstrap": {
+    "master": "data/cursor-corporate-bootstrap-master-v1.json",
+    "ledger": "data/cursor-bootstrap-ledger-v1.json",
+    "pack_doc": "docs/CURSOR_CORPORATE_BOOTSTRAP_PACK_LOCKED_v1.md",
+    "context_index": "docs/CURSOR_CONTEXT_INDEX_LOCKED_v1.md",
+    "validator": "scripts/validate-cursor-bootstrap-v1.sh",
+    "rule": ".cursor/rules/024-cursor-enterprise-bootstrap.mdc",
+    "receipt": "data/cursor-bootstrap-ship-receipt-v1.json"
+  },
+  "campuses": {
+    "sourcea": {
+      "repo_root": "~/Desktop/SourceA",
+      "cursor_bootstrap_ledger": "data/cursor-bootstrap-ledger-v1.json",
+      "suggestion_pack": "docs/suggestion-packs/SOURCEA_MCP_CHAIN_MOTOR_PLAN_LOCKED_v1.md",
+      "mcp_servers": [
+        {
+          "registry_name": "io.github.sinakazemnezhad/sourcea-verify",
+          "package": "@sourcea/mcp-verify",
+          "tools": ["verify_run", "factory_status", "form_pick_parse", "emit_receipt_readonly"]
+        }
+      ],
+      "cloud_deploy": ["vercel-serverless", "cloudflare-worker-optional"],
+      "pick_command": "python3 scripts/mcp_chain_pick_v1.py --campus sourcea --step 031"
+    },
+    "virlux": {
+      "repo_root": "~/Desktop/VIRLUX",
+      "suggestion_pack": "docs/suggestion-packs/VIRLUX_MCP_CLOUD_CHAIN_PLAN_LOCKED_v1.md",
+      "copy_to": "os/plan-library/SOURCEA_SUGGESTION_MCP_CHAIN_LOCKED_v1.md",
+      "mcp_servers": [
+        {
+          "registry_name": "io.github.virlux/virlux-verify",
+          "package": "@virlux/mcp-verify-factory",
+          "tools": ["run_sandbox_verify", "get_certainty_report", "list_factories", "catalog_honest_label"]
+        }
+      ],
+      "cloud_deploy": ["vercel", "railway-api", "supabase-edge-optional"],
+      "site_route": "/dashboard/factory",
+      "pick_command": "npm run mcp:chain:pick -- --step 031"
+    },
+    "noetfield": {
+      "repo_root": "~/Desktop/Noetfield/Noetfield-All-Documents/Noetfield",
+      "suggestion_pack": "docs/suggestion-packs/NOETFIELD_MCP_CLOUD_CHAIN_PLAN_LOCKED_v1.md",
+      "copy_to": "os/plan-library/SOURCEA_SUGGESTION_MCP_CHAIN_LOCKED_v1.md",
+      "mcp_servers": [
+        {
+          "registry_name": "io.github.noetfield/noetfield-governance",
+          "package": "@noetfield/mcp-governance",
+          "tools": ["evaluate_pick", "export_board_line", "tle_receipt_status", "list_factories"]
+        }
+      ],
+      "cloud_deploy": ["azure-functions", "vercel", "supabase"],
+      "site_route": "/factory/",
+      "pick_command": "make mcp-chain-pick STEP=031"
+    },
+    "trustfield": {
+      "repo_root": "~/Desktop/TrustField Technologies",
+      "suggestion_pack": "docs/suggestion-packs/TRUSTFIELD_MCP_CLOUD_CHAIN_PLAN_LOCKED_v1.md",
+      "copy_to": "os/plan-library/SOURCEA_SUGGESTION_MCP_CHAIN_LOCKED_v1.md",
+      "mcp_servers": [
+        {
+          "registry_name": "io.github.trustfield/trustfield-compliance",
+          "package": "@trustfield/mcp-compliance",
+          "tools": ["checklist_status", "evidence_export", "sandbox_compliance_run", "list_factories"]
+        }
+      ],
+      "cloud_deploy": ["vercel", "railway", "supabase"],
+      "site_route": "/factory",
+      "pick_command": "bash scripts/pick_mcp_chain_step.sh 031"
+    }
+  },
+  "chain_partners": {
+    "cursor": { "role": "host", "bundle": "plugin-skills-mcp-rules", "cloud_agents_mcp": true },
+    "github": { "role": "action_layer", "pattern": "after_pr_create_emit_receipt" },
+    "linear": { "role": "gtm_mirror", "team": "GOV SOURCEA" },
+    "supabase": { "role": "campus_data", "not_sourcea_ssot": true },
+    "vercel": { "role": "deploy_proof_url", "gate_k": true },
+    "playwright": { "role": "e2e_verify", "campus": "virlux" },
+    "stripe": { "role": "billing_p3", "campus": "noetfield" },
+    "composio": { "role": "gateway_partner_p2", "posture": "receipt_layer_not_compete" }
+  },
+  "forbidden": [
+    "mcp_write_sina_receipts",
+    "replace_session_gate",
+    "replace_run_inbox",
+    "mac_production_execution",
+    "t0_marketing_mcp_names"
+  ]
+}

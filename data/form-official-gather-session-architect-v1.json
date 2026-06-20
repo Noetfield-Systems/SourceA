@@ -1,0 +1,127 @@
+{
+  "schema": "form-official-gather-session-v1",
+  "saved_at": "2026-06-19T07:30:00Z",
+  "thread": "ASF architect show · strategic slice · gather no-lost law",
+  "law": "All chat A/B/C offered → FORM_OFFICIAL Canvas · rows stay until founder PICK · FAIL immediate on tamper",
+  "rows": [
+    {
+      "id": "Q-SESSION-GATHER-NO-LOST",
+      "title": "Lock — every chat A/B/C lands on FORM_OFFICIAL",
+      "question": "Confirm: agents must save every unpicked A/B/C/D offer to official form Canvas. Chat is never SSOT. Tamper or skip = FAIL immediate.",
+      "blocks": "ASF order 2026-06-19 · SOURCEA_LIVE_FOUNDER_DECISION_FORM · human-machine nerve",
+      "diskToday": "108 rows gathered · 52 fresh · intake on ~/.sina · M1 Canvas wired",
+      "recommended": "A",
+      "options": [
+        "A — YES — chat forks → form only · FAIL immediate if lost (recommended)",
+        "B — Chat OK for picks — form optional",
+        "C — Form for P0 only — chat for rest",
+        "D — Pause form — chat only until RT LIVE"
+      ],
+      "effect": "Locks controlled agentic automation — SourceA reference standard for disk policy dispatch",
+      "asked_by": "ASF gather no-lost order 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-SESSION-GATHER-NO-LOST A",
+      "gather_tier": "P0_meta",
+      "gather_category": "phase_law",
+      "evidence_path": "scripts/form_official_gather_extraction_v1.py"
+    },
+    {
+      "id": "Q-SESSION-ARCH-PILLAR",
+      "title": "Strategic slice — next bounded WORK pillar?",
+      "question": "Three pillars logged: (1) billing fbe_billing_* + StoreKit ledger (2) creative factory ElevenLabs+render bridge+OEGCC HITL (3) analytics Phase3 telemetry after W6. Which gets next WORK order?",
+      "blocks": "strategic slice thread · multi-factory blueprint · architecture-ledger-v1",
+      "diskToday": "billing stub PASS · video-ad partial · factory_cost_intelligence 100 examples PASS",
+      "recommended": "A",
+      "options": [
+        "A — Pillar 1 billing — name Supabase project + apply migration-001 (recommended)",
+        "B — Pillar 2 creative — WORK OEGCC HITL in orchestrator",
+        "C — Pillar 3 analytics — extend telemetry after W6 stable",
+        "D — Parallel all three thin slices"
+      ],
+      "effect": "Routes Brain planner + Worker INBOX after form picks",
+      "asked_by": "Brain architect show thread 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-SESSION-ARCH-PILLAR A",
+      "gather_tier": "P0_final_fix",
+      "gather_category": "architecture",
+      "evidence_path": "docs/SOURCEA_MULTI_FACTORY_ENTERPRISE_BLUEPRINT_LOCKED_v1.md"
+    },
+    {
+      "id": "Q-SESSION-ARCH-SCAFFOLD",
+      "title": "Scaffold apple-store-api subdirs now?",
+      "question": "Gemini tree has core/billing/push-gateway. SourceA has README+rules only. Scaffold empty dirs + epoch bump in architecture ledger?",
+      "blocks": "apps/apple-store-api · Gemini vs SourceA architect gap",
+      "diskToday": "PHASE_2 reserved · StoreKit ledger deferred · subdirs absent",
+      "recommended": "B",
+      "options": [
+        "A — Scaffold now — core/ billing/ push-gateway/ README stubs",
+        "B — After Supabase WORK + top form PICKs (recommended)",
+        "C — Wait until iOS app WORK order",
+        "D — Never apple-store-api — web only"
+      ],
+      "effect": "Closes Gemini vs disk folder gap without mixing factories",
+      "asked_by": "Brain architect show · Gemini comparison 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-SESSION-ARCH-SCAFFOLD B",
+      "gather_tier": "P1_integrity_core",
+      "gather_category": "architecture",
+      "evidence_path": "data/architecture-ledger-v1.json"
+    },
+    {
+      "id": "Q-SESSION-ARCH-GEMINI-WS",
+      "title": "Gemini monorepo — root package.json workspaces?",
+      "question": "Gemini proposed Yarn/Bun workspaces at repo root. SourceA has packages/ + apps/ but no root package.json. Add workspaces now?",
+      "blocks": "Gemini blueprint · cursor-bootstrap-ledger · do_not_fork law",
+      "diskToday": "commercial-video-factory has own package.json · apps/ scaffolds README-only",
+      "recommended": "B",
+      "options": [
+        "A — Add root package.json workspaces now",
+        "B — Defer until video-ad-factory TS port WORK (recommended)",
+        "C — Bun only — no Yarn",
+        "D — Reject monorepo — keep scripts/ machine path"
+      ],
+      "effect": "Prevents fragmentation vs Gemini fork",
+      "asked_by": "Gemini architect tree comparison 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-SESSION-ARCH-GEMINI-WS B",
+      "gather_tier": "P1_integrity_core",
+      "gather_category": "architecture"
+    },
+    {
+      "id": "Q-SESSION-ARCH-REFSTD",
+      "title": "SourceA — reference standard for agentic prof logged?",
+      "question": "Lock positioning: SourceA = controlled pre-LLM agentic runtime · policy dispatch · receipt standard — not generic video SaaS?",
+      "blocks": "SOURCEA_REFERENCE_ARCHITECTURE_CONSTELLATION · Proof Layer · WTM",
+      "diskToday": "Card1 Proof Layer disk-ready · governance spine on Mac · cloud execution plane",
+      "recommended": "A",
+      "options": [
+        "A — YES — reference standard for controlled agentic automation (recommended)",
+        "B — Video factory product only",
+        "C — MCP marketplace plugin only",
+        "D — Internal tooling — no public standard claim"
+      ],
+      "effect": "Sets buyer + agent vocabulary for all lanes",
+      "asked_by": "ASF SourceA identity thread 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-SESSION-ARCH-REFSTD A",
+      "gather_tier": "P0_final_fix",
+      "gather_category": "strategy",
+      "evidence_path": "SOURCEA_REFERENCE_ARCHITECTURE_CONSTELLATION_LOCKED_v1.md"
+    },
+    {
+      "id": "Q-SESSION-ARCH-UNIFY-PLAN",
+      "title": "Post-gather — Brain unify routing plan authority?",
+      "question": "brain-form-gather-unify-routing-plan-v1.json routes waves to founder/brain/worker/maintainer/FBE. Lock as Brain planner SSOT after gather?",
+      "blocks": "brain_form_gather_unify_plan_v1.py · FAIL_IMMEDIATE_NO_TEMPER",
+      "diskToday": "6 waves · fresh rows routed · fail-closed dispatch chain",
+      "recommended": "A",
+      "options": [
+        "A — YES — Brain planner SSOT · Worker executes picks only (recommended)",
+        "B — Worker self-routes — no Brain plan",
+        "C — Chat routing only",
+        "D — Defer until form empty"
+      ],
+      "effect": "Closes gather→plan→route pipeline without chat loss",
+      "asked_by": "ASF Brain planner role 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-SESSION-ARCH-UNIFY-PLAN A",
+      "gather_tier": "P0_meta",
+      "gather_category": "phase_law",
+      "evidence_path": "data/brain-form-gather-unify-routing-plan-v1.json"
+    }
+  ]
+}

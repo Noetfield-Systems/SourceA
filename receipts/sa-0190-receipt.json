@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0190",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "eval-1b scaffold 7/7 (100%) after live pilot 4/5 (80%); validate-eval-packet-v1b.sh PASS; find_critical_bugs critical 0",
+  "at": "2026-06-09T01:22:25Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

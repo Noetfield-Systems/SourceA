@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0550",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0550 VERIFY \u2014 T1 commercial lane G3 vault evidence dedup via crossref canonical sa-0525",
+  "at": "2026-06-14T18:27:09Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

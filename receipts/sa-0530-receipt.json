@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0530",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0530 VERIFY PASS \u2014 T1 RUNRECEIPT schema hub link dedup via crossref sa-0505",
+  "at": "2026-06-14T15:08:11Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

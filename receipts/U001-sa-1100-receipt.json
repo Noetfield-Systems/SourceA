@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U001",
+  "title": "Add generic-skeleton detector for spending time with teams pattern",
+  "evidence": "check_generic_skeleton() wired in best_loop_oqg_score_v1.py; skeleton FAIL oqg_pass=False; ocree 92% fundmore 90% PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T00:55:57Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

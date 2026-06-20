@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0057",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0057 PASS \u2014 eval live not_here regression wired (validate-eval-live-not-here-regression-v1); validate-phase-s0-ssot-alignment-v1; critical 0",
+  "at": "2026-06-09T23:57:47Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0169 — Validate eval packet win_pct in command-data matches live report
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0169
+tests:
+  status: passed
+  output_snippet: validate-command-data-eval-win-pct-v1 PASS hub matches disk eval reports
+reported_at: '2026-06-08T15:07:19Z'
+reporter: cursor-worker-batch

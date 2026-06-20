@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0183 — Cross-check DISPATCH_POLICY_LOCKED_v1.md classes vs policy_engine.py
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0183
+tests:
+  status: passed
+  output_snippet: validate-dispatch-policy-classes-v1 law_classes_ok 3 classes mapping_ok; dispatch-policy-alignment PASS; critical 0
+reported_at: '2026-06-08T17:39:51Z'
+reporter: cursor-worker-batch

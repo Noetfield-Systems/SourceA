@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U005",
+  "title": "Duplicate 4-gram phrase penalty tuning",
+  "evidence": "check_duplicate_phrase() wired; flat -5 once per body regardless of repeat count",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:07:36Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

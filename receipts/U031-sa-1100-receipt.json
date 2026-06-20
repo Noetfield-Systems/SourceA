@@ -1,0 +1,14 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U031",
+  "title": "U031 RRL per-account history",
+  "evidence": "response-reality-layer-history-v1.jsonl append-only cap 10",
+  "at": "2026-06-19T00:35:14Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "migrated_from": "receipts/sa-1100-receipt.json",
+  "migrated_at": "2026-06-19T00:50:16Z"
+}

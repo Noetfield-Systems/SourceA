@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SourceA Road Map</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, 'SF Mono', monospace; background: #0a0a0a; color: #bbb; padding: 16px 20px; font-size: 13px; }
+.hdr { margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid #2a2a2a; }
+.hdr h1 { font-size: 16px; color: #fff; font-weight: 600; margin-bottom: 6px; }
+.road { font-size: 12px; color: #888; line-height: 1.6; }
+.road strong { color: #4ade80; }
+.here { color: #facc15; font-weight: 600; }
+.sys { font-size: 11px; color: #666; margin-top: 6px; }
+.sys .ok { color: #4ade80; }
+.sys .bad { color: #f87171; }
+.bar { height: 4px; background: #1a1a1a; border-radius: 2px; margin: 10px 0 12px; overflow: hidden; }
+.bar-fill { height: 100%; background: #4ade80; border-radius: 2px; }
+.ctrl { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+.ctrl button { font-size: 11px; background: #141414; border: 1px solid #333; color: #999; padding: 5px 11px; border-radius: 4px; cursor: pointer; }
+.ctrl button.on { border-color: #4ade80; color: #4ade80; }
+.ctrl input { font-size: 11px; background: #111; border: 1px solid #333; color: #ccc; padding: 5px 8px; border-radius: 4px; width: 72px; }
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; font-size: 10px; color: #777; text-transform: uppercase; padding: 8px 6px; border-bottom: 1px solid #333; background: #0f0f0f; position: sticky; top: 0; z-index: 1; }
+td { padding: 5px 6px; border-bottom: 1px solid #161616; }
+tr:hover td { background: #141414; }
+.col-n { color: #666; width: 40px; text-align: right; font-size: 11px; }
+.col-sa { color: #eee; font-weight: 600; width: 72px; }
+.col-v { width: 52px; text-align: center; font-weight: 600; font-size: 10px; }
+.col-r { width: 48px; text-align: center; font-size: 10px; font-weight: 600; }
+.col-m { width: 48px; text-align: center; font-size: 10px; font-weight: 600; }
+.pass { color: #4ade80; }
+.pend { color: #facc15; }
+.fail { color: #f87171; }
+.wait { color: #555; }
+.stale { color: #a78bfa; }
+.v-yes { color: #4ade80; }
+.v-part { color: #fb923c; }
+.v-fake { color: #f87171; }
+.v-pend { color: #facc15; }
+.r-ok { color: #4ade80; }
+.r-fake { color: #f87171; }
+.r-mixed { color: #fb923c; }
+.r-yaml { color: #a78bfa; }
+.r-none { color: #666; }
+.m-done { color: #4ade80; }
+.m-here { color: #facc15; background: #1a1500; }
+.m-queue { color: #60a5fa; }
+.m-road { color: #444; }
+.m-gap { color: #fb923c; }
+.m-fail { color: #f87171; }
+.wrap { max-height: calc(100vh - 180px); overflow-y: auto; border: 1px solid #2a2a2a; border-radius: 6px; }
+.foot { margin-top: 10px; font-size: 10px; color: #444; line-height: 1.5; }
+.err { color: #f87171; padding: 14px; }
+.freeze { color: #fb923c; font-weight: 600; }
+.phase { font-size: 11px; color: #60a5fa; margin-top: 4px; }
+.live { font-size: 10px; color: #4ade80; margin-top: 4px; }
+.live.off { color: #f87171; }
+.live .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #4ade80; margin-right: 5px; vertical-align: middle; }
+.live.off .dot { background: #f87171; }
+.live-next-10 { margin: 8px 12px 0; padding: 10px 12px; background: #111; border: 1px solid #2a2a2a; border-radius: 6px; font-size: 12px; }
+.live-next-10 summary { cursor: pointer; color: #9cf; font-weight: 600; }
+.live-next-10 ul { margin: 8px 0 0; padding-left: 18px; max-height: 180px; overflow: auto; }
+.live-next-10 li.now { color: #fbbf24; }
+.live-next-10 .meta { color: #888; font-size: 11px; margin-top: 6px; }
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <h1>SourceA Road Map · 1 → 1000</h1>
+  <div class="road" id="summary">Loading…</div>
+  <div class="sys" id="dual">Loading system validation…</div>
+  <div class="phase" id="factory">Loading factory…</div>
+  <div class="live" id="live"><span class="dot"></span>Disk wire: connecting…</div>
+  <details class="live-next-10-panel live-next-10" id="live-next-10-panel" open>
+    <summary>Next 10 turns (live prompt feed)</summary>
+    <p class="meta" id="live-next-10-meta">Loading…</p>
+    <ul id="live-next-10-list"></ul>
+  </details>
+  <div class="bar"><div class="bar-fill" id="bar" style="width:0%"></div></div>
+</div>
+
+<div class="ctrl">
+  <button class="on" data-f="road">Full road</button>
+  <button data-f="queue">Queue</button>
+  <button data-f="attention">Needs fix</button>
+  <button data-f="done">Done</button>
+  <input id="jump" placeholder="# or sa" title="Jump to number">
+  <button onclick="jumpTo()">Go</button>
+  <button onclick="scrollHere()" title="Founder opt-in only — never auto-scroll">Here</button>
+  <button onclick="load()" style="margin-left:auto">↺</button>
+</div>
+
+<div class="wrap" id="scroller">
+  <table>
+    <thead>
+      <tr>
+        <th class="col-n">#</th>
+        <th>SA</th>
+        <th class="col-v">Worker</th>
+        <th class="col-v">Broker</th>
+        <th class="col-v">Valid</th>
+        <th class="col-v" title="Global snapshot sync — PEND on green rows ≠ redo">Brain sync</th>
+        <th class="col-v">Maint</th>
+        <th class="col-r">Recipe</th>
+        <th class="col-m">Map</th>
+      </tr>
+    </thead>
+    <tbody id="rows"><tr><td colspan="9" style="padding:14px;color:#555">Loading…</td></tr></tbody>
+  </table>
+</div>
+
+<div class="foot">
+  Progress = <strong>Valid YES</strong> (Worker+Broker) · <strong>Brain sync</strong> = hygiene+brain_validate agrees ·
+  <strong>Maint</strong> = gate scripts PASS · Recipe = proof type · No human ticks — disk only ·
+  Brain sync PEND on Valid YES = global snapshot lag, not redo ·
+  <strong>Founder respect:</strong> scroll stays where you left it — tap <strong>Here</strong> or <strong>Go</strong> to jump ·
+  <strong>Execution:</strong> Worker <strong>run inbox</strong> only (disk truth in INBOX) — Prompt feed 10-batch is advisory
+</div>
+
+<script>
+if (location.protocol === 'file:') location.replace('http://127.0.0.1:13021/monitor');
+
+const API = location.origin;
+let filter = 'road';
+const VCLS = { PASS:'pass', PEND:'pend', FAIL:'fail', WAIT:'wait', STALE:'stale' };
+const VALID_CLS = { YES:'v-yes', PARTIAL:'v-part', FAKE:'v-fake', NO:'fail', PEND:'v-pend', WAIT:'wait' };
+const RCLS = { OK:'r-ok', FAKE:'r-fake', MIXED:'r-mixed', YAML:'r-yaml', NONE:'r-none', '—':'wait' };
+const MCLS = { DONE:'m-done', HERE:'m-here', QUEUE:'m-queue', ROAD:'m-road', GAP:'m-gap', FAIL:'m-fail' };
+
+document.querySelector('.ctrl').onclick = (e) => {
+  const b = e.target.closest('button[data-f]');
+  if (!b) return;
+  filter = b.dataset.f;
+  document.querySelectorAll('button[data-f]').forEach(x => x.classList.toggle('on', x.dataset.f === filter));
+  load();
+};
+
+function jumpTo() {
+  const v = document.getElementById('jump').value.trim().toLowerCase().replace('sa-','');
+  const n = parseInt(v, 10);
+  const row = document.querySelector(`tr[data-n="${n}"]`) || document.querySelector(`tr[data-sa="sa-${String(n).padStart(4,'0')}"]`);
+  if (row) row.scrollIntoView({ block: 'center', behavior: 'smooth' });
+}
+
+function scrollHere() {
+  const row = document.querySelector('tr[data-here="1"]');
+  if (row) row.scrollIntoView({ block: 'center', behavior: 'smooth' });
+}
+
+/** Founder respect: never steal scroll position on load/refresh — only explicit Here/Go. */
+const SCROLL_KEY = 'sourcea_monitor_scroll_v1';
+function saveScroll() {
+  const sc = document.getElementById('scroller');
+  if (sc) sessionStorage.setItem(SCROLL_KEY, String(sc.scrollTop));
+}
+function restoreScroll() {
+  const sc = document.getElementById('scroller');
+  const v = sessionStorage.getItem(SCROLL_KEY);
+  if (sc && v != null) sc.scrollTop = parseInt(v, 10) || 0;
+}
+document.getElementById('scroller')?.addEventListener('scroll', () => {
+  clearTimeout(window._scrollSaveT);
+  window._scrollSaveT = setTimeout(saveScroll, 120);
+}, { passive: true });
+
+function pill(ok, label, stale) {
+  const txt = ok ? 'PASS' : (stale ? 'SNAPSHOT STALE' : 'PEND/FAIL');
+  return `<span class="${ok ? 'ok' : 'bad'}">${label} ${txt}</span>`;
+}
+
+async function load() {
+  const tb = document.getElementById('rows');
+  const sm = document.getElementById('summary');
+  const dual = document.getElementById('dual');
+  const factory = document.getElementById('factory');
+  const scroller = document.getElementById('scroller');
+  const prevScroll = scroller ? scroller.scrollTop : 0;
+  try {
+    const res = await fetch(API + '/api/validator-list?filter=' + encodeURIComponent(filter) + '&live=1', { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const d = await res.json();
+    const y = d.you_are_here || {};
+    const prog = d.progress || {};
+    const dp = d.dual_proof || {};
+    const validYes = prog.valid_yes != null ? prog.valid_yes : (d.counts && d.counts.valid_yes) || 0;
+    const mapDone = prog.map_done != null ? prog.map_done : (d.counts && d.counts.done_both) || 0;
+    const receiptDone = d.receipt_done != null ? d.receipt_done : (d.honest_done || 0);
+    const pct = prog.pct != null ? prog.pct : Math.round(validYes / (d.total || 1000) * 100);
+    document.getElementById('bar').style.width = pct + '%';
+    const vb = d.valid_breakdown || {};
+    const stale = (d.counts && d.counts.broker_stale) || (d.integrity && d.integrity.broker_stale) || 0;
+    const hereLabel = y.queue_exhausted
+      ? `<span class="here">Queue complete · pos ${y.queue_pos || '?'}</span>`
+      : `<span class="here">HERE #${y.n || '?'} ${y.sa_id || '—'} ${(y.role||'').toUpperCase()}</span>`;
+    sm.innerHTML =
+      `<strong>${validYes}</strong> / ${d.total || 1000} Valid YES (${pct}%) · Map DONE ${mapDone} · `
+      + `receipts ${receiptDone} · STALE broker <strong class="stale">${stale}</strong> · PARTIAL ${vb.PARTIAL||0} · `
+      + hereLabel;
+    const h = dp.hygiene || {};
+    const b = dp.brain || {};
+    const m = dp.maintainer || {};
+    const brainVy = b.valid_yes;
+    const brainGap = b.ok === false && brainVy != null && brainVy !== validYes;
+    const mismatchLine = brainGap
+      ? ` · <span class="bad">brain snapshot ${brainVy} · live ${validYes} — tap ↺ after Brain sync</span>`
+      : '';
+    dual.innerHTML =
+      `System: Hygiene ${pill(h.ok, '')} · Brain sync ${pill(b.ok, '', brainGap)}${mismatchLine} · Maintainer ${pill(m.ok, '')} · `
+      + `dual_proof ${dp.dual_proof_ok ? '<span class="ok">LOCKED OK</span>' : '<span class="bad">GAP</span>'}`;
+    const fn = d.factory_now || {};
+    const ps = d.phase_strict || {};
+    const mode = fn.mode || '—';
+    const freeze = fn.kill_flag ? '<span class="freeze">FREEZE</span>' : mode;
+    const qtot = y.queue_total || prog.queue_total || '';
+    const porder = ps.order || '';
+    factory.innerHTML =
+      `Factory: ${freeze} · queue ${y.queue_pos || '?'}/${qtot || '?'} · `
+      + (porder ? `PHASE_STRICT ${porder}` : 'rail default')
+      + (fn.inbox_pending ? ' · <span class="here">INBOX pending</span>' : '');
+    const ml = d.monitor_live || {};
+    const liveEl = document.getElementById('live');
+    const syncAt = ml.at || d.server_at || d.at || '';
+    const wired = d.disk_wired !== false && !d.error;
+    liveEl.className = wired ? 'live' : 'live off';
+    liveEl.innerHTML =
+      `<span class="dot"></span>Disk wire ${wired ? 'LIVE' : 'STALE'} · sync ${syncAt || '—'} · `
+      + `auto 5s · no agent refresh`;
+    const rows = d.rows || [];
+    if (!rows.length) {
+      tb.innerHTML = '<tr><td colspan="9" class="err">No rows</td></tr>';
+      return;
+    }
+    tb.innerHTML = rows.map(r => {
+      const here = r.map === 'HERE' ? ' data-here="1"' : '';
+      const trCls = r.map === 'HERE' ? ' style="background:#1a1500"' : '';
+      const v = r.valid || 'WAIT';
+      const rec = r.recipe || '—';
+      const brainTip = (r.brain === 'PEND' && v === 'YES')
+        ? 'Snapshot stale — row is Valid YES; Hub tap Fix Brain sync + ↺'
+        : (r.brain === 'PEND' ? 'Awaiting brain validation sync' : '');
+      return `<tr${trCls} data-n="${r.n}" data-sa="${r.sa_id}"${here}>
+        <td class="col-n">${r.n}</td>
+        <td class="col-sa">${r.sa_id}</td>
+        <td class="col-v ${VCLS[r.worker]||'wait'}">${r.worker}</td>
+        <td class="col-v ${VCLS[r.broker]||'wait'}">${r.broker}</td>
+        <td class="col-v ${VALID_CLS[v]||'wait'}">${v}</td>
+        <td class="col-v ${VCLS[r.brain]||'wait'}" title="${brainTip}">${r.brain||'WAIT'}</td>
+        <td class="col-v ${VCLS[r.maintainer]||'wait'}">${r.maintainer||'WAIT'}</td>
+        <td class="col-r ${RCLS[rec]||'wait'}" title="${r.proof||''}">${rec}</td>
+        <td class="col-m ${MCLS[r.map]||'m-road'}">${r.map}</td>
+      </tr>`;
+    }).join('');
+    if (scroller) scroller.scrollTop = prevScroll;
+    restoreScroll();
+  } catch (e) {
+    sm.textContent = 'Cannot load road map';
+    dual.textContent = '';
+    tb.innerHTML = `<tr><td colspan="9" class="err">${e.message}</td></tr>`;
+  }
+}
+
+async function loadLiveNext10() {
+  const meta = document.getElementById('live-next-10-meta');
+  const list = document.getElementById('live-next-10-list');
+  if (!meta || !list) return;
+  try {
+    const res = await fetch(API + '/api/live-ongoing-prompts', { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const d = await res.json();
+    const live = d.live_ongoing_prompts || d;
+    const turns = live.turns || [];
+    const cursor = live.cursor_pos || '—';
+    meta.textContent = `Cursor ${cursor} / ${live.queue_total || '—'} · built ${live.built_at || '—'}`;
+    list.innerHTML = turns.map(t => {
+      const cls = t.is_current ? ' class="now"' : '';
+      const role = (t.queue_role || '').toUpperCase();
+      return `<li${cls}><strong>${t.queue_pos}</strong> · ${role} · ${t.sa_id || ''} — ${(t.title || '').slice(0, 60)}</li>`;
+    }).join('') || '<li>No turns</li>';
+  } catch (e) {
+    meta.textContent = 'Live feed unavailable';
+    list.innerHTML = `<li class="err">${e.message}</li>`;
+  }
+}
+
+load();
+loadLiveNext10();
+setInterval(load, 5000);
+setInterval(loadLiveNext10, 5000);
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) load();
+});
+</script>
+</body>
+</html>

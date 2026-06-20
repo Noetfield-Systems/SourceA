@@ -1,0 +1,304 @@
+# [Research Acquisitor · RESEARCH-ACQUISITOR-REF-2026-06-07-NOETFIELD-BLUEPRINT-V2-001] rr-20260608-bba05d73
+trace:
+  agent_name: Research Acquisitor
+  agent_id: research_acquisitor
+  trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-NOETFIELD-BLUEPRINT-V2-001
+  ref_tag: RESEARCH-ACQUISITOR-NOETFIELD-BLUEPRINT-V2-001
+  registry_id: rr-20260608-bba05d73
+  session_transcript: 85dd7cd4-0977-4cfc-9449-ea278ea0baee
+  canonical: false
+  parent_trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-DUAL-BRAND-009
+module: commercial_goal
+date: 2026-06-07
+version: V2_FULL
+type: noetfield_worker_master_blueprint
+execution_authority: false
+target_worker: Noetfield Cursor worker (cloud ship repo)
+repo: "/Users/sinakazemnezhad/Desktop/Noetfield-All-Documents/Noetfield"
+github: "kazemnezhadsina144-dot/Noetfield"
+production:
+  www: https://www.noetfield.com
+  platform: https://platform.noetfield.com
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MARKET INTELLIGENCE LOCK (June 2026 — evidence only)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+market_lock:
+  canada_money_now:
+    tier_b_primary: "AI for All June 4 2026 — board/CISO need defensible AI posture before scaling Copilot spend"
+    tier_b_secondary: "BDC LIFT $500M — governance advisory attach for $1M+ revenue SMEs"
+    copilot_stack_cost: "M365 Copilot $21–30/user/mo + Agent 365 $15/user/mo (GA May 2026) — governance stall weeks 6–12"
+    payments_lane: "NOT Noetfield lead — TrustField owns RPAA; Noetfield references handoff only"
+  _anchors:
+    trust_brief_published: "USD 10000 / 6 weeks (live site)"
+    vanta_drata_entry: "~$7.5K–$10K/yr SOC2 — different SKU (AI governance diagnostic)"
+    design_partner: "USD 2000–10000 (homepage)"
+  success_models_applied:
+    - M4_board_diagnostic_6_week
+    - M5_future_TLE_SaaS_not_yet
+  revenue_receipt: "ZERO verified — intake → paid Trust Brief is proof"
+  money_flow_rule: "Customer pays TrustField until Noetfield entity — site sells Noetfield SKUs; contract via TrustField SOW"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GOALS (reorganized — governance revenue first)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+goals_priority:
+  g1_revenue: "Close NF-01 Trust Brief — $10,000 / 6 weeks via /trust-brief/intake/"
+  g2_pipeline: "3 design partners NF-02 ($2K–$10K shadow pilots)"
+  g3_copilot: "NF-03 Copilot Governance Pack — Agent 365 + Purview angle"
+  g4_platform_proof: "One production RID: intake → evaluate → audit-export on platform.noetfield.com"
+  g5_boundary: "Never claim custody, settlement, MSB/PSP operator, or live Trust Ledger SaaS GA"
+
+sku_catalog:
+  NF_01:
+    name: Trust Brief
+    price_usd: 10000
+    duration_weeks: 6
+    buyer: "Board, CCO, risk leader — AI materiality unclear"
+    page: /trust-brief/
+    intake: /trust-brief/intake/
+    lead_sku: true
+    weekly_outputs: [scope_materiality, ai_use_case_map, control_baseline, starter_TLE, board_memo, handoff_pack]
+  NF_02:
+    name: Design Partner Pilot
+    price_usd: "2000-10000"
+    buyer: "Institutional shadow governance evaluation"
+    modality: read_only_simulation
+    page: /enterprise/ or homepage offerings strip
+  NF_03:
+    name: Copilot Governance Pack
+    price: NOT_PUBLISHED_on_site
+    suggested_fixed_cad: "12000-18000 (4 weeks — counsel sets)"
+    buyer: "Enterprise M365 Copilot rollout"
+    page: /copilot/
+    market_hook: "Agent 365 $15/user/mo + deployment stall without governance"
+  NF_04_future:
+    name: Trust Ledger SaaS
+    status: DO_NOT_SELL
+    gate: [noetfield_incorporation, tenant_isolation_MVP, SaaS_terms_counsel]
+
+positioning_locked:
+  one_liner: "Governance Execution Infrastructure — evaluates AI-driven operational intent before execution in regulated environments."
+  prs_template: "Problem: AI scales faster than policy. Risk: regulators ask what was permitted. Solution: governance evaluation layer + audit export."
+  primary_cta: "Request Governance Brief → /trust-brief/intake/"
+  intake_email: operations@noetfield.com
+  shadow_mode: "Read-only simulation — no execution authority"
+  trustfield_handoff: "One factual line: Noetfield governs design; TrustField delivers RPAA pilots in Canada — separate brands"
+  forbidden_public: [Cross-Border Payments, Payment Intent, custody, settlement, stripe-buy-button, Gumroad primary nav, fourth retail SKU, guaranteed compliance certification]
+
+site_ia_locked:
+  source: docs/FINAL_PUBLIC_SITE.md + OFFERINGS_LOCKED.md
+  marketing:
+    - {path: /, job: "Home — three offerings + design partner strip"}
+    - {path: /enterprise/, job: "Enterprise + Bank Pilot"}
+    - {path: /trust-brief/, job: "NF-01 — $10,000 visible + 6-week table"}
+    - {path: /copilot/, job: "NF-03 — Copilot + Agent 365 governance"}
+    - {path: /console/, job: "Routes to platform governance UI"}
+  conversion:
+    - {path: /trust-brief/intake/, job: "PRIMARY intake — all SKUs"}
+  platform:
+    - {host: platform.noetfield.com, job: "POST /api/v1/governance/evaluate → audit-export"}
+  money_flow:
+    - "www → /trust-brief/ → intake → operations@ with RID"
+    - "Shadow demo → platform evaluate → board PDF"
+    - "Paid engagement → TrustField invoices (intercompany later)"
+
+authority_read_first:
+  - OFFERINGS_LOCKED.md
+  - POSITIONING.md
+  - PRODUCT_TRUTH.md
+  - docs/GTM_COPYBOOK.md
+  - docs/FINAL_PUBLIC_SITE.md
+  - docs/SITE_ARCHITECTURE.md
+  - docs/WAVE0_SHIP_CHECKLIST.md
+  - ~/Desktop/SinaaiMonoRepo/SinaaiDataBase/noetfield/docs/NOETFIELD_GOVERNANCE_PLANE_LOCKED_v1.md
+  - ~/Desktop/TrustField Technologies/docs/internal/TRUSTFIELD_NOETFIELD_BOUNDARY_LOCKED_2026.md
+  - ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-07_DUAL_BRAND_MARKET_DEEP_SUCCESS_MODELS.yaml
+  - this file
+
+verify_commands:
+  per_task: "make verify-final-lock"
+  platform: "PLATFORM_HEALTH_BASE=https://platform.noetfield.com ./scripts/deploy_platform_smoke.sh"
+  sitemap: "python3 scripts/verify_sitemap_committed.py"
+
+out_of_scope:
+  - Payment/custody/settlement features (see REMOVED_PAYMENT_ARTIFACTS.md)
+  - NF-04 Trust Ledger SaaS GA claims
+  - Merging TrustField brand into Noetfield hero
+  - Editing TrustField repo from Noetfield worker
+  - SourceA spine / hub
+  - Healthcare/legal vertical SKUs without counsel addenda
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKER TURNS — 10 ONE-PASTE PROMPTS (Noetfield lane: nw-01 … nw-10)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+worker_turns:
+  - id: nw-01
+    title: Homepage V2 — market-aligned three offerings
+    paste_prompt: |
+      PLAN WITH NO ASF — NOETFIELD WORKER nw-01 ONE TURN.
+      Repo: /Users/sinakazemnezhad/Desktop/Noetfield-All-Documents/Noetfield
+      Read: OFFERINGS_LOCKED.md, docs/GTM_COPYBOOK.md, ~/.sina/agent-workspaces/noetfield_cloud/commercial-goal/2026-06-07_NOETFIELD_WORKER_BLUEPRINT_V2_FULL.yaml
+      Task: Upgrade homepage to June 2026 market structure — three offerings + design partner strip.
+      Spec:
+        - PRS block: Problem / Risk / Solution (GTM copybook)
+        - Offering cards: (1) Trust Brief $10,000 · 6 weeks (2) Copilot Governance Pack (3) Bank Pilot shadow mode
+        - Design partner line: $2,000–$10,000 pilot · board PDF in governance meeting
+        - Primary CTA: Request Governance Brief → /trust-brief/intake/
+        - TLE / RID / Audit export badges visible (already on live site — keep)
+        - NO payment/custody language
+      Verify: make verify-final-lock PASS
+      WORKER_ROUND_REPORT → broker.
+
+  - id: nw-02
+    title: Trust Brief page — full 6-week SKU
+    paste_prompt: |
+      PLAN WITH NO ASF — NOETFIELD WORKER nw-02 ONE TURN.
+      Repo: Noetfield ship repo
+      Task: /trust-brief/ must be complete sell page for NF-01.
+      Spec:
+        - Price visible: $10,000 · 6 weeks (not hidden)
+        - Week table: W1 scope → W2 use-case map → W3 controls → W4 TLE entries → W5 board memo → W6 handoff
+        - Deliverables: material AI map, starter Trust Ledger pack, board decision memo
+        - Payment: card or procurement PO supported (wording only — no fake Stripe)
+        - CTA → /trust-brief/intake/
+        - Compare footnote (factual): "SOC2 automation platforms start ~$10K/yr — Trust Brief is AI governance diagnostic"
+      Verify: intake tests still pass (operations@ only)
+      WORKER_ROUND_REPORT → broker.
+
+  - id: nw-03
+    title: Copilot page — Agent 365 June 2026 hook
+    paste_prompt: |
+      PLAN WITH NO ASF — NOETFIELD WORKER nw-03 ONE TURN.
+      Repo: Noetfield ship repo
+      Task: Upgrade /copilot/ for NF-03 Copilot Governance Pack.
+      Spec:
+        - Hook: M365 Copilot $21–30/user/mo + Agent 365 $15/user/mo (May 2026 GA) — deployments stall weeks 6–12 without governance
+        - Shadow mode: read-only policy validation — Purview, Entra ID, audit metadata only
+        - NO Microsoft endorsement implied
+        - CTA: /trust-brief/intake/?interest=copilot
+        - Optional /copilot/readiness/ linked as secondary
+      Verify: make verify-final-lock · no forbidden payment terms in HTML
+      WORKER_ROUND_REPORT → broker.
+
+  - id: nw-04
+    title: Enterprise + Bank Pilot clarity
+    paste_prompt: |
+      PLAN WITH NO ASF — NOETFIELD WORKER nw-04 ONE TURN.
+      Repo: Noetfield ship repo
+      Task: /enterprise/ + Bank Pilot surfaces for NF-02 design partners.
+      Spec:
+        - Bank Pilot = read-only shadow simulation — no execution rights
+        - Enterprise CTA: Request Governance Brief ?source=enterprise
+        - Discuss Bank Pilot ?vector=bank-pilot secondary
+        - Line: "Noetfield does not move funds; licensed institutions execute externally"
+      Verify: collapse_public_routes still clean; sitemap committed
+      WORKER_ROUND_REPORT → broker.
+
+  - id: nw-05
+    title: Trust Ledger reference (no SaaS oversell)
+    paste_prompt: |
+      PLAN WITH NO ASF — NOETFIELD WORKER nw-05 ONE TURN.
+      Repo: Noetfield ship repo
+      Task: /trust-ledger/ reference page — diligence not false product GA.
+      Spec:
+        - Explain TLE v1: signed go/no-go, confidence score, audit-survivable format
+        - Link packages/schemas/tle-v1.schema.json conceptually
+        - Status: "Delivered in Trust Brief and design partner engagements — platform SaaS gated"
+        - CTA → /trust-brief/intake/?source=trust-ledger
+        - Do NOT claim NF-04 live subscription checkout
+      Verify: make verify-final-lock PASS
+      WORKER_ROUND_REPORT → broker.
+
+  - id: nw-06
+    title: TrustField handoff section (bundle without merge)
+    paste_prompt: |
+      PLAN WITH NO ASF — NOETFIELD WORKER nw-06 ONE TURN.
+      Repo: Noetfield ship repo
+      Task: Add handoff clarity for dual-brand deals — footer or /enterprise/ section only.
+      Spec:
+        - "Noetfield defines governance before go-live. TrustField Technologies delivers RPAA readiness pilots in Canada."
+        - Link trustfield.ca/pilot as external — opens new tab
+        - NO merged logo lockup; NO "one company"
+        - Money flow note for procurement: "Engagements may be contracted through TrustField per Canadian delivery SOW"
+      Source: TRUSTFIELD_NOETFIELD_BOUNDARY_LOCKED_2026.md
+      Verify: boundary language audit PASS
+      WORKER_ROUND_REPORT → broker.
+
+  - id: nw-07
+    title: Intake + operations@ unification
+    paste_prompt: |
+      PLAN WITH NO ASF — NOETFIELD WORKER nw-07 ONE TURN.
+      Repo: Noetfield ship repo
+      Task: All public surfaces → operations@noetfield.com only; RID in every thread.
+      Spec:
+        - Retire contact@, procurement@, sales@ from user-facing HTML (tests/unit/test_intake_email_unification.py)
+        - /trust-brief/intake/ primary for all three offerings
+        - Intake form fields: non-confidential only per trust-brief page
+      Verify: pytest tests/unit/test_intake_email_unification.py PASS
+      WORKER_ROUND_REPORT → broker.
+
+  - id: nw-08
+    title: Platform shadow evaluate path
+    paste_prompt: |
+      PLAN WITH NO ASF — NOETFIELD WORKER nw-08 ONE TURN.
+      Repo: Noetfield ship repo
+      Task: Prove Wave 0 exit — one RID path on platform (docs/WAVE0_SHIP_CHECKLIST.md).
+      Spec:
+        - intake → POST /api/v1/governance/evaluate → GET /api/v1/governance/audit-export
+        - /console/ routes correctly to pilot host
+        - Document steps in docs/SHADOW_WEEK_DEMO.md if gaps found
+        - GOVERNANCE_PILOT_AUTH_REQUIRED=true in prod checklist (doc update if keys missing)
+      Verify: PLATFORM_HEALTH_BASE=https://platform.noetfield.com ./scripts/deploy_platform_smoke.sh exit 0 OR document blocker in closeout
+      WORKER_ROUND_REPORT → broker.
+
+  - id: nw-09
+    title: E2E-3 public site gate
+    paste_prompt: |
+      PLAN WITH NO ASF — NOETFIELD WORKER nw-09 ONE TURN.
+      PLUS E2E-3 GATE: Full public site + forbidden language sweep.
+      Repo: Noetfield ship repo
+      Task: All P0 paths live per FINAL_PUBLIC_SITE.md; no payment artifacts.
+      Run: make verify-final-lock · python3 scripts/verify_sitemap_committed.py · grep -r forbidden terms per GTM_COPYBOOK (stripe-buy-button, Payment Intent, custody, settlement orchestration) — zero on www HTML
+      Fix gaps. Regenerate sitemap if paths changed.
+      WORKER_ROUND_REPORT → broker.
+
+  - id: nw-10
+    title: Sprint closeout + GTM package
+    paste_prompt: |
+      PLAN WITH NO ASF — NOETFIELD WORKER nw-10 ONE TURN.
+      PLUS DEBUG-5 GATE: verify-final-lock + platform smoke + sitemap.
+      Repo: Noetfield ship repo
+      Task: Close NOETFIELD-SITE-V2 sprint.
+      Actions:
+        1. Write ~/.sina/agent-workspaces/noetfield_cloud/commercial-goal/2026-06-07_NOETFIELD_SITE_V2_CLOSEOUT.yaml
+        2. Update docs/MARKET_ENTRY_30_DAY.md with June 2026 priorities: NF-01 Trust Brief first, NF-03 Copilot second
+        3. ./scripts/market-entry-bootstrap.sh dry-run or document 5 outreach targets (AI governance / Copilot rollout — NOT MSB primary on Noetfield)
+      Do NOT ship NF-04 SaaS checkout. Do NOT add payment rails.
+      WORKER_ROUND_REPORT → broker.
+
+closeout_success_criteria:
+  - "Trust Brief $10,000 visible on /trust-brief/"
+  - "Three offerings only per OFFERINGS_LOCKED.md"
+  - "operations@ unified on all public pages"
+  - "Copilot page cites Agent 365 governance gap (factual)"
+  - "TrustField handoff present without brand merge"
+  - "make verify-final-lock PASS"
+  - "Platform smoke exit 0 OR documented founder blocker"
+
+dual_brand_bundle_for_sales:
+  fintech_stack:
+    step_1: "Noetfield NF-01 Trust Brief $10K (governance)"
+    step_2: "TrustField TF-01 RPAA Pilot $6K+$2.5K/mo (delivery)"
+    contract: "Single TrustField MSA; Noetfield as methodology annex"
+  copilot_enterprise:
+    step_1: "Noetfield NF-03 shadow validation"
+    step_2: "Optional TrustField only if payment rails in scope"
+
+advocacy_founder:
+  - "Noetfield site converts to intake — founder follows RID threads in operations@"
+  - "First Noetfield receipt may still invoice via TrustField per entity firewall"
+  - "Run Shadow Week demo before scaling Copilot outbound"

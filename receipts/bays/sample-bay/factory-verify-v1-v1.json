@@ -1,0 +1,15 @@
+{
+  "schema": "fbe-refinery-step-receipt-v1",
+  "ok": false,
+  "at": "2026-06-19T23:57:24Z",
+  "node_id": "factory-verify-v1",
+  "bay_slug": "sample-bay",
+  "tenant": "wil_ai_design_partner",
+  "npm": "creed:verify-job",
+  "exit": 221,
+  "elapsed_sec": 9.37,
+  "creed_root": "/Users/sinakazemnezhad/Desktop/YA5/PLUS ONE/CREED",
+  "deliveryMode": "prove_only",
+  "mode": "w2_headless",
+  "tail": "> creed@1.0.0 creed:verify-job\n> node scripts/check-verify-job.mjs\n\nnpm error code EAGAIN\nnpm error syscall spawn sh\nnpm error path /Users/sinakazemnezhad/Desktop/YA5/PLUS ONE/CREED\nnpm error errno -35\nnpm error spawn sh EAGAIN\nnpm error command sh -c node scripts/check-verify-job.mjs\nnpm error A complete log of this run can be found in: /Users/sinakazemnezhad/.npm/_logs/2026-06-19T23_57_19_734Z-debug-0.log"
+}

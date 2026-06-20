@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0058 — Validate MAP_POINTER_DOCS reference WORLD_TARGET_MODEL_MAP_LOCKED_v5.md only
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0058
+tests:
+  status: passed
+  output_snippet: sa-0058 PASS — MAP_POINTER_DOCS v5-only (validate-map-pointer-docs-v1); validate-phase-s0-ssot-alignment-v1; critical 0
+reported_at: '2026-06-09T23:57:52Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

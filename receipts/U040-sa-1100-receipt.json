@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U040",
+  "title": "RRL pass never sets ship_ready without Sina read",
+  "evidence": "validate_rrl_not_ship_ready() + --check-rrl-ship-gate PASS \u00b7 live rrl=True sina=False send=False \u00b7 synthetic blocked",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:29:21Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

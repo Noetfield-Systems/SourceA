@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0139 — Validate l8-hybrid grounding cites embedding_provider.py
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0139
+tests:
+  status: passed
+  output_snippet: validate-dispatch-policy-v1 PASS · validate-governance-fleet-v1 PASS · validate-eval-packet-v1b-grounding l8-hybrid embedding_provider.py+query_engine PASS
+reported_at: '2026-06-07T06:33:43Z'
+reporter: cursor-worker

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1115",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U086",
+  "title": "Hub slice outbound_factory_salvage",
+  "evidence": "GET /api/worker-hub/outbound-salvage/v1 PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:20:45Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

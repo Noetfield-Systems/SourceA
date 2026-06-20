@@ -1,0 +1,79 @@
+{
+  "schema": "factory-output-routes-v1",
+  "version": "2.0.0",
+  "saved_at": "2026-06-18T23:00:00Z",
+  "vocabulary_ssot": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+  "law": "data/factory-output-route-compiler-v1.json",
+  "active_brands": ["SourceA", "Noetfield", "TrustField"],
+  "phase_after_three_brands": "Forge product · THREAD-FORGE · ~/Desktop/forge",
+  "phase2_deferred": ["777 Foundation", "WitnessBC", "advisor_pre_call general"],
+  "compiler": "output-first reverse-engineer → route → compose → validate",
+  "routes": {
+    "sourcea": {
+      "brand": "SourceA",
+      "status": "active",
+      "priority": 1,
+      "domain": "factory builder · controlled execution engine",
+      "question": "Engine underneath — repeatable factory output with verification built in",
+      "triggers": ["factory builder", "controlled execution", "RunReceipt", "FBE", "agentic pipeline", "verification built in"],
+      "tension_kernel": "how do teams ship controlled outputs repeatedly without drift?",
+      "narrative_angle": "factory + proof spine — never hero in cold commercial email",
+      "forbidden": ["replace TrustField brand", "replace Noetfield brand", "hero in cold email subject", "MSB cold lead"],
+      "compose_modes": ["factory_output", "fbe_demo"],
+      "lanes": ["fbe_sourcea"],
+      "website": "https://sourcea.com",
+      "active_compile": ["sourcea-factory"],
+      "compile_queued": [],
+      "compile_gate": "blocked_until_noetfield_and_trustfield_compiled",
+      "note": "Deferred after Noetfield ∥ TrustField — pack locally for later"
+    },
+    "noetfield": {
+      "brand": "Noetfield",
+      "status": "active",
+      "priority": 2,
+      "domain": "AI operational observability",
+      "question": "Should this AI action run — with proof?",
+      "triggers": ["AI copilot", "automation in workflow", "mortgage ops", "agent actions", "enterprise AI"],
+      "tension_kernel": "what did the AI actually do vs what policy said should happen?",
+      "narrative_angle": "reconstruct a specific decision after the fact — not governance jargon",
+      "forbidden": ["governance layer", "auditable execution trail", "governance-first", "ai governance layer"],
+      "compose_modes": ["A_curiosity_first", "B_interest_asset"],
+      "lanes": ["w3_commercial"],
+      "website": "https://www.noetfield.com/copilot/pilot/",
+      "active_compile": [],
+      "compile_queued": ["fundmore", "pineapple-nf"],
+      "parallel_with": "TrustField",
+      "note": "Active now — parallel with TrustField"
+    },
+    "trustfield": {
+      "brand": "TrustField",
+      "status": "active",
+      "priority": 3,
+      "domain": "regulated proof systems",
+      "question": "How does RPAA/FINTRAC/program evidence go live?",
+      "triggers": ["issuance", "compliance", "tokenization", "regulated workflow", "EMD", "FINTRAC", "RPAA"],
+      "tension_kernel": "can each regulated step be proven as permitted after the fact?",
+      "narrative_angle": "examiner / reviewer reconstruction — not tokenization novelty",
+      "forbidden": ["event bus", "agent pipeline", "architecture dump", "runs on staging", "inspectable proof"],
+      "compose_modes": ["B_interest_asset", "A_curiosity_first"],
+      "lanes": ["w3_commercial"],
+      "website": "https://trustfield.ca",
+      "active_compile": ["ocree"],
+      "compile_queued": ["fractionvest", "tetra", "stablecorp", "atlas-parvis", "aquanow", "bitbuy", "ndax", "newton", "pineapple-tf"],
+      "parallel_with": "Noetfield",
+      "note": "Active now — parallel with Noetfield — ocree ready for founder send"
+    }
+  },
+  "deferred_routes": {
+    "777_foundation": { "status": "phase2", "note": "after SourceA · Noetfield · TrustField ICP compile + Forge product milestones" },
+    "witnessbc": { "status": "phase2", "note": "commercial film lane — after core three" },
+    "advisor_pre_call": { "status": "phase2", "frequency": "rare", "note": "general advisor — not ICP approval" }
+  },
+  "angle_by_role": {
+    "CTO": "system reliability + observability",
+    "COO": "operational audit + process visibility",
+    "CEO": "risk + scaling constraint",
+    "CRO": "regulatory defensibility + evidence",
+    "CCO": "compliance proof + issuance"
+  }
+}

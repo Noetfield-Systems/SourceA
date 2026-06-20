@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0635",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 META_REASONING 7 input_classes orthogonal to dispatch Layer-1; audit regression guards; dispatch + governance + pack validate + critical 0",
+  "at": "2026-06-09T04:32:32Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

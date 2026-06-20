@@ -1,0 +1,84 @@
+{
+  "schema": "fbe-factory-spec-schema-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-17T16:00:00Z",
+  "description": "Factory = product spec (data only). Kernel = execution engine. Catalog = pointers.",
+  "required": [
+    "factory_id",
+    "spec_version",
+    "kernel",
+    "lines",
+    "runtime",
+    "io",
+    "commercial"
+  ],
+  "field_defs": {
+    "factory_id": {"type": "string", "pattern": "^[a-z0-9-]+-v[0-9]+$"},
+    "spec_version": {"type": "string"},
+    "kind": {"enum": ["engine", "wrapper", "sandbox", "fleet"]},
+    "kernel": {
+      "required": ["id", "min_version"],
+      "fields": {
+        "id": {"const": "fbe-v1"},
+        "min_version": {"type": "string"},
+        "graph_source": {"type": "string", "default": "data/fbe_node_graph_v1.json"}
+      }
+    },
+    "lines": {
+      "type": "array",
+      "items": {"enum": ["trust_motor", "refinery", "assembly"]},
+      "min_items": 1,
+      "max_items": 3
+    },
+    "runtime": {
+      "required": ["bay_slug", "api_route", "cloud_entry"],
+      "fields": {
+        "bay_slug": {"type": "string"},
+        "default_tenant": {"type": "string"},
+        "wave": {"type": "string"},
+        "factory_id_internal": {"type": "string"},
+        "pipelines": {"type": "array", "items": {"type": "string"}},
+        "api_route": {"type": "string"},
+        "cloud_entry": {"type": "string"},
+        "execution_mode": {"default": "CLOUD_ONLY"}
+      }
+    },
+    "io": {
+      "required": ["input_schema", "output_artifact"],
+      "fields": {
+        "input_schema": {"type": "string"},
+        "output_schema": {"type": "string"},
+        "output_artifact": {"type": "string"},
+        "certainty_report": {"type": "boolean", "default": true}
+      }
+    },
+    "governance": {
+      "fields": {
+        "policy_pack": {"type": "string"},
+        "tier_cap_honest": {"type": "string"},
+        "delivery_mode": {"default": "prove_only"}
+      }
+    },
+    "commercial": {
+      "required": ["name", "tier_label", "buyer"],
+      "fields": {
+        "name": {"type": "string"},
+        "tagline": {"type": "string"},
+        "tier_label": {"enum": ["engine", "tier_1", "tier_2", "tier_3", "sandbox"]},
+        "buyer": {"type": "string"},
+        "hero": {"type": "boolean"},
+        "maintenance_fee_usd": {"type": "number"},
+        "compute_note": {"type": "string"}
+      }
+    },
+    "extends": {
+      "description": "Wrapper specs point at engine factory_id",
+      "type": "string"
+    }
+  },
+  "versioning": {
+    "rule": "spec_version bump on any material io/runtime/commercial change",
+    "kernel_pin": "jobs must include kernel_version from execution_contract_v1",
+    "replay": "same factory_id + spec_version + input hash → deterministic pipeline binding"
+  }
+}

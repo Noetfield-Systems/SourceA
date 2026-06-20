@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U027",
+  "title": "Brand route forbid bleed checker per body",
+  "evidence": "check_bleed() + --check-brand-bleed PASS \u00b7 NF+TrustField fail \u00b7 fundmore/ocree fleet clean \u00b7 receipt ~/.sina/brand-route-forbid-bleed-receipt-v1.json",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:23:09Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

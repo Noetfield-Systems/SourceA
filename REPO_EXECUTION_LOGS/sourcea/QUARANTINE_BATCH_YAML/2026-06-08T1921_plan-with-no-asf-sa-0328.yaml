@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0328 — Backfill auto_verify in scoreboard_row when auto_pass and report exists
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0328
+tests:
+  status: passed
+  output_snippet: scoreboard-fleet T1 verify-only; strict-build validators PASS
+reported_at: '2026-06-08T19:21:20Z'
+reporter: cursor-worker-batch

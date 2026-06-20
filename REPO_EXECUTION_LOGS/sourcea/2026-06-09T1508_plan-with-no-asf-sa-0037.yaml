@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0037 — Verify _phase_d_complete() matches D1–D16 in-repo artifacts
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0037
+tests:
+  status: passed
+  output_snippet: sa-0037 VERIFY CLOSEOUT: phase_d_complete D1–D16 wired; Valid YES 105/1000.
+reported_at: '2026-06-09T15:08:06Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

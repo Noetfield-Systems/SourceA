@@ -1,0 +1,102 @@
+{
+  "schema": "commercial-film-render-rules-v1",
+  "version": "1.1.0",
+  "at": "2026-06-15",
+  "incident": "v4/v5 died 3x — parallel restarts, blind logs, no checkpoint",
+  "mac_guard": {
+    "service": "Mac Health Guard",
+    "url": "http://127.0.0.1:13024/",
+    "live_api": "http://127.0.0.1:13024/api/mac-health/live",
+    "health_api": "http://127.0.0.1:13024/health",
+    "app": "Mac Health Guard.app",
+    "pulse_file": "~/.sina/mac-health/live-pulse-v1.json",
+    "note": "Real-time RAM · CPU · GPU/SoC thermal · disk · queue zombies — same UI founder sees"
+  },
+  "rules": {
+    "R1_one_render_at_a_time": {
+      "law": "Exactly ONE commercial film render globally (WitnessBC OR SourceA OR avatar mux heavy job)",
+      "enforcer": "scripts/commercial_film_render_guard_v1.py acquire|release",
+      "lock_file": "~/.sina/commercial-film-render.lock",
+      "fail_if": "another lane PID alive"
+    },
+    "R2_ram_gate": {
+      "law": "Do not start capture if free RAM below minimum",
+      "min_free_gb": 4.0,
+      "warn_free_gb": 8.0,
+      "enforcer": "commercial_film_render_guard_v1.py ram-check"
+    },
+    "R3_full_logging": {
+      "law": "Every render tees stdout+stderr to lane log — never silent python",
+      "logs": {
+        "witnessbc": "~/.sina/commercial-film-render-witnessbc.log",
+        "sourcea": "~/.sina/commercial-film-render-sourcea.log",
+        "combined": "~/.sina/commercial-film-render.log"
+      }
+    },
+    "R4_checkpoint_after_concat": {
+      "law": "After commercial-short-raw.mp4 exists, write checkpoint.json before polish",
+      "recovery": "python3 scripts/commercial_film_render_guard_v1.py finish --work-dir <dir> --beats <json>"
+    },
+    "R5_no_auto_restart": {
+      "law": "Agents must status-check before starting render; never launch second PID",
+      "check": "python3 scripts/commercial_film_render_guard_v1.py status --json"
+    },
+    "R6_separate_work_dirs": {
+      "law": "v4/v5/avatar use distinct work_dir in beats publish block — no shared rmtree fights"
+    },
+    "R7_ffmpeg_timeout": {
+      "law": "4K master polish timeout >= 3600s; concat steps 600s",
+      "code": "commercial_short_film_v1.py _run / _master_polish"
+    },
+    "R8_force_only": {
+      "law": "--force or COMMERCIAL_FILM_FORCE=1 required to break lock or wipe checkpoint work dir"
+    },
+    "R9_mac_guard_ssot": {
+      "law": "Film factory reads Mac Health Guard live API before acquire; fallback to mac_health_guard._machine_pressure",
+      "enforcer": "commercial_film_render_guard_v1.py machine-check",
+      "live_api": "http://127.0.0.1:13024/api/mac-health/live"
+    },
+    "R10_cpu_gate": {
+      "law": "Do not start heavy capture if CPU load >= max_cpu_pct",
+      "max_cpu_pct": 85,
+      "warn_cpu_pct": 70
+    },
+    "R11_disk_gate": {
+      "law": "Do not start if root disk >= max_disk_pct",
+      "max_disk_pct": 90,
+      "min_free_disk_gb": 10
+    },
+    "R12_gpu_thermal_gate": {
+      "law": "Warn on SoC thermal pressure; block if thermal_pressure + memory critical",
+      "note": "Apple Silicon GPU shares die — pmset therm + gpu_note in machine_pressure"
+    },
+    "R13_zombie_gate": {
+      "law": "Block if queue_zombies >= max or ghost_terminals >= max",
+      "max_queue_zombies": 8,
+      "max_ghost_terminals": 3
+    },
+    "R14_metrics_log": {
+      "law": "Every acquire · checkpoint · release appends to render metrics jsonl",
+      "path": "~/.sina/commercial-film-render-metrics.jsonl"
+    },
+    "R15_lane_publish_isolation": {
+      "law": "WitnessBC / avatar lanes must NEVER publish to SourceA OUT_LANDING (commercial-short-demo.mp4)",
+      "enforcer": "commercial_short_film_v1.py _resolve_publish_paths + cross-lane guard",
+      "incident": "witnessbc v5 finish overwrote SourceA site asset 2026-06-15"
+    },
+    "R16_critic_circle_before_render": {
+      "law": "No commercial film render while critic circle freeze ON — Playwright heroes blocked from public ship",
+      "enforcer": "commercial_film_critic_circle_v1.py + commercial_film_render_guard_v1.py acquire",
+      "freeze_flag": "~/.sina/commercial-film-render-frozen-v1.flag",
+      "until": "Screen Studio Grade A master + critic PASS"
+    }
+  },
+  "founder_commands": {
+    "mac_guard_ui": "open http://127.0.0.1:13024/  # or Mac Health Guard.app",
+    "machine_check": "python3 scripts/commercial_film_render_guard_v1.py machine-check --json",
+    "status": "python3 scripts/commercial_film_render_guard_v1.py status --json",
+    "witnessbc": "bash witnessbc-commercial-film.sh --json",
+    "finish_v4": "python3 scripts/commercial_film_render_guard_v1.py finish --work-dir ~/.sina/witnessbc-commercial-film-work-v1 --beats data/witnessbc-commercial-film-beats-v1.json --json",
+    "finish_v5": "python3 scripts/commercial_film_render_guard_v1.py finish --work-dir ~/.sina/witnessbc-commercial-film-work-v5 --beats data/witnessbc-commercial-film-beats-v5.json --json"
+  }
+}

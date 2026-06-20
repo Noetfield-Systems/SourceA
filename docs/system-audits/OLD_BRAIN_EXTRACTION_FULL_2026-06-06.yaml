@@ -1,0 +1,243 @@
+# OLD BRAIN EXTRACTION — full YAML (brain routing only; not new law)
+# Source transcript: a53f3fa1-081c-4373-bc55-76feb501a61d
+# Saved to SourceA: 2026-06-06
+# Live corrections appended at save time from SOURCEA-PRIORITY + pick script
+
+extracted_at: 2026-06-06T16:24:36Z
+saved_to_sourcea: 2026-06-06T18:30:00Z
+merged_by: SinaaiDataBase archive audit session
+source_transcript: ~/.cursor/projects/Users-sinakazemnezhad-Desktop-SinaaiDataBase/agent-transcripts/a53f3fa1-081c-4373-bc55-76feb501a61d.jsonl
+
+system_classification: |
+  Controlled multi-repo execution OS + pre-LLM context compiler.
+  NOT a Lovable/Devin-style autonomous product.
+  Control plane for controlled execution — not end-user product.
+
+live_truth_at_save:
+  hub_port: 13020
+  find_critical_bugs: 0
+  strict_build: PASS
+  registry_done: 101
+  registry_backlog: 899
+  registry_total: 1000
+  live_pick: sa-0202
+  dispatch_ready: false
+  eval_1b_gate_ok: false
+  eval_1b_blocker: OpenRouter 402 structural_only
+  t0_t1_enforcement: DONE
+  prompt_router: SHIPPED
+  execution_kernel_v1_json_bug: true
+  hub_sa_queue_tab: NOT_IMPLEMENTED
+  runtime_8000: DOWN
+
+founder_decisions_locked:
+  - id: F1
+    decision: No Terminal for ASF — hub Refresh/Actions/Private agents only
+    status: still_active
+    evidence: SINA_COMMAND_NO_TERMINAL_FOUNDER_LOCKED_v1.md
+  - id: F2
+    decision: ASF_DAILY_CARD hub-only (no terminal copy-paste loop)
+    status: still_active
+    evidence: founder/ASF_DAILY_CARD.md + validate-founder-docs-no-terminal-v1.sh
+  - id: F3
+    decision: Brain routes; worker codes one sa-XXXX per session
+    status: still_active
+  - id: F4
+    decision: SinaaiDataBase chat = archive only; ops via SourceA brain/worker
+    status: still_active
+  - id: F5
+    decision: Auto-paste OFF
+    status: still_active
+  - id: F6
+    decision: dispatch_ready false until Eval-1b live PASS + credits
+    status: still_active
+  - id: F7
+    decision: Three automation loops distinct (plan-no-asf / SinaPromptOS / hub agent_loop)
+    status: still_active
+  - id: F8
+    decision: Search LOCKED first — never parallel rules in chat
+    status: still_active
+  - id: F9
+    decision: Two-layer prompt model — dynamic router + static REGISTRY verify pack
+    status: still_active
+  - id: F10
+    decision: Commercial parallel (TrustField, CanadaBuys, PacifiCan, OpenRouter, Tailscale, MergePack)
+    status: still_active
+
+do_not_redo:
+  - sa-0108
+  - sa-0109
+  - sa-0110
+  - sa-0111
+  - sa-0112
+  - sa-0113
+  - sa-0114
+  - sa-0115
+  - sa-0116
+  - sa-0117
+  - sa-0118
+  - sa-0119
+  - sa-0120
+  - sa-0121
+  - sa-0122
+  - sa-0123
+  - sa-0124
+  - sa-0125
+  - sa-0126
+  - sa-0127
+  - sa-0128
+  - sa-0129
+  - sa-0130
+  - sa-0131
+  - sa-0132
+  - sa-0133
+  - sa-0134
+  - sa-0135
+  - sa-0136
+  - sa-0137
+  - sa-0138
+  - sa-0139
+  - sa-0140
+  - sa-0141
+  - sa-0142
+  - sa-0143
+  - sa-0144
+  - sa-0145
+  - sa-0146
+  - sa-0147
+  - sa-0148
+  - sa-0149
+  - sa-0150
+  - sa-0151
+  - sa-0152
+  - sa-0153
+  - sa-0154
+  - sa-0155
+  - sa-0156
+  - sa-0157
+  - sa-0158
+  - sa-0159
+  - sa-0160
+  - sa-0161
+  - sa-0162
+  - sa-0163
+  - sa-0164
+  - sa-0165
+  - sa-0166
+  - sa-0167
+  - sa-0168
+  - sa-0169
+  - sa-0170
+  - sa-0171
+  - sa-0172
+  - sa-0173
+  - sa-0174
+  - sa-0175
+  - sa-0176
+  - sa-0177
+  - sa-0178
+  - sa-0179
+  - sa-0180
+  - sa-0181
+  - sa-0182
+  - sa-0183
+  - sa-0184
+  - sa-0185
+  - sa-0186
+  - sa-0187
+  - sa-0188
+  - sa-0189
+  - sa-0190
+  - sa-0191
+  - sa-0192
+  - sa-0193
+  - sa-0194
+  - sa-0195
+  - sa-0196
+  - sa-0197
+  - sa-0198
+  - sa-0199
+  - sa-0200
+  - sa-0201
+  note: T0+T1 zero-breaking + autonomy stack Phases 1-5 closed per PRIORITY evidence rows
+
+next_worker_pick: sa-0202
+next_worker_phase: s2 hub-build-ci
+
+worker_backlog_brain_routed:
+  P0: sa-0202
+  P1:
+    - hub sa-queue tab
+    - execution_kernel_v0 --json API fix
+    - M4 reply hook block (currently warn-only)
+    - synthesis headline fix
+  P2:
+    - important_docs_index Canada AI
+    - WTM Phase D pill reconcile
+    - OpenRouter top-up for Eval-1b live
+
+commercial_open:
+  - TrustField demos P10
+  - CanadaBuys
+  - PacifiCan/BDC LIFT
+  - OpenRouter top-up
+  - Wire G3 Tailscale
+  - MergePack MP-SHIP Vercel
+  - Canada AI funding alignment
+
+gaps_confirmed_live:
+  - sa-XXXX queue: CLI only (hub tab missing)
+  - Level 3 zero-human: not shipped
+  - NOETFIELD_GOVERNANCE_PLANE: path not found Desktop scan 2026-06-06
+  - CANADA_AI doc exists os/plan-library — not in important_docs_index.py
+  - eval_1b live: 402 block
+  - execution-kernel-v1 passes --json but v0 rejects it
+  - ARCHITECT_REPORT: 5 rejected YAML ingests
+
+three_automation_layers:
+  layer_1:
+    name: plan-no-asf-run.sh
+    role: REGISTRY pick + worker routing
+  layer_2:
+    name: SinaPromptOS dispatch-day
+    role: prompt factory / template dispatch
+  layer_3:
+    name: hub agent_loop.py
+    role: strategic synthesis + autonomy APIs
+
+key_paths:
+  machine_truth: os/plan-library/SOURCEA-PRIORITY.md
+  pick_script: scripts/plan-no-asf-run.sh
+  registry: os/plan-library/sourcea-1000/REGISTRY.json
+  brain_rules: os/chat-handoffs/BRAIN_RULES_AUTHORITY_INDEX_LOCKED_v1.md
+  no_terminal_law: SINA_COMMAND_NO_TERMINAL_FOUNDER_LOCKED_v1.md
+  prompt_router: scripts/prompt_router.py
+  hub_server: scripts/sina-command-server.py
+  hub_ui: agent-control-panel/
+  pre_llm: scripts/pre_llm/
+  runtime: scripts/runtime/
+  memory_state: ~/.sina/
+  brain_mirror: ~/.sina/brain/
+  agent_registry: scripts/agent_workspace_registry.py
+
+brain_brief: |
+  Semi-auto OS — brain reads BRAIN_RULES_AUTHORITY_INDEX + live pick + PRIORITY machine truth.
+  Route one sa-XXXX per worker (sa-0202 next). Never Terminal for ASF. dispatch_ready false.
+  Auto-paste OFF. Three loops distinct. Commercial parallel. Archive SinaaiDataBase chat.
+  Search LOCKED first — never parallel rules in chat.
+  101/1000 verify tasks done. prompt_router shipped. Honest gates. 0 critical when hub up.
+
+rule_breaking_root_cause: |
+  Law in repository; no pre-reply enforcement; contradictory founder docs (fixed T0+T1);
+  chat ≠ memory; 141+ LOCKED files; Cursor default run-bash reflex.
+  M4 hook warns only — does not block.
+
+scores_interpretation_not_disk_facts:
+  platform_completeness: ~38%
+  architecture_modules: ~72%
+  autonomy: ~18%
+  commercial: ~28%
+  maturity: Alpha+ platform, Beta- hub, Production- individual sites
+  vs_lovable: ~10%
+  vs_atom: ~15%
+  highest_leverage: OpenRouter credits → Eval-1b live PASS once

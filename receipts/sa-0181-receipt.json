@@ -1,0 +1,14 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0181",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "phase-s1-tier-dedup-closeout",
+  "evidence": "T3 cross-ref SINA_AUDIT_STRICT capture canonical sa-0106",
+  "canonical_sa": "sa-0106",
+  "cross_ref": "archive/attachments/2026-06-14/sa-s1-tier-dedup-crossref_LOCKED_v1.md",
+  "at": "2026-06-14T11:24:20Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,72 @@
+# sourcea-boot
+
+[![validate-sourcea-boot](https://github.com/sourcea-io/sourcea-boot/actions/workflows/validate-sourcea-boot-v1.yml/badge.svg)](https://github.com/sourcea-io/sourcea-boot/actions/workflows/validate-sourcea-boot-v1.yml)
+
+**One command. PASS or BLOCK before your agents run.**
+
+## Run in 5 minutes
+
+```bash
+git clone https://github.com/sourcea-io/sourcea-boot.git
+cd sourcea-boot
+pip install -e .
+sourcea-boot --json
+```
+
+Or from PyPI:
+
+```bash
+pip install sourcea-boot
+sourcea-boot --json
+```
+
+Writes `BOOT_REPORT.json` in the current directory. Exit code `0` = PASS, `1` = BLOCK.
+
+Expected output:
+
+```text
+$ sourcea-boot --json
+SOURCEA_BOOT PASS ok=true
+  [PASS] policy_version: ...
+  [PASS] provider: ...
+  [PASS] receipt_fresh: ...
+  [PASS] queue_truth: ...
+REPORT=BOOT_REPORT.json
+```
+
+## CI validation
+
+Factory CI runs `scripts/validate-sourcea-boot-v1.sh` — four checks, PASS/BLOCK contract, `BOOT_REPORT.json` logged.
+
+## What it checks
+
+| Check | Meaning |
+|-------|---------|
+| `policy_version` | Project policy / SSOT file not stale vs last brief |
+| `provider` | LLM embedding provider configured (no fake-green hash mode when keys exist) |
+| `receipt_fresh` | Last boot/gate receipt fresh (<8h) and ok |
+| `queue_truth` | Agent queue head matches inbox truth (when queue files present) |
+
+## SourceA factory mode
+
+When run inside a SourceA monorepo (detects `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md`), runs full factory spine checks against `~/.sina/`.
+
+## Zero config
+
+Works in any project. Optional config: `.sourcea-boot.json` in project root.
+
+```json
+{
+  "policy_file": "POLICY.md",
+  "receipt_path": ".sourcea/boot-receipt.json",
+  "max_receipt_age_hours": 8
+}
+```
+
+## Repository
+
+https://github.com/sourcea-io/sourcea-boot
+
+## License
+
+MIT · [SourceA](https://sourcea.com) · hello@sourcea.com

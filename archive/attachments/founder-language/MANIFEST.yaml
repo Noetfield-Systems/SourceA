@@ -1,0 +1,36 @@
+schema: founder-language-pack-manifest-v2
+version: "2.0"
+updated: "2026-06-12"
+trace_id: COMMERCIAL_GOAL-REF-2026-06-12-TERMINOLOGY-PACK-v2
+agent_id: commercial_goal_specialist
+execution_authority: false
+
+apex: "Film proof · one paid pilot · one engine · many lanes — execute locked law, don't reopen the law factory."
+
+parent_docs:
+  - SOURCEA_FOUNDER_MACHINE_TERMINOLOGY_DICTIONARY_LOCKED_v1.md
+  - SOURCEA_FOUNDER_DIRECTION_TERMINOLOGY_LOCKED_v1.md  # promote request 041
+  - DIRECTION-LOCK-040
+
+files:
+  - path: FOUNDER_LANGUAGE_PACK_v2.md
+    role: human_canonical
+  - path: dictionary.yaml
+    role: machine_lookup
+  - path: forbidden.yaml
+    role: copy_grep
+  - path: required-labels.yaml
+    role: copy_grep
+  - path: parallel-tracks.yaml
+    role: advisor_mode
+  - path: integrity-pack-words.yaml
+    role: m1_continuity
+  - path: five-step-phrases.yaml
+    role: session_start
+  - path: picks-locked.yaml
+    role: form_mirror
+
+promote_to_sourcea:
+  target_dir: archive/attachments/founder-language/
+  authority_row: FOUNDER_LANGUAGE_PACK
+  wire_into: TERMINOLOGY_DICT section "3.3 direction era"

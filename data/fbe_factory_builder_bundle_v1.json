@@ -1,0 +1,273 @@
+{
+  "schema": "fbe-factory-builder-bundle-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-17T11:46:34Z",
+  "human": "docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
+  "epic": "E12",
+  "category": "GEFLS",
+  "category_label": "Governable Executable Factory Line Systems",
+  "one_sentence": "FBE compiles three controlled factory lines, spawns headless in cloud, federates receipts to Mac control plane.",
+  "live_snapshot": {
+    "read_at": "2026-06-17T11:46:34Z",
+    "sourcea": {
+      "factory_now": "987/1000 Valid YES",
+      "queue_sa": "sa-0889",
+      "graph_version": "1.3.0",
+      "runner_nodes": 12
+    },
+    "creed": {
+      "mesh_ssot": "PLUS ONE/CREED/.cursor/governance/FACTORY_MESH.json",
+      "node_count": 36,
+      "active_nodes": 33,
+      "deprecated_nodes": 3,
+      "gate_count": 24,
+      "pipeline_count": 20,
+      "capability_lines": 14,
+      "mesh_report_ok": true,
+      "dealer_audit": "14/15",
+      "dealer_fail_check": "verify-16-steps",
+      "delivery_mode": "prove_only",
+      "sample_bay_blockers": 5
+    },
+    "church": {
+      "graph_ssot": "PLUS ONE/CHURCH/.cursor/governance/NODE_GRAPH.json",
+      "node_count": 22,
+      "wired": 12,
+      "planned": 10,
+      "gate_count": 9,
+      "factory_checklist": "8/8"
+    }
+  },
+  "two_plane": {
+    "control": {
+      "location": "mac",
+      "hub": "http://127.0.0.1:13020/",
+      "responsibilities": [
+        "registry",
+        "compile",
+        "spawn",
+        "freeze",
+        "receipt_view",
+        "founder_actions"
+      ]
+    },
+    "execution": {
+      "location": "cloud",
+      "headless": true,
+      "responsibilities": [
+        "bay_jobs",
+        "prove_gates",
+        "artifacts",
+        "runners"
+      ]
+    }
+  },
+  "three_lines": [
+    {
+      "id": "trust_motor",
+      "code": "C",
+      "label": "Trust Motor",
+      "source": "SourceA session gate \u00b7 SASCIP \u00b7 zero-drift",
+      "compile_target_nodes": 18,
+      "plane": "INTERNAL"
+    },
+    {
+      "id": "refinery",
+      "code": "A",
+      "label": "Refinery",
+      "source": "CREED FACTORY_MESH.json",
+      "node_count": 36,
+      "active_nodes": 33,
+      "deprecated_nodes": 3,
+      "plane": "RUNTIME_CLOUD"
+    },
+    {
+      "id": "assembly",
+      "code": "B",
+      "label": "Assembly",
+      "source": "CHURCH NODE_GRAPH.json",
+      "node_count": 22,
+      "wired": 12,
+      "planned": 10,
+      "plane": "RUNTIME_CLOUD"
+    }
+  ],
+  "meta_nodes": [
+    {
+      "id": "fbe_compiler_v1",
+      "cmd": [
+        "python3",
+        "scripts/fbe_compile_template_v1.py",
+        "--json"
+      ]
+    },
+    {
+      "id": "fbe_spawn_v1",
+      "cmd": [
+        "python3",
+        "scripts/fbe_spawn_factory_v1.py",
+        "--json"
+      ]
+    },
+    {
+      "id": "fbe_run_job_v1",
+      "cmd": [
+        "python3",
+        "scripts/fbe_run_job_v1.py",
+        "--bay",
+        "sample-bay",
+        "--json"
+      ]
+    },
+    {
+      "id": "fbe_hub_projection_v1",
+      "cmd": [
+        "python3",
+        "scripts/fbe_hub_projection_v1.py",
+        "--json"
+      ],
+      "plane": "HUB_API"
+    }
+  ],
+  "first_three_factories": [
+    {
+      "template_id": "web-product-factory-v1",
+      "commercial_name": "Controlled Web Product Factory",
+      "lines": [
+        "trust_motor",
+        "refinery",
+        "assembly"
+      ],
+      "wave": "W2-W3",
+      "first_tenant": "wil_ai_design_partner",
+      "tier_target": "MARKET_READY"
+    },
+    {
+      "template_id": "exchange-factory-v1",
+      "commercial_name": "Controlled Exchange Factory",
+      "lines": [
+        "trust_motor",
+        "refinery",
+        "assembly"
+      ],
+      "wave": "W3",
+      "first_tenant": "trustfield",
+      "tier_target": "PLATINUM"
+    },
+    {
+      "template_id": "forge-app-factory-v1",
+      "commercial_name": "Controlled App Factory",
+      "lines": [
+        "trust_motor",
+        "refinery",
+        "assembly"
+      ],
+      "wave": "W4",
+      "first_tenant": "forge",
+      "tier_target": "GOLD"
+    }
+  ],
+  "quality_tiers": [
+    "BRONZE",
+    "GOLD",
+    "PLATINUM",
+    "MARKET_READY"
+  ],
+  "import_rules": {
+    "priority": [
+      "PLUS ONE/CREED/.cursor/governance/FACTORY_MESH.json",
+      "PLUS ONE/CHURCH/.cursor/governance/NODE_GRAPH.json",
+      "data/sourcea_pipeline_node_graph_v1.json"
+    ],
+    "never_import": [
+      "FACTORY_ARCHITECTURE capabilities-only",
+      "CREED NODE_GRAPH partial without meshSsot"
+    ],
+    "receipt_required": [
+      "PLUS ONE/CREED/.e2e/factory-mesh-report.json",
+      "PLUS ONE/CREED/.e2e/factory-dealer-audit-report.json"
+    ]
+  },
+  "pipelines": {
+    "bundle": [
+      "fbe-compile-pipeline",
+      "fbe-spawn-pipeline",
+      "fbe-full-job-pipeline"
+    ],
+    "motor": [
+      "motor-session-pipeline",
+      "motor-wire-pipeline",
+      "motor-closeout-pipeline"
+    ],
+    "refinery": [
+      "refinery-session-pipeline",
+      "refinery-scaffold-pipeline",
+      "refinery-ingest-pipeline",
+      "refinery-prove-pipeline",
+      "refinery-brand-pipeline",
+      "refinery-locale-voice-pipeline",
+      "refinery-full-pipeline"
+    ],
+    "assembly": [
+      "assembly-session-pipeline",
+      "assembly-intake-pipeline",
+      "assembly-narrative-pipeline",
+      "assembly-deploy-pipeline",
+      "assembly-full-pipeline"
+    ]
+  },
+  "hub_api": {
+    "registry": "GET /api/fbe/registry/v1",
+    "work_orders": "GET /api/fbe/work-orders/v1",
+    "receipts": "GET /api/fbe/receipts/v1",
+    "spawn": "POST /api/fbe/spawn/v1",
+    "actions": "POST /api/fbe/actions/v1",
+    "bay": "GET /api/fbe/bay/v1",
+    "run_bay": "POST /api/fbe/run-bay/v1",
+    "refinery": "GET /api/fbe/refinery/v1",
+    "assembly": "GET /api/fbe/assembly/v1",
+    "job": "GET /api/fbe/job/v1",
+    "run_job": "POST /api/fbe/run-job/v1",
+    "exchange": "GET /api/fbe/exchange/v1",
+    "run_exchange": "POST /api/fbe/run-exchange/v1",
+    "billing": "GET /api/fbe/billing/v1",
+    "partner_receipt": "GET /api/fbe/partner-receipt/v1"
+  },
+  "waves": [
+    {
+      "id": "W0",
+      "weeks": 2,
+      "goal": "bundle \u00b7 validators \u00b7 graph stub"
+    },
+    {
+      "id": "W1",
+      "weeks": 4,
+      "goal": "motor delegate \u00b7 federate stub"
+    },
+    {
+      "id": "W2",
+      "weeks": 6,
+      "goal": "refinery cloud \u00b7 factory 1 bay"
+    },
+    {
+      "id": "W3",
+      "weeks": 4,
+      "goal": "assembly cloud \u00b7 MARKET_READY"
+    },
+    {
+      "id": "W4",
+      "weeks": 4,
+      "goal": "hub API \u00b7 factory 2 \u00b7 billing"
+    }
+  ],
+  "validate": [
+    "bash scripts/validate-doc-datetime-header-v1.sh docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
+    "bash scripts/validate-fbe-factory-builder-bundle-v1.sh"
+  ],
+  "stack_map": {
+    "doc": "docs/SOURCEA_STACK_MAP_AND_BETTER_LOOP_LOCKED_v1.md",
+    "routing_json": "data/commercial/stack-map-routing-v1.json",
+    "phase": "POST-DESIGN",
+    "saved_at": "2026-06-18T11:28:12Z"
+  }
+}

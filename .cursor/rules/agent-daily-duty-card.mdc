@@ -1,0 +1,33 @@
+---
+description: Executor daily duty card — 22 founder reminders wired locally (D01–D22)
+alwaysApply: true
+---
+
+# Agent daily duty card (every session)
+
+**LOCKED:** `AGENT_EXECUTOR_DAILY_DUTY_CARD_LOCKED_v1.md`  
+**SSOT:** `~/.sina/agent-executor-daily-duty-card-v1.json`  
+**Wire cart:** `~/.sina/agent-law-wire-checkcart-v1.json`
+
+Founder must **not** re-remind. Read the JSON + session gate `inject` before substantive work.
+
+**Session start = session gate only** — never orientation / hospital / maze unless founder says that one word (D23).
+
+## Top 10 (full list = D01–D23 logged)
+
+1. **Wire law everywhere** — check cart W1–W10 before done  
+2. **Never FREEZE** if `factory-now` shows SINGLE_SA / resume  
+3. **RUN INBOX only** — slim prompt, no giant paste  
+4. **Brain** — one line: `sa · ROLE · n/30 · action`  
+5. **Queue SSOT** — unify factory-now / run-inbox / brain  
+6. **Never "Sina Command"** — Worker Hub · Next steps · Safety  
+7. **Incidents** — session gate ids only, not compendium  
+8. **Founder never Terminal** — executor runs shell  
+9. **One role per turn** — CHECK → ACT → VERIFY separate  
+10. **Disk wins** — truth bundle beats chat/tracker  
+
+## Every reply
+
+**Human language first** — `027-agent-report-plan-story-v1.mdc` · `data/agent-report-language-standard-v1.json` · language gate before send. Founder never Terminal. Pre-ship conduct scan. **No invitation** (`founder-no-agent-invitation-v1.flag`).
+
+Validate: `python3 scripts/agent_daily_duty_card_v1.py --validate --json`

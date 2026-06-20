@@ -1,0 +1,24 @@
+schema_version: 1
+repo: sinaai_mono
+task: Five-item governance batch — mx-0007 + incidents + MEMORY + conflict pass +
+  ask protocol
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - os/plan-library/mono-1000/prompts/phase-m0-verify-gates/T0/mx-0007.md
+  - reports/agent-auto/agent-auto-mono-2026-06-10-incidents-compendium-full.md
+  - reports/agent-auto/MEMORY.md
+  - SinaaiDataBase/noetfield/docs/NOETFIELD_TRUSTFIELD_CONFLICT_PASS_v1.md
+  - reports/agent-auto/AUDIT-LOG/agent-auto-mono-2026-06-10-mx-0007-e2e-failed-zero-pass.md
+  diff_summary: ''
+  note: ''
+tests:
+  status: passed
+  command: bash scripts/full-e2e-mono.sh && bash scripts/agent-auto-audit.sh
+  output_snippet: E2E failed=0; full-e2e-mono PASS; RESEARCH enforcer PASS x2
+real_output: E2E failed=0; full-e2e-mono PASS; RESEARCH enforcer PASS x2
+reported_at: '2026-06-10T03:25:00Z'
+reporter: cursor-auto-mono
+execution_id: ''

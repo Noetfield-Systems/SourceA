@@ -1,0 +1,77 @@
+{
+  "schema": "response-reality-layer-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-18T21:30:00Z",
+  "name": "Response Reality Layer (RRL)",
+  "law": "data/icp-output-compiler-v1.json",
+  "vocabulary_ssot": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+  "active_brands_only": ["SourceA", "Noetfield", "TrustField"],
+  "philosophy": "Valid output = reproduces target human reaction — not rules pass alone",
+  "advisor_critique": {
+    "label": "advisor_critique",
+    "note": "GPT RRL proposal — machine simulation only · Sina read = ship authority"
+  },
+  "simulation": {
+    "read_time_seconds": 10,
+    "reader": "recipient executive — non-technical business lens",
+    "question": "After 10s read — ignore · confused · skeptical · curious · would reply?"
+  },
+  "reactions": {
+    "A": { "label": "ignore", "pass": false, "signal": "generic mass outreach · no reason to stop" },
+    "B": { "label": "confused", "pass": false, "signal": "jargon · too many ideas · unclear ask" },
+    "C": { "label": "skeptical", "pass": false, "signal": "compliance pitch · vendor paragraph · feels templated" },
+    "D": { "label": "curious", "pass": true, "signal": "interesting constraint · might read twice" },
+    "E": { "label": "would_reply", "pass": true, "signal": "would answer question or ask follow-up" }
+  },
+  "pass_reactions": ["D", "E"],
+  "scoring_weights": {
+    "vendor_paragraph_penalty": 3,
+    "icp_anchors_min_pass": 3,
+    "words_per_sec": 15
+  },
+  "reaction_ladder": {
+    "E_vs_D": "E = would_reply (stronger pass) · D = curious pause only — both pass · E preferred before send"
+  },
+  "skeptical_phrases": [
+    "we've been focusing at",
+    "we are building",
+    "our platform",
+    "partner-grade",
+    "i came across",
+    "i wanted to reach out",
+    "hope you're well",
+    "producing a step-by-step",
+    "our solution",
+    "governance platform"
+  ],
+  "curious_phrases": [
+    "curious if",
+    "curious whether",
+    "still early",
+    "still something being defined",
+    "on your radar",
+    "preparing for ahead"
+  ],
+  "confusion_phrases": [
+    "controlled issuance",
+    "agentic",
+    "event bus",
+    "governance layer",
+    "attestation engine"
+  ],
+  "pipeline_position": "after OQG/CIL/RIL · before Sina read",
+  "full_pipeline": [
+    "FDG — failure moment",
+    "ICP router — SourceA | Noetfield | TrustField",
+    "ICP compiler — structure + trace rules",
+    "CIL + RIL + OQG — machine quality",
+    "RRL — human reaction simulation",
+    "Sina read — ship authority"
+  ],
+  "correct_order": "traceable intent → generate → validate reaction → store trace — not rules-only truth",
+  "script": "scripts/response_reality_layer_v1.py",
+  "receipt": "~/.sina/response-reality-layer-receipt-v1.json",
+  "history": "~/.sina/response-reality-layer-history-v1.jsonl",
+  "history_cap_per_account": 10,
+  "fleet_glance": "scripts/rrl_fleet_glance_v1.py"
+}

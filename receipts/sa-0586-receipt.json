@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0586",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0586 VERIFY \u2014 anti fabricated G3 grep T3 crossref closeout; task-validator PASS",
+  "at": "2026-06-15T00:31:18Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

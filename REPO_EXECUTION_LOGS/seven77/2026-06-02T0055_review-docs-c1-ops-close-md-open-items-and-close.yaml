@@ -1,0 +1,23 @@
+schema_version: 1
+repo: seven77
+task: Review docs/c1-ops-close.md open items and close or defer with date
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - docs/c1-ops-close.md
+  - os/plan.json
+  diff_summary: ''
+  note: 'ASF: set SUPABASE_SERVICE_ROLE_KEY via vault or npm run provision:service-key,
+    then npm run deploy:prod-close'
+tests:
+  status: passed
+  command: cd web && npm run verify:service-key; curl -s https://www.the777foundation.org/api/health/?strict=1
+  output_snippet: Key missing locally; prod strict health false — matches blocked
+    disposition in c1-ops-close.md
+real_output: Key missing locally; prod strict health false — matches blocked disposition
+  in c1-ops-close.md
+reported_at: '2026-06-02T00:55:00Z'
+reporter: cursor
+execution_id: ''

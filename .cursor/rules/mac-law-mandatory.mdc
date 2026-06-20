@@ -1,0 +1,38 @@
+---
+description: Mac Law mandatory — boss order before every SourceA session (LOCKED)
+alwaysApply: true
+---
+
+# Mac Law Mandatory (LOCKED — every session)
+
+**Boss order:** ASF → **MAC LAW** → repo SSOT → execution
+
+Read on every session when Mac, SourceA, hub, factory, cloud, or `~/.sina` is in scope:
+
+1. `~/Desktop/MacLaw/MAC_LAW_SSOT_LOCKED.md` — Mac Law is the boss
+2. `~/Desktop/MacLaw/MAC_CONTROL_PLANE_LOCKED.md` — Mac cockpit · cloud executes
+3. `~/Desktop/MacLaw/MAC_HEALTH_AGENT_MANDATES_LOCKED.md` — quiet · never-again
+
+**Machine SSOT:** `data/mac-law-mandatory-v1.json` · `data/mac-law-machine-enforceable-v1.json` · `data/founder-execution-model-v1.json`
+
+**Machine enforce (031):** `python3 scripts/mac_law_machine_enforce_v1.py --sync-receipt --enforce --json`
+
+## Mandatory before ship
+
+```bash
+bash scripts/validate-mac-law-mandatory-v1.sh
+bash scripts/validate-mac-law-machine-enforceable-v1.sh
+python3 scripts/mac_law_mandatory_v1.py --sync-receipt --json
+python3 scripts/mac_law_machine_enforce_v1.py --sync-receipt --enforce --json
+```
+
+## Founder daily boot
+
+```bash
+bash scripts/enter-mac-control-plane-v1.sh
+open http://127.0.0.1:13020/
+open http://127.0.0.1:8780/
+open http://127.0.0.1:8781/
+```
+
+Mac Law outranks SourceA repo law. Cloud factories execute — Mac manages only.

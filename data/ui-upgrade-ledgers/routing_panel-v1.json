@@ -1,0 +1,40 @@
+{
+  "schema": "ui-upgrade-ledger-v1",
+  "surface_id": "routing_panel",
+  "label": "Routing Panel",
+  "repo": "SourceA",
+  "root": "routing-panel",
+  "url": "http://127.0.0.1:8780/",
+  "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/ROUTING_PANEL_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+  "saved_at": "2026-06-19T16:54:05Z",
+  "frozen_inventory": [
+    {"id": "health_endpoint", "kind": "api", "marker": "routing-panel health 200", "files": ["routing-panel"]},
+    {"id": "observe_only", "kind": "law", "marker": "architect observe only — NOT boss", "files": ["~/Desktop/MacLaw/MAC_REPO_REGISTRY.json"]},
+    {"id": "launchd_supervision", "kind": "ops", "marker": "com.sourcea.routing-panel", "files": ["launch/com.sourcea.routing-panel.plist"]},
+    {"id": "mono_root_display", "kind": "ui", "marker": "mono_root in health JSON", "files": ["routing-panel"]}
+  ],
+  "app_checklist": [
+    {"id": "RP-1", "step": "Routing Panel is observe-only — never boss of Mac"},
+    {"id": "RP-2", "step": ":8780 HTTP 200 health + page"},
+    {"id": "RP-3", "step": "launchd com.sourcea.routing-panel running"},
+    {"id": "RP-4", "step": "Included in mac-law surfaces E2E 4/4"}
+  ],
+  "upgrades": [
+    {
+      "upgrade_id": "UP-ROUTING-000",
+      "saved_at": "2026-06-19T16:45:00Z",
+      "founder_trigger": "launchd supervision + E2E stable URLs",
+      "general_checklist": "UP-0..UP-7",
+      "app_checklist": "RP-1..RP-4",
+      "status": "approved",
+      "quality_vs_last": "better",
+      "preserved": "observe-only role, mono_root wiring",
+      "changed": "launchd plist, stable :8780 under supervision",
+      "achieved": "Routing panel stays up with Mac Law E2E chain",
+      "founder_approval": "approved",
+      "machine_proof": {"validate-mac-law-surfaces-e2e-v1.sh": "routing_panel PASS"},
+      "baseline_before": "nohup",
+      "baseline_after": "v3.0.1-launchd"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0997",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY \u2014 T3 hub-only vs terminal-first cross-ref closed (canonical sa-0972)",
+  "at": "2026-06-14T11:00:15Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

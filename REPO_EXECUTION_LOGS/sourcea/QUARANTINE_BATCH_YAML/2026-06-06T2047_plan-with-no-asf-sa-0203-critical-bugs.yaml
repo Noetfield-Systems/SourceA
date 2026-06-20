@@ -1,0 +1,16 @@
+schema_version: 1
+repo: sourcea
+task: PLAN WITH NO ASF — sa-0203 find_critical_bugs critical 0 hub up
+status: done
+verify_passed: true
+evidence:
+  files_changed:
+    - os/plan-library/sourcea-1000/REGISTRY.json
+    - os/plan-library/sourcea-1000/prompts/phase-s2-hub-build-ci/T0/sa-0203.md
+    - os/plan-library/SOURCEA-PRIORITY.md
+tests:
+  status: passed
+  command: curl health :13020 && python3 find_critical_bugs.py
+  output_snippet: hub health OK · critical 0 · verdict no critical bugs found
+reported_at: '2026-06-06T20:47:00Z'
+reporter: cursor-worker

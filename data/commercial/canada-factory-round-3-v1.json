@@ -1,0 +1,65 @@
+{
+  "schema": "canada-factory-round-3-v1",
+  "saved_at": "2026-06-19T18:25:00Z",
+  "round": 3,
+  "law": [
+    "no_invitation",
+    "shadow_pilot_metric_signed",
+    "sourcea_factory_after_ocree_closeout",
+    "ui_agent_checklist_before_www"
+  ],
+  "prerequisites": {
+    "round_2": "canada-factory-round-2-v1.json",
+    "packaging_ladder_1_4": "green",
+    "msb_wave_target": "15 sent_by=agent",
+    "ocree_w3": "pack_ready_hub_send"
+  },
+  "round_3_queue": [
+    {
+      "step": 1,
+      "id": "ocree_closeout",
+      "brand": "trustfield",
+      "plans": ["cr-0015", "cr-0102"],
+      "gate": "founder_confirm_sent"
+    },
+    {
+      "step": 2,
+      "id": "sourcea_factory_compile",
+      "brand": "sourcea",
+      "plans": ["cr-0100", "cr-0115"],
+      "gate": "blocked_until_ocree_sent"
+    },
+    {
+      "step": 3,
+      "id": "shadow_pilot_metric",
+      "brand": "trustfield",
+      "targets": ["ocree", "fractionvest"],
+      "metric": {
+        "deposit_cad_min": 2000,
+        "refund_if_miss": true,
+        "window_days": 90,
+        "source": "CANADA_RWA_DEEP_ANALYSIS_LOCKED_v3.md §9"
+      },
+      "plans": ["pf-0091", "pf-0243"]
+    },
+    {
+      "step": 4,
+      "id": "wave_b_unlock",
+      "brand": "trustfield",
+      "gate": "3_priority_a_conversations",
+      "plans": ["cr-0200", "cr-0266"]
+    }
+  ],
+  "shadow_pilot": {
+    "status": "draft_metric_on_disk",
+    "signed_at": null,
+    "counterparty": null,
+    "metric_text": "CAD ≥ $2K deposit · refund if agreed 90-day evidence metric missed",
+    "artifact": "~/.sina/agent-workspaces/trustfield/commercial-goal/SHADOW_PILOT_METRIC_v1.md"
+  },
+  "cross_ref": {
+    "round_2": "/Users/sinakazemnezhad/Desktop/SourceA/data/commercial/canada-factory-round-2-v1.json",
+    "w3_approvals": "/Users/sinakazemnezhad/Desktop/SourceA/data/commercial/w3-canada-send-approvals-v1.json",
+    "333_registry": "/Users/sinakazemnezhad/Desktop/1 PAGER/canada-rwa-333-locked/REGISTRY.json"
+  }
+}

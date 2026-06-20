@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0800",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "worker_inbox",
+  "evidence": "sa-0800 VERIFY DONE \u2014 Append council governance evidence row after fleet essay wave; validators: validate-governance-fleet-v1.sh: PASS, validate-essay-nudges-council-v1.sh: PASS, validate-dispatch-policy-v1.sh: PASS, worker_verify_fast_v1.sh: PASS",
+  "at": "2026-06-13T21:57:21Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

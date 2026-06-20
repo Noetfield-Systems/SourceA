@@ -1,0 +1,174 @@
+# Machine SSOT — execution authority (YAML-first)
+# Prose pointer: EXECUTION_AUTHORITY_MAP_LOCKED_v1.md
+# Law: CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md
+schema: authority-map.v1
+locked: true
+updated: 2026-06-08
+golden_law: Specialists advocate · Execution Core decides · Workers act · Disk remembers · ASF controls
+
+runtime_pointers:
+  next_task: ~/.sina/next-execution-pointer-v1.json
+  execution_state: ~/.sina/runtime/execution.json
+  active_rail: ~/.sina/active-execution-rail-v1.json
+  research_digest: ~/.sina/research-root/filtered/execution_core.digest.yaml
+
+layers:
+  - id: L0
+    name: Human override
+    roles: [asf_hub]
+  - id: L1
+    name: Execution authority
+    roles: [sourcea_execution_core]
+  - id: L2
+    name: Mechanical gate
+    roles: [broker_validators]
+  - id: L3
+    name: Builders
+    roles: [sourcea_worker, portfolio_site_worker, headless_cli_worker]
+  - id: L4
+    name: Advise-only specialists
+    roles: [commercial_goal_specialist, governance_goal_specialist, research_acquisitor]
+  - id: L5
+    name: Archive / external input
+    roles: [old_brain_broker, external_advisor]
+  - id: L6
+    name: Memory
+    roles: [research_mirror, disk_ssot]
+
+roles:
+  asf_hub:
+    agent_name: ASF + Sina Command Hub
+    execution_authority: human_override
+    can_route: true
+    can_build: false
+    can_override: true
+    workspace: hub://127.0.0.1:13020
+    ack_schema: founder_hub_tap_only
+
+  sourcea_execution_core:
+    agent_name: SourceA Execution Core (Brain chat)
+    execution_authority: true
+    can_route: true
+    can_build: false
+    can_override: false
+    workspace: ~/Desktop/SourceA
+    handoff: brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md
+    spawn_phrases: [activate loop, execute turn, execute loop N]
+    ack_schema: EXECUTION_CORE_ACK
+
+  broker_validators:
+    agent_name: goal1_lane_broker + validate-* + one_sa_per_turn_gate
+    execution_authority: false
+    can_route: false
+    can_build: false
+    can_override: false
+    gate: broker=yes required for unattended advance
+    scripts:
+      - scripts/goal1_lane_broker.py
+      - scripts/one_sa_per_turn_gate_v1.py
+      - scripts/brain_validate_goal1_v1.py
+
+  sourcea_worker:
+    agent_name: SourceA Worker (Cursor Worker chat)
+    execution_authority: false
+    can_route: false
+    can_build: true
+    can_override: false
+    workspace: ~/Desktop/SourceA
+    scope: one sa-XXXX per turn · disk edits · validators
+    ack_schema: WORKER_ACK
+
+  portfolio_site_worker:
+    agent_name: TrustField / Noetfield site worker
+    execution_authority: false
+    can_route: false
+    can_build: true
+    can_override: false
+    scope: product site only · cite parent blueprint trace
+    parent_traces:
+      trustfield: RESEARCH-ACQUISITOR-20260608-TF-001
+      noetfield: RESEARCH-ACQUISITOR-20260608-NF-002
+
+  headless_cli_worker:
+    agent_name: Cursor agent CLI (agent -p -f)
+    execution_authority: false
+    can_route: false
+    can_build: true
+    can_override: false
+    scope: mechanical Worker class under broker + one-sa law
+    chain: goal1_auto_loop_v1.py → goal1_run_loop_v1.py → start_goal1_worker_turn_v1.py
+
+  commercial_goal_specialist:
+    agent_name: Commercial Goal Specialist
+    execution_authority: false
+    can_route: false
+    can_build: false
+    workspace: ~/Desktop/TrustField Technologies
+    output_vault: ~/.sina/agent-workspaces/trustfield/commercial-goal/
+
+  governance_goal_specialist:
+    agent_name: Governance Goal Specialist
+    execution_authority: false
+    can_route: false
+    can_build: false
+    workspace: ~/Desktop/SinaaiMonoRepo
+    output_vault: ~/.sina/agent-workspaces/noetfield_local/legal-goal/
+
+  research_acquisitor:
+    agent_name: Research Acquisitor
+    execution_authority: false
+    can_route: false
+    can_build: false
+    output_vault: ~/.sina/agent-workspaces/research-acquisitor/briefs/
+    digest_only_for_brain: true
+
+  old_brain_broker:
+    agent_name: Old Brain (SinaaiDataBase archive broker)
+    execution_authority: false
+    can_route: false
+    can_build: false
+    workspace: ~/Desktop/SinaaiDataBase
+    scope: readonly_search · library · compare_to_SSOT · never assign sa
+
+  external_advisor:
+    agent_name: GPT / Claude Pro (external)
+    execution_authority: false
+    can_route: false
+    can_build: false
+    input_class: EXTERNAL_CRITIC
+
+  research_mirror:
+    agent_name: RESEARCH/by_date mirror
+    execution_authority: false
+    scope: evidence · never ship authority
+
+  disk_ssot:
+    agent_name: Disk SSOT
+    execution_authority: false
+    scope: REGISTRY · LOCKED law · ~/.sina receipts · remembers never decides
+
+maturity:
+  current: L1_semi_auto
+  target_after_p0: L2_single_pointer_plus_runtime_json
+  target_after_p1: L3_broker_authority_enforced
+  defer: [L4_event_bus, L5_scheduler, L6_capability_routing, L7_policy_engine, L8_self_healing]
+
+who_talks_to_whom:
+  - need: start_run
+    open: Hub ▶ AUTO-RUN
+    role: asf_hub
+  - need: whats_next
+    open: SourceA Brain
+    role: sourcea_execution_core
+  - need: build_sa
+    open: SourceA Worker
+    role: sourcea_worker
+  - need: library_compare
+    open: Old Brain broker
+    role: old_brain_broker
+  - need: money_legal
+    open: Commercial / Governance specialists
+    role: commercial_goal_specialist
+  - need: market_evidence
+    open: Research Acquisitor
+    role: research_acquisitor

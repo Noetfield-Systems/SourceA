@@ -1,0 +1,20 @@
+{
+  "schema": "cinematic-event-graph-v1",
+  "lane": "witnessbc",
+  "events": [
+    "intent_start",
+    "action_hover",
+    "action_execute",
+    "policy_evaluation",
+    "enforcement_trigger",
+    "block_state",
+    "proof_generation",
+    "audit_commit"
+  ],
+  "legacy_beats_map": {
+    "attempt": "action_execute",
+    "block": "block_state",
+    "receipt": "proof_generation",
+    "end": "audit_commit"
+  }
+}

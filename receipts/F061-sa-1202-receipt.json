@@ -1,0 +1,11 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1202",
+  "status": "BLOCKED",
+  "round_type": "act",
+  "upgrade_id": "F061",
+  "title": "All ship gates true",
+  "evidence": "agent_nerve_system --check-rrl-ship-gate · w3_send_ready=false · w3_rrl_pass=false · w3_sina_read_pass=true · acceptance w3_send_ready PASS not met · lane commercial_w3 founder-owned",
+  "at": "2026-06-19T18:57:35Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

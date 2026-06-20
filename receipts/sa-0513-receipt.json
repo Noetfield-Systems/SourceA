@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0513",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0513 VERIFY PASS \u2014 validate-commercial-critique-program-progress-locks-v1 \u00b7 crosswalk logged \u00b7 PROGRAM_PROGRESS signals_auto hook",
+  "at": "2026-06-14T12:49:46Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,62 @@
+{
+  "schema": "structural-fix-receipt-v1",
+  "at": "2026-06-09T01:30:00Z",
+  "law": "REGISTRY done = receipt logged + orchestrator verify role only",
+  "tasks_reverted": 0,
+  "tasks_reverted_ids": [],
+  "tasks_kept_done": 9,
+  "tasks_kept_ids": [
+    "sa-0153",
+    "sa-0154",
+    "sa-0155",
+    "sa-0156",
+    "sa-0157",
+    "sa-0158",
+    "sa-0159",
+    "sa-0164",
+    "sa-0501"
+  ],
+  "drifts_fixed": [
+    {
+      "sa_id": "sa-0712",
+      "fix": "agent_tag present in prompt frontmatter (already aligned)"
+    },
+    {
+      "sa_id": "sa-0129",
+      "fix": "REGISTRY status backlog matches md backlog (already aligned)"
+    },
+    {
+      "sa_id": "sa-0821",
+      "fix": "REGISTRY status backlog matches md backlog (already aligned)"
+    },
+    {
+      "sa_id": "sa-0713",
+      "fix": "REGISTRY status backlog matches md backlog (already aligned)"
+    },
+    {
+      "sa_id": "sa-0714",
+      "fix": "REGISTRY status backlog matches md backlog (already aligned)"
+    }
+  ],
+  "gate_added": true,
+  "gate_file": "scripts/closeout_sa_task.py",
+  "gate_class": "ReceiptGateError",
+  "gate_checks": [
+    "receipts/{sa_id}-receipt.json must exist",
+    "receipt.status must not be BATCH_CLOSEOUT_ONLY"
+  ],
+  "batch_paths_killed": 2,
+  "batch_paths_killed_detail": [
+    "scripts/closeout_worker_1_sa_block_v1.py --sync-sourcea (disabled → BATCH_CLOSEOUT_ILLEGAL)",
+    "scripts/finish-worker-1-sa-block-v1.sh closeout call removed"
+  ],
+  "legal_closeout_path": "goal1_lane_broker worker-submit when round_type=verify AND orchestrator expected_role=verify",
+  "stuck_recovery_v1": true,
+  "hub_action": "founder-unstick-worker",
+  "turn_timeout_sec": 1800,
+  "registry_honest_lib_v1": true,
+  "auto_enforce_on_hub_build": true,
+  "honest_gate": "validate-registry-honest-gate-v1.sh",
+  "hub_actions": ["founder-enforce-honest-registry", "founder-unstick-worker"],
+  "law_permanent": "YAML restore illegal; hub build auto-reverts unproven done; monitor shows honest_done only"
+}

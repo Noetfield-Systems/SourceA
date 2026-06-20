@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0031",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0031 VERIFY CLOSEOUT: Eval line validator wired; synthesis aligned 4/5\u00b780% honest; Valid YES 99/1000.",
+  "at": "2026-06-09T14:47:46Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

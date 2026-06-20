@@ -1,0 +1,143 @@
+{
+  "schema": "founder-execution-model-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T16:35:00Z",
+  "authority": "founder",
+  "one_law": "Factories ONLINE on cloud + public API only — Mac = control panel never factory body · anti-staleness · zero drift · zero fragmentation",
+  "mac_role": {
+    "canonical": "control_plane_only",
+    "aliases": ["control_panel_only", "cockpit_only", "mac_control_panel"],
+    "allowed": ["hub_gate", "form_pick", "approve", "monitor", "session_gate", "health_pulse", "receipt_read"],
+    "forbidden_as_factory": ["heavy_render", "fal_spend", "auto_send", "factory_execution", "cloud_worker_body"]
+  },
+  "cloud_role": {
+    "canonical": "execution_plane_headless",
+    "aliases": ["cloud_only", "CLOUD_ONLY", "cloud_api_worker", "headless_factory"],
+    "factory_priority_law": "Main cloud factories must be ONLINE (public HTTPS / cloud API / cloud receipt) — Mac never counts as factory · email DEFERRED until main stack + product sites online",
+    "factory_online_law": "data/cloud-factories-online-only-v1.json",
+    "main_cloud_factories": [
+      "fbe_factory_builder",
+      "fbe_railway",
+      "comprehension_loop_bay",
+      "supabase_edge",
+      "video_ad_factory",
+      "noetfield_freemium_bay",
+      "trustfield_sandbox",
+      "witnessbc_proof_lab",
+      "fal_rendering_bridge",
+      "openrouter_cloud"
+    ],
+    "deferred_lanes": [
+      {
+        "id": "commercial_email_cloud",
+        "label": "W3 outbound email (TrustField send)",
+        "runs_after": "all main_cloud_factories + product_sites online + founder_lift",
+        "defer_ssot": "data/commercial-email-send-defer-v1.json",
+        "priority": 99
+      }
+    ],
+    "factories": [
+      "fbe_railway",
+      "supabase_edge",
+      "video_ad_factory",
+      "noetfield_freemium_bay",
+      "trustfield_sandbox",
+      "witnessbc_proof_lab",
+      "fal_rendering_bridge",
+      "openrouter_cloud",
+      "commercial_email_cloud"
+    ]
+  },
+  "rule_upgrade_procedure": {
+    "trigger": "founder sets new rule in chat OR EDIT ALLOWED / WORK order",
+    "command": "python3 scripts/founder_execution_model_v1.py --wire-sync --json",
+    "chain_order": [
+      "founder_execution_model_v1.py --wire-sync",
+      "agent_rule_live_wire_v1.py --wire-sync",
+      "h2_pending_registry_sync_v1.py",
+      "disk_live_wire_sync_v1.py"
+    ],
+    "targets": [
+      "data/architecture-ledger-v1.json",
+      "data/cursor-bootstrap-ledger-v1.json",
+      "docs/architecture_ledger.json",
+      "data/machine-execution-plane-registry-v1.json",
+      "data/platform-neutral-world-model-v1.json",
+      "~/.sina/h2-pending-registry-v1.json",
+      "~/.sina/founder-execution-model-receipt-v1.json",
+      "~/.sina/agent-live-surfaces-v1.json"
+    ]
+  },
+  "founder_rules_live": [
+    {
+      "id": "FR-001",
+      "saved_at": "2026-06-19T12:00:00Z",
+      "text": "Plan CLOUD factories only — Mac is control panel",
+      "wired": true
+    },
+    {
+      "id": "FR-002",
+      "saved_at": "2026-06-19T12:00:00Z",
+      "text": "When founder makes new rules — upgrade disk and machines automatically",
+      "wired": true
+    },
+    {
+      "id": "FR-003",
+      "saved_at": "2026-06-19T12:00:00Z",
+      "text": "Marketplace Card 1 first — The Proof Layer for AI Agents",
+      "wired": true
+    },
+    {
+      "id": "FR-004",
+      "saved_at": "2026-06-19T12:00:00Z",
+      "text": "Human forks on FORM_OFFICIAL — chat does not hold unpicked A/B/C",
+      "wired": true
+    },
+    {
+      "id": "FR-005",
+      "saved_at": "2026-06-19T12:00:00Z",
+      "text": "Fail immediate — no fake-green no tempering",
+      "wired": true
+    },
+    {
+      "id": "FR-006",
+      "saved_at": "2026-06-19T18:00:00Z",
+      "text": "All work on cloud + APIs stack — Mac is control panel for agentic factories online only",
+      "wired": true
+    },
+    {
+      "id": "FR-007",
+      "saved_at": "2026-06-19T23:30:00Z",
+      "text": "FBE factory builder ONLINE in cloud first — then main cloud factories + product sites — commercial email send DEFERRED until all pass + founder_lift",
+      "wired": true,
+      "ssot": "data/commercial-email-send-defer-v1.json"
+    },
+    {
+      "id": "FR-008",
+      "saved_at": "2026-06-19T16:30:00Z",
+      "text": "Mac Law mandatory every session — boss order · control plane · health mandates · validate before ship",
+      "wired": true,
+      "ssot": "data/mac-law-mandatory-v1.json"
+    },
+    {
+      "id": "FR-009",
+      "saved_at": "2026-06-19T16:35:00Z",
+      "text": "Factories ONLINE on cloud + API only — Mac is control panel, never factory body · anti-staleness · zero drift · zero fragmentation",
+      "wired": true,
+      "ssot": "data/cloud-factories-online-only-v1.json"
+    },
+    {
+      "id": "FR-010",
+      "saved_at": "2026-06-19T21:00:00Z",
+      "text": "111 ecosystem upgrades — Mac Health silent · control plane · validator cloud · founder progress logged",
+      "wired": true,
+      "ssot": "data/ecosystem-mac-health-111-upgrade-plan-v1.json"
+    }
+  ],
+  "cloud_factories_online_ssot": "data/cloud-factories-online-only-v1.json",
+  "mac_law_mandatory_ssot": "data/mac-law-mandatory-v1.json",
+  "script": "scripts/founder_execution_model_v1.py",
+  "validator": "scripts/validate-founder-execution-model-v1.sh",
+  "receipt": "~/.sina/founder-execution-model-receipt-v1.json",
+  "machine_registry": "data/machine-execution-plane-registry-v1.json"
+}

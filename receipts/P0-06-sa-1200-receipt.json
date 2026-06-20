@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "P0-06",
+  "title": "TrustField MSB / compliance sandbox story",
+  "evidence": "validate-trustfield-msb-sandbox-story-v1 PASS · live_sandbox on SANDBOX beat · RPAA pilot narrative · data/trustfield-msb-compliance-sandbox-story-v1.json",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T08:47:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

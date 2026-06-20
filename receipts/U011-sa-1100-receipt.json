@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U011",
+  "title": "Sync salvage hard fails into factory-email-translation-v1.json",
+  "evidence": "sync_salvage_hard_fails() in validate_email_translation_v1.py; salvage openers = translation hard_fail_openers; salvage_hard_fail_patterns synced",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:41:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

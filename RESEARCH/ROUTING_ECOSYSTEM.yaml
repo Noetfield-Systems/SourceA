@@ -1,0 +1,24 @@
+subject: ecosystem
+label: Cross-portfolio / general
+thread: THREAD-ECOSYSTEM
+artifact_count: 6
+by_worker:
+  research_acquisitor:
+  - trace_id: 2026-06-06_EVIDENCE_GROUNDING
+    date: '2026-06-06'
+    path: by_date/2026-06-06/research_acquisitor/ecosystem/2026-06-06_EVIDENCE_GROUNDING/2026-06-06_EVIDENCE_GROUNDING.yaml
+  - trace_id: 2026-06-06_RESEARCH_BRIEF
+    date: '2026-06-06'
+    path: by_date/2026-06-06/research_acquisitor/ecosystem/2026-06-06_RESEARCH_BRIEF/2026-06-06_RESEARCH_BRIEF.yaml
+  - trace_id: INDEX
+    date: '2026-06-07'
+    path: by_date/2026-06-07/research_acquisitor/ecosystem/INDEX/INDEX.yaml
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-08-TAG-STD-001
+    date: '2026-06-08'
+    path: by_date/2026-06-08/research_acquisitor/ecosystem/RESEARCH-ACQUISITOR-REF-2026-06-08-TAG-STD-001/DOC_TAG_STANDARD.md
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-08-TRACE-REG-000
+    date: '2026-06-08'
+    path: by_date/2026-06-08/research_acquisitor/ecosystem/RESEARCH-ACQUISITOR-REF-2026-06-08-TRACE-REG-000/TRACE_REGISTRY.yaml
+  - trace_id: TRACE_REGISTRY_RESEARCH_ACQUISITOR_20260608
+    date: '2026-06-08'
+    path: by_date/2026-06-08/research_acquisitor/ecosystem/TRACE_REGISTRY_RESEARCH_ACQUISITOR_20260608/TRACE_REGISTRY_RESEARCH_ACQUISITOR_20260608.yaml

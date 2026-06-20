@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0142 — Document eval CI in build-sina-command-panel.py header comment
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0142
+tests:
+  status: passed
+  output_snippet: sa-0142 T1 replay eval CI header + strict-build-chain step 4 · validate-eval-packet-v1b-live SKIP 402 · governance-fleet PASS · dispatch-policy PASS · critical 0 sa-slice
+reported_at: '2026-06-07T12:18:06Z'
+reporter: cursor-worker

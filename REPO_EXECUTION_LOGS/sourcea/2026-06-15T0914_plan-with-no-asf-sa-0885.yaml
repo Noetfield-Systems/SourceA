@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0885 — Validate judge alarm strip one-line receipt — full batch on H2 weekly only
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0885
+tests:
+  status: passed
+  output_snippet: validate-judge-alarm-h2-one-line-t3-crossref-v1 PASS|canonical sa-0810|strip JC-20260615-702fdf89|registry sync|984/1000 dual_proof
+reported_at: '2026-06-15T09:14:31Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

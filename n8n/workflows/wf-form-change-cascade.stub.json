@@ -1,0 +1,26 @@
+{
+  "name": "wf-form-change-cascade",
+  "meta": {
+    "schema": "sina-n8n-workflow-stub-v1",
+    "status": "stub",
+    "pick": "Q-ENGINE-TEST-01 YES · Q-M2-FORM-SYNC YES",
+    "receipt": "SOURCEA_GOV_PICK_BATCH_2026-06-12_LOCKED_v1.md",
+    "trigger": "form_json_hash_change",
+    "note": "Stub wires governance_propagation_cascade_v1.py then hub rebuild — no Cursor auto-send"
+  },
+  "nodes": [
+    {
+      "name": "Form hash watch",
+      "type": "n8n-nodes-base.webhook",
+      "parameters": { "path": "form-change-cascade", "httpMethod": "POST" }
+    },
+    {
+      "name": "Cascade CLI",
+      "type": "n8n-nodes-base.executeCommand",
+      "parameters": {
+        "command": "python3 ~/Desktop/SourceA/scripts/governance_propagation_cascade_v1.py && python3 ~/Desktop/SourceA/scripts/build-sina-command-panel.py"
+      }
+    }
+  ],
+  "connections": { "Form hash watch": { "main": [[{ "node": "Cascade CLI", "type": "main", "index": 0 }]] } }
+}

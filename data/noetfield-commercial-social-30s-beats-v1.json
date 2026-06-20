@@ -1,0 +1,45 @@
+{
+  "schema": "commercial-short-film-beats-v1",
+  "status": "draft",
+  "routing_lane": "noetfield",
+  "routing_tier": "C_social",
+  "routing_ref": "data/commercial-film-routing-v1.json#noetfield.tier_C_social",
+  "film_style": "linear_bar",
+  "quality_tier": "ultra",
+  "runtime_target_seconds": 30,
+  "captions_mode": "full",
+  "title": "Noetfield — 30s LinkedIn Cut",
+  "hook": "Your Copilot agents are executing right now.",
+  "brand": {
+    "name": "Noetfield",
+    "domain": "noetfield.com",
+    "hook_broll_urls": ["TBD://noetfield-demo-surface"]
+  },
+  "beats": [
+    {
+      "id": "BLOCK",
+      "label": "BLOCK",
+      "narration": "Policy violated. Execution stopped.",
+      "broll_urls": ["TBD://noetfield-demo-surface#block"],
+      "broll_seconds": 8,
+      "seconds_per_url": 8
+    },
+    {
+      "id": "PROOF",
+      "label": "Proof",
+      "narration": "Receipt generated. Audit preserved.",
+      "broll_urls": ["TBD://noetfield-demo-surface#receipt"],
+      "broll_seconds": 8,
+      "seconds_per_url": 8
+    }
+  ],
+  "cta": {
+    "narration": "Noetfield. Governance at dispatch.",
+    "seconds": 5
+  },
+  "tier_C_options": {
+    "founder_selfie": "allowed_preferred",
+    "heygen_avatar": "allowed_test",
+    "capcut": "allowed"
+  }
+}

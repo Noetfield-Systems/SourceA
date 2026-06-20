@@ -1,0 +1,21 @@
+{
+  "schema": "cloud-comprehension-bay-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-20T03:25:00Z",
+  "locked": true,
+  "one_law": "Comprehension loop runs on Railway FBE — client POSTs draft direct to cloud · Mac Hub optional fallback · no Mac validators",
+  "bay_slug": "comprehension-loop-bay",
+  "factory_id": "comprehension-loop-factory-v1",
+  "cloud_route": "/api/fbe/comprehension-loop/v1",
+  "cloud_worker_url": "https://sourcea-fbe-runner-production.up.railway.app",
+  "hub_route": "/api/comprehension-loop/v1",
+  "hub_route_role": "legacy_fallback_only",
+  "worker_config": "data/fbe_cloud_worker_config_v1.json",
+  "script": "scripts/fbe_comprehension_bay_v1.py",
+  "client": "scripts/cloud_comprehension_bay_client_v1.py",
+  "validator": "scripts/validate-cloud-comprehension-bay-v1.sh",
+  "receipt": "~/.sina/cloud-comprehension-bay-receipt-v1.json",
+  "execution_plane": "headless_cloud",
+  "mac_role": "POST draft + optional snapshot · display for_founder · never run comprehension validators locally",
+  "cloud_role": "translate · score · ACCEPT or BLOCK · plain English only in for_founder"
+}

@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0536 — Reject fabricated G3 or Track PASS in any script grep
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0536
+tests:
+  status: passed
+  output_snippet: sa-0536 VERIFY PASS — T1 anti-fabricated G3 grep dedup via crossref canonical sa-0511
+reported_at: '2026-06-14T16:57:21Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

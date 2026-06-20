@@ -1,0 +1,370 @@
+# creator_platform_icp_strategy_v1.yaml
+# High-paying creator platforms · money-maker ICPs · Flibbo GTM strategy
+# trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-CREATOR-ICP-STRATEGY
+# execution_authority: false · Research only · Jun 2026 
+
+meta:
+  id: creator_platform_icp_strategy_v1
+  date: "2026-06-12"
+  lane: cursor_os_pro_research_lane_b
+  purpose: >
+    Map platforms that pay creators well, identify top-earner ICP profiles,
+    and brainstorm practical acquisition + product strategy (Flibbo-aligned).
+  data_vintage: "2026 H1 public  — verify before financial decisions"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# PART 1 — PLATFORM PAY LEAGUE TABLE (ranked by realistic creator income)
+# ═══════════════════════════════════════════════════════════════════════════
+
+platform_league_table:
+  note: "Rank = combined earning potential for serious creators (not beginner floor)"
+
+  tier_S_highest_ceiling:
+    - rank: 1
+      platform: YouTube long-form
+      native_pay: "$1.50–$28 RPM · ~$5K–$8K per 1M views avg · finance/tech up to $7K–$9K per 1M"
+      other_streams: [sponsorships $500–$2K/video at 50K subs, affiliates, memberships]
+      threshold: "1K subs + 4K watch hours"
+      best_niches: [finance, B2B SaaS, digital marketing, make-money-online, tech AI]
+    - rank: 2
+      platform: TikTok Shop affiliate + LIVE
+      native_pay: "Commissions 10–30% · median creator ~$680/mo at 10K–100K · top 5% $5K–$20K+/mo"
+      other_streams: [brand flat fees $650–$5K+ by tier, Creator Rewards for 1min+ video]
+      threshold: "1K followers · US market"
+      best_niches: [beauty, health, home, supplements]
+    - rank: 3
+      platform: Brand deals (cross-platform)
+      native_pay: "Not platform-native — primary income sub-1M followers"
+      rates_2026:
+        instagram_50k: "$500–$1,500/post"
+        tiktok_50k_200k: "$800–$4,000/video"
+        youtube_integration_200k: "$8K–$20K"
+      driver: "Engagement rate > follower count"
+    - rank: 4
+      platform: UGC for brands (no audience required)
+      native_pay: "$150–$700/video · +30–50% paid ads usage · retainers $1.5K–$5K/mo"
+      driver: "Conversion data + turnaround — NOT followers"
+    - rank: 5
+      platform: Kick live streaming
+      native_pay: "95/5 sub split · $4.74 per $4.99 sub · KPP ~$15–20/hr for qualifiers"
+      other_streams: [tips 0% cut, multistream]
+      caveat: "Smaller audience than Twitch — subs pay best per fan"
+
+  tier_A_strong_but_narrower:
+    - platform: YouTube Live + VOD stack
+      pay: "70/30 subs + long-term VOD AdSense (passive after stream)"
+    - platform: Twitch Partner
+      pay: "70/30 subs at partner · ads ~$1.75–1.9 effective CPM"
+    - platform: Facebook long-form video
+      pay: "~$4K–$6K per 1M views · 10K followers"
+    - platform: TikTok Creator Rewards
+      pay: "$0.40–$1.00 RPM · 1M qualified views = $400–$1K · MUST be 1min+"
+    - platform: Patreon / Substack
+      pay: "~$425/mo net per 100 patrons at $5 · 10% platform fee"
+    - platform: Spotify Partner Program (podcast)
+      pay: "50/50 ads · $100M+ Q1 2025 payouts pool · 1K audience + 2K hours/mo"
+
+  tier_B_discovery_low_native_pay:
+    - platform: Instagram Reels
+      pay: "Reels bonuses invite-only · $0.01–$0.09 per 1K plays · money = brand deals + affiliate"
+    - platform: YouTube Shorts
+      pay: "$50–$70 per 1M views — reach tool not income tool"
+    - platform: X Premium ads
+      pay: "Variable · 5M impressions threshold"
+    - platform: Snapchat Monetization
+      pay: "Invite-only · 50K followers + heavy view thresholds"
+    - platform: Pinterest / Lemon8
+      pay: "Affiliate + brand · weak direct platform pay"
+
+  strategic_rule: >
+    Sustainable creators run 3+ income streams. Platform-native pay alone is fragile.
+    TikTok/IG for discovery · YouTube/Patreon/Shop for money · UGC for cashflow without audience.
+
+# ═══════════════════════════════════════════════════════════════════════════
+# PART 2 — THE MONEY MAKERS = OUR ICP (prioritized)
+# ═══════════════════════════════════════════════════════════════════════════
+
+icp_master_list:
+  scoring: "Willingness to pay for AI tools · volume pain · proven income · reachable on social ads"
+
+  ICP_1_tiktok_shop_volume_seller:
+    priority: P0
+    who: "Mid-tier TikTok Shop affiliate · 10K–500K followers · posts 5–15 shoppable videos/week + LIVE"
+    income: "$680–$4,200/mo median band · pros $5K–$30K+/mo"
+    pain:
+      - "Need hooks + scripts + variants at volume — same product, many angles"
+      - "Burnout from filming · AI helps B-roll, voice, music, script"
+      - "1min+ requirement for Creator Rewards on same account"
+    pays_for_tools: "High — ROI = one extra converting video/day"
+    flibbo_fit: [viral hook scores, AI music no copyright, image gen for thumbnails, script variants]
+    reach: "TikTok ads · creator Discord/Telegram · '#tiktokshop' · Collabstr/Billo adjacent"
+    persona_name: "Shop Stack Sarah"
+
+  ICP_2_ugc_pro_no_audience:
+    priority: P0
+    who: "UGC creator 6–18mo exp · $250–$600/video · 10–30 deliverables/mo for brands"
+    income: "$3K–$15K/mo from bundles + usage rights upsells"
+    pain:
+      - "Hooks, scripts, b-roll, raw footage requests — time is money"
+      - "Need 5 hook variants per brief · brands A/B test"
+    pays_for_tools: "Very high — saves hours per $400 video"
+    flibbo_fit: [hook generator, script-to-shot list, AI music, voice for VO tests]
+    reach: "Influee · Billo · Trend · UGC Facebook groups · LinkedIn 'UGC creator'"
+    persona_name: "Brief Turnaround Ben"
+
+  ICP_3_youtube_finance_tech_faceless:
+    priority: P0
+    who: "Long-form YouTube 20K–500K subs · finance/tech/AI/make-money niche"
+    income: "$3K–$30K+/mo AdSense + $2K–$10K sponsorships"
+    pain:
+      - "Thumbnails + script research + B-roll · high RPM justifies tool spend"
+      - "Need unique visuals · stock fatigue"
+    pays_for_tools: "High — one RPM point = thousands/mo"
+    flibbo_fit: [image gen, script assistant, music beds, research/voice chat]
+    reach: "YouTube 'make money online' adjacency · Twitter/X AI · Reddit r/NewTubers"
+    persona_name: "RPM Max"
+
+  ICP_4_instagram_beauty_brand_deal:
+    priority: P1
+    who: "Instagram 25K–250K · beauty/fashion/wellness · Reels + Stories for brands"
+    income: "$500–$1,500/post · 4–8 deals/mo"
+    pain:
+      - "Platform pays ~$0 — must look premium for brands"
+      - "Caption + hook + aesthetic consistency"
+    pays_for_tools: "Medium-high — aesthetic AI images + caption hooks"
+    flibbo_fit: [image gen, viral post ideas, caption/CTA, trend hooks]
+    reach: "IG Reels ads · beauty creator agencies · #ugcbeauty"
+    persona_name: "Brand-Ready Bella"
+
+  ICP_5_kick_twitch_mid_streamer:
+    priority: P1
+    who: "Live streamer 50–500 avg viewers · Just Chatting / gaming · multistream"
+    income: "$2.5K–$15K/mo subs + tips + YouTube VOD clips"
+    pain:
+      - "Clip farming for Shorts/TikTok · thumbnails · alert content"
+      - "Needs constant short-form derivative content"
+    pays_for_tools: "Medium — clip AI + music for highlights"
+    flibbo_fit: [short script hooks for clips, music, image for panels/thumbs]
+    reach: "Kick/Twitch Twitter · streamer Discords · Sidemen adjacency tools"
+    persona_name: "Clip Farmer Kai"
+
+  ICP_6_podcast_newsletter_hybrid:
+    priority: P1
+    who: "Podcaster 5K–50K downloads/ep · Patreon/Spotify + Substack"
+    income: "$2K–$20K/mo mixed memberships + sponsors"
+    pain:
+      - "Repurpose audio to video clips · show notes · audiograms"
+      - "Clip titles and hooks for Spotify video"
+    pays_for_tools: "Medium"
+    flibbo_fit: [voice chat, script from episode, clip hooks, music stingers]
+    reach: "Spotify for Creators community · podcast Facebook groups"
+    persona_name: "Repurpose Pat"
+
+  ICP_7_tiktok_creator_rewards_1min:
+    priority: P1
+    who: "TikTok 10K–100K · pivoted to 1–3min 'storytime/education' for Creator Rewards"
+    income: "$400–$1K per 1M views + brand DMs"
+    pain:
+      - "Must hit 1min+ · need scripts that retain · music + structure"
+    pays_for_tools: "Medium"
+    flibbo_fit: [viral ideas, retention hooks, music, script outline]
+    reach: "TikTok creator education accounts · '#creatorfund' legacy search"
+    persona_name: "Minute-Plus Mike"
+
+  ICP_8_agency_side_hustler:
+    priority: P2
+    who: "Freelancer managing 3–10 small business social accounts"
+    income: "$3K–$12K/mo client fees"
+    pain: "Volume content for clients · white-label AI"
+    flibbo_fit: [multi-client ideation, batch posts, music/image]
+    persona_name: "SMB Stack Agency"
+
+  deprioritize_for_paid_tools:
+    - "Nano creators <1K with no monetization — high churn, low LTV"
+    - "Pure Shorts-only creators expecting ad revenue"
+    - "Hobby streamers with no monetization enabled"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# PART 3 — ICP × PLATFORM MATRIX
+# ═══════════════════════════════════════════════════════════════════════════
+
+icp_platform_matrix:
+  columns: [Primary income, Secondary, Tool budget/mo, Flibbo wedge]
+  rows:
+    - icp: TikTok Shop volume
+      primary: TikTok Shop commissions
+      secondary: Creator Rewards 1min+ · LIVE bonuses
+      tool_budget: "$22–99"
+      wedge: "10 hooks per product · AI music · batch scripts"
+    - icp: UGC pro
+      primary: Brand video fees
+      secondary: Whitelisting upsell
+      tool_budget: "$22–99"
+      wedge: "Hook variants · script in 60s · no copyright music"
+    - icp: YouTube finance/tech
+      primary: AdSense long-form
+      secondary: Affiliates · sponsors
+      tool_budget: "$22–99+"
+      wedge: "Research assistant · thumb concepts · music"
+    - icp: Instagram beauty
+      primary: Brand deals
+      secondary: Affiliate · TikTok repost
+      tool_budget: "$7.99–22"
+      wedge: "Aesthetic gen · caption hooks · Reels ideas"
+    - icp: Streamer
+      primary: Subs/tips
+      secondary: YouTube clip VOD
+      tool_budget: "$7.99–22"
+      wedge: "Clip hooks · highlight music"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# PART 4 — BUSINESS STRATEGY & PLANS (brainstorm)
+# ═══════════════════════════════════════════════════════════════════════════
+
+strategy_brainstorm:
+  positioning:
+    one_liner: "The AI studio for creators who get paid per video — not per follower."
+    not: "Generic ChatGPT wrapper for teens"
+    yes: "Hooks + scripts + music + visuals for volume earners"
+
+  plan_A_tiktok_shop_wedge:
+    name: "Shop Stack — 10 hooks in 10 minutes"
+    target_icp: [ICP_1]
+    offer:
+      - "Paste product URL → 10 viral hooks + 3 script outlines + royalty-free music mood"
+      - "Upsell: weekly 'winning hook' push for Shop categories"
+    acquisition:
+      - TikTok Spark ads targeting #tiktokshop #tiktokaffiliate
+      - Partner micro-influencers who teach Shop (affiliate for Flibbo sub)
+      - Discord: TikTok Shop seller communities
+    kpis: [D7 retention of Shop-tagged users, videos exported/week, sub conversion]
+    pricing_fit: "Weekly $7.99 justified if 1 extra sale/week"
+
+  plan_B_ugc_pro_wedge:
+    name: "Brief Crusher — UGC deliverable factory"
+    target_icp: [ICP_2]
+    offer:
+      - "Brand brief in → 5 hook options + shot list + music bed + caption"
+      - "Usage-rights reminder template (educate upsell culture)"
+    acquisition:
+      - Influee/Billo/Collabstr creator newsletters (sponsorship)
+      - LinkedIn ads: 'UGC creator' job titles
+      - YouTube: 'how I charge $500 per UGC video'
+    kpis: [Time-to-first-export, hook variants generated, Pro tier uptake]
+
+  plan_C_youtube_rpm_wedge:
+    name: "RPM Room — finance/tech creator pack"
+    target_icp: [ICP_3]
+    offer:
+      - "Title/thumb concept gen · script outline · B-roll music · research mode"
+      - "Niche templates: 'AI tool review' · 'make money' · 'SaaS explainer'"
+    acquisition:
+      - YouTube pre-roll on  tool reviews (ironic but works)
+      - Affiliate with TubeBuddy/vidIQ adjacent (non-compete content tools)
+    kpis: [CAC vs LTV in highest RPM niches]
+
+  plan_D_platform_bundles:
+    name: "Platform Packs inside app"
+    packs:
+      - TikTok Shop Pack
+      - UGC Brief Pack
+      - YouTube Long-Form Pack
+      - Instagram Brand Deck Pack
+      - Streamer Clip Pack
+    why: "ICP self-selects · reduces generic AI positioning"
+
+  plan_E_agency_lite:
+    name: "5 clients · 1 subscription"
+    target_icp: [ICP_8]
+    offer: "Workspace folders per client · batch ideation"
+    pricing: "Push toward $19.99/mo or credit bundles"
+
+  plan_F_community_led:
+    name: "Winning hooks leaderboard"
+    mechanics:
+      - "Anonymized top hooks by niche (beauty, finance, Shop)"
+      - "Creators submit wins · gamify retention"
+    why: "Network effect Flibbo lacks vs CapCut"
+
+  monetization_alignment:
+    flibbo_current: "Weekly $6.99–7.99 · Monthly $19.99 · Yearly $99.99 · credits"
+    icp_wtp:
+      UGC_pro: "Pays $22–99/mo if saves 2+ hours/week"
+      Shop_volume: "Pays weekly if tied to commission ROI"
+      YouTube_RPM: "Pays yearly upfront if AdSense serious"
+    recommendation:
+      - "Lead with weekly for Shop/TikTok ICP"
+      - "Lead with yearly for YouTube finance ICP"
+      - "Credit packs for UGC burst weeks"
+
+  geo_priority:
+    tier_1: [US, UK, CA, AU] # TikTok Shop · highest brand deal rates
+    tier_2: [MENA, TR, DE] # Flibbo existing strength · growing creator bases
+    tier_3: [BR, MX, ID] # Volume · lower ARPU
+
+  _defense:
+    vs_capcut: "Strategy layer (hooks, virality scores) not just editing"
+    vs_chatgpt: "Creator-native outputs · music · mobile workflow"
+    vs_pollo_king: "Ideation + Shop/UGC templates · not model arms race"
+    moat_build: "Niche hook libraries with performance tags · UGC/Shop specific"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# PART 5 — 90-DAY EXECUTION (practical)
+# ═══════════════════════════════════════════════════════════════════════════
+
+ninety_day_execution:
+  month_1:
+    focus: "ICP_1 + ICP_2 only"
+    ship: [TikTok Shop Pack v1, UGC Brief Pack v1, landing pages per pack]
+    ads: "$5K/mo TikTok Spark · test 20 hooks in ad creative"
+    measure: "CPA to paid sub · W4 retention by ICP tag"
+  month_2:
+    focus: "Double down winning ICP · add ICP_3 YouTube pack"
+    content: "Faceless case study: '30 Shop videos in a week with AI hooks'"
+    partnerships: "1 UGC platform newsletter · 2 Shop educator affiliates"
+  month_3:
+    focus: "Retention + yearly push for YouTube ICP"
+    ship: [Hook leaderboard beta, client folders for agency ICP]
+    expand: "Instagram beauty if CAC < 30% of year-1 LTV"
+
+  do_not:
+    - "Target nano creators with broad 'go viral' ads"
+    - "Compete on Sora/Kling model count"
+    - "Mix B2B Noetfield branding into Flibbo creator ads"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# PART 6 — QUICK REFERENCE — WHO MAKES WHAT (2026 )
+# ═══════════════════════════════════════════════════════════════════════════
+
+earnings_cheat_sheet:
+  per_1M_views:
+    youtube_long_finance: "$7,000–$9,000"
+    youtube_long_general: "$1,500–$6,000"
+    youtube_shorts: "$50–$70"
+    tiktok_1min_plus: "$400–$1,000"
+    instagram_reels_bonus: "$10–$90"
+    facebook_video: "$4,000–$6,000"
+  monthly_medians:
+    tiktok_shop_10k_100k: "$680"
+    tiktok_shop_100k_1m: "$4,200"
+    ugc_experienced: "$3K–$10K (volume dependent)"
+    patreon_100_patrons_5usd: "~$425 net"
+  hourly_equivalent:
+    ugc_video_400_usd_4hr: "$100/hr effective"
+    shop_creator_posting_daily: "Volume game — tools buy back 1–2 hrs/day"
+
+sources:
+  - https://creaticalc.com/creator-economy-
+  - https://www.socialync.io/blog/creator-ad-revenue-breakdown-2026
+  - https://liveshopfront.com/tiktok-shop-affiliate-program-guide-2026
+  - https://www.dashboardly.io/statistics/tiktok-shop-affiliate-creator-statistics
+  - https://usesnippet.app/blog/creator-brand-deal-rates-2026
+  - https://influee.co/blog/ugc-price
+  - https://creatorsnetwork.co/tiktok-vs-instagram-vs-youtube-2026-where-creators-focus/
+  - https://streammetrix.com/blog/955-split-kick-still-most-profitable-platform-2026
+  - https://axis-intelligence.com/creator-economy-monetization/
+
+research_save:
+  trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-CREATOR-ICP-STRATEGY
+  worker_id: cursor_os_pro_research_lane_b
+  subject: sina_os

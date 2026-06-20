@@ -1,0 +1,44 @@
+{
+  "schema": "fbe-factory-spec-v1",
+  "factory_id": "web-product-factory-v1",
+  "spec_version": "1.0.0",
+  "saved_at": "2026-06-17T16:00:00Z",
+  "kind": "engine",
+  "kernel": {
+    "id": "fbe-v1",
+    "min_version": "fbe-v1.0.0",
+    "graph_source": "data/fbe_node_graph_v1.json",
+    "line_node_count": 76
+  },
+  "lines": ["trust_motor", "refinery", "assembly"],
+  "runtime": {
+    "bay_slug": "sample-bay",
+    "default_tenant": "wil_ai_design_partner",
+    "wave": "W3",
+    "factory_id_internal": "factory_1",
+    "pipelines": ["refinery_first_bay_w2", "assembly_first_bay_w3", "full_job_w3"],
+    "api_route": "/api/fbe/run-job/v1",
+    "cloud_entry": "--run-full-job",
+    "execution_mode": "CLOUD_ONLY"
+  },
+  "io": {
+    "input_schema": "data/schemas/web-product-input-v1.json",
+    "output_schema": "data/schemas/run-receipt-output-v1.json",
+    "output_artifact": "RunReceipt ZIP + partner pack",
+    "certainty_report": true
+  },
+  "governance": {
+    "policy_pack": "trust_motor",
+    "tier_cap_honest": "MARKET_READY",
+    "delivery_mode": "prove_only"
+  },
+  "commercial": {
+    "name": "Controlled Web Product Factory",
+    "tagline": "Structured product brief in — controlled web delivery artifact out.",
+    "tier_label": "engine",
+    "buyer": "Design partners · product teams",
+    "hero": false,
+    "maintenance_fee_usd": 2500,
+    "compute_note": "Pay-as-you-go MicroVM seconds"
+  }
+}

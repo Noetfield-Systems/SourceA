@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0178 — Strengthen eval_packet_v1b/grounding.py bugfix-gate paths model_dispatch gate_receipts
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0178
+tests:
+  status: passed
+  output_snippet: validate-eval-packet-v1b-bugfix-gate-grounding-v1 PASS; model_dispatch+gate_receipts+gate_receipt_lib paths; dispatch-policy+governance-fleet+critical 0
+reported_at: '2026-06-08T15:52:58Z'
+reporter: cursor-worker-batch

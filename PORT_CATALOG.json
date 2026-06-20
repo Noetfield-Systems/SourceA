@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "law": "SINAAI_PORT_REGISTRY_LAW_LOCKED_v1.md",
+  "catalog_updated_at": "2026-06-10",
+  "ports": [
+    {
+      "port": 8000,
+      "owner_id": "sinaai_runtime",
+      "purpose": "SinaaiRuntime primary execution spine (Telegram PAIOS, fleet)",
+      "doc_ref": "SourceA/SINA_OS_SSOT_LOCKED.md §5",
+      "exclusive": true
+    },
+    {
+      "port": 3000,
+      "owner_id": "mono_ui",
+      "alt_owners": ["noetfield_legacy_redirect"],
+      "purpose": "Mono ui/ observation dashboard; Noetfield dev-port-redirect when make dev-local runs",
+      "doc_ref": "SINA_OS_SSOT §3; Noetfield/scripts/dev-ports.sh NF_DEV_LEGACY_NEXT_PORT",
+      "exclusive": true
+    },
+    {
+      "port": 3001,
+      "owner_id": "virlux_dashboard",
+      "purpose": "VIRLUX product dashboard (Delivery repo); not DevBridge",
+      "doc_ref": "SourceA/VIRELUX_REPO_ALIGNMENT.md",
+      "exclusive": true
+    },
+    {
+      "port": 3002,
+      "owner_id": "virlux_api",
+      "purpose": "VIRLUX API — DevBridge desk must NOT bind here",
+      "doc_ref": "VIRELUX_REPO_ALIGNMENT.md",
+      "exclusive": true
+    },
+    {
+      "port": 3003,
+      "owner_id": "asf_reserved",
+      "purpose": "ASF reserved — not for DevBridge desk (locked with 3000–3002)",
+      "doc_ref": "SINAAI_PORT_REGISTRY_LAW_LOCKED_v1.md P5",
+      "exclusive": true
+    },
+    {
+      "port": 3100,
+      "owner_id": "virlux_marketing",
+      "purpose": "VIRLUX marketing site",
+      "doc_ref": "VIRELUX_REPO_ALIGNMENT.md",
+      "exclusive": true
+    },
+    {
+      "ports": [3004, 3005, 3006, 3007, 3008, 3009, 3010],
+      "owner_id": "devbridge_desk",
+      "purpose": "DevBridge Safari desk (npm start auto-pick)",
+      "doc_ref": "AI Dev Bridge OS/docs/PORTS_LOCKED.md",
+      "exclusive": false
+    },
+    {
+      "port": 8001,
+      "owner_id": "golden_edge",
+      "alt_owners": ["noetfield_governance", "noetfield_dev"],
+      "purpose": "Golden Edge optional scoring; Noetfield platform/governance API in dev",
+      "doc_ref": "SINA_OS_SSOT §5; Noetfield/docs/LOCAL_DEV.md",
+      "exclusive": true
+    },
+    {
+      "port": 8010,
+      "owner_id": "mono_legacy_backend",
+      "purpose": "Legacy backend — frozen",
+      "doc_ref": "SINA_OS_SSOT §5",
+      "exclusive": true,
+      "frozen": true
+    },
+    {
+      "port": 8020,
+      "owner_id": "mono_legacy_cacos",
+      "purpose": "Legacy cacos — deprecated",
+      "doc_ref": "SINA_OS_SSOT §5",
+      "exclusive": true,
+      "frozen": true
+    },
+    {
+      "port": 8765,
+      "owner_id": "sinapromptos_streamlit",
+      "purpose": "SinaPromptOS Streamlit UI (run-ui.sh)",
+      "doc_ref": "PROMPT_OS_CORE_MVP_BUILD_ORDER_LOCKED_v1.md",
+      "exclusive": true
+    },
+    {
+      "port": 8766,
+      "owner_id": "devbridge_agent",
+      "alt_owners": ["sinapromptos_dashboard_sketch"],
+      "purpose": "DevBridge WebSocket agent (wire lane); Prompt OS FastAPI sketch must not coexist",
+      "doc_ref": "AI Dev Bridge OS/agent; PROMPT_OS MVP build order",
+      "exclusive": true
+    },
+    {
+      "ports": [8767, 8768, 8769, 8770, 8771, 8772, 8773, 8774, 8775, 8776, 8777, 8778, 8779, 8781, 8782, 8783, 8784, 8785, 8786],
+      "owner_id": "devbridge_agent_fallback",
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false
+    },
+    {
+      "port": 8780,
+      "owner_id": "devbridge_relay",
+      "purpose": "DevBridge relay server (npm run relay:dev)",
+      "doc_ref": "AI Dev Bridge OS/docs/RELAY.md",
+      "exclusive": true
+    },
+    {
+      "port": 13080,
+      "owner_id": "noetfield_dev",
+      "purpose": "Noetfield unified public proxy (www)",
+      "doc_ref": "Noetfield/docs/LOCAL_DEV.md",
+      "exclusive": true
+    },
+    {
+      "port": 13000,
+      "owner_id": "noetfield_dev",
+      "purpose": "Noetfield Next cognitive dashboard (internal)",
+      "doc_ref": "Noetfield/scripts/dev-ports.sh",
+      "exclusive": true
+    },
+    {
+      "port": 13020,
+      "owner_id": "sina_command",
+      "purpose": "Sina Command hub UI + API (browser entry, tier router)",
+      "doc_ref": "HUB_STABILIZATION_v5.1_FINAL.md; scripts/serve-sina-command.sh",
+      "exclusive": true
+    },
+    {
+      "port": 13030,
+      "owner_id": "hub_rebuild_worker",
+      "purpose": "Hub rebuild queue consumer (external worker, Phase N1)",
+      "doc_ref": "HUB_STABILIZATION_v5.1_FINAL.md Phase N1; scripts/serve-hub-rebuild-worker.sh",
+      "exclusive": true
+    },
+    {
+      "port": 13031,
+      "owner_id": "hub_state_service",
+      "purpose": "Hub State API scaffold (N2 — optional until ASF approves)",
+      "doc_ref": "docs/HUB_STATE_API_CONTRACT_v1.md; scripts/serve-hub-state-service.sh",
+      "exclusive": true
+    },
+    {
+      "port": 13032,
+      "owner_id": "hub_agent_runtime",
+      "purpose": "Hub Agent runtime scaffold (N3 — optional until ASF approves)",
+      "doc_ref": "docs/HUB_STATE_API_CONTRACT_v1.md; scripts/serve-hub-agent-runtime.sh",
+      "exclusive": true
+    },
+    {
+      "port": 18002,
+      "owner_id": "noetfield_dev",
+      "alt_owners": ["noetfield_governance"],
+      "purpose": "Noetfield governance-console dev API",
+      "doc_ref": "Noetfield/scripts/dev-ports.sh",
+      "exclusive": true
+    },
+    {
+      "port": 9473,
+      "owner_id": "cursor_os_pro",
+      "purpose": "Cursor OS Pro bridge / link server",
+      "doc_ref": "Cursor OS Pro/README.md",
+      "exclusive": true
+    },
+    {
+      "port": 8082,
+      "owner_id": "expo_dev",
+      "purpose": "Expo / React Native dev server (typical)",
+      "doc_ref": "Cursor OS Pro/README.md",
+      "exclusive": false
+    }
+  ],
+  "blocked_for_devbridge_desk": [3000, 3001, 3002, 3003],
+  "hub_stabilization_ports": {
+    "hub": 13020,
+    "worker": 13030,
+    "state_scaffold": 13031,
+    "agent_runtime_scaffold": 13032,
+    "occupied_sidecars": [13021, 13022, 13023]
+  }
+}

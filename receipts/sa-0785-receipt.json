@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0785",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 governance_drift aggregate_score 100 drift_items 0 all 6 sensors ok after rules_in_charge change",
+  "at": "2026-06-11T08:44:49Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

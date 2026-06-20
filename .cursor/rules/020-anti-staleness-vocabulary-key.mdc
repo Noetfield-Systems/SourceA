@@ -1,0 +1,51 @@
+---
+description: Anti-staleness + vocabulary are KEY — disk wire first, positive inject only, never stale phrases
+alwaysApply: true
+---
+
+# Anti-staleness + vocabulary (KEY — always paired)
+
+**Law:** `SOURCEA_ANTI_STALENESS_AUTO_WIRE_LAYER_SYNC_LOCKED_v1.md` · INCIDENT-034 · crawl-mirror vocab v1.2  
+**Gate:** `bash scripts/validate-anti-staleness-vocabulary-gate-v1.sh`
+
+## Two keys — never separate
+
+| Key | What | Machine |
+|-----|------|---------|
+| **Anti-staleness** | Disk truth fresh — queue, mirror, L1/L2 wire | `anti_staleness_auto_wire_v1.py` → session gate |
+| **Vocabulary** | What agents/founder **read** — positive paths only | `vocabulary_guard_v1.py` |
+
+Stale disk + clean words = **fail**. Fresh disk + prohibition inject = **fail**. Both must PASS.
+
+## Every session (automatic)
+
+```bash
+python3 scripts/agent_session_gate_run_v1.py --role <role> --json
+```
+
+Then quote `factory_now_line` from `~/.sina/agent-live-surfaces-v1.json`.
+
+## Vocabulary rules (INCIDENT-034)
+
+**Use (positive inject):**
+- Worker chat → **RUN INBOX**
+- **Worker Hub** · **Next steps** · `factory-now` line
+- **local-brand** / **brand:disk** / **brand:assets** (never rebrand)
+- **sascip** stranger safety line when present
+
+**Never inject / never founder-facing:**
+- Legacy hub brand name
+- Prompt feed / AUTO-RUN / prohibition tables
+- "never say …" lists in inject JSON
+- **rebrand** in pipeline tooling or scripts
+
+## Before ship / SAVE
+
+```bash
+bash scripts/validate-anti-staleness-vocabulary-gate-v1.sh
+python3 scripts/vocabulary_guard_v1.py --tooling --json   # optional deep scan
+```
+
+## Crawl–mirror ranker R4
+
+Stale phrase detector is part of crawl–mirror **RANK** — same vocabulary law as anti-staleness inject.

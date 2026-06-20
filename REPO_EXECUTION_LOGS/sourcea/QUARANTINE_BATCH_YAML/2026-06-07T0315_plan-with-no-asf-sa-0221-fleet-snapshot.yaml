@@ -1,0 +1,16 @@
+schema_version: 1
+repo: sourcea
+task: sa-0221 — Compare build log fleet snapshot to scoreboard_payload live
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0221
+  files_changed:
+    - scripts/build-sina-command-panel.py
+    - scripts/validate-fleet-snapshot-scoreboard-v1.sh
+tests:
+  status: passed
+  command: SINA_AUDIT_STRICT=1 build-sina-command-panel.py && find_critical_bugs.py
+  output_snippet: OK fleet snapshot matches scoreboard_payload live (sa-0221) · critical 0
+reported_at: '2026-06-07T03:15:00Z'
+reporter: cursor-worker

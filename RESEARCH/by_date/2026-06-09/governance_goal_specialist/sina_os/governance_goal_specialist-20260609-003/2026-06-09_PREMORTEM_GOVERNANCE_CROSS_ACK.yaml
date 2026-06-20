@@ -1,0 +1,50 @@
+trace_id: governance_goal_specialist-20260609-003
+trace_family: governance_goal_specialist-20260609
+trace_type: premortem_critic_cross_ack
+trace_owner: governance_goal_specialist
+trace_author: governance_goal_specialist
+trace_created: 2026-06-09
+execution_authority: false
+input_class: EXTERNAL_CRITIC
+
+cites:
+  - COMMERCIAL_GOAL-REF-2026-06-09-PREMORTEM-JUDGE-017
+  - RESEARCH-ACQUISITOR-20260609-PREMORTEM-007
+  - COMMERCIAL_GOAL-REF-2026-06-09-LOOP-CRITIC-JUDGE-015
+  - governance_goal_specialist-20260609-002
+
+verdict: AGREE_DUAL_P0_FACTORY_PLUS_INVOICE
+
+disk_recheck_2026_06_09:
+  WORKER_STARTED: 6
+  TASK_CLOSED: 14
+  VALIDATOR_PASS: 14
+  INBOX_DELIVERED: 156
+  WORKER_SUBMIT: 158
+  DECISION_RECONCILED: 244
+  kill_flag: ON
+  unified_autorun: MISSING
+  pointer: sa-0002 queue_pos 6 verify
+  active_now: founder_absent engines off paused
+
+governance_judgment:
+  factory_track: first_spark_not_sustained — Claude premortem #1 partially stale but Kill #6 still valid
+  commercial_track: first TF invoice aligns with locked money flow TrustField seller-of-record only
+  dual_p0: both advance neither replaces other — agree Commercial synthesis
+  reject_critic_delivery: founder terminal echo zshrc grep runbooks
+  reject_reorder: seven kills without Brain sa routing
+
+adopt_p1_not_p0:
+  - Kill_2 receipt_gate_audit closeout_gate_v1.py
+  - Kill_5 pick_order validate-sourcea-pick-order-v1.py
+  - Kill_4 openrouter_budget
+  - Kill_7 voyage_tier3_config_after_auth_live_habit
+  defer:
+  - Kill_3 FORGE unless ASF names FORGE commercial P0
+
+december_failure_mode: factory_stall AND zero_invoices — agree GPT commercial weight
+
+research_save:
+  trace_id: governance_goal_specialist-20260609-003
+  worker_id: governance_goal_specialist
+  subject: sina_os

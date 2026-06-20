@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U025",
+  "title": "reverse_engineered_rules min 5 rows validator",
+  "evidence": "check_icp5_trace_rules() + --check-trace-rules PASS \u00b7 thin cap 13/15 \u00b7 full rules score 15/15",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:21:02Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

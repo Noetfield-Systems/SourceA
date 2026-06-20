@@ -1,0 +1,29 @@
+---
+description: Entry gate — Brain uses 000-brain-unified; Worker uses gate scripts
+alwaysApply: true
+---
+
+# Entry gate
+
+**Brain SSOT:** `.cursor/rules/000-brain-unified.mdc` · `brain-os/law/BRAIN_UNIFIED_RULES_LOCKED_v1.md` · `brain-os/INDEX_LOCKED_v1.md`
+
+**Brain:** follow decision tree in `000-brain-unified.mdc` (narrate / spawn / refuse / session).
+
+**Worker chat:**
+```bash
+cd ~/Desktop/SourceA && python3 scripts/cursor_entry_gate.py --role worker
+python3 scripts/cursor_agent_self_audit.py session-start
+```
+
+**Feasibility (before Worker inject):**
+```bash
+python3 scripts/prompt_feasibility_gate.py --role worker --strict
+```
+
+**Worker INBOX:** `~/.sina/worker-prompt-inbox-v1.json` · `.sina-loop/INBOX.md` — not clipboard into Brain chat.
+
+**Line 1:** Brain `BRAIN_ACK` · Worker `GATE: hash8 | iso | gate_id=...`
+
+**Heal:** `BRAIN_HEAL_PROMPT_LOCKED_v1.md` (new chat after cleanup)
+
+**Law:** `BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md` · `entry/START_HERE_LOCKED_v1.md`

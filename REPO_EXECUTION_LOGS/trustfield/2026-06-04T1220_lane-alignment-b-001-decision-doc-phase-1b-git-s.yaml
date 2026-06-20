@@ -1,0 +1,23 @@
+schema_version: 1
+repo: trustfield
+task: 'Lane alignment: B-001 decision doc + Phase 1b git sync + plan.json GTM tasks'
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - docs/B001_INFRA_DECISION.md
+  - os/plan.json
+  - reports/ASF_MAINTAINER_B001_HANDOFF.md
+  - reports/execution-logs/trustfield-lane-alignment-b001.yaml
+  diff_summary: ''
+  note: 'Founder: PHASE1_OUTREACH + demo_close_checklist; ASF: close B-001 in Command
+    per ASF_MAINTAINER_B001_HANDOFF.md'
+tests:
+  status: passed
+  command: VERIFY_BASE_URL=https://www.trustfield.ca ./scripts/verify_ui_e2e.sh
+  output_snippet: UI E2E PASS; commits 9bcd308+1a3f92d pushed main; B-001 documented
+real_output: UI E2E PASS; commits 9bcd308+1a3f92d pushed main; B-001 documented
+reported_at: '2026-06-04T12:20:00Z'
+reporter: cursor
+execution_id: ''

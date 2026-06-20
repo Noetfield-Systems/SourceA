@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0644 — Validate pre_llm packet_memory_merge collector D6 slots
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0644
+tests:
+  status: passed
+  output_snippet: validate-packet-memory-merge-d6-collector-v1.sh + dispatch + fleet + critical 0
+reported_at: '2026-06-09T05:16:43Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

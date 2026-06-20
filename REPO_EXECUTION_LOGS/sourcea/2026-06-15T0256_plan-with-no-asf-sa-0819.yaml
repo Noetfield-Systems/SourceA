@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0819 — Cross-check Thread Room second-hop law vs SINA_THREAD_ROOM_LOCKED_v1
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0819
+tests:
+  status: passed
+  output_snippet: thread room second hop PASS
+reported_at: '2026-06-15T02:56:51Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

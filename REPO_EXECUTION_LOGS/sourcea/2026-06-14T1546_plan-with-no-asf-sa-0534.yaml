@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0534 — Cross-check MergePack KPI trio in command center payload
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0534
+tests:
+  status: passed
+  output_snippet: sa-0534 VERIFY PASS — T1 MergePack KPI trio dedup via crossref canonical sa-0509
+reported_at: '2026-06-14T15:46:33Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

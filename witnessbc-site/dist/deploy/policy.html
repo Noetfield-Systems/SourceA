@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Policy Packs | Witness AI</title>
+  <meta name="description" content="Versioned AI policy packs enforced at every gate — acceptable use, tool boundaries, human escalation." />
+  <meta property="og:title" content="AI Policy Packs | Witness AI" />
+  <meta property="og:description" content="Versioned AI policy packs enforced at every gate — acceptable use, tool boundaries, human escalation." />
+  <meta property="og:url" content="https://witnessbc.com/policy" />
+  <meta property="og:image" content="https://witnessbc.com/assets/og-card.svg" />
+  <meta property="og:image:type" content="image/svg+xml" />
+  <meta name="theme-color" content="#0d9488" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#060a0f" media="(prefers-color-scheme: dark)" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://witnessbc.com/policy" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/tokens.css" />
+  <link rel="stylesheet" href="assets/tokens-v12.css" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/motion.css" />
+  <link rel="stylesheet" href="assets/layout-wide-v11.css" />
+  <link rel="stylesheet" href="assets/layout-ultra-v12.css" />
+  <link rel="stylesheet" href="assets/surface-v12.css" />
+  <script>
+    (function () {
+      var t = localStorage.getItem("witness-ai-theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+</head>
+<body class="page-policy layout-ultra-v12" data-proof-mailto="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof" data-live-demo-url="proof.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="brand-disambiguation" role="note">
+    Witness AI on <strong>witnessbc.com</strong> — not WitnessAI (<span class="brand-other">witness.ai</span>).
+  </div>
+  <div class="announcement">
+    <span class="wbc-badge">witnessbc.com</span>
+    WitnessBC · witnessbc.com — agentic governance + WBC-FLOW civic proof
+    <a href="toolkits.html">Browse toolkits →</a>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <svg class="logo-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L4 6v12l8 4 8-4V6l-8-4z" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v20M4 6l8 4 8-4" stroke="currentColor" stroke-width="1.5" opacity="0.5"/></svg>
+        Witness AI
+      </a>
+      <nav class="nav" id="mainNav" aria-label="Main">
+        <div class="nav-item has-dropdown">
+          <button type="button" aria-expanded="false" aria-haspopup="true" class="is-active">Platform</button>
+          <div class="dropdown">
+            <a href="platform.html">Overview</a>
+            <a href="lifecycle.html">Governance loop</a>
+            <a href="policy.html">AI policy packs</a>
+            <a href="compare.html">Compare approaches</a>
+          </div>
+        </div>
+        <a class="nav-link " href="proof.html">Proof</a>
+        <a class="nav-link " href="pricing.html">Pricing</a>
+        <div class="nav-item has-dropdown">
+          <button type="button" aria-expanded="false" aria-haspopup="true" class="">Resources</button>
+          <div class="dropdown">
+            <a href="learn.html">Learn · Get started</a>
+            <a href="toolkits.html">Toolkits · Free + Pro</a>
+            <a href="faq.html">FAQ</a>
+            <a href="sources.html">Sources</a>
+          </div>
+        </div>
+      </nav>
+      <div class="header-cta">
+        <span class="theme-toggle-wrap">
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light/dark theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </span>
+        <a class="btn btn-ghost" href="toolkits.html">Assess governance</a>
+        <a class="btn btn-primary" href="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof">Book 15-min proof</a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <div class="sticky-cta" id="stickyCta" aria-hidden="true">
+    <div class="sticky-cta-inner">
+      <p>Prove AI policy ran before the agent acted — BLOCK → ALLOW → tamper-FAIL → replay</p>
+      <div class="sticky-cta-actions">
+        <a class="btn btn-primary" href="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof">Book 15-min proof</a>
+        <a class="btn btn-outline" href="proof.html">Open Proof Lab →</a>
+        <a class="btn btn-outline" href="toolkits.html">Assess governance</a>
+      </div>
+    </div>
+  </div>
+  <nav class="page-breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><span aria-current="page">AI policy</span></li>
+      </ol>
+    </div>
+  </nav>
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <p class="section-eyebrow">AI policy</p>
+        <h1>AI policy packs · enforced at every gate</h1>
+        <p class="section-lead">Versioned policy packs wired into agent loops — acceptable use, data handling, tool boundaries, human escalation.</p>
+      </div>
+    </section>
+
+    <section class="policy-section integrations" id="policy">
+      <div class="container">
+        <div class="policy-chip-grid">
+          <span class="policy-chip">Acceptable Use Policy</span>
+          <span class="policy-chip">Data Handling &amp; De-ID</span>
+          <span class="policy-chip">Tool Boundary Rules</span>
+          <span class="policy-chip">Human Escalation Triggers</span>
+          <span class="policy-chip">Red-line BLOCK rules</span>
+          <span class="policy-chip">Policy versioning</span>
+          <span class="policy-chip">Receipt ledger</span>
+          <span class="policy-chip">Signed receipts</span>
+          <span class="policy-chip">Replay demo</span>
+          <span class="policy-chip">Monthly governance export</span>
+        </div>
+        <div class="integrations-strip">
+          <p class="integrations-lead">Plugs into your stack — framework-agnostic dispatch layer</p>
+          <div class="integration-chips">
+            <span class="integration-chip">MCP tool calls</span>
+            <span class="integration-chip">HTTP webhooks</span>
+            <span class="integration-chip">OpenTelemetry traces</span>
+            <span class="integration-chip">Policy pack YAML</span>
+            <span class="integration-chip">SIEM export (metadata-only)</span>
+          </div>
+        </div>
+        <a class="policy-link" href="toolkits.html">Browse AI policy packs on witnessbc.com →</a>
+      </div>
+    </section>
+
+    <section class="diligence-section" id="diligence">
+      <div class="container">
+        <p class="section-eyebrow">Procurement</p>
+        <h2>Diligence at a glance</h2>
+        <p class="section-lead">What security and procurement teams ask first — honest posture, no certification overclaim.</p>
+        <div class="trust-pills diligence-pills">
+          <article class="trust-pill">
+            <svg class="icon-svg trust-pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-4-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div><strong>Self-hosted option</strong><span>Run governance layer on your infrastructure when required</span></div>
+          </article>
+          <article class="trust-pill">
+            <svg class="icon-svg trust-pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-4-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div><strong>Shadow mode</strong><span>Parallel install — zero production cutover during pilot</span></div>
+          </article>
+          <article class="trust-pill">
+            <svg class="icon-svg trust-pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
+            <div><strong>Metadata-only export</strong><span>SIEM-ready governance metadata — not full prompt dumps</span></div>
+          </article>
+          <article class="trust-pill">
+            <svg class="icon-svg trust-pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg>
+            <div><strong>Fail-closed BLOCK</strong><span>Red-line violations stopped at dispatch</span></div>
+          </article>
+          <article class="trust-pill">
+            <svg class="icon-svg trust-pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+            <div><strong>Policy version pinned</strong><span>Every receipt references policy pack version logged</span></div>
+          </article>
+          <article class="trust-pill">
+            <svg class="icon-svg trust-pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+            <div><strong>Export bundle on request</strong><span>Procurement ZIP: policy map, replay proof, diligence summary</span></div>
+          </article>
+        </div>
+        <p class="diligence-disclaimer"><strong>No SOC2 claim.</strong> No certification badges. Framework alignment maps are educational only — see <a href="sources.html">Sources</a>.</p>
+        <a class="btn btn-primary" href="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof">Request diligence pack + 15-min proof</a>
+      </div>
+    </section>
+  </main>
+  <div class="trust-disclaimer">
+    Witness AI provides educational AI policy templates and governance workflow tooling — not legal, compliance, or certification services. Market statistics cite independent third-party research. Framework alignment is illustrative mapping only.
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <strong>Witness AI</strong>
+        <p>Agentic governance + AI policy at dispatch</p>
+        <span class="gartner-badge">witnessbc.com</span>
+      </div>
+      <div>
+        <h5>Platform</h5>
+        <a href="platform.html">Observe · Govern · Prove</a>
+        <a href="lifecycle.html">Governance loop</a>
+        <a href="policy.html">AI policy</a>
+        <a href="proof.html">>Verification</a>
+      </div>
+      <div>
+        <h5>Commercial</h5>
+        <a href="pricing.html">Pricing</a>
+        <a href="compare.html">Compare</a>
+        <a href="https://witnessbc.com/principles">Principles</a>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <a href="learn.html">Learn</a>
+        <a href="faq.html">FAQ</a>
+        <a href="sources.html">Sources</a>
+        <a href="https://witnessbc.com/toolkits">Toolkits</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© Witness AI 2026 · witnessbc.com</p>
+      <div class="footer-legal">
+        <a href="https://witnessbc.com/principles">Principles</a>
+        <a href="sources.html">References</a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>
+

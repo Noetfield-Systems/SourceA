@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0055 — Set P2 L0-full pendings status partial not open
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0055
+tests:
+  status: passed
+  output_snippet: sa-0055 VERIFY PASS — P2 L0-full pendings partial not open wired; validate-strategic-synthesis-p2-pendings-v1 PASS
+reported_at: '2026-06-09T23:57:32Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

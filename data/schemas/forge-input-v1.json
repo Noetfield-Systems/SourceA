@@ -1,0 +1,12 @@
+{
+  "schema": "forge-input-v1",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["app_id", "inbox_ref"],
+  "properties": {
+    "app_id": {"type": "string"},
+    "inbox_ref": {"type": "string"},
+    "proof_class": {"type": "string", "enum": ["G0", "G1", "G2", "G3"]},
+    "tenant": {"type": "string"}
+  }
+}

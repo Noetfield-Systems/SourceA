@@ -1,0 +1,48 @@
+{
+  "schema": "canadian-issuer-filing-routes-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T01:30:00Z",
+  "law": "docs/SOURCEA_OUTBOUND_FACTORY_SALVAGE_SPEC_LOCKED_v1.md · Canadian FPI → 40-F on EDGAR if US-listed · primary risk often AIF not 10-K Item 1A",
+  "filing_routes": {
+    "sedar_aif": "Primary Canadian disclosure — SEDAR+ / AIF",
+    "sec_40f": "US-listed Canadian FPI — SEC Form 40-F (not 10-K Item 1A)",
+    "sec_10k": "US domestic issuer — SEC 10-K Item 1A only when issuer is US",
+    "manual_only": "Human-confirmed public sources only — no scrape"
+  },
+  "issuers": [
+    {
+      "id": "rbc",
+      "company_name": "Royal Bank of Canada",
+      "ticker": "RY",
+      "issuer_country": "CA",
+      "us_listed": true,
+      "primary_route": "sedar_aif",
+      "sec_route": "sec_40f",
+      "forbidden_route": "sec_10k",
+      "cik": "0001000275",
+      "note": "Canadian FPI — 40-F on EDGAR; risk narrative in AIF/MD&A not 10-K Item 1A"
+    },
+    {
+      "id": "fundmore",
+      "company_name": "Fundmore.ai",
+      "ticker": null,
+      "issuer_country": "CA",
+      "us_listed": false,
+      "primary_route": "manual_only",
+      "sec_route": null,
+      "forbidden_route": "sec_10k",
+      "note": "Private fintech — public press + CASL basis; no SEC 10-K assumption"
+    },
+    {
+      "id": "ocree",
+      "company_name": "Ocree Capital",
+      "ticker": null,
+      "issuer_country": "CA",
+      "us_listed": false,
+      "primary_route": "manual_only",
+      "sec_route": null,
+      "forbidden_route": "sec_10k",
+      "note": "CSA workshop context — manual regulatory signals only"
+    }
+  ]
+}

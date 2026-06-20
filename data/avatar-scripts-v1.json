@@ -1,0 +1,44 @@
+{
+  "schema": "avatar-scripts-v1",
+  "version": "1.0.0",
+  "scripts": {
+    "linkedin_anchor_v1": {
+      "lane": "linkedin",
+      "duration_target_seconds": 40,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "I build AI systems that help companies automate decisions and operations."
+        },
+        {
+          "id": "context",
+          "text": "Right now I'm working on platforms that combine AI agents, governance, and real-time execution systems."
+        },
+        {
+          "id": "credibility",
+          "text": "My focus is not ideas — it's building working systems that can be used in real companies, especially in compliance, automation, and infrastructure."
+        },
+        {
+          "id": "close",
+          "text": "If you're building in this space or investing in it, I'm open to connect."
+        }
+      ],
+      "full_text": "I build AI systems that help companies automate decisions and operations. Right now I'm working on platforms that combine AI agents, governance, and real-time execution systems. My focus is not ideas — it's building working systems that can be used in real companies, especially in compliance, automation, and infrastructure. If you're building in this space or investing in it, I'm open to connect."
+    },
+    "trustfield_social_v1": {
+      "lane": "trustfield_social",
+      "duration_target_seconds": 30,
+      "full_text": "Canadian MSBs face RPAA registration pressure now. TrustField gives you a live sandbox — intake, operator workflows, and audit exports your MLRO can review. Book a demo at trustfield.ca."
+    },
+    "noetfield_social_v1": {
+      "lane": "noetfield_social",
+      "duration_target_seconds": 30,
+      "full_text": "Copilot agents execute across your tenant. Policy violated. Execution stopped. Noetfield adds governance at dispatch with verification built in. Design partner calls — operations@noetfield.com."
+    },
+    "fitness_social_v1": {
+      "lane": "fitness_social",
+      "duration_target_seconds": 25,
+      "full_text": "Placeholder — replace with fitness brand hook when lane is active."
+    }
+  }
+}

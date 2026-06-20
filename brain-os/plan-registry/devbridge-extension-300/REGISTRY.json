@@ -1,0 +1,98 @@
+{
+  "version": "2.1",
+  "sequence_id": "SA-2026-06-06-DEVBRIDGE-EXT-300-V2",
+  "locked_doc": "DEVBRIDGE_EXTENSION_NO_CODE_300_STEP_PLAN_LOCKED_v1.md",
+  "supersedes": [
+    "DEVBRIDGE_WEEK1_SHIP_SYLLABUS_LOCKED_v1.md",
+    "plan v1.0 10-week pacing",
+    "plan v2.0 commercial-first Week-1 top",
+    "~/.sina/brain/DEVBRIDGE_FOUNDER_SEQUENCE_PICK_LOCKED_v1.md"
+  ],
+  "anti_fragmentation": {
+    "mandatory": true,
+    "one_plan_only": true,
+    "forbidden_new_docs": [
+      "DEVBRIDGE_WEEK1_*",
+      "~/.sina/brain/DEVBRIDGE_*",
+      "parallel devbridge LOCKED plans"
+    ],
+    "append_policy_to": "DEVBRIDGE_EXTENSION_NO_CODE_300_STEP_PLAN_LOCKED_v1.md section 0.1",
+    "machine_reads": ["REGISTRY.json", "pick-devbridge-ext-step.py"]
+  },
+  "founder_sequence": {
+    "locked_at": "2026-06-06",
+    "authority": "ASF",
+    "now": {"week": 1, "tracks": ["B", "C"], "goal": "internal_10_businesses_24_7_cursor"},
+    "next": {"week": 2, "track": "A", "goal": "full_remote_cursor_os_pro_app_store"},
+    "later": {"track": "D", "goal": "cline_sdk_multi_ide", "after": "A_stable"},
+    "tbd": {"track": "E", "goal": "cloud_ide", "after": "D"},
+    "not_now": ["external_l4_client_shell_top", "gtm_sku_week1", "merge_pro_wire_chats"]
+  },
+  "execution_phase": "week_1_internal",
+  "internal_assets": {
+    "businesses": 10,
+    "websites": 10,
+    "catalog_audience": "internal",
+    "pack_id_patterns": ["ADB-SITE-CHECK-{n}", "ADB-REPO-CHECK-{n}"],
+    "catalog_path": "AI Dev Bridge OS/wire-plan-library/client-packs-v1.jsonl"
+  },
+  "grid": "300 steps x 10 phases x 7 blitz days",
+  "id_prefix": "adb-ext-",
+  "id_range": ["adb-ext-001", "adb-ext-300"],
+  "ship_target": "Week1: internal B+C · Week2+: v1.0.0 + App Store path (A)",
+  "ship_day": 7,
+  "primary_track": "B",
+  "parallel_track": "C",
+  "deferred_tracks": {
+    "A_PRO": "week_2_plus",
+    "D_cline_sdk": "after_A",
+    "E_cloud_ide": "asf_tbd",
+    "GTM": "post_week_1_internal_gate"
+  },
+  "ownership": {
+    "accountable": "ASF",
+    "responsible": "devbridge_wire_cursor_chat",
+    "workspace": "/Users/sinakazemnezhad/Desktop/AI Dev Bridge OS",
+    "consulted": ["sourcea_cursor_chat", "sinapromptos_brain"],
+    "informed": ["cursor_os_pro_chat", "sinaai_database_hub"]
+  },
+  "commercial_skus": {
+    "extension_team": "$49/seat/mo",
+    "trial_days": 14,
+    "hero_bundles": ["Connection Check", "Controlled Demo"]
+  },
+  "blitz_calendar": [
+    {"day": 1, "steps": ["adb-ext-001", "adb-ext-043"], "phases": [1, 2], "gate": "G2 attempted MCP boot 4 packs extension folder internal catalog", "focus": "B+C internal"},
+    {"day": 2, "steps": ["adb-ext-044", "adb-ext-090"], "phases": [2, 3], "gate": "MCP PASS VSIX connect ADB-PAIR-001", "focus": "B+C internal"},
+    {"day": 3, "steps": ["adb-ext-091", "adb-ext-129"], "phases": [4, 5], "gate": "6 internal packs RUN SYSTEM sidebar PASS", "focus": "B+C internal"},
+    {"day": 4, "steps": ["adb-ext-130", "adb-ext-180"], "phases": [5, 6], "gate": "ENF run-green receipt wizard E2E internal", "focus": "B+C internal"},
+    {"day": 5, "steps": ["adb-ext-181", "adb-ext-225"], "phases": [7, 8], "gate": "schema CI 10 internal packs adb-ext-185 split", "focus": "B+C internal defer GTM"},
+    {"day": 6, "steps": ["adb-ext-226", "adb-ext-270"], "phases": [8, 9], "gate": "desk+extension parity internal 10-asset rotation", "focus": "B+C internal defer PRO"},
+    {"day": 7, "steps": ["adb-ext-271", "adb-ext-300"], "phases": [10], "gate": "WEEK1_INTERNAL_GATE PASS then prep A week2", "focus": "internal gate not marketplace ship"}
+  ],
+  "phases": [
+    {"phase": 1, "slug": "foundation-g2-seeds", "id_range": ["adb-ext-001", "adb-ext-030"], "blitz_days": [1]},
+    {"phase": 2, "slug": "mac-agent-mcp", "id_range": ["adb-ext-031", "adb-ext-060"], "blitz_days": [1, 2]},
+    {"phase": 3, "slug": "extension-scaffold", "id_range": ["adb-ext-061", "adb-ext-090"], "blitz_days": [2]},
+    {"phase": 4, "slug": "mcp-tools-deep", "id_range": ["adb-ext-091", "adb-ext-120"], "blitz_days": [3]},
+    {"phase": 5, "slug": "autonomy-proof", "id_range": ["adb-ext-121", "adb-ext-150"], "blitz_days": [3, 4]},
+    {"phase": 6, "slug": "ux-onboarding", "id_range": ["adb-ext-151", "adb-ext-180"], "blitz_days": [4]},
+    {"phase": 7, "slug": "workflow-store-apex", "id_range": ["adb-ext-181", "adb-ext-210"], "blitz_days": [5]},
+    {"phase": 8, "slug": "hero-bundles-gtm", "id_range": ["adb-ext-211", "adb-ext-240"], "blitz_days": [5, 6]},
+    {"phase": 9, "slug": "unified-surfaces", "id_range": ["adb-ext-241", "adb-ext-270"], "blitz_days": [6]},
+    {"phase": 10, "slug": "marketplace-ship", "id_range": ["adb-ext-271", "adb-ext-300"], "blitz_days": [7]}
+  ],
+  "bundles_v1": {
+    "connection_check": ["ADB-PAIR-001", "WIRE-SMOKE-001", "WIRE-RUNSYSTEM-001", "WIRE-G2-001"],
+    "controlled_demo": ["ENF-DEMO-001", "ENF-RECEIPT-001", "ENF-DEMO-FULL"],
+    "internal_week1": ["ADB-PAIR-001", "WIRE-SMOKE-001", "ENF-RUN-GREEN-001", "ADB-SITE-CHECK-001", "ADB-REPO-CHECK-001"]
+  },
+  "mcp_tools_v1": [
+    "terminal_run", "terminal_run_stream", "files_read", "files_list", "files_write",
+    "workspace_info", "cursor_prompt_send", "automation_run_lane", "run_lane_status",
+    "workflow_status", "proof_export", "cancel_run", "validate_catalog"
+  ],
+  "status": "locked",
+  "blitz_status": "week_1_internal_not_started",
+  "completed_steps": []
+}

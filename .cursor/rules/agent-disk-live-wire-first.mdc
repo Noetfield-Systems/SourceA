@@ -1,0 +1,32 @@
+---
+description: Disk live wire first — truth bundle + factory-now; supersedes prohibition-first hub vocabulary (INCIDENT-034)
+alwaysApply: true
+version: 2
+supersedes: 001-founder-zero-sina-command-name.mdc prohibition tables
+---
+
+# Disk live wire first (single law)
+
+**Law:** `SOURCEA_ANTI_STALENESS_AUTO_WIRE_LAYER_SYNC_LOCKED_v1.md` · L0.5 slice: `AGENT_DISK_LIVE_WIRE_FIRST_LOCKED_v1.md`
+
+## Session start (automatic wire)
+
+```bash
+python3 scripts/agent_session_gate_run_v1.py --role <role> --json
+```
+
+Syncs: `disk_live_wire_sync_v1.py` → `agent-live-surfaces-v1.json` + truth bundle cache + `worker-live-context-v1.json`.
+
+## Reply to founder
+
+Read `~/.sina/agent-live-surfaces-v1.json` · quote **`factory_now_line`**.
+
+## Do not
+
+- Add second prohibition vocabulary law
+- Treat `command-data.json` or chat history as SSOT
+- Hand-edit stale brain markdown without sync marker
+
+## When wrong hub advice appears
+
+Run `disk_live_wire_sync_v1.py` · fix stale **source file** logged.

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <title>Source A · Official Founder Form</title>
+  <style>
+    :root {
+      --bg:#f6f8fc; --card:#fff; --text:#1a2332; --muted:#5c6b7f;
+      --gold:#b8860b; --accent:#4f6ef7; --ok:#0d9f6e; --line:#e2e8f0; --radius:12px;
+      --red:#dc2626;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font:15px/1.5 system-ui,sans-serif; background:var(--bg); color:var(--text); }
+    .wrap { max-width:920px; margin:0 auto; padding:16px 16px 100px; }
+    .banner { background:#fef2f2; border:2px solid var(--red); border-radius:var(--radius); padding:12px 14px; margin-bottom:12px; font-size:.88rem; }
+    .banner strong { color:var(--red); }
+    h1 { margin:0; font-size:1.3rem; }
+    .sub { color:var(--muted); font-size:.85rem; margin:4px 0 0; }
+    .submit-bar { position:fixed; bottom:0; left:0; right:0; z-index:9; background:#fff; border-top:2px solid var(--accent); padding:14px 16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:center; box-shadow:0 -4px 16px rgba(0,0,0,.08); }
+    .submit-bar .stat { font-weight:700; font-size:1rem; }
+    button.primary { background:var(--accent); color:#fff; border:none; padding:14px 32px; border-radius:10px; font:inherit; font-size:1.05rem; font-weight:700; cursor:pointer; }
+    button.primary:disabled { opacity:.4; cursor:not-allowed; }
+    .msg { font-size:.9rem; color:var(--ok); font-weight:600; }
+    .msg.err { color:var(--red); }
+    .tier { margin:14px 0 6px; font-size:.75rem; font-weight:700; text-transform:uppercase; color:var(--muted); }
+    .row-card { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:12px 14px; margin-bottom:10px; }
+    .row-card.picked { border-color:var(--ok); box-shadow:0 0 0 1px var(--ok); }
+    .row-card.unpicked { border-color:var(--red); border-style:dashed; }
+    .row-meta { font-family:ui-monospace,monospace; font-size:.7rem; color:var(--gold); }
+    .row-title { font-weight:600; font-size:.9rem; margin:6px 0 8px; }
+    .row-q { font-size:.85rem; color:var(--muted); margin-bottom:10px; }
+    .opt { display:flex; gap:8px; align-items:flex-start; padding:8px 10px; margin:4px 0; border:1px solid var(--line); border-radius:8px; cursor:pointer; }
+    .opt:hover { background:#f8fafc; }
+    .opt input { margin-top:3px; flex-shrink:0; }
+    .opt label { cursor:pointer; font-size:.85rem; flex:1; }
+    .founder-write { width:100%; margin-top:8px; padding:10px; border:2px solid var(--accent); border-radius:8px; font:inherit; min-height:72px; resize:vertical; display:none; }
+    .founder-write.show { display:block; }
+    .rec-hint { font-size:.72rem; color:var(--muted); margin-top:4px; }
+    a { color:var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="banner">
+      <strong>FOUNDER PICK ONLY</strong> — Tap <strong>your</strong> answer (A–D or <strong>E write your own</strong>) · then <strong>Submit</strong>.
+    </div>
+    <header>
+      <h1>Official founder form</h1>
+      <p class="sub" id="meta">Loading…</p>
+    </header>
+    <div id="list"></div>
+  </div>
+  <div class="submit-bar">
+    <span class="stat" id="stat">—</span>
+    <button type="button" class="primary" id="btn-submit" disabled>Submit my picks</button>
+    <span class="msg" id="msg"></span>
+  </div>
+  <script>
+  (function () {
+    const API = location.origin;
+    const state = { rows: [], picks: {}, comments: {}, explicit: {}, rendered: 0 };
+    const OPTION_E_LABEL = "E — FOUNDER writes own answer (type below)";
+
+    function esc(s) {
+      return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    }
+    function pickKey(opt) {
+      const m = String(opt).match(/^([A-Za-z0-9_]+)/);
+      return m ? m[1].toUpperCase() : "";
+    }
+    function ensureFiveOptions(q) {
+      const opts = (q.options || []).slice();
+      if (!opts.some(function (o) { return pickKey(o) === "E"; })) {
+        opts.push(OPTION_E_LABEL);
+      }
+      return opts;
+    }
+    function updateStat() {
+      const total = state.rows.length;
+      const picked = state.rows.filter(function (q) { return state.explicit[q.id]; }).length;
+      document.getElementById("stat").textContent = picked + " / " + total + " YOU picked";
+      const btn = document.getElementById("btn-submit");
+      btn.disabled = picked < 1;
+      btn.textContent = picked >= total && total > 0
+        ? "Submit all my picks"
+        : (picked > 0 ? "Submit my " + picked + " picks (batch)" : "Pick at least one row");
+    }
+    function renderRow(q) {
+      const card = document.createElement("div");
+      const youPicked = !!state.explicit[q.id];
+      card.className = "row-card" + (youPicked ? " picked" : " unpicked");
+      card.dataset.qid = q.id;
+      const options = ensureFiveOptions(q);
+
+      let optsHtml = "";
+      options.forEach(function (opt) {
+        const key = pickKey(opt);
+        const checked = youPicked && state.picks[q.id] === key ? " checked" : "";
+        optsHtml +=
+          '<label class="opt">' +
+          '<input type="radio" name="' + esc(q.id) + '" value="' + esc(key) + '"' + checked + ' />' +
+          '<span><strong>' + esc(key) + '</strong> — ' + esc(String(opt).replace(/^[A-Z0-9_]+\s*[—–-]\s*/i, "")) + "</span></label>";
+      });
+
+      const rec = q.recommended ? ('<div class="rec-hint">Agent suggestion only (not your pick): ' + esc(q.recommended) + "</div>") : "";
+      const unpicked = youPicked ? "" : '<div class="rec-hint" style="color:var(--red);font-weight:600">Tap YOUR answer — nothing is selected until you tap</div>';
+      const writeBox =
+        '<textarea class="founder-write' + (youPicked && state.picks[q.id] === "E" ? " show" : "") + '" ' +
+        'data-qid="' + esc(q.id) + '" placeholder="Your answer in your own words (required when E is selected)">' +
+        esc(state.comments[q.id] || "") + "</textarea>";
+
+      card.innerHTML =
+        '<div class="row-meta">Q' + (q.number || "?") + " · " + esc(q.id) + (q.gather_tier ? " · " + esc(q.gather_tier) : "") + "</div>" +
+        '<div class="row-title">' + esc(q.subject || q.title || "") + "</div>" +
+        (q.question ? '<div class="row-q">' + esc(q.question) + "</div>" : "") +
+        optsHtml + writeBox + unpicked + rec;
+
+      const ta = card.querySelector(".founder-write");
+      card.querySelectorAll('input[type=radio]').forEach(function (inp) {
+        inp.addEventListener("change", function () {
+          state.picks[q.id] = inp.value;
+          state.explicit[q.id] = true;
+          if (inp.value === "E") {
+            ta.classList.add("show");
+            ta.focus();
+          } else {
+            ta.classList.remove("show");
+            delete state.comments[q.id];
+          }
+          card.classList.remove("unpicked");
+          card.classList.add("picked");
+          updateStat();
+        });
+      });
+      ta.addEventListener("input", function () {
+        state.comments[q.id] = ta.value;
+        if (state.picks[q.id] === "E" && ta.value.trim()) {
+          state.explicit[q.id] = true;
+          updateStat();
+        }
+      });
+      return card;
+    }
+    function renderChunk() {
+      const list = document.getElementById("list");
+      const batch = 12;
+      const end = Math.min(state.rendered + batch, state.rows.length);
+      let tier = "";
+      for (let i = state.rendered; i < end; i++) {
+        const q = state.rows[i];
+        if (q.gather_tier && q.gather_tier !== tier) {
+          tier = q.gather_tier;
+          const h = document.createElement("div");
+          h.className = "tier";
+          h.textContent = tier;
+          list.appendChild(h);
+        }
+        list.appendChild(renderRow(q));
+      }
+      state.rendered = end;
+      if (state.rendered < state.rows.length) requestAnimationFrame(renderChunk);
+      else updateStat();
+    }
+    async function load() {
+      const res = await fetch(API + "/api/live-founder-decision-form-v1");
+      if (!res.ok) throw new Error("Hub form API HTTP " + res.status);
+      const d = await res.json();
+      state.rows = d.open_questions || d.founder_readable_cards || [];
+      state.rows.forEach(function (q, i) { if (!q.number) q.number = i + 1; });
+      document.getElementById("meta").textContent =
+        (d.form_headline || "FORM_OFFICIAL") + " · " + state.rows.length + " questions · 5 options each (E = your words)";
+      if (!state.rows.length) {
+        document.getElementById("list").innerHTML = "<p>Form clear — nothing open.</p>";
+        document.getElementById("stat").textContent = "0 rows";
+        return;
+      }
+      renderChunk();
+    }
+    document.getElementById("btn-submit").addEventListener("click", async function () {
+      const btn = document.getElementById("btn-submit");
+      const msg = document.getElementById("msg");
+      for (const q of state.rows) {
+        if (state.explicit[q.id] && state.picks[q.id] === "E") {
+          const text = (state.comments[q.id] || "").trim();
+          if (!text) {
+            msg.textContent = "Q" + q.number + " (" + q.id + "): E selected — type your answer first";
+            msg.className = "msg err";
+            return;
+          }
+        }
+      }
+      btn.disabled = true;
+      msg.textContent = "Submitting your picks…";
+      msg.className = "msg";
+      const controller = new AbortController();
+      const timer = setTimeout(function () { controller.abort(); }, 120000);
+      try {
+        const res = await fetch(API + "/api/live-founder-decision-form-v1", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            action: "submit",
+            picks: state.picks,
+            founder_comments: state.comments,
+            founder_submit: true,
+            partial_batch: state.rows.filter(function (q) { return state.explicit[q.id]; }).length < state.rows.length,
+          }),
+          signal: controller.signal,
+        });
+        clearTimeout(timer);
+        let d;
+        try {
+          d = await res.json();
+        } catch (parseErr) {
+          throw new Error("Hub returned invalid JSON (HTTP " + res.status + ")");
+        }
+        if (d.ok) {
+          msg.textContent = d.message || ("Saved " + (d.applied_now || 0) + " picks · nerve cascade logged");
+          msg.className = "msg";
+          setTimeout(function () { location.reload(); }, 1200);
+        } else {
+          msg.textContent = d.error || d.law || "Submit failed";
+          msg.className = "msg err";
+          btn.disabled = false;
+        }
+      } catch (e) {
+        clearTimeout(timer);
+        if (e.name === "AbortError") {
+          msg.textContent = "Timed out — Hub may still be processing. Refresh in 30s.";
+        } else if (e.message === "Failed to fetch") {
+          msg.textContent = "Hub not reachable — is Worker Hub running on this Mac?";
+        } else {
+          msg.textContent = e.message;
+        }
+        msg.className = "msg err";
+        btn.disabled = false;
+      }
+    });
+    load().catch(function (e) {
+      document.getElementById("meta").textContent = "Failed to load form: " + e.message;
+    });
+  })();
+  </script>
+</body>
+</html>

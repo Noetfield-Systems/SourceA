@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0093",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0093 VERIFY \u2014 validate-honest-score-l8-hybrid-v1 PASS no unconditional L8; dispatch-policy governance-fleet critical 0; Q30/30 pack complete closeout",
+  "at": "2026-06-10T05:05:10Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,69 @@
+{
+  "schema": "icp-compile-account-v1",
+  "version": "2.0.0",
+  "saved_at": "2026-06-18T21:00:00Z",
+  "account_id": "ocree",
+  "company": "Ocree Capital",
+  "brand_route": "trustfield",
+  "lane": "w3_commercial",
+  "disclosure_tier": "T1_icp_buyer",
+  "sku": "T-P6",
+  "status": "ready_for_founder_send",
+  "parallel_with": "fundmore",
+  "fdg_version": "icp-failure-driven-generator-v1",
+  "output_spec": {
+    "domain": "fintech / regulated tokenization / EMD",
+    "target_role": "CCO",
+    "intent": "curiosity about issuance proof gap before Collaboratory live tests",
+    "conversion_type": "reply",
+    "risk_level": "low",
+    "message_type": "cold_open"
+  },
+  "icp_profile": {
+    "champion": "Anne Ramsay",
+    "signal": "OSC EMD · $51.9M Winnipeg CRE on Polymesh · CSA Project Tokenization Collaboratory",
+    "their_world": ["Polymesh", "Winnipeg CRE", "CSA Collaboratory", "issuance", "EMD"]
+  },
+  "failure_moment": {
+    "scenario": "CSA Collaboratory-style review after live tests",
+    "pressure": "external reviewer asks if each issuance step was permitted after the fact",
+    "consequence_implicit": "cannot answer with narrative alone — need reconstructable workflow"
+  },
+  "tension_kernel": "each issuance step proven as permitted after the fact — not tokenization novelty",
+  "angle": "CCO — examiner mental model · after-the-fact reconstruction",
+  "solution_hook_plain": "step-by-step replay so external reviewer reconstructs what happened vs what was intended",
+  "interest_asset": "https://www.trustfield.ca/demo",
+  "compose_mode": "B_interest_asset",
+  "approved_body_path": "data/icp-compile/ocree-approved-v1.txt",
+  "reverse_engineered_rules": [
+    "open with ICP-named scenario (Ocree + Winnipeg CRE + Polymesh) not industry generic",
+    "frame examiner question not product capability",
+    "TrustField as replay/evidence under pressure — not runs on staging / platform",
+    "forbidden: narrow lane · inspectable proof · staging talk · governance system",
+    "required: Collaboratory or live-test pressure · permitted after the fact · reconstruct",
+    "end curiosity question before optional demo link",
+    "1 tension · 1 insight · 1 product line · 1 question"
+  ],
+  "forbidden_from_this_compile": [
+    "industry has largely solved tokenization",
+    "puts you in a narrow lane",
+    "TrustField runs on staging",
+    "inspectable proof of each step",
+    "controlled issuance undefined"
+  ],
+  "signals": {
+    "press_earnings_manual_paste": {
+      "text": "",
+      "source": "manual_paste",
+      "human_confirmed": false,
+      "scrape_forbidden": true,
+      "note": "Founder paste only — press/earnings excerpt; never auto-scrape"
+    }
+  },
+  "output_trace": {
+    "approved": false,
+    "sina_read_score_pct": null,
+    "advisor_critique_only": "GPT Ocree v3 review — not ship authority",
+    "machine_next": "python3 scripts/icp_output_compiler_v1.py --account ocree --json"
+  }
+}

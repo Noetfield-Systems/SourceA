@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U024",
+  "title": "icp-compile index receipt all accounts one JSON array",
+  "evidence": "build_fleet_index_receipt() + --check-fleet-index PASS \u00b7 3 accounts \u00b7 ~/.sina/icp-compiler-fleet-receipt-v1.json",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:19:51Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

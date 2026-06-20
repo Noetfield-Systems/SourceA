@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0555 — Validate product/RUNRECEIPT_ARTIFACT_SCHEMA_LOCKED_v1.md hub link
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0555
+tests:
+  status: passed
+  output_snippet: validate-runreceipt-schema-hub-link-t2-crossref-v1.sh PASS · canonical sa-0505 · t1 sa-0530
+reported_at: '2026-06-14T21:41:00Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

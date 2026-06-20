@@ -1,0 +1,20 @@
+schema_version: 1
+repo: sinaai_mono
+task: AGENT-AUTO-MONO mx-0023 — Add verify step to upgrade-stack.sh if missing
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - scripts/upgrade-stack.sh
+  - reports/agent-auto/AUDIT-LOG/agent-auto-mono-2026-06-16-mx-0023-pass.md
+  diff_summary: ''
+  note: 'ASF: PLAN WITH NO ASF mx-0024'
+tests:
+  status: passed
+  command: bash scripts/full-e2e-mono.sh --skip-restart
+  output_snippet: upgrade-stack verify chain added; dry-run OK; full-e2e PASS
+real_output: upgrade-stack verify chain added; dry-run OK; full-e2e PASS
+reported_at: '2026-06-16T20:31:35Z'
+reporter: cursor-auto-mono
+execution_id: ''

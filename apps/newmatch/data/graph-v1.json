@@ -1,0 +1,42 @@
+{
+  "schema": "newmatch-graph-local-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T18:00:00Z",
+  "factory_id": "newmatch_router_cloud",
+  "plan_step": "NM-001",
+  "storage": "local_json_ssot",
+  "disclosure_default": "T4_internal",
+  "phase_0_cost_usd": 0,
+  "persons": [
+    {
+      "id": "person_seed_demo",
+      "display_name": "Seed Demo",
+      "source_app": "manual",
+      "first_seen_at": "2026-06-19T18:00:00Z",
+      "disclosure_tier": "T4_internal",
+      "tags": ["seed", "nm-001"]
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_seed_intro",
+      "from_person_id": "person_seed_demo",
+      "to_person_id": "person_seed_demo",
+      "edge_type": "same_event",
+      "confidence": 1.0,
+      "source": "nm-001-scaffold"
+    }
+  ],
+  "signals": [
+    {
+      "id": "signal_seed_coffee",
+      "person_id": "person_seed_demo",
+      "kind": "manual_note",
+      "observed_at": "2026-06-19T18:00:00Z",
+      "raw_text_redacted": "coffee next week — hinge match",
+      "source_app": "manual"
+    }
+  ],
+  "situations": [],
+  "follow_ups": []
+}

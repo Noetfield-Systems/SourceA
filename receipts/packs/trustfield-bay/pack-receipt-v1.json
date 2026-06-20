@@ -1,0 +1,79 @@
+{
+  "schema": "fbe-run-receipt-pack-v1",
+  "ok": true,
+  "at": "2026-06-17T14:09:22Z",
+  "bay_slug": "trustfield-bay",
+  "artifact_uri": "receipts/packs/trustfield-bay/run-receipt-v1.zip",
+  "receipt_pack_uri": "receipts/packs/trustfield-bay/run-receipt-v1.zip",
+  "file_count": 17,
+  "manifest": [
+    {
+      "path": "receipts/federated-run-v1.json",
+      "sha256": "2109656cc5820401bb41c084c4343b678dc301bef47a9e63994fbf7808cecb03"
+    },
+    {
+      "path": "fbe-federated-receipt-v1.json",
+      "sha256": "2109656cc5820401bb41c084c4343b678dc301bef47a9e63994fbf7808cecb03"
+    },
+    {
+      "path": "fbe-run-job-receipt-v1.json",
+      "sha256": "dd330d14d8cf43adb552af2b5e0e98deb83d93e090ea83cce6ffe1d7666f343b"
+    },
+    {
+      "path": "receipts/bays/trustfield-bay/assembly/ledger.jsonl",
+      "sha256": "9627c4347daa42a5637e6c36d411da15772a6ce332be59759953ac930044b2db"
+    },
+    {
+      "path": "receipts/bays/trustfield-bay/assembly/church-verify-v1-v1.json",
+      "sha256": "e972b9db8f80d3bea5a1156f1b249af698a486485f60d963310f24dddc5669b2"
+    },
+    {
+      "path": "receipts/bays/trustfield-bay/assembly/church-market-fidelity-v1-v1.json",
+      "sha256": "1e512ed6b9fb62ff58094a8b4a5fd2c453c9ad1f62bf62f192b8f9a48fb81f8a"
+    },
+    {
+      "path": "receipts/bays/trustfield-bay/assembly/church-intake-v1-v1.json",
+      "sha256": "82c405377cc5357674a89f60fd455d69cb205d68ce8e9b74596833eae068002e"
+    },
+    {
+      "path": "receipts/bays/trustfield-bay/assembly/church-boundary-v1-v1.json",
+      "sha256": "d2fc30f5ee20eab5862aefb7114a1abd6754f69740f486d6cc30d8ae4bbb8e94"
+    },
+    {
+      "path": "receipts/bays/trustfield-bay/assembly/church-policy-v1-v1.json",
+      "sha256": "a0018ecd63a4ccefef64a35c4e52f6c45b955c8bf54b85db593c0c6e225474a7"
+    },
+    {
+      "path": "receipts/bays/trustfield-bay/assembly/church-orient-v1-v1.json",
+      "sha256": "cccd481d8979a48630bc97fab18ee06e1cce84c810345a82b6bbbde537387282"
+    },
+    {
+      "path": "receipts/bays/trustfield-bay/assembly/exchange-voice-perimeter-v1-v1.json",
+      "sha256": "28fec935524e13566df563c64a7b9d526ef5b08971630b2f53ecf354154df52e"
+    },
+    {
+      "path": "receipts/bays/trustfield-bay/refinery/factory-verify-v1-v1.json",
+      "sha256": "ed97084c5a6d5d842ae120992ebc0c66cf345b1d437e8c627954a1408fc897ac"
+    },
+    {
+      "path": "receipts/bays/trustfield-bay/refinery/exchange-match-floor-v1-v1.json",
+      "sha256": "6582a4303c10eb38b36f512a5c341341039816a52b27ddf2c11e8e26098888cc"
+    },
+    {
+      "path": "receipts/bays/trustfield-bay/refinery/exchange-asset-fidelity-v1-v1.json",
+      "sha256": "d630d0141c2f42903cb15914a0fffb36109081efa030b44a3bae1eb482c85266"
+    },
+    {
+      "path": "receipts/bays/trustfield-bay/refinery/exchange-dealer-bridge-v1-v1.json",
+      "sha256": "943405655c60efa5e0b7c2bd130ac5b58743cd715efb306b53c0e300417cf792"
+    },
+    {
+      "path": "receipts/bays/trustfield-bay/refinery/creed-session-v1-v1.json",
+      "sha256": "2bd13af17a8ab9889989fcb0af97fcb58113fda2c0e3452eb908f2ce7b78c0a2"
+    },
+    {
+      "path": "receipts/bays/trustfield-bay/refinery/creed-orient-v1-v1.json",
+      "sha256": "ce1256c190d548659c438c4293e741d56a03f7ebd950f467955c154ae20218c8"
+    }
+  ]
+}

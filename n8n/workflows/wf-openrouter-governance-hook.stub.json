@@ -1,0 +1,28 @@
+{
+  "name": "wf-openrouter-governance-hook",
+  "meta": {
+    "schema": "sina-n8n-workflow-stub-v1",
+    "status": "wired",
+    "pick": "ASF order wire OpenRouter + n8n",
+    "law": "SOURCEA_OPENROUTER_ACTIVATION_QUEUE_LOCKED_v1.md",
+    "gate": "shadow until openrouter-credits-ok.flag",
+    "note": "After governance fast · shadow OpenRouter lane hook · EXTERNAL_CRITIC class only"
+  },
+  "nodes": [
+    {
+      "name": "Webhook governance done",
+      "type": "n8n-nodes-base.webhook",
+      "parameters": { "path": "sina-governance-fast-done", "httpMethod": "POST" }
+    },
+    {
+      "name": "OpenRouter wire check",
+      "type": "n8n-nodes-base.executeCommand",
+      "parameters": {
+        "command": "cd ~/Desktop/SourceA/scripts && python3 governance_n8n_openrouter_wire_v1.py --openrouter-hook --json"
+      }
+    }
+  ],
+  "connections": {
+    "Webhook governance done": { "main": [[{ "node": "OpenRouter wire check", "type": "main", "index": 0 }]] }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "aeg-evidence-bundle-v1",
+  "evidence_id": "aeg-20260619T041242Z-2190a8fb",
+  "at": "2026-06-19T04:12:42Z",
+  "verdict": "BLOCK",
+  "blockers": [
+    "cannot read run-inbox truth: [Errno 24] Too many open files: '/Users/sinakazemnezhad/Desktop/SourceA/REPO_EXECUTION_LOGS/sourcea/2026-06-14T2143_plan-with-no-asf-sa-0558.yaml'"
+  ],
+  "proof_url": "https://locally-projected-shade-projection.trycloudflare.com/aeg-20260619T041242Z-2190a8fb/",
+  "bundle_dir": "/Users/sinakazemnezhad/.sina/aeg/aeg-20260619T041242Z-2190a8fb",
+  "archive_dir": "/Users/sinakazemnezhad/Desktop/SourceA/archive/attachments/evidence/aeg/aeg-20260619T041242Z-2190a8fb",
+  "terminal": {
+    "ok": true,
+    "mode": "receipt_transcript",
+    "path": "/Users/sinakazemnezhad/.sina/aeg/aeg-20260619T041242Z-2190a8fb/terminal.txt",
+    "note": "Captured from critic_boot receipt \u2014 not a re-run"
+  },
+  "ui": {
+    "ok": false,
+    "skipped": true
+  },
+  "heal_verdict": null
+}

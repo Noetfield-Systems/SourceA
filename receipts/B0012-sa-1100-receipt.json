@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "B0012",
+  "title": "Reconcile Brain pick vs Worker paste — emit YAML pick not prose",
+  "plan_story": "E01 brain-reasoning wave · B0012 closes the Brain→Worker handoff gap: brain_poll now prepends brain-cloud-yaml-pick block before broker YAML so picks are structured id/pick/intent — not prose paste. Wired scripts/brain_cloud_yaml_pick_emit_v1.py into goal1_lane_broker.py brain_poll.",
+  "evidence": "scripts/brain_cloud_yaml_pick_emit_v1.py · goal1_lane_broker.py brain_yaml_block · brain-cloud plan row B0012 status=done · brain_proof=true",
+  "at": "2026-06-19T23:35:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

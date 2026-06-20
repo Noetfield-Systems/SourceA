@@ -1,0 +1,30 @@
+{
+  "schema": "fbe-trust-ledger-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-17T18:00:00Z",
+  "path": "~/.sina/fbe-trust-ledger-v1.jsonl",
+  "event_types": [
+    "JOB_QUEUED",
+    "POLICY_CHECKED",
+    "KERNEL_STARTED",
+    "NODE_EXECUTED",
+    "JOB_COMPLETED",
+    "RECEIPT_FEDERATED",
+    "LEDGER_SIGNED"
+  ],
+  "required_fields": [
+    "schema",
+    "event_id",
+    "event_type",
+    "job_id",
+    "at",
+    "checksum"
+  ],
+  "optional_fields": [
+    "parent_event_id",
+    "factory_id",
+    "policy_pack",
+    "kernel_hash",
+    "payload"
+  ]
+}

@@ -1,0 +1,15 @@
+schema_version: 1
+repo: sourcea
+task: PLAN WITH NO ASF — sa-0117 eval CI header comment in build-sina-command-panel.py
+status: done
+verify_passed: true
+evidence:
+  files_changed:
+    - scripts/build-sina-command-panel.py
+    - os/plan-library/sourcea-1000/REGISTRY.json
+tests:
+  status: passed
+  command: SINA_AUDIT_STRICT=1 build-sina-command-panel.py && find_critical_bugs.py
+  output_snippet: module docstring documents Eval-1/1b CI chain; build PASS; critical 0
+reported_at: '2026-06-06T16:55:00Z'
+reporter: cursor-maintainer

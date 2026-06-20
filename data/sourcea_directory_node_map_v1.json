@@ -1,0 +1,368 @@
+{
+  "schema": "sourcea-directory-node-map-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-06-19T00:35:00Z",
+  "repo": "/Users/sinakazemnezhad/Desktop/SourceA",
+  "description": "Full SourceA directory map wired to pipeline node graph + logical nodes — every plane, path, and receipt edge.",
+  "ssot": {
+    "human": "docs/SOURCEA_DIRECTORY_NODE_MAP_LOCKED_v1.md",
+    "machine": "data/sourcea_directory_node_map_v1.json",
+    "nodeGraph": "data/sourcea_pipeline_node_graph_v1.json",
+    "unifiedBundle": "data/sourcea_agentic_unified_bundle_v1.json",
+    "meshCatalog": "data/sourcea_node_mesh_catalog_v1.json",
+    "buildPlan": "docs/SOURCEA_NODE_MESH_SYNESTM_BUILD_PLAN_LOCKED_v1.md",
+    "charter": "docs/SOURCEA_NODE_ARCHITECT_AGENTIC_AUTONOMOUS_SYSTEM_LOCKED_v1.md",
+    "terminology": "docs/SOURCEA_TERMINOLOGY_AND_COMMERCIAL_TUNE_2026_LOCKED_v1.md",
+    "entry": "brain-os/entry/START_HERE_LOCKED_v1.md"
+  },
+  "factory_posture": "986/1000 Valid YES · SINGLE_SA · graph 5 tiers · 12 runner nodes",
+  "wil_parity": {
+    "wil_repo": "/Users/sinakazemnezhad/Desktop/YA5",
+    "wil_map": ".cursor/governance/DIRECTORY_NODE_MAP.json",
+    "wil_graph": ".cursor/governance/NODE_GRAPH.json",
+    "rule": "SourceA L0.5 law · Wil L3 product — cite only · never cross-edit"
+  },
+  "planes": {
+    "ROOT": { "label": "Repo entry + daily law front door", "layer": "L0", "plane_id": "INTERNAL" },
+    "ENTRY": { "label": "START_HERE · assignment routing", "layer": "L0", "plane_id": "INTERNAL" },
+    "LAW": { "label": "brain-os LOCKED law · incidents · enforcement", "layer": "L0.5", "plane_id": "INTERNAL" },
+    "PLAN": { "label": "1000-step registry · prompts · queue SSOT", "layer": "L0.5", "plane_id": "INTERNAL" },
+    "RUNTIME": { "label": "scripts/ validators · live wires · runners", "layer": "L0.5", "plane_id": "INTERNAL" },
+    "DATA": { "label": "Graph SSOT · fleet JSON · machine config", "layer": "L0.5", "plane_id": "INTERNAL" },
+    "HUB": { "label": "Worker Hub H1 · Machine Hub H2 · :13020", "layer": "L0", "plane_id": "HUB_API" },
+    "AGENT": { "label": "Cursor rules · skills · agent-skills registry", "layer": "L1-L2", "plane_id": "INTERNAL" },
+    "LOOP": { "label": "INBOX.md · worker prompt loop", "layer": "L2", "plane_id": "INTERNAL" },
+    "DOCS": { "label": "LOCKED docs · research vault · audits", "layer": "L1", "plane_id": "INTERNAL" },
+    "RECEIPT": { "label": "~/.sina runtime proof plane", "layer": "L0.5", "plane_id": "RUNTIME_GLUE" },
+    "RESEARCH": { "label": "Research sensor · lessons · vault", "layer": "L1", "plane_id": "INTERNAL" },
+    "ARCHIVE": { "label": "Genealogy only — never inject as active law", "layer": null, "plane_id": "INTERNAL" },
+    "PORTFOLIO": { "label": "TrustField · Noetfield · landings · runreceipt", "layer": "L3", "plane_id": "PORTFOLIO" },
+    "GLUE": { "label": "n8n external clocks · manifest", "layer": "L0.5", "plane_id": "RUNTIME_GLUE" },
+    "COMMERCIAL": { "label": "Film factory · witness · video pipeline", "layer": "L3", "plane_id": "PORTFOLIO" }
+  },
+  "graph_node_ids": [
+    "sascip_live_wire",
+    "mac_health_probe",
+    "disk_live_wire",
+    "governance_zero_drift",
+    "crawl_mirror_session",
+    "agentic_layer_fast",
+    "l1_brain_wire",
+    "hub_dual_heal",
+    "validate_w10_vocab",
+    "validate_two_hub",
+    "n8n_p0_operational",
+    "orient_routing_v1"
+  ],
+  "logical_nodes": [
+    { "id": "session_gate_v1", "layer": "GOV", "label": "Session gate orchestrator", "handler": "scripts/agent_session_gate_run_v1.py", "receipt": "~/.sina/agent_session_gate_receipt_v1.json", "tier": "all" },
+    { "id": "pipeline_node_graph_runner_v1", "layer": "L0.5", "label": "Parallel tier runner", "handler": "scripts/pipeline_node_graph_runner_v1.py", "receipt": "~/.sina/pipeline-node-graph-receipt-v1.json", "tier": "T0-T3,T_lat" },
+    { "id": "cross_lane_edit_guard_v1", "layer": "GOV", "label": "Cross-lane write guard", "handler": "scripts/cross_lane_edit_guard_v1.py", "receipt": null, "tier": "T0" },
+    { "id": "worker_inbox_v1", "layer": "L2", "label": "RUN INBOX queue", "handler": "scripts/run_worker_inbox_v1.py", "receipt": "~/.sina/worker-prompt-inbox-v1.json", "tier": "L2" },
+    { "id": "hub_projection_v1", "layer": "L0", "label": "Hub command-data build", "handler": "scripts/build-sina-command-panel.py", "receipt": "agent-control-panel/command-data.json", "tier": "T2" },
+    { "id": "mac_health_guard_v1", "layer": "L0", "label": "Mac Health Heart UI", "handler": "scripts/mac_health_guard.py", "receipt": "~/.sina/mac-health/governance-findings-v1.json", "tier": "T0" },
+    { "id": "program_1000_honest_v1", "layer": "L0.5", "label": "Honest factory counter", "handler": "scripts/program-1000-honest-status-v1.py", "receipt": "~/.sina/PROGRAM_1000_HONEST_STATUS.json", "tier": "T1" },
+    { "id": "founder_form_m1_v1", "layer": "L0", "label": "M1 integrity Canvas form", "handler": "scripts/live_founder_decision_form_v1.py", "receipt": "~/.sina/live-founder-decision-form-v1.json", "tier": "L0" },
+    { "id": "form_official_nerve_map_v1", "layer": "L0", "label": "FORM_OFFICIAL nerve map SSOT", "handler": "data/form_official_nerve_map_v1.json", "receipt": "~/.sina/form-official-wire-receipt-v1.json", "tier": "L0" },
+    { "id": "form_official_gather_v1", "layer": "L0", "label": "FORM_OFFICIAL extraction gather", "handler": "scripts/form_official_gather_extraction_v1.py", "receipt": "~/.sina/live-founder-decision-form-extraction-v1.json", "tier": "L0" },
+    { "id": "form_official_wire_e2e_v1", "layer": "L0.5", "label": "FORM_OFFICIAL E2E wire", "handler": "scripts/form_official_wire_e2e_v1.py", "receipt": "~/.sina/form-official-wire-receipt-v1.json", "tier": "L0" },
+    { "id": "integrity_canvas_regen_v1", "layer": "L0.5", "label": "M1 Canvas data regen", "handler": "scripts/generate_integrity_canvas_form_data_v1.py", "receipt": null, "tier": "L0" },
+    { "id": "canvas_form_submit_v1", "layer": "L0", "label": "Canvas Submit → disk + hub", "handler": "scripts/canvas_form_submit_v1.py", "receipt": "~/.sina/canvas-form-picks-applied-v1.json", "tier": "L0" },
+    { "id": "thread_room_v1", "layer": "ROOMS", "label": "Thread room curation", "handler": "scripts/thread_room_run_v1.py", "receipt": "~/.sina/thread-room/latest-curation-v1.json", "tier": "H2" },
+    { "id": "voyage_live_wire_v1", "layer": "L8", "label": "Voyage semantic live wire", "handler": "scripts/voyage_ai_live_wire_v1.py", "receipt": "~/.sina/voyage-ai-live-wire-v1.json", "tier": "T1" },
+    { "id": "orientation_pipeline_v1", "layer": "LAT", "label": "Orientation (founder word)", "handler": "scripts/agent_orientation_pipeline_v1.py", "receipt": "~/.sina/agent-orientation-receipt-v1.json", "tier": "founder_word" },
+    { "id": "hospital_pipeline_v1", "layer": "LAT", "label": "Hospital (founder word)", "handler": "scripts/agent_hospital_pipeline_v1.py", "receipt": "~/.sina/agent-hospital-receipt-v1.json", "tier": "founder_word" },
+    { "id": "maze_pipeline_v1", "layer": "LAT", "label": "Maze (founder word)", "handler": "scripts/agent_maze_pipeline_v1.py", "receipt": "~/.sina/agent-maze-receipt-v1.json", "tier": "founder_word" },
+    { "id": "orient_routing_v1", "layer": "LAT", "label": "Orient routing cascade", "handler": "scripts/agent_orient_v1.py", "receipt": "~/.sina/orient-routing-report-v1.json", "tier": "T_lat_orient" },
+    { "id": "entry_gate_v1", "layer": "L2", "label": "Worker entry gate", "handler": "scripts/cursor_entry_gate.py", "receipt": null, "tier": "L2" },
+    { "id": "terminology_2026_v1", "layer": "L1", "label": "Commercial tune SSOT", "handler": null, "receipt": "docs/SOURCEA_TERMINOLOGY_AND_COMMERCIAL_TUNE_2026_LOCKED_v1.md", "tier": "L1" },
+    { "id": "directory_node_map_v1", "layer": "L0.5", "label": "This directory map", "handler": "data/sourcea_directory_node_map_v1.json", "receipt": null, "tier": "meta" }
+  ],
+  "tree": [
+    {
+      "path": "/",
+      "plane": "ROOT",
+      "nodes": ["session_gate_v1", "entry_gate_v1"],
+      "role": "SourceA monorepo root · Controlled Execution OS",
+      "children": [
+        { "path": "START_HERE.md", "nodes": ["entry_gate_v1"], "role": "Human pointer → brain-os/entry" },
+        { "path": "brain-os/entry/START_HERE_LOCKED_v1.md", "nodes": ["session_gate_v1"], "role": "Law front door" }
+      ]
+    },
+    {
+      "path": "brain-os/",
+      "plane": "LAW",
+      "nodes": ["governance_zero_drift", "cross_lane_edit_guard_v1"],
+      "role": "Constitution + law registry + incidents",
+      "children": [
+        { "path": "brain-os/system/", "nodes": ["governance_zero_drift", "program_1000_honest_v1"], "role": "GOAL_HIERARCHY · authority.yaml · EVENT_CONTRACT" },
+        { "path": "brain-os/enforcement/", "nodes": ["session_gate_v1", "cross_lane_edit_guard_v1"], "role": "Agent verbs · session loop · stack v2" },
+        { "path": "brain-os/law/", "nodes": ["governance_zero_drift"], "role": "BRAIN_UNIFIED · layer stack LOCKED" },
+        { "path": "brain-os/incidents/", "nodes": ["validate_w10_vocab"], "role": "INCIDENT-* — machine ack only" },
+        { "path": "brain-os/plan-registry/", "nodes": ["program_1000_honest_v1", "worker_inbox_v1"], "role": "sourcea-1000 REGISTRY · healthy-queue" },
+        { "path": "brain-os/contract/", "nodes": ["session_gate_v1"], "role": "MANDATORY_BRAIN_CHAT · routing" },
+        { "path": "brain-os/wtm/", "nodes": ["voyage_live_wire_v1"], "role": "Pre-LLM world model essays" }
+      ]
+    },
+    {
+      "path": "scripts/",
+      "plane": "RUNTIME",
+      "nodes": ["pipeline_node_graph_runner_v1", "session_gate_v1"],
+      "role": "~523 Python · ~618 validate-* · live wire spine",
+      "metrics": { "python_scripts": 523, "validate_shell": 618 },
+      "children": [
+        { "path": "scripts/agent_session_gate_run_v1.py", "nodes": ["session_gate_v1"], "role": "Session start SSOT · all agents" },
+        { "path": "scripts/pipeline_node_graph_runner_v1.py", "nodes": ["pipeline_node_graph_runner_v1"], "role": "Parallel tier runner · graph SSOT consumer" },
+        { "path": "scripts/disk_live_wire_sync_v1.py", "nodes": ["disk_live_wire"], "role": "Truth bundle + live surfaces sync" },
+        { "path": "scripts/governance_zero_drift_live_wire_v1.py", "nodes": ["governance_zero_drift"], "role": "Zero-drift score · L0.5+L1+L2" },
+        { "path": "scripts/sourcea_crawl_mirror_pipeline_v1.py", "nodes": ["crawl_mirror_session"], "role": "Crawl-mirror orchestrator · session tier" },
+        { "path": "scripts/stranger_agent_safety_live_wire_v1.py", "nodes": ["sascip_live_wire"], "role": "SASCIP ADMIT→SERVE chain" },
+        { "path": "scripts/mac_health_live_v1.py", "nodes": ["mac_health_probe"], "role": "Mac Health probe" },
+        { "path": "scripts/mac_health_guard.py", "nodes": ["mac_health_guard_v1", "mac_health_probe"], "role": "Findings + disk-live-wire auto-clear" },
+        { "path": "scripts/agentic_layer_pipeline_v2.py", "nodes": ["agentic_layer_fast"], "role": "L1/L2 fleet fast wire" },
+        { "path": "scripts/l1_agent_pipeline_wire_v1.py", "nodes": ["l1_brain_wire"], "role": "Brain row pipeline wire" },
+        { "path": "scripts/hub_dual_heal_v1.py", "nodes": ["hub_dual_heal"], "role": "H1+H2 heal when hub up" },
+        { "path": "scripts/cross_lane_edit_guard_v1.py", "nodes": ["cross_lane_edit_guard_v1"], "role": "EDIT ALLOWED enforcement" },
+        { "path": "scripts/validate-pipeline-node-graph-v1.sh", "nodes": ["pipeline_node_graph_runner_v1"], "role": "Graph schema + dry-run lint" },
+        { "path": "scripts/validate-anti-staleness-vocabulary-gate-v1.sh", "nodes": ["validate_w10_vocab"], "role": "W10 vocabulary bundle" },
+        { "path": "scripts/validate-crawl-mirror-v1.sh", "nodes": ["crawl_mirror_session"], "role": "Truth pipeline proof" },
+        { "path": "scripts/validate-stranger-agent-safety-v1.sh", "nodes": ["sascip_live_wire"], "role": "Safety pipeline proof" },
+        { "path": "scripts/validate-two-hub-v1.sh", "nodes": ["validate_two_hub", "hub_dual_heal"], "role": "H1+H2 structural proof" },
+        { "path": "scripts/validate-n8n-p0-operational-v1.sh", "nodes": ["n8n_p0_operational"], "role": "External glue operational" },
+        { "path": "scripts/program-1000-honest-status-v1.py", "nodes": ["program_1000_honest_v1"], "role": "Honest 986/1000 counter" },
+        { "path": "scripts/n8n_glue_runner_v1.py", "nodes": ["n8n_p0_operational"], "role": "n8n manifest execute · glue only" },
+        { "path": "scripts/fixtures/n8n/", "nodes": ["n8n_p0_operational"], "role": "workflow_manifest.json" },
+        { "path": "scripts/mac-health-standalone/", "nodes": ["mac_health_guard_v1"], "role": ":13024 Heart UI" },
+        { "path": "scripts/voyage_ai_live_wire_v1.py", "nodes": ["voyage_live_wire_v1"], "role": "L8 hybrid vector wire" },
+        { "path": "scripts/agent_orientation_pipeline_v1.py", "nodes": ["orientation_pipeline_v1"], "role": "Founder word: orientation" },
+        { "path": "scripts/agent_hospital_pipeline_v1.py", "nodes": ["hospital_pipeline_v1"], "role": "Founder word: hospital" },
+        { "path": "scripts/agent_maze_pipeline_v1.py", "nodes": ["maze_pipeline_v1"], "role": "Founder word: maze" },
+        { "path": "scripts/agent_three_pipelines_router_v1.py", "nodes": ["orientation_pipeline_v1", "hospital_pipeline_v1", "maze_pipeline_v1"], "role": "Three pipelines router" },
+        { "path": "scripts/find_critical_bugs.py", "nodes": ["validate_w10_vocab"], "role": "Critical bug census" },
+        { "path": "scripts/agent_orient_v1.py", "nodes": ["orient_routing_v1"], "role": "Wil agent:orient parity" },
+        { "path": "scripts/orient_routing_v1.py", "nodes": ["orient_routing_v1"], "role": "Cascade + role routing lib" },
+        { "path": "scripts/validate-orient-routing-v1.sh", "nodes": ["orient_routing_v1"], "role": "Orient chain validate" }
+      ]
+    },
+    {
+      "path": "data/",
+      "plane": "DATA",
+      "nodes": ["pipeline_node_graph_runner_v1", "directory_node_map_v1"],
+      "role": "Machine SSOT JSON — graph + maps",
+      "children": [
+        { "path": "data/sourcea_pipeline_node_graph_v1.json", "nodes": ["pipeline_node_graph_runner_v1"], "role": "Node graph SSOT · 4 tiers · 11 nodes" },
+        { "path": "data/sourcea_agentic_unified_bundle_v1.json", "nodes": ["orient_routing_v1", "pipeline_node_graph_runner_v1", "directory_node_map_v1"], "role": "Unified agentic SSOT bundle · version pins" },
+        { "path": "data/sourcea_orient_routing_v1.json", "nodes": ["orient_routing_v1"], "role": "Orient routing machine SSOT" },
+        { "path": "data/sourcea_directory_node_map_v1.json", "nodes": ["directory_node_map_v1"], "role": "Directory→node map (this file)" },
+        { "path": "data/agent_fleet/", "nodes": ["sascip_live_wire"], "role": "Fleet agent registry" }
+      ]
+    },
+    {
+      "path": "agent-control-panel/",
+      "plane": "HUB",
+      "nodes": ["hub_projection_v1", "hub_dual_heal", "validate_two_hub"],
+      "role": "Worker Hub H1 · Machine Hub H2 · :13020",
+      "url": "http://127.0.0.1:13020/",
+      "children": [
+        { "path": "agent-control-panel/command-data.json", "nodes": ["hub_projection_v1"], "role": "Hub canonical projection SSOT" },
+        { "path": "agent-control-panel/command-data-runtime.json", "nodes": ["hub_projection_v1"], "role": "Runtime drill projection" },
+        { "path": "agent-control-panel/worker-hub/", "nodes": ["worker_inbox_v1"], "role": "H1 Next steps · RUN INBOX actions" },
+        { "path": "agent-control-panel/machines/", "nodes": ["thread_room_v1"], "role": "H2 thread room · full map" },
+        { "path": "agent-control-panel/app.js", "nodes": ["hub_projection_v1"], "role": "Hub UI shell" }
+      ]
+    },
+    {
+      "path": ".cursor/",
+      "plane": "AGENT",
+      "nodes": ["cross_lane_edit_guard_v1", "session_gate_v1"],
+      "role": "Cursor rules · skills · hooks · agent memory",
+      "children": [
+        { "path": ".cursor/rules/", "nodes": ["cross_lane_edit_guard_v1", "session_gate_v1"], "role": "000-entry-gate · verbs · disk-live-wire" },
+        { "path": ".cursor/skills/", "nodes": ["directory_node_map_v1"], "role": "HIGH PRO node + pipeline + foundational skills" },
+        { "path": ".cursor/skills/skill-node-architect-agentic-system/", "nodes": ["pipeline_node_graph_runner_v1"], "role": "Node architect v2.0" },
+        { "path": ".cursor/skills/skill-foundational-agentic-systems/", "nodes": ["session_gate_v1"], "role": "Load-first agentic stack" },
+        { "path": ".cursor/skills/founder-linkedin-language/", "nodes": ["terminology_2026_v1"], "role": "Founder voice · form rows" },
+        { "path": ".cursor/agent-memory/", "nodes": ["disk_live_wire"], "role": "ECOSYSTEM_HARD_RULES.yaml" }
+      ]
+    },
+    {
+      "path": "agent-skills/",
+      "plane": "AGENT",
+      "nodes": ["worker_inbox_v1", "l1_brain_wire"],
+      "role": "Agent skill registry · sync to ~/.cursor/skills",
+      "children": [
+        { "path": "agent-skills/REGISTRY_LOCKED_v1.json", "nodes": ["directory_node_map_v1"], "role": "Skill registry SSOT" },
+        { "path": "agent-skills/sourcea_worker/", "nodes": ["worker_inbox_v1"], "role": "Worker lane skill" },
+        { "path": "agent-skills/sourcea_brain/", "nodes": ["l1_brain_wire"], "role": "Brain lane skill" },
+        { "path": "agent-skills/shared/", "nodes": ["session_gate_v1"], "role": "Shared agent skills" }
+      ]
+    },
+    {
+      "path": ".sina-loop/",
+      "plane": "LOOP",
+      "nodes": ["worker_inbox_v1"],
+      "role": "INBOX.md · worker prompt loop SSOT mirror",
+      "children": [
+        { "path": ".sina-loop/INBOX.md", "nodes": ["worker_inbox_v1"], "role": "Queue head · pending count" }
+      ]
+    },
+    {
+      "path": "docs/",
+      "plane": "DOCS",
+      "nodes": ["terminology_2026_v1", "directory_node_map_v1"],
+      "role": "LOCKED law docs · gap audit · terminology",
+      "children": [
+        { "path": "docs/SOURCEA_ORIENTATION_AND_ROUTING_LOCKED_v1.md", "nodes": ["orient_routing_v1"], "role": "Orient + routing human SSOT" },
+        { "path": "docs/SOURCEA_NODE_ARCHITECT_AGENTIC_AUTONOMOUS_SYSTEM_LOCKED_v1.md", "nodes": ["pipeline_node_graph_runner_v1"], "role": "Node charter · N01-N20" },
+        { "path": "docs/SOURCEA_DIRECTORY_NODE_MAP_LOCKED_v1.md", "nodes": ["directory_node_map_v1"], "role": "Human directory map" },
+        { "path": "docs/SOURCEA_TERMINOLOGY_AND_COMMERCIAL_TUNE_2026_LOCKED_v1.md", "nodes": ["terminology_2026_v1"], "role": "Commercial tune 2026" },
+        { "path": "docs/SOURCEA_ECOSYSTEM_GAP_AUDIT_AND_SYSTEM_MAP_LOCKED_v1.md", "nodes": ["validate_w10_vocab"], "role": "Four pipelines system map" },
+        { "path": "docs/SOURCEA_FOUNDATIONAL_AGENTIC_SYSTEMS_INDEX_LOCKED_v1.md", "nodes": ["directory_node_map_v1"], "role": "Skill load order index" },
+        { "path": "docs/SOURCEA_CRAWL_MIRROR_PIPELINE_LOCKED_v1.md", "nodes": ["crawl_mirror_session"], "role": "Truth pipeline law v1.4" },
+        { "path": "docs/SOURCEA_STRANGER_AGENT_DEFENSE_IN_DEPTH_FOUNDER_GUIDE_LOCKED_v1.md", "nodes": ["sascip_live_wire"], "role": "SASCIP founder guide" },
+        { "path": "docs/research-vault/", "nodes": ["terminology_2026_v1"], "role": "Golden reports · positioning" }
+      ]
+    },
+    {
+      "path": "os/",
+      "plane": "PLAN",
+      "nodes": ["worker_inbox_v1"],
+      "role": "Chat handoffs · plan library",
+      "children": [
+        { "path": "os/chat-handoffs/", "nodes": ["worker_inbox_v1"], "role": "WORKER_ASSIGNMENT_AND_CHAT_ROUTING" },
+        { "path": "os/plan-library/", "nodes": ["program_1000_honest_v1"], "role": "Plan library rows" }
+      ]
+    },
+    {
+      "path": "knowledge-library/",
+      "plane": "RESEARCH",
+      "nodes": ["voyage_live_wire_v1"],
+      "role": "Research fields · agent training books",
+      "children": [
+        { "path": "knowledge-library/fields/", "nodes": ["voyage_live_wire_v1"], "role": "Extract→gather→merge fields" }
+      ]
+    },
+    {
+      "path": "RESEARCH/",
+      "plane": "RESEARCH",
+      "nodes": ["terminology_2026_v1"],
+      "role": "Research sensor — compare only · no queue reorder",
+      "children": [
+        { "path": "RESEARCH/by_date/", "nodes": ["terminology_2026_v1"], "role": "Dated research packs" },
+        { "path": "archive/attachments/founder-language/", "nodes": ["terminology_2026_v1"], "role": "dictionary.yaml · forbidden.yaml" }
+      ]
+    },
+    {
+      "path": "archive/",
+      "plane": "ARCHIVE",
+      "nodes": [],
+      "role": "Genealogy only — validate-no-archive-as-law",
+      "archive_rule": "Never inject as active law",
+      "children": [
+        { "path": "archive/attachments/", "nodes": ["terminology_2026_v1"], "role": "Evidence · founder language · reports" },
+        { "path": "archive/superseded/", "nodes": [], "role": "Superseded law — reference only" }
+      ]
+    },
+    {
+      "path": "n8n/",
+      "plane": "GLUE",
+      "nodes": ["n8n_p0_operational"],
+      "role": "External glue — cron/webhook only",
+      "url": "http://127.0.0.1:5678",
+      "law": "SINA_AUTOMATION_SPINE_AND_N8N_LOCKED_v1.md"
+    },
+    {
+      "path": "runreceipt/",
+      "plane": "PORTFOLIO",
+      "nodes": ["validate_w10_vocab"],
+      "role": "RunReceipt SKU · THREAD-FACTORY parallel"
+    },
+    {
+      "path": "product/",
+      "plane": "PORTFOLIO",
+      "nodes": ["agentic_layer_fast"],
+      "role": "FORGE · sellable app lanes"
+    },
+    {
+      "path": "cinematic-film-factory/",
+      "plane": "COMMERCIAL",
+      "nodes": ["validate_w10_vocab"],
+      "role": "WitnessBC · commercial film hero"
+    },
+    {
+      "path": "commercial-video-factory/",
+      "plane": "COMMERCIAL",
+      "nodes": ["validate_w10_vocab"],
+      "role": "Commercial video renders"
+    },
+    {
+      "path": "SourceA-landing/",
+      "plane": "PORTFOLIO",
+      "nodes": ["terminology_2026_v1"],
+      "role": "Public landing · design partner CTA"
+    },
+    {
+      "path": "WitnessBC-landing/",
+      "plane": "COMMERCIAL",
+      "nodes": ["validate_w10_vocab"],
+      "role": "WitnessBC public surface"
+    },
+    {
+      "path": "REPO_EXECUTION_LOGS/",
+      "plane": "PORTFOLIO",
+      "nodes": ["agentic_layer_fast"],
+      "role": "Per-repo execution logs · L3 portfolio",
+      "children": [
+        { "path": "REPO_EXECUTION_LOGS/trustfield/", "nodes": ["terminology_2026_v1"], "role": "TrustField lane" },
+        { "path": "REPO_EXECUTION_LOGS/noetfield/", "nodes": ["terminology_2026_v1"], "role": "Noetfield lane" },
+        { "path": "REPO_EXECUTION_LOGS/sourcea/", "nodes": ["program_1000_honest_v1"], "role": "SourceA factory logs" }
+      ]
+    }
+  ],
+  "runtime_plane": {
+    "path": "~/.sina",
+    "label": "Receipt plane — chat is not memory",
+    "law": "AGENT_DISK_LIVE_WIRE_FIRST_LOCKED_v1.md",
+    "entries": [
+      { "path": "~/.sina/agent-live-surfaces-v1.json", "nodes": ["disk_live_wire"], "role": "factory_now_line · sascip_line · inject" },
+      { "path": "~/.sina/agent_session_gate_receipt_v1.json", "nodes": ["session_gate_v1"], "role": "Session gate proof" },
+      { "path": "~/.sina/pipeline-node-graph-receipt-v1.json", "nodes": ["pipeline_node_graph_runner_v1"], "role": "Graph tier run proof" },
+      { "path": "~/.sina/disk-live-wire-receipt-v1.json", "nodes": ["disk_live_wire"], "role": "Truth bundle sync proof" },
+      { "path": "~/.sina/governance-zero-drift-live-wire-v1.json", "nodes": ["governance_zero_drift"], "role": "Zero-drift wire" },
+      { "path": "~/.sina/crawl-mirror-receipt-v1.json", "nodes": ["crawl_mirror_session"], "role": "Crawl-mirror session tier" },
+      { "path": "~/.sina/stranger-agent-admission-receipt-v1.json", "nodes": ["sascip_live_wire"], "role": "SASCIP admission" },
+      { "path": "~/.sina/stranger-agent-monitor-v1.json", "nodes": ["sascip_live_wire"], "role": "Stranger monitor" },
+      { "path": "~/.sina/agentic-layer-pipeline-v2.json", "nodes": ["agentic_layer_fast"], "role": "L1/L2 wire receipt" },
+      { "path": "~/.sina/l1-agent-pipeline-wire-v1.json", "nodes": ["l1_brain_wire"], "role": "Brain wire receipt" },
+      { "path": "~/.sina/PROGRAM_1000_HONEST_STATUS.json", "nodes": ["program_1000_honest_v1"], "role": "986/1000 honest counter" },
+      { "path": "~/.sina/live-ongoing-prompts-next-10-v1.json", "nodes": ["worker_inbox_v1"], "role": "Next 10 queue turns" },
+      { "path": "~/.sina/worker-prompt-inbox-v1.json", "nodes": ["worker_inbox_v1"], "role": "INBOX SSOT" },
+      { "path": "~/.sina/healthy-queue-30-active.json", "nodes": ["worker_inbox_v1"], "role": "Healthy pack queue" },
+      { "path": "~/.sina/agent-executor-daily-duty-card-v1.json", "nodes": ["session_gate_v1"], "role": "D01-D23 duty card" },
+      { "path": "~/.sina/agent-memory-mirror-v1.json", "nodes": ["disk_live_wire"], "role": "Memory mirror inject" },
+      { "path": "~/.sina/voyage-ai-live-wire-v1.json", "nodes": ["voyage_live_wire_v1"], "role": "L8 semantic wire" },
+      { "path": "~/.sina/thread-room/latest-curation-v1.json", "nodes": ["thread_room_v1"], "role": "Thread room spine" },
+      { "path": "~/.sina/mac-health/", "nodes": ["mac_health_guard_v1", "mac_health_probe"], "role": "Mac Health findings + bundles" },
+      { "path": "~/.sina/agent-maze-receipt-v1.json", "nodes": ["maze_pipeline_v1"], "role": "Maze receipt (founder word)" },
+      { "path": "~/.sina/agent-hospital-receipt-v1.json", "nodes": ["hospital_pipeline_v1"], "role": "Hospital receipt (founder word)" },
+      { "path": "~/.sina/agent-orientation-receipt-v1.json", "nodes": ["orientation_pipeline_v1"], "role": "Orientation receipt (founder word)" }
+    ]
+  },
+  "tier_to_directories": {
+    "T0_safety": ["scripts/stranger_agent_safety_live_wire_v1.py", "scripts/mac_health_*", "scripts/mac-health-standalone/", "~/.sina/stranger-agent-*", "~/.sina/mac-health/"],
+    "T1_truth_parallel": ["scripts/disk_live_wire_sync_v1.py", "scripts/governance_zero_drift_live_wire_v1.py", "scripts/sourcea_crawl_mirror_pipeline_v1.py", "data/", "~/.sina/disk-live-wire-*", "~/.sina/crawl-mirror-*"],
+    "T2_fleet_parallel": ["scripts/agentic_layer_pipeline_v2.py", "scripts/l1_agent_pipeline_wire_v1.py", "scripts/hub_dual_heal_v1.py", "agent-control-panel/", "agent-skills/", ".sina-loop/"],
+    "T3_proof_parallel": ["scripts/validate-*.sh", "scripts/fixtures/n8n/", "n8n/"]
+  },
+  "edges": [
+    { "from": "session_gate_v1", "to": "disk_live_wire", "kind": "wire" },
+    { "from": "disk_live_wire", "to": "governance_zero_drift", "kind": "wire", "parallel": true },
+    { "from": "disk_live_wire", "to": "crawl_mirror_session", "kind": "wire", "parallel": true },
+    { "from": "session_gate_v1", "to": "sascip_live_wire", "kind": "gate" },
+    { "from": "pipeline_node_graph_runner_v1", "to": "validate_w10_vocab", "kind": "fan-out", "tier": "T3_proof_parallel" },
+    { "from": "hub_projection_v1", "to": "program_1000_honest_v1", "kind": "data" },
+    { "from": "worker_inbox_v1", "to": "session_gate_v1", "kind": "trigger" },
+    { "from": "directory_node_map_v1", "to": "pipeline_node_graph_runner_v1", "kind": "data" },
+    { "from": "terminology_2026_v1", "to": "hub_projection_v1", "kind": "surface" }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "schema": "newmatch-factory-v1",
+  "version": "1.2.0",
+  "saved_at": "2026-06-19T17:15:00Z",
+  "status": "LOCKED",
+  "product": "NewMatch",
+  "codename": "newsinaaidatabase",
+  "one_law": "Exhaust free-tier paths first — situation-smart routing · agentic follow-up · people graph — cloud+API only · Mac = control panel · Phase 0 = $0",
+  "human_doc": "data/NEWMATCH_FACTORY_PROPOSAL_LOCKED_v1.md",
+  "graph_schema": "data/newmatch-graph-schema-v1.json",
+  "plan_999": "data/newmatch-factory-999-plan-v1.json",
+  "generator": "scripts/gen_newmatch_factory_999_plan_v1.py",
+  "validator": "scripts/validate-newmatch-factory-v1.sh",
+  "receipt": "~/.sina/newmatch-factory-receipt-v1.json",
+  "sub_project": "apps/newmatch/",
+  "factory_id": "newmatch_router_cloud",
+  "execution_plane": "cloud_api_worker",
+  "control_plane": "mac_control_panel",
+  "factory_online_law": "data/cloud-factories-online-only-v1.json",
+  "scripts": {
+    "free_tier_check": "scripts/newmatch_free_tier_check_v1.py",
+    "situation_router_t0": "scripts/newmatch_situation_router_t0_v1.py",
+    "plan_generator": "scripts/gen_newmatch_factory_999_plan_v1.py"
+  },
+  "free_tier_policy": {
+    "authority": "docs/SOURCEA_TIER_PRIORITY_COST_INTELLIGENCE_POLICY_LOCKED_v1.md",
+    "tool_pick": "data/tool-pick-two-phase-v1.json",
+    "mcp_free_tier": "data/mcp-stack-free-tier-v1.json",
+    "phase0_reference": "data/phase0-freemium-sandbox-reference-v1.json",
+    "phase0_inventory_id": "P0-14",
+    "cost_intel": "data/factory-cost-intelligence-loop-v1.json",
+    "no_cc_law": "FOUNDER_NO_CREDIT_CARD_INFRA_LOCKED_v1.md",
+    "one_law": "Always exhaust free-tier paths first — then ROI pick among survivors; never pay wrong category",
+    "phase_0_cost_ceiling_usd": 0,
+    "phase_1_free_exhaust_before": "phase_2_affordable_ai",
+    "pick_order": [
+      "free_tier_eligible",
+      "queue_tier",
+      "commercial_blockers",
+      "roi_score",
+      "paid_escalation"
+    ],
+    "paid_escalation_requires": [
+      "free_path_blocked_receipt",
+      "roi_gate_pass",
+      "founder_approval_receipt"
+    ]
+  },
+  "free_stack_newmatch": {
+    "graph_storage": ["local_json_ssot", "supabase_free"],
+    "router_logic": ["python_rules_t0", "openrouter_free", "groq_free", "cerebras_free", "gemini_free", "github_models"],
+    "ingest": ["manual_paste", "csv_import", "semej_founder_session"],
+    "hosting": ["vercel_hobby", "cloudflare_pages_free", "trycloudflare_tunnel"],
+    "cron": ["cloudflare_free_cron_prep"],
+    "paid_blocked_until": "tool_pick phase_2 founder approval + NO-CC gate"
+  },
+  "mvp_waves": [
+    {"id": "W1", "label": "Graph SSOT", "plan_range": "NM-001–150", "ship": "graph schema logged · local JSON seed"},
+    {"id": "W2", "label": "T0 Router", "plan_range": "NM-151–300", "ship": "FBE /newmatch/route · T0 rules · $0"},
+    {"id": "W3", "label": "Ingest", "plan_range": "NM-501–650", "ship": "manual · CSV · SEMEJ founder session"},
+    {"id": "W4", "label": "Follow loops", "plan_range": "NM-301–500", "ship": "planner→executor · receipts"},
+    {"id": "W5", "label": "Handoff + wire", "plan_range": "NM-751–999", "ship": "NF/TF/SourceA SKUs · governance wire"}
+  ],
+  "situation_engine": {
+    "t0_script": "scripts/newmatch_situation_router_t0_v1.py",
+    "schema": "data/newmatch-graph-schema-v1.json",
+    "signals": [
+      "dating_mutual_like",
+      "dating_message",
+      "linkedin_connection",
+      "linkedin_inmail",
+      "calendar_overlap",
+      "manual_note",
+      "csv_import_row",
+      "semej_capture"
+    ],
+    "scoring": "t0_rules_first · free_llm when confidence < 0.55",
+    "routes": {
+      "personal_nurture": {"cadence_days": 7, "auto_send": false},
+      "hybrid_explore": {"max_questions": 1, "founder_approve": true},
+      "business_opportunity": {"handoffs": ["noetfield_nf_rd", "trustfield_tf_001", "sourcea_agency"]},
+      "defer": {"stale_days": 30},
+      "block": {"contact": false},
+      "founder_gate": {"triggers": ["money", "legal", "publish", "irreversible_outbound"]}
+    }
+  },
+  "api_contract": {
+    "base_path": "/newmatch",
+    "host_when_online": "fbe_railway_public_https",
+    "endpoints": [
+      {"method": "POST", "path": "/newmatch/route", "tier": "T0", "cost_usd": 0, "body": "route_request"},
+      {"method": "GET", "path": "/newmatch/situation/{id}", "tier": "T0", "cost_usd": 0},
+      {"method": "POST", "path": "/newmatch/ingest/manual", "tier": "T0", "cost_usd": 0, "founder_session": true},
+      {"method": "POST", "path": "/newmatch/follow/plan", "tier": "T0|T1", "cost_usd": 0, "founder_gate_on_T3": true}
+    ]
+  },
+  "hub_slices": {
+    "tab_hint": "newmatch",
+    "panels": [
+      "situation_inbox",
+      "route_preview_t0",
+      "follow_up_queue",
+      "cost_tier_meter",
+      "founder_gate_outbound"
+    ],
+    "control_plane_only": true
+  },
+  "integrations": {
+    "noetfield": {"sku": "NF-RD", "route": "business_opportunity"},
+    "trustfield": {"sku": "TF-001", "route": "business_opportunity"},
+    "sourcea_agency": {"route": "business_opportunity"},
+    "witnessbc": {"use": "proof_receipt_on_handoff", "optional": true},
+    "fbe_railway": {"factory_host": true},
+    "supabase_free": {"graph_storage": true}
+  },
+  "disclosure_default": "T4_internal",
+  "sinaaidatabase_role": "broker_search_only",
+  "sinaaidatabase_note": "SinaaiDataBase archive stays broker/search — NewMatch executes under SourceA apps/newmatch",
+  "routes": {
+    "personal_nurture": "Soft cadence · no pitch · 7d follow-up loop · T0 rules first",
+    "hybrid_explore": "One clarifying question · founder approve · :free model only until gate",
+    "business_opportunity": "Hand to Noetfield NF-RD · TrustField TF-001 · SourceA agency",
+    "defer": "Stale 30d+ · no auto contact",
+    "block": "Red flags · no contact",
+    "founder_gate": "Money · legal · publish · T3 outbound"
+  },
+  "cost_tiers": {
+    "T0": "Python rules · dedup · merge · local JSON · $0 — default for NM-001..650",
+    "T1": ":free LLM classify only (OpenRouter/Groq/Cerebras/Gemini/GitHub Models) · $0",
+    "T2": "Paid micro-model draft — blocked until free path exhausted + founder approval",
+    "T3": "Irreversible outbound · founder approve only · NO-CC until revenue gate"
+  },
+  "ingest_allowed": ["manual_paste", "csv_import", "semej_founder_session"],
+  "ingest_forbidden": ["headless_scrape", "auto_send_dating", "mac_factory_body", "paid_api_before_free_exhaust"],
+  "auto_prompt_loop": {
+    "planner_executor_split": true,
+    "max_retries": 2,
+    "receipt": "~/.sina/newmatch-follow-receipt-v1.json",
+    "law": "data/factory-cost-intelligence-loop-v1.json",
+    "default_planner_cost_usd": 0,
+    "situation_templates": {
+      "personal_nurture": "Plan soft reconnect · no pitch · cite last signal · stop if no reply 14d",
+      "hybrid_explore": "Draft one clarifying question · personal vs business · founder approve",
+      "business_opportunity": "Summarize opportunity · map SKU · handoff receipt · no send",
+      "defer": "Log stale · no auto ping until new signal",
+      "block": "Log red flag · no contact plan",
+      "founder_gate": "Escalate to hub form · list risks · await founder"
+    },
+    "free_model_chain": [
+      "openrouter_free",
+      "groq_free",
+      "cerebras_free",
+      "gemini_free",
+      "github_models"
+    ]
+  },
+  "wire_when_online": [
+    "data/founder-execution-model-v1.json",
+    "data/agent-rule-live-wire-registry-v1.json",
+    "scripts/agent_rule_live_wire_v1.py --on-new-rule",
+    "data/phase0-freemium-sandbox-reference-v1.json"
+  ]
+}

@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0020 — Compare Claude ENFORCE stale claims to dispatch-policy API live
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0020
+tests:
+  status: passed
+  output_snippet: sa-0020 VERIFY PASS: ENFORCE synthesis aligned to dispatch-policy gate_mode=shadow; strict build green; receipt closed.
+reported_at: '2026-06-09T14:02:50Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

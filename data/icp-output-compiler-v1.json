@@ -1,0 +1,144 @@
+{
+  "schema": "icp-output-compiler-v1",
+  "version": "3.0.0",
+  "saved_at": "2026-06-19T02:26:30Z",
+  "vocabulary_ssot": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+  "law": "data/factory-output-route-compiler-v1.json",
+  "active_brands_only": ["SourceA", "Noetfield", "TrustField"],
+  "phase_after_three_brands": "Forge product (THREAD-FORGE · ~/Desktop/forge)",
+  "phase2_deferred": ["777 Foundation", "WitnessBC", "advisor_pre_call"],
+  "factory_priority": {
+    "primary": "ICP targeted output — one customer · one brand route · FDG failure moment",
+    "active_order": [["Noetfield", "TrustField"], "SourceA", "Forge product"],
+    "parallel_commercial_brands": ["Noetfield", "TrustField"],
+    "deferred_after_commercial": ["SourceA"],
+    "rule": "Noetfield ∥ TrustField first (parallel) · then SourceA · then Forge product · then phase2 rest"
+  },
+  "disclosure_ladder_ssot": "data/disclosure-ladder-v1.json",
+  "disclosure_tier_picker": {
+    "field": "disclosure_tier",
+    "default": "T1_icp_buyer",
+    "allowed": ["T0_public", "T1_icp_buyer", "T1_advisor", "T2_pilot", "T3_nda", "T4_internal"],
+    "note": "DL-U2 — optional per-account override on data/icp-compile/{account}-v1.json"
+  },
+  "compile_pipeline": [
+    "pick ONE account_id within active brand (SourceA | Noetfield | TrustField only)",
+    "FDG: failure moment — what breaks in front of reviewer?",
+    "compose specialized body — scenario · pressure · consequence · question",
+    "validate: icp_output_compiler_v1.py + CIL/RIL/OQG",
+    "RRL — human reaction sim (D curious · E would_reply only)",
+    "Sina read ≥90 — ship authority",
+    "lock output_trace on data/icp-compile/{account}-v1.json"
+  ],
+  "fdg_ssot": "data/icp-failure-driven-generator-v1.json",
+  "fdg_failure_moment_required": {
+    "upgrade": "U021",
+    "field": "failure_moment",
+    "required_keys": ["scenario", "pressure"],
+    "check": "python3 scripts/icp_output_compiler_v1.py --check-stubs --json",
+    "hard_fail": "missing_failure_moment_stub → icp_pass false"
+  },
+  "compile_gate_defer": {
+    "upgrade": "U023",
+    "accounts": ["sourcea-factory", "forge-product"],
+    "check": "python3 scripts/icp_output_compiler_v1.py --check-compile-gate sourcea-factory --json",
+    "warn_when_active": true
+  },
+  "fleet_index_receipt": {
+    "upgrade": "U024",
+    "path": "~/.sina/icp-compiler-fleet-receipt-v1.json",
+    "commercial_brands": ["Noetfield", "TrustField", "SourceA"],
+    "accounts": ["fundmore", "ocree", "sourcea-factory"],
+    "build": "python3 scripts/icp_output_compiler_v1.py --fleet-index --json",
+    "check": "python3 scripts/icp_output_compiler_v1.py --check-fleet-index --json"
+  },
+  "icp5_trace_rules": {
+    "upgrade": "U025",
+    "field": "reverse_engineered_rules",
+    "min_rows": 5,
+    "thin_cap_points": 13,
+    "max_points": 15,
+    "check": "python3 scripts/icp_output_compiler_v1.py --check-trace-rules --json",
+    "acceptance": "Thin rules cap score at 13/15"
+  },
+  "approved_body_preflight": {
+    "upgrade": "U026",
+    "field": "approved_body_path",
+    "check": "python3 scripts/icp_output_compiler_v1.py --check-approved-body-path --json",
+    "acceptance": "Missing file = error not PASS",
+    "hard_fail": "missing_approved_body_file → verdict ERROR · icp_pass false"
+  },
+  "brand_route_forbid_bleed": {
+    "upgrade": "U027",
+    "script": "scripts/brand_route_forbid_bleed_v1.py",
+    "check": "python3 scripts/icp_output_compiler_v1.py --check-brand-bleed --json",
+    "acceptance": "NF body mentioning TrustField = fail",
+    "receipt": "~/.sina/brand-route-forbid-bleed-receipt-v1.json",
+    "hard_fail": "brand_bleed:* → icp_pass false"
+  },
+  "icp3_curiosity_question": {
+    "upgrade": "U028",
+    "script": "scripts/icp_curiosity_gate_v1.py",
+    "check": "python3 scripts/icp_output_compiler_v1.py --check-curiosity-gate --json",
+    "shell_check": "bash scripts/validate-icp-curiosity-gate-v1.sh",
+    "acceptance": "Question after sign-off = fail",
+    "hard_fail": "icp3:* curiosity issues → icp_pass false"
+  },
+  "icp4_one_product_line": {
+    "upgrade": "U029",
+    "script": "scripts/icp_one_product_line_gate_v1.py",
+    "check": "python3 scripts/icp_output_compiler_v1.py --check-one-product-line --json",
+    "shell_check": "bash scripts/validate-icp-one-product-line-gate-v1.sh",
+    "acceptance": "Two product paragraphs = fail",
+    "hard_fail": "two_product_paragraphs → icp_pass false"
+  },
+  "compile_sequence_receipt": {
+    "upgrade": "U030",
+    "field": "compile_sequence",
+    "law": "Noetfield ∥ TrustField first · then SourceA deferred · then Forge product",
+    "check": "python3 scripts/icp_output_compiler_v1.py --check-compile-sequence --json",
+    "acceptance": "Shows NF∥TF then SA",
+    "receipts": [
+      "~/.sina/icp-output-compiler-receipt-v1.json",
+      "~/.sina/icp-compiler-fleet-receipt-v1.json"
+    ]
+  },
+  "compiler_script": "scripts/icp_output_compiler_v1.py",
+  "routes_ssot": "data/factory-output-routes-v1.json",
+  "lanes_by_brand": {
+    "SourceA": {
+      "route": "sourcea",
+      "loop": "fbe_sourcea",
+      "compile_dir": "data/icp-compile/",
+      "status": "deferred",
+      "now": "sourcea-factory",
+      "compile_gate": "blocked_until_noetfield_and_trustfield_compiled",
+      "note": "Deferred after Noetfield ∥ TrustField — engine/FBE buyer pack locally for later"
+    },
+    "Noetfield": {
+      "route": "noetfield",
+      "loop": "w3_commercial",
+      "compile_dir": "data/icp-compile/",
+      "status": "active",
+      "now": "fundmore",
+      "next": "pineapple-nf",
+      "parallel_with": "TrustField",
+      "note": "Active now — parallel with TrustField"
+    },
+    "TrustField": {
+      "route": "trustfield",
+      "loop": "w3_commercial",
+      "compile_dir": "data/icp-compile/",
+      "status": "active",
+      "now": "ocree",
+      "next": "fractionvest",
+      "parallel_with": "Noetfield",
+      "note": "Active now — parallel with Noetfield"
+    }
+  },
+  "do_not_compile_yet": ["WitnessBC", "777 Foundation", "advisor_pre_call general"],
+  "deprecated_migration_v1": {
+    "from_schema": "icp-output-forge-v1",
+    "path_renames": {"icp-forge": "icp-compile"}
+  }
+}

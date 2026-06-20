@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1121",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U092",
+  "title": "compilation_logs telemetry \u2014 DEFER",
+  "evidence": "compilation_logs DEFER PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:20:48Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

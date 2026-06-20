@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0346 — Validate auto_checks council_read vault_used paths in scoreboard
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0346
+tests:
+  status: passed
+  output_snippet: pack7 scoreboard-fleet verify-only; batch+validators PASS
+reported_at: '2026-06-08T19:26:53Z'
+reporter: cursor-worker-batch

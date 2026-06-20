@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0002 — Skip L8 embeddings-later in not_here when embedding_provider.py + vector_index exist
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0002
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — L8 not_here clean when embedding_provider+vector_index logged; strict build + audit_hub strict + pack1000 + critical 0; BROKER_ACK wired in closeout_sa_task
+reported_at: '2026-06-09T09:41:27Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

@@ -1,0 +1,154 @@
+{
+  "schema": "founder-pivot-pattern-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T04:00:00Z",
+  "law": "ONE founder complex ask → disk route_pack — agents read receipt, founder does not repeat",
+  "script": "scripts/founder_pivot_router_v1.py",
+  "validator": "scripts/validate-founder-pivot-pattern-v1.sh",
+  "receipt": "~/.sina/founder-pivot-routing-receipt-v1.json",
+  "events": "~/.sina/founder-pivot-routing-events.jsonl",
+  "seed_transcript": "e6507c62-18c5-4a03-bb35-e804507dff18",
+  "one_law": "Match complex pivot asks (not trivial greetings) · highest priority wins · cascade + routing override",
+  "patterns": [
+    {
+      "id": "PIVOT-NF-FACTORY-FIRST",
+      "label": "Phase 0 Noetfield freemium factory first",
+      "priority": 10,
+      "match": [
+        "noetfield.*first",
+        "freemium.*factory",
+        "phase\\s*0.*noetfield",
+        "NF.*freemium",
+        "NF.*factory",
+        "noetfield.*freemium"
+      ],
+      "route_pack": {
+        "primary_lane": "phase0_noetfield",
+        "compile_order": "Sina read → Noetfield compile → TrustField send",
+        "queue_override_hint": "Reprioritize head to noetfield-freemium-factory-v1 cloud bay"
+      },
+      "routing_override": {
+        "primary": "Phase 0 · Noetfield freemium factory",
+        "secondary": "TrustField sandbox second",
+        "founder_action": "Hub glance · cloud bay WORK order when ready"
+      },
+      "work_template": "WORK: Phase 0 noetfield-freemium-factory-v1 — spec + catalog + Mac bay + cloud stub first",
+      "machines_to_run": ["founder_routing_panel_v1.py", "phase0_freemium_sandbox_pulse_v1.py"],
+      "inject_line": "Pivot locked · NF freemium factory first · Phase 0 attract before outbound drain"
+    },
+    {
+      "id": "PIVOT-CLOUD-TEAM",
+      "label": "Cloud agentic team — Mac control only",
+      "priority": 20,
+      "match": [
+        "cloud.*team",
+        "cloud.*worker",
+        "FBE_CLOUD",
+        "heavy.*cloud",
+        "agentic.*cloud",
+        "cloud.*execution",
+        "affordable.*cloud",
+        "free.*cloud.*team"
+      ],
+      "route_pack": {
+        "primary_lane": "cloud_factory",
+        "execution_plane": "cloud_api_worker",
+        "control_plane": "mac_hub"
+      },
+      "routing_override": {
+        "primary": "Cloud FBE worker team",
+        "secondary": "Mac Hub control plane only",
+        "founder_action": "Wire FBE_CLOUD_WORKER_URL · verify cloud_proof receipt"
+      },
+      "work_template": "WORK: Wire FBE_CLOUD_WORKER_URL to Railway mirror + cloud bay dispatch — not local_worker",
+      "machines_to_run": ["fbe_first_bay_pulse_v1.py", "founder_routing_panel_v1.py"],
+      "inject_line": "Pivot locked · cloud executes · Mac routes · no Mac Worker muscle for factory bays"
+    },
+    {
+      "id": "PIVOT-ALL-LOOPS",
+      "label": "Activate all loops · machines · tracker judge thread routing",
+      "priority": 30,
+      "match": [
+        "all loops",
+        "activate.*loops",
+        "tracker.*reminder",
+        "reminder.*judge",
+        "thread.?room",
+        "routing.?panel",
+        "governance.?center",
+        "machines.*auto",
+        "everything.*auto"
+      ],
+      "route_pack": {
+        "primary_lane": "governance_machines",
+        "h1": "http://127.0.0.1:13020/",
+        "h2": "http://127.0.0.1:13020/machines/"
+      },
+      "routing_override": {
+        "primary": "Governance machines · all loops",
+        "secondary": "H2 Machine Hub weekly",
+        "founder_action": "H2 Sync registry + heal · Weekly review (Judge + Thread)"
+      },
+      "work_template": null,
+      "machines_to_run": [
+        "governance_center_run_v1.py",
+        "judge_loop_room_v1.py",
+        "thread_room_run_v1.py",
+        "founder_routing_panel_v1.py"
+      ],
+      "inject_line": "Pivot locked · cascade + judge + thread + routing panel in the repository — founder does not re-brief loops"
+    },
+    {
+      "id": "PIVOT-FRESH-BRAIN",
+      "label": "Fresh Brain truth-first setup",
+      "priority": 40,
+      "match": [
+        "fresh brain",
+        "fresh.*quick.*brain",
+        "truth.?first",
+        "no green theater",
+        "BRAIN FRESH",
+        "brain heal",
+        "better rules.*brain"
+      ],
+      "route_pack": {
+        "primary_lane": "brain_session",
+        "behavior_ssot": "data/agent-behavior-settings-v1.json"
+      },
+      "routing_override": {
+        "primary": "Brain · route · truth-first",
+        "secondary": "Worker RUN INBOX separate",
+        "founder_action": "New Brain chat · brain-session-start · paste BRAIN FRESH START block"
+      },
+      "work_template": null,
+      "machines_to_run": ["brain_live_context_v1.py", "agent_memory_mirror_v1.py"],
+      "inject_line": "Pivot locked · Brain truth-first · quote RED before wins · Problem · disk truth · one tap"
+    },
+    {
+      "id": "PIVOT-NO-REPEAT",
+      "label": "Machines remember — founder does not repeat",
+      "priority": 50,
+      "match": [
+        "don.?t repeat",
+        "do not repeat",
+        "machines remember",
+        "founder_pivot",
+        "no re-?explain",
+        "stop repeating",
+        "say it once"
+      ],
+      "route_pack": {
+        "primary_lane": "founder_input_cascade",
+        "cascade_layers": 6
+      },
+      "routing_override": {
+        "primary": "Founder pivot router",
+        "secondary": "Cascade + mirror inject",
+        "founder_action": "Speak once · read ~/.sina/founder-pivot-routing-receipt-v1.json"
+      },
+      "work_template": null,
+      "machines_to_run": ["founder_input_cascade_v1.py", "agent_memory_mirror_v1.py"],
+      "inject_line": "Pivot locked · founder_input_cascade + pivot receipt — agents read disk not chat history"
+    }
+  ]
+}

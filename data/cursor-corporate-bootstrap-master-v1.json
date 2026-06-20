@@ -1,0 +1,44 @@
+{
+  "schema": "cursor-corporate-bootstrap-master-v1",
+  "saved_at": "2026-06-19T06:34:29Z",
+  "epoch": 1,
+  "cursor_account_target": "corporate-promax",
+  "one_law": "Mac = control plane · cloud = execution · MCP = read-only verify + receipt export",
+  "repos": {
+    "sourcea": {
+      "root": "~/Desktop/SourceA",
+      "ledger": "data/cursor-bootstrap-ledger-v1.json",
+      "bootstrap_doc": "docs/CURSOR_CORPORATE_BOOTSTRAP_PACK_LOCKED_v1.md",
+      "cursor_rules": ".cursor/rules/",
+      "mcp_package": "@sourcea/mcp-verify",
+      "cloud_sse": "https://sourcea-mcp-verify.vercel.app/mcp"
+    },
+    "virlux": {
+      "root": "~/Desktop/VIRLUX",
+      "ledger": "data/cursor-bootstrap-ledger-v1.json",
+      "mcp_package": "@virlux/mcp-verify-factory",
+      "cloud_sse": "https://virlux-api.vercel.app/mcp"
+    },
+    "noetfield": {
+      "root": "~/Desktop/Noetfield/Noetfield-All-Documents/Noetfield",
+      "mcp_package": "@noetfield/mcp-governance"
+    },
+    "trustfield": {
+      "root": "~/Desktop/TrustField Technologies",
+      "mcp_package": "TBD"
+    }
+  },
+  "corporate_promax_setup": [
+    "Logout personal Cursor · login corporate Gmail",
+    "Cursor Settings → Resync Index",
+    "Team Rules: sync .cursor/rules/000-* and 024-cursor-enterprise-bootstrap.mdc",
+    "Team MCP: sourcea-mcp-verify + virlux-api /mcp SSE URLs",
+    "Run: bash scripts/validate-cursor-bootstrap-v1.sh"
+  ],
+  "forbidden_greenfield": [
+    "COMPLETE_CONTEXT.md mega-paste into chat",
+    "rm ~/.sina receipts without ASF order",
+    "legacy hub prompt loop",
+    "local heavy AI (ollama/huggingface on Mac focus path)"
+  ]
+}

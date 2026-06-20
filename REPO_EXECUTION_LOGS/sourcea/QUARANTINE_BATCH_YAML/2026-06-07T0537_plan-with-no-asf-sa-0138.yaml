@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0138 — Validate factory-runreceipt grounding includes RUNRECEIPT schema doc
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0138
+tests:
+  status: passed
+  output_snippet: validate-dispatch-policy-v1 PASS · validate-governance-fleet-v1 PASS · validate-eval-packet-v1b-grounding factory-runreceipt RUNRECEIPT schema doc · find_critical_bugs critical 0
+reported_at: '2026-06-07T05:37:12Z'
+reporter: cursor-worker

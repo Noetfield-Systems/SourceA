@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0603 — Run pre_llm user_signals store record_hub_touch on build
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0603
+tests:
+  status: passed
+  output_snippet: pack30 commercial+pre-llm verify-only; wire+dispatch+hub PASS
+reported_at: '2026-06-08T20:34:37Z'
+reporter: cursor-worker-batch

@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0351 — Implement agent_scoreboard _auto_verify on auto_pass verified_by auto
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0351
+tests:
+  status: passed
+  output_snippet: audit_backend_e2e PASS · validate-spine-bridge-founder-v1 PASS · find_critical_bugs critical 0 · _auto_verify verified_by auto
+reported_at: '2026-06-07T15:20:55Z'
+reporter: cursor-worker

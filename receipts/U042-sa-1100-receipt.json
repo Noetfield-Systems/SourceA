@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U042",
+  "title": "RIL interest_urls must match w3-receiver-interest-assets",
+  "evidence": "check_ril5_interest_url() + --check-interest-urls PASS \u00b7 wrong demo -5 pts \u00b7 live ocree/fundmore canonical",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:32:20Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

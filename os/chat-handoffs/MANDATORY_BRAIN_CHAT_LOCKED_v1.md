@@ -1,0 +1,1 @@
+../../brain-os/contract/MANDATORY_BRAIN_CHAT_LOCKED_v1.md

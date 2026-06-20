@@ -1,0 +1,285 @@
+# noetfield_site_credibility_upgrade_v1.yaml
+# noetfield.com — current site analysis + upgrade path to VC-grade credibility
+# trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-NOETFIELD-SITE-UPGRADE
+# execution_authority: false · Video/marketing research · No incidents
+
+meta:
+  id: noetfield_site_credibility_upgrade_v1
+  date: "2026-06-12"
+  site: https://www.noetfield.com/
+  :
+    newfund_portfolio: [ShareID, Nucleon Security, Rwazi]
+    category_leaders: [Credo AI]
+    vc_credibility_pattern: [Newfund Capital]
+  scope: Public web credibility for institutional buyers + design partners
+
+# ═══════════════════════════════════════════════════════════════════════════
+# EXECUTIVE SUMMARY
+# ═══════════════════════════════════════════════════════════════════════════
+
+executive_summary:
+  current_grade: "B+ substance · B- institutional polish"
+  one_line: >
+    Noetfield already beats most seed sites on honest procurement scope and artifact clarity.
+    It loses credibility vs ShareID/Nucleon/Credo on social proof, leadership visibility,
+    pricing coherence, and visual trust signals (logos, certifications, press, embedded demo).
+  strongest_asset: "Honest Available/Planned/Out of scope badges + TLE/board PDF/ZIP artifact story"
+  biggest_gap: "Zero named customers, founders, or third-party validation above the fold"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# WHAT THE SITE DOES WELL TODAY
+# ═══════════════════════════════════════════════════════════════════════════
+
+strengths:
+  positioning:
+    - "Copilot-native governance — not generic GRC"
+    - "Metadata-only M365 — no mailbox custody (clear procurement hook)"
+    - "Complement Purview / Copilot Control System — not replace"
+  product_clarity:
+    - "4-step loop: Evaluate → Decide → Record → Export"
+    - "Governance Output Suite: TLE YAML · Board PDF · Procurement ZIP · API planned"
+    - "Comparison table vs Purview-only / spreadsheet / GRC / consultant PDF"
+  trust_honesty:
+    - "SOC 2 Type II = Planned (not fake badge)"
+    - "ISO 42001 out of scope — rare honesty, builds trust with security reviewers"
+    - "Fail-closed export integrity called out"
+  conversion_paths:
+    - "Free sandbox ($0 · 14-day · 50 evaluate calls)"
+    - "Design partner $2k–10k"
+    - "Trust Brief $10k / 6 weeks"
+    - "Bank Pilot shadow · custom"
+  supporting_pages:
+    - "/trust/ — procurement diligence hub"
+    - "/gate/ — institutional SKU ladder + CAD pricing for Readiness"
+    - "/copilot/readiness/ — fixed-scope engagement detail"
+    - "/playbook/ — methodology + Gumroad kits"
+    - "Sample board memo PDF (public sample)"
+  copy_quality: "Written for CISO/GRC/procurement — not hype consumer tone"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# GAPS vs CREDIBILITY 
+# ═══════════════════════════════════════════════════════════════════════════
+
+benchmark_comparison:
+  shareid_newfund_portfolio:
+    they_have:
+      - "Customer logos + quoted testimonials (Chari, etc.)"
+      - "ISO 27001 certification badge (live)"
+      - "Government partner (Gendarmerie Nationale since 2021)"
+      - "TechCrunch press page"
+      - "Free trial CTA above fold"
+      - "Founder names in press (Sara Sebti)"
+    noetfield_missing:
+      - named customer quotes
+      - any certification badge (honest 'planned' only)
+      - press / media page
+      - founder/team page
+
+  nucleon_security:
+    they_have:
+      - "Industry-tagged testimonials (Banking $1B–3B, IT Services, Retail)"
+      - "Award badges (GITEX 2023, Station F, Campus Cyber, Hub France AI)"
+      - "Microsoft Virus Initiative membership"
+      - "Product module pages with Get started / Learn more"
+    noetfield_missing:
+      - sector testimonials (even anonymized bands)
+      - ecosystem badges (Microsoft partner, etc.)
+      - separate product module landing pages with clear CTAs
+
+  credo_ai_category_leader:
+    they_have:
+      - "Fortune 500 social proof claim"
+      - "Product screenshots / platform UI"
+      - "Insights Hub (regulatory content moat)"
+      - "Framework packs (EU AI Act, NIST, ISO 42001)"
+      - "Founded story + mission block"
+      - "Modular product architecture diagram"
+    noetfield_missing:
+      - live product UI screenshots on homepage
+      - thought leadership hub (beyond single insight posts)
+      - "who we are" company narrative
+
+  newfund_vc_site_pattern:
+    they_have:
+      - "Founder quotes with names + companies"
+      - "Portfolio logos grid"
+      - "Insights/blog cadence"
+      - "Single clear hero + one primary CTA"
+    noetfield_missing:
+      - any founder/customer quote with attribution
+      - logo strip
+
+# ═══════════════════════════════════════════════════════════════════════════
+# INTERNAL INCONSISTENCIES TO FIX (CREDIBILITY KILLERS)
+# ═══════════════════════════════════════════════════════════════════════════
+
+consistency_issues:
+  pricing_sku_drift:
+    problem: "Homepage SKUs vs /gate/ vs /copilot/readiness/ use different names and price anchors"
+    examples:
+      - "Home: Design partner $2k–10k · Trust Brief $10k"
+      - "Gate: Copilot Readiness Standard 15,000 CAD / 4 weeks (default enterprise path)"
+      - "Gate: QuickScan, Extended, Trust Ledger ongoing — not on homepage"
+    fix: "One canonical SKU matrix page linked from nav — homepage shows 3 tiers max with 'View all programs'"
+  brand_naming:
+    problem: "Titles vary: 'Noetfield' vs 'Noetfield Enterprise' vs 'Noetfield Systems'"
+    fix: "Legal footer everywhere: Noetfield Systems Inc. · jurisdiction · ops email"
+  delivery_channel:
+    problem: "Playbook Kits via Gumroad feels indie — services via procurement@ — splits buyer mental model"
+    fix: "Enterprise path = invoice/PO only on site; Gumroad de-emphasized or under /resources/ for self-serve templates"
+  entity_visibility:
+    problem: "No About · Team · Company registration on homepage"
+    fix: "About page with CEO, advisors, legal entity, HQ (even if 'distributed')"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# UPGRADE ROADMAP — REACH BEST-POSSIBLE CREDIBILITY
+# ═══════════════════════════════════════════════════════════════════════════
+
+upgrade_roadmap:
+  P0_before_design_partner_push:
+    goal: "Pass 60-second procurement sniff test"
+    items:
+      - id: hero_simplify
+        action: "One hero sentence + subhead + primary CTA (Book 5-min demo) + secondary (Start sandbox)"
+        example_hero: "Signed go/no-go records before Copilot touches production data."
+        remove: "Too many above-fold sections competing (Try evaluate + 3 traps + Prove + tiers)"
+      - id: embedded_demo
+        action: "Hosted video or interactive Loom: evaluate → confidence score → TLE export (Screen Studio film)"
+        : "Nucleon product blocks · Credo UI screenshots"
+      - id: leadership_block
+        action: "About/Team — photo, name, title, 2-line credential (LLB, governance architecture, etc.)"
+        : "ShareID founder press · Newfund founder quotes"
+      - id: sku_canonical
+        action: "Single /pricing or /programs page — table: SKU · price · duration · deliverables · buyer"
+        reconcile: [Homepage 3 SKUs, Gate CAD Readiness, Trust Brief, Design partner]
+      - id: logo_social_proof
+        action: "Logo strip — even 'Design partners in progress' + 2 anonymized quotes by role"
+        format: "CISO, regulated financial services · Procurement lead, federal-adjacent"
+      - id: trust_footer
+        action: "Every page footer: legal entity · privacy · terms · trust center · security contact"
+
+  P1_institutional_grade:
+    goal: "Credible to Newfund-style seed + enterprise procurement"
+    items:
+      - id: trust_center_expand
+        action: "Trust center as mini-Vanta: subprocessor list, data flow diagram, retention, DPA request"
+        keep: "Honest Planned badges for SOC 2"
+      - id: microsoft_alignment
+        action: "Microsoft ecosystem page — Copilot Control System complement, Purview metadata, partner status if any"
+        badge: "Only if true — 'Built for M365 metadata APIs' not 'Microsoft Partner' unless certified"
+      - id: sample_artifacts_gallery
+        action: "Public samples hub: TLE YAML · redacted board PDF · ZIP manifest · verify walkthrough GIF"
+        existing: "/trust-ledger/sample-report/board-memo.pdf — promote prominently"
+      - id: case_study_template
+        action: "1 public case study (even pilot): Problem → evaluate → export → board outcome"
+        video: "90s W3 outbound style — HeyGen + Screen Studio proof"
+      - id: press_page
+        action: "/press — boilerplate, logos, contact; add posts as earned"
+      - id: insights_hub_light
+        action: "3–5 authoritative posts (Copilot governance, metadata-only audit, Canada GC notes)"
+        : "Credo Insights Hub lite · Newfund defense/AI posts"
+
+  P2_category_leader:
+    goal: "Peer with Credo on Copilot niche"
+    items:
+      - id: product_ui_marketing
+        action: "Dedicated product pages: Evaluate API · Workspace · Export engine · Connectors"
+      - id: framework_mapper
+        action: "Interactive or PDF: NIST AI RMF · ISO 42001 orientation crosswalk (already cited — make downloadable)"
+      - id: customer_wall
+        action: "Named logos when contracts allow; until then sector icons (FRFI · MSP · Provincial agency)"
+      - id: certification_path
+        action: "When ready: SOC 2 Type II badge; until then quarterly 'Trust report' PDF"
+      - id: analyst_language
+        action: "Category one-liner for Gartner-style buyers: 'Copilot Governance Execution Infrastructure'"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# RECOMMENDED INFORMATION ARCHITECTURE (NEW NAV)
+# ═══════════════════════════════════════════════════════════════════════════
+
+recommended_ia:
+  primary_nav:
+    - Product
+    - Programs
+    - Trust
+    - Resources
+    - Company
+    - "Book demo (button)"
+  product_subnav:
+    - Evaluate
+    - Trust Ledger TLE
+    - Exports
+    - M365 Connectors
+    - Sandbox
+  programs_subnav:
+    - "Design Partner ($2k–10k)"
+    - "Trust Brief ($10k)"
+    - "Copilot Readiness (CAD)"
+    - Bank Pilot
+  company_subnav:
+    - About
+    - Team
+    - Press
+    - Contact
+
+# ═══════════════════════════════════════════════════════════════════════════
+# HOMEPAGE WIREFRAME (CREDIBILITY-OPTIMIZED)
+# ═══════════════════════════════════════════════════════════════════════════
+
+homepage_wireframe:
+  section_1_hero:
+    headline: "Signed Copilot go/no-go records your board can defend."
+    sub: "Metadata-only M365 · TLE v1 · Board PDF · Procurement ZIP · fail-closed integrity."
+    cta_primary: "Watch 5-minute demo"
+    cta_secondary: "Start free sandbox"
+    trust_row: ["Metadata-only", "No mailbox custody", "SOC 2 planned", "Sample board PDF"]
+  section_2_social_proof:
+    content: "2–3 role-based quotes OR design-partner pipeline statement"
+  section_3_product_demo:
+    content: "Embedded video + 4-step Evaluate→Export"
+  section_4_vs_alternatives:
+    content: "Keep existing comparison table — strong"
+  section_5_programs:
+    content: "3 cards only + link to full programs page"
+  section_6_trust:
+    content: "Available/Planned/Out of scope badges — keep"
+  section_7_cta:
+    content: "Request Governance Brief form with RID field"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# VIDEO PRODUCTION TIE-IN (from video research lane)
+# ═══════════════════════════════════════════════════════════════════════════
+
+video_for_credibility:
+  priority_films:
+    - name: "5-min evaluate demo"
+      use: "Hero embed · sales · Newfund-style partner outreach"
+      stack: "Screen Studio + ElevenLabs + Descript"
+    - name: "Board PDF walkthrough"
+      use: "Trust page · procurement pack"
+    - name: "Founder 60s institutional"
+      use: "About page · LinkedIn — NOT Flibbo aesthetic"
+  avoid: [viral hooks, trending audio, consumer UI]
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SCORECARD
+# ═══════════════════════════════════════════════════════════════════════════
+
+scorecard_1_to_10:
+  procurement_honesty: 9
+  product_artifact_clarity: 8
+  visual_design_polish: 6
+  social_proof: 3
+  leadership_visibility: 2
+  pricing_coherence: 5
+  content_moat: 4
+  trust_center_depth: 6
+  demo_accessibility: 5
+  overall_institutional_credibility: 6
+
+  target_after_P0_P1: 8.5
+
+research_save:
+  trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-NOETFIELD-SITE-UPGRADE
+  worker_id: cursor_os_pro_research_lane_b
+  subject: sina_os

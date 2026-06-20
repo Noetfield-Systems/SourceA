@@ -1,0 +1,79 @@
+# FBE headless cloud worker — Phase 1 HTTP API + bay/job/fleet execution
+FROM python:3.12-slim
+
+RUN apt-get update && apt-get install -y --no-install-recommends nodejs npm && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+ENV FBE_HOME=/app
+ENV FBE_MODE=headless
+ENV NODE_ENV=production
+ENV PORT=8080
+ENV CREED_ROOT=/opt/creed
+ENV CHURCH_ROOT=/opt/church
+ENV PYTHONUNBUFFERED=1
+
+# Kernel manifests (immutable graph hash baked in image)
+COPY data/fbe_node_graph_v1.json data/fbe_node_graph_v1.json
+COPY data/fbe_factory_builder_bundle_v1.json data/fbe_factory_builder_bundle_v1.json
+COPY data/fbe_execution_contract_v1.json data/fbe_execution_contract_v1.json
+COPY data/fbe_cloud_worker_config_v1.json data/fbe_cloud_worker_config_v1.json
+COPY data/fbe_catalog_v1.json data/fbe_catalog_v1.json
+COPY data/fbe_factory_spec_schema_v1.json data/fbe_factory_spec_schema_v1.json
+COPY data/factory-specs data/factory-specs
+COPY data/policy-packs data/policy-packs
+COPY data/schemas data/schemas
+COPY scripts/fbe/lib/trust_ledger_v1.py scripts/fbe/lib/trust_ledger_v1.py
+COPY data/fbe_bay_jobs_v1.json data/fbe_bay_jobs_v1.json
+COPY data/fbe_pipelines_v1.json data/fbe_pipelines_v1.json
+COPY data/fbe_cloud_workspace_map_v1.json data/fbe_cloud_workspace_map_v1.json
+COPY data/fbe_exchange_job_v1.json data/fbe_exchange_job_v1.json
+COPY data/fbe_forge_job_v1.json data/fbe_forge_job_v1.json
+COPY data/fbe_fleet_job_v1.json data/fbe_fleet_job_v1.json
+COPY data/fbe_full_job_v1.json data/fbe_full_job_v1.json
+
+# Execution engine (kernel + lines)
+COPY scripts/fbe scripts/fbe
+COPY scripts/fbe_cloud_worker_http_v1.py scripts/fbe_cloud_worker_http_v1.py
+COPY scripts/fbe_pipeline_runner_v1.py scripts/fbe_pipeline_runner_v1.py
+COPY scripts/fbe_refinery_runner_v1.py scripts/fbe_refinery_runner_v1.py
+COPY scripts/fbe_verify_refinery_v1.py scripts/fbe_verify_refinery_v1.py
+COPY scripts/fbe_assembly_runner_v1.py scripts/fbe_assembly_runner_v1.py
+COPY scripts/fbe_verify_assembly_v1.py scripts/fbe_verify_assembly_v1.py
+COPY scripts/fbe_exchange_runner_v1.py scripts/fbe_exchange_runner_v1.py
+COPY scripts/fbe_verify_exchange_v1.py scripts/fbe_verify_exchange_v1.py
+COPY scripts/fbe_forge_runner_v1.py scripts/fbe_forge_runner_v1.py
+COPY scripts/fbe_verify_forge_v1.py scripts/fbe_verify_forge_v1.py
+COPY scripts/fbe_run_job_v1.py scripts/fbe_run_job_v1.py
+COPY scripts/fbe_run_bay_v1.py scripts/fbe_run_bay_v1.py
+COPY scripts/fbe_run_fleet_v1.py scripts/fbe_run_fleet_v1.py
+COPY scripts/fbe_spawn_factory_v1.py scripts/fbe_spawn_factory_v1.py
+COPY scripts/fbe_motor_delegate_v1.py scripts/fbe_motor_delegate_v1.py
+COPY scripts/fbe_receipt_federate_v1.py scripts/fbe_receipt_federate_v1.py
+COPY scripts/fbe_verify_motor_v1.py scripts/fbe_verify_motor_v1.py
+COPY scripts/fbe_verify_market_ready_v1.py scripts/fbe_verify_market_ready_v1.py
+COPY scripts/fbe_run_receipt_pack_v1.py scripts/fbe_run_receipt_pack_v1.py
+COPY scripts/fbe_mono_bridge_v1.py scripts/fbe_mono_bridge_v1.py
+COPY scripts/fbe_cloud_sync_v1.py scripts/fbe_cloud_sync_v1.py
+COPY scripts/fbe_billing_meter_v1.py scripts/fbe_billing_meter_v1.py
+COPY scripts/fbe_design_partner_receipt_v1.py scripts/fbe_design_partner_receipt_v1.py
+COPY scripts/fbe_hub_projection_v1.py scripts/fbe_hub_projection_v1.py
+COPY scripts/fbe_factory_spec_v1.py scripts/fbe_factory_spec_v1.py
+COPY scripts/mac_focus_freeze_v1.py scripts/mac_focus_freeze_v1.py
+COPY scripts/fbe_comprehension_bay_v1.py scripts/fbe_comprehension_bay_v1.py
+COPY scripts/fbe_cloud_loop_specialist_tick_v1.py scripts/fbe_cloud_loop_specialist_tick_v1.py
+COPY scripts/founder_reply_translator_v1.py scripts/founder_reply_translator_v1.py
+COPY scripts/agent_report_language_gate_v1.py scripts/agent_report_language_gate_v1.py
+COPY data/founder-reply-glossary-v1.json data/founder-reply-glossary-v1.json
+COPY data/agent-report-language-standard-v1.json data/agent-report-language-standard-v1.json
+COPY data/cloud-comprehension-bay-v1.json data/cloud-comprehension-bay-v1.json
+COPY data/loop-specialist-cloud-contract-v1.json data/loop-specialist-cloud-contract-v1.json
+
+RUN mkdir -p /app/receipts/bays /app/receipts/packs /app/receipts/partners /tmp/fbe_artifacts /tmp/fbe_receipts
+
+COPY cloud/fbe-worker-entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+EXPOSE 8080
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["--serve-http"]

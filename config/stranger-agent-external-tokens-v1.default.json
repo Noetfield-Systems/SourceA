@@ -1,0 +1,18 @@
+{
+  "schema": "stranger-agent-external-tokens-v1",
+  "orchestrators": [
+    {
+      "id": "temporal_partner",
+      "label": "Temporal partner admission",
+      "token": "CHANGE_ME_TEMPORAL",
+      "allowed_agent_ids": ["sourcea_worker", "sourcea_execution_core"]
+    },
+    {
+      "id": "langgraph_partner",
+      "label": "LangGraph partner admission",
+      "token": "CHANGE_ME_LANGGRAPH",
+      "allowed_agent_ids": ["sourcea_worker", "research_acquisitor"]
+    }
+  ],
+  "law_doc": "docs/STRANGER_AGENT_SAFETY_CONTROL_PIPELINE_LOCKED_v1.md"
+}

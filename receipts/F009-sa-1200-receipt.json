@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "F009",
+  "title": "Honor CL10 queue_head_pin",
+  "evidence": "future_loop_prompt_advisory_circle_v1 queue_head_pin=true · top F009=queue head sa-1200 · validate-loop-specialist PASS · full_stack_fix_plan_pulse F009 done wiring",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T19:32:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

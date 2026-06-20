@@ -1,0 +1,15 @@
+{
+  "schema": "fbe-refinery-step-receipt-v1",
+  "ok": false,
+  "at": "2026-06-19T23:54:58Z",
+  "node_id": "factory-definition-v1",
+  "bay_slug": "sample-bay",
+  "tenant": "wil_ai_design_partner",
+  "npm": "check:factory-definition",
+  "exit": 221,
+  "elapsed_sec": 16.79,
+  "creed_root": "/Users/sinakazemnezhad/Desktop/YA5/PLUS ONE/CREED",
+  "deliveryMode": "prove_only",
+  "mode": "w2_headless",
+  "tail": "> creed@1.0.0 check:factory-definition\n> node scripts/check-factory-definition.mjs\n\nnpm error code EAGAIN\nnpm error syscall spawn sh\nnpm error path /Users/sinakazemnezhad/Desktop/YA5/PLUS ONE/CREED\nnpm error errno -35\nnpm error spawn sh EAGAIN\nnpm error command sh -c node scripts/check-factory-definition.mjs\nnpm error A complete log of this run can be found in: /Users/sinakazemnezhad/.npm/_logs/2026-06-19T23_54_54_297Z-debug-0.log"
+}

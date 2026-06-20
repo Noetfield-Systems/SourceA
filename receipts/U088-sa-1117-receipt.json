@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1117",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U088",
+  "title": "Weekly lever ties to upgrade tier P0 count",
+  "evidence": "weekly_lever + P0 count PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:20:46Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

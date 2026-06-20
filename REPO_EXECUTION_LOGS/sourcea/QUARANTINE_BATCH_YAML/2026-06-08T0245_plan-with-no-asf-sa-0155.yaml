@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0155 — Ensure dispatch_ready stays false until founder spine Action — no code bypass
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0155
+tests:
+  status: passed
+  output_snippet: validate-dispatch-policy-v1 PASS · validate-governance-fleet-v1 PASS · dispatch_ready_lock enforced · critical 0
+reported_at: '2026-06-08T02:45:13Z'
+reporter: cursor-worker-batch

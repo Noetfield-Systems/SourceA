@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0994 — Spike: semantic diff L14 integration with packet assembly
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0994
+tests:
+  status: passed
+  output_snippet: T3 semantic diff L14 cross-ref dedup sa-0969 · worker_verify_ultra PASS · validate-semantic-diff-l14-crossref-v1 PASS
+reported_at: '2026-06-14T05:28:38Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

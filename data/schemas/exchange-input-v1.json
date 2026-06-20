@@ -1,0 +1,13 @@
+{
+  "schema": "exchange-input-v1",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["counterparty_id", "asset_class"],
+  "properties": {
+    "counterparty_id": {"type": "string"},
+    "asset_class": {"type": "string"},
+    "jurisdiction": {"type": "string"},
+    "documents": {"type": "array", "items": {"type": "string"}},
+    "tenant": {"type": "string"}
+  }
+}

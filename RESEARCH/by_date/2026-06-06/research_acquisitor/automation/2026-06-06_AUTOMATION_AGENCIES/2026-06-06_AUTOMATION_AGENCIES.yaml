@@ -1,0 +1,265 @@
+# [Research Acquisitor · RESEARCH-ACQUISITOR-REF-2026-06-06-AUTOMATION-004] rr-20260606-d76d2632
+trace:
+  agent_name: Research Acquisitor
+  agent_id: research_acquisitor
+  trace_id: RESEARCH-ACQUISITOR-REF-2026-06-06-AUTOMATION-004
+  ref_tag: RESEARCH-ACQUISITOR-AUTOMATION-004
+  registry_id: rr-20260606-d76d2632
+  session_transcript: 85dd7cd4-0977-4cfc-9449-ea278ea0baee
+  canonical: false
+module: research_acquisitor
+date: 2026-06-06
+brief_type: sector_landscape
+sector: workflow_automation_and_agencies
+execution_authority: false
+extends: 2026-06-06_RESEARCH_BRIEF.yaml
+extends_note: "RAIS-class findings from v1 F01–F05 preserved; this brief expands workflow SaaS + LangGraph SaaS."
+
+mission: >
+  Workflow / agency automation (D): Make, n8n, RAIS-class services-led players,
+  LangGraph/LangSmith SaaS — architecture, pricing, autonomy claims vs reality.
+
+entities:
+  - id: make_com
+    name: Make.com
+    category: workflow_automation_saas
+    hq: EU (Czechia)
+    architecture:
+      pattern: visual_scenario_credit_automation
+      stack: "Scenarios = modules; 3000+ app integrations; Make AI Agents (beta→GA) with scenarios-as-tools; cloud-only; on-prem agent for SAP/local nets on Enterprise."
+      deployment: cloud_only
+    pricing_band_usd:
+      subscription: "Free 1000 credits/mo; Core ~$10.59/mo (10K credits annual); Pro ~$21/mo; Teams ~$38/mo; Enterprise custom"
+      usage: "Credits per module operation — agent with 3 tools ≈ 4+ credits per run; LLM tokens billed separately"
+      agency_typical: "SMB agent workflow ~€50–150/mo platform + tokens per anthemcreation.com synthesis"
+    autonomy_claim: "AI Agents that automate entire business processes visually"
+    autonomy_reality: "Strong for marketing/ops SMB integrations; agent memory requires workarounds vs n8n native; credit math punishes multi-step agent loops."
+    fit:
+      trustfield: medium — agencies resell Make stacks to SMBs; TrustField differentiates on controlled workflow + audit not app count
+      sourcea: integration glue tier-2 in internal voice roadmap; never SSOT
+      noetfield: Enterprise on-prem agent option for regulated connectors
+
+  - id: n8n
+    name: n8n
+    category: workflow_automation_saas
+    hq: Germany
+    architecture:
+      pattern: execution_based_workflow_plus_langchain
+      stack: "Per-workflow execution billing; 70+ AI nodes; LangChain integration; MCP server/client (2.0 Jan 2026); vector/RAG; self-host Community unlimited executions."
+      deployment: cloud_or_self_host
+    pricing_band_usd:
+      subscription: "Cloud Starter ~€20/mo (2.5K exec); Pro ~€50/mo (10K); Business ~€667/mo (40K); self-host Community $0 + infra ~$20/mo VPS cited"
+      usage: "One execution = full workflow regardless of node count — favorable for multi-step agents"
+      agency_typical: "RAIS-class builds often n8n substrate per v1 F04–F05"
+    autonomy_claim: "Build production AI agents without deleting your database"
+    autonomy_reality: "Technical SMB/dev sweet spot; self-host path strongest for privacy; cloud pricing inverts vs Make on high-frequency simple flows."
+    fit:
+      trustfield: medium-high — Canadian agencies can deliver faster on n8n; TrustField sells controlled outcomes not raw nodes
+      sourcea: technical substrate reference; not execution authority
+      noetfield: self-host + enterprise SSO align with data residency buyers
+
+  - id: rais_class
+    name: RAIS-class AI automation agencies
+    category: services_led_automation
+    hq: various
+    examples: [rais.systems, agixtech-class, arsum-class integrators]
+    architecture:
+      pattern: human_led_hybrid_workflow_agent
+      stack: "Discovery → custom build on Make/n8n/LangGraph + RAG + CRM; retainer ops; human approval gates — extends v1 F01–F04."
+      deployment: client_cloud_mixed
+    pricing_band_usd:
+      project: "$3K–100K+ setup (v1 F02–F03)"
+      retainer: "$500–15K/mo monitoring and tuning"
+      note: "No published SKU; quote-based scoping"
+    autonomy_claim: "End-to-end business transformation with AI agents"
+    autonomy_reality: "High human scoping/QA; bounded automations; no public self-improving disk SSOT loop — same autonomy honesty gap as Controlled Execution OS Level 1."
+    fit:
+      trustfield: high  set — TrustField/Noetfield compete on auditability vs project hours
+      sourcea: external study target ONLY per master charter RAIS rule
+      noetfield: compliance-heavy rollouts $35K–100K+ band in v1 F03
+
+  - id: langsmith_deployment
+    name: LangSmith Deployment (fka LangGraph Platform / Cloud)
+    category: langgraph_saas
+    hq: US
+    architecture:
+      pattern: managed_agent_runtime_for_langgraph
+      stack: "Deploy LangGraph agents; Postgres checkpointer; horizontal task queues; 1-click GitHub deploy; traces in LangSmith; framework-agnostic deploy also supported."
+      deployment: langchain_cloud_or_hybrid_enterprise
+    pricing_band_usd:
+      subscription: "Developer $0/seat (5K traces); Plus $39/seat/mo (10K traces); Enterprise custom"
+      usage: "Prod standby $0.0036/min; dev standby $0.0007/min; deployment runs $0.005 each; traces $0.50/1K overage; Engine $1.50/LCU"
+    autonomy_claim: "Run agents at scale reliably in production"
+    autonomy_reality: "Developer/ML-engineer buyer; not no-code SMB; pairs with LangGraph OSS for stateful agents — agency technical layer not GTM surface."
+    fit:
+      trustfield: low direct — sells to product engineering teams
+      sourcea: harness/runtime pattern for controlled worker routing (external analog)
+      noetfield: hybrid/self-hosted VPC enterprise tier
+
+  - id: langgraph_oss
+    name: LangGraph (open source)
+    category: langgraph_framework
+    hq: US (LangChain)
+    architecture:
+      pattern: stateful_agent_graph_framework
+      stack: "Graph nodes/edges; durable execution; human-in-the-loop checkpoints; pairs with LangSmith observability."
+      deployment: self_host_or_langsmith
+    pricing_band_usd:
+      subscription: "OSS free; cost = infra + LLM + optional LangSmith seats"
+    autonomy_claim: "Low-level orchestration for reliable multi-step agents"
+    autonomy_reality: "Requires engineering; RAIS-class agencies use it under the hood — not a commercial SKU for SMB founders."
+    fit:
+      trustfield: indirect — integrator stack component
+      sourcea: pattern for validator gates and checkpointed workflows
+      noetfield: self-host control
+
+  - id: zapier_agents
+    name: Zapier (+ Agents add-on)
+    category: workflow_automation_saas
+    hq: US
+    architecture:
+      pattern: task_based_zaps_plus_agent_activities
+      stack: "7000+ integrations; Agents beta separate activity meter from Zaps tasks."
+      deployment: cloud_only
+    pricing_band_usd:
+      subscription: "Professional from ~$19.99/mo (750 tasks); Agents Pro add-on ~$33.33/mo (1500 activities)"
+      usage: "Task-based — expensive at 15K+ tasks/mo vs n8n/Make per godberrystudios.com 2026 comparison"
+    autonomy_claim: "AI automation for everyone"
+    autonomy_reality: "Fastest citizen-integrator path; weak for complex agent memory; cost spikes at scale."
+    fit:
+      trustfield: medium for micro-SMB quick wins
+      sourcea: not backbone
+      noetfield: weak governance story
+
+  - id: activepieces
+    name: Activepieces
+    category: workflow_automation_saas
+    hq: US
+    architecture:
+      pattern: open_source_zapier_alternative
+      stack: "Self-host or cloud; growing AI pieces; lower cost positioning vs Zapier."
+      deployment: cloud_or_self_host
+    pricing_band_usd:
+      subscription: "Cloud tiers lower than Zapier; self-host free + infra"
+    autonomy_claim: "Open-source automation for teams"
+    autonomy_reality: "Smaller ecosystem; agency adoption growing but behind Make/n8n for agentic depth."
+    fit:
+      trustfield: low-medium
+      sourcea: none
+      noetfield: self-host option
+
+architecture_patterns_summary:
+  - pattern: hybrid_workflow_plus_agent
+    prevalence: dominant_production_standard
+    examples: [rais_class, make_com, n8n]
+    source: "extends v1 architecture_patterns_summary"
+  - pattern: credit_per_operation_vs_per_execution
+    prevalence: pricing_bifurcation_2026
+    examples: [make_com, n8n]
+    implication: "Agentic loops favor n8n economics; high-frequency simple routing favors Make."
+  - pattern: services_wrapper_on_technical_substrate
+    prevalence: rais_class_default
+    examples: [rais_class on make_or_n8n_or_langgraph]
+  - pattern: managed_agent_runtime_saas
+    prevalence: developer_enterprise
+    examples: [langsmith_deployment]
+
+pricing_bands_summary_usd:
+  diy_saas_entry: "$10–50/mo Make Core / n8n Starter / Zapier Pro"
+  mid_market_automation: "$50–500/mo platform + LLM tokens"
+  agency_project: "$3K–35K scoped build (v1); $35K–100K+ compliance-heavy"
+  agency_retainer: "$500–15K/mo"
+  langsmith_plus: "$39/seat/mo + usage standby minutes"
+
+autonomy_claims_vs_reality:
+  make_n8n: "Claim: autonomous AI agents for business. Reality: deterministic scenarios + LLM steps; human approval and retainer ops for production."
+  rais_class: "Claim: transform with AI. Reality: consulting delivery; extends v1 rais_class_delta."
+  langgraph_saas: "Claim: reliable agents at scale. Reality: requires LangGraph literacy; not founder no-terminal product."
+
+comparisons_to_controlled_execution_os:
+  - dimension: cognitive_separation
+    market: "Monolithic product (Make/n8n) or monolithic agency hours (RAIS-class)"
+    controlled_os: "Commercial + Governance + Research advocate; Execution Core sole router — no market equivalent surfaced"
+  - dimension: disk_ssot
+    market: "Workflow history in vendor cloud; no LOCKED law hierarchy"
+    controlled_os: "D1–D16 + REGISTRY + honest gates"
+  - dimension: canada_smb_buyer
+    market: "Agencies sell custom; SaaS sells self-serve with opaque agent credit math"
+    controlled_os: "Governance-first GTM aligns with 2026 Canada SMB anxiety (extends v1 F17)"
+
+sources:
+  - url: "https://www.make.com/en/pricing"
+    title: "Make.com Pricing"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://anthemcreation.com/en/artificial-intelligence/ai-agents-make-complete-guide-automation-artificial-intelligence/"
+    title: "Make AI Agents guide 2026"
+    accessed: "2026-06-06"
+    type: industry_analysis
+  - url: "https://n8n.io/pricing/"
+    title: "n8n Pricing"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://www.dygentic.com/blog/make-com-vs-n8n-marketing-agency-automation"
+    title: "Make vs n8n agency automation"
+    accessed: "2026-06-06"
+    type: industry_analysis
+  - url: "https://godberrystudios.com/posts/n8n-vs-make-vs-zapier-ai-agents-2026/"
+    title: "n8n vs Make vs Zapier 2026"
+    accessed: "2026-06-06"
+    type: industry_analysis
+  - url: "https://medium.com/@jahanzaibai/make-com-vs-n8n-for-ai-agents-2026-comparison-ea18dab56b41"
+    title: "Make vs n8n AI agents comparison"
+    accessed: "2026-06-06"
+    type: industry_analysis
+  - url: "https://triumphoid.com/n8n-workflow-cost-calculator/"
+    title: "n8n vs Make cost calculator"
+    accessed: "2026-06-06"
+    type: industry_analysis
+  - url: "https://rais.systems/"
+    title: "Rais — AI Automation Agency"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://arsum.com/blog/posts/ai-automation-agency-pricing/"
+    title: "AI automation agency pricing 2026"
+    accessed: "2026-06-06"
+    type: industry_benchmark
+  - url: "https://agixtech.com/insights/how-much-does-it-cost-to-hire-an-ai-automation-agency-in-the-usa/"
+    title: "AI automation agency costs USA"
+    accessed: "2026-06-06"
+    type: industry_benchmark
+  - url: "https://www.langchain.com/pricing"
+    title: "LangSmith Plans and Pricing"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://docs.langchain.com/langsmith/pricing-faq"
+    title: "LangSmith pricing FAQ"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://www.langchain.com/langsmith/deployment"
+    title: "LangSmith Deployment"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://www.langchain.com/blog/langgraph-cloud"
+    title: "LangGraph Cloud announcement"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://tao-hpu.medium.com/ai-agent-landscape-2025-2026-a-technical-deep-dive-abda86db7ae2"
+    title: "AI agent landscape technical deep dive"
+    accessed: "2026-06-06"
+    type: industry_analysis
+  - url: "https://www.metacto.com/blogs/langgraph-pricing-explained-a-deep-dive-into-integration-maintenance-costs"
+    title: "LangGraph pricing explained"
+    accessed: "2026-06-06"
+    type: industry_analysis
+
+internal_references:
+  - path: "~/Desktop/TrustField Technologies/docs/gtm/LANDSCAPE_ANALYSIS.md"
+    source_type: internal_reference
+    note: "Fintech API tiers — TrustField as workflow layer not rail; orthogonal to Make/n8n but same 'access layer' positioning pattern."
+  - path: "~/Desktop/SourceA/os/chat-handoffs/CONTROLLED_EXECUTION_OS_MASTER_LOCKED_v1.md"
+    source_type: internal_reference
+    note: "RAIS = external only; Disk SSOT naming."
+
+confidence: medium-high
+confidence_rationale: "Make/n8n/LangSmith from primary pages; RAIS-class from v1 brief + industry ; agency TCO bands consistent across 3+ sources."
