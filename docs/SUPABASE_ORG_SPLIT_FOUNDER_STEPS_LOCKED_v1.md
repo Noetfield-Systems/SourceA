@@ -1,6 +1,16 @@
 # Supabase org split — founder steps — LOCKED v1
 
-**Saved:** 2026-06-20T22:20:00Z · **Authority:** ASF · **URGENT:** free org = **2 active projects max**  
+**Saved:** 2026-06-20T22:15:00Z · **Authority:** ASF · **Live ref:** `ldfruywifqnfpwsfgmdl`
+
+## NEVER RESUME (ASF locked)
+
+| Ref | Project | Law |
+|-----|---------|-----|
+| `bueoakgiisvufxfbdvoa` | virlux-staging | **NEVER restore** — VIRLUX = repo + Vercel |
+| `mmdhnktybjpwlwdczgbq` | the777foundation | **NEVER restore** — 777 = repo migrations |
+
+**Live only:** `ldfruywifqnfpwsfgmdl` → `~/.sourcea-secrets/portfolio-spine.env`  
+**SSOT:** `data/supabase-never-resume-refs-v1.json`  
 **Map:** `data/supabase-cloud-project-map-v1.json`
 
 Your org has **3 projects**. Free tier allows **2 active** at once. **Pause or delete** VIRLUX + 777 first — then unpause SourceA.
