@@ -1,0 +1,29 @@
+{
+  "schema": "witnessbc-trust-signals-v1",
+  "at": "2026-06-19T19:45:10Z",
+  "receipts_signed_today": 485,
+  "receipts_date": "2026-06-19",
+  "receipt_samples": [
+    "agent-governance-events.jsonl:s10_eternal_audit",
+    "agent-governance-events.jsonl:governance_drift",
+    "agent-governance-events.jsonl:governance_drift",
+    "agent-governance-events.jsonl:governance_drift",
+    "agent-governance-events.jsonl:governance_drift"
+  ],
+  "receipt_metric_label": "Governance events today",
+  "valid_yes": 1000,
+  "valid_yes_total": 1000,
+  "factory_now_line": "factory-now \u00b7 Valid YES 1000 \u00b7 brain 1000 \u00b7 dual_proof True \u00b7 mode SINGLE_SA \u00b7 queue ",
+  "governance": {
+    "verdict": "BLOCK",
+    "session_gate_ok": false,
+    "at": "2026-06-19T19:44:06Z"
+  },
+  "deploy": {
+    "bundle": "witnessbc-site-v8",
+    "local_port": 8090,
+    "status": "ship-local"
+  },
+  "proof_demo_url": "proof.html",
+  "disclaimer": "Live factory signals \u00b7 product metrics labeled separately \u00b7 not certification"
+}

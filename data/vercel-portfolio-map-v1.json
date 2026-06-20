@@ -91,8 +91,8 @@
       "team_id": "main",
       "github_repo": "kazemnezhadsina144-dot/SourceA",
       "deploy_root": "SourceA-landing/green-unified",
-      "status": "redeploy_after_build_fix",
-      "note": "Root Directory SourceA-landing/green-unified · vercel.json runs build → dist · Jun 20 2026",
+      "status": "home_ok",
+      "note": "Green 2026-06-21 · /sourcea/ + /sourcea/trust/ return 200",
     },
     {
       "id": "deploy-witnessbc-agents-governance",
@@ -104,8 +104,9 @@
       "team_id": "main",
       "github_repo": "kazemnezhadsina144-dot/SourceA",
       "deploy_root": "witnessbc-site",
-      "status": "create_on_main_vercel",
+      "status": "redeploy_on_main",
       "priority": "P0",
+      "note": "DEPLOYMENT_NOT_FOUND until first prod deploy · vercel.json → dist/deploy · Gate W script",
       "founder_steps_main_chrome": [
         "the-777-foundation → Add New → Project → Import SourceA (same repo as source-a)",
         "Root Directory: witnessbc-site",
