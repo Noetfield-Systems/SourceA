@@ -91,8 +91,8 @@
       "team_id": "main",
       "github_repo": "kazemnezhadsina144-dot/SourceA",
       "deploy_root": "SourceA-landing/green-unified",
-      "status": "home_ok",
-      "note": "Live on main · linked Git · Jun 20 2026 deploy"
+      "status": "redeploy_after_build_fix",
+      "note": "Root Directory SourceA-landing/green-unified · vercel.json runs build → dist · Jun 20 2026",
     },
     {
       "id": "deploy-witnessbc-agents-governance",
