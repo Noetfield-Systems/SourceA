@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "python3 ../../scripts/build_sourcea_vercel_output_v1.py",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/", "destination": "/sourcea/" }
+  ],
+  "headers": [
+    {
+      "source": "/sourcea/data/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=60" }]
+    }
+  ]
+}
