@@ -6,7 +6,8 @@
   "org": "kazemnezhadsina144-dot's Org",
   "org_plan": "FREE",
   "human_doc": "docs/SUPABASE_ORG_SPLIT_FOUNDER_STEPS_LOCKED_v1.md",
-  "one_law": "Only portfolio-spine (SourceA) stays on live Supabase. VIRLUX + 777 Foundation decouple to repo-native — migrations logged, export data once, then pause cloud projects.",
+  "free_org_limit": "2 active projects max — pause virlux + 777 before unpause SourceA",
+  "one_law": "Only portfolio-spine (SourceA) stays on live Supabase. VIRLUX + 777 decouple to repo-native — pause cloud projects first.",
   "projects": [
     {
       "id": "portfolio-spine",
@@ -35,7 +36,9 @@
         "prisma": "VIRLUX/apps/api/prisma/schema.prisma",
         "export_path": "VIRLUX/data/supabase-export/"
       },
-      "action": "EXPORT optional data → PAUSE project (repo holds truth)"
+      "action": "PAUSE NOW — frees active slot (founder dashboard)",
+      "dashboard_settings": "https://supabase.com/dashboard/project/bueoakgiisvufxfbdvoa/settings/general",
+      "target_status": "paused"
     },
     {
       "id": "the777foundation",
@@ -51,7 +54,9 @@
         "manifest": "supabase/production.project.json",
         "export_path": "supabase/seed/export/"
       },
-      "action": "EXPORT user data → PAUSE project (migrations stay in repo)"
+      "action": "PAUSE NOW — frees active slot (founder dashboard)",
+      "dashboard_settings": "https://supabase.com/dashboard/project/mmdhnktybjpwlwdczgbq/settings/general",
+      "target_status": "paused"
     }
   ],
   "after_split": {
