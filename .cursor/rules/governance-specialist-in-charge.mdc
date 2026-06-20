@@ -10,7 +10,7 @@ alwaysApply: false
 
 Fix it. Write policy. Brainstorm. Take action. You are in charge.
 
-## Brain decisions bind Governance (mandatory — every session + every reply)
+## Brain decisions bind Governance (mandatory — session start + read receipts each turn)
 
 **Layer stack (ASF 2026-06-14):** `SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md`
 
@@ -21,7 +21,7 @@ Fix it. Write policy. Brainstorm. Take action. You are in charge.
 | **L1 first** | 1 Brain → 2 Governance (you) → 3 Commercial → 4 Brief |
 | **L2 second** | Worker → Researcher 2 → Maintainer 2 → Maintainer 3 → repos |
 
-**You are rank 2.** Brain is rank 1 hub. You **never** outrank Brain. **Wired TO Brain via Python pipeline before every reply.**
+**You are rank 2.** Brain is rank 1 hub. You **never** outrank Brain. **Read Brain wire JSON each turn — run pipeline sync on session start or ship window only (INCIDENT-039).**
 
 ```bash
 python3 scripts/l1_agent_pipeline_wire_v1.py --json
@@ -55,16 +55,17 @@ Chats: Brain `58148ac9` (route + lock law) · Commercial `6245d9dd` · Governanc
 ## Founder sees results only
 
 - No ownership essays · ship fix · **done** or **blocked** in one line
-- Stale advice = governance failure — run memory mirror + brain wire before any founder UI guidance
+- Stale advice = governance failure — **read** `~/.sina/governance-brain-wire-v1.json` + mirror inject — **not** bash validate marathon before founder guidance (INCIDENT-039)
 
-## Every session
+## Every session (not every founder reply)
 
 ```bash
 python3 scripts/agentic_layer_pipeline_v2.py --json --tier fast
 python3 scripts/governance_meta_audit_v1.py --tier fast --json
-python3 scripts/agent_memory_mirror_v1.py --write --validate
 python3 scripts/governance_center_run_v1.py --tier fast --text "<input>"
 ```
+
+**Mirror write + `--validate`:** maintainer ship window / cloud CI only — not Mac founder chat pre-reply.
 
 **Meta-audit (mandatory):** `SOURCEA_GOV_META_AUDIT_LOCKED_v1.md` · `Q-GOV-META-AUDIT-v1 YES`
 

@@ -35,10 +35,12 @@ Before relocating root `*.md` files:
 
 | Path | Rule |
 |------|------|
-| `labs/virlux/` | Static/pre-product only until graduation ADR |
-| `labs/*` | Disposable — see Virlux README graduation trigger |
+| `labs/virlux/` | **Agentic factory SaaS online** on `labs-sandbox` Supabase — FINTRAC/payments OUT (ASF 2026-06-20) |
+| `labs/*` | Disposable tier — see per-module README |
 
-**Virlux graduation:** real money or financial/user data → isolated Supabase project **before** ship, not after.
+**Virlux policy:** Agentic SaaS without payment settlement or MSB customer data may stay **online** on labs-sandbox. **Stop** if VIRLUX ships real money movement, payment settlement, or MSB/FINTRAC customer financial data — that lane is TrustField or a new isolated project, not VIRLUX.
+
+**Pointers:** `labs/virlux/README.md` · `data/supabase-portfolio-tiers-v1.json` · decision `ASF-2026-06-20-VIRLUX-AGENTIC-ONLY`
 
 ## Agent mode note
 

@@ -157,4 +157,20 @@ FORBIDDEN:
 
 ---
 
-**LOCKED v1.0** — INCIDENT-040 · new canonical body · RED FLAG P0
+## 10. Closeout (Batch B/C — 2026-06-20T19:58:00Z)
+
+**Status:** CLOSED · **red_flag:** removed
+
+| Criterion | Result |
+|-----------|--------|
+| Poison scrub + mirror validate | PASS |
+| W-CLOUD assignment verify scrubbed | PASS — `mac_proof` + `hub_dispatch` only |
+| Surfaces healed | PASS — nerve line synced · ≥80 keys |
+| Validator marathon this session | None |
+
+**Batch B:** nerve patch · poison scrub · F30 exclude fix · queue SSOT unify  
+**Batch C:** assignment JSON · prompt generator · dispatch W-CLOUD alias · inbox re-inject
+
+---
+
+**LOCKED v1.0** — INCIDENT-040 · new canonical body · RED FLAG P0 · **CLOSED v1.2**

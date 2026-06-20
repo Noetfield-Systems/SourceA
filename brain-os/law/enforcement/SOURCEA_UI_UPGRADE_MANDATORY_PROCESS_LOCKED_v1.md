@@ -9,7 +9,7 @@
 
 ## 0. One sentence
 
-> **NO UI DRIFT · NO UPGRADE DRIFT — ZERO TOLERANCE.** FIRST CHECK always: general UP checklist + per-app ledger before ANY form, app, or website UI edit. Machine blocks writes without ack. Baseline + no-downgrade + ledger validators must PASS. ZERO EXCEPTION — all agents.
+> **NO UI DRIFT · NO UPGRADE DRIFT — ZERO TOLERANCE.** FIRST CHECK applies **only when editing UI files** (form, app, website, hub, canvas) — **not** before every founder chat reply (INCIDENT-039). Machine blocks UI writes without ack. Baseline + ledger checks on **UI ship** — cloud CI / ship window for full validator stack.
 
 **Flag:** `~/.sina/founder-zero-ui-drift-v1.flag`  
 **Validator:** `bash scripts/validate-ui-zero-drift-v1.sh`  

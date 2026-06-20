@@ -1,7 +1,7 @@
 {
   "schema": "supabase-never-resume-refs-v1",
   "version": "1.1.0",
-  "saved_at": "2026-06-20T22:30:00Z",
+  "saved_at": "2026-06-20T23:45:00Z",
   "authority": "ASF",
   "one_law": "Never unpause, restore, or re-link forbidden refs. Repo-native only for VIRLUX + 777.",
   "human_doc": "docs/SUPABASE_ORG_SPLIT_FOUNDER_STEPS_LOCKED_v1.md",
@@ -30,7 +30,7 @@
       "url": "https://ldfruywifqnfpwsfgmdl.supabase.co",
       "secrets_file": "~/.sourcea-secrets/portfolio-spine.env",
       "dashboard": "https://supabase.com/dashboard/project/ldfruywifqnfpwsfgmdl",
-      "modules": ["trustfield", "witnessbc", "foundation", "gov", "sourcea"]
+      "modules": ["witnessbc", "foundation", "gov", "sourcea", "forge_factory"]
     },
     {
       "id": "noetfield",
@@ -38,7 +38,7 @@
       "url": "https://tkgpapowwplupyekpivy.supabase.co",
       "secrets_file": "~/.sourcea-secrets/noetfield.env",
       "dashboard": "https://supabase.com/dashboard/project/tkgpapowwplupyekpivy",
-      "modules": ["noetfield"]
+      "modules": ["noetfield", "trustfield"]
     }
   ],
   "agents_must_not": [

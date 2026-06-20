@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Mac Health — auto heal for this Mac. Private. Local only." />
   <title>Mac Health</title>
-  <link rel="stylesheet" href="app.css?v=3.3.0" />
+  <!-- v4.0.0 · Control Plane Glance -->
+  <link rel="stylesheet" href="app.css?v=4.0.0" />
 </head>
 <body>
   <div class="mhg-panic-flash" id="panic-flash" hidden aria-live="assertive"></div>
@@ -53,6 +54,7 @@
         </div>
 
         <button type="button" class="mhg-btn mhg-btn-primary mhg-btn-block" id="btn-heal">Relieve pressure</button>
+        <button type="button" class="mhg-cloud-glance-strip" id="cloud-glance-strip">Cloud · reading…</button>
         <p class="mhg-heal-msg" id="heal-msg" hidden></p>
         <p class="mhg-meta mhg-h1-sync-line" id="h1-status" hidden aria-live="polite"></p>
       </header>
@@ -135,7 +137,15 @@
       <p id="ram-purge-result" hidden></p>
     </section>
     <section class="mhg-panic" id="panel-panic" hidden aria-hidden="true"></section>
+    <div hidden aria-hidden="true" id="cpu-relief-wire">
+      <button type="button" data-action="cpu_clear_pipeline"></button>
+      <button type="button" data-action="cpu_clear_ghosts"></button>
+      <button type="button" data-action="cpu_kill_scripts"></button>
+      <button type="button" data-action="cpu_quit_chrome"></button>
+      <button type="button" data-action="cpu_pause_n8n"></button>
+      <button type="button" data-action="cpu_restart_cursor"></button>
+    </div>
   </main>
-  <script src="app.js?v=3.3.0" defer></script>
+  <script src="app.js?v=4.0.0" defer></script>
 </body>
 </html>

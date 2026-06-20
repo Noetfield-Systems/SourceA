@@ -20,16 +20,56 @@ def main() -> int:
     backlog = [p for p in reg.get("plans") or [] if p.get("status") == "backlog"][:90]
     out: list[dict] = []
     mac_rows = [
-        ("MAC-CTL-001", "W-CLOUD-001", "Mac control CHECK: validate-mac-control-plane + forge dry-run"),
-        ("MAC-CTL-002", "W-CLOUD-002", "Mac control ACT: wire live Railway FBE dispatch receipt"),
-        ("MAC-CTL-003", "W-CLOUD-003", "Mac control VERIFY: brain cloud pulse B0001→B1000"),
-        ("MAC-CTL-004", None, "validate-mac-worker-vs-factory-vocabulary-v1.sh PASS"),
-        ("MAC-CTL-005", None, "Hub POST dry-run /api/cloud-worker/dispatch/v1"),
-        ("MAC-CTL-006", None, "forge_cloud_env_load — secrets in ~/.sourcea-secrets only"),
-        ("MAC-CTL-007", None, "validate-forge-mvp-baseline + portfolio--1000"),
-        ("MAC-CTL-008", None, "loop_specialist_tick dry-run — cloud tick not Mac motor"),
-        ("MAC-CTL-009", None, "Read fbe-cloud-adapter receipt — Mac glance only"),
-        ("MAC-CTL-010", None, "Confirm FREEZE + no fbe_motor_delegate on Mac"),
+        (
+            "MAC-CTL-001",
+            "W-CLOUD-001",
+            "Mac control CHECK: Read mac-law + federated-run receipts · cloud worker URL glance only",
+        ),
+        (
+            "MAC-CTL-002",
+            "W-CLOUD-002",
+            "Mac control ACT: Hub POST dispatch dry-run W-CLOUD-002 · read cloud receipt (no Mac body)",
+        ),
+        (
+            "MAC-CTL-003",
+            "W-CLOUD-003",
+            "Mac control VERIFY: Read brain-cloud pulse receipt B0001→B1000 · cloud executed not Mac",
+        ),
+        (
+            "MAC-CTL-004",
+            None,
+            "Mac control: Read mac-worker-vs-factory vocabulary SSOT · confirm cloud executes factory body",
+        ),
+        (
+            "MAC-CTL-005",
+            None,
+            "Mac control: Hub POST dry-run /api/cloud-worker/dispatch/v1 · read dispatch receipt only",
+        ),
+        (
+            "MAC-CTL-006",
+            None,
+            "Mac control: Confirm secrets path ~/.sourcea-secrets only · no repo env · glance",
+        ),
+        (
+            "MAC-CTL-007",
+            None,
+            "Mac control: Read forge/federated cloud receipts · portfolio- manifest glance",
+        ),
+        (
+            "MAC-CTL-008",
+            None,
+            "Mac control: Read loop-specialist tick receipt · cloud tick not Mac motor",
+        ),
+        (
+            "MAC-CTL-009",
+            None,
+            "Mac control: Read fbe-cloud-adapter receipt — Mac glance only",
+        ),
+        (
+            "MAC-CTL-010",
+            None,
+            "Mac control: Read factory-now FREEZE + mac-law lock receipts · no fbe_motor_delegate on Mac",
+        ),
     ]
     for i, (cid, bind, title) in enumerate(mac_rows, 1):
         out.append(
@@ -38,7 +78,7 @@ def main() -> int:
                 "id": cid,
                 "bind": bind,
                 "plane": "mac_control",
-                "mac_role": "observe · validate · optional dispatch POST · read receipt",
+                "mac_role": "observe · optional Hub dispatch POST · read receipt only — no validate-* on Mac",
                 "mac_build_forbidden": True,
                 "mac_executes_plan_body": False,
                 "title": title,
@@ -66,7 +106,7 @@ def main() -> int:
         "version": "1.0.0",
         "saved_at": _now(),
         "authority": "INCIDENT-038 v1.1",
-        "one_law": "1-10 Mac control only. 11-100 cloud secondary drain. Mac NEVER executes sa-mkt bodies.",
+        "one_law": "1-10 Mac control only (read receipts · optional dispatch POST). 11-100 cloud secondary drain. Mac NEVER executes sa-mkt bodies or bash validate-*.",
         "forbidden": [
             "Worker on Mac runs every plan",
             "RUN INBOX per sa-mkt on Mac",

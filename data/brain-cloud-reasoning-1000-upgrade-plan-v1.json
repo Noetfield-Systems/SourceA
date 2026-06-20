@@ -1,7 +1,7 @@
 {
   "schema": "brain-cloud-reasoning-1000-upgrade-plan-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-20T18:45:14Z",
+  "saved_at": "2026-06-20T22:58:29Z",
   "law": "Brain reasons \u00b7 Mac controls \u00b7 Cloud/API workers execute \u00b7 local Cursor Worker graduates to control-plane only",
   "strategic_pivot": {
     "from": "local Cursor Worker INBOX as primary factory execution",

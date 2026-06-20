@@ -37,8 +37,8 @@
 | 9 | **dispatch_ready = orchestrator_dispatch_ready()** | `DISPATCH_POLICY_LOCKED_v1.md` v1.1 | operational |
 | 10 | **Brain picks / worker codes** | `MANDATORY_BRAIN_CHAT_LOCKED_v1.md` | session |
 | 11 | **Miss → disk-first correction** | `AGENT_MISS_DISK_FIRST_CORRECTION_LOOP_LOCKED_v1.md` | **every session** |
-| 12 | **Brain disk-before-chat gate** | `BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md` · `scripts/brain-session-start.sh` | **every Brain reply** |
-| 13 | **Brain no validator recursion** | `BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md` v1.1 · **INCIDENT-026** · `scripts/brain_session_guard_v1.py` | **every Brain reply** |
+| 12 | **Brain disk-before-chat gate** | `BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md` · `scripts/brain-session-start.sh` | **session start + read receipt each turn** |
+| 13 | **Brain no validator recursion** | `BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md` v1.1 · **INCIDENT-026** · `scripts/brain_session_guard_v1.py` | **read receipt · no bash validate marathon** |
 
 ### Daily mandatory loop (ASF order 2026-06-07)
 

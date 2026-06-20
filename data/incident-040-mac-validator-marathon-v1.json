@@ -1,13 +1,13 @@
 {
   "schema": "incident-040-mac-validator-marathon-v1",
-  "version": "1.1.0",
-  "saved_at": "2026-06-20T20:00:00Z",
+  "version": "1.2.0",
+  "saved_at": "2026-06-20T19:58:00Z",
   "locked": true,
   "incident_id": "INCIDENT-040",
   "title": "Mac Law wiring session validator marathon on Mac",
   "severity": "P0",
-  "red_flag": true,
-  "status": "OPEN",
+  "red_flag": false,
+  "status": "CLOSED",
   "authority": "ASF",
   "one_law": "Mac founder session: NEVER stuck in validators. Reply <30s STOP. One light check <=90s. No chains. Wiring Mac Law = Read receipts not bash validate marathon.",
   "incident_body": "brain-os/incidents/SINA_MAC_LAW_WIRING_VALIDATOR_MARATHON_INCIDENT_040_LOCKED_v1.md",
@@ -44,5 +44,17 @@
     ],
     "heavy_ship_only": "validate-mac-law-mandatory-ship-v1.sh",
     "decoupled": "--enforce no longer triggers nested sync_stack on Mac"
+  },
+  "closeout_v1_2": {
+    "closed_at": "2026-06-20T19:58:00Z",
+    "batch": "Batch B/C heal inject + cloud routing",
+    "criteria_pass": [
+      "poison_scrub_ok",
+      "mirror_validate_ok",
+      "assignment_w_cloud_scrubbed",
+      "surfaces_healed_90_keys",
+      "no_validator_marathon_this_session"
+    ],
+    "note": "Remediation complete — Mac founder session proof = Read receipts + optional one Hub POST; W-CLOUD verify poison removed from assignment SSOT."
   }
 }

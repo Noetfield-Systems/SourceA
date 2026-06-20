@@ -58,7 +58,18 @@ class MacHealthHandler(BaseHTTPRequestHandler):
         # #endregion
         if path == "/health":
             from mac_health_founder_glance_ui_v1 import build_ui_contract  # noqa: WPS433
+            from mac_health_cloud_glance_v1 import probe as cloud_glance_probe  # noqa: WPS433
 
+            ui_contract = build_ui_contract(port=PORT)
+            try:
+                cg = cloud_glance_probe(write_receipt=False)
+                ui_contract["cloud_glance"] = {
+                    "founder_line": cg.get("founder_line"),
+                    "railway_ok": cg.get("railway_ok"),
+                    "last_plan_id": cg.get("last_plan_id"),
+                }
+            except Exception:
+                pass
             self._json(
                 200,
                 {
@@ -67,9 +78,15 @@ class MacHealthHandler(BaseHTTPRequestHandler):
                     "port": PORT,
                     "standalone": True,
                     "version": MAC_HEALTH_VERSION,
-                    "ui_contract": build_ui_contract(port=PORT),
+                    "ui_contract": ui_contract,
                 },
             )
+            return
+        if path == "/api/mac-health/cloud-glance/v1":
+            from mac_health_cloud_glance_v1 import probe as cloud_glance_probe  # noqa: WPS433
+
+            row = cloud_glance_probe(write_receipt=True)
+            self._json(200 if row.get("ok") or row.get("last_plan_id") else 207, row)
             return
         if path == "/api/mac-health/live":
             from mac_health_live_v1 import get_live_api_row  # noqa: WPS433

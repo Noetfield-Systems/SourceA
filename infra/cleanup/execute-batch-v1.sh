@@ -35,6 +35,22 @@ if [[ -f "$PY" ]]; then
   exec "${args[@]}"
 fi
 
+# Pure Python executor — avoids xargs/sandbox failures on Mac (INCIDENT cleanup execute)
+PY="$ROOT/infra/cleanup/execute_batch_python_v1.py"
+if [[ -f "$PY" ]]; then
+  args=(python3 "$PY" --batch "$BATCH")
+  [[ "$DRY_RUN" -eq 1 ]] && args+=(--dry-run)
+  exec "${args[@]}"
+fi
+
+# Pure Python executor — avoids xargs/sandbox failures on Mac (INCIDENT cleanup execute)
+PY="$ROOT/infra/cleanup/execute_batch_python_v1.py"
+if [[ -f "$PY" ]]; then
+  args=(python3 "$PY" --batch "$BATCH")
+  [[ "$DRY_RUN" -eq 1 ]] && args+=(--dry-run)
+  exec "${args[@]}"
+fi
+
 moved=0
 skipped=0
 

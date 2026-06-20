@@ -1,0 +1,56 @@
+{
+  "schema": "incident-041-agent-open-terminal-hub-hold-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-20T22:43:46Z",
+  "locked": true,
+  "incident_id": "INCIDENT-041",
+  "title": "Agent held open Cursor terminal for Hub server (Batch E)",
+  "severity": "P0",
+  "red_flag": true,
+  "status": "OPEN",
+  "authority": "ASF",
+  "one_law": "Agents MUST NOT hold open Cursor/shell terminals with long-running Hub or factory servers. One-shot boot only. Script exits. Terminal closes. If Hub dies after Ready, fix launchctl/nohup — do NOT pin terminal open.",
+  "incident_body": "brain-os/incidents/SINA_AGENT_OPEN_TERMINAL_HUB_HOLD_INCIDENT_041_LOCKED_v1.md",
+  "incident_report": "brain-os/incidents/SINA_AGENT_OPEN_TERMINAL_HUB_HOLD_INCIDENT_041_REPORT_LOCKED_v1.md",
+  "related_incidents": ["INCIDENT-039", "INCIDENT-040", "INCIDENT-038", "INCIDENT-031"],
+  "terminal_evidence": ["957617", "521646", "266927"],
+  "aborted_task": {
+    "task_id": "957617",
+    "title": "Run Hub server in persistent background process",
+    "detail": "terminated_by_user"
+  },
+  "forbidden_patterns": [
+    "block_until_ms: 0.*sina-command-server",
+    "persistent background process.*Hub",
+    "leave terminal open.*server",
+    "python3 scripts/sina-command-server.py.*background"
+  ],
+  "allowed_patterns": [
+    "bash scripts/serve-sina-command.sh",
+    "bash scripts/enter-mac-control-plane-v1.sh",
+    "launchctl kickstart com.sourcea.hub",
+    "curl -sf -m 5 http://127.0.0.1:13020/health"
+  ],
+  "agent_errors": [
+    "held_open_cursor_terminal_for_hub",
+    "block_until_zero_long_running_server",
+    "ignored_founder_never_terminal",
+    "retry_tax_instead_of_stop_and_report",
+    "used_foreground_terminal_as_hub_daemon"
+  ],
+  "asf_quotes": [
+    "THIS SHOULD BE LIKE THIS!!! NEVER USING TERMINAL AND LEAVE IT",
+    "CLEAR THE TERMINAL IF YOU DONT USE IT",
+    "NO OPEN TERMINAL"
+  ],
+  "flag_path": "~/.sina/incident-041-open-terminal-red-flag-v1.flag",
+  "receipt_path": "~/.sina/incident-041-open-terminal-receipt-v1.json",
+  "inject_line": "INCIDENT-041 RED FLAG: never hold open agent terminal for Hub/server — one-shot serve-sina-command or launchctl only · Hub down = STOP + receipt blocker",
+  "tips_for_agents": [
+    "Every agent shell command must exit — agents are not daemons",
+    "Never block_until_ms 0 for sina-command-server or factory motors",
+    "Hub boot: enter-mac-control-plane then serve-sina-command once — read receipt — single health curl",
+    "If Hub down after one-shot boot: write hub_not_reachable in proof receipt and STOP",
+    "Read 039 validator law + 040 marathon + 041 open terminal together"
+  ]
+}

@@ -1,15 +1,15 @@
 {
   "schema": "fbe-refinery-step-receipt-v1",
   "ok": false,
-  "at": "2026-06-19T23:51:25Z",
+  "at": "2026-06-20T23:12:42Z",
   "node_id": "creed-session-v1",
   "bay_slug": "sample-bay",
   "tenant": "wil_ai_design_partner",
   "npm": "verify:session",
-  "exit": 221,
-  "elapsed_sec": 162.28,
+  "exit": 1,
+  "elapsed_sec": 0.54,
   "creed_root": "/Users/sinakazemnezhad/Desktop/YA5/PLUS ONE/CREED",
   "deliveryMode": "prove_only",
   "mode": "w2_headless",
-  "tail": "> creed@1.0.0 verify:session\n> node scripts/verify-session.mjs\n\nnpm error code EAGAIN\nnpm error syscall spawn sh\nnpm error path /Users/sinakazemnezhad/Desktop/YA5/PLUS ONE/CREED\nnpm error errno -35\nnpm error spawn sh EAGAIN\nnpm error command sh -c node scripts/verify-session.mjs\nnpm error A complete log of this run can be found in: /Users/sinakazemnezhad/.npm/_logs/2026-06-19T23_51_22_157Z-debug-0.log"
+  "tail": "5 [plus-one] | `PLUS ONE/{BRAND}/` (graduated) | Graduated product operator \u2014 that folder only |\n  \u2192 AGENTS.md:24 [plus-one] | `workspace/projects/{slug}/` for **all** new jobs founder assigns | `PLUS ONE/{BRAND}/` \u2014 graduate\n  \u2192 AGENTS.md:25 [plus-one] | **Writes:** `CREED/workspace/projects/{slug}/` only | **Reads:** founder-named paths in PLUS ONE f\nnpm warn Unknown env config \"devdir\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options."
 }

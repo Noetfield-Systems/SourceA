@@ -24,7 +24,7 @@ sync_app "N8N Integration" "n8n-integration-bundle" "n8n-standalone" \
   n8n-integration-server.py n8n_integration_core.py n8n_automation.py n8n_intelligence.py n8n_commercial_grade_v1.py
 
 sync_app "Mac Health Guard" "mac-health-bundle" "mac-health-standalone" \
-  mac-health-guard-server.py mac_health_guard.py mac_health_cpu_relief_v1.py mac_health_live_v1.py \
+  mac-health-guard-server.py mac_health_guard.py mac_health_cpu_relief_v1.py mac_health_live_v1.py mac_health_cloud_glance_v1.py \
   mac_health_prevention_v1.py mac_health_emergency_stop_v1.py mac_health_settings_v1.py mac_health_version_v1.py \
   mac_health_log_shield_v1.py \
   mac_performance_snapshot.py n8n_glue_runner_v1.py n8n_glue_config_v1.py

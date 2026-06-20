@@ -200,9 +200,21 @@ def enter(*, wire_sync: bool = True) -> dict[str, Any]:
     ts = _now()
 
     # Paid AI unblocked — do NOT use api-disabled kill switch (autorun pause flag stays per Mac Health)
-    for path in (API_FLAG, SINA / "agent-cancel-v1.flag", SINA / "mac-health-emergency-active-v1.flag"):
+    ship_window = SINA / "asf-ship-window-v1.flag"
+    for path in (
+        API_FLAG,
+        SINA / "agent-cancel-v1.flag",
+        SINA / "mac-health-emergency-active-v1.flag",
+        ship_window,
+    ):
         if path.is_file():
             path.unlink()
+
+    light_only = SINA / "mac-light-validators-only-v1.flag"
+    light_only.write_text(
+        f"mac-light-validators-only-v1 · {ts} · heavy gates forbidden on Mac body\n",
+        encoding="utf-8",
+    )
 
     line = f"mac-control-plane-v1 · {ts} · Mac observes · cloud/API executes"
     FLAG.write_text(line + "\n", encoding="utf-8")

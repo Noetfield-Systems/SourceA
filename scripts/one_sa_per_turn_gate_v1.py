@@ -16,8 +16,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
 VIOLATION_LOG = Path.home() / ".sina" / "one-sa-violations-v1.jsonl"
 
-SA_RE = re.compile(r"\bsa-\d{4}\b", re.I)
-SA_FOCUS_RE = re.compile(r"sa_focus:\s*(sa-\d{4})", re.I)
+SA_RE = re.compile(r"\bsa-(?:\d{4}|B\d{4})\b", re.I)
+SA_FOCUS_RE = re.compile(r"sa_focus:\s*(sa-(?:\d{4}|B\d{4}))", re.I)
 REPORT_STATUS_RE = re.compile(r"^\s*status:\s*WORKER_ROUND_REPORT\s*$", re.I | re.M)
 REGISTRY_UPDATED_RE = re.compile(r"registry_updated:\s*\[(.*?)\]", re.S | re.I)
 

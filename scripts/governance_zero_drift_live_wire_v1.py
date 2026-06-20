@@ -529,6 +529,17 @@ def run_zero_drift_live_wire(
     steps.append({"chain": "monitor", "step": "monitor_live_pulse", "ok": pulse_ok})
     ok = ok and pulse_ok
 
+    try:
+        from rule_propagation_fanout_v1 import fanout  # noqa: WPS433
+
+        fan = fanout(reason=f"zero_drift_live_wire:{tier}", tier="fast" if tier in ("session", "worker") else "full")
+        fan_ok = bool(fan.get("ok"))
+        steps.append({"chain": "rule_propagation", "step": "rule_propagation_fanout", "ok": fan_ok})
+        ok = ok and fan_ok
+    except Exception as exc:
+        steps.append({"chain": "rule_propagation", "step": "rule_propagation_fanout", "ok": False, "error": str(exc)[:120]})
+        ok = False
+
     drift_score = int(drift_row.get("aggregate_score") or 0)
     queue_sa = chain.get("queue_sa") or anti.get("queue_sa") or ""
     zero_drift_line = _compose_zero_drift_line(

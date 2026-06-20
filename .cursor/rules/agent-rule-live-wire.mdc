@@ -1,53 +1,46 @@
 ---
-description: Rule live wire — every new rule registers and pulses nerves → surfaces → loops (R1–R10)
+description: Rule live wire — every new rule auto-hooks zero-latency fanout (R1–R13)
 alwaysApply: false
 globs: data/*-v1.json,scripts/*_v1.py,.cursor/rules/**
-version: 1
+version: 2
 ---
 
-# Agent rule live wire (registry → nerves)
+# Agent rule live wire (registry → nerves → zero-latency hook)
 
-**SSOT:** `data/agent-rule-live-wire-registry-v1.json`  
+**SSOT:** `data/agent-rule-live-wire-registry-v1.json` · `data/rule-propagation-zero-latency-v1.json`  
 **Orchestrator:** `python3 scripts/agent_rule_live_wire_v1.py`  
-**Law:** `AGENT_DISK_LIVE_WIRE_FIRST_LOCKED_v1.md` · checkcart W12
+**Hook:** `python3 scripts/rule_zero_latency_hook_v1.py` (automatic via `pre_write_guard`)  
+**Law:** `AGENT_DISK_LIVE_WIRE_FIRST_LOCKED_v1.md` · checkcart W12 · **R13 zero-latency**
 
-## Founder plan (non-negotiable)
+## Automatic (zero-latency — no founder reminder)
 
-- **Factories = CLOUD only** (FBE Railway/public · CF workers · product sites)
-- **Mac = control panel only** (`:13020` hub) — never plan or gate as a factory
-- **Authority:** `data/brain-cloud-practical-300-plan-v1.json` · `CLOUD_ONLY`
+When an agent edits a **rule or governance SSOT** path, `pre_write_guard` **already runs** fast fanout:
 
-## When a new rule ships
+- `.cursor/rules/*.mdc` · `brain-os/law/` · incidents · governance `data/*-v1.json`
+- Receipt: `~/.sina/rule-zero-latency-hook-receipt-v1.json`
+- Surfaces line: **`rule_wire_line`** on `agent-live-surfaces-v1.json`
 
-1. **R1–R8** — SSOT · script · register row · nerve · surfaces · loops · validator  
-2. **R9 / R11** — **One tap after every new `.mdc` or registry row:**
+**New `.mdc` file (create):** after first write, run once:
+
+```bash
+python3 scripts/pre_write_guard_v1.py post-write --agent cursor --path ".cursor/rules/your-rule.mdc" --json
+```
+
+Disable hook: `SINA_RULE_ZERO_LATENCY_HOOK=0`
+
+## When a new rule ships (full upgrade)
 
 ```bash
 python3 scripts/agent_rule_live_wire_v1.py --on-new-rule --json
 ```
 
-Alias: `--upgrade-disk-machines` · lighter: `--wire-sync --skip-heavy --json`
+Runs: cursor index · mirror · wire-sync · **rule_zero_latency_hook (fast fanout + nerve patch)** · H2 machines
 
-This runs:
-- **Cursor rules index** — `~/.sina/cursor-rules-index-v1.json` (all `.mdc` logged)  
-- **Memory mirror** — scans new rules into inject SSOT  
-- **Disk** — anti-staleness · live surfaces · factory-now · queue unify · ACTIVE_NOW  
-- **Registry pulse** — all live rules → `agent-live-surfaces-v1.json`  
-- **Nerves** — better loop + nerve patch  
-- **Machines** — H2 `/machines/` `RULE-WIRE-*` rows + `cursor_rules_index` on `h2-pending-registry-v1.json`
+Lighter: `python3 scripts/rule_zero_latency_hook_v1.py --path "<rule-file>" --json`
 
-## Scaffold
+## Validators
 
 ```bash
-python3 scripts/agent_rule_live_wire_v1.py --scaffold <rule_id> --json
-```
-
-## Every session (automatic)
-
-Registry rules pulse via `disk_live_wire_sync_v1.py` → `rule_live_wire_line` on `agent-live-surfaces-v1.json`.
-
-## Validator
-
-```bash
+bash scripts/validate-rule-zero-latency-hook-v1.sh
 bash scripts/validate-agent-rule-live-wire-v1.sh
 ```

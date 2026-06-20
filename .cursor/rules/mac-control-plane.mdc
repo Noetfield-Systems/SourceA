@@ -24,14 +24,24 @@ Read `~/Desktop/MacLaw/MAC_CONTROL_PLANE_LOCKED.md` when Mac, SourceA, factory, 
 6. **Founder session: NO heavy validators/E2E** — no `validate-all-e2e`, no surfaces E2E, no recipe `--build`, no Playwright/Chrome debug stacks while founder works in Cursor
 7. **INCIDENT-039 RED FLAG:** NEVER stuck in validators on Mac — reply <30s · one light check ≤90s · proof=receipts · 11+ min = P0 harm
 
-## Boot
+## Boot (Mac control panel only)
 
 ```bash
 bash ~/Desktop/SourceA/scripts/enter-mac-control-plane-v1.sh
-bash ~/Desktop/SourceA/scripts/validate-mac-control-plane-v1.sh
+open http://127.0.0.1:13020/
+open http://127.0.0.1:8780/
+open http://127.0.0.1:8781/
 ```
 
-## Cloud dispatch
+**Proof on Mac (founder session):** Read `~/.sina/mac-law-*-receipt-v1.json` + `~/.sina/mac-control-plane-v1.flag` present — **not** `validate-mac-control-plane-v1.sh`.
+
+**Cloud CI / ship window only:** `bash scripts/validate-mac-control-plane-v1.sh`
+
+## Cloud dispatch (control panel → cloud body)
+
+**Preferred:** Hub `POST /api/cloud-worker/dispatch/v1` or `POST /api/loop-specialist/tick/v1` — read receipt JSON after.
+
+Optional read-only glance (not factory body):
 
 ```bash
 python3 ~/Desktop/SourceA/scripts/loop_specialist_tick_v1.py --json

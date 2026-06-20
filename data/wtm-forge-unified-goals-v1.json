@@ -1,28 +1,13 @@
 {
   "schema": "wtm-forge-unified-goals-v1",
-  "version": "1.0.0",
-  "saved_at": "2026-06-20T21:45:00Z",
+  "version": "1.1.0",
+  "saved_at": "2026-06-20T22:41:33Z",
   "authority": "ASF",
-  "one_law": "WTM (world target model) and SourceA Forge share one north star — controlled agentic execution with receipt truth before LLM reasoning.",
+  "status": "superseded",
+  "superseded_by": "data/forge-factory-unified-brand-v1.json",
+  "brand": "FORGE FACTORY",
+  "one_law": "Redirect only — canonical brand SSOT is forge-factory-unified-brand-v1.json",
   "wtm_canonical": "brain-os/wtm/WORLD_TARGET_MODEL_MAP_LOCKED_v5.md",
   "forge_canonical": "labs/forge-v0.1/forge_pipeline_v01.ts",
-  "shared_goals": [
-    "Understanding before action — receipts and world model before LLM",
-    "SCAN → PICK → PROVE on every factory lane",
-    "Cloud execution only — Mac = control panel",
-    "Honest tier labels — mock_only · freemium_cap · production",
-    "Route plans to destination repos without cross-lane bleed"
-  ],
-  "phase_alignment": {
-    "wtm_phase_c": "Runtime stack C1–C7 — plan → verify → route → repair → orchestrate",
-    "wtm_phase_d": "Pre-LLM world model D1–D16 — llm_context_packet before reasoning",
-    "forge_v01": "100-plan funnel — validate → score → route → destination_repo"
-  },
-  "unify_actions": [
-    "Hub WTM tab shows Forge funnel metrics when forge-bay receipt exists",
-    "Forge pipeline destination_repo aligns with WTM product_routes (Noetfield · TrustField · Forge · WitnessBC)",
-    "Single queue_sa line across factory-now · WTM LIVE NOW · Forge run receipts"
-  ],
-  "human_doc": "brain-os/wtm/WORLD_TARGET_MODEL_MAP_LOCKED_v5.md",
-  "forge_readme": "labs/forge-v0.1/README.md"
+  "fbe_canonical": "data/fbe_factory_builder_bundle_v1.json"
 }
