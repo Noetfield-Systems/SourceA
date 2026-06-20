@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 SOURCE_A = Path(__file__).resolve().parents[1]
-LAW_DOC = "META_REASONING_POLICY_STACK_LOCKED_v1.md"
+LAW_DOC = "brain-os/law/META_REASONING_POLICY_STACK_LOCKED_v1.md"
 TAB_ID = "decision-governance"
 
 
@@ -109,8 +109,8 @@ def _layers() -> list[dict[str, Any]]:
             "purpose": "Correctness before state change",
             "effect": "Nothing moves without validation gate.",
             "canonical": [
-                "HUB_SOURCE_UI_ALIGNMENT_PROCEDURE_LOCKED_v1.md",
-                "GOVERNANCE_DRIFT_ENGINE_LOCKED_v1.md",
+                "brain-os/law/HUB_SOURCE_UI_ALIGNMENT_PROCEDURE_LOCKED_v1.md",
+                "brain-os/law/GOVERNANCE_DRIFT_ENGINE_LOCKED_v1.md",
             ],
         },
         {
@@ -140,7 +140,7 @@ def _layers() -> list[dict[str, Any]]:
             "effect": "Learn gates first; then lock in incident laws — not a WTM layer.",
             "canonical": [
                 "SINAAI_AUTO_PASTE_INCIDENT_REPORT_LOCKED_v1.md",
-                "SINAAI_PHASE1_STABILIZATION_ONLY_LOCKED_v1.md",
+                "brain-os/law/SINAAI_PHASE1_STABILIZATION_ONLY_LOCKED_v1.md",
                 "AGENT_SKILLS_AND_RESEARCH_PIPELINE_LOCKED_v1.md",
             ],
         },

@@ -2,8 +2,194 @@
   "use strict";
 
   const API = window.location.origin;
+  const CLIENT_UI_VERSION = "3.4.0";
   const $ = (id) => document.getElementById(id);
-  let state = { prompts: { extract: "", unify: "" }, last_unified: null, openExtract: null, autoImportDone: false, autoStructureDone: false };
+  const FOUNDER_SETTINGS_KEY = "chat-unify-founder-v1";
+  let state = {
+    prompts: { extract: "", unify: "" },
+    last_unified: null,
+    openExtract: null,
+    autoImportDone: false,
+    autoStructureDone: false,
+    founderText: "",
+    reasoningText: "",
+    loopSendback: "",
+    workOrder: null,
+    ordReport: "",
+    ordConfidence: null,
+    ordRunId: null,
+    ordDecision: null,
+    ordStats: null,
+    founderRunId: null,
+  };
+  let founderDebounce = null;
+  let ordDebounce = null;
+  const ORD_SETTINGS_KEY = "chat-unify-ord-v1";
+  const LOOP_STAGES = ["language", "reasoning", "proof", "action", "advisor", "critic", "close"];
+  const STAGE_WAIT_LABEL = {
+    language: "",
+    reasoning: "Waiting for Language…",
+    proof: "Waiting for Reasoning…",
+    action: "Waiting for Proof…",
+    advisor: "Waiting for Action…",
+    critic: "Waiting for Advisor…",
+    close: "Waiting for Critic…",
+  };
+  const ORD_STAGES = ["parse", "classify", "consistency", "attribution", "simplify", "redflags", "report"];
+  const ORD_WAIT_LABEL = {
+    parse: "",
+    classify: "Waiting for Parser…",
+    consistency: "Waiting for Classifier…",
+    attribution: "Waiting for Consistency…",
+    simplify: "Waiting for Source trace…",
+    redflags: "Waiting for Simplifier…",
+    report: "Waiting for Red flags…",
+  };
+
+  function newRunId(prefix) {
+    const hex = [...crypto.getRandomValues(new Uint8Array(6))]
+      .map((b) => b.toString(16).padStart(2, "0"))
+      .join("");
+    return `${prefix}-${hex.slice(0, 12)}`;
+  }
+
+  function renderTruthSidebar(json) {
+    const sidebar = $("truth-sidebar");
+    if (!sidebar) return;
+
+    const atoms =
+      json?.atoms ||
+      json?.kernel?.atoms ||
+      json?.stages?.attribution?.atoms ||
+      json?.stages?.classify?.atoms ||
+      [];
+    const decision = json?.decision || json?.truth_gate || null;
+    const stats = json?.stats || json?.kernel_summary || null;
+    const issues = json?.stages?.consistency?.issues || [];
+
+    if (!atoms.length && !decision) {
+      sidebar.hidden = true;
+      return;
+    }
+    sidebar.hidden = false;
+
+    const runEl = $("truth-sidebar-run");
+    if (runEl) runEl.textContent = json?.run_id ? String(json.run_id).slice(0, 18) : "";
+
+    const verdictEl = $("truth-sidebar-verdict");
+    if (verdictEl) {
+      if (decision?.action) {
+        const act = String(decision.action).toLowerCase();
+        verdictEl.textContent = act.toUpperCase();
+        verdictEl.className = `cu-truth-sidebar-verdict cu-truth-gate-${act}`;
+      } else {
+        verdictEl.textContent = "PENDING";
+        verdictEl.className = "cu-truth-sidebar-verdict";
+      }
+    }
+
+    const scoreEl = $("truth-sidebar-score");
+    if (scoreEl) {
+      const ts = decision?.truth_score;
+      const reportConf = json?.confidence ?? json?.stages?.report?.confidence;
+      const lines = [];
+      if (ts != null) lines.push(`Truth gate: ${ts}/100`);
+      if (reportConf != null) lines.push(`Report confidence: ${reportConf}/100`);
+      scoreEl.textContent = lines.join(" · ") || "";
+    }
+
+    const compEl = $("truth-sidebar-components");
+    if (compEl) {
+      const wc = decision?.inputs?.weighted?.components || decision?.inputs?.stats?.weighted?.components;
+      const parts = [];
+      if (stats?.checkable_count != null) parts.push(`${stats.checkable_count} checkable`);
+      if (stats?.verified != null) parts.push(`${stats.verified} verified`);
+      if (stats?.unverified != null && stats.unverified > 0) parts.push(`${stats.unverified} unverified`);
+      if (stats?.opinion_count != null && stats.opinion_count > 0) parts.push(`${stats.opinion_count} opinion`);
+      if (stats?.disk_mismatch != null && stats.disk_mismatch > 0) parts.push(`${stats.disk_mismatch} mismatch`);
+      if (wc) {
+        parts.push(
+          `disk ${wc.disk_pct}% · consistency ${wc.consistency_pct}% · source ${wc.source_pct}% · heuristic ${wc.heuristic_pct}%`
+        );
+      }
+      compEl.textContent = parts.join(" · ") || "";
+    }
+
+    const reasonsEl = $("truth-sidebar-reasons");
+    if (reasonsEl) {
+      const reasons = [];
+      if (decision?.founder_line) reasons.push(decision.founder_line);
+      if (decision?.reason && decision.reason !== decision.founder_line) reasons.push(decision.reason);
+      const actions = json?.stages?.report?.verify_actions || [];
+      actions.slice(0, 3).forEach((a) => reasons.push(`Next: ${a}`));
+      issues.slice(0, 2).forEach((i) => reasons.push(i));
+      atoms
+        .filter((a) => a.disk_status === "mismatch" && a.verify_reason)
+        .slice(0, 4)
+        .forEach((a) => reasons.push(`${a.id}: ${a.verify_reason}`));
+      reasonsEl.innerHTML = reasons.length
+        ? reasons.map((r) => `<li>${esc(r)}</li>`).join("")
+        : "<li>No blockers yet — finish report stage.</li>";
+    }
+
+    const tbody = $("truth-sidebar-atoms-body");
+    if (tbody) {
+      tbody.innerHTML = atoms
+        .map((a) => {
+          const st = a.disk_status || "n/a";
+          const cls =
+            st === "verified"
+              ? "cu-atom-verified"
+              : st === "mismatch"
+                ? "cu-atom-mismatch"
+                : st === "opinion" || st === "skip"
+                  ? "cu-atom-opinion"
+                  : "cu-atom-unverified";
+          const ct = a.claim_type || "—";
+          const title = esc(a.verify_reason || a.text || "");
+          return `<tr><td>${esc(a.id)}</td><td>${esc(ct)}</td><td class="${cls}">${esc(st)}</td><td title="${title}">${esc((a.text || "").slice(0, 56))}</td></tr>`;
+        })
+        .join("");
+    }
+
+    const hint = $("truth-sidebar-hint");
+    if (hint) {
+      hint.textContent = decision?.dispatch_blocked
+        ? "Dispatch blocked — run Founder loop only after you fix or override consciously."
+        : "Founder close reads this ORD gate when runs are linked (same session ordRunId).";
+    }
+  }
+
+  function clearTruthSidebar() {
+    const sidebar = $("truth-sidebar");
+    if (sidebar) sidebar.hidden = true;
+    const tbody = $("truth-sidebar-atoms-body");
+    if (tbody) tbody.innerHTML = "";
+    const reasonsEl = $("truth-sidebar-reasons");
+    if (reasonsEl) reasonsEl.innerHTML = "";
+    const verdictEl = $("truth-sidebar-verdict");
+    if (verdictEl) {
+      verdictEl.textContent = "—";
+      verdictEl.className = "cu-truth-sidebar-verdict";
+    }
+  }
+
+  function renderTruthGate(el, decision) {
+    if (!el) return;
+    if (!decision || !decision.action) {
+      el.hidden = true;
+      el.textContent = "";
+      el.className = "cu-truth-gate";
+      return;
+    }
+    const action = String(decision.action).toLowerCase();
+    el.hidden = false;
+    el.className = `cu-truth-gate cu-truth-gate-${action}`;
+    const score = decision.truth_score != null ? `${decision.truth_score}/100` : "—";
+    const line = decision.founder_line || decision.reason || "";
+    const block = decision.dispatch_blocked ? " · dispatch blocked" : "";
+    el.innerHTML = `<strong>${esc(action.toUpperCase())}</strong> · score ${esc(score)} — ${esc(line)}${esc(block)}`;
+  }
 
   function esc(s) {
     const d = document.createElement("div");
@@ -19,13 +205,31 @@
     setTimeout(() => el.remove(), ms || 4000);
   }
 
-  async function api(body) {
-    const res = await fetch(`${API}/api/chat-unify`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body || { action: "report" }),
-    });
-    return res.json();
+  async function api(body, opts = {}) {
+    const timeoutMs = opts.timeoutMs || 45000;
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+    try {
+      const res = await fetch(`${API}/api/chat-unify`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body || { action: "report" }),
+        signal: ctrl.signal,
+      });
+      clearTimeout(timer);
+      const text = await res.text();
+      try {
+        return JSON.parse(text);
+      } catch {
+        return { ok: false, error: "bad_json", message: text.slice(0, 200) || "Server returned invalid JSON" };
+      }
+    } catch (err) {
+      clearTimeout(timer);
+      if (err && err.name === "AbortError") {
+        return { ok: false, error: "timeout", message: "Timed out — try again or paste a shorter answer." };
+      }
+      return { ok: false, error: "network", message: "Connection lost — quit and reopen Chat Unify." };
+    }
   }
 
   function formatExtractOutput(ex) {
@@ -276,7 +480,8 @@
       ? ` · AI ${ai.auto_provider || "ready"}`
       : " · AI keys missing";
     if (el) {
-      el.textContent = `Connected · v${json.version || "1.3"} · ${n} extract${n === 1 ? "" : "s"} · ${ready} ready${qual}${merged}${wire}${aiLine}`;
+      const loops = $("tab-ord") ? " · Founder + ORD" : " · ORD tab missing";
+      el.textContent = `Connected · UI ${CLIENT_UI_VERSION}${loops} · ${n} extract${n === 1 ? "" : "s"} · ${ready} ready${qual}${merged}${wire}${aiLine}`;
       el.classList.remove("cu-status-error");
     }
     if (live) live.classList.add("cu-badge-live");
@@ -369,8 +574,8 @@
       renderTagSuggestions(json.suggested_tags);
       renderTranscriptSelect(json.transcript_candidates);
       const n = (json.extracts || []).length;
-      const stat = $("stat-extracts");
-      if (stat) stat.textContent = String(n);
+      const tileExt = $("tile-extracts");
+      if (tileExt) tileExt.textContent = String(n);
       renderLibrary(json.extracts);
       renderStatus(json);
       const ids = new Set((json.extracts || []).map((e) => e.id));
@@ -548,6 +753,738 @@
     }
   }
 
+  function setLoopStageMeta(stage, meta) {
+    const el = $(`loop-meta-${stage}`);
+    if (!el) return;
+    el.textContent = meta?.text || "";
+    el.className = "cu-machine-meta" + (meta?.className ? ` ${meta.className}` : "");
+  }
+
+  function machineMetaForStage(sid, st, json) {
+    const method = st?.method || "";
+    if (!st?.text && !st?.ok) return { text: "idle", className: "" };
+    if (sid === "language") {
+      return { text: method === "ai" || method === "openrouter" ? "AI" : "rules", className: method.includes("ai") || method === "openrouter" ? "cu-meta-ai" : "cu-meta-ok" };
+    }
+    if (sid === "reasoning") {
+      return { text: method || "rules", className: method.includes("ai") || method === "openrouter" ? "cu-meta-ai" : "" };
+    }
+    if (sid === "proof") {
+      const ev = st?.eval_1b || {};
+      if (!ev.present) return { text: "no Eval-1b", className: "cu-meta-warn" };
+      if (ev.mode === "live" && ev.live_ok) return { text: "Eval live OK", className: "cu-meta-ok" };
+      if (ev.mode === "live" && ev.live_ok === false) return { text: "Eval live FAIL", className: "cu-meta-warn" };
+      return { text: `Eval ${ev.mode || "?"}`, className: ev.ok ? "cu-meta-ok" : "cu-meta-warn" };
+    }
+    if (sid === "action") {
+      return { text: st?.one_action ? "1 step" : "rules", className: "cu-meta-ok" };
+    }
+    if (sid === "advisor" || sid === "critic") {
+      const ai = method.includes("ai") || method === "openrouter";
+      return { text: ai ? "AI" : "rules only", className: ai ? "cu-meta-ai" : "cu-meta-warn" };
+    }
+    if (sid === "close") {
+      const wo = json?.work_order || st?.work_order;
+      if (wo?.dispatch_blocked) return { text: "blocked", className: "cu-meta-warn" };
+      if (wo?.id) return { text: wo.id.replace("wo-cu-", "").slice(0, 8), className: "cu-meta-ok" };
+      return { text: "proposed", className: "" };
+    }
+    return { text: method || "done", className: "cu-meta-ok" };
+  }
+
+  function formatCloseDisplay(text, workOrder) {
+    if (!text) return "—";
+    const idx = text.indexOf("Work order (proposed");
+    if (idx > 0) {
+      const human = text.slice(0, idx).trim();
+      const woId = workOrder?.id || "proposed";
+      const blocked = workOrder?.dispatch_blocked ? "\n⚠ Dispatch blocked until Eval-1b proof passes." : "";
+      return `${human}\n\n[Work order ${woId} on disk — tap WO to copy JSON]${blocked}`;
+    }
+    return text;
+  }
+
+  function setLoopStageState(stage, state, text, opts = {}) {
+    const pre = $(`loop-out-${stage}`);
+    const li = document.querySelector(`.cu-loop-step[data-stage="${stage}"]`);
+    if (li) {
+      li.classList.toggle("cu-loop-active", state === "running");
+      li.classList.toggle("cu-loop-done", state === "done");
+      li.classList.toggle("cu-loop-waiting", state === "waiting");
+    }
+    if (!pre) return;
+    if (state === "running") {
+      pre.textContent = "Running…";
+      pre.title = "";
+      return;
+    }
+    if (state === "waiting") {
+      pre.textContent = text || "Waiting…";
+      pre.title = "";
+      return;
+    }
+    let display = text;
+    if (stage === "close" && text && opts.workOrder) {
+      display = formatCloseDisplay(text, opts.workOrder);
+    }
+    pre.textContent = display || "—";
+    pre.title = (text || "").slice(0, 4000);
+  }
+
+  function resetLoopPipelineUI() {
+    LOOP_STAGES.forEach((sid, i) => {
+      if (i === 0) {
+        setLoopStageState(sid, "idle", "—");
+        setLoopStageMeta(sid, { text: "", className: "" });
+      } else {
+        setLoopStageState(sid, "waiting", STAGE_WAIT_LABEL[sid]);
+        setLoopStageMeta(sid, { text: "wait", className: "" });
+      }
+    });
+  }
+
+  function applyLoopProgress(progress) {
+    const current = progress.current_stage;
+    const completed = new Set(progress.completed_stages || []);
+    const stages = progress.stages || {};
+    LOOP_STAGES.forEach((sid) => {
+      const st = stages[sid] || {};
+      if (completed.has(sid) && (st.text || st.ok)) {
+        setLoopStageState(sid, "done", st.text || "", {
+          workOrder: sid === "close" ? st.work_order || progress.work_order : null,
+        });
+        setLoopStageMeta(sid, machineMetaForStage(sid, st, progress));
+      } else if (sid === current) {
+        setLoopStageState(sid, "running", "");
+        setLoopStageMeta(sid, { text: "…", className: "" });
+      } else if (!completed.has(sid)) {
+        setLoopStageState(sid, "waiting", STAGE_WAIT_LABEL[sid] || "Waiting…");
+        setLoopStageMeta(sid, { text: "wait", className: "" });
+      }
+    });
+    const stat = $("loop-status");
+    if (stat && progress.running && current) {
+      stat.textContent = `Running ${current}… (${completed.size}/${LOOP_STAGES.length} done)`;
+    }
+  }
+
+  function renderLoop(json) {
+    const stages = json?.stages || {};
+    LOOP_STAGES.forEach((sid) => {
+      const st = stages[sid] || {};
+      setLoopStageState(sid, st.text ? "done" : "idle", st.text || "—", {
+        workOrder: sid === "close" ? json?.work_order || st?.work_order : null,
+      });
+      setLoopStageMeta(sid, machineMetaForStage(sid, st, json));
+    });
+    state.founderText = stages.language?.text || "";
+    state.reasoningText = stages.reasoning?.text || "";
+    state.loopSendback = json?.sendback || stages.close?.sendback || "";
+    state.workOrder = json?.work_order || stages.close?.work_order || null;
+    const status = $("loop-status");
+    if (status) {
+      const methods = LOOP_STAGES.map((s) => stages[s]?.method).filter(Boolean);
+      const wo = state.workOrder;
+      const woLine = wo?.id ? ` · work-order ${wo.id}` : "";
+      const evalLine = stages.proof?.eval_1b?.present
+        ? ` · Eval-1b ${stages.proof.eval_1b.mode || "?"}`
+        : " · Eval-1b missing";
+      const tg = json?.truth_gate;
+      const tgLine = tg?.action ? ` · truth gate ${String(tg.action).toUpperCase()}` : "";
+      const blockLine = wo?.dispatch_blocked ? " · dispatch blocked" : "";
+      status.textContent = json?.ok
+        ? `Pipeline complete · v${json.version || "2.9"}${woLine}${evalLine}${tgLine}${blockLine}`
+        : "";
+    }
+    renderTruthGate($("founder-truth-gate"), json?.truth_gate || null);
+    const ordLink = $("founder-ord-link");
+    if (ordLink) {
+      const linked = state.ordRunId || json?.ord_run_id || json?.kernel?.ord_run_id;
+      if (linked) {
+        ordLink.hidden = false;
+        const tg = json?.truth_gate;
+        const tgLine = tg?.action ? ` · gate ${String(tg.action).toUpperCase()} ${tg.truth_score || "?"}/100` : "";
+        ordLink.textContent = `Linked ORD run: ${String(linked).slice(0, 20)}${tgLine}`;
+      } else {
+        ordLink.hidden = true;
+        ordLink.textContent = "";
+      }
+    }
+  }
+
+  async function runStagePipeline(opts) {
+    const {
+      stages,
+      action,
+      draft,
+      context,
+      useAi,
+      resetUI,
+      setStage,
+      setMeta,
+      metaFor,
+      waitLabels,
+      statusEl,
+      fromAuto,
+      doneLabel,
+      runIdPrefix,
+      runIdStateKey,
+      ordRunId,
+      onStageComplete,
+    } = opts;
+
+    resetUI();
+    let runId = newRunId(runIdPrefix || "cu");
+    if (runIdStateKey) state[runIdStateKey] = runId;
+    let lastJson = null;
+
+    for (let i = 0; i < stages.length; i++) {
+      const sid = stages[i];
+      stages.forEach((other, j) => {
+        if (j > i) {
+          setStage(other, "waiting", waitLabels[other] || "Waiting…");
+          setMeta(other, { text: "wait", className: "" });
+        }
+      });
+      setStage(sid, "running", "");
+      if (statusEl) {
+        statusEl.textContent = `Step ${i + 1}/${stages.length}: ${sid} · run ${runId.slice(0, 16)}…`;
+      }
+
+      const payload = {
+        action,
+        stage: sid,
+        text: draft,
+        founder_message: context,
+        use_ai: useAi,
+        run_id: runId,
+        write_receipt: i === stages.length - 1,
+      };
+      if (ordRunId) payload.ord_run_id = ordRunId;
+
+      const json = await api(payload, { timeoutMs: 120000 });
+
+      if (!json.ok) {
+        setStage(sid, "idle", json.message || json.error || "Blocked");
+        if (statusEl) statusEl.textContent = json.message || "Pipeline blocked";
+        if (!fromAuto) toast(json.message || json.error || "Stage blocked", 6000);
+        return null;
+      }
+
+      runId = json.run_id || runId;
+      if (runIdStateKey) state[runIdStateKey] = runId;
+
+      const st = (json.stages || {})[sid] || {};
+      setStage(sid, "done", st.text || "", {
+        workOrder: sid === "close" ? json.work_order : null,
+      });
+      setMeta(sid, metaFor(sid, st, json));
+      lastJson = json;
+      if (typeof onStageComplete === "function") onStageComplete(json, sid);
+      await new Promise((r) => setTimeout(r, 280));
+    }
+
+    if (statusEl && lastJson) {
+      statusEl.textContent = doneLabel(lastJson) || "Pipeline complete";
+    }
+    return lastJson;
+  }
+
+  async function runFullLoop(opts = {}) {
+    const draft = ($("input-founder-draft")?.value || "").trim();
+    const context = ($("input-founder-context")?.value || "").trim();
+    if (!draft) {
+      if (!opts.fromAuto) toast("Paste the agent answer first");
+      return null;
+    }
+
+    const json = await runStagePipeline({
+      stages: LOOP_STAGES,
+      action: "founder_loop_stage",
+      draft,
+      context,
+      useAi: !!$("founder-use-ai")?.checked,
+      resetUI: resetLoopPipelineUI,
+      setStage: setLoopStageState,
+      setMeta: setLoopStageMeta,
+      metaFor: machineMetaForStage,
+      waitLabels: STAGE_WAIT_LABEL,
+      statusEl: $("loop-status"),
+      fromAuto: opts.fromAuto,
+      runIdPrefix: "cu",
+      runIdStateKey: "founderRunId",
+      ordRunId: state.ordRunId || null,
+      doneLabel: (row) => {
+        const wo = row.work_order;
+        const woLine = wo?.id ? ` · work-order ${wo.id}` : "";
+        return `Founder loop complete · sequential · v${row.version || "2.8"}${woLine}`;
+      },
+    });
+
+    if (!json) return null;
+    renderLoop(json);
+    if (!opts.fromAuto) toast("Founder loop complete (sequential)");
+    if ($("founder-auto-send")?.checked && state.loopSendback) {
+      await sendLoopToCursor({ silent: true });
+    }
+    return json;
+  }
+
+  async function sendLoopToCursor(opts = {}) {
+    const text = (state.loopSendback || $(`loop-out-close`)?.textContent || "").trim();
+    if (!text || text === "—" || text.startsWith("Running")) {
+      if (!opts.silent) toast("Run loop first — no close order");
+      return;
+    }
+    const json = await api({ action: "send_founder_reply", text });
+    if (json.ok || json.clipboard_fallback) {
+      toast(json.message || "Close order sent to Cursor");
+    } else if (!opts.silent) {
+      toast(json.message || json.error || "Send failed", 6000);
+    }
+  }
+
+  function clearFounderLanguage() {
+    if ($("input-founder-draft")) $("input-founder-draft").value = "";
+    if ($("input-founder-context")) $("input-founder-context").value = "";
+    resetLoopPipelineUI();
+    const stat = $("loop-status");
+    if (stat) stat.textContent = "";
+    state.founderText = "";
+    state.reasoningText = "";
+    state.loopSendback = "";
+    state.workOrder = null;
+    state.founderRunId = null;
+    renderTruthGate($("founder-truth-gate"), null);
+  }
+
+  /* —— ORD loop (reverse debug) —— */
+  function setOrdStageMeta(stage, meta) {
+    const el = $(`ord-meta-${stage}`);
+    if (!el) return;
+    el.textContent = meta?.text || "";
+    el.className = "cu-machine-meta" + (meta?.className ? ` ${meta.className}` : "");
+  }
+
+  function ordMetaForStage(sid, st, json) {
+    const method = st?.method || "";
+    if (sid === "parse" && st?.parsed) {
+      const p = st.parsed;
+      return { text: `${p.line_count || 0} lines`, className: "cu-meta-ok" };
+    }
+    if (sid === "classify") {
+      const n = st?.atom_count ?? st?.atoms?.length ?? 0;
+      if (n) return { text: `${n} atoms`, className: "cu-meta-ok" };
+      const buckets = st?.buckets;
+      const typed = buckets ? Object.values(buckets).reduce((a, b) => a + (b?.length || 0), 0) : 0;
+      return { text: `${typed} typed`, className: "cu-meta-ok" };
+    }
+    if (sid === "consistency") {
+      const n = st?.issues?.length || 0;
+      const c = st?.stats?.contradictions ?? json?.stats?.contradictions;
+      const edge = c != null ? ` · ${c}↔` : "";
+      return { text: n ? `${n} issues${edge}` : `clean${edge}`, className: n ? "cu-meta-warn" : "cu-meta-ok" };
+    }
+    if (sid === "attribution") {
+      const n = st?.atoms?.length || json?.atoms?.length || 0;
+      const ai = method.includes("ai") || method.includes("openrouter");
+      return { text: n ? `${n} tagged` : ai ? "AI" : "rules", className: ai ? "cu-meta-ai" : "cu-meta-ok" };
+    }
+    if (sid === "simplify") {
+      return { text: method.includes("ai") ? "AI plain" : "rules", className: method.includes("ai") ? "cu-meta-ai" : "cu-meta-ok" };
+    }
+    if (sid === "redflags") {
+      const n = st?.flags?.length || 0;
+      return { text: `${n} flags`, className: n > 2 ? "cu-meta-warn" : "cu-meta-ok" };
+    }
+    if (sid === "report") {
+      const c = json?.confidence ?? st?.confidence;
+      const stt = json?.stats || st?.stats || json?.kernel_summary;
+      if (stt?.verified != null) {
+        return {
+          text: `${stt.verified}✓ ${stt.disk_mismatch || 0}✗`,
+          className: (stt.disk_mismatch || 0) > 0 ? "cu-meta-warn" : "cu-meta-ok",
+        };
+      }
+      if (c != null) return { text: `${c}/100`, className: c >= 60 ? "cu-meta-ok" : "cu-meta-warn" };
+      return { text: "done", className: "cu-meta-ok" };
+    }
+    return { text: method || "done", className: "" };
+  }
+
+  function setOrdStageState(stage, stateName, text) {
+    const pre = $(`ord-out-${stage}`);
+    const li = document.querySelector(`.cu-loop-step[data-ord-stage="${stage}"]`);
+    if (li) {
+      li.classList.toggle("cu-loop-active", stateName === "running");
+      li.classList.toggle("cu-loop-done", stateName === "done");
+      li.classList.toggle("cu-loop-waiting", stateName === "waiting");
+    }
+    if (!pre) return;
+    if (stateName === "running") {
+      pre.textContent = "Running…";
+      return;
+    }
+    if (stateName === "waiting") {
+      pre.textContent = text || "Waiting…";
+      return;
+    }
+    pre.textContent = text || "—";
+    pre.title = (text || "").slice(0, 4000);
+  }
+
+  function resetOrdPipelineUI() {
+    ORD_STAGES.forEach((sid, i) => {
+      if (i === 0) {
+        setOrdStageState(sid, "idle", "—");
+        setOrdStageMeta(sid, { text: "", className: "" });
+      } else {
+        setOrdStageState(sid, "waiting", ORD_WAIT_LABEL[sid]);
+        setOrdStageMeta(sid, { text: "wait", className: "" });
+      }
+    });
+  }
+
+  function applyOrdProgress(progress) {
+    const current = progress.current_stage;
+    const completed = new Set(progress.completed_stages || []);
+    const stages = progress.stages || {};
+    ORD_STAGES.forEach((sid) => {
+      const st = stages[sid] || {};
+      if (completed.has(sid) && (st.text || st.ok)) {
+        setOrdStageState(sid, "done", st.text || "");
+        setOrdStageMeta(sid, ordMetaForStage(sid, st, progress));
+      } else if (sid === current) {
+        setOrdStageState(sid, "running", "");
+        setOrdStageMeta(sid, { text: "…", className: "" });
+      } else if (!completed.has(sid)) {
+        setOrdStageState(sid, "waiting", ORD_WAIT_LABEL[sid] || "Waiting…");
+        setOrdStageMeta(sid, { text: "wait", className: "" });
+      }
+    });
+    const stat = $("ord-status");
+    if (stat && progress.running && current) {
+      stat.textContent = `ORD · ${current}… (${completed.size}/${ORD_STAGES.length})`;
+    }
+  }
+
+  function renderOrd(json) {
+    const stages = json?.stages || {};
+    ORD_STAGES.forEach((sid) => {
+      const st = stages[sid] || {};
+      setOrdStageState(sid, st.text ? "done" : "idle", st.text || "—");
+      setOrdStageMeta(sid, ordMetaForStage(sid, st, json));
+    });
+    state.ordRunId = json?.run_id || state.ordRunId;
+    state.ordReport = stages.report?.text || "";
+    state.ordConfidence = json?.confidence ?? stages.report?.confidence ?? null;
+    state.ordDecision = json?.decision || json?.truth_gate || stages.report?.decision || null;
+    state.ordStats = json?.stats || stages.report?.stats || json?.kernel_summary || null;
+    const stat = $("ord-status");
+    if (stat && json?.ok) {
+      const conf = state.ordConfidence != null ? ` · confidence ${state.ordConfidence}/100` : "";
+      const rid = json.run_id ? ` · run ${String(json.run_id).slice(0, 14)}` : "";
+      const dg = state.ordDecision?.action ? ` · ${String(state.ordDecision.action).toUpperCase()}` : "";
+      const counts = state.ordStats
+        ? ` · ${state.ordStats.verified || 0} verified · ${state.ordStats.disk_mismatch || 0} mismatch`
+        : "";
+      stat.textContent = `ORD complete · v${json.version || "0.3"}${conf}${dg}${counts}${rid}`;
+    }
+    renderTruthGate($("ord-truth-gate"), state.ordDecision);
+    renderTruthSidebar(json);
+  }
+
+  async function runOrdLoop(opts = {}) {
+    const draft = ($("input-ord-draft")?.value || "").trim();
+    const context = ($("input-ord-context")?.value || "").trim();
+    if (!draft) {
+      if (!opts.fromAuto) toast("Paste AI output first");
+      return null;
+    }
+
+    const json = await runStagePipeline({
+      stages: ORD_STAGES,
+      action: "ord_loop_stage",
+      draft,
+      context,
+      useAi: !!$("ord-use-ai")?.checked,
+      resetUI: resetOrdPipelineUI,
+      setStage: setOrdStageState,
+      setMeta: setOrdStageMeta,
+      metaFor: ordMetaForStage,
+      waitLabels: ORD_WAIT_LABEL,
+      statusEl: $("ord-status"),
+      fromAuto: opts.fromAuto,
+      runIdPrefix: "ord",
+      runIdStateKey: "ordRunId",
+      onStageComplete: (row, sid) => {
+        if (sid === "consistency" || sid === "report") renderTruthSidebar(row);
+      },
+      doneLabel: (row) => {
+        const conf = row.confidence != null ? ` · confidence ${row.confidence}/100` : "";
+        const dg = row.decision?.action ? ` · ${String(row.decision.action).toUpperCase()}` : "";
+        return `ORD complete · sequential · v${row.version || "0.2"}${conf}${dg}`;
+      },
+    });
+
+    if (!json) return null;
+    renderOrd(json);
+    if (!opts.fromAuto) toast("ORD loop complete (sequential)");
+    return json;
+  }
+
+  function clearOrd() {
+    if ($("input-ord-draft")) $("input-ord-draft").value = "";
+    if ($("input-ord-context")) $("input-ord-context").value = "";
+    resetOrdPipelineUI();
+    const stat = $("ord-status");
+    if (stat) stat.textContent = "";
+    state.ordReport = "";
+    state.ordConfidence = null;
+    state.ordRunId = null;
+    state.ordDecision = null;
+    state.ordStats = null;
+    renderTruthGate($("ord-truth-gate"), null);
+    clearTruthSidebar();
+  }
+
+  function loadOrdSettings() {
+    try {
+      const s = JSON.parse(localStorage.getItem(ORD_SETTINGS_KEY) || "{}");
+      if ($("ord-auto-loop")) $("ord-auto-loop").checked = !!s.autoLoop;
+      if ($("ord-use-ai")) $("ord-use-ai").checked = !!s.useAi;
+    } catch {
+      /* ignore */
+    }
+  }
+
+  function saveOrdSettings() {
+    try {
+      localStorage.setItem(
+        ORD_SETTINGS_KEY,
+        JSON.stringify({
+          autoLoop: !!$("ord-auto-loop")?.checked,
+          useAi: !!$("ord-use-ai")?.checked,
+        })
+      );
+    } catch {
+      /* ignore */
+    }
+  }
+
+  function bindOrdPaste() {
+    const ta = $("input-ord-draft");
+    if (!ta) return;
+    ta.addEventListener("paste", () => {
+      setTimeout(() => {
+        if (!$("ord-auto-loop")?.checked) return;
+        const draft = (ta.value || "").trim();
+        if (draft.length < 80) return;
+        clearTimeout(ordDebounce);
+        ordDebounce = setTimeout(() => runOrdLoop({ fromAuto: true }), 900);
+      }, 120);
+    });
+  }
+
+  function bindOrdCopyButtons() {
+    document.querySelectorAll("[data-ord-copy]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const sid = btn.getAttribute("data-ord-copy");
+        copyText($(`ord-out-${sid}`)?.textContent || "", `ord-${sid}`);
+      });
+    });
+    $("btn-copy-ord-report")?.addEventListener("click", () => {
+      const text = state.ordReport || $(`ord-out-report`)?.textContent || "";
+      if (!text || text === "—") {
+        toast("Run ORD loop first");
+        return;
+      }
+      copyText(text, "ORD report");
+    });
+  }
+
+  function switchTab(tabId) {
+    const isOrd = tabId === "ord";
+    $("tab-founder")?.classList.toggle("cu-tab-active", !isOrd);
+    $("tab-ord")?.classList.toggle("cu-tab-active", isOrd);
+    $("tab-founder")?.setAttribute("aria-selected", String(!isOrd));
+    $("tab-ord")?.setAttribute("aria-selected", String(isOrd));
+    const founderPanel = $("panel-founder-loop");
+    const ordPanel = $("panel-ord-loop");
+    if (founderPanel) {
+      founderPanel.classList.toggle("cu-tab-panel-active", !isOrd);
+      if (isOrd) founderPanel.setAttribute("hidden", "");
+      else founderPanel.removeAttribute("hidden");
+    }
+    if (ordPanel) {
+      ordPanel.classList.toggle("cu-tab-panel-active", isOrd);
+      if (isOrd) ordPanel.removeAttribute("hidden");
+      else ordPanel.setAttribute("hidden", "");
+    }
+    try {
+      localStorage.setItem("chat-unify-active-tab-v1", tabId);
+      if (isOrd) history.replaceState(null, "", "#ord");
+      else history.replaceState(null, "", location.pathname + location.search);
+    } catch {
+      /* ignore */
+    }
+  }
+
+  function bindTabs() {
+    document.querySelectorAll(".cu-tab[data-tab]").forEach((btn) => {
+      btn.addEventListener("click", () => switchTab(btn.getAttribute("data-tab") || "founder"));
+    });
+    try {
+      const hash = (location.hash || "").replace("#", "");
+      const saved = localStorage.getItem("chat-unify-active-tab-v1");
+      if (hash === "ord" || saved === "ord") switchTab("ord");
+    } catch {
+      /* ignore */
+    }
+  }
+
+  async function refreshAiStatus() {
+    try {
+      const res = await fetch(`${API}/health`, { cache: "no-store" });
+      const h = await res.json();
+      state.openrouterReady = !!h.openrouter_ready;
+      state.aiProvider = h.ai_provider || "none";
+      const orLabel = $("ord-openrouter-label");
+      const fuLabel = $("founder-openrouter-label");
+      const line = state.openrouterReady
+        ? `OpenRouter · ${state.aiProvider}`
+        : "OpenRouter · key missing (~/.sina/secrets.env)";
+      if (orLabel) orLabel.textContent = line;
+      if (fuLabel) fuLabel.textContent = line;
+      if (state.openrouterReady && $("ord-use-ai") && !$("ord-use-ai").dataset.userTouched) {
+        $("ord-use-ai").checked = true;
+      }
+    } catch {
+      /* ignore */
+    }
+  }
+
+  function bindAiCheckboxes() {
+    $("ord-use-ai")?.addEventListener("change", () => {
+      if ($("ord-use-ai")) $("ord-use-ai").dataset.userTouched = "1";
+      saveOrdSettings();
+    });
+  }
+
+  async function verifyUiFreshness() {
+    const metaVer =
+      document.querySelector('meta[name="chat-unify-ui-version"]')?.getAttribute("content") || CLIENT_UI_VERSION;
+    const hasOrdTab = !!$("tab-ord");
+    let serverVer = "";
+    try {
+      const res = await fetch(`${API}/health`, { cache: "no-store" });
+      const h = await res.json();
+      serverVer = h.ui_version || h.version || "";
+    } catch {
+      /* offline handled elsewhere */
+    }
+    const mismatch =
+      !hasOrdTab ||
+      (serverVer && serverVer !== metaVer) ||
+      (serverVer && serverVer !== CLIENT_UI_VERSION);
+    if (!mismatch) return;
+
+    let banner = $("cu-stale-banner");
+    if (!banner) {
+      banner = document.createElement("div");
+      banner.id = "cu-stale-banner";
+      banner.className = "cu-stale-banner";
+      banner.innerHTML =
+        'Stale Chat Unify UI — tabs or ORD loop missing. <button type="button" id="cu-stale-reload">Reload now</button>';
+      $("status-line")?.after(banner);
+      $("cu-stale-reload")?.addEventListener("click", () => {
+        location.href = `${API}/?ui=${CLIENT_UI_VERSION}&t=${Date.now()}`;
+      });
+    }
+    if (!sessionStorage.getItem("cu-auto-reload")) {
+      sessionStorage.setItem("cu-auto-reload", "1");
+      setTimeout(() => {
+        location.href = `${API}/?ui=${CLIENT_UI_VERSION}&t=${Date.now()}`;
+      }, 1200);
+    }
+  }
+
+  function loadFounderSettings() {
+    try {
+      const s = JSON.parse(localStorage.getItem(FOUNDER_SETTINGS_KEY) || "{}");
+      if ($("founder-auto-loop")) $("founder-auto-loop").checked = s.autoLoop !== false && (s.autoLoop || s.autoTranslate);
+      if ($("founder-auto-send")) $("founder-auto-send").checked = !!s.autoSend;
+      if ($("founder-use-ai")) $("founder-use-ai").checked = !!s.useAi;
+    } catch {
+      /* ignore */
+    }
+  }
+
+  function saveFounderSettings() {
+    try {
+      localStorage.setItem(
+        FOUNDER_SETTINGS_KEY,
+        JSON.stringify({
+          autoLoop: !!$("founder-auto-loop")?.checked,
+          autoSend: !!$("founder-auto-send")?.checked,
+          useAi: !!$("founder-use-ai")?.checked,
+        })
+      );
+    } catch {
+      /* ignore */
+    }
+  }
+
+  function bindFounderPaste() {
+    const ta = $("input-founder-draft");
+    if (!ta) return;
+    ta.addEventListener("paste", () => {
+      setTimeout(() => {
+        if (!$("founder-auto-loop")?.checked) return;
+        const draft = (ta.value || "").trim();
+        if (draft.length < 60) return;
+        clearTimeout(founderDebounce);
+        founderDebounce = setTimeout(() => runFullLoop({ fromAuto: true }), 900);
+      }, 120);
+    });
+  }
+
+  function bindFounderSettings() {
+    $("founder-auto-loop")?.addEventListener("change", saveFounderSettings);
+    $("founder-auto-send")?.addEventListener("change", saveFounderSettings);
+    $("founder-use-ai")?.addEventListener("change", saveFounderSettings);
+  }
+
+  function bindLoopCopyButtons() {
+    document.querySelectorAll("[data-copy]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const sid = btn.getAttribute("data-copy");
+        copyText($(`loop-out-${sid}`)?.textContent || "", sid);
+      });
+    });
+    $("btn-copy-work-order")?.addEventListener("click", () => {
+      if (!state.workOrder) {
+        toast("Run loop first — no work order");
+        return;
+      }
+      copyText(JSON.stringify(state.workOrder, null, 2), "work-order");
+    });
+  }
+
+  /* legacy stubs — loop replaces separate translate/reason */
+  async function translateFounder(opts = {}) {
+    return runFullLoop(opts);
+  }
+  async function reasonFounder(opts = {}) {
+    return runFullLoop(opts);
+  }
+  async function runBothMachines() {
+    return runFullLoop();
+  }
+  async function sendFounderToCursor(opts = {}) {
+    return sendLoopToCursor(opts);
+  }
+
   async function aiPolish() {
     const brief = state.last_unified?.unified_brief || "";
     if (!brief.trim()) {
@@ -591,12 +1528,29 @@
 
   function bind() {
     bindDropzone();
+    bindTabs();
+    loadFounderSettings();
+    loadOrdSettings();
+    bindFounderPaste();
+    bindOrdPaste();
+    bindFounderSettings();
+    $("ord-auto-loop")?.addEventListener("change", saveOrdSettings);
+    $("ord-use-ai")?.addEventListener("change", saveOrdSettings);
     $("btn-save")?.addEventListener("click", saveExtract);
     $("btn-structure-all")?.addEventListener("click", structureAll);
     $("btn-unify-all")?.addEventListener("click", () => unifyAll(false));
     $("btn-export-brief")?.addEventListener("click", exportBrief);
     $("btn-wire-n8n")?.addEventListener("click", wireN8n);
     $("btn-sync-cursor")?.addEventListener("click", syncCursor);
+    bindLoopCopyButtons();
+    bindOrdCopyButtons();
+    bindAiCheckboxes();
+    refreshAiStatus();
+    $("btn-run-full-loop")?.addEventListener("click", () => runFullLoop());
+    $("btn-run-ord-loop")?.addEventListener("click", () => runOrdLoop());
+    $("btn-send-loop-cursor")?.addEventListener("click", () => sendLoopToCursor());
+    $("btn-clear-founder")?.addEventListener("click", clearFounderLanguage);
+    $("btn-clear-ord")?.addEventListener("click", clearOrd);
     $("btn-ai-polish")?.addEventListener("click", aiPolish);
     $("btn-ai-critique")?.addEventListener("click", aiCritique);
     $("btn-ai-polish-brief")?.addEventListener("click", aiPolish);
@@ -644,6 +1598,7 @@
 
   bind();
   load();
+  verifyUiFreshness();
   setInterval(() => {
     if (!document.hidden) load();
   }, 45000);

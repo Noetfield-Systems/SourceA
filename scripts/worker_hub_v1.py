@@ -18,7 +18,7 @@ POLICY_LINKS = (
     {"id": "super-fast", "label": "Super Fast Hub law", "path": "SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md"},
     {"id": "layer-stack", "label": "Agentic layer stack", "path": "SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md"},
     {"id": "no-fake", "label": "No fake progress", "path": "SOURCEA_NO_FAKE_PROGRESS_ENTERPRISE_SHIP_LOCKED_v1.md"},
-    {"id": "asf-100", "label": "ASF 100 next plans", "path": "ASF_100_NEXT_PLANS_ENTERPRISE_SHIP_LOCKED_v1.md"},
+    {"id": "asf-100", "label": "ASF 100 next plans", "path": "brain-os/system/ASF_100_NEXT_PLANS_ENTERPRISE_SHIP_LOCKED_v1.md"},
     {"id": "no-rebuild", "label": "No hub rebuild stuck", "path": "AGENT_NO_HUB_REBUILD_STUCK_LOCKED_v1.md"},
     {"id": "anti-stale", "label": "Anti-staleness plan", "path": "SOURCEA_ANTI_STALENESS_MACHINE_ENFORCEMENT_PLAN_LOCKED_v1.md"},
     {"id": "no-terminal", "label": "No Terminal (founder law)", "path": "SINA_COMMAND_NO_TERMINAL_FOUNDER_LOCKED_v1.md"},

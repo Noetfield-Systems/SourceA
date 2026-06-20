@@ -45,7 +45,7 @@ def _resolve_source_a() -> Path:
         Path.home() / "Desktop" / "SourceA",
         Path(__file__).resolve().parents[1],
     ):
-        if (candidate / "SINA_AUTOMATION_SPINE_AND_N8N_LOCKED_v1.md").is_file():
+        if (candidate / "brain-os/law/SINA_AUTOMATION_SPINE_AND_N8N_LOCKED_v1.md").is_file():
             return candidate
     return Path(__file__).resolve().parents[1]
 

@@ -164,12 +164,12 @@ def build_state(progress: dict, fleet: dict, drift: list[dict], blockers: list[d
     ]
 
     tier1 = [
-        {"label": "Bowl spec", "path": "SINA_DAILY_BOWL_LOCKED_v1.md"},
+        {"label": "Bowl spec", "path": "brain-os/law/SINA_DAILY_BOWL_LOCKED_v1.md"},
         {"label": "Command vision", "path": "SINA_COMMAND_CENTER_VISION_LOCKED_v1.md"},
-        {"label": "Understanding roles", "path": "UNDERSTANDING_ROLES_CURSOR_ECOSYSTEM_v1.md"},
+        {"label": "Understanding roles", "path": "brain-os/law/UNDERSTANDING_ROLES_CURSOR_ECOSYSTEM_v1.md"},
         {"label": "Command center", "path": "ASF_PROGRAM_PROGRESS_COMMAND_CENTER_LOCKED_v1.md"},
         {"label": "Thread registry", "path": "ASF_PROGRAM_THREADS_REGISTRY_LOCKED_v1.md"},
-        {"label": "Source A start", "path": "README_SOURCE_A.md"},
+        {"label": "Source A start", "path": "brain-os/law/entry/README_SOURCE_A.md"},
         {"label": "Mono blueprint", "path": "../SinaaiMonoRepo/SinaaiDataBase/data/L0-meta/005-project-blueprint.md"},
         {"label": "Agent desk", "path": "agent-control-panel/index.html"},
     ]

@@ -1,8 +1,8 @@
 # Infra — Supabase portfolio tiers
 
-**ASF decision:** Virlux lives in **Labs Sandbox**, not Portfolio Spine or a ring-fenced production project.
+**ASF decision (2026-06-20):** Virlux is **agentic factory SaaS online** on **Labs Sandbox** Supabase — FINTRAC/payment rails **OUT of VIRLUX** (TrustField or future company).
 
-**Virlux code/docs home:** `labs/virlux/README.md` — graduation trigger when real money/user data.
+**Virlux code/docs home:** `labs/virlux/README.md` · primary repo `~/Desktop/VIRLUX`
 
 **Root cleanup:** `infra/cleanup/` — manifest-first; secret scan before snapshot commit.
 

@@ -351,9 +351,9 @@ def harvest_rules(subjects: dict[str, dict]) -> None:
 def harvest_registry_hooks(subjects: dict[str, dict]) -> None:
     _attach_doc(subjects, "ASF_PROGRAM_THREADS_REGISTRY_LOCKED_v1.md", "Program threads registry")
     _attach_doc(subjects, "SINA_OS_SSOT_LOCKED.md", "Sina OS SSOT")
-    _attach_doc(subjects, "SOURCE_A_DOCUMENT_SEQUENCE_REGISTRY_LOCKED_v1.md", "Document sequence")
-    _attach_doc(subjects, "PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md", "Product factory roadmap")
-    _attach_doc(subjects, "SINAAI_ECOSYSTEM_FINAL_STATE_AND_NEXT_PLAN_LOCKED_v1.md", "Ecosystem final state")
+    _attach_doc(subjects, "brain-os/system/SOURCE_A_DOCUMENT_SEQUENCE_REGISTRY_LOCKED_v1.md", "Document sequence")
+    _attach_doc(subjects, "brain-os/law/PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md", "Product factory roadmap")
+    _attach_doc(subjects, "brain-os/law/SINAAI_ECOSYSTEM_FINAL_STATE_AND_NEXT_PLAN_LOCKED_v1.md", "Ecosystem final state")
     if REGISTRY_MD.is_file():
         text = REGISTRY_MD.read_text(encoding="utf-8", errors="replace")
         for tid in THREAD_NODES:

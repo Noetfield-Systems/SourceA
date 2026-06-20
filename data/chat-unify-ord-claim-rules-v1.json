@@ -1,0 +1,240 @@
+{
+  "schema": "chat-unify-ord-claim-rules-v1",
+  "version": "1.2.0",
+  "description": "General ORD claim rules — not example-specific. Predicates apply to any agent paste.",
+  "atom_quality": {
+    "min_text_len": 16,
+    "max_atoms": 32,
+    "reject_if_shorter_than": 12,
+    "table_fragment_patterns": [
+      "^URL\\s+Status",
+      "^Status\\s+before",
+      "^Maybe\\s*[—–-]",
+      "^Unlikely\\s",
+      "^Likely\\s",
+      "^Mixed\\s",
+      "^N/A\\s",
+      "^Persona\\t",
+      "^Cold\\s+traffic",
+      "^Warm\\s"
+    ],
+    "reject_exact": ["URL", "Status before fix"]
+  },
+  "claim_types": [
+    {
+      "id": "TABLE_FRAGMENT",
+      "priority": 10,
+      "match_any_regex": [
+        "^URL\\s+Status",
+        "^Status\\s+before",
+        "^Maybe\\s*[—–-]\\s",
+        "^Unlikely\\s+without",
+        "^Likely\\s*[—–-]",
+        "^Mixed\\s*$",
+        "^N/A\\s+product"
+      ],
+      "verify_predicate": "skip_fragment"
+    },
+    {
+      "id": "OPINION",
+      "priority": 20,
+      "match_any_regex": [
+        "\\b(honest read|buy intent|persona|would use|cold traffic|warm referral|first impression|feels like|works against|communicates breadth)\\b",
+        "\\b(unlikely|likely|maybe|mixed)\\s*[—–-]\\s",
+        "\\b(CISO|procurement|federal|MSP|investor|sandbox explorer)\\b",
+        "\\bbottom line:\\b"
+      ],
+      "verify_predicate": "opinion_not_checkable"
+    },
+    {
+      "id": "DEPLOY_BLOCK",
+      "priority": 35,
+      "match_any_regex": [
+        "\\bblocks?\\s+/[\\w./_-]+",
+        "\\bvercel\\.json\\b",
+        "\\b\\.vercelignore\\b",
+        "/docs/[\\w./_-]+",
+        "/governance/[\\w./_-]+",
+        "\\b(publicly reachable|leak|exposed on www)\\b"
+      ],
+      "verify_predicate": "deploy_config_bind"
+    },
+    {
+      "id": "LIVE_HTTP",
+      "priority": 30,
+      "match_any_regex": [
+        "\\b(200|404|401|403|500)\\s*[—–-]",
+        "\\bstatus before fix\\b",
+        "\\blive production\\b",
+        "\\bpublicly reachable\\b",
+        "https?://",
+        "\\breturn(s)?\\s+200\\b"
+      ],
+      "verify_predicate": "live_http_not_run"
+    },
+    {
+      "id": "PR_REF",
+      "priority": 40,
+      "match_any_regex": ["\\bPR\\s*#\\s*\\d+", "\\bpull request\\s+#?\\d+"],
+      "verify_predicate": "pr_ref_in_repo"
+    },
+    {
+      "id": "MANIFEST_BATCH",
+      "priority": 50,
+      "match_any_regex": [
+        "\\bbatch\\s*4\\b",
+        "\\bcleanup-manifest\\b",
+        "\\bmanifest\\s+(is\\s+)?approved\\b",
+        "\\bexecute-batch\\b"
+      ],
+      "verify_predicate": "manifest_batch_state"
+    },
+    {
+      "id": "EVAL_RECEIPT",
+      "priority": 60,
+      "match_any_regex": ["\\beval[- ]?1b\\b"],
+      "verify_predicate": "eval_receipt_match"
+    },
+    {
+      "id": "GOVERNANCE_SWEEP",
+      "priority": 70,
+      "match_any_regex": [
+        "\\b(all validators pass|zero drift|everything pass|all green|gate pass)\\b"
+      ],
+      "verify_predicate": "sweeping_pass_unproven"
+    },
+    {
+      "id": "API_ROUTE",
+      "priority": 80,
+      "match_any_regex": ["\\bapi/[a-z0-9_/-]+"],
+      "verify_predicate": "api_route_in_repo"
+    },
+    {
+      "id": "EXECUTION_CLAIM",
+      "priority": 90,
+      "match_any_regex": [
+        "\\b(i (fixed|updated|changed|committed|ran|merged|deployed))\\b",
+        "\\b(committed|pushed)\\s+(to|the)\\b"
+      ],
+      "verify_predicate": "execution_path_check"
+    },
+    {
+      "id": "REPO_PATH",
+      "priority": 100,
+      "match_any_regex": [
+        "`[^`]+\\.(md|json|py|sh|html|tsx|ts|css)`",
+        "\\b(assets|docs|governance|infra|scripts|apps)/[\\w./_-]+\\.(md|json|py|sh|html|tsx|ts|css)\\b",
+        "\\bvercel\\.json\\b",
+        "\\b\\.vercelignore\\b"
+      ],
+      "verify_predicate": "repo_path_claim"
+    },
+    {
+      "id": "DEPLOY_ACTION",
+      "priority": 110,
+      "match_any_regex": [
+        "\\b(redeploy|merge\\s+PR|merge and deploy|deploy to)\\b"
+      ],
+      "verify_predicate": "action_unverified"
+    },
+    {
+      "id": "CHECKABLE_CLAIM",
+      "priority": 200,
+      "match_kinds": ["CLAIM", "FACT"],
+      "verify_predicate": "claim_unbound"
+    },
+    {
+      "id": "INSTRUCTION",
+      "priority": 210,
+      "match_kinds": ["INSTRUCTION", "ACTION"],
+      "verify_predicate": "action_unverified"
+    },
+    {
+      "id": "ASSUMPTION",
+      "priority": 220,
+      "match_kinds": ["ASSUMPTION"],
+      "verify_predicate": "opinion_not_checkable"
+    }
+  ],
+  "consistency_rules": [
+    {
+      "id": "pass_fail_both",
+      "match_draft_regex": "(?i)\\bpass\\b.*\\bfail\\b|\\bfail\\b.*\\bpass\\b",
+      "message": "Text contains both PASS and FAIL language — possible contradiction."
+    },
+    {
+      "id": "sweeping_success",
+      "match_draft_regex": "(?i)\\b(all green|everything pass|zero issues|all validators pass)\\b",
+      "message": "Sweeping success claim — bind to receipts before trusting."
+    },
+    {
+      "id": "batch_execute_frozen",
+      "match_draft_regex": "(?i)\\b(execute|run batch|approved).{0,40}batch\\s*4\\b|\\bbatch\\s*4.{0,40}\\b(execute|approved|run)\\b",
+      "message": "Action language on Batch 4 — verify manifest APPROVED on disk.",
+      "disk_key": "batch_4_frozen",
+      "disk_expect": true,
+      "prefix": "DISK:"
+    },
+    {
+      "id": "many_api_paths",
+      "match_draft_regex": "(?i)\\bapi/[a-z0-9_/-]+",
+      "min_matches": 4,
+      "message": "Many API paths cited ({count}) — spot-check in repo."
+    },
+    {
+      "id": "live_url_unverified",
+      "requires_atoms_claim_type": "LIVE_HTTP",
+      "min_atoms": 1,
+      "if_all_verify_status": ["unverified"],
+      "message": "Live URL / HTTP status claims — hub did not curl production (verify yourself)."
+    },
+    {
+      "id": "pr_unverified",
+      "requires_atoms_claim_type": "PR_REF",
+      "min_atoms": 1,
+      "if_any_verify_status": ["unverified", "mismatch"],
+      "message": "PR reference — not confirmed in repo from this Mac."
+    },
+    {
+      "id": "high_plan_volume",
+      "match_parsed": "actions_plus_claims",
+      "actions_min": 5,
+      "claims_min": 8,
+      "message": "High action + claim count — agent may be over-planning in one reply."
+    },
+    {
+      "id": "checkable_all_unverified",
+      "requires_checkable_atoms": true,
+      "verified_max": 0,
+      "checkable_min": 3,
+      "message": "No checkable claims verified on disk — treat entire reply as draft."
+    }
+  ],
+  "disk_binders": {
+    "always_peek": [
+      "infra/cleanup/cleanup-manifest.md"
+    ],
+    "receipt_paths": {
+      "eval_1b": "~/.sina/eval_packet_v1b_report.json",
+      "surfaces": "~/.sina/agent-live-surfaces-v1.json"
+    },
+    "draft_path_extract": {
+      "glob_roots": ["assets", "docs", "governance", "infra", "scripts", "apps", "brand"],
+      "extensions": [".md", ".json", ".py", ".sh", ".html", ".tsx", ".ts", ".css", ".toml", ".yaml", ".yml"],
+      "named_files": ["vercel.json", ".vercelignore", "package.json"],
+      "deploy_config_globs": ["vercel.json", ".vercelignore"]
+    }
+  },
+  "deploy_verify": {
+    "block_markers": ["redirect", "headers", "rewrites", "ignore", "exclude", "block"],
+    "path_regex": "/[\\w./_-]+",
+    "repo_scan_roots": [
+      ".",
+      "apps",
+      "packages",
+      "brand"
+    ],
+    "live_http_base_url": "https://www.noetfield.com",
+    "live_http_max_per_run": 3
+  }
+}

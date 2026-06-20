@@ -171,7 +171,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         URLSession.shared.dataTask(with: healthURL) { _, resp, _ in
             DispatchQueue.main.async {
                 if let http = resp as? HTTPURLResponse, http.statusCode == 200,
-                   let pageURL = URL(string: "http://127.0.0.1:\(self.port)/") {
+                   let pageURL = URL(string: "http://127.0.0.1:\(self.port)/?ui=2.7.0&t=\(Int(Date().timeIntervalSince1970))") {
                     HeartLauncher.logLine("window loading UI")
                     self.webView.load(URLRequest(url: pageURL))
                 } else if attempts < 48 {

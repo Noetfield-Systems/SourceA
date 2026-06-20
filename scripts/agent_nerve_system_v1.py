@@ -42,6 +42,9 @@ NERVE_PATHS: dict[str, Path] = {
     "ecosystem_connected": SINA / "sourcea-ecosystem-connected-receipt-v1.json",
     "step9_commercial": SINA / "worker-wire-step9-commercial-form-v1.json",
     "investigator_judge": SINA / "investigator-judge-unified-receipt-v1.json",
+    "mac_law_universal": SINA / "mac-law-universal-wire-receipt-v1.json",
+    "mac_law_machine": SINA / "mac-law-machine-enforce-receipt-v1.json",
+    "mac_law_agent_lock": SINA / "mac-law-agent-execution-plane-lock-receipt-v1.json",
 }
 
 
@@ -161,6 +164,23 @@ def _collect_nodes() -> list[dict]:
                 "queue_sa": _queue_from_row(row, factory=factory)
                 if node_id != "factory_now"
                 else str(factory.get("queue_sa") or ""),
+            }
+        )
+    ml_u = _read_json(NERVE_PATHS["mac_law_universal"])
+    ml_m = _read_json(NERVE_PATHS["mac_law_machine"])
+    ml_l = _read_json(NERVE_PATHS["mac_law_agent_lock"])
+    for node_id, row, at_key in (
+        ("mac_law_universal_wire", ml_u, "saved_at"),
+        ("mac_law_machine_enforce", ml_m, "saved_at"),
+        ("mac_law_agent_lock", ml_l, "saved_at"),
+    ):
+        nodes.append(
+            {
+                "id": node_id,
+                "present": bool(row),
+                "ok": bool(row.get("ok")) if row else False,
+                "at": row.get(at_key),
+                "queue_sa": "",
             }
         )
     return nodes
@@ -560,6 +580,38 @@ def run_nerve_pulse(*, write: bool = True, refresh_loops: bool = False) -> dict:
     except Exception:
         pass
     try:
+        mlw = _read_json(NERVE_PATHS["mac_law_universal"])
+        if mlw.get("line"):
+            lines["mac_law_universal_line"] = mlw["line"]
+            ship["mac_law_universal_wire"] = bool(mlw.get("ok"))
+            ship["mac_law_universal_line"] = mlw["line"]
+    except Exception:
+        pass
+    try:
+        mle = _read_json(NERVE_PATHS["mac_law_machine"])
+        if mle.get("line"):
+            lines["mac_law_machine_line"] = mle["line"]
+            ship["mac_law_machine_enforce"] = bool(mle.get("ok"))
+            ship["mac_law_machine_line"] = mle["line"]
+    except Exception:
+        pass
+    try:
+        mla = _read_json(NERVE_PATHS["mac_law_agent_lock"])
+        if mla.get("line"):
+            lines["mac_law_agent_lock_line"] = mla["line"]
+            ship["mac_law_agent_no_factory_on_mac"] = bool(mla.get("ok"))
+            ship["mac_law_agent_lock_line"] = mla["line"]
+        elif not NERVE_PATHS["mac_law_agent_lock"].is_file():
+            sys.path.insert(0, str(SCRIPTS))
+            from mac_law_agent_execution_plane_lock_v1 import sync_receipt  # noqa: WPS433
+
+            mla = sync_receipt(enforce=False)
+            lines["mac_law_agent_lock_line"] = mla.get("line") or ""
+            ship["mac_law_agent_no_factory_on_mac"] = bool(mla.get("ok"))
+            ship["mac_law_agent_lock_line"] = mla.get("line") or ""
+    except Exception:
+        ship["mac_law_agent_no_factory_on_mac"] = False
+    try:
         from cloud_factories_online_only_v1 import assess as cloud_online_assess  # noqa: WPS433
 
         cloud_row = cloud_online_assess(write=True)
@@ -636,6 +688,7 @@ def run_nerve_pulse(*, write: bool = True, refresh_loops: bool = False) -> dict:
             ui_fc_ok=bool(ui_fc.get("wire_ok")),
         )
         + (
+            f" · maclaw={'PASS' if ship.get('mac_law_agent_no_factory_on_mac') else 'RED'}"
             f" · worker={'PASS' if worker_wire_ok else 'BLOCK'}"
             + (f" · {outbound_gates.get('outbound_progress_line', '')[:48]}" if outbound_gates.get("outbound_progress_line") else "")
         ),

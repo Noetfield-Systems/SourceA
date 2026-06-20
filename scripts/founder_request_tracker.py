@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path.home() / ".sina" / "founder-requests"
 REQUESTS_PATH = ROOT / "requests.jsonl"
 SUMMARY_PATH = ROOT / "summary.json"
-LAW_PATH = Path(__file__).resolve().parents[1] / "FOUNDER_FIRST_ASSISTANT_TRACKING_LAW_LOCKED_v1.md"
+from governance_paths_v1 import FOUNDER_FIRST_ASSISTANT_TRACKING as LAW_PATH
 
 STATUSES = frozenset({"open", "in_progress", "shipped", "deferred", "cancelled"})
 KINDS = frozenset({"order", "idea", "request", "question"})
@@ -338,8 +338,8 @@ def sync_shipped_from_disk() -> dict:
         if res.get("ok"):
             updates.append(rid)
 
-    if (SOURCE_A / "TRUST_LEDGER_SCHEMA_LOCKED_v1.md").is_file():
-        _mark("FR-2026-06-05-007", "shipped", "TRUST_LEDGER_SCHEMA_LOCKED_v1.md")
+    if (SOURCE_A / "brain-os/law/TRUST_LEDGER_SCHEMA_LOCKED_v1.md").is_file():
+        _mark("FR-2026-06-05-007", "shipped", "brain-os/law/TRUST_LEDGER_SCHEMA_LOCKED_v1.md")
     idx = SOURCE_A / "agent-control-panel" / "index.html"
     if idx.is_file() and "__COMMAND_DATA_LAZY" in idx.read_text(encoding="utf-8", errors="replace"):
         _mark("FR-2026-06-05-010", "shipped", "index.html lazy-load shell")

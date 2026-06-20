@@ -82,7 +82,7 @@ Never ask the founder to run Terminal. Executor runs shell; founder uses Worker 
 
 Open folder: **{spec.get("cursor_workspace_hint", "")}**
 
-Law: `~/Desktop/SourceA/SINA_AGENT_PRIVATE_WORKSPACES_LOCKED_v1.md`
+Law: `~/Desktop/SourceA/brain-os/law/SINA_AGENT_PRIVATE_WORKSPACES_LOCKED_v1.md`
 
 ## Workspace vault — app middle layer (mandatory)
 
@@ -117,7 +117,7 @@ def _layer_a_block(spec: dict) -> str:
 
 Copy agents train on **Layer A** — `~/Desktop/SinaaiMonoRepo/SinaaiDataBase/data/`.
 
-1. Read `~/Desktop/SourceA/SINA_PERSONAL_DATABASE_LAYER_A_LOCKED_v1.md`
+1. Read `~/Desktop/SourceA/brain-os/law/SINA_PERSONAL_DATABASE_LAYER_A_LOCKED_v1.md`
 2. Use Layer A disk paths — cite entry `id` when stating founder truth (legacy Personal DB tab archived)
 3. One loop round: reference `data/L4-agents/` + one promoted L2 entry
 

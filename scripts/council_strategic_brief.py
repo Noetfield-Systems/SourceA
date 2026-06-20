@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 SOURCE_A = Path(__file__).resolve().parents[1]
-BRIEF_DOC = "COUNCIL_BRIEF_STRATEGIC_SLICE_EVAL_L0_ENFORCE_LOCKED_v1.md"
+BRIEF_DOC = "brain-os/law/COUNCIL_BRIEF_STRATEGIC_SLICE_EVAL_L0_ENFORCE_LOCKED_v1.md"
 BRIEF_ID = "STRATEGIC-SLICE-EVAL-L0-ENFORCE-v1"
 SCHEMA = "council-strategic-brief-v1"
 SSOT_TRUST_ORDER = "~/.sina + validators > hub Refresh > external chat"
@@ -222,8 +222,8 @@ def strategic_brief_payload() -> dict:
             "track-wire-slice-v1",
         ],
         "related_docs": [
-            "STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md",
-            "ENFORCE_BYPASS_MAP_LOCKED_v1.md",
+            "brain-os/law/STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md",
+            "brain-os/law/enforcement/law/enforcement/ENFORCE_BYPASS_MAP_LOCKED_v1.md",
             "SINA_GPT_CLAUDE_WTM_SYNTHESIS_LOCKED_v1.md",
             "WORLD_TARGET_MODEL_MAP_LOCKED_v5.md",
         ],

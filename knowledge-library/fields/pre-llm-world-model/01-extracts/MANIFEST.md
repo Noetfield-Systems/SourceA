@@ -14,6 +14,9 @@
 | EXT-006 | 2026-06-05 | CODE_TRUTH | `scripts/pre_llm/context_packet/schema.py` | WTM-D5 | `validate_packet` |
 
 ## Pending extracts (Chat Unify)
+| EXT-CHAT-ee7d0afb | 2026-06-20 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/ee7d0afbc3c6.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-UNIFY-20260620 | 2026-06-20 | CHAT_UNIFY | **B — Gather** | `/Users/sinakazemnezhad/.sina/chat-unify/last-unified.json` | THREAD-CHAT-CONSOLIDATION, THREAD-CURSOR | Unified brief · 8 chats · 437 contradictions |
+| EXT-CHAT-bae39978 | 2026-06-20 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/bae39978da6c.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
 | EXT-CHAT-87d40875 | 2026-06-15 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/87d408753b95.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
 | EXT-CHAT-UNIFY-20260615 | 2026-06-15 | CHAT_UNIFY | **B — Gather** | `/Users/sinakazemnezhad/.sina/chat-unify/last-unified.json` | THREAD-CURSOR, THREAD-CHAT-CONSOLIDATION | Unified brief · 6 chats · 157 contradictions |
 | EXT-CHAT-9122e025 | 2026-06-15 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/9122e025ec01.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |

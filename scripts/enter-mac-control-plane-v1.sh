@@ -7,6 +7,8 @@ python3 "$ROOT/scripts/mac_control_plane_v1.py" --enter
 
 mkdir -p "${HOME}/.sina"
 touch "${HOME}/.sina/mac-light-validators-only-v1.flag"
+python3 "$ROOT/scripts/mac_law_universal_wire_v1.py" --sync-receipt --json >/dev/null 2>&1 || true
+python3 "$ROOT/scripts/mac_law_agent_execution_plane_lock_v1.py" --sync-receipt --json >/dev/null 2>&1 || true
 python3 "$ROOT/scripts/mac_pipeline_validator_pressure_v1.py" --wire-gates --json >/dev/null 2>&1 || true
 python3 "$ROOT/scripts/mac_pipeline_validator_pressure_v1.py" --json >/dev/null 2>&1 || true
 

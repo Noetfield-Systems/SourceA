@@ -11,8 +11,8 @@ from typing import Any
 ROOT = Path.home() / ".sina" / "task-orders"
 ORDERS_PATH = ROOT / "orders.jsonl"
 SUMMARY_PATH = ROOT / "summary.json"
-LAW_PATH = Path(__file__).resolve().parents[1] / "ORDER_GUARDIAN_AGENT_LOCKED_v1.md"
-REGISTER_PATH = Path(__file__).resolve().parents[1] / "TASK_ORDERS_OPEN_REGISTER_LOCKED_v1.md"
+LAW_PATH = Path(__file__).resolve().parents[1] / "brain-os/law/ORDER_GUARDIAN_AGENT_LOCKED_v1.md"
+REGISTER_PATH = Path(__file__).resolve().parents[1] / "brain-os/law/TASK_ORDERS_OPEN_REGISTER_LOCKED_v1.md"
 
 AGENT_ID = "order_guardian"
 AGENT_NAME = "Order Guardian"
@@ -58,7 +58,7 @@ SEED_ROWS: list[dict[str, Any]] = [
         "category": "governance",
         "quick_win": False,
         "strategic": False,
-        "register_doc": "TASK_ORDERS_OPEN_REGISTER_LOCKED_v1.md",
+        "register_doc": "brain-os/law/TASK_ORDERS_OPEN_REGISTER_LOCKED_v1.md",
         "shipped_evidence": "ORDER_GUARDIAN_AGENT_LOCKED_v1.md + task_orders_guardian.py + hub tab",
     },
     {

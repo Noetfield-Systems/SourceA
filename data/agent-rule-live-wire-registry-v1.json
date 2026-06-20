@@ -95,6 +95,9 @@
     ],
     "chain_order": [
       "founder_execution_model_wire_sync",
+      "mac_law_mandatory_sync",
+      "mac_law_universal_wire_sync",
+      "mac_law_agent_execution_plane_lock_sync",
       "upgrade_disk",
       "registry_pulse",
       "better_loop_pulse",
@@ -236,7 +239,48 @@
       ]
     },
     {
-      "id": "cloud_factories_online_only",
+      "id": "mac_law_universal_wire",
+      "label": "Mac Law universal wire — all agents · nodes · pipelines · triple sync",
+      "status": "live",
+      "layer": "governance",
+      "ssot": "data/mac-law-universal-wire-v1.json",
+      "script": "scripts/mac_law_universal_wire_v1.py",
+      "pulse_fn": "sync_receipt",
+      "validator": "scripts/validate-mac-law-universal-wire-v1.sh",
+      "receipt": "~/.sina/mac-law-universal-wire-receipt-v1.json",
+      "surfaces_line_key": "mac_law_universal_line",
+      "surfaces_block_key": "mac_law_universal_wire",
+      "nerve_keys": ["mac_law_universal_wire", "mac_law_universal_line"],
+      "anti_theater_check": "mac_law_universal_wire",
+      "runs_on": [
+        "scripts/mac_law_universal_wire_v1.py",
+        "scripts/agent_session_gate_run_v1.py",
+        "scripts/agent_nerve_system_v1.py",
+        "scripts/pre_write_guard_v1.py",
+        "scripts/agentic_conduct_gate_v1.py"
+      ]
+    },
+    {
+      "id": "mac_law_agent_execution_plane_lock",
+      "label": "Mac Law agent lock FOREVER — no factory build on Mac body",
+      "status": "live",
+      "layer": "governance",
+      "ssot": "data/mac-law-agent-execution-plane-lock-v1.json",
+      "script": "scripts/mac_law_agent_execution_plane_lock_v1.py",
+      "pulse_fn": "sync_receipt",
+      "validator": "scripts/validate-mac-law-agent-execution-plane-lock-v1.sh",
+      "receipt": "~/.sina/mac-law-agent-execution-plane-lock-receipt-v1.json",
+      "surfaces_line_key": "mac_law_agent_lock_line",
+      "surfaces_block_key": "mac_law_agent_execution_plane_lock",
+      "nerve_keys": ["mac_law_agent_lock", "mac_law_agent_no_factory_on_mac"],
+      "anti_theater_check": "mac_law_agent_execution_plane_lock",
+      "runs_on": [
+        "scripts/mac_law_agent_execution_plane_lock_v1.py",
+        "scripts/agent_nerve_system_v1.py",
+        "scripts/mac_law_universal_wire_v1.py",
+        "data/mac-law-universal-wire-v1.json"
+      ]
+    },
       "label": "Cloud factories ONLINE only — Mac never factory body",
       "status": "live",
       "layer": "factory",

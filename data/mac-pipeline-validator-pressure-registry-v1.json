@@ -1,7 +1,8 @@
 {
   "schema": "mac-pipeline-validator-pressure-registry-v1",
-  "version": "1.1.1",
-  "saved_at": "2026-06-20T00:20:00Z",
+  "version": "1.2.0",
+  "saved_at": "2026-06-20T19:15:00Z",
+  "incident_039_ref": "data/mac-validator-stuck-red-flag-v1.json",
   "authority": "mac_law_locked",
   "law_doc": "~/Desktop/MacLaw/MAC_PIPELINE_VALIDATOR_PRESSURE_LAW_LOCKED_v1.md",
   "light_only_flag": "~/.sina/mac-light-validators-only-v1.flag",
@@ -25,7 +26,12 @@
         "validate-mac-pipeline-validator-pressure-v1.sh",
         "validate-founder-execution-model-v1.sh",
         "founder_session_gate_v1.py",
-        "mac_pipeline_validator_pressure_v1.py"
+        "mac_law_validator_light_assess_v1.py",
+        "validate-mac-law-universal-wire-v1.sh",
+        "validate-mac-law-agent-execution-plane-lock-v1.sh",
+        "validate-mac-law-machine-enforceable-v1.sh",
+        "validate-mac-law-mandatory-v1.sh",
+        "validate-mac-law-full-stack-v1.sh"
       ],
       "override_globs": []
     },
@@ -60,6 +66,7 @@
       ],
       "scripts": [
         "validate-all-e2e-v1.sh",
+        "validate-mac-law-mandatory-ship-v1.sh",
         "validate-mac-law-surfaces-e2e-v1.sh",
         "run-mac-health-recipe-v1.sh",
         "validate-e2e-fast-ladder-v1.sh",
@@ -113,6 +120,15 @@
         "com.sourcea.autorun-worker"
       ]
     }
+  },
+  "founder_session_stuck_red_flag": {
+    "incident_id": "INCIDENT-039",
+    "severity": "P0",
+    "max_reply_sec": 30,
+    "max_single_shell_sec": 90,
+    "harmful_min_sec": 660,
+    "forbidden": ["validator_chains", "await_until_green", "medium_tier", "heavy_tier", "regenerate_validate_loop"],
+    "proof_order": ["read_receipt", "read_ssot", "one_light_script_max", "reply_stop"]
   },
   "cursor_caps": {
     "max_extension_hosts": 3,

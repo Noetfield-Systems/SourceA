@@ -23,7 +23,7 @@ alwaysApply: true
 | `apps/apple-store-api/**` | `apps/apple-store-api/.cursor/rules/012-apple-store-api.mdc` |
 | `packages/mcp-sourcea-verify/**` | MCP read-only verify |
 
-## Validate bootstrap
+## Validate bootstrap (structural ship window / cloud CI only — not Mac founder chat pre-reply)
 
 ```bash
 bash scripts/validate-cursor-bootstrap-v1.sh
