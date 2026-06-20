@@ -1,0 +1,47 @@
+---
+description: Portfolio Gmail/account map — mandatory read + report line every session (ASF 2026-06-20)
+alwaysApply: true
+---
+
+# Portfolio account structure — mandatory (ASF 2026-06-20)
+
+**Law:** `docs/PORTFOLIO_ACCOUNT_STRUCTURE_LOCKED_v1.md` · **Machine:** `data/portfolio-account-structure-v1.json`
+
+## Hard rule (founder locked)
+
+> **Every agent reads the portfolio account map before cloud/DNS/email/Vercel/GitHub work — and quotes `portfolio_account_structure_line` in portfolio or infra reports.**
+
+## Every session
+
+```bash
+python3 scripts/portfolio_account_structure_v1.py --json
+```
+
+Read `~/.sina/agent-live-surfaces-v1.json` → **`portfolio_account_structure_line`**.
+
+## Lanes (never cross)
+
+| Lane | Gmail | Scope |
+|------|-------|--------|
+| **Main** | `kazemnezhadsina144@gmail.com` · `sinakazemnezhad.ca@gmail.com` · `noetfield@gmail.com` | TrustField · Noetfield · SourceA · VIRLUX · Railway · Supabase |
+| **WitnessBC** | `witness.bc@gmail.com` | witnessbc.com only — GitHub · Vercel · Cloudflare · Stripe |
+
+**Vercel Pro (ASF):** upgrade **`kazemnezhadsina144@gmail.com`** hobby → Pro · migrate `noetfield@gmail.com` projects next week.
+
+## Forbidden
+
+- WitnessBC CF/Vercel session for TrustField or Noetfield DNS/email
+- Personal Gmail as commercial FROM
+- Committing account changes without updating `data/portfolio-account-structure-v1.json`
+
+## Daily wire
+
+```bash
+bash scripts/run-portfolio-supabase-daily-v1.sh
+```
+
+Receipt includes `account_structure` block on every pulse.
+
+## VIRLUX product law (paired)
+
+**Agentic factory only** — FINTRAC / cross-border payments OUT → TrustField. See `labs/virlux/README.md` · ASF-2026-06-20-VIRLUX-AGENTIC-ONLY.
