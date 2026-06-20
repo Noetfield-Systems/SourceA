@@ -91,7 +91,10 @@ def validate(*, json_out: bool = False) -> dict:
         if not p.is_file():
             errors.append(f"missing script: {p}")
 
-    if not (ROOT / "SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md").is_file():
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from governance_paths_v1 import LIVE_FOUNDER_FORM
+
+    if not LIVE_FOUNDER_FORM.is_file():
         errors.append("missing live founder form law")
 
     rooms = reg.get("authority_rows") or {}
