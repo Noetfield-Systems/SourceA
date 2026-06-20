@@ -1,6 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "python3 ../../scripts/build_sourcea_vercel_output_v1.py",
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "",
   "outputDirectory": "dist",
   "rewrites": [
     { "source": "/", "destination": "/sourcea/" }

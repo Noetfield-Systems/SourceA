@@ -27,8 +27,7 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Vercel build output (generated — not committed)
-SourceA-landing/green-unified/dist/
+# dist is COMMITTED for Vercel static deploy (regenerate via build_sourcea_vercel_output_v1.py before push)
 
 # Cleanup scan output may list paths — ok to commit report without keys
 # infra/cleanup/secret-scan-report.txt
