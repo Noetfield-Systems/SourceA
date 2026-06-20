@@ -1,0 +1,180 @@
+{
+  "schema": "portfolio-account-structure-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-20T21:45:00Z",
+  "authority": "ASF",
+  "founder_confirmed_at": "2026-06-19",
+  "one_law": "One brand · one identity stack · one browser profile per lane. Never mix WitnessBC credentials with main-lane TrustField / Noetfield / VIRLUX / SourceA work.",
+  "human_doc": "docs/PORTFOLIO_ACCOUNT_STRUCTURE_LOCKED_v1.md",
+  "source_proposal": "~/Desktop/TrustField Technologies/docs/MACLAW_PORTFOLIO_ACCOUNT_MAP_PROPOSAL.md",
+  "script": "scripts/portfolio_account_structure_v1.py",
+  "receipt": "~/.sina/portfolio-account-structure-v1.json",
+  "surfaces_line_key": "portfolio_account_structure_line",
+  "no_secrets_in_repo": true,
+  "lanes": [
+    {
+      "id": "main_lane",
+      "label": "Main lane — TrustField · Noetfield · portfolio hub · VIRLUX · SourceA control",
+      "chrome_profile": "Chrome profile A (main)",
+      "gmail_logins": [
+        "kazemnezhadsina144@gmail.com",
+        "sinakazemnezhad.ca@gmail.com",
+        "noetfield@gmail.com"
+      ],
+      "modules": ["trustfield", "noetfield", "sourcea", "virlux", "maclaw", "portfolio_hub"],
+      "services": [
+        {
+          "service": "github",
+          "login_email": "kazemnezhadsina144@gmail.com",
+          "scope": "TrustField Technologies · SourceA · VIRLUX (kazemnezhadsina144-dot) · primary org repos"
+        },
+        {
+          "service": "vercel",
+          "login_email": "kazemnezhadsina144@gmail.com",
+          "plan": "hobby",
+          "plan_target": "pro",
+          "plan_target_date": "2026-06-27",
+          "secondary_login": "noetfield@gmail.com",
+          "secondary_note": "Noetfield page deployed here — migrate projects to main Pro account next week (ASF 2026-06-20)",
+          "scope": "trustfield.ca · noetfield.com · sourcea.com · virlux-web/api/app · Mac Health preview"
+        },
+        {
+          "service": "cloudflare",
+          "login_email": "sinakazemnezhad.ca@gmail.com",
+          "scope": "trustfield.ca · noetfield.com · sourcea.com DNS · TrustField Email API tokens (main only)"
+        },
+        {
+          "service": "stripe",
+          "login_email": "noetfield@gmail.com",
+          "billing_entity": "Noetfield Systems",
+          "statement_descriptor": "NOETFIELD SYSTEMS",
+          "scope": "Noetfield / platform-neutral SaaS billing — not WitnessBC"
+        },
+        {
+          "service": "railway",
+          "login_email": "kazemnezhadsina144@gmail.com",
+          "scope": "FBE runner · MergePack API · cloud factory workers (GitHub SSO typical)",
+          "note": "Deploy via GitHub main org — not WitnessBC lane"
+        },
+        {
+          "service": "supabase",
+          "login_email": "kazemnezhadsina144@gmail.com",
+          "scope": "portfolio-spine + labs-sandbox dashboards · secrets in ~/.sourcea-secrets/",
+          "note": "Agent keys labs-sandbox only per 040-workspace-supabase-core"
+        }
+      ],
+      "official_send_from": [
+        {
+          "address": "hello@trustfield.ca",
+          "brand": "TrustField Technologies",
+          "channel": "Google Workspace",
+          "scripts": ["commercial_mail_draft_v1.py --lane TF", "send_nw1_single_v1.py"]
+        },
+        {
+          "address": "operation@noetfield.com",
+          "brand": "Noetfield",
+          "channel": "Google Workspace / Mail.app",
+          "scripts": ["commercial_mail_draft_v1.py --lane NF"],
+          "aliases": ["operations@noetfield.com"]
+        },
+        {
+          "address": "hello@sourcea.com",
+          "brand": "SourceA",
+          "channel": "Mail.app / commercial sender law",
+          "scripts": ["send_ab1_single_v1.py", "commercial_mail_draft_v1.py --lane AB1"]
+        },
+        {
+          "address": "hello@virlux.com",
+          "brand": "VIRLUX",
+          "channel": "product contact · plugin.json",
+          "scripts": []
+        }
+      ],
+      "vault_keys": [
+        "GOOGLE_WORKSPACE_APP_PASSWORD",
+        "CF_API_TOKEN",
+        "CF_EMAIL_API_TOKEN",
+        "CF_ZONE_ID",
+        "VERCEL_TOKEN",
+        "RESEND_API_KEY"
+      ],
+      "vault_path_hint": "~/.sina/secrets.env"
+    },
+    {
+      "id": "witnessbc_lane",
+      "label": "WitnessBC lane — isolated",
+      "chrome_profile": "Chrome profile B (WitnessBC only)",
+      "gmail_logins": ["witness.bc@gmail.com"],
+      "modules": ["witnessbc"],
+      "services": [
+        {
+          "service": "github",
+          "login_email": "witness.bc@gmail.com",
+          "scope": "WitnessBC repos only"
+        },
+        {
+          "service": "vercel",
+          "login_email": "witness.bc@gmail.com",
+          "scope": "witnessbc.com · preview deploys"
+        },
+        {
+          "service": "cloudflare",
+          "login_email": "witness.bc@gmail.com",
+          "scope": "witnessbc.com zone only — never TrustField DNS or email"
+        },
+        {
+          "service": "stripe",
+          "login_email": "witness.bc@gmail.com",
+          "scope": "WitnessBC-only if used"
+        }
+      ],
+      "official_send_from": [
+        {
+          "address": "hello@witnessbc.com",
+          "brand": "WitnessBC",
+          "channel": "WitnessBC commercial",
+          "scripts": []
+        }
+      ],
+      "vault_keys": ["WITNESSBC_*"],
+      "vault_path_hint": "Never load WitnessBC tokens in TrustField main vault rows"
+    }
+  ],
+  "forbidden_cross_lane": [
+    "WitnessBC Cloudflare session for trustfield.ca or noetfield.com DNS/email",
+    "WitnessBC VERCEL_TOKEN for TrustField or Noetfield deploys",
+    "Personal Gmail as commercial FROM (see SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md)",
+    "CF_API_TOKEN mapped to CF_EMAIL_API_TOKEN (DNS token is not email token)"
+  ],
+  "known_drift": [
+    {
+      "id": "loop-specialist-cf-account",
+      "path": "data/loop-specialist-cloud-cron-v1.json",
+      "field": "cloudflare_account",
+      "current": "witness.bc@gmail.com",
+      "should_be_lane": "main_lane for TrustField/Noetfield DNS work · witnessbc_lane only for witnessbc.com",
+      "note": "Loop worker Pages may share witness CF account — label vault keys WITNESSBC_* vs main"
+    }
+  ],
+  "vercel_pro_migration": {
+    "decision_id": "ASF-2026-06-20-VERCEL-PRO-MAIN",
+    "saved_at": "2026-06-20T21:45:00Z",
+    "owner_gmail": "kazemnezhadsina144@gmail.com",
+    "action": "Upgrade hobby → Pro on main account; migrate noetfield@gmail.com projects by 2026-06-27",
+    "rejected": "Separate Pro only on noetfield@gmail.com long-term"
+  },
+  "mandatory_law": {
+    "cursor_rule": ".cursor/rules/044-portfolio-account-structure-mandatory.mdc",
+    "enforcement_doc": "brain-os/law/enforcement/PORTFOLIO_ACCOUNT_STRUCTURE_MANDATORY_LOCKED_v1.md",
+    "every_agent_every_session": true
+  },
+  "report_inject": {
+    "always_include_in": [
+      "portfolio_supabase_daily_pulse_v1.py",
+      "portfolio_account_structure_v1.py",
+      "agent-live-surfaces-v1.json",
+      "portfolio-supabase-daily-pulse-v1.json receipt"
+    ],
+    "line_template": "accounts · main=kazemnezhadsina144+sinakazemnezhad.ca · wbc=witness.bc · send=<brand:address,...>"
+  }
+}
