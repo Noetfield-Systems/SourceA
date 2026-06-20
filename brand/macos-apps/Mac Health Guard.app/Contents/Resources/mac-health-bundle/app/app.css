@@ -782,6 +782,38 @@ body {
   color: var(--mhg-amber);
 }
 
+.mhg-cloud-glance-strip {
+  display: block;
+  width: 100%;
+  margin: 0.55rem 0 0;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--mhg-radius-sm);
+  border: 1px solid var(--mhg-border);
+  background: var(--mhg-frost);
+  color: var(--mhg-ice);
+  font-size: 0.78rem;
+  text-decoration: none;
+  line-height: 1.4;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.mhg-cloud-glance-strip:hover {
+  border-color: var(--mhg-border-bright);
+  background: var(--mhg-ice-dim);
+}
+
+.mhg-cloud-glance-strip.warn {
+  color: var(--mhg-amber);
+  border-color: rgba(226, 199, 106, 0.35);
+}
+
+.mhg-cloud-glance-strip.bad {
+  color: var(--mhg-red);
+  border-color: rgba(244, 164, 176, 0.35);
+}
+
 .mhg-badge-pulse { animation: mhg-pulse 2s ease-in-out infinite; }
 
 @keyframes mhg-pulse {

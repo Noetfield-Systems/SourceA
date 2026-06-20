@@ -21,10 +21,10 @@ check node --check "$ROOT/scripts/mac-health-standalone/app.js"
 
 python3 <<'PY' || fail=1
 from mac_health_version_v1 import CSS_CACHE_BUSTER, MAC_HEALTH_VERSION, UI_SURFACE_ID
-assert MAC_HEALTH_VERSION == "3.3.0", MAC_HEALTH_VERSION
-assert CSS_CACHE_BUSTER == "3.3.0", CSS_CACHE_BUSTER
+assert MAC_HEALTH_VERSION == "4.0.0", MAC_HEALTH_VERSION
+assert CSS_CACHE_BUSTER == "4.0.0", CSS_CACHE_BUSTER
 assert UI_SURFACE_ID == "founder_glance", UI_SURFACE_ID
-print("PASS: version SSOT 3.3.0 founder_glance")
+print("PASS: version SSOT 4.0.0 founder_glance")
 PY
 
 python3 <<PY || fail=1
@@ -54,7 +54,7 @@ print("PASS: served HTML matches machine contract")
 
 health = json.loads(urllib.request.urlopen(f"{BASE}/health", timeout=10).read())
 v = health.get("version", "")
-assert v.startswith("3.3"), f"health version={v!r}"
+assert v.startswith("4.0"), f"health version={v!r}"
 ui = health.get("ui_contract") or {}
 assert ui.get("ui_mode") == "founder_glance", ui
 assert ui.get("primary_cta") == "Relieve pressure", ui

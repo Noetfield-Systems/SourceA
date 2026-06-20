@@ -564,6 +564,18 @@ def run_nerve_pulse(*, write: bool = True, refresh_loops: bool = False) -> dict:
     except Exception:
         pass
     try:
+        pf = _read_json(SINA / "portfolio-fix-plan-pulse-v1.json")
+        if not pf.get("portfolio_fix_line"):
+            from portfolio_fix_plan_pulse_v1 import run_pulse  # noqa: WPS433
+
+            pf = run_pulse(wire=True)
+        if pf.get("portfolio_fix_line"):
+            lines["portfolio_fix_line"] = pf["portfolio_fix_line"]
+            ship["portfolio_fix_line"] = pf["portfolio_fix_line"]
+            ship["portfolio_fix_plan"] = bool(pf.get("ok"))
+    except Exception:
+        pass
+    try:
         fem = _read_json(SINA / "founder-execution-model-receipt-v1.json")
         if fem.get("line"):
             lines["founder_execution_model_line"] = fem["line"]
@@ -601,6 +613,7 @@ def run_nerve_pulse(*, write: bool = True, refresh_loops: bool = False) -> dict:
             lines["mac_law_agent_lock_line"] = mla["line"]
             ship["mac_law_agent_no_factory_on_mac"] = bool(mla.get("ok"))
             ship["mac_law_agent_lock_line"] = mla["line"]
+            ship["mac_law_agent_lock"] = bool(mla.get("ok"))
         elif not NERVE_PATHS["mac_law_agent_lock"].is_file():
             sys.path.insert(0, str(SCRIPTS))
             from mac_law_agent_execution_plane_lock_v1 import sync_receipt  # noqa: WPS433
@@ -609,6 +622,7 @@ def run_nerve_pulse(*, write: bool = True, refresh_loops: bool = False) -> dict:
             lines["mac_law_agent_lock_line"] = mla.get("line") or ""
             ship["mac_law_agent_no_factory_on_mac"] = bool(mla.get("ok"))
             ship["mac_law_agent_lock_line"] = mla.get("line") or ""
+            ship["mac_law_agent_lock"] = bool(mla.get("ok"))
     except Exception:
         ship["mac_law_agent_no_factory_on_mac"] = False
     try:
@@ -619,6 +633,16 @@ def run_nerve_pulse(*, write: bool = True, refresh_loops: bool = False) -> dict:
             lines["cloud_factories_online_line"] = cloud_row["cloud_factories_online_line"]
             ship["cloud_factories_online_only"] = bool(cloud_row.get("ok"))
             ship["cloud_factories_online_line"] = cloud_row["cloud_factories_online_line"]
+    except Exception:
+        pass
+    try:
+        hook = _read_json(SINA / "rule-zero-latency-hook-receipt-v1.json")
+        rwl = hook.get("rule_wire_line") or surfaces.get("rule_wire_line")
+        if rwl:
+            lines["rule_wire_line"] = rwl
+            ship["rule_wire_line"] = rwl
+            ship["rule_zero_latency_hook"] = bool(hook.get("ok"))
+            ship["rule_propagation_zero_latency"] = bool(hook.get("ok"))
     except Exception:
         pass
     outbound_gates = _outbound_ship_gates()
@@ -780,6 +804,11 @@ def main() -> int:
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--hub-slice", action="store_true")
     ap.add_argument("--patch-surfaces", action="store_true")
+    ap.add_argument(
+        "--patch-surfaces-from-receipt",
+        action="store_true",
+        help="Merge nerve_system_line from cached receipt only (mac_focus_freeze — no full pulse)",
+    )
     ap.add_argument("--refresh-loops", action="store_true", help="Re-run better_loop pulse before nerve check")
     ap.add_argument("--check-rrl-ship-gate", action="store_true", help="U040 — w3_rrl_pass alone must not set w3_send_ready")
     ap.add_argument("--no-write", action="store_true")
@@ -794,6 +823,17 @@ def main() -> int:
     if args.hub_slice:
         print(json.dumps(hub_slice(), indent=2))
         return 0
+    if args.patch_surfaces_from_receipt:
+        cached = _read_json(RECEIPT)
+        if cached.get("schema") != "agent-nerve-system-receipt-v1":
+            print(json.dumps({"ok": False, "error": "missing cached nerve receipt"}, indent=2))
+            return 1
+        patched = patch_surfaces(row=cached)
+        if args.json:
+            print(json.dumps({**patched, "mode": "from_receipt"}, indent=2))
+        else:
+            print(patched.get("nerve_system_line", ""))
+        return 0 if patched.get("ok") else 1
     row = run_nerve_pulse(write=not args.no_write, refresh_loops=args.refresh_loops)
     if args.patch_surfaces:
         patch_surfaces(row=row)

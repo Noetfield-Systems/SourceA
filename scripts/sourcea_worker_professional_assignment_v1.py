@@ -48,13 +48,36 @@ def _active_item(row: dict) -> tuple[dict, dict]:
     return phase, {"id": phase_id, "role": "act", "title": phase.get("label", phase_id)}
 
 
+def _proof_block(item: dict) -> str:
+    mac_proof = item.get("mac_proof") or []
+    hub = item.get("hub_dispatch") if isinstance(item.get("hub_dispatch"), dict) else None
+    verify = item.get("verify") or []
+    lines: list[str] = []
+    if mac_proof:
+        lines.append("**Read receipts (Read tool only):**")
+        lines.extend(f"- `{p}`" for p in mac_proof)
+    if hub and hub.get("path"):
+        body = hub.get("body") or {}
+        lines.append("")
+        lines.append("**Optional one Hub POST (Mac control plane only):**")
+        lines.append(f"- `POST http://127.0.0.1:13020{hub['path']}`")
+        lines.append(f"- body: `{json.dumps(body)}`")
+    if not lines and verify:
+        lines.extend(f"- `{c}`" for c in verify)
+    if not lines:
+        lines.append("- Read assignment SSOT `mac_proof` + optional `hub_dispatch`")
+    bind = item.get("mac_ctl_bind")
+    if bind:
+        lines.append(f"- MAC-CTL bind: `{bind}`")
+    return "\n".join(lines)
+
+
 def _prompt_for_item(phase: dict, item: dict) -> str:
     pid = phase.get("id", "")
     wid = item.get("id", "?")
     role = str(item.get("role") or "check").upper()
     title = item.get("title") or phase.get("label") or wid
-    verify = item.get("verify") or []
-    verify_block = "\n".join(f"- `{c}`" for c in verify) if verify else "- (see phase pick_commands in assignment SSOT)"
+    proof_block = _proof_block(item)
     mac_law = (
         "**Mac Law:** Mac observes only — Hub :13020 · Mac Health · Routing · Mac Law cockpit. "
         "No factory motors · no Mac build when `mac_build_forbidden: true`. "
@@ -78,12 +101,13 @@ def _prompt_for_item(phase: dict, item: dict) -> str:
 2. `bash scripts/worker_turn_entry_v1.sh`
 3. Execute role — **one turn · one item · STOP**
 
-## Verify (executor runs — founder never Terminal)
+## Mac proof (Read only · optional one Hub POST)
 
-{verify_block}
+{proof_block}
 
-## Forbidden
+## Forbidden on Mac
 
+- `validate-*` bash chains · local `forge_competitor_run` body · local `brain_cloud_reasoning_plan_pulse` body
 - Mac factory body · local motor drain · building app code on Mac when cloud_forge
 - Batch multiple queue items · skip WORKER_ROUND_REPORT
 
@@ -106,12 +130,15 @@ Then: `python3 scripts/goal1_lane_broker.py worker-submit --stdin`
 
 
 def build_prompt(row: dict | None = None) -> dict:
+    sys.path.insert(0, str(SCRIPTS))
+    from worker_inject_lib import normalize_sa_id  # noqa: WPS433
+
     row = row or load_assignment()
     phase, item = _active_item(row)
     prompt = _prompt_for_item(phase, item)
     active = row.get("active") or {}
     meta = {
-        "sa_id": str(item.get("sa_bind") or item.get("id") or "W-CLOUD-001"),
+        "sa_id": normalize_sa_id(str(item.get("sa_bind") or item.get("id") or "W-CLOUD-001")),
         "queue_role": str(item.get("role") or active.get("role") or "check"),
         "queue_pos": int(active.get("queue_pos") or 1),
         "queue_total": int(active.get("queue_total") or 3),
@@ -122,6 +149,42 @@ def build_prompt(row: dict | None = None) -> dict:
         "source": "sourcea_worker_professional_assignment_v1",
     }
     return {"ok": True, "prompt": prompt, "meta": meta, "phase": phase.get("id"), "item": item.get("id")}
+
+
+def advance_queue(*, write: bool = True) -> dict:
+    row = load_assignment()
+    active = dict(row.get("active") or {})
+    phase_id = str(active.get("phase_id") or "phase-cloud")
+    if phase_id != "phase-cloud":
+        return {"ok": False, "error": "advance_only_phase_cloud", "phase_id": phase_id}
+    phase = next((p for p in row.get("phases") or [] if p.get("id") == phase_id), None)
+    queue = phase.get("queue") or [] if phase else []
+    if not queue:
+        return {"ok": False, "error": "empty_queue"}
+    cur_id = str(active.get("queue_id") or queue[0].get("id") or "")
+    idx = next((i for i, q in enumerate(queue) if q.get("id") == cur_id), 0)
+    next_idx = min(idx + 1, len(queue) - 1)
+    nxt = queue[next_idx]
+    active.update(
+        {
+            "phase_id": phase_id,
+            "queue_id": str(nxt.get("id") or ""),
+            "queue_pos": next_idx + 1,
+            "queue_total": len(queue),
+            "role": str(nxt.get("role") or "check"),
+        }
+    )
+    row["active"] = active
+    row["saved_at"] = _now()
+    if write:
+        ASSIGNMENT.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+    return {
+        "ok": True,
+        "from": cur_id,
+        "to": active["queue_id"],
+        "queue_pos": active["queue_pos"],
+        "role": active["role"],
+    }
 
 
 def inject_next(*, dry_run: bool = False) -> dict:
@@ -172,6 +235,7 @@ def main() -> int:
     ap.add_argument("--status", action="store_true")
     ap.add_argument("--show-prompt", action="store_true")
     ap.add_argument("--inject-next", action="store_true")
+    ap.add_argument("--advance-queue", action="store_true", help="Advance phase-cloud queue then inject-next")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
@@ -182,11 +246,17 @@ def main() -> int:
         out = build_prompt()
     elif args.inject_next:
         out = inject_next(dry_run=args.dry_run)
+    elif args.advance_queue:
+        adv = advance_queue(write=not args.dry_run)
+        if not adv.get("ok"):
+            out = adv
+        else:
+            out = {**adv, **inject_next(dry_run=args.dry_run)}
     else:
         ap.print_help()
         return 0
 
-    if args.json or args.status or args.inject_next or args.show_prompt:
+    if args.json or args.status or args.inject_next or args.show_prompt or args.advance_queue:
         print(json.dumps(out, indent=2))
     return 0 if out.get("ok", True) else 1
 

@@ -1,0 +1,167 @@
+{
+  "schema": "vercel-portfolio-map-v1",
+  "version": "1.2.0",
+  "saved_at": "2026-06-21T01:15:00Z",
+  "authority": "ASF",
+  "one_law": "SourceA + WitnessBC commercial latest live in kazemnezhadsina144-dot/SourceA monorepo → separate Vercel projects on the-777-foundation. Cloudflare is DNS only — different login per domain zone.",
+  "human_doc": "docs/VERCEL_PORTFOLIO_MAP_LOCKED_v1.md",
+  "script": "scripts/vercel_portfolio_map_v1.py",
+  "receipt": "~/.sina/vercel-portfolio-map-v1.json",
+  "deploy_model": {
+    "pattern": "monorepo_github_multi_vercel_cloudflare_dns",
+    "founder_locked": "2026-06-20",
+    "github": {
+      "repo": "kazemnezhadsina144-dot/SourceA",
+      "login": "kazemnezhadsina144@gmail.com",
+      "paths": {
+        "sourcea_landing": "SourceA-landing/green-unified",
+        "witnessbc_commercial": "witnessbc-site"
+      }
+    },
+    "vercel": {
+      "team": "the-777-foundation",
+      "login": "kazemnezhadsina144@gmail.com",
+      "rule": "One Vercel project per product surface · same GitHub repo · different root directory"
+    },
+    "cloudflare": {
+      "rule": "DNS + optional Pages legacy · separate from GitHub/Vercel deploy pipeline",
+      "zones": {
+        "witnessbc.com": "witness.bc@gmail.com Cloudflare account",
+        "noetfield.com": "sinakazemnezhad.ca@gmail.com main lane",
+        "trustfield.ca": "sinakazemnezhad.ca@gmail.com main lane",
+        "sourcea.com": "sinakazemnezhad.ca@gmail.com main lane"
+      }
+    }
+  },
+  "github_publish": {
+    "status": "published",
+    "confirmed": "2026-06-20",
+    "repo": "kazemnezhadsina144-dot/SourceA",
+    "remote": "https://github.com/kazemnezhadsina144-dot/SourceA.git",
+    "vercel_project_live": "source-a"
+  },
+  "cross_gmail_transfer": {
+    "possible": false,
+    "fix_pattern": "redeploy_from_git_on_main_chrome_then_delete_trial_copy"
+  },
+  "canonical_owner": {
+    "gmail": "kazemnezhadsina144@gmail.com",
+    "github_org": "kazemnezhadsina144-dot",
+    "github_monorepo": "SourceA",
+    "vercel_team_slug": "the-777-foundation",
+    "vercel_dashboard": "https://vercel.com/the-777-foundation",
+    "plan": "hobby",
+    "plan_target": "pro",
+    "plan_target_date": "2026-06-27"
+  },
+  "migration_source": {
+    "gmail": "noetfield@gmail.com",
+    "vercel_team_slug": "noetfield-systems",
+    "action": "Delete trial CLI copies after main Vercel green · Stripe stays on noetfield@gmail.com"
+  },
+  "teams": [
+    {
+      "id": "main",
+      "slug": "the-777-foundation",
+      "login_gmail": "kazemnezhadsina144@gmail.com",
+      "dashboard_url": "https://vercel.com/the-777-foundation",
+      "github_org": "kazemnezhadsina144-dot",
+      "home_modules": ["noetfield", "trustfield", "sourcea", "witnessbc", "virlux", "forge_factory"]
+    },
+    {
+      "id": "witnessbc_cloudflare",
+      "login_gmail": "witness.bc@gmail.com",
+      "scope": "witnessbc.com DNS only — not GitHub/Vercel deploy owner",
+      "note": "Point www CNAME to main Vercel witnessbc project when ready"
+    },
+    {
+      "id": "noetfield_trial",
+      "slug": "noetfield-systems",
+      "login_gmail": "noetfield@gmail.com",
+      "status": "deprecated_orphan_deploys",
+      "action": "Delete sourcea-landing · deploy · www after main green"
+    }
+  ],
+  "projects": [
+    {
+      "id": "source-a",
+      "vercel_name": "source-a",
+      "url": "https://source-a.vercel.app",
+      "module": "sourcea",
+      "team_id": "main",
+      "github_repo": "kazemnezhadsina144-dot/SourceA",
+      "deploy_root": "SourceA-landing/green-unified",
+      "status": "home_ok",
+      "note": "Live on main · linked Git · Jun 20 2026 deploy"
+    },
+    {
+      "id": "deploy-witnessbc-agents-governance",
+      "vercel_name": "deploy-witnessbc-agents-governance",
+      "url": "https://deploy-witnessbc-agents-governance.vercel.app",
+      "url_legacy_trial": "https://deploy-sooty-seven-93.vercel.app",
+      "prod_domain_target": "https://www.witnessbc.com",
+      "module": "witnessbc",
+      "team_id": "main",
+      "github_repo": "kazemnezhadsina144-dot/SourceA",
+      "deploy_root": "witnessbc-site",
+      "status": "create_on_main_vercel",
+      "priority": "P0",
+      "founder_steps_main_chrome": [
+        "the-777-foundation → Add New → Project → Import SourceA (same repo as source-a)",
+        "Root Directory: witnessbc-site",
+        "Project name: deploy-witnessbc-agents-governance · deploy production",
+        "Verify URL https://deploy-witnessbc-agents-governance.vercel.app shows Witness AI commercial",
+        "Cloudflare witnessbc.com: CNAME www → deploy-witnessbc-agents-governance.vercel.app when ready"
+      ]
+    },
+    {
+      "id": "noetfield",
+      "vercel_name": "noetfield",
+      "url": "https://www.noetfield.com",
+      "module": "noetfield",
+      "team_id": "main",
+      "github_repo": "kazemnezhadsina144-dot/noetfield",
+      "status": "home_ok"
+    },
+    {
+      "id": "trustfield-personal",
+      "vercel_name": "trustfield-personal",
+      "url": "https://trustfield-personal.vercel.app",
+      "module": "trustfield",
+      "team_id": "main",
+      "status": "home_ok"
+    },
+    {
+      "id": "sourcea-landing-trial",
+      "vercel_name": "sourcea-landing",
+      "url": "https://sourcea-landing.vercel.app",
+      "team_id": "noetfield_trial",
+      "status": "delete_after_main_green",
+      "superseded_by": "source-a"
+    },
+    {
+      "id": "deploy-sooty-trial",
+      "vercel_name": "deploy",
+      "url": "https://deploy-sooty-seven-93.vercel.app",
+      "module": "witnessbc",
+      "team_id": "noetfield_trial",
+      "status": "delete_after_main_green",
+      "superseded_by": "deploy-witnessbc-agents-governance"
+    },
+    {
+      "id": "virlux-web",
+      "vercel_name": "virlux-web",
+      "url": "https://virlux-web.vercel.app",
+      "module": "virlux",
+      "team_id": "main",
+      "status": "home_ok"
+    }
+  ],
+  "forbidden_long_term": [
+    "Cross-Gmail Vercel transfer",
+    "WitnessBC commercial only on noetfield-systems trial",
+    "Separate WitnessBC GitHub repo when witnessbc-site is already in SourceA monorepo",
+    "Using witness.bc@gmail.com for Vercel deploy when main monorepo is SSOT"
+  ],
+  "surfaces_line_key": "vercel_portfolio_map_line"
+}

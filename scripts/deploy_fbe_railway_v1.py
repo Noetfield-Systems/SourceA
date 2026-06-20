@@ -43,6 +43,7 @@ _STAGING_DATA_FILES = (
     "agent-report-language-standard-v1.json",
     "cloud-comprehension-bay-v1.json",
     "loop-specialist-cloud-contract-v1.json",
+    "secondary-cloud-drain-next-100-v1.json",
 )
 _STAGING_SCRIPT_FILES = (
     "fbe_cloud_worker_http_v1.py",
@@ -75,6 +76,8 @@ _STAGING_SCRIPT_FILES = (
     "fbe_cloud_loop_specialist_tick_v1.py",
     "founder_reply_translator_v1.py",
     "agent_report_language_gate_v1.py",
+    "cloud_worker_dispatch_v1.py",
+    "fbe_sign_work_order_v1.py",
 )
 
 

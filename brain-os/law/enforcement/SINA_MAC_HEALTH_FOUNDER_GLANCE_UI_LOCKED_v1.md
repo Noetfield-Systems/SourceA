@@ -1,7 +1,7 @@
 # Mac Health — Founder Glance UI — LOCKED v1
 
-**Version:** 1.0.0 · **Saved:** 2026-06-19T20:39:27Z · **Authority:** Founder — Mac cockpit SSOT  
-**surface_id:** `mac_health` · **UI mode:** `founder_glance` · **App version:** `3.3.0`  
+**Version:** 1.1.0 · **Saved:** 2026-06-20T19:30:00Z · **Authority:** Founder — Mac cockpit SSOT  
+**surface_id:** `mac_health` · **UI mode:** `founder_glance` · **App version:** `4.0.0`  
 **URL:** http://127.0.0.1:13024/ · **Root:** `scripts/mac-health-standalone/`  
 **Machine contract:** `data/mac-health-founder-glance-ui-contract-v1.json`  
 **Version SSOT:** `scripts/mac_health_version_v1.py`  
@@ -24,16 +24,23 @@ Cloud executes · Mac watches · founder never carries machine sickness in silen
 
 ---
 
-## Frozen UX contract (v3.3.0)
+## Frozen UX contract (v4.0.0)
 
 **Always visible**
 
 1. Title **Mac Health** + LIVE badge  
 2. Score ring + one-line story  
 3. Primary button **Relieve pressure** (`#btn-heal`)  
-4. Four live stat tiles (`#pressure-grid`)  
-5. **Needs attention** section — only when findings exist  
-6. `<details>` **More** — everything else
+4. **Cloud glance strip** (`#cloud-glance-strip`) — read-only Railway + last dispatch · links to Worker Hub  
+5. Four live stat tiles (`#pressure-grid`)  
+6. **Needs attention** section — only when findings exist  
+7. `<details>` **More** — everything else
+
+**v4 additive law:** Cloud strip is **read-only** — Mac never runs cloud job bodies from Mac Health.
+
+---
+
+## Frozen UX contract (v3.3.0 baseline — preserved)
 
 **Removed permanently (no downgrade)**
 
@@ -89,3 +96,4 @@ Agents **never** answer form PICKs · **never** bulk-apply · **never** submit f
 |----|------|---------|
 | UP-MH-000 | 2026-06-19 | Ledger bootstrap |
 | UP-MH-001 | 2026-06-19 | **Founder Glance v3.3.0** — SSOT locked · ecosystem wired |
+| UP-MH-002 | 2026-06-20 | **Control Plane Glance v4.0.0** — cloud read strip · Hub bridge · E2E |

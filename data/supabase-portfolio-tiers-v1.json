@@ -1,7 +1,27 @@
 {
   "schema": "supabase-portfolio-tiers-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-20T22:30:00Z",
+  "saved_at": "2026-06-20T22:41:33Z",
+  "module_supabase_host": {
+    "noetfield": "noetfield",
+    "trustfield": "noetfield",
+    "witnessbc": "portfolio-spine",
+    "foundation": "portfolio-spine",
+    "gov": "portfolio-spine",
+    "sourcea": "portfolio-spine",
+    "forge_factory": "portfolio-spine",
+    "forge": "portfolio-spine",
+    "forg": "portfolio-spine",
+    "wtm": "portfolio-spine"
+  },
+  "forge_factory_brand": {
+    "display_name": "FORGE FACTORY",
+    "host_project": "portfolio-spine",
+    "schema": "forge_factory",
+    "ssot": "data/forge-factory-unified-brand-v1.json",
+    "one_law": "WTM + Forge + FBE = one brand FORGE FACTORY · one schema · one plan path on SourceA spine",
+    "legacy_aliases": ["forge", "forg", "wtm", "sourcea_forge"]
+  },
   "authority": "ASF",
   "decision": {
     "id": "ASF-2026-06-20-VIRLUX-AGENTIC-ONLY",
@@ -15,8 +35,8 @@
       "disposable": false,
       "cloud_ref": "ldfruywifqnfpwsfgmdl",
       "cloud_url": "https://ldfruywifqnfpwsfgmdl.supabase.co",
-      "modules": ["trustfield", "witnessbc", "foundation", "gov", "sourcea"],
-      "schemas": ["gov", "trustfield", "witnessbc", "foundation", "audit"],
+      "modules": ["witnessbc", "foundation", "gov", "sourcea", "forge_factory"],
+      "schemas": ["gov", "witnessbc", "foundation", "audit", "forge_factory"],
       "secrets_file": "~/.sourcea-secrets/portfolio-spine.env",
       "infra_path": "infra/supabase/portfolio-spine",
       "agent_db_access": "restricted — no direct prod writes from autonomous agents"
@@ -27,8 +47,8 @@
       "disposable": false,
       "cloud_ref": "tkgpapowwplupyekpivy",
       "cloud_url": "https://tkgpapowwplupyekpivy.supabase.co",
-      "modules": ["noetfield"],
-      "schemas": ["noetfield"],
+      "modules": ["noetfield", "trustfield"],
+      "schemas": ["noetfield", "trustfield"],
       "secrets_file": "~/.sourcea-secrets/noetfield.env",
       "infra_path": "infra/supabase/noetfield",
       "agent_db_access": "restricted"

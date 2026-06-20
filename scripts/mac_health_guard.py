@@ -1246,6 +1246,24 @@ def _ram_truth(
     }
 
 
+def _ram_truth_lite_stub(pressure: dict[str, Any]) -> dict[str, Any]:
+    ram_pct = float(pressure.get("ram_used_pct") or 0)
+    ram_gb = pressure.get("ram_used_gb")
+    total_line = (
+        f"{ram_gb} GB in use ({ram_pct:.0f}%)"
+        if ram_gb is not None
+        else f"RAM ~{ram_pct:.0f}%"
+    )
+    return {
+        "ok": True,
+        "skipped": "ram_critical_lite_probe",
+        "total_line": total_line,
+        "explain_line": (
+            f"{total_line}. Full app breakdown deferred while Mac relieves pressure — tap Relieve pressure."
+        ),
+    }
+
+
 def _machine_pressure() -> dict:
     """Lightweight Mac pressure signals — local only."""
     import os
@@ -1322,7 +1340,7 @@ def _machine_pressure() -> dict:
             pass
         cpu_pct = float(pressure.get("cpu_pct") or pressure.get("load_pct") or 0)
         pressure["ok"] = ram_pct_early < 95 and cpu_pct < 120
-        pressure["ram_truth"] = {"ok": True, "skipped": "ram_critical_lite_probe"}
+        pressure["ram_truth"] = _ram_truth_lite_stub(pressure)
         pressure["cursor"] = {}
         return pressure
     try:
@@ -1412,7 +1430,7 @@ def _machine_pressure() -> dict:
         lite = False
     if lite:
         pressure["ram_pressure_lite"] = True
-        pressure["ram_truth"] = {"ok": True, "skipped": "ram_critical_lite_probe"}
+        pressure["ram_truth"] = _ram_truth_lite_stub(pressure)
         pressure["cursor"] = pressure.get("cursor") or {}
     else:
         pressure["ram_truth"] = _ram_truth(

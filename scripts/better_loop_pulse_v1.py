@@ -42,6 +42,29 @@ CHECK_CLASS: dict[str, str] = {
 }
 
 
+def _forge_factory_era() -> bool:
+    era_path = SINA / "factory-era-v1.json"
+    if era_path.is_file():
+        try:
+            return json.loads(era_path.read_text(encoding="utf-8")).get("current_era") == "forge_factory_cycle2"
+        except (OSError, json.JSONDecodeError):
+            pass
+    fn = _read_json(SINA / "factory-now-v1.json")
+    return str(fn.get("mode") or "") == "FORGE_FACTORY" or fn.get("era") == "forge_factory_cycle2"
+
+
+def _goal1_idle_from_factory(fn: dict | None = None) -> bool:
+    row = fn or _read_json(SINA / "factory-now-v1.json")
+    if _forge_factory_era():
+        return False
+    return (
+        int(row.get("valid_yes") or 0) >= 1000
+        and int(row.get("backlog") or 0) == 0
+        and bool(row.get("dual_proof_ok"))
+        and not str(row.get("queue_sa") or "").strip()
+    )
+
+
 def _loop_auto_on() -> bool:
     cfg = SINA / "loop-specialist-config-v1.json"
     if not cfg.is_file():
@@ -762,12 +785,8 @@ def _ship_checks(loops: list[dict], *, oqg: dict | None = None) -> list[dict]:
     next_steps = _read_json(SINA / "live-ongoing-prompts-next-10-v1.json")
     has_row = bool((next_steps.get("items") or next_steps.get("next") or [])[:1])
     fn_idle = _read_json(SINA / "factory-now-v1.json")
-    goal1_idle = (
-        int(fn_idle.get("valid_yes") or 0) >= 1000
-        and int(fn_idle.get("backlog") or 0) == 0
-        and bool(fn_idle.get("dual_proof_ok"))
-        and not str(fn_idle.get("queue_sa") or "").strip()
-    )
+    goal1_idle = _goal1_idle_from_factory(fn_idle)
+    forge_factory_active = _forge_factory_era()
     sys.path.insert(0, str(SCRIPTS))
     from execution_path_vocabulary_v1 import run_inbox_check_label  # noqa: WPS433
 
@@ -780,8 +799,12 @@ def _ship_checks(loops: list[dict], *, oqg: dict | None = None) -> list[dict]:
         {
             "id": "hub_next_steps",
             "label": "Worker Hub → Next steps",
-            "ok": has_row or bool(prod.get("queue_sa")) or goal1_idle,
-            "detail": "Goal 1 idle" if goal1_idle and not has_row else ("one clear row" if has_row else "queue_sa from factory-now"),
+            "ok": has_row or bool(prod.get("queue_sa")) or goal1_idle or forge_factory_active,
+            "detail": (
+                "FORGE FACTORY cycle2 queue"
+                if forge_factory_active
+                else ("Goal 1 idle" if goal1_idle and not has_row else ("one clear row" if has_row else "queue_sa from factory-now"))
+            ),
         },
         {
             "id": "factory_now",
@@ -844,6 +867,7 @@ def _better_loop_line(
     *,
     oqg: dict | None = None,
     goal1_idle: bool = False,
+    forge_factory_active: bool = False,
     taxonomy: dict | None = None,
 ) -> str:
     tax = taxonomy or _red_taxonomy(checks)
@@ -867,7 +891,8 @@ def _better_loop_line(
         if pct is not None:
             w3_bit = f" · W3 clean={pct}%"
     action = _founder_motion_line(goal1_idle=goal1_idle)
-    return f"better-loop · {status} · lever={weekly}{w3_bit} · {action}"
+    ff_bit = " · FORGE FACTORY cycle2" if forge_factory_active else (" · Goal 1 idle" if goal1_idle else "")
+    return f"better-loop · {status} · lever={weekly}{w3_bit}{ff_bit} · {action}"
 
 
 def run_pulse(*, write: bool = True) -> dict:
@@ -922,12 +947,8 @@ def run_pulse(*, write: bool = True) -> dict:
         commercial_red_map = {}
     weekly = _weekly_lever()
     fn_idle = _read_json(SINA / "factory-now-v1.json")
-    goal1_idle = (
-        int(fn_idle.get("valid_yes") or 0) >= 1000
-        and int(fn_idle.get("backlog") or 0) == 0
-        and bool(fn_idle.get("dual_proof_ok"))
-        and not str(fn_idle.get("queue_sa") or "").strip()
-    )
+    goal1_idle = _goal1_idle_from_factory(fn_idle)
+    forge_factory_active = _forge_factory_era()
     mandatory_ok = all(r.get("ok") for r in loops if r["id"] in MANDATORY_LOOPS)
     row = {
         "schema": "better-loop-pulse-receipt-v1",
@@ -937,6 +958,7 @@ def run_pulse(*, write: bool = True) -> dict:
         "phase": "POST-DESIGN",
         "weekly_lever": weekly,
         "goal1_idle": goal1_idle,
+        "forge_factory_active": forge_factory_active,
         "loops": loops,
         "output_quality": oqg,
         "best_loop_oqg_line": oqg.get("best_loop_oqg_line", ""),
@@ -966,7 +988,7 @@ def run_pulse(*, write: bool = True) -> dict:
         "red_count": red,
         **taxonomy,
         "better_loop_line": _better_loop_line(
-            checks, red, weekly, oqg=oqg, goal1_idle=goal1_idle, taxonomy=taxonomy
+            checks, red, weekly, oqg=oqg, goal1_idle=goal1_idle, forge_factory_active=forge_factory_active, taxonomy=taxonomy
         ),
         "outbound_salvage": {
             "upgrade": "U085",

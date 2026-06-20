@@ -1,7 +1,7 @@
 {
   "schema": "portfolio-account-structure-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-20T21:45:00Z",
+  "saved_at": "2026-06-21T00:30:00Z",
   "authority": "ASF",
   "founder_confirmed_at": "2026-06-19",
   "one_law": "One brand · one identity stack · one browser profile per lane. Never mix WitnessBC credentials with main-lane TrustField / Noetfield / VIRLUX / SourceA work.",
@@ -21,7 +21,7 @@
         "sinakazemnezhad.ca@gmail.com",
         "noetfield@gmail.com"
       ],
-      "modules": ["trustfield", "noetfield", "sourcea", "virlux", "maclaw", "portfolio_hub"],
+      "modules": ["trustfield", "noetfield", "sourcea", "witnessbc", "virlux", "maclaw", "portfolio_hub"],
       "services": [
         {
           "service": "github",
@@ -34,9 +34,19 @@
           "plan": "hobby",
           "plan_target": "pro",
           "plan_target_date": "2026-06-27",
+          "team_slug": "the-777-foundation",
+          "dashboard_url": "https://vercel.com/the-777-foundation",
+          "github_org": "kazemnezhadsina144-dot",
           "secondary_login": "noetfield@gmail.com",
-          "secondary_note": "Noetfield page deployed here — migrate projects to main Pro account next week (ASF 2026-06-20)",
-          "scope": "trustfield.ca · noetfield.com · sourcea.com · virlux-web/api/app · Mac Health preview"
+          "secondary_team_slug": "noetfield-systems",
+          "secondary_note": "Trial team — SourceA must migrate OUT · Stripe stays on noetfield@gmail.com",
+          "scope": "trustfield.ca · noetfield.com · sourcea.com · virlux-web/api · source-a · deploy-witnessbc-agents-governance · Gate K",
+          "monorepo": "kazemnezhadsina144-dot/SourceA",
+          "monorepo_paths": {
+            "sourcea": "SourceA-landing/green-unified",
+            "witnessbc": "witnessbc-site"
+          },
+          "vercel_map_ssot": "data/vercel-portfolio-map-v1.json"
         },
         {
           "service": "cloudflare",
@@ -102,10 +112,11 @@
     },
     {
       "id": "witnessbc_lane",
-      "label": "WitnessBC lane — isolated",
-      "chrome_profile": "Chrome profile B (WitnessBC only)",
+      "label": "WitnessBC lane — Cloudflare DNS only (code in SourceA monorepo)",
+      "chrome_profile": "Chrome profile B (WitnessBC DNS / CF only)",
       "gmail_logins": ["witness.bc@gmail.com"],
       "modules": ["witnessbc"],
+      "note": "GitHub + Vercel deploy = main lane kazemnezhadsina144-dot/SourceA · this lane = witnessbc.com zone DNS only",
       "services": [
         {
           "service": "github",
@@ -147,6 +158,23 @@
     "CF_API_TOKEN mapped to CF_EMAIL_API_TOKEN (DNS token is not email token)"
   ],
   "known_drift": [
+    {
+      "id": "sourcea-landing-wrong-vercel-team",
+      "path": "data/vercel-portfolio-map-v1.json",
+      "project": "sourcea-landing",
+      "current_team": "noetfield-systems (noetfield@gmail.com)",
+      "should_be_team": "the-777-foundation (kazemnezhadsina144@gmail.com)",
+      "github_target": "kazemnezhadsina144-dot/SourceA",
+      "fix": "redeploy_from_git_on_main_chrome — NOT transfer",
+      "note": "Cross-Gmail Vercel transfer impossible · delete trial copy after main deploy green"
+    },
+    {
+      "id": "witnessbc-deploy-sooty-wrong-team",
+      "path": "data/vercel-portfolio-map-v1.json",
+      "project": "deploy",
+      "fix": "Create deploy-witnessbc-agents-governance on main Vercel from SourceA/witnessbc-site · delete trial deploy-sooty",
+      "note": "Code SSOT is monorepo — not separate WitnessBC GitHub"
+    },
     {
       "id": "loop-specialist-cf-account",
       "path": "data/loop-specialist-cloud-cron-v1.json",
