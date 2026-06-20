@@ -219,7 +219,7 @@ The agentic reference platform is not another Copilot table. It is a **governed 
 - `AGENTIC_REFERENCE_PLATFORM_BLUEPRINT_v1.md`  
 - `SINA_P0_PORTFOLIO_AUTOMATION_AND_EVIDENCE_LAW_DRAFT_v1.md`  
 - `SOURCEA_SSOT_FOUNDATION_WRITING_GUIDE_LOCKED_v1.md`  
-- `brain-os/law/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md`  
+- `brain-os/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md`  
 - External: presenc.ai research · Paid PR · Botpress funding · Temporal Tech in Asia  
 
 ---
