@@ -1,10 +1,11 @@
 {
   "schema": "agent-memory-mirror-poison-law-v1",
-  "version": "2.0.0",
-  "saved_at": "2026-06-20T20:30:00Z",
+  "version": "2.1.0",
+  "saved_at": "2026-06-20T23:00:00Z",
   "registry": "data/agent-law-poison-registry-v1.json",
   "locked": true,
-  "incidents": ["INCIDENT-034", "INCIDENT-039", "INCIDENT-040"],
+  "incidents": ["INCIDENT-034", "INCIDENT-039", "INCIDENT-040", "INCIDENT-041"],
+  "incident_041": "Mac founder session: read session gate receipt + truth bundle once; never spawn audit-of-audit loops.",
   "scrub_script": "scripts/agent_mirror_poison_scrub_v1.py --all",
   "validate_script": "scripts/validate-agent-law-poison-free-v1.sh",
   "one_law": "Mirror injects positive read paths and reply shape — NEVER orders validator marathons before founder chat.",
@@ -34,5 +35,15 @@
   "rule": ".cursor/rules/agent-memory-mirror.mdc",
   "scrub_script": "scripts/agent_mirror_poison_scrub_v1.py --all",
   "validate_script": "scripts/validate-agent-law-poison-free-v1.sh",
-  "permanent_fix": "Run scrub --all on law ship · read receipts on Mac founder session · never bash validate before reply"
+  "permanent_fix": "Run scrub --all on law ship · read receipts on Mac founder session · never bash validate before reply",
+  "mac_session_read_once": [
+    "~/.sina/agent_session_gate_receipt_v1.json",
+    "~/.sina/last-truth-bundle-v1.json"
+  ],
+  "mac_forbidden": [
+    "governance_zero_drift_live_wire --tier full on Mac founder session",
+    "audit-of-audit loops",
+    "poison scrub --all mid-turn (validate-only on session gate)"
+  ],
+  "deprecate_doc": "brain-os/law/enforcement/SOURCEA_MAC_READ_PATHS_ONLY_LOCKED_v1.md"
 }

@@ -52,6 +52,26 @@ def _read_json(path: Path) -> dict:
         return {}
 
 
+def _mac_founder_session() -> bool:
+    """Mac control plane — read receipts once; no governance full tier or audit loops."""
+    return (Path.home() / ".sina" / "mac-control-plane-v1.flag").is_file()
+
+
+def _poison_validate_step() -> dict:
+    code, out = _run(
+        [PY, str(SCRIPTS / "agent_mirror_poison_scrub_v1.py"), "--validate", "--json"]
+    )
+    row = json.loads(out[out.find("{") :]) if "{" in out else {}
+    return {
+        "step": "mirror_poison_validate",
+        "ok": code == 0 and row.get("ok", False),
+        "exit": code,
+        "poison_hits": len(row.get("poison_hits") or []),
+        "mode": "validate_only",
+        "incident": "INCIDENT-041",
+    }
+
+
 def _wire_covers_agentic(wire: dict, role: str) -> bool:
     if not wire.get("ok"):
         return False
@@ -74,6 +94,7 @@ def run_gate(role: str = "any", *, scan_text: str = "", pre_ship: bool = False, 
 
     freeze_flag = Path.home() / ".sina" / "auto-run-disabled-v1.flag"
     focus_freeze = freeze_flag.is_file() and not pre_ship
+    mac_session = _mac_founder_session() and not pre_ship
 
     if pre_ship:
         if not scan_text.strip():
@@ -106,6 +127,7 @@ def run_gate(role: str = "any", *, scan_text: str = "", pre_ship: bool = False, 
                 [
                     {"step": "anti_staleness_auto_wire", "ok": True, "exit": 0, "mode": "mac_focus_freeze", "skipped": True},
                     {"step": "memory_mirror_sync", "ok": bool(mirror), "exit": 0, "note": "cached"},
+                    _poison_validate_step(),
                     {"step": "daily_duty_card", "ok": True, "exit": 0, "mode": "mac_focus_freeze"},
                     {
                         "step": "mac_law_machine_enforce",
@@ -171,6 +193,9 @@ def run_gate(role: str = "any", *, scan_text: str = "", pre_ship: bool = False, 
                     "note": "via anti_staleness disk_live_wire",
                 }
             )
+            poison_step = _poison_validate_step()
+            steps.append(poison_step)
+            ok = ok and poison_step.get("ok", True)
 
             code, out = _run([PY, str(SCRIPTS / "agent_daily_duty_card_v1.py"), "--validate", "--json"])
             daily = json.loads(out[out.find("{") :]) if "{" in out else {}
@@ -327,19 +352,29 @@ def run_gate(role: str = "any", *, scan_text: str = "", pre_ship: bool = False, 
             )
 
     if not pre_ship:
-        if focus_freeze:
+        if focus_freeze or mac_session:
             bl_cached = _read_json(Path.home() / ".sina" / "better-loop-pulse-receipt-v1.json")
             nerve_cached = _read_json(Path.home() / ".sina" / "agent-nerve-system-receipt-v1.json")
+            zero_cached = _read_json(Path.home() / ".sina" / "governance-zero-drift-live-wire-v1.json")
+            mode_note = "mac_focus_freeze" if focus_freeze else "mac_control_plane_read_only"
             steps.extend(
                 [
-                    {"step": "stranger_agent_safety_live_wire", "ok": True, "exit": 0, "mode": "mac_focus_freeze", "skipped": True},
-                    {"step": "governance_zero_drift_live_wire", "ok": True, "exit": 0, "mode": "mac_focus_freeze", "skipped": True},
-                    {"step": "sourcea_crawl_mirror_pipeline", "ok": True, "exit": 0, "mode": "mac_focus_freeze", "skipped": True},
+                    {"step": "stranger_agent_safety_live_wire", "ok": True, "exit": 0, "mode": mode_note, "skipped": True},
+                    {
+                        "step": "governance_zero_drift_live_wire",
+                        "ok": True,
+                        "exit": 0,
+                        "mode": mode_note,
+                        "skipped": True,
+                        "note": "full tier FORBIDDEN on Mac — INCIDENT-041",
+                        "zero_drift_line": (zero_cached.get("zero_drift_line") or "")[:96],
+                    },
+                    {"step": "sourcea_crawl_mirror_pipeline", "ok": True, "exit": 0, "mode": mode_note, "skipped": True},
                     {
                         "step": "better_loop_pulse",
                         "ok": bl_cached.get("schema") == "better-loop-pulse-receipt-v1",
                         "exit": 0,
-                        "mode": "mac_focus_freeze",
+                        "mode": mode_note,
                         "note": "cached receipt",
                         "better_loop_line": (bl_cached.get("better_loop_line") or "")[:96],
                     },
@@ -347,7 +382,7 @@ def run_gate(role: str = "any", *, scan_text: str = "", pre_ship: bool = False, 
                         "step": "nerve_system",
                         "ok": nerve_cached.get("schema") == "agent-nerve-system-receipt-v1",
                         "exit": 0,
-                        "mode": "mac_focus_freeze",
+                        "mode": mode_note,
                         "note": "cached nerve receipt",
                         "nerve_system_line": (nerve_cached.get("nerve_system_line") or "")[:96],
                         "ship_gates": nerve_cached.get("ship_gates") or {},
@@ -776,6 +811,18 @@ def run_gate(role: str = "any", *, scan_text: str = "", pre_ship: bool = False, 
             "read_order_ok": conduct.get("read_order_ok"),
             "limits": conduct.get("limits") or {},
             "main_problem_trigger": main_problem_row if main_problem_row.get("triggered") else None,
+            "incident_041": "Mac founder session: read session gate receipt + truth bundle once; never spawn audit-of-audit loops.",
+            "mac_read_once": [
+                str(RECEIPT),
+                str(TRUTH_CACHE),
+            ],
+            "mac_forbidden": [
+                "governance_zero_drift_live_wire --tier full",
+                "audit-of-audit loops",
+                "poison scrub --all mid-turn",
+                "validate-* && validate-* chains",
+            ],
+            "deprecate_doc": "brain-os/law/enforcement/SOURCEA_MAC_READ_PATHS_ONLY_LOCKED_v1.md",
         },
         "mirror_hash8": mirror.get("mirror_hash8"),
         "mirror_path": str(MIRROR_PATH),

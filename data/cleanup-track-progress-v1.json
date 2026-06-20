@@ -1,9 +1,11 @@
 {
   "schema_version": "1.0.0",
-  "saved_at": "2026-06-20T22:50:00Z",
+  "saved_at": "2026-06-20T18:49:43Z",
   "manifest_path": "infra/cleanup/cleanup-manifest.md",
   "inventory_path": "infra/cleanup/inventory-root.tsv",
   "status": "CLEANUP_COMPLETE",
+  "hub_command_data_rebuilt_at": "2026-06-20T19:12:24Z",
+  "cloud_smoke_receipt": "~/.sina/cloud-dispatch-smoke-receipt-v1.json",
   "mac_execute_only": "data/cleanup-mac-execute-only-v1.json",
   "asf_picks": {
     "taxonomy": "Option A",
@@ -27,28 +29,130 @@
     "after_batch_5e": 88,
     "after_batch_5f": 2,
     "current": 2,
-    "keep_root": ["START_HERE.md", "ACTIVE_NOW.md"]
+    "keep_root": [
+      "START_HERE.md",
+      "ACTIVE_NOW.md"
+    ],
+    "after_batch_4_expected": -23
   },
   "batches": [
-    {"id": "1", "theme": "AGENT_* → brain-os", "files": 26, "status": "executed", "commit": "0cf364d8"},
-    {"id": "2", "theme": "SINA_AGENT_* + incidents", "files": 25, "status": "executed", "commit": "94c2dd2b"},
-    {"id": "3", "theme": "tier-0 SSOT law at root", "files": 25, "status": "executed", "commit": "0bb4a1b1"},
-    {"id": "3.5", "theme": "pointer sync + taxonomy fold", "files": 44, "status": "executed", "commit": "c688cd75"},
-    {"id": "3.5b", "theme": "archive rollback", "files": 11, "status": "executed", "commit": "305a666a"},
-    {"id": "4", "theme": "SINA_COMMAND_* + incidents", "files": 25, "status": "executed", "executed_at": "2026-06-20"},
-    {"id": "5a", "theme": "SOURCEA_* → brain-os/law/", "files": 69, "status": "executed", "executed_at": "2026-06-20"},
-    {"id": "5b", "theme": "WORLD_* stubs → archive", "files": 10, "status": "executed", "executed_at": "2026-06-20", "executor": "execute_batch_python_v1.py"},
-    {"id": "5c", "theme": "FOUNDER_* → enforcement", "files": 7, "status": "executed", "executed_at": "2026-06-20", "moved": 6, "archived": 1},
-    {"id": "5d", "theme": "CURSOR_* → law + cursor-tooling archive", "files": 5, "status": "executed", "executed_at": "2026-06-20"},
-    {"id": "5e", "theme": "SINA_* → brain-os/law/ + incidents", "files": 51, "status": "executed", "executed_at": "2026-06-20", "moved": 50, "archived": 1},
-    {"id": "5f", "theme": "OTHER remainder → law / system / archive", "files": 86, "status": "executed", "executed_at": "2026-06-20", "moved": 74, "archived": 12, "skipped": 0},
-    {"id": "6", "theme": "archive trim duplicate root-stubs", "files": 20, "status": "executed", "executed_at": "2026-06-20", "deleted": 20, "kept": 16, "audit": "infra/cleanup/batch-6-preflight-audit.json"}
+    {
+      "id": "1",
+      "theme": "AGENT_* → brain-os",
+      "files": 26,
+      "status": "executed",
+      "commit": "0cf364d8"
+    },
+    {
+      "id": "2",
+      "theme": "SINA_AGENT_* + incidents",
+      "files": 25,
+      "status": "executed",
+      "commit": "94c2dd2b"
+    },
+    {
+      "id": "3",
+      "theme": "tier-0 SSOT law at root",
+      "files": 25,
+      "status": "executed",
+      "commit": "0bb4a1b1"
+    },
+    {
+      "id": "3.5",
+      "theme": "pointer sync + taxonomy fold",
+      "files": 44,
+      "status": "executed",
+      "commit": "c688cd75"
+    },
+    {
+      "id": "3.5b",
+      "theme": "archive rollback",
+      "files": 11,
+      "status": "executed",
+      "commit": "305a666a"
+    },
+    {
+      "id": "4",
+      "theme": "SINA_COMMAND_* + incidents",
+      "files": 25,
+      "status": "executed",
+      "executed_at": "2026-06-20",
+      "preflight": {
+        "sources_present": 0,
+        "sources_total": 25,
+        "dest_collisions": 0,
+        "all_sources_present": false
+      }
+    },
+    {
+      "id": "5a",
+      "theme": "SOURCEA_* → brain-os/law/",
+      "files": 69,
+      "status": "executed",
+      "executed_at": "2026-06-20"
+    },
+    {
+      "id": "5b",
+      "theme": "WORLD_* stubs → archive",
+      "files": 10,
+      "status": "executed",
+      "executed_at": "2026-06-20",
+      "executor": "execute_batch_python_v1.py"
+    },
+    {
+      "id": "5c",
+      "theme": "FOUNDER_* → enforcement",
+      "files": 7,
+      "status": "executed",
+      "executed_at": "2026-06-20",
+      "moved": 6,
+      "archived": 1
+    },
+    {
+      "id": "5d",
+      "theme": "CURSOR_* → law + cursor-tooling archive",
+      "files": 5,
+      "status": "executed",
+      "executed_at": "2026-06-20"
+    },
+    {
+      "id": "5e",
+      "theme": "SINA_* → brain-os/law/ + incidents",
+      "files": 51,
+      "status": "executed",
+      "executed_at": "2026-06-20",
+      "moved": 50,
+      "archived": 1
+    },
+    {
+      "id": "5f",
+      "theme": "OTHER remainder → law / system / archive",
+      "files": 86,
+      "status": "executed",
+      "executed_at": "2026-06-20",
+      "moved": 74,
+      "archived": 12,
+      "skipped": 0
+    },
+    {
+      "id": "6",
+      "theme": "archive trim duplicate root-stubs",
+      "files": 20,
+      "status": "executed",
+      "executed_at": "2026-06-20",
+      "deleted": 20,
+      "kept": 16,
+      "audit": "infra/cleanup/batch-6-preflight-audit.json"
+    }
   ],
   "closeout": {
     "pointer_patches": "scripts validators → brain-os/law paths",
     "poison_scrub": "scripts/agent_mirror_poison_scrub_v1.py --all",
     "vector_index_chunks": 800,
     "truth_bundle_cache": "~/.sina/last-truth-bundle-v1.json",
+    "hub_command_data": "align_command_data_ui_v1.py — hook paths brain-os/*",
+    "cloud_smoke": "~/.sina/cloud-dispatch-smoke-receipt-v1.json",
+    "incident_041": "brain-os/law/enforcement/SOURCEA_MAC_READ_PATHS_ONLY_LOCKED_v1.md",
     "report": "infra/cleanup/CLEANUP_COMPLETE_REPORT_v1.md"
   },
   "next_steps_ordered": []
