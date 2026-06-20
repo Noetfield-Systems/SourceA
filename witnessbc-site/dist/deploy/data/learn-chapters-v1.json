@@ -1,0 +1,148 @@
+{
+  "schema": "witnessbc-learn-chapters-v1",
+  "version": "1.0.0",
+  "generated_at": "2026-06-15T20:30:00Z",
+  "inspiration": "Linear Learn intro chapter structure — product-is-the-lesson",
+  "total_runtime_label": "~6 min guided · ~51s film",
+  "chapters": [
+    {
+      "id": "intro",
+      "index": 0,
+      "timestamp": "00:00",
+      "title": "Introduction",
+      "subtitle": "Why policy must run before the agent acts",
+      "summary": "Agents can send email, call tools, and publish content without a session prompt stopping them. Witness AI governs at dispatch — every irreversible step gets a verdict before execution.",
+      "proof_slug": null,
+      "proof_href": "index.html#hero",
+      "cta_label": "See the problem on home",
+      "cta_href": "index.html",
+      "workflow": null,
+      "receipt_code": "wbc.intake.received"
+    },
+    {
+      "id": "key-features",
+      "index": 1,
+      "timestamp": "00:11",
+      "title": "Key features",
+      "subtitle": "ALLOW · BLOCK · ESCALATE on the control plane",
+      "summary": "The control plane shows live agent roster, policy scores, and verdict chips. BLOCK stops irreversible harm. ESCALATE routes to human gates. ALLOW proceeds with signed receipt.",
+      "proof_slug": "tool",
+      "proof_href": "proof.html#scenario=tool",
+      "cta_label": "Run tool BLOCK scenario",
+      "cta_href": "proof.html#scenario=tool",
+      "workflow": "execute",
+      "receipt_code": "wbc.policy.evaluated"
+    },
+    {
+      "id": "setup",
+      "index": 2,
+      "timestamp": "00:48",
+      "title": "Set-up",
+      "subtitle": "Open Proof Lab · pick a scenario",
+      "summary": "Proof Lab loads six JSON scenarios from disk SSOT. Pick outbound, tool, publish, PII leak, MCP, or tamper — each maps to real policy packs and receipt hashes.",
+      "proof_slug": "outbound",
+      "proof_href": "proof.html#scenario=outbound",
+      "cta_label": "Open Proof Lab",
+      "cta_href": "proof.html",
+      "workflow": "scope",
+      "receipt_code": "wbc.triage.complete"
+    },
+    {
+      "id": "issues",
+      "index": 3,
+      "timestamp": "01:24",
+      "title": "Issues",
+      "subtitle": "One outbound action · receipt terminal",
+      "summary": "Watch an outbound email escalate to a human gate, approve, execute, and sign. The terminal shows every step — policy eval, human gate, execute, receipt hash.",
+      "proof_slug": "outbound",
+      "proof_href": "proof.html#scenario=outbound",
+      "cta_label": "Run outbound ESCALATE",
+      "cta_href": "proof.html#scenario=outbound",
+      "workflow": "execute",
+      "receipt_code": "wbc.receipt.signed"
+    },
+    {
+      "id": "projects",
+      "index": 4,
+      "timestamp": "02:01",
+      "title": "Projects",
+      "subtitle": "Governance loop · six gates",
+      "summary": "From intake through prove — six gates each emit machine receipt codes. Replay the chain, then run tamper-FAIL to prove signatures detect edits.",
+      "proof_slug": "tamper",
+      "proof_href": "proof.html#scenario=tamper",
+      "cta_label": "Run tamper-FAIL",
+      "cta_href": "proof.html#scenario=tamper",
+      "workflow": "audit",
+      "receipt_code": "wbc.replay.tamper_fail"
+    },
+    {
+      "id": "initiatives",
+      "index": 5,
+      "timestamp": "03:23",
+      "title": "Initiatives",
+      "subtitle": "Pricing · book live proof",
+      "summary": "Start with free AI policy packs. Scale to Witness AI Flow for first agentic install. Book a 15-min live proof session — we run tamper-FAIL on your call.",
+      "proof_slug": null,
+      "proof_href": "pricing.html",
+      "cta_label": "Book 15-min proof",
+      "cta_href": "{{PROOF_MAILTO}}",
+      "workflow": null,
+      "receipt_code": "wbc.proof.booked"
+    }
+  ],
+  "workflows": [
+    {
+      "id": "scope",
+      "label": "Scope",
+      "description": "Agent proposes action → gate evaluates intent → ESCALATE or ALLOW"
+    },
+    {
+      "id": "execute",
+      "label": "Execute",
+      "description": "Approved action runs → receipt written to chain"
+    },
+    {
+      "id": "audit",
+      "label": "Audit",
+      "description": "Tamper attempt → FAIL on screen → hash mismatch visible"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Live onboarding",
+      "description": "Book 15-min proof — essentials + tamper-FAIL on your screen",
+      "href": "{{PROOF_MAILTO}}",
+      "kind": "session"
+    },
+    {
+      "label": "Proof Lab",
+      "description": "Interactive receipt replay — six scenarios",
+      "href": "proof.html",
+      "kind": "product"
+    },
+    {
+      "label": "Hero commercial",
+      "description": "~51s film · real UI capture · Linear-style chapters",
+      "href": "proof.html#w1-demo-film",
+      "kind": "video"
+    },
+    {
+      "label": "Governance loop",
+      "description": "Six gates from intake to prove",
+      "href": "lifecycle.html",
+      "kind": "docs"
+    },
+    {
+      "label": "AI policy packs",
+      "description": "Versioned packs enforced at every gate",
+      "href": "policy.html",
+      "kind": "docs"
+    },
+    {
+      "label": "FAQ",
+      "description": "Agentic governance · Flow install · policy scope",
+      "href": "faq.html",
+      "kind": "docs"
+    }
+  ]
+}
