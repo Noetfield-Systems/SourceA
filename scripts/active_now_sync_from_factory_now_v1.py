@@ -30,30 +30,49 @@ def sync_active_now(*, dry_run: bool = False) -> dict:
     mode = str(fn.get("mode") or "FREEZE")
     kill = bool(fn.get("kill_flag"))
     line = str(fn.get("line") or format_line_from(fn))
+    era = {}
+    try:
+        from factory_control_v1 import _load_factory_era, load_resume_token  # noqa: WPS433
+
+        era = _load_factory_era()
+    except Exception:
+        from factory_control_v1 import load_resume_token  # noqa: WPS433
+
+    resume = load_resume_token()
+    active = not kill and mode not in ("FREEZE",) and (bool(resume) or mode == "FORGE_FACTORY")
+    forge_factory_active = era.get("current_era") == "forge_factory_cycle2" or str(fn.get("mode")) == "FORGE_FACTORY"
     goal1_idle = (
-        int(fn.get("valid_yes") or 0) >= 1000
+        not forge_factory_active
+        and int(fn.get("valid_yes") or 0) >= 1000
         and int(fn.get("backlog") or 0) == 0
         and bool(fn.get("dual_proof_ok"))
         and not str(fn.get("queue_sa") or "").strip()
     )
 
-    queue_line = (
-        f"**Current Queue:** `~/.sina/healthy-queue-30-active.json` · "
-        f"factory-now queue `{queue_sa}` · **Goal 1 idle**"
-        if goal1_idle
-        else f"**Current Queue:** `~/.sina/healthy-queue-30-active.json` · factory-now queue `{queue_sa}`"
-    )
-    from factory_control_v1 import load_resume_token  # noqa: WPS433
-
-    resume = load_resume_token()
-    active = not kill and mode != "FREEZE" and bool(resume)
-    if goal1_idle:
+    if forge_factory_active:
+        goal_line = "**Current Goal:** Goal 3 — FORGE FACTORY (Goal 2 merged · Goal 1 archived)"
+        queue_line = (
+            f"**Current Queue:** `~/.sina/healthy-queue-30-active.json` · "
+            f"FORGE FACTORY cycle2 · `{queue_sa}`"
+        )
+        sprint_line = "**Current Sprint:** FORGE FACTORY cycle2 — cloud execute · Mac control panel"
+        blocker_line = (
+            f"**Current Blocker:** FORGE FACTORY active · mode {mode} · `{line}` · "
+            f"commercial P0 parallel (WitnessBC · TrustField · form picks)"
+        )
+    elif goal1_idle:
+        goal_line = "**Current Goal:** Goal 1 — Governed automation factory → Pre-LLM eval-dispatch spine (archived idle)"
+        queue_line = (
+            f"**Current Queue:** `~/.sina/healthy-queue-30-active.json` · "
+            f"factory-now queue `{queue_sa}` · **Goal 1 idle (archived)**"
+        )
         blocker_line = (
             f"**Current Blocker:** Goal 1 complete · queue idle · AUTO-RUN FREEZE · `{line}` · "
             f"commercial P0 · ASF: resume drain or name Cycle 4 pack for next factory drain"
         )
         sprint_line = "**Current Sprint:** Goal 1 honest complete · commercial flywheel · Hub advisory"
     elif active:
+        goal_line = "**Current Goal:** Goal 1 — Governed automation factory (bounded resume active)"
         max_t = resume.get("max_turns") if resume else "?"
         blocker_line = (
             f"**Current Blocker:** ACTIVE — resume token live · drain spawn allowed · "
@@ -61,17 +80,24 @@ def sync_active_now(*, dry_run: bool = False) -> dict:
         )
         sprint_line = "**Current Sprint:** s5 commercial drain — cycle-2 P2 · OpenRouter enforce active"
     elif kill or mode == "FREEZE":
+        goal_line = "**Current Goal:** Goal 1 — Governed automation factory → Pre-LLM eval-dispatch spine"
         blocker_line = (
             f"**Current Blocker:** FREEZE — kill flag ON · mode {mode} · `{line}` · "
             f"ASF: resume drain — max N — receipt required"
         )
         sprint_line = "**Current Sprint:** Paused — all engines off · no spend"
     else:
+        goal_line = f"**Current Goal:** {mode} — see factory-now line"
         blocker_line = (
             f"**Current Blocker:** {mode} — kill flag OFF · `{line}` · "
             f"bounded resume token required · guards only · machine gate blocks drain without receipt"
         )
         sprint_line = "**Current Sprint:** Paused — bounded resume required before drain"
+
+    if not forge_factory_active and not goal1_idle:
+        queue_line = (
+            f"**Current Queue:** `~/.sina/healthy-queue-30-active.json` · factory-now queue `{queue_sa}`"
+        )
 
     from worker_drain_lib import healthy_queue_status  # noqa: WPS433
 
@@ -80,7 +106,9 @@ def sync_active_now(*, dry_run: bool = False) -> dict:
     q_role = str(queue.get("queue_role") or "?").lower()
     q_pos = queue.get("queue_pos")
     q_total = queue.get("queue_total")
-    if goal1_idle:
+    if forge_factory_active:
+        sa_id_line = f"**Current sa_id:** `{q_sa or queue_sa}` · FORGE FACTORY cycle2"
+    elif goal1_idle:
         sa_id_line = "**Current sa_id:** `idle` · Goal 1 complete"
     elif q_sa and q_sa not in ("?", "—", "-"):
         pos_bit = f" · pos `{q_pos}/{q_total}`" if q_pos and q_total else ""
@@ -89,6 +117,7 @@ def sync_active_now(*, dry_run: bool = False) -> dict:
         sa_id_line = f"**Current sa_id:** `{queue_sa}` · factory-now queue"
 
     out = text
+    out = re.sub(r"\*\*Current Goal:\*\*[^\n]*", goal_line, out, count=1)
     out = re.sub(r"\*\*Current Sprint:\*\*[^\n]*", sprint_line, out, count=1)
     out = re.sub(r"\*\*Current Queue:\*\*[^\n]*", queue_line, out, count=1)
     if re.search(r"\*\*Current sa_id:\*\*", out):
@@ -105,6 +134,7 @@ def sync_active_now(*, dry_run: bool = False) -> dict:
     return {
         "ok": True,
         "changed": changed,
+        "goal_line": goal_line,
         "queue_sa": queue_sa,
         "mode": mode,
         "kill_flag": kill,

@@ -1,17 +1,47 @@
 {
   "schema": "portfolio-daily-priority-queue-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-20T22:30:00Z",
+  "saved_at": "2026-06-21T00:00:00Z",
   "authority": "ASF",
-  "one_law": "Daily portfolio work = clear P0 blockers first — WitnessBC prod · TrustField ladder · Supabase keepalive · then lane commits.",
+  "one_law": "Daily portfolio work = FORGE FACTORY cycle2 queue + clear P0 commercial blockers (WitnessBC prod · TrustField ladder · form picks).",
+  "forge_factory_era": {
+    "era": "forge_factory_cycle2",
+    "brand": "FORGE FACTORY",
+    "mode": "FORGE_FACTORY",
+    "queue_head": "sa-1201",
+    "queue_ssot": "data/forge-factory-queue-cycle2-v1.json",
+    "goal": "Goal 3 — FORGE FACTORY (Goal 2 merged · Goal 1 archived)"
+  },
   "script": "scripts/portfolio_daily_priority_queue_v1.py",
   "receipt": "~/.sina/portfolio-daily-priority-queue-v1.json",
   "surfaces_line_key": "portfolio_priority_line",
   "daily_shell": "scripts/run-portfolio-supabase-daily-v1.sh",
   "supabase_setup": "scripts/setup_supabase_secrets_mac_v1.sh",
   "human_doc": "docs/PORTFOLIO_DAILY_PRIORITY_QUEUE_LOCKED_v1.md",
-  "bottom_line": "Network UP on all product URLs — gaps are content/policy (WitnessBC prod, TrustField ladder), Supabase secrets on Mac, and lane commits.",
+  "bottom_line": "Network UP on product URLs · Supabase keys wired · FORGE FACTORY cycle2 queue sa-1201 · P0 = move sourcea-landing off noetfield-systems trial · WitnessBC DNS · TrustField ladder · form Submit.",
   "queue": [
+    {
+      "priority": "P0",
+      "id": "witnessbc-vercel-main",
+      "repo": "SourceA",
+      "blocker": "WitnessBC commercial Vercel project not on main yet — name deploy-witnessbc-agents-governance",
+      "owner": "founder",
+      "acceptance": "https://deploy-witnessbc-agents-governance.vercel.app green · root witnessbc-site · www DNS when ready",
+      "founder_action": "Main Vercel → Add Project SourceA · root witnessbc-site · name deploy-witnessbc-agents-governance",
+      "probe": "vercel_portfolio_map",
+      "ssot": "data/vercel-portfolio-map-v1.json"
+    },
+    {
+      "priority": "P0",
+      "id": "sourcea-vercel-home",
+      "status": "done",
+      "repo": "SourceA",
+      "blocker": "RESOLVED — source-a live on the-777-foundation · GitHub SourceA linked",
+      "owner": "founder",
+      "acceptance": "source-a.vercel.app green · Gate K /sourcea/trust/",
+      "completed_at": "2026-06-20T23:30:00Z",
+      "probe": "vercel_portfolio_map"
+    },
     {
       "priority": "P0",
       "id": "wbc-prod",
@@ -45,12 +75,13 @@
     {
       "priority": "P1",
       "id": "supabase-secrets",
+      "status": "done",
       "repo": "All",
-      "blocker": "portfolio-spine only — unpause kazemnezhadsina144-dot Project + paste keys",
+      "blocker": "RESOLVED — portfolio-spine.env + noetfield.env wired separately",
       "owner": "founder",
-      "acceptance": "~/.sourcea-secrets/portfolio-spine.env with real URL + anon key (labs-sandbox decoupled)",
-      "command": "bash ~/Desktop/SourceA/scripts/setup_supabase_secrets_mac_v1.sh",
-      "probe": "supabase_secrets"
+      "acceptance": "Auth health 200 on both projects",
+      "probe": "supabase_secrets",
+      "completed_at": "2026-06-20T22:00:00Z"
     },
     {
       "priority": "P2",
@@ -77,14 +108,14 @@
       "secrets_file": "~/.sourcea-secrets/portfolio-spine.env",
       "cloud_ref": "ldfruywifqnfpwsfgmdl",
       "example": "infra/supabase/portfolio-spine/config.example.env",
-      "modules": ["trustfield", "witnessbc", "foundation"]
+      "modules": ["witnessbc", "foundation", "forge_factory"]
     },
     {
       "id": "noetfield",
       "secrets_file": "~/.sourcea-secrets/noetfield.env",
       "cloud_ref": "tkgpapowwplupyekpivy",
       "example": "infra/supabase/noetfield/config.example.env",
-      "modules": ["noetfield"]
+      "modules": ["noetfield", "trustfield"]
     }
   ],
   "supabase_decoupled": [

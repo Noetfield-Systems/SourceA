@@ -5,7 +5,7 @@
 **Reporter:** ASF — explicit RED FLAG (confirmed twice)  
 **Agent:** Cursor Auto · **sequence_id:** SA-2026-06-20-INCIDENT-039  
 **Opened:** 2026-06-20 · **Related:** INCIDENT-026 · INCIDENT-038 · Mac pipeline validator pressure law  
-**Status:** OPEN — **RECURRENCE CONFIRMED** · agent violated law while wiring Mac Law · RED FLAG active on disk
+**Status:** CLOSED — remediation complete · conduct law preserved in `034-mac-no-validator-stuck-red-flag.mdc`
 
 ---
 
@@ -168,4 +168,20 @@ Agent **ignored INCIDENT-039 / rule 034** while claiming to “wire Mac Law to a
 
 ---
 
-**LOCKED v1.1** — canonical body · INCIDENT-039 · RED FLAG P0 · recurrence logged
+## 10. Closeout (Batch D — 2026-06-20T20:18:00Z)
+
+**Status:** CLOSED · **red_flag:** removed
+
+| Criterion | Result |
+|-----------|--------|
+| `write_active_inbox_rule` template | PASS — Mac proof header, no "run validators" |
+| 099-worker-inbox-active.mdc | PASS — header + body aligned |
+| pick_commands scrubbed | PASS — Hub POST / Read paths only |
+| Mirror validate | PASS — 0 violations |
+| INCIDENT-040 | Already CLOSED (Batch B/C) |
+
+**Batch D:** D1 inject template · D2 pick_commands · D3 doc + re-inject · D4 this closeout
+
+---
+
+**LOCKED v1.1** — canonical body · INCIDENT-039 · **CLOSED v1.2**

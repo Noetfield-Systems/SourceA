@@ -1,15 +1,15 @@
 {
   "schema": "fbe-refinery-step-receipt-v1",
-  "ok": false,
-  "at": "2026-06-19T23:51:25Z",
+  "ok": true,
+  "at": "2026-06-20T23:12:41Z",
   "node_id": "creed-orient-v1",
   "bay_slug": "sample-bay",
   "tenant": "wil_ai_design_partner",
   "npm": "agent:orient",
-  "exit": 221,
-  "elapsed_sec": 28.17,
+  "exit": 0,
+  "elapsed_sec": 0.09,
   "creed_root": "/Users/sinakazemnezhad/Desktop/YA5/PLUS ONE/CREED",
   "deliveryMode": "prove_only",
   "mode": "w2_headless",
-  "tail": "> creed@1.0.0 agent:orient\n> node scripts/agent-orient.mjs --project=sample-bay\n\nnpm error code EAGAIN\nnpm error syscall spawn sh\nnpm error path /Users/sinakazemnezhad/Desktop/YA5/PLUS ONE/CREED\nnpm error errno -35\nnpm error spawn sh EAGAIN\nnpm error command sh -c node scripts/agent-orient.mjs --project=sample-bay\nnpm error A complete log of this run can be found in: /Users/sinakazemnezhad/.npm/_logs/2026-06-19T23_51_17_741Z-debug-0.log"
+  "tail": ".json ladder\n  last receipt: none\n  next: founder sets origin + sourceBrand in FACTORY.json \u2192 write ASSIGNMENT.json\n  blockers: origin unset in FACTORY.json \u00b7 clone incomplete: route-audit, match-floor, reference-quality, fidelity-matrix, critic\n  clone complete requires: route-audit + match-floor \u226599% + reference-quality + fidelity-matrix + critic \u226590\nnpm warn Unknown env config \"devdir\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options."
 }

@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-full-stack-100-fix-plan-v2",
   "version": "2.1.0",
-  "saved_at": "2026-06-20T18:45:14Z",
+  "saved_at": "2026-06-20T22:58:29Z",
   "law": "100 fix plans v2.1 \u2014 pulse wired \u00b7 outbound cross \u00b7 gate cart \u00b7 C4 decoupled",
   "parent_audit": "Brain chat full honest audit 2026-06-18",
   "human_doc": "docs/SOURCEA_FULL_STACK_100_FIX_PLAN_LOCKED_v1.md",
@@ -65,11 +65,11 @@
   ],
   "progress": {
     "total": 100,
-    "done": 60,
+    "done": 62,
     "in_progress": 0,
-    "planned": 40,
+    "planned": 38,
     "blocked": 0,
-    "pct": 60
+    "pct": 62
   },
   "waves": [
     {
@@ -170,7 +170,7 @@
         "F067",
         "F068"
       ],
-      "status": "pending"
+      "status": "active"
     },
     {
       "id": "W5",
@@ -473,7 +473,7 @@
       "parent_spec": "data/sourcea-full-stack-100-fix-plan-v1.json",
       "human_doc": "docs/SOURCEA_FULL_STACK_100_FIX_PLAN_LOCKED_v1.md",
       "pulse": "scripts/full_stack_fix_plan_pulse_v1.py",
-      "live_note": "last_completed_sa cleared on idle unit"
+      "live_note": "last_completed_sa aligned with active queue"
     },
     {
       "id": "F012",
@@ -1419,7 +1419,7 @@
       "title": "Human read session",
       "wired_to": "founder workflow",
       "acceptance": "w3_sina_read PASS",
-      "status": "planned",
+      "status": "done",
       "owner_role": "founder",
       "outbound_ref": "",
       "validator_hook": "scripts/execution_plane_honesty_v1.py",
@@ -1438,7 +1438,7 @@
       "title": "Configure hello@ and operation@",
       "wired_to": "commercial_mail_draft_v1.py",
       "acceptance": "w3_mail_from PASS",
-      "status": "planned",
+      "status": "done",
       "owner_role": "founder",
       "outbound_ref": "",
       "validator_hook": "scripts/execution_plane_honesty_v1.py",

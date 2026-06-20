@@ -260,6 +260,15 @@
       <p class="sub">State transitions beat email volume · SSOT <code>~/.sina/commercial-pipeline-v1.jsonl</code></p>
     </section>
 
+    <section class="card" id="cloud-send-job-card">
+      <h2>Cloud dispatch · Send job</h2>
+      <p class="sub">Mac sends one message · Railway runs the job · answer shows here. Plan <span class="task-id">CLOUD-SEC-011</span> (Trigger.dev pricing).</p>
+      <div class="row">
+        <button type="button" class="primary" id="btn-send-job">Send job</button>
+      </div>
+      <pre id="cloud-send-job-result" class="timing" style="margin-top:10px;white-space:pre-wrap;font-family:ui-monospace,monospace;font-size:.76rem;max-height:220px;overflow:auto;background:#f8fafc;padding:10px;border-radius:8px;border:1px solid var(--line);">—</pre>
+    </section>
+
     <section class="card" id="loop-rooms-card">
       <h2>Loop rooms · Investigator · Judge · Specialist</h2>
       <p class="sub" id="investigator-line">—</p>
@@ -1252,6 +1261,29 @@
       });
       return res.json();
     }
+
+    $("btn-send-job").addEventListener("click", async function () {
+      const out = $("cloud-send-job-result");
+      $("btn-send-job").disabled = true;
+      out.textContent = "Sending CLOUD-SEC-011 to Railway…";
+      try {
+        const res = await fetch(API + "/api/cloud-worker/dispatch/v1", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ plan_id: "CLOUD-SEC-011" }),
+        });
+        const j = await res.json();
+        const line = j.for_founder && j.for_founder.show_this
+          ? j.for_founder.show_this
+          : (j.message || j.error || "—");
+        out.textContent =
+          "HTTP " + res.status + " · " + line + "\n\n" + JSON.stringify(j, null, 2);
+      } catch (e) {
+        out.textContent = "Error: " + e.message;
+      } finally {
+        $("btn-send-job").disabled = false;
+      }
+    });
 
     $("btn-loop-chain").addEventListener("click", async function () {
       $("btn-loop-chain").disabled = true;

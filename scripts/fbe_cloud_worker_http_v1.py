@@ -109,6 +109,24 @@ def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
             founder_message=founder_message,
             system_snapshot=snap,
         )
+    if path == "/api/cloud-worker/dispatch/v1":
+        from cloud_worker_dispatch_v1 import dispatch  # noqa: WPS433
+
+        plan_id = str(body.get("plan_id") or "")
+        dry_run = bool(body.get("dry_run"))
+        if not plan_id:
+            return {"ok": False, "error": "plan_id_required"}
+        return dispatch(plan_id=plan_id, dry_run=dry_run)
+    if path == "/api/cloud-worker/dispatch-batch/v1":
+        from cloud_worker_dispatch_v1 import dispatch_batch  # noqa: WPS433
+
+        start = int(body.get("start") or 1)
+        end = int(body.get("end") or 90)
+        return dispatch_batch(start=start, end=end)
+    if path == "/api/cloud-worker/build-summary/v1":
+        from cloud_worker_dispatch_v1 import build_summary  # noqa: WPS433
+
+        return build_summary()
     if path == "/api/fbe/loop-specialist/tick/v1":
         from fbe_cloud_loop_specialist_tick_v1 import run_cloud_loop_tick  # noqa: WPS433
 
@@ -135,6 +153,23 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
                     "mode": "headless_http",
                 },
             )
+            return
+        if parsed.path.startswith("/receipts/"):
+            rel = parsed.path[len("/receipts/") :].lstrip("/")
+            if not rel or ".." in rel.split("/"):
+                _json_response(self, 400, {"ok": False, "error": "invalid_path"})
+                return
+            receipt_path = (ROOT / "receipts" / rel).resolve()
+            receipts_root = (ROOT / "receipts").resolve()
+            if not str(receipt_path).startswith(str(receipts_root)) or not receipt_path.is_file():
+                _json_response(self, 404, {"ok": False, "error": "not_found"})
+                return
+            try:
+                row = json.loads(receipt_path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError) as exc:
+                _json_response(self, 500, {"ok": False, "error": "receipt_read_failed", "message": str(exc)})
+                return
+            _json_response(self, 200, row)
             return
         _json_response(self, 404, {"ok": False, "error": "not_found"})
 
@@ -180,6 +215,16 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
             row = _run_local(path, {**body, **contract})
         except Exception as exc:
             _json_response(self, 500, {"ok": False, "error": "execution_failed", "message": str(exc)})
+            return
+
+        if path in (
+            "/api/cloud-worker/dispatch/v1",
+            "/api/cloud-worker/dispatch-batch/v1",
+            "/api/cloud-worker/build-summary/v1",
+        ):
+            row["execution_plane"] = row.get("execution_plane") or "headless_cloud"
+            code = 200 if row.get("ok") else 422
+            _json_response(self, code, row)
             return
 
         row["execution_plane"] = row.get("execution_plane") or "headless_cloud"

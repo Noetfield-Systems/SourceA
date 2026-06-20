@@ -1,9 +1,9 @@
 """Mac Health Guard — single version SSOT for server, UI, and validators."""
 from __future__ import annotations
 
-MAC_HEALTH_VERSION = "3.3.0"
-UI_VERSION_TAG = "v3.3.0 · Founder Glance · Auto heal"
-CSS_CACHE_BUSTER = "3.3.0"
+MAC_HEALTH_VERSION = "4.0.0"
+UI_VERSION_TAG = "v4.0.0 · Control Plane Glance · Cloud read"
+CSS_CACHE_BUSTER = "4.0.0"
 UI_SURFACE_ID = "founder_glance"
 UI_TAB_COUNT = 0
 UI_PRIMARY_CTA = "Relieve pressure"
