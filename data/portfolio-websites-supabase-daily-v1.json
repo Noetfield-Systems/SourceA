@@ -1,0 +1,110 @@
+{
+  "schema": "portfolio-websites-supabase-daily-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-20T21:30:00Z",
+  "authority": "ASF",
+  "one_law": "Portfolio stays UP — daily light pulse on every public website + both Supabase tiers. Mac reads only; no validator marathon.",
+  "script": "scripts/portfolio_supabase_daily_pulse_v1.py",
+  "shell": "scripts/run-portfolio-supabase-daily-v1.sh",
+  "receipt": "~/.sina/portfolio-supabase-daily-pulse-v1.json",
+  "surfaces_line_key": "portfolio_supabase_daily_line",
+  "account_structure_ssot": "data/portfolio-account-structure-v1.json",
+  "account_structure_script": "scripts/portfolio_account_structure_v1.py",
+  "account_surfaces_line_key": "portfolio_account_structure_line",
+  "supabase_tiers_ssot": "data/supabase-portfolio-tiers-v1.json",
+  "secrets_dir": "~/.sourcea-secrets",
+  "supabase_projects": [
+    {
+      "id": "portfolio-spine",
+      "tier": "production",
+      "secrets_file": "portfolio-spine.env",
+      "env_url": "SUPABASE_URL",
+      "env_anon": "SUPABASE_ANON_KEY",
+      "modules": ["noetfield", "trustfield", "witnessbc", "foundation"],
+      "keepalive": "GET {SUPABASE_URL}/auth/v1/health",
+      "required": true
+    },
+    {
+      "id": "labs-sandbox",
+      "tier": "labs",
+      "secrets_file": "labs-sandbox.env",
+      "env_url": "SUPABASE_URL",
+      "env_anon": "SUPABASE_ANON_KEY",
+      "modules": ["virlux", "labs", "research"],
+      "schemas": ["virlux_ops", "labs", "research"],
+      "keepalive": "GET {SUPABASE_URL}/auth/v1/health",
+      "required": true
+    }
+  ],
+  "websites": [
+    {
+      "id": "noetfield",
+      "label": "Noetfield",
+      "module": "noetfield",
+      "supabase_tier": "portfolio-spine",
+      "url": "https://www.noetfield.com",
+      "health_paths": ["/", "/copilot/pilot/"],
+      "required": true
+    },
+    {
+      "id": "trustfield",
+      "label": "TrustField",
+      "module": "trustfield",
+      "supabase_tier": "portfolio-spine",
+      "url": "https://www.trustfield.ca",
+      "health_paths": ["/"],
+      "required": true
+    },
+    {
+      "id": "witnessbc",
+      "label": "WitnessBC",
+      "module": "witnessbc",
+      "supabase_tier": "portfolio-spine",
+      "url": "https://www.witnessbc.com",
+      "health_paths": ["/"],
+      "required": true
+    },
+    {
+      "id": "witnessbc_preview",
+      "label": "WitnessBC preview",
+      "module": "witnessbc",
+      "supabase_tier": "portfolio-spine",
+      "url": "https://witnessbc-commercial.pages.dev",
+      "health_paths": ["/"],
+      "required": false
+    },
+    {
+      "id": "virlux_web",
+      "label": "VIRLUX marketing",
+      "module": "virlux",
+      "supabase_tier": "labs-sandbox",
+      "url": "https://virlux-web.vercel.app",
+      "health_paths": ["/"],
+      "required": true
+    },
+    {
+      "id": "virlux_api",
+      "label": "VIRLUX API / MCP",
+      "module": "virlux",
+      "supabase_tier": "labs-sandbox",
+      "url": "https://virlux-api.vercel.app",
+      "health_paths": ["/health"],
+      "required": true
+    },
+    {
+      "id": "sourcea_landing",
+      "label": "SourceA landing",
+      "module": "sourcea",
+      "supabase_tier": null,
+      "url": "https://sourcea-landing.vercel.app",
+      "health_paths": ["/"],
+      "required": false
+    }
+  ],
+  "daily_work": {
+    "mac_command": "bash scripts/run-portfolio-supabase-daily-v1.sh",
+    "max_seconds": 90,
+    "wire_surfaces": true,
+    "on_red": "Fix DNS/Vercel/Supabase pause — lane agent for that module only"
+  }
+}
