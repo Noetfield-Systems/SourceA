@@ -1,13 +1,49 @@
 # Supabase org split — founder steps — LOCKED v1
 
-**Saved:** 2026-06-20T22:05:00Z · **Authority:** ASF  
+**Saved:** 2026-06-20T22:20:00Z · **Authority:** ASF · **URGENT:** free org = **2 active projects max**  
 **Map:** `data/supabase-cloud-project-map-v1.json`
 
-Your org has **3 projects**. Only **one** should stay live for SourceA. The other two move **out of Supabase** without losing work — because **schemas and migrations already live in the repos**.
+Your org has **3 projects**. Free tier allows **2 active** at once. **Pause or delete** VIRLUX + 777 first — then unpause SourceA.
 
 ---
 
-## What you have (from your dashboard)
+## Do this now (order matters)
+
+### 1. Pause **virlux-staging** (`bueoakgiisvufxfbdvoa`)
+
+1. Open: **https://supabase.com/dashboard/project/bueoakgiisvufxfbdvoa/settings/general**
+2. Scroll to **Pause project** → confirm **Pause**
+3. Wait until dashboard shows **Paused**
+
+*(Or **Delete project** at bottom if you want permanent removal — repos already hold schema.)*
+
+### 2. Pause **the777foundation** (`mmdhnktybjpwlwdczgbq`)
+
+1. Open: **https://supabase.com/dashboard/project/mmdhnktybjpwlwdczgbq/settings/general**
+2. **Pause project** → confirm
+3. Wait until **Paused**
+
+*(Migrations safe in `~/Desktop/The 777 Foundation/supabase/migrations/`.)*
+
+### 3. Unpause **SourceA** (`kazemnezhadsina144-dot's Project`)
+
+1. Org home → click **kazemnezhadsina144-dot's Project** (currently paused)
+2. **Restore project** / **Unpause**
+3. **Settings → API** → copy URL + anon key → `~/.sourcea-secrets/portfolio-spine.env`
+
+Tell the agent: **“Both paused + SourceA up”**
+
+---
+
+## Why pause first (not delete)
+
+- **Pause** frees your **2 active project** slots immediately (paused projects don’t count).
+- **Delete** is permanent — only if you’re sure exports aren’t needed.
+- VIRLUX + 777 **repo copies are already the truth** — cloud was optional.
+
+---
+
+## What you had (from your dashboard)
 
 | Dashboard name | Region | Status | Keep? |
 |----------------|--------|--------|-------|
