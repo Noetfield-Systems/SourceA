@@ -1,0 +1,72 @@
+{
+  "schema": "sourcea-trust-signals-v1",
+  "at": "2026-06-18T00:04:51Z",
+  "receipts_signed_today": 2,
+  "receipts_signed_lifetime": 5039,
+  "receipts_lifetime_label": "Logged and reviewable logged",
+  "receipts_date": "2026-06-18",
+  "receipt_samples": [
+    "critic-boot-v1.json",
+    "sourcea-boot-terminal-inject-v1.json"
+  ],
+  "receipt_metric_label": "Material governance events today",
+  "valid_yes": 999,
+  "valid_yes_total": 1000,
+  "github": {
+    "ok": false,
+    "repo": "sourcea-io/sourcea-boot",
+    "url": "https://github.com/sourcea-io/sourcea-boot",
+    "error": "HTTP Error 404: Not Found"
+  },
+  "governance": {
+    "loop": "governance",
+    "status": "degraded",
+    "verdict": "BLOCK",
+    "checks_pass": 3,
+    "checks_total": 4,
+    "at": "2026-06-18T00:04:50Z",
+    "factory": "FROZEN"
+  },
+  "factory_now_line": "factory-now \u00b7 Valid YES 999 \u00b7 brain 999 \u00b7 dual_proof True \u00b7 mode SINGLE_SA \u00b7 queue ",
+  "status_page": "/sourcea/status.html",
+  "proof_sample": "/sourcea/attach/proof-bundle-sample.html",
+  "built_on": [
+    {
+      "id": "temporal",
+      "label": "Temporal",
+      "note": "durable workflow orchestration"
+    },
+    {
+      "id": "anthropic",
+      "label": "Anthropic Claude",
+      "note": "Claude API \u00b7 policy at dispatch"
+    },
+    {
+      "id": "openai",
+      "label": "OpenAI",
+      "note": "API models \u00b7 eval paths"
+    },
+    {
+      "id": "langgraph",
+      "label": "LangGraph",
+      "note": "graph orchestration pattern"
+    },
+    {
+      "id": "cursor",
+      "label": "Cursor",
+      "note": "agentic worker IDE"
+    },
+    {
+      "id": "cloudflare",
+      "label": "Cloudflare",
+      "note": "edge \u00b7 tunnel \u00b7 Pages"
+    }
+  ],
+  "disclaimer": "Built on = technology dependencies \u00b7 not co-marketing partnerships",
+  "api_hook": {
+    "endpoint": "POST /v1/decision",
+    "receipt_id": "sa-0886",
+    "verdict": "BLOCK",
+    "signed_at": "2026-06-18T00:04:50Z"
+  }
+}

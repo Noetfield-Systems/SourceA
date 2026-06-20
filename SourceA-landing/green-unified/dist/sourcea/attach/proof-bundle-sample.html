@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proof bundle sample | SourceA</title>
+  <style>
+    :root { --ink: #044441; --muted: #5a7a78; --pass: #16a34a; --block: #dc2626; --bg: #f8fbf8; }
+    * { box-sizing: border-box; }
+    body { font-family: Inter, system-ui, sans-serif; color: var(--ink); background: var(--bg); margin: 0; padding: 2rem 1.5rem; line-height: 1.55; max-width: 820px; margin-inline: auto; }
+    h1 { font-size: 1.45rem; margin: 0 0 0.35rem; }
+    h2 { font-size: 1rem; margin: 1.25rem 0 0.5rem; }
+    p, li { font-size: 0.9rem; }
+    .tag { display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.75rem; }
+    .meta { font-size: 0.82rem; color: var(--muted); margin-bottom: 1rem; }
+    pre { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.72rem; background: #0d1f1e; color: #e8fff0; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 0.5rem 0 1rem; }
+    .pass { color: var(--pass); font-weight: 700; }
+    .block { color: var(--block); font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.75rem 0; }
+    th, td { text-align: left; padding: 0.5rem 0.65rem; border-bottom: 1px solid rgba(4,68,65,0.12); }
+    th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+    .cta { margin-top: 1.5rem; padding: 1rem; border-radius: 10px; background: rgba(4,68,65,0.06); border: 1px solid rgba(4,68,65,0.15); }
+    @media print { body { background: #fff; } .cta { display: none; } }
+  </style>
+</head>
+<body>
+  <p class="tag">Sample export · illustrative structure</p>
+  <h1>SourceA weekly proof bundle</h1>
+  <p class="meta">Representative receipt bundle for procurement review · anonymized paths · same schema as live export</p>
+
+  <h2>Summary</h2>
+  <table>
+    <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Period</td><td>2026-06-08 → 2026-06-15 (UTC)</td></tr>
+      <tr><td>Actions dispatched</td><td>142</td></tr>
+      <tr><td>ALLOW</td><td class="pass">118</td></tr>
+      <tr><td>BLOCK</td><td class="block">24</td></tr>
+      <tr><td>Tamper checks</td><td class="pass">PASS (0 mismatches)</td></tr>
+      <tr><td>Policy version</td><td>portfolio-ssot-v3.2</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Sample ALLOW receipt</h2>
+  <pre>{
+  "schema": "governance-dispatch-receipt-v1",
+  "verdict": "ALLOW",
+  "action": "outreach_send",
+  "policy_version": "3.2",
+  "scope": "commercial/noetfield-pilot",
+  "checksum_sha256": "a3f8…c21d",
+  "at": "2026-06-12T14:22:01Z",
+  "agent_role": "commercial",
+  "founder_approval_ref": "form-pick-Q-NW1-A"
+}</pre>
+
+  <h2>Sample BLOCK receipt</h2>
+  <pre>{
+  "schema": "cross-lane-edit-guard-v1",
+  "verdict": "BLOCK",
+  "reason": "EDIT ALLOWED missing for cross-desk path",
+  "target": "brain-os/law/…",
+  "at": "2026-06-11T09:04:12Z",
+  "file_touched": false
+}</pre>
+
+  <h2>Export contents (typical)</h2>
+  <ul>
+    <li><strong>index.html</strong> — human-readable summary for counsel</li>
+    <li><strong>receipts/</strong> — JSON lines · one row per dispatch</li>
+    <li><strong>boot-proof.json</strong> — session gate + factory boot snapshot</li>
+    <li><strong>replay.sh</strong> — re-run validators against frozen bundle</li>
+  </ul>
+
+  <div class="cta">
+    <p><strong>Want the live bundle?</strong> Book 15 minutes — we screen-share ALLOW, BLOCK, and tamper-FAIL from disk on your stack.</p>
+    <p><button type="button" onclick="window.print()" style="font:inherit;padding:0.45rem 0.9rem;border-radius:8px;border:1px solid rgba(4,68,65,0.25);background:#fff;cursor:pointer;margin-right:0.5rem">Print / Save as PDF</button>
+    <a href="mailto:hello@sourcea.com">hello@sourcea.com</a> · <a href="/sourcea/proof.html">>Verification</a> · <a href="/sourcea/status.html">System status</a></p>
+  </div>
+  <p class="meta">Sample only — not a certification · maps to <code>/sourcea/loops/proof-export.html</code> weekly export path</p>
+</body>
+</html>
