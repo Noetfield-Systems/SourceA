@@ -1,0 +1,442 @@
+trace_id: governance_goal_specialist-20260608-001
+trace_family: governance_goal_specialist-20260608
+trace_type: vault_yaml
+trace_author: governance_goal_specialist
+trace_owner: governance_goal_specialist
+trace_created: 2026-06-08
+trace_registry: SinaaiMonoRepo/SinaaiDataBase/noetfield/docs/TRACE_REGISTRY_GOVERNANCE_GOAL_20260608.md
+
+module: governance_goal
+date: 2026-06-06
+execution_authority: false
+mission: Minimize legal/regulatory exposure while enabling safe revenue (Canada-first, 30–90 days)
+advocacy: []
+
+# ── 1. LEGAL STRUCTURE (Canada + scale) ──────────────────────────────────────
+legal_structure:
+  summary: >
+    Two-entity firewall with a single delivery face. TrustField Technologies sells and
+    delivers today; Noetfield remains spec/governance IP holder until standalone product
+    graduates. SourceA is internal spine only — never customer-facing or grant SKU.
+  entities:
+    trustfield_technologies:
+      role: Commercial delivery — RPAA readiness, AI governance pilots, consulting SOWs
+      jurisdiction_recommendation: British Columbia CCPC (or federal CCPC if multi-province hiring)
+      rationale:
+        - B.C. founder residence + Look West / PacifiCan RAII lane alignment
+        - CCPC preserves SR&ED and small-business deduction if R&D spend qualifies
+        - Separate brand from Noetfield avoids RPAA/MSB optics bleed from governance corpus
+      must_have_on_disk:
+        - Certificate of incorporation + NUANS/name clearance (verify no Trustfield Inc collision)
+        - Corporate minute book, registered office, BC corporate registry filings current
+        - Business bank account in legal entity name (not personal)
+        - GST/HST registration when revenue exceeds small-supplier threshold
+        - Commercial general liability + E&O + cyber liability insurance (minimum before paid pilots)
+        - IP assignment agreement (founder → TrustField) for deliverables and client work product
+    noetfield:
+      role: Future isolated compliance SaaS — policy, evidence, audit spec (docs-only today)
+      jurisdiction_recommendation: Separate incorporation deferred until MVP scaffold + first paying governance license
+      interim_posture: Spec corpus under SinaaiMonoRepo; no public payment collection as Noetfield
+      scale_trigger: Incorporate Noetfield when (a) standalone API ships, (b) governance license revenue, or (c) institutional buyer requires separate contracting party
+      locked_narrative: Non-PSP, non-MSB, non-custodial governance-only per RPAA legal opinion SOT
+    sourcea:
+      role: Internal Controlled Execution OS — zero customer contracts
+      rule: Never sign MSAs, DPAs, or procurement profiles as SourceA
+  intercompany:
+    - Shared services agreement (if one founder team): TrustField pays fair-market admin fee; no commingling of client data
+    - IP firewall: Noetfield spec licensed to TrustField for delivery SOWs only; field-of-use limited to engagement scope
+    - Brand separation: Joint one-liner allowed; single-brand invoicing only through TrustField until Noetfield entity exists
+    - Handoff contract template (controlled program → TrustField RPAA pilot) — prerequisite before dual-entity deals
+  scale_path:
+    phase_0_now: TrustField-only contracting; Noetfield cited as methodology/spec reference
+    phase_1_6mo: Noetfield incorporation + SaaS terms if API MVP live; TrustField remains implementation partner option
+    phase_2_12mo: Multi-province privacy assessments; provincial health/legal addenda per vertical SKU
+    phase_3_24mo: SOC 2 Type I or equivalent for institutional buyers; AI Safety Institute alignment narrative (voluntary, not certification claim)
+
+# ── 2. RISK MODEL (consulting + SaaS) ──────────────────────────────────────
+risk_model:
+  consulting_trustfield:
+    tier_1_existential:
+      - id: RPAA_PSP_TRIGGER
+        description: Activities construed as payment initiation, instruction transmission, or settlement orchestration
+        likelihood: medium_if_mispositioned
+        impact: regulatory_enforcement_license_requirement
+        mitigation: Governance-only posture; licensed partners execute; no settlement/quote/routing language in SOWs or demos
+      - id: MSB_FINTRAC_TRIGGER
+        description: Holding, transmitting, or facilitating exchange of funds
+        likelihood: low_if_no_funds_touch
+        impact: registration_obligations_AML_program
+        mitigation: No client funds through TrustField accounts; partner-of-record model documented in contracts
+      - id: UPL_LEGAL_ADVICE
+        description: AI outputs presented as legal advice to law-firm or healthcare buyers
+        likelihood: medium_in_legal_vertical
+        impact: law_society_complaint_contract_void
+        mitigation: "Informational governance assessment only" disclaimers; human counsel sign-off on all deliverables
+    tier_2_material:
+      - id: PROFESSIONAL_LIABILITY
+        description: Client relies on readiness assessment; breach or data incident occurs
+        likelihood: medium
+        impact: damages_claims_reputation
+        mitigation: E&O insurance; scoped SOW; limitation of liability; no guarantee of regulatory approval
+      - id: PIPEDA_BREACH
+        description: Client PII in pilot artifacts mishandled or subprocessed outside Canada without notice
+        likelihood: medium
+        impact: OPC_complaint_contract_termination
+        mitigation: DPA schedule; data minimization; Canadian residency default; subprocessor list
+      - id: AI_MISREPRESENTATION
+        description: Overclaiming autonomy, certification, or government endorsement (AI for All grant optics)
+        likelihood: medium
+        impact: advertising_complaint_procurement_disqualification
+        mitigation: Honest gates language; no "certified compliant" without third-party audit
+    tier_3_operational:
+      - id: SCOPE_CREEP
+        description: Pilot expands into production payment flows without re-contracting
+        likelihood: high
+        impact: uninsured_liability_RPAA_drift
+        mitigation: Change-order clause; explicit pilot end date; production requires new SOW + partner map
+      - id: SUBPROCESSOR_CHAIN
+        description: OpenRouter/cloud LLM processing client confidential data without consent
+        likelihood: high_if_default_stack
+        impact: DPA_breach_institutional_block
+        mitigation: Disclosure in DPA; opt-in for external LLM; air-gapped assessment option for sensitive clients
+  saas_noetfield_future:
+    tier_1_existential:
+      - id: REGULATED_ACTIVITY_VIA_SOFTWARE
+        description: Product features automate regulated decisions (credit, medical, legal) without required licenses
+        likelihood: medium_at_mvp
+        impact: product_shutdown_vertical_ban
+        mitigation: Human-in-the-loop gates; policy engine blocks execution; audit ledger non-repudiation
+      - id: AIDA_BILL_C27
+        description: Federal AI legislation obligations for high-impact systems
+        likelihood: emerging
+        impact: compliance_cost_market_access
+        mitigation: Monitor ISED; design for transparency and risk documentation from day one
+    tier_2_material:
+      - id: MULTI_TENANT_DATA_LEAK
+        description: Tenant isolation failure in audit ledger
+        likelihood: low_pre_launch_high_if_rushed
+        impact: class_action_institutional_exit
+        mitigation: Tenant isolation as MVP pillar #1; pen test before institutional GA
+      - id: SLA_BREACH
+        description: Uptime/commitments exceed solo-founder capacity
+        likelihood: high_if_aggressive_SLA
+        impact: damages_service_credits
+        mitigation: Best-efforts SLA during alpha; no 99.9% until ops mature
+  risk_acceptance_matrix:
+    accept_with_disclosure: [pilot_limited_scope, manual_deliverables, best_efforts_AI_assist]
+    accept_with_insurance: [paid_discovery, readiness_assessment, governance_workshop]
+    defer_until_counsel: [payment_instruction_features, health_diagnostic_claims, law_society_marketing]
+    never_accept: [custody_of_funds, guaranteed_regulatory_approval, child_data_processing_without_guardian_flow]
+
+# ── 3. CONTRACT HYBRID ───────────────────────────────────────────────────────
+contract_hybrid:
+  summary: >
+    Layered stack — one MSA spine, modular schedules per engagement type. Consulting first
+    (TrustField); SaaS terms dormant until Noetfield product ships.
+  stack:
+    layer_1_msa:
+      name: Master Services Agreement (TrustField)
+      governs: All consulting, pilots, assessments
+      key_clauses:
+        - Services are advisory/governance; not legal, medical, or financial advice
+        - Client retains responsibility for regulatory compliance and licensed execution
+        - Limitation of liability (fees paid or CAD $X cap, whichever lower — counsel to set X)
+        - Mutual indemnity for IP infringement and data breach caused by party's negligence
+        - Governing law BC; dispute resolution mediation then BC courts
+        - No public sector endorsement implied
+        - AI-assisted deliverables disclosed; client approves material outputs
+    layer_2_sow_schedules:
+      discovery_sow:
+        duration: 2–4 weeks
+        deliverables: [gap_assessment, control_matrix, partner_execution_map, evidence_pack_outline]
+        fees: fixed_fee_preferred_over_pure_time_and_materials
+        data: client_data_minimization_attachment
+      pilot_sow:
+        duration: 30–90 days
+        deliverables: [RPAA_readiness_checklist, policy_templates, audit_artifact_samples]
+        exit: explicit_pilot_end_no_auto_renewal
+        partner_addendum: required_if_MSP_or_PSP_named
+    layer_3_data_privacy:
+      dpa_schedule:
+        roles: TrustField as processor unless assessment-only then joint_controller_analysis_needed
+        subprocessors: [cloud_host, email, optional_LLM_provider]
+        residency: Canada_default_cross_border_requires_SCC_equivalent
+        breach_notification: 72_hours
+        deletion: 30_days_post_termination
+    layer_4_saas_future:
+      terms_of_service: subscription, acceptable_use, no_regulated_decision_automation_without_license
+      order_form: SKU, seats, data_retention_tier
+      sla_attachment: alpha_best_efforts_only
+    layer_5_handoff:
+      noetfield_to_trustfield_handoff:
+        when: Client buys governance spec + implementation
+        structure: Noetfield license fee (future) + TrustField implementation SOW; no single ambiguous invoice
+  signature_order:
+    - NDA (if needed) → MSA → DPA → SOW → Partner addendum (if any)
+  templates_needed_30d:
+    - MSA v0.1 (counsel review)
+    - Discovery SOW v0.1 (fixed-fee RPAA readiness assessment)
+    - DPA schedule v0.1 (PIPEDA-aligned)
+    - Engagement letter disclaimer block (informational not advice)
+
+# ── 4. COMPLIANCE CHECKLIST BY VERTICAL (SMB) ───────────────────────────────
+compliance_checklist:
+  universal_canada:
+    - item: PIPEDA fair processing — purpose, consent, access, breach notification
+      owner: TrustField DPA
+      status: required_all_verticals
+    - item: Provincial privacy (BC PIPA if BC clients; Quebec Law 25 if QC clients)
+      owner: DPA + hosting map
+      status: required_per_client_province
+    - item: Anti-spam CASL — express consent for commercial email
+      owner: GTM
+      status: required
+    - item: Consumer protection — clear pricing, no deceptive AI claims
+      owner: sales_collateral
+      status: required
+    - item: Employment standards — if hiring interns via federal AI literacy programs
+      owner: founder
+      status: when_hiring
+    - item: SR&ED documentation — contemporaneous R&D logs if claiming
+      owner: finance
+      status: parallel_not_blocking_revenue
+  healthcare_smb:
+    context: Clinics, allied health, small practice managers — high privacy sensitivity
+    checklist:
+      - item: Confirm NOT claiming medical device (Software as Medical Device) unless Health Canada classification obtained
+        gate: block_diagnostic_or_treatment_claims
+      - item: PHIPA (Ontario) / HIA (Alberta) / equivalent — PHI stays in Canada; BAA-equivalent DPA terms
+        gate: provincial_schedule_required
+      - item: No AI triage or diagnosis language in marketing or deliverables
+        gate: governance_assessment_only
+      - item: Business Associate / custodian role clarity — TrustField is NOT custodian of PHI
+        gate: processor_agreement_only
+      - item: Bill C-27 / AIDA high-impact documentation if clinical decision support ever scoped
+        gate: defer_feature
+      - item: PCI not applicable unless payment card data in scope — keep out of pilot
+        gate: data_minimization
+    sellable_safe_offer: "AI governance readiness workshop + privacy control matrix" — not clinical AI
+    red_lines: [patient_facing_chatbot, diagnostic_suggestions, EHR_integration_without_BAA]
+  legal_smb:
+    context: Small law firms, paralegal shops — law society rules dominate
+    checklist:
+      - item: Law Society of BC (or provincial equivalent) — technology vendor guidelines; no unauthorized practice
+        gate: counsel_review_marketing
+      - item: Solicitor-client privilege — AI processing of client files requires explicit consent and isolation
+        gate: no_cloud_LLM_on_matter_files_without_waiver
+      - item: Conflicts checks — TrustField cannot access opposing party data in same engagement model
+        gate: single_client_per_assessment
+      - item: Trust accounting / escrow — out of scope; no fund handling
+        gate: contract_exclusion
+      - item: Output labeling — all AI drafts marked draft; lawyer must review
+        gate: deliverable_template
+      - item: Cyber insurance minimum CAD $1M for firms requesting vendor attestation
+        gate: insurance_certificate
+    sellable_safe_offer: "Responsible AI use policy + confidentiality impact memo for firm operations"
+    red_lines: [legal_advice_generation, court_filing_automation, privileged_doc_training_on_shared_models]
+  trades_smb:
+    context: HVAC, electrical, plumbing, general contractors — safety and consumer regs
+    checklist:
+      - item: No licensed trade advice — informational workflow only
+        gate: disclaimer_schedule
+      - item: WSBC / provincial OHS — if tool touches safety compliance, human sign-off required
+        gate: no_automated_safety_certification
+      - item: Provincial consumer protection (BC Business Practices Act etc.) — estimate/contract clarity
+        gate: clear_SOW_pricing
+      - item: Lien holdback / trust funds legislation — out of scope
+        gate: contract_exclusion
+      - item: PIPEDA for customer CRM data if AI processes homeowner PII
+        gate: DPA_if_customer_data_in_scope
+      - item: Bonding and licensing verification — TrustField does not verify tradesperson licenses
+        gate: client_responsibility_clause
+    sellable_safe_offer: "Back-office AI governance checklist — scheduling, quotes admin, customer comms policy"
+    red_lines: [permit_application_auto_submit, structural_engineering_calcs, safety_inspection_sign_off]
+
+# ── 5. FASTEST SAFE 30-DAY SELL PATH ───────────────────────────────────────
+safe_30_day_path:
+  thesis: >
+    Sell a fixed-fee, low-regulatory-touch discovery engagement through TrustField only.
+    No product build, no payment execution, no vertical-specific regulated outputs.
+  week_1_foundation:
+    - action: Confirm TrustField entity good standing + insurance quote bound
+      lane: trustfield
+      blocker_if_skipped: cannot_invoice_safely
+    - action: Counsel review of MSA + Discovery SOW v0.1 (async, 48h turnaround goal)
+      lane: noetfield
+    - action: CanadaBuys supplier registration started (parallel, non-blocking)
+      lane: trustfield
+  week_2_artifact:
+    - action: Ship RPAA/AI governance readiness one-pager (no new product features)
+      lane: trustfield
+      alignment: CANADA_AI_FOR_ALL_FUNDING_ALIGNMENT trust pillar
+    - action: Discovery SOW priced CAD 3,500–7,500 fixed (2-week assessment)
+      lane: trustfield
+      deliverables: [control_gap_matrix, partner_map, 60min_readout, evidence_pack_outline]
+  week_3_outreach:
+    - action: Three demo conversations — fintech, credit union, or MSP adjacency (not healthcare/legal first)
+      lane: trustfield
+      rationale: Lowest UPL/PHIPA risk; aligns with existing RPAA positioning
+    - action: NDA + MSA + SOW sent within 24h of verbal yes
+      lane: trustfield
+  week_4_close:
+    - action: First paid discovery signature OR documented LOI with start date
+      lane: trustfield
+      success_metric: one_engagement_not_three_free_pilots
+    - action: Noetfield spec — document handoff contract section only (no scaffold)
+      lane: noetfield
+  revenue_target_30d: CAD 3,500–15,000 (one to two discovery SOWs)
+  explicit_do_not:
+    - Launch healthcare or legal vertical campaigns without vertical addenda counsel-approved
+    - Collect payment as Noetfield brand
+    - Promise RPAA registration approval or MSB licensing outcome
+    - Use OpenRouter/client data without signed DPA
+    - Lift engineering freeze for revenue (docs/GTM only per playbook)
+  funding_parallel_safe:
+    - PacifiCan RAII eligibility inquiry (TrustField narrative)
+    - BDC LIFT SME adoption story (advisory, not product grant)
+    - No grant application claiming Noetfield product exists
+
+conflicts_with:
+  - commercial_speed_hack: selling_unbuilt_saas_as_live
+  - commercial_speed_hack: healthcare_or_legal_AI_without_vertical_counsel
+  - commercial_speed_hack: single_brand_noetfield_trustfield_invoicing_before_entity_firewall
+  - corpus_drift: settlement_orchestration_or_quote_engine_language_in_any_collateral
+
+constraints:
+  - Governance constraints beat commercial speed — no paid engagement without MSA + DPA + scoped SOW
+  - TrustField-only contracting for all revenue in next 30 days; Noetfield remains spec reference not seller-of-record
+  - No RPAA/MSB/custody activities — licensed partners execute; TrustField delivers governance assessment only
+  - Defer healthcare and legal SMB SKUs until vertical compliance addenda are counsel-approved
+  - No customer contracts, procurement profiles, or grant SKUs as SourceA or unincorporated Noetfield
+
+recommended_lanes:
+  - trustfield  # primary — MSA, discovery SOW, demos, CanadaBuys
+  - noetfield   # secondary — handoff contract spec, compliance addenda drafts, counsel prep
+  - sourcea_worker  # only if Execution Core routes template wiring or vault indexing after loop 1
+
+execution_core_action: >
+  Reconcile with Commercial output; if aligned, route one worker task to vault-index goal specialist
+  YAML paths and produce TrustField MSA/Discovery SOW template scaffolds (docs only) — do not
+  implement product or lift freeze without ASF Hub override.
+
+constraints_for_execution_core:
+  - Block any GTM motion that invoices as Noetfield or SourceA — TrustField Technologies only until entity firewall complete
+  - Block healthcare/legal/trades campaigns lacking vertical compliance addenda; trades is lowest risk but still needs disclaimer schedule
+  - Require signed MSA + DPA before any client data touches LLM or cloud storage — no handshake pilots on verbal consent
+  - Enforce RPAA-safe language audit on all sales collateral before demo #3 — reject settlement/routing/quote-engine terms per Noetfield corpus SOT
+  - Parallel funding OK only with honest product posture — grants cite TrustField pilots; Noetfield stays future compliance SaaS spec
+
+# ── FOUNDER ACTION PLAN (money-flow rejection → safe path) ───────────────────
+disk_considerations:
+  status: CONSIDERATION_NOT_RULE
+  noetfield: ~/Desktop/SinaaiMonoRepo/SinaaiDataBase/noetfield/docs/CONSIDERATION_ENTITY_MONEY_FLOW_SAFE_REVENUE_v1.md
+  trustfield: ~/Desktop/TrustField Technologies/docs/considerations/CONSIDERATION_ENTITY_MONEY_FLOW_SAFE_REVENUE_v1.md
+  index: ~/Desktop/SinaaiMonoRepo/SinaaiDataBase/noetfield/docs/CONSIDERATIONS_INDEX.md
+  market_analysis: ~/Desktop/SinaaiMonoRepo/SinaaiDataBase/noetfield/docs/CONSIDERATION_MARKET_ANALYSIS_PRODUCTS_2026-06_v1.md
+trace_registry: governance_goal_specialist-20260608-010
+worker_blueprints_v2:
+  status: superseded_by_v3
+  trustfield_ca:
+    trace_id: governance_goal_specialist-20260608-008
+    path: ~/Desktop/TrustField Technologies/docs/considerations/WORKER_BLUEPRINT_V2_TRUSTFIELD_CA_FULL_PROMPT.md
+  noetfield_com:
+    trace_id: governance_goal_specialist-20260608-009
+    path: ~/Desktop/Noetfield-All-Documents/Noetfield/docs/WORKER_BLUEPRINT_V2_NOETFIELD_COM_FULL_PROMPT.md
+  pointer:
+    trace_id: governance_goal_specialist-20260608-007
+    path: ~/Desktop/SinaaiMonoRepo/SinaaiDataBase/noetfield/docs/WORKER_BLUEPRINT_V2_POINTER.md
+
+worker_blueprints_v3:
+  active: true
+  trace_owner: research_acquisitor
+  trace_family: RESEARCH-ACQUISITOR-20260608
+  trace_registry: ~/.sina/agent-workspaces/research-acquisitor/briefs/TRACE_REGISTRY_RESEARCH_ACQUISITOR_20260608.yaml
+  master:
+    trace_id: RESEARCH-ACQUISITOR-20260608-MASTER-004
+    path: ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-08_WORKER_BLUEPRINT_V3_MASTER.yaml
+  market_matrix:
+    trace_id: RESEARCH-ACQUISITOR-20260608-MATRIX-003
+    path: ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-08_TRUSTFIELD_NOETFIELD_MARKET_SKU_MATRIX.yaml
+  trustfield_ca:
+    trace_id: RESEARCH-ACQUISITOR-20260608-TF-001
+    yaml: ~/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-08_TRUSTFIELD_WORKER_BLUEPRINT_V3_FULL.yaml
+    full_prompt: ~/Desktop/TrustField Technologies/docs/considerations/WORKER_BLUEPRINT_V3_TRUSTFIELD_CA_FULL_PROMPT.md
+  noetfield_com:
+    trace_id: RESEARCH-ACQUISITOR-20260608-NF-002
+    yaml: ~/.sina/agent-workspaces/noetfield_cloud/commercial-goal/2026-06-08_NOETFIELD_WORKER_BLUEPRINT_V3_FULL.yaml
+    full_prompt: ~/Desktop/Noetfield-All-Documents/Noetfield/docs/WORKER_BLUEPRINT_V3_NOETFIELD_COM_FULL_PROMPT.md
+
+disk_considerations_trace_ids:
+  money_flow_noetfield: governance_goal_specialist-20260608-002
+  money_flow_trustfield: governance_goal_specialist-20260608-003
+  market_analysis_noetfield: governance_goal_specialist-20260608-004
+  market_analysis_trustfield: governance_goal_specialist-20260608-005
+  considerations_index: governance_goal_specialist-20260608-006
+
+founder_action_plan:
+  decision_locked: Customer money flows ONLY to TrustField. Noetfield never receives client funds. Trust Ledger is a deliverable, not a bank account.
+  saved_as: consideration_docs_not_cursor_rules
+  do_this_in_order:
+    step_1_incorporate_trustfield:
+      action: Incorporate TrustField Technologies (BC CCPC recommended) before first paid invoice
+      why: Limits personal liability; clean seller-of-record for contracts, insurance, CanadaBuys
+      output: Certificate of incorporation, business bank account, GST/HST number when threshold hit
+      lane: trustfield
+      deadline: before_step_6
+    step_2_insurance:
+      action: Bind E&O + cyber liability insurance in TrustField legal name
+      why: Required before paid pilots; clients and procurement will ask
+      output: Certificate of insurance (CAD 1M+ typical for SMB institutional)
+      lane: trustfield
+      deadline: before_step_6
+    step_3_contract_kit:
+      action: Get counsel to finalize three templates — MSA, Discovery SOW, DPA schedule
+      offer_name: "AI Governance & RPAA Readiness Discovery" (fixed fee CAD 3,500–7,500, 2 weeks)
+      deliverables:
+        - control_gap_matrix
+        - partner_execution_map
+        - 60_min_readout
+        - one_signed_TLE_sample_as_evidence_deliverable
+      lane: trustfield
+      noetfield_role: methodology_reference_only_in_SOW_annex
+    step_4_one_pager:
+      action: Publish TrustField sales one-pager — governance assessment only, no payment execution
+      banned_words: [settlement, routing, quote engine, custody, facilitator of funds, MSB, PSP operator]
+      allowed_words: [governance, readiness, evidence pack, Trust Ledger Entry, advisory, licensed partners execute]
+      lane: trustfield
+    step_5_register_canadabuys:
+      action: Register TrustField on CanadaBuys (parallel, non-blocking)
+      lane: trustfield
+    step_6_first_revenue:
+      action: Book 3 conversations — fintech, credit union, or MSP adjacency (not healthcare/legal first)
+      close: NDA → MSA → DPA → Discovery SOW → invoice from TrustField bank account
+      success: one_paid_signature_not_free_pilot
+      lane: trustfield
+    step_7_noetfield_stays_spec:
+      action: No Noetfield invoicing, bank account for client funds, or customer contracts
+      allowed_now:
+        - spec docs in SinaaiMonoRepo/noetfield/
+        - TLE schema and sample board pack as TrustField deliverable format
+        - handoff contract draft for future when Noetfield incorporates
+      defer_until_product: Noetfield incorporation, SaaS terms, intercompany license fee from TrustField
+      lane: noetfield
+    step_8_future_money_split:
+      action: When Noetfield is incorporated AND has a product — TrustField collects 100%, pays Noetfield monthly license fee via intercompany agreement
+      never: customer_pays_noetfield_directly
+      lane: both
+  money_flow_diagram: |
+    Customer --[invoice]--> TrustField bank account
+    TrustField --[delivers]--> assessment + TLE evidence pack
+    TrustField --[optional later]--> Noetfield license fee (intercompany only)
+  week_by_week:
+    week_1: [step_1, step_2, step_5]
+    week_2: [step_3, step_4]
+    week_3: [step_6 outreach]
+    week_4: [step_6 close first paid deal]
+  do_not_do:
+    - Route customer payments to Noetfield
+    - Call Noetfield a facilitator or grantor of funds
+    - Open Noetfield bank account for client deposits
+    - Sell healthcare/legal verticals without counsel addenda
+    - Promise RPAA registration or MSB licensing outcome
+    - Build product or lift engineering freeze to close revenue

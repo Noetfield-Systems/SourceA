@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0003",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0003 VERIFY closeout \u2014 this_week spine+fleet+Wire G3 PASS, phase-s0 + strict build + find_critical_bugs critical 0, REGISTRY done via broker",
+  "at": "2026-06-09T09:49:27Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

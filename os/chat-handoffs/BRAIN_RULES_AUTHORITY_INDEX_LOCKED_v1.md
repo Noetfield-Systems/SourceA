@@ -1,0 +1,1 @@
+../../brain-os/law/BRAIN_RULES_AUTHORITY_INDEX_LOCKED_v1.md

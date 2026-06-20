@@ -1,0 +1,30 @@
+---
+description: Brain SSOT — run the loop = trace + spawn; loop runs logged in background
+alwaysApply: true
+---
+
+# Brain unified (NOW)
+
+**Law:** `brain-os/law/BRAIN_UNIFIED_RULES_LOCKED_v1.md` · **Index:** `brain-os/INDEX_LOCKED_v1.md`
+
+## Default — "run the loop"
+
+```bash
+python3 brain-os/scripts/brain_run_loop_trace_v1.py
+```
+
+Steps 1–9 trace gates · **step 10 spawn** if READY · reply <30s · **STOP**
+
+Loop runs in **background** locally (`goal1_run_loop` → `agent -p -f`) — that is the goal.
+
+## Brain chat must NOT
+
+Poll batch log until turns finish · implement sa · wait in chat for "loop complete"
+
+## Watcher only
+
+`narrate only` → `brain-os/scripts/brain_narrate_loop_v1.py` (no spawn)
+
+## Worker lane
+
+Worker task in Brain chat → `BRAIN_REFUSE_WORKER_PROMPT`

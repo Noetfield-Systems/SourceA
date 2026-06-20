@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Platform | Witness AI — Observe · Govern · Prove</title>
+  <meta name="description" content="Runtime governance infrastructure at execution time — architecture, autonomy tiers, and Observe · Govern · Prove capabilities." />
+  <meta property="og:title" content="Platform | Witness AI — Observe · Govern · Prove" />
+  <meta property="og:description" content="Runtime governance infrastructure at execution time — architecture, autonomy tiers, and Observe · Govern · Prove capabilities." />
+  <meta property="og:url" content="https://witnessbc.com/platform" />
+  <meta property="og:image" content="https://witnessbc.com/assets/og-card.svg" />
+  <meta property="og:image:type" content="image/svg+xml" />
+  <meta name="theme-color" content="#0d9488" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#060a0f" media="(prefers-color-scheme: dark)" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://witnessbc.com/platform" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/tokens.css" />
+  <link rel="stylesheet" href="assets/tokens-v12.css" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/motion.css" />
+  <link rel="stylesheet" href="assets/layout-wide-v11.css" />
+  <link rel="stylesheet" href="assets/layout-ultra-v12.css" />
+  <link rel="stylesheet" href="assets/surface-v12.css" />
+  <script>
+    (function () {
+      var t = localStorage.getItem("witness-ai-theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+</head>
+<body class="page-platform layout-ultra-v12" data-proof-mailto="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof" data-live-demo-url="proof.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="brand-disambiguation" role="note">
+    Witness AI on <strong>witnessbc.com</strong> — not WitnessAI (<span class="brand-other">witness.ai</span>).
+  </div>
+  <div class="announcement">
+    <span class="wbc-badge">witnessbc.com</span>
+    WitnessBC · witnessbc.com — agentic governance + WBC-FLOW civic proof
+    <a href="toolkits.html">Browse toolkits →</a>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <svg class="logo-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L4 6v12l8 4 8-4V6l-8-4z" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v20M4 6l8 4 8-4" stroke="currentColor" stroke-width="1.5" opacity="0.5"/></svg>
+        Witness AI
+      </a>
+      <nav class="nav" id="mainNav" aria-label="Main">
+        <div class="nav-item has-dropdown">
+          <button type="button" aria-expanded="false" aria-haspopup="true" class="is-active">Platform</button>
+          <div class="dropdown">
+            <a href="platform.html">Overview</a>
+            <a href="lifecycle.html">Governance loop</a>
+            <a href="policy.html">AI policy packs</a>
+            <a href="compare.html">Compare approaches</a>
+          </div>
+        </div>
+        <a class="nav-link " href="proof.html">Proof</a>
+        <a class="nav-link " href="pricing.html">Pricing</a>
+        <div class="nav-item has-dropdown">
+          <button type="button" aria-expanded="false" aria-haspopup="true" class="">Resources</button>
+          <div class="dropdown">
+            <a href="learn.html">Learn · Get started</a>
+            <a href="toolkits.html">Toolkits · Free + Pro</a>
+            <a href="faq.html">FAQ</a>
+            <a href="sources.html">Sources</a>
+          </div>
+        </div>
+      </nav>
+      <div class="header-cta">
+        <span class="theme-toggle-wrap">
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light/dark theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </span>
+        <a class="btn btn-ghost" href="toolkits.html">Assess governance</a>
+        <a class="btn btn-primary" href="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof">Book 15-min proof</a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <div class="sticky-cta" id="stickyCta" aria-hidden="true">
+    <div class="sticky-cta-inner">
+      <p>Prove AI policy ran before the agent acted — BLOCK → ALLOW → tamper-FAIL → replay</p>
+      <div class="sticky-cta-actions">
+        <a class="btn btn-primary" href="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof">Book 15-min proof</a>
+        <a class="btn btn-outline" href="proof.html">Open Proof Lab →</a>
+        <a class="btn btn-outline" href="toolkits.html">Assess governance</a>
+      </div>
+    </div>
+  </div>
+  <nav class="page-breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><span aria-current="page">Platform</span></li>
+      </ol>
+    </div>
+  </nav>
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <p class="section-eyebrow">Platform</p>
+        <h1>Runtime governance infrastructure at execution time</h1>
+        <p class="section-lead">Complete visibility into agent workflows — observe intake, govern with runtime AI policy at dispatch, prove enforcement with signed receipts.</p>
+      </div>
+    </section>
+
+    <section class="platform" id="platform">
+      <div class="container">
+        <div class="platform-intro">
+          <h2>Observe · Govern · Prove</h2>
+          <p>The default layer every irreversible agent action passes through — not session-start prompts alone.</p>
+          <div class="hero-cta platform-cta-row">
+            <a class="btn btn-primary" href="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof">Book 15-min proof</a>
+            <a class="btn btn-outline" href="proof.html">Open Proof Lab →</a>
+          </div>
+        </div>
+        <p class="arch-diagram-label">Dispatch architecture — every irreversible step gated</p>
+        <div class="arch-diagram" aria-label="Witness AI dispatch architecture">
+          <div class="arch-node arch-observe">Agent workflow</div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node arch-observe">Intake · classify</div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node arch-govern">Policy eval at dispatch</div>
+          <div class="arch-branches">
+            <div class="arch-branch"><span class="verdict allow">ALLOW</span><span class="arch-arrow">→</span><span class="arch-node">Execute + receipt</span></div>
+            <div class="arch-branch"><span class="verdict escalate">ESCALATE</span><span class="arch-arrow">→</span><span class="arch-node">Human gate</span><span class="arch-arrow">→</span><span class="arch-node">Execute + receipt</span></div>
+            <div class="arch-branch"><span class="verdict block">BLOCK</span><span class="arch-arrow">→</span><span class="arch-node">Fail-closed deny</span></div>
+          </div>
+          <div class="arch-footer">
+            <span class="arch-node arch-prove">Signed receipt ledger</span>
+            <span class="arch-arrow">→</span>
+            <span class="arch-node arch-prove">Replay proof · tamper-FAIL</span>
+          </div>
+        </div>
+        <aside class="complement-card" aria-label="Complement layer SKU">
+          <p class="cap-tag">Illustrative · WBC-COMPLEMENT</p>
+          <h3>Editorial protocol mount — no rip-and-replace</h3>
+          <p>When you already run a governance or security layer, Witness AI adds human protocol + corrections log + tamper export mount — complement, not compete.</p>
+          <p class="complement-price">Illustrative CAD $1.5–4K · scoped on call</p>
+          <a class="btn btn-outline btn-sm" href="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof">Scope complement install</a>
+        </aside>
+        <div class="autonomy-tiers">
+          <article class="autonomy-tier">
+            <span class="tier-label">L0</span>
+            <h4>Observe</h4>
+            <p>Intake and classify every agent action before it enters the loop.</p>
+          </article>
+          <article class="autonomy-tier featured">
+            <span class="tier-label">L1</span>
+            <h4>Policy gates</h4>
+            <p>Runtime AI policy at dispatch — BLOCK · ESCALATE · ALLOW on every irreversible step.<sup><a href="sources.html#ref-2">2</a></sup></p>
+          </article>
+          <article class="autonomy-tier">
+            <span class="tier-label">L2</span>
+            <h4>Human-in-loop</h4>
+            <p>Approve sends, publishes, and tool calls before execution — with signed receipts.</p>
+          </article>
+        </div>
+        <div class="capability-grid">
+          <article class="capability-card">
+            <span class="cap-tag">Observe</span>
+            <h3>Agent intake &amp; classify</h3>
+            <p>Tag every agent action before it enters the loop. Scope, tool use, and data-handling flags at the door.</p>
+            <ul class="cap-detail">
+              <li>Scope + tool classification</li>
+              <li>Data-handling flags at intake</li>
+            </ul>
+          </article>
+          <article class="capability-card featured">
+            <span class="cap-tag">Govern</span>
+            <h3>AI policy at dispatch</h3>
+            <p>Runtime policy eval on send, publish, and tool calls. BLOCK red-lines · ESCALATE to human · ALLOW with receipt.</p>
+            <ul class="cap-detail">
+              <li>Versioned policy packs (YAML)</li>
+              <li>100% irreversible steps gated</li>
+            </ul>
+          </article>
+          <article class="capability-card">
+            <span class="cap-tag">Prove</span>
+            <h3>Receipts + replay</h3>
+            <p>Signed ledger per gate · tamper-FAIL · replay demo proves policy ran before the agent acted.</p>
+            <ul class="cap-detail">
+              <li>6 receipt types per loop</li>
+              <li>Replay in &lt;5 min<sup><a href="sources.html#ref-8">8</a></sup></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="integrations-section" id="integrations">
+      <div class="container">
+        <p class="section-eyebrow">Integrations</p>
+        <h2>Mount in your stack — quickstart</h2>
+        <p class="section-lead">Framework-agnostic dispatch layer. Generic patterns only — no vendor lock-in.</p>
+        <div class="integration-grid">
+          <article class="integration-card">
+            <h3>MCP tool calls</h3>
+            <p>Policy eval wraps every tool invocation before execution.</p>
+          </article>
+          <article class="integration-card">
+            <h3>HTTP webhooks</h3>
+            <p>Human approve gates via webhook callback on ESCALATE.</p>
+          </article>
+          <article class="integration-card">
+            <h3>OpenTelemetry</h3>
+            <p>Trace spans for policy eval, gate, and receipt signing.</p>
+          </article>
+          <article class="integration-card">
+            <h3>YAML policy packs</h3>
+            <p>Versioned packs in the repository — pinned on every signed receipt.</p>
+          </article>
+          <article class="integration-card">
+            <h3>SIEM metadata export</h3>
+            <p>Governance metadata only — not full prompt dumps.</p>
+          </article>
+        </div>
+        <div class="integration-snippet">
+          <p class="integration-snippet-label">Minimal policy pack excerpt</p>
+          <pre><code>version: "2.4.1"
+gates:
+  - id: outbound_send
+    on: agent.tool.external_send
+    rules:
+      - match: data.classification == "pii"
+        verdict: BLOCK
+      - match: requires_human == true
+        verdict: ESCALATE
+      - default: ALLOW
+receipt:
+  sign: ed25519
+  pin_policy_version: true</code></pre>
+        </div>
+        <div class="hero-cta platform-cta-row">
+          <a class="btn btn-primary" href="proof.html">Open Proof Lab →</a>
+          <a class="btn btn-outline" href="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof">Book 15-min proof</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="trust-disclaimer">
+    Witness AI provides educational AI policy templates and governance workflow tooling — not legal, compliance, or certification services. Market statistics cite independent third-party research. Framework alignment is illustrative mapping only.
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <strong>Witness AI</strong>
+        <p>Agentic governance + AI policy at dispatch</p>
+        <span class="gartner-badge">witnessbc.com</span>
+      </div>
+      <div>
+        <h5>Platform</h5>
+        <a href="platform.html">Observe · Govern · Prove</a>
+        <a href="lifecycle.html">Governance loop</a>
+        <a href="policy.html">AI policy</a>
+        <a href="proof.html">>Verification</a>
+      </div>
+      <div>
+        <h5>Commercial</h5>
+        <a href="pricing.html">Pricing</a>
+        <a href="compare.html">Compare</a>
+        <a href="https://witnessbc.com/principles">Principles</a>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <a href="learn.html">Learn</a>
+        <a href="faq.html">FAQ</a>
+        <a href="sources.html">Sources</a>
+        <a href="https://witnessbc.com/toolkits">Toolkits</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© Witness AI 2026 · witnessbc.com</p>
+      <div class="footer-legal">
+        <a href="https://witnessbc.com/principles">Principles</a>
+        <a href="sources.html">References</a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0798",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "worker_inbox",
+  "evidence": "sa-0798 VERIFY DONE \u2014 Cross-check order guardian judgments vs pendings statuses; validators: validate-order-guardian-judgment-sync-v1.sh: PASS, validate-dispatch-policy-v1.sh: PASS, validate-governance-fleet-v1.sh: PASS, validate-anti-staleness-bundle-v1.sh: PASS 44/44",
+  "at": "2026-06-13T21:57:21Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

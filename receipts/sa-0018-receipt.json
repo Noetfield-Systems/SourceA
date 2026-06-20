@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0018",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0018 VERIFY PASS: L8 hybrid not_here skip wired; strict build green; receipt closed.",
+  "at": "2026-06-09T13:52:56Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

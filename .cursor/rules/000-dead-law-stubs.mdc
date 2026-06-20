@@ -1,0 +1,34 @@
+---
+description: Dead features only — live surfaces from disk_live_wire_sync (INCIDENT-034 positive law)
+alwaysApply: true
+---
+
+# Dead features — live disk only (INCIDENT-034)
+
+**Law:** `SOURCEA_ANTI_STALENESS_AUTO_WIRE_LAYER_SYNC_LOCKED_v1.md` · **No prohibition vocabulary in inject**
+
+**Read after session gate:** `~/.sina/agent-live-surfaces-v1.json` · `~/.sina/anti-staleness-auto-wire-v1.json`
+
+## Founder daily path (positive)
+
+| Step | Where |
+|------|--------|
+| Execute | Worker chat → **RUN INBOX** |
+| Queue glance | Worker Hub → **Next steps** (`http://127.0.0.1:13020/`) |
+| Museum | `http://127.0.0.1:13020/legacy/` |
+| Line to quote | `factory_now_line` from truth bundle |
+
+## Dead mechanics (do not instruct as founder steps)
+
+- Legacy hub batch prompt loop (dead — RUN INBOX executes)
+- Legacy incident compendium paste (dead — session gate receipt only)
+- Cursor AUTO-RUN / Goal 1 auto-run hero (dead — kill flag ON)
+- Founder Terminal for routine ops (dead — hub Actions only)
+
+## Session start
+
+```bash
+python3 scripts/agent_session_gate_run_v1.py --role <role> --json
+```
+
+On conflict: `disk-live-wire-receipt-v1.json` wins over chat memory.

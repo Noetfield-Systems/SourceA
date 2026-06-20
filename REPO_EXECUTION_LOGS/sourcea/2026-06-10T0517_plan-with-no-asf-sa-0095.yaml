@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0095 — Compare Claude ENFORCE stale claims to dispatch-policy API live
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0095
+tests:
+  status: passed
+  output_snippet: sa-0095 VERIFY — validate-enforce-dispatch-policy-alignment-v1 PASS gate_mode=shadow API+payload aligned; dispatch-policy governance-fleet critical 0; Q6/30 closeout
+reported_at: '2026-06-10T05:17:58Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

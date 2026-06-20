@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "B0901",
+  "title": "Mark local Cursor Worker path cloud-factory deprecated",
+  "evidence": "data/local-worker-cloud-factory-deprecation-v1.json · brain-reasoning-receipt-b0901.json · federated cloud_api_worker",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T08:07:45Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0971",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 essay discourse fleet compliance moat CHECK\u2192ACT\u2192VERIFY closed; moat validator + PRIORITY evidence; nudges=0 FR-008 shipped fleet 8/8",
+  "at": "2026-06-14T03:05:56Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

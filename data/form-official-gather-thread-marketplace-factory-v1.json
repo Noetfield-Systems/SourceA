@@ -1,0 +1,279 @@
+{
+  "schema": "form-official-gather-thread-v1",
+  "saved_at": "2026-06-19T07:20:00Z",
+  "thread": "baabacf8 marketplace · gemini factory · cloud cockpit · blueprint SAVE",
+  "law": "FORM_OFFICIAL — rows stay open until founder PICK on Hub /form/",
+  "rows": [
+    {
+      "id": "Q-MF-01",
+      "title": "Mac = cockpit only — lock cloud execution law?",
+      "question": "Confirm: Mac is control panel only (Hub · gate · approve). All factories run cloud auto-loops — no render on Mac?",
+      "blocks": "docs/SOURCEA_MULTI_FACTORY_ENTERPRISE_BLUEPRINT_LOCKED_v1.md · cursor-bootstrap-ledger mac_role",
+      "diskToday": "mac_role=control_plane_only · cloud_role=execution_plane_headless · validators PASS",
+      "recommended": "A",
+      "options": [
+        "A — YES — lock Mac cockpit + cloud execution (recommended)",
+        "B — Allow local render for dev only",
+        "C — Revert — Mac may run heavy jobs",
+        "D — Defer until Supabase live"
+      ],
+      "effect": "Sets empire architecture — all agents stop suggesting Mac compute",
+      "asked_by": "ASF + Gemini cloud cockpit thread 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-MF-01 A",
+      "gather_tier": "P0_final_fix",
+      "gather_category": "architecture",
+      "evidence_path": "docs/SOURCEA_MULTI_FACTORY_ENTERPRISE_BLUEPRINT_LOCKED_v1.md"
+    },
+    {
+      "id": "Q-MF-02",
+      "title": "Cursor Card 1 — publish npm now?",
+      "question": "SourceA Forge Proof Layer bundle ready logged. npm @sourcea/mcp-verify still 404. Publish now?",
+      "blocks": "cursor-plugin/sourcea-forge-governance · Card 1 marketplace",
+      "diskToday": "receipt PASS · npm pack ready · npm login required",
+      "recommended": "A",
+      "options": [
+        "A — npm login + publish + marketplace submit now (recommended)",
+        "B — Wait until Supabase edge loop live",
+        "C — Wait until all form PICKs done",
+        "D — Defer marketplace entirely"
+      ],
+      "effect": "Unblocks external Proof Layer product",
+      "asked_by": "marketplace thread 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-MF-02 A",
+      "gather_tier": "P0_final_fix",
+      "gather_category": "commercial",
+      "evidence_path": "receipts/card-1-sourcea-forge-governance-publish-v1.json"
+    },
+    {
+      "id": "Q-MF-03",
+      "title": "One marketplace card at launch?",
+      "question": "Ship ONE card (SourceA Forge Governance) — keep VIRLUX/Noetfield/TrustField internal?",
+      "blocks": "GPT + thread strategy · multi-factory advisory",
+      "diskToday": "Only Card 1 scaffold logged · VIRLUX plugin folder absent",
+      "recommended": "A",
+      "options": [
+        "A — YES — one Proof Layer card only (recommended)",
+        "B — Also list VIRLUX Infrastructure card",
+        "C — Four cards now (SourceA/VIRLUX/Noetfield/Canvas)",
+        "D — No marketplace — internal only"
+      ],
+      "effect": "Marketplace discovery vs split attention",
+      "asked_by": "GPT marketplace refinement 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-MF-03 A",
+      "gather_tier": "P0_final_fix",
+      "gather_category": "strategy"
+    },
+    {
+      "id": "Q-MF-04",
+      "title": "Buyer tagline — Proof vs Governance?",
+      "question": "Market as 'The Proof Layer for AI Agents' not 'Governance Platform'?",
+      "blocks": "MARKETPLACE_LISTING.md · Card 1 copy",
+      "diskToday": "displayName uses Proof Layer · keywords still include governance",
+      "recommended": "A",
+      "options": [
+        "A — Proof Layer primary · governance in keywords only (recommended)",
+        "B — Governance Platform primary",
+        "C — Both equal in title",
+        "D — Founder picks custom tagline later"
+      ],
+      "effect": "Enterprise buyer messaging",
+      "asked_by": "GPT positioning 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-MF-04 A",
+      "gather_tier": "P1_integrity_core",
+      "gather_category": "commercial"
+    },
+    {
+      "id": "Q-MF-05",
+      "title": "Build order — billing before creative?",
+      "question": "Confirm factory build order: billing tier gate → orchestration → Fal bridge → StoreKit?",
+      "blocks": "Gemini vs SourceA · fbe_billing_* · video-ad factory",
+      "diskToday": "billing webhook stub + orchestration + bridge scripts PASS",
+      "recommended": "A",
+      "options": [
+        "A — YES — billing → orchestration → render → StoreKit (recommended)",
+        "B — Creative factory first — billing later",
+        "C — Supabase + Edge before billing",
+        "D — Parallel all tracks"
+      ],
+      "effect": "Spend gates before Fal/ElevenLabs cost",
+      "asked_by": "Gemini + ASF strategic thread 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-MF-05 A",
+      "gather_tier": "P0_final_fix",
+      "gather_category": "architecture",
+      "evidence_path": "data/supabase-edge-loop-v1.json"
+    },
+    {
+      "id": "Q-MF-06",
+      "title": "Supabase edge loop — name project and deploy?",
+      "question": "First cloud auto-loop ready as scaffold. Name Supabase project ref and authorize WORK: supabase-edge-loop deploy?",
+      "blocks": "data/supabase-edge-loop-v1.json · migration SSOT",
+      "diskToday": "migration SQL logged · project ref null · Edge function not deployed",
+      "recommended": "B",
+      "options": [
+        "A — Deploy now — I will paste project ref in chat",
+        "B — After npm Card1 + top form PICKs (recommended)",
+        "C — Never Supabase — local JSON campaigns only",
+        "D — Use Railway instead of Supabase Edge"
+      ],
+      "effect": "First real cloud factory vs cockpit simulators",
+      "asked_by": "WORK supabase-edge-loop thread 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-MF-06 B",
+      "gather_tier": "P0_final_fix",
+      "gather_category": "cloud_factory"
+    },
+    {
+      "id": "Q-MF-07",
+      "title": "Gemini video-ad-factory — port TS to apps/ or keep scripts/?",
+      "question": "Gemini proposed apps/video-ad-factory TypeScript. Disk has Python machine path until lane opens. Which path?",
+      "blocks": "data/video-ad-factory-gemini-port-spec-v1.json · worker lane apps/ blocked",
+      "diskToday": "scripts/video_ad_factory_orchestrate_v1.py PASS · apps/ README only",
+      "recommended": "B",
+      "options": [
+        "A — EDIT ALLOWED apps/ — port Gemini TS now",
+        "B — Keep scripts/ until Supabase Edge live (recommended)",
+        "C — Fork new Bun monorepo (Gemini original)",
+        "D — Abandon video-ad factory track"
+      ],
+      "effect": "Implementation surface for creative factory",
+      "asked_by": "Gemini factory thread 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-MF-07 B",
+      "gather_tier": "P1_integrity_core",
+      "gather_category": "factory"
+    },
+    {
+      "id": "Q-MF-08",
+      "title": "HUMAN_APPROVAL_REQUIRED — mandatory before Fal spend?",
+      "question": "Lock law: never call paid Fal.ai while campaign state is HUMAN_APPROVAL_REQUIRED?",
+      "blocks": "shared/types/campaign-v1.ts · demo campaign logged",
+      "diskToday": "demo-campaign-v1.json at HUMAN_APPROVAL_REQUIRED · bridge MOCK_ONLY without FAL_KEY",
+      "recommended": "A",
+      "options": [
+        "A — YES — mandatory founder approve before Fal (recommended)",
+        "B — Auto-approve after ElevenLabs",
+        "C — Skip approval for sandbox tier only",
+        "D — Remove approval gate"
+      ],
+      "effect": "Cost overrun protection on cloud render",
+      "asked_by": "cloud auto-loop design 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-MF-08 A",
+      "gather_tier": "P0_final_fix",
+      "gather_category": "governance"
+    },
+    {
+      "id": "Q-MF-09",
+      "title": "Blueprint LOCKED doc — accept as SSOT?",
+      "question": "Accept docs/SOURCEA_MULTI_FACTORY_ENTERPRISE_BLUEPRINT_LOCKED_v1.md as multi-factory SSOT?",
+      "blocks": "SAVE TO docs · data advisory JSON",
+      "diskToday": "doc datetime PASS · architecture ledger epoch 2",
+      "recommended": "A",
+      "options": [
+        "A — YES — blueprint is SSOT (recommended)",
+        "B — Revise before lock",
+        "C — JSON only — no docs authority",
+        "D — Wait for form unify pass"
+      ],
+      "effect": "Stops context drift across chats",
+      "asked_by": "SAVE thread 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-MF-09 A",
+      "gather_tier": "P0_meta",
+      "gather_category": "law",
+      "evidence_path": "docs/SOURCEA_MULTI_FACTORY_ENTERPRISE_BLUEPRINT_LOCKED_v1.md"
+    },
+    {
+      "id": "Q-MF-10",
+      "title": "W3 commercial — confirm-sent after Mail?",
+      "question": "Commercial L3 ~75% — w3_send_ready red until founder confirms Mail sent. Confirm sent for fundmore/ocree packs?",
+      "blocks": "execution_plane_honesty · W3 founder gate",
+      "diskToday": "w3_send_ready RED · mail FROM green",
+      "recommended": "A",
+      "options": [
+        "A — YES — I sent Mail — mark confirm-sent",
+        "B — Not sent yet — keep red",
+        "C — Skip W3 — focus marketplace",
+        "D — Defer commercial until form done"
+      ],
+      "effect": "Commercial L3 honesty — no fake green",
+      "asked_by": "governance debug session · still open",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-MF-10 B",
+      "gather_tier": "P4_commercial",
+      "gather_category": "founder_gate"
+    },
+    {
+      "id": "Q-MF-11",
+      "title": "Do not fork Gemini monorepo — confirm?",
+      "question": "All Gemini/Bun greenfield ideas map into SourceA paths only — no second repo root?",
+      "blocks": "multi-factory advisory · cursor bootstrap pack",
+      "diskToday": "apps/ scaffold inside SourceA · do_not_fork true in advisory JSON",
+      "recommended": "A",
+      "options": [
+        "A — YES — SourceA only — no fork (recommended)",
+        "B — Allow experimental fork on Desktop",
+        "C — Migrate whole empire to new monorepo",
+        "D — Dual root SourceA + SinaaiDataBase build"
+      ],
+      "effect": "Zero-drift + single governance spine",
+      "asked_by": "Gemini blueprint evaluation 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-MF-11 A",
+      "gather_tier": "P0_meta",
+      "gather_category": "architecture"
+    },
+    {
+      "id": "Q-MF-12",
+      "title": "Agent focus when form open count high?",
+      "question": "When form reaches 100+ open PICKs: agents remind founder to fill Hub /form/ — else focus build plans only?",
+      "blocks": "ASF form gathering order 2026-06-19",
+      "diskToday": "FINAL_FIX_GATHERING active · 84+ open on hub headline",
+      "recommended": "A",
+      "options": [
+        "A — YES — remind at 100+ · else build (recommended)",
+        "B — Always pause all build until form zero",
+        "C — Never remind — chat only",
+        "D — Auto-pick recommended options"
+      ],
+      "effect": "Balances form fill vs factory execution",
+      "asked_by": "ASF 2026-06-19 form policy",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-MF-12 A",
+      "gather_tier": "P0_meta",
+      "gather_category": "phase_law"
+    },
+    {
+      "id": "Q-THREAD-DEPLOY-01",
+      "title": "E2E deploy target — Agent Run only or both SA4?",
+      "question": "validate-all-e2e deploy step fails without ~/Desktop/SA4 and ~/Desktop/agentrun-app. Which deploy target is required for E2E polish?",
+      "blocks": "validate-all-e2e-v1.sh · deploy gate · AskQuestion unpicked",
+      "diskToday": "Agent Run :5180 path exists · SA4 optional today · deploy hard-fail when both required",
+      "recommended": "A",
+      "options": [
+        "A — Agent Run only (:5180) — SA4 optional / skip when missing (recommended)",
+        "B — Keep both SA4 + Agent Run required (fail if either missing)",
+        "C — SA4 only — drop Agent Run requirement",
+        "D — Skip deploy step in E2E until cloud SSE live"
+      ],
+      "effect": "E2E honesty vs local dev friction",
+      "asked_by": "Brain chat AskQuestion · deploy_target · unpicked 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-THREAD-DEPLOY-01 A",
+      "gather_tier": "P1_integrity_core",
+      "gather_category": "e2e",
+      "evidence_path": "scripts/validate-all-e2e-v1.sh"
+    },
+    {
+      "id": "Q-THREAD-10STEP-01",
+      "title": "10-step program — full WORK vs SAVE spec first?",
+      "question": "Brain offered 10-step program scope. After you approve: implement full WORK logged, SAVE locked spec first, or plan-only until WORK verb?",
+      "blocks": "Brain 10-step AskQuestion · unpicked scope fork",
+      "diskToday": "partial disk from marketplace/factory thread · blueprint SAVE done",
+      "recommended": "B",
+      "options": [
+        "A — Full WORK: code + heal + hub (10 steps implemented)",
+        "B — SAVE locked 10-step spec first, then implement in follow-up WORK (recommended)",
+        "C — Plan only — no disk changes until I say WORK",
+        "D — Worker RUN INBOX only — defer 10-step bundle"
+      ],
+      "effect": "Bounds next implementation burst vs spec-first law",
+      "asked_by": "Brain chat AskQuestion · scope · unpicked 2026-06-19",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-THREAD-10STEP-01 B",
+      "gather_tier": "P0_meta",
+      "gather_category": "phase_law"
+    }
+  ]
+}

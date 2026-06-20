@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0653 — Run pre_llm user_signals store record_hub_touch on build
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0653
+tests:
+  status: passed
+  output_snippet: sa-0653 VERIFY PASS — record_hub_touch on-build guard green; receipt + REGISTRY done
+reported_at: '2026-06-09T07:17:12Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

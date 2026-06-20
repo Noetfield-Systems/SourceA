@@ -1,0 +1,43 @@
+---
+description: Main problem trigger — PREPARE next action (not report theater)
+alwaysApply: true
+---
+
+# Main problem trigger (LOCKED)
+
+**SSOT:** `data/sourcea-main-problem-trigger-v1.json`  
+**Activate:** `python3 scripts/main_problem_trigger_v1.py --activate --text "<founder message>" --json`  
+**Flag:** `~/.sina/main-problem-trigger-active-v1.flag`
+
+## Trigger phrases
+
+Founder says: **main problem** · **main real task** · **whole thread** · **north star** · **what is the main problem**
+
+## One law
+
+> **PREPARE the next bounded action on the north star — do not write a report.**
+
+## North star (main problem)
+
+**Agentic trust infrastructure → market traction** via **cloud-first factories**:
+- Phase 0: **Noetfield freemium** → **TrustField sandbox** on **Railway/cloud** (OpenRouter — not local Ollama)
+- **Mac = control panel only** (Hub · form · observe)
+- **Official form** (`/form/`) batch submit → nerve cascade logged
+
+## When triggered — agents MUST
+
+1. Run `main_problem_trigger_v1.py --activate --text "<founder message>" --json`
+2. Read receipt `next_action` + `disk_snapshot`
+3. **Execute** that bounded action (WORK) — or state **one** blocker with proof
+4. Reply shape: **Problem (1 line) · blocker · what I do next** — max 3 sentences
+
+## When triggered — agents MUST NOT
+
+- Long status reports · validator dumps · language-rule theater
+- Mac cleanup unless founder asked Mac/heat
+- Docs/sidebar-only when cloud or form is the blocker
+- Invitation CTAs to founder
+
+## Forbidden substitute
+
+Reporting PASS/FAIL lists is **not** preparing. Preparing = **next disk action chosen and started**.

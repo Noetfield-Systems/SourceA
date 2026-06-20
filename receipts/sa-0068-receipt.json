@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0068",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0068 PASS \u2014 Reject unconditional L8 line in honest_score when hybrid shipped; validators PASS",
+  "at": "2026-06-10T00:01:10Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

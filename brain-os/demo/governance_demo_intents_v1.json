@@ -1,0 +1,20 @@
+{
+  "schema": "governance-demo-intents-v1",
+  "block_case": {
+    "intent": "apply_copilot_policy_change",
+    "policy_id": "COPILOT-DENY-EXTERNAL-SHARE",
+    "action": "enable",
+    "risk": "high",
+    "agent_id": "investor_demo",
+    "object_id": "NF-COPILOT-POLICY-DEMO"
+  },
+  "allow_case": {
+    "intent": "apply_copilot_policy_change",
+    "policy_id": "COPILOT-ALLOW-READONLY",
+    "action": "enable",
+    "risk": "high",
+    "approval_ref": "TLE-2026-001",
+    "agent_id": "investor_demo",
+    "object_id": "NF-COPILOT-POLICY-DEMO"
+  }
+}

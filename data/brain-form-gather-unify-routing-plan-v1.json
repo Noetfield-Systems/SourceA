@@ -1,0 +1,1681 @@
+{
+  "ok": true,
+  "schema": "brain-form-gather-unify-routing-plan-v1",
+  "saved_at": "2026-06-19T07:32:09Z",
+  "phase": "unify_plan_route",
+  "source_a_identity_ssot": "SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md",
+  "source_a_identity_bundle": "/Users/sinakazemnezhad/Desktop/SourceA/data/sourcea_agentic_unified_bundle_v1.json",
+  "source_a_identity_note": "Runs and sells controlled agentic automation \u2014 pointer only; full prose lives in portfolio SSOT \u00a70\u2013\u00a72b",
+  "fail_policy": "FAIL_IMMEDIATE_NO_TEMPER",
+  "fail_policy_note": "No tempering \u00b7 validator FAIL = immediate STOP \u00b7 chat cannot override disk",
+  "extraction": {
+    "path": "/Users/sinakazemnezhad/.sina/live-founder-decision-form-extraction-v1.json",
+    "gathered_at": "2026-06-19T07:26:28Z",
+    "total_count": 116,
+    "fresh_count": 60,
+    "prior_pick_count": 56,
+    "tier_counts": {
+      "P0_meta": 14,
+      "P0_final_fix": 22,
+      "P0_conflict": 6,
+      "P0_brain_cloud": 11,
+      "P1_integrity_core": 22,
+      "P2_pending_outside": 8,
+      "P3_enforcement": 20,
+      "P4_commercial": 13
+    }
+  },
+  "fresh_question_ids": [
+    "Q-GATH-06",
+    "Q-MF-09",
+    "Q-MF-11",
+    "Q-MF-12",
+    "Q-SESSION-ARCH-UNIFY-PLAN",
+    "Q-SESSION-FORM-BUILD",
+    "Q-SESSION-GATHER-NO-LOST",
+    "Q-SESSION-UNIFY-GO",
+    "Q-THREAD-10STEP-01",
+    "Q-CHAT-CLOUD-01",
+    "Q-CHAT-LANG-01",
+    "Q-CHAT-NEXT-P0-01",
+    "Q-CHAT-PLUSONE-01",
+    "Q-CHAT-PUBLISH-01",
+    "Q-FINAL-01",
+    "Q-FINAL-02",
+    "Q-FINAL-03",
+    "Q-FINAL-04",
+    "Q-FINAL-05",
+    "Q-FINAL-06",
+    "Q-FINAL-07",
+    "Q-MF-01",
+    "Q-MF-02",
+    "Q-MF-03",
+    "Q-MF-05",
+    "Q-MF-06",
+    "Q-MF-08",
+    "Q-SESSION-ARCH-PILLAR",
+    "Q-SESSION-ARCH-REFSTD",
+    "Q-SESSION-INBOX-NEXT",
+    "Q-SESSION-PHASE0-SPOT",
+    "Q-CONF-B0503-CONSUMER",
+    "Q-CONF-CREED-36V14",
+    "Q-CONF-F002-BROKER",
+    "Q-CONF-FALSE-DONE-GUARD",
+    "Q-CONF-MCP-PHASE2",
+    "Q-CONF-PLUSONE-MOTOR",
+    "Q-BC-01",
+    "Q-BC-02",
+    "Q-BC-03",
+    "Q-BC-04",
+    "Q-BC-05",
+    "Q-BC-06",
+    "Q-BC-07",
+    "Q-BC-08",
+    "Q-BC-09",
+    "Q-BC-10",
+    "Q-SESSION-CLOUD-CF06",
+    "Q-MF-04",
+    "Q-MF-07",
+    "Q-SESSION-ARCH-GEMINI-WS",
+    "Q-SESSION-ARCH-SCAFFOLD",
+    "Q-THREAD-DEPLOY-01",
+    "Q-MF-10",
+    "Q-SESSION-TUNNEL-DEMO",
+    "Q-SESSION-WBC-SUMMARY",
+    "Q-WBC-OCRE-L3",
+    "Q-WBC-PROOF-LAB-OK",
+    "Q-WBC-STYLE-B1",
+    "Q-WBC-WITNESS-AI-NAME"
+  ],
+  "routing_lanes": {
+    "founder": "Hub FORM_OFFICIAL M1 Canvas \u00b7 ASF FIVE-STEP PICK",
+    "brain": "SourceA Brain \u2014 sign work order \u00b7 route \u00b7 no Worker paste",
+    "worker": "SourceA Worker \u2014 RUN INBOX \u00b7 bounded WORK only",
+    "maintainer": "Maintainer \u2014 validators \u00b7 hub wire \u00b7 anti-staleness",
+    "fbe_cloud": "FBE execution plane \u2014 cloud headless \u00b7 receipts federate Mac",
+    "portfolio": "TrustField \u00b7 VIRLUX \u00b7 Noetfield \u00b7 PLUS ONE read-only patterns"
+  },
+  "dispatch_chain": [
+    {
+      "step": 1,
+      "gate": "agent_session_gate_run_v1.py",
+      "fail": "STOP \u2014 no advise"
+    },
+    {
+      "step": 2,
+      "gate": "live-founder-decision-form-v1.json",
+      "fail": "STOP \u2014 no invent picks"
+    },
+    {
+      "step": 3,
+      "gate": "founder FIVE-STEP PICK on FORM_OFFICIAL",
+      "fail": "STOP \u2014 no Worker dispatch"
+    },
+    {
+      "step": 4,
+      "gate": "brain_outbound_work_order sign",
+      "fail": "STOP \u2014 no cloud spawn"
+    },
+    {
+      "step": 5,
+      "gate": "pre_write_guard_v1.py",
+      "fail": "STOP \u2014 no disk write"
+    },
+    {
+      "step": 6,
+      "gate": "validate-* proof for lane",
+      "fail": "STOP \u2014 FAIL immediate"
+    },
+    {
+      "step": 7,
+      "act": "Worker RUN INBOX or FBE cloud job",
+      "fail": "receipt RED"
+    }
+  ],
+  "waves": [
+    {
+      "id": "WAVE-0",
+      "title": "Language + chat forks (never chat-only)",
+      "tier": "P0_final_fix",
+      "question_ids": [
+        "Q-CHAT-LANG-01",
+        "Q-CHAT-PLUSONE-01",
+        "Q-CHAT-NEXT-P0-01",
+        "Q-CHAT-CLOUD-01",
+        "Q-CHAT-PUBLISH-01"
+      ],
+      "executor_after_pick": "brain",
+      "plan": "Founder picks lock agent voice + P0 sequencing. Brain applies to vocabulary inject + daily routing.",
+      "proof": "canvas_form_apply_picks_v1.py \u00b7 vocabulary_guard_v1.py --tooling",
+      "question_count": 5,
+      "fresh_count": 5,
+      "questions": [
+        {
+          "id": "Q-CHAT-LANG-01",
+          "title": "Agent reply language \u2014 \u0641\u0627\u0631\u0633\u06cc school (unpicked A/B/C)",
+          "recommended": "B",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CHAT-LANG-01 B",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-CHAT-PLUSONE-01",
+          "title": "PLUS ONE voice law \u2014 wire before Brain copy?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CHAT-PLUSONE-01 A",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-CHAT-NEXT-P0-01",
+          "title": "Brain P0 unlock order \u2014 unpicked next taps",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CHAT-NEXT-P0-01 A",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-CHAT-CLOUD-01",
+          "title": "MCP proof \u2014 local PASS vs cloud SSE ship",
+          "recommended": "B",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CHAT-CLOUD-01 B",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-CHAT-PUBLISH-01",
+          "title": "Cursor marketplace Card1 \u2014 npm publish timing",
+          "recommended": "B",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CHAT-PUBLISH-01 B",
+          "gather_tier": "P0_final_fix"
+        }
+      ],
+      "route_lane": "SourceA Brain \u2014 sign work order \u00b7 route \u00b7 no Worker paste",
+      "fail_gate": "FAIL_IMMEDIATE_NO_TEMPER"
+    },
+    {
+      "id": "WAVE-1",
+      "title": "Authorize UNIFY phase (meta already picked)",
+      "tier": "P0_meta",
+      "question_ids": [
+        "Q-FINAL-05",
+        "Q-GATH-05"
+      ],
+      "executor_after_pick": "brain",
+      "plan": "Founder confirms gather complete \u2192 Brain runs unify organize prioritize on 84 rows.",
+      "proof": "brain_form_gather_unify_plan_v1.py --json",
+      "question_count": 2,
+      "fresh_count": 1,
+      "questions": [
+        {
+          "id": "Q-FINAL-05",
+          "title": "Gathering complete \u2014 authorize UNIFY phase on 72+ rows?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FINAL-05 A",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-GATH-05",
+          "title": "Extraction \u2192 gather \u2192 unify \u2192 prioritize \u2014 confirm sequence",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-GATH-05 A",
+          "gather_tier": "P0_meta"
+        }
+      ],
+      "route_lane": "SourceA Brain \u2014 sign work order \u00b7 route \u00b7 no Worker paste",
+      "fail_gate": "FAIL_IMMEDIATE_NO_TEMPER"
+    },
+    {
+      "id": "WAVE-2",
+      "title": "Strategic spine after FBE (north star)",
+      "tier": "P0_final_fix",
+      "question_ids": [
+        "Q-FINAL-01",
+        "Q-FINAL-02",
+        "Q-FINAL-03",
+        "Q-FINAL-04",
+        "Q-FINAL-06",
+        "Q-FINAL-07"
+      ],
+      "executor_after_pick": "brain",
+      "plan": "Locks STRATEGIC-SLICE vs outbound vs FBE catalog \u00b7 U031 bay \u00b7 Mono never_sync \u00b7 vocabulary \u00b7 disk-first Brain law \u00b7 loop auto safety.",
+      "proof": "brain_outbound_work_order_v1.py --json \u00b7 queue_ssot_unify_v1.py",
+      "question_count": 6,
+      "fresh_count": 6,
+      "questions": [
+        {
+          "id": "Q-FINAL-01",
+          "title": "North star after FBE-W6 \u2014 outbound drain vs cloud catalog sell?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FINAL-01 A",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-FINAL-02",
+          "title": "U031 RRL bay \u2014 implement on FBE cloud runner or Worker WORK?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FINAL-02 A",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-FINAL-03",
+          "title": "Mono never_sync_as_authority \u2014 lock for all FBE cloud sync?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FINAL-03 A",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-FINAL-04",
+          "title": "Vocabulary lock \u2014 Kernel \u00b7 Factory spec \u00b7 36 nodes \u00b7 14 buyer lines",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FINAL-04 A",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-FINAL-06",
+          "title": "Brain disk-first law \u2014 every strategic turn cites FOUND/NOT FOUND?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FINAL-06 A",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-FINAL-07",
+          "title": "Loop auto ON (True) + unmapped bay dispatch \u2014 safe?",
+          "recommended": "C",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FINAL-07 C",
+          "gather_tier": "P0_final_fix"
+        }
+      ],
+      "route_lane": "SourceA Brain \u2014 sign work order \u00b7 route \u00b7 no Worker paste",
+      "fail_gate": "FAIL_IMMEDIATE_NO_TEMPER"
+    },
+    {
+      "id": "WAVE-3",
+      "title": "Paradox conflicts \u2014 execution honesty",
+      "tier": "P0_conflict",
+      "question_ids": [
+        "Q-CONF-B0503-CONSUMER",
+        "Q-CONF-CREED-36V14",
+        "Q-CONF-F002-BROKER",
+        "Q-CONF-FALSE-DONE-GUARD",
+        "Q-CONF-MCP-PHASE2",
+        "Q-CONF-PLUSONE-MOTOR"
+      ],
+      "executor_after_pick": "maintainer",
+      "plan": "Each pick wires validator or blocks false-done. FAIL immediate on honesty breach.",
+      "proof": "validate-form-official-e2e-v1.sh \u00b7 debug_e2e_governance_chain_v1.py",
+      "question_count": 6,
+      "fresh_count": 6,
+      "questions": [
+        {
+          "id": "Q-CONF-B0503-CONSUMER",
+          "title": "B0503 open \u2014 cloud worker still reads chat not work-order?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CONF-B0503-CONSUMER A",
+          "gather_tier": "P0_conflict"
+        },
+        {
+          "id": "Q-CONF-CREED-36V14",
+          "title": "CREED 36 mesh nodes vs 14 commercial lines \u2014 buyer vocabulary",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CONF-CREED-36V14 A",
+          "gather_tier": "P0_conflict"
+        },
+        {
+          "id": "Q-CONF-F002-BROKER",
+          "title": "F002 broker round-trip \u2014 still required after Brain work-order?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CONF-F002-BROKER A",
+          "gather_tier": "P0_conflict"
+        },
+        {
+          "id": "Q-CONF-FALSE-DONE-GUARD",
+          "title": "False-done guard \u2014 never mark done without bay + receipt",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CONF-FALSE-DONE-GUARD A",
+          "gather_tier": "P0_conflict"
+        },
+        {
+          "id": "Q-CONF-MCP-PHASE2",
+          "title": "MCP Phase 2 paid wire \u2014 founder gate before cloud execution URL",
+          "recommended": "B",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CONF-MCP-PHASE2 B",
+          "gather_tier": "P0_conflict"
+        },
+        {
+          "id": "Q-CONF-PLUSONE-MOTOR",
+          "title": "Plus ONE campus vs SourceA motor \u2014 who owns founder picks?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CONF-PLUSONE-MOTOR A",
+          "gather_tier": "P0_conflict"
+        }
+      ],
+      "route_lane": "Maintainer \u2014 validators \u00b7 hub wire \u00b7 anti-staleness",
+      "fail_gate": "FAIL_IMMEDIATE_NO_TEMPER"
+    },
+    {
+      "id": "WAVE-4",
+      "title": "Brain cloud execution plane (pre-LLM dispatch)",
+      "tier": "P0_brain_cloud",
+      "question_ids": [
+        "Q-BC-01",
+        "Q-BC-02",
+        "Q-BC-03",
+        "Q-BC-04",
+        "Q-BC-05",
+        "Q-BC-06",
+        "Q-BC-07",
+        "Q-BC-08",
+        "Q-BC-09",
+        "Q-BC-10"
+      ],
+      "executor_after_pick": "brain",
+      "plan": "Defines who executes outbound \u00b7 cloud honesty \u00b7 compiler path \u00b7 INBOX vs work-order \u00b7 bay mapping.",
+      "proof": "brain_outbound_work_order_v1.py \u00b7 fbe_run_job_v1.py --dry-run",
+      "question_count": 10,
+      "fresh_count": 10,
+      "questions": [
+        {
+          "id": "Q-BC-01",
+          "title": "Who executes outbound upgrades when loop auto is ON?",
+          "recommended": "C",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-01 C",
+          "gather_tier": "P0_brain_cloud"
+        },
+        {
+          "id": "Q-BC-02",
+          "title": "Is Mac headless proof honest while cloud URL is unset?",
+          "recommended": "C",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-02 C",
+          "gather_tier": "P0_brain_cloud"
+        },
+        {
+          "id": "Q-BC-03",
+          "title": "U031 RRL history \u2014 what happens next?",
+          "recommended": "B",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-03 B",
+          "gather_tier": "P0_brain_cloud"
+        },
+        {
+          "id": "Q-BC-04",
+          "title": "Two chats after cloud pivot \u2014 Brain vs Worker",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-04 A",
+          "gather_tier": "P0_brain_cloud"
+        },
+        {
+          "id": "Q-BC-05",
+          "title": "Goal 1 1000/1000 vs outbound 66 pending \u2014 north star?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-05 A",
+          "gather_tier": "P0_brain_cloud"
+        },
+        {
+          "id": "Q-BC-06",
+          "title": "When is B0501 truly done?",
+          "recommended": "C",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-06 C",
+          "gather_tier": "P0_brain_cloud"
+        },
+        {
+          "id": "Q-BC-07",
+          "title": "Loop auto dispatch without your tap each upgrade",
+          "recommended": "C",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-07 C",
+          "gather_tier": "P0_brain_cloud"
+        },
+        {
+          "id": "Q-BC-08",
+          "title": "Fate of Worker INBOX file",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-08 A",
+          "gather_tier": "P0_brain_cloud"
+        },
+        {
+          "id": "Q-BC-09",
+          "title": "Free-tier cloud plane (NO-CC law)",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-09 A",
+          "gather_tier": "P0_brain_cloud"
+        },
+        {
+          "id": "Q-BC-10",
+          "title": "Prior pick 7.07 vs new paradox rows",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-10 A",
+          "gather_tier": "P0_brain_cloud"
+        }
+      ],
+      "route_lane": "SourceA Brain \u2014 sign work order \u00b7 route \u00b7 no Worker paste",
+      "fail_gate": "FAIL_IMMEDIATE_NO_TEMPER"
+    },
+    {
+      "id": "WAVE-5",
+      "title": "Prior picks \u2014 receipt sync only (56 rows)",
+      "tier": "picked",
+      "question_ids": [],
+      "executor_after_pick": "maintainer",
+      "plan": "Do not re-ask. Maintainer syncs Canvas cards \u00b7 hub projection \u00b7 cascade receipt.",
+      "proof": "form_official_wire_e2e_v1.py --sync-surfaces",
+      "question_count": 56,
+      "fresh_count": 0,
+      "questions": [
+        {
+          "id": "Q-GATH-01",
+          "title": "Form looks empty \u2014 which Canvas view is the form office?",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-GATH-01 A",
+          "gather_tier": "P0_meta"
+        },
+        {
+          "id": "Q-GATH-02",
+          "title": "Canva vs Cursor Canvas \u2014 lock terminology",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-GATH-02 A",
+          "gather_tier": "P0_meta"
+        },
+        {
+          "id": "Q-GATH-03",
+          "title": "Gathering phase \u2014 re-surface prior picks for unify pass?",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-GATH-03 A",
+          "gather_tier": "P0_meta"
+        },
+        {
+          "id": "Q-GATH-04",
+          "title": "Local Worker INBOX as P0 \u2014 strategic mistake?",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-GATH-04 A",
+          "gather_tier": "P0_meta"
+        },
+        {
+          "id": "Q-GATH-05",
+          "title": "Extraction \u2192 gather \u2192 unify \u2192 prioritize \u2014 confirm sequence",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-GATH-05 A",
+          "gather_tier": "P0_meta"
+        },
+        {
+          "id": "2.02",
+          "title": "SourceA public-site mirror \u2014 stay parallel-private?",
+          "recommended": "C",
+          "prior_pick": "C",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 2.02 C",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "7.05",
+          "title": "Who wins when agents push AUTO-RUN but you still have open form picks?",
+          "recommended": "DEFER",
+          "prior_pick": "DEFER",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 7.05 DEFER",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "7.06",
+          "title": "Advisor paste (ChatGPT audit) \u2014 report only, never reorder build",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 7.06 YES",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "7.07",
+          "title": "Do not turn this sprint paradox into a new law file yet",
+          "recommended": "NEVER",
+          "prior_pick": "NEVER",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 7.07 NEVER",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "8.09",
+          "title": "Incident severity rubric",
+          "recommended": "B",
+          "prior_pick": "B",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 8.09 B",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-1.10-SEAL",
+          "title": "Phase 1.10 closeout seal",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-1.10-SEAL YES \u2014 seal Phase 1 closeout",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-CHANGE-QUORUM-v1",
+          "title": "Change Quorum \u2014 who changed SSOT/policy",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CHANGE-QUORUM-v1 A",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-ENGINE-TEST-01",
+          "title": "Week-1 24/7 test harness",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-ENGINE-TEST-01 YES",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-ENGINE-TEST-02",
+          "title": "Orchestrator stack",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-ENGINE-TEST-02 YES",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-GOV-FAST-WIRE-v1",
+          "title": "Fast governance wire \u2014 Judge + Thread n8n",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-GOV-FAST-WIRE-v1 A",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-INC-015",
+          "title": "INCIDENT-015 conduct disposition",
+          "recommended": "B",
+          "prior_pick": "B",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-INC-015 B",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-JUDGE-STACK-v1",
+          "title": "Judge Stack \u2014 Human \u00b7 Disk/Machine \u00b7 AI Center",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-JUDGE-STACK-v1 A",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-M2-029",
+          "title": "INCIDENT-029 remediation SHIP",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-M2-029 YES",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-M2-FORM-SYNC",
+          "title": "FORM_OFFICIAL \u2014 sync everything to Canvas",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-M2-FORM-SYNC YES",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-M2-READ",
+          "title": "Ack cross-chat synthesis read",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-M2-READ YES",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-M2-REG",
+          "title": "Regulator hub Action",
+          "recommended": "YES",
+          "prior_pick": "DEFER",
+          "reply_template": "ASF: SHIP regulator hub Action",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-THREAD-ROOM-v1",
+          "title": "Thread Room \u2014 Scout \u00b7 Cartographer \u00b7 Curator",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-THREAD-ROOM-v1 A",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-ACTIVE-NOW-SYNC",
+          "title": "ACTIVE_NOW footer sync",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: SHIP ACTIVE_NOW sync",
+          "gather_tier": "P2_pending_outside"
+        },
+        {
+          "id": "Q-FR-002-WTM",
+          "title": "FR-002 D2 Graph Fusion (WTM)",
+          "recommended": "DEFER",
+          "prior_pick": "START",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FR-002-WTM DEFER",
+          "gather_tier": "P2_pending_outside"
+        },
+        {
+          "id": "Q-FR-1013f0",
+          "title": "When to close commercial track FR-1013f0",
+          "recommended": "YES",
+          "prior_pick": "DEFER",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FR-1013f0 YES",
+          "gather_tier": "P2_pending_outside"
+        },
+        {
+          "id": "Q-HUB-LAG",
+          "title": "Hub rebuild LAG",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-HUB-LAG YES",
+          "gather_tier": "P2_pending_outside"
+        },
+        {
+          "id": "Q-MONO-SSOT-LANE",
+          "title": "MonoRepo vs SourceA apex",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MONO-SSOT-LANE YES",
+          "gather_tier": "P2_pending_outside"
+        },
+        {
+          "id": "Q-NF-SPEC-PROMOTE",
+          "title": "Noetfield spec promote",
+          "recommended": "REVIEW",
+          "prior_pick": "REVIEW",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-NF-SPEC-PROMOTE REVIEW",
+          "gather_tier": "P2_pending_outside"
+        },
+        {
+          "id": "Q-SYS-INTEGRITY-RESUME",
+          "title": "SYS-INTEGRITY Phases 3\u201310 resume",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SYS-INTEGRITY-RESUME YES",
+          "gather_tier": "P2_pending_outside"
+        },
+        {
+          "id": "Q-WIRE-G3",
+          "title": "Tailscale G3 wire \u2014 reconcile pass vs pending logged",
+          "recommended": "RECONCILE",
+          "prior_pick": "RECONCILE",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-WIRE-G3 RECONCILE",
+          "gather_tier": "P2_pending_outside"
+        },
+        {
+          "id": "ENF-01",
+          "title": "W1 demo film \u2014 when to shoot",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-01 A",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-02",
+          "title": "Outreach vs film order",
+          "recommended": "APPROVE",
+          "prior_pick": "NO",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-02 APPROVE",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-03",
+          "title": "W3 wedge \u2014 which offer leads",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-03 YES",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-04",
+          "title": "Demo write-path check",
+          "recommended": "APPROVE",
+          "prior_pick": "APPROVE",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-04 APPROVE",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-05",
+          "title": "Investor deck \u2014 bypass claim",
+          "recommended": "A",
+          "prior_pick": "B",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-05 A",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-06",
+          "title": "Demo story beats",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-06 YES",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-07",
+          "title": "Hub demo button timing",
+          "recommended": "A",
+          "prior_pick": "DEFER",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-07 A",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-08",
+          "title": "W3 PASS bar",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-08 YES",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-09",
+          "title": "Factory score headline",
+          "recommended": "NO",
+          "prior_pick": "YES_background",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-09 NO",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-10",
+          "title": "$100M round language",
+          "recommended": "NEVER",
+          "prior_pick": "narrative_only",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-10 NEVER",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-11",
+          "title": "First outreach batch size",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-11 A",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-12",
+          "title": "Manual LinkedIn override",
+          "recommended": "NEVER",
+          "prior_pick": "YES_with_receipt",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-12 NEVER",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-13",
+          "title": "Tamper beat on camera",
+          "recommended": "YES",
+          "prior_pick": "DEFER",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-13 YES",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-14",
+          "title": "LinkedIn profile update",
+          "recommended": "APPROVE",
+          "prior_pick": "APPROVE",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-14 APPROVE",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-15",
+          "title": "MASTER-PLAN week table",
+          "recommended": "NEVER",
+          "prior_pick": "strategy_only",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-15 NEVER",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-16",
+          "title": "Factory plan picks",
+          "recommended": "YES",
+          "prior_pick": "NO",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-16 YES",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-17",
+          "title": "First paid SKU name",
+          "recommended": "B",
+          "prior_pick": "B",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-17 B",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-18",
+          "title": "External category sentence",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-18 YES",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-19",
+          "title": "Demo dry runs",
+          "recommended": "APPROVE",
+          "prior_pick": "APPROVE",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-19 APPROVE",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-20",
+          "title": "December closeout rule",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-20 YES",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "11.01",
+          "title": "Step 1 \u2014 Send outreach (TrustField + Noetfield)",
+          "recommended": "SHIP",
+          "prior_pick": "SHIP",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 11.01 SHIP",
+          "gather_tier": "P4_commercial"
+        },
+        {
+          "id": "11.02",
+          "title": "Step 2 \u2014 Film W1 demo",
+          "recommended": "SHIP",
+          "prior_pick": "SHIP",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 11.02 SHIP",
+          "gather_tier": "P4_commercial"
+        },
+        {
+          "id": "11.03",
+          "title": "Step 3 \u2014 Ship receipt kernel (K1)",
+          "recommended": "SHIP",
+          "prior_pick": "SHIP",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 11.03 SHIP",
+          "gather_tier": "P4_commercial"
+        },
+        {
+          "id": "11.04",
+          "title": "Step 4 \u2014 Procurement pack",
+          "recommended": "SHIP",
+          "prior_pick": "SHIP",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 11.04 SHIP",
+          "gather_tier": "P4_commercial"
+        },
+        {
+          "id": "11.05",
+          "title": "Step 5 \u2014 Instrument TF + NF workflows",
+          "recommended": "SHIP",
+          "prior_pick": "SHIP",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 11.05 SHIP",
+          "gather_tier": "P4_commercial"
+        },
+        {
+          "id": "Q-PLAN-300",
+          "title": "Lock Tier-1 commercial P0 block (300 plans)",
+          "recommended": "LOCKED",
+          "prior_pick": "LOCKED",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-PLAN-300 LOCKED",
+          "gather_tier": "P4_commercial"
+        }
+      ],
+      "route_lane": "Maintainer \u2014 validators \u00b7 hub wire \u00b7 anti-staleness",
+      "fail_gate": "FAIL_IMMEDIATE_NO_TEMPER"
+    },
+    {
+      "id": "WAVE-6",
+      "title": "Integrity + enforcement + commercial (picked tiers)",
+      "tier": "P1_P4_picked",
+      "question_ids": [],
+      "executor_after_pick": "worker",
+      "plan": "Execute per locked \u00a7ANSWERED picks via RUN INBOX sa-* \u2014 not chat re-poll.",
+      "proof": "validate-all-e2e-v1.sh",
+      "question_count": 51,
+      "fresh_count": 0,
+      "questions": [
+        {
+          "id": "2.02",
+          "title": "SourceA public-site mirror \u2014 stay parallel-private?",
+          "recommended": "C",
+          "prior_pick": "C",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 2.02 C",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "7.05",
+          "title": "Who wins when agents push AUTO-RUN but you still have open form picks?",
+          "recommended": "DEFER",
+          "prior_pick": "DEFER",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 7.05 DEFER",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "7.06",
+          "title": "Advisor paste (ChatGPT audit) \u2014 report only, never reorder build",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 7.06 YES",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "7.07",
+          "title": "Do not turn this sprint paradox into a new law file yet",
+          "recommended": "NEVER",
+          "prior_pick": "NEVER",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 7.07 NEVER",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "8.09",
+          "title": "Incident severity rubric",
+          "recommended": "B",
+          "prior_pick": "B",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 8.09 B",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-1.10-SEAL",
+          "title": "Phase 1.10 closeout seal",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-1.10-SEAL YES \u2014 seal Phase 1 closeout",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-CHANGE-QUORUM-v1",
+          "title": "Change Quorum \u2014 who changed SSOT/policy",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CHANGE-QUORUM-v1 A",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-ENGINE-TEST-01",
+          "title": "Week-1 24/7 test harness",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-ENGINE-TEST-01 YES",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-ENGINE-TEST-02",
+          "title": "Orchestrator stack",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-ENGINE-TEST-02 YES",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-GOV-FAST-WIRE-v1",
+          "title": "Fast governance wire \u2014 Judge + Thread n8n",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-GOV-FAST-WIRE-v1 A",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-INC-015",
+          "title": "INCIDENT-015 conduct disposition",
+          "recommended": "B",
+          "prior_pick": "B",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-INC-015 B",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-JUDGE-STACK-v1",
+          "title": "Judge Stack \u2014 Human \u00b7 Disk/Machine \u00b7 AI Center",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-JUDGE-STACK-v1 A",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-M2-029",
+          "title": "INCIDENT-029 remediation SHIP",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-M2-029 YES",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-M2-FORM-SYNC",
+          "title": "FORM_OFFICIAL \u2014 sync everything to Canvas",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-M2-FORM-SYNC YES",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-M2-READ",
+          "title": "Ack cross-chat synthesis read",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-M2-READ YES",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-M2-REG",
+          "title": "Regulator hub Action",
+          "recommended": "YES",
+          "prior_pick": "DEFER",
+          "reply_template": "ASF: SHIP regulator hub Action",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-THREAD-ROOM-v1",
+          "title": "Thread Room \u2014 Scout \u00b7 Cartographer \u00b7 Curator",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-THREAD-ROOM-v1 A",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-ACTIVE-NOW-SYNC",
+          "title": "ACTIVE_NOW footer sync",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: SHIP ACTIVE_NOW sync",
+          "gather_tier": "P2_pending_outside"
+        },
+        {
+          "id": "Q-FR-002-WTM",
+          "title": "FR-002 D2 Graph Fusion (WTM)",
+          "recommended": "DEFER",
+          "prior_pick": "START",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FR-002-WTM DEFER",
+          "gather_tier": "P2_pending_outside"
+        },
+        {
+          "id": "Q-FR-1013f0",
+          "title": "When to close commercial track FR-1013f0",
+          "recommended": "YES",
+          "prior_pick": "DEFER",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FR-1013f0 YES",
+          "gather_tier": "P2_pending_outside"
+        },
+        {
+          "id": "Q-HUB-LAG",
+          "title": "Hub rebuild LAG",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-HUB-LAG YES",
+          "gather_tier": "P2_pending_outside"
+        },
+        {
+          "id": "Q-MONO-SSOT-LANE",
+          "title": "MonoRepo vs SourceA apex",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MONO-SSOT-LANE YES",
+          "gather_tier": "P2_pending_outside"
+        },
+        {
+          "id": "Q-NF-SPEC-PROMOTE",
+          "title": "Noetfield spec promote",
+          "recommended": "REVIEW",
+          "prior_pick": "REVIEW",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-NF-SPEC-PROMOTE REVIEW",
+          "gather_tier": "P2_pending_outside"
+        },
+        {
+          "id": "Q-SYS-INTEGRITY-RESUME",
+          "title": "SYS-INTEGRITY Phases 3\u201310 resume",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SYS-INTEGRITY-RESUME YES",
+          "gather_tier": "P2_pending_outside"
+        },
+        {
+          "id": "Q-WIRE-G3",
+          "title": "Tailscale G3 wire \u2014 reconcile pass vs pending logged",
+          "recommended": "RECONCILE",
+          "prior_pick": "RECONCILE",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-WIRE-G3 RECONCILE",
+          "gather_tier": "P2_pending_outside"
+        },
+        {
+          "id": "ENF-01",
+          "title": "W1 demo film \u2014 when to shoot",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-01 A",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-02",
+          "title": "Outreach vs film order",
+          "recommended": "APPROVE",
+          "prior_pick": "NO",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-02 APPROVE",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-03",
+          "title": "W3 wedge \u2014 which offer leads",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-03 YES",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-04",
+          "title": "Demo write-path check",
+          "recommended": "APPROVE",
+          "prior_pick": "APPROVE",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-04 APPROVE",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-05",
+          "title": "Investor deck \u2014 bypass claim",
+          "recommended": "A",
+          "prior_pick": "B",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-05 A",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-06",
+          "title": "Demo story beats",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-06 YES",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-07",
+          "title": "Hub demo button timing",
+          "recommended": "A",
+          "prior_pick": "DEFER",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-07 A",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-08",
+          "title": "W3 PASS bar",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-08 YES",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-09",
+          "title": "Factory score headline",
+          "recommended": "NO",
+          "prior_pick": "YES_background",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-09 NO",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-10",
+          "title": "$100M round language",
+          "recommended": "NEVER",
+          "prior_pick": "narrative_only",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-10 NEVER",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-11",
+          "title": "First outreach batch size",
+          "recommended": "A",
+          "prior_pick": "A",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-11 A",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-12",
+          "title": "Manual LinkedIn override",
+          "recommended": "NEVER",
+          "prior_pick": "YES_with_receipt",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-12 NEVER",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-13",
+          "title": "Tamper beat on camera",
+          "recommended": "YES",
+          "prior_pick": "DEFER",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-13 YES",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-14",
+          "title": "LinkedIn profile update",
+          "recommended": "APPROVE",
+          "prior_pick": "APPROVE",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-14 APPROVE",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-15",
+          "title": "MASTER-PLAN week table",
+          "recommended": "NEVER",
+          "prior_pick": "strategy_only",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-15 NEVER",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-16",
+          "title": "Factory plan picks",
+          "recommended": "YES",
+          "prior_pick": "NO",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-16 YES",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-17",
+          "title": "First paid SKU name",
+          "recommended": "B",
+          "prior_pick": "B",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-17 B",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-18",
+          "title": "External category sentence",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-18 YES",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-19",
+          "title": "Demo dry runs",
+          "recommended": "APPROVE",
+          "prior_pick": "APPROVE",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-19 APPROVE",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "ENF-20",
+          "title": "December closeout rule",
+          "recommended": "YES",
+          "prior_pick": "YES",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: ENF-20 YES",
+          "gather_tier": "P3_enforcement"
+        },
+        {
+          "id": "11.01",
+          "title": "Step 1 \u2014 Send outreach (TrustField + Noetfield)",
+          "recommended": "SHIP",
+          "prior_pick": "SHIP",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 11.01 SHIP",
+          "gather_tier": "P4_commercial"
+        },
+        {
+          "id": "11.02",
+          "title": "Step 2 \u2014 Film W1 demo",
+          "recommended": "SHIP",
+          "prior_pick": "SHIP",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 11.02 SHIP",
+          "gather_tier": "P4_commercial"
+        },
+        {
+          "id": "11.03",
+          "title": "Step 3 \u2014 Ship receipt kernel (K1)",
+          "recommended": "SHIP",
+          "prior_pick": "SHIP",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 11.03 SHIP",
+          "gather_tier": "P4_commercial"
+        },
+        {
+          "id": "11.04",
+          "title": "Step 4 \u2014 Procurement pack",
+          "recommended": "SHIP",
+          "prior_pick": "SHIP",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 11.04 SHIP",
+          "gather_tier": "P4_commercial"
+        },
+        {
+          "id": "11.05",
+          "title": "Step 5 \u2014 Instrument TF + NF workflows",
+          "recommended": "SHIP",
+          "prior_pick": "SHIP",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: 11.05 SHIP",
+          "gather_tier": "P4_commercial"
+        },
+        {
+          "id": "Q-PLAN-300",
+          "title": "Lock Tier-1 commercial P0 block (300 plans)",
+          "recommended": "LOCKED",
+          "prior_pick": "LOCKED",
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-PLAN-300 LOCKED",
+          "gather_tier": "P4_commercial"
+        }
+      ],
+      "route_lane": "SourceA Worker \u2014 RUN INBOX \u00b7 bounded WORK only",
+      "fail_gate": "FAIL_IMMEDIATE_NO_TEMPER"
+    },
+    {
+      "id": "WAVE-7",
+      "title": "Architect + gather no-lost (session 2026-06-19)",
+      "tier": "P0_meta",
+      "question_ids": [
+        "Q-SESSION-GATHER-NO-LOST",
+        "Q-SESSION-ARCH-REFSTD",
+        "Q-SESSION-ARCH-PILLAR",
+        "Q-SESSION-ARCH-UNIFY-PLAN",
+        "Q-SESSION-ARCH-SCAFFOLD",
+        "Q-SESSION-ARCH-GEMINI-WS"
+      ],
+      "executor_after_pick": "brain",
+      "plan": "Locks chat\u2192form law \u00b7 SourceA reference standard \u00b7 strategic pillar WORK routing \u00b7 Brain unify SSOT \u00b7 Gemini gap closes without fork.",
+      "proof": "form_official_gather_extraction_v1.py --wire \u00b7 brain_form_gather_unify_plan_v1.py",
+      "question_count": 6,
+      "fresh_count": 6,
+      "questions": [
+        {
+          "id": "Q-SESSION-GATHER-NO-LOST",
+          "title": "Lock \u2014 every chat A/B/C lands on FORM_OFFICIAL",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-GATHER-NO-LOST A",
+          "gather_tier": "P0_meta"
+        },
+        {
+          "id": "Q-SESSION-ARCH-REFSTD",
+          "title": "SourceA \u2014 reference standard for agentic prof logged?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-ARCH-REFSTD A",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-SESSION-ARCH-PILLAR",
+          "title": "Strategic slice \u2014 next bounded WORK pillar?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-ARCH-PILLAR A",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-SESSION-ARCH-UNIFY-PLAN",
+          "title": "Post-gather \u2014 Brain unify routing plan authority?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-ARCH-UNIFY-PLAN A",
+          "gather_tier": "P0_meta"
+        },
+        {
+          "id": "Q-SESSION-ARCH-SCAFFOLD",
+          "title": "Scaffold apple-store-api subdirs now?",
+          "recommended": "B",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-ARCH-SCAFFOLD B",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-SESSION-ARCH-GEMINI-WS",
+          "title": "Gemini monorepo \u2014 root package.json workspaces?",
+          "recommended": "B",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-ARCH-GEMINI-WS B",
+          "gather_tier": "P1_integrity_core"
+        }
+      ],
+      "route_lane": "SourceA Brain \u2014 sign work order \u00b7 route \u00b7 no Worker paste",
+      "fail_gate": "FAIL_IMMEDIATE_NO_TEMPER"
+    },
+    {
+      "id": "WAVE-8",
+      "title": "Marketplace + multi-factory thread (Gemini \u00b7 cloud cockpit)",
+      "tier": "P0_final_fix",
+      "question_ids": [
+        "Q-MF-01",
+        "Q-MF-02",
+        "Q-MF-03",
+        "Q-MF-04",
+        "Q-MF-05",
+        "Q-MF-06",
+        "Q-MF-07",
+        "Q-MF-08",
+        "Q-MF-09",
+        "Q-MF-10",
+        "Q-MF-11",
+        "Q-THREAD-DEPLOY-01",
+        "Q-THREAD-10STEP-01"
+      ],
+      "executor_after_pick": "brain",
+      "plan": "Mac cockpit \u00b7 Card1 npm \u00b7 Proof tagline \u00b7 billing\u2192orchestration\u2192Fal \u00b7 Supabase edge \u00b7 scripts vs apps \u00b7 HUMAN_APPROVAL \u00b7 blueprint SSOT \u00b7 no fork \u00b7 E2E deploy \u00b7 10-step scope",
+      "proof": "docs/SOURCEA_MULTI_FACTORY_ENTERPRISE_BLUEPRINT_LOCKED_v1.md \u00b7 validate-video-ad-factory-chain-v1.sh",
+      "question_count": 13,
+      "fresh_count": 13,
+      "questions": [
+        {
+          "id": "Q-MF-01",
+          "title": "Mac = cockpit only \u2014 lock cloud execution law?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-01 A",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-MF-02",
+          "title": "Cursor Card 1 \u2014 publish npm now?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-02 A",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-MF-03",
+          "title": "One marketplace card at launch?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-03 A",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-MF-04",
+          "title": "Buyer tagline \u2014 Proof vs Governance?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-04 A",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-MF-05",
+          "title": "Build order \u2014 billing before creative?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-05 A",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-MF-06",
+          "title": "Supabase edge loop \u2014 name project and deploy?",
+          "recommended": "B",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-06 B",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-MF-07",
+          "title": "Gemini video-ad-factory \u2014 port TS to apps/ or keep scripts/?",
+          "recommended": "B",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-07 B",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-MF-08",
+          "title": "HUMAN_APPROVAL_REQUIRED \u2014 mandatory before Fal spend?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-08 A",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-MF-09",
+          "title": "Blueprint LOCKED doc \u2014 accept as SSOT?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-09 A",
+          "gather_tier": "P0_meta"
+        },
+        {
+          "id": "Q-MF-10",
+          "title": "W3 commercial \u2014 confirm-sent after Mail?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-10 B",
+          "gather_tier": "P4_commercial"
+        },
+        {
+          "id": "Q-MF-11",
+          "title": "Do not fork Gemini monorepo \u2014 confirm?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-11 A",
+          "gather_tier": "P0_meta"
+        },
+        {
+          "id": "Q-THREAD-DEPLOY-01",
+          "title": "E2E deploy target \u2014 Agent Run only or both SA4?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-THREAD-DEPLOY-01 A",
+          "gather_tier": "P1_integrity_core"
+        },
+        {
+          "id": "Q-THREAD-10STEP-01",
+          "title": "10-step program \u2014 full WORK vs SAVE spec first?",
+          "recommended": "B",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-THREAD-10STEP-01 B",
+          "gather_tier": "P0_meta"
+        }
+      ],
+      "route_lane": "SourceA Brain \u2014 sign work order \u00b7 route \u00b7 no Worker paste",
+      "fail_gate": "FAIL_IMMEDIATE_NO_TEMPER"
+    },
+    {
+      "id": "WAVE-9",
+      "title": "Session build + form cap (dedupe Q-MF-12 \u2194 Q-GATH-06)",
+      "tier": "P0_meta",
+      "question_ids": [
+        "Q-GATH-06",
+        "Q-MF-12",
+        "Q-SESSION-INBOX-NEXT",
+        "Q-SESSION-FORM-BUILD",
+        "Q-SESSION-TUNNEL-DEMO",
+        "Q-SESSION-UNIFY-GO",
+        "Q-SESSION-PHASE0-SPOT",
+        "Q-SESSION-CLOUD-CF06",
+        "Q-SESSION-WBC-SUMMARY"
+      ],
+      "executor_after_pick": "worker",
+      "plan": "100 cap minder \u00b7 parallel form+INBOX \u00b7 defer tunnel \u00b7 spot-check phase0 \u00b7 local before CF06 federated.",
+      "proof": "form_official_unify_open_picks_v1.py \u00b7 phase0-freemium-sandbox-reference-v1.json",
+      "question_count": 9,
+      "fresh_count": 9,
+      "questions": [
+        {
+          "id": "Q-GATH-06",
+          "title": "Gather cap 100 \u2014 founder fill \u00b7 agents build",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-GATH-06 A",
+          "gather_tier": "P0_meta"
+        },
+        {
+          "id": "Q-MF-12",
+          "title": "Agent focus when form open count high?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-12 A",
+          "gather_tier": "P0_meta"
+        },
+        {
+          "id": "Q-SESSION-INBOX-NEXT",
+          "title": "Next INBOX head \u2014 Noetfield freemium bay (P0-13)?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-INBOX-NEXT A",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-SESSION-FORM-BUILD",
+          "title": "Form open + BUILD \u2014 parallel OK?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-FORM-BUILD A",
+          "gather_tier": "P0_meta"
+        },
+        {
+          "id": "Q-SESSION-TUNNEL-DEMO",
+          "title": "Proof Lab public demo \u2014 free tunnel?",
+          "recommended": "B",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-TUNNEL-DEMO B",
+          "gather_tier": "P4_commercial"
+        },
+        {
+          "id": "Q-SESSION-UNIFY-GO",
+          "title": "After you fill \u2014 Brain UNIFY pass on all rows?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-UNIFY-GO A",
+          "gather_tier": "P0_meta"
+        },
+        {
+          "id": "Q-SESSION-PHASE0-SPOT",
+          "title": "Phase0 13/13 logged \u2014 spot-check or trust?",
+          "recommended": "B",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-PHASE0-SPOT B",
+          "gather_tier": "P0_final_fix"
+        },
+        {
+          "id": "Q-SESSION-CLOUD-CF06",
+          "title": "Cloud factory step6 federated FAIL \u2014 fix or defer?",
+          "recommended": "B",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-CLOUD-CF06 B",
+          "gather_tier": "P0_brain_cloud"
+        },
+        {
+          "id": "Q-SESSION-WBC-SUMMARY",
+          "title": "WitnessBC work summary \u2014 deposit to vault?",
+          "recommended": "A",
+          "prior_pick": null,
+          "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-WBC-SUMMARY A",
+          "gather_tier": "P4_commercial"
+        }
+      ],
+      "route_lane": "SourceA Worker \u2014 RUN INBOX \u00b7 bounded WORK only",
+      "fail_gate": "FAIL_IMMEDIATE_NO_TEMPER"
+    }
+  ],
+  "brain_next_actions": [
+    "Form rows STAY on M1 until founder PICK \u2014 do not re-ask in chat",
+    "Under cap 100: Brain builds (WAVE plans \u00b7 RUN INBOX \u00b7 validators)",
+    "At cap 100: URGENT founder remind \u2014 pause new gathers",
+    "Founder fills when ready \u2014 not blocking all build work"
+  ],
+  "form_minder": {
+    "script": "scripts/form_official_minder_v1.py",
+    "cap": 100,
+    "warn_at": 90,
+    "receipt": "~/.sina/form-official-minder-v1.json"
+  },
+  "proof_commands": [
+    "python3 scripts/brain_form_gather_unify_plan_v1.py --json",
+    "bash scripts/validate-form-official-e2e-v1.sh",
+    "bash scripts/validate-all-e2e-v1.sh"
+  ]
+}

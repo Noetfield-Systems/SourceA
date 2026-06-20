@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0794",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0794 VERIFY DONE \u2014 vault log_activity essay crosswalk; 8/8 essay_submitted disk; dispatch+fleet+spine+fcb PASS; receipt+REGISTRY closed.",
+  "at": "2026-06-11T18:56:33Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "investigator-self-heal-catalog-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-18T22:50:00Z",
+  "locked_doc": "docs/SOURCEA_INVESTIGATOR_JUDGE_LOOP_ROOM_LOCKED_v1.md",
+  "law": "ACT entries require judge_loop ACT_SUGGEST + founder resume for dispatch-adjacent heals",
+  "execution_authority": false,
+  "acts": [
+    {
+      "id": "mirror_sync",
+      "label": "Memory mirror sync",
+      "cmd": ["python3", "scripts/agent_memory_mirror_v1.py", "--sync", "--json"],
+      "when": ["drift_low", "system_reds"],
+      "risk": "low"
+    },
+    {
+      "id": "dual_hub_heal",
+      "label": "Dual hub heal",
+      "cmd": ["python3", "scripts/hub_dual_heal_v1.py", "--json"],
+      "when": ["dual_pick_fail"],
+      "risk": "low"
+    },
+    {
+      "id": "active_now_sync",
+      "label": "ACTIVE_NOW from factory-now head",
+      "cmd": ["python3", "scripts/active_now_sync_from_factory_now_v1.py", "--json"],
+      "when": ["dual_pick_fail"],
+      "risk": "low"
+    },
+    {
+      "id": "resume_suggest",
+      "label": "ASF resume drain suggest only",
+      "cmd": null,
+      "when": ["freeze_block"],
+      "risk": "founder_gate",
+      "founder_action": "ASF: resume drain — max 1 — receipt required"
+    }
+  ],
+  "report_only": ["conflict_room", "incident_room", "council_room"]
+}

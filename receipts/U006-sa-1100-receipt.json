@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U006",
+  "title": "CASL relationship_basis required field on pack",
+  "evidence": "check_relationship_basis() hard_fail when missing; pack basis passes",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:11:11Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

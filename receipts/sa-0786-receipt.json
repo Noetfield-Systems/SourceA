@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0786",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 governance moat 50% synthesis lesson documented; attachment logged",
+  "at": "2026-06-11T08:48:20Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

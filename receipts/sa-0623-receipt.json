@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0623",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 governance-rules grounding validator + dispatch + governance fleet + critical 0; sa-0623 closeout",
+  "at": "2026-06-09T03:23:27Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

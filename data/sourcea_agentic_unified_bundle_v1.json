@@ -1,0 +1,177 @@
+{
+  "schema": "sourcea-agentic-unified-bundle-v1",
+  "version": "1.2.0",
+  "saved_at": "2026-06-19T07:22:00Z",
+  "human_index": "docs/SOURCEA_FOUNDATIONAL_AGENTIC_SYSTEMS_INDEX_LOCKED_v1.md",
+  "factory_posture": "FBE-W6 · fleet consolidation · FORM_OFFICIAL unify · Epic E12",
+  "identity_unify": {
+    "law": "LAW PURITY — one apex sentence · layers pointer-only · no duplicate prose in chat or parallel SSOT",
+    "apex_commercial": {
+      "row": "SOURCEA_PORTFOLIO_SSOT",
+      "human": "SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md",
+      "one_sentence_key": "runs_and_sells_controlled_agentic_automation",
+      "wins_over": [
+        "SOURCEA_COMPANY_INFRA_BUYER_AND_POSITION_SSOT_LOCKED_v1.md",
+        "archive/superseded/blueprint-drafts-2026-06-12/SOURCEA_MASTER_BLUEPRINT_SSOT_v2_DRAFT.md"
+      ]
+    },
+    "engine_story": {
+      "human": "SINA_UNIFIED_ENGINE_STORY_LOCKED_v1.md",
+      "rule": "One engine · portfolio lanes — never a second motor"
+    },
+    "runtime_dispatch": {
+      "human": "SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md",
+      "machine": "data/brain-form-gather-unify-routing-plan-v1.json",
+      "script": "scripts/brain_form_gather_unify_plan_v1.py",
+      "fail_policy": "FAIL_IMMEDIATE_NO_TEMPER"
+    },
+    "human_machine_form": {
+      "human": "SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md",
+      "nerve_map": "data/form_official_nerve_map_v1.json",
+      "extraction": "~/.sina/live-founder-decision-form-extraction-v1.json",
+      "canvas": "sourcea-system-integrity-100.canvas.tsx",
+      "minder": "scripts/form_official_minder_v1.py",
+      "cap": 100,
+      "rule": "Gathered rows STAY until founder PICK · at 100 urgent remind · else Brain builds"
+    },
+    "execution_plans": {
+      "orchestrator": "scripts/plans_unified_upgrade_v1.py",
+      "queue": "data/plans-unified-worker-queue-v1.json",
+      "full_stack": "data/sourcea-full-stack-100-fix-plan-v1.json",
+      "outbound": "data/outbound-factory-100-upgrade-plan-v1.json",
+      "brain_cloud": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
+      "rule": "One queue sa-* · plans_unified tick — no parallel hero queues"
+    },
+    "asset_commercial": {
+      "human": "SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md",
+      "script": "scripts/controlled_agentic_automation_offer_v1.py",
+      "rule": "DFY SKU only — does not replace apex identity"
+    },
+    "forbidden": [
+      "Second one-sentence company identity in chat or new LOCKED without GOV_UNIFY row",
+      "Mixing portfolio commercial copy into governance P0–P7 tier definitions",
+      "Duplicate form rows — intake dedupe by id",
+      "Scratch canvases as form office",
+      "Hub hero as pick surface when FORM_OFFICIAL rows exist"
+    ]
+  },
+  "ssot": {
+    "orient_routing": {
+      "machine": "data/sourcea_orient_routing_v1.json",
+      "version": "1.1.0",
+      "human": "docs/SOURCEA_ORIENTATION_AND_ROUTING_LOCKED_v1.md",
+      "library": "scripts/orient_routing_v1.py",
+      "command": "scripts/agent_orient_v1.py",
+      "report": "~/.sina/orient-routing-report-v1.json"
+    },
+    "node_graph": {
+      "machine": "data/sourcea_pipeline_node_graph_v1.json",
+      "version": "1.3.0",
+      "runner": "scripts/pipeline_node_graph_runner_v1.py",
+      "report": "~/.sina/pipeline-node-graph-receipt-v1.json"
+    },
+    "mesh_catalog": {
+      "machine": "data/sourcea_node_mesh_catalog_v1.json",
+      "version": "1.1.0"
+    },
+    "directory_map": {
+      "machine": "data/sourcea_directory_node_map_v1.json",
+      "version": "1.1.0",
+      "human": "docs/SOURCEA_DIRECTORY_NODE_MAP_LOCKED_v1.md"
+    },
+    "three_pipelines_law": {
+      "human": "AGENT_THREE_PIPELINES_ORIENTATION_HOSPITAL_MAZE_LOCKED_v1.md",
+      "router": "scripts/agent_three_pipelines_router_v1.py",
+      "lib": "scripts/agent_three_pipelines_lib_v1.py"
+    },
+    "synestm_build_plan": {
+      "human": "docs/SOURCEA_NODE_MESH_SYNESTM_BUILD_PLAN_LOCKED_v1.md",
+      "epic": "E11",
+      "range": "N01-N20"
+    },
+    "node_charter": {
+      "human": "docs/SOURCEA_NODE_ARCHITECT_AGENTIC_AUTONOMOUS_SYSTEM_LOCKED_v1.md"
+    },
+    "terminology_2026": {
+      "human": "docs/SOURCEA_TERMINOLOGY_AND_COMMERCIAL_TUNE_2026_LOCKED_v1.md"
+    },
+    "fbe_factory_builder": {
+      "human": "docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
+      "bundle": "data/fbe_factory_builder_bundle_v1.json",
+      "graph": "data/fbe_node_graph_v1.json",
+      "pipelines": "data/fbe_pipelines_v1.json",
+      "compiler": "scripts/fbe_compile_node_graph_v1.py",
+      "runner": "scripts/fbe_pipeline_runner_v1.py",
+      "hub_api": "/api/fbe/v1",
+      "epic": "E12"
+    }
+  },
+  "graph_summary": {
+    "runner_nodes": 18,
+    "tiers": ["T0_safety", "T1_truth_parallel", "T2_fleet_parallel", "T3_proof_parallel", "T_lat_orient"],
+    "parallel_groups": 5,
+    "edges": 26
+  },
+  "pipeline_nodes": {
+    "orientation": {"node_id": "orientation_pipeline_v1", "tier": 1, "trigger": "orientation", "founder_word_only": true},
+    "hospital": {"node_id": "hospital_pipeline_v1", "tier": 2, "trigger": "hospital", "founder_word_only": true},
+    "maze": {"node_id": "maze_pipeline_v1", "tier": 3, "trigger": "maze", "founder_word_only": true},
+    "orient_routing": {"node_id": "orient_routing_v1", "tier": "T_lat_orient", "founder_word_only": false}
+  },
+  "orientation_stations": {
+    "reads": [
+      {"id": "O1", "name": "start_here", "path": "brain-os/entry/START_HERE_LOCKED_v1.md"},
+      {"id": "O2", "name": "governance_gate", "path": "SINA_GOVERNANCE_ENTRY_LOCKED_v1.md"},
+      {"id": "O3", "name": "authority_index", "path": "SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"},
+      {"id": "O4", "name": "decision_stack_gate_tree", "path": "AGENT_DECISION_STACK_AND_SMART_JUDGMENT_LOCKED_v1.md"},
+      {"id": "O5", "name": "why_entry", "path": "README_SOURCE_A.md"},
+      {"id": "O6", "name": "agentic_stack", "path": "SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md"},
+      {"id": "O7", "name": "two_hub_law", "path": "SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md"},
+      {"id": "O8", "name": "three_pipelines_law", "path": "AGENT_THREE_PIPELINES_ORIENTATION_HOSPITAL_MAZE_LOCKED_v1.md"},
+      {"id": "O9", "name": "roles_map", "path": "UNDERSTANDING_ROLES_CURSOR_ECOSYSTEM_v1.md"},
+      {"id": "O10", "name": "architecture", "path": "docs/ARCHITECTURE.md"},
+      {"id": "O11", "name": "onboarding", "path": "docs/ONBOARDING.md"},
+      {"id": "O15", "name": "orient_routing", "path": "docs/SOURCEA_ORIENTATION_AND_ROUTING_LOCKED_v1.md", "node_id": "orient_routing_v1"},
+      {"id": "O16", "name": "node_mesh_plan", "path": "docs/SOURCEA_NODE_MESH_SYNESTM_BUILD_PLAN_LOCKED_v1.md", "node_id": "pipeline_node_graph_runner_v1"},
+      {"id": "O17", "name": "foundational_index", "path": "docs/SOURCEA_FOUNDATIONAL_AGENTIC_SYSTEMS_INDEX_LOCKED_v1.md", "node_id": "directory_node_map_v1"}
+    ],
+    "probes": [
+      {"id": "O12", "name": "reading_pack_written", "kind": "receipt", "path": "~/.sina/agent-orientation-reading-pack-v1.json"},
+      {"id": "O13", "name": "ecosystem_catalog", "kind": "probe", "handler": "scripts/ecosystem_master_catalog_v1.py"},
+      {"id": "O14", "name": "truth_bundle", "kind": "probe", "handler": "scripts/agent_truth_bundle_v1.py"},
+      {"id": "O18", "name": "agentic_pipeline_map", "kind": "probe", "node_id": "agentic_layer_fast", "handler": "scripts/agentic_layer_pipeline_v2.py"},
+      {"id": "O19", "name": "orient_routing_cascade", "kind": "probe", "node_id": "orient_routing_v1", "handler": "scripts/agent_orient_v1.py"},
+      {"id": "O20", "name": "node_graph_lat_dry_run", "kind": "probe", "node_id": "pipeline_node_graph_runner_v1", "tier": "T_lat_orient"}
+    ],
+    "ssot_note": "O12-O14 and O18-O20 are machine probes · O1-O11 and O15-O17 are disk reads · canonical list lives here"
+  },
+  "skills_load_order": [
+    ".cursor/skills/skill-foundational-agentic-systems/SKILL.md",
+    ".cursor/skills/skill-node-architect-agentic-system/SKILL.md",
+    ".cursor/skills/skill-architecting-pipelines-pro/SKILL.md",
+    ".cursor/skills/sina-conscious-recovery/SKILL.md"
+  ],
+  "carts": {
+    "node-mesh": "~/.sina/cart-tasks/tasks/node-mesh-cart-v1.json",
+    "orient-routing": "~/.sina/cart-tasks/tasks/orient-routing-cart-v1.json"
+  },
+    "validate_all": [
+    "bash scripts/validate-agentic-unified-bundle-v1.sh",
+    "python3 scripts/brain_form_gather_unify_plan_v1.py --json",
+    "python3 scripts/form_official_minder_v1.py --json",
+    "bash scripts/validate-form-official-e2e-v1.sh",
+    "bash scripts/validate-pipeline-node-graph-v1.sh",
+    "bash scripts/validate-orient-routing-v1.sh",
+    "bash scripts/validate-fbe-node-graph-v1.sh",
+    "bash scripts/validate-fbe-w1-v1.sh",
+    "bash scripts/validate-fbe-w2-v1.sh",
+    "bash scripts/validate-fbe-w3-v1.sh",
+    "bash scripts/validate-fbe-w4-v1.sh"
+  ],
+  "daily_commands": {
+    "session_start": "python3 scripts/agent_session_gate_run_v1.py --role worker --json",
+    "orient": "python3 scripts/agent_orient_v1.py --role worker --json",
+    "graph_lat": "python3 scripts/pipeline_node_graph_runner_v1.py --tier T_lat_orient --json",
+    "run_inbox": "RUN INBOX via Worker chat"
+  }
+}

@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0312 — Mark FR-009 shipped when auto_pass_count >= 6 not ASF verify count
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0312
+tests:
+  status: passed
+  output_snippet: validate-founder-request-fleet-sync-v1 · FR-009 auto_pass_count>=6 shipped · 8/8 auto_pass
+reported_at: '2026-06-07T02:49:40Z'
+reporter: cursor-worker-batch

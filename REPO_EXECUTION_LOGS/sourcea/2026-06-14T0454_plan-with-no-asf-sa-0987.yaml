@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0987 — Research hub refresh parallelize progress+bowl — perf note only
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0987
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — T3 hub refresh parallelize cross-ref closed canonical sa-0962
+reported_at: '2026-06-14T04:54:32Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

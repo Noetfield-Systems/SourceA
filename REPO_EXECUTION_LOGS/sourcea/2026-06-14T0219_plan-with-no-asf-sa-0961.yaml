@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0961 — Compare Mono 1000 pack workflow to SourceA 1000 — sync pick scripts
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0961
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — Mono vs SourceA 1000 pick workflow compare doc; worker_verify_ultra PASS
+reported_at: '2026-06-14T02:19:19Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

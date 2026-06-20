@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0002",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 L8 not_here clean when embedding_provider+vector_index logged; strict build + audit_hub strict + pack1000 + critical 0; BROKER_ACK wired in closeout_sa_task",
+  "at": "2026-06-09T09:41:27Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

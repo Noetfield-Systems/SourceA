@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0784 — Validate rules loop orchestrator charges vs council rules list
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0784
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — enrich_shared_rules_digest aligns orchestrator in_charge_now LOCKED paths 16/16; council sc-council-rules-list highlight parity
+reported_at: '2026-06-11T08:35:48Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

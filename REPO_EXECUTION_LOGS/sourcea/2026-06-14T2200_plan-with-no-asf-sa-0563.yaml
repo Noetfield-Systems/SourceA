@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0563 — Compare ChatGPT commercial critique to PROGRAM_PROGRESS locks
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0563
+tests:
+  status: passed
+  output_snippet: sa-0563 VERIFY PASS — T2 commercial critique crossref canonical sa-0513
+reported_at: '2026-06-14T22:00:39Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

@@ -1,0 +1,30 @@
+{
+  "name": "wf-thread-scout-weekly",
+  "meta": {
+    "schema": "sina-n8n-workflow-stub-v1",
+    "status": "wired",
+    "pick": "Q-GOV-FAST-WIRE-v1 A",
+    "schedule": "0 7 * * 1",
+    "hub": "H2_MACHINE_HEAVY",
+    "law": "SINA_THREAD_ROOM_LOCKED_v1.md",
+    "cli": "thread_room_run_v1.py --write-form",
+    "note": "Weekly Thread Room · H2 second hop · not H1 daily"
+  },
+  "nodes": [
+    {
+      "name": "Schedule Monday 7am",
+      "type": "n8n-nodes-base.cron",
+      "parameters": { "rule": { "interval": [{ "field": "cronExpression", "expression": "0 7 * * 1" }] } }
+    },
+    {
+      "name": "Thread room scout",
+      "type": "n8n-nodes-base.executeCommand",
+      "parameters": {
+        "command": "cd ~/Desktop/SourceA/scripts && python3 thread_room_run_v1.py --chats default_batch --write-form --json"
+      }
+    }
+  ],
+  "connections": {
+    "Schedule Monday 7am": { "main": [[{ "node": "Thread room scout", "type": "main", "index": 0 }]] }
+  }
+}

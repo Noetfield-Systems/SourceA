@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "F002",
+  "title": "Broker submit after U029",
+  "evidence": "goal1_lane_broker worker-submit · last_worker_report fresh · full_stack_fix_plan_pulse F002 wired",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T07:28:03Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

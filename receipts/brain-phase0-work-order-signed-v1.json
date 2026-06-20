@@ -1,0 +1,30 @@
+{
+  "schema": "brain-phase0-work-order-signed-v1",
+  "ok": true,
+  "at": "2026-06-20T01:58:56Z",
+  "work_order": {
+    "schema": "brain-phase0-work-order-v1",
+    "id": "wo-brain-ddd71084ff53",
+    "fbe_schema": "fbe-work-order-v1",
+    "template_id": "noetfield-freemium-factory-v1",
+    "tenant": "noetfield",
+    "bay_slug": "noetfield-freemium-bay",
+    "target_tier": "FREEMIUM",
+    "origin": "brain_control_plane",
+    "brand": "local-brand",
+    "locales": [
+      "en-US"
+    ],
+    "upgrade_ref": "P0-13",
+    "sa_id": "sa-nf-freemium",
+    "execution_plane": "cloud_api_worker",
+    "control_plane": "mac_hub",
+    "owner_role": "brain",
+    "wired_to": "data/factory-specs/noetfield-freemium-factory-v1.json",
+    "signed_at": "2026-06-20T01:58:56Z",
+    "status": "signed",
+    "local_worker": false,
+    "local_worker_deprecated": true,
+    "q_gath_04": "A"
+  }
+}

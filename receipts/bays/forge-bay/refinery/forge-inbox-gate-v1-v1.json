@@ -1,0 +1,19 @@
+{
+  "schema": "fbe-forge-step-receipt-v1",
+  "ok": true,
+  "at": "2026-06-17T14:09:28Z",
+  "node_id": "forge-inbox-gate-v1",
+  "bay_slug": "forge-bay",
+  "tenant": "forge",
+  "line": "refinery",
+  "mode": "worker_inbox_gate",
+  "deliveryMode": "prove_only",
+  "factory": "forge-app-factory-v1",
+  "proof_class": "G0-G3",
+  "inbox_ok": true,
+  "inbox_path": "/Users/sinakazemnezhad/Desktop/SourceA/.sina-loop/INBOX.md",
+  "inbox_head": {
+    "inbox_md": "<!-- WORKER_INBOX pending=0 source=broker_worker_submit queue=24/24 role=verify sa=sa-0894 -->"
+  },
+  "note": "Worker inbox head readable \u2014 RUN INBOX binding proof"
+}

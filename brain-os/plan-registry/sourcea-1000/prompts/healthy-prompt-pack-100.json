@@ -1,0 +1,2811 @@
+{
+  "schema": "healthy-prompt-pack-100.v1",
+  "product": "SourceA REGISTRY drain",
+  "thread": "STRATEGIC-SLICE",
+  "repo": "sourcea",
+  "count": 100,
+  "law": "os/plan-library/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+  "generated_at": "2026-06-14T17:01:35Z",
+  "suggestions": [
+    {
+      "id": 1,
+      "hp_id": "hp-001",
+      "step_type": "snapshot",
+      "fast_loop_step": 1,
+      "domain": "eval-dispatch",
+      "category": "snapshot:eval-dispatch",
+      "title": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and eval-dispatch disk SSOT. Report facts only. (variant 2/10).",
+      "intent": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and eval-dispatch disk SSOT. Report facts only. (variant 2/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 2,
+      "hp_id": "hp-002",
+      "step_type": "plan",
+      "fast_loop_step": 2,
+      "domain": "eval-dispatch",
+      "category": "plan:eval-dispatch",
+      "title": "PLAN \u2014 one eval-dispatch sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "intent": "PLAN \u2014 one eval-dispatch sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 3,
+      "hp_id": "hp-003",
+      "step_type": "analyze",
+      "fast_loop_step": 3,
+      "domain": "eval-dispatch",
+      "category": "analyze:eval-dispatch",
+      "title": "ANALYZE \u2014 search eval-dispatch for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "intent": "ANALYZE \u2014 search eval-dispatch for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 4,
+      "hp_id": "hp-004",
+      "step_type": "check",
+      "fast_loop_step": 4,
+      "domain": "eval-dispatch",
+      "category": "check:eval-dispatch",
+      "title": "CHECK \u2014 run preflight validators for eval-dispatch; log PASS/FAIL; no implement. (variant 5/10).",
+      "intent": "CHECK \u2014 run preflight validators for eval-dispatch; log PASS/FAIL; no implement. (variant 5/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 5,
+      "hp_id": "hp-005",
+      "step_type": "debug",
+      "fast_loop_step": 5,
+      "domain": "eval-dispatch",
+      "category": "debug:eval-dispatch",
+      "title": "DEBUG \u2014 reproduce one eval-dispatch verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "intent": "DEBUG \u2014 reproduce one eval-dispatch verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 6,
+      "hp_id": "hp-006",
+      "step_type": "fix",
+      "fast_loop_step": 6,
+      "domain": "eval-dispatch",
+      "category": "fix:eval-dispatch",
+      "title": "FIX \u2014 one minimal eval-dispatch fix from last debug/check. No scope creep. (variant 7/10).",
+      "intent": "FIX \u2014 one minimal eval-dispatch fix from last debug/check. No scope creep. (variant 7/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 7,
+      "hp_id": "hp-007",
+      "step_type": "implement",
+      "fast_loop_step": 7,
+      "domain": "eval-dispatch",
+      "category": "implement:eval-dispatch",
+      "title": "IMPLEMENT \u2014 one REGISTRY eval-dispatch task. Minimal diff only. (variant 8/10).",
+      "intent": "IMPLEMENT \u2014 one REGISTRY eval-dispatch task. Minimal diff only. (variant 8/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 8,
+      "hp_id": "hp-008",
+      "step_type": "verify_backend",
+      "fast_loop_step": 8,
+      "domain": "eval-dispatch",
+      "category": "verify_backend:eval-dispatch",
+      "title": "VERIFY backend \u2014 strict build + find_critical_bugs for eval-dispatch. (variant 9/10).",
+      "intent": "VERIFY backend \u2014 strict build + find_critical_bugs for eval-dispatch. (variant 9/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 9,
+      "hp_id": "hp-009",
+      "step_type": "verify_ui",
+      "fast_loop_step": 9,
+      "domain": "eval-dispatch",
+      "category": "verify_ui:eval-dispatch",
+      "title": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for eval-dispatch. (variant 10/10).",
+      "intent": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for eval-dispatch. (variant 10/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 10,
+      "hp_id": "hp-010",
+      "step_type": "delta",
+      "fast_loop_step": 10,
+      "domain": "eval-dispatch",
+      "category": "delta:eval-dispatch",
+      "title": "DELTA \u2014 3-line near-miss + blockers for eval-dispatch. No code. (variant 1/10).",
+      "intent": "DELTA \u2014 3-line near-miss + blockers for eval-dispatch. No code. (variant 1/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 11,
+      "hp_id": "hp-011",
+      "step_type": "snapshot",
+      "fast_loop_step": 1,
+      "domain": "hub-build-ci",
+      "category": "snapshot:hub-build-ci",
+      "title": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and hub-build-ci disk SSOT. Report facts only. (variant 2/10).",
+      "intent": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and hub-build-ci disk SSOT. Report facts only. (variant 2/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 12,
+      "hp_id": "hp-012",
+      "step_type": "plan",
+      "fast_loop_step": 2,
+      "domain": "hub-build-ci",
+      "category": "plan:hub-build-ci",
+      "title": "PLAN \u2014 one hub-build-ci sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "intent": "PLAN \u2014 one hub-build-ci sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 13,
+      "hp_id": "hp-013",
+      "step_type": "analyze",
+      "fast_loop_step": 3,
+      "domain": "hub-build-ci",
+      "category": "analyze:hub-build-ci",
+      "title": "ANALYZE \u2014 search hub-build-ci for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "intent": "ANALYZE \u2014 search hub-build-ci for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 14,
+      "hp_id": "hp-014",
+      "step_type": "check",
+      "fast_loop_step": 4,
+      "domain": "hub-build-ci",
+      "category": "check:hub-build-ci",
+      "title": "CHECK \u2014 run preflight validators for hub-build-ci; log PASS/FAIL; no implement. (variant 5/10).",
+      "intent": "CHECK \u2014 run preflight validators for hub-build-ci; log PASS/FAIL; no implement. (variant 5/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 15,
+      "hp_id": "hp-015",
+      "step_type": "debug",
+      "fast_loop_step": 5,
+      "domain": "hub-build-ci",
+      "category": "debug:hub-build-ci",
+      "title": "DEBUG \u2014 reproduce one hub-build-ci verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "intent": "DEBUG \u2014 reproduce one hub-build-ci verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 16,
+      "hp_id": "hp-016",
+      "step_type": "fix",
+      "fast_loop_step": 6,
+      "domain": "hub-build-ci",
+      "category": "fix:hub-build-ci",
+      "title": "FIX \u2014 one minimal hub-build-ci fix from last debug/check. No scope creep. (variant 7/10).",
+      "intent": "FIX \u2014 one minimal hub-build-ci fix from last debug/check. No scope creep. (variant 7/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 17,
+      "hp_id": "hp-017",
+      "step_type": "implement",
+      "fast_loop_step": 7,
+      "domain": "hub-build-ci",
+      "category": "implement:hub-build-ci",
+      "title": "IMPLEMENT \u2014 one REGISTRY hub-build-ci task. Minimal diff only. (variant 8/10).",
+      "intent": "IMPLEMENT \u2014 one REGISTRY hub-build-ci task. Minimal diff only. (variant 8/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 18,
+      "hp_id": "hp-018",
+      "step_type": "verify_backend",
+      "fast_loop_step": 8,
+      "domain": "hub-build-ci",
+      "category": "verify_backend:hub-build-ci",
+      "title": "VERIFY backend \u2014 strict build + find_critical_bugs for hub-build-ci. (variant 9/10).",
+      "intent": "VERIFY backend \u2014 strict build + find_critical_bugs for hub-build-ci. (variant 9/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 19,
+      "hp_id": "hp-019",
+      "step_type": "verify_ui",
+      "fast_loop_step": 9,
+      "domain": "hub-build-ci",
+      "category": "verify_ui:hub-build-ci",
+      "title": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for hub-build-ci. (variant 10/10).",
+      "intent": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for hub-build-ci. (variant 10/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 20,
+      "hp_id": "hp-020",
+      "step_type": "delta",
+      "fast_loop_step": 10,
+      "domain": "hub-build-ci",
+      "category": "delta:hub-build-ci",
+      "title": "DELTA \u2014 3-line near-miss + blockers for hub-build-ci. No code. (variant 1/10).",
+      "intent": "DELTA \u2014 3-line near-miss + blockers for hub-build-ci. No code. (variant 1/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 21,
+      "hp_id": "hp-021",
+      "step_type": "snapshot",
+      "fast_loop_step": 1,
+      "domain": "scoreboard-fleet",
+      "category": "snapshot:scoreboard-fleet",
+      "title": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and scoreboard-fleet disk SSOT. Report facts only. (variant 2/10).",
+      "intent": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and scoreboard-fleet disk SSOT. Report facts only. (variant 2/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 22,
+      "hp_id": "hp-022",
+      "step_type": "plan",
+      "fast_loop_step": 2,
+      "domain": "scoreboard-fleet",
+      "category": "plan:scoreboard-fleet",
+      "title": "PLAN \u2014 one scoreboard-fleet sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "intent": "PLAN \u2014 one scoreboard-fleet sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 23,
+      "hp_id": "hp-023",
+      "step_type": "analyze",
+      "fast_loop_step": 3,
+      "domain": "scoreboard-fleet",
+      "category": "analyze:scoreboard-fleet",
+      "title": "ANALYZE \u2014 search scoreboard-fleet for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "intent": "ANALYZE \u2014 search scoreboard-fleet for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 24,
+      "hp_id": "hp-024",
+      "step_type": "check",
+      "fast_loop_step": 4,
+      "domain": "scoreboard-fleet",
+      "category": "check:scoreboard-fleet",
+      "title": "CHECK \u2014 run preflight validators for scoreboard-fleet; log PASS/FAIL; no implement. (variant 5/10).",
+      "intent": "CHECK \u2014 run preflight validators for scoreboard-fleet; log PASS/FAIL; no implement. (variant 5/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 25,
+      "hp_id": "hp-025",
+      "step_type": "debug",
+      "fast_loop_step": 5,
+      "domain": "scoreboard-fleet",
+      "category": "debug:scoreboard-fleet",
+      "title": "DEBUG \u2014 reproduce one scoreboard-fleet verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "intent": "DEBUG \u2014 reproduce one scoreboard-fleet verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 26,
+      "hp_id": "hp-026",
+      "step_type": "fix",
+      "fast_loop_step": 6,
+      "domain": "scoreboard-fleet",
+      "category": "fix:scoreboard-fleet",
+      "title": "FIX \u2014 one minimal scoreboard-fleet fix from last debug/check. No scope creep. (variant 7/10).",
+      "intent": "FIX \u2014 one minimal scoreboard-fleet fix from last debug/check. No scope creep. (variant 7/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 27,
+      "hp_id": "hp-027",
+      "step_type": "implement",
+      "fast_loop_step": 7,
+      "domain": "scoreboard-fleet",
+      "category": "implement:scoreboard-fleet",
+      "title": "IMPLEMENT \u2014 one REGISTRY scoreboard-fleet task. Minimal diff only. (variant 8/10).",
+      "intent": "IMPLEMENT \u2014 one REGISTRY scoreboard-fleet task. Minimal diff only. (variant 8/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 28,
+      "hp_id": "hp-028",
+      "step_type": "verify_backend",
+      "fast_loop_step": 8,
+      "domain": "scoreboard-fleet",
+      "category": "verify_backend:scoreboard-fleet",
+      "title": "VERIFY backend \u2014 strict build + find_critical_bugs for scoreboard-fleet. (variant 9/10).",
+      "intent": "VERIFY backend \u2014 strict build + find_critical_bugs for scoreboard-fleet. (variant 9/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 29,
+      "hp_id": "hp-029",
+      "step_type": "verify_ui",
+      "fast_loop_step": 9,
+      "domain": "scoreboard-fleet",
+      "category": "verify_ui:scoreboard-fleet",
+      "title": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for scoreboard-fleet. (variant 10/10).",
+      "intent": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for scoreboard-fleet. (variant 10/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 30,
+      "hp_id": "hp-030",
+      "step_type": "delta",
+      "fast_loop_step": 10,
+      "domain": "scoreboard-fleet",
+      "category": "delta:scoreboard-fleet",
+      "title": "DELTA \u2014 3-line near-miss + blockers for scoreboard-fleet. No code. (variant 1/10).",
+      "intent": "DELTA \u2014 3-line near-miss + blockers for scoreboard-fleet. No code. (variant 1/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 31,
+      "hp_id": "hp-031",
+      "step_type": "snapshot",
+      "fast_loop_step": 1,
+      "domain": "spine-loop",
+      "category": "snapshot:spine-loop",
+      "title": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and spine-loop disk SSOT. Report facts only. (variant 2/10).",
+      "intent": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and spine-loop disk SSOT. Report facts only. (variant 2/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 32,
+      "hp_id": "hp-032",
+      "step_type": "plan",
+      "fast_loop_step": 2,
+      "domain": "spine-loop",
+      "category": "plan:spine-loop",
+      "title": "PLAN \u2014 one spine-loop sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "intent": "PLAN \u2014 one spine-loop sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 33,
+      "hp_id": "hp-033",
+      "step_type": "analyze",
+      "fast_loop_step": 3,
+      "domain": "spine-loop",
+      "category": "analyze:spine-loop",
+      "title": "ANALYZE \u2014 search spine-loop for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "intent": "ANALYZE \u2014 search spine-loop for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 34,
+      "hp_id": "hp-034",
+      "step_type": "check",
+      "fast_loop_step": 4,
+      "domain": "spine-loop",
+      "category": "check:spine-loop",
+      "title": "CHECK \u2014 run preflight validators for spine-loop; log PASS/FAIL; no implement. (variant 5/10).",
+      "intent": "CHECK \u2014 run preflight validators for spine-loop; log PASS/FAIL; no implement. (variant 5/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 35,
+      "hp_id": "hp-035",
+      "step_type": "debug",
+      "fast_loop_step": 5,
+      "domain": "spine-loop",
+      "category": "debug:spine-loop",
+      "title": "DEBUG \u2014 reproduce one spine-loop verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "intent": "DEBUG \u2014 reproduce one spine-loop verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 36,
+      "hp_id": "hp-036",
+      "step_type": "fix",
+      "fast_loop_step": 6,
+      "domain": "spine-loop",
+      "category": "fix:spine-loop",
+      "title": "FIX \u2014 one minimal spine-loop fix from last debug/check. No scope creep. (variant 7/10).",
+      "intent": "FIX \u2014 one minimal spine-loop fix from last debug/check. No scope creep. (variant 7/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 37,
+      "hp_id": "hp-037",
+      "step_type": "implement",
+      "fast_loop_step": 7,
+      "domain": "spine-loop",
+      "category": "implement:spine-loop",
+      "title": "IMPLEMENT \u2014 one REGISTRY spine-loop task. Minimal diff only. (variant 8/10).",
+      "intent": "IMPLEMENT \u2014 one REGISTRY spine-loop task. Minimal diff only. (variant 8/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 38,
+      "hp_id": "hp-038",
+      "step_type": "verify_backend",
+      "fast_loop_step": 8,
+      "domain": "spine-loop",
+      "category": "verify_backend:spine-loop",
+      "title": "VERIFY backend \u2014 strict build + find_critical_bugs for spine-loop. (variant 9/10).",
+      "intent": "VERIFY backend \u2014 strict build + find_critical_bugs for spine-loop. (variant 9/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 39,
+      "hp_id": "hp-039",
+      "step_type": "verify_ui",
+      "fast_loop_step": 9,
+      "domain": "spine-loop",
+      "category": "verify_ui:spine-loop",
+      "title": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for spine-loop. (variant 10/10).",
+      "intent": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for spine-loop. (variant 10/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 40,
+      "hp_id": "hp-040",
+      "step_type": "delta",
+      "fast_loop_step": 10,
+      "domain": "spine-loop",
+      "category": "delta:spine-loop",
+      "title": "DELTA \u2014 3-line near-miss + blockers for spine-loop. No code. (variant 1/10).",
+      "intent": "DELTA \u2014 3-line near-miss + blockers for spine-loop. No code. (variant 1/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 41,
+      "hp_id": "hp-041",
+      "step_type": "snapshot",
+      "fast_loop_step": 1,
+      "domain": "gates-receipts",
+      "category": "snapshot:gates-receipts",
+      "title": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and gates-receipts disk SSOT. Report facts only. (variant 2/10).",
+      "intent": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and gates-receipts disk SSOT. Report facts only. (variant 2/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 42,
+      "hp_id": "hp-042",
+      "step_type": "plan",
+      "fast_loop_step": 2,
+      "domain": "gates-receipts",
+      "category": "plan:gates-receipts",
+      "title": "PLAN \u2014 one gates-receipts sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "intent": "PLAN \u2014 one gates-receipts sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 43,
+      "hp_id": "hp-043",
+      "step_type": "analyze",
+      "fast_loop_step": 3,
+      "domain": "gates-receipts",
+      "category": "analyze:gates-receipts",
+      "title": "ANALYZE \u2014 search gates-receipts for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "intent": "ANALYZE \u2014 search gates-receipts for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 44,
+      "hp_id": "hp-044",
+      "step_type": "check",
+      "fast_loop_step": 4,
+      "domain": "gates-receipts",
+      "category": "check:gates-receipts",
+      "title": "CHECK \u2014 run preflight validators for gates-receipts; log PASS/FAIL; no implement. (variant 5/10).",
+      "intent": "CHECK \u2014 run preflight validators for gates-receipts; log PASS/FAIL; no implement. (variant 5/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 45,
+      "hp_id": "hp-045",
+      "step_type": "debug",
+      "fast_loop_step": 5,
+      "domain": "gates-receipts",
+      "category": "debug:gates-receipts",
+      "title": "DEBUG \u2014 reproduce one gates-receipts verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "intent": "DEBUG \u2014 reproduce one gates-receipts verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 46,
+      "hp_id": "hp-046",
+      "step_type": "fix",
+      "fast_loop_step": 6,
+      "domain": "gates-receipts",
+      "category": "fix:gates-receipts",
+      "title": "FIX \u2014 one minimal gates-receipts fix from last debug/check. No scope creep. (variant 7/10).",
+      "intent": "FIX \u2014 one minimal gates-receipts fix from last debug/check. No scope creep. (variant 7/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 47,
+      "hp_id": "hp-047",
+      "step_type": "implement",
+      "fast_loop_step": 7,
+      "domain": "gates-receipts",
+      "category": "implement:gates-receipts",
+      "title": "IMPLEMENT \u2014 one REGISTRY gates-receipts task. Minimal diff only. (variant 8/10).",
+      "intent": "IMPLEMENT \u2014 one REGISTRY gates-receipts task. Minimal diff only. (variant 8/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 48,
+      "hp_id": "hp-048",
+      "step_type": "verify_backend",
+      "fast_loop_step": 8,
+      "domain": "gates-receipts",
+      "category": "verify_backend:gates-receipts",
+      "title": "VERIFY backend \u2014 strict build + find_critical_bugs for gates-receipts. (variant 9/10).",
+      "intent": "VERIFY backend \u2014 strict build + find_critical_bugs for gates-receipts. (variant 9/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 49,
+      "hp_id": "hp-049",
+      "step_type": "verify_ui",
+      "fast_loop_step": 9,
+      "domain": "gates-receipts",
+      "category": "verify_ui:gates-receipts",
+      "title": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for gates-receipts. (variant 10/10).",
+      "intent": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for gates-receipts. (variant 10/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 50,
+      "hp_id": "hp-050",
+      "step_type": "delta",
+      "fast_loop_step": 10,
+      "domain": "gates-receipts",
+      "category": "delta:gates-receipts",
+      "title": "DELTA \u2014 3-line near-miss + blockers for gates-receipts. No code. (variant 1/10).",
+      "intent": "DELTA \u2014 3-line near-miss + blockers for gates-receipts. No code. (variant 1/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 51,
+      "hp_id": "hp-051",
+      "step_type": "snapshot",
+      "fast_loop_step": 1,
+      "domain": "hub-ui",
+      "category": "snapshot:hub-ui",
+      "title": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and hub-ui disk SSOT. Report facts only. (variant 2/10).",
+      "intent": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and hub-ui disk SSOT. Report facts only. (variant 2/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 52,
+      "hp_id": "hp-052",
+      "step_type": "plan",
+      "fast_loop_step": 2,
+      "domain": "hub-ui",
+      "category": "plan:hub-ui",
+      "title": "PLAN \u2014 one hub-ui sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "intent": "PLAN \u2014 one hub-ui sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 53,
+      "hp_id": "hp-053",
+      "step_type": "analyze",
+      "fast_loop_step": 3,
+      "domain": "hub-ui",
+      "category": "analyze:hub-ui",
+      "title": "ANALYZE \u2014 search hub-ui for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "intent": "ANALYZE \u2014 search hub-ui for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 54,
+      "hp_id": "hp-054",
+      "step_type": "check",
+      "fast_loop_step": 4,
+      "domain": "hub-ui",
+      "category": "check:hub-ui",
+      "title": "CHECK \u2014 run preflight validators for hub-ui; log PASS/FAIL; no implement. (variant 5/10).",
+      "intent": "CHECK \u2014 run preflight validators for hub-ui; log PASS/FAIL; no implement. (variant 5/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 55,
+      "hp_id": "hp-055",
+      "step_type": "debug",
+      "fast_loop_step": 5,
+      "domain": "hub-ui",
+      "category": "debug:hub-ui",
+      "title": "DEBUG \u2014 reproduce one hub-ui verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "intent": "DEBUG \u2014 reproduce one hub-ui verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 56,
+      "hp_id": "hp-056",
+      "step_type": "fix",
+      "fast_loop_step": 6,
+      "domain": "hub-ui",
+      "category": "fix:hub-ui",
+      "title": "FIX \u2014 one minimal hub-ui fix from last debug/check. No scope creep. (variant 7/10).",
+      "intent": "FIX \u2014 one minimal hub-ui fix from last debug/check. No scope creep. (variant 7/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 57,
+      "hp_id": "hp-057",
+      "step_type": "implement",
+      "fast_loop_step": 7,
+      "domain": "hub-ui",
+      "category": "implement:hub-ui",
+      "title": "IMPLEMENT \u2014 one REGISTRY hub-ui task. Minimal diff only. (variant 8/10).",
+      "intent": "IMPLEMENT \u2014 one REGISTRY hub-ui task. Minimal diff only. (variant 8/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 58,
+      "hp_id": "hp-058",
+      "step_type": "verify_backend",
+      "fast_loop_step": 8,
+      "domain": "hub-ui",
+      "category": "verify_backend:hub-ui",
+      "title": "VERIFY backend \u2014 strict build + find_critical_bugs for hub-ui. (variant 9/10).",
+      "intent": "VERIFY backend \u2014 strict build + find_critical_bugs for hub-ui. (variant 9/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 59,
+      "hp_id": "hp-059",
+      "step_type": "verify_ui",
+      "fast_loop_step": 9,
+      "domain": "hub-ui",
+      "category": "verify_ui:hub-ui",
+      "title": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for hub-ui. (variant 10/10).",
+      "intent": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for hub-ui. (variant 10/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 60,
+      "hp_id": "hp-060",
+      "step_type": "delta",
+      "fast_loop_step": 10,
+      "domain": "hub-ui",
+      "category": "delta:hub-ui",
+      "title": "DELTA \u2014 3-line near-miss + blockers for hub-ui. No code. (variant 1/10).",
+      "intent": "DELTA \u2014 3-line near-miss + blockers for hub-ui. No code. (variant 1/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 61,
+      "hp_id": "hp-061",
+      "step_type": "snapshot",
+      "fast_loop_step": 1,
+      "domain": "governance",
+      "category": "snapshot:governance",
+      "title": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and governance disk SSOT. Report facts only. (variant 2/10).",
+      "intent": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and governance disk SSOT. Report facts only. (variant 2/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 62,
+      "hp_id": "hp-062",
+      "step_type": "plan",
+      "fast_loop_step": 2,
+      "domain": "governance",
+      "category": "plan:governance",
+      "title": "PLAN \u2014 one governance sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "intent": "PLAN \u2014 one governance sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 63,
+      "hp_id": "hp-063",
+      "step_type": "analyze",
+      "fast_loop_step": 3,
+      "domain": "governance",
+      "category": "analyze:governance",
+      "title": "ANALYZE \u2014 search governance for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "intent": "ANALYZE \u2014 search governance for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 64,
+      "hp_id": "hp-064",
+      "step_type": "check",
+      "fast_loop_step": 4,
+      "domain": "governance",
+      "category": "check:governance",
+      "title": "CHECK \u2014 run preflight validators for governance; log PASS/FAIL; no implement. (variant 5/10).",
+      "intent": "CHECK \u2014 run preflight validators for governance; log PASS/FAIL; no implement. (variant 5/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 65,
+      "hp_id": "hp-065",
+      "step_type": "debug",
+      "fast_loop_step": 5,
+      "domain": "governance",
+      "category": "debug:governance",
+      "title": "DEBUG \u2014 reproduce one governance verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "intent": "DEBUG \u2014 reproduce one governance verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 66,
+      "hp_id": "hp-066",
+      "step_type": "fix",
+      "fast_loop_step": 6,
+      "domain": "governance",
+      "category": "fix:governance",
+      "title": "FIX \u2014 one minimal governance fix from last debug/check. No scope creep. (variant 7/10).",
+      "intent": "FIX \u2014 one minimal governance fix from last debug/check. No scope creep. (variant 7/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 67,
+      "hp_id": "hp-067",
+      "step_type": "implement",
+      "fast_loop_step": 7,
+      "domain": "governance",
+      "category": "implement:governance",
+      "title": "IMPLEMENT \u2014 one REGISTRY governance task. Minimal diff only. (variant 8/10).",
+      "intent": "IMPLEMENT \u2014 one REGISTRY governance task. Minimal diff only. (variant 8/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 68,
+      "hp_id": "hp-068",
+      "step_type": "verify_backend",
+      "fast_loop_step": 8,
+      "domain": "governance",
+      "category": "verify_backend:governance",
+      "title": "VERIFY backend \u2014 strict build + find_critical_bugs for governance. (variant 9/10).",
+      "intent": "VERIFY backend \u2014 strict build + find_critical_bugs for governance. (variant 9/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 69,
+      "hp_id": "hp-069",
+      "step_type": "verify_ui",
+      "fast_loop_step": 9,
+      "domain": "governance",
+      "category": "verify_ui:governance",
+      "title": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for governance. (variant 10/10).",
+      "intent": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for governance. (variant 10/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 70,
+      "hp_id": "hp-070",
+      "step_type": "delta",
+      "fast_loop_step": 10,
+      "domain": "governance",
+      "category": "delta:governance",
+      "title": "DELTA \u2014 3-line near-miss + blockers for governance. No code. (variant 1/10).",
+      "intent": "DELTA \u2014 3-line near-miss + blockers for governance. No code. (variant 1/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 71,
+      "hp_id": "hp-071",
+      "step_type": "snapshot",
+      "fast_loop_step": 1,
+      "domain": "ssot-alignment",
+      "category": "snapshot:ssot-alignment",
+      "title": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and ssot-alignment disk SSOT. Report facts only. (variant 2/10).",
+      "intent": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and ssot-alignment disk SSOT. Report facts only. (variant 2/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 72,
+      "hp_id": "hp-072",
+      "step_type": "plan",
+      "fast_loop_step": 2,
+      "domain": "ssot-alignment",
+      "category": "plan:ssot-alignment",
+      "title": "PLAN \u2014 one ssot-alignment sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "intent": "PLAN \u2014 one ssot-alignment sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 73,
+      "hp_id": "hp-073",
+      "step_type": "analyze",
+      "fast_loop_step": 3,
+      "domain": "ssot-alignment",
+      "category": "analyze:ssot-alignment",
+      "title": "ANALYZE \u2014 search ssot-alignment for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "intent": "ANALYZE \u2014 search ssot-alignment for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 74,
+      "hp_id": "hp-074",
+      "step_type": "check",
+      "fast_loop_step": 4,
+      "domain": "ssot-alignment",
+      "category": "check:ssot-alignment",
+      "title": "CHECK \u2014 run preflight validators for ssot-alignment; log PASS/FAIL; no implement. (variant 5/10).",
+      "intent": "CHECK \u2014 run preflight validators for ssot-alignment; log PASS/FAIL; no implement. (variant 5/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 75,
+      "hp_id": "hp-075",
+      "step_type": "debug",
+      "fast_loop_step": 5,
+      "domain": "ssot-alignment",
+      "category": "debug:ssot-alignment",
+      "title": "DEBUG \u2014 reproduce one ssot-alignment verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "intent": "DEBUG \u2014 reproduce one ssot-alignment verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 76,
+      "hp_id": "hp-076",
+      "step_type": "fix",
+      "fast_loop_step": 6,
+      "domain": "ssot-alignment",
+      "category": "fix:ssot-alignment",
+      "title": "FIX \u2014 one minimal ssot-alignment fix from last debug/check. No scope creep. (variant 7/10).",
+      "intent": "FIX \u2014 one minimal ssot-alignment fix from last debug/check. No scope creep. (variant 7/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 77,
+      "hp_id": "hp-077",
+      "step_type": "implement",
+      "fast_loop_step": 7,
+      "domain": "ssot-alignment",
+      "category": "implement:ssot-alignment",
+      "title": "IMPLEMENT \u2014 one REGISTRY ssot-alignment task. Minimal diff only. (variant 8/10).",
+      "intent": "IMPLEMENT \u2014 one REGISTRY ssot-alignment task. Minimal diff only. (variant 8/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 78,
+      "hp_id": "hp-078",
+      "step_type": "verify_backend",
+      "fast_loop_step": 8,
+      "domain": "ssot-alignment",
+      "category": "verify_backend:ssot-alignment",
+      "title": "VERIFY backend \u2014 strict build + find_critical_bugs for ssot-alignment. (variant 9/10).",
+      "intent": "VERIFY backend \u2014 strict build + find_critical_bugs for ssot-alignment. (variant 9/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 79,
+      "hp_id": "hp-079",
+      "step_type": "verify_ui",
+      "fast_loop_step": 9,
+      "domain": "ssot-alignment",
+      "category": "verify_ui:ssot-alignment",
+      "title": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for ssot-alignment. (variant 10/10).",
+      "intent": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for ssot-alignment. (variant 10/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 80,
+      "hp_id": "hp-080",
+      "step_type": "delta",
+      "fast_loop_step": 10,
+      "domain": "ssot-alignment",
+      "category": "delta:ssot-alignment",
+      "title": "DELTA \u2014 3-line near-miss + blockers for ssot-alignment. No code. (variant 1/10).",
+      "intent": "DELTA \u2014 3-line near-miss + blockers for ssot-alignment. No code. (variant 1/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 81,
+      "hp_id": "hp-081",
+      "step_type": "snapshot",
+      "fast_loop_step": 1,
+      "domain": "commercial-lanes",
+      "category": "snapshot:commercial-lanes",
+      "title": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and commercial-lanes disk SSOT. Report facts only. (variant 2/10).",
+      "intent": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and commercial-lanes disk SSOT. Report facts only. (variant 2/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 82,
+      "hp_id": "hp-082",
+      "step_type": "plan",
+      "fast_loop_step": 2,
+      "domain": "commercial-lanes",
+      "category": "plan:commercial-lanes",
+      "title": "PLAN \u2014 one commercial-lanes sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "intent": "PLAN \u2014 one commercial-lanes sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 83,
+      "hp_id": "hp-083",
+      "step_type": "analyze",
+      "fast_loop_step": 3,
+      "domain": "commercial-lanes",
+      "category": "analyze:commercial-lanes",
+      "title": "ANALYZE \u2014 search commercial-lanes for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "intent": "ANALYZE \u2014 search commercial-lanes for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 84,
+      "hp_id": "hp-084",
+      "step_type": "check",
+      "fast_loop_step": 4,
+      "domain": "commercial-lanes",
+      "category": "check:commercial-lanes",
+      "title": "CHECK \u2014 run preflight validators for commercial-lanes; log PASS/FAIL; no implement. (variant 5/10).",
+      "intent": "CHECK \u2014 run preflight validators for commercial-lanes; log PASS/FAIL; no implement. (variant 5/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 85,
+      "hp_id": "hp-085",
+      "step_type": "debug",
+      "fast_loop_step": 5,
+      "domain": "commercial-lanes",
+      "category": "debug:commercial-lanes",
+      "title": "DEBUG \u2014 reproduce one commercial-lanes verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "intent": "DEBUG \u2014 reproduce one commercial-lanes verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 86,
+      "hp_id": "hp-086",
+      "step_type": "fix",
+      "fast_loop_step": 6,
+      "domain": "commercial-lanes",
+      "category": "fix:commercial-lanes",
+      "title": "FIX \u2014 one minimal commercial-lanes fix from last debug/check. No scope creep. (variant 7/10).",
+      "intent": "FIX \u2014 one minimal commercial-lanes fix from last debug/check. No scope creep. (variant 7/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 87,
+      "hp_id": "hp-087",
+      "step_type": "implement",
+      "fast_loop_step": 7,
+      "domain": "commercial-lanes",
+      "category": "implement:commercial-lanes",
+      "title": "IMPLEMENT \u2014 one REGISTRY commercial-lanes task. Minimal diff only. (variant 8/10).",
+      "intent": "IMPLEMENT \u2014 one REGISTRY commercial-lanes task. Minimal diff only. (variant 8/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 88,
+      "hp_id": "hp-088",
+      "step_type": "verify_backend",
+      "fast_loop_step": 8,
+      "domain": "commercial-lanes",
+      "category": "verify_backend:commercial-lanes",
+      "title": "VERIFY backend \u2014 strict build + find_critical_bugs for commercial-lanes. (variant 9/10).",
+      "intent": "VERIFY backend \u2014 strict build + find_critical_bugs for commercial-lanes. (variant 9/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 89,
+      "hp_id": "hp-089",
+      "step_type": "verify_ui",
+      "fast_loop_step": 9,
+      "domain": "commercial-lanes",
+      "category": "verify_ui:commercial-lanes",
+      "title": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for commercial-lanes. (variant 10/10).",
+      "intent": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for commercial-lanes. (variant 10/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 90,
+      "hp_id": "hp-090",
+      "step_type": "delta",
+      "fast_loop_step": 10,
+      "domain": "commercial-lanes",
+      "category": "delta:commercial-lanes",
+      "title": "DELTA \u2014 3-line near-miss + blockers for commercial-lanes. No code. (variant 1/10).",
+      "intent": "DELTA \u2014 3-line near-miss + blockers for commercial-lanes. No code. (variant 1/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 91,
+      "hp_id": "hp-091",
+      "step_type": "snapshot",
+      "fast_loop_step": 1,
+      "domain": "registry-pack",
+      "category": "snapshot:registry-pack",
+      "title": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and registry-pack disk SSOT. Report facts only. (variant 2/10).",
+      "intent": "SNAPSHOT \u2014 read Goal 1 progress, live pick, and registry-pack disk SSOT. Report facts only. (variant 2/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 92,
+      "hp_id": "hp-092",
+      "step_type": "plan",
+      "fast_loop_step": 2,
+      "domain": "registry-pack",
+      "category": "plan:registry-pack",
+      "title": "PLAN \u2014 one registry-pack sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "intent": "PLAN \u2014 one registry-pack sa: goal, non-goals, done criteria (\u22648 lines). No code. (variant 3/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 93,
+      "hp_id": "hp-093",
+      "step_type": "analyze",
+      "fast_loop_step": 3,
+      "domain": "registry-pack",
+      "category": "analyze:registry-pack",
+      "title": "ANALYZE \u2014 search registry-pack for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "intent": "ANALYZE \u2014 search registry-pack for missing validators, stale PRIORITY rows, REGISTRY drift. (variant 4/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 94,
+      "hp_id": "hp-094",
+      "step_type": "check",
+      "fast_loop_step": 4,
+      "domain": "registry-pack",
+      "category": "check:registry-pack",
+      "title": "CHECK \u2014 run preflight validators for registry-pack; log PASS/FAIL; no implement. (variant 5/10).",
+      "intent": "CHECK \u2014 run preflight validators for registry-pack; log PASS/FAIL; no implement. (variant 5/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 95,
+      "hp_id": "hp-095",
+      "step_type": "debug",
+      "fast_loop_step": 5,
+      "domain": "registry-pack",
+      "category": "debug:registry-pack",
+      "title": "DEBUG \u2014 reproduce one registry-pack verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "intent": "DEBUG \u2014 reproduce one registry-pack verify FAIL; root cause in 5 lines max. (variant 6/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 96,
+      "hp_id": "hp-096",
+      "step_type": "fix",
+      "fast_loop_step": 6,
+      "domain": "registry-pack",
+      "category": "fix:registry-pack",
+      "title": "FIX \u2014 one minimal registry-pack fix from last debug/check. No scope creep. (variant 7/10).",
+      "intent": "FIX \u2014 one minimal registry-pack fix from last debug/check. No scope creep. (variant 7/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 97,
+      "hp_id": "hp-097",
+      "step_type": "implement",
+      "fast_loop_step": 7,
+      "domain": "registry-pack",
+      "category": "implement:registry-pack",
+      "title": "IMPLEMENT \u2014 one REGISTRY registry-pack task. Minimal diff only. (variant 8/10).",
+      "intent": "IMPLEMENT \u2014 one REGISTRY registry-pack task. Minimal diff only. (variant 8/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 98,
+      "hp_id": "hp-098",
+      "step_type": "verify_backend",
+      "fast_loop_step": 8,
+      "domain": "registry-pack",
+      "category": "verify_backend:registry-pack",
+      "title": "VERIFY backend \u2014 strict build + find_critical_bugs for registry-pack. (variant 9/10).",
+      "intent": "VERIFY backend \u2014 strict build + find_critical_bugs for registry-pack. (variant 9/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 99,
+      "hp_id": "hp-099",
+      "step_type": "verify_ui",
+      "fast_loop_step": 9,
+      "domain": "registry-pack",
+      "category": "verify_ui:registry-pack",
+      "title": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for registry-pack. (variant 10/10).",
+      "intent": "VERIFY UI \u2014 hub alignment / audit_backend_e2e spot check for registry-pack. (variant 10/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": 100,
+      "hp_id": "hp-100",
+      "step_type": "delta",
+      "fast_loop_step": 10,
+      "domain": "registry-pack",
+      "category": "delta:registry-pack",
+      "title": "DELTA \u2014 3-line near-miss + blockers for registry-pack. No code. (variant 1/10).",
+      "intent": "DELTA \u2014 3-line near-miss + blockers for registry-pack. No code. (variant 1/10).",
+      "thread": "STRATEGIC-SLICE",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "mandatory_reads": [
+        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
+        "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",
+        ".cursor/rules/000-entry-gate.mdc"
+      ],
+      "forbidden": [
+        "UNATTENDED BATCH",
+        "pick 30",
+        "batch closeout",
+        "chat-memory sa ids"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    }
+  ]
+}

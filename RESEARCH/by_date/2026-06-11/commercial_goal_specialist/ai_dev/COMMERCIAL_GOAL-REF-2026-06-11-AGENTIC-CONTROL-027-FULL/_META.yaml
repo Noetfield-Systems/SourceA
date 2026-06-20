@@ -1,0 +1,11 @@
+trace_id: COMMERCIAL_GOAL-REF-2026-06-11-AGENTIC-CONTROL-027-FULL
+worker_id: commercial_goal_specialist
+subject: ai_dev
+subject_label: AI Dev / Cloud IDE
+thread: THREAD-CURSOR-OS-PRO
+date: '2026-06-11'
+source_path: /Users/sinakazemnezhad/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-11_AGENTIC-PARALLEL-CONTROL-MODEL.md
+archive_path: by_date/2026-06-11/commercial_goal_specialist/ai_dev/COMMERCIAL_GOAL-REF-2026-06-11-AGENTIC-CONTROL-027-FULL/2026-06-11_AGENTIC-PARALLEL-CONTROL-MODEL.md
+execution_authority: false
+enforcer: research_save_enforcer.py
+law: RESEARCH_INTAKE_AND_SAVE_LOCK_LOCKED_v1.md

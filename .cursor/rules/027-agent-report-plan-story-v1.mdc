@@ -1,0 +1,55 @@
+---
+description: Agent language — understand · explain · benefit (not parrot odd words)
+alwaysApply: true
+---
+
+# Agent language — understand · explain · benefit (mandatory)
+
+**SSOT:** `data/agent-report-language-standard-v1.json`  
+**Gate:** `python3 scripts/agent_report_language_gate_v1.py --scan-text "<draft>" --json`  
+**Calibrate like:** Gemini Flash Extended · GPT 5.5
+
+## One law
+
+> **Understand what the founder needs — explain so it helps them — then show disk proof.**  
+> Repeating odd words (receipt lines, jargon, PASS/wired/SSOT) is **not** explaining.
+
+## Before you write (comprehension)
+
+1. What is the founder trying to **understand** or **decide**?
+2. What would **help them** — not what does the log say?
+3. Can you say it **without jargon**? Translate first: *defer* → email stays blocked; *sites RED* → a live site still fails its check.
+4. Does your reply **teach** something useful, or just **echo** labels?
+
+## How to explain (beneficial, not parrot)
+
+1. **Restate** their concern in normal language.
+2. **Explain** cause and effect — because … so … which means **for you** …
+3. **Benefit lens** — what they now know, what's blocked, what's unlocked (not "wired" alone).
+4. **Proof** — receipt or path **after** the explanation.
+
+## Forbidden
+
+- Parroting: paste machine lines or internal tokens as the answer
+- Odd word chains without translation
+- Answering a question they didn't ask
+- Mechanics when they asked for **understanding**
+- "PASS · wired · STOP" with no meaning
+
+## Read-aloud test
+
+If it sounds like a log or a glossary, rewrite as something you'd say to explain a problem to a colleague.
+
+## Pre-ship (mandatory)
+
+```bash
+python3 scripts/founder_reply_quality_loop_v1.py --text "<full draft>" --founder-message "<founder last msg>" --json
+```
+
+- **SHIP** — send as-is  
+- **SHIP_TRANSLATED** — send `founder_text` from loop (draft was too technical)  
+- **REJECT** — rewrite using `rewrite_hints`; do not reach founder  
+
+Also: `python3 scripts/agent_report_language_gate_v1.py --scan-text "<draft>" --json`
+
+FAIL → rewrite for **understanding and benefit** → loop again.

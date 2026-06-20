@@ -1,0 +1,169 @@
+{
+  "schema": "factory-email-translation-v1",
+  "version": "1.2.2",
+  "saved_at": "2026-06-19T02:11:22Z",
+  "law": "docs/SOURCEA_OUTBOUND_FACTORY_SALVAGE_SPEC_LOCKED_v1.md \u00b7 data/outbound-factory-salvage-spec-v1.json",
+  "forbidden_in_email_one": [
+    "ledger",
+    "dispatch",
+    "runtime",
+    "governance layer",
+    "attestation engine",
+    "policy graph",
+    "execution receipt",
+    "event sourcing",
+    "replay engine",
+    "auditable execution trail",
+    "partner-grade attestation",
+    "controlled issuance",
+    "agentic",
+    "orchestrator"
+  ],
+  "hard_fail_openers": [
+    "i came across",
+    "i noticed",
+    "hope you're well",
+    "we're building",
+    "our platform",
+    "your company",
+    "i wanted to reach out"
+  ],
+  "translate": {
+    "ledger": "evidence",
+    "dispatch": "what the AI did",
+    "runtime": "while the AI is working",
+    "attestation": "proof",
+    "governance": "control",
+    "controlled issuance": "proof each step was permitted",
+    "auditable execution trail": "proof of what actually happened after the fact",
+    "partner-grade attestation": "proof each step was permitted",
+    "agentic": "helping teams get value from AI",
+    "agentic systems": "systems that help teams get value from AI",
+    "policy graph": "rules guiding an action",
+    "orchestrator": "coordinator",
+    "event sourcing": "record of what happened step by step"
+  },
+  "regional_overlay": {
+    "canada": {
+      "prefer": [
+        "OSFI",
+        "OSC",
+        "CSA",
+        "FINTRAC",
+        "CASL",
+        "SEDAR"
+      ],
+      "forbid_mismatch": [
+        "SEC 10-K",
+        "FINRA only framing"
+      ]
+    },
+    "us": {
+      "prefer": [
+        "SEC",
+        "FINRA",
+        "FDIC"
+      ],
+      "forbid_mismatch": [
+        "OSFI-only framing without Canada context"
+      ]
+    }
+  },
+  "lane_forbidden": {
+    "trustfield": [
+      "inspectable proof of each step",
+      "inspectable proof",
+      "runs on staging",
+      "narrow lane"
+    ],
+    "noetfield": [
+      "fintrac kyb pack",
+      "payment rails"
+    ]
+  },
+  "salvage_spec": "data/outbound-factory-salvage-spec-v1.json",
+  "human_primitive_glossary": {
+    "ledger": "evidence",
+    "governance": "control",
+    "attestation": "proof",
+    "dispatch": "what the AI did",
+    "runtime": "while the AI is working",
+    "policy graph": "rules guiding an action"
+  },
+  "modes": {
+    "A_curiosity_first": {
+      "description": "Insight + question; product withheld; link optional",
+      "max_product_mentions": 1,
+      "max_words": 120,
+      "link_required": false
+    },
+    "B_interest_asset": {
+      "description": "When body promises demo/preview/walkthrough",
+      "max_product_mentions": 1,
+      "max_words": 140,
+      "link_required": true
+    }
+  },
+  "salvage_hard_fail_patterns": [
+    "architecture_chains",
+    "disclaimer_stacks",
+    "cold_refund_pricing",
+    "word_count_over_150",
+    "product_before_curiosity",
+    "generic_skeleton_weve_been_spending_time_with_teams",
+    "subject_marketing_fluff"
+  ],
+  "salvage_sync": {
+    "upgrade": "U011",
+    "at": "2026-06-19T01:40:45Z",
+    "salvage_spec": "data/outbound-factory-salvage-spec-v1.json"
+  },
+  "forbidden_one_sync": {
+    "upgrade": "U012",
+    "at": "2026-06-19T01:51:00Z",
+    "terms_added": [
+      "agentic"
+    ]
+  },
+  "compose_lint": {
+    "upgrade": "U013",
+    "script": "scripts/validate_email_translation_v1.py --compose-lint",
+    "auto_suggest_from": "translate"
+  },
+  "regional_vocabulary": {
+    "upgrade": "U015",
+    "script": "scripts/validate_email_translation_v1.py --region",
+    "default_region": "canada"
+  },
+  "tf_lane_forbidden": {
+    "upgrade": "U016",
+    "lane": "trustfield",
+    "mirror": "data/icp-compile/ocree-v1.json#forbidden_from_this_compile",
+    "hard_fail": true
+  },
+  "salvage_law_crosslink": {
+    "upgrade": "U017",
+    "at": "2026-06-19T02:10:00Z",
+    "human_doc": "docs/SOURCEA_OUTBOUND_FACTORY_SALVAGE_SPEC_LOCKED_v1.md",
+    "salvage_spec": "data/outbound-factory-salvage-spec-v1.json",
+    "script": "scripts/validate_email_translation_v1.py --check-law-crosslink"
+  },
+  "cli_body_lint": {
+    "upgrade": "U018",
+    "one_liner": "python3 scripts/validate_email_translation_v1.py --body-file <path>",
+    "exit_code": "1 on forbidden noun",
+    "script": "scripts/validate_email_translation_v1.py --body-file"
+  },
+  "founder_review_glossary": {
+    "upgrade": "U019",
+    "script": "scripts/w3_founder_review_v1.py --show",
+    "on_fail": "shows translate table in TRANSLATION HINTS block"
+  },
+  "version_discipline": {
+    "upgrade": "U020",
+    "at": "2026-06-19T02:11:22Z",
+    "rule": "bump patch + saved_at on any edit",
+    "validator": "scripts/validate_email_translation_v1.py --check-saved-at",
+    "last_edit": "U020_test"
+  }
+}

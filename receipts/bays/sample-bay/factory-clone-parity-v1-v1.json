@@ -1,0 +1,15 @@
+{
+  "schema": "fbe-refinery-step-receipt-v1",
+  "ok": false,
+  "at": "2026-06-19T23:57:12Z",
+  "node_id": "factory-clone-parity-v1",
+  "bay_slug": "sample-bay",
+  "tenant": "wil_ai_design_partner",
+  "npm": "creed:clone-parity",
+  "exit": 221,
+  "elapsed_sec": 9.3,
+  "creed_root": "/Users/sinakazemnezhad/Desktop/YA5/PLUS ONE/CREED",
+  "deliveryMode": "prove_only",
+  "mode": "w2_headless",
+  "tail": "> creed@1.0.0 creed:clone-parity\n> node scripts/check-clone-parity.mjs\n\nnpm error code EAGAIN\nnpm error syscall spawn sh\nnpm error path /Users/sinakazemnezhad/Desktop/YA5/PLUS ONE/CREED\nnpm error errno -35\nnpm error spawn sh EAGAIN\nnpm error command sh -c node scripts/check-clone-parity.mjs\nnpm error A complete log of this run can be found in: /Users/sinakazemnezhad/.npm/_logs/2026-06-19T23_57_09_410Z-debug-0.log"
+}

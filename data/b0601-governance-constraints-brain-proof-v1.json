@@ -1,0 +1,28 @@
+{
+  "schema": "b0601-governance-constraints-brain-proof-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T08:04:00Z",
+  "upgrade_id": "B0601",
+  "epic": "E07",
+  "lane": "research_brain",
+  "title": "L1 brief governance.constraints.yaml triggers Brain consequence analysis",
+  "acceptance": {
+    "brain_reasoning_receipt": true,
+    "cloud_federated_proof": true,
+    "not_local_cursor_worker_only": true
+  },
+  "proof_bundle": {
+    "l1_brief": "~/.sina/research-root/filtered/governance.constraints.yaml",
+    "consequence_receipt": "~/.sina/brain-l1-brief-governance-constraints-receipt-v1.json",
+    "brain_receipt": "~/.sina/brain-reasoning-receipt-b0601.json",
+    "federated_run": "receipts/federated-run-v1.json",
+    "wired_script": "scripts/brain_l1_brief_consequence_v1.py"
+  },
+  "federated_snapshot": {
+    "ok": true,
+    "remote_status": "cloud_api_worker",
+    "mode": "federated_headless",
+    "deliveryMode": "prove_only"
+  },
+  "law": "UNIFIED_RESEARCH_ROOT — L1 brief triggers Brain consequence analysis on cloud execution plane"
+}

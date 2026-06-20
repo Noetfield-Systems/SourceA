@@ -1,0 +1,125 @@
+trace_id: RESEARCH-ACQUISITOR-20260608-AUTO-005
+trace_family: RESEARCH-ACQUISITOR-20260608
+trace_owner: research_acquisitor
+trace_type: external_critic_verdict_report
+trace_author: research_acquisitor
+trace_created: 2026-06-08
+input_class: EXTERNAL_CRITIC
+critic_source: Claude advisor (automation architecture paste)
+execution_authority: false
+
+module: research_acquisitor
+date: 2026-06-08
+brief_type: cursor_vs_api_execution_critique
+subject: sina_os
+
+summary: >
+  Claude claims SourceA failures trace to Cursor UI clipboard injection and recommends
+  Claude API → n8n → cloud Hub. Disk evidence shows Goal 1 Rail A already runs headless
+  via agent -p -f; remaining dependency is local Cursor agent CLI + Mac + governance gates.
+  Verdict: partially accept observation; reject critic-driven replatform order. ASF P0
+  remains Hub AUTO-RUN proof (GOAL-AUTH-LIVE); n8n and API runner are P1/P2 after proof.
+
+report_title: "SourceA Execution Surface — External Critic Verdict Report"
+
+critic_claims:
+  root_problem: "SourceA built on Cursor UI injection (clipboard paste) — never fully automatic"
+  option_1: "Claude API Python SDK — replace Cursor agent turns this week"
+  option_2: "n8n — scheduling, webhooks, retries next week"
+  option_3: "Cloud Hub (Railway/Fly) — phone monitor month 1"
+  recommendation_order: "API this week → n8n next → cloud month 1"
+
+disk_counter_evidence:
+  headless_rail_a:
+    law: brain-os/enforcement/GOAL1_EXECUTION_SOLUTION_LOCKED_v1.md
+    chain: "INJECT → VALIDATE → ACTIVATE (agent -p -f) → SYNC (broker)"
+    entry: "Hub ▶ AUTO-RUN → goal1_auto_loop_v1.py → start_goal1_worker_turn_v1.py"
+    founder_law: TODAY_AUTORUN_50_PLAN_LOCKED_v1.md — no Worker paste
+  clipboard_path_still_exists:
+    use: "Manual fallback, visible Worker chat lane, portfolio site workers"
+    files: "worker_inject_lib.paste_into_focused_cursor, WORKER_CLIPBOARD_INJECT_LOCKED_v1.md"
+  failure_layers_on_disk:
+    - "Wrong mental model (headless vs Worker chat visibility)"
+    - "Prepare ≠ execute (INBOX delivered ≠ agent running)"
+    - "Fragile launch (background shells, detached start required)"
+    - "Preflight / Mac awake / cursor agent binary"
+    - "Broker=no, one-sa gate, YAML shape"
+    - "Brain tracker STALE → INBOX blocked"
+    - "Autoloop inject path does not call agent (healthy-drain gap — fixed on Rail A)"
+
+verdict_table:
+  - claim: "Everything is clipboard paste injection"
+    verdict: reject
+    reason: "Goal 1 default lane is agent -p -f headless; paste is fallback/visible lane only"
+  - claim: "Cursor IDE as automation runtime is root cause"
+    verdict: accept_partial
+    reason: "Runtime still Cursor agent CLI on local Mac — not composer paste but same vendor lock-in"
+  - claim: "Claude API this week replaces Worker turns"
+    verdict: reject_as_p0
+    reason: "API alone lacks file edit + validator + git surface; critic cannot reorder roadmap"
+  - claim: "n8n for schedule/retry/phone triggers"
+    verdict: accept
+    reason: "Fits orchestration above existing scripts; order after Rail A proof"
+  - claim: "Cloud Hub for phone access"
+    verdict: accept_partial
+    reason: "Good for monitor/control; full build workers need secrets + git + sandbox — larger scope"
+  - claim: "Stop building Cursor scripts — move execution off Cursor entirely"
+    verdict: reject_timing
+    reason: "GOAL-AUTH-LIVE at ~90%; strategic blocker NONE per Master Operating Tracker"
+
+system_alignment:
+  authority_chain: "ASF → Brain → Broker → Worker → Disk"
+  automation_level: "Semi-auto L1 — honest gates; not Level 3 zero-human yet"
+  founder_interface: "Hub clicks only — no Terminal"
+  closeout_contract: "WORKER_ROUND_REPORT YAML + broker=yes + one-sa + events jsonl"
+  tracker_p0: "GOAL-AUTH-LIVE — prove DECISION_RECONCILED → INBOX_DELIVERED → WORKER_SUBMIT once"
+  revenue_parallel: "TrustField/Noetfield portfolio workers separate from SourceA spine"
+  openrouter_already: "Brain/planner model chain exists — eval gates reference credits"
+
+recommended_order_for_asf:
+  p0_now:
+    - "Hub → Goal 1 loop → EXECUTE TURN / AUTO-RUN (Rail A)"
+    - "Confirm event chain in ~/.sina/events/YYYY-MM-DD.jsonl"
+    - "Close GOAL-AUTH-LIVE when full chain observed once"
+  p1_harden:
+    - "Audit remaining clipboard paths on Rail A (GOAL-AUTH-P2 manual_fallback)"
+    - "Stabilize preflight, launchd, broker=no streak handling"
+    - "n8n wrapper: schedule AUTO-RUN, retry on broker=no, phone notify"
+  p2_asf_explicit_order:
+    - "API runner for bounded roles (CHECK, research, copy draft) — same receipt shape"
+    - "Register new execution_surface in EXECUTION_AUTHORITY_MAP — not critic overwrite"
+  parallel_never_blocked:
+    - "TrustField tw-01…tw-10 / Noetfield nw-01…nw-10 portfolio execution"
+    - "Founder GTM: outreach trackers (revenue blocker is execution not architecture)"
+
+api_wrapper_minimum_spec_if_asf_orders:
+  inbox_in: "Same worker-prompt-inbox-v1.json contract"
+  out: "WORKER_ROUND_REPORT flat YAML — broker parseable"
+  no_routing: "Brain still selects sa_id"
+  tool_policy: "read-only vs write paths explicit per turn type"
+  events: "Append ~/.sina/events/YYYY-MM-DD.jsonl"
+  governance: "New LOCKED doc + validator — parallel spine forbidden"
+
+honest_truth_one_line: >
+  Your system wants controlled semi-auto proof on Rail A first; Claude wants platform swap first.
+  Disk agrees with you — next move is Hub AUTO-RUN, not Anthropic SDK alone.
+
+brain_decision_memo_candidate:
+  id: DEC-AUTO-SURFACE-001
+  question: "API headless runner vs hardened Cursor agent CLI for SourceA Worker turns"
+  accept_if:
+    - "Rail A proof fails for reasons API fixes (not Mac/preflight/broker)"
+    - "ASF explicit LOCKED execution surface doc"
+    - "Same broker + validator + one-sa contract"
+  reject_if:
+    - "Critic paste alone"
+    - "Bypasses Brain routing or duplicates orchestrator"
+    - "Shipped before GOAL-AUTH-LIVE PASS"
+
+research_save:
+  trace_id: RESEARCH-ACQUISITOR-20260608-AUTO-005
+  worker_id: research_acquisitor
+  subject: sina_os
+  vault_path: ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-08_CURSOR_VS_API_EXECUTION_CRITIQUE_REPORT.yaml
+  research_mirror_path: RESEARCH/by_date/2026-06-08/research_acquisitor/sina_os/RESEARCH-ACQUISITOR-20260608-AUTO-005/
+  execution_authority: false

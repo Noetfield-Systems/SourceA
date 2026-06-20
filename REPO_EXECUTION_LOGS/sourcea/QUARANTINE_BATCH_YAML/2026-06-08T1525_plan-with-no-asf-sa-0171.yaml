@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0171 — Add eval regression to audit if mode=scaffold while live_ok
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0171
+tests:
+  status: passed
+  output_snippet: audit_hub scaffold/live_ok regression PASS eval_report_capture
+reported_at: '2026-06-08T15:25:19Z'
+reporter: cursor-worker-batch

@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0387 — Mark FR-009 shipped when auto_pass_count >= 6 not ASF verify count
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0387
+tests:
+  status: passed
+  output_snippet: sa-0387 VERIFY — RECIPE: validate-dispatch-policy-v1 + validate-governance-fleet-v1 + validate-founder-request-fleet-sync-v1 + find_critical_bugs · VALIDATION: gate_ok=True nudges 0 FR-009 synced · critical 0 · EVIDENCE: disk green · BUILT: false · closeout
+reported_at: '2026-06-10T07:59:39Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

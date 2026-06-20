@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "CF-STEP1_HEALTH",
+  "title": "Cloud factory step1_health",
+  "evidence": "cloud_factory_check_v1 step1_health ok=True · worker_url=http://127.0.0.1:8080 · fbe-cloud-worker health ok",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T16:22:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "supabase-edge-loop-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T07:09:38Z",
+  "status": "scaffold_ready_pending_project",
+  "law_doc": "docs/SOURCEA_MULTI_FACTORY_ENTERPRISE_BLUEPRINT_LOCKED_v1.md",
+  "mac_role": "control_plane_only — monitor + approve via Hub",
+  "cloud_role": "execution_plane_headless",
+  "migration_ssot": "data/supabase-migration-001-campaign-automations-v1.sql",
+  "project": {
+    "name": null,
+    "ref": null,
+    "note": "Founder must set project ref in WORK: supabase-edge-loop order"
+  },
+  "loop": {
+    "trigger": "campaign_automations.current_step change (Database Webhook or pg_net)",
+    "edge_function": "campaign-orchestrate-v1",
+    "steps": [
+      {
+        "from": "BRIEF_ANALYSIS",
+        "edge_action": "invoke LLM (Gemini/OEGCC) → validate Zod → set AUDIO_READY",
+        "secrets": ["GEMINI_API_KEY or OPENROUTER_API_KEY"]
+      },
+      {
+        "from": "AUDIO_READY",
+        "edge_action": "POST ElevenLabs TTS → upload generated_assets_bucket → set HUMAN_APPROVAL_REQUIRED",
+        "secrets": ["ELEVENLABS_API_KEY", "SUPABASE_SERVICE_ROLE_KEY"]
+      },
+      {
+        "from": "HUMAN_APPROVAL_REQUIRED",
+        "edge_action": "NO-OP — wait Hub founder approve",
+        "cockpit": "http://127.0.0.1:13020/form/"
+      },
+      {
+        "from": "VIDEO_RENDERING",
+        "edge_action": "POST Fal.ai → set DISPATCHED",
+        "secrets": ["FAL_KEY"],
+        "gate": "only if tier OK + founder approved"
+      }
+    ]
+  },
+  "billing_gate": {
+    "before": "AUDIO_READY",
+    "check": "profiles.tier + token_balance_credits",
+    "local_stub": "scripts/fbe_billing_webhook_stub_v1.py"
+  },
+  "deploy_checklist": [
+    "Create Supabase project (or name existing)",
+    "supabase db push — apply migration SSOT",
+    "Create bucket generated_assets_bucket",
+    "Deploy Edge Function campaign-orchestrate-v1",
+    "Database webhook on campaign_automations UPDATE",
+    "Set secrets in Supabase dashboard",
+    "Mac: read-only monitor + approve only"
+  ],
+  "founder_next_tap": "WORK: supabase-edge-loop — project=<your-project-ref>"
+}

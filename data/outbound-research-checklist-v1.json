@@ -1,0 +1,170 @@
+{
+  "schema": "outbound-research-checklist-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T05:12:00Z",
+  "salvage_spec": "data/outbound-factory-salvage-spec-v1.json",
+  "filing_routes_ssot": "data/canadian-issuer-filing-routes-v1.json",
+  "forbidden_sources_enforcer": "scripts/validate_outbound_forbidden_sources_v1.py",
+  "ship_authority_note": "lint PASS + RRL D/E ≠ send authority · Sina read ≥90 required",
+  "filing_route_enum": ["sedar_aif", "sec_40f", "sec_10k", "manual_only"],
+  "human_tests": [
+    {"id": "ai_eraser", "prompt": "Delete company name — would you know a bot wrote this?"},
+    {"id": "curiosity_not_confusion", "prompt": "Reader thinks curiosity — not confusion"}
+  ],
+  "research_depth_checklist_law": {
+    "upgrade": "U058",
+    "acceptance": "Checkbox before FDG",
+    "blocks": "icp_output_compiler run_compiler until all bullets checked + human_signoff",
+    "bullet_count": 5
+  },
+  "hallucination_guard_law": {
+    "upgrade": "U059",
+    "acceptance": "Uncited claim = compile warn",
+    "wired_to": "signals.source_urls[]",
+    "rule": "Non-empty signal.text requires source_url or source_urls[] with http(s) URL"
+  },
+  "ingest_pipeline_law": {
+    "upgrade": "U060",
+    "auto_compose": false,
+    "ingest_output": "json_profile",
+    "acceptance": "Ingest ends at JSON profile",
+    "compile_separate": "scripts/icp_output_compiler_v1.py"
+  },
+  "accounts": {
+    "fundmore": {
+      "human_confirmed_at": "2026-06-19T05:12:00Z",
+      "target_metadata": {
+        "company_name": "Fundmore.ai",
+        "executive_name": "Chris",
+        "executive_role": "CEO",
+        "issuer_country": "CA",
+        "filing_route": "manual_only"
+      },
+      "signals": {
+        "financial_regulatory": {
+          "text": "",
+          "source_url": "",
+          "human_confirmed": true,
+          "note": "manual_only — no filing signal required"
+        },
+        "professional_dna": {
+          "text": "CEO · mortgage AI · public press fundmore.ai",
+          "source_url": "https://fundmore.ai",
+          "human_confirmed": true
+        },
+        "technical_velocity": {
+          "text": "N/A — mortgage AI lane",
+          "source_url": "",
+          "human_confirmed": true
+        }
+      },
+      "human_tests_passed": {
+        "ai_eraser": false,
+        "curiosity_not_confusion": false
+      },
+      "research_depth_checklist": {
+        "bullets": [
+          {"id": "target_identity", "label": "Company + executive identity verified against public record", "checked": true},
+          {"id": "filing_route", "label": "Filing route matches issuer country (no 10-K-only for CA)", "checked": true},
+          {"id": "financial_regulatory", "label": "Financial/regulatory signal reviewed with source or manual_only", "checked": true},
+          {"id": "professional_dna", "label": "Professional DNA confirmed — not scrape boilerplate", "checked": true},
+          {"id": "technical_velocity", "label": "Technical velocity reviewed or explicitly N/A", "checked": true}
+        ],
+        "human_signoff": {
+          "all_checked": true,
+          "signed_at": "2026-06-19T05:12:00Z",
+          "signed_by": "founder",
+          "note": "FIX EVERYTHING — research depth signoff fundmore"
+        }
+      }
+    },
+    "ocree": {
+      "human_confirmed_at": "2026-06-19T05:12:00Z",
+      "target_metadata": {
+        "company_name": "Ocree Capital",
+        "executive_name": "Anne",
+        "executive_role": "Chief Compliance Officer",
+        "issuer_country": "CA",
+        "filing_route": "manual_only"
+      },
+      "signals": {
+        "financial_regulatory": {
+          "text": "CSA Project Tokenization workshop context (June 2026, Toronto)",
+          "source_url": "",
+          "source_urls": ["https://www.securities-administrators.ca/"],
+          "human_confirmed": true
+        },
+        "professional_dna": {
+          "text": "CCO · Ocree Capital · ocreefg.com",
+          "source_url": "https://ocreefg.com",
+          "human_confirmed": true
+        },
+        "technical_velocity": {
+          "text": "N/A — regulated tokenization lane",
+          "source_url": "",
+          "human_confirmed": true
+        }
+      },
+      "human_tests_passed": {
+        "ai_eraser": false,
+        "curiosity_not_confusion": false
+      },
+      "research_depth_checklist": {
+        "bullets": [
+          {"id": "target_identity", "label": "Company + executive identity verified against public record", "checked": true},
+          {"id": "filing_route", "label": "Filing route matches issuer country (no 10-K-only for CA)", "checked": true},
+          {"id": "financial_regulatory", "label": "Financial/regulatory signal reviewed with source or manual_only", "checked": true},
+          {"id": "professional_dna", "label": "Professional DNA confirmed — not scrape boilerplate", "checked": true},
+          {"id": "technical_velocity", "label": "Technical velocity reviewed or explicitly N/A", "checked": true}
+        ],
+        "human_signoff": {
+          "all_checked": true,
+          "signed_at": "2026-06-19T05:12:00Z",
+          "signed_by": "founder",
+          "note": "FIX EVERYTHING — research depth signoff ocree"
+        }
+      }
+    },
+    "rbc": {
+      "target_metadata": {
+        "company_name": "Royal Bank of Canada",
+        "executive_name": "",
+        "executive_role": "",
+        "issuer_country": "CA",
+        "filing_route": "sec_40f"
+      },
+      "signals": {
+        "financial_regulatory": {
+          "text": "",
+          "source_url": "",
+          "human_confirmed": false,
+          "prefill_script": "scripts/filing_signal_fetch_v1.py --ticker RY"
+        },
+        "professional_dna": {
+          "text": "",
+          "source_url": "",
+          "human_confirmed": false
+        },
+        "technical_velocity": {
+          "text": "",
+          "source_url": "",
+          "human_confirmed": false
+        }
+      },
+      "human_tests_passed": {
+        "ai_eraser": false,
+        "curiosity_not_confusion": false
+      },
+      "research_depth_checklist": {
+        "bullets": [
+          {"id": "target_identity", "label": "Company + executive identity verified against public record", "checked": false},
+          {"id": "filing_route", "label": "Filing route matches issuer country (no 10-K-only for CA)", "checked": false},
+          {"id": "financial_regulatory", "label": "Financial/regulatory signal reviewed with source or manual_only", "checked": false},
+          {"id": "professional_dna", "label": "Professional DNA confirmed — not scrape boilerplate", "checked": false},
+          {"id": "technical_velocity", "label": "Technical velocity reviewed or explicitly N/A", "checked": false}
+        ],
+        "human_signoff": {"all_checked": false, "signed_at": null}
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schema": "cinematic-rules-engine-v1",
+  "version": "1.0.0",
+  "rules": {
+    "block_event": {
+      "hold_seconds_min": 5.0,
+      "hold_seconds_max": 8.0,
+      "zoom_factor": 1.12,
+      "zoom_duration_seconds": 6.0,
+      "sfx": "low_frequency_impact",
+      "cut_speed": "slow",
+      "emotion": "high-contrast"
+    },
+    "proof_event": {
+      "hold_seconds_min": 3.0,
+      "motion_reduction_pct": 80,
+      "zoom_factor": 1.06,
+      "sfx": "confirmation_ding",
+      "cut_speed": "slow"
+    },
+    "intent_start": {
+      "hold_seconds_min": 1.0,
+      "cut_speed": "medium"
+    },
+    "normal_action": {
+      "cut_speed": "fast"
+    },
+    "tamper_fail": {
+      "hold_seconds_min": 6.0,
+      "zoom_focus": "receipt_hash",
+      "sfx": "error_tone"
+    }
+  },
+  "micro_cut_acts": [
+    {"id": "intent", "seconds": 4, "event": "intent_start"},
+    {"id": "action", "seconds": 6, "event": "action_execute"},
+    {"id": "block", "seconds": 8, "event": "block_state"},
+    {"id": "proof", "seconds": 7, "event": "proof_generation"},
+    {"id": "system", "seconds": 5, "event": "audit_commit"}
+  ],
+  "ffmpeg_grade": {
+    "contrast": 1.08,
+    "brightness": -0.02,
+    "saturation": 1.05,
+    "crf": 18,
+    "preset": "slow"
+  },
+  "evolution": {
+    "memory_path": "~/.sina/cinematic-film-rules-evolved-v1.json",
+    "incidents_path": "~/.sina/cinematic-film-memory-incidents-v1.jsonl"
+  }
+}

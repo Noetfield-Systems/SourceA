@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0963 — Spike: eval live pilot expansion beyond 5 tasks — tasks.json design
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0963
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — eval live pilot expansion tasks.json design spike; worker_verify_ultra PASS
+reported_at: '2026-06-14T02:23:35Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

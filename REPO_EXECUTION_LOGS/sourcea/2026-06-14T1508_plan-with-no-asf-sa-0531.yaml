@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0531 — Compare TrustField pilot vault note requirement vs workspace-vault API
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0531
+tests:
+  status: passed
+  output_snippet: sa-0531 VERIFY PASS — T1 TrustField vault note dedup via crossref sa-0506
+reported_at: '2026-06-14T15:08:56Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

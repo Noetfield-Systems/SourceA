@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0108 — Cross-check DISPATCH_POLICY_LOCKED_v1.md classes vs policy_engine.py
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0108
+tests:
+  status: passed
+  output_snippet: sa-0108 VERIFY — RECIPE: DISPATCH_POLICY_LOCKED vs policy_engine · VALIDATION: validate-dispatch-policy-v1 PASS validate-governance-fleet-v1 PASS find_critical_bugs critical 0 validate-dispatch-policy-classes-v1 PASS · EVIDENCE: SOURCEA-PRIORITY.md row sa-0108 dual-layer aligned · BUILT: false disk green · Q30/30 closeout PACK3 EXHAUSTED
+reported_at: '2026-06-10T05:42:09Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

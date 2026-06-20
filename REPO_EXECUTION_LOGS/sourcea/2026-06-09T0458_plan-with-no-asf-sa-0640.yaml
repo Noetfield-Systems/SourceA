@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0640 — Reject new D-module creation grep in scripts unless plan authorizes
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0640
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — D-module allowlist audit guard; 20 dirs frozen; eval live 80%; governance + critical 0; closeout complete
+reported_at: '2026-06-09T04:58:39Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

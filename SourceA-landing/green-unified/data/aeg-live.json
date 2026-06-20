@@ -1,0 +1,53 @@
+{
+  "schema": "sourcea-aeg-live-v1",
+  "at": "2026-06-19T01:25:06Z",
+  "evidence_id": "aeg-20260618T120545Z-30d81781",
+  "verdict": "BLOCK",
+  "blockers": [
+    "run-inbox truth_match=false \u2014 queue/inbox mismatch"
+  ],
+  "terminal_transcript": "$ python3 ~/Desktop/SourceA/scripts/critic_boot_v1.py --json --no-aeg\n\nCRITIC_BOOT BLOCK ok=False\nRECEIPT=~/.sina/critic-boot-v1.json\n\n  [PASS] ssot_brief: SSOT v3.1 brief current\n  [PASS] voyage_provider: voyage\n  [FAIL] truth_match: run-inbox truth_match=false \u2014 queue/inbox mismatch\n  [PASS] gate_fresh: session gate completing\n\nblockers:\n  - run-inbox truth_match=false \u2014 queue/inbox mismatch",
+  "checks": [
+    {
+      "id": "C1",
+      "name": "policy_version",
+      "ok": true,
+      "reason": "SSOT v3.2 current",
+      "mode": "sourcea_factory",
+      "version": "3.2",
+      "briefing_path": "/Users/sinakazemnezhad/.sina/agent-briefing/AGENT-AUTO-MONO-latest.json"
+    },
+    {
+      "id": "C2",
+      "name": "provider",
+      "ok": true,
+      "reason": "voyage semantic active",
+      "mode": "sourcea_factory"
+    },
+    {
+      "id": "C3",
+      "name": "receipt_fresh",
+      "ok": true,
+      "reason": "receipt fresh (0.3h)",
+      "receipt_path": "/Users/sinakazemnezhad/.sina/agent_session_gate_receipt_v1.json"
+    },
+    {
+      "id": "C4",
+      "name": "queue_truth",
+      "ok": false,
+      "reason": "run-inbox truth_match=false",
+      "mode": "sourcea_factory",
+      "inbox": {
+        "pending": false,
+        "sa_id": null,
+        "delivered_at": null,
+        "truth_match": false
+      }
+    }
+  ],
+  "boot_verdict": "BLOCK",
+  "site_proof_url": "https://sourcea-landing.vercel.app/sourcea/proof/live.html",
+  "forensic_archive_url": "https://locally-projected-shade-projection.trycloudflare.com/aeg-20260618T120545Z-30d81781/",
+  "hosted_at": "2026-06-18T12:05:45Z",
+  "disclaimer": "Live inject from factory repository \u00b7 same schema as weekly export bundle"
+}

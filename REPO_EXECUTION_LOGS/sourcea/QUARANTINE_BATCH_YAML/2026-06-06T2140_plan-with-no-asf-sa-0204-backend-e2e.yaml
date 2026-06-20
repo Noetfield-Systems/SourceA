@@ -1,0 +1,16 @@
+schema_version: 1
+repo: sourcea
+task: PLAN WITH NO ASF — sa-0204 backend E2E POST /refresh
+status: done
+verify_passed: true
+evidence:
+  files_changed:
+    - os/plan-library/sourcea-1000/REGISTRY.json
+    - os/plan-library/sourcea-1000/prompts/phase-s2-hub-build-ci/T0/sa-0204.md
+    - os/plan-library/SOURCEA-PRIORITY.md
+tests:
+  status: passed
+  command: audit_backend_e2e.py && SINA_AUDIT_STRICT=1 build-sina-command-panel.py && find_critical_bugs.py
+  output_snippet: backend E2E OK · refresh 360s · strict build PASS · critical 0
+reported_at: '2026-06-06T21:40:00Z'
+reporter: cursor-worker

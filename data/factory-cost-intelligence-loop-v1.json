@@ -1,0 +1,1512 @@
+{
+  "schema": "factory-cost-intelligence-loop-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T02:24:25Z",
+  "authority": "ASF SAVE+WORK",
+  "doc_target": "docs/SOURCEA_FACTORY_COST_INTELLIGENCE_100_EXAMPLES_LOCKED_v1.md",
+  "doc_mirror": "data/SOURCEA_FACTORY_COST_INTELLIGENCE_100_EXAMPLES_LOCKED_v1.md",
+  "one_law": "Cost is a control variable \u2014 observe $/unit \u00b7 orient baselines \u00b7 decide with agents \u00b7 act via MES/inbox \u00b7 measure receipts.",
+  "cost_intelligence_loop": {
+    "layers": [
+      "observe",
+      "orient",
+      "decide",
+      "act",
+      "measure",
+      "learn"
+    ],
+    "observe": [
+      "MES/SCADA/historian",
+      "ERP/tariffs/FX",
+      "energy/carbon meters"
+    ],
+    "orient": [
+      "unified namespace",
+      "SKU-line-plant cost baselines",
+      "cross-factory benchmark"
+    ],
+    "decide": [
+      "prescriptive optimizer",
+      "factory manager agent + specialists"
+    ],
+    "act": [
+      "MES schedule/setpoints",
+      "WMS/logistics",
+      "RUN INBOX work orders"
+    ],
+    "measure": [
+      "auditable receipts",
+      "KPI delta $/kWh/scrap/OEE"
+    ],
+    "learn": [
+      "model retrain",
+      "playbook update",
+      "Lumina/GLN cross-ref"
+    ]
+  },
+  "auto_prompting": {
+    "planner_executor_split": true,
+    "planner_outputs": [
+      "prompt_for_executor",
+      "economic_context",
+      "acceptance",
+      "stop_rule"
+    ],
+    "reference_architectures": [
+      {
+        "name": "NVIDIA FOX + NemoClaw",
+        "url": "https://blogs.nvidia.com/blog/factory-operations-fox-blueprint-ai-brain/"
+      },
+      {
+        "name": "Siemens Industrial AI OS",
+        "url": "https://press.siemens.com/jp/en/pressrelease/pr-20260106-2"
+      }
+    ],
+    "sourcea_mapping": {
+      "planner": "brain work-order / loop auto",
+      "executor": "Worker RUN INBOX",
+      "receipt": "outbound-factory receipt + execution_plane_honesty",
+      "anti_theater": "scripts/anti_theater_validator_loop_v1.py"
+    }
+  },
+  "evidence_corpus": {
+    "wef_gln_total_sites": 224,
+    "wef_gln_verified_at": "2026-01-15",
+    "wef_lumina_launch": "2026-01-15",
+    "wef_use_cases": 1000,
+    "wef_metrics": 2000,
+    "network_avg_productivity_pct": 50,
+    "network_avg_defect_reduction_pct": 80,
+    "network_avg_co2_reduction_pct": 30,
+    "roi_playbook_3yr": "2-3x",
+    "roi_playbook_5yr": "4-5x",
+    "sources": [
+      {
+        "label": "WEF GLN Jan 2026",
+        "url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/"
+      },
+      {
+        "label": "WEF GLN Sep 2025",
+        "url": "https://www.weforum.org/press/2025/09/global-lighthouse-network-2025-world-economic-forum-recognizes-12-new-sites-driving-holistic-transformation-in-manufacturing/"
+      },
+      {
+        "label": "WEF GLN Oct 2024",
+        "url": "https://www.weforum.org/press/2024/10/world-economic-forum-recognizes-leading-companies-transforming-global-manufacturing-with-ai-innovation-bcdb574963/"
+      },
+      {
+        "label": "WEF GLN 2025 PDF",
+        "url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf"
+      }
+    ]
+  },
+  "registry_count": 100,
+  "factories": [
+    {
+      "id": "FC-001",
+      "company": "Carl Zeiss Vision",
+      "site": "Guangzhou",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "customer_centricity",
+      "metric_primary": "+400% personalized range; -29% lead time",
+      "metrics": [
+        "+400% personalized range; -29% lead time"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-002",
+      "company": "Hisense Visual Technology",
+      "site": "Qingdao",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "customer_centricity",
+      "metric_primary": "NPS 84%; -34% R&D cycle; -18% material cost",
+      "metrics": [
+        "NPS 84%; -34% R&D cycle; -18% material cost"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-003",
+      "company": "ACG Packaging Materials",
+      "site": "Shirwal",
+      "country": "India",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "-40% lead time; -71% defects; -31% energy",
+      "metrics": [
+        "-40% lead time; -71% defects; -31% energy"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-004",
+      "company": "Bristol Myers Squibb",
+      "site": "Devens",
+      "country": "USA",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "-42% NPI time; +40% volume; -40% emissions",
+      "metrics": [
+        "-42% NPI time; +40% volume; -40% emissions"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-005",
+      "company": "EVE Energy",
+      "site": "Jingmen",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "-52% defects; -41% conversion cost; OEE 88%",
+      "metrics": [
+        "-52% defects; -41% conversion cost; OEE 88%"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-006",
+      "company": "Faurecia Automotive Systems",
+      "site": "Yancheng",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "-94% customer complaints; -75.8% scrap",
+      "metrics": [
+        "-94% customer complaints; -75.8% scrap"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-007",
+      "company": "Ford Otosan",
+      "site": "Yenikoy",
+      "country": "Turkiye",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "2x volume; +44% labor productivity",
+      "metrics": [
+        "2x volume; +44% labor productivity"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-008",
+      "company": "Haier Strauss Science & Technology",
+      "site": "Qingdao",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "-40% defects; -72% quality cost",
+      "metrics": [
+        "-40% defects; -72% quality cost"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-009",
+      "company": "HiTHIUM Energy Storage",
+      "site": "Chongqing",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "-37% conversion cost; +200% throughput",
+      "metrics": [
+        "-37% conversion cost; +200% throughput"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-010",
+      "company": "Huafon Chongqing Spandex",
+      "site": "Chongqing",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "+60% labor productivity; +113% net margin",
+      "metrics": [
+        "+60% labor productivity; +113% net margin"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-011",
+      "company": "Kunlene Film Industries",
+      "site": "Suzhou",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "-45% R&D lead time; -31% defects",
+      "metrics": [
+        "-45% R&D lead time; -31% defects"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-012",
+      "company": "Michelin Shenyang Tire",
+      "site": "Shenyang",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "-71% MOQ; -36% defect rate",
+      "metrics": [
+        "-71% MOQ; -36% defect rate"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-013",
+      "company": "Siemens Numerical Control",
+      "site": "Nanjing",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "-78% lead time; -28% Scope 1&2",
+      "metrics": [
+        "-78% lead time; -28% Scope 1&2"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-014",
+      "company": "SOCAR Carbamide",
+      "site": "Sumqayit",
+      "country": "Azerbaijan",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "+21% throughput; +24% gas efficiency",
+      "metrics": [
+        "+21% throughput; +24% gas efficiency"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-015",
+      "company": "Unilever",
+      "site": "Pondicherry",
+      "country": "India",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "+25% volume; -23% defects",
+      "metrics": [
+        "+25% volume; -23% defects"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-016",
+      "company": "Yueda Textile",
+      "site": "Yancheng",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "+421% productivity; -90% defects",
+      "metrics": [
+        "+421% productivity; -90% defects"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-017",
+      "company": "Midea Kitchen & Bath",
+      "site": "Wuhu",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "supply_chain_resilience",
+      "metric_primary": "-39% delivery lead time; -86% market defects",
+      "metrics": [
+        "-39% delivery lead time; -86% market defects"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-018",
+      "company": "Unilever",
+      "site": "Hefei",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "supply_chain_resilience",
+      "metric_primary": "-75% lead time; -24% operating cost",
+      "metrics": [
+        "-75% lead time; -24% operating cost"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-019",
+      "company": "CATL",
+      "site": "Yibin",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "sustainability",
+      "metric_primary": "-56% carbon footprint; -45% Scope 3/unit",
+      "metrics": [
+        "-56% carbon footprint; -45% Scope 3/unit"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-020",
+      "company": "Foxconn Industrial Internet",
+      "site": "Bac Ninh",
+      "country": "Vietnam",
+      "evidence_tier": "wef_gln",
+      "distinction": "sustainability",
+      "metric_primary": "-22% Scope 3; -34% Scope 1&2",
+      "metrics": [
+        "-22% Scope 3; -34% Scope 1&2"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-021",
+      "company": "Unilever",
+      "site": "Gandhidham",
+      "country": "India",
+      "evidence_tier": "wef_gln",
+      "distinction": "sustainability",
+      "metric_primary": "-90% Scope 1&2; +24% growth",
+      "metrics": [
+        "-90% Scope 1&2; +24% growth"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-022",
+      "company": "AUO Corporation",
+      "site": "Suzhou",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "talent",
+      "metric_primary": "-70% attrition; +29% production",
+      "metrics": [
+        "-70% attrition; +29% production"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-023",
+      "company": "Schneider Electric",
+      "site": "Wuhan",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "talent",
+      "metric_primary": "Onboarding 75\u219215 days; -42% turnover",
+      "metrics": [
+        "Onboarding 75\u219215 days; -42% turnover"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-15"
+    },
+    {
+      "id": "FC-024",
+      "company": "Eaton Electrical Equipment",
+      "site": "Changzhou",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "customer_centricity",
+      "metric_primary": "-39% lead time; +129% revenue same headcount",
+      "metrics": [
+        "-39% lead time; +129% revenue same headcount"
+      ],
+      "source_url": "https://www.weforum.org/press/2025/09/global-lighthouse-network-2025-world-economic-forum-recognizes-12-new-sites-driving-holistic-transformation-in-manufacturing/",
+      "verified_at": "2025-09-16"
+    },
+    {
+      "id": "FC-025",
+      "company": "Mettler-Toledo International",
+      "site": "Changzhou",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "customer_centricity",
+      "metric_primary": "98.4% OTD; -22% lead time",
+      "metrics": [
+        "98.4% OTD; -22% lead time"
+      ],
+      "source_url": "https://www.weforum.org/press/2025/09/global-lighthouse-network-2025-world-economic-forum-recognizes-12-new-sites-driving-holistic-transformation-in-manufacturing/",
+      "verified_at": "2025-09-16"
+    },
+    {
+      "id": "FC-026",
+      "company": "GlobalFoundries",
+      "site": "Singapore",
+      "country": "Singapore",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "+40% labor productivity; -30% NPI prototyping",
+      "metrics": [
+        "+40% labor productivity; -30% NPI prototyping"
+      ],
+      "source_url": "https://www.weforum.org/press/2025/09/global-lighthouse-network-2025-world-economic-forum-recognizes-12-new-sites-driving-holistic-transformation-in-manufacturing/",
+      "verified_at": "2025-09-16"
+    },
+    {
+      "id": "FC-027",
+      "company": "Haier Washing Electrical",
+      "site": "Shanghai",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "+37% production; -33% conversion cost",
+      "metrics": [
+        "+37% production; -33% conversion cost"
+      ],
+      "source_url": "https://www.weforum.org/press/2025/09/global-lighthouse-network-2025-world-economic-forum-recognizes-12-new-sites-driving-holistic-transformation-in-manufacturing/",
+      "verified_at": "2025-09-16"
+    },
+    {
+      "id": "FC-028",
+      "company": "Qatar Shell GTL",
+      "site": "Ras Laffan",
+      "country": "Qatar",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "+9% throughput; 99% reliability",
+      "metrics": [
+        "+9% throughput; 99% reliability"
+      ],
+      "source_url": "https://www.weforum.org/press/2025/09/global-lighthouse-network-2025-world-economic-forum-recognizes-12-new-sites-driving-holistic-transformation-in-manufacturing/",
+      "verified_at": "2025-09-16"
+    },
+    {
+      "id": "FC-029",
+      "company": "Tongwei Solar",
+      "site": "Meishan",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "-41% defects; -37% conversion cost",
+      "metrics": [
+        "-41% defects; -37% conversion cost"
+      ],
+      "source_url": "https://www.weforum.org/press/2025/09/global-lighthouse-network-2025-world-economic-forum-recognizes-12-new-sites-driving-holistic-transformation-in-manufacturing/",
+      "verified_at": "2025-09-16"
+    },
+    {
+      "id": "FC-030",
+      "company": "Lenovo",
+      "site": "Monterrey",
+      "country": "Mexico",
+      "evidence_tier": "wef_gln",
+      "distinction": "supply_chain_resilience",
+      "metric_primary": "-85% lead time; +58% productivity",
+      "metrics": [
+        "-85% lead time; +58% productivity"
+      ],
+      "source_url": "https://www.weforum.org/press/2025/09/global-lighthouse-network-2025-world-economic-forum-recognizes-12-new-sites-driving-holistic-transformation-in-manufacturing/",
+      "verified_at": "2025-09-16"
+    },
+    {
+      "id": "FC-031",
+      "company": "Midea Refrigeration",
+      "site": "Si Racha",
+      "country": "Thailand",
+      "evidence_tier": "wef_gln",
+      "distinction": "supply_chain_resilience",
+      "metric_primary": "-43% order lead time; -32% complaints",
+      "metrics": [
+        "-43% order lead time; -32% complaints"
+      ],
+      "source_url": "https://www.weforum.org/press/2025/09/global-lighthouse-network-2025-world-economic-forum-recognizes-12-new-sites-driving-holistic-transformation-in-manufacturing/",
+      "verified_at": "2025-09-16"
+    },
+    {
+      "id": "FC-032",
+      "company": "Tupras",
+      "site": "Izmit",
+      "country": "Turkiye",
+      "evidence_tier": "wef_gln",
+      "distinction": "supply_chain_resilience",
+      "metric_primary": "Delivery 85\u219295%; -75% truck loading time",
+      "metrics": [
+        "Delivery 85\u219295%; -75% truck loading time"
+      ],
+      "source_url": "https://www.weforum.org/press/2025/09/global-lighthouse-network-2025-world-economic-forum-recognizes-12-new-sites-driving-holistic-transformation-in-manufacturing/",
+      "verified_at": "2025-09-16"
+    },
+    {
+      "id": "FC-033",
+      "company": "Yunnan Baiyao Group",
+      "site": "Kunming",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "supply_chain_resilience",
+      "metric_primary": "-78% raw material returns; -38% inventory days",
+      "metrics": [
+        "-78% raw material returns; -38% inventory days"
+      ],
+      "source_url": "https://www.weforum.org/press/2025/09/global-lighthouse-network-2025-world-economic-forum-recognizes-12-new-sites-driving-holistic-transformation-in-manufacturing/",
+      "verified_at": "2025-09-16"
+    },
+    {
+      "id": "FC-034",
+      "company": "Hisensehitachi Air-conditioning",
+      "site": "Qingdao",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "sustainability",
+      "metric_primary": "-48% Scope 1&2; -28% Scope 3 use phase",
+      "metrics": [
+        "-48% Scope 1&2; -28% Scope 3 use phase"
+      ],
+      "source_url": "https://www.weforum.org/press/2025/09/global-lighthouse-network-2025-world-economic-forum-recognizes-12-new-sites-driving-holistic-transformation-in-manufacturing/",
+      "verified_at": "2025-09-16"
+    },
+    {
+      "id": "FC-035",
+      "company": "Schneider Electric",
+      "site": "Evreux",
+      "country": "France",
+      "evidence_tier": "wef_gln",
+      "distinction": "sustainability",
+      "metric_primary": "-40% single-use plastic; -18% energy",
+      "metrics": [
+        "-40% single-use plastic; -18% energy"
+      ],
+      "source_url": "https://www.weforum.org/press/2025/09/global-lighthouse-network-2025-world-economic-forum-recognizes-12-new-sites-driving-holistic-transformation-in-manufacturing/",
+      "verified_at": "2025-09-16"
+    },
+    {
+      "id": "FC-036",
+      "company": "Haier Refrigerator",
+      "site": "Chongqing",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "talent",
+      "metric_primary": "-40% attrition; 61% participation",
+      "metrics": [
+        "-40% attrition; 61% participation"
+      ],
+      "source_url": "https://www.weforum.org/press/2025/09/global-lighthouse-network-2025-world-economic-forum-recognizes-12-new-sites-driving-holistic-transformation-in-manufacturing/",
+      "verified_at": "2025-09-16"
+    },
+    {
+      "id": "FC-037",
+      "company": "AstraZeneca",
+      "site": "Wuxi",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "+55% output; -44% mfg lead time; -80% non-perfect batches",
+      "metrics": [
+        "+55% output; -44% mfg lead time; -80% non-perfect batches"
+      ],
+      "source_url": "https://www.weforum.org/press/2024/10/world-economic-forum-recognizes-leading-companies-transforming-global-manufacturing-with-ai-innovation-bcdb574963/",
+      "verified_at": "2024-10-08"
+    },
+    {
+      "id": "FC-038",
+      "company": "Beko Dishwasher Plant",
+      "site": "Ankara",
+      "country": "Turkiye",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "-46% time-to-market; -26.1% conversion cost",
+      "metrics": [
+        "-46% time-to-market; -26.1% conversion cost"
+      ],
+      "source_url": "https://www.weforum.org/press/2024/10/world-economic-forum-recognizes-leading-companies-transforming-global-manufacturing-with-ai-innovation-bcdb574963/",
+      "verified_at": "2024-10-08"
+    },
+    {
+      "id": "FC-039",
+      "company": "Coca-Cola",
+      "site": "Tuas Bay",
+      "country": "Singapore",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "+28% throughput; +70% labor productivity",
+      "metrics": [
+        "+28% throughput; +70% labor productivity"
+      ],
+      "source_url": "https://www.weforum.org/press/2024/10/world-economic-forum-recognizes-leading-companies-transforming-global-manufacturing-with-ai-innovation-bcdb574963/",
+      "verified_at": "2024-10-08"
+    },
+    {
+      "id": "FC-040",
+      "company": "Hisensehitachi",
+      "site": "Qingdao",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "+37% dev speed; +49% labor; -35% mfg cost",
+      "metrics": [
+        "+37% dev speed; +49% labor; -35% mfg cost"
+      ],
+      "source_url": "https://www.weforum.org/press/2024/10/world-economic-forum-recognizes-leading-companies-transforming-global-manufacturing-with-ai-innovation-bcdb574963/",
+      "verified_at": "2024-10-08"
+    },
+    {
+      "id": "FC-041",
+      "company": "AstraZeneca",
+      "site": "Sodertalje",
+      "country": "Sweden",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "+56% labor productivity; -67% development lead time",
+      "metrics": [
+        "+56% labor productivity; -67% development lead time"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-042",
+      "company": "Aramco",
+      "site": "North Ghawar",
+      "country": "Saudi Arabia",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "+8.44% production; -8.21% Scope 1&2",
+      "metrics": [
+        "+8.44% production; -8.21% Scope 1&2"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-043",
+      "company": "Valeo Interior Controls",
+      "site": "Shenzhen",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "+60.2% productivity; -34.5% lead time",
+      "metrics": [
+        "+60.2% productivity; -34.5% lead time"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-044",
+      "company": "United Microelectronics Corporation",
+      "site": "Tainan",
+      "country": "Taiwan",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "~97% yield via AI defect analysis",
+      "metrics": [
+        "~97% yield via AI defect analysis"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-045",
+      "company": "Continental",
+      "site": "Brandys nad Labem",
+      "country": "Czech Republic",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 automotive tires",
+      "metrics": [
+        "GLN designated \u2014 automotive tires"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-046",
+      "company": "Unilever",
+      "site": "Tinsukia",
+      "country": "India",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 personal care",
+      "metrics": [
+        "GLN designated \u2014 personal care"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-047",
+      "company": "CEAT",
+      "site": "Sriperumbudur",
+      "country": "India",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 tires",
+      "metrics": [
+        "GLN designated \u2014 tires"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-048",
+      "company": "Haier",
+      "site": "Qingdao",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 home appliances",
+      "metrics": [
+        "GLN designated \u2014 home appliances"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-049",
+      "company": "Novelis",
+      "site": "Uhrichsville",
+      "country": "USA",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 non-ferrous metals",
+      "metrics": [
+        "GLN designated \u2014 non-ferrous metals"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-050",
+      "company": "CITIC Dicastal",
+      "site": "Ameur Seflia",
+      "country": "Morocco",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "First African GLN site",
+      "metrics": [
+        "First African GLN site"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-051",
+      "company": "Sanmen Nuclear",
+      "site": "Taizhou",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 nuclear energy",
+      "metrics": [
+        "GLN designated \u2014 nuclear energy"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-052",
+      "company": "Roche",
+      "site": "Basel",
+      "country": "Switzerland",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 pharmaceuticals",
+      "metrics": [
+        "GLN designated \u2014 pharmaceuticals"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-053",
+      "company": "Beijing Shougang Cold Rolling",
+      "site": "Beijing",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 steel",
+      "metrics": [
+        "GLN designated \u2014 steel"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-054",
+      "company": "Nucor Corporation",
+      "site": "Sedalia",
+      "country": "USA",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 steel products",
+      "metrics": [
+        "GLN designated \u2014 steel products"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-055",
+      "company": "TZ Railway Transit",
+      "site": "Taiyuan",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 mobility",
+      "metrics": [
+        "GLN designated \u2014 mobility"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-056",
+      "company": "Mengniu Dairy",
+      "site": "Ningxia",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 food & beverage",
+      "metrics": [
+        "GLN designated \u2014 food & beverage"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-057",
+      "company": "Tsingtao Brewery",
+      "site": "Qingdao",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 beverages",
+      "metrics": [
+        "GLN designated \u2014 beverages"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-058",
+      "company": "Haitian Flavouring & Food",
+      "site": "Foshan",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 food",
+      "metrics": [
+        "GLN designated \u2014 food"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-059",
+      "company": "Sany Renewable Energy",
+      "site": "Taizhou",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 wind power",
+      "metrics": [
+        "GLN designated \u2014 wind power"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-060",
+      "company": "Midea",
+      "site": "Hefei",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 home appliances",
+      "metrics": [
+        "GLN designated \u2014 home appliances"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-061",
+      "company": "Siemens",
+      "site": "Furth",
+      "country": "Germany",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 industrial automation",
+      "metrics": [
+        "GLN designated \u2014 industrial automation"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-062",
+      "company": "Siemens",
+      "site": "Erlangen",
+      "country": "Germany",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "AI blueprint factory with NVIDIA (2026)",
+      "metrics": [
+        "AI blueprint factory with NVIDIA (2026)"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2026-01-06"
+    },
+    {
+      "id": "FC-063",
+      "company": "GE Healthcare",
+      "site": "Beijing",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 medical equipment",
+      "metrics": [
+        "GLN designated \u2014 medical equipment"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-064",
+      "company": "Ferrovial",
+      "site": "London",
+      "country": "UK",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN E2E value chain",
+      "metrics": [
+        "GLN E2E value chain"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-065",
+      "company": "Agilent Technologies",
+      "site": "Shanghai",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 lab equipment",
+      "metrics": [
+        "GLN designated \u2014 lab equipment"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-066",
+      "company": "Agilent Technologies",
+      "site": "Penang",
+      "country": "Malaysia",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 lab equipment",
+      "metrics": [
+        "GLN designated \u2014 lab equipment"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-067",
+      "company": "Jubilant Ingrevia",
+      "site": "Bharuch",
+      "country": "India",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 chemicals",
+      "metrics": [
+        "GLN designated \u2014 chemicals"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-068",
+      "company": "Midea",
+      "site": "Chongqing",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 appliances",
+      "metrics": [
+        "GLN designated \u2014 appliances"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-069",
+      "company": "Zhengzhou Coal Mining Machinery",
+      "site": "Zhengzhou",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 mining equipment",
+      "metrics": [
+        "GLN designated \u2014 mining equipment"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-070",
+      "company": "Schneider Electric",
+      "site": "Shanghai",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 industrial automation",
+      "metrics": [
+        "GLN designated \u2014 industrial automation"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-071",
+      "company": "Schneider Electric",
+      "site": "Wuxi",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 energy/cost optimization lineage",
+      "metrics": [
+        "GLN designated \u2014 energy/cost optimization lineage"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-072",
+      "company": "Emirates Global Aluminium",
+      "site": "Al Taweelah",
+      "country": "UAE",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 aluminium",
+      "metrics": [
+        "GLN designated \u2014 aluminium"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-073",
+      "company": "Foxconn Industrial Internet",
+      "site": "Bac Giang",
+      "country": "Vietnam",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 electronics",
+      "metrics": [
+        "GLN designated \u2014 electronics"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-074",
+      "company": "Foxconn Industrial Internet",
+      "site": "Shenzhen",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 electronics",
+      "metrics": [
+        "GLN designated \u2014 electronics"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-075",
+      "company": "Schneider Electric",
+      "site": "Monterrey",
+      "country": "Mexico",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 industrial automation",
+      "metrics": [
+        "GLN designated \u2014 industrial automation"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-076",
+      "company": "Guiyang Tyre",
+      "site": "Guiyang",
+      "country": "China",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN designated \u2014 tires",
+      "metrics": [
+        "GLN designated \u2014 tires"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-077",
+      "company": "GlobalFoundries",
+      "site": "Fab 7 Singapore",
+      "country": "Singapore",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "60+ 4IR use cases; +40% labor productivity",
+      "metrics": [
+        "60+ 4IR use cases; +40% labor productivity"
+      ],
+      "source_url": "https://www.weforum.org/press/2025/09/global-lighthouse-network-2025-world-economic-forum-recognizes-12-new-sites-driving-holistic-transformation-in-manufacturing/",
+      "verified_at": "2025-09-16"
+    },
+    {
+      "id": "FC-078",
+      "company": "Foxconn",
+      "site": "MoMClaw multi-site",
+      "country": "Taiwan",
+      "evidence_tier": "agentic_published",
+      "distinction": "agentic_factory",
+      "metric_primary": "80% faster root cause; +15% labor productivity",
+      "metrics": [
+        "80% faster root cause; +15% labor productivity"
+      ],
+      "source_url": "https://blogs.nvidia.com/blog/factory-operations-fox-blueprint-ai-brain/",
+      "verified_at": "2026-03-01"
+    },
+    {
+      "id": "FC-079",
+      "company": "Jotun",
+      "site": "Global cross-factory network",
+      "country": "Norway",
+      "evidence_tier": "energy_intelligence",
+      "distinction": "cost_intelligence",
+      "metric_primary": "18-20% group energy performance",
+      "metrics": [
+        "18-20% group energy performance"
+      ],
+      "source_url": "https://greenovative.com/case-studies/optimising-global-cross-factory-production-through-energy-intelligence/",
+      "verified_at": "2025-02-24"
+    },
+    {
+      "id": "FC-080",
+      "company": "U.S. Polysilicon manufacturer",
+      "site": "Anonymous site",
+      "country": "USA",
+      "evidence_tier": "agentic_published",
+      "distinction": "productivity",
+      "metric_primary": "~20% energy cost via agentic scheduling",
+      "metrics": [
+        "~20% energy cost via agentic scheduling"
+      ],
+      "source_url": "https://www.pal.tech/case_study/paltech-enabled-manufacturing-cost-optimization/",
+      "verified_at": "2026-03-31"
+    },
+    {
+      "id": "FC-081",
+      "company": "DeepHow x Foxconn",
+      "site": "GB300 Bianca assembly",
+      "country": "Taiwan",
+      "evidence_tier": "agentic_published",
+      "distinction": "productivity",
+      "metric_primary": "+3% first-pass yield",
+      "metrics": [
+        "+3% first-pass yield"
+      ],
+      "source_url": "https://blogs.nvidia.com/blog/factory-operations-fox-blueprint-ai-brain/",
+      "verified_at": "2026-03-01"
+    },
+    {
+      "id": "FC-082",
+      "company": "McKinsey anonymized industrial network",
+      "site": "Multi-site",
+      "country": "Global",
+      "evidence_tier": "consulting_published",
+      "distinction": "productivity",
+      "metric_primary": "$100M+ savings identified across prioritized sites",
+      "metrics": [
+        "$100M+ savings identified across prioritized sites"
+      ],
+      "source_url": "https://www.mckinsey.com/capabilities/operations/our-insights/capturing-the-true-value-of-industry-four-point-zero",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-083",
+      "company": "Schneider Electric",
+      "site": "Batam",
+      "country": "Indonesia",
+      "evidence_tier": "industry_published",
+      "distinction": "productivity",
+      "metric_primary": "44% downtime reduction; 40% OTD improvement",
+      "metrics": [
+        "44% downtime reduction; 40% OTD improvement"
+      ],
+      "source_url": "https://www.ptc.com/en/resources/iiot/manufacturing/white-paper/measure-roi-of-digital-transformation",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-084",
+      "company": "Toyota North America",
+      "site": "Unified data architecture",
+      "country": "USA",
+      "evidence_tier": "industry_published",
+      "distinction": "productivity",
+      "metric_primary": "97% motion waste reduction; onboarding 33d\u2192<1d",
+      "metrics": [
+        "97% motion waste reduction; onboarding 33d\u2192<1d"
+      ],
+      "source_url": "https://www.ptc.com/en/resources/iiot/manufacturing/white-paper/measure-roi-of-digital-transformation",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-085",
+      "company": "Bosch",
+      "site": "9,000-machine network",
+      "country": "Germany",
+      "evidence_tier": "industry_published",
+      "distinction": "productivity",
+      "metric_primary": "+13% output from standardized data access",
+      "metrics": [
+        "+13% output from standardized data access"
+      ],
+      "source_url": "https://svitla.com/blog/ai-digital-transformation-roi/",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-086",
+      "company": "HIROTEC",
+      "site": "IIoT operations",
+      "country": "Japan",
+      "evidence_tier": "industry_published",
+      "distinction": "productivity",
+      "metric_primary": "5-8% productivity improvement",
+      "metrics": [
+        "5-8% productivity improvement"
+      ],
+      "source_url": "https://www.ptc.com/en/resources/iiot/manufacturing/white-paper/measure-roi-of-digital-transformation",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-087",
+      "company": "Yokogawa",
+      "site": "Site-wide energy digital twin",
+      "country": "Global",
+      "evidence_tier": "energy_intelligence",
+      "distinction": "cost_intelligence",
+      "metric_primary": "Sustained energy cost + emissions reduction",
+      "metrics": [
+        "Sustained energy cost + emissions reduction"
+      ],
+      "source_url": "https://www.yokogawa.com/ca/solutions/solutions/energy-efficiency-waste-reduction-decarbonization/energy-cost-and-carbon-optimization-for-production-sites-through-operational-systems-integration/",
+      "verified_at": "2024-01-01"
+    },
+    {
+      "id": "FC-088",
+      "company": "PepsiCo",
+      "site": "Evaluating adaptive manufacturing",
+      "country": "USA",
+      "evidence_tier": "wef_gln_eval",
+      "distinction": "productivity",
+      "metric_primary": "Siemens+NVIDIA adaptive manufacturing eval",
+      "metrics": [
+        "Siemens+NVIDIA adaptive manufacturing eval"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-06"
+    },
+    {
+      "id": "FC-089",
+      "company": "HD Hyundai",
+      "site": "Evaluating adaptive manufacturing",
+      "country": "South Korea",
+      "evidence_tier": "wef_gln_eval",
+      "distinction": "productivity",
+      "metric_primary": "Industrial AI OS eval",
+      "metrics": [
+        "Industrial AI OS eval"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-06"
+    },
+    {
+      "id": "FC-090",
+      "company": "KION Group",
+      "site": "Evaluating adaptive manufacturing",
+      "country": "Germany",
+      "evidence_tier": "wef_gln_eval",
+      "distinction": "productivity",
+      "metric_primary": "Digital Twin Composer eval",
+      "metrics": [
+        "Digital Twin Composer eval"
+      ],
+      "source_url": "https://www.weforum.org/press/2026/01/global-lighthouse-network-recognizes-23-new-sites-launches-ai-platform-for-industrial-transformation/",
+      "verified_at": "2026-01-06"
+    },
+    {
+      "id": "FC-091",
+      "company": "Mercedes-Benz",
+      "site": "NVIDIA industrial software customer",
+      "country": "Germany",
+      "evidence_tier": "wef_gln_eval",
+      "distinction": "productivity",
+      "metric_primary": "GPU-accelerated design/manufacturing",
+      "metrics": [
+        "GPU-accelerated design/manufacturing"
+      ],
+      "source_url": "https://blogs.nvidia.com/blog/factory-operations-fox-blueprint-ai-brain/",
+      "verified_at": "2026-03-16"
+    },
+    {
+      "id": "FC-092",
+      "company": "Samsung",
+      "site": "NVIDIA industrial software customer",
+      "country": "South Korea",
+      "evidence_tier": "wef_gln_eval",
+      "distinction": "productivity",
+      "metric_primary": "GPU-accelerated manufacturing",
+      "metrics": [
+        "GPU-accelerated manufacturing"
+      ],
+      "source_url": "https://blogs.nvidia.com/blog/factory-operations-fox-blueprint-ai-brain/",
+      "verified_at": "2026-03-16"
+    },
+    {
+      "id": "FC-093",
+      "company": "TSMC",
+      "site": "NVIDIA industrial software customer",
+      "country": "Taiwan",
+      "evidence_tier": "wef_gln_eval",
+      "distinction": "productivity",
+      "metric_primary": "GPU-accelerated fab workflows",
+      "metrics": [
+        "GPU-accelerated fab workflows"
+      ],
+      "source_url": "https://blogs.nvidia.com/blog/factory-operations-fox-blueprint-ai-brain/",
+      "verified_at": "2026-03-16"
+    },
+    {
+      "id": "FC-094",
+      "company": "SK hynix",
+      "site": "NVIDIA industrial software customer",
+      "country": "South Korea",
+      "evidence_tier": "wef_gln_eval",
+      "distinction": "productivity",
+      "metric_primary": "GPU-accelerated manufacturing",
+      "metrics": [
+        "GPU-accelerated manufacturing"
+      ],
+      "source_url": "https://blogs.nvidia.com/blog/factory-operations-fox-blueprint-ai-brain/",
+      "verified_at": "2026-03-16"
+    },
+    {
+      "id": "FC-095",
+      "company": "Honda",
+      "site": "NVIDIA industrial software customer",
+      "country": "Japan",
+      "evidence_tier": "wef_gln_eval",
+      "distinction": "productivity",
+      "metric_primary": "GPU-accelerated manufacturing",
+      "metrics": [
+        "GPU-accelerated manufacturing"
+      ],
+      "source_url": "https://blogs.nvidia.com/blog/factory-operations-fox-blueprint-ai-brain/",
+      "verified_at": "2026-03-16"
+    },
+    {
+      "id": "FC-096",
+      "company": "Advantech",
+      "site": "FOX blueprint early adopter",
+      "country": "Taiwan",
+      "evidence_tier": "agentic_published",
+      "distinction": "agentic_factory",
+      "metric_primary": "Autonomous factory manager agent deploy",
+      "metrics": [
+        "Autonomous factory manager agent deploy"
+      ],
+      "source_url": "https://blogs.nvidia.com/blog/factory-operations-fox-blueprint-ai-brain/",
+      "verified_at": "2026-03-01"
+    },
+    {
+      "id": "FC-097",
+      "company": "Pegatron",
+      "site": "FOX blueprint early adopter",
+      "country": "Taiwan",
+      "evidence_tier": "agentic_published",
+      "distinction": "agentic_factory",
+      "metric_primary": "Autonomous factory manager agent deploy",
+      "metrics": [
+        "Autonomous factory manager agent deploy"
+      ],
+      "source_url": "https://blogs.nvidia.com/blog/factory-operations-fox-blueprint-ai-brain/",
+      "verified_at": "2026-03-01"
+    },
+    {
+      "id": "FC-098",
+      "company": "Wistron",
+      "site": "FOX blueprint early adopter",
+      "country": "Taiwan",
+      "evidence_tier": "agentic_published",
+      "distinction": "agentic_factory",
+      "metric_primary": "Autonomous factory manager agent deploy",
+      "metrics": [
+        "Autonomous factory manager agent deploy"
+      ],
+      "source_url": "https://blogs.nvidia.com/blog/factory-operations-fox-blueprint-ai-brain/",
+      "verified_at": "2026-03-01"
+    },
+    {
+      "id": "FC-099",
+      "company": "Procter & Gamble",
+      "site": "GLN historical cohort",
+      "country": "USA",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN pioneer \u2014 consumer goods",
+      "metrics": [
+        "GLN pioneer \u2014 consumer goods"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2018-01-01"
+    },
+    {
+      "id": "FC-100",
+      "company": "Phoenix Contact",
+      "site": "GLN historical cohort",
+      "country": "Germany",
+      "evidence_tier": "wef_gln",
+      "distinction": "productivity",
+      "metric_primary": "GLN pioneer \u2014 industrial automation",
+      "metrics": [
+        "GLN pioneer \u2014 industrial automation"
+      ],
+      "source_url": "https://reports.weforum.org/docs/WEF_Global_Lighthouse_Network_2025.pdf",
+      "verified_at": "2018-01-01"
+    }
+  ],
+  "cross_ref": {
+    "tier_cost_policy": "docs/SOURCEA_TIER_PRIORITY_COST_INTELLIGENCE_POLICY_LOCKED_v1.md",
+    "script": "scripts/factory_cost_intelligence_v1.py",
+    "validator": "scripts/validate-factory-cost-intelligence-v1.sh",
+    "receipt": "~/.sina/factory-cost-intelligence-receipt-v1.json",
+    "live_surfaces_field": "cost_intelligence_line"
+  }
+}

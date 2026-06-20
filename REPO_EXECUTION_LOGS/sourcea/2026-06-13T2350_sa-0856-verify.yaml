@@ -1,0 +1,21 @@
+schema_version: 1
+repo: sourcea
+task: sa-0856
+turn: verify
+phase: phase-s8-hub-ui-ux
+title: Cross-check SINA_COMMAND_NO_TERMINAL_FOUNDER law in hub copy
+status: done
+verify_passed: true
+validators:
+  - validate-hub-copy-no-terminal-v1.sh: PASS
+  - validate-founder-docs-no-terminal-v1.sh: PASS
+  - worker_verify_fast_v1.sh: PASS
+proof:
+  law_in_read_chain: true
+  mac_actions_hub_only: true
+  worker_hub_no_terminal_policy: true
+attachment: archive/attachments/2026-06-13/sa-0856-hub-copy-no-terminal-act_LOCKED_v1.md
+verify_receipt: archive/attachments/2026-06-13/sa-0856-verify-receipt_LOCKED_v1.md
+next_task: sa-0857
+next_turn: check
+reported_at: '2026-06-13T23:50:00Z'

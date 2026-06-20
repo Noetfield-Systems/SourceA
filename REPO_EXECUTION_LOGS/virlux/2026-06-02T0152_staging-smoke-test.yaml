@@ -1,0 +1,18 @@
+schema_version: 1
+repo: virlux
+task: staging smoke test
+status: done
+verify_passed: true
+evidence:
+  commit: deadbeef
+  files_changed: []
+  diff_summary: ''
+  note: ''
+tests:
+  status: passed
+  command: ''
+  output_snippet: ''
+real_output: staging /health 200
+reported_at: '2026-06-02T01:52:24.536924+00:00'
+reporter: cursor
+execution_id: ''

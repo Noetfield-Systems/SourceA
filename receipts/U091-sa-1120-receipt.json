@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1120",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U091",
+  "title": "Supabase targets table \u2014 DEFER until 20+ sends",
+  "evidence": "Supabase targets DEFER \u2014 not built PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:20:48Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

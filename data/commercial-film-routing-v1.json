@@ -1,0 +1,491 @@
+{
+  "schema": "commercial-film-routing-v1",
+  "version": "1.0.0",
+  "at": "2026-06-15",
+  "locked_doc": "data/COMMERCIAL_FILM_ROUTING_LOCKED_v1.md",
+  "validator": "scripts/validate-commercial-film-routing-v1.sh",
+  "founder_lock": {
+    "path": "A",
+    "label": "Institutional hero finish + factory routing",
+    "confirmed_at": "2026-06-15",
+    "confirmed_by": "ASF",
+    "rejects_as_hero": ["heygen_avatar", "consumer_tiktok_tier_A", "gemini_jargon_vo"],
+    "routes_not_rejects": ["tier_C_social", "heygen_trustfield_test", "founder_selfie_tier_C", "logo_wall", "sfx", "cinematic_finish"]
+  },
+  "beats_index": {
+    "witnessbc_tier_A_hero": "data/witnessbc-commercial-film-beats-v1.json",
+    "witnessbc_tier_A_hero_v5_cinematic": "data/witnessbc-commercial-film-beats-v5.json",
+    "witnessbc_tier_C_social": "data/witnessbc-commercial-social-30s-beats-v1.json",
+    "sourcea_tier_B_proof": "data/commercial-short-film-beats-v1.json",
+    "trustfield_tier_A_hero": "data/trustfield-commercial-film-beats-v1.json",
+    "noetfield_tier_A_hero": "data/noetfield-commercial-film-beats-v1.json",
+    "noetfield_tier_C_social": "data/noetfield-commercial-social-30s-beats-v1.json",
+    "fitness_tier_C_social": "data/fitness-commercial-film-beats-v1.json"
+  },
+  "factory": {
+    "name": "SourceA Commercial Film Factory",
+    "orchestrator": "scripts/commercial_short_film_v1.py",
+    "entrypoints": {
+      "witnessbc": "witnessbc-commercial-film.sh",
+      "sourcea": "sourcea-commercial-film.sh",
+      "generic": "scripts/run_commercial_short_film_v1.sh",
+      "cinematic_factory_witnessbc": "witness-film-build.sh",
+      "cinematic_factory_sourcea": "sourcea-film-build.sh",
+      "cinematic_factory_compiler": "cinematic-film-factory/compiler.py",
+      "ship_gate_sourcea": "sourcea-commercial-film-ship.sh",
+      "ship_gate_witnessbc": "witnessbc-commercial-film-ship.sh"
+    },
+      "cinematic_factory_pathway": {
+      "ssot": "data/cinematic-film-factory-v1.json",
+      "rules_engine": "data/cinematic-rules-engine-v1.json",
+      "root": "cinematic-film-factory/",
+      "validator": "scripts/validate-cinematic-film-factory-v1.sh",
+      "receipt": "~/.sina/enforcement/cinematic-film-factory-receipt-v1.json",
+      "memory_incidents": "~/.sina/cinematic-film-memory-incidents-v1.jsonl",
+      "rules_evolved": "~/.sina/cinematic-film-rules-evolved-v1.json",
+      "n8n_wire": "scripts/n8n_film_factory_wire_v1.py",
+      "n8n_validator": "scripts/validate-n8n-film-factory-wire-v1.sh",
+      "note": "GPT event-driven compiler — n8n P1 wired to ship gate + critic + compile"
+    },
+    "vo_wire": "scripts/film_elevenlabs_wire_v1.py",
+    "captions": "scripts/elevenlabs_alignment_to_ass_v1.py",
+    "screen_studio_ingest": {
+      "sourcea_commercial": "scripts/sourcea_commercial_film_ingest_master_v1.py",
+      "sourcea_w1": "scripts/w1_film_ingest_master_v1.py",
+      "witnessbc": "scripts/witnessbc_commercial_film_ingest_master_v1.py"
+    },
+    "quality_bar": "data/video-quality-bar-v1.json",
+    "factory_phases": "data/commercial-film-factory-phases-v1.json",
+    "receipt_schema": "commercial-short-film-receipt-v1"
+  },
+  "principle": "Build once in SourceA factory · route by lane × tier · never throw away good advisor ideas — assign lane, tier, and beats file.",
+  "tiers": {
+    "A_hero": {
+      "label": "Institutional hero film",
+      "runtime_seconds": "120-240",
+      "buyer": "CISO · GRC · platform · design partner",
+      "avatar_policy": "no_synthetic_hero",
+      "face_policy": "product_led_preferred"
+    },
+    "B_proof": {
+      "label": "Live enforcement demo (W1/W2)",
+      "runtime_seconds": "300",
+      "buyer": "Investor · design partner · auditor",
+      "avatar_policy": "none",
+      "face_policy": "demo_operator_optional"
+    },
+    "C_social": {
+      "label": "30s social / LinkedIn cut",
+      "runtime_seconds": "30",
+      "buyer": "Pipeline · awareness",
+      "avatar_policy": "real_founder_ok · synthetic_discouraged",
+      "face_policy": "optional_signoff_3s"
+    },
+    "D_gtm": {
+      "label": "One-pager / outbound attach",
+      "runtime_seconds": "n/a",
+      "buyer": "Prospect email",
+      "avatar_policy": "n/a",
+      "face_policy": "n/a"
+    }
+  },
+  "advisor_ideas_ledger": {
+    "opus_finishing_not_format": {
+      "source": "Claude Opus",
+      "status": "accepted",
+      "routing": "all_tier_A_B_lanes",
+      "note": "Production finish — not HeyGen hero pivot"
+    },
+    "gpt_cinematic_language_sfx": {
+      "source": "GPT",
+      "status": "accepted",
+      "routing": "polish.sfx + wide_macro_detail_edit",
+      "note": "Sound design is biggest missing tier; code exists (_mix_vo_sfx)"
+    },
+    "gpt_outcome_vo_not_jargon": {
+      "source": "GPT",
+      "status": "accepted",
+      "routing": "sourcea + witnessbc + noetfield copy",
+      "note": "Policy violated. Execution stopped. Receipt generated."
+    },
+    "gemini_dark_frame_135_zoom": {
+      "source": "Gemini",
+      "status": "accepted_visual_rejected_copy",
+      "routing": "cinematic_finish + linear_ui_capture",
+      "note": "Reject Certainty Report™ / Noetfield jargon on WitnessBC"
+    },
+    "soonet_logo_wall": {
+      "source": "Soonet / Opus",
+      "status": "accepted",
+      "routing": "TRUST beat + _built_on_wall_png",
+      "note": "One frame credibility — not co-marketing claim"
+    },
+    "soonet_heygen_avatar": {
+      "source": "Soonet",
+      "status": "routed_not_rejected",
+      "routing": "tier_C_only · trustfield_top_funnel_test",
+      "note": "Never WitnessBC tier A hero — trust product"
+    },
+    "soonet_30s_instagram_script": {
+      "source": "Soonet / Opus",
+      "status": "routed",
+      "routing": "data/witnessbc-commercial-social-30s-beats-v1.json",
+      "note": "Same capture + ElevenLabs · shorter rhythm"
+    },
+    "soonet_founder_selfie_option_c": {
+      "source": "Soonet",
+      "status": "routed",
+      "routing": "tier_C · trustfield · noetfield",
+      "note": "Real face only · 3s sign-off or standalone social"
+    },
+    "gpt_minimal_playwright_ffmpeg_stack": {
+      "source": "GPT paste",
+      "status": "accepted_already_built",
+      "routing": "factory core — no greenfield",
+      "note": "Already commercial_short_film_v1.py"
+    },
+    "linear_reference_4k": {
+      "source": "Founder reference",
+      "status": "accepted_locked",
+      "routing": "video-quality-bar-v1.json + master 3840x2160",
+      "reference_path": "/Users/sinakazemnezhad/Downloads/LinearH264Version_1 (6).mp4",
+      "locked_master": "archive/attachments/2026-06-16/CINEMATIC_REFERENCE_3PICKS_LOCKED_MASTER_v1.md",
+      "founder_pick_id": "STYLE-A5"
+    },
+    "founder_3_picks_locked": {
+      "status": "locked",
+      "at": "2026-06-16",
+      "master": "archive/attachments/2026-06-16/CINEMATIC_REFERENCE_3PICKS_LOCKED_MASTER_v1.md",
+      "picks": ["STYLE-A3", "STYLE-B1", "STYLE-A5"],
+      "receipt": "~/.sina/enforcement/cinematic-reference-3picks-lock-receipt-v1.json"
+    }
+  },
+  "lanes": {
+    "witnessbc": {
+      "product": "Witness AI · witnessbc.com",
+      "repo": "SourceA/witnessbc-site",
+      "vo_lane": "witnessbc",
+      "capture_base": "http://127.0.0.1:8090",
+      "strategy": "Institutional GRC hero · Proof Lab · tamper-FAIL dwell · product-led",
+      "status": "active",
+      "assets": {
+        "tier_A_hero": {
+          "status": "accepted_locked",
+          "style_reference": "STYLE-B1",
+          "style_match_brief": "archive/attachments/2026-06-16/STYLE_B1_WITNESSBC_SHOT_MATCH_BRIEF_LOCKED_v1.md",
+          "beats_file": "data/witnessbc-commercial-film-beats-v1.json",
+          "beats_file_v5_cinematic": "data/witnessbc-commercial-film-beats-v5.json",
+          "film_style": "linear_bar",
+          "captions_mode": "chapter_only",
+          "cinematic_finish": false,
+          "cinematic_finish_v5": true,
+          "cinematic_finish_v5_queued": false,
+          "avatar_policy": "no_synthetic",
+          "publish": {
+            "desktop": "~/Desktop/WitnessBC-Commercial.mp4",
+            "site": "witnessbc-site/assets/witnessbc-commercial.mp4",
+            "w1": "witnessbc-site/assets/w1-demo.mp4"
+          },
+          "accepted": [
+            "Real Proof Lab Playwright capture on :8090",
+            "ElevenLabs /with-timestamps VO (cached, lane-isolated)",
+            "Word-aligned ASS from synthesis — not Whisper",
+            "linear_bar · logo cold open · chapter-only captions",
+            "4K master upscale (3840x2160)",
+            "Extended broll dwell after VO (mux apad fix)",
+            "Six beats: CONTROL · SETUP · ISSUES · GOVERNANCE · TAMPER · PRICING",
+            "tamper_dwell_seconds 9.5 on TAMPER beat",
+            "Hide nav/banner/footer in commercial_capture",
+            "Outcome narration (BLOCK · ESCALATE · tamper-FAIL exact jargon)"
+          ],
+          "queued_v5": [],
+          "cinematic_v5": {
+            "status": "shipped",
+            "shipped_at": "2026-06-15",
+            "beats_file": "data/witnessbc-commercial-film-beats-v5.json",
+            "desktop": "~/Desktop/WitnessBC-Commercial-v5.mp4",
+            "receipt": "~/.sina/enforcement/witnessbc-commercial-film-receipt-v5.json",
+            "resolution": "3840x2160",
+            "features": ["cinematic_finish", "polish.sfx", "_cinematic_vf", "_mix_vo_sfx", "chapter_only captions"]
+          },
+          "tier_screen_studio": {
+            "status": "accepted_path",
+            "input": "~/Desktop/WitnessBC-Commercial-Master.mov",
+            "script": "scripts/witnessbc_commercial_film_ingest_master_v1.py",
+            "note": "Proof Lab :8090 — Screen Studio 4K preferred over Playwright for public hero"
+          },
+          "rejected_for_this_lane_only": [
+            "HeyGen / synthetic avatar as hero",
+            "Gemini enterprise jargon VO",
+            "Consumer TikTok framing as tier A",
+            "Noetfield / Certainty Report™ branding"
+          ]
+        },
+        "tier_C_social_30s": {
+          "status": "draft_saved",
+          "beats_file": "data/witnessbc-commercial-social-30s-beats-v1.json",
+          "avatar_policy": "optional_real_signoff_3s_only",
+          "note": "Cut from same capture + VO — not a strategy replacement"
+        }
+      }
+    },
+    "sourcea": {
+      "product": "SourceA · controlled agentic automation",
+      "repo": "SourceA",
+      "vo_lane": "sourcea",
+      "capture_base": "http://127.0.0.1:5180/sourcea",
+      "strategy": "W1/W2 enforcement proof · receipt · tamper-FAIL · investor signal",
+      "status": "active",
+      "assets": {
+        "tier_B_proof_32s": {
+          "status": "critic_blocked",
+          "critic_tier": "C",
+          "public_ship": false,
+          "shipped_at": null,
+          "style_reference": "STYLE-A3",
+          "style_match_brief": "archive/attachments/2026-06-15/STYLE_A3_SOURCEA_SHOT_MATCH_BRIEF_2026-06-15_v1.md",
+          "craft_bar": "STYLE-A5",
+          "beats_file": "data/commercial-short-film-beats-v1.json",
+          "film_style": "linear_orientation_hero",
+          "cinematic_finish": true,
+          "proof_density": true,
+          "captions_mode": "full",
+          "publish": {
+            "desktop": "~/Desktop/SourceA-Commercial-Short.mp4",
+            "site": "SourceA-landing/green-unified/assets/commercial-short-demo.mp4"
+          },
+          "accepted": [
+            "Outcome VO: Policy violated · Execution stopped · Tamper FAIL · Audit preserved",
+            "w1_sequence scripted BLOCK/ALLOW/tamper on proof.html",
+            "TRUST / Built-on logo wall beat",
+            "cinematic_finish + SFX enabled",
+            "Screen Studio master ingest path (sourcea_commercial_film_ingest_master_v1.py)",
+            "2560x1440 capture · 4K master"
+          ],
+          "queued": [
+            "Full tier A hero (120s+) separate beats file when W1 films",
+            "Remotion bridge (commercial-video-factory/) for title cards if needed"
+          ]
+        },
+        "tier_screen_studio": {
+          "status": "accepted_path",
+          "input": "~/Desktop/SourceA-Commercial-Master.mov",
+          "script": "scripts/sourcea_commercial_film_ingest_master_v1.py",
+          "note": "Linear bar — hand-polished capture preferred when automated capture insufficient"
+        }
+      }
+    },
+    "trustfield": {
+      "product": "TrustField · trustfield.ca",
+      "repo": "/Users/sinakazemnezhad/Desktop/TrustField Technologies",
+      "vo_lane": "sourcea",
+      "capture_base": "https://www.trustfield.ca",
+      "strategy": "MSB/RPAA urgency · pilot close · demo booking",
+      "status": "draft",
+      "assets": {
+        "tier_A_hero": {
+          "status": "draft_saved",
+          "beats_file": "data/trustfield-commercial-film-beats-v1.json",
+          "buyer": "MSB · fintech program operator · MLRO",
+          "cta": "trustfield.ca/demo · RPAA Readiness Pilot",
+          "avatar_policy": "real_founder_ok_tier_C · no_synthetic_hero_tier_A"
+        },
+        "tier_C_social": {
+          "status": "draft_saved",
+          "beats_file": "data/trustfield-commercial-film-beats-v1.json",
+          "note": "HeyGen/selfie tests routed here only — not WitnessBC"
+        }
+      }
+    },
+    "noetfield": {
+      "product": "Noetfield · Copilot governance (NF-001)",
+      "repo": "/Users/sinakazemnezhad/Desktop/Noetfield-All-Documents/Noetfield",
+      "vo_lane": "sourcea",
+      "capture_base": "TBD — Noetfield demo surface",
+      "strategy": "Copilot governance wedge · design partner · W3 NF-001",
+      "status": "draft",
+      "assets": {
+        "tier_A_hero": {
+          "status": "draft_saved",
+          "beats_file": "data/noetfield-commercial-film-beats-v1.json",
+          "buyer": "Copilot admin · CISO · IT governance",
+          "cta": "operations@noetfield.com",
+          "avatar_policy": "real_founder_ok_tier_C"
+        },
+        "tier_C_social": {
+          "status": "draft_saved",
+          "beats_file": "data/noetfield-commercial-social-30s-beats-v1.json",
+          "note": "Outcome VO — reject Gemini jargon in favor of GPT four-proof lines"
+        }
+      }
+    },
+    "fitness": {
+      "product": "Fitness lane (portfolio placeholder)",
+      "repo": "TBD",
+      "vo_lane": "sourcea",
+      "capture_base": "TBD",
+      "strategy": "Consumer/commercial — separate buyer from GRC",
+      "status": "placeholder",
+      "assets": {
+        "tier_C_social": {
+          "status": "draft_saved",
+          "beats_file": "data/fitness-commercial-film-beats-v1.json",
+          "avatar_policy": "real_founder_or_ugc_ok",
+          "note": "HeyGen / CapCut / selfie options fully open — no trust-product constraint"
+        }
+      }
+    },
+    "virlux": {
+      "product": "VIRLUX",
+      "repo": "TBD",
+      "status": "placeholder",
+      "assets": {
+        "tier_C_social": {
+          "status": "not_drafted",
+          "note": "Add beats file when demo surface + CTA locked"
+        }
+      }
+    }
+  },
+  "icp_identity_routing": {
+    "schema": "commercial-film-icp-identity-v1",
+    "principle": "One founder identity · presentation layer per ICP — never one video style for all buyers",
+    "human_ratio_lock": "10-20% human · 80-90% system proof",
+    "trust_levels": {
+      "L1_face_first": {
+        "label": "Institutional / Canada / funding",
+        "human_presence": "10-20%",
+        "film_type": "LinkedIn anchor 20-40s",
+        "command": "bash avatar-pipeline.sh linkedin",
+        "icps": ["Canada grants", "VC inbound", "partner credibility"]
+      },
+      "L2_product_first": {
+        "label": "GRC / enterprise trust",
+        "human_presence": "0%",
+        "film_type": "Playwright + ElevenLabs hero",
+        "commands": {
+          "witnessbc": "bash witnessbc-commercial-film.sh",
+          "witnessbc_v5": "python3 scripts/witnessbc_commercial_film_v1.py --beats data/witnessbc-commercial-film-beats-v5.json",
+          "sourcea": "bash sourcea-commercial-film.sh"
+        },
+        "icps": ["CISO", "GRC", "platform buyer", "SourceA investor proof"]
+      },
+      "L3_hybrid_hook": {
+        "label": "Tier C social · 0-3s face then product",
+        "human_presence": "0-3s hook",
+        "film_type": "Hybrid template (phase 2)",
+        "icps": ["LinkedIn pipeline", "TrustField top funnel", "Noetfield wedge social"],
+        "blocked_for_hero": ["witnessbc.tier_A_hero", "sourcea.tier_B_proof"]
+      },
+      "L4_digital_twin": {
+        "label": "Volume social / consumer",
+        "human_presence": "AI avatar from master image",
+        "film_type": "HeyGen v3 + ElevenLabs",
+        "commands": {
+          "linkedin": "bash avatar-pipeline.sh linkedin",
+          "trustfield": "bash avatar-pipeline.sh trustfield_social",
+          "noetfield": "bash avatar-pipeline.sh noetfield_social",
+          "fitness": "bash avatar-pipeline.sh fitness_social"
+        },
+        "icps": ["Fitness consumer", "TrustField social test", "founder volume posts"]
+      }
+    },
+    "advisor_idea_to_layer": {
+      "soonet_heygen_avatar": {
+        "layer": "L4_digital_twin",
+        "lanes": ["linkedin", "trustfield.tier_C", "fitness", "noetfield.tier_C"],
+        "never": ["witnessbc.tier_A_hero", "sourcea.tier_B_proof"]
+      },
+      "soonet_founder_selfie_option_c": {
+        "layer": "L1_face_first",
+        "lanes": ["linkedin", "trustfield.tier_C", "noetfield.tier_C"],
+        "policy": "real_face_only"
+      },
+      "gpt_hybrid_human_machine": {
+        "layer": "L3_hybrid_hook",
+        "phase": 2,
+        "lanes": ["witnessbc.tier_C_social", "trustfield.tier_C"]
+      },
+      "gpt_cinematic_sfx_dark_frame": {
+        "layer": "L2_product_first",
+        "phase": 1,
+        "lanes": ["witnessbc.tier_A_hero.v5", "sourcea.tier_B_proof"]
+      },
+      "opus_finishing_not_format": {
+        "layer": "L2_product_first",
+        "lanes": ["witnessbc", "sourcea"]
+      }
+    }
+  },
+  "tool_routing": {
+    "playwright_capture": {
+      "use": "All tier A/B — real product only",
+      "lanes": ["witnessbc", "sourcea", "trustfield", "noetfield"]
+    },
+    "elevenlabs_with_timestamps": {
+      "use": "All lanes — vo_lane partitions cache only",
+      "env": "~/.sina/elevenlabs-v1.env",
+      "cache_witnessbc": "~/.sina/film-voice-cache-witnessbc-v1/",
+      "cache_sourcea": "~/.sina/film-voice-cache-sourcea-v1/"
+    },
+    "ffmpeg_master": {
+      "use": "Grade · 4K upscale · concat · caption burn",
+      "script": "commercial_short_film_v1.py"
+    },
+    "screen_studio": {
+      "use": "Tier S/A — human-smooth master ingest (boundary, not blocker)",
+      "lanes": ["sourcea", "witnessbc"],
+      "inputs": {
+        "sourcea_commercial": "~/Desktop/SourceA-Commercial-Master.{mov,mp4}",
+        "sourcea_w1": "~/Desktop/SourceA-W1-Master.{mov,mp4}",
+        "witnessbc": "~/Desktop/WitnessBC-Commercial-Master.{mov,mp4}"
+      },
+      "n8n_workflow": "n8n/workflows/wf-film-screen-studio-ingest-v1.json"
+    },
+    "heygen_avatar": {
+      "use": "Tier C + LinkedIn anchor — 1080p photo avatar via v3 API",
+      "blocked_lanes": ["witnessbc.tier_A_hero"],
+      "reason": "Synthetic face on trust product = cognitive dissonance",
+      "pipeline": "scripts/avatar_pipeline_v1.py",
+      "wire": "scripts/heygen_avatar_wire_v1.py",
+      "setup": "scripts/heygen_avatar_setup_v1.py",
+      "config": "data/avatar-pipeline-config-v1.json"
+    },
+    "capcut_canva": {
+      "use": "Tier C motion graphics · fitness · quick tests",
+      "lanes": ["fitness", "trustfield.tier_C", "noetfield.tier_C"]
+    },
+    "remotion": {
+      "use": "Title cards · logo walls · optional motion — not hero capture replacement",
+      "path": "commercial-video-factory/"
+    }
+  },
+  "render_commands": {
+    "witnessbc_hero": "cd ~/Desktop/SourceA && bash witnessbc-commercial-film.sh --json",
+    "witnessbc_hero_v5_cinematic": "cd ~/Desktop/SourceA && python3 scripts/witnessbc_commercial_film_v1.py --beats data/witnessbc-commercial-film-beats-v5.json --json",
+    "witnessbc_finish_v5": "cd ~/Desktop/SourceA && python3 scripts/commercial_film_render_guard_v1.py finish --work-dir ~/.sina/witnessbc-commercial-film-work-v5 --beats data/witnessbc-commercial-film-beats-v5.json --json",
+    "witnessbc_social_30s": "cd ~/Desktop/SourceA && python3 scripts/witnessbc_commercial_film_v1.py --beats data/witnessbc-commercial-social-30s-beats-v1.json --json",
+    "sourcea_proof": "cd ~/Desktop/SourceA && bash sourcea-commercial-film.sh --json",
+    "sourcea_screen_studio_ingest": "cd ~/Desktop/SourceA && python3 scripts/sourcea_commercial_film_ingest_master_v1.py --json",
+    "sourcea_w1_screen_studio_ingest": "cd ~/Desktop/SourceA && python3 scripts/w1_film_ingest_master_v1.py --json",
+    "witnessbc_screen_studio_ingest": "cd ~/Desktop/SourceA && python3 scripts/witnessbc_commercial_film_ingest_master_v1.py --json",
+    "film_critic_circle": "cd ~/Desktop/SourceA && python3 scripts/commercial_film_critic_circle_v1.py --json",
+    "trustfield_draft": "cd ~/Desktop/SourceA && python3 scripts/commercial_short_film_v1.py --beats data/trustfield-commercial-film-beats-v1.json --product trustfield --json",
+    "noetfield_draft": "cd ~/Desktop/SourceA && python3 scripts/commercial_short_film_v1.py --beats data/noetfield-commercial-film-beats-v1.json --product noetfield --json",
+    "avatar_linkedin": "cd ~/Desktop/SourceA && bash avatar-pipeline.sh linkedin",
+    "avatar_trustfield_social": "cd ~/Desktop/SourceA && bash avatar-pipeline.sh trustfield_social",
+    "avatar_noetfield_social": "cd ~/Desktop/SourceA && bash avatar-pipeline.sh noetfield_social",
+    "avatar_setup_check": "cd ~/Desktop/SourceA && python3 scripts/heygen_avatar_setup_v1.py --check --json",
+    "avatar_voice_only": "cd ~/Desktop/SourceA && python3 scripts/avatar_pipeline_v1.py --lane linkedin --skip-heygen --json",
+    "avatar_mux": "cd ~/Desktop/SourceA && python3 scripts/avatar_pipeline_v1.py --lane linkedin --avatar-video ~/Downloads/heygen-export.mp4 --json"
+  },
+  "next_factory_work": [
+    "STOP renders — critic circle frozen until Screen Studio master",
+    "Run: python3 scripts/commercial_film_critic_circle_v1.py --json",
+    "Founder: Screen Studio record demo-enforcement-5min-v1.sh → ingest only",
+    "phase_3+: n8n orchestration + OpenRouter variations (factory-phases doc)",
+    "phase_4+: multi-platform publish APIs",
+    "phase_5+: film memory + rule evolution engine",
+    "bash scripts/validate-commercial-film-routing-v1.sh"
+  ]
+}

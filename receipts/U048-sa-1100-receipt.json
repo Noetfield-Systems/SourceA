@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U048",
+  "title": "Interest asset preview_promise per account SSOT",
+  "evidence": "check_preview_promise_ssot_row + --check-preview-promise-ssot PASS \u00b7 distinct preview_promise per fundmore/ocree/sourcea-factory",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:41:13Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

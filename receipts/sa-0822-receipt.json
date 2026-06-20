@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0822",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0822 VERIFY \u2014 scheduled_cadence UP-01..06 excluded from pending_total; ultra+task validator+fast PASS.",
+  "at": "2026-06-15T03:28:50Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

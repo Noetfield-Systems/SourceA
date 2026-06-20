@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0866 — Cross-check THREE_ZONE_HUB_SPINE — H2 not nested under H1 navigation law
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0866
+tests:
+  status: passed
+  output_snippet: validate-three-zone-hub-spine-t2-crossref-v1 PASS · canonical sa-0816 chain · T1 echo sa-0841 · H1=/ H2=/machines/ sibling
+reported_at: '2026-06-15T05:39:39Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

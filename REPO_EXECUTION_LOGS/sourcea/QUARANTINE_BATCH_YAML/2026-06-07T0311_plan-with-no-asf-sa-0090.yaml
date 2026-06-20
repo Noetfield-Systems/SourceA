@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0090 — Ensure PROGRAM_PROGRESS signals_auto synced_at updates on build
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0090
+tests:
+  status: passed
+  output_snippet: validate-phase-s0-ssot-alignment-v1 · SSOT machine proof
+reported_at: '2026-06-07T03:11:44Z'
+reporter: cursor-worker

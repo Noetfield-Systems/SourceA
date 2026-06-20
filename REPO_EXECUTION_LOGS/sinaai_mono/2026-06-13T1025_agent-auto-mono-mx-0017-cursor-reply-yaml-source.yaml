@@ -1,0 +1,22 @@
+schema_version: 1
+repo: sinaai_mono
+task: AGENT-AUTO-MONO mx-0017 — cursor-reply YAML + Source A chat battery
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - reports/agent-auto/DELIVERY/agent-auto-mono-2026-06-13-009-sourcea-chat-finish-receipt.md
+  - reports/agent-auto/AUDIT-LOG/agent-auto-mono-2026-06-13-sourcea-chat-mx-0017-pass.md
+  - ~/.sina/judge-center/latest-resolution-v1.json
+  - ~/.sina/thread-room/latest-curation-v1.json
+  diff_summary: ''
+  note: 'ASF: PLAN WITH NO ASF mx-0018'
+tests:
+  status: passed
+  command: bash scripts/full-e2e-mono.sh --skip-restart
+  output_snippet: E2E failed=0; never_silent ok; stack consolidation PASS; :8000 TrustField2Bot
+real_output: E2E failed=0; never_silent ok; stack consolidation PASS; :8000 TrustField2Bot
+reported_at: '2026-06-13T10:25:00Z'
+reporter: cursor-auto-mono
+execution_id: ''

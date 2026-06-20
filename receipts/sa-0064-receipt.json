@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0064",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0064 PASS \u2014 goal-dispatch-closure in_progress spine bridge (validate-goal-dispatch-closure-v1); validate-phase-s0-ssot-alignment-v1; critical 0",
+  "at": "2026-06-09T23:58:22Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

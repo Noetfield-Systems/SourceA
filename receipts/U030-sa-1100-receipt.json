@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U030",
+  "title": "Compile order law in compiler output receipt",
+  "evidence": "check_compile_sequence_field() + --check-compile-sequence PASS \u00b7 NF\u2225TF then SourceA on compile/disk/fleet receipts",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:26:45Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

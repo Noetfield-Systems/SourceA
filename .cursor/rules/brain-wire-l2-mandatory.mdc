@@ -1,0 +1,34 @@
+---
+description: L2 second layer — Worker · Researcher 2 · Maintainer 2 · Maintainer 3 MUST read Brain wire before act
+globs: scripts/**,agent-skills/**
+alwaysApply: false
+---
+
+# Brain wire — ALL L2 mandatory
+
+**Law:** `SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md` · ASF order 2026-06-14
+
+If you are **Layer 2** (Worker `fd67502f` · Researcher 2 `20b12e67` · Maintainer 2 `74f5ccab` · Maintainer 3 `3369d11c`) — **Brain decisions bind you before any build/heal/reply.**
+
+## Every session + every turn
+
+```bash
+python3 scripts/brain_governance_wire_v1.py --json
+```
+
+**Read:** `~/.sina/governance-brain-wire-v1.json` (alias `~/.sina/brain-wire-v1.json`)
+
+| Field | Rule |
+|-------|------|
+| `active_decisions[]` | Obey — Brain locked law in repository |
+| `queue_head.sa_id` | Current sa pick — not chat memory |
+| `reconciled_decision.stale=true` | **IGNORE** reconciled archaeology |
+
+## Forbidden
+
+- Headline queue/sa from chat when wire disagrees
+- Override Brain two-hub · factory FREEZE · OpenRouter-first queue
+- Ship hub law without reading wire (Maintainer 2/3)
+- Worker pickup without wire (`goal1_lane_broker pickup` injects `brain_wire` block)
+
+Governance Specialist (`e54ddfa8`) already wired — **same SSOT file** for L1 rank 2 and all L2 ranks 5–8.

@@ -1,0 +1,37 @@
+{
+  "name": "wf-judge-audit-batch",
+  "meta": {
+    "schema": "sina-n8n-workflow-stub-v1",
+    "status": "wired",
+    "pick": "Q-GOV-FAST-WIRE-v1 A",
+    "schedule": "0 6 * * *",
+    "law": "SINA_AUTOMATION_SPINE_AND_N8N_LOCKED_v1.md",
+    "cli": "judge_center_run_v1.py --write-form",
+    "note": "Weekly Judge batch · H2 receipt → H1 alarm strip"
+  },
+  "nodes": [
+    {
+      "name": "Schedule daily 6am",
+      "type": "n8n-nodes-base.cron",
+      "parameters": { "rule": { "interval": [{ "field": "cronExpression", "expression": "0 6 * * *" }] } }
+    },
+    {
+      "name": "Judge center batch",
+      "type": "n8n-nodes-base.executeCommand",
+      "parameters": {
+        "command": "cd ~/Desktop/SourceA/scripts && python3 judge_center_run_v1.py --chats 58148ac9,6245d9dd,e54ddfa8,74f5ccab,3369d11c,a53f3fa1 --write-form --json"
+      }
+    },
+    {
+      "name": "Governance full tier",
+      "type": "n8n-nodes-base.executeCommand",
+      "parameters": {
+        "command": "cd ~/Desktop/SourceA/scripts && python3 governance_center_run_v1.py --tier full --json"
+      }
+    }
+  ],
+  "connections": {
+    "Schedule daily 6am": { "main": [[{ "node": "Judge center batch", "type": "main", "index": 0 }]] },
+    "Judge center batch": { "main": [[{ "node": "Governance full tier", "type": "main", "index": 0 }]] }
+  }
+}

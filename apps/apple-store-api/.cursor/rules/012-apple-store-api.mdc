@@ -1,0 +1,14 @@
+---
+description: Apple Store API — StoreKit 2 · billing · push (PHASE_2)
+globs: apps/apple-store-api/**
+alwaysApply: false
+---
+
+# Apple Store API rules
+
+**Context:** `@docs/architecture_ledger.json`
+
+1. StoreKit 2 + server notifications only — no AI vendor SDKs here.  
+2. Validate all webhooks with Apple signed payload verification.  
+3. Push gateway notifies iOS when `campaign_automations.current_step = DISPATCHED`.  
+4. Never import from `apps/video-ad-factory/`.

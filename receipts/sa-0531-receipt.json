@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0531",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0531 VERIFY PASS \u2014 T1 TrustField vault note dedup via crossref sa-0506",
+  "at": "2026-06-14T15:08:45Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

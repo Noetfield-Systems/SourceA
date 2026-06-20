@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0850 — Compare Sina Command /legacy/ quarantine banner vs Hub 2 bookmark law
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0850
+tests:
+  status: passed
+  output_snippet: validate-h2-legacy-quarantine-banner-bookmark-t1-crossref-v1 PASS · canonical sa-0825 chain
+reported_at: '2026-06-15T05:16:52Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

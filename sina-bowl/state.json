@@ -1,0 +1,1448 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-06-19T19:25:47.292840+00:00",
+  "p0": {
+    "id": "P0-RUNRECEIPT",
+    "thread": "THREAD-FACTORY",
+    "title": "RunReceipt \u2014 agent run PASS/FAIL receipt",
+    "status": "active",
+    "priority": 1,
+    "phase": "Day 0",
+    "progress_pct": 100,
+    "next_action": "Lane G3 attest + TrustField pilot (founder Track)",
+    "hook": "product/PRODUCT_FACTORY_RESCORE_NO_ADS_LOCKED_v1.md",
+    "last_spine_success": {
+      "task_id": "a223d98e-d685-49d0-9095-8f13dfb2120b",
+      "action_id": "spine-smoke-echo",
+      "at": "2026-06-06T00:28:40.852783+00:00"
+    }
+  },
+  "locks": {
+    "p0_thread": "THREAD-FACTORY",
+    "p0_sku": "RunReceipt",
+    "founder_p0_id": "STRATEGIC-SLICE",
+    "p0_lock_doc": "product/PRODUCT_FACTORY_RESCORE_NO_ADS_LOCKED_v1.md",
+    "mergepack": "active_parallel_l1_evidence_and_growth",
+    "factory_scoring_note": "No-ads rule applied only to ranking 30 ideas \u2014 NOT a ban on MergePack SEO/paid/blitz",
+    "mergepack_growth": "authorized_per_MERGEPACK_10K_and_SEO_locked_when_ASF_activates",
+    "mergepack_note": "Ship L1 + KPI trio; SEO/paid/7-day blitz available when ASF runs that plan",
+    "m8_meaning": "SinaPromptOS_automation_only",
+    "m8_glossary": "ASF_MILESTONE_GLOSSARY_LOCKED_v1.md",
+    "ssot_upgrade_policy": "ASF updates locks when blockers clear \u2014 see PLAN_STATUS_VOCAB_LOCKED_v1.md"
+  },
+  "parallel_plans": [
+    {
+      "id": "P0-RUNRECEIPT",
+      "thread": "THREAD-FACTORY",
+      "title": "RunReceipt \u2014 agent run PASS/FAIL receipt",
+      "status": "active",
+      "priority": 1,
+      "phase": "Day 0",
+      "progress_pct": 100,
+      "next_action": "Lane G3 attest + TrustField pilot (founder Track)",
+      "hook": "product/PRODUCT_FACTORY_RESCORE_NO_ADS_LOCKED_v1.md",
+      "last_spine_success": {
+        "task_id": "a223d98e-d685-49d0-9095-8f13dfb2120b",
+        "action_id": "spine-smoke-echo",
+        "at": "2026-06-06T00:28:40.852783+00:00"
+      }
+    },
+    {
+      "id": "M8-WIRE",
+      "thread": "THREAD-WIRE",
+      "title": "DevBridge wire + full_m8 (automation M8)",
+      "status": "mostly_green",
+      "priority": 2,
+      "phase": "P2 closeout",
+      "progress_pct": 85,
+      "next_action": "Close g3_tailscale if still pending logged",
+      "hook": "WIRE_LANE_PROGRESS.md"
+    },
+    {
+      "id": "MERGEPACK-L1",
+      "thread": "THREAD-MERGEPACK",
+      "title": "MergePack L1 Evidence Factory (parallel)",
+      "status": "active_parallel",
+      "priority": 2,
+      "phase": "v1.3 + growth when ASF chooses",
+      "progress_pct": 85,
+      "next_action": "MP-SHIP + MP-PAY + KPI trio; then SEO/paid per 10K plan if ASF activates",
+      "hook": "~/Desktop/mergepack/START_HERE.md"
+    },
+    {
+      "id": "COMM-PARTNER-BOOT",
+      "thread": "THREAD-PORTFOLIO",
+      "title": "AI infra partnerships \u2014 controlled receipt wedge (LOCKED v3)",
+      "status": "active_parallel",
+      "priority": 2,
+      "phase": "Phase A \u2014 bootstrap credits (P05 done \u2192 P03\u2192P06\u2192P04\u2192P02)",
+      "progress_pct": 20,
+      "next_action": "P03 NVIDIA Inception apply \u00b7 P05 Voyage live (vault set \u00b7 629 chunks semantic:true)",
+      "p05_voyage_shipped": {
+        "at": "2026-06-15T00:31:55Z",
+        "evidence": "~/.sina/vector_index_v1.json voyage-reindex-p05 \u00b7 GD-L8 ok \u00b7 provider_payload semantic:true"
+      },
+      "hook": "AI_INFRA_PARTNERSHIP_PROPOSALS_LOCKED_v1.md"
+    },
+    {
+      "id": "PROMPTOS-DAILY",
+      "thread": "THREAD-PROMPTOS",
+      "title": "SinaPromptOS five-repo Lane 0",
+      "status": "background",
+      "priority": 3,
+      "phase": "Daily dispatch + ingest",
+      "progress_pct": 10,
+      "next_action": "dispatch-day.sh \u2192 paste \u2192 ingest per repo",
+      "hook": "founder/ASF_DAILY_CARD.md",
+      "last_spine_success": {
+        "task_id": "a7722990-0ebc-445a-91fb-830b81ec3950",
+        "action_id": "pos-status",
+        "at": "2026-06-05T08:00:39.089080+00:00"
+      }
+    },
+    {
+      "id": "SUPERBRAIN-P0",
+      "thread": "THREAD-SUPERBRAIN",
+      "title": "SoT Layer A + chat consolidation",
+      "status": "background",
+      "priority": 4,
+      "phase": "Phase 0",
+      "progress_pct": 15,
+      "next_action": "First raw chat drop \u2192 L2",
+      "hook": "SinaaiMonoRepo/SinaaiDataBase/docs/operational/chat-consolidation-pipeline.md"
+    },
+    {
+      "id": "PORTFOLIO",
+      "thread": "THREAD-PORTFOLIO",
+      "title": "TrustField / VIRLUX / 777 / Noetfield / Mono",
+      "status": "parallel",
+      "priority": 5,
+      "phase": "Per GLOBAL_BLOCKERS",
+      "progress_pct": null,
+      "next_action": "TrustField MSB P10 deferred (Phase 2 pick 2.05-B) \u00b7 Noetfield local-only until Layer A SSOT (2.07-B)",
+      "hook": "GLOBAL_BLOCKERS.json"
+    },
+    {
+      "id": "CURSOR-OS-PRO",
+      "thread": "THREAD-CURSOR-OS-PRO",
+      "title": "Cursor OS Pro App Store",
+      "status": "parallel",
+      "priority": 6,
+      "phase": "Separate lane",
+      "progress_pct": null,
+      "next_action": "Only when ASF switches thread",
+      "hook": "~/Desktop/Cursor OS Pro/docs/PARALLEL_LANE_BOUNDARIES.md"
+    },
+    {
+      "id": "INVESTOR",
+      "thread": "THREAD-INVESTOR",
+      "title": "Investor package FINAL",
+      "status": "done",
+      "priority": 10,
+      "phase": "Maintain only",
+      "progress_pct": 100,
+      "next_action": "None",
+      "hook": "~/Desktop/Sina-Investor-Package-FINAL/START_HERE.txt"
+    }
+  ],
+  "open_todos": [
+    {
+      "id": "T-WIRE-1",
+      "plan_id": "M8-WIRE",
+      "text": "Verify g3_tailscale + record if pending",
+      "status": "open",
+      "owner": "ASF"
+    },
+    {
+      "id": "T-IC-1",
+      "plan_id": "SUPERBRAIN-P0",
+      "text": "Review _organized/noetfield/spec \u2014 approve promote to Noetfield/docs",
+      "status": "open",
+      "owner": "ASF"
+    }
+  ],
+  "drift": [],
+  "blockers": [
+    {
+      "id": "C-001",
+      "title": "Multiple entry-point scripts"
+    },
+    {
+      "id": "C-002",
+      "title": "Duplicate doctrine \u2014 ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md"
+    },
+    {
+      "id": "C-003",
+      "title": "Duplicate doctrine \u2014 SINAAI_AGENT_STACK_POLICY_v1.md"
+    }
+  ],
+  "fleet_summary": {
+    "workspace_count": 27,
+    "session_count": 463,
+    "active_sessions_24h": 13
+  },
+  "fleet_workspaces": [
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-SourceA",
+      "display_name": "SourceA",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-SourceA",
+      "sessions": [
+        {
+          "transcript_id": "e6507c62-18c5-4a03-bb35-e804507dff18",
+          "updated_at": "2026-06-19T04:56:23.440145+00:00",
+          "size_kb": 4953.1,
+          "preview": "<user_query> HI YOU ARE THE BRAIN OF SOURCE A </user_query>",
+          "subagent_count": 8
+        },
+        {
+          "transcript_id": "e7def044-dcad-4509-883b-e0418d265370",
+          "updated_at": "2026-06-19T04:55:30.023126+00:00",
+          "size_kb": 232.8,
+          "preview": "<user_query> Brain \u00b7 route \u00b7 cloud-first </user_query>",
+          "subagent_count": 1
+        },
+        {
+          "transcript_id": "b0b79f38-a472-406c-97cc-8d7dcff87d1d",
+          "updated_at": "2026-06-19T04:53:02.865612+00:00",
+          "size_kb": 1011.2,
+          "preview": "<user_query> ORIENTAION </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "baabacf8-46b1-4196-b9a9-7c044b918fa5",
+          "updated_at": "2026-06-19T04:47:52.656876+00:00",
+          "size_kb": 2596.8,
+          "preview": "<user_query> ORIENTAITION </user_query>",
+          "subagent_count": 4
+        },
+        {
+          "transcript_id": "812f2f5c-18dd-4743-bb79-00685e6c56ab",
+          "updated_at": "2026-06-18T10:17:09.549819+00:00",
+          "size_kb": 0.1,
+          "preview": "",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "9371bf31-b8cb-42dd-a3f8-a6dc7b05c220",
+          "updated_at": "2026-06-18T10:08:48.265355+00:00",
+          "size_kb": 0.3,
+          "preview": "",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c8621756-c3b2-4ae5-978e-defed1bc3039",
+          "updated_at": "2026-06-17T05:08:19.463233+00:00",
+          "size_kb": 1736.5,
+          "preview": "<user_query> ORIENTATION </user_query>",
+          "subagent_count": 2
+        },
+        {
+          "transcript_id": "14acbe8e-614a-4543-9190-bb124ecdaa2a",
+          "updated_at": "2026-06-16T00:43:08.687013+00:00",
+          "size_kb": 4779.9,
+          "preview": "<user_query> Read brain-os/START-HERE and SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md then run bash scripts\u2026",
+          "subagent_count": 2
+        },
+        {
+          "transcript_id": "6245d9dd-c425-4ef3-affb-a372ba4383b8",
+          "updated_at": "2026-06-16T00:42:24.783950+00:00",
+          "size_kb": 6818.8,
+          "preview": "<user_query> YOU ARE COMMERCIAL GOAL SPECIALIST \u2014 mission-bound money intelligence. NOT execution authority. MANDATORY R\u2026",
+          "subagent_count": 25
+        },
+        {
+          "transcript_id": "ee28f605-326c-44ad-bb00-f0b67f5f2e0d",
+          "updated_at": "2026-06-15T22:45:42.622140+00:00",
+          "size_kb": 38.2,
+          "preview": "<user_query> You are working in /Users/sinakazemnezhad/Desktop/SourceA on WitnessBC commercial film only. Context: - Cla\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ca6bc58c-4554-4fd7-83b5-aeccba4bfeb1",
+          "updated_at": "2026-06-15T22:43:46.086297+00:00",
+          "size_kb": 4.7,
+          "preview": "<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no f\u2026",
+          "subagent_count": 1
+        },
+        {
+          "transcript_id": "e216e1dc-4c20-4b49-b3f6-e1cb729cf083",
+          "updated_at": "2026-06-15T22:43:38.803904+00:00",
+          "size_kb": 30.0,
+          "preview": "<plugin_info kind=\"matched_installed\"> display_name: Linear description: Cursor Plugin for Linear - enables AI assistant\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "46b987ba-9491-4a29-8d97-a816b1576672",
+          "updated_at": "2026-06-15T20:14:02.327302+00:00",
+          "size_kb": 19.1,
+          "preview": "<plugin_info kind=\"matched_installed\"> display_name: Linear description: Cursor Plugin for Linear - enables AI assistant\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f74e7213-dc1a-4bd9-b88c-f999b528d2a2",
+          "updated_at": "2026-06-15T19:45:47.843489+00:00",
+          "size_kb": 81.2,
+          "preview": "<user_query> Execute end-to-end in /Users/sinakazemnezhad/Desktop/SourceA: **User request:** Upgrade WitnessBC site to *\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a8cf858c-1766-4b6f-8a26-a44e8244a2ed",
+          "updated_at": "2026-06-15T08:04:39.342651+00:00",
+          "size_kb": 42.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 implementation lane only. WORKSPACE (hard lock): /Users/sinakazemnezhad/Desktop/So\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a1e5cc6d-90d2-421b-b81b-2d148db178e7",
+          "updated_at": "2026-06-15T06:54:11.275655+00:00",
+          "size_kb": 13.6,
+          "preview": "<user_query> Read brain-os/ START-HERE and SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md Then run: bash scrip\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "58148ac9-135c-448d-b428-b57988738fa3",
+          "updated_at": "2026-06-15T06:35:37.798927+00:00",
+          "size_kb": 11882.9,
+          "preview": "<user_query> YOU ARE THE BRAIN \u2014 successor chat. The old heavy thread was SinaaiDataBase workspace (first assistant). AS\u2026",
+          "subagent_count": 13
+        },
+        {
+          "transcript_id": "e54ddfa8-531b-40de-8443-d8167f80a614",
+          "updated_at": "2026-06-15T05:16:45.799435+00:00",
+          "size_kb": 69.0,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 2
+        },
+        {
+          "transcript_id": "a72251ae-8888-4e8d-9a42-fd1e73397b45",
+          "updated_at": "2026-06-15T04:00:10.811123+00:00",
+          "size_kb": 140.5,
+          "preview": "<user_query> HI WORKER 3 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "fd67502f-5f95-43b8-bdfc-f2dba306f828",
+          "updated_at": "2026-06-15T03:24:39.598144+00:00",
+          "size_kb": 193.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 3
+        },
+        {
+          "transcript_id": "85dd7cd4-0977-4cfc-9449-ea278ea0baee",
+          "updated_at": "2026-06-14T20:30:27.560520+00:00",
+          "size_kb": 1936.2,
+          "preview": "<user_query> MANDATORY READ: ~/Desktop/SourceA/os/chat-handoffs/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00a74 YOU ARE RESEAR\u2026",
+          "subagent_count": 3
+        },
+        {
+          "transcript_id": "20b12e67-f35f-4ab1-aad0-f94bb5c6a1b0",
+          "updated_at": "2026-06-14T20:11:07.355548+00:00",
+          "size_kb": 1375.4,
+          "preview": "<user_query> YOU ARE RESEARCH ACQUISITOR v2 \u2014 external landscape expansion. NOT a worker. NOT Execution Core. ZERO execu\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "dfd9c459-7aeb-48f9-9bc4-9fa6dd438e61",
+          "updated_at": "2026-06-09T12:19:48.215093+00:00",
+          "size_kb": 61.7,
+          "preview": "<user_query> HI REASEARCHER EXTERNAL 3 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "14224249-38bf-43bb-ae98-1e480fc2638e",
+          "updated_at": "2026-06-09T10:05:37.373827+00:00",
+          "size_kb": 288.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c4b8b349-6ce4-400e-a144-a628a3f31b86",
+          "updated_at": "2026-06-09T05:20:18.437677+00:00",
+          "size_kb": 4051.6,
+          "preview": "<user_query> HANDOFF v1 \u2014 sa-0108 (dispatch policy cross-check) New agent. No inherited chat weight. Brain lane already \u2026",
+          "subagent_count": 4
+        },
+        {
+          "transcript_id": "f4e17391-3861-43a2-a28b-523cc6cc8974",
+          "updated_at": "2026-06-08T03:05:16.964755+00:00",
+          "size_kb": 17.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f5d5ea71-e266-45ee-b56f-8308b127220f",
+          "updated_at": "2026-06-08T03:03:35.577855+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> Reply with exactly: WORKER_CHAT_PROBE_OK </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f329ba27-39fa-40f0-b207-c1fd8cacdb55",
+          "updated_at": "2026-06-08T02:59:03.569988+00:00",
+          "size_kb": 20.9,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f7d5bc9f-098b-404b-a741-e101ca359935",
+          "updated_at": "2026-06-08T02:54:17.450574+00:00",
+          "size_kb": 13.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "91b2cf6d-b81c-4636-bd3b-7539669b9e5a",
+          "updated_at": "2026-06-08T02:52:38.970641+00:00",
+          "size_kb": 9.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ef9f3c91-ca93-4cbe-ae0e-ede0fe05cc37",
+          "updated_at": "2026-06-08T02:50:40.208770+00:00",
+          "size_kb": 11.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "14cdcec4-766e-4e14-bb52-a47a945a67c4",
+          "updated_at": "2026-06-08T02:47:21.324813+00:00",
+          "size_kb": 8.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d72ed8c3-1384-400d-b71f-5f2260fbbf09",
+          "updated_at": "2026-06-08T02:45:31.973432+00:00",
+          "size_kb": 9.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "98c293c5-e284-423f-9d90-217f2a2c4455",
+          "updated_at": "2026-06-08T02:43:48.051305+00:00",
+          "size_kb": 20.0,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d459bedb-06fd-456a-a470-4a0119de23a0",
+          "updated_at": "2026-06-08T02:41:38.099185+00:00",
+          "size_kb": 11.7,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f6dee36d-5eae-4ae6-85ea-33ea9cf13741",
+          "updated_at": "2026-06-08T02:39:46.400199+00:00",
+          "size_kb": 9.9,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "bb09b764-82cb-4bc1-8961-c0f4baa3b4d4",
+          "updated_at": "2026-06-08T02:37:55.369159+00:00",
+          "size_kb": 21.9,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8b8e3833-af5d-4aa9-aa7c-69ba8c802c10",
+          "updated_at": "2026-06-08T02:33:47.909582+00:00",
+          "size_kb": 13.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "13e9ed47-2c16-45ba-9cab-b0508987be0c",
+          "updated_at": "2026-06-08T02:31:30.969320+00:00",
+          "size_kb": 14.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b69c8640-5d5b-4667-b3fb-9e43a33b6b8c",
+          "updated_at": "2026-06-08T02:12:32.995451+00:00",
+          "size_kb": 4.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f3b97b06-1e46-4851-81c9-4eeaa1ab6b44",
+          "updated_at": "2026-06-08T01:05:48.479736+00:00",
+          "size_kb": 13.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "82a65831-79ae-459e-88fd-697567500472",
+          "updated_at": "2026-06-08T01:01:26.887172+00:00",
+          "size_kb": 12.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d5580fa3-8a65-4423-86cf-6144194d2953",
+          "updated_at": "2026-06-08T00:59:20.661031+00:00",
+          "size_kb": 11.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b67fd70b-4d8d-47b7-b88d-478341c0db4c",
+          "updated_at": "2026-06-08T00:55:32.910567+00:00",
+          "size_kb": 17.7,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "35d2b589-11fd-47e7-9373-b7b7be4b8126",
+          "updated_at": "2026-06-08T00:53:21.814478+00:00",
+          "size_kb": 10.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "309bc14d-2323-4722-b608-13859b971aca",
+          "updated_at": "2026-06-08T00:51:39.338089+00:00",
+          "size_kb": 11.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "fd8c2cce-ceff-4331-ade2-fcfb4242d80b",
+          "updated_at": "2026-06-08T00:48:12.116574+00:00",
+          "size_kb": 11.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1a95947e-29a7-4bd8-afb6-1dcd6cf8ab61",
+          "updated_at": "2026-06-08T00:36:33.971253+00:00",
+          "size_kb": 10.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "127d9ac7-550e-4679-8482-71a020c5bf4f",
+          "updated_at": "2026-06-08T00:34:54.798416+00:00",
+          "size_kb": 11.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f51568f0-5d88-40f2-ae0e-b199bc1fd865",
+          "updated_at": "2026-06-08T00:31:34.172134+00:00",
+          "size_kb": 11.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e92838d6-6e3f-4f86-ac5a-914ba872d9db",
+          "updated_at": "2026-06-08T00:29:36.525225+00:00",
+          "size_kb": 10.9,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3f9a8091-6f89-448b-a0fd-fbdbf39d7829",
+          "updated_at": "2026-06-08T00:27:48.828408+00:00",
+          "size_kb": 10.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "adde34b3-29a5-4feb-8e1e-8331ed6712b9",
+          "updated_at": "2026-06-08T00:24:52.950230+00:00",
+          "size_kb": 11.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a88a7ab4-59be-4aaf-98df-6bd33d694237",
+          "updated_at": "2026-06-08T00:22:47.293660+00:00",
+          "size_kb": 12.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "2da1ec2e-db8f-4e94-b410-daa55865bc01",
+          "updated_at": "2026-06-08T00:19:15.035288+00:00",
+          "size_kb": 12.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1bbf68f0-81c4-450b-b4b4-0cb4fab1347f",
+          "updated_at": "2026-06-08T00:15:36.781904+00:00",
+          "size_kb": 16.0,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "9a8e17e0-cd57-46b1-a2ef-c8e41d4cf2b4",
+          "updated_at": "2026-06-08T00:13:01.673094+00:00",
+          "size_kb": 4.7,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3c7c7ef6-1960-4776-b39f-194370e074ad",
+          "updated_at": "2026-06-08T00:06:28.557851+00:00",
+          "size_kb": 6.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "4b1759c4-8e54-4aaf-8e98-35c423b93e77",
+          "updated_at": "2026-06-08T00:05:36.958028+00:00",
+          "size_kb": 10.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e7a40d1b-34d1-4177-9dbe-2ace428faa26",
+          "updated_at": "2026-06-08T00:02:25.099064+00:00",
+          "size_kb": 10.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ed1718ab-a7fa-45fa-895d-730010169caa",
+          "updated_at": "2026-06-07T23:07:26.117983+00:00",
+          "size_kb": 7.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1f626e00-5aff-4e1e-aaa3-07d72714ac4b",
+          "updated_at": "2026-06-07T15:33:25.065299+00:00",
+          "size_kb": 10.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d9cc5220-e0b0-4ff0-b7b6-21ed8b33c357",
+          "updated_at": "2026-06-07T15:31:48.025112+00:00",
+          "size_kb": 11.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "798f4d68-0c55-41b8-88fb-0e309996f0a5",
+          "updated_at": "2026-06-07T15:29:11.454084+00:00",
+          "size_kb": 14.7,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6415a6b8-48a7-4b40-8806-44c64d17b434",
+          "updated_at": "2026-06-07T15:26:20.052629+00:00",
+          "size_kb": 15.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6a130250-c4e9-4fbd-b018-1a31f312cd0f",
+          "updated_at": "2026-06-07T15:23:30.780658+00:00",
+          "size_kb": 11.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "54c78ae3-d9d4-493d-833a-33de7bc54e98",
+          "updated_at": "2026-06-07T15:21:13.157996+00:00",
+          "size_kb": 12.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "70edf85a-a771-4140-8067-b5d23d90ceb5",
+          "updated_at": "2026-06-07T15:18:35.870352+00:00",
+          "size_kb": 9.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "16a5ed50-8420-41da-b466-d41cf4fdaca7",
+          "updated_at": "2026-06-07T15:17:02.028443+00:00",
+          "size_kb": 10.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d658d7a8-f9ff-412c-8b76-d4f24f5a1331",
+          "updated_at": "2026-06-07T15:14:48.639813+00:00",
+          "size_kb": 12.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "4637fdde-69f4-490b-8f36-d59b87ddf4d5",
+          "updated_at": "2026-06-07T15:11:23.781269+00:00",
+          "size_kb": 10.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "eb50439e-79e8-4289-b1ff-60db0e6a0845",
+          "updated_at": "2026-06-07T15:01:20.097171+00:00",
+          "size_kb": 13.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "23a9422b-bc10-4153-93e9-64af605b0919",
+          "updated_at": "2026-06-07T14:58:54.706808+00:00",
+          "size_kb": 18.0,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "87b7e5d4-595e-4152-acf6-f10cb4bde373",
+          "updated_at": "2026-06-07T07:32:10.668280+00:00",
+          "size_kb": 8.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a3b2e04a-a301-4edb-bb99-0e3871340bba",
+          "updated_at": "2026-06-07T07:28:37.360081+00:00",
+          "size_kb": 10.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "36cb5024-47f2-4469-ac3a-617500a8d26a",
+          "updated_at": "2026-06-07T06:59:56.676224+00:00",
+          "size_kb": 9.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b28460b0-8c5e-419a-b3e8-dce3b6f6f257",
+          "updated_at": "2026-06-07T06:57:57.283395+00:00",
+          "size_kb": 9.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "fce1f8a6-2995-44f5-a2f8-026b2e4d7c6d",
+          "updated_at": "2026-06-07T06:56:05.348557+00:00",
+          "size_kb": 9.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b31a07af-15b3-43de-87d7-78ff361f948e",
+          "updated_at": "2026-06-07T06:54:11.508487+00:00",
+          "size_kb": 18.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "cf31bc1d-fb73-4dd6-a4bb-0c77bcef813a",
+          "updated_at": "2026-06-07T06:50:56.315819+00:00",
+          "size_kb": 10.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "2eda2f31-ac7f-4348-9757-5dacb9894321",
+          "updated_at": "2026-06-07T06:49:14.677402+00:00",
+          "size_kb": 13.0,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "87090a41-69f4-43bb-b663-e89a4b6fbbc6",
+          "updated_at": "2026-06-07T06:44:50.085578+00:00",
+          "size_kb": 10.9,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3eb27660-4011-4247-b70b-77d8cf890f92",
+          "updated_at": "2026-06-07T06:38:35.340148+00:00",
+          "size_kb": 12.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "0ff7b910-d419-4d5a-9179-e224d3d6f376",
+          "updated_at": "2026-06-07T06:36:00.803135+00:00",
+          "size_kb": 9.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d4da0c0f-fbae-46ba-afcb-3eb6265042df",
+          "updated_at": "2026-06-07T06:34:07.660053+00:00",
+          "size_kb": 13.7,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "dcb1a8c3-b98c-4188-9631-78f48bb7b7d3",
+          "updated_at": "2026-06-07T06:31:34.262540+00:00",
+          "size_kb": 11.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5acf5fba-beb1-48a8-b558-2a53788f7b55",
+          "updated_at": "2026-06-07T06:29:30.934995+00:00",
+          "size_kb": 9.7,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b2caf4f9-3cf8-4d76-a7cf-334ea59912ec",
+          "updated_at": "2026-06-07T06:28:18.323650+00:00",
+          "size_kb": 10.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "de03783a-1a65-4ccd-89e8-91a6548ad210",
+          "updated_at": "2026-06-07T06:25:15.676655+00:00",
+          "size_kb": 9.7,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "9088dc7f-f970-463f-8978-194cc7354a03",
+          "updated_at": "2026-06-07T06:22:12.285673+00:00",
+          "size_kb": 7.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "12a77d1f-f0c6-4b74-a9b0-25f44380adb0",
+          "updated_at": "2026-06-07T06:20:49.858670+00:00",
+          "size_kb": 7.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "0a0d3e7c-7e02-4c68-90e0-6de5c3d4b930",
+          "updated_at": "2026-06-07T06:15:10.368941+00:00",
+          "size_kb": 6.9,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3f98f0f2-e5d5-46c0-bd8c-b359e78fc306",
+          "updated_at": "2026-06-07T05:53:11.124508+00:00",
+          "size_kb": 9.7,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f50ba9fd-4e32-4eb5-8dca-b6999ba8fd4b",
+          "updated_at": "2026-06-07T05:51:20.691303+00:00",
+          "size_kb": 4.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7eb57560-0151-4fb1-9ff4-40f21e8228c0",
+          "updated_at": "2026-06-07T05:50:15.785581+00:00",
+          "size_kb": 10.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "48da53c4-c30d-4897-a414-1daa4c798442",
+          "updated_at": "2026-06-07T05:48:55.892777+00:00",
+          "size_kb": 4.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e10bf29a-52b9-4180-ba18-d05856e420c3",
+          "updated_at": "2026-06-07T05:48:12.338657+00:00",
+          "size_kb": 10.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1902e4e2-5a56-4e10-8d82-f2ff30865e12",
+          "updated_at": "2026-06-07T05:46:37.559553+00:00",
+          "size_kb": 6.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "4995e396-e942-4b93-b15c-790b47fb7497",
+          "updated_at": "2026-06-07T05:46:12.553649+00:00",
+          "size_kb": 9.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8ea4cd4a-e1c3-44b8-8c4e-526d879d1695",
+          "updated_at": "2026-06-07T05:44:29.081201+00:00",
+          "size_kb": 4.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "995560ee-4990-40c3-ad93-91cab1d98010",
+          "updated_at": "2026-06-07T05:43:52.415313+00:00",
+          "size_kb": 5.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "275238d2-91b5-4dd8-a23a-fca226c9dce0",
+          "updated_at": "2026-06-07T05:41:14.636763+00:00",
+          "size_kb": 8.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7c31d017-39b5-451c-846b-dc5cf93e3383",
+          "updated_at": "2026-06-07T05:40:29.913613+00:00",
+          "size_kb": 8.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1025a145-a5ab-41aa-ada1-c98f5358eab2",
+          "updated_at": "2026-06-07T05:39:46.088977+00:00",
+          "size_kb": 5.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "9f70b8bc-24e8-4fa0-81a7-bf1730f0627c",
+          "updated_at": "2026-06-07T05:39:41.015037+00:00",
+          "size_kb": 7.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1f85db60-7f9c-42f7-8654-998b1b8ebd78",
+          "updated_at": "2026-06-07T05:39:13.436697+00:00",
+          "size_kb": 5.0,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "03230a26-3ae7-4533-90ba-18521c2c1604",
+          "updated_at": "2026-06-07T05:38:30.727933+00:00",
+          "size_kb": 6.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "375eff02-fcb0-47e8-a3b5-36c6590c2678",
+          "updated_at": "2026-06-07T05:37:25.234321+00:00",
+          "size_kb": 11.0,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "52a9b06a-065d-4d0f-8df2-04354a4601c8",
+          "updated_at": "2026-06-07T05:34:49.452574+00:00",
+          "size_kb": 10.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b9bc4ef6-a119-44da-9fce-9fb5ead1f5b1",
+          "updated_at": "2026-06-07T05:33:39.283159+00:00",
+          "size_kb": 15.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a14299bf-58ce-4616-bd92-5a7d4a6ec7a9",
+          "updated_at": "2026-06-07T05:24:41.479012+00:00",
+          "size_kb": 11.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "fb94133a-c685-4fe9-98dd-4f2f771680ed",
+          "updated_at": "2026-06-07T05:24:01.484166+00:00",
+          "size_kb": 11.0,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "81df1c26-7f42-4954-9318-8b2810b46071",
+          "updated_at": "2026-06-07T05:23:21.578607+00:00",
+          "size_kb": 12.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8c3fd0eb-c9f0-47dc-9947-e17031e712c1",
+          "updated_at": "2026-06-07T05:22:41.297327+00:00",
+          "size_kb": 13.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "48e5bfa0-3f05-4c73-819f-dbf37357a190",
+          "updated_at": "2026-06-07T05:21:52.230339+00:00",
+          "size_kb": 12.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ca478649-ea38-48d6-ab27-8a3fb015f40b",
+          "updated_at": "2026-06-07T05:21:04.936327+00:00",
+          "size_kb": 10.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ff9a1f1c-ad16-4d00-9f6a-c2b2dcbb3747",
+          "updated_at": "2026-06-07T05:18:25.096677+00:00",
+          "size_kb": 16.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "cd5b3054-b740-4aa2-8e85-5da01238402a",
+          "updated_at": "2026-06-07T05:09:35.833377+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> Reply with exactly one line: AGENT_CLI_OK </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 118,
+      "last_active": "2026-06-19T04:56:23.440145+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-Virlux",
+      "display_name": "Virlux",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-Virlux",
+      "sessions": [
+        {
+          "transcript_id": "33aa1426-521b-4aa3-a4d2-3a2a3a9addcb",
+          "updated_at": "2026-06-19T04:36:27.761620+00:00",
+          "size_kb": 121.6,
+          "preview": "<user_query> CHECK THE EVERYTHING ANDGIVE THE SUMMARY REPORT </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d09ef6b2-cd6f-4a7b-8699-d13201224ee7",
+          "updated_at": "2026-06-13T09:58:56.583923+00:00",
+          "size_kb": 4337.9,
+          "preview": "<user_query> search about this website: kavodax.com </user_query>",
+          "subagent_count": 10
+        },
+        {
+          "transcript_id": "d0198c79-7108-4177-aeb5-a83c3024a5db",
+          "updated_at": "2026-06-03T08:44:41.449008+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> DEVBRIDGE G1 VERIFY PING \u2014 IGNORE </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "09128743-d44d-4b23-9021-d55690417e8b",
+          "updated_at": "2026-06-03T08:43:35.574665+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> DEVBRIDGE DESK VERIFY \u2014 IGNORE </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 4,
+      "last_active": "2026-06-19T04:36:27.761620+00:00"
+    },
+    {
+      "slug": "empty-window",
+      "display_name": "empty-window",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/empty-window",
+      "sessions": [
+        {
+          "transcript_id": "e6507c62-18c5-4a03-bb35-e804507dff18",
+          "updated_at": "2026-06-18T22:34:41.645077+00:00",
+          "size_kb": 644.9,
+          "preview": "<user_query> HI YOU ARE THE BRAIN OF SOURCE A </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "baabacf8-46b1-4196-b9a9-7c044b918fa5",
+          "updated_at": "2026-06-18T10:49:42.324366+00:00",
+          "size_kb": 433.5,
+          "preview": "<user_query> ORIENTAITION </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5a4d06a9-1688-4450-84fe-42bbbdb95c92",
+          "updated_at": "2026-06-18T08:15:06.227394+00:00",
+          "size_kb": 0.3,
+          "preview": "",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "90a99155-720b-4bbb-8467-b61798f4960e",
+          "updated_at": "2026-06-17T15:18:22.045517+00:00",
+          "size_kb": 48.6,
+          "preview": "<user_query> WORKER FOR NOETFIELD.COM </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "0908e2e8-6ecf-409a-bede-91b68b8289b5",
+          "updated_at": "2026-06-17T05:45:11.791370+00:00",
+          "size_kb": 5855.2,
+          "preview": "<user_query> Where is the history? Where is the history of our chat? </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7799defb-da03-4dab-a90f-2432927a86bd",
+          "updated_at": "2026-06-17T03:14:58.120035+00:00",
+          "size_kb": 129.7,
+          "preview": "<user_query> You are CREED EXCHANGE product worker \u2014 NOT the CREED factory worker. Identity: CREED EXCHANGE \u00b7 port 5191 \u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c8621756-c3b2-4ae5-978e-defed1bc3039",
+          "updated_at": "2026-06-16T09:49:49.570508+00:00",
+          "size_kb": 1734.7,
+          "preview": "<user_query> ORIENTATION </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6245d9dd-c425-4ef3-affb-a372ba4383b8",
+          "updated_at": "2026-06-15T20:14:05.819975+00:00",
+          "size_kb": 4144.8,
+          "preview": "<user_query> YOU ARE COMMERCIAL GOAL SPECIALIST \u2014 mission-bound money intelligence. NOT execution authority. MANDATORY R\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c5fdddeb-362c-4b83-8f46-dd134170384c",
+          "updated_at": "2026-06-15T06:52:20.779437+00:00",
+          "size_kb": 4957.3,
+          "preview": "<user_query> build full stack end to end for a startup tnaming trustfield technologies rpaa register and later willing M\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "58148ac9-135c-448d-b428-b57988738fa3",
+          "updated_at": "2026-06-14T15:14:17.453440+00:00",
+          "size_kb": 320.2,
+          "preview": "<user_query> YOU ARE THE BRAIN \u2014 successor chat. The old heavy thread was SinaaiDataBase workspace (first assistant). AS\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e54ddfa8-531b-40de-8443-d8167f80a614",
+          "updated_at": "2026-06-14T12:59:42.027382+00:00",
+          "size_kb": 1220.1,
+          "preview": "<user_query> YOU ARE GOVERNANCE GOAL SPECIALIST \u2014 mission-bound legal/risk intelligence. NOT execution authority. MANDAT\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "fd67502f-5f95-43b8-bdfc-f2dba306f828",
+          "updated_at": "2026-06-13T11:11:50.195981+00:00",
+          "size_kb": 3055.3,
+          "preview": "<user_query> @sa-0129_verify_closeout_b50f7c44.plan.md (1-196) </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a53f3fa1-081c-4373-bc55-76feb501a61d",
+          "updated_at": "2026-06-11T18:21:34.847575+00:00",
+          "size_kb": 21291.8,
+          "preview": "<user_query> \u062e\u0648\u0628 \u067e\u0631\u0648\u0698\u0647 \u0628\u0639\u062f\u06cc \u0641\u0642\u0637 \u0628\u0627\u06cc\u062f \u0645\u062a\u0645\u0631\u06a9\u0632 \u0633\u0627\u062e\u062a\u0646 \u0627\u0648\u0646 \u062f\u06cc\u062a\u0627\u0628\u06cc\u0633 \u0634\u062e\u0635\u06cc\u06cc \u06a9\u0647 \u062a\u0648\u0636\u06cc\u062d \u062f\u0627\u062f\u0645 \u0628\u0634\u0647. \u0647\u0645\u0648\u0646 \u062f\u06cc\u062a\u0627\u0628\u06cc\u0633\u06cc \u06a9\u0647 \u0642\u0631\u0627\u0631\u0647 \u0628\u0631\u0627\u06cc \u0627\u0648\u0646 \u0627\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "85dd7cd4-0977-4cfc-9449-ea278ea0baee",
+          "updated_at": "2026-06-10T17:52:07.153687+00:00",
+          "size_kb": 709.6,
+          "preview": "<user_query> MANDATORY READ: ~/Desktop/SourceA/os/chat-handoffs/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00a74 YOU ARE RESEAR\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "40aa7c3f-ba37-4313-a577-5b10e8f9975a",
+          "updated_at": "2026-06-08T00:25:24.735990+00:00",
+          "size_kb": 2280.6,
+          "preview": "<user_query> analyze this and research this deep and clear and high understing about the whole technical and business mo\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c4b8b349-6ce4-400e-a144-a628a3f31b86",
+          "updated_at": "2026-06-06T18:02:44.617008+00:00",
+          "size_kb": 418.1,
+          "preview": "<user_query> HANDOFF v1 \u2014 sa-0108 (dispatch policy cross-check) New agent. No inherited chat weight. Brain lane already \u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b54e2df3-aafb-4cca-b0ed-002fe568a75e",
+          "updated_at": "2026-06-06T03:27:00.914706+00:00",
+          "size_kb": 81.2,
+          "preview": "<user_query> ok read the sourceA Folder in desktop and understand your situation and role and goals in the ecosystem tre\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8087c94f-5260-4742-87bf-f32c21a8b0cf",
+          "updated_at": "2026-06-03T04:03:01.017044+00:00",
+          "size_kb": 278.1,
+          "preview": "<user_query> Clone the provided interface with ~99% functional similarity. Do not mention or reference the source, origi\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3369d11c-791f-48dd-98cd-0a62c123a98c",
+          "updated_at": "2026-06-01T09:58:28.577121+00:00",
+          "size_kb": 1170.4,
+          "preview": "<user_query> Where is the history? Where is the history of our chat? </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6964f568-e5fa-4471-95a7-6949fe208d3a",
+          "updated_at": "2026-06-01T04:42:19.026210+00:00",
+          "size_kb": 30.1,
+          "preview": "<user_query> This is a full report of all the softwares they are working on, from the system to the CPU, RAM, memory, an\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "720ee790-74f3-42ea-916f-1ab24e920a90",
+          "updated_at": "2026-05-31T19:36:09.984862+00:00",
+          "size_kb": 9076.0,
+          "preview": "<user_query> Activating Architecture Replay Protocol: Super Brain & Agent Factory Initialization. We are transitioning f\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d09ef6b2-cd6f-4a7b-8699-d13201224ee7",
+          "updated_at": "2026-05-30T03:30:25.062705+00:00",
+          "size_kb": 823.8,
+          "preview": "<user_query> search about this website: kavodax.com </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "9d584c0a-6b84-4537-9275-4fa635a648b2",
+          "updated_at": "2026-05-30T03:13:35.026056+00:00",
+          "size_kb": 1398.6,
+          "preview": "<user_query> check and analyse our site and give the best suggestion to turn it to high level orgs the777foundatio.org <\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b28285ab-3871-4c87-a87e-9e77f7bda269",
+          "updated_at": "2026-05-28T00:03:06.427622+00:00",
+          "size_kb": 8.0,
+          "preview": "<user_query> You are working inside Noetfield OS v1.1.0 (FastAPI, Python 3.12, SQLite, running on port 8000). The codeba\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7b96b6d5-9404-4eec-9e98-4cfce478940a",
+          "updated_at": "2026-05-27T05:57:29.462601+00:00",
+          "size_kb": 1.6,
+          "preview": "<timestamp>Tuesday, May 26, 2026, 10:57 PM (UTC-7)</timestamp> <user_query> You are a senior Python backend engineer. We\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "0666be5d-a423-41bd-9774-9d6939ca3681",
+          "updated_at": "2026-05-27T04:24:43.814775+00:00",
+          "size_kb": 3.8,
+          "preview": "<user_query> hi where is terminal? </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 26,
+      "last_active": "2026-06-18T22:34:41.645077+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-TrustField-Technologies",
+      "display_name": "TrustField Technologies",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-TrustField-Technologies",
+      "sessions": [
+        {
+          "transcript_id": "719c814f-f69f-4f9f-a622-4d9240f9ff83",
+          "updated_at": "2026-06-18T09:57:57.029790+00:00",
+          "size_kb": 46.1,
+          "preview": "<user_query> check and analysis: 30 Canadian companies \u2014 RWA / tokenized assets / regulated digital asset market \u00b7 June \u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c51f336c-d684-4eff-b4a6-950f0741b01a",
+          "updated_at": "2026-06-17T22:37:37.125245+00:00",
+          "size_kb": 2.8,
+          "preview": "<user_query> check and analysis: 30 Canadian companies \u2014 RWA / tokenized assets / regulated digital asset market \u00b7 June \u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c5fdddeb-362c-4b83-8f46-dd134170384c",
+          "updated_at": "2026-06-17T05:37:26.417061+00:00",
+          "size_kb": 11820.6,
+          "preview": "<user_query> build full stack end to end for a startup tnaming trustfield technologies rpaa register and later willing M\u2026",
+          "subagent_count": 4
+        },
+        {
+          "transcript_id": "3df2f352-69b5-45a6-9c21-e995b998aaa2",
+          "updated_at": "2026-05-31T22:35:42.771469+00:00",
+          "size_kb": 59.8,
+          "preview": "<user_query> Start the TrustField backend server (uvicorn app.main:app --reload --port 8001). Then: 1. Check /health 2. \u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "4f1e4775-3366-4967-a1f0-facd6ba01ac2",
+          "updated_at": "2026-05-30T14:21:17.740773+00:00",
+          "size_kb": 2.0,
+          "preview": "<user_query> git config --global user.email \"kazemnezhadsina144@gmail.com\" git config --global user.name \"Sina Kazemnezh\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f520cd0c-79fc-461b-94ac-487419f679f5",
+          "updated_at": "2026-05-29T10:51:20.765037+00:00",
+          "size_kb": 4.6,
+          "preview": "<user_query> search about this website: kavodax.com </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 6,
+      "last_active": "2026-06-18T09:57:57.029790+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-Noetfield",
+      "display_name": "Noetfield",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-Noetfield",
+      "sessions": [
+        {
+          "transcript_id": "e9342686-4796-442b-83a0-583675d1e081",
+          "updated_at": "2026-06-18T08:14:41.219940+00:00",
+          "size_kb": 553.8,
+          "preview": "<user_query> worker what is the gate and routing map and orientation way here in this repo ? what you see? what you unde\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "90a99155-720b-4bbb-8467-b61798f4960e",
+          "updated_at": "2026-06-18T08:13:55.439034+00:00",
+          "size_kb": 1469.7,
+          "preview": "<user_query> WORKER FOR NOETFIELD.COM </user_query>",
+          "subagent_count": 5
+        }
+      ],
+      "session_count": 2,
+      "last_active": "2026-06-18T08:14:41.219940+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-YA5-PLUS-ONE-FALUX",
+      "display_name": "YA5 PLUS ONE FALUX",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-YA5-PLUS-ONE-FALUX",
+      "sessions": [
+        {
+          "transcript_id": "8e71fb4c-64c3-4f25-ac39-4af9c7c87c8a",
+          "updated_at": "2026-06-18T03:54:27.664816+00:00",
+          "size_kb": 108.1,
+          "preview": "<user_query> SHOW ME THE LOCAL PAGE </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 1,
+      "last_active": "2026-06-18T03:54:27.664816+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-MacLaw",
+      "display_name": "MacLaw",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-MacLaw",
+      "sessions": [
+        {
+          "transcript_id": "bab1ff49-de00-4e88-b19b-d4c0b467cb0b",
+          "updated_at": "2026-06-17T14:47:37.268245+00:00",
+          "size_kb": 447.6,
+          "preview": "<user_query> HI READ SSOT AND OTHER LAW IN YOUR REPO AND GIVE ME THE FULL ORIENTION BIG PICTURE </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 1,
+      "last_active": "2026-06-17T14:47:37.268245+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-Noetfield-SinaaiMonoRepo",
+      "display_name": "Noetfield SinaaiMonoRepo",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-Noetfield-SinaaiMonoRepo",
+      "sessions": [
+        {
+          "transcript_id": "e979e4ea-a348-4ad2-8ab2-07a1dc4d204f",
+          "updated_at": "2026-06-17T11:04:00.427125+00:00",
+          "size_kb": 71.2,
+          "preview": "<user_query> HI READ SSOT AND OTHER LAW IN YOUR REPO AND GIVE ME THE FULL ORIENTION BIG PICTURE </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 1,
+      "last_active": "2026-06-17T11:04:00.427125+00:00"
+    }
+  ],
+  "asf_duties": [
+    "Pick one active THREAD per Cursor chat today",
+    "Resolve drift items below (you are the only law editor)",
+    "FREEZE \u00b7 tap Safety \u00b7 factory-now \u00b7 Valid YES 1000 \u00b7 brain 1000 \u00b7 dual_proof True \u00b7 mode SINGLE_SA \u00b7 queue sa-1200",
+    "Optional: 5 min \u2014 Worker Hub glance / read DAILY_BOWL.md",
+    "If scope unclear: ASF_MASTER_ORDERS_ORGANIZED_LOCKED_v1.md"
+  ],
+  "roles_glance": [
+    {
+      "id": "ASF",
+      "line": "Final law, P0, registry \u2014 supervises all"
+    },
+    {
+      "id": "ROLE-CURSOR-HQ",
+      "line": "SinaaiDataBase chat \u2014 bowl, Source A, fleet, cross-repo locks"
+    },
+    {
+      "id": "ROLE-ARCHITECT",
+      "line": "Read-only blockers \u2014 run-architect.sh"
+    },
+    {
+      "id": "ROLE-ORCHESTRATOR",
+      "line": "SinaPromptOS \u2014 rank + dispatch five lanes"
+    },
+    {
+      "id": "LANE-1..5",
+      "line": "TrustField \u00b7 Mono \u00b7 VIRLUX \u00b7 Noetfield \u00b7 777 \u2014 one task each"
+    },
+    {
+      "id": "ROLE-WIRE",
+      "line": "DevBridge \u2014 phone \u2192 Mac automation (M8)"
+    },
+    {
+      "id": "PAIOS-4",
+      "line": "Analyst \u00b7 Brain \u00b7 CoS \u00b7 Operator \u2014 Super Brain"
+    },
+    {
+      "id": "RUNTIME",
+      "line": "Telegram workers on :8000 \u2014 not Cursor"
+    }
+  ],
+  "tier1_links": [
+    {
+      "label": "Bowl spec",
+      "path": "SINA_DAILY_BOWL_LOCKED_v1.md"
+    },
+    {
+      "label": "Command vision",
+      "path": "SINA_COMMAND_CENTER_VISION_LOCKED_v1.md"
+    },
+    {
+      "label": "Understanding roles",
+      "path": "UNDERSTANDING_ROLES_CURSOR_ECOSYSTEM_v1.md"
+    },
+    {
+      "label": "Command center",
+      "path": "ASF_PROGRAM_PROGRESS_COMMAND_CENTER_LOCKED_v1.md"
+    },
+    {
+      "label": "Thread registry",
+      "path": "ASF_PROGRAM_THREADS_REGISTRY_LOCKED_v1.md"
+    },
+    {
+      "label": "Source A start",
+      "path": "README_SOURCE_A.md"
+    },
+    {
+      "label": "Mono blueprint",
+      "path": "../SinaaiMonoRepo/SinaaiDataBase/data/L0-meta/005-project-blueprint.md"
+    },
+    {
+      "label": "Agent desk",
+      "path": "agent-control-panel/index.html"
+    }
+  ],
+  "brief_text": "Sina daily brief. Today P zero is FREEZE \u00b7 STRATEGIC-SLICE \u00b7 factory parallel RunReceipt. 0 drift alerts. 3 architect blockers. 27 agent workspaces; 13 active in the last day. Worker Hub http://127.0.0.1:13020/ for optional queue glance.",
+  "brief_fa": "\u062e\u0644\u0627\u0635\u0647 \u0631\u0648\u0632\u0627\u0646\u0647 \u0633\u06cc\u0646\u0627. \u0627\u0648\u0644\u0648\u06cc\u062a \u0627\u0645\u0631\u0648\u0632: \u0631\u0633\u06cc\u062f \u0627\u062c\u0631\u0627\u06cc \u0639\u0627\u0645\u0644. \u0628\u062f\u0648\u0646 \u0647\u0634\u062f\u0627\u0631 \u0627\u0646\u062d\u0631\u0627\u0641 \u0628\u0631\u0646\u0627\u0645\u0647. \u06f3 \u0645\u0627\u0646\u0639 \u0645\u0639\u0645\u0627\u0631\u06cc. \u06f2\u06f7 \u0641\u0636\u0627\u06cc \u06a9\u0627\u0631\u06cc \u0639\u0627\u0645\u0644\u061b \u06f1\u06f3 \u0645\u0648\u0631\u062f \u0641\u0639\u0627\u0644 \u062f\u0631 \u0634\u0628\u0627\u0646\u0647\u200c\u0631\u0648\u0632 \u06af\u0630\u0634\u062a\u0647. \u0628\u0631\u0627\u06cc \u062c\u0632\u0626\u06cc\u0627\u062a \u06a9\u0627\u0645\u0644\u060c \u067e\u0646\u0644 \u0641\u0631\u0645\u0627\u0646 \u0633\u06cc\u0646\u0627 \u0631\u0627 \u0631\u0648\u06cc \u0644\u067e\u062a\u0627\u067e \u0628\u0627\u0632 \u06a9\u0646\u06cc\u062f."
+}

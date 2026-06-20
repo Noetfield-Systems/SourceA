@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# validate-machines-banner-sibling-t1-crossref-v1.sh — sa-0845 T1 dedup cross-ref → canonical sa-0820
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT/scripts"
+
+fail() { echo "FAIL: validate-machines-banner-sibling-t1-crossref-v1 — $*" >&2; exit 1; }
+
+CROSS="$ROOT/archive/attachments/2026-06-15/sa-0845-machines-banner-sibling-t1-crossref_LOCKED_v1.md"
+CANONICAL="$ROOT/scripts/validate-machines-banner-sibling-v1.sh"
+RECEIPT="$ROOT/receipts/sa-0820-receipt.json"
+
+[[ -f "$CROSS" ]] || fail "missing sa-0845 cross-ref doc"
+[[ -f "$CANONICAL" ]] || fail "missing canonical validator"
+[[ -f "$RECEIPT" ]] || fail "missing sa-0820 receipt"
+
+python3 - <<'PY' || fail "cross-ref doc audit"
+from pathlib import Path
+
+cross = Path("../archive/attachments/2026-06-15/sa-0845-machines-banner-sibling-t1-crossref_LOCKED_v1.md")
+text = cross.read_text(encoding="utf-8")
+for needle in (
+    "sa-0820",
+    "sa-0845",
+    "validate-machines-banner-sibling-v1.sh",
+    "machines/index.html",
+    "sibling hub",
+    "not a sub-page",
+    "own URL",
+    "/machines/",
+):
+    if needle not in text:
+        raise SystemExit(f"cross-ref missing {needle}")
+for bad in ("build-sina-command-panel.py", "hub_self_refresh"):
+    if bad in text:
+        raise SystemExit(f"T1 cross-ref must not duplicate implementation ({bad})")
+print("OK: sa-0845 cross-ref doc cites sa-0820 canonical")
+PY
+
+bash "$CANONICAL" >/dev/null || fail "canonical validate-machines-banner-sibling-v1"
+
+echo "OK: validate-machines-banner-sibling-t1-crossref-v1 · canonical=sa-0820 · sa-0845"

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0620",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 deferral doc validator + dispatch + governance fleet + critical 0; sa-0620 closeout",
+  "at": "2026-06-09T03:15:14Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

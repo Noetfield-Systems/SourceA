@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.sourcea.routing-panel</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/sinakazemnezhad/Desktop/SinaaiMonoRepo/SinaaiRuntime/.venv/bin/python3</string>
+		<string>/Users/sinakazemnezhad/Desktop/SinaaiMonoRepo/routing-panel/server.py</string>
+	</array>
+	<key>WorkingDirectory</key>
+	<string>/Users/sinakazemnezhad/Desktop/SinaaiMonoRepo</string>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<dict>
+		<key>SuccessfulExit</key>
+		<false/>
+	</dict>
+	<key>ThrottleInterval</key>
+	<integer>2</integer>
+	<key>StandardOutPath</key>
+	<string>/Users/sinakazemnezhad/.sina/routing-panel-launchd.log</string>
+	<key>StandardErrorPath</key>
+	<string>/Users/sinakazemnezhad/.sina/routing-panel-launchd.err</string>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key>
+		<string>/opt/homebrew/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+		<key>MONO_ROOT</key>
+		<string>/Users/sinakazemnezhad/Desktop/SinaaiMonoRepo</string>
+		<key>ROUTING_PANEL_PORT</key>
+		<string>8780</string>
+		<key>ROUTING_PANEL_HOST</key>
+		<string>127.0.0.1</string>
+	</dict>
+</dict>
+</plist>

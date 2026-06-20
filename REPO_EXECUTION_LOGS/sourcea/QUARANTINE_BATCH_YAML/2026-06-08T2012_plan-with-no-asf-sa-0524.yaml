@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0524 — Document two-clock slice parallel lane P0 in synthesis lessons
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0524
+tests:
+  status: passed
+  output_snippet: pack22 commercial verify-only; FR+wire+runreceipt+dispatch PASS
+reported_at: '2026-06-08T20:12:31Z'
+reporter: cursor-worker-batch

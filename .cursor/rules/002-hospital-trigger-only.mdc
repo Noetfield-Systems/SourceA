@@ -1,0 +1,36 @@
+---
+description: Orientation/Hospital/Maze — founder one-word trigger only; session start = session gate
+alwaysApply: true
+---
+
+# Three pipelines — founder trigger only (LOCKED)
+
+**Law:** `AGENT_THREE_PIPELINES_ORIENTATION_HOSPITAL_MAZE_LOCKED_v1.md` · **D23** daily duty card
+
+## Session start (every chat)
+
+Run **only**:
+
+```bash
+python3 scripts/agent_session_gate_run_v1.py --role <role> --json
+```
+
+Then read duty card + truth bundle. **Default substantive turn:** RUN INBOX or answer founder — **no auto hospital**.
+
+## Forbidden without founder word
+
+Do **not** run on session start, context refresh, governance chat, or “agent seems sick”:
+
+- `agent_orientation_pipeline_v1.py`
+- `agent_hospital_pipeline_v1.py`
+- `agent_maze_pipeline_v1.py`
+
+## Founder says one word → then run router
+
+| Word | Command |
+|------|---------|
+| **orientation** | `python3 scripts/agent_three_pipelines_router_v1.py orientation --role <role> --json` |
+| **hospital** | `python3 scripts/agent_three_pipelines_router_v1.py hospital --role <role> --json` |
+| **maze** | `python3 scripts/agent_three_pipelines_router_v1.py maze --role <role> --json` |
+
+**Maze:** ASF must say **maze** — never on governance/meta chats alone.

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1104",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U075",
+  "title": "No two accounts same curiosity question",
+  "evidence": "curiosity question dedupe PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:20:38Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

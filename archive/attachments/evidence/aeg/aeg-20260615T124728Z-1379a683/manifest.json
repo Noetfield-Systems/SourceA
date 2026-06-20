@@ -1,0 +1,25 @@
+{
+  "schema": "aeg-evidence-bundle-v1",
+  "evidence_id": "aeg-20260615T124728Z-1379a683",
+  "at": "2026-06-15T12:47:28Z",
+  "verdict": "BLOCK",
+  "blockers": [
+    "briefing marked context_stale \u2014 re-brief required",
+    "last session gate receipt ok=false"
+  ],
+  "proof_url": "/Users/sinakazemnezhad/.sina/aeg/aeg-20260615T124728Z-1379a683/index.html",
+  "bundle_dir": "/Users/sinakazemnezhad/.sina/aeg/aeg-20260615T124728Z-1379a683",
+  "archive_dir": "/Users/sinakazemnezhad/Desktop/SourceA/archive/attachments/evidence/aeg/aeg-20260615T124728Z-1379a683",
+  "terminal": {
+    "ok": true,
+    "mode": "transcript",
+    "path": "/Users/sinakazemnezhad/.sina/aeg/aeg-20260615T124728Z-1379a683/terminal.txt",
+    "exit_code": 1,
+    "asciinema_missing": true
+  },
+  "ui": {
+    "ok": false,
+    "skipped": true
+  },
+  "heal_verdict": "BLOCK"
+}

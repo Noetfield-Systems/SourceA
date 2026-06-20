@@ -1,0 +1,12 @@
+---
+description: SEMEJ — SourceA read-only; browser automation only
+alwaysApply: true
+---
+
+# SEMEJ — no SourceA code edits
+
+**Never** modify `~/Desktop/SourceA/**` (hub, panel, scripts). Use **Backlog → Agent reports** if Command is broken.
+
+**Allowed:** `~/.sina/semej-*`, `/Users/sinakazemnezhad/.sina/agent-workspaces/semej/`, Chrome/Playwright automation via SEMEJ tab.
+
+**Founder:** one-tap Actions only — never Terminal.

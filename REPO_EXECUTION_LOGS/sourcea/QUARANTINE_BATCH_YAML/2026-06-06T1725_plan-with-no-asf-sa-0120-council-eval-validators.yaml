@@ -1,0 +1,17 @@
+schema_version: 1
+repo: sourcea
+task: PLAN WITH NO ASF — sa-0120 council_strategic_brief eval validators vs disk
+status: done
+verify_passed: true
+evidence:
+  files_changed:
+    - scripts/council_strategic_brief.py
+    - scripts/validate-council-strategic-brief-eval-v1.sh
+    - scripts/find_critical_bugs.py
+    - COUNCIL_BRIEF_STRATEGIC_SLICE_EVAL_L0_ENFORCE_LOCKED_v1.md
+tests:
+  status: passed
+  command: validate-council-strategic-brief-eval-v1.sh && SINA_AUDIT_STRICT=1 build-sina-command-panel.py && find_critical_bugs.py
+  output_snippet: 7 validator strings match disk + council brief; critical 0
+reported_at: '2026-06-06T17:25:00Z'
+reporter: cursor-maintainer

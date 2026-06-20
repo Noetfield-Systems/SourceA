@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0043 — Reject unconditional L8 line in honest_score when hybrid shipped
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0043
+tests:
+  status: passed
+  output_snippet: sa-0043 VERIFY replay — already done logged; phase-s0 PASS
+reported_at: '2026-06-09T22:39:15Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

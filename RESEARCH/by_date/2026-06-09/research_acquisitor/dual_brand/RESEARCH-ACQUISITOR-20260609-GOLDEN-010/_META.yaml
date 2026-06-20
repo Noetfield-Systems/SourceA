@@ -1,0 +1,11 @@
+trace_id: RESEARCH-ACQUISITOR-20260609-GOLDEN-010
+worker_id: research_acquisitor
+subject: dual_brand
+subject_label: TrustField + Noetfield
+thread: THREAD-PORTFOLIO
+date: '2026-06-09'
+source_path: /Users/sinakazemnezhad/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-09_INFRA_SAAS_GOLDEN_SUGGESTION_REPORT.md
+archive_path: by_date/2026-06-09/research_acquisitor/dual_brand/RESEARCH-ACQUISITOR-20260609-GOLDEN-010/2026-06-09_INFRA_SAAS_GOLDEN_SUGGESTION_REPORT.md
+execution_authority: false
+enforcer: research_save_enforcer.py
+law: RESEARCH_INTAKE_AND_SAVE_LOCK_LOCKED_v1.md

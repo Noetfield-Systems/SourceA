@@ -1,0 +1,18 @@
+Hi there —
+
+When the same outreach or agent workflow runs every week, the uncomfortable moment is usually an incident review: can you reconstruct what actually shipped last Tuesday — input, steps, and final artifact — not just what the team remembers from chat?
+
+That reproducible trace logged is where drift tends to show up first.
+
+Curious whether your team already pins that down per run, or still relies on thread history when something looks wrong?
+
+If useful — quick controlled factory replay walkthrough:
+
+https://sourcea.com
+
+Sina Kazemnezhad · SourceA
+hello@sourcea.com · Canada
+
+Powered by SourceA — advisory only · no custody · no payment initiation.
+
+Reply **stop** — no further messages.

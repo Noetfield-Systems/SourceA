@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0386",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0386 VERIFY \u2014 RECIPE: validate-dispatch-policy-v1 + validate-governance-fleet-v1 + find_critical_bugs \u00b7 VALIDATION: dispatch gate_ok=True \u00b7 governance nudges 0 \u00b7 critical 0 \u00b7 EVIDENCE: disk green \u00b7 BUILT: false \u00b7 closeout",
+  "at": "2026-06-10T07:56:46Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

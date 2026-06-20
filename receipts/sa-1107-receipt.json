@@ -1,0 +1,11 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1107",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U038",
+  "title": "U038 CIL/RRL disagreement",
+  "evidence": "cil_disagreement alert in RRL receipt",
+  "at": "2026-06-19T00:35:14Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

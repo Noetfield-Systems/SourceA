@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0511",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0511 VERIFY PASS \u2014 idempotent \u00b7 pack exhausted",
+  "at": "2026-06-14T12:39:36Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

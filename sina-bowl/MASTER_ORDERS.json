@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "doc": "ASF_MASTER_ORDERS_ORGANIZED_LOCKED_v1.md",
+  "sections": [
+    {
+      "id": "S1",
+      "title": "Personal Database",
+      "items": [
+        {
+          "id": "1.1",
+          "text": "Personal DB = SSOT for agent copy/train",
+          "status": "active"
+        },
+        {
+          "id": "1.2",
+          "text": "Layered L0\u2013L4, access-controlled",
+          "status": "active"
+        },
+        {
+          "id": "1.5",
+          "text": "Sina AI Personal Database \u2014 Command on top",
+          "status": "locked"
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "title": "Evidence flywheel",
+      "items": [
+        {
+          "id": "2.1",
+          "text": "MergePack = Evidence Factory (events)",
+          "status": "locked"
+        },
+        {
+          "id": "2.2",
+          "text": "KPI trio: pay \u00b7 referral-pay \u00b7 organic",
+          "status": "active"
+        },
+        {
+          "id": "2.5",
+          "text": "M8 = wire/automation only",
+          "status": "locked"
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "MergePack growth vs factory",
+      "items": [
+        {
+          "id": "3.1",
+          "text": "No-ads = 30-idea scoring only",
+          "status": "locked"
+        },
+        {
+          "id": "3.2",
+          "text": "10K blitz + SEO + paid NOT parked",
+          "status": "locked"
+        },
+        {
+          "id": "3.3",
+          "text": "Upgrade SSOT when blockers clear",
+          "status": "locked"
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Participation (strategy)",
+      "items": [
+        {
+          "id": "4.3",
+          "text": "No full Participation OS at 0 users",
+          "status": "locked"
+        },
+        {
+          "id": "4.4",
+          "text": "V0 lanes: User \u00b7 Earner \u00b7 Connector",
+          "status": "planned"
+        },
+        {
+          "id": "4.7",
+          "text": "Hooks now in MergePack",
+          "status": "shipped"
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "title": "Command center & bowl",
+      "items": [
+        {
+          "id": "5.1",
+          "text": "Chic local control panel on laptop",
+          "status": "in_progress"
+        },
+        {
+          "id": "5.4",
+          "text": "Daily bowl \u2014 unified read",
+          "status": "done"
+        },
+        {
+          "id": "5.5",
+          "text": "Earphones morning brief",
+          "status": "done"
+        },
+        {
+          "id": "5.6",
+          "text": "Read whole ecosystem, not last line",
+          "status": "process"
+        },
+        {
+          "id": "5.10",
+          "text": "Organize all orders (registry)",
+          "status": "done"
+        }
+      ]
+    }
+  ],
+  "flywheel": [
+    "Traffic",
+    "Usage Events",
+    "Evidence",
+    "Revenue",
+    "Trust",
+    "Distribution",
+    "Participation",
+    "TrustField",
+    "Noetfield"
+  ],
+  "layers": [
+    {
+      "layer": "L1",
+      "sku": "MergePack",
+      "role": "Evidence Factory",
+      "status": "active_parallel"
+    },
+    {
+      "layer": "L2",
+      "sku": "RunReceipt",
+      "role": "Monetized events",
+      "status": "factory_p0"
+    },
+    {
+      "layer": "L3",
+      "sku": "Participation HQ",
+      "role": "Role system (later)",
+      "status": "hooks_only"
+    },
+    {
+      "layer": "L4",
+      "sku": "TrustField",
+      "role": "Governance",
+      "status": "lane_1"
+    },
+    {
+      "layer": "L5",
+      "sku": "Noetfield",
+      "role": "Trust analysis",
+      "status": "lane_4"
+    }
+  ],
+  "hq_supervision": [
+    {
+      "node": "ASF",
+      "kind": "human",
+      "line": "Final law, P0, registry"
+    },
+    {
+      "node": "Architect",
+      "kind": "observe",
+      "line": "ARCHITECT_REPORT.yaml"
+    },
+    {
+      "node": "Prompt OS",
+      "kind": "dispatch",
+      "line": "5 repo pastes + Lane 0"
+    },
+    {
+      "node": "Sina Command",
+      "kind": "observe",
+      "line": "Fleet + bowl + orders"
+    },
+    {
+      "node": "Lane 1\u20135",
+      "kind": "delivery",
+      "line": "TrustField \u00b7 Mono \u00b7 VIRLUX \u00b7 Noetfield \u00b7 777"
+    },
+    {
+      "node": "Wire",
+      "kind": "automation",
+      "line": "DevBridge M8"
+    },
+    {
+      "node": "MergePack",
+      "kind": "utility",
+      "line": "Evidence + growth when ASF activates"
+    },
+    {
+      "node": "Runtime PAIOS",
+      "kind": "telegram",
+      "line": ":8000 workers \u2014 not Cursor"
+    }
+  ],
+  "hq_created": [
+    "Evidence flywheel + acquisition locks",
+    "MergePack v1.3 evidence API",
+    "Sina Command + bowl builders",
+    "Fleet scanner",
+    "Participation hooks spec"
+  ],
+  "participation_lanes_future": [
+    "user",
+    "earner",
+    "connector",
+    "developer",
+    "investor",
+    "dropshipping",
+    "airdrop",
+    "shareholder_path",
+    "points_dashboard"
+  ],
+  "equation": "Utilities \u2192 Events \u2192 Evidence \u2192 Revenue \u2192 Trust \u2192 Distribution \u2192 Noetfield"
+}

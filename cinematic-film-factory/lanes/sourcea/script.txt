@@ -1,0 +1,13 @@
+Your agents execute right now.
+
+Policy loads from disk — not chat memory.
+
+When scope is violated, execution stops.
+
+The gate returns BLOCK — pre-LLM, not prompt hope.
+
+Alter a receipt hash. Tamper FAIL is immediate.
+
+Receipt logged. Audit preserved.
+
+SourceA — controlled agentic automation.

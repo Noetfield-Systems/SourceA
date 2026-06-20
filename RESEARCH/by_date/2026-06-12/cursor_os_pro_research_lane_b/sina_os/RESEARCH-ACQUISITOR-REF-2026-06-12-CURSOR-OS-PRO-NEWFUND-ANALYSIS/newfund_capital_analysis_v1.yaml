@@ -1,0 +1,211 @@
+# newfund_capital_analysis_v1.yaml
+# Newfund Capital (newfundcap.com) — search, analysis, comparison to founder portfolio
+# trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-NEWFUND-ANALYSIS
+# execution_authority: false · Not investment advice · Not a fundraising recommendation
+
+meta:
+  id: newfund_capital_analysis_v1
+  date: "2026-06-12"
+  url: https://newfundcap.com/
+  lane: cursor_os_pro_research_lane_b
+  scope: VC firm intelligence + fit comparison vs Flibbo / B2B portfolio
+  connection_to_founder: "No public link found to Sina Sinry, SourceA, IDE For Cursor, or Noetfield (Jun 2026 search)"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# WHAT IS NEWFUND?
+# ═══════════════════════════════════════════════════════════════════════════
+
+firm_profile:
+  brand: Newfund Capital
+  legal_name: Newfund Management SA
+  tagline: "Where exceptional entrepreneurs get stronger"
+  positioning: "The first early-stage VC based in Silicon Valley & Paris"
+  founded: 2008
+  hq: "Paris, France (58 rue de l'Arcade, 75008)"
+  us_presence: "Silicon Valley / Palo Alto"
+  also: Bordeaux
+  contact: contact@newfundcap.com
+  website: https://newfundcap.com/
+
+  scale:
+    aum: "$400M (~€360M) — sources vary"
+    lp_base: "Mostly entrepreneurs and family offices (not classic institutional LPs)"
+    portfolio: "~115–124 active companies · 185+ total investments"
+    exits: "~29–71 (source-dependent)"
+    unicorns: "Aircall cited as $1B+ portfolio highlight"
+    team: "~33 people (LinkedIn)"
+
+  key_people:
+    founders_gps: [François Véron, Patrick Malka, Henri Deshays]
+    partners_named: [Salim Hassad, Julien Boubel]
+
+# ═══════════════════════════════════════════════════════════════════════════
+# INVESTMENT THESIS (from site + philosophy page)
+# ═══════════════════════════════════════════════════════════════════════════
+
+investment_thesis:
+  stage: "Pre-seed / Seed — first institutional check"
+  check_size: "$250K–$2M (€500K–€2M cited)"
+  round_context: "Seed rounds up to ~$4M total"
+  speed: "Term sheet target ~3 weeks · questionnaire response ~48 hours"
+  geography:
+    primary: [North America, France]
+    mindset: "French or US startups with global ambition from day 1"
+  sectors: "Sector-agnostic but active in software, AI, fintech, health, climate, cyber, defense tech"
+  impact_frame: "Good for people and the planet · permanent reinvention"
+  style:
+    - founder-first · GPs invest in own funds ("skin in the game")
+    - candid feedback · operating partners · cross-border EU↔US bridge
+    - growth mindset (Carol Dweck framing on philosophy page)
+
+  specialty_funds:
+    heka: "HEKA — ~€60M BrainTech fund with FondaMental (neuro / mental health thesis)"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# RECENT / FEATURED BETS (homepage Jun 2026)
+# ═══════════════════════════════════════════════════════════════════════════
+
+featured_recent_themes:
+  - theme: "Screen-free phones for children"
+    category: "Consumer hardware / digital wellbeing"
+  - theme: "AI-powered diagnostics for stroke prevention and treatment"
+    category: "Healthtech / med AI"
+  - theme: "Agentic AI-powered Zero Trust cybersecurity"
+    category: "Cyber · agentic AI"
+    example_deal:
+      company: Nucleon Security
+      amount: "€3M late seed (Sep 2025, Newfund lead)"
+      product: "Proactive endpoint protection · Zero Trust · agentic AI remediation"
+      geo: "Paris + Rabat · Europe + Africa"
+
+notable_portfolio:
+  tier_1_names:
+    - { name: Aircall, note: "Cloud phone · unicorn narrative" }
+    - { name: FairMoney, note: "Credit-led neobank · Nigeria / emerging markets" }
+    - { name: ShareID, note: "AI biometrics / identity — founder quote on homepage" }
+    - { name: Rwazi, note: "Consumer data / emerging markets" }
+    - { name: Infinite Orbits, note: "Space / defense-adjacent" }
+  sectors_seen: [fintech, SaaS, health, climate, cyber, defense, marketplace, deeptech]
+
+insights_content:
+  topics_on_site:
+    - "After the shell"
+    - "The Largest Hidden Cost for Private Companies"
+    - "Defense Tech: Who Owns Europe's Next Arsenal?"
+  signal: "Thinks about defense, cap-table/private-company costs, macro shells — not pure consumer app blogging"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# HOW TO APPROACH THEM
+# ═══════════════════════════════════════════════════════════════════════════
+
+application_process:
+  path: "Founders apply via website questionnaire (newfundcap.com/contact)"
+  lp_path: "Separate 'Become an LP' flow on homepage"
+  requirements_stated:
+    - global ambition
+    - founder skin in the game
+    - impact / societal benefit narrative helps
+    - prototype to early revenue stages mentioned on aggregators
+  not_required: "No warm intro stated — questionnaire-first"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# COMPARISON — NEWFUND vs YOUR PORTFOLIO LANES
+# ═══════════════════════════════════════════════════════════════════════════
+
+comparison_matrix:
+  axes: [stage_fit, geo_fit, sector_fit, traction_fit, narrative_fit]
+
+  flibbo_consumer:
+    product: "Flibbo — AI viral content app (SOFYO / Prime Digital Lab)"
+    stage_fit: "Late for classic Newfund seed IF $1M+ ARR + bootstrapped — they often want first institutional at earlier inflection"
+    geo_fit: "Strong — US user base + MENA; founder non-US matches FairMoney/Rwazi pattern"
+    sector_fit: "Weak–medium — consumer AI creator apps not in homepage thesis; crowded Cal AI / CapCut adjacency"
+    traction_fit: "Strong — Top 100 App Store, $1M+ revenue story"
+    narrative_fit: "Medium — needs 'impact' or differentiated AI angle beyond wrapper"
+    verdict: >
+      Possible but not obvious fit. Newfund backs global B2B/deeptech/cyber/health more visibly than
+      subscription consumer creator apps. Bootstrap success may reduce urgency for first-check VC.
+    vs_cal_ai_path: "Cal AI took strategic exit to MyFitnessPal — Newfund more likely to back pre-scale B2B AI than post-PMF consumer clone wars"
+
+  ide_for_cursor:
+    product: "IDE For Cursor — App Store remote IDE for Cursor users"
+    stage_fit: "Medium — pre-seed/seed if MRR early; separate investor program doc exists"
+    geo_fit: "Strong US App Store SKU"
+    sector_fit: "Medium — dev tools / prosumer SaaS adjacent to portfolio software bets"
+    traction_fit: "Depends on TestFlight / subscriber proof"
+    narrative_fit: "Weak on 'impact/planet' — pitch productivity + developer wedge"
+    verdict: "Separate SKU — pitch as B2B/prosumer dev infra, not Flibbo. Needs live revenue + retention before VC dialog."
+
+  sourcea:
+    product: "Controlled execution proof — BLOCK/ALLOW/tamper receipt"
+    stage_fit: "Strong IF positioned as enterprise infra pre-revenue with design partners"
+    geo_fit: "Medium — US enterprise buyers; founder geo less critical"
+    sector_fit: "Strong — AI governance / regtech / trust infra aligns with cyber + AI themes"
+    traction_fit: "Needs live receipt demos + pilot logos — internal Mac ecosystem not enough"
+    narrative_fit: "Strong — 'trust, audit, institutional proof' matches Newfund cyber/enterprise mood"
+    verdict: "Best B2B narrative fit among three IF packaged as enterprise trust layer with pilots — not internal governance OS jargon"
+
+  noetfield:
+    product: "Governance execution infrastructure — Copilot / institutional capital"
+    stage_fit: "Strong — design partner $2k–10k wedge matches seed narrative"
+    geo_fit: "Medium–strong — institutional buyers US/EU"
+    sector_fit: "Very strong — AI governance, regtech, capital markets infra; closest to Nucleon/ShareID adjacency"
+    traction_fit: "Needs named design partners + board-pack PDF artifact"
+    narrative_fit: "Very strong — 'trust infrastructure for capital decisions' > consumer viral"
+    verdict: >
+      Strongest thematic match to Newfund's visible 2026 bets (agentic AI + enterprise trust + regulated buyers).
+      Must lead with Noetfield.com pilot offer, not ecosystem internals.
+
+# ═══════════════════════════════════════════════════════════════════════════
+# NEWFUND vs OTHER VC ARCHETYPES (context)
+# ═══════════════════════════════════════════════════════════════════════════
+
+vc_archetype_compare:
+  newfund:
+    type: "Transatlantic seed · entrepreneur LP base · operator-heavy"
+    sweet_spot: "French/US B2B with global GTM · AI applied to regulated industries"
+  contrast:
+    consumer_ua_funds: "Angels rolling funds chasing Cal AI metrics — not Newfund's brand"
+    mega_funds: "a16z etc. — later stage, different bar"
+    bootstrap_path: "Flibbo already on — Newfund optional not required"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# STRATEGIC TAKEAWAYS FOR FOUNDER
+# ═══════════════════════════════════════════════════════════════════════════
+
+takeaways:
+  what_newfund_is:
+    - "Legitimate established seed VC (since 2008), not a random capital site"
+    - "Dual Paris + SV — useful if you need US enterprise intros from EU base"
+    - "First-check writer — not growth equity"
+  what_newfund_is_not:
+    - "Not a consumer App Store rollup fund"
+    - "Not connected to Zuggo Custom Apps (unrelated PA dev shop)"
+    - "Not found in public search tied to Sina Sinry / Flibbo / SourceA (Jun 2026)"
+  if_pursuing:
+    lead_sku: Noetfield
+    backup_sku: "SourceA as 'execution proof layer' enterprise spin"
+    deprioritize: "Flibbo in same deck — keep consumer lane bootstrap story separate"
+    deck_emphasis:
+      - agentic AI in regulated environment (mirror Nucleon homepage language)
+      - design partner traction + board PDF artifact
+      - global ambition US/EU
+      - impact: safer AI deployment for institutions
+    apply_via: "https://newfundcap.com/contact questionnaire"
+  video_angle:
+    - "Noetfield W3 outbound could target Newfund-style partners — institutional tone, not Flibbo viral"
+    - "Do not use consumer IG aesthetic in any Newfund-facing materials"
+
+sources:
+  - https://newfundcap.com/
+  - https://newfundcap.com/philosophy
+  - https://newfundcap.com/contact
+  - https://www.newfundcap.com/company/newfund
+  - https://www.crunchbase.com/organization/newfund-management
+  - https://www.africaprivateequitynews.com/p/newfund-capital-cdg-invest-loftyinc
+  - https://www.buildersrepublic.com/en/investors/fund/newfund-capital
+
+research_save:
+  trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-NEWFUND-ANALYSIS
+  worker_id: cursor_os_pro_research_lane_b
+  subject: sina_os

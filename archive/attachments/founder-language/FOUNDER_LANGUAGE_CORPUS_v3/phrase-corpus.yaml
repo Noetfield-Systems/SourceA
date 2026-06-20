@@ -1,0 +1,163 @@
+schema: founder-phrase-corpus-v3
+updated: "2026-06-12"
+count: 45
+
+phrases:
+  - phrase: "personal database source of truth"
+    intent: Layer A immutable truth for agents
+    era: E1
+    machine: SUPERBRAIN_L0-L4
+
+  - phrase: "SoT from execution not imagination"
+    intent: Law emerges from running systems
+    era: E1
+    machine: 018-sot-creation-guidelines
+
+  - phrase: "what do I paste copy from where"
+    intent: Kill ambiguous rituals
+    era: E3
+    machine: HUB_INBOX_ACTIONS
+    urgency: high
+
+  - phrase: "I'm tired of API keys"
+    intent: Central secrets vault
+    era: E3
+    machine: ~/.sina/secrets
+
+  - phrase: "no credit card automation"
+    intent: Free tier infra only
+    era: E3
+    machine: FOUNDER_NO_CREDIT_CARD
+
+  - phrase: "everyone equal parallel all repos"
+    intent: No lane demotion
+    era: E4
+    machine: ASF_PARALLEL_SIX_REPOS
+
+  - phrase: "one stop header clean UI"
+    intent: Sina Command discipline
+    era: E5
+    machine: Sina Command tabs
+
+  - phrase: "organize all messages orders"
+    intent: Master orders registry
+    era: E5
+    machine: ASF_MASTER_ORDERS
+
+  - phrase: "NO GUESS ONLY PROOF"
+    intent: External revenue evidence
+    era: E6
+    machine: revenue_receipt_vault
+
+  - phrase: "WHO IS SELLING exact product"
+    intent: Named vendor SKU pricing
+    era: E6
+    machine: RESEARCH comps
+
+  - phrase: "unique tag under your name"
+    intent: trace_id discipline
+    era: E6
+    machine: RESEARCH save lock
+
+  - phrase: "PLAN WITH NO ASF"
+    intent: Machine verify without founder as progress authority
+    era: E3-E7
+    machine: validators_not_founder
+    nuance: "not zero-human fantasy"
+
+  - phrase: "1000 plans 10k vision"
+    intent: Mass controlled backlog
+    era: E5-E7
+    machine: sourcea-1000 REGISTRY
+    nuance: background not investor hero
+
+  - phrase: "AUTO-RUN live proof"
+    intent: Observed event chain
+    era: E7
+    machine: Rail_A_observed
+    nuance: "reject unattended P0"
+
+  - phrase: "disk wins tracker"
+    intent: Golden rule projection lag
+    era: E7-E9
+    machine: FLEET_HEADLINE_READ_ORDER
+
+  - phrase: "Canva form 5 pack 100 questions"
+    intent: Integrity pack Canvas exam
+    era: E8
+    machine: INTEGRITY_PACK_5
+
+  - phrase: "nothing lost abandoned useful"
+    intent: Lost link recovery
+    era: E9
+    machine: LOST_LINK_ETHICS
+
+  - phrase: "SourceA is engine TrustField separate"
+    intent: Three layer correction
+    era: E9
+    machine: THREE-LAYER-028
+
+  - phrase: "agentic parallel central engine"
+    intent: One motor many lanes
+    era: E9
+    machine: UNIFIED_ENGINE_STORY
+
+  - phrase: "refine upgrade not drift"
+    intent: Human evolution with receipt
+    era: E9
+    machine: evolution_not_drift
+    not: GOV_UNIFY without gate
+
+  - phrase: "short precisely directly"
+    intent: Anti-essay operational answer
+    era: all
+    machine: RESULT_DRIVEN §4
+
+  - phrase: "Research only no edits"
+    intent: Read-only lane
+    era: all
+    machine: readonly_agent
+
+  - phrase: "Claude said GPT said"
+    intent: External critic paste
+    era: E6-E9
+    machine: EXTERNAL_CRITIC
+    first_line: "INPUT CLASS EXTERNAL_CRITIC"
+
+  - phrase: "MUSK STYLE cut ship"
+    intent: Scope reduction pressure
+    era: E6-E7
+    machine: compare_to_W1_W3
+    nuance: "FORGE ship ≠ W3 substitute"
+
+  - phrase: "lock terminology direction"
+    intent: Founder language pack promotion
+    era: E9
+    machine: FOUNDER_LANGUAGE_CORPUS_v3
+
+  - phrase: "3.07 NO"
+    intent: Skip law-merge sprint
+    era: E9
+    machine: phase_3_index_only
+
+  - phrase: "9.07 ship order"
+    intent: 30-day priority ENFORCE vs FORGE
+    era: E9
+    machine: canvas_fork_9.07
+    recommended: A
+
+  - phrase: "Are you crazy stupid idiot"
+    intent: Trust break urgency
+    era: E3
+    machine: STOP_and_SAY_disk_truth
+    agent_action: "never argue · show receipt"
+
+  - phrase: "big picture what you missed"
+    intent: Full thread scan T30
+    era: E9
+    machine: THREAD_SCAN
+
+  - phrase: "human evolving progress not drift"
+    intent: Refinement with evidence
+    era: E9
+    machine: evolution-timeline.yaml

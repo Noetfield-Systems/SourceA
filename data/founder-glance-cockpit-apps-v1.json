@@ -1,0 +1,43 @@
+{
+  "schema": "founder-glance-cockpit-apps-v1",
+  "saved_at": "2026-06-19T20:39:27Z",
+  "law_doc": "brain-os/enforcement/SINA_FOUNDER_GLANCE_COCKPIT_APPS_LOCKED_v1.md",
+  "module": "scripts/founder_glance_cockpit_v1.py",
+  "wire_script": "scripts/founder_glance_cockpit_wire_v1.py",
+  "validator": "scripts/validate-founder-glance-cockpit-apps-v1.sh",
+  "apps": {
+    "mac_health": {
+      "port": 13024,
+      "url": "http://127.0.0.1:13024/",
+      "version": "3.3.0",
+      "ui_mode": "founder_glance",
+      "primary_cta": "Relieve pressure",
+      "contract": "data/mac-health-founder-glance-ui-contract-v1.json",
+      "law_doc": "brain-os/enforcement/SINA_MAC_HEALTH_FOUNDER_GLANCE_UI_LOCKED_v1.md"
+    },
+    "apple_health": {
+      "port": 13025,
+      "url": "http://127.0.0.1:13025/",
+      "version": "2.0.0",
+      "ui_mode": "founder_glance",
+      "primary_cta": "Open Health app",
+      "contract": "data/apple-health-founder-glance-ui-contract-v1.json"
+    },
+    "chat_unify": {
+      "port": 13023,
+      "url": "http://127.0.0.1:13023/",
+      "version": "1.4.0",
+      "ui_mode": "founder_glance",
+      "primary_cta": "Merge all & scan",
+      "contract": "data/chat-unify-founder-glance-ui-contract-v1.json"
+    },
+    "n8n_integration": {
+      "port": 13026,
+      "url": "http://127.0.0.1:13026/",
+      "version": "1.1.0",
+      "ui_mode": "founder_glance",
+      "primary_cta": "Capture intelligence",
+      "contract": "data/n8n-integration-founder-glance-ui-contract-v1.json"
+    }
+  }
+}

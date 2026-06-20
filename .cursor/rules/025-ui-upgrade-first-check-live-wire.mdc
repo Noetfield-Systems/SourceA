@@ -1,0 +1,51 @@
+---
+description: UI FIRST CHECK live wire — mandatory machine gate before ANY form/app/website UI edit
+globs:
+alwaysApply: true
+---
+
+# UI FIRST CHECK — mandatory before every UI edit (ALL agents)
+
+**Law:** `brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md`  
+**General checklist:** `.cursor/rules/024-ui-upgrade-mandatory-checklist.mdc`  
+**Zero exception:** `.cursor/rules/026-ui-first-check-zero-exception.mdc`  
+**Form sub-law:** `.cursor/rules/form-automatic-submit-only.mdc`
+
+## Hard rule (founder locked)
+
+> **Before ANY UI edit — form, app, website, hub, canvas — agents MUST run the FIRST CHECK (general UP-0..UP-7 + that app's ledger). No exceptions.**
+
+## First action on UI work (always)
+
+```bash
+python3 scripts/ui_upgrade_path_classifier_v1.py --path "<target-file>" --json
+python3 scripts/ui_upgrade_first_check_v1.py --surface <surface_id> --ack --json
+python3 scripts/ui_upgrade_mandatory_gate_v1.py --surface <surface_id> --print-checklist
+python3 scripts/ui_upgrade_ledger_v1.py --surface <surface_id> --show --json
+```
+
+## Machine gates (live)
+
+| Gate | When |
+|------|------|
+| Session gate | `ui_upgrade_first_check` step wires receipt every session |
+| Pre-write guard | Blocks UI paths without surface ack — `UI_UPGRADE_FIRST_CHECK_REQUIRED` |
+| Validator | `bash scripts/validate-ui-upgrade-first-check-live-wire-v1.sh` |
+| Nerves | `agent_nerve_system_v1.py` · `ui_upgrade_first_check_line` on live surfaces |
+
+## Surfaces (8 registered + generic_app fallback)
+
+`sourcea_landing` · `worker_hub` · `wtm_tab` · `mac_law_cockpit` · `routing_panel` · `mac_health` · **`hub_form`** · **`witnessbc_commercial`**
+
+Unregistered UI → `generic_app` + register ledger before ship.
+
+## Forbidden
+
+- Editing HTML/CSS/JS/TSX/canvas without FIRST CHECK ack  
+- Skipping per-app ledger read  
+- Form redesign without INCIDENT-029 + hub_form ledger  
+- Ship without UP-0..UP-7 + ledger append
+
+## Founder bypass (explicit order only)
+
+`UI UPGRADE:` · `UP CHECKLIST:` · `EDIT ALLOWED:` + `ACTION:`

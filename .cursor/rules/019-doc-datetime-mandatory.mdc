@@ -1,0 +1,61 @@
+---
+description: Mandatory date + exact UTC time on every doc write (all agents, all founders)
+alwaysApply: true
+---
+
+# Doc datetime mandatory (LOCKED — all agents · all doc writes)
+
+**Law:** `docs/SOURCEA_DOC_DATETIME_MANDATORY_LOCKED_v1.md`  
+**Validator:** `bash scripts/validate-doc-datetime-header-v1.sh <path>`
+
+## Hard rule
+
+Every **new or edited** markdown doc (especially `*_LOCKED*`, `docs/`, `brain-os/`, `archive/attachments/`, `RESEARCH/`) **must** include **date and exact time** in the header block — not date alone.
+
+## Required format (pick one primary line)
+
+```markdown
+**Saved:** 2026-06-16T05:47:17Z
+```
+
+Or paired:
+
+```markdown
+**Saved:** 2026-06-16T05:47:17Z · **Saved at (local):** 2026-06-16 01:47:17 EDT
+```
+
+## Rules
+
+1. **Timezone:** `Saved` line is always **UTC** — suffix `Z`, format `YYYY-MM-DDTHH:MM:SSZ` (seconds required).
+2. **Placement:** Within the **first 12 lines** of the file (header / metadata block).
+3. **Updates:** On every material edit, bump **`Saved:`** to the write-time UTC (do not leave stale date-only headers).
+4. **Version line:** Keep `**Version:**` separate; do not substitute version for timestamp.
+5. **Agents:** Before finishing any doc write, run validator or self-check the regex below.
+6. **Founders:** Same law — chat-only summaries do not replace disk header timestamps.
+
+## Forbidden
+
+- `**Saved:** 2026-06-16` (date only — **FAIL**)
+- `Saved: June 16, 2026` (no exact time — **FAIL**)
+- Missing `Saved`/`saved_at` on new LOCKED or SAVE TO docs — **FAIL**
+
+## Accept regex (machine)
+
+```text
+\*\*Saved:\*\*\s*\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z
+```
+
+Alternate keys (attachments): `**saved_at:**` or `saved_at:` with same ISO pattern.
+
+## Example header (copy pattern)
+
+```markdown
+# Title — LOCKED v1
+
+**Version:** 1.0.0 · **Saved:** 2026-06-16T05:47:17Z · **Authority:** ASF SAVE TO
+**Path:** `~/Desktop/SourceA/docs/EXAMPLE_LOCKED_v1.md`
+```
+
+## On SAVE TO orders
+
+Founder `SAVE TO: <path>` → write once → header **must** include exact UTC `Saved` → run validator → STOP.

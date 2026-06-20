@@ -1,0 +1,20 @@
+schema_version: 1
+repo: sinaai_mono
+task: PLAN WITH NO ASF — mx-0011 stack consolidation + full-e2e verify
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - os/plan-library/mono-1000/prompts/phase-m0-verify-gates/T0/mx-0011.md
+  - reports/agent-auto/AUDIT-LOG/agent-auto-mono-2026-06-10-mx-0011-stack-consolidation-pass.md
+  diff_summary: ''
+  note: ''
+tests:
+  status: passed
+  command: bash scripts/verify-stack-consolidation.sh && bash scripts/full-e2e-mono.sh
+  output_snippet: STACK CONSOLIDATION PASS; full-e2e-mono PASS; E2E failed=0
+real_output: STACK CONSOLIDATION PASS; full-e2e-mono PASS; E2E failed=0
+reported_at: '2026-06-10T05:14:05Z'
+reporter: cursor-auto-mono
+execution_id: ''

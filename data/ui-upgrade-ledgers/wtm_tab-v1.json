@@ -1,0 +1,64 @@
+{
+  "schema": "ui-upgrade-ledger-v1",
+  "surface_id": "wtm_tab",
+  "label": "World Target Model tab",
+  "repo": "SourceA",
+  "root": "agent-control-panel/assets",
+  "url": "http://127.0.0.1:13020/?tab=system-roadmap",
+  "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/WTM_TAB_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+  "saved_at": "2026-06-19T16:54:05Z",
+  "incident_ref": "SA-2026-06-05-INCIDENT-002",
+  "frozen_inventory": [
+    {"id": "you_are_here", "kind": "dom", "marker": "id=\"sr-you-are-here\"", "files": ["agent-control-panel/assets/app.js"]},
+    {"id": "map_layers", "kind": "dom", "marker": "id=\"sr-map-layers\"", "files": ["agent-control-panel/assets/app.js"]},
+    {"id": "next_build", "kind": "dom", "marker": "id=\"sr-next-build-order\"", "files": ["agent-control-panel/assets/app.js"]},
+    {"id": "overview_view", "kind": "dom", "marker": "data-sr-view=\"overview\"", "files": ["agent-control-panel/assets/app.js"]},
+    {"id": "live_now", "kind": "section", "marker": "renderSrLiveNow", "files": ["agent-control-panel/assets/app.js"]},
+    {"id": "world_target_map", "kind": "section", "marker": "renderWorldTargetMap", "files": ["agent-control-panel/assets/app.js"]},
+    {"id": "l0_l16_table", "kind": "table", "marker": "L0–L16 layer table", "files": ["agent-control-panel/assets/app.js"]},
+    {"id": "phase_tables", "kind": "table", "marker": "phase step tables", "files": ["agent-control-panel/assets/app.js"]},
+    {"id": "journey_rail", "kind": "section", "marker": "journey rail", "files": ["agent-control-panel/assets/app.js"]},
+    {"id": "founder_shell", "kind": "nav", "marker": "Overview · Live map", "files": ["agent-control-panel/assets/app.js"]}
+  ],
+  "app_checklist": [
+    {"id": "WTM-1", "step": "Read WORLD_TARGET_MODEL_UI_INCIDENT_REPORT before any edit"},
+    {"id": "WTM-2", "step": "DOM contains sr-you-are-here + sr-map-layers after build"},
+    {"id": "WTM-3", "step": "DOM must NOT contain agent reads (misconceptions, upgrade arc)"},
+    {"id": "WTM-4", "step": "LIVE NOW columns B|C|D — never B|D|D"},
+    {"id": "WTM-5", "step": "No summary-only cockpit replacing full tables"}
+  ],
+  "upgrades": [
+    {
+      "upgrade_id": "UP-WTM-000",
+      "saved_at": "2026-06-05T00:00:00Z",
+      "founder_trigger": "incident recovery — content restoration",
+      "general_checklist": "UP-0..UP-7",
+      "app_checklist": "WTM-1..WTM-5",
+      "status": "approved",
+      "quality_vs_last": "restored",
+      "preserved": "LIVE NOW, L0-L16, phase tables, journey rail restored after cockpit mistake",
+      "changed": "v2.1 content restoration per founder correction",
+      "achieved": "Founder shell frozen: Overview + Live map; tables back on scroll",
+      "founder_approval": "approved",
+      "machine_proof": {"incident": "SA-2026-06-05-INCIDENT-002 closed with restoration"},
+      "baseline_before": "v2-cockpit-broken",
+      "baseline_after": "v2.1-restored"
+    },
+    {
+      "upgrade_id": "UP-WTM-001",
+      "saved_at": "2026-06-19T16:54:05Z",
+      "founder_trigger": "ledger bootstrap",
+      "general_checklist": "UP-0..UP-7",
+      "app_checklist": "WTM-1..WTM-5",
+      "status": "approved",
+      "quality_vs_last": "same",
+      "preserved": "all frozen_inventory items",
+      "changed": "Per-app WTM upgrade ledger created",
+      "achieved": "Tracked inventory + WTM-specific checklist in repository",
+      "founder_approval": "pending",
+      "machine_proof": {"build-sina-command-panel.py": "audit OK"},
+      "baseline_before": "v2.1-restored",
+      "baseline_after": "ledger-v1"
+    }
+  ]
+}

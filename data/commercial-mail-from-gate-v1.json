@@ -1,0 +1,32 @@
+{
+  "schema": "commercial-mail-from-gate-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T04:14:12Z",
+  "law": "Mail FROM configuration is founder-only — agents read nerve w3_mail_from and open drafts only",
+  "human_doc": "docs/SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md",
+  "founder_only_configure": true,
+  "founder_steps": [
+    "Mail → Settings → Accounts → add hello@trustfield.ca and operation@noetfield.com",
+    "Confirm disk SSOT ~/.sina/commercial-mail-from-ssot-v1.json founder_confirmed=true"
+  ],
+  "required_from": [
+    "hello@trustfield.ca",
+    "operation@noetfield.com"
+  ],
+  "nerve_gate": "w3_mail_from",
+  "agents_may": [
+    "read mail_configured_addresses",
+    "open outgoing Mail draft with locked official FROM",
+    "probe w3_mail_from via commercial_mail_draft_v1.py"
+  ],
+  "agents_never": [
+    "add Mail.app account",
+    "configure SMTP or FROM for founder",
+    "send email without founder Mail click"
+  ],
+  "mail_applescript_allowlist": [
+    "scripts/commercial_mail_draft_v1.py"
+  ],
+  "disk_ssot": "~/.sina/commercial-mail-from-ssot-v1.json",
+  "check": "python3 scripts/commercial_mail_draft_v1.py --check-mail-from-gate --json"
+}

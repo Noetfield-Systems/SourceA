@@ -1,0 +1,260 @@
+# [COMMERCIAL_GOAL_AGENT_REF · commercial_goal_specialist · COMMERCIAL_GOAL-REF-2026-06-07-DUAL-ANALYSIS-007] rr-20260608-3e382d3e
+trace:
+  agent_ref: COMMERCIAL_GOAL_AGENT_REF
+  agent_name: Commercial Goal Specialist
+  agent_id: commercial_goal_specialist
+  trace_id: COMMERCIAL_GOAL-REF-2026-06-07-DUAL-ANALYSIS-007
+  ref_tag: COMMERCIAL_GOAL-REF-DUAL-ANALYSIS-007
+  registry_id: rr-20260608-3e382d3e
+  session_transcript: 85dd7cd4-0977-4cfc-9449-ea278ea0baee
+  canonical: false
+  external_parent_trace_id: RA-REF-2026-06-07-DUAL-BRAND-009
+module: commercial_goal
+date: 2026-06-07
+type: dual_brand_market_analysis
+markets: [canada_june_2026, global_online]
+brands: [trustfield.ca, noetfield.com]
+
+market_context_june_2026:
+  canada_regulatory:
+    - event: RPAA fully operational; first ~300 registered PSPs published (BetaKit Feb 2026)
+    - pending: 1500+ applicants under Bank supervision
+    - deadline_pressure: First annual report due March 31 2026 (BoC FAQ Jan 2026)
+    - named_registered: Wealthsimple, Koho, Brim, Helcim, Trolley, ZayZoon, Zum Rails, Shopify Payments
+    - implication: MSBs/fintechs still registering = buyer urgency for readiness software + evidence
+  canada_ai_policy:
+    - event: AI for All federal strategy (June 2026 — TrustField one-pager aligned)
+    - implication: Trust pillar = governance evidence; Opportunity = regulated SME adoption
+  payments_tech:
+    - trend: Embedded B2B finance API-first (Galileo/VoPay 2026)
+    - trend: Real-time CAD payouts (VoPay Instant product blog Apr 2026)
+    - trend: Zum Rails full stack + embedded card acceptance (Fintech.ca Feb 2026)
+  global_ai_governance:
+    - trend: Enterprise AI governance $30K–500K/yr (industry buyer guides 2026)
+    - trend: EU AI Act + ISO 42001 driving procurement-grade evidence products
+
+brand_split_locked:
+  noetfield:
+    domain: noetfield.com
+    question: "Should this run? Under what rules? With what proof?"
+    buyer: Board, CCO, CIO, Copilot program owner
+    when: Before go-live / before Copilot rollout
+    money_today: yes — design partner $2k–10k on live homepage
+  trustfield:
+    domain: trustfield.ca
+    question: "How does this RPAA program go live in Canada with partners?"
+    buyer: MSB compliance lead, fintech ops, integrator
+    when: Implementation + pilots
+    money_today: not yet proven — 0 paying customers
+  money_flow_rule:
+    customer_pays: TrustField Technologies only (CONSIDERATION_ENTITY doc)
+    noetfield_invoicing: separate Copilot/governance SKUs on noetfield.com — never client deposit account
+    handoff: Noetfield TLE approved → TrustField RPAA integration program
+
+reference_catalog:
+  canada_compliance_readiness:
+    - company: Comply North
+      who_sells: Compliance consultancy
+      product: RPAA Registration Support
+      price_public: CAD 4999 (+ BoC CAD 2500 separate)
+      revenue_proof: fixed public SKU
+      technical: PSP Connect filing; human service
+      copy_pattern: transparent fixed fee; FINTRAC+RPAA bundle story
+      url: https://complynorth.com/pricing/
+    - company: Renno / Substance Law class
+      who_sells: Law + compliance firms
+      product: RPAA application + frameworks
+      price_public: custom; industry guide CAD 25K–75K framework build
+      copy_pattern: counsel-led; high ticket
+    - company: Bank of Canada
+      product: PSP registration (regulator fee)
+      price_public: CAD 2500 application
+      url: https://www.bankofcanada.ca/regulatory-oversight/retail-payments/
+
+  canada_payment_orchestration:
+    - company: VoPay
+      who_sells: Fintech advisors to platforms
+      product: Fintech-as-a-Service — EFT, Interac, RTP, KYC, treasury
+      price_public: custom quote; free sandbox
+      revenue_proof: company claims 1000+ customers; third-party est USD 4.5–7M (unaudited)
+      technical: REST POST form-encoded; 250+ endpoints; SHA1 sig; docs.vopay.com
+      copy_pattern: book demo → sandbox → enterprise SOW
+      inspiration_for_trustfield: Phase B orchestration slot — partner not compete
+    - company: Zūm Rails
+      who_sells: Enterprise + embedded platforms
+      product: Omni-rail EFT, Interac, cards, open banking, cross-border
+      price_public: custom
+      revenue_proof: registered PSP (BetaKit list); Fintech.ca product launches 2026
+      technical: docs.zumrails.com API
+      inspiration: full-stack embed; TrustField partners not rebuilds
+    - company: Invincible Pay
+      who_sells: Fintech/MSB onboarding team
+      product: MSB rails API white-label — e-Transfer, EFT, wires
+      price_public: custom; days-to-live marketing
+      technical: REST sandbox day 1
+      inspiration_for_trustfield: settlement party of record partner MOU
+    - company: DC Bank / DCPayments
+      who_sells: BaaS enterprise sales
+      product: Schedule I bank APIs — accounts, EFT, Interac, Visa Direct, RPAA trust accounts
+      price_public: per-tx fees published (e.g. EFT CAD 1.00 on accounts page)
+      technical: Financial Products API sandbox
+      inspiration: RPAA safeguarding trust account product for PSPs
+    - company: Helcim
+      who_sells: Self-serve + sales
+      product: Payment processing interchange-plus
+      price_public: IC+ 0.40%+8¢ in-person published; no monthly fee
+      revenue_proof: Calgary founded 2006; billions processed (review sites)
+      technical: REST API + HelcimPay.js
+      inspiration: transparent published pricing builds trust — TrustField should publish pilot fee
+    - company: PayTrie
+      who_sells: Retail + API partners
+      product: Stablecoin on/off-ramp USDC/CADC via Interac
+      price_public: 0.6% min CAD 5
+      technical: api.paytrie.com REST x-api-key
+      inspiration: public fee schedule for one leg of stack
+    - company: NDAX
+      who_sells: Institutional partnerships
+      product: Branded broker + Portfolio Manager API
+      price_public: custom institutional
+      technical: REST+WebSocket apidoc.ndax.io
+      inspiration: venue layer — TrustField sits in front
+    - company: Aquanow
+      who_sells: Institutional sales
+      product: Embedded brokerage / liquidity API
+      price_public: rev-share on spreads; ~3 month launch
+      technical: API suite; FINTRAC MSB Canada
+      inspiration: rev-share model for Phase B crypto programs
+    - company: Plooto
+      who_sells: Product-led SMB
+      product: AP/AR automation
+      price_public: CAD 9 / 32 / 499 per month + per-tx
+      revenue_proof: CAD 40M funding; 8500–10000 customers (BetaKit/PDF)
+      copy_pattern: book demo + self-serve trial
+      inspiration: tier ladder + accountant channel — wrong ICP but right GTM motion
+
+  global_platform_orchestration:
+    - company: Stripe Connect
+      who_sells: Platform sales
+      product: SaaS/marketplace embedded payments
+      price_public: 2.9%+30¢ base; platform fee 0.25% starting; application fees custom
+      technical: Connect SaaS + marketplace models; docs.stripe.com/connect
+      inspiration: subscription + application fee per tx — TrustField usage model
+    - company: Modern Treasury
+      who_sells: Enterprise fintech
+      product: Payment ops + ledger multi-rail
+      price_public: custom usage; USD 400B+ on infra (company claim)
+      technical: unified ledger API ACH wires RTP stablecoins
+      inspiration: system of record for instructions — TrustField audit export analog
+    - company: Kraken Embed
+      who_sells: Institutional
+      product: Crypto-as-a-Service white-label
+      price_public: custom volume pricing
+      technical: Embed REST API B2B2C
+      inspiration: weeks-to-launch partner model
+
+  ai_governance_evidence:
+    - company: Saidot
+      who_sells: Enterprise sales@saidot.ai
+      product: AI governance SaaS — risk library, controls, Azure/Bedrock integrations
+      price_public: custom subscription; 14-day trial; Scaling up/Enterprise packages (LinkedIn promo)
+      technical: REST API webhooks MCP servers; ISO 27001 certified
+      inspiration_for_noetfield: closest comp — library + register + export; Noetfield TLE is narrower Copilot+M365
+      url: https://www.saidot.ai/pricing
+    - company: Credo AI
+      product: Purpose-built AI governance
+      price_reported: USD 30K–150K+/yr (buyer guides — not official)
+      inspiration: policy packs + agent registry
+    - company: OneTrust
+      product: GRC extended to AI + real-time monitoring (2026)
+      price_reported: USD 100K+ enterprise
+      inspiration: procurement-grade; board reporting
+    - company: Microsoft Purview / Copilot controls
+      product: Native M365 governance (incumbent)
+      price: bundled enterprise
+      inspiration_for_noetfield: integrate not replace — Evidence Index from Purview metadata
+
+sellable_products_now:
+  trustfield_phase_a:
+    - sku: TF-001 RPAA Readiness Integration Program
+      price_recommend: CAD 6000 setup + CAD 2500/mo platform
+      market_anchor: Comply North CAD 4999 docs-only; TrustField adds live software
+      buyer: FINTRAC MSB preparing RPAA registration
+      deliverables: SOT Part IV 1-5 + sandbox + audit.json
+      sell_via: trustfield.ca/demo → /pilot → invoice TrustField
+      proof_status: unproven until first close
+    - sku: TF-002 Sandbox (free)
+      price: CAD 0
+      purpose: Plooto/VoPay trial motion; conversion to TF-001
+    - sku: TF-003 Production Program (Phase B)
+      price_internal: CAD 5000–15000 setup + 1500–4000/mo + usage
+      gate: Invincible/VoPay partner MOU + first TF-001 receipt
+  noetfield_phase_a:
+    - sku: NF-001 Copilot Design Partner Pilot
+      price_live: CAD 2000–10000 (noetfield.com homepage)
+      buyer: Enterprise rolling out M365 Copilot
+      deliverables: TLE v1 + board PDF + procurement ZIP
+      proof: product built; design partner fee on public site
+      url_paths: /copilot/pilot · /copilot/demo · /trust-ledger/sample-report
+    - sku: NF-002 Six-Week Governance Audit
+      price_live: CAD 10000 · 6 weeks (noetfield.com homepage)
+      product: Governance audit + AI policy mapping + risk exposure
+      buyer: Institutional AI compliance
+    - sku: NF-003 Enterprise Copilot Compliance Validation
+      price: contact sales
+      technical: governance-console API; TLE OpenAPI; M365 metadata connectors
+  trustfield_wraps_noetfield_methodology:
+    - sku: TF-004 AI Governance & RPAA Discovery (TrustField invoices)
+      price_consideration: CAD 3500–7500 fixed · 2 weeks
+      includes: control gap matrix + sample TLE format + partner map
+      note: Noetfield cited in SOW annex; customer never pays Noetfield directly until incorporated split
+
+dual_brand_gtm_sequence:
+  week_1_2:
+    trustfield: fix site P0 (pricing unify, demo CTA, hide zero stats)
+    noetfield: verify-gtm + 3 Copilot design partner conversations
+  week_3_4:
+    trustfield: 5 MSB outreach + 3 live demos
+    noetfield: close 1 design partner at NF-001 band
+  week_5_8:
+    trustfield: first TF-001 paid setup
+    noetfield: board PDF used in partner governance meeting = case study unlock
+  cross_sell:
+    trigger: NF-001 TLE approved for fintech with payment program
+    offer: TF-001 RPAA integration program — "governance approved → now go live in Canada"
+
+inspiration_patterns_to_copy:
+  - pattern: Fixed-fee entry SKU on website
+    copy_from: Comply North CAD 4999 · Helcim published IC+
+    apply: TrustField CAD 6000 on /pilot · Noetfield already has $2k–10k on homepage
+  - pattern: Book live demo → sandbox → SOW
+    copy_from: VoPay · Plooto · Float
+    apply: trustfield.ca/demo primary CTA
+  - pattern: Metadata-only evidence + board PDF export
+    copy_from: Saidot · OneTrust
+    apply: noetfield.com TLE + board pack (already built)
+  - pattern: Partner rails not own rails
+    copy_from: Stripe Connect · Invincible Pay
+    apply: TrustField never claims custody; partner MOU first
+  - pattern: Design partner discount for case study
+    copy_from: VoPay enterprise · Noetfield SOW outline
+    apply: 50% setup first 3 TrustField pilots; Noetfield $2k floor for logo
+
+reject_do_not_copy:
+  - Plooto AP/AR product category (wrong buyer)
+  - Helcim merchant processing (TrustField not a processor)
+  - Full AI governance platform USD 100K build (Noetfield wins at $2k–10k pilot wedge first)
+  - Grant-first GTM before demos (TrustField 90-day plan)
+  - Single merged brand website (boundary locked)
+
+worker_routing:
+  trustfield_worker:
+    pack: 2026-06-07_TRUSTFIELD_WORKER_SITE_BUILD_PACK.yaml
+    focus: TF-W01–W08 revenue site
+  noetfield_worker:
+    workspace: Noetfield-All-Documents/Noetfield
+    focus:
+      - Publish pricing consistency NF-001/NF-002 vs homepage
+      - /copilot/demo → design partner funnel
+      - make verify-gtm before outbound
+      - Do NOT merge TrustField copy on noetfield.com
+  governance_note: TrustField invoices all cross-brand discovery until counsel approves Noetfield entity billing

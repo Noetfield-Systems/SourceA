@@ -1,0 +1,8 @@
+#!/bin/bash
+osascript << 'APPLESCRIPT'
+set result to display dialog "⛔ EMERGENCY STOP" & return & return & "Kill all SourceA processes?" buttons {"Cancel", "STOP EVERYTHING"} default button "STOP EVERYTHING" with icon stop
+if button returned of result is "STOP EVERYTHING" then
+    do shell script "mkdir -p ~/.sina && touch ~/.sina/auto-run-disabled-v1.flag && pkill -f sina-command-server; pkill -f auto_run_worker_batch; pkill -f goal1_worker_batch_loop; pkill -f healthy-drain-orchestrator; pkill -f brain_run_loop; rm -f ~/.sina/worker-prompt-inbox-v1.json; rm -f ~/.sina/goal1-worker-batch-lock-v1.json; launchctl stop com.sourcea.hub; launchctl stop com.sourcea.autorun-worker" without administrator privileges
+    display notification "All SourceA processes killed" with title "⛔ EMERGENCY STOP" sound name "Basso"
+end if
+APPLESCRIPT

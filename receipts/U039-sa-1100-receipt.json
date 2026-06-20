@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U039",
+  "title": "Recipient interpretation shown in founder review",
+  "evidence": "_resolve_recipient_interpretation() + --check-interpretation PASS \u00b7 fundmore+ocree full sentences in founder review",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:28:18Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

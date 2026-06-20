@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0387",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0387 VERIFY \u2014 RECIPE: validate-dispatch-policy-v1 + validate-governance-fleet-v1 + validate-founder-request-fleet-sync-v1 + find_critical_bugs \u00b7 VALIDATION: gate_ok=True nudges 0 FR-009 synced \u00b7 critical 0 \u00b7 EVIDENCE: disk green \u00b7 BUILT: false \u00b7 closeout",
+  "at": "2026-06-10T07:59:39Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

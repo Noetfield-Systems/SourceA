@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0640",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 D-module allowlist audit guard; 20 dirs frozen; eval live 80%; governance + critical 0; closeout complete",
+  "at": "2026-06-09T04:58:39Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

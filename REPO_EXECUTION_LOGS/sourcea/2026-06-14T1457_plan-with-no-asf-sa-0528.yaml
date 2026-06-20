@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0528 — Cross-check TRUST_LEDGER_SCHEMA_LOCKED_v1.md FR-007 shipped signal
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0528
+tests:
+  status: passed
+  output_snippet: sa-0528 VERIFY PASS — T1 TRUST_LEDGER FR-007 dedup via crossref sa-0503
+reported_at: '2026-06-14T14:57:20Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

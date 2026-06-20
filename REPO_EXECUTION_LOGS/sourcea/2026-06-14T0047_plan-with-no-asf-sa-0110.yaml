@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0110 — Run python3 eval_packet_v1b/runner.py live smoke — write_report true
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0110
+tests:
+  status: passed
+  output_snippet: FIX_ALL eval PASS
+reported_at: '2026-06-14T00:47:16Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

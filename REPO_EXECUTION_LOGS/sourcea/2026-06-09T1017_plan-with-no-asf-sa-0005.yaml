@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0005 — Set P2 L0-full pendings status partial not open
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0005
+tests:
+  status: passed
+  output_snippet: sa-0005 VERIFY closeout — P2 L0-full pendings partial not open PASS, strict build+phase-s0+find_critical_bugs critical 0, pack validate 1000
+reported_at: '2026-06-09T10:17:35Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

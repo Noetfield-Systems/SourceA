@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0600",
+  "status": "DONE",
+  "round_type": "act",
+  "critical_bugs": 0,
+  "engine": "COMMERCIAL",
+  "source": "commercial-6245d9dd",
+  "evidence": "ACT — validate-commercial-lane-g3-vault-t3-crossref-v1 PASS · canonical sa-0525 · G3 visible=False disk=pending deferred · worker_verify_fast PASS",
+  "at": "2026-06-15T01:12:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

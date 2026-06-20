@@ -1,0 +1,43 @@
+{
+  "name": "@sourcea/mcp-verify",
+  "version": "1.0.0",
+  "description": "Read-only governance receipt MCP — verify runs, factory status, form picks. Chain-friendly; never writes Mac disk.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "sourcea-mcp-verify": "dist/index.js"
+  },
+  "files": ["dist", "README.md", "registry"],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "start:http": "node dist/http-server.js",
+    "prepublishOnly": "npm run build",
+    "test": "node --test dist/tools/*.test.js 2>/dev/null || node --import tsx --test src/tools/*.test.ts"
+  },
+  "keywords": ["mcp", "governance", "receipt", "sourcea", "cursor", "verify"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sourcea-io/sourcea.git",
+    "directory": "packages/mcp-sourcea-verify"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "express": "^4.21.2",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.10",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}

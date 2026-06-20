@@ -1,0 +1,35 @@
+schema_version: 1
+repo: sourcea
+task: sa-0856
+turn: check
+phase: phase-s8-hub-ui-ux
+title: Cross-check SINA_COMMAND_NO_TERMINAL_FOUNDER law in hub copy
+status: backlog
+check_passed: true
+act_required: true
+gaps:
+  - id: GAP-1
+    severity: high
+    detail: No validate-hub-copy-no-terminal-v1.sh
+  - id: GAP-2
+    severity: high
+    detail: noetfield_guide.mac_actions renders shell commands in Essentials tab
+  - id: GAP-3
+    severity: medium
+    detail: validate-founder-docs-no-terminal-v1 scope is ASF markdown only
+violations:
+  - surface: hub_essentials.noetfield_guide.mac_actions
+    tab: essentials
+    issue: founder-visible cd/bash/python3 hints
+validators:
+  - validate-founder-docs-no-terminal-v1.sh: PASS
+  - worker_verify_fast_v1.sh: PASS
+live_api:
+  site_guide_terminal_q: PASS
+  worker_hub_no_terminal_policy: PASS
+recommended_act:
+  - validate-hub-copy-no-terminal-v1.sh
+  - heal noetfield_unified_guide.py mac_actions
+attachment: archive/attachments/2026-06-13/sa-0856-check-gap-report_LOCKED_v1.md
+next_turn: act
+reported_at: '2026-06-13T23:30:00Z'

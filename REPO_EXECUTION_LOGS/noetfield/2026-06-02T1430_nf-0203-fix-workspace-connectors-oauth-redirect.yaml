@@ -1,0 +1,24 @@
+schema_version: 1
+repo: noetfield
+task: nf-0203 — Fix workspace/connectors OAuth redirect to workspace list
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - governance-console/backend/services/m365_oauth_stub.py
+  - governance-console/backend/routes/connectors.py
+  - governance-console/frontend/app/workspace/page.tsx
+  - governance-console/frontend/app/workspace/connectors/page.tsx
+  - governance-console/backend/tests/test_tle_flow.py
+  - docs/LOCAL_DEV.md
+  diff_summary: ''
+  note: nf-0204 — Add verify-ui-e2e check for connectors page content
+tests:
+  status: passed
+  command: make verify-gtm
+  output_snippet: verify-gtm passed — safe to run external demo
+real_output: verify-gtm passed — safe to run external demo
+reported_at: '2026-06-02T14:30:00Z'
+reporter: cursor
+execution_id: ''

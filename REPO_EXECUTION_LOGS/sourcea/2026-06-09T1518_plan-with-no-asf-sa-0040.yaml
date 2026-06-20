@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0040 — Ensure PROGRAM_PROGRESS signals_auto synced_at updates on build
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0040
+tests:
+  status: passed
+  output_snippet: sa-0040 VERIFY closeout: PROGRAM_PROGRESS signals_auto.synced_at enforced on build.
+reported_at: '2026-06-09T15:18:05Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

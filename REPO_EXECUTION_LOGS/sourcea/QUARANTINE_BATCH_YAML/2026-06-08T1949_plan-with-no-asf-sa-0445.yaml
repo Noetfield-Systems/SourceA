@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0445 — Reject dispatch_ready true promotion in planner without eval+founder
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0445
+tests:
+  status: passed
+  output_snippet: pack14 spine-loop verify-only; dispatch+spine+batch PASS
+reported_at: '2026-06-08T19:49:38Z'
+reporter: cursor-worker-batch

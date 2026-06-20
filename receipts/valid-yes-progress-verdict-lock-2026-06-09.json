@@ -1,0 +1,35 @@
+{
+  "schema": "sourcea-process-lock-receipt-v1",
+  "process": "SOURCEA_VALID_YES_PROGRESS_VERDICT_LOCKED_v1",
+  "status": "DONE",
+  "at": "2026-06-09T05:15:00Z",
+  "source": "asf_order",
+  "authority": "ASF LOCK IT AND SAVE IT",
+  "consensus": {
+    "brain": "independent_disk_audit_confirmed",
+    "maintainer": "full_audit_before_sa-0630_accepted_with_brain_tweaks"
+  },
+  "locked_snapshot": {
+    "valid_yes": 57,
+    "total": 1000,
+    "pct": 5.7,
+    "receipt_files": 57,
+    "registry_done": 57,
+    "unproven_done": 0,
+    "partial_broker_gaps": 0,
+    "stale_broker_excluded": 67,
+    "quarantine_batch_yaml_files": 513,
+    "quarantine_unique_sas": 495,
+    "factory_tier_receipts": 38,
+    "before_sa_0630": 43,
+    "sa_0630_through_sa_0643": 14
+  },
+  "verdict": {
+    "before_sa_0630": "real_not_ghost_batch",
+    "incident_006": "recovered",
+    "brain_activate_fail": "does_not_invalidate_valid_yes"
+  },
+  "canonical_doc": "SOURCEA_VALID_YES_PROGRESS_VERDICT_LOCKED_v1.md",
+  "critical_bugs": 0,
+  "summary": "ASF locked Valid YES progress verdict: 57/1000 honest dual-proof; tier A/B/C/D documented; Brain+Maintainer consensus saved."
+}

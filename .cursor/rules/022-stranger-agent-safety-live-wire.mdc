@@ -1,0 +1,42 @@
+---
+description: Stranger agent safety live wire — ADMIT PROBE PANIC WATCH SERVE before any write
+alwaysApply: true
+---
+
+# Stranger agent safety live wire (SASCIP wired)
+
+**Law:** `docs/STRANGER_AGENT_SAFETY_CONTROL_PIPELINE_LOCKED_v1.md`  
+**Gate:** `bash scripts/validate-stranger-agent-safety-live-wire-v1.sh`
+
+## Pipeline (every session — automatic)
+
+```text
+ADMIT → PROBE → PANIC → WATCH → SERVE
+```
+
+| Stage | What | Receipt |
+|-------|------|---------|
+| ADMIT | SASCIP fingerprint + trust tier | `~/.sina/stranger-agent-admission-receipt-v1.json` |
+| PROBE | Sentinel cross-lane checks (lane ok · SSOT blocked · brain blocked) | live wire `chains.sentinel_probes` |
+| PANIC | Mac emergency + agent-cancel flags | live wire `panic` |
+| WATCH | Stranger watch pulse (when stale) | `~/.sina/stranger-agent-watch-receipt-v1.json` |
+| SERVE | `sascip_safety_line` on live surfaces | `~/.sina/stranger-agent-safety-live-wire-v1.json` |
+
+Session gate runs this via `stranger_agent_safety_live_wire` step.
+
+## Before ANY disk edit (mandatory)
+
+```bash
+python3 scripts/pre_write_guard_v1.py check --agent cursor --path "<target>" --json
+```
+
+If `ok: false` → **STOP** — no write. Strangers need founder `EDIT ALLOWED: <path>` + `ACTION:` or bounded `WORK:`.
+
+## Hub API (read-only posture)
+
+- `GET /api/stranger-agent-safety-v1` — live wire receipt  
+- `GET /api/pre-write-guard-v1?path=<abs-or-rel>&agent=cursor` — would this write be allowed?
+
+## Quote in replies
+
+`sascip_safety_line` from `~/.sina/agent-live-surfaces-v1.json` (paired with `factory_now_line`).

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0598",
+  "status": "DONE",
+  "round_type": "act",
+  "critical_bugs": 0,
+  "engine": "COMMERCIAL",
+  "source": "commercial-6245d9dd",
+  "evidence": "ACT — validate-mergepack-progress-read-t3-crossref-v1 PASS · canonical sa-0523 · read_mergepack_progress_safe wired in update-program-progress + build-sina-daily-bowl",
+  "at": "2026-06-15T01:18:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

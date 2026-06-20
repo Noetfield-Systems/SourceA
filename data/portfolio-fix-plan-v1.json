@@ -1,0 +1,177 @@
+{
+  "schema": "portfolio-fix-plan-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T19:26:11Z",
+  "human_doc": "docs/SOURCEA_PORTFOLIO_FIX_PLAN_LOCKED_v1.md",
+  "script": "scripts/portfolio_fix_plan_pulse_v1.py",
+  "validator": "scripts/validate-portfolio-fix-plan-v1.sh",
+  "execute": "scripts/portfolio_fix_execute_v1.sh",
+  "receipt": "~/.sina/portfolio-fix-plan-pulse-v1.json",
+  "one_law": "Portfolio revenue unlock = TrustField ladder GREEN + WitnessBC prod markers GREEN → defer lift → MSB wave. Roles never cross repos.",
+  "defer_ssot": "data/commercial-email-send-defer-v1.json",
+  "unlock_chain": [
+    "tf_ladder_1_4_green",
+    "witnessbc_prod_markers",
+    "sites_green_defer",
+    "founder_lift",
+    "msb_outreach_15",
+    "demos_3",
+    "pilot_6k"
+  ],
+  "roles": {
+    "founder": {
+      "may": ["dns_cutover", "stripe_paste", "defer_lift", "invoice", "form_picks"],
+      "must_not": ["terminal_routine", "agent_email_bulk"]
+    },
+    "brain": {
+      "may": ["route", "handoff", "quote_disk", "dispatch_inbox"],
+      "must_not": ["implement_sa", "edit_product_repos"]
+    },
+    "sourcea_worker": {
+      "repo": "~/Desktop/SourceA",
+      "may": ["witnessbc_deploy", "scripts", "receipts", "governance_heal"],
+      "must_not": ["trustfield_repo"]
+    },
+    "trustfield_agent": {
+      "repo": "~/Desktop/TrustField Technologies",
+      "may": ["ladder", "ui_build", "msb_outreach", "demos"],
+      "must_not": ["witnessbc_sourcea"]
+    }
+  },
+  "paths": {
+    "trustfield_root": "~/Desktop/TrustField Technologies",
+    "ladder_state": "~/Desktop/TrustField Technologies/os/ladder_state.json",
+    "witnessbc_preview": "https://witnessbc-commercial.pages.dev",
+    "witnessbc_prod": "https://www.witnessbc.com",
+    "trustfield_prod": "https://www.trustfield.ca"
+  },
+  "phases": [
+    {
+      "id": "P0",
+      "name": "Unblock defer sites=RED",
+      "parallel": true,
+      "tracks": ["TF-P0", "WBC-P0", "GOV-P0"]
+    },
+    {
+      "id": "P1",
+      "name": "Defer lift",
+      "owner": "founder",
+      "requires": ["sites_green"]
+    },
+    {
+      "id": "P2",
+      "name": "MSB + demos + pilot",
+      "owner": "trustfield_agent",
+      "requires": ["defer_lift"]
+    },
+    {
+      "id": "P3",
+      "name": "WitnessBC Proof Lab P2",
+      "owner": "sourcea_worker",
+      "requires": ["witnessbc_prod"]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "TF-P0-1",
+      "phase": "P0",
+      "role": "trustfield_agent",
+      "title": "Re-green ladder 1–4",
+      "command": "cd ~/Desktop/TrustField\\ Technologies && ./scripts/ui_build_and_verify.sh",
+      "acceptance": "ladder steps 1-4 status=green · commercial_blocked=false"
+    },
+    {
+      "id": "TF-P0-2",
+      "phase": "P0",
+      "role": "trustfield_agent",
+      "title": "Stabilize /api/readiness",
+      "command": "VERIFY_BASE_URL=https://www.trustfield.ca ./scripts/ship_p0_first_customer.sh",
+      "acceptance": "curl /api/readiness 200 <5s x3"
+    },
+    {
+      "id": "TF-P0-3",
+      "phase": "P0",
+      "role": "trustfield_agent",
+      "title": "Fleet E2E 12/12",
+      "command": "cd ~/Desktop/TrustField\\ Technologies && ./scripts/verify_commercial_e2e.sh",
+      "acceptance": "verify_commercial_e2e.sh PASS"
+    },
+    {
+      "id": "WBC-P0-1",
+      "phase": "P0",
+      "role": "sourcea_worker",
+      "title": "UI FIRST CHECK ack",
+      "command": "bash ~/Desktop/SourceA/scripts/wbc-ui-first-check.sh --surface witnessbc_commercial --ack",
+      "acceptance": "UI_UPGRADE ack TTL active"
+    },
+    {
+      "id": "WBC-P0-2",
+      "phase": "P0",
+      "role": "sourcea_worker",
+      "title": "Deploy artifact verify",
+      "command": "bash ~/Desktop/SourceA/scripts/wbc-guard-check.sh",
+      "acceptance": "21 pages · 665 links · zero-drift PASS"
+    },
+    {
+      "id": "WBC-P0-3",
+      "phase": "P0",
+      "role": "founder",
+      "title": "DNS cutover www.witnessbc.com → CF Pages",
+      "command": "CF dashboard CNAME → witnessbc-commercial.pages.dev",
+      "acceptance": "prod has AI policy at dispatch + brand-disambiguation · no journalism"
+    },
+    {
+      "id": "WBC-P0-4",
+      "phase": "P0",
+      "role": "founder",
+      "title": "Paste 11 Stripe buy.stripe.com URLs",
+      "command": "~/.sina/witnessbc-stripe-links-v1.env → rebuild → redeploy",
+      "acceptance": "0 REPLACE_* in stripe-links-v1.json on deploy"
+    },
+    {
+      "id": "GOV-P0-1",
+      "phase": "P0",
+      "role": "sourcea_worker",
+      "title": "Portfolio fix pulse + defer refresh",
+      "command": "bash ~/Desktop/SourceA/scripts/portfolio_fix_execute_v1.sh",
+      "acceptance": "portfolio-fix-plan-pulse receipt · defer receipt fresh"
+    },
+    {
+      "id": "P1-1",
+      "phase": "P1",
+      "role": "founder",
+      "title": "Defer lift",
+      "command": "python3 ~/Desktop/SourceA/scripts/commercial_email_send_defer_v1.py --lift",
+      "acceptance": "commercial-email-send-defer-lift-v1.json · lift=YES"
+    },
+    {
+      "id": "P2-1",
+      "phase": "P2",
+      "role": "trustfield_agent",
+      "title": "MSB outreach 15×",
+      "command": "TrustField agentic outreach per Wave M",
+      "acceptance": "outreach_sent_agent >= 15"
+    },
+    {
+      "id": "P2-2",
+      "phase": "P2",
+      "role": "trustfield_agent",
+      "title": "Book 3 demos",
+      "acceptance": "demos_booked_agentic >= 3"
+    },
+    {
+      "id": "P2-3",
+      "phase": "P2",
+      "role": "founder",
+      "title": "Invoice $6K pilot",
+      "acceptance": "founder invoice receipt"
+    }
+  ],
+  "handoffs": {
+    "trustfield": "~/.sina/agent-workspaces/trustfield/PORTFOLIO_FIX_HANDOFF_LOCKED_v1.md",
+    "sourcea_worker": "~/.sina/agent-workspaces/sourcea-worker/PORTFOLIO_FIX_HANDOFF_LOCKED_v1.md",
+    "brain": "docs/SOURCEA_PORTFOLIO_FIX_PLAN_LOCKED_v1.md"
+  },
+  "surfaces_line_key": "portfolio_fix_line",
+  "quote_rule": "Quote portfolio_fix_line + email_send_defer_line in every commercial portfolio reply"
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "sourcea-verify": {
+      "command": "npx",
+      "args": ["-y", "@sourcea/mcp-verify"]
+    }
+  }
+}

@@ -1,0 +1,278 @@
+# [COMMERCIAL_GOAL_AGENT_REF · commercial_goal_specialist · COMMERCIAL_GOAL-REF-2026-06-07-SITE-PACK-002] rr-20260607-0b66e909
+trace:
+  agent_ref: COMMERCIAL_GOAL_AGENT_REF
+  agent_name: Commercial Goal Specialist
+  agent_id: commercial_goal_specialist
+  trace_id: COMMERCIAL_GOAL-REF-2026-06-07-SITE-PACK-002
+  ref_tag: COMMERCIAL_GOAL-REF-SITE-PACK-002
+  registry_id: rr-20260607-0b66e909
+  session_transcript: 85dd7cd4-0977-4cfc-9449-ea278ea0baee
+  canonical: false
+  parent_trace_id: COMMERCIAL_GOAL-REF-2026-06-07-BLUEPRINT-V2-001
+module: commercial_goal
+date: 2026-06-07
+type: trustfield_worker_handoff
+execution_authority: false
+target: TrustField Technologies worker agent
+goal: Fastest money flow — trustfield.ca converts MSB/compliance buyers to demo → LOI → $6K invoice
+
+current_situation:
+  production:
+    site: https://www.trustfield.ca — live Vercel
+    api: https://api.trustfield.ca — live
+    last_verify: "./scripts/run_no_asf_verify.sh PASS 2026-06-06"
+  revenue:
+    paying_customers: 0
+    demos_booked: 0
+    engineering_freeze: "No new product features until 3 demo calls booked (SOT + plan.json context)"
+  plan_json:
+    next_tasks: []  # empty — worker must populate after sprint
+    phase: phase1_free_gtm
+    active_focus: gtm_demos_on_free_stack
+
+  live_site_strengths:
+    - MSB-first homepage (UPG-002 shipped)
+    - Dual CTA walkthrough + sandbox + contact
+    - /developers OpenAPI live
+    - /demo step-by-step presenter flow
+    - /pricing comparison table (UPG-004 partial)
+    - Positioning CI guardrails active
+
+  critical_gaps_blocking_money:
+    - id: GAP-1
+      issue: Pricing contradiction across disk
+      evidence:
+        - "SOT Part IV: $6,000 CAD setup + $2,500/mo"
+        - "Live /pricing: Setup from $2.5K · Platform from $500/mo"
+        - "Live /pilot: Commercial terms On request"
+        - "PRICING_ONE_PAGER_INTERNAL: $5K–15K setup · $1.5K–4K/mo"
+        - "Market comp Comply North: $4,999 RPAA filing (docs only)"
+      impact: MLRO/CFO cannot anchor budget on call; undermines $6K close
+    - id: GAP-2
+      issue: Homepage shows 0/0/0 live stats
+      evidence: traction-strip.tsx uses API stats when present — zeros display
+      impact: Looks pre-launch / empty — trust score killer (client scenarios avg 3.1/5)
+    - id: GAP-3
+      issue: company.py vs company-copy.ts hero drift
+      evidence:
+        - "company.py HERO: Run market programs on one API layer"
+        - "company-copy.ts / live site: Infrastructure for licensed money service..."
+      impact: CI mirror desync; verify_positioning may pass web but python path differs
+    - id: GAP-4
+      issue: No book-a-demo scheduling
+      evidence: contact = mailto only; NEXT_PUBLIC_BOOKING_URL unset
+      impact: Plooto/VoPay motion incomplete — extra friction vs comps
+    - id: GAP-5
+      issue: Primary CTA is /showcase not /demo
+      evidence: HOME_SALES.primary_cta → /showcase?track=msb
+      impact: /demo is better structured close path per PHASE1_DEMO_SPRINT
+    - id: GAP-6
+      issue: UPG-003 vendor brief PDF incomplete
+      evidence: vault UPG-003 P1; /pilot/vendor-pack exists but founder MLRO fields TBD
+      impact: MLRO persona blocker on diligence
+    - id: GAP-7
+      issue: Market catalog all demo_mode
+      evidence: live /developers integration health — honest but homepage implies "integrating"
+      impact: Critic persona distrust — need clearer "sandbox today · production scoped"
+
+positioning_locked:
+  category: RPAA program readiness software — workflow + APIs + audit evidence
+  canonical_line: "TrustField builds RPAA-aligned payment infrastructure — readiness services and software today, with a defined path to licensed PSP services in Canada."
+  boundary: "TrustField does not participate in settlement or custody."
+  primary_buyer: FINTRAC MSB preparing for RPAA + pre-PSP fintech with product ready
+  do_not_claim: PSP today · custody · live partner integrations · SOC2 · case studies
+
+founder_decision_required_before_worker:
+  - id: FD-1
+    question: Publish fixed Integration Program price on /pilot?
+    commercial_recommendation: "Yes — CAD 6,000 setup + CAD 2,500/mo platform (matches SOT + sits above Comply North $4,999 docs-only)"
+    alternative: Keep on request but align /pricing table to same numbers (no $500/mo public)
+  - id: FD-2
+    question: Calendly/booking URL for /demo and /contact?
+    commercial_recommendation: "Set NEXT_PUBLIC_BOOKING_URL in Vercel — founder one-tap in app settings, not Terminal"
+
+worker_sprint:
+  name: REVENUE-SITE-P0-2026-06-07
+  repo: "/Users/sinakazemnezhad/Desktop/TrustField Technologies"
+  authority_chain:
+    - docs/TRUSTFIELD_SOURCE_OF_TRUTH.md
+    - docs/gtm/PRICING_ONE_PAGER_INTERNAL.md
+    - docs/gtm/PHASE1_DEMO_SPRINT.md
+    - ~/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-07_REVENUE_RECEIPT_EXACT_OUTSIDE.yaml
+  verify_after_each_task: "./scripts/verify_ui_e2e.sh && ./scripts/verify_positioning_ci.sh"
+  final_verify: "./scripts/run_no_asf_verify.sh"
+
+  tasks:
+    - id: TF-W01
+      priority: P0
+      title: Fix traction strip — never show zero counters
+      why: Pre-revenue site must not display 0 applications
+      files:
+        - web/components/sales/traction-strip.tsx
+      spec: |
+        If stats API returns all zeros (applications+programs+pending === 0), use HOME_SALES.traction fallback labels instead of numeric zeros.
+        Alternative: hide TractionStrip entirely until applications >= 1 (config flag in company-copy).
+      accept: Homepage never shows "0" in stat cards on prod fetch
+
+    - id: TF-W02
+      priority: P0
+      title: Unify pricing to revenue SKU (pending FD-1)
+      why: Fastest money needs one anchor like Comply North $4,999
+      files:
+        - web/lib/company-copy.ts  # PILOT_OFFER.pricing, PRICING_COMPARISON rows, TIERS if extracted
+        - web/app/pricing/page.tsx
+        - web/app/pilot/page.tsx
+        - app/content/company.py  # mirror if pilot constants added
+      spec: |
+        IF founder confirms FD-1:
+          /pilot OfferCard: "CAD 6,000 setup" + "CAD 2,500/mo platform" + footnote "Design partner: 50% setup for first 3 programs"
+          /pricing tiers:
+            Sandbox: Free (unchanged)
+            Integration program: CAD 6,000 setup (6 weeks scoped SOW)
+            Platform: From CAD 2,500/mo
+            Usage: Per instruction — on request
+          PRICING_COMPARISON row "Integration setup": "CAD 6,000 scoped" not "From $2.5K"
+          Add compare footnote: "RPAA filing services (e.g. compliance consultancies) often CAD 4,999+ for forms only — TrustField includes working software"
+        ELSE: remove specific dollar amounts from /pricing; all "On request" consistent with internal PRICING_ONE_PAGER line 4
+      accept: No conflicting setup prices between /pilot, /pricing, and SOT
+      founder_gate: FD-1
+
+    - id: TF-W03
+      priority: P0
+      title: Sync company.py ↔ company-copy.ts hero + positioning
+      why: CI mirror; SOT requires both files aligned
+      files:
+        - app/content/company.py
+        - web/lib/company-copy.ts
+      spec: |
+        Pick ONE hero (commercial recommends company-copy.ts live version):
+          H1: "Infrastructure for licensed money service and market programs"
+          Subhead: onboard + workflow + audit trail — partners execute (from company-copy COMPANY.hero_subhead)
+        POSITIONING_LINE must match SOT canonical exactly in both files.
+        Run ./scripts/verify_positioning_ci.sh — must PASS.
+      accept: verify_positioning_ci.sh PASS; hero identical intent in py+ts
+
+    - id: TF-W04
+      priority: P0
+      title: MSB demo funnel — primary CTA → /demo
+      why: PHASE1_DEMO_SPRINT uses /demo as structured close; matches Plooto book-demo
+      files:
+        - web/lib/company-copy.ts  # HOME_SALES.primary_cta, msb_cta, site-header
+        - web/app/page.tsx  # bottom CTA block
+      spec: |
+        primary_cta: { label: "Book live walkthrough", href: "/demo" }
+        Keep secondary: /register?partner=demo-msb-tor
+        Header button: same label/href
+        /demo page: add prominent mailto hello@trustfield.ca + "Book live walkthrough" as primary if no Calendly yet
+      accept: verify_hero_url.sh passes; header + hero link to /demo
+
+    - id: TF-W05
+      priority: P0
+      title: Sandbox honesty line on homepage catalog
+      why: Avoid critic persona "fake integration" objection
+      files:
+        - web/lib/company-copy.ts  # social_proof or new catalog_disclaimer
+        - web/app/page.tsx  # market catalog section
+      spec: |
+        Replace vague "Actively integrating" with:
+        "Sandbox live today. Production partner routing is scoped per integration program."
+        Market access cards: keep "demo" badge visible (already on prod)
+      accept: No implied live NDAX/VoPay without configured adapters
+
+    - id: TF-W06
+      priority: P1
+      title: UPG-003 Vendor brief — founder-fillable + print PDF path
+      why: MLRO diligence unlocks enterprise MSB conversations
+      files:
+        - web/app/pilot/vendor-pack/page.tsx (or existing path)
+        - docs/internal/ — only if founder-approved fields
+      spec: |
+        Ensure /pilot/vendor-pack prints 2-page PDF via browser print CSS.
+        Placeholders clearly marked "Founder completes before outbound" for MLRO contact + RPAA entity ID.
+        Link from /pricing comparison CTA (already href /pilot/vendor-pack).
+        Do NOT fabricate logos or partner names (UPG-005 rule).
+      accept: verify_ui_e2e includes diligence brief path
+
+    - id: TF-W07
+      priority: P1
+      title: /contact + /demo booking hook
+      why: Remove friction after TF-W04
+      files:
+        - web/app/contact/page.tsx
+        - web/app/demo/page.tsx
+        - web/lib/company-copy.ts  # CONTACT_COPY
+      spec: |
+        If process.env.NEXT_PUBLIC_BOOKING_URL set: show "Schedule a call" button (founder sets in Vercel).
+        Else: mailto hello@trustfield.ca with subject "TrustField — MSB integration walkthrough"
+        Add MSB-specific line: "Typical call: 30 min — intake, sandbox, audit export, integration scope"
+      accept: Contact page has single obvious next action
+      founder_gate: FD-2 optional
+
+    - id: TF-W08
+      priority: P1
+      title: Rename /pilot surface copy to match SOT without URL change
+      why: SOT says RPAA Readiness Pilot; live says Integration program — same SKU, clearer buyer language
+      files:
+        - web/lib/company-copy.ts  # PILOT_OFFER.title subtitle
+      spec: |
+        Title: "RPAA Readiness Integration Program" (or keep Integration program + subtitle mentions RPAA)
+        Add bullet mapping to SOT deliverables 1-5 (flow map, governance design, software env, partner blueprint, counsel report)
+        partner query: ?partner=rpaa-pilot on register links from /pilot
+      accept: Pilot page mentions RPAA + 6-week timeline (already has timeline)
+
+    - id: TF-W09
+      priority: P2
+      title: UPG-006 /security stub page
+      why: Client scenario MLRO expects security page
+      files:
+        - web/app/security/page.tsx (new)
+        - web/lib/company-copy.ts
+        - site nav footer link
+      spec: |
+        HTTPS, access tokens, incident contact hello@trustfield.ca, Phase 1 SQLite note, Postgres deferred.
+        NO SOC2 claims. Link from /compliance.
+      accept: verify_public_presentation.sh PASS
+
+    - id: TF-W10
+      priority: DEFER
+      title: UPG-005 case study
+      why: Blocked until first paid pilot — never fabricate
+      blocked_until: first_paid_pilot_LOI
+
+  out_of_scope_do_not_build:
+    - Postgres/Redis (B-001 deferred until revenue)
+    - Live VoPay/NDAX adapter keys on prod
+    - New JWT/auth features
+    - FORGE/SourceA/hub work
+    - Fake customer logos or testimonials
+    - Public competitor name tables (internal landscape only)
+
+  os_plan_json_update:
+    next_tasks_after_sprint:
+      - "TF-W01 traction strip zero fix"
+      - "TF-W02 pricing unify (post FD-1)"
+      - "TF-W03 copy mirror sync"
+      - "TF-W04 demo CTA funnel"
+    done_append:
+      - "Commercial worker sprint REVENUE-SITE-P0-2026-06-07 — verify PASS"
+
+money_flow_after_site:
+  step_1: MSB lands homepage → Book live walkthrough (/demo)
+  step_2: Founder runs showcase?track=msb&presenter=1 + register intake
+  step_3: Close on /pilot scoped SOW — CAD 6,000 setup invoice (if FD-1 approved)
+  step_4: Partner MOU parallel (Invincible/VoPay) — not site work
+
+execution_core_routing:
+  lane: trustfield
+  worker_workspace: "/Users/sinakazemnezhad/Desktop/TrustField Technologies"
+  handoff_read_first:
+    - docs/TRUSTFIELD_SOURCE_OF_TRUTH.md
+    - MANDATORY_TRUSTFIELD_CHAT (SourceA os/chat-handoffs)
+    - this file
+  one_task_rule: "Implement TF-W01 → verify → TF-W02 (if FD-1 yes) → … — update os/plan.json each close"
+
+advocacy_for_founder:
+  - Approve FD-1 publish CAD 6,000 on /pilot — matches Comply North market receipt + SOT
+  - Optional FD-2 Calendly URL in Vercel — removes booking friction
+  - After worker sprint: run founder_live_sales_checklist.sh + send 5 MSB emails — site alone does not revenue
+  - 3 demos still unlock engineering freeze for deeper product work

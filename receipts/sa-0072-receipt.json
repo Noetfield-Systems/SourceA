@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0072",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0072 verify PASS \u2014 Grep scripts for dispatch_ready=true global set \u2014 reject; validators PASS",
+  "at": "2026-06-10T00:01:34Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

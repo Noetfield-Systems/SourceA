@@ -1,0 +1,104 @@
+{
+  "schema": "film-factory-worker-prompts-inbox-v1",
+  "version": "1.0.0",
+  "locked_at": "2026-06-16",
+  "roadmap": "archive/attachments/2026-06-16/CINEMATIC_FACTORY_BIG_PICTURE_ROADMAP_AND_PROMPTS_LOCKED_v1.md",
+  "sequence_law": "references_locked → harden_factory_L40 → workers → investors → sell",
+  "current_level": "L30-L40",
+  "next_milestone": "L40_first_STYLE-A3_PASS",
+  "prompts": [
+    {
+      "id": "PROMPT-001",
+      "title": "Factory health check",
+      "owner": "worker",
+      "phase": "foundation",
+      "blocked_until": null,
+      "body": "WORK: Film factory foundation audit\n\nRead: archive/attachments/2026-06-16/CINEMATIC_FACTORY_BIG_PICTURE_ROADMAP_AND_PROMPTS_LOCKED_v1.md §3–§6\n\nRun and report PASS/FAIL:\n- bash scripts/validate-commercial-film-routing-v1.sh\n- bash scripts/validate-commercial-film-sync-v1.sh\n- bash scripts/validate-commercial-film-render-rules-v1.sh\n- bash scripts/validate-commercial-film-ship-gate-v1.sh\n- bash scripts/validate-n8n-film-factory-wire-v1.sh\n- python3 scripts/commercial_film_critic_circle_v1.py --json --lane all\n\nQuote factory_now_line. State freeze flag. List top 3 blockers to L40.\nDo not publish. Do not outbound. STOP after report."
+    },
+    {
+      "id": "PROMPT-002",
+      "title": "Ship gate dry run SourceA",
+      "owner": "worker",
+      "phase": "harden",
+      "blocked_until": null,
+      "body": "WORK: SourceA ship gate dry run\n\nRun: python3 scripts/commercial_film_ship_gate_v1.py --lane sourcea --json --skip-ingest --no-deploy\n\nRead receipt: ~/.sina/enforcement/commercial-film-ship-gate-receipt-v1.json\n\nReport: publish_allowed · steps · next_action. STOP."
+    },
+    {
+      "id": "PROMPT-003",
+      "title": "n8n film wire smoke",
+      "owner": "worker",
+      "phase": "harden",
+      "blocked_until": null,
+      "body": "WORK: n8n film wire smoke\n\nRun film_status + film_critic via n8n_integration_core and n8n_glue_runner_v1.py film-status.\n\nReport PASS/FAIL. STOP."
+    },
+    {
+      "id": "PROMPT-004",
+      "title": "SourceA ingest + ship after master",
+      "owner": "worker",
+      "phase": "L40",
+      "blocked_until": "SourceA-Commercial-Master.mov on Desktop",
+      "body": "WORK: SourceA STYLE-A3 ingest + ship gate\n\nPrecondition: ~/Desktop/SourceA-Commercial-Master.mov exists.\n\nRead: archive/attachments/2026-06-15/STYLE_A3_SOURCEA_SHOT_MATCH_BRIEF_2026-06-15_v1.md\n\nRun ingest → bash sourcea-commercial-film-ship.sh\n\nCritic vs STYLE-A3 + A5. Report verdict. STOP."
+    },
+    {
+      "id": "PROMPT-005",
+      "title": "WitnessBC ingest + ship after master",
+      "owner": "worker",
+      "phase": "L50",
+      "blocked_until": "WitnessBC-Commercial-Master.mov on Desktop",
+      "body": "WORK: WitnessBC STYLE-B1 ingest + ship gate\n\nPrecondition: ~/Desktop/WitnessBC-Commercial-Master.mov exists.\n\nRead: archive/attachments/2026-06-16/STYLE_B1_WITNESSBC_SHOT_MATCH_BRIEF_LOCKED_v1.md\n\nIngest → bash witnessbc-commercial-film-ship.sh. Report. STOP."
+    },
+    {
+      "id": "PROMPT-006",
+      "title": "Learning circle memory rows",
+      "owner": "worker",
+      "phase": "memory",
+      "blocked_until": null,
+      "body": "WORK: Film memory learn rows from critic BLOCK\n\nRead critic receipt. Append incidents jsonl per BLOCK with reference_pick, steal, fix, lane. STOP."
+    },
+    {
+      "id": "PROMPT-007",
+      "title": "Multi-format derivatives",
+      "owner": "worker",
+      "phase": "L60",
+      "blocked_until": "L50_dual_hero_PASS",
+      "body": "WORK: Phase 2 multi-format from PASS masters. 9:16 social cut. No re-record. STOP."
+    },
+    {
+      "id": "PROMPT-008",
+      "title": "Validator chain sweep",
+      "owner": "worker",
+      "phase": "foundation",
+      "blocked_until": null,
+      "body": "WORK: Film factory validator green chain. Fix validator-scope failures only. STOP."
+    },
+    {
+      "id": "PROMPT-009",
+      "title": "Reference SSOT sync",
+      "owner": "worker",
+      "phase": "foundation",
+      "blocked_until": null,
+      "body": "WORK: Reference SSOT consistency across reference-board, routing, locked master. Report drift. STOP."
+    },
+    {
+      "id": "PROMPT-010",
+      "title": "Queue next after L40",
+      "owner": "brain",
+      "phase": "ops",
+      "blocked_until": null,
+      "body": "WORK: Queue next film steps after first PASS. Read receipts. Route to PROMPT-006 or PROMPT-007. STOP."
+    }
+  ],
+  "founder_prompts": [
+    {
+      "id": "PROMPT-FOUNDER-001",
+      "title": "Record SourceA STYLE-A3",
+      "body": "Record Screen Studio per STYLE_A3 brief → ~/Desktop/SourceA-Commercial-Master.mov → Worker PROMPT-004"
+    },
+    {
+      "id": "PROMPT-FOUNDER-002",
+      "title": "Record WitnessBC STYLE-B1",
+      "body": "Record Screen Studio per STYLE_B1 brief → ~/Desktop/WitnessBC-Commercial-Master.mov → Worker PROMPT-005"
+    }
+  ],
+  "recommended_first_inbox": "PROMPT-001"
+}

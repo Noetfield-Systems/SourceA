@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0852",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "worker_inbox",
+  "evidence": "sa-0852 VERIFY DONE \u2014 Measure command-data-shell.json size \u2014 target under 500KB; validators: validate-command-data-shell-size-v1.sh: PASS 301464, validate-command-data-lazy-shell-v1.sh: PASS, validate-app-js-lazy-bootstrap-v1.sh: PASS",
+  "at": "2026-06-13T21:57:21Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

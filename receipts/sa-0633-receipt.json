@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0633",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 gate_receipts_hub 8 routes aligned to ENFORCE_BYPASS_MAP; audit route guards; dispatch + governance + critical 0",
+  "at": "2026-06-09T04:21:52Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

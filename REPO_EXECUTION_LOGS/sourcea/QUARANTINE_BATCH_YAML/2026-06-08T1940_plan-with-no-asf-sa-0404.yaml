@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0404 — Founder-only: document Actions enqueue eval spine bridge steps in FOUNDER guide
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0404
+tests:
+  status: passed
+  output_snippet: pack11 verify-only; spine+scoreboard validators PASS
+reported_at: '2026-06-08T19:40:07Z'
+reporter: cursor-worker-batch

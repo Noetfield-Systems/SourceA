@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U050",
+  "title": "Fleet conversation_interest avg on live surfaces",
+  "evidence": "cil_fleet_pct quoted on agent-live-surfaces \u00b7 --check-cil-fleet-surfaces PASS avg=97",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:44:20Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

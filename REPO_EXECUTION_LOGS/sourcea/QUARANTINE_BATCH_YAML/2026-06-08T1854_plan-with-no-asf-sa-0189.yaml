@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0189 — Validate l8-hybrid grounding cites embedding_provider.py
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0189
+tests:
+  status: passed
+  output_snippet: validate-eval-packet-v1b-l8-hybrid-grounding-v1.sh PASS; dispatch-policy+governance-fleet PASS; critical 0
+reported_at: '2026-06-08T18:54:41Z'
+reporter: cursor-worker-batch

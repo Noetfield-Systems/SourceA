@@ -1,0 +1,114 @@
+{
+  "schema": "commercial-short-film-beats-v1",
+  "status": "draft",
+  "saved_at": "2026-06-19T08:47:00Z",
+  "phase0_reference": {
+    "id": "P0-06",
+    "ssot": "data/trustfield-msb-compliance-sandbox-story-v1.json",
+    "validator": "scripts/validate-trustfield-msb-sandbox-story-v1.sh",
+    "script": "scripts/trustfield_msb_sandbox_story_v1.py"
+  },
+  "routing_lane": "trustfield",
+  "routing_tier": "A_hero",
+  "routing_ref": "data/commercial-film-routing-v1.json#trustfield",
+  "film_style": "linear_bar",
+  "quality_tier": "ultra",
+  "linear_recut": true,
+  "chapter_captions": true,
+  "captions_mode": "chapter_only",
+  "commercial_capture": true,
+  "cinematic_finish": true,
+  "title": "TrustField — RPAA Readiness in Repository",
+  "runtime_target_seconds": 90,
+  "polish": {
+    "target_bitrate_mbps": 10,
+    "master_lufs": -14,
+    "sfx": true,
+    "cinematic_finish": true
+  },
+  "hook": "Your MSB program runs on spreadsheets until an auditor asks for proof.",
+  "brand": {
+    "name": "TrustField",
+    "domain": "trustfield.ca",
+    "logo_cold_open": true,
+    "hook_broll_seconds": 12,
+    "hook_broll_urls": [
+      "https://www.trustfield.ca/"
+    ],
+    "cta_title": "Book a demo",
+    "cta_subtitle": "trustfield.ca/demo · RPAA Readiness Pilot",
+    "cta_broll_urls": [
+      "https://www.trustfield.ca/demo",
+      "https://www.trustfield.ca/pilot"
+    ]
+  },
+  "publish": {
+    "desktop": "TrustField-Commercial.mp4",
+    "site_mp4": "TBD/trustfield-site/assets/trustfield-commercial.mp4",
+    "receipt": "trustfield-commercial-film-receipt-v1.json",
+    "work_dir": "trustfield-commercial-film-work-v1"
+  },
+  "global_capture": {
+    "width": 1920,
+    "height": 1080,
+    "master_width": 3840,
+    "master_height": 2160,
+    "seconds_per_url": 12,
+    "zoom": 1.35
+  },
+  "beats": [
+    {
+      "id": "URGENCY",
+      "label": "RPAA urgency",
+      "title": "Registration deadline pressure",
+      "narration": "RPAA registration is not optional. Your program needs a working system before the auditor arrives.",
+      "broll_urls": ["https://www.trustfield.ca/"],
+      "card_seconds": 0.8,
+      "broll_seconds": 18,
+      "seconds_per_url": 12
+    },
+    {
+      "id": "SANDBOX",
+      "label": "Live sandbox",
+      "title": "First instruction in seven days",
+      "live_sandbox": true,
+      "phase0_ssot": "data/trustfield-msb-compliance-sandbox-story-v1.json",
+      "narration": "TrustField gives you a live sandbox — intake, references, operator workflows, audit export.",
+      "broll_urls": ["https://www.trustfield.ca/demo"],
+      "card_seconds": 0.8,
+      "broll_seconds": 20,
+      "seconds_per_url": 12
+    },
+    {
+      "id": "PILOT",
+      "label": "Pilot offer",
+      "title": "RPAA Readiness Pilot",
+      "narration": "The RPAA Readiness Pilot — checklist, sandbox, and counsel-ready exports in weeks not quarters.",
+      "broll_urls": ["https://www.trustfield.ca/pilot"],
+      "card_seconds": 0.8,
+      "broll_seconds": 18,
+      "seconds_per_url": 12
+    },
+    {
+      "id": "TRUST",
+      "label": "Built on",
+      "title": "Licensed partners move money",
+      "narration": "VoPay and licensed partners move money. TrustField gives your MLRO a system they can review.",
+      "broll_urls": ["https://www.trustfield.ca/"],
+      "card_seconds": 0,
+      "broll_seconds": 8,
+      "seconds_per_url": 8
+    }
+  ],
+  "cta": {
+    "narration": "TrustField. RPAA-aligned readiness on trustfield.ca. Book your demo today.",
+    "seconds": 10,
+    "broll_urls": ["https://www.trustfield.ca/demo"]
+  },
+  "tier_C_options": {
+    "heygen_avatar": "allowed_test_only",
+    "founder_selfie": "allowed_preferred",
+    "note": "Synthetic avatar OK for top-funnel Meta test — not tier A hero"
+  },
+  "advisor_source": "Commercial Goal Specialist vault · MSB-first GTM · W3 pilot close"
+}

@@ -1,0 +1,67 @@
+{
+  "schema": "brain-cloud-practical-300-mcp-v1",
+  "saved_at": "2026-06-19T05:55:14Z",
+  "parent": "data/brain-cloud-practical-300-plan-v1.json",
+  "rows": [
+    {
+      "id": "C300-MCP-001",
+      "title": "SourceA MCP SSE Vercel deploy",
+      "tier": "P1",
+      "status": "done"
+    },
+    {
+      "id": "C300-MCP-002",
+      "title": "VIRLUX MCP SSE virlux-api route",
+      "tier": "P1",
+      "status": "done"
+    },
+    {
+      "id": "C300-MCP-003",
+      "title": "npm publish @sourcea/mcp-verify + @virlux/mcp-verify-factory",
+      "tier": "P1",
+      "status": "pending"
+    },
+    {
+      "id": "C300-MCP-004",
+      "title": "Supabase mcp-receipts bucket spec logged",
+      "tier": "P2",
+      "status": "done"
+    },
+    {
+      "id": "C300-MCP-005",
+      "title": "MCP federation receipt fbe-mcp-sse-receipt-v1",
+      "tier": "P2",
+      "status": "done"
+    },
+    {
+      "id": "C300-MCP-006",
+      "title": "Cursor plugin SSE fragments",
+      "tier": "P1",
+      "status": "done"
+    },
+    {
+      "id": "C300-MCP-007",
+      "title": "Validators SSE health",
+      "tier": "P1",
+      "status": "done"
+    },
+    {
+      "id": "C300-MCP-008",
+      "title": "Official MCP Registry metadata ready",
+      "tier": "P1",
+      "status": "done"
+    },
+    {
+      "id": "C300-MCP-009",
+      "title": "Hub cloud-proxy MCP status wire",
+      "tier": "P2",
+      "status": "done"
+    },
+    {
+      "id": "C300-MCP-010",
+      "title": "P2_sse_live receipt logged",
+      "tier": "P2",
+      "status": "done"
+    }
+  ]
+}

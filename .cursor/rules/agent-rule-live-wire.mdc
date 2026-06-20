@@ -1,0 +1,53 @@
+---
+description: Rule live wire — every new rule registers and pulses nerves → surfaces → loops (R1–R10)
+alwaysApply: false
+globs: data/*-v1.json,scripts/*_v1.py,.cursor/rules/**
+version: 1
+---
+
+# Agent rule live wire (registry → nerves)
+
+**SSOT:** `data/agent-rule-live-wire-registry-v1.json`  
+**Orchestrator:** `python3 scripts/agent_rule_live_wire_v1.py`  
+**Law:** `AGENT_DISK_LIVE_WIRE_FIRST_LOCKED_v1.md` · checkcart W12
+
+## Founder plan (non-negotiable)
+
+- **Factories = CLOUD only** (FBE Railway/public · CF workers · product sites)
+- **Mac = control panel only** (`:13020` hub) — never plan or gate as a factory
+- **Authority:** `data/brain-cloud-practical-300-plan-v1.json` · `CLOUD_ONLY`
+
+## When a new rule ships
+
+1. **R1–R8** — SSOT · script · register row · nerve · surfaces · loops · validator  
+2. **R9 / R11** — **One tap after every new `.mdc` or registry row:**
+
+```bash
+python3 scripts/agent_rule_live_wire_v1.py --on-new-rule --json
+```
+
+Alias: `--upgrade-disk-machines` · lighter: `--wire-sync --skip-heavy --json`
+
+This runs:
+- **Cursor rules index** — `~/.sina/cursor-rules-index-v1.json` (all `.mdc` logged)  
+- **Memory mirror** — scans new rules into inject SSOT  
+- **Disk** — anti-staleness · live surfaces · factory-now · queue unify · ACTIVE_NOW  
+- **Registry pulse** — all live rules → `agent-live-surfaces-v1.json`  
+- **Nerves** — better loop + nerve patch  
+- **Machines** — H2 `/machines/` `RULE-WIRE-*` rows + `cursor_rules_index` on `h2-pending-registry-v1.json`
+
+## Scaffold
+
+```bash
+python3 scripts/agent_rule_live_wire_v1.py --scaffold <rule_id> --json
+```
+
+## Every session (automatic)
+
+Registry rules pulse via `disk_live_wire_sync_v1.py` → `rule_live_wire_line` on `agent-live-surfaces-v1.json`.
+
+## Validator
+
+```bash
+bash scripts/validate-agent-rule-live-wire-v1.sh
+```

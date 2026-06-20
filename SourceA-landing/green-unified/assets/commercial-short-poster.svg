@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#060d18"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="8" fill="#2dd4bf"/>
+  <text x="960" y="480" text-anchor="middle" fill="#34d399" font-family="Arial, sans-serif" font-size="48" font-weight="700">SourceA</text>
+  <text x="960" y="560" text-anchor="middle" fill="#f8fafc" font-family="Arial, sans-serif" font-size="36">Controlled Agentic Automation</text>
+  <text x="960" y="620" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="24">Commercial short � full stack demo</text>
+  <circle cx="960" cy="720" r="48" fill="none" stroke="#2dd4bf" stroke-width="4"/>
+  <polygon points="940,690 940,750 990,720" fill="#2dd4bf"/>
+</svg>

@@ -1,0 +1,50 @@
+{
+  "schema": "ui-upgrade-ledger-v1",
+  "surface_id": "witnessbc_commercial",
+  "label": "WitnessBC commercial site",
+  "saved_at": "2026-06-19T20:30:00Z",
+  "frozen_inventory": [
+    {"id": "brand_strip", "what": "Brand disambiguation", "marker": "brand-disambiguation on home"},
+    {"id": "proof_cta", "what": "Proof mailto", "marker": "proof@witnessbc.com"},
+    {"id": "proof_lab", "what": "Proof Lab page", "marker": "proof.html Proof Lab"},
+    {"id": "toolkits_freemium", "what": "Free + Pro ladder", "marker": "data-buy + free template links"},
+    {"id": "toolkits_sandbox", "what": "Client sandbox freemium", "marker": "data-freemium-active + /toolkits/sandbox/"},
+    {"id": "v12_layout", "what": "Ultra-wide v12", "marker": "layout-ultra-v12 on all pages"},
+    {"id": "no_cross_brand", "what": "Site independence", "marker": "no Noetfield redirects"}
+  ],
+  "app_checklist": [
+    {"id": "WBC-1", "step": "Read witnessbc-site/data/ui-upgrade-e2e-v12.json before UI touch"},
+    {"id": "WBC-2", "step": "Subpages use root-absolute /assets/ paths"},
+    {"id": "WBC-3", "step": "bash witnessbc-site/scripts/run-recipe.sh PASS after edit"},
+    {"id": "WBC-4", "step": "bash witnessbc-site/scripts/wbc-e2e.sh PASS before ship"},
+    {"id": "WBC-6", "step": "bash scripts/validate-witnessbc-ui-zero-drift-v1.sh PASS — zero tolerance"}
+  ],
+  "upgrades": [
+    {
+      "upgrade_id": "UP-WBC-001",
+      "saved_at": "2026-06-19T18:00:00Z",
+      "founder_trigger": "upgrade toolkits + v12 ultra-wide UI",
+      "general_checklist": "UP-0..UP-7 PASS (retroactive ledger)",
+      "app_checklist": "WBC-1..WBC-5 PASS",
+      "preserved": "freemium ladder · Stripe data-buy · free HTML templates · education-only law",
+      "changed": "v12 layout-ultra-v12 · toolkits hub + 9 subpages · root-absolute asset paths · e2e scripts",
+      "achieved": "20 pages · 632 links PASS on CF preview",
+      "quality_vs_last": "better",
+      "founder_approval": "pending",
+      "machine_proof": "bash witnessbc-site/scripts/wbc-e2e.sh · validate_witnessbc_deep_e2e_v1.py PASS"
+    },
+    {
+      "upgrade_id": "UP-WBC-002",
+      "saved_at": "2026-06-19T20:30:00Z",
+      "founder_trigger": "ACTIVATE FREEMIUM — Quick Start + client sandbox",
+      "general_checklist": "UP-0..UP-7 PASS",
+      "app_checklist": "WBC-1..WBC-6 PASS",
+      "preserved": "v12 layout · Pro Stripe data-buy · education-only · site independence",
+      "changed": "data-freemium-active · Start free primary CTAs · /toolkits/sandbox/ · toolkits-sandbox.js",
+      "achieved": "21 pages · 665 links PASS · freemium+sandbox frozen in ledger",
+      "quality_vs_last": "better",
+      "founder_approval": "shipped",
+      "machine_proof": "bash scripts/validate-witnessbc-ui-zero-drift-v1.sh · wbc-guard-check.sh PASS"
+    }
+  ]
+}

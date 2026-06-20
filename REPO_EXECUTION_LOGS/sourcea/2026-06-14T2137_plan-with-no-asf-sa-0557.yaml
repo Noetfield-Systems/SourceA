@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0557 — Run founder_request_tracker sync on build for commercial FR rows
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0557
+tests:
+  status: passed
+  output_snippet: sa-0557 VERIFY PASS — T2 founder_request_tracker build sync dedup via crossref canonical sa-0507
+reported_at: '2026-06-14T21:37:55Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

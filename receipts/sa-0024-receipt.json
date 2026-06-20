@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0024",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "maintainer_executor",
+  "evidence": "sa-0024 VERIFY CLOSEOUT PASS \u2014 eval-1b live in strict without SINA_EVAL_1B_LIVE; validator wired; live 4/5\u00b780% without env; FCB critical=0",
+  "at": "2026-06-09T21:51:28Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

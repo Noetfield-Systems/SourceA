@@ -1,0 +1,15 @@
+{
+  "schema": "fbe-forge-step-receipt-v1",
+  "ok": true,
+  "at": "2026-06-17T14:09:29Z",
+  "node_id": "forge-verify-job-v1",
+  "bay_slug": "forge-bay",
+  "tenant": "forge",
+  "line": "assembly",
+  "mode": "g0_g3_gate",
+  "deliveryMode": "prove_only",
+  "factory": "forge-app-factory-v1",
+  "proof_class": "G0-G3",
+  "tier_achieved": "GOLD",
+  "note": "FORGE ship gate GOLD cap \u2014 production deploy deferred"
+}

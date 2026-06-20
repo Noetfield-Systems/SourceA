@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0038 — Run python3 audit_essentials_nav.py — 42 sidebar tabs match app.js
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0038
+tests:
+  status: passed
+  output_snippet: sa-0038 VERIFY replay — already done logged; phase-s0 PASS
+reported_at: '2026-06-09T22:37:20Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

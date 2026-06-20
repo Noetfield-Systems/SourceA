@@ -1,0 +1,46 @@
+{
+  "schema": "fbe-cloud-worker-config-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-20T02:05:24Z",
+  "default_execution_mode": "CLOUD_ONLY",
+  "force_cloud_only": true,
+  "worker_url": "https://sourcea-fbe-runner-production.up.railway.app",
+  "worker_url_env": "FBE_CLOUD_WORKER_URL",
+  "secret_env": "FBE_INTERNAL_SECRET",
+  "port": 8080,
+  "health_path": "/health",
+  "mono_mirror_fallback": "https://sinaai-cloud-farm-production.up.railway.app",
+  "mono_mirror_note": "Secondary RESULT mirror only (fbe_mono_bridge_v1) \u2014 NOT fbe-cloud-worker health \u00b7 do not use as FBE_CLOUD_WORKER_URL",
+  "railway": {
+    "dockerfile": "cloud/Dockerfile.fbe-runner",
+    "railway_toml": "cloud/railway.toml",
+    "start_command": "--serve-http",
+    "project_id": "109939ed-697c-4211-b0b4-a96fbba51db3",
+    "project_name": "mergepack-api",
+    "environment": "production",
+    "service_name": "sourcea-fbe-runner",
+    "deploy_script": "scripts/deploy_fbe_railway_v1.py",
+    "existing_services_in_project": [
+      "sinaai-cloud-farm",
+      "mergepack-api"
+    ],
+    "live_mergepack_api": "https://mergepack-api-production.up.railway.app",
+    "note": "Deploy sourcea-fbe-runner via deploy_fbe_railway_v1.py \u00b7 set FBE_CLOUD_WORKER_URL to public HTTPS with service=fbe-cloud-worker"
+  },
+  "fly": {
+    "dockerfile": "cloud/Dockerfile.fbe-runner",
+    "fly_toml": "cloud/fly.toml",
+    "app": "sourcea-fbe-worker-v1",
+    "region": "yyz",
+    "start_command": "--serve-http",
+    "auto_stop": true,
+    "auto_start": true,
+    "min_machines_running": 0,
+    "vm_size": "shared-cpu-1x",
+    "memory": "256mb",
+    "free_only": true,
+    "deploy_script": "scripts/deploy_fbe_fly_free_v1.sh",
+    "deploy_status": "blocked_billing",
+    "deploy_note": "Fly org requires card before first app \u00b7 idle auto-stop \u2248 $0 compute"
+  }
+}

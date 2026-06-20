@@ -1,0 +1,46 @@
+{
+  "schema": "loop-specialist-cloud-contract-v1",
+  "version": "1.2.0",
+  "saved_at": "2026-06-20T04:00:00Z",
+  "phase": "2b-auto-loop",
+  "law": "docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
+  "mac_control_plane": true,
+  "founder_motion": "Hub glance only — no RUN INBOX · no Mac Terminal",
+  "cloud_worker_url": "https://sourcea-fbe-runner-production.up.railway.app",
+  "cloud_execution_primary": true,
+  "cloud_tick_api": {
+    "method": "POST",
+    "path": "/api/fbe/loop-specialist/tick/v1",
+    "base_url": "https://sourcea-fbe-runner-production.up.railway.app",
+    "auth": "Bearer FBE_INTERNAL_SECRET",
+    "request_body": {
+      "founder_message": "string — read chat not disk",
+      "draft": "optional agent draft to analyze",
+      "dispatch": "boolean — run cloud bay when true",
+      "system_snapshot": "optional tiny context from Hub glance"
+    }
+  },
+  "cloud_comprehension_route": "/api/fbe/comprehension-loop/v1",
+  "hub_api": {
+    "method": "POST",
+    "path": "/api/loop-specialist/tick/v1",
+    "base_url_env": "SINA_COMMAND_HUB_URL",
+    "default_base_url": "http://127.0.0.1:13020",
+    "role": "mac_control_plane_glance_only",
+    "deprecated_for_execution": true
+  },
+  "tick_decisions": [
+    "cloud_comprehend",
+    "observe_only",
+    "compose_blocked",
+    "dispatch_done"
+  ],
+  "cloudflare_worker_phase_2b": {
+    "cron": "*/15 * * * *",
+    "worker_name": "sourcea-loop-specialist-tick-v1",
+    "worker_root": "cloud/workers/loop-specialist-tick-v1",
+    "receipt": "data/loop-specialist-cloud-cron-v1.json",
+    "action": "POST cloud_tick_api — Cloudflare cron · not Mac Hub",
+    "note": "Mac glance only · Railway executes · deploy worker to Cloudflare FREE tier"
+  }
+}

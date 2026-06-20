@@ -1,0 +1,94 @@
+{
+  "schema": "mac-law-machine-enforceable-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-20T04:00:00Z",
+  "locked": true,
+  "authority": "Mac Law — supreme after ASF",
+  "one_law": "Mac = control panel only · cloud/API executes · no heavy validators or factory body on Mac",
+  "law_docs": {
+    "mac_law_ssot": "~/Desktop/MacLaw/MAC_LAW_SSOT_LOCKED.md",
+    "mac_control_plane": "~/Desktop/MacLaw/MAC_CONTROL_PLANE_LOCKED.md",
+    "mac_health_mandates": "~/Desktop/MacLaw/MAC_HEALTH_AGENT_MANDATES_LOCKED.md",
+    "mac_cursor_agent_law": "~/Desktop/MacLaw/MAC_CURSOR_AGENT_LAW_LOCKED_v1.md",
+    "mac_pipeline_pressure": "~/Desktop/MacLaw/MAC_PIPELINE_VALIDATOR_PRESSURE_LAW_LOCKED_v1.md",
+    "mac_no_auto_screenshot": "~/Desktop/MacLaw/MAC_NO_AUTO_SCREENSHOT_LOCKED.md"
+  },
+  "machine_ssot": {
+    "mac_law_mandatory": "data/mac-law-mandatory-v1.json",
+    "founder_execution_model": "data/founder-execution-model-v1.json",
+    "pipeline_pressure_registry": "data/mac-pipeline-validator-pressure-registry-v1.json",
+    "cloud_comprehension_bay": "data/cloud-comprehension-bay-v1.json"
+  },
+  "script": "scripts/mac_law_machine_enforce_v1.py",
+  "validator": "scripts/validate-mac-law-machine-enforceable-v1.sh",
+  "law_rule": ".cursor/rules/031-mac-law-machine-enforceable-v1.mdc",
+  "receipt": "~/.sina/mac-law-machine-enforce-receipt-v1.json",
+  "mandatory_flags_present": [
+    "~/.sina/mac-control-plane-v1.flag",
+    "~/.sina/mac-health-quiet-v1.flag",
+    "~/.sina/commercial-film-render-frozen-v1.flag",
+    "~/.sina/auto-run-disabled-v1.flag",
+    "~/.sina/no-auto-screenshot-v1.flag",
+    "~/.sina/mac-light-validators-only-v1.flag",
+    "~/.sina/mac-cloud-body-only-v1.flag",
+    "~/.sina/cli-disabled-v1.flag"
+  ],
+  "mandatory_flags_absent": [
+    "~/.sina/api-disabled-v1.flag"
+  ],
+  "config_must": {
+    "visual_proof_enabled": false,
+    "path": "~/.sina/config/visual_proof.json"
+  },
+  "agent_must": [
+    "Mac = Hub · official form · Mac Health glance · observe only",
+    "Cloud executes: Railway FBE · OpenRouter · comprehension bay · NF/TF factories",
+    "Comprehension output: POST Hub /api/comprehension-loop/v1 — never Mac validator stacks",
+    "One Cursor window on SourceA — no stacked MacLaw/TrustField windows",
+    "Light validators only during founder session — no E2E · no motor · no anti_staleness stacks on Mac",
+    "No screencapture loops · no film render · no autorun bootstrap without ASF",
+    "No FIX_DISK sync chains as founder-facing answer — cloud path first"
+  ],
+  "forbidden_on_mac_body": [
+    "fbe_motor_delegate local drain",
+    "anti_staleness_auto_wire session tier stacked",
+    "governance_zero_drift full tier during chat",
+    "validate-*-e2e* scripts",
+    "playwright film render",
+    "visual_proof screencapture hub poll",
+    "cloud_comprehension_pipeline_loop local as primary",
+    "disk_live_wire + mirror + anti_staleness validator chains",
+    "launchctl bootstrap com.sourcea.autorun-worker",
+    "pkill screencapture"
+  ],
+  "forbidden_shell_patterns": [
+    {"id": "anti_staleness_mac", "pattern": "anti_staleness_auto_wire", "because": "Heavy auto-wire heats Mac — cloud CI or ship window only"},
+    {"id": "governance_full_mac", "pattern": "governance_zero_drift_live_wire.*--tier full", "because": "Full drift audit forbidden on Mac body during session"},
+    {"id": "e2e_validator_mac", "pattern": "validate-[a-z0-9-]*e2e", "because": "E2E validators forbidden on Mac — cloud CI only"},
+    {"id": "validator_chain_mac", "pattern": "validate-.*&&.*validate-", "because": "Stacked validators forbidden on Mac"},
+    {"id": "local_motor_mac", "pattern": "fbe_motor_delegate", "because": "Local factory motors forbidden — cloud executes"},
+    {"id": "screencapture_mac", "pattern": "screencapture", "because": "No auto screenshot on Mac"},
+    {"id": "pkill_screencap_mac", "pattern": "pkill.*screencapture", "because": "Never pkill screencapture — breaks founder capture"},
+    {"id": "local_comprehension_mac", "pattern": "cloud_comprehension_pipeline_loop_v1\\.py", "because": "Use cloud bay POST /api/comprehension-loop/v1"},
+    {"id": "disk_sync_chain_mac", "pattern": "disk_live_wire_sync.*agent_memory_mirror", "because": "Heavy sync chain on Mac — cloud or single light touch"},
+    {"id": "autorun_bootstrap_mac", "pattern": "launchctl bootstrap.*autorun", "because": "Autorun forbidden without ASF"}
+  ],
+  "cloud_only_routes": {
+    "comprehension": "/api/comprehension-loop/v1",
+    "fbe_bays": "/api/fbe/run-bay/v1",
+    "execution_mode": "CLOUD_ONLY"
+  },
+  "cursor_caps": {
+    "max_processes": 15,
+    "max_extension_hosts": 1,
+    "max_rss_mb": 2500,
+    "script": "scripts/cursor_agent_law_v1.py"
+  },
+  "wired_to": [
+    "scripts/mac_law_machine_enforce_v1.py",
+    "scripts/agentic_conduct_gate_v1.py",
+    "scripts/agent_session_gate_run_v1.py",
+    "scripts/agent_memory_mirror_v1.py",
+    "data/mac-law-mandatory-v1.json"
+  ]
+}

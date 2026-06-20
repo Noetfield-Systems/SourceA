@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U061",
+  "title": "w3_founder_review --score all three one command",
+  "evidence": "--score-all batch with notes \u00b7 --check-score-all PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:05:09Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

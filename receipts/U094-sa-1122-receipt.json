@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1122",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U094",
+  "title": "FastAPI 202 compile worker \u2014 DEFER",
+  "evidence": "FastAPI worker DEFER PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:20:49Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,19 @@
+schema_version: 1
+repo: sourcea
+task: sa-0202-closeout-fix — goal-sync + brain audit pointers
+status: done
+verify_passed: true
+evidence:
+  files_changed:
+    - os/chat-handoffs/MANDATORY_BRAIN_CHAT_LOCKED_v1.md
+    - os/chat-handoffs/BRAIN_MASTER_MEMORY_LOCKED_v1.md
+    - os/chat-handoffs/BRAIN_FULL_TRANSFER_PROMPT_LOCKED_v1.md
+    - os/chat-handoffs/BRAIN_RULES_AUTHORITY_INDEX_LOCKED_v1.md
+    - scripts/sync-brain-pack.sh
+    - os/plan-library/SOURCEA-PRIORITY.md
+tests:
+  status: passed
+  command: validate-system-audits-mandatory-loop-v1.sh && sync-brain-pack.sh && find_critical_bugs.py
+  output_snippet: audits validator PASS vault=11 · brain synced · critical 0
+reported_at: '2026-06-06T20:45:00Z'
+reporter: cursor-worker

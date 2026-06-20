@@ -1,0 +1,22 @@
+Hi Richard,
+
+Before our call, I wanted to give you a very quick snapshot so we can go deeper on signal instead of setup.
+
+I'm building a small group of related ventures in Canada — tools that help regulated businesses show their work is trustworthy (TrustField), tools that help teams see what actually happened when AI is used in day-to-day operations (Noetfield), and a foundation arm (777).
+
+Live surfaces (early stage but working):
+
+https://noetfield.com
+https://trustfield.ca
+https://the777foundation.org
+
+What's already in motion: separate brands and inboxes under one workspace, a shared backend for routing work and keeping records straight, and a deployment setup so we can iterate quickly without rebuilding each time.
+
+I'm not sending this to pitch in detail — just to cut setup time on the call so we can focus on what matters: how to scale this cleanly, stay in control as it grows, and whether the structure fits how you think about building businesses.
+
+Looking forward to the discussion.
+
+— Sina
+
+SourceA-Commercial-Short.mp4
+(attached — optional 90s overview if you want visual context before we talk)

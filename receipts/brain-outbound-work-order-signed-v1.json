@@ -1,0 +1,29 @@
+{
+  "schema": "brain-outbound-work-order-signed-v1",
+  "ok": true,
+  "at": "2026-06-19T04:20:48Z",
+  "work_order": {
+    "schema": "brain-outbound-work-order-v1",
+    "id": "wo-brain-2eedbc0c5725",
+    "fbe_schema": "fbe-work-order-v1",
+    "template_id": "outbound-factory-upgrade-v1",
+    "tenant": "wil_ai_design_partner",
+    "bay_slug": "sourcea-local-deferred",
+    "target_tier": "MARKET_READY",
+    "origin": "brain_control_plane",
+    "brand": "local-brand",
+    "locales": [
+      "en-US"
+    ],
+    "upgrade_ref": "U094",
+    "sa_id": "sa-1100",
+    "queue_pos": 1,
+    "execution_plane": "sourcea_worker",
+    "control_plane": "mac_hub",
+    "owner_role": "brain",
+    "wired_to": "data/outbound-factory-100-upgrade-plan-v1.json#U094",
+    "signed_at": "2026-06-19T04:20:48Z",
+    "status": "signed",
+    "local_worker": true
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0792",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0792 VERIFY DONE \u2014 blueprint navigator 22 inc + 1 exc \u00a74 aligned; dispatch+fleet+fcb PASS; receipt+REGISTRY closed.",
+  "at": "2026-06-11T18:14:42Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

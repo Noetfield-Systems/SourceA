@@ -1,0 +1,11 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1101",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U032",
+  "title": "U032 E vs D hub ladder",
+  "evidence": "worker-hub rrl-card reaction_ladder_note",
+  "at": "2026-06-19T00:35:14Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

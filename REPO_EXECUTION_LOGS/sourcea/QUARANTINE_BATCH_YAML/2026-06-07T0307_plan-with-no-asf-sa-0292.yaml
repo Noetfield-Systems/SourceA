@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0292 — Document refresh ~230s expected in SOURCEA-PRIORITY perf note
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0292
+tests:
+  status: passed
+  output_snippet: validate-phase-s2-hub-build-ci-v1 · T0 machine proof · critical 0
+reported_at: '2026-06-07T03:07:03Z'
+reporter: cursor-worker-batch

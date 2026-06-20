@@ -1,0 +1,13 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "CF-STEP1_RAILWAY",
+  "title": "Railway primary FBE URL wired",
+  "evidence": "INBOX re-verify 2026-06-19T17:03:47Z \u00b7 https://sourcea-fbe-runner-production.up.railway.app/health ok=true service=fbe-cloud-worker \u00b7 FBE_CLOUD_WORKER_URL + fbe_cloud_worker_config synced \u00b7 wave1 PASS \u00b7 cloud_factory_check step1_railway+step2_secrets PASS \u00b7 cloud_factories 9/9",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T17:03:47Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+  "worker_url": "https://sourcea-fbe-runner-production.up.railway.app"
+}

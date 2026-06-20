@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0140 — Run bash validate-eval-packet-v1b.sh scaffold arm after live pass
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0140
+tests:
+  status: passed
+  output_snippet: validate-eval-packet-v1b-live→scaffold chain PASS · scaffold-after-live-v1 · live 4/5 80% scaffold 7/7 100%
+reported_at: '2026-06-07T15:27:08Z'
+reporter: cursor-worker

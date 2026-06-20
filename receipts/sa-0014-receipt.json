@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0014",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 goal1_lane_broker worker-submit",
+  "at": "2026-06-09T13:26:14Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

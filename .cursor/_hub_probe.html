@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f6f8fc" />
+  <title>Source A · Super Fast Hub</title>
+  <style>
+    :root {
+      --bg:#f6f8fc; --card:#ffffff; --text:#1a2332; --muted:#5c6b7f;
+      --gold:#b8860b; --accent:#4f6ef7; --accent-soft:#eef2ff;
+      --ok:#0d9f6e; --warn:#d97706; --bad:#dc3545; --line:#e2e8f0;
+      --shadow:0 1px 3px rgba(26,35,50,.06), 0 10px 28px rgba(26,35,50,.05);
+      --radius:14px;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font:15px/1.55 system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--text); }
+    .wrap { max-width:760px; margin:0 auto; padding:18px 16px 56px; }
+    .banner { background:linear-gradient(135deg,#ecfdf5,#f0f9ff); border:1px solid #bbf7d0; border-radius:var(--radius); padding:12px 16px; margin-bottom:14px; font-size:.9rem; color:#14532d; }
+    .banner strong { color:var(--ok); }
+    header { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:14px; }
+    h1 { margin:0; font-size:1.4rem; font-weight:700; letter-spacing:-.02em; }
+    .sub { color:var(--muted); font-size:.86rem; margin-top:4px; }
+    .pill { display:inline-block; padding:5px 12px; border-radius:999px; font-size:.74rem; font-weight:600; border:1px solid var(--line); background:#fff; }
+    .pill.freeze { color:var(--warn); border-color:#fcd34d; background:#fffbeb; }
+    .pill.run { color:var(--ok); border-color:#86efac; background:#f0fdf4; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px; margin-bottom:14px; box-shadow:var(--shadow); }
+    .card h2 { margin:0 0 10px; font-size:.82rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); font-weight:700; }
+    .task-id { font-family:ui-monospace,monospace; font-size:.8rem; color:var(--gold); }
+    .next { font-size:1.06rem; margin:8px 0 0; font-weight:500; }
+    .row { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; align-items:center; }
+    button, a.btn { appearance:none; border:1px solid var(--line); background:#fff; color:var(--text); padding:10px 14px; border-radius:10px; font:inherit; cursor:pointer; text-decoration:none; display:inline-block; font-size:.88rem; transition:box-shadow .15s,border-color .15s; }
+    button:hover, a.btn:hover { box-shadow:0 2px 8px rgba(26,35,50,.08); border-color:#cbd5e1; }
+    button.primary { background:linear-gradient(135deg,#4f6ef7,#6366f1); color:#fff; border-color:transparent; font-weight:600; }
+    button.ghost { background:transparent; }
+    button:disabled { opacity:.5; cursor:wait; }
+    #log { white-space:pre-wrap; font-family:ui-monospace,monospace; font-size:.76rem; max-height:200px; overflow:auto; color:var(--muted); margin:0; background:#f8fafc; padding:10px; border-radius:8px; border:1px solid var(--line); }
+    .links a { display:block; padding:8px 0; color:var(--accent); text-decoration:none; border-bottom:1px solid var(--line); font-size:.9rem; }
+    .links a:last-child { border:0; }
+    .foot { font-size:.8rem; color:var(--muted); margin-top:16px; padding-top:12px; border-top:1px solid var(--line); }
+    .status-dot { width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:6px; background:var(--ok); vertical-align:middle; }
+    .status-dot.busy { background:var(--warn); }
+    .status-dot.stale { background:var(--bad); animation:pulse 1.2s ease infinite; }
+    .timing { font-size:.75rem; color:var(--muted); margin-top:6px; }
+    .health-bar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .health-pill { font-size:.72rem; padding:4px 10px; border-radius:999px; border:1px solid var(--line); text-transform:uppercase; letter-spacing:.03em; background:#fff; }
+    .health-pill.fresh { color:var(--ok); border-color:#86efac; background:#f0fdf4; }
+    .health-pill.aging { color:var(--warn); border-color:#fcd34d; background:#fffbeb; }
+    .health-pill.stale, .health-pill.critical { color:var(--bad); border-color:#fecaca; background:#fef2f2; }
+    .latch { font-size:.75rem; color:var(--muted); margin:4px 0 0; }
+    .latch.bad { color:var(--bad); }
+    .skeleton { background:linear-gradient(90deg,#f1f5f9 25%,#e2e8f0 50%,#f1f5f9 75%); background-size:200% 100%; animation:shimmer 1.2s infinite; border-radius:6px; min-height:1em; }
+    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.45} }
+    .live-tag { font-size:.7rem; color:var(--ok); margin-left:6px; }
+    .room { border:1px solid var(--line); border-radius:12px; padding:12px; margin-top:10px; background:#fafbfc; }
+    .room:first-of-type { margin-top:0; }
+    .room-head { display:flex; justify-content:space-between; gap:8px; align-items:flex-start; }
+    .room-title { font-weight:600; font-size:.95rem; margin:0; }
+    .room-tone { font-size:.68rem; padding:3px 9px; border-radius:999px; border:1px solid var(--line); white-space:nowrap; background:#fff; }
+    .room-tone.red { color:var(--bad); border-color:#fecaca; background:#fef2f2; }
+    .room-tone.amber { color:var(--warn); border-color:#fcd34d; background:#fffbeb; }
+    .room-tone.blue { color:var(--accent); border-color:#c7d2fe; background:var(--accent-soft); }
+    .room-tone.green { color:var(--ok); border-color:#86efac; background:#f0fdf4; }
+    .room-tone.muted { color:var(--muted); }
+    .room-summary { font-size:.85rem; color:var(--muted); margin:8px 0 0; line-height:1.45; }
+    .room-meta { font-size:.72rem; color:var(--muted); margin-top:6px; }
+    .alarm-line { font-family:ui-monospace,monospace; font-size:.82rem; margin:6px 0; color:var(--muted); }
+    .funnel { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+    .funnel span { font-size:.72rem; padding:5px 10px; border-radius:8px; border:1px solid var(--line); color:var(--muted); background:#fafbfc; }
+    .funnel span strong { color:var(--text); }
+    .pipe-row { font-size:.82rem; padding:8px 0; border-bottom:1px solid var(--line); }
+    .pipe-row:last-child { border:0; }
+    .advisor-dec { border:1px solid var(--line); border-radius:12px; padding:12px; margin-top:10px; background:#fafbfc; }
+    .advisor-dec-head { display:flex; justify-content:space-between; gap:8px; align-items:flex-start; }
+    .advisor-opts { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+    .advisor-opts button { font-size:.78rem; padding:6px 10px; }
+    .advisor-opts button.selected { border-color:var(--ok); color:var(--ok); background:#f0fdf4; }
+    .advisor-board-row { font-size:.82rem; padding:6px 0; border-bottom:1px solid var(--line); }
+    .advisor-board-row:last-child { border:0; }
+    .advisor-details { margin-top:10px; font-size:.85rem; color:var(--muted); }
+    .loop-check { font-size:.82rem; padding:7px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; gap:8px; }
+    .loop-check:last-child { border:0; }
+    .loop-check .bad { color:var(--bad); font-weight:600; }
+    .loop-check .ok { color:var(--ok); font-weight:600; }
+    .loop-bar { margin:6px 0; font-size:.78rem; }
+    .loop-bar-track { background:#e2e8f0; border-radius:6px; height:8px; overflow:hidden; }
+    .loop-bar-fill { height:100%; background:var(--ok); border-radius:6px; }
+    .loop-bar-fill.warn { background:var(--warn); }
+    .loop-badge { font-size:.74rem; padding:4px 10px; border-radius:999px; border:1px solid var(--line); background:#fff; }
+    .loop-badge.send-red { border-color:#fecaca; color:var(--bad); background:#fef2f2; }
+    .loop-badge.quality-green { border-color:#86efac; color:var(--ok); background:#f0fdf4; }
+    .loop-badge.ship-ready { border-color:#fde68a; color:var(--gold); background:#fffbeb; cursor:pointer; }
+    /* Sina Read — founder ship authority */
+    .sina-read-card { border:2px solid #c7d2fe; background:linear-gradient(165deg,#ffffff 0%,#f8faff 50%,#fffdf5 100%); }
+    .sina-read-hero { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap; margin-bottom:12px; }
+    .sina-read-hero h2 { margin:0; font-size:1rem; text-transform:none; letter-spacing:-.01em; color:var(--text); }
+    .sina-read-pill { font-size:.72rem; padding:5px 12px; border-radius:999px; font-weight:700; }
+    .sina-read-pill.pending { background:#fff7ed; color:var(--warn); border:1px solid #fed7aa; }
+    .sina-read-pill.clear { background:#ecfdf5; color:var(--ok); border:1px solid #86efac; }
+    .sina-read-law { font-size:.82rem; color:var(--muted); margin:0 0 14px; line-height:1.5; }
+    .sina-account { border:1px solid var(--line); border-radius:12px; padding:14px; margin-bottom:10px; background:#fff; }
+    .sina-account.pending { border-color:#fed7aa; box-shadow:0 0 0 1px #fff7ed inset; }
+    .sina-account.done { border-color:#bbf7d0; }
+    .sina-account-head { display:flex; justify-content:space-between; gap:8px; align-items:center; flex-wrap:wrap; }
+    .sina-account-title { font-weight:700; font-size:.95rem; margin:0; }
+    .sina-account-subject { font-size:.8rem; color:var(--muted); margin:6px 0 0; }
+    .sina-score-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; align-items:center; }
+    .sina-score-btn { font-size:.78rem; padding:6px 12px; border-radius:8px; min-width:44px; }
+    .sina-score-btn.hit { border-color:var(--ok); color:var(--ok); background:#f0fdf4; font-weight:700; }
+    .sina-note { flex:1; min-width:140px; padding:8px 10px; border:1px solid var(--line); border-radius:8px; font:inherit; font-size:.82rem; }
+    /* Routing panel — light settings layout */
+    .routing-panel-card { border:1px solid #dbeafe; background:linear-gradient(165deg,#ffffff 0%,#f8faff 45%,#fffbf0 100%); padding:0; overflow:hidden; }
+    .routing-hero { padding:18px 18px 12px; border-bottom:1px solid #e8eef8; display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap; }
+    .routing-hero h2 { margin:0; font-size:1rem; text-transform:none; letter-spacing:-.01em; color:var(--text); }
+    .routing-verdict { font-size:.72rem; padding:5px 12px; border-radius:999px; font-weight:700; background:var(--accent-soft); color:var(--accent); border:1px solid #c7d2fe; }
+    .routing-body { padding:14px 18px 18px; }
+    .routing-headline { font-size:1.02rem; font-weight:600; margin:0 0 12px; color:var(--text); }
+    .routing-active-box { background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px; margin-bottom:12px; }
+    .routing-active-label { font-size:.7rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); font-weight:700; margin-bottom:6px; }
+    .routing-active-primary { font-size:1.1rem; font-weight:700; color:var(--accent); margin:0; }
+    .routing-active-meta { font-size:.82rem; color:var(--muted); margin:6px 0 0; line-height:1.45; }
+    .routing-chips { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+    .routing-chip { font-size:.74rem; padding:6px 11px; border-radius:999px; background:#fff; border:1px solid var(--line); color:var(--muted); }
+    .routing-chip strong { color:var(--text); }
+    .routing-chain { display:grid; gap:6px; margin-bottom:14px; }
+    .routing-chain-row { font-size:.78rem; padding:8px 10px; border-radius:8px; background:#fff; border:1px solid var(--line); color:var(--muted); }
+    .routing-chain-row span { color:var(--text); font-weight:600; }
+    .routing-brands-grid { display:grid; gap:8px; margin-bottom:14px; }
+    .routing-brand { display:grid; grid-template-columns:1fr auto; gap:8px; align-items:center; padding:12px 14px; border-radius:12px; background:#fff; border:1px solid var(--line); }
+    .routing-brand-say { font-size:.84rem; font-weight:600; color:var(--text); }
+    .routing-brand-route { font-size:.78rem; font-weight:700; color:var(--accent); padding:4px 10px; border-radius:999px; background:var(--accent-soft); }
+    .routing-brand-meta { grid-column:1 / -1; font-size:.72rem; color:var(--muted); }
+    .routing-settings { font-size:.78rem; color:var(--muted); padding:12px 14px; border-radius:10px; background:#f8fafc; border:1px dashed var(--line); margin-bottom:12px; }
+    .routing-sina-link { display:inline-flex; align-items:center; gap:6px; font-size:.82rem; color:var(--accent); font-weight:600; text-decoration:none; margin-top:4px; }
+    .routing-sina-link:hover { text-decoration:underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="banner"><strong>Super Fast Hub (H1)</strong> — daily bookmark · Form official for founder PICKs · sibling <a href="/machines/" target="_blank" rel="noopener" style="color:var(--gold)">Machine Hub (H2)</a></div>
+
+    <header>
+      <div>
+        <h1>Source A · Worker</h1>
+        <p class="sub">Task · queue · anti-staleness · rules logged</p>
+      </div>
+      <span id="freeze-pill" class="pill">…</span>
+    </header>
+
+    <section class="card" id="health-card">
+      <h2>Live health</h2>
+      <div class="health-bar">
+        <span id="health-pill" class="health-pill">…</span>
+        <span class="sub" id="health-age">—</span>
+        <span class="live-tag" id="live-tag">● live</span>
+      </div>
+      <p class="latch" id="latch-line">Anti-staleness latches —</p>
+      <div class="row">
+        <button type="button" id="btn-heal" class="ghost">Auto-heal now</button>
+      </div>
+    </section>
+
+    <section class="card sina-read-card" id="sina-read-card">
+      <div class="sina-read-hero">
+        <h2>Sina read · ship authority</h2>
+        <span class="sina-read-pill pending" id="sina-read-pill">—</span>
+      </div>
+      <p class="sina-read-law" id="sina-read-law">Only you score outbound emails (0–100). Machine OQG · critic · RRL are advisory — not send authority.</p>
+      <p class="sub" id="sina-read-summary">—</p>
+      <div id="sina-read-accounts"></div>
+      <div class="row">
+        <button type="button" class="primary" id="btn-sina-export">Open review bundle (Mail)</button>
+        <button type="button" class="ghost" id="btn-sina-refresh">Refresh scores</button>
+      </div>
+      <p class="sub">Receipt <code>~/.sina/w3-founder-review-v1.json</code> · CLI <code>w3_founder_review_v1.py --show</code></p>
+    </section>
+
+    <section class="card" id="rrl-card">
+      <h2>Response Reality Layer · human reaction sim</h2>
+      <p class="next" id="rrl-line">—</p>
+      <p class="sub" id="rrl-ladder">—</p>
+      <p class="sub" id="rrl-fleet">—</p>
+      <p class="sub" id="rrl-cil-alert">—</p>
+      <p class="sub" id="rrl-next">—</p>
+    </section>
+
+    <section class="card" id="loop-card">
+      <h2>Nerve · Better Loop · Output quality</h2>
+      <p class="sub" id="nerve-line">—</p>
+      <p class="next" id="better-loop-line">—</p>
+      <p class="sub" id="oqg-line">—</p>
+      <p class="sub" id="critic-line">—</p>
+      <p class="sub" id="receiver-interest-line">—</p>
+      <p class="sub" id="conversation-interest-line">—</p>
+      <p class="sub" id="critic-next">—</p>
+      <div id="loop-quality-bars"></div>
+      <div id="loop-badges" class="row"></div>
+      <div id="loop-checks"></div>
+    </section>
+
+    <section class="card" id="form-card">
+      <h2>Form · founder PICKs (official)</h2>
+      <p id="form-line" class="next">—</p>
+      <p class="sub" id="form-picks">—</p>
+      <div class="row">
+        <button type="button" class="primary" id="btn-form">Open Form (M1 Canvas)</button>
+      </div>
+      <p class="sub">Agents ask → you answer on Form · not chat. Pending tables → <a href="/machines/" target="_blank" rel="noopener" style="color:var(--gold)">H2</a></p>
+    </section>
+
+    <section class="card" id="pipeline-card">
+      <h2>Commercial pipeline · AB1 + NW1</h2>
+      <p class="next" id="pipeline-headline">—</p>
+      <div class="funnel" id="pipeline-funnel"></div>
+      <div id="pipeline-next"></div>
+      <div class="row" id="pipeline-actions"></div>
+      <p class="sub">State transitions beat email volume · SSOT <code>~/.sina/commercial-pipeline-v1.jsonl</code></p>
+    </section>
+
+    <section class="card" id="loop-rooms-card">
+      <h2>Loop rooms · Investigator · Judge · Specialist</h2>
+      <p class="sub" id="investigator-line">—</p>
+      <p class="sub" id="judge-loop-line">—</p>
+      <p class="sub" id="loop-specialist-line">—</p>
+      <p class="sub" id="loop-judge-daily">—</p>
+      <div class="row">
+        <button type="button" class="primary" id="btn-loop-chain">Refresh loop chain</button>
+        <button type="button" id="btn-loop-auto-on" class="ghost">Enable loop auto</button>
+        <button type="button" id="btn-investigator-tick" class="ghost">Investigator tick</button>
+        <button type="button" id="btn-judge-loop-tick" class="ghost">Judge loop tick</button>
+      </div>
+    </section>
+
+    <section class="card routing-panel-card" id="routing-panel-card">
+      <div class="routing-hero">
+        <h2>Founder routing panel</h2>
+        <span class="routing-verdict" id="routing-verdict">—</span>
+      </div>
+      <div class="routing-body">
+        <p class="routing-headline" id="routing-panel-line">—</p>
+        <div class="routing-active-box">
+          <div class="routing-active-label">Active route</div>
+          <p class="routing-active-primary" id="routing-active-primary">—</p>
+          <p class="routing-active-meta" id="routing-active">—</p>
+          <a class="routing-sina-link" href="#sina-read-card" id="routing-sina-link" hidden>→ Sina read pending</a>
+        </div>
+        <div class="routing-chips" id="routing-chips"></div>
+        <div class="routing-chain" id="routing-chain"></div>
+        <div class="routing-brands-grid" id="routing-brands"></div>
+        <div class="routing-settings" id="routing-settings">Weekly SSOT · one brand per email · separate SOWs · CAD ≥ $2K signal</div>
+        <div class="row">
+          <button type="button" class="primary" id="btn-routing-refresh">Refresh routing panel</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="disclosure-ladder-card">
+      <h2>Disclosure ladder · public voice</h2>
+      <p class="next" id="disclosure-line">—</p>
+      <p class="sub" id="disclosure-public">—</p>
+      <div id="disclosure-icp-audit"></div>
+      <p class="sub" id="disclosure-upgrades">—</p>
+      <div class="row">
+        <button type="button" class="primary" id="btn-disclosure-tick">Refresh disclosure audit</button>
+      </div>
+    </section>
+
+    <section class="card" id="full-stack-fix-card">
+      <h2>Full-stack fix plan · 100 waves</h2>
+      <p class="next" id="full-stack-fix-line">—</p>
+      <p class="sub" id="full-stack-fix-wave">—</p>
+      <p class="sub" id="full-stack-fix-exec">—</p>
+      <div id="full-stack-fix-next"></div>
+      <div class="row">
+        <button type="button" class="primary" id="btn-full-stack-fix-pulse">Refresh fix plan pulse</button>
+      </div>
+    </section>
+
+    <section class="card" id="mcp-stack-card">
+      <h2>MCP stack · free tier first</h2>
+      <p class="next" id="mcp-stack-line">—</p>
+      <p class="sub" id="mcp-stack-active">—</p>
+      <p class="sub" id="mcp-stack-p0">—</p>
+      <div id="mcp-stack-servers"></div>
+      <div class="row">
+        <button type="button" class="primary" id="btn-mcp-stack-tick">Refresh MCP audit</button>
+      </div>
+    </section>
+
+    <section class="card" id="tool-pick-card">
+      <h2>Tool pick · free first · Phase 2 founder approval</h2>
+      <p class="next" id="tool-pick-line">—</p>
+      <p class="sub" id="tool-pick-p1">—</p>
+      <p class="sub" id="tool-pick-p2">—</p>
+      <div id="tool-pick-pending"></div>
+      <div class="row">
+        <button type="button" class="primary" id="btn-tool-pick-tick">Refresh tool pick audit</button>
+      </div>
+    </section>
+
+    <section class="card" id="plans-unified-card">
+      <h2>Plans unified · outbound · full-stack · brain 1000</h2>
+      <p class="next" id="plans-unified-line">—</p>
+      <p class="sub" id="plans-unified-outbound">—</p>
+      <p class="sub" id="plans-unified-full-stack">—</p>
+      <p class="sub" id="plans-unified-brain">—</p>
+      <p class="sub" id="plans-unified-wtm">—</p>
+      <p class="sub" id="plans-unified-phase0">—</p>
+      <p class="sub" id="plans-unified-anti-theater">—</p>
+      <div class="row">
+        <button type="button" class="primary" id="btn-plans-unified-tick">Sync all plans</button>
+      </div>
+    </section>
+
+    <section class="card" id="alarm-card">
+      <h2>Alarms (one line each)</h2>
+      <p class="alarm-line" id="judge-alarm">Judge —</p>
+      <p class="alarm-line" id="thread-alarm">Thread —</p>
+      <div class="row">
+        <a class="btn primary" href="/machines/" target="_blank" rel="noopener">Open Machine Hub (H2)</a>
+        <button type="button" id="btn-strip" class="ghost">Refresh alarm strip</button>
+      </div>
+    </section>
+
+    <section class="card" id="advisor-card">
+      <h2>Advisor track</h2>
+      <p class="sub" id="advisor-tagline">PINNED crisis table · D1–D4 · live factory/S10</p>
+      <p class="alarm-line" id="advisor-factory">Factory —</p>
+      <p class="alarm-line" id="advisor-s10">S10 —</p>
+      <p class="sub" id="advisor-pending-count">—</p>
+      <div id="advisor-decisions"></div>
+      <details class="advisor-details">
+        <summary>Pending board · advisor send pack</summary>
+        <div id="advisor-board"></div>
+        <div id="advisor-subjects"></div>
+      </details>
+      <p class="sub" id="advisor-updated">—</p>
+    </section>
+
+    <section class="card">
+      <h2>Worker task</h2>
+      <div class="task-id" id="task-id">—</div>
+      <p id="task-title" class="skeleton" style="min-height:2.4em">Loading…</p>
+      <p class="sub" id="worker-state"><span class="status-dot"></span>Worker —</p>
+      <p class="next" id="p0-next">—</p>
+      <p class="sub" id="k1-line">K1 —</p>
+      <p class="timing" id="load-timing">—</p>
+      <div class="row">
+        <button type="button" class="primary" id="btn-safety">Safety check</button>
+        <button type="button" id="btn-refresh">Light refresh</button>
+        <button type="button" id="btn-unstick" class="ghost">Unstick Worker</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Queue</h2>
+      <p id="queue-line">—</p>
+      <p class="sub" id="sync-line">—</p>
+    </section>
+
+    <section class="card">
+      <h2>Policy &amp; rules (disk)</h2>
+      <div class="links" id="policy-links"></div>
+    </section>
+
+    <section class="card">
+      <h2>Action log</h2>
+      <pre id="log">Ready — polling live.</pre>
+    </section>
+
+    <p class="foot">Law: <code>SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md</code></p>
+  </div>
+  <script>
+  (function () {
+    "use strict";
+    const API = location.protocol.startsWith("http") ? "" : "http://127.0.0.1:13020";
+    const CACHE_KEY = "worker-hub-v1-cache";
+    const $ = (id) => document.getElementById(id);
+    const log = (msg) => { $("log").textContent = msg; };
+    let pollTimer = null;
+    let pollMs = 8000;
+    let advisorPollTimer = null;
+    let advisorPollMs = 5000;
+    let advisorBusy = false;
+    let lastHealAt = 0;
+    let loadCtrl = null;
+    let healing = false;
+
+    function esc(s) {
+      return String(s == null ? "" : s)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function saveCache(d) {
+      try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ at: Date.now(), d })); } catch (_) {}
+    }
+    function loadCache() {
+      try {
+        const raw = sessionStorage.getItem(CACHE_KEY);
+        if (!raw) return null;
+        return JSON.parse(raw).d;
+      } catch (_) { return null; }
+    }
+
+    function renderHealth(h) {
+      if (!h) return;
+      const pill = $("health-pill");
+      pill.textContent = h.status || "unknown";
+      pill.className = "health-pill " + (h.status || "");
+      const age = h.age_sec != null ? Math.round(h.age_sec) + "s old" : "age unknown";
+      const src = h.freshness_source ? " · " + h.freshness_source : "";
+      const shellNote = h.shell_age_sec != null && h.shell_age_sec > 600
+        ? " · projection shell " + Math.round(h.shell_age_sec) + "s (cosmetic)"
+        : "";
+      const note = (h.notes || []).length ? " · " + (h.notes || []).join(" · ") : "";
+      $("health-age").textContent = age + src + shellNote + note + (h.auto_heal_recommended ? " · heal optional" : "");
+      const live = $("live-tag");
+      if (h.status === "fresh" || h.status === "aging") {
+        live.textContent = "● polling";
+        live.style.color = "var(--ok)";
+      } else {
+        live.textContent = "● polling (data " + (h.status || "?") + ")";
+        live.style.color = h.status === "critical" ? "var(--bad)" : "var(--warn)";
+      }
+      const latches = h.latches || {};
+      const bad = (h.issues || []).length;
+      $("latch-line").textContent = bad
+        ? "Issues: " + (h.issues || []).join(" · ")
+        : "Latches OK · AS-01 · dual-pick · inbox sync";
+      $("latch-line").className = bad ? "latch bad" : "latch";
+      pollMs = (h.poll_interval_sec || 8) * 1000;
+    }
+
+    function shortAlarm(text) {
+      const s = String(text || "—").trim();
+      return s.length > 80 ? s.slice(0, 77) + "…" : s;
+    }
+
+    async function fetchPayload(path) {
+      const res = await fetch(API + path, { cache: "no-store" });
+      if (!res.ok) throw new Error("fetch failed " + res.status);
+      return JSON.parse(await res.text());
+    }
+
+    function renderPipeline(cp, agents) {
+      if (!cp || cp.error) {
+        $("pipeline-headline").textContent = cp && cp.error ? "Pipeline unavailable" : "—";
+        $("pipeline-funnel").innerHTML = "";
+        $("pipeline-next").innerHTML = "";
+        $("pipeline-actions").innerHTML = "";
+        return;
+      }
+      $("pipeline-headline").textContent = cp.headline || cp.founder_line || "—";
+      const counts = cp.counts || {};
+      const targets = cp.targets || {};
+      const order = ["researched","personalized_sent","replied","proof_viewed","eval_scheduled","pilot_deposit","close"];
+      $("pipeline-funnel").innerHTML = order.map((k) =>
+        "<span>" + k.replace(/_/g, " ") + " <strong>" + (counts[k] || 0) + "</strong>/" + (targets[k] || "—") + "</span>"
+      ).join("");
+      const top = cp.top_next || [];
+      $("pipeline-next").innerHTML = top.length
+        ? top.map((r) =>
+            '<div class="pipe-row"><strong>' + (r.company || "—") + "</strong> · " +
+            (r.lane || "") + " · " + (r.status || "") +
+            (r.next_agent ? " · <code>" + r.next_agent + "</code>" : "") +
+            (r.next_action ? "<br><span class=\"sub\">" + r.next_action + "</span>" : "") +
+            "</div>"
+          ).join("")
+        : '<p class="sub">No active conversations — sync receipts or add row</p>';
+      const taps = (agents && agents.taps) || [];
+      const bottleneck = agents && agents.bottleneck ? ("Bottleneck: " + agents.bottleneck + " · ") : "";
+      $("pipeline-actions").innerHTML = taps.length
+        ? bottleneck + taps.map((t) =>
+            '<button type="button" class="ghost" data-commercial-action="' + t.action + '" data-row-id="' + (t.row_id || "") + '">' +
+            (t.label || t.action) + "</button>"
+          ).join(" ")
+        : '<span class="sub">No commercial taps — pipeline warm</span>';
+      $("pipeline-actions").querySelectorAll("[data-commercial-action]").forEach((btn) => {
+        btn.onclick = async () => {
+          btn.disabled = true;
+          try {
+            const res = await fetch(API + "/api/worker-hub/commercial/run", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                action: btn.getAttribute("data-commercial-action"),
+                row_id: btn.getAttribute("data-row-id") || "",
+              }),
+            });
+            const row = await res.json();
+            log((row.founder_line || row.error || JSON.stringify(row)).slice(0, 400));
+            await load({ silent: true });
+          } catch (e) {
+            log("Commercial action failed: " + e);
+          } finally {
+            btn.disabled = false;
+          }
+        };
+      });
+    }
+
+    function renderRrl(rrl) {
+      if (!rrl || rrl.ok === false) {
+        $("rrl-line").textContent = "RRL — load failed or not run";
+        return;
+      }
+      $("rrl-line").textContent = rrl.rrl_line || "rrl — run response_reality_layer_v1.py";
+      $("rrl-ladder").textContent = rrl.reaction_ladder_note || "E = would_reply · D = curious — both pass";
+      const fleet = rrl.fleet || {};
+      $("rrl-fleet").textContent = fleet.rrl_fleet_line || "fleet D/E rates — run sims to populate history";
+      const cil = rrl.cil_disagreement || {};
+      $("rrl-cil-alert").textContent = cil.alert
+        ? ("⚠ " + (cil.line || "CIL/RRL disagree"))
+        : "CIL/RRL aligned";
+      $("rrl-next").textContent = rrl.next_action_only ? ("Next: " + rrl.next_action_only) : "";
+    }
+
+    function renderLoop(nerve, bl, oqg, critic, ril, cil) {
+      const n = nerve || {};
+      const b = bl || {};
+      const o = oqg || {};
+      const cc = critic || b.critic_circle || {};
+      const ri = ril || b.receiver_interest || {};
+      const ci = cil || b.conversation_interest || {};
+      const shipChecks = b.ship_checks || b.founder_checks || b.checks || [];
+      const sg = n.ship_gates || {};
+      $("nerve-line").textContent = n.nerve_system_line || "nerve — run disk live wire sync";
+      $("better-loop-line").textContent = (n.lines && n.lines.better_loop_line) || b.better_loop_line || "—";
+      $("oqg-line").textContent = (n.lines && n.lines.best_loop_oqg_line) || o.best_loop_oqg_line || "—";
+      $("critic-line").textContent = (n.lines && n.lines.critic_circle_line) || cc.critic_circle_line || "critic — run factory_output_critic_circle_v1.py";
+      $("receiver-interest-line").textContent = ri.receiver_interest_line || "receiver-interest — run receiver_interest_loop_v1.py";
+      $("conversation-interest-line").textContent = ci.conversation_interest_line || "conversation — run conversation_interest_loop_v1.py";
+      const next = ci.next_action_only || ri.next_action_only || cc.next_action_only;
+      $("critic-next").textContent = next ? ("Next: " + next) : "";
+
+      const sendRed = shipChecks.some(function (c) { return c.id === "w3_sends" && !c.ok; });
+      const criticRed = shipChecks.some(function (c) { return c.id === "w3_critic_circle" && !c.ok; });
+      const sinaRed = shipChecks.some(function (c) { return (c.id === "w3_sina_read" || c.id === "w3_founder_score") && !c.ok; });
+      const interestRed = shipChecks.some(function (c) { return c.id === "w3_receiver_interest" && !c.ok; });
+      const convRed = shipChecks.some(function (c) { return c.id === "w3_conversation_interest" && !c.ok; });
+      const fleetNow = o.fleet_output_clean_now != null ? o.fleet_output_clean_now : o.fleet_output_clean_pct;
+      const qualityGreen = fleetNow != null && fleetNow >= 90;
+      const trust7 = o.fleet_trust_mode || (o.promotion && o.promotion.trust_mode_effective) || "—";
+      const badges = [];
+      badges.push('<span class="loop-badge ' + (sendRed ? "send-red" : "quality-green") + '">' +
+        (sendRed ? "send · approved not sent" : "send · clear") + "</span>");
+      badges.push('<span class="loop-badge ' + (qualityGreen ? "quality-green" : "send-red") + '">' +
+        "quality · " + (fleetNow != null ? fleetNow + "% clean" : "?") + "</span>");
+      badges.push('<span class="loop-badge ' + (convRed ? "send-red" : "quality-green") + '">' +
+        (convRed ? "conversation · improve" : "conversation · pass") + "</span>");
+      badges.push('<span class="loop-badge ' + (interestRed ? "send-red" : "quality-green") + '">' +
+        (interestRed ? "interest · improve" : "interest · pass") + "</span>");
+      badges.push('<span class="loop-badge ' + (criticRed ? "send-red" : "quality-green") + '">' +
+        (criticRed ? "critic · improve" : "critic · pass") + "</span>");
+      badges.push('<span class="loop-badge ' + (sinaRed ? "send-red" : "quality-green") + '">' +
+        (sinaRed ? "Sina read · pending" : "Sina read · scored") + "</span>");
+      badges.push('<span class="loop-badge">' + "trust 7d · " + trust7 + "</span>");
+      if (sg.w3_send_ready) {
+        badges.push('<span class="loop-badge ship-ready" id="btn-w3-send-ready">W3 ship-ready · tap</span>');
+      }
+      $("loop-badges").innerHTML = badges.join(" ");
+      const sendBtn = $("btn-w3-send-ready");
+      if (sendBtn) {
+        sendBtn.onclick = function () {
+          log("W3 ship-ready — run send_w3_canada_v1.py ocree fundmore --open-mail (Mail FROM required)");
+        };
+      }
+
+      const lanes = o.lanes || (n.output_quality && n.output_quality.lanes) || [];
+      const short = { w3_commercial: "W3", fbe_sourcea: "FBE", creed_campus: "CREED" };
+      $("loop-quality-bars").innerHTML = lanes.length
+        ? lanes.map(function (lane) {
+            const pct = lane.output_clean_now != null ? lane.output_clean_now : lane.output_clean_pct;
+            const label = short[lane.lane] || lane.lane || "?";
+            const cls = pct >= 90 ? "" : " warn";
+            return '<div class="loop-bar"><span>' + label + " · " + pct + '%</span>' +
+              '<div class="loop-bar-track"><div class="loop-bar-fill' + cls + '" style="width:' +
+              Math.min(100, pct || 0) + '%"></div></div></div>';
+          }).join("")
+        : "";
+
+      const checks = shipChecks.slice(0, 10);
+      $("loop-checks").innerHTML = checks.length
+        ? checks.map(function (c) {
+            const cls = c.ok ? "ok" : "bad";
+            const tag = c.id === "w3_sends" ? " (send)" : c.id === "w3_output_clean" ? " (quality)" : c.id === "w3_receiver_interest" ? " (interest)" : c.id === "w3_conversation_interest" ? " (conversation)" : c.id === "w3_critic_circle" ? " (critic)" : (c.id === "w3_sina_read" || c.id === "w3_founder_score") ? " (Sina read)" : "";
+            return '<div class="loop-check"><span>' + (c.label || c.id || "?") + tag + '</span><span class="' + cls + '">' + (c.ok ? "ok" : "red") + "</span></div>";
+          }).join("")
+        : '<p class="sub">Founder checks load on next pulse</p>';
+    }
+
+    function renderLoopRooms(inv, judge, spec, dr) {
+      inv = inv || {};
+      judge = judge || {};
+      spec = spec || {};
+      $("investigator-line").textContent = inv.investigator_line || "investigator — run loop chain";
+      $("judge-loop-line").textContent = judge.judge_loop_line || "judge-loop — run loop chain";
+      $("loop-specialist-line").textContent =
+        (spec.loop_specialist_line || "loop-specialist —") +
+        (spec.loop_auto_dispatch_enabled ? " · AUTO ON" : " · AUTO off");
+      const lj = (dr && dr.loop_judge_room) || {};
+      $("loop-judge-daily").textContent = lj.headline
+        ? ("Daily pin · " + lj.headline)
+        : ("tick=" + (spec.tick_decision || "—") + " · loop_verdict=" + (judge.loop_verdict || "—"));
+    }
+
+    function renderSinaRead(w3) {
+      if (!w3 || w3.error) {
+        $("sina-read-summary").textContent = "Sina read — load extended hub slice";
+        $("sina-read-accounts").innerHTML = "";
+        return;
+      }
+      const pending = w3.pending_count != null ? w3.pending_count : (w3.artifacts || []).filter(function (a) {
+        return a.sina_read_pending;
+      }).length;
+      const pill = $("sina-read-pill");
+      pill.textContent = pending ? pending + " pending" : "all scored";
+      pill.className = "sina-read-pill " + (pending ? "pending" : "clear");
+      const rs = w3.red_summary || {};
+      $("sina-read-summary").textContent =
+        (rs.detail || w3.ship_authority || "Score each brand email after full read") +
+        (rs.red_count ? " · RED " + rs.red_count : "");
+      if (w3.ship_authority) $("sina-read-law").textContent = w3.ship_authority;
+      const arts = w3.artifacts || [];
+      $("sina-read-accounts").innerHTML = arts.map(function (a) {
+        const pendingOne = a.sina_read_pending;
+        const score = a.sina_read_score_pct;
+        const cls = pendingOne ? "sina-account pending" : "sina-account done";
+        const scoreBtns = [85, 88, 90, 92, 95].map(function (n) {
+          const hit = score === n ? " hit" : "";
+          const dis = pendingOne ? "" : " disabled";
+          return '<button type="button" class="ghost sina-score-btn' + hit + '"' +
+            ' data-account="' + esc(a.account_id) + '" data-pct="' + n + '"' + dis + ">" + n + "%</button>";
+        }).join("");
+        return '<div class="' + cls + '" data-account="' + esc(a.account_id) + '">' +
+          '<div class="sina-account-head">' +
+          '<p class="sina-account-title">' + esc(a.company || a.account_id) +
+          (pendingOne ? ' <span class="room-tone amber">await read</span>' : ' <span class="room-tone green">' + score + "%</span>") +
+          "</p></div>" +
+          (a.subject ? '<p class="sina-account-subject">' + esc(a.subject) + "</p>" : "") +
+          (a.recipient_interpretation_sentence ? '<p class="sina-account-subject">' + esc(a.recipient_interpretation_sentence) + "</p>" : "") +
+          '<div class="sina-score-row">' + scoreBtns +
+          '<input class="sina-note" type="text" placeholder="Note if &lt;90" data-note-for="' + esc(a.account_id) + '" />' +
+          "</div></div>";
+      }).join("");
+      $("sina-read-accounts").querySelectorAll(".sina-score-btn").forEach(function (btn) {
+        btn.onclick = function () { postSinaScore(btn.getAttribute("data-account"), btn.getAttribute("data-pct")); };
+      });
+    }
+
+    async function postSinaScore(accountId, pct) {
+      if (!accountId || !pct) return;
+      const noteEl = document.querySelector('.sina-note[data-note-for="' + accountId + '"]');
+      const note = noteEl ? noteEl.value.trim() : "";
+      log("Sina read · " + accountId + " → " + pct + "%");
+      try {
+        const j = await postLoopApi("/api/w3-founder-review/score/v1", {
+          account_id: accountId,
+          pct: parseInt(pct, 10),
+          note: note,
+        });
+        if (!j.ok) throw new Error(j.error || "score failed");
+        renderSinaRead(j.review);
+        log("Sina read saved · " + accountId + " = " + pct + "%");
+        await load({ silent: true });
+      } catch (e) {
+        log("Sina read error: " + e.message);
+      }
+    }
+
+    function renderRoutingPanel(rp) {
+      if (!rp || !rp.ok) {
+        $("routing-panel-line").textContent = "Routing panel — load failed";
+        $("routing-brands").innerHTML = "";
+        $("routing-chain").innerHTML = "";
+        return;
+      }
+      const ar = rp.active_route || {};
+      $("routing-panel-line").textContent = rp.founder_routing_panel_line || "—";
+      $("routing-verdict").textContent = ar.loop_verdict || "ROUTING";
+      $("routing-active-primary").textContent = ar.primary || "—";
+      $("routing-active").textContent =
+        (ar.founder_action ? ar.founder_action.slice(0, 160) : "") +
+        (ar.tick_decision ? " · tick=" + ar.tick_decision : "") +
+        (ar.investigation_verdict ? " · inv=" + ar.investigation_verdict : "");
+      const sina = rp.sina_read || {};
+      const sinaLink = $("routing-sina-link");
+      if (sina.pending_count > 0) {
+        sinaLink.hidden = false;
+        sinaLink.textContent = "→ Sina read · " + sina.pending_count + " pending";
+      } else {
+        sinaLink.hidden = true;
+      }
+      const chips = [];
+      if (rp.weekly_ssot) chips.push("<span class=\"routing-chip\"><strong>SSOT</strong> " + esc(rp.weekly_ssot) + "</span>");
+      if (rp.compile_order) chips.push("<span class=\"routing-chip\"><strong>Compile</strong> " + esc(rp.compile_order) + "</span>");
+      const ps = rp.panel_settings || {};
+      if (ps.theme) chips.push("<span class=\"routing-chip\"><strong>Theme</strong> " + esc(ps.theme) + " · " + esc(ps.accent || "") + "</span>");
+      $("routing-chips").innerHTML = chips.join("");
+      const lc = rp.loop_chain || {};
+      const chainRows = [
+        ["Observatory", lc.observatory_line],
+        ["Investigator", lc.investigator_line],
+        ["Judge loop", lc.judge_loop_line],
+        ["Specialist", lc.loop_specialist_line],
+      ].filter(function (row) { return row[1]; });
+      $("routing-chain").innerHTML = chainRows.map(function (row) {
+        return '<div class="routing-chain-row"><span>' + esc(row[0]) + ":</span> " + esc(String(row[1]).slice(0, 120)) + "</div>";
+      }).join("");
+      const brands = rp.brand_routes || [];
+      $("routing-brands").innerHTML = brands.map(function (b) {
+        return '<div class="routing-brand">' +
+          '<div class="routing-brand-say">' + esc(b.if_they_say || "?") + "</div>" +
+          '<div class="routing-brand-route">' + esc(b.route_to || "?") + "</div>" +
+          '<div class="routing-brand-meta">' + esc(b.sku || "") + " · " + esc((b.asset || "").slice(0, 64)) + "</div>" +
+          "</div>";
+      }).join("");
+      const settings = rp.weekly_ssot || "One brand per email · separate SOWs";
+      const stack = (rp.panel_settings && rp.panel_settings.layout) ? " · " + rp.panel_settings.layout : "";
+      $("routing-settings").textContent = "Settings · " + settings + stack + " · stack-map-routing-v1.json";
+    }
+
+    function renderDisclosureLadder(dl) {
+      if (!dl || dl.ok === false) {
+        $("disclosure-line").textContent = "Disclosure — load failed";
+        $("disclosure-icp-audit").innerHTML = "";
+        return;
+      }
+      $("disclosure-line").textContent = dl.disclosure_line || "disclosure — run tick";
+      $("disclosure-public").textContent =
+        "Public · " + (dl.public_one_line || "Prove every agent action — before the model runs, after it ships.");
+      const rows = dl.icp_audit || [];
+      $("disclosure-icp-audit").innerHTML = rows.filter(function (r) { return !r.skipped; }).map(function (r) {
+        const st = r.ok ? "ok" : "bad";
+        return '<div class="loop-check"><span>' + esc(r.account_id || "?") +
+          '</span><span class="' + st + '">' + (r.ok ? "PASS" : "FAIL") + "</span></div>";
+      }).join("");
+      const ups = (dl.upgrade_ideas || []).slice(0, 2).map(function (u) {
+        return (u.id || "?") + " · " + (u.title || "");
+      }).join(" · ");
+      $("disclosure-upgrades").textContent = ups ? "Upgrades · " + ups : "T0–T4 tiers · ICP + advisor wired";
+    }
+
+    function renderFullStackFixPlan(fp) {
+      if (!fp || fp.ok === false) {
+        $("full-stack-fix-line").textContent = "Fix plan — load failed";
+        $("full-stack-fix-next").innerHTML = "";
+        return;
+      }
+      $("full-stack-fix-line").textContent = fp.full_stack_fix_line || fp.pulse_line || "fix-plan — run pulse";
+      $("full-stack-fix-wave").textContent =
+        "Wave · " + (fp.active_wave || "W1") + " · head · " + (fp.critical_path_head || "F001") +
+        " · " + (fp.done ?? "—") + "/" + (fp.total ?? 100) + " done";
+      const eh = fp.execution_honesty || {};
+      $("full-stack-fix-exec").textContent =
+        "Execution · " + (eh.passed ?? "—") + "/" + (eh.total ?? 6) + " honest · cart · " +
+        ((fp.gate_cart || {}).passed ?? "—") + "/" + ((fp.gate_cart || {}).total ?? 17) +
+        (fp.outbound_cross && fp.outbound_cross.worker_proven != null
+          ? " · outbound worker=" + fp.outbound_cross.worker_proven + " bulk=" + fp.outbound_cross.bulk_done
+          : "");
+      const next = fp.next_fixes || [];
+      $("full-stack-fix-next").innerHTML = next.slice(0, 5).map(function (f) {
+        const st = f.status === "in_progress" ? "warn" : (f.status === "done" ? "ok" : "");
+        return '<div class="loop-check"><span>' + esc(f.id || "?") + " · " + esc((f.title || "").slice(0, 48)) +
+          '</span><span class="' + st + '">' + esc(f.owner_role || "?") + "</span></div>";
+      }).join("");
+    }
+
+    function renderMcpStack(ms) {
+      if (!ms || ms.ok === false) {
+        $("mcp-stack-line").textContent = "MCP stack — load failed";
+        $("mcp-stack-servers").innerHTML = "";
+        return;
+      }
+      $("mcp-stack-line").textContent = ms.mcp_stack_line || "mcp — run tick";
+      $("mcp-stack-active").textContent =
+        "Active free · " + (ms.active_free_count ?? "—") + "/" + (ms.active_free_min ?? "—") +
+        (ms.registry_aligned ? " · registry PASS" : " · registry DRIFT");
+      const p0 = (ms.pending_p0 || []).join(", ");
+      $("mcp-stack-p0").textContent = p0 ? "P0 enable · " + p0 + " (GOV-8 GitHub MCP)" : "P0 · none pending";
+      const servers = ms.active_free_servers || [];
+      $("mcp-stack-servers").innerHTML = servers.slice(0, 8).map(function (s) {
+        return '<div class="loop-check"><span>' + esc(s) + '</span><span class="ok">free</span></div>';
+      }).join("");
+    }
+
+    function renderToolPick(tp) {
+      if (!tp || tp.ok === false) {
+        $("tool-pick-line").textContent = "Tool pick — load failed";
+        $("tool-pick-pending").innerHTML = "";
+        return;
+      }
+      $("tool-pick-line").textContent = tp.tool_pick_line || "tool pick — run tick";
+      $("tool-pick-p1").textContent =
+        "Phase 1 · exhaust free tier · " + (tp.phase_1_exhaust_pct ?? "—") + "% active";
+      $("tool-pick-p2").textContent =
+        "Phase 2 · affordable AI · wire only after founder approval · auto-wire OFF";
+      const pending = tp.pending_founder_approval || [];
+      $("tool-pick-pending").innerHTML = pending.slice(0, 7).map(function (id) {
+        return '<div class="loop-check"><span>' + esc(id) + '</span><span class="warn">await founder</span></div>';
+      }).join("");
+    }
+
+    function renderPlansUnified(pu) {
+      if (!pu || pu.ok === false) {
+        $("plans-unified-line").textContent = "Plans — load failed";
+        return;
+      }
+      $("plans-unified-line").textContent = pu.plans_unified_line || "plans — run sync";
+      const ob = pu.outbound || {};
+      const fs = pu.full_stack || {};
+      const br = pu.brain_cloud || {};
+      $("plans-unified-outbound").textContent =
+        "Outbound 100 · " + (ob.done ?? "—") + "/" + (ob.total ?? "100") + " · wave " + (ob.active_wave || "—");
+      $("plans-unified-full-stack").textContent =
+        "Full-stack 100 · " + (fs.done ?? "—") + "/" + (fs.total ?? "100") + " · wave " + (fs.active_wave || "—");
+      $("plans-unified-brain").textContent =
+        "Brain 1000 · " + (br.done ?? "—") + "/" + (br.total ?? "1000") + " · epic " + (br.active_epic || "—");
+      const wm = (pu.world_model_check || window.__lastWorldModel || {});
+      $("plans-unified-wtm").textContent =
+        wm.world_model_line || wm.line || "WTM · platform-neutral · any stack · phone+web+API";
+      const at = pu.anti_theater || window.__lastAntiTheater || {};
+      $("plans-unified-anti-theater").textContent =
+        at.anti_theater_line || at.line || "Anti-theater · run sync";
+    }
+
+    function renderAntiTheater(at) {
+      if (!at) return;
+      if (at.anti_theater_line) window.__lastAntiTheater = at;
+      $("plans-unified-anti-theater").textContent =
+        at.anti_theater_line || "Anti-theater · sync plans";
+    }
+
+    function renderPhase0(p0) {
+      if (!p0) return;
+      $("plans-unified-phase0").textContent =
+        p0.phase0_line || (p0.progress ? "Phase0 · " + p0.progress.done + "/" + p0.progress.total : "Phase0 reference — sync plans");
+    }
+
+    function renderWorldModel(wm) {
+      if (wm && wm.world_model_line) window.__lastWorldModel = wm;
+      if (!wm || wm.ok === false && !wm.world_model_line) return;
+      $("plans-unified-wtm").textContent =
+        wm.world_model_line || "WTM check · platform-neutral PASS";
+    }
+
+    function renderAlarms(dr) {
+      if (!dr) return;
+      const jc = dr.judge_center || {};
+      const tr = dr.thread_room || {};
+      $("judge-alarm").textContent = "Judge: " + shortAlarm(jc.headline);
+      $("thread-alarm").textContent = "Thread: " + shortAlarm(tr.headline);
+    }
+
+    function renderData(d) {
+      if (!d || !d.ok) return;
+      const fl = d.form_live || {};
+      const fq = fl.open_questions_count != null ? fl.open_questions_count : d.form_pending;
+      const picks = (fl.open_pick_ids || []).join(", ");
+      $("form-line").textContent = fl.form_line || (fq === 0
+        ? "Form clear · 0 open PICKs"
+        : "OPEN " + fq + " — answer on M1 Canvas (official)");
+      $("form-picks").textContent = picks ? "PICK ids: " + picks : (fq === 0 ? "No pending founder decisions" : "—");
+      const formBtn = $("btn-form");
+      if (formBtn) {
+        formBtn.disabled = false;
+        formBtn.className = fq === 0 ? "ghost" : "primary";
+        formBtn.textContent = fl.canvas_button_label || "Open Form (M1 Canvas)";
+      }
+      const freeze = d.freeze_status || "—";
+      const pill = $("freeze-pill");
+      pill.textContent = freeze;
+      pill.className = "pill " + (freeze === "FREEZE" ? "freeze" : "run");
+      $("task-id").textContent = d.task_id || "—";
+      $("task-title").textContent = d.task_title || "No active inbox task";
+      $("task-title").classList.remove("skeleton");
+      const busy = d.worker_busy;
+      const h = d.health || {};
+      const dotClass = h.status === "stale" || h.status === "critical" ? " stale" : (busy ? " busy" : "");
+      $("worker-state").innerHTML =
+        '<span class="status-dot' + dotClass + '"></span>Worker ' +
+        (busy ? "busy" : "idle") + " · " + (d.worker_mode || "ready");
+      $("p0-next").textContent = d.p0_next_action || d.p0_title || "—";
+      const k1 = d.kernel_k1 || {};
+      const k1v = k1.verdict || "—";
+      $("k1-line").textContent = "K1 " + k1v + (k1.founder_line ? " · " + k1.founder_line : "");
+      $("k1-line").style.color = k1v === "PASS" ? "var(--ok, #2d8a4e)" : (k1v === "BLOCK" ? "var(--bad, #c44)" : "");
+      $("queue-line").textContent =
+        (d.queue_sa_id || "—") + " · pos " + (d.queue_pos ?? "—") + "/" + (d.queue_total ?? "—") +
+        " · Valid YES " + (d.valid_yes ?? "—") +
+        (d.inbox_pending ? " · inbox pending" : "");
+      $("sync-line").textContent = "Synced " + (d.built_at || "").replace("T", " ").slice(0, 19);
+      renderHealth(h);
+      renderRrl(d.rrl);
+      renderLoop(d.nerve_system, d.better_loop, d.best_loop_oqg, d.factory_output_critic, d.receiver_interest, d.conversation_interest);
+      renderSinaRead(d.w3_founder_review);
+      renderLoopRooms(d.investigator_room, d.judge_room, d.loop_specialist, d.daily_rooms);
+      renderRoutingPanel(d.routing_panel);
+      renderDisclosureLadder(d.disclosure_ladder);
+      renderMcpStack(d.mcp_stack);
+      renderToolPick(d.tool_pick);
+      renderPlansUnified(d.plans_unified);
+      renderAntiTheater(d.anti_theater || (d.plans_unified && d.plans_unified.anti_theater));
+      renderPhase0(d.phase0_reference);
+      renderWorldModel(d.world_model_check);
+      renderFullStackFixPlan(d.full_stack_fix_plan);
+      renderPipeline(d.commercial_pipeline, d.commercial_agents);
+      renderAlarms(d.daily_rooms);
+      const links = $("policy-links");
+      links.innerHTML = (d.policy_links || []).map((l) =>
+        '<a href="#" data-path="' + l.path + '">' + l.label + "</a>"
+      ).join("");
+      links.querySelectorAll("a").forEach((a) => {
+        a.onclick = async (ev) => {
+          ev.preventDefault();
+          const path = a.getAttribute("data-path");
+          await fetch(API + "/open", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ path: "~/Desktop/SourceA/" + path }),
+          });
+          log("Opened " + path);
+        };
+      });
+    }
+
+    function renderAdvisor(d) {
+      if (!d || !d.ok) return;
+      $("advisor-tagline").textContent = d.tagline || "Advisor track";
+      const live = d.live_now || {};
+      $("advisor-factory").textContent = "Factory · " + (live.headline || (live.factory && live.factory.line) || "—");
+      $("advisor-s10").textContent = "S10 · " + (live.s10_line || (live.s10 && live.s10.summary) || "—");
+      const pending = d.pending_total != null ? d.pending_total : (d.pending_board || []).length;
+      $("advisor-pending-count").textContent =
+        (d.track_status || "?") + " · " + pending + " pending · tab " + (d.hub_tab || "advisor-discussion");
+      const decEl = $("advisor-decisions");
+      const decisions = d.decisions || [];
+      decEl.innerHTML = decisions.map(function (dec) {
+        const status = dec.status || "pending";
+        const choice = dec.choice || "";
+        const opts = (dec.options || []).map(function (opt) {
+          const sel = choice === opt ? " selected" : "";
+          const dis = status !== "pending" || advisorBusy ? " disabled" : "";
+          return '<button type="button" class="ghost advisor-opt' + sel + '"' +
+            ' data-id="' + esc(dec.id) + '" data-choice="' + esc(opt) + '"' + dis + '>' + esc(opt) + "</button>";
+        }).join("");
+        return '<div class="advisor-dec">' +
+          '<div class="advisor-dec-head">' +
+          "<strong>" + esc(dec.id) + " · " + esc(dec.title) + "</strong>" +
+          '<span class="room-tone ' + (status === "pending" ? "amber" : "green") + '">' + esc(status) + "</span>" +
+          "</div>" +
+          (dec.blocks ? '<p class="room-summary">' + esc(dec.blocks) + "</p>" : "") +
+          (choice ? '<p class="room-meta">Choice: ' + esc(choice) + "</p>" : "") +
+          (status === "pending" ? '<div class="advisor-opts">' + opts + "</div>" : "") +
+          "</div>";
+      }).join("");
+      decEl.querySelectorAll(".advisor-opt").forEach(function (btn) {
+        btn.onclick = function () {
+          postAdvisorDecision(btn.getAttribute("data-id"), btn.getAttribute("data-choice"));
+        };
+      });
+      const board = d.pending_board || [];
+      $("advisor-board").innerHTML = board.length
+        ? board.slice(0, 12).map(function (row) {
+            return '<div class="advisor-board-row">' +
+              esc(row.priority || "") + " · " + esc(row.id || "") + " · " + esc(row.title || "") +
+              (row.detail ? " — " + esc(row.detail) : "") +
+              "</div>";
+          }).join("") + (board.length > 12 ? '<p class="room-meta">+' + (board.length - 12) + " more</p>" : "")
+        : '<p class="room-meta">Board clear — all decided</p>';
+      const sendNums = d.advisor_send_nums || [];
+      const subjects = d.subjects || [];
+      const sendRows = subjects.filter(function (s) {
+        return sendNums.indexOf(s.n) >= 0 && !s.superseded;
+      });
+      $("advisor-subjects").innerHTML = sendRows.length
+        ? sendRows.map(function (s) {
+            return '<div class="advisor-board-row">#' + s.n + " · " + esc(s.topic) +
+              " — " + esc(s.action || s.insight || "") + "</div>";
+          }).join("")
+        : "";
+      $("advisor-updated").textContent =
+        "Updated " + (d.updated_at || "").replace("T", " ").slice(0, 19) +
+        " · poll " + ((d.live_poll_ms || advisorPollMs) / 1000) + "s";
+      if (d.live_poll_ms) advisorPollMs = d.live_poll_ms;
+    }
+
+    async function loadAdvisor(opts) {
+      opts = opts || {};
+      try {
+        const res = await fetch(API + "/api/founder-advisor-discussion", { cache: "no-store" });
+        const d = await res.json();
+        if (!d.ok) throw new Error("advisor payload failed");
+        renderAdvisor(d);
+      } catch (e) {
+        if (!opts.silent) $("advisor-tagline").textContent = "Advisor track — load failed: " + e.message;
+      }
+    }
+
+    async function postAdvisorDecision(id, choice) {
+      if (advisorBusy || !id || !choice) return;
+      advisorBusy = true;
+      log("Advisor " + id + " → " + choice);
+      try {
+        const res = await fetch(API + "/api/founder-advisor-discussion", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ action: "update_decision", id: id, choice: choice, status: "decided" }),
+        });
+        const j = await res.json();
+        if (!j.ok) throw new Error(j.error || "update failed");
+        renderAdvisor(j);
+        log("Advisor " + id + " saved · " + choice);
+      } catch (e) {
+        log("Advisor save error: " + e.message);
+      } finally {
+        advisorBusy = false;
+      }
+    }
+
+    function scheduleAdvisorPoll() {
+      if (advisorPollTimer) clearInterval(advisorPollTimer);
+      advisorPollTimer = setInterval(function () {
+        if (document.hidden) return;
+        loadAdvisor({ silent: true });
+      }, advisorPollMs);
+    }
+
+    async function loadExtended(base) {
+      const extPath = base.extended_api || "/api/worker-hub/extended/v1";
+      try {
+        const res = await fetch(API + extPath, { cache: "no-store" });
+        const ext = await res.json();
+        if (!ext.ok) return base;
+        const merged = Object.assign({}, base, ext);
+        delete merged.extended_api;
+        delete merged.schema;
+        merged.schema = base.schema;
+        return merged;
+      } catch (_) {
+        return base;
+      }
+    }
+
+    async function load(opts) {
+      opts = opts || {};
+      if (loadCtrl) loadCtrl.abort();
+      loadCtrl = new AbortController();
+      const t0 = performance.now();
+      if (!opts.silent) {
+        const cached = loadCache();
+        if (cached) renderData(cached);
+      }
+      try {
+        const res = await fetch(API + "/api/worker-hub/v1", {
+          cache: "no-store",
+          signal: loadCtrl.signal,
+        });
+        const raw = await res.text();
+        const ms = Math.round(performance.now() - t0);
+        const d = JSON.parse(raw);
+        if (!d.ok) throw new Error("worker-hub failed");
+        $("load-timing").textContent = "Core " + raw.length + " bytes in " + ms + "ms · extended lazy · poll " + (pollMs / 1000) + "s";
+        saveCache(d);
+        renderData(d);
+        loadExtended(d).then(function (merged) {
+          if (merged !== d) {
+            saveCache(merged);
+            renderData(merged);
+            $("load-timing").textContent = "Core " + raw.length + " B · full loaded · poll " + (pollMs / 1000) + "s";
+          }
+        });
+        if (!healing && d.health && d.health.auto_heal_recommended) {
+          maybeAutoHeal(d.health);
+        }
+      } catch (e) {
+        if (e.name !== "AbortError") {
+          log("Load failed: " + e.message + "\nTap Auto-heal or Light refresh.");
+        }
+      }
+    }
+
+    async function runHeal(reason) {
+      if (healing) return;
+      healing = true;
+      $("btn-heal").disabled = true;
+      const t0 = performance.now();
+      log("Auto-heal (" + reason + ") — wire sync + shell touch + probe…");
+      try {
+        try { sessionStorage.removeItem(CACHE_KEY); } catch (_) {}
+        const res = await fetch(API + "/api/worker-hub/heal", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ reason: reason, force: true }),
+        });
+        const j = await res.json();
+        const ms = Math.round(performance.now() - t0);
+        const ha = j.health_after || {};
+        const after = ha.status || "?";
+        if (ha.status) renderHealth(ha);
+        log(
+          "Heal " + (j.ok ? "OK" : "PARTIAL") + " · " + ms + "ms · status=" + after +
+          (j.healed ? " · hub refreshed" : " · probe only") + "\n" +
+          (j.steps || []).map((s) => s.step + "=" + (s.ok ? "ok" : "fail")).join(" · ")
+        );
+        lastHealAt = Date.now();
+        await load({ silent: true });
+      } catch (e) {
+        log("Heal error: " + e.message);
+      } finally {
+        healing = false;
+        $("btn-heal").disabled = false;
+      }
+    }
+
+    function maybeAutoHeal(h) {
+      const cooldown = (h.heal_cooldown_sec || 45) * 1000;
+      if (Date.now() - lastHealAt < cooldown) return;
+      runHeal("auto-stale");
+    }
+
+    function schedulePoll() {
+      if (pollTimer) clearInterval(pollTimer);
+      pollTimer = setInterval(function () {
+        if (document.hidden) return;
+        load({ silent: true });
+      }, pollMs);
+    }
+
+    $("btn-heal").addEventListener("click", function () { runHeal("founder-tap"); });
+
+    async function postLoopApi(path, body) {
+      const res = await fetch(API + path, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body || {}),
+      });
+      return res.json();
+    }
+
+    $("btn-loop-chain").addEventListener("click", async function () {
+      $("btn-loop-chain").disabled = true;
+      log("Loop chain E2E tick…");
+      try {
+        const j = await postLoopApi("/api/loop-chain/tick/v1", {});
+        log(
+          (j.ok ? "Loop chain OK" : "Loop chain partial") + "\n" +
+          (j.disclosure_line || j.founder_routing_panel_line || j.investigator_line || JSON.stringify(j).slice(0, 200))
+        );
+        await load({ silent: true });
+      } catch (e) {
+        log("Loop chain error: " + e.message);
+      } finally {
+        $("btn-loop-chain").disabled = false;
+      }
+    });
+
+    $("btn-loop-auto-on").addEventListener("click", async function () {
+      $("btn-loop-auto-on").disabled = true;
+      log("Graduate loop auto (shadow)…");
+      try {
+        const j = await postLoopApi("/api/loop-specialist/tick/v1", { enable_auto_dispatch: true, dispatch: true });
+        log(
+          (j.ok ? "Loop auto ON" : "Loop auto partial") + " · " +
+          (j.tick_decision || "—") + " · " + (j.loop_specialist_line || "—")
+        );
+        await load({ silent: true });
+      } catch (e) {
+        log("Loop auto error: " + e.message);
+      } finally {
+        $("btn-loop-auto-on").disabled = false;
+      }
+    });
+
+    $("btn-routing-refresh").addEventListener("click", async function () {
+      $("btn-routing-refresh").disabled = true;
+      log("Routing panel refresh…");
+      try {
+        const j = await postLoopApi("/api/routing-panel/tick/v1", {});
+        log((j.ok ? "Routing OK" : "Routing partial") + " · " + (j.founder_routing_panel_line || "—"));
+        await load({ silent: true });
+      } catch (e) {
+        log("Routing error: " + e.message);
+      } finally {
+        $("btn-routing-refresh").disabled = false;
+      }
+    });
+
+    $("btn-sina-export").addEventListener("click", async function () {
+      $("btn-sina-export").disabled = true;
+      log("Export founder review bundle…");
+      try {
+        const j = await postLoopApi("/api/w3-founder-review/export/v1", {});
+        if (j.path) {
+          await fetch(API + "/open", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ path: j.path }),
+          });
+        }
+        log((j.ok ? "Bundle exported" : "Export partial") + " · " + (j.path || "—"));
+        await load({ silent: true });
+      } catch (e) {
+        log("Sina export error: " + e.message);
+      } finally {
+        $("btn-sina-export").disabled = false;
+      }
+    });
+
+    $("btn-sina-refresh").addEventListener("click", function () { load({ silent: false }); });
+
+    $("btn-disclosure-tick").addEventListener("click", async function () {
+      $("btn-disclosure-tick").disabled = true;
+      log("Disclosure ladder audit…");
+      try {
+        const j = await postLoopApi("/api/disclosure-ladder/tick/v1", {});
+        log((j.ok ? "Disclosure OK" : "Disclosure partial") + "\n" + (j.disclosure_line || "—"));
+        await load({ silent: true });
+      } catch (e) {
+        log("Disclosure error: " + e.message);
+      } finally {
+        $("btn-disclosure-tick").disabled = false;
+      }
+    });
+
+    $("btn-full-stack-fix-pulse").addEventListener("click", async function () {
+      $("btn-full-stack-fix-pulse").disabled = true;
+      log("Full-stack fix plan pulse…");
+      try {
+        const j = await postLoopApi("/api/full-stack-fix-plan/pulse/v1", {});
+        log((j.ok ? "Fix plan OK" : "Fix plan partial") + "\n" + (j.full_stack_fix_line || j.pulse_line || "—"));
+        await load({ silent: true });
+      } catch (e) {
+        log("Fix plan error: " + e.message);
+      } finally {
+        $("btn-full-stack-fix-pulse").disabled = false;
+      }
+    });
+
+    $("btn-mcp-stack-tick").addEventListener("click", async function () {
+      $("btn-mcp-stack-tick").disabled = true;
+      log("MCP free-tier audit…");
+      try {
+        const j = await postLoopApi("/api/mcp-stack/tick/v1", {});
+        log((j.ok ? "MCP OK" : "MCP partial") + "\n" + (j.mcp_stack_line || "—"));
+        await load({ silent: true });
+      } catch (e) {
+        log("MCP stack error: " + e.message);
+      } finally {
+        $("btn-mcp-stack-tick").disabled = false;
+      }
+    });
+
+    $("btn-tool-pick-tick").addEventListener("click", async function () {
+      $("btn-tool-pick-tick").disabled = true;
+      log("Tool pick two-phase audit…");
+      try {
+        const j = await postLoopApi("/api/tool-pick/tick/v1", {});
+        log((j.ok ? "Tool pick OK" : "Tool pick partial") + "\n" + (j.tool_pick_line || "—"));
+        await load({ silent: true });
+      } catch (e) {
+        log("Tool pick error: " + e.message);
+      } finally {
+        $("btn-tool-pick-tick").disabled = false;
+      }
+    });
+
+    $("btn-plans-unified-tick").addEventListener("click", async function () {
+      $("btn-plans-unified-tick").disabled = true;
+      log("Plans unified sync + WTM check…");
+      try {
+        const j = await postLoopApi("/api/plans-unified/tick/v1", {});
+        log((j.ok ? "Plans OK" : "Plans partial") + "\n" + (j.plans_unified_line || "—"));
+        if (j.world_model_check) {
+          log("WTM · " + (j.world_model_check.line || j.world_model_check.world_model_line || "—"));
+        }
+        await load({ silent: true });
+      } catch (e) {
+        log("Plans unified error: " + e.message);
+      } finally {
+        $("btn-plans-unified-tick").disabled = false;
+      }
+    });
+
+    $("btn-investigator-tick").addEventListener("click", async function () {
+      $("btn-investigator-tick").disabled = true;
+      try {
+        const j = await postLoopApi("/api/investigator-circle/tick/v1", {});
+        log(j.investigator_line || j.investigation_verdict || "investigator tick done");
+        await load({ silent: true });
+      } catch (e) {
+        log("Investigator error: " + e.message);
+      } finally {
+        $("btn-investigator-tick").disabled = false;
+      }
+    });
+
+    $("btn-judge-loop-tick").addEventListener("click", async function () {
+      $("btn-judge-loop-tick").disabled = true;
+      try {
+        const j = await postLoopApi("/api/judge-loop/tick/v1", {});
+        log(j.judge_loop_line || j.loop_verdict || "judge loop tick done");
+        await load({ silent: true });
+      } catch (e) {
+        log("Judge loop error: " + e.message);
+      } finally {
+        $("btn-judge-loop-tick").disabled = false;
+      }
+    });
+
+    async function runRooms(room) {
+      const btn = $("btn-strip");
+      if (btn) btn.disabled = true;
+      log("Running " + room + "… (may take up to 2 min on weekly run)");
+      try {
+        const res = await fetch(API + "/api/worker-hub/rooms/run", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ room: room }),
+        });
+        const j = await res.json();
+        log(
+          (j.ok ? "Rooms OK" : "Rooms partial") + " · " + room + "\n" +
+          (j.steps || []).map(function (s) { return s.step + "=" + (s.ok ? "ok" : "fail"); }).join(" · ")
+        );
+        if (j.daily_rooms) {
+          renderAlarms(j.daily_rooms);
+          const lj = j.daily_rooms.loop_judge_room || {};
+          if (lj.headline) $("loop-judge-daily").textContent = "Daily pin · " + lj.headline;
+        }
+        await load({ silent: true });
+      } catch (e) {
+        log("Rooms error: " + e.message);
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    }
+
+    $("btn-strip").addEventListener("click", function () { runRooms("strip"); });
+    $("btn-unstick").addEventListener("click", async function () {
+      $("btn-unstick").disabled = true;
+      log("Unstick Worker — kill hung find_critical_bugs / heal turn…");
+      try {
+        const res = await fetch(API + "/api/action", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id: "founder-unstick-worker" }),
+        });
+        const j = await res.json();
+        log((j.message || "") + "\n\n" + (j.output || "").slice(-2500));
+        await load({ silent: true });
+      } catch (e) {
+        log("Unstick error: " + e.message);
+      } finally {
+        $("btn-unstick").disabled = false;
+      }
+    });
+
+    $("btn-refresh").addEventListener("click", async function () {
+      $("btn-refresh").disabled = true;
+      const t0 = performance.now();
+      log("Light refresh…");
+      try {
+        const res = await fetch(API + "/refresh", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ mode: "light" }),
+        });
+        const j = await res.json();
+        log((j.ok ? "Light OK · " : "Failed · ") + Math.round(performance.now() - t0) + "ms");
+        await load({ silent: true });
+      } catch (e) {
+        log("Refresh error: " + e.message);
+      } finally {
+        $("btn-refresh").disabled = false;
+      }
+    });
+
+    $("btn-safety").addEventListener("click", async function () {
+      $("btn-safety").disabled = true;
+      log("Safety check running…");
+      try {
+        const res = await fetch(API + "/api/action", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id: "founder-ecosystem-safety" }),
+        });
+        const j = await res.json();
+        log((j.message || "") + "\n\n" + (j.output || "").slice(-2500));
+        await load({ silent: true });
+      } catch (e) {
+        log("Safety error: " + e.message);
+      } finally {
+        $("btn-safety").disabled = false;
+      }
+    });
+
+    $("btn-form").addEventListener("click", async function () {
+      $("btn-form").disabled = true;
+      log("Opening FORM_OFFICIAL (M1 Canvas)…");
+      try {
+        const res = await fetch(API + "/api/action", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id: "founder-open-integrity-form" }),
+        });
+        const j = await res.json();
+        log((j.message || "Form opened") + "\n" + (j.hint || "") + "\n" + (j.output || "").slice(-1200));
+      } catch (e) {
+        log("Form open error: " + e.message);
+      } finally {
+        $("btn-form").disabled = false;
+      }
+    });
+
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden) {
+        load({ silent: true });
+        loadAdvisor({ silent: true });
+      }
+    });
+
+    const cached = loadCache();
+    if (cached) renderData(cached);
+    load().then(schedulePoll);
+    setInterval(schedulePoll, 30000);
+    loadAdvisor();
+    scheduleAdvisorPoll();
+    if (location.search.indexOf("tab=advisor-discussion") >= 0) {
+      const el = $("advisor-card");
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  })();
+  </script>
+</body>
+</html>

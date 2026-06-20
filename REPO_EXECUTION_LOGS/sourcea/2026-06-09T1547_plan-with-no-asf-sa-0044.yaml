@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0044 — Compare ChatGPT critic Eval claim to ~/.sina/eval_packet_v1b_report.json
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0044
+tests:
+  status: passed
+  output_snippet: sa-0044 VERIFY closeout: ChatGPT critic Eval claim matches eval_packet_v1b_report.json 4/5 80%.
+reported_at: '2026-06-09T15:47:35Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

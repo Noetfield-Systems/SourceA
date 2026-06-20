@@ -1,0 +1,13 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0502",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "s5-commercial-closeout",
+  "evidence": "validate-verify-wire-runreceipt-schema-v1 PASS \u00b7 RunReceipt schema locked",
+  "cross_ref": "archive/attachments/2026-06-14/sa-0502-verify-wire-runreceipt-schema_LOCKED_v1.md",
+  "at": "2026-06-14T11:41:40Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,21 @@
+schema_version: 1
+repo: sourcea
+task: Harden eval CI structural mode + dispatch policy + build chain
+status: done
+verify_passed: true
+evidence:
+  files_changed:
+    - scripts/validate-eval-packet-v1b-live.sh
+    - scripts/eval_packet_v1b/scorer.py
+    - scripts/audit_hub_source_alignment.py
+    - scripts/runtime/dispatch_policy/policy_engine.py
+    - scripts/validate-dispatch-policy-v1.sh
+    - scripts/build-sina-command-panel.py
+    - scripts/eval_packet_v1b/grounding.py
+tests:
+  status: passed
+  command: SINA_AUDIT_STRICT=1 build-sina-command-panel.py
+  output_snippet: strict build PASS; dispatch gate_ok=False structural_only; hub alignment OK
+real_output: OK strict build full chain; validate-dispatch-policy-v1 gate_ok=False mode=scaffold
+reported_at: '2026-06-06T04:25:00Z'
+reporter: cursor-maintainer

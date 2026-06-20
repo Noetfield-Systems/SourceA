@@ -1,0 +1,33 @@
+{
+  "schema": "investigator-judge-cloud-contract-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-18T22:50:00Z",
+  "phase": "2b-prep",
+  "locked_doc": "docs/SOURCEA_INVESTIGATOR_JUDGE_LOOP_ROOM_LOCKED_v1.md",
+  "mac_control_plane": true,
+  "hub_api": {
+    "investigator": {
+      "method": "POST",
+      "path": "/api/investigator-circle/tick/v1",
+      "default_base_url": "http://127.0.0.1:13020"
+    },
+    "judge_loop": {
+      "method": "POST",
+      "path": "/api/judge-loop/tick/v1",
+      "default_base_url": "http://127.0.0.1:13020"
+    }
+  },
+  "receipts": {
+    "investigation": "~/.sina/loop-health-investigation-receipt-v1.json",
+    "judge_loop": "~/.sina/judge-loop/latest-verdict-v1.json"
+  },
+  "commands": {
+    "investigator": "python3 scripts/investigator_circle_run_v1.py --json",
+    "judge_loop": "python3 scripts/judge_loop_room_v1.py --json"
+  },
+  "cloudflare_worker_phase_2b": {
+    "cron": "*/15 * * * *",
+    "action": "POST investigator then judge — observe only; no dispatch",
+    "note": "Dispatch remains loop_specialist_tick only"
+  }
+}

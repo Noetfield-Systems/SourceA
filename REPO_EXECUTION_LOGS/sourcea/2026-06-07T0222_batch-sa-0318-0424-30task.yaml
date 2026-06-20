@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: BATCH 30 tasks sa-0318–sa-0424
+status: done
+verify_passed: true
+evidence:
+  count: 30
+  task_ids: ['sa-0318', 'sa-0319', 'sa-0320', 'sa-0321', 'sa-0322', 'sa-0323', 'sa-0324', 'sa-0325', 'sa-0401', 'sa-0402', 'sa-0403', 'sa-0405', 'sa-0406', 'sa-0407', 'sa-0408', 'sa-0410', 'sa-0411', 'sa-0412', 'sa-0413', 'sa-0414', 'sa-0415', 'sa-0416', 'sa-0417', 'sa-0418', 'sa-0419', 'sa-0420', 'sa-0421', 'sa-0422', 'sa-0423', 'sa-0424']
+tests:
+  status: passed
+  output_snippet: critical 0
+reported_at: '2026-06-07T02:22:48Z'
+reporter: cursor-worker-batch

@@ -1,0 +1,53 @@
+---
+description: Three roles — executor builds; founder uses app only (no Terminal)
+globs: scripts/agent*,agent-skills/**
+alwaysApply: false
+---
+
+# Sina agent loop — three roles
+
+## Rules in charge loop (MANDATORY — every session + every round)
+
+**Law:** `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · **Check:** `scripts/agent_rules_loop_orchestrator.py` or `GET /api/agent-rules-in-charge-v1`
+
+1. **Session start:** run rules loop (`phase=session_start`) — read `in_charge_now` from hub SSOT.
+2. **Every `[SINA_LOOP` round:** rules banner is injected — obey it; re-check if task touches law/edit/governance.
+3. **Before ship:** `phase=pre_ship` — no duplicate `.mdc` rules; **supersede** old rule instead of adding parallel one.
+4. **No fake progress:** `SOURCEA_NO_FAKE_PROGRESS_ENTERPRISE_SHIP_LOCKED_v1.md` — evidence + effect + output in the repository before any “done” claim; UI green ≠ ship.
+5. **Supersession:** founder rules stay in charge until a **new** LOCKED doc or `.mdc` explicitly replaces them.
+6. **Miss / wrong answer:** `AGENT_MISS_DISK_FIRST_CORRECTION_LOOP_LOCKED_v1.md` — edit root doc → wire → then reply (no apology-first).
+
+| Role | Who | Job |
+|------|-----|-----|
+| **Executor** | You (this Cursor agent) | Build code; broker-submit; **RUN INBOX** in the repository — not legacy app loop |
+| **Advisor** | Legacy archive (`/legacy/`) | **Not daily** — founder uses Cursor + Super Fast Hub |
+| **Planner** | Machine queue + broker | `live-ongoing-prompts-next-10-v1.json` — not OpenRouter auto-send |
+
+## Founder law: no Terminal · no legacy monolith · no hub rebuild
+
+Daily UI = **Worker Hub** `http://127.0.0.1:13020/` (**Next steps**). Legacy monolith = **DEACTIVATED** — `/legacy/` archive only.
+
+- **Never** ask the founder to open Terminal or run a command.
+- Steer founder to **RUN INBOX** · Worker Hub **Next steps** · optional prompt-direction commentary (INCIDENT-028: confirm does not execute).
+- **Never** ask founder to tap **Refresh hub** or rebuild monolith — **you** run worker heal / light sync only.
+- **Agent sync (status replies):** `worker_anti_staleness_heal_v1.py` or `hub_dual_heal_v1.py` — **not** `hub_self_refresh --full` (INCIDENT-031 / `no_hub`).
+- **Goal 1 Brain:** `BRAIN_UNIFIED_RULES_LOCKED_v1.md` · `000-brain-unified.mdc` (narrate vs spawn)
+- **Goal 1 spawn (`activate loop` only):** `GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md` — never claim running after deliver only
+- If a step needs shell: **you run it** — founder never runs commands.
+- **Never** ask the founder to run `agent-loop-done.sh`, `curl`, or `python3`.
+- When a Worker turn is done, give them:
+  1. **One-line summary** (paste field if they want)
+  2. **Full answer text**
+  3. **Next:** `RUN INBOX` for next sa — or Worker Hub → **Next steps** for disk queue glance only
+
+Legacy `[SINA_LOOP` / agent-loop API paths are **archive** — default path is **RUN INBOX** one sa per turn.
+
+## RUN INBOX (default factory path)
+
+1. Founder says **RUN INBOX** in this Worker chat.
+2. Executor runs one CHECK / ACT / VERIFY turn · broker-submit · STOP.
+3. Optional daily glance: Worker Hub → **Next steps**
+
+## Legacy loop (archive only)
+
+`[SINA_LOOP` / Private agents / Start loop — **legacy monolith** `/legacy/`. Do not steer founder here unless ASF explicitly names legacy loop.

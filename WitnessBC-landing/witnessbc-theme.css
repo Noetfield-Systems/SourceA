@@ -1,0 +1,56 @@
+/* Witness BC brand — SourceA light + standalone overrides */
+
+body.wbc-light {
+  --primary: #0d9488;
+  --primary-dark: #0f766e;
+  --accent: #14b8a6;
+  --primary-light: #ecfdf5;
+  --gradient: linear-gradient(135deg, #0d9488 0%, #14b8a6 55%, #2dd4bf 100%);
+  --shadow: 0 4px 24px rgba(13, 148, 136, 0.14);
+  --shadow-lg: 0 20px 60px rgba(13, 148, 136, 0.12);
+}
+body.wbc-light .btn-primary {
+  background: var(--gradient);
+  color: #fff;
+  border: none;
+}
+body.wbc-light .gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+body.wbc-light .capability-card.featured,
+body.wbc-light .mock-card.warn {
+  border-color: rgba(13, 148, 136, 0.35);
+}
+body.wbc-light .flow-node.accent {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  border-color: rgba(13, 148, 136, 0.35);
+}
+body.wbc-light .cta-banner {
+  background: var(--gradient);
+}
+body.wbc-light .wbc-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  color: #0d9488;
+  border: 1px solid rgba(13, 148, 136, 0.35);
+  background: rgba(13, 148, 136, 0.08);
+}
+body.wbc-light .chain-inline span {
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--border, #e5e8f0);
+  background: var(--bg-soft, #f6f7fb);
+  font-family: ui-monospace, monospace;
+  font-size: 0.75rem;
+}
+body.wbc-light .chain-inline .pass { color: #059669; border-color: rgba(5, 150, 105, 0.35); }
+body.wbc-light .chain-inline .fail { color: #dc2626; border-color: rgba(220, 38, 38, 0.35); }

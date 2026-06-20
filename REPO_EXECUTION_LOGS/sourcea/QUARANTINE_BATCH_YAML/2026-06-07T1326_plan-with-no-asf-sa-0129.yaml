@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0129 — Verify dispatch_policy eval_1b_gate_ok true in /api/dispatch-policy-v1
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0129
+tests:
+  status: passed
+  output_snippet: validate-eval-packet-v1b-live PASS 5/5 100% · validate-dispatch-policy-v1 gate_ok=true tier=behavioral_pass · hub /api/dispatch-policy-v1 honest · supersedes 402 BLOCKED row · critical 0
+reported_at: '2026-06-07T13:26:06Z'
+reporter: cursor-worker

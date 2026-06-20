@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U013",
+  "title": "Expand translate map: policy graph → rules guiding an action",
+  "evidence": "compose_lint() in validate_email_translation_v1.py; auto-suggest in compose lint message",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:03:30Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0159 — Validate graph-executor pos-dispatch suggest not auto dispatch globally
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0159
+tests:
+  status: passed
+  output_snippet: validate-graph-executor-pos-dispatch-v1 PASS · validate-dispatch-policy-v1 PASS · validate-governance-fleet-v1 PASS · find_critical_bugs critical 0 · pos-dispatch suggest auto_dispatch false
+reported_at: '2026-06-08T03:23:00Z'
+reporter: cursor-worker-batch

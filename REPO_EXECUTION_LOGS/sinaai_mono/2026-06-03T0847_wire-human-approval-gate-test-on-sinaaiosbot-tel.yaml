@@ -1,0 +1,23 @@
+schema_version: 1
+repo: sinaai_mono
+task: Wire human approval gate test on @SinaaiOSbot Telegram path
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - scripts/verify-approval-gate.sh
+  - SinaaiDataBase/governance/HUMAN_APPROVAL_GATE_TEST.md
+  - reports/cursor-reply-latest.txt
+  diff_summary: ''
+  note: ''
+tests:
+  status: passed
+  command: bash scripts/verify-approval-gate.sh
+  output_snippet: APPROVAL GATE PASS — API + Telegram router /approve + callback wired
+    (re-verify, no code changes)
+real_output: APPROVAL GATE PASS — API + Telegram router /approve + callback wired
+  (re-verify, no code changes)
+reported_at: '2026-06-03T08:47:22Z'
+reporter: cursor
+execution_id: ''

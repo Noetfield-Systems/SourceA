@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.sourcea.mac-law</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Library/Frameworks/Python.framework/Versions/3.12/bin/python3</string>
+		<string>/Users/sinakazemnezhad/Desktop/MacLaw/mac-law-server.py</string>
+	</array>
+	<key>WorkingDirectory</key>
+	<string>/Users/sinakazemnezhad/Desktop/MacLaw</string>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<dict>
+		<key>SuccessfulExit</key>
+		<false/>
+	</dict>
+	<key>ThrottleInterval</key>
+	<integer>2</integer>
+	<key>StandardOutPath</key>
+	<string>/Users/sinakazemnezhad/.sina/mac-law-launchd.log</string>
+	<key>StandardErrorPath</key>
+	<string>/Users/sinakazemnezhad/.sina/mac-law-launchd.err</string>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key>
+		<string>/opt/homebrew/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+		<key>MAC_LAW_ROOT</key>
+		<string>/Users/sinakazemnezhad/Desktop/MacLaw</string>
+		<key>MAC_LAW_PORT</key>
+		<string>8781</string>
+		<key>MAC_LAW_HOST</key>
+		<string>127.0.0.1</string>
+	</dict>
+</dict>
+</plist>

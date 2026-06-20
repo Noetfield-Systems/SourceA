@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0562 — Validate wire lane progress md exists in the repository for Wire agent
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0562
+tests:
+  status: passed
+  output_snippet: validate-wire-lane-progress-t2-crossref-v1.sh PASS · canonical sa-0512 · t1 sa-0537
+reported_at: '2026-06-14T21:55:15Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

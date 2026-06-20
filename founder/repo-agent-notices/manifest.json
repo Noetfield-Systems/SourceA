@@ -1,0 +1,98 @@
+{
+  "ok": true,
+  "updated": "2026-06-06",
+  "master_notice": "SINA_COMMAND_SYSTEM_UPDATE_NOTICE_LOCKED_v1.md",
+  "semi_master_notice": "SINA_SEMI_SEPARATE_AGENT_NOTICE_LOCKED_v1.md",
+  "repos": [
+    {
+      "repo_id": "trustfield",
+      "name": "TrustField Technologies",
+      "notice_path": "founder/repo-agent-notices/REPO_NOTICE_trustfield_v1.md",
+      "paste_file": "/Users/sinakazemnezhad/Desktop/SinaPromptOS/outputs/ready_to_paste/ready_to_paste_trustfield.txt",
+      "thread": "THREAD-PORTFOLIO",
+      "kind": "mainstream"
+    },
+    {
+      "repo_id": "mono",
+      "name": "SinaaiMonoRepo",
+      "notice_path": "founder/repo-agent-notices/REPO_NOTICE_mono_v1.md",
+      "paste_file": "/Users/sinakazemnezhad/Desktop/SinaPromptOS/outputs/ready_to_paste/ready_to_paste_sinaai_mono.txt",
+      "thread": "THREAD-SUPERBRAIN",
+      "kind": "mainstream"
+    },
+    {
+      "repo_id": "virlux",
+      "name": "VIRLUX",
+      "notice_path": "founder/repo-agent-notices/REPO_NOTICE_virlux_v1.md",
+      "paste_file": "/Users/sinakazemnezhad/Desktop/SinaPromptOS/outputs/ready_to_paste/ready_to_paste_virlux.txt",
+      "thread": "THREAD-PORTFOLIO",
+      "kind": "mainstream"
+    },
+    {
+      "repo_id": "noetfield",
+      "name": "Noetfield",
+      "notice_path": "founder/repo-agent-notices/REPO_NOTICE_noetfield_v1.md",
+      "paste_file": "/Users/sinakazemnezhad/Desktop/SinaPromptOS/outputs/ready_to_paste/ready_to_paste_noetfield.txt",
+      "thread": "THREAD-PORTFOLIO",
+      "kind": "mainstream"
+    },
+    {
+      "repo_id": "seven77",
+      "name": "The 777 Foundation",
+      "notice_path": "founder/repo-agent-notices/REPO_NOTICE_seven77_v1.md",
+      "paste_file": "/Users/sinakazemnezhad/Desktop/SinaPromptOS/outputs/ready_to_paste/ready_to_paste_seven77.txt",
+      "thread": "THREAD-PORTFOLIO",
+      "kind": "mainstream"
+    },
+    {
+      "repo_id": "hq",
+      "name": "SinaaiDataBase HQ",
+      "notice_path": "founder/repo-agent-notices/REPO_NOTICE_hq_v1.md",
+      "paste_file": "/Users/sinakazemnezhad/Desktop/SinaPromptOS/outputs/ready_to_paste/ready_to_paste_hq.txt",
+      "thread": "THREAD-ECOSYSTEM",
+      "kind": "mainstream"
+    }
+  ],
+  "semi_separate": [
+    {
+      "lane_id": "cursor_os_pro",
+      "name": "Cursor OS Pro",
+      "notice_path": "founder/repo-agent-notices/SEMI_NOTICE_cursor_os_pro_v1.md",
+      "paste_file": "/Users/sinakazemnezhad/Desktop/SinaPromptOS/outputs/ready_to_paste/ready_to_paste_cursor_os_pro.txt",
+      "thread": "THREAD-CURSOR-OS-PRO",
+      "kind": "semi_separate"
+    },
+    {
+      "lane_id": "mergepack",
+      "name": "MergePack",
+      "notice_path": "founder/repo-agent-notices/SEMI_NOTICE_mergepack_v1.md",
+      "paste_file": "/Users/sinakazemnezhad/Desktop/SinaPromptOS/outputs/ready_to_paste/ready_to_paste_mergepack.txt",
+      "thread": "THREAD-MERGEPACK",
+      "kind": "semi_separate"
+    },
+    {
+      "lane_id": "noetfield_cloud",
+      "name": "Noetfield (cloud / GitHub ship)",
+      "notice_path": "founder/repo-agent-notices/SEMI_NOTICE_noetfield_cloud_v1.md",
+      "paste_file": "/Users/sinakazemnezhad/Desktop/SinaPromptOS/outputs/ready_to_paste/ready_to_paste_noetfield_cloud.txt",
+      "thread": "THREAD-PORTFOLIO",
+      "kind": "semi_separate"
+    },
+    {
+      "lane_id": "promptos",
+      "name": "SinaPromptOS",
+      "notice_path": "founder/repo-agent-notices/SEMI_NOTICE_promptos_v1.md",
+      "paste_file": "/Users/sinakazemnezhad/Desktop/SinaPromptOS/outputs/ready_to_paste/ready_to_paste_sina_prompt_os.txt",
+      "thread": "THREAD-PROMPTOS",
+      "kind": "semi_separate"
+    },
+    {
+      "lane_id": "wire",
+      "name": "AI Dev Bridge OS",
+      "notice_path": "founder/repo-agent-notices/SEMI_NOTICE_wire_v1.md",
+      "paste_file": "/Users/sinakazemnezhad/Desktop/SinaPromptOS/outputs/ready_to_paste/ready_to_paste_wire.txt",
+      "thread": "THREAD-WIRE",
+      "kind": "semi_separate"
+    }
+  ]
+}

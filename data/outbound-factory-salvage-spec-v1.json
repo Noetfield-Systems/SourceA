@@ -1,0 +1,104 @@
+{
+  "schema": "outbound-factory-salvage-spec-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T02:29:00Z",
+  "human_doc": "docs/SOURCEA_OUTBOUND_FACTORY_SALVAGE_SPEC_LOCKED_v1.md",
+  "provenance": "GPT/Gemini factory thread salvage + Opus critique — wired to existing SourceA factory",
+  "one_law": "Cold email KPI = one thoughtful human reply · RRL D/E + Sina read ≥90 = valid output",
+  "four_human_stages": [
+    {"n": 1, "name": "Research", "email": false, "note": "human-confirmed signals"},
+    {"n": 2, "name": "Tension", "email": false, "note": "FDG failure moment — one anxiety"},
+    {"n": 3, "name": "Insight", "email": false, "note": "one peer observation"},
+    {"n": 4, "name": "Compose", "email": true, "word_target": "70-100", "word_max": 140}
+  ],
+  "machine_stages_after_compose": [
+    {"name": "CIL", "script": "scripts/conversation_interest_loop_v1.py", "bar": 92},
+    {"name": "RIL", "script": "scripts/receiver_interest_loop_v1.py", "bar": 90, "mode_b": true},
+    {"name": "OQG", "script": "scripts/best_loop_oqg_score_v1.py", "bar": 90},
+    {"name": "RRL", "script": "scripts/response_reality_layer_v1.py", "pass": ["D", "E"], "factory_intelligence_layer": true},
+    {"name": "Sina read", "script": "scripts/w3_founder_review_v1.py", "bar": 90, "ship_authority": true}
+  ],
+  "translation_ssot": "data/factory-email-translation-v1.json",
+  "translation_law_field": "data/factory-email-translation-v1.json#law",
+  "translation_law_crosslink": {
+    "upgrade": "U017",
+    "at": "2026-06-19T02:10:00Z",
+    "cites": [
+      "docs/SOURCEA_OUTBOUND_FACTORY_SALVAGE_SPEC_LOCKED_v1.md",
+      "data/outbound-factory-salvage-spec-v1.json"
+    ]
+  },
+  "hard_fail_openers": [
+    "i came across",
+    "i noticed",
+    "hope you're well",
+    "we're building",
+    "our platform",
+    "your company",
+    "i wanted to reach out"
+  ],
+  "hard_fail_patterns": [
+    "architecture_chains",
+    "disclaimer_stacks",
+    "cold_refund_pricing",
+    "word_count_over_150",
+    "product_before_curiosity",
+    "generic_skeleton_weve_been_spending_time_with_teams",
+    "subject_marketing_fluff"
+  ],
+  "human_tests": [
+    "ai_eraser_delete_company_name",
+    "curiosity_not_confusion"
+  ],
+  "real_lint": {
+    "scripts": [
+      "scripts/outbound_email_linter_v1.py",
+      "scripts/best_loop_oqg_score_v1.py",
+      "scripts/icp_output_compiler_v1.py"
+    ],
+    "data": ["data/factory-email-translation-v1.json"],
+    "oegcc_law": "docs/SOURCEA_OUTBOUND_EMAIL_GENERATOR_CHECKER_CONTROLLER_LOOP_LOCKED_v1.md",
+    "validator": "bash scripts/validate-outbound-email-linter-v1.sh"
+  },
+  "rejected_theater": [
+    "llm_self_score_insight_quality",
+    "pydantic_scorecard_same_model_as_author",
+    "auto_send_on_model_score_92",
+    "proxycurl_linkedin_scrape",
+    "supabase_webhook_volume_stack_before_proof"
+  ],
+  "compile_sequence": "Noetfield parallel TrustField · then SourceA deferred · then Forge product",
+  "send_policy": {
+    "agents": ["ICP compile", "machine lint", "RRL", "ready-to-send pack logged"],
+    "founder": ["Sina read ≥90", "manual Mail send", "confirm-sent"],
+    "agents_never": ["send email", "claim ship authority"]
+  },
+  "rrl_ship_gate_u040": {
+    "upgrade": "U040",
+    "law": "w3_rrl_pass alone never sets w3_send_ready — Sina read required",
+    "check": "python3 scripts/agent_nerve_system_v1.py --check-rrl-ship-gate --json",
+    "acceptance": "w3_rrl_pass ≠ w3_send_ready",
+    "wired_to": "agent_nerve_system_v1._ship_gates"
+  },
+  "ingestion_schema": {
+    "ssot": "data/outbound-ingestion-schema-v1.json",
+    "target_metadata": ["company_name", "executive_name", "executive_role"],
+    "signals": ["financial_regulatory", "professional_dna", "technical_velocity"],
+    "human_confirm_before_compile": true,
+    "canadian_issuers_note": "data/canadian-issuer-filing-routes-v1.json — SEDAR+/AIF · 40-F for US-listed FPI · not 10-K Item 1A alone"
+  },
+  "research_checklist_ssot": "data/outbound-research-checklist-v1.json",
+  "forbidden_sources_enforcer": "scripts/validate_outbound_forbidden_sources_v1.py",
+  "anti_theater_loop_ssot": "data/anti-theater-validator-loop-v1.json",
+  "wired_accounts_ready": ["fundmore", "ocree", "sourcea-factory"],
+  "upgrade_plan": "data/outbound-factory-100-upgrade-plan-v1.json",
+  "upgrade_plan_schema": "outbound-factory-upgrade-plan-v2",
+  "maturity_level": 2,
+  "upgrade_pulse": "python3 scripts/outbound_factory_upgrade_pulse_v1.py --json",
+  "worker_queue_assign": "python3 scripts/outbound_factory_queue_assign_v1.py --deliver-first --sync",
+  "commands": {
+    "show_bundle": "python3 scripts/w3_founder_review_v1.py --show",
+    "compile": "python3 scripts/icp_output_compiler_v1.py --account <id> --json",
+    "rrl": "python3 scripts/response_reality_layer_v1.py --account <id> --json"
+  }
+}

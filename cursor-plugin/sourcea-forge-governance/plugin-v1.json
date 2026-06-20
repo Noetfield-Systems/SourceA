@@ -1,0 +1,33 @@
+{
+  "id": "sourcea-forge-governance",
+  "card": 1,
+  "name": "SourceA Forge Governance",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T06:35:30Z",
+  "description": "Proof layer for AI agents — receipt-native verify after GitHub/Linear MCP actions. PASS / FAIL / MOCK_ONLY.",
+  "displayName": "SourceA Forge — Proof Layer for AI Agents",
+  "marketplace_listing": "MARKETPLACE_LISTING.md",
+  "categories": ["Agent Orchestration", "Infrastructure"],
+  "bundle_root": "cursor-plugin/sourcea-forge-governance",
+  "cursor_plugin_manifest": ".cursor-plugin/plugin.json",
+  "mcp_fragment": ".mcp.json",
+  "skills": [
+    "skills/verify-after-mcp/SKILL.md",
+    "skills/governance-receipt-recovery/SKILL.md"
+  ],
+  "rules": [
+    "rules/receipt-native-governance.mdc"
+  ],
+  "mcpServers": {
+    "sourcea-verify": {
+      "command": "npx",
+      "args": ["-y", "@sourcea/mcp-verify"]
+    },
+    "sourcea-verify-sse": {
+      "url": "https://sourcea-mcp-verify.vercel.app/mcp",
+      "headers": { "Authorization": "Bearer ${SOURCEA_MCP_TOKEN}" }
+    }
+  },
+  "partner_line": "We don't replace your MCP — we prove what your MCP did.",
+  "honest_label": "P1 stdio publish — MOCK_ONLY until cloud SSE federation (P2 step 031)"
+}

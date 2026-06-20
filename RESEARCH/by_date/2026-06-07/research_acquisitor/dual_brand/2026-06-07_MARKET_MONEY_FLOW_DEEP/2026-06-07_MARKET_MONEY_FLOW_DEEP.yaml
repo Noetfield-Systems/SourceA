@@ -1,0 +1,322 @@
+# [Research Acquisitor · RESEARCH-ACQUISITOR-REF-2026-06-07-MONEY-FLOW-007] rr-20260607-3a28c539
+trace:
+  agent_name: Research Acquisitor
+  agent_id: research_acquisitor
+  trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-MONEY-FLOW-007
+  ref_tag: RESEARCH-ACQUISITOR-MONEY-FLOW-007
+  registry_id: rr-20260607-3a28c539
+  session_transcript: 85dd7cd4-0977-4cfc-9449-ea278ea0baee
+  canonical: false
+module: research_acquisitor
+date: 2026-06-07
+brief_type: market_money_flow_deep
+execution_authority: false
+as_of: "2026-06-07"
+question: >
+  Deep real-market money flow map — Canada + global — June 2026. Where cash moves,
+  proven success models, where to sit in chains. Evidence only.
+
+executive_verdict:
+  canada_june_2026: >
+    Money flows TO compliance (FINTRAC C-12 enforcement, RPAA supervision, annual reporting),
+    TO disciplined fintech infra (PSP/RTR/open-banking prep), and TO government-stimulated
+    SME AI adoption (AI for All June 4 2026) — NOT to speculative new product builds without receipt.
+  global_june_2026: >
+    Enterprise AI spend ~$2.59T (Gartner); agent software ~$206.5B; 76% bought not built;
+    governance/security fastest-growing AI budget slice; consumption pricing replaces seats.
+  our_receipt: false
+  best_single_seat: >
+    MSB/PSP compliance evidence workflow in enforcement-driven Canada chain — TrustField
+    pilot+retainer; sit beside Comply North / counsel, not replace.
+
+canada_macro_money_flow_june_2026:
+  venture_capital:
+    - fact: "Q1 2026 Canada VC: CAD $936.3M across 104 deals — lowest deal count since 2017; US VC share fell 58%→40%."
+      source: "https://www.cvca.ca/insights/market-reports/q1-2026/"
+      confidence: high
+    - fact: "Q1 2026 total $1.12B (CPE Analytics) — 'venture winter'; exit activity subdued."
+      source: "https://www.newswire.ca/news-releases/venture-winter-in-canada-q1-2026-822460145.html"
+      confidence: high
+    - fact: "2025 Canada fintech normalized to US$2.4B / 113 deals — fewer larger transactions; profitability focus."
+      source: "https://www.linkedin.com/posts/geoffrush_after-a-recordsetting-year-driven-by-a-handful-activity-7429927721260089348-ZD7G"
+      confidence: medium
+    money_implication: "New VC-backed SKU launches face headwind; services with near-term revenue win."
+
+  public_money_ai_for_all:
+    launched: "2026-06-04"
+    source: "https://www.canada.ca/en/innovation-science-economic-development/news/2026/06/minister-solomon-highlights-canadas-national-artificial-intelligence.html"
+    flows:
+      - program: "BDC LIFT"
+        amount: "$500M"
+        target: "SME financing to incorporate AI tools"
+      - program: "Regional AI Initiative (RDAs)"
+        amount: "$500M"
+        target: "AI adoption + commercialization regions"
+      - program: "AI Compute Access Fund expansion"
+        amount: "+$700M affordable sovereign compute"
+        per_project: "$100K–$5M per SME proposal"
+        source: "https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy/program-guide-ai-compute-access-fund"
+      - program: "Government as anchor customer"
+        pillar: "Scaling Canadian champions + trusted adoption"
+    adoption_gap_official:
+      businesses_using_ai: "12% (StatsCan mid-2024 to mid-2025)"
+      sme_adoption: "~8%"
+      target_2034: "60% business adoption"
+      source: "https://ised-isde.canada.ca/site/ised/en/canadas-national-artificial-intelligence-strategy-ai-all"
+    money_implication: >
+      Parallel public money flows to AI vendors with commercialization path + trust/governance story.
+      TrustField CANADA_AI_GOVERNANCE one-pager sits procurement lane — not compute fund lane.
+
+  payments_regulatory_chain:
+    rpaa_supervision:
+      - fact: "First PSP annual report deadline March 31 2026 (BoC); extensions to April 28 for late registrants."
+        source: "https://www.blakes.com/insights/bank-of-canada-outlines-annual-reporting-requirements-for-registered-psps-under-the-retail-payment-a/"
+      - fact: "~900 RPAA applicants still awaiting BoC approval (McCarthy, early 2026)."
+        source: "https://www.mccarthy.ca/en/insights/blogs/techlex/psps-reminder-annual-report-due-in-one-week-other-rpaa-related-updates"
+      - fact: "Feb 2026: BoC temporary compliance order on PSP safeguarding shortfall — enforcement is real."
+        source: "https://www.mccarthy.ca/en/insights/blogs/techlex/psps-reminder-annual-report-due-in-one-week-other-rpaa-related-updates"
+      ongoing_spend: "$1,500–15,000/yr annual PSP fees + compliance ops (BoC tiered)"
+    fintrac_enforcement_c12:
+      effective: "2026-03-26"
+      - fact: "AMP caps up ~40x: minor $40K; serious $4M; very serious $20M entity (Bill C-12)."
+        source: "https://fintrac-canafe.canada.ca/pen/3-eng"
+      - fact: "30 FINTRAC penalties in 2025; record BC MSB penalty $176.96M (2,593 contraventions cited)."
+        source: "https://www.rennoco.com/blog/fintrac-penalties-statistics"
+      - fact: "Universal enrolment — all PCMLTFA reporting entities must register with FINTRAC."
+        source: "https://www.blg.com/en/insights/2026/04/preparing-for-universal-enrolment-higher-penalties-and-fintrac-enforcement"
+      money_implication: >
+        FORCED compliance spend wave — not optional AI curiosity. Buyers pay to avoid
+        eight-figure tail risk. TrustField ROI frame = penalty avoidance + audit readiness.
+    real_time_rail:
+      launch: "Q4 2026 (Payments Canada official)"
+      source: "https://www.payments.ca/systems-services/payment-systems/real-time-rail-payment-system"
+      q2_2026_psp_members: [Wise, KOHO, Float, Paramount Commerce, Brim Financial, Meridian CU]
+      source_q2: "https://www.payments.ca/canadas-real-time-rail-quarterly-update-jude-pinto-2026-q2"
+      money_implication: "PSP infra spend continues through 2026; compliance+ops vendors ride RTR onboarding."
+    open_banking_cdba:
+      royal_assent: "2026-03-26"
+      phase1: "read access — 2026 target, BoC no firm date yet"
+      phase2: "write access mid-2027 — conditional on RTR widespread"
+      source: "https://www.dlapiper.com/insights/publications/2026/04/the-new-consumer-driven-banking-act-explained"
+      money_implication: "Accredited TPP + API security spend 2027+; near-term money is RPAA/FINTRAC not open banking APIs."
+
+  canada_regtech_spend_band:
+    global_regtech_2026_estimates:
+      - "Fortune BI: global $23.43B 2026; NA ~$7.42B"
+      - "Grand View: global $29.27B 2026; NA largest share ~41%"
+      - "DataIntelo: NA ~$9.1B 2025"
+    note: "Wide variance — use as order-of-magnitude only."
+    canada_published_skus:
+      - vendor: Comply North
+        rpaa: "$4,999 vs $14–15K typical"
+        msb: "$2,999 vs $10K typical"
+        cco_package: "$1,999–3,999/mo"
+        url: "https://complynorth.com/pricing/"
+      - vendor: Comply+
+        managed_filing: "$499/mo"
+        url: "https://complyplus.ca/solutions/managed-filing"
+      - vendor: Kooltra
+        fintrac_eft: "$49–250/user/mo"
+        url: "https://www.kooltra.com/offers/fintrac-efti-efto-reporting"
+
+  live_msb_activity_june_2026:
+    - event: "Zoth FINTRAC MSB registration — Vancouver, June 4 2026; scaling toward $1B/yr volume"
+      source: "https://markets.businessinsider.com/news/stocks/zoth-secures-canadian-fintrac-msb-registration-expanding-global-payment-coverage-and-scaling-total-payments-volume-to-1-billion-year-1036225831"
+      implication: "New MSBs still entering — each needs AML/RPAA stack spend."
+
+global_macro_money_flow_june_2026:
+  enterprise_ai_spend:
+    - fact: "Gartner: worldwide AI spending $2.59T in 2026 (+47% YoY)."
+      source: "https://enterprisedna.co/resources/news/gartner-worldwide-ai-spending-2-59-trillion-2026/"
+    - fact: "AI agent software spend forecast $206.5B 2026 → $376.3B 2027."
+      source: same
+    - fact: "a16z survey cited: enterprise LLM spend ~$7M avg, shifting from innovation (25%) to ops budgets (7% innovation slice)."
+      source: "https://informationmatters.net/wp-content/uploads/2026/04/agentic-ai-market-report-forecast-Q1-2026.pdf"
+      confidence: medium
+    - fact: "76% of enterprise AI use cases purchased not built internally (SaaStr/ISG cited)."
+      source: "https://www.saastr.com/can-you-really-grow-in-2026-if-you-arent-tapping-into-ai-budget/"
+    - fact: "AI buyers convert at 47% vs SaaS 25% (procurement urgency)."
+      source: same
+
+  enterprise_procurement_split_2026:
+    source: "https://redresscompliance.com/enterprise-ai-procurement-framework"
+    categories:
+      hyperscaler_platforms: "40–60% of AI budget"
+      saas_embeds_copilot: "20–35%"
+      agent_platforms: "5–15%"
+      governance_security: "8–12% fastest growing"
+    implication: "Governance + procurement-ready packaging is a paid category — aligns Noetfield posture."
+
+  ai_automation_agency_global:
+    proven_model: "setup $2.5K–15K + retainer $500–4K/mo + optional performance fee"
+    maturity_curve:
+      first_client: "month 1–2"
+      mrr_10k: "month 6–9 with 3–5 retainers"
+      source: "https://www.logicissue.com/how-to-start-an-ai-automation-agency/"
+    compliance_sensitive_band: "$35K–100K+ project + $3K–8K/mo retainer"
+    source: "https://arsum.com/blog/posts/ai-automation-agency-pricing/"
+    implication: "RAIS-class economics real globally; TrustField is vertical slice of compliance-sensitive band."
+
+proven_success_models_to_copy:
+  - model: Comply_North_fixed_fee_shop
+    revenue_mechanism: "Published CAD SKUs for MSB/RPAA/CCO — undercut typical consultant, volume via clarity"
+    receipt_type: "Public pricing pages = market commitment"
+    copy: "Publish wedge price, ladder to production SOW, Canada-only urgency"
+    do_not_copy: "Legal registration liability scope"
+
+  - model: Comply_plus_managed_ops
+    revenue_mechanism: "$499/mo hands-off filing after platform subscription"
+    copy: "Retainer for ongoing ops after pilot — month-2 revenue"
+    seat: "Downmarket filing rail — partner not compete"
+
+  - model: QuickTrust_outcome_case
+    revenue_mechanism: "~$150K spend unlocked $5.2M/yr contract (vendor case study)"
+    copy: "Sell unlocked revenue / avoided delay in demo close"
+    confidence: medium
+
+  - model: Enterprise_paid_pilot
+    revenue_mechanism: "60–75% convert to annual if 90-day metrics hit; pilot fee credited to Y1"
+    copy: "LOI → SOW → 50% deposit → binary day-75 decision"
+    source: "https://www.saastr.com/what-is-the-typical-conversion-from-paid-pilot-to-annual-contract-in-b2b-saas-2/"
+
+  - model: Hummingbird_regtech_enterprise
+    revenue_mechanism: "~$3.2M ARR negotiated enterprise (compliance CRM)"
+    copy: "Workflow orchestration for investigations — not MSB day-1 wedge"
+    seat: "Upscale path after SMB proof"
+
+  - model: Salesforce_Agentforce
+    revenue_mechanism: "~$540M ARR agentic; ~$28K ACV cited as pilot metric"
+    copy: "Land pilot ACV, expand on production — watch conversion not ARR hype"
+    source: "https://www.saastr.com/can-you-really-grow-in-2026-if-you-arent-tapping-into-ai-budget/"
+
+money_flow_chains_ranked_june_2026:
+  - rank: 1
+    chain: "C_ENFORCEMENT_MSb_PSP"
+    name: "FINTRAC C-12 + RPAA supervision compliance spend"
+    flow: "Regulatory event → counsel/consultant/RegTech → ongoing ops retainer"
+    size_cad: "$5K–200K year-1 per entity depending on scope"
+    urgency: "MAX June 2026 — penalties live, annual reports filed, 900 applicants queue"
+    our_seat: "TrustField evidence workflow + audit export between counsel and filing SaaS"
+    receipt_needed: "1 MSB pilot deposit"
+
+  - rank: 2
+    chain: "C_CONSULTANT_CHANNEL"
+    name: "Compliance consultant referral chain"
+    flow: "MSB/PSP buyer → Comply North / Renno / law firm → implementation vendors"
+    size_cad: "$3K–15K packages + monthly CCO"
+    our_seat: "White-label or referral evidence layer — do not compete on registration filing"
+    receipt_needed: "1 partner MOU or paid referral deal"
+
+  - rank: 3
+    chain: "C_GOVT_TRUST_PROCUREMENT"
+    name: "AI for All trust + government anchor procurement"
+    flow: "ISED programs → SMEs with governance documentation → vendor selection"
+    size: "Grants $100K–5M compute; BDC LIFT loans; anchor contracts TBD"
+    our_seat: "CANADA_AI_GOVERNANCE one-pager + audit trail for procurement score"
+    receipt_needed: "1 procurement-qualified demo win or grant-assisted pilot"
+    timing: "medium — regulations still rolling"
+
+  - rank: 4
+    chain: "G_ENTERPRISE_AI_GOVERNANCE"
+    name: "Global enterprise AI governance procurement"
+    flow: "AI budget 8–12% governance → GRC vendors + audit frameworks"
+    size_usd: "Fraction of $2.59T AI spend"
+    our_seat: "Noetfield analog positioning — enterprise not SMB day-30"
+    timing: "later after SMB receipt"
+
+  - rank: 5
+    chain: "G_AI_AUTOMATION_AGENCY"
+    name: "Horizontal AI automation agency"
+    flow: "SMB → n8n/Make agency → project + retainer"
+    size: "$3K–35K + $500–4K/mo"
+    our_seat: "RAIS-class reference only — horizontal unless vertical compliance proof exists"
+    risk: "Commoditizing fast; Canada VC winter favors vertical"
+
+  deprioritize:
+    - chain: "Consumer App Store / voice agent resale"
+      why: "IAP consumer chain; not compliance budget"
+    - chain: "Controlled Execution OS external SKU"
+      why: "No buyer receipt; internal spine"
+    - chain: "Crypto-access parallel wedge"
+      why: "Commercial vault freeze — MSB first"
+    - chain: "Open banking TPP accreditation"
+      why: "Money flow 2027+; BoC date not committed"
+
+trustfield_recipe_vs_market_june_2026:
+  cad_6k_setup:
+    market_position: "BELOW Comply North RPAA $4,999–15K band for prep-only; credible design-partner wedge"
+    risk: "May signal lightweight vs $25K–75K framework builds — must clarify scope boundary"
+    upgrade_path: "$10K–15K production SOW after pilot per commercial vault"
+  cad_2500_mo:
+    market_position: "ALIGNED Comply North CCO $1,999–3,999; Sardine ~$2,500/mo band; above Comply+ $499 filing"
+    fit: "Platform retainer for evidence/workflow not raw STR filing"
+  engineering_freeze:
+    market_support: "VC winter + paid-pilot discipline — correct GTM for June 2026 Canada"
+  missing_receipt:
+    still_true: true
+    only_fix: "Deposit in commercial vault — all market research confirms model, not close"
+
+brainstorm_best_options_smart_perspective:
+  option_A:
+    name: "MSB corridor blitz — enforcement ROI"
+    thesis: "Bill C-12 turned compliance from nice-to-have to balance-sheet risk; $6K is rounding error vs $4M–20M AMP exposure."
+    actions_evidence_only: ["FINTRAC public penalty notices as outreach hooks", "15 MSB list already present", "ROI one-pager anchored BoC+DLA Piper+Comply North"]
+    money_path: "Outbound → demo → SOW → setup + retainer"
+    probability_note: "Highest near-term if founder executes outreach — not research gap"
+
+  option_B:
+    name: "Consultant embed — Comply North-class channel"
+    thesis: "Published SKU shops need software evidence layer; they keep registration margin, we keep workflow ARR."
+    money_path: "Partner refers → rev-share or bundled pilot → monthly platform"
+    probability_note: "Medium; requires 1 partner conversation"
+
+  option_C:
+    name: "RPAA applicant queue (~900) — readiness for pending PSPs"
+    thesis: "Applicants still in queue need frameworks before approval; annual report cadence now operational."
+    money_path: "Pre-PSP positioning same SKU as MSB vertical 4 in commercial vault"
+    probability_note: "Medium-high urgency; narrower list building needed"
+
+  option_D:
+    name: "Government trust lane — AI for All procurement"
+    thesis: "June 4 2026 strategy explicitly ties trust to adoption; governance doc is procurement artifact."
+    money_path: "CANADA_AI_GOVERNANCE one-pager + demonstrable audit trail in pilot"
+    probability_note: "Slower than A; stack after first receipt"
+
+  reject_options:
+    - "Build Cursor-class harness before deposit"
+    - "Voice matrix resale to TrustField MSB buyers"
+    - "Horizontal AI agency for random SMBs"
+    - "Raise VC for OS product in Q1 venture winter"
+
+research_backlog_evidence_only:
+  - "FINTRAC public notices scrape — penalty amounts by violation type for outreach copy"
+  - "BoC registered PSP list cross-ref TrustField 15 MSB targets"
+  - "Comply North / Renno partner pages — channel terms if public"
+  - "AI for All SME program application windows — grant vs revenue path clarity"
+  - "Pilot→retainer: 3 Canadian RegTech case studies with named logos (not vendor-only)"
+
+sources:
+  - url: "https://www.canada.ca/en/innovation-science-economic-development/news/2026/06/minister-solomon-highlights-canadas-national-artificial-intelligence.html"
+    type: government
+  - url: "https://www.cvca.ca/insights/market-reports/q1-2026/"
+    type: primary_research
+  - url: "https://www.mccarthy.ca/en/insights/blogs/techlex/psps-reminder-annual-report-due-in-one-week-other-rpaa-related-updates"
+    type: law_firm
+  - url: "https://fintrac-canafe.canada.ca/pen/3-eng"
+    type: government
+  - url: "https://www.payments.ca/canadas-real-time-rail-quarterly-update-jude-pinto-2026-q2"
+    type: industry
+  - url: "https://complynorth.com/pricing/"
+    type: vendor_pricing
+  - url: "https://enterprisedna.co/resources/news/gartner-worldwide-ai-spending-2-59-trillion-2026/"
+    type: analyst
+  - url: "https://www.logicissue.com/how-to-start-an-ai-automation-agency/"
+    type: industry
+  - url: "https://ncfacanada.org/market-forces-pressuring-fintech-plans-for-2026/"
+    type: industry_canada
+
+confidence: medium-high
+execution_core_notes:
+  - "No sa-XXXX. Market map only."
+  - "June 2026 Canada: enforcement + supervision > innovation budget for MSB/PSP buyers."
+  - "Complements 2026-06-07_REVENUE_RECEIPT_EVIDENCE.yaml — deeper macro layer."

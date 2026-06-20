@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+fail() { echo "FAIL: validate-integrity-batch-2-v1 — $*" >&2; exit 1; }
+
+DOC="$ROOT/SOURCEA_INTEGRITY_STACK_UNIFIED_BLUEPRINT_BATCH_2_LOCKED_v1.md"
+[[ -f "$DOC" ]] || fail "missing Batch 2 doc"
+grep -q "INTEGRITY_BATCH_2" "$ROOT/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md" || fail "authority row"
+grep -q "0k" "$ROOT/SINA_GOVERNANCE_ENTRY_LOCKED_v1.md" || fail "governance §0k"
+grep -q "INTEGRITY_STACK_UNIFIED_BLUEPRINT_BATCH_2" "$ROOT/scripts/hub_essentials_index.py" || fail "READ_CHAIN"
+grep -q "INTEGRITY_STACK_UNIFIED_BLUEPRINT_BATCH_2" "$ROOT/brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md" || fail "MANDATORY_READ"
+grep -q "SOURCEA_FIVE_STEP_AUTONOMOUS_PROGRESS_BLUEPRINT_LOCKED_v1.md" "$ROOT/SOURCEA_SYSTEM_INTEGRITY_100_STEP_PLAYBOOK_LOCKED_v1.md" || fail "100-step parent apex"
+grep -q "INTEGRITY_STACK_UNIFIED_BLUEPRINT_BATCH_2" "$ROOT/SOURCEA_FIVE_STEP_AUTONOMOUS_PROGRESS_BLUEPRINT_LOCKED_v1.md" || fail "five-step unified map"
+grep -q "ASF: FIVE-STEP — PICK" "$DOC" || fail "canonical ASF prefix"
+grep -q "INTEGRITY PACK 5" "$DOC" || fail "pack manifest in Batch 2"
+grep -q "INTEGRITY PACK 5" "$ROOT/SOURCEA_FIVE_STEP_AUTONOMOUS_PROGRESS_BLUEPRINT_LOCKED_v1.md" || fail "pack header A"
+grep -q "INTEGRITY PACK 5" "$ROOT/prompts/FIVE_STEP_SESSION_PROMPT_LOCKED_v1.md" || fail "pack header B"
+grep -q "INTEGRITY PACK 5" "$ROOT/SOURCEA_SYSTEM_INTEGRITY_100_STEP_PLAYBOOK_LOCKED_v1.md" || fail "pack header C"
+CANVAS="$HOME/.cursor/projects/Users-sinakazemnezhad-Desktop-SinaaiDataBase/canvases/sourcea-system-integrity-100.canvas.tsx"
+[[ -f "$CANVAS" ]] || CANVAS="$ROOT/../SinaaiDataBase/canvases/sourcea-system-integrity-100.canvas.tsx"
+grep -q "INTEGRITY PACK 5" "$CANVAS" || fail "pack header D canvas"
+grep -q "Human–machine contract" "$DOC" || fail "H-M foundation §14"
+grep -q "integrity_batch_2" "$ROOT/scripts/agent_rules_in_charge.py" || fail "agent_rules context"
+grep -q "sina-conscious-recovery" "$ROOT/brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md" || fail "MANDATORY_READ conscious-recovery"
+grep -q "conscious-recovery" "$ROOT/agent-skills/REGISTRY_LOCKED_v1.json" || fail "REGISTRY conscious-recovery"
+grep -q "sina-conscious-recovery" "$ROOT/SOURCEA_CURSOR_RULES_AND_SKILLS_MAP_LOCKED_v2.md" || fail "CURSOR_RULES_MAP conscious-recovery"
+[[ -f "$ROOT/agent-skills/shared/conscious-recovery/SKILL.md" ]] || fail "missing conscious-recovery skill"
+[[ -f "$ROOT/SOURCEA_TODAY_SESSION_UNIFIED_CLOSEOUT_RECEIPT_2026-06-11_LOCKED_v1.md" ]] || fail "missing today closeout receipt"
+grep -q "TODAY_CLOSEOUT" "$ROOT/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md" || fail "authority TODAY_CLOSEOUT row"
+grep -q "SESSION-INTEGRITY-EXPAND-11" "$ROOT/SOURCEA_CROSS_DOC_LINKAGE_AND_AUDIT_LOCKED_v1.md" || fail "cross-doc EXPAND-11"
+
+bash "$ROOT/scripts/validate-cross-doc-linkage-v1.sh"
+bash "$ROOT/scripts/validate-five-step-progress-v1.sh"
+bash "$ROOT/scripts/validate-complex-situation-fork-v1.sh"
+bash "$ROOT/scripts/validate-governance-propagation-live-v1.sh"
+bash "$ROOT/scripts/validate-live-founder-decision-form-v1.sh"
+
+echo "OK: validate-integrity-batch-2-v1"

@@ -1,0 +1,18 @@
+schema_version: 1
+repo: trustfield
+health: yellow
+progress: 72.0
+confidence: 0.85
+estimated_hours: 6.0
+blocked:
+- redis connection pool
+completed:
+- deployment script
+next:
+- postgres validation
+needs:
+- repo: virlux
+  item: api schema alignment
+notes: ''
+reported_at: 2026-06-02 01:43 UTC
+reporter: cursor

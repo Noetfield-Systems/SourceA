@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0525",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0525 VERIFY PASS \u2014 G3 vault conditional commercial-lane evidence closed",
+  "at": "2026-06-14T13:47:14Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0809 — Validate thread_room summary from latest-curation-v1.json on H2 only
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0809
+tests:
+  status: passed
+  output_snippet: OK: validate-thread-room-h2-summary-v1 · case_id=TR-20260615-65b8557a drafts=3 · H2 registry + boot daily_rooms match latest-curation-v1.json executive_summary; OK: worker_verify_ultra_v1 · anti-staleness auto-heal + hub L0 tier PASS
+reported_at: '2026-06-15T02:28:02Z'
+reporter: goal1_lane_broker
+gate_mode: receipt
