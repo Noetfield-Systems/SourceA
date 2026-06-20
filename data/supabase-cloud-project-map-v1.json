@@ -1,0 +1,63 @@
+{
+  "schema": "supabase-cloud-project-map-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-20T22:05:00Z",
+  "authority": "ASF",
+  "org": "kazemnezhadsina144-dot's Org",
+  "org_plan": "FREE",
+  "human_doc": "docs/SUPABASE_ORG_SPLIT_FOUNDER_STEPS_LOCKED_v1.md",
+  "one_law": "Only portfolio-spine (SourceA) stays on live Supabase. VIRLUX + 777 Foundation decouple to repo-native — migrations on disk, export data once, then pause cloud projects.",
+  "projects": [
+    {
+      "id": "portfolio-spine",
+      "dashboard_name": "kazemnezhadsina144-dot's Project",
+      "status": "paused",
+      "region": "us-west-2",
+      "tier_ssot": "portfolio-spine",
+      "repo": "~/Desktop/SourceA",
+      "infra": "infra/supabase/portfolio-spine",
+      "secrets_file": "~/.sourcea-secrets/portfolio-spine.env",
+      "action": "UNPAUSE — this is SourceA bring-up",
+      "modules": ["noetfield", "trustfield", "witnessbc", "foundation", "gov"]
+    },
+    {
+      "id": "virlux-staging",
+      "dashboard_name": "virlux-staging",
+      "status": "active_nano",
+      "region": "ca-central-1",
+      "ref": "bueoakgiisvufxfbdvoa",
+      "url": "https://bueoakgiisvufxfbdvoa.supabase.co",
+      "repo": "~/Desktop/VIRLUX",
+      "decouple": true,
+      "repo_native": {
+        "migrations": "SourceA/infra/supabase/labs-sandbox/migrations",
+        "receipts": "VIRLUX/.virlux-receipts/ + apps/api receipt-store.ts",
+        "prisma": "VIRLUX/apps/api/prisma/schema.prisma",
+        "export_path": "VIRLUX/data/supabase-export/"
+      },
+      "action": "EXPORT optional data → PAUSE project (repo holds truth)"
+    },
+    {
+      "id": "the777foundation",
+      "dashboard_name": "the777foundation",
+      "status": "active_nano",
+      "region": "ca-central-1",
+      "ref": "mmdhnktybjpwlwdczgbq",
+      "url": "https://mmdhnktybjpwlwdczgbq.supabase.co",
+      "repo": "~/Desktop/The 777 Foundation",
+      "decouple": true,
+      "repo_native": {
+        "migrations": "supabase/migrations/001-014",
+        "manifest": "supabase/production.project.json",
+        "export_path": "supabase/seed/export/"
+      },
+      "action": "EXPORT user data → PAUSE project (migrations stay in repo)"
+    }
+  ],
+  "after_split": {
+    "live_supabase_count": 1,
+    "daily_ping": "portfolio-spine only",
+    "virlux_runtime": "repo receipts + Vercel/Railway — no Supabase required",
+    "777_runtime": "site static + localStorage path progress; optional re-link later"
+  }
+}
