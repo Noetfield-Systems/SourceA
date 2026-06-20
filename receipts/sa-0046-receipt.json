@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0046",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0046 VERIFY PASS \u2014 COUNCIL_BRIEF SSOT trust-order bullet on disk; validate-phase-s0-ssot-alignment + council/eval/governance/hub-audit PASS; critical 0",
+  "at": "2026-06-09T23:17:05Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

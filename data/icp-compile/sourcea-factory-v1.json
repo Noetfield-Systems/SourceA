@@ -1,0 +1,76 @@
+{
+  "schema": "icp-compile-account-v1",
+  "version": "2.0.0",
+  "saved_at": "2026-06-18T23:45:00Z",
+  "account_id": "sourcea-factory",
+  "company": "SourceA",
+  "brand_route": "sourcea",
+  "lane": "fbe_sourcea",
+  "disclosure_tier": "T1_icp_buyer",
+  "sku": "FBE-engine",
+  "status": "deferred_after_commercial",
+  "compile_gate": "blocked_until_noetfield_and_trustfield_compiled",
+  "compile_gate_law": {
+    "upgrade": "U023",
+    "blocked_until_commercial": "blocked_until_noetfield_and_trustfield_compiled",
+    "check": "python3 scripts/icp_output_compiler_v1.py --check-compile-gate sourcea-factory --json"
+  },
+  "note": "First active brand — SourceA ICP compile · engine/FBE buyer · NOT Forge product",
+  "fdg_version": "icp-failure-driven-generator-v1",
+  "output_spec": {
+    "domain": "factory builder / governed agentic output",
+    "target_role": "CTO / platform buyer",
+    "intent": "curiosity about repeatable governed output with proof on disk",
+    "conversion_type": "reply or demo",
+    "risk_level": "low",
+    "message_type": "factory_output"
+  },
+  "icp_profile": {
+    "champion": "CTO / platform lead · agent workflow owner",
+    "signal": "Team ships repeated outreach or agent workflows — incident review asks what actually shipped",
+    "their_world": ["outreach", "agent workflow", "shipped artifact", "proof on disk", "drift", "RunReceipt"]
+  },
+  "failure_moment": {
+    "scenario": "Incident review after a bad agent or outreach run",
+    "pressure": "output quality drifts — no reproducible trace from input to shipped artifact",
+    "consequence_implicit": "cannot prove what the factory did when something goes wrong"
+  },
+  "tension_kernel": "reproducible trace on disk per run — not chat history as SSOT",
+  "angle": "CTO — reconstruct what shipped vs what team remembers",
+  "solution_hook_plain": "SourceA governed factory output with proof spine — input to artifact replay",
+  "interest_asset": "https://sourcea.com",
+  "compose_mode": "B_interest_asset",
+  "approved_body_path": "data/icp-compile/sourcea-factory-approved-v1.txt",
+  "reverse_engineered_rules": [
+    "open with repeated workflow / incident review pressure — not product hero",
+    "frame reconstruct shipped artifact vs chat memory — not architecture",
+    "SourceA as governed factory + proof on disk — one line max",
+    "forbidden: hero subject · TrustField · Noetfield · architecture dump · agentic jargon",
+    "required: drift · reproducible trace · shipped · incident or review pressure",
+    "end curiosity question before optional sourcea.com link",
+    "1 tension · 1 insight · 1 product line · 1 question"
+  ],
+  "forbidden_from_this_compile": [
+    "hero in cold email",
+    "our platform",
+    "governance system",
+    "event bus",
+    "replace TrustField",
+    "replace Noetfield"
+  ],
+  "output_trace": {
+    "approved": false,
+    "machine_compiled_at": "2026-06-18T21:03:05Z",
+    "machine_verdict": "PASS",
+    "icp_compiler_pct": 98,
+    "cil_pct": 94,
+    "ril_pct": 93,
+    "oqg_pct": 96,
+    "rrl_reaction": "D",
+    "rrl_pass": true,
+    "sina_read_score_pct": null,
+    "advisor_critique_only": "machine loops only — not ship authority",
+    "machine_next": "Sina read ≥90 — w3_founder_review_v1.py --score sourcea-factory <pct>",
+    "outbound_pack": "~/.sina/outbound/w3-canada-sourcea-factory/"
+  }
+}

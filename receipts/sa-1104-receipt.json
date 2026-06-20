@@ -1,0 +1,11 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1104",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U035",
+  "title": "U035 read_time word cap",
+  "evidence": "read_time_mismatch flag at 15w/s",
+  "at": "2026-06-19T00:35:14Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.sourcea.telegram-bot</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/sinakazemnezhad/Desktop/SourceA/scripts/telegram_bot_v1.py</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/sinakazemnezhad/Desktop/SourceA</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/Current/bin:/usr/bin:/bin</string>
+        <!-- TELEGRAM_BOT_TOKEN and TELEGRAM_ALLOWED_CHAT_ID must be set below -->
+        <!-- Replace PASTE_YOUR_BOT_TOKEN_HERE and PASTE_YOUR_CHAT_ID_HERE -->
+        <key>TELEGRAM_BOT_TOKEN</key>
+        <string>PASTE_YOUR_BOT_TOKEN_HERE</string>
+        <key>TELEGRAM_ALLOWED_CHAT_ID</key>
+        <string>PASTE_YOUR_CHAT_ID_HERE</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/sinakazemnezhad/.sina/telegram-bot.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/sinakazemnezhad/.sina/telegram-bot.log</string>
+
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+</dict>
+</plist>

@@ -1,0 +1,91 @@
+{
+  "schema": "newmatch-graph-schema-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T17:15:00Z",
+  "factory_ssot": "data/newmatch-factory-v1.json",
+  "one_law": "People graph + situation cards + signal edges — T4_internal default · cloud storage on Supabase free or local JSON during Phase 0",
+  "storage_phase0": ["local_json_ssot", "supabase_free"],
+  "entities": {
+    "person": {
+      "id_format": "person_{uuid}",
+      "required": ["display_name", "source_app", "first_seen_at", "disclosure_tier"],
+      "optional": ["email_hash", "phone_hash", "linkedin_url", "dating_handle", "notes", "tags"],
+      "disclosure_default": "T4_internal",
+      "pii_rules": ["hash_at_rest", "no_plaintext_export_without_gate", "founder_delete_right"]
+    },
+    "edge": {
+      "id_format": "edge_{uuid}",
+      "types": ["met_on", "works_with", "dating_match", "introduced_by", "same_event", "follows"],
+      "required": ["from_person_id", "to_person_id", "edge_type", "confidence", "source"],
+      "confidence_range": [0.0, 1.0]
+    },
+    "signal": {
+      "id_format": "signal_{uuid}",
+      "kinds": [
+        "dating_mutual_like",
+        "dating_message",
+        "linkedin_connection",
+        "linkedin_inmail",
+        "calendar_overlap",
+        "email_thread",
+        "manual_note",
+        "csv_import_row",
+        "semej_capture"
+      ],
+      "required": ["person_id", "kind", "observed_at", "raw_text_redacted", "source_app"],
+      "scoring_weight_default": 1.0
+    },
+    "situation": {
+      "id_format": "situation_{uuid}",
+      "required": ["person_ids", "primary_route", "confidence", "signals_used", "created_at", "status"],
+      "status_values": ["open", "nurturing", "deferred", "blocked", "handed_off", "closed"],
+      "routes": [
+        "personal_nurture",
+        "hybrid_explore",
+        "business_opportunity",
+        "defer",
+        "block",
+        "founder_gate"
+      ]
+    },
+    "follow_up": {
+      "id_format": "follow_{uuid}",
+      "required": ["situation_id", "cadence_days", "next_action", "planner_tier", "status"],
+      "planner_tier_values": ["T0_rules", "T1_free_llm", "T2_paid_blocked", "T3_founder_gate"],
+      "status_values": ["planned", "awaiting_founder", "sent", "skipped", "stopped"]
+    }
+  },
+  "situation_scoring": {
+    "route_thresholds": {
+      "block": {"red_flag_keywords": ["scam", "crypto pump", "wire transfer", "urgent money"], "min_confidence": 0.85},
+      "business_opportunity": {"min_business_signals": 2, "min_confidence": 0.7},
+      "hybrid_explore": {"dating_and_professional_overlap": true, "min_confidence": 0.6},
+      "personal_nurture": {"dating_mutual": true, "no_business_signal": true, "min_confidence": 0.5},
+      "defer": {"stale_days": 30, "no_recent_signal": true},
+      "founder_gate": {"triggers": ["money", "legal", "publish", "irreversible_outbound"]}
+    },
+    "t0_rules_first": true,
+    "free_llm_fallback": "only_when_t0_confidence_below_0.55"
+  },
+  "api_shapes": {
+    "route_request": {
+      "person_id": "string",
+      "signals": ["signal objects or ids"],
+      "context": {"source_app": "string", "founder_session": "boolean"}
+    },
+    "route_response": {
+      "situation_id": "string",
+      "route": "string",
+      "confidence": "number",
+      "tier_used": "T0|T1",
+      "marginal_cost_usd": 0,
+      "follow_up_hint": "string",
+      "blocker": "string|null"
+    }
+  },
+  "mvp_files_when_scaffolded": {
+    "graph_local": "apps/newmatch/data/graph-v1.json",
+    "schema_mirror": "apps/newmatch/schema/graph-v1.json",
+    "router_t0": "scripts/newmatch_situation_router_t0_v1.py"
+  }
+}

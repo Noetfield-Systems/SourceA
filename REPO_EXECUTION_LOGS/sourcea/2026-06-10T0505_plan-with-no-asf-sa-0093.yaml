@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0093 — Reject unconditional L8 line in honest_score when hybrid shipped
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0093
+tests:
+  status: passed
+  output_snippet: sa-0093 VERIFY — validate-honest-score-l8-hybrid-v1 PASS no unconditional L8; dispatch-policy governance-fleet critical 0; Q30/30 pack complete closeout
+reported_at: '2026-06-10T05:05:10Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

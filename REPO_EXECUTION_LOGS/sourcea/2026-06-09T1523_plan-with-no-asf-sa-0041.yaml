@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0041 — Validate index.html has __COMMAND_DATA_LAZY and shell payload under 500KB
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0041
+tests:
+  status: passed
+  output_snippet: sa-0041 VERIFY closeout: lazy shell 349884B under cap; fleet leak healed; critical bugs 0.
+reported_at: '2026-06-09T15:23:16Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

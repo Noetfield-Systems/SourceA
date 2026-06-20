@@ -1,0 +1,5 @@
+manifest: iphone-cloud-manifest-20260604.jsonl
+moved: 1987
+skipped: 0
+missing: 0
+errors: 0

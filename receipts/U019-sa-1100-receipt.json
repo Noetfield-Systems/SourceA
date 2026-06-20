@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U019",
+  "title": "Human primitive glossary for founder review UI",
+  "evidence": "w3_founder_review --show prints full translate table on translation fail; translation_table in artifact scores",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:09:18Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

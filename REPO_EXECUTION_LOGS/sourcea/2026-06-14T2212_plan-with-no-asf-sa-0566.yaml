@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0566 — Validate acquisition stack docs indexed in important-docs
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0566
+tests:
+  status: passed
+  output_snippet: sa-0566 VERIFY PASS — T2 acquisition stack important-docs crossref canonical sa-0516
+reported_at: '2026-06-14T22:12:04Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

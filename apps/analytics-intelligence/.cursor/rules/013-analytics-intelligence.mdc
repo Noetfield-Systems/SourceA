@@ -1,0 +1,9 @@
+---
+description: Analytics intelligence — telemetry PHASE_3
+globs: apps/analytics-intelligence/**
+alwaysApply: false
+---
+
+# Analytics intelligence rules
+
+Read-only aggregates. No mutation of `campaign_automations` from this factory — ETL views only.

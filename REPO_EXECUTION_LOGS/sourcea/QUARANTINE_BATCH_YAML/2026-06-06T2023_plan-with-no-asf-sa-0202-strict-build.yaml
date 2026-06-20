@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: PLAN WITH NO ASF — sa-0202 strict build all audits PASS
+status: done
+verify_passed: true
+evidence:
+  files_changed: []
+tests:
+  status: passed
+  command: SINA_AUDIT_STRICT=1 build-sina-command-panel.py && find_critical_bugs.py
+  output_snippet: strict build PASS · P0 KPI ok drift 0 · critical 0 · hub :13020
+reported_at: '2026-06-06T20:23:05Z'
+reporter: cursor-maintainer

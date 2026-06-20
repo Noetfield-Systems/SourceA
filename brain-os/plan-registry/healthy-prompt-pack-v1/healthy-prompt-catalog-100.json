@@ -1,0 +1,2022 @@
+{
+  "schema": "healthy-prompt-catalog.v1",
+  "product": "SourceA",
+  "count": 100,
+  "types": [
+    "check",
+    "analyze",
+    "search-missing",
+    "plan",
+    "debug",
+    "fix",
+    "validate",
+    "e2e",
+    "sync",
+    "closeout"
+  ],
+  "sequence_law": "Interleaved 10×10 — check→analyze→search→plan→debug→fix→validate→e2e→sync→closeout per cycle",
+  "not_build_spam": true,
+  "suggestions": [
+    {
+      "id": "hp-001",
+      "type": "check",
+      "type_label": "Read-only audit — confirm SSOT state before any change",
+      "sequence_index": 1,
+      "cycle": 1,
+      "title": "[check] Confirm live `pick 1` head matches REGISTRY.json — repor…",
+      "intent": "Confirm live `pick 1` head matches REGISTRY.json — report id + phase + tier only",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CHECK** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (check #1): Confirm live `pick 1` head matches REGISTRY.json — report id + phase + tier only\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report YAML: status CHECK_PASS|CHECK_FAIL · paths_read[] · drift_found bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-002",
+      "type": "analyze",
+      "type_label": "Compare and report — no code edits unless gap is proven",
+      "sequence_index": 2,
+      "cycle": 1,
+      "title": "[analyze] Analyze last loop round prompt vs deliverable — stale re…",
+      "intent": "Analyze last loop round prompt vs deliverable — stale replay yes/no",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **ANALYZE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (analyze #1): Analyze last loop round prompt vs deliverable — stale replay yes/no\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: findings table · recommended_single_next_action · no code unless FIX typed next\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-003",
+      "type": "search-missing",
+      "type_label": "Glob/search disk for missing artifact — report paths only first",
+      "sequence_index": 3,
+      "cycle": 1,
+      "title": "[search-missing] Search SinaaiDataBase for missing AGENT_LOOP_ROUND*.md g…",
+      "intent": "Search SinaaiDataBase for missing AGENT_LOOP_ROUND*.md gaps in 1–10",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SEARCH-MISSING** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (search-missing #1): Search SinaaiDataBase for missing AGENT_LOOP_ROUND*.md gaps in 1–10\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: search_glob · hits[] · missing_confirmed bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-004",
+      "type": "plan",
+      "type_label": "Plan next single outcome — no implementation this session",
+      "sequence_index": 4,
+      "cycle": 1,
+      "title": "[plan] Plan single next sa from live pick 1 — outline VERIFY on…",
+      "intent": "Plan single next sa from live pick 1 — outline VERIFY only, no code",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **PLAN** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (plan #1): Plan single next sa from live pick 1 — outline VERIFY only, no code\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: plan md or JSON — max 1 page · VERIFY line for planned sa\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-005",
+      "type": "debug",
+      "type_label": "Root-cause one failure — smallest repro + evidence",
+      "sequence_index": 5,
+      "cycle": 1,
+      "title": "[debug] Debug `Loop not waiting for agent response` — state mach…",
+      "intent": "Debug `Loop not waiting for agent response` — state machine trace",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **DEBUG** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (debug #1): Debug `Loop not waiting for agent response` — state machine trace\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: repro · hypothesis · evidence · minimal_fix_or_blocker\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-006",
+      "type": "fix",
+      "type_label": "One minimal fix for one proven gap — no batch sa",
+      "sequence_index": 6,
+      "cycle": 1,
+      "title": "[fix] Fix one missing round row in receipt-pack.html if search…",
+      "intent": "Fix one missing round row in receipt-pack.html if search found gap",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **FIX** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (fix #1): Fix one missing round row in receipt-pack.html if search found gap\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Minimal diff · one validator rerun · WORKER_ROUND_REPORT\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-007",
+      "type": "validate",
+      "type_label": "Run one validator script — paste raw PASS/FAIL output",
+      "sequence_index": 7,
+      "cycle": 1,
+      "title": "[validate] Run `bash scripts/validate-sourcea-e2e-full-v1.sh` — pas…",
+      "intent": "Run `bash scripts/validate-sourcea-e2e-full-v1.sh` — paste tail status",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **VALIDATE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (validate #1): Run `bash scripts/validate-sourcea-e2e-full-v1.sh` — paste tail status\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste raw validator stdout · exit code · critical count\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-008",
+      "type": "e2e",
+      "type_label": "One E2E or integration proof — hub or repo smoke",
+      "sequence_index": 8,
+      "cycle": 1,
+      "title": "[e2e] Prove hub GET /health + /api/agent-loop status in one re…",
+      "intent": "Prove hub GET /health + /api/agent-loop status in one receipt note",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **E2E** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (e2e #1): Prove hub GET /health + /api/agent-loop status in one receipt note\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste curl/API output · PASS/FAIL per check\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-009",
+      "type": "sync",
+      "type_label": "Sync one receipt/registry row — files only if loop",
+      "sequence_index": 9,
+      "cycle": 1,
+      "title": "[sync] Sync run.jsonl + summary.json + receipt-pack.html to sam…",
+      "intent": "Sync run.jsonl + summary.json + receipt-pack.html to same last_round",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SYNC** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (sync #1): Sync run.jsonl + summary.json + receipt-pack.html to same last_round\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Before/after paths · receipt row appended if loop\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-010",
+      "type": "closeout",
+      "type_label": "Close one sa or round with evidence row + STOP",
+      "sequence_index": 10,
+      "cycle": 1,
+      "title": "[closeout] Closeout live pick 1 sa only — mark_done + WORKER_ROUND_…",
+      "intent": "Closeout live pick 1 sa only — mark_done + WORKER_ROUND_REPORT + STOP",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CLOSEOUT** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (closeout #1): Closeout live pick 1 sa only — mark_done + WORKER_ROUND_REPORT + STOP\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: WORKER_ROUND_REPORT YAML · one sa only · registry_updated[]\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-011",
+      "type": "check",
+      "type_label": "Read-only audit — confirm SSOT state before any change",
+      "sequence_index": 11,
+      "cycle": 2,
+      "title": "[check] Audit `~/.sina/cursor_entry_gate_receipt_v1.json` freshn…",
+      "intent": "Audit `~/.sina/cursor_entry_gate_receipt_v1.json` freshness — report age + gate_hash8",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CHECK** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (check #2): Audit `~/.sina/cursor_entry_gate_receipt_v1.json` freshness — report age + gate_hash8\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report YAML: status CHECK_PASS|CHECK_FAIL · paths_read[] · drift_found bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-012",
+      "type": "analyze",
+      "type_label": "Compare and report — no code edits unless gap is proven",
+      "sequence_index": 12,
+      "cycle": 2,
+      "title": "[analyze] Compare receipt-pack.html rows to run.jsonl — mismatch t…",
+      "intent": "Compare receipt-pack.html rows to run.jsonl — mismatch table only",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **ANALYZE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (analyze #2): Compare receipt-pack.html rows to run.jsonl — mismatch table only\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: findings table · recommended_single_next_action · no code unless FIX typed next\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-013",
+      "type": "search-missing",
+      "type_label": "Glob/search disk for missing artifact — report paths only first",
+      "sequence_index": 13,
+      "cycle": 2,
+      "title": "[search-missing] Glob REPO_EXECUTION_LOGS/sourcea for sa without verify_p…",
+      "intent": "Glob REPO_EXECUTION_LOGS/sourcea for sa without verify_passed true",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SEARCH-MISSING** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (search-missing #2): Glob REPO_EXECUTION_LOGS/sourcea for sa without verify_passed true\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: search_glob · hits[] · missing_confirmed bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-014",
+      "type": "plan",
+      "type_label": "Plan next single outcome — no implementation this session",
+      "sequence_index": 14,
+      "cycle": 2,
+      "title": "[plan] Plan next healthy-prompt-pack 30 queue slice — type sequ…",
+      "intent": "Plan next healthy-prompt-pack 30 queue slice — type sequence only",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **PLAN** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (plan #2): Plan next healthy-prompt-pack 30 queue slice — type sequence only\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: plan md or JSON — max 1 page · VERIFY line for planned sa\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-015",
+      "type": "debug",
+      "type_label": "Root-cause one failure — smallest repro + evidence",
+      "sequence_index": 15,
+      "cycle": 2,
+      "title": "[debug] Debug planner `packet not gate-eligible` — which D15 sec…",
+      "intent": "Debug planner `packet not gate-eligible` — which D15 section missing",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **DEBUG** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (debug #2): Debug planner `packet not gate-eligible` — which D15 section missing\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: repro · hypothesis · evidence · minimal_fix_or_blocker\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-016",
+      "type": "fix",
+      "type_label": "One minimal fix for one proven gap — no batch sa",
+      "sequence_index": 16,
+      "cycle": 2,
+      "title": "[fix] Fix one duplicate jsonl line in runreceipt if search fou…",
+      "intent": "Fix one duplicate jsonl line in runreceipt if search found dup",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **FIX** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (fix #2): Fix one duplicate jsonl line in runreceipt if search found dup\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Minimal diff · one validator rerun · WORKER_ROUND_REPORT\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-017",
+      "type": "validate",
+      "type_label": "Run one validator script — paste raw PASS/FAIL output",
+      "sequence_index": 17,
+      "cycle": 2,
+      "title": "[validate] Run `python3 scripts/find_critical_bugs.py` — paste crit…",
+      "intent": "Run `python3 scripts/find_critical_bugs.py` — paste critical count",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **VALIDATE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (validate #2): Run `python3 scripts/find_critical_bugs.py` — paste critical count\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste raw validator stdout · exit code · critical count\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-018",
+      "type": "e2e",
+      "type_label": "One E2E or integration proof — hub or repo smoke",
+      "sequence_index": 18,
+      "cycle": 2,
+      "title": "[e2e] Prove /api/agent-rules-in-charge-v1 returns in_charge_no…",
+      "intent": "Prove /api/agent-rules-in-charge-v1 returns in_charge_now array",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **E2E** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (e2e #2): Prove /api/agent-rules-in-charge-v1 returns in_charge_now array\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste curl/API output · PASS/FAIL per check\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-019",
+      "type": "sync",
+      "type_label": "Sync one receipt/registry row — files only if loop",
+      "sequence_index": 19,
+      "cycle": 2,
+      "title": "[sync] Sync BLOCKER_REGISTRY stats with summary.json blockers_o…",
+      "intent": "Sync BLOCKER_REGISTRY stats with summary.json blockers_open/skip",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SYNC** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (sync #2): Sync BLOCKER_REGISTRY stats with summary.json blockers_open/skip\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Before/after paths · receipt row appended if loop\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-020",
+      "type": "closeout",
+      "type_label": "Close one sa or round with evidence row + STOP",
+      "sequence_index": 20,
+      "cycle": 2,
+      "title": "[closeout] Closeout one validate finding — log YAML + PRIORITY row …",
+      "intent": "Closeout one validate finding — log YAML + PRIORITY row + STOP",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CLOSEOUT** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (closeout #2): Closeout one validate finding — log YAML + PRIORITY row + STOP\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: WORKER_ROUND_REPORT YAML · one sa only · registry_updated[]\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-021",
+      "type": "check",
+      "type_label": "Read-only audit — confirm SSOT state before any change",
+      "sequence_index": 21,
+      "cycle": 3,
+      "title": "[check] Read hub `/api/agent-loop` — report active/status/round …",
+      "intent": "Read hub `/api/agent-loop` — report active/status/round (no edits)",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CHECK** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (check #3): Read hub `/api/agent-loop` — report active/status/round (no edits)\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report YAML: status CHECK_PASS|CHECK_FAIL · paths_read[] · drift_found bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-022",
+      "type": "analyze",
+      "type_label": "Compare and report — no code edits unless gap is proven",
+      "sequence_index": 22,
+      "cycle": 3,
+      "title": "[analyze] Analyze prompt_router keyword fix vs live pick — same sa…",
+      "intent": "Analyze prompt_router keyword fix vs live pick — same sa or drift",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **ANALYZE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (analyze #3): Analyze prompt_router keyword fix vs live pick — same sa or drift\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: findings table · recommended_single_next_action · no code unless FIX typed next\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-023",
+      "type": "search-missing",
+      "type_label": "Glob/search disk for missing artifact — report paths only first",
+      "sequence_index": 23,
+      "cycle": 3,
+      "title": "[search-missing] Find sa-*.md in REGISTRY status verifying without execut…",
+      "intent": "Find sa-*.md in REGISTRY status verifying without execution log",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SEARCH-MISSING** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (search-missing #3): Find sa-*.md in REGISTRY status verifying without execution log\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: search_glob · hits[] · missing_confirmed bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-024",
+      "type": "plan",
+      "type_label": "Plan next single outcome — no implementation this session",
+      "sequence_index": 24,
+      "cycle": 3,
+      "title": "[plan] Plan one blocker clearance path for MP-SHIP — founder Ac…",
+      "intent": "Plan one blocker clearance path for MP-SHIP — founder Actions list",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **PLAN** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (plan #3): Plan one blocker clearance path for MP-SHIP — founder Actions list\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: plan md or JSON — max 1 page · VERIFY line for planned sa\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-025",
+      "type": "debug",
+      "type_label": "Root-cause one failure — smallest repro + evidence",
+      "sequence_index": 25,
+      "cycle": 3,
+      "title": "[debug] Debug auto-paste inject to wrong Cursor window — focus v…",
+      "intent": "Debug auto-paste inject to wrong Cursor window — focus vs workspace",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **DEBUG** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (debug #3): Debug auto-paste inject to wrong Cursor window — focus vs workspace\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: repro · hypothesis · evidence · minimal_fix_or_blocker\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-026",
+      "type": "fix",
+      "type_label": "One minimal fix for one proven gap — no batch sa",
+      "sequence_index": 26,
+      "cycle": 3,
+      "title": "[fix] Fix AGENT_LOOP_ROUND8.md narrative to match receipt SSOT…",
+      "intent": "Fix AGENT_LOOP_ROUND8.md narrative to match receipt SSOT if drift",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **FIX** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (fix #3): Fix AGENT_LOOP_ROUND8.md narrative to match receipt SSOT if drift\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Minimal diff · one validator rerun · WORKER_ROUND_REPORT\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-027",
+      "type": "validate",
+      "type_label": "Run one validator script — paste raw PASS/FAIL output",
+      "sequence_index": 27,
+      "cycle": 3,
+      "title": "[validate] Run `bash scripts/validate-worker-one-sa-turn-v1.sh` — P…",
+      "intent": "Run `bash scripts/validate-worker-one-sa-turn-v1.sh` — PASS/FAIL line",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **VALIDATE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (validate #3): Run `bash scripts/validate-worker-one-sa-turn-v1.sh` — PASS/FAIL line\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste raw validator stdout · exit code · critical count\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-028",
+      "type": "e2e",
+      "type_label": "One E2E or integration proof — hub or repo smoke",
+      "sequence_index": 28,
+      "cycle": 3,
+      "title": "[e2e] Prove /api/prompt-queue pending_count matches ~/.sina/pr…",
+      "intent": "Prove /api/prompt-queue pending_count matches ~/.sina/prompt-queue.json",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **E2E** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (e2e #3): Prove /api/prompt-queue pending_count matches ~/.sina/prompt-queue.json\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste curl/API output · PASS/FAIL per check\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-029",
+      "type": "sync",
+      "type_label": "Sync one receipt/registry row — files only if loop",
+      "sequence_index": 29,
+      "cycle": 3,
+      "title": "[sync] Sync AGENT_LOOP_ROUND{N}.md with receipt row N summary t…",
+      "intent": "Sync AGENT_LOOP_ROUND{N}.md with receipt row N summary text",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SYNC** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (sync #3): Sync AGENT_LOOP_ROUND{N}.md with receipt row N summary text\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Before/after paths · receipt row appended if loop\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-030",
+      "type": "closeout",
+      "type_label": "Close one sa or round with evidence row + STOP",
+      "sequence_index": 30,
+      "cycle": 3,
+      "title": "[closeout] Closeout one debug root cause — fix or document + STOP",
+      "intent": "Closeout one debug root cause — fix or document + STOP",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CLOSEOUT** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (closeout #3): Closeout one debug root cause — fix or document + STOP\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: WORKER_ROUND_REPORT YAML · one sa only · registry_updated[]\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-031",
+      "type": "check",
+      "type_label": "Read-only audit — confirm SSOT state before any change",
+      "sequence_index": 31,
+      "cycle": 4,
+      "title": "[check] Check `runreceipt/summary.json` last_round matches run.j…",
+      "intent": "Check `runreceipt/summary.json` last_round matches run.jsonl max round",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CHECK** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (check #4): Check `runreceipt/summary.json` last_round matches run.jsonl max round\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report YAML: status CHECK_PASS|CHECK_FAIL · paths_read[] · drift_found bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-032",
+      "type": "analyze",
+      "type_label": "Compare and report — no code edits unless gap is proven",
+      "sequence_index": 32,
+      "cycle": 4,
+      "title": "[analyze] Review healthy-prompt-pack usage — are we still doing bu…",
+      "intent": "Review healthy-prompt-pack usage — are we still doing build-only drains",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **ANALYZE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (analyze #4): Review healthy-prompt-pack usage — are we still doing build-only drains\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: findings table · recommended_single_next_action · no code unless FIX typed next\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-033",
+      "type": "search-missing",
+      "type_label": "Glob/search disk for missing artifact — report paths only first",
+      "sequence_index": 33,
+      "cycle": 4,
+      "title": "[search-missing] Search for duplicate round lines in runreceipt/run.jsonl",
+      "intent": "Search for duplicate round lines in runreceipt/run.jsonl",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SEARCH-MISSING** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (search-missing #4): Search for duplicate round lines in runreceipt/run.jsonl\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: search_glob · hits[] · missing_confirmed bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-034",
+      "type": "plan",
+      "type_label": "Plan next single outcome — no implementation this session",
+      "sequence_index": 34,
+      "cycle": 4,
+      "title": "[plan] Plan loop restart goal for REGISTRY drain 1–10 — seed te…",
+      "intent": "Plan loop restart goal for REGISTRY drain 1–10 — seed text only",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **PLAN** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (plan #4): Plan loop restart goal for REGISTRY drain 1–10 — seed text only\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: plan md or JSON — max 1 page · VERIFY line for planned sa\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-035",
+      "type": "debug",
+      "type_label": "Root-cause one failure — smallest repro + evidence",
+      "sequence_index": 35,
+      "cycle": 4,
+      "title": "[debug] Debug pick 30 tier-starve vs phase-first — reproduce wit…",
+      "intent": "Debug pick 30 tier-starve vs phase-first — reproduce with pick 1 log",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **DEBUG** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (debug #4): Debug pick 30 tier-starve vs phase-first — reproduce with pick 1 log\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: repro · hypothesis · evidence · minimal_fix_or_blocker\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-036",
+      "type": "fix",
+      "type_label": "One minimal fix for one proven gap — no batch sa",
+      "sequence_index": 36,
+      "cycle": 4,
+      "title": "[fix] Fix one SOURCEA-PRIORITY evidence row for live pick head",
+      "intent": "Fix one SOURCEA-PRIORITY evidence row for live pick head",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **FIX** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (fix #4): Fix one SOURCEA-PRIORITY evidence row for live pick head\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Minimal diff · one validator rerun · WORKER_ROUND_REPORT\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-037",
+      "type": "validate",
+      "type_label": "Run one validator script — paste raw PASS/FAIL output",
+      "sequence_index": 37,
+      "cycle": 4,
+      "title": "[validate] Run `bash scripts/validate-sourcea-pick-order-v1.py` or …",
+      "intent": "Run `bash scripts/validate-sourcea-pick-order-v1.py` or script — output",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **VALIDATE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (validate #4): Run `bash scripts/validate-sourcea-pick-order-v1.py` or script — output\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste raw validator stdout · exit code · critical count\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-038",
+      "type": "e2e",
+      "type_label": "One E2E or integration proof — hub or repo smoke",
+      "sequence_index": 38,
+      "cycle": 4,
+      "title": "[e2e] Prove pick 1 script exit 0 and prints one sa-XXXX path",
+      "intent": "Prove pick 1 script exit 0 and prints one sa-XXXX path",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **E2E** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (e2e #4): Prove pick 1 script exit 0 and prints one sa-XXXX path\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste curl/API output · PASS/FAIL per check\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-039",
+      "type": "sync",
+      "type_label": "Sync one receipt/registry row — files only if loop",
+      "sequence_index": 39,
+      "cycle": 4,
+      "title": "[sync] Sync REGISTRY.json done count with goal-progress output",
+      "intent": "Sync REGISTRY.json done count with goal-progress output",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SYNC** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (sync #4): Sync REGISTRY.json done count with goal-progress output\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Before/after paths · receipt row appended if loop\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-040",
+      "type": "closeout",
+      "type_label": "Close one sa or round with evidence row + STOP",
+      "sequence_index": 40,
+      "cycle": 4,
+      "title": "[closeout] Closeout one e2e proof — append run.jsonl line + STOP",
+      "intent": "Closeout one e2e proof — append run.jsonl line + STOP",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CLOSEOUT** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (closeout #4): Closeout one e2e proof — append run.jsonl line + STOP\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: WORKER_ROUND_REPORT YAML · one sa only · registry_updated[]\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-041",
+      "type": "check",
+      "type_label": "Read-only audit — confirm SSOT state before any change",
+      "sequence_index": 41,
+      "cycle": 5,
+      "title": "[check] Verify BLOCKER_REGISTRY.md rows match GLOBAL_BLOCKERS.js…",
+      "intent": "Verify BLOCKER_REGISTRY.md rows match GLOBAL_BLOCKERS.json severity",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CHECK** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (check #5): Verify BLOCKER_REGISTRY.md rows match GLOBAL_BLOCKERS.json severity\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report YAML: status CHECK_PASS|CHECK_FAIL · paths_read[] · drift_found bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-042",
+      "type": "analyze",
+      "type_label": "Compare and report — no code edits unless gap is proven",
+      "sequence_index": 42,
+      "cycle": 5,
+      "title": "[analyze] Analyze hub Submit round UX — does form clear on success…",
+      "intent": "Analyze hub Submit round UX — does form clear on success (read app.js)",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **ANALYZE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (analyze #5): Analyze hub Submit round UX — does form clear on success (read app.js)\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: findings table · recommended_single_next_action · no code unless FIX typed next\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-043",
+      "type": "search-missing",
+      "type_label": "Glob/search disk for missing artifact — report paths only first",
+      "sequence_index": 43,
+      "cycle": 5,
+      "title": "[search-missing] Find SOURCEA-PRIORITY rows without evidence path",
+      "intent": "Find SOURCEA-PRIORITY rows without evidence path",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SEARCH-MISSING** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (search-missing #5): Find SOURCEA-PRIORITY rows without evidence path\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: search_glob · hits[] · missing_confirmed bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-044",
+      "type": "plan",
+      "type_label": "Plan next single outcome — no implementation this session",
+      "sequence_index": 44,
+      "cycle": 5,
+      "title": "[plan] Plan one validator to add to validate-sourcea-e2e-full-v…",
+      "intent": "Plan one validator to add to validate-sourcea-e2e-full-v1.sh gap",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **PLAN** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (plan #5): Plan one validator to add to validate-sourcea-e2e-full-v1.sh gap\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: plan md or JSON — max 1 page · VERIFY line for planned sa\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-045",
+      "type": "debug",
+      "type_label": "Root-cause one failure — smallest repro + evidence",
+      "sequence_index": 45,
+      "cycle": 5,
+      "title": "[debug] Debug stale round 8 inject (round 4 replay) — planner hi…",
+      "intent": "Debug stale round 8 inject (round 4 replay) — planner history cause",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **DEBUG** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (debug #5): Debug stale round 8 inject (round 4 replay) — planner history cause\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: repro · hypothesis · evidence · minimal_fix_or_blocker\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-046",
+      "type": "fix",
+      "type_label": "One minimal fix for one proven gap — no batch sa",
+      "sequence_index": 46,
+      "cycle": 5,
+      "title": "[fix] Fix one stale INBOX.md inactive marker when loop active",
+      "intent": "Fix one stale INBOX.md inactive marker when loop active",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **FIX** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (fix #5): Fix one stale INBOX.md inactive marker when loop active\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Minimal diff · one validator rerun · WORKER_ROUND_REPORT\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-047",
+      "type": "validate",
+      "type_label": "Run one validator script — paste raw PASS/FAIL output",
+      "sequence_index": 47,
+      "cycle": 5,
+      "title": "[validate] Run `python3 scripts/audit_backend_e2e.py` dry summary i…",
+      "intent": "Run `python3 scripts/audit_backend_e2e.py` dry summary if gated",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **VALIDATE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (validate #5): Run `python3 scripts/audit_backend_e2e.py` dry summary if gated\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste raw validator stdout · exit code · critical count\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-048",
+      "type": "e2e",
+      "type_label": "One E2E or integration proof — hub or repo smoke",
+      "sequence_index": 48,
+      "cycle": 5,
+      "title": "[e2e] Prove generate-worker-drain-paste.sh emits VALIDATE bloc…",
+      "intent": "Prove generate-worker-drain-paste.sh emits VALIDATE block",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **E2E** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (e2e #5): Prove generate-worker-drain-paste.sh emits VALIDATE block\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste curl/API output · PASS/FAIL per check\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-049",
+      "type": "sync",
+      "type_label": "Sync one receipt/registry row — files only if loop",
+      "sequence_index": 49,
+      "cycle": 5,
+      "title": "[sync] Sync SOURCEA-PRIORITY row for completed sa with log path",
+      "intent": "Sync SOURCEA-PRIORITY row for completed sa with log path",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SYNC** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (sync #5): Sync SOURCEA-PRIORITY row for completed sa with log path\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Before/after paths · receipt row appended if loop\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-050",
+      "type": "closeout",
+      "type_label": "Close one sa or round with evidence row + STOP",
+      "sequence_index": 50,
+      "cycle": 5,
+      "title": "[closeout] Closeout one search-missing finding — file created + STO…",
+      "intent": "Closeout one search-missing finding — file created + STOP",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CLOSEOUT** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (closeout #5): Closeout one search-missing finding — file created + STOP\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: WORKER_ROUND_REPORT YAML · one sa only · registry_updated[]\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-051",
+      "type": "check",
+      "type_label": "Read-only audit — confirm SSOT state before any change",
+      "sequence_index": 51,
+      "cycle": 6,
+      "title": "[check] Confirm auto-paste opt-in + hub inject last_inject ok (r…",
+      "intent": "Confirm auto-paste opt-in + hub inject last_inject ok (read ~/.sina/agent-loop.json)",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CHECK** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (check #6): Confirm auto-paste opt-in + hub inject last_inject ok (read ~/.sina/agent-loop.json)\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report YAML: status CHECK_PASS|CHECK_FAIL · paths_read[] · drift_found bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-052",
+      "type": "analyze",
+      "type_label": "Compare and report — no code edits unless gap is proven",
+      "sequence_index": 52,
+      "cycle": 6,
+      "title": "[analyze] Compare REGISTRY done count vs goal-progress script outp…",
+      "intent": "Compare REGISTRY done count vs goal-progress script output",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **ANALYZE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (analyze #6): Compare REGISTRY done count vs goal-progress script output\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: findings table · recommended_single_next_action · no code unless FIX typed next\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-053",
+      "type": "search-missing",
+      "type_label": "Glob/search disk for missing artifact — report paths only first",
+      "sequence_index": 53,
+      "cycle": 6,
+      "title": "[search-missing] Search for prompts missing mandatory_reads block in sour…",
+      "intent": "Search for prompts missing mandatory_reads block in sourcea-1000 sample",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SEARCH-MISSING** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (search-missing #6): Search for prompts missing mandatory_reads block in sourcea-1000 sample\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: search_glob · hits[] · missing_confirmed bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-054",
+      "type": "plan",
+      "type_label": "Plan next single outcome — no implementation this session",
+      "sequence_index": 54,
+      "cycle": 6,
+      "title": "[plan] Plan receipt round N+1 tasks as files-only list — no ter…",
+      "intent": "Plan receipt round N+1 tasks as files-only list — no terminal",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **PLAN** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (plan #6): Plan receipt round N+1 tasks as files-only list — no terminal\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: plan md or JSON — max 1 page · VERIFY line for planned sa\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-055",
+      "type": "debug",
+      "type_label": "Root-cause one failure — smallest repro + evidence",
+      "sequence_index": 55,
+      "cycle": 6,
+      "title": "[debug] Debug hub refresh orphan round resume — orphan detection…",
+      "intent": "Debug hub refresh orphan round resume — orphan detection path",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **DEBUG** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (debug #6): Debug hub refresh orphan round resume — orphan detection path\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: repro · hypothesis · evidence · minimal_fix_or_blocker\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-056",
+      "type": "fix",
+      "type_label": "One minimal fix for one proven gap — no batch sa",
+      "sequence_index": 56,
+      "cycle": 6,
+      "title": "[fix] Fix one validator exit code in scripts/ — minimal diff",
+      "intent": "Fix one validator exit code in scripts/ — minimal diff",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **FIX** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (fix #6): Fix one validator exit code in scripts/ — minimal diff\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Minimal diff · one validator rerun · WORKER_ROUND_REPORT\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-057",
+      "type": "validate",
+      "type_label": "Run one validator script — paste raw PASS/FAIL output",
+      "sequence_index": 57,
+      "cycle": 6,
+      "title": "[validate] Run `bash scripts/validate-registry-drain-rail-v1.sh` — …",
+      "intent": "Run `bash scripts/validate-registry-drain-rail-v1.sh` — result",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **VALIDATE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (validate #6): Run `bash scripts/validate-registry-drain-rail-v1.sh` — result\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste raw validator stdout · exit code · critical count\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-058",
+      "type": "e2e",
+      "type_label": "One E2E or integration proof — hub or repo smoke",
+      "sequence_index": 58,
+      "cycle": 6,
+      "title": "[e2e] Prove reinject API returns inject.ok when opt-in on",
+      "intent": "Prove reinject API returns inject.ok when opt-in on",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **E2E** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (e2e #6): Prove reinject API returns inject.ok when opt-in on\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste curl/API output · PASS/FAIL per check\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-059",
+      "type": "sync",
+      "type_label": "Sync one receipt/registry row — files only if loop",
+      "sequence_index": 59,
+      "cycle": 6,
+      "title": "[sync] Sync ~/.sina/agent-loop.json error null when awaiting_ag…",
+      "intent": "Sync ~/.sina/agent-loop.json error null when awaiting_agent",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SYNC** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (sync #6): Sync ~/.sina/agent-loop.json error null when awaiting_agent\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Before/after paths · receipt row appended if loop\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-060",
+      "type": "closeout",
+      "type_label": "Close one sa or round with evidence row + STOP",
+      "sequence_index": 60,
+      "cycle": 6,
+      "title": "[closeout] Closeout one plan output — write plan md only + STOP",
+      "intent": "Closeout one plan output — write plan md only + STOP",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CLOSEOUT** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (closeout #6): Closeout one plan output — write plan md only + STOP\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: WORKER_ROUND_REPORT YAML · one sa only · registry_updated[]\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-061",
+      "type": "check",
+      "type_label": "Read-only audit — confirm SSOT state before any change",
+      "sequence_index": 61,
+      "cycle": 7,
+      "title": "[check] Audit SOURCEA-PRIORITY.md top 5 rows vs live pick — drif…",
+      "intent": "Audit SOURCEA-PRIORITY.md top 5 rows vs live pick — drift report only",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CHECK** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (check #7): Audit SOURCEA-PRIORITY.md top 5 rows vs live pick — drift report only\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report YAML: status CHECK_PASS|CHECK_FAIL · paths_read[] · drift_found bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-062",
+      "type": "analyze",
+      "type_label": "Compare and report — no code edits unless gap is proven",
+      "sequence_index": 62,
+      "cycle": 7,
+      "title": "[analyze] Analyze executor auto-submit vs awaiting_agent race — on…",
+      "intent": "Analyze executor auto-submit vs awaiting_agent race — one paragraph",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **ANALYZE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (analyze #7): Analyze executor auto-submit vs awaiting_agent race — one paragraph\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: findings table · recommended_single_next_action · no code unless FIX typed next\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-063",
+      "type": "search-missing",
+      "type_label": "Glob/search disk for missing artifact — report paths only first",
+      "sequence_index": 63,
+      "cycle": 7,
+      "title": "[search-missing] Locate missing RUNRECEIPT_SCHEMA fields in latest jsonl …",
+      "intent": "Locate missing RUNRECEIPT_SCHEMA fields in latest jsonl line",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SEARCH-MISSING** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (search-missing #7): Locate missing RUNRECEIPT_SCHEMA fields in latest jsonl line\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: search_glob · hits[] · missing_confirmed bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-064",
+      "type": "plan",
+      "type_label": "Plan next single outcome — no implementation this session",
+      "sequence_index": 64,
+      "cycle": 7,
+      "title": "[plan] Plan one UI fix for Submit round from last analyze findi…",
+      "intent": "Plan one UI fix for Submit round from last analyze finding",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **PLAN** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (plan #7): Plan one UI fix for Submit round from last analyze finding\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: plan md or JSON — max 1 page · VERIFY line for planned sa\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-065",
+      "type": "debug",
+      "type_label": "Root-cause one failure — smallest repro + evidence",
+      "sequence_index": 65,
+      "cycle": 7,
+      "title": "[debug] Debug WORKER batch closeout in one turn — which gate fai…",
+      "intent": "Debug WORKER batch closeout in one turn — which gate failed",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **DEBUG** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (debug #7): Debug WORKER batch closeout in one turn — which gate failed\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: repro · hypothesis · evidence · minimal_fix_or_blocker\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-066",
+      "type": "fix",
+      "type_label": "One minimal fix for one proven gap — no batch sa",
+      "sequence_index": 66,
+      "cycle": 7,
+      "title": "[fix] Fix one app.js Submit round clear-fields if analyze foun…",
+      "intent": "Fix one app.js Submit round clear-fields if analyze found bug",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **FIX** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (fix #7): Fix one app.js Submit round clear-fields if analyze found bug\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Minimal diff · one validator rerun · WORKER_ROUND_REPORT\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-067",
+      "type": "validate",
+      "type_label": "Run one validator script — paste raw PASS/FAIL output",
+      "sequence_index": 67,
+      "cycle": 7,
+      "title": "[validate] Run `python3 scripts/cursor_entry_gate.py --role worker`…",
+      "intent": "Run `python3 scripts/cursor_entry_gate.py --role worker` — gate_hash8",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **VALIDATE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (validate #7): Run `python3 scripts/cursor_entry_gate.py --role worker` — gate_hash8\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste raw validator stdout · exit code · critical count\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-068",
+      "type": "e2e",
+      "type_label": "One E2E or integration proof — hub or repo smoke",
+      "sequence_index": 68,
+      "cycle": 7,
+      "title": "[e2e] Prove runreceipt trio readable in browser receipt-pack.h…",
+      "intent": "Prove runreceipt trio readable in browser receipt-pack.html",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **E2E** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (e2e #7): Prove runreceipt trio readable in browser receipt-pack.html\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste curl/API output · PASS/FAIL per check\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-069",
+      "type": "sync",
+      "type_label": "Sync one receipt/registry row — files only if loop",
+      "sequence_index": 69,
+      "cycle": 7,
+      "title": "[sync] Sync WIRE_LANE_PROGRESS G3 row with WIRE_G3_PROOF SKIP",
+      "intent": "Sync WIRE_LANE_PROGRESS G3 row with WIRE_G3_PROOF SKIP",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SYNC** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (sync #7): Sync WIRE_LANE_PROGRESS G3 row with WIRE_G3_PROOF SKIP\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Before/after paths · receipt row appended if loop\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-070",
+      "type": "closeout",
+      "type_label": "Close one sa or round with evidence row + STOP",
+      "sequence_index": 70,
+      "cycle": 7,
+      "title": "[closeout] Closeout one sync pass — receipt evidence + STOP",
+      "intent": "Closeout one sync pass — receipt evidence + STOP",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CLOSEOUT** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (closeout #7): Closeout one sync pass — receipt evidence + STOP\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: WORKER_ROUND_REPORT YAML · one sa only · registry_updated[]\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-071",
+      "type": "check",
+      "type_label": "Read-only audit — confirm SSOT state before any change",
+      "sequence_index": 71,
+      "cycle": 8,
+      "title": "[check] Check agent-loop history last 3 summaries for stale plan…",
+      "intent": "Check agent-loop history last 3 summaries for stale planner replay",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CHECK** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (check #8): Check agent-loop history last 3 summaries for stale planner replay\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report YAML: status CHECK_PASS|CHECK_FAIL · paths_read[] · drift_found bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-072",
+      "type": "analyze",
+      "type_label": "Compare and report — no code edits unless gap is proven",
+      "sequence_index": 72,
+      "cycle": 8,
+      "title": "[analyze] Review WIRE-G3 SKIP consistency across WIRE_LANE_PROGRES…",
+      "intent": "Review WIRE-G3 SKIP consistency across WIRE_LANE_PROGRESS + WIRE_G3_PROOF",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **ANALYZE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (analyze #8): Review WIRE-G3 SKIP consistency across WIRE_LANE_PROGRESS + WIRE_G3_PROOF\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: findings table · recommended_single_next_action · no code unless FIX typed next\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-073",
+      "type": "search-missing",
+      "type_label": "Glob/search disk for missing artifact — report paths only first",
+      "sequence_index": 73,
+      "cycle": 8,
+      "title": "[search-missing] Find hub Actions without one-tap for declared blocker ne…",
+      "intent": "Find hub Actions without one-tap for declared blocker next step",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SEARCH-MISSING** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (search-missing #8): Find hub Actions without one-tap for declared blocker next step\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: search_glob · hits[] · missing_confirmed bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-074",
+      "type": "plan",
+      "type_label": "Plan next single outcome — no implementation this session",
+      "sequence_index": 74,
+      "cycle": 8,
+      "title": "[plan] Plan phase-s2 gap backfill priority — next 1 sa id only",
+      "intent": "Plan phase-s2 gap backfill priority — next 1 sa id only",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **PLAN** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (plan #8): Plan phase-s2 gap backfill priority — next 1 sa id only\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: plan md or JSON — max 1 page · VERIFY line for planned sa\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-075",
+      "type": "debug",
+      "type_label": "Root-cause one failure — smallest repro + evidence",
+      "sequence_index": 75,
+      "cycle": 8,
+      "title": "[debug] Debug summary.json last_round regression during round 8 …",
+      "intent": "Debug summary.json last_round regression during round 8 worker",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **DEBUG** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (debug #8): Debug summary.json last_round regression during round 8 worker\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: repro · hypothesis · evidence · minimal_fix_or_blocker\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-076",
+      "type": "fix",
+      "type_label": "One minimal fix for one proven gap — no batch sa",
+      "sequence_index": 76,
+      "cycle": 8,
+      "title": "[fix] Fix one BLOCKER_REGISTRY last_sync line to match last_ro…",
+      "intent": "Fix one BLOCKER_REGISTRY last_sync line to match last_round",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **FIX** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (fix #8): Fix one BLOCKER_REGISTRY last_sync line to match last_round\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Minimal diff · one validator rerun · WORKER_ROUND_REPORT\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-077",
+      "type": "validate",
+      "type_label": "Run one validator script — paste raw PASS/FAIL output",
+      "sequence_index": 77,
+      "cycle": 8,
+      "title": "[validate] Run hub panel strict build step only — SINA_AUDIT_STRICT…",
+      "intent": "Run hub panel strict build step only — SINA_AUDIT_STRICT=1 one command",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **VALIDATE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (validate #8): Run hub panel strict build step only — SINA_AUDIT_STRICT=1 one command\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste raw validator stdout · exit code · critical count\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-078",
+      "type": "e2e",
+      "type_label": "One E2E or integration proof — hub or repo smoke",
+      "sequence_index": 78,
+      "cycle": 8,
+      "title": "[e2e] Prove loop-auto-advance.py status exits 0",
+      "intent": "Prove loop-auto-advance.py status exits 0",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **E2E** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (e2e #8): Prove loop-auto-advance.py status exits 0\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste curl/API output · PASS/FAIL per check\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-079",
+      "type": "sync",
+      "type_label": "Sync one receipt/registry row — files only if loop",
+      "sequence_index": 79,
+      "cycle": 8,
+      "title": "[sync] Sync healthy-prompt-pack queue-pack-30 with prompt-queue…",
+      "intent": "Sync healthy-prompt-pack queue-pack-30 with prompt-queue.json items",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SYNC** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (sync #8): Sync healthy-prompt-pack queue-pack-30 with prompt-queue.json items\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Before/after paths · receipt row appended if loop\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-080",
+      "type": "closeout",
+      "type_label": "Close one sa or round with evidence row + STOP",
+      "sequence_index": 80,
+      "cycle": 8,
+      "title": "[closeout] Closeout one analyze report — attach to REPO_EXECUTION_L…",
+      "intent": "Closeout one analyze report — attach to REPO_EXECUTION_LOGS + STOP",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CLOSEOUT** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (closeout #8): Closeout one analyze report — attach to REPO_EXECUTION_LOGS + STOP\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: WORKER_ROUND_REPORT YAML · one sa only · registry_updated[]\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-081",
+      "type": "check",
+      "type_label": "Read-only audit — confirm SSOT state before any change",
+      "sequence_index": 81,
+      "cycle": 9,
+      "title": "[check] Read `/api/agent-rules-in-charge-v1` — list in_charge_no…",
+      "intent": "Read `/api/agent-rules-in-charge-v1` — list in_charge_now titles only",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CHECK** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (check #9): Read `/api/agent-rules-in-charge-v1` — list in_charge_now titles only\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report YAML: status CHECK_PASS|CHECK_FAIL · paths_read[] · drift_found bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-082",
+      "type": "analyze",
+      "type_label": "Compare and report — no code edits unless gap is proven",
+      "sequence_index": 82,
+      "cycle": 9,
+      "title": "[analyze] Analyze phase-first pick order — explain last tier jump …",
+      "intent": "Analyze phase-first pick order — explain last tier jump if any",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **ANALYZE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (analyze #9): Analyze phase-first pick order — explain last tier jump if any\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: findings table · recommended_single_next_action · no code unless FIX typed next\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-083",
+      "type": "search-missing",
+      "type_label": "Glob/search disk for missing artifact — report paths only first",
+      "sequence_index": 83,
+      "cycle": 9,
+      "title": "[search-missing] Search archive for superseded LOCKED law still cited in …",
+      "intent": "Search archive for superseded LOCKED law still cited in hub UI",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SEARCH-MISSING** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (search-missing #9): Search archive for superseded LOCKED law still cited in hub UI\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: search_glob · hits[] · missing_confirmed bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-084",
+      "type": "plan",
+      "type_label": "Plan next single outcome — no implementation this session",
+      "sequence_index": 84,
+      "cycle": 9,
+      "title": "[plan] Plan Prompt feed direction 10 steps from last brain repl…",
+      "intent": "Plan Prompt feed direction 10 steps from last brain reply — titles only",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **PLAN** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (plan #9): Plan Prompt feed direction 10 steps from last brain reply — titles only\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: plan md or JSON — max 1 page · VERIFY line for planned sa\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-085",
+      "type": "debug",
+      "type_label": "Root-cause one failure — smallest repro + evidence",
+      "sequence_index": 85,
+      "cycle": 9,
+      "title": "[debug] Debug prompt queue deliver_next blocked — opt-in + kill …",
+      "intent": "Debug prompt queue deliver_next blocked — opt-in + kill switch",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **DEBUG** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (debug #9): Debug prompt queue deliver_next blocked — opt-in + kill switch\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: repro · hypothesis · evidence · minimal_fix_or_blocker\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-086",
+      "type": "fix",
+      "type_label": "One minimal fix for one proven gap — no batch sa",
+      "sequence_index": 86,
+      "cycle": 9,
+      "title": "[fix] Fix one sa front matter status done without verify — sin…",
+      "intent": "Fix one sa front matter status done without verify — single id",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **FIX** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (fix #9): Fix one sa front matter status done without verify — single id\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Minimal diff · one validator rerun · WORKER_ROUND_REPORT\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-087",
+      "type": "validate",
+      "type_label": "Run one validator script — paste raw PASS/FAIL output",
+      "sequence_index": 87,
+      "cycle": 9,
+      "title": "[validate] Run `python3 scripts/goal-progress-v1.py` — done/backlog…",
+      "intent": "Run `python3 scripts/goal-progress-v1.py` — done/backlog numbers",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **VALIDATE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (validate #9): Run `python3 scripts/goal-progress-v1.py` — done/backlog numbers\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste raw validator stdout · exit code · critical count\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-088",
+      "type": "e2e",
+      "type_label": "One E2E or integration proof — hub or repo smoke",
+      "sequence_index": 88,
+      "cycle": 9,
+      "title": "[e2e] Prove prompt_router --dry-run implement returns pick_id",
+      "intent": "Prove prompt_router --dry-run implement returns pick_id",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **E2E** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (e2e #9): Prove prompt_router --dry-run implement returns pick_id\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste curl/API output · PASS/FAIL per check\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-089",
+      "type": "sync",
+      "type_label": "Sync one receipt/registry row — files only if loop",
+      "sequence_index": 89,
+      "cycle": 9,
+      "title": "[sync] Sync loop_seeds active workspace with sinaai_maintainer …",
+      "intent": "Sync loop_seeds active workspace with sinaai_maintainer or sourcea",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SYNC** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (sync #9): Sync loop_seeds active workspace with sinaai_maintainer or sourcea\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Before/after paths · receipt row appended if loop\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-090",
+      "type": "closeout",
+      "type_label": "Close one sa or round with evidence row + STOP",
+      "sequence_index": 90,
+      "cycle": 9,
+      "title": "[closeout] Closeout one check pass — no drift found, log PASS + STO…",
+      "intent": "Closeout one check pass — no drift found, log PASS + STOP",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CLOSEOUT** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (closeout #9): Closeout one check pass — no drift found, log PASS + STOP\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: WORKER_ROUND_REPORT YAML · one sa only · registry_updated[]\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-091",
+      "type": "check",
+      "type_label": "Read-only audit — confirm SSOT state before any change",
+      "sequence_index": 91,
+      "cycle": 10,
+      "title": "[check] Verify WORKER_TURN_OPEN state file absent or single sa —…",
+      "intent": "Verify WORKER_TURN_OPEN state file absent or single sa — report path",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CHECK** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (check #10): Verify WORKER_TURN_OPEN state file absent or single sa — report path\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report YAML: status CHECK_PASS|CHECK_FAIL · paths_read[] · drift_found bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-092",
+      "type": "analyze",
+      "type_label": "Compare and report — no code edits unless gap is proven",
+      "sequence_index": 92,
+      "cycle": 10,
+      "title": "[analyze] Score last Worker WORKER_ROUND_REPORT — one_sa_per_turn …",
+      "intent": "Score last Worker WORKER_ROUND_REPORT — one_sa_per_turn obeyed yes/no",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **ANALYZE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (analyze #10): Score last Worker WORKER_ROUND_REPORT — one_sa_per_turn obeyed yes/no\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: findings table · recommended_single_next_action · no code unless FIX typed next\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-093",
+      "type": "search-missing",
+      "type_label": "Glob/search disk for missing artifact — report paths only first",
+      "sequence_index": 93,
+      "cycle": 10,
+      "title": "[search-missing] Find WORKER_ROUND_REPORT without validate.spine PASS/FAI…",
+      "intent": "Find WORKER_ROUND_REPORT without validate.spine PASS/FAIL in last 5 logs",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SEARCH-MISSING** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (search-missing #10): Find WORKER_ROUND_REPORT without validate.spine PASS/FAIL in last 5 logs\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Report: search_glob · hits[] · missing_confirmed bool\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-094",
+      "type": "plan",
+      "type_label": "Plan next single outcome — no implementation this session",
+      "sequence_index": 94,
+      "cycle": 10,
+      "title": "[plan] Plan closeout for current open WORKER_TURN — steps befor…",
+      "intent": "Plan closeout for current open WORKER_TURN — steps before mark_done",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **PLAN** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (plan #10): Plan closeout for current open WORKER_TURN — steps before mark_done\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: plan md or JSON — max 1 page · VERIFY line for planned sa\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-095",
+      "type": "debug",
+      "type_label": "Root-cause one failure — smallest repro + evidence",
+      "sequence_index": 95,
+      "cycle": 10,
+      "title": "[debug] Debug gate_mode enforce vs shadow for agent-loop-planner…",
+      "intent": "Debug gate_mode enforce vs shadow for agent-loop-planner only",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **DEBUG** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (debug #10): Debug gate_mode enforce vs shadow for agent-loop-planner only\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Output: repro · hypothesis · evidence · minimal_fix_or_blocker\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-096",
+      "type": "fix",
+      "type_label": "One minimal fix for one proven gap — no batch sa",
+      "sequence_index": 96,
+      "cycle": 10,
+      "title": "[fix] Fix loop-manual-plans.json round title for next recovery",
+      "intent": "Fix loop-manual-plans.json round title for next recovery",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **FIX** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (fix #10): Fix loop-manual-plans.json round title for next recovery\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Minimal diff · one validator rerun · WORKER_ROUND_REPORT\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-097",
+      "type": "validate",
+      "type_label": "Run one validator script — paste raw PASS/FAIL output",
+      "sequence_index": 97,
+      "cycle": 10,
+      "title": "[validate] Run `bash scripts/validate-sourcea-1000-pack.sh` — md co…",
+      "intent": "Run `bash scripts/validate-sourcea-1000-pack.sh` — md count line",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **VALIDATE** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (validate #10): Run `bash scripts/validate-sourcea-1000-pack.sh` — md count line\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste raw validator stdout · exit code · critical count\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-098",
+      "type": "e2e",
+      "type_label": "One E2E or integration proof — hub or repo smoke",
+      "sequence_index": 98,
+      "cycle": 10,
+      "title": "[e2e] Prove Private agents loop complete shows 10/10 in payloa…",
+      "intent": "Prove Private agents loop complete shows 10/10 in payload",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **E2E** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (e2e #10): Prove Private agents loop complete shows 10/10 in payload\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Paste curl/API output · PASS/FAIL per check\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-099",
+      "type": "sync",
+      "type_label": "Sync one receipt/registry row — files only if loop",
+      "sequence_index": 99,
+      "cycle": 10,
+      "title": "[sync] Sync ARCHITECT_REPORT.yaml blockers into BLOCKER_REGISTR…",
+      "intent": "Sync ARCHITECT_REPORT.yaml blockers into BLOCKER_REGISTRY if drift",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **SYNC** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (sync #10): Sync ARCHITECT_REPORT.yaml blockers into BLOCKER_REGISTRY if drift\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: Before/after paths · receipt row appended if loop\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    },
+    {
+      "id": "hp-100",
+      "type": "closeout",
+      "type_label": "Close one sa or round with evidence row + STOP",
+      "sequence_index": 100,
+      "cycle": 10,
+      "title": "[closeout] Closeout healthy-prompt queue item 1 — report delivered …",
+      "intent": "Closeout healthy-prompt queue item 1 — report delivered + STOP",
+      "full_prompt": "<!-- HEALTHY_PROMPT_PACK v1 — unattended discipline -->\nTHREAD: THREAD-FACTORY · lane: sourcea · one outcome per session\n\nMANDATORY (read before any edit):\n- `os/chat-handoffs/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` §EVERY ROUND ORDER\n- `os/chat-handoffs/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` (one sa per turn when draining)\n- `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · `GET /api/agent-rules-in-charge-v1`\n- `cursor_entry_gate.py --role worker` · WORKER_ROUND_REPORT YAML at STOP\n- Founder law: Sina Command clicks only — never Terminal\n\nDISCIPLINE: This is a **CLOSEOUT** prompt — NOT a multi-step build sprint.\nDo ONE focused outcome. VERIFY with machine output. STOP with WORKER_ROUND_REPORT.\nExecutor may auto-submit hub loop — founder does not paste.\n\nOUTCOME (closeout #10): Closeout healthy-prompt queue item 1 — report delivered + STOP\n\nFORBIDDEN: step-one step-two build sprint · batch sa · pick 30 queue · implement without validate-first.\n\nVERIFY: WORKER_ROUND_REPORT YAML · one sa only · registry_updated[]\n",
+      "thread": "THREAD-FACTORY",
+      "repo": "sourcea",
+      "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+      "unattended": true,
+      "mandatory_reads": [
+        "MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
+      ],
+      "source": "healthy-prompt-pack-v1"
+    }
+  ],
+  "updated_at": "2026-06-07T04:12:05.321325+00:00"
+}

@@ -1,0 +1,159 @@
+{
+  "schema": "w3-canada-send-approvals-v1",
+  "saved_at": "2026-06-19T18:55:50Z",
+  "pipeline_send_cleared": true,
+  "pipeline_cleared_at": "2026-06-18T10:23:29Z",
+  "pipeline_cleared_by": "hub_action",
+  "law": "no_send_without_pipeline_clearance \u00b7 founder manual send only \u00b7 agents produce ready-to-send pack",
+  "send_policy": "founder_manual_only \u2014 agents never send \u00b7 agentic full send when products validated with real proof",
+  "compile_sequence": "Noetfield \u2225 TrustField (parallel) \u00b7 then SourceA \u00b7 then Forge product",
+  "founder_review_bundle_order": [
+    "fundmore",
+    "ocree",
+    "sourcea-factory",
+    "forge-product"
+  ],
+  "deprecated_aliases": {
+    "founder_approved": "use pipeline_send_cleared",
+    "hub_approve_slot": "use pipeline_send_slot"
+  },
+  "accounts": [
+    {
+      "id": "fundmore",
+      "company": "Fundmore.ai",
+      "lane": "Noetfield",
+      "sku": "NF-RD",
+      "plan_refs": [
+        "pf-0244"
+      ],
+      "compile_order": 1,
+      "parallel_with": "ocree",
+      "pipeline_send_slot": "ready_for_founder_send",
+      "email_source": "data/icp-compile/fundmore-approved-v1.txt",
+      "fefs_rewrite_at": "2026-06-18T21:22:00Z",
+      "verify_before_send": [
+        "RRL D/E + sina_read \u2265 90",
+        "founder sends manually from Mail"
+      ],
+      "confirm_sent_at": "2026-06-19T04:17:55Z",
+      "sent_at": "2026-06-19T04:17:55Z",
+      "sent_by": "founder",
+      "confirm_sent_note": "U062 acceptance Mail confirm"
+    },
+    {
+      "id": "ocree",
+      "company": "Ocree Capital",
+      "lane": "TrustField",
+      "sku": "T-P6",
+      "plan_refs": [
+        "pf-0091",
+        "pf-0243"
+      ],
+      "compile_order": 1,
+      "parallel_with": "fundmore",
+      "pipeline_send_slot": "ready_for_founder_send",
+      "pipeline_cleared_at": "2026-06-18T10:23:29Z",
+      "pipeline_cleared_by": "hub_action",
+      "email_source": "data/icp-compile/ocree-approved-v1.txt",
+      "fefs_rewrite_at": "2026-06-18T18:00:17Z",
+      "verify_before_send": [
+        "parallel with fundmore \u2014 commercial first",
+        "RRL D/E + sina_read \u2265 90",
+        "founder sends manually from Mail"
+      ]
+    },
+    {
+      "id": "sourcea-factory",
+      "company": "SourceA",
+      "lane": "fbe_sourcea",
+      "sku": "FBE-engine",
+      "compile_order": 2,
+      "compile_gate": "blocked_until_noetfield_and_trustfield_compiled",
+      "pipeline_send_slot": "deferred_after_commercial",
+      "email_source": "data/icp-compile/sourcea-factory-approved-v1.txt",
+      "verify_before_send": [
+        "after Noetfield + TrustField Sina read close",
+        "founder sets recipient To",
+        "founder sends manually from Mail"
+      ]
+    },
+    {
+      "id": "forge-product",
+      "company": "Forge",
+      "lane": "forge_product",
+      "sku": "THREAD-FORGE",
+      "compile_order": 3,
+      "pipeline_send_slot": "deferred",
+      "compile_gate": "blocked_until_sourcea_compiled",
+      "verify_before_send": [
+        "After SourceA compile closes",
+        "Forge product ICP \u2014 not email factory verb"
+      ]
+    }
+  ],
+  "next_send_order": [
+    "fundmore",
+    "ocree",
+    "sourcea-factory",
+    "forge-product"
+  ],
+  "cross_ref": {
+    "fefs_law": "docs/SOURCEA_FOUNDER_EMAIL_FACTORY_STANDARD_LOCKED_v1.md",
+    "w3_queue": "/Users/sinakazemnezhad/Desktop/1 PAGER/portfolio-300-locked/W3_FIRST_QUEUE.yaml",
+    "emails_json": "/Users/sinakazemnezhad/Desktop/SourceA/data/commercial/canada-priority-a-emails-v1.json",
+    "business_model": "~/Desktop/1 PAGER/SOURCEA_ECOSYSTEM_FAST_BUSINESS_MODEL_LOCKED_v1.md"
+  },
+  "factory_round": 2,
+  "round_1_status": {
+    "fundmore": "sent",
+    "ocree": "pack_ready_hub_send"
+  },
+  "round_2_queue": [
+    {
+      "id": "ocree",
+      "action": "founder_send_then_closeout",
+      "plan_refs": [
+        "cr-0015",
+        "cr-0102"
+      ]
+    },
+    {
+      "id": "fractionvest",
+      "action": "icp_compile",
+      "plan_refs": [
+        "cr-0103",
+        "cr-0104"
+      ]
+    },
+    {
+      "id": "newton",
+      "action": "msb_fast_close_prep",
+      "plan_refs": [
+        "cr-0196",
+        "cr-0067"
+      ]
+    },
+    {
+      "id": "sourcea-factory",
+      "action": "deferred_until_ocree_closeout",
+      "compile_gate": "blocked_until_commercial_compile"
+    }
+  ],
+  "trustfield_gates": {
+    "commercial_blocked": false,
+    "ladder_priority_step": 6,
+    "ui_agent_checklist": "docs/UI_AGENT_CHECKLIST_LOCKED.md",
+    "packaging_wave": "cr-0034-cr-0066",
+    "ladder_steps_1_4": {
+      "1": "green",
+      "2": "green",
+      "3": "green",
+      "4": "green"
+    }
+  },
+  "next_factory_build": {
+    "wave": "wave-p-packaging",
+    "then": "wave-m-msb",
+    "then_rwa": "wave-a-rwa"
+  }
+}

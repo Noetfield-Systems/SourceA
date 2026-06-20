@@ -1,0 +1,1065 @@
+schema_version: 2
+report_id: arch-2026-06-03T0703Z
+generated_at: '2026-06-03T07:03:38.961445+00:00'
+generator: sina-architect-agent
+generator_version: 0.2.0
+policy: SINAAI_ARCHITECT_V2_INDUSTRIAL_POLICY_LOCKED_v1.md
+operating_context:
+  gov_phase: GOV_PHASE_0
+  exec_phase: EXEC_PHASE_1
+  exec_phase_2_mode: BUILT_NOT_OPERATIONAL
+  objective: Reduce cognitive load — not document perfection
+mandatory_read_set:
+  files:
+  - SourceA/README_SOURCE_A.md
+  - SourceA/SINA_OS_SSOT_LOCKED.md
+  - SourceA/SINAAI_PROMPT_OS_CORE_FINAL_DECISION_LOCKED_v1.md
+  - SourceA/SINAAI_EXECUTION_TRUTH_LAYER_LOCKED_v1.md
+  - SourceA/SINAAI_PHASE1_STABILIZATION_ONLY_LOCKED_v1.md
+  rule: Read these only for orientation — then STOP
+  count: 5
+execution_route:
+  goal: New engineer operational in <30 minutes
+  steps:
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-architect.sh
+  - Read SourceA/ARCHITECT_REPORT.yaml — system_blockers only
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-full-day.sh
+  lanes: 5 product repos + Lane 0 (Sina OS chat)
+system_blockers:
+- id: B-001
+  type: execution_blocker
+  severity: critical
+  title: Active law collision — infra
+  detail: Ranked task 'postgres validation' conflicts with FOUNDER_NO_CREDIT_CARD
+    (no paid Postgres).
+  evidence:
+  - path: SourceA/GLOBAL_PRIORITY.json
+  - path: SourceA/FOUNDER_NO_CREDIT_CARD_INFRA_LOCKED_v1.md
+  recommended_action: 'ASF: align trustfield plan.json + re-dispatch (free verify
+    path).'
+- id: B-002
+  type: execution_blocker
+  severity: medium
+  title: Ingest pipeline failing
+  detail: 1 rejected YAML reply(s) — automation loop broken for those runs.
+  evidence:
+  - path: SinaPromptOS/outputs/inbox/rejected/
+  recommended_action: Fix agent YAML block; re-ingest.
+consolidation_actions:
+- id: C-001
+  type: consolidation
+  title: Multiple entry-point scripts
+  detail: 6 start scripts — new engineer confusion.
+  action: 'Canonical daily route: run-architect.sh → run-full-day.sh only; document
+    others as optional in README.'
+- id: C-002
+  type: consolidation
+  title: Duplicate doctrine — ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md
+  detail: Use ASF_FIVE_REPOS_PLUS_COMMAND_CHAT_v1.md only; archive ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md.
+  action: Move ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md to _archive/ when ASF approves
+    (phase 2 migration).
+- id: C-003
+  type: consolidation
+  title: Duplicate doctrine — SINAAI_AGENT_STACK_POLICY_v1.md
+  detail: Use SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md only; archive
+    SINAAI_AGENT_STACK_POLICY_v1.md.
+  action: Move SINAAI_AGENT_STACK_POLICY_v1.md to _archive/ when ASF approves (phase
+    2 migration).
+- id: C-004
+  type: consolidation
+  title: Duplicate doctrine — SINA_PROMPT_OS_CORE_v1.md
+  detail: Use README_SOURCE_A.md only; archive SINA_PROMPT_OS_CORE_v1.md.
+  action: Move SINA_PROMPT_OS_CORE_v1.md to _archive/ when ASF approves (phase 2 migration).
+- id: C-005
+  type: consolidation
+  title: Archive candidates at root
+  detail: 8 historical files still at SourceA root — cognitive load.
+  action: Batch move to _archive/ after symlink test (not a daily blocker).
+- id: C-006
+  type: consolidation
+  title: Registry lag (informational)
+  detail: 44 files not in registry §4 — documentation hygiene, not execution stop.
+  action: ASF append registry rows on Sunday; not a morning blocker.
+health:
+  overall: red
+  blocker_count: 2
+  summary: 2 execution blocker(s); 6 consolidation item(s). Ignore narrative/version/language
+    drift.
+meta:
+  read_only: true
+  wrote_files:
+  - /Users/sinakazemnezhad/Desktop/SourceA/ARCHITECT_REPORT.yaml
+  suppressed_noise:
+  - bare Phase N typos
+  - bulk unregistered registry (→ consolidation)
+  - narrative vs law
+  - Farsi vs English
+
+---
+schema_version: 2
+report_id: arch-2026-06-03T0922Z
+generated_at: '2026-06-03T09:22:14.839803+00:00'
+generator: sina-architect-agent
+generator_version: 0.2.0
+policy: SINAAI_ARCHITECT_V2_INDUSTRIAL_POLICY_LOCKED_v1.md
+operating_context:
+  gov_phase: GOV_PHASE_0
+  exec_phase: EXEC_PHASE_1
+  exec_phase_2_mode: BUILT_NOT_OPERATIONAL
+  objective: Reduce cognitive load — not document perfection
+mandatory_read_set:
+  files:
+  - SourceA/README_SOURCE_A.md
+  - SourceA/SINA_OS_SSOT_LOCKED.md
+  - SourceA/SINAAI_PROMPT_OS_CORE_FINAL_DECISION_LOCKED_v1.md
+  - SourceA/SINAAI_EXECUTION_TRUTH_LAYER_LOCKED_v1.md
+  - SourceA/SINAAI_PHASE1_STABILIZATION_ONLY_LOCKED_v1.md
+  rule: Read these only for orientation — then STOP
+  count: 5
+execution_route:
+  goal: New engineer operational in <30 minutes
+  steps:
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-architect.sh
+  - Read SourceA/ARCHITECT_REPORT.yaml — system_blockers only
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-full-day.sh
+  lanes: 5 product repos + Lane 0 (Sina OS chat)
+system_blockers:
+- id: B-001
+  type: execution_blocker
+  severity: critical
+  title: Active law collision — infra
+  detail: Ranked task 'postgres validation' conflicts with FOUNDER_NO_CREDIT_CARD
+    (no paid Postgres).
+  evidence:
+  - path: SourceA/GLOBAL_PRIORITY.json
+  - path: SourceA/FOUNDER_NO_CREDIT_CARD_INFRA_LOCKED_v1.md
+  recommended_action: 'ASF: align trustfield plan.json + re-dispatch (free verify
+    path).'
+- id: B-002
+  type: execution_blocker
+  severity: medium
+  title: Ingest pipeline failing
+  detail: 1 rejected YAML reply(s) — automation loop broken for those runs.
+  evidence:
+  - path: SinaPromptOS/outputs/inbox/rejected/
+  recommended_action: Fix agent YAML block; re-ingest.
+consolidation_actions:
+- id: C-001
+  type: consolidation
+  title: Multiple entry-point scripts
+  detail: 6 start scripts — new engineer confusion.
+  action: 'Canonical daily route: run-architect.sh → run-full-day.sh only; document
+    others as optional in README.'
+- id: C-002
+  type: consolidation
+  title: Duplicate doctrine — ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md
+  detail: Use ASF_FIVE_REPOS_PLUS_COMMAND_CHAT_v1.md only; archive ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md.
+  action: Move ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md to _archive/ when ASF approves
+    (phase 2 migration).
+- id: C-003
+  type: consolidation
+  title: Duplicate doctrine — SINAAI_AGENT_STACK_POLICY_v1.md
+  detail: Use SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md only; archive
+    SINAAI_AGENT_STACK_POLICY_v1.md.
+  action: Move SINAAI_AGENT_STACK_POLICY_v1.md to _archive/ when ASF approves (phase
+    2 migration).
+- id: C-004
+  type: consolidation
+  title: Duplicate doctrine — SINA_PROMPT_OS_CORE_v1.md
+  detail: Use README_SOURCE_A.md only; archive SINA_PROMPT_OS_CORE_v1.md.
+  action: Move SINA_PROMPT_OS_CORE_v1.md to _archive/ when ASF approves (phase 2 migration).
+- id: C-005
+  type: consolidation
+  title: Archive candidates at root
+  detail: 8 historical files still at SourceA root — cognitive load.
+  action: Batch move to _archive/ after symlink test (not a daily blocker).
+- id: C-006
+  type: consolidation
+  title: Registry lag (informational)
+  detail: 53 files not in registry §4 — documentation hygiene, not execution stop.
+  action: ASF append registry rows on Sunday; not a morning blocker.
+health:
+  overall: red
+  blocker_count: 2
+  summary: 2 execution blocker(s); 6 consolidation item(s). Ignore narrative/version/language
+    drift.
+meta:
+  read_only: true
+  wrote_files:
+  - /Users/sinakazemnezhad/Desktop/SourceA/ARCHITECT_REPORT.yaml
+  suppressed_noise:
+  - bare Phase N typos
+  - bulk unregistered registry (→ consolidation)
+  - narrative vs law
+  - Farsi vs English
+
+---
+schema_version: 2
+report_id: arch-2026-06-03T0922Z
+generated_at: '2026-06-03T09:22:54.861539+00:00'
+generator: sina-architect-agent
+generator_version: 0.2.0
+policy: SINAAI_ARCHITECT_V2_INDUSTRIAL_POLICY_LOCKED_v1.md
+operating_context:
+  gov_phase: GOV_PHASE_0
+  exec_phase: EXEC_PHASE_1
+  exec_phase_2_mode: BUILT_NOT_OPERATIONAL
+  objective: Reduce cognitive load — not document perfection
+mandatory_read_set:
+  files:
+  - SourceA/README_SOURCE_A.md
+  - SourceA/SINA_OS_SSOT_LOCKED.md
+  - SourceA/SINAAI_PROMPT_OS_CORE_FINAL_DECISION_LOCKED_v1.md
+  - SourceA/SINAAI_EXECUTION_TRUTH_LAYER_LOCKED_v1.md
+  - SourceA/SINAAI_PHASE1_STABILIZATION_ONLY_LOCKED_v1.md
+  rule: Read these only for orientation — then STOP
+  count: 5
+execution_route:
+  goal: New engineer operational in <30 minutes
+  steps:
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-architect.sh
+  - Read SourceA/ARCHITECT_REPORT.yaml — system_blockers only
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-full-day.sh
+  lanes: 5 product repos + Lane 0 (Sina OS chat)
+system_blockers:
+- id: B-001
+  type: execution_blocker
+  severity: critical
+  title: Active law collision — infra
+  detail: Ranked task 'postgres validation' conflicts with FOUNDER_NO_CREDIT_CARD
+    (no paid Postgres).
+  evidence:
+  - path: SourceA/GLOBAL_PRIORITY.json
+  - path: SourceA/FOUNDER_NO_CREDIT_CARD_INFRA_LOCKED_v1.md
+  recommended_action: 'ASF: align trustfield plan.json + re-dispatch (free verify
+    path).'
+- id: B-002
+  type: execution_blocker
+  severity: medium
+  title: Ingest pipeline failing
+  detail: 1 rejected YAML reply(s) — automation loop broken for those runs.
+  evidence:
+  - path: SinaPromptOS/outputs/inbox/rejected/
+  recommended_action: Fix agent YAML block; re-ingest.
+consolidation_actions:
+- id: C-001
+  type: consolidation
+  title: Multiple entry-point scripts
+  detail: 6 start scripts — new engineer confusion.
+  action: 'Canonical daily route: run-architect.sh → run-full-day.sh only; document
+    others as optional in README.'
+- id: C-002
+  type: consolidation
+  title: Duplicate doctrine — ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md
+  detail: Use ASF_FIVE_REPOS_PLUS_COMMAND_CHAT_v1.md only; archive ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md.
+  action: Move ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md to _archive/ when ASF approves
+    (phase 2 migration).
+- id: C-003
+  type: consolidation
+  title: Duplicate doctrine — SINAAI_AGENT_STACK_POLICY_v1.md
+  detail: Use SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md only; archive
+    SINAAI_AGENT_STACK_POLICY_v1.md.
+  action: Move SINAAI_AGENT_STACK_POLICY_v1.md to _archive/ when ASF approves (phase
+    2 migration).
+- id: C-004
+  type: consolidation
+  title: Duplicate doctrine — SINA_PROMPT_OS_CORE_v1.md
+  detail: Use README_SOURCE_A.md only; archive SINA_PROMPT_OS_CORE_v1.md.
+  action: Move SINA_PROMPT_OS_CORE_v1.md to _archive/ when ASF approves (phase 2 migration).
+- id: C-005
+  type: consolidation
+  title: Archive candidates at root
+  detail: 8 historical files still at SourceA root — cognitive load.
+  action: Batch move to _archive/ after symlink test (not a daily blocker).
+- id: C-006
+  type: consolidation
+  title: Registry lag (informational)
+  detail: 53 files not in registry §4 — documentation hygiene, not execution stop.
+  action: ASF append registry rows on Sunday; not a morning blocker.
+health:
+  overall: red
+  blocker_count: 2
+  summary: 2 execution blocker(s); 6 consolidation item(s). Ignore narrative/version/language
+    drift.
+meta:
+  read_only: true
+  wrote_files:
+  - /Users/sinakazemnezhad/Desktop/SourceA/ARCHITECT_REPORT.yaml
+  suppressed_noise:
+  - bare Phase N typos
+  - bulk unregistered registry (→ consolidation)
+  - narrative vs law
+  - Farsi vs English
+
+---
+schema_version: 2
+report_id: arch-2026-06-03T0923Z
+generated_at: '2026-06-03T09:23:15.721217+00:00'
+generator: sina-architect-agent
+generator_version: 0.2.0
+policy: SINAAI_ARCHITECT_V2_INDUSTRIAL_POLICY_LOCKED_v1.md
+operating_context:
+  gov_phase: GOV_PHASE_0
+  exec_phase: EXEC_PHASE_1
+  exec_phase_2_mode: BUILT_NOT_OPERATIONAL
+  objective: Reduce cognitive load — not document perfection
+mandatory_read_set:
+  files:
+  - SourceA/README_SOURCE_A.md
+  - SourceA/SINA_OS_SSOT_LOCKED.md
+  - SourceA/SINAAI_PROMPT_OS_CORE_FINAL_DECISION_LOCKED_v1.md
+  - SourceA/SINAAI_EXECUTION_TRUTH_LAYER_LOCKED_v1.md
+  - SourceA/SINAAI_PHASE1_STABILIZATION_ONLY_LOCKED_v1.md
+  rule: Read these only for orientation — then STOP
+  count: 5
+execution_route:
+  goal: New engineer operational in <30 minutes
+  steps:
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-architect.sh
+  - Read SourceA/ARCHITECT_REPORT.yaml — system_blockers only
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-full-day.sh
+  lanes: 5 product repos + Lane 0 (Sina OS chat)
+system_blockers:
+- id: B-001
+  type: execution_blocker
+  severity: critical
+  title: Active law collision — infra
+  detail: Ranked task 'postgres validation' conflicts with FOUNDER_NO_CREDIT_CARD
+    (no paid Postgres).
+  evidence:
+  - path: SourceA/GLOBAL_PRIORITY.json
+  - path: SourceA/FOUNDER_NO_CREDIT_CARD_INFRA_LOCKED_v1.md
+  recommended_action: 'ASF: align trustfield plan.json + re-dispatch (free verify
+    path).'
+- id: B-002
+  type: execution_blocker
+  severity: medium
+  title: Ingest pipeline failing
+  detail: 1 rejected YAML reply(s) — automation loop broken for those runs.
+  evidence:
+  - path: SinaPromptOS/outputs/inbox/rejected/
+  recommended_action: Fix agent YAML block; re-ingest.
+consolidation_actions:
+- id: C-001
+  type: consolidation
+  title: Multiple entry-point scripts
+  detail: 6 start scripts — new engineer confusion.
+  action: 'Canonical daily route: run-architect.sh → run-full-day.sh only; document
+    others as optional in README.'
+- id: C-002
+  type: consolidation
+  title: Duplicate doctrine — ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md
+  detail: Use ASF_FIVE_REPOS_PLUS_COMMAND_CHAT_v1.md only; archive ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md.
+  action: Move ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md to _archive/ when ASF approves
+    (phase 2 migration).
+- id: C-003
+  type: consolidation
+  title: Duplicate doctrine — SINAAI_AGENT_STACK_POLICY_v1.md
+  detail: Use SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md only; archive
+    SINAAI_AGENT_STACK_POLICY_v1.md.
+  action: Move SINAAI_AGENT_STACK_POLICY_v1.md to _archive/ when ASF approves (phase
+    2 migration).
+- id: C-004
+  type: consolidation
+  title: Duplicate doctrine — SINA_PROMPT_OS_CORE_v1.md
+  detail: Use README_SOURCE_A.md only; archive SINA_PROMPT_OS_CORE_v1.md.
+  action: Move SINA_PROMPT_OS_CORE_v1.md to _archive/ when ASF approves (phase 2 migration).
+- id: C-005
+  type: consolidation
+  title: Archive candidates at root
+  detail: 8 historical files still at SourceA root — cognitive load.
+  action: Batch move to _archive/ after symlink test (not a daily blocker).
+- id: C-006
+  type: consolidation
+  title: Registry lag (informational)
+  detail: 53 files not in registry §4 — documentation hygiene, not execution stop.
+  action: ASF append registry rows on Sunday; not a morning blocker.
+health:
+  overall: red
+  blocker_count: 2
+  summary: 2 execution blocker(s); 6 consolidation item(s). Ignore narrative/version/language
+    drift.
+meta:
+  read_only: true
+  wrote_files:
+  - /Users/sinakazemnezhad/Desktop/SourceA/ARCHITECT_REPORT.yaml
+  suppressed_noise:
+  - bare Phase N typos
+  - bulk unregistered registry (→ consolidation)
+  - narrative vs law
+  - Farsi vs English
+
+---
+schema_version: 2
+report_id: arch-2026-06-03T1005Z
+generated_at: '2026-06-03T10:05:22.374016+00:00'
+generator: sina-architect-agent
+generator_version: 0.2.0
+policy: SINAAI_ARCHITECT_V2_INDUSTRIAL_POLICY_LOCKED_v1.md
+operating_context:
+  gov_phase: GOV_PHASE_0
+  exec_phase: EXEC_PHASE_1
+  exec_phase_2_mode: BUILT_NOT_OPERATIONAL
+  objective: Reduce cognitive load — not document perfection
+mandatory_read_set:
+  files:
+  - SourceA/README_SOURCE_A.md
+  - SourceA/SINA_OS_SSOT_LOCKED.md
+  - SourceA/SINAAI_PROMPT_OS_CORE_FINAL_DECISION_LOCKED_v1.md
+  - SourceA/SINAAI_EXECUTION_TRUTH_LAYER_LOCKED_v1.md
+  - SourceA/SINAAI_PHASE1_STABILIZATION_ONLY_LOCKED_v1.md
+  rule: Read these only for orientation — then STOP
+  count: 5
+execution_route:
+  goal: New engineer operational in <30 minutes
+  steps:
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-architect.sh
+  - Read SourceA/ARCHITECT_REPORT.yaml — system_blockers only
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-full-day.sh
+  lanes: 5 product repos + Lane 0 (Sina OS chat)
+system_blockers:
+- id: B-001
+  type: execution_blocker
+  severity: critical
+  title: Active law collision — infra
+  detail: Ranked task 'postgres validation' conflicts with FOUNDER_NO_CREDIT_CARD
+    (no paid Postgres).
+  evidence:
+  - path: SourceA/GLOBAL_PRIORITY.json
+  - path: SourceA/FOUNDER_NO_CREDIT_CARD_INFRA_LOCKED_v1.md
+  recommended_action: 'ASF: align trustfield plan.json + re-dispatch (free verify
+    path).'
+- id: B-002
+  type: execution_blocker
+  severity: medium
+  title: Ingest pipeline failing
+  detail: 1 rejected YAML reply(s) — automation loop broken for those runs.
+  evidence:
+  - path: SinaPromptOS/outputs/inbox/rejected/
+  recommended_action: Fix agent YAML block; re-ingest.
+consolidation_actions:
+- id: C-001
+  type: consolidation
+  title: Multiple entry-point scripts
+  detail: 6 start scripts — new engineer confusion.
+  action: 'Canonical daily route: run-architect.sh → run-full-day.sh only; document
+    others as optional in README.'
+- id: C-002
+  type: consolidation
+  title: Duplicate doctrine — ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md
+  detail: Use ASF_FIVE_REPOS_PLUS_COMMAND_CHAT_v1.md only; archive ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md.
+  action: Move ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md to _archive/ when ASF approves
+    (phase 2 migration).
+- id: C-003
+  type: consolidation
+  title: Duplicate doctrine — SINAAI_AGENT_STACK_POLICY_v1.md
+  detail: Use SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md only; archive
+    SINAAI_AGENT_STACK_POLICY_v1.md.
+  action: Move SINAAI_AGENT_STACK_POLICY_v1.md to _archive/ when ASF approves (phase
+    2 migration).
+- id: C-004
+  type: consolidation
+  title: Duplicate doctrine — SINA_PROMPT_OS_CORE_v1.md
+  detail: Use README_SOURCE_A.md only; archive SINA_PROMPT_OS_CORE_v1.md.
+  action: Move SINA_PROMPT_OS_CORE_v1.md to _archive/ when ASF approves (phase 2 migration).
+- id: C-005
+  type: consolidation
+  title: Archive candidates at root
+  detail: 8 historical files still at SourceA root — cognitive load.
+  action: Batch move to _archive/ after symlink test (not a daily blocker).
+- id: C-006
+  type: consolidation
+  title: Registry lag (informational)
+  detail: 53 files not in registry §4 — documentation hygiene, not execution stop.
+  action: ASF append registry rows on Sunday; not a morning blocker.
+health:
+  overall: red
+  blocker_count: 2
+  summary: 2 execution blocker(s); 6 consolidation item(s). Ignore narrative/version/language
+    drift.
+meta:
+  read_only: true
+  wrote_files:
+  - /Users/sinakazemnezhad/Desktop/SourceA/ARCHITECT_REPORT.yaml
+  suppressed_noise:
+  - bare Phase N typos
+  - bulk unregistered registry (→ consolidation)
+  - narrative vs law
+  - Farsi vs English
+
+---
+schema_version: 2
+report_id: arch-2026-06-03T1005Z
+generated_at: '2026-06-03T10:05:23.395137+00:00'
+generator: sina-architect-agent
+generator_version: 0.2.0
+policy: SINAAI_ARCHITECT_V2_INDUSTRIAL_POLICY_LOCKED_v1.md
+operating_context:
+  gov_phase: GOV_PHASE_0
+  exec_phase: EXEC_PHASE_1
+  exec_phase_2_mode: BUILT_NOT_OPERATIONAL
+  objective: Reduce cognitive load — not document perfection
+mandatory_read_set:
+  files:
+  - SourceA/README_SOURCE_A.md
+  - SourceA/SINA_OS_SSOT_LOCKED.md
+  - SourceA/SINAAI_PROMPT_OS_CORE_FINAL_DECISION_LOCKED_v1.md
+  - SourceA/SINAAI_EXECUTION_TRUTH_LAYER_LOCKED_v1.md
+  - SourceA/SINAAI_PHASE1_STABILIZATION_ONLY_LOCKED_v1.md
+  rule: Read these only for orientation — then STOP
+  count: 5
+execution_route:
+  goal: New engineer operational in <30 minutes
+  steps:
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-architect.sh
+  - Read SourceA/ARCHITECT_REPORT.yaml — system_blockers only
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-full-day.sh
+  lanes: 5 product repos + Lane 0 (Sina OS chat)
+system_blockers:
+- id: B-001
+  type: execution_blocker
+  severity: critical
+  title: Active law collision — infra
+  detail: Ranked task 'postgres validation' conflicts with FOUNDER_NO_CREDIT_CARD
+    (no paid Postgres).
+  evidence:
+  - path: SourceA/GLOBAL_PRIORITY.json
+  - path: SourceA/FOUNDER_NO_CREDIT_CARD_INFRA_LOCKED_v1.md
+  recommended_action: 'ASF: align trustfield plan.json + re-dispatch (free verify
+    path).'
+- id: B-002
+  type: execution_blocker
+  severity: medium
+  title: Ingest pipeline failing
+  detail: 1 rejected YAML reply(s) — automation loop broken for those runs.
+  evidence:
+  - path: SinaPromptOS/outputs/inbox/rejected/
+  recommended_action: Fix agent YAML block; re-ingest.
+consolidation_actions:
+- id: C-001
+  type: consolidation
+  title: Multiple entry-point scripts
+  detail: 6 start scripts — new engineer confusion.
+  action: 'Canonical daily route: run-architect.sh → run-full-day.sh only; document
+    others as optional in README.'
+- id: C-002
+  type: consolidation
+  title: Duplicate doctrine — ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md
+  detail: Use ASF_FIVE_REPOS_PLUS_COMMAND_CHAT_v1.md only; archive ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md.
+  action: Move ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md to _archive/ when ASF approves
+    (phase 2 migration).
+- id: C-003
+  type: consolidation
+  title: Duplicate doctrine — SINAAI_AGENT_STACK_POLICY_v1.md
+  detail: Use SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md only; archive
+    SINAAI_AGENT_STACK_POLICY_v1.md.
+  action: Move SINAAI_AGENT_STACK_POLICY_v1.md to _archive/ when ASF approves (phase
+    2 migration).
+- id: C-004
+  type: consolidation
+  title: Duplicate doctrine — SINA_PROMPT_OS_CORE_v1.md
+  detail: Use README_SOURCE_A.md only; archive SINA_PROMPT_OS_CORE_v1.md.
+  action: Move SINA_PROMPT_OS_CORE_v1.md to _archive/ when ASF approves (phase 2 migration).
+- id: C-005
+  type: consolidation
+  title: Archive candidates at root
+  detail: 8 historical files still at SourceA root — cognitive load.
+  action: Batch move to _archive/ after symlink test (not a daily blocker).
+- id: C-006
+  type: consolidation
+  title: Registry lag (informational)
+  detail: 53 files not in registry §4 — documentation hygiene, not execution stop.
+  action: ASF append registry rows on Sunday; not a morning blocker.
+health:
+  overall: red
+  blocker_count: 2
+  summary: 2 execution blocker(s); 6 consolidation item(s). Ignore narrative/version/language
+    drift.
+meta:
+  read_only: true
+  wrote_files:
+  - /Users/sinakazemnezhad/Desktop/SourceA/ARCHITECT_REPORT.yaml
+  suppressed_noise:
+  - bare Phase N typos
+  - bulk unregistered registry (→ consolidation)
+  - narrative vs law
+  - Farsi vs English
+
+---
+schema_version: 2
+report_id: arch-2026-06-03T1005Z
+generated_at: '2026-06-03T10:05:50.880749+00:00'
+generator: sina-architect-agent
+generator_version: 0.2.0
+policy: SINAAI_ARCHITECT_V2_INDUSTRIAL_POLICY_LOCKED_v1.md
+operating_context:
+  gov_phase: GOV_PHASE_0
+  exec_phase: EXEC_PHASE_1
+  exec_phase_2_mode: BUILT_NOT_OPERATIONAL
+  objective: Reduce cognitive load — not document perfection
+mandatory_read_set:
+  files:
+  - SourceA/README_SOURCE_A.md
+  - SourceA/SINA_OS_SSOT_LOCKED.md
+  - SourceA/SINAAI_PROMPT_OS_CORE_FINAL_DECISION_LOCKED_v1.md
+  - SourceA/SINAAI_EXECUTION_TRUTH_LAYER_LOCKED_v1.md
+  - SourceA/SINAAI_PHASE1_STABILIZATION_ONLY_LOCKED_v1.md
+  rule: Read these only for orientation — then STOP
+  count: 5
+execution_route:
+  goal: New engineer operational in <30 minutes
+  steps:
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-architect.sh
+  - Read SourceA/ARCHITECT_REPORT.yaml — system_blockers only
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-full-day.sh
+  lanes: 5 product repos + Lane 0 (Sina OS chat)
+system_blockers:
+- id: B-001
+  type: execution_blocker
+  severity: critical
+  title: Active law collision — infra
+  detail: Ranked task 'postgres validation' conflicts with FOUNDER_NO_CREDIT_CARD
+    (no paid Postgres).
+  evidence:
+  - path: SourceA/GLOBAL_PRIORITY.json
+  - path: SourceA/FOUNDER_NO_CREDIT_CARD_INFRA_LOCKED_v1.md
+  recommended_action: 'ASF: align trustfield plan.json + re-dispatch (free verify
+    path).'
+- id: B-002
+  type: execution_blocker
+  severity: medium
+  title: Ingest pipeline failing
+  detail: 1 rejected YAML reply(s) — automation loop broken for those runs.
+  evidence:
+  - path: SinaPromptOS/outputs/inbox/rejected/
+  recommended_action: Fix agent YAML block; re-ingest.
+consolidation_actions:
+- id: C-001
+  type: consolidation
+  title: Multiple entry-point scripts
+  detail: 6 start scripts — new engineer confusion.
+  action: 'Canonical daily route: run-architect.sh → run-full-day.sh only; document
+    others as optional in README.'
+- id: C-002
+  type: consolidation
+  title: Duplicate doctrine — ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md
+  detail: Use ASF_FIVE_REPOS_PLUS_COMMAND_CHAT_v1.md only; archive ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md.
+  action: Move ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md to _archive/ when ASF approves
+    (phase 2 migration).
+- id: C-003
+  type: consolidation
+  title: Duplicate doctrine — SINAAI_AGENT_STACK_POLICY_v1.md
+  detail: Use SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md only; archive
+    SINAAI_AGENT_STACK_POLICY_v1.md.
+  action: Move SINAAI_AGENT_STACK_POLICY_v1.md to _archive/ when ASF approves (phase
+    2 migration).
+- id: C-004
+  type: consolidation
+  title: Duplicate doctrine — SINA_PROMPT_OS_CORE_v1.md
+  detail: Use README_SOURCE_A.md only; archive SINA_PROMPT_OS_CORE_v1.md.
+  action: Move SINA_PROMPT_OS_CORE_v1.md to _archive/ when ASF approves (phase 2 migration).
+- id: C-005
+  type: consolidation
+  title: Archive candidates at root
+  detail: 8 historical files still at SourceA root — cognitive load.
+  action: Batch move to _archive/ after symlink test (not a daily blocker).
+- id: C-006
+  type: consolidation
+  title: Registry lag (informational)
+  detail: 53 files not in registry §4 — documentation hygiene, not execution stop.
+  action: ASF append registry rows on Sunday; not a morning blocker.
+health:
+  overall: red
+  blocker_count: 2
+  summary: 2 execution blocker(s); 6 consolidation item(s). Ignore narrative/version/language
+    drift.
+meta:
+  read_only: true
+  wrote_files:
+  - /Users/sinakazemnezhad/Desktop/SourceA/ARCHITECT_REPORT.yaml
+  suppressed_noise:
+  - bare Phase N typos
+  - bulk unregistered registry (→ consolidation)
+  - narrative vs law
+  - Farsi vs English
+
+---
+schema_version: 2
+report_id: arch-2026-06-03T2335Z
+generated_at: '2026-06-03T23:35:32.183990+00:00'
+generator: sina-architect-agent
+generator_version: 0.2.0
+policy: SINAAI_ARCHITECT_V2_INDUSTRIAL_POLICY_LOCKED_v1.md
+operating_context:
+  gov_phase: GOV_PHASE_0
+  exec_phase: EXEC_PHASE_1
+  exec_phase_2_mode: BUILT_NOT_OPERATIONAL
+  objective: Reduce cognitive load — not document perfection
+mandatory_read_set:
+  files:
+  - SourceA/README_SOURCE_A.md
+  - SourceA/SINA_OS_SSOT_LOCKED.md
+  - SourceA/SINAAI_PROMPT_OS_CORE_FINAL_DECISION_LOCKED_v1.md
+  - SourceA/SINAAI_EXECUTION_TRUTH_LAYER_LOCKED_v1.md
+  - SourceA/SINAAI_PHASE1_STABILIZATION_ONLY_LOCKED_v1.md
+  rule: Read these only for orientation — then STOP
+  count: 5
+execution_route:
+  goal: New engineer operational in <30 minutes
+  steps:
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-architect.sh
+  - Read SourceA/ARCHITECT_REPORT.yaml — system_blockers only
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-full-day.sh
+  lanes: 5 product repos + Lane 0 (Sina OS chat)
+system_blockers:
+- id: B-001
+  type: execution_blocker
+  severity: critical
+  title: Active law collision — infra
+  detail: Ranked task 'postgres validation' conflicts with FOUNDER_NO_CREDIT_CARD
+    (no paid Postgres).
+  evidence:
+  - path: SourceA/GLOBAL_PRIORITY.json
+  - path: SourceA/FOUNDER_NO_CREDIT_CARD_INFRA_LOCKED_v1.md
+  recommended_action: 'ASF: align trustfield plan.json + re-dispatch (free verify
+    path).'
+- id: B-002
+  type: execution_blocker
+  severity: medium
+  title: Ingest pipeline failing
+  detail: 1 rejected YAML reply(s) — automation loop broken for those runs.
+  evidence:
+  - path: SinaPromptOS/outputs/inbox/rejected/
+  recommended_action: Fix agent YAML block; re-ingest.
+consolidation_actions:
+- id: C-001
+  type: consolidation
+  title: Multiple entry-point scripts
+  detail: 6 start scripts — new engineer confusion.
+  action: 'Canonical daily route: run-architect.sh → run-full-day.sh only; document
+    others as optional in README.'
+- id: C-002
+  type: consolidation
+  title: Duplicate doctrine — ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md
+  detail: Use ASF_FIVE_REPOS_PLUS_COMMAND_CHAT_v1.md only; archive ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md.
+  action: Move ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md to _archive/ when ASF approves
+    (phase 2 migration).
+- id: C-003
+  type: consolidation
+  title: Duplicate doctrine — SINAAI_AGENT_STACK_POLICY_v1.md
+  detail: Use SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md only; archive
+    SINAAI_AGENT_STACK_POLICY_v1.md.
+  action: Move SINAAI_AGENT_STACK_POLICY_v1.md to _archive/ when ASF approves (phase
+    2 migration).
+- id: C-004
+  type: consolidation
+  title: Duplicate doctrine — SINA_PROMPT_OS_CORE_v1.md
+  detail: Use README_SOURCE_A.md only; archive SINA_PROMPT_OS_CORE_v1.md.
+  action: Move SINA_PROMPT_OS_CORE_v1.md to _archive/ when ASF approves (phase 2 migration).
+- id: C-005
+  type: consolidation
+  title: Archive candidates at root
+  detail: 8 historical files still at SourceA root — cognitive load.
+  action: Batch move to _archive/ after symlink test (not a daily blocker).
+- id: C-006
+  type: consolidation
+  title: Registry lag (informational)
+  detail: 62 files not in registry §4 — documentation hygiene, not execution stop.
+  action: ASF append registry rows on Sunday; not a morning blocker.
+health:
+  overall: red
+  blocker_count: 2
+  summary: 2 execution blocker(s); 6 consolidation item(s). Ignore narrative/version/language
+    drift.
+meta:
+  read_only: true
+  wrote_files:
+  - /Users/sinakazemnezhad/Desktop/SourceA/ARCHITECT_REPORT.yaml
+  suppressed_noise:
+  - bare Phase N typos
+  - bulk unregistered registry (→ consolidation)
+  - narrative vs law
+  - Farsi vs English
+
+---
+schema_version: 2
+report_id: arch-2026-06-03T2340Z
+generated_at: '2026-06-03T23:40:41.843905+00:00'
+generator: sina-architect-agent
+generator_version: 0.2.0
+policy: SINAAI_ARCHITECT_V2_INDUSTRIAL_POLICY_LOCKED_v1.md
+operating_context:
+  gov_phase: GOV_PHASE_0
+  exec_phase: EXEC_PHASE_1
+  exec_phase_2_mode: BUILT_NOT_OPERATIONAL
+  objective: Reduce cognitive load — not document perfection
+mandatory_read_set:
+  files:
+  - SourceA/README_SOURCE_A.md
+  - SourceA/SINA_OS_SSOT_LOCKED.md
+  - SourceA/SINAAI_PROMPT_OS_CORE_FINAL_DECISION_LOCKED_v1.md
+  - SourceA/SINAAI_EXECUTION_TRUTH_LAYER_LOCKED_v1.md
+  - SourceA/SINAAI_PHASE1_STABILIZATION_ONLY_LOCKED_v1.md
+  rule: Read these only for orientation — then STOP
+  count: 5
+execution_route:
+  goal: New engineer operational in <30 minutes
+  steps:
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-architect.sh
+  - Read SourceA/ARCHITECT_REPORT.yaml — system_blockers only
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-full-day.sh
+  lanes: 5 product repos + Lane 0 (Sina OS chat)
+system_blockers:
+- id: B-001
+  type: execution_blocker
+  severity: medium
+  title: Ingest pipeline failing
+  detail: 1 rejected YAML reply(s) — automation loop broken for those runs.
+  evidence:
+  - path: SinaPromptOS/outputs/inbox/rejected/
+  recommended_action: Fix agent YAML block; re-ingest.
+consolidation_actions:
+- id: C-001
+  type: consolidation
+  title: Multiple entry-point scripts
+  detail: 6 start scripts — new engineer confusion.
+  action: 'Canonical daily route: run-architect.sh → run-full-day.sh only; document
+    others as optional in README.'
+- id: C-002
+  type: consolidation
+  title: Duplicate doctrine — ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md
+  detail: Use ASF_FIVE_REPOS_PLUS_COMMAND_CHAT_v1.md only; archive ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md.
+  action: Move ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md to _archive/ when ASF approves
+    (phase 2 migration).
+- id: C-003
+  type: consolidation
+  title: Duplicate doctrine — SINAAI_AGENT_STACK_POLICY_v1.md
+  detail: Use SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md only; archive
+    SINAAI_AGENT_STACK_POLICY_v1.md.
+  action: Move SINAAI_AGENT_STACK_POLICY_v1.md to _archive/ when ASF approves (phase
+    2 migration).
+- id: C-004
+  type: consolidation
+  title: Duplicate doctrine — SINA_PROMPT_OS_CORE_v1.md
+  detail: Use README_SOURCE_A.md only; archive SINA_PROMPT_OS_CORE_v1.md.
+  action: Move SINA_PROMPT_OS_CORE_v1.md to _archive/ when ASF approves (phase 2 migration).
+- id: C-005
+  type: consolidation
+  title: Archive candidates at root
+  detail: 8 historical files still at SourceA root — cognitive load.
+  action: Batch move to _archive/ after symlink test (not a daily blocker).
+- id: C-006
+  type: consolidation
+  title: Registry lag (informational)
+  detail: 62 files not in registry §4 — documentation hygiene, not execution stop.
+  action: ASF append registry rows on Sunday; not a morning blocker.
+health:
+  overall: yellow
+  blocker_count: 1
+  summary: 1 execution blocker(s); 6 consolidation item(s). Ignore narrative/version/language
+    drift.
+meta:
+  read_only: true
+  wrote_files:
+  - /Users/sinakazemnezhad/Desktop/SourceA/ARCHITECT_REPORT.yaml
+  suppressed_noise:
+  - bare Phase N typos
+  - bulk unregistered registry (→ consolidation)
+  - narrative vs law
+  - Farsi vs English
+
+---
+schema_version: 2
+report_id: arch-2026-06-03T2341Z
+generated_at: '2026-06-03T23:41:06.688444+00:00'
+generator: sina-architect-agent
+generator_version: 0.2.0
+policy: SINAAI_ARCHITECT_V2_INDUSTRIAL_POLICY_LOCKED_v1.md
+operating_context:
+  gov_phase: GOV_PHASE_0
+  exec_phase: EXEC_PHASE_1
+  exec_phase_2_mode: BUILT_NOT_OPERATIONAL
+  objective: Reduce cognitive load — not document perfection
+mandatory_read_set:
+  files:
+  - SourceA/README_SOURCE_A.md
+  - SourceA/SINA_OS_SSOT_LOCKED.md
+  - SourceA/SINAAI_PROMPT_OS_CORE_FINAL_DECISION_LOCKED_v1.md
+  - SourceA/SINAAI_EXECUTION_TRUTH_LAYER_LOCKED_v1.md
+  - SourceA/SINAAI_PHASE1_STABILIZATION_ONLY_LOCKED_v1.md
+  rule: Read these only for orientation — then STOP
+  count: 5
+execution_route:
+  goal: New engineer operational in <30 minutes
+  steps:
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-architect.sh
+  - Read SourceA/ARCHITECT_REPORT.yaml — system_blockers only
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-full-day.sh
+  lanes: 5 product repos + Lane 0 (Sina OS chat)
+system_blockers:
+- id: B-001
+  type: execution_blocker
+  severity: critical
+  title: Active law collision — infra
+  detail: Ranked task 'postgres validation' conflicts with FOUNDER_NO_CREDIT_CARD
+    (no paid Postgres).
+  evidence:
+  - path: SourceA/GLOBAL_PRIORITY.json
+  - path: SourceA/FOUNDER_NO_CREDIT_CARD_INFRA_LOCKED_v1.md
+  recommended_action: 'ASF: align trustfield plan.json + re-dispatch (free verify
+    path).'
+- id: B-002
+  type: execution_blocker
+  severity: medium
+  title: Ingest pipeline failing
+  detail: 1 rejected YAML reply(s) — automation loop broken for those runs.
+  evidence:
+  - path: SinaPromptOS/outputs/inbox/rejected/
+  recommended_action: Fix agent YAML block; re-ingest.
+consolidation_actions:
+- id: C-001
+  type: consolidation
+  title: Multiple entry-point scripts
+  detail: 6 start scripts — new engineer confusion.
+  action: 'Canonical daily route: run-architect.sh → run-full-day.sh only; document
+    others as optional in README.'
+- id: C-002
+  type: consolidation
+  title: Duplicate doctrine — ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md
+  detail: Use ASF_FIVE_REPOS_PLUS_COMMAND_CHAT_v1.md only; archive ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md.
+  action: Move ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md to _archive/ when ASF approves
+    (phase 2 migration).
+- id: C-003
+  type: consolidation
+  title: Duplicate doctrine — SINAAI_AGENT_STACK_POLICY_v1.md
+  detail: Use SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md only; archive
+    SINAAI_AGENT_STACK_POLICY_v1.md.
+  action: Move SINAAI_AGENT_STACK_POLICY_v1.md to _archive/ when ASF approves (phase
+    2 migration).
+- id: C-004
+  type: consolidation
+  title: Duplicate doctrine — SINA_PROMPT_OS_CORE_v1.md
+  detail: Use README_SOURCE_A.md only; archive SINA_PROMPT_OS_CORE_v1.md.
+  action: Move SINA_PROMPT_OS_CORE_v1.md to _archive/ when ASF approves (phase 2 migration).
+- id: C-005
+  type: consolidation
+  title: Archive candidates at root
+  detail: 8 historical files still at SourceA root — cognitive load.
+  action: Batch move to _archive/ after symlink test (not a daily blocker).
+- id: C-006
+  type: consolidation
+  title: Registry lag (informational)
+  detail: 62 files not in registry §4 — documentation hygiene, not execution stop.
+  action: ASF append registry rows on Sunday; not a morning blocker.
+health:
+  overall: red
+  blocker_count: 2
+  summary: 2 execution blocker(s); 6 consolidation item(s). Ignore narrative/version/language
+    drift.
+meta:
+  read_only: true
+  wrote_files:
+  - /Users/sinakazemnezhad/Desktop/SourceA/ARCHITECT_REPORT.yaml
+  suppressed_noise:
+  - bare Phase N typos
+  - bulk unregistered registry (→ consolidation)
+  - narrative vs law
+  - Farsi vs English
+
+---
+schema_version: 2
+report_id: arch-2026-06-03T2342Z
+generated_at: '2026-06-03T23:42:09.362112+00:00'
+generator: sina-architect-agent
+generator_version: 0.2.0
+policy: SINAAI_ARCHITECT_V2_INDUSTRIAL_POLICY_LOCKED_v1.md
+operating_context:
+  gov_phase: GOV_PHASE_0
+  exec_phase: EXEC_PHASE_1
+  exec_phase_2_mode: BUILT_NOT_OPERATIONAL
+  objective: Reduce cognitive load — not document perfection
+mandatory_read_set:
+  files:
+  - SourceA/README_SOURCE_A.md
+  - SourceA/SINA_OS_SSOT_LOCKED.md
+  - SourceA/SINAAI_PROMPT_OS_CORE_FINAL_DECISION_LOCKED_v1.md
+  - SourceA/SINAAI_EXECUTION_TRUTH_LAYER_LOCKED_v1.md
+  - SourceA/SINAAI_PHASE1_STABILIZATION_ONLY_LOCKED_v1.md
+  rule: Read these only for orientation — then STOP
+  count: 5
+execution_route:
+  goal: New engineer operational in <30 minutes
+  steps:
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-architect.sh
+  - Read SourceA/ARCHITECT_REPORT.yaml — system_blockers only
+  - cd ~/Desktop/SinaPromptOS && ./scripts/run-full-day.sh
+  lanes: 5 product repos + Lane 0 (Sina OS chat)
+system_blockers:
+- id: B-001
+  type: execution_blocker
+  severity: critical
+  title: Active law collision — infra
+  detail: Ranked task 'postgres validation' conflicts with FOUNDER_NO_CREDIT_CARD
+    (no paid Postgres).
+  evidence:
+  - path: SourceA/GLOBAL_PRIORITY.json
+  - path: SourceA/FOUNDER_NO_CREDIT_CARD_INFRA_LOCKED_v1.md
+  recommended_action: 'ASF: align trustfield plan.json + re-dispatch (free verify
+    path).'
+- id: B-002
+  type: execution_blocker
+  severity: medium
+  title: Ingest pipeline failing
+  detail: 1 rejected YAML reply(s) — automation loop broken for those runs.
+  evidence:
+  - path: SinaPromptOS/outputs/inbox/rejected/
+  recommended_action: Fix agent YAML block; re-ingest.
+consolidation_actions:
+- id: C-001
+  type: consolidation
+  title: Multiple entry-point scripts
+  detail: 6 start scripts — new engineer confusion.
+  action: 'Canonical daily route: run-architect.sh → run-full-day.sh only; document
+    others as optional in README.'
+- id: C-002
+  type: consolidation
+  title: Duplicate doctrine — ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md
+  detail: Use ASF_FIVE_REPOS_PLUS_COMMAND_CHAT_v1.md only; archive ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md.
+  action: Move ASF_PARALLEL_SIX_REPOS_OVERRIDE_v1.md to _archive/ when ASF approves
+    (phase 2 migration).
+- id: C-003
+  type: consolidation
+  title: Duplicate doctrine — SINAAI_AGENT_STACK_POLICY_v1.md
+  detail: Use SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md only; archive
+    SINAAI_AGENT_STACK_POLICY_v1.md.
+  action: Move SINAAI_AGENT_STACK_POLICY_v1.md to _archive/ when ASF approves (phase
+    2 migration).
+- id: C-004
+  type: consolidation
+  title: Duplicate doctrine — SINA_PROMPT_OS_CORE_v1.md
+  detail: Use README_SOURCE_A.md only; archive SINA_PROMPT_OS_CORE_v1.md.
+  action: Move SINA_PROMPT_OS_CORE_v1.md to _archive/ when ASF approves (phase 2 migration).
+- id: C-005
+  type: consolidation
+  title: Archive candidates at root
+  detail: 8 historical files still at SourceA root — cognitive load.
+  action: Batch move to _archive/ after symlink test (not a daily blocker).
+- id: C-006
+  type: consolidation
+  title: Registry lag (informational)
+  detail: 62 files not in registry §4 — documentation hygiene, not execution stop.
+  action: ASF append registry rows on Sunday; not a morning blocker.
+health:
+  overall: red
+  blocker_count: 2
+  summary: 2 execution blocker(s); 6 consolidation item(s). Ignore narrative/version/language
+    drift.
+meta:
+  read_only: true
+  wrote_files:
+  - /Users/sinakazemnezhad/Desktop/SourceA/ARCHITECT_REPORT.yaml
+  suppressed_noise:
+  - bare Phase N typos
+  - bulk unregistered registry (→ consolidation)
+  - narrative vs law
+  - Farsi vs English

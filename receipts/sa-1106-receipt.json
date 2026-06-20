@@ -1,0 +1,11 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1106",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U037",
+  "title": "U037 fleet RRL dashboard",
+  "evidence": "rrl_fleet_glance_v1 NF/TF/SA de_rate",
+  "at": "2026-06-19T00:35:14Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

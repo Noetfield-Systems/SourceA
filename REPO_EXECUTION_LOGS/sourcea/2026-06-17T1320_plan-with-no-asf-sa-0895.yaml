@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0895 — Validate machines banner sibling-hub copy — not sub-page wording
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0895
+tests:
+  status: passed
+  output_snippet: validate-machines-banner-sibling-t3-crossref-v1.sh PASS · worker_verify_ultra PASS
+reported_at: '2026-06-17T13:20:46Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

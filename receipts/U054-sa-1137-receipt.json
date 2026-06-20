@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1137",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U054",
+  "title": "SEC 40-F extractor branch for US-listed Canadians",
+  "evidence": "filing_signal_fetch_v1.py RY\u219240-F \u00b7 validate-outbound-forbidden-sources PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:24:45Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

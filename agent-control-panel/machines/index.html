@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f1923" />
+  <title>Source A · Machine Hub (H2)</title>
+  <style>
+    :root { --bg:#0a1219; --card:#14202c; --text:#e8eef4; --muted:#8fa3b8; --gold:#d4a853; --ok:#3ecf8e; --warn:#f0a500; --bad:#f07178; --line:#243447; }
+    * { box-sizing: border-box; }
+    body { margin:0; font:15px/1.5 system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--text); }
+    .wrap { max-width:900px; margin:0 auto; padding:16px 16px 48px; }
+    .banner { background:#1a2433; border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin-bottom:12px; font-size:.9rem; }
+    .banner a { color:var(--gold); }
+    header { margin-bottom:16px; }
+    h1 { margin:0; font-size:1.4rem; }
+    .sub { color:var(--muted); font-size:.85rem; margin-top:4px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:12px; }
+    .card h2 { margin:0 0 10px; font-size:.85rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); }
+    table { width:100%; border-collapse:collapse; font-size:.88rem; }
+    th, td { text-align:left; padding:8px 6px; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--muted); font-weight:600; font-size:.75rem; text-transform:uppercase; }
+    .pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:.7rem; border:1px solid var(--line); }
+    .pill.high { color:var(--bad); border-color:var(--bad); }
+    .pill.ok { color:var(--ok); border-color:var(--ok); }
+    .alarm { font-family:ui-monospace,monospace; font-size:.82rem; padding:10px; background:#0f1923; border-radius:8px; margin:6px 0; }
+    .row { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    button, a.btn { border:1px solid var(--line); background:#1c2d3f; color:var(--text); padding:10px 14px; border-radius:8px; font:inherit; cursor:pointer; text-decoration:none; font-size:.9rem; }
+    button.primary { background:var(--gold); color:#1a1208; border-color:var(--gold); font-weight:600; }
+    #log { white-space:pre-wrap; font-family:ui-monospace,monospace; font-size:.78rem; color:var(--muted); margin:0; max-height:160px; overflow:auto; }
+    .empty { color:var(--muted); font-size:.9rem; }
+    .health-bar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:4px; }
+    .health-pill { font-size:.72rem; padding:3px 8px; border-radius:999px; border:1px solid var(--line); text-transform:uppercase; letter-spacing:.03em; }
+    .health-pill.fresh { color:var(--ok); border-color:var(--ok); }
+    .health-pill.aging { color:var(--warn); border-color:var(--warn); }
+    .health-pill.stale, .health-pill.critical { color:var(--bad); border-color:var(--bad); }
+    .live-tag { font-size:.7rem; color:var(--ok); }
+    .timing { font-size:.75rem; color:var(--muted); margin-top:6px; }
+    button:disabled { opacity:.5; cursor:wait; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="banner">
+      <strong>Machine Hub (H2)</strong> — sibling hub · own URL · heavy machines only (not a sub-page of H1).
+      Peer daily hub → <a href="/" target="_blank" rel="noopener">Super Fast Hub (H1)</a>
+    </div>
+    <header>
+      <h1>Heavy machines · pending registry</h1>
+      <p class="sub" id="meta-line">Loading…</p>
+    </header>
+
+    <section class="card" id="health-card">
+      <h2>Live health (H2 only)</h2>
+      <div class="health-bar">
+        <span id="health-pill" class="health-pill">…</span>
+        <span class="sub" id="health-age">—</span>
+        <span class="live-tag" id="live-tag">● live</span>
+      </div>
+      <p class="timing" id="load-timing">—</p>
+      <div class="row">
+        <button type="button" id="btn-heal" class="primary">Sync registry + heal</button>
+        <button type="button" id="btn-refresh">Light refresh</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Form · founder PICKs</h2>
+      <p id="form-line" class="alarm">—</p>
+    </section>
+
+    <section class="card">
+      <h2>Judge Center · Thread Room</h2>
+      <p class="alarm" id="judge-line">—</p>
+      <p class="alarm" id="thread-line">—</p>
+      <div class="row">
+        <button type="button" class="primary" id="btn-run-both">Weekly review (both)</button>
+        <button type="button" id="btn-run-judge">Run Judge</button>
+        <button type="button" id="btn-run-thread">Run Thread Room</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Next phase</h2>
+      <div id="next-phase">—</div>
+    </section>
+
+    <section class="card">
+      <h2>Ops blockers</h2>
+      <div id="ops-blocker">—</div>
+    </section>
+
+    <section class="card">
+      <h2>Deferred picks</h2>
+      <div id="deferred">—</div>
+    </section>
+
+    <section class="card">
+      <h2>Quarantine · bookmark law (H2 slice)</h2>
+      <p class="alarm" id="quarantine-line">—</p>
+      <p class="sub" id="quarantine-sub">—</p>
+    </section>
+
+    <section class="card">
+      <h2>Maintainer · ENFORCE gate (H2 slice)</h2>
+      <p class="alarm" id="enforce-line">—</p>
+      <p class="sub" id="enforce-sub">—</p>
+    </section>
+
+    <section class="card">
+      <h2>Executor SHIP queue</h2>
+      <div id="executor-ship">—</div>
+    </section>
+
+    <section class="card">
+      <h2>Action log</h2>
+      <pre id="log">Ready.</pre>
+    </section>
+  </div>
+  <script>
+  (function () {
+    "use strict";
+    const API = location.protocol.startsWith("http") ? "" : "http://127.0.0.1:13020";
+    const $ = (id) => document.getElementById(id);
+    const log = (m) => { $("log").textContent = m; };
+
+    function esc(s) {
+      return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function tableRows(rows, cols) {
+      if (!rows.length) return '<p class="empty">None</p>';
+      const head = cols.map((c) => "<th>" + esc(c.label) + "</th>").join("");
+      const body = rows.map((r) =>
+        "<tr>" + cols.map((c) => "<td>" + esc(typeof c.val === "function" ? c.val(r) : r[c.val]) + "</td>").join("") + "</tr>"
+      ).join("");
+      return "<table><thead><tr>" + head + "</tr></thead><tbody>" + body + "</tbody></table>";
+    }
+
+    let pollTimer = null;
+    let pollMs = 12000;
+    let healing = false;
+
+    function renderHealth(h) {
+      if (!h) return;
+      const pill = $("health-pill");
+      pill.textContent = h.status || "unknown";
+      pill.className = "health-pill " + (h.status || "");
+      const age = h.age_sec != null ? Math.round(h.age_sec) + "s old" : "age unknown";
+      $("health-age").textContent = age + (h.auto_heal_recommended ? " · sync recommended" : "");
+      pollMs = (h.poll_interval_sec || 12) * 1000;
+    }
+
+    function render(d) {
+      if (!d || !d.ok) return;
+      const fl = d.form_live || {};
+      renderHealth(d.health || {});
+      $("meta-line").textContent =
+        "Pending " + (d.pending_total || 0) + " · built " + (d.built_at || "").replace("T", " ").slice(0, 19);
+      $("form-line").textContent = fl.form_clear
+        ? "Form clear · 0 open PICKs"
+        : "OPEN " + (fl.open_questions_count || 0) + " — use M1 Canvas on Form";
+      const jc = (d.daily_rooms || {}).judge_center || {};
+      const tr = (d.daily_rooms || {}).thread_room || {};
+      $("judge-line").textContent = "Judge: " + (jc.headline || d.judge_alarm?.headline || "—");
+      $("thread-line").textContent = "Thread: " + (tr.headline || d.thread_room_spine?.headline || "—") +
+        " · drafts " + (d.thread_room_spine?.pending_draft_rows ?? "—");
+      const b = d.buckets || {};
+      $("next-phase").innerHTML = tableRows(b.next_phase || [], [
+        { label: "ID", val: "id" },
+        { label: "Title", val: "title" },
+        { label: "Owner", val: "owner" },
+      ]);
+      $("ops-blocker").innerHTML = tableRows(b.ops_blocker || [], [
+        { label: "ID", val: "id" },
+        { label: "Severity", val: (r) => r.severity || "" },
+        { label: "Action", val: "action" },
+      ]);
+      $("deferred").innerHTML = tableRows(b.deferred || [], [
+        { label: "ID", val: "id" },
+        { label: "PICK", val: "pick" },
+        { label: "Note", val: "note" },
+      ]);
+      const es = d.maintainer_enforce_slice || {};
+      $("enforce-line").textContent = es.display_line || "Gate mode unknown";
+      $("enforce-sub").textContent =
+        (es.shadow_note || "—") + " · mode " + String(es.gate_mode || "?").toUpperCase() +
+        " · packet " + (es.packet_readiness_pct != null ? es.packet_readiness_pct + "%" : "—");
+      const qs = d.quarantine_bookmark_slice || {};
+      $("quarantine-line").textContent = qs.display_line || "Quarantine bookmark unknown";
+      $("quarantine-sub").textContent =
+        "archive quarantined on disk · not on daily H1/H2 · cross_check " + (qs.cross_check_ok ? "ok" : "fail");
+      $("executor-ship").innerHTML = tableRows(b.maintainer_ship || [], [
+        { label: "ID", val: "id" },
+        { label: "Title", val: "title" },
+        { label: "Status", val: "status" },
+      ]);
+    }
+
+    async function load(opts) {
+      opts = opts || {};
+      const t0 = performance.now();
+      try {
+        const res = await fetch(API + "/api/machine-hub/v1", { cache: "no-store" });
+        const raw = await res.text();
+        const ms = Math.round(performance.now() - t0);
+        $("load-timing").textContent = "Loaded " + raw.length + " bytes in " + ms + "ms · poll " + (pollMs / 1000) + "s";
+        const d = JSON.parse(raw);
+        render(d);
+        if (!healing && (d.health || {}).auto_heal_recommended) {
+          runHeal("auto-stale");
+        }
+      } catch (e) {
+        log("Load failed: " + e.message);
+      }
+    }
+
+    async function runHeal(reason) {
+      if (healing) return;
+      healing = true;
+      $("btn-heal").disabled = true;
+      log("H2 heal (" + reason + ") — registry sync + H1 light heal…");
+      try {
+        const res = await fetch(API + "/api/worker-hub/heal", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ reason: reason }),
+        });
+        const j = await res.json();
+        log(
+          (j.ok ? "Heal OK" : "Heal partial") + " · H2 registry synced via worker-hub/heal\n" +
+          (j.steps || []).map(function (s) { return s.step + "=" + (s.ok ? "ok" : "fail"); }).join(" · ")
+        );
+        await load({ silent: true });
+      } catch (e) {
+        log("Heal error: " + e.message);
+      } finally {
+        healing = false;
+        $("btn-heal").disabled = false;
+      }
+    }
+
+    function schedulePoll() {
+      if (pollTimer) clearInterval(pollTimer);
+      pollTimer = setInterval(function () {
+        if (document.hidden) return;
+        load({ silent: true });
+      }, pollMs);
+    }
+
+    async function runRooms(room) {
+      log("Running " + room + "…");
+      try {
+        const res = await fetch(API + "/api/worker-hub/rooms/run", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ room: room }),
+        });
+        const j = await res.json();
+        log((j.ok ? "OK" : "Partial") + " · " + room);
+        await load();
+      } catch (e) {
+        log("Error: " + e.message);
+      }
+    }
+
+    $("btn-run-both").onclick = function () { runRooms("both"); };
+    $("btn-run-judge").onclick = function () { runRooms("judge"); };
+    $("btn-run-thread").onclick = function () { runRooms("thread"); };
+    $("btn-heal").onclick = function () { runHeal("founder-tap"); };
+    $("btn-refresh").onclick = async function () {
+      $("btn-refresh").disabled = true;
+      log("Light refresh…");
+      try {
+        const res = await fetch(API + "/refresh", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ mode: "light" }),
+        });
+        const j = await res.json();
+        log((j.ok ? "Light OK" : "Failed") + " · " + (j.built_at || "").slice(0, 19));
+        await load({ silent: true });
+      } catch (e) {
+        log("Refresh error: " + e.message);
+      } finally {
+        $("btn-refresh").disabled = false;
+      }
+    };
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden) load({ silent: true });
+    });
+    load().then(schedulePoll);
+  })();
+  </script>
+</body>
+</html>

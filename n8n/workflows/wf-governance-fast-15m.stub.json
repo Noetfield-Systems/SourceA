@@ -1,0 +1,37 @@
+{
+  "name": "wf-governance-fast-15m",
+  "meta": {
+    "schema": "sina-n8n-workflow-stub-v1",
+    "status": "wired",
+    "pick": "Q-GOV-FAST-WIRE-v1 A",
+    "receipt": "ASF_FORM_GOV_PICK_BATCH_2026-06-14_LOCKED_v1.md",
+    "law": "SINA_AUTOMATION_SPINE_AND_N8N_LOCKED_v1.md",
+    "cli": "governance_center_run_v1.py --tier fast",
+    "note": "Glue only — 15m fast governance center · no Cursor auto-send"
+  },
+  "nodes": [
+    {
+      "name": "Schedule 15m",
+      "type": "n8n-nodes-base.cron",
+      "parameters": { "rule": { "interval": [{ "field": "minutes", "minutesInterval": 15 }] } }
+    },
+    {
+      "name": "Governance fast center",
+      "type": "n8n-nodes-base.executeCommand",
+      "parameters": {
+        "command": "cd ~/Desktop/SourceA/scripts && python3 governance_center_run_v1.py --tier fast --json"
+      }
+    },
+    {
+      "name": "Agentic layer wire sync",
+      "type": "n8n-nodes-base.executeCommand",
+      "parameters": {
+        "command": "cd ~/Desktop/SourceA/scripts && python3 agentic_layer_pipeline_v2.py --json --tier fast"
+      }
+    }
+  ],
+  "connections": {
+    "Schedule 15m": { "main": [[{ "node": "Governance fast center", "type": "main", "index": 0 }]] },
+    "Governance fast center": { "main": [[{ "node": "Agentic layer wire sync", "type": "main", "index": 0 }]] }
+  }
+}

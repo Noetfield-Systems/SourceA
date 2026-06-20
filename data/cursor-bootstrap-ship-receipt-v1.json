@@ -1,0 +1,12 @@
+{
+  "schema": "cursor-bootstrap-ship-receipt-v1",
+  "saved_at": "2026-06-19T06:34:29Z",
+  "ok": true,
+  "validator": "scripts/validate-cursor-bootstrap-v1.sh",
+  "pack_doc": "docs/CURSOR_CORPORATE_BOOTSTRAP_PACK_LOCKED_v1.md",
+  "ledger": "data/cursor-bootstrap-ledger-v1.json",
+  "master": "data/cursor-corporate-bootstrap-master-v1.json",
+  "phase": "P0_scaffold",
+  "factories": ["video-ad-factory", "apple-store-api", "analytics-intelligence"],
+  "note": "Gemini Master Blueprint upgraded to SourceA-native — context index not mega-paste"
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "machine-three-pipelines-vocabulary-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-18T23:30:00Z",
+  "vocabulary_ssot": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+  "human_doc": "MACHINE_THREE_PIPELINES_CALIBRATE_TUNE_FORGE_LOCKED_v1.md",
+  "pipelines": {
+    "calibrate": {"tier": 1, "label": "calibrate", "founder_word": "calibrate"},
+    "tune": {"tier": 2, "label": "tune", "founder_word": "tune"},
+    "machine_prove": {
+      "tier": 3,
+      "label": "machine prove",
+      "founder_word": "forge",
+      "note": "Founder one-word forge runs machine_forge_pipeline_v1.py — NOT Forge product",
+      "script": "scripts/machine_forge_pipeline_v1.py",
+      "receipt": "~/.sina/machine-forge-receipt-v1.json"
+    }
+  },
+  "never_confuse_with": ["Forge product", "ICP compile", "Governed App Factory"]
+}

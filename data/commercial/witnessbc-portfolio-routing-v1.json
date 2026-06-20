@@ -1,0 +1,37 @@
+{
+  "schema": "witnessbc-portfolio-routing-v1",
+  "saved_at": "2026-06-19T07:15:00Z",
+  "status": "LOCKED",
+  "site": "witnessbc.com",
+  "identity_question": "How do we publish high-stakes updates with sourcing, corrections, and tamper-evident proof?",
+  "primary_paths": [
+    {"id": "W-P1", "name": "WBC-FLOW project", "buyer": "NGO, small newsroom, civic team", "price_cad": "2500-6000"},
+    {"id": "W-P2", "name": "WBC-OPS retainer", "price_cad_month": "1500-3500", "min_months": 3},
+    {"id": "W-P3", "name": "Toolkit ladder", "price": "9-99"},
+    {"id": "W-P5", "name": "Proof Lab / film", "demo": "interactive YES · publish ready", "film": "STYLE-B1 hero · BLOCK until Screen Studio"}
+  ],
+  "canada_rwa_fit": "tertiary",
+  "canada_hook": "Issuer communications correction discipline — not MSB/FINTRAC lead",
+  "handoffs": {
+    "governance_copilot": "Noetfield NF-RD",
+    "msb_program": "TrustField TF-001",
+    "proof_engine": "SourceA"
+  },
+  "anti_paths": [
+    "WitnessAI (witness.ai) conflation",
+    "Copilot/M365 hero on procurement calls",
+    "Automated pay-to-publish",
+    "Canada RWA cold email lead"
+  ],
+  "w30_plan": [
+    "W1: witnessbc-commercial-film-ship PASS",
+    "W2: Proof page interactive demo READY (STYLE-B1 film separate gate)",
+    "W3: 3 NGO/civic outreach targets",
+    "W4: Toolkit ladder paid bundle test"
+  ],
+  "implementation": {
+    "film_script": "witnessbc-commercial-film.sh",
+    "site_dist": "witnessbc-site/dist/",
+    "title_fix_note": "Ensure public HTML uses WitnessBC not Witness AI on publish"
+  }
+}

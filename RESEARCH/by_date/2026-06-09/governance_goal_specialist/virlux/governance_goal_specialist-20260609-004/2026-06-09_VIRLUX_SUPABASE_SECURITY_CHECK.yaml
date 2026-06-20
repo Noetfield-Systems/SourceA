@@ -1,0 +1,48 @@
+trace_id: governance_goal_specialist-20260609-004
+trace_family: governance_goal_specialist-20260609
+trace_type: security_incident_check
+trace_owner: governance_goal_specialist
+trace_author: governance_goal_specialist
+trace_created: 2026-06-09
+execution_authority: false
+
+alert_source: Supabase email 2026-06-08
+project: virlux-staging
+project_ref: bueoakgiisvufxfbdvoa
+
+live_mcp_check:
+  rls_enabled_all_13_tables: true
+  rls_policies_per_table: 0
+  migration_on_disk: VIRLUX/apps/api/prisma/migrations/20250608000000_enable_rls/migration.sql
+  supabase_security_advisor_now: INFO rls_enabled_no_policy (not CRITICAL rls_disabled)
+  anon_authenticated_grants: SELECT INSERT UPDATE DELETE on all public tables
+  app_uses_supabase_js_client: false — Prisma API path only
+
+email_verdict:
+  jun_8_critical_rls_disabled: LIKELY_VALID_AT_SEND_TIME
+  current_state_2026_06_09: PARTIALLY_REMEDIATED — RLS enabled deny-by-default with zero policies
+  sensitive_columns_still_present:
+    - User.passwordHash
+    - RefreshToken.tokenHash
+    - KycSubmission.documentNumber
+    - Partner.webhookSecret
+    - TeamInvite.token
+  live_row_counts_sensitive: User 2, RefreshToken 194, KycSubmission 1
+
+severity_now:
+  critical_public_read_write: DOWNGRADED if RLS migration applied and verified
+  residual_p1:
+    - revoke anon authenticated table grants belt and suspenders
+    - rotate anon publishable keys if any pre-RLS exposure window
+    - add explicit deny policies or document intentional zero-policy block
+    - virlux worker hardening migration + post-deploy verify
+
+governance_constraints:
+  tier3_secrets_only: API keys never Tier 1 git
+  portfolio_lane: VIRLUX worker Brain routes sa-XXXX — not SourceA spine
+  founder_action: Supabase dashboard Security Advisors refresh + Hub card if exists
+
+research_save:
+  trace_id: governance_goal_specialist-20260609-004
+  worker_id: governance_goal_specialist
+  subject: virlux

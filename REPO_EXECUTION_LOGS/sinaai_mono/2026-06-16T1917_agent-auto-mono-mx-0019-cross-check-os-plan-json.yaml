@@ -1,0 +1,22 @@
+schema_version: 1
+repo: sinaai_mono
+task: AGENT-AUTO-MONO mx-0019 — Cross-check os/plan.json last_verify matches full-e2e
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - os/plan.json
+  - reports/agent-auto/AUDIT-LOG/agent-auto-mono-2026-06-16-mx-0019-pass.md
+  diff_summary: ''
+  note: 'ASF: PLAN WITH NO ASF mx-0020'
+tests:
+  status: passed
+  command: bash scripts/full-e2e-mono.sh --skip-restart
+  output_snippet: E2E failed=0; demo surface PASS; stack consolidation PASS; last_verify
+    synced mx-0019
+real_output: E2E failed=0; demo surface PASS; stack consolidation PASS; last_verify
+  synced mx-0019
+reported_at: '2026-06-16T19:17:56Z'
+reporter: cursor-auto-mono
+execution_id: ''

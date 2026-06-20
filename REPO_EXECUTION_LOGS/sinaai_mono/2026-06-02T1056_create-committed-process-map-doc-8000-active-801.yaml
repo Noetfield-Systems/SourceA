@@ -1,0 +1,22 @@
+schema_version: 1
+repo: sinaai_mono
+task: 'Create committed process map doc: :8000 active, :8010/:8020 frozen'
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - SinaaiDataBase/governance/EXECUTION_PROCESS_MAP_LOCKED.md
+  - SinaaiDataBase/governance/system_registry.json
+  - os/plan.json
+  diff_summary: ''
+  note: ''
+tests:
+  status: passed
+  command: bash scripts/validate-sina-registry.sh && curl -sf http://127.0.0.1:8000/health
+    && python3 SinaaiRuntime/scripts/e2e_verify.py
+  output_snippet: registry OK; health ok; E2E failed=0 orphan_git=False; commit dbdddf8
+real_output: registry OK; health ok; E2E failed=0 orphan_git=False; commit dbdddf8
+reported_at: '2026-06-02T10:56:27Z'
+reporter: cursor
+execution_id: ''

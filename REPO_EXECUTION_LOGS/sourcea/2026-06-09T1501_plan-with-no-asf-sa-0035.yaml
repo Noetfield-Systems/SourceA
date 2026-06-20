@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0035 — Cross-check STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md vs /api/strategic-synthesis-v1
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0035
+tests:
+  status: passed
+  output_snippet: sa-0035 VERIFY CLOSEOUT: strategic synthesis API doc alignment wired; Valid YES 103/1000.
+reported_at: '2026-06-09T15:01:39Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

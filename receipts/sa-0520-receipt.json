@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0520",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 validate-gtm-moat-governance-scoreboard-v1 \u00b7 reference arch moat \u2194 scoreboard law aligned",
+  "at": "2026-06-14T13:17:03Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

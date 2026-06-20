@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0317 — Ensure 6 essay nudges visible until lanes post governance-drift essays
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0317
+tests:
+  status: passed
+  output_snippet: validate-essay-nudge-banner-v1 · slice(0,6) up to 6 nudges visible Today+Council
+reported_at: '2026-06-07T02:59:31Z'
+reporter: cursor-worker-batch

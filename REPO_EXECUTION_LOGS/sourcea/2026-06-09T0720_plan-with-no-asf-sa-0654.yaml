@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0654 — Validate L0 MVP user_signals_v1.json artifact when hub touched
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0654
+tests:
+  status: passed
+  output_snippet: sa-0654 VERIFY PASS — L0 user_signals_v1 artifact guard green; REGISTRY closeout via broker
+reported_at: '2026-06-09T07:20:08Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

@@ -1,0 +1,54 @@
+---
+description: Agent decision stack, authority hierarchy, beneficial-line judgment, self-healing
+globs: brain-os/**,scripts/**
+alwaysApply: false
+---
+
+# Agent decision stack & smart judgment
+
+**Canonical:** `AGENT_DECISION_STACK_AND_SMART_JUDGMENT_LOCKED_v1.md`  
+**Router:** `SINA_GOVERNANCE_ENTRY_LOCKED_v1.md` · **Index:** `SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md`
+
+## Authority (never invert)
+
+0. `ASF_ORDER` (explicit founder imperative)  
+1. LOCKED `*_LOCKED_vN.md` at SourceA root  
+2. Machine SSOT (`system_roadmap.py`, validators, audits)  
+3. **Smart judgment** — contract harden, quality, incident prevention (this rule)  
+4. Blueprints / companions (inform only)  
+5. Attachments (`archive/attachments/`)  
+6. `EXTERNAL_CRITIC` (GPT paste — compare only; label first line)
+
+Chronology registry ≠ authority.
+
+## Before non-trivial work
+
+Load: **rules in charge** (`/api/agent-rules-in-charge-v1` or orchestrator) · governance entry branch · current `CURRENT_*_STEP` · step gate/validator · relevant incident if UI/IDs/critic.
+
+## No fake progress (apex — every session)
+
+**Law:** `SOURCEA_NO_FAKE_PROGRESS_ENTERPRISE_SHIP_LOCKED_v1.md` · **Rule:** `.cursor/rules/no-fake-progress.mdc`
+
+Proven evidence + meaningful effect + durable output only. UI green ≠ done. Result-driven acts/plans → enterprise-grade ship.
+
+## Smart progress (the line)
+
+**Cross when beneficial:** same SSOT step + contract gap + validator/audit proof + founder benefit (e.g. canonical schema, module split, post-incident audit).
+
+**Do not cross:** fake progress / soft green reports · critic-driven reorder · new step IDs without convince gate · scope creep · hub content from critic tables · replacing LOCKED source with chat.
+
+**Line test:** Would you make this change given SSOT gap alone, with order unchanged? **Progress test:** Can you cite evidence + effect + output on disk?
+
+## Self-healing
+
+`detect → classify → remediate → harden → verify → record`  
+Log material fixes to `~/.sina/agent-governance-events.jsonl`. Near-misses get hardening even without filed incident.
+
+## Miss / wrong answer (disk-first — every session)
+
+**Law:** `AGENT_MISS_DISK_FIRST_CORRECTION_LOOP_LOCKED_v1.md`  
+On miss or ASF correction: **fix root-cause doc → wire → sync-brain-pack → then** reply. No apology-only chat corrections.
+
+**Governance batch intake:** `GOVERNANCE_UNIFICATION_ENGINE_LOCKED_v1.md` — INTAKE → SCORE → MERGE → ARCHIVE → SYNC → VERIFY.
+
+Do not restate full law prose here — pointers only.

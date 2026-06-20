@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0795 — Document ASF assigns subject law — founder role not verify role
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0795
+tests:
+  status: passed
+  output_snippet: sa-0795 VERIFY DONE — ASF founder vs machine verify crosswalk; essay assign/mark best vs auto_pass; dispatch+fleet+spine+fcb PASS; receipt+REGISTRY closed.
+reported_at: '2026-06-11T19:26:27Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

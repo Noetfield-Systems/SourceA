@@ -1,0 +1,51 @@
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <p class="section-eyebrow">Governance loop</p>
+        <h1>The agentic governance loop — every gate, every receipt</h1>
+        <p class="section-lead">Six gates from intake to proof — each emits a machine receipt code your audit team can replay.</p>
+      </div>
+    </section>
+
+    <section class="lifecycle" id="lifecycle">
+      <div class="container">
+        <div class="loop-stepper" id="loopStepper" role="tablist" aria-label="Governance loop steps">
+          <button type="button" class="loop-step active" data-step="0" role="tab" aria-selected="true">
+            <div class="loop-step-track"><span class="loop-step-num">01</span><span class="loop-step-line"></span></div>
+            <div class="loop-step-label">Intake</div>
+            <div class="loop-step-code">wbc.intake.received</div>
+          </button>
+          <button type="button" class="loop-step" data-step="1" role="tab" aria-selected="false">
+            <div class="loop-step-track"><span class="loop-step-num">02</span><span class="loop-step-line"></span></div>
+            <div class="loop-step-label">Policy eval</div>
+            <div class="loop-step-code">wbc.triage.complete</div>
+          </button>
+          <button type="button" class="loop-step" data-step="2" role="tab" aria-selected="false">
+            <div class="loop-step-track"><span class="loop-step-num">03</span><span class="loop-step-line"></span></div>
+            <div class="loop-step-label">Human gate</div>
+            <div class="loop-step-code">wbc.review.approved</div>
+          </button>
+          <button type="button" class="loop-step" data-step="3" role="tab" aria-selected="false">
+            <div class="loop-step-track"><span class="loop-step-num">04</span><span class="loop-step-line"></span></div>
+            <div class="loop-step-label">Execute</div>
+            <div class="loop-step-code">wbc.publish.sent</div>
+          </button>
+          <button type="button" class="loop-step" data-step="4" role="tab" aria-selected="false">
+            <div class="loop-step-track"><span class="loop-step-num">05</span><span class="loop-step-line"></span></div>
+            <div class="loop-step-label">Audit</div>
+            <div class="loop-step-code">wbc.correction.logged</div>
+          </button>
+          <button type="button" class="loop-step" data-step="5" role="tab" aria-selected="false">
+            <div class="loop-step-track"><span class="loop-step-num">06</span><span class="loop-step-line"></span></div>
+            <div class="loop-step-label">Prove</div>
+            <div class="loop-step-code">replay → tamper-FAIL</div>
+          </button>
+        </div>
+        <div class="loop-detail" id="loopDetail">
+          <h3>Intake</h3>
+          <p>Agent action arrives · classify scope · initial policy scan.</p>
+          <code>wbc.intake.received</code>
+        </div>
+      </div>
+    </section>
+  </main>

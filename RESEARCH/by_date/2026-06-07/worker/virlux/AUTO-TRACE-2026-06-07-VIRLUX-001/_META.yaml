@@ -1,0 +1,11 @@
+trace_id: AUTO-TRACE-2026-06-07-VIRLUX-001
+worker_id: worker
+subject: virlux
+subject_label: VIRLUX
+thread: THREAD-PORTFOLIO
+date: '2026-06-07'
+source_path: /Users/sinakazemnezhad/Desktop/VIRLUX/os/agents/auto-virlux-delivery/research/AUTO-TRACE-2026-06-07-VIRLUX-001.md
+archive_path: by_date/2026-06-07/worker/virlux/AUTO-TRACE-2026-06-07-VIRLUX-001/AUTO-TRACE-2026-06-07-VIRLUX-001.md
+execution_authority: false
+enforcer: research_save_enforcer.py
+law: RESEARCH_INTAKE_AND_SAVE_LOCK_LOCKED_v1.md

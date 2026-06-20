@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0042 — Sync FEEDBACK_AGGREGATE execution truth with hub built_at
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0042
+tests:
+  status: passed
+  output_snippet: sa-0042 VERIFY closeout: FEEDBACK_AGGREGATE hub_built_at synced with hub shell built_at.
+reported_at: '2026-06-09T15:30:04Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

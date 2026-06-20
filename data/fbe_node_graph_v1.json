@@ -1,0 +1,1792 @@
+{
+  "schema": "fbe-node-graph-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-17T13:12:42Z",
+  "charter": "docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
+  "bundle": "data/fbe_factory_builder_bundle_v1.json",
+  "epic": "E12",
+  "line_node_count": 76,
+  "graph_total_nodes": 80,
+  "counts": {
+    "refinery": 36,
+    "assembly": 22,
+    "motor": 18,
+    "meta": 4
+  },
+  "sources": {
+    "creed_mesh": "/Users/sinakazemnezhad/Desktop/YA5/PLUS ONE/CREED/.cursor/governance/FACTORY_MESH.json",
+    "church_graph": "/Users/sinakazemnezhad/Desktop/YA5/PLUS ONE/CHURCH/.cursor/governance/NODE_GRAPH.json",
+    "creed_mesh_hash": "8cc385d94672cf84",
+    "church_graph_hash": "02c1b7c159b2482c"
+  },
+  "receipt": "~/.sina/fbe-pipeline-node-graph-receipt-v1.json",
+  "parallel_groups": [
+    {
+      "id": "F0_meta_fanout",
+      "tier": "F0_meta",
+      "parallel": false,
+      "nodes": [
+        "fbe_compiler_v1",
+        "fbe_spawn_v1",
+        "fbe_run_job_v1",
+        "fbe_hub_projection_v1"
+      ]
+    },
+    {
+      "id": "T0_motor_safety_fanout",
+      "tier": "T0_motor_safety",
+      "parallel": true,
+      "nodes": [
+        "fbe_motor_sascip_v1",
+        "fbe_motor_tenant_isolation_v1",
+        "fbe_motor_pre_write_v1",
+        "fbe_motor_session_gate_v1"
+      ]
+    },
+    {
+      "id": "T1_motor_truth_fanout",
+      "tier": "T1_motor_truth",
+      "parallel": true,
+      "nodes": [
+        "fbe_motor_zero_drift_v1",
+        "fbe_motor_vocabulary_v1",
+        "fbe_motor_disk_live_wire_v1",
+        "fbe_motor_registry_sync_v1"
+      ]
+    },
+    {
+      "id": "T2_refinery_prove_fanout",
+      "tier": "T2_refinery_prove",
+      "parallel": true,
+      "nodes": [
+        "fbe_refinery_factory-route-audit-v1",
+        "fbe_refinery_factory-clone-parity-v1",
+        "fbe_refinery_factory-verify-v1"
+      ]
+    },
+    {
+      "id": "T4_assembly_market_fanout",
+      "tier": "T4_assembly_market",
+      "parallel": true,
+      "nodes": [
+        "fbe_assembly_church-orient-v1",
+        "fbe_assembly_church-architect-v1",
+        "fbe_assembly_church-boundary-v1",
+        "fbe_assembly_church-rules-v1",
+        "fbe_assembly_church-definition-v1",
+        "fbe_assembly_church-neutrality-v1",
+        "fbe_assembly_church-isolation-v1",
+        "fbe_assembly_church-policy-v1",
+        "fbe_assembly_church-dealer-letter-v1",
+        "fbe_assembly_church-verify-v1",
+        "fbe_assembly_church-intake-v1",
+        "fbe_assembly_church-market-fidelity-v1"
+      ]
+    },
+    {
+      "id": "T5_federate_fanout",
+      "tier": "T5_federate",
+      "parallel": false,
+      "nodes": [
+        "fbe_motor_receipt_federate_v1",
+        "fbe_motor_verify_v1",
+        "fbe_motor_conduct_v1"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "fbe_refinery_creed-orient-v1",
+      "to": "fbe_refinery_factory-docsync-v1",
+      "kind": "trigger"
+    },
+    {
+      "from": "fbe_refinery_factory-docsync-v1",
+      "to": "fbe_refinery_factory-mirror-v1",
+      "kind": "wire"
+    },
+    {
+      "from": "fbe_refinery_factory-mirror-v1",
+      "to": "fbe_refinery_factory-route-audit-v1",
+      "kind": "wire"
+    },
+    {
+      "from": "fbe_refinery_factory-route-audit-v1",
+      "to": "fbe_refinery_factory-clone-parity-v1",
+      "kind": "wire"
+    },
+    {
+      "from": "fbe_refinery_factory-clone-parity-v1",
+      "to": "fbe_refinery_factory-verify-v1",
+      "kind": "wire"
+    },
+    {
+      "from": "fbe_refinery_factory-verify-v1",
+      "to": "fbe_refinery_factory-brand-v1",
+      "kind": "gate"
+    },
+    {
+      "from": "fbe_refinery_factory-brand-v1",
+      "to": "fbe_refinery_factory-brand-visual-prove-v1",
+      "kind": "gate"
+    },
+    {
+      "from": "fbe_refinery_factory-brand-visual-prove-v1",
+      "to": "fbe_refinery_factory-product-delivery-v1",
+      "kind": "gate"
+    },
+    {
+      "from": "fbe_refinery_factory-product-delivery-v1",
+      "to": "fbe_refinery_factory-locale-prove-v1",
+      "kind": "wire"
+    },
+    {
+      "from": "fbe_refinery_factory-locale-prove-v1",
+      "to": "fbe_refinery_factory-human-readable-v1",
+      "kind": "wire"
+    },
+    {
+      "from": "fbe_refinery_factory-human-readable-v1",
+      "to": "fbe_refinery_factory-founder-language-v1",
+      "kind": "wire"
+    },
+    {
+      "from": "fbe_refinery_factory-founder-language-v1",
+      "to": "fbe_refinery_factory-commercial-language-v1",
+      "kind": "wire"
+    },
+    {
+      "from": "fbe_refinery_factory-commercial-language-v1",
+      "to": "fbe_refinery_factory-voice-roundtrip-v1",
+      "kind": "wire"
+    },
+    {
+      "from": "fbe_refinery_factory-voice-roundtrip-v1",
+      "to": "fbe_refinery_factory-critic-v1",
+      "kind": "wire"
+    },
+    {
+      "from": "fbe_refinery_factory-critic-v1",
+      "to": "fbe_refinery_factory-heal-v1",
+      "kind": "recover"
+    },
+    {
+      "from": "fbe_refinery_factory-heal-v1",
+      "to": "fbe_refinery_factory-comply-v1",
+      "kind": "wire"
+    },
+    {
+      "from": "fbe_refinery_factory-comply-v1",
+      "to": "fbe_refinery_creed-session-v1",
+      "kind": "gate"
+    },
+    {
+      "from": "fbe_compiler_v1",
+      "to": "fbe_motor_session_gate_v1",
+      "kind": "trigger"
+    },
+    {
+      "from": "fbe_motor_session_gate_v1",
+      "to": "fbe_refinery_creed-orient-v1",
+      "kind": "gate"
+    },
+    {
+      "from": "fbe_refinery_creed-session-v1",
+      "to": "fbe_assembly_church-intake-v1",
+      "kind": "gate"
+    },
+    {
+      "from": "fbe_assembly_church-verify-v1",
+      "to": "fbe_motor_receipt_federate_v1",
+      "kind": "wire"
+    },
+    {
+      "from": "fbe_spawn_v1",
+      "to": "fbe_compiler_v1",
+      "kind": "orchestrate"
+    },
+    {
+      "from": "fbe_run_job_v1",
+      "to": "fbe_spawn_v1",
+      "kind": "orchestrate"
+    },
+    {
+      "from": "fbe_hub_projection_v1",
+      "to": "fbe_motor_registry_sync_v1",
+      "kind": "surface"
+    }
+  ],
+  "tiers": [
+    {
+      "id": "F0_meta",
+      "parallel": false,
+      "budget_sec": 30,
+      "nodes": [
+        {
+          "id": "fbe_compiler_v1",
+          "label": "FBE template compiler",
+          "line": "meta",
+          "cmd": [
+            "python3",
+            "scripts/fbe_compile_node_graph_v1.py",
+            "--json"
+          ],
+          "required": true,
+          "plane": "INTERNAL",
+          "status": "active"
+        },
+        {
+          "id": "fbe_spawn_v1",
+          "label": "FBE factory spawn",
+          "line": "meta",
+          "cmd": [
+            "python3",
+            "scripts/fbe_spawn_factory_v1.py",
+            "--json"
+          ],
+          "receipt": "~/.sina/fbe-factory-registry-v1.json",
+          "required": true,
+          "plane": "INTERNAL",
+          "status": "active"
+        },
+        {
+          "id": "fbe_run_job_v1",
+          "label": "FBE full job orchestrator",
+          "line": "meta",
+          "cmd": [
+            "python3",
+            "scripts/fbe_run_job_v1.py",
+            "--json"
+          ],
+          "receipt": "~/.sina/fbe-run-job-receipt-v1.json",
+          "required": false,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_hub_projection_v1",
+          "label": "FBE hub projection",
+          "line": "meta",
+          "cmd": [
+            "python3",
+            "scripts/fbe_hub_projection_v1.py",
+            "--json"
+          ],
+          "required": false,
+          "plane": "HUB_API",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "T0_motor_safety",
+      "parallel": true,
+      "budget_sec": 30,
+      "nodes": [
+        {
+          "id": "fbe_motor_sascip_v1",
+          "label": "SASCIP live wire",
+          "line": "motor",
+          "source_id": "sascip_v1",
+          "layer": "L1",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/stranger_agent_safety_live_wire_v1.py",
+            "--role",
+            "any",
+            "--tier",
+            "session",
+            "--agent",
+            "cursor",
+            "--json"
+          ],
+          "required": true,
+          "plane": "INTERNAL",
+          "status": "active",
+          "receipt": "~/.sina/stranger-agent-safety-live-wire-v1.json"
+        },
+        {
+          "id": "fbe_motor_tenant_isolation_v1",
+          "label": "Tenant isolation",
+          "line": "motor",
+          "source_id": "tenant_isolation_v1",
+          "layer": "GOV",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe_check_tenant_isolation_v1.py",
+            "--json"
+          ],
+          "required": true,
+          "plane": "INTERNAL",
+          "status": "active",
+          "receipt": "receipts/tenant-isolation-v1.json"
+        },
+        {
+          "id": "fbe_motor_pre_write_v1",
+          "label": "Pre-write guard",
+          "line": "motor",
+          "source_id": "pre_write_v1",
+          "layer": "GOV",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/pre_write_guard_v1.py",
+            "check",
+            "--agent",
+            "cursor",
+            "--path",
+            "data/fbe_node_graph_v1.json",
+            "--json"
+          ],
+          "required": true,
+          "plane": "INTERNAL",
+          "status": "active",
+          "receipt": "receipts/pre-write-v1.json"
+        },
+        {
+          "id": "fbe_motor_session_gate_v1",
+          "label": "Session gate delegate",
+          "line": "motor",
+          "source_id": "session_gate_v1",
+          "layer": "L1",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/agent_session_gate_run_v1.py",
+            "--role",
+            "any",
+            "--json"
+          ],
+          "required": true,
+          "plane": "INTERNAL",
+          "status": "active",
+          "receipt": "~/.sina/agent-session-gate-receipt-v1.json"
+        }
+      ]
+    },
+    {
+      "id": "T1_motor_truth",
+      "parallel": true,
+      "budget_sec": 60,
+      "nodes": [
+        {
+          "id": "fbe_motor_zero_drift_v1",
+          "label": "Zero-drift wire",
+          "line": "motor",
+          "source_id": "zero_drift_v1",
+          "layer": "L1",
+          "kind": "wire",
+          "cmd": [
+            "python3",
+            "scripts/governance_zero_drift_live_wire_v1.py",
+            "--role",
+            "any",
+            "--tier",
+            "session",
+            "--json"
+          ],
+          "required": true,
+          "plane": "INTERNAL",
+          "status": "active",
+          "receipt": "~/.sina/governance-zero-drift-live-wire-v1.json"
+        },
+        {
+          "id": "fbe_motor_vocabulary_v1",
+          "label": "Vocabulary gate",
+          "line": "motor",
+          "source_id": "vocabulary_v1",
+          "layer": "L1",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/vocabulary_guard_v1.py",
+            "--json"
+          ],
+          "required": true,
+          "plane": "INTERNAL",
+          "status": "active",
+          "receipt": "~/.sina/vocabulary-guard-v1.json"
+        },
+        {
+          "id": "fbe_motor_disk_live_wire_v1",
+          "label": "Disk live wire sync",
+          "line": "motor",
+          "source_id": "disk_live_wire_v1",
+          "layer": "L1",
+          "kind": "wire",
+          "cmd": [
+            "python3",
+            "scripts/disk_live_wire_sync_v1.py",
+            "--json"
+          ],
+          "required": true,
+          "plane": "INTERNAL",
+          "status": "active",
+          "receipt": "~/.sina/disk-live-wire-receipt-v1.json"
+        },
+        {
+          "id": "fbe_motor_registry_sync_v1",
+          "label": "Motor registry sync",
+          "line": "motor",
+          "source_id": "registry_sync_v1",
+          "layer": "L1",
+          "kind": "wire",
+          "cmd": [
+            "python3",
+            "scripts/fbe_motor_registry_sync_v1.py",
+            "--json"
+          ],
+          "required": true,
+          "plane": "INTERNAL",
+          "status": "active",
+          "receipt": "~/.sina/fbe-motor-registry-v1.json"
+        }
+      ]
+    },
+    {
+      "id": "T2_refinery_prove",
+      "parallel": true,
+      "budget_sec": 120,
+      "nodes": [
+        {
+          "id": "fbe_refinery_factory-route-audit-v1",
+          "label": "prove \u00b7 factory-route-audit-v1",
+          "line": "refinery",
+          "source_id": "factory-route-audit-v1",
+          "layer": "L05",
+          "kind": "prove",
+          "cmd": [
+            "python3",
+            "scripts/fbe/refinery/fbe_refinery_route_audit_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-clone-parity-v1",
+          "label": "prove \u00b7 factory-clone-parity-v1",
+          "line": "refinery",
+          "source_id": "factory-clone-parity-v1",
+          "layer": "L05",
+          "kind": "prove",
+          "cmd": [
+            "python3",
+            "scripts/fbe/refinery/fbe_refinery_clone_parity_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-verify-v1",
+          "label": "prove \u00b7 factory-verify-v1",
+          "line": "refinery",
+          "source_id": "factory-verify-v1",
+          "layer": "L05",
+          "kind": "prove",
+          "cmd": [
+            "python3",
+            "scripts/fbe/refinery/fbe_refinery_verify_job_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "T3_refinery_brand",
+      "parallel": false,
+      "budget_sec": 180,
+      "nodes": [
+        {
+          "id": "fbe_refinery_factory-brand-visual-prove-v1",
+          "label": "disbrand \u00b7 factory-brand-visual-prove-v1",
+          "line": "refinery",
+          "source_id": "factory-brand-visual-prove-v1",
+          "layer": "L3",
+          "kind": "disbrand",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-brand-visual-prove-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-product-delivery-v1",
+          "label": "delivery \u00b7 factory-product-delivery-v1",
+          "line": "refinery",
+          "source_id": "factory-product-delivery-v1",
+          "layer": "L3",
+          "kind": "delivery",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-product-delivery-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "T4_assembly_market",
+      "parallel": true,
+      "budget_sec": 90,
+      "nodes": [
+        {
+          "id": "fbe_assembly_church-orient-v1",
+          "label": "church-orient-v1",
+          "line": "assembly",
+          "source_id": "church-orient-v1",
+          "layer": "L0",
+          "kind": "wire",
+          "cmd": [
+            "python3",
+            "scripts/fbe/assembly/fbe_assembly_orient_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "wired"
+        },
+        {
+          "id": "fbe_assembly_church-architect-v1",
+          "label": "church-architect-v1",
+          "line": "assembly",
+          "source_id": "church-architect-v1",
+          "layer": "L0",
+          "kind": "wire",
+          "cmd": [
+            "python3",
+            "scripts/fbe/assembly/fbe_assembly_architect_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "wired"
+        },
+        {
+          "id": "fbe_assembly_church-boundary-v1",
+          "label": "church-boundary-v1",
+          "line": "assembly",
+          "source_id": "church-boundary-v1",
+          "layer": "GOV",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/assembly/fbe_assembly_boundary_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "wired"
+        },
+        {
+          "id": "fbe_assembly_church-rules-v1",
+          "label": "church-rules-v1",
+          "line": "assembly",
+          "source_id": "church-rules-v1",
+          "layer": "GOV",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/assembly/fbe_assembly_rules_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "wired"
+        },
+        {
+          "id": "fbe_assembly_church-definition-v1",
+          "label": "church-definition-v1",
+          "line": "assembly",
+          "source_id": "church-definition-v1",
+          "layer": "GOV",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/assembly/fbe_assembly_definition_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "wired"
+        },
+        {
+          "id": "fbe_assembly_church-neutrality-v1",
+          "label": "church-neutrality-v1",
+          "line": "assembly",
+          "source_id": "church-neutrality-v1",
+          "layer": "GOV",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/assembly/fbe_assembly_neutrality_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "wired"
+        },
+        {
+          "id": "fbe_assembly_church-isolation-v1",
+          "label": "church-isolation-v1",
+          "line": "assembly",
+          "source_id": "church-isolation-v1",
+          "layer": "GOV",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/assembly/fbe_assembly_isolation_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "wired"
+        },
+        {
+          "id": "fbe_assembly_church-policy-v1",
+          "label": "church-policy-v1",
+          "line": "assembly",
+          "source_id": "church-policy-v1",
+          "layer": "GOV",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/assembly/fbe_assembly_policy_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "wired"
+        },
+        {
+          "id": "fbe_assembly_church-dealer-letter-v1",
+          "label": "church-dealer-letter-v1",
+          "line": "assembly",
+          "source_id": "church-dealer-letter-v1",
+          "layer": "GOV",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/assembly/fbe_assembly_dealer_letter_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "wired"
+        },
+        {
+          "id": "fbe_assembly_church-verify-v1",
+          "label": "church-verify-v1",
+          "line": "assembly",
+          "source_id": "church-verify-v1",
+          "layer": "GOV",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/assembly/fbe_assembly_verify_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "wired"
+        },
+        {
+          "id": "fbe_assembly_church-intake-v1",
+          "label": "church-intake-v1",
+          "line": "assembly",
+          "source_id": "church-intake-v1",
+          "layer": "L2",
+          "kind": "wire",
+          "cmd": [
+            "python3",
+            "scripts/fbe/assembly/fbe_assembly_intake_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "wired"
+        },
+        {
+          "id": "fbe_assembly_church-market-fidelity-v1",
+          "label": "church-market-fidelity-v1",
+          "line": "assembly",
+          "source_id": "church-market-fidelity-v1",
+          "layer": "L05",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/assembly/fbe_assembly_market_fidelity_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "wired"
+        }
+      ]
+    },
+    {
+      "id": "T5_federate",
+      "parallel": false,
+      "budget_sec": 30,
+      "nodes": [
+        {
+          "id": "fbe_motor_receipt_federate_v1",
+          "label": "Receipt federation",
+          "line": "motor",
+          "source_id": "receipt_federate_v1",
+          "layer": "L1",
+          "kind": "wire",
+          "cmd": [
+            "python3",
+            "scripts/fbe_receipt_federate_v1.py",
+            "--json"
+          ],
+          "required": true,
+          "plane": "INTERNAL",
+          "status": "active",
+          "receipt": "receipts/federated-run-v1.json"
+        },
+        {
+          "id": "fbe_motor_verify_v1",
+          "label": "Motor plant prove",
+          "line": "motor",
+          "source_id": "verify_v1",
+          "layer": "L1",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe_verify_motor_v1.py",
+            "--json"
+          ],
+          "required": true,
+          "plane": "INTERNAL",
+          "status": "active",
+          "receipt": "receipts/motor-verify-v1.json"
+        },
+        {
+          "id": "fbe_motor_conduct_v1",
+          "label": "Pre-ship conduct",
+          "line": "motor",
+          "source_id": "conduct_v1",
+          "layer": "L1",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe_motor_conduct_v1.py",
+            "--json"
+          ],
+          "required": true,
+          "plane": "INTERNAL",
+          "status": "active",
+          "receipt": "receipts/motor-conduct-v1.json"
+        }
+      ]
+    },
+    {
+      "id": "T1_motor_extra",
+      "parallel": true,
+      "budget_sec": 60,
+      "nodes": [
+        {
+          "id": "fbe_motor_work_order_sign_v1",
+          "label": "Sign work order",
+          "line": "motor",
+          "source_id": "work_order_sign_v1",
+          "layer": "GOV",
+          "kind": "wire",
+          "cmd": [
+            "python3",
+            "scripts/fbe_sign_work_order_v1.py",
+            "--json"
+          ],
+          "required": true,
+          "plane": "INTERNAL",
+          "status": "active",
+          "receipt": "receipts/work-order-signed-v1.json"
+        },
+        {
+          "id": "fbe_motor_event_spine_v1",
+          "label": "Event spine emit",
+          "line": "motor",
+          "source_id": "event_spine_v1",
+          "layer": "L1",
+          "kind": "wire",
+          "cmd": [
+            "python3",
+            "scripts/fbe_event_spine_emit_v1.py",
+            "--json"
+          ],
+          "required": false,
+          "plane": "INTERNAL",
+          "status": "active",
+          "receipt": "~/.sina/fbe-events-v1.jsonl"
+        },
+        {
+          "id": "fbe_motor_critic_v1",
+          "label": "Motor conduct critic",
+          "line": "motor",
+          "source_id": "critic_v1",
+          "layer": "L1",
+          "kind": "wire",
+          "cmd": [
+            "python3",
+            "scripts/fbe_motor_critic_v1.py",
+            "--json"
+          ],
+          "required": false,
+          "plane": "INTERNAL",
+          "status": "active",
+          "receipt": "receipts/motor-critic-v1.json"
+        },
+        {
+          "id": "fbe_motor_hub_projection_v1",
+          "label": "Hub FBE projection",
+          "line": "motor",
+          "source_id": "hub_projection_v1",
+          "layer": "L1",
+          "kind": "wire",
+          "cmd": [
+            "python3",
+            "scripts/fbe_hub_projection_v1.py",
+            "--json"
+          ],
+          "required": false,
+          "plane": "HUB_API",
+          "status": "active"
+        },
+        {
+          "id": "fbe_motor_mac_health_v1",
+          "label": "Mac health probe",
+          "line": "motor",
+          "source_id": "mac_health_v1",
+          "layer": "L1",
+          "kind": "wire",
+          "cmd": [
+            "python3",
+            "scripts/mac_health_live_v1.py",
+            "--json"
+          ],
+          "required": false,
+          "plane": "INTERNAL",
+          "status": "active"
+        },
+        {
+          "id": "fbe_motor_graph_delegate_v1",
+          "label": "Graph runner delegate",
+          "line": "motor",
+          "source_id": "graph_delegate_v1",
+          "layer": "L1",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe_motor_delegate_v1.py",
+            "--fbe-prove",
+            "--json"
+          ],
+          "required": false,
+          "plane": "INTERNAL",
+          "status": "active",
+          "receipt": "~/.sina/fbe-motor-delegate-receipt-v1.json"
+        },
+        {
+          "id": "fbe_motor_factory_control_v1",
+          "label": "Factory control",
+          "line": "motor",
+          "source_id": "factory_control_v1",
+          "layer": "L1",
+          "kind": "wire",
+          "cmd": [
+            "python3",
+            "scripts/factory_control_v1.py",
+            "status",
+            "--json"
+          ],
+          "required": false,
+          "plane": "INTERNAL",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "T2_refinery_extra",
+      "parallel": true,
+      "budget_sec": 120,
+      "nodes": [
+        {
+          "id": "fbe_refinery_creed-orient-v1",
+          "label": "hub \u00b7 creed-orient-v1",
+          "line": "refinery",
+          "source_id": "creed-orient-v1",
+          "layer": "L0",
+          "kind": "hub",
+          "cmd": [
+            "python3",
+            "scripts/fbe/refinery/fbe_refinery_orient_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_creed-session-v1",
+          "label": "wire \u00b7 creed-session-v1",
+          "line": "refinery",
+          "source_id": "creed-session-v1",
+          "layer": "L0",
+          "kind": "wire",
+          "cmd": [
+            "python3",
+            "scripts/fbe/refinery/fbe_refinery_session_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_creed-boundary-v1",
+          "label": "gate \u00b7 creed-boundary-v1",
+          "line": "refinery",
+          "source_id": "creed-boundary-v1",
+          "layer": "GOV",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_creed-boundary-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_creed-isolation-v1",
+          "label": "gate \u00b7 creed-isolation-v1",
+          "line": "refinery",
+          "source_id": "creed-isolation-v1",
+          "layer": "GOV",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_creed-isolation-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_creed-workspace-purity-v1",
+          "label": "gate \u00b7 creed-workspace-purity-v1",
+          "line": "refinery",
+          "source_id": "creed-workspace-purity-v1",
+          "layer": "GOV",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_creed-workspace-purity-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-definition-v1",
+          "label": "gate \u00b7 factory-definition-v1",
+          "line": "refinery",
+          "source_id": "factory-definition-v1",
+          "layer": "GOV",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/refinery/fbe_refinery_definition_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-govern-v1",
+          "label": "gate \u00b7 factory-govern-v1",
+          "line": "refinery",
+          "source_id": "factory-govern-v1",
+          "layer": "GOV",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-govern-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-comply-v1",
+          "label": "gate \u00b7 factory-comply-v1",
+          "line": "refinery",
+          "source_id": "factory-comply-v1",
+          "layer": "GOV",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-comply-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-scaffold-v1",
+          "label": "machine \u00b7 factory-scaffold-v1",
+          "line": "refinery",
+          "source_id": "factory-scaffold-v1",
+          "layer": "L1",
+          "kind": "machine",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-scaffold-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-mesh-v1",
+          "label": "hub \u00b7 factory-mesh-v1",
+          "line": "refinery",
+          "source_id": "factory-mesh-v1",
+          "layer": "L1",
+          "kind": "hub",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-mesh-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-critic-v1",
+          "label": "qc \u00b7 factory-critic-v1",
+          "line": "refinery",
+          "source_id": "factory-critic-v1",
+          "layer": "L1",
+          "kind": "qc",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-critic-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-heal-v1",
+          "label": "maintenance \u00b7 factory-heal-v1",
+          "line": "refinery",
+          "source_id": "factory-heal-v1",
+          "layer": "L1",
+          "kind": "maintenance",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-heal-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-docsync-v1",
+          "label": "sync \u00b7 factory-docsync-v1",
+          "line": "refinery",
+          "source_id": "factory-docsync-v1",
+          "layer": "L1",
+          "kind": "sync",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-docsync-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-mirror-v1",
+          "label": "crawl \u00b7 factory-mirror-v1",
+          "line": "refinery",
+          "source_id": "factory-mirror-v1",
+          "layer": "L2",
+          "kind": "crawl",
+          "cmd": [
+            "python3",
+            "scripts/fbe/refinery/fbe_refinery_mirror_v1.py",
+            "--bay",
+            "sample-bay",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-orchestrator-v1",
+          "label": "hub \u00b7 factory-orchestrator-v1",
+          "line": "refinery",
+          "source_id": "factory-orchestrator-v1",
+          "layer": "L2",
+          "kind": "hub",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-orchestrator-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-brand-v1",
+          "label": "brand \u00b7 factory-brand-v1",
+          "line": "refinery",
+          "source_id": "factory-brand-v1",
+          "layer": "L3",
+          "kind": "brand",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-brand-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-brand-visual-banners-v1",
+          "label": "disbrand \u00b7 factory-brand-visual-banners-v1",
+          "line": "refinery",
+          "source_id": "factory-brand-visual-banners-v1",
+          "layer": "L3",
+          "kind": "disbrand",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-brand-visual-banners-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-brand-visual-media-v1",
+          "label": "disbrand \u00b7 factory-brand-visual-media-v1",
+          "line": "refinery",
+          "source_id": "factory-brand-visual-media-v1",
+          "layer": "L3",
+          "kind": "disbrand",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-brand-visual-media-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-localize-v1",
+          "label": "locale \u00b7 factory-localize-v1",
+          "line": "refinery",
+          "source_id": "factory-localize-v1",
+          "layer": "L4",
+          "kind": "locale",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-localize-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": false,
+          "plane": "RUNTIME_CLOUD",
+          "status": "deprecated",
+          "redirect": "use creed:locale-prove stack"
+        },
+        {
+          "id": "fbe_refinery_factory-content-v1",
+          "label": "content \u00b7 factory-content-v1",
+          "line": "refinery",
+          "source_id": "factory-content-v1",
+          "layer": "L4",
+          "kind": "content",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-content-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": false,
+          "plane": "RUNTIME_CLOUD",
+          "status": "deprecated",
+          "redirect": "use locale-prove + voice-roundtrip"
+        },
+        {
+          "id": "fbe_refinery_factory-commercial-v1",
+          "label": "gtm \u00b7 factory-commercial-v1",
+          "line": "refinery",
+          "source_id": "factory-commercial-v1",
+          "layer": "L4",
+          "kind": "gtm",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-commercial-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": false,
+          "plane": "RUNTIME_CLOUD",
+          "status": "deprecated",
+          "redirect": "superseded by creed:commercial-language"
+        },
+        {
+          "id": "fbe_refinery_factory-locale-discovery-v1",
+          "label": "locale \u00b7 factory-locale-discovery-v1",
+          "line": "refinery",
+          "source_id": "factory-locale-discovery-v1",
+          "layer": "L4",
+          "kind": "locale",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-locale-discovery-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-locale-parity-v1",
+          "label": "locale \u00b7 factory-locale-parity-v1",
+          "line": "refinery",
+          "source_id": "factory-locale-parity-v1",
+          "layer": "L4",
+          "kind": "locale",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-locale-parity-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-locale-match-v1",
+          "label": "locale \u00b7 factory-locale-match-v1",
+          "line": "refinery",
+          "source_id": "factory-locale-match-v1",
+          "layer": "L4",
+          "kind": "locale",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-locale-match-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-locale-prove-v1",
+          "label": "locale \u00b7 factory-locale-prove-v1",
+          "line": "refinery",
+          "source_id": "factory-locale-prove-v1",
+          "layer": "L4",
+          "kind": "locale",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-locale-prove-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-human-readable-v1",
+          "label": "voice \u00b7 factory-human-readable-v1",
+          "line": "refinery",
+          "source_id": "factory-human-readable-v1",
+          "layer": "L5",
+          "kind": "voice",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-human-readable-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-founder-language-v1",
+          "label": "voice \u00b7 factory-founder-language-v1",
+          "line": "refinery",
+          "source_id": "factory-founder-language-v1",
+          "layer": "L5",
+          "kind": "voice",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-founder-language-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-commercial-language-v1",
+          "label": "voice \u00b7 factory-commercial-language-v1",
+          "line": "refinery",
+          "source_id": "factory-commercial-language-v1",
+          "layer": "L5",
+          "kind": "voice",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-commercial-language-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-voice-roundtrip-v1",
+          "label": "voice \u00b7 factory-voice-roundtrip-v1",
+          "line": "refinery",
+          "source_id": "factory-voice-roundtrip-v1",
+          "layer": "L5",
+          "kind": "voice",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-voice-roundtrip-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-serve-v1",
+          "label": "serve \u00b7 factory-serve-v1",
+          "line": "refinery",
+          "source_id": "factory-serve-v1",
+          "layer": "L8",
+          "kind": "serve",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-serve-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        },
+        {
+          "id": "fbe_refinery_factory-run-job-v1",
+          "label": "orchestrator \u00b7 factory-run-job-v1",
+          "line": "refinery",
+          "source_id": "factory-run-job-v1",
+          "layer": "L2",
+          "kind": "orchestrator",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_refinery_factory-run-job-v1",
+            "--line",
+            "refinery",
+            "--json"
+          ],
+          "required": true,
+          "plane": "RUNTIME_CLOUD",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "T4_assembly_planned",
+      "parallel": false,
+      "budget_sec": 90,
+      "nodes": [
+        {
+          "id": "fbe_assembly_church-scaffold-v1",
+          "label": "church-scaffold-v1",
+          "line": "assembly",
+          "source_id": "church-scaffold-v1",
+          "layer": "L1",
+          "kind": "wire",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_assembly_church-scaffold-v1",
+            "--line",
+            "assembly",
+            "--json"
+          ],
+          "required": false,
+          "plane": "RUNTIME_CLOUD",
+          "status": "planned"
+        },
+        {
+          "id": "fbe_assembly_church-merge-v1",
+          "label": "church-merge-v1",
+          "line": "assembly",
+          "source_id": "church-merge-v1",
+          "layer": "L2",
+          "kind": "wire",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_assembly_church-merge-v1",
+            "--line",
+            "assembly",
+            "--json"
+          ],
+          "required": false,
+          "plane": "RUNTIME_CLOUD",
+          "status": "planned"
+        },
+        {
+          "id": "fbe_assembly_church-brand-unity-v1",
+          "label": "church-brand-unity-v1",
+          "line": "assembly",
+          "source_id": "church-brand-unity-v1",
+          "layer": "L3",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_assembly_church-brand-unity-v1",
+            "--line",
+            "assembly",
+            "--json"
+          ],
+          "required": false,
+          "plane": "RUNTIME_CLOUD",
+          "status": "planned"
+        },
+        {
+          "id": "fbe_assembly_church-narrative-v1",
+          "label": "church-narrative-v1",
+          "line": "assembly",
+          "source_id": "church-narrative-v1",
+          "layer": "L3",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_assembly_church-narrative-v1",
+            "--line",
+            "assembly",
+            "--json"
+          ],
+          "required": false,
+          "plane": "RUNTIME_CLOUD",
+          "status": "planned"
+        },
+        {
+          "id": "fbe_assembly_church-forbidden-v1",
+          "label": "church-forbidden-v1",
+          "line": "assembly",
+          "source_id": "church-forbidden-v1",
+          "layer": "L3",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_assembly_church-forbidden-v1",
+            "--line",
+            "assembly",
+            "--json"
+          ],
+          "required": false,
+          "plane": "RUNTIME_CLOUD",
+          "status": "planned"
+        },
+        {
+          "id": "fbe_assembly_church-demo-v1",
+          "label": "church-demo-v1",
+          "line": "assembly",
+          "source_id": "church-demo-v1",
+          "layer": "L4",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_assembly_church-demo-v1",
+            "--line",
+            "assembly",
+            "--json"
+          ],
+          "required": false,
+          "plane": "RUNTIME_CLOUD",
+          "status": "planned"
+        },
+        {
+          "id": "fbe_assembly_church-gtm-v1",
+          "label": "church-gtm-v1",
+          "line": "assembly",
+          "source_id": "church-gtm-v1",
+          "layer": "L4",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_assembly_church-gtm-v1",
+            "--line",
+            "assembly",
+            "--json"
+          ],
+          "required": false,
+          "plane": "RUNTIME_CLOUD",
+          "status": "planned"
+        },
+        {
+          "id": "fbe_assembly_church-deploy-v1",
+          "label": "church-deploy-v1",
+          "line": "assembly",
+          "source_id": "church-deploy-v1",
+          "layer": "L5",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_assembly_church-deploy-v1",
+            "--line",
+            "assembly",
+            "--json"
+          ],
+          "required": false,
+          "plane": "RUNTIME_CLOUD",
+          "status": "planned"
+        },
+        {
+          "id": "fbe_assembly_church-domain-v1",
+          "label": "church-domain-v1",
+          "line": "assembly",
+          "source_id": "church-domain-v1",
+          "layer": "L5",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_assembly_church-domain-v1",
+            "--line",
+            "assembly",
+            "--json"
+          ],
+          "required": false,
+          "plane": "RUNTIME_CLOUD",
+          "status": "planned"
+        },
+        {
+          "id": "fbe_assembly_church-live-smoke-v1",
+          "label": "church-live-smoke-v1",
+          "line": "assembly",
+          "source_id": "church-live-smoke-v1",
+          "layer": "L5",
+          "kind": "gate",
+          "cmd": [
+            "python3",
+            "scripts/fbe/stub_node_v1.py",
+            "--node",
+            "fbe_assembly_church-live-smoke-v1",
+            "--line",
+            "assembly",
+            "--json"
+          ],
+          "required": false,
+          "plane": "RUNTIME_CLOUD",
+          "status": "planned"
+        }
+      ]
+    }
+  ]
+}

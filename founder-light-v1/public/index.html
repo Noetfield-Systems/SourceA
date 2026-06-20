@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0a0c10" />
+  <title>Founder Light</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="nav">
+      <div class="brand">
+        Founder Light
+        <span>v1 · live · 3 tabs only</span>
+      </div>
+      <button type="button" data-tab="home" class="active">Home</button>
+      <button type="button" data-tab="run">Run</button>
+      <button type="button" data-tab="actions">Actions</button>
+      <p class="legacy">Legacy Sina Command hub (:13020) is frozen — reference &amp; extraction only.</p>
+    </aside>
+    <div class="main">
+      <header class="top">
+        <div>
+          <h1 id="title">Home</h1>
+          <div class="chips" id="chips"></div>
+        </div>
+        <span class="live" id="live">Connecting…</span>
+      </header>
+      <main class="content" id="view"></main>
+    </div>
+  </div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

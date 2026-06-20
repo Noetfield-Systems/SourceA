@@ -1,0 +1,5 @@
+{
+  "required_step_ids": ["hub", "workflow_file"],
+  "n8n_step_ids_any": ["n8n_ui", "n8n_port", "n8n_start"],
+  "optional_step_ids": ["runtime_health", "liaison"]
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "ma-diligence-input-v1",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["target_company", "data_room_uri"],
+  "properties": {
+    "target_company": { "type": "string" },
+    "data_room_uri": { "type": "string" },
+    "jurisdictions": { "type": "array", "items": { "type": "string" } },
+    "deal_type": { "type": "string", "enum": ["acquisition", "merger", "minority_stake"] },
+    "tenant": { "type": "string" }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "NM-001",
+  "title": "NewMatch apps/newmatch scaffold — people graph local JSON",
+  "evidence": "validate-newmatch-scaffold-v1 PASS · apps/newmatch/data/graph-v1.json · schema mirror · free-tier check PASS · phase_0_cost_usd=0 · ~/.sina/newmatch-graph-receipt-v1.json",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T18:05:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

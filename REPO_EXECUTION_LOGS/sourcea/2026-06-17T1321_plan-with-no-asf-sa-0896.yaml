@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0896 — Document ops_blocker bucket MP-SHIP WIRE-G3 B-001 row contracts
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0896
+tests:
+  status: passed
+  output_snippet: validate-h2-ops-blocker-row-contracts-t3-crossref-v1.sh PASS · worker_verify_ultra PASS
+reported_at: '2026-06-17T13:21:27Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

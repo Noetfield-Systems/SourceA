@@ -1,0 +1,43 @@
+---
+description: Complex Situation Fork Machine — mega chats, Brain, multi-fork governance (T1–T5 triggers)
+globs:
+  - brain-os/**
+  - SourceA/**
+  - "**/*LOCKED*.md"
+alwaysApply: false
+---
+
+# Complex Situation Fork Machine (T1–T5)
+
+**Law:** `SOURCEA_COMPLEX_SITUATION_FORK_MACHINE_LOCKED_v1.md`  
+**Prompt:** `prompts/COMPLEX_SITUATION_FORK_SESSION_PROMPT_LOCKED_v1.md`  
+**Canvas:** `sourcea-system-integrity-100.canvas.tsx` (sidebar live form)
+
+## Trigger — run machine when ANY match
+
+- Mega chat (>30 turns) or “whole system / all conflicts / governance”
+- **Brain** · Maintainer strict build · Founder law · Council session
+- ≥2 founder forks · open conflict · P0 ambiguity
+- `find_critical_bugs` CRITICAL or ecosystem safety FAIL
+- SYS-INTEGRITY-100 / governance audit
+
+## Mandatory behavior
+
+1. **Triage disk** — ACTIVE_NOW · factory-now · PROGRAM_PROGRESS · incidents
+2. **Fork inventory** — each fork: Subject · Question · On disk · 4 options or yes/no quad or text
+3. **Effect line** per option — what changes on disk (never vague “confirm recommended”)
+4. **Wait** for ASF order in `ASF: FORK-MACHINE — …` format before executing founder forks
+5. **Closeout** — RESULT_DRIVEN §4 + Fork inventory + Golden insight (Problem / Fixed / Founder next 3 actions)
+
+## Quick commands
+
+```bash
+cd ~/Desktop/SourceA/scripts
+python3 complex_situation_fork_machine_v1.py assess --role brain --json --write-receipt
+python3 complex_situation_fork_machine_v1.py template
+```
+
+## Brain-specific
+
+- Fork Machine **before** spawn if T2/T3/T4
+- No full E2E in same turn as fork inventory (`BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md`)

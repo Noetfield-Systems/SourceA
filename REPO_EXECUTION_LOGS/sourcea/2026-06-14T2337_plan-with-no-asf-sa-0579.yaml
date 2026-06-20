@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0579 — Document Wire G3 attest as founder/lane step in this_week
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0579
+tests:
+  status: passed
+  output_snippet: sa-0579 T3 Wire G3 this_week cross-ref · validate-wire-g3-this-week-t3-crossref-v1 PASS · cites sa-0504 + sa-0554 · task-validator closeout (no_hub)
+reported_at: '2026-06-14T23:37:25Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

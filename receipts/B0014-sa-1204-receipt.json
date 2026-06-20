@@ -1,0 +1,11 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1204",
+  "status": "BLOCKED",
+  "round_type": "act",
+  "upgrade_id": "B0014",
+  "title": "Brain refuses Worker-scope implementation in Brain chat",
+  "evidence": "acceptance=Brain reasoning receipt + cloud federated proof — not local Cursor Worker turn · owner_role=brain · execution_plane=cloud_api_worker",
+  "at": "2026-06-19T19:06:15Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

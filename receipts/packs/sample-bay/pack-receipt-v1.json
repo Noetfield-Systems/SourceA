@@ -1,0 +1,147 @@
+{
+  "schema": "fbe-run-receipt-pack-v1",
+  "ok": true,
+  "at": "2026-06-17T14:09:10Z",
+  "bay_slug": "sample-bay",
+  "artifact_uri": "receipts/packs/sample-bay/run-receipt-v1.zip",
+  "receipt_pack_uri": "receipts/packs/sample-bay/run-receipt-v1.zip",
+  "file_count": 34,
+  "manifest": [
+    {
+      "path": "receipts/federated-run-v1.json",
+      "sha256": "b214c570d6bd254d71761aeeb9d4537c87f085426d0aff370779366e45703de1"
+    },
+    {
+      "path": "fbe-federated-receipt-v1.json",
+      "sha256": "b214c570d6bd254d71761aeeb9d4537c87f085426d0aff370779366e45703de1"
+    },
+    {
+      "path": "fbe-run-job-receipt-v1.json",
+      "sha256": "ad458e112be3fe6b9b7a8600adbd9dc572b7d025de577f2cb29a7d5fdf74aa56"
+    },
+    {
+      "path": "receipts/bays/sample-bay/ledger.jsonl",
+      "sha256": "a2f344625d934f90552b20ac8bec1c4ca9a40e319dac8fceacbb5013e355b79d"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/ledger.jsonl",
+      "sha256": "7472dd6209f5aa343bace0c5fedbd33c91589826060db80eabafe6a228d7a182"
+    },
+    {
+      "path": "receipts/bays/sample-bay/factory-route-audit-v1-v1.json",
+      "sha256": "9f1e4924efa26219ed723289e75d03ab3bccd448ba11f5cdde81d3d12514c1b5"
+    },
+    {
+      "path": "receipts/bays/sample-bay/factory-verify-v1-v1.json",
+      "sha256": "58fe6fe82c4f5d279f59f4df31ca339a2ef2a7b35c2b4b6c5c7f412bbee06cdd"
+    },
+    {
+      "path": "receipts/bays/sample-bay/factory-mirror-v1-v1.json",
+      "sha256": "94219187065ffe892adc60865925a0b2111983490f9160e8a558991dcb69d165"
+    },
+    {
+      "path": "receipts/bays/sample-bay/creed-session-v1-v1.json",
+      "sha256": "3d2f6e40e9cb26854412b5f9b85bc3fe8b348659fadfc2f61b50d2fb01a33e5c"
+    },
+    {
+      "path": "receipts/bays/sample-bay/factory-definition-v1-v1.json",
+      "sha256": "215c9c32669e9727f468e426ec9401ab6ffc5e4ae549192f04b524c86635e4b8"
+    },
+    {
+      "path": "receipts/bays/sample-bay/factory-clone-parity-v1-v1.json",
+      "sha256": "79841f5653462325f398b6a1c6c1308596345b440aa6bdbc4c45327da51a1482"
+    },
+    {
+      "path": "receipts/bays/sample-bay/creed-orient-v1-v1.json",
+      "sha256": "22002561e2b0d4e7cb7780a4730b067803775d6222927ac96a2209b59d91d28e"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-deploy-v1-v1.json",
+      "sha256": "7abb094725f2917691bdff124d9aaa102ce96f88c0999ffa3d49dbbfe1271083"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-dealer-letter-v1-v1.json",
+      "sha256": "d5d916ed72411cfe90f05195f3f669b070c745dc113669d25e922c60ff1f437c"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-demo-v1-v1.json",
+      "sha256": "082e4ad21daa0ef8a012656f1ff88119399f7d80fcab9790c510473ca89be75c"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-verify-v1-v1.json",
+      "sha256": "6a378f1fa74e9c0aba417ee9420754bf2dc86f25e3fde508c6cb2f79647fca50"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-brand-unity-v1-v1.json",
+      "sha256": "9c52d074a02e2c764bf9f49e6bd5b1d5c17f1bd9239cfd8a99823c738d665ef6"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-architect-v1-v1.json",
+      "sha256": "79dbe03cdb8c7ae2e170f4074adcd5603d9f6135e1f764c5d0e5a89b401acd1b"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-market-fidelity-v1-v1.json",
+      "sha256": "71658cbe64365563c06c9dba031fbc3c5592bd4e8c36a1abcd5044f4896443af"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-intake-v1-v1.json",
+      "sha256": "01eaa9a545fa14ec2e729abe5bb5947c33f0c7a39f1ab15b58b0aa4a581927ce"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-narrative-v1-v1.json",
+      "sha256": "a9ee4ed06de240a78af0ba802d512fb43cda15681dc9340ab880cccca49f176f"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-scaffold-v1-v1.json",
+      "sha256": "8031826ebd4160919171190bd7614605e6bc4c062aafc76db4490e2cf02015a0"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-forbidden-v1-v1.json",
+      "sha256": "50ec36ffd1a431a93d7f271aa5f7bc108f30c10660bce141c036f36d75ae4401"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-merge-v1-v1.json",
+      "sha256": "8ee8e96d1a59cb7b4d39fed13ee0af2ea44f2ee0d1088bc0c9aa6d1541228952"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-boundary-v1-v1.json",
+      "sha256": "0d5ccb2692d09b34eec6c3b0ee39a3e04992ae22f49c2ca9cbd359c8eed0ff02"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-domain-v1-v1.json",
+      "sha256": "8fc94d788ae1f549cf0edcf18f6eb6a563cfa98e43b15602c938ee49b44b3ace"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-gtm-v1-v1.json",
+      "sha256": "779c261822641a658bd406715839c746db1e3c6d2ff0a1d673c9b8d5fdabe199"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-policy-v1-v1.json",
+      "sha256": "4c41eecd8c6cd28dc70a7eadfe0e34429fff95dc02d899ea06c54c803c5a90a2"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-orient-v1-v1.json",
+      "sha256": "dc79fca691d034d1c41aba626bd56ddd022ec9b8c811070fe72d0313509df75e"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-neutrality-v1-v1.json",
+      "sha256": "a633ad9125062ee00670406825c14463fd86033f622f1564133b34f6f26fc438"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-definition-v1-v1.json",
+      "sha256": "e49479ce13b6f303cea9817e11ecdb91965ce8cc6602e522ad45c5ca9bee8090"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-live-smoke-v1-v1.json",
+      "sha256": "8f5eb14debd711066369b1294c107ea8e279f5b2661879cce584144049377f93"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-isolation-v1-v1.json",
+      "sha256": "46290b5a1ce8128481f58528cbe242d07a726d2116baba0d4888f7034bf68a8e"
+    },
+    {
+      "path": "receipts/bays/sample-bay/assembly/church-rules-v1-v1.json",
+      "sha256": "c8d5a809fda641b4b19748a9d71f37ed362260474b2404e2a7f81687e7267eef"
+    }
+  ]
+}

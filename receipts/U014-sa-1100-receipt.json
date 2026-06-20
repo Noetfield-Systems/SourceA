@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U014",
+  "title": "Mode A vs B auto-detect from body (demo/replay words)",
+  "evidence": "detect_compose_mode() in receiver_interest_loop_v1.py; wrong declared mode fails RIL bar; icp compiler wired",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:05:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

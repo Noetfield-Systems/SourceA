@@ -1,0 +1,130 @@
+flowchart TB
+  subgraph UI["UI Layer"]
+    HTML[index.html]
+    APP[app.js ~9k LOC]
+    PAGES[pages-detail.js / journey-ui.js]
+    HTML --> APP
+    APP --> PAGES
+  end
+
+  subgraph HTTP["HTTP Server :13020"]
+    SRV[sina-command-server.py]
+    HANDLER[SinaCommandHandler]
+    SRV --> HANDLER
+  end
+
+  subgraph API["API Surface"]
+    GET_R[do_GET ~100 routes]
+    POST_R[do_POST ~50 routes]
+    STATIC[_serve_static]
+    HANDLER --> GET_R
+    HANDLER --> POST_R
+    HANDLER --> STATIC
+  end
+
+  subgraph LIB["Core Library"]
+    GHP[get_hub_payload TTL 180s]
+    BP[build_payload]
+    HAM[hub_after_mutation]
+    WPO[write_panel_outputs]
+    BSP[build_shell_payload]
+    RRP[run_refresh_pipeline]
+    IHC[invalidate_hub_cache]
+    GHP --> BP
+    HAM --> IHC
+    HAM --> GHP
+    HAM --> WPO
+    WPO --> BSP
+    BP --> RRP
+  end
+
+  subgraph MODULES["Payload Modules ~50"]
+    MOD1[founder_commitments]
+    MOD2[intelligence_circle]
+    MOD3[agent_scoreboard]
+    MOD4[execution_spine]
+    MOD5[ecosystem_subjects]
+    MODN[... 45 more]
+    BP --> MOD1
+    BP --> MOD2
+    BP --> MOD3
+    BP --> MOD4
+    BP --> MOD5
+    BP --> MODN
+  end
+
+  subgraph CACHE["Memory Cache"]
+    HUB_CACHE[_HUB_CACHE dict]
+    HUB_LOCK[_HUB_LOCK]
+    GHP --> HUB_CACHE
+    HUB_CACHE --> HUB_LOCK
+  end
+
+  subgraph VALIDATORS["Validators"]
+    AS01[validate-hub-p0-no-autorun-v1.sh]
+    CI40[40+ CI validators strict build]
+    HAM --> AS01
+  end
+
+  subgraph DISK["Disk State"]
+    CDJ[command-data.json ~2.7MB]
+    CDS[command-data-shell.json]
+    IDX[index.html]
+    SSOT[~/.sina + repo SSOT files]
+    WPO --> CDJ
+    WPO --> CDS
+    WPO --> IDX
+    MOD1 --> SSOT
+    MOD2 --> SSOT
+    RRP --> SSOT
+  end
+
+  subgraph REFRESH["Refresh Pipeline Subprocesses"]
+    FLEET[scan-cursor-agent-fleet.py]
+    PROG[update-program-progress.py]
+    BOWL[build-sina-daily-bowl.py]
+    ORD[export-master-orders-json.py]
+    RRP --> FLEET
+    RRP --> PROG
+    RRP --> BOWL
+    RRP --> ORD
+  end
+
+  subgraph WORKERS["Background Workers"]
+    G1W[goal1_worker_batch_loop]
+    BRAIN[brain_run_loop_v1]
+    AUTORUN[_kick_autorun_on_hub_start]
+    POST_R --> G1W
+    POST_R --> BRAIN
+    SRV --> AUTORUN
+  end
+
+  subgraph QUEUE["Queue / Factory"]
+    FNOW[factory-now-v1.json]
+    REG[plan-registry / latest.yaml]
+    FREEZE[FREEZE kill_flag]
+    SSOT --> FNOW
+    SSOT --> REG
+    FNOW --> FREEZE
+  end
+
+  subgraph PANEL["Panel Artifacts"]
+    CDJ
+    CDS
+    IDX
+  end
+
+  APP -->|fetch shell/full| GET_R
+  APP -->|mutations refresh| POST_R
+  GET_R --> GHP
+  GET_R -->|hub-sync| BP
+  POST_R -->|success| HAM
+  POST_R -->|IC L0| IHC
+  POST_R -->|/refresh T3| HAM
+  CDJ --> APP
+  CDS --> APP
+
+  classDef heavy fill:#fdd,stroke:#c00
+  classDef light fill:#dfd,stroke:#080
+  class BP,HAM,RRP heavy
+  class IHC,GHP light

@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0102 — Wire validate-eval-packet-v1b-live into strict build default chain
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0102
+tests:
+  status: passed
+  output_snippet: validate-eval-packet-v1b-strict-build-chain-v1 PASS · live in strict default chain
+reported_at: '2026-06-14T00:39:20Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

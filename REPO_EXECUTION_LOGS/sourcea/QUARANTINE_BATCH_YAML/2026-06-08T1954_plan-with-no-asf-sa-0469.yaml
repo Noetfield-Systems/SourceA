@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0469 — Document founder Refresh-only law for spine — no Terminal
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0469
+tests:
+  status: passed
+  output_snippet: pack16 spine-loop verify-only; validators+batch PASS
+reported_at: '2026-06-08T19:54:39Z'
+reporter: cursor-worker-batch

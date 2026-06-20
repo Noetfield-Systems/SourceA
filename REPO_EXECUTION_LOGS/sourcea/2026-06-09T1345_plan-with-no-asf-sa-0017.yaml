@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0017 — Sync FEEDBACK_AGGREGATE execution truth with hub built_at
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0017
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — sa-0017 closed; FEEDBACK_AGGREGATE execution_truth hub_built_at matches command-data on every strict build
+reported_at: '2026-06-09T13:45:48Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

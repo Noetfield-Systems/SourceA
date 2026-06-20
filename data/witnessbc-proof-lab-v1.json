@@ -1,0 +1,40 @@
+{
+  "schema": "witnessbc-proof-lab-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T07:00:00Z",
+  "lane": "witnessbc",
+  "product": "Proof Lab / film",
+  "site": "https://witnessbc.com",
+  "proof_path": "/proof",
+  "style_b1": "archive/attachments/2026-06-16/STYLE_B1_WITNESSBC_SHOT_MATCH_BRIEF_LOCKED_v1.md",
+  "wired_to": "data/commercial-film-routing-v1.json#witnessbc.tier_A_hero",
+  "script": "scripts/witnessbc_proof_lab_publish_v1.py",
+  "bay": "scripts/fbe/witnessbc_proof_lab_bay_v1.py",
+  "validator": "scripts/validate-witnessbc-proof-lab-v1.sh",
+  "receipt": "~/.sina/witnessbc-proof-lab-publish-receipt-v1.json",
+  "publish_tiers": {
+    "interactive_proof_lab": {
+      "label": "Proof Lab interactive (sandbox-class)",
+      "delivery_mode": "demo_ready",
+      "honesty": "Browser scenarios · BLOCK · tamper-FAIL · replay — no fake live claims",
+      "pattern_from": "P0-01 sandbox-mock · cat-sandbox-demo mock_only"
+    },
+    "style_b1_hero_film": {
+      "label": "STYLE-B1 ~3m institutional hero",
+      "delivery_mode": "screen_studio_required",
+      "honesty": "Ship gate publish_allowed YES only after Screen Studio master ingest",
+      "pattern_from": "noetfield bay verify + commercial film ship gate"
+    }
+  },
+  "assets": {
+    "proof_html": "witnessbc-site/dist/deploy/proof.html",
+    "w1_demo_mp4": "witnessbc-site/assets/w1-demo.mp4",
+    "scenarios": "witnessbc-site/data/proof-scenarios-v1.json",
+    "film_beats": "data/witnessbc-commercial-film-beats-v1.json"
+  },
+  "forbidden_on_publish": [
+    "witness.ai conflation",
+    "automated pay-to-publish",
+    "Playwright-only hero labeled institutional A-tier"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "chat-session-consolidation-receipt-v1",
+  "verdict": "PASS",
+  "saved_at": "2026-06-19T06:50:00Z",
+  "re_audit": {
+    "at": "2026-06-19T06:50:00Z",
+    "factory_now_line": "factory-now · Valid YES 1000 · brain 1000 · dual_proof True · mode SINGLE_SA · queue sa-1200",
+    "zero_drift_line": "ZERO-DRIFT REVIEW · score=100 · queue=sa-1200",
+    "validators": {
+      "validate_video_ad_factory_chain_v1": "PASS",
+      "validate_cursor_bootstrap_v1": "PASS",
+      "debug_e2e_governance_chain": "PASS (hub · staleness · validators · bootstrap)",
+      "validate_mcp_chain_motor_v1": "PASS when run standalone",
+      "npm_registry": "NOT_PUBLISHED — @sourcea/mcp-verify 404"
+    }
+  },
+  "session": "baabacf8 marketplace + gemini + publish + consolidate",
+  "executed": {
+    "card1_publish_disk": {
+      "status": "PASS",
+      "receipt": "receipts/card-1-sourcea-forge-governance-publish-v1.json",
+      "npm_registry": "blocked ENEEDAUTH — founder npm login"
+    },
+    "advisory_ssot": "data/multi-factory-enterprise-tree-advisory-v1.json",
+    "architecture_ledger": "data/architecture-ledger-v1.json",
+    "supabase_migration_ssot": "data/supabase-migration-001-campaign-automations-v1.sql",
+    "billing_webhook_stub": "scripts/fbe_billing_webhook_stub_v1.py",
+    "video_orchestration": "scripts/video_ad_factory_orchestrate_v1.py",
+    "rendering_bridge": "scripts/video_ad_rendering_bridge_v1.py",
+    "gemini_ts_port_spec": "data/video-ad-factory-gemini-port-spec-v1.json",
+    "chain_validator": "scripts/validate-video-ad-factory-chain-v1.sh",
+    "bootstrap_ledger_bump": "data/cursor-bootstrap-ledger-v1.json epoch 1.1.0"
+  },
+  "blocked_cross_lane": {
+    "docs_advisory_md": "docs/SOURCEA_MULTI_FACTORY_ENTERPRISE_TREE_ADVISORY_LOCKED_v1.md — founder SAVE TO promotes JSON",
+    "apps_ts_orchestration": "apps/video-ad-factory/orchestration/index.ts — use scripts/ until lane expanded",
+    "shared_sql_apply": "shared/database/migrations/ — copy from data/supabase-migration-001-* when WORK names project"
+  },
+  "founder_only_remaining": [
+    "npm login + bash scripts/npm_publish_mcp_chain_v1.sh",
+    "Cursor marketplace submit Card 1",
+    "w3_send_ready confirm-sent",
+    "OEGCC OpenRouter LLM hook",
+    "SAVE TO: docs/SOURCEA_MULTI_FACTORY_ENTERPRISE_TREE_ADVISORY_LOCKED_v1.md"
+  ],
+  "validate_chain": "bash scripts/validate-video-ad-factory-chain-v1.sh"
+}

@@ -1,0 +1,14 @@
+sa_id: sa-0501
+phase: phase-s5-commercial-lanes
+tier: T0
+priority: P0
+title: Validate P0-RUNRECEIPT progress_pct 100 when verify:wire passes
+status: done
+verify_passed: true
+files_changed:
+  - scripts/build-sina-command-panel.py
+summary: >
+  Added inline validation after validate-verify-wire-v1.sh passes to assert
+  P0-RUNRECEIPT progress_pct == 100 in PROGRAM_PROGRESS.json (sa-0501).
+  Prints OK confirmation on pass, FAIL/WARN on mismatch.
+executed_at: "2026-06-08T09:20:00+00:00"

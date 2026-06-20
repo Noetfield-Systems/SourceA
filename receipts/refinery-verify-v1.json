@@ -1,0 +1,39 @@
+{
+  "schema": "fbe-refinery-verify-v1",
+  "ok": true,
+  "at": "2026-06-19T23:57:26Z",
+  "wave": "W2",
+  "bay_slug": "sample-bay",
+  "mode": "headless",
+  "deliveryMode": "prove_only",
+  "checks": [
+    {
+      "id": "refinery_runner",
+      "ok": true,
+      "steps_executed": 7,
+      "steps_total": 7
+    },
+    {
+      "id": "bay_ledger",
+      "ok": true,
+      "lines": 6353,
+      "expected": 7
+    },
+    {
+      "id": "prove_only",
+      "ok": true
+    },
+    {
+      "id": "no_platinum_lie",
+      "ok": true,
+      "tier_cap": "GOLD"
+    },
+    {
+      "id": "verify_job_ran",
+      "ok": true,
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/factory-verify-v1-v1.json"
+    }
+  ],
+  "proof": "refinery_verify PASS",
+  "execution_plane": "headless_w2"
+}

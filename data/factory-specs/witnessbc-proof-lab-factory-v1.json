@@ -1,0 +1,44 @@
+{
+  "schema": "fbe-factory-spec-v1",
+  "factory_id": "witnessbc-proof-lab-factory-v1",
+  "spec_version": "1.0.0",
+  "saved_at": "2026-06-19T07:00:00Z",
+  "kind": "freemium",
+  "kernel": {
+    "id": "fbe-v1",
+    "min_version": "fbe-v1.0.0",
+    "graph_source": "data/fbe_node_graph_v1.json",
+    "line_node_count": 76
+  },
+  "lines": ["trust_motor"],
+  "runtime": {
+    "bay_slug": "witnessbc-proof-lab-bay",
+    "default_tenant": "witnessbc",
+    "wave": "W0",
+    "factory_id_internal": "witnessbc_proof_lab_0",
+    "pipelines": ["witnessbc_proof_lab_w0"],
+    "api_route": "/api/fbe/catalog/v1",
+    "cloud_entry": "--validate-only",
+    "execution_mode": "CLOUD_ONLY"
+  },
+  "io": {
+    "input_schema": "data/schemas/sandbox-demo-input-v1.json",
+    "output_schema": "data/schemas/certainty-report-v1.json",
+    "output_artifact": "Proof Lab scenario terminal + BLOCK/tamper-FAIL replay JSON",
+    "certainty_report": true
+  },
+  "governance": {
+    "policy_pack": "trust_motor",
+    "tier_cap_honest": "BRONZE",
+    "delivery_mode": "demo_ready"
+  },
+  "commercial": {
+    "name": "WitnessBC Proof Lab",
+    "tagline": "Run real scenarios · inspect evidence on disk — before you book.",
+    "tier_label": "proof_lab",
+    "buyer": "NGO · newsroom · civic · CISO eval",
+    "hero": false,
+    "maintenance_fee_usd": 0,
+    "compute_note": "Interactive mock mesh + optional W1 film embed — STYLE-B1 hero separate tier"
+  }
+}

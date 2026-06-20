@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U022",
+  "title": "fundmore stub full parity with ocree schema v2",
+  "evidence": "check_fundmore_ocree_parity PASS; all v2 output_trace fields populated on fundmore-v1.json",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:15:16Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

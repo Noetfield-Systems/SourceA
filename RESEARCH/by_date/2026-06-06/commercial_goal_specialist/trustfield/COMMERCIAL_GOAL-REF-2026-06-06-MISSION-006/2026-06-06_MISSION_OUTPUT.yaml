@@ -1,0 +1,186 @@
+# [COMMERCIAL_GOAL_AGENT_REF · commercial_goal_specialist · COMMERCIAL_GOAL-REF-2026-06-06-MISSION-006] rr-20260608-4f21a0b1
+trace:
+  agent_ref: COMMERCIAL_GOAL_AGENT_REF
+  agent_name: Commercial Goal Specialist
+  agent_id: commercial_goal_specialist
+  trace_id: COMMERCIAL_GOAL-REF-2026-06-06-MISSION-006
+  ref_tag: COMMERCIAL_GOAL-REF-MISSION-006
+  registry_id: rr-20260608-4f21a0b1
+  session_transcript: 85dd7cd4-0977-4cfc-9449-ea278ea0baee
+  canonical: false
+module: commercial_goal
+date: 2026-06-06
+execution_authority: false
+mission: Maximize fastest legitimate revenue (Canada-first, 30–90 days)
+
+context:
+  trustfield_phase: phase1_free_gtm
+  engineering_freeze: true
+  freeze_unlock_gate: 3 demo calls booked
+  existing_assets:
+    - trustfield.ca live (MSB-first homepage, /demo, /pilot, /showcase, /register)
+    - RPAA Readiness Pilot offer ($6K setup + $2.5K/mo on /pilot)
+    - GTM stack ready (outreach scripts, partner tracker, demo close checklist)
+    - CANADA_AI_GOVERNANCE one-pager for procurement lane
+  constraints_acknowledged:
+    - no custody or settlement claims
+    - pre-PSP Phase A only
+    - no new product features until freeze lifts
+    - founder-led sales (no credit card infra until first pilot revenue)
+
+top_5_roi_verticals:
+  - rank: 1
+    vertical: RPAA-urgent MSBs (remittance & corridor operators)
+    roi_rationale: >
+      Highest urgency buyer: FINTRAC-registered MSBs facing RPAA registration
+      deadlines need evidence workflows today. TrustField pilot maps 1:1 to their
+      pain. Existing 15-target outreach list + demo stack = zero build required.
+    offer: RPAA Readiness Pilot — flow map, governance workflow, intake/checklist env, partner blueprint, audit export
+    pricing:
+      setup: CAD 6,000 one-time (public /pilot anchor)
+      platform: CAD 2,500/month
+      design_partner: 50% setup discount for first 3–5 (logo + case study + weekly feedback)
+      expansion: +CAD 2,000–6,000 setup per additional rail/venue module
+    channel: >
+      Direct founder outreach to compliance@ and ops@ on FINTRAC registry targets
+      (Toronto 8 + Vancouver 7). CTA trustfield.ca/demo. Log in partner-api-tracker.csv.
+      Warm intros via MSB compliance consultants.
+    thirty_day_product: >
+      Signed LOI → scoped SOW → live sandbox with TF reference + checklist +
+      admin audit export demo on founder call. First instruction in sandbox within 7 days.
+      Deliverable: RPAA readiness evidence pack (checklist PDF + workflow map).
+    lane_hint: trustfield
+    revenue_target_90d: CAD 6,000–12,000 (1–2 pilots at full or discounted setup)
+
+  - rank: 2
+    vertical: Embedded finance & B2B payout program operators
+    roi_rationale: >
+      Operators wiring customer UI to licensed rails need a programmatic access +
+      workflow layer — TrustField's core SKU. Shorter diligence than MSBs (product-led
+      buyers). API sandbox and /developers hub already live.
+    offer: Production Program — sandbox API keys, intake, TF refs, test routing → live orchestration + console + audit export
+    pricing:
+      setup: CAD 5,000–15,000 one-time (scoped SOW)
+      platform: CAD 1,500–4,000/month per active program
+      usage: 5–25 bps on instructed volume OR CAD 0.02–0.08 per instruction
+      design_partner: 50% setup discount for first 3–5 programs
+    channel: >
+      partnerships@ and product@ at Canadian embedded-finance startups.
+      Founder screen-share demo (showcase?presenter=1). Post-demo: SOW + 50% deposit invoice.
+    thirty_day_product: >
+      30–60 day free sandbox → first test instruction in 7 days → production SOW.
+      Deliverable: working API integration proof + partner routing blueprint doc.
+    lane_hint: trustfield
+    revenue_target_90d: CAD 8,000–20,000 (1 program setup + 2–3 months platform)
+
+  - rank: 3
+    vertical: Digital asset / crypto-access program operators
+    roi_rationale: >
+      Canadian venues (NDAX-class) and program operators need governance intake in
+      front of venue APIs. TrustField differentiates as workflow layer — not a rail or
+      venue. Partner-api-tracker P0 includes NDAX; landscape analysis confirms Phase 1 fit.
+    offer: Program Access Sandbox → Production Program with venue instruction routing hooks + audit trail
+    pricing:
+      setup: CAD 8,000–15,000 one-time (venue adapter scope)
+      platform: CAD 2,500–4,000/month
+      usage: per-instruction or bps on instructed volume (align with venue pass-through)
+      expansion: +CAD 2,000–6,000 per additional venue/rail module
+    channel: >
+      Venue partner intros (NDAX partnerships path) + eng@ at pre-venue fintechs.
+      Demo via /showcase crypto-access track. FINTRAC MSB hybrid partners (Invincible Pay) as settlement party.
+    thirty_day_product: >
+      Sandbox with intake → TF ref → checklist → mock venue instruction flow +
+      audit export sample. Partner MOU progress doc. No live custody or settlement.
+    lane_hint: trustfield
+    revenue_target_90d: CAD 8,000–15,000 (1 sandbox-to-SOW conversion)
+
+  - rank: 4
+    vertical: Pre-PSP fintech infrastructure teams (registration-prep)
+    roi_rationale: >
+      Fintechs building toward Bank of Canada PSP registration need structured
+      evidence before counsel engagement. TrustField Phase A is literally
+      registration preparedness — not competing with law firms, complementing them.
+    offer: RPAA Readiness Pilot + governance software (same as vertical 1, positioned as PSP registration prep)
+    pricing:
+      setup: CAD 6,000–10,000 (pilot tier)
+      platform: CAD 2,500/month
+      counsel_referral: no legal fees in SKU — partner clarity doc only
+    channel: >
+      founder@ and eng@ at pre-PSP startups (Vancouver corridor strong).
+      Referral partnerships with RPAA/fintech counsel (referral fee optional, not primary).
+      trustfield.ca/diligence brief as leave-behind.
+    thirty_day_product: >
+      Entity + governance workflow map, working checklist environment, audit artifact
+      templates exportable for counsel review. Registration preparedness one-pager.
+    lane_hint: trustfield
+    revenue_target_90d: CAD 6,000–10,000 (1 pilot)
+
+  - rank: 5
+    vertical: Public-sector & procurement (CanadaBuys / AI governance readiness)
+    roi_rationale: >
+      Longer cycle but larger ticket potential. AI for All (June 2026) creates
+      procurement window for trust/sovereignty/governance narratives. Existing
+      one-pager + B.C. cover letter = zero build. Parallel lane — do not defer MSB pilots.
+    offer: RPAA + AI Governance Readiness Assessment — scoped engagement delivering governance workflow design, audit evidence templates, Canadian sovereignty positioning doc
+    pricing:
+      assessment: CAD 15,000–25,000 fixed-fee SOW
+      platform: CAD 3,000–4,000/month if ongoing governance console
+      note: procurement bids may be lower margin but unlock reference logos
+    channel: >
+      CanadaBuys supplier registration → SMB Procurement Program bids.
+      PacifiCan RAII eligibility call (B.C.). Federal/B.C. policy intros with
+      CANADA_AI_GOVERNANCE_ONE_PAGER.pdf attach. BC_AI_PROCUREMENT_COVER_LETTER.
+    thirty_day_product: >
+      Readiness assessment report + governance workflow map + audit artifact
+      template pack + half-page executive brief. No product code changes.
+    lane_hint: noetfield
+    revenue_target_90d: CAD 0–25,000 (bid submitted by week 12; revenue may slip to Q3)
+
+advocacy:
+  - >
+    PRIORITY 1: Execute MSB corridor outreach (vertical 1) immediately — 15 emails
+    already scripted; book 3 demos to lift engineering freeze. Fastest path to CAD 6K.
+  - >
+    PRIORITY 2: Run embedded-finance parallel track (vertical 2) — API sandbox is
+    the proof asset; target partnerships@ at 5 B2B payout operators in week 2–4.
+  - >
+    PRIORITY 3: Activate NDAX/Invincible partner intro for crypto-access vertical (3)
+    — one warm intro beats 10 cold emails in this lane.
+  - >
+    PRIORITY 4: Register CanadaBuys + distribute AI governance one-pager (vertical 5)
+    in parallel — do not let procurement displace demo-close sprint.
+  - >
+    PRICING DISCIPLINE: Lead with $6K pilot anchor (/pilot) for MSB/pre-PSP lanes;
+    escalate to $5–15K production program SOW only after sandbox proof on call.
+  - >
+    DESIGN PARTNER: Offer 50% setup discount to first 3 closers in any vertical —
+    trades margin for logo, case study, and weekly feedback (feeds product roadmap post-freeze).
+
+conflicts_with: []
+
+recommended_lanes:
+  - trustfield
+  - noetfield
+
+execution_core_action: >
+  Reconcile with Governance Goal Specialist, then route ONE worker task: execute
+  TrustField founder GTM sprint (3 demo bookings + first MSB outreach batch) —
+  no SourceA spine work until commercial vault + governance vault both on disk.
+
+advocacy_for_execution_core:
+  - Book 3 live demos this week — unlocks engineering freeze and proves GTM motion before any build spend
+  - Ship outreach batch 1 (5 MSB emails) using existing PHASE1_OUTREACH scripts — zero code required
+  - Close first RPAA Readiness Pilot LOI at $6K setup — validates revenue hypothesis within 30 days
+  - Parallel CanadaBuys registration + one-pager PDF export — opens procurement lane without blocking pilots
+  - Defer SourceA eval-1b / dispatch spine work until first pilot LOI or 3 demos evidence exists
+
+metadata:
+  specialist: commercial_goal
+  workspace: TrustField Technologies
+  session: first_operating_loop
+  feeds: SourceA Execution Core
+  ignores:
+    - sa-XXXX loops
+    - automation kernels
+    - validators
+    - hub internals

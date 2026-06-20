@@ -1,0 +1,24 @@
+{
+  "schema": "governance-pack-v1",
+  "version": "1.0.0",
+  "description": "Governance-as-Code stub — future YAML binding for policy packs",
+  "type": "object",
+  "properties": {
+    "governance": {
+      "type": "object",
+      "properties": {
+        "budget": {
+          "type": "object",
+          "properties": { "max_cost_usd": { "type": "number" } }
+        },
+        "approval": {
+          "type": "object",
+          "properties": { "human_required": { "type": "boolean" } }
+        },
+        "pii": { "type": "string", "enum": ["deny", "allow", "mask"] },
+        "audit": { "type": "boolean" },
+        "legal": { "type": "string" }
+      }
+    }
+  }
+}

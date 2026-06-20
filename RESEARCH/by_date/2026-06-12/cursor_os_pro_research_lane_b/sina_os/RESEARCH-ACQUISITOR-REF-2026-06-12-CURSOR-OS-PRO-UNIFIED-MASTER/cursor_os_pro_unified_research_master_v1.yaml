@@ -1,0 +1,305 @@
+# cursor_os_pro_unified_research_master_v1.yaml
+# CANONICAL — Cursor OS Pro Research Lane B · big picture + practical playbooks
+# trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-UNIFIED-MASTER
+# execution_authority: false · Not investment advice · Not LOCKED law
+
+meta:
+  id: cursor_os_pro_unified_research_master_v1
+  version: 1
+  unified_at: "2026-06-12"
+  lane: cursor_os_pro_research_lane_b
+  thread: THREAD-CURSOR-OS-PRO
+  supersedes_as_index:
+    - ai_video_commercial_tier1_research_v1.yaml
+    - ecosystem_incidents_compendium_digest_2026-06-12.yaml
+    - session_closeout_2026-06-12_research_lane_b.yaml
+  still_authoritative_separate:
+    - voice_composition_market_brain_v1.yaml
+    - voice_dev_peer_comparison_v1.yaml
+    - canada-voice-100.yaml
+    - scripts/investor-data-200.json
+  worker_id: cursor_os_pro_research_lane_b
+  subject: sina_os
+
+# ═══════════════════════════════════════════════════════════════════════════
+# PART 1 — BIG PICTURE (why we exist · what we sell · what we do NOT)
+# ═══════════════════════════════════════════════════════════════════════════
+
+big_picture:
+  one_paragraph: >
+    SourceA sells governed execution proof on disk (BLOCK/ALLOW/tamper receipt) — not TrustField/Noetfield SKUs as hero.
+    IDE For Cursor is a separate commercial App Store remote-IDE SKU (Agent/Files/Terminal/Consult). Research Lane B
+    compares voice/app-composition markets and commercial production stacks — it does not ship product code or edit SourceA spine.
+    $100M is narrative upside if W1+W2+W3 land; honest near-term seed target $3–10M. Proof beats decks.
+
+  portfolio_map:
+    SourceA:
+      sells: "Pre-LLM governed execution proof · Brain → Broker → Worker → Disk"
+      wedge_vs_paid_ai: "They sell run; we sell prove"
+      wedge_vs_credo: "They inventory policy; we prove and block execution"
+      ship_pick_9_07_A: "Parallel W1 enforcement film + W3 Noetfield outreach — Week 1 outreach does not wait for film"
+    IDE_For_Cursor:
+      sells: "Remote IDE on iPhone → Mac bridge · ~99% reference parity"
+      lane: "Product Chat A · packages/apps · npm run check"
+      voice_scope: "Modality on bridge — not second brain (see VOICE_AGENT_ROADMAP)"
+    Noetfield_W3:
+      sells: "Copilot governance pilot · AI Trust Brief · CAD 2K+ or LOI bar"
+      video_role: "Outbound presenter + product proof clips"
+    Research_Lane_B:
+      sells: "Advise-only market + production intelligence"
+      execution_authority: false
+
+  what_we_do_not:
+    - consumer App Store IAP as voice peers
+    - Quadlii references
+    - autonomous agent orchestrator positioning
+    - editing SourceA spine or assigning sa-XXXX from research chat
+    - pure text-to-video fake UI for governance proof
+
+# ═══════════════════════════════════════════════════════════════════════════
+# PART 2 — LANE LAW (operating system for every session)
+# ═══════════════════════════════════════════════════════════════════════════
+
+lane_law:
+  workspace: "~/Desktop/Cursor OS Pro"
+  execution_authority: false
+  write_only:
+    - docs/research/**
+    - scripts/investor-data-200.json
+    - research generators under scripts/
+  never_touch:
+    - "~/Desktop/SourceA/**"
+    - packages/** · apps/**
+    - AGENTS.md · SINGLE-SOURCE-OF-TRUTH.md · VOICE_AGENT_ROADMAP_LOCKED_v1.md
+
+  founder_verbs:
+    REWRITE: chat only
+    SAVE: one named file → STOP
+    SAVE_TO: one new file at path
+    EDIT_ALLOWED: path + ACTION same message
+    WORK: bound sa-* / Product Chat A only
+    default: ask → A/B/C → wait
+
+  three_rooms:
+    FORM_OFFICE: "Human PICK · M1 Canvas · SOURCEA_LIVE_FOUNDER_DECISION_FORM — not chat polls"
+    JUDGE_CENTER: "RIGHT/STALE/BAD · judge_center_run_v1.py"
+    THREAD_ROOM: "THREAD-* map · nothing lost"
+
+  session_start_cli:
+    - python3 ~/Desktop/SourceA/scripts/agent_session_gate_run_v1.py --role any --json
+    - python3 ~/Desktop/SourceA/scripts/live_founder_decision_form_v1.py --json
+
+  P0_incidents_memorize:
+    - "SAVE = one file → STOP (INCIDENT-010 / CIR-COSPRO)"
+    - "REWRITE = chat only (INCIDENT-011)"
+    - "Chat ≠ SSOT (002c)"
+    - "Done = receipt file only (006)"
+
+  skill_007_precedence: "Founder order > permission/ask > incidents > execution_authority false > workflow > plan.json alone"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# PART 3 — VOICE & COMPOSITION MARKET (pointers + practical takeaways)
+# ═══════════════════════════════════════════════════════════════════════════
+
+voice_market:
+  canonical_data:
+    matrix_200: scripts/investor-data-200.json
+    brain: docs/research/voice_composition_market_brain_v1.yaml
+    peer_comparison: docs/research/voice_dev_peer_comparison_v1.yaml
+    canada_100: docs/research/canada-voice-100.yaml
+    canvas: ~/.cursor/projects/.../canvases/voice-app-investor-matrix-200.canvas.tsx
+
+  anchors_june_2026:
+    elevenlabs_arr: "~$500M"
+    retell_arr: "~$60M"
+    lovable_arr: "~$400M"
+    global_mobile_iap_2025: "$167B (context only — not peer set)"
+
+  tier_s_voice_dev_peers:
+    - { name: Vapi, role: voice API orchestration, note: infra winner for builders }
+    - { name: Retell, role: telephony-native voice, note: fast phone deploy }
+    - { name: ElevenLabs, role: TTS + agents + now video OS, note: also our VO/video stack }
+    - { name: Deepgram, role: unified voice API, note: STT layer for IDE voice V3+ }
+    - { name: LiveKit, role: open voice framework, note: orchestration pattern }
+    - { name: Voiceflow, role: CX design, hq: Toronto CA, note: UX benchmark }
+    - { name: Ada, role: enterprise support, hq: Toronto CA, note: error copy benchmark }
+
+  canada_CA_peers_in_200: [Voiceflow, Ada, Botpress, Resemble AI, Durable]
+  region_CA_means: Canada
+
+  ide_for_cursor_voice_stack_target:
+    v1: "Apple STT · bridge · Agent/Consult send"
+    v3_cloud_fallback: Deepgram
+    v3_premium_only: Resemble AI
+    never_default: voice cloning
+    benchmark_not_clone: [Voiceflow turn-taking, Ada fallback copy, Picovoice edge optional V4]
+
+  practical_rule: "Compare voice AI dev companies — not App Store consumer earners · not PSTN receptionist SMB SKUs"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# PART 4 — COMMERCIAL VIDEO (unified June 2026 research)
+# ═══════════════════════════════════════════════════════════════════════════
+
+commercial_video:
+  market_usd_2026: "847M–946M AI video generator category"
+
+  four_layers:
+    L1: "Models — clip from prompt (Veo, Kling, Runway…)"
+    L2: "Studios — capture + edit (Screen Studio, Descript, DaVinci)"
+    L3: "Avatars — presenter scale (HeyGen, Synthesia)"
+    L4: "Production OS — script → finished ad (Eleven Flows, Creatify)"
+    golden_rule: "Tier-1 B2B = L2 real UI + L5 voice; L1 ≤20% runtime"
+
+  tier_s_tools:
+    capture: Screen Studio
+    voice_music: ElevenLabs
+    edit: Descript
+    broll_api: fal.ai
+    hero_gen: [Google Veo 3.1, Kling 3.0, Runway Gen-4.5]
+    avatar_outbound: HeyGen
+    enterprise_avatar: Synthesia
+    ad_factory: ElevenCreative Flows
+    performance_variants: Creatify
+
+  flows_vs_runway:
+    pick_flows_when: [reusable ad pipeline, VO-heavy, multilingual, monthly campaigns]
+    pick_runway_when: [single cinematic hero shot, motion brush control]
+    both_need: Screen Studio for product truth
+
+  linear_reference:
+    file: "/Users/sinakazemnezhad/Downloads/LinearH264Version_1.mp4"
+    spec: "4K · ~4min · roadmap UI film — replicate with Screen Studio not T2V"
+
+  ninety_second_playbook:
+    structure: "5s hook · optional 5s B-roll · 3 UI beats · proof strip · 1 CTA"
+    stack: "Screen Studio → ElevenLabs → Descript → Artlist · fal Kling ≤10s optional"
+    first_video_usd: "145–175"
+    repeat_video_usd: "15–40"
+    hours_solo: "6–8"
+    runtime_rule: ">=70% real product UI"
+
+  cost_intelligence:
+    agency_90s_b2b: "8000–25000"
+    smart_stack_90s: "150–600"
+    quarter_all_in: "1000–2500 vs agency 30000–80000"
+    monthly_core_stack: "200–350"
+    budget_buckets: { proof: 40, acquire: 35, brand: 15, lab: 10 }
+    kpis:
+      - cost per shipped minute
+      - cost per W3 meeting booked
+      - ">=60% runtime real product"
+      - "<=5 tool subscriptions"
+
+  tool_catalog_summary:
+    L1_S: [Veo 3.1, Runway Gen-4.5, Kling 3.0, Seedance 2.0, Firefly Video]
+    L2_S: [Screen Studio, Descript, DaVinci, Runway workspace]
+    L3_S: [HeyGen, Synthesia]
+    L4_S: [Eleven Flows, Creatify]
+    L6_S: [fal.ai, Vertex, Runway API, HeyGen API]
+
+# ═══════════════════════════════════════════════════════════════════════════
+# PART 5 — PRACTICAL PLAYBOOKS (do this · not theory)
+# ═══════════════════════════════════════════════════════════════════════════
+
+playbooks:
+  W1_enforcement_film:
+    goal: "5-min BLOCK/ALLOW/tamper on camera — closes investor trust gap"
+    stack: Screen Studio + Descript + terminal demo script
+    budget_usd: "200–400"
+    weeks: "1–2"
+    do_not: "HeyGen-only or fake AI dashboard"
+
+  W3_noetfield_outreach:
+    goal: "Agentic batch 1 · personalized openers · founder final send only"
+    stack: HeyGen template + Screen Studio proof insert
+    budget_usd: "200–500"
+    pass_bar: "CAD 2K deposit or signed LOI on disk"
+    parallel: "Does not wait for W1 film (9.07 A)"
+
+  IDE_For_Cursor_launch_clip:
+    goal: "90s pairing + Agent demo"
+    stack: Screen Studio iPhone + Mac bridge UI
+    budget_usd: "150–400"
+    verify: "npm run check PASS before claiming in video"
+
+  performance_ad_sprint:
+    goal: "5–10 variants in 1 week"
+    stack: Creatify + fal Kling B-roll + Descript cutdowns
+    budget_usd: "100–300"
+    kill_rule: "48h — kill losers scale one winner"
+
+  quarterly_video_calendar:
+    month_1: "W1 proof film + 60/30/15 cutdowns"
+    month_2: "W3 outbound clips + 5 ad variants"
+    month_3: "Hero refresh + optional Kling opener via fal"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# PART 6 — ONE UNIFIED STACK (recommended for our business today)
+# ═══════════════════════════════════════════════════════════════════════════
+
+unified_stack_locked:
+  name: "SourceA Proof + W3 Scale Stack"
+  monthly_usd: "200–350"
+  tools:
+    - { tool: Screen Studio, role: "All product/governance proof", cost: "~$89 one-time or $29/mo" }
+    - { tool: ElevenLabs Creator, role: "VO + optional music tier", cost: "~$22–99/mo" }
+    - { tool: Descript Creator, role: "Edit + captions + cutdowns", cost: "~$24/mo" }
+    - { tool: Artlist or Epidemic, role: "Licensed music", cost: "~$10–15/mo amortized" }
+    - { tool: fal.ai pay-go, role: "Kling B-roll only ≤15s/film", cost: "~$1–10/use" }
+    - { tool: HeyGen, role: "W3 outbound only — add when batch starts", cost: "~$29/mo" }
+  defer_until_revenue:
+    - Eleven Flows
+    - Runway subscription
+    - Creatify
+  never_for_proof_SKU:
+    - pure text-to-video as hero
+    - Sora long-term dependency
+
+  decision_tree:
+    - if: "Proving governance or product UI"
+      then: Screen Studio + Descript
+    - if: "Need talking head at scale"
+      then: add HeyGen
+    - if: "Need cinematic opener only"
+      then: fal Kling 5–10s once
+    - if: "Need 20+ ad variants"
+      then: add Creatify that month
+    - if: "Unsure"
+      then: ask founder · chat only
+
+# ═══════════════════════════════════════════════════════════════════════════
+# PART 7 — RISKS · OPEN GAPS · NEXT ACTIONS
+# ═══════════════════════════════════════════════════════════════════════════
+
+risks:
+  - cross_lane_edit_research_to_SSOT
+  - text_to_video_substituted_for_terminal_proof
+  - tool_sprawl_over_5_subscriptions
+  - save_without_SAVE_TO_path
+  - conflating Research Lane B with Product ship
+
+open_gaps:
+  - W1 film not on disk yet
+  - W3 revenue $0 until LOI/deposit
+  - research_root register optional not run for all traces
+
+next_actions_founder:
+  - "Approve unified stack or trim tools"
+  - "ORDER: W1 shot list SAVE TO if wanted"
+  - "FORM PICKs stay FORM_OFFICIAL chat — not here"
+
+research_save:
+  trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-UNIFIED-MASTER
+  worker_id: cursor_os_pro_research_lane_b
+  subject: sina_os
+  vault_path: docs/research/cursor_os_pro_unified_research_master_v1.yaml
+  execution_authority: false
+
+artifacts_index:
+  canonical_master: docs/research/cursor_os_pro_unified_research_master_v1.yaml
+  voice_brain: docs/research/voice_composition_market_brain_v1.yaml
+  voice_peers: docs/research/voice_dev_peer_comparison_v1.yaml
+  video_detail_archive: docs/research/ai_video_commercial_tier1_research_v1.yaml
+  incidents_digest_archive: docs/research/ecosystem_incidents_compendium_digest_2026-06-12.yaml
+  matrix_json: scripts/investor-data-200.json
+  golden_site_canvas: ~/.cursor/projects/.../canvases/sourcea-golden-site-strategy.canvas.tsx

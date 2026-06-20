@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0432 — Validate graph_executor run_graph_executor on build without exception
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0432
+tests:
+  status: passed
+  output_snippet: pack12 spine-loop verify-only; spine+event-bus+batch PASS
+reported_at: '2026-06-08T19:42:06Z'
+reporter: cursor-worker-batch

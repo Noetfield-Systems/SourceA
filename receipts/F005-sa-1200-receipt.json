@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "F005",
+  "title": "Tick after U029 clears inbox",
+  "evidence": "loop_specialist_tick_v1 tick_decision=execute_pending · kill_flag=false · mode=SINGLE_SA · queue_head F005 sa-1200 · acceptance execute_pending or observe",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T18:46:30Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

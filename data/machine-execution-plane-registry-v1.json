@@ -1,0 +1,150 @@
+{
+  "schema": "machine-execution-plane-registry-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-06-20T02:34:42Z",
+  "ssot": "data/founder-execution-model-v1.json",
+  "one_law": "Factories ONLINE on cloud + public API only \u2014 Mac = control panel never factory body \u00b7 anti-staleness \u00b7 zero drift \u00b7 zero fragmentation",
+  "factory_priority_law": "Main cloud factories must be ONLINE (public HTTPS / cloud API / cloud receipt) \u2014 Mac never counts as factory \u00b7 email DEFERRED until main stack + product sites online",
+  "mac_role": "control_plane_only",
+  "mac_role_aliases": [
+    "control_panel_only",
+    "cockpit_only",
+    "mac_control_panel"
+  ],
+  "cloud_role": "execution_plane_headless",
+  "main_cloud_factories": [
+    "fbe_factory_builder",
+    "fbe_railway",
+    "comprehension_loop_bay",
+    "supabase_edge",
+    "video_ad_factory",
+    "noetfield_freemium_bay",
+    "trustfield_sandbox",
+    "witnessbc_proof_lab",
+    "fal_rendering_bridge",
+    "openrouter_cloud"
+  ],
+  "deferred_lanes": [
+    "commercial_email_cloud"
+  ],
+  "control_plane_only": [
+    {
+      "id": "worker_hub",
+      "role": "cockpit",
+      "url": "http://127.0.0.1:13020/",
+      "runs": [
+        "form_pick",
+        "gate",
+        "approve",
+        "monitor",
+        "factory_now"
+      ],
+      "execution_plane": "mac_control_panel"
+    },
+    {
+      "id": "mac_health_guard",
+      "role": "cockpit_health",
+      "url": "http://127.0.0.1:13024/",
+      "runs": [
+        "body_monitor",
+        "cooldown_pulse"
+      ],
+      "execution_plane": "mac_control_panel",
+      "note": "NOT a factory \u2014 health shield only"
+    },
+    {
+      "id": "session_gate",
+      "role": "gate",
+      "script": "scripts/agent_session_gate_run_v1.py",
+      "execution_plane": "mac_control_panel"
+    },
+    {
+      "id": "form_official",
+      "role": "human_fork_intake",
+      "url": "http://127.0.0.1:13020/form/",
+      "execution_plane": "mac_control_panel"
+    }
+  ],
+  "cloud_factories": [
+    {
+      "id": "fbe_railway",
+      "execution_plane": "cloud_api_worker",
+      "host": "railway",
+      "script": "scripts/fbe_runner_v1.py",
+      "tier": "main",
+      "priority": 2
+    },
+    {
+      "id": "supabase_edge",
+      "execution_plane": "cloud_api_worker",
+      "host": "supabase",
+      "migration": "data/supabase-migration-001-campaign-automations-v1.sql",
+      "tier": "main",
+      "priority": 4
+    },
+    {
+      "id": "video_ad_factory",
+      "execution_plane": "cloud",
+      "orchestrate": "scripts/video_ad_factory_orchestrate_v1.py",
+      "render": "scripts/video_ad_rendering_bridge_v1.py",
+      "tier": "main",
+      "priority": 5
+    },
+    {
+      "id": "noetfield_freemium_bay",
+      "execution_plane": "cloud_api_worker",
+      "work_order": "U094",
+      "tier": "main",
+      "priority": 6
+    },
+    {
+      "id": "trustfield_sandbox",
+      "execution_plane": "cloud_api_worker",
+      "receipt": "~/.sina/trustfield-sandbox-receipt-v1.json",
+      "tier": "main",
+      "priority": 7
+    },
+    {
+      "id": "witnessbc_proof_lab",
+      "execution_plane": "cloud_api_worker",
+      "receipt": "~/.sina/witnessbc-proof-lab-publish-receipt-v1.json",
+      "site": "https://witnessbc.com",
+      "orchestrate": "scripts/witnessbc_proof_lab_publish_v1.py",
+      "tier": "main",
+      "priority": 8
+    },
+    {
+      "id": "fal_rendering_bridge",
+      "execution_plane": "cloud",
+      "env": "FAL_KEY",
+      "tier": "main",
+      "priority": 9
+    },
+    {
+      "id": "openrouter_cloud",
+      "execution_plane": "cloud",
+      "note": "LLM on cloud \u2014 not Mac body",
+      "tier": "main",
+      "priority": 10
+    },
+    {
+      "id": "commercial_email_cloud",
+      "execution_plane": "cloud",
+      "defer_ssot": "data/commercial-email-send-defer-v1.json",
+      "label": "W3 outbound email (TrustField send)",
+      "runs_after": "all main_cloud_factories + product_sites online + founder_lift",
+      "tier": "deferred",
+      "priority": 99
+    }
+  ],
+  "forbidden_on_mac": [
+    "heavy_render",
+    "fal_spend",
+    "auto_send",
+    "factory_execution",
+    "cloud_worker_body"
+  ],
+  "factory_online_law": "data/cloud-factories-online-only-v1.json",
+  "factory_online_one_law": "Factories ONLINE on cloud + public API only \u2014 Mac = control panel never factory body",
+  "founder_rules_count": 10
+}

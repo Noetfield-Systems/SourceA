@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0558 — Validate PROGRAM_PROGRESS parallel_plans P0 next_action honest
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0558
+tests:
+  status: passed
+  output_snippet: validate-program-progress-p0-honest-t2-crossref-v1.sh PASS · canonical sa-0508 · t1 sa-0533
+reported_at: '2026-06-14T21:43:28Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

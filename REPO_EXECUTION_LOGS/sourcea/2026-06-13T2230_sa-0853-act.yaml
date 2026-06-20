@@ -1,0 +1,23 @@
+schema_version: 1
+repo: sourcea
+task: sa-0853
+turn: act
+phase: phase-s8-hub-ui-ux
+title: Fix refresh pipeline total time under 360s for audit E2E
+status: act_complete
+verify_passed: false
+shipped:
+  - scripts/audit_backend_e2e.py
+  - scripts/audit_backend_e2e_light_v1.py
+  - scripts/validate-refresh-pipeline-360-v1.sh
+proof:
+  refresh_e2e_budget_sec: 360
+  live_light_refresh_sec: 0.67
+  refresh_http: 200
+  refresh_mode: light
+validators:
+  - validate-refresh-pipeline-360-v1.sh: PASS
+  - audit_backend_e2e_light_v1.py: PASS
+attachment: archive/attachments/2026-06-13/sa-0853-refresh-pipeline-360-act_LOCKED_v1.md
+next_turn: verify
+reported_at: '2026-06-13T22:30:00Z'

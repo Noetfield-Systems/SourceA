@@ -1,0 +1,140 @@
+{
+  "schema": "commercial-email-send-defer-v1",
+  "version": "1.4.0",
+  "saved_at": "2026-06-19T23:30:00Z",
+  "one_law": "Commercial email send is DEFERRED — runs only AFTER FBE factory builder is ONLINE in cloud + main cloud factories + product sites. Email is not a main factory. Mac is never a factory.",
+  "execution_model": {
+    "mac_role": "control_panel_only",
+    "factory_role": "cloud_only",
+    "main_factories_first": true,
+    "email_lane": "deferred_after_main",
+    "authority": "data/founder-execution-model-v1.json",
+    "factory_online_law": "data/cloud-factories-online-only-v1.json",
+    "machine_registry": "data/machine-execution-plane-registry-v1.json"
+  },
+  "human_doc": "data/founder-execution-model-v1.json",
+  "script": "scripts/commercial_email_send_defer_v1.py",
+  "validator": "scripts/validate-commercial-email-send-defer-v1.sh",
+  "receipt": "~/.sina/commercial-email-send-defer-receipt-v1.json",
+  "lift_receipt": "~/.sina/commercial-email-send-defer-lift-v1.json",
+  "defer_flag": "~/.sina/commercial-email-send-deferred-v1.flag",
+  "deferred_lane": {
+    "id": "commercial_email_cloud",
+    "label": "W3 outbound email (TrustField send)",
+    "priority": 99,
+    "not_a_main_factory": true,
+    "runs_after": ["fbe_factory_builder", "main_cloud_factories", "product_sites", "founder_lift"]
+  },
+  "main_factories_authority": "data/founder-execution-model-v1.json",
+  "main_factory_ids_key": "cloud_role.main_cloud_factories",
+  "main_factory_probes": {
+    "fbe_factory_builder": {
+      "label": "FBE factory builder bundle (cloud headless spawn)",
+      "type": "fbe_factory_builder_bundle",
+      "bundle": "data/fbe_factory_builder_bundle_v1.json",
+      "required": true
+    },
+    "fbe_railway": {
+      "label": "FBE Railway cloud worker",
+      "type": "fbe_public_health",
+      "config": "data/fbe_cloud_worker_config_v1.json",
+      "required": true
+    },
+    "noetfield_freemium_bay": {
+      "label": "Noetfield freemium cloud bay",
+      "type": "receipt",
+      "receipt": "~/.sina/fbe-bay-run-receipt-v1.json",
+      "required": true
+    },
+    "trustfield_sandbox": {
+      "label": "TrustField cloud sandbox",
+      "type": "receipt",
+      "receipt": "~/.sina/trustfield-sandbox-receipt-v1.json",
+      "required": true
+    },
+    "video_ad_factory": {
+      "label": "Video ad factory (cloud federated)",
+      "type": "receipt",
+      "receipt": "~/.sina/fbe-federated-receipt-v1.json",
+      "receipt_ok_key": "ok",
+      "required": false
+    },
+    "supabase_edge": {
+      "label": "Supabase edge (cloud API)",
+      "type": "cloud_url_secret",
+      "env": "SUPABASE_URL",
+      "required": false
+    },
+    "fal_rendering_bridge": {
+      "label": "FAL rendering bridge",
+      "type": "secret",
+      "env": "FAL_KEY",
+      "required": false
+    },
+    "openrouter_cloud": {
+      "label": "OpenRouter cloud LLM",
+      "type": "secret",
+      "env": "OPENROUTER_API_KEY",
+      "required": false
+    },
+    "witnessbc_proof_lab": {
+      "label": "WitnessBC Proof Lab factory",
+      "type": "receipt",
+      "receipt": "~/.sina/witnessbc-proof-lab-publish-receipt-v1.json",
+      "required": true
+    }
+  },
+  "mac_control_panel": {
+    "id": "worker_hub",
+    "label": "Mac control panel (Worker Hub)",
+    "url": "http://127.0.0.1:13020/health",
+    "gates_email_send": false
+  },
+  "product_sites": [
+    {
+      "id": "trustfield",
+      "label": "TrustField",
+      "url": "https://www.trustfield.ca",
+      "required": true,
+      "min_status": 200
+    },
+    {
+      "id": "noetfield",
+      "label": "Noetfield",
+      "url": "https://www.noetfield.com",
+      "required": true,
+      "min_status": 200
+    },
+    {
+      "id": "witnessbc",
+      "label": "WitnessBC",
+      "url": "https://www.witnessbc.com",
+      "required": true,
+      "min_status": 200,
+      "content_markers": ["AI policy at dispatch", "brand-disambiguation"],
+      "stale_markers": ["Independent Public-interest Journalism"]
+    }
+  ],
+  "lift_policy": {
+    "requires_fbe_factory_builder_online": true,
+    "requires_main_factories_online": true,
+    "requires_product_sites_online": true,
+    "requires_founder_lift": true,
+    "email_not_counted_as_main_factory": true,
+    "lift_command": "python3 scripts/commercial_email_send_defer_v1.py --lift"
+  },
+  "nerve_wire": [
+    "agent_nerve_system_v1._compute_w3_send_ready",
+    "better_loop_pulse_v1._w3_founder_send_loop_checks",
+    "send_w3_canada_v1.run_send"
+  ],
+  "anti_theater_check": "email_send_defer",
+  "runs_on": [
+    "scripts/agent_session_gate_run_v1.py",
+    "scripts/agent_nerve_system_v1.py",
+    "scripts/disk_live_wire_sync_v1.py",
+    "scripts/agent_rule_live_wire_v1.py",
+    "scripts/cloud_factory_check_v1.py",
+    "scripts/founder_execution_model_v1.py"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0532",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0532 VERIFY PASS \u2014 T1 founder_request_tracker build sync dedup via crossref sa-0507",
+  "at": "2026-06-14T15:21:51Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

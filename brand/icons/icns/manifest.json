@@ -1,0 +1,57 @@
+[
+  {
+    "id": "sina-command",
+    "png": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-command.png",
+    "icns": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-command.icns"
+  },
+  {
+    "id": "sina-promptos",
+    "png": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-promptos.png",
+    "icns": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-promptos.icns"
+  },
+  {
+    "id": "sina-dispatch",
+    "png": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-dispatch.png",
+    "icns": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-dispatch.icns"
+  },
+  {
+    "id": "sina-execute",
+    "png": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-execute.png",
+    "icns": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-execute.icns"
+  },
+  {
+    "id": "sina-decide",
+    "png": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-decide.png",
+    "icns": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-decide.icns"
+  },
+  {
+    "id": "sina-run",
+    "png": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-run.png",
+    "icns": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-run.icns"
+  },
+  {
+    "id": "sina-status",
+    "png": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-status.png",
+    "icns": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-status.icns"
+  },
+  {
+    "id": "sina-apple-health",
+    "png": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-apple-health.png",
+    "icns": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-apple-health.icns"
+  },
+  {
+    "id": "sina-mac-health",
+    "png": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-mac-health.png",
+    "icns": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-mac-health.icns"
+  },
+  {
+    "id": "sina-chat-unify",
+    "png": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-chat-unify.png",
+    "icns": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-chat-unify.icns"
+  },
+  {
+    "id": "sina-n8n-integration",
+    "png": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-n8n-integration.png",
+    "icns": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-n8n-integration.icns"
+  }
+]

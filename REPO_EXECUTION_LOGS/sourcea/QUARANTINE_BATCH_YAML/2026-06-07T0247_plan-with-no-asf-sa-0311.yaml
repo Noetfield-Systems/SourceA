@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0311 — Mark FR-008 in_progress until nudge_count <= 2
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0311
+tests:
+  status: passed
+  output_snippet: validate-founder-request-fleet-sync-v1 · FR-008 nudge_count<=2 shipped else in_progress · nudges 0
+reported_at: '2026-06-07T02:47:15Z'
+reporter: cursor-worker-batch

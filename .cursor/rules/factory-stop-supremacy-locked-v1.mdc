@@ -1,0 +1,20 @@
+---
+description: STOP supersedes plan todos — conduct law (INCIDENT-023)
+globs: scripts/factory_control_v1.py,scripts/stop_goal1_auto_run_v1.py,scripts/founder_resume_drain_v1.py
+alwaysApply: false
+---
+
+# Factory STOP supremacy (LOCKED)
+
+When founder message class is **ASF_STOP** (stop · halt · why stuck · interrupt · freeze):
+
+1. Run `python3 scripts/stop_goal1_auto_run_v1.py --json` **first** — before any other shell or drain. SSOT: `factory_control_v1.py`.
+2. **Do not** spawn autodrain, pack_loop, batch, or unified autorun.
+3. **Cancel** plan todos mentally — ASF_ORDER > plan todo.
+4. Reply **second** with `factory-now` line from `~/.sina/factory-now-v1.json`.
+
+Resume only when founder says `ASF: resume drain — max N` and Maintainer runs:
+
+`python3 scripts/factory_control_v1.py resume --max-turns N` (or `founder_resume_drain_v1.py`)
+
+Default mode is **FREEZE**. Progress claims must quote factory-now same turn.

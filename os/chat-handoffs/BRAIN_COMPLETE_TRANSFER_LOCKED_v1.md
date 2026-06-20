@@ -1,0 +1,1 @@
+../../brain-os/contract/BRAIN_COMPLETE_TRANSFER_LOCKED_v1.md

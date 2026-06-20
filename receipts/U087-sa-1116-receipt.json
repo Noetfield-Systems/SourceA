@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1116",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U087",
+  "title": "Reply-rate field when founder logs reply",
+  "evidence": "reply_rate_pct on reply log PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:20:45Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

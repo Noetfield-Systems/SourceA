@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0629 — Validate L0 MVP user_signals_v1.json artifact when hub touched
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0629
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — L0 user_signals_v1.json on hub touch with last_refresh_at; user-workspace-signals + dispatch + governance fleet + critical 0
+reported_at: '2026-06-09T04:09:41Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

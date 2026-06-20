@@ -1,0 +1,25 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U062",
+  "title": "pack.status ready_for_founder_send \u2192 sent transition",
+  "evidence": "confirm_sent stamps pack sent_at \u00b7 --check-confirm-sent-pack PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:03:06Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+  "acceptance_check": {
+    "ok": true,
+    "upgrade": "U062",
+    "pack_after": {
+      "status": "sent",
+      "sent_at": "2026-06-19T04:03:05Z",
+      "confirm_sent_at": "2026-06-19T04:03:05Z"
+    },
+    "approval_sent_at": "2026-06-19T04:03:05Z",
+    "acceptance": "sent_at stamped on Mail confirm",
+    "check": "python3 scripts/w3_founder_review_v1.py --check-confirm-sent-pack --json",
+    "command": "python3 scripts/w3_founder_review_v1.py --confirm-sent fundmore --note 'Mail confirm'"
+  }
+}

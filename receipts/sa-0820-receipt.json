@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0820",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0820 closed \u2014 machines banner sibling-hub copy verified disk+live; validate-machines-banner-sibling-v1 + ultra PASS",
+  "at": "2026-06-15T03:17:52Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "outbound-factory-worker-queue-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T19:31:32Z",
+  "plan_path": "data/outbound-factory-100-upgrade-plan-v1.json",
+  "phase": "phase-s6-outbound-factory-upgrade",
+  "sa_range": [],
+  "total": 0,
+  "assignments": [],
+  "command": "python3 scripts/outbound_factory_queue_assign_v1.py --deliver-first"
+}

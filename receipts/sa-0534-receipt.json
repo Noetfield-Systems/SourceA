@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0534",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0534 VERIFY \u2014 T1 MergePack KPI trio cross-ref to canonical sa-0509; validator PASS; closeout",
+  "at": "2026-06-14T15:46:16Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

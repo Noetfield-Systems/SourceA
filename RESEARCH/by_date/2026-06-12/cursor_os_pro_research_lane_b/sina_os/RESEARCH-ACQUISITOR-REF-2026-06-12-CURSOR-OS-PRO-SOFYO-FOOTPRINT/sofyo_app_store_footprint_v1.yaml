@@ -1,0 +1,136 @@
+# sofyo_app_store_footprint_v1.yaml
+# SOFYO DIJITAL / Prime Digital Lab — App Store developer footprint
+# trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-SOFYO-FOOTPRINT
+# execution_authority: false · Public store research only
+
+meta:
+  id: sofyo_app_store_footprint_v1
+  date: "2026-06-12"
+  founder_public_name: Sina Sinry
+  research_note: >
+    Apple lists SOFYO DIJITAL as seller; some regions list Prime Digital Lab L.L.C-FZ.
+    Android Play uses Prime Digital Lab LLC. Same product family (Flibbo / Recipedia).
+
+# ═══════════════════════════════════════════════════════════════════════════
+# LEGAL ENTITIES
+# ═══════════════════════════════════════════════════════════════════════════
+
+entities:
+  sofyo_dijital:
+    legal_name: SOFYO DIJITAL COZUMLERI TICARET ANONIM SIRKETI
+    role: Apple App Store seller (US + EU trader registration)
+    address: "Ayazağa Mah, Azerbaycan Cad, Vadistanbul, Sarıyer, Istanbul, Turkey"
+    duns: "533121584"
+    contact_email: trade.business.idea@gmail.com
+    phone: "+90 5363316029"
+    copyright: "© Sofyo Dijital"
+
+  prime_digital_lab:
+    legal_name: Prime Digital Lab L.L.C-FZ
+    role: Alternate App Store provider (some regions) · Google Play developer
+    contact: info@primedigitallab.com
+    copyright_alt: "© Flibbo Inc. (TN App Store listing)"
+
+  relationship: >
+    Same founder portfolio — dual publishing structure common for TR entity + UAE free-zone LLC.
+    Not the same as Zuggo Custom Apps (Sayre PA dev shop) or zuggo.co (IDE For Cursor legal shell).
+
+# ═══════════════════════════════════════════════════════════════════════════
+# CONFIRMED APP PORTFOLIO (App Store · Jun 2026)
+# ═══════════════════════════════════════════════════════════════════════════
+
+apps:
+  flibbo:
+    status: live_flagship
+    names:
+      - "Flibbo - AI Video Image Music"
+      - "Flibbo AI - Video Image Maker"
+      - "Flibbo: Ask AI Chat Assistant"
+    app_store_id: 6470238006
+    bundle_note: "Single app ID — listing title varies by locale/marketing test"
+    platforms: [iPhone, iPad, Mac Apple Silicon, Apple Vision]
+    category: Productivity
+    age_rating: 18+
+    size_mb: ~200
+    version_sample: "4.3.8 (Jun 2026)"
+    rating_us: "4.7 · 11K ratings"
+    google_play:
+      package: com.flibbo.app
+      developer: Prime Digital Lab LLC
+    web: https://www.flibbo.com/
+    features_evolution:
+      current_marketing: "Viral ideas + AI image + AI music + assistant"
+      legacy_marketing: "Master Brain (multi-LLM) · AI Vision · social feed · Perplexity-style search"
+    monetization:
+      subscriptions: ["Weekly $6.99–7.99", "Monthly $19.99", "Yearly $99.99"]
+      credits: ["200 @ $5.99", "400 @ $9.99", "600 @ $14.99", "1000 @ $19.99"]
+      trials: ["7-day free trial tiers", "3-day free variants"]
+    privacy_flags: "Tracks identifiers + usage data across apps/sites (declared)"
+
+  recipedia:
+    status: live_second_app
+    name: "Recipedia - Recipe Saver"
+    app_store_id: 6759192988
+    category: Food & Drink
+    age_rating: 4+
+    size_mb: ~121
+    version_sample: "1.2.2 (Apr 2026)"
+    rating: "Insufficient ratings displayed (new app)"
+    web: https://recipedia.co/
+    job: "Paste TikTok/IG/YouTube recipe link → structured recipe + AI Chef"
+    monetization:
+      subscriptions: ["Weekly €5.99", "Monthly €8.99", "Yearly €44.99"]
+      trials: ["3-day trial weekly"]
+    strategic_role: >
+      Vertical clone play in food niche — same "social link → structured output" engine as Flibbo's
+      content pipeline. Portfolio cross-sell opportunity.
+
+# ═══════════════════════════════════════════════════════════════════════════
+# DEVELOPER FOOTPRINT SUMMARY
+# ═══════════════════════════════════════════════════════════════════════════
+
+footprint_summary:
+  confirmed_live_apps: 2
+  flagship: Flibbo
+  second_app: Recipedia
+  linkedin_claim: "2+ AI mobile apps" — confirmed minimum met
+  more_by_sofy_section: "App Store shows 'More by SOFYO DIJITAL' — public crawl confirms Flibbo + Recipedia; no third live app verified Jun 2026"
+  android:
+    confirmed: "Flibbo (com.flibbo.app) under Prime Digital Lab"
+    recipedia: "Not verified on Play in this research pass"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# PUBLISHING ARCHITECTURE
+# ═══════════════════════════════════════════════════════════════════════════
+
+publishing_stack:
+  ios_primary_seller: SOFYO DIJITAL
+  ios_alt_seller: Prime Digital Lab L.L.C-FZ (region-dependent)
+  android_seller: Prime Digital Lab LLC
+  legal_pages:
+    flibbo: [flibbo.com/terms-of-use, flibbo.com/privacy-policy]
+    recipedia: [recipedia.co/terms-of-service, recipedia.co/privacy-policy]
+  separate_from:
+    - name: Zuggo Custom Apps (zuggoapps.com)
+      reason: Unrelated US dev agency (Bilal Ahmad)
+    - name: zuggo.co
+      reason: IDE For Cursor App Store legal URLs — founder B2B lane, not SOFYO consumer apps
+
+# ═══════════════════════════════════════════════════════════════════════════
+# PORTFOLIO STRATEGY (research inference)
+# ═══════════════════════════════════════════════════════════════════════════
+
+portfolio_strategy:
+  pattern: "Horizontal AI creator (Flibbo) + vertical social-link parser (Recipedia)"
+  next_likely_apps:
+    - "More vertical 'paste link → structured output' (fitness, travel, fashion)"
+    - "Faster trend-clone video (Pollo Agent parity)"
+  risks:
+    - dual entity compliance (EU trader OK on Recipedia)
+    - 18+ on Flibbo vs 4+ on Recipedia — different audience policies
+    - credit-based gen costs vs subscription ARPU
+
+research_save:
+  trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-SOFYO-FOOTPRINT
+  worker_id: cursor_os_pro_research_lane_b
+  subject: sina_os

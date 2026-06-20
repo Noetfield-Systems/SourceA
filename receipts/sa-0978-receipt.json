@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0978",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 T3 RAGAS vs Eval-1b cross-ref CHECK\u2192ACT\u2192VERIFY closed; canonical sa-0953",
+  "at": "2026-06-14T03:53:25Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

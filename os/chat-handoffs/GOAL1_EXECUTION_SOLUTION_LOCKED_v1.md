@@ -1,0 +1,1 @@
+../../brain-os/enforcement/GOAL1_EXECUTION_SOLUTION_LOCKED_v1.md

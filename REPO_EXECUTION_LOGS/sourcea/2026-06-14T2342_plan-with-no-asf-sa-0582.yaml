@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0582 — Run founder_request_tracker sync on build for commercial FR rows
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0582
+tests:
+  status: passed
+  output_snippet: sa-0582 T3 founder_request build sync cross-ref · validate-founder-request-build-sync-t3-crossref-v1 PASS · cites sa-0507 + sa-0557 · task-validator closeout (no_hub)
+reported_at: '2026-06-14T23:42:46Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

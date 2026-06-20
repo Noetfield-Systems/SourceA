@@ -1,0 +1,30 @@
+---
+description: Enterprise bootstrap pack — ledger · context index · factory isolation
+alwaysApply: true
+---
+
+# Cursor enterprise bootstrap (024)
+
+**Law:** `docs/CURSOR_CORPORATE_BOOTSTRAP_PACK_LOCKED_v1.md`  
+**Machine:** `data/cursor-bootstrap-ledger-v1.json` · `docs/architecture_ledger.json`  
+**Context index:** `docs/CURSOR_CONTEXT_INDEX_LOCKED_v1.md` (not mega-paste)
+
+## Before structural work
+
+1. Session gate — `python3 scripts/agent_session_gate_run_v1.py --role any --json`
+2. Read ledger epoch + `microservices_routing`
+3. Pre-write guard on every disk edit
+
+## Factory scope
+
+| Path | Rules file |
+|------|------------|
+| `apps/video-ad-factory/**` | `apps/video-ad-factory/.cursor/rules/011-video-ad-factory.mdc` |
+| `apps/apple-store-api/**` | `apps/apple-store-api/.cursor/rules/012-apple-store-api.mdc` |
+| `packages/mcp-sourcea-verify/**` | MCP read-only verify |
+
+## Validate bootstrap
+
+```bash
+bash scripts/validate-cursor-bootstrap-v1.sh
+```

@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0197 — Cross-check runtime/dispatch_policy/classifier.py task ids
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0197
+tests:
+  status: passed
+  output_snippet: validate-dispatch-classifier-task-ids-v1 OK; dispatch+fleet+critical0
+reported_at: '2026-06-08T19:20:28Z'
+reporter: cursor-worker-batch

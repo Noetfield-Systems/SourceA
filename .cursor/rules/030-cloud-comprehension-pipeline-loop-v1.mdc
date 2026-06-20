@@ -1,0 +1,69 @@
+---
+description: Cloud comprehension pipeline loop — C1→C5 translate every agent answer
+alwaysApply: true
+---
+
+# Cloud comprehension pipeline loop (LOCKED)
+
+**SSOT:** `data/cloud-comprehension-pipeline-loop-v1.json`  
+**Run:** `python3 scripts/cloud_comprehension_pipeline_loop_v1.py --text "<draft>" --founder-message "<founder>" --json`  
+**Receipt:** `~/.sina/cloud-comprehension-pipeline-loop-receipt-v1.json`
+
+## One law
+
+> **Every agent answer passes the comprehension circle — understand → explain → benefit → proof → bug signal. No buzzwords without translation.**
+
+## Circles (always in order)
+
+| Circle | Name | Agent must |
+|--------|------|------------|
+| **C1** | understand | Restate what founder needs in one plain sentence |
+| **C2** | explain | Normal English · because / so · translate internal terms once |
+| **C3** | benefit | What it means for founder — blocked · ready · matters |
+| **C4** | proof | Disk paths after explanation — never instead of it |
+| **C5** | bug_signal | Plain issue list from live disk — gradual system debugging |
+| **C6** | output_analyst | **Root cause** — agent draft vs disk stale/wrong/poison vs machines |
+| **C7** | output_quality_gate | **ACCEPT** · **RETURN_TO_AGENT** · **FIX_DISK** · **FIX_MACHINES** |
+
+## Output analyst (C6) — not always the agent
+
+Before blaming the agent, analyst checks live disk:
+
+| Root cause | Meaning | Fix first |
+|------------|---------|-----------|
+| **AGENT_DRAFT** | Draft quality problem | Agent rewrites |
+| **DISK_STALE** | Stale inject/surfaces/receipts | Live wire + mirror sync |
+| **DISK_WRONG** | Queue/SSOT mismatch on disk | queue_ssot_unify + live wire |
+| **DISK_POISON** | Meaningless/prohibition inject | Mirror scrub + vocabulary guard |
+| **MACHINE_STALE** | Governance/factory drift | governance_zero_drift heal |
+
+Bad parrot answers often mean **stale or poison disk** — FIX_DISK before rewrite.
+
+## Output quality gate (C7)
+
+| Verdict | Meaning |
+|---------|---------|
+| **ACCEPT** | Ship `accepted_founder_text` |
+| **RETURN_TO_AGENT** | Disk OK — agent rewrites |
+| **FIX_DISK** | Sync/scrub disk inject first |
+| **FIX_MACHINES** | Heal factory/governance machines first |
+
+Founder never sees blocked drafts. Log: `~/.sina/agent-output-quality-log-v1.jsonl` tracks root_cause over time.
+
+**Cloud bay (primary):** `POST http://127.0.0.1:13020/api/comprehension-loop/v1` → Railway FBE runs analysis · Mac does not.
+
+**Returns for founder:** `for_founder.show_this` (plain text) or `for_founder.why` (blocked reason in English).
+
+**Mac:** one Hub POST only — no local validator stack.
+
+## Forbidden
+
+- Buzzword chains (defer · sites=RED · PASS · wired) without translation
+- Parrot claims ("Gate PASS", "Language standard wired") as the answer
+- Skipping benefit when founder asked why or what
+- C5 as validator dump — issues in plain English only
+
+## Related
+
+- `data/agent-report-language-standard-v1.json` · `data/founder-reply-glossary-v1.json`
+- `.cursor/rules/027-agent-report-plan-story-v1.mdc`

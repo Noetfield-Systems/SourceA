@@ -1,0 +1,1 @@
+../../brain-os/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md

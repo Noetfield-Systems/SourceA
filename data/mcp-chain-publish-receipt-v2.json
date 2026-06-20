@@ -1,0 +1,22 @@
+{
+  "schema": "sourcea-mcp-chain-publish-receipt-v1",
+  "phase": "P2_sse_live",
+  "verdict": "PASS",
+  "saved_at": "2026-06-19T05:55:14Z",
+  "servers": [
+    {
+      "registry_name": "io.github.sinakazemnezhad/sourcea-verify",
+      "package": "@sourcea/mcp-verify",
+      "stdio": true,
+      "sse_url": "https://sourcea-mcp-verify.vercel.app/mcp",
+      "npm_published": false
+    },
+    {
+      "registry_name": "io.github.virlux/virlux-verify",
+      "package": "@virlux/mcp-verify-factory",
+      "stdio": true,
+      "sse_url": "https://virlux-api.vercel.app/mcp",
+      "npm_published": false
+    }
+  ]
+}

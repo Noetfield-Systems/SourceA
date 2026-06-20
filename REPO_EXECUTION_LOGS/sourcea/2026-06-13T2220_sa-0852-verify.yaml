@@ -1,0 +1,26 @@
+schema_version: 1
+repo: sourcea
+task: sa-0852
+turn: verify
+phase: phase-s8-hub-ui-ux
+title: Measure command-data-shell.json size — target under 500KB
+status: done
+verify_passed: true
+validators:
+  - validate-command-data-shell-size-v1.sh: PASS 301464
+  - validate-command-data-lazy-shell-v1.sh: PASS
+  - validate-app-js-lazy-bootstrap-v1.sh: PASS
+proof:
+  shell_bytes: 301464
+  shell_kb: 294.4
+  shell_max_bytes: 512000
+  headroom_bytes: 210536
+  deferred_keys:
+    - agent_reviews
+    - hub_essentials
+    - live_products
+attachment: archive/attachments/2026-06-13/sa-0852-command-data-shell-size-act_LOCKED_v1.md
+verify_receipt: archive/attachments/2026-06-13/sa-0852-verify-receipt_LOCKED_v1.md
+next_task: sa-0853
+next_turn: check
+reported_at: '2026-06-13T22:20:00Z'

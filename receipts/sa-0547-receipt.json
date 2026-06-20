@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0547",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0547 VERIFY PASS \u2014 T1 verify:wire missing-receipt hardening dedup via crossref canonical sa-0522",
+  "at": "2026-06-14T18:10:16Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

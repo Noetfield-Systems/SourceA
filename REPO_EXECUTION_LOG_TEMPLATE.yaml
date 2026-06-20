@@ -1,0 +1,22 @@
+# After IMPLEMENT + VERIFY — save evidence (not just STATUS REPORT).
+# Submit: cd ~/Desktop/SinaPromptOS && ./scripts/submit-execution-log.sh trustfield this.yaml
+
+repo: trustfield
+task: postgres validation          # must match plan.json next_tasks item you finished
+status: done                       # done | failed | blocked | in_progress
+verify_passed: true                # REQUIRED for status=done to count as truth
+
+evidence:
+  commit: abc123def                  # git rev-parse HEAD
+  files_changed:
+    - path/to/file.ts
+  diff_summary: "optional short summary"
+
+tests:
+  status: passed                     # passed | failed | skipped
+  command: "npm test"
+  output_snippet: "3 passed, 0 failed"
+
+real_output: "GET /health returns 200; migration applied"
+
+reporter: cursor

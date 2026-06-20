@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0645",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 OpenRouter embeddings deferred-to-s9 guard (validate-openrouter-embeddings-deferred-s9-v1 + audit_hub_source_alignment) + dispatch + eval-1b LIVE 80% + governance fleet + critical 0; honest closeout sa-0645 Q30/30 pack complete",
+  "at": "2026-06-09T05:20:14Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

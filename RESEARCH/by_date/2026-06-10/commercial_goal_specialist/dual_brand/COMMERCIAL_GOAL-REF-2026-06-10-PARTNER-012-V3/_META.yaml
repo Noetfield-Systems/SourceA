@@ -1,0 +1,11 @@
+trace_id: COMMERCIAL_GOAL-REF-2026-06-10-PARTNER-012-V3
+worker_id: commercial_goal_specialist
+subject: dual_brand
+subject_label: TrustField + Noetfield
+thread: THREAD-PORTFOLIO
+date: '2026-06-10'
+source_path: /Users/sinakazemnezhad/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-10_PARTNER_PROPOSALS_v3_JUDGE.yaml
+archive_path: by_date/2026-06-10/commercial_goal_specialist/dual_brand/COMMERCIAL_GOAL-REF-2026-06-10-PARTNER-012-V3/2026-06-10_PARTNER_PROPOSALS_v3_JUDGE.yaml
+execution_authority: false
+enforcer: research_save_enforcer.py
+law: RESEARCH_INTAKE_AND_SAVE_LOCK_LOCKED_v1.md

@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0597 — Harden verify:wire to fail on missing run receipt artifact
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0597
+tests:
+  status: passed
+  output_snippet: sa-0597 T3 verify:wire missing-receipt cross-ref (canonical sa-0522) · validate-verify-wire-missing-receipt-t3-crossref-v1 PASS · negative probe · task-validator closeout (no_hub)
+reported_at: '2026-06-15T01:01:31Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

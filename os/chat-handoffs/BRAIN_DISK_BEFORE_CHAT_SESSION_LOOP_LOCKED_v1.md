@@ -1,0 +1,1 @@
+../../brain-os/enforcement/BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md

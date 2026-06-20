@@ -1,0 +1,75 @@
+{
+  "schema": "investigator-specialist-routing-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-18T22:50:00Z",
+  "locked_doc": "docs/SOURCEA_INVESTIGATOR_JUDGE_LOOP_ROOM_LOCKED_v1.md",
+  "routes": [
+    {
+      "id": "commercial_reds",
+      "signal": "commercial_red_count > 0",
+      "primary": "commercial_w3",
+      "secondary": "loop_specialist",
+      "action": "REPORT",
+      "room": null
+    },
+    {
+      "id": "w3_sina_read_fail",
+      "signal": "gate w3_sina_read false",
+      "primary": "founder_sina_read",
+      "secondary": "icp_compiler",
+      "action": "REPORT",
+      "room": null
+    },
+    {
+      "id": "system_reds",
+      "signal": "system_red_count > 0",
+      "primary": "governance_specialist",
+      "secondary": "g7_self_heal",
+      "action": "REPORT",
+      "room": "incident_if_material"
+    },
+    {
+      "id": "dual_pick_fail",
+      "signal": "dual_pick.ok false",
+      "primary": "sourcea_worker",
+      "secondary": "brain_route",
+      "action": "REPORT",
+      "room": "conflict_if_two_ssot"
+    },
+    {
+      "id": "critical_bugs",
+      "signal": "critical_count > 0",
+      "primary": "investigator_fcb",
+      "secondary": "hospital_suggest",
+      "action": "REPORT",
+      "room": "incident"
+    },
+    {
+      "id": "drift_low",
+      "signal": "drift_score < 85",
+      "primary": "governance_center_full",
+      "secondary": "anti_staleness",
+      "action": "REPORT",
+      "room": "conflict"
+    },
+    {
+      "id": "freeze_block",
+      "signal": "prompt_blocked_by_freeze",
+      "primary": "asf_resume_gate",
+      "secondary": null,
+      "action": "INSIGHT",
+      "room": null
+    }
+  ],
+  "specialist_labels": {
+    "commercial_w3": "Commercial / W3 lane",
+    "loop_specialist": "Loop Specialist",
+    "founder_sina_read": "Founder Sina read path",
+    "governance_specialist": "Governance specialist",
+    "sourcea_worker": "SourceA Worker",
+    "brain_route": "Brain router",
+    "investigator_fcb": "find_critical_bugs owner",
+    "governance_center_full": "Governance Center full tier",
+    "asf_resume_gate": "ASF resume drain"
+  }
+}

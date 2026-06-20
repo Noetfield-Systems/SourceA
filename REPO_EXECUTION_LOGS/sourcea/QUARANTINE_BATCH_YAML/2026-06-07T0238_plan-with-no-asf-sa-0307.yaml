@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0307 — Show essayNudgeBanner on Today tab and Council room from essay_discourse
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0307
+tests:
+  status: passed
+  output_snippet: validate-essay-nudge-banner-v1 · renderEssayNudgeBanner Today+Council · essay_discourse
+reported_at: '2026-06-07T02:38:31Z'
+reporter: cursor-worker-batch

@@ -1,0 +1,17 @@
+schema_version: 1
+repo: sourcea
+task: sa-0209 — Wire validate on strict build (modified — no P0-RUNRECEIPT bump)
+status: done
+verify_passed: true
+modified_scope: P0 bump superseded by GOAL_HIERARCHY v1.1 T2b parallel only
+evidence:
+  files_changed:
+    - scripts/build-sina-command-panel.py
+    - os/plan-library/sourcea-1000/prompts/phase-s2-hub-build-ci/T0/sa-0209.md
+    - os/plan-library/sourcea-1000/REGISTRY.json
+tests:
+  status: passed
+  command: validate-verify-wire-v1.sh + strict build + find_critical_bugs.py
+  output_snippet: wire PASS · bump skipped message · critical 0
+reported_at: '2026-06-07T00:35:00Z'
+reporter: cursor-worker

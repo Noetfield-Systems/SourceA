@@ -1,0 +1,48 @@
+trace_id: governance_goal_specialist-20260608-015
+trace_family: governance_goal_specialist-20260608
+trace_type: governance_verification
+trace_owner: governance_goal_specialist
+trace_author: governance_goal_specialist
+trace_created: 2026-06-08
+execution_authority: false
+
+verdict: AGREE_OLD_BRAIN_AND_BRAIN_SYNTHESIS_P0_VERIFIED_ON_DISK
+
+disk_verification:
+  authority_yaml: ~/Desktop/SourceA/brain-os/system/authority.yaml
+  authority_map_locked: ~/Desktop/SourceA/brain-os/system/EXECUTION_AUTHORITY_MAP_LOCKED_v1.md
+  next_pointer: ~/.sina/next-execution-pointer-v1.json
+  next_sa: sa-0143
+  execution_json: ~/.sina/runtime/execution.json
+  execution_status: IDLE
+  validator: scripts/validate-authority-runtime-v1.sh
+  validator_result: PASS
+  workers_registry_old_brain: present
+
+agreement:
+  - All five sources agree on authority chain — governance concurs
+  - P0 state spine closes doc-centric re-derivation gap partially
+  - GPT diagnosis accepted; L5-L10 deferred correctly
+  - governance_goal_specialist remains execution_authority false in authority.yaml L4
+
+governance_notes_on_p0:
+  - authority.yaml correctly lists governance_goal_specialist can_route false can_build false
+  - next-pointer writers_allowed excludes governance_goal_specialist — correct
+  - execution.json IDLE while pointer sa-0143 is honest — NOW vs NEXT separation working
+
+p1_governance_requirements_before_ship:
+  - reconciled_decision.yaml must cite governance_goal_specialist trace_ids when specialist inputs used
+  - broker must reject worker self-pick without brain handoff — governance over speed preserved
+  - Brain reads execution_core.digest.yaml only — not raw GPT paste as SSOT
+  - portfolio_site_worker rows must keep execution_authority false in authority.yaml
+
+p1_not_governance_lane:
+  - Hub panel UI — SinaaiDataBase only
+  - orchestrator rail enforcement code — Execution Core worker
+  - events.jsonl append — worker after P1
+
+research_save:
+  trace_id: governance_goal_specialist-20260608-015
+  worker_id: governance_goal_specialist
+  subject: sina_os
+  execution_authority: false

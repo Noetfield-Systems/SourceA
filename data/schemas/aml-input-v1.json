@@ -1,0 +1,13 @@
+{
+  "schema": "aml-input-v1",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["entity_name", "jurisdiction", "transaction_refs"],
+  "properties": {
+    "entity_name": { "type": "string" },
+    "jurisdiction": { "type": "string" },
+    "transaction_refs": { "type": "array", "items": { "type": "string" } },
+    "sanctions_lists": { "type": "array", "items": { "type": "string" } },
+    "tenant": { "type": "string" }
+  }
+}

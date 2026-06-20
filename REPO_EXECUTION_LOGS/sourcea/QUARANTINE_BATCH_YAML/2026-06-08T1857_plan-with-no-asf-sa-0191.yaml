@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0191 — Compare Eval-1 structural vs Eval-1b behavioral in council brief
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0191
+tests:
+  status: passed
+  output_snippet: validate-council-strategic-brief-eval-v1.sh PASS; dispatch-policy+governance-fleet PASS; critical 0
+reported_at: '2026-06-08T18:57:35Z'
+reporter: cursor-worker-batch

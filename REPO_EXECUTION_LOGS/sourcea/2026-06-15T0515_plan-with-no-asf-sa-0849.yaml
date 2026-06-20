@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0849 — Append H2 machine hub evidence row after weekly SHIP pass
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0849
+tests:
+  status: passed
+  output_snippet: validate-h2-weekly-ship-evidence-row-t1-crossref-v1 PASS · canonical sa-0824 chain
+reported_at: '2026-06-15T05:15:37Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

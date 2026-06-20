@@ -1,0 +1,23 @@
+{
+  "schema": "aeg-evidence-bundle-v1",
+  "evidence_id": "aeg-20260617T150254Z-0d590893",
+  "at": "2026-06-17T15:02:54Z",
+  "verdict": "BLOCK",
+  "blockers": [
+    "run-inbox truth_match=false \u2014 queue/inbox mismatch"
+  ],
+  "proof_url": "https://locally-projected-shade-projection.trycloudflare.com/aeg-20260617T150254Z-0d590893/",
+  "bundle_dir": "/Users/sinakazemnezhad/.sina/aeg/aeg-20260617T150254Z-0d590893",
+  "archive_dir": "/Users/sinakazemnezhad/Desktop/SourceA/archive/attachments/evidence/aeg/aeg-20260617T150254Z-0d590893",
+  "terminal": {
+    "ok": true,
+    "mode": "receipt_transcript",
+    "path": "/Users/sinakazemnezhad/.sina/aeg/aeg-20260617T150254Z-0d590893/terminal.txt",
+    "note": "Captured from critic_boot receipt \u2014 not a re-run"
+  },
+  "ui": {
+    "ok": false,
+    "skipped": true
+  },
+  "heal_verdict": null
+}

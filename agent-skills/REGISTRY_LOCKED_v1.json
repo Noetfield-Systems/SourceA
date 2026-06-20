@@ -1,0 +1,130 @@
+{
+  "schema": "agent-skills-registry-v1",
+  "version": "1.3",
+  "law_doc": "AGENT_SKILLS_AND_RESEARCH_PIPELINE_LOCKED_v1.md",
+  "sync_script": "scripts/sync-cursor-agent-skills.sh",
+  "cursor_skills_root": "~/.cursor/skills",
+  "project_skills_root": ".cursor/skills",
+  "shared": [
+    {
+      "id": "research-intake",
+      "cursor_name": "sina-research-intake",
+      "path": "shared/research-intake/SKILL.md",
+      "description": "Submit research to Agent Hub pipeline before building"
+    },
+    {
+      "id": "registry-drain",
+      "cursor_name": "sina-registry-drain",
+      "path": "shared/registry-drain/SKILL.md",
+      "description": "Honest REGISTRY drain — receipts and hygiene gates only"
+    },
+    {
+      "id": "agentic-commercial",
+      "cursor_name": "sina-agentic-commercial",
+      "path": "shared/agentic-commercial/SKILL.md",
+      "description": "Agentic outreach and demo booking — founder never email or call"
+    },
+    {
+      "id": "conscious-recovery",
+      "cursor_name": "sina-conscious-recovery",
+      "path": "shared/conscious-recovery/SKILL.md",
+      "description": "Lost-link recovery — transcript + disk · FOUND report · truth tree down-only"
+    },
+    {
+      "id": "narrative-translator",
+      "cursor_name": "sina-narrative-translator",
+      "path": "shared/narrative-translator/SKILL.md",
+      "description": "Megachat translator — founder narrative to disk rows · LATEST touch-base bridge"
+    },
+    {
+      "id": "truth-projection",
+      "cursor_name": "truth-projection",
+      "path": "shared/truth-projection/SKILL.md",
+      "description": "Disk truth vs hub projection — agent truth bundle · dual-pick law"
+    },
+    {
+      "id": "anti-staleness-machine",
+      "cursor_name": "anti-staleness-machine",
+      "path": "shared/anti-staleness-machine/SKILL.md",
+      "description": "Anti-staleness AS bundle — maintainer hub edits"
+    },
+    {
+      "id": "advisor-external-critic",
+      "cursor_name": "sina-advisor-external-critic",
+      "path": "shared/advisor-external-critic/SKILL.md",
+      "description": "EXTERNAL_CRITIC classify · compare · no build from paste"
+    },
+    {
+      "id": "founder-freeze-conduct",
+      "cursor_name": "sina-founder-freeze-conduct",
+      "path": "shared/founder-freeze-conduct/SKILL.md",
+      "description": "STOP / FREEZE / conduct latch — factory control"
+    },
+    {
+      "id": "s10-eternal-self-heal",
+      "cursor_name": "sina-s10-eternal-self-heal",
+      "path": "shared/s10-eternal-self-heal/SKILL.md",
+      "description": "S10 eternal audit loop — daily validator packs"
+    }
+  ],
+  "agents": [
+    {
+      "agent_id": "sourcea_worker",
+      "cursor_name": "sina-sourcea-worker",
+      "path": "sourcea_worker/SKILL.md",
+      "role": "goal1_worker",
+      "workspace": "SourceA",
+      "description": "Goal 1 INBOX drain — CHECK/ACT/VERIFY, broker, receipts"
+    },
+    {
+      "agent_id": "sourcea_brain",
+      "cursor_name": "sina-sourcea-brain",
+      "path": "sourcea_brain/SKILL.md",
+      "role": "brain_judge",
+      "workspace": "SourceA",
+      "description": "Brain judge — hygiene, ASF routing, acceptance"
+    },
+    {
+      "agent_id": "trustfield",
+      "cursor_name": "sina-trustfield",
+      "path": "trustfield/SKILL.md",
+      "role": "portfolio"
+    },
+    {
+      "agent_id": "virlux",
+      "cursor_name": "sina-virlux",
+      "path": "virlux/SKILL.md",
+      "role": "portfolio"
+    },
+    {
+      "agent_id": "ai_dev_bridge_os",
+      "cursor_name": "sina-ai-dev-bridge-os",
+      "path": "ai_dev_bridge_os/SKILL.md",
+      "role": "portfolio"
+    },
+    {
+      "agent_id": "noetfield_local",
+      "cursor_name": "sina-noetfield-local",
+      "path": "noetfield_local/SKILL.md",
+      "role": "portfolio"
+    },
+    {
+      "agent_id": "noetfield_cloud",
+      "cursor_name": "sina-noetfield-cloud",
+      "path": "noetfield_cloud/SKILL.md",
+      "role": "portfolio"
+    },
+    {
+      "agent_id": "seven77",
+      "cursor_name": "sina-seven77",
+      "path": "seven77/SKILL.md",
+      "role": "portfolio"
+    },
+    {
+      "agent_id": "semej",
+      "cursor_name": "sina-semej",
+      "path": "semej/SKILL.md",
+      "role": "automation"
+    }
+  ]
+}

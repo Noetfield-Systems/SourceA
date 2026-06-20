@@ -1,0 +1,50 @@
+{
+  "schema": "cinematic-film-factory-v1",
+  "version": "1.0.0",
+  "at": "2026-06-15",
+  "principle": "Event-driven cinematic compiler — system behavior → proof film → critic circle → memory loop",
+  "gpt_layers": [
+    "truth_playwright",
+    "timing_beats_event_graph",
+    "narrative_script_ssot",
+    "audio_tts",
+    "cinematic_rules_engine",
+    "ffmpeg_assembly",
+    "critic_circle_observe",
+    "film_memory_learn"
+  ],
+  "pathway_root": "cinematic-film-factory",
+  "work_root": "~/.sina/cinematic-film-factory",
+  "lanes": {
+    "witnessbc": {
+      "label": "WitnessBC institutional proof",
+      "capture_base": "http://127.0.0.1:8090",
+      "script": "cinematic-film-factory/lanes/witnessbc/script.txt",
+      "event_graph": "cinematic-film-factory/lanes/witnessbc/event_graph.json",
+      "cinematic_rules": "data/cinematic-rules-engine-v1.json",
+      "vo_lane": "witnessbc",
+      "output_desktop": "WitnessBC-Cinematic-Factory.mp4",
+      "scenarios": ["outbound", "tool", "tamper"]
+    },
+    "sourcea": {
+      "label": "SourceA W1 proof (factory lane — Screen Studio preferred for public)",
+      "capture_base": "http://127.0.0.1:5180/sourcea/proof.html?film_capture=1#w1-demo-film",
+      "script": "cinematic-film-factory/lanes/sourcea/script.txt",
+      "event_graph": "cinematic-film-factory/lanes/sourcea/event_graph.json",
+      "cinematic_rules": "data/cinematic-rules-engine-v1.json",
+      "vo_lane": "sourcea",
+      "output_desktop": "SourceA-Cinematic-Factory.mp4",
+      "w1_beats": ["allow", "block", "tamper"]
+    }
+  },
+  "pipeline": [
+    "capture_truth",
+    "write_beats_json",
+    "tts_voice",
+    "captions_from_beats",
+    "cinematic_assemble",
+    "critic_circle_judge",
+    "film_memory_incident"
+  ],
+  "orchestration_future": "phase_3_n8n — not building until factory lane PASS critic"
+}

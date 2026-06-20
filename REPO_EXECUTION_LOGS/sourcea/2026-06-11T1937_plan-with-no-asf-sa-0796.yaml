@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0796 — Run council strategic slice seed on build
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0796
+tests:
+  status: passed
+  output_snippet: sa-0796 VERIFY DONE — council strategic slice seed on build; build hook sa-0218; marker idempotent; dispatch+fleet+spine+fcb PASS
+reported_at: '2026-06-11T19:37:06Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

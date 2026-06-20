@@ -1,0 +1,176 @@
+schema: founder-language-dictionary-v2
+updated: "2026-06-12"
+trace_id: COMMERCIAL_GOAL-REF-2026-06-12-TERMINOLOGY-PACK-v2
+
+entries:
+  - founder: "Canva form"
+    plain: "Cursor Canvas integrity UI"
+    machine: sourcea-system-integrity-100.canvas.tsx
+    not: Canva.com
+
+  - founder: "5 pack"
+    plain: "Five linked integrity artifacts A–E"
+    machine: INTEGRITY_PACK_5
+    not: "five random docs"
+
+  - founder: "100 questions"
+    plain: "100 audit steps + ~26 fork picks"
+    machine: SYS_INTEGRITY_100
+    not: "100 chat messages"
+
+  - founder: "refine everything"
+    plain: "Align hub/copy and picks — don't rewrite all laws"
+    machine: DIRECTION_LOCK_040
+    not: GOV_UNIFY batch
+
+  - founder: "lock direction"
+    plain: "One apex + parallel tracks + DELETE list"
+    machine: FOUNDER_DIRECTION_TERMS
+    not: category rename sprint
+
+  - founder: "big picture"
+    plain: "Two clocks — engine proof + money"
+    machine: BIG_PICTURE_031
+    not: "one merged company sprint"
+
+  - founder: "proof track"
+    plain: "Demo on camera — block allow tamper"
+    machine: "W1 W2 CLOCK_C"
+    pass: "film + write-path PASS"
+
+  - founder: "money track"
+    plain: "First paying pilot"
+    machine: "W3 NF-001 TF-001"
+    pass: "deposit or LOI"
+
+  - founder: "control track"
+    plain: "Hub matches disk"
+    machine: RT_LIVE_RECEIPT
+    not: "factory drain hero"
+
+  - founder: "order track"
+    plain: "Nothing useful lost"
+    machine: LIVE_DECISION_FORM
+    not: "chat-only memory"
+
+  - founder: "three layers"
+    plain: "Engine · product · company"
+    machine: "SourceA · Noetfield · TrustField"
+    not: "one engineering sprint"
+
+  - founder: "Thunderfield"
+    plain: "VC relationship comfort — post-W3"
+    machine: FF_MARKET_THUNDERFIELD
+    not: TrustField invoices
+
+  - founder: "TrustField"
+    plain: "Contracts money MSB lane"
+    machine: W3_TF
+    not: "VC platform brand"
+
+  - founder: "Noetfield"
+    plain: "Governance product wedge"
+    machine: W3_NF
+    not: SourceA engine
+
+  - founder: "$100M"
+    plain: "Narrative upside band"
+    machine: narrative_credible_15_25pct
+    not: "close in 6 months"
+
+  - founder: "agentic"
+    plain: "Agents queue — you tap hot leads only"
+    machine: SCAN_SHIP
+    not: AUTO-RUN
+
+  - founder: "parallel"
+    plain: "Many lanes one motor"
+    machine: "T20 active T10 post_W3"
+    not: "new engine per company"
+
+  - founder: "GOV_UNIFY"
+    plain: "Merge pasted docs into law — only on ASF batch"
+    machine: GOVERNANCE_UNIFICATION_ENGINE
+    gate: "3.07 YES + paste"
+
+  - founder: "3.07 NO"
+    plain: "No law-merge sprint now"
+    machine: phase_3_index_only
+    not: "ignore governance"
+
+  - founder: "pick / confirm"
+    plain: "I accept this effect"
+    machine: "ASF: FIVE-STEP — PICK:"
+    proof: live_form_or_receipt
+
+  - founder: "what's pending"
+    plain: "Open forks on form"
+    machine: canvas_open
+    script: live_founder_decision_form_v1.py
+
+  - founder: "disk wins"
+    plain: "Receipt beats hero"
+    machine: FLEET_HEADLINE_READ_ORDER
+    not: "chat summary"
+
+  - founder: "nothing lost"
+    plain: "Search M1 + FOUND path"
+    machine: LOST_LINK_ETHICS
+    skill: "@sina-conscious-recovery"
+
+  - founder: "transfer to ten"
+    plain: "Clone proven lane template post-W3"
+    machine: T10
+    banned_word: clone
+
+  - founder: "investor sentence"
+    plain: "Only external category line"
+    machine: category_line_frozen
+    text: "We make AI execution impossible to bypass governance."
+
+  - founder: "what do I paste"
+    plain: "One hub action — not 3-step copy ritual"
+    machine: HUB_INBOX_ACTIONS
+    era: E3
+
+  - founder: "PLAN WITH NO ASF"
+    plain: "Validators decide progress — not founder paste"
+    machine: validators_not_founder_progress
+    nuance: "not zero-human fantasy"
+
+  - founder: "NO GUESS ONLY PROOF"
+    plain: "Named vendor SKU pricing pages"
+    machine: revenue_receipt_external_comps
+    era: E6
+
+  - founder: "organize all messages"
+    plain: "Master orders + bowl + M1 search"
+    machine: ASF_MASTER_ORDERS
+    era: E5
+
+  - founder: "Claude said / GPT said"
+    plain: "Advisor paste — not build order"
+    machine: EXTERNAL_CRITIC
+    first_line: "INPUT CLASS EXTERNAL_CRITIC"
+
+  - founder: "evolving not drifting"
+    plain: "Refinement with disk receipt"
+    machine: evolution_not_drift
+    not: "topic wandering without pick"
+
+  - founder: "live AUTO-RUN proof"
+    plain: "Observed WORKER_STARTED chain on disk"
+    machine: Rail_A_observed_events
+    not: "unattended AUTO-RUN P0"
+
+  - founder: "no credit card"
+    plain: "Free tier infra only"
+    machine: FOUNDER_NO_CREDIT_CARD_INFRA
+
+  - founder: "everyone equal / parallel all"
+    plain: "Six repos same weight — no lane demotion"
+    machine: ASF_PARALLEL_SIX_REPOS_OVERRIDE
+
+  - founder: "Notefield / TerraceField"
+    plain: "Typos — mean Noetfield / TrustField"
+    machine: NORM-CAPS alias

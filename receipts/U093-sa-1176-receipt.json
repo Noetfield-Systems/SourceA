@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1176",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U093",
+  "title": "pg_net webhook trigger \u2014 DEFER",
+  "evidence": "DEFER pg_net webhook \u2014 no edge timeout risk at named-send volume \u00b7 correctly not built",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:24:46Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

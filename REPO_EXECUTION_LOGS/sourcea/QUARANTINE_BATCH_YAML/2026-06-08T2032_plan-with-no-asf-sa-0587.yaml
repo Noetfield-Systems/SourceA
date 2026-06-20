@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0587 — Validate wire lane progress md exists on disk for Wire agent
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0587
+tests:
+  status: passed
+  output_snippet: pack29 commercial verify-only; wire+runreceipt+dispatch PASS
+reported_at: '2026-06-08T20:32:44Z'
+reporter: cursor-worker-batch

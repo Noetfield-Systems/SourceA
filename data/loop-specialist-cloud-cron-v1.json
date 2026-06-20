@@ -1,0 +1,30 @@
+{
+  "schema": "loop-specialist-cloud-cron-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-20T02:25:00Z",
+  "phase": "2b-auto-loop",
+  "status": "live",
+  "execution_plane": "cloudflare_workers_free",
+  "cloudflare_account": "witness.bc@gmail.com",
+  "cloudflare_account_id": "2c70de9e879a9b41055642ad47205d71",
+  "cloudflare_account_note": "Founder CF account (open) — loop worker deployed here · witnessbc.com Pages same account · separate from witnessbc site deploy",
+  "worker_name": "sourcea-loop-specialist-tick-v1",
+  "worker_url": "https://sourcea-loop-specialist-tick-v1.witness-bc.workers.dev",
+  "worker_root": "cloud/workers/loop-specialist-tick-v1",
+  "wrangler": "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+  "version_id": "9f2afe8e-45ce-4da5-90f6-8cd15d07852c",
+  "cron": "*/15 * * * *",
+  "cloud_tick_api": {
+    "method": "POST",
+    "url": "https://sourcea-fbe-runner-production.up.railway.app/api/fbe/loop-specialist/tick/v1"
+  },
+  "manual_trigger": "POST https://sourcea-loop-specialist-tick-v1.witness-bc.workers.dev/tick {\"dispatch\":true}",
+  "health": "GET https://sourcea-loop-specialist-tick-v1.witness-bc.workers.dev/health",
+  "secrets_set": [
+    "FBE_CLOUD_WORKER_URL",
+    "FBE_INTERNAL_SECRET"
+  ],
+  "secrets_pending": ["LOOP_AUTO_DISPATCH"],
+  "mac_role": "control_plane_glance_only",
+  "founder_motion": "No Terminal · no RUN INBOX · Hub glance only · Cloudflare cron every 15m"
+}

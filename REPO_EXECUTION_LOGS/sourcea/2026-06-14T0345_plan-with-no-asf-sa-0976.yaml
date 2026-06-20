@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0976 — Document compare GPT-4o Claude Opus Gemini workflow gaps T3 research only
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0976
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — T3 cross-ref canonical sa-0951; validate-model-workflow-gaps-crossref-v1
+reported_at: '2026-06-14T03:45:34Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

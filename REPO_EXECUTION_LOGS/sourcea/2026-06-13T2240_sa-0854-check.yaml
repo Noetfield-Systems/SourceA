@@ -1,0 +1,26 @@
+schema_version: 1
+repo: sourcea
+task: sa-0854
+turn: check
+phase: phase-s8-hub-ui-ux
+title: Validate Today tab nudge banner links to council-room tab
+status: check_complete
+verify_passed: false
+scope: legacy /legacy/ app.js only
+gaps:
+  - GAP-1: no validate-today-nudge-council-link-v1.sh
+  - GAP-2: essay-nudge-banner validator missing data-tab assert
+live_disk:
+  renderToday_calls_banner: true
+  banner_council_room_tab: true
+  essay_nudges: 0
+validators:
+  - validate-essay-nudge-banner-v1.sh: PASS
+  - validate-essay-nudges-council-v1.sh: PASS
+  - validate-refresh-pipeline-360-v1.sh: PASS
+  - find_critical_bugs.py SINA_FCB_FAST: critical 0
+attachment: archive/attachments/2026-06-13/sa-0854-check-gap-report_LOCKED_v1.md
+act_recommendation: validate-today-nudge-council-link-v1.sh static grep
+next_turn: act
+next_task: sa-0854
+reported_at: '2026-06-13T22:40:00Z'

@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0136 — Harden scorer.py path citation checks for plan-eval-1b task
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0136
+tests:
+  status: passed
+  output_snippet: validate-eval-packet-v1b-scorer-plan-paths-v1 PASS · live 5/5 100% · basename-only runner/scorer rejected
+reported_at: '2026-06-07T15:16:01Z'
+reporter: cursor-worker

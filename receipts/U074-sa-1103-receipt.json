@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1103",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U074",
+  "title": "Subject line lowercase preference check",
+  "evidence": "subject case lint PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:20:37Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,22 @@
+{
+  "sa_id": "sa-0156",
+  "status": "DONE",
+  "files_written": [
+    "/Users/sinakazemnezhad/.sina/eval_packet_v1b_report.json",
+    "/Users/sinakazemnezhad/.sina/eval_packet_v1b_capture_v1.json"
+  ],
+  "commands_run": [
+    "cd scripts && SINA_AUDIT_STRICT=1 python3 eval_report_capture.py",
+    "python3 audit_backend_e2e.py",
+    "bash validate-spine-bridge-founder-v1.sh"
+  ],
+  "summary": "Ran eval live with SINA_AUDIT_STRICT=1; report captured to ~/.sina/eval_packet_v1b_report.json (mode=live, live_pilot_win_pct=100, strict_build=true); both T2 verify commands passed.",
+  "done_at": "2026-06-08T17:55:33Z",
+  "report_path": "/Users/sinakazemnezhad/.sina/eval_packet_v1b_report.json",
+  "strict_build": true,
+  "live_ok": true,
+  "live_pilot_win_pct": 100,
+  "source": "worker_inbox",
+  "schema": "sourcea-sa-receipt-v1",
+  "at": "2026-06-08T17:55:33Z"
+}

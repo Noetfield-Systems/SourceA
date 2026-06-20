@@ -1,0 +1,13 @@
+# Example — copy to YOUR WitnessBC GitHub repo (founder Cloudflare account).
+# Do NOT use SourceA credentials. Rename project to match your CF Pages project.
+
+name = "witnessbc-commercial"
+compatibility_date = "2024-11-01"
+pages_build_output_dir = "."
+
+# Direct-upload workflow: repo root = contents of dist/deploy (unzipped)
+# Git-connected workflow: set pages_build_output_dir to your build output folder
+
+[env.production]
+# Custom domain attached in Cloudflare dashboard:
+#   witnessbc.com  OR  flow.witnessbc.com (subdomain coexistence)

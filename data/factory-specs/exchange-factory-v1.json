@@ -1,0 +1,44 @@
+{
+  "schema": "fbe-factory-spec-v1",
+  "factory_id": "exchange-factory-v1",
+  "spec_version": "1.0.0",
+  "saved_at": "2026-06-17T16:00:00Z",
+  "kind": "engine",
+  "kernel": {
+    "id": "fbe-v1",
+    "min_version": "fbe-v1.0.0",
+    "graph_source": "data/fbe_node_graph_v1.json",
+    "line_node_count": 76
+  },
+  "lines": ["trust_motor", "refinery", "assembly"],
+  "runtime": {
+    "bay_slug": "trustfield-bay",
+    "default_tenant": "trustfield",
+    "wave": "W4",
+    "factory_id_internal": "factory_2",
+    "pipelines": ["exchange_refinery_w4", "exchange_assembly_w4", "full_job_w4"],
+    "api_route": "/api/fbe/run-exchange/v1",
+    "cloud_entry": "--run-exchange",
+    "execution_mode": "CLOUD_ONLY"
+  },
+  "io": {
+    "input_schema": "data/schemas/exchange-input-v1.json",
+    "output_schema": "data/schemas/run-receipt-output-v1.json",
+    "output_artifact": "RunReceipt ZIP + TrustField partner pack",
+    "certainty_report": true
+  },
+  "governance": {
+    "policy_pack": "trust_motor",
+    "tier_cap_honest": "GOLD",
+    "delivery_mode": "prove_only"
+  },
+  "commercial": {
+    "name": "Governed Exchange Factory",
+    "tagline": "Counterparty and capital structure in — governance-grade exchange receipt out.",
+    "tier_label": "engine",
+    "buyer": "TrustField · exchanges · capital desks",
+    "hero": true,
+    "maintenance_fee_usd": 7500,
+    "compute_note": "Pay-as-you-go MicroVM seconds + governance SLA"
+  }
+}

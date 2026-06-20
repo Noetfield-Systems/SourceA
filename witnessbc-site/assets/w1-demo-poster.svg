@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" fill="none">
+  <rect width="960" height="540" fill="#060a0f"/>
+  <rect x="40" y="40" width="880" height="460" rx="12" stroke="#1e293b" stroke-width="2"/>
+  <text x="80" y="120" fill="#f8fafc" font-family="Inter,system-ui,sans-serif" font-size="28" font-weight="600">Witness AI  W1 proof film</text>
+  <text x="80" y="170" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="18">BLOCK � ALLOW � tamper-FAIL � replay</text>
+  <rect x="80" y="220" width="120" height="36" rx="6" fill="#2dd4bf" fill-opacity="0.15" stroke="#2dd4bf"/>
+  <text x="95" y="244" fill="#2dd4bf" font-family="JetBrains Mono,monospace" font-size="14">request</text>
+  <text x="220" y="244" fill="#64748b" font-family="Inter,sans-serif" font-size="18">�</text>
+  <rect x="250" y="220" width="100" height="36" rx="6" fill="#2dd4bf" fill-opacity="0.15" stroke="#2dd4bf"/>
+  <text x="265" y="244" fill="#2dd4bf" font-family="JetBrains Mono,monospace" font-size="14">policy</text>
+  <text x="370" y="244" fill="#64748b" font-family="Inter,sans-serif" font-size="18">�</text>
+  <rect x="400" y="220" width="110" height="36" rx="6" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444"/>
+  <text x="415" y="244" fill="#ef4444" font-family="JetBrains Mono,monospace" font-size="14">tamper-FAIL</text>
+  <text x="80" y="320" fill="#64748b" font-family="Inter,sans-serif" font-size="16">Film placeholder  use interactive proof below or live demo</text>
+</svg>

@@ -1,0 +1,56 @@
+{
+  "schema": "linear-gtm-workspace-v1",
+  "locked_at": "2026-06-15T20:33:00Z",
+  "workspace_url": "https://linear.app/gov-sourcea",
+  "team": {
+    "id": "9b3c716d-fa49-45de-94a2-70383a3d9c94",
+    "name": "GOV SOURCEA",
+    "key": "GOV"
+  },
+  "law": "GTM mirror only — execution SSOT is factory-now + sa-* + Worker Hub",
+  "mcp": {
+    "cursor_auth": "done",
+    "linear_url": "https://mcp.linear.app/mcp",
+    "docs": "https://linear.app/integrations/cursor-mcp"
+  },
+  "projects": [
+    {
+      "name": "SourceA AB1 Outbound",
+      "purpose": "Eval packs · proof URLs · prospect follow-ups",
+      "mirror_from": "commercial_pipeline_v1.py rows cp-*",
+      "url": "https://linear.app/gov-sourcea/project/sourcea-ab1-outbound-cd2236b2fdff"
+    },
+    {
+      "name": "WitnessBC GTM",
+      "purpose": "Pilot conversations · Proof Lab demos",
+      "mirror_from": "witnessbc commercial lane only",
+      "url": "https://linear.app/gov-sourcea/project/witnessbc-gtm-4c62b4ae5c79"
+    },
+    {
+      "name": "Integration Leverage",
+      "purpose": "MCP · partnerships · credibility badges",
+      "mirror_from": "data/integration-leverage-registry-v1.json",
+      "url": "https://linear.app/gov-sourcea/project/integration-leverage-6c54e3c60758"
+    }
+  ],
+  "issue_templates": {
+    "ab1_eval_pack": {
+      "title": "AB1 · {company} — send eval pack {row_id}",
+      "labels": ["AB1", "eval"],
+      "fields": ["pack_dir", "proof_url", "prospect_reel", "status", "next_action"],
+      "links": ["gate_k_proof_url", "outbound_pack_path"]
+    },
+    "integration_p0": {
+      "title": "P0 · Wire {tool} MCP",
+      "labels": ["MCP", "integration"],
+      "project": "Integration Leverage"
+    },
+    "partnership_apply": {
+      "title": "P1 · {partner} program apply",
+      "labels": ["partnership"],
+      "project": "Integration Leverage"
+    }
+  },
+  "sync_cadence": "weekly_or_on_eval_booked",
+  "never_sync": ["sa-* queue head", "factory-now", "session gate receipts"]
+}

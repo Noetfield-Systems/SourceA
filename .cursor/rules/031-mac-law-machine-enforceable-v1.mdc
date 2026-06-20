@@ -1,0 +1,37 @@
+---
+description: Mac Law machine enforceable — cloud executes · Mac observes · no heavy body work
+alwaysApply: true
+---
+
+# Mac Law machine enforce (LOCKED)
+
+**SSOT:** `data/mac-law-machine-enforceable-v1.json`  
+**Machine:** `python3 scripts/mac_law_machine_enforce_v1.py --sync-receipt --json`  
+**Boss docs:** `~/Desktop/MacLaw/MAC_LAW_SSOT_LOCKED.md`
+
+## One law
+
+> **Mac = control panel only. Cloud/API executes. No heavy validators, motors, or factory body on Mac.**
+
+## Agent MUST (every session)
+
+- **Observe on Mac:** Worker Hub · official form · Mac Health glance — not factory muscle
+- **Execute on cloud:** Railway FBE bays · OpenRouter · **comprehension loop** via `POST /api/comprehension-loop/v1`
+- **One Cursor window** on SourceA — no stacked MacLaw / TrustField windows
+- **Light validators only** — no E2E · no motor · no stacked `anti_staleness` on Mac during founder work
+- **Quiet Mac:** no screencapture loops · no film render · no autorun bootstrap without ASF
+
+## Agent MUST NOT on Mac body
+
+- Run or suggest `validate-*-e2e*` · `fbe_motor_delegate` · `anti_staleness_auto_wire` stacks
+- Run local `cloud_comprehension_pipeline_loop` as primary — use **cloud comprehension bay**
+- Tell founder to run disk sync validator chains (`FIX_DISK` theater)
+- `pkill screencapture` · re-enable visual proof · bootstrap autorun/panic apps
+
+## Verify
+
+```bash
+bash scripts/validate-mac-law-machine-enforceable-v1.sh
+```
+
+Mac Law outranks SourceA repo rules.

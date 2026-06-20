@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0855",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "worker_inbox",
+  "evidence": "sa-0855 VERIFY DONE \u2014 Validate agent-scoreboard table Auto green column header; validators: validate-agent-scoreboard-auto-green-header-v1.sh: PASS, validate-scoreboard-auto-green-pill-v1.sh: PASS, validate-render-agent-scoreboard-v1.sh: PASS, validate-fleet-auto-green-count-v1.sh: PASS",
+  "at": "2026-06-13T21:57:21Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

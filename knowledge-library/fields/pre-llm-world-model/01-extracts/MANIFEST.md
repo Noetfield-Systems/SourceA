@@ -1,0 +1,38 @@
+# Extract manifest — pre-llm-world-model
+
+**Rule:** Pointers only. Originals stay pure at canonical paths.
+
+| ID | Date | Source type | Layer | Canonical path | Thread | Verdict |
+|----|------|-------------|-------|----------------|--------|---------|
+| EXT-001 | 2026-06-05 | EXTERNAL_CRITIC (Claude AI) | **A — Trigger** | `archive/attachments/wtm/CLAUDE_ANALYST_PRE_LLM_GATE_HARDENING_ATTACHMENT_v1.md` | WTM-D5 | Convinced → D15.1/D15.2 |
+| EXT-002 | 2026-06-05 | RESEARCH_SYNTHESIS (Cursor agent) | **B — Synthesis** | `archive/attachments/wtm/GOLDEN_PRE_LLM_GATE_RESEARCH_REPORT_v1.md` | WTM-D5 | Convinced → references |
+| EXT-003 | 2026-06-05 | AGENT_LESSONS (Cursor agent) | **B — Synthesis** | `archive/attachments/wtm/SINA_AGENT_LESSONS_PRE_LLM_GATE_v1.md` | WTM-D5 | Active — append on research |
+| EXT-007 | 2026-06-05 | AGENT_SYNTHESIS (Cursor agent) | **B — Synthesis** | `archive/attachments/wtm/CURSOR_AGENT_POST_CLAUDE_SYNTHESIS_ATTACHMENT_v1.md` | WTM-D5 | Master inventory — do not drop |
+| EXT-008 | 2026-06-05 | RESEARCH_EXPAND (industry patterns) | **B — Synthesis** | `archive/attachments/wtm/GOLDEN_PRE_LLM_GATE_RESEARCH_REPORT_v1.md` §4–§15 | WTM-D6 | 7 golden suggestions + replay envelope + top 5 |
+| EXT-004 | 2026-06-05 | LOCKED_LAW | `LLM_CONTEXT_PACKET_SCHEMA_LOCKED_v1.md` | WTM-D5 | Source — gate sections |
+| EXT-005 | 2026-06-05 | CODE_TRUTH | `scripts/agent_loop.py` (`_planner_chat`) | WTM-D5 | Verified bypass |
+| EXT-006 | 2026-06-05 | CODE_TRUTH | `scripts/pre_llm/context_packet/schema.py` | WTM-D5 | `validate_packet` |
+
+## Pending extracts (Chat Unify)
+| EXT-CHAT-87d40875 | 2026-06-15 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/87d408753b95.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-UNIFY-20260615 | 2026-06-15 | CHAT_UNIFY | **B — Gather** | `/Users/sinakazemnezhad/.sina/chat-unify/last-unified.json` | THREAD-CURSOR, THREAD-CHAT-CONSOLIDATION | Unified brief · 6 chats · 157 contradictions |
+| EXT-CHAT-9122e025 | 2026-06-15 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/9122e025ec01.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-d4634722 | 2026-06-15 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/d463472248e2.json` | THREAD-CURSOR, THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-ce1a2807 | 2026-06-15 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/ce1a2807a0a8.json` | THREAD-CURSOR, THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-041f37fe | 2026-06-15 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/041f37fecb8c.json` | THREAD-CURSOR, THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-5488af1c | 2026-06-14 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/5488af1ce24c.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-b5cc9312 | 2026-06-14 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/b5cc93125bb2.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-ebbfc4c7 | 2026-06-14 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/ebbfc4c7b310.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-a4234201 | 2026-06-14 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/a4234201e33c.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-73589048 | 2026-06-14 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/735890485604.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-f820bff6 | 2026-06-14 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/f820bff603cf.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-5eaa831e | 2026-06-14 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/5eaa831ea6fc.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-bc293932 | 2026-06-14 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/bc293932b554.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-011509c3 | 2026-06-14 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/011509c3929d.json` | THREAD-CHAT-CONSOLIDATION, WTM-D5 | Pointer — founder local extract |
+| EXT-CHAT-UNIFY-20260614 | 2026-06-14 | CHAT_UNIFY | **B — Gather** | `/Users/sinakazemnezhad/.sina/chat-unify/last-unified.json` | THREAD-CHAT-CONSOLIDATION | Unified brief · 1 chats · 0 contradictions |
+
+| ID | Source | Path |
+|----|--------|------|
+| EXT-CHAT-* | Chat Unify saves | `~/.sina/chat-unify/extracts/*.json` |
+
+When founder saves gate-related chats in Chat Unify, add manifest row here — do not move JSON into SourceA unless promoted.

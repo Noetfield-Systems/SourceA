@@ -1,0 +1,18 @@
+{
+  "schema": "restore-broker-proof-v1",
+  "at": "2026-06-09T01:45:18Z",
+  "restored": [
+    "sa-0163",
+    "sa-0166",
+    "sa-0167",
+    "sa-0168",
+    "sa-0169",
+    "sa-0170",
+    "sa-0171",
+    "sa-0172",
+    "sa-0173",
+    "sa-0606"
+  ],
+  "skipped": [],
+  "dry_run": false
+}

@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0200 — Append SOURCEA-PRIORITY eval sustain row with pilot count
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0200
+tests:
+  status: passed
+  output_snippet: PRIORITY eval sustain row + validate-command-data-eval-win-pct OK
+reported_at: '2026-06-08T19:21:17Z'
+reporter: cursor-worker-batch

@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0552 — Run bash validate-verify-wire-v1.sh — RunReceipt artifact schema
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0552
+tests:
+  status: passed
+  output_snippet: sa-0552 VERIFY PASS — T2 verify:wire RunReceipt schema dedup via crossref canonical sa-0502 + sa-0522
+reported_at: '2026-06-14T18:34:54Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

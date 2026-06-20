@@ -1,0 +1,3 @@
+Subject: Review cycle question
+
+When a model update ships, reviewers often need the same evidence packet twice—once for internal sign-off and again when auditors ask months later. If those packets live in separate inboxes, someone rebuilds the story by hand. That rework shows up right before quarter-end when nobody has spare hours. Teams that fixed this kept one inspectable trail per decision instead of forwarding screenshots. The trail matters most when a senior reviewer rotates off the account mid-quarter suddenly today. What would break first on your side if that trail disappeared tomorrow—internal sign-off or the external review cycle?

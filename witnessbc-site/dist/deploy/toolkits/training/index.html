@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Training – WitnessBC Toolkits</title>
+  <meta name="description" content="Async training for accountable, privacy-first publishing. Education only." />
+  <meta property="og:title" content="Training – WitnessBC Toolkits" />
+  <meta property="og:description" content="Async training for accountable, privacy-first publishing. Education only." />
+  <meta property="og:url" content="https://witnessbc.com/toolkits/training/" />
+  <meta property="og:image" content="https://witnessbc.com/assets/og-card.svg" />
+  <meta property="og:image:type" content="image/svg+xml" />
+  <meta name="theme-color" content="#0d9488" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#060a0f" media="(prefers-color-scheme: dark)" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://witnessbc.com/toolkits/training/" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/tokens.css" />
+  <link rel="stylesheet" href="/assets/tokens-v12.css" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="stylesheet" href="/assets/motion.css" />
+  <link rel="stylesheet" href="/assets/layout-wide-v11.css" />
+  <link rel="stylesheet" href="/assets/layout-ultra-v12.css" />
+  <link rel="stylesheet" href="/assets/surface-v12.css" />
+  <script>
+    (function () {
+      var t = localStorage.getItem("witness-ai-theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/toolkits.css" />
+</head>
+<body class="page-toolkits layout-ultra-v12" data-proof-mailto="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof" data-live-demo-url="/proof.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="brand-disambiguation" role="note">
+    Witness AI on <strong>witnessbc.com</strong> — not WitnessAI (<span class="brand-other">witness.ai</span>).
+  </div>
+  <div class="announcement">
+    <span class="wbc-badge">witnessbc.com</span>
+    WitnessBC · witnessbc.com — agentic governance + WBC-FLOW civic proof
+    <a href="/toolkits.html">Browse toolkits →</a>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="logo" href="/index.html">
+        <svg class="logo-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L4 6v12l8 4 8-4V6l-8-4z" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v20M4 6l8 4 8-4" stroke="currentColor" stroke-width="1.5" opacity="0.5"/></svg>
+        Witness AI
+      </a>
+      <nav class="nav" id="mainNav" aria-label="Main">
+        <div class="nav-item has-dropdown">
+          <button type="button" aria-expanded="false" aria-haspopup="true" class="">Platform</button>
+          <div class="dropdown">
+            <a href="/platform.html">Overview</a>
+            <a href="/lifecycle.html">Governance loop</a>
+            <a href="/policy.html">AI policy packs</a>
+            <a href="/compare.html">Compare approaches</a>
+          </div>
+        </div>
+        <a class="nav-link " href="/proof.html">Proof</a>
+        <a class="nav-link " href="/pricing.html">Pricing</a>
+        <div class="nav-item has-dropdown">
+          <button type="button" aria-expanded="false" aria-haspopup="true" class="is-active">Resources</button>
+          <div class="dropdown">
+            <a href="/learn.html">Learn · Get started</a>
+            <a href="/toolkits.html">Toolkits · Free + Pro</a>
+            <a href="/faq.html">FAQ</a>
+            <a href="/sources.html">Sources</a>
+          </div>
+        </div>
+      </nav>
+      <div class="header-cta">
+        <span class="theme-toggle-wrap">
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light/dark theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </span>
+        <a class="btn btn-ghost" href="/toolkits.html">Assess governance</a>
+        <a class="btn btn-primary" href="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof">Book 15-min proof</a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <div class="sticky-cta" id="stickyCta" aria-hidden="true">
+    <div class="sticky-cta-inner">
+      <p>Prove AI policy ran before the agent acted — BLOCK → ALLOW → tamper-FAIL → replay</p>
+      <div class="sticky-cta-actions">
+        <a class="btn btn-primary" href="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof">Book 15-min proof</a>
+        <a class="btn btn-outline" href="/proof.html">Open Proof Lab →</a>
+        <a class="btn btn-outline" href="/toolkits.html">Assess governance</a>
+      </div>
+    </div>
+  </div>
+  <nav class="page-breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <ol>
+        <li><a href="/index.html">Home</a></li>
+        <li><span aria-current="page">Toolkits</span></li>
+      </ol>
+    </div>
+  </nav>
+  <main id="main-content">
+    <section class="page-hero page-hero-toolkit">
+      <div class="container">
+        <p class="section-eyebrow">Toolkits · Training</p>
+        <h1>Async training for accountable, privacy-first publishing</h1>
+        <p class="section-lead">Two short courses designed to reduce repeat mistakes. <strong>Education only — not legal advice.</strong> No case review. No outcomes sold.</p>
+        <div class="hero-actions toolkit-actions">
+          <a class="btn btn-ghost" href="/toolkits.html">← Back to Toolkits</a>
+          <a class="btn btn-outline" href="/toolkits.html#all">Free templates first</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="toolkit-section">
+      <div class="container toolkit-grid-2">
+        <article class="surface-card">
+          <h2>Recommended path</h2>
+          <p><strong>Path A — Privacy-first:</strong> Privacy-First Publishing → Privacy pack Pro.</p>
+          <p><strong>Path B — Evidence discipline:</strong> Evidence Literacy 101 → Sourcing pack Pro.</p>
+        </article>
+        <article class="surface-card">
+          <h2>What you get</h2>
+          <ul class="toolkit-list">
+            <li>Self-paced async modules</li>
+            <li>Drills + checklists aligned to free templates</li>
+            <li>Education only — not individualized advice</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="toolkit-section" id="courses">
+      <div class="container">
+        <h2 class="section-title">Courses</h2>
+        <div class="toolkit-product-grid">
+        <article class="toolkit-product-card surface-card">
+          <div class="toolkit-product-head">
+            <h3>Evidence Literacy 101</h3>
+            <p class="toolkit-tagline">Claim/evidence discipline + sourcing hygiene</p>
+          </div>
+          <p class="toolkit-product-desc">Best for anyone publishing claims who wants cleaner sourcing without turning publishing into a full-time job.</p>
+          <div class="toolkit-product-foot">
+            <span class="toolkit-price">$79</span>
+            <div class="toolkit-product-actions">
+              <a class="btn btn-ghost btn-sm" href="/toolkits/training/evidence-literacy-101/">View outline</a>
+              <button class="btn btn-primary btn-sm" type="button" data-buy="train_evidence101">Buy course</button>
+            </div>
+          </div>
+        </article>
+        <article class="toolkit-product-card surface-card">
+          <div class="toolkit-product-head">
+            <h3>Privacy-First Publishing</h3>
+            <p class="toolkit-tagline">De-identification drills + safe rewrite patterns</p>
+          </div>
+          <p class="toolkit-product-desc">Best for publishing real-world stories while reducing doxxing-by-detail risk (time + place + role).</p>
+          <div class="toolkit-product-foot">
+            <span class="toolkit-price">$99</span>
+            <div class="toolkit-product-actions">
+              <a class="btn btn-ghost btn-sm" href="/toolkits/training/privacy-first-publishing/">View outline</a>
+              <button class="btn btn-primary btn-sm" type="button" data-buy="train_privacy">Buy course</button>
+            </div>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="trust-disclaimer">
+    Witness AI provides educational AI policy templates and governance workflow tooling — not legal, compliance, or certification services. Market statistics cite independent third-party research. Framework alignment is illustrative mapping only.
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <strong>Witness AI</strong>
+        <p>Agentic governance + AI policy at dispatch</p>
+        <span class="gartner-badge">witnessbc.com</span>
+      </div>
+      <div>
+        <h5>Platform</h5>
+        <a href="/platform.html">Observe · Govern · Prove</a>
+        <a href="/lifecycle.html">Governance loop</a>
+        <a href="/policy.html">AI policy</a>
+        <a href="/proof.html">Proof chain</a>
+      </div>
+      <div>
+        <h5>Commercial</h5>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/compare.html">Compare</a>
+        <a href="https://witnessbc.com/principles">Principles</a>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <a href="/learn.html">Learn</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/sources.html">Sources</a>
+        <a href="https://witnessbc.com/toolkits">Toolkits</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© Witness AI 2026 · witnessbc.com</p>
+      <div class="footer-legal">
+        <a href="https://witnessbc.com/principles">Principles</a>
+        <a href="/sources.html">References</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/toolkits.js"></script>
+  <script src="/assets/site.js"></script>
+</body>
+</html>
+

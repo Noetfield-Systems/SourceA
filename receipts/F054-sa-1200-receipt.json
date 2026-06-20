@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "F054",
+  "title": "cart ok when execution+commercial founder done",
+  "evidence": "governance_gate_cart_v1.py cart_acceptance_ok · founder_commercial_block w3_send_ready · exec 12/12 · gov 11/11 session",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T07:58:30Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

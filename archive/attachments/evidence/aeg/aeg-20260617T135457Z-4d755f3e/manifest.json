@@ -1,0 +1,25 @@
+{
+  "schema": "aeg-evidence-bundle-v1",
+  "evidence_id": "aeg-20260617T135457Z-4d755f3e",
+  "at": "2026-06-17T13:54:57Z",
+  "verdict": "BLOCK",
+  "blockers": [
+    "run-inbox truth_match=false \u2014 queue/inbox mismatch",
+    "last session gate receipt ok=false"
+  ],
+  "proof_url": "https://locally-projected-shade-projection.trycloudflare.com/aeg-20260617T135457Z-4d755f3e/",
+  "bundle_dir": "/Users/sinakazemnezhad/.sina/aeg/aeg-20260617T135457Z-4d755f3e",
+  "archive_dir": "/Users/sinakazemnezhad/Desktop/SourceA/archive/attachments/evidence/aeg/aeg-20260617T135457Z-4d755f3e",
+  "terminal": {
+    "ok": true,
+    "mode": "receipt_transcript",
+    "path": "/Users/sinakazemnezhad/.sina/aeg/aeg-20260617T135457Z-4d755f3e/terminal.txt",
+    "note": "Captured from critic_boot receipt \u2014 not a re-run"
+  },
+  "ui": {
+    "ok": false,
+    "ui_url": "http://127.0.0.1:13023/",
+    "error": "BrowserType.launch: Executable doesn't exist at /var/folders/5g/rd684wbd1q52sngycytqr5n00000gn/T/cursor-sandbox-cache/700289bdd4780f2a9ed324e433637103/playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-arm64/chrome-headless-shell\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551 Looks like Playwright was just installed or updated.       \u2551\n\u2551 Please run the following command to download new browsers: \u2551\n\u2551                                                            \u2551\n\u2551     playwright install                                     \u2551\n\u2551                                                            \u2551\n\u2551 <3 Playwright Team                                         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d"
+  },
+  "heal_verdict": null
+}

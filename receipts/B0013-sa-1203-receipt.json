@@ -1,0 +1,11 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1203",
+  "status": "BLOCKED",
+  "round_type": "act",
+  "upgrade_id": "B0013",
+  "title": "Reason about consequence of noetfield on cloud execution plane",
+  "evidence": "acceptance=Brain reasoning receipt + cloud federated proof — not local Cursor Worker turn · owner_role=brain · execution_plane=cloud_api_worker · local_worker_deprecated=true on active brain WO",
+  "at": "2026-06-19T19:05:30Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

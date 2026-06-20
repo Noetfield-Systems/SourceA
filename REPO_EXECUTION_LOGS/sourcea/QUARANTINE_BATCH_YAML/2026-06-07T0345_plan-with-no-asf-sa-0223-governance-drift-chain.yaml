@@ -1,0 +1,17 @@
+schema_version: 1
+repo: sourcea
+task: sa-0223 — Run validate-governance-drift-v1.sh in find_critical_bugs chain
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0223
+  files_changed:
+    - scripts/find_critical_bugs.py
+    - scripts/build-sina-command-panel.py
+    - scripts/validate-find-critical-bugs-governance-drift-chain-v1.sh
+tests:
+  status: passed
+  command: SINA_AUDIT_STRICT=1 build-sina-command-panel.py && find_critical_bugs.py
+  output_snippet: OK governance-drift chain (sa-0223) · PASS score 100 · critical 0
+reported_at: '2026-06-07T03:45:00Z'
+reporter: cursor-worker

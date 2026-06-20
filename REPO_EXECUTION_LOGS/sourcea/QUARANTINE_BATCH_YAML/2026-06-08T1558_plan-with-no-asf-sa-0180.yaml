@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0180 — Ensure dispatch_ready stays false until founder spine Action — no code bypass
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0180
+tests:
+  status: passed
+  output_snippet: validate-dispatch-ready-lock-v1 PASS no bypass; dispatch-policy hub dispatch_ready false; spine-bridge-founder proof
+reported_at: '2026-06-08T15:58:04Z'
+reporter: cursor-worker-batch
