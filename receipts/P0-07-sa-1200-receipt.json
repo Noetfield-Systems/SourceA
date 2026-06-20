@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "P0-07",
+  "title": "Forge catalog try-demo engines",
+  "evidence": "validate-forge-catalog-try-demo-v1 PASS · 3 engine items (web-product, exchange, forge) · demo_seconds=30 · status=prove_only · website_slug wired",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T16:57:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

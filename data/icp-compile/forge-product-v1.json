@@ -1,0 +1,25 @@
+{
+  "schema": "icp-compile-account-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-18T21:10:00Z",
+  "account_id": "forge-product",
+  "company": "Forge",
+  "brand_route": "forge",
+  "lane": "forge_product",
+  "sku": "THREAD-FORGE",
+  "status": "compile_deferred",
+  "note": "Forge product ICP compile — fourth in founder review bundle · after SourceA + Noetfield + TrustField · not email factory verb",
+  "compile_gate": "blocked_until_sourcea_compiled",
+  "failure_moment": {
+    "scenario": "Enterprise buyer asks how Forge proves an AI build step was permitted",
+    "pressure": "cannot show reconstructable workflow after the fact under procurement review",
+    "consequence_implicit": "platform pitch alone fails without step replay"
+  },
+  "tension_kernel": "AI-native dev platform — pro independent surface beyond DevBridge",
+  "output_trace": {
+    "approved": false,
+    "machine_verdict": null,
+    "sina_read_score_pct": null,
+    "machine_next": "After TrustField compile closes — FDG compose Forge product buyer body"
+  }
+}

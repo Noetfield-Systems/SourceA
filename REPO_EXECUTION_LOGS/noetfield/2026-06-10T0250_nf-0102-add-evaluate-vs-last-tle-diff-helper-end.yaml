@@ -1,0 +1,22 @@
+schema_version: 1
+repo: noetfield
+task: 'nf-0102: Add evaluate-vs-last-TLE diff helper endpoint or service stub'
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - governance-console/backend/services/tle_service.py
+  - governance-console/backend/routes/tle.py
+  - governance-console/backend/schemas.py
+  - governance-console/backend/tests/test_tle_flow.py
+  diff_summary: ''
+  note: nf-0103
+tests:
+  status: passed
+  command: make verify-gtm
+  output_snippet: verify-gtm passed — safe to run external demo
+real_output: verify-gtm passed — safe to run external demo
+reported_at: '2026-06-10T02:50:00Z'
+reporter: cursor
+execution_id: ''

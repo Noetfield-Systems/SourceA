@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "verify",
+  "upgrade_id": "P0-10",
+  "title": "Catalog tier caps honest",
+  "evidence": "validate-forge-catalog-tier-caps-v1 PASS · sandbox microvm_cap=0 upgrade_path=engines · cat-sandbox-demo tier_cap_honest BRONZE · phase0 pulse P0-10 ok · verify round 2026-06-19T18:09:50Z",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T18:09:50Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

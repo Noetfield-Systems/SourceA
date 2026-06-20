@@ -1,0 +1,52 @@
+CHAT UNIFY — merge extractions into one master brief
+
+I am pasting one or more **CHAT EXTRACT** documents from separate Cursor chats. Your job: merge them into ONE unified brief so I can close extra chats, disable unused extensions, and continue in a single workspace without losing decisions or open work.
+
+Do not guess. Do not invent. Prefer newer locked decisions over older ones; flag conflicts explicitly.
+
+---
+
+# UNIFIED SESSION BRIEF
+
+## A. Executive summary (8–12 sentences)
+What we built, decided, and still owe across all pasted chats.
+
+## B. Master decision log
+| # | Decision | Source chat | Date if known | Still valid? |
+|---|----------|-------------|---------------|--------------|
+
+## C. Active threads (deduplicated)
+| Thread | Status | Source chat(s) | Next action |
+|--------|--------|----------------|-------------|
+
+## D. Open loops (priority order)
+P0 / P1 / P2 — with owner and blocker.
+
+## E. Suggestions parked (not decided)
+Grouped by theme. Mark STALE if superseded by a locked decision.
+
+## F. System map touched
+Repos, ports, APIs, hub tabs, agents, key files — deduplicated list.
+
+## G. Conflicts & drift
+Where chats disagree or contradict SourceA disk law.
+
+## H. Extension & workspace cleanup guidance
+Based ONLY on what appears in the extractions:
+- Extensions/capabilities that were **actually used** in these chats (keep)
+- Capabilities **never referenced** (candidate to disable — list as candidates only)
+- Recommended **single chat opening prompt** (copy-paste block) to resume all active work in one thread
+
+## I. COPY-PASTE — NEW UNIFIED CHAT STARTER
+Write one self-contained prompt I paste into a fresh Cursor chat to continue everything that is IN PROGRESS. Include:
+- Active P0/thread
+- Locked decisions
+- Open TODOs
+- Files/repos in scope
+- Founder law: no Terminal; Worker RUN INBOX + standalone app Actions
+
+---
+
+End with:
+**ARCHIVE LIST:** which source chats are safe to close (by title/label you inferred)
+**KEEP ONE:** the single workspace/folder I should use going forward

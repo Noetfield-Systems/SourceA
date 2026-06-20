@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0049",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0049 VERIFY PASS \u2014 strict build validate-eval-packet-v1b-live without SINA_EVAL_1B_LIVE=1 wired (validate-eval-packet-v1b-strict-without-live-env-v1); critical 0",
+  "at": "2026-06-09T23:17:43Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

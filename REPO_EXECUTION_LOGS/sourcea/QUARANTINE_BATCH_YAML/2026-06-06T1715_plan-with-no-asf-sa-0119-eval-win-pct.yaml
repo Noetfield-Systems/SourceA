@@ -1,0 +1,16 @@
+schema_version: 1
+repo: sourcea
+task: PLAN WITH NO ASF — sa-0119 command-data eval win_pct matches live report
+status: done
+verify_passed: true
+evidence:
+  files_changed:
+    - scripts/build-sina-command-panel.py
+    - scripts/validate-command-data-eval-win-pct-v1.sh
+    - scripts/find_critical_bugs.py
+tests:
+  status: passed
+  command: validate-command-data-eval-win-pct-v1.sh && SINA_AUDIT_STRICT=1 build-sina-command-panel.py && find_critical_bugs.py
+  output_snippet: command-data eval sync Eval-1 100% Eval-1b scaffold 100%; validator PASS; critical 0
+reported_at: '2026-06-06T17:15:00Z'
+reporter: cursor-maintainer

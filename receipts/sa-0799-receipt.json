@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0799",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "worker_inbox",
+  "evidence": "sa-0799 VERIFY DONE \u2014 Harden essay mark-best POST without ASF as sole actor; validators: validate-essay-mark-best-v1.sh: PASS, validate-governance-fleet-v1.sh: PASS, validate-dispatch-policy-v1.sh: PASS, validate-incident-028-fast-v1.sh: PASS",
+  "at": "2026-06-13T21:57:21Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

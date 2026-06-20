@@ -1,0 +1,43 @@
+{
+  "schema": "ui-upgrade-ledger-v1",
+  "surface_id": "worker_hub",
+  "label": "Worker Hub",
+  "repo": "SourceA",
+  "root": "agent-control-panel",
+  "url": "http://127.0.0.1:13020/",
+  "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/WORKER_HUB_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+  "saved_at": "2026-06-19T16:54:05Z",
+  "frozen_inventory": [
+    {"id": "next_steps", "kind": "panel", "marker": "factory-now / Next steps", "files": ["agent-control-panel/assets/app.js"]},
+    {"id": "command_tab", "kind": "tab", "marker": "tab=command", "files": ["agent-control-panel/index.html"]},
+    {"id": "form_tab", "kind": "tab", "marker": "tab=form", "files": ["agent-control-panel/index.html"]},
+    {"id": "system_roadmap_payload", "kind": "data", "marker": "system_roadmap", "files": ["command-data.json"]},
+    {"id": "ui_contract", "kind": "data", "marker": "ui_contract", "files": ["scripts/system_roadmap.py"]},
+    {"id": "sr_ssot_hooks", "kind": "code", "marker": "srStrategicStepCount", "files": ["agent-control-panel/assets/app.js"]},
+    {"id": "build_pipeline", "kind": "gate", "marker": "build-sina-command-panel.py", "files": ["scripts/build-sina-command-panel.py"]}
+  ],
+  "app_checklist": [
+    {"id": "HUB-1", "step": "Edit system_roadmap.py first — never duplicate catalogs in app.js"},
+    {"id": "HUB-2", "step": "build-sina-command-panel.py → audit_hub_source_alignment OK"},
+    {"id": "HUB-3", "step": "No agent misconception tables or session chronology in UI"},
+    {"id": "HUB-4", "step": "Payload version + map_doc match after build"}
+  ],
+  "upgrades": [
+    {
+      "upgrade_id": "UP-HUB-000",
+      "saved_at": "2026-06-19T16:54:05Z",
+      "founder_trigger": "ledger bootstrap",
+      "general_checklist": "UP-0..UP-7",
+      "app_checklist": "HUB-1..HUB-4",
+      "status": "approved",
+      "quality_vs_last": "baseline",
+      "preserved": "Hub shell tabs, command-data pipeline, alignment audit chain",
+      "changed": "Per-app upgrade ledger created — tracking starts now",
+      "achieved": "Documented frozen hub inventory + HUB-specific checklist",
+      "founder_approval": "pending",
+      "machine_proof": {"build-sina-command-panel.py": "audit OK at ledger creation"},
+      "baseline_before": null,
+      "baseline_after": "ledger-v1"
+    }
+  ]
+}

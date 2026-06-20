@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0561 — Reject fabricated G3 or Track PASS in any script grep
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0561
+tests:
+  status: passed
+  output_snippet: validate-anti-fabricated-g3-grep-t2-crossref-v1.sh PASS · canonical sa-0511 · t1 sa-0536 · pack 21/21
+reported_at: '2026-06-14T21:50:36Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

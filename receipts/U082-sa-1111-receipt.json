@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1111",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U082",
+  "title": "Link outbox pack \u2192 icp receipt id",
+  "evidence": "pack icp_receipt_id link PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:20:42Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

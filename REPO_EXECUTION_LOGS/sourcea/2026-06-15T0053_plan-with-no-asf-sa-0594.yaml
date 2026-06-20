@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0594 — Validate evidence flywheel doc linked from hub essentials
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0594
+tests:
+  status: passed
+  output_snippet: sa-0594 T3 evidence flywheel hub essentials cross-ref (canonical sa-0519) · validate-evidence-flywheel-hub-essentials-t3-crossref-v1 PASS · hub essentials execute pillar · task-validator closeout (no_hub)
+reported_at: '2026-06-15T00:53:36Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

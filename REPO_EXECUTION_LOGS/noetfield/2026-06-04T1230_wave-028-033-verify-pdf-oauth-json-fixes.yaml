@@ -1,0 +1,22 @@
+schema_version: 1
+repo: noetfield
+task: Wave 028-033 verify + PDF/oauth_json fixes
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - governance-console/backend/services/board_pack_pdf.py
+  - governance-console/backend/db/bootstrap.py
+  - os/plan.json
+  diff_summary: ''
+  note: 'GTM: 1 design partner; Tier A staging URL when ready'
+tests:
+  status: passed
+  command: pytest test_tle_flow.py -q && make verify-local-dev && make tle-smoke &&
+    make copilot-pilot-e2e
+  output_snippet: 7 pytest passed; all make targets green
+real_output: 7 pytest passed; all make targets green
+reported_at: '2026-06-04T12:30:00Z'
+reporter: cursor
+execution_id: ''

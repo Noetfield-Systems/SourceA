@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0625",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 L0-full editor telemetry gap validator + dispatch + governance fleet + critical 0; sa-0625 closeout \u2014 slice 30/30 complete",
+  "at": "2026-06-09T03:28:26Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

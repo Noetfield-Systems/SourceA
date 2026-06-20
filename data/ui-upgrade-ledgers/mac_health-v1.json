@@ -1,0 +1,68 @@
+{
+  "schema": "ui-upgrade-ledger-v1",
+  "surface_id": "mac_health",
+  "label": "Mac Health guard UI",
+  "ui_mode": "founder_glance",
+  "version": "3.3.0",
+  "repo": "SourceA",
+  "root": "scripts/mac-health-standalone",
+  "url": "http://127.0.0.1:13024/",
+  "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/MAC_HEALTH_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+  "law_doc": "brain-os/enforcement/SINA_MAC_HEALTH_FOUNDER_GLANCE_UI_LOCKED_v1.md",
+  "contract_json": "data/mac-health-founder-glance-ui-contract-v1.json",
+  "saved_at": "2026-06-19T20:39:27Z",
+  "frozen_inventory": [
+    {"id": "health_page", "kind": "page", "marker": "mhg-founder-glance · HTTP 200", "files": ["scripts/mac-health-standalone/index.html"]},
+    {"id": "ui_contract", "kind": "api", "marker": "ui_contract.ui_mode=founder_glance", "files": ["scripts/mac_health_founder_glance_ui_v1.py", "scripts/mac-health-guard-server.py"]},
+    {"id": "standalone_service", "kind": "api", "marker": "standalone: true", "files": ["scripts/mac-health-guard-server.py"]},
+    {"id": "version_ssot", "kind": "version", "marker": "3.3.0", "files": ["scripts/mac_health_version_v1.py"]},
+    {"id": "agent_mandates", "kind": "law", "marker": "MAC_HEALTH_AGENT_MANDATES", "files": ["~/Desktop/MacLaw/MAC_HEALTH_AGENT_MANDATES_LOCKED.md"]},
+    {"id": "quiet_flag", "kind": "ops", "marker": "mac-health-quiet-v1.flag", "files": ["~/.sina/mac-health-quiet-v1.flag"]}
+  ],
+  "app_checklist": [
+    {"id": "MH-1", "step": "Read founder-glance SSOT + contract before UI edit", "done": true},
+    {"id": "MH-2", "step": ":13024 health + page HTTP 200 · ui_contract wired", "done": true},
+    {"id": "MH-3", "step": "validate-mac-health-founder-glance-v1.sh PASS", "done": true},
+    {"id": "MH-4", "step": "Included in mac-law surfaces probe", "done": true},
+    {"id": "MH-5", "step": "Bundle sync + mac-health-founder-glance-wire receipt", "done": true}
+  ],
+  "upgrades": [
+    {
+      "upgrade_id": "UP-MH-000",
+      "saved_at": "2026-06-19T16:54:05Z",
+      "founder_trigger": "ledger bootstrap",
+      "general_checklist": "UP-0..UP-7",
+      "app_checklist": "MH-1..MH-4",
+      "status": "approved",
+      "quality_vs_last": "baseline",
+      "preserved": "Health guard UI + mandates wiring",
+      "changed": "Per-app Mac Health upgrade ledger created",
+      "achieved": "Tracked MH-specific inventory + checklist",
+      "founder_approval": "approved",
+      "machine_proof": {":13024": "HTTP 200"},
+      "baseline_before": null,
+      "baseline_after": "ledger-v1"
+    },
+    {
+      "upgrade_id": "UP-MH-001",
+      "saved_at": "2026-06-19T20:39:27Z",
+      "founder_trigger": "founder glance SSOT lock + ecosystem wire",
+      "general_checklist": "UP-0..UP-7",
+      "app_checklist": "MH-1..MH-5",
+      "status": "approved",
+      "quality_vs_last": "founder zero-task cockpit",
+      "preserved": "Auto heal · live pulse · log shield · panic · settings in More",
+      "changed": "Zero tabs · one card · one primary CTA · four stat tiles",
+      "removed": "Tab bar · poem · guardians · SASCIP tile · duplicate toolbars",
+      "achieved": "SSOT law · machine contract · validators · API ui_contract · wire script",
+      "founder_approval": "approved",
+      "machine_proof": {
+        "validator": "scripts/validate-mac-health-founder-glance-v1.sh",
+        "wire_receipt": "~/.sina/mac-health-founder-glance-wire-v1.json",
+        "version": "3.3.0"
+      },
+      "baseline_before": "3.2.x multi-tab",
+      "baseline_after": "3.3.0 founder_glance"
+    }
+  ]
+}

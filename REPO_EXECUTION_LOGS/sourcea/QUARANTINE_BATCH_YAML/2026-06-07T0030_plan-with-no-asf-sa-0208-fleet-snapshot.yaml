@@ -1,0 +1,18 @@
+schema_version: 1
+repo: sourcea
+task: sa-0208 — Log fleet snapshot nudges auto-green report gaps on build complete
+status: done
+verify_passed: true
+evidence:
+  files_changed:
+    - scripts/build-sina-command-panel.py
+    - os/plan-library/sourcea-1000/prompts/phase-s2-hub-build-ci/T0/sa-0208.md
+    - os/plan-library/sourcea-1000/REGISTRY.json
+  artifacts:
+    - ~/.sina/fleet_build_snapshot_v1.json
+tests:
+  status: passed
+  command: SINA_AUDIT_STRICT=1 build-sina-command-panel.py + find_critical_bugs.py
+  output_snippet: nudges 0 · auto-green 8 · gaps report 0 · gaps verify 0 · critical 0
+reported_at: '2026-06-07T00:30:00Z'
+reporter: cursor-worker

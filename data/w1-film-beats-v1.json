@@ -1,0 +1,43 @@
+{
+  "schema": "w1-film-beats-v1",
+  "title": "SourceA W1 — governed agent execution",
+  "hook": "If AI executes without governance, it fails.",
+  "beats": [
+    {
+      "id": "BLOCK",
+      "label": "Beat 1 — BLOCK",
+      "title": "Policy change without approval",
+      "narration": "Watch what happens when an agent tries to change Copilot policy without approval. The governance gate blocks it. No receipt lands on the spine. Execution stops cold.",
+      "card_seconds": 3,
+      "broll_seconds": 12
+    },
+    {
+      "id": "ALLOW",
+      "label": "Beat 2 — ALLOW",
+      "title": "Valid change with approval reference",
+      "narration": "Same action — but now with an approval reference and passing gate checks. The commit lands. A signed receipt is written to disk with a checksum you can replay.",
+      "card_seconds": 3,
+      "broll_seconds": 14
+    },
+    {
+      "id": "tamper-FAIL",
+      "label": "Beat 3 — tamper FAIL",
+      "title": "Receipt tamper detected",
+      "narration": "Now someone edits the receipt by hand. The validator fails immediately. Tamper evidence is visible. This is the proof layer buyers actually need.",
+      "card_seconds": 3,
+      "broll_seconds": 12
+    },
+    {
+      "id": "FREEZE",
+      "label": "Beat 4 — kill switch",
+      "title": "Factory freeze on disk",
+      "narration": "The kill switch lives on disk — not in chat memory. When auto-run is disabled, the factory stops. Human approval stays in the loop.",
+      "card_seconds": 3,
+      "broll_seconds": 10
+    }
+  ],
+  "cta": {
+    "narration": "SourceA — runtime governance infrastructure. Book fifteen minutes to walk through BLOCK, heal, and replay on your stack.",
+    "seconds": 8
+  }
+}

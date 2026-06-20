@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0519 — Validate evidence flywheel doc linked from hub essentials
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0519
+tests:
+  status: passed
+  output_snippet: sa-0519 VERIFY PASS — validate-evidence-flywheel-hub-essentials-v1 · hub essentials + mergepack hook
+reported_at: '2026-06-14T13:12:20Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

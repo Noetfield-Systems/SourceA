@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proof | Witness AI — Live receipt replay</title>
+  <meta name="description" content="Live proof that AI policy ran before the agent acted — BLOCK, ESCALATE, ALLOW, tamper-FAIL, replay." />
+  <meta property="og:title" content="Proof | Witness AI — Live receipt replay" />
+  <meta property="og:description" content="Live proof that AI policy ran before the agent acted — BLOCK, ESCALATE, ALLOW, tamper-FAIL, replay." />
+  <meta property="og:url" content="https://witnessbc.com/proof" />
+  <meta property="og:image" content="https://witnessbc.com/assets/og-card.svg" />
+  <meta property="og:image:type" content="image/svg+xml" />
+  <meta name="theme-color" content="#0d9488" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#060a0f" media="(prefers-color-scheme: dark)" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://witnessbc.com/proof" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/tokens.css" />
+  <link rel="stylesheet" href="assets/tokens-v12.css" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/motion.css" />
+  <link rel="stylesheet" href="assets/layout-wide-v11.css" />
+  <link rel="stylesheet" href="assets/layout-ultra-v12.css" />
+  <link rel="stylesheet" href="assets/surface-v12.css" />
+  <script>
+    (function () {
+      var t = localStorage.getItem("witness-ai-theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+</head>
+<body class="page-proof layout-ultra-v12" data-proof-mailto="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof" data-live-demo-url="proof.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="brand-disambiguation" role="note">
+    Witness AI on <strong>witnessbc.com</strong> — not WitnessAI (<span class="brand-other">witness.ai</span>).
+  </div>
+  <div class="announcement">
+    <span class="wbc-badge">witnessbc.com</span>
+    WitnessBC · witnessbc.com — agentic governance + WBC-FLOW civic proof
+    <a href="toolkits.html">Browse toolkits →</a>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <svg class="logo-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L4 6v12l8 4 8-4V6l-8-4z" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v20M4 6l8 4 8-4" stroke="currentColor" stroke-width="1.5" opacity="0.5"/></svg>
+        Witness AI
+      </a>
+      <nav class="nav" id="mainNav" aria-label="Main">
+        <div class="nav-item has-dropdown">
+          <button type="button" aria-expanded="false" aria-haspopup="true" class="">Platform</button>
+          <div class="dropdown">
+            <a href="platform.html">Overview</a>
+            <a href="lifecycle.html">Governance loop</a>
+            <a href="policy.html">AI policy packs</a>
+            <a href="compare.html">Compare approaches</a>
+          </div>
+        </div>
+        <a class="nav-link is-active" href="proof.html">Proof</a>
+        <a class="nav-link " href="pricing.html">Pricing</a>
+        <div class="nav-item has-dropdown">
+          <button type="button" aria-expanded="false" aria-haspopup="true" class="">Resources</button>
+          <div class="dropdown">
+            <a href="learn.html">Learn · Get started</a>
+            <a href="toolkits.html">Toolkits · Free + Pro</a>
+            <a href="faq.html">FAQ</a>
+            <a href="sources.html">Sources</a>
+          </div>
+        </div>
+      </nav>
+      <div class="header-cta">
+        <span class="theme-toggle-wrap">
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light/dark theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </span>
+        <a class="btn btn-ghost" href="toolkits.html">Assess governance</a>
+        <a class="btn btn-primary" href="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof">Book 15-min proof</a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <div class="sticky-cta" id="stickyCta" aria-hidden="true">
+    <div class="sticky-cta-inner">
+      <p>Prove AI policy ran before the agent acted — BLOCK → ALLOW → tamper-FAIL → replay</p>
+      <div class="sticky-cta-actions">
+        <a class="btn btn-primary" href="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof">Book 15-min proof</a>
+        <a class="btn btn-outline" href="proof.html">Open Proof Lab →</a>
+        <a class="btn btn-outline" href="toolkits.html">Assess governance</a>
+      </div>
+    </div>
+  </div>
+  <nav class="page-breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><span aria-current="page">Proof</span></li>
+      </ol>
+    </div>
+  </nav>
+  <main id="main-content">
+    <section class="page-hero proof-hero-mesh">
+      <div class="container">
+        <p class="section-eyebrow">Live proof</p>
+        <h1>Live proof that AI policy ran before the agent acted</h1>
+        <p class="section-lead">BLOCK on policy violation · ESCALATE to human · ALLOW with receipt · tamper-FAIL · replay.</p>
+        <p class="proof-live-bridge">
+          <a class="btn btn-primary" href="proof.html">Open Proof Lab →</a>
+          <span class="proof-live-bridge-note">Interactive scenarios on witnessbc.com · or <a href="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof">book 15-min walkthrough</a></span>
+        </p>
+      </div>
+    </section>
+
+    <section class="w1-demo-film-section" id="w1-demo-film" aria-label="W1 proof film">
+      <div class="container">
+        <p class="section-eyebrow">Watch before you book</p>
+        <h2 class="w1-demo-film-title">W1 proof film · ALLOW · BLOCK · tamper-FAIL</h2>
+        <p class="section-lead w1-demo-film-lead">Interactive Proof Lab on witnessbc.com — BLOCK · ESCALATE · ALLOW · tamper-FAIL · replay</p>
+        <div class="w1-demo-film-grid">
+          <div class="w1-demo-film" id="w1DemoFilm">
+            <video id="w1DemoVideo" class="w1-demo-video" controls preload="metadata" poster="assets/w1-demo-poster.svg" playsinline>
+              <source src="assets/w1-demo.mp4" type="video/mp4" />
+            </video>
+            <div class="w1-demo-film-fallback">
+              <div
+                class="w1-demo-embed"
+                id="w1DemoEmbed"
+                aria-label="WitnessBC Proof Lab"
+              >
+                <p class="w1-demo-film-note">Interactive Proof Lab runs on witnessbc.com — scroll to <a href="#proof">scenarios below</a>.</p>
+              </div>
+            </div>
+          </div>
+          <aside class="w1-demo-film-aside">
+            <h3>Five beats on camera</h3>
+            <ol class="w1-demo-beats">
+              <li>Request → policy eval at dispatch</li>
+              <li>BLOCK on red-line violation</li>
+              <li>ESCALATE → human gate → ALLOW</li>
+              <li>Signed receipt on disk</li>
+              <li>Tamper-FAIL on hand edit · replay</li>
+            </ol>
+            <a class="btn btn-primary btn-sm" href="mailto:proof@witnessbc.com?subject=Witness%20AI%20%E2%80%94%2015-min%20live%20proof">Book 15-min walkthrough</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-section visibility proof-lab-section" id="proof">
+      <div class="container">
+        <div class="proof-film-controls">
+          <button type="button" class="btn btn-outline btn-sm" id="proofFilmToggle" aria-pressed="false">Play film strip</button>
+          <span class="proof-film-hint">15s cycle · request → tamper-FAIL</span>
+        </div>
+        <div class="chain-inline proof-chain-steps" id="proofFilmStrip">
+          <span class="proof-chain-step active" data-film="0">request</span><span>→</span>
+          <span class="proof-chain-step" data-film="1">policy</span><span>→</span>
+          <span class="proof-chain-step" data-film="2">decision</span><span>→</span>
+          <span class="proof-chain-step" data-film="3">human gate</span><span>→</span>
+          <span class="proof-chain-step" data-film="4">receipt</span><span>→</span>
+          <span class="proof-chain-step" data-film="5">replay</span><span>→</span>
+          <span class="proof-chain-step fail" data-film="6">tamper-FAIL</span>
+        </div>
+        <p class="proof-verdict-live" id="proofVerdictLive" aria-live="polite" aria-atomic="true"></p>
+
+        <header class="proof-lab-header">
+          <div>
+            <p class="section-eyebrow">Proof Lab</p>
+            <h2>Run real scenarios · inspect evidence on disk</h2>
+          </div>
+          <div class="proof-progress-tracker" id="proofProgressTracker">
+            <span class="proof-progress-label">Scenarios explored</span>
+            <strong id="proofProgressCount">0 / 6</strong>
+            <div class="proof-progress-bar" aria-hidden="true"><span id="proofProgressFill"></span></div>
+          </div>
+        </header>
+
+        <div class="proof-scenario-wrap proof-segmented proof-scenario-pills-fallback" id="proofScenarioPills" role="tablist" aria-label="Proof scenarios"></div>
+
+        <div class="proof-lab-grid" id="proofLabGrid">
+          <div class="proof-lab-scenarios">
+            <h3 class="proof-lab-col-title">Scenarios</h3>
+            <div class="proof-scenario-cards" id="proofScenarioCards" role="tablist" aria-label="Proof scenario cards"></div>
+          </div>
+
+          <div class="proof-lab-terminal">
+            <h3 class="proof-lab-col-title">Receipt terminal</h3>
+            <div class="proof-scrubber-wrap">
+              <div class="proof-scrubber-gates" aria-hidden="true">
+                <span>intake</span><span>policy</span><span>decision</span><span>human</span><span>receipt</span><span>replay</span>
+              </div>
+              <input type="range" class="proof-scrubber" id="proofScrubber" min="0" max="5" value="0" aria-label="Replay scrubber through governance gates" />
+            </div>
+            <div class="proof-replay-bar" aria-label="Replay controls">
+              <button type="button" class="btn btn-outline btn-sm" id="proofReplayPrev" aria-label="Previous step">← Prev</button>
+              <button type="button" class="btn btn-outline btn-sm" id="proofReplayPlay" aria-label="Play or pause">Pause</button>
+              <span class="proof-replay-step" id="proofReplayStep">—</span>
+              <button type="button" class="btn btn-outline btn-sm" id="proofReplayNext" aria-label="Next step">Next →</button>
+              <button type="button" class="btn btn-outline btn-sm proof-tamper-btn" id="proofTamperBtn" aria-pressed="false">Tamper demo</button>
+            </div>
+            <div class="proof-terminal proof-terminal-glass" id="proofTerminal" aria-label="Interactive proof receipt terminal">
+              <div class="proof-terminal-head">
+                <span class="proof-terminal-dots"><span></span><span></span><span></span></span>
+                <span class="proof-terminal-title">witness-ai proof — default loop</span>
+              </div>
+              <div class="proof-terminal-body" id="proofTerminalBody"></div>
+              <span class="proof-terminal-cursor" id="proofTerminalCursor" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <aside class="proof-lab-evidence proof-evidence-panel" id="proofEvidencePanel" aria-label="Evidence for current scenario">
+            <div class="proof-evidence-head">
+              <h3>Evidence</h3>
+              <span class="proof-evidence-verdict verdict-allow">—</span>
+            </div>
+            <p class="proof-evidence-narrative" data-evidence-narrative>—</p>
+            <dl class="proof-evidence-meta">
+              <div><dt>Policy rule</dt><dd data-evidence-rule>—</dd></div>
+              <div><dt>Excerpt</dt><dd data-evidence-excerpt class="proof-evidence-excerpt">—</dd></div>
+              <div><dt>Receipt hash</dt><dd><code data-evidence-hash>—</code> <button type="button" class="btn btn-ghost btn-sm" id="proofCopyHash">Copy</button></dd></div>
+              <div><dt>Timestamp</dt><dd><time data-evidence-ts>—</time></dd></div>
+            </dl>
+            <ul class="proof-artifact-list" id="proofArtifactList"></ul>
+            <div class="proof-receipt-json-wrap">
+              <p class="proof-receipt-json-label">Signed receipt JSON</p>
+              <pre class="proof-receipt-json" id="proofReceiptJson" aria-label="Receipt JSON">{}</pre>
+            </div>
+          </aside>
+        </div>
+
+        <div class="proof-evidence-cards-section" id="evidence-on-disk">
+          <div class="proof-evidence-cards-head">
+            <h3>Evidence on disk</h3>
+            <a class="btn btn-ghost btn-sm" id="proofBundleDownload" href="data/proof-scenarios-v1.json" download="witnessbc-proof-scenarios-v1.json">Download proof bundle ↓</a>
+          </div>
+          <div class="proof-evidence-cards-grid" id="proofEvidenceCards"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/json" id="wbcProofScenarios">{
+  "schema": "witnessbc-proof-scenarios-v1",
+  "version": "1.0.0",
+  "generated_at": "2026-06-15T19:45:00Z",
+  "bundle_download": "data/proof-scenarios-v1.json",
+  "scenarios": [
+    {
+      "id": "outbound-email",
+      "slug": "outbound",
+      "label": "Outbound email",
+      "verdict": "ESCALATE",
+      "verdict_badge": "escalate",
+      "verdict_summary": "ESCALATE → human gate → ALLOW with signed receipt",
+      "narrative": "Sales agent drafts an external email to a prospect list. Policy requires GRC reviewer approval before any outbound send — human gate fires, then execute with signed receipt.",
+      "policy_rule": "external-comms.v2.4.1 §4.2 — outbound requires human reviewer",
+      "policy_excerpt": "IF tool=external_send AND recipient_domain NOT IN allowlist THEN verdict=ESCALATE AND require_human_gate=grc-lead",
+      "receipt_hash": "sha256:8f3a9c2e1b4d7f6a0c3e5b892a1f4c6d9e0b2a7c4f1e8d3b6a9c2e5f8a1b4c7d",
+      "timestamp": "2026-06-15T14:32:08Z",
+      "agent": "outbound-agent",
+      "tool": "external_send",
+      "receipt_codes": [
+        "wbc.intake.received",
+        "wbc.policy.evaluated",
+        "wbc.human.gate.required",
+        "wbc.review.approved",
+        "wbc.publish.sent",
+        "wbc.receipt.signed"
+      ],
+      "evidence_artifacts": [
+        { "name": "policy-pack-v2.4.1.yaml", "type": "policy", "hash": "sha256:a1b2…f0e1" },
+        { "name": "receipt-chain.json", "type": "receipt", "hash": "sha256:8f3a…c91e" },
+        { "name": "human-gate-log.json", "type": "audit", "hash": "sha256:d4e5…a2b3" }
+      ],
+      "receipt": {
+        "schema": "wbc-receipt-v1",
+        "receipt_id": "wbc-rcpt-20260615-143208-outbound",
+        "verdict": "ESCALATE",
+        "final_verdict": "ALLOW",
+        "policy_pack": "v2.4.1",
+        "rule_triggered": "external-comms.v2.4.1 §4.2",
+        "agent": "outbound-agent",
+        "tool": "external_send",
+        "human_gate": { "reviewer": "grc-lead", "approved_at": "2026-06-15T14:33:41Z" },
+        "signature": "ed25519:8f3a9c2e1b4d7f6a0c3e5b892a1f4c6d9e0b2a7c4f1e8d3b6a9c2e5f8a1b4c7d",
+        "chain_index": 4,
+        "gates_passed": 6
+      },
+      "steps": [
+        { "text": "$ witness-ai proof --scenario outbound", "cls": "dim", "phase": 0 },
+        { "text": "→ agent.action  outbound-agent  tool=external_send", "cls": "info", "phase": 0 },
+        { "text": "→ policy.eval   pack=v2.4.1  rules=12", "cls": "dim", "phase": 1 },
+        { "text": "← verdict         ESCALATE  (human gate required)", "cls": "escalate", "phase": 2 },
+        { "text": "→ human.gate      reviewer=grc-lead", "cls": "info", "phase": 3 },
+        { "text": "← approved        wbc.review.approved", "cls": "allow", "phase": 3 },
+        { "text": "→ execute         wbc.publish.sent", "cls": "allow", "phase": 4 },
+        { "text": "→ receipt.signed  sha256=8f3a…c91e  policy=v2.4.1", "cls": "allow", "phase": 5 },
+        { "text": "→ replay.check    chain=OK  gates=6/6", "cls": "allow", "phase": 5 },
+        { "text": "→ tamper.test     edit=receipt #4", "cls": "dim", "phase": 5 },
+        { "text": "← tamper-FAIL     signature invalid", "cls": "fail", "phase": 6 },
+        { "text": "✓ proof complete  policy ran before agent acted", "cls": "allow", "phase": 5 }
+      ]
+    },
+    {
+      "id": "tool-call-block",
+      "slug": "tool",
+      "label": "Tool call",
+      "verdict": "BLOCK",
+      "verdict_badge": "block",
+      "verdict_summary": "BLOCK at dispatch — PII export denied",
+      "narrative": "Research agent attempts a bulk database export containing customer PII. Policy blocks the tool call at dispatch — no data leaves the boundary.",
+      "policy_rule": "data-handling.v2.4.1 §7.1 — PII export requires DLP clearance",
+      "policy_excerpt": "IF tool=db_export AND data_class=PII THEN verdict=BLOCK AND log=wbc.policy.blocked",
+      "receipt_hash": "sha256:2b1c8d4e6f0a3b5c7d9e1f2a4b6c8d0e2f4a6b8c0d2e4f6a8b0c2d4e6f8a0b2",
+      "timestamp": "2026-06-15T09:17:22Z",
+      "agent": "tool-call-agent",
+      "tool": "db_export",
+      "receipt_codes": [
+        "wbc.intake.received",
+        "wbc.policy.evaluated",
+        "wbc.policy.blocked",
+        "wbc.receipt.signed"
+      ],
+      "evidence_artifacts": [
+        { "name": "policy-pack-v2.4.1.yaml", "type": "policy", "hash": "sha256:a1b2…f0e1" },
+        { "name": "block-receipt.json", "type": "receipt", "hash": "sha256:2b1c…9f0a" },
+        { "name": "dlp-scan-result.json", "type": "evidence", "hash": "sha256:c3d4…e5f6" }
+      ],
+      "receipt": {
+        "schema": "wbc-receipt-v1",
+        "receipt_id": "wbc-rcpt-20260615-091722-tool",
+        "verdict": "BLOCK",
+        "policy_pack": "v2.4.1",
+        "rule_triggered": "data-handling.v2.4.1 §7.1",
+        "agent": "tool-call-agent",
+        "tool": "db_export",
+        "data_class": "PII",
+        "signature": "ed25519:2b1c8d4e6f0a3b5c7d9e1f2a4b6c8d0e2f4a6b8c0d2e4f6a8b0c2d4e6f8a0b2",
+        "chain_index": 2,
+        "gates_passed": 3
+      },
+      "steps": [
+        { "text": "$ witness-ai proof --scenario tool-call", "cls": "dim", "phase": 0 },
+        { "text": "→ agent.action  tool-call-agent  tool=db_export", "cls": "info", "phase": 0 },
+        { "text": "→ policy.eval   pack=v2.4.1  rule=data-handling", "cls": "dim", "phase": 1 },
+        { "text": "← verdict         BLOCK  (PII export denied)", "cls": "block", "phase": 2 },
+        { "text": "→ receipt.signed  sha256=2b1c…9f0a  policy=v2.4.1", "cls": "allow", "phase": 5 },
+        { "text": "→ replay.check    chain=OK  gates=3/6 (blocked early)", "cls": "allow", "phase": 5 },
+        { "text": "✓ proof complete  BLOCK enforced at dispatch", "cls": "allow", "phase": 5 }
+      ]
+    },
+    {
+      "id": "publish-allow",
+      "slug": "publish",
+      "label": "Publish",
+      "verdict": "ALLOW",
+      "verdict_badge": "allow",
+      "verdict_summary": "ALLOW — policy ran before publish",
+      "narrative": "Content agent publishes an approved draft to the internal knowledge base. All policy checks pass — execute with signed receipt, no human gate required.",
+      "policy_rule": "publish.v2.4.1 §2.0 — internal publish within policy bounds",
+      "policy_excerpt": "IF tool=web_publish AND destination=internal_kb AND content_class=approved THEN verdict=ALLOW",
+      "receipt_hash": "sha256:4d7e9a1b3c5f7e0a2b4d6f8a0c2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6d8e0",
+      "timestamp": "2026-06-15T11:05:33Z",
+      "agent": "publish-agent",
+      "tool": "web_publish",
+      "receipt_codes": [
+        "wbc.intake.received",
+        "wbc.policy.evaluated",
+        "wbc.publish.sent",
+        "wbc.receipt.signed"
+      ],
+      "evidence_artifacts": [
+        { "name": "policy-pack-v2.4.1.yaml", "type": "policy", "hash": "sha256:a1b2…f0e1" },
+        { "name": "allow-receipt.json", "type": "receipt", "hash": "sha256:4d7e…a2b3" }
+      ],
+      "receipt": {
+        "schema": "wbc-receipt-v1",
+        "receipt_id": "wbc-rcpt-20260615-110533-publish",
+        "verdict": "ALLOW",
+        "policy_pack": "v2.4.1",
+        "rule_triggered": "publish.v2.4.1 §2.0",
+        "agent": "publish-agent",
+        "tool": "web_publish",
+        "destination": "internal_kb",
+        "signature": "ed25519:4d7e9a1b3c5f7e0a2b4d6f8a0c2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6d8e0",
+        "chain_index": 3,
+        "gates_passed": 6
+      },
+      "steps": [
+        { "text": "$ witness-ai proof --scenario publish", "cls": "dim", "phase": 0 },
+        { "text": "→ agent.action  publish-agent  tool=web_publish", "cls": "info", "phase": 0 },
+        { "text": "→ policy.eval   pack=v2.4.1  rules=12", "cls": "dim", "phase": 1 },
+        { "text": "← verdict         ALLOW  (within policy)", "cls": "allow", "phase": 2 },
+        { "text": "→ execute         wbc.publish.sent", "cls": "allow", "phase": 4 },
+        { "text": "→ receipt.signed  sha256=4d7e…a2b3  policy=v2.4.1", "cls": "allow", "phase": 5 },
+        { "text": "→ replay.check    chain=OK  gates=6/6", "cls": "allow", "phase": 5 },
+        { "text": "✓ proof complete  policy ran before agent acted", "cls": "allow", "phase": 5 }
+      ]
+    },
+    {
+      "id": "pii-leak-block",
+      "slug": "pii-leak",
+      "label": "PII leak",
+      "verdict": "BLOCK",
+      "verdict_badge": "block",
+      "verdict_summary": "BLOCK — SSN pattern in outbound payload",
+      "narrative": "Support agent drafts a reply containing a Social Security Number pattern. DLP scan triggers red-line BLOCK before the message leaves the agent runtime.",
+      "policy_rule": "dlp.v2.4.1 §9.3 — SSN/TIN patterns blocked at dispatch",
+      "policy_excerpt": "IF payload MATCHES ssn_pattern OR tin_pattern THEN verdict=BLOCK AND alert=security-ops",
+      "receipt_hash": "sha256:1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2",
+      "timestamp": "2026-06-15T16:44:11Z",
+      "agent": "support-agent",
+      "tool": "external_send",
+      "receipt_codes": [
+        "wbc.intake.received",
+        "wbc.dlp.scan",
+        "wbc.policy.blocked",
+        "wbc.receipt.signed"
+      ],
+      "evidence_artifacts": [
+        { "name": "dlp-pattern-match.json", "type": "evidence", "hash": "sha256:f1e2…d3c4" },
+        { "name": "block-receipt.json", "type": "receipt", "hash": "sha256:1a2b…1a2b" },
+        { "name": "security-alert.json", "type": "audit", "hash": "sha256:b5c6…d7e8" }
+      ],
+      "receipt": {
+        "schema": "wbc-receipt-v1",
+        "receipt_id": "wbc-rcpt-20260615-164411-pii",
+        "verdict": "BLOCK",
+        "policy_pack": "v2.4.1",
+        "rule_triggered": "dlp.v2.4.1 §9.3",
+        "agent": "support-agent",
+        "tool": "external_send",
+        "dlp_match": "ssn_pattern",
+        "signature": "ed25519:1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2",
+        "chain_index": 2,
+        "gates_passed": 2
+      },
+      "steps": [
+        { "text": "$ witness-ai proof --scenario pii-leak", "cls": "dim", "phase": 0 },
+        { "text": "→ agent.action  support-agent  tool=external_send", "cls": "info", "phase": 0 },
+        { "text": "→ dlp.scan       patterns=ssn,tin,credit-card", "cls": "dim", "phase": 1 },
+        { "text": "← match           ssn_pattern detected in payload", "cls": "block", "phase": 1 },
+        { "text": "← verdict         BLOCK  (SSN red-line)", "cls": "block", "phase": 2 },
+        { "text": "→ alert           security-ops notified", "cls": "info", "phase": 2 },
+        { "text": "→ receipt.signed  sha256=1a2b…1a2b  policy=v2.4.1", "cls": "allow", "phase": 5 },
+        { "text": "✓ proof complete  PII blocked before send", "cls": "allow", "phase": 5 }
+      ]
+    },
+    {
+      "id": "mcp-escalate",
+      "slug": "mcp-escalate",
+      "label": "MCP tool call",
+      "verdict": "ESCALATE",
+      "verdict_badge": "escalate",
+      "verdict_summary": "ESCALATE — privileged MCP write requires approval",
+      "narrative": "Dev agent invokes an MCP tool with write access to production config. Policy escalates to platform engineering lead before the tool executes.",
+      "policy_rule": "mcp-governance.v2.4.1 §3.4 — prod write requires platform lead",
+      "policy_excerpt": "IF mcp_scope=write AND environment=production THEN verdict=ESCALATE AND require_human_gate=platform-lead",
+      "receipt_hash": "sha256:9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0d9c8b7a6f5e4d3c2b1a0f9e8",
+      "timestamp": "2026-06-15T08:22:55Z",
+      "agent": "dev-agent",
+      "tool": "mcp_config_write",
+      "receipt_codes": [
+        "wbc.intake.received",
+        "wbc.policy.evaluated",
+        "wbc.human.gate.required",
+        "wbc.review.approved",
+        "wbc.tool.executed",
+        "wbc.receipt.signed"
+      ],
+      "evidence_artifacts": [
+        { "name": "mcp-manifest.json", "type": "policy", "hash": "sha256:e1f2…a3b4" },
+        { "name": "escalate-receipt.json", "type": "receipt", "hash": "sha256:9e8d…9e8d" },
+        { "name": "human-gate-log.json", "type": "audit", "hash": "sha256:c5d6…e7f8" }
+      ],
+      "receipt": {
+        "schema": "wbc-receipt-v1",
+        "receipt_id": "wbc-rcpt-20260615-082255-mcp",
+        "verdict": "ESCALATE",
+        "final_verdict": "ALLOW",
+        "policy_pack": "v2.4.1",
+        "rule_triggered": "mcp-governance.v2.4.1 §3.4",
+        "agent": "dev-agent",
+        "tool": "mcp_config_write",
+        "mcp_scope": "write",
+        "environment": "production",
+        "human_gate": { "reviewer": "platform-lead", "approved_at": "2026-06-15T08:24:12Z" },
+        "signature": "ed25519:9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0d9c8b7a6f5e4d3c2b1a0f9e8",
+        "chain_index": 4,
+        "gates_passed": 6
+      },
+      "steps": [
+        { "text": "$ witness-ai proof --scenario mcp-escalate", "cls": "dim", "phase": 0 },
+        { "text": "→ agent.action  dev-agent  tool=mcp_config_write", "cls": "info", "phase": 0 },
+        { "text": "→ policy.eval   pack=v2.4.1  rule=mcp-governance", "cls": "dim", "phase": 1 },
+        { "text": "← verdict         ESCALATE  (prod write gate)", "cls": "escalate", "phase": 2 },
+        { "text": "→ human.gate      reviewer=platform-lead", "cls": "info", "phase": 3 },
+        { "text": "← approved        wbc.review.approved", "cls": "allow", "phase": 3 },
+        { "text": "→ execute         wbc.tool.executed", "cls": "allow", "phase": 4 },
+        { "text": "→ receipt.signed  sha256=9e8d…9e8d  policy=v2.4.1", "cls": "allow", "phase": 5 },
+        { "text": "✓ proof complete  MCP write gated before execute", "cls": "allow", "phase": 5 }
+      ]
+    },
+    {
+      "id": "tamper-fail",
+      "slug": "tamper",
+      "label": "Tamper demo",
+      "verdict": "FAIL",
+      "verdict_badge": "fail",
+      "verdict_summary": "tamper-FAIL — signature invalid after hand edit",
+      "narrative": "Demonstrates cryptographic integrity: after a signed receipt is written to disk, any manual edit to the verdict field invalidates the signature on replay.",
+      "policy_rule": "integrity.v2.4.1 §1.0 — signed receipts are tamper-evident",
+      "policy_excerpt": "IF receipt.signature_verify()=false THEN verdict=FAIL AND chain_status=broken",
+      "receipt_hash": "sha256:7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6",
+      "timestamp": "2026-06-15T12:00:00Z",
+      "agent": "audit-agent",
+      "tool": "replay_verify",
+      "receipt_codes": [
+        "wbc.receipt.signed",
+        "wbc.replay.check",
+        "wbc.tamper.detected",
+        "wbc.integrity.fail"
+      ],
+      "evidence_artifacts": [
+        { "name": "original-receipt.json", "type": "receipt", "hash": "sha256:7f6e…7f6e" },
+        { "name": "tampered-receipt.json", "type": "evidence", "hash": "sha256:0000…dead" },
+        { "name": "integrity-report.json", "type": "audit", "hash": "sha256:a9b8…c7d6" }
+      ],
+      "receipt": {
+        "schema": "wbc-receipt-v1",
+        "receipt_id": "wbc-rcpt-20260615-120000-tamper",
+        "verdict": "ALLOW",
+        "policy_pack": "v2.4.1",
+        "rule_triggered": "integrity.v2.4.1 §1.0",
+        "agent": "audit-agent",
+        "tool": "replay_verify",
+        "signature": "ed25519:7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6",
+        "tampered": true,
+        "tamper_field": "verdict",
+        "tamper_original": "ALLOW",
+        "tamper_mutated": "BLOCK",
+        "chain_index": 5,
+        "gates_passed": 0,
+        "integrity": "FAIL"
+      },
+      "steps": [
+        { "text": "$ witness-ai proof --scenario tamper", "cls": "dim", "phase": 0 },
+        { "text": "→ replay.load     receipt=wbc-rcpt-20260615-120000", "cls": "info", "phase": 5 },
+        { "text": "→ signature.ok    ed25519 verify PASS", "cls": "allow", "phase": 5 },
+        { "text": "→ tamper.sim      edit field=verdict ALLOW→BLOCK", "cls": "dim", "phase": 5 },
+        { "text": "→ replay.check    signature verify…", "cls": "dim", "phase": 5 },
+        { "text": "← tamper-FAIL     signature invalid", "cls": "fail", "phase": 6 },
+        { "text": "← integrity       chain_status=broken", "cls": "fail", "phase": 6 },
+        { "text": "✓ proof complete  tamper-evident receipts work", "cls": "allow", "phase": 5 }
+      ]
+    }
+  ]
+}</script>
+  <div class="trust-disclaimer">
+    Witness AI provides educational AI policy templates and governance workflow tooling — not legal, compliance, or certification services. Market statistics cite independent third-party research. Framework alignment is illustrative mapping only.
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <strong>Witness AI</strong>
+        <p>Agentic governance + AI policy at dispatch</p>
+        <span class="gartner-badge">witnessbc.com</span>
+      </div>
+      <div>
+        <h5>Platform</h5>
+        <a href="platform.html">Observe · Govern · Prove</a>
+        <a href="lifecycle.html">Governance loop</a>
+        <a href="policy.html">AI policy</a>
+        <a href="proof.html">Proof chain</a>
+      </div>
+      <div>
+        <h5>Commercial</h5>
+        <a href="pricing.html">Pricing</a>
+        <a href="compare.html">Compare</a>
+        <a href="https://witnessbc.com/principles">Principles</a>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <a href="learn.html">Learn</a>
+        <a href="faq.html">FAQ</a>
+        <a href="sources.html">Sources</a>
+        <a href="https://witnessbc.com/toolkits">Toolkits</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© Witness AI 2026 · witnessbc.com</p>
+      <div class="footer-legal">
+        <a href="https://witnessbc.com/principles">Principles</a>
+        <a href="sources.html">References</a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/proof-demo.js"></script>
+  <script src="assets/site.js"></script>
+</body>
+</html>
+

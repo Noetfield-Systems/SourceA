@@ -1,0 +1,20 @@
+schema_version: 1
+repo: sinaai_mono
+task: PLAN WITH NO ASF — mx-0004 validate-sina-registry + full-e2e verify
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - os/plan-library/mono-1000/prompts/phase-m0-verify-gates/T0/mx-0004.md
+  - reports/agent-auto/AUDIT-LOG/agent-auto-mono-2026-06-06-mx-0004-validate-registry-pass.md
+  diff_summary: ''
+  note: ''
+tests:
+  status: passed
+  command: bash scripts/validate-sina-registry.sh --strict warnings && bash scripts/full-e2e-mono.sh
+  output_snippet: registry validation passed; full-e2e-mono PASS
+real_output: registry validation passed; full-e2e-mono PASS
+reported_at: '2026-06-06T12:30:00Z'
+reporter: cursor-auto-mono
+execution_id: ''

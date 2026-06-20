@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1184",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U101",
+  "title": "Anti-theater PRO step",
+  "evidence": "anti_theater_validator_loop PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:36:08Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

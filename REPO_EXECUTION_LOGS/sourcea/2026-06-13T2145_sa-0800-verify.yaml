@@ -1,0 +1,26 @@
+schema_version: 1
+repo: sourcea
+task: sa-0800
+turn: verify
+phase: phase-s7-council-governance
+title: Append council governance evidence row after fleet essay wave
+status: done
+verify_passed: true
+worker_chat: fd67502f
+validators:
+  - validate-governance-fleet-v1.sh: PASS
+  - validate-essay-nudges-council-v1.sh: PASS
+  - validate-dispatch-policy-v1.sh: PASS
+  - worker_verify_fast_v1.sh: PASS
+proof:
+  priority_row: true
+  essay_count: 9
+  agent_count: 8
+  nudge_count: 0
+  fleet_verified: 8
+attachment: archive/attachments/2026-06-13/sa-0800-council-governance-essay-wave-evidence_LOCKED_v1.md
+verify_receipt: archive/attachments/2026-06-13/sa-0800-verify-receipt_LOCKED_v1.md
+closes_gap: sa-0775
+next_task: sa-0801
+next_turn: check
+reported_at: '2026-06-13T21:45:00Z'

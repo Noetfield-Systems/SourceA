@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0052 — Skip L8 embeddings-later in not_here when embedding_provider.py + vector_index exist
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0052
+tests:
+  status: passed
+  output_snippet: sa-0052 PASS — L8 embeddings-later skip when hybrid shipped (sa-0027 parity); validate-phase-s0-ssot-alignment-v1; critical 0
+reported_at: '2026-06-09T23:18:38Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

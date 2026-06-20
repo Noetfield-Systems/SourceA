@@ -1,0 +1,777 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-06-12T16:59:07Z",
+  "updated_by": "SinaPromptOS/port_registry_agent",
+  "law": "SINAAI_PORT_REGISTRY_LAW_LOCKED_v1.md",
+  "notice_board_locked": "PORT_NOTICE_BOARD_LOCKED_v1.md",
+  "notice_board": "PORT_NOTICE_BOARD.md",
+  "catalog": "PORT_CATALOG.json",
+  "mandatory_read_first": true,
+  "summary": {
+    "total_ports": 47,
+    "busy": 3,
+    "free": 44,
+    "violations": 2
+  },
+  "suggested_free_ports": {
+    "devbridge_desk_next": 3004,
+    "devbridge_desk_all_free": [
+      3004,
+      3005,
+      3006,
+      3007,
+      3008,
+      3009,
+      3010
+    ],
+    "devbridge_agent_next": 8766,
+    "devbridge_agent_reuse": true,
+    "devbridge_agent_all_free": [
+      8767,
+      8768,
+      8769,
+      8770,
+      8771,
+      8772,
+      8773,
+      8774,
+      8775,
+      8776,
+      8777,
+      8778,
+      8779,
+      8780,
+      8781,
+      8782,
+      8783,
+      8784,
+      8785,
+      8786
+    ],
+    "never_use_for_devbridge_desk": [
+      3000,
+      3001,
+      3002,
+      3003
+    ],
+    "npm_start": "cd ~/Desktop/AI\\ Dev\\ Bridge\\ OS && npm run start"
+  },
+  "violations": [
+    {
+      "port": 13020,
+      "type": "wrong_owner",
+      "declared_owner_id": "sina_command",
+      "actual_owner_id": "unknown_python",
+      "pid": 58469,
+      "command": "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python /Users/sinakazemnezhad/Desktop/SourceA/scripts/sina-command-server.py",
+      "message": "Port 13020 is bound by unknown_python but catalog owner is sina_command; no other product may listen here."
+    },
+    {
+      "port": 13030,
+      "type": "wrong_owner",
+      "declared_owner_id": "hub_rebuild_worker",
+      "actual_owner_id": "unknown_python",
+      "pid": 58542,
+      "command": "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python /Users/sinakazemnezhad/Desktop/SourceA/scripts/hub_rebuild_worker_v1.py",
+      "message": "Port 13030 is bound by unknown_python but catalog owner is hub_rebuild_worker; no other product may listen here."
+    }
+  ],
+  "ports": [
+    {
+      "port": 3000,
+      "status": "free",
+      "owner_id": "mono_ui",
+      "alt_owners": [
+        "noetfield_legacy_redirect"
+      ],
+      "purpose": "Mono ui/ observation dashboard; Noetfield dev-port-redirect when make dev-local runs",
+      "doc_ref": "SINA_OS_SSOT §3; Noetfield/scripts/dev-ports.sh NF_DEV_LEGACY_NEXT_PORT",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [
+        "mono_ui",
+        "noetfield_legacy_redirect"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 3001,
+      "status": "free",
+      "owner_id": "virlux_dashboard",
+      "alt_owners": [],
+      "purpose": "VIRLUX product dashboard (Delivery repo); not DevBridge",
+      "doc_ref": "SourceA/VIRELUX_REPO_ALIGNMENT.md",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [
+        "virlux_dashboard"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 3002,
+      "status": "free",
+      "owner_id": "virlux_api",
+      "alt_owners": [],
+      "purpose": "VIRLUX API — DevBridge desk must NOT bind here",
+      "doc_ref": "VIRELUX_REPO_ALIGNMENT.md",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [
+        "virlux_api"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 3003,
+      "status": "free",
+      "owner_id": "asf_reserved",
+      "alt_owners": [],
+      "purpose": "ASF reserved — not for DevBridge desk (locked with 3000–3002)",
+      "doc_ref": "SINAAI_PORT_REGISTRY_LAW_LOCKED_v1.md P5",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [
+        "asf_reserved"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 3004,
+      "status": "free",
+      "owner_id": "devbridge_desk",
+      "alt_owners": [],
+      "purpose": "DevBridge Safari desk (npm start auto-pick)",
+      "doc_ref": "AI Dev Bridge OS/docs/PORTS_LOCKED.md",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_desk"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 3005,
+      "status": "free",
+      "owner_id": "devbridge_desk",
+      "alt_owners": [],
+      "purpose": "DevBridge Safari desk (npm start auto-pick)",
+      "doc_ref": "AI Dev Bridge OS/docs/PORTS_LOCKED.md",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_desk"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 3006,
+      "status": "free",
+      "owner_id": "devbridge_desk",
+      "alt_owners": [],
+      "purpose": "DevBridge Safari desk (npm start auto-pick)",
+      "doc_ref": "AI Dev Bridge OS/docs/PORTS_LOCKED.md",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_desk"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 3007,
+      "status": "free",
+      "owner_id": "devbridge_desk",
+      "alt_owners": [],
+      "purpose": "DevBridge Safari desk (npm start auto-pick)",
+      "doc_ref": "AI Dev Bridge OS/docs/PORTS_LOCKED.md",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_desk"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 3008,
+      "status": "free",
+      "owner_id": "devbridge_desk",
+      "alt_owners": [],
+      "purpose": "DevBridge Safari desk (npm start auto-pick)",
+      "doc_ref": "AI Dev Bridge OS/docs/PORTS_LOCKED.md",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_desk"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 3009,
+      "status": "free",
+      "owner_id": "devbridge_desk",
+      "alt_owners": [],
+      "purpose": "DevBridge Safari desk (npm start auto-pick)",
+      "doc_ref": "AI Dev Bridge OS/docs/PORTS_LOCKED.md",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_desk"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 3010,
+      "status": "free",
+      "owner_id": "devbridge_desk",
+      "alt_owners": [],
+      "purpose": "DevBridge Safari desk (npm start auto-pick)",
+      "doc_ref": "AI Dev Bridge OS/docs/PORTS_LOCKED.md",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_desk"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 3100,
+      "status": "free",
+      "owner_id": "virlux_marketing",
+      "alt_owners": [],
+      "purpose": "VIRLUX marketing site",
+      "doc_ref": "VIRELUX_REPO_ALIGNMENT.md",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [
+        "virlux_marketing"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8000,
+      "status": "free",
+      "owner_id": "sinaai_runtime",
+      "alt_owners": [],
+      "purpose": "SinaaiRuntime primary execution spine (Telegram PAIOS, fleet)",
+      "doc_ref": "SourceA/SINA_OS_SSOT_LOCKED.md §5",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [
+        "sinaai_runtime"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8001,
+      "status": "free",
+      "owner_id": "golden_edge",
+      "alt_owners": [
+        "noetfield_governance",
+        "noetfield_dev"
+      ],
+      "purpose": "Golden Edge optional scoring; Noetfield platform/governance API in dev",
+      "doc_ref": "SINA_OS_SSOT §5; Noetfield/docs/LOCAL_DEV.md",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [
+        "golden_edge",
+        "noetfield_dev",
+        "noetfield_governance"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8010,
+      "status": "free",
+      "owner_id": "mono_legacy_backend",
+      "alt_owners": [],
+      "purpose": "Legacy backend — frozen",
+      "doc_ref": "SINA_OS_SSOT §5",
+      "exclusive": true,
+      "frozen": true,
+      "may_bind": [
+        "mono_legacy_backend"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8020,
+      "status": "free",
+      "owner_id": "mono_legacy_cacos",
+      "alt_owners": [],
+      "purpose": "Legacy cacos — deprecated",
+      "doc_ref": "SINA_OS_SSOT §5",
+      "exclusive": true,
+      "frozen": true,
+      "may_bind": [
+        "mono_legacy_cacos"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8082,
+      "status": "free",
+      "owner_id": "expo_dev",
+      "alt_owners": [],
+      "purpose": "Expo / React Native dev server (typical)",
+      "doc_ref": "Cursor OS Pro/README.md",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "expo_dev"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8765,
+      "status": "free",
+      "owner_id": "sinapromptos_streamlit",
+      "alt_owners": [],
+      "purpose": "SinaPromptOS Streamlit UI (run-ui.sh)",
+      "doc_ref": "PROMPT_OS_CORE_MVP_BUILD_ORDER_LOCKED_v1.md",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [
+        "sinapromptos_streamlit"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8766,
+      "status": "busy",
+      "owner_id": "devbridge_agent",
+      "alt_owners": [
+        "sinapromptos_dashboard_sketch"
+      ],
+      "purpose": "DevBridge WebSocket agent (wire lane); Prompt OS FastAPI sketch must not coexist",
+      "doc_ref": "AI Dev Bridge OS/agent; PROMPT_OS MVP build order",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [],
+      "listeners": [
+        {
+          "pid": 60110,
+          "user": "sinakazemnezhad",
+          "command": "/usr/local/bin/node /Users/sinakazemnezhad/Desktop/AI Dev Bridge OS/agent/index.js",
+          "inferred_owner_id": "devbridge_agent"
+        }
+      ]
+    },
+    {
+      "port": 8767,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8768,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8769,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8770,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8771,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8772,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8773,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8774,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8775,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8776,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8777,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8778,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8779,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8780,
+      "status": "free",
+      "owner_id": "devbridge_relay",
+      "alt_owners": [],
+      "purpose": "DevBridge relay server (npm run relay:dev)",
+      "doc_ref": "AI Dev Bridge OS/docs/RELAY.md",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_relay"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8781,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8782,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8783,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8784,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8785,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 8786,
+      "status": "free",
+      "owner_id": "devbridge_agent_fallback",
+      "alt_owners": [],
+      "purpose": "DevBridge agent fallback range if 8766 busy",
+      "doc_ref": "AI Dev Bridge OS/scripts/lib/agent-control.mjs",
+      "exclusive": false,
+      "frozen": false,
+      "may_bind": [
+        "devbridge_agent_fallback"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 9473,
+      "status": "free",
+      "owner_id": "cursor_os_pro",
+      "alt_owners": [],
+      "purpose": "Cursor OS Pro bridge / link server",
+      "doc_ref": "Cursor OS Pro/README.md",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [
+        "cursor_os_pro"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 13000,
+      "status": "free",
+      "owner_id": "noetfield_dev",
+      "alt_owners": [],
+      "purpose": "Noetfield Next cognitive dashboard (internal)",
+      "doc_ref": "Noetfield/scripts/dev-ports.sh",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [
+        "noetfield_dev"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 13020,
+      "status": "busy",
+      "owner_id": "sina_command",
+      "alt_owners": [],
+      "purpose": "Sina Command hub UI + API (browser entry, tier router)",
+      "doc_ref": "HUB_STABILIZATION_v5.1_FINAL.md; scripts/serve-sina-command.sh",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [],
+      "listeners": [
+        {
+          "pid": 58469,
+          "user": "sinakazemnezhad",
+          "command": "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python /Users/sinakazemnezhad/Desktop/SourceA/scripts/sina-command-server.py",
+          "inferred_owner_id": "unknown_python"
+        }
+      ]
+    },
+    {
+      "port": 13030,
+      "status": "busy",
+      "owner_id": "hub_rebuild_worker",
+      "alt_owners": [],
+      "purpose": "Hub rebuild queue consumer (external worker, Phase N1)",
+      "doc_ref": "HUB_STABILIZATION_v5.1_FINAL.md Phase N1; scripts/serve-hub-rebuild-worker.sh",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [],
+      "listeners": [
+        {
+          "pid": 58542,
+          "user": "sinakazemnezhad",
+          "command": "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python /Users/sinakazemnezhad/Desktop/SourceA/scripts/hub_rebuild_worker_v1.py",
+          "inferred_owner_id": "unknown_python"
+        }
+      ]
+    },
+    {
+      "port": 13031,
+      "status": "free",
+      "owner_id": "hub_state_service",
+      "alt_owners": [],
+      "purpose": "Hub State API scaffold (N2 — optional until ASF approves)",
+      "doc_ref": "docs/HUB_STATE_API_CONTRACT_v1.md; scripts/serve-hub-state-service.sh",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [
+        "hub_state_service"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 13032,
+      "status": "free",
+      "owner_id": "hub_agent_runtime",
+      "alt_owners": [],
+      "purpose": "Hub Agent runtime scaffold (N3 — optional until ASF approves)",
+      "doc_ref": "docs/HUB_STATE_API_CONTRACT_v1.md; scripts/serve-hub-agent-runtime.sh",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [
+        "hub_agent_runtime"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 13080,
+      "status": "free",
+      "owner_id": "noetfield_dev",
+      "alt_owners": [],
+      "purpose": "Noetfield unified public proxy (www)",
+      "doc_ref": "Noetfield/docs/LOCAL_DEV.md",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [
+        "noetfield_dev"
+      ],
+      "listeners": []
+    },
+    {
+      "port": 18002,
+      "status": "free",
+      "owner_id": "noetfield_dev",
+      "alt_owners": [
+        "noetfield_governance"
+      ],
+      "purpose": "Noetfield governance-console dev API",
+      "doc_ref": "Noetfield/scripts/dev-ports.sh",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": [
+        "noetfield_dev",
+        "noetfield_governance"
+      ],
+      "listeners": []
+    }
+  ],
+  "devbridge_desk_free_ports": [
+    3004,
+    3005,
+    3006,
+    3007,
+    3008,
+    3009,
+    3010
+  ],
+  "auto_fix_devbridge": "cd ~/Desktop/AI\\ Dev\\ Bridge\\ OS && npm run fix:ports"
+}

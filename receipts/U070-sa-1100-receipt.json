@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U070",
+  "title": "post-send reply tracking manual row",
+  "evidence": "outbound_reply_log_v1.py \u2192 ~/.sina/outbound-replies-v1.jsonl; hub reply_yn; API reply-log/v1; --check-reply-log PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:16:34Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

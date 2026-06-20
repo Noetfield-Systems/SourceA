@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U017",
+  "title": "Salvage spec cross-link in translation law field",
+  "evidence": "check_salvage_law_crosslink() + salvage_law_crosslink metadata; translation law cites salvage doc + human_doc",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:07:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

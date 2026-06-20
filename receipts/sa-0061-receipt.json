@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0061",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0061 PASS \u2014 ENFORCE-only not_here when gate_mode enforce (validate-enforce-not-here-regression-v1); validate-phase-s0-ssot-alignment-v1; critical 0",
+  "at": "2026-06-09T23:58:08Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

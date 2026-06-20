@@ -1,0 +1,96 @@
+{
+  "schema": "commercial-short-film-beats-v1",
+  "status": "draft",
+  "routing_lane": "witnessbc",
+  "routing_tier": "C_social",
+  "routing_ref": "data/commercial-film-routing-v1.json#witnessbc.tier_C_social_30s",
+  "film_style": "linear_bar",
+  "quality_tier": "ultra",
+  "linear_recut": true,
+  "chapter_captions": false,
+  "captions_mode": "full",
+  "commercial_capture": true,
+  "title": "WitnessBC — 30s Social Cut",
+  "runtime_target_seconds": 30,
+  "polish": {
+    "target_bitrate_mbps": 10,
+    "master_lufs": -14,
+    "sfx": true
+  },
+  "hook": "Your AI agents are taking real actions right now.",
+  "brand": {
+    "name": "Witness AI",
+    "domain": "witnessbc.com",
+    "logo_cold_open": false,
+    "hook_broll_seconds": 4,
+    "hook_broll_urls": [
+      "http://127.0.0.1:8090/proof.html"
+    ],
+    "cta_title": "witnessbc.com",
+    "cta_subtitle": "Book 15-min proof",
+    "cta_broll_urls": [
+      "http://127.0.0.1:8090/pricing.html"
+    ]
+  },
+  "publish": {
+    "desktop": "WitnessBC-Social-30s.mp4",
+    "site_mp4": "witnessbc-site/assets/witnessbc-social-30s.mp4",
+    "receipt": "witnessbc-commercial-social-30s-receipt-v1.json",
+    "work_dir": "witnessbc-commercial-social-30s-work-v1"
+  },
+  "global_capture": {
+    "width": 1920,
+    "height": 1080,
+    "master_width": 1080,
+    "master_height": 1920,
+    "seconds_per_url": 8,
+    "zoom": 1.35
+  },
+  "beats": [
+    {
+      "id": "TENSION",
+      "label": "Tension",
+      "title": "Who stops the risky one?",
+      "narration": "But who stops the one that goes too far?",
+      "broll_urls": [
+        "http://127.0.0.1:8090/proof.html#scenario=outbound"
+      ],
+      "card_seconds": 0,
+      "broll_seconds": 5,
+      "seconds_per_url": 5
+    },
+    {
+      "id": "BLOCK",
+      "label": "BLOCK",
+      "title": "Runtime policy",
+      "narration": "WitnessBC enforces your policy at runtime — and blocks it the moment it's crossed.",
+      "broll_urls": [
+        "http://127.0.0.1:8090/proof.html#scenario=tool"
+      ],
+      "card_seconds": 0,
+      "broll_seconds": 8,
+      "seconds_per_url": 8
+    },
+    {
+      "id": "PROOF",
+      "label": "Receipt",
+      "title": "Tamper-evident",
+      "narration": "Every decision sealed in a tamper-evident receipt.",
+      "broll_urls": [
+        "http://127.0.0.1:8090/proof.html#scenario=tamper"
+      ],
+      "card_seconds": 0,
+      "broll_seconds": 7,
+      "seconds_per_url": 7,
+      "tamper_dwell_seconds": 4
+    }
+  ],
+  "cta": {
+    "narration": "WitnessBC. Trust, proven at runtime.",
+    "seconds": 5,
+    "broll_urls": [
+      "http://127.0.0.1:8090/pricing.html"
+    ]
+  },
+  "advisor_source": "Opus/Soonet 30s script — routed tier C · avatar optional 3s sign-off only · real face preferred"
+}

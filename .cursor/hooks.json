@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": ".cursor/hooks/worker-inbox-session.sh"
+      }
+    ],
+    "stop": [
+      {
+        "command": ".cursor/hooks/worker-broker-stop.sh",
+        "timeout": 15
+      }
+    ]
+  }
+}

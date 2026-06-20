@@ -1,0 +1,84 @@
+{
+  "schema": "sourcea-runtime-profiles-v1",
+  "version": "1",
+  "default_profile": "governance",
+  "profiles": {
+    "governance": {
+      "id": "governance",
+      "label": "Governance mode",
+      "tagline": "Every output logged, signed, replayable",
+      "buyer": "Compliance · platform engineering",
+      "pricing_hint": "Flat monthly governed service · wrapper fee not token markup",
+      "allowed_actions": [
+        "llm.chat",
+        "validate.run",
+        "export.proof",
+        "session.gate"
+      ],
+      "blocked_actions": [
+        "outreach.send",
+        "ops.cross_lane_edit",
+        "finance.transfer"
+      ],
+      "required_context": {
+        "llm.chat": ["task_id"],
+        "export.proof": ["scope"]
+      },
+      "receipt_schema": "governance-dispatch-receipt-v1",
+      "export_cadence": "weekly",
+      "gate_mode_preference": "enforce"
+    },
+    "agency": {
+      "id": "agency",
+      "label": "Agency mode",
+      "tagline": "Outreach + proof loop with approval gates",
+      "buyer": "AI agencies · revenue shops",
+      "pricing_hint": "Project $3–10K + retainer · governed sends included",
+      "allowed_actions": [
+        "llm.chat",
+        "outreach.send",
+        "validate.run",
+        "export.proof",
+        "session.gate",
+        "demo.book"
+      ],
+      "blocked_actions": [
+        "ops.cross_lane_edit",
+        "finance.transfer"
+      ],
+      "required_context": {
+        "outreach.send": ["approval_ref", "template_id"],
+        "llm.chat": ["task_id"]
+      },
+      "receipt_schema": "agency-dispatch-receipt-v1",
+      "export_cadence": "weekly",
+      "gate_mode_preference": "shadow"
+    },
+    "finance": {
+      "id": "finance",
+      "label": "Finance mode",
+      "tagline": "TLE-grade receipt on every decision",
+      "buyer": "Fintech · Noetfield · TrustField lanes",
+      "pricing_hint": "Pilot deposit + annual · compliance export bundle",
+      "allowed_actions": [
+        "llm.chat",
+        "validate.run",
+        "export.proof",
+        "finance.decision",
+        "session.gate"
+      ],
+      "blocked_actions": [
+        "outreach.send",
+        "ops.cross_lane_edit"
+      ],
+      "required_context": {
+        "finance.decision": ["policy_version", "scope", "approval_ref"],
+        "llm.chat": ["task_id", "scope"]
+      },
+      "receipt_schema": "finance-tle-receipt-v1",
+      "export_cadence": "daily",
+      "gate_mode_preference": "enforce"
+    }
+  },
+  "stack_law": "Raw AI (OpenAI/Claude/OpenRouter) → SourceA Runtime (policy + receipt) → Buyer gets governed service"
+}

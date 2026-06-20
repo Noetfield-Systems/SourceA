@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0598 — Validate mergepack progress json read without blocking build
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0598
+tests:
+  status: passed
+  output_snippet: VERIFY — validate-mergepack-progress-read-t3-crossref-v1 PASS · s5 commercial T3 pack 13/13 (sa-0588..sa-0600) closed
+reported_at: '2026-06-15T01:36:06Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

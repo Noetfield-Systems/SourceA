@@ -1,0 +1,16 @@
+schema_version: 1
+repo: sourcea
+task: sa-0219 — Run import_founder_directives_v1 on build when jsonl rows exist
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0219
+  files_changed:
+    - scripts/import_founder_directives_v1.py
+    - scripts/build-sina-command-panel.py
+tests:
+  status: passed
+  command: SINA_AUDIT_STRICT=1 build-sina-command-panel.py && find_critical_bugs.py
+  output_snippet: OK founder-directives import · 2 jsonl rows · imported 0 (sa-0219) · critical 0
+reported_at: '2026-06-07T02:45:00Z'
+reporter: cursor-worker

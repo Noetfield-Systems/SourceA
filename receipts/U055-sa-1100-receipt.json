@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U055",
+  "title": "Exa technical_velocity worker optional P2",
+  "evidence": "exa_velocity_fetch_v1.py structured notes \u00b7 --check-structured-notes PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:48:01Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

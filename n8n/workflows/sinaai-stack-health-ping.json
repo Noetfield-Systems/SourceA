@@ -1,0 +1,187 @@
+{
+  "name": "Sinaai Stack Health Ping v2",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "h1-manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://127.0.0.1:13024/health",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "h-mac-health",
+      "name": "GET Mac Health",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        280,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://127.0.0.1:5678/healthz",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "h-n8n",
+      "name": "GET n8n healthz",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        280,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://127.0.0.1:13026/health",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "h-n8n-integration",
+      "name": "GET N8N Integration",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        280,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://127.0.0.1:13020/health",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "h-hub",
+      "name": "GET hub health warn",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        280,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://127.0.0.1:8000/health",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "h-runtime",
+      "name": "GET runtime health warn",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        280,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "command": "cd ~/Desktop/SourceA/scripts && python3 n8n_glue_runner_v1.py health"
+      },
+      "id": "h-glue-receipt",
+      "name": "Write glue receipt",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        560,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "GET Mac Health",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GET n8n healthz",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GET N8N Integration",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GET hub health warn",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GET runtime health warn",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Write glue receipt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "schema": "sina-n8n-workflow-v2",
+    "description": "v2 \u2014 Mac Health + n8n required; hub/runtime warn-only when quarantined.",
+    "commercial": {
+      "schema": "n8n-workflow-commercial-v1",
+      "sku_id": "SKU-SOLO-001",
+      "product_name": "Mac Guard Solo",
+      "setup_usd": 0,
+      "monthly_usd": 99,
+      "buyer_icp": "Solo founder \u00b7 Cursor power user",
+      "sell_line": "$99/mo \u2014 Mac relief + weekly report. No setup fee.",
+      "proof_export": "scripts/n8n_commercial_grade_v1.py --pack",
+      "w3_signal": "first paid month"
+    },
+    "commercial_grade_at": "2026-06-15T06:09:28Z"
+  }
+}

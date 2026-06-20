@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0114 — Validate l8-hybrid grounding cites embedding_provider.py
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0114
+tests:
+  status: passed
+  output_snippet: sa-0114 VERIFY — RECIPE: validate-eval-packet-v1b-l8-hybrid-grounding-v1.sh · VALIDATION: OK: validate-dispatch-policy-v1 · gate_ok=True mode=live ci=live eval_tier=behavioral_pass · OK: validate-governance-fleet-v1 · nudges 0 verify_gap 0 · SSOT sa-0359 · OK: append_repo_execution_log_v1  · EVIDENCE: disk green · BUILT: false · closeout
+reported_at: '2026-06-10T06:00:37Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

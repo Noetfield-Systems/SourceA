@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "noetfield"
+version = "0.1.0"
+description = "Noetfield governance SDK — check, execute, audit, sign factory jobs via Hub API."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Noetfield", email = "hello@sourcea.com" }]
+keywords = ["governance", "agents", "factory", "noetfield", "fbe"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://sourcea.com"
+Repository = "https://github.com/sourcea-io/noetfield"
+
+[project.scripts]
+noetfield = "noetfield.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

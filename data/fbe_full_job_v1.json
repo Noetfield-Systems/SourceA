@@ -1,0 +1,23 @@
+{
+  "schema": "fbe-full-job-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-17T14:00:00Z",
+  "wave": "W3",
+  "bay_slug": "sample-bay",
+  "template_id": "web-product-factory-v1",
+  "tenant": "wil_ai_design_partner",
+  "target_tier": "MARKET_READY",
+  "tier_target": "MARKET_READY",
+  "deliveryMode": "prove_only",
+  "pipeline_id": "full_job_w3",
+  "refinery_pipeline": "refinery_first_bay_w2",
+  "assembly_pipeline": "assembly_first_bay_w3",
+  "intake_gate": {
+    "refinery_tier_min": "GOLD",
+    "refinery_verify": "refinery_verify PASS",
+    "disbrand_complete": true
+  },
+  "execution_plane": "headless_w3",
+  "receipt": "~/.sina/fbe-run-job-receipt-v1.json",
+  "pack_uri": "receipts/packs/sample-bay/run-receipt-v1.zip"
+}

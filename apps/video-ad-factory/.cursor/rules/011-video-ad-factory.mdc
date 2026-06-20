@@ -1,0 +1,15 @@
+---
+description: Video ad factory — ElevenLabs · Fal · orchestration (cloud only)
+globs: apps/video-ad-factory/**
+alwaysApply: false
+---
+
+# Video ad factory rules
+
+**Context:** `@docs/architecture_ledger.json` · `shared/types/campaign-v1.ts`
+
+1. Cloud APIs only — ElevenLabs `eleven_multilingual_v2`, Fal queue endpoint.  
+2. Use Zod types from `shared/types/campaign-v1.ts` for all campaign payloads.  
+3. `rendering-bridge` is the only place to swap video vendors.  
+4. Set `current_step` to `HUMAN_APPROVAL_REQUIRED` before final render dispatch.  
+5. Never import from `apps/apple-store-api/`.

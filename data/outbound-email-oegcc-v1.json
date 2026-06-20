@@ -1,0 +1,39 @@
+{
+  "schema": "outbound-email-oegcc-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-06-19T03:15:00Z",
+  "law": "docs/SOURCEA_OUTBOUND_EMAIL_GENERATOR_CHECKER_CONTROLLER_LOOP_LOCKED_v1.md",
+  "max_attempts": 3,
+  "temperature_nudge_on_oscillation": 0.15,
+  "word_soft_limit": 100,
+  "exit_on_linter_pass": "human_queue",
+  "exit_on_max_fail": "human_queue",
+  "never_auto_send": true,
+  "roles": {
+    "generator": "scripts/outbound_email_generator_v1.py",
+    "checker": "scripts/outbound_email_linter_v1.py",
+    "controller": "scripts/outbound_email_controller_v1.py",
+    "judge_advisory": "scripts/outbound_email_judge_v1.py",
+    "commercial_red_map": "scripts/oegcc_commercial_red_map_v1.py"
+  },
+  "receipts": {
+    "attempts_jsonl": "~/.sina/outbound-email-attempts-v1.jsonl",
+    "controller": "~/.sina/outbound-email-controller-receipt-v1.json",
+    "linter": "~/.sina/outbound-email-linter-receipt-v1.json",
+    "judge_advisory": "~/.sina/outbound-email-judge-receipt-v1.json"
+  },
+  "validators": {
+    "linter": "bash scripts/validate-outbound-email-linter-v1.sh",
+    "controller_loop": "bash scripts/validate-outbound-email-controller-loop-v1.sh"
+  },
+  "commercial_red_map": {
+    "script": "scripts/oegcc_commercial_red_map_v1.py",
+    "nerve_field": "commercial_rule_ids",
+    "ship_gate_prefix": "ship_gate:"
+  },
+  "ship_authority": [
+    "w3_sina_read",
+    "founder_pick",
+    "M1_canvas"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U021",
+  "title": "FDG failure_moment required on all icp-compile stubs",
+  "evidence": "check_failure_moment_stub hard fail; --check-stubs PASS all 4; missing FM icp_pass false",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:13:21Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

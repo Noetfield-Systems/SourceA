@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0851",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "worker_inbox",
+  "evidence": "sa-0851 VERIFY DONE \u2014 validate-app-js-lazy-bootstrap-v1 PASS \u00b7 __COMMAND_DATA_LAZY wired",
+  "at": "2026-06-13T21:59:12Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,8 @@
+schema_version: 1
+repo: sourcea
+last_task: sa-0154
+status: ci_pass
+verify_passed: true
+next_task: sa-1200
+reported_at: '2026-06-19T19:34:26Z'
+ci_gate: find_critical_bugs

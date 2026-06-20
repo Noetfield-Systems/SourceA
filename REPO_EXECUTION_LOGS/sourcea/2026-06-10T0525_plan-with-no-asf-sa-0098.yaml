@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0098 — Validate strategic_synthesis bottleneck mentions dispatch_ready false
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0098
+tests:
+  status: passed
+  output_snippet: sa-0098 VERIFY — validate-strategic-synthesis-v1 PASS bottleneck dispatch_ready=false; dispatch-policy governance-fleet critical 0; Q15/30 closeout
+reported_at: '2026-06-10T05:25:30Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

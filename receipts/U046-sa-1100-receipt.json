@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U046",
+  "title": "Mode B skip RIL bar only when compose_mode A explicit",
+  "evidence": "resolve_ril_bar_policy() + --check-ril-bar-skip PASS \u00b7 explicit A skip logged \u00b7 Mode B/ocree/fundmore bar applied",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:37:19Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

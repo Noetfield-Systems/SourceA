@@ -1,0 +1,9 @@
+subject: voice_ai
+label: Voice AI
+thread: THREAD-CURSOR-OS-PRO
+artifact_count: 1
+by_worker:
+  research_acquisitor:
+  - trace_id: 2026-06-06_VOICE_AI_LANDSCAPE
+    date: '2026-06-06'
+    path: by_date/2026-06-06/research_acquisitor/voice_ai/2026-06-06_VOICE_AI_LANDSCAPE/2026-06-06_VOICE_AI_LANDSCAPE.yaml

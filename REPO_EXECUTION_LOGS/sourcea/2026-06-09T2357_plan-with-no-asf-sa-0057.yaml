@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0057 — Add audit regression: fail if live eval ok but Eval-1b still in not_here
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0057
+tests:
+  status: passed
+  output_snippet: sa-0057 PASS — eval live not_here regression wired (validate-eval-live-not-here-regression-v1); validate-phase-s0-ssot-alignment-v1; critical 0
+reported_at: '2026-06-09T23:57:47Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

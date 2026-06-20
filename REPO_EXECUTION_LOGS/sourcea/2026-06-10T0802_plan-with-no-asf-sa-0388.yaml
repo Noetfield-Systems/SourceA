@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0388 — Remove ASF verified copy from workspace mirror scoreboard block
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0388
+tests:
+  status: passed
+  output_snippet: sa-0388 VERIFY — RECIPE: validate-workspace-mirror-scoreboard-v1 + dispatch + governance + fcb · VALIDATION: no ASF verified copy · critical 0 · EVIDENCE: disk green · BUILT: false · closeout
+reported_at: '2026-06-10T08:02:48Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

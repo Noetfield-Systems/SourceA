@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# SourceA Runtime Wrapper — run from anywhere. No cd required.
+# Usage: runtime-wrapper status | profile set agency | dispatch ...
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+export PYTHONPATH="$ROOT/scripts:${PYTHONPATH:-}"
+exec python3 "$ROOT/scripts/sourcea_runtime_wrapper_v1.py" "$@"

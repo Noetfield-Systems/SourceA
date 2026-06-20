@@ -1,0 +1,101 @@
+{
+  "schema": "avatar-pipeline-config-v1",
+  "version": "1.1.0",
+  "at": "2026-06-15",
+  "routing_ref": "data/commercial-film-routing-v1.json",
+  "factory_phases_ref": "data/commercial-film-factory-phases-v1.json",
+  "principle": "Master human asset → ElevenLabs VO → HeyGen photo avatar (v3 API) → LinkedIn/social. Never WitnessBC tier A hero.",
+  "work_root": "~/.sina/avatar-pipeline-v1",
+  "master_image_candidates": [
+    "~/.sina/avatar-pipeline-v1/master-image.jpg",
+    "~/.sina/avatar-pipeline-v1/master-image.png",
+    "~/Desktop/founder-headshot.jpg",
+    "~/Desktop/founder-headshot.png"
+  ],
+  "secrets": {
+    "heygen_env": "~/.sina/heygen-v1.env",
+    "heygen_key": "HEYGEN_API_KEY",
+    "elevenlabs_env": "~/.sina/elevenlabs-v1.env"
+  },
+  "vo_lane_default": "sourcea",
+  "blocked_lanes": ["witnessbc_hero"],
+  "quality": {
+    "tier": "high",
+    "api": "heygen_v3_photo_avatar",
+    "resolution": "1080p",
+    "aspect_ratio": "auto",
+    "expressiveness": "high",
+    "motion_prompt": "natural subtle head movement, professional presenter, confident eye contact",
+    "engine": { "type": "avatar_v" },
+    "poll_interval_sec": 10,
+    "poll_timeout_sec": 900,
+    "headshot_requirements": [
+      "Front-facing portrait, shoulders visible",
+      "Even soft lighting — no harsh shadows on face",
+      "Neutral expression, eyes open, mouth closed",
+      "No sunglasses, no hat brim over forehead",
+      "Minimum 1024px short edge · JPG or PNG"
+    ]
+  },
+  "lanes": {
+    "linkedin": {
+      "label": "LinkedIn human anchor",
+      "tier": "institutional_canada_funding",
+      "script_id": "linkedin_anchor_v1",
+      "avatar_policy": "real_or_heygen_image_to_video",
+      "output_desktop": "Founder-LinkedIn-Anchor.mp4",
+      "publish_note": "LinkedIn profile · Canada funding · partner inbound — NOT witnessbc.com hero",
+      "heygen": {
+        "motion_prompt": "calm professional LinkedIn presenter, subtle nods, steady eye contact"
+      }
+    },
+    "trustfield_social": {
+      "label": "TrustField top-funnel social",
+      "tier": "C_social",
+      "script_id": "trustfield_social_v1",
+      "avatar_policy": "heygen_test_ok",
+      "output_desktop": "TrustField-Social-Anchor.mp4",
+      "heygen": {
+        "aspect_ratio": "9:16",
+        "motion_prompt": "engaging social presenter, light hand gesture"
+      }
+    },
+    "noetfield_social": {
+      "label": "Noetfield design-partner social",
+      "tier": "C_social",
+      "script_id": "noetfield_social_v1",
+      "avatar_policy": "real_founder_preferred",
+      "output_desktop": "Noetfield-Social-Anchor.mp4",
+      "heygen": {
+        "aspect_ratio": "9:16",
+        "motion_prompt": "technical founder tone, confident minimal movement"
+      }
+    },
+    "fitness_social": {
+      "label": "Fitness / consumer volume",
+      "tier": "C_social",
+      "script_id": "fitness_social_v1",
+      "avatar_policy": "heygen_ugc_ok",
+      "output_desktop": "Fitness-Social-Anchor.mp4",
+      "heygen": {
+        "aspect_ratio": "9:16",
+        "expressiveness": "medium",
+        "motion_prompt": "energetic UGC creator, friendly smile"
+      }
+    }
+  },
+  "providers": {
+    "heygen": {
+      "api_base": "https://api.heygen.com",
+      "api_version": "v3",
+      "docs": "https://developers.heygen.com/photo-avatar",
+      "setup_script": "scripts/heygen_avatar_setup_v1.py",
+      "wire_script": "scripts/heygen_avatar_wire_v1.py",
+      "manual_fallback": true
+    },
+    "did": {
+      "note": "Alternative — paste voice.mp3 + master-image into D-ID studio",
+      "manual_only_v1": true
+    }
+  }
+}

@@ -1,0 +1,20 @@
+schema_version: 1
+repo: sinaai_mono
+task: PLAN WITH NO ASF — mx-0002 agent-auto-audit + full-e2e verify
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - os/plan-library/mono-1000/prompts/phase-m0-verify-gates/T0/mx-0002.md
+  - reports/agent-auto/AUDIT-LOG/agent-auto-mono-2026-06-06-mx-0002-agent-auto-audit-pass.md
+  diff_summary: ''
+  note: ''
+tests:
+  status: passed
+  command: bash scripts/agent-auto-audit.sh && bash scripts/full-e2e-mono.sh
+  output_snippet: AGENT-AUTO AUDIT PASS; full-e2e-mono PASS; e2e failed=0
+real_output: AGENT-AUTO AUDIT PASS; full-e2e-mono PASS; e2e failed=0
+reported_at: '2026-06-06T02:00:00Z'
+reporter: cursor-auto-mono
+execution_id: ''

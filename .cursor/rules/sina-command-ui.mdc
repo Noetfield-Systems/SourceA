@@ -1,0 +1,32 @@
+---
+description: LOCKED Sina Command hub UI — playful path design; do not regress
+globs:
+  - agent-control-panel/**
+  - scripts/build-sina-command-panel.py
+  - SINA_COMMAND_UI_PLAYFUL_LOCKED_v1.md
+---
+
+# Sina Command UI (LOCKED)
+
+Read **`SINA_COMMAND_UI_PLAYFUL_LOCKED_v1.md`** before changing hub visuals.
+
+## Honorary lock (2026-06-04)
+
+Founder-approved **Playful Path** UI is locked as appreciation. Preserve:
+
+- `assets/theme-duo.css` loaded after `app.css` in `shell.html`
+- **Path cards** (`pathCardHtml`, `.sc-path-card`) on Home Focus, Track subjects, Ecosystem map
+- **Lane tiles** (`sc-lane-tile`) for Explore hub grid
+- **Bubble stats** (`sc-bubble-stat`) on Home
+- Fonts: **Outfit** + **Plus Jakarta Sans**
+
+## Do not
+
+- Revert Home to flat underlined THREAD lists as the primary focus UI
+- Remove Backlog tab or `audit_backlog` / `agent_reviews` wiring when editing nav
+- Weaken edit lock or allow non-maintainer chats to edit SourceA (law: `SINA_COMMAND_EDIT_LOCK_LOCKED_v1.md`)
+- Drop `theme-duo.css` without founder explicitly unlocking the lock file
+
+## After edits
+
+Run `python3 scripts/build-sina-command-panel.py` from SourceA; hub light refresh syncs command-data via `align_command_data_ui_v1.py` (no founder-facing CTAs in agent chat — INCIDENT-037 / founder-no-invitation guard).

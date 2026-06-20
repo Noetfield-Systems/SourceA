@@ -1,0 +1,59 @@
+{
+  "schema": "stranger-agent-safety-v1.2",
+  "version": "1.2.0",
+  "enabled": true,
+  "quarantine_strangers": true,
+  "promote_on_session_gate_pass": true,
+  "session_gate_max_age_sec": 900,
+  "watch_max_age_sec": 3600,
+  "mac_emergency_escalates_to_hostile": true,
+  "risk_score_hostile_threshold": 85,
+  "trusted_mcp_servers": [
+    "cursor-app-control",
+    "cursor-backend-control",
+    "cursor-ide-browser",
+    "plugin-linear-linear",
+    "plugin-notion-workspace-notion",
+    "plugin-supabase-supabase",
+    "plugin-figma-figma",
+    "plugin-datadog-datadog",
+    "user-cloudflare",
+    "user-cloudflare-docs",
+    "user-cloudflare-bindings",
+    "user-cloudflare-builds",
+    "user-cloudflare-observability"
+  ],
+  "high_risk_mcp_patterns": ["shell", "exec", "terminal", "filesystem-write"],
+  "controls": {
+    "T5_stranger_quarantine": {
+      "cross_lane_writes": "block",
+      "bulk_edit": "block",
+      "mac_health_watch": true,
+      "require_session_gate": true,
+      "require_founder_elevation_for_docs": true
+    },
+    "T6_hostile_block": {
+      "cross_lane_writes": "block",
+      "bulk_edit": "block",
+      "mac_health_watch": true,
+      "require_session_gate": true,
+      "factory_freeze_recommend": true
+    }
+  },
+  "workspace_roots": {
+    "/Users/sinakazemnezhad/Desktop/SourceA": "sourcea_worker",
+    "/Users/sinakazemnezhad/Desktop/Cursor OS Pro": "cursor_os_pro_product"
+  },
+  "cursor_aliases": {
+    "cursor": "sourcea_worker",
+    "unknown": null
+  },
+  "fleet_known_ids": [
+    "sourcea_execution_core",
+    "sourcea_worker",
+    "research_acquisitor",
+    "cursor_os_pro_research_lane_b",
+    "cursor_os_pro_product"
+  ],
+  "law_doc": "docs/STRANGER_AGENT_SAFETY_CONTROL_PIPELINE_LOCKED_v1.md"
+}

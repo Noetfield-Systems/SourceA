@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0811",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 sa-0811 closed \u00b7 hub_dual_heal H2 sync \u00b7 validate-hub-dual-heal-h2-sync-v1 \u00b7 worker_verify_ultra_v1 \u00b7 closeout ok",
+  "at": "2026-06-15T02:32:08Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

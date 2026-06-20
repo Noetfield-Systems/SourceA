@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0963",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 eval live pilot expansion tasks.json design spike; worker_verify_ultra PASS",
+  "at": "2026-06-14T02:23:25Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

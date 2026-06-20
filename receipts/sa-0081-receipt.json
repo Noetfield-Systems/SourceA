@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0081",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0081 verify PASS \u2014 validate-synthesis-eval-line-v1.sh \u00b7 executor drain",
+  "at": "2026-06-10T00:31:56Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

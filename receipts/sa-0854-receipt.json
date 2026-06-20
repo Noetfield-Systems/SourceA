@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0854",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "worker_inbox",
+  "evidence": "sa-0854 VERIFY DONE \u2014 Validate Today tab nudge banner links to council-room tab; validators: validate-today-nudge-council-link-v1.sh: PASS, validate-essay-nudge-banner-v1.sh: PASS, validate-essay-nudges-council-v1.sh: PASS, worker_verify_fast_v1.sh: PASS",
+  "at": "2026-06-13T21:57:21Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

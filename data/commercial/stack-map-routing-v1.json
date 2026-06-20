@@ -1,0 +1,118 @@
+{
+  "schema": "stack-map-routing-v1",
+  "saved_at": "2026-06-18T23:30:00Z",
+  "vocabulary_ssot": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+  "founder_email_factory_machine": "data/founder-email-factory-v2-machine-v1.json",
+  "icp_compiler_ssot": "data/icp-output-compiler-v1.json",
+  "phase": "POST-DESIGN",
+  "locked_doc": "docs/SOURCEA_STACK_MAP_AND_BETTER_LOOP_LOCKED_v1.md",
+  "better_loop": {
+    "version": "v2",
+    "founder_role": "check_and_optimize_only",
+    "weekly_lever": "money",
+    "daily_path": "Loop specialist auto-tick · Worker executes one sa/turn when pending",
+    "checkcart": "~/.sina/better-loop-checkcart-v1.json",
+    "pulse_receipt": "~/.sina/better-loop-pulse-receipt-v1.json",
+    "pulse_script": "scripts/better_loop_pulse_v1.py",
+    "vocabulary_validator": "scripts/validate-forge-vocabulary-disambiguation-v1.sh",
+    "validator": "scripts/validate-better-loop-v1.sh",
+    "auto_loops": [
+      "governance_pulse",
+      "product_spine",
+      "commercial_flywheel",
+      "factory_execution"
+    ]
+  },
+  "stack_layers": {
+    "l0_control_plane": [
+      "Worker Hub",
+      "Brain",
+      "session gate",
+      "Loop specialist auto",
+      "phone PWA",
+      "web API",
+      "Linux CI"
+    ],
+    "l0_control_plane_legacy_alias": "mac_control",
+    "mac_control": [
+      "Worker Hub",
+      "Brain",
+      "session gate",
+      "Loop specialist auto"
+    ],
+    "cloudflare_edge": [
+      "noetfield-www-proxy",
+      "sourcea-aeg-proof"
+    ],
+    "fbe_cloud": [
+      "catalog",
+      "policy_packs",
+      "trust_ledger",
+      "fly_worker_pending"
+    ],
+    "plus_one_campus": [
+      "CREED",
+      "CHURCH"
+    ],
+    "brands": [
+      "SourceA",
+      "Noetfield",
+      "TrustField"
+    ],
+    "then_forge_product": "Forge · ~/Desktop/forge",
+    "phase2_deferred": [
+      "WitnessBC",
+      "777"
+    ]
+  },
+  "cross_ref": {
+    "fbe_charter": "docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
+    "business_model_v2": "docs/SOURCEA_ECOSYSTEM_FAST_BUSINESS_MODEL_LOCKED_v2.md",
+    "portfolio_brands": "1 PAGER/PORTFOLIO_ALL_PATHS_BY_BRAND_LOCKED_v1.md",
+    "w3_approvals": "data/commercial/w3-canada-send-approvals-v1.json",
+    "route_yaml": "1 PAGER/portfolio-300-locked/STACK_MAP_BETTER_LOOP_ROUTE.yaml",
+    "investigator_judge_loop": "docs/SOURCEA_INVESTIGATOR_JUDGE_LOOP_ROOM_LOCKED_v1.md",
+    "founder_routing_panel": "scripts/founder_routing_panel_v1.py",
+    "disclosure_ladder": "docs/SOURCEA_DISCLOSURE_LADDER_AND_PUBLIC_VOICE_LOCKED_v1.md",
+    "mcp_stack_free_tier": "docs/SOURCEA_MCP_STACK_FREE_TIER_OPTIMIZATION_LOCKED_v1.md",
+    "platform_neutral_world_model": "data/platform-neutral-world-model-v1.json",
+    "tool_pick_two_phase": "data/tool-pick-two-phase-v1.json",
+    "plans_unified_upgrade": "scripts/plans_unified_upgrade_v1.py",
+    "phase0_freemium_sandbox": "data/phase0-freemium-sandbox-reference-v1.json",
+    "full_stack_fix_plan": "data/sourcea-full-stack-100-fix-plan-v1.json",
+    "brain_cloud_1000": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json"
+  },
+    "loop_chain_e2e": {
+    "order": [
+      "loop_observatory_report_v1",
+      "future_loop_prompt_advisory_circle_v1",
+      "investigator_circle_run_v1",
+      "judge_loop_room_v1",
+      "loop_specialist_tick_v1",
+      "founder_routing_panel_v1",
+      "disclosure_ladder_v1",
+      "mcp_stack_free_tier_v1",
+      "tool_pick_two_phase_v1",
+      "anti_theater_validator_loop_v1",
+      "plans_unified_upgrade_v1",
+      "phase0_freemium_sandbox_pulse_v1",
+      "world_model_plan_check_v1"
+    ],
+    "receipts": {
+      "observatory": "~/.sina/loop-observatory-report-v1.json",
+      "advisory": "~/.sina/future-loop-prompt-advisory-v1.json",
+      "investigation": "~/.sina/loop-health-investigation-receipt-v1.json",
+      "judge_loop": "~/.sina/judge-loop/latest-verdict-v1.json",
+      "loop_specialist": "~/.sina/loop-specialist-tick-receipt-v1.json",
+      "routing_panel": "~/.sina/founder-routing-panel-v1.json",
+      "disclosure_ladder": "~/.sina/disclosure-ladder-receipt-v1.json",
+      "mcp_stack_free_tier": "~/.sina/mcp-stack-free-tier-receipt-v1.json",
+      "tool_pick_two_phase": "~/.sina/tool-pick-two-phase-receipt-v1.json",
+      "anti_theater_loop": "~/.sina/anti-theater-validator-loop-receipt-v1.json",
+      "plans_unified_upgrade": "~/.sina/plans-unified-upgrade-receipt-v1.json",
+      "phase0_freemium_sandbox": "~/.sina/phase0-freemium-sandbox-pulse-v1.json",
+      "world_model_plan_check": "~/.sina/world-model-plan-check-receipt-v1.json"
+    },
+    "validator": "scripts/validate-loop-chain-e2e-v1.sh"
+  }
+}

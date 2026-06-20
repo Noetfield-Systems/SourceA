@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0187 — Add retrieve-dispatch grounding paths orchestrator + planner_engine
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0187
+tests:
+  status: passed
+  output_snippet: validate-eval-packet-v1b-retrieve-dispatch-grounding-v1 PASS orchestrator+planner_engine; dispatch-policy+governance-fleet+critical 0
+reported_at: '2026-06-08T18:42:42Z'
+reporter: cursor-worker-batch

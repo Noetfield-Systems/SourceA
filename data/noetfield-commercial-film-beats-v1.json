@@ -1,0 +1,99 @@
+{
+  "schema": "commercial-short-film-beats-v1",
+  "status": "draft",
+  "routing_lane": "noetfield",
+  "routing_tier": "A_hero",
+  "routing_ref": "data/commercial-film-routing-v1.json#noetfield",
+  "film_style": "linear_bar",
+  "quality_tier": "ultra",
+  "linear_recut": true,
+  "chapter_captions": true,
+  "captions_mode": "chapter_only",
+  "commercial_capture": true,
+  "cinematic_finish": true,
+  "title": "Noetfield — Copilot Governance at Dispatch",
+  "runtime_target_seconds": 120,
+  "polish": {
+    "target_bitrate_mbps": 10,
+    "master_lufs": -14,
+    "sfx": true,
+    "cinematic_finish": true
+  },
+  "hook": "Copilot agents execute across your tenant right now. Who enforces policy before send?",
+  "brand": {
+    "name": "Noetfield",
+    "domain": "noetfield.com",
+    "logo_cold_open": true,
+    "hook_broll_seconds": 16,
+    "hook_broll_urls": ["TBD://noetfield-demo-surface"],
+    "cta_title": "NF-001 design partner",
+    "cta_subtitle": "operations@noetfield.com",
+    "cta_broll_urls": ["TBD://noetfield-demo-surface"]
+  },
+  "publish": {
+    "desktop": "Noetfield-Commercial.mp4",
+    "site_mp4": "TBD/noetfield-site/assets/noetfield-commercial.mp4",
+    "receipt": "noetfield-commercial-film-receipt-v1.json",
+    "work_dir": "noetfield-commercial-film-work-v1"
+  },
+  "global_capture": {
+    "width": 1920,
+    "height": 1080,
+    "master_width": 3840,
+    "master_height": 2160,
+    "seconds_per_url": 14,
+    "zoom": 1.35
+  },
+  "beats": [
+    {
+      "id": "DISPATCH",
+      "label": "Dispatch",
+      "title": "Policy before send",
+      "narration": "Policy violated. Execution stopped. No outbound until a human approves.",
+      "broll_urls": ["TBD://noetfield-demo-surface#outbound"],
+      "card_seconds": 0.8,
+      "broll_seconds": 22,
+      "seconds_per_url": 14
+    },
+    {
+      "id": "BLOCK",
+      "label": "BLOCK",
+      "title": "Red-line at runtime",
+      "narration": "Risky tool calls get BLOCKED at dispatch — not after the damage is done.",
+      "broll_urls": ["TBD://noetfield-demo-surface#tool"],
+      "card_seconds": 0.8,
+      "broll_seconds": 22,
+      "seconds_per_url": 14
+    },
+    {
+      "id": "RECEIPT",
+      "label": "Receipt",
+      "title": "Audit preserved",
+      "narration": "Receipt generated. Audit preserved. Every decision on disk for your GRC team.",
+      "broll_urls": ["TBD://noetfield-demo-surface#receipt"],
+      "card_seconds": 0.8,
+      "broll_seconds": 20,
+      "seconds_per_url": 14
+    },
+    {
+      "id": "TRUST",
+      "label": "Built on",
+      "title": "Microsoft 365 stack",
+      "narration": "Built on the Copilot and Microsoft 365 stack your buyers already run.",
+      "broll_urls": ["TBD://noetfield-demo-surface"],
+      "card_seconds": 0,
+      "broll_seconds": 8,
+      "seconds_per_url": 8
+    }
+  ],
+  "cta": {
+    "narration": "Noetfield. Copilot governance with proof on disk. Book a design partner call.",
+    "seconds": 10,
+    "broll_urls": ["TBD://noetfield-demo-surface"]
+  },
+  "copy_lock": {
+    "use": "GPT outcome lines — Policy violated · Execution stopped · Receipt generated · Audit preserved",
+    "reject": "Gemini jargon — execution-grade transaction authority · cross-system operational intelligence"
+  },
+  "advisor_source": "GPT outcome VO + Opus institutional finish · NF-001 W3 wedge"
+}

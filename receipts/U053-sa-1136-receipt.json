@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1136",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U053",
+  "title": "SEDAR+ / AIF path for Canadian issuers doc note",
+  "evidence": "SEDAR+/AIF routes SSOT \u00b7 no 10-K-only for CA issuers \u00b7 data/canadian-issuer-filing-routes-v1.json",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:24:43Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

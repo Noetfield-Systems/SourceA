@@ -1,0 +1,103 @@
+[
+  {
+    "kind": "json",
+    "name": "g1-cursor-result.json",
+    "path": "/Users/sinakazemnezhad/Desktop/AI Dev Bridge OS/scripts/evidence/g1-cursor-result.json",
+    "gate_status": "SKIP",
+    "payload": {
+      "verifiedAt": "2026-06-06T01:21:32.777Z",
+      "ok": false,
+      "skipped": true,
+      "error": "G1 probe \u2014 wait 116s (anti-spam)",
+      "note": "Open Cursor on Mac and re-run: npm run verify:g1"
+    }
+  },
+  {
+    "kind": "json",
+    "name": "g2-device-result.json",
+    "path": "/Users/sinakazemnezhad/Desktop/AI Dev Bridge OS/scripts/evidence/g2-device-result.json",
+    "gate_status": "UNKNOWN",
+    "payload": {
+      "updatedAt": "2026-06-04T00:11:22.091Z",
+      "goldenWire": "RUN SYSTEM \u2192 automation.run_lane \u2192 SinaPromptOS \u2192 status.json \u2192 PASS/FAIL on phone",
+      "desktopWire": {
+        "testedAt": "2026-06-03T09:16:41.875Z",
+        "connectMs": 3349,
+        "ideHomeUi": true,
+        "runId": "run_2026-06-03T09-16-41Z",
+        "finalState": "REPORTING",
+        "pass": true,
+        "T0_connectUnder10s": true,
+        "T1_runStarted": true,
+        "T2_pollUpdated": true,
+        "T3_passFailShown": true
+      },
+      "physicalDevice": {
+        "status": "recorded_manual",
+        "transport": "safari_lan",
+        "runId": "run_2026-06-04T00-11-14Z",
+        "pass": false,
+        "connectMs": 376,
+        "steps": {
+          "T0_connectUnder10s": true,
+          "T1_runStarted": true,
+          "T2_pollUpdated": true,
+          "T3_passFailShown": true,
+          "T4_cancel": null,
+          "T5_backgroundRecover": null
+        },
+        "notes": ""
+      },
+      "tailscale": {
+        "status": "pending",
+        "host": null,
+        "runId": null,
+        "pass": null
+      },
+      "g2DoneWhen": "FAIL_on_physical_iphone",
+      "fullM8Run": {
+        "runId": "run_2026-06-04T00-11-14Z",
+        "pass": false,
+        "lane": "full_m8",
+        "recordedAt": "2026-06-04T00:11:22.092Z"
+      }
+    }
+  },
+  {
+    "kind": "json",
+    "name": "g2-full-m8-wire-result.json",
+    "path": "/Users/sinakazemnezhad/Desktop/AI Dev Bridge OS/scripts/evidence/g2-full-m8-wire-result.json",
+    "gate_status": "PASS",
+    "payload": {
+      "lane": "full_m8",
+      "runId": "run_2026-06-12T16-55-06Z",
+      "desktopProxy": true,
+      "logSnippet": "==============================================\n SINAAI AUTOMATION \u2192 M8\n M4 notify \u2192 full day \u2192 M8? \u2192 ingest \u2192 M7 status\n==============================================\n\n\u2192 M4 morning notify\n{\n  \"ok\": true\n}\n  \u2713 macos\n  \u2717 telegram \u2014 M4_TELEGRAM_CHAT_ID missing \u2014 run: ./scripts/m4-setup-telegram.sh\n\n\u2192 M8 full day (dispatch + UI paste + SDK + poll + ingest)\n\u26a0 M8 UI skipped \u2014 install /Applications/Cursor.app and remove IDE For Cursor\n\n\u2192 Full day pack (architect + cycle + dispatch + Lane 0)\n==============================================\n SINAAI FULL DAY \u2014 5 repos + Lane 0 (this chat)\n Human planning: Sunday only\n==============================================\n\n\u2192 Tip: refresh architect first: ./scripts/run-architect.sh\n",
+      "startedRealStack": true,
+      "smokeOnly": false,
+      "pass": true,
+      "at": "2026-06-12T16:55:06.926Z"
+    }
+  },
+  {
+    "kind": "markdown",
+    "name": "G2_DEVICE_RUNBOOK.md",
+    "path": "/Users/sinakazemnezhad/Desktop/AI Dev Bridge OS/scripts/evidence/G2_DEVICE_RUNBOOK.md",
+    "gate_status": "DOC",
+    "bytes": 1147
+  },
+  {
+    "kind": "markdown",
+    "name": "G2_FULL_DAY_PHONE.md",
+    "path": "/Users/sinakazemnezhad/Desktop/AI Dev Bridge OS/scripts/evidence/G2_FULL_DAY_PHONE.md",
+    "gate_status": "DOC",
+    "bytes": 813
+  },
+  {
+    "kind": "markdown",
+    "name": "ASF_PHYSICAL_G2_CHECKLIST.md",
+    "path": "/Users/sinakazemnezhad/Desktop/AI Dev Bridge OS/scripts/evidence/ASF_PHYSICAL_G2_CHECKLIST.md",
+    "gate_status": "DOC",
+    "bytes": 997
+  }
+]

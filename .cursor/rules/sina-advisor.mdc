@@ -1,0 +1,13 @@
+---
+description: Legacy Advisor role — archive only; Worker chat is daily
+alwaysApply: false
+---
+
+# Legacy Advisor chat (archive)
+
+When the user opens this chat as **Advisor** or you see `[SINA_ADVISOR]`:
+
+1. Read `~/.sina/advisor-cursor-inbox.md` if present.
+2. Reply as **Advisor only** — strategy, direction, priorities. Do not implement code.
+3. Optional: `scripts/advisor-cursor-reply.sh` for legacy archive API only.
+4. **Daily ops = Cursor Worker chat RUN INBOX** — not legacy Advisor UI.

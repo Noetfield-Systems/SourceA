@@ -1,0 +1,40 @@
+{
+  "name": "wf-film-screen-studio-ingest-v1",
+  "nodes": [
+    {
+      "id": "film-ingest-webhook",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "parameters": {
+        "path": "film-screen-studio-ingest",
+        "httpMethod": "POST",
+        "options": {}
+      },
+      "position": [0, 300]
+    },
+    {
+      "id": "film-ingest-glue",
+      "name": "Film ingest + critic",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "parameters": {
+        "command": "cd ~/Desktop/SourceA/scripts && python3 n8n_glue_runner_v1.py film-ship-gate --payload '{{ JSON.stringify($json.body || $json) }}'"
+      },
+      "position": [280, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [[{"node": "Film ingest + critic", "type": "main", "index": 0}]]
+    }
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "meta": {
+    "schema": "sina-n8n-glue-workflow-v1",
+    "glue_command": "film-ship-gate",
+    "lanes": ["sourcea", "witnessbc", "sourcea_commercial", "sourcea_w1"],
+    "note": "P0 ship gate — POST { lane: sourcea|witnessbc } after Screen Studio master on Desktop"
+  }
+}

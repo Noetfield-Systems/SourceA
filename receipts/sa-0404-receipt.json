@@ -1,0 +1,13 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0404",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "phase-100-honest-closeout",
+  "evidence": "T0 founder spine bridge Actions guide",
+  "cross_ref": "archive/attachments/2026-06-14/sa-0404-founder-spine-bridge-guide_LOCKED_v1.md",
+  "at": "2026-06-14T11:28:07Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

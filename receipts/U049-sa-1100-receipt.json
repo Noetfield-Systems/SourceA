@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U049",
+  "title": "CIL hard fail openers shared with OQG",
+  "evidence": "check_scrape_open + SCRAPE_OPEN_RE shared import \u00b7 --check-opener-ssot PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:42:17Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

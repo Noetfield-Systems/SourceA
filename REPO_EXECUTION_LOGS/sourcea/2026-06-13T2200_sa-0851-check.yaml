@@ -1,0 +1,29 @@
+schema_version: 1
+repo: sourcea
+task: sa-0851
+turn: check
+phase: phase-s8-hub-ui-ux
+title: Validate app.js lazy load __COMMAND_DATA_LAZY shell bootstrap
+status: check_complete
+verify_passed: false
+queue_pos: 10
+tier: T2
+duplicate_of: sa-0801
+scope_note: legacy /legacy/ only — Worker Hub out of scope
+gaps:
+  - GAP-1: no validate-app-js-lazy-bootstrap-v1.sh
+  - GAP-2: sa-0801 T0 ACT not shipped
+  - GAP-3: audit_backend_e2e no lazy probe
+live_disk:
+  shell_bytes: 403325
+  app_js_lazy_bootstrap: present
+validators:
+  - validate-command-data-lazy-shell-v1.sh: PASS
+  - validate-super-fast-hub-v1.sh: PASS
+  - validate-spine-bridge-founder-v1.sh: PASS
+  - find_critical_bugs.py SINA_FCB_FAST: critical 0
+attachment: archive/attachments/2026-06-13/sa-0851-check-gap-report_LOCKED_v1.md
+act_recommendation: validate-app-js-lazy-bootstrap-v1.sh (shared with sa-0801)
+next_turn: act
+next_task: sa-0851
+reported_at: '2026-06-13T22:00:00Z'

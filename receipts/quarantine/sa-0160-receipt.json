@@ -1,0 +1,11 @@
+{
+  "sa_id": "sa-0160",
+  "status": "BLOCKED",
+  "reason": "Feasibility gate returned STOP_INJECT: 'runner.py live' pattern matched blocked pattern in healthy_queue_current (sa-0160, queue_pos 5). Additionally, eval_packet_v1b/ directory does not exist in workspace — runner.py cannot be executed.",
+  "files_written": [],
+  "commands_run": [
+    "curl -s http://127.0.0.1:13020/status (eval_credits_ok=True)",
+    "python3 scripts/prompt_feasibility_gate.py --role worker --strict (result: STOP_INJECT, feasible=false)"
+  ],
+  "blocked_at": "2026-06-08T17:59:52Z"
+}

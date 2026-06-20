@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0384 — Run bash validate-governance-fleet-v1.sh — nudges and verify_gap SSOT
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0384
+tests:
+  status: passed
+  output_snippet: pack10 scoreboard-fleet verify-only; validators PASS
+reported_at: '2026-06-08T19:37:05Z'
+reporter: cursor-worker-batch

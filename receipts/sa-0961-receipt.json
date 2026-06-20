@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0961",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 Mono vs SourceA 1000 pick workflow compare doc; worker_verify_ultra PASS",
+  "at": "2026-06-14T02:19:09Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

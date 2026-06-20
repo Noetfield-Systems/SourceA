@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U026",
+  "title": "approved_body_path must exist before PASS",
+  "evidence": "check_approved_body_path() + --check-approved-body-path PASS \u00b7 missing file \u2192 ERROR not PASS \u00b7 active stubs OK",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:21:58Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "newmatch-graph-schema-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T18:00:00Z",
+  "mirror_of": "../../data/newmatch-graph-schema-v1.json",
+  "one_law": "People graph + situation cards + signal edges — T4_internal default · local JSON Phase 0",
+  "storage_phase0": ["local_json_ssot", "supabase_free"],
+  "entities": {
+    "person": {
+      "id_format": "person_{uuid}",
+      "required": ["display_name", "source_app", "first_seen_at", "disclosure_tier"],
+      "optional": ["email_hash", "phone_hash", "linkedin_url", "dating_handle", "notes", "tags"],
+      "disclosure_default": "T4_internal"
+    },
+    "edge": {
+      "id_format": "edge_{uuid}",
+      "types": ["met_on", "works_with", "dating_match", "introduced_by", "same_event", "follows"],
+      "required": ["from_person_id", "to_person_id", "edge_type", "confidence", "source"]
+    },
+    "signal": {
+      "id_format": "signal_{uuid}",
+      "kinds": [
+        "dating_mutual_like",
+        "dating_message",
+        "linkedin_connection",
+        "linkedin_inmail",
+        "calendar_overlap",
+        "email_thread",
+        "manual_note",
+        "csv_import_row",
+        "semej_capture"
+      ],
+      "required": ["person_id", "kind", "observed_at", "raw_text_redacted", "source_app"]
+    },
+    "situation": {
+      "id_format": "situation_{uuid}",
+      "required": ["person_ids", "primary_route", "confidence", "signals_used", "created_at", "status"],
+      "status_values": ["open", "nurturing", "deferred", "blocked", "handed_off", "closed"],
+      "routes": [
+        "personal_nurture",
+        "hybrid_explore",
+        "business_opportunity",
+        "defer",
+        "block",
+        "founder_gate"
+      ]
+    },
+    "follow_up": {
+      "id_format": "follow_{uuid}",
+      "required": ["situation_id", "cadence_days", "next_action", "planner_tier", "status"],
+      "planner_tier_values": ["T0_rules", "T1_free_llm", "T2_paid_blocked", "T3_founder_gate"]
+    }
+  }
+}

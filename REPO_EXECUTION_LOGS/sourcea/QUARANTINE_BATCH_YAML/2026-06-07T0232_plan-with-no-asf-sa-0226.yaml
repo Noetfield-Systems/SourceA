@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0226 — Fix build-sina-command-panel _run_audit to invoke .sh via bash not python3
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0226
+tests:
+  status: passed
+  output_snippet: validate-build-run-audit-v1 · _run_audit bash .sh branch · sa-0201+sa-0226
+reported_at: '2026-06-07T02:32:13Z'
+reporter: cursor-worker-batch

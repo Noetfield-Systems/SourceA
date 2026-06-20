@@ -1,0 +1,27 @@
+# Ecosystem hard rules snippet — ported from Noetfield MEMORY_LOCKED v7 (R-007–R-010)
+# Read at session start. Full Noetfield memory: Noetfield-All-Documents/Noetfield/.cursor/agent-memory/MEMORY_LOCKED.yaml
+
+version: 1
+updated: "2026-06-10"
+source: Noetfield PR #34 · adapted for SourceA ecosystem
+
+hard_rules:
+  - id: R-007
+    rule: NO disk edits (write, delete, commit, push, registry) without explicit founder permission and bounded task order (SAVE TO / EDIT ALLOWED / ASF / WORK sa-*).
+    incident: INCIDENT-010 · INCIDENT-011 · CIR-COSPRO-RESEARCH-SAVE-2026-06-07
+  - id: R-008
+    rule: ALWAYS ask for next move, clarification, and suggested implementation before acting. Default advise-only.
+    skill: skill-006-ask-before-implement
+  - id: R-009
+    rule: If mandatory SourceA handoff file is not on disk, BLOCK — do not pseudo-ACK; ask founder to sync or paste.
+    incident: CURSOR_AGENT_CONTEXT_MEMORY_INCIDENT_LOCKED_v1.md
+  - id: R-010
+    rule: On rule conflict, run SKILL-007 before edits. Precedence — founder order > permission/ask-first > incidents > execution_authority false > workflow bundles > ship-first/plan.json.
+    skill: skill-007-ecosystem-conflict-resolution
+
+session_start_checklist:
+  - Read ECOSYSTEM_HARD_RULES.yaml
+  - Read brain-os/incidents/SINA_CROSS_LANE_EDIT_FORBIDDEN_INCIDENT_LOCKED_v1.md (or compendium Part A)
+  - Apply SKILL-007 if any rule conflict detected
+  - Apply SKILL-006 ask-before-implement
+  - python3 scripts/cursor_agent_self_audit.py session-start

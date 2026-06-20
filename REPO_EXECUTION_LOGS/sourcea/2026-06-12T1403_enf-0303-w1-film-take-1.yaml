@@ -1,0 +1,22 @@
+schema_version: 1
+repo: sourcea
+event: enforcement_6mo
+task: enf-0303
+status: witness_pass
+verify_passed: true
+enforcement_6mo: true
+win: W1
+slice_ref: DEMO-ENF-S7
+thread: THREAD-ENFORCEMENT
+evidence:
+  witness_log: archive/attachments/2026-06-12/enf-0303-W1-film-take-1-witness-log.txt
+  package: archive/attachments/2026-06-12/enf-0303-W1-film-take-1-package_LOCKED_v1.md
+  receipt_snapshot: archive/attachments/2026-06-12/enf-0303-W1-film-take-1-receipt-snapshot.json
+  receipt_live: ~/.sina/demo-enforcement/receipts/latest-demo-receipt.json
+validators:
+  - validate-demo-enforcement-v1.sh
+  - validate-universe-invariants-v1.sh
+  - validate-demo-write-path-v1.sh
+founder_pending: screen_recording_mp4
+reported_at: '2026-06-12T14:03:33Z'
+reporter: sourcea_worker

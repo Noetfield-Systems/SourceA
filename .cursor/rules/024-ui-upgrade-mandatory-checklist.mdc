@@ -1,0 +1,94 @@
+---
+description: Mandatory UI upgrade — general UP checklist + per-app ledger for every website/app
+globs:
+alwaysApply: true
+---
+
+# UI upgrade mandatory — FIRST CHECK always (general + per-app ledger)
+
+**General law:** `brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md`  
+**FIRST CHECK wire:** `.cursor/rules/025-ui-upgrade-first-check-live-wire.mdc` (alwaysApply)  
+**Per-app ledgers:** `data/ui-upgrade-ledgers-index-v1.json`  
+**Ledger script:** `scripts/ui_upgrade_ledger_v1.py`  
+**Landing sub-law:** `.cursor/rules/023-ui-upgrade-no-downgrade.mdc`  
+**Form sub-law:** `.cursor/rules/form-automatic-submit-only.mdc`
+
+## Hard rule (founder locked)
+
+> **FIRST CHECK before ANY UI edit — form, app, website, hub, canvas. Machine blocks writes without ack.**
+
+```bash
+python3 scripts/ui_upgrade_path_classifier_v1.py --path "<file>" --json
+python3 scripts/ui_upgrade_first_check_v1.py --surface <id> --ack --json
+```
+
+## Founder trigger
+
+**up** · **UI upgrade** · **upgrade UI** · **redesign** · **polish UI** → run **both layers** before any HTML/CSS/JS edit.
+
+## Two layers (both mandatory)
+
+| Layer | What |
+|-------|------|
+| **General** | UP-0 … UP-7 — same for every app |
+| **Per-app** | That app's frozen inventory + app checklist + upgrade history |
+
+```bash
+python3 scripts/ui_upgrade_ledger_v1.py --surface <id> --show --json   # read last version
+python3 scripts/ui_upgrade_mandatory_gate_v1.py --surface <id> --print-checklist
+```
+
+## Per-app ledger (every registered app)
+
+| surface_id | Ledger MD |
+|------------|-----------|
+| `sourcea_landing` | `ui-upgrade-ledgers/SOURCEA_LANDING_UI_UPGRADE_LEDGER_LOCKED_v1.md` |
+| `worker_hub` | `ui-upgrade-ledgers/WORKER_HUB_UI_UPGRADE_LEDGER_LOCKED_v1.md` |
+| `wtm_tab` | `ui-upgrade-ledgers/WTM_TAB_UI_UPGRADE_LEDGER_LOCKED_v1.md` |
+| `mac_law_cockpit` | `ui-upgrade-ledgers/MAC_LAW_COCKPIT_UI_UPGRADE_LEDGER_LOCKED_v1.md` |
+| `routing_panel` | `ui-upgrade-ledgers/ROUTING_PANEL_UI_UPGRADE_LEDGER_LOCKED_v1.md` |
+| `mac_health` | `ui-upgrade-ledgers/MAC_HEALTH_UI_UPGRADE_LEDGER_LOCKED_v1.md` |
+| `hub_form` | `ui-upgrade-ledgers/HUB_FORM_UI_UPGRADE_LEDGER_LOCKED_v1.md` |
+| `witnessbc_commercial` | `ui-upgrade-ledgers/WITNESSBC_COMMERCIAL_UI_UPGRADE_LEDGER_LOCKED_v1.md` |
+
+Path prefix: `brain-os/enforcement/`. Machine log: `data/ui-upgrade-ledgers/<surface_id>-v1.json`.
+
+**New app:** copy `UI_UPGRADE_LEDGER_TEMPLATE_LOCKED_v1.md` → register in index before first upgrade.
+
+## Pipeline
+
+```text
+READ general UP-0..UP-7
+READ per-app ledger — frozen inventory + app checklist + last upgrade
+INVENTORY last version vs frozen inventory
+EDIT additive only
+VERIFY general + app machine gates
+APPEND upgrade entry to ledger JSON + MD history
+PASTE ship summary — preserved · changed · achieved · quality vs last · founder approval
+```
+
+## Ship summary required fields
+
+- General checklist UP-0..UP-7 PASS  
+- **App-specific checklist** PASS (from that app's ledger)  
+- **Preserved table** — every frozen inventory item before/after  
+- **Changed** — what moved/added  
+- **Achieved** — quality outcome  
+- **quality_vs_last:** `same` or `better` — never `downgraded`  
+- **founder_approval:** pending/approved  
+- **upgrade_id** appended to ledger
+
+## Forbidden
+
+- Upgrade without reading that app's ledger first  
+- Ship without appending ledger entry  
+- Downgrade (missing frozen inventory item) without `UI BASELINE BUMP`
+
+## Commands
+
+```bash
+python3 scripts/ui_upgrade_ledger_v1.py --validate --json
+python3 scripts/ui_upgrade_ledger_v1.py --surface wtm_tab --show --json
+bash scripts/validate-ui-upgrade-mandatory-v1.sh
+bash scripts/validate-ui-upgrade-first-check-live-wire-v1.sh
+```

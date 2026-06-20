@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U067",
+  "title": "Advisor critique field separate never ship",
+  "evidence": "advisor_critique_* separate from sina_read; pack sina requires sina_read_at; --check-advisor-critique-separate PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:12:44Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

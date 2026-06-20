@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1112",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U083",
+  "title": "Salvage spec version in compiler receipt",
+  "evidence": "salvage_spec_version on receipt PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:20:43Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

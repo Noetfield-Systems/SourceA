@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0641",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 L5 semantic_history\u2192D16 audit guard; eval live 80%; governance + critical 0; closeout complete",
+  "at": "2026-06-09T05:02:18Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,297 @@
+{
+  "schema": "phase0-freemium-sandbox-reference-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T17:35:12Z",
+  "internal_policy": true,
+  "audience": "founder \u00b7 brain \u00b7 worker \u00b7 internal agents only",
+  "human_doc_pending": "docs/SOURCEA_PHASE0_FREEMIUM_SANDBOX_REFERENCE_POLICY_LOCKED_v1.md",
+  "script": "scripts/phase0_freemium_sandbox_pulse_v1.py",
+  "validator": "scripts/validate-phase0-freemium-sandbox-v1.sh",
+  "receipt": "~/.sina/phase0-freemium-sandbox-pulse-v1.json",
+  "one_law": "Phase 0 = $0 reference surfaces that attract users \u00b7 honest mock/trial/freemium \u00b7 platform-neutral \u00b7 one product lane each \u00b7 Phase 2 paid only after founder approval.",
+  "aligned_policies": {
+    "tier_priority": "docs/SOURCEA_TIER_PRIORITY_COST_INTELLIGENCE_POLICY_LOCKED_v1.md",
+    "tool_pick_two_phase": "data/tool-pick-two-phase-v1.json",
+    "platform_neutral": "data/platform-neutral-world-model-v1.json",
+    "disclosure_ladder": "data/disclosure-ladder-v1.json",
+    "trust_center": "data/trust-center-v1.json",
+    "mcp_free_tier": "data/mcp-stack-free-tier-v1.json",
+    "fbe_catalog": "data/fbe_catalog_v1.json"
+  },
+  "phase_0_definition": {
+    "goal": "Turn every sandbox, trial, and freemium surface into a reference implementation that attracts users before paid conversion.",
+    "scope": "Internal policy \u2014 shapes plan upgrades, catalog copy, and hub slices; not public law prose until SAVE TO doc.",
+    "cost_ceiling_usd": 0,
+    "pairs_with": "tool_pick phase_1_free exhaust \u00b7 WTM product lane routing"
+  },
+  "reference_ladder": [
+    {
+      "id": "mock_sandbox",
+      "label": "Mock sandbox",
+      "cost_usd": 0,
+      "honesty": "mock_only label required \u00b7 no fake live claims"
+    },
+    {
+      "id": "live_trial",
+      "label": "Live trial",
+      "cost_usd": 0,
+      "honesty": "time-boxed \u00b7 disclosure T0/T1 \u00b7 no brain internals"
+    },
+    {
+      "id": "freemium",
+      "label": "Freemium tier",
+      "cost_usd": 0,
+      "honesty": "cap stated \u00b7 upgrade path visible"
+    },
+    {
+      "id": "paid",
+      "label": "Paid / Phase 2",
+      "cost_usd": "variable",
+      "honesty": "founder approval receipt before wire \u00b7 NO-CC until gate"
+    }
+  ],
+  "reference_requirements": {
+    "every_surface_must": [
+      "platform_neutral copy \u2014 any stack \u00b7 any surface",
+      "one product lane (Noetfield \u00b7 TrustField \u00b7 SourceA Forge \u00b7 WitnessBC)",
+      "demo or trial path \u2264 30s to value",
+      "upgrade CTA without Mac-only gate",
+      "disk receipt or catalog status field \u2014 no chat-only claims"
+    ],
+    "forbidden": [
+      "mac-only public gating",
+      "mock labeled as production",
+      "phase_2_auto_wire without founder approval",
+      "credit_card before ASF/revenue gate",
+      "generic SaaS blob without lane routing"
+    ]
+  },
+  "inventory": [
+    {
+      "id": "P0-01",
+      "kind": "sandbox",
+      "lane": "sourcea_forge",
+      "title": "FBE sandbox-mock factory demo",
+      "wired_to": "data/fbe_catalog_v1.json \u00b7 cat-sandbox-demo",
+      "acceptance": "try-factory-demo slug \u00b7 mock_only status \u00b7 demo_seconds set",
+      "attract": "30s mock run \u00b7 Try demo CTA \u00b7 upgrade to engine tier",
+      "status": "done",
+      "completed_at": "2026-06-19T06:30:00Z",
+      "execution_proof": "receipts/bays/sandbox-bay/verify.json \u00b7 phase0_freemium_sandbox_pulse P0-01 ok"
+    },
+    {
+      "id": "P0-02",
+      "kind": "freemium_public",
+      "lane": "trustfield",
+      "title": "Trust Center T0 public surface",
+      "wired_to": "data/trust-center-v1.json",
+      "acceptance": "trust.sourcea.dev or gate_k URL \u00b7 T0 disclosure \u00b7 no forbidden internals",
+      "attract": "Governed execution advisory \u00b7 proof links \u00b7 eval booking path",
+      "status": "done",
+      "completed_at": "2026-06-19T06:34:24Z",
+      "execution_proof": "receipts/P0-02-sa-1200-receipt.json \u00b7 validate-trust-center-v1 PASS \u00b7 gate_k URL live"
+    },
+    {
+      "id": "P0-03",
+      "kind": "trial",
+      "lane": "witnessbc",
+      "title": "Commercial proof / eval URLs",
+      "wired_to": "data/commercial-pipeline-v1.jsonl",
+      "acceptance": "proof_viewed or eval_scheduled rows with live URL",
+      "attract": "15-min eval \u00b7 proof URL \u00b7 W1 film optional",
+      "status": "done",
+      "completed_at": "2026-06-19T06:45:00Z",
+      "execution_proof": "commercial-pipeline WBC cp-47ccf0bd93 proof_viewed \u00b7 witnessbc.com/proof"
+    },
+    {
+      "id": "P0-04",
+      "kind": "freemium_stack",
+      "lane": "sourcea_forge",
+      "title": "Phase 1 tool exhaust reference stack",
+      "wired_to": "data/tool-pick-two-phase-v1.json \u00b7 phase_1_free",
+      "acceptance": "free tools documented \u00b7 phase_2 pending founder only",
+      "attract": "Internal reference for what we ship on $0 before paid AI",
+      "status": "done",
+      "completed_at": "2026-06-19T08:22:00Z",
+      "execution_proof": "validate-tool-pick-two-phase-v1 PASS \u00b7 P1 free 13/16 documented \u00b7 phase_2 pending=7 founder only \u00b7 receipts/P0-04-sa-1200-receipt.json"
+    },
+    {
+      "id": "P0-05",
+      "kind": "reference_one_pager",
+      "lane": "noetfield",
+      "title": "Noetfield TLE reference narrative",
+      "wired_to": "data/platform-neutral-world-model-v1.json \u00b7 product_routes.noetfield",
+      "acceptance": "lane keywords routed \u00b7 no Mac-only framing",
+      "attract": "Board pack \u00b7 Copilot readiness \u00b7 governance receipt language",
+      "status": "done",
+      "completed_at": "2026-06-19T08:45:00Z",
+      "execution_proof": "validate-noetfield-tle-reference-v1 PASS \u00b7 data/noetfield-tle-reference-narrative-v1.json \u00b7 receipts/P0-05-sa-1200-receipt.json"
+    },
+    {
+      "id": "P0-06",
+      "kind": "sandbox",
+      "lane": "trustfield",
+      "title": "TrustField MSB / compliance sandbox story",
+      "wired_to": "data/trustfield-commercial-film-beats-v1.json",
+      "acceptance": "live sandbox beat present \u00b7 RPAA pilot narrative",
+      "attract": "Checklist \u00b7 sandbox \u00b7 counsel-ready exports in weeks",
+      "status": "done",
+      "completed_at": "2026-06-19T08:47:00Z",
+      "execution_proof": "validate-trustfield-msb-sandbox-story-v1 PASS \u00b7 data/trustfield-msb-compliance-sandbox-story-v1.json \u00b7 receipts/P0-06-sa-1200-receipt.json"
+    },
+    {
+      "id": "P0-07",
+      "kind": "freemium",
+      "lane": "sourcea_forge",
+      "title": "Forge catalog try-demo engines",
+      "wired_to": "data/fbe_catalog_v1.json \u00b7 engines tier",
+      "acceptance": "demo_seconds on engine items \u00b7 prove_only honest",
+      "attract": "Deploy path visible \u00b7 policy pack named",
+      "status": "done",
+      "completed_at": "2026-06-19T16:57:00Z",
+      "execution_proof": "validate-forge-catalog-try-demo-v1 PASS \u00b7 3 engine items \u00b7 demo_seconds=30 \u00b7 prove_only \u00b7 data/fbe_catalog_v1.json"
+    },
+    {
+      "id": "P0-08",
+      "kind": "reference",
+      "lane": "witnessbc",
+      "title": "WitnessBC evidence / proof pack sample",
+      "wired_to": "data/commercial-film-routing-v1.json",
+      "acceptance": "proof pack or cinematic reference path on disk",
+      "attract": "Evidence factory \u00b7 trust 7d \u00b7 ship-ready badge language",
+      "status": "done",
+      "completed_at": "2026-06-19T06:45:00Z",
+      "execution_proof": "witnessbc-commercial-film-receipt-v5 embed_live grade A \u00b7 commercial-film-routing beats_index"
+    },
+    {
+      "id": "P0-09",
+      "kind": "trial_copy",
+      "lane": "noetfield",
+      "title": "Noetfield Systems Stripe billing identity",
+      "wired_to": "data/platform-neutral-world-model-v1.json \u00b7 stripe_billing \u00b7 stripe_buyer_copy_template",
+      "acceptance": "NOETFIELD SYSTEMS \u00b7 NFS \u00b7 platform-neutral buyer copy \u00b7 no Mac-only",
+      "attract": "Stripe onboarding \u00b7 bank statement matches brand \u00b7 teams on any stack",
+      "status": "done",
+      "completed_at": "2026-06-19T17:35:12Z",
+      "execution_proof": "validate-platform-neutral-world-model-v1 PASS \u00b7 NOETFIELD SYSTEMS \u00b7 NFS \u00b7 stripe_buyer_copy_template \u00b7 noetfield route"
+    },
+    {
+      "id": "P0-10",
+      "kind": "freemium",
+      "lane": "sourcea_forge",
+      "title": "Catalog tier caps honest",
+      "wired_to": "data/fbe_factory_spec_schema_v1.json \u00b7 tier_label sandbox",
+      "acceptance": "sandbox tier \u00b7 zero MicroVM until upgrade in catalog copy",
+      "attract": "Demo / free tier label \u00b7 upgrade path explicit",
+      "status": "done",
+      "completed_at": "2026-06-19T17:56:00Z",
+      "execution_proof": "validate-forge-catalog-tier-caps-v1 PASS \u00b7 sandbox microvm_cap=0 \u00b7 upgrade_path=engines \u00b7 cat-sandbox-demo honest"
+    },
+    {
+      "id": "P0-11",
+      "kind": "governance",
+      "lane": "sourcea_forge",
+      "title": "Phase 0 pulse + validator on loop chain",
+      "wired_to": "scripts/phase0_freemium_sandbox_pulse_v1.py",
+      "acceptance": "validate-phase0-freemium-sandbox-v1.sh PASS \u00b7 receipt fresh",
+      "attract": "Machine honesty \u2014 reference readiness score on hub",
+      "status": "done",
+      "completed_at": "2026-06-19T17:56:00Z",
+      "execution_proof": "validate-phase0-freemium-sandbox-v1.sh PASS \u00b7 phase0_freemium_sandbox_pulse_v1.py wired"
+    },
+    {
+      "id": "P0-12",
+      "kind": "governance",
+      "lane": "sourcea_forge",
+      "title": "Plans unified cross_ref synced",
+      "wired_to": "scripts/plans_unified_upgrade_v1.py",
+      "acceptance": "phase0 SSOT in all three plan cross_ref blocks",
+      "attract": "Single phase0_line on live surfaces",
+      "status": "done",
+      "completed_at": "2026-06-19T17:56:00Z",
+      "execution_proof": "plans cross_ref phase0_freemium_sandbox on outbound \u00b7 full-stack \u00b7 brain plans"
+    },
+    {
+      "id": "P0-13",
+      "kind": "freemium",
+      "lane": "noetfield",
+      "title": "Noetfield freemium factory cloud bay",
+      "wired_to": "data/fbe_catalog_v1.json \u00b7 cat-noetfield-freemium \u00b7 receipts/bays/noetfield-freemium-bay/verify.json",
+      "acceptance": "bay verify ok \u00b7 mock_only catalog \u00b7 brain_phase0 dispatch \u00b7 Q-GATH-04 A",
+      "attract": "30s TLE demo \u00b7 Brain signs \u00b7 cloud stub executes \u00b7 Mac control only",
+      "status": "done",
+      "completed_at": "2026-06-19T06:36:30Z",
+      "execution_proof": "receipts/bays/noetfield-freemium-bay/verify.json \u00b7 validate-noetfield-freemium-bay-v1 PASS"
+    },
+    {
+      "id": "P0-14",
+      "kind": "freemium",
+      "lane": "sourcea_forge",
+      "title": "NewMatch situation router reference (Phase 0 $0)",
+      "wired_to": "data/newmatch-factory-v1.json \u00b7 data/newmatch-graph-schema-v1.json \u00b7 scripts/newmatch_situation_router_t0_v1.py",
+      "acceptance": "T0 router demo PASS \u00b7 free_tier_check PASS \u00b7 999-plan free_tier_first \u00b7 mock_only until FBE online",
+      "attract": "Semi-personal semi-business routing \u00b7 situation inbox \u00b7 upgrade to cloud factory",
+      "status": "done",
+      "completed_at": "2026-06-19T17:56:00Z",
+      "execution_proof": "validate-newmatch-factory-v1 PASS \u00b7 validate-newmatch-scaffold-v1 NM-001 \u00b7 newmatch_situation_router_t0 demo PASS"
+    },
+    {
+      "id": "P0-15",
+      "kind": "freemium_sandbox",
+      "lane": "witnessbc",
+      "title": "Toolkits Quick Start freemium + client sandbox",
+      "wired_to": "witnessbc-site/data/toolkits-v1.json \u00b7 scripts/witnessbc_freemium_sandbox_activate_v1.py",
+      "acceptance": "data-freemium-active on hub \u00b7 /toolkits/sandbox/ live \u00b7 6 free templates \u00b7 browser-local honesty",
+      "attract": "Start free in 30s \u00b7 sandbox for clients \u00b7 Pro PDF optional upgrade",
+      "status": "done",
+      "completed_at": "2026-06-19T19:20:00Z",
+      "execution_proof": "witnessbc_freemium_sandbox_activate_v1.py · CF deploy · /toolkits/sandbox/ · data-freemium-active"
+    },
+    {
+      "id": "P0-16",
+      "kind": "portfolio_unlock",
+      "lane": "portfolio",
+      "title": "Portfolio fix plan — TF ladder + WBC prod + defer lift chain",
+      "wired_to": "data/portfolio-fix-plan-v1.json · scripts/portfolio_fix_execute_v1.sh",
+      "acceptance": "ladder commercial_blocked=false · witnessbc prod markers · sites_online · lift receipt",
+      "attract": "Unlock MSB 15× + demos + $6K pilot",
+      "status": "in_progress",
+      "completed_at": null,
+      "execution_proof": "portfolio_fix_plan_pulse_v1.py · portfolio_fix_line on surfaces"
+    }
+  ],
+  "plan_bindings": {
+    "portfolio_fix_plan": {
+      "wave_hint": "P0 parallel TF + WBC + founder DNS/Stripe",
+      "task_ids": ["TF-P0-1", "WBC-P0-3", "P1-1", "P2-1"]
+    },
+    "outbound_factory_100": {
+      "wave_hint": "W4 commercial reference drain",
+      "upgrade_ids": [
+        "U039",
+        "U040",
+        "U041"
+      ]
+    },
+    "full_stack_100_fix": {
+      "wave_hint": "W6 MCP + W9 cloud \u00b7 map P0-11 to F092/F100",
+      "fix_ids": [
+        "F085",
+        "F086",
+        "F100"
+      ]
+    },
+    "brain_cloud_1000": {
+      "epic_hint": "E03 Cloudflare free \u00b7 E08 MCP leverage",
+      "upgrade_ids": [
+        "B0301",
+        "B0702"
+      ]
+    }
+  },
+  "upgrade_policy": {
+    "phase_0": "improve sandboxes \u00b7 trials \u00b7 freemium to reference + attract",
+    "phase_1": "exhaust free-tier tools first",
+    "phase_2": "affordable AI \u2014 founder approval before wire"
+  }
+}

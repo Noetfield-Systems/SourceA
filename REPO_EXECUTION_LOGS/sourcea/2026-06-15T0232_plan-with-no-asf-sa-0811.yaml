@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0811 — Run hub_dual_heal_v1 — H2 sync after H1 light refresh
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0811
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — sa-0811 closed · hub_dual_heal H2 sync · validate-hub-dual-heal-h2-sync-v1 · worker_verify_ultra_v1 · closeout ok
+reported_at: '2026-06-15T02:32:08Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

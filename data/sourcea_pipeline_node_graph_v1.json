@@ -1,0 +1,346 @@
+{
+  "schema": "sourcea-pipeline-node-graph-v1",
+  "version": "1.3.0",
+  "saved_at": "2026-06-16T09:45:00Z",
+  "charter": "docs/SOURCEA_NODE_ARCHITECT_AGENTIC_AUTONOMOUS_SYSTEM_LOCKED_v1.md",
+  "build_plan": "docs/SOURCEA_NODE_MESH_SYNESTM_BUILD_PLAN_LOCKED_v1.md",
+  "skill": ".cursor/skills/skill-node-architect-agentic-system/SKILL.md",
+  "mesh_catalog": "data/sourcea_node_mesh_catalog_v1.json",
+  "directory_map": "data/sourcea_directory_node_map_v1.json",
+  "directory_map_doc": "docs/SOURCEA_DIRECTORY_NODE_MAP_LOCKED_v1.md",
+  "build_plan_epic": "E11",
+  "build_plan_range": "N01-N20",
+  "synestm": "Unified multi-parallel node mesh — every capability wired like n8n, governed on disk",
+  "law": "SINA_AUTOMATION_SPINE_AND_N8N_LOCKED_v1.md",
+  "policy": "Internal Python node graph = SSOT orchestration. n8n = external glue only (cron/webhook executeCommand).",
+  "receipt": "~/.sina/pipeline-node-graph-receipt-v1.json",
+  "parallel_groups": [
+    {
+      "id": "T0_safety_fanout",
+      "tier": "T0_safety",
+      "parallel": true,
+      "nodes": ["sascip_live_wire", "mac_health_probe"]
+    },
+    {
+      "id": "T1_truth_fanout",
+      "tier": "T1_truth_parallel",
+      "parallel": true,
+      "nodes": ["disk_live_wire", "governance_zero_drift", "crawl_mirror_session"]
+    },
+    {
+      "id": "T2_fleet_fanout",
+      "tier": "T2_fleet_parallel",
+      "parallel": true,
+      "nodes": ["agentic_layer_fast", "l1_brain_wire", "hub_dual_heal"]
+    },
+    {
+      "id": "T3_proof_fanout",
+      "tier": "T3_proof_parallel",
+      "parallel": true,
+      "nodes": ["validate_w10_vocab", "validate_two_hub", "n8n_p0_operational"]
+    },
+    {
+      "id": "T_lat_orient_fanout",
+      "tier": "T_lat_orient",
+      "parallel": false,
+      "nodes": ["orient_routing_v1"],
+      "founder_word_siblings": ["orientation_pipeline_v1", "hospital_pipeline_v1", "maze_pipeline_v1"]
+    }
+  ],
+  "edges": [
+    {"from": "session_gate_v1", "to": "sascip_live_wire", "kind": "gate"},
+    {"from": "session_gate_v1", "to": "mac_health_probe", "kind": "trigger", "parallel": true},
+    {"from": "sascip_live_wire", "to": "disk_live_wire", "kind": "gate"},
+    {"from": "disk_live_wire", "to": "governance_zero_drift", "kind": "wire", "parallel": true},
+    {"from": "disk_live_wire", "to": "crawl_mirror_session", "kind": "wire", "parallel": true},
+    {"from": "governance_zero_drift", "to": "agentic_layer_fast", "kind": "gate"},
+    {"from": "crawl_mirror_session", "to": "agentic_layer_fast", "kind": "gate"},
+    {"from": "agentic_layer_fast", "to": "l1_brain_wire", "kind": "wire", "parallel": true},
+    {"from": "agentic_layer_fast", "to": "hub_dual_heal", "kind": "wire", "parallel": true},
+    {"from": "l1_brain_wire", "to": "validate_w10_vocab", "kind": "orchestrate"},
+    {"from": "hub_dual_heal", "to": "validate_two_hub", "kind": "orchestrate", "parallel": true},
+    {"from": "validate_w10_vocab", "to": "hub_projection_v1", "kind": "surface"},
+    {"from": "n8n_p0_operational", "to": "external_cron", "kind": "glue"},
+    {"from": "worker_inbox_v1", "to": "session_gate_v1", "kind": "trigger"},
+    {"from": "pipeline_node_graph_runner_v1", "to": "T0_safety_fanout", "kind": "orchestrate"},
+    {"from": "pipeline_node_graph_runner_v1", "to": "T1_truth_fanout", "kind": "orchestrate"},
+    {"from": "pipeline_node_graph_runner_v1", "to": "T2_fleet_fanout", "kind": "orchestrate"},
+    {"from": "pipeline_node_graph_runner_v1", "to": "T3_proof_fanout", "kind": "orchestrate"},
+    {"from": "pipeline_node_graph_runner_v1", "to": "T_lat_orient_fanout", "kind": "orchestrate"},
+    {"from": "validate_w10_vocab", "to": "orient_routing_v1", "kind": "data"},
+    {"from": "orient_routing_v1", "to": "hub_projection_v1", "kind": "surface"},
+    {"from": "orientation_pipeline_v1", "to": "orient_routing_v1", "kind": "founder_word", "trigger": "orientation"},
+    {"from": "hospital_pipeline_v1", "to": "orient_routing_v1", "kind": "founder_word", "trigger": "hospital"},
+    {"from": "maze_pipeline_v1", "to": "orient_routing_v1", "kind": "founder_word", "trigger": "maze"}
+  ],
+  "tiers": [
+    {
+      "id": "T0_safety",
+      "parallel": true,
+      "budget_sec": 30,
+      "nodes": [
+        {
+          "id": "sascip_live_wire",
+          "label": "SASCIP ADMIT→SERVE",
+          "cmd": ["python3", "scripts/stranger_agent_safety_live_wire_v1.py", "--role", "any", "--tier", "session", "--agent", "cursor", "--json"],
+          "receipt": "~/.sina/stranger-agent-admission-receipt-v1.json",
+          "required": true,
+          "plane": "INTERNAL",
+          "edges_in": [{"from": "session_gate_v1", "kind": "gate"}],
+          "edges_out": [{"to": "disk_live_wire", "kind": "gate"}]
+        },
+        {
+          "id": "mac_health_probe",
+          "label": "Mac Health live probe",
+          "cmd": ["python3", "scripts/mac_health_live_v1.py", "--json"],
+          "required": false,
+          "plane": "INTERNAL",
+          "skip_if": "panic_active",
+          "edges_in": [{"from": "session_gate_v1", "kind": "trigger"}],
+          "edges_out": [{"to": "mac_health_guard_v1", "kind": "surface"}]
+        }
+      ]
+    },
+    {
+      "id": "T1_truth_parallel",
+      "parallel": true,
+      "budget_sec": 90,
+      "nodes": [
+        {
+          "id": "disk_live_wire",
+          "label": "Disk live wire sync",
+          "cmd": ["python3", "scripts/disk_live_wire_sync_v1.py", "--json"],
+          "receipt": "~/.sina/disk-live-wire-receipt-v1.json",
+          "required": true,
+          "plane": "INTERNAL",
+          "edges_in": [{"from": "sascip_live_wire", "kind": "gate"}],
+          "edges_out": [
+            {"to": "governance_zero_drift", "kind": "wire", "parallel": true},
+            {"to": "crawl_mirror_session", "kind": "wire", "parallel": true},
+            {"to": "agent-live-surfaces-v1.json", "kind": "data"}
+          ]
+        },
+        {
+          "id": "governance_zero_drift",
+          "label": "Governance zero-drift wire",
+          "cmd": ["python3", "scripts/governance_zero_drift_live_wire_v1.py", "--role", "any", "--tier", "session", "--skip-anti-staleness", "--json"],
+          "required": true,
+          "plane": "INTERNAL",
+          "edges_in": [{"from": "disk_live_wire", "kind": "wire", "parallel": true}],
+          "edges_out": [{"to": "agentic_layer_fast", "kind": "gate"}]
+        },
+        {
+          "id": "crawl_mirror_session",
+          "label": "Crawl-mirror session tier",
+          "cmd": ["python3", "scripts/sourcea_crawl_mirror_pipeline_v1.py", "--role", "any", "--tier", "session", "--skip-anti-staleness", "--json"],
+          "receipt": "~/.sina/crawl-mirror-receipt-v1.json",
+          "required": true,
+          "plane": "INTERNAL",
+          "edges_in": [{"from": "disk_live_wire", "kind": "wire", "parallel": true}],
+          "edges_out": [{"to": "validate_w10_vocab", "kind": "data"}]
+        }
+      ]
+    },
+    {
+      "id": "T2_fleet_parallel",
+      "parallel": true,
+      "budget_sec": 60,
+      "nodes": [
+        {
+          "id": "agentic_layer_fast",
+          "label": "Agentic layer L1/L2 fast wire",
+          "cmd": ["python3", "scripts/agentic_layer_pipeline_v2.py", "--json", "--tier", "fast"],
+          "receipt": "~/.sina/agentic-layer-pipeline-v2.json",
+          "required": false,
+          "plane": "INTERNAL",
+          "edges_in": [
+            {"from": "governance_zero_drift", "kind": "gate"},
+            {"from": "crawl_mirror_session", "kind": "gate"}
+          ],
+          "edges_out": [
+            {"to": "l1_brain_wire", "kind": "wire", "parallel": true},
+            {"to": "hub_dual_heal", "kind": "wire", "parallel": true}
+          ]
+        },
+        {
+          "id": "l1_brain_wire",
+          "label": "L1→Brain pipeline wire",
+          "cmd": ["python3", "scripts/l1_agent_pipeline_wire_v1.py", "--json"],
+          "receipt": "~/.sina/l1-agent-pipeline-wire-v1.json",
+          "required": false,
+          "plane": "INTERNAL",
+          "edges_in": [{"from": "agentic_layer_fast", "kind": "wire", "parallel": true}],
+          "edges_out": [{"to": "worker_inbox_v1", "kind": "data"}]
+        },
+        {
+          "id": "hub_dual_heal",
+          "label": "H1+H2 dual heal",
+          "cmd": ["python3", "scripts/hub_dual_heal_v1.py", "--json"],
+          "required": false,
+          "plane": "HUB_API",
+          "skip_if": "hub_down",
+          "edges_in": [{"from": "agentic_layer_fast", "kind": "wire", "parallel": true}],
+          "edges_out": [
+            {"to": "validate_two_hub", "kind": "orchestrate"},
+            {"to": "hub_projection_v1", "kind": "surface"}
+          ]
+        },
+        {
+          "id": "N_prompt_composer",
+          "label": "Prompt Composer — outbound assign + receipt",
+          "cmd": ["python3", "scripts/outbound_factory_queue_assign_v1.py", "--deliver-first", "--json"],
+          "receipt": "~/.sina/prompt-composer-receipt-v1.json",
+          "required": false,
+          "plane": "INTERNAL",
+          "tier": "T2",
+          "edges_in": [{"from": "worker_inbox_v1", "kind": "trigger"}],
+          "edges_out": [
+            {"to": "N_oegcc_controller", "kind": "wire"},
+            {"to": "outbound_factory_upgrade_pulse_v1", "kind": "wire"}
+          ]
+        },
+        {
+          "id": "N_oegcc_controller",
+          "label": "OEGCC — generator · linter · controller loop",
+          "cmd": ["python3", "scripts/outbound_email_controller_v1.py", "--simulate", "--json"],
+          "receipt": "~/.sina/outbound-email-controller-receipt-v1.json",
+          "required": false,
+          "plane": "INTERNAL",
+          "tier": "T2",
+          "execution_authority": false,
+          "law": "docs/SOURCEA_OUTBOUND_EMAIL_GENERATOR_CHECKER_CONTROLLER_LOOP_LOCKED_v1.md",
+          "ssot": "data/outbound-email-oegcc-v1.json",
+          "edges_in": [{"from": "N_prompt_composer", "kind": "wire"}],
+          "edges_out": [{"to": "outbound_factory_upgrade_pulse_v1", "kind": "data"}]
+        },
+        {
+          "id": "N_future_prompt_advisory",
+          "label": "Future Prompt Advisory Circle",
+          "cmd": ["python3", "scripts/future_loop_prompt_advisory_circle_v1.py", "--json"],
+          "receipt": "~/.sina/future-loop-prompt-advisory-v1.json",
+          "required": false,
+          "plane": "INTERNAL",
+          "tier": "T2",
+          "execution_authority": false,
+          "edges_in": [{"from": "loop_observatory_report_v1", "kind": "data"}],
+          "edges_out": [{"to": "N_prompt_composer", "kind": "wire"}]
+        },
+        {
+          "id": "N_loop_specialist",
+          "label": "Loop Specialist tick — observe advise compose dispatch",
+          "cmd": ["python3", "scripts/loop_specialist_tick_v1.py", "--json"],
+          "receipt": "~/.sina/loop-specialist-tick-receipt-v1.json",
+          "required": false,
+          "plane": "INTERNAL",
+          "tier": "T2",
+          "execution_authority": false,
+          "edges_in": [
+            {"from": "loop_observatory_report_v1", "kind": "wire"},
+            {"from": "N_future_prompt_advisory", "kind": "wire"}
+          ],
+          "edges_out": [{"to": "N_prompt_composer", "kind": "orchestrate"}]
+        },
+        {
+          "id": "N_investigator_circle",
+          "label": "Investigator Circle — loop health track route",
+          "cmd": ["python3", "scripts/investigator_circle_run_v1.py", "--json"],
+          "receipt": "~/.sina/loop-health-investigation-receipt-v1.json",
+          "required": false,
+          "plane": "INTERNAL",
+          "tier": "T2",
+          "execution_authority": false,
+          "edges_in": [{"from": "loop_observatory_report_v1", "kind": "wire"}],
+          "edges_out": [{"to": "N_judge_loop", "kind": "wire"}]
+        },
+        {
+          "id": "N_judge_loop",
+          "label": "Judge Loop Room — loop verdict route specialists",
+          "cmd": ["python3", "scripts/judge_loop_room_v1.py", "--json"],
+          "receipt": "~/.sina/judge-loop/latest-verdict-v1.json",
+          "required": false,
+          "plane": "INTERNAL",
+          "tier": "T2",
+          "execution_authority": false,
+          "edges_in": [
+            {"from": "N_investigator_circle", "kind": "wire"},
+            {"from": "N_loop_specialist", "kind": "data"}
+          ],
+          "edges_out": [{"to": "N_loop_specialist", "kind": "advise"}]
+        }
+      ]
+    },
+    {
+      "id": "T3_proof_parallel",
+      "parallel": true,
+      "budget_sec": 120,
+      "nodes": [
+        {
+          "id": "validate_w10_vocab",
+          "label": "Anti-staleness W10 vocab gate",
+          "cmd": ["bash", "scripts/validate-anti-staleness-vocabulary-gate-v1.sh"],
+          "required": false,
+          "plane": "INTERNAL",
+          "edges_in": [
+            {"from": "crawl_mirror_session", "kind": "data"},
+            {"from": "l1_brain_wire", "kind": "orchestrate"}
+          ],
+          "edges_out": [{"to": "pipeline-node-graph-receipt-v1.json", "kind": "data"}]
+        },
+        {
+          "id": "validate_two_hub",
+          "label": "Two-hub H1+H2",
+          "cmd": ["bash", "scripts/validate-two-hub-v1.sh"],
+          "required": false,
+          "plane": "HUB_API",
+          "skip_if": "hub_down",
+          "edges_in": [{"from": "hub_dual_heal", "kind": "orchestrate"}],
+          "edges_out": [{"to": "hub_projection_v1", "kind": "surface"}]
+        },
+        {
+          "id": "n8n_p0_operational",
+          "label": "n8n P0 operational (external glue)",
+          "cmd": ["bash", "scripts/validate-n8n-p0-operational-v1.sh"],
+          "required": false,
+          "plane": "RUNTIME_GLUE",
+          "edges_in": [{"from": "external_cron", "kind": "glue"}],
+          "edges_out": [{"to": "n8n_glue_runner_v1", "kind": "glue"}]
+        }
+      ]
+    },
+    {
+      "id": "T_lat_orient",
+      "parallel": false,
+      "budget_sec": 30,
+      "label": "LAT orient · routing cascade",
+      "nodes": [
+        {
+          "id": "orient_routing_v1",
+          "label": "Orient routing cascade (Wil agent:orient)",
+          "cmd": ["python3", "scripts/agent_orient_v1.py", "--role", "any", "--json"],
+          "receipt": "~/.sina/orient-routing-report-v1.json",
+          "required": false,
+          "plane": "INTERNAL",
+          "timeout_sec": 60,
+          "edges_in": [
+            {"from": "validate_w10_vocab", "kind": "data"},
+            {"from": "orientation_pipeline_v1", "kind": "founder_word"},
+            {"from": "hospital_pipeline_v1", "kind": "founder_word"},
+            {"from": "maze_pipeline_v1", "kind": "founder_word"}
+          ],
+          "edges_out": [
+            {"to": "hub_projection_v1", "kind": "surface"},
+            {"to": "orient-routing-report-v1.json", "kind": "data"}
+          ]
+        }
+      ]
+    }
+  ],
+  "n8n_manifest": "scripts/fixtures/n8n/workflow_manifest.json",
+  "n8n_ui": "http://127.0.0.1:5678",
+  "hub_nodes": {
+    "H1": "http://127.0.0.1:13020/",
+    "H2": "http://127.0.0.1:13020/machines/",
+    "mac_health": "http://127.0.0.1:13024/"
+  },
+  "event_bus_topics": ["spine.bridge", "founder_action", "factory.advance", "governance.heal"]
+}

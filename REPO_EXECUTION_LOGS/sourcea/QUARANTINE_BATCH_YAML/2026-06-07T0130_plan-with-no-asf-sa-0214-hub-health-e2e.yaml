@@ -1,0 +1,16 @@
+schema_version: 1
+repo: sourcea
+task: sa-0214 — Ensure hub serve-sina-command.sh health on :13020 before E2E
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0214
+  files_changed:
+    - scripts/audit_backend_e2e.py
+    - scripts/build-sina-command-panel.py
+tests:
+  status: passed
+  command: SINA_AUDIT_STRICT=1 build-sina-command-panel.py && find_critical_bugs.py && audit_backend_e2e.py
+  output_snippet: OK hub health on :13020 before E2E (sa-0214) · backend E2E PASS · critical 0
+reported_at: '2026-06-07T01:30:00Z'
+reporter: cursor-worker

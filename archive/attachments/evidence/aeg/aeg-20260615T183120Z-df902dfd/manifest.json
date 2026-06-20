@@ -1,0 +1,24 @@
+{
+  "schema": "aeg-evidence-bundle-v1",
+  "evidence_id": "aeg-20260615T183120Z-df902dfd",
+  "at": "2026-06-15T18:31:20Z",
+  "verdict": "BLOCK",
+  "blockers": [
+    "last session gate receipt ok=false"
+  ],
+  "proof_url": "https://needle-celtic-effectiveness-cheapest.trycloudflare.com/aeg-20260615T183120Z-df902dfd/",
+  "bundle_dir": "/Users/sinakazemnezhad/.sina/aeg/aeg-20260615T183120Z-df902dfd",
+  "archive_dir": "/Users/sinakazemnezhad/Desktop/SourceA/archive/attachments/evidence/aeg/aeg-20260615T183120Z-df902dfd",
+  "terminal": {
+    "ok": true,
+    "mode": "receipt_transcript",
+    "path": "/Users/sinakazemnezhad/.sina/aeg/aeg-20260615T183120Z-df902dfd/terminal.txt",
+    "note": "Captured from critic_boot receipt \u2014 not a re-run"
+  },
+  "ui": {
+    "ok": false,
+    "ui_url": "http://127.0.0.1:13023/",
+    "error": "Page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:13023/\nCall log:\n  - navigating to \"http://127.0.0.1:13023/\", waiting until \"domcontentloaded\"\n"
+  },
+  "heal_verdict": null
+}

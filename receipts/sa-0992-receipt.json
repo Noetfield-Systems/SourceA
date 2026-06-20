@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0992",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 T3 two-speed clocks cross-ref closed (canonical sa-0967)",
+  "at": "2026-06-14T05:17:30Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

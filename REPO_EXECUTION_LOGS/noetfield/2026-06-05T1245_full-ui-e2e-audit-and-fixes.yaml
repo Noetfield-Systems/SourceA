@@ -1,0 +1,23 @@
+schema_version: 1
+repo: noetfield
+task: Full UI E2E audit and fixes
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - scripts/verify-ui-e2e.sh
+  - governance-console/frontend/app/workspace/connectors/page.tsx
+  - governance-console/backend/routes/connectors.py
+  diff_summary: ''
+  note: ''
+tests:
+  status: passed
+  command: make verify-local-dev && make verify-ui-e2e && make copilot-pilot-e2e
+  output_snippet: All UI content checks green; connectors page + PDF export + evaluate
+    flow
+real_output: All UI content checks green; connectors page + PDF export + evaluate
+  flow
+reported_at: '2026-06-05T12:45:00Z'
+reporter: cursor
+execution_id: ''

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1107",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U078",
+  "title": "Executive role angle mandatory in body",
+  "evidence": "role angle body separation PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:20:40Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

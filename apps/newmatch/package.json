@@ -1,0 +1,15 @@
+{
+  "name": "@sourcea/newmatch",
+  "version": "0.1.0",
+  "private": true,
+  "description": "NewMatch Phase 0 — people graph local JSON · T0 router via scripts/",
+  "license": "UNLICENSED",
+  "scripts": {
+    "check": "python3 ../../scripts/newmatch_free_tier_check_v1.py",
+    "route:demo": "python3 ../../scripts/newmatch_situation_router_t0_v1.py --demo --json",
+    "validate": "bash ../../scripts/validate-newmatch-scaffold-v1.sh"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

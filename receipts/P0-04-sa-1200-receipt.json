@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "P0-04",
+  "title": "Phase 1 tool exhaust reference stack",
+  "evidence": "validate-tool-pick-two-phase-v1 PASS · tool_pick P1 free 13/16 (81%) · phase_2 pending=7 founder approval only · data/tool-pick-two-phase-v1.json SSOT",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T08:22:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

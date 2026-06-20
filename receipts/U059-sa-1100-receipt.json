@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U059",
+  "title": "Hallucination guard: cite source URL per signal",
+  "evidence": "uncited signal text \u2192 compile_warn \u00b7 source_urls[] clears \u00b7 --check-hallucination-guard PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:52:14Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

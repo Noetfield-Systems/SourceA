@@ -1,0 +1,69 @@
+---
+description: Worker factory evidence — RECIPE · VALIDATION · EVIDENCE · BUILT (every SourceA Worker turn)
+globs:
+  - "**/SourceA/**"
+alwaysApply: false
+---
+
+# Worker full-round evidence (MANDATORY)
+
+**Law:** `brain-os/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md`  
+**Incident:** INCIDENT-007 · INCIDENT-008 (timing playbook) · INCIDENT-006  
+**Gate:** `python3 scripts/worker_factory_evidence_gate_v1.py --json`
+
+## Timing (INCIDENT-008 — never block chat)
+
+- One sa ≈ **4–6 min** (CHECK ~90s · ACT ~45s · VERIFY ~150s)
+- **Tail** `~/.sina/goal1-worker-batch-latest.log` at **-20 lines** — ignore top-of-file stale `agent` halt
+- **Unstick** before start if `WORKER_TURN_OPEN`
+
+## Before any Worker turn
+
+1. Session gate: `python3 scripts/cursor_entry_gate.py --role worker`
+2. Factory gate must PASS (recipe on INBOX, no orphan `WORKER_TURN_OPEN`, valid `sa-####` meta)
+3. If gate FAIL → **do not implement** — report reason + founder uses Hub **Unstick Worker** / Deliver
+
+## Factory chain (one sa)
+
+`CHECK → ACT (if gap) → VERIFY` — never skip ACT when CHECK reported GAP FOUND.
+
+## End every turn — mandatory block
+
+```text
+RECIPE: <REGISTRY title> · <prompts/.../sa-XXXX.md> · <verify cmd>
+VALIDATION: validators <PASS/FAIL> · broker <PASS|STALE|FAIL|pending> · roles <check/act/verify ran>
+EVIDENCE: receipt <path|pending> · PRIORITY <y/n> · disk delta <one line>
+BUILT: <yes: file> OR <no: verify-only closeout> OR <none: CHECK only>
+```
+
+```yaml
+status: WORKER_ROUND_REPORT
+round_type: check | act | verify
+sa_focus: sa-XXXX
+validate:
+  spine: PASS|FAIL
+  critical_bugs: N
+summary: one line
+```
+
+Broker: `goal1_lane_broker.py worker-submit` — **never** claim `broker_ok` if JSON shows `sa_mismatch` or `receipt_on_disk`.
+
+## VERIFY closeout (only path)
+
+```bash
+bash scripts/worker_verify_closeout_v1.sh --sa sa-XXXX --evidence "..." [--task-validator validate-foo-v1.sh]
+bash scripts/worker_verify_fast_v1.sh   # receipt/broker gates + auto-revert fake done
+```
+
+**Never** edit `REGISTRY.json` / prompt front matter `status: done` by hand.
+
+## Forbidden
+
+- Closeout without VERIFY broker PASS when monitor broker = STALE
+- `round_type: implement` without mapping to check/act/verify
+- Implement on CHECK · ACT work on VERIFY · auto-run while `WORKER_TURN_OPEN`
+- Trust receipt file alone (INCIDENT-006)
+
+## Read first with Worker inbox
+
+`MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` · `REGISTRY_DRAIN_RAIL_LOCKED_v1.md` · INCIDENT-007 body

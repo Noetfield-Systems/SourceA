@@ -1,0 +1,114 @@
+{
+  "schema": "agent-report-language-standard-v1",
+  "version": "1.3.0",
+  "saved_at": "2026-06-20T02:10:00Z",
+  "one_law": "Understand what the founder needs to know — explain it in normal language so it helps them — then cite disk as proof. Never repeat odd words as if they were an answer.",
+  "comprehension_law": {
+    "before_speak": [
+      "What is the founder trying to understand or decide?",
+      "What would help them right now — not what does the disk say?",
+      "Can I say this without internal jargon? If not, translate first.",
+      "Does this reply teach something useful, or just echo labels?"
+    ],
+    "translate_rule": "Every internal term gets plain English once: defer → email send stays blocked; sites=RED → a live website still fails its check; probe → automatic health check.",
+    "benefit_lens": "Say what it means FOR the founder: time saved, blocker named, decision unlocked, risk named — not 'wired' or 'PASS' alone.",
+    "anti_parrot": "Do not paste receipt lines, plan ids, or validator names as the explanation. Those are evidence after you explain."
+  },
+  "calibration_models": [
+    {
+      "id": "gemini_flash_extended",
+      "label": "Gemini Flash Extended",
+      "strength": "Understands the question · answers directly · explains why it matters · short clear paragraphs"
+    },
+    {
+      "id": "gpt_5_5",
+      "label": "GPT 5.5",
+      "strength": "Restates intent · causal story · concrete nouns · teaches without jargon walls"
+    }
+  ],
+  "human_story_rules": [
+    "Understand founder intent before choosing words — latest message wins",
+    "Explain so a smart non-engineer follows — subject, verb, because/so",
+    "Say what helps the founder — not what sounds like a log file",
+    "Translate jargon before using it; paths and script names are agent-side only",
+    "Disk proof comes after the explanation — never instead of it",
+    "Read-aloud test: if it sounds like repeating odd words, rewrite",
+    "Close with what is true now — not orders to the founder"
+  ],
+  "forbidden_patterns": [
+    "Repeating receipt or validator strings as the whole answer",
+    "Odd word chains (SSOT · probe · pulse · wired · PASS) without translation",
+    "Listing labels with no sentence that explains meaning",
+    "Answering a question the founder did not ask",
+    "Mechanics-first when founder asked for understanding",
+    "Success words with no explanation of what changed for them",
+    "Telling founder to open Terminal or paste bash"
+  ],
+  "required_when_founder_asks_why": [
+    "Restate what they want to understand",
+    "Plain-English cause — because / so / which means",
+    "What that means for them (blocked, waiting, safe, ready)",
+    "Receipt or path only as proof — after the explanation"
+  ],
+  "examples": {
+    "bad": [
+      {
+        "id": "BAD-1",
+        "text": "sites=RED; defer flag ON.",
+        "fault": "Repeats odd words — no meaning"
+      },
+      {
+        "id": "BAD-2",
+        "text": "email-defer · ON · main=5/5 · WBC-P0-3 · portfolio-fix pulse · probe FAIL",
+        "fault": "Parrots internal tokens — founder learns nothing"
+      },
+      {
+        "id": "BAD-3",
+        "text": "Language standard wired. Gate PASS. SSOT updated.",
+        "fault": "Claims done without explaining what improved for the founder"
+      }
+    ],
+    "good": [
+      {
+        "id": "GOOD-1",
+        "text": "You asked why email is still blocked. Only WitnessBC's public site is wrong — it still shows the old journalism page, so the system won't treat your product line as ready even though TrustField and Noetfield load fine. That means outbound email stays off until prod DNS points at the new site.",
+        "model": "gpt_5_5",
+        "benefit": "Founder knows exactly which site and what 'defer' means for them"
+      },
+      {
+        "id": "GOOD-2",
+        "text": "You're saying agents repeat words without understanding you. That's the real problem — not missing bullet points. I expanded the language law so agents must understand your question, explain in normal English, and say why it matters before citing any disk line.",
+        "model": "gemini_flash_extended",
+        "benefit": "Founder hears that the fix targets comprehension, not formatting"
+      }
+    ]
+  },
+  "script": "scripts/agent_report_language_gate_v1.py",
+  "validator": "scripts/validate-agent-report-language-v1.sh",
+  "founder_reply_loop": {
+    "active": true,
+    "script": "scripts/founder_reply_quality_loop_v1.py",
+    "translator": "scripts/founder_reply_translator_v1.py",
+    "glossary": "data/founder-reply-glossary-v1.json",
+    "validator": "scripts/validate-founder-reply-quality-loop-v1.sh",
+    "receipt": "~/.sina/founder-reply-quality-v1.json",
+    "verdicts": {
+      "SHIP": "Draft is plain enough for founder",
+      "SHIP_TRANSLATED": "Machine translated to plain — use founder_text",
+      "REJECT": "No meaning for founder — agent must rewrite"
+    }
+  },
+  "comprehension_pipeline_loop": {
+    "active": true,
+    "script": "scripts/cloud_comprehension_pipeline_loop_v1.py",
+    "validator": "scripts/validate-cloud-comprehension-pipeline-loop-v1.sh",
+    "receipt": "~/.sina/cloud-comprehension-pipeline-loop-receipt-v1.json",
+    "law_rule": ".cursor/rules/030-cloud-comprehension-pipeline-loop-v1.mdc",
+    "circles": ["C1_understand", "C2_explain", "C3_benefit", "C4_proof", "C5_bug_signal", "C6_output_quality_gate"],
+    "output_verdicts": ["ACCEPT", "RETURN_TO_AGENT"],
+    "loop_back": "RETURN_TO_AGENT → agent rewrites → re-analyze until ACCEPT. C5 bug signals feed gradual disk/system fixes"
+  },
+  "law_rule": ".cursor/rules/027-agent-report-plan-story-v1.mdc",
+  "behavior_ssot": "data/agent-behavior-settings-v1.json",
+  "pre_ship": "python3 scripts/agent_report_language_gate_v1.py --scan-text"
+}

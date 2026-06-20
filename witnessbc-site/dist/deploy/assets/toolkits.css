@@ -1,0 +1,336 @@
+/* WitnessBC Toolkits — v12 ultra-wide freemium hub */
+
+.page-toolkits .page-hero-toolkit {
+  padding: clamp(3rem, 6vw, 5rem) 0 clamp(2rem, 4vw, 3rem);
+  background:
+    radial-gradient(ellipse 120% 80% at 8% -10%, rgba(13, 148, 136, 0.14), transparent 55%),
+    linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 60%);
+}
+
+.page-toolkits .toolkit-law-band {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-elevated);
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.page-toolkits .toolkit-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.page-toolkits .toolkit-pill {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--surface);
+  color: var(--text-muted);
+}
+
+.page-toolkits .toolkit-actions,
+.page-toolkits .hero-actions.toolkit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.page-toolkits .toolkit-section {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+
+.page-toolkits .toolkit-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+.page-toolkits .toolkit-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+.page-toolkits .toolkit-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.page-toolkits .toolkit-product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+.page-toolkits .surface-card {
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-elevated);
+  box-shadow: var(--shadow-sm);
+}
+
+.page-toolkits .surface-card h2,
+.page-toolkits .surface-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+  letter-spacing: var(--tracking-tight);
+}
+
+.page-toolkits .toolkit-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.page-toolkits .toolkit-list li + li {
+  margin-top: 0.35rem;
+}
+
+.page-toolkits .toolkit-picker-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+}
+
+.page-toolkits .toolkit-picker-card p {
+  margin: 0;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.page-toolkits .toolkit-picker-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.page-toolkits .toolkit-product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  height: 100%;
+}
+
+.page-toolkits .toolkit-product-head h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.page-toolkits .toolkit-tagline {
+  margin: 0.25rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.page-toolkits .toolkit-product-desc {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.page-toolkits .toolkit-product-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.page-toolkits .toolkit-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+}
+
+.page-toolkits .toolkit-product-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.page-toolkits .toolkit-bundle-card.featured {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(13, 148, 136, 0.25), var(--shadow-md);
+}
+
+.page-toolkits .toolkit-bundle-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.page-toolkits .toolkit-cta-band {
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.page-toolkits .toolkit-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.page-toolkits .toolkit-cta-inner h2 {
+  margin: 0 0 0.35rem;
+}
+
+.page-toolkits .toolkit-cta-inner .section-lead {
+  margin: 0;
+}
+
+.page-toolkits .toolkit-textarea {
+  width: 100%;
+  min-height: 280px;
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg);
+  color: var(--text);
+  resize: vertical;
+}
+
+.page-toolkits .toolkit-template-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.page-toolkits .toolkit-template-head h2 {
+  margin: 0;
+}
+
+.page-toolkits .toolkit-template-head .meta {
+  margin: 0;
+  flex: 1 1 100%;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.page-toolkits .toolkit-faq details {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.15rem;
+  background: var(--surface);
+}
+
+.page-toolkits .toolkit-faq details + details {
+  margin-top: 0.65rem;
+}
+
+.page-toolkits .toolkit-faq summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.page-toolkits .toolkit-faq p {
+  margin: 0.75rem 0 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 1100px) {
+  .page-toolkits .toolkit-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .page-toolkits .toolkit-grid-2,
+  .page-toolkits .toolkit-picker-grid,
+  .page-toolkits .toolkit-product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1600px) {
+  .page-toolkits .toolkit-product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .page-toolkits .toolkit-picker-grid {
+    gap: 2rem;
+  }
+
+  .page-toolkits .surface-card {
+    padding: 2rem 2.25rem;
+  }
+}
+
+.toolkit-pill-live {
+  border-color: var(--accent, #0d9488);
+  color: var(--accent, #0d9488);
+  background: rgba(13, 148, 136, 0.08);
+}
+
+.toolkit-freemium-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.toolkit-freemium-actions .btn-primary {
+  order: -2;
+}
+
+.toolkit-sandbox-card {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.toolkit-sandbox-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.toolkit-sandbox-select {
+  min-width: 220px;
+  padding: 0.45rem 0.65rem;
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid var(--border-subtle);
+  background: var(--surface);
+}
+
+.toolkit-sandbox-editor {
+  min-height: 420px;
+  width: 100%;
+}
+
+.toolkit-sandbox-status {
+  margin-bottom: 0.75rem;
+}

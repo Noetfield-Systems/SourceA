@@ -1,0 +1,20 @@
+{
+  "schema": "campaign-automation-v1",
+  "id": "demo-campaign-v1",
+  "creator_id": "00000000-0000-0000-0000-000000000001",
+  "raw_brief": "15s ad for SourceA Forge \u2014 proof layer for AI agents.",
+  "current_step": "HUMAN_APPROVAL_REQUIRED",
+  "created_at": "2026-06-19T16:06:30Z",
+  "updated_at": "2026-06-19T16:06:30Z",
+  "refined_script": "The future of technology is in your hands. Automate your business with ou",
+  "video_prompt_loop": {
+    "positive_prompt": "Futuristic cybernetic factory ultra realistic 4k cinematic lighting neon accents",
+    "aspect_ratio": "9:16",
+    "variants": [
+      {
+        "label": "primary",
+        "prompt": "Futuristic cybernetic factory ultra realistic 4k cinematic lighting neon accents"
+      }
+    ]
+  }
+}

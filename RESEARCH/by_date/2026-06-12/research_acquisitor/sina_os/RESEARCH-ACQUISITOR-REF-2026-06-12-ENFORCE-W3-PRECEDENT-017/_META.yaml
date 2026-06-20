@@ -1,0 +1,11 @@
+trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-ENFORCE-W3-PRECEDENT-017
+worker_id: research_acquisitor
+subject: sina_os
+subject_label: Sina OS / SourceA
+thread: THREAD-ECOSYSTEM
+date: '2026-06-12'
+source_path: /Users/sinakazemnezhad/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-12_ENFORCE-W3-COMPETITION-PRECEDENT.yaml
+archive_path: by_date/2026-06-12/research_acquisitor/sina_os/RESEARCH-ACQUISITOR-REF-2026-06-12-ENFORCE-W3-PRECEDENT-017/2026-06-12_ENFORCE-W3-COMPETITION-PRECEDENT.yaml
+execution_authority: false
+enforcer: research_save_enforcer.py
+law: RESEARCH_INTAKE_AND_SAVE_LOCK_LOCKED_v1.md

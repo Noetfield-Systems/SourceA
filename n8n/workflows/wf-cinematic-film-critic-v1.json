@@ -1,0 +1,40 @@
+{
+  "name": "wf-cinematic-film-critic-v1",
+  "nodes": [
+    {
+      "id": "film-critic-webhook",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "parameters": {
+        "path": "cinematic-film-critic",
+        "httpMethod": "POST",
+        "options": {}
+      },
+      "position": [0, 300]
+    },
+    {
+      "id": "film-critic-glue",
+      "name": "Critic circle",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "parameters": {
+        "command": "cd ~/Desktop/SourceA/scripts && python3 n8n_glue_runner_v1.py film-critic --payload '{{ JSON.stringify($json.body || $json) }}'"
+      },
+      "position": [280, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [[{"node": "Critic circle", "type": "main", "index": 0}]]
+    }
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "meta": {
+    "schema": "sina-n8n-glue-workflow-v1",
+    "glue_command": "film-critic",
+    "lanes": ["all", "sourcea", "witnessbc"],
+    "note": "POST { lane: sourcea|witnessbc|all } — judge before ship; unfreeze on PASS"
+  }
+}

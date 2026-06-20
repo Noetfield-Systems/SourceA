@@ -1,0 +1,25 @@
+schema_version: 1
+repo: noetfield
+task: Next Wave agent closeout re-verify (023–027) + verify-local-dev hardening
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - scripts/verify-local-dev.sh
+  - scripts/copilot-pilot-e2e.sh
+  - os/plans/REGISTRY.json
+  - reports/cursor-reply-latest.txt
+  diff_summary: ''
+  note: ''
+tests:
+  status: passed
+  command: pytest governance-console/backend/tests/test_tle_flow.py -q && make verify-local-dev
+    && make tle-smoke && make copilot-pilot-e2e
+  output_snippet: 4 pytest passed; verify-local-dev all OK incl pilot/connectors;
+    tle-smoke and copilot-pilot-e2e passed
+real_output: 4 pytest passed; verify-local-dev all OK incl pilot/connectors; tle-smoke
+  and copilot-pilot-e2e passed
+reported_at: '2026-06-04T18:27:29Z'
+reporter: cursor
+execution_id: ''

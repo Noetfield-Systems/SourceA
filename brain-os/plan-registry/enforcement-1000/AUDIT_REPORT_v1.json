@@ -1,0 +1,66 @@
+{
+  "audited_at": "2026-06-11T23:25:25Z",
+  "by_category": {
+    "W2_KERNEL": 400,
+    "W1_DEMO": 100,
+    "W3_MONEY": 200,
+    "CHAOS_HARDEN": 100,
+    "NARRATIVE": 100,
+    "CLOSEOUT": 100
+  },
+  "by_owner": {
+    "worker": 600,
+    "commercial": 300,
+    "brain": 100
+  },
+  "by_status": {
+    "done": 29,
+    "backlog": 971
+  },
+  "by_month": {
+    "2026-06": 300,
+    "2026-07": 200,
+    "2026-08": 200,
+    "2026-09": 100,
+    "2026-10": 100,
+    "2026-12": 100
+  },
+  "by_tier": {
+    "T0": 250,
+    "T1": 250,
+    "T2": 250,
+    "T3": 250
+  },
+  "unique_titles": 1000,
+  "disk_t0_done_slots": [
+    "phase-e0-commit-gate:0",
+    "phase-e0-commit-gate:2",
+    "phase-e0-commit-gate:3",
+    "phase-e0-commit-gate:4",
+    "phase-e0-commit-gate:5",
+    "phase-e0-commit-gate:10",
+    "phase-e1-receipt-integrity:0",
+    "phase-e1-receipt-integrity:5",
+    "phase-e2-validator-tamper:0",
+    "phase-e2-validator-tamper:1",
+    "phase-e2-validator-tamper:2",
+    "phase-e2-validator-tamper:3",
+    "phase-e2-validator-tamper:4",
+    "phase-e2-validator-tamper:5",
+    "phase-e2-validator-tamper:6",
+    "phase-e2-validator-tamper:7",
+    "phase-e2-validator-tamper:8",
+    "phase-e2-validator-tamper:9",
+    "phase-e2-validator-tamper:10",
+    "phase-e2-validator-tamper:11",
+    "phase-e2-validator-tamper:12",
+    "phase-e2-validator-tamper:13",
+    "phase-e2-validator-tamper:14",
+    "phase-e3-demo-live:0",
+    "phase-e3-demo-live:4",
+    "phase-e3-demo-live:5",
+    "phase-e3-demo-live:15",
+    "phase-e4-commercial-w3:5",
+    "phase-e4-commercial-w3:6"
+  ]
+}

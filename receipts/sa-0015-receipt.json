@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0015",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 sa-0015 closed; PROGRAM_PROGRESS signals_auto.synced_at refreshes on every strict build",
+  "at": "2026-06-09T13:33:55Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,139 @@
+{
+  "schema": "mcp-stack-free-tier-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-18T23:23:57Z",
+  "locked_doc": "docs/SOURCEA_MCP_STACK_FREE_TIER_OPTIMIZATION_LOCKED_v1.md",
+  "script": "scripts/mcp_stack_free_tier_v1.py",
+  "validator": "scripts/validate-mcp-stack-free-tier-v1.sh",
+  "manifest": "data/cursor-mcp-free-tier-manifest-v1.json",
+  "registry": "data/integration-leverage-registry-v1.json",
+  "receipt": "~/.sina/mcp-stack-free-tier-receipt-v1.json",
+  "one_law": "Phase 1 exhaust all good free-tier tools; Phase 2 affordable AI wire only after founder approval.",
+  "policy_refs": [
+    "docs/SOURCEA_TIER_PRIORITY_COST_INTELLIGENCE_POLICY_LOCKED_v1.md",
+    "docs/SOURCEA_DISCLOSURE_LADDER_AND_PUBLIC_VOICE_LOCKED_v1.md",
+    "SOURCEA_INTEGRATION_LEVERAGE_STRATEGY_LOCKED_v1.md",
+    "FOUNDER_NO_CREDIT_CARD_INFRA_LOCKED_v1.md"
+  ],
+  "cross_ref": {
+    "disclosure_ladder": "data/disclosure-ladder-v1.json",
+    "trust_center": "data/trust-center-v1.json",
+    "authority_index": "SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md",
+    "tool_pick_two_phase": "data/tool-pick-two-phase-v1.json",
+    "platform_neutral_world_model": "data/platform-neutral-world-model-v1.json"
+  },
+  "pick_order": [
+    "free_tier_eligible",
+    "queue_tier",
+    "commercial_blockers",
+    "roi_score",
+    "paid_escalation"
+  ],
+  "servers": {
+    "cursor-ide-browser": {
+      "integration_tier": "S",
+      "cost_usd": 0,
+      "status": "active",
+      "builtin": true,
+      "lane": "pilot_demo_verify",
+      "disclosure_tier": "T2_pilot",
+      "public_mention": false
+    },
+    "cursor-app-control": {
+      "integration_tier": "S",
+      "cost_usd": 0,
+      "status": "active",
+      "builtin": true,
+      "lane": "glass_open_urls",
+      "disclosure_tier": "T4_internal",
+      "public_mention": false
+    },
+    "cursor-backend-control": {
+      "integration_tier": "S",
+      "cost_usd": 0,
+      "status": "active",
+      "builtin": true,
+      "lane": "automations_read",
+      "disclosure_tier": "T4_internal",
+      "public_mention": false
+    },
+    "plugin-linear-linear": {
+      "integration_tier": "S",
+      "cost_usd": 0,
+      "status": "authenticated",
+      "lane": "gtm_linear_mirror",
+      "disclosure_tier": "T1_icp_buyer",
+      "public_mention": "badge_only",
+      "credibility": "Official Cursor MCP integration"
+    },
+    "vercel": {
+      "integration_tier": "S",
+      "cost_usd": 0,
+      "status": "gate_k_pass",
+      "lane": "landing_proof",
+      "disclosure_tier": "T0_public",
+      "public_mention": "url_only",
+      "url": "https://sourcea-landing.vercel.app"
+    },
+    "cloudflare": {
+      "integration_tier": "S",
+      "cost_usd": 0,
+      "status": "dns_only",
+      "lane": "edge_dns",
+      "disclosure_tier": "T4_internal",
+      "public_mention": false
+    },
+    "github": {
+      "integration_tier": "A",
+      "cost_usd": 0,
+      "status": "pending_p0",
+      "lane": "issues_prs_leverage",
+      "disclosure_tier": "T4_internal",
+      "public_mention": false,
+      "linear_issue": "GOV-8",
+      "manifest_key": "github"
+    },
+    "plugin-notion-workspace-notion": {
+      "integration_tier": "A",
+      "cost_usd": 0,
+      "status": "auth_pending",
+      "lane": "research_capture",
+      "disclosure_tier": "T4_internal",
+      "public_mention": false
+    },
+    "plugin-figma-figma": {
+      "integration_tier": "A",
+      "cost_usd": 0,
+      "status": "auth_pending",
+      "lane": "design_review",
+      "disclosure_tier": "T4_internal",
+      "public_mention": false
+    },
+    "plugin-supabase-supabase": {
+      "integration_tier": "A",
+      "cost_usd": 0,
+      "status": "available",
+      "lane": "trustfield_noetfield_only",
+      "disclosure_tier": "T4_internal",
+      "public_mention": false
+    },
+    "plugin-datadog-datadog": {
+      "integration_tier": "C",
+      "cost_usd": null,
+      "status": "defer_post_pilot",
+      "lane": "observability_paid",
+      "disclosure_tier": "T4_internal",
+      "public_mention": false,
+      "blocked_by": "FOUNDER_NO_CREDIT_CARD_INFRA"
+    }
+  },
+  "forbidden_uses": [
+    "write_or_replace_sina_receipts_via_mcp",
+    "skip_session_gate_or_run_inbox",
+    "t0_lead_with_mcp_vendor_names",
+    "paid_mcp_before_roi_gate",
+    "mcp_as_auto_run_brain"
+  ],
+  "active_free_min": 4,
+  "p0_enable": ["github"]
+}

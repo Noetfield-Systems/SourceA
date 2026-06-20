@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0888 — Validate h2_pending_registry_reconcile_v1 closed maintainer_ship rows
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0888
+tests:
+  status: passed
+  output_snippet: validate-h2-maintainer-ship-closed-v1 PASS open=1 closed=12 reconcile_at ok worker_verify_ultra PASS
+reported_at: '2026-06-17T11:13:24Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

@@ -1,0 +1,161 @@
+{
+  "schema": "fbe-catalog-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-06-17T18:00:00Z",
+  "platform": "Noetfield",
+  "tagline": "AI Factory Operating Platform — deployable apps with policy packs and certainty receipts.",
+  "spec_language": "data/fbe_factory_spec_schema_v1.json",
+  "policy_registry": "data/policy-packs/registry-v1.json",
+  "hero_factory_id": "exchange-factory-v1",
+  "hero_wrapper_id": "compliance-kyb-wrapper-v1",
+  "tiers": {
+    "engines": {
+      "label": "Factory Apps",
+      "description": "Kernel-bound factory lines with honest tier caps"
+    },
+    "policy_packs": {
+      "label": "Policy Marketplace",
+      "description": "Vertical policy packs — same engine, regulated I/O and governance"
+    },
+    "sandbox": {
+      "label": "Demo / free tier",
+      "description": "Mock factory — zero MicroVM until upgrade",
+      "upgrade_path": "engines",
+      "microvm_cap": 0,
+      "tier_cap_honest": "SANDBOX"
+    },
+    "freemium": {
+      "label": "Freemium reference",
+      "description": "Phase 0 product-lane attract surfaces — mock_only honest"
+    }
+  },
+  "items": [
+    {
+      "catalog_id": "cat-engine-web-product",
+      "factory_id": "web-product-factory-v1",
+      "spec_path": "data/factory-specs/web-product-factory-v1.json",
+      "kind": "engine",
+      "tier": "engines",
+      "policy_pack_id": "trust_motor",
+      "status": "prove_only",
+      "website_slug": "governed-web-product-factory",
+      "install_label": "Deploy",
+      "demo_seconds": 30
+    },
+    {
+      "catalog_id": "cat-engine-exchange",
+      "factory_id": "exchange-factory-v1",
+      "spec_path": "data/factory-specs/exchange-factory-v1.json",
+      "kind": "engine",
+      "tier": "engines",
+      "policy_pack_id": "trust_motor",
+      "status": "prove_only",
+      "website_slug": "governed-exchange-factory",
+      "install_label": "Deploy",
+      "hero": true,
+      "demo_seconds": 30
+    },
+    {
+      "catalog_id": "cat-engine-forge",
+      "factory_id": "forge-app-factory-v1",
+      "display_name": "Governed App Factory",
+      "product_tenant": "Forge",
+      "spec_path": "data/factory-specs/forge-app-factory-v1.json",
+      "kind": "engine",
+      "tier": "engines",
+      "policy_pack_id": "trust_motor",
+      "status": "prove_only",
+      "website_slug": "governed-app-factory",
+      "install_label": "Deploy",
+      "demo_seconds": 30
+    },
+    {
+      "catalog_id": "cat-wrapper-kyb",
+      "factory_id": "compliance-kyb-wrapper-v1",
+      "spec_path": "data/factory-specs/compliance-kyb-wrapper-v1.json",
+      "kind": "wrapper",
+      "tier": "policy_packs",
+      "extends": "exchange-factory-v1",
+      "policy_pack_id": "fintrac_kyb_v1",
+      "status": "prove_only",
+      "website_slug": "cross-border-kyb-factory",
+      "install_label": "Deploy",
+      "hero": true,
+      "demo_seconds": 30
+    },
+    {
+      "catalog_id": "cat-wrapper-aml",
+      "factory_id": "compliance-aml-wrapper-v1",
+      "spec_path": "data/factory-specs/compliance-aml-wrapper-v1.json",
+      "kind": "wrapper",
+      "tier": "policy_packs",
+      "extends": "exchange-factory-v1",
+      "policy_pack_id": "aml_screening_v1",
+      "status": "prove_only",
+      "website_slug": "aml-screening-factory",
+      "install_label": "Deploy",
+      "demo_seconds": 30
+    },
+    {
+      "catalog_id": "cat-wrapper-ma",
+      "factory_id": "ma-diligence-wrapper-v1",
+      "spec_path": "data/factory-specs/ma-diligence-wrapper-v1.json",
+      "kind": "wrapper",
+      "tier": "policy_packs",
+      "extends": "web-product-factory-v1",
+      "policy_pack_id": "ma_diligence_v1",
+      "status": "prove_only",
+      "website_slug": "ma-diligence-factory",
+      "install_label": "Deploy",
+      "demo_seconds": 30
+    },
+    {
+      "catalog_id": "cat-sandbox-demo",
+      "factory_id": "sandbox-mock-factory-v1",
+      "spec_path": "data/factory-specs/sandbox-mock-factory-v1.json",
+      "kind": "sandbox",
+      "tier": "sandbox",
+      "policy_pack_id": "trust_motor",
+      "status": "mock_only",
+      "website_slug": "try-factory-demo",
+      "install_label": "Try demo",
+      "demo_seconds": 30,
+      "tier_cap_honest": "BRONZE",
+      "upgrade_path": "engines",
+      "compute_note": "zero MicroVM until upgrade"
+    },
+    {
+      "catalog_id": "cat-noetfield-freemium",
+      "factory_id": "noetfield-freemium-factory-v1",
+      "spec_path": "data/factory-specs/noetfield-freemium-factory-v1.json",
+      "kind": "freemium",
+      "tier": "freemium",
+      "policy_pack_id": "noetfield_governance",
+      "status": "mock_only",
+      "website_slug": "try-noetfield-freemium",
+      "install_label": "Try TLE demo",
+      "demo_seconds": 30
+    },
+    {
+      "catalog_id": "cat-witnessbc-proof-lab",
+      "factory_id": "witnessbc-proof-lab-factory-v1",
+      "spec_path": "data/factory-specs/witnessbc-proof-lab-factory-v1.json",
+      "kind": "freemium",
+      "tier": "proof_lab",
+      "policy_pack_id": "trust_motor",
+      "status": "demo_ready",
+      "website_slug": "witnessbc-proof-lab",
+      "install_label": "Open Proof Lab",
+      "demo_seconds": 30
+    }
+  ],
+  "api": {
+    "catalog": "GET /api/fbe/catalog/v1",
+    "ledger": "GET /api/fbe/ledger/v1",
+    "execute": "POST /api/fbe/run-job/v1",
+    "execute_exchange": "POST /api/fbe/run-exchange/v1",
+    "execute_forge": "POST /api/fbe/run-forge/v1",
+    "execute_fleet": "POST /api/fbe/run-fleet/v1"
+  },
+  "website_fields": ["inputs", "operational_nodes", "guaranteed_output", "maintenance_fee_usd", "demo_seconds", "policy_pack_id", "install_label"]
+}

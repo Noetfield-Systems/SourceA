@@ -1,0 +1,39 @@
+---
+description: Mac control plane — cloud executes, Mac manages agentic factories only
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# Mac Control Plane (mandatory)
+
+Read `~/Desktop/MacLaw/MAC_CONTROL_PLANE_LOCKED.md` when Mac, SourceA, factory, hub, or cloud is in scope.
+
+## Law
+
+- **Mac** = control panel only (Hub :13020, Routing :8780, Mac Law :8781, Cursor steering)
+- **Cloud + APIs** = all factory compute (FBE Railway, Supabase, loop specialist, OpenRouter on cloud)
+
+## Agents MUST
+
+1. Keep `~/.sina/mac-control-plane-v1.flag` present during founder sessions
+2. Keep `~/.sina/cli-disabled-v1.flag` — no local CLI drain on Mac body
+3. Keep `~/.sina/api-disabled-v1.flag` **absent** — Mac may call cloud APIs
+4. Keep factory mode **FREEZE** — never bootstrap `com.sourcea.autorun-worker` without ASF
+5. Route ACT/implement/build work to cloud workers — not `fbe_motor_delegate_v1` on Mac
+6. **Founder session: NO heavy validators/E2E** — no `validate-all-e2e`, no surfaces E2E, no recipe `--build`, no Playwright/Chrome debug stacks while founder works in Cursor
+
+## Boot
+
+```bash
+bash ~/Desktop/SourceA/scripts/enter-mac-control-plane-v1.sh
+bash ~/Desktop/SourceA/scripts/validate-mac-control-plane-v1.sh
+```
+
+## Cloud dispatch
+
+```bash
+python3 ~/Desktop/SourceA/scripts/loop_specialist_tick_v1.py --json
+```
+
+ASF override only — see MAC_CONTROL_PLANE_LOCKED.md.

@@ -1,0 +1,15 @@
+{
+  "schema": "fbe-assembly-step-receipt-v1",
+  "ok": true,
+  "at": "2026-06-17T14:09:04Z",
+  "node_id": "church-boundary-v1",
+  "bay_slug": "sample-bay",
+  "tenant": "wil_ai_design_partner",
+  "npm": "check:boundary",
+  "exit": 0,
+  "elapsed_sec": 0.11,
+  "church_root": "/Users/sinakazemnezhad/Desktop/YA5/PLUS ONE/CHURCH",
+  "deliveryMode": "prove_only",
+  "mode": "w3_headless",
+  "tail": "> church@1.0.0 check:boundary\n> node scripts/check-boundary.mjs\n\nCHURCH BOUNDARY OK \u2014 /Users/sinakazemnezhad/Desktop/YA5/PLUS ONE/CHURCH\nnpm warn Unknown env config \"devdir\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options."
+}

@@ -1,0 +1,43 @@
+---
+description: Worker VERIFY uses fast lane — never full find_critical_bugs (3 min shell stall)
+globs: agent-skills/sourcea_worker/**,brain-os/enforcement/MANDATORY_SOURCEA_WORKER*
+alwaysApply: false
+---
+
+# Worker verify fast (no 3 min shell)
+
+**Canonical:** `WORKER_NO_SLOW_VERIFY_SHELL_LOCKED_v1.md` · `WORKER_FAST_ANTI_STALENESS_AUTO_HEAL_LOCKED_v1.md`
+
+## Turn entry (every INBOX turn)
+
+```bash
+cd /Users/sinakazemnezhad/Desktop/SourceA/scripts
+bash worker_turn_entry_v1.sh
+```
+
+Gate + anti-staleness auto-heal (kill hung shells · sync inbox · light hub refresh).
+
+## Worker VERIFY closeout
+
+```bash
+cd /Users/sinakazemnezhad/Desktop/SourceA/scripts
+bash worker_verify_ultra_v1.sh
+```
+
+Plus sa-specific validator only.
+
+## BANNED on default VERIFY
+
+- `python3 find_critical_bugs.py` without `SINA_FCB_FAST=1` (60–180s · 44-step bundle)
+- `validate-anti-staleness-bundle-v1.sh` (Safety / weekly)
+- `build-sina-command-panel.py`
+
+## Full fleet rollup
+
+Founder → Super Fast Hub **Safety check** only.
+
+## Stuck in Cursor?
+
+Hub **Unstick Worker** or stop shell · re-run `worker_turn_entry_v1.sh` + `worker_verify_ultra_v1.sh`.
+
+If sa prompt says `find_critical_bugs.py` → use ultra/fast script anyway.

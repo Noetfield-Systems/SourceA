@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0959 — Research fleet 8-agent scoreboard at scale — auto-check taxonomy
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0959
+tests:
+  status: passed
+  output_snippet: fleet scoreboard auto-check taxonomy note shipped; worker_verify_ultra PASS
+reported_at: '2026-06-14T02:13:45Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

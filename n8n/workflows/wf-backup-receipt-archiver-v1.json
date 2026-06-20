@@ -1,0 +1,59 @@
+{
+  "name": "wf-backup-receipt-archiver-v1",
+  "nodes": [
+    {
+      "id": "fee35e77-3599-4358-bad1-b6e7017a19db",
+      "name": "Schedule",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 3 * * 0"
+            }
+          ]
+        }
+      },
+      "position": [
+        0,
+        300
+      ]
+    },
+    {
+      "id": "ba687ca3-b3e9-46c0-9c16-7264eeb3eb6d",
+      "name": "Glue runner",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "parameters": {
+        "command": "cd ~/Desktop/SourceA/scripts && python3 n8n_glue_runner_v1.py backup-archive"
+      },
+      "position": [
+        280,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Schedule": {
+      "main": [
+        [
+          {
+            "node": "Glue runner",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "schema": "sina-n8n-glue-workflow-v1",
+    "glue_command": "backup-archive"
+  }
+}

@@ -1,0 +1,35 @@
+---
+description: Mandatory RESEARCH folder save — trace tag, date, worker, subject; enforcer verify before ship
+globs: archive/**,brain-os/**
+alwaysApply: false
+---
+
+# Research save — mandatory (LOCKED v1)
+
+**Law:** `RESEARCH_INTAKE_AND_SAVE_LOCK_LOCKED_v1.md`  
+**Notice:** `RESEARCH/_GOVERNANCE/WORKER_NOTICE_RESEARCH_SAVE_MANDATORY_v1.md`
+
+## Every session
+
+1. ACK `research_save_lock: ACK_RESEARCH_INTAKE_AND_SAVE_LOCK_v1` on first reply when doing research or decisions.
+2. Use **your** `worker_id` and full `trace_id` — never superseded prefixes (`RA-MKT`, `GOVGS`, `TF-COMM`).
+
+## Every research save (4 steps)
+
+1. Write artifact to canonical **vault** with trace in header.
+2. Mirror to `RESEARCH/by_date/{date}/{worker_id}/{subject}/{trace_id}/` + `_META.yaml`.
+3. Run `RESEARCH/_GOVERNANCE/research_save_enforcer.py save` then `verify` — must **PASS**.
+4. Run `scripts/research_root_sync.py register` + `sync`.
+
+## Pre-ship gate
+
+Closeout YAML must include `research_save` block with `enforcer_verify: PASS`.  
+**Do not ship** research-backed work without RESEARCH mirror path.
+
+## Forbidden
+
+- Chat-only research · `archive/attachments/` for new intake · wrong agent tags
+- **Cross-lane SSOT edit** — `000-cross-lane-edit-forbidden.mdc` · **save ≠ rewire AGENTS/SSOT/roadmap**
+- Any write without founder `EDIT ALLOWED: <path>` + `ACTION:` when path is not your vault
+
+Pointers only — full prose in LOCKED doc.

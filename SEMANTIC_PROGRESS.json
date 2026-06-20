@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-06-02 06:45 UTC",
+  "generator": "SinaPromptOS/semantic_progress",
+  "version": 1,
+  "note": "v1 = structured signals; embeddings = Phase 2b",
+  "repos": {
+    "trustfield": {
+      "name": "TrustField",
+      "plane": "DELIVERY",
+      "semantic_progress": 44.6,
+      "meaning": "building",
+      "signals": {
+        "queue_done_ratio": 0.556,
+        "report_progress": 72.0,
+        "truth_score": 0.0,
+        "evaluator_verdict": "NOT_DONE"
+      }
+    },
+    "sinaai_mono": {
+      "name": "Sinaai PAIOS (MonoRepo)",
+      "plane": "DESIGN",
+      "semantic_progress": 21.8,
+      "meaning": "blocked",
+      "signals": {
+        "queue_done_ratio": 0.333,
+        "report_progress": 40.0,
+        "truth_score": 0.0,
+        "evaluator_verdict": "NOT_DONE"
+      }
+    },
+    "virlux": {
+      "name": "VIRLUX",
+      "plane": "DELIVERY",
+      "semantic_progress": 77.8,
+      "meaning": "on_track",
+      "signals": {
+        "queue_done_ratio": 0.5,
+        "report_progress": 55.0,
+        "truth_score": 0.8,
+        "evaluator_verdict": "DONE"
+      }
+    },
+    "noetfield": {
+      "name": "Noetfield (spec)",
+      "plane": "DESIGN",
+      "semantic_progress": 18.7,
+      "meaning": "early",
+      "signals": {
+        "queue_done_ratio": 0.333,
+        "report_progress": 20.0,
+        "truth_score": 0.0,
+        "evaluator_verdict": "NOT_DONE"
+      }
+    },
+    "seven77": {
+      "name": "777 Foundation",
+      "plane": "DELIVERY",
+      "semantic_progress": 24.5,
+      "meaning": "early",
+      "signals": {
+        "queue_done_ratio": 0.4,
+        "report_progress": 30.0,
+        "truth_score": 0.0,
+        "evaluator_verdict": "NOT_DONE"
+      }
+    },
+    "sina_prompt_os": {
+      "name": "Sina Prompt OS (meta — not a daily lane)",
+      "plane": "META",
+      "semantic_progress": 40.0,
+      "meaning": "building",
+      "signals": {
+        "queue_done_ratio": 0.571,
+        "report_progress": null,
+        "truth_score": 0.0,
+        "evaluator_verdict": "NOT_DONE"
+      }
+    }
+  }
+}

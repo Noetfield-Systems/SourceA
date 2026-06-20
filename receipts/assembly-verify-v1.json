@@ -1,0 +1,35 @@
+{
+  "schema": "fbe-assembly-verify-v1",
+  "ok": true,
+  "at": "2026-06-18T12:26:15Z",
+  "wave": "W3",
+  "bay_slug": "sample-bay",
+  "mode": "headless",
+  "deliveryMode": "prove_only",
+  "checks": [
+    {
+      "id": "assembly_runner",
+      "ok": true,
+      "steps_executed": 12,
+      "steps_total": 12
+    },
+    {
+      "id": "assembly_ledger",
+      "ok": true,
+      "lines": 550,
+      "expected": 12
+    },
+    {
+      "id": "church_verify",
+      "ok": true,
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-verify-v1-v1.json",
+      "church_ok": true
+    },
+    {
+      "id": "prove_only",
+      "ok": true
+    }
+  ],
+  "proof": "assembly_verify PASS",
+  "execution_plane": "headless_w3"
+}

@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0821 — Hub home redesign — plain English status, goals, events (ASF directive)
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0821
+tests:
+  status: passed
+  output_snippet: renderHomeFounderView UI+payload E2E validate-hub-home-founder-view PASS critical0
+reported_at: '2026-06-08T03:50:02Z'
+reporter: cursor-worker-batch

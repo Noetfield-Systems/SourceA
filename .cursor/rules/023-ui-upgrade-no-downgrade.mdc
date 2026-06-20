@@ -1,0 +1,40 @@
+# SourceA UI upgrade — no downgrade (version-first)
+
+**Parent checklist:** `.cursor/rules/024-ui-upgrade-mandatory-checklist.mdc` — run UP-0..UP-7 on every **up** / UI upgrade  
+**Law:** `brain-os/enforcement/SOURCEA_UI_UPGRADE_NO_DOWNGRADE_LOCKED_v1.md` · `SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md`  
+**Baseline SSOT:** `SourceA-landing/green-unified/data/ui-upgrade-baseline-v1.json`  
+**Validator:** `bash scripts/validate-ui-upgrade-no-downgrade-v1.sh`
+
+## Hard rule
+
+Before any agent edits governed landing UI (HTML/CSS/JS under `SourceA-landing/green-unified/`), it **must** prove the on-disk file already matches the baseline version. Replacing, simplifying, or “upgrading from a mock” without baseline check is **downgrade risk**.
+
+## Governed paths
+
+- `SourceA-landing/green-unified/*.html` (except `reference/`, `attach/`, `factories/`)
+- `SourceA-landing/green-unified/sourcea.css`
+- `SourceA-landing/green-unified/sourcea*.js`
+
+## Agent workflow (mandatory)
+
+1. **Read version:** `python3 scripts/ui_upgrade_baseline_guard_v1.py baseline --json`
+2. **Preflight file:** `python3 scripts/ui_upgrade_baseline_guard_v1.py check --path "<target>" --json` → `ok: true`
+3. **Edit additive:** port mock patterns *into* canonical files — never replace canonical with a slimmer mock
+4. **Verify all:** `bash scripts/validate-ui-upgrade-no-downgrade-v1.sh`
+5. **Prove live:** `bash SourceA-landing/green-unified/scripts/run-recipe.sh --e2e`
+6. **Bump baseline:** only after E2E pass — add new `must_contain` rows to baseline JSON + bump `version`
+
+## Pre-write gate
+
+`pre_write_guard_v1.py` blocks governed UI edits when baseline check fails (`UI_BASELINE_FAIL`).
+
+## Forbidden
+
+- Editing landing UI without running baseline `check` on that file first
+- Removing baseline markers (buyer toggle, chain beats, trust strip, live pill, mock panel) to “simplify”
+- Treating `Downloads/*.html` or `reference/sourcea-landing-mock-v1.html` as canonical — they are **reference only**
+- Shipping UI changes without `run-recipe.sh --e2e` pass receipt
+
+## Founder override
+
+`EDIT ALLOWED: <path>` + `ACTION:` + explicit `UI BASELINE BUMP:` in same message — only for intentional baseline version increments after E2E.

@@ -1,0 +1,10 @@
+{
+  "schema": "authority-root-allowlist-v1",
+  "version": "1.0.0",
+  "at": "2026-06-18T11:15:00Z",
+  "law": "SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md",
+  "note": "T3_REGISTERED pointer-only root LOCKED files — not separate law rows",
+  "basenames": [
+    "SOURCEA_REPO_SSOT_LOCKED.md"
+  ]
+}

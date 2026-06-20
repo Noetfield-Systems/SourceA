@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0052",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0052 PASS \u2014 L8 embeddings-later skip when hybrid shipped (sa-0027 parity); validate-phase-s0-ssot-alignment-v1; critical 0",
+  "at": "2026-06-09T23:18:38Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

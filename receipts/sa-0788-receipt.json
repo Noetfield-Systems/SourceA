@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0788",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0788 VERIFY PASS \u2014 council hero unification policy crosswalk; dispatch+fleet+fcb PASS; critical 0.",
+  "at": "2026-06-11T09:14:23Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

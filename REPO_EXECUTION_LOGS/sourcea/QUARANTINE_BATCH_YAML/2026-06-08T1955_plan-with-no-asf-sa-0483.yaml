@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0483 — Cross-check spine_bridge.py planner_bridge_ready logic vs branches_registry
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0483
+tests:
+  status: passed
+  output_snippet: pack17 spine-loop verify-only; spine+batch PASS
+reported_at: '2026-06-08T19:55:19Z'
+reporter: cursor-worker-batch

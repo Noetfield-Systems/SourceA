@@ -1,0 +1,44 @@
+{
+  "schema": "anti-fragmentation-e2e-wire-receipt-v1",
+  "saved_at": "2026-06-19T05:55:00Z",
+  "verdict": "PARTIAL",
+  "wired": [
+    "disk_live_wire_sync_v1.py → federated_honesty_patch (persistent)",
+    "cloud_factory_check_v1.py → auto _patch_federated_honesty",
+    "outbound_queue_coherence_v1.py → unified plan SSOT lookup",
+    "future_loop_prompt_advisory_circle_v1.py → UNIFIED-PLANS queue_head_pin",
+    "scripts/anti-fragmentation-e2e-wire-v1.sh → one-shot E2E chain"
+  ],
+  "completed_turn": {
+    "sa_id": "sa-1200",
+    "upgrade_id": "CF-STEP6_FEDERATED",
+    "receipt": "receipts/CF-STEP6_FEDERATED-sa-1200-receipt.json",
+    "broker": "PASS"
+  },
+  "queue_head": {
+    "sa_id": "sa-1200",
+    "upgrade_id": "P0-01",
+    "plan": "phase0_freemium",
+    "unified_total": 1044
+  },
+  "e2e_matrix": {
+    "nerve_system": "PASS",
+    "l1_brain_pipeline": "PASS",
+    "sascip_zero_drift_score100": "PASS (REVIEW line when queue active)",
+    "brain_work_order_e2e": "PASS",
+    "cloud_factory_check": "PASS (hard_fail=0 after federated patch)",
+    "queue_coherence": "PASS",
+    "loop_specialist_advisory_pin": "PASS",
+    "loop_observatory": "RED (commercial w3_rrl + w3_send_ready — founder)",
+    "gate_cart": "21/26 (commercial_w3_send_ready RED)",
+    "super_fast_hub_payload": "RED (17150 bytes > limit)",
+    "execution_honesty": "12/12 PASS"
+  },
+  "honest_red": [
+    "w3_rrl copy",
+    "w3_send_ready founder send loop",
+    "Railway public FBE URL",
+    "hub worker payload size cap"
+  ],
+  "command": "bash scripts/anti-fragmentation-e2e-wire-v1.sh"
+}

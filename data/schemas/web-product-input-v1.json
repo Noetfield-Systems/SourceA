@@ -1,0 +1,13 @@
+{
+  "schema": "web-product-input-v1",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["product_name", "brief"],
+  "properties": {
+    "product_name": {"type": "string", "minLength": 1},
+    "brief": {"type": "string"},
+    "tenant": {"type": "string"},
+    "locale": {"type": "string", "default": "en-CA"},
+    "design_partner": {"type": "boolean", "default": false}
+  }
+}

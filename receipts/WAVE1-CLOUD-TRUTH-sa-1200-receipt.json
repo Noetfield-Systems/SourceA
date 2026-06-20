@@ -1,0 +1,13 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "WAVE1-CLOUD-TRUTH",
+  "title": "Wave 1 P0 cloud truth fixes on disk",
+  "evidence": "validate-fbe-wave1-cloud-truth-v1 PASS · public_worker_url_v1 shared probe · no mirror fallback · force_cloud_only true · step1_deploy honest · scripts/fbe/fbe_cloud_entrypoint_v1.sh canonical · C-001 C-002 C-004 collapsed",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T17:05:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA",
+  "worker_url": "https://sourcea-fbe-runner-production.up.railway.app"
+}

@@ -1,0 +1,80 @@
+# Thunderfield — Phases 1-100 + Tool Pack v1
+schema_version: 1
+updated: 2026-06-12
+platform: Thunderfield
+working_name_locked: FounderField  # ENG-07 until OP-02 trademark
+motor: SourceA_L1
+doc: SINA_THUNDERFIELD_VC_LEGAL_RELATIONSHIP_PLATFORM_LOCKED_v1.md
+
+brand:
+  public: Thunderfield
+  legal_working: FounderField
+  not_confused_with: [TrustField, SourceA, Noetfield]
+  trademark: OP-02_post_w3
+
+phases:
+  tier_a_now:
+    - {phase: 1, name: legal_intent_lock, status: done, proof: COPY_SAFETY + decision_form}
+    - {phase: 2, name: motor_proof, status: active, gate: MOTOR_TEST, owner: SourceA_Worker}
+    - {phase: 3, name: nf_w3_pilot, status: active, gate: LANE_TEST, owner: NF_Worker}
+    - {phase: 4, name: agentic_outreach, status: active, owner: AgentField}
+    - {phase: 5, name: thunderfield_spec, status: in_progress, owner: Brain, deliverable: SR-01..05_yaml}
+    - {phase: 6, name: data_counsel, status: pending, owner: Research+Legal, pick: [Crunchbase, Dealroom]}
+    - {phase: 7, name: relationship_integrate, status: pending, precedent: Affinity, owner: AgentField}
+    - {phase: 8, name: signal_ingest_v1, status: blocked, gate: ENG-11_W3, validator: validate-signal-ingest-v1.sh}
+    - {phase: 9, name: vc_content_pack, status: ready, artifacts: [white_paper, one_pager, 3slide, receipt_sample]}
+    - {phase: 10, name: private_beta_5_vcs, status: blocked, gate: phase_3_w3, requires: NDA_template}
+
+  tier_b_post_w3:
+    range: "11-30"
+    themes: [transfer_10_lanes, sr_live_ingest, e_dash, affinity_sync, founder_reg_10_ideas, lp_reader]
+    gate: TRANSFER_TEST
+
+  tier_c_scale:
+    range: "31-100"
+    themes: [multi_geo_dealroom, vc_api, governance_export, category_measurement_join]
+    note: "outline only — no build order from outline"
+
+signal_radar_metrics:
+  SR-01: {name: market_attraction, vc_cares: smart_money_round_quality, source: licensed_rounds_db}
+  SR-02: {name: revenue_velocity, vc_cares: best_filter, source: w3_receipts_loi}
+  SR-03: {name: scalability_unit_econ, vc_cares: ops_at_scale, source: honest_benchmark_appendix}
+  SR-04: {name: compliance_barrier, vc_cares: regulated_access, source: nf_tf_demo_tamper}
+  SR-05: {name: reference_accelerator, vc_cares: logo_pipeline, source: post_w3_quotes}
+
+relationship_stack:
+  REL-1: {name: vc_lp_reader, owner: Thunderfield}
+  REL-2: {name: warm_intro_graph, precedent: Affinity, mode: integrate}
+  REL-3: {name: founder_registration, max_parallel_ideas: 10}
+  REL-4: {name: agentic_nurture, owner: AgentField}
+  REL-5: {name: proof_hatch, owner: SourceA}
+
+toolpack:
+  - situation: vc_first_meeting
+    lead: vc_specialist
+    shoot: [ENFORCEMENT_3SLIDE, demo_runbook, category_line]
+    avoid: [white_paper_dump, 100M_close]
+  - situation: diligence
+    lead: lawyer+governance
+    shoot: [receipt_json, bypass_audit, license_rows]
+    avoid: [verbal_only_claims]
+  - situation: new_feature
+    lead: research+lawyer
+    shoot: [precedent_row, competition_matrix]
+    avoid: [build_without_row]
+  - situation: warm_intro
+    lead: vc_specialist
+    shoot: [affinity_integrate]
+    avoid: [cold_blast]
+  - situation: marketing_copy
+    lead: copywriter+lawyer
+    shoot: [COPY_SAFETY]
+    avoid: [gpt_unlabeled]
+  - situation: dashboard_metric
+    lead: governance
+    shoot: [SR_metric+LAG_label, ingest_validator]
+    avoid: [hand_edited_score]
+  - situation: implementation
+    lead: worker
+    shoot: [one_sa_receipt]
+    avoid: [brain_codes]

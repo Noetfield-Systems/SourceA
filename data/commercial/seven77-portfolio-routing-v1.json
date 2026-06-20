@@ -1,0 +1,36 @@
+{
+  "schema": "seven77-portfolio-routing-v1",
+  "saved_at": "2026-06-17T23:52:42Z",
+  "status": "LOCKED",
+  "site": "the777foundation.org",
+  "workspace": "/Users/sinakazemnezhad/Desktop/The 777 Foundation",
+  "identity_question": "How do newcomers and workers in precarious situations get navigation readiness and peer support?",
+  "primary_paths": [
+    {"id": "7-P1", "name": "Gate 0 partners", "stakeholder": "Settlement agencies, multicultural allies", "timing": "NOW"},
+    {"id": "7-P2", "name": "Funder/board", "stakeholder": "Vancouver Foundation, Vancity", "budget_scenario_cad": 75000},
+    {"id": "7-P3", "name": "C3 translation cohort", "timing": "parallel"},
+    {"id": "7-P4", "name": "LinkedIn partner discovery", "volume": "low"}
+  ],
+  "canada_rwa_fit": "none",
+  "hard_boundaries": [
+    "Zero FINTRAC/tokenization commercial outreach",
+    "No TrustField/Noetfield product sale framing",
+    "No SinaaiRuntime on-mission experiments",
+    "No legal/clinical/emergency positioning"
+  ],
+  "sourcea_relationship": "Infrastructure pattern alignment only — not customer-facing brand merge",
+  "w30_plan": [
+    "W1: partners kit + settlement-bc audit · 2 partner conversations",
+    "W2: Funder pack Gate 0 · 1 LOI meeting",
+    "W3: Readiness path map + safeguarding pass",
+    "W4: Impact note + donor CTA test"
+  ],
+  "implementation": {
+    "key_pages": [
+      "web/src/app/partners/settlement-bc",
+      "web/src/app/partners/funder-pack",
+      "web/src/app/path/map"
+    ],
+    "plan_ssot": "os/plan.json"
+  }
+}

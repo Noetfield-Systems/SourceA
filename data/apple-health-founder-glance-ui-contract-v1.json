@@ -1,0 +1,20 @@
+{
+  "schema": "founder-glance-ui-contract-v1",
+  "app_id": "apple_health",
+  "version": "2.0.0",
+  "ui_mode": "founder_glance",
+  "saved_at": "2026-06-19T20:39:27Z",
+  "url": "http://127.0.0.1:13025/",
+  "primary_cta": "Open Health app",
+  "primary_button_id": "btn-open-health",
+  "stat_tiles": ["sleep", "goals", "plans", "bridge"],
+  "dom_must_contain": [
+    "ahg-founder-glance",
+    "btn-open-health",
+    "Open Health app",
+    "stat-sleep",
+    "panel-more",
+    "app.css?v=2.0.0"
+  ],
+  "dom_must_not_contain": ["ahg-main", "cu-steps", "mhg-seg-nav"]
+}

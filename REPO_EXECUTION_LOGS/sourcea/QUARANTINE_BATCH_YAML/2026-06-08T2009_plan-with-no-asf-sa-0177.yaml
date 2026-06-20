@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0177 — Wire validate-eval-packet-v1b-live into strict build default chain
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0177
+tests:
+  status: passed
+  output_snippet: pack eval-dispatch verify; live eval 4/5 80%; eval+dispatch+grounding PASS
+reported_at: '2026-06-08T20:09:00Z'
+reporter: cursor-worker-batch

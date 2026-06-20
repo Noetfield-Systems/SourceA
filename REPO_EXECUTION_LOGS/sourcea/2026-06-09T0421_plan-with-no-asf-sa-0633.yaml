@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0633 — Run gate_receipts_hub.py routes vs ENFORCE bypass map
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0633
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — gate_receipts_hub 8 routes aligned to ENFORCE_BYPASS_MAP; audit route guards; dispatch + governance + critical 0
+reported_at: '2026-06-09T04:21:52Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

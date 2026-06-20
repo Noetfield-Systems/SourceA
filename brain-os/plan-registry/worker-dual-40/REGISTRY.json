@@ -1,0 +1,481 @@
+{
+  "trace_tag": "AUTO-TRACE-WORKER-W1-REGISTRY-v1.3",
+  "agent": "Auto",
+  "tag_law": "brain-os/contract/DOC_TRACE_TAG_FORMAT_LOCKED_v1.md",
+  "schema": "worker-1-unified.v1.3",
+  "locked": true,
+  "worker_1_only": true,
+  "count": 40,
+  "sa_block": "w1-01..w1-20",
+  "autoloop_block": "w1-21..w1-40",
+  "gate_law": {
+    "every_3": "E2E-3",
+    "every_5": "DEBUG-5"
+  },
+  "generated_at": "2026-06-08T00:08:24Z",
+  "law": "brain-os/contract/WORKER_PROMPT_PACK_FORMAT_LOCKED_v1.md",
+  "paste_queue": ".sina-loop/WORKER-1-PASTE-QUEUE.md",
+  "usage": "Worker 1 only. Rail A: Hub AUTO-RUN. Manual fallback: paste w1-* in order.",
+  "plans": [
+    {
+      "id": "w1-01",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0131",
+      "position": 1,
+      "gates": [],
+      "title": "Run eval live with SINA_AUDIT_STRICT=1; capture report to ~/.sina",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0131 ONE TURN (w1-01). Task: Run eval live with SINA_AUDIT_STRICT=1; capture report to ~/.sina. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0131.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-02",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0132",
+      "position": 2,
+      "gates": [],
+      "title": "Add validate-governance-fleet-v1.sh to find_critical_bugs.py checks list",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0132 ONE TURN (w1-02). Task: Add validate-governance-fleet-v1.sh to find_critical_bugs.py checks list. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0132.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-03",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0133",
+      "position": 3,
+      "gates": [
+        "E2E-3"
+      ],
+      "title": "Cross-check DISPATCH_POLICY_LOCKED_v1.md classes vs policy_engine.py",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0133 ONE TURN (w1-03). Task: Cross-check DISPATCH_POLICY_LOCKED_v1.md classes vs policy_engine.py. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0133.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. PLUS E2E-3 GATE: full E2E on last 3 turns \u2014 validate-execution-spine-v1.sh PASS, implement+verify+fix any gap, search missing wiring/docs/receipts, find_critical_bugs critical 0 before closeout. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-04",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0134",
+      "position": 4,
+      "gates": [],
+      "title": "Validate graph-executor pos-dispatch suggest not auto dispatch globally",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0134 ONE TURN (w1-04). Task: Validate graph-executor pos-dispatch suggest not auto dispatch globally. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0134.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-05",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0135",
+      "position": 5,
+      "gates": [
+        "DEBUG-5"
+      ],
+      "title": "Run python3 eval_packet_v1b/runner.py live smoke \u2014 write_report true",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0135 ONE TURN (w1-05). Task: Run python3 eval_packet_v1b/runner.py live smoke \u2014 write_report true. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0135.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. PLUS DEBUG-5 GATE: full debug sweep \u2014 brain_validate_goal1_v1.py --json, validate-goal1-loop-activation-chain-v1.sh, validate-eval-packet-v1b-live.sh, hub Refresh/sync state (13020), worker-prompt-inbox vs healthy-queue drift fix, orchestrator deliver + runtime hygiene; fix all before closeout. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-06",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0136",
+      "position": 6,
+      "gates": [
+        "E2E-3"
+      ],
+      "title": "Harden scorer.py path citation checks for plan-eval-1b task",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0136 ONE TURN (w1-06). Task: Harden scorer.py path citation checks for plan-eval-1b task. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0136.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. PLUS E2E-3 GATE: full E2E on last 3 turns \u2014 validate-execution-spine-v1.sh PASS, implement+verify+fix any gap, search missing wiring/docs/receipts, find_critical_bugs critical 0 before closeout. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-07",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0137",
+      "position": 7,
+      "gates": [],
+      "title": "Add retrieve-dispatch grounding paths orchestrator + planner_engine",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0137 ONE TURN (w1-07). Task: Add retrieve-dispatch grounding paths orchestrator + planner_engine. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0137.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-08",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0138",
+      "position": 8,
+      "gates": [],
+      "title": "Validate factory-runreceipt grounding includes RUNRECEIPT schema doc",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0138 ONE TURN (w1-08). Task: Validate factory-runreceipt grounding includes RUNRECEIPT schema doc. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0138.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-09",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0139",
+      "position": 9,
+      "gates": [
+        "E2E-3"
+      ],
+      "title": "Validate l8-hybrid grounding cites embedding_provider.py",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0139 ONE TURN (w1-09). Task: Validate l8-hybrid grounding cites embedding_provider.py. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0139.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. PLUS E2E-3 GATE: full E2E on last 3 turns \u2014 validate-execution-spine-v1.sh PASS, implement+verify+fix any gap, search missing wiring/docs/receipts, find_critical_bugs critical 0 before closeout. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-10",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0140",
+      "position": 10,
+      "gates": [
+        "DEBUG-5"
+      ],
+      "title": "Run bash validate-eval-packet-v1b.sh scaffold arm after live pass",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0140 ONE TURN (w1-10). Task: Run bash validate-eval-packet-v1b.sh scaffold arm after live pass. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0140.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. PLUS DEBUG-5 GATE: full debug sweep \u2014 brain_validate_goal1_v1.py --json, validate-goal1-loop-activation-chain-v1.sh, validate-eval-packet-v1b-live.sh, hub Refresh/sync state (13020), worker-prompt-inbox vs healthy-queue drift fix, orchestrator deliver + runtime hygiene; fix all before closeout. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-11",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0141",
+      "position": 11,
+      "gates": [],
+      "title": "Compare Eval-1 structural vs Eval-1b behavioral in council brief",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0141 ONE TURN (w1-11). Task: Compare Eval-1 structural vs Eval-1b behavioral in council brief. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0141.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-12",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0142",
+      "position": 12,
+      "gates": [
+        "E2E-3"
+      ],
+      "title": "Document eval CI in build-sina-command-panel.py header comment",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0142 ONE TURN (w1-12). Task: Document eval CI in build-sina-command-panel.py header comment. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0142.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. PLUS E2E-3 GATE: full E2E on last 3 turns \u2014 validate-execution-spine-v1.sh PASS, implement+verify+fix any gap, search missing wiring/docs/receipts, find_critical_bugs critical 0 before closeout. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-13",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0143",
+      "position": 13,
+      "gates": [],
+      "title": "Reject ASF as eval authority in scoreboard or progress scripts grep",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0143 ONE TURN (w1-13). Task: Reject ASF as eval authority in scoreboard or progress scripts grep. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0143.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-14",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0144",
+      "position": 14,
+      "gates": [],
+      "title": "Validate eval packet win_pct in command-data matches live report",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0144 ONE TURN (w1-14). Task: Validate eval packet win_pct in command-data matches live report. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0144.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-15",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0145",
+      "position": 15,
+      "gates": [
+        "E2E-3",
+        "DEBUG-5"
+      ],
+      "title": "Run council_strategic_brief eval validator strings vs disk scripts",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0145 ONE TURN (w1-15). Task: Run council_strategic_brief eval validator strings vs disk scripts. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0145.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. PLUS E2E-3 GATE: full E2E on last 3 turns \u2014 validate-execution-spine-v1.sh PASS, implement+verify+fix any gap, search missing wiring/docs/receipts, find_critical_bugs critical 0 before closeout. PLUS DEBUG-5 GATE: full debug sweep \u2014 brain_validate_goal1_v1.py --json, validate-goal1-loop-activation-chain-v1.sh, validate-eval-packet-v1b-live.sh, hub Refresh/sync state (13020), worker-prompt-inbox vs healthy-queue drift fix, orchestrator deliver + runtime hygiene; fix all before closeout. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-16",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0146",
+      "position": 16,
+      "gates": [],
+      "title": "Add eval regression to audit if mode=scaffold while live_ok",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0146 ONE TURN (w1-16). Task: Add eval regression to audit if mode=scaffold while live_ok. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0146.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-17",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0147",
+      "position": 17,
+      "gates": [],
+      "title": "Cross-check runtime/dispatch_policy/classifier.py task ids",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0147 ONE TURN (w1-17). Task: Cross-check runtime/dispatch_policy/classifier.py task ids. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0147.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-18",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0148",
+      "position": 18,
+      "gates": [
+        "E2E-3"
+      ],
+      "title": "Ensure model_dispatch.py gate receipts integrate with hub panel",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0148 ONE TURN (w1-18). Task: Ensure model_dispatch.py gate receipts integrate with hub panel. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0148.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. PLUS E2E-3 GATE: full E2E on last 3 turns \u2014 validate-execution-spine-v1.sh PASS, implement+verify+fix any gap, search missing wiring/docs/receipts, find_critical_bugs critical 0 before closeout. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-19",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0149",
+      "position": 19,
+      "gates": [],
+      "title": "Run validate-governance-drift after eval script touch",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0149 ONE TURN (w1-19). Task: Run validate-governance-drift after eval script touch. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0149.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-20",
+      "worker": 1,
+      "kind": "sa",
+      "sa_id": "sa-0150",
+      "position": 20,
+      "gates": [
+        "DEBUG-5"
+      ],
+      "title": "Append SOURCEA-PRIORITY eval sustain row with pilot count",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 sa-0150 ONE TURN (w1-20). Task: Append SOURCEA-PRIORITY eval sustain row with pilot count. Read brain-os/plan-registry/sourcea-1000/prompts/phase-s1-eval-dispatch/T1/sa-0150.md + session-start + spine + find_critical_bugs. Implement gaps minimal diff. Verify inside same turn: validate-eval-packet-v1b-live.sh + find_critical_bugs critical 0 + mark_done + PRIORITY row. PLUS DEBUG-5 GATE: full debug sweep \u2014 brain_validate_goal1_v1.py --json, validate-goal1-loop-activation-chain-v1.sh, validate-eval-packet-v1b-live.sh, hub Refresh/sync state (13020), worker-prompt-inbox vs healthy-queue drift fix, orchestrator deliver + runtime hygiene; fix all before closeout. WORKER_ROUND_REPORT \u2192 broker submit. One sa end-to-end \u2014 no separate CHECK/ACT/VERIFY pastes.",
+      "status": "done"
+    },
+    {
+      "id": "w1-21",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 21,
+      "gates": [
+        "E2E-3"
+      ],
+      "title": "prepare-only goal1_auto_loop_v1.py --turns 1 --json; validate-goal1-auto-loop-v1.sh + activation-cha",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-21): prepare-only goal1_auto_loop_v1.py --turns 1 --json; validate-goal1-auto-loop-v1.sh + activation-chain PASS. PLUS E2E-3 GATE: full E2E on last 3 turns \u2014 validate-execution-spine-v1.sh PASS, implement+verify+fix any gap, search missing wiring/docs/receipts, find_critical_bugs critical 0 before closeout. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-22",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 22,
+      "gates": [],
+      "title": "Hub AUTO-RUN 10; Worker composer empty; verify last 10 AGENT DONE exit=0 broker=yes (10/10 gate)",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-22): Hub AUTO-RUN 10; Worker composer empty; verify last 10 AGENT DONE exit=0 broker=yes (10/10 gate). Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-23",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 23,
+      "gates": [],
+      "title": "Fix broker=no sa_mismatch: sa_focus = INBOX meta sa_id; goal1_lane_broker stdin parse check",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-23): Fix broker=no sa_mismatch: sa_focus = INBOX meta sa_id; goal1_lane_broker stdin parse check. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-24",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 24,
+      "gates": [
+        "E2E-3"
+      ],
+      "title": "stop_goal1_loop_v1.py after 3\u00d7 broker=no; clear stale batch tail hygiene",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-24): stop_goal1_loop_v1.py after 3\u00d7 broker=no; clear stale batch tail hygiene. PLUS E2E-3 GATE: full E2E on last 3 turns \u2014 validate-execution-spine-v1.sh PASS, implement+verify+fix any gap, search missing wiring/docs/receipts, find_critical_bugs critical 0 before closeout. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-25",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 25,
+      "gates": [
+        "DEBUG-5"
+      ],
+      "title": "brain_validate_goal1_v1.py --json chain PASS; worker_inject_lib --clear after worker-submit",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-25): brain_validate_goal1_v1.py --json chain PASS; worker_inject_lib --clear after worker-submit. PLUS DEBUG-5 GATE: full autoloop debug \u2014 validate-goal1-auto-loop-v1.sh, validate-goal1-loop-activation-chain-v1.sh, brain_validate_goal1_v1.py --json, hub health 13020 + batch log tail, inbox/queue drift fix, stop/restart hygiene if broker=no streak; fix all before closeout. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-26",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 26,
+      "gates": [],
+      "title": "Compare worker-prompt-inbox-v1.json vs healthy-queue-state \u2014 drift report only",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-26): Compare worker-prompt-inbox-v1.json vs healthy-queue-state \u2014 drift report only. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-27",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 27,
+      "gates": [
+        "E2E-3"
+      ],
+      "title": "Orchestrator deliver_current when not awaiting_worker; advance-healthy-queue only after VERIFY",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-27): Orchestrator deliver_current when not awaiting_worker; advance-healthy-queue only after VERIFY. PLUS E2E-3 GATE: full E2E on last 3 turns \u2014 validate-execution-spine-v1.sh PASS, implement+verify+fix any gap, search missing wiring/docs/receipts, find_critical_bugs critical 0 before closeout. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-28",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 28,
+      "gates": [],
+      "title": "Count broker=yes baseline+delta; one_sa_per_turn_gate on last WORKER_ROUND_REPORT",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-28): Count broker=yes baseline+delta; one_sa_per_turn_gate on last WORKER_ROUND_REPORT. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-29",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 29,
+      "gates": [],
+      "title": "AUTO-RUN 10 batch #2 after 10/10 (scale toward 50 cumulative); no manual paste during lock",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-29): AUTO-RUN 10 batch #2 after 10/10 (scale toward 50 cumulative); no manual paste during lock. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-30",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 30,
+      "gates": [
+        "E2E-3",
+        "DEBUG-5"
+      ],
+      "title": "Autoloop receipt: 10/10 broker=yes or one-line blocker",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-30): Autoloop receipt: 10/10 broker=yes or one-line blocker. PLUS E2E-3 GATE: full E2E on last 3 turns \u2014 validate-execution-spine-v1.sh PASS, implement+verify+fix any gap, search missing wiring/docs/receipts, find_critical_bugs critical 0 before closeout. PLUS DEBUG-5 GATE: full autoloop debug \u2014 validate-goal1-auto-loop-v1.sh, validate-goal1-loop-activation-chain-v1.sh, brain_validate_goal1_v1.py --json, hub health 13020 + batch log tail, inbox/queue drift fix, stop/restart hygiene if broker=no streak; fix all before closeout. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-31",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 31,
+      "gates": [],
+      "title": "validate-goal1-loop-activation-chain-v1.sh PASS end-to-end",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-31): validate-goal1-loop-activation-chain-v1.sh PASS end-to-end. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-32",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 32,
+      "gates": [],
+      "title": "WORKER_ROUND_REPORT yaml parsed by goal1_lane_broker worker-submit",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-32): WORKER_ROUND_REPORT yaml parsed by goal1_lane_broker worker-submit. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-33",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 33,
+      "gates": [
+        "E2E-3"
+      ],
+      "title": "one_sa_per_turn_gate_v1 PASS on last round report; close stale worker_turn_state if blocked",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-33): one_sa_per_turn_gate_v1 PASS on last round report; close stale worker_turn_state if blocked. PLUS E2E-3 GATE: full E2E on last 3 turns \u2014 validate-execution-spine-v1.sh PASS, implement+verify+fix any gap, search missing wiring/docs/receipts, find_critical_bugs critical 0 before closeout. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-34",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 34,
+      "gates": [],
+      "title": "Headless turn: agent -p -f output brokered without composer paste",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-34): Headless turn: agent -p -f output brokered without composer paste. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-35",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 35,
+      "gates": [
+        "DEBUG-5"
+      ],
+      "title": "Reject activate skip: INBOX delivered must chain to broker=yes or honest blocker",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-35): Reject activate skip: INBOX delivered must chain to broker=yes or honest blocker. PLUS DEBUG-5 GATE: full autoloop debug \u2014 validate-goal1-auto-loop-v1.sh, validate-goal1-loop-activation-chain-v1.sh, brain_validate_goal1_v1.py --json, hub health 13020 + batch log tail, inbox/queue drift fix, stop/restart hygiene if broker=no streak; fix all before closeout. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-36",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 36,
+      "gates": [
+        "E2E-3"
+      ],
+      "title": "Orchestrator poll_once after turn \u2014 status honest in receipt",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-36): Orchestrator poll_once after turn \u2014 status honest in receipt. PLUS E2E-3 GATE: full E2E on last 3 turns \u2014 validate-execution-spine-v1.sh PASS, implement+verify+fix any gap, search missing wiring/docs/receipts, find_critical_bugs critical 0 before closeout. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-37",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 37,
+      "gates": [],
+      "title": "Clear stale goal1-worker-batch broker=no tail (hygiene only)",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-37): Clear stale goal1-worker-batch broker=no tail (hygiene only). Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-38",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 38,
+      "gates": [],
+      "title": "closeout_sa_task.py mark_done only on VERIFY machine PASS",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-38): closeout_sa_task.py mark_done only on VERIFY machine PASS. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-39",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 39,
+      "gates": [
+        "E2E-3"
+      ],
+      "title": "advance-healthy-queue-v1.py only after Worker round report closed",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-39): advance-healthy-queue-v1.py only after Worker round report closed. PLUS E2E-3 GATE: full E2E on last 3 turns \u2014 validate-execution-spine-v1.sh PASS, implement+verify+fix any gap, search missing wiring/docs/receipts, find_critical_bugs critical 0 before closeout. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    },
+    {
+      "id": "w1-40",
+      "worker": 1,
+      "kind": "autoloop",
+      "position": 40,
+      "gates": [
+        "DEBUG-5"
+      ],
+      "title": "Activation chain receipt \u2014 inject/validate/activate/sync all PASS; scale AUTO-RUN toward 50",
+      "prompt": "PLAN WITH NO ASF \u2014 WORKER 1 autoloop ONE TURN (w1-40): Activation chain receipt \u2014 inject/validate/activate/sync all PASS; scale AUTO-RUN toward 50. PLUS DEBUG-5 GATE: full autoloop debug \u2014 validate-goal1-auto-loop-v1.sh, validate-goal1-loop-activation-chain-v1.sh, brain_validate_goal1_v1.py --json, hub health 13020 + batch log tail, inbox/queue drift fix, stop/restart hygiene if broker=no streak; fix all before closeout. Loop A only \u2014 fix broker/autoloop; REGISTRY implement only if broker fix requires. WORKER_ROUND_REPORT \u2192 broker submit.",
+      "status": "done"
+    }
+  ]
+}

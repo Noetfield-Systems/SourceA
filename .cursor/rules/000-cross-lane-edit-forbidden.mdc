@@ -1,0 +1,34 @@
+---
+description: P0 RED FLAG — no cross-lane edits; save ≠ SSOT; EDIT ALLOWED required
+alwaysApply: true
+---
+
+# Agent verbs — SAVE · WORK · EDIT ALLOWED (000)
+
+**Law:** `brain-os/enforcement/AGENT_VERBS_SAVE_WORK_EDIT_LOCKED_v1.md`  
+**On conflict:** [skill-007-ecosystem-conflict-resolution](../skills/skill-007-ecosystem-conflict-resolution/SKILL.md) · [ecosystem-rule-conflict-resolution.mdc](ecosystem-rule-conflict-resolution.mdc) · R-010
+
+## SAVE (research / reports)
+
+**One physical file in docs — stable reference. Nothing else.**
+
+- Named path only → write once → **STOP**
+- No SSOT · AGENTS · roadmap · registry · sync · “helpful wiring”
+
+No path named → **ASK** which file. No path → no write.
+
+## WORK (SourceA Worker / Product build)
+
+**Bound INBOX / sa-* / product code — execute at full speed. No extra ASK inside scope.**
+
+## EDIT ALLOWED (cross-desk)
+
+`EDIT ALLOWED: <path>` + `ACTION:` in same founder message — else **REFUSE**.
+
+## Guard (research / cross-lane only — Worker scoped paths pass)
+
+```bash
+python3 scripts/cross_lane_edit_guard_v1.py check --agent <id> --path "<target>" --json
+```
+
+Inspect `ok` — do not write if `false` and you are not on WORK scope.

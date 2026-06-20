@@ -1,0 +1,58 @@
+{
+  "schema": "cursor-mcp-free-tier-manifest-v1",
+  "saved_at": "2026-06-18T23:23:57Z",
+  "law": "docs/SOURCEA_MCP_STACK_FREE_TIER_OPTIMIZATION_LOCKED_v1.md",
+  "note": "Founder enables in Cursor Settings → MCP. All entries are $0 account tiers unless noted defer.",
+  "install_order_p0": ["github"],
+  "servers": {
+    "github": {
+      "priority": "P0",
+      "linear_issue": "GOV-8",
+      "cost": "free_with_github_account",
+      "cursor_mcp_hint": {
+        "name": "github",
+        "transport": "stdio",
+        "package": "@modelcontextprotocol/server-github",
+        "env": ["GITHUB_PERSONAL_ACCESS_TOKEN"]
+      },
+      "scopes_min": ["repo", "read:org"],
+      "lane": "issues_prs_leverage",
+      "never": ["replace_run_inbox", "write_sina_receipts"]
+    },
+    "linear": {
+      "priority": "S_active",
+      "cost": "free_workspace",
+      "status": "use_cursor_plugin_linear",
+      "lane": "gtm_linear_mirror"
+    },
+    "notion": {
+      "priority": "A_auth_pending",
+      "cost": "free_tier",
+      "status": "use_cursor_plugin_notion",
+      "lane": "research_capture"
+    },
+    "figma": {
+      "priority": "A_auth_pending",
+      "cost": "free_starter",
+      "status": "use_cursor_plugin_figma",
+      "lane": "design_review"
+    },
+    "supabase": {
+      "priority": "A_lane_bounded",
+      "cost": "free_tier",
+      "status": "use_cursor_plugin_supabase",
+      "lane": "trustfield_noetfield_only",
+      "posture": "read_first"
+    },
+    "cursor-ide-browser": {
+      "priority": "S_builtin",
+      "cost": 0,
+      "status": "enabled_by_default",
+      "lane": "pilot_demo_verify"
+    }
+  },
+  "defer": {
+    "datadog": "post_pilot_roi_gate",
+    "cloudflare_paid_workers": "vercel_gate_k_first"
+  }
+}

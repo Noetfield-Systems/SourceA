@@ -1,0 +1,25 @@
+# Paste this block from a repo Cursor chat after awareness (STATUS REPORT mode).
+# ASF saves via: cd ~/Desktop/SinaPromptOS && ./scripts/submit-repo-report.sh trustfield report.yaml
+# Then: ./scripts/run-feedback-cycle.sh
+
+repo: trustfield          # trustfield | sinaai_mono | virlux | noetfield | seven77 | sina_prompt_os
+health: yellow            # green | yellow | red
+progress: 72              # 0-100
+confidence: 0.92          # 0.0-1.0 — how sure the agent is about next work
+estimated_hours: 4        # effort for next_tasks[0]
+
+blocked:
+  - redis connection pool
+
+completed:
+  - deployment script
+
+next:
+  - postgres validation
+
+needs:
+  - repo: virlux
+    item: api schema alignment
+
+notes: optional one-line context
+reporter: cursor

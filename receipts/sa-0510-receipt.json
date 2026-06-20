@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0510",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0510 VERIFY \u2014 RECIPE: validate-lane-p0-revenue-bottleneck-v1.sh \u00b7 VALIDATION: OK: validate-lane-p0-revenue-bottleneck-v1 \u00b7 sa-0510 \u00b7 EVIDENCE: archive/attachments/2026-06-14/sa-0510-lane-p0-revenue-bottleneck_LOCKED_v1.md \u00b7 BUILT: true \u00b7 closeout",
+  "at": "2026-06-14T12:01:23Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

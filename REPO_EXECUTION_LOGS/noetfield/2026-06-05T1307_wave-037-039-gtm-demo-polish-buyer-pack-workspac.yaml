@@ -1,0 +1,27 @@
+schema_version: 1
+repo: noetfield
+task: Wave 037-039 GTM demo polish (buyer pack, workspace UX, verify-gtm)
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - copilot/procurement/index.html
+  - scripts/verify-gtm.sh
+  - governance-console/frontend/app/workspace/page.tsx
+  - governance-console/frontend/app/workspace/[tle_id]/page.tsx
+  - os/plan.json
+  - os/SHIP_NOW.md
+  diff_summary: ''
+  note: make dev-local-tunnel-bg && make demo-url before external CIO demo; pick next
+    T0 from REGISTRY or founder outreach
+tests:
+  status: passed
+  command: make verify-gtm
+  output_snippet: verify-gtm passed — pytest 8, verify-local-dev, verify-ui-e2e, copilot-pilot-e2e,
+    procurement-pack-e2e all exit 0
+real_output: verify-gtm passed — pytest 8, verify-local-dev, verify-ui-e2e, copilot-pilot-e2e,
+  procurement-pack-e2e all exit 0
+reported_at: '2026-06-05T13:07:39Z'
+reporter: cursor
+execution_id: ''

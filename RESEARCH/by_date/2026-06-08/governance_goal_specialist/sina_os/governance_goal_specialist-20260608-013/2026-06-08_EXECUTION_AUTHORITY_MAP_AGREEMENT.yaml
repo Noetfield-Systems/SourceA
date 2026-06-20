@@ -1,0 +1,77 @@
+trace_id: governance_goal_specialist-20260608-013
+trace_family: governance_goal_specialist-20260608
+trace_type: governance_analysis
+trace_owner: governance_goal_specialist
+trace_author: governance_goal_specialist
+trace_created: 2026-06-08
+execution_authority: false
+
+summary: >
+  Agreement with SinaaiDataBase broker summary on execution authority stack, plus
+  governance gaps and completion recommendations (advocacy only — not execution orders).
+
+verdict_on_old_brain_summary: AGREE_WITH_NUANCES
+
+agreements:
+  - ASF + Hub = ultimate human override (priority, dispatch, specialist conflict resolution)
+  - SourceA Execution Core (Brain) = sole execution AUTHORITY for routing, sa-XXXX pick, reconcile
+  - SourceA Worker = sole default BUILDER for SourceA spine (one sa per turn, disk edits)
+  - Commercial, Governance, Research Acquisitor = execution_authority false (advocate/sensor only)
+  - External GPT/Claude = EXTERNAL_CRITIC input only
+  - SinaaiDataBase archive = broker/search, not ops lane
+  - RESEARCH artifacts = evidence, execution_authority false on every _META.yaml
+  - Full L3 zero-human autonomy NOT shipped — honest gates correct
+
+nuances_missing_from_summary:
+  - mechanical_broker_gate: goal1_lane_broker + broker=yes on AGENT DONE — authority to RUN is gated, not just Brain narrative
+  - portfolio_site_workers: TrustField/Noetfield repo workers are SCOPED BUILDERS on product repos — not Execution Core, not SourceA sa spine unless routed
+  - research_save_lock: fourth memory layer (RESEARCH/by_date) sits beside vault + ~/.sina — evidence without ship authority
+  - headless_worker: Cursor CLI agent -p -f is Worker executor under same one-sa law — not a second brain
+  - dual_brand_workers: TF/NF v3 blueprints cite RESEARCH-ACQUISITOR tags — site worker cites parent trace, producer worker on register
+
+authority_stack_complete_v1: |
+  ASF + Hub                    ← override · approve · AUTO-RUN tap
+       ↓
+  SourceA Execution Core       ← execution AUTHORITY (route · pick · reconcile) — execution_authority true
+       ↓
+  Mechanical broker/validators ← RUNNING only if broker=yes + feasibility gate PASS
+       ↓
+  SourceA Worker               ← BUILDER spine (one sa-XXXX · SourceA repo)
+  Portfolio site worker        ← BUILDER scoped (TrustField / Noetfield repos · parent blueprint trace)
+       ↓
+  Goal Specialists + RA        ← ADVOCATE / RESEARCH (execution_authority false)
+       ↓
+  RESEARCH mirror + Disk SSOT  ← remembers · never decides
+
+completion_recommendations:
+  priority_p0:
+    - item: Publish single machine-readable AUTHORITY_MAP.yaml under SourceA/RESEARCH/_GOVERNANCE or brain-os/contract
+      owner: Execution Core worker sa-XXXX (not governance specialist)
+      fields: [role_id, execution_authority, can_route, can_build, can_override, workspace, closeout_schema]
+    - item: Hub read-only Authority panel — one table from AUTHORITY_MAP.yaml (founder tap only)
+      owner: ASF SinaaiDataBase workspace only for hub code
+    - item: Every worker ACK template must echo worker_id + execution_authority + trace_id (already in RESEARCH lock — extend to Brain/Worker chats)
+      owner: Execution Core doc patch
+  priority_p1:
+    - item: SYNC closeout contract — Execution Core outputs reconciled_decision.yaml with specialist trace_ids cited
+      owner: Brain chat procedure
+    - item: Separate lane registry row for portfolio_site_worker vs sourcea_worker vs headless_cli_worker
+      owner: WORKERS_REGISTRY.yaml maintainer
+    - item: SinaaiDataBase broker responses must end with research_save block when citing disk (broker ≠ authority)
+      owner: archive chat policy
+  priority_p2:
+    - item: Authority audit script — verify no .mdc rule claims execution_authority true except Brain
+      owner: validator worker
+    - item: Map AUTOMATION_CONVERGE L1→L3 milestones to authority fields (what unlocks when)
+      owner: Research Acquisitor + Execution Core
+
+governance_constraints_unchanged:
+  - Governance beats commercial speed unless ASF Hub override
+  - Governance specialist never assigns sa-XXXX or implements builds
+  - Promoting advocacy docs to *_LOCKED* requires maintainer lane — not this YAML
+
+research_save:
+  trace_id: governance_goal_specialist-20260608-013
+  worker_id: governance_goal_specialist
+  subject: sina_os
+  execution_authority: false

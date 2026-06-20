@@ -1,0 +1,28 @@
+{
+  "schema": "commercial-mail-from-ssot-v1",
+  "saved_at": "2026-06-18T22:30:00Z",
+  "law": "Founder configures Mail.app FROM — agents never send",
+  "founder_confirmed": false,
+  "accounts": [
+    {
+      "lane": "Noetfield",
+      "email": "operation@noetfield.com",
+      "configured": false,
+      "note": "Add account in Mail.app · then set configured=true and founder_confirmed=true"
+    },
+    {
+      "lane": "TrustField",
+      "email": "hello@trustfield.ca",
+      "configured": false,
+      "note": "Add account in Mail.app · then set configured=true and founder_confirmed=true"
+    }
+  ],
+  "founder_checklist": [
+    "Open Mail.app → add operation@noetfield.com and hello@trustfield.ca as send-from accounts",
+    "Edit ~/.sina/commercial-mail-from-ssot-v1.json → configured=true for each",
+    "Set founder_confirmed=true after verifying send works",
+    "Run: python3 scripts/agent_nerve_system_v1.py --json",
+    "Sina read: python3 scripts/w3_founder_review_v1.py --score fundmore 92",
+    "Send manually · then: python3 scripts/w3_founder_review_v1.py --confirm-sent fundmore"
+  ]
+}

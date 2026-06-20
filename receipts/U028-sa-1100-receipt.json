@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U028",
+  "title": "Curiosity question must be last before link block",
+  "evidence": "check_curiosity_before_link() + question_after_signoff fail + --check-curiosity-gate PASS \u00b7 approved bodies 3/3",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:24:30Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0871 — Document ops_blocker bucket MP-SHIP WIRE-G3 B-001 row contracts
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0871
+tests:
+  status: passed
+  output_snippet: validate-h2-ops-blocker-row-contracts-t2-crossref-v1 PASS · canonical sa-0821 chain · T1 echo sa-0846 · MP-SHIP WIRE-G3 B-001 ops_blocker contracts
+reported_at: '2026-06-15T05:49:29Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

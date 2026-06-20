@@ -1,0 +1,4 @@
+# negative fixture — must trigger forbidden scan
+proxycurl_api = "https://nubela.co/proxycurl/api/v2/linkedin"
+insight_quality: 18/20
+fetch_executive_dna(target)

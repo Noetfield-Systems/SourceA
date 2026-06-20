@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <rect x="60" y="60" width="1080" height="510" rx="24" stroke="#1e293b" stroke-width="2"/>
+  <text x="100" y="180" fill="#f8fafc" font-family="Inter,system-ui,sans-serif" font-size="56" font-weight="700">Witness AI</text>
+  <text x="100" y="260" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="32">Runtime governance infrastructure</text>
+  <text x="100" y="320" fill="#2dd4bf" font-family="Inter,system-ui,sans-serif" font-size="28">AI policy at dispatch � signed receipts</text>
+  <rect x="100" y="380" width="200" height="48" rx="8" fill="#2dd4bf" fill-opacity="0.15" stroke="#2dd4bf"/>
+  <text x="130" y="412" fill="#2dd4bf" font-family="Inter,system-ui,sans-serif" font-size="20" font-weight="600">witnessbc.com</text>
+</svg>

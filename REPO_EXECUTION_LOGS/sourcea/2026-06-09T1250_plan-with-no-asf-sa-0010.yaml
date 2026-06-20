@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0010 — Cross-check STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md vs /api/strategic-synthesis-v1
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0010
+tests:
+  status: passed
+  output_snippet: sa-0010 VERIFY closeout — strategic synthesis locked v2 matches hub API; validators green; verify-only
+reported_at: '2026-06-09T12:50:09Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

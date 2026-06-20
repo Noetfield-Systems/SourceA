@@ -1,0 +1,44 @@
+{
+  "schema": "trustfield-msb-compliance-sandbox-story-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T08:47:00Z",
+  "lane": "trustfield",
+  "kind": "sandbox",
+  "phase0_id": "P0-06",
+  "beats_ssot": "data/trustfield-commercial-film-beats-v1.json",
+  "script": "scripts/trustfield_msb_sandbox_story_v1.py",
+  "validator": "scripts/validate-trustfield-msb-sandbox-story-v1.sh",
+  "receipt": "~/.sina/trustfield-msb-sandbox-story-receipt-v1.json",
+  "one_sentence": "TrustField gives MSB operators a live compliance sandbox and RPAA Readiness Pilot — counsel-ready exports on web surfaces for teams on any stack.",
+  "msb_compliance": {
+    "headline": "MSB program proof before the auditor arrives",
+    "program_owner": "MLRO · compliance lead · regulated fintech operator",
+    "pain": "Spreadsheet programs collapse when registration and audit evidence are requested on short notice."
+  },
+  "live_sandbox_beat": {
+    "beat_id": "SANDBOX",
+    "label": "Live sandbox",
+    "title": "First instruction in seven days",
+    "capabilities": ["intake", "references", "operator workflows", "audit export"],
+    "live_sandbox": true,
+    "demo_url": "https://www.trustfield.ca/demo"
+  },
+  "rpaa_pilot_narrative": {
+    "beat_id": "PILOT",
+    "label": "Pilot offer",
+    "title": "RPAA Readiness Pilot",
+    "offer": "Checklist · sandbox · counsel-ready exports in weeks not quarters",
+    "pilot_url": "https://www.trustfield.ca/pilot",
+    "urgency_beat_id": "URGENCY"
+  },
+  "platform_neutral_copy": {
+    "surfaces": ["web", "mobile", "api"],
+    "upgrade_cta": "Book demo at trustfield.ca/demo — teams on any stack",
+    "forbidden_framing_absent": true
+  },
+  "attract_hooks": [
+    "Checklist · sandbox · counsel-ready exports in weeks",
+    "RPAA registration deadline pressure",
+    "Licensed partners move money — TrustField gives MLRO reviewable system"
+  ]
+}

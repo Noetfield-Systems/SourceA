@@ -1,0 +1,15 @@
+schema_version: 1
+repo: sourcea
+task: sa-0215 — Cross-check find_critical_bugs hub_health curl :13020
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0215
+  files_changed:
+    - scripts/find_critical_bugs.py
+tests:
+  status: passed
+  command: SINA_AUDIT_STRICT=1 build-sina-command-panel.py && find_critical_bugs.py
+  output_snippet: OK find_critical_bugs hub_health curl :13020 cross-check (sa-0215) · critical 0
+reported_at: '2026-06-07T01:45:00Z'
+reporter: cursor-worker

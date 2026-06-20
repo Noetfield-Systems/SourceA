@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0887",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "T3 auto-heal crossref PASS; anti-staleness heal stale\u2192fresh; validate-machine-hub-staleness-auto-heal-t3-crossref-v1; worker_verify_ultra+fast; pack 1000/1000",
+  "at": "2026-06-18T12:05:32Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

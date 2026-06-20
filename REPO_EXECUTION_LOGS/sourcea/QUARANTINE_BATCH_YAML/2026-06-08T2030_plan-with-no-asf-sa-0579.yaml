@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0579 — Document Wire G3 attest as founder/lane step in this_week
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0579
+tests:
+  status: passed
+  output_snippet: pack28 commercial verify-only; wire+runreceipt+dispatch PASS
+reported_at: '2026-06-08T20:30:52Z'
+reporter: cursor-worker-batch

@@ -1,0 +1,38 @@
+{
+  "schema": "factory-output-route-compiler-v1",
+  "version": "2.0.0",
+  "saved_at": "2026-06-18T23:00:00Z",
+  "name": "Output-driven loop compiler",
+  "vocabulary_ssot": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+  "active_brands_only": ["SourceA", "Noetfield", "TrustField"],
+  "philosophy": "Traceable intent → generate → validate reaction → store trace",
+  "loop_steps": [
+    "classify domain route — SourceA | Noetfield | TrustField ONLY",
+    "if route not in active three → DO NOT GENERATE",
+    "FDG failure moment",
+    "extract ONE tension · compose ICP body",
+    "validate icp_output_compiler + lane loops + RRL",
+    "Sina read — ship authority"
+  ],
+  "output_valid_only_if": [
+    "route is trustfield | noetfield | sourcea",
+    "exactly ONE primary tension",
+    "no architecture explanation",
+    "failure moment present",
+    "passes lane machine bars",
+    "sina_read_score_pct ≥ 90 for send"
+  ],
+  "routes_ssot": "data/factory-output-routes-v1.json",
+  "icp_compiler_ssot": "data/icp-output-compiler-v1.json",
+  "deprecated_aliases": { "forge_ssot": "icp_compiler_ssot" },
+  "fdg_ssot": "data/icp-failure-driven-generator-v1.json",
+  "lane_loops": {
+    "trustfield": ["icp_output_compiler_v1.py", "conversation_interest_loop_v1.py", "receiver_interest_loop_v1.py", "best_loop_oqg_score_v1.py"],
+    "noetfield": ["icp_output_compiler_v1.py", "conversation_interest_loop_v1.py", "receiver_interest_loop_v1.py", "best_loop_oqg_score_v1.py"],
+    "sourcea": ["best_loop_oqg_score_v1.py", "icp_output_compiler_v1.py"]
+  },
+  "advisor_critique": {
+    "label": "advisor_critique",
+    "ship_authority": false
+  }
+}

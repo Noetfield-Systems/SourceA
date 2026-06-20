@@ -1,0 +1,109 @@
+{
+  "schema": "sourcea-multi-factory-enterprise-tree-advisory-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T06:40:50Z",
+  "authority": "ASF chat consolidation — Gemini + GPT + Cursor marketplace thread",
+  "human_doc_target": "docs/SOURCEA_MULTI_FACTORY_ENTERPRISE_TREE_ADVISORY_LOCKED_v1.md",
+  "human_doc_note": "Worker lane cannot write docs/ — founder SAVE TO that path promotes this JSON to LOCKED md",
+  "title": "SourceA Multi-Factory Enterprise Tree — Advisory",
+  "partner_line": "We don't replace your MCP — we prove what your MCP did.",
+  "proof_layer_tagline": "The Proof Layer for AI Agents",
+  "sections": {
+    "cursor_marketplace_card1": {
+      "status": "disk_published_pending_npm_registry",
+      "bundle": "cursor-plugin/sourcea-forge-governance",
+      "category": "Agent Orchestration",
+      "components": "2 skills + 1 rule + MCP @sourcea/mcp-verify",
+      "mcp_tools": ["verify_run", "factory_status", "emit_receipt_readonly", "form_pick_parse"],
+      "artifacts": {
+        "plugin_tar": "data/publish-artifacts/sourcea-forge-governance-card1-20260619T063803Z.tar.gz",
+        "npm_pack": "data/publish-artifacts/sourcea-mcp-verify-1.0.0.tgz",
+        "receipt": "receipts/card-1-sourcea-forge-governance-publish-v1.json",
+        "listing_copy": "cursor-plugin/sourcea-forge-governance/MARKETPLACE_LISTING.md"
+      },
+      "founder_blockers": [
+        "npm login + npm publish --access public in packages/mcp-sourcea-verify",
+        "Cursor marketplace submit",
+        "registry.modelcontextprotocol.io metadata submit"
+      ],
+      "strategy": "Ship ONE card first — VIRLUX/Noetfield/TrustField internal; Canvas Phase 1.5"
+    },
+    "gemini_blueprint_mapping": {
+      "do_not_fork": true,
+      "gemini_proposed": "apps/video-ad-factory Bun monorepo + Supabase Edge + apple-store-api",
+      "sourcea_equivalent": {
+        "video_ad_factory_scaffold": "apps/video-ad-factory/ (README only — orchestration machine path scripts/video_ad_factory_orchestrate_v1.py)",
+        "elevenlabs_live": "scripts/film_elevenlabs_wire_v1.py",
+        "remotion": "commercial-video-factory/",
+        "film_routing_ssot": "data/commercial-film-routing-v1.json",
+        "zod_types": "shared/types/campaign-v1.ts",
+        "supabase_schema_ssot": "data/supabase-migration-001-campaign-automations-v1.sql",
+        "oegcc_hitl": "scripts/outbound_email_controller_v1.py + loop-validator PHASE_1B",
+        "billing": "data/fbe_billing_contract_v1.json + scripts/fbe_billing_meter_v1.py + scripts/fbe_billing_webhook_stub_v1.py",
+        "cost_intel": "data/factory-cost-intelligence-loop-v1.json (FC-001..100)",
+        "rendering_bridge": "scripts/video_ad_rendering_bridge_v1.py",
+        "architecture_ledger": "data/architecture-ledger-v1.json"
+      }
+    },
+    "recommended_build_order": [
+      {
+        "order": 1,
+        "name": "billing_entitlement_thin",
+        "why": "Cash path de-risks — Gemini correct on revenue plumbing first",
+        "paths": ["data/fbe_billing_contract_v1.json", "scripts/fbe_billing_webhook_stub_v1.py"]
+      },
+      {
+        "order": 2,
+        "name": "orchestration_thin",
+        "why": "Brief → script → HUMAN_APPROVAL_REQUIRED before Fal spend",
+        "paths": ["scripts/video_ad_factory_orchestrate_v1.py", "shared/types/campaign-v1.ts"]
+      },
+      {
+        "order": 3,
+        "name": "rendering_bridge",
+        "why": "Fal.ai vendor-swappable — only after tier gate",
+        "paths": ["scripts/video_ad_rendering_bridge_v1.py"]
+      },
+      {
+        "order": 4,
+        "name": "apple_storekit",
+        "why": "Only when iOS project + Supabase named in WORK",
+        "paths": ["apps/apple-store-api/"]
+      },
+      {
+        "order": 5,
+        "name": "analytics_phase3",
+        "why": "Extend factory_cost_intelligence when W6 fleet stable",
+        "paths": ["scripts/factory_cost_intelligence_v1.py"]
+      }
+    ],
+    "gemini_closing_answer": {
+      "question_fa": "rendering-bridge Fal.ai اول یا Apple Store webhooks؟",
+      "answer_en": "Neither first — billing spine → orchestration thin → rendering-bridge → StoreKit",
+      "answer_fa": "هیچ‌کدام اول — billing → orchestration → rendering-bridge → StoreKit"
+    },
+    "chat_remaining_executed_this_session": [
+      "Card 1 disk publish + MARKETPLACE_LISTING.md + npm pack",
+      "data/architecture-ledger-v1.json",
+      "data/supabase-migration-001-campaign-automations-v1.sql",
+      "scripts/video_ad_factory_orchestrate_v1.py",
+      "scripts/video_ad_rendering_bridge_v1.py",
+      "scripts/fbe_billing_webhook_stub_v1.py",
+      "scripts/validate-video-ad-factory-chain-v1.sh",
+      "data/chat-session-consolidation-receipt-v1.json"
+    ],
+    "chat_remaining_founder_only": [
+      "npm publish @sourcea/mcp-verify",
+      "w3_send_ready confirm-sent after Mail",
+      "OEGCC OpenRouter LLM hook in controller",
+      "Promote advisory JSON → docs/SOURCEA_MULTI_FACTORY_ENTERPRISE_TREE_ADVISORY_LOCKED_v1.md",
+      "Apply Supabase migration when project named",
+      "Copy apps/video-ad-factory TS from Gemini into apps/ when lane expanded"
+    ],
+    "governance_e2e_status": {
+      "hub_staleness_validators": "PASS (debug session)",
+      "commercial_l3": "75% — w3_send_ready founder confirm-sent red",
+      "factory_now": "queue sa-1200 · zero drift 100"
+    }
+  }
+}
