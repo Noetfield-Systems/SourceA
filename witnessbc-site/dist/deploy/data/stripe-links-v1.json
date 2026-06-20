@@ -1,0 +1,33 @@
+{
+  "schema": "witnessbc-stripe-links-v1",
+  "saved_at": "2026-06-19T19:45:11Z",
+  "account": "witness.bc@gmail.com",
+  "billing": {
+    "legal_display": "WitnessBC",
+    "statement_descriptor": "WITNESSBC",
+    "currency": "cad",
+    "checkout_provider": "stripe"
+  },
+  "law": "Matches witnessbc.com/toolkits stripeLinks map \u2014 paste live buy.stripe.com URLs in ~/.sina/witnessbc-stripe-links-v1.env",
+  "links": {
+    "sourcing": "https://buy.stripe.com/REPLACE_SOURCING_19",
+    "corrections": "https://buy.stripe.com/REPLACE_CORRECTIONS_9",
+    "privacy": "https://buy.stripe.com/REPLACE_PRIVACY_19",
+    "publicrec": "https://buy.stripe.com/REPLACE_PUBLICREC_29",
+    "storytemp": "https://buy.stripe.com/REPLACE_STORYTEMP_19",
+    "actionmap": "https://buy.stripe.com/REPLACE_ACTIONMAP_29",
+    "starter": "https://buy.stripe.com/REPLACE_STARTER_39",
+    "pro": "https://buy.stripe.com/REPLACE_PRO_99",
+    "team": "https://buy.stripe.com/REPLACE_TEAM_149",
+    "train_evidence101": "https://buy.stripe.com/REPLACE_TRAIN_EVIDENCE101",
+    "train_privacy": "https://buy.stripe.com/REPLACE_TRAIN_PRIVACY"
+  },
+  "pricing_cta": {
+    "pro_pdf": "pro",
+    "starter_bundle": "starter",
+    "team_bundle": "team"
+  },
+  "stripe_links_live": false,
+  "live_count": 0,
+  "total_count": 11
+}
