@@ -1,0 +1,176 @@
+{
+  "schema": "sourcea-factory-live-v1",
+  "at": "2026-06-18T00:04:50Z",
+  "account": "sourcea",
+  "console_url": "command.sourcea.com/team",
+  "factory_now_line": "factory-now \u00b7 Valid YES 999 \u00b7 brain 999 \u00b7 dual_proof True \u00b7 mode SINGLE_SA \u00b7 queue ",
+  "queue_sa": "",
+  "mode": "SINGLE_SA",
+  "pipeline": {
+    "schema": "commercial-pipeline-glance-v1",
+    "at": "2026-06-18T00:04:50Z",
+    "lanes": [
+      "AB1",
+      "NW1"
+    ],
+    "counts": {
+      "researched": 0,
+      "personalized_sent": 0,
+      "replied": 0,
+      "proof_viewed": 2,
+      "eval_scheduled": 1,
+      "pilot_deposit": 0,
+      "close": 0,
+      "lost": 0
+    },
+    "targets": {
+      "researched": 500,
+      "personalized_sent": 100,
+      "replied": 30,
+      "proof_viewed": 20,
+      "eval_scheduled": 10,
+      "pilot_deposit": 5,
+      "close": 1
+    },
+    "active_conversations": 3,
+    "headline": "0 sent \u00b7 3 active \u00b7 0 close \u2014 optimize pipeline state",
+    "founder_line": "Pipeline \u00b7 0 personalized \u00b7 1 eval \u00b7 0 pilot",
+    "top_next": [
+      {
+        "id": "cp-32ddb1794d",
+        "company": "AB1 prospect (draft)",
+        "lane": "AB1",
+        "status": "proof_viewed",
+        "next_action": "Book 15 min eval \u00b7 eval booking agent",
+        "proof_url": "https://sourcea-landing.vercel.app/sourcea/proof/live.html",
+        "next_agent": "eval_booking_agent"
+      },
+      {
+        "id": "cp-a0c7c6c607",
+        "company": "AEG proof prospect (draft)",
+        "lane": "AB1",
+        "status": "eval_scheduled",
+        "next_action": "Await prospect slot \u00b7 prep BLOCK live screen-share",
+        "proof_url": "https://sourcea-landing.vercel.app/sourcea/proof/live.html",
+        "next_agent": "await_prospect_slot",
+        "proof_label": "Live forensic proof"
+      },
+      {
+        "id": "cp-0b9b8c4eff",
+        "company": "NW1 design partner (draft)",
+        "lane": "NW1",
+        "status": "proof_viewed",
+        "next_action": "Book 15 min eval \u00b7 eval booking agent",
+        "proof_url": "https://needle-celtic-effectiveness-cheapest.trycloudflare.com/aeg-20260615T174938Z-65bffb9f/",
+        "next_agent": "eval_booking_agent"
+      }
+    ],
+    "rows_total": 3
+  },
+  "boot": {
+    "verdict": "BLOCK",
+    "ok": false,
+    "checks": [
+      {
+        "id": "C1",
+        "name": "policy_version",
+        "ok": true,
+        "reason": "SSOT v3.2 current",
+        "mode": "sourcea_factory",
+        "version": "3.2",
+        "briefing_path": "/Users/sinakazemnezhad/.sina/agent-briefing/AGENT-AUTO-MONO-latest.json"
+      },
+      {
+        "id": "C2",
+        "name": "provider",
+        "ok": true,
+        "reason": "voyage semantic active",
+        "mode": "sourcea_factory"
+      },
+      {
+        "id": "C3",
+        "name": "receipt_fresh",
+        "ok": true,
+        "reason": "receipt fresh (0.3h)",
+        "receipt_path": "/Users/sinakazemnezhad/.sina/agent_session_gate_receipt_v1.json"
+      },
+      {
+        "id": "C4",
+        "name": "queue_truth",
+        "ok": false,
+        "reason": "run-inbox truth_match=false",
+        "mode": "sourcea_factory",
+        "inbox": {
+          "pending": false,
+          "sa_id": null,
+          "delivered_at": null,
+          "truth_match": false
+        }
+      }
+    ],
+    "pass_count": 3,
+    "block_count": 1
+  },
+  "metrics": {
+    "active": 3,
+    "proof_viewed": 2,
+    "eval_scheduled": 1,
+    "sent": 0
+  },
+  "aeg": {
+    "schema": "sourcea-aeg-live-v1",
+    "at": "2026-06-17T23:57:39Z",
+    "evidence_id": "aeg-20260617T235711Z-860f2f9e",
+    "verdict": "BLOCK",
+    "blockers": [
+      "run-inbox truth_match=false \u2014 queue/inbox mismatch"
+    ],
+    "terminal_transcript": "$ python3 ~/Desktop/SourceA/scripts/critic_boot_v1.py --json --no-aeg\n\nCRITIC_BOOT BLOCK ok=False\nRECEIPT=~/.sina/critic-boot-v1.json\n\n  [PASS] ssot_brief: SSOT v3.1 brief current\n  [PASS] voyage_provider: voyage\n  [FAIL] truth_match: run-inbox truth_match=false \u2014 queue/inbox mismatch\n  [PASS] gate_fresh: session gate completing\n\nblockers:\n  - run-inbox truth_match=false \u2014 queue/inbox mismatch",
+    "checks": [
+      {
+        "id": "C1",
+        "name": "policy_version",
+        "ok": true,
+        "reason": "SSOT v3.2 current",
+        "mode": "sourcea_factory",
+        "version": "3.2",
+        "briefing_path": "/Users/sinakazemnezhad/.sina/agent-briefing/AGENT-AUTO-MONO-latest.json"
+      },
+      {
+        "id": "C2",
+        "name": "provider",
+        "ok": true,
+        "reason": "voyage semantic active",
+        "mode": "sourcea_factory"
+      },
+      {
+        "id": "C3",
+        "name": "receipt_fresh",
+        "ok": true,
+        "reason": "receipt fresh (0.1h)",
+        "receipt_path": "/Users/sinakazemnezhad/.sina/agent_session_gate_receipt_v1.json"
+      },
+      {
+        "id": "C4",
+        "name": "queue_truth",
+        "ok": false,
+        "reason": "run-inbox truth_match=false",
+        "mode": "sourcea_factory",
+        "inbox": {
+          "pending": false,
+          "sa_id": null,
+          "delivered_at": null,
+          "truth_match": false
+        }
+      }
+    ],
+    "boot_verdict": "BLOCK",
+    "site_proof_url": "https://sourcea-landing.vercel.app/sourcea/proof/live.html",
+    "forensic_archive_url": "https://locally-projected-shade-projection.trycloudflare.com/aeg-20260617T235711Z-860f2f9e/",
+    "hosted_at": "2026-06-17T23:57:11Z",
+    "disclaimer": "Live inject from factory disk \u00b7 same schema as weekly export bundle"
+  },
+  "valid_yes": 999,
+  "valid_yes_total": 1000,
+  "aeg_live_url": "https://sourcea-landing.vercel.app/sourcea/proof/live.html"
+}

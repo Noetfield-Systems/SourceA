@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Scenario | SourceA</title>
+  <meta name="description" content="Watch Brain, Worker, Broker and the full governance council in a live factory scenario — policy before write, receipts on disk." />
+  <meta name="theme-color" content="#044441" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="/assets/agentrun.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea.css" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body class="ar-body sa-v2 sa-agentic" data-sa-page="scenario">
+
+<div class="ar-scroll-progress" aria-hidden="true"><div class="ar-scroll-progress-bar"></div></div>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="ar-nav-backdrop" aria-hidden="true"></div>
+
+<header class="ar-header sa-header">
+  <div class="ar-container ar-header-shell">
+    <div class="ar-header-inner">
+      <a class="ar-logo" href="/sourcea/" aria-label="SourceA home">
+        <span class="ar-logo-text">Source<span class="ar-logo-run sa-logo-run">A</span></span>
+      </a>
+      <nav class="ar-nav" id="ar-nav" aria-label="Primary">
+        <a href="/sourcea/" data-sa-nav>Home</a>
+        <a href="/sourcea/platform.html" data-sa-nav>Platform</a>
+        <a href="/sourcea/team.html" data-sa-nav>Team</a>
+        <a href="/sourcea/growth.html" data-sa-nav>Growth</a>
+        <a href="/sourcea/scenario.html" data-sa-nav>Scenario</a>
+        <a href="/sourcea/proof.html" data-sa-nav>Proof chain</a>
+        <a href="/sourcea/compare.html" data-sa-nav>Compare</a>
+        <a href="/sourcea/pricing.html" data-sa-nav>Pricing</a>
+        <a class="ar-btn ar-btn-primary ar-btn-sm ar-nav-cta-mobile sa-btn-glow" href="mailto:hello@sourcea.com">Book proof demo</a>
+      </nav>
+      <button type="button" class="ar-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="ar-nav">
+        <span class="ar-nav-toggle-bar"></span>
+        <span class="ar-nav-toggle-bar"></span>
+        <span class="ar-nav-toggle-bar"></span>
+      </button>
+      <a class="ar-btn ar-btn-primary ar-btn-sm sa-btn-glow ar-header-cta" href="mailto:hello@sourcea.com">Book proof demo</a>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="ar-section ar-page-hero sa-sub-hero ar-reveal">
+    <div class="ar-container">
+      <nav class="ar-breadcrumb" aria-label="Breadcrumb">
+        <a href="/sourcea/">Home</a><span class="ar-breadcrumb-sep">/</span><span>Scenario</span>
+      </nav>
+      <p class="ar-kicker">Interactive sample · sandbox factory</p>
+      <h1>Watch your team <span class="ar-hero-accent">talk before anything writes.</span></h1>
+      <p class="ar-lead">This is a live sample of a governed turn — not a deck. Context arrives, your worker proposes, policy answers in order — and only then does disk change. Press play on the circle and follow the story.</p>
+    </div>
+  </section>
+
+  <section class="ar-section ar-section-muted sa-sandbox ar-reveal">
+    <div class="ar-container">
+      <div class="sa-sb-stage" id="sa-sandbox">
+        <div class="sa-sb-glow" aria-hidden="true"></div>
+        <svg class="sa-sb-svg" viewBox="0 0 420 420" aria-hidden="true">
+          <defs>
+            <linearGradient id="sa-sb-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#69d419" stop-opacity="0.5"/>
+              <stop offset="50%" stop-color="#044441" stop-opacity="0.2"/>
+              <stop offset="100%" stop-color="#9ae761" stop-opacity="0.45"/>
+            </linearGradient>
+          </defs>
+          <circle class="sa-sb-orbit" cx="210" cy="210" r="155" fill="none"/>
+          <circle class="sa-sb-orbit sa-sb-orbit-inner" cx="210" cy="210" r="118" fill="none"/>
+          <path class="sa-sb-pulse-arc" id="sa-sb-pulse-arc" d="" fill="none"/>
+        </svg>
+        <div class="sa-sb-hub" aria-hidden="true">
+          <span class="sa-sb-hub-ring"></span>
+          <span class="sa-sb-hub-core">YOU</span>
+          <span class="sa-sb-hub-label">Command</span>
+        </div>
+        <div class="sa-sb-agents" role="group" aria-label="Agent council">
+          <article class="sa-sb-agent sa-sb-agent-lead" data-agent="brain" data-angle="-90" style="--sa-angle:-90deg">
+            <div class="sa-sb-node"><span class="sa-sb-glyph">B</span><span class="sa-sb-pulse-ring"></span></div>
+            <span class="sa-sb-role">Brain</span>
+            <div class="sa-sb-bubble"><p></p></div>
+          </article>
+          <article class="sa-sb-agent sa-sb-agent-lead" data-agent="worker" data-angle="-45" style="--sa-angle:-45deg">
+            <div class="sa-sb-node"><span class="sa-sb-glyph">W</span><span class="sa-sb-pulse-ring"></span></div>
+            <span class="sa-sb-role">Worker</span>
+            <div class="sa-sb-bubble"><p></p></div>
+          </article>
+          <article class="sa-sb-agent sa-sb-agent-lead" data-agent="broker" data-angle="0" style="--sa-angle:0deg">
+            <div class="sa-sb-node"><span class="sa-sb-glyph">Br</span><span class="sa-sb-pulse-ring"></span></div>
+            <span class="sa-sb-role">Broker</span>
+            <div class="sa-sb-bubble"><p></p></div>
+          </article>
+          <article class="sa-sb-agent" data-agent="gate" data-angle="45" style="--sa-angle:45deg">
+            <div class="sa-sb-node"><span class="sa-sb-glyph">G</span><span class="sa-sb-pulse-ring"></span></div>
+            <span class="sa-sb-role">Gate</span>
+            <div class="sa-sb-bubble"><p></p></div>
+          </article>
+          <article class="sa-sb-agent" data-agent="critic" data-angle="90" style="--sa-angle:90deg">
+            <div class="sa-sb-node"><span class="sa-sb-glyph">C</span><span class="sa-sb-pulse-ring"></span></div>
+            <span class="sa-sb-role">Critic</span>
+            <div class="sa-sb-bubble"><p></p></div>
+          </article>
+          <article class="sa-sb-agent" data-agent="factory" data-angle="135" style="--sa-angle:135deg">
+            <div class="sa-sb-node"><span class="sa-sb-glyph">F</span><span class="sa-sb-pulse-ring"></span></div>
+            <span class="sa-sb-role">Factory</span>
+            <div class="sa-sb-bubble"><p></p></div>
+          </article>
+          <article class="sa-sb-agent" data-agent="receipt" data-angle="180" style="--sa-angle:180deg">
+            <div class="sa-sb-node"><span class="sa-sb-glyph">R</span><span class="sa-sb-pulse-ring"></span></div>
+            <span class="sa-sb-role">Receipt</span>
+            <div class="sa-sb-bubble"><p></p></div>
+          </article>
+          <article class="sa-sb-agent" data-agent="spine" data-angle="225" style="--sa-angle:225deg">
+            <div class="sa-sb-node"><span class="sa-sb-glyph">S</span><span class="sa-sb-pulse-ring"></span></div>
+            <span class="sa-sb-role">Spine</span>
+            <div class="sa-sb-bubble"><p></p></div>
+          </article>
+        </div>
+        <div class="sa-sb-story">
+          <div class="sa-sb-story-meta">
+            <span class="sa-sb-act" id="sa-sb-act">Turn 01</span>
+            <span class="sa-sb-verdict" id="sa-sb-verdict">· LIVE</span>
+          </div>
+          <p class="sa-sb-narrator" id="sa-sb-narrator">2:14am — the orchestrator wakes the council. Your policy speaks before your models do.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proof-quiz" class="ar-section ar-reveal sa-proof-quiz">
+    <div class="ar-container">
+      <div class="ar-section-head ar-section-head-center">
+        <p class="ar-kicker">Governance Gauntlet</p>
+        <h2>Funny agentic scenarios. <span class="ar-hero-accent">Real ALLOW · BLOCK · tamper-FAIL.</span></h2>
+        <p class="ar-section-copy">Your agents at 2am — pick what policy should do. Same beats we screen-share on proof calls.</p>
+      </div>
+      <div class="sa-quiz-shell" id="sa-proof-quiz">
+        <div class="sa-quiz-progress"><span id="sa-quiz-step">Round 1/5</span><span id="sa-quiz-score">Score: 0</span></div>
+        <article class="sa-quiz-card is-active" id="sa-quiz-card">
+          <p class="sa-quiz-agent" id="sa-quiz-agent">◎ Brain whispers…</p>
+          <h3 id="sa-quiz-prompt">Loading scenario…</h3>
+          <div class="sa-quiz-options" id="sa-quiz-options" role="group" aria-label="Verdict choices"></div>
+          <p class="sa-quiz-feedback" id="sa-quiz-feedback" hidden></p>
+          <button type="button" class="ar-btn ar-btn-primary sa-btn-glow" id="sa-quiz-next" hidden>Next scenario →</button>
+        </article>
+        <aside class="sa-quiz-proof-panel" id="sa-quiz-proof-panel" aria-live="polite">
+          <h4>Live factory proof</h4>
+          <p class="sa-quiz-proof-verdict" id="sa-quiz-live-verdict">Loading boot…</p>
+          <ul class="sa-quiz-proof-checks" id="sa-quiz-live-checks"></ul>
+          <p class="sa-metric-note">From real <code>sourcea-boot --json</code> on deploy</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="ar-section ar-reveal">
+    <div class="ar-container ar-content-layout">
+      <div class="ar-prose">
+        <h2>Screen-share script for agencies</h2>
+        <p>Use this 15-minute flow on your next discovery call — open the console, run BLOCK live, attach the weekly export.</p>
+        <ol class="sa-screen-share-script">
+          <li><strong>Open the pipeline console</strong> — show live outreach, demos booked, and open pipeline. Your client sees activity, not slides.</li>
+          <li><strong>Run the BLOCK demo</strong> — ops-monitor stops a rogue write cold. Point to the signed receipt on disk. Security-minded buyers nod here.</li>
+          <li><strong>Attach the weekly export</strong> — HTML or PDF bundle with what ran, what blocked, replay link. That is the handoff artifact that closes deposits.</li>
+        </ol>
+        <h2>What you are watching</h2>
+        <p>Each beat is a pattern your buyer cares about: evidence before execution, context before paste, verdict before write. The council is not theater — it is how we run governed loops every night.</p>
+        <p>When you screen-share this, you are showing <em>what executed last night</em> — the question that closes deals.</p>
+      </div>
+      <aside>
+        <div class="ar-aside-card is-highlight">
+          <h3>Your proof call</h3>
+          <p>Walk the six-step chain with terminal replay — the same demo we give buyers.</p>
+          <a class="ar-btn ar-btn-primary ar-btn-sm" href="/sourcea/proof.html">Proof chain →</a>
+        </div>
+        <div class="ar-aside-card">
+          <h3>Loop stories</h3>
+          <p><a href="/sourcea/loops/outreach.html">Outreach</a> · <a href="/sourcea/loops/ops-monitor.html">Ops monitor</a> · <a href="/sourcea/loops/research.html">Research</a></p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="ar-section ar-section-muted ar-reveal sa-explore">
+    <div class="ar-container">
+      <div class="ar-section-head ar-section-head-center">
+        <p class="ar-kicker">Go deeper</p>
+        <h2>Every story. <span class="ar-hero-accent">Its own chapter.</span></h2>
+      </div>
+      <div class="sa-explore-grid">
+        <a class="sa-explore-card" href="/sourcea/team.html"><span class="sa-explore-num">01</span><strong>Your team</strong><span>6 agents orbiting your command center</span></a>
+        <a class="sa-explore-card" href="/sourcea/#reference"><span class="sa-explore-num">02</span><strong>Reference</strong><span>Why buyers name SourceA first</span></a>
+        <a class="sa-explore-card" href="/sourcea/platform.html"><span class="sa-explore-num">03</span><strong>Platform</strong><span>Why the audit trail breaks today</span></a>
+        <a class="sa-explore-card" href="/sourcea/growth.html"><span class="sa-explore-num">04</span><strong>Growth system</strong><span>Attract → prove → close → expand</span></a>
+        <a class="sa-explore-card" href="/sourcea/scenario.html"><span class="sa-explore-num">05</span><strong>Scenario</strong><span>Watch a governed night unfold</span></a>
+        <a class="sa-explore-card" href="/sourcea/proof.html"><span class="sa-explore-num">06</span><strong>Proof chain</strong><span>What you screen-share in five minutes</span></a>
+        <a class="sa-explore-card" href="/sourcea/compare.html"><span class="sa-explore-num">07</span><strong>Compare</strong><span>How alternatives stack up</span></a>
+        <a class="sa-explore-card" href="/sourcea/pricing.html"><span class="sa-explore-num">08</span><strong>Pricing</strong><span>Plans without hourly surprise</span></a>
+        <a class="sa-explore-card" href="/sourcea/loops/index.html"><span class="sa-explore-num">09</span><strong>All loops</strong><span>Outreach · ops · research hub</span></a>
+        <a class="sa-explore-card" href="/sourcea/loops/outreach.html"><span class="sa-explore-num">10</span><strong>Outreach loop</strong><span>Governed sends that pass on disk</span></a>
+        <a class="sa-explore-card" href="/sourcea/loops/ops-monitor.html"><span class="sa-explore-num">11</span><strong>Ops monitor</strong><span>When policy says no</span></a>
+        <a class="sa-explore-card" href="/sourcea/loops/research.html"><span class="sa-explore-num">12</span><strong>Research</strong><span>Bounded gather with a receipt</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sa-cta-band ar-reveal">
+    <div class="ar-container sa-cta-inner">
+      <h2>See the proof chain behind the council</h2>
+      <p>Six steps · terminal replay · under five minutes on screen-share.</p>
+      <div class="sa-cta-actions">
+        <a class="ar-btn ar-btn-primary sa-btn-glow" href="/sourcea/proof.html">Proof chain →</a>
+        <a class="ar-btn ar-btn-ghost" href="mailto:hello@sourcea.com">Book live demo</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ar-site-footer sa-footer-rich">
+  <div class="ar-container sa-footer-grid">
+    <div class="sa-footer-brand">
+      <strong class="sa-footer-logo">Source<span>A</span></strong>
+      <p>Execution Proof Infrastructure — governed agentic team for platform engineers and revenue agencies.</p>
+      <p class="sa-footer-meta">Self-hosted receipts · replay without vendor lock-in</p>
+    </div>
+    <nav class="sa-footer-col" aria-label="Product pages">
+      <h4>Product</h4>
+      <a href="/sourcea/platform.html">Platform</a>
+      <a href="/sourcea/team.html">Your team</a>
+      <a href="/sourcea/growth.html">Growth system</a>
+      <a href="/sourcea/scenario.html">Scenario</a>
+      <a href="/sourcea/proof.html">Proof chain</a>
+      <a href="/sourcea/compare.html">Compare</a>
+      <a href="/sourcea/pricing.html">Pricing</a>
+    </nav>
+    <nav class="sa-footer-col" aria-label="Factory loops">
+      <h4>Loops</h4>
+      <a href="/sourcea/loops/index.html">All loops</a>
+      <a href="/sourcea/loops/outreach.html">Outreach</a>
+      <a href="/sourcea/loops/ops-monitor.html">Ops monitor</a>
+      <a href="/sourcea/loops/research.html">Research</a>
+    </nav>
+    <nav class="sa-footer-col" aria-label="Contact">
+      <h4>Contact</h4>
+      <a href="mailto:hello@sourcea.com">hello@sourcea.com</a>
+      <a href="https://github.com/sourcea-io/sourcea-boot">sourcea-boot</a>
+      <a href="https://sourcea.com">sourcea.com</a>
+    </nav>
+  </div>
+  <div class="ar-container sa-footer-bottom"><p>© SourceA 2026 · Execution Proof Infrastructure</p></div>
+</footer>
+
+<script src="/assets/agentrun.js" defer></script>
+<script src="/sourcea/sourcea-motion.js" defer></script>
+<script src="/sourcea/sourcea-chatbot.js" defer></script>
+</body>
+</html>
