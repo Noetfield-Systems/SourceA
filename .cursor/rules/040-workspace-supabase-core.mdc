@@ -1,0 +1,42 @@
+---
+description: Supabase tier constitution — portfolio spine vs labs sandbox (ASF Virlux→Labs)
+alwaysApply: true
+---
+
+# Workspace Supabase core
+
+**Machine SSOT:** `data/supabase-portfolio-tiers-v1.json` · **Human:** `infra/README.md`
+
+## ASF locked decision
+
+**Virlux is Labs Sandbox only** — not Portfolio Spine, not a third production project, until ASF publishes a promotion ADR.
+
+## Two projects
+
+| Project | Tier | Modules |
+|---------|------|---------|
+| `portfolio-spine` | Production | noetfield · trustfield · witnessbc · foundation |
+| `labs-sandbox` | Disposable | **virlux** · labs/* · research · experiments |
+
+## Structural boundaries (enforcement > rules)
+
+1. **No cross-project Postgres JOINs** — integration is async (signed webhook, event row, status token).
+2. **Secrets outside workspace** — `~/.sourcea-secrets/*.env` only. Never create `infra/secrets/*.env` with real keys.
+3. **Agent DB keys** — labs-sandbox only. Portfolio Spine service role is CI / founder scripts, not agent `.env` in repo.
+4. **Doctrine:** Noetfield Talks · Trustfield Acts · Blockfield Settles — Virlux experiments do not bleed into spine schemas.
+
+## Pending founder confirm
+
+**Assumption:** Noetfield/TrustField do **not** need live reads of Virlux transactional tables — receipts/events only. If false, design an explicit integration contract; do not merge projects.
+
+## Before infra or migration edits
+
+1. Read `data/supabase-portfolio-tiers-v1.json`
+2. Confirm target project (`portfolio-spine` vs `labs-sandbox`)
+3. Run session gate if touching production spine paths
+
+## Related rules
+
+- `041-workspace-supabase-database.mdc` — auto-attaches on SQL/migration paths
+- `024-cursor-enterprise-bootstrap.mdc` — factory isolation
+- `000-cross-lane-edit-forbidden.mdc` — cross-lane edits
