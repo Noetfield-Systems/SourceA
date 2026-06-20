@@ -10,13 +10,15 @@ alwaysApply: false
 
 **Brain is the L1 hub.** Pipeline **v2** syncs L0–L3 stack · health · cross-ref · self-heal.
 
-## Every session + every turn
+## Session start only (not every founder reply)
 
 ```bash
 python3 scripts/agentic_layer_pipeline_v2.py --json --tier fast
 ```
 
-Full sync + validate:
+Read `~/.sina/agentic-layer-pipeline-v2.json` each turn if needed — **do not re-run** full pipeline + validate stack mid-turn on Mac (INCIDENT-039).
+
+Full sync + validate (**maintainer / cloud CI only**):
 
 ```bash
 python3 scripts/agentic_layer_pipeline_v2.py --json

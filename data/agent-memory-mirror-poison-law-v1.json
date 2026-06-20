@@ -1,0 +1,38 @@
+{
+  "schema": "agent-memory-mirror-poison-law-v1",
+  "version": "2.0.0",
+  "saved_at": "2026-06-20T20:30:00Z",
+  "registry": "data/agent-law-poison-registry-v1.json",
+  "locked": true,
+  "incidents": ["INCIDENT-034", "INCIDENT-039", "INCIDENT-040"],
+  "scrub_script": "scripts/agent_mirror_poison_scrub_v1.py --all",
+  "validate_script": "scripts/validate-agent-law-poison-free-v1.sh",
+  "one_law": "Mirror injects positive read paths and reply shape — NEVER orders validator marathons before founder chat.",
+  "intent": "Agents read disk receipts and answer in plain English. Validators run in cloud CI or ASF ship window — not as mandatory agent pre-reply conduct.",
+  "paradox_poison_forbidden": [
+    "validate-law-supersession-surfaces-v1.sh before every reply",
+    "Seven surfaces validate then sync mirror then reply",
+    "W1-W10 check cart before saying done in chat",
+    "run all validators to confirm",
+    "mirror mandates bash validate while another rule forbids validator stuck"
+  ],
+  "mirror_must_inject": [
+    "read_receipt_paths",
+    "factory_now_line_from_surfaces_or_receipt",
+    "mac_law_control_only",
+    "reply_under_30s_then_stop",
+    "cloud_executes_factory_body"
+  ],
+  "mirror_must_not_inject": [
+    "bash validate-* before reply",
+    "validator marathon as session closeout",
+    "prohibition tables without positive path",
+    "run check cart W1-W10 before chat reply"
+  ],
+  "supersession_validators_route": "cloud_ci_or_asf_ship_window_only",
+  "enforcement_doc": "brain-os/law/enforcement/AGENT_MEMORY_MIRROR_ENFORCEMENT_LOCKED_v1.md",
+  "rule": ".cursor/rules/agent-memory-mirror.mdc",
+  "scrub_script": "scripts/agent_mirror_poison_scrub_v1.py --all",
+  "validate_script": "scripts/validate-agent-law-poison-free-v1.sh",
+  "permanent_fix": "Run scrub --all on law ship · read receipts on Mac founder session · never bash validate before reply"
+}

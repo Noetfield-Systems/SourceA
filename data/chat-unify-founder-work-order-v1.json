@@ -1,0 +1,41 @@
+{
+  "schema": "chat-unify-founder-work-order-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-20T07:15:00Z",
+  "locked": true,
+  "law_doc": "docs/SOURCEA_PRODUCTION_HARNESS_LOOP_UPGRADE_LOCKED_v1.md",
+  "fbe_compatible_schema": "fbe-work-order-v1",
+  "receipt_path": "~/.sina/chat-unify-founder-work-order-v1.json",
+  "loop_receipt_path": "~/.sina/chat-unify-founder-loop-v1.json",
+  "producer_script": "scripts/chat_founder_loop_v1.py",
+  "dispatch_hint": "POST /api/cloud-worker/dispatch/v1",
+  "deprecation_ref": "data/local-worker-cloud-factory-deprecation-v1.json",
+  "required_fields": [
+    "schema",
+    "id",
+    "fbe_schema",
+    "status",
+    "bounded_action",
+    "founder_decision",
+    "execution_plane",
+    "control_plane",
+    "owner_role",
+    "proof",
+    "created_at"
+  ],
+  "status_values": ["proposed", "signed", "dispatched", "closed", "rejected"],
+  "defaults": {
+    "template_id": "founder-loop-close-v1",
+    "origin": "chat_unify_founder_loop",
+    "execution_plane": "cloud_api_worker",
+    "control_plane": "mac_hub",
+    "owner_role": "brain",
+    "brand": "local-brand",
+    "tenant": "wil_ai_design_partner",
+    "target_tier": "MARKET_READY"
+  },
+  "proof_keys": {
+    "eval_1b": "~/.sina/eval_packet_v1b_report.json",
+    "disk": "manifest · factory_now · drift from live surfaces"
+  }
+}

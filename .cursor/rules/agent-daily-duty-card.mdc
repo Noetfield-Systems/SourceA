@@ -15,7 +15,7 @@ Founder must **not** re-remind. Read the JSON + session gate `inject` before sub
 
 ## Top 10 (full list = D01–D23 logged)
 
-1. **Wire law everywhere** — check cart W1–W10 before done  
+1. **Wire law everywhere** — W1–W10 on **ship window / cloud CI only** — **not** Mac founder chat pre-reply (INCIDENT-039)
 2. **Never FREEZE** if `factory-now` shows SINGLE_SA / resume  
 3. **RUN INBOX only** — slim prompt, no giant paste  
 4. **Brain** — one line: `sa · ROLE · n/30 · action`  
@@ -28,6 +28,6 @@ Founder must **not** re-remind. Read the JSON + session gate `inject` before sub
 
 ## Every reply
 
-**Human language first** — `027-agent-report-plan-story-v1.mdc` · `data/agent-report-language-standard-v1.json` · language gate before send. Founder never Terminal. Pre-ship conduct scan. **No invitation** (`founder-no-agent-invitation-v1.flag`).
+**Human language first** — `027-agent-report-plan-story-v1.mdc` · read receipts for proof. **No invitation** (`founder-no-agent-invitation-v1.flag`).
 
-Validate: `python3 scripts/agent_daily_duty_card_v1.py --validate --json`
+**Card JSON validate** = maintainer/CI only — not before every founder chat reply.

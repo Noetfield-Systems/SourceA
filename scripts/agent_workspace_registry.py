@@ -78,7 +78,7 @@ AGENT_WORKSPACES: list[dict] = [
             "Tailscale / relay proofs via executor or future Actions buttons",
             "Factory thread support for P0 RunReceipt wire stubs",
         ],
-        "artifacts": ["prompts/", "WIRE_LANE_PROGRESS.md", "scripts/evidence/"],
+        "artifacts": ["prompts/", "brain-os/law/WIRE_LANE_PROGRESS.md", "scripts/evidence/"],
         "governance_focus": "Wire proof artifacts; executor runs shell",
     },
     {

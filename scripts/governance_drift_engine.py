@@ -14,7 +14,7 @@ SCRIPTS = SOURCE_A / "scripts"
 SINA_HOME = Path.home() / ".sina"
 REPORT_PATH = SINA_HOME / "governance_drift_report_v1.json"
 EVENTS_PATH = SINA_HOME / "agent-governance-events.jsonl"
-LAW_DOC = "GOVERNANCE_DRIFT_ENGINE_LOCKED_v1.md"
+LAW_DOC = "brain-os/law/GOVERNANCE_DRIFT_ENGINE_LOCKED_v1.md"
 HUB_PORT = 13020
 
 

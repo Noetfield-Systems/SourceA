@@ -506,10 +506,22 @@ def wire_sync(*, skip_heavy: bool = False, role: str = "worker") -> dict:
     steps.append({"step": "founder_execution_model_wire_sync", "ok": code == 0, "exit": code})
 
     code, _out = _run(
-        [PY, str(SCRIPTS / "mac_law_mandatory_v1.py"), "--sync-receipt", "--enforce", "--json"],
-        timeout=60,
+        [PY, str(SCRIPTS / "mac_law_mandatory_v1.py"), "--sync-receipt", "--json"],
+        timeout=30,
     )
     steps.append({"step": "mac_law_mandatory_sync", "ok": code == 0, "exit": code})
+
+    code, _out = _run(
+        [PY, str(SCRIPTS / "mac_law_universal_wire_v1.py"), "--sync-receipt", "--json"],
+        timeout=20,
+    )
+    steps.append({"step": "mac_law_universal_wire_sync", "ok": code == 0, "exit": code})
+
+    code, _out = _run(
+        [PY, str(SCRIPTS / "mac_law_agent_execution_plane_lock_v1.py"), "--sync-receipt", "--json"],
+        timeout=20,
+    )
+    steps.append({"step": "mac_law_agent_execution_plane_lock_sync", "ok": code == 0, "exit": code})
 
     disk_row = upgrade_disk(role=role)
     steps.append({"step": "upgrade_disk", "ok": disk_row.get("ok"), "factory_now_line": (disk_row.get("factory_now_line") or "")[:72]})

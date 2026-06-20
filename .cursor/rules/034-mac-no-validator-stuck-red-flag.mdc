@@ -1,0 +1,35 @@
+---
+description: INCIDENT-039 RED FLAG — never stuck in validators on Mac founder session
+alwaysApply: true
+---
+
+# Mac — NO validator stuck (INCIDENT-039 · P0 RED FLAG)
+
+**Law:** `brain-os/incidents/SINA_MAC_FOUNDER_SESSION_VALIDATOR_STUCK_INCIDENT_039_LOCKED_v1.md`  
+**SSOT:** `data/mac-validator-stuck-red-flag-v1.json`  
+**Related:** INCIDENT-026 · `031-mac-law-machine-enforceable-v1.mdc` · `028-mac-light-control-plane-v1.mdc`
+
+## Hard rule (ASF locked)
+
+> **You are NEVER allowed to get stuck in validators on Mac during a founder session. Eleven minutes is harmful Mac body action — P0 RED FLAG.**
+
+## Every agent turn on Mac
+
+1. **Reply founder in <30s** — plain English + disk path — then **STOP**
+2. **Max ONE** light shell **≤90s** — abort if no useful output in 30s
+3. **Proof = read receipts** (`~/.sina/*-receipt*.json`) — NOT validator marathon
+4. **Never** chain `validate-* && validate-*`
+5. **Never** `Await` validators across turns until green
+6. **Never** medium/heavy tier from `mac-pipeline-validator-pressure-registry-v1.json` during founder session
+
+## Forbidden (instant fail)
+
+- “Run all validators to confirm”
+- Regenerate JSON + validate loop to prove a chat answer
+- 11+ minutes in bash/python validate trees on Mac body
+
+## If caught stuck
+
+**Stop shell immediately** → one-sentence reply → cite receipt → **do not resume chain**
+
+**No verify script on Mac founder session** — law lives logged paths above; proof = Read tool on JSON/MD only.

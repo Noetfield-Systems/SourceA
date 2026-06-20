@@ -24,14 +24,21 @@ alwaysApply: true
 ## Agent MUST NOT on Mac body
 
 - Run or suggest `validate-*-e2e*` · `fbe_motor_delegate` · `anti_staleness_auto_wire` stacks
+- **Get stuck in validators** — INCIDENT-039 P0 RED FLAG · 11+ min harmful · reply <30s · one light check ≤90s
 - Run local `cloud_comprehension_pipeline_loop` as primary — use **cloud comprehension bay**
 - Tell founder to run disk sync validator chains (`FIX_DISK` theater)
 - `pkill screencapture` · re-enable visual proof · bootstrap autorun/panic apps
 
-## Verify
+## Proof on Mac (founder session)
 
-```bash
-bash scripts/validate-mac-law-machine-enforceable-v1.sh
-```
+Read `~/.sina/mac-law-machine-enforce-receipt-v1.json` · quote `line` · `ok` must be true.
+
+Optional light assess (≤90s, one process): `python3 scripts/mac_law_validator_light_assess_v1.py --module machine --json`
+
+**No** `bash validate-mac-law-*` chains on Mac during founder session (INCIDENT-039/040).
+
+## Cloud CI / ship window only
+
+`bash scripts/validate-mac-law-machine-enforceable-v1.sh` · `validate-mac-law-mandatory-ship-v1.sh`
 
 Mac Law outranks SourceA repo rules.

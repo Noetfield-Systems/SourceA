@@ -22,7 +22,7 @@ SKIP_FILES = {
     "sourcea-forge-vocabulary-disambiguation-v1.json",
     "icp-output-compiler-v1.json",
     "factory-output-route-compiler-v1.json",
-    "MACHINE_THREE_PIPELINES_CALIBRATE_TUNE_FORGE_LOCKED_v1.md",
+    "brain-os/law/MACHINE_THREE_PIPELINES_CALIBRATE_TUNE_FORGE_LOCKED_v1.md",
     "machine_forge_pipeline_v1.py",
     "machine_three_pipelines_router_v1.py",
     "machine_three_pipelines_lib_v1.py",

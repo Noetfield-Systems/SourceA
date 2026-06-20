@@ -36,7 +36,7 @@ VAULT_ONEPAGER = (
     / "Projects/noetfeld-os/docs/_NOOS_AGENT/[NOOS-AGENT-20260615-011]_FOUNDING_PILOT_ONEPAGER_EXTERNAL_v1.md"
 )
 HTML_ONEPAGER = SINA / "noetfield-pilot-onepager-external-v1.html"
-ATTACH = Path(os.environ.get("NOETFIELD_NW1_ONEPAGER", str(ROOT / "NOETFIELD_FOUNDING_CUSTOMER_PILOT_ONEPAGER_MERGED_EXTERNAL_v1.md")))
+ATTACH = Path(os.environ.get("NOETFIELD_NW1_ONEPAGER", str(ROOT / "brain-os/law/NOETFIELD_FOUNDING_CUSTOMER_PILOT_ONEPAGER_MERGED_EXTERNAL_v1.md")))
 if "--html" in sys.argv:
     sys.argv = [a for a in sys.argv if a != "--html"]
     subprocess.run([sys.executable, str(ROOT / "scripts/generate_commercial_onepager_html_v1.py"), "noetfield"], check=True)
@@ -45,7 +45,7 @@ if "--html" in sys.argv:
 elif os.environ.get("NOETFIELD_NW1_HTML") == "1" and HTML_ONEPAGER.is_file():
     ATTACH = HTML_ONEPAGER
 if not ATTACH.is_file():
-    ATTACH = ROOT / "NOETFIELD_FOUNDING_CUSTOMER_PILOT_ONEPAGER_LOCKED_v1.md"
+    ATTACH = ROOT / "brain-os/law/NOETFIELD_FOUNDING_CUSTOMER_PILOT_ONEPAGER_LOCKED_v1.md"
 if not ATTACH.is_file():
     ATTACH = VAULT_ONEPAGER if VAULT_ONEPAGER.is_file() else ATTACH
 

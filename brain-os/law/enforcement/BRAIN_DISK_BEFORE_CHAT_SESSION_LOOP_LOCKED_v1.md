@@ -30,10 +30,11 @@ FORGE-builder drift was one **symptom**. Root cause: **mandatory read chain with
 
 ---
 
-## 2. Mandatory order (every Brain session — every ASF message)
+## 2. Mandatory order (Brain session start — then read receipt every turn)
 
 ```text
-RUN brain-session-start.sh → READ OUTPUT FILES → BRAIN_ACK FROM OUTPUT ONLY → THEN route/handoff
+SESSION START: brain-session-start.sh → READ receipt → BRAIN_ACK FROM receipt ONLY → route
+EVERY TURN AFTER: READ receipt JSON — do NOT re-run brain-session-start.sh mid-turn (INCIDENT-039)
 ```
 
 | Step | Action | Done when |
@@ -95,7 +96,7 @@ If Brain cannot run the script: say so in one line and **stop** — do not route
 
 | Loop | When |
 |------|------|
-| **This file** | Every Brain session start + every routing reply |
+| **This file** | Brain session start + read receipt every routing reply — **not** re-run script every turn |
 | `AGENT_MISS_DISK_FIRST` | After wrong answer — fix root doc then reply |
 | `agent_rules_loop_orchestrator.py session_start` | Hub rules banner — run in addition, not instead |
 | Worker `cursor_agent_self_audit.py session-start` | Worker only — Brain does **not** substitute worker script |

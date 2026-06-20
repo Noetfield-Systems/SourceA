@@ -1,0 +1,27 @@
+{
+  "schema": "chat-unify-ord-atoms-v1",
+  "version": "1.0.0",
+  "description": "Structured claim atoms + graph for ORD Phase 2",
+  "atom": {
+    "required": ["id", "text", "kind"],
+    "properties": {
+      "id": { "type": "string", "pattern": "^a[0-9]+$" },
+      "text": { "type": "string", "maxLength": 400 },
+      "kind": {
+        "enum": ["FACT", "CLAIM", "ACTION", "ASSUMPTION", "INSTRUCTION", "NOISE"]
+      },
+      "certainty": { "enum": ["high", "medium", "low"] },
+      "object": { "type": "string" },
+      "action_verb": { "type": "string" },
+      "source_tag": {
+        "enum": ["MODEL", "AGENT", "DISK", "ROUTER", "EXECUTION", "UNKNOWN"]
+      },
+      "disk_status": {
+        "enum": ["verified", "unverified", "mismatch", "n/a"]
+      },
+      "disk_ref": { "type": ["string", "null"] }
+    }
+  },
+  "graph_edge_types": ["supports", "contradicts", "depends", "derived"],
+  "source_tags": ["MODEL", "AGENT", "DISK", "ROUTER", "EXECUTION", "UNKNOWN"]
+}

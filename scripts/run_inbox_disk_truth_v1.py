@@ -90,7 +90,7 @@ def build_truth(*, sync: bool = True) -> dict:
         "at": _now(),
         "execution_lane": "brain_work_order" if brain_wo_primary else "run_inbox",
         "next_steps_lane": "advisory_only",
-        "law": "RUN_INBOX_DISK_TRUTH_EXECUTION_LOCKED_v1.md",
+        "law": "brain-os/law/enforcement/law/enforcement/RUN_INBOX_DISK_TRUTH_EXECUTION_LOCKED_v1.md",
         "progress": {
             "valid_yes": prog.get("valid_yes"),
             "receipt_done": audit.get("receipt_done"),

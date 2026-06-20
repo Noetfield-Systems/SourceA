@@ -43,9 +43,9 @@ CRITIC_LAW_DOC = "brain-os/law/CHATGPT_EXTERNAL_CRITIC_LAW_LOCKED_v1.md"
 GOVERNANCE_ENTRY_DOC = "brain-os/law/entry/SINA_GOVERNANCE_ENTRY_LOCKED_v1.md"
 AUTHORITY_INDEX_DOC = "brain-os/system/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"
 AGENT_JUDGMENT_DOC = "AGENT_DECISION_STACK_AND_SMART_JUDGMENT_LOCKED_v1.md"
-META_REASONING_DOC = "META_REASONING_POLICY_STACK_LOCKED_v1.md"
-GOV_UNIFY_DOC = "GOVERNANCE_UNIFICATION_ENGINE_LOCKED_v1.md"
-HUB_UI_PROCEDURE_DOC = "HUB_SOURCE_UI_ALIGNMENT_PROCEDURE_LOCKED_v1.md"
+META_REASONING_DOC = "brain-os/law/META_REASONING_POLICY_STACK_LOCKED_v1.md"
+GOV_UNIFY_DOC = "brain-os/law/GOVERNANCE_UNIFICATION_ENGINE_LOCKED_v1.md"
+HUB_UI_PROCEDURE_DOC = "brain-os/law/HUB_SOURCE_UI_ALIGNMENT_PROCEDURE_LOCKED_v1.md"
 
 # All locked docs that belong to World Target Model (major upgrade session)
 WTM_LOCKED_DOCS: list[dict[str, str]] = [
@@ -77,14 +77,14 @@ WTM_LOCKED_DOCS: list[dict[str, str]] = [
     {"path": "brain-os/wtm/SINA_PRE_LLM_WORLD_MODEL_ROADMAP_LOCKED_v2.md", "title": "Phase D detail", "role": "companion"},
     {"path": "archive/superseded/wtm/ARCHIVE_MANIFEST_LOCKED_v1.md", "title": "Superseded docs archive", "role": "archive"},
     {"path": HUB_UI_PROCEDURE_DOC, "title": "Hub ↔ source UI alignment procedure", "role": "procedure"},
-    {"path": "STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md", "title": "Strategic next steps synthesis (LOCKED v2)", "role": "synthesis"},
-    {"path": "COUNCIL_BRIEF_STRATEGIC_SLICE_EVAL_L0_ENFORCE_LOCKED_v1.md", "title": "Council brief · strategic slice", "role": "council"},
+    {"path": "brain-os/law/STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md", "title": "Strategic next steps synthesis (LOCKED v2)", "role": "synthesis"},
+    {"path": "brain-os/law/COUNCIL_BRIEF_STRATEGIC_SLICE_EVAL_L0_ENFORCE_LOCKED_v1.md", "title": "Council brief · strategic slice", "role": "council"},
 ]
 
 # Explicitly NOT World Target Model — other hub roadmaps
 NOT_WTM_ROADMAPS: list[dict[str, str]] = [
     {"id": "roadmaps-tab", "title": "Roadmaps & goals tab", "where": "Parallel programs · factory · investor"},
-    {"id": "factory", "title": "Product factory roadmap", "where": "PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md"},
+    {"id": "factory", "title": "Product factory roadmap", "where": "brain-os/law/PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md"},
     {"id": "investor", "title": "Investor roadmap", "where": "investor/ROADMAP.md"},
     {"id": "products", "title": "RunReceipt / MergePack", "where": "Today tab · THREAD-FACTORY"},
 ]
@@ -1160,7 +1160,7 @@ IMPLEMENTATION_HARDENING: dict[str, Any] = {
 
 LLM_PACKET_SCHEMA: dict[str, Any] = {
     "description": "Final structured package to model — world model output gate",
-    "law_doc": "LLM_CONTEXT_PACKET_SCHEMA_LOCKED_v1.md",
+    "law_doc": "brain-os/law/LLM_CONTEXT_PACKET_SCHEMA_LOCKED_v1.md",
     "schema_module": "scripts/pre_llm/context_packet/schema.py",
     "schema_validation_script": "validate-llm-context-packet-schema-v1.sh",
     "pre_llm_steps_shipped": "4/16",
@@ -2695,7 +2695,7 @@ def system_roadmap_payload() -> dict:
             },
             {
                 "id": "strategic-next-steps-v2",
-                "path": "STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md",
+                "path": "brain-os/law/STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md",
                 "title": "Strategic next steps — big picture (LOCKED v2)",
                 "critic_class": "FOUNDER_SYNTHESIS",
                 "layer": "D",

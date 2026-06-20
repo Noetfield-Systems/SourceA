@@ -330,7 +330,7 @@ def assess_commercial_ready() -> dict[str, Any]:
         "primary_sku": "SKU-OPS-002",
         "lead_sku": "SKU-OPS-002",
         "hero_sku_id": "SKU-SOLO-001",
-        "law": "N8N_COMMERCIAL_GRADE_LOCKED_v1.md",
+        "law": "brain-os/law/N8N_COMMERCIAL_GRADE_LOCKED_v1.md",
         "founder_line": SKUS["SKU-OPS-002"]["sell_line"],
     }
     RECEIPT.parent.mkdir(parents=True, exist_ok=True)
@@ -441,7 +441,7 @@ def build_payments_pack() -> dict[str, Any]:
         "stripe_links_live": links_live,
         "stripe_billing": stripe_billing,
         "currency": "usd",
-        "law": "N8N_COMMERCIAL_GRADE_LOCKED_v1.md",
+        "law": "brain-os/law/N8N_COMMERCIAL_GRADE_LOCKED_v1.md",
         "stripe_dashboard_steps": [
             "Stripe Dashboard → Products → Add product per SKU (setup + recurring if MRR)",
             "Payment Links → Create link for each price · paste URL into n8n-commercial-payments-v1.json",
@@ -1286,7 +1286,7 @@ def run_commercial_next() -> dict[str, Any]:
                 "manual_passes": 2,
                 "runs": [{"overall": r.get("overall"), "ok": r.get("ok")} for r in health_runs],
                 "sku": "SKU-OPS-002",
-                "law": "N8N_COMMERCIAL_GRADE_LOCKED_v1.md",
+                "law": "brain-os/law/N8N_COMMERCIAL_GRADE_LOCKED_v1.md",
             },
             indent=2,
         )

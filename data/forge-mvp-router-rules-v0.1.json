@@ -1,0 +1,69 @@
+{
+  "schema": "forge-mvp-router-rules-v0.1",
+  "version": "0.1.0",
+  "saved_at": "2026-06-20T17:04:24Z",
+  "authority": "FORGE_MVP_BLUEPRINT_LOCKED_v1.md",
+  "default_execution_mode": "CLOUD_ONLY",
+  "mac_build_forbidden": true,
+  "primary_router": "openrouter",
+  "models": {
+    "openrouter_bulk": {
+      "provider": "openrouter",
+      "models": ["deepseek/deepseek-chat", "meta-llama/llama-3.1-70b-instruct"],
+      "use_for": ["bulk_generation", "parallel_exploration", "ui_copy_drafts"],
+      "max_parallel": 4
+    },
+    "claude_code": {
+      "provider": "anthropic",
+      "models": ["claude-sonnet-4-20250514"],
+      "use_for": ["code_gen", "patch", "refactor"]
+    },
+    "gpt_control": {
+      "provider": "openai",
+      "models": ["gpt-4.1-mini"],
+      "use_for": ["orchestration", "routing_decisions", "plan_dag", "critic_logic"]
+    },
+    "gemini_context": {
+      "provider": "google",
+      "models": ["gemini-2.0-flash"],
+      "use_for": ["long_context", "multilingual", "research_summarize"]
+    }
+  },
+  "route_by_task_kind": {
+    "research": "gemini_context",
+    "code_gen": "claude_code",
+    "ui_gen": "openrouter_bulk",
+    "patch": "claude_code",
+    "validate": "sandbox",
+    "deploy": "sandbox",
+    "evaluate": "gpt_control",
+    "aggregate": "gpt_control"
+  },
+  "route_by_competitor_workstream": {
+    "ws-ux": "openrouter_bulk",
+    "ws-pricing": "gemini_context",
+    "ws-run": "claude_code",
+    "ws-onboard": "gpt_control",
+    "ws-integrate": "claude_code"
+  },
+  "cost_caps_usd": {
+    "per_task_default": 0.15,
+    "per_run_default": 2.0,
+    "hard_abort": 5.0
+  },
+  "forbidden_mvp": [
+    "local_llm",
+    "custom_training",
+    "multi_agent_theater_without_dag",
+    "mac_body_build"
+  ],
+  "fbe_wiring": {
+    "bay_slug": "forge-bay",
+    "template_id": "forge-app-factory-v1",
+    "factory_id": "factory_3",
+    "api_route": "/api/fbe/run-forge/v1",
+    "worker_config": "data/fbe_cloud_worker_config_v1.json",
+    "worker_url_env": "FBE_CLOUD_WORKER_URL",
+    "default_worker_url": "https://sourcea-fbe-runner-production.up.railway.app"
+  }
+}

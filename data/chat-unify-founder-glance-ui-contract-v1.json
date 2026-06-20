@@ -1,20 +1,21 @@
 {
   "schema": "founder-glance-ui-contract-v1",
   "app_id": "chat_unify",
-  "version": "1.4.0",
+  "version": "1.6.0",
   "ui_mode": "founder_glance",
-  "saved_at": "2026-06-19T20:39:27Z",
+  "saved_at": "2026-06-20T03:00:00Z",
   "url": "http://127.0.0.1:13023/",
-  "primary_cta": "Merge all & scan",
-  "primary_button_id": "btn-unify-all",
+  "primary_cta": "Turn into founder language",
+  "primary_button_id": "btn-translate-founder",
   "stat_tiles": ["extracts", "issues", "ready", "brief"],
   "dom_must_contain": [
     "cu-founder-glance",
-    "btn-unify-all",
-    "Merge all",
-    "cu-stats-grid",
-    "panel-more",
-    "app.css?v=1.4.0"
+    "panel-founder-language",
+    "Founder language",
+    "btn-translate-founder",
+    "btn-send-founder-cursor",
+    "founder-auto-translate",
+    "app.css?v=1.6.0"
   ],
   "dom_must_not_contain": ["cu-steps", "cu-grid"]
 }

@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "saved_at": "2026-06-20T19:00:00Z",
+  "law": "Mac founder session — cleanup execute only; no validator parade on Mac body",
+  "execute_command": "python3 infra/cleanup/execute_batch_python_v1.py --batch {batch}",
+  "forbidden_on_mac_after_execute": [
+    "validate-* && validate-*",
+    "validate-all-e2e",
+    "validate-phase-s0-ssot-alignment",
+    "governance_zero_drift_live_wire --tier full",
+    "anti_staleness_auto_wire"
+  ],
+  "allowed_on_mac_after_execute": [
+    "python3 scripts/cleanup_track_sync_v1.py --json",
+    "bash infra/cleanup/generate-inventory-v1.sh"
+  ],
+  "ship_window_only": "Heavy validators — cloud CI or touch ~/.sina/asf-ship-window-v1.flag"
+}

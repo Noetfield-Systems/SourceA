@@ -1,16 +1,31 @@
-# Virlux — Labs tier (static / pre-product)
+# Virlux — agentic factory SaaS (online)
 
-**Tier:** `labs-sandbox` Supabase project · schema `virlux_ops` when backend exists  
-**Status today:** Landing / marketing surface — no production payment rails
+**Tier:** `labs-sandbox` Supabase project · schema `virlux_ops`  
+**Status:** **Live online** — Build Factory agentic SaaS · verify factory · MCP · sandbox bays  
+**Product:** Controlled agentic factories — not payments · not FINTRAC
 
-## Graduation trigger (non-negotiable)
+## ASF policy (2026-06-20)
 
-**The moment Virlux touches real money or real financial/user data, it must graduate out of `labs/` into its own isolated Supabase project before that code ships** — not after. A static site is safe here because it holds nothing sensitive; do not quietly add payment calls or customer PII storage under this path.
+**FINTRAC / cross-border payments / MSB rails are OUT of VIRLUX.**
 
-## Deferred (not deleted from plan)
+- VIRLUX = **agentic factory building SaaS** (catalog, sandbox bay, run detail, MCP verify receipt).
+- **TrustField** = Canadian MSB / FINTRAC program lane when that ships.
+- **Future company** = if payment rails return as a separate product later — not under VIRLUX.
 
-When Virlux becomes real: ring-fenced project · FINTRAC/OSFI scope · restrictive RLS · PITR — see `infra/README.md` and ASF promotion ADR.
+## Supabase placement
+
+VIRLUX stays on **`labs-sandbox`** Supabase while the product is agentic SaaS without real money movement or MSB customer data. That is **fine for online** — no separate “lab only” restriction beyond portfolio tier hygiene.
+
+**Graduation trigger (still non-negotiable):** The moment VIRLUX touches **real money, payment settlement, or MSB/FINTRAC customer financial data**, stop — that code belongs on **TrustField** or a **new isolated Supabase project**, not here.
+
+## Honest tier ladder (ship UX)
+
+Sandbox (`mock_only`) → freemium cap → paid bay + **run detail page** + **MCP verify receipt**.
 
 ## Integration with Portfolio Spine
 
 Async only — signed receipts/events. No cross-project DB joins. See `data/supabase-portfolio-tiers-v1.json`.
+
+## Canonical repo
+
+Primary implementation: `~/Desktop/VIRLUX` · Pointer docs: `labs/virlux/` in SourceA.

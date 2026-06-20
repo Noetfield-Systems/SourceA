@@ -32,11 +32,11 @@ AUTHORITY_RULES: list[dict[str, str]] = [
     {"id": "APP_BLUEPRINT", "path": "AGENT_APPLICATION_USE_BLUEPRINT_LOCKED_v1.md", "title": "Agent app use blueprint", "governs": "Full E2E roles, tasks, access, APIs — all agents"},
     {"id": "VAULT", "path": "AGENT_WORKSPACE_VAULT_MIDDLE_LAYER_LOCKED_v1.md", "title": "Workspace vault", "governs": "Middle layer — deposit all docs + activity in app"},
     {"id": "NO_MP_AGENT", "path": "AGENT_MERGEPACK_NOT_AN_AGENT_LOCKED_v1.md", "title": "MergePack not an agent", "governs": "MergePack = semi-separate lane — not private agent registry"},
-    {"id": "GOV_UNIFY", "path": "GOVERNANCE_UNIFICATION_ENGINE_LOCKED_v1.md", "title": "Governance unification", "governs": "Batch intake merge/archive"},
+    {"id": "GOV_UNIFY", "path": "brain-os/law/GOVERNANCE_UNIFICATION_ENGINE_LOCKED_v1.md", "title": "Governance unification", "governs": "Batch intake merge/archive"},
     {"id": "JUDGMENT", "path": "AGENT_DECISION_STACK_AND_SMART_JUDGMENT_LOCKED_v1.md", "title": "Decision stack", "governs": "Smart judgment hierarchy"},
     {"id": "CONSOLIDATION", "path": "AGENT_ECOSYSTEM_SPRINT_CONSOLIDATION_LOCKED_v1.md", "title": "Sprint consolidation", "governs": "Preserved conclusions + open decisions + reserved build queue"},
-    {"id": "ACE", "path": "AUTO_CONFLICT_ENGINE_V3_LOCKED.md", "title": "ACE v3", "governs": "Conflict planes — never block fleet"},
-    {"id": "WTM", "path": "WORLD_TARGET_MODEL_MAP_LOCKED_v5.md", "title": "World Target Model", "governs": "33-step upgrade map"},
+    {"id": "ACE", "path": "brain-os/law/AUTO_CONFLICT_ENGINE_V3_LOCKED.md", "title": "ACE v3", "governs": "Conflict planes — never block fleet"},
+    {"id": "WTM", "path": "brain-os/wtm/WORLD_TARGET_MODEL_MAP_LOCKED_v5.md", "title": "World Target Model", "governs": "33-step upgrade map"},
 ]
 
 

@@ -43,6 +43,8 @@
   "graph_node_ids": [
     "sascip_live_wire",
     "mac_health_probe",
+    "mac_law_universal_wire",
+    "mac_law_agent_lock",
     "disk_live_wire",
     "governance_zero_drift",
     "crawl_mirror_session",
@@ -55,6 +57,8 @@
     "orient_routing_v1"
   ],
   "logical_nodes": [
+    { "id": "mac_law_universal_wire_v1", "layer": "GOV", "label": "Mac Law universal wire — all agents/nodes", "handler": "scripts/mac_law_universal_wire_v1.py", "receipt": "~/.sina/mac-law-universal-wire-receipt-v1.json", "tier": "T0" },
+    { "id": "mac_law_agent_execution_plane_lock_v1", "layer": "GOV", "label": "Mac Law agent lock FOREVER", "handler": "scripts/mac_law_agent_execution_plane_lock_v1.py", "receipt": "~/.sina/mac-law-agent-execution-plane-lock-receipt-v1.json", "tier": "T0" },
     { "id": "session_gate_v1", "layer": "GOV", "label": "Session gate orchestrator", "handler": "scripts/agent_session_gate_run_v1.py", "receipt": "~/.sina/agent_session_gate_receipt_v1.json", "tier": "all" },
     { "id": "pipeline_node_graph_runner_v1", "layer": "L0.5", "label": "Parallel tier runner", "handler": "scripts/pipeline_node_graph_runner_v1.py", "receipt": "~/.sina/pipeline-node-graph-receipt-v1.json", "tier": "T0-T3,T_lat" },
     { "id": "cross_lane_edit_guard_v1", "layer": "GOV", "label": "Cross-lane write guard", "handler": "scripts/cross_lane_edit_guard_v1.py", "receipt": null, "tier": "T0" },

@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
 APP = ROOT / "agent-control-panel" / "assets" / "app.js"
-LAW = ROOT / "AGENT_SCOREBOARD_LOCKED_v1.md"
+LAW = ROOT / "brain-os/law/AGENT_SCOREBOARD_LOCKED_v1.md"
 PRIORITY = ROOT / "os" / "plan-library" / "SOURCEA-PRIORITY.md"
 E2E = (SCRIPTS / "audit_backend_e2e.py").read_text(encoding="utf-8")
 APP_S = APP.read_text(encoding="utf-8")

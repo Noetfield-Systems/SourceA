@@ -19,7 +19,7 @@
       "id": "T0_safety_fanout",
       "tier": "T0_safety",
       "parallel": true,
-      "nodes": ["sascip_live_wire", "mac_health_probe"]
+      "nodes": ["sascip_live_wire", "mac_health_probe", "mac_law_universal_wire"]
     },
     {
       "id": "T1_truth_fanout",
@@ -49,7 +49,7 @@
   ],
   "edges": [
     {"from": "session_gate_v1", "to": "sascip_live_wire", "kind": "gate"},
-    {"from": "session_gate_v1", "to": "mac_health_probe", "kind": "trigger", "parallel": true},
+    {"from": "session_gate_v1", "to": "mac_law_universal_wire", "kind": "gate", "parallel": true},
     {"from": "sascip_live_wire", "to": "disk_live_wire", "kind": "gate"},
     {"from": "disk_live_wire", "to": "governance_zero_drift", "kind": "wire", "parallel": true},
     {"from": "disk_live_wire", "to": "crawl_mirror_session", "kind": "wire", "parallel": true},
@@ -88,6 +88,19 @@
           "plane": "INTERNAL",
           "edges_in": [{"from": "session_gate_v1", "kind": "gate"}],
           "edges_out": [{"to": "disk_live_wire", "kind": "gate"}]
+        },
+        {
+          "id": "mac_law_universal_wire",
+          "label": "Mac Law universal wire — agents no factory on Mac",
+          "cmd": ["python3", "scripts/mac_law_universal_wire_v1.py", "--sync-receipt", "--enforce", "--json"],
+          "receipt": "~/.sina/mac-law-universal-wire-receipt-v1.json",
+          "required": true,
+          "plane": "INTERNAL",
+          "edges_in": [{"from": "session_gate_v1", "kind": "gate"}],
+          "edges_out": [
+            {"to": "mac_law_agent_execution_plane_lock_v1", "kind": "wire"},
+            {"to": "sascip_live_wire", "kind": "gate"}
+          ]
         },
         {
           "id": "mac_health_probe",

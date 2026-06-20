@@ -55,7 +55,7 @@ def run_unified(*, domain: str, agent_trigger: str = "", machine_trigger: str = 
         "agent_trigger": agent_trigger or None,
         "machine_trigger": machine_trigger or None,
         "results": results,
-        "law": "REFINEMENT_UNIFIED_AGENT_MACHINE_LOCKED_v1.md",
+        "law": "brain-os/law/REFINEMENT_UNIFIED_AGENT_MACHINE_LOCKED_v1.md",
     }
     SINA.mkdir(parents=True, exist_ok=True)
     RECEIPT.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")

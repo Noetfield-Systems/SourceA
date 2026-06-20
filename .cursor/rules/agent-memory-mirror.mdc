@@ -1,46 +1,55 @@
 ---
-description: Agent memory mirror + v2 enforcement stack — session gate, conduct, spine events
+description: Agent memory mirror — positive disk wire only · NEVER orders validator marathons (INCIDENT-034/039)
 alwaysApply: true
 ---
 
-# Agent enforcement stack v2 (all chats)
+# Agent enforcement stack v2 — mirror is NOT a validator launcher
 
-**LOCKED:** `SOURCEA_AGENTIC_ENFORCEMENT_STACK_LOCKED_v2.md` · `AGENT_MEMORY_MIRROR_ENFORCEMENT_LOCKED_v1.md`
+**LOCKED:** `SOURCEA_AGENTIC_ENFORCEMENT_STACK_LOCKED_v2.md` · `AGENT_MEMORY_MIRROR_ENFORCEMENT_LOCKED_v1.md` §7  
+**Poison law:** `data/agent-memory-mirror-poison-law-v1.json` · INCIDENT-034 · INCIDENT-039
 
-## Before any substantive work
+## Intent (ASF locked)
 
-1. Session gate (fail-closed): `python3 scripts/agent_session_gate_run_v1.py --role any --json`
-2. Read `~/.sina/agent-executor-daily-duty-card-v1.json` — D01–D23 (founder must not re-remind)
-3. Read `~/.sina/agent_session_gate_receipt_v1.json` — `ok=true` · `stack_version=2`
-4. Read receipt `conduct` block — heed `warnings` · **brain role:** zero `violations`
-5. Read `~/.sina/agent-memory-mirror-v1.json` → `inject` + `daily_duty_card_detail`
+> **Mirror injects what to READ and how to REPLY — never orders bash `validate-*` marathons before chat.**
 
-## Three pipelines (founder word ONLY)
+Paradox poison (FORBIDDEN forever): a rule file that says “never stuck in validators” while another alwaysApply rule says “run validators before reply.”
 
-See **`002-hospital-trigger-only.mdc`** — session start = session gate only; orientation | hospital | maze on founder word only.
+---
 
-## Conduct (INCIDENT-026 — machine)
+## Session start (once per chat — not every turn)
+
+1. Read `~/.sina/agent_session_gate_receipt_v1.json` if present — **do not re-run gate stack mid-turn**
+2. Read `~/.sina/agent-memory-mirror-v1.json` → `inject` (positive paths only)
+3. Read `~/.sina/agent-executor-daily-duty-card-v1.json` — D01–D23
+
+**Founder word only:** orientation · hospital · maze (`002-hospital-trigger-only.mdc`)
+
+---
+
+## Every turn (all roles)
+
+1. **Understand** founder intent (latest message wins)
+2. **Explain** plain English — because / so / for you
+3. **Proof** — Read tool on `~/.sina/*-receipt*.json` or SSOT JSON path — **no bash validate stack**
+4. **Reply <30s** → STOP
+
+## Conduct
 
 - **No** validator chains (`&&` + multiple `validate-*`)
-- **No** `build-sina-command-panel.py` / anti-staleness bundle in chat unless ASF single SHIP pick
-- **No** G7 `--heal` without `--scan` + receipt read first
-- **Read order:** session gate → ACTIVE_NOW + truth bundle → role mandatory rows → mirror inject (**not** read all incidents · hub last)
-- Brain: max **90s** shell · reply **<30s** then STOP
+- **No** `validate-law-supersession-surfaces-v1.sh` before reply — **cloud CI / ship window only**
+- **No** W1–W10 check cart marathon before reply
+- **No** Await on shells >90s
+- Mac Law: control panel only · cloud executes · INCIDENT-038 · INCIDENT-039
 
-## Before last reply (mandatory)
+## Before last reply
 
-```bash
-python3 scripts/agent_session_gate_run_v1.py --role any --pre-ship --scan-text "<full draft to ASF>"
-```
-
-No PASS → rewrite. Never speak legacy hub brand name to founder.
-
-Seven surfaces → `validate-law-supersession-surfaces-v1.sh` → sync mirror → reply
+**Text quality only** — optional `agent_report_language_gate_v1.py --scan-text` or pre-ship text scan if already in session receipt.  
+**Forbidden:** any new bash `validate-*` run to “prove” the reply.
 
 ## After context summarization
 
-Re-run session gate — chat summary is not SSOT.
+Re-read gate **receipt** — do not stack anti_staleness / governance full tier on Mac.
 
 ## Founder STOP / cancel
 
-`TodoWrite` cancel all plan todos · `plan_revoked_v1.py --write`
+`TodoWrite` cancel todos · `plan_revoked_v1.py --write`
