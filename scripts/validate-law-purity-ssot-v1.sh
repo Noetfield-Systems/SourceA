@@ -2,9 +2,11 @@
 # validate-law-purity-ssot-v1.sh — LAW PURITY POLICY alive in authority index SSOT
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-INDEX="$ROOT/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"
-ENTRY="$ROOT/SINA_GOVERNANCE_ENTRY_LOCKED_v1.md"
-SSOT="$ROOT/SINA_OS_SSOT_LOCKED.md"
+# shellcheck source=governance-paths-v1.sh
+. "$ROOT/scripts/governance-paths-v1.sh"
+INDEX="$SINA_AUTHORITY_INDEX"
+ENTRY="$SINA_GOVERNANCE_ENTRY"
+SSOT="$SINA_OS_SSOT"
 
 fail() { echo "FAIL: validate-law-purity-ssot-v1 — $*" >&2; exit 1; }
 

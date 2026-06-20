@@ -14,7 +14,7 @@ status: LOCKED
 | **Version** | `SOURCEA-GOLDEN-INSIGHT-1.0-LOCKED` |
 | **sequence_id** | `SA-2026-06-09-GOLDEN-INSIGHT` |
 | **Companions** | `SOURCEA_E2E_DEBUGGER_PLAYBOOK_LOCKED_v1.md` · `SOURCEA_WORKER_E2E_POSTMORTEM_LOCKED_v1.md` · `SOURCEA_SESSION_20260609_COMPLETE_INDEX_LOCKED_v1.md` |
-| **Lane law** | `brain-os/enforcement/FOUNDER_LANE_SEPARATION_LOCKED_v1.md` |
+| **Lane law** | `brain-os/law/enforcement/FOUNDER_LANE_SEPARATION_LOCKED_v1.md` |
 | **Locked** | 2026-06-09 · **status refreshed** 2026-06-10 |
 
 ---

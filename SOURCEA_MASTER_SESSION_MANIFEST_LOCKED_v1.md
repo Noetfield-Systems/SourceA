@@ -55,8 +55,8 @@ session_chat: a53f3fa1-081c-4373-bc55-76feb501a61d
 | Gatekeeper ACTIVE_NOW pre-sync | Script | `validate-gatekeeper-v1.sh` |
 | Hub force restart fix | Script | `serve-sina-command.sh` (`SINA_FORCE_RESTART`) |
 | Ecosystem safety (incl. session docs) | Script | `validate-ecosystem-safety-v1.sh` |
-| Brain no full E2E law | Law | `brain-os/enforcement/BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md` |
-| Lane separation law | Law | `brain-os/enforcement/FOUNDER_LANE_SEPARATION_LOCKED_v1.md` |
+| Brain no full E2E law | Law | `brain-os/law/enforcement/BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md` |
+| Lane separation law | Law | `brain-os/law/enforcement/FOUNDER_LANE_SEPARATION_LOCKED_v1.md` |
 | 6 LOCKED session docs | Docs | See section C |
 | 2 lock receipts | Runtime | `~/.sina/sourcea-*-lock-v1.json` |
 | important_docs_index entries | Index | `scripts/important_docs_index.py` |

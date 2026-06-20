@@ -25,7 +25,7 @@ if ! grep -qE '^\*\*Status:\*\* APPROVED' "$MANIFEST" && ! grep -qE '^# Cleanup 
 fi
 
 mkdir -p "$ROOT/archive/root-stubs"
-mkdir -p "$ROOT/brain-os/law" "$ROOT/brain-os/enforcement" "$ROOT/brain-os/incidents"
+mkdir -p "$ROOT/brain-os/law" "$ROOT/brain-os/law/entry" "$ROOT/brain-os/law/enforcement" "$ROOT/brain-os/system" "$ROOT/brain-os/incidents"
 
 moved=0
 skipped=0

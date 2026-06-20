@@ -16,10 +16,10 @@
   "validate_script": "scripts/validate-enforcement-1000-pack.sh",
   "audit_script": "scripts/audit-enforcement-1000-v1.py",
   "category_index": "brain-os/plan-registry/ENFORCEMENT-1000-CATEGORY-INDEX.md",
-  "parent_law": "brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md",
+  "parent_law": "brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md",
   "supersedes_for_lane": "enforcement-6mo only \u2014 does not replace sourcea-1000 factory pack",
   "sources": [
-    "brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md",
+    "brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md",
     "prompts/ENFORCEMENT_6MO_MASTER_CONTROL_PROMPT_v1.md",
     "brain-os/demo/ENFORCEMENT_30DAY_BACKLOG_v1.md",
     "brain-os/demo/ENFORCEMENT_ARTIFACTS_INDEX_v1.md",
@@ -358,12 +358,12 @@
       "slice_ref": "",
       "lane": "enforcement-6mo",
       "slot": 7,
-      "title": "Document commit gate law in brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md \u00a76",
+      "title": "Document commit gate law in brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md \u00a76",
       "path": "prompts/phase-e0-commit-gate/T0/enf-0008.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA && bash scripts/validate-demo-enforcement-v1.sh && bash scripts/validate-universe-invariants-v1.sh",
       "agent_tag": "AGENT-AUTO-ENFORCEMENT",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0008: Document commit gate law in brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md \u00a76"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0008: Document commit gate law in brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md \u00a76"
     },
     {
       "id": "enf-0009",
@@ -834,12 +834,12 @@
       "slice_ref": "",
       "lane": "enforcement-6mo",
       "slot": 7,
-      "title": "[CI] Wire regression + REPO_EXECUTION_LOGS evidence for: Document commit gate law in brain-os/enforcement/ENFORCEMENT_6M",
+      "title": "[CI] Wire regression + REPO_EXECUTION_LOGS evidence for: Document commit gate law in brain-os/law/enforcement/ENFORCEMENT_6M",
       "path": "prompts/phase-e0-commit-gate/T1/enf-0033.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA && bash scripts/validate-demo-enforcement-v1.sh && SINA_FCB_FAST=1 python3 scripts/find_critical_bugs.py",
       "agent_tag": "AGENT-AUTO-ENFORCEMENT",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0033: [CI] Wire regression + REPO_EXECUTION_LOGS evidence for: Document commit gate law in brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md \u00a76"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0033: [CI] Wire regression + REPO_EXECUTION_LOGS evidence for: Document commit gate law in brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md \u00a76"
     },
     {
       "id": "enf-0034",
@@ -1309,12 +1309,12 @@
       "slice_ref": "",
       "lane": "enforcement-6mo",
       "slot": 7,
-      "title": "[CHAOS] Kill/replay stress \u2014 prove still holds: Document commit gate law in brain-os/enforcement/ENFORCEMENT_6MO_INVESTO",
+      "title": "[CHAOS] Kill/replay stress \u2014 prove still holds: Document commit gate law in brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTO",
       "path": "prompts/phase-e0-commit-gate/T2/enf-0058.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA && bash scripts/demo-enforcement-5min-v1.sh --dry-run",
       "agent_tag": "AGENT-AUTO-ENFORCEMENT",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0058: [CHAOS] Kill/replay stress \u2014 prove still holds: Document commit gate law in brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md \u00a76"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0058: [CHAOS] Kill/replay stress \u2014 prove still holds: Document commit gate law in brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md \u00a76"
     },
     {
       "id": "enf-0059",
@@ -1784,12 +1784,12 @@
       "slice_ref": "",
       "lane": "enforcement-6mo",
       "slot": 7,
-      "title": "[POLISH] Document or DELETE if no W2 impact: Document commit gate law in brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_W",
+      "title": "[POLISH] Document or DELETE if no W2 impact: Document commit gate law in brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_W",
       "path": "prompts/phase-e0-commit-gate/T3/enf-0083.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA && bash scripts/validate-enforcement-demo-v1.sh 2>/dev/null || bash scripts/validate-demo-enforcement-v1.sh",
       "agent_tag": "AGENT-AUTO-ENFORCEMENT",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0083: [POLISH] Document or DELETE if no W2 impact: Document commit gate law in brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md \u00a76"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0083: [POLISH] Document or DELETE if no W2 impact: Document commit gate law in brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md \u00a76"
     },
     {
       "id": "enf-0084",

@@ -179,13 +179,13 @@ def ecosystem_incidents_payload() -> dict:
             "tab": "doc-library",
         },
         {
-            "path": "brain-os/enforcement/GOAL1_EXECUTION_SOLUTION_LOCKED_v1.md",
+            "path": "brain-os/law/enforcement/GOAL1_EXECUTION_SOLUTION_LOCKED_v1.md",
             "title": "Goal 1 execution solution — PEV / headless (2026-06-07)",
             "why": "Batch log = truth; AUTO-RUN 10; Worker chat = optional visible lane.",
             "tab": "doc-library",
         },
         {
-            "path": "brain-os/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md",
+            "path": "brain-os/law/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md",
             "title": "Goal 1 activation chain — inject · validate · activate",
             "why": "Deliver ≠ running; WORKER_ROUND_REPORT + agent -p -f mandatory.",
             "tab": "doc-library",

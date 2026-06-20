@@ -20,8 +20,8 @@
 | ID | Document | Role |
 |----|----------|------|
 | **N1** | `SINA_P0_PORTFOLIO_AUTOMATION_AND_EVIDENCE_LAW_LOCKED_v1.md` | Agentic 24/7 surfaces · precedent-only builds |
-| **N2** | `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` | W1/W2/W3 win conditions |
-| **N3** | `brain-os/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md` v1.1 | Week-by-week execution |
+| **N2** | `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` | W1/W2/W3 win conditions |
+| **N3** | `brain-os/law/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md` v1.1 | Week-by-week execution |
 | **N4** | `brain-os/laws/FOUNDER_AGENTIC_COMMERCIAL_AND_NO_CURSOR_AUTORUN_LOCKED_v1.md` | Founder hub-only · no manual email/call/post |
 | **N5** | `archive/attachments/2026-06-12/AGENTIC_W3_OUTREACH_WORKFLOW_SPEC_v1.md` | W3 outreach operational spec |
 

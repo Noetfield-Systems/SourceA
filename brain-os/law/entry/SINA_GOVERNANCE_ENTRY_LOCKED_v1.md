@@ -12,7 +12,7 @@
 
 | Step | Doc | When |
 |------|-----|------|
-| **0** | **`brain-os/entry/START_HERE_LOCKED_v1.md`** | Always — pick role (Brain/Worker/Founder/Research) |
+| **0** | **`brain-os/law/entry/START_HERE_LOCKED_v1.md`** | Always — pick role (Brain/Worker/Founder/Research) |
 | **0b** | **Mandatory session start (all agents):** `brain-os/system/SOURCEA_MASTER_OPERATING_TRACKER_LOCKED_v1.md` · `brain-os/system/FILE_STORAGE_GOVERNANCE_LOCKED_v1.md` · `brain-os/system/authority.yaml` · `brain-os/system/EXECUTION_AUTHORITY_MAP_LOCKED_v1.md` · `brain-os/system/AUTHORITY_RUNTIME_VERIFICATION_LOCKED_v1.md` | Founder command center + storage tiers + execution authority — read before any work |
 | **0b-wtm** | **`brain-os/wtm/WORLD_TARGET_MODEL_MAP_LOCKED_v5.md`** | WTM canonical map when task touches phases/steps |
 | **0a** | **`entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md`** | Exact read chain for your role |
@@ -115,8 +115,8 @@ Subordinate to SSOT: everything below.
 | **SourceA portfolio · buyer · category · commercial · UI** (wins on identity conflict) | `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md` |
 | Locked vs open decisions · priority formula | `SINA_ENFORCEMENT_PORTFOLIO_DECISION_FORM_LOCKED_v1.md` |
 | Agentic surfaces · precedent law | `SINA_P0_PORTFOLIO_AUTOMATION_AND_EVIDENCE_LAW_LOCKED_v1.md` |
-| W1/W2/W3 wins | `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` |
-| Week-by-week execution | `brain-os/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md` v1.1 |
+| W1/W2/W3 wins | `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` |
+| Week-by-week execution | `brain-os/law/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md` v1.1 |
 | Big picture · two clocks | `brain-os/system/SOURCEA_FULL_LAYERED_CONTROL_PLAN_LOCKED_v1.md` |
 | Founder hub-only commercial | `brain-os/laws/FOUNDER_AGENTIC_COMMERCIAL_AND_NO_CURSOR_AUTORUN_LOCKED_v1.md` |
 | W3 outreach workflow | `archive/attachments/2026-06-12/AGENTIC_W3_OUTREACH_WORKFLOW_SPEC_v1.md` |

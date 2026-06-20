@@ -236,8 +236,8 @@ Factory `sa-1000` = **background only** until W1 filmed.
 
 | Need | Path |
 |------|------|
-| Law | `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` |
-| This plan | `brain-os/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md` |
+| Law | `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` |
+| This plan | `brain-os/law/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md` |
 | 30-day slices | `brain-os/demo/ENFORCEMENT_30DAY_BACKLOG_v1.md` |
 | 1000 plans | `brain-os/plan-registry/enforcement-1000/REGISTRY.json` |
 | Category index | `brain-os/plan-registry/ENFORCEMENT-1000-CATEGORY-INDEX.md` |

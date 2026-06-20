@@ -1,6 +1,6 @@
 # ENFORCEMENT-6MO — 5-minute investor demo (full speaker notes)
 
-**Law:** `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md`  
+**Law:** `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md`  
 **Scenario:** NF Copilot governance wedge (Rule P-001) — stub only, no M365 API  
 **Run (executor):** `bash scripts/demo-enforcement-5min-v1.sh`  
 **CI:** `bash scripts/validate-demo-enforcement-v1.sh` · `--tamper-test` for tamper beat  

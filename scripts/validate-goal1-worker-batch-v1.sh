@@ -2,7 +2,7 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 test -f "$ROOT/scripts/goal1_worker_batch_loop_v1.py"
-test -f "$ROOT/brain-os/enforcement/GOAL1_BATCH_CHECKPOINT_LOCKED_v1.md"
+test -f "$ROOT/brain-os/law/enforcement/GOAL1_BATCH_CHECKPOINT_LOCKED_v1.md"
 python3 -m py_compile "$ROOT/scripts/goal1_worker_batch_loop_v1.py"
 grep -q "auto_advance" "$ROOT/scripts/goal1_lane_broker.py"
 grep -q "brain-checkpoint-ack" "$ROOT/scripts/goal1_lane_broker.py"

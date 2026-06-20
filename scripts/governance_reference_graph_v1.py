@@ -10,9 +10,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+from governance_paths_v1 import AUTHORITY_INDEX
+
 SINA = Path.home() / ".sina"
 GRAPH_PATH = SINA / "governance-reference-graph-v1.json"
-INDEX = ROOT / "SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"
+INDEX = AUTHORITY_INDEX
 CURSOR_MAP = ROOT / "SOURCEA_CURSOR_RULES_AND_SKILLS_MAP_LOCKED_v2.md"
 
 DEFAULT_PROJECTIONS = ["hub", "monitor", "catalog"]

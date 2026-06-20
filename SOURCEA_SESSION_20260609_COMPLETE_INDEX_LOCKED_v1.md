@@ -46,7 +46,7 @@ doc_date: 2026-06-09
 | **Master manifest (all threads)** | `SOURCEA_MASTER_SESSION_MANIFEST_LOCKED_v1.md` | session validator |
 | **Founder pinned actions** | `SOURCEA_FOUNDER_PINNED_ACTIONS_LOCKED_v1.md` | `validate-sourcea-founder-pinned-locked-v1.sh` |
 | **1000-pack audit judge** | `SOURCEA_1000PACK_AUDIT_JUDGE_LOCKED_v1.md` | cite COMMERCIAL_GOAL-REF-018 |
-| Brain no full E2E | `brain-os/enforcement/BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md` | — |
+| Brain no full E2E | `brain-os/law/enforcement/BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md` | — |
 
 **Receipts:** `~/.sina/sourcea-e2e-playbook-lock-v1.json` · `~/.sina/sourcea-session-20260609-lock-v1.json` · `~/.sina/sourcea-founder-pinned-lock-v1.json`
 

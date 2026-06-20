@@ -8,7 +8,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-INDEX = ROOT / "SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"
+from governance_paths_v1 import AUTHORITY_INDEX
+
+INDEX = AUTHORITY_INDEX
 ANTI_STALE = ROOT / "scripts/validate-anti-staleness-bundle-v1.sh"
 INTEGRITY = ROOT / "scripts/validate-integrity-batch-2-v1.sh"
 

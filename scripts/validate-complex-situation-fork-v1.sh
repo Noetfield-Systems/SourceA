@@ -2,6 +2,8 @@
 # validate-complex-situation-fork-v1.sh — Fork Machine law + wiring logged
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+# shellcheck source=governance-paths-v1.sh
+. "$ROOT/scripts/governance-paths-v1.sh"
 SCRIPTS="$ROOT/scripts"
 
 fail() { echo "FAIL: validate-complex-situation-fork-v1 — $*" >&2; exit 1; }
@@ -15,7 +17,7 @@ PY="$SCRIPTS/complex_situation_fork_machine_v1.py"
 [[ -f "$PY" ]] || fail "missing python module"
 
 grep -q "FORK-MACHINE SESSION" "$PROMPT" || fail "prompt missing FORK-MACHINE block"
-grep -q "FORK_MACHINE" "$ROOT/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md" || fail "authority row FORK_MACHINE"
+grep -q "FORK_MACHINE" "$SINA_AUTHORITY_INDEX" || fail "authority row FORK_MACHINE"
 grep -q "COMPLEX_SITUATION_FORK" "$ROOT/scripts/hub_essentials_index.py" || fail "READ_CHAIN missing"
 grep -q "COMPLEX_SITUATION_FORK" "$ROOT/scripts/important_docs_index.py" || fail "doc library missing"
 [[ -f "$ROOT/.cursor/rules/complex-situation-fork.mdc" ]] || fail "cursor rule missing"

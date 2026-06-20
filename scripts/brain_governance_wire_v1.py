@@ -14,6 +14,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+from governance_paths_v1 import NO_FAKE_PROGRESS
+
 SINA = Path.home() / ".sina"
 WIRE_PATH = SINA / "governance-brain-wire-v1.json"
 BRAIN_WIRE_ALIAS = SINA / "brain-wire-v1.json"
@@ -29,7 +31,7 @@ BRAIN_LAW_PATHS = (
     ROOT / "SOURCEA_LIVE_ONGOING_PROMPTS_LOCKED_v1.md",
     ROOT / "SOURCEA_PHASE_STRICT_RUN_INBOX_LOCKED_v1.md",
     ROOT / "SOURCEA_OPENROUTER_ACTIVATION_QUEUE_LOCKED_v1.md",
-    ROOT / "SOURCEA_NO_FAKE_PROGRESS_ENTERPRISE_SHIP_LOCKED_v1.md",
+    NO_FAKE_PROGRESS,
 )
 
 STALE_RECONCILED_PATS = (

@@ -42,8 +42,8 @@ SOURCEA_SYSTEM_MAP_TREE_LOCKED_v1.md  ← YOU ARE HERE
 ├── SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md
 │   └── registry: one canonical doc per topic
 │
-├── brain-os/entry/START_HERE_LOCKED_v1.md
-│   └── brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md (v1.3)
+├── brain-os/law/entry/START_HERE_LOCKED_v1.md
+│   └── brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md (v1.3)
 │       ├── @sina-conscious-recovery  → agent-skills/shared/conscious-recovery/
 │       └── @agent-self-audit-loop    → ~/.cursor/skills/agent-self-audit-loop/
 │       ├── §Brain   → brain-session-start.sh → route only
@@ -78,8 +78,8 @@ LAW PLANE (disk SSOT for rules)
 │   ├── SOURCEA_VALID_YES_PROGRESS_VERDICT_LOCKED_v1.md
 │   ├── brain-os/laws/MONITOR_HONESTY_LOCKED_v1.md
 │   ├── SOURCEA_MONITOR_DISK_LIVE_WIRE_LOCKED_v1.md
-│   ├── brain-os/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md
-│   ├── brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md
+│   ├── brain-os/law/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md
+│   ├── brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md
 │   └── scripts/factory_control_v1.py                        ← conduct machine (FREEZE · stop · spawn gate)
 │
 ├── Hub + monitor projection (UI ≠ execution SSOT)

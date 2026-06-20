@@ -28,8 +28,8 @@
 
 | ID | Document | Have? | Use for 6mo? | Verdict |
 |----|----------|-------|--------------|---------|
-| E1 | `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` | ✅ | **YES** | Win conditions W1/W2/W3 — apex sprint law |
-| E2 | `brain-os/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md` | ✅ | **YES** | **Only** week-by-week execution table — trust this |
+| E1 | `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` | ✅ | **YES** | Win conditions W1/W2/W3 — apex sprint law |
+| E2 | `brain-os/law/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md` | ✅ | **YES** | **Only** week-by-week execution table — trust this |
 | E3 | `brain-os/system/SOURCEA_FULL_LAYERED_CONTROL_PLAN_LOCKED_v1.md` v1.1 | ✅ | **YES** | Big picture · two clocks · nine-layer stack |
 | E4 | `brain-os/laws/FOUNDER_AGENTIC_COMMERCIAL_AND_NO_CURSOR_AUTORUN_LOCKED_v1.md` | ✅ | **YES** | Founder hub-only · agents do outreach |
 | E5 | `prompts/ENFORCEMENT_6MO_MASTER_CONTROL_PROMPT_v1.md` | ✅ | **YES** | Paste into Worker/Brain sessions |

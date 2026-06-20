@@ -31,7 +31,7 @@ critic_claims:
 
 disk_counter_evidence:
   headless_rail_a:
-    law: brain-os/enforcement/GOAL1_EXECUTION_SOLUTION_LOCKED_v1.md
+    law: brain-os/law/enforcement/GOAL1_EXECUTION_SOLUTION_LOCKED_v1.md
     chain: "INJECT → VALIDATE → ACTIVATE (agent -p -f) → SYNC (broker)"
     entry: "Hub ▶ AUTO-RUN → goal1_auto_loop_v1.py → start_goal1_worker_turn_v1.py"
     founder_law: TODAY_AUTORUN_50_PLAN_LOCKED_v1.md — no Worker paste

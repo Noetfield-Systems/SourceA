@@ -31,9 +31,9 @@ print('PASS: brain_session_guard discipline')
 "
 
 grep -q "INCIDENT-026" "$ROOT/.cursor/rules/000-brain-unified.mdc" || fail "brain-unified INCIDENT-026"
-grep -q "validate-e2e-fast-ladder" "$ROOT/brain-os/enforcement/BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md" || fail "BRAIN_NO_FULL_E2E"
+grep -q "validate-e2e-fast-ladder" "$ROOT/brain-os/law/enforcement/BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md" || fail "BRAIN_NO_FULL_E2E"
 grep -q "BRAIN_E2E_EXECUTOR_PASTE" "$ROOT/brain-os/contract/MANDATORY_BRAIN_CHAT_LOCKED_v1.md" \
-  || grep -q "BRAIN_E2E_EXECUTOR_PASTE" "$ROOT/brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md" \
+  || grep -q "BRAIN_E2E_EXECUTOR_PASTE" "$ROOT/brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md" \
   || fail "MANDATORY_READ missing paste pointer"
 
 echo "OK: validate-brain-e2e-discipline-v1"

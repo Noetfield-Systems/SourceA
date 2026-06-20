@@ -183,7 +183,7 @@ This is the direction. Layers L1–L13 prove or block it.
 | **W3** | NF-001 or TF-001 ≥ CAD 2K or LOI/SOW |
 | **Truth** | W3 revenue = **$0** today — say it |
 
-**Evidence:** `brain-os/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md`
+**Evidence:** `brain-os/law/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md`
 
 **Motion:** W3 via **L4 agentic outreach** — not L2 manual founder rhythm.
 

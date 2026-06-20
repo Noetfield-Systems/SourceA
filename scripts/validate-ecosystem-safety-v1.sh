@@ -52,7 +52,7 @@ else
 fi
 
 # 4) Lane + E2E recipe wiring
-test -f "$ROOT/brain-os/enforcement/FOUNDER_LANE_SEPARATION_LOCKED_v1.md"
+test -f "$ROOT/brain-os/law/enforcement/FOUNDER_LANE_SEPARATION_LOCKED_v1.md"
 grep -q "STRATEGIC — not Worker scope" "$ROOT/brain-os/plan-registry/CANADA_AI_FOR_ALL_FUNDING_ALIGNMENT_v1.md"
 test -f "$SCRIPTS/validate-sourcea-e2e-standard-v1.sh"
 test -f "$SCRIPTS/validate-e2e-fast-ladder-v1.sh"

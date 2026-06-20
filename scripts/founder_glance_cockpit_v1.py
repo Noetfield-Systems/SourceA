@@ -8,7 +8,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parent.parent
 REGISTRY_REL = "data/founder-glance-cockpit-apps-v1.json"
-LAW_DOC = "brain-os/enforcement/SINA_FOUNDER_GLANCE_COCKPIT_APPS_LOCKED_v1.md"
+LAW_DOC = "brain-os/law/enforcement/SINA_FOUNDER_GLANCE_COCKPIT_APPS_LOCKED_v1.md"
 
 APPS: dict[str, dict[str, Any]] = {
     "mac_health": {

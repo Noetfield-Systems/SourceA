@@ -6,7 +6,7 @@ alwaysApply: true
 
 # UI FIRST CHECK — ZERO EXCEPTION (ALL agents · ALL UI)
 
-**Law:** `brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md`  
+**Law:** `brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md`  
 **Wire:** `.cursor/rules/025-ui-upgrade-first-check-live-wire.mdc` · `.cursor/rules/024-ui-upgrade-mandatory-checklist.mdc`
 
 ## RED FLAG (founder locked)
