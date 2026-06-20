@@ -27,5 +27,8 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
+# Vercel build output (generated — not committed)
+SourceA-landing/green-unified/dist/
+
 # Cleanup scan output may list paths — ok to commit report without keys
 # infra/cleanup/secret-scan-report.txt
