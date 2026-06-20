@@ -68,6 +68,9 @@ bash scripts/run-portfolio-supabase-daily-v1.sh
 | `portfolio_supabase_daily_line` | Hub / surfaces glance line |
 | `data/portfolio-account-structure-v1.json` | Gmail + service login map (all lanes) |
 | `portfolio_account_structure_line` | Account map glance — wired on every daily pulse |
+| `data/portfolio-daily-priority-queue-v1.json` | P0/P1/P2 blockers (#10) |
+| `portfolio_priority_line` | Priority queue glance |
+| `bash scripts/setup_supabase_secrets_mac_v1.sh` | Founder one-time Supabase secrets scaffold |
 
 **Checks:** HTTP on Noetfield · TrustField · WitnessBC · VIRLUX web/API · optional SourceA landing · `GET {SUPABASE_URL}/auth/v1/health` for portfolio-spine + labs-sandbox (secrets in `~/.sourcea-secrets/`).
 
