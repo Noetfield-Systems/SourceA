@@ -1,7 +1,7 @@
 {
   "schema": "agent-rule-live-wire-registry-v1",
-  "version": "1.1.0",
-  "saved_at": "2026-06-19T19:26:11Z",
+  "version": "1.2.0",
+  "saved_at": "2026-06-20T23:08:00Z",
   "one_law": "Every new rule ships SSOT → register → --wire-sync upgrades DISK + MACHINES (H2) + nerves — live before done. Factories ONLINE cloud+API only · Mac = control panel · anti-staleness · zero drift · zero fragmentation.",
   "execution_model": {
     "mac_role": "control_plane_only",
@@ -91,6 +91,12 @@
         "step": "Machines (H2) upgrade only",
         "command": "python3 scripts/agent_rule_live_wire_v1.py --upgrade-machines --json",
         "pass": "h2-pending-registry RULE-WIRE-* rows synced"
+      },
+      {
+        "id": "R13",
+        "step": "Zero-latency rule hook (automatic on pre_write)",
+        "command": "python3 scripts/rule_zero_latency_hook_v1.py --path <rule-path> --json",
+        "pass": "rule_wire_line on surfaces · rule-propagation-fanout receipt PASS · validate-rule-zero-latency-hook PASS"
       }
     ],
     "chain_order": [
@@ -281,6 +287,8 @@
         "data/mac-law-universal-wire-v1.json"
       ]
     },
+    {
+      "id": "cloud_factories_online_only",
       "label": "Cloud factories ONLINE only — Mac never factory body",
       "status": "live",
       "layer": "factory",
@@ -300,6 +308,28 @@
         "scripts/founder_execution_model_v1.py",
         "scripts/anti_theater_validator_loop_v1.py",
         "scripts/disk_live_wire_sync_v1.py"
+      ]
+    },
+    {
+      "id": "rule_propagation_zero_latency",
+      "label": "Rule zero-latency hook — pre_write fanout → surfaces",
+      "status": "live",
+      "layer": "governance",
+      "ssot": "data/rule-propagation-zero-latency-v1.json",
+      "script": "scripts/rule_zero_latency_hook_v1.py",
+      "pulse_fn": "assess",
+      "validator": "scripts/validate-rule-zero-latency-hook-v1.sh",
+      "receipt": "~/.sina/rule-zero-latency-hook-receipt-v1.json",
+      "surfaces_line_key": "rule_wire_line",
+      "surfaces_block_key": "rule_zero_latency_hook",
+      "nerve_keys": ["rule_wire_line", "rule_zero_latency_hook"],
+      "anti_theater_check": "rule_propagation_zero_latency",
+      "runs_on": [
+        "scripts/pre_write_guard_v1.py",
+        "scripts/rule_propagation_fanout_v1.py",
+        "scripts/agent_rule_live_wire_v1.py",
+        "scripts/governance_zero_drift_live_wire_v1.py",
+        "scripts/agent_nerve_system_v1.py"
       ]
     },
     {

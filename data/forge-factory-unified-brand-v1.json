@@ -1,0 +1,102 @@
+{
+  "schema": "forge-factory-unified-brand-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-20T22:41:33Z",
+  "authority": "ASF",
+  "brand": {
+    "id": "forge_factory",
+    "display_name": "FORGE FACTORY",
+    "short_name": "Forge Factory",
+    "tagline": "Controlled agentic execution — world model + factory lines + receipt truth before LLM",
+    "supabase_project": "portfolio-spine",
+    "supabase_schema": "forge_factory",
+    "secrets_file": "~/.sourcea-secrets/portfolio-spine.env"
+  },
+  "one_law": "WTM and SourceA Forge are one brand: FORGE FACTORY. One plan path · one queue line · one Supabase schema on SourceA spine.",
+  "supersedes_customer_facing": ["WTM as standalone product name", "SourceA Forge as separate brand"],
+  "merged_from": {
+    "wtm": {
+      "canonical": "brain-os/wtm/WORLD_TARGET_MODEL_MAP_LOCKED_v5.md",
+      "role": "Pre-LLM world model · phases A–D · understanding before action"
+    },
+    "forge_pipeline": {
+      "canonical": "labs/forge-v0.1/forge_pipeline_v01.ts",
+      "role": "100-plan funnel · validate → score → route → destination_repo"
+    },
+    "fbe_factory_builder": {
+      "canonical": "data/fbe_factory_builder_bundle_v1.json",
+      "human": "docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
+      "role": "Three controlled factory lines · cloud headless · Mac control plane"
+    }
+  },
+  "legacy_aliases": {
+    "forge": "forge_factory",
+    "forg": "forge_factory",
+    "wtm": "forge_factory",
+    "sourcea_forge": "forge_factory"
+  },
+  "unified_plan_path": {
+    "phases": [
+      {
+        "id": "A",
+        "name": "Execution Spine",
+        "steps": "A1–A4",
+        "status": "done",
+        "source": "wtm"
+      },
+      {
+        "id": "B",
+        "name": "Intelligence OS",
+        "steps": "B1–B6",
+        "status": "frozen",
+        "source": "wtm"
+      },
+      {
+        "id": "C",
+        "name": "Runtime Stack",
+        "steps": "C1–C7",
+        "status": "done",
+        "source": "wtm"
+      },
+      {
+        "id": "D",
+        "name": "Pre-LLM World Model",
+        "steps": "D1–D16",
+        "status": "active",
+        "source": "wtm"
+      },
+      {
+        "id": "F1",
+        "name": "Plan Funnel",
+        "steps": "validate → score → route",
+        "status": "live",
+        "source": "forge_pipeline"
+      },
+      {
+        "id": "F2",
+        "name": "Factory Lines",
+        "steps": "Trust Motor · Refinery · Assembly",
+        "status": "live",
+        "source": "fbe_factory_builder"
+      }
+    ],
+    "operating_loop": "SCAN → PICK → PROVE on every lane · cloud executes · Mac observes",
+    "queue_unify": "Single queue_sa across factory-now · Forge Factory LIVE NOW · FBE run receipts"
+  },
+  "product_routes": [
+    { "module": "noetfield", "supabase_host": "noetfield", "note": "freemium copilot lane" },
+    { "module": "trustfield", "supabase_host": "noetfield", "note": "sandbox / compliance lane" },
+    { "module": "witnessbc", "supabase_host": "portfolio-spine", "note": "witness lane" },
+    { "module": "forge_factory", "supabase_host": "portfolio-spine", "note": "this brand — unified WTM+Forge+FBE" }
+  ],
+  "hub_surfaces": {
+    "wtm_tab": {
+      "surface_id": "wtm_tab",
+      "display_migration": "FORGE FACTORY",
+      "note": "Registered UI surface id unchanged until UI upgrade FIRST CHECK — label migrates to FORGE FACTORY"
+    },
+    "worker_hub_factory": "http://127.0.0.1:13020/",
+    "fbe_projection": "scripts/fbe_hub_projection_v1.py"
+  },
+  "supersedes_ssot": "data/wtm-forge-unified-goals-v1.json"
+}

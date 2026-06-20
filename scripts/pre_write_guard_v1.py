@@ -89,6 +89,16 @@ def check_pre_write(*, agent: str, path: str, explicit_order: str = "") -> dict:
             pass
 
     allowed = bool(guard.get("allowed")) and not blockers
+    rule_hook: dict | None = None
+    if allowed:
+        try:
+            from rule_zero_latency_hook_v1 import is_rule_governance_path, maybe_hook_after_pre_write  # noqa: WPS433
+
+            if is_rule_governance_path(path):
+                rule_hook = maybe_hook_after_pre_write(path=path, agent=agent)
+        except Exception as exc:
+            rule_hook = {"ok": False, "error": str(exc)[:120], "step": "rule_zero_latency_hook"}
+
     return {
         "ok": allowed,
         "allowed": allowed,
@@ -100,6 +110,7 @@ def check_pre_write(*, agent: str, path: str, explicit_order: str = "") -> dict:
         "trust_tier": live.get("admission", {}).get("trust_tier") or admission.get("trust_tier"),
         "sascip_safety_line": live.get("sascip_safety_line"),
         "law": "STRANGER_AGENT_SAFETY_CONTROL_PIPELINE_LOCKED_v1.md",
+        "rule_zero_latency_hook": rule_hook,
         "message": (
             "write allowed"
             if allowed
@@ -120,13 +131,19 @@ def check_pre_write(*, agent: str, path: str, explicit_order: str = "") -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Pre-write guard")
-    ap.add_argument("cmd", choices=("check",))
+    ap.add_argument("cmd", choices=("check", "post-write"))
     ap.add_argument("--agent", required=True)
     ap.add_argument("--path", required=True)
     ap.add_argument("--explicit-order", default="")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
-    row = check_pre_write(agent=args.agent, path=args.path, explicit_order=args.explicit_order)
+    if args.cmd == "post-write":
+        sys.path.insert(0, str(SCRIPTS))
+        from rule_zero_latency_hook_v1 import run_hook  # noqa: WPS433
+
+        row = run_hook(path=args.path, reason=f"post_write:{args.agent}", tier="fast", sync_cursor_index=True)
+    else:
+        row = check_pre_write(agent=args.agent, path=args.path, explicit_order=args.explicit_order)
     if args.json:
         print(json.dumps(row, indent=2))
     else:

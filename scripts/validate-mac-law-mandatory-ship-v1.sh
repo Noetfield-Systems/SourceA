@@ -3,6 +3,9 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
+# shellcheck source=_founder_session_gate_entry_v1.sh
+source "$ROOT/scripts/_founder_session_gate_entry_v1.sh"
+_founder_session_gate_or_exit "$(basename "$0")" "$ROOT"
 
 fail() { echo "FAIL: mac-law-mandatory-ship — $*" >&2; exit 1; }
 

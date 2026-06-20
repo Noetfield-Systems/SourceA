@@ -38,10 +38,24 @@ def _expand(path_str: str) -> Path:
     return Path(str(path_str).replace("~", str(Path.home()))).expanduser()
 
 
-def ship_window_open() -> bool:
+def ship_window_open(*, max_age_hours: float | None = None) -> bool:
+    """Ship window only counts if flag exists AND is fresh (stale flag = no marathon bypass)."""
     reg = _load_registry()
     raw = reg.get("ship_window_flag") or str(SHIP_WINDOW_FLAG)
-    return _expand(str(raw)).is_file()
+    path = _expand(str(raw))
+    if not path.is_file():
+        return False
+    age_h = max_age_hours if max_age_hours is not None else float(reg.get("ship_window_max_age_hours") or 4)
+    try:
+        mtime = path.stat().st_mtime
+    except OSError:
+        return False
+    import time
+
+    hours_old = (time.time() - mtime) / 3600.0
+    if hours_old > age_h:
+        return False
+    return True
 
 
 def founder_session_active() -> bool:

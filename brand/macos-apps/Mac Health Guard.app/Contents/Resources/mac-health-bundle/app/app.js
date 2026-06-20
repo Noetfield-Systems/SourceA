@@ -1712,6 +1712,29 @@
     return json;
   }
 
+  let cloudGlanceHubUrl = "";
+
+  function paintCloudGlance(row) {
+    const el = $("cloud-glance-strip");
+    if (!el) return;
+    const cg = row?.cloud_glance || row || {};
+    if (cg.hub_url) cloudGlanceHubUrl = cg.hub_url;
+    const line =
+      cg.founder_line ||
+      cg.for_founder?.show_this ||
+      (cg.railway_ok ? "Cloud · Railway OK" : "Cloud · reading…");
+    el.textContent = line;
+    el.className = "mhg-cloud-glance-strip";
+    if (cg.last_dispatch_ok === false) el.classList.add("bad");
+    else if (!cg.railway_ok) el.classList.add("warn");
+  }
+
+  async function fetchCloudGlance() {
+    const res = await fetch(`${API}/api/mac-health/cloud-glance/v1`, { cache: "no-store" });
+    if (!res.ok) throw new Error(`cloud glance ${res.status}`);
+    return res.json();
+  }
+
   async function tickLive() {
     if (document.hidden || liveFetchInFlight) return;
     const nowMs = Date.now();
@@ -1723,6 +1746,10 @@
       if (lastReport && live.prevention) lastReport.prevention = live.prevention;
       paintLivePulse(live);
       paintCooldownLive(live);
+      paintCloudGlance(live);
+      fetchCloudGlance()
+        .then((cg) => paintCloudGlance({ cloud_glance: cg }))
+        .catch(() => {});
     } catch {
       const pulse = $("heart-pulse");
       if (pulse) {
@@ -1850,6 +1877,9 @@
   $("btn-log-shield-relieve")?.addEventListener("click", () => runLogShieldAction("truncate_runaway_logs"));
   $("btn-log-shield-relieve-panel")?.addEventListener("click", () => runLogShieldAction("truncate_runaway_logs"));
   $("btn-log-shield-kill-readers")?.addEventListener("click", () => runLogShieldAction("kill_stuck_log_readers"));
+  $("cloud-glance-strip")?.addEventListener("click", () => {
+    if (cloudGlanceHubUrl) window.location.assign(cloudGlanceHubUrl);
+  });
 
   pingHeart();
   scheduleLivePoll();

@@ -1,36 +1,36 @@
 {
   "schema": "fbe-run-receipt-v1",
   "ok": true,
-  "at": "2026-06-20T01:58:56Z",
+  "at": "2026-06-20T23:12:43Z",
   "wave": "W2",
   "factory_id": "factory_1",
   "mode": "federated_headless",
   "deliveryMode": "prove_only",
-  "work_order_id": "wo-brain-ddd71084ff53",
-  "bay_slug": "noetfield-freemium-bay",
+  "work_order_id": null,
+  "bay_slug": "sample-bay",
   "lines": {
     "motor": {
       "sascip": {
         "path": "/Users/sinakazemnezhad/.sina/stranger-agent-safety-live-wire-v1.json",
         "exists": true,
-        "ok": false,
+        "ok": true,
         "schema": "stranger-agent-safety-live-wire-v1",
-        "sha256": "b83218469c4ddce5202d3101122508ac09b28623d371a9a32c2e44b391622e06",
+        "sha256": "29a2ccd8f2fa39d37fcb41f54f0c612cf73989a18e48d7e26e3bb93648f9820b",
         "body": {
           "schema": "stranger-agent-safety-live-wire-v1",
-          "ok": false,
-          "at": "2026-06-20T00:56:04Z",
+          "ok": true,
+          "at": "2026-06-20T23:12:36Z",
           "role": "worker",
           "tier": "session",
           "law": "docs/STRANGER_AGENT_SAFETY_CONTROL_PIPELINE_LOCKED_v1.md",
-          "sascip_safety_line": "SASCIP DEGRADED \u00b7 ? \u00b7 ? \u00b7 risk 0 \u00b7 ADMIT \u00b7 probes=PASS \u00b7 panic=clear \u00b7 watch=ok",
+          "sascip_safety_line": "SASCIP WIRED \u00b7 sourcea_worker \u00b7 T2_fleet_L2 \u00b7 risk 45 \u00b7 ADMIT \u00b7 probes=PASS \u00b7 panic=clear \u00b7 watch=ok",
           "admission": {
-            "ok": null,
-            "stranger": null,
-            "trust_tier": null,
-            "resolved_agent_id": "cursor",
-            "risk_score": null,
-            "cross_lane_writes": null,
+            "ok": true,
+            "stranger": false,
+            "trust_tier": "T2_fleet_L2",
+            "resolved_agent_id": "sourcea_worker",
+            "risk_score": 45,
+            "cross_lane_writes": "allow",
             "receipt_path": "/Users/sinakazemnezhad/.sina/stranger-agent-admission-receipt-v1.json"
           },
           "panic": {
@@ -47,17 +47,17 @@
             "watch": true,
             "stranger_quarantine": false
           },
-          "elapsed_sec": 138.07,
-          "within_budget": false,
+          "elapsed_sec": 0.28,
+          "within_budget": true,
           "steps": [
             {
               "stage": "ADMIT",
               "step": "stranger_agent_safety_pipeline",
-              "ok": false,
-              "exit": 124,
-              "trust_tier": null,
-              "stranger": null,
-              "admission_ok": null
+              "ok": true,
+              "exit": 0,
+              "trust_tier": "T2_fleet_L2",
+              "stranger": false,
+              "admission_ok": true
             },
             {
               "stage": "PROBE",
@@ -100,7 +100,7 @@
               "stage": "WATCH",
               "step": "watch_pulse",
               "ok": true,
-              "note": "skipped fresh age_sec=7.4"
+              "note": "skipped fresh age_sec=0.9"
             }
           ],
           "pre_write_guard": "python3 scripts/pre_write_guard_v1.py check --agent <id> --path <target> --json"
@@ -111,37 +111,40 @@
         "exists": true,
         "ok": false,
         "schema": "governance-zero-drift-live-wire-v1",
-        "sha256": "d4486f029065b51117239a56cbc05d4f3b57f8a515b1c758caa2780591c82f03",
+        "sha256": "6f09ad7e9be473d00abc3569524a8d555bea044133cc38bb3b9da87d3953ab1b",
         "body": {
           "schema": "governance-zero-drift-live-wire-v1",
           "ok": false,
-          "at": "2026-06-20T00:56:20Z",
+          "at": "2026-06-20T23:00:53Z",
           "role": "any",
           "tier": "session",
-          "law": "GOVERNANCE_DRIFT_ENGINE_LOCKED_v1.md",
-          "zero_drift_line": "ZERO-DRIFT WIRED \u00b7 score=43 \u00b7 queue=sa-1200 \u00b7 L0.5+L1+L2+SASCIP \u00b7 ops=DOWN",
-          "drift_score": 43,
-          "drift_items": 1,
-          "queue_sa": "sa-1200",
-          "factory_now_line": "factory-now \u00b7 Valid YES 1000 \u00b7 brain 1000 \u00b7 dual_proof True \u00b7 mode FREEZE \u00b7 queue ",
+          "law": "brain-os/law/GOVERNANCE_DRIFT_ENGINE_LOCKED_v1.md",
+          "zero_drift_line": "ZERO-DRIFT REVIEW \u00b7 score=100 \u00b7 queue=sa-1201 \u00b7 L0.5+L1+L2+SASCIP \u00b7 ops=DOWN",
+          "drift_score": 100,
+          "drift_items": 3,
+          "queue_sa": "sa-1201",
+          "factory_now_line": "factory-now \u00b7 FORGE FACTORY \u00b7 cycle2 \u00b7 mode FORGE_FACTORY \u00b7 queue sa-1201",
           "chains": {
             "L0_5_L1_L2": true,
-            "cross_layer": true,
+            "cross_layer": false,
             "governance_drift": true,
             "SASCIP": true,
             "vocabulary": true,
             "L8_voyage": true,
             "monitor_pulse": true,
+            "mac_law": false,
             "outbound_worker": true
           },
           "layers": {
-            "L0_5": true,
+            "L0_5": false,
             "L1": true,
             "L2": true,
             "cross_ref": true,
             "queue_aligned": true,
-            "dual_pick": true,
-            "ui_upgrade_first_check": false
+            "dual_pick": false,
+            "ui_upgrade_first_check": false,
+            "mac_law_agent_lock": false,
+            "mac_law_universal_wire": false
           },
           "paths": {
             "anti_staleness": "/Users/sinakazemnezhad/.sina/anti-staleness-auto-wire-v1.json",
@@ -155,36 +158,56 @@
               "step": "anti_staleness_auto_wire",
               "ok": true,
               "exit": 0,
-              "note": "fresh age_sec=76.3",
-              "queue_sa": "sa-1200"
+              "queue_sa": "sa-1201"
             },
             {
               "chain": "cross_layer",
               "step": "cross_layer_chain_check",
-              "ok": true,
-              "drift_items": 1,
-              "queue_sa": "",
+              "ok": false,
+              "drift_items": 3,
+              "queue_sa": "sa-1201",
               "issues": [
-                "ui_upgrade_first_check wire_ok=false"
+                "ui_upgrade_first_check wire_ok=false",
+                "mac_law_agent_execution_plane_lock receipt not ok",
+                "mac_law_universal_wire receipt not ok"
               ]
+            },
+            {
+              "chain": "mac_law",
+              "step": "mac_law_agent_execution_plane_lock",
+              "ok": false,
+              "line": "mac-law-agent-lock \u00b7 mac-control-only=YES \u00b7 no-factory-body-on-mac=NO \u00b7 cloud-body=YES \u00b7 ok=RED"
             },
             {
               "chain": "governance_drift",
               "step": "drift_report",
               "ok": true,
-              "source": "cached",
-              "age_sec": 5.1,
-              "aggregate_score": 43,
-              "status": "needs_review",
-              "sensors": 7,
-              "live_ops_ok": false
+              "source": "session_light",
+              "aggregate_score": 100,
+              "status": "ok",
+              "sensors": [
+                {
+                  "id": "GD-BOWL",
+                  "ok": true,
+                  "score": 100,
+                  "detail": "0 drift item(s) in DRIFT.json"
+                },
+                {
+                  "id": "GD-OPS",
+                  "ok": false,
+                  "score": 0,
+                  "detail": "[Errno 61] Connection refused"
+                }
+              ],
+              "live_ops_ok": false,
+              "drift_items_bowl": 0
             },
             {
               "chain": "SASCIP",
               "step": "stranger_agent_admission",
               "ok": true,
               "trust_tier": "T2_fleet_L2",
-              "risk_score": 25
+              "risk_score": 45
             },
             {
               "chain": "vocab",
@@ -205,7 +228,7 @@
               "mode": "voyage",
               "semantic": true,
               "search_hits": 3,
-              "voyage_line": "VOYAGE ACTIVE \u00b7 voyage \u00b7 voyage-4-lite \u00b7 chunks=648 \u00b7 search=3hits \u00b7 L8 hybrid"
+              "voyage_line": "VOYAGE ACTIVE \u00b7 voyage \u00b7 voyage-4-lite \u00b7 chunks=800 \u00b7 search=3hits \u00b7 L8 hybrid"
             },
             {
               "chain": "outbound_worker",
@@ -214,30 +237,35 @@
               "coherence_ok": true,
               "receipt_ok": true,
               "execution_plane_ok": true,
-              "outbound_progress_line": "outbound \u00b7 0/100 done \u00b7 head=? \u00b7 plan=? \u00b7 sa=?",
+              "outbound_progress_line": "outbound \u00b7 0/100 done \u00b7 head=? \u00b7 plan=? \u00b7 sa=sa-1201",
               "issues": []
             },
             {
               "chain": "monitor",
               "step": "monitor_live_pulse",
               "ok": true
+            },
+            {
+              "chain": "rule_propagation",
+              "step": "rule_propagation_fanout",
+              "ok": true
             }
           ],
           "realtime": {
             "pulse": {
               "schema": "monitor-live-v1",
-              "at": "2026-06-20T00:56:05Z",
+              "at": "2026-06-20T23:00:37Z",
               "reason": "zero_drift_live_wire:session",
               "signature_changed": true,
               "honest_status_written": true,
               "valid_yes": 1000,
               "receipt_done": 1000,
-              "here_sa": "",
-              "here_role": "",
-              "queue_pos": 1,
-              "queue_total": 0,
-              "factory_mode": "FREEZE",
-              "freeze": true,
+              "here_sa": "sa-1202",
+              "here_role": "act",
+              "queue_pos": 2,
+              "queue_total": 10,
+              "factory_mode": "FORGE_FACTORY",
+              "freeze": false,
               "phase_strict": "Hub only (H1/H2) \u00b7 Sina Command RETIRED \u00b7 factory drain phase-s8",
               "inbox_pending": false,
               "law": "disk-wired \u00b7 no agent refresh required",
@@ -248,47 +276,50 @@
               },
               "run_inbox_truth": {
                 "schema": "run-inbox-disk-truth-v1",
-                "at": "2026-06-20T00:55:53Z",
+                "at": "2026-06-20T23:00:37Z",
                 "execution_lane": "run_inbox",
                 "next_steps_lane": "advisory_only",
-                "law": "RUN_INBOX_DISK_TRUTH_EXECUTION_LOCKED_v1.md",
+                "law": "brain-os/law/enforcement/law/enforcement/RUN_INBOX_DISK_TRUTH_EXECUTION_LOCKED_v1.md",
                 "progress": {
                   "valid_yes": 1000,
                   "receipt_done": 1000,
                   "goal_line": "1000/1000 honest (100.0%)"
                 },
                 "factory": {
-                  "mode": "FREEZE",
-                  "freeze": true,
+                  "mode": "FORGE_FACTORY",
+                  "freeze": false,
                   "stop_receipt_open": false
                 },
                 "queue": {
                   "phase_strict": false,
                   "pos": 1,
-                  "total": 0,
-                  "sa_id": "",
-                  "role": "",
-                  "phase": null,
-                  "sa_range": [],
-                  "queue_exhausted": true
+                  "total": 10,
+                  "sa_id": "sa-1201",
+                  "role": "check",
+                  "phase": "forge-factory-cycle2",
+                  "sa_range": [
+                    "sa-1201",
+                    "sa-1210"
+                  ],
+                  "queue_exhausted": false
                 },
                 "phase_strict_order": "Hub only (H1/H2) \u00b7 Sina Command RETIRED \u00b7 factory drain phase-s8",
                 "inbox": {
                   "pending": false,
-                  "sa_id": "",
-                  "delivered_at": "2026-06-19T19:30:44Z",
+                  "sa_id": "sa-1201",
+                  "delivered_at": "2026-06-20T22:46:51Z",
                   "truth_match": true,
                   "execution_mode": "worker_inbox",
                   "work_order_id": null,
                   "local_worker_deprecated": false
                 },
-                "monitor_live_at": "2026-06-20T00:55:43Z",
+                "monitor_live_at": "2026-06-20T22:59:05Z",
                 "you_are_here": {
-                  "n": 1,
-                  "sa_id": "",
-                  "queue_pos": 1,
-                  "queue_total": 0,
-                  "role": "",
+                  "n": 1202,
+                  "sa_id": "sa-1202",
+                  "queue_pos": 2,
+                  "queue_total": 10,
+                  "role": "act",
                   "queue_exhausted": false,
                   "label": ""
                 }
@@ -296,51 +327,217 @@
               "live_ongoing_prompts": {
                 "ok": true,
                 "schema": "live-ongoing-prompts-next-10-v1",
-                "built_at": "2026-06-20T00:56:20Z",
+                "built_at": "2026-06-20T23:00:37Z",
                 "law": "SOURCEA_LIVE_ONGOING_PROMPTS_LOCKED_v1.md",
-                "cursor_pos": 0,
-                "queue_total": 0,
-                "queue_exhausted": true,
+                "cursor_pos": 2,
+                "queue_total": 10,
                 "queue_path": "/Users/sinakazemnezhad/.sina/healthy-queue-30-active.json",
                 "valid_yes": "1000/1000",
                 "honest_done": 1000,
                 "honest_total": 1000,
-                "factory_mode": "FREEZE",
-                "freeze": true,
+                "factory_mode": "FORGE_FACTORY",
+                "freeze": false,
                 "founder_confirmed_at": null,
                 "validator_receipt": {
-                  "ok": true,
-                  "detail": "queue_exhausted_idle"
+                  "ok": false,
+                  "schema": "live-pack-validator-receipt-v1",
+                  "at": "2026-06-20T23:00:37Z",
+                  "law": "SOURCEA_LIVE_ONGOING_PROMPTS_LOCKED_v1.md",
+                  "checks": [
+                    {
+                      "id": "run_inbox_truth",
+                      "ok": true,
+                      "detail": "sa-1202",
+                      "inbox_pending": false
+                    },
+                    {
+                      "id": "healthy_pack_bind",
+                      "ok": false,
+                      "detail": "queue=sa-1202 inbox=sa-1201 bind=mismatch"
+                    }
+                  ],
+                  "failed": [
+                    "healthy_pack_bind"
+                  ]
                 },
-                "turns": [],
-                "count": 0,
+                "turns": [
+                  {
+                    "order": 1,
+                    "queue_pos": 2,
+                    "sa_id": "sa-1202",
+                    "queue_role": "act",
+                    "title": "Wire FORGE FACTORY Supabase schema + portfolio pulse",
+                    "preview": "",
+                    "feasible": true,
+                    "feasibility_reasons": [],
+                    "quarantined": false,
+                    "founder_edit": null,
+                    "is_current": true,
+                    "execution_bind": "bound",
+                    "execution_surface": "inbox_only",
+                    "label": "RUN INBOX \u2014 current turn"
+                  },
+                  {
+                    "order": 2,
+                    "queue_pos": 3,
+                    "sa_id": "sa-1203",
+                    "queue_role": "verify",
+                    "title": "Governance zero drift after fanout",
+                    "preview": "",
+                    "feasible": true,
+                    "feasibility_reasons": [],
+                    "quarantined": false,
+                    "founder_edit": null,
+                    "is_current": false,
+                    "execution_bind": "preview_not_bound",
+                    "execution_surface": "not_bound",
+                    "label": "not bound \u2014 preview only"
+                  },
+                  {
+                    "order": 3,
+                    "queue_pos": 4,
+                    "sa_id": "sa-1204",
+                    "queue_role": "check",
+                    "title": "WitnessBC prod markers",
+                    "preview": "",
+                    "feasible": true,
+                    "feasibility_reasons": [],
+                    "quarantined": false,
+                    "founder_edit": null,
+                    "is_current": false,
+                    "execution_bind": "preview_not_bound",
+                    "execution_surface": "not_bound",
+                    "label": "not bound \u2014 preview only"
+                  },
+                  {
+                    "order": 4,
+                    "queue_pos": 5,
+                    "sa_id": "sa-1205",
+                    "queue_role": "act",
+                    "title": "WitnessBC commercial cutover prep",
+                    "preview": "",
+                    "feasible": true,
+                    "feasibility_reasons": [],
+                    "quarantined": false,
+                    "founder_edit": null,
+                    "is_current": false,
+                    "execution_bind": "preview_not_bound",
+                    "execution_surface": "not_bound",
+                    "label": "not bound \u2014 preview only"
+                  },
+                  {
+                    "order": 5,
+                    "queue_pos": 6,
+                    "sa_id": "sa-1206",
+                    "queue_role": "check",
+                    "title": "TrustField ladder commercial_blocked",
+                    "preview": "",
+                    "feasible": true,
+                    "feasibility_reasons": [],
+                    "quarantined": false,
+                    "founder_edit": null,
+                    "is_current": false,
+                    "execution_bind": "preview_not_bound",
+                    "execution_surface": "not_bound",
+                    "label": "not bound \u2014 preview only"
+                  },
+                  {
+                    "order": 6,
+                    "queue_pos": 7,
+                    "sa_id": "sa-1207",
+                    "queue_role": "act",
+                    "title": "TrustField ladder unblock bounded",
+                    "preview": "",
+                    "feasible": true,
+                    "feasibility_reasons": [],
+                    "quarantined": false,
+                    "founder_edit": null,
+                    "is_current": false,
+                    "execution_bind": "preview_not_bound",
+                    "execution_surface": "not_bound",
+                    "label": "not bound \u2014 preview only"
+                  },
+                  {
+                    "order": 7,
+                    "queue_pos": 8,
+                    "sa_id": "sa-1208",
+                    "queue_role": "check",
+                    "title": "FBE cloud factory builder bundle",
+                    "preview": "",
+                    "feasible": true,
+                    "feasibility_reasons": [],
+                    "quarantined": false,
+                    "founder_edit": null,
+                    "is_current": false,
+                    "execution_bind": "preview_not_bound",
+                    "execution_surface": "not_bound",
+                    "label": "not bound \u2014 preview only"
+                  },
+                  {
+                    "order": 8,
+                    "queue_pos": 9,
+                    "sa_id": "sa-1209",
+                    "queue_role": "act",
+                    "title": "Loop specialist cloud dispatch tick",
+                    "preview": "",
+                    "feasible": true,
+                    "feasibility_reasons": [],
+                    "quarantined": false,
+                    "founder_edit": null,
+                    "is_current": false,
+                    "execution_bind": "preview_not_bound",
+                    "execution_surface": "not_bound",
+                    "label": "not bound \u2014 preview only"
+                  },
+                  {
+                    "order": 9,
+                    "queue_pos": 10,
+                    "sa_id": "sa-1210",
+                    "queue_role": "verify",
+                    "title": "Portfolio daily + FORGE FACTORY queue closeout",
+                    "preview": "",
+                    "feasible": true,
+                    "feasibility_reasons": [],
+                    "quarantined": false,
+                    "founder_edit": null,
+                    "is_current": false,
+                    "execution_bind": "preview_not_bound",
+                    "execution_surface": "not_bound",
+                    "label": "not bound \u2014 preview only"
+                  }
+                ],
+                "count": 9,
                 "limit": 10,
-                "note": "Goal 1 complete \u00b7 queue idle \u2014 advisory only until ASF names next pack"
+                "execution_surface": "inbox_only",
+                "note": "Live machine order: queue turns 2..10"
               },
               "factory_now": {
                 "schema": "factory-now-v1",
-                "at": "2026-06-20T00:55:09Z",
+                "at": "2026-06-20T23:00:37Z",
+                "era": "forge_factory_cycle2",
+                "brand": "FORGE FACTORY",
                 "valid_yes": 1000,
+                "valid_yes_note": "archived_goal1_bootstrap",
                 "backlog": 0,
                 "brain_vy": 1000,
                 "dual_proof_ok": true,
-                "mode": "FREEZE",
-                "kill_flag": true,
+                "mode": "FORGE_FACTORY",
+                "kill_flag": false,
                 "stop_receipt_open": false,
-                "queue_sa": "",
-                "inbox_sa": "",
+                "queue_sa": "sa-1201",
+                "inbox_sa": "sa-1201",
                 "orchestrator_status": "idle",
                 "broker_status": "idle",
                 "poison_stall": false,
                 "rebuilt_by": "queue_ssot_unify",
                 "law": "cite this line only in chat",
-                "line": "factory-now \u00b7 Valid YES 1000 \u00b7 brain 1000 \u00b7 dual_proof True \u00b7 mode FREEZE \u00b7 queue "
+                "line": "factory-now \u00b7 FORGE FACTORY \u00b7 cycle2 \u00b7 mode FORGE_FACTORY \u00b7 queue sa-1201"
               }
             },
-            "anti_staleness_age_sec": 76.3,
+            "anti_staleness_age_sec": 4.0,
             "live_ops_ok": false
           },
-          "outbound_progress_line": "outbound \u00b7 0/100 done \u00b7 head=? \u00b7 plan=? \u00b7 sa=?"
+          "outbound_progress_line": "outbound \u00b7 0/100 done \u00b7 head=? \u00b7 plan=? \u00b7 sa=sa-1201"
         }
       },
       "disk_live_wire": {
@@ -348,16 +545,16 @@
         "exists": true,
         "ok": false,
         "schema": "disk-live-wire-receipt-v1",
-        "sha256": "47b5d8253ea3736eaf8032ad3fe033f5081d8c78f5d45602b3b1ca5ae900a8c6",
+        "sha256": "deff0943d2ffa2535131fd4edeb3864092283bcfe2d10a48aeda1ba02876058b",
         "body": {
           "schema": "disk-live-wire-receipt-v1",
           "ok": false,
-          "at": "2026-06-20T00:56:36Z",
+          "at": "2026-06-20T18:47:30Z",
           "role": "any",
           "law": "AGENT_DISK_LIVE_WIRE_FIRST_LOCKED_v1.md",
           "factory_now_line": "factory-now \u00b7 Valid YES 1000 \u00b7 brain 1000 \u00b7 dual_proof True \u00b7 mode FREEZE \u00b7 queue ",
           "queue_sa": "",
-          "nerve_system_line": "nerve \u00b7 queue=idle \u00b7 aligned \u00b7 drift=57 \u00b7 loop=3sys\u00b73comm \u00b7 rules=forbidden_one,lane_forbidden,salvage_pattern,ship_gate:w3_critic_circle+1 \u00b7 fleet66% \u00b7 research=YES \u00b7 AS=ok \u00b7 ui_fc=mandatory \u00b7 worker=PASS \u00b7 outbound \u00b7 0/100 done \u00b7 head=? \u00b7 plan=? \u00b7 sa=?",
+          "nerve_system_line": "nerve \u00b7 queue=idle \u00b7 aligned \u00b7 drift=100 \u00b7 loop=3sys\u00b73comm \u00b7 rules=forbidden_one,lane_forbidden,salvage_pattern,ship_gate:w3_critic_circle+1 \u00b7 fleet66% \u00b7 research=YES \u00b7 AS=ok \u00b7 ui_fc=mandatory \u00b7 maclaw=PASS \u00b7 worker=BLOCK",
           "mode": "FREEZE",
           "paths": {
             "truth_bundle": "/Users/sinakazemnezhad/.sina/last-truth-bundle-v1.json",
@@ -388,10 +585,16 @@
               "path": "/Users/sinakazemnezhad/.sina/brain/BRAIN_LIVE_SURFACES_v1.json"
             },
             {
+              "step": "mac_law_agent_execution_plane_lock",
+              "ok": true,
+              "universal_ok": true,
+              "lock_ok": true
+            },
+            {
               "step": "nerve_system_pulse",
               "ok": false,
               "queue_aligned": true,
-              "nerve_system_line": "nerve \u00b7 queue=idle \u00b7 aligned \u00b7 drift=29 \u00b7 loop=3sys\u00b73comm \u00b7 rules=forbidden_one,lane_forbidden,salvage_pattern,ship_gate"
+              "nerve_system_line": "nerve \u00b7 queue=idle \u00b7 aligned \u00b7 drift=100 \u00b7 loop=3sys\u00b73comm \u00b7 rules=forbidden_one,lane_forbidden,salvage_pattern,ship_gat"
             },
             {
               "step": "loop_observatory_report",
@@ -401,25 +604,25 @@
             {
               "step": "loop_specialist_tick",
               "ok": true,
-              "tick_decision": "compose_blocked",
-              "loop_specialist_line": "loop-specialist \u00b7 blocked \u00b7 auto=ON \u00b7 queue_idle \u00b7 observe \u00b7 queue=idle \u00b7 FREEZE \u00b7 3 sys \u00b7 3 commercial \u00b7 upgrade W1 0/0"
+              "tick_decision": "execute_pending",
+              "loop_specialist_line": "loop-specialist \u00b7 execute_pending \u00b7 auto=ON \u00b7 Brain work-order \u00b7 Hub glance only"
             },
             {
               "step": "investigator_circle",
               "ok": true,
-              "investigation_verdict": "RED",
-              "investigator_line": "investigator \u00b7 RED \u00b7 routes=3 \u00b7 \u2192Commercial / W3 lane \u00b7 observe \u00b7 queue=idle \u00b7 FREEZE \u00b7 3 sys \u00b7 3 commercial \u00b7 upgrade W"
+              "investigation_verdict": "YELLOW",
+              "investigator_line": "investigator \u00b7 YELLOW \u00b7 routes=2 \u00b7 \u2192Commercial / W3 lane \u00b7 observe \u00b7 queue=idle \u00b7 FREEZE \u00b7 3 sys \u00b7 3 commercial \u00b7 upgrad"
             },
             {
               "step": "judge_loop_room",
               "ok": true,
-              "loop_verdict": "DISPATCH_BLOCKED",
-              "judge_loop_line": "judge-loop \u00b7 DISPATCH_BLOCKED \u00b7 inv=RED \u00b7 tick=compose_blocked \u00b7 routes=3"
+              "loop_verdict": "LOOP_DEGRADED",
+              "judge_loop_line": "judge-loop \u00b7 LOOP_DEGRADED \u00b7 inv=YELLOW \u00b7 tick=execute_pending \u00b7 routes=2"
             },
             {
               "step": "founder_routing_panel",
               "ok": true,
-              "founder_routing_panel_line": "routing \u00b7 loop=DISPATCH_BLOCKED \u00b7 \u2192Commercial / W3 lane \u00b7 tick=compose_blocked \u00b7 brands=6"
+              "founder_routing_panel_line": "routing \u00b7 loop=LOOP_DEGRADED \u00b7 \u2192Commercial / W3 lane \u00b7 tick=execute_pending \u00b7 brands=6"
             },
             {
               "step": "disclosure_ladder",
@@ -452,8 +655,8 @@
             {
               "step": "full_stack_fix_plan_pulse",
               "ok": true,
-              "full_stack_fix_line": "full-stack-fix \u00b7 wave=W1 \u00b7 61/100 \u00b7 exec=12/12 \u00b7 next=F011",
-              "active_wave": "W1"
+              "full_stack_fix_line": "full-stack-fix \u00b7 wave=W3 \u00b7 60/100 \u00b7 exec=?/6 \u00b7 next=F051",
+              "active_wave": "W3"
             },
             {
               "step": "brain_cloud_reasoning_plan_pulse",
@@ -470,7 +673,7 @@
             {
               "step": "plans_unified_upgrade",
               "ok": false,
-              "plans_unified_line": "Plans \u00b7 outbound 0/0 W1 \u00b7 full-stack 61/100 W1 \u00b7 brain 0/0 E01 \u00b7 M111 42/111"
+              "plans_unified_line": "Plans \u00b7 outbound 0/0 W1 \u00b7 full-stack 60/100 W3 \u00b7 brain 2/1000 E08 \u00b7 M111 43/111"
             },
             {
               "step": "world_model_plan_check",
@@ -505,8 +708,8 @@
             },
             {
               "step": "memory_mirror_sync",
-              "ok": true,
-              "exit": 0
+              "ok": false,
+              "exit": 1
             },
             {
               "step": "truth_bundle_refresh",
@@ -516,7 +719,7 @@
               "step": "governance_gate_cart",
               "ok": false,
               "cart_ok": false,
-              "cart_line": "gate-cart \u00b7 15/30 PASS \u00b7 tier=fast \u00b7 REVIEW \u00b7 execution \u00b7 12/12 honest"
+              "cart_line": "gate-cart \u00b7 19/30 PASS \u00b7 tier=fast \u00b7 REVIEW \u00b7 execution \u00b7 12/12 honest"
             },
             {
               "step": "commercial_command_pulse",
@@ -607,15 +810,15 @@
         "exists": true,
         "ok": true,
         "schema": "fbe-motor-delegate-receipt-v1",
-        "sha256": "25ea82d132a12e6aa3b965b2d4c4b55fbf44f39484e9683e9896bb99cca1cba8",
+        "sha256": "2c01b195e40d7a6fafdf51fb0add560657bb8f77dff95e03d5de8a538ba981bc",
         "body": {
           "schema": "fbe-motor-delegate-receipt-v1",
           "ok": true,
-          "at": "2026-06-19T19:21:15Z",
+          "at": "2026-06-20T23:12:41Z",
           "mode": "motor_delegate",
           "skipped": true,
           "freeze_flag": "/Users/sinakazemnezhad/.sina/auto-run-disabled-v1.flag",
-          "freeze_line": "",
+          "freeze_line": "cursor-agent-law \u00b7 2026-06-20T23:05:08Z",
           "script": "fbe_motor_delegate_v1.py",
           "note": "FBE motor deferred \u2014 run on cloud worker (--force to override)",
           "execution_plane": "cloud_deferred",
@@ -737,107 +940,177 @@
       "cloud_adapter": {
         "path": "/Users/sinakazemnezhad/.sina/fbe-cloud-adapter-receipt-v1.json",
         "exists": true,
-        "ok": false,
+        "ok": true,
         "schema": "fbe-cloud-adapter-receipt-v1",
-        "sha256": "9f6e80f7d6837dd706260e618f2d8add793cda34200b77985c02f68f3fc5c93f",
+        "sha256": "7b1c37b60660e26570a9cbbc68fe9d386e01a78ff6e226a84a04203fd3c8c494",
         "body": {
           "schema": "fbe-cloud-adapter-receipt-v1",
-          "ok": false,
-          "at": "2026-06-20T01:29:25Z",
-          "mode": "w2_headless",
+          "ok": true,
+          "at": "2026-06-20T23:12:41Z",
+          "mode": "w1_skeleton",
           "submit_mode": "railway_fbe",
           "run_mode": "refinery",
-          "template_id": "noetfield-freemium-factory-v1",
-          "work_order_id": "wo-brain-0161bc925e1f",
-          "tenant": "noetfield",
-          "bay_slug": "noetfield-freemium-bay",
-          "execution_plane": "cloud_api_worker",
-          "dry_run": false,
+          "template_id": "web-product-factory-v1",
+          "work_order_id": "wo-validate",
+          "tenant": "wil_ai_design_partner",
+          "bay_slug": "sample-bay",
+          "execution_plane": "cloud_skeleton",
+          "dry_run": true,
           "skeleton": {
             "dockerfile": true,
             "entrypoint": true,
             "entrypoint_executable": true,
             "bay_jobs": true
           },
-          "run_result": {
-            "ok": false,
-            "mode": "railway_fbe",
-            "error": "http_error",
-            "status": 403,
-            "detail": {
-              "ok": false,
-              "error": "policy_gate_deny",
-              "reasons": [
-                "unknown_policy_pack:noetfield_governance"
-              ]
-            }
-          },
-          "remote_status": "cloud_api_worker",
-          "wave": "W2",
-          "cloud_worker_url": "https://sourcea-fbe-runner-production.up.railway.app"
+          "run_result": {},
+          "forge_context": null,
+          "remote_status": "deferred_w2",
+          "wave": "W2"
         }
       }
     },
     "refinery": {
       "mode": "headless_w2",
-      "bay_slug": "noetfield-freemium-bay",
+      "bay_slug": "sample-bay",
       "run_ok": true,
       "verify_ok": true,
       "proof": "refinery_verify PASS",
-      "ledger_lines": 667,
+      "ledger_lines": 6381,
       "receipts": {
-        "verify": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/noetfield-freemium-bay/verify.json",
+        "factory-route-audit-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/factory-route-audit-v1-v1.json",
+          "exists": true
+        },
+        "factory-verify-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/factory-verify-v1-v1.json",
+          "exists": true
+        },
+        "factory-mirror-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/factory-mirror-v1-v1.json",
+          "exists": true
+        },
+        "creed-session-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/creed-session-v1-v1.json",
+          "exists": true
+        },
+        "factory-definition-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/factory-definition-v1-v1.json",
+          "exists": true
+        },
+        "factory-clone-parity-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/factory-clone-parity-v1-v1.json",
+          "exists": true
+        },
+        "creed-orient-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/creed-orient-v1-v1.json",
           "exists": true
         }
       }
     },
     "assembly": {
       "mode": "headless_w3",
-      "bay_slug": "noetfield-freemium-bay",
+      "bay_slug": "sample-bay",
       "run_ok": true,
       "verify_ok": true,
       "proof": "assembly_verify PASS",
-      "ledger_lines": 0,
-      "receipts": {}
-    },
-    "work_order": {
-      "schema": "fbe-work-order-v1",
-      "id": "wo-brain-ddd71084ff53",
-      "fbe_schema": "fbe-work-order-v1",
-      "template_id": "noetfield-freemium-factory-v1",
-      "tenant": "noetfield",
-      "bay_slug": "noetfield-freemium-bay",
-      "target_tier": "FREEMIUM",
-      "origin": "brain_control_plane",
-      "brand": "local-brand",
-      "locales": [
-        "en-US"
-      ],
-      "upgrade_ref": "P0-13",
-      "sa_id": "sa-nf-freemium",
-      "execution_plane": "cloud_api_worker",
-      "control_plane": "mac_hub",
-      "owner_role": "brain",
-      "wired_to": "data/factory-specs/noetfield-freemium-factory-v1.json",
-      "signed_at": "2026-06-20T01:58:56Z",
-      "status": "signed",
-      "local_worker": false,
-      "local_worker_deprecated": true,
-      "q_gath_04": "A"
+      "ledger_lines": 550,
+      "receipts": {
+        "church-deploy-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-deploy-v1-v1.json",
+          "exists": true
+        },
+        "church-dealer-letter-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-dealer-letter-v1-v1.json",
+          "exists": true
+        },
+        "church-demo-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-demo-v1-v1.json",
+          "exists": true
+        },
+        "church-verify-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-verify-v1-v1.json",
+          "exists": true
+        },
+        "church-brand-unity-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-brand-unity-v1-v1.json",
+          "exists": true
+        },
+        "church-architect-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-architect-v1-v1.json",
+          "exists": true
+        },
+        "church-market-fidelity-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-market-fidelity-v1-v1.json",
+          "exists": true
+        },
+        "church-intake-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-intake-v1-v1.json",
+          "exists": true
+        },
+        "church-narrative-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-narrative-v1-v1.json",
+          "exists": true
+        },
+        "church-scaffold-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-scaffold-v1-v1.json",
+          "exists": true
+        },
+        "church-forbidden-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-forbidden-v1-v1.json",
+          "exists": true
+        },
+        "church-merge-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-merge-v1-v1.json",
+          "exists": true
+        },
+        "church-boundary-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-boundary-v1-v1.json",
+          "exists": true
+        },
+        "church-domain-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-domain-v1-v1.json",
+          "exists": true
+        },
+        "church-gtm-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-gtm-v1-v1.json",
+          "exists": true
+        },
+        "church-policy-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-policy-v1-v1.json",
+          "exists": true
+        },
+        "church-orient-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-orient-v1-v1.json",
+          "exists": true
+        },
+        "church-neutrality-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-neutrality-v1-v1.json",
+          "exists": true
+        },
+        "church-definition-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-definition-v1-v1.json",
+          "exists": true
+        },
+        "church-live-smoke-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-live-smoke-v1-v1.json",
+          "exists": true
+        },
+        "church-isolation-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-isolation-v1-v1.json",
+          "exists": true
+        },
+        "church-rules-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-rules-v1-v1.json",
+          "exists": true
+        }
+      }
     }
   },
   "artifact_uri": null,
   "receipt_pack_uri": "/Users/sinakazemnezhad/.sina/fbe-federated-receipt-v1.json",
   "tier_achieved": "GOLD+assembly_wired",
-  "sha256": "3b0b75c93efeca87d7ed8229f5ea28d0a3558ea6cd284519a5efcd8af6e4cba5",
+  "sha256": "f5608cabf3a6830e26b8363e4c341ea31444feed61a95265a4474ee287d76b48",
   "missing": [
     "session_gate"
-  ],
-  "remote_status": "cloud_api_worker",
-  "execution_plane": "cloud_api_worker",
-  "live_snapshot": {
-    "cloud_worker_url": "https://sourcea-fbe-runner-production.up.railway.app",
-    "at": "2026-06-20T18:45:19Z"
-  }
+  ]
 }

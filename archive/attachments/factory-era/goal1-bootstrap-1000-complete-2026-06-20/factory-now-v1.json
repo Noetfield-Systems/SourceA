@@ -1,0 +1,19 @@
+{
+  "schema": "factory-now-v1",
+  "at": "2026-06-20T22:45:38Z",
+  "valid_yes": 1000,
+  "backlog": 0,
+  "brain_vy": 1000,
+  "dual_proof_ok": true,
+  "mode": "FREEZE",
+  "kill_flag": true,
+  "stop_receipt_open": false,
+  "queue_sa": "",
+  "inbox_sa": "",
+  "orchestrator_status": "idle",
+  "broker_status": "idle",
+  "poison_stall": false,
+  "rebuilt_by": "queue_ssot_unify",
+  "law": "cite this line only in chat",
+  "line": "factory-now \u00b7 Valid YES 1000 \u00b7 brain 1000 \u00b7 dual_proof True \u00b7 mode FREEZE \u00b7 queue "
+}

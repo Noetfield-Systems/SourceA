@@ -1619,6 +1619,21 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
             invalidate_worker_hub_cache()
             self._json(200 if row.get("ok") else 400, row)
             return
+        if path == "/api/cloud-worker/dispatch/v1":
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
+
+            plan_id = str(body.get("plan_id") or "")
+            dry_run = bool(body.get("dry_run"))
+            if not plan_id:
+                self._json(400, {"ok": False, "error": "plan_id_required"})
+                return
+            row = proxy_to_cloud(
+                path="/api/cloud-worker/dispatch/v1",
+                body={"plan_id": plan_id, "dry_run": dry_run},
+                timeout_s=120,
+            )
+            self._json(200 if row.get("ok") else 502, row)
+            return
         if path == "/api/fbe/forge-competitor-run/v1":
             from forge_competitor_run_v1 import run_competitor_forge  # noqa: WPS433
             from worker_hub_v1 import invalidate_worker_hub_cache  # noqa: WPS433

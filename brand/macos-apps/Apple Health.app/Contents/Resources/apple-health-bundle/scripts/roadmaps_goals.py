@@ -33,11 +33,11 @@ def _read_json(path: Path) -> dict:
 def _roadmap_docs() -> list[dict]:
     # Product / portfolio roadmaps only — NOT World Target Model (see WORLD_TARGET_MODEL_ROADMAP_LAW_LOCKED_v2.md)
     docs = [
-        ("factory", "Product factory roadmap", "PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md", "THREAD-FACTORY"),
+        ("factory", "Product factory roadmap", "brain-os/law/PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md", "THREAD-FACTORY"),
         ("investor", "Investor roadmap", "investor/ROADMAP.md", "THREAD-PORTFOLIO"),
-        ("commercial-partners", "AI infra partnerships (LOCKED v3)", "AI_INFRA_PARTNERSHIP_PROPOSALS_LOCKED_v1.md", "THREAD-PORTFOLIO"),
-        ("hub-proof-ux", "Hub proof UX P0 (LOCKED v1)", "HUB_PROOF_UX_P0_LOCKED_v1.md", "THREAD-FACTORY"),
-        ("wire", "Wire lane progress", "WIRE_LANE_PROGRESS.md", "THREAD-WIRE"),
+        ("commercial-partners", "AI infra partnerships (LOCKED v3)", "brain-os/law/AI_INFRA_PARTNERSHIP_PROPOSALS_LOCKED_v1.md", "THREAD-PORTFOLIO"),
+        ("hub-proof-ux", "Hub proof UX P0 (LOCKED v1)", "brain-os/law/HUB_PROOF_UX_P0_LOCKED_v1.md", "THREAD-FACTORY"),
+        ("wire", "Wire lane progress", "brain-os/law/WIRE_LANE_PROGRESS.md", "THREAD-WIRE"),
         ("mergepack", "MergePack START_HERE", "~/Desktop/mergepack/START_HERE.md", "THREAD-MERGEPACK"),
     ]
     out = []
@@ -109,7 +109,7 @@ def roadmaps_goals_payload() -> dict:
         "parallel_plans": plans,
         "roadmap_docs": _roadmap_docs(),
         "strategic_goals": _strategic_goals() + _synthesis_goals(),
-        "strategic_synthesis_doc": "STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md",
+        "strategic_synthesis_doc": "brain-os/law/STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md",
         "strategic_synthesis_api": "/api/strategic-synthesis-v1",
         "locks": locks,
         "health_mini_app": "http://127.0.0.1:13025/",

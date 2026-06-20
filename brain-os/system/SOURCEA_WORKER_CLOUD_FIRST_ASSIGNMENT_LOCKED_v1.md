@@ -1,6 +1,6 @@
 # SourceA Worker — Cloud-First Professional Assignment — LOCKED v1
 
-**Version:** 1.1.0 · **Saved:** 2026-06-20T18:30:00Z · **Authority:** ASF + Mac Law + INCIDENT-038 v1.1
+**Version:** 1.3.0 · **Saved:** 2026-06-20T20:15:00Z · **Authority:** ASF + Mac Law + INCIDENT-038 v1.1
 **Path:** `~/Desktop/SourceA/brain-os/system/SOURCEA_WORKER_CLOUD_FIRST_ASSIGNMENT_LOCKED_v1.md`
 **Machine SSOT:** `data/sourcea-worker-professional-assignment-v1.json`
 **Script:** `scripts/sourcea_worker_professional_assignment_v1.py`
@@ -63,11 +63,15 @@
 
 ## 4. Phase 1 queue (active now)
 
-| Id | Role | Task |
-|----|------|------|
-| **W-CLOUD-001** | CHECK | Mac control plane PASS + cloud FORGE dry-run envelope |
-| **W-CLOUD-002** | ACT | Live Railway FBE dispatch receipt (secrets required) |
-| **W-CLOUD-003** | VERIFY | Brain cloud critical path pulse B0001→B1000 |
+| Id | Role | Mac proof (Read) | Optional Hub POST | Cloud body |
+|----|------|------------------|-------------------|------------|
+| **W-CLOUD-001** | CHECK | `~/.sina/mac-law-*-receipt-v1.json` · `receipts/federated-run-v1.json` | `POST /api/fbe/forge-competitor-run/v1` dry-run | Railway FORGE |
+| **W-CLOUD-002** | ACT | `receipts/cloud-dispatch/` | `POST /api/cloud-worker/dispatch/v1` `plan_id: MAC-CTL-002` | Railway dispatch |
+| **W-CLOUD-003** | VERIFY | `~/.sina/brain-cloud-*` pulse receipt | `POST /api/loop-specialist/tick/v1` | Cloud loop specialist |
+
+**No `validate-*` on Mac.** MAC-CTL bind: `MAC-CTL-001..003` in `data/secondary-cloud-drain-next-100-v1.json`.
+
+**Inbox rule header:** `.cursor/rules/099-worker-inbox-active.mdc` is written by `scripts/worker_inject_lib.py` → `write_active_inbox_rule()` — Mac proof only (Read receipts · optional one Hub POST · no validator chains).
 
 **Critical path SSOT:** `data/brain-cloud-reasoning-1000-upgrade-plan-v1.json`
 
@@ -98,7 +102,7 @@ python3 ~/Desktop/SourceA/scripts/sourcea_worker_professional_assignment_v1.py -
 0. Feasibility gate (worker --strict)
 0b. worker_turn_entry_v1.sh
 1. One role: CHECK | ACT | VERIFY
-2. Cloud execution only when mac_build_forbidden
+2. Mac proof = Read receipts · optional one Hub POST — cloud executes factory body
 3. broker worker-submit + WORKER_ROUND_REPORT
 4. STOP — one sa / one assignment item
 ```

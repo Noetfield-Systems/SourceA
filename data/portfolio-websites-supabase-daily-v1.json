@@ -1,7 +1,7 @@
 {
   "schema": "portfolio-websites-supabase-daily-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-20T21:30:00Z",
+  "saved_at": "2026-06-20T23:45:00Z",
   "authority": "ASF",
   "one_law": "Portfolio stays UP — daily light pulse on every public website + both Supabase tiers. Mac reads only; no validator marathon.",
   "script": "scripts/portfolio_supabase_daily_pulse_v1.py",
@@ -20,7 +20,7 @@
       "secrets_file": "portfolio-spine.env",
       "env_url": "SUPABASE_URL",
       "env_anon": "SUPABASE_ANON_KEY",
-      "modules": ["trustfield", "witnessbc", "foundation"],
+      "modules": ["witnessbc", "foundation", "forge_factory"],
       "keepalive": "GET {SUPABASE_URL}/auth/v1/health",
       "required": true
     },
@@ -30,7 +30,7 @@
       "secrets_file": "noetfield.env",
       "env_url": "SUPABASE_URL",
       "env_anon": "SUPABASE_ANON_KEY",
-      "modules": ["noetfield"],
+      "modules": ["noetfield", "trustfield"],
       "cloud_ref": "tkgpapowwplupyekpivy",
       "keepalive": "GET {SUPABASE_URL}/auth/v1/health",
       "required": true
@@ -63,7 +63,7 @@
       "id": "trustfield",
       "label": "TrustField",
       "module": "trustfield",
-      "supabase_tier": "portfolio-spine",
+      "supabase_tier": "noetfield",
       "url": "https://www.trustfield.ca",
       "health_paths": ["/"],
       "required": true
@@ -76,6 +76,20 @@
       "url": "https://www.witnessbc.com",
       "health_paths": ["/"],
       "required": true
+    },
+    {
+      "id": "witnessbc_vercel",
+      "label": "WitnessBC commercial (Vercel)",
+      "module": "witnessbc",
+      "supabase_tier": "portfolio-spine",
+      "url": "https://deploy-witnessbc-agents-governance.vercel.app",
+      "url_legacy_trial": "https://deploy-sooty-seven-93.vercel.app",
+      "health_paths": ["/"],
+      "required": true,
+      "vercel_team_target": "the-777-foundation",
+      "github_repo": "kazemnezhadsina144-dot/SourceA",
+      "deploy_root": "witnessbc-site",
+      "vercel_map_ssot": "data/vercel-portfolio-map-v1.json"
     },
     {
       "id": "witnessbc_preview",
@@ -110,8 +124,12 @@
       "module": "sourcea",
       "supabase_tier": null,
       "url": "https://sourcea-landing.vercel.app",
-      "health_paths": ["/"],
-      "required": false
+      "health_paths": ["/", "/sourcea/trust/"],
+      "required": false,
+      "vercel_team_target": "the-777-foundation",
+      "vercel_team_current_wrong": "noetfield-systems",
+      "github_repo_target": "kazemnezhadsina144-dot/SourceA",
+      "vercel_map_ssot": "data/vercel-portfolio-map-v1.json"
     }
   ],
   "daily_work": {

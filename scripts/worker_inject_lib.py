@@ -124,6 +124,20 @@ _BIND_SA_PATTERNS = (
 )
 
 
+def normalize_sa_id(sa: str) -> str:
+    """Normalize B1000 / sa-B1000 / sa-0999 to lowercase sa-* broker form."""
+    s = str(sa or "").strip()
+    if not s:
+        return ""
+    if s.lower().startswith("sa-"):
+        return s.lower()
+    if re.match(r"^B\d{4}$", s, re.I):
+        return f"sa-{s}".lower()
+    if re.match(r"^\d{4}$", s):
+        return f"sa-{s}".lower()
+    return s.lower()
+
+
 def parse_prompt_bind_sa(prompt: str) -> str:
     """Authoritative sa_id from healthy-drain prompt header (meta may drift)."""
     for pat in _BIND_SA_PATTERNS:
@@ -138,7 +152,9 @@ def heal_inbox_meta(meta: dict | None, prompt: str) -> dict:
     out = dict(meta or {})
     psa = parse_prompt_bind_sa(prompt)
     if psa:
-        out["sa_id"] = psa
+        out["sa_id"] = normalize_sa_id(psa)
+    elif out.get("sa_id"):
+        out["sa_id"] = normalize_sa_id(str(out["sa_id"]))
     return out
 
 
@@ -253,6 +269,14 @@ def write_active_inbox_rule(text: str, *, meta: dict | None = None) -> dict:
     role = m.get("queue_role") or "?"
     pos = m.get("queue_pos") or "?"
     total = m.get("queue_total") or 30
+    assignment_id = m.get("assignment_id") or ""
+    execution_plane = m.get("execution_plane") or "cloud_api_worker"
+    ssot_line = (
+        f"**Assignment:** `{assignment_id}` · **execution_plane:** `{execution_plane}` · "
+        f"SSOT: `data/sourcea-worker-professional-assignment-v1.json`\n\n"
+        if assignment_id
+        else ""
+    )
     body = f"""---
 description: "Worker INBOX sa-{sa} {role} — attach ONLY to SourceA Worker chat (never Brain)"
 alwaysApply: false
@@ -269,7 +293,10 @@ globs:
 cd ~/Desktop/SourceA && python3 scripts/goal1_lane_broker.py pickup
 ```
 
-Then run validators and complete ONE turn. End with WORKER_ROUND_REPORT YAML +:
+{ssot_line}Read mac_proof receipts (Read tool only) · optional one Hub POST · complete ONE turn · STOP.
+Forbidden: validate-* bash chains on Mac.
+
+End with WORKER_ROUND_REPORT YAML +:
 
 ```bash
 python3 scripts/goal1_lane_broker.py worker-submit --stdin

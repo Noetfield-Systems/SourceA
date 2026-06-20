@@ -28,6 +28,7 @@ def build_ui_contract(*, port: int = 13024):
         "primary_cta": UI_PRIMARY_CTA,
         "primary_button_id": "btn-heal",
         "more_disclosure_id": "panel-more",
+        "cloud_glance_strip_id": "cloud-glance-strip",
         "url": f"http://127.0.0.1:{port}/",
         "law_doc": UI_LAW_DOC,
         "contract_path": UI_CONTRACT_REL,

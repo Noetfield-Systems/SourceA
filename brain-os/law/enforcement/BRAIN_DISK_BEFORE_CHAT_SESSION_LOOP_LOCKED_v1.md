@@ -10,7 +10,7 @@
 
 ## 0. One sentence
 
-**Brain reads disk and runs `brain-session-start.sh` before every routing reply — chat memory is never SSOT.**
+**Brain reads disk receipts every turn — runs `brain-session-start.sh` once per chat (or after summarization), then **read receipt** — never re-run script every routing reply. Chat memory is never SSOT.**
 
 FORGE-builder drift was one **symptom**. Root cause: **mandatory read chain with no mechanical gate.**
 
