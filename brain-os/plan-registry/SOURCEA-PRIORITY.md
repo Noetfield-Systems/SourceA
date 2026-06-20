@@ -22,7 +22,7 @@
 | find_critical_bugs | critical 0 |
 | dispatch_ready | False |
 | eval_1b_gate_ok | structural_only_until_openrouter_credits |
-| synced_at | 2026-06-20T03:35:37Z |
+| synced_at | 2026-06-20T04:35:50Z |
 
 **Dual-pick law:** `run-inbox-disk-truth-v1.json` / `factory-now-v1.json` `queue_sa` wins over phase-first registry head. Phase-first is fallback only when queue_sa absent.
 
