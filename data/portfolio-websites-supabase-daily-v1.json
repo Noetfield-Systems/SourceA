@@ -33,7 +33,9 @@
       "modules": ["virlux", "labs", "research"],
       "schemas": ["virlux_ops", "labs", "research"],
       "keepalive": "GET {SUPABASE_URL}/auth/v1/health",
-      "required": true
+      "required": false,
+      "decoupled": true,
+      "decouple_note": "virlux-staging paused — repo-native receipts; see data/supabase-cloud-project-map-v1.json"
     }
   ],
   "websites": [
