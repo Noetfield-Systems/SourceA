@@ -118,7 +118,7 @@ All portfolio channels operated by scheduled agents — precedents: Buffer/Hoots
 
 **Do not:** Rebuild D1–D6 demo kernel. **Do not:** Follow stale Master Plan Weeks 1–6 engineering tables.
 
-**Use:** `brain-os/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md`
+**Use:** `brain-os/law/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md`
 
 ---
 

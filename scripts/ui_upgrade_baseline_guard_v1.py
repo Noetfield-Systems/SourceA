@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """UI upgrade baseline guard — block downgrades on governed landing surfaces.
 
-Law: brain-os/enforcement/SOURCEA_UI_UPGRADE_NO_DOWNGRADE_LOCKED_v1.md
+Law: brain-os/law/enforcement/SOURCEA_UI_UPGRADE_NO_DOWNGRADE_LOCKED_v1.md
 SSOT: SourceA-landing/green-unified/data/ui-upgrade-baseline-v1.json
 """
 from __future__ import annotations

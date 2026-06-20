@@ -5,7 +5,7 @@
   "repo": "SourceA",
   "root": "SourceA-landing/green-unified",
   "url": "http://127.0.0.1:5180/sourcea/",
-  "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/SOURCEA_LANDING_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+  "ledger_md": "brain-os/law/enforcement/ui-upgrade-ledgers/SOURCEA_LANDING_UI_UPGRADE_LEDGER_LOCKED_v1.md",
   "saved_at": "2026-06-19T16:54:05Z",
   "baseline_version": "1.0.0",
   "frozen_inventory": [

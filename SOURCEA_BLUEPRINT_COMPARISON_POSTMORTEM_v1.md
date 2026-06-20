@@ -7,7 +7,7 @@
 **Subjects:**
 - **v1-A (SSOT):** `ENFORCEMENT-6MO-MASTER-PLAN-v1.md` (filed 2026-06-11)
 - **v1-B (SSOT):** `ENFORCEMENT-6MO-VC-ROADMAP-v1.md` (filed 2026-06-11)
-- **v1-LOCKED:** `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md`
+- **v1-LOCKED:** `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md`
 - **v2 DRAFT:** `archive/superseded/blueprint-drafts-2026-06-12/SOURCEA_MASTER_BLUEPRINT_SSOT_v2_DRAFT.md`
 - **v3 DRAFT (corrected):** `archive/superseded/blueprint-drafts-2026-06-12/SOURCEA_MASTER_BLUEPRINT_SSOT_v3_DRAFT.md` — Part 0 **fixed** (SourceA sells); demoted from root LOCKED
 - **v3 DRAFT (void Part 0):** same path — earlier filing said “SourceA is not a product” — **superseded by corrected v3 body + COMPANY SSOT**

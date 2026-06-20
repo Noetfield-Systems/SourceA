@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+# shellcheck source=governance-paths-v1.sh
+. "$ROOT/scripts/governance-paths-v1.sh"
 fail() { echo "FAIL: validate-live-founder-decision-form-v1 — $*" >&2; exit 1; }
 
 DOC="$ROOT/SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md"
 NORM="$ROOT/SOURCEA_FOUNDER_MESSAGE_NORMALIZATION_LOCKED_v1.md"
 [[ -f "$DOC" ]] || fail "missing live form"
 [[ -f "$NORM" ]] || fail "missing normalization law"
-grep -q "LIVE_DECISION_FORM" "$ROOT/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md" || fail "authority row"
-grep -q "0m" "$ROOT/SINA_GOVERNANCE_ENTRY_LOCKED_v1.md" || fail "governance §0m"
-grep -q "LIVE_FOUNDER_DECISION_FORM" "$ROOT/brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md" || fail "MANDATORY_READ"
+grep -q "LIVE_DECISION_FORM" "$SINA_AUTHORITY_INDEX" || fail "authority row"
+grep -q "0m" "$SINA_GOVERNANCE_ENTRY" || fail "governance §0m"
+grep -q "LIVE_FOUNDER_DECISION_FORM" "$ROOT/brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md" || fail "MANDATORY_READ"
 grep -q "live_founder_decision_form" "$ROOT/prompts/FIVE_STEP_SESSION_PROMPT_LOCKED_v1.md" || fail "FIVE_STEP SCAN hook"
 FIRST="$ROOT/archive/attachments/2026-06-11/SOURCEA_LIVE_FOUNDER_DECISION_FORM_FIRST_FORM_LOCKED_v1.md"
 [[ -f "$FIRST" ]] || fail "missing FIRST FORM archive"

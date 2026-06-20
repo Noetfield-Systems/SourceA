@@ -2,6 +2,8 @@
 # validate-disclosure-ladder-v1.sh — disclosure SSOT + full wire chain
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+# shellcheck source=governance-paths-v1.sh
+. "$ROOT/scripts/governance-paths-v1.sh"
 SINA="${HOME}/.sina"
 DOC="$ROOT/docs/SOURCEA_DISCLOSURE_LADDER_AND_PUBLIC_VOICE_LOCKED_v1.md"
 SSOT="$ROOT/data/disclosure-ladder-v1.json"
@@ -53,8 +55,8 @@ check_grep "$ROOT/scripts/advisor_pre_call_email_loop_v1.py" "disclosure_ladder_
 check_grep "$ROOT/data/icp-output-compiler-v1.json" "disclosure_tier_picker" "icp compiler SSOT missing disclosure_tier_picker"
 check_grep "$ROOT/data/icp-compile/fundmore-v1.json" "disclosure_tier" "fundmore missing disclosure_tier"
 check_grep "$ROOT/scripts/icp_output_compiler_v1.py" "disclosure_tier" "icp compiler missing disclosure_tier hook"
-check_grep "$ROOT/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md" "DISCLOSURE_LADDER" "authority index missing DISCLOSURE_LADDER row"
-check_grep "$ROOT/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md" "MCP_STACK_FREE_TIER" "authority index missing MCP_STACK_FREE_TIER row"
+check_grep "$SINA_AUTHORITY_INDEX" "DISCLOSURE_LADDER" "authority index missing DISCLOSURE_LADDER row"
+check_grep "$SINA_AUTHORITY_INDEX" "MCP_STACK_FREE_TIER" "authority index missing MCP_STACK_FREE_TIER row"
 check_grep "$ROOT/scripts/vocabulary_guard_v1.py" "check_disclosure_ladder" "vocabulary guard missing disclosure check"
 check_grep "$ROOT/scripts/vocabulary_guard_v1.py" "check_mcp_stack" "vocabulary guard missing mcp_stack check"
 check_grep "$ROOT/scripts/disk_live_wire_sync_v1.py" "disclosure_ladder" "disk_live_wire missing disclosure step"

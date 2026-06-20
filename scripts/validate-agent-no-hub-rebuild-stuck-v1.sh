@@ -15,7 +15,7 @@ from pathlib import Path
 
 ROOT = Path("/Users/sinakazemnezhad/Desktop/SourceA")
 must_have = [
-    ROOT / "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+    ROOT / "brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
     ROOT / "brain-os/contract/MANDATORY_BRAIN_CHAT_LOCKED_v1.md",
     ROOT / "agent-skills/sourcea_worker/SKILL.md",
     ROOT / ".cursor/rules/no-hub-rebuild-stuck.mdc",
@@ -24,7 +24,7 @@ for p in must_have:
     if not p.is_file():
         raise SystemExit(f"missing {p}")
 
-worker = (ROOT / "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md").read_text()
+worker = (ROOT / "brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md").read_text()
 if "validate-super-fast-hub-v1.sh" not in worker:
     raise SystemExit("worker mandatory must cite validate-super-fast-hub-v1")
 if re.search(r"DEFAULT VERIFY[\s\S]{0,400}build-sina-command-panel", worker):

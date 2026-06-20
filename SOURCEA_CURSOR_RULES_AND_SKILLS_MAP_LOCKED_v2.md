@@ -7,7 +7,7 @@
 
 | Rule | Skill pointer |
 |------|---------------|
-| `000-entry-gate.mdc` | `brain-os/entry/START_HERE_LOCKED_v1.md` |
+| `000-entry-gate.mdc` | `brain-os/law/entry/START_HERE_LOCKED_v1.md` |
 | `000-workspace-lock.mdc` | workspace law |
 | `000-cross-lane-edit-forbidden.mdc` | INCIDENT-010 |
 | `ecosystem-rule-conflict-resolution.mdc` | conflict ladder |

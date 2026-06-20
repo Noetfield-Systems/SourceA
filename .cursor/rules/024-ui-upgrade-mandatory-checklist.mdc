@@ -6,7 +6,7 @@ alwaysApply: true
 
 # UI upgrade mandatory — FIRST CHECK always (general + per-app ledger)
 
-**General law:** `brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md`  
+**General law:** `brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md`  
 **FIRST CHECK wire:** `.cursor/rules/025-ui-upgrade-first-check-live-wire.mdc` (alwaysApply)  
 **Per-app ledgers:** `data/ui-upgrade-ledgers-index-v1.json`  
 **Ledger script:** `scripts/ui_upgrade_ledger_v1.py`  
@@ -51,7 +51,7 @@ python3 scripts/ui_upgrade_mandatory_gate_v1.py --surface <id> --print-checklist
 | `hub_form` | `ui-upgrade-ledgers/HUB_FORM_UI_UPGRADE_LEDGER_LOCKED_v1.md` |
 | `witnessbc_commercial` | `ui-upgrade-ledgers/WITNESSBC_COMMERCIAL_UI_UPGRADE_LEDGER_LOCKED_v1.md` |
 
-Path prefix: `brain-os/enforcement/`. Machine log: `data/ui-upgrade-ledgers/<surface_id>-v1.json`.
+Path prefix: `brain-os/law/enforcement/`. Machine log: `data/ui-upgrade-ledgers/<surface_id>-v1.json`.
 
 **New app:** copy `UI_UPGRADE_LEDGER_TEMPLATE_LOCKED_v1.md` → register in index before first upgrade.
 

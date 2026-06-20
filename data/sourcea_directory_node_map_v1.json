@@ -13,7 +13,7 @@
     "buildPlan": "docs/SOURCEA_NODE_MESH_SYNESTM_BUILD_PLAN_LOCKED_v1.md",
     "charter": "docs/SOURCEA_NODE_ARCHITECT_AGENTIC_AUTONOMOUS_SYSTEM_LOCKED_v1.md",
     "terminology": "docs/SOURCEA_TERMINOLOGY_AND_COMMERCIAL_TUNE_2026_LOCKED_v1.md",
-    "entry": "brain-os/entry/START_HERE_LOCKED_v1.md"
+    "entry": "brain-os/law/entry/START_HERE_LOCKED_v1.md"
   },
   "factory_posture": "986/1000 Valid YES · SINGLE_SA · graph 5 tiers · 12 runner nodes",
   "wil_parity": {
@@ -85,8 +85,8 @@
       "nodes": ["session_gate_v1", "entry_gate_v1"],
       "role": "SourceA monorepo root · Governed Execution OS",
       "children": [
-        { "path": "START_HERE.md", "nodes": ["entry_gate_v1"], "role": "Human pointer → brain-os/entry" },
-        { "path": "brain-os/entry/START_HERE_LOCKED_v1.md", "nodes": ["session_gate_v1"], "role": "Law front door" }
+        { "path": "START_HERE.md", "nodes": ["entry_gate_v1"], "role": "Human pointer → brain-os/law/entry" },
+        { "path": "brain-os/law/entry/START_HERE_LOCKED_v1.md", "nodes": ["session_gate_v1"], "role": "Law front door" }
       ]
     },
     {
@@ -96,7 +96,7 @@
       "role": "Constitution + law registry + incidents",
       "children": [
         { "path": "brain-os/system/", "nodes": ["governance_zero_drift", "program_1000_honest_v1"], "role": "GOAL_HIERARCHY · authority.yaml · EVENT_CONTRACT" },
-        { "path": "brain-os/enforcement/", "nodes": ["session_gate_v1", "cross_lane_edit_guard_v1"], "role": "Agent verbs · session loop · stack v2" },
+        { "path": "brain-os/law/enforcement/", "nodes": ["session_gate_v1", "cross_lane_edit_guard_v1"], "role": "Agent verbs · session loop · stack v2" },
         { "path": "brain-os/law/", "nodes": ["governance_zero_drift"], "role": "BRAIN_UNIFIED · layer stack LOCKED" },
         { "path": "brain-os/incidents/", "nodes": ["validate_w10_vocab"], "role": "INCIDENT-* — machine ack only" },
         { "path": "brain-os/plan-registry/", "nodes": ["program_1000_honest_v1", "worker_inbox_v1"], "role": "sourcea-1000 REGISTRY · healthy-queue" },

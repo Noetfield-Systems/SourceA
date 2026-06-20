@@ -90,7 +90,7 @@ bash scripts/validate-ui-upgrade-no-downgrade-v1.sh
 bash SourceA-landing/green-unified/scripts/run-recipe.sh --e2e
 ```
 
-Law: `brain-os/enforcement/SOURCEA_UI_UPGRADE_NO_DOWNGRADE_LOCKED_v1.md` · baseline SSOT: `data/ui-upgrade-baseline-v1.json`
+Law: `brain-os/law/enforcement/SOURCEA_UI_UPGRADE_NO_DOWNGRADE_LOCKED_v1.md` · baseline SSOT: `data/ui-upgrade-baseline-v1.json`
 
 ## Live URLs
 

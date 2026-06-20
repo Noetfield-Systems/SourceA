@@ -9,8 +9,11 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-INDEX = ROOT / "SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"
-LAW_ROOT = ROOT / "brain-os/entry/LAW_ROOT_INDEX_LOCKED_v1.md"
+sys.path.insert(0, str(ROOT / "scripts"))
+from governance_paths_v1 import AUTHORITY_INDEX, LAW_ROOT_INDEX
+
+INDEX = AUTHORITY_INDEX
+LAW_ROOT = LAW_ROOT_INDEX
 MANIFEST = ROOT / "SOURCEA_AUTHORITY_REGISTRY_GOV_UNIFY_BATCH_2026-06-11_LOCKED_v1.md"
 DATA_ALLOWLIST = ROOT / "data" / "authority-root-allowlist-v1.json"
 

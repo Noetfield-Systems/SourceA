@@ -4,7 +4,7 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT/scripts"
-LAW="$ROOT/brain-os/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md"
+LAW="$ROOT/brain-os/law/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md"
 PTR="$ROOT/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md"
 RULE="$ROOT/.cursor/rules/098-worker-full-round-evidence.mdc"
 GATE="worker_factory_evidence_gate_v1.py"

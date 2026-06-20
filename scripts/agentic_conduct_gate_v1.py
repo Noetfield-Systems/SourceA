@@ -7,9 +7,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+from governance_paths_v1 import AUTHORITY_INDEX, COMMERCIAL_SSOT, GOVERNANCE_ENTRY, NO_FAKE_PROGRESS
 SINA = Path.home() / ".sina"
 
 FORBIDDEN_SHELLS = frozenset(
@@ -35,8 +38,8 @@ BRAIN_FORBIDDEN = frozenset(
 
 READ_ORDER = [
     ("form_json", SINA / "live-founder-decision-form-v1.json"),
-    ("commercial_ssot", ROOT / "SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md"),
-    ("governance_entry", ROOT / "SINA_GOVERNANCE_ENTRY_LOCKED_v1.md"),
+    ("commercial_ssot", COMMERCIAL_SSOT),
+    ("governance_entry", GOVERNANCE_ENTRY),
     ("program_progress", ROOT / "PROGRAM_PROGRESS.json"),
 ]
 

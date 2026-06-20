@@ -19,7 +19,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parent.parent
 SINA = Path.home() / ".sina"
 RECEIPT_PATH = SINA / "mac-daily-cleanup-latest-v1.json"
-LAW_DOC = "brain-os/enforcement/SINA_MAC_DAILY_CLEANUP_LOCKED_v1.md"
+LAW_DOC = "brain-os/law/enforcement/SINA_MAC_DAILY_CLEANUP_LOCKED_v1.md"
 
 
 def _now() -> str:

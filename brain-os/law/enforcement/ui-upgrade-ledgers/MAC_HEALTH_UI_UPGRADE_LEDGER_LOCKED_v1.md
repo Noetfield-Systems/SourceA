@@ -5,7 +5,7 @@
 **Repo:** SourceA · **URL:** http://127.0.0.1:13024/  
 **Root:** `scripts/mac-health-standalone/`  
 **Machine log:** `data/ui-upgrade-ledgers/mac_health-v1.json`  
-**SSOT law:** `brain-os/enforcement/SINA_MAC_HEALTH_FOUNDER_GLANCE_UI_LOCKED_v1.md`  
+**SSOT law:** `brain-os/law/enforcement/SINA_MAC_HEALTH_FOUNDER_GLANCE_UI_LOCKED_v1.md`  
 **Machine contract:** `data/mac-health-founder-glance-ui-contract-v1.json`
 
 ---

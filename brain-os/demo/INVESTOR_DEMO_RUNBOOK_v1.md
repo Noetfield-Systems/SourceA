@@ -1,7 +1,7 @@
 # INVESTOR_DEMO_RUNBOOK_v1 — Copilot BLOCK / ALLOW / TAMPER
 
 **Sprint:** `DEMO-ENF-COPILOT-2026-06-11`  
-**Law:** `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md`  
+**Law:** `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md`  
 **Speaker notes:** `investor/ENFORCEMENT_DEMO_5MIN.md`  
 **Founder:** one-tap via Hub Action when Maintainer wires · until then executor runs script
 

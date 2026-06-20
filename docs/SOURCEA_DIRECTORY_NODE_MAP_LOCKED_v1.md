@@ -112,7 +112,7 @@ flowchart TB
 │   nodes: session_gate_v1 · entry_gate_v1
 │
 ├── START_HERE.md                               → entry_gate_v1
-├── brain-os/entry/START_HERE_LOCKED_v1.md      → session_gate_v1
+├── brain-os/law/entry/START_HERE_LOCKED_v1.md      → session_gate_v1
 │
 ├── brain-os/                                   plane: LAW · L0.5
 │   nodes: governance_zero_drift · cross_lane_edit_guard_v1

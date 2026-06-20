@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Single commit gate — intent → gatekeeper → spine → receipt.
 
-Law: brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md
+Law: brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md
 
 Usage:
   python3 scripts/commit_intent_v1.py --intent demo/enforcement/intent-allow.json --json
@@ -220,7 +220,7 @@ def commit(intent: dict, *, dry_run: bool = False) -> dict:
         "gate_status": gate.get("status"),
         "gate_reasons": gate.get("reasons") or [],
         "created_at": _now(),
-        "law": "brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md",
+        "law": "brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md",
     }
 
     if not gate.get("safe_to_execute"):

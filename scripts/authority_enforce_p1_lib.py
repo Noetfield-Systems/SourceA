@@ -354,7 +354,7 @@ def reconciled_decision_template() -> dict:
         "governance_trace": DEFAULT_GOVERNANCE_TRACES[-1],
         "decision": "P0 authority verified on disk; P1 broker loops enforced (Rail A, pick authority, pointer)",
         "next_sa": None,
-        "worker_handoff": "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "worker_handoff": "brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
         "updated_at": _now(),
     }
 
@@ -396,7 +396,7 @@ def sync_reconciled_decision(
             or "P0 authority verified on disk; P1 broker loops enforced",
             "next_sa": next_sa or row.get("next_sa") or pointer.get("next_sa"),
             "worker_handoff": row.get("worker_handoff")
-            or "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+            or "brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
             "updated_at": _now(),
         }
     )

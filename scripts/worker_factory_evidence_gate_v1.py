@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Worker factory evidence gate — recipe · turn · inbox · broker hygiene.
 
-Law: brain-os/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md
+Law: brain-os/law/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md
 INCIDENT-007 — blocks orphan turns, corrupt INBOX, STALE closeout claims.
 """
 from __future__ import annotations
@@ -14,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
-LAW = ROOT / "brain-os/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md"
+LAW = ROOT / "brain-os/law/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md"
 INBOX_JSON = Path.home() / ".sina" / "worker-prompt-inbox-v1.json"
 TURN_STATE = Path.home() / ".sina" / "worker_turn_state_v1.json"
 ROUND_REPORT = Path.home() / ".sina" / "worker_round_report_v1.json"

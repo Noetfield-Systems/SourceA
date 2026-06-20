@@ -23,9 +23,11 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from visual_proof_capture_v1 import trigger_agent_visual_capture  # noqa: E402
 from evidence_capture_v1 import aeg_on_block_default, attach_block_evidence  # noqa: E402
 
+from governance_paths_v1 import COMMERCIAL_SSOT
+
 SINA = Path.home() / ".sina"
 RECEIPT = SINA / "critic-boot-v1.json"
-CANONICAL_SSOT = ROOT / "SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md"
+CANONICAL_SSOT = COMMERCIAL_SSOT
 BRIEFING_DIR = SINA / "agent-briefing"
 GATE_RECEIPT = SINA / "agent_session_gate_receipt_v1.json"
 TRUTH_PATH = SINA / "run-inbox-disk-truth-v1.json"

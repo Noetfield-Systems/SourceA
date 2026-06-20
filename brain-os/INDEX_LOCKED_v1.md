@@ -12,9 +12,9 @@
 
 | Canonical path |
 |----------------|
-| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/entry/LAW_ROOT_INDEX_LOCKED_v1.md` |
-| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md` |
-| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/entry/START_HERE_LOCKED_v1.md` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/law/entry/LAW_ROOT_INDEX_LOCKED_v1.md` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/law/entry/START_HERE_LOCKED_v1.md` |
 
 ## law/
 
@@ -58,15 +58,15 @@
 
 | Canonical path |
 |----------------|
-| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/enforcement/BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md` |
-| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/enforcement/BRAIN_ENFORCEMENT_AUDIT_PROMPT_LOCKED_v1.md` |
-| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/enforcement/GOAL1_BATCH_CHECKPOINT_LOCKED_v1.md` |
-| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/enforcement/GOAL1_EXECUTION_SOLUTION_LOCKED_v1.md` |
-| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md` |
-| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` |
-| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/enforcement/ONE_SA_PER_TURN_MECHANICAL_LOCKED_v1.md` |
-| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` |
-| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/enforcement/SINA_GOAL1_OPERATING_MODEL_LOCKED_v1.md` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/law/enforcement/BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/law/enforcement/BRAIN_ENFORCEMENT_AUDIT_PROMPT_LOCKED_v1.md` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/law/enforcement/GOAL1_BATCH_CHECKPOINT_LOCKED_v1.md` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/law/enforcement/GOAL1_EXECUTION_SOLUTION_LOCKED_v1.md` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/law/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/law/enforcement/ONE_SA_PER_TURN_MECHANICAL_LOCKED_v1.md` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/law/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/law/enforcement/SINA_GOAL1_OPERATING_MODEL_LOCKED_v1.md` |
 
 ## incidents/
 

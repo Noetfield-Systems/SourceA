@@ -2,7 +2,9 @@
 # validate-authority-index-coverage-v1.sh — root *_LOCKED_v1.md rows in authority index (AS-10)
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-INDEX="$ROOT/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"
+# shellcheck source=governance-paths-v1.sh
+. "$ROOT/scripts/governance-paths-v1.sh"
+INDEX="$SINA_AUTHORITY_INDEX"
 
 fail() { echo "FAIL: validate-authority-index-coverage-v1 — $*" >&2; exit 1; }
 

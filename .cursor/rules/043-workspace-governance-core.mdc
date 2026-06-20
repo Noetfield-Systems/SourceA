@@ -5,13 +5,13 @@ alwaysApply: true
 
 # Workspace governance core
 
-**Primary law plane:** `brain-os/law/` · **Entry:** `brain-os/entry/START_HERE_LOCKED_v1.md`  
+**Primary law plane:** `brain-os/law/` · **Entry:** `brain-os/law/entry/START_HERE_LOCKED_v1.md`  
 **Portfolio SSOT:** `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md`  
 **Supabase tiers:** `data/supabase-portfolio-tiers-v1.json` · `040-workspace-supabase-core.mdc`
 
 ## Read order (structure questions)
 
-1. `brain-os/entry/START_HERE_LOCKED_v1.md`
+1. `brain-os/law/entry/START_HERE_LOCKED_v1.md`
 2. `brain-os/law/` — BRAIN_UNIFIED, layer stack, enforcement
 3. `SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md` — authority rows
 4. Module-specific SSOT under `docs/` or `labs/<module>/README.md`

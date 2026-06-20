@@ -5,7 +5,7 @@
   "repo": "SourceA",
   "root": "agent-control-panel/assets",
   "url": "http://127.0.0.1:13020/?tab=system-roadmap",
-  "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/WTM_TAB_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+  "ledger_md": "brain-os/law/enforcement/ui-upgrade-ledgers/WTM_TAB_UI_UPGRADE_LEDGER_LOCKED_v1.md",
   "saved_at": "2026-06-19T16:54:05Z",
   "incident_ref": "SA-2026-06-05-INCIDENT-002",
   "frozen_inventory": [

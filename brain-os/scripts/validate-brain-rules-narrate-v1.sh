@@ -17,7 +17,7 @@ check "000-brain-unified forbids sick spawn on narrate" \
   'grep -q goal1_auto_loop .cursor/rules/000-brain-unified.mdc && grep -qi forbidden .cursor/rules/000-brain-unified.mdc'
 
 check "GOAL1_LOOP_ACTIVATION uses brain_narrate for narrate prompt" \
-  'grep -q brain_narrate_loop_v1.py brain-os/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md'
+  'grep -q brain_narrate_loop_v1.py brain-os/law/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md'
 
 check "MANDATORY_BRAIN points to unified" \
   'grep -q BRAIN_UNIFIED_RULES_LOCKED_v1.md brain-os/contract/MANDATORY_BRAIN_CHAT_LOCKED_v1.md'
