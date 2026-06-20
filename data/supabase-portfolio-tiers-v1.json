@@ -1,7 +1,7 @@
 {
   "schema": "supabase-portfolio-tiers-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-20T12:00:00Z",
+  "saved_at": "2026-06-20T22:30:00Z",
   "authority": "ASF",
   "decision": {
     "id": "ASF-2026-06-20-VIRLUX-AGENTIC-ONLY",
@@ -15,11 +15,23 @@
       "disposable": false,
       "cloud_ref": "ldfruywifqnfpwsfgmdl",
       "cloud_url": "https://ldfruywifqnfpwsfgmdl.supabase.co",
-      "modules": ["noetfield", "trustfield", "witnessbc", "foundation"],
-      "schemas": ["gov", "noetfield", "trustfield", "witnessbc", "foundation", "audit"],
+      "modules": ["trustfield", "witnessbc", "foundation", "gov", "sourcea"],
+      "schemas": ["gov", "trustfield", "witnessbc", "foundation", "audit"],
       "secrets_file": "~/.sourcea-secrets/portfolio-spine.env",
       "infra_path": "infra/supabase/portfolio-spine",
       "agent_db_access": "restricted — no direct prod writes from autonomous agents"
+    },
+    {
+      "id": "noetfield",
+      "tier": "production",
+      "disposable": false,
+      "cloud_ref": "tkgpapowwplupyekpivy",
+      "cloud_url": "https://tkgpapowwplupyekpivy.supabase.co",
+      "modules": ["noetfield"],
+      "schemas": ["noetfield"],
+      "secrets_file": "~/.sourcea-secrets/noetfield.env",
+      "infra_path": "infra/supabase/noetfield",
+      "agent_db_access": "restricted"
     },
     {
       "id": "labs-sandbox",

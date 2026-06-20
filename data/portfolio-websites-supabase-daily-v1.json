@@ -20,7 +20,18 @@
       "secrets_file": "portfolio-spine.env",
       "env_url": "SUPABASE_URL",
       "env_anon": "SUPABASE_ANON_KEY",
-      "modules": ["noetfield", "trustfield", "witnessbc", "foundation"],
+      "modules": ["trustfield", "witnessbc", "foundation"],
+      "keepalive": "GET {SUPABASE_URL}/auth/v1/health",
+      "required": true
+    },
+    {
+      "id": "noetfield",
+      "tier": "production",
+      "secrets_file": "noetfield.env",
+      "env_url": "SUPABASE_URL",
+      "env_anon": "SUPABASE_ANON_KEY",
+      "modules": ["noetfield"],
+      "cloud_ref": "tkgpapowwplupyekpivy",
       "keepalive": "GET {SUPABASE_URL}/auth/v1/health",
       "required": true
     },
@@ -43,7 +54,7 @@
       "id": "noetfield",
       "label": "Noetfield",
       "module": "noetfield",
-      "supabase_tier": "portfolio-spine",
+      "supabase_tier": "noetfield",
       "url": "https://www.noetfield.com",
       "health_paths": ["/", "/copilot/pilot/"],
       "required": true

@@ -1,34 +1,51 @@
 {
   "schema": "supabase-never-resume-refs-v1",
-  "version": "1.0.0",
-  "saved_at": "2026-06-20T22:15:00Z",
+  "version": "1.1.0",
+  "saved_at": "2026-06-20T22:30:00Z",
   "authority": "ASF",
-  "one_law": "Never unpause, restore, or re-link these Supabase projects. Repo-native only.",
+  "one_law": "Never unpause, restore, or re-link forbidden refs. Repo-native only for VIRLUX + 777.",
   "human_doc": "docs/SUPABASE_ORG_SPLIT_FOUNDER_STEPS_LOCKED_v1.md",
   "forbidden_resume": [
     {
       "ref": "bueoakgiisvufxfbdvoa",
       "name": "virlux-staging",
+      "status": "paused",
       "repo": "~/Desktop/VIRLUX",
-      "reason": "VIRLUX decoupled — receipts logged + Vercel"
+      "reason": "VIRLUX decoupled — receipts logged + Vercel",
+      "founder_law": "NEVER click Restore / Resume"
     },
     {
       "ref": "mmdhnktybjpwlwdczgbq",
       "name": "the777foundation",
+      "status": "paused",
       "repo": "~/Desktop/The 777 Foundation",
-      "reason": "777 decoupled — migrations in supabase/migrations/"
+      "reason": "777 decoupled — migrations in supabase/migrations/",
+      "founder_law": "NEVER click Restore / Resume"
     }
   ],
-  "live_portfolio_spine": {
-    "ref": "ldfruywifqnfpwsfgmdl",
-    "url": "https://ldfruywifqnfpwsfgmdl.supabase.co",
-    "secrets_file": "~/.sourcea-secrets/portfolio-spine.env",
-    "dashboard": "https://supabase.com/dashboard/project/ldfruywifqnfpwsfgmdl"
-  },
+  "live_projects": [
+    {
+      "id": "portfolio-spine",
+      "ref": "ldfruywifqnfpwsfgmdl",
+      "url": "https://ldfruywifqnfpwsfgmdl.supabase.co",
+      "secrets_file": "~/.sourcea-secrets/portfolio-spine.env",
+      "dashboard": "https://supabase.com/dashboard/project/ldfruywifqnfpwsfgmdl",
+      "modules": ["trustfield", "witnessbc", "foundation", "gov", "sourcea"]
+    },
+    {
+      "id": "noetfield",
+      "ref": "tkgpapowwplupyekpivy",
+      "url": "https://tkgpapowwplupyekpivy.supabase.co",
+      "secrets_file": "~/.sourcea-secrets/noetfield.env",
+      "dashboard": "https://supabase.com/dashboard/project/tkgpapowwplupyekpivy",
+      "modules": ["noetfield"]
+    }
+  ],
   "agents_must_not": [
     "supabase link to bueoakgiisvufxfbdvoa or mmdhnktybjpwlwdczgbq",
     "npm run supabase:keepalive against forbidden refs",
     "suggest restoring virlux-staging or the777foundation on Supabase",
-    "write VIRLUX_SUPABASE_URL or 777 Supabase env pointing at forbidden refs"
+    "write VIRLUX_SUPABASE_URL or 777 Supabase env pointing at forbidden refs",
+    "click Restore on paused virlux or 777 projects in dashboard instructions"
   ]
 }
