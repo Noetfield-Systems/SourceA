@@ -46,9 +46,9 @@
       "priority": "P1",
       "id": "supabase-secrets",
       "repo": "All",
-      "blocker": "Supabase secrets missing on Mac — daily DB keepalive skipped",
+      "blocker": "portfolio-spine only — unpause kazemnezhadsina144-dot Project + paste keys",
       "owner": "founder",
-      "acceptance": "~/.sourcea-secrets/portfolio-spine.env + labs-sandbox.env with real URL + anon key",
+      "acceptance": "~/.sourcea-secrets/portfolio-spine.env with real URL + anon key (labs-sandbox decoupled)",
       "command": "bash ~/Desktop/SourceA/scripts/setup_supabase_secrets_mac_v1.sh",
       "probe": "supabase_secrets"
     },
@@ -76,13 +76,20 @@
       "id": "portfolio-spine",
       "secrets_file": "~/.sourcea-secrets/portfolio-spine.env",
       "example": "infra/supabase/portfolio-spine/config.example.env",
+      "cloud_project": "kazemnezhadsina144-dot's Project",
       "modules": ["noetfield", "trustfield", "witnessbc", "foundation"]
+    }
+  ],
+  "supabase_decoupled": [
+    {
+      "id": "virlux-staging",
+      "repo": "~/Desktop/VIRLUX",
+      "export": "VIRLUX/data/supabase-export/"
     },
     {
-      "id": "labs-sandbox",
-      "secrets_file": "~/.sourcea-secrets/labs-sandbox.env",
-      "example": "infra/supabase/labs-sandbox/config.example.env",
-      "modules": ["virlux", "labs", "research"]
+      "id": "the777foundation",
+      "repo": "~/Desktop/The 777 Foundation",
+      "export": "supabase/seed/export/"
     }
   ]
 }
