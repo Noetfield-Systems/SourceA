@@ -13,6 +13,8 @@
       "id": "portfolio-spine",
       "tier": "production",
       "disposable": false,
+      "cloud_ref": "ldfruywifqnfpwsfgmdl",
+      "cloud_url": "https://ldfruywifqnfpwsfgmdl.supabase.co",
       "modules": ["noetfield", "trustfield", "witnessbc", "foundation"],
       "schemas": ["gov", "noetfield", "trustfield", "witnessbc", "foundation", "audit"],
       "secrets_file": "~/.sourcea-secrets/portfolio-spine.env",
