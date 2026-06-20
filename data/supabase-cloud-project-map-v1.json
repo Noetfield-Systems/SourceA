@@ -1,30 +1,34 @@
 {
   "schema": "supabase-cloud-project-map-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-20T22:05:00Z",
+  "saved_at": "2026-06-20T22:15:00Z",
   "authority": "ASF",
   "org": "kazemnezhadsina144-dot's Org",
   "org_plan": "FREE",
   "human_doc": "docs/SUPABASE_ORG_SPLIT_FOUNDER_STEPS_LOCKED_v1.md",
-  "free_org_limit": "2 active projects max — pause virlux + 777 before unpause SourceA",
-  "one_law": "Only portfolio-spine (SourceA) stays on live Supabase. VIRLUX + 777 decouple to repo-native — pause cloud projects first.",
+  "never_resume_ssot": "data/supabase-never-resume-refs-v1.json",
+  "free_org_limit": "2 active projects max — only ldfruywifqnfpwsfgmdl (portfolio-spine) may be live",
+  "one_law": "Only portfolio-spine ref ldfruywifqnfpwsfgmdl stays live. NEVER resume bueoakgiisvufxfbdvoa (VIRLUX) or mmdhnktybjpwlwdczgbq (777).",
   "projects": [
     {
       "id": "portfolio-spine",
-      "dashboard_name": "kazemnezhadsina144-dot's Project",
-      "status": "paused",
-      "region": "us-west-2",
+      "dashboard_name": "SourceA portfolio-spine",
+      "ref": "ldfruywifqnfpwsfgmdl",
+      "url": "https://ldfruywifqnfpwsfgmdl.supabase.co",
+      "status": "active",
+      "region": "founder-selected",
       "tier_ssot": "portfolio-spine",
       "repo": "~/Desktop/SourceA",
       "infra": "infra/supabase/portfolio-spine",
       "secrets_file": "~/.sourcea-secrets/portfolio-spine.env",
-      "action": "UNPAUSE — this is SourceA bring-up",
+      "dashboard": "https://supabase.com/dashboard/project/ldfruywifqnfpwsfgmdl",
       "modules": ["noetfield", "trustfield", "witnessbc", "foundation", "gov"]
     },
     {
       "id": "virlux-staging",
       "dashboard_name": "virlux-staging",
-      "status": "active_nano",
+      "status": "must_stay_paused_or_deleted",
+      "never_resume": true,
       "region": "ca-central-1",
       "ref": "bueoakgiisvufxfbdvoa",
       "url": "https://bueoakgiisvufxfbdvoa.supabase.co",
@@ -38,12 +42,14 @@
       },
       "action": "PAUSE NOW — frees active slot (founder dashboard)",
       "dashboard_settings": "https://supabase.com/dashboard/project/bueoakgiisvufxfbdvoa/settings/general",
-      "target_status": "paused"
+      "target_status": "paused_or_deleted",
+      "forbidden_action": "NEVER RESTORE"
     },
     {
       "id": "the777foundation",
       "dashboard_name": "the777foundation",
-      "status": "active_nano",
+      "status": "must_stay_paused_or_deleted",
+      "never_resume": true,
       "region": "ca-central-1",
       "ref": "mmdhnktybjpwlwdczgbq",
       "url": "https://mmdhnktybjpwlwdczgbq.supabase.co",
@@ -56,13 +62,15 @@
       },
       "action": "PAUSE NOW — frees active slot (founder dashboard)",
       "dashboard_settings": "https://supabase.com/dashboard/project/mmdhnktybjpwlwdczgbq/settings/general",
-      "target_status": "paused"
+      "target_status": "paused_or_deleted",
+      "forbidden_action": "NEVER RESTORE"
     }
   ],
   "after_split": {
+    "live_supabase_ref": "ldfruywifqnfpwsfgmdl",
     "live_supabase_count": 1,
     "daily_ping": "portfolio-spine only",
-    "virlux_runtime": "repo receipts + Vercel/Railway — no Supabase required",
-    "777_runtime": "site static + localStorage path progress; optional re-link later"
+    "virlux_runtime": "repo receipts + Vercel — NEVER bueoakgiisvufxfbdvoa",
+    "777_runtime": "repo migrations + site — NEVER mmdhnktybjpwlwdczgbq"
   }
 }
