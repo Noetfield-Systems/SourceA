@@ -23,6 +23,10 @@
       "id": "labs-sandbox",
       "tier": "labs",
       "disposable": true,
+      "decoupled": true,
+      "decoupled_at": "2026-06-20T22:05:00Z",
+      "cloud_project": "virlux-staging",
+      "cloud_ref": "bueoakgiisvufxfbdvoa",
       "modules": ["virlux", "labs", "research", "experiments"],
       "schemas": ["virlux_ops", "labs", "research"],
       "secrets_file": "~/.sourcea-secrets/labs-sandbox.env",
@@ -30,6 +34,7 @@
       "labs_path": "labs/virlux",
       "agent_db_access": "allowed — only credential agents may hold",
       "virlux_product": "agentic_factory_saas_only — Build Factory catalog, sandbox bays, MCP verify; FINTRAC/payments OUT",
+      "persistence": "repo_native — .virlux-receipts + receipt-store.ts; Supabase cloud optional/paused",
       "graduation_trigger": "Real money, payment settlement, or MSB/FINTRAC customer financial data on VIRLUX → STOP; ship on TrustField or new isolated project, not VIRLUX. Agentic SaaS without payment rails may stay online on labs-sandbox. See labs/virlux/README.md"
     }
   ],
