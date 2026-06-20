@@ -1,0 +1,45 @@
+{
+  "schema": "sourcea-boot-proof-v1",
+  "at": "2026-06-18T00:04:50Z",
+  "verdict": "BLOCK",
+  "ok": false,
+  "checks": [
+    {
+      "id": "C1",
+      "name": "policy_version",
+      "ok": true,
+      "reason": "SSOT v3.2 current",
+      "mode": "sourcea_factory",
+      "version": "3.2",
+      "briefing_path": "/Users/sinakazemnezhad/.sina/agent-briefing/AGENT-AUTO-MONO-latest.json"
+    },
+    {
+      "id": "C2",
+      "name": "provider",
+      "ok": true,
+      "reason": "voyage semantic active",
+      "mode": "sourcea_factory"
+    },
+    {
+      "id": "C3",
+      "name": "receipt_fresh",
+      "ok": true,
+      "reason": "receipt fresh (0.3h)",
+      "receipt_path": "/Users/sinakazemnezhad/.sina/agent_session_gate_receipt_v1.json"
+    },
+    {
+      "id": "C4",
+      "name": "queue_truth",
+      "ok": false,
+      "reason": "run-inbox truth_match=false",
+      "mode": "sourcea_factory",
+      "inbox": {
+        "pending": false,
+        "sa_id": null,
+        "delivered_at": null,
+        "truth_match": false
+      }
+    }
+  ],
+  "founder_line": "Factory boot BLOCK \u2014 four checks on disk"
+}

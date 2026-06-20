@@ -27,6 +27,8 @@ def _copy_tree(src: Path, dest: Path) -> int:
     for f in src.rglob("*"):
         if not f.is_file():
             continue
+        if f.name == "vercel.json":
+            continue
         if any(part in skip_dirs for part in f.relative_to(src).parts):
             continue
         if f.suffix.lower() not in ALLOW_SUFFIX and f.name not in ("favicon.svg",):
