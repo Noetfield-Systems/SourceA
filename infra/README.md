@@ -53,6 +53,26 @@ infra/
     └── load-supabase-secrets-v1.sh    ← sources ~/.sourcea-secrets/*.env
 ```
 
+## Daily stay-up (websites + Supabase)
+
+**Law:** Portfolio stays **online** — light daily pulse on every public site + both Supabase tiers.
+
+```bash
+bash scripts/run-portfolio-supabase-daily-v1.sh
+```
+
+| Artifact | Purpose |
+|----------|---------|
+| `data/portfolio-websites-supabase-daily-v1.json` | Site URLs + Supabase tier map |
+| `~/.sina/portfolio-supabase-daily-pulse-v1.json` | Last receipt |
+| `portfolio_supabase_daily_line` | Hub / surfaces glance line |
+| `data/portfolio-account-structure-v1.json` | Gmail + service login map (all lanes) |
+| `portfolio_account_structure_line` | Account map glance — wired on every daily pulse |
+
+**Checks:** HTTP on Noetfield · TrustField · WitnessBC · VIRLUX web/API · optional SourceA landing · `GET {SUPABASE_URL}/auth/v1/health` for portfolio-spine + labs-sandbox (secrets in `~/.sourcea-secrets/`).
+
+**Mac rule:** One script only — no validator marathon. Fix RED in the **lane agent** for that module.
+
 ## Doctrine
 
-**Noetfield Talks · Trustfield Acts · Blockfield Settles** — governance and delivery stay on Portfolio Spine. Virlux experiments stay in Labs until ASF promotes a production isolation tier.
+**Noetfield Talks · Trustfield Acts · Blockfield Settles** — governance and delivery stay on Portfolio Spine. Virlux agentic factory stays online on labs-sandbox until payment/MSB data forces graduation.
