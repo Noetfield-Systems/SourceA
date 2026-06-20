@@ -62,9 +62,9 @@ TIERS: dict[str, dict[str, Any]] = {
 
 # O-stations: gate + tree + why + map (read-only file checks + light machine probes)
 ORIENTATION_READS: tuple[tuple[str, str, str], ...] = (
-    ("O1", "start_here", "brain-os/entry/START_HERE_LOCKED_v1.md"),
-    ("O2", "governance_gate", "SINA_GOVERNANCE_ENTRY_LOCKED_v1.md"),
-    ("O3", "authority_index", "SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"),
+    ("O1", "start_here", "brain-os/law/entry/START_HERE_LOCKED_v1.md"),
+    ("O2", "governance_gate", "brain-os/law/entry/SINA_GOVERNANCE_ENTRY_LOCKED_v1.md"),
+    ("O3", "authority_index", "brain-os/system/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"),
     ("O4", "decision_stack_gate_tree", "AGENT_DECISION_STACK_AND_SMART_JUDGMENT_LOCKED_v1.md"),
     ("O5", "why_entry", "README_SOURCE_A.md"),
     ("O6", "agentic_stack", "SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md"),
@@ -95,10 +95,10 @@ def load_orientation_reads() -> tuple[tuple[str, str, str], ...]:
         return ORIENTATION_READS
 
 GATE_TREE: dict[str, Any] = {
-    "root": "SINA_GOVERNANCE_ENTRY_LOCKED_v1.md",
+    "root": "brain-os/law/entry/SINA_GOVERNANCE_ENTRY_LOCKED_v1.md",
     "rule": "Pick ONE branch · never read 49 files",
     "branches": [
-        {"id": "role", "pick": "brain-os/entry/START_HERE_LOCKED_v1.md", "then": "MANDATORY_READ_BY_ROLE"},
+        {"id": "role", "pick": "brain-os/law/entry/START_HERE_LOCKED_v1.md", "then": "MANDATORY_READ_BY_ROLE"},
         {"id": "daily_ops", "pick": "README_SOURCE_A.md + docs/ONBOARDING.md", "then": "Loop auto · Brain work-order · Hub glance"},
         {"id": "build_wtm", "pick": "system_roadmap.py CURRENT_*_STEP", "then": "WTM map v5"},
         {"id": "critic_paste", "pick": "CHATGPT_EXTERNAL_CRITIC_LAW", "then": "INPUT CLASS: EXTERNAL_CRITIC"},
@@ -116,16 +116,16 @@ ROLE_SKILL: dict[str, str] = {
 }
 
 MAZE_MANDATORY_READS: tuple[str, ...] = (
-    "SINA_GOVERNANCE_ENTRY_LOCKED_v1.md",
+    "brain-os/law/entry/SINA_GOVERNANCE_ENTRY_LOCKED_v1.md",
     "AGENT_DECISION_STACK_AND_SMART_JUDGMENT_LOCKED_v1.md",
     "SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md",
     "SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md",
     LAW,
-    "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+    "brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
     "AGENT_NO_HUB_REBUILD_STUCK_LOCKED_v1.md",
     "CHATGPT_EXTERNAL_CRITIC_LAW_LOCKED_v1.md",
     "SINA_COMMAND_EDIT_LOCK_LOCKED_v1.md",
-    "brain-os/entry/START_HERE_LOCKED_v1.md",
+    "brain-os/law/entry/START_HERE_LOCKED_v1.md",
 )
 
 

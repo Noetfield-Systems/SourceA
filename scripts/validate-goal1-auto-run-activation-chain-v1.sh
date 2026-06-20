@@ -4,7 +4,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
 for f in \
-  brain-os/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md \
+  brain-os/law/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md \
   brain-os/law/BRAIN_UNIFIED_RULES_LOCKED_v1.md \
   .cursor/rules/000-brain-unified.mdc \
   scripts/goal1_auto_run_deliver_v1.py \
@@ -13,11 +13,11 @@ for f in \
   test -f "$f" || { echo "FAIL: missing $f"; exit 1; }
 done
 
-grep -q "INJECT" brain-os/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md
-grep -q "VALIDATE" brain-os/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md
-grep -q "ACTIVATE" brain-os/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md
+grep -q "INJECT" brain-os/law/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md
+grep -q "VALIDATE" brain-os/law/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md
+grep -q "ACTIVATE" brain-os/law/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md
 grep -q "GOAL1_LOOP_ACTIVATION_CHAIN" brain-os/contract/MANDATORY_BRAIN_CHAT_LOCKED_v1.md
-grep -q "LOOP ACTIVATION CHAIN" brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md
+grep -q "LOOP ACTIVATION CHAIN" brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md
 
 python3 <<'PY'
 import json

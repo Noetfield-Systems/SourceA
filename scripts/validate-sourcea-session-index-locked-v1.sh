@@ -21,7 +21,7 @@ grep -q "Golden recommendations" "$GI"
 grep -q "golden.*operating system" "$GI"
 grep -q "FOUNDER_LANE_SEPARATION" "$GI"
 grep -q "validate-ecosystem-safety-v1" "$GI"
-test -f "$ROOT/brain-os/enforcement/FOUNDER_LANE_SEPARATION_LOCKED_v1.md"
+test -f "$ROOT/brain-os/law/enforcement/FOUNDER_LANE_SEPARATION_LOCKED_v1.md"
 
 BM="$ROOT/SOURCEA_BRAIN_MONITOR_FIX_REPORT_LOCKED_v1.md"
 grep -q "Brain was right to push back" "$BM"

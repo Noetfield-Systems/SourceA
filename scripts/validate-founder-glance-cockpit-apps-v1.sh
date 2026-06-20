@@ -11,7 +11,7 @@ check() { if "$@"; then echo "PASS: $*"; else echo "FAIL: $*"; fail=1; fi; }
 echo "=== Founder Glance Cockpit Apps — full wire audit ==="
 
 check test -f "$ROOT/data/founder-glance-cockpit-apps-v1.json"
-check test -f "$ROOT/brain-os/enforcement/SINA_FOUNDER_GLANCE_COCKPIT_APPS_LOCKED_v1.md"
+check test -f "$ROOT/brain-os/law/enforcement/SINA_FOUNDER_GLANCE_COCKPIT_APPS_LOCKED_v1.md"
 
 python3 <<PY || fail=1
 import json, os, urllib.request

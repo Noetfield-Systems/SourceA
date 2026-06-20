@@ -31,7 +31,7 @@ Optimizes **W1 + W2 + W3** by Dec 2026 — not factory REGISTRY drain.
 | Validate | `scripts/validate-enforcement-1000-pack.sh` |
 | Audit | `scripts/audit-enforcement-1000-v1.py` |
 | Categories | `brain-os/plan-registry/ENFORCEMENT-1000-CATEGORY-INDEX.md` |
-| Parent law | `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` |
+| Parent law | `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` |
 
 ---
 

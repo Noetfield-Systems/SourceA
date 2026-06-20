@@ -1,7 +1,7 @@
 # Worker full-round evidence enforcement (pointer)
 
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
-**LOCKED body:** `brain-os/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md`  
+**LOCKED body:** `brain-os/law/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md`  
 **sequence_id:** SA-2026-06-09-LAW-WORKER-FACTORY-EVIDENCE-v1  
 **MANDATORY READ:** every SourceA Worker · auto-run executor · Maintainer on Worker path  
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """UI upgrade FIRST CHECK — mandatory before any form/app/website UI edit.
 
-Law: brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md
+Law: brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md
 Wire receipt: ~/.sina/ui-upgrade-first-check-receipt-v1.json
 Surface acks: ~/.sina/ui-upgrade-surface-acks-v1.json
 """

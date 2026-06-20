@@ -19,29 +19,29 @@ RECEIPT = Path.home() / ".sina" / "cursor_entry_gate_receipt_v1.json"
 ROLE_FILES: dict[str, list[str]] = {
     "brain": [
         "brain-os/law/BRAIN_UNIFIED_RULES_LOCKED_v1.md",
-        "brain-os/entry/START_HERE_LOCKED_v1.md",
-        "brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md",
+        "brain-os/law/entry/START_HERE_LOCKED_v1.md",
+        "brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md",
         "ARCHITECT_REPORT.yaml",
         "GLOBAL_BLOCKERS.json",
         "brain-os/incidents/SINA_HEALTHY_DRAIN_PROMPT_FEASIBILITY_INCIDENT_REPORT_LOCKED_v1.md",
         "brain-os/incidents/SINA_BRAIN_WORKER_LANE_CROSS_INCIDENT_LOCKED_v1.md",
         "brain-os/system/WORKER_ASSIGNMENT_AND_CHAT_ROUTING_LOCKED_v1.md",
-        "brain-os/enforcement/BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md",
+        "brain-os/law/enforcement/BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md",
         "brain-os/plan-registry/SOURCEA-PRIORITY.md",
     ],
     "worker": [
-        "brain-os/entry/START_HERE_LOCKED_v1.md",
+        "brain-os/law/entry/START_HERE_LOCKED_v1.md",
         "ARCHITECT_REPORT.yaml",
         "GLOBAL_BLOCKERS.json",
         "brain-os/incidents/SINA_HEALTHY_DRAIN_PROMPT_FEASIBILITY_INCIDENT_REPORT_LOCKED_v1.md",
-        "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
         "brain-os/system/WORKER_ASSIGNMENT_AND_CHAT_ROUTING_LOCKED_v1.md",
-        "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+        "brain-os/law/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
         "brain-os/plan-registry/SOURCEA-PRIORITY.md",
     ],
     "archive": [
         "brain-os/system/SINAAIDB_ARCHIVE_RETIREMENT_HANDOFF_LOCKED_v1.md",
-        "brain-os/entry/START_HERE_LOCKED_v1.md",
+        "brain-os/law/entry/START_HERE_LOCKED_v1.md",
     ],
 }
 

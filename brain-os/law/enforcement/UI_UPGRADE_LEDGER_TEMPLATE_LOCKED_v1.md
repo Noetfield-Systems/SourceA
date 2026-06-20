@@ -3,7 +3,7 @@
 **Version:** 1.0.0 · **Saved:** 2026-06-19T16:54:05Z · **Authority:** Founder — per-app UI upgrade tracking  
 **Parent law:** `SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md`  
 **Machine log:** `data/ui-upgrade-ledgers/<surface_id>-v1.json`  
-**Path pattern:** `brain-os/enforcement/ui-upgrade-ledgers/<APP>_UI_UPGRADE_LEDGER_LOCKED_v1.md`
+**Path pattern:** `brain-os/law/enforcement/ui-upgrade-ledgers/<APP>_UI_UPGRADE_LEDGER_LOCKED_v1.md`
 
 ---
 
@@ -62,7 +62,7 @@ Each entry **must** include:
 
 ## New app bootstrap
 
-1. Copy this template → `brain-os/enforcement/ui-upgrade-ledgers/<APP>_UI_UPGRADE_LEDGER_LOCKED_v1.md`
+1. Copy this template → `brain-os/law/enforcement/ui-upgrade-ledgers/<APP>_UI_UPGRADE_LEDGER_LOCKED_v1.md`
 2. Create `data/ui-upgrade-ledgers/<surface_id>-v1.json` with `frozen_inventory` + bootstrap `UP-<APP>-000`
 3. Add row to `data/ui-upgrade-surface-registry-v1.json` with `ledger_md` + `ledger_json`
 4. Run `python3 scripts/ui_upgrade_ledger_v1.py --validate --json`

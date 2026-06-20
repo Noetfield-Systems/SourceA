@@ -131,7 +131,7 @@
     }
   },
   "orient_chain": [
-    {"step": 1, "id": "start_here", "path": "brain-os/entry/START_HERE_LOCKED_v1.md", "why": "Law front door · pick role"},
+    {"step": 1, "id": "start_here", "path": "brain-os/law/entry/START_HERE_LOCKED_v1.md", "why": "Law front door · pick role"},
     {"step": 2, "id": "orient_routing", "path": "docs/SOURCEA_ORIENTATION_AND_ROUTING_LOCKED_v1.md", "why": "Routing + receipt cascade"},
     {"step": 3, "id": "foundational_index", "path": "docs/SOURCEA_FOUNDATIONAL_AGENTIC_SYSTEMS_INDEX_LOCKED_v1.md", "why": "Skill load order"},
     {"step": 4, "id": "node_mesh_plan", "path": "docs/SOURCEA_NODE_MESH_SYNESTM_BUILD_PLAN_LOCKED_v1.md", "why": "Parallel node mesh · synestm"},

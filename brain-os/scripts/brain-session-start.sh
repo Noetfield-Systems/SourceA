@@ -65,10 +65,10 @@ receipt = {
     "~/.sina/brain/research-library/INDEX.yaml",
     "brain-os/incidents/SINA_BRAIN_WORKER_LANE_CROSS_INCIDENT_LOCKED_v1.md",
     "brain-os/incidents/SINA_HEALTHY_DRAIN_PROMPT_FEASIBILITY_INCIDENT_REPORT_LOCKED_v1.md",
-    "brain-os/entry/START_HERE_LOCKED_v1.md",
+    "brain-os/law/entry/START_HERE_LOCKED_v1.md",
     "brain-os/system/WORKER_ASSIGNMENT_AND_CHAT_ROUTING_LOCKED_v1.md",
     "brain-os/plan-registry/SOURCEA-PRIORITY.md",
-    "brain-os/enforcement/BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md",
+    "brain-os/law/enforcement/BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md",
     "brain-os/INDEX_LOCKED_v1.md",
   ],
   "forbidden_routing_labels": [

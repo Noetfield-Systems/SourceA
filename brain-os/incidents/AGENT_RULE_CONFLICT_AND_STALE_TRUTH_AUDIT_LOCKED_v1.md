@@ -38,7 +38,7 @@
 | **C07** | Execution SSOT | `prompt-queue.mdc`: propose 10 · Confirm feed | `SOURCEA_LIVE_ONGOING_PROMPTS_LOCKED_v1.md`: machine order + live mirror; confirm optional | **RESOLVED** — live ongoing law + prompt-queue.mdc update |
 | **C08** | S10 vs bash subject | Tombstone + split docs exist | Residue: easy to cite S10 as bash incident | `INCIDENT_SUBJECT_INDEX` SUBJ-AGENT vs S10 law |
 | **C09** | Incident two-layer | Full LOCKED bodies at root **and** `brain-os/incidents/` | Registry: body **only** in `brain-os/incidents/` | Registry §One rule |
-| **C10** | START_HERE path | `000-workspace-lock`: `entry/START_HERE` | File at `brain-os/entry/START_HERE_LOCKED_v1.md` | `brain-os/entry/START_HERE_LOCKED_v1.md` |
+| **C10** | START_HERE path | `000-workspace-lock`: `entry/START_HERE` | File at `brain-os/law/entry/START_HERE_LOCKED_v1.md` | `brain-os/law/entry/START_HERE_LOCKED_v1.md` |
 | **C11** | INCIDENT-011 reuse | REWRITE disk edit (P0) | jsonl id `INCIDENT-011-brain-column-drift` void | 011 = REWRITE only · 014 = monitor |
 | **C12** | Who edits hub | `AGENT_GOVERNANCE_INDEX`: sinaai_maintainer editor | `EDIT_LOCK` v1.1: maintainer **retired** | `SINA_COMMAND_EDIT_LOCK_LOCKED_v1.md` |
 
@@ -57,7 +57,7 @@
 | **S07** | `CHATGPT_EXTERNAL_CRITIC` root stub | 9-line MOVED | `brain-os/law/CHATGPT_EXTERNAL_CRITIC_LAW_LOCKED_v1.md` |
 | **S08** | Registry session-start slice | Omits 016–021 role guidance | Extend registry §Session-start |
 | **S09** | `TODAY_AUTORUN_50_PLAN` | Listed ACTIVE in brain INDEX | SUPERSEDED per converge program |
-| **S10** | Governance entry §0a | `entry/MANDATORY_READ_BY_ROLE` path | `brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md` |
+| **S10** | Governance entry §0a | `entry/MANDATORY_READ_BY_ROLE` path | `brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md` |
 
 ---
 
@@ -91,7 +91,7 @@
 ## Agent smooth-truth checklist (session start)
 
 ```
-1. role? → brain-os/entry/MANDATORY_READ_BY_ROLE (fix paths mentally to brain-os/)
+1. role? → brain-os/law/entry/MANDATORY_READ_BY_ROLE (fix paths mentally to brain-os/)
 2. incident id? → AGENT_INCIDENTS_REGISTRY only
 3. topic law? → SINA_AUTHORITY_INDEX_MAP
 4. live state? → ~/.sina + goal-progress-v1.py — not compendium

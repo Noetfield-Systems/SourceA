@@ -37,7 +37,7 @@ A Cursor agent interpreted the founder verb **REWRITE** as permission to create 
 | **006** | YAML/registry fiction ≠ done — same class as unsolicited registry rows | `brain-os/incidents/SINA_REGISTRY_BATCH_FAKE_PROGRESS_INCIDENT_LOCKED_v1.md` |
 | **Compendium** | Arc: unvalidated proof · wrong SSOT · procedure bypass | `brain-os/incidents/SINA_ECOSYSTEM_INCIDENTS_AND_SESSION_INSIGHTS_COMPENDIUM_LOCKED_v1.md` |
 | **Cursor rule** | SAVE · WORK · EDIT ALLOWED | `.cursor/rules/000-cross-lane-edit-forbidden.mdc` |
-| **Verb law** | SAVE stops after one file | `brain-os/enforcement/AGENT_VERBS_SAVE_WORK_EDIT_LOCKED_v1.md` |
+| **Verb law** | SAVE stops after one file | `brain-os/law/enforcement/AGENT_VERBS_SAVE_WORK_EDIT_LOCKED_v1.md` |
 
 **Session-start commands the agent should have run first:**
 

@@ -181,7 +181,7 @@ When **T1–T5** triggers in `SOURCEA_COMPLEX_SITUATION_FORK_MACHINE_LOCKED_v1.m
 |---------|------|
 | Mandatory read chain | `scripts/hub_essentials_index.py` READ_CHAIN |
 | Doc library | `scripts/important_docs_index.py` → `agent_session` |
-| Role cross-cutting | `brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md` |
+| Role cross-cutting | `brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md` |
 | Authority | `SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md` rows `FIVE_STEP_APEX` · `RESULT_POLICY` · `FORK_MACHINE` · `INTEGRITY_BATCH_2` · `CROSS_DOC_LINKAGE` |
 | Router | `SINA_GOVERNANCE_ENTRY_LOCKED_v1.md` §0 |
 

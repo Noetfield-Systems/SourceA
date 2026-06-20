@@ -3,7 +3,7 @@
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
 **Status:** remediated · **Subject:** SUBJ-AGENT  
 **Canonical body:** `brain-os/incidents/SINA_BRAIN_CHAT_VALIDATOR_RECURSION_INCIDENT_026_LOCKED_v1.md`  
-**Law:** `brain-os/enforcement/BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md` · `BRAIN_UNIFIED_RULES_LOCKED_v1.md`
+**Law:** `brain-os/law/enforcement/BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md` · `BRAIN_UNIFIED_RULES_LOCKED_v1.md`
 
 ## One-screen summary
 

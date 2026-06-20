@@ -92,7 +92,7 @@
     "first_check_rule": ".cursor/rules/025-ui-upgrade-first-check-live-wire.mdc",
     "checklist_rule": ".cursor/rules/024-ui-upgrade-mandatory-checklist.mdc",
     "form_rule": ".cursor/rules/form-automatic-submit-only.mdc",
-    "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/HUB_FORM_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+    "ledger_md": "brain-os/law/enforcement/ui-upgrade-ledgers/HUB_FORM_UI_UPGRADE_LEDGER_LOCKED_v1.md",
     "ledger_json": "data/ui-upgrade-ledgers/hub_form-v1.json",
     "pre_write_gate": "UI_UPGRADE_FIRST_CHECK_REQUIRED without --ack",
     "validators": [

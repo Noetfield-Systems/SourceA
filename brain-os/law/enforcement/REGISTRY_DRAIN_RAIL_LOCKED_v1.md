@@ -27,7 +27,7 @@
 
 ## INBOX + hygiene (LOCKED — same every session)
 
-**Brain:** `brain-os/enforcement/SINA_BRAIN_INBOX_PROCESS_LOCKED_v1.md` — route only; run `bash scripts/enforce-registry-hygiene-v1.sh` before progress replies.
+**Brain:** `brain-os/law/enforcement/SINA_BRAIN_INBOX_PROCESS_LOCKED_v1.md` — route only; run `bash scripts/enforce-registry-hygiene-v1.sh` before progress replies.
 
 **Worker:** INBOX role = CHECK | ACT | VERIFY (one per turn) · receipt on VERIFY only.
 

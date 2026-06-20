@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Per-app UI upgrade ledger — read, validate, append upgrade entries.
 
-Law: brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md
+Law: brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md
 Index: data/ui-upgrade-ledgers-index-v1.json
 """
 from __future__ import annotations

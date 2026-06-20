@@ -2,6 +2,8 @@
 # validate-external-critic-pitch-stats-v1.sh — pitch-stats attachment wired to commercial stack
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+# shellcheck source=governance-paths-v1.sh
+. "$ROOT/scripts/governance-paths-v1.sh"
 cd "$ROOT"
 
 fail() { echo "FAIL: validate-external-critic-pitch-stats-v1 — $*" >&2; exit 1; }
@@ -11,7 +13,7 @@ ONEPAGER="$ROOT/NOETFIELD_FOUNDING_CUSTOMER_PILOT_ONEPAGER_LOCKED_v1.md"
 BATTLE="$ROOT/NOETFIELD_NW1_BATTLE_CARD_LOCKED_v1.md"
 COMPETITOR="$ROOT/archive/attachments/commercial/SOURCEA_COMPETITOR_LANDSCAPE_RESEARCH_REPORT_v1.md"
 CRITIC_LAW="$ROOT/brain-os/law/CHATGPT_EXTERNAL_CRITIC_LAW_LOCKED_v1.md"
-SSOT="$ROOT/SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md"
+SSOT="$SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT"
 
 [[ -f "$DOC" ]] || fail "missing pitch stats doc $DOC"
 [[ -f "$ONEPAGER" ]] || fail "missing one-pager $ONEPAGER"

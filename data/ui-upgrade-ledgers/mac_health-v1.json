@@ -7,8 +7,8 @@
   "repo": "SourceA",
   "root": "scripts/mac-health-standalone",
   "url": "http://127.0.0.1:13024/",
-  "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/MAC_HEALTH_UI_UPGRADE_LEDGER_LOCKED_v1.md",
-  "law_doc": "brain-os/enforcement/SINA_MAC_HEALTH_FOUNDER_GLANCE_UI_LOCKED_v1.md",
+  "ledger_md": "brain-os/law/enforcement/ui-upgrade-ledgers/MAC_HEALTH_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+  "law_doc": "brain-os/law/enforcement/SINA_MAC_HEALTH_FOUNDER_GLANCE_UI_LOCKED_v1.md",
   "contract_json": "data/mac-health-founder-glance-ui-contract-v1.json",
   "saved_at": "2026-06-19T20:39:27Z",
   "frozen_inventory": [

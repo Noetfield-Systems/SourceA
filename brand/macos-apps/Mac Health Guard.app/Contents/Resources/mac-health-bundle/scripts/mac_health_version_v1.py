@@ -8,4 +8,4 @@ UI_SURFACE_ID = "founder_glance"
 UI_TAB_COUNT = 0
 UI_PRIMARY_CTA = "Relieve pressure"
 UI_CONTRACT_REL = "data/mac-health-founder-glance-ui-contract-v1.json"
-UI_LAW_DOC = "brain-os/enforcement/SINA_MAC_HEALTH_FOUNDER_GLANCE_UI_LOCKED_v1.md"
+UI_LAW_DOC = "brain-os/law/enforcement/SINA_MAC_HEALTH_FOUNDER_GLANCE_UI_LOCKED_v1.md"

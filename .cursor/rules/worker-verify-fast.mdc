@@ -1,6 +1,6 @@
 ---
 description: Worker VERIFY uses fast lane — never full find_critical_bugs (3 min shell stall)
-globs: agent-skills/sourcea_worker/**,brain-os/enforcement/MANDATORY_SOURCEA_WORKER*
+globs: agent-skills/sourcea_worker/**,brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER*
 alwaysApply: false
 ---
 

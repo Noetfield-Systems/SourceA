@@ -2,12 +2,14 @@
 # validate-governed-agentic-automation-offer-v1.sh — Asset B commercial lane wired
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+# shellcheck source=governance-paths-v1.sh
+. "$ROOT/scripts/governance-paths-v1.sh"
 cd "$ROOT"
 
 fail() { echo "FAIL: validate-governed-agentic-automation-offer-v1 — $*" >&2; exit 1; }
 
 LAW="$ROOT/SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md"
-SSOT="$ROOT/SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md"
+SSOT="$SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT"
 AGENCY="$ROOT/SOURCEA_AGENCY_PRODUCT_DEMO_SCRIPT_LOCKED_v1.md"
 ENGINE="$ROOT/scripts/governed_agentic_automation_offer_v1.py"
 

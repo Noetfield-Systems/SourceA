@@ -29,8 +29,8 @@ MANIFEST_DIR = SINA / "pack-manifests"
 
 VERIFY_ACHIEVABLE = "cd scripts && bash worker_verify_ultra_v1.sh"
 MANDATORY = [
-    "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
-    "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+    "brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+    "brain-os/law/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
     "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
     "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
     ".cursor/rules/000-entry-gate.mdc",

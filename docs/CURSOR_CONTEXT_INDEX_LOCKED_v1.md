@@ -20,7 +20,7 @@
 | 2 | `~/.sina/agent-executor-daily-duty-card-v1.json` | D01–D23 |
 | 3 | `~/.sina/agent-live-surfaces-v1.json` | `factory_now_line` |
 | 4 | `data/cursor-bootstrap-ledger-v1.json` | Architecture GPS |
-| 5 | `brain-os/entry/START_HERE_LOCKED_v1.md` | Role picker |
+| 5 | `brain-os/law/entry/START_HERE_LOCKED_v1.md` | Role picker |
 
 ---
 

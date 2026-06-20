@@ -107,7 +107,7 @@ check grep -q 'id="log-shield"' scripts/mac-health-standalone/index.html
 check grep -q 'hub-truth-badge' scripts/mac-health-standalone/index.html
 check grep -q 'paintLogShield' scripts/mac-health-standalone/app.js
 check test -f data/mac-health-founder-glance-ui-contract-v1.json
-check test -f brain-os/enforcement/SINA_MAC_HEALTH_FOUNDER_GLANCE_UI_LOCKED_v1.md
+check test -f brain-os/law/enforcement/SINA_MAC_HEALTH_FOUNDER_GLANCE_UI_LOCKED_v1.md
 if grep -q 'LOG.read_text' scripts/find_critical_bugs.py; then
   echo "FAIL: find_critical_bugs must not use LOG.read_text"
   fail=1

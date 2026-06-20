@@ -22,8 +22,8 @@ PY
 grep -q "worker_verify_ultra_v1.sh" healthy_prompt_turn_v1.py || fail "healthy_prompt_turn missing ultra verify"
 grep -q "WORKER_NO_SLOW_VERIFY" healthy_prompt_turn_v1.py || fail "healthy_prompt_turn missing slow verify ban"
 
-grep -q "worker_verify_ultra_v1.sh" ../brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md || fail "worker mandatory missing ultra verify"
-grep -q "worker_turn_entry_v1.sh" ../brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md || fail "worker mandatory missing turn entry"
+grep -q "worker_verify_ultra_v1.sh" ../brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md || fail "worker mandatory missing ultra verify"
+grep -q "worker_turn_entry_v1.sh" ../brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md || fail "worker mandatory missing turn entry"
 grep -q "worker_anti_staleness" worker_turn_entry_v1.sh || fail "turn entry missing AS heal"
 grep -q "worker_anti_staleness" worker_verify_ultra_v1.sh || fail "ultra verify missing AS heal"
 grep -q '\-\-fast' goal1_lane_broker.py || fail "broker must use cascade --fast"

@@ -85,8 +85,8 @@ GOAL_PCT="$(python3 "$ROOT/scripts/goal-progress-v1.py" --json 2>/dev/null | pyt
 
 cat <<EOF
 LEGACY PASTE SCRIPT — SSOT for live turns: scripts/healthy_prompt_turn_v1.py (orchestrator INBOX)
-MANDATORY: brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md
-MANDATORY: brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md §PICK ORDER
+MANDATORY: brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md
+MANDATORY: brain-os/law/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md §PICK ORDER
 MANDATORY: brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md
 MANDATORY: brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md
 MANDATORY: brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md

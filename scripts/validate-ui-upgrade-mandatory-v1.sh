@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # UI upgrade mandatory gate validator
-# Law: brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md
+# Law: brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
@@ -9,7 +9,7 @@ echo "=== validate-ui-upgrade-mandatory-v1 ==="
 
 fail=0
 
-if [[ ! -f brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md ]]; then
+if [[ ! -f brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md ]]; then
   echo "FAIL: law doc missing"
   fail=1
 fi
@@ -80,7 +80,7 @@ else
   echo "OK  ledger index"
 fi
 
-if ! bash scripts/validate-doc-datetime-header-v1.sh brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md >/dev/null 2>&1; then
+if ! bash scripts/validate-doc-datetime-header-v1.sh brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md >/dev/null 2>&1; then
   echo "FAIL: law doc datetime header"
   fail=1
 else

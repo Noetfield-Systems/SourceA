@@ -1,7 +1,7 @@
 # SourceA UI upgrade — mandatory process — LOCKED v1
 
 **Version:** 1.4.0 · **Saved:** 2026-06-19T20:15:00Z · **Authority:** Founder order — every UI upgrade, every app, every website  
-**Path:** `~/Desktop/SourceA/brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md`  
+**Path:** `~/Desktop/SourceA/brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md`  
 **Enforcement:** `.cursor/rules/024-ui-upgrade-mandatory-checklist.mdc` · `.cursor/rules/025-ui-upgrade-first-check-live-wire.mdc` · `.cursor/rules/026-ui-first-check-zero-exception.mdc` · `data/ui-upgrade-surface-registry-v1.json` · `data/ui-upgrade-ledgers-index-v1.json` · `scripts/ui_upgrade_mandatory_gate_v1.py` · `scripts/ui_upgrade_first_check_v1.py` · `scripts/ui_upgrade_path_classifier_v1.py` · `scripts/ui_upgrade_ledger_v1.py` · `scripts/validate-ui-first-check-mandatory-all-agents-v1.sh`  
 **Incident anchor:** `WORLD_TARGET_MODEL_UI_INCIDENT_REPORT_LOCKED_v1.md` (SA-2026-06-05-INCIDENT-002)
 
@@ -42,7 +42,7 @@
 | Layer | What | Where |
 |-------|------|-------|
 | **General** | UP-0 … UP-7 — same pipeline for all UI upgrades | This doc §4 |
-| **Per-app** | Frozen inventory · app checklist · upgrade history log | `brain-os/enforcement/ui-upgrade-ledgers/<APP>_UI_UPGRADE_LEDGER_LOCKED_v1.md` + `data/ui-upgrade-ledgers/<surface_id>-v1.json` |
+| **Per-app** | Frozen inventory · app checklist · upgrade history log | `brain-os/law/enforcement/ui-upgrade-ledgers/<APP>_UI_UPGRADE_LEDGER_LOCKED_v1.md` + `data/ui-upgrade-ledgers/<surface_id>-v1.json` |
 
 **Index of all app ledgers:** `data/ui-upgrade-ledgers-index-v1.json`
 
