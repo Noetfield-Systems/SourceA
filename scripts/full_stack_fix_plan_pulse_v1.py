@@ -150,10 +150,16 @@ def _sync_fix_status(fix: dict, *, disk: dict) -> dict:
             if q.startswith("sa-"):
                 row["live_note"] = f"queue_head {q} · pin_pending"
     elif fid == "F011":
+        orch = _read_json(SINA / "healthy-drain-orchestrator-v1.json")
         fn = _read_json(SINA / "factory-now-v1.json")
-        if fn.get("last_completed_sa") and fn.get("queue_sa") != fn.get("last_completed_sa"):
+        queue_sa = str(fn.get("queue_sa") or "")
+        last_sa = str(orch.get("last_completed_sa") or "")
+        if not queue_sa and not last_sa:
             row["status"] = "done"
-            row["live_note"] = "last_completed_sa aligned"
+            row["live_note"] = "last_completed_sa cleared on idle unit"
+        elif queue_sa and last_sa and queue_sa == last_sa:
+            row["status"] = "done"
+            row["live_note"] = "last_completed_sa aligned with active queue"
     elif fid == "F012":
         prog = (disk.get("outbound_pulse") or {}).get("progress") or {}
         if prog.get("done_total") is not None:

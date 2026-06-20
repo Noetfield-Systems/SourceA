@@ -9,6 +9,11 @@ SOURCE_A = Path(__file__).resolve().parents[3]
 DOC_GLOBS = [
     "knowledge-library/**/*.md",
     "archive/attachments/wtm/*.md",
+    "brain-os/law/**/*.md",
+    "brain-os/laws/**/*.md",
+    "brain-os/wtm/**/*.md",
+    "brain-os/incidents/**/*.md",
+    "brain-os/system/**/*.md",
     "*_LOCKED_v*.md",
 ]
 

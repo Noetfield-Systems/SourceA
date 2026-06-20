@@ -40,16 +40,14 @@ alwaysApply: true
 
 If it sounds like a log or a glossary, rewrite as something you'd say to explain a problem to a colleague.
 
-## Pre-ship (mandatory)
+## Pre-ship (Mac founder session — text only)
+
+**Optional** — rewrite in agent head or one lightweight text scan. **Forbidden:** bash `validate-*` stacks to prove reply (INCIDENT-039).
 
 ```bash
-python3 scripts/founder_reply_quality_loop_v1.py --text "<full draft>" --founder-message "<founder last msg>" --json
+python3 scripts/agent_report_language_gate_v1.py --scan-text "<draft>" --json
 ```
 
-- **SHIP** — send as-is  
-- **SHIP_TRANSLATED** — send `founder_text` from loop (draft was too technical)  
-- **REJECT** — rewrite using `rewrite_hints`; do not reach founder  
+Heavy loop → cloud bay `POST /api/comprehension-loop/v1` — not Mac validator marathon.
 
-Also: `python3 scripts/agent_report_language_gate_v1.py --scan-text "<draft>" --json`
-
-FAIL → rewrite for **understanding and benefit** → loop again.
+FAIL text scan → rewrite for **understanding and benefit** — do not chain validators.

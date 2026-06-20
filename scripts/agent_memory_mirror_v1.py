@@ -42,6 +42,14 @@ FORBIDDEN_STALE: list[tuple[str, str, str, str]] = [
     ("F20", r"Open\s+Sina\s+Command\b", "028", "Open Sina Command (deactivated)"),
     ("F21", r"\bSina\s+Command\s*→", "028", "Sina Command arrow navigation"),
     ("F22", r"(?:Read|read|paste|Acknowledge).{0,40}INCIDENT_REPORT_ALWAYS", "031", "instruct INCIDENT_REPORT_ALWAYS read"),
+    ("F29", r"validate-law-supersession-surfaces", "039", "Mac founder session validator stack before reply"),
+    ("F30", r"(?:run|Run)\s+all\s+validators?", "039", "validator marathon on Mac"),
+    ("F31", r"Worker\s+on\s+Mac\s+runs\s+every\s+plan", "038", "forbidden Worker runs every plan"),
+    ("F32", r"Seven\s+surfaces.*validate-law-supersession", "039", "mirror poison — validator before reply"),
+    ("F33", r"validate-law-supersession.*(?:→|->).*reply", "039", "mirror poison — supersession before reply"),
+    ("F34", r"W1[-–]W10.*before.*(?:reply|done|ship)", "039", "check cart marathon before reply"),
+    ("F35", r"wire\s+to\s+ALL\s+surfaces\s+before\s+saying\s+done", "039", "checkcart poison duty"),
+    ("F36", r"check\s+cart\s+if\s+law\s+touched", "039", "pre-reply check cart poison"),
 ]
 
 # Close-line only — not scanned across codebase (documented in rules/scripts)
@@ -60,6 +68,7 @@ SCAN_ROOTS: list[str] = [
     "agent-skills",
     ".cursor/rules",
     ".cursor/skills",
+    "brain-os/law/enforcement",
     "brain-os/law/entry",
 ]
 
@@ -72,7 +81,12 @@ EXCLUDE_REL_PATHS = frozenset(
         ".cursor/rules/prompt-queue.mdc",
         "brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md",
         "scripts/validate-prompt-feed-no-autosend-copy-v1.sh",
-        "scripts/validate-law-supersession-surfaces-v1.sh",
+        "scripts/agent_mirror_poison_scrub_v1.py",
+        "data/agent-memory-mirror-poison-law-v1.json",
+        "data/agent-law-wire-checkcart-duty-v1.json",
+        "brain-os/incidents/SINA_MAC_FOUNDER_SESSION_VALIDATOR_STUCK_INCIDENT_039_LOCKED_v1.md",
+        "brain-os/incidents/SINA_MAC_LAW_WIRING_VALIDATOR_MARATHON_INCIDENT_040_LOCKED_v1.md",
+        "brain-os/incidents/SINA_PROHIBITION_INSTEAD_OF_DISK_WIRE_INCIDENT_034_LOCKED_v1.md",
         "scripts/validate-hub-p0-no-autorun-v1.sh",
         "scripts/worker_hub_staleness_v1.py",
         "SINA_COMMAND_DEACTIVATED_INCIDENT_READ_POLICY_LOCKED_v1.md",
@@ -101,6 +115,7 @@ REQUIRED_ALWAYS_RULES = (
     "agent-memory-mirror.mdc",
     "agent-founder-intent-first.mdc",
     "031-mac-law-machine-enforceable-v1.mdc",
+    "034-mac-no-validator-stuck-red-flag.mdc",
 )
 
 MANDATORY_INCIDENTS = ("024", "028", "016", "002")
@@ -183,6 +198,26 @@ def _comprehension_pipeline_inject() -> dict:
         return {"ssot": "data/cloud-comprehension-bay-v1.json"}
 
 
+def _mac_law_universal_inject() -> dict:
+    try:
+        from mac_law_universal_wire_v1 import inject_slice, sync_receipt  # noqa: WPS433
+
+        sync_receipt(enforce=False)
+        return inject_slice()
+    except Exception:
+        return {"ssot": "data/mac-law-universal-wire-v1.json"}
+
+
+def _mac_law_agent_lock_inject() -> dict:
+    try:
+        from mac_law_agent_execution_plane_lock_v1 import inject_slice, sync_receipt  # noqa: WPS433
+
+        sync_receipt(enforce=False)
+        return inject_slice()
+    except Exception:
+        return {"ssot": "data/mac-law-agent-execution-plane-lock-v1.json", "locked_forever": True}
+
+
 def _mac_law_machine_inject() -> dict:
     try:
         from mac_law_machine_enforce_v1 import inject_slice, sync_receipt  # noqa: WPS433
@@ -225,30 +260,32 @@ INJECT_LAW = {
     "form_official": "Hub form INCIDENT-037 guard ON · agent-submit forbidden · hub_form surface",
     "founder_close_line": "Loop auto · guards ON · disk truth only · no invitation.",
     "founder_no_invitation": "NO INVITATION — agents report Problem · fix · guards · STOP (~/.sina/founder-no-agent-invitation-v1.flag)",
-    "founder_zero_ui_drift": "ZERO UI DRIFT — no UI drift · no upgrade drift tolerated · validate-ui-zero-drift-v1 (~/.sina/founder-zero-ui-drift-v1.flag)",
+    "founder_zero_ui_drift": "ZERO UI DRIFT — UI edit only · FIRST CHECK ack + ledger read · not a pre-reply validator marathon",
+    "mirror_poison_law": "INCIDENT-034/039 — mirror NEVER orders bash validate-* before reply · proof=Read receipts · data/agent-memory-mirror-poison-law-v1.json",
     "main_problem_trigger": "Founder says main problem → PREPARE next north-star action · not report · data/sourcea-main-problem-trigger-v1.json",
     "comprehension_pipeline": "Cloud bay only — POST /api/comprehension-loop/v1 · Mac Law forbids local validator stacks",
     "mac_law_machine": "Mac = control panel · cloud executes · data/mac-law-machine-enforceable-v1.json",
+    "mac_law_universal": "All agents · all nodes · triple sync anti-staleness+vocabulary+zero_drift+anti-fragmentation · data/mac-law-universal-wire-v1.json",
+    "mac_law_agent_lock": "FOREVER — Mac control only · no factory body on Mac · secondary 5000 cloud-only · INCIDENT-038 v1.1",
+    "incident_039_red_flag": "NEVER stuck in validators on Mac founder session · reply <30s · proof=receipts · data/mac-validator-stuck-red-flag-v1.json",
     "positive_close_lines": [
-        "Loop auto · factory_now_line from agent-live-surfaces-v1.json",
-        "Daily H1 Worker Hub + Form official — no legacy monolith on daily path",
+        "Read factory_now_line from session gate receipt or agent-live-surfaces-v1.json — do not re-run gate stack mid-turn",
+        "Daily H1 Worker Hub + Form official — glance only on Mac",
         "Incident room: mirror ids only — session gate receipt",
-        "FREEZE default — factory background only when ASF resume",
-        "Founder taps Actions/Refresh — executor runs shell",
-        "Read daily duty card D01–D23 — do not re-remind founder",
+        "FREEZE default — cloud executes factory body",
+        "Proof = Read ~/.sina/*-receipt*.json — never bash validate marathon before reply",
         "Pipelines orientation/hospital/maze: founder one word only",
-        "Thread Room: read ~/.sina/thread-room/latest-curation-v1.json — map THREAD-* before big-picture advice",
-        "On conflict: agent_truth_bundle + agent-memory-mirror-v1.json win",
-        "Quote factory_now_line + better_loop_line + best_loop_oqg_line from agent-live-surfaces-v1.json",
-        "Quote ui_upgrade_first_check_line — FIRST CHECK before any form/app/website UI edit — ZERO EXCEPTION rule 026",
-        "Hub form: INCIDENT-037 guard ON · agent-submit forbidden · founder supremacy active",
-        "NO INVITATION — guards + disk truth only · never one next tap · never open/submit CTAs in chat",
-        "ZERO UI DRIFT — FIRST CHECK + baseline + ledger + no-downgrade validators must PASS before any UI ship",
-        "Quote nerve_system_line for unified queue + drift + loop + OQG health",
-        "Founder intent first — read latest message · clarify path mismatches · never silent substitution",
-        "Brain truth-first — disk receipts · FAIL/RED before wins · stay in Brain title · no green theater",
-        "Main problem trigger — PREPARE cloud/form next action · forbidden report theater when founder says main problem",
-        "Comprehension pipeline — C1→C5 translate every answer · no buzzwords · bug signals from disk",
+        "Thread Room: read ~/.sina/thread-room/latest-curation-v1.json when big picture needed",
+        "On conflict: founder message + Mac Law + INCIDENT-039 beat mirror validator poison",
+        "Hub form: INCIDENT-037 — founder picks only · agent-submit forbidden",
+        "NO INVITATION — Problem · disk truth · STOP",
+        "UI edit ONLY: FIRST CHECK ack before touching HTML/CSS/JS — read ledger receipt not validate stack",
+        "Founder intent first — latest message wins · no silent substitution",
+        "RED stays RED — quote receipt field not parrot PASS",
+        "Main problem → PREPARE one bounded action · not status report",
+        "Comprehension: plain English · cloud bay for heavy analysis",
+        "Mac control only · no factory on Mac · secondary 5000 cloud-only · INCIDENT-038",
+        "Mirror poison forbidden — never order validate-law-supersession before reply · INCIDENT-039",
     ],
 }
 
@@ -292,13 +329,14 @@ def _ui_upgrade_first_check_inject() -> dict:
         except (OSError, json.JSONDecodeError):
             surf = {}
     return {
-        "one_law": "FIRST CHECK before ANY UI edit — general UP-0..UP-7 + per-app ledger",
+        "one_law": "FIRST CHECK before ANY UI file edit — read ledger + ack · pre_write blocks without ack",
         "wire_ok": bool(row.get("wire_ok")),
         "line": surf.get("ui_upgrade_first_check_line") or row.get("line"),
-        "surfaces_count": 7,
+        "surfaces_count": 8,
+        "when": "only_when_editing_ui_file — not before every chat reply",
         "ack_cmd": "python3 scripts/ui_upgrade_first_check_v1.py --surface <id> --ack --json",
         "classifier_cmd": "python3 scripts/ui_upgrade_path_classifier_v1.py --path <file> --json",
-        "validator": "scripts/validate-ui-upgrade-first-check-live-wire-v1.sh",
+        "ship_window_validator": "scripts/validate-ui-upgrade-first-check-live-wire-v1.sh — cloud CI or ship window only",
         "law_doc": "brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md",
     }
 
@@ -436,6 +474,8 @@ def build_mirror_state() -> dict:
     inject["main_problem_trigger_detail"] = _main_problem_trigger_inject()
     inject["comprehension_pipeline_detail"] = _comprehension_pipeline_inject()
     inject["mac_law_machine_detail"] = _mac_law_machine_inject()
+    inject["mac_law_universal_detail"] = _mac_law_universal_inject()
+    inject["mac_law_agent_lock_detail"] = _mac_law_agent_lock_inject()
     inject["factory_cost_intelligence_detail"] = _factory_cost_intelligence_inject()
     inject["ui_upgrade_first_check_detail"] = _ui_upgrade_first_check_inject()
     inject["live_surfaces"] = _live_surfaces_inject()

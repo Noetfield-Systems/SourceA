@@ -1,9 +1,9 @@
 {
   "schema": "mac-law-mandatory-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-19T16:42:00Z",
+  "saved_at": "2026-06-20T18:05:00Z",
   "authority": "Mac Law — supreme after ASF",
-  "one_law": "Mac Law is the boss — Mac = control panel only · cloud/API executes · every agent every session",
+  "one_law": "Mac Law is the boss — Mac = control panel only · cloud/API executes · agents never factory-build on Mac body",
   "boss_order": [
     "ASF",
     "MAC LAW",
@@ -27,6 +27,10 @@
   },
   "validators": {
     "mac_law_mandatory": "scripts/validate-mac-law-mandatory-v1.sh",
+    "mac_law_mandatory_ship": "scripts/validate-mac-law-mandatory-ship-v1.sh",
+    "mac_law_full_stack": "scripts/validate-mac-law-full-stack-v1.sh",
+    "mac_law_agent_execution_plane_lock": "scripts/validate-mac-law-agent-execution-plane-lock-v1.sh",
+    "mac_law_universal_wire": "scripts/validate-mac-law-universal-wire-v1.sh",
     "mac_law_surfaces_e2e": "scripts/validate-mac-law-surfaces-e2e-v1.sh",
     "mac_control_plane": "scripts/validate-mac-control-plane-v1.sh",
     "mac_health_mandates": "scripts/validate-mac-health-agent-mandates-v1.sh"
@@ -34,6 +38,7 @@
   "cursor_rules": [
     ".cursor/rules/mac-law-mandatory.mdc",
     ".cursor/rules/031-mac-law-machine-enforceable-v1.mdc",
+    ".cursor/rules/032-mac-law-universal-wire-v1.mdc",
     ".cursor/rules/mac-control-plane.mdc",
     ".cursor/rules/mac-health-agent-mandates.mdc",
     ".cursor/rules/028-mac-light-control-plane-v1.mdc"
@@ -46,6 +51,27 @@
     "law_rule": ".cursor/rules/031-mac-law-machine-enforceable-v1.mdc",
     "receipt": "~/.sina/mac-law-machine-enforce-receipt-v1.json"
   },
+  "universal_wire": {
+    "active": true,
+    "ssot": "data/mac-law-universal-wire-v1.json",
+    "script": "scripts/mac_law_universal_wire_v1.py",
+    "validator": "scripts/validate-mac-law-universal-wire-v1.sh",
+    "law_rule": ".cursor/rules/032-mac-law-universal-wire-v1.mdc",
+    "receipt": "~/.sina/mac-law-universal-wire-receipt-v1.json",
+    "surfaces_line_key": "mac_law_universal_line",
+    "agent_execution_plane_lock": "data/mac-law-agent-execution-plane-lock-v1.json"
+  },
+  "agent_execution_plane_lock": {
+    "active": true,
+    "locked_forever": true,
+    "ssot": "data/mac-law-agent-execution-plane-lock-v1.json",
+    "script": "scripts/mac_law_agent_execution_plane_lock_v1.py",
+    "validator": "scripts/validate-mac-law-agent-execution-plane-lock-v1.sh",
+    "law_doc": "docs/MAC_LAW_AGENT_EXECUTION_PLANE_LOCK_LOCKED_v1.md",
+    "receipt": "~/.sina/mac-law-agent-execution-plane-lock-receipt-v1.json",
+    "lock_flag": "~/.sina/mac-law-agent-no-factory-on-mac-locked-v1.flag",
+    "one_law": "Agents never factory-build on Mac · cloud executes"
+  },
   "founder_boot": "bash scripts/enter-mac-control-plane-v1.sh",
   "surfaces_boot": "bash scripts/mac_law_surfaces_boot_v1.sh",
   "cockpit_urls": {
@@ -54,7 +80,14 @@
     "routing_panel": "http://127.0.0.1:8780/",
     "mac_law": "http://127.0.0.1:8781/"
   },
-  "session_gate": "validate-mac-law-mandatory-v1.sh must PASS before ship",
+  "session_gate": "Read ~/.sina/mac-law-*-receipt-v1.json on Mac founder session; light assess only (mac_law_validator_light_assess_v1.py); validate-mac-law-mandatory-ship-v1.sh is cloud CI / ASF ship window only",
+  "light_assess": "scripts/mac_law_validator_light_assess_v1.py",
+  "proof_receipts": [
+    "~/.sina/mac-law-mandatory-receipt-v1.json",
+    "~/.sina/mac-law-machine-enforce-receipt-v1.json",
+    "~/.sina/mac-law-universal-wire-receipt-v1.json",
+    "~/.sina/mac-law-agent-execution-plane-lock-receipt-v1.json"
+  ],
   "receipt": "~/.sina/mac-law-mandatory-receipt-v1.json",
   "surfaces_line_key": "mac_law_mandatory_line",
   "mandatory_flags": {

@@ -35,6 +35,23 @@ def ledger_path(bay_slug: str, *, line: str = "refinery") -> Path:
     return base / "ledger.jsonl"
 
 
+def trace_dir(bay_slug: str) -> Path:
+    return ROOT / "receipts" / "bays" / bay_slug / "trace"
+
+
+def trace_file(bay_slug: str, kind: str) -> Path:
+    name = "cost.jsonl" if kind == "cost" else "eval.jsonl"
+    return trace_dir(bay_slug) / name
+
+
+def append_trace(bay_slug: str, kind: str, row: dict[str, Any]) -> None:
+    p = trace_file(bay_slug, kind)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    line = {"at": now_utc(), **row}
+    with p.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(line, separators=(",", ":")) + "\n")
+
+
 def append_ledger(bay_slug: str, row: dict, *, line: str = "refinery") -> None:
     p = ledger_path(bay_slug, line=line)
     p.parent.mkdir(parents=True, exist_ok=True)

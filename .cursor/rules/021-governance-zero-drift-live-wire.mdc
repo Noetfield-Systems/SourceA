@@ -25,9 +25,9 @@ alwaysApply: true
 python3 scripts/agent_session_gate_run_v1.py --role <role> --json
 ```
 
-Quote **`zero_drift_line`** + **`factory_now_line`** from `~/.sina/agent-live-surfaces-v1.json`.
+Read **`factory_now_line`** from receipt or `~/.sina/agent-live-surfaces-v1.json` — **do not** run manual full-chain validators on Mac during founder chat (INCIDENT-039).
 
-## Manual full chain (≤90s session tier)
+## Manual full chain (maintainer / cloud CI only — NOT founder chat body)
 
 ```bash
 python3 scripts/governance_zero_drift_live_wire_v1.py --role any --tier session --json

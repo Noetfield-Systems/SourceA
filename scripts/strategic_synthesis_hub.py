@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 SOURCE_A = Path(__file__).resolve().parents[1]
-DOC = "STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md"
+DOC = "brain-os/law/STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md"
 SCHEMA = "strategic-synthesis-v1"
 TWO_CLOCK_CROSSREF = "archive/attachments/2026-06-14/sa-0524-two-clock-synthesis-lessons_LOCKED_v1.md"
 TWO_CLOCK_CANONICAL = "archive/attachments/2026-06-14/sa-0967-two-speed-clocks-strategic-slice-lane-p0-case-study_LOCKED_v1.md"
@@ -304,7 +304,7 @@ def strategic_synthesis_payload() -> dict:
         "body_markdown": body,
         "body_chars": len(body),
         "related_docs": [
-            "COUNCIL_BRIEF_STRATEGIC_SLICE_EVAL_L0_ENFORCE_LOCKED_v1.md",
+            "brain-os/law/COUNCIL_BRIEF_STRATEGIC_SLICE_EVAL_L0_ENFORCE_LOCKED_v1.md",
             "SINA_GPT_CLAUDE_WTM_SYNTHESIS_LOCKED_v1.md",
             "WORLD_TARGET_MODEL_MAP_LOCKED_v5.md",
             TWO_CLOCK_CROSSREF,

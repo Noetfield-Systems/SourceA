@@ -11,10 +11,12 @@ alwaysApply: true
 
 **Brain:** follow decision tree in `000-brain-unified.mdc` (narrate / spawn / refuse / session).
 
-**Brain session start (every Brain reply):**
+**Brain session start (once per Brain chat — or after context summarization):**
 ```bash
 cd ~/Desktop/SourceA && bash scripts/brain-session-start.sh
 ```
+
+**Every Brain turn after that:** read `~/.sina/brain_session_receipt_v1.json` + session gate receipt — **do not re-run** `brain-session-start.sh` mid-turn (INCIDENT-039).
 
 **Worker chat:**
 ```bash

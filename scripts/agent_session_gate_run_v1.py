@@ -114,6 +114,24 @@ def run_gate(role: str = "any", *, scan_text: str = "", pre_ship: bool = False, 
                         "line": (ml_fz.get("line") or "")[:120],
                         "mode": "mac_focus_freeze",
                     },
+                    {
+                        "step": "mac_law_universal_wire",
+                        "ok": True,
+                        "exit": 0,
+                        "mode": "mac_focus_freeze",
+                        "note": "light assess via machine enforce cache",
+                    },
+                    {
+                        "step": "mac_law_agent_execution_plane_lock",
+                        "ok": bool(
+                            (_read_json(Path.home() / ".sina/mac-law-agent-execution-plane-lock-receipt-v1.json") or {}).get(
+                                "ok"
+                            )
+                        ),
+                        "exit": 0,
+                        "mode": "mac_focus_freeze",
+                        "note": "receipt cache",
+                    },
                     {"step": "truth_bundle", "ok": bundle.get("schema") == "agent-truth-bundle-v1", "exit": 0, "note": "cached"},
                     {"step": "rules_loop", "ok": True, "exit": 0, "mode": "mac_focus_freeze", "skipped": True},
                 ]
@@ -186,6 +204,48 @@ def run_gate(role: str = "any", *, scan_text: str = "", pre_ship: bool = False, 
                     "exit": code,
                     "line": (ml.get("line") or "")[:120],
                     "issues": ml.get("issues") or [],
+                }
+            )
+            ok = ok and step_ok
+
+            code, out = _run(
+                [
+                    PY,
+                    str(SCRIPTS / "mac_law_universal_wire_v1.py"),
+                    "--sync-receipt",
+                    "--json",
+                ]
+            )
+            ulw = json.loads(out[out.find("{") :]) if "{" in out else {}
+            step_ok = code == 0 and ulw.get("ok", True)
+            steps.append(
+                {
+                    "step": "mac_law_universal_wire",
+                    "ok": step_ok,
+                    "exit": code,
+                    "line": (ulw.get("line") or "")[:120],
+                    "issues": (ulw.get("issues") or [])[:8],
+                }
+            )
+            ok = ok and step_ok
+
+            code, out = _run(
+                [
+                    PY,
+                    str(SCRIPTS / "mac_law_agent_execution_plane_lock_v1.py"),
+                    "--sync-receipt",
+                    "--json",
+                ]
+            )
+            mll = json.loads(out[out.find("{") :]) if "{" in out else {}
+            step_ok = code == 0 and mll.get("ok", True)
+            steps.append(
+                {
+                    "step": "mac_law_agent_execution_plane_lock",
+                    "ok": step_ok,
+                    "exit": code,
+                    "line": (mll.get("line") or "")[:120],
+                    "issues": (mll.get("issues") or [])[:8],
                 }
             )
             ok = ok and step_ok

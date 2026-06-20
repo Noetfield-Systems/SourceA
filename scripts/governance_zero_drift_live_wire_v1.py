@@ -149,6 +149,15 @@ def cross_layer_chain_check() -> dict:
     if not ui_fc.get("wire_ok"):
         issues.append("ui_upgrade_first_check wire_ok=false")
 
+    lock_rec = _read_json(SINA / "mac-law-agent-execution-plane-lock-receipt-v1.json")
+    uw_rec = _read_json(SINA / "mac-law-universal-wire-receipt-v1.json")
+    mac_law_lock_ok = bool(lock_rec.get("ok"))
+    mac_law_uw_ok = bool(uw_rec.get("ok")) if uw_rec else True
+    if lock_rec and not mac_law_lock_ok:
+        issues.append("mac_law_agent_execution_plane_lock receipt not ok")
+    if uw_rec and not mac_law_uw_ok:
+        issues.append("mac_law_universal_wire receipt not ok")
+
     if not lawful_idle:
         if nerve.get("queue_sa") and refs.get("surfaces") and nerve.get("queue_sa") != refs.get("surfaces"):
             issues.append(
@@ -185,11 +194,21 @@ def cross_layer_chain_check() -> dict:
         "queue_aligned": queue_aligned,
         "dual_pick": dual.get("aligned"),
         "ui_upgrade_first_check": bool(ui_fc.get("wire_ok")),
+        "mac_law_agent_lock": mac_law_lock_ok if lock_rec else True,
+        "mac_law_universal_wire": mac_law_uw_ok if uw_rec else True,
     }
     if lawful_idle:
         layers["dual_pick"] = True
 
-    chain_ok = queue_aligned and cr_ok and layers["L0_5"] and layers["L1"] and layers["L2"]
+    chain_ok = (
+        queue_aligned
+        and cr_ok
+        and layers["L0_5"]
+        and layers["L1"]
+        and layers["L2"]
+        and layers["mac_law_agent_lock"]
+        and layers["mac_law_universal_wire"]
+    )
     if not dual.get("aligned") and dual.get("live_pick_sa") and not lawful_idle:
         chain_ok = False
 
@@ -351,6 +370,28 @@ def run_zero_drift_live_wire(
     )
     ok = ok and step_ok
 
+    mac_law_ok = True
+    mac_law_line = ""
+    try:
+        sys.path.insert(0, str(SCRIPTS))
+        from mac_law_agent_execution_plane_lock_v1 import assess as mac_lock_assess  # noqa: WPS433
+
+        mac_law_row = mac_lock_assess(sync_stack=False)
+        mac_law_ok = bool(mac_law_row.get("ok"))
+        mac_law_line = str(mac_law_row.get("line") or "")
+    except Exception as exc:
+        mac_law_row = {"ok": False, "error": str(exc)}
+        mac_law_ok = False
+    steps.append(
+        {
+            "chain": "mac_law",
+            "step": "mac_law_agent_execution_plane_lock",
+            "ok": mac_law_ok,
+            "line": mac_law_line[:120],
+        }
+    )
+    ok = ok and mac_law_ok
+
     if tier == "full":
         sys.path.insert(0, str(SCRIPTS))
         from governance_drift_engine import run_drift_report  # noqa: WPS433
@@ -506,7 +547,7 @@ def run_zero_drift_live_wire(
         "at": _now(),
         "role": role,
         "tier": tier,
-        "law": "GOVERNANCE_DRIFT_ENGINE_LOCKED_v1.md",
+        "law": "brain-os/law/GOVERNANCE_DRIFT_ENGINE_LOCKED_v1.md",
         "zero_drift_line": zero_drift_line,
         "drift_score": drift_score,
         "drift_items": chain.get("drift_items", 0),
@@ -520,6 +561,7 @@ def run_zero_drift_live_wire(
             "vocabulary": vocab_ok,
             "L8_voyage": voyage_ok,
             "monitor_pulse": pulse_ok,
+            "mac_law": mac_law_ok,
         },
         "layers": chain.get("layers"),
         "paths": {

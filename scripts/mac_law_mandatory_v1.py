@@ -147,7 +147,7 @@ def assess(*, enforce: bool = False) -> dict:
     }
 
 
-def sync_receipt(*, enforce: bool = False) -> dict:
+def sync_receipt(*, enforce: bool = False, full_stack_sync: bool = False) -> dict:
     row = assess(enforce=enforce)
     receipt = {
         "schema": "mac-law-mandatory-receipt-v1",
@@ -166,6 +166,17 @@ def sync_receipt(*, enforce: bool = False) -> dict:
             "ssot": "data/mac-law-mandatory-v1.json",
         }
         _write(SURFACES, surf)
+    if full_stack_sync and str(SCRIPTS) not in sys.path:
+        sys.path.insert(0, str(SCRIPTS))
+    if full_stack_sync:
+        try:
+            from mac_law_universal_wire_v1 import sync_receipt as universal_sync  # noqa: WPS433
+            from mac_law_agent_execution_plane_lock_v1 import sync_receipt as lock_sync  # noqa: WPS433
+
+            universal_sync(enforce=False, full_stack_sync=False)
+            lock_sync(enforce=False, full_stack_sync=False)
+        except Exception:
+            pass
     return receipt
 
 
@@ -174,11 +185,16 @@ def main() -> int:
     ap.add_argument("--assess", action="store_true")
     ap.add_argument("--sync-receipt", action="store_true")
     ap.add_argument("--enforce", action="store_true", help="Run health mandate side-effects if needed")
+    ap.add_argument(
+        "--full-stack-sync",
+        action="store_true",
+        help="Cloud CI / ship window only — sync child Mac Law receipts (forbidden Mac founder session)",
+    )
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
 
     if args.sync_receipt:
-        row = sync_receipt(enforce=args.enforce)
+        row = sync_receipt(enforce=args.enforce, full_stack_sync=args.full_stack_sync)
     else:
         row = assess(enforce=args.enforce)
 

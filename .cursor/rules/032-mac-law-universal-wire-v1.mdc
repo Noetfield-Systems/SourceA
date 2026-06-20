@@ -1,0 +1,62 @@
+---
+description: Mac Law universal wire — all agents · nodes · pipelines · anti-drift · anti-staleness · anti-fragmentation
+alwaysApply: true
+---
+
+# Mac Law universal wire (LOCKED)
+
+**SSOT:** `data/mac-law-universal-wire-v1.json`  
+**Receipt:** `~/.sina/mac-law-universal-wire-receipt-v1.json`  
+**Light assess:** `python3 scripts/mac_law_validator_light_assess_v1.py --module universal --json`  
+**Boss:** `~/Desktop/MacLaw/MAC_LAW_SSOT_LOCKED.md`
+
+## One law (AGENTS — not “founder Terminal”)
+
+> **Agents MUST NOT run factory build, motors, heavy render, or factory-body pipelines on the Mac. Mac observes and gates; cloud/API/FORGE/Railway executes.**
+
+## Boss order
+
+```text
+ASF → MAC LAW → universal wire → per-repo SSOT → execution (cloud)
+```
+
+## Triple sync (never separate)
+
+| Key | Machine |
+|-----|---------|
+| Anti-staleness | `anti_staleness_auto_wire_v1.py` — session tier on Mac only |
+| Vocabulary | `vocabulary_guard_v1.py` — paired with anti-staleness |
+| Zero drift | `governance_zero_drift_live_wire_v1.py` — session on Mac · full on cloud CI |
+| Anti-fragmentation | `queue_sa` single across factory-now · surfaces · inbox |
+
+## Every session (automatic)
+
+Session gate syncs Mac Law receipts (no `--enforce` · no nested validator chains on Mac).
+
+**Agents:** Read `~/.sina/mac-law-universal-wire-receipt-v1.json` · quote `line` when `ok` is true. Prefer receipt over `agent-live-surfaces-v1.json` if they disagree (surfaces poison class — INCIDENT-040).
+
+## Every disk edit
+
+Pre-write guard runs Mac Law check — control plane flag + forbidden autorun paths.
+
+## Agent nodes wired
+
+session_gate · conduct_gate · pre_write_guard · memory_mirror · brain · sourcea_worker · loop_specialist · stranger_safety
+
+## Forbidden on Mac body
+
+Same as `031-mac-law-machine-enforceable-v1.mdc` plus:
+
+- Full-tier anti_staleness / governance_zero_drift during founder chat
+- queue_sa mismatch across surfaces (fragmentation)
+- Mac role drift vs `founder-execution-model-v1.json`
+
+## Proof on Mac (founder session)
+
+Read four Mac Law receipts (mandatory · machine · universal · agent lock). Optional: `mac_law_validator_light_assess_v1.py --module all --json` once ≤90s.
+
+## Cloud CI / ship window only
+
+`bash scripts/validate-mac-law-universal-wire-v1.sh` · full stack via `validate-mac-law-mandatory-ship-v1.sh`
+
+Mac Law outranks all SourceA repo rules.

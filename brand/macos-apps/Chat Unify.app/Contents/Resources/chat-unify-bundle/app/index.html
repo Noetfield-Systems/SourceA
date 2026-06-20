@@ -3,63 +3,279 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="chat-unify-ui-version" content="3.4.0" />
   <title>Chat Unify</title>
-  <link rel="stylesheet" href="app.css?v=1.4.0" />
+  <link rel="stylesheet" href="app.css?v=3.4.0" />
 </head>
 <body>
-  <main class="cu-app cu-founder-glance">
-    <article class="cu-founder-card">
-      <header class="cu-founder-head">
-        <div class="cu-founder-title-row">
-          <div>
-            <h1 class="cu-founder-title">Chat Unify</h1>
-            <p class="cu-founder-sub">Decision memory · local only</p>
-          </div>
-          <span class="cu-badge cu-badge-live" id="live-badge">LIVE</span>
-        </div>
-        <div class="cu-founder-hero">
-          <div class="cu-stat-ring" id="stat-ring">
-            <span class="cu-stat-value" id="stat-extracts">0</span>
-            <span class="cu-stat-label">extracts</span>
-          </div>
-          <div class="cu-founder-story">
-            <p class="cu-lead">Consolidate agent chat decisions before they become law.</p>
-            <p class="cu-status-line" id="status-line">Loading…</p>
-          </div>
-        </div>
-        <button type="button" class="cu-btn cu-btn-primary cu-btn-block" id="btn-unify-all">Merge all &amp; scan</button>
-      </header>
+  <main class="cu-app">
+    <header class="cu-page-head">
+      <div class="cu-page-head-main">
+        <h1 class="cu-founder-title">Chat Unify</h1>
+        <p class="cu-status-line" id="status-line">Loading…</p>
+        <nav class="cu-tabs cu-tabs-prominent" role="tablist" aria-label="Loop modes">
+          <button type="button" class="cu-tab cu-tab-active" role="tab" id="tab-founder" aria-selected="true" aria-controls="panel-founder-loop" data-tab="founder">
+            <span class="cu-tab-label">Founder loop</span>
+            <span class="cu-tab-sub">forward · act</span>
+          </button>
+          <button type="button" class="cu-tab cu-tab-ord" role="tab" id="tab-ord" aria-selected="false" aria-controls="panel-ord-loop" data-tab="ord">
+            <span class="cu-tab-label">ORD loop</span>
+            <span class="cu-tab-sub">reverse · debug AI</span>
+          </button>
+        </nav>
+      </div>
+      <div class="cu-page-head-stats">
+        <span class="cu-stat-inline"><em>Extracts</em> <strong id="tile-extracts">0</strong></span>
+        <span class="cu-stat-inline"><em>Ready</em> <strong id="tile-ready">0</strong></span>
+        <span class="cu-stat-inline"><em>Issues</em> <strong id="tile-issues">0</strong></span>
+        <span class="cu-stat-inline"><em>Brief</em> <strong id="tile-brief">—</strong></span>
+        <span class="cu-badge cu-badge-live" id="live-badge">LIVE</span>
+        <button type="button" class="cu-btn cu-btn-primary cu-btn-sm" id="btn-unify-all">Merge all</button>
+      </div>
+    </header>
+    <p class="cu-meta" id="stat-contradictions">0 issues</p>
 
-      <section class="cu-founder-stats" aria-label="Live status">
-        <div class="cu-stats-grid">
-          <div class="cu-stat" id="stat-tile-extracts"><span class="cu-stat-label">Extracts</span><span class="cu-stat-val" id="tile-extracts">0</span></div>
-          <div class="cu-stat" id="stat-tile-issues"><span class="cu-stat-label">Issues</span><span class="cu-stat-val" id="tile-issues">0</span></div>
-          <div class="cu-stat" id="stat-tile-ready"><span class="cu-stat-label">Ready</span><span class="cu-stat-val" id="tile-ready">0</span></div>
-          <div class="cu-stat" id="stat-tile-brief"><span class="cu-stat-label">Brief</span><span class="cu-stat-val" id="tile-brief">—</span></div>
-        </div>
-        <p class="cu-meta" id="stat-contradictions">0 issues</p>
-      </section>
+    <section class="cu-machines cu-founder-loop cu-tab-panel cu-tab-panel-active" id="panel-founder-loop" role="tabpanel" aria-labelledby="tab-founder">
+      <div class="cu-loop-head">
+        <h2 class="cu-section-title">Founder loop</h2>
+        <span class="cu-badge cu-badge-loop">7 STEPS</span>
+      </div>
+      <p class="cu-hint">One paste → runs <strong>left to right</strong> · each box waits for the one before it.</p>
 
-      <aside class="cu-note" id="privacy-note">
-        <strong>Privacy first.</strong> Extracts stay local under <code>~/.sina/chat-unify/</code>.
-      </aside>
-
-      <details class="cu-founder-more" id="panel-more">
-        <summary>More</summary>
-        <div class="cu-more-block cu-actions">
-          <button type="button" class="cu-btn cu-btn-ghost" id="btn-structure-all">Structure all</button>
-          <button type="button" class="cu-btn cu-btn-ghost" id="btn-export-brief">Export brief</button>
-          <button type="button" class="cu-btn cu-btn-ghost" id="btn-wire-n8n">Wire n8n</button>
-          <button type="button" class="cu-btn cu-btn-ghost" id="btn-sync-cursor">Import transcripts</button>
-          <button type="button" class="cu-btn cu-btn-ghost" id="btn-refresh">Reload</button>
+      <div class="cu-machines-shared">
+        <label class="cu-label">What you asked (optional)
+          <input type="text" class="cu-input" id="input-founder-context" placeholder="e.g. should we trim archive?" />
+        </label>
+        <label class="cu-label">Agent answer (paste once)
+          <textarea class="cu-textarea cu-textarea-founder" id="input-founder-draft" rows="3" placeholder="Paste Cursor agent reply…"></textarea>
+        </label>
+        <div class="cu-founder-modes">
+          <label class="cu-check"><input type="checkbox" id="founder-auto-loop" /> Auto-run loop when I paste</label>
+          <label class="cu-check"><input type="checkbox" id="founder-use-ai" /> AI advisor + critic · <span class="cu-ai-line" id="founder-openrouter-label">OpenRouter…</span></label>
+          <label class="cu-check"><input type="checkbox" id="founder-auto-send" /> Auto-send close order to Cursor</label>
         </div>
+        <div class="cu-row">
+          <button type="button" class="cu-btn cu-btn-primary cu-btn-loop" id="btn-run-full-loop">Run full founder loop</button>
+          <button type="button" class="cu-btn cu-btn-ghost" id="btn-send-loop-cursor">Send close order to Cursor</button>
+          <button type="button" class="cu-btn cu-btn-ghost" id="btn-clear-founder">Clear all</button>
+        </div>
+        <p class="cu-loop-status" id="loop-status" aria-live="polite"></p>
+        <p class="cu-ord-link-line" id="founder-ord-link" hidden></p>
+        <div class="cu-truth-gate" id="founder-truth-gate" hidden aria-live="polite"></div>
+      </div>
+
+      <div class="cu-loop-row-wrap">
+      <ol class="cu-loop-steps cu-loop-row" aria-label="All seven machines — pipeline left to right">
+        <li class="cu-loop-step cu-loop-plain" data-stage="language">
+          <div class="cu-loop-step-head">
+            <span class="cu-loop-n">1</span><strong>Language</strong>
+            <span class="cu-badge cu-badge-founder">PLAIN</span>
+            <span class="cu-machine-meta" id="loop-meta-language"></span>
+            <button type="button" class="cu-btn cu-btn-ghost cu-btn-mini" data-copy="language">Copy</button>
+          </div>
+          <pre class="cu-brief cu-founder-out" id="loop-out-language">—</pre>
+        </li>
+        <li class="cu-loop-step cu-loop-think" data-stage="reasoning">
+          <div class="cu-loop-step-head">
+            <span class="cu-loop-n">2</span><strong>Reasoning</strong>
+            <span class="cu-badge cu-badge-reason">THINK</span>
+            <span class="cu-machine-meta" id="loop-meta-reasoning"></span>
+            <button type="button" class="cu-btn cu-btn-ghost cu-btn-mini" data-copy="reasoning">Copy</button>
+          </div>
+          <pre class="cu-brief cu-founder-out cu-reason-out" id="loop-out-reasoning">—</pre>
+        </li>
+        <li class="cu-loop-step cu-loop-proof" data-stage="proof">
+          <div class="cu-loop-step-head">
+            <span class="cu-loop-n">3</span><strong>Proof</strong>
+            <span class="cu-badge cu-badge-proof">VERIFY</span>
+            <span class="cu-machine-meta" id="loop-meta-proof"></span>
+            <button type="button" class="cu-btn cu-btn-ghost cu-btn-mini" data-copy="proof">Copy</button>
+          </div>
+          <pre class="cu-brief cu-founder-out cu-proof-out" id="loop-out-proof">—</pre>
+        </li>
+        <li class="cu-loop-step cu-loop-action" data-stage="action">
+          <div class="cu-loop-step-head">
+            <span class="cu-loop-n">4</span><strong>Action</strong>
+            <span class="cu-badge cu-badge-action">ACT</span>
+            <span class="cu-machine-meta" id="loop-meta-action"></span>
+            <button type="button" class="cu-btn cu-btn-ghost cu-btn-mini" data-copy="action">Copy</button>
+          </div>
+          <pre class="cu-brief cu-founder-out cu-action-out" id="loop-out-action">—</pre>
+        </li>
+        <li class="cu-loop-step cu-loop-advisor" data-stage="advisor">
+          <div class="cu-loop-step-head">
+            <span class="cu-loop-n">5</span><strong>AI advisor</strong>
+            <span class="cu-badge cu-badge-advisor">ADVISE</span>
+            <span class="cu-machine-meta" id="loop-meta-advisor"></span>
+            <button type="button" class="cu-btn cu-btn-ghost cu-btn-mini" data-copy="advisor">Copy</button>
+          </div>
+          <pre class="cu-brief cu-founder-out cu-advisor-out" id="loop-out-advisor">—</pre>
+        </li>
+        <li class="cu-loop-step cu-loop-critic" data-stage="critic">
+          <div class="cu-loop-step-head">
+            <span class="cu-loop-n">6</span><strong>AI critic</strong>
+            <span class="cu-badge cu-badge-critic">CRITIC</span>
+            <span class="cu-machine-meta" id="loop-meta-critic"></span>
+            <button type="button" class="cu-btn cu-btn-ghost cu-btn-mini" data-copy="critic">Copy</button>
+          </div>
+          <pre class="cu-brief cu-founder-out cu-critic-out" id="loop-out-critic">—</pre>
+        </li>
+        <li class="cu-loop-step cu-loop-close" data-stage="close">
+          <div class="cu-loop-step-head">
+            <span class="cu-loop-n">7</span><strong>Close loop</strong>
+            <span class="cu-badge cu-badge-close">CLOSE</span>
+            <span class="cu-machine-meta" id="loop-meta-close"></span>
+            <button type="button" class="cu-btn cu-btn-ghost cu-btn-mini" data-copy="close">Copy</button>
+            <button type="button" class="cu-btn cu-btn-ghost cu-btn-mini" id="btn-copy-work-order">WO</button>
+          </div>
+          <pre class="cu-brief cu-founder-out cu-close-out" id="loop-out-close">—</pre>
+        </li>
+      </ol>
+      </div>
+    </section>
+
+    <section class="cu-machines cu-ord-loop cu-tab-panel" id="panel-ord-loop" role="tabpanel" aria-labelledby="tab-ord" hidden>
+      <div class="cu-loop-head">
+        <h2 class="cu-section-title">ORD loop</h2>
+        <span class="cu-badge cu-badge-ord">REVERSE DEBUG · v0.3</span>
+        <span class="cu-badge cu-badge-loop">7 STEPS</span>
+      </div>
+      <p class="cu-hint">Paste raw AI output → <strong>parse → classify → check → trace source → simplify → flag → report</strong> · one box at a time.</p>
+
+      <div class="cu-machines-shared">
+        <label class="cu-label">Your question (optional)
+          <input type="text" class="cu-input" id="input-ord-context" placeholder="e.g. why did agent say PASS?" />
+        </label>
+        <label class="cu-label">AI output (paste once)
+          <textarea class="cu-textarea cu-textarea-founder" id="input-ord-draft" rows="3" placeholder="Paste Cursor / Claude / GPT reply — long text, code, logs…"></textarea>
+        </label>
+        <div class="cu-founder-modes">
+          <label class="cu-check"><input type="checkbox" id="ord-auto-loop" /> Auto-run ORD when I paste</label>
+          <label class="cu-check"><input type="checkbox" id="ord-use-ai" /> OpenRouter AI · <span class="cu-ai-line" id="ord-openrouter-label">checking…</span></label>
+        </div>
+        <div class="cu-row">
+          <button type="button" class="cu-btn cu-btn-primary cu-btn-loop cu-btn-ord" id="btn-run-ord-loop">Run ORD loop</button>
+          <button type="button" class="cu-btn cu-btn-ghost" id="btn-copy-ord-report">Copy report</button>
+          <button type="button" class="cu-btn cu-btn-ghost" id="btn-clear-ord">Clear</button>
+        </div>
+        <p class="cu-loop-status cu-ord-status" id="ord-status" aria-live="polite"></p>
+        <div class="cu-truth-gate" id="ord-truth-gate" hidden aria-live="polite"></div>
+      </div>
+
+      <div class="cu-ord-layout">
+        <div class="cu-ord-main">
+      <div class="cu-loop-row-wrap">
+      <ol class="cu-loop-steps cu-loop-row cu-loop-row-ord" aria-label="ORD pipeline left to right">
+        <li class="cu-loop-step cu-loop-ord-parse" data-ord-stage="parse">
+          <div class="cu-loop-step-head">
+            <span class="cu-loop-n">1</span><strong>Parser</strong>
+            <span class="cu-badge cu-badge-ord">PARSE</span>
+            <span class="cu-machine-meta" id="ord-meta-parse"></span>
+            <button type="button" class="cu-btn cu-btn-ghost cu-btn-mini" data-ord-copy="parse">Copy</button>
+          </div>
+          <pre class="cu-brief cu-founder-out" id="ord-out-parse">—</pre>
+        </li>
+        <li class="cu-loop-step cu-loop-ord-classify" data-ord-stage="classify">
+          <div class="cu-loop-step-head">
+            <span class="cu-loop-n">2</span><strong>Classifier</strong>
+            <span class="cu-badge cu-badge-ord">TYPE</span>
+            <span class="cu-machine-meta" id="ord-meta-classify"></span>
+            <button type="button" class="cu-btn cu-btn-ghost cu-btn-mini" data-ord-copy="classify">Copy</button>
+          </div>
+          <pre class="cu-brief cu-founder-out" id="ord-out-classify">—</pre>
+        </li>
+        <li class="cu-loop-step cu-loop-ord-consistency" data-ord-stage="consistency">
+          <div class="cu-loop-step-head">
+            <span class="cu-loop-n">3</span><strong>Consistency</strong>
+            <span class="cu-badge cu-badge-proof">CHECK</span>
+            <span class="cu-machine-meta" id="ord-meta-consistency"></span>
+            <button type="button" class="cu-btn cu-btn-ghost cu-btn-mini" data-ord-copy="consistency">Copy</button>
+          </div>
+          <pre class="cu-brief cu-founder-out cu-proof-out" id="ord-out-consistency">—</pre>
+        </li>
+        <li class="cu-loop-step cu-loop-ord-attribution" data-ord-stage="attribution">
+          <div class="cu-loop-step-head">
+            <span class="cu-loop-n">4</span><strong>Source</strong>
+            <span class="cu-badge cu-badge-action">TRACE</span>
+            <span class="cu-machine-meta" id="ord-meta-attribution"></span>
+            <button type="button" class="cu-btn cu-btn-ghost cu-btn-mini" data-ord-copy="attribution">Copy</button>
+          </div>
+          <pre class="cu-brief cu-founder-out cu-action-out" id="ord-out-attribution">—</pre>
+        </li>
+        <li class="cu-loop-step cu-loop-ord-simplify" data-ord-stage="simplify">
+          <div class="cu-loop-step-head">
+            <span class="cu-loop-n">5</span><strong>Simplifier</strong>
+            <span class="cu-badge cu-badge-founder">PLAIN</span>
+            <span class="cu-machine-meta" id="ord-meta-simplify"></span>
+            <button type="button" class="cu-btn cu-btn-ghost cu-btn-mini" data-ord-copy="simplify">Copy</button>
+          </div>
+          <pre class="cu-brief cu-founder-out cu-reason-out" id="ord-out-simplify">—</pre>
+        </li>
+        <li class="cu-loop-step cu-loop-ord-redflags" data-ord-stage="redflags">
+          <div class="cu-loop-step-head">
+            <span class="cu-loop-n">6</span><strong>Red flags</strong>
+            <span class="cu-badge cu-badge-critic">FLAG</span>
+            <span class="cu-machine-meta" id="ord-meta-redflags"></span>
+            <button type="button" class="cu-btn cu-btn-ghost cu-btn-mini" data-ord-copy="redflags">Copy</button>
+          </div>
+          <pre class="cu-brief cu-founder-out cu-critic-out" id="ord-out-redflags">—</pre>
+        </li>
+        <li class="cu-loop-step cu-loop-ord-report" data-ord-stage="report">
+          <div class="cu-loop-step-head">
+            <span class="cu-loop-n">7</span><strong>Report</strong>
+            <span class="cu-badge cu-badge-close">OUT</span>
+            <span class="cu-machine-meta" id="ord-meta-report"></span>
+            <button type="button" class="cu-btn cu-btn-ghost cu-btn-mini" data-ord-copy="report">Copy</button>
+          </div>
+          <pre class="cu-brief cu-founder-out cu-close-out" id="ord-out-report">—</pre>
+        </li>
+      </ol>
+      </div>
+        </div>
+
+        <aside class="cu-truth-sidebar" id="truth-sidebar" aria-label="Truth panel" hidden>
+          <div class="cu-truth-sidebar-head">
+            <h3 class="cu-truth-sidebar-title">Truth</h3>
+            <span class="cu-truth-sidebar-run" id="truth-sidebar-run"></span>
+          </div>
+          <div class="cu-truth-sidebar-verdict" id="truth-sidebar-verdict">—</div>
+          <p class="cu-truth-sidebar-score" id="truth-sidebar-score"></p>
+          <p class="cu-truth-sidebar-components" id="truth-sidebar-components"></p>
+          <ul class="cu-truth-sidebar-reasons" id="truth-sidebar-reasons"></ul>
+          <div class="cu-truth-sidebar-table-wrap">
+            <table class="cu-truth-sidebar-table" id="truth-sidebar-atoms">
+              <thead>
+                <tr><th>ID</th><th>Type</th><th>Status</th><th>Claim</th></tr>
+              </thead>
+              <tbody id="truth-sidebar-atoms-body"></tbody>
+            </table>
+          </div>
+          <p class="cu-truth-sidebar-hint" id="truth-sidebar-hint">Run ORD → Founder close reads this gate via linked run.</p>
+        </aside>
+      </div>
+    </section>
+
+    <aside class="cu-note" id="privacy-note">
+      <strong>Privacy first.</strong> Extracts stay local under <code>~/.sina/chat-unify/</code>.
+    </aside>
+
+    <details class="cu-founder-more" id="panel-more">
+      <summary>More · merge &amp; library</summary>
+      <div class="cu-more-block cu-actions">
+        <button type="button" class="cu-btn cu-btn-ghost" id="btn-structure-all">Structure all</button>
+        <button type="button" class="cu-btn cu-btn-ghost" id="btn-export-brief">Export brief</button>
+        <button type="button" class="cu-btn cu-btn-ghost" id="btn-wire-n8n">Wire n8n</button>
+        <button type="button" class="cu-btn cu-btn-ghost" id="btn-sync-cursor">Import transcripts</button>
+        <button type="button" class="cu-btn cu-btn-ghost" id="btn-refresh">Reload</button>
+      </div>
+      <div class="cu-grid cu-grid-wide">
         <section class="cu-panel" id="panel-save">
           <h2>Save extract</h2>
           <div class="cu-dropzone" id="dropzone"><span>Drop file or paste below</span></div>
           <label class="cu-label">Label <input type="text" class="cu-input" id="input-label" placeholder="Hub performance chat" /></label>
           <label class="cu-label">Tags <input type="text" class="cu-input" id="input-tags" list="tag-suggestions" placeholder="WTM-D5" /></label>
           <datalist id="tag-suggestions"></datalist>
-          <textarea class="cu-textarea" id="input-paste" rows="8" placeholder="Paste CHAT EXTRACT…"></textarea>
+          <textarea class="cu-textarea" id="input-paste" rows="6" placeholder="Paste CHAT EXTRACT…"></textarea>
           <div class="cu-row">
             <button type="button" class="cu-btn cu-btn-ghost" id="btn-save">Save extract</button>
             <select class="cu-select" id="select-transcript"><option value="">Import transcript…</option></select>
@@ -85,13 +301,13 @@
           <div class="cu-merge-summary" id="merge-summary" hidden></div>
           <pre class="cu-brief" id="unified-brief">Save extracts → Merge all.</pre>
         </section>
-      </details>
+      </div>
+    </details>
 
-      <footer class="cu-founder-foot">
-        <p class="cu-footer-sub">:13023 · receipts ~/.sina/chat-unify/</p>
-      </footer>
-    </article>
+    <footer class="cu-founder-foot">
+      <p class="cu-footer-sub">:13023 · UI 3.4 truth panel · Founder + ORD · linked runs</p>
+    </footer>
   </main>
-  <script src="app.js?v=1.4.0" defer></script>
+  <script src="app.js?v=3.4.0" defer></script>
 </body>
 </html>

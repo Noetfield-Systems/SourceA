@@ -19,7 +19,7 @@ from commercial_lane_g3_vault_v1 import (
 )
 
 attach = root / "archive/attachments/2026-06-14/sa-0525-commercial-lane-g3-vault-evidence_LOCKED_v1.md"
-wire_doc = root / "WIRE_LANE_PROGRESS.md"
+wire_doc = root / "brain-os/law/WIRE_LANE_PROGRESS.md"
 assert attach.is_file(), attach
 assert wire_doc.is_file(), wire_doc
 

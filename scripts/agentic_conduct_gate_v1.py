@@ -103,8 +103,18 @@ def evaluate(*, role: str = "any", task_text: str = "") -> dict:
     if "&&" in task_text and task_text.count("validate-") >= 2:
         warnings.append("validator_chain_pattern:&&")
 
-    # MAC LAW machine enforce — forbidden shell / Mac-body work (031)
+    # MAC LAW machine enforce — forbidden shell / Mac-body work (031 + 032 universal)
     if task_text.strip():
+        try:
+            from mac_law_universal_wire_v1 import scan_text as mac_universal_scan  # noqa: WPS433
+
+            uw = mac_universal_scan(task_text)
+            for hit in uw.get("hits") or []:
+                hid = hit.get("id") or "mac_law_universal"
+                because = str(hit.get("because") or "")[:96]
+                violations.append(f"mac_law_universal:{hid}:{because}")
+        except Exception as exc:
+            warnings.append(f"mac_law_universal_scan_error:{exc}")
         try:
             from mac_law_machine_enforce_v1 import scan_agent_text  # noqa: WPS433
 

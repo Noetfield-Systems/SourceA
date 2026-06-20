@@ -7,7 +7,7 @@ ROOT="$(cd .. && pwd)"
 python3 - <<PY
 from pathlib import Path
 root = Path("$ROOT")
-doc = root / "WIRE_LANE_PROGRESS.md"
+doc = root / "brain-os/law/WIRE_LANE_PROGRESS.md"
 attach = root / "archive/attachments/2026-06-14/sa-0512-wire-lane-progress_LOCKED_v1.md"
 prog = root / "PROGRAM_PROGRESS.json"
 assert doc.is_file(), doc

@@ -12,7 +12,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1] if "__file__" in dir() else Path.cwd().parent
-BYPASS_DOC = ROOT / "ENFORCE_BYPASS_MAP_LOCKED_v1.md"
+BYPASS_DOC = ROOT / "brain-os/law/enforcement/ENFORCE_BYPASS_MAP_LOCKED_v1.md"
 APP_JS = ROOT / "agent-control-panel" / "assets" / "app.js"
 CMD_DATA = ROOT / "agent-control-panel" / "command-data.json"
 

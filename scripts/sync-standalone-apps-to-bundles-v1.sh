@@ -30,7 +30,17 @@ sync_app "Mac Health Guard" "mac-health-bundle" "mac-health-standalone" \
   mac_performance_snapshot.py n8n_glue_runner_v1.py n8n_glue_config_v1.py
 
 sync_app "Chat Unify" "chat-unify-bundle" "chat-unify-standalone" \
-  chat-unify-server.py chat_unify_merge.py
+  chat-unify-server.py chat_unify_merge.py chat_founder_language_v1.py chat_founder_reasoning_v1.py \
+  chat_founder_loop_v1.py chat_ord_loop_v1.py chat_ord_atoms_v1.py chat_ord_claim_rules_v1.py \
+  chat_unify_kernel_v1.py chat_unify_truth_gate_v1.py chat_unify_live_http_verify_v1.py ai_unify_api_v1.py
+for base in \
+  "$ROOT/brand/macos-apps/Chat Unify.app/Contents/Resources/chat-unify-bundle/data" \
+  "$HOME/Desktop/Chat Unify.app/Contents/Resources/chat-unify-bundle/data" \
+  "$HOME/Applications/Chat Unify.app/Contents/Resources/chat-unify-bundle/data"; do
+  mkdir -p "$base"
+  cp "$ROOT/data/chat-unify-ord-claim-rules-v1.json" "$base/" 2>/dev/null || true
+  echo "synced Chat Unify rules → $base"
+done
 for base in \
   "$ROOT/brand/macos-apps/Chat Unify.app/Contents/Resources/chat-unify-bundle/prompts" \
   "$HOME/Desktop/Chat Unify.app/Contents/Resources/chat-unify-bundle/prompts" \

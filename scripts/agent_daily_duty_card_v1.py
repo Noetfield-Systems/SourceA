@@ -14,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CARD_PATH = Path.home() / ".sina" / "agent-executor-daily-duty-card-v1.json"
-LOCKED_DOC = ROOT / "AGENT_EXECUTOR_DAILY_DUTY_CARD_LOCKED_v1.md"
+LOCKED_DOC = ROOT / "brain-os/law/enforcement/AGENT_EXECUTOR_DAILY_DUTY_CARD_LOCKED_v1.md"
 
 
 def _now() -> str:
@@ -63,17 +63,38 @@ def inject_slice(card: dict | None = None) -> dict:
     if not c:
         return {}
     items = c.get("never_make_founder_repeat") or []
-    bullets = [f"{x.get('id')}: {x.get('agent_duty')}" for x in items[:23] if isinstance(x, dict)]
+    bullets: list[str] = []
+    for x in items[:23]:
+        if not isinstance(x, dict):
+            continue
+        duty = str(x.get("agent_duty") or "")
+        if x.get("id") == "D01":
+            duty = (
+                "After law change: wire W1–W10 on ship window / cloud CI only — "
+                "never Mac founder chat pre-reply marathon (INCIDENT-039 · INCIDENT-040)"
+            )
+        bullets.append(f"{x.get('id')}: {duty}")
     founder = c.get("founder_daily_three_taps") or []
+    session_start: list[str] = []
+    for line in c.get("session_start_order") or []:
+        s = str(line)
+        if "W4" in s and "W10" in s:
+            session_start.append(
+                "Read ~/.sina/agent-law-wire-checkcart-v1.json — ship window / cloud CI only "
+                "(INCIDENT-039: not Mac pre-reply validator marathon)"
+            )
+        else:
+            session_start.append(s)
     return {
         "read_first": str(CARD_PATH),
-        "locked_doc": "AGENT_EXECUTOR_DAILY_DUTY_CARD_LOCKED_v1.md",
+        "locked_doc": "brain-os/law/enforcement/AGENT_EXECUTOR_DAILY_DUTY_CARD_LOCKED_v1.md",
         "standing_order": "Founder must not re-remind — obey all D01–D23 every session",
         "founder_three_taps": founder,
         "never_repeat_top10": bullets[:10],
         "check_cart": c.get("check_cart_pointer"),
-        "session_start": c.get("session_start_order") or [],
+        "session_start": session_start,
         "three_pipelines": "orientation | hospital | maze ONLY on founder word — session start = session gate only",
+        "incident_039_override": "Mac founder session: reply <30s · proof=Read receipts · no W1–W10 bash before chat",
     }
 
 

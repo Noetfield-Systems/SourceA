@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any
 
 SOURCE_A = Path(__file__).resolve().parents[1]
-BYPASS_DOC = "ENFORCE_BYPASS_MAP_LOCKED_v1.md"
+BYPASS_DOC = "brain-os/law/enforcement/law/enforcement/ENFORCE_BYPASS_MAP_LOCKED_v1.md"
 ENFORCE_LOG = Path.home() / ".sina" / "gate_enforce_v1.jsonl"
 SHADOW_LOG = Path.home() / ".sina" / "gate_shadow_v1.jsonl"
 
