@@ -1,15 +1,17 @@
 # Cleanup manifest — SourceA root sprawl
 
-**Status:** DRAFT — set **APPROVED** before running batch 2  
+**Status:** DRAFT — set **APPROVED** before running batch 3  
 **Generated:** 2026-06-20  
-**Inventory:** `infra/cleanup/inventory-root.tsv` (302 files after batch 1)
+**Inventory:** `infra/cleanup/inventory-root.tsv` (277 files after batch 2)
 
 ## Approval
 
 - [x] Secret scan clear
 - [x] Batch 1 executed — commit `0cf364d8`
-- [ ] ASF reviewed batch 2 destinations below
+- [x] Batch 2 executed — commit `94c2dd2b`
+- [ ] ASF reviewed batch 3 destinations below
 - [ ] Change line 3 to: **Status: APPROVED**
+- [ ] Critic packet: `infra/cleanup/batch-3-diff-for-critics.md`
 
 ## Batch plan
 
@@ -17,8 +19,8 @@
 | Batch | Theme                                        | Files   | Commit prefix                    |
 | ----- | -------------------------------------------- | ------- | -------------------------------- |
 | **1** | `AGENT_*` → `brain-os/`                      | 26 ✅    | `cleanup: batch-1 agent law`     |
-| **2** | `SINA_AGENT_*` + leftovers + incident reports | 25      | `cleanup: batch-2 sina agent`    |
-| 3     | Remaining `SINA_*` / `SOURCEA_*` LOCKED      | 25      | `cleanup: batch-3 portfolio law` |
+| **2** | `SINA_AGENT_*` + leftovers + incident reports | 25 ✅   | `cleanup: batch-2 sina agent`    |
+| **3** | Tier-0 ASF + SINA + SOURCEA SSOT law           | 25      | `cleanup: batch-3 portfolio law` |
 | 4     | `.txt` prompts + entry pointers              | 3+      | `cleanup: batch-4 prompts`       |
 | 5     | Remainder triage                             | per row | `cleanup: batch-5 …`             |
 
@@ -97,7 +99,51 @@
 | `./SINA_BRAIN_STALE_COMMAND_DATA_GOVERNANCE_FAILURE_INCIDENT_033_REPORT_LOCKED_v1.md` | 4.0K | INCIDENT-033 report | `brain-os/incidents/` | 2 | move |
 
 
-## Execute batch 2 (after APPROVED)
+## Batch 3 — manifest rows (tier-0 portfolio & governance SSOT)
+
+| source | size | first_heading | proposed_dest | batch | action |
+|--------|------|---------------|---------------|-------|--------|
+| `./SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md` | 52K | Sina Authority Index Map | `brain-os/system/` | 3 | move |
+| `./SINA_GOVERNANCE_ENTRY_LOCKED_v1.md` | 16K | Sina Governance Entry | `brain-os/entry/` | 3 | move |
+| `./SINA_OS_SSOT_LOCKED.md` | 4.0K | Sina OS Master SSOT | `brain-os/law/` | 3 | move |
+| `./SINA_OS_SSOT_READ_ORDER_ADDENDUM_v1.md` | 4.0K | SSOT read order addendum | `brain-os/law/` | 3 | move |
+| `./SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md` | 8.0K | SourceA unified portfolio SSOT | `brain-os/law/` | 3 | move |
+| `./SOURCEA_REPO_SSOT_LOCKED.md` | 4.0K | SourceA repo SSOT | `brain-os/law/` | 3 | move |
+| `./SOURCEA_EXECUTION_LAW_LOCKED_v1.md` | 4.0K | SourceA execution law | `brain-os/law/` | 3 | move |
+| `./SOURCEA_NO_FAKE_PROGRESS_ENTERPRISE_SHIP_LOCKED_v1.md` | 4.0K | No fake progress law | `brain-os/law/` | 3 | move |
+| `./SINA_ENFORCEMENT_PORTFOLIO_DECISION_FORM_LOCKED_v1.md` | 8.0K | Portfolio decision form | `brain-os/law/` | 3 | move |
+| `./SINA_ENFORCEMENT_6MO_LAW_SUPERSESSION_LOCKED_v1.md` | 8.0K | ENFORCEMENT-6MO supersession | `brain-os/law/` | 3 | move |
+| `./SINA_ENFORCEMENT_6MO_PRESERVED_SPIRIT_AND_LINEAGE_LOCKED_v1.md` | 12K | Preserved spirit & lineage | `brain-os/law/` | 3 | move |
+| `./SINA_SOURCE_ALIGNMENT_LAW_LOCKED_v1.md` | 4.0K | Source alignment law | `brain-os/law/` | 3 | move |
+| `./SINA_UNIFIED_ENGINE_STORY_LOCKED_v1.md` | 4.0K | Unified engine story | `brain-os/law/` | 3 | move |
+| `./SOURCEA_SSOT_FOUNDATION_WRITING_GUIDE_LOCKED_v1.md` | 4.0K | SSOT writing guide | `brain-os/law/` | 3 | move |
+| `./SOURCEA_FLEET_HEADLINE_READ_ORDER_LOCKED_v1.md` | 4.0K | Fleet headline read order | `brain-os/law/` | 3 | move |
+| `./SOURCEA_VALID_YES_PROGRESS_VERDICT_LOCKED_v1.md` | 4.0K | Valid YES progress verdict | `brain-os/law/` | 3 | move |
+| `./SOURCEA_GOLDEN_INSIGHT_AND_SAFETY_LOCKED_v1.md` | 4.0K | Golden insight & safety | `brain-os/law/` | 3 | move |
+| `./ASF_MILESTONE_GLOSSARY_LOCKED_v1.md` | 4.0K | ASF milestone glossary | `brain-os/law/` | 3 | move |
+| `./ASF_MASTER_ORDERS_ORGANIZED_LOCKED_v1.md` | 12K | ASF master orders | `brain-os/law/` | 3 | move |
+| `./ASF_PROGRAM_THREADS_REGISTRY_LOCKED_v1.md` | 20K | ASF program threads registry | `brain-os/system/` | 3 | move |
+| `./ASF_PROGRAM_PROGRESS_COMMAND_CENTER_LOCKED_v1.md` | 12K | Program progress command center | `brain-os/system/` | 3 | move |
+| `./ASF_FULL_DAY_EXECUTION_PLAYBOOK_LOCKED_v1.md` | 8.0K | ASF full day playbook | `brain-os/enforcement/` | 3 | move |
+| `./ASF_RETIRE_SINA_COMMAND_FOREVER_LOCKED_v1.md` | 4.0K | Retire Sina Command forever | `brain-os/law/` | 3 | move |
+| `./SINA_BIG_PICTURE_ROADMAP_LOCKED_v2.md` | 4.0K | Big picture roadmap | `brain-os/law/` | 3 | move |
+| `./SINA_GPT_CLAUDE_WTM_SYNTHESIS_LOCKED_v1.md` | 4.0K | MOVED — canonical SSOT (stub) | `archive/root-stubs/` | 3 | archive |
+
+
+## Execute batch 3 (after APPROVED)
+
+```bash
+cd ~/Desktop/sourceA
+bash infra/cleanup/execute-batch-v1.sh --batch 3 --dry-run
+bash infra/cleanup/execute-batch-v1.sh --batch 3
+git add -A
+git commit -m "cleanup: batch-3 portfolio law → brain-os"
+bash infra/cleanup/generate-inventory-v1.sh
+```
+
+**Critic packet:** `infra/cleanup/batch-3-diff-for-critics.md`
+
+## Execute batch 2 (done)
 
 ```bash
 cd ~/Desktop/sourceA
