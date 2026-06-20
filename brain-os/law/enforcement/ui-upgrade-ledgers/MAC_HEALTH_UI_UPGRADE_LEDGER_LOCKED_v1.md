@@ -1,7 +1,7 @@
 # Mac Health — UI Upgrade Ledger — LOCKED v1
 
-**Version:** 1.1.0 · **Saved:** 2026-06-19T20:39:27Z · **Authority:** Founder — per-app UI upgrade tracking  
-**surface_id:** `mac_health` · **UI mode:** `founder_glance` · **App version:** `3.3.0`  
+**Version:** 1.2.0 · **Saved:** 2026-06-20T19:30:00Z · **Authority:** Founder — per-app UI upgrade tracking  
+**surface_id:** `mac_health` · **UI mode:** `founder_glance` · **App version:** `4.0.0`  
 **Repo:** SourceA · **URL:** http://127.0.0.1:13024/  
 **Root:** `scripts/mac-health-standalone/`  
 **Machine log:** `data/ui-upgrade-ledgers/mac_health-v1.json`  
@@ -17,7 +17,8 @@
 | health_page | Founder Glance UI | `mhg-founder-glance` · HTTP 200 |
 | ui_contract | API + /health wire | `ui_contract.ui_mode=founder_glance` |
 | standalone_service | Standalone guard | `standalone: true` in health JSON |
-| version_ssot | Single version | `mac_health_version_v1.py` → 3.3.0 |
+| version_ssot | Single version | `mac_health_version_v1.py` → 4.0.0 |
+| cloud_glance | Read-only cloud strip | `#cloud-glance-strip` · `/api/mac-health/cloud-glance/v1` |
 | agent_mandates | Health mandates law | Mac Health agent mandates doc |
 | quiet_flag | Quiet mode flag | `mac-health-quiet-v1.flag` present |
 
@@ -57,6 +58,31 @@
 | Founder approval | **approved** |
 | Machine proof | `validate-mac-health-founder-glance-v1.sh` PASS · `~/.sina/mac-health-founder-glance-wire-v1.json` |
 
+### UP-MH-002 — 2026-06-20 — Control Plane Glance v4.0.0 (cloud read · Hub bridge)
+
+| Field | Value |
+|-------|-------|
+| Preserved | Zero tabs · one CTA · four stat tiles · More disclosure · auto heal · log shield · panic · settings |
+| Changed | `#cloud-glance-strip` · `mac_health_cloud_glance_v1.py` · `/api/mac-health/cloud-glance/v1` · Hub `mac_health_live.cloud_glance` · Cursor RAM tiers · stale-shell hints |
+| Achieved | Read-only cloud status on :13024 — Railway health + last dispatch receipt; tap strip → Worker Hub via API `hub_url` (no Mac factory) |
+| Quality vs last | **better** |
+| Founder approval | **pending** |
+| Machine proof | `:13024/health` → `4.0.0` · `ui_mode=founder_glance` · cloud line live · bundle sync · **no E2E marathon on Mac session** (Mac Law) |
+
+**Ship summary (UP-MH-002):**
+
+| Preserved (UP-MH-001) | Still present |
+|---|---|
+| Zero tabs | yes |
+| One primary CTA `Relieve pressure` | yes |
+| Four stat tiles | yes |
+| Advanced in `<details> More` | yes |
+| Auto heal · live pulse · log shield | yes |
+
+**Changed:** v3.3.0 → v4.0.0 SSOT · cloud glance strip (button, polls 8s) · read-only Railway + dispatch receipt · Hub bridge fields · prevention honesty.
+
+**Not run this session:** `validate-mac-health-e2e-v1.sh` full recipe — founder session / Mac Law forbids validator marathon on Mac body.
+
 ---
 
-*Next upgrade: append UP-MH-002.*
+*Next upgrade: append UP-MH-003.*

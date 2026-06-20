@@ -124,6 +124,21 @@ def _ecosystem_mac_health_slice(*, hub_boot: dict | None = None) -> dict:
         return {"ok": False, "error": str(exc), "schema": "hub-ecosystem-slice-v1"}
 
 
+def _mac_health_live_slice() -> dict[str, Any]:
+    bridge_path = Path.home() / ".sina" / "mac-health-h1-bridge-v1.json"
+    if bridge_path.is_file():
+        try:
+            return json.loads(bridge_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            pass
+    try:
+        from mac_health_live_v1 import build_live_snapshot  # noqa: WPS433
+
+        return build_live_snapshot(sync_h1=False, side_effects=False)
+    except Exception as exc:
+        return {"ok": False, "error": str(exc)}
+
+
 def _upgrade_slice() -> dict:
     """H1 upgrade block — disk receipts only (no 9MB hero)."""
     sina = Path.home() / ".sina"
@@ -704,6 +719,8 @@ def _build_worker_hub_payload_row() -> dict:
         "m111_line": ecosystem_mac_health.get("m111_line"),
         "mandatory_next": ecosystem_mac_health.get("mandatory_next"),
         "relieve_url": (ecosystem_mac_health.get("health_strip") or {}).get("relieve_url"),
+        "mac_health_live": _mac_health_live_slice(),
+        "cloud_glance_line": (ecosystem_mac_health.get("cloud_glance") or {}).get("founder_line"),
         "plans_unified": plans_unified,
         "anti_theater": anti_theater,
         "agent_behavior": agent_behavior,

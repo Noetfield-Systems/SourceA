@@ -130,14 +130,23 @@ def pulse_registry_to_surfaces(surfaces: dict, *, write: bool = True) -> dict:
         rid = str(rule.get("id") or "")
         try:
             row = pulse_rule(rule, write=write)
-            ok = bool(row.get("ok", True))
+            wire = validate_rule(rule)
+            ok = bool(wire.get("ok"))
+            pulse_ok = bool(row.get("ok", True))
             _surfaces_patch(rule, row, surfaces)
-            rules_out.append({"id": rid, "ok": ok, "label": rule.get("label")})
+            rules_out.append(
+                {
+                    "id": rid,
+                    "ok": ok,
+                    "pulse_ok": pulse_ok,
+                    "label": rule.get("label"),
+                }
+            )
             if ok:
                 pass_n += 1
         except Exception as exc:
             rules_out.append({"id": rid, "ok": False, "error": str(exc)[:120]})
-    line = f"rule-wire · {pass_n}/{live_n} live · registry={live_n}"
+    line = f"rule-wire · {pass_n}/{live_n} wired · registry={live_n}"
     surfaces["rule_live_wire_line"] = line
     surfaces["rule_live_wire"] = {
         "ok": pass_n == live_n and live_n > 0,
@@ -473,10 +482,27 @@ def on_new_rule_upgrade(*, skip_heavy: bool = False, role: str = "worker") -> di
     steps.extend(wire.get("steps") or [])
     _patch_h2_cursor_rules(cursor_index=cursor_idx, wire_ok=bool(wire.get("ok")))
 
+    try:
+        sys.path.insert(0, str(SCRIPTS))
+        from rule_zero_latency_hook_v1 import run_hook  # noqa: WPS433
+
+        hook = run_hook(reason="on-new-rule", tier="fast", sync_cursor_index=False, sync_mirror=False)
+        steps.append(
+            {
+                "step": "rule_zero_latency_hook",
+                "ok": bool(hook.get("ok")),
+                "line": hook.get("rule_wire_line"),
+                "fanout_ok": (hook.get("fanout") or {}).get("ok"),
+            }
+        )
+    except Exception as exc:
+        steps.append({"step": "rule_zero_latency_hook", "ok": False, "error": str(exc)[:120]})
+
     elapsed = round(time.monotonic() - t0, 2)
     wire_ok = bool(wire.get("ok"))
     mirror_step = next((s for s in steps if s.get("step") == "memory_mirror_sync"), {})
-    ok = bool(cursor_idx.get("ok")) and wire_ok and mirror_step.get("ok", True)
+    hook_step = next((s for s in steps if s.get("step") == "rule_zero_latency_hook"), {})
+    ok = bool(cursor_idx.get("ok")) and wire_ok and mirror_step.get("ok", True) and hook_step.get("ok", True)
     row = {
         **wire,
         "schema": "agent-rule-live-wire-on-new-rule-v1",

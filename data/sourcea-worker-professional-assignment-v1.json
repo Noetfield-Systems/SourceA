@@ -1,8 +1,8 @@
 {
   "schema": "sourcea-worker-professional-assignment-v1",
-  "version": "1.1.0",
-  "saved_at": "2026-06-20T18:30:00Z",
-  "authority": "ASF — Mac control only · cloud executes all factory work · INCIDENT-038 v1.1",
+  "version": "1.4.0",
+  "saved_at": "2026-06-20T22:56:42Z",
+  "authority": "ASF \u2014 Mac control only \u00b7 cloud executes all factory work \u00b7 INCIDENT-038 v1.1",
   "one_law": "Mac = control panel only. Cloud/API/FORGE runs ALL factory work. Secondary -5000 never executes on Mac. Worker does NOT run every plan.",
   "incident_038": "brain-os/incidents/SINA_AGENT_WORKER_FACTORY_PLANE_CONFLATION_INCIDENT_038_LOCKED_v1.md",
   "next_100_ssot": "data/secondary-cloud-drain-next-100-v1.json",
@@ -26,101 +26,190 @@
     {
       "id": "phase-cloud",
       "order": 1,
-      "label": "Cloud plans — Brain cloud 1000 + FORGE + FBE Railway",
+      "label": "Cloud plans \u2014 Brain cloud 1000 + FORGE + FBE Railway",
       "execution_plane": "cloud_api_worker",
       "control_plane": "mac_hub",
+      "mac_executes": false,
       "plan_ssot": [
         "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
         "data/portfolio--1000-manifest-v1.json",
         "docs/FORGE_MVP_BLUEPRINT_LOCKED_v1.md"
       ],
-      "critical_path": ["B0001", "B0101", "B0501", "B0601", "B0901", "B1000"],
+      "critical_path": [
+        "B0001",
+        "B0101",
+        "B0501",
+        "B0601",
+        "B0901",
+        "B1000"
+      ],
       "pick_commands": {
-        "brain_cloud_pulse": "python3 scripts/brain_cloud_reasoning_plan_pulse_v1.py --json",
-        "forge_dry_run": "python3 scripts/forge__run_v1.py --stack sourcea --dry-run --json",
-        "forge_dispatch": "bash scripts/plan--mkt-run.sh dispatch-forge sourcea --dry-run",
-        "cloud_env": "python3 scripts/forge_cloud_env_load_v1.py --json",
-        "loop_tick": "python3 scripts/loop_specialist_tick_v1.py --json"
+        "brain_cloud_pulse": "Read ~/.sina/brain-cloud-* pulse receipt \u00b7 optional POST /api/loop-specialist/tick/v1",
+        "forge_dry_run": "POST /api/fbe/forge--run/v1 {\"stack\":\"sourcea\",\"dry_run\":true}",
+        "forge_dispatch": "POST /api/cloud-worker/dispatch/v1 {\"plan_id\":\"MAC-CTL-002\",\"dry_run\":true}",
+        "cloud_env": "Read data/fbe_cloud_worker_config_v1.json + receipts/federated-run-v1.json",
+        "loop_tick": "POST /api/loop-specialist/tick/v1"
       },
       "queue": [
         {
           "id": "W-CLOUD-001",
           "role": "check",
-          "title": "Mac control plane + cloud FORGE dry-run envelope (observe only)",
+          "title": "Mac control CHECK: Read mac-law + federated-run receipts \u00b7 optional Hub FORGE dry-run POST",
           "sa_bind": "B0101",
           "execution_plane": "cloud_forge",
           "mac_build_forbidden": true,
-          "verify": [
-            "bash scripts/validate-mac-control-plane-v1.sh",
-            "python3 scripts/forge_cloud_env_load_v1.py --json",
-            "python3 scripts/forge__run_v1.py --stack sourcea --dry-run --json",
-            "bash scripts/validate-forge-mvp-baseline-v1.sh"
+          "mac_ctl_bind": "MAC-CTL-001",
+          "mac_proof": [
+            "~/.sina/mac-law-mandatory-receipt-v1.json",
+            "~/.sina/mac-law-machine-enforce-receipt-v1.json",
+            "~/.sina/mac-law-universal-wire-receipt-v1.json",
+            "receipts/federated-run-v1.json"
           ],
+          "hub_dispatch": {
+            "path": "/api/fbe/forge--run/v1",
+            "body": {
+              "stack": "sourcea",
+              "dry_run": true
+            }
+          },
+          "verify": [],
           "receipt": "~/.sina/sourcea-worker-cloud-assignment-receipt-v1.json"
         },
         {
           "id": "W-CLOUD-002",
           "role": "act",
-          "title": "Wire live cloud dispatch receipt — Railway FBE work-order (secrets required)",
+          "title": "Mac control ACT: Hub POST cloud-worker dispatch dry-run \u00b7 read cloud receipt (no Mac body)",
           "sa_bind": "B0901",
           "execution_plane": "cloud_api_worker",
           "mac_build_forbidden": true,
           "precondition": "FBE_CLOUD_WORKER_URL + FBE_INTERNAL_SECRET in ~/.sourcea-secrets",
-          "verify": [
-            "python3 scripts/portfolio__forge_dispatch_v1.py --stack sourcea --dry-run --json",
-            "bash scripts/validate-forge-mvp-fleet-v1.sh"
-          ]
+          "mac_ctl_bind": "MAC-CTL-002",
+          "mac_proof": [
+            "receipts/cloud-dispatch/",
+            "receipts/index.json"
+          ],
+          "hub_dispatch": {
+            "path": "/api/cloud-worker/dispatch/v1",
+            "body": {
+              "plan_id": "MAC-CTL-002",
+              "dry_run": true
+            }
+          },
+          "verify": []
         },
         {
           "id": "W-CLOUD-003",
           "role": "verify",
-          "title": "Brain cloud critical path pulse — B0001→B1000 status on disk",
+          "title": "Mac control VERIFY: Read brain-cloud pulse receipt \u00b7 optional Hub loop-specialist tick POST",
           "sa_bind": "B1000",
-          "verify": [
-            "python3 scripts/brain_cloud_reasoning_plan_pulse_v1.py --json"
-          ]
+          "mac_ctl_bind": "MAC-CTL-003",
+          "mac_proof": [
+            "~/.sina/brain-cloud-reasoning-plan-pulse-receipt-v1.json",
+            "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json"
+          ],
+          "hub_dispatch": {
+            "path": "/api/loop-specialist/tick/v1",
+            "body": {
+              "enable_auto_dispatch": false,
+              "dispatch": false
+            }
+          },
+          "verify": []
         }
-      ]
+      ],
+      "status": "complete",
+      "completed_at": "2026-06-20T22:54:16Z",
+      "completion": {
+        "queue": [
+          "W-CLOUD-001",
+          "W-CLOUD-002",
+          "W-CLOUD-003"
+        ],
+        "roles": [
+          "check",
+          "act",
+          "verify"
+        ],
+        "receipt": "~/.sina/sourcea-worker-cloud-assignment-receipt-v1.json",
+        "ok": true
+      }
     },
     {
       "id": "phase-market",
       "order": 2,
-      "label": "Secondary -1000 — cloud/API batch drain ONLY",
+      "label": "Secondary -1000 \u2014 cloud/API batch drain ONLY",
       "execution_plane": "cloud_forge",
       "mac_build_forbidden": true,
       "mac_executes": false,
-      "incident_038": "Mac never executes sa-mkt — cloud tick batch only",
+      "incident_038": "Mac never executes sa-mkt \u2014 cloud tick batch only",
       "plan_ssot": "data/portfolio--1000-manifest-v1.json",
       "next_100_ssot": "data/secondary-cloud-drain-next-100-v1.json",
       "market_format": "docs/_ANALYSIS_FORMAT_MARKET_REALITY_v1.md",
       "cloud_drain": "bash scripts/plan--mkt-run.sh dispatch-forge {stack}",
-      "mac_role": "optional Hub POST start/stop drain · read cloud receipts only",
-      "stacks": ["sourcea", "witnessbc", "noetfield", "trustfield", "virlux"],
-      "queue_policy": "Cloud drains T0 free tier first · ws order ux→pricing→run→onboard→integrate · SourceA stack first"
+      "mac_role": "optional Hub POST start/stop drain \u00b7 read cloud receipts only",
+      "stacks": [
+        "sourcea",
+        "witnessbc",
+        "noetfield",
+        "trustfield",
+        "virlux"
+      ],
+      "queue_policy": "Cloud drains T0 free tier first \u00b7 ws order ux\u2192pricing\u2192run\u2192onboard\u2192integrate \u00b7 SourceA stack first"
     },
     {
       "id": "phase-build",
       "order": 3,
-      "label": "sourcea-1000 REGISTRY — DONE 1000/1000 · cloud only if reopened",
+      "label": "Goal 1 bootstrap — ARCHIVED 1000/1000 · do not Mac-drain",
       "execution_plane": "cloud_api_worker",
       "mac_build_forbidden": true,
       "mac_executes": false,
-      "status": "complete",
-      "plan_ssot": "brain-os/plan-registry/sourcea-1000/REGISTRY.json",
-      "queue_policy": "Idle — honest_done 1000/1000 · do not Mac-drain"
+      "status": "archived_complete",
+      "plan_ssot": "archive/attachments/factory-era/goal1-bootstrap-1000-complete-2026-06-20/",
+      "queue_policy": "Archived — see forge-factory-cycle2"
+    },
+    {
+      "id": "forge-factory-cycle2",
+      "order": 4,
+      "label": "FORGE FACTORY cycle2 — queue sa-1201..sa-1210",
+      "execution_plane": "cloud_api_worker",
+      "mac_build_forbidden": true,
+      "mac_executes": false,
+      "status": "active",
+      "plan_ssot": "data/forge-factory-queue-cycle2-v1.json",
+      "brand_ssot": "data/forge-factory-unified-brand-v1.json",
+      "queue_head": "sa-1201",
+      "queue_policy": "Loop specialist cloud dispatch · Mac Hub glance only"
     }
   ],
   "dispatch": {
-    "mac": ["hub_gate", "form_pick", "monitor", "session_gate"],
-    "cloud": ["fbe_railway", "fbe_factory_builder", "forge-bay", "comprehension_loop_bay"],
-    "forbidden_on_mac": ["fbe_motor_delegate", "autorun_worker", "playwright_film"]
+    "mac": [
+      "hub_gate",
+      "form_pick",
+      "monitor",
+      "session_gate"
+    ],
+    "cloud": [
+      "fbe_railway",
+      "fbe_factory_builder",
+      "forge-bay",
+      "comprehension_loop_bay"
+    ],
+    "forbidden_on_mac": [
+      "fbe_motor_delegate",
+      "autorun_worker",
+      "playwright_film"
+    ]
   },
   "active": {
-    "phase_id": "phase-cloud",
-    "queue_id": "W-CLOUD-001",
-    "queue_pos": 1,
-    "queue_total": 3,
-    "role": "check"
+    "phase_id": "forge-factory-cycle2",
+    "label": "FORGE FACTORY cycle2 — Goal 3 active · queue sa-1201",
+    "execution_plane": "cloud_api_worker",
+    "mac_executes": false,
+    "next_ssot": "data/forge-factory-queue-cycle2-v1.json",
+    "brand_ssot": "data/forge-factory-unified-brand-v1.json",
+    "start_plan": "sa-1201",
+    "mac_role": "Hub glance · loop specialist cloud dispatch · no Mac motor drain",
+    "prior_phase_complete": "phase-build-archived"
   },
   "receipt": "~/.sina/sourcea-worker-professional-assignment-v1.json"
 }

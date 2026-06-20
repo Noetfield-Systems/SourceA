@@ -544,3 +544,7 @@
 {"schema":"fbe-mono-result-v1","at":"2026-06-19T23:36:23Z","bay_slug":"sample-bay","template_id":"web-product-factory-v1","line":"refinery","wave":"W2","deliveryMode":"prove_only"}
 {"schema":"fbe-mono-result-v1","at":"2026-06-19T23:45:00Z","bay_slug":"sample-bay","template_id":"web-product-factory-v1","line":"refinery","wave":"W2","deliveryMode":"prove_only"}
 {"schema":"fbe-mono-result-v1","at":"2026-06-19T23:47:22Z","bay_slug":"sample-bay","template_id":"web-product-factory-v1","line":"refinery","wave":"W2","deliveryMode":"prove_only"}
+{"schema":"fbe-mono-result-v1","at":"2026-06-20T21:24:18Z","bay_slug":"sample-bay","template_id":"web-product-factory-v1","line":"refinery","wave":"W2","deliveryMode":"prove_only"}
+{"schema":"fbe-mono-result-v1","at":"2026-06-20T22:45:41Z","bay_slug":"sample-bay","template_id":"web-product-factory-v1","line":"refinery","wave":"W2","deliveryMode":"prove_only"}
+{"schema":"fbe-mono-result-v1","at":"2026-06-20T22:59:27Z","bay_slug":"sample-bay","template_id":"web-product-factory-v1","line":"refinery","wave":"W2","deliveryMode":"prove_only"}
+{"schema":"fbe-mono-result-v1","at":"2026-06-20T23:12:43Z","bay_slug":"sample-bay","template_id":"web-product-factory-v1","line":"refinery","wave":"W2","deliveryMode":"prove_only"}

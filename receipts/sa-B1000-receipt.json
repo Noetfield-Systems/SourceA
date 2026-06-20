@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-B1000",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "W-CLOUD-003 VERIFY \u2014 brain-cloud pulse Read 2/1000 \u00b7 loop-specialist tick observe-only PASS \u00b7 phase-cloud 3/3 \u00b7 no Mac factory body",
+  "at": "2026-06-20T22:55:06Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

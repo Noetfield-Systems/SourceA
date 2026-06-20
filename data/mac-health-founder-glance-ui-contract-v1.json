@@ -1,9 +1,9 @@
 {
   "schema": "mac-health-founder-glance-ui-contract-v1",
-  "version": "3.3.0",
+  "version": "4.0.0",
   "surface_id": "mac_health",
   "ui_mode": "founder_glance",
-  "saved_at": "2026-06-19T20:39:27Z",
+  "saved_at": "2026-06-20T19:30:00Z",
   "law_doc": "brain-os/law/enforcement/SINA_MAC_HEALTH_FOUNDER_GLANCE_UI_LOCKED_v1.md",
   "version_ssot": "scripts/mac_health_version_v1.py",
   "url": "http://127.0.0.1:13024/",
@@ -13,7 +13,8 @@
     "auto_heal_default",
     "no_founder_terminal",
     "advanced_in_more_disclosure",
-    "no_agent_form_submit"
+    "no_agent_form_submit",
+    "cloud_glance_read_only"
   ],
   "dom_must_contain": [
     "mhg-founder-glance",
@@ -22,8 +23,9 @@
     "Relieve pressure",
     "id=\"pressure-grid\"",
     "id=\"panel-more\"",
-    "app.css?v=3.3.0",
-    "app.js?v=3.3.0"
+    "id=\"cloud-glance-strip\"",
+    "app.css?v=4.0.0",
+    "app.js?v=4.0.0"
   ],
   "dom_must_not_contain": [
     "mhg-seg-nav",
@@ -39,9 +41,11 @@
   "primary_button_id": "btn-heal",
   "primary_cta_label": "Relieve pressure",
   "more_disclosure_id": "panel-more",
+  "cloud_glance_strip_id": "cloud-glance-strip",
   "tab_count": 0,
   "validators": [
     "scripts/validate-mac-health-founder-glance-v1.sh",
+    "scripts/validate-mac-health-cloud-glance-v1.sh",
     "scripts/validate-mac-health-wire-live-v1.sh",
     "scripts/validate-mac-health-ui-v1.sh"
   ]

@@ -64,7 +64,7 @@ python3 scripts/cross-plan-readiness-v1.py --fast --json
 
 ## Disk SSOT
 
-`~/.sina/brain-current-action-v1.json` — read every Brain turn after `brain-session-start.sh`
+`~/.sina/brain-current-action-v1.json` — read every Brain turn from receipt — re-run `brain-session-start.sh` only on session start (INCIDENT-039)
 
 ## Full debugger playbook (Worker / Maintainer)
 

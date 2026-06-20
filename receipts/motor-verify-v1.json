@@ -1,7 +1,7 @@
 {
   "schema": "fbe-motor-verify-v1",
-  "ok": false,
-  "at": "2026-06-19T23:45:31Z",
+  "ok": true,
+  "at": "2026-06-20T23:12:41Z",
   "wave": "W1",
   "checks": [
     {
@@ -11,7 +11,7 @@
     },
     {
       "id": "receipt_federate",
-      "ok": false,
+      "ok": true,
       "schema": "fbe-run-receipt-v1"
     },
     {
@@ -36,5 +36,5 @@
     }
   ],
   "deliveryMode": "prove_only",
-  "proof": "motor_verify FAIL"
+  "proof": "motor_verify PASS"
 }

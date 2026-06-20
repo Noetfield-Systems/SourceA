@@ -177,6 +177,14 @@ def build_live_snapshot(
     except Exception:
         cursor_session = {}
 
+    cloud_glance: dict[str, Any] = {}
+    try:
+        from mac_health_cloud_glance_v1 import probe as cloud_glance_probe  # noqa: WPS433
+
+        cloud_glance = cloud_glance_probe(write_receipt=False)
+    except Exception:
+        cloud_glance = {}
+
     row = {
         "ok": True,
         "schema": "mac-health-live-v1",
@@ -185,6 +193,7 @@ def build_live_snapshot(
         "prevention": prevention,
         "cpu_warn_state": cpu_warn_state,
         "cursor_session": cursor_session,
+        "cloud_glance": cloud_glance,
         "daily_cleanup_receipt": str(SINA / "mac-daily-cleanup-latest-v1.json"),
         "truth": "LIVE=real-time monitor · STALE=sick signal · SICK=body needs heal",
         "score": score,
@@ -291,6 +300,7 @@ def write_h1_bridge(live: dict) -> dict:
         "wired": live.get("wired"),
         "h1": h1,
         "founder_line": _founder_line(live),
+        "cloud_glance": live.get("cloud_glance") or {},
     }
     H1_BRIDGE.write_text(json.dumps(bridge, indent=2) + "\n", encoding="utf-8")
     return bridge
@@ -308,7 +318,12 @@ def _founder_line(live: dict) -> str:
     task = h1.get("task_id") or "—"
     cpu_s = f"CPU {cpu}%" if cpu is not None else "CPU —"
     ram_s = f"RAM {ram}%" if ram is not None else "RAM —"
-    return f"Mac Heart {st} · score {score} · {cpu_s} · {ram_s} · load {load}/{cores} · H1 {task}"
+    cg = live.get("cloud_glance") if isinstance(live.get("cloud_glance"), dict) else {}
+    cloud_s = cg.get("founder_line") or ""
+    base = f"Mac Heart {st} · score {score} · {cpu_s} · {ram_s} · load {load}/{cores} · H1 {task}"
+    if cloud_s:
+        return f"{base} · {cloud_s}"
+    return base
 
 
 def pulse_once() -> dict:

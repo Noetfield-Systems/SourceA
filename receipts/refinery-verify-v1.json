@@ -1,7 +1,7 @@
 {
   "schema": "fbe-refinery-verify-v1",
   "ok": true,
-  "at": "2026-06-19T23:57:26Z",
+  "at": "2026-06-20T23:12:43Z",
   "wave": "W2",
   "bay_slug": "sample-bay",
   "mode": "headless",
@@ -16,7 +16,7 @@
     {
       "id": "bay_ledger",
       "ok": true,
-      "lines": 6353,
+      "lines": 6381,
       "expected": 7
     },
     {

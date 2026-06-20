@@ -75,9 +75,14 @@ SCAN_ROOTS: list[str] = [
 EXCLUDE_REL_PATHS = frozenset(
     {
         "scripts/agent_memory_mirror_v1.py",
-        "AGENT_MEMORY_MIRROR_ENFORCEMENT_LOCKED_v1.md",
+        "brain-os/law/enforcement/AGENT_MEMORY_MIRROR_ENFORCEMENT_LOCKED_v1.md",
+        "brain-os/law/enforcement/AGENT_EXECUTOR_DAILY_DUTY_CARD_LOCKED_v1.md",
+        "brain-os/law/enforcement/BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md",
+        "brain-os/law/enforcement/FOUNDER_BRAIN_MAINTAINER_STRATEGIC_EXTRACTION_100M_v2.md",
+        "brain-os/law/enforcement/SINA_AGENT_LOOP_10_PREP_v1.md",
         ".cursor/rules/000-dead-law-stubs.mdc",
         ".cursor/rules/agent-memory-mirror.mdc",
+        ".cursor/rules/034-mac-no-validator-stuck-red-flag.mdc",
         ".cursor/rules/prompt-queue.mdc",
         "brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md",
         "scripts/validate-prompt-feed-no-autosend-copy-v1.sh",
@@ -378,6 +383,7 @@ def _is_detector_file(path: Path) -> bool:
         "governance_meta_audit",
         "sina_command_lib",
         "vocabulary_guard",
+        "generate_secondary_cloud_drain_next_100",
     )
     return any(d in name for d in detectors) or name == "SKILL.md"
 

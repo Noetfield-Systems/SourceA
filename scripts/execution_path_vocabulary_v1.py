@@ -123,7 +123,23 @@ def brain_work_order_primary() -> bool:
         return outbound
 
 
+def _forge_factory_era() -> bool:
+    try:
+        import sys
+        from pathlib import Path
+
+        root = Path(__file__).resolve().parents[1]
+        sys.path.insert(0, str(root / "scripts"))
+        from factory_control_v1 import _load_factory_era  # noqa: WPS433
+
+        return (_load_factory_era().get("current_era") or "") == "forge_factory_cycle2"
+    except Exception:
+        return False
+
+
 def founder_daily_ops_line() -> str:
+    if _forge_factory_era():
+        return "FORGE FACTORY cycle2 · Loop auto · cloud execute · Hub glance only"
     if post_outbound_smart_loop_active():
         return commercial_smart_loop_line()
     if loop_auto_on():
@@ -166,6 +182,8 @@ def run_inbox_check_label() -> str:
 
 
 def founder_motion_line(*, goal1_idle: bool = False) -> str:
+    if _forge_factory_era():
+        return "FORGE FACTORY cycle2 · Loop auto · Hub glance · commercial P0 parallel"
     if goal1_idle and post_outbound_smart_loop_active():
         return commercial_smart_loop_line()
     if goal1_idle:
@@ -178,6 +196,8 @@ def founder_motion_line(*, goal1_idle: bool = False) -> str:
 
 
 def inject_execution_path() -> str:
+    if _forge_factory_era():
+        return "FORGE FACTORY cycle2 · healthy-queue-30-active.json · brain work-order + loop auto"
     if brain_work_order_primary():
         return "brain work-order dispatch + loop auto"
     return "run inbox + live-ongoing-prompts-next-10-v1.json"

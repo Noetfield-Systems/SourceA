@@ -781,6 +781,23 @@ def sourcea_sa_queue_payload(*, up_next_limit: int = 8) -> dict:
     }
 
 
+def _forge_factory_era_active() -> bool:
+    """True when FORGE FACTORY cycle2 is the live execution clock."""
+    try:
+        era_path = SOURCE_A / "data" / "factory-era-v1.json"
+        if era_path.is_file():
+            era = json.loads(era_path.read_text(encoding="utf-8"))
+            if era.get("current_era") == "forge_factory_cycle2":
+                return True
+        fn_path = Path.home() / ".sina" / "factory-now-v1.json"
+        if fn_path.is_file():
+            fn = json.loads(fn_path.read_text(encoding="utf-8"))
+            return str(fn.get("mode") or "") == "FORGE_FACTORY"
+    except Exception:
+        pass
+    return False
+
+
 def founder_automation_p0(bowl: dict) -> dict:
     """Hub founder card — strategic slice + live sa pick; RunReceipt is parallel factory only."""
     pick = _next_sa_pick()
@@ -808,6 +825,23 @@ def founder_automation_p0(bowl: dict) -> dict:
         )
     except Exception:
         next_action = f"FREEZE · tap Safety · Live pick: {pick_id} — {pick_title}"
+    if _forge_factory_era_active():
+        return {
+            "id": "FORGE-FACTORY-CYCLE2",
+            "thread": "FORGE-FACTORY",
+            "title": "FORGE FACTORY cycle2 — Goal 3 active · commercial P0 parallel",
+            "status": "active",
+            "priority": 1,
+            "phase": "forge-factory-cycle2",
+            "next_action": next_action,
+            "hook": "data/forge-factory-unified-brand-v1.json",
+            "runreceipt_parallel": {
+                "id": factory_p0.get("id"),
+                "thread": factory_p0.get("thread"),
+                "title": factory_p0.get("title"),
+                "note": "Goal 1 archived · Goal 2 merged · factory parallel when ASF names THREAD-FACTORY",
+            },
+        }
     return {
         "id": "STRATEGIC-SLICE",
         "thread": "STRATEGIC-SLICE",

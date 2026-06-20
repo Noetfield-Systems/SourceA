@@ -1,7 +1,8 @@
 {
   "schema": "mac-pipeline-validator-pressure-registry-v1",
-  "version": "1.2.0",
-  "saved_at": "2026-06-20T19:15:00Z",
+  "version": "1.4.0",
+  "saved_at": "2026-06-20T20:30:00Z",
+  "ship_window_max_age_hours": 4,
   "incident_039_ref": "data/mac-validator-stuck-red-flag-v1.json",
   "authority": "mac_law_locked",
   "law_doc": "~/Desktop/MacLaw/MAC_PIPELINE_VALIDATOR_PRESSURE_LAW_LOCKED_v1.md",
@@ -12,7 +13,7 @@
     "~/.sina/founder-work-mode-v1.flag",
     "~/.sina/mac-light-validators-only-v1.flag"
   ],
-  "one_law": "Heavy pipelines and validators forbidden on Mac body — cloud CI, API workers, or ASF ship window only",
+  "one_law": "Heavy pipelines and validators forbidden on Mac body — cloud CI, API workers, or ASF ship window only. Mac Health: ONE gate only — validate-mac-health-ship-fast-v1.sh",
   "tiers": {
     "light": {
       "max_wall_sec": 20,
@@ -22,7 +23,14 @@
         "validate-mac-health-agent-mandates-v1.sh",
         "validate-no-auto-screenshot-v1.sh",
         "validate-mac-health-never-again-v1.sh",
+        "validate-mac-health-ship-fast-v1.sh",
         "validate-mac-health-fast-v1.sh",
+        "validate-mac-health-cloud-glance-v1.sh",
+        "validate-mac-health-founder-glance-v1.sh",
+        "validate-mac-health-ui-v1.sh",
+        "validate-mac-health-log-shield-v1.sh",
+        "validate-mac-health-prevention-v1.sh",
+        "validate-mac-health-panic-hotkey-v1.sh",
         "validate-mac-pipeline-validator-pressure-v1.sh",
         "validate-founder-execution-model-v1.sh",
         "founder_session_gate_v1.py",
@@ -45,6 +53,9 @@
         "validate-cloud-factory-10-steps-v1.sh",
         "validate-mac-health-founder-upgrade-v1.sh",
         "validate-mac-health-unattended-v1.sh",
+        "validate-mac-health-wire-live-v1.sh",
+        "validate-mac-health-all-actions-v1.sh",
+        "validate-mac-health-bundle-parity-v1.sh",
         "validate-ecosystem-mac-health-111-plan-v1.sh"
       ]
     },

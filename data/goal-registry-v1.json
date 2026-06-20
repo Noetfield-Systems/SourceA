@@ -1,0 +1,55 @@
+{
+  "schema": "goal-registry-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-20T22:41:33Z",
+  "authority": "ASF",
+  "canonical_law": "brain-os/system/GOAL_HIERARCHY_LOCKED_v1.md",
+  "current_era": "forge_factory_cycle2",
+  "goals": [
+    {
+      "number": 1,
+      "name": "Governed automation factory",
+      "tier": "T0 + T4",
+      "step_model": "1000-pack (10×100) · sa-XXXX",
+      "status": "archived_complete",
+      "era_note": "Bootstrap finished — archived 2026-06-20. Not live queue head."
+    },
+    {
+      "number": 2,
+      "name": "World Target Model + Pre-LLM",
+      "tier": "T3",
+      "step_model": "33 steps WTM A→D + phases 0–5",
+      "status": "merged_into_forge_factory",
+      "brand": "FORGE FACTORY",
+      "canonical": "brain-os/wtm/WORLD_TARGET_MODEL_MAP_LOCKED_v5.md"
+    },
+    {
+      "number": 3,
+      "name": "FORGE / FORGE FACTORY",
+      "tier": "T2 primary",
+      "step_model": "PRD 8-week MVP + 10-item launch checklist",
+      "status": "active_unified_brand",
+      "brand": "FORGE FACTORY",
+      "ssot": "data/forge-factory-unified-brand-v1.json",
+      "note": "Goal 3 + Goal 2 WTM + FBE = one customer-facing brand FORGE FACTORY"
+    },
+    {
+      "number": 4,
+      "name": "Research sensor",
+      "tier": "T1",
+      "status": "parallel_research_only"
+    },
+    {
+      "number": 5,
+      "name": "Side SKUs bucket",
+      "tier": "T2b",
+      "includes": ["MergePack", "RunReceipt", "Cursor OS Pro"],
+      "status": "parallel_only"
+    }
+  ],
+  "forbidden": [
+    "Goal 2 = RunReceipt",
+    "RunReceipt as north star",
+    "Inject Goal 1 1000/1000 as current queue truth"
+  ]
+}
