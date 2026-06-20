@@ -1,0 +1,1038 @@
+[
+  {
+    "path": "SOURCEA_1000PACK_AUDIT_JUDGE_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# SourceA 1000-Pack Audit Judge (LOCKED v1)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/validate-sourcea-founder-pinned-locked-v1.sh",
+      "scripts/validate-sourcea-session-index-locked-v1.sh"
+    ],
+    "hit_count": 4
+  },
+  {
+    "path": "SOURCEA_1000_LOCKED_PROMPT_LIBRARY_NO_ASF_v1.md",
+    "size": "4.0K",
+    "first": "# SOURCEA 1000 LOCKED prompt library \u2014 PLAN WITH NO ASF (v1)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/important_docs_index.py"
+    ],
+    "hit_count": 3
+  },
+  {
+    "path": "SOURCEA_ADVERSARIAL_PROBE_PACK_LOCKED_v1.md",
+    "size": "8.0K",
+    "first": "# SourceA \u2014 Adversarial Probe Pack (LOCKED v1)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/governance_critic_eval_v1.py"
+    ],
+    "hit_count": 3
+  },
+  {
+    "path": "SOURCEA_AGENCY_PRODUCT_DEMO_SCRIPT_LOCKED_v1.md",
+    "size": "8.0K",
+    "first": "# SourceA Agency Product Demo Script \u2014 LOCKED v1",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/run_sourcea_agency_product_demo_v1.sh",
+      "scripts/validate-competitor-landscape-v1_3.sh",
+      "scripts/validate-controlled-agentic-automation-offer-v1.sh"
+    ],
+    "hit_count": 5
+  },
+  {
+    "path": "SOURCEA_ANTI_STALENESS_AUTO_WIRE_LAYER_SYNC_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# Anti-staleness auto wire \u2014 layer sync law (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      ".cursor/rules/000-dead-law-stubs.mdc",
+      ".cursor/rules/020-anti-staleness-vocabulary-key.mdc",
+      ".cursor/rules/agent-anti-staleness-auto-wire.mdc",
+      ".cursor/rules/agent-disk-live-wire-first.mdc",
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/anti_staleness_auto_wire_v1.py",
+      "scripts/validate-anti-staleness-auto-wire-v1.sh"
+    ],
+    "hit_count": 8
+  },
+  {
+    "path": "SOURCEA_ANTI_STALENESS_MACHINE_ENFORCEMENT_PLAN_LOCKED_v1.md",
+    "size": " 12K",
+    "first": "# SourceA \u2014 Anti-staleness machine enforcement plan (LOCKED ",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "agent-control-panel/worker-hub/boot.json",
+      "scripts/worker_hub_v1.py"
+    ],
+    "hit_count": 4
+  },
+  {
+    "path": "SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md",
+    "size": "8.0K",
+    "first": "# Asset B \u2014 Controlled Agentic Automation (DFY) \u2014 LOCKED v1",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "data/sourcea_agentic_unified_bundle_v1.json",
+      "scripts/controlled_agentic_automation_offer_v1.py",
+      "scripts/send_ab1_single_v1.py",
+      "scripts/validate-competitor-landscape-v1_3.sh",
+      "scripts/validate-controlled-agentic-automation-offer-v1.sh"
+    ],
+    "hit_count": 7
+  },
+  {
+    "path": "SOURCEA_AUTHORITY_COVERAGE_AUDIT_2026-06-11_v1.md",
+    "size": " 12K",
+    "first": "# SourceA Authority Coverage Audit \u2014 2026-06-11",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json"
+    ],
+    "hit_count": 2
+  },
+  {
+    "path": "SOURCEA_AUTHORITY_REGISTRY_GOV_UNIFY_BATCH_2026-06-11_LOCKED_v1.md",
+    "size": " 12K",
+    "first": "# Authority Registry \u2014 GOV_UNIFY Batch 2026-06-11 (LOCKED)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/authority_root_coverage_audit.py",
+      "scripts/validate-authority-index-coverage-v1.sh"
+    ],
+    "hit_count": 4
+  },
+  {
+    "path": "SOURCEA_BLUEPRINT_COMPARISON_POSTMORTEM_v1.md",
+    "size": " 40K",
+    "first": "# SOURCEA BLUEPRINT COMPARISON \u2014 POST-MORTEM + PRE-MORTEM",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json"
+    ],
+    "hit_count": 2
+  },
+  {
+    "path": "SOURCEA_BRAIN_MONITOR_FIX_REPORT_LOCKED_v1.md",
+    "size": "8.0K",
+    "first": "# Brain Monitor Fix \u2014 Full Honest Report (LOCKED v1)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/validate-sourcea-session-index-locked-v1.sh"
+    ],
+    "hit_count": 3
+  },
+  {
+    "path": "SOURCEA_CHAIN_TOOLS_PUBLISH_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# SourceA Chain Tools \u2014 Publish Pattern (Graphify class) \u2014 L",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/validate-sourcea-boot-v1.sh"
+    ],
+    "hit_count": 3
+  },
+  {
+    "path": "SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# SourceA Commercial Sender \u2014 LOCKED v1.1",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "data/commercial-mail-from-gate-v1.json",
+      "scripts/commercial_mail_draft_v1.py",
+      "scripts/controlled_agentic_automation_offer_v1.py",
+      "scripts/send_ab1_single_v1.py"
+    ],
+    "hit_count": 6
+  },
+  {
+    "path": "SOURCEA_COMMERCIAL_VIDEO_HERO_PIPELINE_LOCKED_v1.md",
+    "size": "8.0K",
+    "first": "# SourceA Commercial Video \u2014 Hero Pipeline (LOCKED)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json"
+    ],
+    "hit_count": 2
+  },
+  {
+    "path": "SOURCEA_COMMERCIAL_WORKER_LOOP_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# SourceA \u2014 Commercial Worker Loop (LOCKED v1)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/validate-commercial-worker-loop-v1.sh"
+    ],
+    "hit_count": 3
+  },
+  {
+    "path": "SOURCEA_COMPANY_INFRA_BUYER_AND_POSITION_SSOT_LOCKED_v1.md",
+    "size": " 16K",
+    "first": "# SourceA \u2014 Company, Infra, Buyer & Position SSOT (LOCKED v1",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "data/sourcea_agentic_unified_bundle_v1.json"
+    ],
+    "hit_count": 3
+  },
+  {
+    "path": "SOURCEA_COMPLEX_SITUATION_FORK_MACHINE_LOCKED_v1.md",
+    "size": "8.0K",
+    "first": "# SourceA Complex Situation Fork Machine (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      ".cursor/rules/000-brain-unified.mdc",
+      ".cursor/rules/complex-situation-fork.mdc",
+      ".cursor/rules/sina-governance-entry.mdc",
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data.json",
+      "scripts/agent_rules_in_charge.py",
+      "scripts/complex_situation_fork_machine_v1.py",
+      "scripts/hub_essentials_index.py",
+      "scripts/important_docs_index.py",
+      "scripts/validate-complex-situation-fork-v1.sh",
+      "scripts/validate-cross-doc-linkage-v1.sh"
+    ],
+    "hit_count": 12
+  },
+  {
+    "path": "SOURCEA_CONTROL_PLANE_200_PLAN_BRANCH_INDEX_LOCKED_v1.md",
+    "size": "8.0K",
+    "first": "# SourceA Control Plane \u2014 200 Plan Branch Index LOCKED v1",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json"
+    ],
+    "hit_count": 2
+  },
+  {
+    "path": "SOURCEA_CONTROL_PLANE_200_PLAN_LOCKED_v1.md",
+    "size": " 24K",
+    "first": "# SourceA Control Plane \u2014 200 Plan LOCKED v1",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json"
+    ],
+    "hit_count": 2
+  },
+  {
+    "path": "SOURCEA_CROSS_DOC_LINKAGE_AND_AUDIT_LOCKED_v1.md",
+    "size": " 28K",
+    "first": "# SourceA Cross-Doc Linkage & Governance Audit (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data.json",
+      "scripts/agent_rules_in_charge.py",
+      "scripts/hub_essentials_index.py",
+      "scripts/important_docs_index.py",
+      "scripts/validate-cross-doc-linkage-v1.sh",
+      "scripts/validate-integrity-batch-2-v1.sh"
+    ],
+    "hit_count": 8
+  },
+  {
+    "path": "SOURCEA_CURSOR_RULES_AND_SKILLS_MAP_LOCKED_v2.md",
+    "size": "4.0K",
+    "first": "# SourceA \u2014 Cursor rules & skills map (LOCKED v2)",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/governance_reference_graph_v1.py",
+      "scripts/validate-integrity-batch-2-v1.sh",
+      "scripts/validate-narrative-bridge-v1.sh"
+    ],
+    "hit_count": 5
+  },
+  {
+    "path": "SOURCEA_DISK_TRUTH_E2E_MATRIX_LOCKED_v1.md",
+    "size": "8.0K",
+    "first": "# SourceA \u2014 Disk truth E2E matrix (LOCKED v1)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/validate-ecosystem-safety-v1.sh",
+      "scripts/validate-system-map-tree-v1.sh"
+    ],
+    "hit_count": 4
+  },
+  {
+    "path": "SOURCEA_E2E_DEBUGGER_PLAYBOOK_LOCKED_v1.md",
+    "size": " 12K",
+    "first": "# SourceA E2E Debugger Playbook (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/important_docs_index.py",
+      "scripts/validate-sourcea-e2e-playbook-locked-v1.sh",
+      "scripts/validate-sourcea-founder-pinned-locked-v1.sh",
+      "scripts/validate-sourcea-session-index-locked-v1.sh"
+    ],
+    "hit_count": 6
+  },
+  {
+    "path": "SOURCEA_ECOSYSTEM_MASTER_CATALOG_LOCKED_v1.md",
+    "size": " 12K",
+    "first": "# SourceA Ecosystem Master Catalog \u2014 Everything on One Page ",
+    "risk": "HIGH",
+    "hits": [
+      ".cursor/rules/lost-link-recovery-reward.mdc",
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data.json",
+      "scripts/agent_memory_mirror_v1.py",
+      "scripts/agent_rules_in_charge.py",
+      "scripts/ecosystem_master_catalog_v1.py",
+      "scripts/hub_essentials_index.py",
+      "scripts/important_docs_index.py"
+    ],
+    "hit_count": 9
+  },
+  {
+    "path": "SOURCEA_EXECUTOR_IN_CHARGE_NO_HANDOFF_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# Executor in charge \u2014 no handoff (LOCKED v1)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json"
+    ],
+    "hit_count": 2
+  },
+  {
+    "path": "SOURCEA_FAST_SYSTEM_LOAD_BUDGET_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# SourceA \u2014 Fast System Load Budget (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/governance_propagation_cascade_v1.py",
+      "scripts/validate-ecosystem-safety-h1-fast-v1.sh",
+      "scripts/validate-fast-system-load-v1.sh"
+    ],
+    "hit_count": 5
+  },
+  {
+    "path": "SOURCEA_FINAL_RESOLUTION_GAP_ANALYSIS_v1.md",
+    "size": "4.0K",
+    "first": "# Final Resolution \u2014 Gap Analysis (working v1)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json"
+    ],
+    "hit_count": 2
+  },
+  {
+    "path": "SOURCEA_FIVE_STEP_AUTONOMOUS_PROGRESS_BLUEPRINT_LOCKED_v1.md",
+    "size": " 12K",
+    "first": "# SourceA Five-Step Autonomous Progress Blueprint (LOCKED v1",
+    "risk": "HIGH",
+    "hits": [
+      ".cursor/rules/sina-governance-entry.mdc",
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data.json",
+      "scripts/agent_rules_in_charge.py",
+      "scripts/five_step_progress_machine_v1.py",
+      "scripts/hub_essentials_index.py",
+      "scripts/important_docs_index.py",
+      "scripts/validate-cross-doc-linkage-v1.sh",
+      "scripts/validate-five-step-progress-v1.sh",
+      "scripts/validate-integrity-batch-2-v1.sh"
+    ],
+    "hit_count": 11
+  },
+  {
+    "path": "SOURCEA_FOUNDER_DIRECTION_TERMINOLOGY_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# SourceA Founder Direction + Terminology (LOCKED v1)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data.json",
+      "scripts/founder_voice_sources_v1.py"
+    ],
+    "hit_count": 4
+  },
+  {
+    "path": "SOURCEA_FOUNDER_MACHINE_TERMINOLOGY_DICTIONARY_LOCKED_v1.md",
+    "size": " 20K",
+    "first": "# SourceA Founder \u2194 Machine Terminology Dictionary (LOCKED v",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data.json",
+      "scripts/brain_governance_wire_v1.py",
+      "scripts/founder_voice_sources_v1.py",
+      "scripts/governance_propagation_cascade_v1.py"
+    ],
+    "hit_count": 6
+  },
+  {
+    "path": "SOURCEA_FOUNDER_MESSAGE_NORMALIZATION_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# SourceA Founder Message Normalization (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data.json",
+      "scripts/agent_rules_in_charge.py",
+      "scripts/founder_voice_sources_v1.py",
+      "scripts/hub_essentials_index.py",
+      "scripts/live_founder_decision_form_v1.py",
+      "scripts/validate-live-founder-decision-form-v1.sh"
+    ],
+    "hit_count": 8
+  },
+  {
+    "path": "SOURCEA_FOUNDER_PINNED_ACTIONS_LOCKED_v1.md",
+    "size": "8.0K",
+    "first": "# SourceA Founder Pinned Actions (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-shell.json",
+      "agent-control-panel/command-data.json",
+      "scripts/validate-sourcea-founder-pinned-locked-v1.sh",
+      "scripts/validate-sourcea-layered-advisory-locked-v1.sh",
+      "scripts/validate-sourcea-session-index-locked-v1.sh"
+    ],
+    "hit_count": 6
+  },
+  {
+    "path": "SOURCEA_FROZEN_ARCHIVE_REVIVAL_AUDIT_LOCKED_v1.md",
+    "size": "8.0K",
+    "first": "# Frozen & Archive Corpus \u2014 Revival Audit (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      ".cursor/rules/lost-link-recovery-reward.mdc",
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data.json",
+      "scripts/hub_essentials_index.py"
+    ],
+    "hit_count": 5
+  },
+  {
+    "path": "SOURCEA_GOVERNANCE_CENTER_SELF_GOVERN_LOCKED_v1.md",
+    "size": "8.0K",
+    "first": "# SourceA \u2014 Governance Center & Self-Govern (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      ".cursor/rules/governance-specialist-in-charge.mdc",
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/governance_center_run_v1.py",
+      "scripts/validate-governance-center-v1.sh"
+    ],
+    "hit_count": 5
+  },
+  {
+    "path": "SOURCEA_GOVERNANCE_EVENT_SPINE_SCHEMA_LOCKED_v1.md",
+    "size": "8.0K",
+    "first": "# Governance Event Spine \u2014 schema & reference graph (LOCKED ",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data.json",
+      "scripts/agent_rules_in_charge.py",
+      "scripts/governance_reference_graph_v1.py",
+      "scripts/hub_essentials_index.py",
+      "scripts/validate-governance-event-spine-v1.sh",
+      "scripts/validate-governance-projection-g3-v1.sh",
+      "scripts/validate-governance-replay-v1.sh"
+    ],
+    "hit_count": 9
+  },
+  {
+    "path": "SOURCEA_GOV_META_AUDIT_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# Governance Meta-Audit \u2014 LOCKED v1",
+    "risk": "HIGH",
+    "hits": [
+      ".cursor/rules/governance-specialist-in-charge.mdc",
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/governance_center_run_v1.py",
+      "scripts/governance_meta_audit_v1.py",
+      "scripts/validate-governance-center-v1.sh",
+      "scripts/validate-governance-meta-audit-v1.sh",
+      "scripts/validate-museum-stale-copy-v1.sh",
+      "scripts/zone_c_quarantine_gate_v1.py"
+    ],
+    "hit_count": 9
+  },
+  {
+    "path": "SOURCEA_H2_MACHINE_HUB_PLAN_LOCKED_v1.md",
+    "size": " 12K",
+    "first": "# SourceA \u2014 H2 Machine Hub Plan (LOCKED v1.1)",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/generate-sourcea-1000-prompts.py",
+      "scripts/machine_hub_bundle_v1.py",
+      "scripts/validate-h2-enforce-shadow-maintainer-slice-v1.sh",
+      "scripts/validate-h2-legacy-quarantine-banner-bookmark-v1.sh",
+      "scripts/validate-h2-ops-blocker-row-contracts-v1.sh",
+      "scripts/validate-h2-scheduled-cadence-up-pending-total-v1.sh",
+      "scripts/validate-h2-weekly-ship-evidence-row-v1.sh",
+      "scripts/worker_asf_directive_latch_v1.py"
+    ],
+    "hit_count": 10
+  },
+  {
+    "path": "SOURCEA_ICP_MARKET_IDENTITY_LOCKED_v1.md",
+    "size": " 24K",
+    "first": "# SOURCEA_ICP_MARKET_IDENTITY_LOCKED_v1.md",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/validate-noetfield-onepager-merge-v1.sh"
+    ],
+    "hit_count": 3
+  },
+  {
+    "path": "SOURCEA_INCIDENT_FIX_OWNERSHIP_GOVERNANCE_HARDENING_LOCKED_v1.md",
+    "size": " 12K",
+    "first": "# SourceA \u2014 Incident Fix Ownership & Governance Hardening (L",
+    "risk": "HIGH",
+    "hits": [
+      ".cursor/rules/incident-fix-ownership.mdc",
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/governance_propagation_cascade_v1.py",
+      "scripts/governance_stairlift_sync_v1.py",
+      "scripts/incident_fix_ownership_lib_v1.py",
+      "scripts/validate-incident-fix-ownership-v1.sh"
+    ],
+    "hit_count": 7
+  },
+  {
+    "path": "SOURCEA_INCIDENT_FIX_OWNERSHIP_REPORT_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# INCIDENT fix ownership \u2014 report pointer",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json"
+    ],
+    "hit_count": 2
+  },
+  {
+    "path": "SOURCEA_INTEGRATION_LEVERAGE_STRATEGY_LOCKED_v1.md",
+    "size": " 12K",
+    "first": "# SourceA Integration & Partnership Leverage Strategy (LOCKE",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "data/integration-leverage-registry-v1.json",
+      "data/mcp-stack-free-tier-v1.json"
+    ],
+    "hit_count": 4
+  },
+  {
+    "path": "SOURCEA_INTEGRITY_STACK_UNIFIED_BLUEPRINT_BATCH_2_LOCKED_v1.md",
+    "size": " 32K",
+    "first": "# SourceA Integrity Stack \u2014 Unified Blueprint Batch 2 (LOCKE",
+    "risk": "HIGH",
+    "hits": [
+      ".cursor/rules/sina-governance-entry.mdc",
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data.json",
+      "scripts/agent_rules_in_charge.py",
+      "scripts/hub_essentials_index.py",
+      "scripts/important_docs_index.py",
+      "scripts/validate-cross-doc-linkage-v1.sh",
+      "scripts/validate-integrity-batch-2-v1.sh"
+    ],
+    "hit_count": 9
+  },
+  {
+    "path": "SOURCEA_INVARIANT_GATEKEEPER_REPORT_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# Invariant Gatekeeper \u2014 root pointer (LOCKED)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json"
+    ],
+    "hit_count": 2
+  },
+  {
+    "path": "SOURCEA_LAYERED_ADVISORY_DISK_DELTA_2026-06-12_v1.md",
+    "size": "8.0K",
+    "first": "# Layered Advisory \u2014 Disk Delta (2026-06-12)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json"
+    ],
+    "hit_count": 2
+  },
+  {
+    "path": "SOURCEA_LAYERED_ADVISORY_DRAFT_v1.md",
+    "size": " 12K",
+    "first": "# SourceA Layered Advisory \u2014 Draft v1 (LOCKED)",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/validate-sourcea-founder-pinned-locked-v1.sh",
+      "scripts/validate-sourcea-layered-advisory-locked-v1.sh",
+      "scripts/validate-sourcea-session-index-locked-v1.sh"
+    ],
+    "hit_count": 5
+  },
+  {
+    "path": "SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md",
+    "size": " 24K",
+    "first": "# SourceA Live Founder Decision Form (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      ".cursor/rules/form-automatic-submit-only.mdc",
+      ".cursor/rules/form-official-h2-pending.mdc",
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data.json",
+      "data/form_official_nerve_map_v1.json",
+      "data/sourcea_agentic_unified_bundle_v1.json",
+      "data/ui-upgrade-surface-registry-v1.json",
+      "scripts/agent_rules_in_charge.py",
+      "scripts/brain_form_gather_unify_plan_v1.py",
+      "scripts/canvas_form_apply_picks_v1.py",
+      "scripts/ecosystem_master_catalog_v1.py",
+      "scripts/form_founder_supremacy_guard_v1.py",
+      "scripts/form_incident_029_revert_v1.py",
+      "scripts/form_official_gather_extraction_v1.py",
+      "scripts/founder_pick_apply_v1.py",
+      "scripts/hub_essentials_index.py",
+      "scripts/hub_form_submit_v1.py",
+      "scripts/live_founder_decision_form_v1.py",
+      "scripts/validate-integration-fabric-registry-v1.py",
+      "scripts/validate-live-founder-decision-form-v1.sh",
+      "scripts/validate-no-fake-progress-form-v1.sh"
+    ],
+    "hit_count": 22
+  },
+  {
+    "path": "SOURCEA_LIVE_GOVERNANCE_BIG_PICTURE_LOCKED_v1.md",
+    "size": " 12K",
+    "first": "# SourceA Live Governance \u2014 Big Picture (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data.json",
+      "scripts/agent_rules_in_charge.py",
+      "scripts/governance_propagation_cascade_v1.py",
+      "scripts/hub_essentials_index.py",
+      "scripts/important_docs_index.py",
+      "scripts/validate-governance-propagation-live-v1.sh"
+    ],
+    "hit_count": 8
+  },
+  {
+    "path": "SOURCEA_LIVE_ONGOING_PROMPTS_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# Live ongoing prompts \u2014 machine order + Next steps mirror (",
+    "risk": "HIGH",
+    "hits": [
+      ".cursor/rules/prompt-queue.mdc",
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data-shell.json",
+      "agent-control-panel/command-data.json",
+      "scripts/agent_memory_mirror_v1.py",
+      "scripts/brain_governance_wire_v1.py",
+      "scripts/consolidate_incidents_folder_v1.py",
+      "scripts/disk_live_wire_sync_v1.py",
+      "scripts/live_ongoing_prompts_v1.py",
+      "scripts/live_prompt_lane_audit_v1.py",
+      "scripts/prompt_direction.py",
+      "scripts/run_inbox_disk_truth_v1.py",
+      "scripts/sync_founder_missed_actions_v1.py",
+      "scripts/validate-next-prompt-pack-live-v1.py"
+    ],
+    "hit_count": 15
+  },
+  {
+    "path": "SOURCEA_LOST_LINK_RECOVERY_ETHICS_LOCKED_v1.md",
+    "size": "8.0K",
+    "first": "# Lost Link Recovery Ethics \u2014 Practical + Philosophical (LOC",
+    "risk": "HIGH",
+    "hits": [
+      ".cursor/rules/agent-founder-intent-first.mdc",
+      ".cursor/rules/lost-link-recovery-reward.mdc",
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data.json",
+      "data/agent-behavior-settings-v1.json",
+      "scripts/agent_rules_in_charge.py",
+      "scripts/ecosystem_master_catalog_v1.py",
+      "scripts/hub_essentials_index.py",
+      "scripts/important_docs_index.py"
+    ],
+    "hit_count": 10
+  },
+  {
+    "path": "SOURCEA_MACHINE_TEST_AND_UPGRADE_LADDER_LOCKED_v1.md",
+    "size": " 16K",
+    "first": "# SourceA \u2014 Machine test & upgrade ladder (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/founder_prompt_pack_build_v1.py",
+      "scripts/machine_test_ladder_run_v1.py",
+      "scripts/machine_three_pipelines_lib_v1.py",
+      "scripts/validate-machine-test-ladder-v1.sh"
+    ],
+    "hit_count": 6
+  },
+  {
+    "path": "SOURCEA_MARKET_RECEIPT_ARCHITECTURE_LOCKED_v1.md",
+    "size": "8.0K",
+    "first": "# Architecture the Market Pays For \u2014 Receipt-Native Agent Go",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/validate-sourcea-market-receipt-arch-locked-v1.sh"
+    ],
+    "hit_count": 3
+  },
+  {
+    "path": "SOURCEA_MASTER_SESSION_MANIFEST_LOCKED_v1.md",
+    "size": " 12K",
+    "first": "# Master Session Manifest \u2014 Full Thread & Subject Catalog (L",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/validate-sourcea-session-index-locked-v1.sh"
+    ],
+    "hit_count": 3
+  },
+  {
+    "path": "SOURCEA_MONITOR_DISK_LIVE_WIRE_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# Monitor disk live wire (LOCKED v1)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/validate-system-map-tree-v1.sh"
+    ],
+    "hit_count": 3
+  },
+  {
+    "path": "SOURCEA_OPENROUTER_ACTIVATION_QUEUE_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# SourceA \u2014 OpenRouter Activation Queue (LOCKED v1)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/brain_governance_wire_v1.py",
+      "scripts/governance_n8n_openrouter_wire_v1.py"
+    ],
+    "hit_count": 4
+  },
+  {
+    "path": "SOURCEA_ORCHESTRATOR_PARTNER_INTEGRATION_LOCKED_v1.md",
+    "size": " 12K",
+    "first": "# SourceA Orchestrator Partner Integration \u2014 LOCKED v1",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json"
+    ],
+    "hit_count": 2
+  },
+  {
+    "path": "SOURCEA_PHASE2_INTEGRITY_PICK_RECEIPT_2026-06-11_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# Phase 2 Integrity Pick Receipt \u2014 2026-06-11 (LOCKED)",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data-shell.json",
+      "agent-control-panel/command-data.json",
+      "scripts/founder_request_tracker.py"
+    ],
+    "hit_count": 5
+  },
+  {
+    "path": "SOURCEA_PHASE_PACK_PINNED_SUMMARY_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# Phase pack reorg \u2014 pinned very short summary (LOCKED v1)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json"
+    ],
+    "hit_count": 2
+  },
+  {
+    "path": "SOURCEA_PHASE_STRICT_RUN_INBOX_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# Phase-strict run inbox routing (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/brain_governance_wire_v1.py",
+      "scripts/build_phase_strict_queue_v1.py",
+      "scripts/healthy_queue_ssot_lib.py",
+      "scripts/monitor_honesty_lib_v1.py",
+      "scripts/phase_strict_pack_advance_v1.py"
+    ],
+    "hit_count": 7
+  },
+  {
+    "path": "SOURCEA_REFERENCE_ARCHITECTURE_CONSTELLATION_LOCKED_v1.md",
+    "size": " 24K",
+    "first": "# SourceA Reference Architecture Constellation (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data.json",
+      "data/form-official-gather-session-architect-v1.json",
+      "scripts/hub_essentials_index.py",
+      "scripts/important_docs_index.py",
+      "scripts/update-program-progress.py",
+      "scripts/validate-founder-hub-only-moat-v1.sh",
+      "scripts/validate-gtm-moat-governance-scoreboard-t1-crossref-v1.sh",
+      "scripts/validate-gtm-moat-governance-scoreboard-t2-crossref-v1.sh",
+      "scripts/validate-gtm-moat-governance-scoreboard-t3-crossref-v1.sh",
+      "scripts/validate-gtm-moat-governance-scoreboard-v1.sh"
+    ],
+    "hit_count": 12
+  },
+  {
+    "path": "SOURCEA_RESULT_DRIVEN_DISCUSSION_POLICY_LOCKED_v1.md",
+    "size": " 12K",
+    "first": "# SourceA Result-Driven Discussion Policy (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      ".cursor/rules/no-fake-progress.mdc",
+      ".cursor/rules/sina-governance-entry.mdc",
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data.json",
+      "scripts/agent_rules_in_charge.py",
+      "scripts/governance_stairlift_sync_v1.py",
+      "scripts/hub_essentials_index.py",
+      "scripts/important_docs_index.py",
+      "scripts/validate-cross-doc-linkage-v1.sh",
+      "scripts/validate-sourcea-founder-pinned-locked-v1.sh",
+      "scripts/validate-sourcea-session-index-locked-v1.sh"
+    ],
+    "hit_count": 12
+  },
+  {
+    "path": "SOURCEA_S10_ETERNAL_SELF_HEAL_AUDIT_LOCKED_v1.md",
+    "size": "8.0K",
+    "first": "# S10 \u2014 Eternal self-heal \u00b7 disk-truth audit \u00b7 100-prompt lo",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data-shell.json",
+      "agent-control-panel/command-data.json",
+      "scripts/founder_advisor_discussion_v1.py",
+      "scripts/s10_eternal_audit_loop_v1.py",
+      "scripts/validate-s10-eternal-loop-v1.sh"
+    ],
+    "hit_count": 7
+  },
+  {
+    "path": "SOURCEA_SESSION_20260609_COMPLETE_INDEX_LOCKED_v1.md",
+    "size": "8.0K",
+    "first": "# SourceA Session 2026-06-09 \u2014 Complete Index (LOCKED v1)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/validate-sourcea-founder-pinned-locked-v1.sh",
+      "scripts/validate-sourcea-session-index-locked-v1.sh"
+    ],
+    "hit_count": 4
+  },
+  {
+    "path": "SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md",
+    "size": "8.0K",
+    "first": "# SourceA \u2014 Two-Hub Model + Super Fast Hub (LOCKED v1.2)",
+    "risk": "HIGH",
+    "hits": [
+      ".cursor/rules/000-brain-unified.mdc",
+      ".cursor/rules/form-official-h2-pending.mdc",
+      ".cursor/rules/governance-specialist-in-charge.mdc",
+      ".cursor/rules/no-hub-rebuild-stuck.mdc",
+      ".cursor/rules/prompt-queue.mdc",
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "agent-control-panel/worker-hub/boot.json",
+      "data/sourcea_agentic_unified_bundle_v1.json",
+      "scripts/agent_three_pipelines_lib_v1.py",
+      "scripts/brain_governance_wire_v1.py",
+      "scripts/governance_stairlift_sync_v1.py",
+      "scripts/h2_pending_registry_sync_v1.py",
+      "scripts/machine_hub_v1.py",
+      "scripts/machine_three_pipelines_lib_v1.py",
+      "scripts/validate-ecosystem-safety-h1-fast-v1.sh",
+      "scripts/validate-h2-light-refresh-no-panel-build-t1-crossref-v1.sh",
+      "scripts/validate-h2-light-refresh-no-panel-build-t2-crossref-v1.sh",
+      "scripts/validate-h2-light-refresh-no-panel-build-t3-crossref-v1.sh",
+      "scripts/validate-h2-light-refresh-no-panel-build-v1.sh",
+      "scripts/validate-thread-room-second-hop-v1.sh",
+      "scripts/worker_hub_v1.py"
+    ],
+    "hit_count": 22
+  },
+  {
+    "path": "SOURCEA_SYSTEM_INTEGRITY_100_STEP_PLAYBOOK_LOCKED_v1.md",
+    "size": " 16K",
+    "first": "# SourceA System Integrity \u2014 100-Step Playbook (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data.json",
+      "scripts/agent_rules_in_charge.py",
+      "scripts/complex_situation_fork_machine_v1.py",
+      "scripts/hub_essentials_index.py",
+      "scripts/important_docs_index.py",
+      "scripts/sina_command_lib.py",
+      "scripts/validate-cross-doc-linkage-v1.sh",
+      "scripts/validate-integrity-batch-2-v1.sh"
+    ],
+    "hit_count": 10
+  },
+  {
+    "path": "SOURCEA_SYSTEM_INTEGRITY_SESSION_LOG_v1.md",
+    "size": " 12K",
+    "first": "# System Integrity Session Log \u2014 2026-06-11",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data-shell.json",
+      "agent-control-panel/command-data.json",
+      "scripts/governance_completion_backlog_audit.py"
+    ],
+    "hit_count": 5
+  },
+  {
+    "path": "SOURCEA_SYSTEM_MAP_TREE_LOCKED_v1.md",
+    "size": " 16K",
+    "first": "# SourceA \u2014 System Map Tree (LOCKED v1)",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/validate-system-map-tree-v1.sh"
+    ],
+    "hit_count": 3
+  },
+  {
+    "path": "SOURCEA_THREE_ZONE_HUB_SPINE_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# SourceA \u2014 Three-Zone Hub Spine (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      ".cursor/rules/governance-specialist-in-charge.mdc",
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/agent_truth_bundle_v1.py",
+      "scripts/honest_p0_screen_v1.py",
+      "scripts/validate-museum-quarantine-v1.sh",
+      "scripts/validate-museum-stale-copy-v1.sh",
+      "scripts/validate-three-zone-h2-sibling-v1.sh",
+      "scripts/validate-three-zone-hub-spine-t1-crossref-v1.sh",
+      "scripts/validate-three-zone-hub-spine-t2-crossref-v1.sh",
+      "scripts/validate-three-zone-hub-spine-t3-crossref-v1.sh",
+      "scripts/validate-three-zone-hub-spine-v1.sh",
+      "scripts/zone_c_quarantine_gate_v1.py"
+    ],
+    "hit_count": 13
+  },
+  {
+    "path": "SOURCEA_TODAY_SESSION_UNIFIED_CLOSEOUT_RECEIPT_2026-06-11_LOCKED_v1.md",
+    "size": " 12K",
+    "first": "# Today Session \u2014 Unified Closeout Receipt (LOCKED v1)",
+    "risk": "HIGH",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json",
+      "agent-control-panel/command-data.json",
+      "scripts/agent_rules_in_charge.py",
+      "scripts/ecosystem_master_catalog_v1.py",
+      "scripts/hub_essentials_index.py",
+      "scripts/important_docs_index.py",
+      "scripts/validate-integrity-batch-2-v1.sh"
+    ],
+    "hit_count": 8
+  },
+  {
+    "path": "SOURCEA_WORKER_E2E_POSTMORTEM_LOCKED_v1.md",
+    "size": " 12K",
+    "first": "# Worker E2E Post-Mortem \u2014 Verdict, Permanent Fix, Agent Pla",
+    "risk": "MEDIUM",
+    "hits": [
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data.json",
+      "scripts/validate-sourcea-session-index-locked-v1.sh"
+    ],
+    "hit_count": 3
+  }
+]

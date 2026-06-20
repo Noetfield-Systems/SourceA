@@ -12,8 +12,10 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
+from governance_paths_v1 import FIVE_STEP_BLUEPRINT
+
 SINA = Path.home() / ".sina"
-LAW = ROOT / "SOURCEA_FIVE_STEP_AUTONOMOUS_PROGRESS_BLUEPRINT_LOCKED_v1.md"
+LAW = FIVE_STEP_BLUEPRINT
 RECEIPT = SINA / "five-step-progress-receipt-v1.json"
 
 

@@ -10,7 +10,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-from governance_paths_v1 import AUTHORITY_INDEX, GOVERNANCE_ENTRY, SINA_OS_SSOT
+from governance_paths_v1 import (
+    AUTHORITY_INDEX,
+    FOUNDER_TERMINOLOGY,
+    GOVERNANCE_ENTRY,
+    INCIDENT_FIX_OWNERSHIP,
+    SINA_OS_SSOT,
+)
 
 SCRIPTS = ROOT / "scripts"
 SINA = Path.home() / ".sina"
@@ -20,8 +26,8 @@ G0_G1_PATHS = (
     SINA_OS_SSOT,
     AUTHORITY_INDEX,
     GOVERNANCE_ENTRY,
-    ROOT / "SOURCEA_INCIDENT_FIX_OWNERSHIP_GOVERNANCE_HARDENING_LOCKED_v1.md",
-    ROOT / "SOURCEA_FOUNDER_MACHINE_TERMINOLOGY_DICTIONARY_LOCKED_v1.md",
+    INCIDENT_FIX_OWNERSHIP,
+    FOUNDER_TERMINOLOGY,
     ROOT / "PROGRAM_PROGRESS.json",
 )
 

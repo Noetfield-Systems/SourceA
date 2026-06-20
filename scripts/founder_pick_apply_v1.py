@@ -10,7 +10,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-FORM_MD = ROOT / "SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md"
+from governance_paths_v1 import LIVE_FOUNDER_FORM
+
+FORM_MD = LIVE_FOUNDER_FORM
 APPLIED_PATH = Path.home() / ".sina/canvas-form-picks-applied-v1.json"
 LOG_PATH = Path.home() / ".sina/founder-picks-applied-v1.jsonl"
 
