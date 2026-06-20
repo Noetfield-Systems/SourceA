@@ -31,7 +31,9 @@ python3 scripts/build_sourcea_vercel_output_v1.py
 
 `SourceA-landing/green-unified/vercel.json` runs this on Vercel → output `dist/`.
 
-**Vercel settings for source-a:** Root Directory = `SourceA-landing/green-unified`
+**Vercel settings for source-a:** Root Directory = `SourceA-landing/green-unified` · Framework = **Other** · Build Command = **empty** · Output = **`dist`** (committed to Git — no Python build on cloud)
+
+**Vercel settings for deploy-witnessbc-agents-governance:** Root Directory = `witnessbc-site` · Framework = **Other** · Build Command = **empty**
 
 ## Cloudflare (unchanged — separate logins)
 
