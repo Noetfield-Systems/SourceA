@@ -28,6 +28,33 @@ PEAK_DECAY_SEC = 120.0
 DEFAULT_COOLDOWN_SEC = 90
 
 
+def _stale_shell_hints(ghost_count: int) -> list[str]:
+    """Read-only hints for hung background shells (never kill Hub/Heart)."""
+    if ghost_count < 1:
+        return []
+    hints: list[str] = []
+    try:
+        proc = subprocess.run(
+            ["ps", "-axo", "pid,command"],
+            capture_output=True,
+            text=True,
+            timeout=8,
+        )
+        for line in (proc.stdout or "").splitlines()[1:]:
+            low = line.lower()
+            if "railway login" in low or ("railway" in low and "browserless" in low):
+                hints.append("Stale Railway login shell — safe to dismiss in Cursor")
+            elif "head -5" in low and "railway" in low:
+                hints.append("Hung terminal pipe from deploy setup — not active work")
+            if len(hints) >= 3:
+                break
+    except Exception:
+        pass
+    if ghost_count >= 2 and not hints:
+        hints.append(f"{ghost_count} ghost terminals — open More → Cool down if Mac feels stuck")
+    return hints
+
+
 def _now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -233,6 +260,13 @@ def analyze_prevention(mp: dict[str, Any] | None = None) -> dict[str, Any]:
     load_act = load_per_core >= float(thr.get("load_per_core_act") or 0.65)
     cursor_hot = cursor["cpu_sum"] >= float(thr.get("cursor_cpu_sum_warn") or 60)
     cursor_ram = cursor["rss_mb"] >= float(thr.get("cursor_rss_mb_warn") or 4500)
+    rss_mb = float(cursor["rss_mb"])
+    if rss_mb >= 6144:
+        cursor_ram_tier = "high"
+    elif rss_mb >= 4096:
+        cursor_ram_tier = "watch"
+    else:
+        cursor_ram_tier = "ok"
     renderer_peak = float(cursor.get("renderer_peak") or 0)
     # Cursor busy (60–200% CPU) is NORMAL while founder works in agent chats — not an emergency.
     cursor_emergency = renderer_peak >= 180 or cursor["cpu_sum"] >= 250 or (
@@ -374,9 +408,11 @@ def analyze_prevention(mp: dict[str, Any] | None = None) -> dict[str, Any]:
         "cpu_pct": cpu_pct,
         "ram_pct": ram_pct,
         "cursor": cursor,
+        "cursor_ram_tier": cursor_ram_tier,
         "playwright": playwright,
         "queue_zombies": qz,
         "ghost_terminals": ghosts,
+        "stale_shell_hints": _stale_shell_hints(ghosts),
         "factory_frozen": FREEZE_FLAG.is_file(),
         "founder_line": founder_action,
         "next_tap_action": tap_action,

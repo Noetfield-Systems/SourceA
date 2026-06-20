@@ -28,4 +28,15 @@ ids = [r.get("id") for r in (h2.get("maintainer_ship") or []) if str(r.get("id",
 assert ids, "H2 maintainer_ship missing RULE-WIRE-* entries"
 PY
 
+python3 - <<'PY' || fail "surfaces rule_wire_line"
+import json
+from pathlib import Path
+sina = Path.home() / ".sina"
+surfaces = json.loads((sina / "agent-live-surfaces-v1.json").read_text())
+assert surfaces.get("rule_wire_line"), "missing rule_wire_line on surfaces"
+print("rule_wire_line ok")
+PY
+
+bash scripts/validate-rule-zero-latency-hook-v1.sh
+
 echo "PASS: validate-agent-rule-live-wire-v1"

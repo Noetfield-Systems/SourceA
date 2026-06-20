@@ -1,7 +1,7 @@
 {
   "schema": "machine-execution-plane-registry-v1",
   "version": "1.1.0",
-  "saved_at": "2026-06-20T06:12:58Z",
+  "saved_at": "2026-06-20T23:22:40Z",
   "ssot": "data/founder-execution-model-v1.json",
   "one_law": "Factories ONLINE on cloud + public API only \u2014 Mac = control panel never factory body \u00b7 anti-staleness \u00b7 zero drift \u00b7 zero fragmentation",
   "factory_priority_law": "Main cloud factories must be ONLINE (public HTTPS / cloud API / cloud receipt) \u2014 Mac never counts as factory \u00b7 email DEFERRED until main stack + product sites online",

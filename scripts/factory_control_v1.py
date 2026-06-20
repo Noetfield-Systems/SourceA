@@ -23,8 +23,8 @@ MODE_PATH = SINA / "factory-mode-v1.json"
 NOW_PATH = SINA / "factory-now-v1.json"
 POISON_STALL = SINA / "poison-stall-v1.json"
 
-DRAIN_MODES = frozenset({"SINGLE_SA"})
-VALID_MODES = frozenset({"FREEZE", "AUDIT", "SINGLE_SA", "SHIP_MAINTAINER"})
+DRAIN_MODES = frozenset({"SINGLE_SA", "FORGE_FACTORY"})
+VALID_MODES = frozenset({"FREEZE", "AUDIT", "SINGLE_SA", "SHIP_MAINTAINER", "FORGE_FACTORY"})
 
 _STOP_PATTERNS = (r"\bstop\b", r"\bhalt\b", r"stop all", r"why stuck", r"\binterrupt\b", r"freeze")
 _RESUME_PATTERNS = (r"ASF:\s*resume drain", r"resume healthy drain", r"resume drain")
@@ -224,6 +224,13 @@ def write_resume_token(
 
 def format_line(row: dict | None = None) -> str:
     r = row or load_factory_now()
+    era = _load_factory_era()
+    if era.get("current_era") == "forge_factory_cycle2":
+        return (
+            f"factory-now · FORGE FACTORY · cycle2 · "
+            f"mode {r.get('mode', '?')} · "
+            f"queue {r.get('queue_sa', '?')}"
+        )
     return (
         f"factory-now · Valid YES {r.get('valid_yes', '?')} · "
         f"brain {r.get('brain_vy', '?')} · "
@@ -231,6 +238,14 @@ def format_line(row: dict | None = None) -> str:
         f"mode {r.get('mode', '?')} · "
         f"queue {r.get('queue_sa', '?')}"
     )
+
+
+def _load_factory_era() -> dict:
+    for path in (SINA / "factory-era-v1.json", ROOT / "data" / "factory-era-v1.json"):
+        row = _read_json(path)
+        if row.get("schema") == "factory-era-v1":
+            return row
+    return {}
 
 
 def load_factory_now(*, max_age_sec: float = _NOW_TTL_SEC) -> dict:
@@ -311,7 +326,10 @@ def rebuild_factory_now(*, caller: str = "rebuild", force: bool = False) -> dict
     row = {
         "schema": "factory-now-v1",
         "at": _now(),
+        "era": (_load_factory_era().get("current_era") or ""),
+        "brand": (_load_factory_era().get("current_brand") or ""),
         "valid_yes": valid_yes,
+        "valid_yes_note": "archived_goal1_bootstrap" if _load_factory_era().get("current_era") == "forge_factory_cycle2" else "",
         "backlog": max(0, 1000 - valid_yes),
         "brain_vy": brain_vy,
         "dual_proof_ok": dual_proof_ok,

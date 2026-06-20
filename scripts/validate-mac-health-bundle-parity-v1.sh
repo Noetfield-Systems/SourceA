@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
-# validate-mac-health-bundle-parity-v1.sh — SSOT vs bundle parity (RF-MHG-001)
+# validate-mac-health-bundle-parity-v1.sh — SSOT vs bundle parity (RF-MHG-001) · medium · CI/ship window
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT"
+# shellcheck source=_founder_session_gate_entry_v1.sh
+source "$ROOT/scripts/_founder_session_gate_entry_v1.sh"
+_founder_session_gate_or_exit "$(basename "$0")" "$ROOT"
 SSOT="$ROOT/scripts/mac-health-standalone"
 fail=0
 

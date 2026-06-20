@@ -1,9 +1,9 @@
 {
   "schema": "agent-law-poison-registry-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-20T20:30:00Z",
+  "saved_at": "2026-06-20T22:43:46Z",
   "locked": true,
-  "incidents": ["INCIDENT-034", "INCIDENT-039", "INCIDENT-040"],
+  "incidents": ["INCIDENT-034", "INCIDENT-039", "INCIDENT-040", "INCIDENT-041"],
   "one_law": "Agent-facing law injects positive read paths — never orders bash validate marathons before founder chat.",
   "positive_replacement": {
     "before_reply": "Read ~/.sina/*-receipt*.json · plain English · reply <30s · STOP",
@@ -20,7 +20,9 @@
     {"id": "P06", "match": "Every session + every turn", "incident": "039", "fix": "session start only — read receipt mid-turn"},
     {"id": "P07", "match": "every Brain reply", "incident": "039", "fix": "once per chat or after summarization — read receipt"},
     {"id": "P08", "match": "sync mirror → reply", "incident": "034", "fix": "read mirror JSON — no bash validate before reply"},
-    {"id": "P09", "match": "validators must PASS", "incident": "034", "fix": "scope UI edit or ship window only"}
+    {"id": "P09", "match": "validators must PASS", "incident": "034", "fix": "scope UI edit or ship window only"},
+    {"id": "P10", "match": "persistent background process", "incident": "041", "fix": "never hold open agent terminal for Hub/server"},
+    {"id": "P11", "match": "block_until_ms: 0.*sina-command-server", "incident": "041", "fix": "one-shot serve-sina-command.sh only — script exits"}
   ],
   "scan_roots": [
     ".cursor/rules",

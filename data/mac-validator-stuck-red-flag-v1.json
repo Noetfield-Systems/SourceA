@@ -1,12 +1,13 @@
 {
   "schema": "mac-validator-stuck-red-flag-v1",
-  "version": "1.1.0",
-  "saved_at": "2026-06-20T19:35:00Z",
+  "version": "1.2.0",
+  "saved_at": "2026-06-20T20:18:00Z",
   "locked": true,
   "incident_id": "INCIDENT-039",
   "severity": "P0",
-  "red_flag": true,
-  "red_flag_active": true,
+  "red_flag": false,
+  "red_flag_active": false,
+  "status": "CLOSED",
   "authority": "ASF — Mac founder session",
   "one_law": "Mac founder session: NEVER stuck in validators. Reply <30s then STOP. One light check <=90s. No chains. 11+ min = P0 harm.",
   "incident_body": "brain-os/incidents/SINA_MAC_FOUNDER_SESSION_VALIDATOR_STUCK_INCIDENT_039_LOCKED_v1.md",
@@ -80,5 +81,17 @@
     "on_stuck": ["stop_shell", "reply_plain_english", "cite_receipt_path", "do_not_resume_chain"],
     "on_red_flag": ["file_incident_039", "no_more_validators_this_turn"]
   },
-  "inject_line": "INCIDENT-039 RED FLAG ACTIVE: never stuck in validators on Mac — reply <30s · one light check <=90s · proof=receipts only · 28min recurrence logged"
+  "inject_line": "INCIDENT-039 CLOSED v1.2: never stuck in validators on Mac — reply <30s · proof=receipts · inbox inject Mac proof only",
+  "closeout_v1_2": {
+    "closed_at": "2026-06-20T20:18:00Z",
+    "batch": "Batch D tail poison cleanup",
+    "criteria_pass": [
+      "worker_inject_lib_template_fixed",
+      "099_no_run_validators",
+      "pick_commands_hub_first",
+      "mirror_validate_ok",
+      "incident_040_already_closed"
+    ],
+    "note": "Tail poison removed from write_active_inbox_rule and pick_commands; conduct law preserved in 034 rule."
+  }
 }

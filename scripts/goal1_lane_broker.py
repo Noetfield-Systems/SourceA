@@ -259,21 +259,21 @@ def _resolve_expected_sa(
 ) -> dict:
     """Bind sa_focus to INBOX meta sa_id — prompt header wins over drifted meta."""
     sys.path.insert(0, str(SCRIPTS))
-    from worker_inject_lib import heal_inbox_meta, load_turn_bind, parse_prompt_bind_sa  # noqa: WPS433
+    from worker_inject_lib import heal_inbox_meta, load_turn_bind, normalize_sa_id, parse_prompt_bind_sa  # noqa: WPS433
 
     prompt = _inbox_prompt_text()
     prompt_sa = parse_prompt_bind_sa(prompt)
     healed = heal_inbox_meta(inbox_pre.get("meta") or {}, prompt)
-    meta_sa = str(healed.get("sa_id") or inbox_pre.get("sa_id") or "")
+    meta_sa = normalize_sa_id(str(healed.get("sa_id") or inbox_pre.get("sa_id") or ""))
     bind_sa = str((load_turn_bind() or {}).get("sa_id") or "")
 
     expected = ""
     bind_source = "none"
     if bind_sa:
-        expected = bind_sa
+        expected = normalize_sa_id(bind_sa)
         bind_source = "turn_bind"
     elif prompt_sa:
-        expected = prompt_sa
+        expected = normalize_sa_id(prompt_sa)
         bind_source = "prompt_header"
     elif meta_sa:
         expected = meta_sa
@@ -299,9 +299,9 @@ def _resolve_expected_sa(
 
     match = (
         not expected
-        or report_sa == expected
-        or (prompt_sa and report_sa == prompt_sa)
-        or (bind_sa and report_sa == bind_sa)
+        or report_sa.lower() == expected.lower()
+        or (prompt_sa and report_sa.lower() == normalize_sa_id(prompt_sa).lower())
+        or (bind_sa and report_sa.lower() == normalize_sa_id(bind_sa).lower())
     )
     return {
         "expected_sa": expected,

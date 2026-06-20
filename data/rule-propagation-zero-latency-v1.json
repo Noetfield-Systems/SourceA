@@ -1,0 +1,46 @@
+{
+  "schema": "rule-propagation-zero-latency-v1",
+  "version": "1.2.0",
+  "saved_at": "2026-06-20T23:08:00Z",
+  "authority": "ASF",
+  "one_law": "Every new rule or SSOT change fans out through nerves → gates → surfaces → truth bundle in one chain — zero-latency real-time governance.",
+  "script": "scripts/rule_propagation_fanout_v1.py",
+  "hook_script": "scripts/rule_zero_latency_hook_v1.py",
+  "receipt": "~/.sina/rule-propagation-fanout-receipt-v1.json",
+  "hook_receipt": "~/.sina/rule-zero-latency-hook-receipt-v1.json",
+  "surfaces_line": "rule_wire_line",
+  "tiers": {
+    "fast": {
+      "when": "pre_write_guard on rule paths · Mac founder session · post-write new .mdc",
+      "skips": ["full disk_live_wire_sync_v1.py"],
+      "uses": ["queue_ssot_unify --fast", "truth_bundle surfaces patch", "factory_now rebuild"]
+    },
+    "full": {
+      "when": "governance_zero_drift tier full · maintainer · cloud CI",
+      "uses": ["disk_live_wire_sync_v1.py with fallback", "full truth bundle"]
+    }
+  },
+  "trigger_hooks": [
+    "pre_write_guard_v1.py — auto on allowed rule/governance paths",
+    "agent_rule_live_wire_v1.py --on-new-rule",
+    "pre_write_guard_v1.py post-write — after new .mdc created",
+    "governance_zero_drift_live_wire_v1.py",
+    "anti_staleness_auto_wire_v1.py",
+    "agent_session_gate_run_v1.py",
+    "forge_factory_era_transition_v1.py"
+  ],
+  "registry_row": "agent-rule-live-wire-registry-v1.json#rule_propagation_zero_latency",
+  "fanout_chain": [
+    { "order": 1, "id": "ssot_read", "targets": ["data/factory-era-v1.json", "data/forge-factory-unified-brand-v1.json", "data/supabase-portfolio-tiers-v1.json", "data/goal-registry-v1.json"] },
+    { "order": 2, "id": "anti_staleness", "script": "anti_staleness_auto_wire_v1.py", "tier": "session" },
+    { "order": 3, "id": "queue_unify", "script": "queue_ssot_unify_v1.py", "fast_flag": "--fast" },
+    { "order": 4, "id": "factory_now", "script": "factory_control_v1.py", "action": "rebuild_factory_now" },
+    { "order": 5, "id": "disk_live_wire", "script": "disk_live_wire_sync_v1.py", "fast_skip": true },
+    { "order": 6, "id": "active_now", "script": "active_now_sync_from_factory_now_v1.py" },
+    { "order": 7, "id": "truth_bundle", "script": "agent_truth_bundle_v1.py" },
+    { "order": 8, "id": "surfaces", "path": "~/.sina/agent-live-surfaces-v1.json", "line": "rule_wire_line" },
+    { "order": 9, "id": "nerve_patch", "script": "agent_nerve_system_v1.py", "action": "patch_surfaces_from_receipt" }
+  ],
+  "auto_heal_on_drift": true,
+  "disable_env": "SINA_RULE_ZERO_LATENCY_HOOK=0"
+}

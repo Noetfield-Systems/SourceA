@@ -106,6 +106,13 @@ def hub_slice(*, write_receipt: bool = True, hub_boot: dict | None = None) -> di
     health = _mac_health_grade()
     pressure = _pressure_row()
     cloud = _cloud_factory_heartbeat()
+    cloud_glance: dict[str, Any] = {}
+    try:
+        from mac_health_cloud_glance_v1 import probe as cloud_glance_probe  # noqa: WPS433
+
+        cloud_glance = cloud_glance_probe(write_receipt=False)
+    except Exception:
+        cloud_glance = _read(SINA / "mac-health-cloud-glance-v1.json")
     m111 = _read(SINA / "ecosystem-111-pulse-receipt-v1.json")
     mandatory = _mandatory_next(hub_boot)
 
@@ -126,6 +133,8 @@ def hub_slice(*, write_receipt: bool = True, hub_boot: dict | None = None) -> di
         "pressure_badge": pressure.get("badge"),
         "pressure": pressure,
         "cloud_factory_heartbeat": cloud,
+        "cloud_glance": cloud_glance,
+        "cloud_glance_line": cloud_glance.get("founder_line"),
         "m111_line": m111.get("line"),
         "m111_head": m111.get("head_id"),
         "m111_progress": m111.get("progress"),
