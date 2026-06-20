@@ -1,13 +1,14 @@
 # Cleanup manifest — SourceA root sprawl
 
-**Status:** DRAFT — do not execute until ASF sets **APPROVED**  
+**Status:** DRAFT — set **APPROVED** before running batch 2  
 **Generated:** 2026-06-20  
-**Inventory:** `infra/cleanup/inventory-root.tsv` (328 files)
+**Inventory:** `infra/cleanup/inventory-root.tsv` (302 files after batch 1)
 
 ## Approval
 
-- [x] Secret scan clear (`infra/cleanup/secret-scan-report.txt` — no live keys)
-- [ ] ASF reviewed batch 1 destinations below
+- [x] Secret scan clear
+- [x] Batch 1 executed — commit `0cf364d8`
+- [ ] ASF reviewed batch 2 destinations below
 - [ ] Change line 3 to: **Status: APPROVED**
 
 ## Batch plan
@@ -15,8 +16,8 @@
 
 | Batch | Theme                                        | Files   | Commit prefix                    |
 | ----- | -------------------------------------------- | ------- | -------------------------------- |
-| **1** | `AGENT_`* → `brain-os/`                      | 25      | `cleanup: batch-1 agent law`     |
-| 2     | `SINA_AGENT_*` + `SOURCEA_AGENT*` → brain-os | 25      | `cleanup: batch-2 sina agent`    |
+| **1** | `AGENT_*` → `brain-os/`                      | 26 ✅    | `cleanup: batch-1 agent law`     |
+| **2** | `SINA_AGENT_*` + leftovers + incident reports | 25      | `cleanup: batch-2 sina agent`    |
 | 3     | Remaining `SINA_*` / `SOURCEA_*` LOCKED      | 25      | `cleanup: batch-3 portfolio law` |
 | 4     | `.txt` prompts + entry pointers              | 3+      | `cleanup: batch-4 prompts`       |
 | 5     | Remainder triage                             | per row | `cleanup: batch-5 …`             |
@@ -65,7 +66,49 @@
 | `./AGENT_SELF_AUDIT_ASF_REPORT_2026-06-04.md` | → `docs/archive/` (dated report, not law)                             |
 
 
-## Execute batch 1 (after APPROVED)
+## Batch 2 — manifest rows (review these)
+
+| source | size | first_heading | proposed_dest | batch | action |
+|--------|------|---------------|---------------|-------|--------|
+| `./AGENT_DESK_START_HERE.md` | 4.0K | ASF Agent Desk — start here | `brain-os/entry/` | 2 | move |
+| `./AGENT_RULE_CONFLICT_AND_STALE_TRUTH_AUDIT_LOCKED_v1.md` | 4.0K | root pointer (canonical in incidents) | `archive/root-stubs/` | 2 | archive |
+| `./AGENT_RULE_CONFLICT_AND_STALE_TRUTH_AUDIT_REPORT_LOCKED_v1.md` | 4.0K | rule conflict audit pointer | `brain-os/incidents/` | 2 | move |
+| `./AGENT_SELF_AUDIT_ASF_REPORT_2026-06-04.md` | 8.0K | dated ASF presentation report | `docs/archive/` | 2 | move |
+| `./SINA_AGENT_CONFLICT_ROOM_LOCKED_v1.md` | 4.0K | Agent Conflict Room | `brain-os/law/` | 2 | move |
+| `./SINA_AGENT_INCIDENT_ROOM_LOCKED_v1.md` | 4.0K | root pointer (canonical in incidents) | `archive/root-stubs/` | 2 | archive |
+| `./SINA_AGENT_PRIVATE_WORKSPACES_LOCKED_v1.md` | 4.0K | Private agent workspaces | `brain-os/law/` | 2 | move |
+| `./SINA_AGENT_LOOP_ORDER_v1.md` | 4.0K | Sina Agent Loop — 10 rounds | `brain-os/law/` | 2 | move |
+| `./SINA_AGENT_LOOP_10_PREP_v1.md` | 4.0K | Agent loop 10-round prep | `brain-os/enforcement/` | 2 | move |
+| `./SOURCEA_AGENTIC_ENFORCEMENT_STACK_LOCKED_v2.md` | 8.0K | Agentic enforcement stack | `brain-os/law/` | 2 | move |
+| `./SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md` | 8.0K | Agentic layer stack | `brain-os/law/` | 2 | move |
+| `./CURSOR_AGENT_CONTEXT_MEMORY_INCIDENT_LOCKED_v1.md` | 4.0K | root pointer (canonical in incidents) | `archive/root-stubs/` | 2 | archive |
+| `./CURSOR_AGENT_CONTEXT_MEMORY_INCIDENT_REPORT_LOCKED_v1.md` | 4.0K | Cursor agent context memory incident | `brain-os/incidents/` | 2 | move |
+| `./SINA_BRAIN_WORKER_LANE_CROSS_INCIDENT_LOCKED_v1.md` | 4.0K | root pointer (canonical in incidents) | `archive/root-stubs/` | 2 | archive |
+| `./SINA_BRAIN_WORKER_LANE_CROSS_INCIDENT_REPORT_LOCKED_v1.md` | 4.0K | Brain/worker lane cross incident | `brain-os/incidents/` | 2 | move |
+| `./SINA_AGENT_FOUNDER_BASH_COMMUNICATION_INCIDENT_019_REPORT_LOCKED_v1.md` | 4.0K | INCIDENT-019 pointer | `brain-os/incidents/` | 2 | move |
+| `./SINA_AGENT_HUB_NAME_FRAGMENTATION_ADVISOR_TRACK_INCIDENT_025_REPORT_LOCKED_v1.md` | 4.0K | INCIDENT-025 pointer | `brain-os/incidents/` | 2 | move |
+| `./SINA_AGENT_INCIDENT_ID_COLLISION_WITHOUT_REGISTRY_CHECK_INCIDENT_015_REPORT_LOCKED_v1.md` | 4.0K | INCIDENT-015 pointer | `brain-os/incidents/` | 2 | move |
+| `./SINA_AGENT_INCIDENT_WRONG_FOLDER_FILING_INCIDENT_021_REPORT_LOCKED_v1.md` | 4.0K | INCIDENT-021 pointer | `brain-os/incidents/` | 2 | move |
+| `./SINA_AGENT_PIPELINE_MAZE_SPEED_TRAP_INCIDENT_035_REPORT_LOCKED_v1.md` | 4.0K | INCIDENT-035 report | `brain-os/incidents/` | 2 | move |
+| `./SINA_AGENT_PLAN_TODO_GHOST_REACTIVATION_INCIDENT_016_REPORT_LOCKED_v1.md` | 4.0K | INCIDENT-016 pointer | `brain-os/incidents/` | 2 | move |
+| `./SINA_AGENT_REWRITE_UNAUTHORIZED_DISK_EDIT_INCIDENT_REPORT_LOCKED_v1.md` | 4.0K | INCIDENT-011 report | `brain-os/incidents/` | 2 | move |
+| `./SINA_AGENT_TOPIC_CONFLATION_INCIDENT_020_REPORT_LOCKED_v1.md` | 4.0K | INCIDENT-020 pointer | `brain-os/incidents/` | 2 | move |
+| `./SINA_BRAIN_CHAT_VALIDATOR_RECURSION_INCIDENT_026_REPORT_LOCKED_v1.md` | 4.0K | INCIDENT-026 report | `brain-os/incidents/` | 2 | move |
+| `./SINA_BRAIN_STALE_COMMAND_DATA_GOVERNANCE_FAILURE_INCIDENT_033_REPORT_LOCKED_v1.md` | 4.0K | INCIDENT-033 report | `brain-os/incidents/` | 2 | move |
+
+
+## Execute batch 2 (after APPROVED)
+
+```bash
+cd ~/Desktop/sourceA
+bash infra/cleanup/execute-batch-v1.sh --batch 2 --dry-run
+bash infra/cleanup/execute-batch-v1.sh --batch 2
+git add -A
+git commit -m "cleanup: batch-2 sina agent → brain-os"
+bash infra/cleanup/generate-inventory-v1.sh
+```
+
+## Execute batch 1 (done)
 
 ```bash
 cd ~/Desktop/sourceA
