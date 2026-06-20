@@ -182,6 +182,8 @@
 
 **Not in 3.5:** `ASF_RETIRE_SINA_COMMAND` archive move — defer to batch 4 triage with ASF.
 
+**Archive immutability (2026-06-20):** Batch 3.5 mass-replace touched 11 files under `archive/` (path strings only). Reverted to `0bb4a1b1` snapshot — live code uses `governance_paths_v1.py`; archive keeps historical paths. **Future batches: never bulk-replace inside `archive/`.**
+
 
 ## Batch 3 pointer fix (superseded by 3.5)
 

@@ -14,7 +14,7 @@
 | 2 | **Live Founder Form** | `SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md` · `~/.sina/live-founder-decision-form-v1.json` | Session law · RT LIVE state |
 | 3 | **Fleet Read Order** | `SOURCEA_FLEET_HEADLINE_READ_ORDER_LOCKED_v1.md` | Thorn→leaf · hub is LAG not law |
 | 4 | **BIG-PICTURE-031** | `RESEARCH/by_date/2026-06-11/.../2026-06-11_BIG-PICTURE-REAL-GOAL-031.md` | Real goal synthesis · two proofs |
-| 5 | **ENFORCEMENT weekly** | `brain-os/law/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md` | W1/W2/W3 week-by-week |
+| 5 | **ENFORCEMENT weekly** | `brain-os/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md` | W1/W2/W3 week-by-week |
 | 6 | **Master Catalog** | `SOURCEA_ECOSYSTEM_MASTER_CATALOG_LOCKED_v1.md` | Everything index |
 
 **Machine refresh before trust:** `python3 scripts/live_founder_decision_form_v1.py --json` · `python3 scripts/rt_live_gate_v1.py --scan-brief`

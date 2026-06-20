@@ -12,7 +12,7 @@
 | `.cursor/rules/prompt-queue.mdc` v6 | Worker chat primary · no Sina Command |
 | `.cursor/rules/agent-memory-mirror.mdc` | Session gate read order |
 | `scripts/agent_memory_mirror_v1.py` | F18–F22 + inject block |
-| `brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md` | Session gate replaces incident binge |
+| `brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md` | Session gate replaces incident binge |
 | `scripts/cursor_agent_self_audit.py` | Mandatory chain no longer requires always-report |
 | `~/.cursor/skills/agent-self-audit-loop/SKILL.md` | Same |
 
