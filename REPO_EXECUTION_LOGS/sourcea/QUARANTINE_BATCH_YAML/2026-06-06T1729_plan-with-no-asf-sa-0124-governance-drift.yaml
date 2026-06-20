@@ -1,0 +1,14 @@
+schema_version: 1
+repo: sourcea
+task: PLAN WITH NO ASF — sa-0124 validate-governance-drift after eval script touch
+status: done
+verify_passed: true
+evidence:
+  files_changed:
+    - scripts/build-sina-command-panel.py
+tests:
+  status: passed
+  command: SINA_AUDIT_STRICT=1 build-sina-command-panel.py + find_critical_bugs.py
+  output_snippet: PASS governance drift v1 score 100 · critical 0
+reported_at: '2026-06-06T17:29:23Z'
+reporter: cursor-maintainer

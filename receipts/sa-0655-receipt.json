@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0655",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 L1 workspace_state_v1.json hub-fed via POST touch+workspace; audit_backend_e2e + spine-bridge + l1-hub-post + pack1000 + critical 0",
+  "at": "2026-06-09T08:11:30Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

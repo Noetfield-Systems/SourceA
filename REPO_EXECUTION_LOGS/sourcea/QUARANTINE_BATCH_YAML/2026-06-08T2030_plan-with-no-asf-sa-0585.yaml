@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0585 — Document lane P0 revenue bottleneck in strategic one_line
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0585
+tests:
+  status: passed
+  output_snippet: pack28 commercial verify-only; wire+runreceipt+dispatch PASS
+reported_at: '2026-06-08T20:30:52Z'
+reporter: cursor-worker-batch

@@ -1,0 +1,17 @@
+{
+  "schema": "certainty-report-v1",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["job_id", "policy_passed", "tier_achieved", "kernel_hash"],
+  "properties": {
+    "job_id": {"type": "string"},
+    "factory_id": {"type": "string"},
+    "policy_passed": {"type": "boolean"},
+    "tier_achieved": {"type": "string"},
+    "kernel_hash": {"type": "string"},
+    "nodes_executed": {"type": "integer"},
+    "duration_ms": {"type": "integer"},
+    "artifact_urls": {"type": "array", "items": {"type": "string"}},
+    "summary": {"type": "string"}
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1105",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U036",
+  "title": "U036 C fix one line",
+  "evidence": "c_fix_one_line in simulation receipt",
+  "at": "2026-06-19T00:35:14Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

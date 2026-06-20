@@ -1,0 +1,212 @@
+# ai_video_commercial_tier1_research_v1.yaml
+# Cursor OS Pro Research Lane B — June 2026 market + cost intelligence
+# trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-AI-VIDEO-TIER1
+# execution_authority: false · Not investment advice · Research only
+
+meta:
+  id: ai_video_commercial_tier1_research_v1
+  version: 1
+  research_date: "2026-06-12"
+  lane: cursor_os_pro_research_lane_b
+  scope: AI video generation + production for tier-1 B2B commercial video
+  market_size_usd_2026: "847M–946M (AI video generator category)"
+  sources:
+    - DeepResearch Ninja June 2026 pricing comparison
+    - HeyGen / GOTO AI / AdLibrary 2026 tool rankings
+    - ElevenLabs Creative Platform docs (Flows, Studio)
+    - Founder LinearH264Version_1.mp4 analysis (4K roadmap UI film)
+  excluded: consumer viral / IAP app peers
+
+# ─── Four layers (how to pick tools) ─────────────────────────────────────────
+four_layers:
+  L1_models: "Prompt → clip (5–60s) — Veo, Kling, Runway, Seedance, Pika, Luma…"
+  L2_studios: "Motion control + edit — Runway workspace, Screen Studio, Descript, DaVinci"
+  L3_avatars: "Presenter scale — HeyGen, Synthesia, D-ID, Tavus"
+  L4_production_os: "Script → finished ad — Eleven Flows, Pexo, Creatify, Invideo AI"
+  rule: "Tier-1 commercial = L4 or L2+real capture; never L1 alone for B2B product proof"
+
+# ─── Tier S — top 15 commercial (June 2026) ────────────────────────────────
+tier_s:
+  - { rank: 1, tool: Google Veo 3.1, layer: L1, use: hero photoreal + native audio, enterprise: Vertex SLA }
+  - { rank: 2, tool: Runway Gen-4.5, layer: L1+L2, use: cinematic control + VFX, enterprise: SSO API }
+  - { rank: 3, tool: Kling 3.0, layer: L1, use: human motion + value B-roll, note: API entry ~$4200 pkg }
+  - { rank: 4, tool: Seedance 2.0 BytePlus, layer: L1, use: brand-asset-guided ads }
+  - { rank: 5, tool: ElevenCreative Flows + Studio, layer: L4, use: full ad pipeline multi-model }
+  - { rank: 6, tool: HeyGen, layer: L3, use: sales onboarding multilingual presenter }
+  - { rank: 7, tool: Synthesia, layer: L3, use: L&D SCORM ISO enterprise }
+  - { rank: 8, tool: Descript, layer: L4, use: transcript-first edit + captions }
+  - { rank: 9, tool: Adobe Firefly Video, layer: L1+L2, use: brand-safe Creative Cloud }
+  - { rank: 10, tool: Creatify, layer: L4, use: URL → ad variants performance marketing }
+  - { rank: 11, tool: Pexo, layer: L4, use: goal → multi-shot agent routing }
+  - { rank: 12, tool: fal.ai, layer: API, use: cheapest multi-model $0.05–0.40/s }
+  - { rank: 13, tool: Luma Ray 3, layer: L1, use: fast concept previz }
+  - { rank: 14, tool: Pika 2.5, layer: L1, use: social volume effects }
+  - { rank: 15, tool: Screen Studio, layer: L2, use: B2B SaaS UI film Linear-class NOT generative }
+
+# ─── Recommended stacks by commercial type ───────────────────────────────────
+stacks_by_type:
+  b2b_product_film:
+    description: Linear / SourceA / Noetfield UI proof
+    pipeline: "Script → Screen Studio 4K → ElevenLabs VO → Descript → optional DaVinci"
+    ai_assist: "Runway or Kling 5–10s transition B-roll only"
+    runtime_rule: ">=70% real product UI"
+  hero_brand_60_90s:
+    pipeline: "Eleven Flows (Veo + Kling nodes) → Studio timeline → 4K"
+    alt: Runway Gen-4.5 end-to-end for max camera control
+  performance_ads_scale:
+    pipeline: "Creatify or Arcads + fal.ai + HeyGen UGC · 10–50 variants"
+  enterprise_presenter:
+    pipeline: "Synthesia or HeyGen · avoid raw T2V for legal copy"
+
+# ─── Catalog ~100 tools (tier tag S/A/B/C) ─────────────────────────────────
+tool_catalog:
+  L1_models:
+    S: [Google Veo 3.1, Runway Gen-4.5, Kling 3.0, Seedance 2.0, Adobe Firefly Video]
+    A: [Luma Ray 3, Pika 2.5, Hailuo 02 Pro, Wan 2.6, Vidu, Higgsfield, Midjourney Video, OpenAI Sora 2, Tencent Hunyuan Video]
+    B: [Stable Video, Genmo Mochi, Lightricks LTX, Haiper, PixVerse, Moonvalley, Morph Studio, Kaiber, Neural Frames, Grok Imagine]
+    C: [Deforum, AnimateDiff, CogVideo OSS, Meta Movie Gen research]
+  L2_studios:
+    S: [Runway workspace, Adobe Premiere+Firefly, DaVinci Resolve, Descript, Screen Studio, After Effects]
+    A: [CapCut Commerce, Jitter, Rive, Rotato, Screenlane, Invideo AI, Pictory, Opus Clip, Veed.io, Vyond, Motion Apple, Final Cut]
+    B: [Filmora AI, Camtasia, Animaker, Canva Video, Kapwing, FlexClip]
+  L3_avatars:
+    S: [HeyGen, Synthesia]
+    A: [Colossyan, D-ID, Tavus, Hour One, Rephrase.ai, DeepBrain AI, Soul Machines, UneeQ, Hedra Character-3]
+    B: [Elai.io, Synthesys, Yepic, Virbo, Akool, Gan.AI, B Human]
+  L4_end_to_end:
+    S: [ElevenCreative Flows, ElevenCreative Studio 3, Creatify]
+    A: [Pexo, Arcads, AdCreative.ai, Waymark, Shuffll, Lumen5, Fliki, Typeframes]
+    B: [Promo.com, Steve AI, ReelFarm, MakeUGC, Zebracat, Simplified, Magisto]
+  L5_voice_music:
+    S: [ElevenLabs, Epidemic Sound, Artlist]
+    A: [Play.ht, WellSaid Labs, Respeecher, Suno, Udio, Sync Labs, Descript Overdub, Adobe Podcast Enhance]
+    B: [Speechify]
+  L6_api_infra:
+    S: [fal.ai, Google Vertex AI, Runway API, HeyGen API, BytePlus ModelArk]
+    A: [Replicate, RunAPI, AWS Bedrock video, ComfyUI cloud, Modal, Hugging Face Inference]
+    B: [Banana dev]
+
+# ─── Market signals June 2026 ──────────────────────────────────────────────
+market_signals:
+  runway_valuation: "$315M Series E @ $5.3B (Feb 2026)"
+  synthesia: "~$150M ARR @ $4B valuation (Jan 2026)"
+  sora_status: "Consumer app shutdown path 2026 — avoid long-term dependency"
+  kling: "Leads blind human comparison rankings (TrueSkill ~2118)"
+  enterprise_deployable_legal: [Veo Vertex, Runway, Synthesia, HeyGen, Sora API short-term]
+  fal_pricing: "$0.05–0.40/sec · 600+ models · $10 free credits"
+
+# ─── Cost intelligence ───────────────────────────────────────────────────────
+cost_intelligence:
+  unit_economics_usd:
+    b2b_product_90s_agency: "8000–25000"
+    b2b_product_90s_smart_stack: "150–600"
+    hero_plus_5_broll_agency: "15000–40000"
+    hero_plus_5_broll_smart: "400–1200"
+    avatar_20_clips_agency: "5000–15000"
+    avatar_20_clips_smart: "200–800"
+  formula: "Total = script + gen credits + edit + music + review cycles"
+  budget_buckets_pct:
+    proof: 40
+    acquire: 35
+    brand: 15
+    lab: 10
+  kpis:
+    - cost per shipped minute down QoQ
+    - cost per meeting booked W3
+    - pct runtime real product ">=60% B2B"
+    - variants tested to winner scaled ">=5:1"
+    - active subscriptions "<=5 core tools"
+  decision_gates:
+    - "Can Screen Studio prove it? → yes → no Runway unless B-roll"
+    - "Need face? → HeyGen not cinematic gen"
+    - "Need 20+ cuts? → Creatify/fal not manual Runway"
+    - "Enterprise legal? → Synthesia/HeyGen/Adobe/Eleven Enterprise"
+  core_stack_monthly_usd: "200–350 for Screen Studio + Eleven + Descript + fal paygo"
+  golden_insight: "Top-tier B2B = real capture + pro voice + derivatives; gen AI <=20% runtime"
+
+# ─── One 90s tier-1 video — stack + budget ─────────────────────────────────
+ninety_second_tier1:
+  structure:
+    - "0:00–0:05 hook"
+    - "0:05–0:15 optional 5s B-roll or UI wide"
+    - "0:15–0:55 three product beats ~12s each"
+    - "0:55–1:20 outcome + proof strip"
+    - "1:20–1:30 single CTA"
+  stack:
+    script: Claude / founder brief
+    capture: Screen Studio
+    voice: ElevenLabs Creator
+    edit: Descript Creator
+    music: Artlist or Epidemic Sound
+    optional_broll: "fal.ai Kling ~10s"
+    grade: DaVinci Resolve free optional
+  budget_first_video_usd:
+    screen_studio: 89
+    elevenlabs_month: 22
+    descript_month: 24
+    music_amortized: 10
+    fal_broll: "1–5"
+    total_cash: "145–175"
+  budget_repeat_video_usd: "15–40"
+  time_hours: "6–8 solo"
+  export:
+    resolution: "3840x2160 or 1920x1080"
+    fps: 30
+    codec: H.264 high bitrate
+    captions: burned-in
+
+# ─── Eleven Flows vs Runway head-to-head ───────────────────────────────────
+head_to_head:
+  tools: [ElevenCreative Flows, Runway Gen-4.5]
+  verdict:
+    ad_pipeline_reuse: Eleven Flows
+    cinematic_single_shot: Runway
+    b2b_ui_proof: "Neither alone — Screen Studio required"
+  comparison:
+    flows:
+      type: node canvas orchestration
+      strength: [VO, music, lip-sync, multi-model nodes, reusable Flows]
+      weakness: [not screen recorder, less per-pixel control]
+      cost_90s_hybrid_usd: "80–150"
+    runway:
+      type: creative studio + Gen-4.5
+      strength: [Motion Brush, camera, character consistency, API]
+      weakness: [external audio stack, weak UI accuracy]
+      cost_90s_hybrid_usd: "70–140 plus tool hopping"
+  decision_matrix:
+    reusable_ad_factory: Eleven Flows
+    best_single_shot_cinema: Runway
+    governance_buyer_trust: Screen Studio
+    one_subscription_vo_heavy: Flows
+    one_subscription_visual_heavy: Runway
+
+# ─── Linear-style reference (founder mp4) ──────────────────────────────────
+linear_reference_video:
+  path: "/Users/sinakazemnezhad/Downloads/LinearH264Version_1.mp4"
+  duration_sec: 239
+  resolution: "3840x2160 4K"
+  content: "Roadmap timeline Q3/Q4/Q1 project cards — product UI film not avatar T2V"
+  replicate_stack: "Screen Studio + ElevenLabs + Descript — NOT HeyGen-only"
+  ai_role: "<=15s B-roll optional; >=70% real UI"
+
+# ─── 90-day affordable plan (SourceA 9.07 A aligned) ───────────────────────
+ninety_day_plan:
+  w1_tamper_film: { weeks: "1–2", stack: Screen Studio + Descript, usd: "200–400" }
+  cutdowns: { weeks: 3, outputs: "60/30/15s", usd: "+50 time" }
+  w3_outbound: { weeks: "4–6", stack: HeyGen template, usd: "200–500" }
+  ad_variants: { weeks: "7–8", count: 5, usd: "100–300" }
+  hero_refresh: { weeks: "9–12", stack: "+ Kling via fal", usd: "300–600" }
+  quarter_total_usd: "1000–2500 vs agency 30000–80000"
+
+# ─── Risks ─────────────────────────────────────────────────────────────────
+risks:
+  - text_to_video alone fails B2B UI trust
+  - credit pricing shifts monthly — buy month-to-month on L1
+  - music licensing Suno/Udio not automatic commercial
+  - sora dependency migrate before API sunset
+  - tool sprawl — cap 5 core subscriptions
+
+artifacts:
+  vault: docs/research/ai_video_commercial_tier1_research_v1.yaml
+  linear_asset: ~/.cursor/projects/.../canvases/sourcea-golden-site-strategy.canvas.tsx
+  related_incident_law: CIR-COSPRO-RESEARCH-SAVE-2026-06-07

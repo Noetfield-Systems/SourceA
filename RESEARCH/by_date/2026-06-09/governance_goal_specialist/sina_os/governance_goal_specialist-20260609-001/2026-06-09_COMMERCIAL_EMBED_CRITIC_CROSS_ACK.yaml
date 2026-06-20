@@ -1,0 +1,44 @@
+trace_id: governance_goal_specialist-20260609-001
+trace_family: governance_goal_specialist-20260609
+trace_type: external_critic_cross_ack
+trace_owner: governance_goal_specialist
+trace_author: governance_goal_specialist
+trace_created: 2026-06-09
+execution_authority: false
+input_class: EXTERNAL_CRITIC
+
+commercial_judgment_cited: COMMERCIAL_GOAL-REF-2026-06-09-GPT-EMBED-CRITIC-JUDGE-014
+
+verdict: AGREE_COMMERCIAL_GOAL_SPECIALIST_JUDGMENT
+
+gpt3_1_vs_gpt0: duplicate_external_critic — no distinct decision
+embedding_provider_v2_on_disk: confirmed scripts/pre_llm/vector_retrieval/embedding_provider.py
+runtime_mode: hash_local fallback when no Tier 3 API keys — accurate
+
+governance_priority_alignment:
+  p0: GOAL-AUTH-LIVE — AUTO-RUN observed behavior (Master Tracker §1–2)
+  p1_after_live_pass: GOAL-SEMANTIC-MEMORY — keys + re-index (config not architecture)
+  reject_critic_reorder: embedding rewrite is not P0 blocker
+
+governance_constraints:
+  api_keys: Tier 3 secrets only per FILE_STORAGE_GOVERNANCE — never Tier 1 git
+  no_execution_authority_elevation: commercial + governance specialists remain false
+  worker_lane: key wiring + index rebuild +  receipt under new sa-XXXX after AUTH-LIVE
+
+reject_from_gpt_paste:
+  - replace embedding_provider.py (already v2)
+  - only structural failure claim (conflicts with authority convergence P0)
+  - supabase/redis/temporal redesign
+
+accept_from_gpt_paste:
+  - preserve embed_text hybrid_score interface (already done)
+  - semantic unlocks retrieval quality when keys set
+  - do not rewrite Brain Broker Worker stack
+
+brain_tracker_action:
+  register GOAL-SEMANTIC-MEMORY in Section 2 after GOAL-AUTH-LIVE PASS — dependency not reorder
+
+research_save:
+  trace_id: governance_goal_specialist-20260609-001
+  worker_id: governance_goal_specialist
+  subject: sina_os

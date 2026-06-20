@@ -1,0 +1,11 @@
+{
+  "schema": "cinematic-event-graph-v1",
+  "lane": "sourcea",
+  "events": [
+    "intent_start",
+    "w1_allow",
+    "w1_block",
+    "w1_tamper",
+    "audit_commit"
+  ]
+}

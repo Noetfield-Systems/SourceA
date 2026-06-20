@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U029",
+  "title": "One product line max enforcement",
+  "evidence": "check_one_product_line() + --check-one-product-line PASS \u00b7 two product paragraphs fail \u00b7 approved bodies 3/3",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:25:21Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

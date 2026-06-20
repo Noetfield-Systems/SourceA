@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U016",
+  "title": "Forbidden 'inspectable proof' TF-specific list",
+  "evidence": "check_lane_forbidden() hard fail; lane_forbidden.trustfield + icp lane_forbidden_tf check; ocree clean pass",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:06:01Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

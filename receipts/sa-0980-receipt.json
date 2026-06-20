@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0980",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 T3 L0 MCP telemetry cross-ref CHECK\u2192ACT\u2192VERIFY closed; canonical sa-0955",
+  "at": "2026-06-14T04:07:37Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

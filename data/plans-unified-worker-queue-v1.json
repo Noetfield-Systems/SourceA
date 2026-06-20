@@ -1,0 +1,324 @@
+{
+  "schema": "plans-unified-worker-queue-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T19:09:29Z",
+  "phase": "phase-unified-plans-v1",
+  "sa_range": [
+    "sa-1200",
+    "sa-1230"
+  ],
+  "total": 31,
+  "assignments": [
+    {
+      "upgrade_id": "F009",
+      "plan": "full_stack_100",
+      "tier": "P1",
+      "lane": "execution_inbox",
+      "sa_id": "sa-1200",
+      "queue_pos": 1,
+      "title": "Honor CL10 queue_head_pin",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F011",
+      "plan": "full_stack_100",
+      "tier": "P1",
+      "lane": "execution_inbox",
+      "sa_id": "sa-1201",
+      "queue_pos": 2,
+      "title": "Clear last_completed_sa ghost",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F051",
+      "plan": "full_stack_100",
+      "tier": "P1",
+      "lane": "session_gate",
+      "sa_id": "sa-1202",
+      "queue_pos": 3,
+      "title": "ok true when sub-steps pass",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F052",
+      "plan": "full_stack_100",
+      "tier": "P1",
+      "lane": "session_gate",
+      "sa_id": "sa-1203",
+      "queue_pos": 4,
+      "title": "prove PASS after execution fix",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F053",
+      "plan": "full_stack_100",
+      "tier": "P1",
+      "lane": "session_gate",
+      "sa_id": "sa-1204",
+      "queue_pos": 5,
+      "title": "governance_center gate pass",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F069",
+      "plan": "full_stack_100",
+      "tier": "P1",
+      "lane": "research_l2",
+      "sa_id": "sa-1205",
+      "queue_pos": 6,
+      "title": "sync filtered digests",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F070",
+      "plan": "full_stack_100",
+      "tier": "P1",
+      "lane": "research_l2",
+      "sa_id": "sa-1206",
+      "queue_pos": 7,
+      "title": "registry matches vault",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F071",
+      "plan": "full_stack_100",
+      "tier": "P1",
+      "lane": "research_l1",
+      "sa_id": "sa-1207",
+      "queue_pos": 8,
+      "title": "YAML per GOAL_SPECIALIST \u00a74",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F072",
+      "plan": "full_stack_100",
+      "tier": "P1",
+      "lane": "research_l2",
+      "sa_id": "sa-1208",
+      "queue_pos": 9,
+      "title": "add O-stations",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F073",
+      "plan": "full_stack_100",
+      "tier": "P1",
+      "lane": "research_l2",
+      "sa_id": "sa-1209",
+      "queue_pos": 10,
+      "title": "researcher_l2 in wire",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F089",
+      "plan": "full_stack_100",
+      "tier": "P1",
+      "lane": "vocabulary",
+      "sa_id": "sa-1210",
+      "queue_pos": 11,
+      "title": "Hub glance not RUN INBOX only",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F091",
+      "plan": "full_stack_100",
+      "tier": "P1",
+      "lane": "vocabulary",
+      "sa_id": "sa-1211",
+      "queue_pos": 12,
+      "title": "loop auto disk INBOX",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F095",
+      "plan": "full_stack_100",
+      "tier": "P1",
+      "lane": "governance",
+      "sa_id": "sa-1212",
+      "queue_pos": 13,
+      "title": "6/6 execution gates",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F096",
+      "plan": "full_stack_100",
+      "tier": "P1",
+      "lane": "governance",
+      "sa_id": "sa-1213",
+      "queue_pos": 14,
+      "title": "pulse dual counter",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F097",
+      "plan": "full_stack_100",
+      "tier": "P1",
+      "lane": "governance",
+      "sa_id": "sa-1214",
+      "queue_pos": 15,
+      "title": "post proof test",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F098",
+      "plan": "full_stack_100",
+      "tier": "P1",
+      "lane": "governance",
+      "sa_id": "sa-1215",
+      "queue_pos": 16,
+      "title": "execution_honesty_line",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F055",
+      "plan": "full_stack_100",
+      "tier": "P2",
+      "lane": "session_gate",
+      "sa_id": "sa-1216",
+      "queue_pos": 17,
+      "title": "freeze truth with override",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F056",
+      "plan": "full_stack_100",
+      "tier": "P2",
+      "lane": "session_gate",
+      "sa_id": "sa-1217",
+      "queue_pos": 18,
+      "title": "shadow_auto to full auto",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F057",
+      "plan": "full_stack_100",
+      "tier": "P2",
+      "lane": "session_gate",
+      "sa_id": "sa-1218",
+      "queue_pos": 19,
+      "title": "both keys PASS",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F058",
+      "plan": "full_stack_100",
+      "tier": "P2",
+      "lane": "session_gate",
+      "sa_id": "sa-1219",
+      "queue_pos": 20,
+      "title": "all steps including nerve research",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F074",
+      "plan": "full_stack_100",
+      "tier": "P2",
+      "lane": "research_l2",
+      "sa_id": "sa-1220",
+      "queue_pos": 21,
+      "title": "research=YES line",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F075",
+      "plan": "full_stack_100",
+      "tier": "P2",
+      "lane": "research_l2",
+      "sa_id": "sa-1221",
+      "queue_pos": 22,
+      "title": "all yaml present",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F076",
+      "plan": "full_stack_100",
+      "tier": "P2",
+      "lane": "research_l1",
+      "sa_id": "sa-1222",
+      "queue_pos": 23,
+      "title": "brief in registry",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F077",
+      "plan": "full_stack_100",
+      "tier": "P2",
+      "lane": "research_l2",
+      "sa_id": "sa-1223",
+      "queue_pos": 24,
+      "title": "execution_core.digest only",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F078",
+      "plan": "full_stack_100",
+      "tier": "P2",
+      "lane": "research_l2",
+      "sa_id": "sa-1224",
+      "queue_pos": 25,
+      "title": "U053 cross-ref",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F085",
+      "plan": "full_stack_100",
+      "tier": "P2",
+      "lane": "mcp_stack",
+      "sa_id": "sa-1225",
+      "queue_pos": 26,
+      "title": "research capture auth",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F086",
+      "plan": "full_stack_100",
+      "tier": "P2",
+      "lane": "mcp_stack",
+      "sa_id": "sa-1226",
+      "queue_pos": 27,
+      "title": "design lane auth",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F093",
+      "plan": "full_stack_100",
+      "tier": "P2",
+      "lane": "vocabulary",
+      "sa_id": "sa-1227",
+      "queue_pos": 28,
+      "title": "Loop auto line",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F094",
+      "plan": "full_stack_100",
+      "tier": "P2",
+      "lane": "vocabulary",
+      "sa_id": "sa-1228",
+      "queue_pos": 29,
+      "title": "cross_ref aligned",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F099",
+      "plan": "full_stack_100",
+      "tier": "P2",
+      "lane": "cloud_factory",
+      "sa_id": "sa-1229",
+      "queue_pos": 30,
+      "title": "cron when live",
+      "status": "assigned"
+    },
+    {
+      "upgrade_id": "F100",
+      "plan": "full_stack_100",
+      "tier": "P2",
+      "lane": "cloud_factory",
+      "sa_id": "sa-1230",
+      "queue_pos": 31,
+      "title": "registry only",
+      "status": "assigned"
+    }
+  ],
+  "command": "python3 scripts/plans_unified_queue_assign_v1.py --deliver-first --sync"
+}

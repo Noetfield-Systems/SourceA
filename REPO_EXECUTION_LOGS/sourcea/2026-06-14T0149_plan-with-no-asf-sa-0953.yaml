@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0953 — Compare RAGAS eval CI to Eval-1b live packet approach — internal note
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0953
+tests:
+  status: passed
+  output_snippet: RAGAS vs Eval-1b internal compare note shipped; worker_verify_ultra PASS
+reported_at: '2026-06-14T01:49:52Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

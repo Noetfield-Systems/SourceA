@@ -1,0 +1,127 @@
+{
+  "schema": "platform-neutral-world-model-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-20T02:34:42Z",
+  "one_law": "No surface discrimination \u2014 absorb best world-model takes \u00b7 route value into Noetfield \u00b7 TrustField \u00b7 SourceA Forge \u00b7 WitnessBC",
+  "founder_execution_model": "data/founder-execution-model-v1.json",
+  "execution_split": {
+    "mac": "control_plane_only",
+    "cloud": "execution_plane_headless",
+    "one_law": "Factories ONLINE on cloud + public API only \u2014 Mac = control panel never factory body \u00b7 anti-staleness \u00b7 zero drift \u00b7 zero fragmentation",
+    "factory_online_law": "data/cloud-factories-online-only-v1.json",
+    "governance": "anti_staleness \u00b7 zero_drift \u00b7 zero_fragmentation"
+  },
+  "platform_neutral_policy": {
+    "routing_law": "Route good ideas to product lanes \u2014 never Mac-only public gates",
+    "surfaces": [
+      "web",
+      "mobile",
+      "api",
+      "ide",
+      "ci",
+      "cloud_console",
+      "pwa"
+    ],
+    "developer_stacks": [
+      "python",
+      "typescript",
+      "node",
+      "rust",
+      "go",
+      "java",
+      "dotnet",
+      "serverless"
+    ],
+    "forbidden_public_framing": [
+      "mac only",
+      "only on mac",
+      "requires a mac",
+      "mac-only project software"
+    ],
+    "stripe_billing": {
+      "account_name": "Noetfield Systems",
+      "statement_descriptor": "NOETFIELD SYSTEMS",
+      "statement_descriptor_short": "NFS",
+      "currency": "cad",
+      "product_type": "subscription_saas"
+    },
+    "stripe_buyer_copy_template": "Governed AI operations for teams on any stack \u2014 web, mobile, and API surfaces. Subscribe to Noetfield Systems for operational TLE evaluation, policy receipts, and upgrade paths with no desktop-only or OS-specific gates."
+  },
+  "product_routes": [
+    {
+      "lane": "noetfield",
+      "label": "Noetfield Systems",
+      "keywords": [
+        "tle",
+        "board pack",
+        "governance receipt",
+        "copilot",
+        "diligence",
+        "noetfield"
+      ],
+      "sku_only": false
+    },
+    {
+      "lane": "trustfield",
+      "label": "TrustField Technologies",
+      "keywords": [
+        "trustfield",
+        "msb",
+        "rpaa",
+        "compliance",
+        "sandbox"
+      ],
+      "sku_only": false
+    },
+    {
+      "lane": "sourcea_forge",
+      "label": "SourceA Forge",
+      "keywords": [
+        "forge",
+        "fbe",
+        "factory",
+        "sandbox",
+        "catalog"
+      ],
+      "sku_only": false
+    },
+    {
+      "lane": "witnessbc",
+      "label": "WitnessBC",
+      "keywords": [
+        "witness",
+        "proof lab",
+        "evidence",
+        "tamper"
+      ],
+      "sku_only": false
+    },
+    {
+      "lane": "mac_guard",
+      "label": "Mac Guard",
+      "keywords": [
+        "mac guard",
+        "agency",
+        "invoice sku"
+      ],
+      "sku_only": true
+    }
+  ],
+  "plan_check_loop": {
+    "script": "scripts/world_model_plan_check_v1.py",
+    "receipt": "~/.sina/world-model-plan-check-receipt-v1.json",
+    "hub_api": "POST /api/world-model-plan-check/tick/v1",
+    "scan_targets": [
+      "agent-control-panel/worker-hub/index.html",
+      "data/tool-pick-two-phase-v1.json",
+      "data/platform-neutral-world-model-v1.json",
+      "data/outbound-factory-100-upgrade-plan-v1.json",
+      "data/sourcea-full-stack-100-fix-plan-v1.json",
+      "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json"
+    ]
+  },
+  "wtm": {
+    "ssot": "brain-os/wtm/WORLD_TARGET_MODEL_MAP_LOCKED_v5.md",
+    "version": "5.2"
+  }
+}

@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0014 — Grep app.js for WORLD_TARGET_MODEL_MAP_LOCKED_v2 — must be zero hits
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0014
+tests:
+  status: passed
+  output_snippet: sa-0014 VERIFY closeout — app.js zero v2 hits; phase-s0+find_critical_bugs critical 0
+reported_at: '2026-06-09T13:26:35Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

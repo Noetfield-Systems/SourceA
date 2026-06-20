@@ -1,0 +1,34 @@
+---
+description: FORM_OFFICIAL all agents — multi-sentence founder decisions on Form; pending on H2
+globs: scripts/live_founder*,scripts/h2*
+alwaysApply: false
+version: 1
+---
+
+# Form official + H2 pending (ASF 2026-06-14)
+
+**Law:** `SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md` §1b · `SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md` v1.2
+
+## Every agent — before you ask the founder anything
+
+| If | Then |
+|----|------|
+| Founder decision is **one sentence** | OK in chat (`ASF: FIVE-STEP — PICK: [id] KEY`) — **hub form = Submit only, not chat** |
+| **More than one sentence** · options · tradeoffs · multi-step | **Append §OPEN_QUESTIONS** + M1 Canvas row **same session** |
+| Next-phase / deferred / ops pending (no PICK yet) | Update `~/.sina/h2-pending-registry-v1.json` — **H2**, not H1 hero |
+
+**Forbidden:** chat-only forks · AskQuestion polls when form rows exist · long decision lists in chat instead of Form.
+
+## Hub balance
+
+| Hub | Shows |
+|-----|-------|
+| **H1** `/` | Necessary only — task · queue · form open count · Judge **one alarm line** · Safety |
+| **H2** `/machines/` | **All pending** · Thread Room · next phases · organized tables |
+| **Thread Room** | **H2 second hop** — weekly run · not daily H1 clutter |
+
+## Brain only
+
+Every session: reconcile `live_founder_decision_form_v1.py --json` + `h2-pending-registry-v1.json` + Thread Room receipt → **organized reasoning** in closeout.
+
+Receipt: `archive/attachments/2026-06-14/ASF_FORM_OFFICIAL_H2_PENDING_ORGANIZATION_ORDER_2026-06-14_LOCKED_v1.md`

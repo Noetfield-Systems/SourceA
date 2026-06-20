@@ -1,0 +1,46 @@
+{
+  "schema": "ui-upgrade-ledger-v1",
+  "surface_id": "mac_law_cockpit",
+  "label": "Mac Law boss UI",
+  "repo": "MacLaw",
+  "root": "~/Desktop/MacLaw/public",
+  "url": "http://127.0.0.1:8781/",
+  "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/MAC_LAW_COCKPIT_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+  "saved_at": "2026-06-19T16:54:05Z",
+  "frozen_inventory": [
+    {"id": "surfaces_table", "kind": "panel", "marker": "surfaces probe table", "files": ["~/Desktop/MacLaw/public/index.html"]},
+    {"id": "e2e_badge", "kind": "component", "marker": "E2E badge", "files": ["~/Desktop/MacLaw/public/mac-law.js"]},
+    {"id": "boss_order", "kind": "section", "marker": "boss order strip", "files": ["~/Desktop/MacLaw/public/index.html"]},
+    {"id": "boundary_line", "kind": "copy", "marker": "Mac = control panel", "files": ["~/Desktop/MacLaw/public/index.html"]},
+    {"id": "law_file_grid", "kind": "section", "marker": "law file grid", "files": ["~/Desktop/MacLaw/public/index.html"]},
+    {"id": "surfaces_api", "kind": "api", "marker": "/api/mac-law/surfaces", "files": ["~/Desktop/MacLaw/mac-law-server.py"]},
+    {"id": "launchd_supervision", "kind": "ops", "marker": "com.sourcea.mac-law", "files": ["launch/com.sourcea.mac-law.plist"]}
+  ],
+  "app_checklist": [
+    {"id": "ML-1", "step": "Mac Law is boss — not inside SourceA repo UI"},
+    {"id": "ML-2", "step": "Surfaces API probes 4 cockpits live"},
+    {"id": "ML-3", "step": "validate-mac-law-surfaces-e2e-v1.sh PASS"},
+    {"id": "ML-4", "step": "launchd com.sourcea.mac-law running — not nohup"}
+  ],
+  "upgrades": [
+    {
+      "upgrade_id": "UP-MACLAW-000",
+      "saved_at": "2026-06-19T16:45:00Z",
+      "founder_trigger": "Mac Law boss UI v2 + launchd supervision",
+      "general_checklist": "UP-0..UP-7",
+      "app_checklist": "ML-1..ML-4",
+      "status": "approved",
+      "quality_vs_last": "better",
+      "preserved": "Mac Law SSOT authority, control plane boundary",
+      "changed": "v2 cockpit UI, surfaces API, launchd plists, E2E chain",
+      "achieved": "Pro boss surface :8781 stable under launchd; 4/4 surfaces PASS",
+      "founder_approval": "approved",
+      "machine_proof": {
+        "validate-mac-law-surfaces-e2e-v1.sh": "PASS",
+        "debug_mac_law_e2e_v1.py": "cockpit_ok true"
+      },
+      "baseline_before": "v1-nohup",
+      "baseline_after": "v2.0.0-launchd"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0135 — Run python3 eval_packet_v1b/runner.py live smoke — write_report true
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0135
+tests:
+  status: passed
+  output_snippet: runner.py live smoke write_report true sa-0135 · validate-eval-packet-v1b-runner-live-smoke-v1 PASS · eval live 5/5 100% · find_critical_bugs critical 0
+reported_at: '2026-06-07T15:13:41Z'
+reporter: cursor-worker

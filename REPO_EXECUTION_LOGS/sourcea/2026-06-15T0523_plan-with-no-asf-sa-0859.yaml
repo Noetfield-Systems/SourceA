@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0859 — Validate thread_room summary from latest-curation-v1.json on H2 only
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0859
+tests:
+  status: passed
+  output_snippet: VERIFY — validate-thread-room-h2-summary-t2-crossref-v1 PASS · canonical sa-0809
+reported_at: '2026-06-15T05:23:31Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

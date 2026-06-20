@@ -1,0 +1,106 @@
+# [Research Acquisitor · RESEARCH-ACQUISITOR-REF-2026-06-08-TRACE-REG-000] rr-20260608-dd0d2b99
+trace:
+  agent_name: Research Acquisitor
+  agent_id: research_acquisitor
+  trace_id: RESEARCH-ACQUISITOR-REF-2026-06-08-TRACE-REG-000
+  ref_tag: RESEARCH-ACQUISITOR-TRACE-REG-000
+  registry_id: rr-20260608-dd0d2b99
+  session_transcript: 85dd7cd4-0977-4cfc-9449-ea278ea0baee
+  canonical: false
+  purpose: "All artifacts written by Research Acquisitor — lookup by trace_id or path"
+
+registry_version: 2
+agent_name: Research Acquisitor
+updated: 2026-06-08
+
+artifacts:
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-06-LANDSCAPE-001
+    ref_tag: RESEARCH-ACQUISITOR-LANDSCAPE-001
+    registry_id: rr-20260606-8c51545d
+    path: ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-06_RESEARCH_BRIEF.yaml
+
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-06-CLOUD-IDE-002
+    ref_tag: RESEARCH-ACQUISITOR-CLOUD-IDE-002
+    registry_id: rr-20260606-9204d7bd
+    path: ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-06_CLOUD_IDE_AGENTS.yaml
+
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-06-VOICE-003
+    ref_tag: RESEARCH-ACQUISITOR-VOICE-003
+    registry_id: rr-20260606-4bd125a9
+    path: ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-06_VOICE_AI_LANDSCAPE.yaml
+
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-06-AUTOMATION-004
+    ref_tag: RESEARCH-ACQUISITOR-AUTOMATION-004
+    registry_id: rr-20260606-d76d2632
+    path: ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-06_AUTOMATION_AGENCIES.yaml
+
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-06-INDEX-000
+    ref_tag: RESEARCH-ACQUISITOR-INDEX-000
+    registry_id: rr-20260606-dd703657
+    path: ~/.sina/agent-workspaces/research-acquisitor/briefs/INDEX.yaml
+
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-EVIDENCE-005
+    ref_tag: RESEARCH-ACQUISITOR-EVIDENCE-005
+    registry_id: rr-20260607-2dc27cb3
+    path: ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-06_EVIDENCE_GROUNDING.yaml
+
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-REVENUE-006
+    ref_tag: RESEARCH-ACQUISITOR-REVENUE-006
+    registry_id: rr-20260607-c53f24db
+    path: ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-07_REVENUE_RECEIPT_EVIDENCE.yaml
+
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-MONEY-FLOW-007
+    ref_tag: RESEARCH-ACQUISITOR-MONEY-FLOW-007
+    registry_id: rr-20260607-3a28c539
+    path: ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-07_MARKET_MONEY_FLOW_DEEP.yaml
+
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07--008
+    ref_tag: RESEARCH-ACQUISITOR--008
+    registry_id: rr-20260607-882a37c9
+    path: ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-07__FACT_SHEET_PRECISE.yaml
+
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-DUAL-BRAND-009
+    ref_tag: RESEARCH-ACQUISITOR-DUAL-BRAND-009
+    registry_id: rr-20260607-9bfa5f8a
+    path: ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-07_DUAL_BRAND_MARKET_DEEP_SUCCESS_MODELS.yaml
+
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-TRUSTFIELD-BLUEPRINT-V2-001
+    ref_tag: RESEARCH-ACQUISITOR-TRUSTFIELD-BLUEPRINT-V2-001
+    registry_id: rr-20260608-bfecbc29
+    parent_trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-DUAL-BRAND-009
+    path: ~/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-07_TRUSTFIELD_WORKER_BLUEPRINT_V2_FULL.yaml
+
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-TRUSTFIELD-SITE-PACK-002
+    ref_tag: RESEARCH-ACQUISITOR-TRUSTFIELD-SITE-PACK-002
+    registry_id: rr-20260607-0b66e909
+    parent_trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-TRUSTFIELD-BLUEPRINT-V2-001
+    superseded_by: RESEARCH-ACQUISITOR-REF-2026-06-07-TRUSTFIELD-BLUEPRINT-V2-001
+    path: ~/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-07_TRUSTFIELD_WORKER_SITE_BUILD_PACK.yaml
+
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-TRUSTFIELD-PROMPT-V2-003
+    ref_tag: RESEARCH-ACQUISITOR-TRUSTFIELD-PROMPT-V2-003
+    parent_trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-TRUSTFIELD-BLUEPRINT-V2-001
+    path: ~/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-07_TRUSTFIELD_WORKER_PROMPT_V2_FINAL.md
+
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-NOETFIELD-BLUEPRINT-V2-001
+    ref_tag: RESEARCH-ACQUISITOR-NOETFIELD-BLUEPRINT-V2-001
+    registry_id: rr-20260608-bba05d73
+    parent_trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-DUAL-BRAND-009
+    path: ~/.sina/agent-workspaces/noetfield_cloud/commercial-goal/2026-06-07_NOETFIELD_WORKER_BLUEPRINT_V2_FULL.yaml
+
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-NOETFIELD-PROMPT-V2-002
+    ref_tag: RESEARCH-ACQUISITOR-NOETFIELD-PROMPT-V2-002
+    parent_trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-NOETFIELD-BLUEPRINT-V2-001
+    path: ~/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-07_NOETFIELD_WORKER_PROMPT_V2_FINAL.md
+
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-08-TAG-STD-001
+    ref_tag: RESEARCH-ACQUISITOR-TAG-STD-001
+    registry_id: rr-20260608-c2b03ef2
+    path: ~/.sina/agent-workspaces/research-acquisitor/DOC_TAG_STANDARD.md
+
+  - trace_id: RESEARCH-ACQUISITOR-REF-2026-06-08-COMMERCIAL-MANIFEST-010
+    ref_tag: RESEARCH-ACQUISITOR-COMMERCIAL-MANIFEST-010
+    registry_id: rr-20260608-5f6e7d8c
+    path: ~/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-07_COMMERCIAL_GOAL_TRACE_MANIFEST.yaml
+
+lookup_hint: "grep 'RESEARCH-ACQUISITOR-REF' ~/.sina/agent-workspaces/ — all tags under agent_name Research Acquisitor"

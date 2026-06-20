@@ -1,0 +1,20 @@
+schema_version: 1
+repo: sinaai_mono
+task: '[AGENT-AUTO-MONO@2026-06-05] MonoRepo runtime spine + telegram operator UX'
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - os/plan.json
+  - scripts/validate-sina-registry.sh
+  diff_summary: ''
+  note: ''
+tests:
+  status: passed
+  command: bash scripts/validate-sina-registry.sh && python3 scripts/e2e_verify.py
+  output_snippet: stop-runtime + start-all PASS; telegram polling PASS; e2e failed=0
+real_output: stop-runtime + start-all PASS; telegram polling PASS; e2e failed=0
+reported_at: '2026-06-05T13:09:16Z'
+reporter: cursor-auto-mono
+execution_id: ''

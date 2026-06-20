@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0194 — Validate eval packet win_pct in command-data matches live report
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0194
+tests:
+  status: passed
+  output_snippet: validate-command-data-eval-win-pct-v1 OK; dispatch+fleet+critical0
+reported_at: '2026-06-08T19:05:46Z'
+reporter: cursor-worker-batch

@@ -1,0 +1,43 @@
+{
+  "schema": "commercial-film-critic-circle-v1",
+  "version": "1.0.0",
+  "at": "2026-06-15",
+  "law": "Observe · Analyze · Search · Learn · Improve — no new render until critic PASS",
+  "gpt_alignment": "External critic circle — judge acceptability before ship; never repeat weak output",
+  "quality_bar": "data/video-quality-bar-v1.json",
+  "research": "archive/attachments/2026-06-15/SOURCEA_HIGH_QUALITY_COMMERCIAL_VIDEO_RESEARCH_2026-06-15_v1.md",
+  "critic_law": "brain-os/law/CHATGPT_EXTERNAL_CRITIC_LAW_LOCKED_v1.md",
+  "freeze_flag": "~/.sina/commercial-film-render-frozen-v1.flag",
+  "receipt": "~/.sina/enforcement/commercial-film-critic-circle-receipt-v1.json",
+  "loop": {
+    "observe": "Probe every published MP4 + receipt — duration, resolution, bitrate, audio, capture source",
+    "analyze": "Score vs video-quality-bar must_have + Linear reference specs",
+    "search": "Cross-check receipt grade claims vs capture method (grade inflation)",
+    "learn": "Append incident row — what failed, why, one fix only",
+    "improve": "Single next action — Screen Studio master OR ingest only; no Playwright hero rerender"
+  },
+  "acceptability_tiers": {
+    "S": "Screen Studio 4K master + Descript polish — ship publicly",
+    "A": "Hand-polished ingest via sourcea_commercial_film_ingest_master_v1.py",
+    "B": "Interactive W1 player on site — dev preview, not hero outbound",
+    "C": "Playwright automated capture — internal only, never public hero",
+    "F": "Remotion mock / wrong aspect / no audio / grade inflation"
+  },
+  "ship_gate": {
+    "min_tier_public": "A",
+    "block_playwright_hero": true,
+    "block_grade_inflation": true,
+    "min_bitrate_kbps_4k": 3000,
+    "require_audio": true,
+    "require_real_ui_pct": 70
+  },
+  "frozen_until": "Screen Studio W1 five-beat master exists on disk + critic circle S/A PASS",
+  "next_action_only": "Record Screen Studio master → bash sourcea-commercial-film-ship.sh or witnessbc-commercial-film-ship.sh",
+  "ship_gate": {
+    "script": "scripts/commercial_film_ship_gate_v1.py",
+    "sourcea_entry": "sourcea-commercial-film-ship.sh",
+    "witnessbc_entry": "witnessbc-commercial-film-ship.sh",
+    "receipt": "~/.sina/enforcement/commercial-film-ship-gate-receipt-v1.json",
+    "flow": ["preflight_master", "ingest_screen_studio", "critic_circle", "unfreeze_on_PASS"]
+  }
+}

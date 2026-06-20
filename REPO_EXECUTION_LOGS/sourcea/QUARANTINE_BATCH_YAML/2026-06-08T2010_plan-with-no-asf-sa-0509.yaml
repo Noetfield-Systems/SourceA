@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0509 — Cross-check MergePack KPI trio in command center payload
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0509
+tests:
+  status: passed
+  output_snippet: pack21 commercial verify-only; FR+wire+runreceipt+dispatch PASS
+reported_at: '2026-06-08T20:10:37Z'
+reporter: cursor-worker-batch

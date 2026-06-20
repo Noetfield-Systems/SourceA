@@ -1,0 +1,19 @@
+{
+  "schema": "phase0-noetfield-freemium-factory-receipt-v1",
+  "ok": true,
+  "at": "2026-06-20T01:58:57Z",
+  "factory_id": "noetfield-freemium-factory-v1",
+  "sa_id": "sa-nf-freemium",
+  "upgrade_ref": "P0-13",
+  "work_order_id": "wo-brain-ddd71084ff53",
+  "bay_slug": "noetfield-freemium-bay",
+  "execution_plane": "cloud_api_worker",
+  "control_plane": "mac_hub",
+  "local_worker": false,
+  "q_gath_04": "A",
+  "cloud_stub": false,
+  "bay_ok": true,
+  "federated_ok": true,
+  "evidence": "brain_phase0_work_order \u00b7 bay=noetfield-freemium-bay \u00b7 wo=wo-brain-ddd71084ff53",
+  "source": "scripts/brain_phase0_work_order_v1.py"
+}

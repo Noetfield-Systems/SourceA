@@ -1,0 +1,90 @@
+{
+  "schema": "mac-law-mandatory-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T16:42:00Z",
+  "authority": "Mac Law — supreme after ASF",
+  "one_law": "Mac Law is the boss — Mac = control panel only · cloud/API executes · every agent every session",
+  "boss_order": [
+    "ASF",
+    "MAC LAW",
+    "system_registry.json",
+    "NOTICE_LOG.json",
+    "per-repo SSOT",
+    "execution"
+  ],
+  "law_docs": {
+    "mac_law_ssot": "~/Desktop/MacLaw/MAC_LAW_SSOT_LOCKED.md",
+    "mac_control_plane": "~/Desktop/MacLaw/MAC_CONTROL_PLANE_LOCKED.md",
+    "mac_health_mandates": "~/Desktop/MacLaw/MAC_HEALTH_AGENT_MANDATES_LOCKED.md",
+    "mac_agent_entry": "~/Desktop/MacLaw/MAC_AGENT_ENTRY_INDEX_LOCKED.md"
+  },
+  "runtime_ssot": "data/founder-execution-model-v1.json",
+  "machine_registry": "data/machine-execution-plane-registry-v1.json",
+  "enforcers": {
+    "mac_law_mandatory": "scripts/mac_law_mandatory_v1.py",
+    "mac_control_plane": "scripts/mac_control_plane_v1.py",
+    "mac_health_mandates": "scripts/mac_health_agent_mandates_v1.py"
+  },
+  "validators": {
+    "mac_law_mandatory": "scripts/validate-mac-law-mandatory-v1.sh",
+    "mac_law_surfaces_e2e": "scripts/validate-mac-law-surfaces-e2e-v1.sh",
+    "mac_control_plane": "scripts/validate-mac-control-plane-v1.sh",
+    "mac_health_mandates": "scripts/validate-mac-health-agent-mandates-v1.sh"
+  },
+  "cursor_rules": [
+    ".cursor/rules/mac-law-mandatory.mdc",
+    ".cursor/rules/031-mac-law-machine-enforceable-v1.mdc",
+    ".cursor/rules/mac-control-plane.mdc",
+    ".cursor/rules/mac-health-agent-mandates.mdc",
+    ".cursor/rules/028-mac-light-control-plane-v1.mdc"
+  ],
+  "machine_enforceable": {
+    "active": true,
+    "ssot": "data/mac-law-machine-enforceable-v1.json",
+    "script": "scripts/mac_law_machine_enforce_v1.py",
+    "validator": "scripts/validate-mac-law-machine-enforceable-v1.sh",
+    "law_rule": ".cursor/rules/031-mac-law-machine-enforceable-v1.mdc",
+    "receipt": "~/.sina/mac-law-machine-enforce-receipt-v1.json"
+  },
+  "founder_boot": "bash scripts/enter-mac-control-plane-v1.sh",
+  "surfaces_boot": "bash scripts/mac_law_surfaces_boot_v1.sh",
+  "cockpit_urls": {
+    "hub": "http://127.0.0.1:13020/",
+    "mac_health": "http://127.0.0.1:13024/",
+    "routing_panel": "http://127.0.0.1:8780/",
+    "mac_law": "http://127.0.0.1:8781/"
+  },
+  "session_gate": "validate-mac-law-mandatory-v1.sh must PASS before ship",
+  "receipt": "~/.sina/mac-law-mandatory-receipt-v1.json",
+  "surfaces_line_key": "mac_law_mandatory_line",
+  "mandatory_flags": {
+    "present": [
+      "~/.sina/mac-control-plane-v1.flag",
+      "~/.sina/founder-work-mode-v1.flag",
+      "~/.sina/cli-disabled-v1.flag",
+      "~/.sina/mac-health-quiet-v1.flag",
+      "~/.sina/commercial-film-render-frozen-v1.flag",
+      "~/.sina/auto-run-disabled-v1.flag",
+      "~/.sina/no-auto-screenshot-v1.flag",
+      "~/.sina/mac-light-validators-only-v1.flag",
+      "~/.sina/mac-cloud-body-only-v1.flag",
+      "~/.sina/cursor-ultra-light-v1.flag"
+    ],
+    "absent": [
+      "~/.sina/api-disabled-v1.flag"
+    ],
+    "factory_mode": "FREEZE"
+  },
+  "forbidden_on_mac": [
+    "fbe_motor_delegate local drain",
+    "autorun_dispatcher local ACT",
+    "playwright film render",
+    "local fal/openrouter spend",
+    "bootstrap com.sourcea.autorun-worker without ASF",
+    "visual_proof screencapture hub poll",
+    "stacked anti_staleness session gates without session-flight dedupe"
+  ],
+  "mac_focus_cleanup": "scripts/mac_focus_cleanup_v1.py",
+  "script": "scripts/mac_law_mandatory_v1.py",
+  "validator": "scripts/validate-mac-law-mandatory-v1.sh"
+}

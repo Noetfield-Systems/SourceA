@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0886",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "hub_dual_heal_v1 ok true H2 fresh validate-hub-dual-heal-h2-sync-v1 PASS attachment sa-0886-hub-dual-heal-h2-sync-t3-spike",
+  "at": "2026-06-15T10:09:43Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

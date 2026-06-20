@@ -1,0 +1,56 @@
+{
+  "schema": "critic-boot-v1",
+  "at": "2026-06-19T19:30:31Z",
+  "verdict": "BLOCK",
+  "ok": false,
+  "agent_id": "AGENT-AUTO-MONO",
+  "checks": [
+    {
+      "id": "C1",
+      "name": "ssot_brief",
+      "ok": true,
+      "reason": "SSOT v3.1 brief current",
+      "version": "3.2",
+      "briefed_at": "2026-06-19T18:47:54Z",
+      "briefing_path": "/Users/sinakazemnezhad/.sina/agent-briefing/AGENT-AUTO-MONO-latest.json"
+    },
+    {
+      "id": "C2",
+      "name": "voyage_provider",
+      "ok": true,
+      "reason": "voyage",
+      "mode": "voyage",
+      "semantic": true,
+      "secrets_env": true
+    },
+    {
+      "id": "C3",
+      "name": "truth_match",
+      "ok": false,
+      "reason": "run-inbox truth_match=false \u2014 queue/inbox mismatch",
+      "inbox": {
+        "pending": false,
+        "sa_id": "sa-1200",
+        "delivered_at": "2026-06-19T19:09:29Z",
+        "truth_match": false,
+        "execution_mode": "worker_inbox",
+        "work_order_id": null,
+        "local_worker_deprecated": false
+      },
+      "queue_sa": "sa-1201"
+    },
+    {
+      "id": "C4",
+      "name": "gate_fresh",
+      "ok": true,
+      "reason": "session gate completing",
+      "mode": "session_start"
+    }
+  ],
+  "blockers": [
+    "run-inbox truth_match=false \u2014 queue/inbox mismatch"
+  ],
+  "founder_line": "CRITIC BOOT BLOCK \u2014 run-inbox truth_match=false \u2014 queue/inbox mismatch",
+  "law": "Layer 1 local boot \u2014 no cloud",
+  "receipt_path": "/Users/sinakazemnezhad/.sina/critic-boot-v1.json"
+}

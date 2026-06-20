@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0019",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0019 VERIFY PASS: critic Eval synthesis aligned to eval_packet_v1b 4/5\u00b780%; strict build green; receipt closed.",
+  "at": "2026-06-09T13:57:49Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

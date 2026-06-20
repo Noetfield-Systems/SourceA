@@ -1,0 +1,389 @@
+{
+  "generated_at": "2026-06-19 19:26 UTC",
+  "generator": "SourceA/sync_feedback_aggregate_hub_built_at_v1.py",
+  "reports_loaded": 5,
+  "executions_loaded": 86,
+  "execution_truth": {
+    "generated_at": "2026-06-15 05:28 UTC",
+    "generator": "SinaPromptOS/execution_tracker",
+    "repos": {
+      "trustfield": {
+        "has_logs": true,
+        "last_verified_done": {
+          "schema_version": 1,
+          "repo": "trustfield",
+          "task": "Lane alignment: B-001 decision doc + Phase 1b git sync + plan.json GTM tasks",
+          "status": "done",
+          "verify_passed": true,
+          "evidence": {
+            "commit": "",
+            "files_changed": [
+              "docs/B001_INFRA_DECISION.md",
+              "os/plan.json",
+              "reports/ASF_MAINTAINER_B001_HANDOFF.md",
+              "reports/execution-logs/trustfield-lane-alignment-b001.yaml"
+            ],
+            "diff_summary": "",
+            "note": "Founder: PHASE1_OUTREACH + demo_close_checklist; ASF: close B-001 in Command per ASF_MAINTAINER_B001_HANDOFF.md"
+          },
+          "tests": {
+            "status": "passed",
+            "command": "VERIFY_BASE_URL=https://www.trustfield.ca ./scripts/verify_ui_e2e.sh",
+            "output_snippet": "UI E2E PASS; commits 9bcd308+1a3f92d pushed main; B-001 documented"
+          },
+          "real_output": "UI E2E PASS; commits 9bcd308+1a3f92d pushed main; B-001 documented",
+          "reported_at": "2026-06-04T12:20:00Z",
+          "reporter": "cursor",
+          "execution_id": ""
+        },
+        "last_failure": null,
+        "unverified_done_count": 0,
+        "recent_count": 5,
+        "truth_score": 0.8,
+        "claims_verified": [],
+        "claims_unverified": [
+          "deployment script"
+        ],
+        "report_trusted": false,
+        "penalty": 12,
+        "reasons": [
+          "unverified completions: 1"
+        ]
+      },
+      "sinaai_mono": {
+        "has_logs": true,
+        "last_verified_done": {
+          "schema_version": 1,
+          "repo": "sinaai_mono",
+          "task": "AGENT-AUTO-MONO mx-0017 — cursor-reply YAML + Source A chat battery",
+          "status": "done",
+          "verify_passed": true,
+          "evidence": {
+            "commit": "",
+            "files_changed": [
+              "reports/agent-auto/DELIVERY/agent-auto-mono-2026-06-13-009-sourcea-chat-finish-receipt.md",
+              "reports/agent-auto/AUDIT-LOG/agent-auto-mono-2026-06-13-sourcea-chat-mx-0017-pass.md",
+              "~/.sina/judge-center/latest-resolution-v1.json",
+              "~/.sina/thread-room/latest-curation-v1.json"
+            ],
+            "diff_summary": "",
+            "note": "ASF: PLAN WITH NO ASF mx-0018"
+          },
+          "tests": {
+            "status": "passed",
+            "command": "bash scripts/full-e2e-mono.sh --skip-restart",
+            "output_snippet": "E2E failed=0; never_silent ok; stack consolidation PASS; :8000 TrustField2Bot"
+          },
+          "real_output": "E2E failed=0; never_silent ok; stack consolidation PASS; :8000 TrustField2Bot",
+          "reported_at": "2026-06-13T10:25:00Z",
+          "reporter": "cursor-auto-mono",
+          "execution_id": ""
+        },
+        "last_failure": null,
+        "unverified_done_count": 0,
+        "recent_count": 5,
+        "truth_score": 0.8,
+        "claims_verified": [],
+        "claims_unverified": [],
+        "report_trusted": true,
+        "penalty": 0.0,
+        "reasons": []
+      },
+      "virlux": {
+        "has_logs": true,
+        "last_verified_done": {
+          "schema_version": 1,
+          "repo": "virlux",
+          "task": "Create or refresh os/plan.json for VIRLUX with 3 concrete next_tasks",
+          "status": "done",
+          "verify_passed": true,
+          "evidence": {
+            "commit": "",
+            "files_changed": [
+              "os/plan.json"
+            ],
+            "diff_summary": "",
+            "note": "Execute next_tasks[0] when RAILWAY_TOKEN available via vault"
+          },
+          "tests": {
+            "status": "passed",
+            "command": "python3 -c \"import json; p=json.load(open('os/plan.json')); assert len(p['next_tasks'])==3; print('OK', len(p['next_tasks']), 'tasks')\"",
+            "output_snippet": "OK 3 next_tasks (Railway deploy, seed/setup, post-deploy verify)"
+          },
+          "real_output": "OK 3 next_tasks (Railway deploy, seed/setup, post-deploy verify)",
+          "reported_at": "2026-06-02T12:00:00Z",
+          "reporter": "cursor",
+          "execution_id": ""
+        },
+        "last_failure": null,
+        "unverified_done_count": 0,
+        "recent_count": 4,
+        "truth_score": 0.8,
+        "claims_verified": [],
+        "claims_unverified": [],
+        "report_trusted": true,
+        "penalty": 0.0,
+        "reasons": []
+      },
+      "noetfield": {
+        "has_logs": true,
+        "last_verified_done": {
+          "schema_version": 1,
+          "repo": "noetfield",
+          "task": "Draft tenant + append-only audit schema outline (markdown only — no .py until ASF activates)",
+          "status": "done",
+          "verify_passed": true,
+          "evidence": {
+            "commit": "",
+            "files_changed": [
+              "docs/spec/tenant-append-only-audit-schema-outline.md",
+              "os/plan.json",
+              "packages/schemas/governance_event.schema.json",
+              "governance-console/backend/db/models.py"
+            ],
+            "diff_summary": "",
+            "note": "ASF implement nf-trustfield-conflicts-003 or nf-phase1b-scaffold-004"
+          },
+          "tests": {
+            "status": "passed",
+            "command": "test -f docs/spec/tenant-append-only-audit-schema-outline.md && grep append-only && grep tenant_id",
+            "output_snippet": "verify_passed: true; task nf-tenant-audit-schema-002; criteria_count: 5"
+          },
+          "real_output": "verify_passed: true; task nf-tenant-audit-schema-002; criteria_count: 5",
+          "reported_at": "2026-06-14T01:31:36.875894+00:00",
+          "reporter": "cursor",
+          "execution_id": ""
+        },
+        "last_failure": null,
+        "unverified_done_count": 0,
+        "recent_count": 5,
+        "truth_score": 0.8,
+        "claims_verified": [],
+        "claims_unverified": [],
+        "report_trusted": true,
+        "penalty": 0.0,
+        "reasons": []
+      },
+      "seven77": {
+        "has_logs": true,
+        "last_verified_done": {
+          "schema_version": 1,
+          "repo": "seven77",
+          "task": "Review docs/c1-ops-close.md open items and close or defer with date",
+          "status": "done",
+          "verify_passed": true,
+          "evidence": {
+            "commit": "",
+            "files_changed": [
+              "docs/c1-ops-close.md",
+              "os/plan.json"
+            ],
+            "diff_summary": "",
+            "note": "ASF: set SUPABASE_SERVICE_ROLE_KEY via vault or npm run provision:service-key, then npm run deploy:prod-close"
+          },
+          "tests": {
+            "status": "passed",
+            "command": "cd web && npm run verify:service-key; curl -s https://www.the777foundation.org/api/health/?strict=1",
+            "output_snippet": "Key missing locally; prod strict health false — matches blocked disposition in c1-ops-close.md"
+          },
+          "real_output": "Key missing locally; prod strict health false — matches blocked disposition in c1-ops-close.md",
+          "reported_at": "2026-06-02T00:55:00Z",
+          "reporter": "cursor",
+          "execution_id": ""
+        },
+        "last_failure": null,
+        "unverified_done_count": 0,
+        "recent_count": 1,
+        "truth_score": 0.8,
+        "claims_verified": [],
+        "claims_unverified": [],
+        "report_trusted": true,
+        "penalty": 0.0,
+        "reasons": []
+      },
+      "sina_prompt_os": {
+        "has_logs": false,
+        "last_verified_done": null,
+        "last_failure": null,
+        "unverified_done_count": 0,
+        "truth_score": 0.0,
+        "claims_verified": [],
+        "claims_unverified": [],
+        "report_trusted": false,
+        "penalty": 0.0,
+        "reasons": []
+      }
+    },
+    "execution_log_dir": "/Users/sinakazemnezhad/Desktop/SourceA/REPO_EXECUTION_LOGS",
+    "hub_built_at": "2026-06-19T19:26:20.620696+00:00",
+    "hub_synced_at": "2026-06-19 19:26 UTC"
+  },
+  "missing_reports": [
+    "sina_prompt_os"
+  ],
+  "inbound_needs": {
+    "trustfield": 0,
+    "sinaai_mono": 0,
+    "virlux": 1,
+    "noetfield": 0,
+    "seven77": 0,
+    "sina_prompt_os": 0
+  },
+  "suggested_global_priority": [
+    "virlux",
+    "seven77",
+    "trustfield",
+    "noetfield",
+    "sinaai_mono",
+    "sina_prompt_os"
+  ],
+  "current_global_priority": [
+    "trustfield",
+    "sinaai_mono",
+    "virlux",
+    "noetfield",
+    "seven77"
+  ],
+  "ranked": [
+    {
+      "rank": 1,
+      "project_id": "virlux",
+      "score": 116.6,
+      "task": "staging smoke test",
+      "has_feedback": true
+    },
+    {
+      "rank": 2,
+      "project_id": "seven77",
+      "score": 95.5,
+      "task": "homepage content pass",
+      "has_feedback": true
+    },
+    {
+      "rank": 3,
+      "project_id": "trustfield",
+      "score": 75.0,
+      "task": "postgres validation",
+      "has_feedback": true
+    },
+    {
+      "rank": 4,
+      "project_id": "noetfield",
+      "score": 32.0,
+      "task": "spec section 3 review",
+      "has_feedback": true
+    },
+    {
+      "rank": 5,
+      "project_id": "sinaai_mono",
+      "score": 22.0,
+      "task": "runtime health check",
+      "has_feedback": true
+    },
+    {
+      "rank": 6,
+      "project_id": "sina_prompt_os",
+      "score": 18.0,
+      "task": "Add daily scheduled snapshot (launchd or cron) writing to data/",
+      "has_feedback": false
+    }
+  ],
+  "reports": {
+    "noetfield": {
+      "schema_version": 1,
+      "repo": "noetfield",
+      "health": "green",
+      "progress": 20.0,
+      "confidence": 0.6,
+      "estimated_hours": 12.0,
+      "blocked": [],
+      "completed": [],
+      "next": [
+        "spec section 3 review"
+      ],
+      "needs": [],
+      "notes": "",
+      "reported_at": "2026-06-02 01:43 UTC",
+      "reporter": "cursor"
+    },
+    "seven77": {
+      "schema_version": 1,
+      "repo": "seven77",
+      "health": "green",
+      "progress": 30.0,
+      "confidence": 0.75,
+      "estimated_hours": 3.0,
+      "blocked": [],
+      "completed": [],
+      "next": [
+        "homepage content pass"
+      ],
+      "needs": [],
+      "notes": "",
+      "reported_at": "2026-06-02 01:43 UTC",
+      "reporter": "cursor"
+    },
+    "sinaai_mono": {
+      "schema_version": 1,
+      "repo": "sinaai_mono",
+      "health": "green",
+      "progress": 40.0,
+      "confidence": 0.7,
+      "estimated_hours": 8.0,
+      "blocked": [],
+      "completed": [],
+      "next": [
+        "runtime health check"
+      ],
+      "needs": [],
+      "notes": "",
+      "reported_at": "2026-06-02 01:43 UTC",
+      "reporter": "cursor"
+    },
+    "trustfield": {
+      "schema_version": 1,
+      "repo": "trustfield",
+      "health": "yellow",
+      "progress": 72.0,
+      "confidence": 0.85,
+      "estimated_hours": 6.0,
+      "blocked": [
+        "redis connection pool"
+      ],
+      "completed": [
+        "deployment script"
+      ],
+      "next": [
+        "postgres validation"
+      ],
+      "needs": [
+        {
+          "repo": "virlux",
+          "item": "api schema alignment"
+        }
+      ],
+      "notes": "",
+      "reported_at": "2026-06-02 01:43 UTC",
+      "reporter": "cursor"
+    },
+    "virlux": {
+      "schema_version": 1,
+      "repo": "virlux",
+      "health": "yellow",
+      "progress": 55.0,
+      "confidence": 0.8,
+      "estimated_hours": 4.0,
+      "blocked": [],
+      "completed": [],
+      "next": [
+        "staging smoke test"
+      ],
+      "needs": [],
+      "notes": "",
+      "reported_at": "2026-06-02 01:43 UTC",
+      "reporter": "cursor"
+    }
+  },
+  "hub_built_at": "2026-06-19T19:26:20.620696+00:00",
+  "hub_synced_at": "2026-06-19 19:26 UTC"
+}

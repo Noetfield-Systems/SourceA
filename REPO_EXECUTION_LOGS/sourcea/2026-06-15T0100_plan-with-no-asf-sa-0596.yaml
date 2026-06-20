@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0596 — Run commercial attests checklist in SOURCEA-PRIORITY founder section
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0596
+tests:
+  status: passed
+  output_snippet: sa-0596 T3 commercial attests checklist cross-ref (canonical sa-0521) · validate-commercial-attests-priority-t3-crossref-v1 PASS · commercial_attests_checklist_t3_crossref signal · task-validator closeout (no_hub)
+reported_at: '2026-06-15T01:00:00Z'
+reporter: commercial-6245d9dd
+gate_mode: receipt

@@ -1,0 +1,233 @@
+{
+  "schema_version": 5,
+  "mono_root": "~/Desktop/SinaaiMonoRepo",
+  "hub_intelligence_url": "http://127.0.0.1:13020/api/n8n/intelligence",
+  "hub_mode_note": "hub warn-only when quarantined — use n8n_intelligence.py local capture",
+  "glue_runner": "scripts/n8n_glue_runner_v1.py",
+  "workflows": [
+    {
+      "id": "sinaai-stack-health-ping",
+      "path": "n8n/workflows/sinaai-stack-health-ping.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/sinaai-stack-health-ping.json",
+      "requires_credentials": [],
+      "min_nodes": 4,
+      "required_node_types": ["n8n-nodes-base.manualTrigger", "n8n-nodes-base.httpRequest"],
+      "role": "health",
+      "tier": 1,
+      "probes": ["mac_health", "n8n", "n8n_integration", "hub_warn", "runtime_warn"]
+    },
+    {
+      "id": "wf-mac-health-cooldown",
+      "path": "n8n/workflows/wf-mac-health-cooldown-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-mac-health-cooldown-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.webhook", "n8n-nodes-base.executeCommand"],
+      "role": "health",
+      "tier": 1
+    },
+    {
+      "id": "wf-factory-queue-sweeper",
+      "path": "n8n/workflows/wf-factory-queue-sweeper-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-factory-queue-sweeper-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.cron", "n8n-nodes-base.executeCommand"],
+      "role": "health",
+      "tier": 2
+    },
+    {
+      "id": "wf-disk-live-wire-watchdog",
+      "path": "n8n/workflows/wf-disk-live-wire-watchdog-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-disk-live-wire-watchdog-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.cron", "n8n-nodes-base.executeCommand"],
+      "role": "health",
+      "tier": 2
+    },
+    {
+      "id": "wf-n8n-self-pause-cpu",
+      "path": "n8n/workflows/wf-n8n-self-pause-cpu-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-n8n-self-pause-cpu-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.cron", "n8n-nodes-base.executeCommand"],
+      "role": "health",
+      "tier": 2
+    },
+    {
+      "id": "wf-governance-fast-15m",
+      "path": "n8n/workflows/wf-governance-fast-15m-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-governance-fast-15m-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.cron", "n8n-nodes-base.executeCommand"],
+      "role": "governance",
+      "tier": 3
+    },
+    {
+      "id": "wf-poison-track-reminder",
+      "path": "n8n/workflows/wf-poison-track-reminder-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-poison-track-reminder-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.cron", "n8n-nodes-base.executeCommand"],
+      "role": "governance",
+      "tier": 3
+    },
+    {
+      "id": "wf-run-inbox-reminder",
+      "path": "n8n/workflows/wf-run-inbox-reminder-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-run-inbox-reminder-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.cron", "n8n-nodes-base.executeCommand"],
+      "role": "factory",
+      "tier": 3
+    },
+    {
+      "id": "sinaai-product-signal-webhook",
+      "path": "n8n/workflows/sinaai-product-signal-webhook.json",
+      "requires_credentials": [],
+      "min_nodes": 3,
+      "required_node_types": ["n8n-nodes-base.webhook", "n8n-nodes-base.httpRequest"],
+      "role": "intelligence",
+      "tier": 4
+    },
+    {
+      "id": "sinaai-intelligence-pipeline",
+      "path": "n8n/workflows/sinaai-intelligence-pipeline.json",
+      "requires_credentials": [],
+      "min_nodes": 6,
+      "required_node_types": ["n8n-nodes-base.scheduleTrigger", "n8n-nodes-base.httpRequest"],
+      "role": "intelligence",
+      "tier": 4,
+      "hub_fallback": "n8n_intelligence.py capture"
+    },
+    {
+      "id": "wf-judge-audit-batch",
+      "path": "n8n/workflows/wf-judge-audit-batch-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-judge-audit-batch-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.cron", "n8n-nodes-base.executeCommand"],
+      "role": "governance",
+      "tier": 5
+    },
+    {
+      "id": "wf-thread-scout-weekly",
+      "path": "n8n/workflows/wf-thread-scout-weekly-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-thread-scout-weekly-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.cron", "n8n-nodes-base.executeCommand"],
+      "role": "governance",
+      "tier": 5
+    },
+    {
+      "id": "wf-openrouter-governance-hook",
+      "path": "n8n/workflows/wf-openrouter-governance-hook-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-openrouter-governance-hook-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.cron", "n8n-nodes-base.executeCommand"],
+      "role": "openrouter_glue",
+      "tier": 5,
+      "gate": "shadow"
+    },
+    {
+      "id": "wf-agent-scoreboard-sync",
+      "path": "n8n/workflows/wf-agent-scoreboard-sync-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-agent-scoreboard-sync-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.cron", "n8n-nodes-base.executeCommand"],
+      "role": "governance",
+      "tier": 6
+    },
+    {
+      "id": "wf-founder-request-registrar",
+      "path": "n8n/workflows/wf-founder-request-registrar-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-founder-request-registrar-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.webhook", "n8n-nodes-base.executeCommand"],
+      "role": "archive",
+      "tier": 6
+    },
+    {
+      "id": "wf-semej-session-bookend",
+      "path": "n8n/workflows/wf-semej-session-bookend-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-semej-session-bookend-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.webhook", "n8n-nodes-base.executeCommand"],
+      "role": "archive",
+      "tier": 6
+    },
+    {
+      "id": "wf-backup-receipt-archiver",
+      "path": "n8n/workflows/wf-backup-receipt-archiver-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-backup-receipt-archiver-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.cron", "n8n-nodes-base.executeCommand"],
+      "role": "archive",
+      "tier": 6
+    },
+    {
+      "id": "wf-chat-unify-merge-receipt",
+      "path": "n8n/workflows/wf-chat-unify-merge-receipt-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-chat-unify-merge-receipt-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.webhook", "n8n-nodes-base.executeCommand"],
+      "role": "intelligence",
+      "tier": 6
+    },
+    {
+      "id": "wf-film-screen-studio-ingest",
+      "path": "n8n/workflows/wf-film-screen-studio-ingest-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-film-screen-studio-ingest-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.webhook", "n8n-nodes-base.executeCommand"],
+      "role": "film_factory",
+      "tier": 3,
+      "note": "P0 ship gate — lanes: sourcea, witnessbc (Screen Studio master required)"
+    },
+    {
+      "id": "wf-cinematic-film-compile",
+      "path": "n8n/workflows/wf-cinematic-film-compile-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-cinematic-film-compile-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.webhook", "n8n-nodes-base.executeCommand"],
+      "role": "film_factory",
+      "tier": 3
+    },
+    {
+      "id": "wf-cinematic-film-critic",
+      "path": "n8n/workflows/wf-cinematic-film-critic-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-cinematic-film-critic-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.webhook", "n8n-nodes-base.executeCommand"],
+      "role": "film_factory",
+      "tier": 3
+    },
+    {
+      "id": "sinaai-telegram-agents",
+      "path": "n8n/workflows/sinaai-telegram-agents.json",
+      "requires_credentials": ["telegram"],
+      "min_nodes": 8,
+      "required_node_types": ["n8n-nodes-base.telegramTrigger", "n8n-nodes-base.httpRequest"],
+      "role": "telegram",
+      "tier": 0,
+      "deferred": true,
+      "note": "OFF — one listener law; Runtime bot is default"
+    }
+  ],
+  "deferred": ["wf-form-change-cascade", "wf-health-sweep-15m"]
+}

@@ -1,0 +1,27 @@
+---
+description: Worker packs — one paste/turn, verify inside, every-3 E2E + every-5 debug gates bundled
+globs: scripts/worker_*,brain-os/plan-registry/**
+alwaysApply: false
+---
+
+# Worker prompt pack format (LOCKED v1.1)
+
+**trace_tag:** `AUTO-TRACE-RULE-WORKER-PACK-FORMAT-v1.1`  
+**agent:** `Auto`  
+**Canonical:** `brain-os/contract/WORKER_PROMPT_PACK_FORMAT_LOCKED_v1.md`  
+**Tag law:** `brain-os/contract/DOC_TRACE_TAG_FORMAT_LOCKED_v1.md`
+
+## Never
+
+- CHECK / ACT / VERIFY as **separate founder pastes** per sa
+- Ceremony micro-queues or STOP-wait between pack lines
+- E2E-3 or DEBUG-5 as **standalone extra pastes** (must be inside prompt #3, #5, #6, …)
+
+## Always
+
+- **One prompt = one full turn** (read + implement + verify + closeout in same paste)
+- **Every 3rd prompt:** E2E-3 gate inside that paste — full E2E, implement, verify PASS, fix, search missing (last 3 turns)
+- **Every 5th prompt:** DEBUG-5 gate inside that paste — full debug, all validators E2E, hub refresh/sync, inbox/queue drift, runtime hygiene
+- Default **10 per worker lane**; regenerators must enforce gates
+
+Reject any pack that fails both line tests in the LOCKED doc.

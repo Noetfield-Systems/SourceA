@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0061 — Fix ENFORCE-only not_here when ~/.sina/gate_mode_v1.txt is enforce
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0061
+tests:
+  status: passed
+  output_snippet: sa-0061 PASS — ENFORCE-only not_here when gate_mode enforce (validate-enforce-not-here-regression-v1); validate-phase-s0-ssot-alignment-v1; critical 0
+reported_at: '2026-06-09T23:58:08Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

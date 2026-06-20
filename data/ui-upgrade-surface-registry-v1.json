@@ -1,0 +1,187 @@
+{
+  "schema": "ui-upgrade-surface-registry-v1",
+  "version": "1.4.0",
+  "saved_at": "2026-06-19T20:49:30Z",
+  "authority": "brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md",
+  "cockpit_law": "brain-os/enforcement/SINA_FOUNDER_GLANCE_COCKPIT_APPS_LOCKED_v1.md",
+  "cockpit_registry": "data/founder-glance-cockpit-apps-v1.json",
+  "cockpit_wire": "scripts/founder_glance_cockpit_wire_v1.py",
+  "cockpit_validator": "scripts/validate-founder-glance-cockpit-apps-v1.sh",
+  "one_law": "General UP checklist + per-app ledger — prove last version preserved; append every upgrade to that app's ledger.",
+  "ledger_index": "data/ui-upgrade-ledgers-index-v1.json",
+  "ledger_template": "brain-os/enforcement/UI_UPGRADE_LEDGER_TEMPLATE_LOCKED_v1.md",
+  "ledger_script": "scripts/ui_upgrade_ledger_v1.py",
+  "founder_triggers": ["up", "UI upgrade", "upgrade UI", "upgrade the UI", "redesign", "refresh UI", "polish UI"],
+  "law_doc": "brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md",
+  "cursor_rules": [
+    ".cursor/rules/024-ui-upgrade-mandatory-checklist.mdc",
+    ".cursor/rules/023-ui-upgrade-no-downgrade.mdc",
+    ".cursor/rules/025-ui-upgrade-first-check-live-wire.mdc",
+    ".cursor/rules/026-ui-first-check-zero-exception.mdc"
+  ],
+  "script": "scripts/ui_upgrade_mandatory_gate_v1.py",
+  "first_check_script": "scripts/ui_upgrade_first_check_v1.py",
+  "classifier_script": "scripts/ui_upgrade_path_classifier_v1.py",
+  "validator": "scripts/validate-ui-upgrade-mandatory-v1.sh",
+  "first_check_validator": "scripts/validate-ui-upgrade-first-check-live-wire-v1.sh",
+  "all_agents_validator": "scripts/validate-ui-first-check-mandatory-all-agents-v1.sh",
+  "receipt": "~/.sina/ui-upgrade-mandatory-receipt-v1.json",
+  "surfaces_line_key": "ui_upgrade_mandatory_line",
+  "incident_refs": [
+    "brain-os/wtm/WORLD_TARGET_MODEL_UI_INCIDENT_REPORT_LOCKED_v1.md",
+    "brain-os/enforcement/SOURCEA_UI_UPGRADE_NO_DOWNGRADE_LOCKED_v1.md"
+  ],
+  "surfaces": {
+    "sourcea_landing": {
+      "label": "SourceA landing (green-unified)",
+      "repo": "SourceA",
+      "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/SOURCEA_LANDING_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+      "ledger_json": "data/ui-upgrade-ledgers/sourcea_landing-v1.json",
+      "root": "SourceA-landing/green-unified",
+      "url": "http://127.0.0.1:5180/sourcea/",
+      "blueprint": [
+        "SourceA-landing/green-unified/data/ui-upgrade-baseline-v1.json",
+        "brain-os/enforcement/SOURCEA_UI_UPGRADE_NO_DOWNGRADE_LOCKED_v1.md"
+      ],
+      "pre_edit": "python3 scripts/ui_upgrade_baseline_guard_v1.py check --path \"<target>\" --json",
+      "verify": "bash scripts/validate-ui-upgrade-no-downgrade-v1.sh",
+      "e2e": "bash SourceA-landing/green-unified/scripts/run-recipe.sh --e2e",
+      "forbidden_sources": ["reference/", "Downloads/*.html"]
+    },
+    "worker_hub": {
+      "label": "Worker Hub",
+      "repo": "SourceA",
+      "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/WORKER_HUB_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+      "ledger_json": "data/ui-upgrade-ledgers/worker_hub-v1.json",
+      "root": "agent-control-panel",
+      "url": "http://127.0.0.1:13020/",
+      "blueprint": [
+        "HUB_SOURCE_UI_ALIGNMENT_PROCEDURE_LOCKED_v1.md",
+        "scripts/system_roadmap.py"
+      ],
+      "pre_edit": "python3 scripts/audit_hub_source_alignment.py",
+      "verify": "python3 scripts/build-sina-command-panel.py",
+      "e2e": "curl -sf http://127.0.0.1:13020/ | head -c 200",
+      "forbidden_in_ui": ["agent misconception tables", "session chronology", "duplicate step catalogs in app.js"]
+    },
+    "wtm_tab": {
+      "label": "World Target Model tab",
+      "repo": "SourceA",
+      "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/WTM_TAB_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+      "ledger_json": "data/ui-upgrade-ledgers/wtm_tab-v1.json",
+      "root": "agent-control-panel/assets",
+      "url": "http://127.0.0.1:13020/?tab=system-roadmap",
+      "blueprint": [
+        "brain-os/wtm/WORLD_TARGET_MODEL_UI_INCIDENT_REPORT_LOCKED_v1.md",
+        "brain-os/wtm/WORLD_TARGET_MODEL_UI_RESEARCH_LOCKED_v1.md",
+        "HUB_SOURCE_UI_ALIGNMENT_PROCEDURE_LOCKED_v1.md"
+      ],
+      "dom_must_contain": [
+        "sr-you-are-here",
+        "sr-map-layers",
+        "sr-next-build-order",
+        "data-sr-view=\"overview\""
+      ],
+      "dom_must_not_contain": [
+        "What this upgrade is NOT",
+        "Today's upgrade arc"
+      ],
+      "pre_edit": "git diff agent-control-panel/assets/app.js",
+      "verify": "python3 scripts/build-sina-command-panel.py",
+      "e2e": "open http://127.0.0.1:13020/?tab=system-roadmap"
+    },
+    "mac_law_cockpit": {
+      "label": "Mac Law boss UI",
+      "repo": "MacLaw",
+      "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/MAC_LAW_COCKPIT_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+      "ledger_json": "data/ui-upgrade-ledgers/mac_law_cockpit-v1.json",
+      "root": "~/Desktop/MacLaw/public",
+      "url": "http://127.0.0.1:8781/",
+      "blueprint": [
+        "~/Desktop/MacLaw/MAC_LAW_SSOT_LOCKED.md",
+        "~/Desktop/MacLaw/MAC_CONTROL_PLANE_LOCKED.md"
+      ],
+      "pre_edit": "curl -sf http://127.0.0.1:8781/api/mac-law/surfaces",
+      "verify": "bash scripts/validate-mac-law-surfaces-e2e-v1.sh",
+      "e2e": "python3 scripts/debug_mac_law_e2e_v1.py --json"
+    },
+    "routing_panel": {
+      "label": "Routing Panel",
+      "repo": "SourceA",
+      "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/ROUTING_PANEL_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+      "ledger_json": "data/ui-upgrade-ledgers/routing_panel-v1.json",
+      "root": "~/Desktop/SourceA/routing-panel",
+      "url": "http://127.0.0.1:8780/",
+      "blueprint": ["~/Desktop/MacLaw/MAC_REPO_REGISTRY.json"],
+      "verify": "bash scripts/validate-mac-law-surfaces-e2e-v1.sh",
+      "e2e": "curl -sf http://127.0.0.1:8780/"
+    },
+    "mac_health": {
+      "label": "Mac Health guard UI",
+      "repo": "SourceA",
+      "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/MAC_HEALTH_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+      "ledger_json": "data/ui-upgrade-ledgers/mac_health-v1.json",
+      "root": "scripts/mac-health-standalone",
+      "url": "http://127.0.0.1:13024/",
+      "ui_mode": "founder_glance",
+      "version": "3.3.0",
+      "blueprint": [
+        "brain-os/enforcement/SINA_MAC_HEALTH_FOUNDER_GLANCE_UI_LOCKED_v1.md",
+        "data/mac-health-founder-glance-ui-contract-v1.json",
+        "scripts/mac_health_version_v1.py"
+      ],
+      "pre_edit": "python3 scripts/ui_upgrade_first_check_v1.py --surface mac_health --ack --json",
+      "verify": "bash scripts/validate-mac-health-founder-glance-v1.sh",
+      "e2e": "python3 scripts/mac_health_founder_glance_wire_v1.py --json",
+      "wire": "python3 scripts/mac_health_founder_glance_wire_v1.py --json",
+      "forbidden_in_ui": ["tab bar", "founder poem", "SASCIP tile", "equal-weight button rows above fold"]
+    },
+    "hub_form": {
+      "label": "Hub Form (FORM_OFFICIAL mirror)",
+      "repo": "SourceA",
+      "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/HUB_FORM_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+      "ledger_json": "data/ui-upgrade-ledgers/hub_form-v1.json",
+      "root": "agent-control-panel/form",
+      "url": "http://127.0.0.1:13020/form/",
+      "blueprint": [
+        "SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md",
+        "brain-os/incidents/SINA_EXECUTOR_IGNORED_M1_INTEGRITY_FORM_CANVAS_INCIDENT_029_LOCKED_v1.md",
+        "data/form_official_nerve_map_v1.json",
+        ".cursor/rules/form-automatic-submit-only.mdc"
+      ],
+      "pre_edit": "python3 scripts/ui_upgrade_first_check_v1.py --surface hub_form --ack --json",
+      "verify": "bash scripts/validate-hub-form-automatic-v1.sh",
+      "e2e": "bash scripts/validate-form-official-e2e-v1.sh",
+      "forbidden_in_ui": ["copy paste", "clipboard", "wizard prev/next", "ASF batch preview"]
+    },
+    "witnessbc_commercial": {
+      "label": "WitnessBC commercial site",
+      "repo": "SourceA",
+      "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/WITNESSBC_COMMERCIAL_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+      "ledger_json": "data/ui-upgrade-ledgers/witnessbc_commercial-v1.json",
+      "root": "witnessbc-site",
+      "url": "https://witnessbc-commercial.pages.dev/",
+      "blueprint": [
+        "witnessbc-site/data/ui-upgrade-e2e-v12.json",
+        "witnessbc-site/data/pages.json",
+        "witnessbc-site/data/toolkits-v1.json"
+      ],
+      "pre_edit": "python3 scripts/ui_upgrade_first_check_v1.py --surface witnessbc_commercial --ack --json",
+      "verify": "bash witnessbc-site/scripts/run-recipe.sh",
+      "e2e": "bash witnessbc-site/scripts/wbc-e2e.sh",
+      "forbidden_in_ui": ["noetfield redirect", "relative assets on nested subpages", "broken freemium ladder"]
+    },
+    "generic_app": {
+      "label": "Any other website or application UI",
+      "repo": "<repo>",
+      "ledger_md": "brain-os/enforcement/UI_UPGRADE_LEDGER_TEMPLATE_LOCKED_v1.md",
+      "ledger_json": null,
+      "root": "<repo-root>",
+      "blueprint": ["<surface blueprint or README if none>"],
+      "pre_edit": "Capture inventory: routes, sections, CTAs, data bindings, tests",
+      "verify": "Diff against pre-upgrade inventory — zero unexplained removals",
+      "e2e": "Founder URL smoke or project E2E if present",
+      "note": "Register new surface row here after first upgrade — never skip checklist because no registry row yet."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0514 — Ensure RunReceipt factory hook in command center P0 card
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0514
+tests:
+  status: passed
+  output_snippet: sa-0514 VERIFY PASS — validate-runreceipt-factory-p0-hook-v1
+reported_at: '2026-06-14T12:53:09Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

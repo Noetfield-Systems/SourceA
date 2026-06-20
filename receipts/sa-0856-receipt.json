@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0856",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "worker_inbox",
+  "evidence": "sa-0856 VERIFY DONE \u2014 Cross-check SINA_COMMAND_NO_TERMINAL_FOUNDER law in hub copy; validators: validate-hub-copy-no-terminal-v1.sh: PASS, validate-founder-docs-no-terminal-v1.sh: PASS, worker_verify_fast_v1.sh: PASS",
+  "at": "2026-06-13T21:57:21Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

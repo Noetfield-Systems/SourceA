@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0030",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0030 VERIFY CLOSEOUT: P2 partial validator wired; dispatch/governance/FCB green; Valid YES 98/1000.",
+  "at": "2026-06-09T14:43:17Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0023",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0023 VERIFY PASS: strategic_synthesis bottleneck asserts dispatch_ready=false; phase-s0 pack through sa-0023; slice Q30/30 closed.",
+  "at": "2026-06-09T14:14:45Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

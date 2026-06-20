@@ -1,0 +1,54 @@
+{
+  "schema": "fbe-quality-contract-v1",
+  "version": "1.2.0",
+  "saved_at": "2026-06-17T17:00:00Z",
+  "law": "UI green ≠ tier — only receipt tier_achieved counts",
+  "tiers": {
+    "BRONZE": {
+      "refinery": "routes structural PASS",
+      "assembly": null,
+      "motor": "session PASS",
+      "shippable": "demo_only"
+    },
+    "GOLD": {
+      "refinery": "assets >= 99% · critic >= 90",
+      "assembly": "intake PASS",
+      "motor": "SASCIP ADMIT · drift >= 85",
+      "shippable": "design_partner"
+    },
+    "PLATINUM": {
+      "refinery": "fidelity matrix ALL · prove_only delivery PASS",
+      "assembly": "brand unity when wired",
+      "motor": "federated partial",
+      "shippable": "paid_product_ship"
+    },
+    "MARKET_READY": {
+      "refinery": "PLATINUM",
+      "assembly": "demo path · deploy · live smoke 200",
+      "motor": "conduct 0 violations",
+      "shippable": "commercial_launch"
+    }
+  },
+  "w2_honest_cap": "GOLD",
+  "w2_note": "sample-bay verify-16-steps may FAIL — tier_achieved must not exceed GOLD without CREED dealer PASS",
+  "w3_honest_cap": "GOLD+assembly_wired",
+  "w3_note": "12 wired CHURCH nodes — planned pipeline extends to 22",
+  "w6_honest_cap": "GOLD+assembly_wired",
+  "w6_note": "MARKET_READY only when live-smoke npm PASS (not w6_planned_stub)",
+  "tier_target": "MARKET_READY",
+  "market_ready_checks": [
+    {"id": "refinery_verify", "source": "~/.sina/fbe-refinery-verify-receipt-v1.json", "field": "proof", "expect": "refinery_verify PASS"},
+    {"id": "assembly_verify", "source": "~/.sina/fbe-assembly-verify-receipt-v1.json", "field": "proof", "expect": "assembly_verify PASS"},
+    {"id": "assembly_ledger", "path": "receipts/bays/sample-bay/assembly/ledger.jsonl", "min_lines": 22},
+    {"id": "church_intake", "path": "receipts/bays/sample-bay/assembly/church-intake-v1-v1.json", "field": "ok"},
+    {"id": "church_verify", "path": "receipts/bays/sample-bay/assembly/church-verify-v1-v1.json", "field": "ok"},
+    {"id": "church_live_smoke", "path": "receipts/bays/sample-bay/assembly/church-live-smoke-v1-v1.json", "field": "ok"},
+    {"id": "planned_nodes", "required": false, "note": "MARKET_READY requires live-smoke mode w6_church_npm not stub"}
+  ],
+  "tier_achieved_rules": {
+    "MARKET_READY": "ledger >= 22 + live-smoke npm PASS (mode w6_church_npm)",
+    "GOLD+assembly_wired": "refinery_verify PASS + assembly_verify PASS + assembly ledger >= 22",
+    "GOLD": "refinery_verify PASS only",
+    "BRONZE": "default fallback"
+  }
+}

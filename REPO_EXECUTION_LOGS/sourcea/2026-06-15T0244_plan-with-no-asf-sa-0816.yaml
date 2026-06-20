@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0816 — Cross-check THREE_ZONE_HUB_SPINE — H2 not nested under H1 navigation law
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0816
+tests:
+  status: passed
+  output_snippet: OK: validate-three-zone-h2-sibling-v1 · hero_h2=1 daily=/ h2=/machines/ · validate-machine-hub-v1 H2 route+API; OK: worker_verify_ultra_v1 · anti-staleness auto-heal + hub L0 tier PASS
+reported_at: '2026-06-15T02:44:43Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

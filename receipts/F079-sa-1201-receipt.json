@@ -1,0 +1,11 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1201",
+  "status": "BLOCKED",
+  "round_type": "act",
+  "upgrade_id": "F079",
+  "title": "Enable per manifest",
+  "evidence": "validate-mcp-stack-free-tier-v1 PASS (wire) · mcp-stack receipt pending_p0=[github] · github not in active_free_servers · founder action ~/.sina/mcp-github-p0-founder-action-v1.json ok=false",
+  "at": "2026-06-19T19:03:05Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

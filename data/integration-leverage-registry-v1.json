@@ -1,0 +1,83 @@
+{
+  "schema": "integration-leverage-registry-v1",
+  "locked_at": "2026-06-15T20:33:00Z",
+  "law_doc": "SOURCEA_INTEGRATION_LEVERAGE_STRATEGY_LOCKED_v1.md",
+  "mcp_stack_ssot": "data/mcp-stack-free-tier-v1.json",
+  "mcp_stack_locked_doc": "docs/SOURCEA_MCP_STACK_FREE_TIER_OPTIMIZATION_LOCKED_v1.md",
+  "execution_ssot": "factory-now + sa-* + Worker Hub",
+  "leverage_ssot": "Linear GOV SOURCEA + partnership badges",
+  "mcp": {
+    "cursor": {
+      "tier": "S",
+      "status": "active",
+      "credibility": "Built with Cursor · agent factory"
+    },
+    "linear": {
+      "tier": "S",
+      "status": "authenticated",
+      "workspace": "https://linear.app/gov-sourcea",
+      "team": "GOV SOURCEA",
+      "credibility": "Official Cursor MCP integration"
+    },
+    "vercel": {
+      "tier": "S",
+      "status": "gate_k_pass",
+      "url": "https://sourcea-landing.vercel.app",
+      "cost": "free_hobby"
+    },
+    "github": {
+      "tier": "A",
+      "status": "pending_p0",
+      "linear_issue": "GOV-8"
+    },
+    "notion": {
+      "tier": "A",
+      "status": "auth_pending"
+    },
+    "figma": {
+      "tier": "A",
+      "status": "auth_pending"
+    },
+    "supabase": {
+      "tier": "A",
+      "status": "available",
+      "lane": "trustfield_noetfield_only"
+    },
+    "datadog": {
+      "tier": "C",
+      "status": "defer_post_pilot"
+    },
+    "cloudflare": {
+      "tier": "S",
+      "status": "dns_only",
+      "cost": "free_dns",
+      "note": "free DNS only — Vercel is Gate K for Pages"
+    }
+  },
+  "partnerships": {
+    "p05_voyage_mongodb": { "grade": "A", "status": "done" },
+    "p03_nvidia_inception": { "grade": "A", "status": "apply_now", "linear": "GOV-10" },
+    "p04_microsoft_founders_hub": { "grade": "A", "status": "apply_now", "linear": "GOV-10" },
+    "p06_groq": { "grade": "A", "status": "apply_now" },
+    "temporal_embed": { "grade": "B", "status": "blueprint_live" },
+    "langgraph_embed": { "grade": "B", "status": "blueprint_live" }
+  },
+  "linear_projects": [
+    {
+      "name": "SourceA AB1 Outbound",
+      "id": "0d6362fe-4c1e-426c-9a22-35eeb11746ac",
+      "url": "https://linear.app/gov-sourcea/project/sourcea-ab1-outbound-cd2236b2fdff"
+    },
+    {
+      "name": "WitnessBC GTM",
+      "id": "eaba2b95-2b86-4398-b8c4-22eadb393c2c",
+      "url": "https://linear.app/gov-sourcea/project/witnessbc-gtm-4c62b4ae5c79"
+    },
+    {
+      "name": "Integration Leverage",
+      "id": "07f06c32-6fa1-434d-9ae9-59fa6db8b427",
+      "url": "https://linear.app/gov-sourcea/project/integration-leverage-6c54e3c60758"
+    }
+  ],
+  "linear_seed_issues": ["GOV-5", "GOV-6", "GOV-7", "GOV-8", "GOV-9", "GOV-10"]
+}

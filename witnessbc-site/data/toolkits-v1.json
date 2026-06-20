@@ -1,0 +1,265 @@
+{
+  "schema": "witnessbc-toolkits-v1",
+  "saved_at": "2026-06-19T18:16:11Z",
+  "law": "Education only \u2014 not legal advice. Free HTML + Pro Stripe. No case review.",
+  "support_email": "hello@witnessbc.com",
+  "pickers": [
+    {
+      "id": "sourcing",
+      "title": "I'm making claims and need sourcing discipline",
+      "desc": "Start: free Source Log template \u2192 upgrade for repeat use.",
+      "free_path": "toolkits/free/sourcing/",
+      "stripe_key": "sourcing",
+      "price": 19
+    },
+    {
+      "id": "privacy",
+      "title": "I'm worried about privacy / identification leaks",
+      "desc": "Start: de-identification checklist \u2192 upgrade for drills + examples.",
+      "free_path": "toolkits/free/privacy/",
+      "stripe_key": "privacy",
+      "price": 19
+    },
+    {
+      "id": "corrections",
+      "title": "I need a correction-ready workflow",
+      "desc": "Start: correction note + changelog pattern \u2192 upgrade for variants.",
+      "free_path": "toolkits/free/corrections/",
+      "stripe_key": "corrections",
+      "price": 9
+    },
+    {
+      "id": "publicrec",
+      "title": "I need record hygiene (files, links, archiving)",
+      "desc": "Start: naming + saving rules \u2192 upgrade for printable workflow.",
+      "free_path": "toolkits/free/public-record/",
+      "stripe_key": "publicrec",
+      "price": 29
+    }
+  ],
+  "products": [
+    {
+      "id": "sourcing",
+      "name": "Sourcing Discipline Pack",
+      "tagline": "Source log + claim/evidence map",
+      "price": 19,
+      "stripe_key": "sourcing",
+      "free_path": "toolkits/free/sourcing/",
+      "bullets": [
+        "Separate claims from evidence.",
+        "Log sources with dates, limits, and notes.",
+        "Reduce collapse-later errors from missing proof."
+      ],
+      "pro_note": "Best when: you publish claims, summaries, threads, or statements and want an evidence trail that survives time."
+    },
+    {
+      "id": "corrections",
+      "name": "Corrections & Update Protocol",
+      "tagline": "Correction note + changelog pattern",
+      "price": 9,
+      "stripe_key": "corrections",
+      "free_path": "toolkits/free/corrections/",
+      "bullets": [
+        "Fix the record without rewriting history.",
+        "Log changes clearly with dates and reasons.",
+        "Reduce credibility loss from silent edits."
+      ],
+      "pro_note": "Best when: you edit posts after publishing and want credibility to increase (not decrease) over time."
+    },
+    {
+      "id": "privacy",
+      "name": "Privacy & De-identification Pack",
+      "tagline": "Checklist + rewrite patterns",
+      "price": 19,
+      "stripe_key": "privacy",
+      "free_path": "toolkits/free/privacy/",
+      "bullets": [
+        "Reduce accidental identification risk.",
+        "Avoid detail-combination leaks (time + place + role).",
+        "Publish patterns safely while keeping originals private."
+      ],
+      "pro_note": "Best when: you want to publish a pattern without exposing identities, roles, locations, or timelines."
+    },
+    {
+      "id": "publicrec",
+      "name": "Public Record Checklist",
+      "tagline": "Archiving + evidence hygiene",
+      "price": 29,
+      "stripe_key": "publicrec",
+      "free_path": "toolkits/free/public-record/",
+      "bullets": [
+        "Prevent link rot and lost files.",
+        "Keep originals clean and store notes separately.",
+        "Maintain a simple private index for future corrections."
+      ],
+      "pro_note": "Best when: you want your sourcing to remain verifiable months later (even if websites change)."
+    },
+    {
+      "id": "storytemp",
+      "name": "Accountability Story Template",
+      "tagline": "Scope \u2192 sources \u2192 limits",
+      "price": 19,
+      "stripe_key": "storytemp",
+      "free_path": "toolkits/free/story-template/",
+      "bullets": [
+        "Publish with a repeatable structure.",
+        "State limits clearly to reduce over-claiming.",
+        "Include privacy and corrections blocks by default."
+      ],
+      "pro_note": "Best when: you want clarity, limits, and corrections readiness built into the document."
+    },
+    {
+      "id": "actionmap",
+      "name": "Civic Action Map (General)",
+      "tagline": "General next steps (non-case)",
+      "price": 29,
+      "stripe_key": "actionmap",
+      "free_path": "toolkits/free/action-map/",
+      "bullets": [
+        "Map a minimum defensible claim to next actions.",
+        "Choose what is public vs private evidence.",
+        "Set review points for updates or retractions."
+      ],
+      "pro_note": "Best when: you need a calm next-step structure without turning it into case strategy or advice."
+    }
+  ],
+  "bundles": [
+    {
+      "id": "starter",
+      "name": "Starter Bundle",
+      "tagline": "Sourcing + Privacy + Corrections",
+      "price": 39,
+      "stripe_key": "starter",
+      "items": [
+        "Sourcing Discipline Pack (Pro)",
+        "Privacy & De-identification Pack (Pro)",
+        "Corrections & Update Protocol (Pro)"
+      ]
+    },
+    {
+      "id": "pro",
+      "name": "Pro Bundle",
+      "tagline": "All Toolkits v1 (recommended)",
+      "price": 99,
+      "stripe_key": "pro",
+      "featured": true,
+      "items": [
+        "All Pro downloads listed in one pack"
+      ]
+    },
+    {
+      "id": "team",
+      "name": "Team License",
+      "tagline": "Internal use up to 5 people",
+      "price": 149,
+      "stripe_key": "team",
+      "items": [
+        "Digital downloads only",
+        "Internal use for up to 5 people",
+        "Not for resale or redistribution"
+      ]
+    }
+  ],
+  "training": [
+    {
+      "id": "train_evidence101",
+      "name": "Evidence Literacy 101",
+      "tagline": "Claim/evidence discipline + sourcing hygiene",
+      "price": 79,
+      "stripe_key": "train_evidence101",
+      "outline_path": "toolkits/training/evidence-literacy-101/",
+      "desc": "Best for anyone publishing claims who wants cleaner sourcing without turning publishing into a full-time job."
+    },
+    {
+      "id": "train_privacy",
+      "name": "Privacy-First Publishing",
+      "tagline": "De-identification drills + safe rewrite patterns",
+      "price": 99,
+      "stripe_key": "train_privacy",
+      "outline_path": "toolkits/training/privacy-first-publishing/",
+      "desc": "Best for publishing real-world stories while reducing doxxing-by-detail risk (time + place + role)."
+    }
+  ],
+  "free_pages": [
+    {
+      "slug": "sourcing",
+      "title": "Source Log Template (Free)",
+      "stripe_key": "sourcing",
+      "price": 19,
+      "intro": "Copy/paste workflow to keep claims and evidence separate, track citations, and publish with discipline.",
+      "template_label": "Copy template (must-keep)",
+      "template_text": "SOURCE LOG\n- Source ID:\n- Type (link / doc / email / screenshot / record):\n- Title:\n- Date accessed:\n- URL or file name:\n- Who created it:\n- What it shows (1\u20132 lines):\n- Reliability notes:\n- Privacy notes (redactions / de-identification):\n\nCLAIM \u2192 EVIDENCE MAP\nClaim 1:\n- Evidence (Source IDs):\n- Limits (what this does NOT prove):\n- Interpretation (label explicitly):\n\nClaim 2:\n- Evidence (Source IDs):\n- Limits:\n- Interpretation:\n\nCORRECTION PATH\n- How updates will be noted:\n- Public changelog location:"
+    },
+    {
+      "slug": "corrections",
+      "title": "Corrections & Update Protocol (Free)",
+      "stripe_key": "corrections",
+      "price": 9,
+      "intro": "Fix the record without rewriting history \u2014 correction note + changelog pattern for any publishing format.",
+      "template_label": "Correction note template",
+      "template_text": "CORRECTION NOTE\n- Date:\n- What changed:\n- Why (new info / error / context):\n- What stays the same:\n- Limits still apply:\n\nCHANGELOG ENTRY\n- Version:\n- Timestamp:\n- Summary of edit:\n- Link to prior version (if archived):"
+    },
+    {
+      "slug": "privacy",
+      "title": "Privacy & De-identification Checklist (Free)",
+      "stripe_key": "privacy",
+      "price": 19,
+      "intro": "Reduce accidental identification risk before publishing \u2014 checklist + safe rewrite patterns.",
+      "template_label": "De-identification checklist",
+      "template_text": "PRIVACY CHECK (before publish)\n[ ] Removed names not essential to the public point\n[ ] Removed exact dates/times that enable identification\n[ ] Removed addresses, workplaces, or role+place combos\n[ ] Aggregated or generalized identifying details\n[ ] Kept raw records private; published pattern only\n[ ] Stated limits (what the public version does NOT prove)\n\nSAFE REWRITE PATTERN\n- Public claim (minimum defensible):\n- What was removed and why:\n- Correction path if new info arrives:"
+    },
+    {
+      "slug": "public-record",
+      "title": "Public Record Checklist (Free)",
+      "stripe_key": "publicrec",
+      "price": 29,
+      "intro": "Naming rules, what to save, and a simple private index so sourcing stays verifiable months later.",
+      "template_label": "Record hygiene template",
+      "template_text": "FILE NAMING\n- YYYY-MM-DD_topic_source-id.ext\n- Keep originals unedited; notes in separate file\n\nWHAT TO SAVE\n- Source URL + date accessed\n- Screenshot or export if link may rot\n- Your claim/evidence map (private)\n\nPRIVATE INDEX\n- Record ID:\n- Public post link:\n- Source IDs linked:\n- Next review date:"
+    },
+    {
+      "slug": "story-template",
+      "title": "Accountability Story Template (Free)",
+      "stripe_key": "storytemp",
+      "price": 19,
+      "intro": "Publish with scope, sources, limits, privacy, and corrections blocks built in.",
+      "template_label": "Story structure",
+      "template_text": "ACCOUNTABILITY STORY\n\nSCOPE\n- What this covers:\n- What this does NOT cover:\n\nCLAIMS (one sentence each)\n1.\n2.\n\nSOURCES\n- Source ID / date / limits per claim\n\nLIMITS\n- What readers should NOT infer\n\nPRIVACY\n- What stays private\n\nCORRECTIONS\n- How updates will be logged"
+    },
+    {
+      "slug": "action-map",
+      "title": "Civic Action Map (Free)",
+      "stripe_key": "actionmap",
+      "price": 29,
+      "intro": "General next-step structure \u2014 not case strategy. Map a minimum defensible claim to calm actions.",
+      "template_label": "Action map template",
+      "template_text": "CIVIC ACTION MAP (general)\n\nMINIMUM DEFENSIBLE CLAIM\n-\n\nPUBLIC vs PRIVATE EVIDENCE\n- Public:\n- Private (index only):\n\nNEXT STEPS (non-case)\n1.\n2.\n\nREVIEW POINTS\n- Date to re-check sources:\n- Trigger for correction/retraction:"
+    }
+  ],
+  "freemium": {
+    "active": true,
+    "label": "Freemium active",
+    "free_forever": true,
+    "upgrade_optional": true
+  },
+  "quickstart": {
+    "active": true,
+    "steps": [
+      "Start free \u2014 open a template (HTML, copy/paste)",
+      "Run minimum standard \u2014 5-minute checklist on page",
+      "Upgrade only if you repeat the work \u2014 Pro PDF optional"
+    ],
+    "default_free_path": "/toolkits/free/sourcing/",
+    "default_free_label": "Start free \u2014 Source Log",
+    "sandbox_path": "/toolkits/sandbox/",
+    "sandbox_label": "Client sandbox"
+  },
+  "sandbox": {
+    "active": true,
+    "path": "toolkits/sandbox/",
+    "title": "Toolkit Sandbox (Free)",
+    "intro": "Try all six accountability templates in your browser \u2014 no account, no payment. Edits stay local (localStorage). Education only \u2014 not legal advice.",
+    "honesty": "browser_local_only \u00b7 no server storage \u00b7 freemium forever",
+    "templates_from": "free_pages"
+  }
+}

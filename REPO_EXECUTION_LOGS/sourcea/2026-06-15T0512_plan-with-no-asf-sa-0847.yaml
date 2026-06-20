@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0847 — Validate scheduled_cadence UP-01 through UP-06 excluded from pending_total
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0847
+tests:
+  status: passed
+  output_snippet: VERIFY — validate-h2-scheduled-cadence-up-pending-total-t1-crossref-v1 PASS · canonical sa-0822 chain intact
+reported_at: '2026-06-15T05:12:14Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

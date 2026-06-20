@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0815 — Validate hub_surface_v1 tab slices load without command-data.json hero
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0815
+tests:
+  status: passed
+  output_snippet: validate-hub-surface-no-hero-v1 PASS 4 nav slices surface=891b hero_disk=10.5MB · worker_verify_ultra_v1 PASS · hub_surface command-data-shell only
+reported_at: '2026-06-15T02:42:55Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

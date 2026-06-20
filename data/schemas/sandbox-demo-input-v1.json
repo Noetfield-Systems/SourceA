@@ -1,0 +1,11 @@
+{
+  "schema": "sandbox-demo-input-v1",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["demo_factory_id"],
+  "properties": {
+    "demo_factory_id": {"type": "string"},
+    "email": {"type": "string"},
+    "company": {"type": "string"}
+  }
+}

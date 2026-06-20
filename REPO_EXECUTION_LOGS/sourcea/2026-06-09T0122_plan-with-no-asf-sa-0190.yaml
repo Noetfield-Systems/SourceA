@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0190 — Run bash validate-eval-packet-v1b.sh scaffold arm after live pass
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0190
+tests:
+  status: passed
+  output_snippet: eval-1b scaffold 7/7 (100%) after live pilot 4/5 (80%); validate-eval-packet-v1b.sh PASS; find_critical_bugs critical 0
+reported_at: '2026-06-09T01:22:25Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

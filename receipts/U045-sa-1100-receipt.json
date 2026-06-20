@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U045",
+  "title": "RIL reachable URL retry with HEAD not GET",
+  "evidence": "_url_ok_ril HEAD retry 2x2s no GET + --check-url-reachable PASS \u00b7 4s budget vs legacy 8s \u00b7 live W3 reachable",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:36:19Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

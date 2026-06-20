@@ -1,0 +1,37 @@
+---
+description: Mac light — no screenshot auto capture · no heavy factory on Mac
+alwaysApply: true
+---
+
+# Mac light control plane (mandatory)
+
+**Law:** `~/Desktop/MacLaw/MAC_HEALTH_AGENT_MANDATES_LOCKED.md` · `data/mac-law-mandatory-v1.json`  
+**Cleanup:** `python3 scripts/mac_focus_cleanup_v1.py --json`
+
+## One law
+
+> **Mac observes and controls — cloud/API factories execute.**  
+> No auto screenshot · no film render storm · no stacked session gates · no local motor drain.
+
+## MUST keep ON (disk flags)
+
+- `~/.sina/no-auto-screenshot-v1.flag`
+- `~/.sina/auto-run-disabled-v1.flag` (unless ASF re-enables)
+- `~/.sina/commercial-film-render-frozen-v1.flag`
+- `~/.sina/mac-health-quiet-v1.flag`
+- `~/.sina/config/visual_proof.json` → `enabled: false`
+
+## MUST NOT on Mac
+
+- Hub/factory `screencapture` loops (visual proof)
+- Playwright film render while frozen
+- `fbe_motor_delegate` storms (cap 8/15)
+- Stacked `anti_staleness_auto_wire --tier session` (session-flight dedupe)
+- Reading multi-GB hub logs into agent context
+
+## When Mac is hot
+
+1. Run `mac_focus_cleanup_v1.py` — enforces screenshot off · trims debug logs
+2. Session gate uses **one** anti-staleness flight (dedupe)
+3. Quit Cursor from DMG — reopen `/Applications/Cursor.app` if mandates say so
+4. Cloud work stays on Railway/API — not local Python factory stack

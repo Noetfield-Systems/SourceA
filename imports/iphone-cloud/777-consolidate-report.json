@@ -1,0 +1,2715 @@
+{
+  "summary": {
+    "started_files": 560,
+    "duplicates_archived": 110,
+    "canonical_promoted": 368,
+    "superseded_archived": 82,
+    "canonical_files_now": 368,
+    "left_at_root": [],
+    "groups": 368
+  },
+  "groups": [
+    {
+      "context": "index",
+      "ext": ".html",
+      "canonical": "_CANONICAL/index/index.html",
+      "superseded_count": 8,
+      "superseded_sample": [
+        "ic-01858__index.html",
+        "ic-01854__index.html",
+        "ic-01857__index.html",
+        "ic-01860__index.html",
+        "ic-01855__index.html"
+      ]
+    },
+    {
+      "context": "ed ad full",
+      "ext": ".txt",
+      "canonical": "_CANONICAL/ed ad full/ED_Ad_Full.txt",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy conflict of interest en fa",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy conflict of interest en fa/Policy_Conflict_of_Interest_EN_FA.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Policy_Conflict_of_Interest_EN_FA_LETTERHEAD.docx"
+      ]
+    },
+    {
+      "context": "hybrid operating framework",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/hybrid operating framework/777_Hybrid_Operating_Framework_v1.1.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "777_Hybrid_Operating_Framework_v1.0.docx"
+      ]
+    },
+    {
+      "context": "policy p10 advocacy nonpartisanship",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy p10 advocacy nonpartisanship/Policy_P10_Advocacy_Nonpartisanship.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws bc filing",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws bc filing/Bylaws_777_MINIMAL_BC_Filing_Ready_FINAL_v3.docx",
+      "superseded_count": 4,
+      "superseded_sample": [
+        "Bylaws_777_MINIMAL_BC_Filing_Ready_FINAL_v3_LETTERHEAD.docx",
+        "Bylaws_777_FINAL_BC_Filing_Optimized_v1.docx",
+        "Bylaws_777_FINAL_BC_Filing_Copy.docx",
+        "Bylaws_777_MINIMAL_BC_Filing_Ready.docx"
+      ]
+    },
+    {
+      "context": "initial policy package 777foundation",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/initial policy package 777foundation/Initial_Policy_Package_777Foundation.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "solo leadership blueprint 777foundation",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/solo leadership blueprint 777foundation/Solo_Leadership_Blueprint_777Foundation.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws with golden fix",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws with golden fix/Bylaws_777_FINAL_WITH_GOLDEN_FIX_v1.11_FINAL.docx",
+      "superseded_count": 3,
+      "superseded_sample": [
+        "Bylaws_777_FINAL_WITH_GOLDEN_FIX_v1.8.docx",
+        "Bylaws_777_FINAL_WITH_GOLDEN_FIX_v1.7.docx",
+        "Bylaws_777_FINAL_WITH_GOLDEN_FIX.docx"
+      ]
+    },
+    {
+      "context": "newcomers compass master prospectus",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/newcomers compass master prospectus/Newcomers_Compass_Master_Prospectus_v2.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "sector scan governance gap prompt",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/sector scan governance gap prompt/Sector_Scan_Governance_Gap_Prompt_v1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "ops pack",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/ops pack/Ops_Pack_v1.6.1_CLEAN.zip",
+      "superseded_count": 3,
+      "superseded_sample": [
+        "Ops_Pack_v1.6.1_READY.zip",
+        "Ops_Pack_v1.6.1_ENHANCED.zip",
+        "Ops_Pack_v1.6.zip"
+      ]
+    },
+    {
+      "context": "kpi dashboard template",
+      "ext": ".xlsx",
+      "canonical": "_CANONICAL/kpi dashboard template/KPI_Dashboard_Template_v1.6.xlsx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "KPI_Dashboard_Template.xlsx"
+      ]
+    },
+    {
+      "context": "foundation hybrid roadmap",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/foundation hybrid roadmap/777_Foundation_Hybrid_Roadmap.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "sector scan governance gap analysis prompt",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/sector scan governance gap analysis prompt/Sector_Scan_Governance_Gap_Analysis_Prompt_v1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bank due diligence checklist",
+      "ext": ".xlsx",
+      "canonical": "_CANONICAL/bank due diligence checklist/Bank_Due_Diligence_Checklist_v1.6.1.xlsx",
+      "superseded_count": 2,
+      "superseded_sample": [
+        "Bank_Due_Diligence_Checklist_v1.6.xlsx",
+        "Bank_Due_Diligence_Checklist.xlsx"
+      ]
+    },
+    {
+      "context": "mens restorative circle full",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/mens restorative circle full/Mens_Restorative_Circle_Full.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "shell",
+      "ext": ".js",
+      "canonical": "_CANONICAL/shell/777-shell.js",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "master playbook",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/master playbook/Master_Playbook_SSOT_v1.6.1_CLEAN_UPDATED.docx",
+      "superseded_count": 6,
+      "superseded_sample": [
+        "Master_Playbook_SSOT_v1.6.1_CLEAN.docx",
+        "Master_Playbook_SSOT_v1.6.docx",
+        "Master_Playbook_SSOT_v1.4.docx",
+        "777_Master_Playbook_v1.6.docx",
+        "777_Master_Playbook_v1.5.docx"
+      ]
+    },
+    {
+      "context": "the foundation society 90day strategic plan fa 2025 11 07",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/the foundation society 90day strategic plan fa 2025 11 07/The_777_Foundation_Society_90Day_Strategic_Plan_FA_2025-11-07.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "readme bank institutional",
+      "ext": ".md",
+      "canonical": "_CANONICAL/readme bank institutional/README_Bank_Institutional.md",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws modelb",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws modelb/Bylaws_777_FINAL_ModelB_CLEAN.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "favicon 192",
+      "ext": ".png",
+      "canonical": "_CANONICAL/favicon 192/favicon-192.png",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "initial policy package",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/initial policy package/777_Initial_Policy_Package_v1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy program services facilitators consultants en fa",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy program services facilitators consultants en fa/Policy_Program_Services_Facilitators_Consultants_EN_FA.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Policy_Program_Services_Facilitators_Consultants_EN_FA_LETTERHEAD.docx"
+      ]
+    },
+    {
+      "context": "readme package",
+      "ext": ".txt",
+      "canonical": "_CANONICAL/readme package/README_MINIMAL_PACKAGE_FINAL_v3.txt",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation society bylaws",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/the foundation society bylaws/The_777_Foundation_Society_Bylaws_Final.pdf",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "ic-00463__The_777_Foundation_Society_Bylaws_Final.pdf"
+      ]
+    },
+    {
+      "context": "bylaws bc filing upload fa vfinal",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws bc filing upload fa vfinal/Bylaws_777_FINAL_BC_Filing_Upload_FA_vFINAL.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "changelog open items",
+      "ext": ".md",
+      "canonical": "_CANONICAL/changelog open items/Changelog_Open_Items_v1.6.1.md",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "form payment authorization en fa",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/form payment authorization en fa/Form_Payment_Authorization_EN_FA.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Form_Payment_Authorization_EN_FA_LETTERHEAD.docx"
+      ]
+    },
+    {
+      "context": "bylaws registry submission",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws registry submission/Bylaws_777_v1.14_REGISTRY_SUBMISSION_FINAL.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Bylaws_777_v1.13_REGISTRY_SUBMISSION_CLEAN.docx"
+      ]
+    },
+    {
+      "context": "zerobased",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/zerobased/ZeroBased_FundingGated_v1.3_FIXED.docx",
+      "superseded_count": 3,
+      "superseded_sample": [
+        "ZeroBased_FundingGated_v1.3_CLEAN_FIXED.docx",
+        "ZeroBased_FundingGated_v1.3.docx",
+        "ZeroBased_FundingGated_v1.3__dup.docx"
+      ]
+    },
+    {
+      "context": "bank institutional pack",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/bank institutional pack/Bank_Institutional_Pack_v1.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "public donor guide",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/public donor guide/Public_Donor_Guide_v1.6.2.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation society board resolution vancity",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/the foundation society board resolution vancity/The_777_Foundation_Society_Board_Resolution_Vancity_Final.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bank board pack 2025 09",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/bank board pack 2025 09/Bank_Board_Pack_v1.6_2025-09_FIXED.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation federal constitution",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/the foundation federal constitution/The_777_Foundation_Federal_Constitution.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy p12 branches international affiliates sop",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy p12 branches international affiliates sop/Policy_P12_Branches_International_Affiliates_SOP.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation consolidated bylaws and policy",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/foundation consolidated bylaws and policy/777_Foundation_Consolidated_Bylaws_and_Policy_FINAL.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws golden fix",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws golden fix/Bylaws_777_FINAL_Golden_Fix.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "budget growth framework",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/budget growth framework/777_Budget_Growth_Framework_v1.6.2.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy p9 impact and transparency",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy p9 impact and transparency/Policy_P9_Impact_and_Transparency.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation society board resolution",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/the foundation society board resolution/The_777_Foundation_Society_Board_Resolution.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "tone lock",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/tone lock/777-tone-lock-v1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation budget pack",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/the foundation budget pack/The_777_Foundation_Budget_Pack_v1.0.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "ed recruitment contract framework",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/ed recruitment contract framework/ED_Recruitment_Contract_Framework_v1.0.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board essentials step7 financial duties",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board essentials step7 financial duties/Board_Essentials_Step7_Financial_Duties.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation intro letter",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/the foundation intro letter/The_777_Foundation_Intro_Letter.docx",
+      "superseded_count": 2,
+      "superseded_sample": [
+        "The_777_Foundation_Intro_Letter_OnePage.docx",
+        "ic-01870__The_777_Foundation_Intro_Letter.docx"
+      ]
+    },
+    {
+      "context": "fast track funding program",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/fast track funding program/Fast_Track_Funding_Program_777.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board minutes sep15 2025",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board minutes sep15 2025/777_Board_Minutes_Sep15_2025.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation board resolution adopt initial policies",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/foundation board resolution adopt initial policies/777_Foundation_Board_Resolution_Adopt_Initial_Policies.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board bank pack",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/board bank pack/Board_Bank_Pack_v1.6.1_FINAL.zip",
+      "superseded_count": 2,
+      "superseded_sample": [
+        "Board_Bank_Pack_v1.6.1_READY.zip",
+        "Board_Bank_Pack_v1.4.zip"
+      ]
+    },
+    {
+      "context": "donate landing and sponsorkit checklist",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/donate landing and sponsorkit checklist/777_Donate_Landing_and_SponsorKit_Checklist.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws foundation goldenfix",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws foundation goldenfix/Bylaws_777_Foundation_GoldenFix_v2.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/foundation/777_Foundation_ZB_FundingGated_v1.3.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "template service agreement workshop en fa",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/template service agreement workshop en fa/Template_Service_Agreement_Workshop_EN_FA.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Template_Service_Agreement_Workshop_EN_FA_LETTERHEAD.docx"
+      ]
+    },
+    {
+      "context": "youth emotional resilience handbook",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/youth emotional resilience handbook/Youth_Emotional_Resilience_Handbook.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bank board pack",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/bank board pack/Bank_Board_Pack_v1.6.1_FINAL.zip",
+      "superseded_count": 4,
+      "superseded_sample": [
+        "Bank_Board_Pack_v1.6.1_SSOT_ALIGNED.zip",
+        "Bank_Board_Pack_v1.6.1_UPDATED.zip",
+        "Bank_Board_Pack_v1.6.1_CLEAN.zip",
+        "Bank_Board_Pack_v1.6.zip"
+      ]
+    },
+    {
+      "context": "api form mapping template",
+      "ext": ".md",
+      "canonical": "_CANONICAL/api form mapping template/API_Form_Mapping_Template_v3.0.md",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "constitution bc filing",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/constitution bc filing/Constitution_777_BC_Filing_CLEAN.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "public pack 2025 09",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/public pack 2025 09/Public_Pack_v1.6_2025-09_FIXED.zip",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Public_Pack_v1.5_2025-09.zip"
+      ]
+    },
+    {
+      "context": "master audit budget prompt vx",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/master audit budget prompt vx/777_Master_Audit_Budget_Prompt_vX.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "readme public",
+      "ext": ".md",
+      "canonical": "_CANONICAL/readme public/README_Public_v1.6.md",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation index 20251012 040632",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/foundation index 20251012 040632/777_foundation_index_20251012_040632.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bva template",
+      "ext": ".xlsx",
+      "canonical": "_CANONICAL/bva template/BvA_Template_v1.6.xlsx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "BvA_Template.xlsx"
+      ]
+    },
+    {
+      "context": "readme bank",
+      "ext": ".md",
+      "canonical": "_CANONICAL/readme bank/README_Bank_v1.6_FIXED.md",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "README_Bank_v1.6.md"
+      ]
+    },
+    {
+      "context": "budgetpack review weaknesses suggestions",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/budgetpack review weaknesses suggestions/BudgetPack_Review_Weaknesses_Suggestions_v1.0.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "777foundation site structure",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/777foundation site structure/777foundation-site-structure-v1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation society bylaws",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/the foundation society bylaws/The_777_Foundation_Society_Bylaws_Final.docx",
+      "superseded_count": 3,
+      "superseded_sample": [
+        "ic-00488__The_777_Foundation_Society_Bylaws_Final.docx",
+        "The_777_Foundation_Society_Bylaws_Updated.docx",
+        "The_777_Foundation_Society_Bylaws_Enhanced.docx"
+      ]
+    },
+    {
+      "context": "policy paid services by directors and founder",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy paid services by directors and founder/Policy_Paid_Services_by_Directors_and_Founder_v1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "readme ops finance",
+      "ext": ".md",
+      "canonical": "_CANONICAL/readme ops finance/README_Ops_Finance.md",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "circle system onboarding framework",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/circle system onboarding framework/Circle_System_Onboarding_Framework_v1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bank pack 2025 09",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/bank pack 2025 09/Bank_Pack_v1.5_2025-09.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board resolutions foundation",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board resolutions foundation/Board_Resolutions_777_Foundation.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bridge programs newcomers syrian addon",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bridge programs newcomers syrian addon/Bridge_Programs_Newcomers_Syrian_Addon.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "donor 2pager",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/donor 2pager/Donor_2Pager_v1.6.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "initial policies 7to9 777foundation",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/initial policies 7to9 777foundation/Initial_Policies_7to9_777Foundation.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws/Bylaws_777_v1.16_FINAL_MINIMAL.docx",
+      "superseded_count": 2,
+      "superseded_sample": [
+        "Bylaws_777_v1.12_FINAL.docx",
+        "Bylaws_777.docx"
+      ]
+    },
+    {
+      "context": "multi account banking financial authority policy",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/multi account banking financial authority policy/Multi_Account_Banking_Financial_Authority_Policy.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "readme public community",
+      "ext": ".md",
+      "canonical": "_CANONICAL/readme public community/README_Public_Community.md",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy financial controls en fa",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy financial controls en fa/Policy_Financial_Controls_EN_FA.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Policy_Financial_Controls_EN_FA_LETTERHEAD.docx"
+      ]
+    },
+    {
+      "context": "foundation get involved",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/foundation get involved/777-foundation-get-involved-copy.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy p6 privacy pipa records retention",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy p6 privacy pipa records retention/Policy_P6_Privacy_PIPA_Records_Retention.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "ed ad volunteer",
+      "ext": ".txt",
+      "canonical": "_CANONICAL/ed ad volunteer/ED_Ad_Volunteer.txt",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws bc filing upload ature",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws bc filing upload ature/Bylaws_777_FINAL_BC_Filing_Upload_NO-SIGNATURE.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "budget slides en",
+      "ext": ".pptx",
+      "canonical": "_CANONICAL/budget slides en/777_Budget_Slides_EN_v1.pptx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "master deck public edition",
+      "ext": ".pptx",
+      "canonical": "_CANONICAL/master deck public edition/Master_Deck_Public_Edition_v1.6.1.pptx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "ed free week1 schedule",
+      "ext": ".txt",
+      "canonical": "_CANONICAL/ed free week1 schedule/ED_Free_Week1_Schedule.txt",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "30s funder script",
+      "ext": ".txt",
+      "canonical": "_CANONICAL/30s funder script/30s_Funder_Script_v1.6_FIXED.txt",
+      "superseded_count": 2,
+      "superseded_sample": [
+        "30s_Funder_Script_v1.6.txt",
+        "30s_Funder_Script.txt"
+      ]
+    },
+    {
+      "context": "foundation exec brief",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/foundation exec brief/777_Foundation_Exec_Brief.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws registry",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws registry/Bylaws_777_v1.13.2_REGISTRY_FINAL_CLEAN.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Bylaws_777_v1.13.1_REGISTRY_READY.docx"
+      ]
+    },
+    {
+      "context": "the foundation society board resolution bank account 2025 11 07",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/the foundation society board resolution bank account 2025 11 07/The_777_Foundation_Society_Board_Resolution_Bank_Account_2025-11-07_v2.pdf",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "The_777_Foundation_Society_Board_Resolution_Bank_Account_2025-11-07.pdf"
+      ]
+    },
+    {
+      "context": "the foundation society bylaws protected",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/the foundation society bylaws protected/The_777_Foundation_Society_Bylaws_Protected.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "workshop proposal template 777foundation",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/workshop proposal template 777foundation/Workshop_Proposal_Template_777Foundation.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "sop monthly close 1pager",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/sop monthly close 1pager/SOP_Monthly_Close_1Pager_v1.6.1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bva template",
+      "ext": ".csv",
+      "canonical": "_CANONICAL/bva template/BvA_Template_v1.4.csv",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws hardened 1 plus",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws hardened 1 plus/Bylaws_777_Hardened_v1_1_plus.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "cover letter board bank",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/cover letter board bank/Cover_Letter_Board_Bank_v1.6_FIXED.docx",
+      "superseded_count": 3,
+      "superseded_sample": [
+        "Cover_Letter_Board_Bank_v1.6.docx",
+        "Cover_Letter_Board_Bank_v1.4.docx",
+        "Cover_Letter_Board_Bank_v1.6__dup.docx"
+      ]
+    },
+    {
+      "context": "use case strategy dashboard",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/use case strategy dashboard/777_Use_Case_Strategy_Dashboard.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bridge hyperscale growthplan",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bridge hyperscale growthplan/Bridge_HyperScale_GrowthPlan_777.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "volunteer hiring dei policy 777foundation",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/volunteer hiring dei policy 777foundation/Volunteer_Hiring_DEI_Policy_777Foundation.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board essentials step6 tools records",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board essentials step6 tools records/Board_Essentials_Step6_Tools_Records.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation annual budget pack en",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/the foundation annual budget pack en/The_777_Foundation_Annual_Budget_Pack_EN.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy p2 code of conduct anti harassment",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy p2 code of conduct anti harassment/Policy_P2_Code_of_Conduct_Anti_Harassment.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "strategic prompts recruitment funding",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/strategic prompts recruitment funding/777_Strategic_Prompts_Recruitment_Funding_v1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "fundraising inspiration and spec",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/fundraising inspiration and spec/777_fundraising_inspiration_and_spec_v2.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "777_fundraising_inspiration_and_spec.docx"
+      ]
+    },
+    {
+      "context": "master prompt foundation legal compliance orchestrator",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/master prompt foundation legal compliance orchestrator/Master_Prompt_777_Foundation_Legal_Compliance_Orchestrator.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy p7 cybersecurity responsible ai",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy p7 cybersecurity responsible ai/Policy_P7_Cybersecurity_Responsible_AI.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "master index readme",
+      "ext": ".md",
+      "canonical": "_CANONICAL/master index readme/Master_Index_README_v1.6.1.md",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board essentials step8 conflicts resignation transitions",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board essentials step8 conflicts resignation transitions/Board_Essentials_Step8_Conflicts_Resignation_Transitions.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "governance essentials transition disqualification conflicts",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/governance essentials transition disqualification conflicts/Governance_Essentials_Transition_Disqualification_Conflicts.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "future path eight purposes pack",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/future path eight purposes pack/777_Future_Path_Eight_Purposes_Pack.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation registry package",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/foundation registry package/777_Foundation_Registry_Package.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "template invoice en fa",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/template invoice en fa/Template_Invoice_EN_FA.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Template_Invoice_EN_FA_LETTERHEAD.docx"
+      ]
+    },
+    {
+      "context": "foundation policies detailed",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/foundation policies detailed/777_Foundation_Policies_Detailed.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "impact snapshot template public",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/impact snapshot template public/Impact_Snapshot_Template_v1.4_Public.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "governance starter kit",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/governance starter kit/777_Governance_Starter_Kit_v1.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "monthly close checklist",
+      "ext": ".xlsx",
+      "canonical": "_CANONICAL/monthly close checklist/Monthly_Close_Checklist_v1.6.xlsx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Monthly_Close_Checklist.xlsx"
+      ]
+    },
+    {
+      "context": "banking mandate signers",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/banking mandate signers/Banking_Mandate_Signers_v1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "youth emotional resilience full",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/youth emotional resilience full/Youth_Emotional_Resilience_Full.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws foundation bc bylaws unified reference",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws foundation bc bylaws unified reference/Bylaws_777_Foundation_BC_Bylaws_UNIFIED_Reference.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "unit service price sheet template",
+      "ext": ".xlsx",
+      "canonical": "_CANONICAL/unit service price sheet template/Unit_Service_Price_Sheet_TEMPLATE_v1.6.xlsx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Unit_Service_Price_Sheet_TEMPLATE.xlsx"
+      ]
+    },
+    {
+      "context": "viewdraftbylaw",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/viewdraftbylaw/viewDraftBylaw.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "client onboarding questionnaire",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/client onboarding questionnaire/Client Onboarding Questionnaire.pdf",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Client Onboarding Questionnaire 2.pdf"
+      ]
+    },
+    {
+      "context": "witnessai async 3slide brief 1",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/witnessai async 3slide brief 1/WitnessAI_Async_3Slide_Brief_v1_1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "witnessai 30 linkedin connectors nov2025",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/witnessai 30 linkedin connectors nov2025/WitnessAI_30_LinkedIn_Connectors_Nov2025.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board budget summary",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board budget summary/Board_Budget_Summary_v1.6.2.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "letterhead template",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/letterhead template/Letterhead_Template_777.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bank institutional pack tailored",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/bank institutional pack tailored/Bank_Institutional_Pack_v1_Tailored.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "phase map 1pager",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/phase map 1pager/Phase_Map_1Pager_v1.6.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "budget summary 1pager",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/budget summary 1pager/Budget_Summary_1Pager_v1.6.1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "governance pack 1 plus",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/governance pack 1 plus/777_Governance_Pack_v1_1_plus.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "image assets",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/image assets/777-image-assets.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation landing",
+      "ext": ".html",
+      "canonical": "_CANONICAL/foundation landing/777_foundation_landing.html",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "readme ops",
+      "ext": ".txt",
+      "canonical": "_CANONICAL/readme ops/README_Ops_v1.4.txt",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board minutes sep15 notion",
+      "ext": ".md",
+      "canonical": "_CANONICAL/board minutes sep15 notion/777_Board_Minutes_Sep15_Notion.md",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "conflict of interest policy foundation society 20250930 172823",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/conflict of interest policy foundation society 20250930 172823/Conflict_of_Interest_Policy_777_Foundation_Society_20250930_172823.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "newcomers compass master proposal",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/newcomers compass master proposal/Newcomers_Compass_Master_Proposal.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board essentials step2 ed vs board succession",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board essentials step2 ed vs board succession/Board_Essentials_Step2_ED_vs_Board_Succession.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "ed outreach kit",
+      "ext": ".txt",
+      "canonical": "_CANONICAL/ed outreach kit/ED_Outreach_Kit.txt",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "talkingpoints r branding logo",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/talkingpoints r branding logo/777_TalkingPoints_OnePager_Branding_Logo.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bc partnerships funding pack",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bc partnerships funding pack/BC_Partnerships_Funding_Pack_v2.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "mens restorative circle",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/mens restorative circle/Mens_Restorative_Circle.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation budget highlevel",
+      "ext": ".png",
+      "canonical": "_CANONICAL/the foundation budget highlevel/The_777_Foundation_Budget_HighLevel.png",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws 3 full",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws 3 full/Bylaws_777_v1_3_FULL_CLEAN.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "founder executive compensation policy",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/founder executive compensation policy/Founder_Executive_Compensation_Policy_777_OnePage_v1.0.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "about",
+      "ext": ".html",
+      "canonical": "_CANONICAL/about/777-about.html",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "gap fix template",
+      "ext": ".csv",
+      "canonical": "_CANONICAL/gap fix template/GAP_FIX_Template_v3.0.csv",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "public pack",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/public pack/Public_Pack_v1.6.1_CLEAN.zip",
+      "superseded_count": 2,
+      "superseded_sample": [
+        "Public_Pack_v1.6.1_READY.zip",
+        "Public_Pack_v1.6.zip"
+      ]
+    },
+    {
+      "context": "canada bc partnerships funding builder pre charity",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/canada bc partnerships funding builder pre charity/Canada_BC_Partnerships_Funding_Builder_Pre-Charity_v1.1.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Canada_BC_Partnerships_Funding_Builder_Pre-Charity_v1.docx"
+      ]
+    },
+    {
+      "context": "404",
+      "ext": ".html",
+      "canonical": "_CANONICAL/404/404.html",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy schedule c governance hygiene",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy schedule c governance hygiene/Policy_Schedule_C_Governance_Hygiene.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy scholarship education",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy scholarship education/Policy_Scholarship_Education_777.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "approvals matrix signers ops",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/approvals matrix signers ops/Approvals_Matrix_Signers_v1.6_Ops.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Approvals_Matrix_Signers_v1.4_Ops.docx"
+      ]
+    },
+    {
+      "context": "bylaws 2",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws 2/Bylaws_777_v1_2_REVISED.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation letter from founder",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/the foundation letter from founder/The_777_Foundation_Letter_from_Founder.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "newcomers compass annex budget",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/newcomers compass annex budget/Newcomers_Compass_Annex_Budget_v2.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy schedule a financial controls",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy schedule a financial controls/Policy_Schedule_A_Financial_Controls.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws vsimple 1 0 registry bank",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws vsimple 1 0 registry bank/Bylaws_777_vSIMPLE-1.0_REGISTRY_BANK_READY.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "ed channel matrix",
+      "ext": ".csv",
+      "canonical": "_CANONICAL/ed channel matrix/ED_Channel_Matrix_777.csv",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "newcomers compass two page summary",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/newcomers compass two page summary/Newcomers_Compass_Two_Page_Summary_v2.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "guardian bridge pack",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/guardian bridge pack/Guardian-Bridge_v2.1_Pack.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "fundraising starter kit 20250911",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/fundraising starter kit 20250911/777_Fundraising_Starter_Kit_v1_20250911.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation master deck",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/foundation master deck/777_Foundation_Master_Deck_v1.5.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "777_Foundation_Master_Deck.docx"
+      ]
+    },
+    {
+      "context": "foundation startup budget",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/foundation startup budget/777_Foundation_Startup_Budget.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "ed social post kit",
+      "ext": ".txt",
+      "canonical": "_CANONICAL/ed social post kit/ED_Social_Post_Kit.txt",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "vendor package checklist",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/vendor package checklist/vendor_package_checklist.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "audit report",
+      "ext": ".md",
+      "canonical": "_CANONICAL/audit report/Audit_Report_v1.6.1.md",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws with golden fix",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/bylaws with golden fix/Bylaws_777_FINAL_WITH_GOLDEN_FIX_v1.11_FINAL.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "sector scan governance prompt full",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/sector scan governance prompt full/Sector_Scan_Governance_Prompt_FULL.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "annual implementation plan",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/annual implementation plan/777_Annual_Implementation_Plan_v1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation impact dashboard",
+      "ext": ".csv",
+      "canonical": "_CANONICAL/foundation impact dashboard/777_Foundation_Impact_Dashboard.csv",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "internal ops control",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/internal ops control/Internal_Ops_Control_v1.6.2.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "statementofdirectorsandoffice",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/statementofdirectorsandoffice/StatementOfDirectorsAndOffice.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "00 board role and governance matrix",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/00 board role and governance matrix/00_Board_Role_and_Governance_Matrix.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "sina kazemnezhad resume avp exactversion",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/sina kazemnezhad resume avp exactversion/Sina_Kazemnezhad_Resume_AVP_ExactVersion.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws for registry bank",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws for registry bank/Bylaws_777_v1.16_MINIMAL_CLEAN_FOR_REGISTRY_BANK.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation society constitution",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/the foundation society constitution/The_777_Foundation_Society_Constitution.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "ic-00478__The_777_Foundation_Society_Constitution.docx"
+      ]
+    },
+    {
+      "context": "fundraising kit 20250911",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/fundraising kit 20250911/777_Fundraising_Kit_v1.1_20250911.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "sina kazemnezhad who resume",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/sina kazemnezhad who resume/Sina_Kazemnezhad_WHO_Resume_Final_Updated.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "code 63 sprint execution launch 777foundation",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/code 63 sprint execution launch 777foundation/Code_63_Sprint_Execution_Launch_777Foundation.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy schedule d casl transparency 0",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy schedule d casl transparency 0/Policy_Schedule_D_CASL_Transparency_777_v1_0.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "newcomers compass annex ops",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/newcomers compass annex ops/Newcomers_Compass_Annex_Ops_v2.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy p5 gift acceptance donor due diligence",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy p5 gift acceptance donor due diligence/Policy_P5_Gift_Acceptance_Donor_Due_Diligence.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "society board roles and governance pack",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/society board roles and governance pack/777_Society_Board_Roles_and_Governance_Pack.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "public launch recruitment kit",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/public launch recruitment kit/777_Public_Launch_Recruitment_Kit_v1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "external nonprofit scan prompt",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/external nonprofit scan prompt/External_Nonprofit_Scan_Prompt_v1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "phase map 1pager public",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/phase map 1pager public/Phase_Map_1Pager_v1.4_Public.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "mens restorative circle handbook",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/mens restorative circle handbook/Mens_Restorative_Circle_Handbook.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation vision statement",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/the foundation vision statement/The_777_Foundation_Vision_Statement.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "annual budget public snapshot",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/annual budget public snapshot/Annual_Budget_Public_Snapshot.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "tech ai pathways pilot",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/tech ai pathways pilot/777_Tech_AI_Pathways_Pilot_v1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy hooks",
+      "ext": ".md",
+      "canonical": "_CANONICAL/policy hooks/Policy_Hooks_v1.6_FIXED.md",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Policy_Hooks_v1.6.md"
+      ]
+    },
+    {
+      "context": "wireframe program directory",
+      "ext": ".html",
+      "canonical": "_CANONICAL/wireframe program directory/wireframe_program_directory.html",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "form 0079",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/form 0079/Form_0079 (1).pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "newcomers compass annex ops 1",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/newcomers compass annex ops 1/Newcomers_Compass_Annex_Ops_v2_1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "ed application form questions",
+      "ext": ".txt",
+      "canonical": "_CANONICAL/ed application form questions/ED_Application_Form_Questions.txt",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation role posters package",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/foundation role posters package/777_Foundation_Role_Posters_Package.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "package post registration",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/package post registration/777_Minimal_Package_Post-Registration_v1.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "ops pack 2025 09",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/ops pack 2025 09/Ops_Pack_v1.6_2025-09_FIXED.zip",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Ops_Pack_v1.5_2025-09.zip"
+      ]
+    },
+    {
+      "context": "board resolutions post registration en fa",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board resolutions post registration en fa/Board_Resolutions_Post_Registration_EN_FA.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Board_Resolutions_Post_Registration_EN_FA_LETTERHEAD.docx"
+      ]
+    },
+    {
+      "context": "bylaws with golden fix registry bank",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws with golden fix registry bank/Bylaws_777_FINAL_WITH_GOLDEN_FIX_v1.12_REGISTRY_BANK_READY.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "ops finance pack",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/ops finance pack/Ops_Finance_Pack_v1.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "package",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/package/777_Minimal_Package_FINAL_v3.zip",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "777_Minimal_Package_FINAL_v3_LETTERHEAD.zip"
+      ]
+    },
+    {
+      "context": "master all",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/master all/MASTER_v1.6.1_ALL_READY.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "annual budget bank annex",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/annual budget bank annex/Annual_Budget_Bank_Annex.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "elite 7pillar operations with hierarchy",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/elite 7pillar operations with hierarchy/777_Elite_7Pillar_Operations_With_Hierarchy.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "public donors output",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/public donors output/Public_Donors_Output_v1.6.1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board bank output",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board bank output/Board_Bank_Output_v1.6.1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "777foundation site package",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/777foundation site package/777foundation_site_package.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation toolkit notion template",
+      "ext": ".md",
+      "canonical": "_CANONICAL/foundation toolkit notion template/777_Foundation_Toolkit_Notion_Template.md",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "witness bc statement code77711",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/witness bc statement code77711/Witness_BC_Statement_Code77711.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "home",
+      "ext": ".html",
+      "canonical": "_CANONICAL/home/777-home.html",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "welcome overview internal team guide",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/welcome overview internal team guide/777_Welcome_Overview_Internal_Team_Guide.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "full budgetpack all",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/full budgetpack all/Full_777_BudgetPack_v1.6.1_ALL.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation constitution",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/the foundation constitution/The_777_Foundation_Constitution_FINAL_UPDATED.pdf",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "The_777_Foundation_Constitution.pdf"
+      ]
+    },
+    {
+      "context": "policy p11 minutes sop",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy p11 minutes sop/Policy_P11_Minutes_SOP.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "budget bank annex",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/budget bank annex/Budget_Bank_Annex_v1.6.1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "addendum director founder services en fa and policy",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/addendum director founder services en fa and policy/Addendum_Director_Founder_Services_EN_FA_and_Policy.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Addendum_Director_Founder_Services_EN_FA_and_Policy_LETTERHEAD.docx"
+      ]
+    },
+    {
+      "context": "board action kit",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/board action kit/Board_Action_Kit_777_v1.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "pre charity donation page",
+      "ext": ".md",
+      "canonical": "_CANONICAL/pre charity donation page/Pre-Charity_Donation_Page_Copy_v1.6.md",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Pre-Charity_Donation_Page_Copy.md"
+      ]
+    },
+    {
+      "context": "precharity outreach roadmap",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/precharity outreach roadmap/777_PreCharity_Outreach_Roadmap.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board essentials step4 finance ethics culture",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board essentials step4 finance ethics culture/Board_Essentials_Step4_Finance_Ethics_Culture.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "site",
+      "ext": ".webmanifest",
+      "canonical": "_CANONICAL/site/site.webmanifest",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy p1 conflict of interest recusal",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy p1 conflict of interest recusal/Policy_P1_Conflict_of_Interest_Recusal.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board essentials step1 agm sop consent",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board essentials step1 agm sop consent/Board_Essentials_Step1_AGM_SOP_Consent.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation society board member one page outline",
+      "ext": ".csv",
+      "canonical": "_CANONICAL/the foundation society board member one page outline/The_777_Foundation_Society_-_Board_Member_One-Page_Outline.csv",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "governance vs operations guide tablefixed",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/governance vs operations guide tablefixed/Governance_vs_Operations_Guide_TableFixed.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation strategic funding deck unhcr ircc 2025",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/the foundation strategic funding deck unhcr ircc 2025/The_777_Foundation_Strategic_Funding_Deck_UNHCR_IRCC_2025.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "777foundation budgetpack",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/777foundation budgetpack/777Foundation_BudgetPack_v1.6.2.zip",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "ic-01798__777Foundation_BudgetPack_v1.6.2.zip"
+      ]
+    },
+    {
+      "context": "organizational meeting minutes",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/organizational meeting minutes/Organizational_Meeting_Minutes_777.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "constitution five purpose",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/constitution five purpose/Constitution_Five_Purpose_777.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "annual budget ops bva template",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/annual budget ops bva template/Annual_Budget_Ops_BvA_Template.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation master deck",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/foundation master deck/777_Foundation_Master_Deck_v1.5.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "impact snapshot template",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/impact snapshot template/Impact_Snapshot_Template_v1.6.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "code 63 sprint visual blueprint",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/code 63 sprint visual blueprint/Code_63_Sprint_Visual_Blueprint.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "chair vs president guide bc societies",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/chair vs president guide bc societies/Chair_vs_President_Guide_BC_Societies.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "youth pathways pilot pack 20250907 0447",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/youth pathways pilot pack 20250907 0447/777_Youth_Pathways_Pilot_Pack_v1_20250907_0447.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "volunteer policy pack foundation",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/volunteer policy pack foundation/Volunteer_Policy_Pack_777_Foundation.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "distribution plan",
+      "ext": ".md",
+      "canonical": "_CANONICAL/distribution plan/Distribution_Plan_v1.6.1.md",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board resolution open bank account",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board resolution open bank account/Board_Resolution_Open_Bank_Account_777.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws filing edition",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws filing edition/Bylaws_777_v1.12.1_FILING_EDITION.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "newcomers compass flagship proposal",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/newcomers compass flagship proposal/Newcomers_Compass_Flagship_Proposal_Final.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "newcomers compass two page summary 1",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/newcomers compass two page summary 1/Newcomers_Compass_Two_Page_Summary_v2_1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "og",
+      "ext": ".png",
+      "canonical": "_CANONICAL/og/og-777.png",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "donor 2pager public",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/donor 2pager public/Donor_2Pager_v1.4_Public.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "resolution maryam butt director removal",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/resolution maryam butt director removal/777_resolution_maryam_butt_director_removal.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation god level budget",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/the foundation god level budget/The_777_Foundation_God_Level_Budget.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "approval matrix template",
+      "ext": ".csv",
+      "canonical": "_CANONICAL/approval matrix template/Approval_Matrix_TEMPLATE_v1.6.csv",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "cash runway calculator",
+      "ext": ".csv",
+      "canonical": "_CANONICAL/cash runway calculator/Cash_Runway_Calculator_v1.6.csv",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "startup budget 12mo",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/startup budget 12mo/Startup_Budget_12mo_v1.6.1.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Startup_Budget_12mo_v1.6.docx"
+      ]
+    },
+    {
+      "context": "bylaws registry submission filing",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws registry submission filing/Bylaws_777_v1.14.1_REGISTRY_SUBMISSION_FILING_COPY.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "initial policies 3to6 777foundation",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/initial policies 3to6 777foundation/Initial_Policies_3to6_777Foundation.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation society landing preview",
+      "ext": ".html",
+      "canonical": "_CANONICAL/foundation society landing preview/777-foundation-society-landing-preview.html",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws bc filing fa",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws bc filing fa/Bylaws_777_MINIMAL_BC_Filing_Ready_FINAL_FA_v3.docx",
+      "superseded_count": 1,
+      "superseded_sample": [
+        "Bylaws_777_MINIMAL_BC_Filing_Ready_FINAL_FA_v3_LETTERHEAD.docx"
+      ]
+    },
+    {
+      "context": "steven little resume foundation society",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/steven little resume foundation society/Steven Little - Resume (777 Foundation Society).pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "cafe organizational meeting pack en",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/cafe organizational meeting pack en/Cafe_Organizational_Meeting_Pack_EN.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bc societies act teaching guide board members",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bc societies act teaching guide board members/BC_Societies_Act_Teaching_Guide_Board_Members.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "ed sourcing tracker prefilled",
+      "ext": ".csv",
+      "canonical": "_CANONICAL/ed sourcing tracker prefilled/ED_Sourcing_Tracker_Prefilled.csv",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "attachments 20250911",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/attachments 20250911/777_Attachments_v1.1_20250911.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "favicon 32",
+      "ext": ".png",
+      "canonical": "_CANONICAL/favicon 32/favicon-32.png",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation initial board package",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/foundation initial board package/777_Foundation_Initial_Board_Package.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "letterhead blank en fa",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/letterhead blank en fa/Letterhead_Blank_EN_FA.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "favicon 512",
+      "ext": ".png",
+      "canonical": "_CANONICAL/favicon 512/favicon-512.png",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws simple bc",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws simple bc/Bylaws_Simple_BC_v1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "sitemap",
+      "ext": ".xml",
+      "canonical": "_CANONICAL/sitemap/sitemap.xml",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws 3 harmonized",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws 3 harmonized/Bylaws_777_v1_3_HARMONIZED_CLEAN.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "budget public snapshot",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/budget public snapshot/Budget_Public_Snapshot_v1.6.1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation initial policy package",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/foundation initial policy package/777_Foundation_Initial_Policy_Package.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "financial policy package 777foundation",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/financial policy package 777foundation/Financial_Policy_Package_777Foundation.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "final plan foundation bc partnerships q4 2025",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/final plan foundation bc partnerships q4 2025/Final_Plan_v1.2_777_Foundation_BC_Partnerships_Q4_2025.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy p4 financial controls and doa",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy p4 financial controls and doa/Policy_P4_Financial_Controls_and_DOA.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws 3 modelb restated",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws 3 modelb restated/Bylaws_777_v1_3_ModelB_RESTATED.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "777foundation 1024x1024",
+      "ext": ".png",
+      "canonical": "_CANONICAL/777foundation 1024x1024/777foundation-1024x1024.png",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation recruitment package",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/foundation recruitment package/777_Foundation_Recruitment_Package.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy schedule c volunteer handbook 0",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy schedule c volunteer handbook 0/Policy_Schedule_C_Volunteer_Handbook_777_v1_0.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation society bylaws fullfinal",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/the foundation society bylaws fullfinal/The_777_Foundation_Society_Bylaws_FullFinal.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "landingpage",
+      "ext": ".html",
+      "canonical": "_CANONICAL/landingpage/777_LandingPage_v1.html",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "vsimple amendment pack",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/vsimple amendment pack/vSIMPLE_Amendment_Pack.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation society bylaws fullfinal",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/the foundation society bylaws fullfinal/The_777_Foundation_Society_Bylaws_FullFinal.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "committee pack",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/committee pack/777_Committee_Pack_v1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "master prompt foundation public site orchestrator",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/master prompt foundation public site orchestrator/Master_Prompt_777_Foundation_Public_Site_Orchestrator.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "footer",
+      "ext": ".html",
+      "canonical": "_CANONICAL/footer/footer.html",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "executive director volunteer agreement foundation",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/executive director volunteer agreement foundation/Executive_Director_Volunteer_Agreement_777_Foundation.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "newcomers compass 5 slide deck 1",
+      "ext": ".pptx",
+      "canonical": "_CANONICAL/newcomers compass 5 slide deck 1/Newcomers_Compass_5_Slide_Deck_v2_1.pptx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board essentials all 9 steps corrected",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/board essentials all 9 steps corrected/Board_Essentials_All_9_Steps_Corrected.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation letter vfinal",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/the foundation letter vfinal/The_777_Foundation_Letter_Clean_vFinal.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board essentials step3 gift transparency privacy",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board essentials step3 gift transparency privacy/Board_Essentials_Step3_Gift_Transparency_Privacy.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy schedule b privacy policy 1",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy schedule b privacy policy 1/Policy_Schedule_B_Privacy_Policy_777_v1_1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy p3 safeguarding",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy p3 safeguarding/Policy_P3_Safeguarding.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation budget full precharity",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/the foundation budget full precharity/The_777_Foundation_Budget_Full_PreCharity_v1.2.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "sina kazemnezhad resume who professional",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/sina kazemnezhad resume who professional/Sina_Kazemnezhad_Resume_WHO_Professional.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "shell",
+      "ext": ".css",
+      "canonical": "_CANONICAL/shell/777-shell.css",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "guardian bridge 1 r",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/guardian bridge 1 r/guardian_bridge_v2_1_onepager.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "volunteer foundation",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/volunteer foundation/Volunteer_OnePage_777_Foundation.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "structured audit prompt template",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/structured audit prompt template/Structured_Audit_Prompt_Template_v3.0.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "robots",
+      "ext": ".txt",
+      "canonical": "_CANONICAL/robots/robots.txt",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "get help",
+      "ext": ".html",
+      "canonical": "_CANONICAL/get help/777-get-help.html",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation society budget precharity",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/the foundation society budget precharity/The_777_Foundation_Society_Budget_PreCharity_v1.1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "founder control and governance safeguards policy",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/founder control and governance safeguards policy/Founder_Control_and_Governance_Safeguards_Policy.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "internal ops output",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/internal ops output/Internal_Ops_Output_v1.6.1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board resolutions organizational meeting",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board resolutions organizational meeting/Board_Resolutions_777_Organizational_Meeting.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "signer recruitment pack 1",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/signer recruitment pack 1/777_signer_recruitment_pack_v1_1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "youth emotional resilience",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/youth emotional resilience/Youth_Emotional_Resilience.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation hybrid comparison",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/foundation hybrid comparison/777_Foundation_Hybrid_Comparison.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "pre charity support guide",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/pre charity support guide/Pre-Charity_Support_Guide.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "newcomers compass executive delivery plan 2",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/newcomers compass executive delivery plan 2/Newcomers_Compass_Executive_Delivery_Plan_v1_2.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "guardian governance pack",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/guardian governance pack/Guardian_Governance_Pack_777_v1.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws registry submission best",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws registry submission best/Bylaws_777_v1.15_REGISTRY_SUBMISSION_BEST.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "sample executive role structure",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/sample executive role structure/Sample_Executive_Role_Structure.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "donor pack 2pager",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/donor pack 2pager/777_Donor_Pack_2Pager_v1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "talkingpoints r branding",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/talkingpoints r branding/777_TalkingPoints_OnePager_Branding.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation board toolkit and cra readiness",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/foundation board toolkit and cra readiness/777_Foundation_Board_Toolkit_and_CRA_Readiness.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation governance policies",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/foundation governance policies/777_Foundation_Governance_Policies_v1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "internal ops pack ops",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/internal ops pack ops/Internal_Ops_Pack_v1.4_Ops.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "newcomers compass 5 slide deck",
+      "ext": ".pptx",
+      "canonical": "_CANONICAL/newcomers compass 5 slide deck/Newcomers_Compass_5_Slide_Deck_v2.pptx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws with golden fix fullnumbering",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws with golden fix fullnumbering/Bylaws_777_FINAL_WITH_GOLDEN_FIX_v1.6_fullnumbering.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "funding roadmap summary",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/funding roadmap summary/777_Funding_Roadmap_Summary.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "public donor pack public",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/public donor pack public/Public_Donor_Pack_v1.4_Public.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "volunteer recruitment and safeguards policy",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/volunteer recruitment and safeguards policy/Volunteer_Recruitment_and_Safeguards_Policy.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "member vs nonmember funded societies guide",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/member vs nonmember funded societies guide/Member_vs_NonMember_Funded_Societies_Guide.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "sector scan governance gap analysis prompt",
+      "ext": ".txt",
+      "canonical": "_CANONICAL/sector scan governance gap analysis prompt/Sector_Scan_Governance_Gap_Analysis_Prompt_v1.txt",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board essentials step5 bylaws cra legal",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board essentials step5 bylaws cra legal/Board_Essentials_Step5_Bylaws_CRA_Legal.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "vision snippet",
+      "ext": ".txt",
+      "canonical": "_CANONICAL/vision snippet/vision_snippet.txt",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "ed ad lean",
+      "ext": ".txt",
+      "canonical": "_CANONICAL/ed ad lean/ED_Ad_Lean.txt",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy schedule b membership",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy schedule b membership/Policy_Schedule_B_Membership.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "newcomers compass workshop proposal",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/newcomers compass workshop proposal/Newcomers_Compass_Workshop_Proposal.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "ed sourcing tracker template",
+      "ext": ".csv",
+      "canonical": "_CANONICAL/ed sourcing tracker template/ED_Sourcing_Tracker_Template.csv",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "header",
+      "ext": ".html",
+      "canonical": "_CANONICAL/header/header.html",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "00 board ed recruitment volunteer contract",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/00 board ed recruitment volunteer contract/00_Board_ED_Recruitment_&_Volunteer_Contract_v1.2.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "readme ops",
+      "ext": ".md",
+      "canonical": "_CANONICAL/readme ops/README_Ops_v1.6.md",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "ed boolean xray",
+      "ext": ".txt",
+      "canonical": "_CANONICAL/ed boolean xray/ED_Boolean_Xray.txt",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "newcomer programs",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/newcomer programs/777_Newcomer_Programs.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "ed free channel matrix",
+      "ext": ".csv",
+      "canonical": "_CANONICAL/ed free channel matrix/ED_Free_Channel_Matrix_777.csv",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "newcomers compass proposal",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/newcomers compass proposal/Newcomers_Compass_Proposal.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "code 63 sprint program 777foundation",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/code 63 sprint program 777foundation/Code_63_Sprint_Program_777Foundation.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy pack",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/policy pack/777_Policy_Pack.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "budget notes",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/budget notes/Budget_Notes_v1.6.1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "unified governance framework",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/unified governance framework/777_Unified_Governance_Framework.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "annual operating budget foundation",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/annual operating budget foundation/Annual_Operating_Budget_777_Foundation.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "rapid funding plan",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/rapid funding plan/Rapid_Funding_Plan_777.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "quick funding plan foundation",
+      "ext": ".csv",
+      "canonical": "_CANONICAL/quick funding plan foundation/Quick_Funding_Plan___777_Foundation.csv",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "budget ops bva",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/budget ops bva/Budget_Ops_BvA_v1.6.1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy schedule e conflicts relatedparty 0",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy schedule e conflicts relatedparty 0/Policy_Schedule_E_Conflicts_RelatedParty_777_v1_0.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "legal governance auditpack",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/legal governance auditpack/777_Legal_Governance_AuditPack_v3.0.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy p8 crisis communications 10 step",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy p8 crisis communications 10 step/Policy_P8_Crisis_Communications_10_Step.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board resolution adopt framework",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board resolution adopt framework/Board_Resolution_Adopt_Framework_v1.1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "public community pack",
+      "ext": ".zip",
+      "canonical": "_CANONICAL/public community pack/Public_Community_Pack_v1.zip",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "gl map",
+      "ext": ".csv",
+      "canonical": "_CANONICAL/gl map/GL_Map_v1.6.csv",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "sina kazemnezhad who finance resume rebuilt",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/sina kazemnezhad who finance resume rebuilt/Sina_Kazemnezhad_WHO_Finance_Resume_Rebuilt.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation society board outline",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/the foundation society board outline/The_777_Foundation_Society_Board_Outline.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "constitution bc filing vfinal",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/constitution bc filing vfinal/Constitution_777_BC_Filing_CLEAN_vFINAL.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation exec actionplan",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/foundation exec actionplan/777_Foundation_Exec_ActionPlan.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws with golden fix titles",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws with golden fix titles/Bylaws_777_FINAL_WITH_GOLDEN_FIX_v1.10_titles_clean.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "volunteer agreement",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/volunteer agreement/Volunteer_Agreement_777.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws filing master",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws filing master/Bylaws_777_v1.13_FILING_MASTER.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "constitution bc filing cra opt",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/constitution bc filing cra opt/Constitution_777_BC_Filing_CLEAN_CRA-OPT.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "the foundation letter full",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/the foundation letter full/The_777_Foundation_Letter_FULL_FINAL_v2.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "bylaws with golden fix with vice chair",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/bylaws with golden fix with vice chair/Bylaws_777_FINAL_WITH_GOLDEN_FIX_v1.9_with_vice_chair.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "newcomers compass master prospectus 1",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/newcomers compass master prospectus 1/Newcomers_Compass_Master_Prospectus_v2_1.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "foundation society constitution",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/foundation society constitution/777_Foundation_Society_Constitution.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "policy schedule a financial controls 0",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/policy schedule a financial controls 0/Policy_Schedule_A_Financial_Controls_777_v1_0.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "camscanner 09 09 2025 08 46",
+      "ext": ".pdf",
+      "canonical": "_CANONICAL/camscanner 09 09 2025 08 46/CamScanner 09-09-2025 08.46.pdf",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "code777 campaign censored",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/code777 campaign censored/Code777_Campaign_Censored.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board essentials step9 dissolution windup assets",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board essentials step9 dissolution windup assets/Board_Essentials_Step9_Dissolution_Windup_Assets.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board donor launch pack",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board donor launch pack/777_Board_Donor_Launch_Pack_v1.6.2.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "board resolution banking signing two of three",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/board resolution banking signing two of three/Board_Resolution_Banking_Signing_Two-of-Three.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    },
+    {
+      "context": "00 conflict disclosure form ed",
+      "ext": ".docx",
+      "canonical": "_CANONICAL/00 conflict disclosure form ed/00_Conflict_Disclosure_Form_ED.docx",
+      "superseded_count": 0,
+      "superseded_sample": []
+    }
+  ]
+}

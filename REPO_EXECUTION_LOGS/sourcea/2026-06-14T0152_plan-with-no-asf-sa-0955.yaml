@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0955 — Research L0-full Cursor MCP editor telemetry — defer per phase 6
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0955
+tests:
+  status: passed
+  output_snippet: L0-full MCP editor telemetry defer research note shipped; worker_verify_ultra PASS
+reported_at: '2026-06-14T01:52:23Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

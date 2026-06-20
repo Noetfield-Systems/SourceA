@@ -1,0 +1,11 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1202",
+  "status": "BLOCKED",
+  "round_type": "act",
+  "upgrade_id": "B0012",
+  "title": "Reconcile Brain pick vs Worker paste — emit YAML pick not prose",
+  "evidence": "acceptance requires Brain reasoning receipt + cloud federated proof — not local Cursor Worker turn · owner_role=brain · execution_plane=cloud_api_worker · brain-outbound-work-order local_worker_deprecated=true · cloud_factories_online_only local_worker_deprecated PASS",
+  "at": "2026-06-19T19:04:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

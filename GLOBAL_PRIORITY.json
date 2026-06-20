@@ -1,0 +1,142 @@
+{
+  "generated_at": "2026-06-14 01:32 UTC",
+  "generator": "SinaPromptOS",
+  "order": [
+    "trustfield",
+    "sinaai_mono",
+    "virlux",
+    "noetfield",
+    "seven77"
+  ],
+  "ranked": [
+    {
+      "rank": 1,
+      "project_id": "virlux",
+      "name": "VIRLUX",
+      "plane": "DELIVERY",
+      "score": 116.6,
+      "task": "staging smoke test",
+      "blocked_count": 2
+    },
+    {
+      "rank": 2,
+      "project_id": "seven77",
+      "name": "777 Foundation",
+      "plane": "DELIVERY",
+      "score": 95.5,
+      "task": "homepage content pass",
+      "blocked_count": 3
+    },
+    {
+      "rank": 3,
+      "project_id": "trustfield",
+      "name": "TrustField",
+      "plane": "DELIVERY",
+      "score": 75.0,
+      "task": "postgres validation",
+      "blocked_count": 0
+    },
+    {
+      "rank": 4,
+      "project_id": "noetfield",
+      "name": "Noetfield",
+      "plane": "DESIGN",
+      "score": 32.0,
+      "task": "spec section 3 review",
+      "blocked_count": 0
+    },
+    {
+      "rank": 5,
+      "project_id": "sinaai_mono",
+      "name": "Sinaai PAIOS (MonoRepo)",
+      "plane": "DESIGN",
+      "score": 22.0,
+      "task": "runtime health check",
+      "blocked_count": 0
+    },
+    {
+      "rank": 6,
+      "project_id": "sina_prompt_os",
+      "name": "Sina Prompt OS (meta — not a daily lane)",
+      "plane": "META",
+      "score": 18.0,
+      "task": "Add daily scheduled snapshot (launchd or cron) writing to data/",
+      "blocked_count": 0
+    }
+  ],
+  "agent_cards": [
+    {
+      "project_id": "virlux",
+      "name": "VIRLUX",
+      "plane": "DELIVERY",
+      "ecosystem_rank": 1,
+      "next_task": "staging smoke test",
+      "blocked_count": 2,
+      "depends_on": [
+        "trustfield"
+      ],
+      "affects": [],
+      "risk": "MEDIUM"
+    },
+    {
+      "project_id": "seven77",
+      "name": "777 Foundation",
+      "plane": "DELIVERY",
+      "ecosystem_rank": 2,
+      "next_task": "homepage content pass",
+      "blocked_count": 3,
+      "depends_on": [],
+      "affects": [],
+      "risk": "MEDIUM"
+    },
+    {
+      "project_id": "trustfield",
+      "name": "TrustField",
+      "plane": "DELIVERY",
+      "ecosystem_rank": 3,
+      "next_task": "postgres validation",
+      "blocked_count": 0,
+      "depends_on": [],
+      "affects": [],
+      "risk": "LOW"
+    },
+    {
+      "project_id": "noetfield",
+      "name": "Noetfield",
+      "plane": "DESIGN",
+      "ecosystem_rank": 4,
+      "next_task": "spec section 3 review",
+      "blocked_count": 0,
+      "depends_on": [
+        "sinaai_mono",
+        "trustfield"
+      ],
+      "affects": [],
+      "risk": "LOW"
+    },
+    {
+      "project_id": "sinaai_mono",
+      "name": "Sinaai PAIOS (MonoRepo)",
+      "plane": "DESIGN",
+      "ecosystem_rank": 5,
+      "next_task": "runtime health check",
+      "blocked_count": 0,
+      "depends_on": [
+        "trustfield"
+      ],
+      "affects": [],
+      "risk": "LOW"
+    },
+    {
+      "project_id": "sina_prompt_os",
+      "name": "Sina Prompt OS (meta — not a daily lane)",
+      "plane": "META",
+      "ecosystem_rank": 6,
+      "next_task": "Add daily scheduled snapshot (launchd or cron) writing to data/",
+      "blocked_count": 0,
+      "depends_on": [],
+      "affects": [],
+      "risk": "LOW"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0809",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "validate-thread-room-h2-summary-v1 PASS; worker_verify_ultra PASS; H2 registry+boot match curation TR-20260615-65b8557a",
+  "at": "2026-06-15T02:27:57Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

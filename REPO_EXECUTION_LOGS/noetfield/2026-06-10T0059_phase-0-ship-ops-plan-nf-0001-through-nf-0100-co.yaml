@@ -1,0 +1,26 @@
+schema_version: 1
+repo: noetfield
+task: Phase 0 ship-ops plan — nf-0001 through nf-0100 complete
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - Makefile
+  - scripts/ship-closeout.sh
+  - scripts/sync-sourceA-desktop.sh
+  - scripts/smoke-pick-no-asf-plan.sh
+  - scripts/verify-lane-fences.sh
+  - scripts/agent-session-close.sh
+  - docs/ops/REPO_TRUTH_CORRECTIONS_LOCKED_v1.md
+  - os/plan-library/noetfield-1000/REGISTRY.json
+  diff_summary: ''
+  note: PLAN WITH NO ASF → nf-0101 Drift Contract v0
+tests:
+  status: passed
+  command: make verify-gtm
+  output_snippet: verify-gtm passed; phase-0 100/100 done; next pick nf-0101
+real_output: verify-gtm passed; phase-0 100/100 done; next pick nf-0101
+reported_at: '2026-06-10T00:59:47Z'
+reporter: cursor
+execution_id: ''

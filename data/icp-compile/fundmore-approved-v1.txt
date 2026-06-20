@@ -1,0 +1,18 @@
+Hi Chris —
+
+When mortgage ops run through AI copilots, the uncomfortable board question is usually about a specific decision six months later: can you show what actually happened — not just what policy said should?
+
+That gap is where we've been focusing at Noetfield — a short replay of what the copilot did so an external reviewer can reconstruct the decision, not just the intent.
+
+Curious whether your team is already preparing for that kind of audit question, or still too early?
+
+If relevant — five-minute copilot audit replay:
+
+https://www.noetfield.com/copilot/pilot/
+
+Sina Kazemnezhad · Noetfield
+operation@noetfield.com · Canada
+
+Powered by SourceA governed execution — advisory only · no custody · no payment initiation.
+
+Reply **stop** — no further messages.

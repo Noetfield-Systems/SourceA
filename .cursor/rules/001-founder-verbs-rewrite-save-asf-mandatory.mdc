@@ -1,0 +1,63 @@
+---
+description: P0 ABSOLUTE — zero disk writes until ASF intent + path/action evidence; ask clarification first
+globs: brain-os/**,sina-bowl/**
+alwaysApply: false
+---
+
+# Zero disk without ASF intent (001) — MANDATORY · ALL AGENTS
+
+**Incident:** `brain-os/incidents/SINA_AGENT_REWRITE_UNAUTHORIZED_DISK_EDIT_INCIDENT_REPORT_v1.md`  
+**Parent:** `000-cross-lane-edit-forbidden.mdc` · INCIDENT-010 · INCIDENT-011  
+**On conflict:** [skill-007-ecosystem-conflict-resolution](../skills/skill-007-ecosystem-conflict-resolution/SKILL.md) · [ecosystem-rule-conflict-resolution.mdc](ecosystem-rule-conflict-resolution.mdc)
+
+## Absolute law
+
+**No agent may create, edit, delete, or run commands that mutate disk** until the founder’s message contains **both**:
+
+1. **Intent** — one of: `ASF:` · `EDIT ALLOWED:` · `SAVE TO:` · `SAVE AS:` · `WORK:` (with `sa-*` or named scope)
+2. **Evidence** — in the **same message**: full path(s) and/or explicit `ACTION:` and/or named ASF batch phrase
+
+Missing either → **REFUSE disk** · reply in chat only · **ask one clarification question**.
+
+**No inference** from: rewrite · improve · lock · implement · save · fix · summarize · prior thread · advisor paste · summarized context.
+
+## Before first write (every session)
+
+1. Read INCIDENT-010 + INCIDENT-011.
+2. `python3 scripts/cursor_agent_self_audit.py session-start` (SourceA ecosystem).
+3. Confirm founder message passes intent + evidence gate above.
+
+## Verb meanings (chat default)
+
+| Verb | Disk |
+|------|------|
+| **REWRITE** / **rewrite** / **best version** | **Never** — chat only |
+| **SAVE** / **save** (no `SAVE TO:` path) | **Never** — ask path |
+| **SAVE TO:** / **SAVE AS:** + path | **One new file** at that path only |
+| **EDIT ALLOWED:** + path + **ACTION:** | Edit only that path/action |
+| **ASF:** + explicit phrase | Only what the phrase authorizes |
+
+## Forbidden without ASF gate
+
+- New files · edits · deletes · validator/registry/PRIORITY/`~/.sina` writes
+- “Helpful wiring” · LOCKED docs · running scripts that write lock JSON
+- Treating **WORK** or INBOX as permission without `WORK:` or `ASF:` + scope in founder message
+
+## Clarification template (use when gate fails)
+
+```text
+Disk refused — no ASF intent + evidence in your message.
+Reply with one of:
+  SAVE TO: <full/new path>
+  EDIT ALLOWED: <path>  ACTION: <exact change>
+  ASF: <explicit batch phrase>
+Or confirm: chat only, no disk.
+```
+
+## RED FLAG → STOP
+
+**RED FLAG** · **why did you edit** · **incident** · **no disk** · **chat only** → zero writes · list touched paths · wait.
+
+## Default
+
+**Chat only · no disk · one question — always.**

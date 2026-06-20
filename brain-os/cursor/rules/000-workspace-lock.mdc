@@ -1,0 +1,15 @@
+---
+description: SourceA workspace lock — no chat-memory SSOT
+alwaysApply: true
+---
+
+# Workspace lock (000)
+
+This chat workspace is **`~/Desktop/SourceA`**.
+
+- Law front door: `entry/START_HERE_LOCKED_v1.md`
+- Assignment SSOT: `os/chat-handoffs/WORKER_ASSIGNMENT_AND_CHAT_ROUTING_LOCKED_v1.md` §2
+- **One SourceA Worker** — no FORGE builder chat · no second build chat
+- **Chat memory is not SSOT** — disk + gate receipt only
+
+Archive repo `SinaaiDataBase` is **broker/search only** — never assign builds here.

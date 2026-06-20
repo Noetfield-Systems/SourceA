@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0172 — Cross-check runtime/dispatch_policy/classifier.py task ids
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0172
+tests:
+  status: passed
+  output_snippet: validate-dispatch-classifier-task-ids-v1 PASS classifier task ids
+reported_at: '2026-06-08T15:29:59Z'
+reporter: cursor-worker-batch

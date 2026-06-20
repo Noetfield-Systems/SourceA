@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0651",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 Phase D 16-step regression (validate-system-roadmap-phase-d-v1 + audit_backend_e2e + spine-bridge) critical 0",
+  "at": "2026-06-09T06:27:48Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

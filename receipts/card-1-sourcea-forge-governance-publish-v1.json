@@ -1,0 +1,25 @@
+{
+  "schema": "sourcea-forge-governance-card1-publish-v1",
+  "card": 1,
+  "id": "sourcea-forge-governance",
+  "verdict": "PASS",
+  "saved_at": "2026-06-19T06:43:52Z",
+  "bundle_root": "cursor-plugin/sourcea-forge-governance",
+  "artifacts": {
+    "plugin_tar": "data/publish-artifacts/sourcea-forge-governance-card1-20260619T064352Z.tar.gz",
+    "npm_pack": "/Users/sinakazemnezhad/Desktop/SourceA/data/publish-artifacts/sourcea-mcp-verify-1.0.0.tgz"
+  },
+  "mcp_package": "@sourcea/mcp-verify",
+  "registry_name": "io.github.sinakazemnezhad/sourcea-verify",
+  "categories": [
+    "Agent Orchestration",
+    "Infrastructure"
+  ],
+  "partner_line": "We don't replace your MCP \u2014 we prove what your MCP did.",
+  "honest_label": "P1 disk bundle ready \u2014 MOCK_ONLY stdio tier \u00b7 cloud SSE P2",
+  "next_founder_tap": [
+    "npm publish --access public -w packages/mcp-sourcea-verify",
+    "Submit cursor-plugin/sourcea-forge-governance via Cursor marketplace",
+    "Submit registry/server-v1.json to registry.modelcontextprotocol.io"
+  ]
+}

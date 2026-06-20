@@ -1,0 +1,15 @@
+{
+  "schema": "cloud-comprehension-bay-work-receipt-v1",
+  "at": "2026-06-20T03:30:00Z",
+  "ok": true,
+  "work": "cloud comprehension bay on FBE",
+  "ssot": "data/cloud-comprehension-bay-v1.json",
+  "routes": {
+    "hub": "POST /api/comprehension-loop/v1",
+    "fbe": "POST /api/fbe/comprehension-loop/v1"
+  },
+  "mac_role": "Hub POST draft + tiny snapshot only",
+  "cloud_role": "translate score ACCEPT or BLOCK for_founder plain text",
+  "validator": "PASS validate-cloud-comprehension-bay-v1.sh",
+  "deploy_note": "Restart Hub :13020 + redeploy sourcea-fbe-runner on Railway for live cloud path"
+}

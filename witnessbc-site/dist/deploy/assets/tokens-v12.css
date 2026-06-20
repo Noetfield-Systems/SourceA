@@ -1,0 +1,68 @@
+/* Witness AI v12 — ultra-wide pro tokens (1600px+ tier) */
+
+:root {
+  --container-base: 72rem;
+  --container-wide: min(1680px, calc(100vw - var(--gutter-ultra) * 2));
+  --container-ultra: min(1760px, calc(100vw - var(--gutter-ultra) * 2));
+  --container-cinema: min(1840px, calc(100vw - var(--gutter-ultra) * 2));
+  --gutter-ultra: clamp(1.5rem, 3.5vw, 4.5rem);
+  --gutter-cinema: clamp(2rem, 4vw, 6rem);
+  --header-h: 80px;
+  --header-h-scrolled: 68px;
+  --section-y: clamp(4rem, 7vw, 7.5rem);
+  --section-y-tight: clamp(2.5rem, 4vw, 4rem);
+  --radius-pro: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --shadow-pro:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 24px 80px rgba(13, 148, 136, 0.1),
+    0 8px 32px rgba(15, 23, 42, 0.06);
+  --shadow-pro-hover:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 32px 100px rgba(13, 148, 136, 0.16),
+    0 12px 40px rgba(15, 23, 42, 0.08);
+  --glow-primary: 0 0 80px rgba(13, 148, 136, 0.22);
+  --border-subtle: color-mix(in srgb, var(--border) 70%, transparent);
+  --surface-glass: color-mix(in srgb, var(--bg-card) 82%, transparent);
+  --type-display: clamp(2.75rem, 5.8vw, 4.85rem);
+  --type-h2: clamp(1.85rem, 3.4vw, 3rem);
+  --type-lead: clamp(1.08rem, 1.4vw, 1.28rem);
+  --tracking-tight: -0.045em;
+  --tracking-display: -0.055em;
+}
+
+@media (min-width: 1600px) {
+  :root {
+    --container: var(--container-wide);
+    --container-ultra: min(1760px, calc(100vw - var(--gutter-cinema) * 2));
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --container: var(--container-cinema);
+    --container-ultra: min(1840px, calc(100vw - var(--gutter-cinema) * 2));
+    --gutter-ultra: var(--gutter-cinema);
+  }
+}
+
+@media (min-width: 2560px) {
+  :root {
+    --container: min(2200px, calc(100vw - var(--gutter-cinema) * 2));
+    --container-ultra: min(2200px, calc(100vw - var(--gutter-cinema) * 2));
+    --type-display: clamp(3.25rem, 4.2vw, 5.25rem);
+  }
+}
+
+html[data-theme="dark"] {
+  --shadow-pro:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 28px 90px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(45, 212, 191, 0.06);
+  --shadow-pro-hover:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 36px 110px rgba(0, 0, 0, 0.55),
+    0 0 80px rgba(45, 212, 191, 0.1);
+  --glow-primary: 0 0 100px rgba(45, 212, 191, 0.14);
+}

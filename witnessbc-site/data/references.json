@@ -1,0 +1,129 @@
+{
+  "gartner_primary_url": "https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027",
+  "refs": [
+    {
+      "id": 1,
+      "type": "External · market research",
+      "cite_html": "Gartner, Inc. (2025, June 25). <em>Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027.</em>",
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027",
+      "claim": "40%+ agentic AI projects at cancellation risk by 2027"
+    },
+    {
+      "id": 2,
+      "type": "External · strategy research",
+      "cite_html": "McKinsey &amp; Company. (2025). <em>Seizing the agentic AI advantage.</em> QuantumBlack, McKinsey.",
+      "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/seizing-the-agentic-ai-advantage",
+      "claim": "Decision boundaries and audit mechanisms at scale"
+    },
+    {
+      "id": 3,
+      "type": "External · governance research",
+      "cite_html": "McKinsey &amp; Company. (2025). <em>Trust in the age of agents.</em> Risk &amp; Resilience.",
+      "url": "https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/trust-in-the-age-of-agents",
+      "claim": "End-to-end reconstruction and proof of control"
+    },
+    {
+      "id": 4,
+      "type": "Framework · NIST",
+      "cite_html": "National Institute of Standards and Technology. (2023). <em>Artificial Intelligence Risk Management Framework (AI RMF 1.0).</em>",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "claim": "NIST AI RMF governance and measurement functions"
+    },
+    {
+      "id": 5,
+      "type": "Framework · ISO",
+      "cite_html": "International Organization for Standardization. (2023). <em>ISO/IEC 42001:2023 — Artificial intelligence — Management system.</em>",
+      "url": "https://www.iso.org/standard/81230.html",
+      "claim": "ISO 42001 AI management system clauses"
+    },
+    {
+      "id": 6,
+      "type": "Regulation · EU",
+      "cite_html": "European Parliament and Council. (2024). <em>Regulation (EU) 2024/1689 (AI Act).</em>",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689",
+      "claim": "EU AI Act logging and human oversight articles"
+    },
+    {
+      "id": 7,
+      "type": "Framework · OWASP",
+      "cite_html": "OWASP Foundation. (2025). <em>OWASP Top 10 for Large Language Model Applications.</em>",
+      "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+      "claim": "OWASP LLM agent and tool abuse categories"
+    },
+    {
+      "id": 8,
+      "type": "Product · Witness AI",
+      "cite_html": "Witness AI. (2026). <em>Witness AI Flow — default agentic governance install scope.</em> Product specification · witnessbc.com/principles.",
+      "url": "https://witnessbc.com/principles",
+      "claim": "Witness AI Flow product spec — replay under 5 minutes"
+    },
+    {
+      "id": 9,
+      "type": "Framework · MITRE",
+      "cite_html": "MITRE. (2024). <em>MITRE ATLAS — Adversarial Threat Landscape for Artificial-Intelligence Systems.</em>",
+      "url": "https://atlas.mitre.org/",
+      "claim": "Agent threat taxonomy alignment for tool abuse and exfiltration"
+    },
+    {
+      "id": 10,
+      "type": "Framework · NIST",
+      "cite_html": "National Institute of Standards and Technology. (2024). <em>Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile.</em>",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework/generative-artificial-intelligence-profile",
+      "claim": "NIST GenAI profile for generative and agentic systems"
+    }
+  ],
+  "frameworks": [
+    { "id": "nist", "label": "NIST AI RMF 1.0", "subtitle": "Maps to GOVERN · MEASURE", "ref": 4 },
+    { "id": "iso", "label": "ISO/IEC 42001:2023", "subtitle": "Maps to Clause 6 · 8", "ref": 5 },
+    { "id": "eu", "label": "EU AI Act", "subtitle": "Maps to Art. 12 · 14", "ref": 6 },
+    { "id": "owasp", "label": "OWASP LLM Top 10", "subtitle": "Maps to LLM06 · LLM08", "ref": 7 },
+    { "id": "atlas", "label": "MITRE ATLAS", "subtitle": "Agent threat taxonomy", "ref": 9 },
+    { "id": "genai", "label": "NIST GenAI Profile", "subtitle": "Generative + agentic", "ref": 10 }
+  ],
+  "crosswalk": [
+    {
+      "gate": "Policy at dispatch",
+      "nist": "GOVERN 1.x",
+      "iso": "Clause 8.2",
+      "eu": "Art. 14",
+      "owasp": "LLM06",
+      "nist_ref": 4,
+      "iso_ref": 5,
+      "eu_ref": 6,
+      "owasp_ref": 7
+    },
+    {
+      "gate": "Signed receipt",
+      "nist": "MEASURE 2.x",
+      "iso": "Clause 9.1",
+      "eu": "Art. 12",
+      "owasp": "LLM08",
+      "nist_ref": 4,
+      "iso_ref": 5,
+      "eu_ref": 6,
+      "owasp_ref": 7
+    },
+    {
+      "gate": "Human ESCALATE",
+      "nist": "GOVERN 2.x",
+      "iso": "Clause 6.1",
+      "eu": "Art. 14(4)(d)",
+      "owasp": "LLM09",
+      "nist_ref": 4,
+      "iso_ref": 5,
+      "eu_ref": 6,
+      "owasp_ref": 7
+    },
+    {
+      "gate": "Agent threat coverage",
+      "nist": "MAP 1.x",
+      "iso": "Clause 8.3",
+      "eu": "Art. 9",
+      "owasp": "LLM07",
+      "nist_ref": 10,
+      "iso_ref": 5,
+      "eu_ref": 6,
+      "owasp_ref": 9
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+---
+description: (no active inbox)
+alwaysApply: false
+---
+
+# No active Worker INBOX
+
+Execute via **RUN INBOX** in SourceA Worker chat. Live disk: `~/.sina/worker-live-context-v1.json`

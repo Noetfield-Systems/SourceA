@@ -1,0 +1,123 @@
+{
+  "pages": [
+    {
+      "file": "index.html",
+      "content": "index.html",
+      "title": "Witness AI | Agentic Governance + AI Policy",
+      "description": "Runtime governance infrastructure — AI policy enforced at dispatch, before irreversible agent actions. Signed receipts on every gate. witnessbc.com",
+      "canonical": "https://witnessbc.com",
+      "body_class": "page-home layout-wide-v11 layout-ultra-v12",
+      "scripts": ["control-plane", "trust-signals", "site"]
+    },
+    {
+      "file": "platform.html",
+      "content": "platform.html",
+      "title": "Platform | Witness AI — Observe · Govern · Prove",
+      "description": "Runtime governance infrastructure at execution time — architecture, autonomy tiers, and Observe · Govern · Prove capabilities.",
+      "canonical": "https://witnessbc.com/platform",
+      "body_class": "page-platform layout-ultra-v12",
+      "nav_active": "platform",
+      "breadcrumb": "Platform",
+      "scripts": ["site"]
+    },
+    {
+      "file": "lifecycle.html",
+      "content": "lifecycle.html",
+      "title": "Governance Loop | Witness AI",
+      "description": "The agentic governance loop — six gates from intake to proof, each with machine receipt codes.",
+      "canonical": "https://witnessbc.com/lifecycle",
+      "body_class": "page-lifecycle layout-ultra-v12",
+      "nav_active": "lifecycle",
+      "breadcrumb": "Governance loop",
+      "scripts": ["site"]
+    },
+    {
+      "file": "proof.html",
+      "content": "proof.html",
+      "title": "Proof | Witness AI — Live receipt replay",
+      "description": "Live proof that AI policy ran before the agent acted — BLOCK, ESCALATE, ALLOW, tamper-FAIL, replay.",
+      "canonical": "https://witnessbc.com/proof",
+      "body_class": "page-proof layout-ultra-v12",
+      "nav_active": "proof",
+      "breadcrumb": "Proof",
+      "scripts": ["proof-demo", "site"]
+    },
+    {
+      "file": "compare.html",
+      "content": "compare.html",
+      "title": "Compare | Witness AI — Dispatch vs session prompts",
+      "description": "Compare governance approaches — runtime AI policy at dispatch vs system prompts and checklists alone.",
+      "canonical": "https://witnessbc.com/compare",
+      "body_class": "page-compare layout-ultra-v12",
+      "nav_active": "compare",
+      "breadcrumb": "Compare",
+      "scripts": ["site"]
+    },
+    {
+      "file": "policy.html",
+      "content": "policy.html",
+      "title": "AI Policy Packs | Witness AI",
+      "description": "Versioned AI policy packs enforced at every gate — acceptable use, tool boundaries, human escalation.",
+      "canonical": "https://witnessbc.com/policy",
+      "body_class": "page-policy layout-ultra-v12",
+      "nav_active": "policy",
+      "breadcrumb": "AI policy",
+      "scripts": ["site"]
+    },
+    {
+      "file": "pricing.html",
+      "content": "pricing.html",
+      "title": "Pricing | Witness AI Flow + Ops",
+      "description": "Start with free AI policy packs · scale to Witness AI Flow for first agentic install · Witness AI Ops retainer.",
+      "canonical": "https://witnessbc.com/pricing",
+      "body_class": "page-pricing layout-ultra-v12",
+      "nav_active": "pricing",
+      "breadcrumb": "Pricing",
+      "scripts": ["site"]
+    },
+    {
+      "file": "faq.html",
+      "content": "faq.html",
+      "title": "FAQ | Witness AI",
+      "description": "Frequently asked questions about agentic governance, Witness AI Flow, and AI policy at dispatch.",
+      "canonical": "https://witnessbc.com/faq",
+      "body_class": "page-faq layout-ultra-v12",
+      "nav_active": "faq",
+      "breadcrumb": "FAQ",
+      "scripts": ["site"]
+    },
+    {
+      "file": "sources.html",
+      "content": "sources.html",
+      "title": "Sources & Framework Crosswalk | Witness AI",
+      "description": "Checked primary sources and framework crosswalk for Witness AI governance claims.",
+      "canonical": "https://witnessbc.com/sources",
+      "body_class": "page-sources layout-ultra-v12",
+      "nav_active": "sources",
+      "breadcrumb": "Sources",
+      "scripts": ["site"]
+    },
+    {
+      "file": "learn.html",
+      "content": "learn.html",
+      "title": "Learn | Witness AI — Get started with proof",
+      "description": "Chapter-guided onboarding — Proof Lab, ALLOW · BLOCK · ESCALATE, tamper-FAIL, and book live proof. Product is the lesson.",
+      "canonical": "https://witnessbc.com/learn",
+      "body_class": "page-learn layout-ultra-v12",
+      "nav_active": "learn",
+      "breadcrumb": "Learn",
+      "scripts": ["learn-hub", "site"]
+    },
+    {
+      "file": "toolkits.html",
+      "content": "toolkits.html",
+      "title": "WitnessBC Toolkits — Accountability Templates & Pro PDF Packs",
+      "description": "Accountability toolkits for privacy-first, source-driven publishing. Free HTML templates + Pro PDF packs. Education only — not legal advice.",
+      "canonical": "https://witnessbc.com/toolkits",
+      "body_class": "page-toolkits layout-ultra-v12",
+      "nav_active": "toolkits",
+      "breadcrumb": "Toolkits",
+      "scripts": ["toolkits", "site"]
+    }
+  ]
+}

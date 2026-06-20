@@ -1,0 +1,56 @@
+{
+  "schema": "noetfield-tle-reference-narrative-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T08:45:00Z",
+  "lane": "noetfield",
+  "kind": "reference_one_pager",
+  "phase0_id": "P0-05",
+  "platform_neutral_ssot": "data/platform-neutral-world-model-v1.json",
+  "script": "scripts/noetfield_tle_reference_v1.py",
+  "validator": "scripts/validate-noetfield-tle-reference-v1.sh",
+  "receipt": "~/.sina/noetfield-tle-reference-receipt-v1.json",
+  "one_sentence": "Noetfield delivers governed TLE evaluation with board-defensible governance receipts — web, mobile, and API surfaces for teams on any stack.",
+  "lane_keywords": ["tle", "board pack", "governance receipt", "copilot", "diligence", "noetfield"],
+  "board_pack": {
+    "headline": "Board go/no-go with procurement-grade evidence",
+    "sections": [
+      "Policy version pinned on every material pick",
+      "TLE score + GO/NO_GO/MOCK_ONLY verdict line",
+      "Export board line as PDF or JSON for GRC archive",
+      "Tamper-evident receipt hash on export"
+    ],
+    "buyer": "Compliance lead · CISO · M365 Copilot program owner"
+  },
+  "copilot_readiness": {
+    "headline": "Operational TLE after Copilot is live — not another readiness checkbox",
+    "sections": [
+      "evaluate_pick bridges form picks to governed verdict",
+      "SSOT_CHANGED triggers agent re-brief same day",
+      "Complements Purview audit — proves what was permitted",
+      "30s freemium demo path via noetfield freemium factory bay"
+    ],
+    "positioning": "Microsoft Agent Governance Toolkit adjacency — operational enforcement lane"
+  },
+  "governance_receipt_language": {
+    "verdicts": ["GO", "NO_GO", "MOCK_ONLY"],
+    "receipt_fields": ["receipt_id", "policy_pack_id", "tle_score", "board_line", "saved_at"],
+    "export_formats": ["pdf", "json"],
+    "honesty": "MOCK_ONLY watermark on sandbox eval — no production claims"
+  },
+  "platform_neutral_copy": {
+    "surfaces": ["web", "mobile", "api", "ide", "ci"],
+    "stacks": ["python", "typescript", "node", "azure functions", "vercel", "supabase"],
+    "upgrade_cta": "Subscribe via noetfield.com — teams on any stack",
+    "forbidden_framing_absent": true
+  },
+  "wired_routes": {
+    "product_lane": "noetfield",
+    "world_model_ssot": "data/platform-neutral-world-model-v1.json",
+    "freemium_bay": "receipts/bays/noetfield-freemium-bay/verify.json"
+  },
+  "attract_hooks": [
+    "Board pack · Copilot readiness · governance receipt language",
+    "NF-QS gap scan in days · NF-RD pilot in weeks",
+    "Enterprise MCP gateway policy pack (P2 partner lane)"
+  ]
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>N8N Integration</title>
+  <link rel="stylesheet" href="app.css?v=1.2.0" />
+</head>
+<body>
+  <main class="n8-app n8-founder-glance">
+    <article class="n8-founder-card">
+      <header class="n8-founder-head">
+        <div class="n8-founder-title-row">
+          <div>
+            <h1 class="n8-founder-title">N8N Integration</h1>
+            <p class="n8-founder-sub" id="n8-tagline">Automation spine · local only</p>
+          </div>
+          <span class="n8-badge n8-badge-live" id="n8-version">v1.1</span>
+        </div>
+        <p id="n8-status-line" class="n8-status-line">Loading stack status…</p>
+        <button type="button" class="n8-btn n8-btn-primary n8-btn-block" id="btn-primary" data-action="capture_intelligence">Capture intelligence</button>
+        <p id="n8-quality-line" class="n8-quality-line"></p>
+        <p id="n8-commercial-line" class="n8-quality-line n8-commercial-line"></p>
+        <p id="n8-film-line" class="n8-quality-line n8-commercial-line"></p>
+      </header>
+
+      <section class="n8-status-grid n8-founder-stats" id="n8-status-grid">
+        <div class="n8-stat" id="stat-n8n"><span class="n8-stat-label">n8n</span><span class="n8-stat-val">—</span></div>
+        <div class="n8-stat" id="stat-runtime"><span class="n8-stat-label">Runtime</span><span class="n8-stat-val">—</span></div>
+        <div class="n8-stat" id="stat-hub"><span class="n8-stat-label">Hub</span><span class="n8-stat-val">—</span></div>
+        <div class="n8-stat" id="stat-workflows"><span class="n8-stat-label">Workflows</span><span class="n8-stat-val">—</span></div>
+      </section>
+      <div class="n8-stat n8-stat-hidden" id="stat-intel" hidden aria-hidden="true"><span class="n8-stat-val">—</span></div>
+
+      <details class="n8-founder-more" id="panel-more">
+        <summary>More</summary>
+        <div class="n8-more-block n8-more-actions" id="n8-more-actions">
+          <button type="button" class="n8-btn n8-btn-primary" data-action="start">Start n8n</button>
+          <button type="button" class="n8-btn" data-action="wire_chat_unify">Wire Chat Unify</button>
+          <button type="button" class="n8-btn" data-action="commercial_grade">Commercial grade</button>
+          <button type="button" class="n8-btn" data-action="upgrade_all">Upgrade all</button>
+          <button type="button" class="n8-btn" data-action="validate">Validate workflows</button>
+          <button type="button" class="n8-btn" data-action="test_flow">Starter test</button>
+          <button type="button" class="n8-btn" data-action="open_n8n">Open n8n UI</button>
+          <button type="button" class="n8-btn" data-action="open_brief">Open brief</button>
+          <button type="button" class="n8-btn n8-btn-ghost" id="btn-refresh">Refresh</button>
+          <button type="button" class="n8-btn n8-btn-ghost" id="btn-copy-webhook">Copy webhook URL</button>
+        </div>
+        <div class="n8-more-block">
+          <h2 class="n8-panel-title">Workflows</h2>
+          <div id="n8-workflows" class="n8-workflows">Loading…</div>
+        </div>
+        <div class="n8-more-block">
+          <h2 class="n8-panel-title">Webhook</h2>
+          <code id="n8-webhook" class="n8-code">—</code>
+        </div>
+        <div class="n8-more-block n8-output-panel">
+          <h2 class="n8-panel-title" id="output-title">Intelligence brief</h2>
+          <span id="output-hint" class="n8-muted"></span>
+          <pre id="n8-output" class="n8-output">Tap Capture intelligence or Open brief.</pre>
+        </div>
+      </details>
+
+      <footer class="n8-founder-foot">
+        <p class="n8-footer-sub">Local :13026 · automation law on disk</p>
+      </footer>
+    </article>
+  </main>
+  <script src="app.js?v=1.2.0"></script>
+</body>
+</html>

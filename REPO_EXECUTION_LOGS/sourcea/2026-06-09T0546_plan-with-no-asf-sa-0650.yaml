@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0650 — Append WTM layer gap note when L0-full editor telemetry partial
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0650
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — L0-full editor telemetry gap guard (validate-wtm-l0-full-editor-telemetry-gap-v1 + audit_hub_source_alignment) + dispatch + eval-1b LIVE 80% + governance fleet + critical 0; honest closeout sa-0650
+reported_at: '2026-06-09T05:46:29Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

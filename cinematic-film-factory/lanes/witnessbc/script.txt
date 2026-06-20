@@ -1,0 +1,13 @@
+Your systems are executing autonomous actions.
+
+But not all actions are allowed.
+
+WitnessBC enforces policy at runtime.
+
+When violations occur, execution is blocked.
+
+Every decision generates a cryptographic receipt.
+
+And every receipt is stored in an audit trail.
+
+This is runtime trust.

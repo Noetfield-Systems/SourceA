@@ -1,0 +1,12 @@
+{
+  "folders": [
+    {
+      "path": ".",
+      "name": "SourceA"
+    }
+  ],
+  "settings": {
+    "window.restoreWindows": "none",
+    "workbench.editor.restoreEditors": false
+  }
+}

@@ -1,0 +1,16 @@
+schema_version: 1
+repo: sourcea
+task: PLAN WITH NO ASF — sa-0101 sustain Eval-1b 5/5 pilots ≥80%
+status: done
+verify_passed: true
+evidence:
+  files_changed:
+    - os/plan-library/sourcea-1000/prompts/phase-s1-eval-dispatch/T0/sa-0101.md
+    - os/plan-library/sourcea-1000/REGISTRY.json
+tests:
+  status: passed
+  command: bash validate-eval-packet-v1b-live.sh && SINA_AUDIT_STRICT=1 build-sina-command-panel.py && find_critical_bugs.py
+  output_snippet: eval-1b LIVE pilots 5/5 100%; critical 0
+real_output: OK eval-1b LIVE 5/5 100%; find_critical_bugs ok true critical 0
+reported_at: '2026-06-06T03:48:00Z'
+reporter: cursor-maintainer

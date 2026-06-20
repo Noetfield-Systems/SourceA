@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0010",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0010 VERIFY closeout \u2014 strategic synthesis locked v2 matches hub API; validators green; verify-only",
+  "at": "2026-06-09T12:50:09Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

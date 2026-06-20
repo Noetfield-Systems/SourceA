@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1113",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U084",
+  "title": "Fleet upgrade plan completion tracker",
+  "evidence": "outbound-upgrade-status jsonl tracker PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:20:44Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,42 @@
+---
+description: Ban default hub rebuild — Worker Brain Maintainer ship tasks not panel builds
+globs: scripts/**,.cursor/rules/**
+alwaysApply: false
+---
+
+# No hub rebuild stuck loop
+
+**Canonical:** `AGENT_NO_HUB_REBUILD_STUCK_LOCKED_v1.md` · **Hub:** `SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md`
+
+## Every agent — every closeout
+
+**Ship the task.** Not the hub.
+
+```bash
+cd /Users/sinakazemnezhad/Desktop/SourceA/scripts
+bash validate-super-fast-hub-v1.sh
+python3 hub_self_refresh_v1.py --json
+```
+
+## BANNED as default (business blocker)
+
+- `build-sina-command-panel.py` / `SINA_AUDIT_STRICT=1` strict build
+- `hub_self_refresh_v1.py --full` or `POST /refresh` mode full
+- Leading status with "hub rebuild" / "hub green" / "waiting on panel"
+
+## Allowed full build
+
+**M2/Maintainer only** · legacy `app.js`/`app.css` edit · sa explicitly says hub UI · env `AGENT_HUB_FULL_REBUILD_OK=1`.
+
+## Lanes
+
+| Lane | Job |
+|------|-----|
+| Worker | sa + receipt + task validator |
+| Brain | pick · handoff — no implement · no rebuild |
+| Maintainer 2 | hub UI only when assigned |
+| All | Task outcome first in reply |
+
+Founder: Super Fast Hub `/` — never ask rebuild.
+
+Do not restate full law — pointers only.

@@ -1,0 +1,103 @@
+{
+  "schema": "icp-failure-driven-generator-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-18T21:00:00Z",
+  "active_brands_only": ["SourceA", "Noetfield", "TrustField"],
+  "phase2_deferred": ["777 Foundation", "WitnessBC", "advisor_pre_call"],
+  "law": "data/icp-output-compiler-v1.json",
+  "vocabulary_ssot": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+  "philosophy": "Output-first trace compiler — not email generator. No failure moment → do not write.",
+  "pipeline": [
+    "INPUT: account_id + brand route",
+    "STEP 1: classify domain route — SourceA | Noetfield | TrustField ONLY (else STOP)",
+    "STEP 2: load ICP profile — signal · role · their world",
+    "STEP 3: FDG — what breaks in front of reviewer? (failure moment)",
+    "STEP 4: extract top 3 tensions · rank · select ONE",
+    "STEP 5: convert to observable failure scenario (examiner / board / audit)",
+    "STEP 6: angle by role (CCO/CTO/COO/CRO)",
+    "STEP 7: compose — 1 scenario · 1 pressure · 1 consequence · 1 question",
+    "STEP 8: minimal product mapping (1 line) · optional interest asset",
+    "STEP 9: validate lane loops (CIL · RIL · OQG for w3_commercial)",
+    "STEP 10: RRL — human reaction D/E only (machine sim)",
+    "STEP 11: Sina read ≥90 — ship authority",
+    "STEP 12: on approve — write output_trace · reverse-engineer rules · machine repeat"
+  ],
+  "output_spec_tags": {
+    "domain": "brand route domain string",
+    "target_role": "CCO | CTO | COO | CRO | CEO",
+    "intent": "create curiosity about specific gap",
+    "conversion_type": "reply",
+    "risk_level": "low | medium",
+    "message_type": "cold_open | pre_call",
+    "lane": "w3_commercial | advisor_pre_call"
+  },
+  "primary_output_rule": {
+    "required": [
+      "one_real_world_scenario_named_to_icp",
+      "one_institutional_pressure_moment",
+      "one_consequence_if_unproven_implicit_or_explicit",
+      "one_curiosity_question",
+      "zero_internal_system_description"
+    ],
+    "density": "1 tension · 1 insight · 1 product mention max · 1 question"
+  },
+  "forbidden_icp_phrases": [
+    "runs on",
+    "our platform",
+    "architecture",
+    "staging",
+    "governance system",
+    "we built",
+    "our solution",
+    "ai governance layer",
+    "inspectable proof",
+    "narrow lane",
+    "trustfield runs",
+    "event bus",
+    "agentic"
+  ],
+  "required_transform": {
+    "tokenization": "issuance proof under review",
+    "system": "ability to reconstruct truth",
+    "product": "evidence generation under pressure",
+    "demo": "replay of a real workflow scenario"
+  },
+  "failure_moment_gate": {
+    "question": "What is the moment this breaks in front of a reviewer?",
+    "fail_if_missing": true,
+    "examples": {
+      "ocree_trustfield": "CSA Collaboratory review — each issuance step permitted after the fact",
+      "fundmore_noetfield": "Board asks what AI copilot did on a mortgage decision six months later",
+      "sourcea_fbe": "Team ships agent output without reproducible proof on disk — drift breaks trust"
+    }
+  },
+  "angle_by_role": {
+    "CCO": "compliance proof + issuance + examiner",
+    "CTO": "system reliability + observability",
+    "COO": "operational audit + process visibility",
+    "CRO": "regulatory defensibility + evidence",
+    "CEO": "risk + scaling constraint"
+  },
+  "policy_valid_only_if": [
+    "classified domain route",
+    "exactly ONE primary tension",
+    "no architecture explanation",
+    "compress system to observable business consequence",
+    "curiosity question ending (Mode A) or soft offer + link (Mode B)",
+    "reversible to output_trace JSON",
+    "passes lane machine bars",
+    "sina_read_score_pct ≥ 90 for send"
+  ],
+  "advisor_critique": {
+    "label": "advisor_critique",
+    "sources": ["GPT", "Gemini"],
+    "ship_authority": false,
+    "note": "Never labeled founder"
+  },
+  "secondary_lanes": {
+    "advisor_pre_call": { "frequency": "rare", "not_icp_approval": true }
+  },
+  "routes_ssot": "data/factory-output-routes-v1.json",
+  "icp_compiler_ssot": "data/icp-output-compiler-v1.json",
+  "compiler_script": "scripts/icp_output_compiler_v1.py"
+}

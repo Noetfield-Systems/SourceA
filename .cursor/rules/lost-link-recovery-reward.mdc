@@ -1,0 +1,44 @@
+---
+description: Lost link recovery — search messages and disk; FOUND reports are complete reward
+alwaysApply: true
+---
+
+# Lost link recovery reward (LOCKED)
+
+**Canonical:** `SOURCEA_LOST_LINK_RECOVERY_ETHICS_LOCKED_v1.md`  
+**Foundation:** `SOURCEA_SSOT_FOUNDATION_WRITING_GUIDE_LOCKED_v1.md` §3 · `018-sot-creation-guidelines`  
+**Transcript:** mega-chat `a53f3fa1-081c-4373-bc55-76feb501a61d` when thread context is thin
+
+## Complete reward
+
+When founder says something was missed, misunderstood, or only partially captured:
+
+1. Search **prior messages** (transcript) for corrections and intent.
+2. Search **disk** — MonoRepo `L0-meta/` · SourceA `*_LOCKED` · authority index row.
+3. Lead reply with **`FOUND — <path>`** or **`NOT FOUND — <what was searched>`**.
+4. State **`WAS —`** prior mistake briefly; **`PROOF —`** row/validator/receipt; **`USE —`** what it enables.
+5. Wire one pointer or row — no duplicate law prose (LAW PURITY).
+
+Partial tail-summary without transcript pass = **incomplete reward**.
+
+## Philosophy anchor
+
+SoT emerges from **execution first** (018), not imagination. Chicken/egg → **run small → patterns → law → blueprint nest → live hatch**. POSA is circle member, not the egg.
+
+## Common recovered links (do not re-miss)
+
+| Topic | Canonical |
+|-------|-----------|
+| Human SSOT foundation | `018-sot-creation-guidelines` + `002-sot-hierarchy-registry` |
+| Registry of Foundations | Same as 002 + 018 — not a missing doc |
+| Big picture threads | `SOURCEA_ECOSYSTEM_MASTER_CATALOG_LOCKED_v1.md` §2 (T0–T12) |
+| Frozen revival plan | `SOURCEA_FROZEN_ARCHIVE_REVIVAL_AUDIT_LOCKED_v1.md` |
+| AUTO-RUN | **Rejected** — `~/.sina/auto-run-disabled-v1.flag` |
+
+## Truth tree (down only)
+
+Thorn (P0) → trunk (P1) → branch (P2) → leaf (P4–P6). Truth descends; **leaf untruth cannot enter thorn** while enforcers PASS. See `LIVE_GOV_BP` §2b · `SYSTEM_MAP_TREE` §11.
+
+## Archive rule
+
+ARCHIVE tier informs genealogy only — never inject as active law (`validate-no-archive-as-law-v1.sh`).

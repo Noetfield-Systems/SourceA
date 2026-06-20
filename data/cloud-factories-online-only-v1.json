@@ -1,0 +1,48 @@
+{
+  "schema": "cloud-factories-online-only-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T16:35:00Z",
+  "one_law": "Factories run ONLINE on cloud + public API only — Mac is control panel, never a factory body. Anti-staleness · zero drift · zero fragmentation.",
+  "authority": "data/founder-execution-model-v1.json",
+  "human_doc": "data/founder-execution-model-v1.json",
+  "script": "scripts/cloud_factories_online_only_v1.py",
+  "validator": "scripts/validate-cloud-factories-online-only-v1.sh",
+  "receipt": "~/.sina/cloud-factories-online-only-receipt-v1.json",
+  "surfaces_line_key": "cloud_factories_online_line",
+  "mac_role": {
+    "canonical": "control_plane_only",
+    "allowed": ["hub_gate", "form_pick", "approve", "monitor", "session_gate", "health_pulse", "receipt_read"],
+    "never_factory": true
+  },
+  "cloud_role": {
+    "canonical": "execution_plane_headless",
+    "required": ["public_https_or_cloud_api", "cloud_receipt_or_remote_status", "no_127_factory_gate"],
+    "forbidden_as_factory_online": [
+      "http://127.0.0.1",
+      "http://localhost",
+      "local_worker_execution",
+      "mac_disk_script_exists",
+      "mac_disk_file_exists"
+    ]
+  },
+  "governance_chain": {
+    "anti_staleness": "scripts/anti_staleness_auto_wire_v1.py",
+    "zero_drift": "scripts/governance_zero_drift_live_wire_v1.py",
+    "zero_fragmentation": "scripts/queue_ssot_unify_v1.py"
+  },
+  "main_factory_authority": "data/founder-execution-model-v1.json",
+  "defer_authority": "data/commercial-email-send-defer-v1.json",
+  "machine_registry": "data/machine-execution-plane-registry-v1.json",
+  "anti_theater_check": "cloud_factories_online_only",
+  "runs_on": [
+    "scripts/agent_session_gate_run_v1.py",
+    "scripts/agent_nerve_system_v1.py",
+    "scripts/disk_live_wire_sync_v1.py",
+    "scripts/better_loop_pulse_v1.py",
+    "scripts/anti_theater_validator_loop_v1.py",
+    "scripts/commercial_email_send_defer_v1.py",
+    "scripts/cloud_factory_check_v1.py",
+    "scripts/founder_execution_model_v1.py",
+    "scripts/agent_rule_live_wire_v1.py"
+  ]
+}

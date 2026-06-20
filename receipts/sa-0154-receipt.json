@@ -1,0 +1,17 @@
+{
+  "sa_id": "sa-0154",
+  "status": "DONE",
+  "role": "verify",
+  "agent": "maintainer_executor",
+  "model": "cursor",
+  "completed_at": "2026-06-08T17:46:00Z",
+  "verify": {
+    "dispatch_policy_eval_1b_gate_ok": true,
+    "audit_backend_e2e": "PASS",
+    "validate_spine_bridge_founder_v1": "PASS",
+    "validate_dispatch_policy_v1": "PASS"
+  },
+  "evidence": "/api/dispatch-policy-v1 eval_1b_gate_ok=true mode=live",
+  "source": "maintainer_executor",
+  "schema": "sourcea-sa-receipt-v1"
+}

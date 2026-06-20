@@ -1,0 +1,44 @@
+{
+  "schema": "fbe-factory-spec-v1",
+  "factory_id": "noetfield-freemium-factory-v1",
+  "spec_version": "1.0.0",
+  "saved_at": "2026-06-19T12:00:00Z",
+  "kind": "freemium",
+  "kernel": {
+    "id": "fbe-v1",
+    "min_version": "fbe-v1.0.0",
+    "graph_source": "data/fbe_node_graph_v1.json",
+    "line_node_count": 76
+  },
+  "lines": ["noetfield_governance"],
+  "runtime": {
+    "bay_slug": "noetfield-freemium-bay",
+    "default_tenant": "noetfield",
+    "wave": "W0",
+    "factory_id_internal": "noetfield_freemium_0",
+    "pipelines": ["noetfield_freemium_w0"],
+    "api_route": "/api/fbe/catalog/v1",
+    "cloud_entry": "--validate-only",
+    "execution_mode": "CLOUD_ONLY"
+  },
+  "io": {
+    "input_schema": "data/schemas/sandbox-demo-input-v1.json",
+    "output_schema": "data/schemas/certainty-report-v1.json",
+    "output_artifact": "30s TLE one-pager + governance receipt mock JSON",
+    "certainty_report": true
+  },
+  "governance": {
+    "policy_pack": "noetfield_governance",
+    "tier_cap_honest": "FREEMIUM",
+    "delivery_mode": "mock_only"
+  },
+  "commercial": {
+    "name": "Noetfield TLE reference factory",
+    "tagline": "Board pack · Copilot readiness · governance receipt language — freemium mock.",
+    "tier_label": "freemium",
+    "buyer": "Prospects · diligence teams · board advisors",
+    "hero": false,
+    "maintenance_fee_usd": 0,
+    "compute_note": "Phase 0 mock mesh — zero idle cost until upgrade"
+  }
+}

@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0337 — Mark FR-009 shipped when auto_pass_count >= 6 not ASF verify count
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0337
+tests:
+  status: passed
+  output_snippet: pack6 scoreboard-fleet T1 verify-only; strict-build validators PASS
+reported_at: '2026-06-08T19:23:39Z'
+reporter: cursor-worker-batch

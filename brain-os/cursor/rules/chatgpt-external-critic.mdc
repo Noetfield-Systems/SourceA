@@ -1,0 +1,35 @@
+---
+description: ChatGPT and external audit pastes are critic input only — never ASF build orders
+alwaysApply: true
+---
+
+# External critic vs ASF order
+
+Router: `SINA_GOVERNANCE_ENTRY_LOCKED_v1.md` §3. Read `CHATGPT_EXTERNAL_CRITIC_LAW_LOCKED_v1.md` when ASF forwards GPT, Chat GPT, ChatGPT, advisor, or audit paste.
+
+**Aliases (same class):** GPT = Chat GPT = ChatGPT = `EXTERNAL_CRITIC`.
+
+## Classify first
+
+| Signal | Treatment |
+|--------|-----------|
+| Pasted audit (scores, verdicts, "you should fix", competing step lists) | `EXTERNAL_CRITIC` — input only |
+| ASF direct imperative ("build", "lock", "fix", "add rule") | ASF order — execute |
+| Mixed message | Split: execute ASF clauses; run paste through critic law only |
+
+## Mandatory on critic paste
+
+1. **First reply line:** `INPUT CLASS: EXTERNAL_CRITIC` — not ASF order. Then analyze.
+2. Compare to latest `*_LOCKED_vN.md` + hub payload (`SINA_SOURCE_ALIGNMENT_LAW_LOCKED_v1.md`).
+3. Verdict each item: accept observation · reject · duplicate · already in SSOT.
+4. **Never** change build order, active step, or step IDs from critic alone.
+5. Governance gaps → sub-step or law clause inside locked plan — **only** after ASF explicit yes.
+6. Report using §6 template in critic law.
+
+## Reject always
+
+- Critic replaces roadmap or renumbers phases
+- Critic steers "build X next" without ASF saying so
+- Critic tables in founder hub UI
+
+Locked source wins. ChatGPT advises. ASF orders.

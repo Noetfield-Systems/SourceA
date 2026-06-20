@@ -1,0 +1,33 @@
+# [COMMERCIAL_GOAL_AGENT_REF · commercial_goal_specialist · INFRA-FUNDRAISING-033]
+trace:
+  agent_id: commercial_goal_specialist
+  trace_id: COMMERCIAL_GOAL-REF-2026-06-12-INFRA-FUNDRAISING-033
+  parent_traces:
+    - COMMERCIAL_GOAL-REF-2026-06-11-ACCELERATION-GTM-032
+    - COMMERCIAL_GOAL-REF-2026-06-11-AGENTIC-CONTROL-027v3
+  execution_authority: false
+  date: 2026-06-12
+  type: agentic_infra_fundraising_playbook_full_rewrite
+
+web_verified_examples:
+  temporal_series_d: "$300M Feb 2026 a16z @ $5B — OSS years not landing-only"
+  jetty_preseed: ">$2M May 2026 AQC + Mila — PR + audit trail"
+  vybe_seed: "$10M Dec 2025 First Round — 2x YC founders NOT Hashimoto"
+  openbox_seed: "$5M Mar 2026 — launch + tamper-proof audit"
+  willow_seed: "$7M Jun 2026 — stealth exit + Wix angels"
+  codeintegrity_seed: "$5M May 2026 — runtime control layer"
+  archestra_seed: "$10M 20VC — F500 production claims"
+
+key_corrections:
+  - vybe_founders: Quang Hoang + Fabien Devos not Mitchell Hashimoto
+  - no_website_only_raises_in_governance_infra_2026: true
+  - sina_not_10_spvs_in_12mo: holding is presentation layer over three-layer stack
+
+sina_playbook_order: [W1_film, ecosystem_landing_A, agentic_W3, PR_B, seed_conversations]
+
+deliverables:
+  A: ECOSYSTEM-LANDING-032
+  B: PR-LAUNCH-032
+  C: DEALFLOW-SCORING-032
+
+verdict: full rewrite with insights integrated — compare to Jetty/OpenBox tier not Temporal Series D

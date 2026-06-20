@@ -1,0 +1,49 @@
+{
+  "schema": "canada-portfolio-lock-manifest-v1",
+  "locked_at": "2026-06-19T18:55:50Z",
+  "files": [
+    "/Users/sinakazemnezhad/Desktop/1 PAGER/CANADA_PRIORITY_A_SEND_READY_EMAILS_LOCKED_v1.md",
+    "/Users/sinakazemnezhad/Desktop/1 PAGER/CANADA_RWA_STRATEGY_DEEP_RESEARCH_UPGRADE_LOCKED_v2.md",
+    "/Users/sinakazemnezhad/Desktop/1 PAGER/CANADA_RWA_NAMED_ACCOUNT_TARGET_LIST_LOCKED_v1.md",
+    "/Users/sinakazemnezhad/Desktop/1 PAGER/PORTFOLIO_SOURCEA_WITNESSBC_777_INSIGHT_PLAN_LOCKED_v1.md",
+    "/Users/sinakazemnezhad/Desktop/SourceA/data/commercial/canada-priority-a-emails-v1.json",
+    "/Users/sinakazemnezhad/Desktop/SourceA/data/commercial/canada-brand-routing-v1.json",
+    "/Users/sinakazemnezhad/Desktop/1 PAGER/SOURCEA_ECOSYSTEM_FAST_BUSINESS_MODEL_LOCKED_v2.md",
+    "/Users/sinakazemnezhad/Desktop/SourceA/docs/SOURCEA_ECOSYSTEM_FAST_BUSINESS_MODEL_LOCKED_v2.md",
+    "/Users/sinakazemnezhad/Desktop/SourceA/os/commercial/SOURCEA_ECOSYSTEM_FAST_BUSINESS_MODEL_LOCKED_v2.md",
+    "/Users/sinakazemnezhad/Desktop/1 PAGER/CANADA_RWA_DEEP_ANALYSIS_LOCKED_v3.md",
+    "/Users/sinakazemnezhad/Desktop/1 PAGER/CANADA_RWA_REMAINING_TODO_FUTURE_LOCKED_v1.md",
+    "/Users/sinakazemnezhad/Desktop/1 PAGER/CANADA_RWA_FULL_AUDIT_CORRECTIONS_LOCKED_v1.md",
+    "/Users/sinakazemnezhad/Desktop/1 PAGER/canada-rwa-333-locked/REGISTRY.json",
+    "/Users/sinakazemnezhad/Desktop/1 PAGER/canada-rwa-333-locked/EXECUTION_WAVES.yaml",
+    "/Users/sinakazemnezhad/Desktop/1 PAGER/canada-rwa-333-locked/PRIORITY_INDEX.md",
+    "/Users/sinakazemnezhad/Desktop/SourceA/data/commercial/canada-factory-round-2-v1.json",
+    "/Users/sinakazemnezhad/Desktop/TrustField Technologies/docs/UI_AGENT_CHECKLIST_LOCKED.md",
+    "/Users/sinakazemnezhad/Desktop/TrustField Technologies/docs/gtm/OUTBOUND_GUARD_NO_INVITATION_LOCKED.md"
+  ],
+  "implementation": {
+    "trustfield": "/Users/sinakazemnezhad/Desktop/TrustField Technologies/templates/compliance.html",
+    "noetfield": [
+      "/Users/sinakazemnezhad/Desktop/Noetfield/Noetfield-All-Documents/Noetfield/bank-pilot/index.html",
+      "/Users/sinakazemnezhad/Desktop/Noetfield/Noetfield-All-Documents/Noetfield/copilot/index.html"
+    ],
+    "sourcea": [
+      "data/commercial/canada-priority-a-emails-v1.json",
+      "os/commercial/PORTFOLIO_SOURCEA_WITNESSBC_777_INSIGHT_PLAN_LOCKED_v1.md"
+    ],
+    "witnessbc": "witnessbc-commercial-film-ship.sh \u00b7 witnessbc-site/dist/",
+    "seven77": "The 777 Foundation/web \u00b7 partners/settlement-bc",
+    "witnessbc_routing_json": "data/commercial/witnessbc-portfolio-routing-v1.json",
+    "seven77_routing_json": "data/commercial/seven77-portfolio-routing-v1.json"
+  },
+  "brands": [
+    "SourceA",
+    "WitnessBC",
+    "777Foundation",
+    "TrustField",
+    "Noetfield"
+  ],
+  "w3_approvals": "/Users/sinakazemnezhad/Desktop/SourceA/data/commercial/w3-canada-send-approvals-v1.json",
+  "stack_map_better_loop": "/Users/sinakazemnezhad/Desktop/SourceA/docs/SOURCEA_STACK_MAP_AND_BETTER_LOOP_LOCKED_v1.md",
+  "plans_333": "/Users/sinakazemnezhad/Desktop/1 PAGER/canada-rwa-333-locked/REGISTRY.json"
+}

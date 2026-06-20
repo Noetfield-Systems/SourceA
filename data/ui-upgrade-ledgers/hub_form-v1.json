@@ -1,0 +1,51 @@
+{
+  "schema": "ui-upgrade-ledger-v1",
+  "surface_id": "hub_form",
+  "label": "Hub Form (FORM_OFFICIAL mirror)",
+  "saved_at": "2026-06-19T19:05:00Z",
+  "frozen_inventory": [
+    {"id": "radio_picks", "what": "Radio per row — founder tap", "marker": "type=\"radio\" per row"},
+    {"id": "submit_only", "what": "One Submit button", "marker": "id=\"btn-submit\""},
+    {"id": "no_copy_paste", "what": "No copy/paste flows", "marker": "validate-hub-form-automatic-v1.sh PASS"},
+    {"id": "no_automatic", "what": "No AUTOMATIC theater", "marker": "INCIDENT-037 · no recommended-as-answer"},
+    {"id": "m1_mirror", "what": "M1 Canvas Pending mirror", "marker": "form_official_nerve_map_v1.json"},
+    {"id": "founder_submit", "what": "Founder picks only", "marker": "founder_submit:true + submit_founder_picks"},
+    {"id": "api_route", "what": "Form API", "marker": "POST /api/live-founder-decision-form-v1"}
+  ],
+  "app_checklist": [
+    {"id": "FORM-0", "step": "UI FIRST CHECK ack — hub_form surface before ANY edit"},
+    {"id": "FORM-1", "step": "Read INCIDENT-037 + INCIDENT-029 + M1 Canvas SSOT"},
+    {"id": "FORM-2", "step": "Checklist UI only — not one-question wizard"},
+    {"id": "FORM-3", "step": "Founder explicit picks — Submit my picks only"},
+    {"id": "FORM-4", "step": "validate-form-founder-supremacy-v1.sh PASS"},
+    {"id": "FORM-5", "step": "validate-form-official-e2e-v1.sh PASS on submit path change"}
+  ],
+  "upgrades": [
+    {
+      "upgrade_id": "UP-FORM-001",
+      "saved_at": "2026-06-19T19:05:00Z",
+      "founder_trigger": "INCIDENT-037 founder supremacy + UI FIRST CHECK mandatory forever",
+      "general_checklist": "UP-0..UP-7 PASS",
+      "app_checklist": "FORM-0..FORM-5 PASS",
+      "preserved": ["radio_picks", "submit_only", "no_copy_paste", "m1_mirror", "api_route"],
+      "changed": ["no_automatic", "founder_submit", "FORM-0 first check mandatory"],
+      "achieved": "Agents blocked from answering form · UI checklist machine-enforced",
+      "quality_vs_last": "better",
+      "founder_approval": "pending",
+      "machine_proof": "validate-ui-first-check-mandatory-all-agents-v1.sh · validate-form-founder-supremacy-v1.sh"
+    },
+    {
+      "upgrade_id": "UP-FORM-000",
+      "saved_at": "2026-06-19T17:30:00Z",
+      "founder_trigger": "UI upgrade mandatory wire + NEVER copy-paste",
+      "general_checklist": "UP-0..UP-7 bootstrap",
+      "app_checklist": "FORM-1..FORM-5 registered",
+      "preserved": ["submit_only", "no_copy_paste"],
+      "changed": ["per-app ledger registered"],
+      "achieved": "Machine enforcement path for form UI",
+      "quality_vs_last": "baseline",
+      "founder_approval": "pending",
+      "machine_proof": "validate-ui-upgrade-mandatory-v1.sh"
+    }
+  ]
+}

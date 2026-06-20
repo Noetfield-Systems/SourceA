@@ -1,0 +1,19 @@
+# sa-0850 — legacy quarantine banner vs H2 bookmark law T1 cross-ref (LOCKED v1)
+
+**Saved:** 2026-06-15T12:00:00Z · **Retrofit:** doc-datetime-law batch retrofit
+**Date:** 2026-06-15 · **SA:** sa-0850 (T1) · **Canonical:** sa-0825 (T0)
+
+## Contract
+
+T1 dedup — no re-research. Proof chain:
+
+| Layer | Artifact |
+|-------|----------|
+| Canonical | sa-0825 · `scripts/validate-h2-legacy-quarantine-banner-bookmark-v1.sh` |
+| T1 echo | sa-0850 · `scripts/validate-h2-legacy-quarantine-banner-bookmark-t1-crossref-v1.sh` |
+| Receipt | `receipts/sa-0825-receipt.json` DONE |
+| LOCKED doc | `archive/attachments/2026-06-15/sa-0825-h2-legacy-quarantine-banner-bookmark_LOCKED_v1.md` |
+| Slice lib | `scripts/h2_quarantine_bookmark_slice_v1.py` · `quarantine_bookmark_slice` |
+| Live | `/legacy/` READ ONLY banner · `/machines/` museum link |
+
+**Law:** tier dedup only — cites canonical sa-0825 · Sina Command /legacy/ quarantine vs Hub 2 bookmark · cross_check_ok · h2-quarantine-bookmark-slice-v1 · no panel rebuild.

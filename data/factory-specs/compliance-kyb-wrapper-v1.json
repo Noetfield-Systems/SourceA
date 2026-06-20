@@ -1,0 +1,45 @@
+{
+  "schema": "fbe-factory-spec-v1",
+  "factory_id": "compliance-kyb-wrapper-v1",
+  "spec_version": "1.0.0",
+  "saved_at": "2026-06-17T16:00:00Z",
+  "kind": "wrapper",
+  "extends": "exchange-factory-v1",
+  "kernel": {
+    "id": "fbe-v1",
+    "min_version": "fbe-v1.0.0",
+    "graph_source": "data/fbe_node_graph_v1.json",
+    "line_node_count": 76
+  },
+  "lines": ["trust_motor", "refinery", "assembly"],
+  "runtime": {
+    "bay_slug": "trustfield-bay",
+    "default_tenant": "trustfield",
+    "wave": "W4",
+    "factory_id_internal": "factory_2",
+    "pipelines": ["exchange_refinery_w4", "exchange_assembly_w4"],
+    "api_route": "/api/fbe/run-exchange/v1",
+    "cloud_entry": "--run-exchange",
+    "execution_mode": "CLOUD_ONLY"
+  },
+  "io": {
+    "input_schema": "data/schemas/kyb-input-v1.json",
+    "output_schema": "data/schemas/certainty-report-v1.json",
+    "output_artifact": "KYB Certainty Report + UBO mesh receipt",
+    "certainty_report": true
+  },
+  "governance": {
+    "policy_pack": "fintrac_kyb_v1",
+    "tier_cap_honest": "GOLD",
+    "delivery_mode": "prove_only"
+  },
+  "commercial": {
+    "name": "Cross-Border KYB Factory",
+    "tagline": "Corporate registry docs in — FINTRAC-shaped certainty report out.",
+    "tier_label": "policy_pack",
+    "buyer": "Banks · exchanges · RWA desks",
+    "hero": true,
+    "maintenance_fee_usd": 9500,
+    "compute_note": "Maintenance + per-entity verification job"
+  }
+}

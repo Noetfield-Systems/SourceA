@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0983 — Analyze critic law effectiveness — external chat wrong rate table
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0983
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — T3 critic law cross-ref CHECK→ACT→VERIFY closed; canonical sa-0958
+reported_at: '2026-06-14T04:33:23Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

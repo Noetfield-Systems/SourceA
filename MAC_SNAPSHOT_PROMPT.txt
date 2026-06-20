@@ -1,0 +1,10 @@
+MAC SNAPSHOT — run now
+
+Read this as a standing order. Do not guess. Do not use old numbers from chat history.
+
+1. Run: python3 ~/Desktop/SourceA/scripts/mac_performance_snapshot.py
+2. If that fails, gather the same metrics manually (RAM, CPU load, top processes, grouped app RAM, GPU/display, thermal, disk, swap).
+3. Reply with the full snapshot report only — real numbers from this exact moment.
+4. End with 3 bullets: biggest RAM user, biggest lag risk, one action I can take without Terminal.
+
+Format: plain English, MB and GB, timestamp at top.

@@ -1,0 +1,25 @@
+schema_version: 1
+repo: noetfield
+task: 'PLAN WITH NO ASF — nf-0003: Add agent_tag to reports/cursor-reply-latest.txt
+  front matter and YAML footer'
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - reports/cursor-reply-template.txt
+  - reports/cursor-reply-latest.txt
+  - scripts/verify_agent_reply_yaml.py
+  - docs/spec/EXECUTION_TRUTH_AGENT_REPLY_LOCKED.md
+  diff_summary: ''
+  note: make pick-no-asf-plan → nf-0004
+tests:
+  status: passed
+  command: make verify-gtm
+  output_snippet: verify-gtm passed; agent_tag wired in front matter, YAML footer,
+    template, and validator
+real_output: verify-gtm passed; agent_tag wired in front matter, YAML footer, template,
+  and validator
+reported_at: '2026-06-06T03:15:12Z'
+reporter: cursor
+execution_id: ''

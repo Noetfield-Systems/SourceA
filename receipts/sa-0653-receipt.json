@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0653",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0653 VERIFY PASS \u2014 record_hub_touch on-build guard green; receipt + REGISTRY done",
+  "at": "2026-06-09T07:17:12Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

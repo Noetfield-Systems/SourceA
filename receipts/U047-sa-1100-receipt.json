@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U047",
+  "title": "CIL+RIL on sourcea-factory in bundle",
+  "evidence": "_live_loop_scores + --check-loop-scores PASS \u00b7 all three accounts CIL+RIL in founder review",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:39:02Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

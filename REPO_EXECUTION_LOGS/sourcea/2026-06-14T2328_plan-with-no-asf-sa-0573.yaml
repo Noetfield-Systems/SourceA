@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0573 — Validate mergepack progress json read without blocking build
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0573
+tests:
+  status: passed
+  output_snippet: validate-mergepack-progress-read-t2-crossref-v1 PASS · canonical sa-0523 · t1 sa-0548 · task-validator closeout (no_hub)
+reported_at: '2026-06-14T23:28:13Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

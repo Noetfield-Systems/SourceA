@@ -1,0 +1,291 @@
+# voice_dev_peer_comparison_v1.yaml — Cursor OS Pro Research Lane B
+# Voice AI dev companies only · No consumer App Store IAP peers · Not investment advice
+
+meta:
+  trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-CURSOR-OS-PRO-VOICE-DEV
+  worker_id: research_acquisitor
+  subject: voice_ai
+  id: voice_dev_peer_comparison_v1
+  version: 1
+  date: "2026-06-07"
+  lane: cursor_os_pro
+  chat: research_lane_b
+  scope: voice_ai_dev_company_comparison
+  sources:
+    - scripts/investor-data-200.json
+    - docs/research/canada-voice-100.yaml
+  refreshed_matrix: "2026-06-04"
+  excluded: [Quadlii]
+  region_ca_means: Canada
+  not_peer_set: app_store_consumer_iap
+
+comparison_axes:
+  buyer: [developers, CX_ops, enterprise_IT, founders_SMB]
+  revenue_type: [ARR, capital_raised, total_company_revenue]
+  product_output: [voice_conversations, shipped_software, both]
+  fit_ide_for_cursor:
+    high: hands_free_agent_consult_on_iphone_via_mac_bridge
+    low: PSTN_receptionist_SMB_phone_SKU
+
+# ── Voice infra / telephony / speech API (dev-first) ─────────────────────────
+
+voice_infra:
+  definition: Swap-in STT TTS orchestration telephony — builders integrate APIs
+  peers:
+    - name: Vapi
+      tier: S
+      founded_year: 2020
+      hq: US
+      model: voice_agent_api_orchestration
+      earnings_usd: {type: capital_raised, label: "$72M raised; ~$500M val", confidence: medium}
+      tech_1_10: 9
+      satisfaction_1_5: 5
+      usability: Prod
+      source: investor-data-200.json
+      vs_retell: broader_llm_stt_tts_swap; less telephony-native
+      vs_elevenlabs: orchestration_not_tts_moat
+    - name: Retell AI
+      tier: A
+      founded_year: 2023
+      hq: US
+      model: telephony_native_voice_pipeline
+      earnings_usd: {type: ARR, value: 60000000, label: "~$60M ARR Apr 2026", confidence: medium}
+      tech_1_10: 8
+      satisfaction_1_5: 5
+      usability: Prod
+      source: investor-data-200.json
+      vs_vapi: faster_phone_deploy; narrower_orchestration_story
+      vs_synthflow: dev_api_vs_no_code_ui
+    - name: ElevenLabs
+      tier: S
+      founded_year: 2022
+      hq: US/UK
+      model: tts_plus_elevenagents_full_stack
+      earnings_usd: {type: ARR, value: 500000000, label: "~$500M ARR Apr 2026; $11B val", confidence: high}
+      tech_1_10: 10
+      satisfaction_1_5: 5
+      usability: Prod
+      source: investor-data-200.json
+      note: TTS moat expanding to agents; 41% F500
+    - name: Deepgram
+      tier: A
+      founded_year: 2015
+      hq: US
+      model: unified_voice_agent_api_stt
+      earnings_usd: {type: capital_raised, label: "~$85M+", confidence: medium}
+      tech_1_10: 9
+      satisfaction_1_5: 5
+      usability: Prod
+      source: investor-data-200.json
+      ide_for_cursor_relevance: V3_cloud_STT_fallback_candidate
+    - name: LiveKit Agents
+      tier: A
+      founded_year: 2021
+      hq: US
+      model: open_voice_orchestration_framework
+      earnings_usd: {type: capital_raised, label: "~$100M+", confidence: medium}
+      tech_1_10: 9
+      satisfaction_1_5: 5
+      usability: Dev Prod
+      source: investor-data-200.json
+    - name: Synthflow
+      tier: A
+      founded_year: 2023
+      hq: Germany
+      model: no_code_voice_agents
+      earnings_usd: {type: capital_raised, label: "$30M Series A", confidence: medium}
+      tech_1_10: 8
+      satisfaction_1_5: 5
+      usability: Prod
+      source: investor-data-200.json
+    - name: Cartesia
+      tier: A
+      founded_year: 2023
+      hq: US
+      model: low_latency_tts_sonic
+      earnings_usd: {type: capital_raised, label: "~$70M+", confidence: medium}
+      tech_1_10: 9
+      satisfaction_1_5: 5
+      usability: Prod
+      source: investor-data-200.json
+    - name: AssemblyAI
+      tier: A
+      founded_year: 2017
+      hq: US
+      model: streaming_stt_voice_agents
+      earnings_usd: {type: capital_raised, label: "~$115M+", confidence: medium}
+      tech_1_10: 8
+      satisfaction_1_5: 5
+      usability: Prod
+      source: investor-data-200.json
+
+# ── Voice CX / enterprise agents (managed outcomes) ──────────────────────────
+
+voice_cx_platform:
+  definition: Design deploy resolve support conversations — voice+chat CX
+  peers:
+    - name: Voiceflow
+      tier: A
+      founded_year: 2019
+      hq: Canada
+      city: Toronto
+      region_code: CA
+      model: no_code_cx_agent_design_voice_chat
+      earnings_usd: {type: capital_raised, label: "~$35M", confidence: medium}
+      tech_1_10: 8
+      satisfaction_1_5: 5
+      usability: Prod
+      source: investor-data-200.json
+      canada_peer: true
+      ide_for_cursor_relevance: turn_taking_barge_in_ux_patterns_V2
+    - name: Ada
+      tier: A
+      founded_year: 2016
+      hq: Canada
+      city: Toronto
+      region_code: CA
+      model: agentic_cx_acx_omnichannel_voice
+      earnings_usd: {type: capital_raised, label: "~$190M+; 550 agents", confidence: medium}
+      tech_1_10: 8
+      satisfaction_1_5: 4
+      usability: Enterprise
+      source: investor-data-200.json
+      canada_peer: true
+      ide_for_cursor_relevance: error_copy_offline_fallback_patterns
+    - name: Botpress
+      tier: A
+      founded_year: 2017
+      hq: Canada
+      city: Quebec City
+      region_code: CA
+      model: llm_agnostic_agent_runtime_voice_chat
+      earnings_usd: {type: capital_raised, label: "~$40M Series B 2025", confidence: medium}
+      tech_1_10: 8
+      satisfaction_1_5: 4
+      usability: SMB Prod
+      source: investor-data-200.json
+      canada_peer: true
+    - name: Sierra AI
+      tier: S
+      founded_year: 2024
+      hq: US
+      model: managed_brand_cx_agents_voice_chat
+      earnings_usd: {type: ARR, value: 165000000, label: "~$165M ARR; $15.8B val May 2026", confidence: medium}
+      tech_1_10: 9
+      satisfaction_1_5: 5
+      usability: Enterprise
+      source: investor-data-200.json
+      note: Fortune_50_logos; not_dev_infra
+    - name: Parloa
+      tier: S
+      founded_year: 2018
+      hq: DE/US
+      model: enterprise_voice_cx_amp_platform
+      earnings_usd: {type: capital_raised, label: "$560M+; $3B val", confidence: medium}
+      tech_1_10: 9
+      satisfaction_1_5: 5
+      usability: Enterprise
+      source: investor-data-200.json
+    - name: Decagon
+      tier: A
+      founded_year: 2023
+      hq: US
+      model: aops_midmarket_support_agents
+      earnings_usd: {type: ARR, value: 35000000, label: "~$35M ARR; ~$4.5B val", confidence: medium}
+      tech_1_10: 8
+      satisfaction_1_5: 4
+      usability: Enterprise
+      source: investor-data-200.json
+
+# ── App composition (ship software — adjacent, not voice telephony) ────────────
+
+app_composition:
+  definition: NL_to_app IDE LCNC — different buyer from voice_agent
+  peers:
+    - name: Lovable
+      tier: S
+      founded_year: 2024
+      hq: Sweden
+      model: nl_to_fullstack_supabase_react
+      earnings_usd: {type: ARR, value: 400000000, label: "~$400M ARR Feb 2026; $6.6B val", confidence: high}
+      tech_1_10: 8
+      satisfaction_1_5: 5
+      usability: SMB Prod
+      source: investor-data-200.json
+      vs_replit: vibe_saas_not_cloud_ide
+      vs_bolt: fullstack_deploy_vs_browser_ide
+    - name: Replit Agent
+      tier: S
+      founded_year: 2016
+      hq: US
+      model: agent_ide_cloud_fullstack
+      earnings_usd: {type: total_company_revenue, value: 240000000, label: "~$240M rev 2025; $9B val", confidence: medium}
+      tech_1_10: 9
+      satisfaction_1_5: 5
+      usability: Prod/Dev
+      source: investor-data-200.json
+      ide_for_cursor_relevance: closest_remote_ide_agent_parity_target
+    - name: Bolt.new
+      tier: A
+      founded_year: 2024
+      hq: US
+      model: browser_webcontainers_fullstack
+      earnings_usd: {type: ARR, value: 40000000, label: "~$40M ARR; ~$700M val", confidence: medium}
+      tech_1_10: 8
+      satisfaction_1_5: 5
+      usability: SMB Prod
+      source: investor-data-200.json
+    - name: OutSystems
+      tier: S
+      founded_year: 2001
+      hq: Portugal
+      model: enterprise_governed_low_code
+      earnings_usd: {type: total_company_revenue, value: 500000000, label: "~€500M rev 2025", confidence: high}
+      tech_1_10: 9
+      satisfaction_1_5: 5
+      usability: Enterprise
+      source: investor-data-200.json
+      note: composition_at_enterprise_scale_not_voice
+
+# ── Canada overlay (from canada-voice-100 — not in voice_infra list above) ─────
+
+canada_voice_overlay:
+  definition: Canada-only peers beyond investor_200 CA five
+  investor_200_ca_five: [Voiceflow, Ada, Botpress, Resemble AI, Durable]
+  direct_benchmark_peers:
+    - {name: Fluent.ai, city: Montreal, tier: A, model: on_device_speech_to_intent, tech_1_10: 8, satisfaction_1_5: 4, usability: Prod, confidence: medium}
+    - {name: Picovoice, city: Vancouver, tier: A, model: edge_voice_sdk_wake_word, tech_1_10: 8, satisfaction_1_5: 4, usability: Dev, confidence: medium}
+    - {name: Proto, city: Vancouver, tier: A, model: no_code_automation_voice_cx, tech_1_10: 7, satisfaction_1_5: 4, usability: SMB, confidence: medium}
+    - {name: HumanFirst, city: Montreal, tier: A, model: conversation_design_nlu, tech_1_10: 7, satisfaction_1_5: 4, usability: Enterprise, confidence: medium}
+  out_of_scope_for_ide_for_cursor:
+    note: SMB phone receptionists healthcare scribes — different SKU buyer
+    examples: [Polaris Voice, BabaAI, SpeakAIsy, Tali AI, Scribeberry]
+
+# ── Head-to-head summary (Lane B) ────────────────────────────────────────────
+
+head_to_head:
+  voice_infra_leaders:
+    - {rank: 1, name: ElevenLabs, why: "Highest tech + ARR; TTS→agents"}
+    - {rank: 2, name: Vapi, why: "Dev orchestration default; S-tier infra"}
+    - {rank: 3, name: Retell AI, why: "Fastest telephony scale proof (+650% YoY ARR)"}
+  voice_cx_canada:
+    - {rank: 1, name: Ada, why: "Enterprise ACX scale; Toronto"}
+    - {rank: 2, name: Voiceflow, why: "Design-first; highest pop in CA voice design"}
+    - {rank: 3, name: Botpress, why: "Runtime OSS-leaning; Québec"}
+  composition_vs_voice:
+    insight: >
+      Lovable/Replit/Bolt ship applications; Vapi/Retell/ElevenLabs run voice sessions.
+      IDE For Cursor competes on remote IDE+agent parity (Replit-class), not on PSTN agents (Retell-class).
+  money_scale_note:
+    type: ARR
+    voice_leader: ElevenLabs ~$500M ARR
+    composition_leader: Lovable ~$400M ARR
+    enterprise_cx: Sierra ~$165M ARR
+    telephony_growth: Retell ~$60M ARR
+
+tier_legend:
+  S: category_leader
+  A: scale_up_production
+  B: niche_solid
+  C: early
+  D: legacy_risk

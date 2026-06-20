@@ -1,0 +1,42 @@
+---
+description: L1 first layer — ALL wired TO Brain through upgraded pipeline v2
+globs: scripts/**,brain-os/**
+alwaysApply: false
+---
+
+# L1 → Brain pipeline v2 — mandatory
+
+**Law:** `SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md` · ASF order 2026-06-14
+
+**Brain is the L1 hub.** Pipeline **v2** syncs L0–L3 stack · health · cross-ref · self-heal.
+
+## Every session + every turn
+
+```bash
+python3 scripts/agentic_layer_pipeline_v2.py --json --tier fast
+```
+
+Full sync + validate:
+
+```bash
+python3 scripts/agentic_layer_pipeline_v2.py --json
+bash scripts/validate-agentic-layer-pipeline-v2.sh
+```
+
+**Read:** `~/.sina/agentic-layer-pipeline-v2.json` → `health` + `l1_summary` + `brain_summary`
+
+| Field | Rule |
+|-------|------|
+| `brain_hub` / `stack.L1` | Brain `58148ac9` feeds all L1 |
+| `health.L1.wired_to_brain` | Must be 3 (Gov · Commercial · Brief) |
+| `health.L2.agents` | Must be 4 (Worker · R2 · M2 · M3) |
+| `brain_summary.queue_head` | Brain pick wins over chat |
+| `issues[]` | Operational drift — run `--self-heal` if non-empty |
+
+Also read: `~/.sina/governance-brain-wire-v1.json` → `active_decisions[]`
+
+## Forbidden
+
+- L1/L2 act without pipeline v2 sync on the same turn
+- Ignoring `health.status=degraded` without heal attempt
+- Chat memory over `agentic-layer-pipeline-v2.json` disk

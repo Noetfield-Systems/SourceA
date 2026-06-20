@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0628",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0628 VERIFY closeout \u2014 L0 record_hub_touch on build + agent refresh; REGISTRY done; pack 1000",
+  "at": "2026-06-09T04:06:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

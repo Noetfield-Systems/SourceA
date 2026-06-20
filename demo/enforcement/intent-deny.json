@@ -1,0 +1,10 @@
+{
+  "intent_id": "demo-deny-001",
+  "action": "unauthorized_factory_execute",
+  "agent_id": "demo_ai_untrusted",
+  "object_id": "UNAUTHORIZED-SPAWN",
+  "sa_id": "sa-0001",
+  "role": "worker",
+  "engine": "worker",
+  "rule_id": "SOURCEA_INVARIANT_GATEKEEPER_BLUEPRINT_LOCKED_v1"
+}

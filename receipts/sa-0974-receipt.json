@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0974",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 PROGRAM_PROGRESS machine sync vs manual ASF edit CHECK\u2192ACT\u2192VERIFY closed; factory 652/1000 unproven=0",
+  "at": "2026-06-14T03:32:52Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

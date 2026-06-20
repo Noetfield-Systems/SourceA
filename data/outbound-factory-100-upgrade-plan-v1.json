@@ -1,0 +1,39 @@
+{
+  "active_wave": "W1",
+  "next_wave": "W1",
+  "progress": {
+    "done_total": 0,
+    "planned_total": 0,
+    "p0_done": 0,
+    "p1_done": 0,
+    "pct": 0
+  },
+  "cross_ref": {
+    "ecosystem_mac_health_111": "data/ecosystem-mac-health-111-upgrade-plan-v1.json",
+    "outbound_factory_100": "data/outbound-factory-100-upgrade-plan-v1.json",
+    "full_stack_100_fix": "data/sourcea-full-stack-100-fix-plan-v1.json",
+    "brain_cloud_1000": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
+    "mcp_stack": "data/mcp-stack-free-tier-v1.json",
+    "tool_pick_two_phase": "data/tool-pick-two-phase-v1.json",
+    "trust_center": "data/trust-center-v1.json",
+    "disclosure_ladder": "data/disclosure-ladder-v1.json",
+    "tier_policy": "docs/SOURCEA_TIER_PRIORITY_COST_INTELLIGENCE_POLICY_LOCKED_v1.md",
+    "platform_neutral_world_model": "data/platform-neutral-world-model-v1.json",
+    "phase0_freemium_sandbox": "data/phase0-freemium-sandbox-reference-v1.json",
+    "anti_theater_loop": "data/anti-theater-validator-loop-v1.json",
+    "orchestrator": "scripts/plans_unified_upgrade_v1.py"
+  },
+  "saved_at": "2026-06-20T02:34:39Z",
+  "upgrade_policy": {
+    "phase_1": "exhaust free-tier tools first",
+    "phase_2": "affordable AI tools \u2014 founder approval before wire",
+    "ssot": "data/tool-pick-two-phase-v1.json",
+    "phase_0": "improve sandboxes \u00b7 trials \u00b7 freemium to reference + attract"
+  },
+  "phase0_reference": {
+    "ssot": "data/phase0-freemium-sandbox-reference-v1.json",
+    "pulse": "scripts/phase0_freemium_sandbox_pulse_v1.py",
+    "validator": "scripts/validate-phase0-freemium-sandbox-v1.sh",
+    "one_law": "Phase 0 = $0 reference surfaces that attract users before paid conversion"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "outbound-ingestion-schema-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T02:45:30Z",
+  "salvage_spec": "data/outbound-factory-salvage-spec-v1.json",
+  "research_checklist_ssot": "data/outbound-research-checklist-v1.json",
+  "human_confirm_before_compile": true,
+  "canadian_issuers_note": "data/canadian-issuer-filing-routes-v1.json — SEDAR+/AIF · 40-F for US-listed FPI · not 10-K Item 1A alone",
+  "target_metadata": {
+    "required": ["company_name", "executive_name", "executive_role"],
+    "optional": ["issuer_country", "filing_route"],
+    "fields": {
+      "company_name": {"type": "string", "min_length": 1},
+      "executive_name": {"type": "string"},
+      "executive_role": {"type": "string"},
+      "issuer_country": {"type": "string", "description": "ISO country hint — CA blocks sec_10k-only"},
+      "filing_route": {
+        "type": "string",
+        "enum": ["sedar_aif", "sec_40f", "sec_10k", "manual_only"]
+      }
+    }
+  },
+  "signals": {
+    "required_keys": ["financial_regulatory", "professional_dna", "technical_velocity"],
+    "signal_shape": {
+      "text": {"type": "string"},
+      "source_url": {"type": "string"},
+      "source_urls": {"type": "array", "items": {"type": "string"}, "optional": true},
+      "human_confirmed": {"type": "boolean", "required": true},
+      "prefill_script": {"type": "string", "optional": true}
+    },
+    "hallucination_guard": {
+      "upgrade": "U059",
+      "rule": "Non-empty signal.text requires source_url or source_urls[]",
+      "acceptance": "Uncited claim = compile warn"
+    }
+  },
+  "human_tests": ["ai_eraser", "curiosity_not_confusion"],
+  "account_shape": {
+    "human_confirmed_at": {
+      "type": "string",
+      "format": "iso8601_utc",
+      "required_before_compile": true,
+      "description": "Founder confirms research signals on target — ingestion.human_confirmed_at"
+    }
+  },
+  "pipeline_law": {
+    "upgrade": "U060",
+    "auto_compose": false,
+    "ingest_output": "json_profile",
+    "acceptance": "Ingest ends at JSON profile",
+    "compile_separate": "scripts/icp_output_compiler_v1.py",
+    "forbidden_on_ingest": ["run_compiler", "auto_compose", "compose_email", "composed_email"]
+  },
+  "upgrade": "U051",
+  "check": "python3 scripts/outbound_research_checklist_v1.py --check-ingestion-schema --json"
+}

@@ -1,0 +1,89 @@
+{
+  "schema": "canada-brand-routing-v1",
+  "saved_at": "2026-06-19T18:55:50Z",
+  "law": "PORTFOLIO_ALL_PATHS_BY_BRAND_LOCKED_v1.md",
+  "brands": {
+    "TrustField": {
+      "question": "How does RPAA/FINTRAC/program evidence go live?",
+      "skus": [
+        "TF-001",
+        "TF-P1-DP",
+        "T-P6"
+      ],
+      "accounts": [
+        "ocree",
+        "fractionvest",
+        "tetra",
+        "stablecorp",
+        "atlas-parvis",
+        "aquanow",
+        "bitbuy",
+        "ndax",
+        "newton",
+        "pineapple-tf"
+      ],
+      "website": "trustfield.ca",
+      "attach_paths": [
+        "docs/gtm/CANADA_AI_GOVERNANCE_ONE_PAGER.md",
+        "templates/compliance.html"
+      ],
+      "never": [
+        "FINTRAC KYB pack on Noetfield",
+        "blended SOW with Noetfield"
+      ]
+    },
+    "Noetfield": {
+      "question": "Should this AI action run \u2014 with proof?",
+      "skus": [
+        "NF-RD"
+      ],
+      "accounts": [
+        "fundmore",
+        "pineapple-nf"
+      ],
+      "website": "noetfield.com",
+      "attach_paths": [
+        "copilot/",
+        "bank-pilot/"
+      ],
+      "never": [
+        "MSB cold email lead",
+        "RWA attestation hero",
+        "FINTRAC KYB pack"
+      ]
+    },
+    "SourceA": {
+      "question": "Engine underneath \u2014 factory builder",
+      "role": "proof demo spine only in outbound",
+      "website": "sourcea.com",
+      "never": [
+        "hero in cold email subject",
+        "replace TrustField/Noetfield brand"
+      ]
+    }
+  },
+  "overlap_rules": [
+    {
+      "accounts": [
+        "pineapple-tf",
+        "pineapple-nf"
+      ],
+      "rule": "two emails \u00b7 two SOWs \u00b7 2 week gap"
+    },
+    {
+      "accounts": [
+        "atlas-parvis"
+      ],
+      "rule": "one worksheet row \u00b7 one pursuit"
+    }
+  ],
+  "no_invitation_law": true,
+  "allowed_ctas": [
+    "reply_DEMO",
+    "/start",
+    "/developers",
+    "stop",
+    "hello@trustfield.ca"
+  ],
+  "plans_333_registry": "/Users/sinakazemnezhad/Desktop/1 PAGER/canada-rwa-333-locked/REGISTRY.json"
+}

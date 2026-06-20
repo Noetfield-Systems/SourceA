@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0636 — Document SHADOW vs ENFORCE modes in dispatch policy doc
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0636
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — SHADOW/ENFORCE gate-modes doc + audit regression guard; dispatch + governance + eval live + critical 0
+reported_at: '2026-06-09T04:37:36Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

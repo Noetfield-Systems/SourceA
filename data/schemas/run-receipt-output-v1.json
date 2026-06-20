@@ -1,0 +1,15 @@
+{
+  "schema": "run-receipt-output-v1",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["ok", "tier_achieved", "receipt_pack_uri"],
+  "properties": {
+    "ok": {"type": "boolean"},
+    "tier_achieved": {"type": "string"},
+    "tier_target": {"type": "string"},
+    "receipt_pack_uri": {"type": "string"},
+    "artifact_uri": {"type": "string"},
+    "federated_ok": {"type": "boolean"},
+    "execution_receipt": {"type": "object"}
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "fbe-billing-contract-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-17T15:00:00Z",
+  "model": "outcome_band",
+  "law": "Fixed tier bands — not hourly glue billing (form 9.08 deferred)",
+  "bands": {
+    "BRONZE": {"unit_usd": 0, "shippable": "demo_only"},
+    "GOLD": {"unit_usd": 2500, "shippable": "design_partner"},
+    "GOLD+assembly_wired": {"unit_usd": 5000, "shippable": "design_partner_plus"},
+    "PLATINUM": {"unit_usd": 12000, "shippable": "paid_product_ship"},
+    "MARKET_READY": {"unit_usd": 25000, "shippable": "commercial_launch"}
+  },
+  "meter_dimensions": ["run_job", "motor", "refinery", "assembly", "tier_achieved", "tenant", "template_id"],
+  "events_path": "~/.sina/fbe-billing-events-v1.jsonl",
+  "receipt_path": "~/.sina/fbe-billing-meter-receipt-v1.json"
+}

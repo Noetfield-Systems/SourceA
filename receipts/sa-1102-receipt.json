@@ -1,0 +1,11 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1102",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U033",
+  "title": "U033 vendor_paragraph penalty",
+  "evidence": "scoring_weights.vendor_paragraph_penalty=3",
+  "at": "2026-06-19T00:35:14Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

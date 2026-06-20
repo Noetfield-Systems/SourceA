@@ -1,0 +1,32 @@
+{
+  "schema": "video-quality-bar-v1",
+  "reference_path": "/Users/sinakazemnezhad/Downloads/LinearH264Version_1 (6).mp4",
+  "reference_product": "Linear SaaS commercial",
+  "target_product": "sourcea",
+  "specs": {
+    "resolution": "3840x2160",
+    "fps": 30,
+    "bitrate_kbps": 2533,
+    "audio": "stereo_aac"
+  },
+  "must_have": [
+    "crisp_ui_no_ken_burns_blur",
+    "smooth_scroll_and_hover_before_click",
+    "light_clean_product_ui",
+    "slow_deliberate_pacing",
+    "no_vignette_obscuring_content",
+    "no_title_card_flashes",
+    "visible_cursor_or_hover_states",
+    "pro_voiceover",
+    "screen_studio_master_preferred"
+  ],
+  "capture_defaults": {
+    "width": 2560,
+    "height": 1440,
+    "master_width": 3840,
+    "master_height": 2160,
+    "seconds_per_url": 12,
+    "scroll_steps": 20,
+    "scroll_step_ms": 280
+  }
+}

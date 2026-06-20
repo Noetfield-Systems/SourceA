@@ -1,0 +1,14 @@
+{
+  "schema": "governance-demo-policy-v1",
+  "rules": [
+    {
+      "id": "P-001",
+      "description": "High-risk Copilot policy enable requires approval_ref",
+      "deny_when": {
+        "intent": "apply_copilot_policy_change",
+        "risk": "high",
+        "missing_field": "approval_ref"
+      }
+    }
+  ]
+}

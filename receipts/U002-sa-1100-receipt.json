@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U002",
+  "title": "Fix noun-stack rule \u2014 allow proper nouns",
+  "evidence": "check_noun_stack() wired; Ocree Capital Winnipeg no false reject; generic stack hard_fail",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T00:58:49Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

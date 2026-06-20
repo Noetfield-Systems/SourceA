@@ -1,0 +1,187 @@
+{
+  "schema": "witnessbc-ui-upgrade-e2e-v12",
+  "version": "12.0.0",
+  "saved_at": "2026-06-19T20:30:00Z",
+  "status": "phase-1-shipped",
+  "target": "Full WitnessBC marketing + Proof Lab app — ultra-wide 1600px+ pro grade",
+  "reference_sites": [
+    {
+      "id": "linear",
+      "url": "https://linear.app",
+      "steal": ["tight display typography", "monochrome + single accent", "bento product grids", "scroll-linked section rhythm"],
+      "witnessbc_apply": ["--tracking-display on H1", "explore bento 4-col @1920", "verdict chips as accent system"]
+    },
+    {
+      "id": "vercel",
+      "url": "https://vercel.com",
+      "steal": ["mesh gradients", "developer credibility", "dark mode parity", "full-bleed hero canvas"],
+      "witnessbc_apply": ["hero ::after grain", "control plane glass panel", "mono accents in Proof Lab"]
+    },
+    {
+      "id": "stripe",
+      "url": "https://stripe.com",
+      "steal": ["CTA hierarchy clarity", "trust density without clutter", "pricing card elevation"],
+      "witnessbc_apply": ["btn-primary glow", "price-card hover lift", "stats strip executive band"]
+    },
+    {
+      "id": "vanta",
+      "url": "https://vanta.com",
+      "steal": ["compliance buyer chips", "framework badge grid", "live trust metrics bar"],
+      "witnessbc_apply": ["buyer-chips", "framework-badges", "live-trust-bar-section"]
+    },
+    {
+      "id": "drata",
+      "url": "https://drata.com",
+      "steal": ["GRC narrative motion", "dashboard-as-hero", "lane router cards"],
+      "witnessbc_apply": ["fleet-panel control plane", "faq/pricing lane-router"]
+    },
+    {
+      "id": "wiz",
+      "url": "https://wiz.io",
+      "steal": ["bold security headlines", "evidence-first sections", "verdict color language"],
+      "witnessbc_apply": ["BLOCK/ESCALATE/ALLOW chips", "evidence-grid", "problem-grid"]
+    },
+    {
+      "id": "planetscale",
+      "url": "https://planetscale.com",
+      "steal": ["infra monospace accents", "wide code blocks", "technical credibility"],
+      "witnessbc_apply": ["policy YAML blocks", "proof terminal chrome", "JetBrains Mono"]
+    },
+    {
+      "id": "ramp",
+      "url": "https://ramp.com",
+      "steal": ["product-led wide layouts", "card hover depth", "sticky CTA bar"],
+      "witnessbc_apply": ["surface-v12 card hovers", "sticky-cta blur glass"]
+    },
+    {
+      "id": "resend",
+      "url": "https://resend.com",
+      "steal": ["minimal pro spacing", "restraint in animation", "clean section leads"],
+      "witnessbc_apply": ["--section-y rhythm", "section-lead max-width 58rem"]
+    },
+    {
+      "id": "clerk",
+      "url": "https://clerk.com",
+      "steal": ["dual dev + enterprise audience", "learn hub chapters", "dropdown nav density"],
+      "witnessbc_apply": ["learn.html chapter cards", "nav dropdowns", "platform vs proof lanes"]
+    }
+  ],
+  "breakpoints": {
+    "base": "0–1099px — single column collapse",
+    "wide": "1100–1599px — v11 1440px container",
+    "ultra": "1600–1919px — 1680–1760px container",
+    "cinema": "1920–2559px — 1840px container · 4-col explore bento",
+    "ultrawide": "2560px+ — 2200px container · 5-col explore"
+  },
+  "css_stack": [
+    "assets/tokens.css",
+    "assets/tokens-v12.css",
+    "assets/styles.css",
+    "assets/motion.css",
+    "assets/layout-wide-v11.css",
+    "assets/layout-ultra-v12.css",
+    "assets/surface-v12.css"
+  ],
+  "body_class": "layout-ultra-v12",
+  "phases": [
+    {
+      "id": "P1",
+      "name": "Ultra-wide layout + pro surfaces",
+      "status": "done",
+      "deliverables": [
+        "tokens-v12.css",
+        "layout-ultra-v12.css",
+        "surface-v12.css",
+        "all pages body_class layout-ultra-v12",
+        "run-recipe PASS"
+      ]
+    },
+    {
+      "id": "P1b",
+      "name": "Toolkits freemium + client sandbox",
+      "status": "done",
+      "deliverables": [
+        "data-freemium-active on toolkits hub",
+        "Start free + Open sandbox primary CTAs",
+        "toolkits/sandbox/ browser-local editor",
+        "toolkits-v1.json freemium+sandbox+quickstart active",
+        "validate-witnessbc-ui-zero-drift-v1.sh PASS"
+      ]
+    },
+    {
+      "id": "P2",
+      "name": "Proof Lab app shell",
+      "status": "next",
+      "deliverables": [
+        "proof.html split-pane @1920 (scenarios | terminal | receipt)",
+        "keyboard nav between scenarios",
+        "URL deep-link #scenario= stable",
+        "film strip sync with scenario state"
+      ]
+    },
+    {
+      "id": "P3",
+      "name": "Motion + micro-interaction",
+      "status": "queued",
+      "deliverables": [
+        "scroll-driven section reveals (motion.css)",
+        "control plane live roster animation",
+        "hero proof ticker crossfade upgrade",
+        "prefers-reduced-motion fallbacks"
+      ]
+    },
+    {
+      "id": "P4",
+      "name": "Learn hub full app",
+      "status": "queued",
+      "deliverables": [
+        "chapter progress persistence",
+        "sidebar TOC @1600+",
+        "inline Proof Lab embeds per chapter",
+        "completion → book proof CTA"
+      ]
+    },
+    {
+      "id": "P5",
+      "name": "Platform + pricing cinematic",
+      "status": "queued",
+      "deliverables": [
+        "platform capability 4-col @1920",
+        "pricing comparison matrix wide",
+        "policy YAML syntax highlight",
+        "compare.html split diff layout"
+      ]
+    },
+    {
+      "id": "P6",
+      "name": "Deploy + live wire",
+      "status": "deployed-pages-pending-dns",
+      "blocker": "DNS CNAME still points to Vercel — update in CF dashboard",
+      "pages_url": "https://witnessbc-commercial.pages.dev",
+      "project": "witnessbc-commercial",
+      "account": "witness.bc@gmail.com",
+      "deliverables": [
+        "witnessbc.com live = dist/deploy",
+        "commercial_email_send_defer sites GREEN",
+        "og-card.svg refresh for v12"
+      ]
+    }
+  ],
+  "e2e_checklist": [
+    "bash witnessbc-site/scripts/run-recipe.sh → PASS",
+    "grep -r noetfield witnessbc-site/dist/deploy → 0 matches",
+    "local 8093: index hero ≥1600px uses full width",
+    "proof.html interactive scenarios all 6 PASS",
+    "dark mode parity all 10 pages",
+    "mobile 375px single column no horizontal scroll",
+    "sticky CTA + mobile CTA bar independent URLs",
+    "toolkits hub freemium data-freemium-active + sandbox /toolkits/sandbox/",
+    "trust-signals.js live metrics render",
+    "lighthouse performance ≥85 on index (target)"
+  ],
+  "commands": {
+    "rebuild": "bash witnessbc-site/scripts/run-recipe.sh",
+    "preview": "cd witnessbc-site/dist/deploy && python3 -m http.server 8093",
+    "validate_only": "bash witnessbc-site/scripts/validate.sh"
+  }
+}

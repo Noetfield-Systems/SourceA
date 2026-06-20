@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chat Unify</title>
+  <link rel="stylesheet" href="app.css?v=1.4.0" />
+</head>
+<body>
+  <main class="cu-app cu-founder-glance">
+    <article class="cu-founder-card">
+      <header class="cu-founder-head">
+        <div class="cu-founder-title-row">
+          <div>
+            <h1 class="cu-founder-title">Chat Unify</h1>
+            <p class="cu-founder-sub">Decision memory · local only</p>
+          </div>
+          <span class="cu-badge cu-badge-live" id="live-badge">LIVE</span>
+        </div>
+        <div class="cu-founder-hero">
+          <div class="cu-stat-ring" id="stat-ring">
+            <span class="cu-stat-value" id="stat-extracts">0</span>
+            <span class="cu-stat-label">extracts</span>
+          </div>
+          <div class="cu-founder-story">
+            <p class="cu-lead">Consolidate agent chat decisions before they become law.</p>
+            <p class="cu-status-line" id="status-line">Loading…</p>
+          </div>
+        </div>
+        <button type="button" class="cu-btn cu-btn-primary cu-btn-block" id="btn-unify-all">Merge all &amp; scan</button>
+      </header>
+
+      <section class="cu-founder-stats" aria-label="Live status">
+        <div class="cu-stats-grid">
+          <div class="cu-stat" id="stat-tile-extracts"><span class="cu-stat-label">Extracts</span><span class="cu-stat-val" id="tile-extracts">0</span></div>
+          <div class="cu-stat" id="stat-tile-issues"><span class="cu-stat-label">Issues</span><span class="cu-stat-val" id="tile-issues">0</span></div>
+          <div class="cu-stat" id="stat-tile-ready"><span class="cu-stat-label">Ready</span><span class="cu-stat-val" id="tile-ready">0</span></div>
+          <div class="cu-stat" id="stat-tile-brief"><span class="cu-stat-label">Brief</span><span class="cu-stat-val" id="tile-brief">—</span></div>
+        </div>
+        <p class="cu-meta" id="stat-contradictions">0 issues</p>
+      </section>
+
+      <aside class="cu-note" id="privacy-note">
+        <strong>Privacy first.</strong> Extracts stay local under <code>~/.sina/chat-unify/</code>.
+      </aside>
+
+      <details class="cu-founder-more" id="panel-more">
+        <summary>More</summary>
+        <div class="cu-more-block cu-actions">
+          <button type="button" class="cu-btn cu-btn-ghost" id="btn-structure-all">Structure all</button>
+          <button type="button" class="cu-btn cu-btn-ghost" id="btn-export-brief">Export brief</button>
+          <button type="button" class="cu-btn cu-btn-ghost" id="btn-wire-n8n">Wire n8n</button>
+          <button type="button" class="cu-btn cu-btn-ghost" id="btn-sync-cursor">Import transcripts</button>
+          <button type="button" class="cu-btn cu-btn-ghost" id="btn-refresh">Reload</button>
+        </div>
+        <section class="cu-panel" id="panel-save">
+          <h2>Save extract</h2>
+          <div class="cu-dropzone" id="dropzone"><span>Drop file or paste below</span></div>
+          <label class="cu-label">Label <input type="text" class="cu-input" id="input-label" placeholder="Hub performance chat" /></label>
+          <label class="cu-label">Tags <input type="text" class="cu-input" id="input-tags" list="tag-suggestions" placeholder="WTM-D5" /></label>
+          <datalist id="tag-suggestions"></datalist>
+          <textarea class="cu-textarea" id="input-paste" rows="8" placeholder="Paste CHAT EXTRACT…"></textarea>
+          <div class="cu-row">
+            <button type="button" class="cu-btn cu-btn-ghost" id="btn-save">Save extract</button>
+            <select class="cu-select" id="select-transcript"><option value="">Import transcript…</option></select>
+            <button type="button" class="cu-btn cu-btn-ghost" id="btn-import-transcript">Import</button>
+          </div>
+        </section>
+        <section class="cu-panel" id="panel-library">
+          <h2>Library</h2>
+          <ul class="cu-library" id="library-list"></ul>
+        </section>
+        <section class="cu-panel cu-panel-wide" id="output-panel">
+          <h2>Output · <span id="output-title">select item</span></h2>
+          <p class="cu-hint" id="output-hint"></p>
+          <pre class="cu-brief" id="extract-output">No output yet.</pre>
+        </section>
+        <section class="cu-panel cu-panel-wide" id="panel-contradictions">
+          <h2>Contradictions</h2>
+          <p class="cu-hint" id="contradiction-meta"></p>
+          <ul class="cu-contradictions" id="contradiction-list"></ul>
+        </section>
+        <section class="cu-panel cu-panel-wide" id="panel-brief">
+          <h2>Unified brief</h2>
+          <div class="cu-merge-summary" id="merge-summary" hidden></div>
+          <pre class="cu-brief" id="unified-brief">Save extracts → Merge all.</pre>
+        </section>
+      </details>
+
+      <footer class="cu-founder-foot">
+        <p class="cu-footer-sub">:13023 · receipts ~/.sina/chat-unify/</p>
+      </footer>
+    </article>
+  </main>
+  <script src="app.js?v=1.4.0" defer></script>
+</body>
+</html>

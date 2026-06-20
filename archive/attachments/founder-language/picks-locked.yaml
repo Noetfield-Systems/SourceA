@@ -1,0 +1,279 @@
+schema: founder-picks-locked-v2
+updated: "2026-06-20"
+synced_at: "2026-06-20T02:02:47Z"
+sync_source: live_founder_decision_form_v1.py --json
+
+form_v2:
+  - id: Q-RT-LIVE
+    pick: YES
+  - id: Q-1.10
+    pick: DEFER
+  - id: Q-CRITIC
+    pick: YES
+  - id: Q-NEXT-WORK
+    pick: 10.10 D
+  - id: Q-GRADE
+    pick: C
+  - id: Q-DRIFT
+    pick: 90
+
+canvas_shipped:
+  - 1.02
+  - 1.05
+  - 1.08
+  - 10.07
+  - 10.09
+  - 10.10
+  - 11.01
+  - 11.02
+  - 11.03
+  - 11.04
+  - 11.05
+  - 2.02
+  - 2.03
+  - 2.04
+  - 2.05
+  - 2.06
+  - 2.07
+  - 2.08
+  - 2.09
+  - 3.07
+  - 4.08
+  - 5.08
+  - 6.07
+  - 6.10
+  - 7.05
+  - 7.06
+  - 7.07
+  - 8.08
+  - 8.09
+  - 9.07
+  - 9.08
+  - Q-PLAN-300
+
+batch_confirmed:
+  date: "2026-06-20"
+  status: confirmed_asf
+  ship_status: shipped_maintainer_2026-06-12
+  effect: "RT LIVE met · resume Phases 3–10 · parallel W1+W3 · batch on disk"
+  threads: [THREAD-INTEGRITY-100, THREAD-ECOSYSTEM, THREAD-MAINTAINER, THREAD-ENFORCEMENT, THREAD-NOETFIELD-W3]
+  formal_block: |
+    ASF: FIVE-STEP — PICK: Q-PLAN-300 LOCKED
+    11.01 SHIP — TF+NF outreach this week (PLAN-001,002,103,273)
+    11.02 SHIP — Film W1 ALLOW/TAMPER/BLOCK <6min (PLAN-041–044)
+    11.03 SHIP — K1 receipt on read + export + bypass=0 (PLAN-026,038,141,145,157)
+    11.04 SHIP — Procurement pack SOW+SOC2+security (PLAN-006,064,065,140,217)
+    11.05 SHIP — TF+NF instrument + 10-min scaffold (PLAN-076,077,201,217)
+    3.07 NO — no pending GOV_UNIFY batch · Phase 3 index-only
+    5.08 APPROVE — sa-0798 check turn · factory background
+    6.07 B — Council stays Phase 1 until W3 signal
+    6.10 NO — no agent roster change
+    7.05 DEFER — conflict #1 logged · continue_work
+    7.07 NEVER — no new paradox→policy doc this sprint
+    8.08 YES — weekly incident certify on
+    8.09 B — keep existing severity rubric
+    9.07 A — 30-day order: ENFORCEMENT W1 film + NOETFIELD-W3 batch 1
+    9.08 C — defer Paid.ai pilot post-W3
+    10.07 B — integrity playbook monthly SCAN cadence
+  picks:
+    - id: 3.07
+      pick: NO
+    - id: 5.08
+      pick: APPROVE
+    - id: 6.07
+      pick: B
+    - id: 6.10
+      pick: NO
+    - id: 7.05
+      pick: DEFER
+    - id: 7.07
+      pick: NEVER
+    - id: 8.08
+      pick: YES
+    - id: 8.09
+      pick: B
+    - id: 9.07
+      pick: A
+    - id: 9.08
+      pick: C
+    - id: 10.07
+      pick: B
+    - id: Q-PLAN-300
+      pick: LOCKED
+    - id: 11.01
+      pick: SHIP
+    - id: 11.02
+      pick: SHIP
+    - id: 11.03
+      pick: SHIP
+    - id: 11.04
+      pick: SHIP
+    - id: 11.05
+      pick: SHIP
+
+canvas_pending_ship: []
+
+form_v2_sync_pending:
+  - 11.01
+  - 11.02
+  - 11.03
+  - 11.04
+  - 11.05
+  - 2.02
+  - 7.05
+  - 7.06
+  - 7.07
+  - 8.09
+  - Q-PLAN-300
+
+form_official:
+  open_count: 116
+  awaiting_founder_picks: true
+  needs_asf_fill: false
+  canvas_ssot: sourcea-system-integrity-100.canvas.tsx
+  canvas_view: my-chat-lane
+  chat_lane_default: anchor
+
+open_question_ids:
+  - Q-GATH-01
+  - Q-GATH-02
+  - Q-GATH-03
+  - Q-GATH-04
+  - Q-GATH-05
+  - Q-GATH-06
+  - Q-MF-09
+  - Q-MF-11
+  - Q-MF-12
+  - Q-SESSION-ARCH-UNIFY-PLAN
+  - Q-SESSION-FORM-BUILD
+  - Q-SESSION-GATHER-NO-LOST
+  - Q-SESSION-UNIFY-GO
+  - Q-THREAD-10STEP-01
+  - Q-CHAT-CLOUD-01
+  - Q-CHAT-LANG-01
+  - Q-CHAT-NEXT-P0-01
+  - Q-CHAT-PLUSONE-01
+  - Q-CHAT-PUBLISH-01
+  - Q-FINAL-01
+  - Q-FINAL-02
+  - Q-FINAL-03
+  - Q-FINAL-04
+  - Q-FINAL-05
+  - Q-FINAL-06
+  - Q-FINAL-07
+  - Q-MF-01
+  - Q-MF-02
+  - Q-MF-03
+  - Q-MF-05
+  - Q-MF-06
+  - Q-MF-08
+  - Q-SESSION-ARCH-PILLAR
+  - Q-SESSION-ARCH-REFSTD
+  - Q-SESSION-INBOX-NEXT
+  - Q-SESSION-PHASE0-SPOT
+  - Q-CONF-B0503-CONSUMER
+  - Q-CONF-CREED-36V14
+  - Q-CONF-F002-BROKER
+  - Q-CONF-FALSE-DONE-GUARD
+  - Q-CONF-MCP-PHASE2
+  - Q-CONF-PLUSONE-MOTOR
+  - Q-BC-01
+  - Q-BC-02
+  - Q-BC-03
+  - Q-BC-04
+  - Q-BC-05
+  - Q-BC-06
+  - Q-BC-07
+  - Q-BC-08
+  - Q-BC-09
+  - Q-BC-10
+  - Q-SESSION-CLOUD-CF06
+  - 2.02
+  - 7.05
+  - 7.06
+  - 7.07
+  - 8.09
+  - Q-1.10-SEAL
+  - Q-CHANGE-QUORUM-v1
+  - Q-ENGINE-TEST-01
+  - Q-ENGINE-TEST-02
+  - Q-GOV-FAST-WIRE-v1
+  - Q-INC-015
+  - Q-JUDGE-STACK-v1
+  - Q-M2-029
+  - Q-M2-FORM-SYNC
+  - Q-M2-READ
+  - Q-M2-REG
+  - Q-MF-04
+  - Q-MF-07
+  - Q-SESSION-ARCH-GEMINI-WS
+  - Q-SESSION-ARCH-SCAFFOLD
+  - Q-THREAD-DEPLOY-01
+  - Q-THREAD-ROOM-v1
+  - Q-ACTIVE-NOW-SYNC
+  - Q-FR-002-WTM
+  - Q-FR-1013f0
+  - Q-HUB-LAG
+  - Q-MONO-SSOT-LANE
+  - Q-NF-SPEC-PROMOTE
+  - Q-SYS-INTEGRITY-RESUME
+  - Q-WIRE-G3
+  - ENF-01
+  - ENF-02
+  - ENF-03
+  - ENF-04
+  - ENF-05
+  - ENF-06
+  - ENF-07
+  - ENF-08
+  - ENF-09
+  - ENF-10
+  - ENF-11
+  - ENF-12
+  - ENF-13
+  - ENF-14
+  - ENF-15
+  - ENF-16
+  - ENF-17
+  - ENF-18
+  - ENF-19
+  - ENF-20
+  - 11.01
+  - 11.02
+  - 11.03
+  - 11.04
+  - 11.05
+  - Q-MF-10
+  - Q-PLAN-300
+  - Q-SESSION-TUNNEL-DEMO
+  - Q-SESSION-WBC-SUMMARY
+  - Q-WBC-OCRE-L3
+  - Q-WBC-PROOF-LAB-OK
+  - Q-WBC-STYLE-B1
+  - Q-WBC-WITNESS-AI-NAME
+
+chat_lane_open_counts:
+  anchor: 4
+  maintainer_2: 7
+  commercial: 21
+  gov: 3
+  aect: 3
+  maintainer_1: 3
+  research: 2
+  brain: 0
+
+maintainer_p0:
+  - "FORM_OFFICIAL: 116 open rows — M1 Canvas My chat lane"
+  - "Apply confirms: founder Hub Submit only — agents never canvas_form_apply_picks_v1.py --apply (INCIDENT-037)"
+  - "validate-integrity-form-canvas-ssot-v1.sh PASS on form/canvas touch"
+  - "sync_picks_locked_v1.py after form/canvas touch"
+  - "FR-003 EXTERNAL_CRITIC wiring"
+  - "Phase 1.10 seal (Q-1.10-SEAL)"
+  - "form_v2_sync_pending: 11.01, 11.02, 11.03, 11.04, 11.05, 2.02, 7.05, 7.06, 7.07, 8.09, Q-PLAN-300"
+  - "W1 film + W3 batch 1 (9.07 A locked)"
+
+parallel_execution_p0:
+  - thread: THREAD-ENFORCEMENT
+    action: "Film W1 demo · write-path validator"
+  - thread: THREAD-NOETFIELD-W3
+    action: "W3 outreach batch 1"

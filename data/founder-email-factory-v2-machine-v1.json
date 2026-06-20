@@ -1,0 +1,51 @@
+{
+  "schema": "founder-email-factory-v2-machine-v1",
+  "version": "2.1.0",
+  "saved_at": "2026-06-18T23:30:00Z",
+  "human_doc": "docs/SOURCEA_FOUNDER_EMAIL_FACTORY_v2_SPEC_LOCKED_v1.md",
+  "vocabulary_ssot": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+  "icp_compiler_ssot": "data/icp-output-compiler-v1.json",
+  "one_law": "Cold email KPI = one thoughtful human reply · Sina read = ship authority",
+  "pipeline_stages": [
+    {"n": 1, "name": "Research", "email": false},
+    {"n": 2, "name": "Tension", "email": false},
+    {"n": 3, "name": "Person match", "email": false},
+    {"n": 4, "name": "Insight", "email": false},
+    {"n": 5, "name": "Translation", "email": false},
+    {"n": 6, "name": "Compose", "email": true},
+    {"n": 7, "name": "CIL", "field": "conversation_interest_pct", "bar": 92},
+    {"n": 8, "name": "RIL", "field": "receiver_interest_pct", "bar": 90, "mode_b_only": true},
+    {"n": 9, "name": "OQG+FEFS", "field": "machine_oqg_pct", "bar": 90},
+    {"n": 10, "name": "RRL", "field": "rrl_reaction", "pass": ["D", "E"], "script": "scripts/response_reality_layer_v1.py"},
+    {"n": 11, "name": "Sina read", "field": "sina_read_score_pct", "bar": 90, "ship_authority": true}
+  ],
+  "ship_gate_w3": [
+    "machine_oqg_pct >= 90",
+    "conversation_interest_pct >= 92",
+    "receiver_interest_pct >= 90 (Mode B)",
+    "critic_circle PASS",
+    "rrl_reaction in D|E",
+    "sina_read_score_pct >= 90",
+    "pipeline_send_slot cleared",
+    "mail FROM + confirm-sent"
+  ],
+  "brand_icp_compile_order": ["SourceA", "Noetfield", "TrustField"],
+  "parallel_commercial_brands": ["Noetfield", "TrustField"],
+  "compile_sequence": "Noetfield ∥ TrustField (parallel) · then SourceA · then Forge product",
+  "founder_review_bundle_order": ["fundmore", "ocree", "sourcea-factory", "forge-product"],
+  "deferred_after_commercial": ["sourcea-factory"],
+  "then_forge_product": "~/Desktop/forge",
+  "then_phase2": ["WitnessBC", "777 Foundation", "advisor_pre_call"],
+  "governance_alignment": {
+    "t0_north_star": "Forge product (GOAL_HIERARCHY T0 sellable outcome)",
+    "now_clock": "Noetfield ∥ TrustField commercial first — SourceA deferred until both close",
+    "rule": "Noetfield ∥ TrustField parallel · then SourceA · then Forge product build"
+  },
+  "send_policy": {
+    "agent_may": ["ICP compile", "machine loops", "RRL behavior sim", "produce ready-to-send pack on disk"],
+    "agent_may_not": ["send email", "configure Mail FROM", "claim ship authority"],
+    "founder_must": ["Sina read ≥90", "approve recipient", "send manually from Mail", "confirm-sent"],
+    "agentic_full_send_later": "When products validated with real proof — not rule-pass alone"
+  },
+  "valid_output_law": "Valid output is not defined by passing rules alone — it must reproduce human receiver behavior (RRL D/E) plus Sina read ≥90. RRL is the factory intelligence layer."
+}

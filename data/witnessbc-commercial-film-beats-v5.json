@@ -1,0 +1,142 @@
+{
+  "schema": "commercial-short-film-beats-v1",
+  "routing_lane": "witnessbc",
+  "routing_tier": "A_hero",
+  "routing_ref": "data/commercial-film-routing-v1.json#witnessbc.tier_A_hero.cinematic_v5",
+  "film_style": "linear_bar",
+  "quality_tier": "ultra",
+  "linear_recut": true,
+  "chapter_captions": true,
+  "captions_mode": "chapter_only",
+  "commercial_capture": true,
+  "title": "Witness AI — Agentic Governance + Proof (cinematic v5)",
+  "runtime_target_seconds": 180,
+  "polish": {
+    "edge_voice": "en-US-AndrewMultilingualNeural",
+    "target_bitrate_mbps": 18,
+    "master_lufs": -14,
+    "sfx": true,
+    "cinematic_finish": true
+  },
+  "hook": "Policy at dispatch — before anything irreversible runs.",
+  "brand": {
+    "name": "Witness AI",
+    "domain": "witnessbc.com",
+    "logo_cold_open": true,
+    "card_footer": "Witness AI · live product capture",
+    "hook_title": "AI policy at dispatch",
+    "hook_subtitle": "Observe · Govern · Prove",
+    "hook_label": "Commercial proof film",
+    "hook_card_seconds": 0,
+    "hook_broll_seconds": 24,
+    "hook_broll_urls": [
+      "http://127.0.0.1:8090/proof.html",
+      "http://127.0.0.1:8090/proof.html#scenario=outbound"
+    ],
+    "cta_title": "Book 15-min proof",
+    "cta_subtitle": "operations@noetfield.com · witnessbc.com",
+    "cta_broll_urls": [
+      "http://127.0.0.1:8090/pricing.html",
+      "http://127.0.0.1:8090/compare.html"
+    ]
+  },
+  "publish": {
+    "desktop": "WitnessBC-Commercial-v5.mp4",
+    "receipt": "witnessbc-commercial-film-receipt-v5.json",
+    "work_dir": "witnessbc-commercial-film-work-v5"
+  },
+  "global_capture": {
+    "width": 1920,
+    "height": 1080,
+    "master_width": 3840,
+    "master_height": 2160,
+    "seconds_per_url": 15,
+    "zoom": 1.55
+  },
+  "beats": [
+    {
+      "id": "CONTROL",
+      "label": "Control plane",
+      "title": "ALLOW · BLOCK · ESCALATE",
+      "narration": "This is your live control plane. Every action gets ALLOW, BLOCK, or ESCALATE — before it executes.",
+      "broll_urls": [
+        "http://127.0.0.1:8090/proof.html",
+        "http://127.0.0.1:8090/proof.html#scenario=tool"
+      ],
+      "card_seconds": 1.0,
+      "broll_seconds": 28,
+      "seconds_per_url": 15
+    },
+    {
+      "id": "SETUP",
+      "label": "Proof Lab",
+      "title": "Pick a scenario · run proof",
+      "narration": "Proof Lab — pick a scenario and watch each step write a signed receipt.",
+      "broll_urls": [
+        "http://127.0.0.1:8090/proof.html",
+        "http://127.0.0.1:8090/proof.html#scenario=outbound"
+      ],
+      "card_seconds": 0.9,
+      "broll_seconds": 30,
+      "seconds_per_url": 16
+    },
+    {
+      "id": "ISSUES",
+      "label": "Outbound + tool",
+      "title": "Outbound ESCALATE · tool BLOCK",
+      "narration": "Outbound hits ESCALATE — human approval before send. Risky tool calls get BLOCKED at dispatch.",
+      "broll_urls": [
+        "http://127.0.0.1:8090/proof.html#scenario=outbound",
+        "http://127.0.0.1:8090/proof.html#scenario=tool"
+      ],
+      "card_seconds": 0.9,
+      "broll_seconds": 28,
+      "seconds_per_url": 15
+    },
+    {
+      "id": "GOVERNANCE",
+      "label": "Six gates",
+      "title": "Governance loop · six gates",
+      "narration": "Six gates per loop — intake, policy, review, execute, sign, export. GRC sees who approved.",
+      "broll_urls": [
+        "http://127.0.0.1:8090/lifecycle.html"
+      ],
+      "card_seconds": 0.8,
+      "broll_seconds": 22,
+      "seconds_per_url": 14
+    },
+    {
+      "id": "TAMPER",
+      "label": "tamper-FAIL",
+      "title": "Tamper-evident receipts",
+      "narration": "Hand-edit a signed receipt — tamper FAIL is immediate. The signature won't verify on replay.",
+      "broll_urls": [
+        "http://127.0.0.1:8090/proof.html#scenario=tamper"
+      ],
+      "card_seconds": 1.0,
+      "broll_seconds": 32,
+      "seconds_per_url": 18,
+      "tamper_dwell_seconds": 9.5
+    },
+    {
+      "id": "PRICING",
+      "label": "Ship",
+      "title": "Witness AI Flow + Ops",
+      "narration": "Policy packs install in weeks with Witness AI Flow. Ops retainer delivers monthly governance exports.",
+      "broll_urls": [
+        "http://127.0.0.1:8090/pricing.html"
+      ],
+      "card_seconds": 0.8,
+      "broll_seconds": 18,
+      "seconds_per_url": 12
+    }
+  ],
+  "cta": {
+    "narration": "Witness AI on witnessbc.com. Book fifteen minutes — BLOCK, ESCALATE, and tamper-FAIL on your stack.",
+    "seconds": 12,
+    "broll_urls": [
+      "http://127.0.0.1:8090/pricing.html"
+    ]
+  },
+  "cinematic_finish": true
+}

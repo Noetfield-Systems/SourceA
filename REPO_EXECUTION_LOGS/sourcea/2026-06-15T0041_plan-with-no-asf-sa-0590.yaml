@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0590 — Run update-program-progress wire_summary from locked_plan.json
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0590
+tests:
+  status: passed
+  output_snippet: archive/attachments/2026-06-14/sa-0590-program-progress-wire-summary-t3-crossref_LOCKED_v1.md · validate-program-progress-wire-summary-t3-crossref-v1 PASS · cites sa-0515 + sa-0565 · task-validator closeout (no_hub)
+reported_at: '2026-06-15T00:41:37Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0097 — Grep scripts for dispatch_ready=true global set — reject
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0097
+tests:
+  status: passed
+  output_snippet: sa-0097 VERIFY — validate-dispatch-ready-lock-v1 PASS no bypass hub surfaces false; dispatch-policy governance-fleet critical 0; Q12/30 closeout
+reported_at: '2026-06-10T05:21:42Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

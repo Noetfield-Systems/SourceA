@@ -1,0 +1,1 @@
+../../brain-os/enforcement/GOAL1_BATCH_CHECKPOINT_LOCKED_v1.md

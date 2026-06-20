@@ -1,0 +1,55 @@
+{
+  "schema": "sourcea-process-lock-receipt-v1",
+  "process": "REGISTRY_DRAIN_PROCESS_LOCKED_v1",
+  "status": "DONE",
+  "at": "2026-06-09T03:54:00Z",
+  "source": "maintainer_executor",
+  "parts": {
+    "part1_quarantine_stale_batch_yaml": {
+      "status": "SKIP_ALREADY_DONE",
+      "moved_this_run": 0,
+      "targets": [
+        "sa-0153",
+        "sa-0155",
+        "sa-0156",
+        "sa-0157",
+        "sa-0158",
+        "sa-0159",
+        "sa-0163",
+        "sa-0164",
+        "sa-0166",
+        "sa-0167",
+        "sa-0168",
+        "sa-0169",
+        "sa-0170",
+        "sa-0171",
+        "sa-0172",
+        "sa-0173",
+        "sa-0606"
+      ],
+      "already_in_quarantine": 17,
+      "still_active_batch_on_honest_done": 0,
+      "quarantine_dir": "REPO_EXECUTION_LOGS/sourcea/QUARANTINE_BATCH_YAML/",
+      "note": "Hygiene satisfied by prior gate auto-quarantine; no registry change."
+    },
+    "part2_broker_gap_fix": {
+      "status": "SKIP_ALREADY_PASS",
+      "targets": ["sa-0154", "sa-0156", "sa-0501", "sa-0190", "sa-0607"],
+      "broker_events_injected_this_run": 0,
+      "note": "All five Valid YES on disk with honest receipts; no fabricated jsonl needed."
+    },
+    "part3_receipt_source_categorization": {
+      "status": "DONE",
+      "worker_receipt_v1": "ALLOWED_RECEIPT_SOURCES + write-time INVALID_RECEIPT_SOURCE gate",
+      "backfill_script": "scripts/backfill-receipt-source-v1.py",
+      "legacy_backfilled": 9,
+      "missing_source_after_backfill": 0
+    },
+    "part4_locked_process_doc": {
+      "status": "DONE",
+      "path": "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md"
+    }
+  },
+  "critical_bugs": 0,
+  "summary": "4-part structural fix complete: Parts 1–2 already satisfied on disk; Parts 3–4 shipped."
+}

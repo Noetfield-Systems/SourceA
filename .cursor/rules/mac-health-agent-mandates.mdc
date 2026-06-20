@@ -1,0 +1,33 @@
+---
+description: Mac Law — mandatory Mac Health quiet + never-again agent obedience
+alwaysApply: true
+---
+
+# Mac Health Agent Mandates (LOCKED — obey)
+
+Read **`~/Desktop/MacLaw/MAC_HEALTH_AGENT_MANDATES_LOCKED.md`** every session when Mac, SourceA, hub, factory, or `~/.sina` is in scope.
+
+## MUST
+
+- Keep `~/.sina/mac-health-quiet-v1.flag` present — **no Mac Health sounds or alerts**
+- Keep film frozen: `~/.sina/commercial-film-render-frozen-v1.flag`
+- Keep autorun paused during focus: `~/.sina/mac-control-plane-v1.flag` present + autorun booted out unless ASF re-enables
+- Keep panic apps **booted out** — do not re-launch `Mac Health Panic` / `Panic Stop` / panic listener without ASF
+- Never re-enable `afplay`, notification sounds, or sub-4-pulse warn intervals in Mac Health
+- Keep **visual proof disabled** — `~/.sina/config/visual_proof.json` → `enabled: false` (hub poll was screenshot every 1s)
+- Never unfreeze film, bootstrap autorun, or bootstrap panic agents without **explicit ASF request**
+- Warn ASF if Cursor runs from `/Volumes/Cursor Installer/` — reopen from `/Applications/Cursor.app`
+
+## MUST NOT
+
+- Read multi-GB `command-server.log` · use tail-only
+- Spawn factory motors under focus freeze · ignore motor cap 8/15
+- Ship Mac Health changes without `validate-mac-health-agent-mandates-v1.sh` PASS
+
+## Verify
+
+```bash
+bash ~/Desktop/SourceA/scripts/validate-mac-health-agent-mandates-v1.sh
+```
+
+Law SSOT: `~/Desktop/MacLaw/MAC_HEALTH_AGENT_MANDATES_LOCKED.md`

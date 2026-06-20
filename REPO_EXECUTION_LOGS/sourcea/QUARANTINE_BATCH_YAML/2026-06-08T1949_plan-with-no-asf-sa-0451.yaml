@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0451 — Validate graph-executor spine_bridge_ready field in hub payload
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0451
+tests:
+  status: passed
+  output_snippet: pack14 spine-loop verify-only; dispatch+spine+batch PASS
+reported_at: '2026-06-08T19:49:38Z'
+reporter: cursor-worker-batch

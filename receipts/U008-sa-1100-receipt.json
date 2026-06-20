@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U008",
+  "title": "Attach file size + path exists check",
+  "evidence": "check_attach_path() hard_fail on missing/oversized attach; null attach ok",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:18:59Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

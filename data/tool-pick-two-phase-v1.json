@@ -1,0 +1,68 @@
+{
+  "schema": "tool-pick-two-phase-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-18T23:55:00Z",
+  "human_doc": "docs/SOURCEA_TIER_PRIORITY_COST_INTELLIGENCE_POLICY_LOCKED_v1.md",
+  "mcp_ssot": "data/mcp-stack-free-tier-v1.json",
+  "platform_neutral_ssot": "data/platform-neutral-world-model-v1.json",
+  "phase0_reference_ssot": "data/phase0-freemium-sandbox-reference-v1.json",
+  "world_model_check": "scripts/world_model_plan_check_v1.py",
+  "script": "scripts/tool_pick_two_phase_v1.py",
+  "validator": "scripts/validate-tool-pick-two-phase-v1.sh",
+  "receipt": "~/.sina/tool-pick-two-phase-receipt-v1.json",
+  "approval_receipt": "~/.sina/tool-pick-phase2-founder-approval-v1.json",
+  "one_law": "Phase 1 exhaust all good free-tier tools; Phase 2 affordable AI tools wire only after founder approval.",
+  "phase_1_free": {
+    "label": "Exhaust first — $0 only",
+    "auto_wire": true,
+    "founder_approval_required": false,
+    "pick_law": "docs/SOURCEA_TIER_PRIORITY_COST_INTELLIGENCE_POLICY_LOCKED_v1.md §2 step 1",
+    "categories": [
+      "mcp_tier_s_builtin",
+      "mcp_tier_a_free_account",
+      "llm_free_models",
+      "edge_free_hosting",
+      "oss_local"
+    ],
+    "tools": [
+      {"id": "cursor-ide-browser", "category": "mcp_tier_s_builtin", "cost_usd": 0, "wire": "active"},
+      {"id": "cursor-app-control", "category": "mcp_tier_s_builtin", "cost_usd": 0, "wire": "active"},
+      {"id": "cursor-backend-control", "category": "mcp_tier_s_builtin", "cost_usd": 0, "wire": "active"},
+      {"id": "plugin-linear-linear", "category": "mcp_tier_a_free_account", "cost_usd": 0, "wire": "authenticated"},
+      {"id": "vercel_hobby", "category": "edge_free_hosting", "cost_usd": 0, "wire": "gate_k_pass"},
+      {"id": "cloudflare_dns", "category": "edge_free_hosting", "cost_usd": 0, "wire": "dns_only"},
+      {"id": "github_mcp", "category": "mcp_tier_a_free_account", "cost_usd": 0, "wire": "pending_p0", "founder_tap": "GOV-8"},
+      {"id": "notion_mcp", "category": "mcp_tier_a_free_account", "cost_usd": 0, "wire": "auth_pending"},
+      {"id": "figma_mcp", "category": "mcp_tier_a_free_account", "cost_usd": 0, "wire": "auth_pending"},
+      {"id": "supabase_free", "category": "mcp_tier_a_free_account", "cost_usd": 0, "wire": "available"},
+      {"id": "openrouter_free", "category": "llm_free_models", "cost_usd": 0, "wire": "tier0_priority_1"},
+      {"id": "groq_free", "category": "llm_free_models", "cost_usd": 0, "wire": "tier0_priority_2"},
+      {"id": "cerebras_free", "category": "llm_free_models", "cost_usd": 0, "wire": "tier0_priority_3"},
+      {"id": "gemini_free", "category": "llm_free_models", "cost_usd": 0, "wire": "tier0_priority_4"},
+      {"id": "github_models", "category": "llm_free_models", "cost_usd": 0, "wire": "tier0_priority_6"},
+      {"id": "ollama_local", "category": "oss_local", "cost_usd": 0, "wire": "tier0_last"}
+    ]
+  },
+  "phase_2_affordable_ai": {
+    "label": "ROI pick — founder approval before wire",
+    "auto_wire": false,
+    "founder_approval_required": true,
+    "pick_law": "TIER_PRIORITY §2 steps 4–5 + NO-CC until ASF/revenue gate",
+    "approval_verb": "FOUNDER APPROVE TOOL:",
+    "tools": [
+      {"id": "runway_hero", "category": "commercial_video", "marginal_cost_usd": "high", "status": "pending_founder_approval", "roi_gate": "W1_film_hero"},
+      {"id": "heygen_avatar", "category": "commercial_video", "marginal_cost_usd": "medium", "status": "pending_founder_approval", "roi_gate": "avatar_factory"},
+      {"id": "datadog_mcp", "category": "observability", "marginal_cost_usd": "paid", "status": "pending_founder_approval", "blocked_by": "NO-CC"},
+      {"id": "cloudflare_paid_workers", "category": "edge", "marginal_cost_usd": "paid", "status": "pending_founder_approval", "note": "Vercel Gate K first"},
+      {"id": "openrouter_paid", "category": "llm_paid", "marginal_cost_usd": "variable", "status": "pending_founder_approval", "roi_gate": "free_chain_exhausted"},
+      {"id": "render_paid_db", "category": "infra", "marginal_cost_usd": "paid", "status": "pending_founder_approval", "blocked_by": "NO-CC"},
+      {"id": "tavily_paid_tier", "category": "research", "marginal_cost_usd": "low", "status": "pending_founder_approval", "roi_gate": "research_volume"}
+    ]
+  },
+  "forbidden_auto_wire": [
+    "phase_2_without_founder_approval_receipt",
+    "credit_card_without_asf_gate",
+    "paid_mcp_before_free_exhaust",
+    "replace_run_inbox_or_session_gate"
+  ]
+}

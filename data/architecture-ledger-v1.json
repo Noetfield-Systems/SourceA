@@ -1,0 +1,14 @@
+{
+  "core_contracts": {
+    "mac_role": "control_plane_only",
+    "cloud_role": "execution_plane_headless",
+    "founder_execution_model": "data/founder-execution-model-v1.json",
+    "mac_role_aliases": [
+      "control_panel_only",
+      "cockpit_only",
+      "mac_control_panel"
+    ]
+  },
+  "founder_execution_model_ssot": "data/founder-execution-model-v1.json",
+  "saved_at": "2026-06-19T23:10:56Z"
+}

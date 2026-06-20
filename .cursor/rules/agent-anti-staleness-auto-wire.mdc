@@ -1,0 +1,32 @@
+---
+description: Anti-staleness auto wire L0.5→L1→L2 — orchestrator detail (session gate in agent-memory-mirror)
+globs: scripts/**,brain-os/**
+alwaysApply: false
+version: 1
+---
+
+# Anti-staleness auto wire (L0.5 → L1 → L2)
+
+**Law:** `SOURCEA_ANTI_STALENESS_AUTO_WIRE_LAYER_SYNC_LOCKED_v1.md`
+
+## Session start (automatic — do not run layers separately)
+
+```bash
+python3 scripts/agent_session_gate_run_v1.py --role <role> --json
+```
+
+Orchestrator: `anti_staleness_auto_wire_v1.py` · receipt: `~/.sina/anti-staleness-auto-wire-v1.json`
+
+## Read after wire
+
+1. `anti-staleness-auto-wire-v1.json` — ok + layers  
+2. `agent-live-surfaces-v1.json` — factory_now_line + URLs  
+3. `agentic-layer-pipeline-v2.json` — L1/L2 health
+
+## Tiers
+
+| Tier | When |
+|------|------|
+| `session` | Session gate · Brain start |
+| `worker` | Worker turn entry |
+| `full` | Governance cascade heal |

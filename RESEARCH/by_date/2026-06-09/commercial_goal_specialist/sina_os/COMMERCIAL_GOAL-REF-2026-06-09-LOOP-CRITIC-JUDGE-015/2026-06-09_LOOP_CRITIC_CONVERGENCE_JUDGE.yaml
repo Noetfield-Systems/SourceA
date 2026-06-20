@@ -1,0 +1,87 @@
+# [COMMERCIAL_GOAL_AGENT_REF · commercial_goal_specialist · COMMERCIAL_GOAL-REF-2026-06-09-LOOP-CRITIC-JUDGE-015] rr-20260609-loop015
+trace:
+  agent_ref: COMMERCIAL_GOAL_AGENT_REF
+  agent_name: Commercial Goal Specialist
+  agent_id: commercial_goal_specialist
+  trace_id: COMMERCIAL_GOAL-REF-2026-06-09-LOOP-CRITIC-JUDGE-015
+  ref_tag: COMMERCIAL_GOAL-REF-LOOP-CRITIC-JUDGE-015
+  registry_id: rr-20260609-loop015
+  parent_trace_id: COMMERCIAL_GOAL-REF-2026-06-09-GPT-EMBED-CRITIC-JUDGE-014
+module: commercial_goal
+date: 2026-06-09
+type: external_critic_judgment
+input_class: EXTERNAL_CRITIC
+execution_authority: false
+
+research_save:
+  trace_id: COMMERCIAL_GOAL-REF-2026-06-09-LOOP-CRITIC-JUDGE-015
+  worker_id: commercial_goal_specialist
+  subject: sina_os
+  vault_path: ~/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-09_LOOP_CRITIC_CONVERGENCE_JUDGE.yaml
+  research_mirror_path: RESEARCH/by_date/2026-06-09/commercial_goal_specialist/sina_os/COMMERCIAL_GOAL-REF-2026-06-09-LOOP-CRITIC-JUDGE-015/
+  execution_authority: false
+
+sources_compared:
+  - id: claude_inventory
+    topic: WORKER_SUBMIT/STARTED/TASK_CLOSED + autorun_dispatcher already on disk
+  - id: gpt3_1
+    topic: fragmented invocation path + canonical execution chain
+  - id: gpt0
+    topic: consumer not running + kill flag + TASK_CLOSED metric
+  - id: gemini
+    topic: synthesis activation gap not design failure
+  - id: claude_session
+    topic: CURSOR_FIX_OVERNIGHT stale + sa-0655 + VOYAGE key
+  - id: disk_telemetry
+    date: 2026-06-09
+    path: ~/.sina/events/2026-06-09.jsonl
+
+disk_telemetry_2026_06_09:
+  DECISION_RECONCILED: 237
+  INBOX_DELIVERED: 149
+  WORKER_SUBMIT: 156
+  WORKER_STARTED: 0
+  TASK_CLOSED: 6
+  VALIDATOR_PASS: 6
+  autorun_dispatcher_running: false
+  kill_flag: ~/.sina/auto-run-disabled-v1.flag exists
+  CURSOR_FIX_OVERNIGHT_md: exists at SourceA root
+
+verdict:
+  meta_diagnosis: accept — components exist; activation and path coherence is the gap
+  gpt3_1_vs_gpt0:
+    winner_strategy: GPT3.1 canonical chain framing
+    winner_ops_debug: GPT0 kill flag + dispatcher process (executor only, not founder)
+  claude_inventory: accept — do not duplicate loop files
+  gpt0_task_closed_zero: reject — 6 TASK_CLOSED today on disk
+  gemini_terminal_runbook: reject for founder — Hub one-tap only per founder law
+  fragmentation: accept — multiple paths; Rail A Hub AUTO-RUN is locked P0 entry
+
+canonical_chain_locked:
+  - DECISION_RECONCILED
+  - INBOX_DELIVERED
+  - WORKER_SUBMIT
+  - WORKER_STARTED
+  - VALIDATOR_PASS
+  - TASK_CLOSED
+
+today_break: WORKER_STARTED absent despite 156 WORKER_SUBMIT — ACTIVATE path not consistently hitting start_goal1_worker_turn_v1.py emitter
+
+priority_vs_founder_objective:
+  p0: GOAL-AUTH-LIVE — Hub AUTO-RUN Rail A one clean full chain in events jsonl
+  reject: new autorun loop file, FORGE loop rewrite, embedding work ahead of AUTH-LIVE
+  p1: remove stale CURSOR_FIX_OVERNIGHT.md, VOYAGE key config, Brain reconcile sa queue
+
+recommended_actions:
+  - owner: ASF
+    action: Hub Goal 1 loop AUTO-RUN Rail A one tap
+  - owner: executor
+    action: diagnose kill flag + why WORKER_STARTED not emitted; do not ask founder Terminal
+  - owner: Brain
+    action: unified execution contract map in tracker Section 6 (no new code)
+  - owner: Worker
+    action: rm CURSOR_FIX_OVERNIGHT.md when Brain routes
+
+one_line_truth: >
+  Producers and broker are active; WORKER_STARTED never logged today; closeout rare (6/156).
+  Engine exists — Rail A full chain not consistently engaged. Kill flag on, dispatcher idle.

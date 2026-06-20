@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0022 — Grep scripts for dispatch_ready=true global set — reject
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0022
+tests:
+  status: passed
+  output_snippet: sa-0022 VERIFY PASS: dispatch_ready global true rejected; hub/orchestrator false; strict build green; receipt closed.
+reported_at: '2026-06-09T14:12:03Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

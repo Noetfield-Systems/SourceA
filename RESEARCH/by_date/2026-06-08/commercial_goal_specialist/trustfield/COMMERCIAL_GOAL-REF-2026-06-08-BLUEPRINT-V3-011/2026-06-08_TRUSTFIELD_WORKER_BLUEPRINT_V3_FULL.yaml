@@ -1,0 +1,263 @@
+# [COMMERCIAL_GOAL_AGENT_REF · commercial_goal_specialist · COMMERCIAL_GOAL-REF-2026-06-08-BLUEPRINT-V3-011] rr-20260608-6a7b8c9d
+trace:
+  agent_ref: COMMERCIAL_GOAL_AGENT_REF
+  agent_name: Commercial Goal Specialist
+  agent_id: commercial_goal_specialist
+  trace_id: COMMERCIAL_GOAL-REF-2026-06-08-BLUEPRINT-V3-011
+  ref_tag: COMMERCIAL_GOAL-REF-BLUEPRINT-V3-011
+  registry_id: rr-20260608-6a7b8c9d
+  parent_trace_id: COMMERCIAL_GOAL-REF-2026-06-07-BLUEPRINT-V2-001
+  trace_pair: COMMERCIAL_GOAL-REF-2026-06-08-NF-BLUEPRINT-V3-012
+  trace_market_matrix: COMMERCIAL_GOAL-REF-2026-06-08-MARKET-MATRIX-013
+  trace_supersedes: 2026-06-07_TRUSTFIELD_WORKER_BLUEPRINT_V2_FULL.yaml
+
+module: commercial_goal
+date: 2026-06-08
+version: V3_FULL
+type: trustfield_worker_master_blueprint
+execution_authority: false
+target_worker: TrustField Technologies Cursor worker
+repo: "/Users/sinakazemnezhad/Desktop/TrustField Technologies"
+production:
+  site: https://www.trustfield.ca
+  api: https://api.trustfield.ca
+
+full_prompt_path: docs/considerations/WORKER_BLUEPRINT_V3_TRUSTFIELD_CA_FULL_PROMPT.md
+
+market_lock_june_2026:
+  chain_seat: "Between Comply North ($4,999 RPAA prep) and Comply+ ($199–699/mo filing SaaS)"
+  price_proof:
+    comply_north_rpaa_cad: 4999
+    comply_north_msb_cad: 2999
+    boc_fee_cad: 2500
+    our_anchor: "6000 setup + 2500/mo"
+  gtm_motion_copy: [Float book_demo, Plooto live_demo_url, Comply_North fixed_fee_page]
+  revenue_receipt: ZERO — first deposit ends guessing
+  single_wedge_until_3_demos: "MSB / RPAA corridor ONLY — defer embedded finance, crypto-access, OS marketing"
+
+goals_priority:
+  g1_revenue: "Close TF-P1 — CAD 6000 setup + 2500/mo (50% deposit before onboarding)"
+  g2_pipeline: "Book 3 live demos → engineering freeze unlock"
+  g3_demo_reliability: "Hero URL register?partner=demo-msb-tor passes pre_demo_health every call"
+  g4_add_ons: "Surface TF-P2/P3 on /pilot and /pricing as post-pilot upsells — not parallel homepage wedges"
+  g5_boundary: "TrustField invoices only; Noetfield one footer line max; no brand merge on hero"
+
+sku_catalog:
+  TF-P1:
+    id: TF-P1
+    name: RPAA Readiness Pilot
+    price: {setup_cad: 6000, platform_monthly_cad: 2500, duration_weeks: 6}
+    buyer: "FINTRAC MSB / pre-PSP fintech / remittance operator"
+    deliverables: [flow_map, governance_workflow, software_env_TF_ref, partner_blueprint, readiness_report_for_counsel]
+    page: /pilot
+    lead_sku: true
+    inspired_by: [Comply_North_RPAA_4999, Outlier_fixed_fee]
+  TF-P1-DP:
+    id: TF-P1-DP
+    name: Design Partner Pilot
+    price: {setup_cad: 3000, platform_monthly_cad: 2500}
+    gate: first_3_programs_logo_case_study
+    page: /pilot#design-partner
+  TF-P2:
+    id: TF-P2
+    name: MSB Evidence Accelerator
+    price: {addon_cad: "3000-5000"}
+    deliverables: [fintrac_checklist_pack, str_workflow_map, biennial_review_index]
+    page: /pilot#addons
+  TF-P3:
+    id: TF-P3
+    name: RPAA Application Evidence Pack
+    price: {addon_cad: "4000-6000"}
+    note: "Drafts for counsel review — not legal opinion or BoC filing"
+    page: /pilot#addons
+  TF-P5:
+    id: TF-P5
+    name: CCO Retainer Lite
+    price: {monthly_cad: "1500-2500"}
+    gate: post_pilot_month_4
+    page: /pricing#retainer
+
+positioning_locked:
+  canonical: "TrustField builds RPAA-aligned payment infrastructure — readiness services and software today, with a defined path to licensed PSP services in Canada."
+  boundary: "TrustField does not participate in settlement or custody."
+  phase: A_only
+  engineering_freeze: "No new product features until 3 demo calls booked — copy/site/docs OK"
+  say: [RPAA-aligned, readiness services, licensed partners execute, audit trail, TF references, registration preparedness]
+  never_say: [PSP today, custody, hold funds yet, SOC2 certified, control plane, we are an MSP, guaranteed registration approval, settlement orchestration]
+
+site_ia_v3:
+  money_flow: "Homepage → /demo → live sandbox → /pilot → SOW → 50% deposit invoice"
+  pages:
+    /: "MSB RPAA urgency → Book live walkthrough → /demo"
+    /demo: "30-min script — intake, sandbox, audit export, scope to /pilot"
+    /pilot: "TF-P1 + TF-P1-DP + add-ons TF-P2/P3 — Comply North comparison footnote"
+    /pricing: "Sandbox free · Integration program 6000 · Platform 2500/mo · Retainer 1500-2500"
+    /register: "Live proof — ?partner=demo-msb-tor"
+    /developers: "API credibility — sandbox honesty"
+    /contact: "hello@trustfield.ca + optional NEXT_PUBLIC_BOOKING_URL"
+    /security: "Phase 1 posture — no SOC2 claims"
+  footer_noetfield: "Noetfield provides Copilot governance methodology on select bundles. Paid engagements contracted through TrustField."
+
+authority_read_first:
+  - docs/TRUSTFIELD_SOURCE_OF_TRUTH.md
+  - docs/RPAA_POSITIONING_ENFORCEMENT.md
+  - docs/gtm/outreach-email-snippet.md
+  - docs/internal/TRUSTFIELD_NOETFIELD_BOUNDARY_LOCKED_2026.md
+  - ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-08_TRUSTFIELD_NOETFIELD_MARKET_SKU_MATRIX.yaml
+  - docs/considerations/WORKER_BLUEPRINT_V3_TRUSTFIELD_CA_FULL_PROMPT.md
+  - this file
+
+verify_commands:
+  per_task: "./scripts/verify_positioning_ci.sh && ./scripts/verify_ui_e2e.sh"
+  demo: "./scripts/pre_demo_health.sh && ./scripts/verify_hero_url.sh"
+  sprint_end: "./scripts/run_no_asf_verify.sh"
+
+out_of_scope:
+  - Postgres/Redis until first pilot revenue
+  - Live VoPay/NDAX/Trulioo production integrations
+  - Fake logos/testimonials/case studies
+  - SourceA/hub edits
+  - Noetfield Python in TrustField repo
+  - Discovery-first homepage that splits wedge before 3 demos
+  - Public  attack tables
+
+worker_turns:
+  - id: tw-01
+    title: V3 SKU + pricing unification (pilot-first)
+    paste_prompt: |
+      PLAN WITH NO ASF — TRUSTFIELD WORKER tw-01 ONE TURN.
+      TRACE: COMMERCIAL_GOAL-REF-2026-06-08-BLUEPRINT-V3-011
+      Repo: /Users/sinakazemnezhad/Desktop/TrustField Technologies
+      Read: docs/considerations/WORKER_BLUEPRINT_V3_TRUSTFIELD_CA_FULL_PROMPT.md + ~/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-08_TRUSTFIELD_WORKER_BLUEPRINT_V3_FULL.yaml
+      Task: Unify public pricing to TF-P1 lead — CAD 6,000 setup + CAD 2,500/mo; add TF-P1-DP and add-on rows.
+      Files: web/lib/company-copy.ts, web/app/pricing/page.tsx, web/app/pilot/page.tsx, app/content/company.py
+      Spec:
+        - /pilot: exact prices visible; footnote vs Comply North CAD 4,999 forms-only
+        - Design partner: 50% setup (CAD 3,000) first 3 programs
+        - Add-ons section: TF-P2 MSB Evidence + TF-P3 RPAA Evidence Pack (ranges only)
+        - Primary CTA remains /demo not /services/discovery
+      Verify: ./scripts/verify_positioning_ci.sh && ./scripts/verify_ui_e2e.sh PASS
+      WORKER_ROUND_REPORT → broker.
+
+  - id: tw-02
+    title: Demo funnel (Float/Plooto motion)
+    paste_prompt: |
+      PLAN WITH NO ASF — TRUSTFIELD WORKER tw-02 ONE TURN.
+      TRACE: COMMERCIAL_GOAL-REF-2026-06-08-BLUEPRINT-V3-011
+      Task: Conversion funnel for Tier-A MSB buyers — book demo + live URL.
+      Files: web/app/page.tsx, web/app/demo/page.tsx, web/lib/company-copy.ts, site-header
+      Spec:
+        - primary_cta: "Book live walkthrough" → /demo
+        - secondary: "View RPAA pilot" → /pilot
+        - traction strip: hide zeros — qualitative until applications >= 1
+        - /demo: 30-min agenda + link to register?partner=demo-msb-tor + /pilot pricing anchor
+        - booking: NEXT_PUBLIC_BOOKING_URL or mailto hello@trustfield.ca subject "TrustField — MSB walkthrough"
+      Verify: ./scripts/verify_hero_url.sh PASS
+      WORKER_ROUND_REPORT → broker.
+
+  - id: tw-03
+    title: /pilot deliverables map (SOT Part IV)
+    paste_prompt: |
+      PLAN WITH NO ASF — TRUSTFIELD WORKER tw-03 ONE TURN.
+      TRACE: COMMERCIAL_GOAL-REF-2026-06-08-BLUEPRINT-V3-011
+      Task: Align /pilot to 5 deliverables + explicit NOT included list.
+      Spec:
+        - Title: RPAA Readiness Integration Program · 6 weeks
+        - Bullets: flow map, governance workflow, software env (TF-######), partner blueprint, readiness report for counsel
+        - NOT included: live money transmission, BoC filing submission, legal opinions, custody
+        - register CTA: ?partner=rpaa-pilot
+      Verify: verify_positioning_ci.sh PASS
+      WORKER_ROUND_REPORT → broker.
+
+  - id: tw-04
+    title: ROI leave-behind (BoC + Comply North anchors)
+    paste_prompt: |
+      PLAN WITH NO ASF — TRUSTFIELD WORKER tw-04 ONE TURN.
+      TRACE: COMMERCIAL_GOAL-REF-2026-06-08-BLUEPRINT-V3-011
+      Task: MLRO/procurement leave-behind — printable or /pilot section.
+      Spec:
+        - One-page "RPAA delay cost" facts: BoC CAD 2,500 fee · Comply North RPAA CAD 4,999  · FINTRAC enforcement 2025
+        - No fabricated customer logos
+        - Link from /pricing and /pilot
+        - Browser print CSS OK
+      Verify: verify_ui_e2e.sh includes diligence path
+      WORKER_ROUND_REPORT → broker.
+
+  - id: tw-05
+    title: /contact + /security diligence path
+    paste_prompt: |
+      PLAN WITH NO ASF — TRUSTFIELD WORKER tw-05 ONE TURN.
+      TRACE: COMMERCIAL_GOAL-REF-2026-06-08-BLUEPRINT-V3-011
+      Task: /contact close path + /security stub for MLRO diligence.
+      Spec:
+        - /contact: intent dropdown (RPAA Pilot, Design Partner, General)
+        - /security: HTTPS, API tokens, hello@ incident contact, Phase 1 SQLite note — NO SOC2 claims
+        - Footer link to /security
+      Verify: verify_public_presentation.sh PASS
+      WORKER_ROUND_REPORT → broker.
+
+  - id: tw-06
+    title: company.py ↔ company-copy.ts SOT sync
+    paste_prompt: |
+      PLAN WITH NO ASF — TRUSTFIELD WORKER tw-06 ONE TURN.
+      TRACE: COMMERCIAL_GOAL-REF-2026-06-08-BLUEPRINT-V3-011
+      Task: Zero drift between Python and TypeScript copy constants.
+      Files: app/content/company.py, web/lib/company-copy.ts
+      Spec: POSITIONING_LINE exact SOT; pilot pricing mirrored; hero H1/subhead match Part II
+      Verify: ./scripts/verify_positioning_ci.sh MUST PASS
+      WORKER_ROUND_REPORT → broker.
+
+  - id: tw-07
+    title: Noetfield boundary footer (bundle-ready)
+    paste_prompt: |
+      PLAN WITH NO ASF — TRUSTFIELD WORKER tw-07 ONE TURN.
+      TRACE: COMMERCIAL_GOAL-REF-2026-06-08-BLUEPRINT-V3-011
+      Task: Footer boundary line only — no hero co-brand.
+      Spec:
+        - "Noetfield provides Copilot governance methodology on select bundles. Paid engagements through TrustField Technologies."
+        - Link https://www.noetfield.com new tab
+        - Optional /pilot footnote: "Need Copilot board pack? See noetfield.com/copilot — invoiced via TrustField."
+      Verify: no Noetfield in hero H1
+      WORKER_ROUND_REPORT → broker.
+
+  - id: tw-08
+    title: GTM docs sync (outreach-ready)
+    paste_prompt: |
+      PLAN WITH NO ASF — TRUSTFIELD WORKER tw-08 ONE TURN.
+      TRACE: COMMERCIAL_GOAL-REF-2026-06-08-BLUEPRINT-V3-011
+      Task: Update docs/gtm/ one-pager + email snippet to match V3 SKUs (docs only).
+      Files: docs/gtm/outreach-email-snippet.md, docs/gtm/CANADA_AI_GOVERNANCE_ONE_PAGER.md (if pricing refs)
+      Spec: CTA trustfield.ca/demo · pilot CAD 6000+2500/mo · no new product code
+      WORKER_ROUND_REPORT → broker.
+
+  - id: tw-09
+    title: E2E-3 money-flow gate
+    paste_prompt: |
+      PLAN WITH NO ASF — TRUSTFIELD WORKER tw-09 ONE TURN.
+      PLUS E2E-3 GATE: Full money-flow path audit.
+      TRACE: COMMERCIAL_GOAL-REF-2026-06-08-BLUEPRINT-V3-011
+      Task: Prove homepage → /demo → /pilot → contact; pricing consistent; forbidden phrases zero in web/.
+      Run: ./scripts/run_no_asf_verify.sh PASS · grep web/ for "hold funds yet", "control plane", "SOC2 certified" — zero hits
+      WORKER_ROUND_REPORT → broker.
+
+  - id: tw-10
+    title: V3 closeout + commercial vault receipt template
+    paste_prompt: |
+      PLAN WITH NO ASF — TRUSTFIELD WORKER tw-10 ONE TURN.
+      PLUS DEBUG-5 GATE: Full verify sweep.
+      TRACE: COMMERCIAL_GOAL-REF-2026-06-08-BLUEPRINT-V3-011
+      Task: Close TRUSTFIELD-SITE-V3 sprint.
+      Actions:
+        1. ./scripts/run_no_asf_verify.sh PASS
+        2. Write ~/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-08_TRUSTFIELD_SITE_V3_CLOSEOUT.yaml (trace_id: COMMERCIAL_GOAL-REF-2026-06-08-BLUEPRINT-V3-011)
+        3. Include empty receipt block: deposit_date, company, amount_cad — for founder to fill on first close
+      Do NOT lift engineering freeze. Founder: 5 MSB emails + 3 demos.
+      WORKER_ROUND_REPORT → broker.
+
+closeout_success_criteria:
+  - "TF-P1 CAD 6000 + 2500/mo on /pilot and /pricing"
+  - "Primary CTA /demo on homepage"
+  - "Comply North comparison footnote factual"
+  - "No zero traction counters"
+  - "verify_positioning_ci + run_no_asf_verify PASS"
+  - "No Noetfield co-brand on hero"

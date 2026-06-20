@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U069",
+  "title": "Mail FROM configured gate doc for founder only",
+  "evidence": "data/commercial-mail-from-gate-v1.json; w3_mail_from PASS; Mail AppleScript allowlist; --check-mail-from-gate PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:15:16Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,372 @@
+/* Witness AI — motion + enhanced style (v3.2) */
+
+html {
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.55;
+  background:
+    radial-gradient(ellipse 60% 45% at 10% 0%, rgba(13, 148, 136, 0.07), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 90% 10%, rgba(20, 184, 166, 0.06), transparent 50%);
+}
+html[data-theme="dark"] body::before {
+  background:
+    radial-gradient(ellipse 55% 40% at 15% -5%, rgba(45, 212, 191, 0.1), transparent 55%),
+    radial-gradient(ellipse 45% 35% at 85% 5%, rgba(13, 148, 136, 0.08), transparent 50%);
+}
+
+/* Hero entrance */
+html.motion-ready .hero-institutional {
+  animation: motionFadeUp var(--dur-slow) var(--ease-out) both;
+}
+html.motion-ready .hero h1 {
+  animation: motionFadeUp var(--dur-slow) 0.08s var(--ease-out) both;
+}
+html.motion-ready .hero-lead {
+  animation: motionFadeUp var(--dur-slow) 0.16s var(--ease-out) both;
+}
+html.motion-ready .hero-cta {
+  animation: motionFadeUp var(--dur-slow) 0.24s var(--ease-out) both;
+}
+html.motion-ready .pillar-chips {
+  animation: motionFadeUp var(--dur-slow) 0.32s var(--ease-out) both;
+}
+html.motion-ready .control-plane-panel {
+  animation: motionFadeUp var(--dur-slow) 0.18s var(--ease-out) both, motionPanelGlow 5s 1s ease-in-out infinite;
+}
+html.motion-ready .stats-strip {
+  animation: motionFadeUp var(--dur-slow) 0.4s var(--ease-out) both;
+}
+
+@keyframes motionFadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes motionFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes motionPanelGlow {
+  0%, 100% {
+    box-shadow: var(--shadow-lg), 0 0 0 0 rgba(13, 148, 136, 0);
+  }
+  50% {
+    box-shadow: var(--shadow-lg), 0 12px 40px rgba(13, 148, 136, 0.14);
+  }
+}
+html[data-theme="dark"] html.motion-ready .control-plane-panel,
+html[data-theme="dark"].motion-ready .control-plane-panel {
+  animation: motionFadeUp var(--dur-slow) 0.18s var(--ease-out) both, motionPanelGlowDark 5s 1s ease-in-out infinite;
+}
+@keyframes motionPanelGlowDark {
+  0%, 100% {
+    box-shadow: var(--shadow-lg), 0 0 0 0 rgba(45, 212, 191, 0);
+  }
+  50% {
+    box-shadow: var(--shadow-lg), 0 12px 48px rgba(45, 212, 191, 0.1);
+  }
+}
+
+/* Gradient headline shimmer */
+.gradient-text {
+  background-size: 220% auto;
+  animation: motionShimmer 10s linear infinite;
+}
+@keyframes motionShimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 220% center; }
+}
+
+/* Pillar chips stagger */
+html.motion-ready .pillar-chips span {
+  animation: motionChipIn 0.45s var(--ease-spring) both;
+}
+html.motion-ready .pillar-chips span:nth-child(1) { animation-delay: 0.42s; }
+html.motion-ready .pillar-chips span:nth-child(2) { animation-delay: 0.48s; }
+html.motion-ready .pillar-chips span:nth-child(3) { animation-delay: 0.54s; }
+html.motion-ready .pillar-chips span:nth-child(4) { animation-delay: 0.6s; }
+html.motion-ready .pillar-chips span:nth-child(5) { animation-delay: 0.66s; }
+html.motion-ready .pillar-chips span:nth-child(6) { animation-delay: 0.72s; }
+
+@keyframes motionChipIn {
+  from { opacity: 0; transform: scale(0.85) translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.pillar-chips span {
+  transition: border-color var(--dur-fast), background var(--dur-fast), transform var(--dur-fast);
+}
+.pillar-chips span:hover {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+/* Buttons — shine + press */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.28) 50%, transparent 60%);
+  transform: translateX(-120%);
+  transition: transform 0.55s ease;
+  pointer-events: none;
+}
+.btn-primary:hover::after {
+  transform: translateX(120%);
+}
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Nav underline */
+.nav-link,
+.nav-item > button {
+  position: relative;
+}
+.nav-link::after,
+.nav-item > button::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.35rem;
+  height: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-med) var(--ease-out);
+  border-radius: 1px;
+}
+.nav-link:hover::after,
+.nav-item > button:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
+/* Dropdown motion */
+.dropdown {
+  transform-origin: top left;
+  animation: motionDropIn 0.22s var(--ease-out) both;
+}
+@keyframes motionDropIn {
+  from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Section eyebrows */
+.section-eyebrow {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.section-eyebrow::after {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--gradient);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+  animation: motionLineGrow 0.8s var(--ease-out) both;
+}
+.section-eyebrow-left::after {
+  margin-left: 0;
+  margin-right: auto;
+}
+@keyframes motionLineGrow {
+  from { width: 0; opacity: 0; }
+  to { width: 2.5rem; opacity: 1; }
+}
+
+/* Architecture diagram */
+.arch-diagram.is-visible {
+  animation: motionFadeUp var(--dur-med) var(--ease-out) both;
+}
+.arch-diagram.is-visible .arch-node {
+  animation: motionNodeIn 0.45s var(--ease-out) both;
+}
+.arch-diagram.is-visible .arch-node:nth-of-type(1) { animation-delay: 0.08s; }
+.arch-diagram.is-visible .arch-node.arch-govern { animation-delay: 0.2s; }
+.arch-diagram.is-visible .arch-footer .arch-node { animation-delay: 0.35s; }
+
+.arch-node.arch-govern {
+  box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.25);
+  animation: motionGovernGlow 3s ease-in-out infinite;
+}
+html[data-theme="dark"] .arch-node.arch-govern {
+  animation-name: motionGovernGlowDark;
+}
+@keyframes motionGovernGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.2); }
+  50% { box-shadow: 0 0 20px 2px rgba(13, 148, 136, 0.15); }
+}
+@keyframes motionGovernGlowDark {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.15); }
+  50% { box-shadow: 0 0 24px 4px rgba(45, 212, 191, 0.12); }
+}
+@keyframes motionNodeIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Loop stepper progress */
+.loop-step.active .loop-step-line {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  background-size: 200% 100%;
+  animation: motionLineFlow 2s linear infinite;
+}
+@keyframes motionLineFlow {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* Cards hover lift */
+.problem-card,
+.capability-card,
+.autonomy-tier,
+.price-card {
+  transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med), border-color var(--dur-fast);
+}
+.problem-card:hover,
+.capability-card:hover,
+.autonomy-tier:hover,
+.price-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.price-card.featured {
+  animation: motionFeaturedPulse 4s ease-in-out infinite;
+}
+@keyframes motionFeaturedPulse {
+  0%, 100% { box-shadow: var(--shadow-lg); }
+  50% { box-shadow: 0 24px 64px rgba(13, 148, 136, 0.18); }
+}
+
+/* Policy + integration chips */
+.policy-chip,
+.integration-chip {
+  transition: transform var(--dur-fast) var(--ease-spring), border-color var(--dur-fast), background var(--dur-fast), color var(--dur-fast);
+}
+.policy-chip:hover,
+.integration-chip:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: var(--primary);
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+/* Proof terminal */
+.proof-terminal {
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+.proof-terminal-body .line-in {
+  animation: motionLineIn 0.35s var(--ease-out) both;
+}
+@keyframes motionLineIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.proof-chain-step.active {
+  animation: motionChainPop 0.35s var(--ease-spring) both;
+}
+@keyframes motionChainPop {
+  0% { transform: scale(0.92); }
+  60% { transform: scale(1.04); }
+  100% { transform: none; }
+}
+
+/* Verdict badges pulse on change */
+.verdict {
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s;
+}
+.roster li.verdict-flash .verdict {
+  animation: motionVerdictPop 0.45s var(--ease-spring) both;
+}
+@keyframes motionVerdictPop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+/* Staggered scroll reveal */
+.reveal-on-scroll {
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* Matrix highlight row */
+.highlight-row {
+  animation: motionRowGlow 3s ease-in-out infinite;
+}
+@keyframes motionRowGlow {
+  0%, 100% { background: var(--primary-light); }
+  50% { background: rgba(13, 148, 136, 0.14); }
+}
+html[data-theme="dark"] .highlight-row {
+  animation-name: motionRowGlowDark;
+}
+@keyframes motionRowGlowDark {
+  0%, 100% { background: rgba(45, 212, 191, 0.08); }
+  50% { background: rgba(45, 212, 191, 0.14); }
+}
+
+/* Logo mark spin on hover */
+.logo-mark {
+  transition: transform 0.5s var(--ease-out);
+}
+.logo:hover .logo-mark {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+/* Theme toggle rotate */
+.theme-toggle svg {
+  transition: transform 0.4s var(--ease-spring), opacity 0.2s;
+}
+.theme-toggle:hover svg {
+  transform: rotate(-15deg) scale(1.08);
+}
+
+/* Reduced motion — disable decorative animation */
+@media (prefers-reduced-motion: reduce) {
+  html.motion-ready .hero-institutional,
+  html.motion-ready .hero h1,
+  html.motion-ready .hero-lead,
+  html.motion-ready .hero-cta,
+  html.motion-ready .pillar-chips,
+  html.motion-ready .control-plane-panel,
+  html.motion-ready .stats-strip,
+  html.motion-ready .pillar-chips span,
+  .gradient-text,
+  .arch-node.arch-govern,
+  .price-card.featured,
+  .highlight-row,
+  .loop-step.active .loop-step-line,
+  html[data-theme="dark"].motion-ready .control-plane-panel {
+    animation: none !important;
+  }
+  .control-plane-panel,
+  .problem-card:hover,
+  .capability-card:hover,
+  .price-card:hover,
+  .policy-chip:hover,
+  .integration-chip:hover {
+    transform: none !important;
+  }
+  .btn-primary::after {
+    display: none;
+  }
+}

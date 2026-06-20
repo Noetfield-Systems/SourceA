@@ -1,0 +1,38 @@
+{
+  "schema": "fbe-outbound-fdg-icp-verify-v1",
+  "ok": true,
+  "upgrade_id": "U029",
+  "wired_to": "icp4_one_product_line",
+  "checks": [
+    {
+      "label": "single_product",
+      "ok": true,
+      "gate": {
+        "ok": true,
+        "issues": [],
+        "product_paragraph_count": 1,
+        "upgrade": "U029"
+      },
+      "expect_ok": true
+    },
+    {
+      "label": "two_product",
+      "ok": true,
+      "gate": {
+        "ok": false,
+        "issues": [
+          "two_product_paragraphs"
+        ],
+        "product_paragraph_count": 2,
+        "upgrade": "U029"
+      },
+      "expect_ok": false
+    }
+  ],
+  "wired": [
+    "scripts/icp_one_product_line_gate_v1.py",
+    "scripts/icp_output_compiler_v1.py",
+    "scripts/best_loop_oqg_score_v1.py"
+  ],
+  "at": "2026-06-19T06:42:30Z"
+}

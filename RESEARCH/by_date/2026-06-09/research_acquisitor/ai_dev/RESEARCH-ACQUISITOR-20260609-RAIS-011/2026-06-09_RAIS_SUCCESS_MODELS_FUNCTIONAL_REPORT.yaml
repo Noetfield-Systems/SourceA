@@ -1,0 +1,127 @@
+trace_id: RESEARCH-ACQUISITOR-20260609-RAIS-011
+trace_family: RESEARCH-ACQUISITOR-20260609
+trace_owner: research_acquisitor
+trace_type: rais_success_models_functional_report
+trace_author: research_acquisitor
+trace_created: 2026-06-09
+parent_traces:
+  - RESEARCH-ACQUISITOR-20260609-GOLDEN-010
+  - COMMERCIAL_GOAL-REF-2026-06-09-PREMORTEM-JUDGE-017
+  - RESEARCH-ACQUISITOR-20260608-AUTO-005
+execution_authority: false
+
+module: research_acquisitor
+date: 2026-06-09
+brief_type: rais_world_success_models_functional_advantage
+subject: ai_dev
+
+summary: >
+  Deep functional analysis of June 2026 agent/governance success models (Raia, RAISE,
+  Keon, Devin, MCP Gateway class, REAP+, Elementum) vs SourceA on disk. RAIS in
+  SourceA law = external analog only — not internal layer. Maintainer shipped 12 Cursor
+  agent skills (Worker, Brain, registry-drain, research-intake) — this IS SourceA's
+  answer to enterprise "control plane + skills + audit." Golden advantage: receipt-bound
+  governed execution on local disk + portfolio skills + Hub one-tap — cheaper and
+  more honest than cloud-only Devin/Raia if factory drain sustains.
+
+rais_vocabulary_locked:
+  sourcea_law: GOVERNED_EXECUTION_OS_MASTER_LOCKED_v1.md
+  rule: RAIS = external /analog to study — NEVER internal layer name
+  analogs:
+    - raiaai.com (Raia Command control plane)
+    - theraiseframework.com (RAISE eight pillars)
+    - keon.systems (governed effect boundary + receipts)
+    - cognition Devin (cloud devbox + audit API)
+    - MCP Gateway vendors (Tyk, Kong, TrueFoundry, Natoma)
+
+functional_comparison:
+  raia_command:
+    how_it_works: "No-code agent builder + Command knowledge pipeline + Copilot HITL + Control campaigns + n8n integration"
+    management: "Central dashboard — lifecycle, tool governance, channel governance"
+    proof: "Vendor case studies ($550K–$1M savings claims)"
+    sourcea_equivalent: "Hub Agent hub + skills grid + goal1_lane_broker + INBOX"
+    gap: "Raia multi-channel deploy; SourceA single REGISTRY drain focus"
+    steal: "Control plane UX naming — already shipping as Agent Hub skills"
+  raise_framework:
+    how_it_works: "Eight pillars + lifecycle gates — inventory, monitor, guardrails, recover"
+    management: "Tool-agnostic operational controls not paper reviews"
+    sourcea_equivalent: "EVENT_CONTRACT.yaml + authority.yaml + validators + kill flags"
+    gap: "RAISE agent inventory UI; SourceA has REGISTRY + agent-skills registry"
+    steal: "Lifecycle gate vocabulary for Brain tracker §6"
+  keon_systems:
+    how_it_works: "Cognition plane → effect boundary → policy → receipt before real world"
+    management: "MCP Gateway primary — no side doors, fail-closed"
+    sourcea_equivalent: "Broker before advance + closeout_gate + one-sa gate + feasibility STOP_INJECT"
+    gap: "Keon pre-effect authorization microservice; SourceA file-based broker"
+    steal: "Receipt minted BEFORE registry advance — already law in registry-drain skill"
+  devin_enterprise:
+    how_it_works: "Cloud brain + isolated devbox per session; git PR as human gate"
+    management: "Enterprise audit logs API; lifecycle hooks (PermissionRequest) on CLI"
+    proof: "SOC2 Type II; branch protection as approval"
+    sourcea_equivalent: "start_goal1_worker_turn + WORKER_ROUND_REPORT + git receipts"
+    gap: "Devin no native per-tool HITL on standard plan; SourceA has CHECK/ACT/VERIFY roles"
+    advantage: "Local disk SSOT + Cursor skills — code never leaves Mac; Devin is cloud rent"
+  mcp_gateway_2026:
+    how_it_works: "Hub-spoke — all tool calls through policy enforcement point"
+    management: "RBAC/ABAC, rate limits, immutable audit log per invocation"
+    sourcea_equivalent: "Scripts as tools + broker + validators — not MCP mesh yet"
+    gap: "No unified MCP gateway intercepting all Cursor tools"
+    steal_p1: "Route high-risk scripts through paid_engine_gate + closeout_gate only first"
+  elementum_orchestration:
+    how_it_works: "Enterprise workflow — deterministic control + HITL + auditability + sovereignty"
+    management: "30–60 day deploy; ops teams not AI engineers"
+    sourcea_equivalent: "Semi-auto L1 + Hub Actions — founder not Terminal"
+    steal: "Five criteria checklist for production viability — map to validate-* scripts"
+
+maintainer_ship_2026_06_09:
+  law: AGENT_SKILLS_AND_RESEARCH_PIPELINE_LOCKED_v1.md
+  registry: agent-skills/REGISTRY_LOCKED_v1.json
+  count: "12 skills (10 agents + 2 shared)"
+  validator: scripts/validate-agent-skills-v1.sh PASS
+  core_skills:
+    sina-sourcea-worker: "INBOX drain CHECK/ACT/VERIFY broker receipts"
+    sina-sourcea-brain: "Judge hygiene ASF routing acceptance"
+    sina-registry-drain: "Honest closeout — receipts only"
+    sina-research-intake: "Pipeline before build"
+  hub: "Agent hub tab skills grid + founder-sync-agent-skills button"
+  inbox_integration: "@sina-sourcea-worker + @sina-registry-drain auto in Worker turn prompt"
+  functional_role: "Enterprise Agent Skills layer — same slot as Raia playbooks / Devin AGENTS.md but governed by SourceA law"
+
+sourcea_advantage_stack:
+  layer_1_control_plane: "Hub — ASF one-tap, no Terminal"
+  layer_2_routing: "Brain pick + goal1_lane_broker mechanical advance"
+  layer_3_skills: "Cursor SKILL.md per role — disable-model-invocation, load law on session"
+  layer_4_execution_engines: "Claude Code CLI + API Agent + Cursor agent — autorun_dispatcher routes"
+  layer_5_proof: "receipts/sa-XXXX-receipt.json + events jsonl + WORKER_ROUND_REPORT"
+  layer_6_research: "RESEARCH mirror + research-intake pipeline — critic paste cannot reorder"
+  differentiator: "Receipt-bound file SSOT on founder machine — not vendor cloud audit only"
+
+golden_suggestion:
+  one_line: >
+    You already built what Raia sells as Command + what Keon sells as receipts —
+    now wire skills → INBOX → sustained AUTO-RUN → portfolio revenue in parallel.
+  five_moves:
+    - "Session start: every Worker loads @sina-sourcea-worker + @sina-registry-drain (INBOX auto-injects)"
+    - "Brain uses @sina-sourcea-brain for ACCEPT/REJECT — never chat approval without hygiene scripts"
+    - "Research uses @sina-research-intake before structural law changes — this report is an example"
+    - "Sustain Kill #6 factory drain — skills reduce interpretation drift that caused WORKER_STARTED=0 era"
+    - "Portfolio agents (sina-trustfield, sina-noetfield-cloud) run GTM parallel — dual P0 unchanged"
+  do_not:
+    - "Rename internal layers RAIS"
+    - "Buy Raia/Devin before first TF invoice"
+    - "Build MCP gateway before broker chain sustains"
+    - "Skills without receipts — registry-drain skill forbids this"
+
+implementation_roadmap:
+  week_0: "Hub sync skills · AUTO-RUN sustained · skills in every manual Worker session"
+  week_1: "Brain tracker §6 — map RAISE lifecycle gates to EVENT_CONTRACT events"
+  week_2: "Portfolio skill sessions for TF/NF site work tied to GOLDEN-010 homepage blueprint"
+  month_1: "Optional MCP gateway spike for maintainer-only tools — not Worker spine replacement"
+  commercial: "Noetfield sells Keon/RAISE-class governance; TrustField sells Vanta-class evidence"
+
+research_save:
+  trace_id: RESEARCH-ACQUISITOR-20260609-RAIS-011
+  worker_id: research_acquisitor
+  subject: ai_dev
+  vault_path: ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-09_RAIS_SUCCESS_MODELS_FUNCTIONAL_REPORT.yaml
+  execution_authority: false

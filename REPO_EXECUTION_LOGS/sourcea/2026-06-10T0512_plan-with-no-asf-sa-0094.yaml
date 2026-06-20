@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0094 — Compare ChatGPT critic Eval claim to ~/.sina/eval_packet_v1b_report.json
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0094
+tests:
+  status: passed
+  output_snippet: sa-0094 VERIFY — validate-eval-critic-claim-v1 PASS mode=live 4/5 aligned; dispatch-policy governance-fleet critical 0; Q3/30 closeout
+reported_at: '2026-06-10T05:12:35Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

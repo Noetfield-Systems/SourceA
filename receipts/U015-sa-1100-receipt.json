@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U015",
+  "title": "Canadian vs US regulatory vocabulary split",
+  "evidence": "check_regional_vocabulary() in validate_email_translation_v1.py; OSFI/CSA ok in canada; SEC 10-K forbidden; US SEC ok",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:06:30Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

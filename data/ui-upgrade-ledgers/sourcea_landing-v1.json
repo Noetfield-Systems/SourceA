@@ -1,0 +1,53 @@
+{
+  "schema": "ui-upgrade-ledger-v1",
+  "surface_id": "sourcea_landing",
+  "label": "SourceA landing (green-unified)",
+  "repo": "SourceA",
+  "root": "SourceA-landing/green-unified",
+  "url": "http://127.0.0.1:5180/sourcea/",
+  "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/SOURCEA_LANDING_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+  "saved_at": "2026-06-19T16:54:05Z",
+  "baseline_version": "1.0.0",
+  "frozen_inventory": [
+    {"id": "buyer_toggle", "kind": "component", "marker": "sa-buyer-toggle", "files": ["index.html", "sourcea.css"]},
+    {"id": "chain_beats", "kind": "component", "marker": "sa-chain-beats", "min_count": 6, "files": ["index.html", "proof.html"]},
+    {"id": "mock_panel", "kind": "component", "marker": "sa-mock-panel", "files": ["index.html", "sourcea.css"]},
+    {"id": "trust_strip", "kind": "live_data", "marker": "data-trust-valid-yes", "files": ["index.html", "proof.html", "platform.html", "security.html", "status.html"]},
+    {"id": "trust_receipts", "kind": "live_data", "marker": "data-trust-receipts-lifetime", "files": ["index.html", "proof.html", "platform.html", "security.html", "status.html"]},
+    {"id": "agent_pill", "kind": "component", "marker": "id=\"sa-agent-pill-text\"", "files": ["index.html"]},
+    {"id": "factory_pass_chip", "kind": "component", "marker": "sa-factory-pass-chip", "files": ["index.html", "sourcea-motion.js"]},
+    {"id": "hero_cta", "kind": "copy", "marker": "Close clients with live proof", "files": ["index.html"]},
+    {"id": "live_proof_link", "kind": "nav", "marker": "/sourcea/proof/live.html", "files": ["index.html"]},
+    {"id": "trust_bar_js", "kind": "script", "marker": "sourcea-trust-bar.js", "files": ["index.html", "sourcea-trust-bar.js"]},
+    {"id": "live_console_js", "kind": "script", "marker": "sourcea-live-console.js", "files": ["index.html", "sourcea-live-console.js"]},
+    {"id": "paint_factory_chip", "kind": "behavior", "marker": "paintFactoryChip", "files": ["sourcea-trust-bar.js"]},
+    {"id": "sa_live_dataset", "kind": "behavior", "marker": "dataset.saLive", "files": ["sourcea-trust-bar.js", "sourcea-live-console.js", "sourcea-motion.js"]}
+  ],
+  "app_checklist": [
+    {"id": "LAND-1", "step": "Baseline check each governed file before edit"},
+    {"id": "LAND-2", "step": "Never use reference/ or Downloads HTML as canonical"},
+    {"id": "LAND-3", "step": "run-recipe.sh --e2e PASS before baseline bump"},
+    {"id": "LAND-4", "step": "All 5 HTML pages + CSS + 3 JS files inventoried"}
+  ],
+  "upgrades": [
+    {
+      "upgrade_id": "UP-LANDING-000",
+      "saved_at": "2026-06-18T00:10:24Z",
+      "founder_trigger": "baseline lock — no downgrade law",
+      "general_checklist": "UP-0..UP-7",
+      "app_checklist": "LAND-1..LAND-4",
+      "status": "approved",
+      "quality_vs_last": "baseline",
+      "preserved": "all frozen_inventory items locked in ui-upgrade-baseline-v1.json",
+      "changed": "Initial machine baseline manifest v1.0.0 from E2E pass",
+      "achieved": "Machine-enforceable no-downgrade guard on green-unified",
+      "founder_approval": "approved",
+      "machine_proof": {
+        "validate-ui-upgrade-no-downgrade-v1.sh": "PASS",
+        "run-recipe.sh --e2e": "PASS"
+      },
+      "baseline_before": null,
+      "baseline_after": "1.0.0"
+    }
+  ]
+}

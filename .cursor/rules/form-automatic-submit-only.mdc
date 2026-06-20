@@ -1,0 +1,66 @@
+---
+description: FORM_OFFICIAL — founder pick Submit only — NEVER agent apply (INCIDENT-037)
+globs:
+  - agent-control-panel/form/**
+  - scripts/hub_form_submit_v1.py
+  - scripts/canvas_form_submit_v1.py
+  - scripts/canvas_form_apply_picks_v1.py
+alwaysApply: true
+---
+
+# FORM — founder pick Submit only (INCIDENT-037)
+
+**UI FIRST CHECK (mandatory before ANY form UI edit):** `.cursor/rules/026-ui-first-check-zero-exception.mdc` · surface `hub_form`
+
+```bash
+python3 scripts/ui_upgrade_path_classifier_v1.py --path agent-control-panel/form/index.html --json
+python3 scripts/ui_upgrade_first_check_v1.py --surface hub_form --ack --json
+python3 scripts/ui_upgrade_mandatory_gate_v1.py --surface hub_form --print-checklist
+```
+
+**Law:** `SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md` · INCIDENT-037 · `docs/SOURCEA_INCIDENT_037_FORM_FOUNDER_SUPREMACY_LOCKED_v1.md`
+
+## Golden rule
+
+> **FOUNDER PICK > AGENT RECOMMENDATION > DISK GATHER ROW**
+
+## Hard rule (founder locked)
+
+> **Only ASF clicking Submit with explicit picks writes §ANSWERED. Recommended is a hint only. Agents MUST NOT run apply/sync/submit scripts.**
+
+## Forbidden for agents (always)
+
+- `canvas_form_apply_picks_v1.py --apply` or `--sync-applied`
+- `canvas_form_submit_v1.py`
+- `hub_form_submit_v1.py` with `--actor agent` or `submit_automatic()` from CLI
+- Bulk-writing §ANSWERED from recommended column
+- Displaying recommended as selected answer · label `AUTOMATIC`
+
+## Forbidden in hub form UI (`agent-control-panel/form/`)
+
+- Copy / paste / clipboard buttons or text
+- ASF batch preview boxes
+- "Reply in Worker chat" instructions
+- `FIVE-STEP — PICK` founder-facing copy flows
+- One-question wizard (prev/next)
+- Read-only automatic display · footer "automatic"
+- Redesigning form UI without UI upgrade first-check
+
+## Allowed
+
+- **Radio per row** — founder taps A/B/C/D (or YES/NO) on each question
+- **Submit my picks** → `POST /api/live-founder-decision-form-v1` with `founder_submit: true` + full `picks` map
+- Server: `hub_form_submit_v1.submit_founder_picks(actor=founder)` — rejects incomplete picks
+- **Recommended** shown as "Agent suggestion only (not your pick)"
+- Hub page = mirror only · M1 Canvas is FORM SSOT
+
+## Validators
+
+```bash
+bash scripts/validate-hub-form-automatic-v1.sh
+bash scripts/validate-form-founder-supremacy-v1.sh
+```
+
+## Agents
+
+Do **not** touch form UI unless fixing founder-pick flow. Never answer instead of founder.

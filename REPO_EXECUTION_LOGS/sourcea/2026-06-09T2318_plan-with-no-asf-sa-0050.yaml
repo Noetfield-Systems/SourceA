@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0050 — Append SOURCEA-PRIORITY row: SSOT alignment PASS with timestamp
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0050
+tests:
+  status: passed
+  output_snippet: sa-0050 PASS — SOURCEA-PRIORITY SSOT alignment PASS row appended @ 2026-06-09T23:18:00Z; critical 0
+reported_at: '2026-06-09T23:18:05Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "sourcea-verify": {
+      "command": "npx",
+      "args": ["-y", "@sourcea/mcp-verify"]
+    },
+    "sourcea-verify-sse": {
+      "url": "https://sourcea-mcp-verify.vercel.app/mcp",
+      "headers": {
+        "Authorization": "Bearer ${SOURCEA_MCP_TOKEN}"
+      }
+    }
+  }
+}

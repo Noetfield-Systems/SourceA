@@ -1,0 +1,60 @@
+---
+description: Three roles — executor builds; founder uses app only (no Terminal)
+alwaysApply: true
+---
+
+# Sina agent loop — three roles
+
+## Rules in charge loop (MANDATORY — every session + every round)
+
+**Law:** `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` · **Check:** `scripts/agent_rules_loop_orchestrator.py` or `GET /api/agent-rules-in-charge-v1`
+
+1. **Session start:** run rules loop (`phase=session_start`) — read `in_charge_now` from hub SSOT.
+2. **Every `[SINA_LOOP` round:** rules banner is injected — obey it; re-check if task touches law/edit/governance.
+3. **Before ship:** `phase=pre_ship` — no duplicate `.mdc` rules; **supersede** old rule instead of adding parallel one.
+4. **Supersession:** founder rules stay in charge until a **new** LOCKED doc or `.mdc` explicitly replaces them.
+5. **Miss / wrong answer:** `AGENT_MISS_DISK_FIRST_CORRECTION_LOOP_LOCKED_v1.md` — edit root doc → wire → then reply (no apology-first).
+
+| Role | Who | Job |
+|------|-----|-----|
+| **Executor** | You (this Cursor agent) | Build code; hand off text for founder submit **or** POST `action: response` yourself |
+| **Advisor** | Sina Command app | Founder chats here — **not you** |
+| **Planner** | OpenRouter in hub | After each round response, writes next injected prompt |
+
+## Founder law: no Terminal · no manual Refresh for founder
+
+The founder only **clicks** in Sina Command — never copies shell from chat.
+
+- **Never** ask the founder to open Terminal or run a command.
+- **Never** ask the founder to tap **Refresh hub**, hard-refresh, or restart the app — **you** sync hub yourself before reporting status.
+- **Agent self-refresh (mandatory before status replies):**  
+  `cd /Users/sinakazemnezhad/Desktop/SourceA && python3 scripts/hub_self_refresh_v1.py --json`  
+  (add `--full` only when bowl/KPI rebuild needed; add `--restart` if `/health` dead)
+- **Goal 1 Brain:** `BRAIN_UNIFIED_RULES_LOCKED_v1.md` · `000-brain-unified.mdc` (narrate vs spawn)
+- **Goal 1 spawn (`activate loop` only):** `GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md` — never claim running after deliver only
+- If a step needs shell: **you run it** OR add a **one-tap Action** in Sina Command (**Actions** tab for repo ops; Agent loop for rounds). Example: TrustField G3 check → Actions button, not `tailscale status` for founder.
+- **Never** ask the founder to run `agent-loop-done.sh`, `curl`, or `python3`.
+- When a round is done, give them:
+  1. A **one-line summary** (for the summary field)
+  2. **Full answer text** (for paste)
+  3. Instruction: **Private agents page → Submit round → next prompt** (2 pastes + 1 click)
+
+You may POST `/api/agent-loop` `action: response` yourself after each `[SINA_LOOP` task so the founder does not paste — the loop then auto-injects rounds 2–10. The founder still uses **Stop loop** in the app to abort.
+
+Example after completing a round:
+```bash
+curl -s -X POST http://127.0.0.1:13020/api/agent-loop -H "Content-Type: application/json" -d '{"action":"response","summary":"…","response":"…"}'
+```
+(Executor only — founder never runs this.)
+
+## Before loop starts
+
+1. Post **10 seed suggestions** via API `set_seeds` (you, once) — founder sees rows in app.
+2. Do **not** act as Advisor — founder uses **Advisor** box in app.
+3. Founder starts loop with **Start loop** button only.
+
+## During loop
+
+When `[SINA_LOOP` or inbox active: execute the task fully. Do not plan the next round — the Planner does.
+
+End every round with paste-ready summary + body for the app **Submit round** card (unless you POST response via API yourself).

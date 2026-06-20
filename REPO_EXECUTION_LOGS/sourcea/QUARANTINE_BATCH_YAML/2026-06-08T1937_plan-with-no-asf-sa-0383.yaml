@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0383 — Inject planner_bridge_ready first_action_id note in renderGraphExecutorPanel
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0383
+tests:
+  status: passed
+  output_snippet: pack10 scoreboard-fleet verify-only; validators PASS
+reported_at: '2026-06-08T19:37:05Z'
+reporter: cursor-worker-batch

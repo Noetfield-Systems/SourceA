@@ -1,0 +1,44 @@
+{
+  "schema": "fbe-witnessbc-proof-lab-verify-v1",
+  "ok": true,
+  "factory_id": "witnessbc-proof-lab-factory-v1",
+  "bay_slug": "witnessbc-proof-lab-bay",
+  "wired_to": "P0-03 \u00b7 P0-08 \u00b7 STYLE-B1 \u00b7 sandbox+noetfield pattern",
+  "checks": [
+    {
+      "label": "spec",
+      "ok": true,
+      "note": "proof lab factory spec"
+    },
+    {
+      "label": "catalog",
+      "ok": true,
+      "catalog_id": "cat-witnessbc-proof-lab",
+      "note": "proof lab catalog row"
+    },
+    {
+      "label": "proof_scenarios",
+      "ok": true,
+      "count": 6,
+      "note": "6+ scenarios incl tamper"
+    },
+    {
+      "label": "style_b1_beats",
+      "ok": true,
+      "beats": "data/witnessbc-commercial-film-beats-v1.json",
+      "note": "STYLE-B1 beats on disk"
+    },
+    {
+      "label": "w1_demo_film",
+      "ok": true,
+      "path": "witnessbc-site/assets/w1-demo.mp4",
+      "note": "W1 embed asset"
+    },
+    {
+      "label": "phase0_pattern",
+      "ok": true,
+      "note": "sandbox + noetfield freemium mock_only wired"
+    }
+  ],
+  "at": "2026-06-19T16:09:47Z"
+}

@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
+  "builds": [
+    { "src": "api/index.ts", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/health", "dest": "/api/index.ts" },
+    { "src": "/mcp", "dest": "/api/index.ts" },
+    { "src": "/mcp/(.*)", "dest": "/api/index.ts" },
+    { "src": "/(.*)", "dest": "/api/index.ts" }
+  ],
+  "env": {
+    "SOURCEA_MCP_CLOUD": "1",
+    "SOURCEA_HUB_URL": "http://127.0.0.1:13020"
+  }
+}

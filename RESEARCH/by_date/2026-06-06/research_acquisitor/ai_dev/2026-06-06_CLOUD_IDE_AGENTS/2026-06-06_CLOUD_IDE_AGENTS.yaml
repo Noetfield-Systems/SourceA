@@ -1,0 +1,300 @@
+# [Research Acquisitor · RESEARCH-ACQUISITOR-REF-2026-06-06-CLOUD-IDE-002] rr-20260606-9204d7bd
+trace:
+  agent_name: Research Acquisitor
+  agent_id: research_acquisitor
+  trace_id: RESEARCH-ACQUISITOR-REF-2026-06-06-CLOUD-IDE-002
+  ref_tag: RESEARCH-ACQUISITOR-CLOUD-IDE-002
+  registry_id: rr-20260606-9204d7bd
+  session_transcript: 85dd7cd4-0977-4cfc-9449-ea278ea0baee
+  canonical: false
+module: research_acquisitor
+date: 2026-06-06
+brief_type: sector_landscape
+sector: cloud_ide_and_autonomous_swe
+execution_authority: false
+extends: 2026-06-06_RESEARCH_BRIEF.yaml
+extends_note: "Extends v1 brief; does not contradict RAIS/Devin/Lovable/Cursor findings."
+
+mission: >
+  Broad  + pattern map for Governed Execution OS positioning —
+  cloud IDE / code agents (A) and autonomous SWE (B).
+
+entities:
+  - id: replit_agent
+    name: Replit Agent
+    category: cloud_ide_agent
+    hq: US
+    architecture:
+      pattern: browser_cloud_ide_plus_agent
+      stack: "Replit Nix containers; effort-based checkpoint billing; Agent modes (Lite/Economy/Power/Turbo); GitHub sync; autonomous long builds on paid tiers."
+      deployment: cloud_only
+    pricing_band_usd:
+      subscription: "Starter $0; Core ~$17–20/mo (annual vs monthly); Pro ~$95–100/mo"
+      usage: "Monthly credit pool ($20 Core / $100 Pro) + pay-as-you-go overage; Agent checkpoints $0.06–$multi per request (effort-based, one checkpoint/request)"
+      teams: "Pro up to 15 builders pooled credits"
+    autonomy_claim: "AI software engineer; builds full apps from natural language with autonomous long-running builds"
+    autonomy_reality: "Strong for prototypes and solo dev MVPs; credit burn unpredictable on large codebases/long context; needs human review for production security and scale."
+    fit:
+      trustfield: weak — targets developers, not Canada SMB ops/GTM buyers
+      sourcea: analog for cloud sandbox + credit metering; not governed execution spine
+      noetfield: weak — no governance-first contract layer; permissive defaults risk regulated SMB use
+
+  - id: bolt_new
+    name: Bolt.new (StackBlitz)
+    category: cloud_ide_agent
+    hq: US
+    architecture:
+      pattern: in_browser_full_stack_codegen
+      stack: "WebContainers in browser; token-metered AI; Supabase integration; deploy/hosting; Microsoft Marketplace enterprise path (2026)."
+      deployment: cloud_only
+    pricing_band_usd:
+      subscription: "Free 1M tokens/mo (300K daily cap); Pro $25/mo; Teams $30/user/mo; Enterprise custom"
+      usage: "10M tokens/mo on Pro; rollover 1 month on paid; entire codebase re-injected per prompt → token scales with repo size"
+      hidden: "Supabase/hosting overages; real spend often $50–75/mo for active builders per independent reviews"
+    autonomy_claim: "Build, run, edit, deploy full-stack web apps from a single prompt"
+    autonomy_reality: "Fast MVP generation; debugging loops consume tokens; enterprise isolation via own-tenant Azure/AWS is sales-led, not self-serve governance."
+    fit:
+      trustfield: weak — app builder SKU, not workflow/compliance layer
+      sourcea: pattern reference for token economics and browser sandbox agents
+      noetfield: weak — no audit/validator gate story for regulated pilots
+
+  - id: vercel_v0
+    name: v0 (Vercel)
+    category: cloud_ide_agent
+    hq: US
+    architecture:
+      pattern: prompt_to_react_ui_plus_vercel_deploy
+      stack: "Token→credit metering; v0 Mini/Pro/Max model tiers; Design Mode; GitHub sync; Vercel deploy path; API access on Premium+."
+      deployment: cloud_only
+    pricing_band_usd:
+      subscription: "Free $5 credits/mo (7 msg/day); Premium $20/mo; Team $30/user/mo; Business $100/user/mo; Enterprise custom"
+      usage: "Credits reset monthly, no rollover; model rates e.g. Pro $3/$15 per 1M in/out tokens"
+    autonomy_claim: "Generate production UI and full-stack components from prompts"
+    autonomy_reality: "Excellent UI velocity for frontend-heavy work; complex multi-file logic burns credits fast; not business-process automation."
+    fit:
+      trustfield: weak — design/dev acceleration, not TrustField fintech/workflow wedge
+      sourcea: deploy + credit transparency patterns only
+      noetfield: Business tier training opt-out relevant for enterprise code privacy, not SMB legal sell path
+
+  - id: windsurf
+    name: Windsurf (Cognition)
+    category: cloud_ide_agent
+    hq: US (Cognition acquired 2025)
+    architecture:
+      pattern: vscode_fork_agentic_ide
+      stack: "Cascade agent; SWE-1/SWE-1.5 proprietary models; daily+weekly quotas (Mar 2026); cloud sessions; MCP; same Cognition family as Devin."
+      deployment: local_ide_plus_cloud_sessions
+    pricing_band_usd:
+      subscription: "Free quota-limited; Pro $20/mo; Max $200/mo; Teams $40/seat/mo; Enterprise custom ACU-style"
+      usage: "Quota windows refresh daily/weekly; overage at API list price; grandfathered $15 Pro for early subscribers"
+    autonomy_claim: "Agentic coding flow state; deep codebase understanding; multi-step autonomous edits"
+    autonomy_reality: "Strong IDE copilot for devs; quota caps interrupt burst workflows; not autonomous business ops for non-dev SMBs."
+    fit:
+      trustfield: weak
+      sourcea: quota-vs-credit billing pattern; Cognition harness maturity reference
+      noetfield: weak
+
+  - id: openai_codex
+    name: OpenAI Codex
+    category: cloud_ide_agent
+    hq: US
+    architecture:
+      pattern: chatgpt_bundled_dev_agent
+      stack: "CLI + IDE extension + cloud tasks in isolated containers; 5-hour shared usage windows; Plugins/Automations; BYO API key path."
+      deployment: local_cli_plus_cloud_tasks
+    pricing_band_usd:
+      subscription: "Included in ChatGPT Plus/Pro/Business; Business annual lowered to $20/seat (Apr 2026); Codex-only seats pay-as-you-go no seat fee"
+      usage: "Local messages + cloud tasks share 5h window; cloud container fees $0.03–$1.92 per 20-min session by memory tier; OpenAI est. $100–200/dev/mo typical"
+    autonomy_claim: "Multi-agent workflows; cloud environments; code review and Slack integrations"
+    autonomy_reality: "Mature for OpenAI-ecosystem dev teams; usage limits opaque until exhausted; not governed multi-goal business OS."
+    fit:
+      trustfield: weak
+      sourcea: cloud task VM pattern comparable to Cursor Cloud Agents
+      noetfield: Enterprise flexible pricing + workspace credits relevant for data residency buyers
+
+  - id: cognition_devin
+    name: Cognition Devin
+    category: autonomous_swe
+    hq: US
+    architecture:
+      pattern: cloud_sandbox_vm_per_session
+      stack: "Isolated VM; shell/editor/browser; ACU metering; Slack/GitHub triggers; Cognition also owns Windsurf."
+      deployment: cloud_only
+    pricing_band_usd:
+      subscription: "Free tier; Pro $20/mo; Max $200/mo; Teams $80/mo min + $40/full seat"
+      usage: "ACU ≈ 15 min active work; flex seats unlimited at reduced ACU"
+    autonomy_claim: "First AI software engineer — end-to-end build, test, deploy"
+    autonomy_reality: "Independent eval ~15% task success (3/20); SWE-bench verified drop vs marketing; needs specs + human PR review."
+    fit:
+      trustfield: weak
+      sourcea: external harness ; extends v1 F06–F08
+      noetfield: weak — no governance specialist separation
+
+  - id: factory_ai
+    name: Factory.ai (Droids)
+    category: autonomous_swe
+    hq: US
+    architecture:
+      pattern: sdlc_wide_agent_platform
+      stack: "Droids across desktop/CLI/web/Slack/Jira; org memory; MCP; local+cloud execution; Droid Computers (managed VMs) on Plus+."
+      deployment: hybrid_local_and_cloud
+    pricing_band_usd:
+      subscription: "Pro $20/mo; Plus $100/mo; Max $200/mo; Teams/Enterprise contact sales"
+      usage: "Rolling 5h/weekly/monthly rate limits; Droid Core free open-weight tier; Extra Usage prepaid from $10"
+    autonomy_claim: "Droids for entire SDLC — tickets to production-ready features autonomously"
+    autonomy_reality: "Strong enterprise dev integrations; rate limits bind heavy autonomous runs; guardrails marketed but customer-configured."
+    fit:
+      trustfield: weak — eng org buyer
+      sourcea: org-context memory + ticket→PR loop analog to sa-XXXX backlog (external only)
+      noetfield: Enterprise audit logging/on-prem options align with governance buyers, not SMB phone agents
+
+  - id: openhands
+    name: OpenHands
+    category: autonomous_swe
+    hq: US
+    architecture:
+      pattern: oss_agent_plus_cloud_saas
+      stack: "MIT OSS local/CLI/SDK; Cloud SaaS with BYOK or at-cost LLM provider; Enterprise K8s (Keycloak, LiteLLM, sandbox runtimes)."
+      deployment: self_host_or_cloud
+    pricing_band_usd:
+      subscription: "OSS free; Cloud Individual free BYOK or pay-as-you-go; $20/mo subscription for expanded models (Nov 2025); Enterprise custom"
+      usage: "Enterprise no per-seat licensing — customer pays own LLM/compute"
+    autonomy_claim: "Highly autonomous coding agent for any software development task"
+    autonomy_reality: "Flexible for technical teams; cloud economics improved but still LLM-cost bound; multi-user governance is Enterprise-only."
+    fit:
+      trustfield: weak
+      sourcea: self-host + validator-friendly architecture pattern
+      noetfield: Enterprise VPC/SSO strong fit for Noetfield-style deployment constraints
+
+  - id: sweep_ai
+    name: Sweep AI
+    category: autonomous_swe
+    hq: US
+    architecture:
+      pattern: jetbrains_ide_agent_plugin
+      stack: "Custom Tab model + frontier LLM agent; Privacy Mode; JetBrains-only (not full cloud SWE)."
+      deployment: local_ide_plugin
+    pricing_band_usd:
+      subscription: "Free trial; Basic $10/mo; Pro $20/mo; Ultra $60/mo; Team $40 credits/seat"
+      usage: "Plan price = included API credits; LLM at cost + 5% markup; credits roll 30 days"
+    autonomy_claim: "Agent for multi-file changes, tests, and PR-style work inside JetBrains"
+    autonomy_reality: "Strong autocomplete value; agent scope IDE-bound; not cloud autonomous engineer."
+    fit:
+      trustfield: weak
+      sourcea: credit=plan-price transparency pattern
+      noetfield: Privacy Mode / zero data retention options noted for regulated dev shops
+
+architecture_patterns_summary:
+  - pattern: cloud_sandbox_or_container_per_agent
+    prevalence: dominant_2026
+    examples: [replit_agent, bolt_new, devin, codex_cloud_tasks, factory_droid_computers]
+  - pattern: credit_token_or_quota_metering
+    prevalence: universal
+    examples: [replit, bolt, v0, windsurf, sweep]
+  - pattern: ide_fork_vs_browser_builder
+    prevalence: bifurcated_market
+    examples: [windsurf, sweep vs bolt, v0, replit]
+  - pattern: sdlc_integration_beyond_repo
+    prevalence: rising
+    examples: [factory_ai, openhands_enterprise, devin]
+
+pricing_bands_summary_usd:
+  entry_dev_agent: "$10–25/mo (Sweep Basic, Bolt Pro, Cursor-class)"
+  power_dev_agent: "$60–200/mo (Ultra, Max tiers, heavy usage)"
+  enterprise_swe: "Custom; Factory/OpenHands Enterprise; Codex Business+"
+  usage_overlay: "Credits, tokens, ACUs, quotas — all create 30–100%+ bill variance vs headline"
+
+autonomy_claims_vs_reality:
+  industry_pattern: "Cloud IDE agents optimize generation velocity; autonomous SWE players optimize ticket→PR — none ship commercial+governance+research advocate separation."
+  cloud_ide_delta: "Claim: production apps from prompts. Reality: MVP speed high; security/compliance/cost predictability need human engineering."
+  autonomous_swe_delta: "Claim: autonomous engineer. Reality: bounded tasks with review; /marketing gap persists (Devin); rate limits interrupt 'autonomous' sessions."
+
+sources:
+  - url: "https://replit.com/pricing"
+    title: "Replit Pricing"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://replit.com/blog/effort-based-pricing"
+    title: "Replit Effort-Based Pricing"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://bolt.new/pricing"
+    title: "Bolt.new Pricing"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://v0.app/pricing"
+    title: "v0 Pricing"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://vercel.com/blog/updated-v0-pricing"
+    title: "Updated v0 pricing"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://devin.ai/blog/windsurf-pricing-plans"
+    title: "Windsurf pricing plans"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://docs.windsurf.com/windsurf/accounts/quota"
+    title: "Windsurf Quota-Based Usage"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://chatgpt.com/codex/pricing/"
+    title: "Codex Pricing"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://openai.com/index/codex-flexible-pricing-for-teams/"
+    title: "Codex pay-as-you-go for teams"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://developers.openai.com/codex/pricing"
+    title: "Codex developer pricing"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://devin.ai/pricing"
+    title: "Devin Pricing"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://www.theregister.com/software/2025/01/23/first-ai-software-engineer-is-bad-at_its_job/549014"
+    title: "Independent Devin eval"
+    accessed: "2026-06-06"
+    type: independent_eval
+  - url: "https://factory.ai/pricing"
+    title: "Factory Pricing"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://docs.factory.ai/pricing"
+    title: "Factory Plans Docs"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://openhands.dev/pricing/"
+    title: "OpenHands Pricing"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://docs.openhands.dev/enterprise"
+    title: "OpenHands Enterprise"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://sweep.dev/pricing"
+    title: "Sweep Pricing"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://docs.sweep.dev/pricing"
+    title: "Sweep Docs Pricing"
+    accessed: "2026-06-06"
+    type: primary_vendor
+  - url: "https://usagebox.com/articles/ai-coding-tool-billing-models-2026"
+    title: "AI coding tool billing models 2026"
+    accessed: "2026-06-06"
+    type: industry_analysis
+  - url: "https://cursor.com/docs/models-and-pricing"
+    title: "Cursor pricing (v1 brief cross-ref)"
+    accessed: "2026-06-06"
+    type: primary_vendor
+
+internal_references:
+  - path: "~/Desktop/Cursor OS Pro/docs/VOICE_AGENT_ROADMAP_LOCKED_v1.md"
+    source_type: internal_reference
+    note: "Replit Agent cited as S-tier quality bar for AI-ships-code; not law for this brief."
+
+confidence: medium-high
+confidence_rationale: "Vendor pricing pages high confidence; Devin eval medium-high; secondary pricing aggregators used only where primary pages lack detail."

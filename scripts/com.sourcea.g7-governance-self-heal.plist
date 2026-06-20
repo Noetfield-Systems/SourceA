@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.sourcea.g7-governance-self-heal</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/zsh</string>
+        <string>-lc</string>
+        <string>source ~/.zshrc 2>/dev/null; cd /Users/sinakazemnezhad/Desktop/SourceA; python3 scripts/governance_self_heal_daemon_v1.py --heal --json >> /Users/sinakazemnezhad/.sina/g7-governance-self-heal.log 2>&1</string>
+    </array>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/Users/sinakazemnezhad/.npm-global/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>HOME</key>
+        <string>/Users/sinakazemnezhad</string>
+    </dict>
+
+    <key>StartInterval</key>
+    <integer>3600</integer>
+
+    <key>StandardOutPath</key>
+    <string>/Users/sinakazemnezhad/.sina/g7-governance-self-heal.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/sinakazemnezhad/.sina/g7-governance-self-heal-err.log</string>
+</dict>
+</plist>

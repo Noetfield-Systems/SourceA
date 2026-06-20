@@ -1,0 +1,136 @@
+{
+  "schema": "canada-factory-round-2-v1",
+  "saved_at": "2026-06-19T18:55:50Z",
+  "round": 2,
+  "law": [
+    "no_invitation",
+    "founder_manual_send_only",
+    "ui_agent_checklist_before_www",
+    "commercial_block_until_ladder_1_4"
+  ],
+  "round_1_closeout": {
+    "fundmore": {
+      "status": "sent",
+      "sent_at": "2026-06-19T04:17:55Z",
+      "lane": "Noetfield",
+      "sku": "NF-RD"
+    },
+    "ocree": {
+      "status": "ready_for_founder_send",
+      "lane": "TrustField",
+      "sku": "T-P6"
+    }
+  },
+  "round_2_factory_queue": [
+    {
+      "step": 1,
+      "id": "ocree_send",
+      "brand": "trustfield",
+      "plans": [
+        "cr-0015",
+        "cr-0102"
+      ],
+      "gate": "w3_founder_manual"
+    },
+    {
+      "step": 2,
+      "id": "packaging_ladder",
+      "brand": "trustfield",
+      "plans": [
+        "cr-0034",
+        "cr-0066"
+      ],
+      "gate": "ui_build_and_verify"
+    },
+    {
+      "step": 3,
+      "id": "fractionvest_compile",
+      "brand": "trustfield",
+      "plans": [
+        "cr-0103",
+        "cr-0104"
+      ],
+      "gate": "icp_fefs"
+    },
+    {
+      "step": 4,
+      "id": "newton_msb",
+      "brand": "trustfield",
+      "plans": [
+        "cr-0196",
+        "cr-0067"
+      ],
+      "gate": "after_packaging_green"
+    },
+    {
+      "step": 5,
+      "id": "sourcea_factory",
+      "brand": "sourcea",
+      "plans": [],
+      "gate": "blocked_until_ocree_closeout"
+    },
+    {
+      "step": 6,
+      "id": "msb_wave_15x",
+      "brand": "trustfield",
+      "plans": [
+        "cr-0067",
+        "cr-0099"
+      ],
+      "gate": "partner-api-tracker"
+    }
+  ],
+  "plans_summary": {
+    "total": 333,
+    "waves": [
+      {
+        "id": "wave-s-guard",
+        "priority": "S0-S3",
+        "range": "cr-0001\u2013cr-0033",
+        "count": 33
+      },
+      {
+        "id": "wave-p-packaging",
+        "priority": "P1",
+        "range": "cr-0034\u2013cr-0066",
+        "count": 33
+      },
+      {
+        "id": "wave-m-msb",
+        "priority": "P1",
+        "range": "cr-0067\u2013cr-0099",
+        "count": 33
+      },
+      {
+        "id": "wave-a-rwa",
+        "priority": "A",
+        "range": "cr-0100\u2013cr-0199",
+        "count": 100
+      },
+      {
+        "id": "wave-b-rwa",
+        "priority": "B",
+        "range": "cr-0200\u2013cr-0266",
+        "count": 67
+      },
+      {
+        "id": "wave-c-tradfi",
+        "priority": "C-D",
+        "range": "cr-0267\u2013cr-0300",
+        "count": 34
+      },
+      {
+        "id": "wave-d-research",
+        "priority": "D",
+        "range": "cr-0301\u2013cr-0333",
+        "count": 33
+      }
+    ]
+  },
+  "cross_ref": {
+    "deep_analysis": "/Users/sinakazemnezhad/Desktop/1 PAGER/CANADA_RWA_DEEP_ANALYSIS_LOCKED_v3.md",
+    "remaining_todo": "/Users/sinakazemnezhad/Desktop/1 PAGER/CANADA_RWA_REMAINING_TODO_FUTURE_LOCKED_v1.md",
+    "w3_approvals": "/Users/sinakazemnezhad/Desktop/SourceA/data/commercial/w3-canada-send-approvals-v1.json",
+    "emails_json": "/Users/sinakazemnezhad/Desktop/SourceA/data/commercial/canada-priority-a-emails-v1.json"
+  }
+}
