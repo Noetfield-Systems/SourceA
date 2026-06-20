@@ -1,7 +1,7 @@
 path	size	first_line
 ./ACTIVE_NOW.md	4.0K	# ACTIVE NOW — single scoreboard (ASF law)
-./AGENT_APPLICATION_USE_BLUEPRINT_LOCKED_v1.md	 28K	# Agent Application Use Blueprint (LOCKED)
 ./AGENT_APP_AS_UNIFYING_HUB_LOCKED_v1.md	4.0K	# Sina Command as unifying hub (LOCKED)
+./AGENT_APPLICATION_USE_BLUEPRINT_LOCKED_v1.md	 28K	# Agent Application Use Blueprint (LOCKED)
 ./AGENT_CONTROL_PANEL_SPEC_LOCKED_v1.md	8.0K	# Agent Control Panel — local fleet monitor (LOCKED spec)
 ./AGENT_COUNCIL_ROOM_LOCKED_v1.md	8.0K	# Agent Council Room (LOCKED)
 ./AGENT_DECISION_STACK_AND_SMART_JUDGMENT_LOCKED_v1.md	 12K	# Agent Decision Stack & Smart Judgment (LOCKED)
@@ -20,9 +20,9 @@ path	size	first_line
 ./AGENT_MIND_SHARE_LOCKED_v1.md	4.0K	# Agent Mind Share (LOCKED)
 ./AGENT_NO_HUB_REBUILD_STUCK_LOCKED_v1.md	4.0K	# Agent — No Hub Rebuild Stuck Loop (LOCKED v1)
 ./AGENT_OPERATING_ROLES_LOCKED_v1.md	4.0K	# Agent operating roles — ecosystem (LOCKED)
-./AGENT_RULES_IN_CHARGE_LOCKED_v1.md	4.0K	# MOVED — canonical SSOT
 ./AGENT_RULE_CONFLICT_AND_STALE_TRUTH_AUDIT_LOCKED_v1.md	4.0K	# Agent rule conflict & stale truth audit — root pointer
 ./AGENT_RULE_CONFLICT_AND_STALE_TRUTH_AUDIT_REPORT_LOCKED_v1.md	4.0K	# Agent rule conflict audit — pointer
+./AGENT_RULES_IN_CHARGE_LOCKED_v1.md	4.0K	# MOVED — canonical SSOT
 ./AGENT_SCOREBOARD_LOCKED_v1.md	4.0K	# Agent session scoreboard (LOCKED)
 ./AGENT_SELF_AUDIT_ASF_REPORT_2026-06-04.md	8.0K	# Agent self-audit — full ecosystem (ASF presentation)
 ./AGENT_SKILLS_AND_RESEARCH_PIPELINE_LOCKED_v1.md	8.0K	# Agent Skills & Research Pipeline (LOCKED)
@@ -43,9 +43,9 @@ path	size	first_line
 ./AUTO_CONFLICT_ENGINE_V3_LOCKED.md	8.0K	# Auto-Conflict Engine v3 — Layer Sovereignty (FINAL LOCKED)
 ./AUTO_CONFLICT_EXAMPLE_AGENT_STACK_POLICY_v1_LOCKED.md	8.0K	# AUTO-CONFLICT Example — Agent Stack Policy v1 (LOCKED)
 ./BRAIN_OS_POINTER_LOCKED_v1.md	4.0K	# Brain-OS — unified SSOT pointer (LOCKED v2)
-./CHATGPT_EXTERNAL_CRITIC_LAW_LOCKED_v1.md	4.0K	# MOVED — canonical SSOT
 ./CHAT_EXTRACT_UNIFY_PROMPT.txt	4.0K	CHAT EXTRACT — this conversation only
 ./CHAT_UNIFY_ROLLUP_PROMPT.txt	4.0K	CHAT UNIFY — merge extractions into one master brief
+./CHATGPT_EXTERNAL_CRITIC_LAW_LOCKED_v1.md	4.0K	# MOVED — canonical SSOT
 ./COUNCIL_BRIEF_STRATEGIC_SLICE_EVAL_L0_ENFORCE_LOCKED_v1.md	 12K	# Council Brief — Strategic Slice (LOCKED v1)
 ./CROSS_LANE_EDIT_FORBIDDEN_LOCKED_v1.md	4.0K	# Cross-lane edit forbidden — LOCKED v1 (stub)
 ./CURSOR_AGENT_CONTEXT_MEMORY_INCIDENT_LOCKED_v1.md	4.0K	# MOVED — canonical SSOT
@@ -60,9 +60,9 @@ path	size	first_line
 ./ECOSYSTEM_IMPORTANT_DOCS_INDEX_LOCKED_v1.md	4.0K	# Ecosystem important docs — index (LOCKED pointer)
 ./ECOSYSTEM_INCIDENTS_INDEX_LOCKED_v1.md	4.0K	# Ecosystem incidents index — locked
 ./ECOSYSTEM_STATUS.md	8.0K	# Ecosystem Status (generated — do not edit by hand)
+./ENFORCE_BYPASS_MAP_LOCKED_v1.md	4.0K	# ENFORCE bypass map (LOCKED v1)
 ./ENFORCEMENT-6MO-MASTER-PLAN-v1.md	 24K	# ENFORCEMENT-6MO MASTER EXECUTION PLAN
 ./ENFORCEMENT-6MO-VC-ROADMAP-v1.md	 28K	# ENFORCEMENT-6MO — VC-GRADE EXECUTION ROADMAP
-./ENFORCE_BYPASS_MAP_LOCKED_v1.md	4.0K	# ENFORCE bypass map (LOCKED v1)
 ./FOUNDER_AGENT_USE_GUIDE_LOCKED_v1.md	8.0K	# Founder — Agents Window use guide (LOCKED)
 ./FOUNDER_BRAIN_MAINTAINER_STRATEGIC_EXTRACTION_100M_v2.md	 24K	# Founder × Brain × Maintainer — Strategic Extraction toward $100M Sig
 ./FOUNDER_BUSY_OPERATING_MODEL_REPORT_LOCKED_v1.md	4.0K	# Operating Model SSOT — root pointer (LOCKED)
@@ -83,9 +83,9 @@ path	size	first_line
 ./INCIDENT_SUBJECT_INDEX_REPORT_LOCKED_v1.md	4.0K	# Incident subject index — pointer
 ./IPHONE_CLOUD_ORGANIZATION_SPEC_LOCKED_v1.md	 12K	# iPhone Cloud — organization spec (LOCKED)
 ./LLM_CONTEXT_PACKET_SCHEMA_LOCKED_v1.md	4.0K	# LLM Context Packet — Schema Contract (LOCKED v1)
-./MACHINE_THREE_PIPELINES_CALIBRATE_TUNE_FORGE_LOCKED_v1.md	4.0K	# Machine three pipelines — Calibrate · Tune · machine prove (LOCKED v
 ./MAC_GUARD_AGENCY_DEMO_SCRIPT_LOCKED_v1.md	4.0K	# Mac Guard Agency Demo Script — SUPERSEDED
 ./MAC_SNAPSHOT_PROMPT.txt	4.0K	MAC SNAPSHOT — run now
+./MACHINE_THREE_PIPELINES_CALIBRATE_TUNE_FORGE_LOCKED_v1.md	4.0K	# Machine three pipelines — Calibrate · Tune · machine prove (LOCKED v
 ./META_REASONING_POLICY_STACK_LOCKED_v1.md	 24K	# Meta-Reasoning Policy Stack — Decision Governance Layer (LOCKED)
 ./N8N_AUTOMATION_EXECUTION_PLAN_LOCKED_v2.md	8.0K	# n8n Automation — Execution Plan (LOCKED)
 ./N8N_COMMERCIAL_GRADE_LOCKED_v1.md	4.0K	# n8n Commercial Grade — LOCKED v1
@@ -98,8 +98,8 @@ path	size	first_line
 ./ORDER_GUARDIAN_AGENT_LOCKED_v1.md	4.0K	# Order Guardian — in-app task orders agent (LOCKED)
 ./PHASE1_UNIFIED_BLUEPRINT_v2_3.md	 36K	> **INTERNAL ONLY — Phase 1 work plan — NOT SSOT.**
 ./PLAN_STATUS_VOCAB_LOCKED_v1.md	4.0K	# Plan status vocabulary + factory scoring vs growth (LOCKED)
-./PORT_NOTICE_BOARD.md	4.0K	# PORT NOTICE BOARD (live — agents read this first)
 ./PORT_NOTICE_BOARD_LOCKED_v1.md	4.0K	# Port Notice Board — LOCKED (agent entry point)
+./PORT_NOTICE_BOARD.md	4.0K	# PORT NOTICE BOARD (live — agents read this first)
 ./PORT_REGISTRY.md	8.0K	# Port Registry (live — do not edit by hand)
 ./PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md	4.0K	# Product factory roadmap — LOCKED v1
 ./PROMPT_OS_CORE_MVP_BUILD_ORDER_LOCKED_v1.md	8.0K	# Prompt OS Core — MVP Build Order (LOCKED)
@@ -108,23 +108,6 @@ path	size	first_line
 ./RESEARCH_INTAKE_AND_SAVE_LOCK_LOCKED_v1.md	8.0K	# Research intake & save — LOCKED v1
 ./RUN_INBOX_DISK_TRUTH_EXECUTION_LOCKED_v1.md	4.0K	# Run inbox disk truth execution (LOCKED v1)
 ./SECRETS_VAULT.md	4.0K	# Sina Secret Vault (one place)
-./SINAAI_10X_AUTOMATION_ARCHITECTURE_LOCKED_v1.md	8.0K	# Sinaai — 10x Automation Architecture (LOCKED)
-./SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md	 24K	# Sinaai — Agents & Automation Unified Blueprint (LOCKED)
-./SINAAI_AGENT_STACK_POLICY_v1.md	8.0K	# Sinaai Agent Stack Policy — One Pager
-./SINAAI_AGENT_YAML_INGEST_LOCKED_v1.md	8.0K	# Sinaai Agent YAML Ingest & Self-Healing Loop — FINAL LOCKED
-./SINAAI_ARCHITECT_V2_INDUSTRIAL_POLICY_LOCKED_v1.md	4.0K	# Architect v2 — Industrial System Cleaner (LOCKED)
-./SINAAI_AUTO_PASTE_INCIDENT_REPORT_LOCKED_v1.md	4.0K	# MOVED — canonical SSOT
-./SINAAI_ECOSYSTEM_FINAL_STATE_AND_NEXT_PLAN_LOCKED_v1.md	8.0K	# Sinaai Ecosystem — Final State & Next Plan (LOCKED)
-./SINAAI_EXECUTION_TRUTH_LAYER_LOCKED_v1.md	8.0K	# Sinaai — Execution Truth Layer (LOCKED)
-./SINAAI_FAST_TRACK_FORCE_MAJEURE_LOCKED_v1.md	4.0K	# FAST TRACK — FORCE MAJEURE (LOCKED)
-./SINAAI_MASTER_BLUEPRINT_END_TO_END_v1.md	 24K	# Sinaai — Master Blueprint (End-to-End)
-./SINAAI_MASTER_PLAN_FA_SHARE_v1.md	 16K	# برنامهٔ جامع اکوسیستم سینا — نقشهٔ شهر، مراحل M، تلگرام، و گام‌های ب
-./SINAAI_PARALLEL_LANES_NO_BLOCK_PROGRESS_LOCKED_v1.md	4.0K	# Parallel lanes — repo work MUST NOT block wire progress (LOCKED)
-./SINAAI_PERMANENT_ARCHITECT_AGENT_LOCKED_v1.md	4.0K	# Permanent Architect Agent — LOCKED
-./SINAAI_PHASE1_STABILIZATION_ONLY_LOCKED_v1.md	4.0K	# Phase 1 stabilization ONLY — scope freeze (LOCKED)
-./SINAAI_PHASE2_AI_CONTROLLED_EXECUTION_LOCKED_v1.md	8.0K	# Sinaai — Phase 2: AI-Controlled Execution OS (LOCKED)
-./SINAAI_PORT_REGISTRY_LAW_LOCKED_v1.md	8.0K	# Sinaai — Port Registry Law (LOCKED)
-./SINAAI_PROMPT_OS_CORE_FINAL_DECISION_LOCKED_v1.md	8.0K	# Sinaai — Prompt OS Core Final Decision (LOCKED)
 ./SINA_ADVISOR_CURSOR_CONNECT_v1.md	4.0K	# Connect Cursor as Advisor in Sina Command
 ./SINA_ADVISOR_TRACK_OPERATIONAL_POINTER_LOCKED_v1.md	4.0K	# Advisor track — operational pointer (LOCKED v1)
 ./SINA_AGENT_CONFLICT_ROOM_LOCKED_v1.md	4.0K	# Agent Conflict Room — LOCKED v1
@@ -172,10 +155,10 @@ path	size	first_line
 ./SINA_EXECUTOR_IGNORED_M1_INTEGRITY_FORM_CANVAS_INCIDENT_029_REPORT_LOCKED_v1.md	4.0K	
 ./SINA_FACTORY_STOP_IGNORED_AUTODRAIN_INCIDENT_023_REPORT_LOCKED_v1.md	4.0K	# INCIDENT-023 Factory STOP ignored — root pointer
 ./SINA_FOUNDER_MUSEUM_HUB_ERASURE_PERCEPTION_INCIDENT_032_REPORT_LOCKED_v1.md	4.0K	# INCIDENT-032 — Founder museum erasure perception (pointer)
+./SINA_GOAL_HIERARCHY_ENFORCEMENT_INCIDENT_REPORT_LOCKED_v1.md	4.0K	# Goal Hierarchy Enforcement — incident report (pointer)
 ./SINA_GOAL1_AUTORUN_BROKER_STALE_RECEIPT_INCIDENT_REPORT_LOCKED_v1.md	4.0K	# Goal 1 auto-run broker STALE receipts — incident report (pointer)
 ./SINA_GOAL1_LOOP_UNVALIDATED_PROOF_INCIDENT_LOCKED_v1.md	4.0K	# Goal 1 loop unvalidated proof — LOCKED (root pointer)
 ./SINA_GOAL1_LOOP_UNVALIDATED_PROOF_INCIDENT_REPORT_LOCKED_v1.md	4.0K	# Goal 1 loop unvalidated proof — incident report (pointer)
-./SINA_GOAL_HIERARCHY_ENFORCEMENT_INCIDENT_REPORT_LOCKED_v1.md	4.0K	# Goal Hierarchy Enforcement — incident report (pointer)
 ./SINA_GOVERNANCE_ENTRY_LOCKED_v1.md	 16K	# Sina Governance Entry (LOCKED)
 ./SINA_GPT_CLAUDE_WTM_SYNTHESIS_LOCKED_v1.md	4.0K	# MOVED — canonical SSOT
 ./SINA_HEALTHY_DRAIN_PROMPT_FEASIBILITY_INCIDENT_REPORT_LOCKED_v1.md	4.0K	# MOVED — canonical SSOT
@@ -224,8 +207,26 @@ path	size	first_line
 ./SINA_WORKER_STALE_GOAL_PROGRESS_CHAT_INCIDENT_013_REPORT_LOCKED_v1.md	4.0K	# Worker stale goal_progress chat parrot — INCIDENT-013 (pointer)
 ./SINA_WORKER_STALE_GOAL_PROGRESS_CHAT_REPORT_INCIDENT_REPORT_LOCKED_v1.md	4.0K	# Worker chat stale goal_progress & false repeating steps — incident r
 ./SINA_WORKER_YAML_ONLY_CLOSEOUT_FAKE_GREEN_INCIDENT_030_REPORT_LOCKED_v1.md	4.0K	# INCIDENT-030 — Worker YAML-only closeout fake green (report pointer)
-./SOURCEA_1000PACK_AUDIT_JUDGE_LOCKED_v1.md	4.0K	# SourceA 1000-Pack Audit Judge (LOCKED v1)
+./SINAAI_10X_AUTOMATION_ARCHITECTURE_LOCKED_v1.md	8.0K	# Sinaai — 10x Automation Architecture (LOCKED)
+./SINAAI_AGENT_STACK_POLICY_v1.md	8.0K	# Sinaai Agent Stack Policy — One Pager
+./SINAAI_AGENT_YAML_INGEST_LOCKED_v1.md	8.0K	# Sinaai Agent YAML Ingest & Self-Healing Loop — FINAL LOCKED
+./SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md	 24K	# Sinaai — Agents & Automation Unified Blueprint (LOCKED)
+./SINAAI_ARCHITECT_V2_INDUSTRIAL_POLICY_LOCKED_v1.md	4.0K	# Architect v2 — Industrial System Cleaner (LOCKED)
+./SINAAI_AUTO_PASTE_INCIDENT_REPORT_LOCKED_v1.md	4.0K	# MOVED — canonical SSOT
+./SINAAI_ECOSYSTEM_FINAL_STATE_AND_NEXT_PLAN_LOCKED_v1.md	8.0K	# Sinaai Ecosystem — Final State & Next Plan (LOCKED)
+./SINAAI_EXECUTION_TRUTH_LAYER_LOCKED_v1.md	8.0K	# Sinaai — Execution Truth Layer (LOCKED)
+./SINAAI_FAST_TRACK_FORCE_MAJEURE_LOCKED_v1.md	4.0K	# FAST TRACK — FORCE MAJEURE (LOCKED)
+./SINAAI_MASTER_BLUEPRINT_END_TO_END_v1.md	 24K	# Sinaai — Master Blueprint (End-to-End)
+./SINAAI_MASTER_PLAN_FA_SHARE_v1.md	 16K	# برنامهٔ جامع اکوسیستم سینا — نقشهٔ شهر، مراحل M، تلگرام، و گام‌های ب
+./SINAAI_PARALLEL_LANES_NO_BLOCK_PROGRESS_LOCKED_v1.md	4.0K	# Parallel lanes — repo work MUST NOT block wire progress (LOCKED)
+./SINAAI_PERMANENT_ARCHITECT_AGENT_LOCKED_v1.md	4.0K	# Permanent Architect Agent — LOCKED
+./SINAAI_PHASE1_STABILIZATION_ONLY_LOCKED_v1.md	4.0K	# Phase 1 stabilization ONLY — scope freeze (LOCKED)
+./SINAAI_PHASE2_AI_CONTROLLED_EXECUTION_LOCKED_v1.md	8.0K	# Sinaai — Phase 2: AI-Controlled Execution OS (LOCKED)
+./SINAAI_PORT_REGISTRY_LAW_LOCKED_v1.md	8.0K	# Sinaai — Port Registry Law (LOCKED)
+./SINAAI_PROMPT_OS_CORE_FINAL_DECISION_LOCKED_v1.md	8.0K	# Sinaai — Prompt OS Core Final Decision (LOCKED)
+./SOURCE_A_DOCUMENT_SEQUENCE_REGISTRY_LOCKED_v1.md	 12K	# Source A — Document Sequence & Dating Registry (LOCKED)
 ./SOURCEA_1000_LOCKED_PROMPT_LIBRARY_NO_ASF_v1.md	4.0K	# SOURCEA 1000 LOCKED prompt library — PLAN WITH NO ASF (v1)
+./SOURCEA_1000PACK_AUDIT_JUDGE_LOCKED_v1.md	4.0K	# SourceA 1000-Pack Audit Judge (LOCKED v1)
 ./SOURCEA_ADVERSARIAL_PROBE_PACK_LOCKED_v1.md	8.0K	# SourceA — Adversarial Probe Pack (LOCKED v1)
 ./SOURCEA_AGENCY_PRODUCT_DEMO_SCRIPT_LOCKED_v1.md	8.0K	# SourceA Agency Product Demo Script — LOCKED v1
 ./SOURCEA_AGENTIC_ENFORCEMENT_STACK_LOCKED_v2.md	8.0K	# SourceA — Agentic enforcement stack (LOCKED v2)
@@ -262,9 +263,9 @@ path	size	first_line
 ./SOURCEA_FOUNDER_PINNED_ACTIONS_LOCKED_v1.md	8.0K	# SourceA Founder Pinned Actions (LOCKED v1)
 ./SOURCEA_FROZEN_ARCHIVE_REVIVAL_AUDIT_LOCKED_v1.md	8.0K	# Frozen & Archive Corpus — Revival Audit (LOCKED v1)
 ./SOURCEA_GOLDEN_INSIGHT_AND_SAFETY_LOCKED_v1.md	 12K	# Golden Insight + Safety Lock-In (LOCKED v1)
+./SOURCEA_GOV_META_AUDIT_LOCKED_v1.md	4.0K	# Governance Meta-Audit — LOCKED v1
 ./SOURCEA_GOVERNANCE_CENTER_SELF_GOVERN_LOCKED_v1.md	8.0K	# SourceA — Governance Center & Self-Govern (LOCKED v1)
 ./SOURCEA_GOVERNANCE_EVENT_SPINE_SCHEMA_LOCKED_v1.md	8.0K	# Governance Event Spine — schema & reference graph (LOCKED v1)
-./SOURCEA_GOV_META_AUDIT_LOCKED_v1.md	4.0K	# Governance Meta-Audit — LOCKED v1
 ./SOURCEA_H2_MACHINE_HUB_PLAN_LOCKED_v1.md	 12K	# SourceA — H2 Machine Hub Plan (LOCKED v1.1)
 ./SOURCEA_ICP_MARKET_IDENTITY_LOCKED_v1.md	 24K	# SOURCEA_ICP_MARKET_IDENTITY_LOCKED_v1.md
 ./SOURCEA_INCIDENT_FIX_OWNERSHIP_GOVERNANCE_HARDENING_LOCKED_v1.md	 12K	# SourceA — Incident Fix Ownership & Governance Hardening (LOCKED v1)
@@ -285,9 +286,9 @@ path	size	first_line
 ./SOURCEA_NO_FAKE_PROGRESS_ENTERPRISE_SHIP_LOCKED_v1.md	 12K	# SourceA — No Fake Progress · Enterprise Ship Law (LOCKED v1)
 ./SOURCEA_OPENROUTER_ACTIVATION_QUEUE_LOCKED_v1.md	4.0K	# SourceA — OpenRouter Activation Queue (LOCKED v1)
 ./SOURCEA_ORCHESTRATOR_PARTNER_INTEGRATION_LOCKED_v1.md	 12K	# SourceA Orchestrator Partner Integration — LOCKED v1
-./SOURCEA_PHASE2_INTEGRITY_PICK_RECEIPT_2026-06-11_LOCKED_v1.md	4.0K	# Phase 2 Integrity Pick Receipt — 2026-06-11 (LOCKED)
 ./SOURCEA_PHASE_PACK_PINNED_SUMMARY_LOCKED_v1.md	4.0K	# Phase pack reorg — pinned very short summary (LOCKED v1)
 ./SOURCEA_PHASE_STRICT_RUN_INBOX_LOCKED_v1.md	4.0K	# Phase-strict run inbox routing (LOCKED v1)
+./SOURCEA_PHASE2_INTEGRITY_PICK_RECEIPT_2026-06-11_LOCKED_v1.md	4.0K	# Phase 2 Integrity Pick Receipt — 2026-06-11 (LOCKED)
 ./SOURCEA_REFERENCE_ARCHITECTURE_CONSTELLATION_LOCKED_v1.md	 24K	# SourceA Reference Architecture Constellation (LOCKED v1)
 ./SOURCEA_REPO_SSOT_LOCKED.md	4.0K	# SourceA — Repo SSOT (LOCKED v1)
 ./SOURCEA_RESULT_DRIVEN_DISCUSSION_POLICY_LOCKED_v1.md	 12K	# SourceA Result-Driven Discussion Policy (LOCKED v1)
@@ -303,13 +304,13 @@ path	size	first_line
 ./SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md	 28K	# SourceA — Unified Portfolio · Infra · Commercial SSOT (LOCKED v3.2)
 ./SOURCEA_VALID_YES_PROGRESS_VERDICT_LOCKED_v1.md	8.0K	# SourceA Valid YES Progress Verdict (LOCKED v1)
 ./SOURCEA_WORKER_E2E_POSTMORTEM_LOCKED_v1.md	 12K	# Worker E2E Post-Mortem — Verdict, Permanent Fix, Agent Playbook (LOC
-./SOURCE_A_DOCUMENT_SEQUENCE_REGISTRY_LOCKED_v1.md	 12K	# Source A — Document Sequence & Dating Registry (LOCKED)
+./sourcea-site-v1-QUARANTINE.md	4.0K	# SourceA Site v1 — QUARANTINED (UI experiment)
 ./STALE_ADVICE_RESULTS_POLICY_OWNERSHIP_TRACKING_LOCKED_v1.md	 12K	# Stale advice — results policy · ownership · tracking (LOCKED v1)
 ./START_HERE.md	4.0K	# SourceA — start here
 ./STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md	8.0K	# Strategic next steps — big picture synthesis (LOCKED v2)
 ./TASK_ORDERS_OPEN_REGISTER_LOCKED_v1.md	4.0K	# Task orders — open register (LOCKED v1)
-./TRUSTFIELD_ENTITY_CORRECTION_v3_1.md	4.0K	# TrustField entity correction — APPLIED v3.1
 ./TRUST_LEDGER_SCHEMA_LOCKED_v1.md	4.0K	# Trust ledger schema (LOCKED v1)
+./TRUSTFIELD_ENTITY_CORRECTION_v3_1.md	4.0K	# TrustField entity correction — APPLIED v3.1
 ./UNDERSTANDING_ROLES_CURSOR_ECOSYSTEM_v1.md	 12K	# Understanding roles — Cursor & agent ecosystem (ASF reference)
 ./VIRELUX_REPO_ALIGNMENT.md	4.0K	# VIRLUX repo alignment — DESIGN ↔ DELIVERY bridge
 ./WIRE_LANE_PROGRESS.md	4.0K	# Wire lane progress — single checklist (ASF)
@@ -326,4 +327,3 @@ path	size	first_line
 ./WORLD_TARGET_MODEL_STEP_ID_MIGRATION_LOCKED_v1.md	4.0K	# MOVED — canonical SSOT
 ./WORLD_TARGET_MODEL_UI_INCIDENT_REPORT_LOCKED_v1.md	4.0K	# MOVED — canonical SSOT
 ./WORLD_TARGET_MODEL_UI_RESEARCH_LOCKED_v1.md	4.0K	# MOVED — canonical SSOT
-./sourcea-site-v1-QUARANTINE.md	4.0K	# SourceA Site v1 — QUARANTINED (UI experiment)
