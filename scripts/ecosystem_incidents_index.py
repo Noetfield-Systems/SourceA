@@ -101,13 +101,13 @@ def _incident_entry(path: str, title: str = "", why: str = "") -> dict:
 def ecosystem_incidents_payload() -> dict:
     locked_docs = [
         {
-            "path": "WORLD_TARGET_MODEL_UI_INCIDENT_REPORT_LOCKED_v1.md",
+            "path": "brain-os/wtm/WORLD_TARGET_MODEL_UI_INCIDENT_REPORT_LOCKED_v1.md",
             "title": "WTM UI content-loss incident (2026-06-05)",
             "why": "Never strip founder WTM tab on UI upgrade; no agent reads in hub UI.",
             "tab": "system-roadmap",
         },
         {
-            "path": "WORLD_TARGET_MODEL_PHASE_NAMING_INCIDENT_REPORT_LOCKED_v1.md",
+            "path": "brain-os/wtm/WORLD_TARGET_MODEL_PHASE_NAMING_INCIDENT_REPORT_LOCKED_v1.md",
             "title": "WTM phase naming incident (2026-06-05)",
             "why": "Founder phases A→B→C→D only; step IDs (B4, A1.1) stay stable.",
             "tab": "system-roadmap",
@@ -203,7 +203,7 @@ def ecosystem_incidents_payload() -> dict:
             "tab": "conflict-room",
         },
         {
-            "path": "AUTO_CONFLICT_ENGINE_V3_LOCKED.md",
+            "path": "brain-os/law/AUTO_CONFLICT_ENGINE_V3_LOCKED.md",
             "title": "ACE v3",
             "why": "DESIGN / EXECUTION / DELIVERY planes.",
             "tab": "conflict-room",

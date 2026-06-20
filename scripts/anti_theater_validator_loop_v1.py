@@ -235,6 +235,32 @@ def run_loop(*, write: bool = True, heal: bool = False) -> dict:
     if not mac_law_gate.get("ok"):
         violations.append({"check": "mac_law_mandatory", "detail": mac_law_gate})
 
+    from mac_law_universal_wire_v1 import assess as mac_uw_assess  # noqa: WPS433
+
+    mac_uw_gate = mac_uw_assess()
+    checks.append(
+        {
+            "id": "mac_law_universal_wire",
+            "ok": bool(mac_uw_gate.get("ok")),
+            "line": (mac_uw_gate.get("line") or "")[:120],
+        }
+    )
+    if not mac_uw_gate.get("ok"):
+        violations.append({"check": "mac_law_universal_wire", "issues": mac_uw_gate.get("issues")})
+
+    from mac_law_agent_execution_plane_lock_v1 import assess as mac_lock_assess  # noqa: WPS433
+
+    mac_lock_gate = mac_lock_assess(sync_stack=False)
+    checks.append(
+        {
+            "id": "mac_law_agent_execution_plane_lock",
+            "ok": bool(mac_lock_gate.get("ok")),
+            "line": (mac_lock_gate.get("line") or "")[:120],
+        }
+    )
+    if not mac_lock_gate.get("ok"):
+        violations.append({"check": "mac_law_agent_execution_plane_lock", "issues": mac_lock_gate.get("issues")})
+
     for check_id, script_name, timeout_sec in GUARD_VALIDATORS:
         gate = _bash_gate(check_id, script_name, timeout=timeout_sec)
         checks.append(gate)

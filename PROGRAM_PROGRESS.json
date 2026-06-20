@@ -41,7 +41,7 @@
       "phase": "P2 closeout",
       "progress_pct": 85,
       "next_action": "Close g3_tailscale if still pending on disk",
-      "hook": "WIRE_LANE_PROGRESS.md"
+      "hook": "brain-os/law/WIRE_LANE_PROGRESS.md"
     },
     {
       "id": "MERGEPACK-L1",
@@ -105,7 +105,7 @@
         "at": "2026-06-15T00:31:55Z",
         "evidence": "~/.sina/vector_index_v1.json voyage-reindex-p05 \u00b7 GD-L8 ok \u00b7 provider_payload semantic:true"
       },
-      "hook": "AI_INFRA_PARTNERSHIP_PROPOSALS_LOCKED_v1.md"
+      "hook": "brain-os/law/AI_INFRA_PARTNERSHIP_PROPOSALS_LOCKED_v1.md"
     },
     {
       "id": "INVESTOR",
@@ -233,7 +233,7 @@
       "success_count": 11
     },
     "product_factory_hub": {
-      "roadmap_doc": "PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md",
+      "roadmap_doc": "brain-os/law/PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md",
       "crossref_doc": "archive/attachments/2026-06-14/sa-0517-product-factory-roadmap-hub-signals_LOCKED_v1.md",
       "aligned": true,
       "two_speed_note": "founder_p0_id=STRATEGIC-SLICE \u00b7 p0_sku=RunReceipt factory parallel only",
@@ -319,7 +319,7 @@
         "trustfield",
         "sourcea"
       ],
-      "wire_progress_doc": "WIRE_LANE_PROGRESS.md",
+      "wire_progress_doc": "brain-os/law/WIRE_LANE_PROGRESS.md",
       "canonical_sa": "sa-0525"
     },
     "mergepack_progress_read": {
@@ -408,7 +408,7 @@
       "t2_echo_sa": "sa-0562",
       "validator": "scripts/validate-wire-lane-progress-t3-crossref-v1.sh",
       "canonical_validator": "scripts/validate-wire-lane-progress-v1.sh",
-      "wire_doc": "WIRE_LANE_PROGRESS.md",
+      "wire_doc": "brain-os/law/WIRE_LANE_PROGRESS.md",
       "this_sa": "sa-0587"
     },
     "commercial_critique_t3_crossref": {
@@ -503,7 +503,7 @@
       "crossref_doc": "archive/attachments/2026-06-14/sa-0542-product-factory-roadmap-hub-signals-t1-crossref_LOCKED_v1.md",
       "canonical_sa": "sa-0517",
       "validator": "scripts/validate-product-factory-roadmap-hub-signals-t1-crossref-v1.sh",
-      "roadmap_doc": "PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md",
+      "roadmap_doc": "brain-os/law/PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md",
       "hub_projection": "agent-control-panel/command-data.json",
       "this_sa": "sa-0542"
     },
@@ -513,7 +513,7 @@
       "t1_echo_sa": "sa-0542",
       "validator": "scripts/validate-product-factory-roadmap-hub-signals-t2-crossref-v1.sh",
       "canonical_validator": "scripts/validate-product-factory-roadmap-hub-signals-v1.sh",
-      "roadmap_doc": "PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md",
+      "roadmap_doc": "brain-os/law/PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md",
       "hub_projection": "agent-control-panel/command-data.json",
       "this_sa": "sa-0567"
     },
@@ -524,7 +524,7 @@
       "t2_echo_sa": "sa-0567",
       "validator": "scripts/validate-product-factory-roadmap-hub-signals-t3-crossref-v1.sh",
       "canonical_validator": "scripts/validate-product-factory-roadmap-hub-signals-v1.sh",
-      "roadmap_doc": "PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md",
+      "roadmap_doc": "brain-os/law/PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md",
       "hub_projection": "agent-control-panel/command-data.json",
       "this_sa": "sa-0592"
     },

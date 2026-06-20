@@ -511,6 +511,35 @@ def sync_disk_live_wire(*, role: str = "any", skip_factory: bool = False) -> dic
             master.write_text(text, encoding="utf-8")
         steps.append({"step": "brain_live_surfaces", "ok": True, "path": str(BRAIN_SURFACES)})
 
+    mac_law_ok = False
+    try:
+        sys.path.insert(0, str(SCRIPTS))
+        from mac_law_universal_wire_v1 import sync_receipt as mac_universal_sync  # noqa: WPS433
+        from mac_law_agent_execution_plane_lock_v1 import sync_receipt as mac_lock_sync  # noqa: WPS433
+
+        mu = mac_universal_sync(enforce=False)
+        ml = mac_lock_sync(enforce=False)
+        mac_law_ok = bool(mu.get("ok")) and bool(ml.get("ok"))
+        surfaces = _read_json(AGENT_SURFACES)
+        if mu.get("line"):
+            surfaces["mac_law_universal_line"] = mu["line"]
+        if ml.get("line"):
+            surfaces["mac_law_agent_lock_line"] = ml["line"]
+        surfaces["mac_law_agent_no_factory_on_mac"] = bool(ml.get("ok"))
+        AGENT_SURFACES.write_text(json.dumps(surfaces, indent=2) + "\n", encoding="utf-8")
+        steps.append(
+            {
+                "step": "mac_law_agent_execution_plane_lock",
+                "ok": mac_law_ok,
+                "universal_ok": bool(mu.get("ok")),
+                "lock_ok": bool(ml.get("ok")),
+            }
+        )
+        ok = ok and mac_law_ok
+    except Exception as exc:
+        steps.append({"step": "mac_law_agent_execution_plane_lock", "ok": False, "error": str(exc)})
+        ok = False
+
     nerve_ok = False
     nerve_line = ""
     try:

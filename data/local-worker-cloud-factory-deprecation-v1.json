@@ -36,5 +36,5 @@
     "deliveryMode": "prove_only"
   },
   "critical_path_sealed": ["B0001", "B0101", "B0501", "B0601", "B0901", "B1000"],
-  "graduate_law": "Local Cursor Worker may still close INBOX disk prompts — cloud-factory execution path is deprecated; Brain work-order + cloud_api_worker owns factory lane."
+  "graduate_law": "Mac control panel only — no factory building on Mac. Secondary -5000 = cloud/API batch only. Cloud-factory BODY runs on cloud — not on Mac Cursor/Worker (INCIDENT-038 v1.1)."
 }

@@ -3,6 +3,9 @@
     "mac_role": "control_plane_only",
     "cloud_role": "execution_plane_headless",
     "founder_execution_model": "data/founder-execution-model-v1.json",
+    "mac_law_universal_wire": "data/mac-law-universal-wire-v1.json",
+    "mac_law_mandatory": "data/mac-law-mandatory-v1.json",
+    "mac_law_machine": "data/mac-law-machine-enforceable-v1.json",
     "mac_role_aliases": [
       "control_panel_only",
       "cockpit_only",
@@ -10,5 +13,5 @@
     ]
   },
   "founder_execution_model_ssot": "data/founder-execution-model-v1.json",
-  "saved_at": "2026-06-20T02:12:37Z"
+  "saved_at": "2026-06-20T17:40:02Z"
 }

@@ -88,6 +88,7 @@ def run_job(
     template_id: str = "web-product-factory-v1",
     tenant: str = "",
     work_order_id: str = "",
+    forge_context: dict | None = None,
 ) -> dict:
     cfg = _resolve_factory(template_id=template_id, bay_slug=bay_slug, tenant=tenant)
     bay_slug = cfg["bay_slug"]
@@ -112,7 +113,36 @@ def run_job(
         refinery_run = exchange_run
         assembly_run = exchange_run
     elif template_id == "forge-app-factory-v1":
-        forge_run = run_forge(bay_slug=bay_slug, tenant=tenant)
+        ctx = forge_context or {}
+        run_id = str(ctx.get("run_id") or "")
+        woid = work_order_id or str(ctx.get("plan_id") or "")
+        forge_run = run_forge(
+            bay_slug=bay_slug,
+            tenant=tenant,
+            work_order_id=woid,
+            run_id=run_id,
+        )
+        router_result: dict = {}
+        critic_result: dict = {}
+        graph_path = str(ctx.get("task_graph_path") or "")
+        if graph_path and Path(graph_path).is_file():
+            from forge_router_execute_v01 import execute_graph  # noqa: WPS433
+            from forge_critic_loop_v01 import run_critic_loop  # noqa: WPS433
+
+            graph = json.loads(Path(graph_path).read_text(encoding="utf-8"))
+            router_result = execute_graph(graph=graph, bay=bay_slug)
+            pick_stub = {
+                "id": ctx.get("plan_id"),
+                "stack": ctx.get("stack"),
+                "": ctx.get(""),
+                "workstream": ctx.get("workstream"),
+            }
+            critic_result = run_critic_loop(
+                graph=graph,
+                router_result=router_result,
+                pick=pick_stub,
+                bay=bay_slug,
+            )
         forge_v = forge_verify(bay_slug=bay_slug)
         refinery_v = {"ok": True, "proof": "forge_refinery via forge_runner"}
         assembly_v = {"ok": True, "proof": "forge_assembly via forge_runner"}
@@ -186,7 +216,11 @@ def run_job(
             and bool(forge_run.get("ok"))
             and bool(forge_v.get("ok"))
             and bool(fed.get("ok"))
+            and (not critic_result or critic_result.get("ok", True))
         )
+        row["forge_router"] = router_result or None
+        row["forge_critic"] = critic_result or None
+        row["forge_context"] = forge_context
         row["proof_class"] = "G0-G3"
     else:
         row["ok"] = (

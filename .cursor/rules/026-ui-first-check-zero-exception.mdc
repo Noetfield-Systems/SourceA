@@ -4,14 +4,16 @@ globs:
 alwaysApply: true
 ---
 
-# UI FIRST CHECK — ZERO EXCEPTION (ALL agents · ALL UI)
+# UI FIRST CHECK — ZERO EXCEPTION (UI file edits ONLY — not pre-reply chat)
+
+**Scope:** Applies **only when editing** HTML/CSS/JS/TSX/canvas files — **not** before every founder chat reply (INCIDENT-039).
 
 **Law:** `brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md`  
 **Wire:** `.cursor/rules/025-ui-upgrade-first-check-live-wire.mdc` · `.cursor/rules/024-ui-upgrade-mandatory-checklist.mdc`
 
 ## RED FLAG (founder locked)
 
-> **NO UI DRIFT · NO UPGRADE DRIFT — ZERO TOLERANCE.** No agent may edit ANY UI without FIRST CHECK. Machine blocks writes. Baseline + ledger + no-downgrade validators must PASS. No exceptions.
+> **NO UI DRIFT · NO UPGRADE DRIFT — ZERO TOLERANCE.** No agent may edit ANY UI without FIRST CHECK. Machine blocks writes. Baseline + ledger + no-downgrade checks on **UI ship** — not a pre-reply validator marathon.
 
 > **NO agent may edit ANY UI — form, app, website, hub, canvas, landing — without FIRST CHECK. Machine blocks writes. Conduct gate flags replies. No exceptions.**
 

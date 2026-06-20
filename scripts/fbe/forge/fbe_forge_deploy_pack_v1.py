@@ -10,11 +10,31 @@ from fbe_forge_lib_v1 import run_stub_step, wrapper_main
 
 
 def deploy_pack(*, bay_slug: str, tenant: str) -> dict:
+    wo = {}
+    try:
+        import sys
+        from pathlib import Path as _P
+
+        sys.path.insert(0, str(_P(__file__).resolve().parents[3] / "scripts"))
+        from forge_mvp_lib_v1 import load_work_order  # noqa: WPS433
+
+        wo = load_work_order()
+    except Exception:
+        wo = {}
+    preview_url = wo.get("preview_url")
+    mock_only = not bool(preview_url)
+    if mock_only:
+        preview_url = f"https://mock-forge-preview.local/{tenant}/{wo.get('plan_id') or 'demo'}"
     manifest = {
         "schema": "fbe-forge-deploy-manifest-v1",
         "artifact": "governed_app_receipt_pack",
         "ship_gate": "G0-G3",
         "deliveryMode": "prove_only",
+        "preview_url": preview_url,
+        "mock_only": mock_only,
+        "work_order_id": wo.get("plan_id"),
+        "stack": wo.get("stack"),
+        "": wo.get(""),
     }
     return run_stub_step(
         node_id="forge-deploy-pack-v1",

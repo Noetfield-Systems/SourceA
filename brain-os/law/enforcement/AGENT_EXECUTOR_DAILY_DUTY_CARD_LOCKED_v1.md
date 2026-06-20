@@ -24,7 +24,7 @@
 | 2 | Read `~/.sina/agent-executor-daily-duty-card-v1.json` |
 | 3 | Read receipt `inject` + `conduct` — obey zero violations |
 | 4 | `python3 scripts/agent_truth_bundle_v1.py --json` — **disk wins** on conflict |
-| 5 | If law/state moved: check cart W4–W10 |
+| 5 | Read check cart SSOT only — **W4–W10 ship window / cloud CI** — not Mac pre-reply marathon (INCIDENT-039) |
 
 **Forbidden on session start:** `agent_orientation_pipeline_v1.py` · `agent_hospital_pipeline_v1.py` · `agent_maze_pipeline_v1.py` — founder word only.
 
@@ -34,7 +34,7 @@
 
 | ID | Founder pain | Agent duty |
 |----|--------------|------------|
-| D01 | Law locked in one file only | W1–W10 wire cart before done |
+| D01 | Law locked in one file only | W1–W10 **ship window / cloud CI only** — never Mac founder chat pre-reply (INCIDENT-039) |
 | D02 | FREEZE while SINGLE_SA live | Quote `factory-now` — not stale hub |
 | D03 | Giant INBOX paste | Slim prompt · founder says **RUN INBOX** only |
 | D04 | Vague Brain | `sa-XXXX · ROLE · n/30 · one action` |
@@ -44,7 +44,7 @@
 | D08 | Founder Terminal | Executor runs shell — founder taps only |
 | D09 | Mixed CHECK/ACT/VERIFY | One role per Worker turn |
 | D10 | Chat ≠ SSOT | Truth bundle + factory-now win |
-| D11 | Fake progress | Receipt + validator PASS only |
+| D11 | Fake progress | Read receipt JSON — CI validator PASS on ship window only · not bash marathon before chat |
 | D12 | Hub questions vs Form | Form SSOT · submit icon batch |
 | D13 | Hub lies at 61% | Show machine truth or simplify |
 | D14 | AUTO-RUN hero stale | `auto-run-disabled-v1.flag` unless ASF resume |
@@ -64,11 +64,11 @@ Full JSON rows: `~/.sina/agent-executor-daily-duty-card-v1.json`
 
 ## 3. Every-day executor job
 
-**Before answer:** gate PASS · truth bundle · conduct clean · check cart if law touched  
+**Before answer:** gate receipt read · truth bundle · conduct clean · **no validator marathon on Mac**  
 
-**While working:** minimal diff · validators · governance event log · no hub app edits from SourceA executor  
+**While working:** minimal diff · governance event log · cloud executes factory body  
 
-**Before reply:** pre-ship conduct scan · no legacy hub brand · no Terminal for founder · one next action · rebuild if state moved  
+**Before reply:** plain English + receipt path · **<30s** · optional text scan only — **no bash validate stack**
 
 ---
 
@@ -84,9 +84,9 @@ Full JSON rows: `~/.sina/agent-executor-daily-duty-card-v1.json`
 
 | Role | Daily |
 |------|-------|
-| **Executor** | This card + W1–W10 + disk proof |
+| **Executor** | This card + Read receipts + disk proof — W1–W10 ship window only |
 | **Brain** | `founder_line` · route · never code |
-| **Worker** | RUN INBOX · receipt · validators |
+| **Worker** | RUN INBOX · receipt · cloud verify |
 | **Maintainer** | Hub projection W11 · panel |
 | **Specialists** | `execution_authority: false` · RESEARCH trace |
 

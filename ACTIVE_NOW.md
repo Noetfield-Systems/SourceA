@@ -1,7 +1,7 @@
 # ACTIVE NOW — single scoreboard (ASF law)
 
 **Read first:** `scripts/active_now_v1.py`  
-**Laws:** `ACTIVE_NOW_HEARTBEAT_LOCKED_v1.md` · `SOURCEA_EXECUTION_LAW_LOCKED_v1.md` · `FOUNDER_BUSY_OPERATING_MODEL_LOCKED_v1.md` · `GOAL_HIERARCHY_LOCKED_v1.md`
+**Laws:** [`brain-os/laws/ACTIVE_NOW_HEARTBEAT_LOCKED_v1.md`](brain-os/laws/ACTIVE_NOW_HEARTBEAT_LOCKED_v1.md) · [`brain-os/laws/SOURCEA_EXECUTION_LAW_LOCKED_v1.md`](brain-os/laws/SOURCEA_EXECUTION_LAW_LOCKED_v1.md) · [`brain-os/laws/FOUNDER_BUSY_OPERATING_MODEL_LOCKED_v1.md`](brain-os/laws/FOUNDER_BUSY_OPERATING_MODEL_LOCKED_v1.md) · [`brain-os/system/GOAL_HIERARCHY_LOCKED_v1.md`](brain-os/system/GOAL_HIERARCHY_LOCKED_v1.md)
 
 **Rule:** Only fields below are in scope. All else forbidden.
 

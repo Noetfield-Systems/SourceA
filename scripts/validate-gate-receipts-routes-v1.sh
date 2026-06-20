@@ -10,7 +10,7 @@ import re
 from pathlib import Path
 
 ROOT = Path.cwd().parent
-DOC = ROOT / "ENFORCE_BYPASS_MAP_LOCKED_v1.md"
+DOC = ROOT / "brain-os/law/enforcement/ENFORCE_BYPASS_MAP_LOCKED_v1.md"
 assert DOC.is_file(), DOC
 
 from gate_receipts_hub import BYPASS_ROUTES, gate_receipts_hub_payload

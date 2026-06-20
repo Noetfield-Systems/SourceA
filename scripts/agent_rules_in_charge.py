@@ -9,7 +9,7 @@ LAW_DOC = "AGENT_RULES_IN_CHARGE_LOCKED_v1.md"
 
 # path → static charge metadata (particular per-rule context)
 RULE_CHARGE_META: dict[str, dict[str, Any]] = {
-    "SINA_OS_SSOT_LOCKED.md": {
+    "brain-os/law/SINA_OS_SSOT_LOCKED.md": {
         "charge_level": "apex",
         "context_id": "ecosystem",
         "context_label": "Whole ecosystem",
@@ -69,13 +69,13 @@ RULE_CHARGE_META: dict[str, dict[str, Any]] = {
         "context_label": "Council Room",
         "governs_now": "Report channels + discourse",
     },
-    "COUNCIL_BRIEF_STRATEGIC_SLICE_EVAL_L0_ENFORCE_LOCKED_v1.md": {
+    "brain-os/law/COUNCIL_BRIEF_STRATEGIC_SLICE_EVAL_L0_ENFORCE_LOCKED_v1.md": {
         "charge_level": "session",
         "context_id": "council",
         "context_label": "Strategic slice",
         "governs_now": "Next build = Eval-1 + L0/L1 + ENFORCE map — not new D-module",
     },
-    "STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md": {
+    "brain-os/law/STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md": {
         "charge_level": "session",
         "context_id": "wtm",
         "context_label": "Big picture + next steps",
@@ -111,7 +111,7 @@ RULE_CHARGE_META: dict[str, dict[str, Any]] = {
         "context_label": "Semi-separate lanes",
         "governs_now": "MergePack = products/repos — not private agent",
     },
-    "SINA_SEMI_SEPARATE_AGENT_NOTICE_LOCKED_v1.md": {
+    "brain-os/law/SINA_SEMI_SEPARATE_AGENT_NOTICE_LOCKED_v1.md": {
         "charge_level": "operational",
         "context_id": "semi_separate",
         "context_label": "Semi-separate lanes",
@@ -129,7 +129,7 @@ RULE_CHARGE_META: dict[str, dict[str, Any]] = {
         "context_label": "Law conflicts",
         "governs_now": "ACE triage — continue work",
     },
-    "AUTO_CONFLICT_ENGINE_V3_LOCKED.md": {
+    "brain-os/law/AUTO_CONFLICT_ENGINE_V3_LOCKED.md": {
         "charge_level": "operational",
         "context_id": "conflict",
         "context_label": "Law conflicts",
@@ -141,7 +141,7 @@ RULE_CHARGE_META: dict[str, dict[str, Any]] = {
         "context_label": "Incident learning",
         "governs_now": "Weekly share + certify",
     },
-    "WORLD_TARGET_MODEL_MAP_LOCKED_v5.md": {
+    "brain-os/wtm/WORLD_TARGET_MODEL_MAP_LOCKED_v5.md": {
         "charge_level": "progress",
         "context_id": "wtm",
         "context_label": "Build order (WTM)",
@@ -312,14 +312,14 @@ def _annotate_rule(path: str, base: dict, *, hub: dict, extra_reason: str = "") 
     ctx = hub.get("context_snapshot") or _context_snapshot(hub)
 
     # WTM map is progress_active when we have a current step
-    if path == "WORLD_TARGET_MODEL_MAP_LOCKED_v5.md" and ctx.get("wtm_step"):
+    if path == "brain-os/wtm/WORLD_TARGET_MODEL_MAP_LOCKED_v5.md" and ctx.get("wtm_step"):
         level = "progress_active"
 
     # Boost conflict rules when open conflicts
     open_c = ctx.get("open_conflicts") or 0
     if open_c and path in (
         "SINA_AGENT_CONFLICT_ROOM_LOCKED_v1.md",
-        "AUTO_CONFLICT_ENGINE_V3_LOCKED.md",
+        "brain-os/law/AUTO_CONFLICT_ENGINE_V3_LOCKED.md",
     ):
         level = "progress_active"
 

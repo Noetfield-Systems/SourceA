@@ -24,7 +24,17 @@ port_up() {
   python3 -c "import socket; s=socket.socket(); s.settimeout(0.3); exit(0 if s.connect_ex(('127.0.0.1',${PORT}))==0 else 1)" 2>/dev/null
 }
 
-health_ok() { "$CURL" -sf "http://127.0.0.1:${PORT}/health" >/dev/null 2>&1; }
+EXPECTED_UI_VERSION="${CHAT_UNIFY_UI_VERSION:-3.4.0}"
+
+health_ok() {
+  if ! "$CURL" -sf "http://127.0.0.1:${PORT}/health" >/dev/null 2>&1; then
+    return 1
+  fi
+  local ui_ver
+  ui_ver="$("$CURL" -sf "http://127.0.0.1:${PORT}/health" 2>/dev/null \
+    | python3 -c "import sys,json; print(json.load(sys.stdin).get('ui_version',''))" 2>/dev/null || true)"
+  [[ -z "$ui_ver" || "$ui_ver" == "$EXPECTED_UI_VERSION" ]]
+}
 
 stop_stale_port() {
   if [[ -x "$LOSF" ]]; then
@@ -37,8 +47,11 @@ stop_stale_port() {
   fi
 }
 
-if health_ok; then
-  echo "Chat Unify already running → http://127.0.0.1:${PORT}/"
+if port_up && ! health_ok; then
+  echo "Port ${PORT} stale (UI/server mismatch) — restarting…"
+  stop_stale_port
+elif health_ok; then
+  echo "Chat Unify already running → http://127.0.0.1:${PORT}/ (UI ${EXPECTED_UI_VERSION})"
   exit 0
 fi
 

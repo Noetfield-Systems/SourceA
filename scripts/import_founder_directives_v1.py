@@ -11,9 +11,11 @@ SOURCE_A = Path(__file__).resolve().parents[1]
 SINA_HOME = Path.home() / ".sina"
 DIRECTIVES_PATH = SINA_HOME / "founder-directives.jsonl"
 
+from governance_paths_v1 import FOUNDER_FIRST_ASSISTANT_TRACKING
+
 SOURCES = [
     SOURCE_A / "sina-bowl" / "MASTER_ORDERS.json",
-    SOURCE_A / "FOUNDER_FIRST_ASSISTANT_TRACKING_LAW_LOCKED_v1.md",
+    FOUNDER_FIRST_ASSISTANT_TRACKING,
 ]
 
 
@@ -82,7 +84,7 @@ def run_import() -> dict:
         except json.JSONDecodeError:
             pass
 
-    law = SOURCE_A / "FOUNDER_FIRST_ASSISTANT_TRACKING_LAW_LOCKED_v1.md"
+    law = FOUNDER_FIRST_ASSISTANT_TRACKING
     if law.is_file():
         title = "Founder First Assistant — track every idea and order"
         if title.lower() not in seen:

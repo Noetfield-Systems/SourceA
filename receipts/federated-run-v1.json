@@ -838,6 +838,6 @@
   "execution_plane": "cloud_api_worker",
   "live_snapshot": {
     "cloud_worker_url": "https://sourcea-fbe-runner-production.up.railway.app",
-    "at": "2026-06-20T02:34:39Z"
+    "at": "2026-06-20T18:45:19Z"
   }
 }

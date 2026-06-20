@@ -1590,6 +1590,21 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
             template_id = str(body.get("template_id") or "forge-app-factory-v1")
             tenant = str(body.get("tenant") or "forge")
             work_order_id = str(body.get("work_order_id") or "")
+            forge_ctx = body.get("forge_context") if isinstance(body.get("forge_context"), dict) else None
+            if not forge_ctx:
+                forge_ctx = {
+                    k: body.get(k)
+                    for k in (
+                        "stack",
+                        "",
+                        "workstream",
+                        "prompt_abs",
+                        "task_graph_path",
+                        "run_id",
+                        "plan_id",
+                    )
+                    if body.get(k) is not None
+                }
 
             def _local() -> dict:
                 return run_job(
@@ -1597,9 +1612,21 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
                     template_id=template_id,
                     tenant=tenant,
                     work_order_id=work_order_id,
+                    forge_context=forge_ctx or None,
                 )
 
             row = dispatch_fbe_route(path, body, _local)
+            invalidate_worker_hub_cache()
+            self._json(200 if row.get("ok") else 400, row)
+            return
+        if path == "/api/fbe/forge--run/v1":
+            from forge__run_v1 import run__forge  # noqa: WPS433
+            from worker_hub_v1 import invalidate_worker_hub_cache  # noqa: WPS433
+
+            stack = str(body.get("stack") or "sourcea")
+            dry_run = bool(body.get("dry_run") or body.get("dry-run"))
+            plan_id = str(body.get("plan_id") or "")
+            row = run__forge(stack=stack, dry_run=dry_run, plan_id=plan_id)
             invalidate_worker_hub_cache()
             self._json(200 if row.get("ok") else 400, row)
             return

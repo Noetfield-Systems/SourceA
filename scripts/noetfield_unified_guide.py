@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 
 SOURCE_A = Path(__file__).resolve().parents[1]
-DOC = "NOETFIELD_CLOUD_GIT_AND_AGENT_ENTRY_UNIFIED_LOCKED_v1.md"
+DOC = "brain-os/law/NOETFIELD_CLOUD_GIT_AND_AGENT_ENTRY_UNIFIED_LOCKED_v1.md"
 
 
 def noetfield_unified_guide_payload() -> dict:

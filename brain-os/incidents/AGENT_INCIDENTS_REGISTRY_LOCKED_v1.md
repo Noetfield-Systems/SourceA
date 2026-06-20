@@ -1,6 +1,6 @@
 # Agent incidents registry — single check point (LOCKED)
 
-**Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
+**Saved:** 2026-06-20T19:15:00Z · **Retrofit:** INCIDENT-039 registry row
 [AUTO_AGENT_REF · Auto · AUTO-TRACE-WORKER-INCIDENTS-REGISTRY-v1.0]
 
 **trace_tag:** `AUTO-TRACE-WORKER-INCIDENTS-REGISTRY-v1.0`
@@ -87,6 +87,9 @@ ls -1 ~/Desktop/SourceA/SINA_*INCIDENT*REPORT*.md
 | **035** | Agent pipeline / Maze speed trap | High | `SINA_AGENT_PIPELINE_MAZE_SPEED_TRAP_INCIDENT_035_LOCKED_v1.md` | `SINA_AGENT_PIPELINE_MAZE_SPEED_TRAP_INCIDENT_035_REPORT_LOCKED_v1.md` | **canonical** · speed balance shipped |
 | **036** | Voyage P05 fake-green — stale hub/bowl labels | High | `SINA_VOYAGE_P05_FAKE_GREEN_STALE_LABELS_INCIDENT_036_LOCKED_v1.md` | `SINA_VOYAGE_P05_FAKE_GREEN_STALE_LABELS_INCIDENT_036_REPORT_LOCKED_v1.md` | **OPEN** · hub walk PASS · validator queued |
 | **037** | Agent answered FORM 116 instead of ASF | **P0** | `docs/SOURCEA_INCIDENT_037_FORM_FOUNDER_SUPREMACY_LOCKED_v1.md` | — | **remediated** 2026-06-19 · `form-agent-submit-forbidden-v1.flag` · Hub radio UI · **NOT** INCIDENT-029 |
+| **038** | Agent conflated Mac control · Worker · cloud · secondary plans | High | `SINA_AGENT_WORKER_FACTORY_PLANE_CONFLATION_INCIDENT_038_LOCKED_v1.md` | `SINA_AGENT_WORKER_FACTORY_PLANE_CONFLATION_INCIDENT_038_REPORT_LOCKED_v1.md` | **remediated v1.1** 2026-06-20 · Mac control only · secondary cloud-only · forbidden: Worker runs every plan |
+| **039** | Mac founder session stuck in validators (~11 min) | **P0 RED FLAG** | `SINA_MAC_FOUNDER_SESSION_VALIDATOR_STUCK_INCIDENT_039_LOCKED_v1.md` | `SINA_MAC_FOUNDER_SESSION_VALIDATOR_STUCK_INCIDENT_039_REPORT_LOCKED_v1.md` | **OPEN** 2026-06-20 · never stuck in validators · reply <30s · one light check ≤90s · no chains |
+| **040** | Mac Law wiring session · validator marathon ~28 min · ignored RED FLAG | **P0 RED FLAG ACTIVE** | `SINA_MAC_LAW_WIRING_VALIDATOR_MARATHON_INCIDENT_040_LOCKED_v1.md` | `SINA_MAC_LAW_WIRING_VALIDATOR_MARATHON_INCIDENT_040_REPORT_LOCKED_v1.md` | **OPEN** 2026-06-20 · `~/.sina/incident-040-validator-marathon-red-flag-v1.flag` · chained `validate-mac-law-*` on Mac · ASF: **write new** |
 
 ---
 

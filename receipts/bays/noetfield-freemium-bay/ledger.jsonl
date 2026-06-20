@@ -665,3 +665,6 @@
 {"at": "2026-06-20T00:56:00Z", "upgrade_id": "P0-13", "work_order_id": "", "gate_ok": true, "checks": 4}
 {"at": "2026-06-20T01:29:24Z", "upgrade_id": "P0-13", "work_order_id": "wo-brain-0161bc925e1f", "gate_ok": true, "checks": 4}
 {"at": "2026-06-20T01:58:56Z", "upgrade_id": "P0-13", "work_order_id": "wo-brain-ddd71084ff53", "gate_ok": true, "checks": 4}
+{"at": "2026-06-20T06:11:35Z", "upgrade_id": "P0-13", "work_order_id": "", "gate_ok": true, "checks": 4}
+{"at": "2026-06-20T06:14:11Z", "upgrade_id": "P0-13", "work_order_id": "", "gate_ok": true, "checks": 4}
+{"at": "2026-06-20T18:45:14Z", "upgrade_id": "P0-13", "work_order_id": "", "gate_ok": true, "checks": 4}

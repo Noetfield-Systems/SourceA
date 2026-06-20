@@ -175,6 +175,12 @@ def forge_payload(*, bay_slug: str = "forge-bay") -> dict:
         lines = [json.loads(ln) for ln in ref_ledger.read_text(encoding="utf-8").splitlines() if ln.strip()]
     run_r = _read_json(SINA / "fbe-forge-run-receipt-v1.json")
     verify_r = _read_json(SINA / "fbe-forge-verify-receipt-v1.json")
+    job_r = _read_json(SINA / "fbe-run-job-receipt-v1.json")
+    wo = _read_json(SINA / "forge-active-work-order-v1.json")
+    deploy_r = _read_json(ROOT / "receipts" / "bays" / bay_slug / "assembly" / "forge-deploy-pack-v1-v1.json")
+    trace_base = ROOT / "receipts" / "bays" / bay_slug / "trace"
+    preview_url = (deploy_r.get("manifest") or {}).get("preview_url") or wo.get("preview_url")
+    mock_only = (deploy_r.get("manifest") or {}).get("mock_only", True)
     return {
         "ok": bool(verify_r.get("ok")),
         "schema": "fbe-forge-status-v1",
@@ -191,6 +197,16 @@ def forge_payload(*, bay_slug: str = "forge-bay") -> dict:
         "proof_class": verify_r.get("proof_class", "G0-G3"),
         "deliveryMode": "prove_only",
         "execution_plane": "headless_w5",
+        "work_order_id": wo.get("plan_id") or job_r.get("work_order_id"),
+        "stack": wo.get("stack"),
+        "": wo.get(""),
+        "run_id": wo.get("run_id"),
+        "preview_url": preview_url,
+        "mock_only": mock_only,
+        "trace_paths": {
+            "cost": str(trace_base / "cost.jsonl") if (trace_base / "cost.jsonl").is_file() else None,
+            "eval": str(trace_base / "eval.jsonl") if (trace_base / "eval.jsonl").is_file() else None,
+        },
     }
 
 

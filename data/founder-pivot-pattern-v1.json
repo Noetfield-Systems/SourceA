@@ -62,7 +62,7 @@
       },
       "work_template": "WORK: Wire FBE_CLOUD_WORKER_URL to Railway mirror + cloud bay dispatch — not local_worker",
       "machines_to_run": ["fbe_first_bay_pulse_v1.py", "founder_routing_panel_v1.py"],
-      "inject_line": "Pivot locked · cloud executes · Mac routes · no Mac Worker muscle for factory bays"
+      "inject_line": "Pivot locked · cloud factory body executes · Mac control only · secondary packs never on Mac"
     },
     {
       "id": "PIVOT-ALL-LOOPS",

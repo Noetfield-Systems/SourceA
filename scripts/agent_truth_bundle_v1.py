@@ -122,6 +122,15 @@ def build_agent_truth_bundle() -> dict:
         except (OSError, json.JSONDecodeError):
             pass
 
+    try:
+        from agent_daily_duty_card_v1 import inject_slice  # noqa: WPS433
+
+        duty = inject_slice()
+        if duty and isinstance(out.get("inject"), dict):
+            out["inject"]["daily_duty_card_detail"] = duty
+    except Exception:
+        pass
+
     brain_wire_path = SINA / "governance-brain-wire-v1.json"
     if not brain_wire_path.is_file():
         brain_wire_path = SINA / "brain-wire-v1.json"
@@ -204,9 +213,14 @@ def main() -> int:
 
     p = argparse.ArgumentParser(description="Agent truth bundle SSOT")
     p.add_argument("--json", action="store_true")
+    p.add_argument("--write-cache", action="store_true", help="Write ~/.sina/last-truth-bundle-v1.json")
     args = p.parse_args()
     out = build_agent_truth_bundle()
-    print(json.dumps(out, indent=2))
+    if args.write_cache:
+        cache = SINA / "last-truth-bundle-v1.json"
+        cache.write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
+    if args.json:
+        print(json.dumps(out, indent=2))
     return 0
 
 

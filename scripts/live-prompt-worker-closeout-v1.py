@@ -6,6 +6,8 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
+from governance_paths_v1 import SINA_STATIC_PROMPT_INCIDENT_024
+
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
 SINA = Path.home() / ".sina"
@@ -34,7 +36,7 @@ def closeout(*, write: bool = True) -> dict:
         "w1_audit": bool(audit.get("ok")),
         "w2_e2e": any(c.get("id") == "e2e" and c.get("ok") for c in (audit.get("checks") or [])),
         "w3_edit_ui": "data-live-edit" in (ROOT / "agent-control-panel/assets/app.js").read_text(encoding="utf-8"),
-        "w4_incident_024": (ROOT / "SINA_STATIC_PROMPT_FEED_STALE_LIST_INCIDENT_024_REPORT_LOCKED_v1.md").is_file(),
+        "w4_incident_024": SINA_STATIC_PROMPT_INCIDENT_024.is_file(),
         "w5_lane_score": bool(score.get("ok")) and float(score.get("score_pct") or 0) >= 90.0,
         "w6_monitor": "live-next-10-panel" in (ROOT / "monitor.html").read_text(encoding="utf-8"),
         "w7_s10": "live_ongoing_prompts" in (SCRIPTS / "s10_eternal_audit_loop_v1.py").read_text(encoding="utf-8"),

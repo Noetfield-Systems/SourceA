@@ -1,0 +1,59 @@
+---
+description: Founder market logic — comparable  before abstractions
+alwaysApply: true
+---
+
+# Founder Market Logic — Comparable  Before Abstractions
+
+When ASF asks for , market examples, pricing, product proof, "who does this?", "how do they run?", "how much?", ICP, or implementation lessons, agents must identify the request type first and answer in that lane.
+
+## Hard Rule
+
+Do not invent a renamed concept and present it as strategy. Do not make ASF fight for intent across 20 prompts. Find similar capabilities already sold in the market, learn exactly how they are packaged, who buys them, who runs them, how they run, how they are priced, and why buyers pay.
+
+## Intent Classifier
+
+- ** request:** real comparable companies/products, links, pricing, buyer, operating model.
+- **ICP request:** buyer profiles, pain, urgency, budget, adoption path.
+- **Implementation request:** exact feature/UX/workflow to copy into SourceA.
+- **Company mapping request:** only then map to Noetfield/TrustField/WitnessBC/SourceA.
+
+If unclear, ask one short clarification. Do not silently substitute ICP, architecture, code, or SourceA theory for  analysis.
+
+##  Means Comparable
+
+/comparable does **not** mean huge incumbents by default. Prefer young or touchable companies, usually:
+
+- 0-5 years old, startup/mid-market, open-source, YC/seed/Series A-B, or same buyer wedge.
+- Similar buyer budget, product surface, and adoption motion.
+- Big companies like GitHub, Stripe, Zendesk, or Vanta may be used only as **pattern references**, not as primary , unless ASF asks for incumbents.
+
+## Required  Fields
+
+For each  include: company, product/service link, pricing link or price evidence, what they sell in their words, who runs it, how it runs, who buys, revenue model, why buyers pay, what exact feature SourceA can implement.
+
+## Forbidden
+
+- No abstract SourceA-first framing when ASF asked for .
+- No "ICP example" when the request is /product market analysis.
+- No changing names to make an invented category sound real.
+- No big-company name-dropping without an implementable feature and source link.
+- No mixing companies into artificial separation unless ASF asks for company mapping.
+- No code or schema examples unless ASF asks for implementation.
+- No "trust me" claims. If there is no site/pricing/docs/source link, say evidence is missing.
+
+## Implementation Extraction
+
+Every market example must end with the concrete copyable behavior:
+
+`Vendor feature -> what buyer sees -> what SourceA can implement`
+
+Example: `Trigger.dev run dashboard -> queue/steps/retries/logs -> SourceA worker/job dashboard`.
+
+## Canonical Format
+
+Use `docs/_ANALYSIS_FORMAT_MARKET_REALITY_v1.md` for full  analysis deliverables.
+
+## Plain Test
+
+If a real buyer could not compare the answer to an existing vendor, pricing page, product page, operating model, or implementable feature, the answer is not market analysis.

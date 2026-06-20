@@ -1,7 +1,8 @@
 {
   "schema": "mac-law-machine-enforceable-v1",
-  "version": "1.0.0",
-  "saved_at": "2026-06-20T04:00:00Z",
+  "version": "2.1.0",
+  "saved_at": "2026-06-20T19:15:00Z",
+  "incident_039_ref": "data/mac-validator-stuck-red-flag-v1.json",
   "locked": true,
   "authority": "Mac Law — supreme after ASF",
   "one_law": "Mac = control panel only · cloud/API executes · no heavy validators or factory body on Mac",
@@ -47,7 +48,8 @@
     "One Cursor window on SourceA — no stacked MacLaw/TrustField windows",
     "Light validators only during founder session — no E2E · no motor · no anti_staleness stacks on Mac",
     "No screencapture loops · no film render · no autorun bootstrap without ASF",
-    "No FIX_DISK sync chains as founder-facing answer — cloud path first"
+    "No FIX_DISK sync chains as founder-facing answer — cloud path first",
+    "INCIDENT-039: never stuck in validators on Mac — reply <30s · one light check ≤90s · proof=receipts"
   ],
   "forbidden_on_mac_body": [
     "fbe_motor_delegate local drain",
@@ -71,7 +73,11 @@
     {"id": "pkill_screencap_mac", "pattern": "pkill.*screencapture", "because": "Never pkill screencapture — breaks founder capture"},
     {"id": "local_comprehension_mac", "pattern": "cloud_comprehension_pipeline_loop_v1\\.py", "because": "Use cloud bay POST /api/comprehension-loop/v1"},
     {"id": "disk_sync_chain_mac", "pattern": "disk_live_wire_sync.*agent_memory_mirror", "because": "Heavy sync chain on Mac — cloud or single light touch"},
-    {"id": "autorun_bootstrap_mac", "pattern": "launchctl bootstrap.*autorun", "because": "Autorun forbidden without ASF"}
+    {"id": "generate_validate_loop_mac", "pattern": "generate_.*&&.*validate_", "because": "INCIDENT-039 — regenerate+validate loop on Mac forbidden during founder session"},
+    {"id": "validator_marathon_mac", "pattern": "validate-mac-worker.*&&.*validate-secondary", "because": "INCIDENT-039 — validator marathon forbidden on Mac"},
+    {"id": "mac_law_validator_chain_mac", "pattern": "validate-mac-law.*&&.*validate-mac-law", "because": "INCIDENT-040 — Mac Law validator chains forbidden on Mac founder session"},
+    {"id": "mac_law_validator_enforce_mac", "pattern": "validate-mac-law.*--enforce", "because": "INCIDENT-040 — Mac Law validators are assess-only on Mac; --enforce is ship/CI only"},
+    {"id": "mac_law_sync_enforce_mac", "pattern": "mac_law_.*--sync-receipt.*--enforce", "because": "INCIDENT-040 — nested Mac Law sync enforce forbidden on Mac founder session"}
   ],
   "cloud_only_routes": {
     "comprehension": "/api/comprehension-loop/v1",
@@ -86,9 +92,23 @@
   },
   "wired_to": [
     "scripts/mac_law_machine_enforce_v1.py",
+    "scripts/mac_law_universal_wire_v1.py",
     "scripts/agentic_conduct_gate_v1.py",
     "scripts/agent_session_gate_run_v1.py",
     "scripts/agent_memory_mirror_v1.py",
-    "data/mac-law-mandatory-v1.json"
-  ]
+    "scripts/pre_write_guard_v1.py",
+    "data/mac-law-mandatory-v1.json",
+    "data/mac-law-universal-wire-v1.json"
+  ],
+  "universal_wire": {
+    "ssot": "data/mac-law-universal-wire-v1.json",
+    "script": "scripts/mac_law_universal_wire_v1.py",
+    "validator": "scripts/validate-mac-law-universal-wire-v1.sh"
+  },
+  "agent_execution_plane_lock": {
+    "ssot": "data/mac-law-agent-execution-plane-lock-v1.json",
+    "script": "scripts/mac_law_agent_execution_plane_lock_v1.py",
+    "validator": "scripts/validate-mac-law-agent-execution-plane-lock-v1.sh",
+    "full_stack_validator": "scripts/validate-mac-law-full-stack-v1.sh"
+  }
 }

@@ -240,7 +240,7 @@ def patch_command_center(auto_body: str) -> None:
 def product_factory_hub_signal() -> dict:
     """sa-0517 PRODUCT_FACTORY roadmap vs hub progress — two-speed clocks aligned."""
     return {
-        "roadmap_doc": "PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md",
+        "roadmap_doc": "brain-os/law/PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md",
         "crossref_doc": "archive/attachments/2026-06-14/sa-0517-product-factory-roadmap-hub-signals_LOCKED_v1.md",
         "aligned": True,
         "two_speed_note": "founder_p0_id=STRATEGIC-SLICE · p0_sku=RunReceipt factory parallel only",
@@ -342,7 +342,7 @@ def commercial_lane_g3_vault_signal() -> dict:
         "append_fn": "scripts/commercial_lane_g3_vault_v1.py::append_priority_g3_evidence_if_visible",
         "validator": "scripts/validate-commercial-lane-g3-vault-evidence-v1.sh",
         "vault_agents": ["wire", "trustfield", "sourcea"],
-        "wire_progress_doc": "WIRE_LANE_PROGRESS.md",
+        "wire_progress_doc": "brain-os/law/WIRE_LANE_PROGRESS.md",
         "canonical_sa": "sa-0525",
     }
 
@@ -440,7 +440,7 @@ def crossref_signal_pins() -> dict:
             "t2_echo_sa": "sa-0562",
             "validator": "scripts/validate-wire-lane-progress-t3-crossref-v1.sh",
             "canonical_validator": "scripts/validate-wire-lane-progress-v1.sh",
-            "wire_doc": "WIRE_LANE_PROGRESS.md",
+            "wire_doc": "brain-os/law/WIRE_LANE_PROGRESS.md",
             "this_sa": "sa-0587",
         },
         "commercial_critique_t3_crossref": {
@@ -535,7 +535,7 @@ def crossref_signal_pins() -> dict:
             "crossref_doc": "archive/attachments/2026-06-14/sa-0542-product-factory-roadmap-hub-signals-t1-crossref_LOCKED_v1.md",
             "canonical_sa": "sa-0517",
             "validator": "scripts/validate-product-factory-roadmap-hub-signals-t1-crossref-v1.sh",
-            "roadmap_doc": "PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md",
+            "roadmap_doc": "brain-os/law/PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md",
             "hub_projection": "agent-control-panel/command-data.json",
             "this_sa": "sa-0542",
         },
@@ -545,7 +545,7 @@ def crossref_signal_pins() -> dict:
             "t1_echo_sa": "sa-0542",
             "validator": "scripts/validate-product-factory-roadmap-hub-signals-t2-crossref-v1.sh",
             "canonical_validator": "scripts/validate-product-factory-roadmap-hub-signals-v1.sh",
-            "roadmap_doc": "PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md",
+            "roadmap_doc": "brain-os/law/PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md",
             "hub_projection": "agent-control-panel/command-data.json",
             "this_sa": "sa-0567",
         },
@@ -556,7 +556,7 @@ def crossref_signal_pins() -> dict:
             "t2_echo_sa": "sa-0567",
             "validator": "scripts/validate-product-factory-roadmap-hub-signals-t3-crossref-v1.sh",
             "canonical_validator": "scripts/validate-product-factory-roadmap-hub-signals-v1.sh",
-            "roadmap_doc": "PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md",
+            "roadmap_doc": "brain-os/law/PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md",
             "hub_projection": "agent-control-panel/command-data.json",
             "this_sa": "sa-0592",
         },

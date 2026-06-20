@@ -54,7 +54,7 @@ THREAD_NODES: dict[str, dict] = {
         "tabs": ["command", "today", "rules", "plans", "fleet"],
         "docs": [
             ("Factory P0 law", "product/PRODUCT_FACTORY_RESCORE_NO_ADS_LOCKED_v1.md", "src"),
-            ("Factory roadmap", "PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md", "src"),
+            ("Factory roadmap", "brain-os/law/PRODUCT_FACTORY_ROADMAP_LOCKED_v1.md", "src"),
         ],
     },
     "THREAD-WIRE": {
@@ -65,7 +65,7 @@ THREAD_NODES: dict[str, dict] = {
         "role_ids": ["ROLE-WIRE"],
         "tabs": ["command", "today", "fleet", "apps"],
         "docs": [
-            ("Wire lane progress", "WIRE_LANE_PROGRESS.md", "src"),
+            ("Wire lane progress", "brain-os/law/WIRE_LANE_PROGRESS.md", "src"),
             ("Wire + phone", "founder/ASF_WIRE_AND_PHONE.md", "src"),
         ],
         "apps": ["remote-ops"],
@@ -134,7 +134,7 @@ THREAD_NODES: dict[str, dict] = {
 PLAN_NODES: dict[str, dict] = {
     "MERGEPACK-L1": {"thread": "THREAD-MERGEPACK", "hook": str(MERGEPACK_ROOT / "START_HERE.md"), "hook_abs": True},
     "P0-RUNRECEIPT": {"thread": "THREAD-FACTORY", "hook": "product/PRODUCT_FACTORY_RESCORE_NO_ADS_LOCKED_v1.md"},
-    "M8-WIRE": {"thread": "THREAD-WIRE", "hook": "WIRE_LANE_PROGRESS.md"},
+    "M8-WIRE": {"thread": "THREAD-WIRE", "hook": "brain-os/law/WIRE_LANE_PROGRESS.md"},
     "PROMPTOS-DAILY": {"thread": "THREAD-PROMPTOS", "hook": "founder/ASF_DAILY_CARD.md"},
     "SUPERBRAIN-P0": {"thread": "THREAD-SUPERBRAIN", "hook": "docs/operational/chat-consolidation-pipeline.md", "hook_mono": True},
     "PORTFOLIO": {"thread": "THREAD-PORTFOLIO", "hook": "GLOBAL_BLOCKERS.json"},

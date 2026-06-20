@@ -1,0 +1,155 @@
+[
+  {
+    "path": "WORLD_TARGET_MODEL_ARCHITECTURE_DIAGRAM_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# MOVED — canonical SSOT",
+    "risk": "LOW",
+    "hits": [
+      "scripts/system_roadmap.py",
+      "scripts/archive_suppressed_docs_v1.py",
+      "agent-control-panel/command-data.json",
+      "agent-control-panel/command-data-canonical.json"
+    ],
+    "hit_count": 4,
+    "note": "Canonical at brain-os/wtm/; system_roadmap already uses full path"
+  },
+  {
+    "path": "WORLD_TARGET_MODEL_AUTHORITY_LAW_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# MOVED — canonical SSOT",
+    "risk": "HIGH",
+    "hits": [
+      "scripts/important_docs_index.py",
+      "scripts/meta_reasoning_policy.py",
+      "scripts/system_roadmap.py",
+      "scripts/archive_suppressed_docs_v1.py",
+      "agent-control-panel/command-data.json",
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json"
+    ],
+    "hit_count": 7,
+    "patch": "important_docs_index.py → brain-os/wtm/ prefix"
+  },
+  {
+    "path": "WORLD_TARGET_MODEL_FULL_BLUEPRINT_FOR_REVIEW_v1.md",
+    "size": "4.0K",
+    "first": "# MOVED — canonical SSOT",
+    "risk": "LOW",
+    "hits": [
+      "scripts/archive_suppressed_docs_v1.py",
+      "agent-control-panel/command-data.json",
+      "agent-control-panel/command-data-canonical.json"
+    ],
+    "hit_count": 3
+  },
+  {
+    "path": "WORLD_TARGET_MODEL_FULL_BLUEPRINT_FOR_REVIEW_v2.md",
+    "size": "4.0K",
+    "first": "# MOVED — canonical SSOT",
+    "risk": "LOW",
+    "hits": [
+      "scripts/archive_suppressed_docs_v1.py",
+      "agent-control-panel/command-data.json",
+      "agent-control-panel/command-data-canonical.json"
+    ],
+    "hit_count": 3
+  },
+  {
+    "path": "WORLD_TARGET_MODEL_MAP_LOCKED_v5.md",
+    "size": "4.0K",
+    "first": "# MOVED — canonical SSOT",
+    "risk": "HIGH",
+    "hits": [
+      "scripts/agent_system_unified.py",
+      "scripts/agent_rules_in_charge.py",
+      "scripts/important_docs_index.py",
+      "scripts/system_roadmap.py",
+      "scripts/world_model_plan_check_v1.py",
+      "scripts/roadmaps_goals.py",
+      "scripts/meta_reasoning_policy.py",
+      "scripts/strategic_synthesis_hub.py",
+      "scripts/council_strategic_brief.py",
+      "scripts/generate-sourcea-1000-prompts.py",
+      "data/platform-neutral-world-model-v1.json",
+      ".cursor/rules/platform-neutral-world-model.mdc"
+    ],
+    "hit_count": 12,
+    "patch": "agent_system_unified.py + agent_rules_in_charge.py → brain-os/wtm/"
+  },
+  {
+    "path": "WORLD_TARGET_MODEL_PHASE_NAMING_INCIDENT_REPORT_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# MOVED — canonical SSOT",
+    "risk": "HIGH",
+    "hits": [
+      "scripts/ecosystem_incidents_index.py",
+      "scripts/consolidate_incidents_folder_v1.py",
+      "scripts/archive_suppressed_docs_v1.py",
+      "agent-control-panel/command-data.json",
+      "agent-control-panel/command-data-canonical.json",
+      "agent-control-panel/command-data-runtime.json"
+    ],
+    "hit_count": 6,
+    "patch": "ecosystem_incidents_index.py → brain-os/wtm/"
+  },
+  {
+    "path": "WORLD_TARGET_MODEL_ROADMAP_LAW_LOCKED_v2.md",
+    "size": "4.0K",
+    "first": "# MOVED — canonical SSOT",
+    "risk": "HIGH",
+    "hits": [
+      "scripts/important_docs_index.py",
+      "scripts/roadmaps_goals.py",
+      "scripts/meta_reasoning_policy.py",
+      "scripts/system_roadmap.py",
+      "scripts/archive_suppressed_docs_v1.py",
+      "brand/macos-apps/Apple Health.app/Contents/Resources/apple-health-bundle/scripts/roadmaps_goals.py"
+    ],
+    "hit_count": 6,
+    "patch": "important_docs_index.py + roadmaps_goals.py → brain-os/wtm/"
+  },
+  {
+    "path": "WORLD_TARGET_MODEL_STEP_ID_MIGRATION_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# MOVED — canonical SSOT",
+    "risk": "HIGH",
+    "hits": [
+      "scripts/important_docs_index.py",
+      "scripts/system_roadmap.py",
+      "scripts/migrate-wtm-step-ids-v4.py",
+      "scripts/archive_suppressed_docs_v1.py",
+      "agent-control-panel/command-data.json"
+    ],
+    "hit_count": 5,
+    "patch": "important_docs_index.py → brain-os/wtm/"
+  },
+  {
+    "path": "WORLD_TARGET_MODEL_UI_INCIDENT_REPORT_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# MOVED — canonical SSOT",
+    "risk": "HIGH",
+    "hits": [
+      "scripts/ecosystem_incidents_index.py",
+      "data/ui-upgrade-surface-registry-v1.json",
+      "scripts/consolidate_incidents_folder_v1.py",
+      "scripts/archive_suppressed_docs_v1.py",
+      "agent-control-panel/command-data.json"
+    ],
+    "hit_count": 5,
+    "patch": "ecosystem_incidents_index.py → brain-os/wtm/"
+  },
+  {
+    "path": "WORLD_TARGET_MODEL_UI_RESEARCH_LOCKED_v1.md",
+    "size": "4.0K",
+    "first": "# MOVED — canonical SSOT",
+    "risk": "LOW",
+    "hits": [
+      "scripts/system_roadmap.py",
+      "data/ui-upgrade-surface-registry-v1.json",
+      "scripts/archive_suppressed_docs_v1.py",
+      "agent-control-panel/command-data.json"
+    ],
+    "hit_count": 4,
+    "note": "system_roadmap + ui-upgrade registry already canonical"
+  }
+]

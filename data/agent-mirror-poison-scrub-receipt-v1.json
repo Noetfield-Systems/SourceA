@@ -1,0 +1,9 @@
+{
+  "schema": "agent-mirror-poison-scrub-v1",
+  "at": "2026-06-20T18:48:14Z",
+  "scrubbed_files": [],
+  "mirror_sync": null,
+  "truth_bundle": null,
+  "poison_hits": [],
+  "ok": true
+}
