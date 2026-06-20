@@ -2,7 +2,9 @@
 # validate-no-archive-as-law-v1.sh — authority index must not point only to archive (AS-15)
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-INDEX="$ROOT/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"
+# shellcheck source=governance-paths-v1.sh
+. "$ROOT/scripts/governance-paths-v1.sh"
+INDEX="$SINA_AUTHORITY_INDEX"
 
 fail() { echo "FAIL: validate-no-archive-as-law-v1 — $*" >&2; exit 1; }
 
@@ -14,7 +16,7 @@ import re
 import sys
 from pathlib import Path
 
-index = Path("SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md").read_text(encoding="utf-8")
+index = Path("brain-os/system/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md").read_text(encoding="utf-8")
 bad = []
 for line in index.splitlines():
     if not line.startswith("| `"):

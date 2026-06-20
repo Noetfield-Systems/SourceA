@@ -26,7 +26,7 @@ else
 fi
 
 echo "=== validators use canonical ==="
-grep -q 'brain-os/enforcement/REGISTRY_DRAIN_RAIL' scripts/validate-registry-drain-rail-v1.sh
+grep -q 'brain-os/law/enforcement/REGISTRY_DRAIN_RAIL' scripts/validate-registry-drain-rail-v1.sh
 grep -q 'brain-os/law/BRAIN_UNIFIED_RULES' scripts/cursor_entry_gate.py
 
 bash scripts/validate-registry-drain-rail-v1.sh

@@ -3,7 +3,7 @@
 **Saved:** 2026-06-16T04:33:36Z · **Retrofit:** doc-datetime-law batch retrofit
 **Version:** MERGED v1 · **Date:** 2026-06-15  
 **Source:** `archive/attachments/commercial/SOURCEA_NOETFIELD_STRATEGY_PACK_2026-06-15_v1.md` §2  
-**Authority:** Subordinate to `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md` · `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md`  
+**Authority:** Subordinate to `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md` · `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md`  
 **Status:** Pinned commercial motion — not a new architecture layer
 
 ---

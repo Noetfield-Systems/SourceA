@@ -20,10 +20,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+from governance_paths_v1 import AUTHORITY_INDEX
+
 SINA = Path.home() / ".sina"
 RECEIPT_PATH = SINA / "founder-signal-impact-v1.jsonl"
 LATEST_PATH = SINA / "founder-signal-impact-latest-v1.json"
-AUTHORITY_INDEX = ROOT / "SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"
+AUTHORITY_INDEX_PATH = AUTHORITY_INDEX
 INCIDENT_REGISTRY = ROOT / "brain-os/incidents/AGENT_INCIDENTS_REGISTRY_LOCKED_v1.md"
 
 P0_IDS = frozenset({"SSOT", "LAW_PURITY", "SINA_OS_SSOT"})

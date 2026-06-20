@@ -23,7 +23,7 @@ LANE_WRITE_PREFIXES: dict[str, list[str]] = {
         str(ROOT / "prompts"),
         str(ROOT / "scripts"),
         str(ROOT / "brain-os/plan-registry"),
-        str(ROOT / "brain-os/enforcement"),
+        str(ROOT / "brain-os/law/enforcement"),
         str(ROOT / "SourceA-landing"),
         str(ROOT / "receipts"),
         str(ROOT / "os"),

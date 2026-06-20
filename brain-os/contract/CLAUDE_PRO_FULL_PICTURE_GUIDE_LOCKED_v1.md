@@ -106,7 +106,7 @@ From `brain-os/system/GOAL_HIERARCHY_LOCKED_v1.md`:
 | **Queue** | `~/.sina/healthy-queue-30-active.json` |
 | **Inbox** | `~/.sina/worker-prompt-inbox-v1.json` |
 | **RUNNING rule** | Last `AGENT DONE` in `goal1-worker-batch-latest.log` must have `broker=yes` |
-| **Law** | `brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` |
+| **Law** | `brain-os/law/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` |
 
 **This is the spine.** Brain narrates; Worker implements; validators verify.
 

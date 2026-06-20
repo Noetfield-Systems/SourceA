@@ -7,7 +7,7 @@
 **Status:** Phase 0 — Declaration only. Nothing here is a build instruction.  
 **Authority:** ASF (human founder) → Sina OS governance stack  
 **Visibility:** `INTERNAL_LOCAL_ONLY` — never commit this file to git, never push to remote  
-**Canonical location:** `/Users/sinakazemnezhad/Desktop/SourceA/SINA_OS_SSOT_LOCKED.md`  
+**Canonical location:** `brain-os/law/SINA_OS_SSOT_LOCKED.md` (repo-relative)  
 **Locked:** 2026-05-31
 **Phase 1 work plan (read-only, future):** `/Users/sinakazemnezhad/Desktop/SourceA/PHASE1_UNIFIED_BLUEPRINT_v2_3.md`
 

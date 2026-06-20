@@ -42,7 +42,7 @@
 | # | Full path |
 |---|-----------|
 | 0 | `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/INDEX_LOCKED_v1.md` |
-| 1 | `…/brain-os/entry/START_HERE_LOCKED_v1.md` |
+| 1 | `…/brain-os/law/entry/START_HERE_LOCKED_v1.md` |
 | 2 | `…/brain-os/law/BRAIN_UNIFIED_RULES_LOCKED_v1.md` |
 | 3 | `…/brain-os/contract/MANDATORY_BRAIN_CHAT_LOCKED_v1.md` |
 | 4 | `…/brain-os/memory/BRAIN_KNOWLEDGE_INDEX_LOCKED_v1.md` |
@@ -142,15 +142,15 @@
 
 | File | Full path |
 |------|-----------|
-| Registry drain rail | `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` |
-| Goal1 operating model | `…/brain-os/enforcement/SINA_GOAL1_OPERATING_MODEL_LOCKED_v1.md` |
-| Goal1 loop activation | `…/brain-os/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md` |
-| Goal1 execution solution | `…/brain-os/enforcement/GOAL1_EXECUTION_SOLUTION_LOCKED_v1.md` |
-| Goal1 batch checkpoint | `…/brain-os/enforcement/GOAL1_BATCH_CHECKPOINT_LOCKED_v1.md` |
-| Disk before chat | `…/brain-os/enforcement/BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md` |
-| One sa per turn | `…/brain-os/enforcement/ONE_SA_PER_TURN_MECHANICAL_LOCKED_v1.md` |
-| Worker chat law | `…/brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` |
-| Enforcement audit | `…/brain-os/enforcement/BRAIN_ENFORCEMENT_AUDIT_PROMPT_LOCKED_v1.md` |
+| Registry drain rail | `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/law/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md` |
+| Goal1 operating model | `…/brain-os/law/enforcement/SINA_GOAL1_OPERATING_MODEL_LOCKED_v1.md` |
+| Goal1 loop activation | `…/brain-os/law/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md` |
+| Goal1 execution solution | `…/brain-os/law/enforcement/GOAL1_EXECUTION_SOLUTION_LOCKED_v1.md` |
+| Goal1 batch checkpoint | `…/brain-os/law/enforcement/GOAL1_BATCH_CHECKPOINT_LOCKED_v1.md` |
+| Disk before chat | `…/brain-os/law/enforcement/BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md` |
+| One sa per turn | `…/brain-os/law/enforcement/ONE_SA_PER_TURN_MECHANICAL_LOCKED_v1.md` |
+| Worker chat law | `…/brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` |
+| Enforcement audit | `…/brain-os/law/enforcement/BRAIN_ENFORCEMENT_AUDIT_PROMPT_LOCKED_v1.md` |
 
 ### 2.2 Automation architecture law (repo root — compare when pasted)
 
@@ -245,7 +245,7 @@
 |------|-----------|
 | Strategic next steps | `/Users/sinakazemnezhad/Desktop/SourceA/STRATEGIC_NEXT_STEPS_SYNTHESIS_LOCKED_v2.md` |
 | Council brief eval | `…/SourceA/COUNCIL_BRIEF_STRATEGIC_SLICE_EVAL_L0_ENFORCE_LOCKED_v1.md` |
-| Law root index (WTM section) | `…/brain-os/entry/LAW_ROOT_INDEX_LOCKED_v1.md` |
+| Law root index (WTM section) | `…/brain-os/law/entry/LAW_ROOT_INDEX_LOCKED_v1.md` |
 
 ---
 

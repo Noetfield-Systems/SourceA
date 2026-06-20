@@ -248,7 +248,7 @@ From Cross-doc §12.4 — **G0→G8**:
 | 1 | `SINA_OS_SSOT_LOCKED.md` | Ecosystem apex |
 | 2 | `SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md` | Law registry + LAW PURITY |
 | 3 | `SINA_GOVERNANCE_ENTRY_LOCKED_v1.md` | Router |
-| 4 | `brain-os/entry/LAW_ROOT_INDEX_LOCKED_v1.md` | Topic map (T2) |
+| 4 | `brain-os/law/entry/LAW_ROOT_INDEX_LOCKED_v1.md` | Topic map (T2) |
 | 5 | `SOURCE_A_DOCUMENT_SEQUENCE_REGISTRY_LOCKED_v1.md` | Chronology only |
 | 6 | `ECOSYSTEM_IMPORTANT_DOCS_INDEX_LOCKED_v1.md` | Read urgency P0/P1/P2 |
 | 7 | `SOURCEA_AUTHORITY_REGISTRY_GOV_UNIFY_BATCH_2026-06-11_LOCKED_v1.md` | Batch manifest |

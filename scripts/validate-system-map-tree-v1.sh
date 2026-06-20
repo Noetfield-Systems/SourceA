@@ -2,9 +2,11 @@
 # validate-system-map-tree-v1.sh — canonical navigation tree wired
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+# shellcheck source=governance-paths-v1.sh
+. "$ROOT/scripts/governance-paths-v1.sh"
 TREE="$ROOT/SOURCEA_SYSTEM_MAP_TREE_LOCKED_v1.md"
-AUTH="$ROOT/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"
-ENTRY="$ROOT/brain-os/entry/START_HERE_LOCKED_v1.md"
+AUTH="$SINA_AUTHORITY_INDEX"
+ENTRY="$ROOT/brain-os/law/entry/START_HERE_LOCKED_v1.md"
 
 fail() { echo "FAIL: validate-system-map-tree-v1 — $*" >&2; exit 1; }
 
@@ -19,7 +21,7 @@ for f in \
   "$ROOT/RUN_INBOX_DISK_TRUTH_EXECUTION_LOCKED_v1.md" \
   "$ROOT/SOURCEA_MONITOR_DISK_LIVE_WIRE_LOCKED_v1.md" \
   "$ROOT/brain-os/laws/FOUNDER_AGENTIC_COMMERCIAL_AND_NO_CURSOR_AUTORUN_LOCKED_v1.md" \
-  "$ROOT/brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md" \
+  "$ROOT/brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md" \
   "$ROOT/scripts/brain_sync_lib_v1.py" \
   "$ROOT/scripts/factory_control_v1.py"
 do

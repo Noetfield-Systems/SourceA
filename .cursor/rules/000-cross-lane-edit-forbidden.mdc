@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Agent verbs — SAVE · WORK · EDIT ALLOWED (000)
 
-**Law:** `brain-os/enforcement/AGENT_VERBS_SAVE_WORK_EDIT_LOCKED_v1.md`  
+**Law:** `brain-os/law/enforcement/AGENT_VERBS_SAVE_WORK_EDIT_LOCKED_v1.md`  
 **On conflict:** [skill-007-ecosystem-conflict-resolution](../skills/skill-007-ecosystem-conflict-resolution/SKILL.md) · [ecosystem-rule-conflict-resolution.mdc](ecosystem-rule-conflict-resolution.mdc) · R-010
 
 ## SAVE (research / reports)

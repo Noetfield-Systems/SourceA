@@ -42,7 +42,7 @@
 | **H2 mirror** | Next-phase / deferred / ops pending **not** on Form yet → `~/.sina/h2-pending-registry-v1.json` (H2 surface) — Brain keeps organized; Form when founder must PICK |
 | **Receipt** | `archive/attachments/2026-06-14/ASF_FORM_OFFICIAL_H2_PENDING_ORGANIZATION_ORDER_2026-06-14_LOCKED_v1.md` |
 
-**Mandatory read:** `brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md` v1.7 · `.cursor/rules/form-official-h2-pending.mdc`
+**Mandatory read:** `brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md` v1.7 · `.cursor/rules/form-official-h2-pending.mdc`
 
 ### 1a. Founder voice (LinkedIn · notes · messages)
 

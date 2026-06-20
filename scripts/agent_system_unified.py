@@ -16,11 +16,11 @@ FOUNDER_DIRECTIVES_PATH = SINA_HOME / "founder-directives.jsonl"
 HUB_URL = "http://127.0.0.1:13020"
 
 AUTHORITY_RULES: list[dict[str, str]] = [
-    {"id": "ECOSYSTEM", "path": "SINA_OS_SSOT_LOCKED.md", "title": "Sina OS SSOT", "governs": "Mono structure, ports, phases"},
-    {"id": "GOVERNANCE_ENTRY", "path": "SINA_GOVERNANCE_ENTRY_LOCKED_v1.md", "title": "Governance entry", "governs": "Router — pick branch, do not read 49 files"},
+    {"id": "ECOSYSTEM", "path": "brain-os/law/SINA_OS_SSOT_LOCKED.md", "title": "Sina OS SSOT", "governs": "Mono structure, ports, phases"},
+    {"id": "GOVERNANCE_ENTRY", "path": "brain-os/law/entry/SINA_GOVERNANCE_ENTRY_LOCKED_v1.md", "title": "Governance entry", "governs": "Router — pick branch, do not read 49 files"},
     {"id": "NO_TERMINAL", "path": "SINA_COMMAND_NO_TERMINAL_FOUNDER_LOCKED_v1.md", "title": "No Terminal (founder)", "governs": "Founder clicks only — executor runs shell or one-tap Actions"},
     {"id": "RULES_LOOP", "path": "AGENT_RULES_IN_CHARGE_LOCKED_v1.md", "title": "Rules in charge", "governs": "Search existing rule — supersession — never parallel duplicate"},
-    {"id": "AUTHORITY_INDEX", "path": "SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md", "title": "Authority index", "governs": "Which law wins per topic"},
+    {"id": "AUTHORITY_INDEX", "path": "brain-os/system/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md", "title": "Authority index", "governs": "Which law wins per topic"},
     {"id": "ALIGNMENT", "path": "SINA_SOURCE_ALIGNMENT_LAW_LOCKED_v1.md", "title": "Source alignment", "governs": "Locked source vs suggestions"},
     {"id": "CRITIC", "path": "CHATGPT_EXTERNAL_CRITIC_LAW_LOCKED_v1.md", "title": "External critic", "governs": "GPT paste = compare only"},
     {"id": "EDIT_LOCK", "path": "SINA_COMMAND_EDIT_LOCK_LOCKED_v1.md", "title": "Edit lock", "governs": "Who may edit SourceA"},

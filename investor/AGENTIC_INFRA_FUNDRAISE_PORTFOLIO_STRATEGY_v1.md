@@ -245,7 +245,7 @@ Parent: `brain-os/system/SOURCEA_FULL_LAYERED_CONTROL_PLAN_LOCKED_v1.md`
 | Doc | Path |
 |-----|------|
 | Big picture | `brain-os/system/SOURCEA_FULL_LAYERED_CONTROL_PLAN_LOCKED_v1.md` |
-| 6mo wedge law | `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` |
+| 6mo wedge law | `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` |
 | Outreach kit | `investor/ENFORCEMENT_OUTREACH_v1.md` |
 | 3-slide deck | `investor/ENFORCEMENT_3SLIDE_DECK_v1.md` |
 | Demo script | `investor/ENFORCEMENT_DEMO_5MIN.md` |

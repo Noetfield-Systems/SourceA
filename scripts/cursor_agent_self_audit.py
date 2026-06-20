@@ -32,7 +32,7 @@ AUTO_PASTE_INCIDENT = SOURCE_A / "SINAAI_AUTO_PASTE_INCIDENT_REPORT_LOCKED_v1.md
 BRAIN_CHAT_RECURSION_INCIDENT = (
     SOURCE_A / "brain-os/incidents/SINA_BRAIN_CHAT_VALIDATOR_RECURSION_INCIDENT_026_LOCKED_v1.md"
 )
-BRAIN_NO_FULL_E2E = SOURCE_A / "brain-os/enforcement/BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md"
+BRAIN_NO_FULL_E2E = SOURCE_A / "brain-os/law/enforcement/BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md"
 MAINTAINER_LOOP_SCRIPT = SCRIPT_DIR / "maintainer_self_audit_loop.py"
 SKILL_PATH = Path.home() / ".cursor/skills/agent-self-audit-loop/SKILL.md"
 

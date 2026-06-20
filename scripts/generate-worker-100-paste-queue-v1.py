@@ -16,8 +16,8 @@ STATE = Path.home() / ".sina" / "healthy-queue-state-v1.json"
 REGISTRY = ROOT / "brain-os/plan-registry/sourcea-1000/REGISTRY.json"
 
 MANDATORY = [
-    "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
-    "brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
+    "brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+    "brain-os/law/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md",
     "brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md",
     "brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md",
     "brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md",

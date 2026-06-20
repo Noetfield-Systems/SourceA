@@ -60,7 +60,7 @@ SCAN_ROOTS: list[str] = [
     "agent-skills",
     ".cursor/rules",
     ".cursor/skills",
-    "brain-os/entry",
+    "brain-os/law/entry",
 ]
 
 EXCLUDE_REL_PATHS = frozenset(
@@ -70,7 +70,7 @@ EXCLUDE_REL_PATHS = frozenset(
         ".cursor/rules/000-dead-law-stubs.mdc",
         ".cursor/rules/agent-memory-mirror.mdc",
         ".cursor/rules/prompt-queue.mdc",
-        "brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md",
+        "brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md",
         "scripts/validate-prompt-feed-no-autosend-copy-v1.sh",
         "scripts/validate-law-supersession-surfaces-v1.sh",
         "scripts/validate-hub-p0-no-autorun-v1.sh",
@@ -299,7 +299,7 @@ def _ui_upgrade_first_check_inject() -> dict:
         "ack_cmd": "python3 scripts/ui_upgrade_first_check_v1.py --surface <id> --ack --json",
         "classifier_cmd": "python3 scripts/ui_upgrade_path_classifier_v1.py --path <file> --json",
         "validator": "scripts/validate-ui-upgrade-first-check-live-wire-v1.sh",
-        "law_doc": "brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md",
+        "law_doc": "brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md",
     }
 
 

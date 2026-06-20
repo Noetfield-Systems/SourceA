@@ -12,12 +12,14 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+from governance_paths_v1 import AUTHORITY_INDEX
+
 SCRIPTS = ROOT / "scripts"
 SINA = Path.home() / ".sina"
 QUEUE_PATH = SINA / "governance-projection-queue-v1.jsonl"
 GATE_PATH = SINA / "governance-projection-gate-v1.json"
 RECEIPT_PATH = SINA / "governance-projection-g3-receipt-v1.json"
-INDEX = ROOT / "SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"
+INDEX = AUTHORITY_INDEX
 
 sys.path.insert(0, str(SCRIPTS))
 

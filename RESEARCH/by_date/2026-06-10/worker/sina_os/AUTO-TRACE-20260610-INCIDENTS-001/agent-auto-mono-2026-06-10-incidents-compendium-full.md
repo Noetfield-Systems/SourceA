@@ -39,7 +39,7 @@ Consolidated from SourceA P0 incidents, Mono agent-auto lane, and this-thread go
 |-----|------|
 | Zero disk without intent | `SourceA/.cursor/rules/001-founder-verbs-rewrite-save-asf-mandatory.mdc` |
 | SAVE · WORK · EDIT ALLOWED | `SourceA/.cursor/rules/000-cross-lane-edit-forbidden.mdc` |
-| Agent verbs | `SourceA/brain-os/enforcement/AGENT_VERBS_SAVE_WORK_EDIT_LOCKED_v1.md` |
+| Agent verbs | `SourceA/brain-os/law/enforcement/AGENT_VERBS_SAVE_WORK_EDIT_LOCKED_v1.md` |
 | File storage tiers | `SourceA/brain-os/system/FILE_STORAGE_GOVERNANCE_LOCKED_v1.md` |
 | Master tracker | `SourceA/brain-os/system/SOURCEA_MASTER_OPERATING_TRACKER_LOCKED_v1.md` |
 | Research save | `SourceA/RESEARCH_INTAKE_AND_SAVE_LOCK_LOCKED_v1.md` |

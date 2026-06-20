@@ -14,14 +14,16 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+from governance_paths_v1 import AUTHORITY_INDEX, GOVERNANCE_ENTRY, SINA_OS_SSOT
+
 SCRIPTS = ROOT / "scripts"
 SINA = Path.home() / ".sina"
 OUT = SINA / "monitor-live-v1.json"
 
 WATCH_PATHS = (
-    ROOT / "SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md",
-    ROOT / "SINA_OS_SSOT_LOCKED.md",
-    ROOT / "SINA_GOVERNANCE_ENTRY_LOCKED_v1.md",
+    AUTHORITY_INDEX,
+    SINA_OS_SSOT,
+    GOVERNANCE_ENTRY,
     ROOT / "PROGRAM_PROGRESS.json",
     SINA / "healthy-queue-30-active.json",
     SINA / "healthy-queue-state-v1.json",

@@ -5,7 +5,7 @@
   "repo": "SourceA",
   "root": "routing-panel",
   "url": "http://127.0.0.1:8780/",
-  "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/ROUTING_PANEL_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+  "ledger_md": "brain-os/law/enforcement/ui-upgrade-ledgers/ROUTING_PANEL_UI_UPGRADE_LEDGER_LOCKED_v1.md",
   "saved_at": "2026-06-19T16:54:05Z",
   "frozen_inventory": [
     {"id": "health_endpoint", "kind": "api", "marker": "routing-panel health 200", "files": ["routing-panel"]},

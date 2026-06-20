@@ -64,7 +64,7 @@
 
 ## Orient read chain (10 steps)
 
-1. `brain-os/entry/START_HERE_LOCKED_v1.md`  
+1. `brain-os/law/entry/START_HERE_LOCKED_v1.md`  
 2. **`docs/SOURCEA_ORIENTATION_AND_ROUTING_LOCKED_v1.md`** (this doc)  
 3. `docs/SOURCEA_FOUNDATIONAL_AGENTIC_SYSTEMS_INDEX_LOCKED_v1.md`  
 4. `docs/SOURCEA_NODE_MESH_SYNESTM_BUILD_PLAN_LOCKED_v1.md`  

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+# shellcheck source=governance-paths-v1.sh
+. "$ROOT/scripts/governance-paths-v1.sh"
 cd "$ROOT"
 fail() { echo "FAIL: validate-narrative-bridge-v1 — $*" >&2; exit 1; }
 
@@ -11,10 +13,10 @@ SKILL="$ROOT/agent-skills/shared/narrative-translator/SKILL.md"
 [[ -f "$LAW" ]] || fail "missing bridge law"
 [[ -f "$LATEST" ]] || fail "missing LATEST_TOUCH_BASE"
 [[ -f "$SKILL" ]] || fail "missing narrative-translator skill"
-grep -q "NARRATIVE_BRIDGE" "$ROOT/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md" || fail "authority row"
+grep -q "NARRATIVE_BRIDGE" "$SINA_AUTHORITY_INDEX" || fail "authority row"
 grep -q "narrative-translator" "$ROOT/agent-skills/REGISTRY_LOCKED_v1.json" || fail "REGISTRY entry"
 grep -q "narrative-translator" "$ROOT/SOURCEA_CURSOR_RULES_AND_SKILLS_MAP_LOCKED_v2.md" || fail "CURSOR_RULES_MAP"
-grep -q "sina-narrative-translator" "$ROOT/brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md" || fail "MANDATORY_READ"
+grep -q "sina-narrative-translator" "$ROOT/brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md" || fail "MANDATORY_READ"
 grep -q "LATEST_TOUCH_BASE" "$ROOT/brain-os/lanes/MANDATORY_CHAT_HANDOFF_INDEX_LOCKED_v1.md" || fail "handoff index"
 grep -q "a53f3fa1" "$LATEST" || fail "LATEST missing megachat anchor"
 grep -q "TRANSLATE" "$SKILL" || fail "skill missing reply shape"

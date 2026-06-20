@@ -1,7 +1,7 @@
 # ENFORCEMENT-6MO — demo script (short)
 
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
-**Law:** `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md`  
+**Law:** `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md`  
 **Full notes:** `investor/ENFORCEMENT_DEMO_5MIN.md`  
 **Run:** `bash scripts/demo-enforcement-5min-v1.sh`  
 **CI:** `bash scripts/validate-demo-enforcement-v1.sh`
