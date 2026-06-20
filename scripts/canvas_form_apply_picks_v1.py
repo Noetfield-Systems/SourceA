@@ -10,8 +10,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+from governance_paths_v1 import LIVE_FOUNDER_FORM
+
 SCRIPTS = ROOT / "scripts"
-FORM_MD = ROOT / "SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md"
+FORM_MD = LIVE_FOUNDER_FORM
 CANVAS_DATA = (
     Path.home()
     / ".cursor/projects/Users-sinakazemnezhad-Desktop-SinaaiDataBase/canvases/sourcea-system-integrity-100.canvas.data.json"

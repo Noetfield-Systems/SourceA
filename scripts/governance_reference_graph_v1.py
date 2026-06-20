@@ -10,12 +10,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-from governance_paths_v1 import AUTHORITY_INDEX
+from governance_paths_v1 import AUTHORITY_INDEX, CURSOR_RULES_MAP
 
 SINA = Path.home() / ".sina"
 GRAPH_PATH = SINA / "governance-reference-graph-v1.json"
 INDEX = AUTHORITY_INDEX
-CURSOR_MAP = ROOT / "SOURCEA_CURSOR_RULES_AND_SKILLS_MAP_LOCKED_v2.md"
+CURSOR_MAP = CURSOR_RULES_MAP
 
 DEFAULT_PROJECTIONS = ["hub", "monitor", "catalog"]
 LAW_EXTRA: dict[str, dict] = {

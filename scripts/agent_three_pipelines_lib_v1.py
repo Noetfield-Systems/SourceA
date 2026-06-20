@@ -124,7 +124,7 @@ MAZE_MANDATORY_READS: tuple[str, ...] = (
     "brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
     "AGENT_NO_HUB_REBUILD_STUCK_LOCKED_v1.md",
     "CHATGPT_EXTERNAL_CRITIC_LAW_LOCKED_v1.md",
-    "SINA_COMMAND_EDIT_LOCK_LOCKED_v1.md",
+    "archive/legacy/sina-command/SINA_COMMAND_EDIT_LOCK_LOCKED_v1.md",
     "brain-os/law/entry/START_HERE_LOCKED_v1.md",
 )
 

@@ -4,6 +4,12 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from governance_paths_v1 import (
+    FOUNDER_DIRECTION_TERMS,
+    FOUNDER_MESSAGE_NORM,
+    FOUNDER_TERMINOLOGY,
+)
+
 ROOT = Path(__file__).resolve().parents[1]
 FOUNDER_LANGUAGE = ROOT / "archive/attachments/founder-language"
 LINKEDIN_VOICE = FOUNDER_LANGUAGE / "linkedin-voice.yaml"
@@ -12,9 +18,9 @@ LINKEDIN_PROFILE = (
     / "Desktop/Noetfield-All-Documents/hierarchy/L2-reference/noetfield_commercial_positioning__linkedin-profile-hyper-commercial-v4.md"
 )
 FOUNDER_NOTES = Path.home() / ".sina/founder-notes.json"
-TERMINOLOGY_DICT = ROOT / "SOURCEA_FOUNDER_MACHINE_TERMINOLOGY_DICTIONARY_LOCKED_v1.md"
-DIRECTION_TERMS = ROOT / "SOURCEA_FOUNDER_DIRECTION_TERMINOLOGY_LOCKED_v1.md"
-NORM_MD = ROOT / "SOURCEA_FOUNDER_MESSAGE_NORMALIZATION_LOCKED_v1.md"
+TERMINOLOGY_DICT = FOUNDER_TERMINOLOGY
+DIRECTION_TERMS = FOUNDER_DIRECTION_TERMS
+NORM_MD = FOUNDER_MESSAGE_NORM
 
 
 def _load_linkedin_voice_summary() -> dict:
