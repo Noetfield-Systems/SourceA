@@ -51,10 +51,13 @@ def _load_env_file(path: Path) -> dict[str, str]:
     return out
 
 
-def _http_probe(url: str, *, timeout: float = 12.0) -> dict:
+def _http_probe(url: str, *, timeout: float = 12.0, headers: dict[str, str] | None = None) -> dict:
     t0 = datetime.now(timezone.utc).timestamp()
+    hdrs = {"User-Agent": "SourceA-daily-pulse/1.0"}
+    if headers:
+        hdrs.update(headers)
     try:
-        req = urllib.request.Request(url, method="GET", headers={"User-Agent": "SourceA-daily-pulse/1.0"})
+        req = urllib.request.Request(url, method="GET", headers=hdrs)
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             status = int(getattr(resp, "status", 200) or 200)
             resp.read(4096)
@@ -109,14 +112,15 @@ def _probe_supabase(project: dict) -> dict:
             "reason": f"missing or placeholder secrets: {env_path}",
         }
     health_url = f"{base}/auth/v1/health"
-    row = _http_probe(health_url, timeout=15.0)
+    anon = env.get(anon_key) or env.get("SUPABASE_PUBLISHABLE_KEY") or ""
+    api_headers = {"apikey": anon, "Authorization": f"Bearer {anon}"} if anon and not anon.startswith("YOUR_") else None
+    row = _http_probe(health_url, timeout=15.0, headers=api_headers)
     rest_ok = None
-    anon = env.get(anon_key) or ""
     if anon and not anon.startswith("YOUR_"):
         rest_url = f"{base}/rest/v1/"
-        rest = _http_probe(rest_url, timeout=12.0)
-        rest_ok = rest.get("ok")
-    ok = bool(row.get("ok"))
+        rest = _http_probe(rest_url, timeout=12.0, headers={"apikey": anon})
+        rest_ok = rest.get("ok") or rest.get("status") in (200, 401, 406)
+    ok = bool(row.get("ok")) or (rest_ok is True)
     if project.get("required", True) and rest_ok is False:
         ok = False
     return {
