@@ -43,7 +43,7 @@ assert no_term, "worker hub missing no-terminal policy"
 assert no_term.get("path"), "no-terminal policy must cite law doc path"
 
 # Architecture moat reference
-arch = ROOT / "SOURCEA_REFERENCE_ARCHITECTURE_CONSTELLATION_LOCKED_v1.md"
+arch = ROOT / "brain-os/law/SOURCEA_REFERENCE_ARCHITECTURE_CONSTELLATION_LOCKED_v1.md"
 assert arch.is_file(), "architecture constellation missing"
 assert "no Terminal" in arch.read_text(encoding="utf-8"), "architecture moat #2 missing"
 

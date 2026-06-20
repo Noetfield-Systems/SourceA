@@ -9,8 +9,10 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+from governance_paths_v1 import INTEGRITY_SESSION_LOG
+
 PROGRESS = ROOT / "PROGRAM_PROGRESS.json"
-SESSION_LOG = ROOT / "SOURCEA_SYSTEM_INTEGRITY_SESSION_LOG_v1.md"
+SESSION_LOG = INTEGRITY_SESSION_LOG
 REQUESTS = Path.home() / ".sina/founder-requests/requests.jsonl"
 
 

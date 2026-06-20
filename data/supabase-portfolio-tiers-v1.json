@@ -1,12 +1,12 @@
 {
   "schema": "supabase-portfolio-tiers-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-19T00:00:00Z",
+  "saved_at": "2026-06-20T12:00:00Z",
   "authority": "ASF",
   "decision": {
-    "id": "ASF-2026-06-19-VIRLUX-TO-LABS",
-    "summary": "Virlux is Labs Sandbox only — not Portfolio Spine, not ring-fenced production.",
-    "supersedes": "Hybrid Sovereign Path placing virlux inside Portfolio Spine"
+    "id": "ASF-2026-06-20-VIRLUX-AGENTIC-ONLY",
+    "summary": "VIRLUX is agentic factory SaaS online on labs-sandbox Supabase — no FINTRAC/payment rails on VIRLUX.",
+    "supersedes": "ASF-2026-06-19-VIRLUX-TO-LABS payment graduation framing on VIRLUX product"
   },
   "projects": [
     {
@@ -29,7 +29,8 @@
       "infra_path": "infra/supabase/labs-sandbox",
       "labs_path": "labs/virlux",
       "agent_db_access": "allowed — only credential agents may hold",
-      "graduation_trigger": "Real money or real financial/user data → isolated Supabase project BEFORE ship, not after. See labs/virlux/README.md"
+      "virlux_product": "agentic_factory_saas_only — Build Factory catalog, sandbox bays, MCP verify; FINTRAC/payments OUT",
+      "graduation_trigger": "Real money, payment settlement, or MSB/FINTRAC customer financial data on VIRLUX → STOP; ship on TrustField or new isolated project, not VIRLUX. Agentic SaaS without payment rails may stay online on labs-sandbox. See labs/virlux/README.md"
     }
   ],
   "integration": {

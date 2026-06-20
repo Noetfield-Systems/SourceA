@@ -14,12 +14,14 @@ import sys
 from pathlib import Path
 
 ROOT = Path("/Users/sinakazemnezhad/Desktop/SourceA")
-FORM = ROOT / "SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md"
 APPLIED = Path.home() / ".sina/canvas-form-picks-applied-v1.json"
 SHIP_RECEIPT = Path.home() / ".sina/form-ship-receipt-v1.json"
 
 sys.path.insert(0, str(ROOT / "scripts"))
+from governance_paths_v1 import LIVE_FOUNDER_FORM  # noqa: E402
 from live_founder_decision_form_v1 import all_open_questions  # noqa: E402
+
+FORM = LIVE_FOUNDER_FORM
 
 if not FORM.is_file():
     print("SKIP: form missing")
