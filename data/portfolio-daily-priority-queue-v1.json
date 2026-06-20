@@ -1,0 +1,88 @@
+{
+  "schema": "portfolio-daily-priority-queue-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-20T22:30:00Z",
+  "authority": "ASF",
+  "one_law": "Daily portfolio work = clear P0 blockers first — WitnessBC prod · TrustField ladder · Supabase keepalive · then lane commits.",
+  "script": "scripts/portfolio_daily_priority_queue_v1.py",
+  "receipt": "~/.sina/portfolio-daily-priority-queue-v1.json",
+  "surfaces_line_key": "portfolio_priority_line",
+  "daily_shell": "scripts/run-portfolio-supabase-daily-v1.sh",
+  "supabase_setup": "scripts/setup_supabase_secrets_mac_v1.sh",
+  "human_doc": "docs/PORTFOLIO_DAILY_PRIORITY_QUEUE_LOCKED_v1.md",
+  "bottom_line": "Network UP on all product URLs — gaps are content/policy (WitnessBC prod, TrustField ladder), Supabase secrets on Mac, and lane commits.",
+  "queue": [
+    {
+      "priority": "P0",
+      "id": "wbc-prod",
+      "repo": "WitnessBC",
+      "blocker": "Prod still old journalism site — correct artifact on disk / needs DNS cutover",
+      "owner": "sourcea_worker + founder DNS/Stripe",
+      "acceptance": "www.witnessbc.com has AI policy at dispatch + brand-disambiguation · no journalism title",
+      "founder_action": "DNS CNAME www → witnessbc-commercial.pages.dev · paste Stripe URLs",
+      "probe": "witnessbc_prod_markers"
+    },
+    {
+      "priority": "P0",
+      "id": "tf-ladder",
+      "repo": "TrustField",
+      "blocker": "Ladder RED · commercial_blocked",
+      "owner": "trustfield_agent",
+      "acceptance": "ladder steps 1-4 green · commercial_blocked=false",
+      "command": "cd ~/Desktop/TrustField\\ Technologies && ./scripts/ui_build_and_verify.sh",
+      "probe": "trustfield_ladder"
+    },
+    {
+      "priority": "P1",
+      "id": "virlux-copy",
+      "repo": "VIRLUX",
+      "blocker": "Public POSITIONING must be agentic-only — payments OUT (ASF 2026-06-20)",
+      "owner": "virlux_agent",
+      "acceptance": "No Cross-border B2B in POSITIONING/PUBLIC_COPY.oneLiner",
+      "probe": "virlux_public_copy",
+      "note": "CLIENT_COPY payment dashboard strings are legacy routes — not marketing"
+    },
+    {
+      "priority": "P1",
+      "id": "supabase-secrets",
+      "repo": "All",
+      "blocker": "Supabase secrets missing on Mac — daily DB keepalive skipped",
+      "owner": "founder",
+      "acceptance": "~/.sourcea-secrets/portfolio-spine.env + labs-sandbox.env with real URL + anon key",
+      "command": "bash ~/Desktop/SourceA/scripts/setup_supabase_secrets_mac_v1.sh",
+      "probe": "supabase_secrets"
+    },
+    {
+      "priority": "P2",
+      "id": "virlux-vercel-token",
+      "repo": "VIRLUX",
+      "blocker": "verify:live 21/21 blocked without VERCEL_TOKEN",
+      "owner": "founder + virlux_agent",
+      "acceptance": "VERCEL_TOKEN in vault · npm run verify:live PASS",
+      "probe": "vercel_token"
+    },
+    {
+      "priority": "P2",
+      "id": "sourcea-commit",
+      "repo": "SourceA",
+      "blocker": "Uncommitted working tree — batch when founder scopes",
+      "owner": "founder",
+      "acceptance": "Focused commits per lane · not one mega-commit",
+      "probe": "sourcea_git_dirty"
+    }
+  ],
+  "supabase_tiers": [
+    {
+      "id": "portfolio-spine",
+      "secrets_file": "~/.sourcea-secrets/portfolio-spine.env",
+      "example": "infra/supabase/portfolio-spine/config.example.env",
+      "modules": ["noetfield", "trustfield", "witnessbc", "foundation"]
+    },
+    {
+      "id": "labs-sandbox",
+      "secrets_file": "~/.sourcea-secrets/labs-sandbox.env",
+      "example": "infra/supabase/labs-sandbox/config.example.env",
+      "modules": ["virlux", "labs", "research"]
+    }
+  ]
+}

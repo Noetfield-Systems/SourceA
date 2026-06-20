@@ -42,6 +42,15 @@ bash scripts/run-portfolio-supabase-daily-v1.sh
 
 Receipt includes `account_structure` block on every pulse.
 
+## Priority queue (#10 — every report)
+
+Quote **`portfolio_priority_line`** + **`portfolio_fix_line`** with daily pulse.
+
+```bash
+bash scripts/setup_supabase_secrets_mac_v1.sh   # founder — once
+bash scripts/run-portfolio-supabase-daily-v1.sh # daily
+```
+
 ## VIRLUX product law (paired)
 
 **Agentic factory only** — FINTRAC / cross-border payments OUT → TrustField. See `labs/virlux/README.md` · ASF-2026-06-20-VIRLUX-AGENTIC-ONLY.
