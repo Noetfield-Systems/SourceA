@@ -4,7 +4,7 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
 
 test -f brain-os/scripts/brain_enforcement_audit_v1.py
-test -f brain-os/enforcement/BRAIN_ENFORCEMENT_AUDIT_PROMPT_LOCKED_v1.md
+test -f brain-os/law/enforcement/BRAIN_ENFORCEMENT_AUDIT_PROMPT_LOCKED_v1.md
 
 python3 brain-os/scripts/brain_enforcement_audit_v1.py --json --write 2>/dev/null | python3 -c "
 import json, sys

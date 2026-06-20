@@ -11,7 +11,7 @@ check() {
   fi
 }
 
-law="${ROOT}/brain-os/enforcement/BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md"
+law="${ROOT}/brain-os/law/enforcement/BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md"
 script="${ROOT}/brain-os/scripts/brain-session-start.sh"
 [[ -f "$law" ]] || { echo "FAIL: missing $law"; errors=$((errors + 1)); }
 [[ -x "$script" ]] || { echo "FAIL: brain-session-start.sh not executable"; errors=$((errors + 1)); }

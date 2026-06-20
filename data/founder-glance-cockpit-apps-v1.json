@@ -1,7 +1,7 @@
 {
   "schema": "founder-glance-cockpit-apps-v1",
   "saved_at": "2026-06-19T20:39:27Z",
-  "law_doc": "brain-os/enforcement/SINA_FOUNDER_GLANCE_COCKPIT_APPS_LOCKED_v1.md",
+  "law_doc": "brain-os/law/enforcement/SINA_FOUNDER_GLANCE_COCKPIT_APPS_LOCKED_v1.md",
   "module": "scripts/founder_glance_cockpit_v1.py",
   "wire_script": "scripts/founder_glance_cockpit_wire_v1.py",
   "validator": "scripts/validate-founder-glance-cockpit-apps-v1.sh",
@@ -13,7 +13,7 @@
       "ui_mode": "founder_glance",
       "primary_cta": "Relieve pressure",
       "contract": "data/mac-health-founder-glance-ui-contract-v1.json",
-      "law_doc": "brain-os/enforcement/SINA_MAC_HEALTH_FOUNDER_GLANCE_UI_LOCKED_v1.md"
+      "law_doc": "brain-os/law/enforcement/SINA_MAC_HEALTH_FOUNDER_GLANCE_UI_LOCKED_v1.md"
     },
     "apple_health": {
       "port": 13025,

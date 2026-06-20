@@ -429,7 +429,7 @@ Not a content farm. A **structured diligence room**:
 
 | Doc | Path |
 |-----|------|
-| 6MO win law | `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` |
+| 6MO win law | `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` |
 | TF lane addendum | `RESEARCH/.../TRUSTFIELD-LANE-030/...` |
 | TF TOP 100 | `RESEARCH/.../TOP_100_LOCKED_ROADMAP_2026.md` |
 | Fundraise strategy | `investor/AGENTIC_INFRA_FUNDRAISE_PORTFOLIO_STRATEGY_v1.md` |

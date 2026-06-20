@@ -51,7 +51,7 @@ Source: `AGENT_RULE_CONFLICT_AND_STALE_TRUTH_AUDIT_LOCKED_v1.md`
 | C07 | Prompt feed vs run inbox | **Resolved** — LIVE_ONGOING_PROMPTS |
 | C08 | S10 vs bash subject | **Resolved** — INCIDENT-019/020 + tombstone |
 | C09 | Duplicate bodies root + brain-os | **Remediation** — pointers only at root |
-| C10 | START_HERE path drift | **Resolved** 2026-06-10 — `START_HERE.md` + `brain-os/entry/` + `entry/README` redirect |
+| C10 | START_HERE path drift | **Resolved** 2026-06-10 — `START_HERE.md` + `brain-os/law/entry/` + `entry/README` redirect |
 | C11 | INCIDENT-011 jsonl reuse | **Resolved** — 014 monitor |
 | C12 | Maintainer editor vs EDIT_LOCK | **Resolved** 2026-06-10 — same as C02 · Maintainer + Hub Rules scope |
 

@@ -5,7 +5,7 @@
   "repo": "MacLaw",
   "root": "~/Desktop/MacLaw/public",
   "url": "http://127.0.0.1:8781/",
-  "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/MAC_LAW_COCKPIT_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+  "ledger_md": "brain-os/law/enforcement/ui-upgrade-ledgers/MAC_LAW_COCKPIT_UI_UPGRADE_LEDGER_LOCKED_v1.md",
   "saved_at": "2026-06-19T16:54:05Z",
   "frozen_inventory": [
     {"id": "surfaces_table", "kind": "panel", "marker": "surfaces probe table", "files": ["~/Desktop/MacLaw/public/index.html"]},

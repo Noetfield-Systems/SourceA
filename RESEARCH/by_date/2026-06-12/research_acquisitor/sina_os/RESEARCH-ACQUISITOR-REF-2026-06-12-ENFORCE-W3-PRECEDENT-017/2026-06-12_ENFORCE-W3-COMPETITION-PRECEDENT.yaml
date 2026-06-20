@@ -40,7 +40,7 @@ program_progress:
       pass: "TF-001 or NF-001 deposit/SOW · disk $0"
     - id: SYS-INTEGRITY-100
       founder_open: "parallel W1 film + W3 batch 1 (9.07 A)"
-  enforce_law: brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md
+  enforce_law: brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md
   matrix: archive/attachments/2026-06-12/SINA_COMPETITION_AND_REFERENCE_MATRIX_v1.yaml
 
 # ─── ENFORCE + W3 competition digest (deck precedents) ───────────────────────
@@ -145,7 +145,7 @@ forbidden:
 found_paths:
   vault: ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-12_ENFORCE-W3-COMPETITION-PRECEDENT.yaml
   matrix: ~/Desktop/SourceA/archive/attachments/2026-06-12/SINA_COMPETITION_AND_REFERENCE_MATRIX_v1.yaml
-  enforce: ~/Desktop/SourceA/brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md
+  enforce: ~/Desktop/SourceA/brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md
   program: ~/Desktop/SourceA/PROGRAM_PROGRESS.json
   integration_fabric: ~/.sina/integration-fabric-registry-v1.yaml
   session_gate_receipt: ~/.sina/agent_session_gate_receipt_v1.json

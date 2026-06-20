@@ -94,7 +94,7 @@ def build_pointer(*, writer: str = "sync_next_execution_pointer_v1.py") -> dict:
         "source": source,
         "rail": rail.get("rail", "A"),
         "execution_authority": "sourcea_execution_core",
-        "worker_handoff": "brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
+        "worker_handoff": "brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md",
         "authority_map": "brain-os/system/authority.yaml",
         "writers_allowed": ["sourcea_execution_core", "healthy-drain-orchestrator", "sync_next_execution_pointer_v1.py"],
         "written_by": writer,

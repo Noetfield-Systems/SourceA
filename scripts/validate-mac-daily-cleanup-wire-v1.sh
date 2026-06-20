@@ -10,7 +10,7 @@ check() { if "$@"; then echo "PASS: $*"; else echo "FAIL: $*"; fail=1; fi; }
 
 echo "=== Mac daily cleanup + live wire ==="
 
-check test -f "$ROOT/brain-os/enforcement/SINA_MAC_DAILY_CLEANUP_LOCKED_v1.md"
+check test -f "$ROOT/brain-os/law/enforcement/SINA_MAC_DAILY_CLEANUP_LOCKED_v1.md"
 check test -f "$ROOT/scripts/mac_daily_cleanup_v1.py"
 check test -f "$ROOT/scripts/cursor_session_relief_v1.py"
 check test -x "$ROOT/scripts/mac-daily-cleanup-v1.sh"

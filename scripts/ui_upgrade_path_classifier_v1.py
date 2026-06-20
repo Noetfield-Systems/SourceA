@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Classify file paths to UI upgrade surface_id — every form, app, website.
 
-Law: brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md
+Law: brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md
 SSOT: data/ui-upgrade-surface-registry-v1.json
 """
 from __future__ import annotations

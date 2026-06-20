@@ -8,7 +8,7 @@
 **ASF pivot (2026-06-15):** SourceA **runs** governed agentic automation daily **and sells** it — not governance-only infra in the basement.  
 **Router:** `SINA_GOVERNANCE_ENTRY_LOCKED_v1.md`  
 **Registry:** `SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md` → row `SOURCEA_PORTFOLIO_SSOT`  
-**Does not replace (pointer only):** `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` (W1/W2/W3 binary wins) · `SINA_ENFORCEMENT_PORTFOLIO_DECISION_FORM_LOCKED_v1.md` (ENG-05) · WTM · edit locks · incident corpus
+**Does not replace (pointer only):** `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` (W1/W2/W3 binary wins) · `SINA_ENFORCEMENT_PORTFOLIO_DECISION_FORM_LOCKED_v1.md` (ENG-05) · WTM · edit locks · incident corpus
 
 ---
 
@@ -529,7 +529,7 @@ K1 can wait **4 hours** after outreach sent.
 | Check | Path |
 |-------|------|
 | Registry | `SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md` → `SOURCEA_PORTFOLIO_SSOT` |
-| W1/W2/W3 | `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` |
+| W1/W2/W3 | `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` |
 | ENG-05 | `SINA_ENFORCEMENT_PORTFOLIO_DECISION_FORM_LOCKED_v1.md` |
 | Demo CI | `scripts/validate-enforcement-demo-v1.sh` |
 | Outreach kit | `investor/ENFORCEMENT_OUTREACH_v1.md` |

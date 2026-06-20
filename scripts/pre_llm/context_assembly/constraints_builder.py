@@ -4,7 +4,7 @@ from __future__ import annotations
 from typing import Any
 
 POLICY_REFS: list[str] = [
-    "SINA_GOVERNANCE_ENTRY_LOCKED_v1.md",
+    "brain-os/law/entry/SINA_GOVERNANCE_ENTRY_LOCKED_v1.md",
     "LLM_CONTEXT_PACKET_SCHEMA_LOCKED_v1.md",
     "SINA_SOURCE_ALIGNMENT_LAW_LOCKED_v1.md",
 ]

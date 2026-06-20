@@ -1,7 +1,7 @@
 # SourceA UI upgrade — no downgrade (version-first)
 
 **Parent checklist:** `.cursor/rules/024-ui-upgrade-mandatory-checklist.mdc` — run UP-0..UP-7 on every **up** / UI upgrade  
-**Law:** `brain-os/enforcement/SOURCEA_UI_UPGRADE_NO_DOWNGRADE_LOCKED_v1.md` · `SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md`  
+**Law:** `brain-os/law/enforcement/SOURCEA_UI_UPGRADE_NO_DOWNGRADE_LOCKED_v1.md` · `SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md`  
 **Baseline SSOT:** `SourceA-landing/green-unified/data/ui-upgrade-baseline-v1.json`  
 **Validator:** `bash scripts/validate-ui-upgrade-no-downgrade-v1.sh`
 

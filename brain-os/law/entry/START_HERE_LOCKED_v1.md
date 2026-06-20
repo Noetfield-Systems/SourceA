@@ -60,7 +60,7 @@ Brain and executor **must** run this before pasting healthy-drain or Worker prom
 
 ```text
 entry/              ← YOU ARE HERE — human + agent front door
-os/chat-handoffs/   ← Redirect index only — bodies in brain-os/enforcement/
+os/chat-handoffs/   ← Redirect index only — bodies in brain-os/law/enforcement/
 os/plan-library/    ← SOURCEA-PRIORITY redirect → brain-os/plan-registry/
 scripts/            ← Validators · hub build · pick script (machine truth)
 agent-control-panel/← Sina Command UI (hub :13020)

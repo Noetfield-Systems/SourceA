@@ -7,7 +7,7 @@
     "active": true,
     "order": "FIRST CHECK before ANY UI edit — form · app · website · hub · canvas — zero exceptions",
     "saved_at": "2026-06-19T19:05:00Z",
-    "law": "brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md",
+    "law": "brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md",
     "rules": [
       ".cursor/rules/024-ui-upgrade-mandatory-checklist.mdc",
       ".cursor/rules/025-ui-upgrade-first-check-live-wire.mdc",
@@ -52,7 +52,7 @@
     "flag": "~/.sina/founder-zero-ui-drift-v1.flag",
     "order": "NO UI DRIFT · NO UPGRADE DRIFT — zero tolerance · machine FAIL on any drift",
     "saved_at": "2026-06-19T20:15:00Z",
-    "law": "brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md",
+    "law": "brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md",
     "validator": "bash scripts/validate-ui-zero-drift-v1.sh",
     "machine_gates": [
       "validate-ui-zero-drift-v1.sh",

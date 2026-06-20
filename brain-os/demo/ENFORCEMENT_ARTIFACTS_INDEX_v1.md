@@ -11,7 +11,7 @@
 |----------|------|
 | **Full layered big picture** | `brain-os/system/SOURCEA_FULL_LAYERED_CONTROL_PLAN_LOCKED_v1.md` |
 | **Master control prompt (paste)** | `prompts/ENFORCEMENT_6MO_MASTER_CONTROL_PROMPT_v1.md` |
-| Sprint law (LOCKED) | `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` |
+| Sprint law (LOCKED) | `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` |
 | 6-month compiled plan | `ENFORCEMENT-6MO-MASTER-PLAN-v1.md` |
 | 6-month commercial plan | `~/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-11_100M-SIGNAL-6MO-EXECUTION-PLAN.md` |
 | Worker brief | `~/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-11_DEMO_ENFORCEMENT_WORKER_BRIEF.md` |

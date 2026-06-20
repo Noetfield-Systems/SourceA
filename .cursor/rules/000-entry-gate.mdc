@@ -7,7 +7,7 @@ alwaysApply: true
 
 **Brain SSOT:** `.cursor/rules/000-brain-unified.mdc` · `brain-os/law/BRAIN_UNIFIED_RULES_LOCKED_v1.md` · `brain-os/INDEX_LOCKED_v1.md`
 
-**Law:** `brain-os/entry/START_HERE_LOCKED_v1.md` · `docs/CURSOR_CORPORATE_BOOTSTRAP_PACK_LOCKED_v1.md` · `data/cursor-bootstrap-ledger-v1.json`
+**Law:** `brain-os/law/entry/START_HERE_LOCKED_v1.md` · `docs/CURSOR_CORPORATE_BOOTSTRAP_PACK_LOCKED_v1.md` · `data/cursor-bootstrap-ledger-v1.json`
 
 **Brain:** follow decision tree in `000-brain-unified.mdc` (narrate / spawn / refuse / session).
 

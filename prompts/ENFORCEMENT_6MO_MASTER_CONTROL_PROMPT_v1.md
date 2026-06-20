@@ -1,6 +1,6 @@
 # ENFORCEMENT-6MO — MASTER CONTROL PROMPT (paste entire file)
 
-**Law:** `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md`  
+**Law:** `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md`  
 **Big picture (parent):** `brain-os/system/SOURCEA_FULL_LAYERED_CONTROL_PLAN_LOCKED_v1.md`  
 **Index:** `brain-os/demo/ENFORCEMENT_ARTIFACTS_INDEX_v1.md`  
 **Horizon:** 2026-12-31 · Regime: 5–10% outlier · Proof > narrative  

@@ -1,7 +1,7 @@
 # SourceA UI upgrade — no downgrade — LOCKED v1
 
 **Version:** 1.0.0 · **Saved:** 2026-06-18T00:10:24Z · **Authority:** Founder order — machine-enforceable UI upgrade law  
-**Path:** `~/Desktop/SourceA/brain-os/enforcement/SOURCEA_UI_UPGRADE_NO_DOWNGRADE_LOCKED_v1.md`  
+**Path:** `~/Desktop/SourceA/brain-os/law/enforcement/SOURCEA_UI_UPGRADE_NO_DOWNGRADE_LOCKED_v1.md`  
 **Enforcement:** `.cursor/rules/023-ui-upgrade-no-downgrade.mdc` · `scripts/ui_upgrade_baseline_guard_v1.py` · `scripts/validate-ui-upgrade-no-downgrade-v1.sh` · `pre_write_guard_v1.py`
 
 ---

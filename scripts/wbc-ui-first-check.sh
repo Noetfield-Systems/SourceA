@@ -9,7 +9,7 @@ set -euo pipefail
 
 WBC_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WBC_ROOT="$(cd "$WBC_SCRIPT/.." && pwd)"
-LAW="$WBC_ROOT/brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md"
+LAW="$WBC_ROOT/brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md"
 
 PATH_ARG=""
 SURFACE=""
@@ -25,7 +25,7 @@ UI FIRST CHECK — mandatory before ANY form · app · website · hub · canvas 
   bash $WBC_SCRIPT/wbc-ui-first-check.sh --surface <id> --ack   # ack surface (12h TTL)
   bash $WBC_SCRIPT/wbc-ui-first-check.sh --checklist <id>   # print UP-0..UP-7 + app checklist
 
-Law: brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md
+Law: brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md
 Rules: 024 · 025 · 026 (alwaysApply — ZERO EXCEPTION)
 EOF
 }

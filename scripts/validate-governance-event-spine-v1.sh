@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+# shellcheck source=governance-paths-v1.sh
+. "$ROOT/scripts/governance-paths-v1.sh"
 fail() { echo "FAIL: validate-governance-event-spine-v1 — $*" >&2; exit 1; }
 
 SCHEMA="$ROOT/SOURCEA_GOVERNANCE_EVENT_SPINE_SCHEMA_LOCKED_v1.md"
@@ -9,7 +11,7 @@ GOLDEN="$ROOT/brain-os/law/GOVERNANCE_RUNTIME_GOLDEN_RULE_LOCKED_v1.md"
 [[ -f "$GOLDEN" ]] || fail "missing golden rule law"
 grep -q "State is canonical" "$GOLDEN" || fail "golden rule text"
 grep -q "governance-event-spine-v1.1" "$SCHEMA" || fail "spine v1.1 schema"
-grep -q "GOV_EVENT_SPINE" "$ROOT/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md" || fail "authority row"
+grep -q "GOV_EVENT_SPINE" "$SINA_AUTHORITY_INDEX" || fail "authority row"
 grep -q "governance_event_spine" "$ROOT/scripts/governance_propagation_cascade_v1.py" || fail "cascade not wired"
 grep -q "governance_event_spine" "$ROOT/scripts/goal1_lane_broker.py" || fail "broker not wired"
 
