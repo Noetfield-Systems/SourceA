@@ -75,9 +75,16 @@
     {
       "id": "portfolio-spine",
       "secrets_file": "~/.sourcea-secrets/portfolio-spine.env",
+      "cloud_ref": "ldfruywifqnfpwsfgmdl",
       "example": "infra/supabase/portfolio-spine/config.example.env",
-      "cloud_project": "kazemnezhadsina144-dot's Project",
-      "modules": ["noetfield", "trustfield", "witnessbc", "foundation"]
+      "modules": ["trustfield", "witnessbc", "foundation"]
+    },
+    {
+      "id": "noetfield",
+      "secrets_file": "~/.sourcea-secrets/noetfield.env",
+      "cloud_ref": "tkgpapowwplupyekpivy",
+      "example": "infra/supabase/noetfield/config.example.env",
+      "modules": ["noetfield"]
     }
   ],
   "supabase_decoupled": [

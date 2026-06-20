@@ -21,13 +21,14 @@ copy_if_missing() {
 }
 
 copy_if_missing "portfolio-spine.env" "$ROOT/infra/supabase/portfolio-spine/config.example.env"
-copy_if_missing "labs-sandbox.env" "$ROOT/infra/supabase/labs-sandbox/config.example.env"
+copy_if_missing "noetfield.env" "$ROOT/infra/supabase/noetfield/config.example.env"
 
 echo ""
 echo "Next (founder only):"
 echo "  1. Open Supabase → portfolio-spine project → Settings → API"
 echo "  2. Paste SUPABASE_URL + SUPABASE_ANON_KEY into $SECRETS_DIR/portfolio-spine.env"
-echo "  3. Repeat for labs-sandbox (VIRLUX) → $SECRETS_DIR/labs-sandbox.env"
-echo "  4. Verify: bash $ROOT/scripts/run-portfolio-supabase-daily-v1.sh"
+echo "  3. Open Noetfield project tkgpapowwplupyekpivy → Settings → API"
+echo "  4. Paste into $SECRETS_DIR/noetfield.env"
+echo "  5. Verify: bash $ROOT/scripts/run-portfolio-supabase-daily-v1.sh"
 echo ""
 echo "Law: secrets never in repo · agent DB keys labs-sandbox only"

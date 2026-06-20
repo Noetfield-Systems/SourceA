@@ -7,8 +7,8 @@
   "org_plan": "FREE",
   "human_doc": "docs/SUPABASE_ORG_SPLIT_FOUNDER_STEPS_LOCKED_v1.md",
   "never_resume_ssot": "data/supabase-never-resume-refs-v1.json",
-  "free_org_limit": "2 active projects max — only ldfruywifqnfpwsfgmdl (portfolio-spine) may be live",
-  "one_law": "Only portfolio-spine ref ldfruywifqnfpwsfgmdl stays live. NEVER resume bueoakgiisvufxfbdvoa (VIRLUX) or mmdhnktybjpwlwdczgbq (777).",
+  "free_org_limit": "2 active projects max — live: ldfruywifqnfpwsfgmdl (spine) + tkgpapowwplupyekpivy (noetfield)",
+  "one_law": "Live: portfolio-spine + Noetfield. NEVER resume bueoakgiisvufxfbdvoa (VIRLUX) or mmdhnktybjpwlwdczgbq (777).",
   "projects": [
     {
       "id": "portfolio-spine",
@@ -22,12 +22,25 @@
       "infra": "infra/supabase/portfolio-spine",
       "secrets_file": "~/.sourcea-secrets/portfolio-spine.env",
       "dashboard": "https://supabase.com/dashboard/project/ldfruywifqnfpwsfgmdl",
-      "modules": ["noetfield", "trustfield", "witnessbc", "foundation", "gov"]
+      "modules": ["trustfield", "witnessbc", "foundation", "gov", "sourcea"]
+    },
+    {
+      "id": "noetfield",
+      "dashboard_name": "Noetfield",
+      "ref": "tkgpapowwplupyekpivy",
+      "url": "https://tkgpapowwplupyekpivy.supabase.co",
+      "status": "active",
+      "tier_ssot": "noetfield",
+      "repo": "~/Desktop/Noetfield",
+      "infra": "infra/supabase/noetfield",
+      "secrets_file": "~/.sourcea-secrets/noetfield.env",
+      "dashboard": "https://supabase.com/dashboard/project/tkgpapowwplupyekpivy",
+      "modules": ["noetfield"]
     },
     {
       "id": "virlux-staging",
       "dashboard_name": "virlux-staging",
-      "status": "must_stay_paused_or_deleted",
+      "status": "paused",
       "never_resume": true,
       "region": "ca-central-1",
       "ref": "bueoakgiisvufxfbdvoa",
@@ -48,7 +61,7 @@
     {
       "id": "the777foundation",
       "dashboard_name": "the777foundation",
-      "status": "must_stay_paused_or_deleted",
+      "status": "paused",
       "never_resume": true,
       "region": "ca-central-1",
       "ref": "mmdhnktybjpwlwdczgbq",
@@ -67,10 +80,10 @@
     }
   ],
   "after_split": {
-    "live_supabase_ref": "ldfruywifqnfpwsfgmdl",
-    "live_supabase_count": 1,
-    "daily_ping": "portfolio-spine only",
-    "virlux_runtime": "repo receipts + Vercel — NEVER bueoakgiisvufxfbdvoa",
-    "777_runtime": "repo migrations + site — NEVER mmdhnktybjpwlwdczgbq"
+    "live_supabase_refs": ["ldfruywifqnfpwsfgmdl", "tkgpapowwplupyekpivy"],
+    "live_supabase_count": 2,
+    "daily_ping": "portfolio-spine + noetfield",
+    "virlux_runtime": "repo + Vercel — NEVER resume bueoakgiisvufxfbdvoa",
+    "777_runtime": "repo migrations — NEVER resume mmdhnktybjpwlwdczgbq"
   }
 }
