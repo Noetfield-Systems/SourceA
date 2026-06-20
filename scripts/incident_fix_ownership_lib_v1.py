@@ -8,7 +8,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-LAW = ROOT / "SOURCEA_INCIDENT_FIX_OWNERSHIP_GOVERNANCE_HARDENING_LOCKED_v1.md"
+from governance_paths_v1 import INCIDENT_FIX_OWNERSHIP
+
+LAW = INCIDENT_FIX_OWNERSHIP
 REGISTRY = ROOT / "brain-os/incidents/AGENT_INCIDENTS_REGISTRY_LOCKED_v1.md"
 
 ROLE_OBLIGATIONS = {

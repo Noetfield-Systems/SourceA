@@ -21,6 +21,12 @@ bash infra/cleanup/generate-inventory-v1.sh
 
 Output: `infra/cleanup/inventory-root.tsv` (path · size · first line)
 
+**Progress receipt:** `data/cleanup-track-progress-v1.json` — refresh with:
+
+```bash
+python3 scripts/cleanup_track_sync_v1.py --json
+```
+
 ## Phase 2 — Manifest (human approves)
 
 Agent writes **`cleanup-manifest.md`** only — one row per file:
