@@ -113,7 +113,7 @@
 
 | # | Station | Source / node |
 |---|---------|---------------|
-| O1 | Start here | `brain-os/entry/START_HERE_LOCKED_v1.md` |
+| O1 | Start here | `brain-os/law/entry/START_HERE_LOCKED_v1.md` |
 | O2 | Governance gate | `SINA_GOVERNANCE_ENTRY_LOCKED_v1.md` |
 | O3 | Authority index | `SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md` |
 | O4 | Decision stack / gate tree | `AGENT_DECISION_STACK_AND_SMART_JUDGMENT_LOCKED_v1.md` |

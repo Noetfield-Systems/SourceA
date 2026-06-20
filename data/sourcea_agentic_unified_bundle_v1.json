@@ -8,7 +8,7 @@
     "law": "LAW PURITY — one apex sentence · layers pointer-only · no duplicate prose in chat or parallel SSOT",
     "apex_commercial": {
       "row": "SOURCEA_PORTFOLIO_SSOT",
-      "human": "SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md",
+      "human": "brain-os/law/SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md",
       "one_sentence_key": "runs_and_sells_controlled_agentic_automation",
       "wins_over": [
         "SOURCEA_COMPANY_INFRA_BUYER_AND_POSITION_SSOT_LOCKED_v1.md",
@@ -120,9 +120,9 @@
   },
   "orientation_stations": {
     "reads": [
-      {"id": "O1", "name": "start_here", "path": "brain-os/entry/START_HERE_LOCKED_v1.md"},
-      {"id": "O2", "name": "governance_gate", "path": "SINA_GOVERNANCE_ENTRY_LOCKED_v1.md"},
-      {"id": "O3", "name": "authority_index", "path": "SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"},
+      {"id": "O1", "name": "start_here", "path": "brain-os/law/entry/START_HERE_LOCKED_v1.md"},
+      {"id": "O2", "name": "governance_gate", "path": "brain-os/law/entry/SINA_GOVERNANCE_ENTRY_LOCKED_v1.md"},
+      {"id": "O3", "name": "authority_index", "path": "brain-os/system/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"},
       {"id": "O4", "name": "decision_stack_gate_tree", "path": "AGENT_DECISION_STACK_AND_SMART_JUDGMENT_LOCKED_v1.md"},
       {"id": "O5", "name": "why_entry", "path": "README_SOURCE_A.md"},
       {"id": "O6", "name": "agentic_stack", "path": "SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md"},

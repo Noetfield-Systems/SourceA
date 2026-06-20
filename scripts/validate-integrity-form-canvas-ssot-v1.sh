@@ -20,7 +20,7 @@ V2_SCRATCH="$HOME/.cursor/projects/Users-sinakazemnezhad-Desktop-SourceA/canvase
 [[ ! -f "$V2_SCRATCH" ]] || fail "scratch agent-pov v2 canvas must be archived/deleted (INCIDENT-029)"
 [[ -f "$SYNTHESIS" ]] || fail "missing cross-chat synthesis LOCKED doc"
 
-grep -q "INCIDENT-029" "$ROOT/brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md" || fail "INCIDENT-029 not in MANDATORY_READ Maintainer"
+grep -q "INCIDENT-029" "$ROOT/brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md" || fail "INCIDENT-029 not in MANDATORY_READ Maintainer"
 
 grep -q "@generated-integrity-open-row-spec-begin" "$M1_CANVAS" || fail "M1 Canvas missing inlined open-row spec (no relative imports)"
 grep -q "from \"./integrity-open-row-spec\"" "$M1_CANVAS" && fail "M1 Canvas must not import integrity-open-row-spec (Canvas SDK)"

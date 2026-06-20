@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 LAW="$ROOT/SINA_P0_PORTFOLIO_AUTOMATION_AND_EVIDENCE_LAW_LOCKED_v1.md"
 SUPER="$ROOT/SINA_ENFORCEMENT_6MO_LAW_SUPERSESSION_LOCKED_v1.md"
-WEEKLY="$ROOT/brain-os/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md"
+WEEKLY="$ROOT/brain-os/law/enforcement/ENFORCEMENT_6MO_WEEKLY_OPERATING_PLAN_LOCKED_v1.md"
 
 fail() { echo "FAIL: $*" >&2; exit 1; }
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """UI upgrade mandatory gate — UP checklist assess + receipt.
 
-Law: brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md
+Law: brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md
 SSOT: data/ui-upgrade-surface-registry-v1.json
 """
 from __future__ import annotations
@@ -133,7 +133,7 @@ def assess(*, surface_id: str) -> dict:
         },
         "dom_must_contain": surface.get("dom_must_contain"),
         "dom_must_not_contain": surface.get("dom_must_not_contain"),
-        "ship_summary_template": "brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md §5",
+        "ship_summary_template": "brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md §5",
         "one_law": reg.get("one_law"),
         "founder_triggers": reg.get("founder_triggers"),
     }

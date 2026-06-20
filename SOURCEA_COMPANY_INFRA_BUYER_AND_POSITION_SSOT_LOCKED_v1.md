@@ -8,7 +8,7 @@
 **Authority:** ASF imperative — **this doc wins on conflict** for SourceA company identity, category, buyer ICP, GTM sequencing, and public positioning (subordinate only to explicit ASF order and `ASF_ORDER` tier-0 imperatives).  
 **Router:** `SINA_GOVERNANCE_ENTRY_LOCKED_v1.md`  
 **Registry:** `SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md` → row `SOURCEA_PORTFOLIO_SSOT`  
-**Companions (pointer only — do not restate):** `SINA_UNIFIED_ENGINE_STORY_LOCKED_v1.md` · `SOURCEA_REFERENCE_ARCHITECTURE_CONSTELLATION_LOCKED_v1.md` · `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` · `SINA_ENFORCEMENT_PORTFOLIO_DECISION_FORM_LOCKED_v1.md`
+**Companions (pointer only — do not restate):** `SINA_UNIFIED_ENGINE_STORY_LOCKED_v1.md` · `SOURCEA_REFERENCE_ARCHITECTURE_CONSTELLATION_LOCKED_v1.md` · `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` · `SINA_ENFORCEMENT_PORTFOLIO_DECISION_FORM_LOCKED_v1.md`
 
 ---
 

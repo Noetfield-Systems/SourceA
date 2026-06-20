@@ -106,7 +106,7 @@ PHASE_TASKS: list[list[str]] = [
         "BLOCK case: apply_copilot_policy_change high-risk missing approval_ref → gatekeeper DENY",
         "ALLOW case: same intent with approval_ref TLE-2026-001 → stub execute + receipt",
         "Reject direct write to rt-live-gate-receipt-v1.json from non-prove() callers in demo scope",
-        "Document commit gate law in brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md §6",
+        "Document commit gate law in brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md §6",
         "CI grep: FAIL if new scripts use open(...,'w') on ~/.sina/receipts/enforcement/ without commit_intent",
         "Add --json output to commit_intent_v1.py for investor terminal demo",
         "Map governance_demo_gate_v1.py rule P-001 to gatekeeper_v1.py shared check",
@@ -415,7 +415,7 @@ pivot: ENFORCEMENT-6MO
 ## Agent prompt (copy to chat)
 
 ```
-PLAN WITH NO ASF — ENFORCEMENT-6MO {pid}: {task} ({TIER_DEPTH[tier]}) Gate test: increases (a) enforcement strength (b) demo credibility (c) willingness to pay — else DELETE. Read brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md + prompts/ENFORCEMENT_6MO_MASTER_CONTROL_PROMPT_v1.md first. FORBIDDEN: Trust OS rename · REGISTRY drain hero · hub rewrite · whitepaper-first. Verify + receipt + mark done.
+PLAN WITH NO ASF — ENFORCEMENT-6MO {pid}: {task} ({TIER_DEPTH[tier]}) Gate test: increases (a) enforcement strength (b) demo credibility (c) willingness to pay — else DELETE. Read brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md + prompts/ENFORCEMENT_6MO_MASTER_CONTROL_PROMPT_v1.md first. FORBIDDEN: Trust OS rename · REGISTRY drain hero · hub rewrite · whitepaper-first. Verify + receipt + mark done.
 ```
 
 ## Task
@@ -424,7 +424,7 @@ PLAN WITH NO ASF — ENFORCEMENT-6MO {pid}: {task} ({TIER_DEPTH[tier]}) Gate tes
 
 ## Sources (read first)
 
-- `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md`
+- `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md`
 - `prompts/ENFORCEMENT_6MO_MASTER_CONTROL_PROMPT_v1.md`
 - `brain-os/demo/ENFORCEMENT_ARTIFACTS_INDEX_v1.md`
 - `scripts/commit_intent_v1.py` · `scripts/demo-enforcement-5min-v1.sh`
@@ -529,10 +529,10 @@ def main() -> None:
         "validate_script": "scripts/validate-enforcement-1000-pack.sh",
         "audit_script": "scripts/audit-enforcement-1000-v1.py",
         "category_index": "brain-os/plan-registry/ENFORCEMENT-1000-CATEGORY-INDEX.md",
-        "parent_law": "brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md",
+        "parent_law": "brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md",
         "supersedes_for_lane": "enforcement-6mo only — does not replace sourcea-1000 factory pack",
         "sources": [
-            "brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md",
+            "brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md",
             "prompts/ENFORCEMENT_6MO_MASTER_CONTROL_PROMPT_v1.md",
             "brain-os/demo/ENFORCEMENT_30DAY_BACKLOG_v1.md",
             "brain-os/demo/ENFORCEMENT_ARTIFACTS_INDEX_v1.md",

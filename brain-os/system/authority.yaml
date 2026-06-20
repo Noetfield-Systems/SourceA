@@ -52,7 +52,7 @@ roles:
     can_build: false
     can_override: false
     workspace: ~/Desktop/SourceA
-    handoff: brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md
+    handoff: brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md
     spawn_phrases: [activate loop, execute turn, execute loop N]
     ack_schema: EXECUTION_CORE_ACK
 

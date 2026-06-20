@@ -1,6 +1,6 @@
 # ASF Agent Desk — start here
 
-**Organized entry:** `brain-os/entry/START_HERE_LOCKED_v1.md` · `brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md`
+**Organized entry:** `brain-os/law/entry/START_HERE_LOCKED_v1.md` · `brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md`
 
 **Daily ops law:** `SINA_COMMAND_DEACTIVATED_INCIDENT_READ_POLICY_LOCKED_v1.md`  
 **Hub:** Sina Command brand = **DEACTIVATED** · optional **Worker Hub** `http://127.0.0.1:13020/` · legacy `/legacy/` archive only
@@ -40,7 +40,7 @@ Morning brief: `./scripts/sina-morning-brief.sh`
 2. Founder says **RUN INBOX** (or bounded `ASF: resume drain — max 1`)
 3. Executor runs one CHECK/ACT/VERIFY turn · broker-submit · STOP
 
-**Law:** `ACTIVE_NOW.md` · `brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` · INCIDENT-028/031
+**Law:** `ACTIVE_NOW.md` · `brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` · INCIDENT-028/031
 
 ## For agents
 

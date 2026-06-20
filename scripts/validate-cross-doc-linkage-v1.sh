@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+# shellcheck source=governance-paths-v1.sh
+. "$ROOT/scripts/governance-paths-v1.sh"
 fail() { echo "FAIL: validate-cross-doc-linkage-v1 — $*" >&2; exit 1; }
 
 DOC="$ROOT/SOURCEA_CROSS_DOC_LINKAGE_AND_AUDIT_LOCKED_v1.md"
 [[ -f "$DOC" ]] || fail "missing linkage doc"
 
 declare -a CLUSTER=(
-  "SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"
-  "SINA_GOVERNANCE_ENTRY_LOCKED_v1.md"
+  "brain-os/system/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"
+  "brain-os/law/entry/SINA_GOVERNANCE_ENTRY_LOCKED_v1.md"
   "SOURCEA_RESULT_DRIVEN_DISCUSSION_POLICY_LOCKED_v1.md"
   "SOURCEA_FIVE_STEP_AUTONOMOUS_PROGRESS_BLUEPRINT_LOCKED_v1.md"
   "prompts/FIVE_STEP_SESSION_PROMPT_LOCKED_v1.md"
@@ -20,12 +22,12 @@ declare -a CLUSTER=(
 
 for f in "${CLUSTER[@]}"; do
   [[ -f "$ROOT/$f" ]] || fail "missing cluster doc $f"
-  grep -q "$f" "$DOC" || fail "linkage doc missing inventory row for $f"
+  grep -q "$(basename "$f")" "$DOC" || fail "linkage doc missing inventory row for $f"
 done
 
-grep -q "CROSS_DOC_LINKAGE" "$ROOT/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md" || fail "authority row"
+grep -q "CROSS_DOC_LINKAGE" "$SINA_AUTHORITY_INDEX" || fail "authority row"
 grep -q "CROSS_DOC_LINKAGE" "$ROOT/scripts/important_docs_index.py" || fail "doc library"
-grep -q "CROSS_DOC_LINKAGE" "$ROOT/brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md" || fail "MANDATORY_READ"
+grep -q "CROSS_DOC_LINKAGE" "$ROOT/brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md" || fail "MANDATORY_READ"
 grep -q "cross_doc_linkage" "$ROOT/scripts/agent_rules_in_charge.py" || fail "agent_rules"
 grep -q "Human channel" "$DOC" || fail "human channel matrix"
 grep -q "Machine channel" "$DOC" || fail "machine channel matrix"

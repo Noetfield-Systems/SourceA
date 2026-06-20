@@ -94,7 +94,7 @@ def main() -> int:
         "at": _now(),
         "overall_ok": overall,
         "registry": "data/founder-glance-cockpit-apps-v1.json",
-        "law_doc": "brain-os/enforcement/SINA_FOUNDER_GLANCE_COCKPIT_APPS_LOCKED_v1.md",
+        "law_doc": "brain-os/law/enforcement/SINA_FOUNDER_GLANCE_COCKPIT_APPS_LOCKED_v1.md",
         "apps": {aid: build_ui_contract(aid) for aid in (load_registry().get("apps") or {})},
         "steps": steps,
     }

@@ -18,7 +18,7 @@ disable-model-invocation: true
 1. `python3 scripts/agent_session_gate_run_v1.py --role worker --json` — receipt `ok=true`
 2. `python3 scripts/agent_truth_bundle_v1.py --json` — disk truth same turn
 3. `HUB_DEACTIVATED` law (`SINA_AUTHORITY_INDEX_MAP` row) — **never** legacy hub brand in founder text · **never** read all incidents
-4. `brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md`
+4. `brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md`
 5. `SOURCEA_LIVE_ONGOING_PROMPTS_LOCKED_v1.md` — **INCIDENT-024** (machine owns order)
 6. Skills: `agent-skills/shared/truth-projection/SKILL.md` · `agent-skills/shared/founder-freeze-conduct/SKILL.md`
 

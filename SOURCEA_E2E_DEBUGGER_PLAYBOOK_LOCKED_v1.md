@@ -21,7 +21,7 @@ status: LOCKED
 | **Lock receipt** | `~/.sina/sourcea-e2e-playbook-lock-v1.json` |
 | **Validator** | `scripts/validate-sourcea-e2e-playbook-locked-v1.sh` |
 | **For roles** | Worker · Brain · Maintainer · Founder · any E2E debugger |
-| **Authority** | Subordinate to `SINA_OS_SSOT_LOCKED.md` · complements `brain-os/enforcement/BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md` |
+| **Authority** | Subordinate to `SINA_OS_SSOT_LOCKED.md` · complements `brain-os/law/enforcement/BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md` |
 | **Chat origin** | Cursor session `a53f3fa1` — hub safety UX + cache cleanup + E2E hardening handoff |
 
 **When lost:** open this file first. Do **not** re-derive process from chat memory.
@@ -37,7 +37,7 @@ status: LOCKED
 | Document sequence | `SOURCE_A_DOCUMENT_SEQUENCE_REGISTRY_LOCKED_v1.md` → `SA-2026-06-09-E2E-PLAYBOOK` |
 | Program threads | `ASF_PROGRAM_THREADS_REGISTRY_LOCKED_v1.md` → `THREAD-ECOSYSTEM` hook row |
 | Factory priority | `brain-os/plan-registry/SOURCEA-PRIORITY.md` → playbook row 2026-06-09 |
-| Brain law | `brain-os/enforcement/BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md` |
+| Brain law | `brain-os/law/enforcement/BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md` |
 | Hub Actions | 🛡 Safety check · 🔁 Fix ecosystem · Restart hub |
 | Scripts (recipe) | `scripts/validate-sourcea-e2e-standard-v1.sh` |
 | Scripts (fast) | `scripts/validate-e2e-fast-ladder-v1.sh` |

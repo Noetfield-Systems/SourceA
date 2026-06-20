@@ -47,11 +47,11 @@ RUNTIME        ~/.sina/ receipts, queue, orchestrator, research-root
 
 | Folder | Full path | Contents |
 |--------|-----------|----------|
-| `entry/` | `…/brain-os/entry/` | START HERE, mandatory read by role |
+| `entry/` | `…/brain-os/law/entry/` | START HERE, mandatory read by role |
 | `law/` | `…/brain-os/law/` | Unified rules, authority, critic law, no-Terminal |
 | `memory/` | `…/brain-os/memory/` | Knowledge index, founder intent, system map |
 | `contract/` | `…/brain-os/contract/` | Brain chat, advisor v3, **this file** |
-| `enforcement/` | `…/brain-os/enforcement/` | Disk-before-chat, Goal1 chain, drain rail |
+| `enforcement/` | `…/brain-os/law/enforcement/` | Disk-before-chat, Goal1 chain, drain rail |
 | `incidents/` | `…/brain-os/incidents/` | Brain/worker cross, unvalidated proof |
 | `system/` | `…/brain-os/system/` | Controlled OS, goal hierarchy, daily ops |
 | `wtm/` | `…/brain-os/wtm/` | World Target Model locked laws (12 files) |

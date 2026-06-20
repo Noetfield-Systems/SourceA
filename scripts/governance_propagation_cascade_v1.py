@@ -10,14 +10,16 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+from governance_paths_v1 import AUTHORITY_INDEX, GOVERNANCE_ENTRY, SINA_OS_SSOT
+
 SCRIPTS = ROOT / "scripts"
 SINA = Path.home() / ".sina"
 RECEIPT = SINA / "governance-propagation-receipt-v1.json"
 
 G0_G1_PATHS = (
-    ROOT / "SINA_OS_SSOT_LOCKED.md",
-    ROOT / "SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md",
-    ROOT / "SINA_GOVERNANCE_ENTRY_LOCKED_v1.md",
+    SINA_OS_SSOT,
+    AUTHORITY_INDEX,
+    GOVERNANCE_ENTRY,
     ROOT / "SOURCEA_INCIDENT_FIX_OWNERSHIP_GOVERNANCE_HARDENING_LOCKED_v1.md",
     ROOT / "SOURCEA_FOUNDER_MACHINE_TERMINOLOGY_DICTIONARY_LOCKED_v1.md",
     ROOT / "PROGRAM_PROGRESS.json",

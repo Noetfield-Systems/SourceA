@@ -16,7 +16,7 @@ check() {
 echo "=== Mac Health Founder Glance SSOT ==="
 
 check test -f "$CONTRACT"
-check test -f "$ROOT/brain-os/enforcement/SINA_MAC_HEALTH_FOUNDER_GLANCE_UI_LOCKED_v1.md"
+check test -f "$ROOT/brain-os/law/enforcement/SINA_MAC_HEALTH_FOUNDER_GLANCE_UI_LOCKED_v1.md"
 check node --check "$ROOT/scripts/mac-health-standalone/app.js"
 
 python3 <<'PY' || fail=1

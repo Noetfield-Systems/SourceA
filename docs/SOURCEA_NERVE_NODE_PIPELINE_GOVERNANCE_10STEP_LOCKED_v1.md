@@ -25,7 +25,7 @@ Ecosystem-connected rollup may PASS while individual nerves/nodes/gates remain R
 
 | Domain | Canonical |
 |--------|-----------|
-| Front door | `brain-os/entry/START_HERE_LOCKED_v1.md` |
+| Front door | `brain-os/law/entry/START_HERE_LOCKED_v1.md` |
 | Role assignment | `brain-os/system/WORKER_ASSIGNMENT_AND_CHAT_ROUTING_LOCKED_v1.md` |
 | Layer stack | `SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md` |
 | Node graph | `data/sourcea_pipeline_node_graph_v1.json` |

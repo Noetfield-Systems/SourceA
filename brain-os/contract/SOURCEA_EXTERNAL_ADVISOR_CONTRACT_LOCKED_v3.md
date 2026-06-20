@@ -199,7 +199,7 @@ Prefer facts, repository evidence, governance, verification, receipts over novel
 7. `brain-os/system/WORKER_ASSIGNMENT_AND_CHAT_ROUTING_LOCKED_v1.md`
 8. `brain-os/law/CHATGPT_EXTERNAL_CRITIC_LAW_LOCKED_v1.md`
 9. `brain-os/law/BRAIN_UNIFIED_RULES_LOCKED_v1.md`
-10. `brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md`
+10. `brain-os/law/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md`
 
 **STOP.** No unprompted scheduling.
 

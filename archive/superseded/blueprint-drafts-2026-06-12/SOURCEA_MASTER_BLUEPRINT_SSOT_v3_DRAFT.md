@@ -3,7 +3,7 @@
 **Saved:** 2026-06-16T04:33:35Z · **Retrofit:** doc-datetime-law batch retrofit
 **Status:** DRAFT · **VOID as LOCKED** — demoted ASF order 2026-06-06  
 **Superseded by:** `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md` (**canonical LOCKED v3.1**)  
-**W1/W2/W3 execution still canonical in:** `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` · `SINA_ENFORCEMENT_PORTFOLIO_DECISION_FORM_LOCKED_v1.md`  
+**W1/W2/W3 execution still canonical in:** `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` · `SINA_ENFORCEMENT_PORTFOLIO_DECISION_FORM_LOCKED_v1.md`  
 **Use:** compare · postmortem · harvest operational ideas — **do not cite as active law**  
 **Replaces:** earlier void v3 draft whose Part 0 said “SourceA is not a product”  
 **Date:** 2026-06-12 (content) · demoted 2026-06-06

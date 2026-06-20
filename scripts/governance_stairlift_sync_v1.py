@@ -12,20 +12,26 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+from governance_paths_v1 import (
+    AUTHORITY_INDEX,
+    GOVERNANCE_ENTRY,
+    NO_FAKE_PROGRESS,
+    WORKER_EVIDENCE_LAW,
+)
+
 SCRIPTS = ROOT / "scripts"
 SINA = Path.home() / ".sina"
 OUT = SINA / "governance-stairlift-v1.json"
 STATE = SINA / "governance-stairlift-state-v1.json"
 
-# G0 watch — law touch triggers stairlift
 WATCH = (
     ROOT / "SOURCEA_INCIDENT_FIX_OWNERSHIP_GOVERNANCE_HARDENING_LOCKED_v1.md",
-    ROOT / "SOURCEA_NO_FAKE_PROGRESS_ENTERPRISE_SHIP_LOCKED_v1.md",
+    NO_FAKE_PROGRESS,
     ROOT / "SOURCEA_RESULT_DRIVEN_DISCUSSION_POLICY_LOCKED_v1.md",
     ROOT / "SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md",
-    ROOT / "SINA_GOVERNANCE_ENTRY_LOCKED_v1.md",
-    ROOT / "SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md",
-    ROOT / "brain-os/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md",
+    GOVERNANCE_ENTRY,
+    AUTHORITY_INDEX,
+    WORKER_EVIDENCE_LAW,
 )
 
 # Runtime SSOT — founder latch / routing must trigger republish (INCIDENT-031 propagation fix)

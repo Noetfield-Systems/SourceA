@@ -24,7 +24,7 @@
 | H1 vs H2 balance | `SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md` v1.2 §1–§2 |
 | Thread Room placement | `SINA_THREAD_ROOM_LOCKED_v1.md` §Hub placement |
 | Machine pending SSOT | `~/.sina/h2-pending-registry-v1.json` |
-| Mandatory read | `brain-os/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md` v1.7 |
+| Mandatory read | `brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md` v1.7 |
 | Brain duty | `os/chat-handoffs/MANDATORY_BRAIN_CHAT_LOCKED_v1.md` §FORM + §H2 |
 | Integration fabric | `~/.sina/integration-fabric-registry-v1.yaml` v1.6 |
 

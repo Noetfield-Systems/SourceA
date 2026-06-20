@@ -5,7 +5,7 @@
 **URL:** http://127.0.0.1:13024/ · **Root:** `scripts/mac-health-standalone/`  
 **Machine contract:** `data/mac-health-founder-glance-ui-contract-v1.json`  
 **Version SSOT:** `scripts/mac_health_version_v1.py`  
-**Ledger:** `brain-os/enforcement/ui-upgrade-ledgers/MAC_HEALTH_UI_UPGRADE_LEDGER_LOCKED_v1.md`
+**Ledger:** `brain-os/law/enforcement/ui-upgrade-ledgers/MAC_HEALTH_UI_UPGRADE_LEDGER_LOCKED_v1.md`
 
 ---
 

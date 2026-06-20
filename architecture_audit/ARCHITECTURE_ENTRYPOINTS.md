@@ -145,5 +145,5 @@ build-sina-command-panel.py::main()
 ## Related enforcement docs
 
 - `SINA_HUB_E2E_CANCELLED_LOCKED_v1.md` — E2E gate off
-- `brain-os/enforcement/BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md` — no full E2E in brain chat
+- `brain-os/law/enforcement/BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md` — no full E2E in brain chat
 - Founder law: hub Refresh/Actions only — no Terminal

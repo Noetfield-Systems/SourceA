@@ -1,6 +1,6 @@
 # ENFORCEMENT-6MO — 30-day backlog (REGISTRY-ready slices)
 
-**Law:** `brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md`  
+**Law:** `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md`  
 **Track ID:** `DEMO-ENF-COPILOT-2026-06-11`  
 **Note:** Slices use `DEMO-ENF-S*` IDs — separate from locked `sa-1000` pack slots. Brain may crosswalk to `sa-*` when assigning Worker turns.
 

@@ -41,11 +41,11 @@
 | 7b | `brain-os/incidents/SINA_GOAL_HIERARCHY_ENFORCEMENT_INCIDENT_LOCKED_v1.md` — **INCIDENT-004** |
 | 7c | `brain-os/incidents/SINA_REGISTRY_BATCH_FAKE_PROGRESS_INCIDENT_LOCKED_v1.md` — **INCIDENT-006** (607 fake done · receipt law) |
 | 7d | `brain-os/incidents/SINA_GOAL1_AUTORUN_BROKER_STALE_RECEIPT_INCIDENT_LOCKED_v1.md` — **INCIDENT-007** (broker STALE · recipe audit) |
-| 7e | `brain-os/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md` — **factory gate law** |
+| 7e | `brain-os/law/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md` — **factory gate law** |
 | 7f | `brain-os/incidents/SINA_WORKER_AUTORUN_STALL_AND_TIMING_INCIDENT_LOCKED_v1.md` — **INCIDENT-008** (auto-run timing playbook) |
 | 8 | `brain-os/system/FOUNDER_DAILY_OPERATING_MODEL_LOCKED_v1.md` |
 | 9 | `brain-os/system/AGENT_MISS_DISK_FIRST_CORRECTION_LOOP_LOCKED_v1.md` |
-| 10 | `brain-os/enforcement/BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md` |
+| 10 | `brain-os/law/enforcement/BRAIN_DISK_BEFORE_CHAT_SESSION_LOOP_LOCKED_v1.md` |
 | 11 | `brain-os/plan-registry/SOURCEA-PRIORITY.md` |
 | 12 | `brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md` |
 | 13 | `SOURCEA_NO_FAKE_PROGRESS_ENTERPRISE_SHIP_LOCKED_v1.md` — **no fake progress · evidence + effect + enterprise ship** |
@@ -79,7 +79,7 @@
 | 0e | `brain-os/laws/SOURCEA_INVARIANT_GATEKEEPER_BLUEPRINT_LOCKED_v1.md` — invariant · Gatekeeper MUST run first |
 | 0f | **Cursor skill** `@sina-sourcea-worker` · `agent-skills/sourcea_worker/SKILL.md` |
 | 0g | `SOURCEA_DISK_TRUTH_E2E_MATRIX_LOCKED_v1.md` — projection vs control · dual-pick FAIL law |
-| 1 | `brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` |
+| 1 | `brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` |
 | 2 | `brain-os/system/WORKER_ASSIGNMENT_AND_CHAT_ROUTING_LOCKED_v1.md` §2 BUILD SCOPE |
 | 3 | `SINA_OS_SSOT_LOCKED.md` |
 | 4 | `SINAAI_FAST_TRACK_FORCE_MAJEURE_LOCKED_v1.md` |
@@ -88,7 +88,7 @@
 | 7 | `CURSOR_AGENT_CONTEXT_MEMORY_INCIDENT_LOCKED_v1.md` |
 | 7b | `brain-os/incidents/SINA_REGISTRY_BATCH_FAKE_PROGRESS_INCIDENT_LOCKED_v1.md` — **INCIDENT-006** (receipt = only done) |
 | 7c | `brain-os/incidents/SINA_GOAL1_AUTORUN_BROKER_STALE_RECEIPT_INCIDENT_LOCKED_v1.md` — **INCIDENT-007** (recipe·validation·evidence·built) |
-| 7d | `brain-os/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md` — **factory gate law** |
+| 7d | `brain-os/law/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md` — **factory gate law** |
 | 7e | `brain-os/incidents/SINA_WORKER_AUTORUN_STALL_AND_TIMING_INCIDENT_LOCKED_v1.md` — **INCIDENT-008** (timing · stall · worker tips) |
 | 7f | `SOURCEA_LIVE_ONGOING_PROMPTS_LOCKED_v1.md` — **INCIDENT-024** (machine owns order · confirm never blocks) |
 | 7g | `.cursor/rules/prompt-queue.mdc` — **never** say confirm auto-send |

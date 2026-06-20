@@ -7,7 +7,7 @@ alwaysApply: false
 
 # Worker full-round evidence (MANDATORY)
 
-**Law:** `brain-os/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md`  
+**Law:** `brain-os/law/enforcement/WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md`  
 **Incident:** INCIDENT-007 · INCIDENT-008 (timing playbook) · INCIDENT-006  
 **Gate:** `python3 scripts/worker_factory_evidence_gate_v1.py --json`
 

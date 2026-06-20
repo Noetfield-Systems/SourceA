@@ -5,7 +5,7 @@
   "repo": "SourceA",
   "root": "agent-control-panel",
   "url": "http://127.0.0.1:13020/",
-  "ledger_md": "brain-os/enforcement/ui-upgrade-ledgers/WORKER_HUB_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+  "ledger_md": "brain-os/law/enforcement/ui-upgrade-ledgers/WORKER_HUB_UI_UPGRADE_LEDGER_LOCKED_v1.md",
   "saved_at": "2026-06-19T16:54:05Z",
   "frozen_inventory": [
     {"id": "next_steps", "kind": "panel", "marker": "factory-now / Next steps", "files": ["agent-control-panel/assets/app.js"]},
