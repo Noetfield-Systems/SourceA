@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Witness BC AI — Accountability Platform</title>
+  <style>
+:root {
+  --bg: #070b12;
+  --surface: #0f1623;
+  --surface-2: #151d2e;
+  --border: #243044;
+  --text: #eef2f7;
+  --muted: #8fa3bc;
+  --accent: #2dd4bf;
+  --accent-dim: rgba(45, 212, 191, 0.12);
+  --pass: #3ecf8e;
+  --fail: #ff6b6b;
+  --warn: #f0b429;
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.brand { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em; }
+.brand span { color: var(--muted); font-weight: 500; font-size: 0.85rem; margin-left: 0.5rem; }
+.pill {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: var(--surface);
+}
+.pill.accent { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+.hero { padding: 3.5rem 0 2.5rem; }
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  max-width: 18ch;
+}
+.hero .lead {
+  margin-top: 1.25rem;
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 52ch;
+}
+.hero .quote {
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  border-radius: 0 10px 10px 0;
+  font-size: 1.05rem;
+  color: #c5d4e8;
+}
+.cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.35rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+}
+.btn-primary { background: var(--accent); color: #041018; }
+.btn-primary:hover { filter: brightness(1.08); text-decoration: none; }
+.btn-ghost { border-color: var(--border); color: var(--text); background: var(--surface); }
+.btn-ghost:hover { border-color: var(--accent); text-decoration: none; }
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 2rem 0 0;
+}
+@media (max-width: 720px) { .stats { grid-template-columns: 1fr; } }
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.35rem;
+}
+.stat .num { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; }
+.stat .lbl { font-size: 0.82rem; color: var(--muted); margin-top: 0.35rem; }
+section { padding: 2.75rem 0; border-top: 1px solid var(--border); }
+section h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+section h3 { font-size: 1.35rem; font-weight: 650; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+.prose { color: var(--muted); max-width: 68ch; }
+.prose p { margin-bottom: 0.85rem; }
+.chain { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+.beat {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: #b8c9de;
+}
+.beat.arrow { border: none; background: none; color: var(--muted); padding: 0.45rem 0.2rem; }
+.beat.pass { border-color: rgba(62, 207, 142, 0.4); color: var(--pass); }
+.beat.fail { border-color: rgba(255, 107, 107, 0.4); color: var(--fail); }
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+@media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.card.featured {
+  border-color: var(--accent);
+  box-shadow: 0 8px 40px rgba(77, 159, 255, 0.15);
+}
+.card .tier { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.card .price { font-size: 2rem; font-weight: 700; margin: 0.5rem 0 0.25rem; letter-spacing: -0.03em; }
+.card .sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
+.card ul { list-style: none; font-size: 0.9rem; color: #b8c9de; }
+.card li { padding: 0.35rem 0; padding-left: 1.1rem; position: relative; }
+.card li::before { content: "✓"; position: absolute; left: 0; color: var(--pass); font-size: 0.75rem; }
+.table-wrap { overflow-x: auto; margin-top: 1rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { text-align: left; padding: 0.75rem 0.85rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.footer {
+  padding: 2.5rem 0 3rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.footer strong { color: var(--text); }
+.no-print { }
+@media print {
+  body { background: #fff; color: #111; font-size: 10pt; }
+  .wrap { max-width: 100%; }
+  :root { --surface: #f8fafc; --surface-2: #f1f5f9; --border: #e2e8f0; --text: #111; --muted: #555; --accent: #2563eb; }
+  .btn-primary { background: #2563eb; color: #fff; }
+  .no-print { display: none !important; }
+  section { break-inside: avoid; }
+  .card { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">Witness BC AI <span>Accountability you can prove</span></div>
+    <span class="pill accent">Human protocol + machine receipts</span>
+  </div>
+  <header class="hero">
+    <p class="pill" style="display:inline-block;margin-bottom:1rem;border-color:#5eead4;color:#5eead4;background:rgba(94,234,212,0.1)">Not WitnessAI · witnessbc.com</p>
+    <h1>Approach agentic work with accountability.</h1>
+    <p class="lead">Enable AI-assisted publish, ops, and outreach without sacrificing sourcing discipline, privacy red lines, or a corrections trail. Governed loops with signed receipts on every irreversible step.</p>
+    <blockquote class="quote">Witness BC AI runs <strong>human accountability workflows</strong> — source → review → publish → correct — with SourceA signed receipts so teams prove what was checked, who approved, and what changed after go-live.</blockquote>
+    <div class="cta-row no-print">
+      <a class="btn btn-primary" href="https://witnessbc.com/toolkits">Assess your workflow</a>
+      <a class="btn btn-ghost" href="mailto:operations@noetfield.com?subject=Witness%20BC%20AI%20—%2015-min%20proof">Book 15-min proof demo</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">5</div><div class="lbl">Receipt gates per default loop — intake through correction</div></div>
+      <div class="stat"><div class="num">5 min</div><div class="lbl">Live proof — BLOCK, allow, correct, tamper-FAIL, replay</div></div>
+      <div class="stat"><div class="num">2–3 wk</div><div class="lbl">WBC-FLOW install — tip → approve → publish</div></div>
+    </div>
+  </header>
+
+  <section>
+    <h2>The confidence layer</h2>
+    <h3>Unified accountability for human and agent workforces.</h3>
+    <div class="prose">
+      <p>Security platforms inventory agents. Governance PDFs assess once. Witness BC AI governs <strong>accountable actions</strong> — with WitnessBC sourcing and corrections discipline wired into agent loops and cryptographically verifiable export.</p>
+    </div>
+    <div class="grid-3" style="margin-top:1.5rem">
+      <div class="card">
+        <div class="tier">Observe</div>
+        <h3 style="font-size:1.15rem;margin:0.5rem 0">See every intake &amp; triage</h3>
+        <div class="sub">Catalog drafts, tips, and agent-assisted content before it ships.</div>
+        <ul>
+          <li>Topic tag + de-ID scan at intake</li>
+          <li>Sourcing checklist automation</li>
+          <li>Red-line flags before review</li>
+          <li>Receipt: <code style="font-size:0.8em">wbc.triage.complete</code></li>
+        </ul>
+      </div>
+      <div class="card featured">
+        <div class="tier">Govern</div>
+        <h3 style="font-size:1.15rem;margin:0.5rem 0">Approve before irreversible send</h3>
+        <div class="sub">Founder tap on publish, toolkit delivery, and sensitive narratives.</div>
+        <ul>
+          <li>Policy BLOCK at dispatch</li>
+          <li>Human approve / reject gate</li>
+          <li>WitnessBC principles enforced</li>
+          <li>Receipt: <code style="font-size:0.8em">wbc.review.approved</code></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="tier">Prove</div>
+        <h3 style="font-size:1.15rem;margin:0.5rem 0">Export what ran — tamper-evident</h3>
+        <div class="sub">Corrections logged. Hand-edited receipts FAIL validation.</div>
+        <ul>
+          <li>Signed receipt ledger + replay</li>
+          <li>Public corrections log link</li>
+          <li>Monthly proof export (WBC-OPS)</li>
+          <li>Receipt: <code style="font-size:0.8em">wbc.correction.logged</code></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The proof</h2>
+    <h3>Not slides — a live chain in under five minutes.</h3>
+    <div class="chain">
+      <span class="beat">request</span><span class="beat arrow">→</span>
+      <span class="beat">policy eval</span><span class="beat arrow">→</span>
+      <span class="beat fail">BLOCK red-line</span><span class="beat arrow">→</span>
+      <span class="beat pass">ALLOW + receipt</span><span class="beat arrow">→</span>
+      <span class="beat">correct</span><span class="beat arrow">→</span>
+      <span class="beat fail">tamper-FAIL</span><span class="beat arrow">→</span>
+      <span class="beat pass">replay</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why Witness BC AI</h2>
+    <h3>Human protocol + machine proof — one spine.</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Alternative</th><th>They optimize for</th><th>Witness BC AI</th></tr>
+        <tr><td><strong>Notenic</strong></td><td>State-transition admissibility · enterprise GRE</td><td>Same dispatch class + <strong>editorial SOP</strong> + visible corrections</td></tr>
+        <tr><td><strong>Zenity</strong></td><td>Agent inventory · AISPM · AIDR security</td><td><strong>Approve → publish → correct</strong> with sourcing discipline</td></tr>
+        <tr><td><strong>WitnessAI</strong> (different co.)</td><td>Network shadow-AI · intent ML</td><td><strong>witnessbc.com</strong> — disk law + civic accountability</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pricing</h2>
+    <h3>Start with toolkits · scale to governed loops.</h3>
+    <div class="grid-3">
+      <div class="card">
+        <div class="tier">Site · Starter</div>
+        <div class="price">$39</div>
+        <div class="sub">WitnessBC Pro Bundle · human protocol only</div>
+        <ul><li>Sourcing + privacy packs</li><li>Corrections protocol</li><li>Self-serve on witnessbc.com</li></ul>
+      </div>
+      <div class="card featured">
+        <div class="tier">WBC-FLOW · Recommended</div>
+        <div class="price">$2.5–6K</div>
+        <div class="sub">CAD · 2–3 weeks · first agentic install</div>
+        <ul>
+          <li>Tip → approve → publish loop</li>
+          <li>5 receipt types on spine</li>
+          <li>Replay demo + export bundle</li>
+          <li>Mapped WitnessBC Pro PDFs</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="tier">WBC-OPS</div>
+        <div class="price">$1.5–3.5K</div>
+        <div class="sub">CAD / month · 3-month minimum</div>
+        <ul><li>Monitor + tune checklists</li><li>Monthly proof export</li><li>Toolkit delivery automation</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Principles wired in</h2>
+    <div class="prose">
+      <p><strong>Sourcing discipline</strong> — block publish without source log. <strong>Red lines</strong> — FAIL at dispatch on naming/identifiers. <strong>De-ID checklist</strong> — four questions or escalate. <strong>Corrections always</strong> — material edits get a new receipt. Educational templates — not legal advice.</p>
+    </div>
+  </section>
+
+  <footer class="footer wrap">
+    <p><strong>Next step:</strong> 15-minute live proof · default scope: tip → triage → founder approve → publish → corrections log.</p>
+    <p style="margin-top:0.5rem"><strong>Toolkits:</strong> <a href="https://witnessbc.com/toolkits">witnessbc.com/toolkits</a> · <strong>Principles:</strong> <a href="https://witnessbc.com/principles">witnessbc.com/principles</a></p>
+    <p style="margin-top:1.25rem;font-size:0.8rem"><strong>Brand law:</strong> Witness BC AI is <a href="https://witnessbc.com">witnessbc.com</a> — not <a href="https://witness.ai">witness.ai</a> (WitnessAI). Powered by SourceA · policy at dispatch · ledger + replay · tamper-evidence.</p>
+  </footer>
+</div>
+
+</body>
+</html>

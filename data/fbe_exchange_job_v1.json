@@ -1,0 +1,22 @@
+{
+  "schema": "fbe-exchange-job-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-17T15:00:00Z",
+  "wave": "W4",
+  "template_id": "exchange-factory-v1",
+  "commercial_name": "Governed Exchange Factory",
+  "bay_slug": "trustfield-bay",
+  "tenant": "trustfield",
+  "target_tier": "PLATINUM",
+  "tier_target": "PLATINUM",
+  "deliveryMode": "prove_only",
+  "factory_id": "factory_2",
+  "creed_root": "~/Desktop/YA5/PLUS ONE/CREED",
+  "church_root": "~/Desktop/YA5/PLUS ONE/CHURCH",
+  "output_class": "5191-confidential",
+  "refinery_pipeline": "exchange_refinery_w4",
+  "assembly_pipeline": "exchange_assembly_w4",
+  "execution_plane": "headless_w4",
+  "receipt": "~/.sina/fbe-run-job-receipt-v1.json",
+  "partner_pack_uri": "receipts/partners/trustfield/design-partner-receipt-v1.zip"
+}

@@ -1,0 +1,78 @@
+  <main id="main-content">
+    <section class="page-hero learn-hero">
+      <div class="container">
+        <p class="section-eyebrow">Learn · Get started</p>
+        <h1>Everything you need to prove AI policy ran before the agent acted</h1>
+        <p class="section-lead">Six chapter-guided lessons — same structure as a top-tier product onboarding video. Product is the lesson: Proof Lab, receipts, tamper-FAIL.</p>
+        <div class="learn-hero-meta">
+          <span class="learn-meta-chip">~6 min guided</span>
+          <span class="learn-meta-chip">6 chapters</span>
+          <span class="learn-meta-chip">3 AI workflows</span>
+          <a class="learn-meta-chip learn-meta-link" href="proof.html#w1-demo-film">Watch ~51s film ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="learn-hub" id="learnHub">
+      <div class="container learn-hub-grid">
+        <aside class="learn-sidebar" aria-label="Chapter list">
+          <div class="learn-progress-wrap">
+            <div class="learn-progress-label">
+              <span>Progress</span>
+              <span id="learnProgressText">0 / 6</span>
+            </div>
+            <div class="learn-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0" id="learnProgressBar">
+              <div class="learn-progress-fill" id="learnProgressFill"></div>
+            </div>
+          </div>
+          <nav class="learn-chapter-nav" id="learnChapterNav" aria-label="Learn chapters"></nav>
+          <div class="learn-workflows">
+            <p class="learn-sidebar-heading">AI workflows</p>
+            <ul class="learn-workflow-list" id="learnWorkflowList"></ul>
+          </div>
+        </aside>
+
+        <div class="learn-main">
+          <article class="learn-chapter-panel" id="learnChapterPanel" aria-live="polite">
+            <div class="learn-chapter-head">
+              <span class="learn-chapter-time" id="learnChapterTime">00:00</span>
+              <h2 id="learnChapterTitle">Introduction</h2>
+              <p class="learn-chapter-sub" id="learnChapterSub"></p>
+            </div>
+            <p class="learn-chapter-summary" id="learnChapterSummary"></p>
+            <div class="learn-chapter-proof" id="learnChapterProof" hidden>
+              <span class="learn-proof-label">Try in Proof Lab</span>
+              <code class="learn-proof-slug" id="learnProofSlug"></code>
+            </div>
+            <div class="learn-chapter-actions">
+              <a class="btn btn-primary" id="learnChapterCta" href="proof.html">Open Proof Lab</a>
+              <button type="button" class="btn btn-outline" id="learnMarkDone">Mark chapter complete</button>
+            </div>
+            <div class="learn-chapter-nav-row">
+              <button type="button" class="btn btn-ghost" id="learnPrev" disabled>← Previous</button>
+              <button type="button" class="btn btn-ghost" id="learnNext">Next chapter →</button>
+            </div>
+          </article>
+
+          <section class="learn-film-strip" aria-label="Hero commercial">
+            <div class="learn-film-copy">
+              <h3>~51s hero commercial</h3>
+              <p>Linear-style chapter cuts · real Proof Lab UI · tamper-FAIL on screen.</p>
+            </div>
+            <a class="btn btn-outline" href="proof.html#w1-demo-film">Watch on Proof page ↗</a>
+          </section>
+
+          <section class="learn-resources" aria-label="More resources">
+            <h3>Resources</h3>
+            <div class="learn-resource-grid" id="learnResourceGrid"></div>
+          </section>
+
+          <section class="learn-live-cta">
+            <h3>Join a live proof session</h3>
+            <p>Guided onboarding — essentials, Proof Lab walkthrough, tamper-FAIL live on your call. No slides.</p>
+            <a class="btn btn-primary btn-lg" href="{{PROOF_MAILTO}}">Book 15-min live proof</a>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>

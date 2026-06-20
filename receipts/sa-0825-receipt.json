@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0825",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0825 VERIFY \u2014 quarantine bookmark cross-check PASS; H2 plan slot 25 proven",
+  "at": "2026-06-15T03:59:28Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

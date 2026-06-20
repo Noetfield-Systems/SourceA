@@ -1,0 +1,49 @@
+{
+  "schema": "fbe-execution-contract-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-17T15:30:00Z",
+  "kernel_version": "fbe-v1.0.0",
+  "kernel_hash_source": "data/fbe_node_graph_v1.json",
+  "default_execution_mode": "CLOUD_ONLY",
+  "allowed_execution_modes": ["CLOUD_ONLY", "LOCAL_ALLOWED"],
+  "required_fields": [
+    "job_id",
+    "factory_id",
+    "kernel_version",
+    "tenant_id",
+    "execution_mode"
+  ],
+  "policy_gate": {
+    "deny_local_when_freeze": true,
+    "require_kernel_version_match": true,
+    "require_policy_hash_when_tenant_set": false
+  },
+  "receipt_schema": "fbe-execution-receipt-v1",
+  "receipt_fields": [
+    "job_id",
+    "status",
+    "nodes_executed",
+    "duration_ms",
+    "artifact_urls",
+    "policy_passed",
+    "kernel_hash",
+    "execution_plane",
+    "tier_achieved"
+  ],
+  "route_map": {
+    "/api/fbe/run-job/v1": {"run_mode": "full_job", "default_template": "web-product-factory-v1"},
+    "/api/fbe/run-bay/v1": {"run_mode": "refinery"},
+    "/api/fbe/run-exchange/v1": {"run_mode": "exchange", "default_template": "exchange-factory-v1"},
+    "/api/fbe/run-forge/v1": {"run_mode": "forge", "default_template": "forge-app-factory-v1"},
+    "/api/fbe/run-fleet/v1": {"run_mode": "fleet"},
+    "/api/fbe/spawn/v1": {"run_mode": "spawn"},
+    "/api/fbe/comprehension-loop/v1": {
+      "run_mode": "comprehension",
+      "default_template": "comprehension-loop-factory-v1"
+    },
+    "/api/fbe/loop-specialist/tick/v1": {
+      "run_mode": "loop_specialist",
+      "default_template": "comprehension-loop-factory-v1"
+    }
+  }
+}

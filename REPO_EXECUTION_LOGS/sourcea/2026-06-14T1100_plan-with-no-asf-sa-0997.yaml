@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0997 — Compare founder hub-only law to terminal-first agent products
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0997
+tests:
+  status: passed
+  output_snippet: T3 hub-only vs terminal-first cross-ref dedup sa-0972 · worker_verify_ultra PASS · validate-hub-only-terminal-first-crossref-v1 PASS
+reported_at: '2026-06-14T11:00:26Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

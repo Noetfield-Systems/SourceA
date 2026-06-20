@@ -1,0 +1,45 @@
+{
+  "schema": "video-ad-factory-gemini-port-spec-v1",
+  "saved_at": "2026-06-19T06:45:00Z",
+  "source": "Gemini advisor — video-ad-factory orchestration + ElevenLabs",
+  "target_when_lane_open": "apps/video-ad-factory/",
+  "do_not_fork_repo": true,
+  "sourcea_machine_equivalent_now": {
+    "orchestration": "scripts/video_ad_factory_orchestrate_v1.py",
+    "elevenlabs_live": "scripts/film_elevenlabs_wire_v1.py",
+    "rendering_bridge": "scripts/video_ad_rendering_bridge_v1.py",
+    "zod_types": "shared/types/campaign-v1.ts",
+    "supabase_sql": "data/supabase-migration-001-campaign-automations-v1.sql",
+    "demo_campaign": "data/video-ad-campaigns-v1/demo-campaign-v1.json",
+    "validator": "scripts/validate-video-ad-factory-chain-v1.sh"
+  },
+  "gemini_files_to_port": [
+    {
+      "path": "apps/video-ad-factory/package.json",
+      "name": "@factory/video-ad-factory",
+      "deps": ["@supabase/supabase-js", "zod", "dotenv"]
+    },
+    {
+      "path": "apps/video-ad-factory/orchestration/index.ts",
+      "exports": ["orchestrateCampaign"],
+      "schema": "ScenarioSchema — refined_script min 10 · visual_prompts length 1 · voice_settings 0..1",
+      "state_steps": ["BRIEF_ANALYSIS", "AUDIO_READY", "VIDEO_RENDERING", "HUMAN_APPROVAL_REQUIRED"]
+    },
+    {
+      "path": "apps/video-ad-factory/audio-synthesis/elevenlabs.ts",
+      "exports": ["generateAdAudio"],
+      "storage": "generated_assets_bucket/campaigns/{id}/voice_narration.mp3",
+      "model": "eleven_multilingual_v2"
+    }
+  ],
+  "sourcea_deltas_vs_gemini": {
+    "elevenlabs": "Prefer shell to scripts/film_elevenlabs_wire_v1.py until TS port — has with-timestamps + ASS alignment",
+    "llm_scenario": "Wire OEGCC/controller — not raw mock generateScenarioFromLLM",
+    "approval_gate": "Must stop at HUMAN_APPROVAL_REQUIRED before Fal spend — campaign-v1.ts law",
+    "billing_before_render": "fbe_billing_webhook_stub_v1.py tier gate before VIDEO_RENDERING",
+    "mac_role": "control_plane_only — cloud execution; local demo uses data/video-ad-campaigns-v1/*.json"
+  },
+  "gemini_closing_question_fa": "rendering-bridge Fal.ai یا Apple Store webhooks؟",
+  "answer_fa": "هیچ‌کدام اول. ترتیب SourceA: billing → orchestration (همین) → rendering-bridge → StoreKit. Fal فقط بعد از tier gate و HUMAN_APPROVAL.",
+  "answer_en": "Neither first — billing spine → orchestration (this module) → Fal rendering-bridge → StoreKit when iOS WORK order lands."
+}

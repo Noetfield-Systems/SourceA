@@ -1,0 +1,21 @@
+{
+  "schema": "fbe-forge-job-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-17T16:00:00Z",
+  "wave": "W5",
+  "template_id": "forge-app-factory-v1",
+  "commercial_name": "Governed App Factory",
+  "bay_slug": "forge-bay",
+  "tenant": "forge",
+  "target_tier": "GOLD",
+  "tier_target": "GOLD",
+  "proof_class": "G0-G3",
+  "pattern": "FORGE_SKU_worker_inbox_no_web_clone",
+  "deliveryMode": "prove_only",
+  "factory_id": "factory_3",
+  "refinery_pipeline": "forge_refinery_w5",
+  "assembly_pipeline": "forge_assembly_w5",
+  "execution_plane": "headless_w5",
+  "receipt": "~/.sina/fbe-run-job-receipt-v1.json",
+  "partner_pack_uri": null
+}

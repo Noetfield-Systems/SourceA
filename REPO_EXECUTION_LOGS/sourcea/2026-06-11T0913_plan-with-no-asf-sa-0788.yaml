@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0788 — Cross-check unification policy doc link in council hero
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0788
+tests:
+  status: passed
+  output_snippet: sa-0788 VERIFY — council hero unification policy link idempotent DONE; dispatch+fleet+fcb PASS; critical 0.
+reported_at: '2026-06-11T09:13:38Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

@@ -1,0 +1,120 @@
+{
+  "schema": "fbe-pipelines-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-17T13:12:42Z",
+  "pipelines": [
+    {
+      "id": "fbe-compile-pipeline",
+      "group": "bundle",
+      "tier": "F0",
+      "label": "Fbe Compile Pipeline"
+    },
+    {
+      "id": "fbe-spawn-pipeline",
+      "group": "bundle",
+      "tier": "F0",
+      "label": "Fbe Spawn Pipeline"
+    },
+    {
+      "id": "fbe-full-job-pipeline",
+      "group": "bundle",
+      "tier": "F0",
+      "label": "Fbe Full Job Pipeline"
+    },
+    {
+      "id": "motor-session-pipeline",
+      "group": "motor",
+      "tier": "M0",
+      "label": "Motor Session Pipeline"
+    },
+    {
+      "id": "motor-wire-pipeline",
+      "group": "motor",
+      "tier": "M0",
+      "label": "Motor Wire Pipeline"
+    },
+    {
+      "id": "motor-closeout-pipeline",
+      "group": "motor",
+      "tier": "M0",
+      "label": "Motor Closeout Pipeline"
+    },
+    {
+      "id": "refinery-session-pipeline",
+      "group": "refinery",
+      "tier": "R0",
+      "label": "Refinery Session Pipeline"
+    },
+    {
+      "id": "refinery-scaffold-pipeline",
+      "group": "refinery",
+      "tier": "R0",
+      "label": "Refinery Scaffold Pipeline"
+    },
+    {
+      "id": "refinery-ingest-pipeline",
+      "group": "refinery",
+      "tier": "R0",
+      "label": "Refinery Ingest Pipeline"
+    },
+    {
+      "id": "refinery-prove-pipeline",
+      "group": "refinery",
+      "tier": "R0",
+      "label": "Refinery Prove Pipeline"
+    },
+    {
+      "id": "refinery-brand-pipeline",
+      "group": "refinery",
+      "tier": "R0",
+      "label": "Refinery Brand Pipeline"
+    },
+    {
+      "id": "refinery-locale-voice-pipeline",
+      "group": "refinery",
+      "tier": "R0",
+      "label": "Refinery Locale Voice Pipeline"
+    },
+    {
+      "id": "refinery-full-pipeline",
+      "group": "refinery",
+      "tier": "R0",
+      "label": "Refinery Full Pipeline"
+    },
+    {
+      "id": "assembly-session-pipeline",
+      "group": "assembly",
+      "tier": "A0",
+      "label": "Assembly Session Pipeline"
+    },
+    {
+      "id": "assembly-intake-pipeline",
+      "group": "assembly",
+      "tier": "A0",
+      "label": "Assembly Intake Pipeline"
+    },
+    {
+      "id": "assembly-narrative-pipeline",
+      "group": "assembly",
+      "tier": "A0",
+      "label": "Assembly Narrative Pipeline"
+    },
+    {
+      "id": "assembly-deploy-pipeline",
+      "group": "assembly",
+      "tier": "A0",
+      "label": "Assembly Deploy Pipeline"
+    },
+    {
+      "id": "assembly-full-pipeline",
+      "group": "assembly",
+      "tier": "A0",
+      "label": "Assembly Full Pipeline"
+    }
+  ],
+  "shipGate": {
+    "graph": "validate-fbe-node-graph-v1.sh PASS",
+    "bundle": "validate-fbe-factory-builder-bundle-v1.sh PASS",
+    "motor": "fbe_motor_session_gate_v1 structural PASS"
+  }
+}

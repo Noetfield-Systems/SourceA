@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "F003",
+  "title": "Mark U029 done with execution_proof",
+  "evidence": "U029 done · receipts/U029-sa-1100-receipt.json · bulk_wiring=false · pulse_verified=true",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T07:35:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

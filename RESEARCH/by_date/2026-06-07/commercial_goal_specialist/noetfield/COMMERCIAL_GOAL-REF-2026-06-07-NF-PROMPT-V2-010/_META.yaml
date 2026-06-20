@@ -1,0 +1,11 @@
+trace_id: COMMERCIAL_GOAL-REF-2026-06-07-NF-PROMPT-V2-010
+worker_id: commercial_goal_specialist
+subject: noetfield
+subject_label: Noetfield
+thread: THREAD-PORTFOLIO
+date: '2026-06-07'
+source_path: /Users/sinakazemnezhad/.sina/agent-workspaces/trustfield/commercial-goal/2026-06-07_NOETFIELD_WORKER_PROMPT_V2_FINAL.md
+archive_path: by_date/2026-06-07/commercial_goal_specialist/noetfield/COMMERCIAL_GOAL-REF-2026-06-07-NF-PROMPT-V2-010/2026-06-07_NOETFIELD_WORKER_PROMPT_V2_FINAL.md
+execution_authority: false
+enforcer: research_save_enforcer.py
+law: RESEARCH_INTAKE_AND_SAVE_LOCK_LOCKED_v1.md

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0853",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "worker_inbox",
+  "evidence": "sa-0853 VERIFY DONE \u2014 Fix refresh pipeline total time under 360s for audit E2E; validators: validate-refresh-pipeline-360-v1.sh: PASS 0.62s, validate-spine-bridge-founder-v1.sh: PASS, worker_verify_fast_v1.sh: PASS",
+  "at": "2026-06-13T21:57:21Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

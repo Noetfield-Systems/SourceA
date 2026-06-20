@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0027 — Skip L8 embeddings-later in not_here when embedding_provider.py + vector_index exist
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0027
+tests:
+  status: passed
+  output_snippet: sa-0027 VERIFY PASS: L8 embeddings-later skipped when embedding_provider+vector_index exist; phase-s0 sa-0027 wired; receipt closed.
+reported_at: '2026-06-09T14:36:28Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

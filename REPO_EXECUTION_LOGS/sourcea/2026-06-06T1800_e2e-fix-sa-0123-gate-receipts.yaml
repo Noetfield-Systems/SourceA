@@ -1,0 +1,21 @@
+schema_version: 1
+repo: sourcea
+task: E2E fix + sa-0123 model_dispatch gate receipts hub integration
+status: done
+verify_passed: true
+evidence:
+  files_changed:
+    - scripts/runtime/graph_executor/spine_bridge.py
+    - scripts/gate_receipts_hub.py
+    - scripts/sina_command_lib.py
+    - scripts/validate-graph-executor-gate-honesty-v1.sh
+    - scripts/validate-gate-receipts-v1.sh
+    - scripts/validate-spine-bridge-founder-v1.sh
+    - scripts/validate-graph-executor-v1.sh
+    - scripts/find_critical_bugs.py
+tests:
+  status: passed
+  command: validate-graph-executor-gate-honesty-v1 + validate-gate-receipts-v1 + strict build + find_critical_bugs + audit_backend_e2e
+  output_snippet: eval_1b_gate_ok aligned false/false; founder_bridge true; model_dispatch in API; critical 0
+reported_at: '2026-06-06T18:00:00Z'
+reporter: cursor-maintainer

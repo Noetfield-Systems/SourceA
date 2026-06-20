@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U043",
+  "title": "Empty preview promise detector refinement",
+  "evidence": "check_ril4_preview_promise() + --check-preview-promise PASS \u00b7 walkthrough without link = 0 \u00b7 live W3 20/20",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:33:32Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0492 — Cross-check EXECUTION_TRUTH last_spine_success in PROGRAM_PROGRESS
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0492
+tests:
+  status: passed
+  output_snippet: pack18 spine-loop verify-only; dispatch+spine+batch PASS
+reported_at: '2026-06-08T20:01:32Z'
+reporter: cursor-worker-batch

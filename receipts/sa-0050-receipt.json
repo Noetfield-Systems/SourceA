@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0050",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0050 PASS \u2014 SOURCEA-PRIORITY SSOT alignment PASS row appended @ 2026-06-09T23:18:00Z; critical 0",
+  "at": "2026-06-09T23:18:05Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

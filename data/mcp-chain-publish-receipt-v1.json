@@ -1,0 +1,39 @@
+{
+  "schema": "sourcea-mcp-chain-publish-receipt-v1",
+  "phase": "P1_complete",
+  "verdict": "PASS",
+  "saved_at": "2026-06-19T06:43:52Z",
+  "servers": [
+    {
+      "registry_name": "io.github.sinakazemnezhad/sourcea-verify",
+      "package": "@sourcea/mcp-verify",
+      "path": "packages/mcp-sourcea-verify",
+      "status": "published_ready",
+      "npm": "https://www.npmjs.com/package/@sourcea/mcp-verify",
+      "sse_url": "https://sourcea-mcp-verify.vercel.app/mcp"
+    },
+    {
+      "registry_name": "io.github.virlux/virlux-verify",
+      "package": "@virlux/mcp-verify-factory",
+      "path": "packages/mcp-verify-factory",
+      "status": "published_ready",
+      "npm": "https://www.npmjs.com/package/@virlux/mcp-verify-factory",
+      "sse_url": "https://virlux-api.vercel.app/mcp"
+    }
+  ],
+  "cursor_plugins": [
+    "cursor-plugin/sourcea-forge-governance/plugin-v1.json",
+    "cursor-plugin/virlux-verify-factory/plugin-v1.json"
+  ],
+  "next_founder_tap": "npm publish @sourcea/mcp-verify --access public \u00b7 submit cursor-plugin/sourcea-forge-governance to Cursor marketplace \u00b7 registry.modelcontextprotocol.io metadata",
+  "honest_label": "stdio + SSE scaffold live \u2014 npm publish requires founder OTP",
+  "card_1": {
+    "id": "sourcea-forge-governance",
+    "card": 1,
+    "status": "bundle_published_disk",
+    "plugin_tar": "data/publish-artifacts/sourcea-forge-governance-card1-20260619T064352Z.tar.gz",
+    "npm_pack": "/Users/sinakazemnezhad/Desktop/SourceA/data/publish-artifacts/sourcea-mcp-verify-1.0.0.tgz",
+    "receipt": "receipts/card-1-sourcea-forge-governance-publish-v1.json",
+    "honest_label": "P1 stdio \u2014 Cursor marketplace submit + npm publish remain founder taps"
+  }
+}

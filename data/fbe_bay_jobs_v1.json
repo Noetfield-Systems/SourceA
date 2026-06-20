@@ -1,0 +1,189 @@
+{
+  "schema": "fbe-bay-jobs-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-06-17T14:00:00Z",
+  "wave": "W4",
+  "first_bay": {
+    "bay_slug": "sample-bay",
+    "template_id": "web-product-factory-v1",
+    "tenant": "wil_ai_design_partner",
+    "target_tier": "MARKET_READY",
+    "deliveryMode": "prove_only",
+    "creed_root": "~/Desktop/YA5/PLUS ONE/CREED",
+    "church_root": "~/Desktop/YA5/PLUS ONE/CHURCH"
+  },
+  "pipelines": {
+    "refinery_first_bay_w2": {
+      "id": "refinery_first_bay_w2",
+      "tier": "R0-R2",
+      "line": "refinery",
+      "steps": [
+        {"node": "creed-orient-v1", "wrapper": "fbe_refinery_orient_v1.py", "tier": "R0"},
+        {"node": "creed-session-v1", "wrapper": "fbe_refinery_session_v1.py", "tier": "R0"},
+        {"node": "factory-definition-v1", "npm": "check:factory-definition", "tier": "R0"},
+        {"node": "factory-mirror-v1", "wrapper": "fbe_refinery_mirror_v1.py", "tier": "R2"},
+        {"node": "factory-route-audit-v1", "wrapper": "fbe_refinery_route_audit_v1.py", "tier": "R2"},
+        {"node": "factory-clone-parity-v1", "wrapper": "fbe_refinery_clone_parity_v1.py", "tier": "R2"},
+        {"node": "factory-verify-v1", "wrapper": "fbe_refinery_verify_job_v1.py", "tier": "R2"}
+      ],
+      "deferred_w3": ["factory-brand-v1", "factory-locale-prove-v1", "factory-product-delivery-v1"]
+    },
+    "refinery_full_w3": {
+      "id": "refinery_full_w3",
+      "tier": "R0-R3",
+      "line": "refinery",
+      "extends": "refinery_first_bay_w2",
+      "extra_steps": [
+        {"node": "factory-brand-v1", "mode": "honest_stub", "tier": "R3"},
+        {"node": "factory-locale-prove-v1", "mode": "honest_stub", "tier": "R3"},
+        {"node": "factory-product-delivery-v1", "mode": "honest_stub", "tier": "R3"}
+      ]
+    },
+    "assembly_first_bay_w3": {
+      "id": "assembly_first_bay_w3",
+      "tier": "B0-B3",
+      "line": "assembly",
+      "steps": [
+        {"node": "church-orient-v1", "wrapper": "fbe_assembly_orient_v1.py", "tier": "B0"},
+        {"node": "church-architect-v1", "wrapper": "fbe_assembly_architect_v1.py", "tier": "B0"},
+        {"node": "church-boundary-v1", "wrapper": "fbe_assembly_boundary_v1.py", "tier": "GOV"},
+        {"node": "church-rules-v1", "wrapper": "fbe_assembly_rules_v1.py", "tier": "GOV"},
+        {"node": "church-definition-v1", "wrapper": "fbe_assembly_definition_v1.py", "tier": "B0"},
+        {"node": "church-neutrality-v1", "wrapper": "fbe_assembly_neutrality_v1.py", "tier": "GOV"},
+        {"node": "church-isolation-v1", "wrapper": "fbe_assembly_isolation_v1.py", "tier": "GOV"},
+        {"node": "church-policy-v1", "wrapper": "fbe_assembly_policy_v1.py", "tier": "B0"},
+        {"node": "church-dealer-letter-v1", "wrapper": "fbe_assembly_dealer_letter_v1.py", "tier": "GOV"},
+        {"node": "church-intake-v1", "wrapper": "fbe_assembly_intake_v1.py", "tier": "B1"},
+        {"node": "church-market-fidelity-v1", "wrapper": "fbe_assembly_market_fidelity_v1.py", "tier": "B1"},
+        {"node": "church-verify-v1", "wrapper": "fbe_assembly_verify_v1.py", "tier": "B3"}
+      ]
+    },
+    "full_job_w3": {
+      "id": "full_job_w3",
+      "line": "meta",
+      "pipelines": ["refinery_first_bay_w2", "assembly_first_bay_w3"],
+      "intake_gate": "refinery GOLD+"
+    },
+    "exchange_refinery_w4": {
+      "id": "exchange_refinery_w4",
+      "tier": "R0-R2-EX",
+      "line": "refinery",
+      "factory": "exchange-factory-v1",
+      "bay_slug": "trustfield-bay",
+      "steps": [
+        {"node": "creed-orient-v1", "wrapper": "fbe_exchange_orient_v1.py", "tier": "R0"},
+        {"node": "creed-session-v1", "wrapper": "fbe_exchange_session_v1.py", "tier": "R0"},
+        {"node": "exchange-match-floor-v1", "wrapper": "fbe_exchange_match_floor_v1.py", "tier": "R1"},
+        {"node": "exchange-asset-fidelity-v1", "wrapper": "fbe_exchange_asset_fidelity_v1.py", "tier": "R2"},
+        {"node": "factory-verify-v1", "wrapper": "fbe_exchange_verify_job_v1.py", "tier": "R2"},
+        {"node": "exchange-dealer-bridge-v1", "wrapper": "fbe_exchange_dealer_bridge_v1.py", "tier": "R2-EX"}
+      ]
+    },
+    "exchange_assembly_w4": {
+      "id": "exchange_assembly_w4",
+      "tier": "B0-B3-EX",
+      "line": "assembly",
+      "factory": "exchange-factory-v1",
+      "bay_slug": "trustfield-bay",
+      "steps": [
+        {"node": "church-orient-v1", "wrapper": "fbe_assembly_orient_v1.py", "tier": "B0"},
+        {"node": "church-boundary-v1", "wrapper": "fbe_assembly_boundary_v1.py", "tier": "GOV"},
+        {"node": "church-policy-v1", "wrapper": "fbe_assembly_policy_v1.py", "tier": "B0"},
+        {"node": "exchange-voice-perimeter-v1", "wrapper": "fbe_assembly_voice_perimeter_v1.py", "tier": "GOV"},
+        {"node": "church-intake-v1", "wrapper": "fbe_assembly_intake_v1.py", "tier": "B1"},
+        {"node": "church-market-fidelity-v1", "wrapper": "fbe_assembly_market_fidelity_v1.py", "tier": "B1"},
+        {"node": "church-verify-v1", "wrapper": "fbe_assembly_verify_v1.py", "tier": "B3"}
+      ]
+    },
+    "full_job_w4": {
+      "id": "full_job_w4",
+      "line": "meta",
+      "template_id": "exchange-factory-v1",
+      "pipelines": ["exchange_refinery_w4", "exchange_assembly_w4"],
+      "intake_gate": "exchange_verify PASS"
+    },
+    "forge_refinery_w5": {
+      "id": "forge_refinery_w5",
+      "tier": "R0-R2-FORGE",
+      "line": "refinery",
+      "factory": "forge-app-factory-v1",
+      "bay_slug": "forge-bay",
+      "steps": [
+        {"node": "forge-orient-v1", "wrapper": "fbe_forge_orient_v1.py", "tier": "R0"},
+        {"node": "forge-scaffold-v1", "wrapper": "fbe_forge_scaffold_v1.py", "tier": "R1"},
+        {"node": "forge-inbox-gate-v1", "wrapper": "fbe_forge_inbox_gate_v1.py", "tier": "R2"}
+      ]
+    },
+    "forge_assembly_w5": {
+      "id": "forge_assembly_w5",
+      "tier": "B0-B2-FORGE",
+      "line": "assembly",
+      "factory": "forge-app-factory-v1",
+      "bay_slug": "forge-bay",
+      "steps": [
+        {"node": "forge-deploy-pack-v1", "wrapper": "fbe_forge_deploy_pack_v1.py", "tier": "B1"},
+        {"node": "forge-verify-job-v1", "wrapper": "fbe_forge_verify_job_v1.py", "tier": "B2"}
+      ]
+    },
+    "full_job_w5": {
+      "id": "full_job_w5",
+      "line": "meta",
+      "template_id": "forge-app-factory-v1",
+      "pipelines": ["forge_refinery_w5", "forge_assembly_w5"],
+      "intake_gate": "forge_verify PASS"
+    },
+    "assembly_planned_w6": {
+      "id": "assembly_planned_w6",
+      "tier": "B2-B3-PLANNED",
+      "line": "assembly",
+      "bay_slug": "sample-bay",
+      "steps": [
+        {"node": "church-scaffold-v1", "wrapper": "fbe_assembly_scaffold_v1.py", "tier": "B2"},
+        {"node": "church-merge-v1", "wrapper": "fbe_assembly_merge_v1.py", "tier": "B2"},
+        {"node": "church-brand-unity-v1", "wrapper": "fbe_assembly_brand_unity_v1.py", "tier": "B2"},
+        {"node": "church-narrative-v1", "wrapper": "fbe_assembly_narrative_v1.py", "tier": "B2"},
+        {"node": "church-forbidden-v1", "wrapper": "fbe_assembly_forbidden_v1.py", "tier": "B2"},
+        {"node": "church-demo-v1", "wrapper": "fbe_assembly_demo_v1.py", "tier": "B2"},
+        {"node": "church-gtm-v1", "wrapper": "fbe_assembly_gtm_v1.py", "tier": "B2"},
+        {"node": "church-deploy-v1", "wrapper": "fbe_assembly_deploy_v1.py", "tier": "B3"},
+        {"node": "church-domain-v1", "wrapper": "fbe_assembly_domain_v1.py", "tier": "B3"},
+        {"node": "church-live-smoke-v1", "wrapper": "fbe_assembly_live_smoke_v1.py", "tier": "B3"}
+      ]
+    },
+    "fleet_run_w6": {
+      "id": "fleet_run_w6",
+      "line": "meta",
+      "wave": "W6",
+      "factories": ["web-product-factory-v1", "exchange-factory-v1", "forge-app-factory-v1"],
+      "pre_pipeline": "assembly_planned_w6",
+      "intake_gate": "fleet_run PASS"
+    },
+    "noetfield_freemium_w0": {
+      "id": "noetfield_freemium_w0",
+      "tier": "P0-W0",
+      "line": "noetfield_governance",
+      "factory": "noetfield-freemium-factory-v1",
+      "bay_slug": "noetfield-freemium-bay",
+      "steps": [
+        {"node": "noetfield-freemium-verify-v1", "wrapper": "fbe/noetfield_freemium_bay_v1.py", "tier": "P0"}
+      ]
+    }
+  },
+  "factories": {
+    "web-product-factory-v1": {"bay_slug": "sample-bay", "tenant": "wil_ai_design_partner", "wave": "W3", "factory_id": "factory_1"},
+    "exchange-factory-v1": {"bay_slug": "trustfield-bay", "tenant": "trustfield", "wave": "W4", "factory_id": "factory_2"},
+    "forge-app-factory-v1": {"bay_slug": "forge-bay", "tenant": "forge", "wave": "W5", "factory_id": "factory_3"},
+    "noetfield-freemium-factory-v1": {"bay_slug": "noetfield-freemium-bay", "tenant": "noetfield", "wave": "W0", "factory_id": "noetfield_freemium_0"}
+  },
+  "shipGate": {
+    "motor": "validate-fbe-w1-v1.sh PASS",
+    "refinery": "refinery_verify headless PASS",
+    "assembly": "assembly_verify headless PASS",
+    "full_job": "fbe_run_job PASS",
+    "exchange": "exchange_verify PASS",
+    "forge": "forge_verify PASS",
+    "fleet": "fbe_run_fleet PASS",
+    "billing": "billing_meter receipt present",
+    "deliveryMode": "prove_only"
+  }
+}

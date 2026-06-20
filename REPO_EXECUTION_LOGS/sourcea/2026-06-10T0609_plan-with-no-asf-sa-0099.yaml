@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0099 — Strict build runs validate-eval-packet-v1b-live without SINA_EVAL_1B_LIVE=1
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0099
+tests:
+  status: passed
+  output_snippet: sa-0099 VERIFY — RECIPE: validate-eval-packet-v1b-strict-without-live-env-v1.sh · VALIDATION: OK: validate-dispatch-policy-v1 · gate_ok=True mode=live ci=live eval_tier=behavioral_pass · OK: validate-governance-fleet-v1 · nudges 0 verify_gap 0 · SSOT sa-0359 · OK: append_repo_execution_log_v1  · EVIDENCE: disk green · BUILT: false · closeout
+reported_at: '2026-06-10T06:09:04Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

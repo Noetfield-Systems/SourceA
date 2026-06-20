@@ -1,0 +1,284 @@
+{
+  "schema": "agent-rule-live-wire-registry-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-06-19T19:26:11Z",
+  "one_law": "Every new rule ships SSOT → register → --wire-sync upgrades DISK + MACHINES (H2) + nerves — live before done. Factories ONLINE cloud+API only · Mac = control panel · anti-staleness · zero drift · zero fragmentation.",
+  "execution_model": {
+    "mac_role": "control_plane_only",
+    "mac_role_aliases": ["control_panel_only", "cockpit_only"],
+    "factory_role": "cloud_only",
+    "authority": "data/founder-execution-model-v1.json",
+    "legacy_authority": "data/brain-cloud-practical-300-plan-v1.json"
+  },
+  "human_doc": "AGENT_DISK_LIVE_WIRE_FIRST_LOCKED_v1.md",
+  "script": "scripts/agent_rule_live_wire_v1.py",
+  "validator": "scripts/validate-agent-rule-live-wire-v1.sh",
+  "receipt": "~/.sina/agent-rule-live-wire-receipt-v1.json",
+  "checkcart": "~/.sina/agent-law-wire-checkcart-v1.json",
+  "cursor_rule": ".cursor/rules/agent-rule-live-wire.mdc",
+  "procedure": {
+    "sla_sec": 90,
+    "founder_one_tap": "python3 scripts/agent_rule_live_wire_v1.py --on-new-rule --json",
+    "steps": [
+      {
+        "id": "R1",
+        "step": "SSOT JSON in data/",
+        "required_fields": ["schema", "one_law", "script", "receipt", "runs_on"],
+        "pass": "data/<rule>-v1.json exists with Saved timestamp"
+      },
+      {
+        "id": "R2",
+        "step": "Pulse script",
+        "must_export": ["assess or sync_receipt"],
+        "pass": "scripts/<rule>_v1.py runs --json"
+      },
+      {
+        "id": "R3",
+        "step": "Register row",
+        "command": "python3 scripts/agent_rule_live_wire_v1.py --register <rule_id> --json",
+        "pass": "row in this registry · status=live"
+      },
+      {
+        "id": "R4",
+        "step": "Nerve touchpoints",
+        "targets": ["agent_nerve_system_v1.py", "better_loop_pulse_v1.py"],
+        "pass": "ship_gates or ship_checks reference rule gate"
+      },
+      {
+        "id": "R5",
+        "step": "Surfaces auto-pulse",
+        "via": "agent_rule_live_wire_v1.pulse_registry_to_surfaces",
+        "pass": "surfaces_line_key on agent-live-surfaces-v1.json"
+      },
+      {
+        "id": "R6",
+        "step": "Loop chain (if ship gate)",
+        "targets": ["anti_theater_validator_loop_v1.py"],
+        "pass": "anti_theater_check id in loop_chain.order"
+      },
+      {
+        "id": "R7",
+        "step": "Enforcement (if blocking)",
+        "targets": ["send_*", "pre_write_guard_v1.py"],
+        "pass": "assert_* or guard blocks when rule active"
+      },
+      {
+        "id": "R8",
+        "step": "Validator script",
+        "command": "bash scripts/validate-<rule>-v1.sh",
+        "pass": "validator PASS"
+      },
+      {
+        "id": "R9",
+        "step": "Full wire chain — disk + machines + nerves",
+        "command": "python3 scripts/agent_rule_live_wire_v1.py --wire-sync --json",
+        "pass": "disk_live_wire ok · H2 RULE-WIRE-* · rule_live_wire_line · validate PASS"
+      },
+      {
+        "id": "R10",
+        "step": "Law checkcart W12",
+        "command": "python3 scripts/agent_rule_live_wire_v1.py --validate --json",
+        "pass": "all live rules PASS"
+      },
+      {
+        "id": "R11",
+        "step": "Disk upgrade only",
+        "command": "python3 scripts/agent_rule_live_wire_v1.py --upgrade-disk --json",
+        "pass": "anti_staleness + disk_live_wire + factory-now + queue unify"
+      },
+      {
+        "id": "R12",
+        "step": "Machines (H2) upgrade only",
+        "command": "python3 scripts/agent_rule_live_wire_v1.py --upgrade-machines --json",
+        "pass": "h2-pending-registry RULE-WIRE-* rows synced"
+      }
+    ],
+    "chain_order": [
+      "founder_execution_model_wire_sync",
+      "upgrade_disk",
+      "registry_pulse",
+      "better_loop_pulse",
+      "agent_nerve_pulse",
+      "upgrade_machines",
+      "validate_registry"
+    ],
+    "on_new_founder_rule": "python3 scripts/founder_execution_model_v1.py --wire-sync --json",
+    "disk_upgrade_chain": [
+      "anti_staleness_auto_wire_v1.py --tier session",
+      "disk_live_wire_sync_v1.py",
+      "factory_control_v1.py now",
+      "queue_ssot_unify_v1.py",
+      "active_now_sync_from_factory_now_v1.py"
+    ],
+    "machines_upgrade_chain": [
+      "sync_rules_to_h2_registry",
+      "h2_pending_registry_sync_v1.py",
+      "h2_pending_registry_reconcile_v1.py",
+      "machine_refinement_h2_sync_v1.py",
+      "machine_hub_v1 invalidate cache"
+    ]
+  },
+  "touchpoint_layers": {
+    "L0_5_surfaces": "agent-live-surfaces-v1.json via pulse_registry_to_surfaces",
+    "L1_nerves": "agent_nerve_system_v1.py ship_gates + nerve_system_line",
+    "L2_loops": "better_loop_pulse_v1.py ship_checks · anti_theater_validator_loop_v1.py",
+    "L3_enforcement": "send scripts · pre_write_guard · assert_* gates",
+    "L4_hub": "sina-command-server.py tick APIs · hub projection"
+  },
+  "rules": [
+    {
+      "id": "email_send_defer",
+      "label": "Commercial email send defer",
+      "status": "live",
+      "layer": "commercial",
+      "ssot": "data/commercial-email-send-defer-v1.json",
+      "script": "scripts/commercial_email_send_defer_v1.py",
+      "pulse_fn": "assess",
+      "validate_fn": "validate_defer_wire",
+      "validator": "scripts/validate-commercial-email-send-defer-v1.sh",
+      "receipt": "~/.sina/commercial-email-send-defer-receipt-v1.json",
+      "surfaces_line_key": "email_send_defer_line",
+      "surfaces_block_key": "email_send_defer",
+      "nerve_keys": ["w3_email_send_deferred", "email_send_defer_line"],
+      "anti_theater_check": "email_send_defer",
+      "runs_on": [
+        "scripts/agent_nerve_system_v1.py",
+        "scripts/disk_live_wire_sync_v1.py",
+        "scripts/better_loop_pulse_v1.py",
+        "scripts/anti_theater_validator_loop_v1.py",
+        "scripts/send_w3_canada_v1.py"
+      ]
+    },
+    {
+      "id": "anti_theater",
+      "label": "Anti-theater validator loop",
+      "status": "live",
+      "layer": "governance",
+      "ssot": "data/anti-theater-validator-loop-v1.json",
+      "script": "scripts/anti_theater_validator_loop_v1.py",
+      "pulse_fn": "run_loop",
+      "validator": "scripts/validate-anti-theater-validator-loop-v1.sh",
+      "receipt": "~/.sina/anti-theater-validator-loop-receipt-v1.json",
+      "surfaces_line_key": "anti_theater_line",
+      "surfaces_block_key": "anti_theater_loop",
+      "nerve_keys": [],
+      "runs_on": ["scripts/disk_live_wire_sync_v1.py", "scripts/agent_nerve_system_v1.py"]
+    },
+    {
+      "id": "agent_behavior",
+      "label": "Agent behavior settings",
+      "status": "live",
+      "layer": "governance",
+      "ssot": "data/agent-behavior-settings-v1.json",
+      "script": "scripts/agent_behavior_settings_v1.py",
+      "pulse_fn": "sync_receipt",
+      "receipt": "~/.sina/agent-behavior-settings-receipt-v1.json",
+      "surfaces_line_key": "behavior_line",
+      "surfaces_block_key": "agent_behavior",
+      "nerve_keys": [],
+      "runs_on": ["scripts/disk_live_wire_sync_v1.py"]
+    },
+    {
+      "id": "factory_cost_intel",
+      "label": "Factory cost intelligence",
+      "status": "live",
+      "layer": "factory",
+      "ssot": "data/factory-cost-intelligence-loop-v1.json",
+      "script": "scripts/factory_cost_intelligence_v1.py",
+      "pulse_fn": "sync_receipt",
+      "receipt": "~/.sina/factory-cost-intelligence-receipt-v1.json",
+      "surfaces_line_key": "cost_intelligence_line",
+      "surfaces_block_key": "factory_cost_intelligence",
+      "nerve_keys": [],
+      "runs_on": ["scripts/disk_live_wire_sync_v1.py"]
+    },
+    {
+      "id": "founder_execution_model",
+      "label": "Founder rules auto-upgrade disk + machines (Mac cockpit · Cloud factories)",
+      "status": "live",
+      "layer": "governance",
+      "ssot": "data/founder-execution-model-v1.json",
+      "script": "scripts/founder_execution_model_v1.py",
+      "pulse_fn": "pulse_receipt",
+      "validator": "scripts/validate-founder-execution-model-v1.sh",
+      "receipt": "~/.sina/founder-execution-model-receipt-v1.json",
+      "surfaces_line_key": "founder_execution_model_line",
+      "surfaces_block_key": "founder_execution_model",
+      "nerve_keys": ["founder_execution_model"],
+      "anti_theater_check": "founder_execution_model",
+      "runs_on": [
+        "scripts/founder_execution_model_v1.py",
+        "scripts/h2_pending_registry_sync_v1.py",
+        "scripts/disk_live_wire_sync_v1.py",
+        "data/machine-execution-plane-registry-v1.json"
+      ]
+    },
+    {
+      "id": "mac_law_mandatory",
+      "label": "Mac Law mandatory — boss order · control plane · health mandates",
+      "status": "live",
+      "layer": "governance",
+      "ssot": "data/mac-law-mandatory-v1.json",
+      "script": "scripts/mac_law_mandatory_v1.py",
+      "pulse_fn": "sync_receipt",
+      "validator": "scripts/validate-mac-law-mandatory-v1.sh",
+      "receipt": "~/.sina/mac-law-mandatory-receipt-v1.json",
+      "surfaces_line_key": "mac_law_mandatory_line",
+      "surfaces_block_key": "mac_law_mandatory",
+      "nerve_keys": ["mac_law_mandatory"],
+      "anti_theater_check": "mac_law_mandatory",
+      "runs_on": [
+        "scripts/mac_law_mandatory_v1.py",
+        "scripts/mac_control_plane_v1.py",
+        "scripts/mac_health_agent_mandates_v1.py",
+        "scripts/validate-mac-law-mandatory-v1.sh",
+        "scripts/disk_live_wire_sync_v1.py"
+      ]
+    },
+    {
+      "id": "cloud_factories_online_only",
+      "label": "Cloud factories ONLINE only — Mac never factory body",
+      "status": "live",
+      "layer": "factory",
+      "ssot": "data/cloud-factories-online-only-v1.json",
+      "script": "scripts/cloud_factories_online_only_v1.py",
+      "pulse_fn": "assess",
+      "validator": "scripts/validate-cloud-factories-online-only-v1.sh",
+      "receipt": "~/.sina/cloud-factories-online-only-receipt-v1.json",
+      "surfaces_line_key": "cloud_factories_online_line",
+      "surfaces_block_key": "cloud_factories_online_only",
+      "nerve_keys": ["cloud_factories_online_only"],
+      "anti_theater_check": "cloud_factories_online_only",
+      "runs_on": [
+        "scripts/cloud_factories_online_only_v1.py",
+        "scripts/commercial_email_send_defer_v1.py",
+        "scripts/cloud_factory_check_v1.py",
+        "scripts/founder_execution_model_v1.py",
+        "scripts/anti_theater_validator_loop_v1.py",
+        "scripts/disk_live_wire_sync_v1.py"
+      ]
+    },
+    {
+      "id": "portfolio_fix_plan",
+      "label": "Portfolio fix plan — TF ladder + WBC prod + defer unlock",
+      "status": "live",
+      "layer": "commercial",
+      "ssot": "data/portfolio-fix-plan-v1.json",
+      "script": "scripts/portfolio_fix_plan_pulse_v1.py",
+      "pulse_fn": "run_pulse",
+      "validator": "scripts/validate-portfolio-fix-plan-v1.sh",
+      "receipt": "~/.sina/portfolio-fix-plan-pulse-v1.json",
+      "surfaces_line_key": "portfolio_fix_line",
+      "surfaces_block_key": "portfolio_fix",
+      "nerve_keys": ["portfolio_fix_line"],
+      "anti_theater_check": "portfolio_fix_plan",
+      "runs_on": [
+        "scripts/portfolio_fix_execute_v1.sh",
+        "scripts/disk_live_wire_sync_v1.py",
+        "scripts/agent_nerve_system_v1.py",
+        "scripts/better_loop_pulse_v1.py",
+        "scripts/anti_theater_validator_loop_v1.py"
+      ]
+    }
+  ]
+}

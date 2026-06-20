@@ -1,0 +1,31 @@
+schema: founder-parallel-tracks-v2
+apex: "Film proof · one paid pilot · one engine · many lanes"
+
+tracks:
+  - id: proof
+    founder_words: ["film", "demo", "tamper", "block", "allow"]
+    goal: "W1 W2"
+    pass_30d: "5-min demo filmed · write-path PASS"
+    fail_signal: "new docs · no camera proof"
+    threads: [THREAD-ENFORCEMENT, THREAD-ECOSYSTEM]
+
+  - id: money
+    founder_words: ["pay", "pilot", "LOI", "deposit", "customer"]
+    goal: "W3"
+    pass_30d: "NF or TF LOI or CAD 2K+"
+    fail_signal: "FORGE hero · zero revenue"
+    threads: [THREAD-NOETFIELD-W3, THREAD-TRUSTFIELD, THREAD-AGENTFIELD]
+
+  - id: control
+    founder_words: ["hub", "refresh", "hero", "lag", "truth"]
+    goal: "projection = disk"
+    pass_30d: "hero matches RT receipt and form"
+    fail_signal: "drain headline · prove RT LIVE stale"
+    threads: [THREAD-MAINTAINER, THREAD-AGENT-DESK]
+
+  - id: order
+    founder_words: ["lost", "forgot", "form", "pick", "canvas"]
+    goal: "nothing useful abandoned"
+    pass_30d: "PICKs on disk · RESEARCH saved"
+    fail_signal: "chat-only decisions"
+    threads: [THREAD-INTEGRITY-100, THREAD-CHAT-CONSOLIDATION]

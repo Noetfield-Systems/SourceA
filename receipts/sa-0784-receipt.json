@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0784",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 enrich_shared_rules_digest aligns orchestrator in_charge_now LOCKED paths 16/16; council sc-council-rules-list highlight parity",
+  "at": "2026-06-11T08:35:48Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

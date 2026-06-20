@@ -1,0 +1,3496 @@
+{
+  "schema_version": 1,
+  "scanned_at": "2026-06-19T04:58:13.116052+00:00",
+  "cursor_projects_root": "/Users/sinakazemnezhad/.cursor/projects",
+  "workspaces": [
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-SourceA",
+      "display_name": "SourceA",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-SourceA",
+      "sessions": [
+        {
+          "transcript_id": "e6507c62-18c5-4a03-bb35-e804507dff18",
+          "updated_at": "2026-06-19T04:56:23.440145+00:00",
+          "size_kb": 4953.1,
+          "preview": "<user_query> HI YOU ARE THE BRAIN OF SOURCE A </user_query>",
+          "subagent_count": 8
+        },
+        {
+          "transcript_id": "e7def044-dcad-4509-883b-e0418d265370",
+          "updated_at": "2026-06-19T04:55:30.023126+00:00",
+          "size_kb": 232.8,
+          "preview": "<user_query> Brain \u00b7 route \u00b7 cloud-first </user_query>",
+          "subagent_count": 1
+        },
+        {
+          "transcript_id": "b0b79f38-a472-406c-97cc-8d7dcff87d1d",
+          "updated_at": "2026-06-19T04:53:02.865612+00:00",
+          "size_kb": 1011.2,
+          "preview": "<user_query> ORIENTAION </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "baabacf8-46b1-4196-b9a9-7c044b918fa5",
+          "updated_at": "2026-06-19T04:47:52.656876+00:00",
+          "size_kb": 2596.8,
+          "preview": "<user_query> ORIENTAITION </user_query>",
+          "subagent_count": 4
+        },
+        {
+          "transcript_id": "812f2f5c-18dd-4743-bb79-00685e6c56ab",
+          "updated_at": "2026-06-18T10:17:09.549819+00:00",
+          "size_kb": 0.1,
+          "preview": "",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "9371bf31-b8cb-42dd-a3f8-a6dc7b05c220",
+          "updated_at": "2026-06-18T10:08:48.265355+00:00",
+          "size_kb": 0.3,
+          "preview": "",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c8621756-c3b2-4ae5-978e-defed1bc3039",
+          "updated_at": "2026-06-17T05:08:19.463233+00:00",
+          "size_kb": 1736.5,
+          "preview": "<user_query> ORIENTATION </user_query>",
+          "subagent_count": 2
+        },
+        {
+          "transcript_id": "14acbe8e-614a-4543-9190-bb124ecdaa2a",
+          "updated_at": "2026-06-16T00:43:08.687013+00:00",
+          "size_kb": 4779.9,
+          "preview": "<user_query> Read brain-os/START-HERE and SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md then run bash scripts\u2026",
+          "subagent_count": 2
+        },
+        {
+          "transcript_id": "6245d9dd-c425-4ef3-affb-a372ba4383b8",
+          "updated_at": "2026-06-16T00:42:24.783950+00:00",
+          "size_kb": 6818.8,
+          "preview": "<user_query> YOU ARE COMMERCIAL GOAL SPECIALIST \u2014 mission-bound money intelligence. NOT execution authority. MANDATORY R\u2026",
+          "subagent_count": 25
+        },
+        {
+          "transcript_id": "ee28f605-326c-44ad-bb00-f0b67f5f2e0d",
+          "updated_at": "2026-06-15T22:45:42.622140+00:00",
+          "size_kb": 38.2,
+          "preview": "<user_query> You are working in /Users/sinakazemnezhad/Desktop/SourceA on WitnessBC commercial film only. Context: - Cla\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ca6bc58c-4554-4fd7-83b5-aeccba4bfeb1",
+          "updated_at": "2026-06-15T22:43:46.086297+00:00",
+          "size_kb": 4.7,
+          "preview": "<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no f\u2026",
+          "subagent_count": 1
+        },
+        {
+          "transcript_id": "e216e1dc-4c20-4b49-b3f6-e1cb729cf083",
+          "updated_at": "2026-06-15T22:43:38.803904+00:00",
+          "size_kb": 30.0,
+          "preview": "<plugin_info kind=\"matched_installed\"> display_name: Linear description: Cursor Plugin for Linear - enables AI assistant\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "46b987ba-9491-4a29-8d97-a816b1576672",
+          "updated_at": "2026-06-15T20:14:02.327302+00:00",
+          "size_kb": 19.1,
+          "preview": "<plugin_info kind=\"matched_installed\"> display_name: Linear description: Cursor Plugin for Linear - enables AI assistant\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f74e7213-dc1a-4bd9-b88c-f999b528d2a2",
+          "updated_at": "2026-06-15T19:45:47.843489+00:00",
+          "size_kb": 81.2,
+          "preview": "<user_query> Execute end-to-end in /Users/sinakazemnezhad/Desktop/SourceA: **User request:** Upgrade WitnessBC site to *\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a8cf858c-1766-4b6f-8a26-a44e8244a2ed",
+          "updated_at": "2026-06-15T08:04:39.342651+00:00",
+          "size_kb": 42.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 implementation lane only. WORKSPACE (hard lock): /Users/sinakazemnezhad/Desktop/So\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a1e5cc6d-90d2-421b-b81b-2d148db178e7",
+          "updated_at": "2026-06-15T06:54:11.275655+00:00",
+          "size_kb": 13.6,
+          "preview": "<user_query> Read brain-os/ START-HERE and SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md Then run: bash scrip\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "58148ac9-135c-448d-b428-b57988738fa3",
+          "updated_at": "2026-06-15T06:35:37.798927+00:00",
+          "size_kb": 11882.9,
+          "preview": "<user_query> YOU ARE THE BRAIN \u2014 successor chat. The old heavy thread was SinaaiDataBase workspace (first assistant). AS\u2026",
+          "subagent_count": 13
+        },
+        {
+          "transcript_id": "e54ddfa8-531b-40de-8443-d8167f80a614",
+          "updated_at": "2026-06-15T05:16:45.799435+00:00",
+          "size_kb": 69.0,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 2
+        },
+        {
+          "transcript_id": "a72251ae-8888-4e8d-9a42-fd1e73397b45",
+          "updated_at": "2026-06-15T04:00:10.811123+00:00",
+          "size_kb": 140.5,
+          "preview": "<user_query> HI WORKER 3 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "fd67502f-5f95-43b8-bdfc-f2dba306f828",
+          "updated_at": "2026-06-15T03:24:39.598144+00:00",
+          "size_kb": 193.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 3
+        },
+        {
+          "transcript_id": "85dd7cd4-0977-4cfc-9449-ea278ea0baee",
+          "updated_at": "2026-06-14T20:30:27.560520+00:00",
+          "size_kb": 1936.2,
+          "preview": "<user_query> MANDATORY READ: ~/Desktop/SourceA/os/chat-handoffs/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00a74 YOU ARE RESEAR\u2026",
+          "subagent_count": 3
+        },
+        {
+          "transcript_id": "20b12e67-f35f-4ab1-aad0-f94bb5c6a1b0",
+          "updated_at": "2026-06-14T20:11:07.355548+00:00",
+          "size_kb": 1375.4,
+          "preview": "<user_query> YOU ARE RESEARCH ACQUISITOR v2 \u2014 external landscape expansion. NOT a worker. NOT Execution Core. ZERO execu\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "dfd9c459-7aeb-48f9-9bc4-9fa6dd438e61",
+          "updated_at": "2026-06-09T12:19:48.215093+00:00",
+          "size_kb": 61.7,
+          "preview": "<user_query> HI REASEARCHER EXTERNAL 3 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "14224249-38bf-43bb-ae98-1e480fc2638e",
+          "updated_at": "2026-06-09T10:05:37.373827+00:00",
+          "size_kb": 288.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c4b8b349-6ce4-400e-a144-a628a3f31b86",
+          "updated_at": "2026-06-09T05:20:18.437677+00:00",
+          "size_kb": 4051.6,
+          "preview": "<user_query> HANDOFF v1 \u2014 sa-0108 (dispatch policy cross-check) New agent. No inherited chat weight. Brain lane already \u2026",
+          "subagent_count": 4
+        },
+        {
+          "transcript_id": "f4e17391-3861-43a2-a28b-523cc6cc8974",
+          "updated_at": "2026-06-08T03:05:16.964755+00:00",
+          "size_kb": 17.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f5d5ea71-e266-45ee-b56f-8308b127220f",
+          "updated_at": "2026-06-08T03:03:35.577855+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> Reply with exactly: WORKER_CHAT_PROBE_OK </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f329ba27-39fa-40f0-b207-c1fd8cacdb55",
+          "updated_at": "2026-06-08T02:59:03.569988+00:00",
+          "size_kb": 20.9,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f7d5bc9f-098b-404b-a741-e101ca359935",
+          "updated_at": "2026-06-08T02:54:17.450574+00:00",
+          "size_kb": 13.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "91b2cf6d-b81c-4636-bd3b-7539669b9e5a",
+          "updated_at": "2026-06-08T02:52:38.970641+00:00",
+          "size_kb": 9.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ef9f3c91-ca93-4cbe-ae0e-ede0fe05cc37",
+          "updated_at": "2026-06-08T02:50:40.208770+00:00",
+          "size_kb": 11.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "14cdcec4-766e-4e14-bb52-a47a945a67c4",
+          "updated_at": "2026-06-08T02:47:21.324813+00:00",
+          "size_kb": 8.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d72ed8c3-1384-400d-b71f-5f2260fbbf09",
+          "updated_at": "2026-06-08T02:45:31.973432+00:00",
+          "size_kb": 9.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "98c293c5-e284-423f-9d90-217f2a2c4455",
+          "updated_at": "2026-06-08T02:43:48.051305+00:00",
+          "size_kb": 20.0,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d459bedb-06fd-456a-a470-4a0119de23a0",
+          "updated_at": "2026-06-08T02:41:38.099185+00:00",
+          "size_kb": 11.7,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f6dee36d-5eae-4ae6-85ea-33ea9cf13741",
+          "updated_at": "2026-06-08T02:39:46.400199+00:00",
+          "size_kb": 9.9,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "bb09b764-82cb-4bc1-8961-c0f4baa3b4d4",
+          "updated_at": "2026-06-08T02:37:55.369159+00:00",
+          "size_kb": 21.9,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8b8e3833-af5d-4aa9-aa7c-69ba8c802c10",
+          "updated_at": "2026-06-08T02:33:47.909582+00:00",
+          "size_kb": 13.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "13e9ed47-2c16-45ba-9cab-b0508987be0c",
+          "updated_at": "2026-06-08T02:31:30.969320+00:00",
+          "size_kb": 14.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b69c8640-5d5b-4667-b3fb-9e43a33b6b8c",
+          "updated_at": "2026-06-08T02:12:32.995451+00:00",
+          "size_kb": 4.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f3b97b06-1e46-4851-81c9-4eeaa1ab6b44",
+          "updated_at": "2026-06-08T01:05:48.479736+00:00",
+          "size_kb": 13.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "82a65831-79ae-459e-88fd-697567500472",
+          "updated_at": "2026-06-08T01:01:26.887172+00:00",
+          "size_kb": 12.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d5580fa3-8a65-4423-86cf-6144194d2953",
+          "updated_at": "2026-06-08T00:59:20.661031+00:00",
+          "size_kb": 11.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b67fd70b-4d8d-47b7-b88d-478341c0db4c",
+          "updated_at": "2026-06-08T00:55:32.910567+00:00",
+          "size_kb": 17.7,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "35d2b589-11fd-47e7-9373-b7b7be4b8126",
+          "updated_at": "2026-06-08T00:53:21.814478+00:00",
+          "size_kb": 10.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "309bc14d-2323-4722-b608-13859b971aca",
+          "updated_at": "2026-06-08T00:51:39.338089+00:00",
+          "size_kb": 11.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "fd8c2cce-ceff-4331-ade2-fcfb4242d80b",
+          "updated_at": "2026-06-08T00:48:12.116574+00:00",
+          "size_kb": 11.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1a95947e-29a7-4bd8-afb6-1dcd6cf8ab61",
+          "updated_at": "2026-06-08T00:36:33.971253+00:00",
+          "size_kb": 10.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "127d9ac7-550e-4679-8482-71a020c5bf4f",
+          "updated_at": "2026-06-08T00:34:54.798416+00:00",
+          "size_kb": 11.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f51568f0-5d88-40f2-ae0e-b199bc1fd865",
+          "updated_at": "2026-06-08T00:31:34.172134+00:00",
+          "size_kb": 11.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e92838d6-6e3f-4f86-ac5a-914ba872d9db",
+          "updated_at": "2026-06-08T00:29:36.525225+00:00",
+          "size_kb": 10.9,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3f9a8091-6f89-448b-a0fd-fbdbf39d7829",
+          "updated_at": "2026-06-08T00:27:48.828408+00:00",
+          "size_kb": 10.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "adde34b3-29a5-4feb-8e1e-8331ed6712b9",
+          "updated_at": "2026-06-08T00:24:52.950230+00:00",
+          "size_kb": 11.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a88a7ab4-59be-4aaf-98df-6bd33d694237",
+          "updated_at": "2026-06-08T00:22:47.293660+00:00",
+          "size_kb": 12.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "2da1ec2e-db8f-4e94-b410-daa55865bc01",
+          "updated_at": "2026-06-08T00:19:15.035288+00:00",
+          "size_kb": 12.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1bbf68f0-81c4-450b-b4b4-0cb4fab1347f",
+          "updated_at": "2026-06-08T00:15:36.781904+00:00",
+          "size_kb": 16.0,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "9a8e17e0-cd57-46b1-a2ef-c8e41d4cf2b4",
+          "updated_at": "2026-06-08T00:13:01.673094+00:00",
+          "size_kb": 4.7,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3c7c7ef6-1960-4776-b39f-194370e074ad",
+          "updated_at": "2026-06-08T00:06:28.557851+00:00",
+          "size_kb": 6.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "4b1759c4-8e54-4aaf-8e98-35c423b93e77",
+          "updated_at": "2026-06-08T00:05:36.958028+00:00",
+          "size_kb": 10.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e7a40d1b-34d1-4177-9dbe-2ace428faa26",
+          "updated_at": "2026-06-08T00:02:25.099064+00:00",
+          "size_kb": 10.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ed1718ab-a7fa-45fa-895d-730010169caa",
+          "updated_at": "2026-06-07T23:07:26.117983+00:00",
+          "size_kb": 7.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1f626e00-5aff-4e1e-aaa3-07d72714ac4b",
+          "updated_at": "2026-06-07T15:33:25.065299+00:00",
+          "size_kb": 10.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d9cc5220-e0b0-4ff0-b7b6-21ed8b33c357",
+          "updated_at": "2026-06-07T15:31:48.025112+00:00",
+          "size_kb": 11.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "798f4d68-0c55-41b8-88fb-0e309996f0a5",
+          "updated_at": "2026-06-07T15:29:11.454084+00:00",
+          "size_kb": 14.7,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6415a6b8-48a7-4b40-8806-44c64d17b434",
+          "updated_at": "2026-06-07T15:26:20.052629+00:00",
+          "size_kb": 15.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6a130250-c4e9-4fbd-b018-1a31f312cd0f",
+          "updated_at": "2026-06-07T15:23:30.780658+00:00",
+          "size_kb": 11.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "54c78ae3-d9d4-493d-833a-33de7bc54e98",
+          "updated_at": "2026-06-07T15:21:13.157996+00:00",
+          "size_kb": 12.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "70edf85a-a771-4140-8067-b5d23d90ceb5",
+          "updated_at": "2026-06-07T15:18:35.870352+00:00",
+          "size_kb": 9.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "16a5ed50-8420-41da-b466-d41cf4fdaca7",
+          "updated_at": "2026-06-07T15:17:02.028443+00:00",
+          "size_kb": 10.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d658d7a8-f9ff-412c-8b76-d4f24f5a1331",
+          "updated_at": "2026-06-07T15:14:48.639813+00:00",
+          "size_kb": 12.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "4637fdde-69f4-490b-8f36-d59b87ddf4d5",
+          "updated_at": "2026-06-07T15:11:23.781269+00:00",
+          "size_kb": 10.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "eb50439e-79e8-4289-b1ff-60db0e6a0845",
+          "updated_at": "2026-06-07T15:01:20.097171+00:00",
+          "size_kb": 13.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "23a9422b-bc10-4153-93e9-64af605b0919",
+          "updated_at": "2026-06-07T14:58:54.706808+00:00",
+          "size_kb": 18.0,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "87b7e5d4-595e-4152-acf6-f10cb4bde373",
+          "updated_at": "2026-06-07T07:32:10.668280+00:00",
+          "size_kb": 8.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a3b2e04a-a301-4edb-bb99-0e3871340bba",
+          "updated_at": "2026-06-07T07:28:37.360081+00:00",
+          "size_kb": 10.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "36cb5024-47f2-4469-ac3a-617500a8d26a",
+          "updated_at": "2026-06-07T06:59:56.676224+00:00",
+          "size_kb": 9.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b28460b0-8c5e-419a-b3e8-dce3b6f6f257",
+          "updated_at": "2026-06-07T06:57:57.283395+00:00",
+          "size_kb": 9.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "fce1f8a6-2995-44f5-a2f8-026b2e4d7c6d",
+          "updated_at": "2026-06-07T06:56:05.348557+00:00",
+          "size_kb": 9.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b31a07af-15b3-43de-87d7-78ff361f948e",
+          "updated_at": "2026-06-07T06:54:11.508487+00:00",
+          "size_kb": 18.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "cf31bc1d-fb73-4dd6-a4bb-0c77bcef813a",
+          "updated_at": "2026-06-07T06:50:56.315819+00:00",
+          "size_kb": 10.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "2eda2f31-ac7f-4348-9757-5dacb9894321",
+          "updated_at": "2026-06-07T06:49:14.677402+00:00",
+          "size_kb": 13.0,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "87090a41-69f4-43bb-b663-e89a4b6fbbc6",
+          "updated_at": "2026-06-07T06:44:50.085578+00:00",
+          "size_kb": 10.9,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3eb27660-4011-4247-b70b-77d8cf890f92",
+          "updated_at": "2026-06-07T06:38:35.340148+00:00",
+          "size_kb": 12.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "0ff7b910-d419-4d5a-9179-e224d3d6f376",
+          "updated_at": "2026-06-07T06:36:00.803135+00:00",
+          "size_kb": 9.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d4da0c0f-fbae-46ba-afcb-3eb6265042df",
+          "updated_at": "2026-06-07T06:34:07.660053+00:00",
+          "size_kb": 13.7,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "dcb1a8c3-b98c-4188-9631-78f48bb7b7d3",
+          "updated_at": "2026-06-07T06:31:34.262540+00:00",
+          "size_kb": 11.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5acf5fba-beb1-48a8-b558-2a53788f7b55",
+          "updated_at": "2026-06-07T06:29:30.934995+00:00",
+          "size_kb": 9.7,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b2caf4f9-3cf8-4d76-a7cf-334ea59912ec",
+          "updated_at": "2026-06-07T06:28:18.323650+00:00",
+          "size_kb": 10.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "de03783a-1a65-4ccd-89e8-91a6548ad210",
+          "updated_at": "2026-06-07T06:25:15.676655+00:00",
+          "size_kb": 9.7,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "9088dc7f-f970-463f-8978-194cc7354a03",
+          "updated_at": "2026-06-07T06:22:12.285673+00:00",
+          "size_kb": 7.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "12a77d1f-f0c6-4b74-a9b0-25f44380adb0",
+          "updated_at": "2026-06-07T06:20:49.858670+00:00",
+          "size_kb": 7.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "0a0d3e7c-7e02-4c68-90e0-6de5c3d4b930",
+          "updated_at": "2026-06-07T06:15:10.368941+00:00",
+          "size_kb": 6.9,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3f98f0f2-e5d5-46c0-bd8c-b359e78fc306",
+          "updated_at": "2026-06-07T05:53:11.124508+00:00",
+          "size_kb": 9.7,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f50ba9fd-4e32-4eb5-8dca-b6999ba8fd4b",
+          "updated_at": "2026-06-07T05:51:20.691303+00:00",
+          "size_kb": 4.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7eb57560-0151-4fb1-9ff4-40f21e8228c0",
+          "updated_at": "2026-06-07T05:50:15.785581+00:00",
+          "size_kb": 10.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "48da53c4-c30d-4897-a414-1daa4c798442",
+          "updated_at": "2026-06-07T05:48:55.892777+00:00",
+          "size_kb": 4.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e10bf29a-52b9-4180-ba18-d05856e420c3",
+          "updated_at": "2026-06-07T05:48:12.338657+00:00",
+          "size_kb": 10.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1902e4e2-5a56-4e10-8d82-f2ff30865e12",
+          "updated_at": "2026-06-07T05:46:37.559553+00:00",
+          "size_kb": 6.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "4995e396-e942-4b93-b15c-790b47fb7497",
+          "updated_at": "2026-06-07T05:46:12.553649+00:00",
+          "size_kb": 9.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8ea4cd4a-e1c3-44b8-8c4e-526d879d1695",
+          "updated_at": "2026-06-07T05:44:29.081201+00:00",
+          "size_kb": 4.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "995560ee-4990-40c3-ad93-91cab1d98010",
+          "updated_at": "2026-06-07T05:43:52.415313+00:00",
+          "size_kb": 5.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "275238d2-91b5-4dd8-a23a-fca226c9dce0",
+          "updated_at": "2026-06-07T05:41:14.636763+00:00",
+          "size_kb": 8.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7c31d017-39b5-451c-846b-dc5cf93e3383",
+          "updated_at": "2026-06-07T05:40:29.913613+00:00",
+          "size_kb": 8.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1025a145-a5ab-41aa-ada1-c98f5358eab2",
+          "updated_at": "2026-06-07T05:39:46.088977+00:00",
+          "size_kb": 5.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "9f70b8bc-24e8-4fa0-81a7-bf1730f0627c",
+          "updated_at": "2026-06-07T05:39:41.015037+00:00",
+          "size_kb": 7.2,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1f85db60-7f9c-42f7-8654-998b1b8ebd78",
+          "updated_at": "2026-06-07T05:39:13.436697+00:00",
+          "size_kb": 5.0,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "03230a26-3ae7-4533-90ba-18521c2c1604",
+          "updated_at": "2026-06-07T05:38:30.727933+00:00",
+          "size_kb": 6.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "375eff02-fcb0-47e8-a3b5-36c6590c2678",
+          "updated_at": "2026-06-07T05:37:25.234321+00:00",
+          "size_kb": 11.0,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "52a9b06a-065d-4d0f-8df2-04354a4601c8",
+          "updated_at": "2026-06-07T05:34:49.452574+00:00",
+          "size_kb": 10.4,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b9bc4ef6-a119-44da-9fce-9fb5ead1f5b1",
+          "updated_at": "2026-06-07T05:33:39.283159+00:00",
+          "size_kb": 15.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a14299bf-58ce-4616-bd92-5a7d4a6ec7a9",
+          "updated_at": "2026-06-07T05:24:41.479012+00:00",
+          "size_kb": 11.3,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "fb94133a-c685-4fe9-98dd-4f2f771680ed",
+          "updated_at": "2026-06-07T05:24:01.484166+00:00",
+          "size_kb": 11.0,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "81df1c26-7f42-4954-9318-8b2810b46071",
+          "updated_at": "2026-06-07T05:23:21.578607+00:00",
+          "size_kb": 12.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8c3fd0eb-c9f0-47dc-9947-e17031e712c1",
+          "updated_at": "2026-06-07T05:22:41.297327+00:00",
+          "size_kb": 13.6,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "48e5bfa0-3f05-4c73-819f-dbf37357a190",
+          "updated_at": "2026-06-07T05:21:52.230339+00:00",
+          "size_kb": 12.8,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ca478649-ea38-48d6-ab27-8a3fb015f40b",
+          "updated_at": "2026-06-07T05:21:04.936327+00:00",
+          "size_kb": 10.1,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ff9a1f1c-ad16-4d00-9f6a-c2b2dcbb3747",
+          "updated_at": "2026-06-07T05:18:25.096677+00:00",
+          "size_kb": 16.5,
+          "preview": "<user_query> You are SourceA Worker \u2014 execute this INBOX turn fully in ONE run. MANDATORY: os/chat-handoffs/MANDATORY_SO\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "cd5b3054-b740-4aa2-8e85-5da01238402a",
+          "updated_at": "2026-06-07T05:09:35.833377+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> Reply with exactly one line: AGENT_CLI_OK </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 118,
+      "last_active": "2026-06-19T04:56:23.440145+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-Virlux",
+      "display_name": "Virlux",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-Virlux",
+      "sessions": [
+        {
+          "transcript_id": "33aa1426-521b-4aa3-a4d2-3a2a3a9addcb",
+          "updated_at": "2026-06-19T04:36:27.761620+00:00",
+          "size_kb": 121.6,
+          "preview": "<user_query> CHECK THE EVERYTHING ANDGIVE THE SUMMARY REPORT </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d09ef6b2-cd6f-4a7b-8699-d13201224ee7",
+          "updated_at": "2026-06-13T09:58:56.583923+00:00",
+          "size_kb": 4337.9,
+          "preview": "<user_query> search about this website: kavodax.com </user_query>",
+          "subagent_count": 10
+        },
+        {
+          "transcript_id": "d0198c79-7108-4177-aeb5-a83c3024a5db",
+          "updated_at": "2026-06-03T08:44:41.449008+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> DEVBRIDGE G1 VERIFY PING \u2014 IGNORE </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "09128743-d44d-4b23-9021-d55690417e8b",
+          "updated_at": "2026-06-03T08:43:35.574665+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> DEVBRIDGE DESK VERIFY \u2014 IGNORE </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 4,
+      "last_active": "2026-06-19T04:36:27.761620+00:00"
+    },
+    {
+      "slug": "empty-window",
+      "display_name": "empty-window",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/empty-window",
+      "sessions": [
+        {
+          "transcript_id": "e6507c62-18c5-4a03-bb35-e804507dff18",
+          "updated_at": "2026-06-18T22:34:41.645077+00:00",
+          "size_kb": 644.9,
+          "preview": "<user_query> HI YOU ARE THE BRAIN OF SOURCE A </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "baabacf8-46b1-4196-b9a9-7c044b918fa5",
+          "updated_at": "2026-06-18T10:49:42.324366+00:00",
+          "size_kb": 433.5,
+          "preview": "<user_query> ORIENTAITION </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5a4d06a9-1688-4450-84fe-42bbbdb95c92",
+          "updated_at": "2026-06-18T08:15:06.227394+00:00",
+          "size_kb": 0.3,
+          "preview": "",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "90a99155-720b-4bbb-8467-b61798f4960e",
+          "updated_at": "2026-06-17T15:18:22.045517+00:00",
+          "size_kb": 48.6,
+          "preview": "<user_query> WORKER FOR NOETFIELD.COM </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "0908e2e8-6ecf-409a-bede-91b68b8289b5",
+          "updated_at": "2026-06-17T05:45:11.791370+00:00",
+          "size_kb": 5855.2,
+          "preview": "<user_query> Where is the history? Where is the history of our chat? </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7799defb-da03-4dab-a90f-2432927a86bd",
+          "updated_at": "2026-06-17T03:14:58.120035+00:00",
+          "size_kb": 129.7,
+          "preview": "<user_query> You are CREED EXCHANGE product worker \u2014 NOT the CREED factory worker. Identity: CREED EXCHANGE \u00b7 port 5191 \u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c8621756-c3b2-4ae5-978e-defed1bc3039",
+          "updated_at": "2026-06-16T09:49:49.570508+00:00",
+          "size_kb": 1734.7,
+          "preview": "<user_query> ORIENTATION </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6245d9dd-c425-4ef3-affb-a372ba4383b8",
+          "updated_at": "2026-06-15T20:14:05.819975+00:00",
+          "size_kb": 4144.8,
+          "preview": "<user_query> YOU ARE COMMERCIAL GOAL SPECIALIST \u2014 mission-bound money intelligence. NOT execution authority. MANDATORY R\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c5fdddeb-362c-4b83-8f46-dd134170384c",
+          "updated_at": "2026-06-15T06:52:20.779437+00:00",
+          "size_kb": 4957.3,
+          "preview": "<user_query> build full stack end to end for a startup tnaming trustfield technologies rpaa register and later willing M\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "58148ac9-135c-448d-b428-b57988738fa3",
+          "updated_at": "2026-06-14T15:14:17.453440+00:00",
+          "size_kb": 320.2,
+          "preview": "<user_query> YOU ARE THE BRAIN \u2014 successor chat. The old heavy thread was SinaaiDataBase workspace (first assistant). AS\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e54ddfa8-531b-40de-8443-d8167f80a614",
+          "updated_at": "2026-06-14T12:59:42.027382+00:00",
+          "size_kb": 1220.1,
+          "preview": "<user_query> YOU ARE GOVERNANCE GOAL SPECIALIST \u2014 mission-bound legal/risk intelligence. NOT execution authority. MANDAT\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "fd67502f-5f95-43b8-bdfc-f2dba306f828",
+          "updated_at": "2026-06-13T11:11:50.195981+00:00",
+          "size_kb": 3055.3,
+          "preview": "<user_query> @sa-0129_verify_closeout_b50f7c44.plan.md (1-196) </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a53f3fa1-081c-4373-bc55-76feb501a61d",
+          "updated_at": "2026-06-11T18:21:34.847575+00:00",
+          "size_kb": 21291.8,
+          "preview": "<user_query> \u062e\u0648\u0628 \u067e\u0631\u0648\u0698\u0647 \u0628\u0639\u062f\u06cc \u0641\u0642\u0637 \u0628\u0627\u06cc\u062f \u0645\u062a\u0645\u0631\u06a9\u0632 \u0633\u0627\u062e\u062a\u0646 \u0627\u0648\u0646 \u062f\u06cc\u062a\u0627\u0628\u06cc\u0633 \u0634\u062e\u0635\u06cc\u06cc \u06a9\u0647 \u062a\u0648\u0636\u06cc\u062d \u062f\u0627\u062f\u0645 \u0628\u0634\u0647. \u0647\u0645\u0648\u0646 \u062f\u06cc\u062a\u0627\u0628\u06cc\u0633\u06cc \u06a9\u0647 \u0642\u0631\u0627\u0631\u0647 \u0628\u0631\u0627\u06cc \u0627\u0648\u0646 \u0627\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "85dd7cd4-0977-4cfc-9449-ea278ea0baee",
+          "updated_at": "2026-06-10T17:52:07.153687+00:00",
+          "size_kb": 709.6,
+          "preview": "<user_query> MANDATORY READ: ~/Desktop/SourceA/os/chat-handoffs/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00a74 YOU ARE RESEAR\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "40aa7c3f-ba37-4313-a577-5b10e8f9975a",
+          "updated_at": "2026-06-08T00:25:24.735990+00:00",
+          "size_kb": 2280.6,
+          "preview": "<user_query> analyze this and research this deep and clear and high understing about the whole technical and business mo\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c4b8b349-6ce4-400e-a144-a628a3f31b86",
+          "updated_at": "2026-06-06T18:02:44.617008+00:00",
+          "size_kb": 418.1,
+          "preview": "<user_query> HANDOFF v1 \u2014 sa-0108 (dispatch policy cross-check) New agent. No inherited chat weight. Brain lane already \u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b54e2df3-aafb-4cca-b0ed-002fe568a75e",
+          "updated_at": "2026-06-06T03:27:00.914706+00:00",
+          "size_kb": 81.2,
+          "preview": "<user_query> ok read the sourceA Folder in desktop and understand your situation and role and goals in the ecosystem tre\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8087c94f-5260-4742-87bf-f32c21a8b0cf",
+          "updated_at": "2026-06-03T04:03:01.017044+00:00",
+          "size_kb": 278.1,
+          "preview": "<user_query> Clone the provided interface with ~99% functional similarity. Do not mention or reference the source, origi\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3369d11c-791f-48dd-98cd-0a62c123a98c",
+          "updated_at": "2026-06-01T09:58:28.577121+00:00",
+          "size_kb": 1170.4,
+          "preview": "<user_query> Where is the history? Where is the history of our chat? </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6964f568-e5fa-4471-95a7-6949fe208d3a",
+          "updated_at": "2026-06-01T04:42:19.026210+00:00",
+          "size_kb": 30.1,
+          "preview": "<user_query> This is a full report of all the softwares they are working on, from the system to the CPU, RAM, memory, an\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "720ee790-74f3-42ea-916f-1ab24e920a90",
+          "updated_at": "2026-05-31T19:36:09.984862+00:00",
+          "size_kb": 9076.0,
+          "preview": "<user_query> Activating Architecture Replay Protocol: Super Brain & Agent Factory Initialization. We are transitioning f\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d09ef6b2-cd6f-4a7b-8699-d13201224ee7",
+          "updated_at": "2026-05-30T03:30:25.062705+00:00",
+          "size_kb": 823.8,
+          "preview": "<user_query> search about this website: kavodax.com </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "9d584c0a-6b84-4537-9275-4fa635a648b2",
+          "updated_at": "2026-05-30T03:13:35.026056+00:00",
+          "size_kb": 1398.6,
+          "preview": "<user_query> check and analyse our site and give the best suggestion to turn it to high level orgs the777foundatio.org <\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b28285ab-3871-4c87-a87e-9e77f7bda269",
+          "updated_at": "2026-05-28T00:03:06.427622+00:00",
+          "size_kb": 8.0,
+          "preview": "<user_query> You are working inside Noetfield OS v1.1.0 (FastAPI, Python 3.12, SQLite, running on port 8000). The codeba\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7b96b6d5-9404-4eec-9e98-4cfce478940a",
+          "updated_at": "2026-05-27T05:57:29.462601+00:00",
+          "size_kb": 1.6,
+          "preview": "<timestamp>Tuesday, May 26, 2026, 10:57 PM (UTC-7)</timestamp> <user_query> You are a senior Python backend engineer. We\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "0666be5d-a423-41bd-9774-9d6939ca3681",
+          "updated_at": "2026-05-27T04:24:43.814775+00:00",
+          "size_kb": 3.8,
+          "preview": "<user_query> hi where is terminal? </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 26,
+      "last_active": "2026-06-18T22:34:41.645077+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-TrustField-Technologies",
+      "display_name": "TrustField Technologies",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-TrustField-Technologies",
+      "sessions": [
+        {
+          "transcript_id": "719c814f-f69f-4f9f-a622-4d9240f9ff83",
+          "updated_at": "2026-06-18T09:57:57.029790+00:00",
+          "size_kb": 46.1,
+          "preview": "<user_query> check and analysis: 30 Canadian companies \u2014 RWA / tokenized assets / regulated digital asset market \u00b7 June \u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c51f336c-d684-4eff-b4a6-950f0741b01a",
+          "updated_at": "2026-06-17T22:37:37.125245+00:00",
+          "size_kb": 2.8,
+          "preview": "<user_query> check and analysis: 30 Canadian companies \u2014 RWA / tokenized assets / regulated digital asset market \u00b7 June \u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c5fdddeb-362c-4b83-8f46-dd134170384c",
+          "updated_at": "2026-06-17T05:37:26.417061+00:00",
+          "size_kb": 11820.6,
+          "preview": "<user_query> build full stack end to end for a startup tnaming trustfield technologies rpaa register and later willing M\u2026",
+          "subagent_count": 4
+        },
+        {
+          "transcript_id": "3df2f352-69b5-45a6-9c21-e995b998aaa2",
+          "updated_at": "2026-05-31T22:35:42.771469+00:00",
+          "size_kb": 59.8,
+          "preview": "<user_query> Start the TrustField backend server (uvicorn app.main:app --reload --port 8001). Then: 1. Check /health 2. \u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "4f1e4775-3366-4967-a1f0-facd6ba01ac2",
+          "updated_at": "2026-05-30T14:21:17.740773+00:00",
+          "size_kb": 2.0,
+          "preview": "<user_query> git config --global user.email \"kazemnezhadsina144@gmail.com\" git config --global user.name \"Sina Kazemnezh\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f520cd0c-79fc-461b-94ac-487419f679f5",
+          "updated_at": "2026-05-29T10:51:20.765037+00:00",
+          "size_kb": 4.6,
+          "preview": "<user_query> search about this website: kavodax.com </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 6,
+      "last_active": "2026-06-18T09:57:57.029790+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-Noetfield",
+      "display_name": "Noetfield",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-Noetfield",
+      "sessions": [
+        {
+          "transcript_id": "e9342686-4796-442b-83a0-583675d1e081",
+          "updated_at": "2026-06-18T08:14:41.219940+00:00",
+          "size_kb": 553.8,
+          "preview": "<user_query> worker what is the gate and routing map and orientation way here in this repo ? what you see? what you unde\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "90a99155-720b-4bbb-8467-b61798f4960e",
+          "updated_at": "2026-06-18T08:13:55.439034+00:00",
+          "size_kb": 1469.7,
+          "preview": "<user_query> WORKER FOR NOETFIELD.COM </user_query>",
+          "subagent_count": 5
+        }
+      ],
+      "session_count": 2,
+      "last_active": "2026-06-18T08:14:41.219940+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-YA5-PLUS-ONE-FALUX",
+      "display_name": "YA5 PLUS ONE FALUX",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-YA5-PLUS-ONE-FALUX",
+      "sessions": [
+        {
+          "transcript_id": "8e71fb4c-64c3-4f25-ac39-4af9c7c87c8a",
+          "updated_at": "2026-06-18T03:54:27.664816+00:00",
+          "size_kb": 108.1,
+          "preview": "<user_query> SHOW ME THE LOCAL PAGE </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 1,
+      "last_active": "2026-06-18T03:54:27.664816+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-MacLaw",
+      "display_name": "MacLaw",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-MacLaw",
+      "sessions": [
+        {
+          "transcript_id": "bab1ff49-de00-4e88-b19b-d4c0b467cb0b",
+          "updated_at": "2026-06-17T14:47:37.268245+00:00",
+          "size_kb": 447.6,
+          "preview": "<user_query> HI READ SSOT AND OTHER LAW IN YOUR REPO AND GIVE ME THE FULL ORIENTION BIG PICTURE </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 1,
+      "last_active": "2026-06-17T14:47:37.268245+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-Noetfield-SinaaiMonoRepo",
+      "display_name": "Noetfield SinaaiMonoRepo",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-Noetfield-SinaaiMonoRepo",
+      "sessions": [
+        {
+          "transcript_id": "e979e4ea-a348-4ad2-8ab2-07a1dc4d204f",
+          "updated_at": "2026-06-17T11:04:00.427125+00:00",
+          "size_kb": 71.2,
+          "preview": "<user_query> HI READ SSOT AND OTHER LAW IN YOUR REPO AND GIVE ME THE FULL ORIENTION BIG PICTURE </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 1,
+      "last_active": "2026-06-17T11:04:00.427125+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-YA5-PLUS-ONE",
+      "display_name": "YA5 PLUS ONE",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-YA5-PLUS-ONE",
+      "sessions": [
+        {
+          "transcript_id": "ced06117-9c5c-41e6-8ff3-103169b72aa3",
+          "updated_at": "2026-06-17T10:44:39.761469+00:00",
+          "size_kb": 4077.5,
+          "preview": "<user_query> CLONE THIS FULLY E2E MATCHES: CANADAIRAN.CA </user_query>",
+          "subagent_count": 9
+        }
+      ],
+      "session_count": 1,
+      "last_active": "2026-06-17T10:44:39.761469+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-SinaaiMonoRepo",
+      "display_name": "SinaaiMonoRepo",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-SinaaiMonoRepo",
+      "sessions": [
+        {
+          "transcript_id": "0908e2e8-6ecf-409a-bede-91b68b8289b5",
+          "updated_at": "2026-06-17T10:43:32.429698+00:00",
+          "size_kb": 5994.9,
+          "preview": "<user_query> Where is the history? Where is the history of our chat? </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b5691ef9-1e45-4bb5-94d1-6ae9f3ad720a",
+          "updated_at": "2026-06-17T09:35:48.176764+00:00",
+          "size_kb": 561.1,
+          "preview": "<user_query> AGENT ONBOARD </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3369d11c-791f-48dd-98cd-0a62c123a98c",
+          "updated_at": "2026-06-12T14:48:57.517405+00:00",
+          "size_kb": 2944.4,
+          "preview": "<user_query> Where is the history? Where is the history of our chat? </user_query>",
+          "subagent_count": 5
+        },
+        {
+          "transcript_id": "720ee790-74f3-42ea-916f-1ab24e920a90",
+          "updated_at": "2026-06-01T01:20:40.315929+00:00",
+          "size_kb": 9324.6,
+          "preview": "<user_query> Activating Architecture Replay Protocol: Super Brain & Agent Factory Initialization. We are transitioning f\u2026",
+          "subagent_count": 26
+        }
+      ],
+      "session_count": 4,
+      "last_active": "2026-06-17T10:43:32.429698+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-YA5-PLUS-ONE-CREED",
+      "display_name": "YA5 PLUS ONE CREED",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-YA5-PLUS-ONE-CREED",
+      "sessions": [
+        {
+          "transcript_id": "89e71733-c29a-4448-afd7-f5e55175f344",
+          "updated_at": "2026-06-17T10:35:07.918908+00:00",
+          "size_kb": 105.6,
+          "preview": "<user_query> You are CREED factory worker. Read WORKER_ROUTING.json. Load assignment from workspace/assignments/luxwire.\u2026",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 1,
+      "last_active": "2026-06-17T10:35:07.918908+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-YA5-PLUS-ONE-CREED-EX",
+      "display_name": "YA5 PLUS ONE CREED EX",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-YA5-PLUS-ONE-CREED-EX",
+      "sessions": [
+        {
+          "transcript_id": "f6836ac8-2306-4543-95e1-e8d35653339f",
+          "updated_at": "2026-06-17T10:25:54.352457+00:00",
+          "size_kb": 44.2,
+          "preview": "<user_query> orientation </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7799defb-da03-4dab-a90f-2432927a86bd",
+          "updated_at": "2026-06-17T09:53:01.847355+00:00",
+          "size_kb": 283.2,
+          "preview": "<user_query> You are CREED EXCHANGE product worker \u2014 NOT the CREED factory worker. Identity: CREED EXCHANGE \u00b7 port 5191 \u2026",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 2,
+      "last_active": "2026-06-17T10:25:54.352457+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-Noetfield-All-Documents",
+      "display_name": "Noetfield All Documents",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-Noetfield-All-Documents",
+      "sessions": [
+        {
+          "transcript_id": "816a7476-674a-4f8b-ae95-e4f92ff439f1",
+          "updated_at": "2026-06-17T05:45:10.044960+00:00",
+          "size_kb": 6920.1,
+          "preview": "<user_query> Full chat handoff \u2014 Noetfield / Cursor Cloud (zero \u2192 end) Use this as a single paste into a local Cursor ch\u2026",
+          "subagent_count": 9
+        }
+      ],
+      "session_count": 1,
+      "last_active": "2026-06-17T05:45:10.044960+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-The-777-Foundation",
+      "display_name": "The 777 Foundation",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-The-777-Foundation",
+      "sessions": [
+        {
+          "transcript_id": "9d584c0a-6b84-4537-9275-4fa635a648b2",
+          "updated_at": "2026-06-17T05:34:25.279341+00:00",
+          "size_kb": 5061.0,
+          "preview": "<user_query> check and analyse our site and give the best suggestion to turn it to high level orgs the777foundatio.org <\u2026",
+          "subagent_count": 14
+        }
+      ],
+      "session_count": 1,
+      "last_active": "2026-06-17T05:34:25.279341+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-YA5",
+      "display_name": "YA5",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-YA5",
+      "sessions": [
+        {
+          "transcript_id": "490595dd-9eeb-40f1-842a-1ef1c3635533",
+          "updated_at": "2026-06-16T18:29:21.947002+00:00",
+          "size_kb": 4854.8,
+          "preview": "<external_links> ### Potentially Relevant Websearch Results You should respond as if these information are known to you.\u2026",
+          "subagent_count": 2
+        },
+        {
+          "transcript_id": "ef1322d8-f428-4323-b99c-9c07ba753e9b",
+          "updated_at": "2026-06-16T18:23:24.495796+00:00",
+          "size_kb": 76.3,
+          "preview": "<user_query> ORIENTATION </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 2,
+      "last_active": "2026-06-16T18:29:21.947002+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Projects-noetfeld-os",
+      "display_name": "Users-sinakazemnezhad-Projects-noetfeld-os",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Projects-noetfeld-os",
+      "sessions": [
+        {
+          "transcript_id": "291f1257-2365-46a9-a2f2-9123d83aa644",
+          "updated_at": "2026-06-15T10:05:27.175357+00:00",
+          "size_kb": 776.0,
+          "preview": "<timestamp>Tuesday, May 26, 2026, 10:57 PM (UTC-7)</timestamp> <user_query> You are a senior Python backend engineer. We\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f9f1c9d3-4128-4b17-a933-d6c7db2f4631",
+          "updated_at": "2026-06-13T08:50:11.086399+00:00",
+          "size_kb": 185.4,
+          "preview": "<user_query> Here are the strategic recommendations to clean up those pages and solidify the enterprise narrative withou\u2026",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 2,
+      "last_active": "2026-06-15T10:05:27.175357+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-SinaaiDataBase",
+      "display_name": "SinaaiDataBase",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-SinaaiDataBase",
+      "sessions": [
+        {
+          "transcript_id": "9afa1459-53fd-4a0f-8348-180b6d648cfa",
+          "updated_at": "2026-06-15T06:42:54.350154+00:00",
+          "size_kb": 182.5,
+          "preview": "<user_query> GIVE ME THE SUMMARY OF THE CURRENT SITUATION </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "74f5ccab-d080-41a2-9f6d-b7c37c9aadc5",
+          "updated_at": "2026-06-15T01:26:45.853948+00:00",
+          "size_kb": 5125.3,
+          "preview": "<user_query> MAKE THE BEST POSSIBLE WISE PLAN FOR NEXT MOVES </user_query>",
+          "subagent_count": 10
+        },
+        {
+          "transcript_id": "a53f3fa1-081c-4373-bc55-76feb501a61d",
+          "updated_at": "2026-06-11T21:16:19.363215+00:00",
+          "size_kb": 26113.7,
+          "preview": "<user_query> \u062e\u0648\u0628 \u067e\u0631\u0648\u0698\u0647 \u0628\u0639\u062f\u06cc \u0641\u0642\u0637 \u0628\u0627\u06cc\u062f \u0645\u062a\u0645\u0631\u06a9\u0632 \u0633\u0627\u062e\u062a\u0646 \u0627\u0648\u0646 \u062f\u06cc\u062a\u0627\u0628\u06cc\u0633 \u0634\u062e\u0635\u06cc\u06cc \u06a9\u0647 \u062a\u0648\u0636\u06cc\u062d \u062f\u0627\u062f\u0645 \u0628\u0634\u0647. \u0647\u0645\u0648\u0646 \u062f\u06cc\u062a\u0627\u0628\u06cc\u0633\u06cc \u06a9\u0647 \u0642\u0631\u0627\u0631\u0647 \u0628\u0631\u0627\u06cc \u0627\u0648\u0646 \u0627\u2026",
+          "subagent_count": 32
+        },
+        {
+          "transcript_id": "b54e2df3-aafb-4cca-b0ed-002fe568a75e",
+          "updated_at": "2026-06-06T04:21:45.209854+00:00",
+          "size_kb": 92.6,
+          "preview": "<user_query> ok read the sourceA Folder in desktop and understand your situation and role and goals in the ecosystem tre\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "90180146-ca09-4ab2-b926-6a8555483225",
+          "updated_at": "2026-06-02T08:26:31.903448+00:00",
+          "size_kb": 208.5,
+          "preview": "<user_query> \u0628\u0644\u0647\u2014\u06a9\u0627\u0645\u0644\u0627\u064b \u0634\u062f\u0646\u06cc\u0647 \u0648 \u062d\u062a\u06cc \u0631\u0648\u06cc \u0633\u062a\u0627\u067e\u06cc \u06a9\u0647 \u06af\u0641\u062a\u06cc (Mac + iPhone + \u0644\u067e\u200c\u062a\u0627\u067e \u0648\u06cc\u0646\u062f\u0648\u0632) **\u062e\u06cc\u0644\u06cc \u067e\u0627\u06cc\u062f\u0627\u0631\u062a\u0631 \u0647\u0645 \u0645\u06cc\u0634\u0647**. --- ## \u062e\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b862c58e-71c9-4669-8b22-41d65683af48",
+          "updated_at": "2026-06-02T08:24:58.012959+00:00",
+          "size_kb": 116.9,
+          "preview": "<user_query> 'WE HAVE 43 FILES IN SourceA As our refreence? why they are so much ???!! it was supposed to be more unifyi\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "74d7e799-33bb-4a8e-9734-bf82ba0235cc",
+          "updated_at": "2026-05-28T07:07:20.232201+00:00",
+          "size_kb": 20.9,
+          "preview": "<user_query> Activating Architecture Replay Protocol: Super Brain & Agent Factory Initialization. We are transitioning f\u2026",
+          "subagent_count": 2
+        }
+      ],
+      "session_count": 7,
+      "last_active": "2026-06-15T06:42:54.350154+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-Cursor-OS-Pro",
+      "display_name": "Cursor OS Pro",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-Cursor-OS-Pro",
+      "sessions": [
+        {
+          "transcript_id": "4374f3ff-aa55-4923-b4f9-53513b0da610",
+          "updated_at": "2026-06-15T06:40:07.849416+00:00",
+          "size_kb": 741.2,
+          "preview": "<user_query> SEARCH ABOUT EVERY APP THAT BULDS APP AND PPLICATION WITH VOICE GIVE ME ALOIST OF 100 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8087c94f-5260-4742-87bf-f32c21a8b0cf",
+          "updated_at": "2026-06-12T16:49:45.471989+00:00",
+          "size_kb": 1360.0,
+          "preview": "<user_query> Clone the provided interface with ~99% functional similarity. Do not mention or reference the source, origi\u2026",
+          "subagent_count": 3
+        },
+        {
+          "transcript_id": "abd53a12-958c-41ba-86c6-cdd9eaa1a2e6",
+          "updated_at": "2026-06-11T12:29:32.961977+00:00",
+          "size_kb": 3.2,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "fe7bd51d-bcfd-41cc-840e-f9693c52179b",
+          "updated_at": "2026-06-11T12:17:06.676282+00:00",
+          "size_kb": 12.1,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7623e8af-dd3e-40a2-a997-0a4cfaad0e9d",
+          "updated_at": "2026-06-10T14:11:50.440804+00:00",
+          "size_kb": 2.5,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d4ac68e5-d1cf-4e43-ba0a-d352a86bfd13",
+          "updated_at": "2026-06-10T14:08:19.026526+00:00",
+          "size_kb": 3.2,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "2b658f1c-091a-44f4-bd51-d1516687c109",
+          "updated_at": "2026-06-10T14:05:58.619054+00:00",
+          "size_kb": 3.3,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5c02ff70-6d53-4bfe-af82-d9a697d3be4d",
+          "updated_at": "2026-06-10T13:25:42.882009+00:00",
+          "size_kb": 5.3,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5a09b4a2-43ac-45dd-bdc9-00bc4fba7818",
+          "updated_at": "2026-06-10T13:23:50.725131+00:00",
+          "size_kb": 1.5,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3e451806-435a-4d3b-988d-72fa522ac308",
+          "updated_at": "2026-06-10T05:24:52.383952+00:00",
+          "size_kb": 2.0,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c0197b41-ca16-4218-8bd3-6e3d144eb834",
+          "updated_at": "2026-06-10T05:23:13.628197+00:00",
+          "size_kb": 3.4,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "35b91f50-6450-438c-abc4-0390da28ab2c",
+          "updated_at": "2026-06-10T05:21:22.372676+00:00",
+          "size_kb": 5.1,
+          "preview": "<user_query> Run Phase 8 catalog reconciliation in \"/Users/sinakazemnezhad/Desktop/Cursor OS Pro\": 1. Confirm baseline: \u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8aabb9f5-80b4-4a71-8456-cf31a6288ac2",
+          "updated_at": "2026-06-10T05:21:02.458211+00:00",
+          "size_kb": 4.3,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e9eead7c-6936-4b61-b237-4d51743dabd1",
+          "updated_at": "2026-06-10T04:16:31.099615+00:00",
+          "size_kb": 3.3,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "236dca91-f9e9-4108-a90d-1987c4241d61",
+          "updated_at": "2026-06-10T04:14:52.242078+00:00",
+          "size_kb": 5.3,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5b0444af-ac56-43e0-975d-f2739d30aa9f",
+          "updated_at": "2026-06-10T03:58:12.541811+00:00",
+          "size_kb": 3.1,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "eade4fa2-99c4-43d8-bb81-2819f065db5f",
+          "updated_at": "2026-06-10T03:31:01.708229+00:00",
+          "size_kb": 4.7,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e42c12b5-cd71-4fb3-9f8e-f50db0e8d298",
+          "updated_at": "2026-06-10T03:29:19.599915+00:00",
+          "size_kb": 3.6,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "901ca38f-10db-4fb6-8d77-142ac7c54386",
+          "updated_at": "2026-06-10T03:26:44.989644+00:00",
+          "size_kb": 2.5,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a10e9b99-993e-4180-9281-247b08323c3f",
+          "updated_at": "2026-06-07T13:59:24.070242+00:00",
+          "size_kb": 6.8,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3dd18998-872a-434e-9068-b5205e4dc5d3",
+          "updated_at": "2026-06-07T13:57:53.290901+00:00",
+          "size_kb": 9.6,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5c07f622-2dfe-4430-891d-ce169c9e93fe",
+          "updated_at": "2026-06-07T13:55:30.272037+00:00",
+          "size_kb": 4.1,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "122a9502-ebec-448a-b091-b91b397e18ab",
+          "updated_at": "2026-06-07T13:54:04.281668+00:00",
+          "size_kb": 2.8,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "0d2e61f5-8b49-4ac9-a477-f3d44c769177",
+          "updated_at": "2026-06-07T13:52:49.725084+00:00",
+          "size_kb": 1.8,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "90c3c2f4-ff36-4df0-8e40-eb38203dae8b",
+          "updated_at": "2026-06-07T13:51:05.302795+00:00",
+          "size_kb": 5.8,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "194c8267-bd78-4d00-ab1a-837d36f42c2c",
+          "updated_at": "2026-06-07T13:49:35.094925+00:00",
+          "size_kb": 1.5,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e0ef0264-ba14-40e9-8cf7-e17015963876",
+          "updated_at": "2026-06-07T13:43:16.058106+00:00",
+          "size_kb": 1.6,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "bba0a8d8-e390-47d8-a463-2ece0a66c15c",
+          "updated_at": "2026-06-07T13:41:14.826508+00:00",
+          "size_kb": 13.4,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "2d999bfc-983e-45cc-a2d2-f3d64bc1bee8",
+          "updated_at": "2026-06-06T22:48:03.798371+00:00",
+          "size_kb": 2.9,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "65e3b998-0b6f-4f0e-baf5-1558160e0496",
+          "updated_at": "2026-06-06T22:46:19.872038+00:00",
+          "size_kb": 26.5,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "047f03a8-c6eb-4a27-8a8d-cd2f1d3b95d2",
+          "updated_at": "2026-06-06T22:39:04.196483+00:00",
+          "size_kb": 8.6,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "984625a9-9d60-49b1-9d7c-f227a9d6b506",
+          "updated_at": "2026-06-06T22:36:16.166922+00:00",
+          "size_kb": 8.2,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d8a6c8f9-9619-4693-9011-11a5ca0da9f4",
+          "updated_at": "2026-06-06T21:41:04.252896+00:00",
+          "size_kb": 3.5,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b741c943-161e-460d-a2da-eaef9acd2d9f",
+          "updated_at": "2026-06-06T03:17:34.219582+00:00",
+          "size_kb": 10.1,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "2795c2b0-91ad-45c3-8e19-d93af5bee2bc",
+          "updated_at": "2026-06-06T03:15:18.548777+00:00",
+          "size_kb": 14.1,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3ac2e3b4-952c-4614-b427-38afaf47ceff",
+          "updated_at": "2026-06-06T02:57:16.022854+00:00",
+          "size_kb": 1.7,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d713da53-7ca4-4ad1-a3f1-2f9face4bfb6",
+          "updated_at": "2026-06-06T02:55:50.147943+00:00",
+          "size_kb": 2.6,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e0e4e6b0-fcfc-4829-95a4-86b8c358a2f7",
+          "updated_at": "2026-06-06T02:54:04.500934+00:00",
+          "size_kb": 4.1,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ad169b95-ba3f-4af0-ba2c-4820536ad0cf",
+          "updated_at": "2026-06-05T13:16:16.540460+00:00",
+          "size_kb": 2.6,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "25844a27-1c0e-4bb3-a100-b0e4794d488a",
+          "updated_at": "2026-06-05T13:14:54.634668+00:00",
+          "size_kb": 2.1,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "9fb92935-6206-4982-854b-211ac01958cc",
+          "updated_at": "2026-06-05T13:03:33.741972+00:00",
+          "size_kb": 2.9,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a8af4cfb-4092-4b81-b480-e868b100d2cb",
+          "updated_at": "2026-06-05T13:01:53.468836+00:00",
+          "size_kb": 13.6,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a57c7614-7b63-47d7-8369-f271ce0ddca7",
+          "updated_at": "2026-06-05T12:33:49.241542+00:00",
+          "size_kb": 2.5,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d5ff669e-3635-4e88-aeda-4254db70ba15",
+          "updated_at": "2026-06-05T12:32:25.386239+00:00",
+          "size_kb": 3.4,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c55d62bd-479e-4bbb-a8b3-cd957c7b9552",
+          "updated_at": "2026-06-05T12:30:48.780244+00:00",
+          "size_kb": 2.4,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5e97f6db-b3cf-4119-8c42-b855419d41e0",
+          "updated_at": "2026-06-05T12:28:55.179983+00:00",
+          "size_kb": 1.7,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d9d70c30-81a1-4f99-a88c-3b5aa270cd1b",
+          "updated_at": "2026-06-04T18:03:12.214432+00:00",
+          "size_kb": 2.0,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "0492ba81-e7a8-4a68-9e3e-efd3f8c10cba",
+          "updated_at": "2026-06-04T17:45:09.150620+00:00",
+          "size_kb": 4.6,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e3a473f4-6920-4a40-9865-f0734b10335d",
+          "updated_at": "2026-06-04T17:43:23.789375+00:00",
+          "size_kb": 1.9,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a73fd8bf-f524-4b77-a545-483e0ebfd830",
+          "updated_at": "2026-06-04T17:42:16.797977+00:00",
+          "size_kb": 2.1,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "08b96087-f127-4a05-bb04-7718a6f7a73a",
+          "updated_at": "2026-06-04T17:37:52.350890+00:00",
+          "size_kb": 1.6,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "70430236-9510-4ef3-9b95-f51e18141070",
+          "updated_at": "2026-06-04T17:32:20.882182+00:00",
+          "size_kb": 2.9,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "35b3a0a6-0721-49e6-bbb1-2cd671057ade",
+          "updated_at": "2026-06-04T17:30:52.580393+00:00",
+          "size_kb": 6.3,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6aee4837-5304-4719-b0d4-57b930b64f1c",
+          "updated_at": "2026-06-04T17:20:46.741401+00:00",
+          "size_kb": 1.9,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "4e81573b-efdb-4155-b0c0-4c888340be34",
+          "updated_at": "2026-06-04T05:42:08.760011+00:00",
+          "size_kb": 3.9,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "62a89808-d2c5-45d0-9c8a-06f37c5fd56b",
+          "updated_at": "2026-06-03T11:11:40.669853+00:00",
+          "size_kb": 5.0,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "197d7c8d-03de-4d48-8361-fd307728ba59",
+          "updated_at": "2026-06-03T06:35:35.463832+00:00",
+          "size_kb": 4.5,
+          "preview": "<user_query> ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1c776176-5e25-4788-a098-78ef61245b3a",
+          "updated_at": "2026-06-03T06:34:42.149254+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply ok </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 58,
+      "last_active": "2026-06-15T06:40:07.849416+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-SA4",
+      "display_name": "SA4",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-SA4",
+      "sessions": [
+        {
+          "transcript_id": "4979ed4c-378f-4f4b-afff-96f21f900250",
+          "updated_at": "2026-06-13T16:36:44.141099+00:00",
+          "size_kb": 1297.2,
+          "preview": "<user_query> DELETE THE CLONE NAME AND FROM EVERY WHERE AND ONLY KEEP EVERYTHING ONLY IN CHAT AND NEVER USE CLONE OR REF\u2026",
+          "subagent_count": 3
+        }
+      ],
+      "session_count": 1,
+      "last_active": "2026-06-13T16:36:44.141099+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-SA3",
+      "display_name": "SA3",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-SA3",
+      "sessions": [
+        {
+          "transcript_id": "bab17d05-20c0-43ba-b066-6017d6e5af83",
+          "updated_at": "2026-06-13T13:37:50.213349+00:00",
+          "size_kb": 694.0,
+          "preview": "<external_links> ### Potentially Relevant Websearch Results You should respond as if these information are known to you.\u2026",
+          "subagent_count": 1
+        }
+      ],
+      "session_count": 1,
+      "last_active": "2026-06-13T13:37:50.213349+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Downloads-noetfield-runtime",
+      "display_name": "Users-sinakazemnezhad-Downloads-noetfield-runtime",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Downloads-noetfield-runtime",
+      "sessions": [
+        {
+          "transcript_id": "10c6c493-7eda-4cc4-a389-c7e3b00bbe62",
+          "updated_at": "2026-06-13T09:44:56.663782+00:00",
+          "size_kb": 295.8,
+          "preview": "<user_query> Here are the strategic recommendations to clean up those pages and solidify the enterprise narrative withou\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "2ac37741-9644-435d-839f-cbeefa6b2596",
+          "updated_at": "2026-06-13T08:56:46.774229+00:00",
+          "size_kb": 804.0,
+          "preview": "<user_query> You are working inside the Noetfield OS codebase. Do a quick high-level scan of the project: - identify mai\u2026",
+          "subagent_count": 2
+        },
+        {
+          "transcript_id": "048e395e-6af7-46c2-8a9e-f4e72219b14b",
+          "updated_at": "2026-06-13T08:19:30.379790+00:00",
+          "size_kb": 890.8,
+          "preview": "<user_query> You are working inside Noetfield OS v1.1.0 (FastAPI, Python 3.12, SQLite, running on port 8000). The codeba\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8948b653-9bb3-4896-84cb-17b9a3f322dc",
+          "updated_at": "2026-06-01T04:43:17.122360+00:00",
+          "size_kb": 158.8,
+          "preview": "<user_query> check what we have </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 4,
+      "last_active": "2026-06-13T09:44:56.663782+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-AI-Dev-Bridge-OS",
+      "display_name": "AI Dev Bridge OS",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-AI-Dev-Bridge-OS",
+      "sessions": [
+        {
+          "transcript_id": "40aa7c3f-ba37-4313-a577-5b10e8f9975a",
+          "updated_at": "2026-06-12T16:55:53.687700+00:00",
+          "size_kb": 3013.2,
+          "preview": "<user_query> analyze this and research this deep and clear and high understing about the whole technical and business mo\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1f3733e9-8556-48ad-8788-afa715ff89bd",
+          "updated_at": "2026-06-03T08:51:28.186122+00:00",
+          "size_kb": 23.4,
+          "preview": "<user_query> IMPLEMENT </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8aade23b-111b-4ea2-afef-c40bb0b36c33",
+          "updated_at": "2026-06-03T08:50:21.740924+00:00",
+          "size_kb": 11.6,
+          "preview": "<user_query> IMPLEMENT </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "082bae0d-b3e5-4fb6-981a-2fd3df2bb34c",
+          "updated_at": "2026-06-03T08:08:40.444217+00:00",
+          "size_kb": 105.6,
+          "preview": "<user_query> hello what is your repo situation??? you are analyse az architect advisor </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5a7a264d-1769-4340-9c81-e474fb59415d",
+          "updated_at": "2026-06-03T07:44:13.743261+00:00",
+          "size_kb": 4.0,
+          "preview": "<user_query> DEVBRIDGE G1 VERIFY PING \u2014 IGNORE </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ce376166-17e3-48ec-870e-c501b51b2d55",
+          "updated_at": "2026-06-03T07:44:03.801016+00:00",
+          "size_kb": 0.7,
+          "preview": "<user_query> DEVBRIDGE G1 VERIFY PING \u2014 IGNORE </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 6,
+      "last_active": "2026-06-12T16:55:53.687700+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-SA2",
+      "display_name": "SA2",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-SA2",
+      "sessions": [
+        {
+          "transcript_id": "18a60312-0b68-445a-9a86-f19cce0b8b12",
+          "updated_at": "2026-06-11T16:39:41.380532+00:00",
+          "size_kb": 700.0,
+          "preview": "<external_links> ### Potentially Relevant Websearch Results You should respond as if these information are known to you.\u2026",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "0d6436f9-46b9-4715-8e86-b12ead5733f6",
+          "updated_at": "2026-06-11T06:11:45.357698+00:00",
+          "size_kb": 15.1,
+          "preview": "<user_query> give me exact explanation each command is for what kinda use and when and then prioritize them based on mos\u2026",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 2,
+      "last_active": "2026-06-11T16:39:41.380532+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-Cursor-OS-Pro-smoke-workspace",
+      "display_name": "Cursor OS Pro smoke workspace",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-Cursor-OS-Pro-smoke-workspace",
+      "sessions": [
+        {
+          "transcript_id": "2bc255c8-9e8d-441b-be0a-9bcb5d0c2227",
+          "updated_at": "2026-06-11T12:30:52.601531+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "44ce2c5a-bb97-4079-ab27-5d38f111e328",
+          "updated_at": "2026-06-11T12:30:41.258218+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ff8fe329-b478-4c4f-8252-0fdebdeae3a4",
+          "updated_at": "2026-06-11T12:29:56.617620+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "03a2b90f-858c-4dad-a9c6-30f5111db32c",
+          "updated_at": "2026-06-11T12:29:46.262417+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3ed22b2b-9078-449b-8a6a-9216068026af",
+          "updated_at": "2026-06-11T12:17:58.680113+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "27cb0dff-de65-43d4-b73b-d6359364755c",
+          "updated_at": "2026-06-11T12:17:47.929578+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "91081f56-9484-41cf-961e-7160b91de445",
+          "updated_at": "2026-06-11T12:17:34.813164+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "adc47e6b-981b-4c69-bca1-5887e19de574",
+          "updated_at": "2026-06-11T12:17:24.121489+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "39c33b2f-ac54-4e61-afb2-5877a2b73d06",
+          "updated_at": "2026-06-10T14:12:40.518706+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6ce2a3de-8736-46ef-85d8-e75261c17dcd",
+          "updated_at": "2026-06-10T14:12:28.961445+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "01ff9a1c-5833-4241-abd1-b8b1cb003a69",
+          "updated_at": "2026-06-10T14:12:16.590697+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "521ffeff-ebbd-4eee-b430-0841b293e300",
+          "updated_at": "2026-06-10T14:12:06.527686+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a1ef5891-928e-43a8-ad1d-5c581b5f0290",
+          "updated_at": "2026-06-10T14:10:39.262737+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "59730f25-0525-41cb-afc8-845d4451c571",
+          "updated_at": "2026-06-10T14:10:28.568353+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "25ca5b01-3a6a-4e19-8719-f9bfeecf54ec",
+          "updated_at": "2026-06-10T14:09:05.000969+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "fb4ce2ec-7625-498d-b1db-67b418f852ef",
+          "updated_at": "2026-06-10T14:08:53.954298+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "2b9ed78c-eb42-4961-baf8-a57a4e2c5af1",
+          "updated_at": "2026-06-10T14:08:41.070373+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7a4e2f78-b314-49e8-a63a-3b388a0981eb",
+          "updated_at": "2026-06-10T14:08:31.241967+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6927f214-2b0a-4c29-abc5-072bb01f064f",
+          "updated_at": "2026-06-10T14:06:46.411591+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8d00380b-9a8b-44e1-be34-a7aace04a4a8",
+          "updated_at": "2026-06-10T14:06:35.204644+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "2cb18b41-661a-4bcd-bac5-51d0e2ca4102",
+          "updated_at": "2026-06-10T14:06:22.691624+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "72c5fc0f-e47e-40db-a6c0-2756d93d2379",
+          "updated_at": "2026-06-10T14:06:12.982855+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "2f971967-dbca-4e8a-88ed-4185f53d466e",
+          "updated_at": "2026-06-10T13:26:29.056266+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "879f9b80-7239-4457-a35b-33bc29db6c87",
+          "updated_at": "2026-06-10T13:26:18.046642+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "477927e4-c885-4865-91b5-37a2320c5fe7",
+          "updated_at": "2026-06-10T13:26:05.507894+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "864b7644-3843-4661-9f18-2b3959e88938",
+          "updated_at": "2026-06-10T13:25:55.389395+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d767ff6f-ea0c-40eb-a11d-a89c4adb44ae",
+          "updated_at": "2026-06-10T13:24:40.231847+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "9bb6a840-9f2f-46dd-91da-7dba22cc8d2c",
+          "updated_at": "2026-06-10T13:24:28.930655+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c354ef97-ebff-4449-992d-8c7e2631d4e7",
+          "updated_at": "2026-06-10T13:24:15.849879+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c34e5764-b711-4294-9e92-dc5b72065764",
+          "updated_at": "2026-06-10T13:24:04.346083+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3a2f7775-4036-406f-9637-2cfc6cf1be03",
+          "updated_at": "2026-06-10T05:25:38.662967+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c0501298-cd04-4f04-be6a-ca62852f748d",
+          "updated_at": "2026-06-10T05:25:27.342621+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "980378d6-683a-430e-a0ca-b56e3d9cd978",
+          "updated_at": "2026-06-10T05:25:14.643577+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ff527f49-8de0-464a-becf-8ac21d430d29",
+          "updated_at": "2026-06-10T05:25:05.034324+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6c28e35a-359a-43ca-a06b-2679aa236af5",
+          "updated_at": "2026-06-10T05:23:59.973331+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5749c30a-2b73-4042-a17e-821f07783c21",
+          "updated_at": "2026-06-10T05:23:48.791605+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "54f20bd9-9562-442e-a7ca-58fbb02e79c7",
+          "updated_at": "2026-06-10T05:23:36.135043+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "47affd1f-fb74-4815-a33f-b7cf49b43bbb",
+          "updated_at": "2026-06-10T05:23:26.050971+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "491710d3-2401-4d33-a642-67f561040d2c",
+          "updated_at": "2026-06-10T05:22:09.969455+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f08b1d29-b2e0-4f9c-b17a-7019f2767268",
+          "updated_at": "2026-06-10T05:21:58.322195+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "38640217-6a81-4807-9f87-a48cf355abee",
+          "updated_at": "2026-06-10T05:21:45.621600+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5e39f729-68a4-44dd-a32f-fd5a59193119",
+          "updated_at": "2026-06-10T05:21:35.758827+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "99975312-c0fe-4ccc-91cc-2f49a3b980cc",
+          "updated_at": "2026-06-10T04:17:17.446563+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "72548a5f-a4a7-4bbb-a651-9628e47f8b3d",
+          "updated_at": "2026-06-10T04:17:06.594673+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "356cf3d4-d9b8-4bfe-8a4f-20f7d354a132",
+          "updated_at": "2026-06-10T04:16:53.072004+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a7793899-5e97-4863-a73f-f59565ffac69",
+          "updated_at": "2026-06-10T04:16:43.236111+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "025d1780-cb9d-4e7e-a287-cf6fa3a6aca1",
+          "updated_at": "2026-06-10T04:15:38.434682+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a7f5729a-cadb-4f18-987f-0916a627a83e",
+          "updated_at": "2026-06-10T04:15:27.606330+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "12f81ef3-ce3a-4552-a445-d00aefcb660c",
+          "updated_at": "2026-06-10T04:15:14.738318+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f736607c-03af-411b-9a31-87b4bee4457e",
+          "updated_at": "2026-06-10T04:15:05.053243+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5f5c8f48-d32f-4cc9-87db-d25d3e7f0a23",
+          "updated_at": "2026-06-10T03:59:00.883895+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "0dcfd2ba-11e9-4330-a273-379b30c95d24",
+          "updated_at": "2026-06-10T03:58:49.359702+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "44ef3171-bd8c-4163-9a8a-c74b257c5ae2",
+          "updated_at": "2026-06-10T03:58:36.180020+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ad755e58-0670-4d7c-a793-f132f00279e3",
+          "updated_at": "2026-06-10T03:58:26.595633+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3f680103-a04d-4a00-a485-7910398c2b25",
+          "updated_at": "2026-06-10T03:31:47.654299+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "123d46ad-5a19-4b2a-a4bc-e7e06502b1e3",
+          "updated_at": "2026-06-10T03:31:36.535133+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "656662fe-7938-4f49-bbca-8525521f254e",
+          "updated_at": "2026-06-10T03:31:24.046067+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d2f59c21-cd8b-4407-aa09-d7295b77b12b",
+          "updated_at": "2026-06-10T03:31:13.707949+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e6403a8d-3b30-4f5b-bc17-10dca764c675",
+          "updated_at": "2026-06-10T03:30:07.591583+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3f4233fd-4a49-48c3-aea1-06dbdd031152",
+          "updated_at": "2026-06-10T03:29:56.275826+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7e371d88-d572-4722-ac23-ae7d3c36a607",
+          "updated_at": "2026-06-10T03:29:43.709762+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "de0390ea-409b-4d20-84ef-cf14f222c6a9",
+          "updated_at": "2026-06-10T03:29:33.675901+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5fcbe15c-533c-4712-8b72-cebe5a949739",
+          "updated_at": "2026-06-10T03:27:31.416650+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "2818c15b-0a8c-45d2-a022-ba67a8c22338",
+          "updated_at": "2026-06-10T03:27:19.789807+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "08c69ab9-2aac-43c6-9df7-086aa0401f18",
+          "updated_at": "2026-06-10T03:27:07.494916+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d29257f4-7876-4c5d-865d-7ba965bde56e",
+          "updated_at": "2026-06-10T03:26:57.879503+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c4c4e359-4a81-4a07-a071-bd2896404d7a",
+          "updated_at": "2026-06-07T14:00:08.538218+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3f5d1242-2cf1-43f4-b21d-b2f3b25a767b",
+          "updated_at": "2026-06-07T13:59:58.165822+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d47a574a-a08f-4468-9fef-e8e2604ef06c",
+          "updated_at": "2026-06-07T13:59:45.803851+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3aba4171-c86a-4384-9061-76503bd10f26",
+          "updated_at": "2026-06-07T13:59:36.154082+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5dd1afae-1da8-45d7-a8c5-cfb93116c9f6",
+          "updated_at": "2026-06-07T13:58:38.619929+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "9213acb9-9242-48ac-a4a1-b99873c24947",
+          "updated_at": "2026-06-07T13:58:27.973287+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7fc5f4f7-ad01-4d65-b7c6-598b40875e72",
+          "updated_at": "2026-06-07T13:58:15.564812+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1f550971-0b2a-4d6a-aa77-ca197a1ff895",
+          "updated_at": "2026-06-07T13:58:05.463625+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d3082f3b-93d5-4ac1-86f3-6079ea52c3d6",
+          "updated_at": "2026-06-07T13:56:15.962482+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "0a392950-e0f7-452c-9b32-93357a253ff7",
+          "updated_at": "2026-06-07T13:56:04.857980+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "438390f4-3785-40e8-a611-a3886732e610",
+          "updated_at": "2026-06-07T13:55:51.943510+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d46c4b35-91ce-415b-8270-cf41bc43bb5c",
+          "updated_at": "2026-06-07T13:55:42.362076+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "780206a2-76da-4658-ae68-caec3420f3f3",
+          "updated_at": "2026-06-07T13:54:49.700562+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7b374c04-e5b4-4516-8b48-140dd9feda16",
+          "updated_at": "2026-06-07T13:54:38.774924+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "9a3c0530-7e68-475b-a049-0b3bc40b0bf3",
+          "updated_at": "2026-06-07T13:54:26.306467+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "eef750dd-6063-453b-b33a-9a4afc93dd50",
+          "updated_at": "2026-06-07T13:54:16.721310+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "950a84b3-f33e-4ae5-aab9-4331c705d439",
+          "updated_at": "2026-06-07T13:53:35.822587+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "40e511f0-d879-4fd4-8a8a-c6ce90b20e42",
+          "updated_at": "2026-06-07T13:53:25.015262+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "9f2c93cb-7fa6-440f-8760-fd70a86a90d5",
+          "updated_at": "2026-06-07T13:53:12.451949+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "dcfa487c-2e9f-4569-9297-b222b602fbef",
+          "updated_at": "2026-06-07T13:53:02.281328+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6ec64e42-dbd9-4c6a-87e6-552015f145cf",
+          "updated_at": "2026-06-07T13:51:50.971617+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f9a77228-de57-4c72-be21-032737305b6c",
+          "updated_at": "2026-06-07T13:51:40.158218+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "c179be1f-5f97-4be3-8e15-a9a314a55dbe",
+          "updated_at": "2026-06-07T13:51:27.556813+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ef975f3f-9e47-4b4b-ac71-251c5a5408f2",
+          "updated_at": "2026-06-07T13:51:17.613304+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a73bfb38-da19-4947-a304-20fd01a3eb40",
+          "updated_at": "2026-06-07T13:50:20.801992+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "07c3a864-2ef3-4230-bec7-beb7c7739607",
+          "updated_at": "2026-06-07T13:50:09.853634+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "102bb191-d594-4795-a1ef-e0bb3972cb5a",
+          "updated_at": "2026-06-07T13:49:57.362266+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "94d0ff67-e32d-4899-8a61-7097e81f080b",
+          "updated_at": "2026-06-07T13:49:47.793465+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ff2e6177-214d-4e60-b971-1b67d588d27e",
+          "updated_at": "2026-06-07T13:44:01.750900+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6862301e-9c7c-414f-96f5-57b244632218",
+          "updated_at": "2026-06-07T13:43:50.592347+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "49f364d3-2580-4609-9365-6db3398e4e51",
+          "updated_at": "2026-06-07T13:43:37.967966+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "368e7ff0-bddc-453b-932d-b1f63a25440b",
+          "updated_at": "2026-06-07T13:43:28.430841+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1796424b-aaa7-48ca-aaac-88cb5d0e647f",
+          "updated_at": "2026-06-07T13:42:00.738171+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "47cec65a-cb9f-4124-999a-e33f7e46695b",
+          "updated_at": "2026-06-07T13:41:49.936239+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "9a03c68d-c3a4-4879-bc1b-e1407bb34cdf",
+          "updated_at": "2026-06-07T13:41:37.502029+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d1d60a90-d309-4724-b938-4488ed0fd388",
+          "updated_at": "2026-06-07T13:41:27.876517+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "105f2b85-f45a-4840-916c-953befdf8942",
+          "updated_at": "2026-06-06T22:48:52.592207+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "2fbbab6a-0bce-415f-8a68-fd7e23fa9cc8",
+          "updated_at": "2026-06-06T22:48:37.809837+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "465aee89-8e4d-4a44-9130-2f08d4c185d7",
+          "updated_at": "2026-06-06T22:48:25.610405+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "eea911ad-7117-482c-8537-cc1c9e8ca0dc",
+          "updated_at": "2026-06-06T22:48:16.074998+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "4b024c4b-7321-4286-a010-d2aa3e5637f9",
+          "updated_at": "2026-06-06T22:47:06.368556+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e7c7b174-ca02-42c7-a79b-50ec0e6ee635",
+          "updated_at": "2026-06-06T22:46:55.762727+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7bee2eb1-14e2-43c3-91a6-17c2c79c6316",
+          "updated_at": "2026-06-06T22:46:42.795171+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5fefcb43-f361-4e91-b7c1-33419fa1ce33",
+          "updated_at": "2026-06-06T22:46:32.597075+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e54eb817-aa9a-465a-bd23-ebb50e0174aa",
+          "updated_at": "2026-06-06T22:39:49.227299+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8c94cae4-0dd5-42f3-85d6-72c5345f24ee",
+          "updated_at": "2026-06-06T22:39:38.798744+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "887a7de5-0396-463c-af91-0afeeef5f56b",
+          "updated_at": "2026-06-06T22:39:26.150360+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b6c9581c-d9e3-425e-bb71-552764c280d4",
+          "updated_at": "2026-06-06T22:39:16.411517+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1620edab-c9aa-43a3-af79-2591f8426274",
+          "updated_at": "2026-06-06T22:37:01.797373+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "525f31eb-2e99-43ab-a2b4-d7ba70f58018",
+          "updated_at": "2026-06-06T22:36:51.131603+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6fa6379a-39d8-4407-9064-9d4d051a70d5",
+          "updated_at": "2026-06-06T22:36:38.660411+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3fe6e5c4-51d3-4b54-b560-3a387e5752fb",
+          "updated_at": "2026-06-06T22:36:28.838727+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "397a9844-4832-498b-a716-902c3e9a8105",
+          "updated_at": "2026-06-06T21:41:50.437278+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7fca280f-02f7-4341-afaf-82c490093f86",
+          "updated_at": "2026-06-06T21:41:39.651984+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f4f62029-6949-4754-a4ab-eae4a56831b3",
+          "updated_at": "2026-06-06T21:41:27.157482+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "657ec462-04a2-4f89-bb27-95214b176dd0",
+          "updated_at": "2026-06-06T21:41:17.331779+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5a2a95f6-ee07-44f2-87b2-f99460ff53aa",
+          "updated_at": "2026-06-06T03:18:20.029368+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5b952170-7fa7-4dbb-a448-dbc5e0090eff",
+          "updated_at": "2026-06-06T03:18:08.797101+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "457726cf-1017-4d0e-aa61-98f1bc3ca1ee",
+          "updated_at": "2026-06-06T03:17:56.073461+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5c8c60d5-c4a5-4c0e-87dc-32ea2dd138f5",
+          "updated_at": "2026-06-06T03:17:46.401286+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "114a74ee-ff0c-40ce-aba7-db0a97a6661f",
+          "updated_at": "2026-06-06T03:16:05.179056+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "21c6e320-3ad6-4298-a1d8-2e7071400a32",
+          "updated_at": "2026-06-06T03:15:54.380660+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "55e9eb3b-822f-4ece-9620-e65419956dcb",
+          "updated_at": "2026-06-06T03:15:41.669977+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a8feb3d4-a13e-409f-b91c-0240ba584562",
+          "updated_at": "2026-06-06T03:15:31.465029+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "d66e39d4-863e-47c2-ad62-7ce0f451ccbd",
+          "updated_at": "2026-06-06T02:58:01.005602+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "fb7f3adc-1630-4957-97f0-97d03e7fdc64",
+          "updated_at": "2026-06-06T02:57:50.289335+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "0cbdc796-3cef-4a17-aded-113984b490ef",
+          "updated_at": "2026-06-06T02:57:37.881465+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "4d924b9c-f67a-4198-ab68-a93832689816",
+          "updated_at": "2026-06-06T02:57:28.208088+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "1d609a45-d49f-4ba9-896e-9cd2d95379fc",
+          "updated_at": "2026-06-06T02:56:35.837083+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e5eaac21-6d59-4f39-aab0-fbc240f752f3",
+          "updated_at": "2026-06-06T02:56:25.142537+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "49bcafc9-da33-4158-a844-8d53b25bc82d",
+          "updated_at": "2026-06-06T02:56:12.529011+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "9cafd643-c405-46e9-851f-9c1c88b98616",
+          "updated_at": "2026-06-06T02:56:02.346908+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a936e44a-b87e-4449-8685-22bb8d78f2af",
+          "updated_at": "2026-06-06T02:54:51.001466+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "92465561-f353-4ef5-91b7-444d8be9e2eb",
+          "updated_at": "2026-06-06T02:54:40.398158+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "002a48e7-4353-4f18-a4eb-a5324710ee82",
+          "updated_at": "2026-06-06T02:54:27.628093+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "712d3cf9-6bae-451f-a103-9ca28d55cd66",
+          "updated_at": "2026-06-06T02:54:17.687783+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "47c847e4-88ed-49a6-af49-3735726cc9a8",
+          "updated_at": "2026-06-05T13:17:01.803473+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8d916ce0-9dc9-4e48-9e6e-902549dd18ae",
+          "updated_at": "2026-06-05T13:16:51.249239+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "fb997485-2cae-4ada-ae8f-87c8ddc835b8",
+          "updated_at": "2026-06-05T13:16:38.551954+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6d3852fb-064c-4d98-87ef-4804cd28a658",
+          "updated_at": "2026-06-05T13:16:28.808855+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e5896a93-9037-4b8a-a9af-6f1c78e506cf",
+          "updated_at": "2026-06-05T13:15:42.028233+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f162249f-806f-496a-ba21-73961968be17",
+          "updated_at": "2026-06-05T13:15:30.622331+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6d9f44be-2f83-4cd3-b383-c492b80b9a92",
+          "updated_at": "2026-06-05T13:15:17.179371+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "0f4b1ee8-791f-4291-9f2e-bdd0b6063861",
+          "updated_at": "2026-06-05T13:15:07.335402+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ac7c3f1d-91c4-4f70-8d1b-c2bb9f50c320",
+          "updated_at": "2026-06-05T13:04:18.685868+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a70218c4-8ebc-4591-8f15-83b6665eedbd",
+          "updated_at": "2026-06-05T13:04:07.909575+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a7019b4e-a2a3-46fb-b441-1c287264a94b",
+          "updated_at": "2026-06-05T13:03:55.376326+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "82965a90-6adf-444c-b66c-29f08ac51ca7",
+          "updated_at": "2026-06-05T13:03:45.883861+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "725cb632-e271-4a76-a1b8-62a220a700be",
+          "updated_at": "2026-06-05T13:03:03.823396+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ff401ee1-3b6e-456e-8ffa-92d78b54f344",
+          "updated_at": "2026-06-05T13:02:51.768479+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "14ee96ff-a692-4ef3-a909-3b0aa7f4d57c",
+          "updated_at": "2026-06-05T13:02:28.914721+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5ea72064-3a84-44ba-a551-c165524d0504",
+          "updated_at": "2026-06-05T13:02:16.340293+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "751d5924-e24f-4fc2-bfdb-14aac6af71af",
+          "updated_at": "2026-06-05T13:02:06.489755+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a6ee5d86-99b6-4107-bf5a-cc1bdf668bd7",
+          "updated_at": "2026-06-05T12:33:09.997625+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "bd278249-3c79-4fcf-90cc-a092c3e4d28e",
+          "updated_at": "2026-06-05T12:33:00.331400+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ab09a4e8-50f1-4aa8-a143-79746f885a62",
+          "updated_at": "2026-06-05T12:32:47.765843+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3f6a7fdc-546e-415c-9080-263902f27651",
+          "updated_at": "2026-06-05T12:32:37.749619+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b80cc707-2ae4-4ade-b6b1-0eb761340996",
+          "updated_at": "2026-06-05T12:31:36.394866+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5fec4039-912a-4ea9-9a39-a2b1900c983a",
+          "updated_at": "2026-06-05T12:31:23.632555+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6bc7a0c1-a069-407c-b352-3e9bc05356ef",
+          "updated_at": "2026-06-05T12:31:11.077265+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b8925a38-9ca0-462e-89b1-cc9328ca6ce2",
+          "updated_at": "2026-06-05T12:31:01.267829+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "92772b38-481b-41e1-a4e3-de2268125464",
+          "updated_at": "2026-06-05T12:29:41.521131+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "e18525c6-76dd-4afa-bb3f-9d9494323890",
+          "updated_at": "2026-06-05T12:29:31.708376+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "884b9c88-6a11-41ed-b830-f473fe6f8c42",
+          "updated_at": "2026-06-05T12:29:19.027490+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "17fffbf2-d77b-480f-903c-26f21a47388b",
+          "updated_at": "2026-06-05T12:29:09.016412+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8e59f4e9-1859-484c-97d4-887a622f663b",
+          "updated_at": "2026-06-04T18:03:56.255820+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "41ac27a4-0035-46ff-86ea-e6ae4a8cd11e",
+          "updated_at": "2026-06-04T18:03:46.656059+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "aa53b39f-b185-486b-852e-ca13fde3cbbd",
+          "updated_at": "2026-06-04T18:03:34.084841+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8411b5ed-dd0f-47c5-a965-1e81d6403949",
+          "updated_at": "2026-06-04T18:03:24.573453+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "75ee1389-b4d5-46f0-962e-cb0634a2dd50",
+          "updated_at": "2026-06-04T17:58:41.528174+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "5cfc88e8-ede9-4d43-84d3-e4a03cdb387d",
+          "updated_at": "2026-06-04T17:58:31.457385+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "845c9390-8e37-47bb-90c6-fa1d4ef96279",
+          "updated_at": "2026-06-04T17:45:53.707108+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "ac8bb9d1-816c-447c-b7ad-8e049b57d7d9",
+          "updated_at": "2026-06-04T17:45:43.529356+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "14743d0e-4b09-47f4-b500-6640a0bae56a",
+          "updated_at": "2026-06-04T17:45:31.078727+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "63e3fbd8-e788-4af6-995e-e94aa875d5f3",
+          "updated_at": "2026-06-04T17:45:21.298284+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3e06a4ff-0e3b-4a36-bf92-02ca4d4886ae",
+          "updated_at": "2026-06-04T17:44:07.463690+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a8ace99a-0708-4513-a2c1-3f6598cac7d6",
+          "updated_at": "2026-06-04T17:43:57.620324+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "f3dbd914-2f82-4579-a322-6625fae12632",
+          "updated_at": "2026-06-04T17:43:44.977727+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "98972836-29ea-477d-b5d9-fec617df0c6f",
+          "updated_at": "2026-06-04T17:43:35.626677+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7cfe5cf3-1e7b-447f-bb09-249c1180bcbd",
+          "updated_at": "2026-06-04T17:43:02.216254+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8ed2945c-6cad-4c33-b29c-35ecbeba9ff9",
+          "updated_at": "2026-06-04T17:42:52.713143+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8b5ac58e-778c-4f4c-bd51-7fc183f64b55",
+          "updated_at": "2026-06-04T17:42:39.507885+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "efcd1850-d382-4e1c-ab82-75716de5a44d",
+          "updated_at": "2026-06-04T17:42:29.489915+00:00",
+          "size_kb": 0.4,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "967ba881-3c34-49a9-9b19-0dd1e614e3d7",
+          "updated_at": "2026-06-04T17:38:36.901770+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7a022d57-84c8-494a-b847-8e3858df44cb",
+          "updated_at": "2026-06-04T17:38:27.414407+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "44a38802-77e3-4d33-a4f5-b65612c8e2ca",
+          "updated_at": "2026-06-04T17:38:15.068292+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "8a5ea94d-7d33-49a9-ade4-2c45ba5bbe3f",
+          "updated_at": "2026-06-04T17:38:05.554411+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b2572249-a915-48d9-a353-8cbf6fb82218",
+          "updated_at": "2026-06-04T17:33:04.039085+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with one word: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "7f72704b-3436-4d4c-af2a-5f47af750856",
+          "updated_at": "2026-06-04T17:32:54.543680+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: phase1 </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a57bdb98-3ec4-4d8c-a3b1-951ab190a398",
+          "updated_at": "2026-06-04T17:32:42.344156+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "3fdd5c57-39f1-410e-83f5-58e8a703a99e",
+          "updated_at": "2026-06-04T17:32:32.510493+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "666a4089-c246-435f-9f9d-13349fb4fc29",
+          "updated_at": "2026-06-04T17:31:14.724597+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "a6908c5b-6898-49d0-be5e-cc938d917d01",
+          "updated_at": "2026-06-04T17:31:05.277531+00:00",
+          "size_kb": 0.4,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "322a38ce-c83c-4f10-83fb-8a9716bd21fe",
+          "updated_at": "2026-06-04T17:21:08.826329+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "bc1ffab2-64f1-4b16-a67a-a19137131cf1",
+          "updated_at": "2026-06-04T17:20:59.408922+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "715ba2a4-265f-4483-93d0-f0f27a2ba1a7",
+          "updated_at": "2026-06-04T05:42:43.214092+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "b2d13c1b-2765-4150-b0fb-14a4f579bb1a",
+          "updated_at": "2026-06-04T05:42:33.575602+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "78a70eea-71fe-4858-899c-064218856215",
+          "updated_at": "2026-06-03T11:12:03.339940+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "0287d2d4-a957-4cd4-9889-8e1debb3fc4e",
+          "updated_at": "2026-06-03T11:11:53.665400+00:00",
+          "size_kb": 0.3,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "359120de-a9a5-4eed-93c8-167c0b5578a7",
+          "updated_at": "2026-06-03T06:35:58.040366+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> reply with exactly: ok </user_query>",
+          "subagent_count": 0
+        },
+        {
+          "transcript_id": "6d364724-01c6-43c0-a0f8-32046cfd1a15",
+          "updated_at": "2026-06-03T06:35:48.074783+00:00",
+          "size_kb": 0.2,
+          "preview": "<user_query> ping </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 207,
+      "last_active": "2026-06-11T12:30:52.601531+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-SA",
+      "display_name": "SA",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-SA",
+      "sessions": [
+        {
+          "transcript_id": "2f3645af-24e9-4dfd-95fd-54ce8d49f29c",
+          "updated_at": "2026-06-11T03:36:05.758628+00:00",
+          "size_kb": 66.0,
+          "preview": "<uploaded_documents> The following documents have been saved to your filesystem. You can read them using your file-readi\u2026",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 1,
+      "last_active": "2026-06-11T03:36:05.758628+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Projects-test-repo",
+      "display_name": "Users-sinakazemnezhad-Projects-test-repo",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Projects-test-repo",
+      "sessions": [
+        {
+          "transcript_id": "7724bf0a-a2c5-40ef-9a3b-76906e6f86d4",
+          "updated_at": "2026-06-05T15:55:42.058264+00:00",
+          "size_kb": 29.8,
+          "preview": "<user_query> what is the diffrence between this window and the main app? </user_query>",
+          "subagent_count": 1
+        },
+        {
+          "transcript_id": "83184d0f-100c-46d4-9f20-233d9f38b22b",
+          "updated_at": "2026-06-01T04:41:47.768727+00:00",
+          "size_kb": 28.3,
+          "preview": "<user_query> hi where is terminal? </user_query>",
+          "subagent_count": 0
+        }
+      ],
+      "session_count": 2,
+      "last_active": "2026-06-05T15:55:42.058264+00:00"
+    },
+    {
+      "slug": "Users-sinakazemnezhad-Desktop-Wirelux",
+      "display_name": "Wirelux",
+      "path_hint": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-Wirelux",
+      "sessions": [
+        {
+          "transcript_id": "d79d610a-cf89-4d45-9ff0-ef0ab55d8665",
+          "updated_at": "2026-05-29T11:14:42.442122+00:00",
+          "size_kb": 102.1,
+          "preview": "<user_query> search about this website: kavodax.com </user_query>",
+          "subagent_count": 2
+        }
+      ],
+      "session_count": 1,
+      "last_active": "2026-05-29T11:14:42.442122+00:00"
+    }
+  ],
+  "summary": {
+    "workspace_count": 27,
+    "session_count": 463,
+    "active_sessions_24h": 13
+  }
+}

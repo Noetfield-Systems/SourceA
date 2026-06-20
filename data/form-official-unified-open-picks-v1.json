@@ -1,0 +1,1350 @@
+{
+  "ok": true,
+  "schema": "form-official-unified-open-picks-v1",
+  "saved_at": "2026-06-19T07:32:09Z",
+  "fail_policy": "FAIL_IMMEDIATE_NO_TEMPER",
+  "form_hub": "http://127.0.0.1:13020/form/",
+  "canvas": "FORM_OFFICIAL M1 \u00b7 Pending confirmations",
+  "intake_path": "/Users/sinakazemnezhad/.sina/live-founder-decision-form-intake-v1.json",
+  "totals": {
+    "intake_rows": 116,
+    "unpicked_raw": 60,
+    "unpicked_canonical": 58,
+    "prior_pick": 56,
+    "cap": 100,
+    "cap_reached": true
+  },
+  "dedupe_clusters": [
+    {
+      "cluster_id": "CLUSTER-CAP-100",
+      "canonical_id": "Q-GATH-06",
+      "member_ids": [
+        "Q-GATH-06",
+        "Q-MF-12"
+      ],
+      "note": "100-cap remind vs build \u2014 same law; pick either once"
+    },
+    {
+      "cluster_id": "CLUSTER-NPM-CARD1",
+      "canonical_id": "Q-MF-02",
+      "member_ids": [
+        "Q-MF-02",
+        "Q-CHAT-PUBLISH-01"
+      ],
+      "note": "npm Card1 publish timing \u2014 thread + chat synthesis same fork"
+    },
+    {
+      "cluster_id": "CLUSTER-CLOUD-PROOF",
+      "canonical_id": "Q-CHAT-CLOUD-01",
+      "member_ids": [
+        "Q-CHAT-CLOUD-01",
+        "Q-MF-06"
+      ],
+      "note": "Cloud SSE vs local E2E vs Supabase deploy order \u2014 related sequencing"
+    },
+    {
+      "cluster_id": "CLUSTER-UNIFY-GO",
+      "canonical_id": "Q-FINAL-05",
+      "member_ids": [
+        "Q-FINAL-05",
+        "Q-SESSION-UNIFY-GO",
+        "Q-GATH-05"
+      ],
+      "note": "Gather complete \u2192 UNIFY phase authorization"
+    }
+  ],
+  "priority_blocks": [
+    {
+      "block": 1,
+      "title": "Form meta + cap law",
+      "pick_ids": [
+        "Q-GATH-06",
+        "Q-SESSION-FORM-BUILD"
+      ],
+      "route": "founder"
+    },
+    {
+      "block": 2,
+      "title": "Language + voice (never chat-only)",
+      "pick_ids": [
+        "Q-CHAT-LANG-01",
+        "Q-CHAT-PLUSONE-01"
+      ],
+      "route": "founder"
+    },
+    {
+      "block": 3,
+      "title": "Marketplace + Proof Layer (this thread)",
+      "pick_ids": [
+        "Q-MF-01",
+        "Q-MF-02",
+        "Q-MF-03",
+        "Q-MF-04",
+        "Q-MF-09",
+        "Q-MF-11"
+      ],
+      "route": "founder"
+    },
+    {
+      "block": 4,
+      "title": "Cloud factory build order",
+      "pick_ids": [
+        "Q-MF-05",
+        "Q-MF-06",
+        "Q-MF-07",
+        "Q-MF-08"
+      ],
+      "route": "founder"
+    },
+    {
+      "block": 5,
+      "title": "Strategic spine + brain cloud",
+      "pick_ids": [
+        "Q-FINAL-01",
+        "Q-FINAL-02",
+        "Q-FINAL-03",
+        "Q-FINAL-04",
+        "Q-FINAL-06",
+        "Q-FINAL-07"
+      ],
+      "route": "founder"
+    },
+    {
+      "block": 6,
+      "title": "Session + commercial gates",
+      "pick_ids": [
+        "Q-MF-10",
+        "Q-SESSION-INBOX-NEXT",
+        "Q-SESSION-CLOUD-CF06",
+        "Q-THREAD-DEPLOY-01"
+      ],
+      "route": "founder"
+    }
+  ],
+  "unpicked_canonical": [
+    {
+      "id": "Q-GATH-06",
+      "title": "Gather cap 100 \u2014 founder fill \u00b7 agents build",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 100 cap \u00b7 remind minder fast \u00b7 else BUILD (recommended)",
+        "B \u2014 No cap \u2014 keep gathering forever",
+        "C \u2014 Cap at 50 \u2014 fill sooner",
+        "D \u2014 Stop form \u2014 chat only"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-GATH-06 A",
+      "gather_tier": "P0_meta",
+      "gather_source": "gather_meta",
+      "duplicate_cluster": "CLUSTER-CAP-100",
+      "canonical_in_cluster": "Q-GATH-06",
+      "brain_plan": {
+        "route": "brain",
+        "plan": "Lock cap=100 minder \u00b7 agents BUILD below cap \u00b7 URGENT remind at cap",
+        "proof": "scripts/form_official_minder_v1.py \u00b7 form_official_gather_extraction_v1.py"
+      }
+    },
+    {
+      "id": "Q-MF-09",
+      "title": "Blueprint LOCKED doc \u2014 accept as SSOT?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 blueprint is SSOT (recommended)",
+        "B \u2014 Revise before lock",
+        "C \u2014 JSON only \u2014 no docs authority",
+        "D \u2014 Wait for form unify pass"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-09 A",
+      "gather_tier": "P0_meta",
+      "gather_source": "thread_marketplace_factory",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-MF-09",
+      "brain_plan": {
+        "route": "brain",
+        "plan": "Register blueprint as multi-factory SSOT in authority index row",
+        "proof": "docs/SOURCEA_MULTI_FACTORY_ENTERPRISE_BLUEPRINT_LOCKED_v1.md"
+      }
+    },
+    {
+      "id": "Q-MF-11",
+      "title": "Do not fork Gemini monorepo \u2014 confirm?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 SourceA only \u2014 no fork (recommended)",
+        "B \u2014 Allow experimental fork on Desktop",
+        "C \u2014 Migrate whole empire to new monorepo",
+        "D \u2014 Dual root SourceA + SinaaiDataBase build"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-11 A",
+      "gather_tier": "P0_meta",
+      "gather_source": "thread_marketplace_factory",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-MF-11",
+      "brain_plan": {
+        "route": "brain",
+        "plan": "Reject fork proposals \u00b7 map Gemini ideas into SourceA paths only",
+        "proof": "data/multi-factory-enterprise-tree-advisory-v1.json"
+      }
+    },
+    {
+      "id": "Q-SESSION-ARCH-UNIFY-PLAN",
+      "title": "Post-gather \u2014 Brain unify routing plan authority?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 Brain planner SSOT \u00b7 Worker executes picks only (recommended)",
+        "B \u2014 Worker self-routes \u2014 no Brain plan",
+        "C \u2014 Chat routing only",
+        "D \u2014 Defer until form empty"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-ARCH-UNIFY-PLAN A",
+      "gather_tier": "P0_meta",
+      "gather_source": "session_architect",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-SESSION-ARCH-UNIFY-PLAN",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-SESSION-FORM-BUILD",
+      "title": "Form open + BUILD \u2014 parallel OK?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 parallel form fill + Worker BUILD (recommended)",
+        "B \u2014 Form only \u2014 freeze INBOX until empty",
+        "C \u2014 BUILD only \u2014 ignore form until RT LIVE",
+        "D \u2014 Brain only \u2014 no Worker"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-FORM-BUILD A",
+      "gather_tier": "P0_meta",
+      "gather_source": "session_build",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-SESSION-FORM-BUILD",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-SESSION-GATHER-NO-LOST",
+      "title": "Lock \u2014 every chat A/B/C lands on FORM_OFFICIAL",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 chat forks \u2192 form only \u00b7 FAIL immediate if lost (recommended)",
+        "B \u2014 Chat OK for picks \u2014 form optional",
+        "C \u2014 Form for P0 only \u2014 chat for rest",
+        "D \u2014 Pause form \u2014 chat only until RT LIVE"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-GATHER-NO-LOST A",
+      "gather_tier": "P0_meta",
+      "gather_source": "session_architect",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-SESSION-GATHER-NO-LOST",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-SESSION-UNIFY-GO",
+      "title": "After you fill \u2014 Brain UNIFY pass on all rows?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 auto UNIFY when open count drops below 10 (recommended)",
+        "B \u2014 Manual \u2014 you say unify",
+        "C \u2014 Skip unify \u2014 ship code only",
+        "D \u2014 Reset form \u2014 regather"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-UNIFY-GO A",
+      "gather_tier": "P0_meta",
+      "gather_source": "session_build",
+      "duplicate_cluster": "CLUSTER-UNIFY-GO",
+      "canonical_in_cluster": "Q-FINAL-05",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-THREAD-10STEP-01",
+      "title": "10-step program \u2014 full WORK vs SAVE spec first?",
+      "recommended": "B",
+      "options": [
+        "A \u2014 Full WORK: code + heal + hub (10 steps implemented)",
+        "B \u2014 SAVE locked 10-step spec first, then implement in follow-up WORK (recommended)",
+        "C \u2014 Plan only \u2014 no disk changes until I say WORK",
+        "D \u2014 Worker RUN INBOX only \u2014 defer 10-step bundle"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-THREAD-10STEP-01 B",
+      "gather_tier": "P0_meta",
+      "gather_source": "thread_marketplace_factory",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-THREAD-10STEP-01",
+      "brain_plan": {
+        "route": "brain",
+        "plan": "If A: full WORK 10 steps \u00b7 B: SAVE spec then WORK \u00b7 C: plan only",
+        "proof": "brain-os/plan-registry"
+      }
+    },
+    {
+      "id": "Q-CHAT-CLOUD-01",
+      "title": "MCP proof \u2014 local PASS vs cloud SSE ship",
+      "recommended": "B",
+      "options": [
+        "A \u2014 deploy SSE + VIRLUX redeploy now",
+        "B \u2014 Stay local E2E until Hub form P0 block answered (recommended)",
+        "C \u2014 npm Card1 publish before cloud SSE",
+        "D \u2014 Defer cloud + npm until UNIFY phase"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CHAT-CLOUD-01 B",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "chat_synthesis",
+      "duplicate_cluster": "CLUSTER-CLOUD-PROOF",
+      "canonical_in_cluster": "Q-CHAT-CLOUD-01",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-CHAT-LANG-01",
+      "title": "Agent reply language \u2014 \u0641\u0627\u0631\u0633\u06cc school (unpicked A/B/C)",
+      "recommended": "B",
+      "options": [
+        "A \u2014 \u0641\u0627\u0631\u0633\u06cc mainly \u2014 technical paths may stay English",
+        "B \u2014 Bilingual \u2014 \u0641\u0627\u0631\u0633\u06cc for meaning \u00b7 English for paths/proof (recommended)",
+        "C \u2014 English only \u2014 short \u00b7 plain \u00b7 no validator voice",
+        "D \u2014 Founder adds one \u0641\u0627\u0631\u0633\u06cc tone note on this row before pick"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CHAT-LANG-01 B",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "chat_synthesis",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-CHAT-LANG-01",
+      "brain_plan": {
+        "route": "brain",
+        "plan": "Apply language mode to vocabulary inject + founder-facing copy law",
+        "proof": "scripts/vocabulary_guard_v1.py --tooling"
+      }
+    },
+    {
+      "id": "Q-CHAT-NEXT-P0-01",
+      "title": "Brain P0 unlock order \u2014 unpicked next taps",
+      "recommended": "A",
+      "options": [
+        "A \u2014 Hub official form block 1 first (recommended)",
+        "B \u2014 RUN INBOX Worker sa-1200 F002 broker submit",
+        "C \u2014 deploy SSE cloud MCP + VIRLUX redeploy",
+        "D \u2014 ocree:confirm_sent commercial L3 attest"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CHAT-NEXT-P0-01 A",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "chat_synthesis",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-CHAT-NEXT-P0-01",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder daily tap order: form block \u2192 INBOX \u2192 deploy \u2192 commercial",
+        "proof": "~/.sina/live-ongoing-prompts-next-10-v1.json"
+      }
+    },
+    {
+      "id": "Q-CHAT-PLUSONE-01",
+      "title": "PLUS ONE voice law \u2014 wire before Brain copy?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 PLUS ONE language law + Prompt OS \u00a74 before voice (recommended)",
+        "B \u2014 Prompt OS \u00a74 \u0641\u0627\u0631\u0633\u06cc only \u2014 skip PLUS ONE on non-locale topics",
+        "C \u2014 English commercial copy only \u2014 defer \u0641\u0627\u0631\u0633\u06cc",
+        "D \u2014 Defer until Q-CHAT-LANG-01 answered"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CHAT-PLUSONE-01 A",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "chat_synthesis",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-CHAT-PLUSONE-01",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-CHAT-PUBLISH-01",
+      "title": "Cursor marketplace Card1 \u2014 npm publish timing",
+      "recommended": "B",
+      "options": [
+        "A \u2014 npm login + publish Card1 now",
+        "B \u2014 After Q-CHAT-NEXT-P0-01 form block + language pick (recommended)",
+        "C \u2014 Cloud SSE first \u00b7 then npm",
+        "D \u2014 Defer marketplace until MergePack L1 ship"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CHAT-PUBLISH-01 B",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "chat_synthesis",
+      "duplicate_cluster": "CLUSTER-NPM-CARD1",
+      "canonical_in_cluster": "Q-MF-02",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-FINAL-01",
+      "title": "North star after FBE-W6 \u2014 outbound drain vs cloud catalog sell?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 STRATEGIC-SLICE parallel: outbound P0 spine + FBE catalog cloud (recommended)",
+        "B \u2014 Outbound 66 only \u2014 pause FBE catalog until U067",
+        "C \u2014 FBE catalog/cloud only \u2014 pause outbound drain",
+        "D \u2014 Commercial W1 film only \u2014 pause both"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FINAL-01 A",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "chat_synthesis",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-FINAL-01",
+      "brain_plan": {
+        "route": "brain",
+        "plan": "Set STRATEGIC-SLICE north star \u00b7 parallel outbound + FBE catalog",
+        "proof": "brain_outbound_work_order_v1.py"
+      }
+    },
+    {
+      "id": "Q-FINAL-02",
+      "title": "U031 RRL bay \u2014 implement on FBE cloud runner or Worker WORK?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 Build outbound-rrl-intelligence FBE cloud bay first (recommended)",
+        "B \u2014 Worker bounded WORK on Mac now",
+        "C \u2014 sign_only until B0503 cloud consumer ships",
+        "D \u2014 Defer U031 until FORM unify pass done"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FINAL-02 A",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "chat_synthesis",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-FINAL-02",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-FINAL-03",
+      "title": "Mono never_sync_as_authority \u2014 lock for all FBE cloud sync?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 lock never_sync_as_authority on all FBE sync (recommended)",
+        "B \u2014 Receipts only \u2014 no bundle sync yet",
+        "C \u2014 Allow cloud to author graph SSOT",
+        "D \u2014 Defer until Railway URL set"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FINAL-03 A",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "chat_synthesis",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-FINAL-03",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-FINAL-04",
+      "title": "Vocabulary lock \u2014 Kernel \u00b7 Factory spec \u00b7 36 nodes \u00b7 14 buyer lines",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 vocabulary law on all Brain/commercial copy (recommended)",
+        "B \u2014 Hub UI shows 14 only",
+        "C \u2014 Single merged node count for marketing",
+        "D \u2014 Defer documentation"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FINAL-04 A",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "chat_synthesis",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-FINAL-04",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-FINAL-05",
+      "title": "Gathering complete \u2014 authorize UNIFY phase on 72+ rows?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 gathering complete \u00b7 start UNIFY pass (recommended)",
+        "B \u2014 More extraction first \u2014 agents keep adding rows",
+        "C \u2014 Pick P0 only now \u2014 skip unify",
+        "D \u2014 Reset form \u2014 regather from scratch"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FINAL-05 A",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "chat_synthesis",
+      "duplicate_cluster": "CLUSTER-UNIFY-GO",
+      "canonical_in_cluster": "Q-FINAL-05",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-FINAL-06",
+      "title": "Brain disk-first law \u2014 every strategic turn cites FOUND/NOT FOUND?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 disk path proof mandatory on Brain turns (recommended)",
+        "B \u2014 Form picks only \u2014 Brain essays allowed",
+        "C \u2014 Weekly disk pass only",
+        "D \u2014 Defer until UNIFY done"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FINAL-06 A",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "chat_synthesis",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-FINAL-06",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-FINAL-07",
+      "title": "Loop auto ON (True) + unmapped bay dispatch \u2014 safe?",
+      "recommended": "C",
+      "options": [
+        "A \u2014 Keep loop auto on all items",
+        "B \u2014 Loop auto OFF until all bays mapped",
+        "C \u2014 Auto dispatch mapped bays only \u00b7 sign_only unmapped (recommended)",
+        "D \u2014 Manual Hub tap per upgrade only"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FINAL-07 C",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "chat_synthesis",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-FINAL-07",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-MF-01",
+      "title": "Mac = cockpit only \u2014 lock cloud execution law?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 lock Mac cockpit + cloud execution (recommended)",
+        "B \u2014 Allow local render for dev only",
+        "C \u2014 Revert \u2014 Mac may run heavy jobs",
+        "D \u2014 Defer until Supabase live"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-01 A",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "thread_marketplace_factory",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-MF-01",
+      "brain_plan": {
+        "route": "brain",
+        "plan": "Wire mac_role control_plane_only into all factory spawn paths",
+        "proof": "data/cursor-bootstrap-ledger-v1.json \u00b7 architecture-ledger-v1.json"
+      }
+    },
+    {
+      "id": "Q-MF-02",
+      "title": "Cursor Card 1 \u2014 publish npm now?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 npm login + publish + marketplace submit now (recommended)",
+        "B \u2014 Wait until Supabase edge loop live",
+        "C \u2014 Wait until all form PICKs done",
+        "D \u2014 Defer marketplace entirely"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-02 A",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "thread_marketplace_factory",
+      "duplicate_cluster": "CLUSTER-NPM-CARD1",
+      "canonical_in_cluster": "Q-MF-02",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder npm login \u2192 bash scripts/npm_publish_mcp_chain_v1.sh \u2192 marketplace submit",
+        "proof": "receipts/card-1-sourcea-forge-governance-publish-v1.json"
+      }
+    },
+    {
+      "id": "Q-MF-03",
+      "title": "One marketplace card at launch?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 one Proof Layer card only (recommended)",
+        "B \u2014 Also list VIRLUX Infrastructure card",
+        "C \u2014 Four cards now (SourceA/VIRLUX/Noetfield/Canvas)",
+        "D \u2014 No marketplace \u2014 internal only"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-03 A",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "thread_marketplace_factory",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-MF-03",
+      "brain_plan": {
+        "route": "brain",
+        "plan": "Single Card1 listing only \u00b7 defer VIRLUX/Noetfield marketplace cards",
+        "proof": "cursor-plugin/sourcea-forge-governance/MARKETPLACE_LISTING.md"
+      }
+    },
+    {
+      "id": "Q-MF-05",
+      "title": "Build order \u2014 billing before creative?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 billing \u2192 orchestration \u2192 render \u2192 StoreKit (recommended)",
+        "B \u2014 Creative factory first \u2014 billing later",
+        "C \u2014 Supabase + Edge before billing",
+        "D \u2014 Parallel all tracks"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-05 A",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "thread_marketplace_factory",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-MF-05",
+      "brain_plan": {
+        "route": "worker",
+        "plan": "Execute build order: billing \u2192 orchestration \u2192 Fal bridge \u2192 StoreKit",
+        "proof": "bash scripts/validate-video-ad-factory-chain-v1.sh"
+      }
+    },
+    {
+      "id": "Q-MF-08",
+      "title": "HUMAN_APPROVAL_REQUIRED \u2014 mandatory before Fal spend?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 mandatory founder approve before Fal (recommended)",
+        "B \u2014 Auto-approve after ElevenLabs",
+        "C \u2014 Skip approval for sandbox tier only",
+        "D \u2014 Remove approval gate"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-08 A",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "thread_marketplace_factory",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-MF-08",
+      "brain_plan": {
+        "route": "maintainer",
+        "plan": "Validator: block Fal spend when state=HUMAN_APPROVAL_REQUIRED",
+        "proof": "scripts/video_ad_rendering_bridge_v1.py"
+      }
+    },
+    {
+      "id": "Q-SESSION-ARCH-PILLAR",
+      "title": "Strategic slice \u2014 next bounded WORK pillar?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 Pillar 1 billing \u2014 name Supabase project + apply migration-001 (recommended)",
+        "B \u2014 Pillar 2 creative \u2014 WORK OEGCC HITL in orchestrator",
+        "C \u2014 Pillar 3 analytics \u2014 extend telemetry after W6 stable",
+        "D \u2014 Parallel all three thin slices"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-ARCH-PILLAR A",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "session_architect",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-SESSION-ARCH-PILLAR",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-SESSION-ARCH-REFSTD",
+      "title": "SourceA \u2014 reference standard for agentic prof on disk?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 reference standard for governed agentic automation (recommended)",
+        "B \u2014 Video factory product only",
+        "C \u2014 MCP marketplace plugin only",
+        "D \u2014 Internal tooling \u2014 no public standard claim"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-ARCH-REFSTD A",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "session_architect",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-SESSION-ARCH-REFSTD",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-SESSION-INBOX-NEXT",
+      "title": "Next INBOX head \u2014 Noetfield freemium bay (P0-13)?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 RUN INBOX P0-13 next (recommended)",
+        "B \u2014 WitnessBC Proof Lab first",
+        "C \u2014 Pause INBOX \u2014 form fills only",
+        "D \u2014 Skip phase0 \u2014 outbound only"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-INBOX-NEXT A",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "session_build",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-SESSION-INBOX-NEXT",
+      "brain_plan": {
+        "route": "worker",
+        "plan": "RUN INBOX on P0-13 Noetfield freemium bay after form block 1",
+        "proof": "phase0-freemium-sandbox-reference-v1.json"
+      }
+    },
+    {
+      "id": "Q-SESSION-PHASE0-SPOT",
+      "title": "Phase0 13/13 on disk \u2014 spot-check or trust?",
+      "recommended": "B",
+      "options": [
+        "A \u2014 Trust machine \u2014 move to outbound scale",
+        "B \u2014 Spot-check Proof Lab + Trust Center once (recommended)",
+        "C \u2014 Re-run full phase0 pulse audit",
+        "D \u2014 Reopen all P0 rows"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-PHASE0-SPOT B",
+      "gather_tier": "P0_final_fix",
+      "gather_source": "session_build",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-SESSION-PHASE0-SPOT",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-CONF-B0503-CONSUMER",
+      "title": "B0503 open \u2014 cloud worker still reads chat not work-order?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 B0503 P0 before more loop auto dispatch (recommended)",
+        "B \u2014 Parallel \u2014 dispatch continues \u00b7 B0503 background",
+        "C \u2014 Defer B0503 until outbound-rrl bay exists",
+        "D \u2014 Revert to Worker chat prompt consumption"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CONF-B0503-CONSUMER A",
+      "gather_tier": "P0_conflict",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-CONF-B0503-CONSUMER",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-CONF-CREED-36V14",
+      "title": "CREED 36 mesh nodes vs 14 commercial lines \u2014 buyer vocabulary",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 36 nodes SSOT \u00b7 14 lines buyer vocabulary only (recommended)",
+        "B \u2014 Collapse to 14 for Hub UI simplicity",
+        "C \u2014 Merge CREED into SourceA FBE graph as single SSOT",
+        "D \u2014 Defer \u2014 document later"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CONF-CREED-36V14 A",
+      "gather_tier": "P0_conflict",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-CONF-CREED-36V14",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-CONF-F002-BROKER",
+      "title": "F002 broker round-trip \u2014 still required after Brain work-order?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 broker round-trip stays on P0 path (recommended)",
+        "B \u2014 Retire F002 \u2014 work-order receipt replaces broker",
+        "C \u2014 Defer F002 until first cloud bay executes",
+        "D \u2014 Worker-only broker \u2014 Brain never triggers"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CONF-F002-BROKER A",
+      "gather_tier": "P0_conflict",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-CONF-F002-BROKER",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-CONF-FALSE-DONE-GUARD",
+      "title": "False-done guard \u2014 never mark done without bay + receipt",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 hard guard \u00b7 no done without bay+receipt (recommended)",
+        "B \u2014 Soft warning only",
+        "C \u2014 Allow done for sign_only work-orders",
+        "D \u2014 Revert guard \u2014 trust loop auto"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CONF-FALSE-DONE-GUARD A",
+      "gather_tier": "P0_conflict",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-CONF-FALSE-DONE-GUARD",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-CONF-MCP-PHASE2",
+      "title": "MCP Phase 2 paid wire \u2014 founder gate before cloud execution URL",
+      "recommended": "B",
+      "options": [
+        "A \u2014 Approve Phase 2 paid cloud wire now",
+        "B \u2014 Stay Phase 1 \u2014 Mac headless until W1 film ships (recommended)",
+        "C \u2014 CF Workers free tier only \u2014 no Railway",
+        "D \u2014 Defer all cloud URL until FORM picks done"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CONF-MCP-PHASE2 B",
+      "gather_tier": "P0_conflict",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-CONF-MCP-PHASE2",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-CONF-PLUSONE-MOTOR",
+      "title": "Plus ONE campus vs SourceA motor \u2014 who owns founder picks?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 SourceA M1 only for picks \u00b7 Plus ONE never hosts form (recommended)",
+        "B \u2014 Duplicate form on Plus ONE Hub",
+        "C \u2014 Plus ONE picks for CREED \u00b7 SourceA for outbound only",
+        "D \u2014 Single merged chat \u2014 no Canvas"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CONF-PLUSONE-MOTOR A",
+      "gather_tier": "P0_conflict",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-CONF-PLUSONE-MOTOR",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-BC-01",
+      "title": "Who executes outbound upgrades when loop auto is ON?",
+      "recommended": "C",
+      "options": [
+        "A \u2014 Cloud/API only \u2014 retire Worker INBOX completely for outbound",
+        "B \u2014 Worker Mac turn still runs every upgrade (old path)",
+        "C \u2014 Hybrid: cloud when bay mapped \u00b7 Worker bounded WORK when unmapped (recommended \u2014 matches disk today)",
+        "D \u2014 Pause all auto dispatch until every bay is mapped"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-01 C",
+      "gather_tier": "P0_brain_cloud",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-BC-01",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-BC-02",
+      "title": "Is Mac headless proof honest while cloud URL is unset?",
+      "recommended": "C",
+      "options": [
+        "A \u2014 YES \u2014 Mac headless is fine until you wire Railway/CF URL",
+        "B \u2014 NO \u2014 never mark upgrade done until true remote cloud executes",
+        "C \u2014 Split: sign_only on Mac \u00b7 done only after remote proof (recommended)",
+        "D \u2014 Mac headless counts as cloud if Docker runs"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-02 C",
+      "gather_tier": "P0_brain_cloud",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-BC-02",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-BC-03",
+      "title": "U031 RRL history \u2014 what happens next?",
+      "recommended": "B",
+      "options": [
+        "A \u2014 Worker chat bounded WORK now (skip cloud bay)",
+        "B \u2014 Build outbound-rrl-intelligence cloud bay first \u00b7 then dispatch (recommended)",
+        "C \u2014 Defer U031 \u2014 commercial P0 (9.07 A) first",
+        "D \u2014 Mark U031 done as signed-only (no implementation)"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-03 B",
+      "gather_tier": "P0_brain_cloud",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-BC-03",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-BC-04",
+      "title": "Two chats after cloud pivot \u2014 Brain vs Worker",
+      "recommended": "A",
+      "options": [
+        "A \u2014 Brain reasons + signs work-orders \u00b7 Worker only on explicit WORK: (recommended)",
+        "B \u2014 Worker still runs daily INBOX for all factory queue items",
+        "C \u2014 Single merged chat for both roles",
+        "D \u2014 Brain implements when loop auto ON"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-04 A",
+      "gather_tier": "P0_brain_cloud",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-BC-04",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-BC-05",
+      "title": "Goal 1 1000/1000 vs outbound 66 pending \u2014 north star?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 STRATEGIC-SLICE spine \u00b7 outbound parallel \u00b7 not Goal 1 blocker (recommended \u00b7 matches 1.02 pick)",
+        "B \u2014 Goal 1 not honest until outbound 100 upgrades done",
+        "C \u2014 Pause outbound until commercial P0 gates all PASS",
+        "D \u2014 Outbound is new Goal 1 \u2014 rebase north star"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-05 A",
+      "gather_tier": "P0_brain_cloud",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-BC-05",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-BC-06",
+      "title": "When is B0501 truly done?",
+      "recommended": "C",
+      "options": [
+        "A \u2014 YES \u2014 compiler shipped \u00b7 bays are incremental",
+        "B \u2014 NO \u2014 B0501 done only when 3+ bays mapped",
+        "C \u2014 Split: B0501=compiler done \u00b7 B0502=first cloud proof per upgrade (recommended)",
+        "D \u2014 Reopen B0501 until CF Worker cron live"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-06 C",
+      "gather_tier": "P0_brain_cloud",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-BC-06",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-BC-07",
+      "title": "Loop auto dispatch without your tap each upgrade",
+      "recommended": "C",
+      "options": [
+        "A \u2014 YES \u2014 Hub glance only was always the motion",
+        "B \u2014 NO \u2014 require Hub Action tap per upgrade before dispatch",
+        "C \u2014 Auto for mapped bays only \u00b7 manual/sign_only for unmapped (recommended)",
+        "D \u2014 Turn loop auto OFF until Third Form picks done"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-07 C",
+      "gather_tier": "P0_brain_cloud",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-BC-07",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-BC-08",
+      "title": "Fate of Worker INBOX file",
+      "recommended": "A",
+      "options": [
+        "A \u2014 Keep as legacy relay stub only (recommended)",
+        "B \u2014 Delete INBOX path entirely from factory",
+        "C \u2014 Repurpose as work-order status mirror (rename schema)",
+        "D \u2014 Restore Worker paste as fallback when cloud fails"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-08 A",
+      "gather_tier": "P0_brain_cloud",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-BC-08",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-BC-09",
+      "title": "Free-tier cloud plane (NO-CC law)",
+      "recommended": "A",
+      "options": [
+        "A \u2014 Cloudflare Workers cron (loop-specialist phase 2b) (recommended)",
+        "B \u2014 Railway FBE runner when URL provided",
+        "C \u2014 Mac headless only until revenue",
+        "D \u2014 You will paste FBE_CLOUD_WORKER_URL when ready \u2014 sign_only until then"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-09 A",
+      "gather_tier": "P0_brain_cloud",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-BC-09",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-BC-10",
+      "title": "Prior pick 7.07 vs new paradox rows",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 Third Form rows only \u00b7 no new LOCKED doc (recommended \u00b7 honors 7.07)",
+        "B \u2014 NO \u2014 author BRAIN_CLOUD_PIVOT_LOCKED_v1.md now",
+        "C \u2014 Defer all Third Form until W1 film ships",
+        "D \u2014 Add to H2 pending only \u2014 not Form"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-10 A",
+      "gather_tier": "P0_brain_cloud",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-BC-10",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-SESSION-CLOUD-CF06",
+      "title": "Cloud factory step6 federated FAIL \u2014 fix or defer?",
+      "recommended": "B",
+      "options": [
+        "A \u2014 P0 fix federated remote now",
+        "B \u2014 Defer \u2014 local bays + INBOX first (recommended)",
+        "C \u2014 Drop cloud factory from queue",
+        "D \u2014 Retry Railway hourly auto"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-CLOUD-CF06 B",
+      "gather_tier": "P0_brain_cloud",
+      "gather_source": "session_build",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-SESSION-CLOUD-CF06",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-MF-04",
+      "title": "Buyer tagline \u2014 Proof vs Governance?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 Proof Layer primary \u00b7 governance in keywords only (recommended)",
+        "B \u2014 Governance Platform primary",
+        "C \u2014 Both equal in title",
+        "D \u2014 Founder picks custom tagline later"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-04 A",
+      "gather_tier": "P1_integrity_core",
+      "gather_source": "thread_marketplace_factory",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-MF-04",
+      "brain_plan": {
+        "route": "worker",
+        "plan": "Apply Proof Layer tagline to listing copy + hub commercial surfaces",
+        "proof": "validate-mcp-chain-motor-v1.sh"
+      }
+    },
+    {
+      "id": "Q-MF-07",
+      "title": "Gemini video-ad-factory \u2014 port TS to apps/ or keep scripts/?",
+      "recommended": "B",
+      "options": [
+        "A \u2014 EDIT ALLOWED apps/ \u2014 port Gemini TS now",
+        "B \u2014 Keep scripts/ until Supabase Edge live (recommended)",
+        "C \u2014 Fork new Bun monorepo (Gemini original)",
+        "D \u2014 Abandon video-ad factory track"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-07 B",
+      "gather_tier": "P1_integrity_core",
+      "gather_source": "thread_marketplace_factory",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-MF-07",
+      "brain_plan": {
+        "route": "brain",
+        "plan": "Keep scripts/ path until Edge live OR founder EDIT ALLOWED apps/",
+        "proof": "scripts/video_ad_factory_orchestrate_v1.py"
+      }
+    },
+    {
+      "id": "Q-SESSION-ARCH-GEMINI-WS",
+      "title": "Gemini monorepo \u2014 root package.json workspaces?",
+      "recommended": "B",
+      "options": [
+        "A \u2014 Add root package.json workspaces now",
+        "B \u2014 Defer until video-ad-factory TS port WORK (recommended)",
+        "C \u2014 Bun only \u2014 no Yarn",
+        "D \u2014 Reject monorepo \u2014 keep scripts/ machine path"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-ARCH-GEMINI-WS B",
+      "gather_tier": "P1_integrity_core",
+      "gather_source": "session_architect",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-SESSION-ARCH-GEMINI-WS",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-SESSION-ARCH-SCAFFOLD",
+      "title": "Scaffold apple-store-api subdirs now?",
+      "recommended": "B",
+      "options": [
+        "A \u2014 Scaffold now \u2014 core/ billing/ push-gateway/ README stubs",
+        "B \u2014 After Supabase WORK + top form PICKs (recommended)",
+        "C \u2014 Wait until iOS app WORK order",
+        "D \u2014 Never apple-store-api \u2014 web only"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-ARCH-SCAFFOLD B",
+      "gather_tier": "P1_integrity_core",
+      "gather_source": "session_architect",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-SESSION-ARCH-SCAFFOLD",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-THREAD-DEPLOY-01",
+      "title": "E2E deploy target \u2014 Agent Run only or both SA4?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 Agent Run only (:5180) \u2014 SA4 optional / skip when missing (recommended)",
+        "B \u2014 Keep both SA4 + Agent Run required (fail if either missing)",
+        "C \u2014 SA4 only \u2014 drop Agent Run requirement",
+        "D \u2014 Skip deploy step in E2E until cloud SSE live"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-THREAD-DEPLOY-01 A",
+      "gather_tier": "P1_integrity_core",
+      "gather_source": "thread_marketplace_factory",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-THREAD-DEPLOY-01",
+      "brain_plan": {
+        "route": "maintainer",
+        "plan": "Patch validate-all-e2e deploy gate: Agent Run only vs both required",
+        "proof": "scripts/validate-all-e2e-v1.sh"
+      }
+    },
+    {
+      "id": "Q-MF-10",
+      "title": "W3 commercial \u2014 confirm-sent after Mail?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 I sent Mail \u2014 mark confirm-sent",
+        "B \u2014 Not sent yet \u2014 keep red",
+        "C \u2014 Skip W3 \u2014 focus marketplace",
+        "D \u2014 Defer commercial until form done"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-MF-10 B",
+      "gather_tier": "P4_commercial",
+      "gather_source": "thread_marketplace_factory",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-MF-10",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder confirm-sent \u2192 commercial L3 w3_send_ready honest green",
+        "proof": "execution_plane_honesty validators"
+      }
+    },
+    {
+      "id": "Q-SESSION-TUNNEL-DEMO",
+      "title": "Proof Lab public demo \u2014 free tunnel?",
+      "recommended": "B",
+      "options": [
+        "A \u2014 YES \u2014 run --backend tunnel now",
+        "B \u2014 Local only until you say tunnel (recommended)",
+        "C \u2014 Paid Cloudflare Pages \u2014 not yet",
+        "D \u2014 No public URL"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-TUNNEL-DEMO B",
+      "gather_tier": "P4_commercial",
+      "gather_source": "session_build",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-SESSION-TUNNEL-DEMO",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-SESSION-WBC-SUMMARY",
+      "title": "WitnessBC work summary \u2014 deposit to vault?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 vault deposit summary (recommended)",
+        "B \u2014 Wait until STYLE-B1 hero ships",
+        "C \u2014 Chat only \u2014 no vault",
+        "D \u2014 Commercial only \u2014 no portfolio row"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-SESSION-WBC-SUMMARY A",
+      "gather_tier": "P4_commercial",
+      "gather_source": "session_build",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-SESSION-WBC-SUMMARY",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-WBC-OCRE-L3",
+      "title": "OCRE commercial L3 \u2014 founder Mail confirm only",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 I will send Mail + confirm_sent this week (recommended)",
+        "B \u2014 Defer L3 \u2014 focus Proof Lab first",
+        "C \u2014 Worker may send on my behalf (forbidden \u2014 pick A or B)",
+        "D \u2014 Drop OCRE lane"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-WBC-OCRE-L3 A",
+      "gather_tier": "P4_commercial",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-WBC-OCRE-L3",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-WBC-PROOF-LAB-OK",
+      "title": "Proof Lab interactive is ready \u2014 show buyers now?",
+      "recommended": "A",
+      "options": [
+        "A \u2014 YES \u2014 tunnel or local demo for NGO/civic buyers now (recommended)",
+        "B \u2014 Wait for STYLE-B1 hero before any demo",
+        "C \u2014 Internal only \u2014 no external URL yet",
+        "D \u2014 Skip Proof Lab \u2014 film only"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-WBC-PROOF-LAB-OK A",
+      "gather_tier": "P4_commercial",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-WBC-PROOF-LAB-OK",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-WBC-STYLE-B1",
+      "title": "Record STYLE-B1 ~3m institutional hero \u2014 when?",
+      "recommended": "B",
+      "options": [
+        "A \u2014 Record Screen Studio this week \u2014 bash witnessbc-commercial-film-ship.sh",
+        "B \u2014 Defer 30 days \u2014 Proof Lab interactive is enough for now (recommended)",
+        "C \u2014 Accept Playwright capture as hero (not recommended)",
+        "D \u2014 Cancel hero film \u2014 Proof Lab only"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-WBC-STYLE-B1 B",
+      "gather_tier": "P4_commercial",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-WBC-STYLE-B1",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    },
+    {
+      "id": "Q-WBC-WITNESS-AI-NAME",
+      "title": "Public name \u2014 Witness AI vs WitnessBC on publish",
+      "recommended": "B",
+      "options": [
+        "A \u2014 Rebrand all public pages to WitnessBC now",
+        "B \u2014 Keep Witness AI on site + disclaimer until buyer call (recommended)",
+        "C \u2014 Dual brand \u2014 Witness AI + WitnessBC footer",
+        "D \u2014 Pause site \u2014 form only"
+      ],
+      "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-WBC-WITNESS-AI-NAME B",
+      "gather_tier": "P4_commercial",
+      "gather_source": "brain_cloud_intake",
+      "duplicate_cluster": null,
+      "canonical_in_cluster": "Q-WBC-WITNESS-AI-NAME",
+      "brain_plan": {
+        "route": "founder",
+        "plan": "Founder PICK on Hub /form/ \u2192 Brain routes per gather tier",
+        "proof": "scripts/canvas_form_apply_picks_v1.py"
+      }
+    }
+  ],
+  "brain_routing_note": "SourceA Brain plans and routes after PICK \u2014 Worker RUN INBOX \u00b7 FBE cloud headless \u00b7 founder gates only where noted",
+  "proof_commands": [
+    "python3 scripts/form_official_unify_open_picks_v1.py --json",
+    "python3 scripts/brain_form_gather_unify_plan_v1.py --json",
+    "bash scripts/validate-form-official-e2e-v1.sh"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "runreceipt-pack-v1",
+  "run_id": "run-20260614-233348",
+  "generated_at": "2026-06-14T23:33:48.686980+00:00",
+  "status": "PASS",
+  "artifacts": [
+    "run.jsonl",
+    "summary.json",
+    "receipt.html",
+    "evidence.snapshot.json",
+    "receipt-pack.zip"
+  ],
+  "wire_lane": "THREAD-WIRE",
+  "p0": "P0-RUNRECEIPT",
+  "evidence_dir": "/Users/sinakazemnezhad/Desktop/AI Dev Bridge OS/scripts/evidence",
+  "evidence_summary": {
+    "total": 6,
+    "pass": 1,
+    "fail": 0,
+    "skip": 1
+  }
+}

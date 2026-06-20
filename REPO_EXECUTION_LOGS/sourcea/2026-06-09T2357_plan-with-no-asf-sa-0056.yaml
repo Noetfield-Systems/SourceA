@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0056 — Sync SINA_GPT_CLAUDE_WTM_SYNTHESIS_LOCKED_v1.md Eval line to 5/5 · 100% live
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0056
+tests:
+  status: passed
+  output_snippet: sa-0056 PASS — synthesis Eval-1b line aligned to disk (validate-synthesis-eval-line-v1); validate-phase-s0-ssot-alignment-v1; critical 0
+reported_at: '2026-06-09T23:57:42Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

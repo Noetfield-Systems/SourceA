@@ -1,0 +1,26 @@
+schema_version: 1
+repo: noetfield
+task: fix everything — TLE v1.2 stack + missing reported_at ingest contract
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - governance-console/backend/routes/tle.py
+  - governance-console/backend/routes/evidence.py
+  - governance-console/backend/routes/connectors.py
+  - governance-console/frontend/app/workspace/page.tsx
+  - scripts/verify-local-dev.sh
+  - .cursor/rules/noetfield-ingest-yaml.mdc
+  - os/plan.json
+  diff_summary: ''
+  note: ''
+tests:
+  status: passed
+  command: make verify-local-dev && pytest governance-console/backend/tests/test_tle_flow.py
+    -q
+  output_snippet: All verify-local-dev checks passed; 5/5 TLE tests passed
+real_output: All verify-local-dev checks passed; 5/5 TLE tests passed
+reported_at: '2026-06-03T09:15:00Z'
+reporter: cursor
+execution_id: ''

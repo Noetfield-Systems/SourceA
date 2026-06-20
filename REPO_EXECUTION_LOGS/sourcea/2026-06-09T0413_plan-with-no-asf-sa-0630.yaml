@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0630 — Validate L1 workspace state from hub tab POST signals
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0630
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — L1 workspace_state_v1.json hub-fed via POST touch; dispatch + governance + user-workspace-signals + critical 0
+reported_at: '2026-06-09T04:13:59Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

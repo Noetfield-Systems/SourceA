@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0524 — Document two-clock slice parallel lane P0 in synthesis lessons
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0524
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — validate-two-clock-synthesis-lessons-program-progress-v1 · worker_verify_ultra_v1 · two_clock_lesson
+reported_at: '2026-06-14T13:42:02Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

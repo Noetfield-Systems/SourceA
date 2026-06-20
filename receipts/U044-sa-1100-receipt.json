@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U044",
+  "title": "CIL curiosity question end-weight",
+  "evidence": "check_cil_curiosity_end_weight() + --check-curiosity-end-weight PASS \u00b7 last 30% narrative bonus \u00b7 live ocree/fundmore 25/25",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:34:38Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

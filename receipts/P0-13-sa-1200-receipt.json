@@ -1,0 +1,12 @@
+{
+  "schema": "phase0-freemium-upgrade-receipt-v1",
+  "upgrade_id": "P0-13",
+  "sa_id": "sa-1200",
+  "verdict": "PASS",
+  "saved_at": "2026-06-19T06:36:30Z",
+  "plan": "data/phase0-freemium-sandbox-reference-v1.json",
+  "lane": "noetfield",
+  "acceptance": "bay verify ok · mock_only catalog · brain_phase0 dispatch · Q-GATH-04 A",
+  "wired_to": "receipts/bays/noetfield-freemium-bay/verify.json",
+  "validator": "PASS: validate-noetfield-freemium-bay-v1"
+}

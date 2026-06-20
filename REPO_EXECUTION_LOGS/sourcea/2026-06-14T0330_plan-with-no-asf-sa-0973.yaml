@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0973 — Document validate-spine-bridge-founder proof types matrix
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0973
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — spine-bridge-founder proof types matrix closed; validate-spine-bridge-proof-matrix-v1 PASS; dispatch_ready locked false
+reported_at: '2026-06-14T03:30:00Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

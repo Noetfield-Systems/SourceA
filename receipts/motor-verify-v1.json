@@ -1,0 +1,40 @@
+{
+  "schema": "fbe-motor-verify-v1",
+  "ok": false,
+  "at": "2026-06-19T23:45:31Z",
+  "wave": "W1",
+  "checks": [
+    {
+      "id": "motor_delegate",
+      "ok": true,
+      "schema": "fbe-motor-delegate-receipt-v1"
+    },
+    {
+      "id": "receipt_federate",
+      "ok": false,
+      "schema": "fbe-run-receipt-v1"
+    },
+    {
+      "id": "cloud_skeleton",
+      "ok": true,
+      "detail": {
+        "dockerfile": true,
+        "entrypoint": true,
+        "entrypoint_executable": true,
+        "bay_jobs": true
+      }
+    },
+    {
+      "id": "cloud_adapter_receipt",
+      "ok": true,
+      "execution_plane": "cloud_skeleton"
+    },
+    {
+      "id": "graph_compile",
+      "ok": true,
+      "line_nodes": 76
+    }
+  ],
+  "deliveryMode": "prove_only",
+  "proof": "motor_verify FAIL"
+}

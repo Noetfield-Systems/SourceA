@@ -1,0 +1,111 @@
+{
+  "schema": "anti-theater-validator-loop-v1",
+  "version": "1.4.0",
+  "saved_at": "2026-06-19T19:25:00Z",
+  "email_send_defer_ssot": "data/commercial-email-send-defer-v1.json",
+  "one_law": "Never let the model grade its own homework as ship authority.",
+  "salvage_spec": "data/outbound-factory-salvage-spec-v1.json",
+  "execution_hardening_doc": "docs/OUTBOUND_EXECUTION_HARDENING_PLAN_LOCKED_v1.md",
+  "research_checklist": "data/outbound-research-checklist-v1.json",
+  "script": "scripts/anti_theater_validator_loop_v1.py",
+  "validator": "scripts/validate-anti-theater-validator-loop-v1.sh",
+  "receipt": "~/.sina/anti-theater-validator-loop-receipt-v1.json",
+  "real_lint": {
+    "scripts": [
+      "scripts/best_loop_oqg_score_v1.py",
+      "scripts/icp_output_compiler_v1.py",
+      "scripts/validate_outbound_plan_execution_proof_v1.py",
+      "scripts/validate_outbound_receipt_path_v1.py",
+      "scripts/execution_plane_honesty_v1.py"
+    ],
+    "data": ["data/factory-email-translation-v1.json"],
+    "checks": ["word_count", "banned_openers", "subject_fluff", "noun_stack_allowlist", "execution_proof_receipt"]
+  },
+  "rejected_theater": [
+    "llm_self_score_insight_quality",
+    "pydantic_scorecard_same_model_as_author",
+    "auto_send_on_model_score_92",
+    "proxycurl_linkedin_scrape",
+    "supabase_webhook_volume_stack_before_proof",
+    "self_healing_llm_retry",
+    "pydantic_scorecard",
+    "supabase_targets_webhook",
+    "auto_send_outbox",
+    "model_pass_as_ship",
+    "fetch_executive_dna",
+    "pg_net_webhook"
+  ],
+  "forbidden_patterns": [
+    {"id": "proxycurl", "regex": "proxycurl", "flags": "i"},
+    {"id": "nubela", "regex": "nubela", "flags": "i"},
+    {"id": "insight_quality", "regex": "insight_quality\\s*[:=]", "flags": "i"},
+    {"id": "auto_send_on_model_score", "regex": "auto_send_on_model_score", "flags": "i"},
+    {"id": "fetch_executive_dna", "regex": "fetch_executive_dna", "flags": "i"},
+    {"id": "pg_net_webhook", "regex": "pg_net\\s*webhook|supabase.*webhook.*compile", "flags": "i"},
+    {"id": "self_healing", "regex": "self[_-]?healing.*llm|self_healing_llm", "flags": "i"},
+    {"id": "pydantic_scorecard", "regex": "pydantic.*scorecard|scorecard.*pydantic", "flags": "i"},
+    {"id": "supabase_targets", "regex": "supabase.*targets|targets.*webhook.*async", "flags": "i"},
+    {"id": "auto_send_outbox", "regex": "auto[_-]?send.*outbox|outbox_queue.*auto", "flags": "i"},
+    {"id": "model_pass_ship", "regex": "if.*score.*>=.*92.*send|model.*pass.*auto.?send", "flags": "i"}
+  ],
+  "allowlist_paths": [
+    "data/outbound-factory-salvage-spec-v1.json",
+    "data/outbound-factory-100-upgrade-plan-v1.json",
+    "data/outbound-factory-worker-queue-v1.json",
+    "data/anti-theater-validator-loop-v1.json",
+    "docs/SOURCEA_OUTBOUND_FACTORY_SALVAGE_SPEC_LOCKED_v1.md",
+    "scripts/validate_outbound_forbidden_sources_v1.py",
+    "scripts/anti_theater_validator_loop_v1.py",
+    "brain-os/plan-registry/sourcea-1000/prompts/healthy-queue-30-active.json"
+  ],
+  "doc_line_allow_regex": "REJECT|DEFER|rejected_theater|No Proxycurl|document forbidden|theater|dead API|Manual LinkedIn|salvage rejected",
+  "ship_authority": {
+    "only": "sina_read_score_pct >= 90 + founder Mail + confirm-sent",
+    "assist_not_ship": ["OQG", "CIL", "RIL", "RRL", "brain_lane_claim"],
+    "valid_pack_status_awaiting_founder": "machine_pass_await_sina_read",
+    "invalid_without_sina": "ready_for_founder_send"
+  },
+  "loop_chain": {
+    "order": [
+      "forbidden_and_ship_scan",
+      "ship_authority",
+      "execution_plane_honesty",
+      "outbound_plan_proof",
+      "queue_coherence",
+      "research_checklist_preflight",
+      "oqg_noun_stack_smoke",
+      "w3_rrl_ship_gate",
+      "email_send_defer",
+      "portfolio_fix_plan",
+      "founder_execution_model",
+      "cloud_factories_online_only",
+      "mac_law_mandatory",
+      "form_founder_supremacy",
+      "ui_zero_drift",
+      "founder_no_invitation",
+      "anti_staleness_vocab"
+    ],
+    "research_accounts": ["fundmore", "ocree"]
+  },
+  "scan_targets": [
+    "scripts",
+    "data",
+    "~/.sina/outbound",
+    "data/icp-compile",
+    "receipts"
+  ],
+  "plan_sources": [
+    "data/outbound-factory-100-upgrade-plan-v1.json",
+    "data/plans-unified-worker-queue-v1.json",
+    "data/phase0-freemium-sandbox-reference-v1.json",
+    "data/sourcea-full-stack-100-fix-plan-v1.json",
+    "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json"
+  ],
+  "guard_validators": [
+    "scripts/validate-form-founder-supremacy-v1.sh",
+    "scripts/validate-ui-zero-drift-v1.sh",
+    "scripts/validate-founder-no-invitation-v1.sh",
+    "scripts/validate-anti-staleness-vocabulary-gate-v1.sh"
+  ],
+  "heal_command": "python3 scripts/anti_theater_validator_loop_v1.py --heal --json"
+}

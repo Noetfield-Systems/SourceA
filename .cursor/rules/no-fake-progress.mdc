@@ -1,0 +1,36 @@
+---
+description: No fake progress — proven evidence, meaningful effect, enterprise-grade ship only
+globs: scripts/**,brain-os/**
+alwaysApply: false
+---
+
+# No fake progress — enterprise ship law
+
+**Canonical:** `SOURCEA_NO_FAKE_PROGRESS_ENTERPRISE_SHIP_LOCKED_v1.md`  
+**Router:** `SINA_GOVERNANCE_ENTRY_LOCKED_v1.md` §0g · **Index:** `NO_FAKE_PROGRESS`
+
+## Law (every session, every reply)
+
+**No fake progress is allowed.** Only **proven evidence**, **meaningful effect**, and **real output** count. All acts and plans must be **result-driven** — grow the system faster, ship **reliable enterprise-grade** products.
+
+## Forbidden without same-message evidence cite
+
+- “All green” · “0 open — done” · “unify complete” · “ready to ship” · “no blockers”
+- Hub hero color · form closed · validator PASS alone as progress proof
+
+## Required before “done” or “progress”
+
+1. **Evidence** — file path · validator stdout · `~/.sina/*` receipt · hub API field  
+2. **Effect** — what changed for buyer, gate, or law (not index-only)  
+3. **Output** — durable SHIP artifact or explicit DEFER receipt  
+4. **Form gate** — `bash scripts/validate-no-fake-progress-form-v1.sh` PASS when form open=0
+
+## Closeout
+
+Add **Fake-progress check:** any §2 fake signal? **Y/N** — if Y, remediate before close.
+
+## Related
+
+`SOURCEA_VALID_YES_PROGRESS_VERDICT_LOCKED_v1.md` · `SOURCEA_RESULT_DRIVEN_DISCUSSION_POLICY_LOCKED_v1.md` · `ASF_100_NEXT_PLANS_ENTERPRISE_SHIP_LOCKED_v1.md`
+
+Do not restate full law prose here — pointers only.

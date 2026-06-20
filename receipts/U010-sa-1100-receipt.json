@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U010",
+  "title": "Export OQG checks to pack.json on every compile",
+  "evidence": "export_oqg_checks_bundle() stamps line_items+exported (U001-U009) via icp_output_compiler on every compile write",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:38:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

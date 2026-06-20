@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0541 — Validate acquisition stack docs indexed in important-docs
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0541
+tests:
+  status: passed
+  output_snippet: sa-0541 VERIFY PASS — T1 acquisition stack dedup via crossref canonical sa-0516
+reported_at: '2026-06-14T16:09:30Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U023",
+  "title": "sourcea-factory gate blocked_until_commercial in compiler",
+  "evidence": "check_compile_gate() warns when gate active; compile_gate_blocked on receipt; --check-compile-gate PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:16:57Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

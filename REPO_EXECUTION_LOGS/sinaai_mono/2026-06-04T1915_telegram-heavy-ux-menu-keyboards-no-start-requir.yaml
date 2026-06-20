@@ -1,0 +1,23 @@
+schema_version: 1
+repo: sinaai_mono
+task: Telegram heavy UX — menu, keyboards, no START required
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - SinaaiRuntime/integrations/telegram/bot_setup.py
+  - SinaaiRuntime/agents/integrations/telegram_bot.py
+  - SinaaiRuntime/integrations/telegram_fintech/liaison_keyboard.py
+  - scripts/configure-telegram-ui.sh
+  diff_summary: '@SinaaiOSbot needs TELEGRAM_BOT_TOKEN rotate in .env'
+  note: '@SinaaiOSbot needs TELEGRAM_BOT_TOKEN rotate in .env | Open https://t.me/TrustField2Bot
+    and tap 🏠 Menu or type hi'
+tests:
+  status: passed
+  command: configure-telegram-ui.sh + test-telegram-polling + inprocess smoke
+  output_snippet: TrustField2Bot UI configured; persistent keyboard; welcome on open
+real_output: TrustField2Bot UI configured; persistent keyboard; welcome on open
+reported_at: '2026-06-04T19:15:00Z'
+reporter: cursor
+execution_id: ''

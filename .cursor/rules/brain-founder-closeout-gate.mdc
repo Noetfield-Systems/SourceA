@@ -1,0 +1,25 @@
+---
+description: Brain/any agent — live disk before founder-facing ship text
+globs: scripts/**,brain-os/**
+alwaysApply: false
+---
+
+# Founder close-line — live disk first
+
+Session gate runs disk live wire automatically:
+
+```bash
+python3 scripts/agent_session_gate_run_v1.py --role <role> --json
+```
+
+Before ship, optional stale-feature scan:
+
+```bash
+python3 scripts/founder_close_line_gate_v1.py --text "<draft>" --json
+```
+
+**If `ok: false`** — rewrite stale **features** (auto-send, read-all-incidents), not vocabulary bans.
+
+**Daily:** RUN INBOX · quote `factory_now_line` · read `~/.sina/agent-live-surfaces-v1.json`
+
+Law: `AGENT_DISK_LIVE_WIRE_FIRST_LOCKED_v1.md`

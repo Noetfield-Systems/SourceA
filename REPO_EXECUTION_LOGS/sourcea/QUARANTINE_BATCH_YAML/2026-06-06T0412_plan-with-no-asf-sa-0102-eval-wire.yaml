@@ -1,0 +1,19 @@
+schema_version: 1
+repo: sourcea
+task: PLAN WITH NO ASF — sa-0102 wire validate-eval-packet-v1b-live into strict build
+status: done
+verify_passed: true
+evidence:
+  files_changed:
+    - scripts/build-sina-command-panel.py
+    - scripts/validate-eval-packet-v1b-live.sh
+    - os/plan-library/sourcea-1000/prompts/phase-s1-eval-dispatch/T0/sa-0102.md
+    - os/plan-library/sourcea-1000/REGISTRY.json
+tests:
+  status: passed
+  command: python3 wire-check + validate-eval-packet-v1b-live.sh preflight
+  output_snippet: strict build calls validate-eval-packet-v1b-live.sh; live gate blocked OpenRouter 402
+real_output: OK sa-0102 wire; BLOCKED OpenRouter HTTP 402 credits
+reported_at: '2026-06-06T04:12:00Z'
+reporter: cursor-maintainer
+notes: Wiring complete; full strict build blocked until OpenRouter topped up (regression from sa-0101 sustain)

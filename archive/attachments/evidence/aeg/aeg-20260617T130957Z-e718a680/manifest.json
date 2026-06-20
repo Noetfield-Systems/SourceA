@@ -1,0 +1,24 @@
+{
+  "schema": "aeg-evidence-bundle-v1",
+  "evidence_id": "aeg-20260617T130957Z-e718a680",
+  "at": "2026-06-17T13:09:57Z",
+  "verdict": "BLOCK",
+  "blockers": [
+    "last gate was pre_ship only \u2014 run full session_start gate"
+  ],
+  "proof_url": "https://locally-projected-shade-projection.trycloudflare.com/aeg-20260617T130957Z-e718a680/",
+  "bundle_dir": "/Users/sinakazemnezhad/.sina/aeg/aeg-20260617T130957Z-e718a680",
+  "archive_dir": "/Users/sinakazemnezhad/Desktop/SourceA/archive/attachments/evidence/aeg/aeg-20260617T130957Z-e718a680",
+  "terminal": {
+    "ok": true,
+    "mode": "receipt_transcript",
+    "path": "/Users/sinakazemnezhad/.sina/aeg/aeg-20260617T130957Z-e718a680/terminal.txt",
+    "note": "Captured from critic_boot receipt \u2014 not a re-run"
+  },
+  "ui": {
+    "ok": false,
+    "ui_url": "http://127.0.0.1:13023/",
+    "error": "Page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:13023/\nCall log:\n  - navigating to \"http://127.0.0.1:13023/\", waiting until \"domcontentloaded\"\n"
+  },
+  "heal_verdict": null
+}

@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0011 — Fix ENFORCE-only not_here when ~/.sina/gate_mode_v1.txt is enforce
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0011
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — goal1_lane_broker worker-submit
+reported_at: '2026-06-09T13:10:18Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

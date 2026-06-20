@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0438 — Validate pos-dispatch stays suggest until council amends policy
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0438
+tests:
+  status: passed
+  output_snippet: pack13 spine-loop verify-only; dispatch+spine+batch PASS
+reported_at: '2026-06-08T19:43:59Z'
+reporter: cursor-worker-batch

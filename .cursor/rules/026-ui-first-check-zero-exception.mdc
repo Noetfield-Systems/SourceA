@@ -1,0 +1,62 @@
+---
+description: UI FIRST CHECK zero exception — ALL agents · form · app · website · canvas
+globs:
+alwaysApply: true
+---
+
+# UI FIRST CHECK — ZERO EXCEPTION (ALL agents · ALL UI)
+
+**Law:** `brain-os/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md`  
+**Wire:** `.cursor/rules/025-ui-upgrade-first-check-live-wire.mdc` · `.cursor/rules/024-ui-upgrade-mandatory-checklist.mdc`
+
+## RED FLAG (founder locked)
+
+> **NO UI DRIFT · NO UPGRADE DRIFT — ZERO TOLERANCE.** No agent may edit ANY UI without FIRST CHECK. Machine blocks writes. Baseline + ledger + no-downgrade validators must PASS. No exceptions.
+
+> **NO agent may edit ANY UI — form, app, website, hub, canvas, landing — without FIRST CHECK. Machine blocks writes. Conduct gate flags replies. No exceptions.**
+
+## Before ANY UI file touch (mandatory sequence)
+
+```bash
+bash ~/Desktop/SourceA/scripts/wbc-ui-first-check.sh --path "<target>"
+python3 scripts/ui_upgrade_first_check_v1.py --surface <surface_id> --ack --json
+python3 scripts/pre_write_guard_v1.py check --agent cursor --path "<target>" --json
+```
+
+Full chain:
+
+```bash
+python3 scripts/ui_upgrade_path_classifier_v1.py --path "<target>" --json
+python3 scripts/ui_upgrade_first_check_v1.py --surface <surface_id> --ack --json
+python3 scripts/ui_upgrade_mandatory_gate_v1.py --surface <surface_id> --print-checklist
+python3 scripts/ui_upgrade_ledger_v1.py --surface <surface_id> --show --json
+python3 scripts/pre_write_guard_v1.py check --agent cursor --path "<target>" --json
+```
+
+## Applies to (everything)
+
+- Hub form (`hub_form`) · Worker Hub · WTM tab · landing · Mac Law · routing panel · Mac Health · **WitnessBC** (`witnessbc_commercial`)  
+- **Any** `.html` `.css` `.js` `.tsx` `.jsx` `.vue` `.canvas.tsx`  
+- Unregistered UI → `generic_app` surface + register ledger before ship
+
+## Machine gates (live — never skip)
+
+| Gate | Blocks |
+|------|--------|
+| `pre_write_guard_v1.py` | `UI_UPGRADE_FIRST_CHECK_REQUIRED` without surface ack |
+| `agentic_conduct_gate_v1.py` | Reply claiming UI edit without FIRST CHECK ack |
+| Session gate | `ui_upgrade_first_check` step every session |
+| Nerves | `ui_upgrade_first_check_line` on live surfaces |
+| Validators | `validate-ui-first-check-mandatory-all-agents-v1.sh` · `validate-ui-zero-drift-v1.sh` |
+
+## Forbidden (instant FAIL)
+
+- Editing UI without classifier + ack  
+- Skipping UP-0..UP-7 general checklist  
+- Skipping per-app ledger read  
+- Form UI without `hub_form` ack + INCIDENT-029/037 law  
+- Ship UI without validator PASS
+
+## Founder bypass only
+
+`UI UPGRADE:` · `UP CHECKLIST:` · `EDIT ALLOWED:` + `ACTION:`

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0566",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0566 VERIFY \u2014 T2 acquisition stack important-docs crossref closeout canonical sa-0516",
+  "at": "2026-06-14T22:11:54Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

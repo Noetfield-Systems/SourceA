@@ -1,0 +1,33 @@
+---
+description: Incident fix ownership — law audit, fix matrix, stairlift; no narrative closeout
+globs: brain-os/incidents/**,scripts/**
+alwaysApply: false
+---
+
+# Incident fix ownership & governance hardening
+
+**Canonical:** `SOURCEA_INCIDENT_FIX_OWNERSHIP_GOVERNANCE_HARDENING_LOCKED_v1.md`  
+**Router:** `SINA_GOVERNANCE_ENTRY_LOCKED_v1.md` §0p · **Index:** `INCIDENT_FIX_OWNERSHIP`
+
+## Law (every session)
+
+1. **No incident closes on narrative** — fix matrix: role → obligation → artifact → validator PASS  
+2. **No partial blame + move on** — every role with an open row must ship  
+3. **Worker** — broker VERIFY + receipt; never hand-edit REGISTRY  
+4. **Maintainer** — wire gates on hot path; does not execute sa  
+5. **Specialist / Brain** — no sa closeout; route only  
+6. **Stairlift tiers** — HOT on turn entry (<50ms skip) · WARM on closeout · FULL only maintainer `--deep`
+
+## On any incident or governance gap
+
+- Law audit: each clause **PASS or FAIL** (not “partially”)  
+- Assign fix rows before saying remediated  
+- Run `bash scripts/validate-incident-fix-ownership-v1.sh` before close
+
+## Forbidden
+
+- “Partially Worker, partially system, let’s move on”  
+- Remediated without validator proof  
+- Law update without stairlift sync
+
+Pointers only — full law in canonical LOCKED doc.

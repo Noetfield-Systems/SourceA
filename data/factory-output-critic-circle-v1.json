@@ -1,0 +1,28 @@
+{
+  "schema": "factory-output-critic-circle-v1",
+  "version": "1.0.0",
+  "at": "2026-06-18T18:15:00Z",
+  "law": "docs/SOURCEA_FACTORY_OUTPUT_CRITIC_LOOP_LOCKED_v1.md",
+  "quality_bar_pct": 90,
+  "loop": {
+    "observe": "Read OQG receipt · W3 packs · founder review · FBE/CREED lane receipts",
+    "analyze": "Gap vs 90% bar — structural + FEFS + founder score (human)",
+    "search": "Top failing checks · instant-rejection rules · brain inject drift",
+    "learn": "Append one incident row per gap — ~/.sina/factory-output-critic-incidents-v1.jsonl",
+    "improve": "Single next action per lane — rewrite · harden · re-score · never rush send"
+  },
+  "ship_gate": {
+    "min_machine_oqg_pct": 90,
+    "min_sina_read_score_pct": 90,
+    "require_sina_read_score": true,
+    "min_founder_score_pct": 90,
+    "require_founder_score": true,
+    "note": "founder_score fields deprecated — sina_read_score_pct only; Founder = Sina human only",
+    "require_pipeline_send_slot": "cleared",
+    "block_if_brain_only_pass": true,
+    "law": "docs/SOURCEA_FOUNDER_EMAIL_FACTORY_STANDARD_LOCKED_v1.md"
+  },
+  "lanes": ["w3_commercial", "fbe_sourcea", "creed_campus"],
+  "receipt": "~/.sina/factory-output-critic-circle-receipt-v1.json",
+  "incidents": "~/.sina/factory-output-critic-incidents-v1.jsonl"
+}

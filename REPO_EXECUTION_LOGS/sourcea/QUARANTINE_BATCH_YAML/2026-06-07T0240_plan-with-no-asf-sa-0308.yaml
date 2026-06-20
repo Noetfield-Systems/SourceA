@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0308 — Inject planner_bridge_ready first_action_id note in renderGraphExecutorPanel
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0308
+tests:
+  status: passed
+  output_snippet: validate-graph-executor-planner-bridge-v1 · planner_bridge_ready first_action_id note
+reported_at: '2026-06-07T02:40:43Z'
+reporter: cursor-worker-batch

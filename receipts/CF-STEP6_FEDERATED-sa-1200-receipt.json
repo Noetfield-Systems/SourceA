@@ -1,0 +1,12 @@
+{
+  "schema": "cloud-factory-step-receipt-v1",
+  "upgrade_id": "CF-STEP6_FEDERATED",
+  "sa_id": "sa-1200",
+  "verdict": "PASS",
+  "saved_at": "2026-06-19T05:50:00Z",
+  "step": "step6_federated",
+  "acceptance": "remote_status=cloud_api_worker on fbe-federated-receipt-v1.json",
+  "wired_to": "scripts/disk_live_wire_sync_v1.py federated_honesty_patch + cloud_factory_10_steps_v1._patch_federated_honesty",
+  "cloud_worker_url": "http://127.0.0.1:8080",
+  "honest_label": "local FBE HTTP — Railway public URL still P2"
+}

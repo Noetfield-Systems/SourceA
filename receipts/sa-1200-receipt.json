@@ -1,0 +1,13 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "F009",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "F009 CL10 queue_head_pin · advisory top F009 matches healthy-queue head sa-1200 · validate-loop-specialist OK",
+  "at": "2026-06-19T19:32:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0507",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0507 VERIFY \u2014 RECIPE: validate-founder-request-build-sync-v1.sh \u00b7 VALIDATION: OK: validate-founder-request-build-sync-v1 \u00b7 sa-0507 \u00b7 EVIDENCE: archive/attachments/2026-06-14/sa-0507-founder-request-build-sync_LOCKED_v1.md \u00b7 BUILT: true \u00b7 closeout",
+  "at": "2026-06-14T11:55:21Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

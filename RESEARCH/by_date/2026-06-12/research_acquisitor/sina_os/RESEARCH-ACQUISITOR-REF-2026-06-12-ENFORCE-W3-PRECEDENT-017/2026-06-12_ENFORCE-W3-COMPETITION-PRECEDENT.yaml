@@ -1,0 +1,151 @@
+# [Research Acquisitor · RESEARCH-ACQUISITOR-REF-2026-06-12-ENFORCE-W3-PRECEDENT-017]
+trace:
+  agent_name: Research Acquisitor
+  agent_id: research_acquisitor
+  trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-ENFORCE-W3-PRECEDENT-017
+  ref_tag: RESEARCH-ACQUISITOR-ENFORCE-W3-PRECEDENT-2026-06-12
+  thread: THREAD-RESEARCH
+  session_transcript: 20b12e67-f35f-4ab1-aad0-f94bb5c6a1b0
+  execution_authority: false
+  session_gate: ASG-20260612-7388974b
+  form_open_count: 33
+  ship_order: ~/.sina/founder-ship-order-30d-v1.json
+  pick: 9.07 A
+
+module: research_acquisitor
+date: 2026-06-12
+type: enforce_w3_competition_precedent_digest
+lane: [ENFORCEMENT-6MO, W3, NF-001]
+purpose: deck_prep_not_build_order
+
+question: >
+  One routing-grade competition/precedent digest for active ENFORCE + W3 lanes only —
+  who validates category appetite, what they sell vs SourceA governance proof, RAIS as external analog only.
+
+apex: >
+  Category is funded (Paid/Botpress/Temporal) but buyers pay for proof under enforcement —
+  SourceA L1 motor sells BLOCK/ALLOW/tamper-FAIL + receipt, not agent runtime or spec docs.
+
+# ─── FOUND — program linkage ─────────────────────────────────────────────────
+program_progress:
+  row: PROGRAM_PROGRESS.json#T-IC-1
+  plan_id: SUPERBRAIN-P0
+  text: "Review _organized/noetfield/spec — approve promote to Noetfield/docs"
+  status: open
+  owner: ASF
+  related_goals:
+    - id: GOAL-COMM-TF-NF-001
+      path: brain-os/system/SOURCEA_MASTER_OPERATING_TRACKER_LOCKED_v1.md
+      status: ACTIVE
+      pass: "TF-001 or NF-001 deposit/SOW · disk $0"
+    - id: SYS-INTEGRITY-100
+      founder_open: "parallel W1 film + W3 batch 1 (9.07 A)"
+  enforce_law: brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md
+  matrix: archive/attachments/2026-06-12/SINA_COMPETITION_AND_REFERENCE_MATRIX_v1.yaml
+
+# ─── ENFORCE + W3 competition digest (deck precedents) ───────────────────────
+digest:
+  our_wedge: "Pre-LLM governance + receipts — speed WITH proof (matrix our_wedge)"
+  w3_primary: NF-001 Copilot governance pilot
+  w3_backup: TF-001 MSB/regtech wedge
+  w3_pass_bar: "≥CAD 2K deposit or signed LOI/SOW on disk"
+
+  precedents:
+    - id: P01
+      name: Paid.ai
+      round: "~$21M seed (May 2026)"
+      they_sell: "Agent economy runtime / orchestration"
+      we_sell: "Governance proof before execution — commit gate · validator FAIL"
+      deck_use: "Category appetite — not our SKU"
+      source: archive/attachments/2026-06-12/SINA_COMPETITION_AND_REFERENCE_MATRIX_v1.yaml
+      confidence: high
+    - id: P02
+      name: Botpress
+      round: "$25M Series B"
+      they_sell: "Agent build + runtime surface"
+      we_sell: "Policy gate + receipt trail — not another builder"
+      deck_use: "Agent infra funded; governance column differentiated"
+      source: FOUNDER_BRAIN_MAINTAINER_STRATEGIC_EXTRACTION_100M_v2.md
+      confidence: high
+    - id: P03
+      name: Keon Systems
+      round: external
+      they_sell: "Effect boundary — policy → receipt before real-world action"
+      we_sell: "closeout_gate + commit_intent + ~/.sina/receipts/enforcement/"
+      deck_use: "Closest functional analog to W1/W2 demo narrative"
+      source: RESEARCH/by_date/2026-06-09/research_acquisitor/ai_dev/RESEARCH-ACQUISITOR-20260609-RAIS-011/
+      confidence: high
+    - id: P04
+      name: Raia Command (RAIS-class)
+      round: external
+      they_sell: "No-code agent builder + Command control plane + Copilot HITL"
+      we_sell: "Hub one-tap + skills + local disk SSOT — honest factory counter"
+      deck_use: "EXTERNAL_CRITIC analog only — Q-CRITIC YES · never internal layer name"
+      source: RESEARCH-ACQUISITOR-20260609-RAIS-011 rais_vocabulary_locked
+      confidence: high
+    - id: P05
+      name: Devin / Cursor agents
+      round: category
+      they_sell: "Autonomous SWE · cloud devbox"
+      we_sell: "Prove what ran · what blocked · audit on disk"
+      deck_use: "Reliability gap validates buyer appetite for auditable execution"
+      source: RESEARCH/by_date/2026-06-12/research_acquisitor/sina_os/RESEARCH-ACQUISITOR-REF-2026-06-12-100M-SIGNAL-001/
+      confidence: high
+
+  enforce_buyer_pitch:
+    w1: "5-min BLOCK/ALLOW/tamper on camera — investor/ENFORCEMENT_DEMO_5MIN.md"
+    w2: "Single write path commit_intent_v1.py — validate-demo-enforcement-v1.sh"
+    w3: "NF-001 Copilot governance · TF-001 if NF cold · ENFORCEMENT_OUTREACH_v1.md"
+    not_selling: ["Trust OS essay", "factory 616 hero", "RAIS as product name"]
+
+  routing_implication: >
+    Deck cites P01–P05 as category validation only. Close asks W3 pilot (NF-001) with
+    exportable receipt bundle — same stack as W1 demo, not a parallel product narrative.
+
+# ─── Q-NF-SPEC-PROMOTE (founder fork — Research recommends only) ─────────────
+fork_recommendation:
+  id: Q-NF-SPEC-PROMOTE
+  form_row: 13
+  question: "Approve promote _organized/noetfield/spec → Noetfield/docs?"
+  blocks: "PROGRAM_PROGRESS T-IC-1 · SUPERBRAIN-P0"
+  recommended_pick: DEFER
+  evidence:
+    - "W3 disk $0 — spec promote does not advance NF-001 deposit/LOI (GOAL-COMM-TF-NF-001)"
+    - "9.07 A + ENF-02: W3 outreach may run parallel; ENF-01 film still P0 for investor story"
+    - "Noetfield/docs/spec/ already populated — promote is doc hygiene not buyer proof"
+    - "execution_authority false — promote SHIP belongs Noetfield/Mono lane not Research"
+    - "Q-MONO-SSOT-LANE YES locked — Mono scope guard applies to spec imports"
+  not_recommended:
+    APPROVE: "No W3 signal yet · risks parallel product narrative vs ENFORCE single hero"
+    HOLD: "Use only if _organized/noetfield/spec contains confidential material — unverified from Research lane"
+  founder_action: "ASF: FIVE-STEP — PICK: Q-NF-SPEC-PROMOTE DEFER — after W3 PASS or explicit Noetfield lane order"
+
+# ─── Alarm tags ──────────────────────────────────────────────────────────────
+alarm_tags:
+  - id: ALM-RIGHT-9.07
+    claim: "W1 film + W3 NF parallel"
+    verdict: RIGHT
+    disk: ~/.sina/founder-ship-order-30d-v1.json pick 9.07 A
+  - id: ALM-STALE-3PRODUCT
+    claim: "Instability = 3 products × 2 narratives"
+    verdict: STALE
+    disk: "9.07 A single hero · FORM §ANSWERED batch 2026-06-12"
+  - id: ALM-BAD-RAIS-INTERNAL
+    claim: "RAIS as SourceA internal layer"
+    verdict: BAD
+    disk: GOVERNED_EXECUTION_OS_MASTER + RAIS-011 external analog rule
+
+forbidden:
+  - import_tables_into_hub_ui
+  - import_tables_into_form_as_law
+  - research_root_sync_until_maintainer_fix2
+  - build_order_from_competitor_matrix
+  - close_form_rows
+
+found_paths:
+  vault: ~/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-12_ENFORCE-W3-COMPETITION-PRECEDENT.yaml
+  matrix: ~/Desktop/SourceA/archive/attachments/2026-06-12/SINA_COMPETITION_AND_REFERENCE_MATRIX_v1.yaml
+  enforce: ~/Desktop/SourceA/brain-os/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md
+  program: ~/Desktop/SourceA/PROGRAM_PROGRESS.json
+  integration_fabric: ~/.sina/integration-fabric-registry-v1.yaml
+  session_gate_receipt: ~/.sina/agent_session_gate_receipt_v1.json

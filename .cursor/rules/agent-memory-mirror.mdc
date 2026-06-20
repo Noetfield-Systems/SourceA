@@ -1,0 +1,46 @@
+---
+description: Agent memory mirror + v2 enforcement stack — session gate, conduct, spine events
+alwaysApply: true
+---
+
+# Agent enforcement stack v2 (all chats)
+
+**LOCKED:** `SOURCEA_AGENTIC_ENFORCEMENT_STACK_LOCKED_v2.md` · `AGENT_MEMORY_MIRROR_ENFORCEMENT_LOCKED_v1.md`
+
+## Before any substantive work
+
+1. Session gate (fail-closed): `python3 scripts/agent_session_gate_run_v1.py --role any --json`
+2. Read `~/.sina/agent-executor-daily-duty-card-v1.json` — D01–D23 (founder must not re-remind)
+3. Read `~/.sina/agent_session_gate_receipt_v1.json` — `ok=true` · `stack_version=2`
+4. Read receipt `conduct` block — heed `warnings` · **brain role:** zero `violations`
+5. Read `~/.sina/agent-memory-mirror-v1.json` → `inject` + `daily_duty_card_detail`
+
+## Three pipelines (founder word ONLY)
+
+See **`002-hospital-trigger-only.mdc`** — session start = session gate only; orientation | hospital | maze on founder word only.
+
+## Conduct (INCIDENT-026 — machine)
+
+- **No** validator chains (`&&` + multiple `validate-*`)
+- **No** `build-sina-command-panel.py` / anti-staleness bundle in chat unless ASF single SHIP pick
+- **No** G7 `--heal` without `--scan` + receipt read first
+- **Read order:** session gate → ACTIVE_NOW + truth bundle → role mandatory rows → mirror inject (**not** read all incidents · hub last)
+- Brain: max **90s** shell · reply **<30s** then STOP
+
+## Before last reply (mandatory)
+
+```bash
+python3 scripts/agent_session_gate_run_v1.py --role any --pre-ship --scan-text "<full draft to ASF>"
+```
+
+No PASS → rewrite. Never speak legacy hub brand name to founder.
+
+Seven surfaces → `validate-law-supersession-surfaces-v1.sh` → sync mirror → reply
+
+## After context summarization
+
+Re-run session gate — chat summary is not SSOT.
+
+## Founder STOP / cancel
+
+`TodoWrite` cancel all plan todos · `plan_revoked_v1.py --write`

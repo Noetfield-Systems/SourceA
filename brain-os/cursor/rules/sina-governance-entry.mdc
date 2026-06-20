@@ -1,0 +1,21 @@
+---
+description: Single governance router — reduce doc fragmentation; laws stay in canonical LOCKED files
+alwaysApply: true
+---
+
+# Governance entry (anti-fragmentation)
+
+**Router:** `SINA_GOVERNANCE_ENTRY_LOCKED_v1.md`  
+**Index:** `SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md`
+
+## Rules
+
+0. **Rules in charge loop** — `AGENT_RULES_IN_CHARGE_LOCKED_v1.md` + `agent_rules_loop_orchestrator.py`. Check `/api/agent-rules-in-charge-v1` at session start and each agent-loop round. Rules stay in charge until **superseded** — never parallel duplicates.
+1. **One topic → one canonical LOCKED doc.** Do not restate rules in indexes, companions, or chat.
+2. **Older versions** live only in `archive/superseded/` — never cite as active law.
+3. **External paste** (GPT / Chat GPT / ChatGPT): `CHATGPT_EXTERNAL_CRITIC_LAW` + `SINA_SOURCE_ALIGNMENT_LAW` — not duplicate prose.
+4. **WTM boundaries:** `WORLD_TARGET_MODEL_AUTHORITY_LAW` + `system_roadmap.SYSTEM_AUTHORITIES` — edit both when changing contracts.
+5. Lost? Read governance entry §0 → branch by task. Need law list? Read authority index map.
+6. **Build / critic / refactor:** `AGENT_DECISION_STACK_AND_SMART_JUDGMENT_LOCKED_v1.md` + `agent-smart-judgment` rule — hierarchy, beneficial line, self-healing.
+
+Do not create parallel read-first chains or duplicate governance tables.

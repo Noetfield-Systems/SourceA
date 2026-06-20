@@ -1,0 +1,29 @@
+{
+  "schema": "bb1000-cloud-acceptance-proof-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T07:45:00Z",
+  "upgrade_id": "B1000",
+  "plan_row": "BB1000",
+  "epic": "E10",
+  "lane": "graduate_local",
+  "title": "1000-plan row BB1000 acceptance cloud proof",
+  "acceptance": {
+    "brain_reasoning_receipt": true,
+    "cloud_federated_proof": true,
+    "not_local_cursor_worker_only": true
+  },
+  "proof_bundle": {
+    "brain_receipt": "~/.sina/brain-reasoning-receipt-b1000.json",
+    "federated_run": "receipts/federated-run-v1.json",
+    "dispatch_invariant": "data/cloud-worker-dispatch-invariant-v1.json",
+    "parent_plan": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json"
+  },
+  "federated_snapshot": {
+    "ok": true,
+    "remote_status": "cloud_api_worker",
+    "mode": "federated_headless",
+    "deliveryMode": "prove_only"
+  },
+  "critical_path_sealed": ["B0001", "B0101", "B0501", "B0601", "B0901", "B1000"],
+  "graduate_law": "Local Cursor Worker INBOX executes disk prompts until cloud work-order owns lane — BB1000 proves cloud_api_worker receipt path is live."
+}

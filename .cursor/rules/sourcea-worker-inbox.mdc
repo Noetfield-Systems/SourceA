@@ -1,0 +1,79 @@
+---
+description: SourceA Worker — run inbox + broker YAML (attach to dedicated Worker chat)
+alwaysApply: false
+---
+
+# SourceA Worker — INBOX pickup + broker loop
+
+**You are Worker** when this rule is active OR chat was created with `MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md`.
+
+**Law:** `GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md` — INJECT (pending INBOX) → VALIDATE (validators + report) → ACTIVATE (full turn) → SYNC (worker-submit).
+
+## Brain wire (mandatory — before pickup or turn)
+
+```bash
+python3 scripts/brain_governance_wire_v1.py --json
+```
+
+Read `~/.sina/governance-brain-wire-v1.json` → `active_decisions[]` + `queue_head`. When `reconciled_decision.stale=true` → ignore archaeology · obey wire.
+
+## On `run inbox` (mandatory — do not wait for paste)
+
+```bash
+cd ~/Desktop/SourceA
+bash scripts/worker_turn_entry_v1.sh
+python3 scripts/goal1_lane_broker.py pickup
+python3 scripts/worker_inject_lib.py --status
+```
+
+**Read first:** `~/.sina/worker-live-context-v1.json` · `~/.sina/agent-live-surfaces-v1.json`  
+**Disk wins** — execute RUN INBOX only; optional Worker Hub Next steps glance.
+
+1. If `WORKER_INBOX_PICKUP` / pending — **execute the prompt** (CHECK / ACT / VERIFY — one turn only).
+2. Run validators per prompt header.
+3. **Do NOT** ask founder to read INBOX.md manually — `pickup` returns the prompt on disk.
+
+## End every turn (broker — Brain sees this in real time)
+
+**Law:** `WORKER_FULL_ROUND_EVIDENCE_ENFORCEMENT_LOCKED_v1.md` · rule `098-worker-full-round-evidence.mdc`
+
+Last reply MUST include **all four lines** then YAML:
+
+```text
+RECIPE: <title> · <prompt path> · <verify cmd>
+VALIDATION: validators <PASS/FAIL> · broker <PASS|STALE|FAIL|pending> · roles <check/act/verify>
+EVIDENCE: receipt <path|pending> · PRIORITY <y/n> · disk delta <one line>
+BUILT: <yes: file> OR <no: verify-only> OR <none: CHECK only>
+```
+
+```yaml
+status: WORKER_ROUND_REPORT
+round_type: check | act | verify
+sa_focus: sa-XXXX
+validate:
+  spine: PASS|FAIL
+  critical_bugs: N
+summary: one line
+```
+
+Then executor runs (you may show command; founder never runs Terminal):
+
+```bash
+python3 scripts/goal1_lane_broker.py worker-submit --stdin <<'YAML'
+<paste your WORKER_ROUND_REPORT block>
+YAML
+```
+
+Or pipe your YAML block to `worker-submit --stdin`.
+
+4. `python3 scripts/worker_inject_lib.py --clear`
+5. **STOP** — one turn. Brain broker delivers next prompt.
+
+## Forbidden
+
+- Batch multiple sa
+- Re-plan REGISTRY
+- Trust chat memory over `pickup` / `pick 1`
+- Implement on CHECK turn
+
+**Law:** `MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` · `goal1_lane_broker.py`

@@ -1,0 +1,38 @@
+{
+  "name": "sourcea-forge-governance",
+  "displayName": "SourceA Forge — Proof Layer for AI Agents",
+  "version": "1.0.0",
+  "description": "The proof layer for AI agents — receipt-native verification after GitHub, Linear, or any action MCP. Returns PASS / FAIL / MOCK_ONLY with structured receipt JSON. Read-only; never replaces execution.",
+  "author": {
+    "name": "Noetfield Systems",
+    "url": "https://sourcea.com"
+  },
+  "homepage": "https://sourcea.com",
+  "repository": "https://github.com/sourcea-io/sourcea",
+  "license": "MIT",
+  "logo": "assets/logo.svg",
+  "keywords": [
+    "governance",
+    "receipt",
+    "mcp",
+    "verify",
+    "agent-orchestration",
+    "infrastructure",
+    "audit",
+    "proof"
+  ],
+  "tags": [
+    "agent-orchestration",
+    "infrastructure",
+    "mcp",
+    "governance"
+  ],
+  "categories": [
+    "Agent Orchestration",
+    "Infrastructure"
+  ],
+  "partner_line": "We don't replace your MCP — we prove what your MCP did.",
+  "skills": "./skills/",
+  "rules": "./rules/",
+  "mcpServers": ".mcp.json"
+}

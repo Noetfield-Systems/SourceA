@@ -1,0 +1,44 @@
+schema: founder-language-index-v3
+version: "3.0"
+updated: "2026-06-12"
+trace_id: COMMERCIAL_GOAL-REF-2026-06-12-FOUNDER-LANGUAGE-CORPUS-v3
+agent_id: commercial_goal_specialist
+
+apex: "Film proof · one paid pilot · one engine · many lanes — human refinement is progress when disk receipts it."
+
+corpus_files:
+  master: FOUNDER_LANGUAGE_CORPUS_v3.md
+  v2_short: FOUNDER_LANGUAGE_PACK_v2.md
+  evolution: evolution-timeline.yaml
+  intents: intent-needs-scored.yaml
+  phrases: phrase-corpus.yaml
+  dictionary: dictionary.yaml
+  forbidden: forbidden.yaml
+  required_labels: required-labels.yaml
+  parallel_tracks: parallel-tracks.yaml
+  integrity: integrity-pack-words.yaml
+  five_step: five-step-phrases.yaml
+  picks: picks-locked.yaml
+
+sources_searched:
+  - "M1 mega a53f3fa1 (~1622 founder msgs)"
+  - "SourceA transcripts 6245d9dd commercial arc"
+  - "BRAIN_FOUNDER_INTENT_REGISTRY_LOCKED_v1.md"
+  - "FOUNDER_BRAIN_MAINTAINER_STRATEGIC_EXTRACTION_100M_v2.md"
+  - "ASF_MASTER_ORDERS_ORGANIZED_LOCKED_v1.md"
+  - "LIVE_DECISION_FORM + INTEGRITY PACK 5"
+
+promote_to_sourcea:
+  target: archive/attachments/founder-language/FOUNDER_LANGUAGE_CORPUS_v3/
+  authority_row: FOUNDER_LANGUAGE_CORPUS
+  merge_into: TERMINOLOGY_DICT sections 3.3 3.4 4b
+  status: SHIPPED
+  shipped_at: "2026-06-12"
+  receipt: archive/attachments/2026-06-12/SOURCEA_FOUNDER_LANGUAGE_CORPUS_PROMOTE_RECEIPT_2026-06-12_LOCKED_v1.md
+
+agent_scan_order:
+  - evolution-timeline.yaml
+  - intent-needs-scored.yaml
+  - dictionary.yaml
+  - forbidden.yaml
+  - picks-locked.yaml

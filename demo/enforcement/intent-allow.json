@@ -1,0 +1,9 @@
+{
+  "intent_id": "demo-allow-001",
+  "action": "governance_audit_read",
+  "agent_id": "investor_demo",
+  "object_id": "ENFORCEMENT-DEMO",
+  "role": "check",
+  "engine": "api",
+  "rule_id": "SOURCEA_INVARIANT_GATEKEEPER_BLUEPRINT_LOCKED_v1"
+}

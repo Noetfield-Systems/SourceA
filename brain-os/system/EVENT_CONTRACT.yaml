@@ -1,0 +1,42 @@
+# Execution event contract v1 — interface only (impl may be JSONL today)
+# Law pointer: GOVERNANCE_P1_LOOPS_LOCKED_v1.md
+schema: execution-event-contract.v1
+locked: true
+updated: 2026-06-08
+
+# Canonical log paths (append-only)
+paths:
+  primary: ~/.sina/events/{YYYY-MM-DD}.jsonl
+  broker_mirror: ~/.sina/goal1-lane-broker-events.jsonl
+
+required_fields:
+  - at          # ISO-8601 UTC
+  - event       # from event_types
+  - actor       # role_id from authority.yaml
+  - trace_id    # optional worker/governance trace
+
+event_types:
+  - TASK_PICKED
+  - DECISION_RECONCILED
+  - HANDOFF_ISSUED
+  - INBOX_DELIVERED
+  - WORKER_STARTED
+  - WORKER_SUBMIT
+  - VALIDATOR_PASS
+  - VALIDATOR_FAIL
+  - BROKER_ACK
+  - BRAIN_ACK
+  - POINTER_SYNC
+  - RAIL_MANUAL_FALLBACK_SET
+  - AUTHORITY_REJECT
+  - TASK_CLOSED
+
+actors:
+  - asf_hub
+  - sourcea_execution_core
+  - broker_validators
+  - sourcea_worker
+  - headless_cli_worker
+  - healthy-drain-orchestrator
+
+# Future plug-ins (defer impl): SQLite, Temporal, NATS — same event names

@@ -1,0 +1,87 @@
+{
+  "schema": "governance-critic-fixtures-v1",
+  "version": 1,
+  "canonical_portfolio": "SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md",
+  "fixtures": [
+    {
+      "id": "fail-fake-green-stale-ssot",
+      "description": "Gemini GAC failure matrix — stale SSOT, fake-green form, checksum FAIL",
+      "expect_verdict": "ESCALATE",
+      "expect_telemetry": {
+        "fake_green_detected": true,
+        "ssot_alignment": "MISALIGNED",
+        "checksum_verified": false
+      },
+      "actor_intent": {
+        "transaction_id": "TXN-99021-X",
+        "target_ssot": "SOURCEA_PORTFOLIO_SSOT",
+        "action": "COMMIT_FORM_CLOSE",
+        "payload": {
+          "form_id": "ENTERPRISE_SHIP_STATUS",
+          "open_rows": 0,
+          "execution_notes": "All lines cleared by operator request."
+        }
+      },
+      "disk_receipt": {
+        "receipt_id": "RCPT-8820-ERR",
+        "timestamp": "2026-06-13T20:30:00Z",
+        "checksum_verification": "FAIL_SHA256_MISMATCH",
+        "machine_gate_status": "BLOCK",
+        "triggered_rules": ["RULE-ANTI-STALE-04", "RULE-HARD-GATE-VALIDATOR"],
+        "ledger_history": {
+          "session_reopened": false,
+          "valid_ship_receipt_found": false
+        }
+      }
+    },
+    {
+      "id": "pass-demo-allow",
+      "description": "Aligned SSOT + PASS gate + valid ship signal",
+      "expect_verdict": "ACCEPT",
+      "expect_telemetry": {
+        "fake_green_detected": false,
+        "ssot_alignment": "MATCH",
+        "checksum_verified": true
+      },
+      "actor_intent": {
+        "transaction_id": "TXN-ALLOW-001",
+        "target_ssot": "SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md",
+        "action": "COMMIT_DEMO_ALLOW",
+        "payload": {
+          "object_id": "NF-COPILOT-POLICY-DEMO",
+          "rule_id": "P-001"
+        }
+      },
+      "disk_receipt": {
+        "receipt_id": "RCPT-ALLOW-OK",
+        "gate_status": "PASS",
+        "checksum_verification": "PASS",
+        "machine_gate_status": "ALLOW",
+        "ledger_history": {
+          "valid_ship_receipt_found": true
+        }
+      }
+    },
+    {
+      "id": "escalate-triple-fault",
+      "description": "Hard core — misaligned + fake green + checksum fail → ESCALATE",
+      "expect_verdict": "ESCALATE",
+      "expect_telemetry": {
+        "fake_green_detected": true,
+        "ssot_alignment": "MISALIGNED",
+        "checksum_verified": false
+      },
+      "actor_intent": {
+        "target_ssot": "archive/superseded/portfolio.md",
+        "action": "COMMIT_FORM_CLOSE",
+        "payload": { "open_rows": 0, "status": "COMPLETE" }
+      },
+      "disk_receipt": {
+        "checksum_verification": "FAIL_SHA256_MISMATCH",
+        "machine_gate_status": "BLOCK",
+        "conflict_lanes": ["legal", "capital"],
+        "ledger_history": { "valid_ship_receipt_found": false }
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+schema_version: 1
+repo: virlux
+health: yellow
+progress: 55.0
+confidence: 0.8
+estimated_hours: 4.0
+blocked: []
+completed: []
+next:
+- staging smoke test
+needs: []
+notes: ''
+reported_at: 2026-06-02 01:43 UTC
+reporter: cursor

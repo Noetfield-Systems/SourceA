@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0562",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0562 VERIFY \u2014 T2 wire lane progress crossref PASS; canonical sa-0512 / t1 sa-0537",
+  "at": "2026-06-14T21:55:04Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

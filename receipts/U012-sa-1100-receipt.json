@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U012",
+  "title": "Add 'agentic' 'orchestrator' to forbidden_one list",
+  "evidence": "agentic added to forbidden_in_email_one; icp_output_compiler _forbidden_one_hits() rejects architecture nouns",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:51:30Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

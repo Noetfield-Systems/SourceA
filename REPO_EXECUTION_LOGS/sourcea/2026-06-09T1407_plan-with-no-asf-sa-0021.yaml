@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0021 — Document SSOT trust order in COUNCIL_BRIEF one bullet
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0021
+tests:
+  status: passed
+  output_snippet: sa-0021 VERIFY PASS: COUNCIL_BRIEF SSOT trust-order bullet wired; strict build green; receipt closed.
+reported_at: '2026-06-09T14:07:13Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

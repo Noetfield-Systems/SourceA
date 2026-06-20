@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0647 — Validate honest_score built list includes Execution Spine
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0647
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — honest_score Execution Spine guard (validate-honest-score-execution-spine-v1 + audit_hub_source_alignment) + dispatch + eval-1b LIVE 80% + governance fleet + critical 0; honest closeout sa-0647
+reported_at: '2026-06-09T05:27:10Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

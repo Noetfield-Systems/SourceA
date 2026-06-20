@@ -1,0 +1,54 @@
+{
+  "name": "wf-chat-unify-merge-receipt-v1",
+  "nodes": [
+    {
+      "id": "8df7e4e7-07ef-4428-b6c2-2e903217ebb4",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "parameters": {
+        "path": "chat-unify-merge",
+        "httpMethod": "POST",
+        "options": {}
+      },
+      "position": [
+        0,
+        300
+      ]
+    },
+    {
+      "id": "5cea17e7-1174-4eb0-a12d-0c3b23bc4e41",
+      "name": "Glue runner",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "parameters": {
+        "command": "cd ~/Desktop/SourceA/scripts && python3 n8n_glue_runner_v1.py chat-unify-merge --payload '{{ JSON.stringify($json) }}'"
+      },
+      "position": [
+        280,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Glue runner",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "schema": "sina-n8n-glue-workflow-v1",
+    "glue_command": "chat-unify-merge"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0797",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0797 VERIFY DONE \u2014 TASK_ORDERS register vs hub todos crosswalk; 22/22 disk; parallel asf_todos; dispatch+fleet+spine+fcb PASS",
+  "at": "2026-06-11T19:49:06Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

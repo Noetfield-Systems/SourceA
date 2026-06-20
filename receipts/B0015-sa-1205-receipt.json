@@ -1,0 +1,11 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1205",
+  "status": "BLOCKED",
+  "round_type": "act",
+  "upgrade_id": "B0015",
+  "title": "Brain maps founder intent to work-order spec for cloud worker",
+  "evidence": "acceptance=Brain reasoning receipt + cloud federated proof — not local Cursor Worker turn · owner_role=brain · execution_plane=cloud_api_worker",
+  "at": "2026-06-19T19:06:45Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,14 @@
+schema_version: 1
+repo: sourcea
+task: PLAN WITH NO ASF — sa-0125 eval sustain row + pilot count in SOURCEA-PRIORITY
+status: done
+verify_passed: true
+evidence:
+  files_changed:
+    - os/plan-library/SOURCEA-PRIORITY.md
+tests:
+  status: passed
+  command: SINA_AUDIT_STRICT=1 build-sina-command-panel.py + find_critical_bugs.py
+  output_snippet: scaffold 7/7 100% · live_pilot armed 5 · critical 0
+reported_at: '2026-06-06T17:35:06Z'
+reporter: cursor-maintainer

@@ -1,0 +1,56 @@
+{
+  "schema": "eval-packet-tasks-v1",
+  "version": 1,
+  "tasks": [
+    {
+      "id": "bugfix-import",
+      "category": "bugfix",
+      "prompt": "Fix missing import in model_dispatch gate when validation fails"
+    },
+    {
+      "id": "plan-d16",
+      "category": "planning",
+      "prompt": "Plan steps to merge unified memory into llm context packet after D15 assembly"
+    },
+    {
+      "id": "retrieve-wtm",
+      "category": "retrieval",
+      "prompt": "Where is World Target Model layer comparison built in SourceA?"
+    },
+    {
+      "id": "tool-validate",
+      "category": "tool_select",
+      "prompt": "Which validator proves packet readiness on the hub?"
+    },
+    {
+      "id": "refactor-shell",
+      "category": "refactor",
+      "prompt": "Split command-data into shell and full payload for faster hub boot"
+    },
+    {
+      "id": "gate-enforce",
+      "category": "safety",
+      "prompt": "What happens when gate_eligible is false in enforce mode?"
+    },
+    {
+      "id": "rules-loop",
+      "category": "governance",
+      "prompt": "How do agents check rules in charge every session?"
+    },
+    {
+      "id": "l0-capture",
+      "category": "signals",
+      "prompt": "Capture active hub tab and workspace state into user signals SSOT"
+    },
+    {
+      "id": "eval-arm",
+      "category": "evaluation",
+      "prompt": "Compare raw LLM prompt vs assembled context packet on fixed tasks"
+    },
+    {
+      "id": "p0-runreceipt",
+      "category": "factory",
+      "prompt": "Standardize RunReceipt wire artifacts run.jsonl summary.json HTML pack"
+    }
+  ]
+}

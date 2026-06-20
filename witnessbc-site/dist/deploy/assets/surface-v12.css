@@ -1,0 +1,196 @@
+/* Witness AI v12 — pro surfaces (cards · buttons · motion · trust) */
+
+.layout-ultra-v12 .btn {
+  border-radius: var(--radius-pro);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition:
+    transform 0.2s var(--ease-out),
+    box-shadow 0.25s var(--ease-out),
+    background 0.2s,
+    border-color 0.2s;
+}
+
+.layout-ultra-v12 .btn-lg {
+  padding: 1rem 1.75rem;
+  font-size: 1.04rem;
+}
+
+.layout-ultra-v12 .btn-primary {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 8px 28px rgba(13, 148, 136, 0.28);
+}
+
+.layout-ultra-v12 .btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 12px 36px rgba(13, 148, 136, 0.35);
+}
+
+.layout-ultra-v12 .btn-outline {
+  border-color: color-mix(in srgb, var(--primary) 35%, var(--border));
+  background: color-mix(in srgb, var(--bg-card) 90%, transparent);
+}
+
+.layout-ultra-v12 .btn-outline:hover {
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
+
+/* Cards — Vanta/Stripe tier */
+.layout-ultra-v12 .evidence-card,
+.layout-ultra-v12 .problem-card,
+.layout-ultra-v12 .capability-card,
+.layout-ultra-v12 .wbc-flow-card,
+.layout-ultra-v12 .price-card,
+.layout-ultra-v12 .lane-card,
+.layout-ultra-v12 .spec-card {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-pro);
+  transition:
+    transform 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out),
+    border-color 0.25s;
+}
+
+.layout-ultra-v12 .evidence-card:hover,
+.layout-ultra-v12 .problem-card:hover,
+.layout-ultra-v12 .capability-card:hover,
+.layout-ultra-v12 .wbc-flow-card:hover,
+.layout-ultra-v12 .price-card:hover,
+.layout-ultra-v12 .explore-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-pro-hover);
+  border-color: color-mix(in srgb, var(--primary) 30%, var(--border));
+}
+
+.layout-ultra-v12 .explore-card {
+  border-radius: var(--radius-xl);
+  padding: 1.65rem 1.75rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-pro);
+  transition:
+    transform 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out),
+    border-color 0.25s;
+}
+
+.layout-ultra-v12 .explore-card-featured {
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--primary) 8%, var(--bg-card)), var(--bg-card));
+  border-color: color-mix(in srgb, var(--primary) 35%, var(--border));
+}
+
+.layout-ultra-v12 .explore-card h3 {
+  font-size: 1.15rem;
+  letter-spacing: -0.025em;
+}
+
+.layout-ultra-v12 .wbc-flow-card-featured {
+  border-color: color-mix(in srgb, var(--primary) 40%, var(--border));
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(13, 148, 136, 0.1), transparent 55%),
+    var(--bg-card);
+}
+
+/* Verdict chips — brand language */
+.layout-ultra-v12 .stats-scenario-chip,
+.layout-ultra-v12 .buyer-chips span,
+.layout-ultra-v12 .pillar-chips span {
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.layout-ultra-v12 .hero-proof-ticker {
+  border-radius: var(--radius-pro);
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-glass);
+  backdrop-filter: blur(12px);
+}
+
+/* CTA banners */
+.layout-ultra-v12 .cta-banner {
+  border-radius: var(--radius-2xl);
+  border: 1px solid color-mix(in srgb, var(--primary) 25%, var(--border));
+  background:
+    radial-gradient(ellipse 70% 80% at 0% 50%, rgba(13, 148, 136, 0.1), transparent 60%),
+    var(--bg-elevated);
+  box-shadow: var(--shadow-pro);
+}
+
+/* Nav active state */
+.layout-ultra-v12 .nav-link.is-active,
+.layout-ultra-v12 .nav-item > button.is-active {
+  color: var(--text);
+  background: color-mix(in srgb, var(--primary) 10%, var(--bg-soft));
+}
+
+/* Sticky CTA */
+.layout-ultra-v12 .sticky-cta {
+  backdrop-filter: blur(16px) saturate(1.1);
+  background: color-mix(in srgb, var(--bg-card) 92%, transparent);
+}
+
+/* Proof terminal — pro chrome */
+.layout-ultra-v12 .proof-terminal,
+.layout-ultra-v12 .proof-receipt-panel {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-pro);
+}
+
+.layout-ultra-v12 .proof-terminal-header {
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+/* Learn hub chapters */
+.layout-ultra-v12 .learn-chapter-card {
+  border-radius: var(--radius-xl);
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s;
+}
+
+.layout-ultra-v12 .learn-chapter-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-pro-hover);
+}
+
+.layout-ultra-v12 .stripe-packs-strip {
+  margin-top: 2.5rem;
+  padding: 2rem 0 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.layout-ultra-v12 .stripe-pack-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 1600px) {
+  .layout-ultra-v12 .stripe-pack-grid {
+    gap: 0.85rem;
+  }
+}
+
+/* Subtle entrance — respect reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  .layout-ultra-v12 .hero-copy,
+  .layout-ultra-v12 .control-plane-panel.fleet-panel {
+    animation: v12-rise 0.8s var(--ease-out) both;
+  }
+  .layout-ultra-v12 .control-plane-panel.fleet-panel {
+    animation-delay: 0.12s;
+  }
+}
+
+@keyframes v12-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

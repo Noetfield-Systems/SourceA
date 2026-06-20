@@ -1,0 +1,18 @@
+{
+  "schema": "phase0-freemium-upgrade-receipt-v1",
+  "upgrade_id": "P0-02",
+  "sa_id": "sa-1200",
+  "verdict": "PASS",
+  "saved_at": "2026-06-19T06:34:24Z",
+  "plan": "data/phase0-freemium-sandbox-reference-v1.json",
+  "lane": "trustfield",
+  "acceptance": "trust.sourcea.dev or gate_k URL · T0 disclosure · no forbidden internals",
+  "wired_to": "data/trust-center-v1.json · scripts/trust_center_publish_v1.py",
+  "artifacts": {
+    "html": "SourceA-landing/green-unified/trust/index.html",
+    "signals": "SourceA-landing/green-unified/data/trust-signals-public-v1.json",
+    "receipt": "~/.sina/trust-center-receipt-v1.json"
+  },
+  "gate_k_url": "https://sourcea-landing.vercel.app/sourcea/trust/",
+  "validator": "PASS: validate-trust-center-v1"
+}

@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0540 — Run update-program-progress wire_summary from locked_plan.json
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0540
+tests:
+  status: passed
+  output_snippet: sa-0540 VERIFY PASS — T1 wire_summary dedup via crossref canonical sa-0515
+reported_at: '2026-06-14T16:00:07Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

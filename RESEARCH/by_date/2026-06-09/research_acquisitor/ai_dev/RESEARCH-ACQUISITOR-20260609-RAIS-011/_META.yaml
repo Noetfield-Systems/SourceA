@@ -1,0 +1,11 @@
+trace_id: RESEARCH-ACQUISITOR-20260609-RAIS-011
+worker_id: research_acquisitor
+subject: ai_dev
+subject_label: AI Dev / Cloud IDE
+thread: THREAD-CURSOR-OS-PRO
+date: '2026-06-09'
+source_path: /Users/sinakazemnezhad/.sina/agent-workspaces/research-acquisitor/briefs/2026-06-09_RAIS_SUCCESS_MODELS_FUNCTIONAL_REPORT.md
+archive_path: by_date/2026-06-09/research_acquisitor/ai_dev/RESEARCH-ACQUISITOR-20260609-RAIS-011/2026-06-09_RAIS_SUCCESS_MODELS_FUNCTIONAL_REPORT.md
+execution_authority: false
+enforcer: research_save_enforcer.py
+law: RESEARCH_INTAKE_AND_SAVE_LOCK_LOCKED_v1.md

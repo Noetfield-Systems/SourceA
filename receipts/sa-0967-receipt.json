@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0967",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 two-speed clocks case study doc + PRIORITY evidence; worker_verify_ultra PASS",
+  "at": "2026-06-14T02:39:45Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

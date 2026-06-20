@@ -1,0 +1,140 @@
+  <main id="main-content">
+    <section class="page-hero proof-hero-mesh">
+      <div class="container">
+        <p class="section-eyebrow">Live proof</p>
+        <h1>Live proof that AI policy ran before the agent acted</h1>
+        <p class="section-lead">BLOCK on policy violation · ESCALATE to human · ALLOW with receipt · tamper-FAIL · replay.</p>
+        <p class="proof-live-bridge">
+          <a class="btn btn-primary" href="{{LIVE_DEMO_URL}}">Open Proof Lab →</a>
+          <span class="proof-live-bridge-note">Interactive scenarios on witnessbc.com · or <a href="{{PROOF_MAILTO}}">book 15-min walkthrough</a></span>
+        </p>
+      </div>
+    </section>
+
+    <section class="w1-demo-film-section" id="w1-demo-film" aria-label="W1 proof film">
+      <div class="container">
+        <p class="section-eyebrow">Watch before you book</p>
+        <h2 class="w1-demo-film-title">W1 proof film · ALLOW · BLOCK · tamper-FAIL</h2>
+        <p class="section-lead w1-demo-film-lead">{{COMMERCIAL_SHORT_NOTE}}</p>
+        <div class="w1-demo-film-grid">
+          <div class="w1-demo-film" id="w1DemoFilm">
+            <video id="w1DemoVideo" class="w1-demo-video" controls preload="metadata" poster="assets/w1-demo-poster.svg" playsinline>
+              <source src="{{W1_DEMO_FILM_URL}}" type="video/mp4" />
+            </video>
+            <div class="w1-demo-film-fallback">
+              <div
+                class="w1-demo-embed"
+                id="w1DemoEmbed"
+                aria-label="WitnessBC Proof Lab"
+              >
+                <p class="w1-demo-film-note">Interactive Proof Lab runs on witnessbc.com — scroll to <a href="#proof">scenarios below</a>.</p>
+              </div>
+            </div>
+          </div>
+          <aside class="w1-demo-film-aside">
+            <h3>Five beats on camera</h3>
+            <ol class="w1-demo-beats">
+              <li>Request → policy eval at dispatch</li>
+              <li>BLOCK on red-line violation</li>
+              <li>ESCALATE → human gate → ALLOW</li>
+              <li>Signed receipt on disk</li>
+              <li>Tamper-FAIL on hand edit · replay</li>
+            </ol>
+            <a class="btn btn-primary btn-sm" href="{{PROOF_MAILTO}}">Book 15-min walkthrough</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-section visibility proof-lab-section" id="proof">
+      <div class="container">
+        <div class="proof-film-controls">
+          <button type="button" class="btn btn-outline btn-sm" id="proofFilmToggle" aria-pressed="false">Play film strip</button>
+          <span class="proof-film-hint">15s cycle · request → tamper-FAIL</span>
+        </div>
+        <div class="chain-inline proof-chain-steps" id="proofFilmStrip">
+          <span class="proof-chain-step active" data-film="0">request</span><span>→</span>
+          <span class="proof-chain-step" data-film="1">policy</span><span>→</span>
+          <span class="proof-chain-step" data-film="2">decision</span><span>→</span>
+          <span class="proof-chain-step" data-film="3">human gate</span><span>→</span>
+          <span class="proof-chain-step" data-film="4">receipt</span><span>→</span>
+          <span class="proof-chain-step" data-film="5">replay</span><span>→</span>
+          <span class="proof-chain-step fail" data-film="6">tamper-FAIL</span>
+        </div>
+        <p class="proof-verdict-live" id="proofVerdictLive" aria-live="polite" aria-atomic="true"></p>
+
+        <header class="proof-lab-header">
+          <div>
+            <p class="section-eyebrow">Proof Lab</p>
+            <h2>Run real scenarios · inspect evidence on disk</h2>
+          </div>
+          <div class="proof-progress-tracker" id="proofProgressTracker">
+            <span class="proof-progress-label">Scenarios explored</span>
+            <strong id="proofProgressCount">0 / 6</strong>
+            <div class="proof-progress-bar" aria-hidden="true"><span id="proofProgressFill"></span></div>
+          </div>
+        </header>
+
+        <div class="proof-scenario-wrap proof-segmented proof-scenario-pills-fallback" id="proofScenarioPills" role="tablist" aria-label="Proof scenarios"></div>
+
+        <div class="proof-lab-grid" id="proofLabGrid">
+          <div class="proof-lab-scenarios">
+            <h3 class="proof-lab-col-title">Scenarios</h3>
+            <div class="proof-scenario-cards" id="proofScenarioCards" role="tablist" aria-label="Proof scenario cards"></div>
+          </div>
+
+          <div class="proof-lab-terminal">
+            <h3 class="proof-lab-col-title">Receipt terminal</h3>
+            <div class="proof-scrubber-wrap">
+              <div class="proof-scrubber-gates" aria-hidden="true">
+                <span>intake</span><span>policy</span><span>decision</span><span>human</span><span>receipt</span><span>replay</span>
+              </div>
+              <input type="range" class="proof-scrubber" id="proofScrubber" min="0" max="5" value="0" aria-label="Replay scrubber through governance gates" />
+            </div>
+            <div class="proof-replay-bar" aria-label="Replay controls">
+              <button type="button" class="btn btn-outline btn-sm" id="proofReplayPrev" aria-label="Previous step">← Prev</button>
+              <button type="button" class="btn btn-outline btn-sm" id="proofReplayPlay" aria-label="Play or pause">Pause</button>
+              <span class="proof-replay-step" id="proofReplayStep">—</span>
+              <button type="button" class="btn btn-outline btn-sm" id="proofReplayNext" aria-label="Next step">Next →</button>
+              <button type="button" class="btn btn-outline btn-sm proof-tamper-btn" id="proofTamperBtn" aria-pressed="false">Tamper demo</button>
+            </div>
+            <div class="proof-terminal proof-terminal-glass" id="proofTerminal" aria-label="Interactive proof receipt terminal">
+              <div class="proof-terminal-head">
+                <span class="proof-terminal-dots"><span></span><span></span><span></span></span>
+                <span class="proof-terminal-title">witness-ai proof — default loop</span>
+              </div>
+              <div class="proof-terminal-body" id="proofTerminalBody"></div>
+              <span class="proof-terminal-cursor" id="proofTerminalCursor" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <aside class="proof-lab-evidence proof-evidence-panel" id="proofEvidencePanel" aria-label="Evidence for current scenario">
+            <div class="proof-evidence-head">
+              <h3>Evidence</h3>
+              <span class="proof-evidence-verdict verdict-allow">—</span>
+            </div>
+            <p class="proof-evidence-narrative" data-evidence-narrative>—</p>
+            <dl class="proof-evidence-meta">
+              <div><dt>Policy rule</dt><dd data-evidence-rule>—</dd></div>
+              <div><dt>Excerpt</dt><dd data-evidence-excerpt class="proof-evidence-excerpt">—</dd></div>
+              <div><dt>Receipt hash</dt><dd><code data-evidence-hash>—</code> <button type="button" class="btn btn-ghost btn-sm" id="proofCopyHash">Copy</button></dd></div>
+              <div><dt>Timestamp</dt><dd><time data-evidence-ts>—</time></dd></div>
+            </dl>
+            <ul class="proof-artifact-list" id="proofArtifactList"></ul>
+            <div class="proof-receipt-json-wrap">
+              <p class="proof-receipt-json-label">Signed receipt JSON</p>
+              <pre class="proof-receipt-json" id="proofReceiptJson" aria-label="Receipt JSON">{}</pre>
+            </div>
+          </aside>
+        </div>
+
+        <div class="proof-evidence-cards-section" id="evidence-on-disk">
+          <div class="proof-evidence-cards-head">
+            <h3>Evidence on disk</h3>
+            <a class="btn btn-ghost btn-sm" id="proofBundleDownload" href="data/proof-scenarios-v1.json" download="witnessbc-proof-scenarios-v1.json">Download proof bundle ↓</a>
+          </div>
+          <div class="proof-evidence-cards-grid" id="proofEvidenceCards"></div>
+        </div>
+      </div>
+    </section>
+  </main>

@@ -1,0 +1,25 @@
+schema_version: 1
+repo: noetfield
+task: 'PLAN WITH NO ASF — nf-0001: session-start self-audit before edits'
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - scripts/agent-session-start.sh
+  - scripts/verify-gtm.sh
+  - .cursor/AGENT_TRACKING.md
+  - docs/ops/ready_to_paste_noetfield_cloud.txt
+  - os/plan-library/noetfield-1000/prompts/phase-0-ship-ops/T0/nf-0001.md
+  diff_summary: ''
+  note: make pick-no-asf-plan → nf-0002
+tests:
+  status: passed
+  command: make verify-gtm
+  output_snippet: VALIDATE_PASS noetfield-1000; verify-gtm passed — safe to run external
+    demo
+real_output: VALIDATE_PASS noetfield-1000; verify-gtm passed — safe to run external
+  demo
+reported_at: '2026-06-06T12:00:00Z'
+reporter: cursor
+execution_id: ''

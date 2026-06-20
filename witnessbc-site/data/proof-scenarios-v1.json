@@ -1,0 +1,317 @@
+{
+  "schema": "witnessbc-proof-scenarios-v1",
+  "version": "1.0.0",
+  "generated_at": "2026-06-15T19:45:00Z",
+  "bundle_download": "data/proof-scenarios-v1.json",
+  "scenarios": [
+    {
+      "id": "outbound-email",
+      "slug": "outbound",
+      "label": "Outbound email",
+      "verdict": "ESCALATE",
+      "verdict_badge": "escalate",
+      "verdict_summary": "ESCALATE → human gate → ALLOW with signed receipt",
+      "narrative": "Sales agent drafts an external email to a prospect list. Policy requires GRC reviewer approval before any outbound send — human gate fires, then execute with signed receipt.",
+      "policy_rule": "external-comms.v2.4.1 §4.2 — outbound requires human reviewer",
+      "policy_excerpt": "IF tool=external_send AND recipient_domain NOT IN allowlist THEN verdict=ESCALATE AND require_human_gate=grc-lead",
+      "receipt_hash": "sha256:8f3a9c2e1b4d7f6a0c3e5b892a1f4c6d9e0b2a7c4f1e8d3b6a9c2e5f8a1b4c7d",
+      "timestamp": "2026-06-15T14:32:08Z",
+      "agent": "outbound-agent",
+      "tool": "external_send",
+      "receipt_codes": [
+        "wbc.intake.received",
+        "wbc.policy.evaluated",
+        "wbc.human.gate.required",
+        "wbc.review.approved",
+        "wbc.publish.sent",
+        "wbc.receipt.signed"
+      ],
+      "evidence_artifacts": [
+        { "name": "policy-pack-v2.4.1.yaml", "type": "policy", "hash": "sha256:a1b2…f0e1" },
+        { "name": "receipt-chain.json", "type": "receipt", "hash": "sha256:8f3a…c91e" },
+        { "name": "human-gate-log.json", "type": "audit", "hash": "sha256:d4e5…a2b3" }
+      ],
+      "receipt": {
+        "schema": "wbc-receipt-v1",
+        "receipt_id": "wbc-rcpt-20260615-143208-outbound",
+        "verdict": "ESCALATE",
+        "final_verdict": "ALLOW",
+        "policy_pack": "v2.4.1",
+        "rule_triggered": "external-comms.v2.4.1 §4.2",
+        "agent": "outbound-agent",
+        "tool": "external_send",
+        "human_gate": { "reviewer": "grc-lead", "approved_at": "2026-06-15T14:33:41Z" },
+        "signature": "ed25519:8f3a9c2e1b4d7f6a0c3e5b892a1f4c6d9e0b2a7c4f1e8d3b6a9c2e5f8a1b4c7d",
+        "chain_index": 4,
+        "gates_passed": 6
+      },
+      "steps": [
+        { "text": "$ witness-ai proof --scenario outbound", "cls": "dim", "phase": 0 },
+        { "text": "→ agent.action  outbound-agent  tool=external_send", "cls": "info", "phase": 0 },
+        { "text": "→ policy.eval   pack=v2.4.1  rules=12", "cls": "dim", "phase": 1 },
+        { "text": "← verdict         ESCALATE  (human gate required)", "cls": "escalate", "phase": 2 },
+        { "text": "→ human.gate      reviewer=grc-lead", "cls": "info", "phase": 3 },
+        { "text": "← approved        wbc.review.approved", "cls": "allow", "phase": 3 },
+        { "text": "→ execute         wbc.publish.sent", "cls": "allow", "phase": 4 },
+        { "text": "→ receipt.signed  sha256=8f3a…c91e  policy=v2.4.1", "cls": "allow", "phase": 5 },
+        { "text": "→ replay.check    chain=OK  gates=6/6", "cls": "allow", "phase": 5 },
+        { "text": "→ tamper.test     edit=receipt #4", "cls": "dim", "phase": 5 },
+        { "text": "← tamper-FAIL     signature invalid", "cls": "fail", "phase": 6 },
+        { "text": "✓ proof complete  policy ran before agent acted", "cls": "allow", "phase": 5 }
+      ]
+    },
+    {
+      "id": "tool-call-block",
+      "slug": "tool",
+      "label": "Tool call",
+      "verdict": "BLOCK",
+      "verdict_badge": "block",
+      "verdict_summary": "BLOCK at dispatch — PII export denied",
+      "narrative": "Research agent attempts a bulk database export containing customer PII. Policy blocks the tool call at dispatch — no data leaves the boundary.",
+      "policy_rule": "data-handling.v2.4.1 §7.1 — PII export requires DLP clearance",
+      "policy_excerpt": "IF tool=db_export AND data_class=PII THEN verdict=BLOCK AND log=wbc.policy.blocked",
+      "receipt_hash": "sha256:2b1c8d4e6f0a3b5c7d9e1f2a4b6c8d0e2f4a6b8c0d2e4f6a8b0c2d4e6f8a0b2",
+      "timestamp": "2026-06-15T09:17:22Z",
+      "agent": "tool-call-agent",
+      "tool": "db_export",
+      "receipt_codes": [
+        "wbc.intake.received",
+        "wbc.policy.evaluated",
+        "wbc.policy.blocked",
+        "wbc.receipt.signed"
+      ],
+      "evidence_artifacts": [
+        { "name": "policy-pack-v2.4.1.yaml", "type": "policy", "hash": "sha256:a1b2…f0e1" },
+        { "name": "block-receipt.json", "type": "receipt", "hash": "sha256:2b1c…9f0a" },
+        { "name": "dlp-scan-result.json", "type": "evidence", "hash": "sha256:c3d4…e5f6" }
+      ],
+      "receipt": {
+        "schema": "wbc-receipt-v1",
+        "receipt_id": "wbc-rcpt-20260615-091722-tool",
+        "verdict": "BLOCK",
+        "policy_pack": "v2.4.1",
+        "rule_triggered": "data-handling.v2.4.1 §7.1",
+        "agent": "tool-call-agent",
+        "tool": "db_export",
+        "data_class": "PII",
+        "signature": "ed25519:2b1c8d4e6f0a3b5c7d9e1f2a4b6c8d0e2f4a6b8c0d2e4f6a8b0c2d4e6f8a0b2",
+        "chain_index": 2,
+        "gates_passed": 3
+      },
+      "steps": [
+        { "text": "$ witness-ai proof --scenario tool-call", "cls": "dim", "phase": 0 },
+        { "text": "→ agent.action  tool-call-agent  tool=db_export", "cls": "info", "phase": 0 },
+        { "text": "→ policy.eval   pack=v2.4.1  rule=data-handling", "cls": "dim", "phase": 1 },
+        { "text": "← verdict         BLOCK  (PII export denied)", "cls": "block", "phase": 2 },
+        { "text": "→ receipt.signed  sha256=2b1c…9f0a  policy=v2.4.1", "cls": "allow", "phase": 5 },
+        { "text": "→ replay.check    chain=OK  gates=3/6 (blocked early)", "cls": "allow", "phase": 5 },
+        { "text": "✓ proof complete  BLOCK enforced at dispatch", "cls": "allow", "phase": 5 }
+      ]
+    },
+    {
+      "id": "publish-allow",
+      "slug": "publish",
+      "label": "Publish",
+      "verdict": "ALLOW",
+      "verdict_badge": "allow",
+      "verdict_summary": "ALLOW — policy ran before publish",
+      "narrative": "Content agent publishes an approved draft to the internal knowledge base. All policy checks pass — execute with signed receipt, no human gate required.",
+      "policy_rule": "publish.v2.4.1 §2.0 — internal publish within policy bounds",
+      "policy_excerpt": "IF tool=web_publish AND destination=internal_kb AND content_class=approved THEN verdict=ALLOW",
+      "receipt_hash": "sha256:4d7e9a1b3c5f7e0a2b4d6f8a0c2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6d8e0",
+      "timestamp": "2026-06-15T11:05:33Z",
+      "agent": "publish-agent",
+      "tool": "web_publish",
+      "receipt_codes": [
+        "wbc.intake.received",
+        "wbc.policy.evaluated",
+        "wbc.publish.sent",
+        "wbc.receipt.signed"
+      ],
+      "evidence_artifacts": [
+        { "name": "policy-pack-v2.4.1.yaml", "type": "policy", "hash": "sha256:a1b2…f0e1" },
+        { "name": "allow-receipt.json", "type": "receipt", "hash": "sha256:4d7e…a2b3" }
+      ],
+      "receipt": {
+        "schema": "wbc-receipt-v1",
+        "receipt_id": "wbc-rcpt-20260615-110533-publish",
+        "verdict": "ALLOW",
+        "policy_pack": "v2.4.1",
+        "rule_triggered": "publish.v2.4.1 §2.0",
+        "agent": "publish-agent",
+        "tool": "web_publish",
+        "destination": "internal_kb",
+        "signature": "ed25519:4d7e9a1b3c5f7e0a2b4d6f8a0c2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6d8e0",
+        "chain_index": 3,
+        "gates_passed": 6
+      },
+      "steps": [
+        { "text": "$ witness-ai proof --scenario publish", "cls": "dim", "phase": 0 },
+        { "text": "→ agent.action  publish-agent  tool=web_publish", "cls": "info", "phase": 0 },
+        { "text": "→ policy.eval   pack=v2.4.1  rules=12", "cls": "dim", "phase": 1 },
+        { "text": "← verdict         ALLOW  (within policy)", "cls": "allow", "phase": 2 },
+        { "text": "→ execute         wbc.publish.sent", "cls": "allow", "phase": 4 },
+        { "text": "→ receipt.signed  sha256=4d7e…a2b3  policy=v2.4.1", "cls": "allow", "phase": 5 },
+        { "text": "→ replay.check    chain=OK  gates=6/6", "cls": "allow", "phase": 5 },
+        { "text": "✓ proof complete  policy ran before agent acted", "cls": "allow", "phase": 5 }
+      ]
+    },
+    {
+      "id": "pii-leak-block",
+      "slug": "pii-leak",
+      "label": "PII leak",
+      "verdict": "BLOCK",
+      "verdict_badge": "block",
+      "verdict_summary": "BLOCK — SSN pattern in outbound payload",
+      "narrative": "Support agent drafts a reply containing a Social Security Number pattern. DLP scan triggers red-line BLOCK before the message leaves the agent runtime.",
+      "policy_rule": "dlp.v2.4.1 §9.3 — SSN/TIN patterns blocked at dispatch",
+      "policy_excerpt": "IF payload MATCHES ssn_pattern OR tin_pattern THEN verdict=BLOCK AND alert=security-ops",
+      "receipt_hash": "sha256:1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2",
+      "timestamp": "2026-06-15T16:44:11Z",
+      "agent": "support-agent",
+      "tool": "external_send",
+      "receipt_codes": [
+        "wbc.intake.received",
+        "wbc.dlp.scan",
+        "wbc.policy.blocked",
+        "wbc.receipt.signed"
+      ],
+      "evidence_artifacts": [
+        { "name": "dlp-pattern-match.json", "type": "evidence", "hash": "sha256:f1e2…d3c4" },
+        { "name": "block-receipt.json", "type": "receipt", "hash": "sha256:1a2b…1a2b" },
+        { "name": "security-alert.json", "type": "audit", "hash": "sha256:b5c6…d7e8" }
+      ],
+      "receipt": {
+        "schema": "wbc-receipt-v1",
+        "receipt_id": "wbc-rcpt-20260615-164411-pii",
+        "verdict": "BLOCK",
+        "policy_pack": "v2.4.1",
+        "rule_triggered": "dlp.v2.4.1 §9.3",
+        "agent": "support-agent",
+        "tool": "external_send",
+        "dlp_match": "ssn_pattern",
+        "signature": "ed25519:1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2",
+        "chain_index": 2,
+        "gates_passed": 2
+      },
+      "steps": [
+        { "text": "$ witness-ai proof --scenario pii-leak", "cls": "dim", "phase": 0 },
+        { "text": "→ agent.action  support-agent  tool=external_send", "cls": "info", "phase": 0 },
+        { "text": "→ dlp.scan       patterns=ssn,tin,credit-card", "cls": "dim", "phase": 1 },
+        { "text": "← match           ssn_pattern detected in payload", "cls": "block", "phase": 1 },
+        { "text": "← verdict         BLOCK  (SSN red-line)", "cls": "block", "phase": 2 },
+        { "text": "→ alert           security-ops notified", "cls": "info", "phase": 2 },
+        { "text": "→ receipt.signed  sha256=1a2b…1a2b  policy=v2.4.1", "cls": "allow", "phase": 5 },
+        { "text": "✓ proof complete  PII blocked before send", "cls": "allow", "phase": 5 }
+      ]
+    },
+    {
+      "id": "mcp-escalate",
+      "slug": "mcp-escalate",
+      "label": "MCP tool call",
+      "verdict": "ESCALATE",
+      "verdict_badge": "escalate",
+      "verdict_summary": "ESCALATE — privileged MCP write requires approval",
+      "narrative": "Dev agent invokes an MCP tool with write access to production config. Policy escalates to platform engineering lead before the tool executes.",
+      "policy_rule": "mcp-governance.v2.4.1 §3.4 — prod write requires platform lead",
+      "policy_excerpt": "IF mcp_scope=write AND environment=production THEN verdict=ESCALATE AND require_human_gate=platform-lead",
+      "receipt_hash": "sha256:9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0d9c8b7a6f5e4d3c2b1a0f9e8",
+      "timestamp": "2026-06-15T08:22:55Z",
+      "agent": "dev-agent",
+      "tool": "mcp_config_write",
+      "receipt_codes": [
+        "wbc.intake.received",
+        "wbc.policy.evaluated",
+        "wbc.human.gate.required",
+        "wbc.review.approved",
+        "wbc.tool.executed",
+        "wbc.receipt.signed"
+      ],
+      "evidence_artifacts": [
+        { "name": "mcp-manifest.json", "type": "policy", "hash": "sha256:e1f2…a3b4" },
+        { "name": "escalate-receipt.json", "type": "receipt", "hash": "sha256:9e8d…9e8d" },
+        { "name": "human-gate-log.json", "type": "audit", "hash": "sha256:c5d6…e7f8" }
+      ],
+      "receipt": {
+        "schema": "wbc-receipt-v1",
+        "receipt_id": "wbc-rcpt-20260615-082255-mcp",
+        "verdict": "ESCALATE",
+        "final_verdict": "ALLOW",
+        "policy_pack": "v2.4.1",
+        "rule_triggered": "mcp-governance.v2.4.1 §3.4",
+        "agent": "dev-agent",
+        "tool": "mcp_config_write",
+        "mcp_scope": "write",
+        "environment": "production",
+        "human_gate": { "reviewer": "platform-lead", "approved_at": "2026-06-15T08:24:12Z" },
+        "signature": "ed25519:9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0d9c8b7a6f5e4d3c2b1a0f9e8",
+        "chain_index": 4,
+        "gates_passed": 6
+      },
+      "steps": [
+        { "text": "$ witness-ai proof --scenario mcp-escalate", "cls": "dim", "phase": 0 },
+        { "text": "→ agent.action  dev-agent  tool=mcp_config_write", "cls": "info", "phase": 0 },
+        { "text": "→ policy.eval   pack=v2.4.1  rule=mcp-governance", "cls": "dim", "phase": 1 },
+        { "text": "← verdict         ESCALATE  (prod write gate)", "cls": "escalate", "phase": 2 },
+        { "text": "→ human.gate      reviewer=platform-lead", "cls": "info", "phase": 3 },
+        { "text": "← approved        wbc.review.approved", "cls": "allow", "phase": 3 },
+        { "text": "→ execute         wbc.tool.executed", "cls": "allow", "phase": 4 },
+        { "text": "→ receipt.signed  sha256=9e8d…9e8d  policy=v2.4.1", "cls": "allow", "phase": 5 },
+        { "text": "✓ proof complete  MCP write gated before execute", "cls": "allow", "phase": 5 }
+      ]
+    },
+    {
+      "id": "tamper-fail",
+      "slug": "tamper",
+      "label": "Tamper demo",
+      "verdict": "FAIL",
+      "verdict_badge": "fail",
+      "verdict_summary": "tamper-FAIL — signature invalid after hand edit",
+      "narrative": "Demonstrates cryptographic integrity: after a signed receipt is written to disk, any manual edit to the verdict field invalidates the signature on replay.",
+      "policy_rule": "integrity.v2.4.1 §1.0 — signed receipts are tamper-evident",
+      "policy_excerpt": "IF receipt.signature_verify()=false THEN verdict=FAIL AND chain_status=broken",
+      "receipt_hash": "sha256:7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6",
+      "timestamp": "2026-06-15T12:00:00Z",
+      "agent": "audit-agent",
+      "tool": "replay_verify",
+      "receipt_codes": [
+        "wbc.receipt.signed",
+        "wbc.replay.check",
+        "wbc.tamper.detected",
+        "wbc.integrity.fail"
+      ],
+      "evidence_artifacts": [
+        { "name": "original-receipt.json", "type": "receipt", "hash": "sha256:7f6e…7f6e" },
+        { "name": "tampered-receipt.json", "type": "evidence", "hash": "sha256:0000…dead" },
+        { "name": "integrity-report.json", "type": "audit", "hash": "sha256:a9b8…c7d6" }
+      ],
+      "receipt": {
+        "schema": "wbc-receipt-v1",
+        "receipt_id": "wbc-rcpt-20260615-120000-tamper",
+        "verdict": "ALLOW",
+        "policy_pack": "v2.4.1",
+        "rule_triggered": "integrity.v2.4.1 §1.0",
+        "agent": "audit-agent",
+        "tool": "replay_verify",
+        "signature": "ed25519:7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6",
+        "tampered": true,
+        "tamper_field": "verdict",
+        "tamper_original": "ALLOW",
+        "tamper_mutated": "BLOCK",
+        "chain_index": 5,
+        "gates_passed": 0,
+        "integrity": "FAIL"
+      },
+      "steps": [
+        { "text": "$ witness-ai proof --scenario tamper", "cls": "dim", "phase": 0 },
+        { "text": "→ replay.load     receipt=wbc-rcpt-20260615-120000", "cls": "info", "phase": 5 },
+        { "text": "→ signature.ok    ed25519 verify PASS", "cls": "allow", "phase": 5 },
+        { "text": "→ tamper.sim      edit field=verdict ALLOW→BLOCK", "cls": "dim", "phase": 5 },
+        { "text": "→ replay.check    signature verify…", "cls": "dim", "phase": 5 },
+        { "text": "← tamper-FAIL     signature invalid", "cls": "fail", "phase": 6 },
+        { "text": "← integrity       chain_status=broken", "cls": "fail", "phase": 6 },
+        { "text": "✓ proof complete  tamper-evident receipts work", "cls": "allow", "phase": 5 }
+      ]
+    }
+  ]
+}

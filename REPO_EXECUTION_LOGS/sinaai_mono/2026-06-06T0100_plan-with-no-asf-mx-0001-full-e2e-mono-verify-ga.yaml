@@ -1,0 +1,19 @@
+schema_version: 1
+repo: sinaai_mono
+task: PLAN WITH NO ASF — mx-0001 full-e2e-mono verify gate
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - os/plan-library/mono-1000/prompts/phase-m0-verify-gates/T0/mx-0001.md
+  diff_summary: ''
+  note: ''
+tests:
+  status: passed
+  command: bash scripts/full-e2e-mono.sh
+  output_snippet: full-e2e-mono PASS; e2e failed=0; never_silent ok
+real_output: full-e2e-mono PASS; e2e failed=0; never_silent ok
+reported_at: '2026-06-06T01:00:00Z'
+reporter: cursor-auto-mono
+execution_id: ''

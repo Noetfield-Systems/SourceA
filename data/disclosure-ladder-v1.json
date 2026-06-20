@@ -1,0 +1,224 @@
+{
+  "schema": "disclosure-ladder-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-18T23:00:00Z",
+  "locked_doc": "docs/SOURCEA_DISCLOSURE_LADDER_AND_PUBLIC_VOICE_LOCKED_v1.md",
+  "script": "scripts/disclosure_ladder_v1.py",
+  "validator": "scripts/validate-disclosure-ladder-v1.sh",
+  "receipt": "~/.sina/disclosure-ladder-receipt-v1.json",
+  "one_law": "Disclose outcomes and governance discipline in public; reveal architecture only under staged NDA.",
+  "tiers": {
+    "T0_public": {
+      "label": "Public web \u00b7 LinkedIn \u00b7 anonymous",
+      "show": [
+        "customer_job",
+        "one_line_category",
+        "product_ui",
+        "honest_limits",
+        "perimeter_line"
+      ],
+      "hide": [
+        "brain",
+        "session_gate",
+        "sascip",
+        "sa_queue",
+        "mac_control_plane",
+        "five_entity_map"
+      ]
+    },
+    "T1_icp_buyer": {
+      "label": "ICP buyer \u00b7 W3 commercial",
+      "show": [
+        "brand_outcome",
+        "live_block_replay",
+        "pilot_offer",
+        "one_metric"
+      ],
+      "hide": [
+        "sourcea_spine_hero",
+        "icp_machinery",
+        "machine_loop_scores"
+      ],
+      "ship_gate": "sina_read_score_pct >= 90"
+    },
+    "T1_advisor": {
+      "label": "Advisor pre-call \u00b7 business-not-AI",
+      "show": [
+        "ventures_plain",
+        "live_urls",
+        "call_frame"
+      ],
+      "hide": [
+        "architecture_bullets",
+        "untranslated_agentic"
+      ],
+      "ship_gate": "sina_read_score_pct >= 90"
+    },
+    "T2_pilot": {
+      "label": "Serious pilot \u00b7 screen-share pre-NDA",
+      "show": [
+        "governance_loop_summary",
+        "staging_demo",
+        "auto_run_limits"
+      ],
+      "hide": [
+        "prompt_templates",
+        "full_node_graph",
+        "raw_hub"
+      ]
+    },
+    "T3_nda": {
+      "label": "Investor \u00b7 strategic \u00b7 signed NDA",
+      "show": [
+        "investor_folder",
+        "system_overview",
+        "moat_categories",
+        "honest_gaps"
+      ],
+      "hide_until_confirmatory": [
+        "brain_os_tree",
+        "sina_receipt_internals",
+        "prompt_libraries"
+      ]
+    },
+    "T4_internal": {
+      "label": "Founder \u00b7 agents \u00b7 disk ops",
+      "show": [
+        "full_truth_bundle"
+      ],
+      "never_export_without_compile": true
+    }
+  },
+  "lane_tier_map": {
+    "w3_commercial": "T1_icp_buyer",
+    "trustfield": "T1_icp_buyer",
+    "noetfield": "T1_icp_buyer",
+    "sourcea": "T1_icp_buyer",
+    "advisor_pre_call": "T1_advisor",
+    "investor": "T3_nda",
+    "public_web": "T0_public",
+    "linkedin": "T0_public",
+    "internal": "T4_internal"
+  },
+  "forbidden_lead_terms": {
+    "T0_public": [
+      "sinapromptos",
+      "session gate",
+      "sascip",
+      "run inbox",
+      "sa-1",
+      "brain-os",
+      "loop specialist",
+      "investigator circle",
+      "judge loop room",
+      "cross-lane",
+      "zero-drift",
+      "five entities",
+      "runreceipt factory"
+    ],
+    "T1_icp_buyer": [
+      "sinapromptos",
+      "session gate",
+      "sascip",
+      "brain-os",
+      "loop specialist",
+      "investigator circle",
+      "judge loop room",
+      "icp compile",
+      "machine_oqg",
+      "cross-lane edit",
+      "~/.sina",
+      "worker hub :13020",
+      "event bus",
+      "decision agents",
+      "governance-first architecture"
+    ],
+    "T1_advisor": [
+      "agentic infrastructure",
+      "event bus",
+      "decision agents",
+      "governance-first architecture",
+      "orchestration pipeline",
+      "sinapromptos",
+      "session gate",
+      "brain-os"
+    ]
+  },
+  "required_perimeter_phrases_any": [
+    "no custody",
+    "advisory only",
+    "no payment initiation"
+  ],
+  "perimeter_soft_phrases_any": [
+    "powered by sourcea",
+    "governed execution",
+    "shadow pilot",
+    "no custody",
+    "advisory only"
+  ],
+  "audience_one_liners": {
+    "copilot_buyer": "Your agents act alone. Noetfield enforces your rules before they act \u2014 and proves it after.",
+    "rwa_msb_buyer": "You need evidence examiners can replay \u2014 not another tokenization pitch.",
+    "agency_buyer": "Fifteen minutes of live BLOCK and receipt closes deposits.",
+    "investor_later": "Pre-LLM governance runtime with deployable factory apps.",
+    "founder": "Mac manages business. Cloud runs factories. One deposit proves the stack."
+  },
+  "public_positioning": {
+    "one_line": "Prove every agent action \u2014 before the model runs, after it ships.",
+    "category": "Agentic trust infrastructure",
+    "public_loop_diagram": "Intent \u2192 Gate \u2192 Execute \u2192 Receipt \u2192 Proof"
+  },
+  "wire_targets": {
+    "icp_compiler": "scripts/icp_output_compiler_v1.py",
+    "advisor_pre_call": "scripts/advisor_pre_call_email_loop_v1.py",
+    "vocabulary_guard": "scripts/vocabulary_guard_v1.py",
+    "disk_live_wire": "scripts/disk_live_wire_sync_v1.py",
+    "session_gate": "scripts/agent_session_gate_run_v1.py",
+    "loop_chain": "scripts/sina-command-server.py",
+    "worker_hub": "scripts/worker_hub_v1.py",
+    "live_context": [
+      "scripts/worker_live_context_v1.py",
+      "scripts/brain_live_context_v1.py"
+    ]
+  },
+  "upgrade_ideas": [
+    {
+      "id": "DL-U1",
+      "title": "Trust Center public URL",
+      "status": "shipped",
+      "note": "Published SourceA-landing/green-unified/trust/index.html \u00b7 gate K path live"
+    },
+    {
+      "id": "DL-U2",
+      "title": "Tier picker on ICP compile",
+      "status": "shipped",
+      "note": "disclosure_tier field on icp-compile accounts \u00b7 icp_output_compiler wired"
+    },
+    {
+      "id": "DL-U3",
+      "title": "Authority index row DISCLOSURE_LADDER",
+      "status": "shipped",
+      "note": "GOV_UNIFY batch \u00b7 DISCLOSURE_LADDER + MCP_STACK_FREE_TIER rows"
+    },
+    {
+      "id": "DL-U4",
+      "title": "Hub progressive disclosure card",
+      "status": "shipped",
+      "note": "Worker Hub disclosure panel + icp audit line"
+    },
+    {
+      "id": "DL-U5",
+      "title": "ICP approved footer perimeter line",
+      "status": "shipped",
+      "note": "fundmore \u00b7 ocree \u00b7 sourcea-factory approved bodies \u2014 Jun 2026"
+    }
+  ],
+  "cross_ref": {
+    "stack_map": "data/commercial/stack-map-routing-v1.json",
+    "trust_center": "data/trust-center-v1.json",
+    "mcp_stack": "data/mcp-stack-free-tier-v1.json",
+    "linkedin_voice": "archive/attachments/founder-language/linkedin-voice.yaml",
+    "factory_translation": "data/factory-email-translation-v1.json",
+    "investor_package": "investor/README.md"
+  }
+}

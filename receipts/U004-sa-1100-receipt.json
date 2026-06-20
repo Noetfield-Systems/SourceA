@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U004",
+  "title": "Word-count sweet spot bonus 90-110 words",
+  "evidence": "check_word_count_sweet_spot() wired; 90-110=8/8; edge=4/8",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:03:43Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

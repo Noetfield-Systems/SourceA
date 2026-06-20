@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0021",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0021 VERIFY PASS: COUNCIL_BRIEF SSOT trust-order bullet wired; strict build green; receipt closed.",
+  "at": "2026-06-09T14:07:12Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

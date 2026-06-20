@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0791 — Compare GPT governance drift essay requirement to nudge_count
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0791
+tests:
+  status: passed
+  output_snippet: sa-0791 VERIFY idempotent DONE — advance sa-0792.
+reported_at: '2026-06-11T18:09:10Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

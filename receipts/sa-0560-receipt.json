@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0560",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0560 VERIFY \u2014 T2 lane P0 revenue bottleneck crossref PASS; canonical sa-0510 / t1 sa-0535",
+  "at": "2026-06-14T21:48:18Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

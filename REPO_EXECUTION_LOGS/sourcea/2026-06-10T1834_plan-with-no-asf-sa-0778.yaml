@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0778 — Validate governance unification engine batch form in app.js
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0778
+tests:
+  status: passed
+  output_snippet: sa-0778 VERIFY — RECIPE: disk · VALIDATION: OK: validate-dispatch-policy-v1 · OK: validate-governance-fleet-v1 · find_critical_bugs critical 0 · gov-unify-form #gov-unify-form wired run_batch API · T3 gaps: no intake-class selector, no empty-batch guard, no loading state · closeout
+reported_at: '2026-06-10T18:34:17Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

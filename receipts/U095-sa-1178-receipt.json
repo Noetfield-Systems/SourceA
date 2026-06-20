@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1178",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U095",
+  "title": "Self-healing LLM retry loop \u2014 REJECT",
+  "evidence": "REJECT self-healing LLM retry \u2014 salvage rejected_theater \u00b7 human rewrite + RRL",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:24:46Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

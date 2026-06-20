@@ -1,0 +1,433 @@
+# [Research Acquisitor · RESEARCH-ACQUISITOR-REF-2026-06-07-DUAL-BRAND-009] rr-20260607-9bfa5f8a
+trace:
+  agent_name: Research Acquisitor
+  agent_id: research_acquisitor
+  trace_id: RESEARCH-ACQUISITOR-REF-2026-06-07-DUAL-BRAND-009
+  ref_tag: RESEARCH-ACQUISITOR-DUAL-BRAND-009
+  registry_id: rr-20260607-9bfa5f8a
+  session_transcript: 85dd7cd4-0977-4cfc-9449-ea278ea0baee
+  canonical: false
+module: research_acquisitor
+date: 2026-06-07
+brief_type: dual_brand_market_deep_success_models
+execution_authority: false
+as_of: "2026-06-07"
+brands:
+  - trustfield.ca
+  - noetfield.com
+domain_clarification:
+  notefield_com_third_party:
+    url: https://notefield.com
+    what: "Unrelated SaaS — online form builder + approval workflows (Join Now free tier)"
+    relation_to_us: NONE
+    note: "User may have typo'd NOTEFIELD — our brand is NOETFIELD (governance), not Notefield forms"
+  noetfield_com_ours:
+    url: https://www.noetfield.com
+    published_offerings:
+      - name: Trust Brief
+        price_usd: 10000
+        duration: 6_weeks
+        source: https://www.noetfield.com/trust-brief/
+      - name: Design partner pilot
+        price_range_usd: "2000–10000"
+        deliverable: "Board PDF in governance meeting"
+        source: https://www.noetfield.com/
+      - name: M365 Copilot governance validation
+        modality: "Enterprise AI compliance — read-only simulation / shadow mode"
+        source: https://www.noetfield.com/
+  trustfield_ca_ours:
+    published_offerings:
+      - name: RPAA Readiness Pilot
+        setup_cad: 6000
+        platform_monthly_cad: 2500
+        source: "TrustField SITUATION_REPORT + trustfield.ca/pilot"
+    contracting_rule: "All customer revenue via TrustField only until Noetfield entity ships product SKU"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CANADA MARKET — JUNE 2026 (EVIDENCE)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+canada_market_june_2026:
+  macro:
+    vc_winter:
+      q1_2026: "CAD $936.3M / 104 deals — lowest deal count since 2017"
+      growth_stage: "1 deal, $1M (vs ~$140M Q1 five-year avg)"
+      implication: "Services + near-term revenue beat new VC-dependent SaaS launches"
+      source: https://www.cvca.ca/insights/market-reports/q1-2026/
+    ai_for_all:
+      launched: "2026-06-04"
+      commitment: "$2.3B+ strategy; target 60% business AI adoption by 2034 (from ~12%)"
+      buyer_money:
+        - "BDC LIFT $500M — loans $25K–$5M, 2.25% rate, mandatory advisory for Digital/AI track ($1M+ revenue SMEs)"
+        - "Regional AI Initiative +$500M"
+        - "Compute Access Fund +$700M"
+        - "Government anchor procurement (Office of Digital Transformation)"
+      source: https://www.pm.gc.ca/en/news/news-releases/2026/06/04/prime-minister-carney-launches-ai-all-canadas-new-national-artificial
+  forced_compliance_spend:
+    rpaa:
+      status: "Fully in force; transition ended 2025-09-07; ~900 applicants pending (McCarthy)"
+      annual_report: "First due 2026-03-31"
+      govt_fee: "CAD 2500 application"
+      max_penalty_cited: "Up to $10M/violation (industry guides)"
+      source: https://tazapay.com/blog/canadas-dual-registration-for-payment-companies-fintrac-msb-rpaa-explained
+    fintrac:
+      bill_c12: "AMP caps to $4M / $20M entity — effective 2026-03-26"
+      universal_enrolment: "All PCMLTFA reporting entities must register"
+      source: https://fintrac-canafe.canada.ca/pen/3-eng
+    year1_compliance_budget_cited: "$100K–$200K CAD legal+consulting+staffing for dual MSB+RPAA (Tazapay industry guide)"
+  who_has_budget_now:
+    tier_a_urgent: "FINTRAC MSBs needing RPAA — remittance, PSP, embedded finance"
+    tier_b_parallel: "SMEs $1M+ revenue adopting AI via BDC LIFT (governance advisory attach)"
+    tier_c_longer: "Public sector / procurement — AI governance + sovereignty narrative"
+    tier_d_avoid_first: "Healthcare PHI, law-firm privileged files — UPL/PHIPA gates"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GLOBAL SUCCESS MODELS — PROVEN CHAINS (REFERENCE LIST)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+success_model_taxonomy:
+  - id: M1
+    name: "Fixed-fee compliance package (consulting)"
+    proven_in_canada: true
+    examples:
+      - vendor: Comply North
+        sku: MSB Registration
+        price_cad: 2999
+      - vendor: Comply North
+        sku: RPAA Registration
+        price_cad: 4999
+      - vendor: Adam Smith
+        sku: MSB from scratch
+        price_usd: 12500
+    revenue_model: "One-time project fee; upsell CCO $1999–3999/mo equivalent packages"
+    why_it_works: "Buyer has deadline; price anchored vs $10K–15K consultant norm on vendor site"
+    trustfield_fit: HIGH
+    noetfield_fit: LOW_until_entity
+
+  - id: M2
+    name: "SaaS subscription + managed filing add-on"
+    proven_in_canada: true
+    examples:
+      - vendor: Comply+
+        managed_filing: "CAD 499/mo (3-mo min)"
+        tech: "FINTRAC API, aiSTR, CSV/DB autopilot"
+      - vendor: Kooltra
+        eft_tiers: "$49 / $150 / $250 per user/mo"
+    revenue_model: "Platform (quote) + recurring filing + per-user scaling"
+    why_it_works: "Ongoing regulatory obligation → recurring revenue"
+    trustfield_fit: MEDIUM_future
+    noetfield_fit: LOW
+
+  - id: M3
+    name: "Pilot → platform retainer (vertical SaaS)"
+    proven_global: true
+    acv_benchmark: "Median vertical SaaS ACV ~$35K (fintech $40K–$80K)"
+    examples:
+      - pattern: "6-week pilot $5K–15K setup + $1.5K–4K/mo platform"
+      - vendor_anchor: TrustField published $6K + $2.5K/mo
+    conversion_benchmark: "Paid pilot → annual 60–75% (SaaStr/OpenView — directional)"
+    why_it_works: "Scope-bound entry; expansion modules"
+    trustfield_fit: HIGH_NOW
+    noetfield_fit: HIGH_NOW
+
+  - id: M4
+    name: "Board-grade governance diagnostic (6-week fixed)"
+    proven_global: true
+    examples:
+      - vendor: Noetfield Trust Brief
+        price: USD 10000
+        weeks: 6
+      - vendor_pattern: Big4/MSPs Copilot readiness assessments (custom $15K–100K+)
+      - microsoft_stack: "M365 Copilot $21–30/user/mo + Agent 365 $15/user/mo (May 2026 GA)"
+    revenue_model: "Fixed diagnostic → retainer or software upsell"
+    why_it_works: "AI for All + Copilot rollouts create 'governance stall' at weeks 6–12"
+    noetfield_fit: HIGH_NOW
+    trustfield_fit: MEDIUM_parallel
+
+  - id: M5
+    name: "Compliance automation platform (SOC2/ISO)"
+    proven_global: true
+    entry_price: "$7.5K–$12K/yr startups; $25K–$55K mid-market"
+    examples:
+      - vendor: Vanta
+        start: "~$10K/yr"
+      - vendor: Drata
+        start: "~$7.5K/yr"
+      - vendor: Sprinto
+        start: "~$6K–$15K"
+    revenue_model: "Platform + frameworks + implementation services"
+    why_it_works: "Non-discretionary; low churn 8–15% cited for compliance SaaS"
+    noetfield_fit: HIGH_inspiration_for_TLE_SaaS_future
+    trustfield_fit: LOW_different_vertical
+
+  - id: M6
+    name: "Enterprise RegTech (AML investigations)"
+    proven_global: true
+    examples:
+      - vendor: Unit21
+        reported_range: "$33K–$740K/yr (Vendr); avg ~$160K"
+        customers_cited: "Green Dot, Sallie Mae, Intuit, Brex"
+      - vendor: ComplyAdvantage
+        starter: "From $99/mo for 100–2000 entities monitored"
+      - vendor: Hummingbird
+        linkedin_revenue: "~$3.2M ARR"
+    revenue_model: "Enterprise custom; consumption at scale"
+    trustfield_fit: LOW_compete_later
+    noetfield_fit: LOW
+
+  - id: M7
+    name: "Per-seat AI productivity (meeting/notes)"
+    proven_global: true
+    examples:
+      - vendor: Granola
+        business: "$14/user/mo"
+        enterprise: "$35+/user/mo"
+        funding: "$125M Series C Mar 2026; $1.5B valuation cited"
+      - vendor: Fireflies
+        pro: "$10/user/mo"
+      - vendor: Fathom
+        team: "~$19/user/mo"
+    revenue_model: "Freemium → team seats → enterprise SSO"
+    note: "NOT Noetfield lane unless product pivots to notes — listed for inspiration on packaging only"
+    noetfield_fit: INSPIRATION_ONLY
+    trustfield_fit: NONE
+
+  - id: M8
+    name: "Embedded finance API (payment rail)"
+    proven_in_canada: true
+    examples:
+      - vendor: VoPay
+        hq: Vancouver
+        pricing: NOT_PUBLISHED — sales-led
+        tech: "250+ REST endpoints, Compliance-as-a-Service"
+    revenue_model: "Volume-based + enterprise contract"
+    trustfield_fit: PARTNER_not_compete
+    noetfield_fit: NONE
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FULL REFERENCE CATALOG — BEST EXAMPLES BY LANE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+reference_catalog:
+  canada_payments_compliance:
+    - {vendor: Comply North, product: "MSB + RPAA packages", price: "$2,999–$4,999 CAD", model: M1}
+    - {vendor: Comply+, product: "FINTRAC reporting SaaS", price: "$499/mo managed+", model: M2}
+    - {vendor: Kooltra, product: "EFT reporting", price: "$49–250/user/mo", model: M2}
+    - {vendor: Renno & Co, product: "RPAA legal+compliance", price: NOT_PUBLISHED, model: M1}
+    - {vendor: Substance Law, product: "RPAA advisory", price: NOT_PUBLISHED, model: M1}
+    - {vendor: VoPay, product: "Embedded payments API", price: NOT_PUBLISHED, model: M8}
+    - {vendor: Tazapay, product: "Cross-border payments", price: NOT_PUBLISHED, model: M8}
+
+  canada_ai_governance_june_2026:
+    - {vendor: Noetfield, product: "Trust Brief", price: "$10,000 / 6wk", model: M4}
+    - {vendor: Microsoft, product: "M365 Copilot + Purview + Agent 365", price: "$21–30 + $15/user/mo", model: M4}
+    - {vendor: BDC, product: "LIFT advisory+loan", price: "$25K–$5M loan envelope", model: public}
+    - {vendor: ISED, product: "AI for All programs", price: public_funding, model: public}
+
+  global_compliance_saas:
+    - {vendor: Vanta, product: "SOC2 automation", price: "~$10K+/yr", model: M5}
+    - {vendor: Drata, product: "Multi-framework GRC", price: "~$7.5K+/yr", model: M5}
+    - {vendor: Secureframe, product: "SOC2", price: "~$8K+/yr", model: M5}
+    - {vendor: Sprinto, product: "SOC2 SMB", price: "~$6K+/yr", model: M5}
+    - {vendor: ComplyAdvantage, product: "AML screening", price: "from $99/mo", model: M6}
+    - {vendor: Unit21, product: "No-code AML ops", price: "~$33K–$740K/yr reported", model: M6}
+    - {vendor: Hummingbird, product: "AML CRM", price: NOT_PUBLISHED, model: M6}
+
+  global_ai_notes_productivity:
+    - {vendor: Granola, product: "Bot-free meeting notes", price: "$14/user/mo", model: M7}
+    - {vendor: Fireflies, product: "Sales CRM meeting AI", price: "$10/user/mo", model: M7}
+    - {vendor: Fathom, product: "Free-tier meeting AI", price: "$0–$19/user/mo", model: M7}
+    - {vendor: Otter, product: "Live transcription", price: "~$8–20/user/mo", model: M7}
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PREPARED SELLING PRODUCTS — TRUSTFIELD.CA (READY TO SELL NOW)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+trustfield_prepared_skus:
+  seller_of_record: TrustField Technologies
+  invoice_rule: "TrustField bank account only"
+  inspired_by: [M1, M3, M2_partial]
+
+  sku_TF_01:
+    name: "RPAA Readiness Pilot"
+    status: PUBLISHED
+    buyer: "FINTRAC MSB / pre-PSP fintech / remittance operator"
+    price:
+      setup_cad: 6000
+      platform_monthly_cad: 2500
+      design_partner: "50% setup for first 3–5 (logo + case study)"
+    duration: 6_weeks
+    deliverables:
+      - flow_map
+      - governance_workflow_design
+      - software_environment_TF_refs
+      - partner_execution_blueprint
+      - readiness_report_evidence_pack
+    technical_delivery:
+      - "FastAPI + Next.js intake/checklist/admin"
+      - "Compliance PDF export"
+      - "Telegram ops + partner slugs + APIs"
+    explicitly_not:
+      - RPAA filing
+      - legal opinions
+      - custody_settlement
+    competitive_anchor: "Comply North RPAA $4,999 (consulting) — TrustField adds software + recurring"
+    success_metric_30d: "1 signed LOI or deposit"
+
+  sku_TF_02:
+    name: "RPAA + AI Governance Discovery"
+    status: READY_TO_PRICE
+    buyer: "SME $1M+ revenue adopting AI (BDC LIFT advisory attach)"
+    price:
+      fixed_fee_cad: "3500–7500"
+      duration: "2 weeks"
+    deliverables:
+      - control_gap_matrix
+      - partner_execution_map
+      - 60_min_readout
+      - evidence_pack_outline
+      - one_TLE_sample_entry
+    inspired_by: "Legal goal Discovery SOW + Noetfield TLE format"
+    channel: "BDC LIFT borrowers needing governance plan before loan draw"
+
+  sku_TF_03:
+    name: "Production Program (post-pilot)"
+    status: INTERNAL_PRICING
+    buyer: "Embedded finance / B2B payout program operator"
+    price:
+      setup_cad: "5000–15000"
+      platform_monthly_cad: "1500–4000"
+      usage: "5–25 bps OR $0.02–0.08 per instruction"
+    deliverables:
+      - sandbox_API_keys
+      - live_orchestration_console
+      - audit_export
+    gate: "After pilot proof on founder demo — not lead SKU"
+
+  sku_TF_04:
+    name: "Public Sector AI Governance Assessment"
+    status: COLLATERAL_EXISTS
+    buyer: "Federal/provincial SMB procurement"
+    price:
+      fixed_fee_cad: "15000–25000"
+    deliverables:
+      - governance_workflow_map
+      - audit_artifact_templates
+      - sovereignty_positioning_brief
+    channel: "CanadaBuys + AI for All procurement lane"
+    cycle: "90–120 days — parallel not primary"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PREPARED SELLING PRODUCTS — NOETFIELD.COM (READY / NEAR-READY)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+noetfield_prepared_skus:
+  seller_of_record: "TrustField invoices until Noetfield incorporation + SaaS terms"
+  brand_rule: "Noetfield methodology on deliverables; TrustField on contract"
+  inspired_by: [M4, M5_future, M3]
+
+  sku_NF_01:
+    name: "Trust Brief"
+    status: PUBLISHED_ON_SITE
+    price_usd: 10000
+    duration: 6_weeks
+    buyer: "Board / risk / compliance leader — AI materiality unknown"
+    weekly_outputs:
+      w1: "Scope + materiality thresholds"
+      w2: "Material AI map + owners"
+      w3: "Risk & control baseline"
+      w4: "Starter Trust Ledger entries"
+      w5: "Board memo draft"
+      w6: "Board-ready brief + handoff"
+    technical_posture:
+      - "TLE v1 signed go/no-go"
+      - "Evidence index — Purview, Entra, audit metadata only"
+      - "Board pack PDF export"
+      - "Shadow mode — read-only, no execution authority"
+    payment: "Card or procurement PO per site"
+    competitive_anchor: "Vanta/Drata entry ~$10K/yr but SOC2 not AI governance — Noetfield is AI-specific diagnostic"
+
+  sku_NF_02:
+    name: "Design Partner Pilot"
+    status: PUBLISHED_ON_SITE
+    price_usd: "2000–10000"
+    buyer: "Institutional buyer evaluating shadow governance"
+    deliverable: "Board PDF in governance meeting"
+    modality: "Read-only simulation"
+    success_metric: "3 design partners → case studies"
+
+  sku_NF_03:
+    name: "Microsoft 365 Copilot Governance Validation"
+    status: PUBLISHED_NARRATIVE
+    price: NOT_PUBLISHED_fixed
+    buyer: "Enterprise rolling out Copilot ($21–30/user/mo already committed)"
+    deliverable: "Policy validation + shadow evaluation"
+    market_trigger:
+      - "Agent 365 GA May 1 2026 — $15/user/mo governance layer"
+      - "Deployments stall weeks 6–12 without governance (2tolead)"
+    suggested_price_cad: "12000–18000 fixed (4 weeks) — NOT published; counsel to set"
+    inspired_by: "MSP readiness assessments + Noetfield shadow mode"
+
+  sku_NF_04_future:
+    name: "Trust Ledger SaaS (tenant isolation MVP)"
+    status: NOT_SHIPPED
+    inspired_by: [M5, M2]
+    suggested_model:
+      platform_monthly: "499–1999 CAD/mo SMB"
+      enterprise: "custom + implementation"
+    gate: "Incorporate Noetfield + SOC2 path before institutional GA"
+    do_not_sell_until: [entity_incorporated, tenant_isolation_proven, SaaS_terms_counsel]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DUAL-BRAND GTM — HOW THEY SELL TOGETHER (REAL BUSINESS)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+dual_brand_motion:
+  principle: "One customer face — TrustField contracts; Noetfield is methodology + future SaaS"
+  bundle_examples:
+    - name: "Fintech compliance stack"
+      steps:
+        - "TrustField RPAA Readiness Pilot $6K+$2.5K/mo"
+        - "Noetfield Trust Brief annex for AI governance in same entity ($10K via TrustField SOW line item)"
+      total_year1_cad_range: "42000–55000"
+      inspired_by: "Dual registration forced spend $100K–200K — capture wedge not full stack"
+    - name: "SME AI adoption (BDC LIFT)"
+      steps:
+        - "TrustField Discovery $3.5K–7.5K (governance plan for loan)"
+        - "Optional Noetfield TLE starter pack as deliverable format"
+      buyer: "CAD $1M+ revenue SME"
+    - name: "Copilot enterprise"
+      steps:
+        - "Noetfield Copilot validation (shadow)"
+        - "TrustField implementation partner map only if payment rails touched"
+  never:
+    - Customer pays Noetfield directly (until entity + intercompany)
+    - Promise regulatory approval
+    - Compete with Comply North on filing — complement with software evidence
+
+priority_rank_june_2026:
+  1: {brand: trustfield, sku: TF_01, why: "RPAA enforcement + 900 pending applicants"}
+  2: {brand: trustfield, sku: TF_02, why: "BDC LIFT $500M + AI for All June 4"}
+  3: {brand: noetfield, sku: NF_01, why: "Published $10K — board diagnostic proven model"}
+  4: {brand: noetfield, sku: NF_03, why: "Copilot+Agent 365 governance gap"}
+  5: {brand: trustfield, sku: TF_04, why: "Long cycle procurement — parallel"}
+
+revenue_receipt_honest:
+  trustfield_closed_revenue: NOT_VERIFIED
+  noetfield_closed_revenue: NOT_VERIFIED
+  only_receipt: "Signed SOW + deposit in commercial vault"
+
+sources:
+  - https://www.noetfield.com/
+  - https://www.noetfield.com/trust-brief/
+  - https://trustfield.ca/pilot
+  - https://complynorth.com/pricing/
+  - https://www.cvca.ca/insights/market-reports/q1-2026/
+  - https://www.pm.gc.ca/en/news/news-releases/2026/06/04/prime-minister-carney-launches-ai-all-canadas-new-national-artificial
+  - https://complyadvantage.com/pricing/
+  - https://www.granola.ai/blog/granola-pricing-teams-per-user-enterprise
+  - https://www.alphabold.com/guide-to-microsoft-copilot-pricing-licensing/
+  - https://notefield.com
+
+confidence: high_on_market_drivers_and_published_prices
+confidence_note: "Prepared SKU prices for NF_03 suggested only — not on live site."

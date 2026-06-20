@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0349 — Run governance fleet validator after essay or scoreboard code change
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0349
+tests:
+  status: passed
+  output_snippet: pack7 scoreboard-fleet verify-only; batch+validators PASS
+reported_at: '2026-06-08T19:26:53Z'
+reporter: cursor-worker-batch

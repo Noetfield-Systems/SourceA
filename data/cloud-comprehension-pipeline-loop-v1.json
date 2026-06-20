@@ -1,0 +1,141 @@
+{
+  "schema": "cloud-comprehension-pipeline-loop-v1",
+  "version": "1.2.0",
+  "saved_at": "2026-06-20T03:05:00Z",
+  "locked": true,
+  "one_law": "Every agent answer is OUTPUT — analyst diagnoses root cause (agent vs disk vs machines) → reduce bugs · staleness · poison — not only push agent rewrites.",
+  "receipt": "~/.sina/cloud-comprehension-pipeline-loop-receipt-v1.json",
+  "script": "scripts/cloud_comprehension_pipeline_loop_v1.py",
+  "validator": "scripts/validate-cloud-comprehension-pipeline-loop-v1.sh",
+  "law_rule": ".cursor/rules/030-cloud-comprehension-pipeline-loop-v1.mdc",
+  "language_ssot": "data/agent-report-language-standard-v1.json",
+  "glossary": "data/founder-reply-glossary-v1.json",
+  "circles": [
+    {
+      "id": "C1",
+      "name": "understand",
+      "order": 1,
+      "question": "What is the founder trying to grasp or decide?",
+      "agent_must": "Restate intent in one plain sentence before any disk token",
+      "output_key": "intent_line"
+    },
+    {
+      "id": "C2",
+      "name": "explain",
+      "order": 2,
+      "question": "Can I say this in normal English with because / so / which means?",
+      "agent_must": "Translate every internal term once — no label chains",
+      "output_key": "explain_text"
+    },
+    {
+      "id": "C3",
+      "name": "benefit",
+      "order": 3,
+      "question": "What does this mean for the founder right now?",
+      "agent_must": "Name blocker · readiness · decision unlocked · risk — not PASS/wired alone",
+      "output_key": "benefit_line"
+    },
+    {
+      "id": "C4",
+      "name": "proof",
+      "order": 4,
+      "question": "What disk evidence supports the explanation?",
+      "agent_must": "Paths and receipts after explanation — never instead of it",
+      "output_key": "proof_refs"
+    },
+    {
+      "id": "C5",
+      "name": "bug_signal",
+      "order": 5,
+      "question": "What system or disk issues does this turn surface for gradual fix?",
+      "agent_must": "Plain issue list from live disk — helps find bugs over time",
+      "output_key": "issue_signals"
+    },
+    {
+      "id": "C6",
+      "name": "output_analyst",
+      "order": 6,
+      "question": "Is the bad output the agent's draft — or stale/wrong/poison disk and machines?",
+      "agent_must": "Diagnose root cause · route FIX_DISK or FIX_MACHINES before blaming agent",
+      "output_key": "root_cause"
+    },
+    {
+      "id": "C7",
+      "name": "output_quality_gate",
+      "order": 7,
+      "question": "Given analyst — ACCEPT · RETURN_TO_AGENT · FIX_DISK · FIX_MACHINES?",
+      "agent_must": "Founder only sees ACCEPT · disk/machine fixes run before rewrite when analyst says so",
+      "output_key": "output_verdict"
+    }
+  ],
+  "loop_back": "FIX_DISK/FIX_MACHINES → sync/heal → re-analyze. RETURN_TO_AGENT → rewrite. Until ACCEPT.",
+  "output_analyst": {
+    "one_law": "Not always the agent — analyst checks disk inject staleness · wrong SSOT · poison vocabulary · machine drift before RETURN_TO_AGENT",
+    "root_causes": {
+      "AGENT_DRAFT": "Draft quality problem — agent rewrites",
+      "DISK_STALE": "Inject/surfaces/receipts stale — sync live wire + mirror",
+      "DISK_WRONG": "Contradictory queue/SSOT on disk — unify before reply",
+      "DISK_POISON": "Meaningless or prohibition inject — scrub vocabulary + mirror",
+      "MACHINE_STALE": "Factory/monitor/governance machines drift — heal tier session"
+    },
+    "fix_commands": {
+      "DISK_STALE": [
+        "python3 scripts/disk_live_wire_sync_v1.py --json",
+        "python3 scripts/agent_memory_mirror_v1.py --sync --json",
+        "python3 scripts/anti_staleness_auto_wire_v1.py --role any --tier session --json"
+      ],
+      "DISK_WRONG": [
+        "python3 scripts/queue_ssot_unify_v1.py --json",
+        "python3 scripts/disk_live_wire_sync_v1.py --json"
+      ],
+      "DISK_POISON": [
+        "python3 scripts/agent_memory_mirror_v1.py --sync --json",
+        "python3 scripts/vocabulary_guard_v1.py --tooling --json"
+      ],
+      "MACHINE_STALE": [
+        "python3 scripts/governance_zero_drift_live_wire_v1.py --role any --tier session --json"
+      ]
+    }
+  },
+  "output_quality_gate": {
+    "one_law": "Analyst + quality gate — ACCEPT · RETURN_TO_AGENT · FIX_DISK · FIX_MACHINES",
+    "verdicts": {
+      "ACCEPT": "Ship accepted_founder_text to founder",
+      "RETURN_TO_AGENT": "Agent draft problem — rewrite with return_package",
+      "FIX_DISK": "Disk/inject stale wrong or poison — sync/scrub before rewrite",
+      "FIX_MACHINES": "Factory/monitor/governance drift — heal machines first"
+    },
+    "receipt": "~/.sina/cloud-comprehension-pipeline-loop-receipt-v1.json",
+    "log": "~/.sina/agent-output-quality-log-v1.jsonl",
+    "max_rewrite_attempts": 5,
+    "accept_requires": [
+      "quality_loop ok (SHIP or SHIP_TRANSLATED)",
+      "C2 explain passes language gate",
+      "C3 benefit present when founder asked why/what/how",
+      "meaning_score >= 65"
+    ],
+    "return_triggers": [
+      "parrot buzzwords without translation",
+      "label soup / dot chains",
+      "no benefit for founder on long reply",
+      "meaning_score below threshold",
+      "jargon wall"
+    ]
+  },
+  "forbidden": [
+    "Buzzword answers without translation",
+    "Parroting receipt lines as the whole reply",
+    "PASS/wired/STOP alone with no meaning",
+    "Skipping C3 benefit when founder asked why or what",
+    "C5 as validator dump — issues must be plain English"
+  ],
+  "wired_to": [
+    "scripts/cloud_comprehension_pipeline_loop_v1.py",
+    "scripts/agentic_conduct_gate_v1.py",
+    "scripts/agent_session_gate_run_v1.py",
+    "scripts/agent_memory_mirror_v1.py",
+    "scripts/disk_live_wire_sync_v1.py",
+    "data/agent-behavior-settings-v1.json",
+    "data/agent-report-language-standard-v1.json"
+  ]
+}

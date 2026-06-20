@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1201",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "F006",
+  "title": "Refresh disk truth block",
+  "evidence": "run_inbox_disk_truth_v1.py --write --sync · truth_match=true · run-inbox-disk-truth-v1.json refreshed · resume_sa aligned",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T18:48:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,44 @@
+{
+  "schema": "fbe-factory-spec-v1",
+  "factory_id": "sandbox-mock-factory-v1",
+  "spec_version": "1.0.0",
+  "saved_at": "2026-06-17T16:00:00Z",
+  "kind": "sandbox",
+  "kernel": {
+    "id": "fbe-v1",
+    "min_version": "fbe-v1.0.0",
+    "graph_source": "data/fbe_node_graph_v1.json",
+    "line_node_count": 76
+  },
+  "lines": ["trust_motor"],
+  "runtime": {
+    "bay_slug": "sandbox-bay",
+    "default_tenant": "sandbox",
+    "wave": "W0",
+    "factory_id_internal": "sandbox_0",
+    "pipelines": [],
+    "api_route": "/api/fbe/catalog/v1",
+    "cloud_entry": "--validate-only",
+    "execution_mode": "CLOUD_ONLY"
+  },
+  "io": {
+    "input_schema": "data/schemas/sandbox-demo-input-v1.json",
+    "output_schema": "data/schemas/certainty-report-v1.json",
+    "output_artifact": "30s demo clip + mock Certainty Report JSON",
+    "certainty_report": true
+  },
+  "governance": {
+    "policy_pack": "trust_motor",
+    "tier_cap_honest": "BRONZE",
+    "delivery_mode": "mock_only"
+  },
+  "commercial": {
+    "name": "Factory Sandbox Demo",
+    "tagline": "Try the line — no MicroVM cost until upgrade.",
+    "tier_label": "sandbox",
+    "buyer": "Prospects · website visitors",
+    "hero": false,
+    "maintenance_fee_usd": 0,
+    "compute_note": "Shared mock mesh — zero idle cost"
+  }
+}

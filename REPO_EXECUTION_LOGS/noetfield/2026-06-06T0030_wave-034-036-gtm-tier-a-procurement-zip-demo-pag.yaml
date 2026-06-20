@@ -1,0 +1,29 @@
+schema_version: 1
+repo: noetfield
+task: Wave 034-036 GTM Tier A (procurement zip, demo page, public demo URL)
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - governance-console/backend/services/procurement_pack.py
+  - governance-console/backend/routes/tle.py
+  - governance-console/frontend/app/workspace/[tle_id]/page.tsx
+  - copilot/demo/index.html
+  - governance-console/backend/services/board_pack_pdf.py
+  - scripts/print-demo-url.sh
+  - scripts/procurement-pack-e2e.sh
+  - docs/ops/STAGING_DEMO.md
+  - os/plan.json
+  diff_summary: ''
+  note: 'Founder: make dev-local-tunnel-bg && make demo-url for live partner URL;
+    outreach with procurement ZIP on approved TLE'
+tests:
+  status: passed
+  command: make verify-local-dev && make verify-ui-e2e && make procurement-pack-e2e
+    && make copilot-pilot-e2e
+  output_snippet: All acceptance checks PASS on branch cursor/bank-grade-fullstack-37f0
+real_output: All acceptance checks PASS on branch cursor/bank-grade-fullstack-37f0
+reported_at: '2026-06-06T00:30:00Z'
+reporter: cursor
+execution_id: ''

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0648",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 governance-rules grounding guard (validate-eval-packet-v1b-governance-rules-grounding-v1 + audit_hub_source_alignment) + dispatch + eval-1b LIVE 80% + governance fleet + critical 0; honest closeout sa-0648",
+  "at": "2026-06-09T05:36:01Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

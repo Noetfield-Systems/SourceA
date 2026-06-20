@@ -1,0 +1,21 @@
+{
+  "schema": "fbe-work-order-signed-v1",
+  "ok": true,
+  "at": "2026-06-17T14:09:32Z",
+  "work_order": {
+    "schema": "fbe-work-order-v1",
+    "id": "wo-2f6196f46fc7",
+    "template_id": "web-product-factory-v1",
+    "tenant": "wil_ai_design_partner",
+    "bay_slug": "sample-bay",
+    "target_tier": "GOLD",
+    "origin": "mac_control_plane",
+    "brand": "local-brand",
+    "locales": [
+      "en-US"
+    ],
+    "signed_at": "2026-06-17T14:09:32Z",
+    "status": "signed",
+    "execution_plane": "cloud_skeleton"
+  }
+}

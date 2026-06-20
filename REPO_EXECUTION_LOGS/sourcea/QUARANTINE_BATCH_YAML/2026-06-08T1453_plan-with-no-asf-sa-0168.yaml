@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0168 — Reject ASF as eval authority in scoreboard or progress scripts grep
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0168
+tests:
+  status: passed
+  output_snippet: validate-no-asf-eval-authority-v1 PASS ASF rejected in scoreboard/progress
+reported_at: '2026-06-08T14:53:55Z'
+reporter: cursor-worker-batch

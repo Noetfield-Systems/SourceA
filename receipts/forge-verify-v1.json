@@ -1,0 +1,53 @@
+{
+  "schema": "fbe-forge-verify-v1",
+  "ok": true,
+  "at": "2026-06-17T14:09:29Z",
+  "wave": "W5",
+  "bay_slug": "forge-bay",
+  "template_id": "forge-app-factory-v1",
+  "factory_id": "factory_3",
+  "mode": "headless",
+  "deliveryMode": "prove_only",
+  "checks": [
+    {
+      "id": "forge_runner",
+      "ok": true,
+      "steps_executed": 5,
+      "steps_total": 5
+    },
+    {
+      "id": "forge_refinery_ledger",
+      "ok": true,
+      "lines": 68,
+      "expected": 3
+    },
+    {
+      "id": "forge_assembly_ledger",
+      "ok": true,
+      "lines": 44,
+      "expected": 2
+    },
+    {
+      "id": "scaffold_receipt",
+      "ok": true,
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/refinery/forge-scaffold-v1-v1.json"
+    },
+    {
+      "id": "inbox_gate_receipt",
+      "ok": true,
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/refinery/forge-inbox-gate-v1-v1.json"
+    },
+    {
+      "id": "deploy_pack_manifest",
+      "ok": true,
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/assembly/forge-deploy-pack-v1-v1.json"
+    }
+  ],
+  "proof": "forge_verify PASS",
+  "tier_target": "GOLD",
+  "tier_achieved": "GOLD",
+  "proof_class": "G0-G3",
+  "w5_honest_cap": "GOLD",
+  "w5_note": "Production deploy deferred \u2014 prove_only G0-G3 gate",
+  "execution_plane": "headless_w5"
+}

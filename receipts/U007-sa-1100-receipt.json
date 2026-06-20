@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U007",
+  "title": "Brand separation per lane NF/TF/SA",
+  "evidence": "check_brand_separation() hard_fail on cross-brand bleed; ocree clean pass",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:14:26Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

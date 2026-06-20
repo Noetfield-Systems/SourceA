@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1110",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U081",
+  "title": "compilation attempt_number on icp-compile trace",
+  "evidence": "icp compile attempt_number trace PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:20:42Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

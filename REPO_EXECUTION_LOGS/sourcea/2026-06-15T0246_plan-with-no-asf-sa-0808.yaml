@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0808 — Validate deferred bucket excludes scheduled_cadence rows from pending_total
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0808
+tests:
+  status: passed
+  output_snippet: validate-deferred-excludes-scheduled-v1 PASS
+reported_at: '2026-06-15T02:46:48Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

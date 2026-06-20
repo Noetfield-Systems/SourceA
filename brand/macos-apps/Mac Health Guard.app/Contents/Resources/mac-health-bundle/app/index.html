@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Mac Health — auto heal for this Mac. Private. Local only." />
+  <title>Mac Health</title>
+  <link rel="stylesheet" href="app.css?v=3.3.0" />
+</head>
+<body>
+  <div class="mhg-panic-flash" id="panic-flash" hidden aria-live="assertive"></div>
+
+  <main class="mhg-app mhg-founder-glance">
+    <article class="mhg-founder-card">
+      <header class="mhg-founder-head">
+        <div class="mhg-founder-title-row">
+          <div>
+            <h1 class="mhg-founder-title">Mac Health</h1>
+            <p class="mhg-founder-sub">Auto heal · private · this Mac only</p>
+          </div>
+          <span class="mhg-badge mhg-badge-green" id="heart-pulse">…</span>
+        </div>
+
+        <div class="mhg-alert-stack">
+          <div class="mhg-prevention-banner" id="prevention-banner" hidden aria-live="polite">
+            <p class="mhg-prevention-line" id="prevention-line"></p>
+            <button type="button" class="mhg-btn mhg-btn-primary mhg-prevention-tap" id="prevention-tap" hidden>Fix now</button>
+          </div>
+          <div class="mhg-cursor-hot-banner" id="cursor-hot-banner" hidden aria-live="assertive">
+            <p id="cursor-hot-line"></p>
+            <button type="button" class="mhg-btn mhg-btn-cursor-hot" id="btn-restart-cursor-banner">Restart Cursor</button>
+          </div>
+          <div class="mhg-playwright-banner" id="playwright-banner" hidden aria-live="assertive">
+            <p id="playwright-line"></p>
+            <button type="button" class="mhg-btn mhg-btn-primary" id="btn-kill-playwright">Kill stuck browser</button>
+          </div>
+          <div class="mhg-log-bomb-banner" id="log-bomb-banner" hidden aria-live="assertive">
+            <p id="log-bomb-line">Log bomb on disk.</p>
+            <button type="button" class="mhg-btn mhg-btn-primary" id="btn-log-shield-relieve">Relieve disk</button>
+          </div>
+          <p class="mhg-next-tap" id="next-tap" hidden></p>
+        </div>
+
+        <div class="mhg-founder-hero">
+          <div class="mhg-score-ring mhg-score-ring-sm" id="score-ring" aria-live="polite">
+            <span class="mhg-score-value" id="score-value">—</span>
+            <span class="mhg-score-grade" id="score-grade">…</span>
+          </div>
+          <div class="mhg-founder-story">
+            <p class="mhg-lead" id="grade-story">Reading…</p>
+            <p class="mhg-meta mhg-status-line" id="scan-meta"></p>
+          </div>
+        </div>
+
+        <button type="button" class="mhg-btn mhg-btn-primary mhg-btn-block" id="btn-heal">Relieve pressure</button>
+        <p class="mhg-heal-msg" id="heal-msg" hidden></p>
+        <p class="mhg-meta mhg-h1-sync-line" id="h1-status" hidden aria-live="polite"></p>
+      </header>
+
+      <section class="mhg-founder-stats" id="pressure-section" aria-label="Live status">
+        <p class="mhg-meta mhg-stats-updated" id="pressure-live">Connecting…</p>
+        <p class="mhg-section-lead mhg-meta" id="pressure-lead" hidden></p>
+        <div class="mhg-pressure-grid mhg-stats-grid" id="pressure-grid" aria-busy="true"></div>
+      </section>
+
+      <section class="mhg-founder-issues" id="findings-section" hidden aria-label="Issues">
+        <h2 class="mhg-founder-h2">Needs attention</h2>
+        <ul class="mhg-findings" id="findings-list"></ul>
+      </section>
+
+      <details class="mhg-founder-more" id="panel-more">
+        <summary>More</summary>
+        <div class="mhg-more-block">
+          <p class="mhg-more-label">Manual relief</p>
+          <div class="mhg-cooldown-grid mhg-more-actions" id="panel-cooldown">
+            <button type="button" class="mhg-btn mhg-btn-ghost" data-action="cpu_cool_down" id="btn-cool-down">Cool down</button>
+            <button type="button" class="mhg-btn mhg-btn-ghost" data-action="cpu_wake_cool_down" id="btn-wake-cool-down" hidden>Wake cool down</button>
+            <button type="button" class="mhg-btn mhg-btn-ghost" data-action="cpu_restart_cursor" id="btn-restart-cursor">Restart Cursor</button>
+            <button type="button" class="mhg-btn mhg-btn-panic" id="btn-panic-header">Stop background</button>
+            <button type="button" class="mhg-btn mhg-btn-panic" id="btn-full-stop">Full stop</button>
+          </div>
+          <p class="mhg-meta" id="cooldown-live"></p>
+          <p class="mhg-cooldown-result" id="cooldown-result" hidden></p>
+        </div>
+        <div class="mhg-more-block mhg-log-shield" id="log-shield">
+          <p class="mhg-more-label">Disk &amp; logs <span class="mhg-badge mhg-hub-truth-badge" id="hub-truth-badge">…</span></p>
+          <div class="mhg-log-shield-grid" id="log-shield-grid"><p class="mhg-meta">…</p></div>
+          <div class="mhg-more-actions">
+            <button type="button" class="mhg-btn mhg-btn-ghost" id="btn-log-shield-relieve-panel">Relieve disk</button>
+            <button type="button" class="mhg-btn mhg-btn-ghost" id="btn-log-shield-kill-readers">Kill stuck readers</button>
+          </div>
+        </div>
+        <div class="mhg-more-block" id="panel-settings">
+          <p class="mhg-more-label">Auto guard</p>
+          <p class="mhg-meta" id="settings-summary"></p>
+          <div class="mhg-settings-explainer" id="settings-explainer"></div>
+          <form class="mhg-settings-form" id="settings-form" autocomplete="off"></form>
+          <div class="mhg-more-actions">
+            <button type="button" class="mhg-btn mhg-btn-ghost" id="btn-settings-save">Save</button>
+            <button type="button" class="mhg-btn mhg-btn-ghost" id="btn-settings-reset">Reset</button>
+          </div>
+          <p class="mhg-settings-msg" id="settings-msg" hidden></p>
+        </div>
+        <div class="mhg-more-block">
+          <p class="mhg-more-label">Tools</p>
+          <div class="mhg-more-actions">
+            <button type="button" class="mhg-btn mhg-btn-ghost" id="btn-rescan">Security scan</button>
+            <button type="button" class="mhg-btn mhg-btn-ghost" id="btn-pipeline">Clear pipeline</button>
+            <button type="button" class="mhg-btn mhg-btn-ghost" id="btn-firewall">Firewall</button>
+            <button type="button" class="mhg-btn mhg-btn-ghost" id="btn-refresh">Refresh</button>
+            <button type="button" class="mhg-btn mhg-btn-ghost" id="btn-export">Export</button>
+          </div>
+        </div>
+      </details>
+
+      <footer class="mhg-founder-foot">
+        <p class="mhg-meta">Pulse every 8s · never closes Cursor · background factory only</p>
+      </footer>
+    </article>
+
+    <div id="panel-rhythm" hidden aria-hidden="true"></div>
+    <p class="mhg-cpu-ladder" id="cpu-ladder" hidden></p>
+    <span id="score-mood" hidden></span>
+
+    <section class="mhg-ram-truth-panel" id="panel-ram-truth" hidden aria-hidden="true">
+      <button type="button" id="btn-ram-purge" hidden></button>
+      <button type="button" id="btn-ram-refresh" hidden></button>
+      <button type="button" id="btn-cooldown-ram-purge" hidden></button>
+      <div id="ram-truth-lead" hidden></div>
+      <p id="ram-truth-live" hidden></p>
+      <p id="ram-truth-total" hidden></p>
+      <p id="ram-truth-explain" hidden></p>
+      <p id="ram-truth-summary" hidden></p>
+      <ol id="ram-truth-list" hidden></ol>
+      <p id="ram-purge-result" hidden></p>
+    </section>
+    <section class="mhg-panic" id="panel-panic" hidden aria-hidden="true"></section>
+  </main>
+  <script src="app.js?v=3.3.0" defer></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0951",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "research doc shipped archive/attachments/2026-06-14/sa-0951-model-workflow-gaps",
+  "at": "2026-06-14T00:55:02Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

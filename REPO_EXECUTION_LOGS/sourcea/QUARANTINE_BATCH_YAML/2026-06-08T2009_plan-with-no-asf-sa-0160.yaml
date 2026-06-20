@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0160 — Run python3 eval_packet_v1b/runner.py live smoke — write_report true
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0160
+tests:
+  status: passed
+  output_snippet: pack eval-dispatch verify; live eval 4/5 80%; eval+dispatch+grounding PASS
+reported_at: '2026-06-08T20:09:00Z'
+reporter: cursor-worker-batch

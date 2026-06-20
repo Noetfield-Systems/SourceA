@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0639 — Compare D9 blend weights doc to query_engine implementation
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0639
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — D9 blend weights + D5 hybrid audit guard; eval live 80%; governance + critical 0; closeout complete
+reported_at: '2026-06-09T04:55:17Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

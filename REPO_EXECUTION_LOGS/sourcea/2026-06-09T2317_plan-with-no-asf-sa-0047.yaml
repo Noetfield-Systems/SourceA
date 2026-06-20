@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0047 — Grep scripts for dispatch_ready=true global set — reject
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0047
+tests:
+  status: passed
+  output_snippet: sa-0047 VERIFY PASS — validate-dispatch-ready-lock-v1 + phase-s0 validators PASS; critical 0
+reported_at: '2026-06-09T23:17:23Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

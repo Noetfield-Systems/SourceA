@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0839",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY \u2014 validate-h2-weekly-receipt-bundle-cadence-t1-crossref-v1 PASS \u00b7 canonical sa-0814 chain intact",
+  "at": "2026-06-15T04:26:47Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

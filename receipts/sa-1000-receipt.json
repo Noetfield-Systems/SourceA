@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1000",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY \u2014 T3 s9 bibliography cross-ref closed (canonical sa-0975) \u00b7 phase-s9 batch 156/156 complete",
+  "at": "2026-06-14T11:10:06Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

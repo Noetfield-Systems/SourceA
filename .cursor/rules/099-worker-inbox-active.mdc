@@ -1,0 +1,111 @@
+---
+description: "Worker INBOX sa-sa-1201 act — attach ONLY to SourceA Worker chat (never Brain)"
+alwaysApply: false
+globs:
+---
+
+# ACTIVE WORKER INBOX (pending)
+
+**Queue:** 2/31 · **role:** act · **sa:** sa-1201
+
+## You are Worker — execute on first message (do not wait for paste)
+
+```bash
+cd ~/Desktop/SourceA && python3 scripts/goal1_lane_broker.py pickup
+```
+
+Then run validators and complete ONE turn. End with WORKER_ROUND_REPORT YAML +:
+
+```bash
+python3 scripts/goal1_lane_broker.py worker-submit --stdin
+python3 scripts/worker_inject_lib.py --clear
+```
+
+Brain polls: `python3 scripts/goal1_lane_broker.py brain-poll`
+
+---
+
+## Active prompt
+
+SourceA Worker turn — engine=WORKER
+bound: sa_id=sa-1201 role=act pos=2/31
+title: [ACT] F011 — Clear last_completed_sa ghost
+
+LAW: one prompt = one purpose. No multi-step 0-5 contract. STOP after this role.
+LAW: Next steps shows live next-10 mirror — THIS INBOX turn is execution SSOT.
+Cursor skill (session): @sina-sourcea-worker · shared: @sina-registry-drain
+Mandatory reads (Read tool if needed, do not paste all):
+- brain-os/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md
+- brain-os/enforcement/REGISTRY_DRAIN_RAIL_LOCKED_v1.md
+- brain-os/system/GOAL_EXECUTION_ACTIVE_LOCKED_v1.md
+- brain-os/plan-registry/sourcea-1000/HEALTHY_PROMPT_SEQUENCE_LOCKED_v1.md
+- brain-os/plan-registry/sourcea-1000/REGISTRY_DRAIN_PROCESS_LOCKED_v1.md
+
+ROLE=ACT (hard law):
+- Minimal diff for bound sa_id only. No closeout. No batch. No scope creep.
+- next_action must be verify (same sa_id) OR NONE.
+
+
+═ DISK TRUTH (machine · run inbox SSOT — NOT Next steps batch) ═
+at: 2026-06-19T19:30:44Z · monitor_live: 2026-06-19T19:30:43Z
+Goal 1: 1000/1000 honest (100.0%) · Valid YES: 1000 · receipts: 1000
+Factory: SINGLE_SA · freeze=True · stop_open=False
+Queue: 2/31 · sa-1201 · ACT · phase_strict=False
+═ FOUNDER DIRECTIVE (disk SSOT — every layer) ═
+Command: RETIRED FOREVER · Hub only (/) + (/machines/) · /legacy/ must not serve
+Rail: Hub only (H1/H2) · Sina Command RETIRED · factory drain phase-s8
+ASF: OUTBOUND FACTORY · ? · ? · LOOP AUTO · Brain work-order dispatch
+═ END FOUNDER DIRECTIVE ═
+Rail order: Hub only (H1/H2) · Sina Command RETIRED · factory drain phase-s8
+INBOX: pending=False · truth_match=True · delivered=2026-06-19T19:09:29Z
+LAW: execute THIS turn only · WORKER_ROUND_REPORT · broker submit · STOP
+═ END DISK TRUTH ═
+
+=== SESSION MEMORY (disk SSOT — do not ask founder) ===
+bound_sa_id: sa-1201
+bound_role: act
+queue_pos: 2/31
+registry_status: backlog
+at: 2026-06-19T19:30:44Z
+=== ASF DIRECTIVE LATCH (Command RETIRED — mandatory) ===
+Hub only (H1 / + H2 /machines/) · Sina Command name retired · /legacy/ must not serve.
+FORBIDDEN: /legacy/ route, Sina Command UI strings, build-sina-command-panel for daily use.
+ALLOWED: Hub 2 validators, factory CHECK→ACT→VERIFY when hub2_drain_allowed.
+note: OUTBOUND FACTORY · ? · ? · LOOP AUTO · Brain work-order dispatch
+set_at: 2026-06-18T23:09:52Z
+last_round_report:
+  sa_focus: sa-1200
+  status: WORKER_ROUND_REPORT
+  at: 2026-06-19T19:30:29Z
+  summary: 
+orchestrator:
+  status: idle
+  expected_sa: sa-1201
+  expected_role: act
+  last_overnight_skip: None
+receipt_on_disk: DONE agent=None
+goal_progress: GOAL_1: 1000/1000 (100.0%) honest · backlog 0
+=== END SESSION MEMORY ===
+
+Queue instruction: [UNIFIED_PLANS pos=2/31] sa=sa-1201 role=act · full_stack_100
+
+WORK: Implement **F011** — Clear last_completed_sa ghost
+Plan: data/sourcea-full-stack-100-fix-plan-v1.json
+Lane: execution_inbox
+Tier: P1
+Wired to: worker_stuck_recovery_v1.py
+Acceptance: no stale sa on new unit
+
+Law: plans_unified_upgrade_v1 · cloud factory hardening · no agent email send
+ACT — wire minimal diff · verify acceptance · mark plan row done · run `python3 scripts/plans_unified_upgrade_v1.py` · broker-submit · STOP
+Task file: brain-os/plan-registry/sourcea-1000/data/sourcea-full-stack-100-fix-plan-v1.json#F011
+
+PREFLIGHT: Cursor window focused before any paste (cursor_window_preflight_v1.py).
+BROKER: after WORKER_ROUND_REPORT → goal1_lane_broker.py worker-submit (machine pickup; not Brain chat).
+
+THIS TURN: ACT ONLY — minimal diff for bound sa_id. No closeout. No batch.
+LAW: run worker_turn_entry_v1.sh first (gate + anti-staleness auto-heal).
+Verify hint: acceptance: no stale sa on new unit
+
+Output: end with worker_round_report YAML (status PASS/FAIL/BLOCKED).
+next_action: next queue role on same sa, or NONE after verify.

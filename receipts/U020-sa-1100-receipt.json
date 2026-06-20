@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U020",
+  "title": "Version bump translation to 1.1.0 on any edit",
+  "evidence": "write_translation_ssot bumps patch+saved_at; --check-saved-at PASS; version 1.2.2",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:11:22Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

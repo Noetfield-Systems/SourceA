@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0574",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0574 VERIFY \u2014 validate-two-clock-synthesis-lessons-t2-crossref-v1.sh PASS; closeout pending",
+  "at": "2026-06-14T23:30:08Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

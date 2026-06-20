@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0569 — Validate evidence flywheel doc linked from hub essentials
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0569
+tests:
+  status: passed
+  output_snippet: sa-0569 VERIFY PASS — T2 evidence flywheel hub essentials crossref canonical sa-0519
+reported_at: '2026-06-14T22:18:28Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

@@ -1,0 +1,17 @@
+{
+  "schema": "mcp-receipts-bucket-v1",
+  "saved_at": "2026-06-19T05:55:14Z",
+  "buckets": [
+    {
+      "campus": "sourcea",
+      "name": "mcp-receipts-sourcea",
+      "rls": "tenant_read_own"
+    },
+    {
+      "campus": "virlux",
+      "name": "mcp-receipts-virlux",
+      "rls": "tenant_read_own"
+    }
+  ],
+  "forbidden": "write ~/.sina via MCP"
+}

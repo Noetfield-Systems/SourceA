@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0820 — Validate machines banner sibling-hub copy — not sub-page wording
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0820
+tests:
+  status: passed
+  output_snippet: OK: validate-machines-banner-sibling-v1 · disk banner sibling hub not a sub-page · live /machines/ match; OK: worker_verify_ultra_v1 · anti-staleness auto-heal + hub L0 tier PASS
+reported_at: '2026-06-15T03:18:04Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

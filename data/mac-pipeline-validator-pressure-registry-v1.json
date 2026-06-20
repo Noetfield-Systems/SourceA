@@ -1,0 +1,146 @@
+{
+  "schema": "mac-pipeline-validator-pressure-registry-v1",
+  "version": "1.1.1",
+  "saved_at": "2026-06-20T00:20:00Z",
+  "authority": "mac_law_locked",
+  "law_doc": "~/Desktop/MacLaw/MAC_PIPELINE_VALIDATOR_PRESSURE_LAW_LOCKED_v1.md",
+  "light_only_flag": "~/.sina/mac-light-validators-only-v1.flag",
+  "ship_window_flag": "~/.sina/asf-ship-window-v1.flag",
+  "founder_session_flags": [
+    "~/.sina/mac-control-plane-v1.flag",
+    "~/.sina/founder-work-mode-v1.flag",
+    "~/.sina/mac-light-validators-only-v1.flag"
+  ],
+  "one_law": "Heavy pipelines and validators forbidden on Mac body — cloud CI, API workers, or ASF ship window only",
+  "tiers": {
+    "light": {
+      "max_wall_sec": 20,
+      "allowed_during_founder_session": true,
+      "scripts": [
+        "validate-mac-control-plane-v1.sh",
+        "validate-mac-health-agent-mandates-v1.sh",
+        "validate-no-auto-screenshot-v1.sh",
+        "validate-mac-health-never-again-v1.sh",
+        "validate-mac-health-fast-v1.sh",
+        "validate-mac-pipeline-validator-pressure-v1.sh",
+        "validate-founder-execution-model-v1.sh",
+        "founder_session_gate_v1.py",
+        "mac_pipeline_validator_pressure_v1.py"
+      ],
+      "override_globs": []
+    },
+    "medium": {
+      "forbidden_during_founder_session": true,
+      "max_wall_sec": 120,
+      "route": "cloud_ci_or_asf_ship_window",
+      "scripts": [
+        "validate-m111-p0-wave1-v1.sh",
+        "validate-sourcea-ecosystem-connected-v1.sh",
+        "validate-cloud-factory-10-steps-v1.sh",
+        "validate-mac-health-founder-upgrade-v1.sh",
+        "validate-mac-health-unattended-v1.sh",
+        "validate-ecosystem-mac-health-111-plan-v1.sh"
+      ]
+    },
+    "heavy": {
+      "forbidden_during_founder_session": true,
+      "route": "cloud_ci_or_asf_ship_window",
+      "globs": [
+        "validate-*-e2e*.sh",
+        "validate-e2e-*.sh",
+        "validate-e2e*.sh",
+        "verify-*-e2e*.sh",
+        "*full-e2e*.sh",
+        "wbc-e2e.sh",
+        "validate-*-motor-v1.sh",
+        "validate-video-ad-*.sh",
+        "validate-loop-chain-e2e-v1.sh",
+        "run-mac-health-recipe-v1.sh",
+        "build-mac-health-standalone-app-v1.sh"
+      ],
+      "scripts": [
+        "validate-all-e2e-v1.sh",
+        "validate-mac-law-surfaces-e2e-v1.sh",
+        "run-mac-health-recipe-v1.sh",
+        "validate-e2e-fast-ladder-v1.sh",
+        "validate-mcp-chain-e2e-v1.sh",
+        "verify-mac-law-routing-panel-e2e.sh",
+        "validate-hub-stabilization-e2e-light-v1.sh",
+        "validate-form-official-e2e-v1.sh",
+        "wbc-e2e.sh",
+        "full-e2e-mono.sh",
+        "validate-mac-health-e2e-v1.sh",
+        "validate-mac-health-cooldown-e2e-v1.sh",
+        "validate-mcp-chain-motor-v1.sh",
+        "validate-video-ad-factory-chain-v1.sh",
+        "validate-loop-chain-e2e-v1.sh",
+        "validate-sourcea-e2e-full-v1.sh",
+        "validate-sourcea-landing-e2e-v1.sh",
+        "validate-goal1-e2e-v1.sh",
+        "validate-commercial-outbound-e2e-v1.sh",
+        "validate-brain-outbound-work-order-e2e-v1.sh",
+        "validate-brain-e2e-discipline-v1.sh",
+        "validate-brain-intent-e2e-v1.sh",
+        "validate-sourcea-e2e-standard-v1.sh",
+        "validate-super-fast-hub-e2e-v1.sh",
+        "validate-factory-e2e-protection-v1.sh",
+        "validate-e2e-hardening-p0-v1.sh",
+        "validate-live-prompt-feed-e2e-v1.sh",
+        "validate-sourcea-e2e-playbook-locked-v1.sh",
+        "validate-sourcea-e2e-preflight-v1.sh",
+        "validate-e2e-recipe-p1-v1.sh",
+        "build-mac-health-standalone-app-v1.sh"
+      ]
+    },
+    "forbidden_body": {
+      "never_on_mac_body": true,
+      "route": "cloud_factory_or_loop_specialist",
+      "process_patterns": [
+        "fbe_motor_delegate_v1",
+        "autorun_dispatcher_v1",
+        "agent_rules_loop_orchestrator",
+        "anti_staleness_auto_wire_v1",
+        "goal1_worker_batch_loop",
+        "auto_run_worker_batch",
+        "find_critical_bugs.py",
+        "queue_ssot_unify",
+        "commercial_short_film_v1",
+        "cinematic-film-factory",
+        "visual_proof_capture_v1",
+        "debug_e2e_governance_chain"
+      ],
+      "launch_labels_forbidden": [
+        "com.sourcea.autorun-worker"
+      ]
+    }
+  },
+  "cursor_caps": {
+    "max_extension_hosts": 3,
+    "warn_extension_hosts": 2,
+    "max_cursor_rss_gb": 8.0,
+    "founder_line": "Close extra Cursor windows — Mac Law caps extension-hosts during founder session"
+  },
+  "cloud_alternatives": {
+    "full_e2e": {
+      "preferred": "github_actions_or_railway_ci",
+      "receipt_dir": "~/.sina/ci-receipts",
+      "max_receipt_age_hours": 24,
+      "note": "Do not re-run validate-all-e2e on Mac if fresh cloud receipt exists"
+    },
+    "factory_act": {
+      "preferred": "fbe_railway",
+      "scripts": [
+        "brain_phase0_work_order_v1.py",
+        "loop_specialist_tick_v1.py"
+      ]
+    },
+    "anti_staleness": {
+      "preferred": "loop_specialist_cloud_contract",
+      "forbidden_local": "anti_staleness_auto_wire_v1.py --tier session"
+    },
+    "mac_health_ship": {
+      "preferred": "cloud_ci_mac_health_e2e",
+      "forbidden_local_during_session": "run-mac-health-recipe-v1.sh --build"
+    }
+  }
+}

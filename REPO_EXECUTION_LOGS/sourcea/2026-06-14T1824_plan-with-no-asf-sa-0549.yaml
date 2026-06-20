@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0549 — Document two-clock slice parallel lane P0 in synthesis lessons
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0549
+tests:
+  status: passed
+  output_snippet: sa-0549 VERIFY PASS — T1 two-clock synthesis lessons dedup via crossref canonical sa-0524
+reported_at: '2026-06-14T18:24:29Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

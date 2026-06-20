@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U051",
+  "title": "Ingestion JSON schema v1 in data/",
+  "evidence": "outbound-ingestion-schema-v1.json target_metadata+signals \u00b7 --check-ingestion-schema PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T02:45:27Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

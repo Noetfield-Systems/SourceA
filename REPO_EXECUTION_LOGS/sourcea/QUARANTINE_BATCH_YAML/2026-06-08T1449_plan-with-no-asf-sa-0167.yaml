@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0167 — Document eval CI in build-sina-command-panel.py header comment
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0167
+tests:
+  status: passed
+  output_snippet: eval CI header in build-sina-command-panel.py Eval-1/1b strict chain documented
+reported_at: '2026-06-08T14:49:25Z'
+reporter: cursor-worker-batch

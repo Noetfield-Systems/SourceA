@@ -1,0 +1,27 @@
+schema_version: 1
+repo: sinaai_mono
+task: Full E2E — Telegram no-reply fix + stack verify
+status: done
+verify_passed: true
+evidence:
+  commit: ''
+  files_changed:
+  - SinaaiRuntime/agents/integrations/telegram_bot.py
+  - SinaaiRuntime/integrations/telegram/client.py
+  - scripts/full-e2e-mono.sh
+  - scripts/test-telegram-polling.sh
+  - os/plan.json
+  diff_summary: sinaaiosbot_token — need BotFather token for @SinaaiOSbot; use TrustField2Bot
+    until rotated
+  note: 'sinaaiosbot_token — need BotFather token for @SinaaiOSbot; use TrustField2Bot
+    until rotated | ASF: chat TrustField2Bot or rotate token; Phase 1 track 1A/1B/1C'
+tests:
+  status: passed
+  command: bash scripts/full-e2e-mono.sh
+  output_snippet: TELEGRAM POLLING PASS; INPROCESS SMOKE PASS; APPROVAL GATE PASS;
+    E2E failed=0
+real_output: TELEGRAM POLLING PASS; INPROCESS SMOKE PASS; APPROVAL GATE PASS; E2E
+  failed=0
+reported_at: '2026-06-04T19:00:00Z'
+reporter: cursor
+execution_id: ''

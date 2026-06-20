@@ -1,0 +1,54 @@
+{
+  "schema": "w3-receiver-interest-assets-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-18T19:30:00Z",
+  "law": "docs/SOURCEA_RECEIVER_INTEREST_LOOP_LOCKED_v1.md",
+  "quality_bar_pct": 90,
+  "question": "Would the recipient see something worth clicking — preview, catalog, or demo — tied to their world?",
+  "brands": {
+    "TrustField": {
+      "demo": "https://www.trustfield.ca/demo",
+      "pilot": "https://www.trustfield.ca/pilot",
+      "home": "https://www.trustfield.ca/"
+    },
+    "Noetfield": {
+      "demo": "https://www.noetfield.com/copilot/pilot/",
+      "home": "https://www.noetfield.com/"
+    },
+    "SourceA": {
+      "home": "https://sourcea.com",
+      "factory": "https://sourcea.com"
+    }
+  },
+  "accounts": {
+    "sourcea-factory": {
+      "company": "SourceA",
+      "brand": "SourceA",
+      "sku": "FBE-engine",
+      "receiver_world": ["outreach", "agent workflow", "shipped artifact", "proof on disk", "drift", "incident review"],
+      "interest_urls": ["https://sourcea.com"],
+      "preview_promise": "governed factory replay walkthrough",
+      "must_signal": ["outreach", "agent", "shipped", "drift", "trace"]
+    },
+    "ocree": {
+      "company": "Ocree Capital",
+      "brand": "TrustField",
+      "sku": "T-P6",
+      "receiver_world": ["Polymesh", "CRE", "EMD", "governed issuance", "Collaboratory", "tokenization"],
+      "interest_urls": ["https://www.trustfield.ca/demo"],
+      "preview_promise": "five-minute governed-issuance replay",
+      "catalog_label": "Trust Brief · T-P6 partner attestation",
+      "must_signal": ["ocree", "cre", "polymesh", "issuance"]
+    },
+    "fundmore": {
+      "company": "Fundmore",
+      "brand": "Noetfield",
+      "sku": "NF-RD",
+      "receiver_world": ["mortgage", "AI copilot", "agent", "operational decisions", "audit trail"],
+      "interest_urls": ["https://www.noetfield.com/copilot/pilot/"],
+      "preview_promise": "five-minute copilot audit replay",
+      "catalog_label": "Copilot governance pilot",
+      "must_signal": ["mortgage", "ai", "copilot", "agent"]
+    }
+  }
+}

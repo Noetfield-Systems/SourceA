@@ -1,0 +1,13 @@
+{
+  "schema": "kyb-input-v1",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["legal_name", "jurisdiction", "registry_documents"],
+  "properties": {
+    "legal_name": {"type": "string"},
+    "jurisdiction": {"type": "string"},
+    "registry_documents": {"type": "array", "items": {"type": "string"}},
+    "ubo_depth": {"type": "integer", "minimum": 1, "maximum": 10, "default": 5},
+    "tenant": {"type": "string"}
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U068",
+  "title": "Email bundle export single markdown for founder",
+  "evidence": "export_markdown filters COMMERCIAL_BUNDLE_LOOP_ACCOUNTS; 3 emails one file at ~/.sina/outbound/founder-review-bundle-v1.md; --check-export-md PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:13:36Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

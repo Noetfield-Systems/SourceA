@@ -1,0 +1,80 @@
+{
+  "schema": "sourcea-main-problem-trigger-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-20T01:35:00Z",
+  "locked": true,
+  "flag": "~/.sina/main-problem-trigger-active-v1.flag",
+  "receipt": "~/.sina/main-problem-trigger-receipt-v1.json",
+  "script": "scripts/main_problem_trigger_v1.py",
+  "validator": "scripts/validate-main-problem-trigger-v1.sh",
+  "law_rule": ".cursor/rules/029-main-problem-trigger-v1.mdc",
+  "behavior_ssot": "data/agent-behavior-settings-v1.json",
+  "one_law": "When founder says main problem — agents PREPARE the next bounded action on the north-star path. No report theater.",
+  "trigger_phrases": [
+    "main problem",
+    "main real task",
+    "main task",
+    "whole thread",
+    "north star",
+    "what is the main problem"
+  ],
+  "north_star": "Agentic trust infrastructure → real market traction via cloud-first factories (Noetfield freemium → TrustField sandbox) · Mac = control panel only · OpenRouter/cloud workers execute · official form drives disk",
+  "main_problem": {
+    "summary": "SourceA must run factories on cloud (Railway FBE + bays), not Mac muscle. Founder fills official form (M1 Canvas / Hub /form/) with batch submit wired to nerves. Agents kept shipping rules, language, and Mac tangents instead of executing this path.",
+    "forbidden_when_triggered": [
+      "Generic status reports without next bounded WORK",
+      "Language-rule or validator theater as the reply",
+      "Mac cleanup unless founder asked Mac/heat",
+      "Sidebar/docs-only when cloud or form is the blocker",
+      "Parroting receipt lines instead of preparing action"
+    ],
+    "prepare_mode": {
+      "order": "READ SSOT → READ disk receipts → PICK one bounded next action → EXECUTE or state single blocker with proof",
+      "not": "Long chat summary · bullet PASS/FAIL lists · invitation to founder",
+      "reply_max": "Problem (1 sentence) · disk blocker · what agent does next on north star (1 sentence)"
+    }
+  },
+  "priority_stack": [
+    {
+      "id": "P0",
+      "label": "Noetfield freemium cloud bay",
+      "ssot": "data/brain-cloud-practical-300-plan-v1.json",
+      "receipt": "~/.sina/fbe-bay-run-receipt-v1.json",
+      "command": "python3 scripts/cloud_factory_10_steps_v1.py --step 5 --json"
+    },
+    {
+      "id": "P1",
+      "label": "TrustField sandbox cloud bay",
+      "receipt": "~/.sina/trustfield-sandbox-receipt-v1.json",
+      "command": "python3 scripts/cloud_factory_10_steps_v1.py --step 8 --json"
+    },
+    {
+      "id": "P2",
+      "label": "FBE Railway public URL wired",
+      "ssot": "data/fbe_cloud_worker_config_v1.json",
+      "receipt": "~/.sina/fbe-cloud-deploy-receipt-v1.json",
+      "command": "python3 scripts/cloud_factory_10_steps_v1.py --step 2 --json"
+    },
+    {
+      "id": "P3",
+      "label": "Official form batch submit + nerve cascade",
+      "surface": "http://127.0.0.1:13020/form/",
+      "command": "python3 scripts/form_official_wire_e2e_v1.py --json"
+    },
+    {
+      "id": "P4",
+      "label": "Portfolio defer unblock (WitnessBC prod)",
+      "ssot": "data/portfolio-fix-plan-v1.json",
+      "task": "WBC-P0-3"
+    }
+  ],
+  "compile_order": "SourceA Sina read → Noetfield compile → TrustField send",
+  "phase0": "Freemium sandboxes on cloud attract users before paid conversion",
+  "wired_to": [
+    "scripts/agent_session_gate_run_v1.py",
+    "scripts/agent_memory_mirror_v1.py",
+    "scripts/agent_behavior_settings_v1.py",
+    "scripts/agentic_conduct_gate_v1.py",
+    "data/agent-behavior-settings-v1.json"
+  ]
+}

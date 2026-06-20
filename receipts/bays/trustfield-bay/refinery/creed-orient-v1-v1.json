@@ -1,0 +1,15 @@
+{
+  "schema": "fbe-exchange-step-receipt-v1",
+  "ok": true,
+  "at": "2026-06-17T14:09:16Z",
+  "node_id": "creed-orient-v1",
+  "bay_slug": "trustfield-bay",
+  "tenant": "trustfield",
+  "npm": "agent:orient",
+  "exit": 0,
+  "elapsed_sec": 0.1,
+  "creed_root": "/Users/sinakazemnezhad/Desktop/YA5/PLUS ONE/CREED",
+  "deliveryMode": "prove_only",
+  "mode": "w4_headless",
+  "tail": "0 \u2014 open only founder-assigned slug this session\n  session slug: trustfield-bay (ephemeral \u2014 not in MEMORY)\n  assignment: trustfield-bay\n  step: \u2014 (no bay)\n  last receipt: none\n  next: undefined\n  blockers: bay missing \u2014 run creed:scaffold first\n  clone complete requires: route-audit + match-floor \u226599% + reference-quality + fidelity-matrix + critic \u226590\nnpm warn Unknown env config \"devdir\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options."
+}

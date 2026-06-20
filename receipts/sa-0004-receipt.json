@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0004",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0004 VERIFY closeout \u2014 goal-dispatch-closure in_progress+spine blocker PASS, strict build+phase-s0+find_critical_bugs critical 0, pack validate 1000",
+  "at": "2026-06-09T10:12:35Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "local-worker-cloud-factory-deprecation-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-19T08:07:30Z",
+  "upgrade_id": "B0901",
+  "epic": "E10",
+  "lane": "graduate_local",
+  "title": "Mark local Cursor Worker path cloud-factory deprecated",
+  "deprecated": {
+    "path": "local_cursor_worker_cloud_factory",
+    "label": "Cursor Worker INBOX executes cloud-factory upgrades directly",
+    "status": "deprecated",
+    "since": "2026-06-19T08:07:30Z"
+  },
+  "replacement": {
+    "execution_plane": "cloud_api_worker",
+    "control_plane": "mac_hub",
+    "dispatch": "POST /api/cloud-worker/dispatch/v1",
+    "owner_role": "brain"
+  },
+  "acceptance": {
+    "brain_reasoning_receipt": true,
+    "cloud_federated_proof": true,
+    "local_worker_deprecated": true
+  },
+  "proof_bundle": {
+    "dispatch_invariant": "data/cloud-worker-dispatch-invariant-v1.json",
+    "brain_receipt": "~/.sina/brain-reasoning-receipt-b0901.json",
+    "federated_run": "receipts/federated-run-v1.json",
+    "parent_plan": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json"
+  },
+  "federated_snapshot": {
+    "ok": true,
+    "remote_status": "cloud_api_worker",
+    "mode": "federated_headless",
+    "deliveryMode": "prove_only"
+  },
+  "critical_path_sealed": ["B0001", "B0101", "B0501", "B0601", "B0901", "B1000"],
+  "graduate_law": "Local Cursor Worker may still close INBOX disk prompts — cloud-factory execution path is deprecated; Brain work-order + cloud_api_worker owns factory lane."
+}

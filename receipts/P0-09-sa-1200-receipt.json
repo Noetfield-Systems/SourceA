@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "P0-09",
+  "title": "Noetfield Systems Stripe billing identity",
+  "evidence": "platform-neutral-world-model-v1 restored · stripe_billing NOETFIELD SYSTEMS · NFS · stripe_buyer_copy_template platform-neutral · noetfield product_route · validate-platform-neutral-world-model-v1 PASS · noetfield-freemium-bay P0-09 PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T17:36:30Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

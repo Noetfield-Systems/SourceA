@@ -1,0 +1,26 @@
+{
+  "name": "wf-health-sweep-15m",
+  "meta": {
+    "schema": "sina-n8n-workflow-stub-v1",
+    "status": "stub",
+    "pick": "Q-ENGINE-TEST-01 YES",
+    "receipt": "SOURCEA_GOV_PICK_BATCH_2026-06-12_LOCKED_v1.md",
+    "law": "SINA_AUTOMATION_SPINE_AND_N8N_LOCKED_v1.md",
+    "note": "Glue stub — no auto-send · probes write ~/.sina/health-sweep/latest-v1.json"
+  },
+  "nodes": [
+    {
+      "name": "Schedule 15m",
+      "type": "n8n-nodes-base.cron",
+      "parameters": { "rule": { "interval": [{ "field": "minutes", "minutesInterval": 15 }] } }
+    },
+    {
+      "name": "Health probe CLI",
+      "type": "n8n-nodes-base.executeCommand",
+      "parameters": {
+        "command": "python3 ~/Desktop/SourceA/scripts/hub_self_refresh_v1.py --health-only 2>/dev/null || curl -sf http://127.0.0.1:13020/health"
+      }
+    }
+  ],
+  "connections": { "Schedule 15m": { "main": [[{ "node": "Health probe CLI", "type": "main", "index": 0 }]] } }
+}

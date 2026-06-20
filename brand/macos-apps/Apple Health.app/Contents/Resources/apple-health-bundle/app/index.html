@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apple Health</title>
+  <link rel="stylesheet" href="app.css?v=2.0.0" />
+</head>
+<body>
+  <main class="ahg-app ahg-founder-glance">
+    <article class="ahg-founder-card">
+      <header class="ahg-founder-head">
+        <div class="ahg-founder-title-row">
+          <div>
+            <h1 class="ahg-founder-title">Apple Health</h1>
+            <p class="ahg-founder-sub">Wellness · sleep · goals · this Mac only</p>
+          </div>
+          <span class="ahg-badge ahg-badge-live" id="live-badge">LIVE</span>
+        </div>
+        <div class="ahg-founder-hero">
+          <span class="ahg-pill" id="sleep-pill">…</span>
+          <div class="ahg-founder-story">
+            <p class="ahg-lead" id="sleep-lead">Reading sleep signal…</p>
+            <p class="ahg-meta" id="sleep-meta">—</p>
+            <p class="ahg-meta" id="bridge-line">—</p>
+          </div>
+        </div>
+        <button type="button" class="ahg-btn ahg-btn-primary ahg-btn-block" id="btn-open-health">Open Health app</button>
+        <p class="ahg-status-line" id="status-line">Loading…</p>
+      </header>
+
+      <section class="ahg-founder-stats" aria-label="Live status">
+        <div class="ahg-stats-grid">
+          <div class="ahg-stat" id="stat-sleep"><span class="ahg-stat-label">Sleep</span><span class="ahg-stat-val" id="stat-sleep-val">—</span></div>
+          <div class="ahg-stat" id="stat-goals"><span class="ahg-stat-label">Goals</span><span class="ahg-stat-val" id="stat-goals-val">—</span></div>
+          <div class="ahg-stat" id="stat-plans"><span class="ahg-stat-label">Plans</span><span class="ahg-stat-val" id="stat-plans-val">—</span></div>
+          <div class="ahg-stat" id="stat-bridge"><span class="ahg-stat-label">Bridge</span><span class="ahg-stat-val" id="stat-bridge-val">—</span></div>
+        </div>
+      </section>
+
+      <details class="ahg-founder-more" id="panel-more">
+        <summary>More</summary>
+        <div class="ahg-more-block">
+          <p class="ahg-more-label">Sleep controls</p>
+          <div class="ahg-actions ahg-actions-tight">
+            <button type="button" class="ahg-btn ahg-btn-ghost" id="btn-sleep-start">I'm asleep</button>
+            <button type="button" class="ahg-btn ahg-btn-ghost" id="btn-sleep-end">I'm awake</button>
+            <button type="button" class="ahg-btn ahg-btn-ghost" id="btn-auto-arm">Auto arm: …</button>
+            <button type="button" class="ahg-btn ahg-btn-ghost" id="btn-refresh">Refresh</button>
+          </div>
+        </div>
+        <div class="ahg-more-block">
+          <p class="ahg-more-label">Your goals</p>
+          <div id="goals-list" class="ahg-goals"></div>
+          <form id="goal-form" class="ahg-form">
+            <input type="text" id="goal-title" placeholder="New goal title" required />
+            <input type="text" id="goal-target" placeholder="Target (e.g. 10k steps)" />
+            <button type="submit" class="ahg-btn ahg-btn-ghost">Add goal</button>
+          </form>
+        </div>
+        <div class="ahg-more-block">
+          <p class="ahg-more-label">Linked program plans</p>
+          <ul id="plans-list" class="ahg-plans"></ul>
+        </div>
+        <div class="ahg-more-block ahg-note">
+          <p class="ahg-meta"><strong>Mac Health Guard</strong> — machine pressure · independent app.</p>
+          <a class="ahg-hub-link" href="http://127.0.0.1:13024/" target="_blank" rel="noopener">Open Mac Health →</a>
+        </div>
+      </details>
+
+      <footer class="ahg-founder-foot">
+        <p class="ahg-meta">Data ~/.sina/apple-health/ · never leaves Mac</p>
+      </footer>
+    </article>
+  </main>
+  <script src="app.js?v=2.0.0"></script>
+</body>
+</html>

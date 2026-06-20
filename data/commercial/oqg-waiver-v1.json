@@ -1,0 +1,7 @@
+{
+  "schema": "oqg-waiver-v1",
+  "version": "1.0.0",
+  "law": "docs/SOURCEA_BEST_LOOP_OUTPUT_QUALITY_GATE_LOCKED_v1.md",
+  "note": "Template — live waivers at ~/.sina/oqg-waiver-v1.json · founder disk id required for sub-90 ship",
+  "waivers": []
+}

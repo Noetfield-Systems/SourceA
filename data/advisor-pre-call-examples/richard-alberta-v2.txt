@@ -1,0 +1,23 @@
+Hi Richard,
+
+Before our call, I'll keep this very short so we can focus on signal.
+
+I'm working on a small set of systems in Canada around one theme: helping organizations produce reliable proof of what actually happened inside their operations when AI or automation is involved.
+
+One part focuses on regulated workflows (TrustField), another on visibility into AI-driven actions in day-to-day systems (Noetfield), and a longer-term foundation layer (777).
+
+The common thread is simple: when systems become more automated, people eventually need a clear way to reconstruct decisions and actions after the fact — not as theory, but as something you can actually inspect when needed.
+
+Here are the live surfaces if you want a quick look:
+
+https://noetfield.com
+https://trustfield.ca
+https://the777foundation.org
+
+No pitch here — I'm mainly trying to make the call more useful and grounded from the start.
+
+Looking forward to it,
+— Sina
+
+SourceA-Commercial-Short.mp4
+(attached — optional 90s overview if you want visual context before we talk)

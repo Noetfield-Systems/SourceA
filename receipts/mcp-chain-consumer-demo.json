@@ -1,0 +1,13 @@
+{
+  "schema": "sourcea-mcp-receipt-v1",
+  "receipt_id": "mcp-chain-consumer-demo-001",
+  "verdict": "MOCK_ONLY",
+  "campus": "sourcea",
+  "action_witness": {
+    "tool": "github.create_pull_request",
+    "chain_pattern": "after_every_mcp_call_emit_receipt"
+  },
+  "at": "2026-06-19T14:00:00Z",
+  "honest_label": "P1 publish demo — cloud federation P2",
+  "export_url": "https://mcp.sourcea.app/export/mcp-chain-consumer-demo-001"
+}

@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0130 — Ensure dispatch_ready stays false until founder spine Action — no code bypass
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0130
+tests:
+  status: passed
+  output_snippet: validate-eval-packet-v1b-live PASS 5/5 100% · validate-dispatch-policy-v1 dispatch_ready=false hub+orch · eval_1b_gate_ok=true tier=behavioral_pass · find_critical_bugs critical 0 · no code bypass
+reported_at: '2026-06-07T13:28:42Z'
+reporter: cursor-worker

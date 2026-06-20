@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1139",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U056",
+  "title": "No Proxycurl \u2014 document forbidden sources",
+  "evidence": "validate_outbound_forbidden_sources_v1.py fail-closed on proxycurl theater",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:24:45Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Witness BC | Human Protocol + Machine Receipts</title>
+  <meta name="description" content="Accountability workflows for publish, ops, and outreach — source → review → publish → correct with signed proof on every irreversible step. witnessbc.com — not witness.ai." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" /><style>/* C12 — Zenity.io layout clone (design reference) */
+
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f6f7fb;
+  --bg-dark: #0c0e1a;
+  --text: #111827;
+  --text-muted: #5b6478;
+  --border: #e5e8f0;
+  --primary: #4f46e5;
+  --primary-dark: #3730a3;
+  --primary-light: #eef2ff;
+  --accent: #7c3aed;
+  --gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%);
+  --shadow: 0 4px 24px rgba(79, 70, 229, 0.12);
+  --shadow-lg: 0 20px 60px rgba(15, 23, 42, 0.12);
+  --radius: 12px;
+  --font: "Inter", system-ui, -apple-system, sans-serif;
+  --container: 1180px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--primary); }
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Announcement */
+.announcement {
+  background: var(--bg-dark);
+  color: #e2e8f0;
+  text-align: center;
+  padding: 0.65rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.announcement a {
+  color: #a5b4fc;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.announcement-icon { margin-right: 0.35rem; }
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  height: 72px;
+}
+.logo {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  flex-shrink: 0;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex: 1;
+}
+.nav-item { position: relative; }
+.nav-item button,
+.nav-link {
+  background: none;
+  border: none;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.nav-item button:hover,
+.nav-link:hover { color: var(--text); background: var(--bg-soft); }
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow-lg);
+}
+.dropdown.wide {
+  display: none;
+  min-width: 360px;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.has-dropdown:hover .dropdown { display: block; }
+.has-dropdown:hover .dropdown.wide { display: grid; }
+.dropdown strong {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+.dropdown a {
+  display: block;
+  padding: 0.35rem 0;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+.header-cta {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary {
+  background: var(--gradient);
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+.btn-outline {
+  border-color: var(--border);
+  color: var(--text);
+  background: #fff;
+}
+.btn-ghost {
+  color: var(--text-muted);
+}
+.btn-lg { padding: 0.85rem 1.5rem; font-size: 1rem; }
+
+/* Hero */
+.hero {
+  padding: 4rem 0 3rem;
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(79, 70, 229, 0.15), transparent),
+              linear-gradient(180deg, var(--primary-light) 0%, #fff 55%);
+  text-align: center;
+}
+.hero-badges { margin-bottom: 1.5rem; }
+.chip {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 0.4rem 1rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+}
+.chip a { color: var(--primary); font-weight: 600; }
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.25rem;
+}
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-lead {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 36rem;
+  margin: 0 auto 2rem;
+}
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+.hero-visual { max-width: 720px; margin: 0 auto; }
+.dashboard-mock {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  text-align: left;
+}
+.mock-bar {
+  display: flex;
+  gap: 6px;
+  padding: 12px 16px;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+}
+.mock-bar span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d1d5db;
+}
+.mock-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1.5rem;
+}
+.mock-card {
+  background: var(--bg-soft);
+  border-radius: 10px;
+  padding: 1rem;
+}
+.mock-card strong { display: block; font-size: 1.75rem; margin-top: 0.25rem; }
+.mock-card.warn strong { color: #d97706; }
+.mock-card.ok strong { color: #059669; }
+.mock-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.mock-chart {
+  grid-column: 1 / -1;
+  height: 80px;
+  background: linear-gradient(90deg, var(--primary-light), #fff);
+  border-radius: 8px;
+  border: 1px dashed var(--border);
+}
+
+/* Logos */
+.logos {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.section-eyebrow {
+  text-align: center;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+.logo-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem 3rem;
+}
+.logo-strip span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #9ca3af;
+  letter-spacing: -0.01em;
+}
+
+/* Problems */
+.problems {
+  padding: 5rem 0;
+  background: var(--bg-soft);
+}
+.problems h2 {
+  text-align: center;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  max-width: 20ch;
+  margin: 0 auto 3rem;
+}
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.problem-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  transition: box-shadow 0.2s;
+}
+.problem-card:hover { box-shadow: var(--shadow); }
+.problem-icon { font-size: 1.75rem; margin-bottom: 1rem; }
+.problem-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.problem-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+/* Platform */
+.platform { padding: 5rem 0; }
+.platform-intro {
+  text-align: center;
+  max-width: 42rem;
+  margin: 0 auto 3rem;
+}
+.platform-intro h2 {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+.platform-intro p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+.capability-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.capability-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  background: #fff;
+}
+.capability-card.featured {
+  border-color: var(--primary);
+  background: linear-gradient(180deg, var(--primary-light), #fff);
+  box-shadow: var(--shadow);
+}
+.cap-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+}
+.capability-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.capability-card p { color: var(--text-muted); font-size: 0.92rem; }
+
+/* Visibility */
+.visibility {
+  padding: 5rem 0;
+  background: var(--bg-dark);
+  color: #e2e8f0;
+}
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.visibility h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+.visibility p { color: #94a3b8; margin-bottom: 1.5rem; }
+.check-list { list-style: none; }
+.check-list li {
+  padding: 0.4rem 0 0.4rem 1.5rem;
+  position: relative;
+  color: #cbd5e1;
+}
+.check-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #818cf8;
+  font-weight: 700;
+}
+.flow-diagram {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.flow-node {
+  padding: 0.75rem 1.25rem;
+  background: rgba(255,255,255,0.08);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.flow-node.accent {
+  background: var(--gradient);
+  color: #fff;
+}
+.flow-arrow { color: #64748b; font-size: 1.25rem; }
+.flow-sub {
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 0.5rem;
+  font-family: ui-monospace, monospace;
+}
+
+/* Defense */
+.defense {
+  padding: 5rem 0;
+}
+.defense h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+.defense-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+.defense-item {
+  padding: 1.5rem;
+  border-left: 3px solid var(--primary);
+  background: var(--bg-soft);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.defense-item h4 { font-size: 1rem; margin-bottom: 0.5rem; }
+.defense-item p { font-size: 0.88rem; color: var(--text-muted); }
+
+/* Testimonials */
+.testimonials {
+  padding: 5rem 0;
+  background: var(--bg-soft);
+}
+.testimonials h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+.testimonial-track { position: relative; min-height: 220px; }
+.testimonial-card {
+  display: none;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+  max-width: 720px;
+  margin: 0 auto;
+}
+.testimonial-card.active { display: block; }
+.testimonial-card blockquote {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+.t-company {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.t-stats {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.t-stats strong {
+  display: block;
+  font-size: 1.75rem;
+  color: var(--primary);
+}
+.t-stats span { font-size: 0.8rem; color: var(--text-muted); }
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+.testimonial-dots button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: #d1d5db;
+  cursor: pointer;
+  padding: 0;
+}
+.testimonial-dots button.active { background: var(--primary); width: 24px; border-radius: 4px; }
+
+/* Modern */
+.modern { padding: 5rem 0; }
+.modern h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  max-width: 24ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.modern-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.modern-grid article {
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.modern-grid h3 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+.modern-grid p { color: var(--text-muted); font-size: 0.92rem; }
+
+/* Analyst */
+.analyst {
+  padding: 5rem 0;
+  background: var(--bg-soft);
+}
+.analyst h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+.analyst-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.analyst-card {
+  display: block;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.analyst-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+}
+.analyst-type {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* CTA banner */
+.cta-banner {
+  padding: 5rem 0;
+  background: var(--gradient);
+  color: #fff;
+  text-align: center;
+}
+.cta-inner h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.cta-inner p {
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-banner .btn-primary {
+  background: #fff;
+  color: var(--primary-dark);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* FAQ */
+.faq { padding: 5rem 0; }
+.faq h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+.faq-list { max-width: 720px; margin: 0 auto; }
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+.faq-item summary {
+  padding: 1.25rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  float: right;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+.faq-item[open] summary::after { content: "−"; }
+.faq-item p {
+  padding: 0 1.5rem 1.25rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--bg-dark);
+  color: #94a3b8;
+  padding: 4rem 0 2rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+.footer-brand strong {
+  display: block;
+  color: #fff;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.gartner-badge {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  color: #cbd5e1;
+}
+.site-footer h5 {
+  color: #fff;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+.site-footer a {
+  display: block;
+  font-size: 0.88rem;
+  padding: 0.25rem 0;
+  color: #94a3b8;
+}
+.site-footer a:hover { color: #fff; }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.82rem;
+}
+.footer-legal { display: flex; gap: 1.5rem; }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .nav, .header-cta .btn-ghost { display: none; }
+  .menu-toggle { display: block; margin-left: auto; }
+  .problem-grid, .capability-grid, .modern-grid, .analyst-grid { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .mock-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 2.5rem 0; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* Witness BC brand — Zenity light + standalone overrides */
+
+body.wbc-light {
+  --primary: #0d9488;
+  --primary-dark: #0f766e;
+  --accent: #14b8a6;
+  --primary-light: #ecfdf5;
+  --gradient: linear-gradient(135deg, #0d9488 0%, #14b8a6 55%, #2dd4bf 100%);
+  --shadow: 0 4px 24px rgba(13, 148, 136, 0.14);
+  --shadow-lg: 0 20px 60px rgba(13, 148, 136, 0.12);
+}
+body.wbc-light .btn-primary {
+  background: var(--gradient);
+  color: #fff;
+  border: none;
+}
+body.wbc-light .gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+body.wbc-light .capability-card.featured,
+body.wbc-light .mock-card.warn {
+  border-color: rgba(13, 148, 136, 0.35);
+}
+body.wbc-light .flow-node.accent {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  border-color: rgba(13, 148, 136, 0.35);
+}
+body.wbc-light .cta-banner {
+  background: var(--gradient);
+}
+body.wbc-light .wbc-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  color: #0d9488;
+  border: 1px solid rgba(13, 148, 136, 0.35);
+  background: rgba(13, 148, 136, 0.08);
+}
+body.wbc-light .chain-inline span {
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--border, #e5e8f0);
+  background: var(--bg-soft, #f6f7fb);
+  font-family: ui-monospace, monospace;
+  font-size: 0.75rem;
+}
+body.wbc-light .chain-inline .pass { color: #059669; border-color: rgba(5, 150, 105, 0.35); }
+body.wbc-light .chain-inline .fail { color: #dc2626; border-color: rgba(220, 38, 38, 0.35); }
+</style>
+</head>
+<body class="wbc-light">
+  <div class="announcement">
+    <span class="wbc-badge">witnessbc.com</span>
+    Human protocol + machine receipts — not WitnessAI ·
+    <a href="https://witnessbc.com/toolkits">Browse toolkits →</a>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="https://witnessbc.com">Witness BC</a>
+      <nav class="nav" aria-label="Main">
+        <a class="nav-link" href="#platform">Platform</a>
+        <a class="nav-link" href="#proof">Proof chain</a>
+        <a class="nav-link" href="#pricing">Pricing</a>
+        <a class="nav-link" href="#faq">FAQ</a>
+      </nav>
+      <div class="header-cta">
+        <a class="btn btn-ghost" href="https://witnessbc.com/principles">Principles</a>
+        <a class="btn btn-primary" href="https://witnessbc.com/toolkits">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badges">
+          <span class="chip">Tip → triage → approve → publish → correct · signed receipt per gate</span>
+        </div>
+        <h1>Accountable publish workflows<br /><span class="gradient-text">with proof</span></h1>
+        <p class="hero-lead">Witness BC runs human accountability workflows — sourcing discipline, privacy red lines, visible corrections — with cryptographically signed receipts on every irreversible step so teams prove what was checked, who approved, and what changed after go-live.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="https://witnessbc.com/toolkits">Assess your workflow</a>
+          <a class="btn btn-outline btn-lg" href="#proof">See proof chain</a>
+        </div>
+        <div class="hero-visual">
+          <div class="dashboard-mock">
+            <div class="mock-bar"><span></span><span></span><span></span></div>
+            <div class="mock-grid">
+              <div class="mock-card ok"><span class="mock-label">tip-intake</span><strong>ALLOW</strong></div>
+              <div class="mock-card warn"><span class="mock-label">red-line</span><strong>BLOCK</strong></div>
+              <div class="mock-card ok"><span class="mock-label">publish-gate</span><strong>APPROVED</strong></div>
+              <div class="mock-chart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="logos">
+      <div class="container">
+        <p class="section-eyebrow">Built for</p>
+        <div class="logo-strip">
+          <span>Civic accountability teams</span>
+          <span>Editorial ops</span>
+          <span>Toolkit publishers</span>
+          <span>Tip → publish workflows</span>
+          <span>Corrections-first teams</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="problems" id="problems">
+      <div class="container">
+        <h2>Agents publish fast. Accountability still lives in chat threads.</h2>
+        <div class="problem-grid">
+          <article class="problem-card">
+            <div class="problem-icon">📋</div>
+            <h3>No sourcing trail</h3>
+            <p>Teams ship tips, toolkits, and public updates with agents — but agents skip sourcing checks, leak identifying detail, or silent-edit after go-live.</p>
+          </article>
+          <article class="problem-card">
+            <div class="problem-icon">⚡</div>
+            <h3>Review without proof</h3>
+            <p>Spreadsheets and chat threads are not a corrections log. Readers need visible discipline — and you need machine proof the discipline ran.</p>
+          </article>
+          <article class="problem-card">
+            <div class="problem-icon">🔧</div>
+            <h3>Security without editorial SOP</h3>
+            <p>Agent security platforms inventory fleets. Witness BC governs accountable publish — source, review, correct — with receipts you can replay.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="platform" id="platform">
+      <div class="container">
+        <div class="platform-intro">
+          <h2>Purpose-built for teams who publish with accountability</h2>
+          <p>Witness BC human protocol on witnessbc.com — wired into governed agent loops. Not session-start checklists. Policy at dispatch on every irreversible send.</p>
+          <a class="btn btn-primary" href="https://witnessbc.com/toolkits">Explore toolkits</a>
+        </div>
+        <div class="capability-grid">
+          <article class="capability-card">
+            <span class="cap-tag">Observe</span>
+            <h3>Intake &amp; triage</h3>
+            <p>Tag every tip and draft. De-ID scan at the door. Sourcing checklist before human review.</p>
+          </article>
+          <article class="capability-card featured">
+            <span class="cap-tag">Govern</span>
+            <h3>Approve before send</h3>
+            <p>Human tap on publish, toolkit delivery, and sensitive narratives. Red-line BLOCK at dispatch.</p>
+          </article>
+          <article class="capability-card">
+            <span class="cap-tag">Prove</span>
+            <h3>Receipts + corrections</h3>
+            <p>Signed ledger · replay · tamper-FAIL. Material edits get a new receipt and public corrections link.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="visibility" id="proof">
+      <div class="container split">
+        <div>
+          <h2>End-to-end proof chain in under five minutes</h2>
+          <p>Not slides. A live chain — BLOCK on red-line · ALLOW with receipt · logged correction · tamper-FAIL · replay.</p>
+          <div class="chain-inline">
+            <span>intake</span><span>→</span><span>triage</span><span>→</span><span>review</span><span>→</span>
+            <span class="pass">publish</span><span>→</span><span>correct</span><span>→</span><span class="fail">tamper-FAIL</span>
+          </div>
+          <ul class="check-list" style="margin-top:1.25rem">
+            <li>5 receipt gates per default loop</li>
+            <li>Witness BC Pro PDFs mapped to each step</li>
+            <li>Monthly proof export on WBC-OPS retainer</li>
+          </ul>
+        </div>
+        <div class="feature-media">
+          <div class="flow-diagram">
+            <div class="flow-node">Tip / draft</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node accent">Witness BC</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">Signed receipt</div>
+            <div class="flow-sub">ALLOW · BLOCK · CORRECT</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="defense" id="pricing">
+      <div class="container">
+        <h2>Start with toolkits · scale to governed loops</h2>
+        <div class="defense-grid">
+          <div class="defense-item"><h4>Free toolkit — $0</h4><p>HTML accountability templates · sourcing + privacy basics · witnessbc.com/toolkits.</p></div>
+          <div class="defense-item"><h4>Witness BC Pro — $9–29</h4><p>Full discipline PDF packs · deliver after review approved.</p></div>
+          <div class="defense-item"><h4>WBC-FLOW — $2.5–6K CAD</h4><p>First governed install · tip → approve → publish · 2–3 weeks · replay demo.</p></div>
+          <div class="defense-item"><h4>WBC-OPS — $1.5–3.5K/mo</h4><p>Monitor loop · monthly proof export · tune checklists · 3-month minimum.</p></div>
+          <div class="defense-item"><h4>Brand law</h4><p>witnessbc.com — not witness.ai (WitnessAI). Educational templates — not legal advice.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="container">
+        <h2>What we prove on every governed step</h2>
+        <div class="testimonial-track">
+          <article class="testimonial-card active">
+            <blockquote>"Witness BC runs human accountability workflows — source → review → publish → correct — with signed receipts so teams prove what was checked, who approved, and what changed after go-live."</blockquote>
+            <footer>
+              <span class="t-company">Witness BC · WBC-FLOW default scope</span>
+              <div class="t-stats">
+                <div><strong>&lt;5 min</strong><span>live proof chain</span></div>
+                <div><strong>2–3 wk</strong><span>first install</span></div>
+              </div>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner" id="demo">
+      <div class="container cta-inner">
+        <h2>Can you prove what was approved before publish?</h2>
+        <p>Fifteen minutes — tip → triage → approve → publish → corrections log. BLOCK, allow, correct, tamper-FAIL, replay.</p>
+        <a class="btn btn-primary btn-lg" href="https://witnessbc.com/toolkits">Start with toolkits</a>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Is this WitnessAI (witness.ai)?</summary>
+            <p>No. WitnessAI is a network AI security company at witness.ai. Witness BC is witnessbc.com — civic accountability toolkits + governed publish loops. Different brand, different buyer.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What do I get on WBC-FLOW?</summary>
+            <p>One governed loop (default: tip → approve → publish → corrections log) · 5 receipt types · replay demo · export bundle · mapped Witness BC Pro PDFs · handoff runbook.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How is this different from agent security platforms?</summary>
+            <p>They optimize for agent inventory and fleet security. Witness BC adds editorial SOP — sourcing discipline, visible corrections, human approve gates — with signed receipts on every irreversible step.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What principles are wired into policy?</summary>
+            <p>Sourcing discipline · red lines (FAIL at dispatch) · de-ID checklist · corrections always. See witnessbc.com/principles. Educational templates — not legal advice.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <strong>Witness BC</strong>
+        <p>Human protocol + machine receipts</p>
+        <span class="gartner-badge">witnessbc.com · not witness.ai</span>
+      </div>
+      <div>
+        <h5>Platform</h5>
+        <a href="#platform">Observe · Govern · Prove</a>
+        <a href="#proof">Proof chain</a>
+        <a href="#pricing">WBC-FLOW</a>
+      </div>
+      <div>
+        <h5>Site</h5>
+        <a href="https://witnessbc.com/toolkits">Toolkits</a>
+        <a href="https://witnessbc.com/principles">Principles</a>
+        <a href="https://witnessbc.com">witnessbc.com</a>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <a href="https://witnessbc.com/toolkits">Get toolkits</a>
+        <a href="https://witnessbc.com/principles">Principles</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© Witness BC 2026 · witnessbc.com · Educational templates — not legal advice</p>
+    </div>
+  </footer>
+</body>
+</html>

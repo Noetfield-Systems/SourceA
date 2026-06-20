@@ -1,0 +1,37 @@
+---
+description: Platform-neutral world model — no Mac-only gates · route takes to product lanes · WTM plan check loop
+alwaysApply: true
+---
+
+# Platform-neutral world model (LOCKED machine SSOT)
+
+**SSOT:** `data/platform-neutral-world-model-v1.json`  
+**Loop:** `scripts/world_model_plan_check_v1.py` → `~/.sina/world-model-plan-check-receipt-v1.json`  
+**WTM:** `brain-os/wtm/WORLD_TARGET_MODEL_MAP_LOCKED_v5.md`
+
+## One law
+
+> **No surface discrimination.** Absorb best world-model takes. Route value into **Noetfield · TrustField · SourceA Forge · WitnessBC** (Mac Guard = SKU only, not platform gate).
+
+## Control plane (L0)
+
+Spawn · approve · check · optimize on **any honest surface**: phone PWA · web hub · desktop · Linux CI · cloud console · IDE — not “Mac only.”
+
+## Developer stacks
+
+Python · TypeScript · Node · Rust · Go · Java · .NET · mobile native · serverless — all welcome. Good patterns get **routed**, not rejected.
+
+## Public / buyer copy
+
+**Use:** governed AI ops · web + mobile + API · any stack · product lane names  
+**Avoid as platform gates:** “Mac only”, “only on Mac”, “requires a Mac”  
+**OK:** **Mac Guard** as invoice SKU name (agency package)
+
+## Every plan sync
+
+`plans_unified_upgrade_v1.py` runs WTM plan check. Hub: **POST /api/world-model-plan-check/tick/v1**
+
+## Stripe / onboarding box
+
+**Account:** Noetfield Systems · **Statement descriptor:** `NOETFIELD SYSTEMS` · **Short:** `NFS`  
+SSOT: `platform_neutral_policy.stripe_billing` + `stripe_buyer_copy_template` — platform-neutral SaaS, not Mac-only project software.

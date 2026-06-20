@@ -1,0 +1,108 @@
+{
+  "schema": "commercial-short-film-beats-v1",
+  "routing_lane": "sourcea",
+  "routing_tier": "B_proof",
+  "routing_ref": "data/commercial-film-routing-v1.json#sourcea.tier_B_proof_32s",
+  "style_reference": "STYLE-A3",
+  "style_match_brief": "archive/attachments/2026-06-15/STYLE_A3_SOURCEA_SHOT_MATCH_BRIEF_2026-06-15_v1.md",
+  "film_style": "linear_orientation_hero",
+  "quality_tier": "ultra",
+  "linear_recut": true,
+  "chapter_captions": false,
+  "commercial_capture": true,
+  "human_smooth": true,
+  "proof_density": true,
+  "cinematic_finish": true,
+  "title": "SourceA — Governed Agentic Automation",
+  "runtime_target_seconds": 32,
+  "polish": {
+    "edge_voice": "en-US-AndrewMultilingualNeural",
+    "target_bitrate_mbps": 18,
+    "master_lufs": -14,
+    "sfx": true,
+    "cinematic_finish": true
+  },
+  "hook": "Your agents execute right now. Who stops the one that goes too far?",
+  "brand": {
+    "name": "SourceA",
+    "domain": "sourcea-landing.vercel.app",
+    "card_footer": "SourceA · live proof on disk",
+    "hook_title": "Governed agentic automation",
+    "hook_subtitle": "Policy · BLOCK · Receipt",
+    "hook_label": "Commercial proof film",
+    "hook_card_seconds": 0,
+    "hook_broll_urls": [
+      "http://127.0.0.1:5180/sourcea/proof.html?film_capture=1#w1-demo-film"
+    ],
+    "hook_w1_sequence": [["block", 6]],
+    "hook_broll_seconds": 8,
+    "cta_title": "Book 15-min proof",
+    "cta_subtitle": "sourcea.com/sourcea",
+    "cta_broll_urls": [
+      "http://127.0.0.1:5180/sourcea/#reference"
+    ]
+  },
+  "publish": {
+    "site_mp4": "SourceA-landing/green-unified/assets/commercial-short-demo.mp4",
+    "desktop": "SourceA-Commercial-Short.mp4",
+    "receipt": "commercial-short-film-receipt-v1.json",
+    "work_dir": "commercial-short-film-work-v1"
+  },
+  "global_capture": {
+    "width": 2560,
+    "height": 1440,
+    "master_width": 3840,
+    "master_height": 2160,
+    "seconds_per_url": 10,
+    "zoom": 1.0
+  },
+  "beats": [
+    {
+      "id": "BLOCK",
+      "label": "BLOCK",
+      "title": "Execution stopped",
+      "narration": "Policy violated. Execution stopped. No file touched. The gate returns BLOCK — pre-LLM, not prompt hope.",
+      "broll_urls": [
+        "http://127.0.0.1:5180/sourcea/proof.html?film_capture=1#w1-demo-film"
+      ],
+      "w1_sequence": [["block", 9]],
+      "sync_offset_event": "w1_block",
+      "card_seconds": 0,
+      "broll_seconds": 10,
+      "seconds_per_url": 10
+    },
+    {
+      "id": "PROOF",
+      "label": "Proof",
+      "title": "Tamper FAIL",
+      "narration": "Alter a receipt hash. Tamper FAIL is immediate. Receipt generated. Audit preserved.",
+      "broll_urls": [
+        "http://127.0.0.1:5180/sourcea/proof.html?film_capture=1#w1-demo-film"
+      ],
+      "w1_sequence": [["tamper", 9]],
+      "sync_offset_event": "w1_tamper",
+      "card_seconds": 0,
+      "broll_seconds": 9,
+      "seconds_per_url": 9
+    },
+    {
+      "id": "TRUST",
+      "label": "Built on",
+      "title": "Enterprise stack",
+      "narration": "Built on the stack your buyers already trust. SourceA adds the proof row they cannot get from chat logs alone.",
+      "broll_urls": [
+        "http://127.0.0.1:5180/sourcea/"
+      ],
+      "card_seconds": 0,
+      "broll_seconds": 6,
+      "seconds_per_url": 6
+    }
+  ],
+  "cta": {
+    "narration": "SourceA. Governed agentic automation with proof on disk. Book fifteen minutes.",
+    "seconds": 5,
+    "broll_urls": [
+      "http://127.0.0.1:5180/sourcea/proof.html?film_capture=1#w1-demo-film"
+    ]
+  }
+}

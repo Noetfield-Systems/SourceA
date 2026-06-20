@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0127 — Wire validate-eval-packet-v1b-live into strict build default chain
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0127
+tests:
+  status: passed
+  output_snippet: validate-eval-packet-v1b-strict-build-chain-v1 · live in strict default chain
+reported_at: '2026-06-07T03:29:19Z'
+reporter: cursor-worker

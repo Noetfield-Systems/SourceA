@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0045 — Compare Claude ENFORCE stale claims to dispatch-policy API live
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0045
+tests:
+  status: passed
+  output_snippet: sa-0045 VERIFY CLOSEOUT PASS — Claude ENFORCE claims match dispatch-policy API live; gate_mode=shadow; synthesis ok
+reported_at: '2026-06-09T22:47:21Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

@@ -1,0 +1,50 @@
+subject: trustfield
+label: TrustField Technologies
+thread: THREAD-PORTFOLIO
+artifact_count: 14
+by_worker:
+  commercial_goal_specialist:
+  - trace_id: COMMERCIAL_GOAL-REF-2026-06-06-MISSION-006
+    date: '2026-06-06'
+    path: by_date/2026-06-06/commercial_goal_specialist/trustfield/COMMERCIAL_GOAL-REF-2026-06-06-MISSION-006/2026-06-06_MISSION_OUTPUT.yaml
+  - trace_id: COMMERCIAL_GOAL-REF-2026-06-07-BLUEPRINT-V2-001
+    date: '2026-06-07'
+    path: by_date/2026-06-07/commercial_goal_specialist/trustfield/COMMERCIAL_GOAL-REF-2026-06-07-BLUEPRINT-V2-001/2026-06-07_TRUSTFIELD_WORKER_BLUEPRINT_V2_FULL.yaml
+  - trace_id: COMMERCIAL_GOAL-REF-2026-06-07-MANIFEST-009
+    date: '2026-06-07'
+    path: by_date/2026-06-07/commercial_goal_specialist/trustfield/COMMERCIAL_GOAL-REF-2026-06-07-MANIFEST-009/2026-06-07_COMMERCIAL_GOAL_TRACE_MANIFEST.yaml
+  - trace_id: COMMERCIAL_GOAL-REF-2026-06-07-REV-EXACT-004
+    date: '2026-06-07'
+    path: by_date/2026-06-07/commercial_goal_specialist/trustfield/COMMERCIAL_GOAL-REF-2026-06-07-REV-EXACT-004/2026-06-07_REVENUE_RECEIPT_EXACT_OUTSIDE.yaml
+  - trace_id: COMMERCIAL_GOAL-REF-2026-06-07-REV-PROOF-005
+    date: '2026-06-07'
+    path: by_date/2026-06-07/commercial_goal_specialist/trustfield/COMMERCIAL_GOAL-REF-2026-06-07-REV-PROOF-005/2026-06-07_REVENUE_RECEIPT_PROOF.yaml
+  - trace_id: COMMERCIAL_GOAL-REF-2026-06-07-SITE-PACK-002
+    date: '2026-06-07'
+    path: by_date/2026-06-07/commercial_goal_specialist/trustfield/COMMERCIAL_GOAL-REF-2026-06-07-SITE-PACK-002/2026-06-07_TRUSTFIELD_WORKER_SITE_BUILD_PACK.yaml
+  - trace_id: COMMERCIAL_GOAL-REF-2026-06-07-TF-PROMPT-V2-008
+    date: '2026-06-07'
+    path: by_date/2026-06-07/commercial_goal_specialist/trustfield/COMMERCIAL_GOAL-REF-2026-06-07-TF-PROMPT-V2-008/2026-06-07_TRUSTFIELD_WORKER_PROMPT_V2_FINAL.md
+  - trace_id: COMMERCIAL_GOAL-REF-2026-06-08-BLUEPRINT-V3-011
+    date: '2026-06-08'
+    path: by_date/2026-06-08/commercial_goal_specialist/trustfield/COMMERCIAL_GOAL-REF-2026-06-08-BLUEPRINT-V3-011/2026-06-08_TRUSTFIELD_WORKER_BLUEPRINT_V3_FULL.yaml
+  - trace_id: COMMERCIAL_GOAL-REF-TAG-STD-000
+    date: '2026-06-07'
+    path: by_date/2026-06-07/commercial_goal_specialist/trustfield/COMMERCIAL_GOAL-REF-TAG-STD-000/DOC_TAG_STANDARD.md
+  governance_goal_specialist:
+  - trace_id: governance_goal_specialist-20260608-003
+    date: '2026-06-08'
+    path: by_date/2026-06-08/governance_goal_specialist/trustfield/governance_goal_specialist-20260608-003/CONSIDERATION_ENTITY_MONEY_FLOW_SAFE_REVENUE_v1.md
+  - trace_id: governance_goal_specialist-20260608-005
+    date: '2026-06-08'
+    path: by_date/2026-06-08/governance_goal_specialist/trustfield/governance_goal_specialist-20260608-005/CONSIDERATION_MARKET_ANALYSIS_PRODUCTS_2026-06_v1.md
+  - trace_id: governance_goal_specialist-20260608-008
+    date: '2026-06-08'
+    path: by_date/2026-06-08/governance_goal_specialist/trustfield/governance_goal_specialist-20260608-008/WORKER_BLUEPRINT_V2_TRUSTFIELD_CA_FULL_PROMPT.md
+  - trace_id: governance_goal_specialist-20260608-011
+    date: '2026-06-08'
+    path: by_date/2026-06-08/governance_goal_specialist/trustfield/governance_goal_specialist-20260608-011/CONSIDERATIONS_TRACE_INDEX.md
+  research_acquisitor:
+  - trace_id: RESEARCH-ACQUISITOR-20260608-TF-001
+    date: '2026-06-08'
+    path: by_date/2026-06-08/research_acquisitor/trustfield/RESEARCH-ACQUISITOR-20260608-TF-001/WORKER_BLUEPRINT_V3_TRUSTFIELD_CA_FULL_PROMPT.md

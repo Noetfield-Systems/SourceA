@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0026 — Run python3 audit_hub_source_alignment.py strict; fix honest_score not_here drift
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0026
+tests:
+  status: passed
+  output_snippet: sa-0026 VERIFY PASS: hub audit + not_here drift green; FCB sa-0017 ordering fixed; full find_critical_bugs 0.
+reported_at: '2026-06-09T14:34:30Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

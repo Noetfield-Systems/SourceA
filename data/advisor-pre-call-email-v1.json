@@ -1,0 +1,120 @@
+{
+  "schema": "advisor-pre-call-email-v1",
+  "version": "2.0.0",
+  "saved_at": "2026-06-18T20:30:42Z",
+  "law": "docs/SOURCEA_ADVISOR_PRE_CALL_EMAIL_STANDARD_LOCKED_v1.md",
+  "law_v2_rules": {
+    "three_layers": {
+      "system_layer": "NEVER in email — event bus, backend, routing, deployment stack",
+      "narrative_layer": "REQUIRED — one theme · worldview shift · why care in 10 seconds",
+      "product_layer": "MINIMAL — names after theme · max 3 light mentions if unified under one theme"
+    },
+    "one_sentence_test": "Reader must explain email in ONE sentence after reading — else FAIL",
+    "optimize_for": "fastest human comprehension + curiosity — not correct system representation",
+    "advisor_critique": "GPT/Gemini feedback = advisor_critique only — never founder · never ship"
+  },
+  "lane": "advisor_pre_call",
+  "compose_mode": "D_advisor_pre_call",
+  "quality_bar_pct": 90,
+  "word_count": { "min": 80, "max": 220, "target": 130 },
+  "url_count": { "min": 1, "max": 3 },
+  "audience": "business operator or advisor — not AI/agentic specialist",
+  "forbidden_jargon": [
+    "agentic infrastructure",
+    "agentic",
+    "event bus",
+    "decision agents",
+    "governance-first",
+    "workflow orchestration",
+    "agent-based workflow",
+    "governance layer",
+    "system design layer",
+    "policy graph",
+    "attestation engine",
+    "shared backend",
+    "routing work",
+    "keeping records straight",
+    "deployment setup",
+    "iterate quickly without rebuilding",
+    "workspace structure",
+    "alias routing"
+  ],
+  "forbidden_stack_hero": [
+    "supabase",
+    "vercel",
+    "github",
+    "google workspace"
+  ],
+  "required_theme_phrases_any": [
+    "one theme",
+    "common thread",
+    "around one theme"
+  ],
+  "required_worldview_any": [
+    "reconstruct",
+    "after the fact",
+    "what actually happened",
+    "proof of what",
+    "inspect when needed"
+  ],
+  "structure": {
+    "APC1_frame": {
+      "required_phrases_any": ["before our call", "before the call", "keep this very short", "focus on signal"],
+      "intent": "signal not setup"
+    },
+    "APC2_one_theme": {
+      "required": true,
+      "intent": "single unifying theme before product names"
+    },
+    "APC3_light_products": {
+      "required": true,
+      "max_bullet_lines": 0,
+      "intent": "light product map under theme — not explanation dump"
+    },
+    "APC4_worldview": {
+      "required": true,
+      "intent": "why care — observable consequence not theory"
+    },
+    "APC5_live_urls": {
+      "required": true
+    },
+    "APC6_not_pitch": {
+      "required_phrases_any": ["no pitch", "not to pitch", "not sending this to pitch", "make the call more useful"]
+    },
+    "APC7_close": {
+      "required_phrases_any": ["looking forward", "— sina", "- sina"]
+    },
+    "APC8_attachment": {
+      "required": false,
+      "optional_line_hint": "optional · skip ok"
+    }
+  },
+  "translate": {
+    "tools that help regulated businesses show their work is trustworthy": "proof of what happened in regulated workflows",
+    "tools that help teams see what actually happened when AI is used": "visibility into AI-driven actions in day-to-day systems",
+    "shared backend for routing work": "FORBIDDEN — delete",
+    "deployment setup so we can iterate quickly": "FORBIDDEN — delete"
+  },
+  "canonical_examples": [
+    {
+      "id": "richard-alberta-v2",
+      "path": "data/advisor-pre-call-examples/richard-alberta-v2.txt",
+      "context": "Alberta advisor · pre-call · send-grade v2",
+      "locked_at": "2026-06-18T20:30:42Z",
+      "one_sentence_summary": "Sina builds proof-of-what-happened systems across three related ventures before an advisor call."
+    },
+    {
+      "id": "richard-alberta-v1",
+      "path": "data/advisor-pre-call-examples/richard-alberta-v1.txt",
+      "context": "superseded — had backend narrative leakage",
+      "status": "deprecated"
+    }
+  ],
+  "loop": {
+    "script": "scripts/advisor_pre_call_email_loop_v1.py",
+    "receipt": "~/.sina/advisor-pre-call-email-loop-receipt-v1.json",
+    "ship_authority": "sina_read_score_pct only"
+  },
+  "compiler_ssot": "data/factory-output-route-compiler-v1.json",
+  "routes_ssot": "data/factory-output-routes-v1.json"
+}

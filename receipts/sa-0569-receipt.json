@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0569",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "sa-0569 VERIFY \u2014 T2 evidence flywheel hub essentials crossref closeout canonical sa-0519",
+  "at": "2026-06-14T22:18:17Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

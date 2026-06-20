@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1114",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U085",
+  "title": "Better-loop row for salvage spec wired",
+  "evidence": "better-loop outbound_salvage wired PASS",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:20:44Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

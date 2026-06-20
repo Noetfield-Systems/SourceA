@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0599 — Document two-clock slice parallel lane P0 in synthesis lessons
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0599
+tests:
+  status: passed
+  output_snippet: sa-0599 T3 two-clock synthesis lessons cross-ref (canonical sa-0524) · validate-two-clock-synthesis-lessons-t3-crossref-v1 PASS · two_clock_synthesis_lessons_t3_crossref signal · task-validator closeout (no_hub)
+reported_at: '2026-06-15T01:10:00Z'
+reporter: commercial-6245d9dd
+gate_mode: receipt

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="W1 demo film poster">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#044441"/>
+      <stop offset="100%" stop-color="#08785a"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <circle cx="320" cy="160" r="44" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="3"/>
+  <polygon points="308,140 308,180 348,160" fill="#9ef01a"/>
+  <text x="320" y="250" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif" font-size="22" font-weight="700">ALLOW � BLOCK � tamper-FAIL</text>
+  <text x="320" y="280" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="Inter, sans-serif" font-size="14">W1 demo � d5 min</text>
+</svg>

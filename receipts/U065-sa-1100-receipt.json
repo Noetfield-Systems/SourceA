@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1100",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U065",
+  "title": "Founder review order NF OCree SA Forge",
+  "evidence": "FOUNDER_REVIEW_ACCOUNTS order fundmore\u2192ocree\u2192sourcea-factory\u2192forge-product; --check-founder-review-order PASS; hub mirror aligned",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T04:08:28Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

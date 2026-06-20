@@ -1,0 +1,13 @@
+schema_version: 1
+repo: sourcea
+task: sa-0974 — Research PROGRAM_PROGRESS machine sync vs manual ASF edit incidents
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0974
+tests:
+  status: passed
+  output_snippet: VERIFY PASS — PROGRAM_PROGRESS machine sync vs manual ASF edit closed; factory 652/1000 unproven=0
+reported_at: '2026-06-14T03:33:02Z'
+reporter: goal1_lane_broker
+gate_mode: receipt

@@ -1,0 +1,11 @@
+trace_id: RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-FLIBBO-COMPETITIVE-MAP
+worker_id: cursor_os_pro_research_lane_b
+subject: sina_os
+subject_label: Sina OS / SourceA
+thread: THREAD-ECOSYSTEM
+date: '2026-06-12'
+source_path: /Users/sinakazemnezhad/Desktop/Cursor OS Pro/docs/research/flibbo_competitive_map_v1.yaml
+archive_path: by_date/2026-06-12/cursor_os_pro_research_lane_b/sina_os/RESEARCH-ACQUISITOR-REF-2026-06-12-CURSOR-OS-PRO-FLIBBO-COMPETITIVE-MAP/flibbo_competitive_map_v1.yaml
+execution_authority: false
+enforcer: research_save_enforcer.py
+law: RESEARCH_INTAKE_AND_SAVE_LOCK_LOCKED_v1.md

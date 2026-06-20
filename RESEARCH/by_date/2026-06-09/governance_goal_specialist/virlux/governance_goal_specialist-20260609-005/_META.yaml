@@ -1,0 +1,11 @@
+trace_id: governance_goal_specialist-20260609-005
+worker_id: governance_goal_specialist
+subject: virlux
+subject_label: VIRLUX
+thread: THREAD-PORTFOLIO
+date: '2026-06-09'
+source_path: /Users/sinakazemnezhad/.sina/agent-workspaces/noetfield_local/legal-goal/WORKER_BLUEPRINT_VIRLUX_SUPABASE_RLS_HARDEN_v1.md
+archive_path: by_date/2026-06-09/governance_goal_specialist/virlux/governance_goal_specialist-20260609-005/WORKER_BLUEPRINT_VIRLUX_SUPABASE_RLS_HARDEN_v1.md
+execution_authority: false
+enforcer: research_save_enforcer.py
+law: RESEARCH_INTAKE_AND_SAVE_LOCK_LOCKED_v1.md

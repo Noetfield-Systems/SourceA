@@ -1,0 +1,12 @@
+schema_version: 1
+repo: sourcea
+task: sa-0359 — Run bash validate-governance-fleet-v1.sh — nudges and verify_gap SSOT
+status: done
+verify_passed: true
+evidence:
+  task_id: sa-0359
+tests:
+  status: passed
+  output_snippet: validate-governance-fleet-v1 nudges 0 verify_gap 0 · audit_backend_e2e PASS · spine-bridge PASS
+reported_at: '2026-06-08T00:58:49Z'
+reporter: cursor-worker-batch

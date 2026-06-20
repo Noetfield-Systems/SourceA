@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1181",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "U098",
+  "title": "Auto-send from outbox_queue \u2014 REJECT",
+  "evidence": "REJECT auto-send outbox \u2014 founder Mail only per send_policy",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T01:24:48Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

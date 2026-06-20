@@ -1,0 +1,47 @@
+---
+description: Zero governance drift — all layers live-wired L0→L0.5→L1→L2→SASCIP→vocab→monitor
+alwaysApply: true
+---
+
+# Governance zero-drift live wire (real-time chain)
+
+**Law:** `GOVERNANCE_DRIFT_ENGINE_LOCKED_v1.md` · `AGENT_DISK_LIVE_WIRE_FIRST_LOCKED_v1.md`  
+**Gate:** `bash scripts/validate-governance-zero-drift-live-wire-v1.sh`
+
+## One chain — all layers wired
+
+| Layer | Chain step | Receipt |
+|-------|------------|---------|
+| L0.5 | anti-staleness + vocab + queue unify | `~/.sina/anti-staleness-auto-wire-v1.json` |
+| L1+L2 | agentic pipeline + brain wire | `~/.sina/agentic-layer-pipeline-v2.json` |
+| Cross | queue_sa aligned factory→surfaces→brain→inbox | zero-drift receipt `chains.cross_layer` |
+| Drift | governance score ≥85 · DRIFT.json items=0 | `~/.sina/governance_drift_report_v1.json` |
+| SASCIP | stranger admission ADMIT | `~/.sina/stranger-agent-admission-receipt-v1.json` · live wire `~/.sina/stranger-agent-safety-live-wire-v1.json` |
+| Monitor | live pulse :13021 sidecars | `~/.sina/monitor-live-v1.json` |
+
+## Every session (automatic via session gate)
+
+```bash
+python3 scripts/agent_session_gate_run_v1.py --role <role> --json
+```
+
+Quote **`zero_drift_line`** + **`factory_now_line`** from `~/.sina/agent-live-surfaces-v1.json`.
+
+## Manual full chain (≤90s session tier)
+
+```bash
+python3 scripts/governance_zero_drift_live_wire_v1.py --role any --tier session --json
+```
+
+Full audit tier (hospital/maze prep):
+
+```bash
+python3 scripts/governance_zero_drift_live_wire_v1.py --role any --tier full --json
+```
+
+## Zero drift means
+
+- **queue_sa** single value across anti-staleness · surfaces · factory-now · brain · inbox
+- **L1→brain** subordinates ≥3 · **L2** agents ≥4 · cross_ref PASS
+- **drift_score** ≥85 · **drift_items** = 0 in cross-layer issues
+- **vocabulary** + **SASCIP** both PASS (paired with anti-staleness KEY rule)

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-1200",
+  "status": "DONE",
+  "round_type": "act",
+  "upgrade_id": "F004",
+  "title": "Run outbound_disk_coherence_heal",
+  "evidence": "outbound_disk_coherence_heal_v1.py ok=true · ~/.sina/outbound-disk-coherence-heal-receipt-v1.json",
+  "receipt_law": "receipts/{upgrade_id}-{sa_id}-receipt.json",
+  "at": "2026-06-19T07:40:00Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-sa-receipt-v1",
+  "sa_id": "sa-0514",
+  "status": "DONE",
+  "round_type": "verify",
+  "critical_bugs": 0,
+  "engine": "WORKER",
+  "source": "goal1_lane_broker",
+  "evidence": "VERIFY PASS \u2014 validate-runreceipt-factory-p0-hook-v1 \u00b7 runreceipt_parallel on command center P0",
+  "at": "2026-06-14T12:52:51Z",
+  "workspace": "/Users/sinakazemnezhad/Desktop/SourceA"
+}
