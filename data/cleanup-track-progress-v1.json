@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "saved_at": "2026-06-20T17:34:00Z",
+  "manifest_path": "infra/cleanup/cleanup-manifest.md",
+  "inventory_path": "infra/cleanup/inventory-root.tsv",
+  "status": "BATCH_5B_DRAFT",
+  "asf_picks": {
+    "taxonomy": "Option A",
+    "lineage": "Path 2",
+    "batch_4_approved": "2026-06-20",
+    "batch_5a_approved": "2026-06-20"
+  },
+  "root_files": {
+    "initial": 328,
+    "after_batch_4": 227,
+    "after_batch_5a": 158,
+    "current": 158
+  },
+  "batches": [
+    {"id": "1", "theme": "AGENT_* → brain-os", "files": 26, "status": "executed", "commit": "0cf364d8"},
+    {"id": "2", "theme": "SINA_AGENT_* + incidents", "files": 25, "status": "executed", "commit": "94c2dd2b"},
+    {"id": "3", "theme": "tier-0 SSOT law at root", "files": 25, "status": "executed", "commit": "0bb4a1b1"},
+    {"id": "3.5", "theme": "pointer sync + taxonomy fold", "files": 44, "status": "executed", "commit": "c688cd75"},
+    {"id": "3.5b", "theme": "archive rollback", "files": 11, "status": "executed", "commit": "305a666a"},
+    {"id": "4", "theme": "SINA_COMMAND_* + incidents", "files": 25, "status": "executed", "executed_at": "2026-06-20"},
+    {
+      "id": "5a",
+      "theme": "SOURCEA_* → brain-os/law/",
+      "files": 69,
+      "status": "executed",
+      "executed_at": "2026-06-20",
+      "moved": 69,
+      "skipped": 0,
+      "critic_packet": "infra/cleanup/batch-5a-diff-for-critics.md",
+      "grep_audit": "infra/cleanup/batch-5a-grep-audit.json"
+    },
+    {
+      "id": "5b",
+      "theme": "WORLD_* → brain-os/wtm/",
+      "files": 10,
+      "status": "draft",
+      "next": true
+    },
+    {"id": "5c", "theme": "FOUNDER_* → enforcement", "files": 7, "status": "draft"},
+    {"id": "5d", "theme": "CURSOR_* tooling", "files": 5, "status": "draft"},
+    {"id": "5e", "theme": "SINA_* remainder", "files": 48, "status": "draft"},
+    {"id": "5f", "theme": "OTHER row-by-row", "files": 77, "status": "draft"}
+  ],
+  "next_steps_ordered": [
+    "Draft batch 5b manifest (WORLD_* → brain-os/wtm/)",
+    "ASF approve 5b · execute one commit",
+    "Repeat for 5c–5f"
+  ]
+}

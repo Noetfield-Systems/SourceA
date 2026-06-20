@@ -11,11 +11,13 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
+from governance_paths_v1 import FORK_MACHINE, INTEGRITY_PLAYBOOK
+
 SINA = Path.home() / ".sina"
 
-LAW = ROOT / "SOURCEA_COMPLEX_SITUATION_FORK_MACHINE_LOCKED_v1.md"
+LAW = FORK_MACHINE
 PROMPT = ROOT / "prompts/COMPLEX_SITUATION_FORK_SESSION_PROMPT_LOCKED_v1.md"
-PLAYBOOK = ROOT / "SOURCEA_SYSTEM_INTEGRITY_100_STEP_PLAYBOOK_LOCKED_v1.md"
+PLAYBOOK = INTEGRITY_PLAYBOOK
 CANVAS_HINT = (
     "Open Canvas beside chat: "
     "~/.cursor/projects/Users-sinakazemnezhad-Desktop-SinaaiDataBase/"

@@ -8,7 +8,7 @@ fail() { echo "FAIL: validate-thread-room-second-hop-v1 — $*" >&2; exit 1; }
 
 for f in \
   "$ROOT/SINA_THREAD_ROOM_LOCKED_v1.md" \
-  "$ROOT/SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md"; do
+  "$ROOT/brain-os/law/SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md"; do
   [[ -f "$f" ]] || fail "missing $f"
 done
 
@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(".")
 law = (ROOT / "SINA_THREAD_ROOM_LOCKED_v1.md").read_text(encoding="utf-8")
-super_fast = (ROOT / "SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md").read_text(encoding="utf-8")
+super_fast = (ROOT / "brain-os/law/SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md").read_text(encoding="utf-8")
 
 if "H2 second hop" not in law and "second hop" not in law.lower():
     raise SystemExit("SINA_THREAD_ROOM_LOCKED missing H2 second hop")

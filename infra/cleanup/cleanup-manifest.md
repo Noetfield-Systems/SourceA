@@ -1,8 +1,33 @@
 # Cleanup manifest — SourceA root sprawl
 
-**Status:** FROZEN — Batch 4 blocked until ASF approves  
-**Generated:** 2026-06-20  
-**Inventory:** `infra/cleanup/inventory-root.tsv` (252 files after batch 3)
+**Status:** APPROVED — Batch 5a (ASF implement plan · Option A + Path 2)  
+**Updated:** 2026-06-20T17:20:00Z  
+**Inventory:** `infra/cleanup/inventory-root.tsv` (**158** files after batch 5a)  
+**Machine receipt:** `data/cleanup-track-progress-v1.json`
+
+## Patch tree — cleanup track (do not lose thread)
+
+```
+SourceA root cleanup
+├── ✅ Batch 1   AGENT_* → brain-os/              (26 · 0cf364d8)
+├── ✅ Batch 2   SINA_AGENT_* + incidents         (25 · 94c2dd2b)
+├── ✅ Batch 3   tier-0 SSOT law at root           (25 · 0bb4a1b1 · regression)
+├── ✅ Batch 3.5 pointer sync + taxonomy fold     (c688cd75)
+├── ✅ Batch 3.5b archive path-string rollback      (11 · 305a666a)
+├── ✅ Batch 4   SINA_COMMAND_* + incidents        (25 · executed 2026-06-20)
+├── ✅ Batch 5a  SOURCEA_* → brain-os/law/          (69 · executed 2026-06-20)
+├── 📋 Batch 5b–5f remainder                      (158 · batch-5-triage-draft.md)
+├── ✅ Taxonomy  Option A                         (ASF 2026-06-20)
+├── ✅ Lineage   Path 2                           (ASF 2026-06-20)
+├── ⬜ Archive trim batch                           (superseded · grep-first)
+└── ⬜ Runtime trim ~/.sina inject/mirrors         (after law plane stable)
+```
+
+**North star:** one canonical tree · agents read one path · zero drift · trim everywhere (not museum).
+
+**Open ASF picks:** (1) taxonomy A/B · (2) lineage Path 1 vs 2 · (3) Batch 4 APPROVED · (4) operator executes batch 4
+
+**ASF locked (2026-06-20):** Taxonomy **Option A** · Lineage **Path 2** · Batch 4 **APPROVED**
 
 ## Approval
 
@@ -11,8 +36,15 @@
 - [x] Batch 2 executed — commit `94c2dd2b`
 - [x] Batch 3 executed — commit `0bb4a1b1` (premature — regression fixed in 3.5)
 - [x] **Batch 3.5 emergency** — pointer sync + taxonomy consolidation (`law/entry`, `law/enforcement`)
-- [ ] **Batch 4 FROZEN** — do not execute until ASF sets APPROVED below
-- [ ] Critic packet: `infra/cleanup/batch-4-diff-for-critics.md`
+- [x] **Taxonomy Option A** — ASF 2026-06-20
+- [x] **Lineage Path 2** — ASF 2026-06-20
+- [x] **Batch 5a executed** — 2026-06-20 (69 moved · root **158** files)
+- [x] Critic packet 5a: `infra/cleanup/batch-5a-diff-for-critics.md`
+- [x] **Batch 4 executed** — 2026-06-20 (25 moved/archived · root **227** files)
+- [x] Critic packet + pre-flight: `infra/cleanup/batch-4-diff-for-critics.md` (25/25 sources · scan clear · dupe fixed)
+- [x] Taxonomy/lineage pick doc: `infra/cleanup/taxonomy-asf-pick-v1.md`
+- [x] Batch 5 triage draft: `infra/cleanup/batch-5-triage-draft.md`
+- [x] Machine progress receipt: `data/cleanup-track-progress-v1.json`
 
 ## Batch plan
 
@@ -23,8 +55,9 @@
 | **2** | `SINA_AGENT_*` + leftovers + incident reports | 25 ✅   | `cleanup: batch-2 sina agent`    |
 | **3** | Tier-0 ASF + SINA + SOURCEA SSOT law           | 25 ✅   | `cleanup: batch-3 portfolio law` |
 | **3.5** | Emergency pointer sync + taxonomy fix        | — ✅    | `chore(cleanup): batch 3.5`      |
-| **4** | `SINA_COMMAND_*` legacy hub + incident reports | 25 FROZEN | `cleanup: batch-4 command incidents` |
-| 5     | Remainder triage                             | per row | `cleanup: batch-5 …`             |
+| **4** | `SINA_COMMAND_*` legacy hub + incident reports | 25 ✅ | `cleanup: batch-4 command incidents` |
+| **5a** | `SOURCEA_*` → `brain-os/law/`                  | 69 ✅ | `cleanup: batch-5a sourcea law` |
+| 5b–5f | Remainder sub-batches                        | 158     | `cleanup: batch-5b …`              |
 
 
 ## Batch 1 — manifest rows (review these)
@@ -152,7 +185,7 @@
 | `./SINA_CROSS_LANE_EDIT_FORBIDDEN_INCIDENT_REPORT_LOCKED_v1.md` | 4.0K | INCIDENT-010 report | `brain-os/incidents/` | 4 | move |
 | `./SINA_ECOSYSTEM_INCIDENTS_AND_SESSION_INSIGHTS_COMPENDIUM_REPORT_LOCKED_v1.md` | 4.0K | compendium pointer | `brain-os/incidents/` | 4 | move |
 | `./SINA_EXECUTOR_IGNORED_M1_INTEGRITY_FORM_CANVAS_INCIDENT_029_REPORT_LOCKED_v1.md` | 4.0K | INCIDENT-029 report | `brain-os/incidents/` | 4 | move |
-| `./SINA_FACTORY_STOP_IGNORED_AUTODRAIN_INCIDENT_023_REPORT_LOCKED_v1.md` | 4.0K | INCIDENT-023 pointer | `brain-os/incidents/` | 4 | move |
+| `./SINA_FACTORY_STOP_IGNORED_AUTODRAIN_INCIDENT_023_REPORT_LOCKED_v1.md` | 4.0K | INCIDENT-023 root pointer (canonical in incidents/) | `archive/root-stubs/` | 4 | archive |
 | `./SINA_FOUNDER_MUSEUM_HUB_ERASURE_PERCEPTION_INCIDENT_032_REPORT_LOCKED_v1.md` | 4.0K | INCIDENT-032 pointer | `brain-os/incidents/` | 4 | move |
 | `./SINA_GOAL_HIERARCHY_ENFORCEMENT_INCIDENT_REPORT_LOCKED_v1.md` | 4.0K | goal hierarchy incident | `brain-os/incidents/` | 4 | move |
 | `./SINA_GOAL1_AUTORUN_BROKER_STALE_RECEIPT_INCIDENT_REPORT_LOCKED_v1.md` | 4.0K | Goal 1 broker stale | `brain-os/incidents/` | 4 | move |
@@ -165,6 +198,86 @@
 | `./SINA_MAINTAINER_EXTERNAL_CRITIC_PROCEDURE_INCIDENT_REPORT_LOCKED_v1.md` | 4.0K | external critic procedure | `brain-os/incidents/` | 4 | move |
 
 **Post-batch 4 pointer follow-up:** update `scripts/hub_essentials_index.py` READ_CHAIN rows for `SINA_COMMAND_*` → `archive/legacy/sina-command/…` (7 paths).
+
+
+## Batch 5a — manifest rows (`SOURCEA_*` → `brain-os/law/`)
+
+**Theme:** Product/commercial/governance SOURCEA law · Option A + Path 2
+
+| source | size | first_heading | proposed_dest | batch | action |
+|--------|------|---------------|---------------|-------|--------|
+| `./SOURCEA_1000PACK_AUDIT_JUDGE_LOCKED_v1.md` | 4.0K | # SourceA 1000-Pack Audit Judge (LOCKED v1) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_1000_LOCKED_PROMPT_LIBRARY_NO_ASF_v1.md` | 4.0K | # SOURCEA 1000 LOCKED prompt library — PLAN WITH N | `brain-os/law/` | 5a | move |
+| `./SOURCEA_ADVERSARIAL_PROBE_PACK_LOCKED_v1.md` | 8.0K | # SourceA — Adversarial Probe Pack (LOCKED v1) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_AGENCY_PRODUCT_DEMO_SCRIPT_LOCKED_v1.md` | 8.0K | # SourceA Agency Product Demo Script — LOCKED v1 | `brain-os/law/` | 5a | move |
+| `./SOURCEA_ANTI_STALENESS_AUTO_WIRE_LAYER_SYNC_LOCKED_v1.md` | 4.0K | # Anti-staleness auto wire — layer sync law (LOCKE | `brain-os/law/` | 5a | move |
+| `./SOURCEA_ANTI_STALENESS_MACHINE_ENFORCEMENT_PLAN_LOCKED_v1.md` |  12K | # SourceA — Anti-staleness machine enforcement pla | `brain-os/law/` | 5a | move |
+| `./SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md` | 8.0K | # Asset B — Controlled Agentic Automation (DFY) — LO | `brain-os/law/` | 5a | move |
+| `./SOURCEA_AUTHORITY_COVERAGE_AUDIT_2026-06-11_v1.md` |  12K | # SourceA Authority Coverage Audit — 2026-06-11 | `brain-os/law/` | 5a | move |
+| `./SOURCEA_AUTHORITY_REGISTRY_GOV_UNIFY_BATCH_2026-06-11_LOCKED_v1.md` |  12K | # Authority Registry — GOV_UNIFY Batch 2026-06-11  | `brain-os/law/` | 5a | move |
+| `./SOURCEA_BLUEPRINT_COMPARISON_POSTMORTEM_v1.md` |  40K | # SOURCEA BLUEPRINT COMPARISON — POST-MORTEM + PRE | `brain-os/law/` | 5a | move |
+| `./SOURCEA_BRAIN_MONITOR_FIX_REPORT_LOCKED_v1.md` | 8.0K | # Brain Monitor Fix — Full Honest Report (LOCKED v | `brain-os/law/` | 5a | move |
+| `./SOURCEA_CHAIN_TOOLS_PUBLISH_LOCKED_v1.md` | 4.0K | # SourceA Chain Tools — Publish Pattern (Graphify  | `brain-os/law/` | 5a | move |
+| `./SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md` | 4.0K | # SourceA Commercial Sender — LOCKED v1.1 | `brain-os/law/` | 5a | move |
+| `./SOURCEA_COMMERCIAL_VIDEO_HERO_PIPELINE_LOCKED_v1.md` | 8.0K | # SourceA Commercial Video — Hero Pipeline (LOCKED | `brain-os/law/` | 5a | move |
+| `./SOURCEA_COMMERCIAL_WORKER_LOOP_LOCKED_v1.md` | 4.0K | # SourceA — Commercial Worker Loop (LOCKED v1) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_COMPANY_INFRA_BUYER_AND_POSITION_SSOT_LOCKED_v1.md` |  16K | # SourceA — Company, Infra, Buyer & Position SSOT  | `brain-os/law/` | 5a | move |
+| `./SOURCEA_COMPLEX_SITUATION_FORK_MACHINE_LOCKED_v1.md` | 8.0K | # SourceA Complex Situation Fork Machine (LOCKED v | `brain-os/law/` | 5a | move |
+| `./SOURCEA_CONTROL_PLANE_200_PLAN_BRANCH_INDEX_LOCKED_v1.md` | 8.0K | # SourceA Control Plane — 200 Plan Branch Index LO | `brain-os/law/` | 5a | move |
+| `./SOURCEA_CONTROL_PLANE_200_PLAN_LOCKED_v1.md` |  24K | # SourceA Control Plane — 200 Plan LOCKED v1 | `brain-os/law/` | 5a | move |
+| `./SOURCEA_CROSS_DOC_LINKAGE_AND_AUDIT_LOCKED_v1.md` |  28K | # SourceA Cross-Doc Linkage & Governance Audit (LO | `brain-os/law/` | 5a | move |
+| `./SOURCEA_CURSOR_RULES_AND_SKILLS_MAP_LOCKED_v2.md` | 4.0K | # SourceA — Cursor rules & skills map (LOCKED v2) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_DISK_TRUTH_E2E_MATRIX_LOCKED_v1.md` | 8.0K | # SourceA — Disk truth E2E matrix (LOCKED v1) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_E2E_DEBUGGER_PLAYBOOK_LOCKED_v1.md` |  12K | # SourceA E2E Debugger Playbook (LOCKED v1) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_ECOSYSTEM_MASTER_CATALOG_LOCKED_v1.md` |  12K | # SourceA Ecosystem Master Catalog — Everything on | `brain-os/law/` | 5a | move |
+| `./SOURCEA_EXECUTOR_IN_CHARGE_NO_HANDOFF_LOCKED_v1.md` | 4.0K | # Executor in charge — no handoff (LOCKED v1) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_FAST_SYSTEM_LOAD_BUDGET_LOCKED_v1.md` | 4.0K | # SourceA — Fast System Load Budget (LOCKED v1) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_FINAL_RESOLUTION_GAP_ANALYSIS_v1.md` | 4.0K | # Final Resolution — Gap Analysis (working v1) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_FIVE_STEP_AUTONOMOUS_PROGRESS_BLUEPRINT_LOCKED_v1.md` |  12K | # SourceA Five-Step Autonomous Progress Blueprint  | `brain-os/law/` | 5a | move |
+| `./SOURCEA_FOUNDER_DIRECTION_TERMINOLOGY_LOCKED_v1.md` | 4.0K | # SourceA Founder Direction + Terminology (LOCKED  | `brain-os/law/` | 5a | move |
+| `./SOURCEA_FOUNDER_MACHINE_TERMINOLOGY_DICTIONARY_LOCKED_v1.md` |  20K | # SourceA Founder ↔ Machine Terminology Dictionary | `brain-os/law/` | 5a | move |
+| `./SOURCEA_FOUNDER_MESSAGE_NORMALIZATION_LOCKED_v1.md` | 4.0K | # SourceA Founder Message Normalization (LOCKED v1 | `brain-os/law/` | 5a | move |
+| `./SOURCEA_FOUNDER_PINNED_ACTIONS_LOCKED_v1.md` | 8.0K | # SourceA Founder Pinned Actions (LOCKED v1) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_FROZEN_ARCHIVE_REVIVAL_AUDIT_LOCKED_v1.md` | 8.0K | # Frozen & Archive Corpus — Revival Audit (LOCKED  | `brain-os/law/` | 5a | move |
+| `./SOURCEA_GOVERNANCE_CENTER_SELF_GOVERN_LOCKED_v1.md` | 8.0K | # SourceA — Governance Center & Self-Govern (LOCKE | `brain-os/law/` | 5a | move |
+| `./SOURCEA_GOVERNANCE_EVENT_SPINE_SCHEMA_LOCKED_v1.md` | 8.0K | # Governance Event Spine — schema & reference grap | `brain-os/law/` | 5a | move |
+| `./SOURCEA_GOV_META_AUDIT_LOCKED_v1.md` | 4.0K | # Governance Meta-Audit — LOCKED v1 | `brain-os/law/` | 5a | move |
+| `./SOURCEA_H2_MACHINE_HUB_PLAN_LOCKED_v1.md` |  12K | # SourceA — H2 Machine Hub Plan (LOCKED v1.1) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_ICP_MARKET_IDENTITY_LOCKED_v1.md` |  24K | # SOURCEA_ICP_MARKET_IDENTITY_LOCKED_v1.md | `brain-os/law/` | 5a | move |
+| `./SOURCEA_INCIDENT_FIX_OWNERSHIP_GOVERNANCE_HARDENING_LOCKED_v1.md` |  12K | # SourceA — Incident Fix Ownership & Governance Ha | `brain-os/law/` | 5a | move |
+| `./SOURCEA_INCIDENT_FIX_OWNERSHIP_REPORT_LOCKED_v1.md` | 4.0K | # INCIDENT fix ownership — report pointer | `brain-os/law/` | 5a | move |
+| `./SOURCEA_INTEGRATION_LEVERAGE_STRATEGY_LOCKED_v1.md` |  12K | # SourceA Integration & Partnership Leverage Strat | `brain-os/law/` | 5a | move |
+| `./SOURCEA_INTEGRITY_STACK_UNIFIED_BLUEPRINT_BATCH_2_LOCKED_v1.md` |  32K | # SourceA Integrity Stack — Unified Blueprint Batc | `brain-os/law/` | 5a | move |
+| `./SOURCEA_INVARIANT_GATEKEEPER_REPORT_LOCKED_v1.md` | 4.0K | # Invariant Gatekeeper — root pointer (LOCKED) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_LAYERED_ADVISORY_DISK_DELTA_2026-06-12_v1.md` | 8.0K | # Layered Advisory — Disk Delta (2026-06-12) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_LAYERED_ADVISORY_DRAFT_v1.md` |  12K | # SourceA Layered Advisory — Draft v1 (LOCKED) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md` |  24K | # SourceA Live Founder Decision Form (LOCKED v1) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_LIVE_GOVERNANCE_BIG_PICTURE_LOCKED_v1.md` |  12K | # SourceA Live Governance — Big Picture (LOCKED v1 | `brain-os/law/` | 5a | move |
+| `./SOURCEA_LIVE_ONGOING_PROMPTS_LOCKED_v1.md` | 4.0K | # Live ongoing prompts — machine order + Next step | `brain-os/law/` | 5a | move |
+| `./SOURCEA_LOST_LINK_RECOVERY_ETHICS_LOCKED_v1.md` | 8.0K | # Lost Link Recovery Ethics — Practical + Philosop | `brain-os/law/` | 5a | move |
+| `./SOURCEA_MACHINE_TEST_AND_UPGRADE_LADDER_LOCKED_v1.md` |  16K | # SourceA — Machine test & upgrade ladder (LOCKED  | `brain-os/law/` | 5a | move |
+| `./SOURCEA_MARKET_RECEIPT_ARCHITECTURE_LOCKED_v1.md` | 8.0K | # Architecture the Market Pays For — Receipt-Nativ | `brain-os/law/` | 5a | move |
+| `./SOURCEA_MASTER_SESSION_MANIFEST_LOCKED_v1.md` |  12K | # Master Session Manifest — Full Thread & Subject  | `brain-os/law/` | 5a | move |
+| `./SOURCEA_MONITOR_DISK_LIVE_WIRE_LOCKED_v1.md` | 4.0K | # Monitor disk live wire (LOCKED v1) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_OPENROUTER_ACTIVATION_QUEUE_LOCKED_v1.md` | 4.0K | # SourceA — OpenRouter Activation Queue (LOCKED v1 | `brain-os/law/` | 5a | move |
+| `./SOURCEA_ORCHESTRATOR_PARTNER_INTEGRATION_LOCKED_v1.md` |  12K | # SourceA Orchestrator Partner Integration — LOCKE | `brain-os/law/` | 5a | move |
+| `./SOURCEA_PHASE2_INTEGRITY_PICK_RECEIPT_2026-06-11_LOCKED_v1.md` | 4.0K | # Phase 2 Integrity Pick Receipt — 2026-06-11 (LOC | `brain-os/law/` | 5a | move |
+| `./SOURCEA_PHASE_PACK_PINNED_SUMMARY_LOCKED_v1.md` | 4.0K | # Phase pack reorg — pinned very short summary (LO | `brain-os/law/` | 5a | move |
+| `./SOURCEA_PHASE_STRICT_RUN_INBOX_LOCKED_v1.md` | 4.0K | # Phase-strict run inbox routing (LOCKED v1) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_REFERENCE_ARCHITECTURE_CONSTELLATION_LOCKED_v1.md` |  24K | # SourceA Reference Architecture Constellation (LO | `brain-os/law/` | 5a | move |
+| `./SOURCEA_RESULT_DRIVEN_DISCUSSION_POLICY_LOCKED_v1.md` |  12K | # SourceA Result-Driven Discussion Policy (LOCKED  | `brain-os/law/` | 5a | move |
+| `./SOURCEA_S10_ETERNAL_SELF_HEAL_AUDIT_LOCKED_v1.md` | 8.0K | # S10 — Eternal self-heal · disk-truth audit · 100 | `brain-os/law/` | 5a | move |
+| `./SOURCEA_SESSION_20260609_COMPLETE_INDEX_LOCKED_v1.md` | 8.0K | # SourceA Session 2026-06-09 — Complete Index (LOC | `brain-os/law/` | 5a | move |
+| `./SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md` | 8.0K | # SourceA — Two-Hub Model + Super Fast Hub (LOCKED | `brain-os/law/` | 5a | move |
+| `./SOURCEA_SYSTEM_INTEGRITY_100_STEP_PLAYBOOK_LOCKED_v1.md` |  16K | # SourceA System Integrity — 100-Step Playbook (LO | `brain-os/law/` | 5a | move |
+| `./SOURCEA_SYSTEM_INTEGRITY_SESSION_LOG_v1.md` |  12K | # System Integrity Session Log — 2026-06-11 | `brain-os/law/` | 5a | move |
+| `./SOURCEA_SYSTEM_MAP_TREE_LOCKED_v1.md` |  16K | # SourceA — System Map Tree (LOCKED v1) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_THREE_ZONE_HUB_SPINE_LOCKED_v1.md` | 4.0K | # SourceA — Three-Zone Hub Spine (LOCKED v1) | `brain-os/law/` | 5a | move |
+| `./SOURCEA_TODAY_SESSION_UNIFIED_CLOSEOUT_RECEIPT_2026-06-11_LOCKED_v1.md` |  12K | # Today Session — Unified Closeout Receipt (LOCKED | `brain-os/law/` | 5a | move |
+| `./SOURCEA_WORKER_E2E_POSTMORTEM_LOCKED_v1.md` |  12K | # Worker E2E Post-Mortem — Verdict, Permanent Fix, | `brain-os/law/` | 5a | move |
+
+**Post-batch 5a pointer follow-up:** `governance_paths_v1.py` extended · ~20 scripts patched · `hub_essentials_index.py` READ_CHAIN SOURCEA paths → `brain-os/law/`.
+
 
 
 ## Batch 3.5 — emergency (taxonomy + pointers)
@@ -182,8 +295,6 @@
 
 **Not in 3.5:** `ASF_RETIRE_SINA_COMMAND` archive move — defer to batch 4 triage with ASF.
 
-**Archive immutability (2026-06-20):** Batch 3.5 mass-replace touched 11 files under `archive/` (path strings only). Reverted to `0bb4a1b1` snapshot — live code uses `governance_paths_v1.py`; archive keeps historical paths. **Future batches: never bulk-replace inside `archive/`.**
-
 
 ## Batch 3 pointer fix (superseded by 3.5)
 
@@ -198,6 +309,22 @@ Tier-0 files moved in batch 3 broke root-relative script paths. Fixed via:
 
 Remaining shell validators still using `$ROOT/SINA_*` at root should source `governance-paths-v1.sh` on next touch.
 
+
+
+## Execute batch 5a (after APPROVED)
+
+```bash
+cd ~/Desktop/SourceA
+bash infra/cleanup/scan-secrets-v1.sh
+bash infra/cleanup/execute-batch-v1.sh --batch 5a --dry-run
+bash infra/cleanup/execute-batch-v1.sh --batch 5a
+bash infra/cleanup/generate-inventory-v1.sh
+python3 scripts/cleanup_track_sync_v1.py --json
+git add -A
+git commit -m "cleanup: batch-5a sourcea law → brain-os"
+```
+
+**Critic packet:** `infra/cleanup/batch-5a-diff-for-critics.md`
 
 ## Execute batch 4 (after APPROVED)
 

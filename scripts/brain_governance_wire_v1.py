@@ -14,7 +14,14 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-from governance_paths_v1 import NO_FAKE_PROGRESS
+from governance_paths_v1 import (
+    AGENTIC_LAYER_STACK,
+    LIVE_ONGOING_PROMPTS,
+    NO_FAKE_PROGRESS,
+    OPENROUTER_ACTIVATION_QUEUE,
+    PHASE_STRICT_RUN_INBOX,
+    SUPER_FAST_HUB,
+)
 
 SINA = Path.home() / ".sina"
 WIRE_PATH = SINA / "governance-brain-wire-v1.json"
@@ -26,11 +33,11 @@ CHAT_CTX = SINA / "governance-chat-context-v1.json"
 
 # Brain-bound laws Governance must obey (mtime + path proof)
 BRAIN_LAW_PATHS = (
-    ROOT / "SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md",
-    ROOT / "SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md",
-    ROOT / "SOURCEA_LIVE_ONGOING_PROMPTS_LOCKED_v1.md",
-    ROOT / "SOURCEA_PHASE_STRICT_RUN_INBOX_LOCKED_v1.md",
-    ROOT / "SOURCEA_OPENROUTER_ACTIVATION_QUEUE_LOCKED_v1.md",
+    AGENTIC_LAYER_STACK,
+    SUPER_FAST_HUB,
+    LIVE_ONGOING_PROMPTS,
+    PHASE_STRICT_RUN_INBOX,
+    OPENROUTER_ACTIVATION_QUEUE,
     NO_FAKE_PROGRESS,
 )
 

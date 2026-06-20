@@ -10,8 +10,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-FORM_MD = ROOT / "SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md"
-NORM_MD = ROOT / "SOURCEA_FOUNDER_MESSAGE_NORMALIZATION_LOCKED_v1.md"
+from governance_paths_v1 import FOUNDER_MESSAGE_NORM, LIVE_FOUNDER_FORM
+
+FORM_MD = LIVE_FOUNDER_FORM
+NORM_MD = FOUNDER_MESSAGE_NORM
 FIRST_FORM_ARCHIVE = (
     ROOT / "archive/attachments/2026-06-11/SOURCEA_LIVE_FOUNDER_DECISION_FORM_FIRST_FORM_LOCKED_v1.md"
 )

@@ -15,12 +15,14 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
+from governance_paths_v1 import S10_ETERNAL_AUDIT
+
 SINA = Path.home() / ".sina"
 MANIFEST = SINA / "s10-eternal-manifest-v1.json"
 RECEIPT = SINA / "s10-eternal-receipt-v1.json"
 HISTORY = SINA / "s10-eternal-history.jsonl"
 GOVERNANCE = SINA / "agent-governance-events.jsonl"
-LAW = ROOT / "SOURCEA_S10_ETERNAL_SELF_HEAL_AUDIT_LOCKED_v1.md"
+LAW = S10_ETERNAL_AUDIT
 SKILL = ROOT / "agent-skills/shared/s10-eternal-self-heal/SKILL.md"
 
 

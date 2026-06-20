@@ -11,7 +11,7 @@ for f in \
   "$ROOT/scripts/worker_hub_heal_v1.py" \
   "$ROOT/scripts/machine_hub_v1.py" \
   "$ROOT/scripts/machine_hub_bundle_v1.py" \
-  "$ROOT/SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md"; do
+  "$ROOT/brain-os/law/SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md"; do
   [[ -f "$f" ]] || fail "missing $f"
 done
 
@@ -60,7 +60,7 @@ mh = (ROOT / "scripts/machine_hub_v1.py").read_text(encoding="utf-8")
 if '"mode": "light"' not in mh:
     raise SystemExit("machine_hub actions missing light refresh mode")
 
-law = (ROOT / "SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md").read_text(encoding="utf-8")
+law = (ROOT / "brain-os/law/SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md").read_text(encoding="utf-8")
 if "never" not in law.lower() or "build" not in law.lower():
     raise SystemExit("SUPER_FAST_HUB law missing no-rebuild clause")
 
