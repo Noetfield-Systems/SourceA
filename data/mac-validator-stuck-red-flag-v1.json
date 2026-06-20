@@ -1,0 +1,84 @@
+{
+  "schema": "mac-validator-stuck-red-flag-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-06-20T19:35:00Z",
+  "locked": true,
+  "incident_id": "INCIDENT-039",
+  "severity": "P0",
+  "red_flag": true,
+  "red_flag_active": true,
+  "authority": "ASF — Mac founder session",
+  "one_law": "Mac founder session: NEVER stuck in validators. Reply <30s then STOP. One light check <=90s. No chains. 11+ min = P0 harm.",
+  "incident_body": "brain-os/incidents/SINA_MAC_FOUNDER_SESSION_VALIDATOR_STUCK_INCIDENT_039_LOCKED_v1.md",
+  "incident_report": "SINA_MAC_FOUNDER_SESSION_VALIDATOR_STUCK_INCIDENT_039_REPORT_LOCKED_v1.md",
+  "related_incidents": ["INCIDENT-026", "INCIDENT-038", "INCIDENT-031"],
+  "caps": {
+    "founder_reply_max_sec": 30,
+    "single_shell_max_sec": 90,
+    "stuck_red_flag_min_sec": 660,
+    "stuck_red_flag_note": "11 minutes = P0 harmful Mac body action"
+  },
+  "session_events": [
+    {
+      "at": "2026-06-20T19:15:00Z",
+      "observed_sec": 660,
+      "note": "Initial filing — ~11 min validator stuck",
+      "agent": "cursor_auto"
+    },
+    {
+      "at": "2026-06-20T19:35:00Z",
+      "observed_sec": 1656,
+      "note": "RECURRENCE — Mac Law wiring thread · task 863581 ~27.6 min chained validate-mac-law-* · ASF explicit RED FLAG",
+      "agent": "cursor_auto",
+      "terminal_refs": ["863581", "804216"],
+      "forbidden_command_pattern": "validate-.*&&.*validate-"
+    }
+  ],
+  "founder_session_flags": [
+    "~/.sina/mac-control-plane-v1.flag",
+    "~/.sina/mac-light-validators-only-v1.flag",
+    "~/.sina/founder-work-mode-v1.flag",
+    "~/.sina/incident-039-validator-stuck-red-flag-v1.flag"
+  ],
+  "proof_order": [
+    "read_receipt_json",
+    "read_ssot_json",
+    "one_light_validator_from_registry_tier_light",
+    "cloud_ci_receipt_if_stale",
+    "reply_and_stop"
+  ],
+  "forbidden": {
+    "phrases": [
+      "Let me run all validators to confirm",
+      "Running validate-* chain to verify",
+      "I'll wait for validators to finish",
+      "Checking everything with bash scripts",
+      "stuck in validator",
+      "wire it to all machine and validators",
+      "validate-mac-law-full-stack",
+      "run when the Mac cools down"
+    ],
+    "shell_patterns": [
+      "validate-.*&&.*validate-",
+      "validate-all-e2e",
+      "validate-.*e2e",
+      "anti_staleness_auto_wire",
+      "governance_zero_drift_live_wire.*--tier full",
+      "generate_.*&&.*validate_",
+      "mac_law_agent_execution_plane_lock.*--enforce.*&&.*validate-"
+    ],
+    "behaviors": [
+      "await_validator_until_green",
+      "multi_turn_validator_marathon",
+      "regenerate_then_validate_loop_to_prove_chat",
+      "medium_or_heavy_tier_during_founder_session",
+      "wire_mac_law_by_running_all_validators_on_mac"
+    ]
+  },
+  "allowed_light_scripts_ref": "data/mac-pipeline-validator-pressure-registry-v1.json#tiers.light",
+  "recovery": {
+    "on_stuck": ["stop_shell", "reply_plain_english", "cite_receipt_path", "do_not_resume_chain"],
+    "on_red_flag": ["file_incident_039", "no_more_validators_this_turn"]
+  },
+  "inject_line": "INCIDENT-039 RED FLAG ACTIVE: never stuck in validators on Mac — reply <30s · one light check <=90s · proof=receipts only · 28min recurrence logged"
+}

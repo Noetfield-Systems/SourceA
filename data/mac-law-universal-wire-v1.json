@@ -1,0 +1,153 @@
+{
+  "schema": "mac-law-universal-wire-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-20T17:40:02Z",
+  "locked": true,
+  "locked_forever": true,
+  "lock_ssot": "data/mac-law-agent-execution-plane-lock-v1.json",
+  "one_law": "AGENTS: Mac = control panel only — never factory build/motor/render/validator body on Mac · cloud/API/FORGE/Railway executes · anti-staleness paired · zero drift · anti-fragmentation",
+  "boss_order": ["ASF", "MAC LAW", "mac-law-universal-wire", "per-repo SSOT", "execution"],
+  "parent_ssot": {
+    "mac_law_mandatory": "data/mac-law-mandatory-v1.json",
+    "mac_law_machine": "data/mac-law-machine-enforceable-v1.json",
+    "founder_execution_model": "data/founder-execution-model-v1.json",
+    "machine_execution_plane": "data/machine-execution-plane-registry-v1.json"
+  },
+  "law_docs": {
+    "mac_law_ssot": "~/Desktop/MacLaw/MAC_LAW_SSOT_LOCKED.md",
+    "mac_control_plane": "~/Desktop/MacLaw/MAC_CONTROL_PLANE_LOCKED.md",
+    "mac_health_mandates": "~/Desktop/MacLaw/MAC_HEALTH_AGENT_MANDATES_LOCKED.md",
+    "mac_pipeline_pressure": "~/Desktop/MacLaw/MAC_PIPELINE_VALIDATOR_PRESSURE_LAW_LOCKED_v1.md"
+  },
+  "triple_sync": {
+    "anti_staleness": {
+      "script": "scripts/anti_staleness_auto_wire_v1.py",
+      "receipt": "~/.sina/anti-staleness-auto-wire-v1.json",
+      "mac_tier": "session_light_only",
+      "forbidden_on_mac": ["--tier full", "stacked session flights"]
+    },
+    "vocabulary": {
+      "script": "scripts/vocabulary_guard_v1.py",
+      "validator": "scripts/validate-anti-staleness-vocabulary-gate-v1.sh",
+      "law": "SOURCEA_ANTI_STALENESS_AUTO_WIRE_LAYER_SYNC_LOCKED_v1.md",
+      "paired_with": "anti_staleness"
+    },
+    "zero_drift": {
+      "script": "scripts/governance_zero_drift_live_wire_v1.py",
+      "receipt": "~/.sina/governance_drift_report_v1.json",
+      "mac_tier": "session",
+      "forbidden_on_mac": ["--tier full during founder chat"],
+      "min_drift_score": 85,
+      "max_drift_items": 0
+    },
+    "anti_fragmentation": {
+      "script": "scripts/queue_ssot_unify_v1.py",
+      "law": "queue_sa single value across factory-now · surfaces · brain · inbox",
+      "receipts": [
+        "~/.sina/factory-now-v1.json",
+        "~/.sina/agent-live-surfaces-v1.json",
+        "~/.sina/worker-prompt-inbox-v1.json"
+      ]
+    }
+  },
+  "agent_nodes": [
+    {
+      "id": "session_gate",
+      "role": "all_agents",
+      "script": "scripts/agent_session_gate_run_v1.py",
+      "wire": "mac_law_universal_wire step every session",
+      "required": true
+    },
+    {
+      "id": "conduct_gate",
+      "role": "all_agents",
+      "script": "scripts/agentic_conduct_gate_v1.py",
+      "wire": "mac_law_machine scan_agent_text",
+      "required": true
+    },
+    {
+      "id": "pre_write_guard",
+      "role": "all_agents",
+      "script": "scripts/pre_write_guard_v1.py",
+      "wire": "mac_law_universal pre_write check",
+      "required": true
+    },
+    {
+      "id": "memory_mirror",
+      "role": "all_agents",
+      "script": "scripts/agent_memory_mirror_v1.py",
+      "wire": "mac_law_machine + mac_law_universal inject",
+      "required": true
+    },
+    {
+      "id": "brain",
+      "role": "brain",
+      "law": "brain-os/law/BRAIN_UNIFIED_RULES_LOCKED_v1.md",
+      "wire": "route only · cloud dispatch · no Mac factory body",
+      "required": true
+    },
+    {
+      "id": "sourcea_worker",
+      "role": "worker",
+      "ssot": "data/sourcea-worker-professional-assignment-v1.json",
+      "wire": "cloud-first queue · mac_build_forbidden",
+      "required": true
+    },
+    {
+      "id": "loop_specialist",
+      "role": "control_plane",
+      "script": "scripts/loop_specialist_tick_v1.py",
+      "wire": "cloud dispatch · Mac observe",
+      "required": true
+    },
+    {
+      "id": "stranger_safety",
+      "role": "all_agents",
+      "script": "scripts/stranger_agent_safety_live_wire_v1.py",
+      "wire": "SASCIP before disk edit",
+      "required": true
+    }
+  ],
+  "pipelines": [
+    {
+      "id": "comprehension",
+      "execution_plane": "cloud_api_worker",
+      "mac_route": "POST /api/comprehension-loop/v1",
+      "forbidden_mac_primary": "cloud_comprehension_pipeline_loop_v1.py"
+    },
+    {
+      "id": "fbe_forge",
+      "execution_plane": "cloud_forge",
+      "mac_route": "Hub observe · agent executor dry-run",
+      "forbidden_mac": ["fbe_motor_delegate", "local build when mac_build_forbidden"]
+    },
+    {
+      "id": "worker_inbox",
+      "execution_plane": "cloud_api_worker",
+      "assignment": "data/sourcea-worker-professional-assignment-v1.json",
+      "mac_role": "inject + broker only"
+    },
+    {
+      "id": "governance_propagation",
+      "script": "scripts/governance_propagation_cascade_v1.py",
+      "mac_tier": "light",
+      "cloud_tier": "full"
+    }
+  ],
+  "machine_enforce": {
+    "script": "scripts/mac_law_universal_wire_v1.py",
+    "validator": "scripts/validate-mac-law-universal-wire-v1.sh",
+    "cursor_rule": ".cursor/rules/032-mac-law-universal-wire-v1.mdc",
+    "receipt": "~/.sina/mac-law-universal-wire-receipt-v1.json",
+    "surfaces_line_key": "mac_law_universal_line"
+  },
+  "forbidden_mac_execution_patterns": [
+    "fbe_motor_delegate",
+    "launchctl bootstrap.*autorun",
+    "validate-.*e2e",
+    "anti_staleness_auto_wire.*--tier full",
+    "governance_zero_drift.*--tier full",
+    "playwright.*film",
+    "screencapture"
+  ]
+}

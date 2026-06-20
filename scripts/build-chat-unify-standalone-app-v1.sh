@@ -22,7 +22,8 @@ python3 "$ROOT/scripts/build_sina_icons.py" 2>/dev/null || true
 rm -rf "$STAGE"
 mkdir -p "$STAGE/Contents/MacOS" "$STAGE/Contents/Resources" "$BUNDLE_STAGE/scripts" "$BUNDLE_STAGE/app" "$BUNDLE_STAGE/prompts"
 
-for f in chat-unify-server.py chat_unify_merge.py clipboard_safe.py cursor_window_preflight_v1.py; do
+for f in chat-unify-server.py chat_unify_merge.py clipboard_safe.py cursor_window_preflight_v1.py \
+  chat_founder_language_v1.py chat_founder_reasoning_v1.py chat_founder_loop_v1.py chat_ord_loop_v1.py; do
   cp "$ROOT/scripts/$f" "$BUNDLE_STAGE/scripts/"
 done
 cp -R "$ROOT/scripts/chat-unify-standalone/." "$BUNDLE_STAGE/app/"

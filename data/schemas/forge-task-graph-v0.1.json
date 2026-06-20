@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "forge-task-graph-v0.1",
+  "title": "Forge Task Graph",
+  "description": "Planning layer output — DAG of work units before model routing",
+  "type": "object",
+  "required": ["schema", "version", "run_id", "prompt", "tasks", "edges"],
+  "properties": {
+    "schema": {"const": "forge-task-graph-v0.1"},
+    "version": {"type": "string", "pattern": "^0\\.1"},
+    "run_id": {"type": "string"},
+    "saved_at": {"type": "string", "format": "date-time"},
+    "prompt": {
+      "type": "object",
+      "required": ["raw", "intent"],
+      "properties": {
+        "raw": {"type": "string", "maxLength": 8000},
+        "intent": {"type": "string"},
+        "constraints": {"type": "array", "items": {"type": "string"}},
+        "entities": {"type": "array", "items": {"type": "string"}},
+        "risk_signals": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "title"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^T[0-9]+$"},
+          "kind": {
+            "type": "string",
+            "enum": [
+              "research",
+              "code_gen",
+              "ui_gen",
+              "patch",
+              "validate",
+              "deploy",
+              "evaluate",
+              "aggregate"
+            ]
+          },
+          "title": {"type": "string"},
+          "depends_on": {"type": "array", "items": {"type": "string"}},
+          "route_hint": {
+            "type": "string",
+            "enum": ["openrouter_bulk", "claude_code", "gpt_control", "gemini_context", "sandbox", "critic"]
+          },
+          "artifact_out": {"type": "string"},
+          "max_cost_usd": {"type": "number", "minimum": 0}
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to"],
+        "properties": {
+          "from": {"type": "string"},
+          "to": {"type": "string"}
+        }
+      }
+    },
+    "meta_loop": {
+      "type": "object",
+      "properties": {
+        "max_replan": {"type": "integer", "minimum": 0, "maximum": 5},
+        "on_fail": {"type": "string", "enum": ["replan", "reroute", "abort"]}
+      }
+    }
+  },
+  "examples": [
+    {
+      "schema": "forge-task-graph-v0.1",
+      "version": "0.1.0",
+      "run_id": "forge-run-20260620-demo",
+      "saved_at": "2026-06-20T17:04:24Z",
+      "prompt": {
+        "raw": "Build a landing page with pricing table and CTA",
+        "intent": "ship_minimal_marketing_page",
+        "constraints": ["cloud_only", "receipt_required"],
+        "entities": ["landing", "pricing"],
+        "risk_signals": []
+      },
+      "tasks": [
+        {"id": "T1", "kind": "research", "title": "Extract intent + constraints", "route_hint": "gemini_context"},
+        {"id": "T2", "kind": "code_gen", "title": "Scaffold app files", "depends_on": ["T1"], "route_hint": "claude_code"},
+        {"id": "T3", "kind": "ui_gen", "title": "Pricing section + CTA", "depends_on": ["T2"], "route_hint": "openrouter_bulk"},
+        {"id": "T4", "kind": "validate", "title": "Run verify + lint", "depends_on": ["T3"], "route_hint": "sandbox"},
+        {"id": "T5", "kind": "deploy", "title": "Deploy preview URL", "depends_on": ["T4"], "route_hint": "sandbox"},
+        {"id": "T6", "kind": "evaluate", "title": "Critic vs intent", "depends_on": ["T5"], "route_hint": "critic"}
+      ],
+      "edges": [
+        {"from": "T1", "to": "T2"},
+        {"from": "T2", "to": "T3"},
+        {"from": "T3", "to": "T4"},
+        {"from": "T4", "to": "T5"},
+        {"from": "T5", "to": "T6"}
+      ],
+      "meta_loop": {"max_replan": 2, "on_fail": "replan"}
+    }
+  ]
+}

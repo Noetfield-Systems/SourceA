@@ -31,7 +31,7 @@ def build_report(*, hub_path: Path | None = None) -> dict:
     status_judgment = Counter((r.get("status"), r.get("judgment")) for r in rows)
     return {
         "schema": "order-guardian-pendings-crosswalk-v1",
-        "law": "ORDER_GUARDIAN_AGENT_LOCKED_v1.md",
+        "law": "brain-os/law/ORDER_GUARDIAN_AGENT_LOCKED_v1.md",
         "task": "sa-0798",
         "orders_total": len(rows),
         "judgment_mismatches": judgment_contract_mismatches(rows),

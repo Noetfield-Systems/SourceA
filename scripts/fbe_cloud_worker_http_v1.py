@@ -74,11 +74,27 @@ def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
             template = "forge-app-factory-v1"
             bay = bay or "forge-bay"
             tenant = tenant or "forge"
+        forge_ctx = body.get("forge_context") if isinstance(body.get("forge_context"), dict) else None
+        if not forge_ctx:
+            forge_ctx = {
+                k: body.get(k)
+                for k in (
+                    "stack",
+                    "competitor",
+                    "workstream",
+                    "prompt_abs",
+                    "task_graph_path",
+                    "run_id",
+                    "plan_id",
+                )
+                if body.get(k) is not None
+            }
         return run_job(
             bay_slug=bay,
             template_id=template,
             tenant=tenant,
             work_order_id=work_order_id,
+            forge_context=forge_ctx or None,
         )
     if path == "/api/fbe/comprehension-loop/v1":
         from fbe_comprehension_bay_v1 import run_comprehension_bay  # noqa: WPS433

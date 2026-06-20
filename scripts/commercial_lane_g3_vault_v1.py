@@ -10,7 +10,7 @@ from pathlib import Path
 SOURCE_A = Path(__file__).resolve().parents[1]
 PRIORITY = SOURCE_A / "brain-os" / "plan-registry" / "SOURCEA-PRIORITY.md"
 PROGRESS = SOURCE_A / "PROGRAM_PROGRESS.json"
-WIRE_PROGRESS = SOURCE_A / "WIRE_LANE_PROGRESS.md"
+WIRE_PROGRESS = SOURCE_A / "brain-os/law/WIRE_LANE_PROGRESS.md"
 WIRE_PLAN = Path.home() / "Desktop/AI Dev Bridge OS/config/locked_plan.json"
 CROSSREF = "archive/attachments/2026-06-14/sa-0525-commercial-lane-g3-vault-evidence_LOCKED_v1.md"
 

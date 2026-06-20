@@ -30,9 +30,11 @@ for k in ("factory_now_line", "better_loop_line", "best_loop_oqg_line"):
 if not r.get("ship_gates"):
     raise SystemExit("missing ship_gates block")
 sg = r.get("ship_gates") or {}
-for gate in ("worker_connected", "outbound_coherence", "execution_honesty_12of12"):
+for gate in ("worker_connected", "outbound_coherence", "execution_honesty_12of12", "mac_law_agent_no_factory_on_mac"):
     if gate not in sg:
         raise SystemExit(f"missing ship_gates.{gate}")
+if not sg.get("mac_law_agent_no_factory_on_mac"):
+    raise SystemExit("ship_gates.mac_law_agent_no_factory_on_mac must be true")
 print(f"OK: nerve queue={r.get('queue_sa')} aligned={r.get('queue_aligned')} worker={sg.get('worker_connected')}")
 PY
 

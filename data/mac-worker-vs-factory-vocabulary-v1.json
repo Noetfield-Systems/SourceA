@@ -1,0 +1,83 @@
+{
+  "schema": "mac-worker-vs-factory-vocabulary-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-06-20T18:05:00Z",
+  "authority": "INCIDENT-038 v1.1 ASF final law",
+  "incident_ref": "brain-os/incidents/SINA_AGENT_WORKER_FACTORY_PLANE_CONFLATION_INCIDENT_038_LOCKED_v1.md",
+  "one_law": "Mac = control panel only. Cloud/API runs all factory work. Secondary 5000 competitor plans never touch Mac. Worker on Mac does NOT run every plan.",
+  "mac_control_plane": {
+    "label": "Mac control panel",
+    "allowed": [
+      "Worker Hub :13020",
+      "official form picks",
+      "session gate",
+      "Mac Health glance",
+      "optional ONE Hub POST to cloud dispatch",
+      "read cloud receipts"
+    ],
+    "forbidden": [
+      "factory building",
+      "factory motors",
+      "autorun drain",
+      "film render",
+      "local LLM factory spend",
+      "plan-by-plan implement on Mac",
+      "secondary competitor pack execution",
+      "RUN INBOX per sa-mkt on Mac"
+    ]
+  },
+  "secondary_cloud_only": {
+    "label": "Secondary competitor-1000 packs",
+    "count_total": 5000,
+    "stacks": 5,
+    "manifest": "data/portfolio-competitor-1000-manifest-v1.json",
+    "mac_executes": false,
+    "execution_plane": "cloud_forge",
+    "drain": "cloud cron/tick batch · free tier first · OpenRouter affordable second",
+    "mac_role": "optional dispatch POST + read receipts only"
+  },
+  "cloud_factory_body": {
+    "label": "Cloud/API factory body",
+    "includes": ["FORGE bay", "Railway FBE", "cloud_api_worker", "OpenRouter/Groq/Gemini free chain"],
+    "runs": "all build muscle · primary and secondary job bodies",
+    "mac_build_forbidden": true
+  },
+  "worker_on_mac": {
+    "label": "SourceA Worker chat on Mac",
+    "does_not_mean": "runs every plan · factory-builds on Mac · executes secondary 5000",
+    "not_a_factory_runner": true,
+    "law": "Mac control plane only — no factory building on Mac (INCIDENT-038 v1.1)"
+  },
+  "forbidden_phrases": [
+    {
+      "phrase": "Worker on Mac runs every plan",
+      "because": "INCIDENT-038 instant fail — opposite of ASF law"
+    },
+    {
+      "phrase": "RUN INBOX per sa-mkt",
+      "because": "Secondary packs are cloud-only — not Mac Worker turns"
+    },
+    {
+      "phrase": "Worker picks + implements competitor bulk on Mac",
+      "because": "No factory building on Mac"
+    },
+    {
+      "phrase": "cloud/FORGE only",
+      "without": "Mac control only · cloud body executes · Mac does not build",
+      "because": "Collapses control plane"
+    }
+  ],
+  "required_phrases": [
+    "Mac control panel only — no factory building on Mac",
+    "Secondary 5000 = cloud/API only — Mac never executes",
+    "Cloud/API runs factory body — free tier first · affordable OpenRouter second"
+  ],
+  "read_order_when_mac_law_and_plans": [
+    "data/mac-worker-vs-factory-vocabulary-v1.json",
+    "data/secondary-cloud-drain-next-100-v1.json",
+    "data/portfolio-competitor-1000-manifest-v1.json",
+    "data/mac-law-agent-execution-plane-lock-v1.json",
+    "docs/SOURCEA_TIER_PRIORITY_COST_INTELLIGENCE_POLICY_LOCKED_v1.md"
+  ],
+  "validator": "scripts/validate-mac-worker-vs-factory-vocabulary-v1.sh"
+}

@@ -12,7 +12,7 @@ SOURCE_A = Path(__file__).resolve().parents[1]
 SINA_HOME = Path.home() / ".sina"
 UNIFY_ROOT = SINA_HOME / "governance-unification"
 REPORTS_PATH = UNIFY_ROOT / "reports.jsonl"
-LAW_DOC = "GOVERNANCE_UNIFICATION_ENGINE_LOCKED_v1.md"
+LAW_DOC = "brain-os/law/GOVERNANCE_UNIFICATION_ENGINE_LOCKED_v1.md"
 
 VERDICTS = frozenset({"ADOPT", "MERGE", "ATTACH", "REJECT", "DEFER"})
 INTAKE_CLASSES = frozenset({"ASF_ORDER", "GOVERNANCE_DRAFT", "EXTERNAL_CRITIC", "COMPANION", "DUPLICATE", "SUPERSEDE"})

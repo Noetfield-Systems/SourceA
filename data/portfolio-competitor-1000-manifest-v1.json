@@ -1,0 +1,56 @@
+{
+  "schema": "portfolio-competitor-1000-manifest-v1",
+  "generator_version": 2,
+  "generated_at": "2026-06-20T09:38:52Z",
+  "market_ssot": "docs/PORTFOLIO_100_COMPARABLES_MARKET_REALITY_v1.md",
+  "stacks": [
+    {
+      "stack": "SourceA",
+      "count": 1000,
+      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/sourcea-competitor-1000",
+      "version": 2
+    },
+    {
+      "stack": "WitnessBC",
+      "count": 1000,
+      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/witnessbc-site/os/plan-library/witnessbc-competitor-1000",
+      "version": 2
+    },
+    {
+      "stack": "Noetfield",
+      "count": 1000,
+      "pack": "/Users/sinakazemnezhad/Desktop/Noetfield/Noetfield-All-Documents/Noetfield/os/plan-library/noetfield-competitor-1000",
+      "version": 2
+    },
+    {
+      "stack": "TrustField",
+      "count": 1000,
+      "pack": "/Users/sinakazemnezhad/Desktop/TrustField Technologies/os/plan-library/trustfield-competitor-1000",
+      "version": 2
+    },
+    {
+      "stack": "VIRLUX",
+      "count": 1000,
+      "pack": "/Users/sinakazemnezhad/Desktop/VIRLUX/os/plan-library/virlux-competitor-1000",
+      "version": 2
+    }
+  ],
+  "pick_scripts": {
+    "run": "bash scripts/plan-competitor-mkt-run.sh",
+    "dispatch": "python3 scripts/portfolio_competitor_forge_dispatch_v1.py",
+    "stacks": {
+      "sourcea": "scripts/pick-sourcea-competitor-mkt-plan.py",
+      "witnessbc": "scripts/pick-witnessbc-competitor-mkt-plan.py",
+      "noetfield": "scripts/pick-noetfield-competitor-mkt-plan.py",
+      "trustfield": "scripts/pick-trustfield-competitor-mkt-plan.py",
+      "virlux": "scripts/pick-virlux-competitor-mkt-plan.py"
+    },
+    "execution_plane": "cloud_forge",
+    "mac_build_forbidden": true,
+    "mac_executes": false,
+    "next_100_ssot": "data/secondary-cloud-drain-next-100-v1.json",
+    "generator": "scripts/generate_secondary_cloud_drain_next_100_v1.py"
+  },
+  "validation_errors": [],
+  "ok": true
+}

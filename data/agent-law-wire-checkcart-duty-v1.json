@@ -1,0 +1,9 @@
+{
+  "schema": "agent-law-wire-checkcart-duty-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-06-20T19:00:00Z",
+  "incidents": ["INCIDENT-034", "INCIDENT-039", "INCIDENT-040"],
+  "duty": "When ANY *_LOCKED_v1.md changes: run W1–W10 on ship window / cloud CI only — never Mac founder chat pre-reply marathon.",
+  "session_read": "Read ~/.sina/agent-law-wire-checkcart-v1.json for maintainer ship checklist — do not bash W1–W10 before every chat reply.",
+  "proof_mac_founder_session": "Read ~/.sina/*-receipt*.json · reply <30s · INCIDENT-039"
+}

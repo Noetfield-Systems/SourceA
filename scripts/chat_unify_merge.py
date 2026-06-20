@@ -1202,7 +1202,7 @@ def build_report() -> dict:
             port=int(os.environ.get("CHAT_UNIFY_PORT", "13023")),
         )
     except Exception:
-        ui_contract = {"ui_mode": "founder_glance", "version": "1.4.0"}
+        ui_contract = {"ui_mode": "founder_glance", "version": "1.6.0"}
     return {
         "ok": True,
         "app": "chat-unify",
@@ -1236,7 +1236,7 @@ def build_report() -> dict:
         "state_dir": str(STATE_DIR),
         "mini_app_url": f"http://127.0.0.1:{os.environ.get('CHAT_UNIFY_PORT', '13023')}/",
         "standalone": True,
-        "version": "1.4.0",
+        "version": "2.5.0",
         "ui_contract": ui_contract,
         "commercial_grade": True,
         "privacy": "Extracts stay local. AI polish/critique calls OpenRouter or Gemini only when you tap those buttons.",
@@ -1421,4 +1421,189 @@ def handle_action(body: dict) -> dict:
             except Exception:
                 pass
         return result
+    if action in ("founder_loop", "run_founder_loop"):
+        draft = (body.get("text") or body.get("draft") or "").strip()
+        if not draft:
+            return {"ok": False, "error": "empty_text", "message": "Paste an agent answer first."}
+        from chat_founder_loop_v1 import run_founder_loop  # noqa: WPS433
+
+        row = run_founder_loop(
+            draft=draft,
+            founder_message=(body.get("founder_message") or body.get("context") or "").strip(),
+            use_ai=body.get("use_ai") is True or body.get("prefer_ai") is True,
+            write_receipt=True,
+            write_progress=body.get("write_progress") is not False,
+        )
+        return row
+    if action in ("founder_loop_stage", "run_founder_stage"):
+        draft = (body.get("text") or body.get("draft") or "").strip()
+        stage = (body.get("stage") or "").strip().lower()
+        if not draft:
+            return {"ok": False, "error": "empty_text", "message": "Paste an agent answer first."}
+        if not stage:
+            return {"ok": False, "error": "missing_stage", "message": "stage required"}
+        from chat_founder_loop_v1 import run_founder_stage  # noqa: WPS433
+
+        return run_founder_stage(
+            stage=stage,
+            draft=draft,
+            founder_message=(body.get("founder_message") or body.get("context") or "").strip(),
+            use_ai=body.get("use_ai") is True or body.get("prefer_ai") is True,
+            kernel=body.get("kernel") if isinstance(body.get("kernel"), dict) else None,
+            run_id=(body.get("run_id") or "").strip() or None,
+            ord_run_id=(body.get("ord_run_id") or "").strip() or None,
+            write_receipt=body.get("write_receipt") is not False,
+        )
+    if action in ("loop_progress", "founder_loop_progress"):
+        from chat_founder_loop_v1 import read_loop_progress  # noqa: WPS433
+
+        return read_loop_progress()
+    if action in ("ord_loop", "run_ord_loop"):
+        draft = (body.get("text") or body.get("draft") or "").strip()
+        if not draft:
+            return {"ok": False, "error": "empty_text", "message": "Paste AI output first."}
+        from chat_ord_loop_v1 import run_ord_loop  # noqa: WPS433
+
+        return run_ord_loop(
+            draft=draft,
+            founder_message=(body.get("founder_message") or body.get("context") or "").strip(),
+            use_ai=body.get("use_ai") is True or body.get("prefer_ai") is True,
+            write_receipt=True,
+            write_progress=body.get("write_progress") is not False,
+        )
+    if action in ("ord_loop_stage", "run_ord_stage"):
+        draft = (body.get("text") or body.get("draft") or "").strip()
+        stage = (body.get("stage") or "").strip().lower()
+        if not draft:
+            return {"ok": False, "error": "empty_text", "message": "Paste AI output first."}
+        if not stage:
+            return {"ok": False, "error": "missing_stage", "message": "stage required"}
+        from chat_ord_loop_v1 import run_ord_stage  # noqa: WPS433
+
+        return run_ord_stage(
+            stage=stage,
+            draft=draft,
+            founder_message=(body.get("founder_message") or body.get("context") or "").strip(),
+            use_ai=body.get("use_ai") is True or body.get("prefer_ai") is True,
+            kernel=body.get("kernel") if isinstance(body.get("kernel"), dict) else None,
+            run_id=(body.get("run_id") or "").strip() or None,
+            write_receipt=body.get("write_receipt") is not False,
+        )
+    if action in ("kernel_create", "kernel_get", "kernel_summary"):
+        from chat_unify_kernel_v1 import (  # noqa: WPS433
+            empty_kernel,
+            kernel_summary,
+            load_kernel,
+            save_kernel,
+        )
+
+        if action == "kernel_create":
+            loop = (body.get("loop") or "founder").strip().lower()
+            draft = (body.get("text") or body.get("draft") or "").strip()
+            k = empty_kernel(
+                loop=loop,
+                raw_input=draft,
+                founder_message=(body.get("founder_message") or body.get("context") or "").strip(),
+                run_id=(body.get("run_id") or "").strip() or None,
+                ord_run_id=(body.get("ord_run_id") or "").strip() or None,
+            )
+            save_kernel(k)
+            return {"ok": True, "kernel": k, "run_id": k.get("run_id"), "kernel_summary": kernel_summary(k)}
+        rid = (body.get("run_id") or "").strip()
+        if not rid:
+            return {"ok": False, "error": "missing_run_id", "message": "run_id required"}
+        k = load_kernel(rid)
+        if not k:
+            return {"ok": False, "error": "kernel_not_found", "message": f"No kernel for {rid}"}
+        if action == "kernel_summary":
+            return {"ok": True, "run_id": rid, "kernel_summary": kernel_summary(k)}
+        return {"ok": True, "kernel": k, "run_id": rid, "kernel_summary": kernel_summary(k)}
+    if action in ("ord_loop_progress", "ord_progress"):
+        from chat_ord_loop_v1 import read_ord_progress  # noqa: WPS433
+
+        return read_ord_progress()
+    if action == "live_http_verify":
+        from chat_unify_live_http_verify_v1 import verify_url, verify_atoms_live_http  # noqa: WPS433
+
+        url = (body.get("url") or "").strip()
+        if url:
+            return {"ok": True, **verify_url(url)}
+        draft_atoms = body.get("atoms")
+        if isinstance(draft_atoms, list):
+            base = (body.get("base_url") or "https://www.noetfield.com").strip()
+            max_r = int(body.get("max_requests") or 3)
+            results = verify_atoms_live_http(draft_atoms, base_url=base, max_requests=max_r)
+            return {"ok": True, "results": results}
+        return {"ok": False, "error": "missing_url_or_atoms"}
+    if action in ("translate_founder", "founder_language"):
+        draft = (body.get("text") or body.get("draft") or "").strip()
+        if not draft:
+            return {"ok": False, "error": "empty_text", "message": "Paste an agent answer first."}
+        from chat_founder_language_v1 import translate_for_founder  # noqa: WPS433
+
+        row = translate_for_founder(
+            draft=draft,
+            founder_message=(body.get("founder_message") or body.get("context") or "").strip(),
+            provider=(body.get("provider") or "auto"),
+            prefer_ai=body.get("prefer_ai") is True,
+        )
+        founder_text = (row.get("founder_text") or "").strip()
+        return {
+            "ok": bool(founder_text),
+            "quality_ok": row.get("quality_ok"),
+            "founder_text": founder_text,
+            "method": row.get("method"),
+            "provider": row.get("provider"),
+            "meaning_score": row.get("meaning_score"),
+            "cleaned_chars": row.get("cleaned_chars"),
+            "technical_chars": len(draft),
+            "founder_chars": len(founder_text),
+        }
+    if action in ("founder_reasoning", "reason_founder", "founder_reason"):
+        draft = (body.get("text") or body.get("draft") or "").strip()
+        if not draft:
+            return {"ok": False, "error": "empty_text", "message": "Paste an agent answer first."}
+        from chat_founder_reasoning_v1 import reason_for_founder  # noqa: WPS433
+
+        row = reason_for_founder(
+            draft=draft,
+            founder_message=(body.get("founder_message") or body.get("context") or "").strip(),
+            provider=(body.get("provider") or "auto"),
+            prefer_ai=body.get("prefer_ai") is True,
+        )
+        reasoning_text = (row.get("reasoning_text") or "").strip()
+        return {
+            "ok": bool(reasoning_text),
+            "reasoning_text": reasoning_text,
+            "method": row.get("method"),
+            "provider": row.get("provider"),
+            "cleaned_chars": row.get("cleaned_chars"),
+            "technical_chars": len(draft),
+            "reasoning_chars": len(reasoning_text),
+        }
+    if action in ("send_founder_reply", "send_founder_to_cursor"):
+        from clipboard_safe import clipboard_paste_into_cursor  # noqa: WPS433
+
+        text = (body.get("text") or body.get("founder_text") or "").strip()
+        if not text or text in ("Result appears here.", "Paste above — result shows here."):
+            return {"ok": False, "error": "empty_text", "message": "Translate first — nothing to send."}
+        r = clipboard_paste_into_cursor(text, allow_automation=True)
+        ok = bool(r.get("ok"))
+        if not ok:
+            try:
+                import subprocess
+
+                subprocess.run(["pbcopy"], input=text.encode("utf-8"), check=False)
+                return {
+                    "ok": True,
+                    "clipboard_fallback": True,
+                    "message": "Copied founder reply — paste in Cursor (automation blocked).",
+                }
+            except OSError:
+                pass
+        return {
+            "ok": ok,
+            **r,
+            "message": "Founder reply sent to Cursor — paste or send in chat.",
+        }
     return {"ok": False, "error": f"unknown_action:{action}"}

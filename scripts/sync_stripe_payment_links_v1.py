@@ -243,7 +243,7 @@ def write_payments_json(urls: dict[str, str]) -> dict[str, Any]:
         "stripe_links_live": live,
         "stripe_billing": load_stripe_billing(),
         "currency": "usd",
-        "law": "N8N_COMMERCIAL_GRADE_LOCKED_v1.md",
+        "law": "brain-os/law/N8N_COMMERCIAL_GRADE_LOCKED_v1.md",
         "checkout_urls": {k: urls[k] for k in DEFAULT_PLACEHOLDERS},
         "products": products,
         "w3_signal": "First paid audit ($750) or Solo month ($99)",

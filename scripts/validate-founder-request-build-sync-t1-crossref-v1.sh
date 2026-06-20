@@ -11,7 +11,7 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 cross = root / "archive/attachments/2026-06-14/sa-0532-founder-request-build-sync-t1-crossref_LOCKED_v1.md"
 canonical_doc = root / "archive/attachments/2026-06-14/sa-0507-founder-request-build-sync_LOCKED_v1.md"
-tracking_law = root / "FOUNDER_FIRST_ASSISTANT_TRACKING_LAW_LOCKED_v1.md"
+tracking_law = root / "brain-os/law/enforcement/FOUNDER_FIRST_ASSISTANT_TRACKING_LAW_LOCKED_v1.md"
 receipt = root / "receipts/sa-0507-receipt.json"
 
 assert cross.is_file(), "missing sa-0532 cross-ref doc"

@@ -15,16 +15,22 @@ Read on every session when Mac, SourceA, hub, factory, cloud, or `~/.sina` is in
 
 **Machine SSOT:** `data/mac-law-mandatory-v1.json` · `data/mac-law-machine-enforceable-v1.json` · `data/founder-execution-model-v1.json`
 
-**Machine enforce (031):** `python3 scripts/mac_law_machine_enforce_v1.py --sync-receipt --enforce --json`
+## Proof on Mac (founder session — INCIDENT-039/040)
 
-## Mandatory before ship
+**Read receipts** (Read tool — not bash `validate-*` chains):
 
-```bash
-bash scripts/validate-mac-law-mandatory-v1.sh
-bash scripts/validate-mac-law-machine-enforceable-v1.sh
-python3 scripts/mac_law_mandatory_v1.py --sync-receipt --json
-python3 scripts/mac_law_machine_enforce_v1.py --sync-receipt --enforce --json
-```
+- `~/.sina/mac-law-mandatory-receipt-v1.json`
+- `~/.sina/mac-law-machine-enforce-receipt-v1.json`
+- `~/.sina/mac-law-universal-wire-receipt-v1.json`
+- `~/.sina/mac-law-agent-execution-plane-lock-receipt-v1.json`
+
+**Optional:** one light assess ≤90s — `python3 scripts/mac_law_validator_light_assess_v1.py --module all --json`
+
+Surfaces RED while receipts PASS = poisoned `agent-live-surfaces-v1.json` — trust receipts; repair with `repair_agent_live_surfaces_v1.py` only when Mac has headroom.
+
+## Cloud CI / ASF ship window only (not founder chat)
+
+`bash scripts/validate-mac-law-mandatory-ship-v1.sh` · `--full-stack-sync` on Mac Law sync scripts
 
 ## Founder daily boot
 

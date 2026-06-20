@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-full-stack-100-fix-plan-v2",
   "version": "2.1.0",
-  "saved_at": "2026-06-20T02:34:39Z",
+  "saved_at": "2026-06-20T18:45:14Z",
   "law": "100 fix plans v2.1 \u2014 pulse wired \u00b7 outbound cross \u00b7 gate cart \u00b7 C4 decoupled",
   "parent_audit": "Brain chat full honest audit 2026-06-18",
   "human_doc": "docs/SOURCEA_FULL_STACK_100_FIX_PLAN_LOCKED_v1.md",
@@ -65,11 +65,11 @@
   ],
   "progress": {
     "total": 100,
-    "done": 61,
+    "done": 60,
     "in_progress": 0,
-    "planned": 39,
+    "planned": 40,
     "blocked": 0,
-    "pct": 61
+    "pct": 60
   },
   "waves": [
     {
@@ -90,7 +90,7 @@
         "F011",
         "F012"
       ],
-      "status": "active"
+      "status": "complete"
     },
     {
       "id": "W2",
@@ -170,7 +170,7 @@
         "F067",
         "F068"
       ],
-      "status": "active"
+      "status": "pending"
     },
     {
       "id": "W5",
@@ -284,7 +284,7 @@
       "parent_spec": "data/sourcea-full-stack-100-fix-plan-v1.json",
       "human_doc": "docs/SOURCEA_FULL_STACK_100_FIX_PLAN_LOCKED_v1.md",
       "pulse": "scripts/full_stack_fix_plan_pulse_v1.py",
-      "live_note": "last_worker_report fresh \u00b7 sa-1200"
+      "live_note": "last_worker_report fresh \u00b7 sa-1201"
     },
     {
       "id": "F003",
@@ -464,7 +464,7 @@
       "title": "Clear last_completed_sa ghost",
       "wired_to": "worker_stuck_recovery_v1.py",
       "acceptance": "no stale sa on new unit",
-      "status": "planned",
+      "status": "done",
       "owner_role": "worker",
       "outbound_ref": "",
       "validator_hook": "scripts/execution_plane_honesty_v1.py",
@@ -472,7 +472,8 @@
       "deps": [],
       "parent_spec": "data/sourcea-full-stack-100-fix-plan-v1.json",
       "human_doc": "docs/SOURCEA_FULL_STACK_100_FIX_PLAN_LOCKED_v1.md",
-      "pulse": "scripts/full_stack_fix_plan_pulse_v1.py"
+      "pulse": "scripts/full_stack_fix_plan_pulse_v1.py",
+      "live_note": "last_completed_sa cleared on idle unit"
     },
     {
       "id": "F012",
@@ -1234,7 +1235,7 @@
       "parent_spec": "data/sourcea-full-stack-100-fix-plan-v1.json",
       "human_doc": "docs/SOURCEA_FULL_STACK_100_FIX_PLAN_LOCKED_v1.md",
       "pulse": "scripts/full_stack_fix_plan_pulse_v1.py",
-      "live_note": "C4 decoupled \u00b7 aligned=PASS \u00b7 execution_blocked=no"
+      "live_note": "C4 decoupled \u00b7 aligned=PASS \u00b7 execution_blocked=yes"
     },
     {
       "id": "F050",
@@ -1418,7 +1419,7 @@
       "title": "Human read session",
       "wired_to": "founder workflow",
       "acceptance": "w3_sina_read PASS",
-      "status": "done",
+      "status": "planned",
       "owner_role": "founder",
       "outbound_ref": "",
       "validator_hook": "scripts/execution_plane_honesty_v1.py",
@@ -1437,7 +1438,7 @@
       "title": "Configure hello@ and operation@",
       "wired_to": "commercial_mail_draft_v1.py",
       "acceptance": "w3_mail_from PASS",
-      "status": "done",
+      "status": "planned",
       "owner_role": "founder",
       "outbound_ref": "",
       "validator_hook": "scripts/execution_plane_honesty_v1.py",
@@ -2210,7 +2211,7 @@
       "pulse": "scripts/full_stack_fix_plan_pulse_v1.py"
     }
   ],
-  "active_wave": "W1",
+  "active_wave": "W3",
   "phase0_reference": {
     "ssot": "data/phase0-freemium-sandbox-reference-v1.json",
     "pulse": "scripts/phase0_freemium_sandbox_pulse_v1.py",

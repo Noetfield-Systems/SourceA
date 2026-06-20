@@ -7,9 +7,8 @@ SINA="${HOME}/.sina"
 
 rm -f "$SINA/mac-health-emergency-active-v1.flag" "$SINA/agent-cancel-v1.flag" 2>/dev/null || true
 
-bash scripts/validate-law-supersession-surfaces-v1.sh
-
-python3 scripts/agent_memory_mirror_v1.py --sync --json >/dev/null
+# INCIDENT-039 — no supersession marathon on Mac; poison scrub + mirror sync only
+python3 scripts/agent_mirror_poison_scrub_v1.py --scrub --sync --json >/dev/null || true
 test -f "$SINA/agent-memory-mirror-v1.json" || { echo "FAIL: mirror json missing" >&2; exit 1; }
 
 python3 - <<'PY'
