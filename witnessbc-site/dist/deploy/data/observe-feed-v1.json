@@ -1,0 +1,72 @@
+{
+  "schema": "observe-feed-v1",
+  "updated": "2026-06-21",
+  "desk": "WitnessBC Observe — AI policy · governance · startups",
+  "categories": ["Policy", "Governance", "Startups", "Standards", "Patterns"],
+  "items": [
+    {
+      "slug": "observe-launch-001",
+      "title": "Desk note: what Observe publishes on AI policy",
+      "excerpt": "Scope for the WitnessBC Observe desk — regulator moves, governance patterns, agentic startup signals. Calm tone, documented sourcing, visible corrections.",
+      "date": "2026-06-21",
+      "tags": ["Standards", "Policy"],
+      "category": "Standards"
+    },
+    {
+      "slug": "policy-brief-agent-cancellation",
+      "title": "Policy brief: why agentic AI projects get canceled",
+      "excerpt": "Analyst forecasts and field signals converge — governance gaps at dispatch, not model quality alone, drive cancellation risk for agent fleets.",
+      "date": "2026-06-20",
+      "tags": ["Policy", "Governance"],
+      "category": "Policy"
+    },
+    {
+      "slug": "governance-brief-policy-as-wall",
+      "title": "Governance brief: when “that’s policy” blocks accountability",
+      "excerpt": "Opaque AI use policies fail teams twice — no criteria at dispatch and no audit trail after. A governance-first standard: cite, criteria, review path.",
+      "date": "2025-12-16",
+      "tags": ["Governance", "Patterns"],
+      "category": "Governance"
+    },
+    {
+      "slug": "startup-signal-dispatch-governance",
+      "title": "Startup signal: dispatch-time governance as product wedge",
+      "excerpt": "Agentic startups pitching runtime policy gates and signed receipts — pattern-level view of what buyers ask in diligence calls.",
+      "date": "2026-06-18",
+      "tags": ["Startups", "Governance"],
+      "category": "Startups"
+    },
+    {
+      "slug": "policy-brief-data-minimization-agents",
+      "title": "Policy brief: data minimization when agents spread context",
+      "excerpt": "Agent memory and tool chains move PII faster than consent frameworks assume. Minimum standard for safer agent publishing and intake.",
+      "date": "2025-12-16",
+      "tags": ["Policy", "Patterns"],
+      "category": "Policy"
+    },
+    {
+      "slug": "explainer-clean-evidence-timeline",
+      "title": "Explainer: an evidence timeline for AI incident reporting",
+      "excerpt": "Date, one sentence, proof type — a calm template for documenting agent incidents without over-sharing identifiers.",
+      "date": "2025-12-16",
+      "tags": ["Standards", "Governance"],
+      "category": "Standards"
+    },
+    {
+      "slug": "governance-brief-silence-as-decision",
+      "title": "Governance brief: non-response as an unofficial AI policy decision",
+      "excerpt": "When escalation paths go quiet, agents default to allow. Pattern-level look at silence in vendor and internal governance loops.",
+      "date": "2025-12-16",
+      "tags": ["Governance", "Patterns"],
+      "category": "Governance"
+    },
+    {
+      "slug": "micro-one-line-in-writing",
+      "title": "Micro: one line that changes AI governance outcomes",
+      "excerpt": "“Can you put that AI use requirement in writing with enforcement criteria?” — a single sentence that converts ambiguity into accountability.",
+      "date": "2025-12-16",
+      "tags": ["Standards", "Governance"],
+      "category": "Standards"
+    }
+  ]
+}
