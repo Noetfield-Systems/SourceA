@@ -53,5 +53,7 @@
     "FORGE_GITHUB_REF",
     "GITHUB_TOKEN"
   ],
-  "required_railway_env_note": "GITHUB_TOKEN required for private GitHub repos (read-only Contents API)."
+  "required_railway_env_note": "GITHUB_TOKEN required for private GitHub repos (read-only Contents API). Without token, worker uses bundled plans/ fallback (FORGE_V02_BUNDLED_FALLBACK=1, default).",
+  "bundled_fallback_env": "FORGE_V02_BUNDLED_FALLBACK",
+  "fetch_sources": ["github_api", "bundled_fallback", "fixture"]
 }
