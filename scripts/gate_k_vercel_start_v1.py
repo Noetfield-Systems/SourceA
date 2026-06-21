@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SINA = Path.home() / ".sina"
 RECEIPT = SINA / "gate-k-vercel-receipt-v1.json"
 
-DEFAULT_PROJECT = "sourcea-landing"
+DEFAULT_PROJECT = "source-a"
 
 
 def _now() -> str:
