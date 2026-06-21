@@ -1,1 +1,6 @@
-# witnessbc-commercial — CF Pages (no clean-url rewrites)
+/principles /observe/principles/ 301
+/principles/ /observe/principles/ 301
+/corrections /observe/corrections/ 301
+/corrections/ /observe/corrections/ 301
+/stories /observe/ 301
+/stories/ /observe/ 301

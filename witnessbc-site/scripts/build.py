@@ -40,6 +40,7 @@ def _run(script: str, *args: str) -> None:
 
 def _assemble() -> None:
     _run("render_toolkits_v1.py")
+    _run("render_observe_v1.py")
     _run("assemble_pages.py")
 
 

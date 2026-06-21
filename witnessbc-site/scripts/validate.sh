@@ -488,4 +488,33 @@ for slug in proof pricing faq; do
   fi
 done
 
-echo "PASS: witnessbc-site v9 Proof Lab — ${#PAGE_FILES[@]} pages, index ${SECTION_COUNT} sections, $REF_COUNT refs, ${SCENARIO_COUNT:-6} scenarios, deploy routes"
+if ! grep -q 'observe/index.html' "$ROOT/index.html"; then
+  echo "FAIL: missing Observe link on index.html"
+  exit 1
+fi
+
+if [[ ! -f "$ROOT/observe/index.html" ]]; then
+  echo "FAIL: missing observe/index.html"
+  exit 1
+fi
+
+if ! grep -q 'We observe and narrate' "$ROOT/observe/index.html"; then
+  echo "FAIL: Observe hub missing witness tagline"
+  exit 1
+fi
+
+if ! grep -q 'id="observeFeedGrid"' "$ROOT/observe/index.html"; then
+  echo "FAIL: Observe feed grid missing"
+  exit 1
+fi
+
+if [[ ! -f "$ROOT/dist/deploy/observe/index.html" ]]; then
+  bash "$ROOT/scripts/deploy_witnessbc_v1.sh" --skip-recipe >/dev/null
+fi
+
+if [[ ! -f "$ROOT/dist/deploy/observe/index.html" ]]; then
+  echo "FAIL: missing dist/deploy/observe/index.html"
+  exit 1
+fi
+
+echo "PASS: witnessbc-site v10 Observe lane — ${#PAGE_FILES[@]} pages + observe, index ${SECTION_COUNT} sections, $REF_COUNT refs, ${SCENARIO_COUNT:-6} scenarios, deploy routes"

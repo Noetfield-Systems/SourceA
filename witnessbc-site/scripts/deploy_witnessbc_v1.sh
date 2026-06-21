@@ -54,6 +54,9 @@ done
 if [[ -d "$ROOT/toolkits" ]]; then
   cp -R "$ROOT/toolkits" "$DEPLOY_DIR/toolkits"
 fi
+if [[ -d "$ROOT/observe" ]]; then
+  cp -R "$ROOT/observe" "$DEPLOY_DIR/observe"
+fi
 cp -R "$ROOT/assets/." "$DEPLOY_DIR/assets/"
 # Cloudflare Pages hard limit: 25 MiB per file — skip oversized video (Proof Lab fallback still works)
 for big in "$DEPLOY_DIR/assets/"*.mp4; do
@@ -79,18 +82,24 @@ fi
 if [[ -f "$ROOT/data/toolkits-v1.json" ]]; then
   cp "$ROOT/data/toolkits-v1.json" "$DEPLOY_DIR/data/toolkits-v1.json"
 fi
+if [[ -f "$ROOT/data/observe-feed-v1.json" ]]; then
+  cp "$ROOT/data/observe-feed-v1.json" "$DEPLOY_DIR/data/observe-feed-v1.json"
+fi
 
-# Cloudflare Pages: do NOT use 200 rewrites to .html — causes redirect loops with pretty URLs.
-# Site links use *.html paths directly. Journalism coexistence via separate Vercel until DNS cutover.
 cat >"$DEPLOY_DIR/_redirects" <<'EOF'
-# witnessbc-commercial — CF Pages (no clean-url rewrites)
+/principles /observe/principles/ 301
+/principles/ /observe/principles/ 301
+/corrections /observe/corrections/ 301
+/corrections/ /observe/corrections/ 301
+/stories /observe/ 301
+/stories/ /observe/ 301
 EOF
 
 cat >"$DEPLOY_DIR/_routes.json" <<'EOF'
 {
   "version": 1,
   "include": ["/*"],
-  "exclude": ["/principles", "/principles/*"]
+  "exclude": []
 }
 EOF
 
