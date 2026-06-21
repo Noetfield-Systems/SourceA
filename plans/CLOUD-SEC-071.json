@@ -1,0 +1,27 @@
+{
+  "plan_id": "CLOUD-SEC-071",
+  "version": "secondary-cloud-drain-next-100-v1",
+  "target": "sourcea/fbe-cloud-worker",
+  "validation": "cloud_forge_incident_038",
+  "metadata": {
+    "core_capability": "worker_run_dashboard",
+    "client_problem_id": "P1-run-visibility",
+    "workstream": "ws-run",
+    "": "Inngest",
+    "tier": "T0",
+    "cost_tier": "free",
+    "maps_registry": "sa-mkt-0071"
+  },
+  "inputs": {
+    "plane": "cloud_forge",
+    "action": "Document Inngest run/history UX",
+    "workstream": "ws-run",
+    "tier": "T0",
+    "": "Inngest",
+    "maps_registry": "sa-mkt-0071"
+  },
+  "outputs": {
+    "artifact": "cloud_receipt",
+    "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-071.json"
+  }
+}

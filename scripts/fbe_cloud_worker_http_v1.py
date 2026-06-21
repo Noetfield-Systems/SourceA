@@ -127,6 +127,62 @@ def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
         from cloud_worker_dispatch_v1 import build_summary  # noqa: WPS433
 
         return build_summary()
+    if path == "/api/forge/v01/run/v1":
+        from forge_v01_engine_v1 import run_forge_from_disk, run_win_test  # noqa: WPS433
+
+        result = run_forge_from_disk(write_output=True, root=ROOT)
+        win = run_win_test(result)
+        return {
+            "ok": bool(win.get("ok")),
+            "schema": "forge-v01-run-receipt-v1",
+            "architecture": "A",
+            "for_founder": {
+                "show_this": result.get("summary_line"),
+                "win_test_question": result.get("win_test_question"),
+                "win_test_card": result.get("win_test_card"),
+            },
+            "summary_line": result.get("summary_line"),
+            "win_test": win,
+            "output_url": "/receipts/forge_v0.1_output.json",
+            "blueprints_url": "/forge/blueprints/v01.json",
+            **result,
+        }
+    if path == "/api/forge/v02/run/v1":
+        from forge_v02_github_v1 import run_forge_v02_from_github  # noqa: WPS433
+
+        gh = body.get("github") if isinstance(body.get("github"), dict) else {}
+        try:
+            result = run_forge_v02_from_github(
+                write_output=True,
+                root=ROOT,
+                owner=str(gh.get("owner") or body.get("owner") or ""),
+                repo=str(gh.get("repo") or body.get("repo") or ""),
+                plans_path=str(gh.get("plans_path") or body.get("plans_path") or ""),
+                ref=str(gh.get("ref") or body.get("ref") or ""),
+            )
+        except RuntimeError as exc:
+            msg = str(exc)
+            if msg.startswith("github_api_"):
+                return {
+                    "ok": False,
+                    "schema": "forge-v02-run-receipt-v1",
+                    "error": "github_fetch_failed",
+                    "message": msg,
+                    "hint": "Push plans/ to GitHub or set FORGE_GITHUB_OWNER/REPO/PLANS_PATH",
+                }
+            raise
+        return {
+            "ok": True,
+            "schema": "forge-v02-run-receipt-v1",
+            "architecture": "A",
+            "telemetry_line": result.get("telemetry_line"),
+            "for_founder": {
+                "show_this": result.get("telemetry_line"),
+                "data_health_url": result.get("urls", {}).get("data_health"),
+                "forge_top_url": result.get("urls", {}).get("forge_top"),
+            },
+            **result,
+        }
     if path == "/api/fbe/loop-specialist/tick/v1":
         from fbe_cloud_loop_specialist_tick_v1 import run_cloud_loop_tick  # noqa: WPS433
 
@@ -168,6 +224,18 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
                 row = json.loads(receipt_path.read_text(encoding="utf-8"))
             except (OSError, json.JSONDecodeError) as exc:
                 _json_response(self, 500, {"ok": False, "error": "receipt_read_failed", "message": str(exc)})
+                return
+            _json_response(self, 200, row)
+            return
+        if parsed.path == "/forge/blueprints/v01.json":
+            bp_path = ROOT / "data" / "forge-real-blueprints-v01.json"
+            if not bp_path.is_file():
+                _json_response(self, 404, {"ok": False, "error": "blueprints_not_found"})
+                return
+            try:
+                row = json.loads(bp_path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError) as exc:
+                _json_response(self, 500, {"ok": False, "error": "blueprints_read_failed", "message": str(exc)})
                 return
             _json_response(self, 200, row)
             return
@@ -221,6 +289,8 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
             "/api/cloud-worker/dispatch/v1",
             "/api/cloud-worker/dispatch-batch/v1",
             "/api/cloud-worker/build-summary/v1",
+            "/api/forge/v01/run/v1",
+            "/api/forge/v02/run/v1",
         ):
             row["execution_plane"] = row.get("execution_plane") or "headless_cloud"
             code = 200 if row.get("ok") else 422

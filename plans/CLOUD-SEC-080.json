@@ -1,0 +1,27 @@
+{
+  "plan_id": "CLOUD-SEC-080",
+  "version": "secondary-cloud-drain-next-100-v1",
+  "target": "sourcea/fbe-cloud-worker",
+  "validation": "cloud_forge_incident_038",
+  "metadata": {
+    "core_capability": "worker_run_dashboard",
+    "client_problem_id": "P1-run-visibility",
+    "workstream": "ws-run",
+    "": "Inngest",
+    "tier": "T3",
+    "cost_tier": "free",
+    "maps_registry": "sa-mkt-0080"
+  },
+  "inputs": {
+    "plane": "cloud_forge",
+    "action": "Close Inngest run slice \u2014 cloud receipt",
+    "workstream": "ws-run",
+    "tier": "T3",
+    "": "Inngest",
+    "maps_registry": "sa-mkt-0080"
+  },
+  "outputs": {
+    "artifact": "cloud_receipt",
+    "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-080.json"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "plan_id": "CLOUD-SEC-048",
+  "version": "secondary-cloud-drain-next-100-v1",
+  "target": "sourcea/fbe-cloud-worker",
+  "validation": "cloud_forge_incident_038",
+  "metadata": {
+    "core_capability": "cloud_worker_dispatch_api",
+    "client_problem_id": "P0-trust-receipt-gap",
+    "workstream": "ws-integrate",
+    "": "Trigger.dev",
+    "tier": "T3",
+    "cost_tier": "free",
+    "maps_registry": "sa-mkt-0048"
+  },
+  "inputs": {
+    "plane": "cloud_forge",
+    "action": "Validate adapter fixture test \u2014 cloud CI",
+    "workstream": "ws-integrate",
+    "tier": "T3",
+    "": "Trigger.dev",
+    "maps_registry": "sa-mkt-0048"
+  },
+  "outputs": {
+    "artifact": "cloud_receipt",
+    "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-048.json"
+  }
+}

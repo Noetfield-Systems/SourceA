@@ -1,0 +1,27 @@
+{
+  "plan_id": "CLOUD-SEC-037",
+  "version": "secondary-cloud-drain-next-100-v1",
+  "target": "sourcea/fbe-cloud-worker",
+  "validation": "cloud_forge_incident_038",
+  "metadata": {
+    "core_capability": "_evidence_pipeline",
+    "client_problem_id": "P2-onboard-friction",
+    "workstream": "ws-onboard",
+    "": "Trigger.dev",
+    "tier": "T2",
+    "cost_tier": "openrouter_cap",
+    "maps_registry": "sa-mkt-0037"
+  },
+  "inputs": {
+    "plane": "cloud_forge",
+    "action": "Fix one onboarding friction vs Trigger.dev \u2014 cloud",
+    "workstream": "ws-onboard",
+    "tier": "T2",
+    "": "Trigger.dev",
+    "maps_registry": "sa-mkt-0037"
+  },
+  "outputs": {
+    "artifact": "cloud_receipt",
+    "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-037.json"
+  }
+}
