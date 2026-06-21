@@ -1,0 +1,27 @@
+{
+  "plan_id": "CLOUD-SEC-054",
+  "version": "secondary-cloud-drain-next-100-v1",
+  "target": "sourcea/fbe-cloud-worker",
+  "validation": "cloud_forge_incident_038",
+  "metadata": {
+    "core_capability": "_evidence_pipeline",
+    "client_problem_id": "P2-onboard-friction",
+    "workstream": "ws-ux",
+    "": "Inngest",
+    "tier": "T1",
+    "cost_tier": "openrouter_cap",
+    "maps_registry": "sa-mkt-0054"
+  },
+  "inputs": {
+    "plane": "cloud_forge",
+    "action": "Cloud E2E glance \u2014 receipt URL",
+    "workstream": "ws-ux",
+    "tier": "T1",
+    "": "Inngest",
+    "maps_registry": "sa-mkt-0054"
+  },
+  "outputs": {
+    "artifact": "cloud_receipt",
+    "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-054.json"
+  }
+}

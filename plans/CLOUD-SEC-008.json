@@ -1,0 +1,27 @@
+{
+  "plan_id": "CLOUD-SEC-008",
+  "version": "secondary-cloud-drain-next-100-v1",
+  "target": "sourcea/fbe-cloud-worker",
+  "validation": "cloud_forge_incident_038",
+  "metadata": {
+    "core_capability": "_evidence_pipeline",
+    "client_problem_id": "P2-onboard-friction",
+    "workstream": "ws-ux",
+    "": "Trigger.dev",
+    "tier": "T3",
+    "cost_tier": "free",
+    "maps_registry": "sa-mkt-0008"
+  },
+  "inputs": {
+    "plane": "cloud_forge",
+    "action": "Reject abstract rename \u2014 keep market words in evidence",
+    "workstream": "ws-ux",
+    "tier": "T3",
+    "": "Trigger.dev",
+    "maps_registry": "sa-mkt-0008"
+  },
+  "outputs": {
+    "artifact": "cloud_receipt",
+    "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-008.json"
+  }
+}

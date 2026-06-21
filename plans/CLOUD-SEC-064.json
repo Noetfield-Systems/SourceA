@@ -1,0 +1,27 @@
+{
+  "plan_id": "CLOUD-SEC-064",
+  "version": "secondary-cloud-drain-next-100-v1",
+  "target": "sourcea/fbe-cloud-worker",
+  "validation": "cloud_forge_incident_038",
+  "metadata": {
+    "core_capability": "_evidence_pipeline",
+    "client_problem_id": "P3-pricing-clarity",
+    "workstream": "ws-pricing",
+    "": "Inngest",
+    "tier": "T1",
+    "cost_tier": "free",
+    "maps_registry": "sa-mkt-0064"
+  },
+  "inputs": {
+    "plane": "cloud_forge",
+    "action": "Honest free vs paid labels",
+    "workstream": "ws-pricing",
+    "tier": "T1",
+    "": "Inngest",
+    "maps_registry": "sa-mkt-0064"
+  },
+  "outputs": {
+    "artifact": "cloud_receipt",
+    "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-064.json"
+  }
+}

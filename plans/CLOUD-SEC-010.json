@@ -1,0 +1,27 @@
+{
+  "plan_id": "CLOUD-SEC-010",
+  "version": "secondary-cloud-drain-next-100-v1",
+  "target": "sourcea/fbe-cloud-worker",
+  "validation": "cloud_forge_incident_038",
+  "metadata": {
+    "core_capability": "_evidence_pipeline",
+    "client_problem_id": "P2-onboard-friction",
+    "workstream": "ws-ux",
+    "": "Trigger.dev",
+    "tier": "T3",
+    "cost_tier": "free",
+    "maps_registry": "sa-mkt-0010"
+  },
+  "inputs": {
+    "plane": "cloud_forge",
+    "action": "Mark sa-mkt-0010 done in REGISTRY from cloud receipt \u2014 not Mac hand-edit",
+    "workstream": "ws-ux",
+    "tier": "T3",
+    "": "Trigger.dev",
+    "maps_registry": "sa-mkt-0010"
+  },
+  "outputs": {
+    "artifact": "cloud_receipt",
+    "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-010.json"
+  }
+}

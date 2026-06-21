@@ -1,0 +1,27 @@
+{
+  "plan_id": "CLOUD-SEC-034",
+  "version": "secondary-cloud-drain-next-100-v1",
+  "target": "sourcea/fbe-cloud-worker",
+  "validation": "cloud_forge_incident_038",
+  "metadata": {
+    "core_capability": "_evidence_pipeline",
+    "client_problem_id": "P2-onboard-friction",
+    "workstream": "ws-onboard",
+    "": "Trigger.dev",
+    "tier": "T1",
+    "cost_tier": "free",
+    "maps_registry": "sa-mkt-0034"
+  },
+  "inputs": {
+    "plane": "cloud_forge",
+    "action": "Freemium cap label before first run \u2014 cloud copy",
+    "workstream": "ws-onboard",
+    "tier": "T1",
+    "": "Trigger.dev",
+    "maps_registry": "sa-mkt-0034"
+  },
+  "outputs": {
+    "artifact": "cloud_receipt",
+    "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-034.json"
+  }
+}

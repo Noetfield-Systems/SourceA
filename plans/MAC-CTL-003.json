@@ -1,0 +1,27 @@
+{
+  "plan_id": "MAC-CTL-003",
+  "version": "secondary-cloud-drain-next-100-v1",
+  "target": "sourcea/fbe-cloud-worker",
+  "validation": "cloud_forge_incident_038",
+  "metadata": {
+    "core_capability": "mac_control_cockpit_observe",
+    "client_problem_id": "P4-mac-cockpit-only",
+    "workstream": "mac_control",
+    "": null,
+    "tier": null,
+    "cost_tier": null,
+    "maps_registry": null
+  },
+  "inputs": {
+    "plane": "mac_control",
+    "action": "Mac control VERIFY: Read brain-cloud pulse receipt B0001\u2192B1000 \u00b7 cloud executed not Mac",
+    "workstream": "mac_control",
+    "tier": null,
+    "": null,
+    "maps_registry": null
+  },
+  "outputs": {
+    "artifact": "cloud_receipt",
+    "receipt_url": null
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "plan_id": "CLOUD-SEC-025",
+  "version": "secondary-cloud-drain-next-100-v1",
+  "target": "sourcea/fbe-cloud-worker",
+  "validation": "cloud_forge_incident_038",
+  "metadata": {
+    "core_capability": "worker_run_dashboard",
+    "client_problem_id": "P1-run-visibility",
+    "workstream": "ws-run",
+    "": "Trigger.dev",
+    "tier": "T2",
+    "cost_tier": "free",
+    "maps_registry": "sa-mkt-0025"
+  },
+  "inputs": {
+    "plane": "cloud_forge",
+    "action": "Retention note vs Trigger.dev tiers",
+    "workstream": "ws-run",
+    "tier": "T2",
+    "": "Trigger.dev",
+    "maps_registry": "sa-mkt-0025"
+  },
+  "outputs": {
+    "artifact": "cloud_receipt",
+    "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-025.json"
+  }
+}
