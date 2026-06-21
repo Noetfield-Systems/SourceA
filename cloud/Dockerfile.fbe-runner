@@ -35,6 +35,7 @@ COPY data/fbe_full_job_v1.json data/fbe_full_job_v1.json
 # Execution engine (kernel + lines)
 COPY scripts/fbe scripts/fbe
 COPY data/secondary-cloud-drain-next-100-v1.json data/secondary-cloud-drain-next-100-v1.json
+COPY plans/ plans/
 COPY data/forge-scoring-ssot-v01.json data/forge-scoring-ssot-v01.json
 COPY data/forge-github-source-v02.json data/forge-github-source-v02.json
 COPY data/forge-mvp-router-rules-v0.1.json data/forge-mvp-router-rules-v0.1.json
