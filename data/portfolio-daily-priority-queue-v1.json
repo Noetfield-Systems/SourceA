@@ -18,16 +18,17 @@
   "daily_shell": "scripts/run-portfolio-supabase-daily-v1.sh",
   "supabase_setup": "scripts/setup_supabase_secrets_mac_v1.sh",
   "human_doc": "docs/PORTFOLIO_DAILY_PRIORITY_QUEUE_LOCKED_v1.md",
-  "bottom_line": "SourceA main Vercel green · WitnessBC deploy-witnessbc-agents-governance needs first prod deploy · FORGE FACTORY sa-1201 · form Submit · TrustField ladder.",
+  "bottom_line": "SourceA + WitnessBC Vercel green · WitnessBC pending main-team import · FORGE FACTORY sa-1201 · form Submit · TrustField ladder.",
   "queue": [
     {
       "priority": "P0",
       "id": "witnessbc-vercel-main",
-      "repo": "SourceA",
-      "blocker": "DEPLOYMENT_NOT_FOUND — project hostname reserved but no prod deploy on the-777-foundation",
+      "status": "live_pending_main_import",
+      "repo": "deploy-witnessbc-agentic-governance",
+      "blocker": "Live on trial Vercel CLI · import private repo on the-777-foundation main Chrome",
       "owner": "founder",
-      "acceptance": "https://deploy-witnessbc-agents-governance.vercel.app green · root witnessbc-site · output dist/deploy",
-      "founder_action": "Main Vercel → Import SourceA · root witnessbc-site · name deploy-witnessbc-agents-governance · Deploy · or python3 scripts/gate_witnessbc_vercel_start_v1.py",
+      "acceptance": "https://deploy-witnessbc-agentic-governance.vercel.app green · GitHub kazemnezhadsina144-dot/deploy-witnessbc-agentic-governance",
+      "founder_action": "Main Vercel → Import deploy-witnessbc-agentic-governance · root . · Framework Other · Deploy",
       "probe": "vercel_portfolio_map",
       "ssot": "data/vercel-portfolio-map-v1.json"
     },
