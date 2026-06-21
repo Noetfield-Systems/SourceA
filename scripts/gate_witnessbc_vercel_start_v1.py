@@ -22,7 +22,7 @@ SINA = Path.home() / ".sina"
 SITE = ROOT / "witnessbc-site"
 DEPLOY = SITE / "dist" / "deploy"
 RECEIPT = SINA / "gate-w-witnessbc-vercel-receipt-v1.json"
-DEFAULT_PROJECT = "deploy-witnessbc-agentic-governance"
+DEFAULT_PROJECT = "witnessbc-governance-main"
 DEFAULT_SCOPE = "the-777-foundation"
 CANONICAL_URL = f"https://{DEFAULT_PROJECT}.vercel.app"
 
@@ -155,7 +155,7 @@ def gate_w_start(*, project: str = DEFAULT_PROJECT, skip_recipe: bool = False) -
     dashboard_fix = [
         "Vercel the-777-foundation (kazemnezhadsina144@gmail.com) → Add Project → SourceA",
         "Root Directory: witnessbc-site · Framework: Other",
-        "Project name: deploy-witnessbc-agentic-governance",
+        "Project name: witnessbc-governance-main (trial owns deploy-witnessbc-agentic-governance)",
         "Output Directory: dist/deploy · Deploy production",
         "Or save main-team token: python3 scripts/sourcea_vercel_token_setup_v1.py --token '...'",
         f"Then: WITNESSBC_VERCEL_SCOPE={DEFAULT_SCOPE} python3 scripts/gate_witnessbc_vercel_start_v1.py --json",
