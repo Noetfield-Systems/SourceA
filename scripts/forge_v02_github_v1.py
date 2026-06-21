@@ -102,7 +102,10 @@ def load_github_config() -> dict[str, Any]:
         str(env_map.get("plans_path") or "FORGE_GITHUB_PLANS_PATH"), cfg.get("plans_path", "plans")
     ).strip("/")
     out["ref"] = os.environ.get(str(env_map.get("ref") or "FORGE_GITHUB_REF"), cfg.get("ref", "main"))
-    out["token"] = os.environ.get(str(env_map.get("token") or "GITHUB_TOKEN"), "").strip()
+    out["token"] = (
+        os.environ.get(str(env_map.get("token") or "GITHUB_TOKEN"), "").strip()
+        or os.environ.get("GITHUB_PERSONAL_ACCESS_TOKEN", "").strip()
+    )
     out["destination_repo_default"] = cfg.get("destination_repo_default") or "sourcea/fbe-cloud-worker"
     return out
 
@@ -513,6 +516,29 @@ def _fetch_plans_fixture(plans_dir: Path) -> list[dict[str, Any]]:
     return collected
 
 
+def _merge_implement_receipts(cfg: dict[str, Any], root: Path) -> dict[str, Any]:
+    """Extend already-have from PASS cloud-implement receipts on cloud volume."""
+    impl_dir = root / "receipts" / "cloud-implement"
+    if not impl_dir.is_dir():
+        return cfg
+    merged = dict(cfg)
+    ids = list(merged.get("already_implemented_plan_ids") or [])
+    seen = set(ids)
+    for path in impl_dir.glob("*.json"):
+        try:
+            row = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if row.get("status") != "PASS" and row.get("verdict") != "PASS":
+            continue
+        pid = str(row.get("plan_id") or path.stem)
+        if pid and pid not in seen:
+            ids.append(pid)
+            seen.add(pid)
+    merged["already_implemented_plan_ids"] = ids
+    return merged
+
+
 def run_forge_v02_from_github(
     *,
     root: Path | None = None,
@@ -597,6 +623,7 @@ def run_forge_v02_from_github(
     from forge_v01_engine_v1 import load_scoring_config  # noqa: WPS433
 
     scoring = load_scoring_config(base / "data" / "forge-scoring-ssot-v01.json")
+    scoring = _merge_implement_receipts(scoring, base)
     pipeline = _run_v01_pipeline(blueprints_for_pipeline, scoring)
 
     top_20 = []

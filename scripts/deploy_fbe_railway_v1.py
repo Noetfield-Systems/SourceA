@@ -46,6 +46,8 @@ _STAGING_DATA_FILES = (
     "secondary-cloud-drain-next-100-v1.json",
     "forge-scoring-ssot-v01.json",
     "forge-github-source-v02.json",
+    "forge-mvp-router-rules-v0.1.json",
+    "forge-v02-cloud-contract-v1.json",
     "forge-real-blueprints-v01.json",
 )
 _STAGING_SCRIPT_FILES = (
@@ -82,6 +84,11 @@ _STAGING_SCRIPT_FILES = (
     "cloud_worker_dispatch_v1.py",
     "forge_v01_engine_v1.py",
     "forge_v02_github_v1.py",
+    "forge_v02_implement_v1.py",
+    "forge_mvp_lib_v1.py",
+    "forge_router_execute_v01.py",
+    "forge_critic_loop_v01.py",
+    "forge_task_graph_emit_v01.py",
     "fbe_sign_work_order_v1.py",
 )
 
