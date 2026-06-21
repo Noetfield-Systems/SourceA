@@ -1,0 +1,27 @@
+{
+  "plan_id": "CLOUD-SEC-057",
+  "version": "secondary-cloud-drain-next-100-v1",
+  "target": "sourcea/fbe-cloud-worker",
+  "validation": "cloud_forge_incident_038",
+  "metadata": {
+    "core_capability": "competitor_evidence_pipeline",
+    "client_problem_id": "P2-onboard-friction",
+    "workstream": "ws-ux",
+    "competitor": "Inngest",
+    "tier": "T2",
+    "cost_tier": "free",
+    "maps_registry": "sa-mkt-0057"
+  },
+  "inputs": {
+    "plane": "cloud_forge",
+    "action": "ICP compare Inngest vs ours \u2014 evidence row",
+    "workstream": "ws-ux",
+    "tier": "T2",
+    "competitor": "Inngest",
+    "maps_registry": "sa-mkt-0057"
+  },
+  "outputs": {
+    "artifact": "cloud_receipt",
+    "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-057.json"
+  }
+}

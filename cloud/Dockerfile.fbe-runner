@@ -35,7 +35,12 @@ COPY data/fbe_full_job_v1.json data/fbe_full_job_v1.json
 # Execution engine (kernel + lines)
 COPY scripts/fbe scripts/fbe
 COPY data/secondary-cloud-drain-next-100-v1.json data/secondary-cloud-drain-next-100-v1.json
+COPY data/forge-scoring-ssot-v01.json data/forge-scoring-ssot-v01.json
+COPY data/forge-github-source-v02.json data/forge-github-source-v02.json
+COPY data/forge-real-blueprints-v01.json data/forge-real-blueprints-v01.json
 COPY scripts/cloud_worker_dispatch_v1.py scripts/cloud_worker_dispatch_v1.py
+COPY scripts/forge_v01_engine_v1.py scripts/forge_v01_engine_v1.py
+COPY scripts/forge_v02_github_v1.py scripts/forge_v02_github_v1.py
 COPY scripts/fbe_sign_work_order_v1.py scripts/fbe_sign_work_order_v1.py
 COPY scripts/fbe_cloud_worker_http_v1.py scripts/fbe_cloud_worker_http_v1.py
 COPY scripts/fbe_pipeline_runner_v1.py scripts/fbe_pipeline_runner_v1.py
