@@ -1,0 +1,27 @@
+{
+  "plan_id": "MAC-CTL-007",
+  "version": "secondary-cloud-drain-next-100-v1",
+  "target": "sourcea/fbe-cloud-worker",
+  "validation": "cloud_forge_incident_038",
+  "metadata": {
+    "core_capability": "mac_control_cockpit_observe",
+    "client_problem_id": "P4-mac-cockpit-only",
+    "workstream": "mac_control",
+    "competitor": null,
+    "tier": null,
+    "cost_tier": null,
+    "maps_registry": null
+  },
+  "inputs": {
+    "plane": "mac_control",
+    "action": "Mac control: Read forge/federated cloud receipts \u00b7 portfolio-competitor manifest glance",
+    "workstream": "mac_control",
+    "tier": null,
+    "competitor": null,
+    "maps_registry": null
+  },
+  "outputs": {
+    "artifact": "cloud_receipt",
+    "receipt_url": null
+  }
+}

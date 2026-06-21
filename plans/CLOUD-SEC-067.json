@@ -1,0 +1,27 @@
+{
+  "plan_id": "CLOUD-SEC-067",
+  "version": "secondary-cloud-drain-next-100-v1",
+  "target": "sourcea/fbe-cloud-worker",
+  "validation": "cloud_forge_incident_038",
+  "metadata": {
+    "core_capability": "competitor_evidence_pipeline",
+    "client_problem_id": "P3-pricing-clarity",
+    "workstream": "ws-pricing",
+    "competitor": "Inngest",
+    "tier": "T2",
+    "cost_tier": "openrouter_cap",
+    "maps_registry": "sa-mkt-0067"
+  },
+  "inputs": {
+    "plane": "cloud_forge",
+    "action": "Upgrade CTA cloud preview",
+    "workstream": "ws-pricing",
+    "tier": "T2",
+    "competitor": "Inngest",
+    "maps_registry": "sa-mkt-0067"
+  },
+  "outputs": {
+    "artifact": "cloud_receipt",
+    "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-067.json"
+  }
+}
