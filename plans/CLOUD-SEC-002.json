@@ -1,0 +1,27 @@
+{
+  "plan_id": "CLOUD-SEC-002",
+  "version": "secondary-cloud-drain-next-100-v1",
+  "target": "sourcea/fbe-cloud-worker",
+  "validation": "cloud_forge_incident_038",
+  "metadata": {
+    "core_capability": "competitor_evidence_pipeline",
+    "client_problem_id": "P2-onboard-friction",
+    "workstream": "ws-ux",
+    "competitor": "Trigger.dev",
+    "tier": "T0",
+    "cost_tier": "free",
+    "maps_registry": "sa-mkt-0002"
+  },
+  "inputs": {
+    "plane": "cloud_forge",
+    "action": "Write UX spec row \u2014 cloud evidence store only",
+    "workstream": "ws-ux",
+    "tier": "T0",
+    "competitor": "Trigger.dev",
+    "maps_registry": "sa-mkt-0002"
+  },
+  "outputs": {
+    "artifact": "cloud_receipt",
+    "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-002.json"
+  }
+}

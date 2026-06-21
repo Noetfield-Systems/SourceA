@@ -248,6 +248,24 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
 
             self._json(200, worker_hub_payload())
             return
+        if path == "/api/forge/v01/output/v1":
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_get_from_cloud  # noqa: WPS433
+
+            row = proxy_get_from_cloud(path="/receipts/forge_v0.1_output.json", timeout_s=30)
+            self._json(200 if row.get("ok", True) and row.get("schema") else 502, row)
+            return
+        if path == "/api/forge/v02/data-health/v1":
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_get_from_cloud  # noqa: WPS433
+
+            row = proxy_get_from_cloud(path="/receipts/forge_v0.2/data_health.json", timeout_s=30)
+            self._json(200 if row.get("schema") else 502, row)
+            return
+        if path == "/api/forge/v02/top/v1":
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_get_from_cloud  # noqa: WPS433
+
+            row = proxy_get_from_cloud(path="/receipts/forge_v0.2/forge_v0.2_top.json", timeout_s=30)
+            self._json(200 if row.get("schema") else 502, row)
+            return
         if path == "/api/worker-hub/extended/v1":
             from worker_hub_v1 import worker_hub_extended_payload  # noqa: WPS433
 
@@ -1632,6 +1650,18 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
                 body={"plan_id": plan_id, "dry_run": dry_run},
                 timeout_s=120,
             )
+            self._json(200 if row.get("ok") else 502, row)
+            return
+        if path == "/api/forge/v01/run/v1":
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
+
+            row = proxy_to_cloud(path="/api/forge/v01/run/v1", body={}, timeout_s=120)
+            self._json(200 if row.get("ok") else 502, row)
+            return
+        if path == "/api/forge/v02/run/v1":
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
+
+            row = proxy_to_cloud(path="/api/forge/v02/run/v1", body=body if isinstance(body, dict) else {}, timeout_s=180)
             self._json(200 if row.get("ok") else 502, row)
             return
         if path == "/api/fbe/forge-competitor-run/v1":

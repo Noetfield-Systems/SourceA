@@ -44,6 +44,9 @@ _STAGING_DATA_FILES = (
     "cloud-comprehension-bay-v1.json",
     "loop-specialist-cloud-contract-v1.json",
     "secondary-cloud-drain-next-100-v1.json",
+    "forge-scoring-ssot-v01.json",
+    "forge-github-source-v02.json",
+    "forge-real-blueprints-v01.json",
 )
 _STAGING_SCRIPT_FILES = (
     "fbe_cloud_worker_http_v1.py",
@@ -77,6 +80,8 @@ _STAGING_SCRIPT_FILES = (
     "founder_reply_translator_v1.py",
     "agent_report_language_gate_v1.py",
     "cloud_worker_dispatch_v1.py",
+    "forge_v01_engine_v1.py",
+    "forge_v02_github_v1.py",
     "fbe_sign_work_order_v1.py",
 )
 
