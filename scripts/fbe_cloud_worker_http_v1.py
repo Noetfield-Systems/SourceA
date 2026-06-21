@@ -176,8 +176,11 @@ def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
             "schema": "forge-v02-run-receipt-v1",
             "architecture": "A",
             "telemetry_line": result.get("telemetry_line"),
+            "fetch_source": (result.get("data_health") or {}).get("fetch_source"),
             "for_founder": {
                 "show_this": result.get("telemetry_line"),
+                "win_test_question": result.get("win_test_question"),
+                "win_test_card": (result.get("win_test_card") or [])[:10],
                 "data_health_url": result.get("urls", {}).get("data_health"),
                 "forge_top_url": result.get("urls", {}).get("forge_top"),
             },
@@ -290,6 +293,18 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
                 return
             _json_response(self, 200, row)
             return
+        if parsed.path == "/forge/contract/v02.json":
+            contract_path = ROOT / "data" / "forge-v02-cloud-contract-v1.json"
+            if not contract_path.is_file():
+                _json_response(self, 404, {"ok": False, "error": "contract_not_found"})
+                return
+            try:
+                row = json.loads(contract_path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError) as exc:
+                _json_response(self, 500, {"ok": False, "error": "contract_read_failed", "message": str(exc)})
+                return
+            _json_response(self, 200, row)
+            return
         _json_response(self, 404, {"ok": False, "error": "not_found"})
 
     def do_POST(self) -> None:
@@ -333,6 +348,13 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
         try:
             row = _run_local(path, {**body, **contract})
         except Exception as exc:
+            if path.startswith("/api/forge/v02"):
+                _json_response(
+                    self,
+                    422,
+                    {"ok": False, "error": "execution_failed", "message": str(exc), "path": path},
+                )
+                return
             _json_response(self, 500, {"ok": False, "error": "execution_failed", "message": str(exc)})
             return
 

@@ -141,26 +141,12 @@ def run_forge_v02_implement(
 
     if write_output:
         _write_json(implement_receipt_path(pid, root=base), receipt)
-        _append_implement_to_scoring_ssot(pid, root=base)
+        if verdict == "PASS":
+            from forge_v02_github_v1 import append_scoring_overlay  # noqa: WPS433
+
+            append_scoring_overlay(pid, root=base)
 
     return receipt
-
-
-def _append_implement_to_scoring_ssot(plan_id: str, *, root: Path) -> None:
-    """Mark PASS implement plans as already-have for next Forge run."""
-    ssot_path = root / "data" / "forge-scoring-ssot-v01.json"
-    ssot = _read_json(ssot_path)
-    if not ssot:
-        return
-    ids = list(ssot.get("already_implemented_plan_ids") or [])
-    sigs = list(ssot.get("already_implemented_signatures") or [])
-    if plan_id not in ids:
-        ids.append(plan_id)
-    if IMPLEMENT_SIG not in sigs:
-        sigs.append(IMPLEMENT_SIG)
-    ssot["already_implemented_plan_ids"] = ids
-    ssot["already_implemented_signatures"] = sigs
-    _write_json(ssot_path, ssot)
 
 
 def run_forge_v02_run_and_implement(
