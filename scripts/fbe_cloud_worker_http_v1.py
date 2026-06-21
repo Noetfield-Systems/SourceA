@@ -168,7 +168,7 @@ def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
                     "schema": "forge-v02-run-receipt-v1",
                     "error": "github_fetch_failed",
                     "message": msg,
-                    "hint": "Push plans/ to GitHub or set FORGE_GITHUB_OWNER/REPO/PLANS_PATH",
+                    "hint": "Push plans/ to GitHub; set GITHUB_TOKEN on Railway for private repos",
                 }
             raise
         return {
@@ -181,6 +181,57 @@ def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
                 "data_health_url": result.get("urls", {}).get("data_health"),
                 "forge_top_url": result.get("urls", {}).get("forge_top"),
             },
+            **result,
+        }
+    if path == "/api/forge/v02/implement/v1":
+        from forge_v02_implement_v1 import run_forge_v02_implement  # noqa: WPS433
+
+        plan_id = str(body.get("plan_id") or "")
+        if not plan_id:
+            return {"ok": False, "error": "plan_id_required"}
+        try:
+            receipt = run_forge_v02_implement(plan_id, write_output=True, root=ROOT)
+        except ValueError as exc:
+            return {"ok": False, "error": str(exc)}
+        return {
+            "ok": receipt.get("status") == "PASS",
+            "schema": "forge-v02-implement-receipt-v1",
+            "architecture": "A",
+            "for_founder": {"show_this": f"{plan_id} implement {receipt.get('status')}"},
+            **receipt,
+        }
+    if path == "/api/forge/v02/run-and-implement/v1":
+        from forge_v02_implement_v1 import run_forge_v02_run_and_implement  # noqa: WPS433
+
+        gh = body.get("github") if isinstance(body.get("github"), dict) else {}
+        try:
+            result = run_forge_v02_run_and_implement(
+                write_output=True,
+                root=ROOT,
+                implement_top_n=int(body.get("implement_top_n") or 1),
+                owner=str(gh.get("owner") or body.get("owner") or ""),
+                repo=str(gh.get("repo") or body.get("repo") or ""),
+                plans_path=str(gh.get("plans_path") or body.get("plans_path") or ""),
+                ref=str(gh.get("ref") or body.get("ref") or ""),
+            )
+        except RuntimeError as exc:
+            msg = str(exc)
+            if msg.startswith("github_api_"):
+                return {
+                    "ok": False,
+                    "schema": "forge-v02-run-and-implement",
+                    "error": "github_fetch_failed",
+                    "message": msg,
+                    "hint": "Set GITHUB_TOKEN on Railway for private repos",
+                }
+            raise
+        impl_ok = all(r.get("status") == "PASS" for r in (result.get("implement_results") or []))
+        return {
+            "ok": bool(result.get("forge", {}).get("telemetry_line")) and impl_ok,
+            "schema": "forge-v02-run-and-implement-receipt-v1",
+            "architecture": "A",
+            "telemetry_line": result.get("telemetry_line"),
+            "for_founder": {"show_this": result.get("telemetry_line")},
             **result,
         }
     if path == "/api/fbe/loop-specialist/tick/v1":
@@ -291,6 +342,8 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
             "/api/cloud-worker/build-summary/v1",
             "/api/forge/v01/run/v1",
             "/api/forge/v02/run/v1",
+            "/api/forge/v02/implement/v1",
+            "/api/forge/v02/run-and-implement/v1",
         ):
             row["execution_plane"] = row.get("execution_plane") or "headless_cloud"
             code = 200 if row.get("ok") else 422
