@@ -16,5 +16,6 @@ check() {
 }
 check "https://source-a.vercel.app/sourcea/"
 check "https://source-a.vercel.app/sourcea/trust/"
-check "https://deploy-witnessbc-agents-governance.vercel.app/"
+check "https://witnessbc-governance-main.vercel.app/"
+check "https://witnessbc-governance-main.vercel.app/proof"
 exit "$FAIL"

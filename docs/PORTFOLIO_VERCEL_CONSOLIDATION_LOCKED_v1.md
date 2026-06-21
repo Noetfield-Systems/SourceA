@@ -11,14 +11,14 @@ All latest commercial code lives in **`kazemnezhadsina144-dot/SourceA`** monorep
 | Product | Vercel project | GitHub | Root directory | URL |
 |---------|----------------|--------|----------------|-----|
 | **SourceA** | `source-a` | SourceA | `SourceA-landing/green-unified` | https://source-a.vercel.app/sourcea/ |
-| **WitnessBC** | `deploy-witnessbc-agents-governance` | SourceA | `witnessbc-site` | https://deploy-witnessbc-agents-governance.vercel.app |
+| **WitnessBC** | `deploy-witnessbc-agentic-governance` | deploy-witnessbc-agentic-governance (private) | `.` (repo root) | https://deploy-witnessbc-agentic-governance.vercel.app |
 | Noetfield | `noetfield` | kazemnezhadsina144-dot/noetfield | (repo root) | www.noetfield.com |
 | TrustField | `trustfield-personal` | kazemnezhadsina144-dot/trustfield-personal | (repo root) | trustfield-personal.vercel.app |
 
 ## Delete on noetfield-systems trial (after main green)
 
 - `sourcea-landing` → replaced by **source-a**
-- `deploy` (sooty) → replaced by **deploy-witnessbc-agents-governance**
+- `deploy` (sooty) → replaced by **deploy-witnessbc-agentic-governance**
 - `www` (gc7lm) → merge into **noetfield** or delete
 
 ## SourceA 404 fix (2026-06-21)
@@ -47,15 +47,16 @@ After save → **Deployments → Redeploy** latest commit `e2279eb8` or newer.
 
 Test: https://source-a.vercel.app/sourcea/
 
-### Project `deploy-witnessbc-agents-governance`
+### Project `deploy-witnessbc-agentic-governance`
 
 | Setting | Value |
 |---------|--------|
-| **Root Directory** | **`witnessbc-site`** (required) |
+| **GitHub** | `kazemnezhadsina144-dot/deploy-witnessbc-agentic-governance` (private) |
+| **Root Directory** | **`.`** (repo root) |
 | **Framework Preset** | **Other** |
 | **Build / Install** | empty |
 
-Test: https://deploy-witnessbc-agents-governance.vercel.app/
+Test: https://deploy-witnessbc-agentic-governance.vercel.app/
 
 If still 404 → Deployment log likely shows wrong output path or failed build.
 
