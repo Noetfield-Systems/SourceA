@@ -1664,6 +1664,26 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
             row = proxy_to_cloud(path="/api/forge/v02/run/v1", body=body if isinstance(body, dict) else {}, timeout_s=180)
             self._json(200 if row.get("ok") else 502, row)
             return
+        if path == "/api/forge/v02/run-and-implement/v1":
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
+
+            row = proxy_to_cloud(
+                path="/api/forge/v02/run-and-implement/v1",
+                body=body if isinstance(body, dict) else {},
+                timeout_s=240,
+            )
+            self._json(200 if row.get("ok") else 502, row)
+            return
+        if path == "/api/forge/v02/implement/v1":
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
+
+            row = proxy_to_cloud(
+                path="/api/forge/v02/implement/v1",
+                body=body if isinstance(body, dict) else {},
+                timeout_s=180,
+            )
+            self._json(200 if row.get("ok") else 502, row)
+            return
         if path == "/api/fbe/forge-competitor-run/v1":
             from forge_competitor_run_v1 import run_competitor_forge  # noqa: WPS433
             from worker_hub_v1 import invalidate_worker_hub_cache  # noqa: WPS433

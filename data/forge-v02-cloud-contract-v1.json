@@ -1,0 +1,57 @@
+{
+  "schema": "forge-v02-cloud-contract-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-21T00:15:00Z",
+  "architecture": "A",
+  "architecture_note": "Mac reads HTTP URLs only. Cloud worker fetches plans via GitHub API and writes receipts to Railway volume.",
+  "worker_base": "https://sourcea-fbe-runner-production.up.railway.app",
+  "hub_base": "http://127.0.0.1:13020",
+  "github_source": {
+    "owner": "kazemnezhadsina144-dot",
+    "repo": "SourceA",
+    "plans_path": "plans",
+    "ref": "main",
+    "config_path": "data/forge-github-source-v02.json",
+    "regenerate": "python3 scripts/generate_forge_github_plans_v1.py"
+  },
+  "endpoints": {
+    "run": {
+      "method": "POST",
+      "cloud": "/api/forge/v02/run/v1",
+      "hub_proxy": "/api/forge/v02/run/v1"
+    },
+    "run_and_implement": {
+      "method": "POST",
+      "cloud": "/api/forge/v02/run-and-implement/v1",
+      "hub_proxy": "/api/forge/v02/run-and-implement/v1"
+    },
+    "implement": {
+      "method": "POST",
+      "cloud": "/api/forge/v02/implement/v1",
+      "body": { "plan_id": "CLOUD-SEC-023" }
+    },
+    "data_health": {
+      "method": "GET",
+      "cloud": "/receipts/forge_v0.2/data_health.json",
+      "hub_proxy": "/api/forge/v02/data-health/v1"
+    },
+    "top_20": {
+      "method": "GET",
+      "cloud": "/receipts/forge_v0.2/forge_v0.2_top.json",
+      "hub_proxy": "/api/forge/v02/top/v1"
+    },
+    "implement_receipt": {
+      "method": "GET",
+      "cloud": "/receipts/cloud-implement/{plan_id}.json"
+    }
+  },
+  "telemetry_format": "Forge v0.2: [N] real → [M] mapped → [D] dupes → [V] malformed → top 20 ranked. Most-missing field: [field] ([count]).",
+  "required_railway_env": [
+    "FORGE_GITHUB_OWNER",
+    "FORGE_GITHUB_REPO",
+    "FORGE_GITHUB_PLANS_PATH",
+    "FORGE_GITHUB_REF",
+    "GITHUB_TOKEN"
+  ],
+  "required_railway_env_note": "GITHUB_TOKEN required for private GitHub repos (read-only Contents API)."
+}
