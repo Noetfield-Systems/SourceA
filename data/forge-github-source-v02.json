@@ -1,0 +1,19 @@
+{
+  "schema": "forge-github-source-v02",
+  "version": "1.0.0",
+  "saved_at": "2026-06-20T23:55:00Z",
+  "architecture": "A",
+  "architecture_note": "Cloud worker fetches plans via GitHub API read-only. Mac reads HTTP receipt URLs only.",
+  "owner": "kazemnezhadsina144-dot",
+  "repo": "SourceA",
+  "plans_path": "plans",
+  "ref": "main",
+  "destination_repo_default": "sourcea/fbe-cloud-worker",
+  "env_overrides": {
+    "owner": "FORGE_GITHUB_OWNER",
+    "repo": "FORGE_GITHUB_REPO",
+    "plans_path": "FORGE_GITHUB_PLANS_PATH",
+    "ref": "FORGE_GITHUB_REF",
+    "token": "GITHUB_TOKEN"
+  }
+}
