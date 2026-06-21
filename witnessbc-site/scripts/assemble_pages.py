@@ -19,7 +19,7 @@ COHORT_DATA = ROOT / "data" / "cohort.json"
 STRIPE_DATA = ROOT / "data" / "stripe-links-v1.json"
 STRIPE_RECEIPT = Path.home() / ".sina" / "witnessbc-stripe-inject-receipt-v1.json"
 
-NAV_KEYS = ("platform", "lifecycle", "proof", "pricing", "policy", "compare", "faq", "sources", "learn", "toolkits")
+NAV_KEYS = ("platform", "lifecycle", "proof", "pricing", "policy", "compare", "faq", "sources", "learn", "toolkits", "observe")
 
 
 def _cta_tokens() -> dict[str, str]:
@@ -30,6 +30,7 @@ def _cta_tokens() -> dict[str, str]:
         "PROOF_MAILTO": cta["proof_mailto"],
         "LIVE_DEMO_URL": cta["live_demo_url"],
         "TOOLKITS_URL": cta.get("toolkits_url", "toolkits.html"),
+        "OBSERVE_URL": cta.get("observe_url", "observe/index.html"),
         "NOETFIELD_PILOT_URL": cta.get("noetfield_pilot_url", "policy.html"),
         "W1_DEMO_FILM_URL": cta.get("w1_demo_film_url", "assets/w1-demo.mp4"),
         "COMMERCIAL_SHORT_URL": cta.get("commercial_short_url", cta["live_demo_url"]),
@@ -115,7 +116,7 @@ def _nav_classes(active: str) -> dict[str, str]:
         out[f"ACTIVE_{key.upper()}"] = cls
     if active in ("platform", "lifecycle", "policy", "compare"):
         out["ACTIVE_PLATFORM"] = "is-active"
-    if active in ("faq", "sources", "learn", "toolkits"):
+    if active in ("faq", "sources", "learn", "toolkits", "observe"):
         out["ACTIVE_RESOURCES"] = "is-active"
     return out
 
@@ -134,6 +135,8 @@ def _scripts_block(names: list[str]) -> str:
         lines.append('  <script src="assets/toolkits.js"></script>')
     if "toolkits-sandbox" in names:
         lines.append('  <script src="assets/toolkits-sandbox.js"></script>')
+    if "observe-feed" in names:
+        lines.append('  <script src="assets/observe-feed.js"></script>')
     if "site" in names:
         lines.append('  <script src="assets/site.js"></script>')
     return "\n".join(lines) + "\n</body>\n</html>\n"
