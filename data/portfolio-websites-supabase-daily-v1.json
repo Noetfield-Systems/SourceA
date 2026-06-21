@@ -82,7 +82,7 @@
       "label": "WitnessBC commercial (Vercel)",
       "module": "witnessbc",
       "supabase_tier": "portfolio-spine",
-      "url": "https://deploy-witnessbc-agents-governance.vercel.app",
+      "url": "https://deploy-witnessbc-agentic-governance.vercel.app",
       "url_legacy_trial": "https://deploy-sooty-seven-93.vercel.app",
       "health_paths": ["/"],
       "required": true,
