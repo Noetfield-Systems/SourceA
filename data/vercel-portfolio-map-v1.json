@@ -15,7 +15,7 @@
       "login": "kazemnezhadsina144@gmail.com",
       "paths": {
         "sourcea_landing": "SourceA-landing/green-unified",
-        "witnessbc_commercial": "witnessbc-site"
+        "witnessbc_commercial": "deploy-witnessbc-agentic-governance (private repo) · source: witnessbc-site"
       }
     },
     "vercel": {
@@ -82,6 +82,7 @@
       "action": "Delete sourcea-landing · deploy · www after main green"
     }
   ],
+  "trial_name_conflict_law": "Trial (noetfield-systems) owns global *.vercel.app names first. Main (the-777-foundation) uses -main suffix until trial projects deleted.",
   "projects": [
     {
       "id": "source-a",
@@ -95,34 +96,42 @@
       "note": "Green 2026-06-21 · /sourcea/ + /sourcea/trust/ return 200",
     },
     {
-      "id": "deploy-witnessbc-agents-governance",
-      "vercel_name": "deploy-witnessbc-agents-governance",
-      "url": "https://deploy-witnessbc-agents-governance.vercel.app",
+      "id": "deploy-witnessbc-agentic-governance",
+      "vercel_name": "witnessbc-governance-main",
+      "vercel_name_trial_conflict": "deploy-witnessbc-agentic-governance",
+      "url": "https://witnessbc-governance-main.vercel.app",
+      "url_trial_holds_name": "https://deploy-witnessbc-agentic-governance.vercel.app",
       "url_legacy_trial": "https://deploy-sooty-seven-93.vercel.app",
       "prod_domain_target": "https://www.witnessbc.com",
       "module": "witnessbc",
       "team_id": "main",
-      "github_repo": "kazemnezhadsina144-dot/SourceA",
-      "deploy_root": "witnessbc-site",
-      "status": "redeploy_on_main",
-      "priority": "P0",
-      "note": "DEPLOYMENT_NOT_FOUND until first prod deploy · vercel.json → dist/deploy · Gate W script",
+      "github_repo": "kazemnezhadsina144-dot/deploy-witnessbc-agentic-governance",
+      "deploy_root": ".",
+      "status": "github_ready_main_import",
       "founder_steps_main_chrome": [
-        "the-777-foundation → Add New → Project → Import SourceA (same repo as source-a)",
-        "Root Directory: witnessbc-site",
-        "Project name: deploy-witnessbc-agents-governance · deploy production",
-        "Verify URL https://deploy-witnessbc-agents-governance.vercel.app shows Witness AI commercial",
-        "Cloudflare witnessbc.com: CNAME www → deploy-witnessbc-agents-governance.vercel.app when ready"
+        "the-777-foundation → Add Project → Import deploy-witnessbc-agentic-governance",
+        "Project name: witnessbc-governance-main (NOT deploy-witnessbc-agentic-governance — trial owns that name)",
+        "Root . · Framework Other · no build → Deploy",
+        "URL: https://witnessbc-governance-main.vercel.app"
       ]
     },
     {
       "id": "noetfield",
-      "vercel_name": "noetfield",
-      "url": "https://www.noetfield.com",
+      "vercel_name": "noetfield-www-main",
+      "vercel_name_trial_conflict": "www",
+      "url": "https://noetfield-www-main.vercel.app",
+      "url_trial_holds_name": "https://project-gc7lm.vercel.app",
+      "prod_domain_target": "https://www.noetfield.com",
       "module": "noetfield",
       "team_id": "main",
-      "github_repo": "kazemnezhadsina144-dot/noetfield",
-      "status": "home_ok"
+      "github_repo": "kazemnezhadsina144-dot/Noetfield",
+      "deploy_root": ".",
+      "status": "github_ready_main_import",
+      "founder_steps_main_chrome": [
+        "the-777-foundation → Add Project → Import Noetfield",
+        "Project name: noetfield-www-main (NOT www — trial owns that name)",
+        "Root . · Framework Other → Deploy + copy RESEND intake env from trial www"
+      ]
     },
     {
       "id": "trustfield-personal",
@@ -147,7 +156,7 @@
       "module": "witnessbc",
       "team_id": "noetfield_trial",
       "status": "delete_after_main_green",
-      "superseded_by": "deploy-witnessbc-agents-governance"
+      "superseded_by": "deploy-witnessbc-agentic-governance"
     },
     {
       "id": "virlux-web",
