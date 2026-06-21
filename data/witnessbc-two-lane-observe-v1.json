@@ -1,0 +1,31 @@
+{
+  "schema": "witnessbc-two-lane-observe-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-21T02:30:00Z",
+  "authority": "ASF",
+  "human_doc": "docs/WITNESSBC_TWO_LANE_OBSERVE_LOCKED_v1.md",
+  "one_law": "One domain · two lanes — Commercial sells and proves · Observe witnesses and narrates AI policy truth.",
+  "brand_meaning": {
+    "witness": "Observer of truth in society",
+    "commercial_lane": "Witness AI — agentic governance + AI policy at dispatch",
+    "observe_lane": "WitnessBC Observe — AI policy news, governance signals, agentic startup desk"
+  },
+  "ia": {
+    "commercial_home": "/",
+    "observe_home": "/observe/",
+    "observe_principles": "/observe/principles/",
+    "observe_corrections": "/observe/corrections/",
+    "toolkits": "/toolkits.html",
+    "legacy_redirects": {
+      "/principles": "/observe/principles/",
+      "/corrections": "/observe/corrections/",
+      "/stories": "/observe/"
+    }
+  },
+  "journalism_clone_archive": "~/Desktop/SourceA/archive/witnessbc-journalism-clone-v1/Witness-BC",
+  "build": {
+    "data": "witnessbc-site/data/observe-feed-v1.json",
+    "renderer": "witnessbc-site/scripts/render_observe_v1.py",
+    "deploy_subdir": "observe/"
+  }
+}

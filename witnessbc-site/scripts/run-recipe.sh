@@ -61,6 +61,8 @@ for f in \
   "$ROOT/scripts/inject_refs.py" \
   "$ROOT/scripts/inject_trust_signals_v1.py" \
   "$ROOT/scripts/render_toolkits_v1.py" \
+  "$ROOT/scripts/render_observe_v1.py" \
+  "$ROOT/data/observe-feed-v1.json" \
   "$ROOT/scripts/validate.sh"; do
   [[ -f "$f" ]] || { echo "FAIL: missing $f"; exit 1; }
 done
