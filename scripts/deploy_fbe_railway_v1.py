@@ -154,6 +154,11 @@ def _stage_deploy_context() -> dict:
             _copy_file(src, STAGING / "scripts" / name)
             copied.append(f"scripts/{name}")
 
+    plans_src = ROOT / "plans"
+    if plans_src.is_dir():
+        shutil.copytree(plans_src, STAGING / "plans")
+        copied.append("plans/")
+
     cloud_dir = STAGING / "cloud"
     cloud_dir.mkdir(parents=True)
     for name in ("Dockerfile.fbe-runner", "railway.toml"):

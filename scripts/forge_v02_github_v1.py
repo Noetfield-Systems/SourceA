@@ -558,18 +558,33 @@ def run_forge_v02_from_github(
     token = token or str(cfg.get("token") or "")
     dest_default = str(cfg.get("destination_repo_default") or "sourcea/fbe-cloud-worker")
 
-    # Stage 0a — Fetch
+    # Stage 0a — Fetch (GitHub API first; bundled plans/ fallback for private repo without token)
     fixture_dir = os.environ.get("FORGE_V02_FIXTURE_DIR", "").strip()
+    fetch_source = "github_api"
     if fixture_dir:
         fetched = _fetch_plans_fixture(Path(fixture_dir))
+        fetch_source = "fixture"
     else:
-        fetched = stage_0a_fetch_github_plans(
-            owner=owner,
-            repo=repo,
-            plans_path=plans_path,
-            ref=ref,
-            token=token,
-        )
+        try:
+            fetched = stage_0a_fetch_github_plans(
+                owner=owner,
+                repo=repo,
+                plans_path=plans_path,
+                ref=ref,
+                token=token,
+            )
+        except RuntimeError as exc:
+            msg = str(exc)
+            bundled = base / "plans"
+            if (
+                msg.startswith(("github_api_404", "github_api_403"))
+                and os.environ.get("FORGE_V02_BUNDLED_FALLBACK", "1") == "1"
+                and bundled.is_dir()
+            ):
+                fetched = _fetch_plans_fixture(bundled)
+                fetch_source = "bundled_fallback"
+            else:
+                raise
 
     # Stage 0b — Inspect & Adapt
     adapter = stage_0b_inspect_and_build_adapter(
@@ -618,6 +633,7 @@ def run_forge_v02_from_github(
         total_real=len(fetched),
         adapted_rows=adapted_rows,
     )
+    health["fetch_source"] = fetch_source
 
     # v0.1 pipeline unchanged
     from forge_v01_engine_v1 import load_scoring_config  # noqa: WPS433
