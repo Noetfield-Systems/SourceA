@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "data" / "forge-github-source-v02.json"
 SCORING_PATH = ROOT / "data" / "forge-scoring-ssot-v01.json"
 OUTPUT_DIR_NAME = "forge_v0.2"
+SCORING_OVERLAY_REL = "receipts/forge_v0.2/scoring_overlay.json"
 
 FORGE_REQUIRED_FIELDS = (
     "id",
@@ -516,6 +517,49 @@ def _fetch_plans_fixture(plans_dir: Path) -> list[dict[str, Any]]:
     return collected
 
 
+def scoring_overlay_path(root: Path | None = None) -> Path:
+    base = root or ROOT
+    return base / SCORING_OVERLAY_REL
+
+
+def load_scoring_with_overlays(*, root: Path | None = None) -> dict[str, Any]:
+    """Load v0.1 scoring SSOT + cloud overlay (implement receipts) — never mutates image SSOT."""
+    from forge_v01_engine_v1 import load_scoring_config  # noqa: WPS433
+
+    base = root or ROOT
+    cfg = load_scoring_config(base / "data" / "forge-scoring-ssot-v01.json")
+    cfg = _merge_implement_receipts(cfg, base)
+    overlay = _read_json(scoring_overlay_path(base))
+    if overlay:
+        ids = list(cfg.get("already_implemented_plan_ids") or [])
+        seen = set(ids)
+        for pid in overlay.get("already_implemented_plan_ids") or []:
+            if pid not in seen:
+                ids.append(pid)
+                seen.add(pid)
+        cfg["already_implemented_plan_ids"] = ids
+    return cfg
+
+
+def append_scoring_overlay(plan_id: str, *, root: Path | None = None) -> None:
+    """Persist already-have plan id on cloud receipts volume only."""
+    base = root or ROOT
+    path = scoring_overlay_path(base)
+    overlay = _read_json(path)
+    if not overlay:
+        overlay = {
+            "schema": "forge-v0.2-scoring-overlay",
+            "at": _now(),
+            "already_implemented_plan_ids": [],
+        }
+    ids = list(overlay.get("already_implemented_plan_ids") or [])
+    if plan_id not in ids:
+        ids.append(plan_id)
+    overlay["already_implemented_plan_ids"] = ids
+    overlay["at"] = _now()
+    _write_json(path, overlay)
+
+
 def _merge_implement_receipts(cfg: dict[str, Any], root: Path) -> dict[str, Any]:
     """Extend already-have from PASS cloud-implement receipts on cloud volume."""
     impl_dir = root / "receipts" / "cloud-implement"
@@ -636,18 +680,21 @@ def run_forge_v02_from_github(
     health["fetch_source"] = fetch_source
 
     # v0.1 pipeline unchanged
-    from forge_v01_engine_v1 import load_scoring_config  # noqa: WPS433
-
-    scoring = load_scoring_config(base / "data" / "forge-scoring-ssot-v01.json")
-    scoring = _merge_implement_receipts(scoring, base)
+    scoring = load_scoring_with_overlays(root=base)
     pipeline = _run_v01_pipeline(blueprints_for_pipeline, scoring)
 
     top_20 = []
+    win_test_card: list[str] = []
     for row in pipeline["ranked"][:20]:
+        from forge_v01_engine_v1 import _human_line  # noqa: WPS433
+
+        line = _human_line(row)
+        win_test_card.append(line)
         top_20.append(
             {
                 **{k: v for k, v in row.items() if not k.startswith("_")},
                 "reason": _one_line_reason(row),
+                "win_test_line": line,
             }
         )
 
@@ -667,6 +714,8 @@ def run_forge_v02_from_github(
         "adapter": adapter,
         "data_health": health,
         "telemetry_line": telemetry_line,
+        "win_test_question": "Are these the 20 you would have picked by hand, or better?",
+        "win_test_card": win_test_card,
         "funnel": {
             "totalReal": len(fetched),
             "mappedClean": health.get("mapped_cleanly_to_full_schema"),
@@ -695,6 +744,9 @@ def run_forge_v02_from_github(
                 "schema": "forge-v0.2-top",
                 "at": _now(),
                 "telemetry_line": telemetry_line,
+                "fetch_source": fetch_source,
+                "win_test_question": result.get("win_test_question"),
+                "win_test_card": win_test_card,
                 "github": result["github"],
                 "funnel": result["funnel"],
                 "top_20": top_20,
