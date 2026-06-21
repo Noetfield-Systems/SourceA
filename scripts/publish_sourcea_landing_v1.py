@@ -29,7 +29,7 @@ PUBLIC_URLS = SINA / "sourcea-public-urls-v1.json"
 TUNNEL_LOG = SINA / "sourcea-landing-tunnel-v1.log"
 TUNNEL_PID = SINA / "sourcea-landing-tunnel-v1.pid"
 TUNNEL_PORT = int(os.environ.get("SOURCEA_LANDING_TUNNEL_PORT", "8190"))
-DEFAULT_PROJECT = os.environ.get("SOURCEA_PAGES_PROJECT", "sourcea-landing")
+DEFAULT_PROJECT = os.environ.get("SOURCEA_PAGES_PROJECT", "source-a")
 CLOUDFLARED = SINA / "bin" / "cloudflared"
 CF_TOKEN_FILE = SINA / "cf-pages-token-v1.json"
 
@@ -233,7 +233,7 @@ def deploy_vercel(staging: Path, *, project: str) -> dict:
             "cost": "free_hobby",
         }
     proj = str(cfg.get("project") or project).strip() or project
-    scope = str(cfg.get("scope") or os.environ.get("SOURCEA_VERCEL_SCOPE", "noetfield-systems")).strip()
+    scope = str(cfg.get("scope") or os.environ.get("SOURCEA_VERCEL_SCOPE", "the-777-foundation")).strip()
     vc = _vercel_cmd()
     cmd = vc + ["deploy", str(staging), "--prod", "--yes", f"--scope={scope}"]
     if proj:

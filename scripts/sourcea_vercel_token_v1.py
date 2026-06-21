@@ -14,8 +14,10 @@ from typing import Any
 
 SINA = Path.home() / ".sina"
 TOKEN_FILE = SINA / "sourcea-vercel-token-v1.json"
-DEFAULT_PROJECT = os.environ.get("SOURCEA_VERCEL_PROJECT", "sourcea-landing")
-DEFAULT_SCOPE = os.environ.get("SOURCEA_VERCEL_SCOPE", "noetfield-systems")
+DEFAULT_PROJECT = os.environ.get("SOURCEA_VERCEL_PROJECT", "source-a")
+DEFAULT_SCOPE = os.environ.get("SOURCEA_VERCEL_SCOPE", "the-777-foundation")
+TRIAL_SCOPE = "noetfield-systems"
+TRIAL_WHOAMI_PREFIX = "noetfield"
 
 
 def _vercel_cmd() -> list[str]:
@@ -68,16 +70,27 @@ def load_sourcea_vercel_config() -> dict[str, Any]:
 
     who = vercel_cli_whoami()
     if who:
+        trial_cli = who.lower().startswith(TRIAL_WHOAMI_PREFIX)
+        scope = DEFAULT_SCOPE
+        ok = True
+        note = "Vercel CLI OAuth session — main team the-777-foundation"
+        if trial_cli:
+            ok = False
+            note = (
+                f"CLI still on TRIAL ({who}) — run: bash scripts/switch_vercel_cli_main_v1.sh"
+            )
         return {
-            "ok": True,
+            "ok": ok,
             "auth_mode": "cli_oauth",
             "token": None,
             "whoami": who,
             "project": DEFAULT_PROJECT,
-            "scope": DEFAULT_SCOPE,
+            "scope": scope,
             "path": None,
             "cost": "free_hobby",
-            "note": "Vercel CLI OAuth session — no token file required for deploy",
+            "trial_cli": trial_cli,
+            "note": note,
+            "error": "trial_cli_logged_in" if trial_cli else None,
         }
 
     return {
@@ -88,14 +101,10 @@ def load_sourcea_vercel_config() -> dict[str, Any]:
             "Gate K (free) — create Vercel token on dashboard OR run vercel login"
         ),
         "fix_steps": [
-            "Dashboard form (you are on this page now):",
-            "  TOKEN NAME: SourceA Gate K",
-            "  SCOPE: Full Account (or NOETFIELD SYSTEMS team)",
-            "  EXPIRATION: No expiration",
-            "  Click Create → copy token once (shown only once)",
-            "Save:",
-            "  python3 scripts/sourcea_vercel_token_setup_v1.py --token '<paste>'",
-            "Note: CLI OAuth already deploys (noetfield-6488) — token file is for CI/automation backup",
+            "Main account (kazemnezhadsina144@gmail.com · the-777-foundation):",
+            "  bash scripts/switch_vercel_cli_main_v1.sh --terminal",
+            "  OR create token: https://vercel.com/account/settings/tokens",
+            "  bash scripts/switch_vercel_cli_main_v1.sh --token '<paste-once>'",
             "Then: python3 scripts/gate_k_vercel_start_v1.py --json",
         ],
         "fix_url": "https://vercel.com/account/settings/tokens",
@@ -116,7 +125,7 @@ def save_sourcea_vercel_token(
         "name": name,
         "token": tok,
         "project": project,
-        "scope": os.environ.get("SOURCEA_VERCEL_SCOPE", "noetfield-systems"),
+        "scope": os.environ.get("SOURCEA_VERCEL_SCOPE", DEFAULT_SCOPE),
         "lane": "sourcea_only",
         "cost": "free_hobby",
     }

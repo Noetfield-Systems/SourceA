@@ -56,7 +56,8 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Save SourceA Vercel Gate K token")
     ap.add_argument("--token", help="Classic PAT from vercel.com/account/settings/tokens")
     ap.add_argument("--project", default=DEFAULT_PROJECT)
-    ap.add_argument("--name", default="SourceA Gate K")
+    ap.add_argument("--scope", default=os.environ.get("SOURCEA_VERCEL_SCOPE", "the-777-foundation"))
+    ap.add_argument("--name", default="SourceA main Vercel")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
 
@@ -108,6 +109,13 @@ def main() -> int:
         return 1
 
     saved = save_sourcea_vercel_token(tok, project=args.project, name=args.name)
+    # Force main scope logged
+    tf = SINA / "sourcea-vercel-token-v1.json"
+    if tf.is_file():
+        row = json.loads(tf.read_text(encoding="utf-8"))
+        row["scope"] = args.scope
+        row["lane"] = "main_portfolio"
+        tf.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
     row = {
         "ok": True,
         "schema": "sourcea-vercel-token-setup-v1",
