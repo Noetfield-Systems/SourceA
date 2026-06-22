@@ -368,6 +368,41 @@ def _surfaces_from_bundle(bundle: dict) -> dict:
                     }
             except (OSError, json.JSONDecodeError):
                 pass
+        nt_receipt = SINA / "next-task-trigger-receipt-v1.json"
+        nt_always = SINA / "task-plan-validation-always-v1.flag"
+        nt_flag = SINA / "next-task-trigger-active-v1.flag"
+        if (nt_always.is_file() or nt_flag.is_file()) and nt_receipt.is_file():
+            try:
+                nt_row = json.loads(nt_receipt.read_text(encoding="utf-8"))
+                if nt_row.get("next_task_line"):
+                    surfaces["next_task_line"] = nt_row["next_task_line"]
+                    surfaces["next_task_trigger"] = {
+                        "active": True,
+                        "always_apply": bool(nt_row.get("always_apply", True)),
+                        "triggered": bool(nt_flag.is_file()),
+                        "mode": nt_row.get("mode"),
+                        "pipeline": nt_row.get("pipeline"),
+                        "receipt": str(nt_receipt),
+                        "ssot": "data/sourcea-next-task-trigger-v1.json",
+                    }
+            except (OSError, json.JSONDecodeError):
+                pass
+        tp_receipt = SINA / "task-plan-priority-receipt-v1.json"
+        if tp_receipt.is_file():
+            try:
+                tp_row = json.loads(tp_receipt.read_text(encoding="utf-8"))
+                if tp_row.get("task_plan_priority_line"):
+                    surfaces["task_plan_priority_line"] = tp_row["task_plan_priority_line"]
+                    surfaces["task_plan_priority"] = {
+                        "active": True,
+                        "smart_pick": tp_row.get("smart_pick"),
+                        "top_ranked": (tp_row.get("ranked") or [])[:5],
+                        "priority_stack": tp_row.get("priority_stack"),
+                        "receipt": str(tp_receipt),
+                        "ssot": "data/sourcea-task-plan-priority-v1.json",
+                    }
+            except (OSError, json.JSONDecodeError):
+                pass
         from cloud_comprehension_pipeline_loop_v1 import inject_slice as comprehension_inject  # noqa: WPS433
 
         comp_inj = comprehension_inject()

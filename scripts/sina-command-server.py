@@ -266,6 +266,12 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
             row = proxy_get_from_cloud(path="/receipts/forge_v0.2/forge_v0.2_top.json", timeout_s=30)
             self._json(200 if row.get("schema") else 502, row)
             return
+        if path == "/api/forge/v02/status/v1":
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_get_from_cloud  # noqa: WPS433
+
+            row = proxy_get_from_cloud(path="/api/forge/v02/status/v1", timeout_s=30)
+            self._json(200 if row.get("schema") else 502, row)
+            return
         if path == "/api/worker-hub/extended/v1":
             from worker_hub_v1 import worker_hub_extended_payload  # noqa: WPS433
 
@@ -1286,6 +1292,85 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
         if path in ("/form", "/form/", "/form/index.html"):
             self._serve_static("/form/index.html")
             return
+        if path in ("/mail", "/mail/", "/mail-hub", "/mail-hub/"):
+            self._serve_static("/mail-hub/index.html")
+            return
+        if path == "/api/portfolio-mail/v1/integration":
+            from portfolio_mail_hub_v1 import integration_status  # noqa: WPS433
+
+            self._json(200, integration_status())
+            return
+        if path == "/api/portfolio-mail/v1":
+            from portfolio_mail_hub_v1 import handle_get  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            self._json(200, handle_get(qs))
+            return
+        if path == "/api/api-station/terminal/v1":
+            from api_station_v1 import handle_terminal_get  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            lines = int((qs.get("lines") or ["120"])[0])
+            self._json(200, handle_terminal_get(lines=lines))
+            return
+        if path == "/api/api-station/v1":
+            from api_station_v1 import handle_get  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            app_id = (qs.get("app") or ["worker-hub"])[0]
+            flat = {k: v[0] for k, v in qs.items() if v}
+            self._json(200, handle_get(app_id=app_id, query=flat))
+            return
+        if path == "/api/hub-pro-skills/v1":
+            from hub_pro_skills_v1 import append_entry, payload  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            app_id = (qs.get("app") or ["worker_hub"])[0]
+            self._json(200, payload(app_id=app_id))
+            return
+        if path == "/api/founder-ops/v1":
+            from founder_ops_v1 import manifest  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            hub = (qs.get("hub") or [None])[0]
+            self._json(200, manifest(hub=hub))
+            return
+        if path == "/api/cloud-workers/v1":
+            from cloud_workers_hub_v1 import handle_action, payload  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            if qs.get("probe"):
+                self._json(200, handle_action({"action": "probe"}))
+                return
+            self._json(200, payload())
+            return
+        if path == "/api/living-system-chain/v1":
+            from living_system_chain_validate_v1 import hub_slice, validate_chains  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            if qs.get("full"):
+                self._json(200, validate_chains())
+                return
+            self._json(200, hub_slice())
+            return
+        if path == "/api/validator-machine/v1":
+            from validator_machine_v1 import hub_slice, run_all, run_app  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            if qs.get("run"):
+                tier = (qs.get("tier") or ["light"])[0]
+                app_id = (qs.get("app") or [None])[0]
+                if app_id:
+                    self._json(200, run_app(str(app_id), tier=tier))
+                else:
+                    self._json(200, run_all(tier=tier))
+                return
+            app_id = (qs.get("app") or [None])[0]
+            self._json(200, hub_slice(app_id=app_id))
+            return
+        if path.startswith("/shared/"):
+            self._serve_static(path)
+            return
         self._serve_static(path)
 
     def do_POST(self):
@@ -1312,6 +1397,63 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
                 os.kill(os.getpid(), signal.SIGTERM)
 
             threading.Thread(target=_exit_hub, daemon=True).start()
+            return
+        if path == "/api/portfolio-mail/v1/integration":
+            from portfolio_mail_hub_v1 import integration_wire  # noqa: WPS433
+
+            row = integration_wire(import_cursor=bool(body.get("import_cursor")))
+            self._json(200 if row.get("ok") else 207, row)
+            return
+        if path == "/api/portfolio-mail/v1/send":
+            import asyncio
+
+            from portfolio_mail_hub_v1 import handle_post  # noqa: WPS433
+
+            row = asyncio.run(handle_post(body))
+            self._json(200 if row.get("ok") else 400, row)
+            return
+        if path == "/api/api-station/v1":
+            from api_station_v1 import handle_post  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            app_id = (qs.get("app") or ["worker-hub"])[0]
+            row = handle_post(app_id=app_id, body=body)
+            self._json(200 if row.get("ok") else 207, row)
+            return
+        if path == "/api/hub-pro-skills/v1":
+            from hub_pro_skills_v1 import append_entry  # noqa: WPS433
+
+            if str((body or {}).get("action") or "").strip().lower() != "append":
+                self._json(400, {"ok": False, "error": "action_required", "hint": "POST { action: append, app_id, agent, summary }"})
+                return
+            app_id = str((body or {}).get("app_id") or "").strip()
+            summary = str((body or {}).get("summary") or "").strip()
+            if not app_id or not summary:
+                self._json(400, {"ok": False, "error": "app_id_and_summary_required"})
+                return
+            row = append_entry(
+                app_id=app_id,
+                agent=str((body or {}).get("agent") or "hub_ui"),
+                summary=summary,
+                obstacles=(body or {}).get("obstacles") if isinstance((body or {}).get("obstacles"), list) else None,
+                fixes=(body or {}).get("fixes") if isinstance((body or {}).get("fixes"), list) else None,
+                golden_tips=(body or {}).get("golden_tips") if isinstance((body or {}).get("golden_tips"), list) else None,
+                paths=(body or {}).get("paths") if isinstance((body or {}).get("paths"), list) else None,
+            )
+            self._json(200 if row.get("ok") else 500, row)
+            return
+        if path == "/api/founder-ops/v1":
+            from founder_ops_v1 import run_op  # noqa: WPS433
+            from worker_hub_v1 import invalidate_worker_hub_cache  # noqa: WPS433
+
+            op = str((body or {}).get("op") or "").strip()
+            payload = (body or {}).get("payload") if isinstance((body or {}).get("payload"), dict) else {}
+            if not op:
+                self._json(400, {"ok": False, "error": "op_required", "hint": "POST { op: '<id>', payload: {} }"})
+                return
+            row = run_op(op, payload)
+            invalidate_worker_hub_cache()
+            self._json(200 if row.get("ok") else 207, row)
             return
         if path == "/api/worker-hub/heal":
             from worker_anti_staleness_heal_v1 import worker_anti_staleness_heal  # noqa: WPS433
@@ -1652,6 +1794,23 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
             )
             self._json(200 if row.get("ok") else 502, row)
             return
+        if path == "/api/cloud-workers/v1":
+            from cloud_workers_hub_v1 import handle_action  # noqa: WPS433
+            from worker_hub_v1 import invalidate_worker_hub_cache  # noqa: WPS433
+
+            row = handle_action(body if isinstance(body, dict) else {})
+            if str((body or {}).get("action") or "") in ("proceed", "dispatch"):
+                invalidate_worker_hub_cache()
+            self._json(200 if row.get("ok") else 502, row)
+            return
+        if path == "/api/cloud-drain/proceed/v1":
+            from hub_cloud_drain_proceed_v1 import proceed_from_hub  # noqa: WPS433
+            from worker_hub_v1 import invalidate_worker_hub_cache  # noqa: WPS433
+
+            row = proceed_from_hub(body if isinstance(body, dict) else {})
+            invalidate_worker_hub_cache()
+            self._json(200 if row.get("ok") else 502, row)
+            return
         if path == "/api/forge/v01/run/v1":
             from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
 
@@ -1681,6 +1840,16 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
                 path="/api/forge/v02/implement/v1",
                 body=body if isinstance(body, dict) else {},
                 timeout_s=180,
+            )
+            self._json(200 if row.get("ok") else 502, row)
+            return
+        if path == "/api/forge/v02/drain/v1":
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
+
+            row = proxy_to_cloud(
+                path="/api/forge/v02/drain/v1",
+                body=body if isinstance(body, dict) else {},
+                timeout_s=600,
             )
             self._json(200 if row.get("ok") else 502, row)
             return
@@ -1732,11 +1901,15 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
                 "system_snapshot": snap,
             }
 
+            variation_key = str(body.get("variation_key") or "").strip() or None
+
             def _local() -> dict:
                 return run_comprehension_bay(
                     draft=draft,
                     founder_message=founder_message,
                     system_snapshot=snap if isinstance(snap, dict) else None,
+                    variation_key=variation_key,
+                    context_id=str(body.get("context_id") or body.get("job_id") or ""),
                 )
 
             row = dispatch_fbe_route("/api/fbe/comprehension-loop/v1", fbe_body, _local)
@@ -1747,6 +1920,11 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
             slim = {
                 "ok": bool(raw.get("ok")),
                 "verdict": raw.get("verdict"),
+                "config_version": raw.get("config_version"),
+                "variation_key": raw.get("variation_key"),
+                "meaning_score": raw.get("meaning_score"),
+                "escalated": bool(raw.get("escalated")),
+                "attempts": raw.get("attempts") or [],
                 "for_founder": raw.get("for_founder") or {},
                 "for_agent": raw.get("for_agent") or {},
                 "one_line": raw.get("one_line") or "",
@@ -1754,7 +1932,20 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
                 "proxied": row.get("proxied", True),
                 "bay_slug": "comprehension-loop-bay",
             }
-            self._json(200 if slim.get("ok") else 422, slim)
+            code = 200 if slim.get("verdict") else (200 if slim.get("ok") else 422)
+            self._json(code, slim)
+            return
+        if path == "/api/comprehension-eval-batch/v1":
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
+
+            vk = str(body.get("variation_key") or "").strip() or None
+            proxy_body = {"variation_key": vk} if vk else {}
+            row = proxy_to_cloud(
+                path="/api/fbe/comprehension-eval-batch/v1",
+                body=proxy_body,
+                timeout_s=180,
+            )
+            self._json(200 if row.get("ok") else 422, row)
             return
         if path == "/api/fbe/actions/v1":
             from fbe_actions_v1 import run_action  # noqa: WPS433
@@ -1860,40 +2051,40 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
                 if not isinstance(comments, dict):
                     comments = None
                 partial = bool(body.get("partial_batch") or body.get("batch_submit"))
-                result = submit_founder_picks(
-                    overrides=overrides,
-                    comments=comments,
-                    cascade_hub=False,
-                    partial_batch=partial,
-                    actor="founder",
-                    channel="hub_browser",
-                )
                 try:
-                    warm_hub_cache_from_disk()
-                except Exception:
-                    pass
+                    result = submit_founder_picks(
+                        overrides=overrides,
+                        comments=comments,
+                        cascade_hub=False,
+                        partial_batch=partial,
+                        actor="founder",
+                        channel="hub_browser",
+                        background_wire=False,
+                    )
+                except Exception as exc:
+                    self._json(
+                        500,
+                        {
+                            "ok": False,
+                            "error": "FORM_SUBMIT_EXCEPTION",
+                            "detail": str(exc)[:240],
+                        },
+                    )
+                    return
+                code = 200 if result.get("ok") else 500
+                result["cascade"] = result.get("cascade") or "disk_now·wire_background"
+                self._json(code, result)
 
-                def _form_cascade_bg() -> None:
+                def _form_post_response_wire() -> None:
                     try:
-                        subprocess.run(
-                            [
-                                sys.executable,
-                                str(SOURCE_A / "scripts" / "governance_propagation_cascade_v1.py"),
-                                "--reason",
-                                "hub-form-submit",
-                            ],
-                            cwd=str(SOURCE_A),
-                            capture_output=True,
-                            timeout=300,
-                            check=False,
-                        )
+                        from hub_form_submit_v1 import _background_form_wire  # noqa: WPS433
+
+                        _background_form_wire(reason="hub-form-submit")
                         warm_hub_cache_from_disk()
                     except Exception:
                         pass
 
-                threading.Thread(target=_form_cascade_bg, daemon=True, name="form-cascade").start()
-                result["cascade"] = "disk_now·governance_background"
-                self._json(200 if result.get("ok") else 500, result)
+                threading.Thread(target=_form_post_response_wire, daemon=True, name="form-post-wire").start()
                 return
             self._json(400, {"ok": False, "error": "action required: submit"})
             return
@@ -2461,6 +2652,8 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
             path = "/worker-hub/index.html"
         elif path in ("/machines", "/machines/"):
             path = "/machines/index.html"
+        elif path in ("/cloud-workers", "/cloud-workers/"):
+            path = "/cloud-workers/index.html"
         rel = unquote(path.lstrip("/"))
         file_path = (PANEL_DIR / rel).resolve()
         root = PANEL_DIR.resolve()

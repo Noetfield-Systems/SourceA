@@ -90,6 +90,57 @@ case "$ACTION" in
     "$OPEN" "${N8_BASE}/?t=$(date +%s)"
     exit 0
     ;;
+  portfolio-mail|mail-hub|mail)
+    bash "$SA/scripts/portfolio-stack-start-v1.sh" || true
+    PM_APP="$HOME/Desktop/Portfolio Mail.app"
+    if [[ -d "$PM_APP" ]]; then
+      notify "Opening Portfolio Mail…" "Portfolio Mail"
+      "$OPEN" "$PM_APP"
+      exit 0
+    fi
+    CU_PORT="${CHAT_UNIFY_PORT:-13023}"
+    N8_PORT="${N8N_INTEGRATION_PORT:-13026}"
+    if ! "$CURL" -sf "http://127.0.0.1:${CU_PORT}/health" >/dev/null 2>&1; then
+      notify "Starting Chat Unify…" "Portfolio Mail"
+      "$SA/scripts/serve-chat-unify.sh" || true
+    fi
+    if ! "$CURL" -sf "http://127.0.0.1:${N8_PORT}/health" >/dev/null 2>&1; then
+      notify "Starting N8N Integration…" "Portfolio Mail"
+      "$SA/scripts/serve-n8n-integration.sh" || true
+    fi
+    if ! "$CURL" -sf "${BASE}/health" >/dev/null 2>&1; then
+      notify "Starting Worker Hub…" "Portfolio Mail"
+      "$SA/scripts/serve-sina-command.sh" || true
+      for _ in {1..40}; do
+        "$CURL" -sf "${BASE}/health" >/dev/null 2>&1 && break
+        sleep 0.25
+      done
+    fi
+    python3 "$SA/scripts/portfolio_mail_integration_wire_v1.py" --wire --json >/dev/null 2>&1 || true
+    notify "Opening Portfolio Mail…" "Portfolio Mail"
+    "$OPEN" "${BASE}/mail-hub/?t=$(date +%s)"
+    exit 0
+    ;;
+  worker-hub|hub|open|command|home)
+    bash "$SA/scripts/portfolio-stack-start-v1.sh" || true
+    WH_APP="$HOME/Desktop/Worker Hub.app"
+    if [[ -d "$WH_APP" ]]; then
+      notify "Opening Worker Hub…" "Worker Hub"
+      "$OPEN" "$WH_APP"
+      exit 0
+    fi
+    if ! "$CURL" -sf "${BASE}/health" >/dev/null 2>&1; then
+      notify "Starting Worker Hub stack…" "Worker Hub"
+      bash "$SA/scripts/worker-hub-stack-boot.sh" || true
+      for _ in {1..40}; do
+        "$CURL" -sf "${BASE}/health" >/dev/null 2>&1 && break
+        sleep 0.25
+      done
+    fi
+    notify "Opening Worker Hub…" "Worker Hub"
+    "$OPEN" "${BASE}/?t=$(date +%s)"
+    exit 0
+    ;;
 esac
 
 ensure_server() {
@@ -151,6 +202,12 @@ fi
 TS="$(date +%s)"
 case "$ACTION" in
   open|command|home)
+    WH_APP="$HOME/Desktop/Worker Hub.app"
+    if [[ -d "$WH_APP" ]]; then
+      notify "Opening Worker Hub…" "Worker Hub"
+      "$OPEN" "$WH_APP"
+      exit 0
+    fi
     URL="${BASE}/?tab=command&t=${TS}"
     TITLE="Sina Command"
     ;;
@@ -269,6 +326,25 @@ case "$ACTION" in
     fi
     URL="${N8_BASE}/?t=${TS}"
     TITLE="N8N Integration"
+    ;;
+  portfolio-mail|mail-hub|mail)
+    PM_APP="$HOME/Desktop/Portfolio Mail.app"
+    if [[ -d "$PM_APP" ]]; then
+      notify "Opening Portfolio Mail…" "Portfolio Mail"
+      "$OPEN" "$PM_APP"
+      exit 0
+    fi
+    CU_PORT="${CHAT_UNIFY_PORT:-13023}"
+    N8_PORT="${N8N_INTEGRATION_PORT:-13026}"
+    if ! "$CURL" -sf "http://127.0.0.1:${CU_PORT}/health" >/dev/null 2>&1; then
+      api_launch "chat-unify" || "$SA/scripts/serve-chat-unify.sh" || true
+    fi
+    if ! "$CURL" -sf "http://127.0.0.1:${N8_PORT}/health" >/dev/null 2>&1; then
+      api_launch "n8n-integration" || "$SA/scripts/serve-n8n-integration.sh" || true
+    fi
+    python3 "$SA/scripts/portfolio_mail_integration_wire_v1.py" --wire --json >/dev/null 2>&1 || true
+    URL="${BASE}/mail-hub/?t=${TS}"
+    TITLE="Portfolio Mail"
     ;;
   roadmaps|goals)
     URL="${BASE}/?tab=roadmaps&t=${TS}"

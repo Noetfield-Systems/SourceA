@@ -179,6 +179,33 @@ def _behavior_settings_inject() -> dict:
         }
 
 
+def _next_task_trigger_inject() -> dict:
+    try:
+        from next_task_trigger_v1 import inject_slice  # noqa: WPS433
+
+        return inject_slice()
+    except Exception:
+        return {"ssot": "data/sourcea-next-task-trigger-v1.json"}
+
+
+def _task_plan_priority_inject() -> dict:
+    try:
+        from task_plan_priority_v1 import inject_slice  # noqa: WPS433
+
+        return inject_slice()
+    except Exception:
+        return {"ssot": "data/sourcea-task-plan-priority-v1.json"}
+
+
+def _hub_cloud_proceed_inject() -> dict:
+    try:
+        from hub_cloud_drain_proceed_v1 import inject_for_agents  # noqa: WPS433
+
+        return inject_for_agents()
+    except Exception:
+        return {"ssot": "data/hub-cloud-drain-proceed-v1.json"}
+
+
 def _main_problem_trigger_inject() -> dict:
     try:
         from main_problem_trigger_v1 import inject_slice  # noqa: WPS433
@@ -478,6 +505,9 @@ def build_mirror_state() -> dict:
     inject["thread_room_detail"] = _thread_room_inject()
     inject["founder_intent_first_detail"] = _behavior_settings_inject()
     inject["main_problem_trigger_detail"] = _main_problem_trigger_inject()
+    inject["next_task_trigger_detail"] = _next_task_trigger_inject()
+    inject["task_plan_priority_detail"] = _task_plan_priority_inject()
+    inject["hub_cloud_proceed_detail"] = _hub_cloud_proceed_inject()
     inject["comprehension_pipeline_detail"] = _comprehension_pipeline_inject()
     inject["mac_law_machine_detail"] = _mac_law_machine_inject()
     inject["mac_law_universal_detail"] = _mac_law_universal_inject()

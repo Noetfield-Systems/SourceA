@@ -68,6 +68,24 @@ def _outbound_aligned_pick(*, queue_sa: str, live_sa: str) -> dict | None:
     return None
 
 
+def _phase_market_observed(truth: dict) -> dict | None:
+    obs = _read(SINA / "phase-observed-v1.json")
+    if str(obs.get("era") or "") != "phase_market":
+        return None
+    if not (obs.get("queue_exhausted") or (truth.get("queue") or {}).get("queue_exhausted")):
+        return None
+    head = str(obs.get("cloud_drain_head") or "CLOUD-SEC-001")
+    return {
+        "ok": True,
+        "dual_pick_ok": True,
+        "aligned": True,
+        "phase_market": True,
+        "live_pick_sa": head,
+        "queue_sa": "",
+        "reason": "phase_market_cloud_drain_observed",
+    }
+
+
 def dual_pick_check() -> dict:
     truth = _read(TRUTH)
     queue_sa = (truth.get("queue") or {}).get("sa_id") or truth.get("queue_sa") or ""
@@ -98,6 +116,12 @@ def dual_pick_check() -> dict:
             "queue_sa": queue_sa,
             "reason": "lawful_queue_exhausted",
         }
+
+    market = _phase_market_observed(truth)
+    if market:
+        market["live_pick_sa"] = live_sa or market.get("live_pick_sa")
+        market["truth_match"] = truth.get("truth_match")
+        return market
 
     if _outbound_upgrade_queue(truth):
         outbound = _outbound_aligned_pick(queue_sa=queue_sa, live_sa=live_sa)
