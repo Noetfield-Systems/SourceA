@@ -18,6 +18,29 @@ def _now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def json_safe_dict(obj: Any) -> Any:
+    """Deep-copy for JSON.dumps — break cycles on execution_receipt/raw_receipt."""
+    seen: dict[int, Any] = {}
+
+    def _walk(value: Any) -> Any:
+        if isinstance(value, dict):
+            oid = id(value)
+            if oid in seen:
+                return "<cycle>"
+            out: dict[str, Any] = {}
+            seen[oid] = out
+            for key, item in value.items():
+                out[str(key)] = _walk(item)
+            return out
+        if isinstance(value, (list, tuple)):
+            return [_walk(item) for item in value]
+        if isinstance(value, (str, int, float, bool)) or value is None:
+            return value
+        return str(value)
+
+    return _walk(obj)
+
+
 def _read_json(path: Path) -> dict[str, Any]:
     if not path.is_file():
         return {}
@@ -193,6 +216,11 @@ def normalize_receipt(
         val = job_receipt.get(key)
         if val:
             artifacts.append(str(val))
+    raw_receipt = {
+        k: v
+        for k, v in job_receipt.items()
+        if k not in ("execution_receipt", "execution_mode", "raw_receipt")
+    }
     return {
         "schema": "fbe-execution-receipt-v1",
         "job_id": contract.get("job_id"),
@@ -215,7 +243,7 @@ def normalize_receipt(
         "tier_target": job_receipt.get("tier_target"),
         "federated_ok": job_receipt.get("federated_ok"),
         "at": _now(),
-        "raw_receipt": job_receipt,
+        "raw_receipt": raw_receipt,
     }
 
 
