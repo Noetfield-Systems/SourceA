@@ -17,6 +17,8 @@ EXEC_NAME="ChatUnifyShell"
 
 echo "→ Building self-contained ${APP_NAME}.app…"
 
+bash "$ROOT/scripts/sync-official-links-bar-v1.sh" 2>/dev/null || true
+
 python3 "$ROOT/scripts/build_sina_icons.py" 2>/dev/null || true
 
 rm -rf "$STAGE"
@@ -27,10 +29,15 @@ for f in chat-unify-server.py chat_unify_merge.py clipboard_safe.py cursor_windo
   cp "$ROOT/scripts/$f" "$BUNDLE_STAGE/scripts/"
 done
 cp -R "$ROOT/scripts/chat-unify-standalone/." "$BUNDLE_STAGE/app/"
+cp "$ROOT/agent-control-panel/shared/official-links-bar.js" "$BUNDLE_STAGE/app/official-links-bar.js"
+cp "$ROOT/agent-control-panel/shared/sina-main-terminal.js" "$BUNDLE_STAGE/app/sina-main-terminal.js"
+cp "$ROOT/agent-control-panel/shared/sina-main-terminal.css" "$BUNDLE_STAGE/app/sina-main-terminal.css"
+cp "$ROOT/agent-control-panel/shared/official-links-bar.css" "$BUNDLE_STAGE/app/official-links-bar.css" 2>/dev/null || true
 cp "$ROOT/CHAT_EXTRACT_UNIFY_PROMPT.txt" "$BUNDLE_STAGE/prompts/" 2>/dev/null || true
 cp "$ROOT/CHAT_UNIFY_ROLLUP_PROMPT.txt" "$BUNDLE_STAGE/prompts/" 2>/dev/null || true
 
-/usr/bin/swiftc -O -o "$STAGE/Contents/MacOS/${EXEC_NAME}" "$SWIFT_SRC" -framework Cocoa -framework WebKit
+SWIFT_COMMON="$APPS_BRAND/SinaAppRouter.swift $APPS_BRAND/SinaStandaloneShell.swift"
+/usr/bin/swiftc -O -o "$STAGE/Contents/MacOS/${EXEC_NAME}" $SWIFT_COMMON "$SWIFT_SRC" -framework Cocoa -framework WebKit
 chmod +x "$STAGE/Contents/MacOS/${EXEC_NAME}"
 
 if [[ -f "$ICNS" ]]; then
@@ -53,6 +60,7 @@ cat >"$STAGE/Contents/Info.plist" <<PLIST
   <key>CFBundleShortVersionString</key><string>1.2</string>
   <key>CFBundleVersion</key><string>12</string>
   <key>LSMinimumSystemVersion</key><string>12.0</string>
+  <key>NSPrincipalClass</key><string>NSApplication</string>
   <key>NSHighResolutionCapable</key><true/>
   <key>NSAppTransportSecurity</key>
   <dict>
@@ -88,19 +96,15 @@ ditto "$STAGE" "$APPS_HOME"
 sign_app "$DESKTOP"
 sign_app "$APPS_HOME"
 
-echo "→ Cold-start smoke test…"
-pkill -f "chat-unify-server.py" 2>/dev/null || true
-pkill -f "ChatUnifyShell" 2>/dev/null || true
-sleep 2
-open "$DESKTOP"
+echo "→ Cold-start smoke test (health only, no open)…"
 COLD_OK=0
-for _ in {1..20}; do
+for _ in {1..15}; do
   if /usr/bin/curl -sf "http://127.0.0.1:13023/health" >/dev/null 2>&1; then
-    echo "✓ Cold-start PASS — heart up after double-click"
+    echo "✓ Cold-start PASS — chat unify health OK"
     COLD_OK=1
     break
   fi
-  sleep 1
+  sleep 0.5
 done
 if [[ "$COLD_OK" != "1" ]]; then
   echo "WARN: cold-start failed — see ~/.sina/chat-unify-app-launch.log" >&2

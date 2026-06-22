@@ -55,6 +55,17 @@ APPS: dict[str, dict[str, Any]] = {
         "contract": "data/n8n-integration-founder-glance-ui-contract-v1.json",
         "validator": "scripts/validate-founder-glance-cockpit-apps-v1.sh",
     },
+    "cloud_workers": {
+        "label": "Cloud Workers Command Center",
+        "port": 13027,
+        "version": "1.0.0",
+        "primary_cta": "Proceed next cloud task",
+        "primary_button_id": "btn-cloud-proceed",
+        "url": "http://127.0.0.1:13027/",
+        "standalone_root": "scripts/cloud-workers-standalone",
+        "contract": "",
+        "validator": "scripts/validate-founder-glance-cockpit-apps-v1.sh",
+    },
 }
 
 

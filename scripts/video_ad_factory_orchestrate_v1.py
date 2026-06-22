@@ -21,10 +21,12 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
+SCRIPTS = ROOT / "scripts"
 SINA = Path.home() / ".sina"
 CAMPAIGNS_DIR = DATA / "video-ad-campaigns-v1"
 RECEIPT_PATH = SINA / "video-ad-orchestration-receipt-v1.json"
 ELEVENLABS_WIRE = ROOT / "scripts" / "film_elevenlabs_wire_v1.py"
+FACTORY_ID = "video-ad-factory-v1"
 
 VALID_STEPS = frozenset(
     {
@@ -122,13 +124,49 @@ def synthesize_audio_via_wire(script: str, *, vo_lane: str = "sourcea") -> dict:
     return {"ok": True, "verdict": "PASS", "wire_stdout": (proc.stdout or "")[-200:]}
 
 
+def preview_orchestration(raw_brief: str, *, cfg: dict[str, Any]) -> dict[str, Any]:
+    """Dry-run orchestration for golden eval — no campaign disk write."""
+    if not str(raw_brief or "").strip():
+        return {"ok": False, "verdict": "BLOCKED", "error": "empty_brief"}
+    try:
+        generated = generate_scenario_from_brief(raw_brief, mock=bool(cfg.get("mock_llm", True)))
+        validated = _validate_scenario(generated)
+    except ValueError as exc:
+        return {"ok": False, "verdict": "BLOCKED", "error": str(exc)}
+    script = validated["refined_script"]
+    if len(script) > int(cfg.get("max_script_chars") or 500):
+        return {"ok": False, "verdict": "BLOCKED", "error": "script_too_long"}
+    step = "AUDIO_READY"
+    if cfg.get("require_approval", True) or not cfg.get("allow_fal_render"):
+        step = "HUMAN_APPROVAL_REQUIRED"
+    return {
+        "ok": True,
+        "verdict": "ALLOW",
+        "current_step": step,
+        "config_version": cfg.get("config_version"),
+        "variation_key": cfg.get("variation_key"),
+        "mock_llm": bool(cfg.get("mock_llm", True)),
+    }
+
+
 def orchestrate_campaign(
     campaign_id: str,
     *,
     require_approval: bool = True,
     mock_llm: bool = True,
     vo_lane: str = "sourcea",
+    variation_key: str | None = None,
+    write_receipt: bool = True,
 ) -> dict:
+    if str(SCRIPTS) not in sys.path:
+        sys.path.insert(0, str(SCRIPTS))
+    from agent_runtime_config_v1 import load_factory_runtime_config  # noqa: WPS433
+
+    cfg = load_factory_runtime_config(FACTORY_ID, variation_key=variation_key)
+    require_approval = bool(cfg.get("require_approval", require_approval))
+    mock_llm = bool(cfg.get("mock_llm", mock_llm))
+    vo_lane = str(cfg.get("vo_lane") or vo_lane)
+
     campaign = _load_campaign(campaign_id)
     raw_brief = str(campaign.get("raw_brief") or "").strip()
     if not raw_brief:
@@ -158,13 +196,17 @@ def orchestrate_campaign(
         "ok": True,
         "at": _now(),
         "campaign_id": campaign_id,
+        "factory_id": FACTORY_ID,
+        "config_version": cfg.get("config_version"),
+        "variation_key": cfg.get("variation_key"),
         "current_step": campaign["current_step"],
         "audio": audio,
         "honest_label": audio.get("verdict", "MOCK_ONLY"),
         "next": "scripts/video_ad_rendering_bridge_v1.py after founder approval",
     }
-    SINA.mkdir(parents=True, exist_ok=True)
-    RECEIPT_PATH.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+    if write_receipt:
+        SINA.mkdir(parents=True, exist_ok=True)
+        RECEIPT_PATH.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
     return receipt
 
 
@@ -188,6 +230,8 @@ def main() -> int:
     ap.add_argument("--campaign-id", default="demo-campaign-v1")
     ap.add_argument("--seed-demo", action="store_true")
     ap.add_argument("--no-approval-gate", action="store_true")
+    ap.add_argument("--variation-key", default="")
+    ap.add_argument("--no-write", action="store_true", help="Skip ~/.sina receipt (validators/mac-light)")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
 
@@ -198,6 +242,8 @@ def main() -> int:
         row = orchestrate_campaign(
             args.campaign_id,
             require_approval=not args.no_approval_gate,
+            variation_key=args.variation_key or None,
+            write_receipt=not args.no_write,
         )
     except Exception as exc:
         row = {"ok": False, "error": str(exc), "at": _now()}

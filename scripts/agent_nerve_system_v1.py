@@ -485,6 +485,35 @@ def _outbound_ship_gates() -> dict:
     return row
 
 
+def _comprehension_line_from_receipt(*, max_age_hours: int = 24) -> str:
+    """Fresh cloud comprehension client receipt → short observe line for nerves."""
+    from datetime import timedelta
+
+    path = SINA / "cloud-comprehension-bay-receipt-v1.json"
+    row = _read_json(path)
+    at = str(row.get("at") or "")
+    verdict = str(row.get("verdict") or "")
+    if not at or not verdict:
+        return ""
+    try:
+        ts = datetime.strptime(at, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+        if datetime.now(timezone.utc) - ts > timedelta(hours=max_age_hours):
+            return ""
+    except ValueError:
+        return ""
+    cfg = str(row.get("config_version") or "")
+    plane = str(row.get("execution_plane") or "")
+    score = row.get("meaning_score")
+    parts = [f"comprehension {verdict}"]
+    if cfg:
+        parts.append(f"cfg {cfg}")
+    if score is not None:
+        parts.append(f"score {score}")
+    if plane and plane not in ("mac_local_fallback", "mac_hub_local_fallback"):
+        parts.append(plane.replace("_", " "))
+    return " · ".join(parts)
+
+
 def run_nerve_pulse(*, write: bool = True, refresh_loops: bool = False) -> dict:
     if refresh_loops:
         sys.path.insert(0, str(SCRIPTS))
@@ -633,6 +662,14 @@ def run_nerve_pulse(*, write: bool = True, refresh_loops: bool = False) -> dict:
             lines["cloud_factories_online_line"] = cloud_row["cloud_factories_online_line"]
             ship["cloud_factories_online_only"] = bool(cloud_row.get("ok"))
             ship["cloud_factories_online_line"] = cloud_row["cloud_factories_online_line"]
+    except Exception:
+        pass
+    try:
+        comp_line = _comprehension_line_from_receipt()
+        if comp_line:
+            lines["comprehension_line"] = comp_line
+            ship["comprehension_line"] = comp_line
+            ship["comprehension_bay_fresh"] = True
     except Exception:
         pass
     try:
@@ -795,6 +832,10 @@ def patch_surfaces(*, row: dict | None = None) -> dict:
     for key, val in (row.get("lines") or {}).items():
         if val and not surf.get(key):
             surf[key] = val
+    bay_line = _comprehension_line_from_receipt()
+    if bay_line:
+        surf["comprehension_bay_line"] = bay_line
+        surf["comprehension_line"] = bay_line
     surf_path.write_text(json.dumps(surf, indent=2) + "\n", encoding="utf-8")
     return {"ok": True, "path": str(surf_path), "nerve_system_line": row.get("nerve_system_line")}
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Install launchd supervisor for Sina Command hub (:13020) — KeepAlive + RunAtLoad.
+# Law: data/execution-state-desired-observed-v1.json — launchd = sole owner; no pkill when healthy.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PLIST_SRC="$ROOT/launch/com.sourcea.hub.plist"
@@ -12,9 +13,26 @@ DOMAIN="gui/${UID_NUM}"
 export PATH="/opt/homebrew/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH:-/usr/bin:/bin}"
 
 mkdir -p "${HOME}/.sina" "${HOME}/Library/LaunchAgents"
+CURL="$(command -v curl 2>/dev/null || echo /usr/bin/curl)"
+
+health_ok() { "$CURL" -sf "http://127.0.0.1:${PORT}/health" >/dev/null 2>&1; }
+
 cp "$PLIST_SRC" "$PLIST_DST"
 
-# Stop manual/nohup instances so launchd owns the port.
+# Healthy hub — bootstrap only; never pkill a working listener
+if health_ok; then
+  launchctl bootout "$DOMAIN" "$PLIST_DST" 2>/dev/null || launchctl unload "$PLIST_DST" 2>/dev/null || true
+  if launchctl bootstrap "$DOMAIN" "$PLIST_DST" 2>/dev/null; then
+    :
+  else
+    launchctl load "$PLIST_DST" 2>/dev/null || true
+  fi
+  launchctl enable "$DOMAIN/${LABEL}" 2>/dev/null || true
+  echo "OK: hub already healthy — launchd registered → http://127.0.0.1:${PORT}/"
+  exit 0
+fi
+
+# Unhealthy or down — clear orphan nohup fights, then bootstrap
 pkill -f 'sina-command-server.py' 2>/dev/null || true
 sleep 0.5
 
@@ -25,12 +43,23 @@ else
   launchctl load "$PLIST_DST"
 fi
 launchctl enable "$DOMAIN/${LABEL}" 2>/dev/null || true
-launchctl kickstart -k "$DOMAIN/${LABEL}" 2>/dev/null || true
+# Soft kickstart first
+launchctl kickstart "$DOMAIN/${LABEL}" 2>/dev/null || true
 
-CURL="$(command -v curl 2>/dev/null || echo /usr/bin/curl)"
 for _ in {1..40}; do
-  if "$CURL" -sf "http://127.0.0.1:${PORT}/health" >/dev/null 2>&1; then
+  if health_ok; then
     echo "OK: hub supervised via launchd → http://127.0.0.1:${PORT}/"
+    bash "$ROOT/scripts/install-autorun-launchd-v1.sh" 2>/dev/null || true
+    exit 0
+  fi
+  sleep 0.25
+done
+
+# Hard restart only if still down
+launchctl kickstart -k "$DOMAIN/${LABEL}" 2>/dev/null || true
+for _ in {1..40}; do
+  if health_ok; then
+    echo "OK: hub supervised via launchd (after kickstart -k) → http://127.0.0.1:${PORT}/"
     bash "$ROOT/scripts/install-autorun-launchd-v1.sh" 2>/dev/null || true
     exit 0
   fi

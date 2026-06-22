@@ -248,6 +248,14 @@ def run_upgrade(*, write: bool = True) -> dict:
     except Exception as exc:
         anti_theater_row = {"ok": False, "error": str(exc)}
 
+    task_priority_row: dict = {}
+    try:
+        from task_plan_priority_v1 import refresh as task_priority_refresh  # noqa: WPS433
+
+        task_priority_row = task_priority_refresh(write=True)
+    except Exception as exc:
+        task_priority_row = {"ok": False, "error": str(exc)}
+
     sync_ok = True
     row = {
         "schema": "plans-unified-upgrade-receipt-v1",
@@ -273,6 +281,13 @@ def run_upgrade(*, write: bool = True) -> dict:
             f"brain {br_sum['done']}/{br_sum['total']} {br_sum['active_epic']} · "
             f"M111 {eco111_row.get('progress', {}).get('done', '?')}/{eco111_row.get('progress', {}).get('total', 111)}"
         ),
+        "task_plan_priority": {
+            "ok": bool(task_priority_row.get("ok")),
+            "line": task_priority_row.get("task_plan_priority_line"),
+            "smart_pick": task_priority_row.get("smart_pick"),
+            "top_ranked": (task_priority_row.get("ranked") or [])[:5],
+            "ssot": "data/sourcea-task-plan-priority-v1.json",
+        },
         "one_law": "Phase 0 reference + attract · Phase 1 free-tier exhaust · Phase 2 founder approval",
         "phase0_check": {
             "ok": bool(phase0_row.get("ok")),
@@ -297,6 +312,7 @@ def run_upgrade(*, write: bool = True) -> dict:
         },
         "cross_ref": UNIFIED_CROSS_REF,
         "hub_api": "POST /api/plans-unified/tick/v1",
+        "task_plan_priority_line": task_priority_row.get("task_plan_priority_line"),
     }
     if write:
         SINA.mkdir(parents=True, exist_ok=True)
@@ -322,6 +338,8 @@ def hub_slice() -> dict:
         "brain_cloud": row.get("brain_cloud"),
         "phase0_reference": row.get("phase0_check"),
         "anti_theater": row.get("anti_theater_check"),
+        "task_plan_priority": row.get("task_plan_priority"),
+        "task_plan_priority_line": row.get("task_plan_priority_line"),
         "hub_api": row.get("hub_api"),
     }
 

@@ -134,6 +134,9 @@ bash "$SA/scripts/build-apple-health-standalone-app-v1.sh" 2>/dev/null || mkapp 
 # Chat Unify — self-contained double-click app (no hub, no browser)
 bash "$SA/scripts/build-chat-unify-standalone-app-v1.sh" 2>/dev/null || mkapp "Chat Unify" "sina-chat-unify" "com.sina.chatunify" "exec \"$LAUNCHER\" chat-unify"
 
+# Cloud Workers — command center standalone
+bash "$SA/scripts/build-cloud-workers-standalone-app-v1.sh" 2>/dev/null || true
+
 # Retire legacy Terminal shortcuts
 for old in \
   "Sina Command.command" "Sina Dispatch.command" "Sina Execute All.command" \

@@ -273,6 +273,21 @@ def first_open_queue_pos() -> int:
                     return cur
             except (OSError, json.JSONDecodeError, TypeError, ValueError):
                 pass
+    # FORGE FACTORY cycle2: healthy-queue-state cursor wins (registry may lag closeout).
+    if str(raw.get("era") or "") == "forge_factory_cycle2":
+        state_path = healthy_queue_state_path()
+        if state_path.is_file():
+            try:
+                st = json.loads(state_path.read_text(encoding="utf-8"))
+                if st.get("queue_exhausted") or raw.get("queue_exhausted"):
+                    return len(items) + 1
+                cur = int(st.get("next_pos") or 1)
+                if cur > len(items):
+                    return len(items) + 1
+                if 1 <= cur <= len(items):
+                    return cur
+            except (OSError, json.JSONDecodeError, TypeError, ValueError):
+                pass
     return registry_pos
 
 
