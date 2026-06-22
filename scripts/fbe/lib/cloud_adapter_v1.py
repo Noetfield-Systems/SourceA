@@ -23,13 +23,28 @@ def _now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def is_headless_runtime() -> bool:
+    """True when running inside Railway/FBE container (not Mac dev tree)."""
+    if str(os.environ.get("FBE_MODE", "")).lower() == "headless":
+        return True
+    if os.environ.get("FBE_HOME", "").strip() == "/app":
+        return True
+    return Path("/app").is_dir() and (Path("/app") / "scripts" / "fbe_run_job_v1.py").is_file()
+
+
 def skeleton_ready() -> dict[str, bool]:
-    return {
-        "dockerfile": DOCKERFILE.is_file(),
-        "entrypoint": ENTRYPOINT.is_file(),
-        "entrypoint_executable": ENTRYPOINT.is_file() and bool(ENTRYPOINT.stat().st_mode & 0o111),
+    dockerfile = DOCKERFILE if DOCKERFILE.is_file() else ROOT / "cloud" / "Dockerfile.fbe-runner"
+    entrypoint = ENTRYPOINT if ENTRYPOINT.is_file() else Path("/entrypoint.sh")
+    skel = {
+        "dockerfile": dockerfile.is_file(),
+        "entrypoint": entrypoint.is_file(),
+        "entrypoint_executable": entrypoint.is_file() and bool(entrypoint.stat().st_mode & 0o111),
         "bay_jobs": (ROOT / "data" / "fbe_bay_jobs_v1.json").is_file(),
     }
+    if is_headless_runtime():
+        skel["dockerfile"] = True
+        skel["headless_bypass"] = True
+    return skel
 
 
 def _cloud_worker_url() -> str:
@@ -80,7 +95,7 @@ def _run_railway_http(
     }
     if forge_context:
         body["forge_context"] = forge_context
-        for key in ("stack", "competitor", "workstream", "prompt_abs", "task_graph_path", "run_id"):
+        for key in ("stack", "competitor", "workstream", "prompt_abs", "task_graph_path", "run_id", "task_graph"):
             if forge_context.get(key) is not None:
                 body[key] = forge_context[key]
     payload = json.dumps(body).encode("utf-8")
@@ -171,6 +186,42 @@ def _run_local_docker(*, bay_slug: str, run_mode: str = "refinery") -> dict[str,
         return {"ok": True, "mode": "local_python_fallback", "run_mode": run_mode, "note": str(exc), "tail": out[-400:]}
 
 
+def _run_in_process(
+    *,
+    bay_slug: str,
+    run_mode: str,
+    template_id: str,
+    tenant: str,
+    work_order_id: str,
+    forge_context: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Execute motor in-process on Railway headless worker (no HTTP self-loop)."""
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from fbe_run_job_v1 import run_job  # noqa: WPS433
+
+    template = template_id
+    bay = bay_slug
+    ten = tenant
+    if run_mode == "forge":
+        template = "forge-app-factory-v1"
+        bay = bay or "forge-bay"
+        ten = ten or "forge"
+    elif run_mode == "exchange":
+        template = "exchange-factory-v1"
+        bay = bay or "trustfield-bay"
+        ten = ten or "trustfield"
+    row = run_job(
+        bay_slug=bay,
+        template_id=template,
+        tenant=ten,
+        work_order_id=work_order_id,
+        forge_context=forge_context,
+    )
+    row["mode"] = "in_process"
+    row["run_mode"] = run_mode
+    return row
+
+
 def submit_job(
     *,
     template_id: str,
@@ -186,10 +237,26 @@ def submit_job(
     ok = all(skel.values())
     run_result: dict[str, Any] = {}
     wave = "W4" if run_mode == "exchange" else ("W3" if run_mode in ("assembly", "full_job") else "W2")
-    plane = "headless_w4" if wave == "W4" else ("headless_w3" if wave == "W3" else "headless_w2")
+    if run_mode == "forge":
+        wave = "W5"
+    plane = "headless_w4" if wave == "W4" else ("headless_w3" if wave == "W3" else ("headless_w5" if wave == "W5" else "headless_w2"))
+    headless = is_headless_runtime()
+    effective_mode = mode
+    if headless and mode == "railway_fbe":
+        effective_mode = "in_process"
 
     if ok and not dry_run:
-        if mode == "railway_fbe":
+        if effective_mode == "in_process":
+            run_result = _run_in_process(
+                bay_slug=bay_slug,
+                run_mode=run_mode,
+                template_id=template_id,
+                tenant=tenant,
+                work_order_id=work_order_id,
+                forge_context=forge_context,
+            )
+            ok = bool(run_result.get("ok"))
+        elif mode == "railway_fbe":
             run_result = _run_railway_http(
                 bay_slug=bay_slug,
                 run_mode=run_mode,
@@ -220,7 +287,7 @@ def submit_job(
         "ok": ok,
         "at": _now(),
         "mode": f"{wave.lower()}_headless" if not dry_run else "w1_skeleton",
-        "submit_mode": mode,
+        "submit_mode": effective_mode if headless else mode,
         "run_mode": run_mode,
         "template_id": template_id,
         "work_order_id": work_order_id,

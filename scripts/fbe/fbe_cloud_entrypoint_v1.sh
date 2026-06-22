@@ -81,6 +81,7 @@ run_full_job() {
 
 if [[ "$MODE" == "--serve-http" ]]; then
   validate_skeleton
+  python3 scripts/fbe_cloud_motor_seed_v1.py --json || true
   echo "FBE W6 headless HTTP worker (port ${PORT:-8080})"
   exec python3 scripts/fbe_cloud_worker_http_v1.py --port "${PORT:-8080}"
 fi
