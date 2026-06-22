@@ -20,12 +20,19 @@ MAIN_SCOPE="the-777-foundation"
 TRIAL_SCOPE="noetfield-systems"
 TRIAL_USER_PATTERN="noetfield"
 
-vercel_cmd() {
-  if command -v vercel >/dev/null 2>&1; then
-    vercel "$@"
+# Mac has no global `vercel` — always npx (full path when possible).
+_npx_bin() {
+  if [[ -x /usr/local/bin/npx ]]; then
+    echo /usr/local/bin/npx
+  elif command -v npx >/dev/null 2>&1; then
+    command -v npx
   else
-    npx --yes vercel@latest "$@"
+    echo npx
   fi
+}
+
+vercel_cmd() {
+  "$(_npx_bin)" --yes vercel@latest "$@"
 }
 
 write_env() {
@@ -115,20 +122,22 @@ echo "=== Vercel CLI → MAIN account ==="
 echo "Email: kazemnezhadsina144@gmail.com"
 echo "Team:  the-777-foundation"
 echo ""
-if command -v vercel >/dev/null 2>&1; then VC=vercel; else VC="npx --yes vercel@latest"; fi
+NPX="/usr/local/bin/npx"
+if [[ ! -x "${NPX}" ]]; then NPX="$(command -v npx || echo npx)"; fi
+VC="${NPX} --yes vercel@latest"
 echo "Logging out trial session (if any)…"
-$VC logout 2>/dev/null || true
+${VC} logout 2>/dev/null || true
 echo ""
 echo "Opening browser — sign in as kazemnezhadsina144@gmail.com"
-$VC login
+${VC} login
 echo ""
 echo "Teams:"
-$VC teams ls
+${VC} teams ls
 echo ""
 echo "Whoami:"
-$VC whoami
+${VC} whoami
 echo ""
-if $VC teams ls 2>/dev/null | grep -q "the-777-foundation"; then
+if ${VC} teams ls 2>/dev/null | grep -q "the-777-foundation"; then
   echo "PASS: main team visible — CLI is on MAIN"
 else
   echo "FAIL: the-777-foundation not in teams list — wrong Gmail?"

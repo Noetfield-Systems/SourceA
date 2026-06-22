@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -23,6 +24,35 @@ SINA = Path.home() / ".sina"
 STAGING = SINA / "fbe-railway-staging-v1"
 CONFIG = ROOT / "data" / "fbe_cloud_worker_config_v1.json"
 RECEIPT = SINA / "fbe-cloud-deploy-receipt-v1.json"
+
+COMPREHENSION_VERIFY_SKIPPED = {"ok": None, "skipped": True, "tail": ""}
+
+
+def _comprehension_verify_enabled(explicit: bool) -> bool:
+    return explicit or os.environ.get("FBE_VERIFY_COMPREHENSION", "").strip() == "1"
+
+
+def _write_receipt(row: dict) -> None:
+    row.setdefault("comprehension_verify", dict(COMPREHENSION_VERIFY_SKIPPED))
+    RECEIPT.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+
+
+def _run_comprehension_verify(row: dict) -> None:
+    vcode = subprocess.run(
+        ["bash", str(ROOT / "scripts" / "validate-cloud-comprehension-railway-v1.sh")],
+        cwd=str(ROOT),
+        capture_output=True,
+        text=True,
+        env={**os.environ},
+    )
+    row["comprehension_verify"] = {
+        "ok": vcode.returncode == 0,
+        "skipped": False,
+        "tail": (vcode.stdout or vcode.stderr or "")[-600:],
+    }
+    if vcode.returncode != 0:
+        row["ok"] = False
+        row["error"] = "comprehension_railway_verify_failed"
 
 # Minimal COPY set from cloud/Dockerfile.fbe-runner — avoids 413 on full-repo railway up.
 _STAGING_DATA_FILES = (
@@ -42,8 +72,17 @@ _STAGING_DATA_FILES = (
     "founder-reply-glossary-v1.json",
     "agent-report-language-standard-v1.json",
     "cloud-comprehension-bay-v1.json",
+    "comprehension-golden-v1.json",
     "loop-specialist-cloud-contract-v1.json",
     "secondary-cloud-drain-next-100-v1.json",
+    "cloud-drain-queue-active-v1.json",
+    "secondary-cloud-drain-batch-2-locked-v1.json",
+    "secondary-cloud-drain-batch-1-complete-locked-v1.json",
+    "cloud-drain-queue-path-v1.py",
+    "hub-cloud-drain-proceed-v1.json",
+    "truth-log-cloud-contract-v1.json",
+    "cloud-drain-auto-runtime-v1.json",
+    "living-system-chain-registry-cloud-v1.json",
     "forge-scoring-ssot-v01.json",
     "forge-github-source-v02.json",
     "forge-mvp-router-rules-v0.1.json",
@@ -78,6 +117,8 @@ _STAGING_SCRIPT_FILES = (
     "fbe_factory_spec_v1.py",
     "mac_focus_freeze_v1.py",
     "fbe_comprehension_bay_v1.py",
+    "fbe_comprehension_eval_batch_v1.py",
+    "agent_runtime_config_v1.py",
     "fbe_cloud_loop_specialist_tick_v1.py",
     "founder_reply_translator_v1.py",
     "agent_report_language_gate_v1.py",
@@ -85,11 +126,29 @@ _STAGING_SCRIPT_FILES = (
     "forge_v01_engine_v1.py",
     "forge_v02_github_v1.py",
     "forge_v02_implement_v1.py",
+    "implement_run_detail_slice_v1.py",
+    "implement__evidence_slice_v1.py",
+    "forge_v02_status_v1.py",
+    "forge_v02_drain_v1.py",
     "forge_mvp_lib_v1.py",
     "forge_router_execute_v01.py",
     "forge_critic_loop_v01.py",
     "forge_task_graph_emit_v01.py",
     "fbe_sign_work_order_v1.py",
+    "fbe_cloud_motor_seed_v1.py",
+    "hub_cloud_drain_proceed_v1.py",
+    "truth_log_v1.py",
+    "truth_layer_receipt_writer_v1.py",
+    "truth_layer_verifier_v1.py",
+    "cloud_drain_queue_path_v1.py",
+    "cloud_drain_auto_runtime_v1.py",
+    "cloud_forge_seed_v1.py",
+    "autonomous_drain_receipt_cloud_v1.py",
+    "living_system_chain_validate_v1.py",
+    "portfolio__forge_dispatch_v1.py",
+    "portfolio__pick_lib.py",
+    "forge_cloud_env_load_v1.py",
+    "task_plan_priority_v1.py",
 )
 
 
@@ -159,6 +218,12 @@ def _stage_deploy_context() -> dict:
         shutil.copytree(plans_src, STAGING / "plans")
         copied.append("plans/")
 
+    reg_src = ROOT / "brain-os" / "plan-registry" / "sourcea--1000"
+    reg_dst = STAGING / "data" / "sourcea--1000-registry"
+    if reg_src.is_dir():
+        shutil.copytree(reg_src, reg_dst)
+        copied.append("data/sourcea--1000-registry/")
+
     cloud_dir = STAGING / "cloud"
     cloud_dir.mkdir(parents=True)
     for name in ("Dockerfile.fbe-runner", "railway.toml"):
@@ -166,6 +231,11 @@ def _stage_deploy_context() -> dict:
         if src.is_file():
             _copy_file(src, cloud_dir / name)
             copied.append(f"cloud/{name}")
+
+    seed_src = ROOT / "cloud" / "seed"
+    if seed_src.is_dir():
+        shutil.copytree(seed_src, cloud_dir / "seed")
+        copied.append("cloud/seed/")
 
     canonical_entry = ROOT / "scripts" / "fbe" / "fbe_cloud_entrypoint_v1.sh"
     if canonical_entry.is_file():
@@ -219,6 +289,45 @@ def _health(url: str) -> dict:
         return {"ok": False, "url": url, "error": str(exc)[:200]}
 
 
+def _probe_cloud_proceed_route(url: str) -> dict:
+    """Dry-run POST — route live when hub-cloud-drain-proceed schema returns (not unknown_route/import)."""
+    try:
+        req = urllib.request.Request(
+            f"{url.rstrip('/')}/api/cloud-drain/proceed/v1",
+            data=json.dumps(
+                {
+                    "dry_run": True,
+                    "llm_provider": "openrouter",
+                    "plan_id": "CLOUD-SEC-006",
+                    "maps_registry": "sa-mkt-0006",
+                    "full_motor": True,
+                }
+            ).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            raw = resp.read().decode("utf-8")
+            row = json.loads(raw) if raw.strip() else {}
+    except urllib.error.HTTPError as exc:
+        raw = exc.read().decode("utf-8", errors="replace")
+        try:
+            row = json.loads(raw) if raw.strip() else {}
+        except json.JSONDecodeError:
+            row = {"error": str(exc)[:120]}
+    except Exception as exc:
+        return {"ok": False, "url": url, "error": str(exc)[:200]}
+
+    err = str(row.get("error") or "")
+    schema = str(row.get("schema") or "")
+    if err == "unknown_route":
+        return {"ok": False, "url": url, "route_error": err, "sample": row}
+    if "No module named" in str(row.get("message") or ""):
+        return {"ok": False, "url": url, "route_error": "import_missing", "sample": row}
+    ok = schema == "hub-cloud-drain-proceed-v1" or (bool(row) and err not in ("unknown_route", "execution_failed"))
+    return {"ok": ok, "url": url, "route_error": err or None, "sample": row}
+
+
 def _wait_health(url: str, *, attempts: int = 36, delay_sec: float = 10.0) -> dict:
     import time
 
@@ -255,13 +364,18 @@ def _ensure_railway_service(*, project_id: str, service: str, environment: str =
     return {"ok": True, "steps": steps}
 
 
-def deploy(*, link: bool = True) -> dict:
+def deploy(*, link: bool = True, verify_comprehension: bool = False) -> dict:
     cfg = _read(CONFIG)
     rail = cfg.get("railway") or {}
     project_id = str(rail.get("project_id") or "")
     service = str(rail.get("service_name") or "sourcea-fbe-runner")
     environment = str(rail.get("environment") or "production")
-    row: dict = {"schema": "fbe-cloud-deploy-receipt-v1", "at": _now(), "deployment": "railway"}
+    row: dict = {
+        "schema": "fbe-cloud-deploy-receipt-v1",
+        "at": _now(),
+        "deployment": "railway",
+        "comprehension_verify": dict(COMPREHENSION_VERIFY_SKIPPED),
+    }
 
     if link and project_id:
         ensure = _ensure_railway_service(project_id=project_id, service=service, environment=environment)
@@ -270,7 +384,7 @@ def deploy(*, link: bool = True) -> dict:
             row["ok"] = False
             row["error"] = ensure.get("error") or "railway_service_setup_failed"
             row["founder_action"] = f"railway login · then re-run deploy_fbe_railway_v1.py · create service {service}"
-            RECEIPT.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+            _write_receipt(row)
             return row
 
     stage = _stage_deploy_context()
@@ -278,7 +392,7 @@ def deploy(*, link: bool = True) -> dict:
     if not stage.get("ok"):
         row["ok"] = False
         row["error"] = "staging_failed"
-        RECEIPT.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+        _write_receipt(row)
         return row
 
     code, out = _run(
@@ -290,7 +404,7 @@ def deploy(*, link: bool = True) -> dict:
     if code != 0:
         row["ok"] = False
         row["error"] = "railway_up_failed"
-        RECEIPT.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+        _write_receipt(row)
         return row
 
     dcode, dout = _run(["railway", "domain", "--json", "-s", service], cwd=ROOT, timeout=60)
@@ -315,34 +429,53 @@ def deploy(*, link: bool = True) -> dict:
     if not url:
         row["ok"] = False
         row["error"] = "no_public_domain"
-        RECEIPT.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+        _write_receipt(row)
         return row
 
     import time
 
     probe: dict = {"ok": False}
-    for attempt in range(1, 41):
+    route_probe: dict = {"ok": False}
+    for attempt in range(1, 4):
         probe = _health(url)
         if probe.get("ok"):
-            break
-        time.sleep(15)
-    row.update({"ok": probe.get("ok"), "worker_url": url, **probe, "health_attempts": attempt})
-    RECEIPT.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+            route_probe = _probe_cloud_proceed_route(url)
+            if route_probe.get("ok"):
+                break
+        time.sleep(5)
+    row.update(
+        {
+            "ok": bool(probe.get("ok")) and bool(route_probe.get("ok")),
+            "worker_url": url,
+            **probe,
+            "health_attempts": attempt,
+            "cloud_proceed_route": route_probe,
+        }
+    )
+    if probe.get("ok") and not route_probe.get("ok"):
+        row["error"] = "cloud_proceed_route_not_live"
     if probe.get("ok"):
         subprocess.run(
             [sys.executable, str(ROOT / "scripts" / "cloud_factory_10_steps_v1.py"), "--step", "2", "--json"],
             cwd=str(ROOT),
             check=False,
         )
+        if verify_comprehension:
+            _run_comprehension_verify(row)
+    _write_receipt(row)
     return row
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--no-link", action="store_true")
+    ap.add_argument("--verify-comprehension", action="store_true")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
-    row = deploy(link=not args.no_link)
+    row = deploy(
+        link=not args.no_link,
+        verify_comprehension=_comprehension_verify_enabled(bool(args.verify_comprehension)),
+    )
     if args.json:
         print(json.dumps(row, indent=2))
     else:

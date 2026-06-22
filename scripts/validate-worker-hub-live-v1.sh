@@ -34,4 +34,21 @@ after = (d.get('health_after') or {}).get('status') or '?'
 print('OK: heal endpoint', after, 'schema=' + schema)
 " || fail "heal endpoint missing — restart hub (serve-sina-command)"
 
+python3 - <<'PY' || fail "cloud_glance_line missing when Railway ok"
+import json, sys, urllib.request
+sys.path.insert(0, "scripts")
+from worker_hub_v1 import worker_hub_payload
+from mac_health_cloud_glance_v1 import probe as cloud_glance_probe
+
+glance = cloud_glance_probe(write_receipt=False)
+payload = worker_hub_payload(skip_cache=True)
+line = payload.get("cloud_glance_line") or ""
+if glance.get("railway_ok"):
+    assert line.strip(), f"cloud_glance_line empty while railway_ok glance={glance.get('founder_line')!r}"
+    assert "Cloud" in line or "Railway" in line or "comprehension" in line.lower(), line
+    print("OK: worker hub cloud_glance_line when Railway ok:", line[:100])
+else:
+    print("WARN: Railway not ok — cloud_glance_line check skipped")
+PY
+
 echo "OK: validate-worker-hub-live-v1"

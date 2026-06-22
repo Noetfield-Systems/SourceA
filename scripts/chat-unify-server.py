@@ -126,6 +126,18 @@ class ChatUnifyHandler(BaseHTTPRequestHandler):
 
             self._json(200, build_report())
             return
+        if path == "/api/api-station/terminal/v1":
+            from api_station_v1 import handle_terminal_get  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            lines = int((qs.get("lines") or ["120"])[0])
+            self._json(200, handle_terminal_get(lines=lines))
+            return
+        if path == "/api/api-station/v1":
+            from api_station_v1 import handle_get  # noqa: WPS433
+
+            self._json(200, handle_get(app_id="chat-unify"))
+            return
         if path == "/api/ai-unify":
             from ai_unify_api_v1 import status_payload  # noqa: WPS433
 
@@ -147,6 +159,18 @@ class ChatUnifyHandler(BaseHTTPRequestHandler):
             from ai_unify_api_v1 import handle_action  # noqa: WPS433
 
             result = handle_action(body)
+            self._json(200 if result.get("ok") else 400, result)
+            return
+        if path == "/api/api-station/v1":
+            length = int(self.headers.get("Content-Length", 0))
+            raw = self.rfile.read(length) if length else b"{}"
+            try:
+                body = json.loads(raw.decode("utf-8"))
+            except json.JSONDecodeError:
+                body = {}
+            from api_station_v1 import handle_post  # noqa: WPS433
+
+            result = handle_post(app_id="chat-unify", body=body)
             self._json(200 if result.get("ok") else 400, result)
             return
         if path != "/api/chat-unify":

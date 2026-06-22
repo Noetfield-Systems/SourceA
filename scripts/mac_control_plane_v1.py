@@ -257,12 +257,31 @@ def enter(*, wire_sync: bool = True) -> dict[str, Any]:
         pass
 
     uid = os.getuid()
+    hub_domain = f"gui/{uid}/com.sourcea.hub"
+    hub_healthy = False
     try:
-        subprocess.run(
-            ["launchctl", "kickstart", "-k", f"gui/{uid}/com.sourcea.hub"],
+        proc = subprocess.run(
+            ["curl", "-sf", "-m", "3", "http://127.0.0.1:13020/health"],
             capture_output=True,
-            timeout=8.0,
+            text=True,
+            timeout=5.0,
         )
+        hub_healthy = proc.returncode == 0
+    except (OSError, subprocess.TimeoutExpired):
+        hub_healthy = False
+    try:
+        if hub_healthy:
+            subprocess.run(
+                ["launchctl", "kickstart", hub_domain],
+                capture_output=True,
+                timeout=8.0,
+            )
+        else:
+            subprocess.run(
+                ["launchctl", "kickstart", "-k", hub_domain],
+                capture_output=True,
+                timeout=8.0,
+            )
     except (OSError, subprocess.TimeoutExpired):
         pass
 

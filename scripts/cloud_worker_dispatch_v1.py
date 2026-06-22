@@ -11,7 +11,18 @@ from typing import Any
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
-PLANS_PATH = ROOT / "data" / "secondary-cloud-drain-next-100-v1.json"
+
+
+def _plans_path() -> Path:
+    import sys
+
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from cloud_drain_queue_path_v1 import active_drain_path  # noqa: WPS433
+
+    return active_drain_path()
+
+
+PLANS_PATH = _plans_path()
 RECEIPTS_ROOT = ROOT / "receipts"
 RECEIPTS_DIR = RECEIPTS_ROOT / "cloud-dispatch"
 INDEX_PATH = RECEIPTS_ROOT / "index.json"
@@ -42,6 +53,13 @@ _URLS: dict[str, dict[str, str]] = {
         "ws-run": "https://www.inngest.com/docs/platform/monitor/insights",
         "ws-onboard": "https://www.inngest.com/docs/getting-started/nextjs-quick-start",
         "ws-integrate": "https://www.inngest.com/docs/events",
+    },
+    "LaunchDarkly": {
+        "ws-ux": "https://launchdarkly.com/platform/agent-control/",
+        "ws-pricing": "https://launchdarkly.com/pricing/",
+        "ws-run": "https://launchdarkly.com/docs/home/agentcontrol",
+        "ws-onboard": "https://launchdarkly.com/docs/home/agentcontrol/quickstart",
+        "ws-integrate": "https://launchdarkly.com/docs/home/getting-started/mcp-hosted",
     },
 }
 
