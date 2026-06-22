@@ -20,7 +20,6 @@ GATED_PATHS = frozenset(
     {
         "/api/cloud-drain/proceed/v1",
         "/api/cloud-drain/auto-tick/v1",
-        "/api/cloud-drain/queue/v1",
     }
 )
 
