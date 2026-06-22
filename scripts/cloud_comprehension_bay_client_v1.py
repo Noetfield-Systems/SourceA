@@ -48,7 +48,12 @@ def light_system_snapshot() -> dict:
     }
 
 
-def _cloud_proxy(draft: str, founder_message: str) -> dict:
+def _cloud_proxy(
+    draft: str,
+    founder_message: str,
+    *,
+    variation_key: str | None = None,
+) -> dict:
     sys.path.insert(0, str(SCRIPTS))
     from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
 
@@ -62,6 +67,8 @@ def _cloud_proxy(draft: str, founder_message: str) -> dict:
         "founder_message": founder_message,
         "system_snapshot": light_system_snapshot(),
     }
+    if variation_key:
+        body["variation_key"] = variation_key
     return proxy_to_cloud(path=CLOUD_PATH, body=body, timeout_s=120)
 
 
@@ -103,27 +110,67 @@ def _hub_fallback(draft: str, founder_message: str, hub_url: str) -> dict:
         }
 
 
+def _local_bay(
+    draft: str,
+    founder_message: str,
+    *,
+    variation_key: str | None = None,
+    fallback_reason: str = "cloud_unavailable",
+) -> dict:
+    sys.path.insert(0, str(SCRIPTS))
+    from fbe_comprehension_bay_v1 import run_comprehension_bay  # noqa: WPS433
+
+    row = run_comprehension_bay(
+        draft=draft,
+        founder_message=founder_message,
+        variation_key=variation_key,
+    )
+    row["execution_plane"] = "mac_local_fallback"
+    row["fallback_reason"] = fallback_reason
+    row["proxied"] = False
+    return row
+
+
 def analyze_via_cloud(
     *,
     draft: str,
     founder_message: str = "",
     hub_url: str = HUB_FALLBACK,
+    variation_key: str | None = None,
     write_receipt: bool = True,
 ) -> dict:
-    row = _cloud_proxy(draft, founder_message)
-    if not row.get("ok") and row.get("error") in (
+    row = _cloud_proxy(draft, founder_message, variation_key=variation_key)
+    cloud_errors = (
         "cloud_worker_unreachable",
         "cloud_proxy_fatal",
-    ):
-        row = _hub_fallback(draft, founder_message, hub_url)
+        "cloud_proxy_http_error",
+    )
+    if row.get("verdict"):
+        pass  # valid bay receipt from cloud (ACCEPT or BLOCKED)
+    elif not row.get("ok") and row.get("error") in cloud_errors:
+        hub_row = _hub_fallback(draft, founder_message, hub_url)
+        if hub_row.get("ok"):
+            row = hub_row
+        else:
+            row = _local_bay(
+                draft,
+                founder_message,
+                variation_key=variation_key,
+                fallback_reason=str(hub_row.get("error") or row.get("error") or "cloud_unavailable"),
+            )
 
     out = {
         "schema": "cloud-comprehension-bay-client-receipt-v1",
         "at": _now(),
         "ok": bool(row.get("ok")),
-        "proxied": True,
+        "proxied": bool(row.get("proxied", row.get("execution_plane") != "mac_local_fallback")),
         "execution_plane": row.get("execution_plane") or "headless_cloud",
         "verdict": row.get("verdict"),
+        "config_version": row.get("config_version"),
+        "variation_key": row.get("variation_key"),
+        "meaning_score": row.get("meaning_score"),
+        "escalated": bool(row.get("escalated")),
+        "attempts": row.get("attempts") or [],
         "for_founder": row.get("for_founder") or {},
         "for_agent": row.get("for_agent") or {},
         "one_line": row.get("one_line") or "",

@@ -25,7 +25,7 @@ POLICY_LINKS = (
 )
 
 _CACHE: dict = {"at": 0.0, "payload": None}
-_CACHE_TTL = 2.0
+_CACHE_TTL = 15.0
 _BUILD_LOCK = threading.Lock()
 _DEBUG_LOG = ROOT / ".cursor" / "debug-baabac.log"
 
@@ -276,6 +276,15 @@ def _plans_unified_slice() -> dict:
         return {"ok": False, "error": str(exc), "schema": "worker-hub-plans-unified-v1"}
 
 
+def _cloud_drain_proceed_slice() -> dict:
+    try:
+        from hub_cloud_drain_proceed_v1 import hub_slice  # noqa: WPS433
+
+        return hub_slice()
+    except Exception as exc:
+        return {"ok": False, "error": str(exc)[:120], "ssot": "data/hub-cloud-drain-proceed-v1.json"}
+
+
 def _world_model_slice() -> dict:
     try:
         from world_model_plan_check_v1 import hub_slice  # noqa: WPS433
@@ -442,35 +451,47 @@ def _next_steps_preview_slice() -> dict:
 
 
 def _ecosystem_connected_slice() -> dict:
-    try:
-        from validate_sourcea_ecosystem_connected_v1 import assess_ecosystem_connected  # noqa: WPS433
-
-        row = assess_ecosystem_connected(write_receipt=False)
+    """Disk receipt only — never run validator marathon on Hub poll (INCIDENT-039)."""
+    row = _read_sina_json("sourcea-ecosystem-connected-receipt-v1.json")
+    if not row:
         return {
-            "ecosystem_connected": bool(row.get("ecosystem_connected")),
-            "ok": bool(row.get("ok")),
-            "line": row.get("line"),
-            "checks": row.get("checks"),
+            "ecosystem_connected": None,
+            "ok": None,
+            "line": "ecosystem-connected · run heal or cloud CI validator",
+            "checks": {},
+            "receipt_stale": True,
         }
-    except Exception as exc:
-        return {"ecosystem_connected": False, "ok": False, "error": str(exc)}
+    return {
+        "ecosystem_connected": bool(row.get("ecosystem_connected")),
+        "ok": bool(row.get("ok")),
+        "line": row.get("line"),
+        "checks": row.get("checks"),
+        "receipt_at": row.get("at"),
+        "outbound_progress_line": row.get("outbound_progress_line"),
+        "execution_honesty_line": row.get("execution_honesty_line"),
+    }
 
 
 def _worker_connected_slice() -> dict:
-    try:
-        from validate_sourcea_worker_connected_v1 import assess_connected  # noqa: WPS433
-
-        row = assess_connected(hub_check=False, write_receipt=False)
+    """Disk receipt only — hub_check=False path; no recursive GET /api/worker-hub/v1."""
+    row = _read_sina_json("sourcea-worker-connected-receipt-v1.json")
+    if not row:
         return {
-            "connected": bool(row.get("connected")),
-            "ok": bool(row.get("ok")),
-            "line": row.get("line"),
-            "outbound_progress_line": row.get("outbound_progress_line"),
-            "execution_honesty_line": row.get("execution_honesty_line"),
-            "checks": row.get("checks"),
+            "connected": None,
+            "ok": None,
+            "line": "worker-connected · run heal or cloud CI validator",
+            "checks": {},
+            "receipt_stale": True,
         }
-    except Exception as exc:
-        return {"connected": False, "ok": False, "error": str(exc)}
+    return {
+        "connected": bool(row.get("connected")),
+        "ok": bool(row.get("ok")),
+        "line": row.get("line"),
+        "outbound_progress_line": row.get("outbound_progress_line"),
+        "execution_honesty_line": row.get("execution_honesty_line"),
+        "checks": row.get("checks"),
+        "receipt_at": row.get("at"),
+    }
 
 
 def _build_extended_slices() -> dict:
@@ -687,6 +708,7 @@ def _build_worker_hub_payload_row() -> dict:
         }
     )
     plans_unified = _plans_unified_slice()
+    cloud_drain_proceed = _cloud_drain_proceed_slice()
     anti_theater = _anti_theater_slice()
     agent_behavior = _behavior_settings_slice()
     factory_cost_intelligence = _factory_cost_intelligence_slice()
@@ -722,6 +744,7 @@ def _build_worker_hub_payload_row() -> dict:
         "mac_health_live": _mac_health_live_slice(),
         "cloud_glance_line": (ecosystem_mac_health.get("cloud_glance") or {}).get("founder_line"),
         "plans_unified": plans_unified,
+        "cloud_drain_proceed": cloud_drain_proceed,
         "anti_theater": anti_theater,
         "agent_behavior": agent_behavior,
         "factory_cost_intelligence": factory_cost_intelligence,
@@ -805,6 +828,12 @@ def _build_worker_hub_payload_row() -> dict:
             "plans_unified_tick": {
                 "path": "/api/plans-unified/tick/v1",
                 "method": "POST",
+            },
+            "cloud_drain_proceed": {
+                "path": "/api/cloud-drain/proceed/v1",
+                "method": "POST",
+                "label": "Proceed next cloud task (OpenRouter/Gemini on Railway)",
+                "body": {"llm_provider": "openrouter", "full_motor": True},
             },
             "world_model_tick": {
                 "path": "/api/world-model-plan-check/tick/v1",

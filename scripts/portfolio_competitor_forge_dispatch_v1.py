@@ -16,13 +16,68 @@ from forge_mvp_lib_v1 import persist_work_order  # noqa: E402
 from forge_task_graph_emit_v01 import emit_for_pick  # noqa: E402
 from portfolio_competitor_pick_lib import enrich_pick, load_registry, phase_order, pick_backlog_plans, resolve_stack  # noqa: E402
 
+DRAIN_SSOT = ROOT / "data" / "secondary-cloud-drain-next-100-v1.json"
+
+
+def _cloud_sec_id_for_registry_plan(registry_plan_id: str) -> str | None:
+    """Map sa-mkt-0001 → CLOUD-SEC-001 via secondary cloud drain SSOT."""
+    if not DRAIN_SSOT.is_file():
+        return None
+    try:
+        doc = json.loads(DRAIN_SSOT.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    rid = str(registry_plan_id or "").strip()
+    for row in doc.get("plans") or []:
+        if str(row.get("maps_registry") or "") == rid:
+            return str(row.get("id") or "") or None
+    return None
+
+
+def _use_evidence_slice(pick: dict[str, Any]) -> bool:
+    """T0 competitor evidence plans use cloud_worker_dispatch — not W5 motor_verify chain."""
+    tier = str(pick.get("tier") or pick.get("sa_tier") or "").upper()
+    plan_id = str(pick.get("id") or "")
+    if tier == "T0" and plan_id.startswith("sa-mkt-"):
+        return _cloud_sec_id_for_registry_plan(plan_id) is not None
+    return False
+
+
+def _dispatch_evidence_slice(pick: dict[str, Any], *, dry_run: bool) -> dict[str, Any]:
+    from cloud_worker_dispatch_v1 import dispatch  # noqa: WPS433
+
+    cloud_id = _cloud_sec_id_for_registry_plan(str(pick.get("id") or ""))
+    if not cloud_id:
+        return {"ok": False, "error": "cloud_sec_mapping_missing", "plan_id": pick.get("id")}
+    row = dispatch(plan_id=cloud_id, dry_run=dry_run)
+    return {
+        "schema": "portfolio-competitor-forge-dispatch-v1",
+        "ok": bool(row.get("ok")) or dry_run,
+        "dispatch_lane": "cloud_worker_evidence_slice",
+        "registry_plan_id": pick.get("id"),
+        "cloud_sec_plan_id": cloud_id,
+        "dry_run": dry_run,
+        "reason": "T0 sa-mkt uses cloud_worker_dispatch — W5 motor_verify requires Mac ~/.sina receipts absent on Railway",
+        "cloud_dispatch": row,
+        "competitor_plan": {
+            "plan_id": pick.get("id"),
+            "competitor": pick.get("competitor"),
+            "workstream": pick.get("workstream"),
+            "execution_mode": "CLOUD_ONLY",
+        },
+        "mac_build_forbidden": True,
+    }
+
 
 def dispatch_pick(
     pick: dict[str, Any],
     *,
     dry_run: bool = False,
     mode: str = "railway_fbe",
+    full_motor: bool = False,
 ) -> dict[str, Any]:
+    if not full_motor and _use_evidence_slice(pick):
+        return _dispatch_evidence_slice(pick, dry_run=dry_run)
     if not dry_run:
         load_cloud_env(apply=True)
     graph_row = emit_for_pick(pick)
@@ -40,6 +95,10 @@ def dispatch_pick(
         "execution_mode": "CLOUD_ONLY",
         "preview_url": None,
     }
+    try:
+        forge_context["task_graph"] = json.loads(Path(graph_row["path"]).read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        pass
     persist_work_order(forge_context)
     sys.path.insert(0, str(ROOT / "scripts" / "fbe" / "lib"))
     from cloud_adapter_v1 import submit_job  # noqa: WPS433
@@ -59,7 +118,7 @@ def dispatch_pick(
     receipt["run_id"] = graph_row["run_id"]
     receipt["forge_loop"] = forge.get("stack_loop")
     receipt["mac_build_forbidden"] = True
-    if not dry_run and mode == "railway_fbe":
+    if not dry_run and mode == "railway_fbe" and receipt.get("submit_mode") != "in_process":
         env = load_cloud_env(apply=False)
         if not env.get("cloud_ready"):
             receipt["ok"] = False
@@ -75,6 +134,11 @@ def main() -> int:
     p.add_argument("--stack", required=True)
     p.add_argument("--plan-id", default="", help="Specific plan id; default = next pick")
     p.add_argument("--dry-run", action="store_true")
+    p.add_argument(
+        "--full-motor",
+        action="store_true",
+        help="Use W5 FORGE motor on Railway (revenue lane) — not evidence-slice stub",
+    )
     p.add_argument("--mode", default="railway_fbe", choices=("railway_fbe", "local_docker", "mono_mirror"))
     p.add_argument("--json", action="store_true")
     args = p.parse_args()
@@ -100,7 +164,7 @@ def main() -> int:
             return 1
         pick = enrich_pick(stack_key, backlog[0], registry)
 
-    receipt = dispatch_pick(pick, dry_run=args.dry_run, mode=args.mode)
+    receipt = dispatch_pick(pick, dry_run=args.dry_run, mode=args.mode, full_motor=args.full_motor)
 
     if args.json:
         print(json.dumps(receipt, indent=2))

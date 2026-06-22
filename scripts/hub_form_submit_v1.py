@@ -7,7 +7,9 @@ Golden rule: FOUNDER PICK > AGENT RECOMMENDATION > DISK GATHER ROW
 from __future__ import annotations
 
 import json
+import subprocess
 import sys
+import threading
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -88,6 +90,75 @@ def _write_canvas_state(state: dict) -> Path:
     return CANVAS_DATA
 
 
+def _disk_fast_apply(*, canvas_path: Path, actor: str, channel: str) -> dict:
+    """Apply picks to §ANSWERED + machines — no hub rebuild (founder zero-latency path)."""
+    sys.path.insert(0, str(SCRIPTS))
+    from canvas_form_apply_picks_v1 import apply  # noqa: WPS433
+
+    apply_result = apply(canvas_path=canvas_path, dry_run=False, actor=actor, channel=channel)
+
+    try:
+        from h2_pending_registry_sync_v1 import sync_h2_registry  # noqa: WPS433
+
+        h2 = sync_h2_registry(caller="hub_form_submit_fast")
+        apply_result["h2_registry_sync"] = bool(h2.get("ok"))
+    except Exception as exc:
+        apply_result["h2_registry_sync"] = False
+        apply_result["h2_error"] = str(exc)[:120]
+
+    try:
+        from worker_hub_v1 import invalidate_worker_hub_cache  # noqa: WPS433
+        from machine_hub_v1 import invalidate_machine_hub_cache  # noqa: WPS433
+
+        invalidate_worker_hub_cache()
+        invalidate_machine_hub_cache()
+    except Exception:
+        pass
+
+    receipt = Path.home() / ".sina/hub-form-submit-receipt-v1.json"
+    receipt.parent.mkdir(parents=True, exist_ok=True)
+    receipt.write_text(
+        json.dumps(
+            {
+                "schema": "hub-form-submit-receipt-v1",
+                "at": _now(),
+                "ok": bool(apply_result.get("ok")),
+                "applied_now": apply_result.get("applied_now"),
+                "open_remaining": apply_result.get("open_remaining"),
+                "shipped": apply_result.get("shipped") or [],
+                "path": "disk_fast",
+            },
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    apply_result["receipt_path"] = str(receipt)
+    return apply_result
+
+
+def _background_form_wire(*, reason: str = "hub-form-submit") -> None:
+    """Heavy wire after founder already has disk truth."""
+    steps: list[str] = []
+    for label, cmd in (
+        ("sync_picks_locked", [sys.executable, str(SCRIPTS / "sync_picks_locked_v1.py")]),
+        ("form_reconcile", [sys.executable, str(SCRIPTS / "form_open_questions_reconcile_v1.py"), "--json"]),
+        ("form_official_wire", [sys.executable, str(SCRIPTS / "form_official_wire_e2e_v1.py"), "--no-regen", "--json"]),
+        ("judge_alarm_strip", [sys.executable, str(SCRIPTS / "hub_judge_alarm_strip_v1.py"), "--refresh-judge"]),
+        ("governance_cascade", [sys.executable, str(SCRIPTS / "governance_propagation_cascade_v1.py"), "--reason", reason]),
+    ):
+        try:
+            proc = subprocess.run(cmd, cwd=str(ROOT), capture_output=True, text=True, timeout=300, check=False)
+            steps.append(f"{label}={'ok' if proc.returncode == 0 else 'fail'}")
+        except Exception as exc:
+            steps.append(f"{label}=err:{str(exc)[:40]}")
+    bg_receipt = Path.home() / ".sina/hub-form-submit-background-v1.json"
+    bg_receipt.write_text(
+        json.dumps({"schema": "hub-form-submit-background-v1", "at": _now(), "steps": steps}, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
 def submit_founder_picks(
     *,
     overrides: dict | None = None,
@@ -96,6 +167,7 @@ def submit_founder_picks(
     partial_batch: bool = False,
     actor: str = "founder",
     channel: str = "hub_browser",
+    background_wire: bool = True,
 ) -> dict:
     sys.path.insert(0, str(SCRIPTS))
     from form_founder_supremacy_guard_v1 import assert_founder_submit_allowed  # noqa: WPS433
@@ -120,15 +192,13 @@ def submit_founder_picks(
 
     state = build_founder_picks_state(overrides=overrides)
     if not state["open_count"]:
-        from live_founder_decision_form_v1 import payload  # noqa: WPS433
-
         return {
             "ok": True,
             "mode": "founder_picks",
             "applied_now": 0,
             "message": "Form clear — 0 open rows",
             "open_questions_count": 0,
-            "form": payload(),
+            "form_official_line": "FORM_OFFICIAL · 0 open",
         }
 
     if not state["complete"]:
@@ -154,18 +224,59 @@ def submit_founder_picks(
         }
 
     canvas_path = _write_canvas_state(state)
-    from canvas_form_submit_v1 import submit as form_canvas_submit  # noqa: WPS433
-    from live_founder_decision_form_v1 import payload  # noqa: WPS433
 
-    result = form_canvas_submit(cascade_hub=cascade_hub, canvas_data=canvas_path, actor=actor, channel=channel)
+    if cascade_hub:
+        from canvas_form_submit_v1 import submit as form_canvas_submit  # noqa: WPS433
+
+        result = form_canvas_submit(cascade_hub=True, canvas_data=canvas_path, actor=actor, channel=channel)
+    else:
+        apply_result = _disk_fast_apply(canvas_path=canvas_path, actor=actor, channel=channel)
+        if background_wire:
+            threading.Thread(
+                target=_background_form_wire,
+                kwargs={"reason": "hub-form-submit"},
+                daemon=True,
+                name="form-wire-bg",
+            ).start()
+        result = {
+            "ok": bool(apply_result.get("ok")),
+            "hub_synced": "background",
+            "applied_now": apply_result.get("applied_now", 0),
+            "open_remaining": apply_result.get("open_remaining"),
+            "shipped": apply_result.get("shipped") or [],
+            "steps": [{"step": "disk_fast_apply", "ok": bool(apply_result.get("ok"))}],
+            "canvas_data": str(canvas_path),
+            "receipt_path": apply_result.get("receipt_path"),
+            "cascade": "disk_now·wire_background",
+        }
+
     result["mode"] = "founder_picks"
     result["submitted_rows"] = state["rows"]
     result["submitted_count"] = state["count"]
+    from live_founder_decision_form_v1 import all_open_questions, form_official_line  # noqa: WPS433
+
+    oq = result.get("open_remaining")
+    if oq is None:
+        oq = len(all_open_questions())
+    result["open_questions_count"] = oq
+    result["form_official_line"] = form_official_line(open_count=oq)
     result["message"] = (
         f"Founder submit — {result.get('applied_now', 0)} shipped · "
         f"{result.get('open_questions_count', '?')} open remaining"
     )
-    result["form"] = payload()
+    return result
+
+
+def submit_founder_picks_with_form(
+    **kwargs,
+) -> dict:
+    """Submit + full form payload (CLI / agents only — Hub uses slim submit)."""
+    result = submit_founder_picks(**kwargs)
+    if result.get("ok"):
+        sys.path.insert(0, str(SCRIPTS))
+        from live_founder_decision_form_v1 import payload  # noqa: WPS433
+
+        result["form"] = payload()
     return result
 
 

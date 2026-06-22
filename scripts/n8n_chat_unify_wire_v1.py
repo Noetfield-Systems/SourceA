@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import subprocess
 import sqlite3
+import shutil
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -141,8 +142,15 @@ def _webhook_registered() -> bool:
 
 
 def _restart_n8n() -> dict[str, Any]:
-    subprocess.run(["pkill", "-f", "n8n start"], check=False)
-    subprocess.run(["pkill", "-f", "npx.*n8n"], check=False)
+    """Restart n8n on :5678 only — never broad pkill (would hit n8n-integration-server)."""
+    subprocess.run(
+        [
+            "bash",
+            "-c",
+            "lsof -t -iTCP:5678 -sTCP:LISTEN 2>/dev/null | xargs kill 2>/dev/null || true",
+        ],
+        check=False,
+    )
     import time
 
     time.sleep(2)
@@ -199,8 +207,29 @@ def import_merge_workflow(*, active: bool = True) -> dict[str, Any]:
 
 def activate_merge_workflow() -> dict[str, Any]:
     row = _wf_row()
-    if row and row[1] and _webhook_registered():
-        return {"ok": True, "wf_id": row[0], "already_active": True, "webhook_registered": True}
+    if row and row[1]:
+        if _webhook_registered():
+            return {"ok": True, "wf_id": row[0], "already_active": True, "webhook_registered": True}
+        if _probe_health("http://127.0.0.1:5678/healthz"):
+            return {
+                "ok": True,
+                "wf_id": row[0],
+                "already_active": True,
+                "webhook_registered": False,
+                "note": "Workflow active; glue runner handles merge without webhook",
+            }
+        restart = _restart_n8n()
+        import time
+
+        time.sleep(6)
+        return {
+            "ok": bool(restart.get("ok")),
+            "wf_id": row[0],
+            "already_active": True,
+            "webhook_registered": _webhook_registered(),
+            "n8n_restart": restart,
+            "note": "Workflow active; glue runner used if webhook missing",
+        }
     if not row:
         imported = import_merge_workflow(active=True)
         if not imported.get("ok"):
@@ -226,15 +255,44 @@ def activate_merge_workflow() -> dict[str, Any]:
     }
 
 
+def _activate_workflow_sql(wf_id: str) -> bool:
+    if not N8N_DB.is_file():
+        return False
+    try:
+        con = sqlite3.connect(N8N_DB)
+        con.execute("UPDATE workflow_entity SET active = 1 WHERE id = ?", (wf_id,))
+        con.commit()
+        con.close()
+        return True
+    except sqlite3.Error:
+        return False
+
+
 def _publish_workflow(wf_id: str) -> bool:
-    proc = subprocess.run(
-        ["n8n", "publish:workflow", f"--id={wf_id}"],
-        cwd=str(SOURCE_A),
-        capture_output=True,
-        text=True,
-        timeout=90,
-    )
-    return proc.returncode == 0
+    """Publish/activate merge workflow — npx CLI when available, else SQLite activate."""
+    npx = shutil.which("npx")
+    if npx:
+        proc = subprocess.run(
+            [npx, "--yes", "n8n", "publish:workflow", f"--id={wf_id}"],
+            cwd=str(SOURCE_A),
+            capture_output=True,
+            text=True,
+            timeout=90,
+        )
+        if proc.returncode == 0:
+            return True
+    n8n = shutil.which("n8n")
+    if n8n:
+        proc = subprocess.run(
+            [n8n, "publish:workflow", f"--id={wf_id}"],
+            cwd=str(SOURCE_A),
+            capture_output=True,
+            text=True,
+            timeout=90,
+        )
+        if proc.returncode == 0:
+            return True
+    return _activate_workflow_sql(wf_id)
 
 
 def _direct_merge_ingest(payload: dict[str, Any]) -> dict[str, Any]:

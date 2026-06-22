@@ -31,6 +31,9 @@ ICON_SPECS = [
     ("sina-mac-health", "sina-command.png", "#34d399", "🛡"),
     ("sina-chat-unify", "sina-command.png", "#a78bfa", "⇄"),
     ("sina-n8n-integration", "sina-command.png", "#ff6d3f", "⎇"),
+    ("sina-portfolio-mail", "sina-command.png", "#6366f1", "✉"),
+    ("sina-worker-hub", "sina-command.png", "#4f6ef7", "⚡"),
+    ("sina-cloud-workers", "sina-command.png", "#38bdf8", "☁"),
 ]
 
 
