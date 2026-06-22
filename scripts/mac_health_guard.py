@@ -1594,49 +1594,105 @@ def _attach_action_receipt(report: dict, *, action: str, extra: dict | None = No
     return report
 
 
-def run_heal(*, standalone: bool = False) -> dict[str, Any]:
-    """Brain heal — CART · pipeline queue sweep · firewall attempt · fresh scan."""
+def run_full_relief(*, standalone: bool = False, ram_purge: bool = True) -> dict[str, Any]:
+    """One-tap relieve: CPU cool · pipeline zombies · ghost carts · RAM inactive purge · firewall · rescan."""
     before = build_report(rescan=False, standalone=standalone)
+    mp = _machine_pressure()
+    ram_pct = float(mp.get("ram_used_pct") or 0)
+
+    from mac_health_cpu_relief_v1 import run_cpu_relief  # noqa: WPS433
+
+    relief = run_cpu_relief("cpu_cool_down")
+    pipeline = pipeline_queue_sweep(force=True)
     cart = cart_fleet_sweep()
-    pipeline = pipeline_queue_sweep()
     firewall = _try_enable_firewall()
+
+    ram_step: dict[str, Any] = {
+        "ok": True,
+        "skipped": True,
+        "reason": "ram_below_threshold",
+        "ram_pct": ram_pct,
+    }
+    if ram_purge and ram_pct >= 75.0:
+        purge_report = run_ram_purge(standalone=standalone)
+        ram_step = dict(purge_report.get("ram_purge") or {})
+        ram_step["ram_pct"] = ram_pct
+
     report = build_report(rescan=True, standalone=standalone)
-    report["version"] = "2.8.1"
+    report["version"] = "2.8.2"
     cart_p = cart.get("patched") or 0
     cart_c = cart.get("closed") or 0
     pipe_k = pipeline.get("killed") or 0
     fw_on = bool(firewall.get("enabled"))
-    steps = [
-        f"Ghost shells: patched {cart_p} · killed {cart_c} · remaining {cart.get('ghost_remaining', 0)}",
-        f"Pipeline zombies: {pipeline.get('before', 0)} → {pipeline.get('after', 0)} (killed {pipe_k})",
-        f"Firewall: {'ON' if fw_on else 'check System Settings'}",
-        f"Full security rescan: {report.get('scan', {}).get('duration_sec', '?')}s",
-    ]
+    cpu_before = (relief.get("before") or {}).get("cpu_pct")
+    cpu_after = (relief.get("after") or {}).get("cpu_pct")
+    steps: list[str] = list(relief.get("step_lines") or [])
+    steps.append(
+        f"Ghost shells: patched {cart_p} · killed {cart_c} · remaining {cart.get('ghost_remaining', 0)}"
+    )
+    steps.append(
+        f"Pipeline zombies: {pipeline.get('before', 0)} → {pipeline.get('after', 0)} (killed {pipe_k})"
+    )
+    if ram_step.get("skipped"):
+        steps.append(f"RAM inactive purge: skipped (RAM {ram_pct}%)")
+    elif ram_step.get("ok"):
+        steps.append(
+            f"RAM inactive purge: free +{ram_step.get('free_gained_gb', 0)} GB · "
+            f"inactive −{ram_step.get('inactive_freed_gb', 0)} GB"
+        )
+    elif ram_step.get("cancelled"):
+        steps.append("RAM inactive purge: cancelled — enter Mac password when prompted")
+    else:
+        steps.append("RAM inactive purge: failed or not run")
+    steps.append(f"Firewall: {'ON' if fw_on else 'check System Settings'}")
+    steps.append(f"Full security rescan: {report.get('scan', {}).get('duration_sec', '?')}s")
+
+    summary_bits = []
+    if cpu_before is not None and cpu_after is not None:
+        summary_bits.append(f"CPU {cpu_before}% → {cpu_after}%")
+    if pipe_k:
+        summary_bits.append(f"pipeline −{pipe_k}")
+    if cart_p or cart_c:
+        summary_bits.append(f"ghosts {cart_p}+{cart_c}")
+    if ram_step.get("ok") and not ram_step.get("skipped"):
+        summary_bits.append(f"RAM +{ram_step.get('free_gained_gb', 0)} GB free")
+    summary_bits.append(f"score {before.get('score')} → {report.get('score')}")
+
     report["heal"] = {
+        "full_relief": True,
         "before_score": before.get("score"),
         "after_score": report.get("score"),
         "before_grade": before.get("grade"),
         "after_grade": report.get("grade"),
+        "cpu_before": cpu_before,
+        "cpu_after": cpu_after,
+        "cpu_relief": relief,
         "cart": cart,
         "pipeline": pipeline,
+        "ram": ram_step,
         "firewall": firewall,
         "improved": (report.get("score") or 0) > (before.get("score") or 0)
-        or pipeline.get("killed", 0) > 0
-        or cart_p > 0,
+        or pipe_k > 0
+        or cart_p > 0
+        or bool(relief.get("improved"))
+        or (ram_step.get("ok") and not ram_step.get("skipped")),
         "ran_ok": True,
+        "summary": relief.get("summary") or "",
     }
     report["action_receipt"] = {
         "action": "heal",
         "at": _now(),
         "ran_ok": True,
         "steps": steps,
-        "summary": (
-            f"Brain heal complete · score {before.get('score')} → {report.get('score')} · "
-            + " · ".join(steps[:3])
-        ),
+        "summary": "Full relief · " + " · ".join(summary_bits),
     }
-    _emit_n8n_signal("heal", action="heal", extra={"score": report.get("score")})
+    _emit_n8n_signal("heal", action="full_relief", extra={"score": report.get("score")})
     return report
+
+
+def run_heal(*, standalone: bool = False) -> dict[str, Any]:
+    """Brain heal — full relief stack (pipelines · zombies · cool down · RAM when hot · firewall · rescan)."""
+    return run_full_relief(standalone=standalone)
 
 
 def _vm_memory_snapshot() -> dict[str, Any]:
@@ -2195,6 +2251,8 @@ def handle_action(body: dict) -> dict:
         return build_report(rescan=False, standalone=standalone)
     if action == "knowledge":
         return {"ok": True, "knowledge": _ensure_knowledge()}
+    if action in ("full_relief", "relieve_pressure", "relieve"):
+        return run_full_relief(standalone=standalone)
     if action in ("heal", "fix", "brain-heal"):
         return run_heal(standalone=standalone)
     if action in ("pipeline", "pipeline_sweep", "kill_queue", "clear_pipeline"):

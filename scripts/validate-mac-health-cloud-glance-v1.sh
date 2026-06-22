@@ -24,7 +24,11 @@ row = json.loads(urllib.request.urlopen("${BASE}/api/mac-health/cloud-glance/v1"
 for k in ("schema", "founder_line", "execution_plane"):
     assert k in row, f"missing {k}"
 assert row.get("execution_plane") == "read_only_mac_glance", row
-print("PASS: cloud-glance API schema")
+for k in ("comprehension_last_verdict", "comprehension_last_score", "comprehension_execution_plane"):
+    assert k in row, f"missing metric key {k}"
+if row.get("comprehension_last_verdict"):
+    assert row.get("comprehension_execution_plane"), row
+print("PASS: cloud-glance API schema + comprehension metrics")
 PY
 
 python3 <<PY || fail=1

@@ -238,7 +238,45 @@ def evaluate(*, role: str = "any", task_text: str = "") -> dict:
         elif any(m in tl for m in report_markers) and not has_work:
             warnings.append("main_problem_prepare_hint:short reply · execute next_action from receipt")
 
-    # G7 receipt freshness hint
+    # Task / plan validation — always-on when topic or NEXT TASK trigger (034 v2)
+    always_flag = SINA / "task-plan-validation-always-v1.flag"
+    nt_flag = SINA / "next-task-trigger-active-v1.flag"
+    if task_text.strip() and (always_flag.is_file() or nt_flag.is_file()):
+        try:
+            from next_task_trigger_v1 import detect_task_plan_topic, validate_reply_text  # noqa: WPS433
+
+            force = nt_flag.is_file() or detect_task_plan_topic(task_text)
+            if force:
+                v = validate_reply_text(task_text)
+                if not v.get("ok"):
+                    violations.append(
+                        "task_plan_pipeline_missing:reply must include what is task · benefit · real-world output · verdict · proceed"
+                    )
+        except Exception as exc:
+            warnings.append(f"task_plan_validate_error:{exc}")
+
+    # Hub cloud proceed — no local forge dispatch on Mac for activation tasks (035)
+    if task_text.strip():
+        tl = task_text.lower()
+        local_forge = "portfolio_competitor_forge_dispatch" in tl
+        proceed_ctx = any(
+            x in tl
+            for x in (
+                "proceed",
+                "next task",
+                "cloud-sec-",
+                "full_motor",
+                "forge dispatch",
+                "hub proceed",
+            )
+        )
+        if local_forge and proceed_ctx:
+            violations.append(
+                "hub_cloud_proceed_forbidden:use POST /api/cloud-drain/proceed/v1 or Worker Hub Proceed — not Mac forge dispatch"
+            )
+        if local_forge and "python3 scripts/" in tl and role in ("any", "worker", "brain"):
+            warnings.append("hub_cloud_proceed_hint:activation cloud tasks → Hub Proceed · cloud OpenRouter/Gemini only")
+
     g7_receipt = SINA / "governance-self-heal-receipt-v1.json"
     g7_hint = g7_receipt.is_file()
 

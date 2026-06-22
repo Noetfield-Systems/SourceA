@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Sina Command — one production server (UI + API on :13020)
+# Law: data/execution-state-desired-observed-v1.json hub_single_owner
+# launchd com.sourcea.hub = sole owner when plist loaded; this script delegates, never fights nohup.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PORT="${SINA_COMMAND_PORT:-13020}"
@@ -9,6 +11,8 @@ FAILSNIP="${HOME}/.sina/command-server.fail-snippet.log"
 BUILDLOG="${HOME}/.sina/panel-build.log"
 MODE="${1:-}"
 LOG_MAX_BYTES="${SINA_COMMAND_LOG_MAX_BYTES:-52428800}" # 50 MiB cap before fresh start truncates
+HUB_LABEL="com.sourcea.hub"
+HUB_DOMAIN="gui/$(id -u)"
 
 export PATH="/opt/homebrew/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH:-/usr/bin:/bin:/usr/sbin:/sbin}"
 
@@ -52,8 +56,49 @@ port_up() {
 
 health_ok() { "$CURL" -sf "http://127.0.0.1:${PORT}/health" >/dev/null 2>&1; }
 
+launchd_hub_loaded() {
+  launchctl print "${HUB_DOMAIN}/${HUB_LABEL}" >/dev/null 2>&1
+}
+
+ensure_hub_via_launchd() {
+  local waited=0
+  if health_ok; then
+    bash "$ROOT/scripts/serve-hub-rebuild-worker.sh" 2>/dev/null || true
+    echo "Sina Command healthy via launchd → http://127.0.0.1:${PORT}/"
+    return 0
+  fi
+  # Soft kickstart first — no -k when process may still be binding
+  launchctl kickstart "${HUB_DOMAIN}/${HUB_LABEL}" 2>/dev/null || true
+  for _ in {1..40}; do
+    if health_ok; then
+      bash "$ROOT/scripts/serve-hub-rebuild-worker.sh" 2>/dev/null || true
+      echo "Sina Command healthy after launchd kickstart → http://127.0.0.1:${PORT}/"
+      return 0
+    fi
+    sleep 0.25
+    waited=$((waited + 1))
+  done
+  # Hard restart only when soft kickstart failed
+  if port_up && ! health_ok; then
+    echo "Port ${PORT} up but unhealthy — launchd hard kickstart…"
+    launchctl kickstart -k "${HUB_DOMAIN}/${HUB_LABEL}" 2>/dev/null || true
+    for _ in {1..40}; do
+      if health_ok; then
+        bash "$ROOT/scripts/serve-hub-rebuild-worker.sh" 2>/dev/null || true
+        echo "Sina Command healthy after launchd kickstart -k → http://127.0.0.1:${PORT}/"
+        return 0
+      fi
+      sleep 0.25
+    done
+  fi
+  return 1
+}
+
 stop_stale_port() {
-  # Force-kill any process holding the port including zombies
+  # Never fight launchd when it owns a healthy listener
+  if launchd_hub_loaded && health_ok; then
+    return 0
+  fi
   /usr/sbin/lsof -ti:"${PORT}" 2>/dev/null | xargs kill -9 2>/dev/null || true
   if [[ -f "$PIDFILE" ]]; then
     kill -9 "$(cat "$PIDFILE")" 2>/dev/null || true
@@ -68,6 +113,21 @@ _gate_mode_hint() {
     echo "Gate mode preference → ${SINA_GATE_MODE} (~/.sina/gate_mode_v1.txt)"
   fi
 }
+
+# ── 0) launchd sole owner — delegate, do not nohup-fight ──
+if launchd_hub_loaded; then
+  if ensure_hub_via_launchd; then
+    if [[ -n "${SINA_GATE_MODE:-}" && "${SINA_GATE_RESTART:-}" == "1" ]]; then
+      echo "Gate mode change with launchd owner — hard kickstart…"
+      launchctl kickstart -k "${HUB_DOMAIN}/${HUB_LABEL}" 2>/dev/null || true
+      sleep 1
+      ensure_hub_via_launchd || true
+    fi
+    exit 0
+  fi
+  echo "WARN: launchd ${HUB_LABEL} loaded but hub not healthy — trying install path…"
+  bash "$ROOT/scripts/install-hub-launchd-v1.sh" && exit 0 || true
+fi
 
 # ── 1) Already up — restart only when founder requests gate/env reload ──
 if health_ok; then
@@ -97,7 +157,6 @@ if port_up; then
 fi
 
 # ── 3) Optional panel build in background (must not block server bind) ──
-# Panel build on every hub start caused audit e2e + inject spam — build only via Refresh in app.
 if [[ "${SINA_PANEL_BUILD_ON_START:-}" == "1" && "${SINA_SKIP_PANEL_BUILD:-}" != "1" ]]; then
   (
     if python3 "$ROOT/scripts/build-sina-command-panel.py" >>"$BUILDLOG" 2>&1; then
@@ -115,11 +174,19 @@ if [[ "$MODE" == "fg" || "$MODE" == "foreground" ]]; then
   exec env SINA_GATE_MODE="${SINA_GATE_MODE:-}" python3 "$ROOT/scripts/sina-command-server.py"
 fi
 
-# ── 4) Start server (binds in ~1s now) ──
+# ── 4) Prefer launchd install when no supervisor yet ──
+if [[ -f "$ROOT/launch/com.sourcea.hub.plist" ]]; then
+  echo "Installing launchd supervisor (sole owner)…"
+  if bash "$ROOT/scripts/install-hub-launchd-v1.sh"; then
+    exit 0
+  fi
+  echo "WARN: launchd install failed — falling back to nohup (dev only)"
+fi
+
+# ── 5) Dev fallback: nohup (no launchd) ──
 bash "$ROOT/scripts/serve-hub-rebuild-worker.sh" || exit 1
 _gate_mode_hint
-echo "Starting Sina Command → http://127.0.0.1:${PORT}/"
-# Never append unbounded — rotate before every fresh start (log bomb guard)
+echo "Starting Sina Command (nohup fallback) → http://127.0.0.1:${PORT}/"
 _rotate_log_if_huge
 : >"$LOGFILE"
 nohup env SINA_GATE_MODE="${SINA_GATE_MODE:-}" python3 "$ROOT/scripts/sina-command-server.py" >>"$LOGFILE" 2>&1 &
@@ -134,7 +201,6 @@ for _ in {1..120}; do
   sleep 0.25
 done
 
-# One retry after killing a failed bind race
 stop_stale_port
 nohup python3 "$ROOT/scripts/sina-command-server.py" >>"$LOGFILE" 2>&1 &
 echo $! >"$PIDFILE"

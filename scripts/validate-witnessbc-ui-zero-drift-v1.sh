@@ -113,6 +113,11 @@ for row in frozen:
             continue
         if fid == "brand_strip":
             continue
+        if fid == "stripe_checkout_live" and (
+            "checkout-live" in deploy
+            or 'data-stripe-live="true"' in deploy
+        ):
+            continue
         errors.append(f"ledger frozen {fid}: marker {marker!r} not on toolkits deploy")
 
 # No invitation copy on toolkits deploy

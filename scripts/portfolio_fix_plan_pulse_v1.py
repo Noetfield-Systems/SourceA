@@ -42,7 +42,11 @@ def _read(path: Path) -> dict:
 def _curl_text(url: str, *, timeout: float = 12.0) -> tuple[bool, str, float]:
     t0 = datetime.now(timezone.utc).timestamp()
     try:
-        req = urllib.request.Request(url, method="GET")
+        req = urllib.request.Request(
+            url,
+            method="GET",
+            headers={"User-Agent": "SourceA-portfolio-pulse/1.0 (+https://www.trustfield.ca)"},
+        )
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             body = resp.read().decode("utf-8", errors="replace")
             ok = int(getattr(resp, "status", 200) or 200) < 400
@@ -91,7 +95,8 @@ def _assess_trustfield_pages() -> dict:
     results = []
     all_ok = True
     for url in urls:
-        ok, _, elapsed = _curl_text(url, timeout=15.0)
+        timeout = 20.0 if url.endswith("/api/readiness") else 15.0
+        ok, _, elapsed = _curl_text(url, timeout=timeout)
         results.append({"url": url, "ok": ok, "elapsed_sec": round(elapsed, 2)})
         if not ok:
             all_ok = False
@@ -153,14 +158,16 @@ def _compose_line(*, ladder: dict, wbc: dict, defer: dict) -> str:
     tf = "GREEN" if ladder.get("ok") else "RED"
     wbc_s = "GREEN" if wbc.get("prod_ok") else ("PREVIEW" if wbc.get("preview_ok") else "RED")
     sites = "GREEN" if defer.get("sites_online") else "RED"
-    nexts = []
     if not ladder.get("ok"):
-        nexts.append("TF ladder")
-    if not wbc.get("prod_ok"):
-        nexts.append("WBC DNS")
-    if not defer.get("sites_online"):
-        nexts.append("sites")
-    nxt = nexts[0] if nexts else "lift"
+        nxt = "TF ladder"
+    elif not wbc.get("prod_ok"):
+        nxt = "WBC DNS"
+    elif not defer.get("sites_online"):
+        nxt = "sites"
+    elif not defer.get("founder_lift"):
+        nxt = "lift"
+    else:
+        nxt = "MSB outreach"
     return f"portfolio-fix · P0 TF={tf} WBC={wbc_s} defer=sites:{sites} · next={nxt}"
 
 
@@ -186,9 +193,9 @@ def run_pulse(*, wire: bool = False) -> dict:
         "defer": defer,
         "wbc_guards": guards,
         "tasks_ready": {
-            "trustfield_agent": not ladder.get("ok"),
-            "sourcea_worker": wbc.get("preview_ok") and not wbc.get("prod_ok"),
-            "founder": not defer.get("sites_online") or (defer.get("sites_online") and not defer.get("founder_lift")),
+            "trustfield_agent": bool(defer.get("founder_lift") and ladder.get("ok")),
+            "sourcea_worker": not guards.get("ok"),
+            "founder": bool(defer.get("sites_online") and not defer.get("founder_lift")),
         },
         "ssot": str(SSOT.relative_to(ROOT)),
         "human_doc": ssot.get("human_doc"),

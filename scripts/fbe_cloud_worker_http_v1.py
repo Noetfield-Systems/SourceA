@@ -17,6 +17,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from fbe.lib.execution_contract_v1 import (  # noqa: E402
     contract_from_hub_body,
+    json_safe_dict,
     normalize_receipt,
     policy_gate,
     validate_contract,
@@ -24,7 +25,7 @@ from fbe.lib.execution_contract_v1 import (  # noqa: E402
 
 
 def _json_response(handler: BaseHTTPRequestHandler, code: int, row: dict[str, Any]) -> None:
-    body = json.dumps(row, indent=2).encode("utf-8")
+    body = json.dumps(json_safe_dict(row), indent=2).encode("utf-8")
     handler.send_response(code)
     handler.send_header("Content-Type", "application/json")
     handler.send_header("Content-Length", str(len(body)))
@@ -38,6 +39,15 @@ def _auth_ok(handler: BaseHTTPRequestHandler) -> bool:
         return True
     auth = handler.headers.get("Authorization", "")
     return auth == f"Bearer {secret}"
+
+
+def _single_cycle_gate(path: str, body: dict[str, Any] | None = None) -> dict[str, Any] | None:
+    from cloud_drain_single_cycle_gate_v1 import claim_or_halt, is_gated_path  # noqa: WPS433
+
+    if not is_gated_path(path):
+        return None
+    trigger = str((body or {}).get("trigger_source") or "http")
+    return claim_or_halt(path=path, trigger_source=trigger)
 
 
 def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
@@ -84,6 +94,7 @@ def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
                     "workstream",
                     "prompt_abs",
                     "task_graph_path",
+                    "task_graph",
                     "run_id",
                     "plan_id",
                 )
@@ -104,11 +115,23 @@ def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
         snap = body.get("system_snapshot")
         if not isinstance(snap, dict):
             snap = None
+        variation_key = str(body.get("variation_key") or "").strip() or None
+        config_override = body.get("config_override")
+        if config_override is not None and not isinstance(config_override, dict):
+            config_override = None
         return run_comprehension_bay(
             draft=draft,
             founder_message=founder_message,
             system_snapshot=snap,
+            variation_key=variation_key,
+            config_override=config_override,
+            context_id=str(body.get("context_id") or body.get("job_id") or ""),
         )
+    if path == "/api/fbe/comprehension-eval-batch/v1":
+        from fbe_comprehension_eval_batch_v1 import run_eval_batch  # noqa: WPS433
+
+        vk = str(body.get("variation_key") or "").strip() or None
+        return run_eval_batch(variation_key=vk, write_receipt=bool(body.get("write_receipt", True)))
     if path == "/api/cloud-worker/dispatch/v1":
         from cloud_worker_dispatch_v1 import dispatch  # noqa: WPS433
 
@@ -117,6 +140,18 @@ def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
         if not plan_id:
             return {"ok": False, "error": "plan_id_required"}
         return dispatch(plan_id=plan_id, dry_run=dry_run)
+    if path == "/api/cloud-drain/proceed/v1":
+        from hub_cloud_drain_proceed_v1 import proceed_on_cloud  # noqa: WPS433
+
+        return proceed_on_cloud(body if isinstance(body, dict) else {})
+    if path == "/api/cloud-drain/queue/v1":
+        from fbe.lib.cloud_drain_queue_v1 import handle_queue_action  # noqa: WPS433
+
+        return handle_queue_action(body if isinstance(body, dict) else {})
+    if path == "/api/cloud-drain/auto-tick/v1":
+        from cloud_drain_auto_runtime_v1 import run_cloud_auto_tick  # noqa: WPS433
+
+        return run_cloud_auto_tick(body=body if isinstance(body, dict) else {})
     if path == "/api/cloud-worker/dispatch-batch/v1":
         from cloud_worker_dispatch_v1 import dispatch_batch  # noqa: WPS433
 
@@ -200,7 +235,9 @@ def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
             "ok": receipt.get("status") == "PASS",
             "schema": "forge-v02-implement-receipt-v1",
             "architecture": "A",
-            "for_founder": {"show_this": f"{plan_id} implement {receipt.get('status')}"},
+            "for_founder": {
+                "show_this": receipt.get("telemetry_line") or f"{plan_id} {receipt.get('implement_mode')} {receipt.get('status')}",
+            },
             **receipt,
         }
     if path == "/api/forge/v02/run-and-implement/v1":
@@ -234,6 +271,39 @@ def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
             "schema": "forge-v02-run-and-implement-receipt-v1",
             "architecture": "A",
             "telemetry_line": result.get("telemetry_line"),
+            "implement_telemetry": result.get("implement_telemetry"),
+            "for_founder": {
+                "show_this": "; ".join(
+                    [str(result.get("telemetry_line") or "")] + list(result.get("implement_telemetry") or [])
+                ).strip("; "),
+            },
+            **result,
+        }
+    if path == "/api/forge/v02/drain/v1":
+        from forge_v02_drain_v1 import run_forge_v02_drain  # noqa: WPS433
+
+        gh = body.get("github") if isinstance(body.get("github"), dict) else {}
+        try:
+            result = run_forge_v02_drain(
+                max_cycles=int(body.get("max_cycles") if body.get("max_cycles") is not None else 20),
+                target=str(body.get("target") or "top_20"),
+                write_output=True,
+                root=ROOT,
+            )
+        except RuntimeError as exc:
+            msg = str(exc)
+            if msg.startswith("github_api_"):
+                return {
+                    "ok": False,
+                    "schema": "forge-v02-drain-v1",
+                    "error": "github_fetch_failed",
+                    "message": msg,
+                }
+            raise
+        return {
+            "ok": bool(result.get("ok")),
+            "schema": "forge-v02-drain-receipt-v1",
+            "architecture": "A",
             "for_founder": {"show_this": result.get("telemetry_line")},
             **result,
         }
@@ -281,6 +351,46 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
                 return
             _json_response(self, 200, row)
             return
+        if parsed.path == "/api/cloud-drain/queue/v1":
+            halt = _single_cycle_gate("/api/cloud-drain/queue/v1")
+            if halt:
+                _json_response(self, 422, halt)
+                return
+            from fbe.lib.cloud_drain_queue_v1 import read_head  # noqa: WPS433
+
+            _json_response(self, 200, read_head())
+            return
+        if parsed.path == "/truth/status":
+            from truth_layer_verifier_v1 import build_truth_status  # noqa: WPS433
+
+            _json_response(self, 200, build_truth_status())
+            return
+        if parsed.path in ("/truth", "/truth/"):
+            from truth_log_v1 import build_truth  # noqa: WPS433
+
+            _json_response(self, 200, build_truth())
+            return
+        if parsed.path in ("/truth/live", "/truth/live/"):
+            from truth_log_v1 import build_truth_live  # noqa: WPS433
+
+            _json_response(self, 200, build_truth_live())
+            return
+        if parsed.path in ("/api/cloud-drain/observer/v1", "/observer", "/observer/"):
+            try:
+                from autonomous_drain_receipt_cloud_v1 import observer_html, observer_payload  # noqa: WPS433
+
+                accept = self.headers.get("Accept", "")
+                if "text/html" in accept or parsed.path.startswith("/observer"):
+                    html = observer_html(limit=10)
+                    self.send_response(200)
+                    self.send_header("Content-Type", "text/html; charset=utf-8")
+                    self.end_headers()
+                    self.wfile.write(html.encode("utf-8"))
+                    return
+                _json_response(self, 200, observer_payload(limit=10))
+            except Exception as exc:
+                _json_response(self, 500, {"ok": False, "error": "observer_failed", "message": str(exc)[:200]})
+            return
         if parsed.path == "/forge/blueprints/v01.json":
             bp_path = ROOT / "data" / "forge-real-blueprints-v01.json"
             if not bp_path.is_file():
@@ -305,9 +415,51 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
                 return
             _json_response(self, 200, row)
             return
+        if parsed.path.startswith("/api/worker-run-detail/v1"):
+            from implement_run_detail_slice_v1 import handle_get_request  # noqa: WPS433
+
+            code, row = handle_get_request(self.path, root=ROOT)
+            _json_response(self, code, row)
+            return
+        if parsed.path.startswith("/api/competitor-evidence/v1"):
+            from implement_competitor_evidence_slice_v1 import handle_get_request  # noqa: WPS433
+
+            code, row = handle_get_request(self.path, root=ROOT)
+            _json_response(self, code, row)
+            return
+        if parsed.path in ("/api/forge/v02/status/v1", "/api/forge/v02/status/v1/"):
+            from forge_v02_status_v1 import build_forge_v02_status  # noqa: WPS433
+
+            row = build_forge_v02_status(root=ROOT)
+            _json_response(self, 200, row)
+            return
         _json_response(self, 404, {"ok": False, "error": "not_found"})
 
     def do_POST(self) -> None:
+        parsed = urlparse(self.path)
+        path = parsed.path
+        if path == "/api/cloud-drain/auto-tick/v1":
+            if not _auth_ok(self):
+                _json_response(self, 401, {"ok": False, "error": "unauthorized"})
+                return
+            length = int(self.headers.get("Content-Length") or 0)
+            raw = self.rfile.read(length).decode("utf-8") if length else "{}"
+            try:
+                body = json.loads(raw) if raw.strip() else {}
+            except json.JSONDecodeError:
+                _json_response(self, 400, {"ok": False, "error": "invalid_json"})
+                return
+            body = body if isinstance(body, dict) else {}
+            halt = _single_cycle_gate(path, body)
+            if halt:
+                _json_response(self, 422, halt)
+                return
+            body["_cycle_claimed"] = True
+            from cloud_drain_auto_runtime_v1 import run_cloud_auto_tick  # noqa: WPS433
+
+            row = run_cloud_auto_tick(body=body)
+            _json_response(self, 200 if row.get("ok") else 422, row)
+            return
         if not _auth_ok(self):
             _json_response(self, 401, {"ok": False, "error": "unauthorized"})
             return
@@ -320,6 +472,14 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
         except json.JSONDecodeError:
             _json_response(self, 400, {"ok": False, "error": "invalid_json"})
             return
+
+        if path in ("/api/cloud-drain/proceed/v1", "/api/cloud-drain/queue/v1"):
+            halt = _single_cycle_gate(path, body if isinstance(body, dict) else {})
+            if halt:
+                _json_response(self, 422, halt)
+                return
+            if path == "/api/cloud-drain/proceed/v1" and isinstance(body, dict):
+                body["_cycle_claimed"] = True
 
         contract = contract_from_hub_body(path, body)
         validation = validate_contract(contract)
@@ -362,13 +522,22 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
             "/api/cloud-worker/dispatch/v1",
             "/api/cloud-worker/dispatch-batch/v1",
             "/api/cloud-worker/build-summary/v1",
+            "/api/cloud-drain/proceed/v1",
+            "/api/cloud-drain/queue/v1",
+            "/api/fbe/comprehension-loop/v1",
+            "/api/fbe/comprehension-eval-batch/v1",
             "/api/forge/v01/run/v1",
             "/api/forge/v02/run/v1",
             "/api/forge/v02/implement/v1",
             "/api/forge/v02/run-and-implement/v1",
+            "/api/forge/v02/drain/v1",
         ):
             row["execution_plane"] = row.get("execution_plane") or "headless_cloud"
-            code = 200 if row.get("ok") else 422
+            # Comprehension bay ran successfully even when verdict is BLOCKED — HTTP 200.
+            if path == "/api/fbe/comprehension-loop/v1" and row.get("verdict"):
+                code = 200
+            else:
+                code = 200 if row.get("ok") else 422
             _json_response(self, code, row)
             return
 

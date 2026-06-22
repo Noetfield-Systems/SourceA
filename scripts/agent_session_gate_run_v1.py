@@ -660,6 +660,78 @@ def run_gate(role: str = "any", *, scan_text: str = "", pre_ship: bool = False, 
                     "line": (main_problem_row.get("main_problem_line") or "")[:120],
                 }
             )
+    next_task_row: dict = {}
+    if not pre_ship:
+        code_nt0, out_nt0 = _run(
+            [PY, str(SCRIPTS / "next_task_trigger_v1.py"), "--refresh", "--json"]
+        )
+        next_task_row = json.loads(out_nt0[out_nt0.find("{") :]) if "{" in out_nt0 else {}
+        steps.append(
+            {
+                "step": "task_plan_validate_baseline",
+                "ok": bool(next_task_row.get("ok")),
+                "exit": code_nt0,
+                "always_apply": bool(next_task_row.get("always_apply")),
+                "mode": next_task_row.get("mode"),
+                "line": (next_task_row.get("next_task_line") or "")[:120],
+            }
+        )
+        code_tp, out_tp = _run([PY, str(SCRIPTS / "task_plan_priority_v1.py"), "--refresh", "--json"])
+        tp_row = json.loads(out_tp[out_tp.find("{") :]) if "{" in out_tp else {}
+        steps.append(
+            {
+                "step": "task_plan_priority",
+                "ok": bool(tp_row.get("ok")),
+                "exit": code_tp,
+                "smart_pick": (tp_row.get("smart_pick") or {}).get("task_id"),
+                "line": (tp_row.get("task_plan_priority_line") or "")[:120],
+            }
+        )
+    if scan_text.strip():
+        code_nt, out_nt = _run(
+            [
+                PY,
+                str(SCRIPTS / "next_task_trigger_v1.py"),
+                "--text",
+                scan_text,
+                "--activate",
+                "--json",
+            ]
+        )
+        next_task_row = json.loads(out_nt[out_nt.find("{") :]) if "{" in out_nt else next_task_row
+        if next_task_row.get("triggered"):
+            steps.append(
+                {
+                    "step": "next_task_trigger",
+                    "ok": bool(next_task_row.get("ok")),
+                    "exit": code_nt,
+                    "mode": "VALIDATE_THEN_PROCEED",
+                    "pipeline": next_task_row.get("pipeline"),
+                    "line": (next_task_row.get("next_task_line") or "")[:120],
+                }
+            )
+        else:
+            code_det, out_det = _run(
+                [
+                    PY,
+                    str(SCRIPTS / "next_task_trigger_v1.py"),
+                    "--detect-topic",
+                    scan_text,
+                    "--json",
+                ]
+            )
+            det = json.loads(out_det[out_det.find("{") :]) if "{" in out_det else {}
+            if det.get("topic"):
+                steps.append(
+                    {
+                        "step": "task_plan_validate_topic",
+                        "ok": bool(next_task_row.get("ok")),
+                        "exit": code_nt,
+                        "mode": "VALIDATE_ON_TOPIC",
+                        "pipeline": next_task_row.get("pipeline"),
+                        "line": (next_task_row.get("next_task_line") or "")[:120],
+                    }
+                )
     conduct_cmd = [PY, str(SCRIPTS / "agentic_conduct_gate_v1.py"), "--role", conduct_role, "--json"]
     if scan_text:
         conduct_cmd.extend(["--task-text", scan_text])
@@ -811,6 +883,9 @@ def run_gate(role: str = "any", *, scan_text: str = "", pre_ship: bool = False, 
             "read_order_ok": conduct.get("read_order_ok"),
             "limits": conduct.get("limits") or {},
             "main_problem_trigger": main_problem_row if main_problem_row.get("triggered") else None,
+            "next_task_trigger": next_task_row
+            if (next_task_row.get("triggered") or next_task_row.get("always_apply"))
+            else None,
             "incident_041": "Mac founder session: read session gate receipt + truth bundle once; never spawn audit-of-audit loops.",
             "mac_read_once": [
                 str(RECEIPT),
