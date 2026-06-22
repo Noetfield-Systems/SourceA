@@ -687,6 +687,19 @@ def cmd_film_status(_payload_json: str | None = None) -> dict[str, Any]:
     return _attach_glue_receipt(result, receipt)
 
 
+def cmd_cloud_drain_auto_tick() -> dict[str, Any]:
+    from cloud_drain_auto_runtime_v1 import run_auto_tick  # noqa: WPS433
+
+    result = run_auto_tick(trigger_source="n8n_cron_wf-cloud-drain-auto-v1")
+    receipt = write_receipt(
+        workflow_id="wf-cloud-drain-auto-v1",
+        command="cloud-drain-auto-tick",
+        ok=bool(result.get("ok", True)),
+        data=result,
+    )
+    return _attach_glue_receipt(result, receipt)
+
+
 COMMANDS = {
     "health": cmd_health,
     "governance-fast": cmd_governance_fast,
@@ -705,6 +718,7 @@ COMMANDS = {
     "founder-request": cmd_founder_request,
     "semej-bookend": cmd_semej_bookend,
     "backup-archive": cmd_backup_archive,
+    "cloud-drain-auto-tick": cmd_cloud_drain_auto_tick,
     "film-ingest": cmd_film_ingest,
     "film-ship-gate": cmd_film_ingest,
     "film-compile": cmd_film_compile,

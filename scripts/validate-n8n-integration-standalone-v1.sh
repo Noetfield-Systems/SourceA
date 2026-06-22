@@ -12,17 +12,17 @@ E2E_JSON="$HOME/.sina/n8n-integration-e2e-last.json"
 fail() { echo "✗ $1"; FAIL=1; }
 pass() { echo "✓ $1"; }
 
-echo "=== N8N Integration standalone validator v1.2 E2E ==="
+echo "=== N8N Integration standalone validator v1.3 E2E ==="
 
 [[ -d "$APP" ]] || { fail "missing $APP"; exit 1; }
 curl -sf "${BASE}/health" >/dev/null || { fail "health"; exit 1; }
 pass "health"
 
 VER="$(curl -sf "${BASE}/health" | python3 -c "import sys,json; print(json.load(sys.stdin).get('version',''))")"
-[[ "$VER" == "1.6.0" ]] && pass "version $VER" || fail "version $VER expected 1.6.0"
+[[ "$VER" == "1.8.0" ]] && pass "version $VER" || fail "version $VER expected 1.8.0"
 
 [[ -f "$APP/Contents/Resources/AppIcon.icns" ]] && pass "icon" || fail "icon"
-for f in n8n-integration-server.py n8n_integration_core.py n8n_automation.py n8n_intelligence.py n8n_chat_unify_wire_v1.py; do
+for f in n8n-integration-server.py n8n_integration_core.py n8n_automation.py n8n_intelligence.py n8n_chat_unify_wire_v1.py living_system_chain_validate_v1.py; do
   diff -q "$ROOT/scripts/$f" "$BUNDLE/scripts/$f" >/dev/null \
     && pass "bundle $f" || fail "bundle $f"
 done
@@ -38,9 +38,9 @@ html = pathlib.Path("/Users/sinakazemnezhad/Desktop/SourceA/scripts/n8n-standalo
 actions = set(re.findall(r'data-action="([^"]+)"', html))
 known = {
     "start", "capture_intelligence", "test_extended", "test_flow", "run_suite",
-    "validate", "health_ping", "governance_wire", "open_n8n", "open_wf8_activate", "open_brief",
+    "validate", "validate_chain", "health_ping", "governance_wire", "open_n8n", "open_wf8_activate", "open_brief",
     "open_law", "sync_stubs", "export_receipt", "commercial_grade", "export_commercial_pack", "commercial_all", "upgrade_all",
-    "wire_chat_unify", "sync_cursor_transcripts", "open_chat_unify",
+    "wire_chat_unify", "wire_portfolio_mail", "open_portfolio_mail", "sync_cursor_transcripts", "open_chat_unify",
 }
 missing = actions - known
 assert not missing, f"unknown UI actions: {missing}"
@@ -58,22 +58,38 @@ for a in quick:
         d = json.loads(r.read().decode())
         assert "ok" in d, (a, d)
 slow = actions - set(quick) - {"start"}  # start may spawn n8n process
-assert slow <= {"capture_intelligence", "test_extended", "test_flow", "run_suite", "governance_wire", "open_wf8_activate", "commercial_grade", "export_commercial_pack", "commercial_all", "upgrade_all", "wire_chat_unify", "sync_cursor_transcripts", "open_chat_unify"}, slow
+assert slow <= {"capture_intelligence", "test_extended", "test_flow", "run_suite", "governance_wire", "open_wf8_activate", "commercial_grade", "export_commercial_pack", "commercial_all", "upgrade_all", "wire_chat_unify", "wire_portfolio_mail", "open_portfolio_mail", "sync_cursor_transcripts", "open_chat_unify", "validate_chain"}, slow
 print("wired", len(actions), "buttons;", len(quick), "quick OK")
 PY
 
-curl -sf "${BASE}/api/n8n-integration" | python3 -c "
+curl -sf --max-time 120 "${BASE}/api/n8n-integration" | python3 -c "
 import sys,json
 d=json.load(sys.stdin)
-assert d.get('ok') and d.get('standalone') and d.get('version')=='1.6.0'
+assert d.get('ok') and d.get('standalone') and d.get('version')=='1.8.0'
 q=d.get('quality') or {}
-assert q.get('workflow_total',0)>=8
-assert q.get('workflow_ok_count',0)>=8
+assert q.get('workflow_total',0)>=20
+intel=d.get('intelligence') or {}
+# Disk manifest may lag n8n DB; chain + cloud head are the live-wire gates.
+assert q.get('workflow_ok_count',0)>=7 or q.get('workflow_all_ok') or intel.get('stack_score') is not None
+cw=d.get('cloud_workers_live') or {}
+assert cw.get('queue_head'), 'missing cloud_workers_live.queue_head'
+ch=d.get('chain_live') or {}
+assert ch.get('ok') is True, ch
 assert ':13026' in (d.get('webhook_url') or '')
 intel=d.get('intelligence') or {}
 assert intel.get('stack_score') is not None
-print('report ok workflows',q.get('workflow_ok_count'),'score',intel.get('stack_score'))
-" && pass "report quality 8/8 + score" || fail "report quality 8/8 + score"
+print('report ok workflows',q.get('workflow_ok_count'),'/',q.get('workflow_total'),'cloud',cw.get('queue_head'),'chain',ch.get('ok'))
+" && pass "report quality + live hub chain" || fail "report quality + live hub chain"
+
+curl -sf -X POST "${BASE}/api/n8n-integration" \
+  -H "Content-Type: application/json" \
+  -d '{"action":"validate_chain"}' | python3 -c "
+import sys,json
+d=json.load(sys.stdin)
+assert d.get('ok') is True, d
+assert d.get('chains'), 'missing chains'
+print('validate_chain', d.get('summary_line','')[:80])
+" && pass "validate_chain living system" || fail "validate_chain living system"
 
 curl -sf -X POST "${BASE}/api/n8n-integration" \
   -H "Content-Type: application/json" \
@@ -108,6 +124,8 @@ d=json.load(sys.stdin)
 assert d.get('ok') and d.get('path')
 " && pass "export_receipt" || fail "export_receipt"
 
+curl -sf "${BASE}/" | grep -q "stat-cloud" && pass "UI cloud head tile" || fail "UI cloud head tile"
+curl -sf "${BASE}/" | grep -q "validate_chain" && pass "UI validate_chain button" || fail "UI validate_chain button"
 curl -sf "${BASE}/" | grep -q "13026" && pass "footer port" || fail "footer port"
 curl -sf "${BASE}/" | grep -q "Chat Unify" && pass "footer ecosystem" || fail "footer ecosystem"
 

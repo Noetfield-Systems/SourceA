@@ -44,10 +44,13 @@ def _healthy_queue_row(qsa: str) -> dict | None:
         hq = json.loads(hq_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         return None
+    era = str(hq.get("era") or "")
+    phase = str(hq.get("phase") or "")
     if not (
         hq.get("plans_unified")
         or hq.get("upgrade_plan_schema")
-        or str(hq.get("phase") or "") in ("phase-unified-plans-v1", "phase-s6-outbound-factory-upgrade")
+        or phase in ("phase-unified-plans-v1", "phase-s6-outbound-factory-upgrade")
+        or era == "forge_factory_cycle2"
     ):
         return None
     for item in hq.get("queue") or []:
@@ -55,7 +58,7 @@ def _healthy_queue_row(qsa: str) -> dict | None:
             continue
         return {
             "id": qsa,
-            "phase": str(item.get("phase") or hq.get("phase") or ""),
+            "phase": str(item.get("phase") or phase or era or ""),
             "tier": str(item.get("sa_tier") or "P1"),
             "status": "assigned",
             "title": str(item.get("sa_title") or item.get("title") or "")[:80],
@@ -64,8 +67,32 @@ def _healthy_queue_row(qsa: str) -> dict | None:
     return None
 
 
+def _phase_market_pick() -> dict | None:
+    obs_path = SINA / "phase-observed-v1.json"
+    if not obs_path.is_file():
+        return None
+    try:
+        obs = json.loads(obs_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    if str(obs.get("era") or "") != "phase_market":
+        return None
+    head = str(obs.get("cloud_drain_head") or "CLOUD-SEC-001")
+    return {
+        "id": head,
+        "phase": "phase-market",
+        "tier": "T0",
+        "status": "cloud_drain",
+        "title": f"Secondary cloud drain · {head}",
+        "path": "data/secondary-cloud-drain-next-100-v1.json",
+    }
+
+
 def live_pick_aligned(plans: list[dict], *, fallback_pick: dict | None = None) -> dict | None:
-    """Prefer queue_sa plan; else healthy-queue row; else phase-first fallback."""
+    """Prefer queue_sa plan; else healthy-queue row; else phase_market; else phase-first fallback."""
+    market = _phase_market_pick()
+    if market:
+        return market
     qsa = queue_sa_from_disk()
     if qsa:
         row = plan_for_sa(plans, qsa)

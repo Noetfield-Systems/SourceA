@@ -1039,25 +1039,16 @@ def _active_form_edition() -> str:
 
 
 def founder_readable_card(q: dict) -> dict:
-    """Hub / form page card — Subject · Question · options · effect (not raw PICK ids)."""
-    opts = list(q.get("options") or [])
-    if not any(str(o).upper().startswith("E ") or str(o).upper().startswith("E—") for o in opts):
-        opts.append("E — FOUNDER writes own answer (type in box below)")
-    rec = str(q.get("recommended") or "").strip().upper()[:1]
-    return {
-        "id": q.get("id"),
-        "number": q.get("number"),
-        "subject": q.get("title") or "",
-        "question": q.get("question") or "",
-        "options": opts,
-        "recommended": rec or None,
-        "gather_tier": q.get("gather_tier") or "",
-        "prior_pick": q.get("prior_pick") or "",
-        "effect": q.get("effect") or "",
-        "blocks": q.get("blocks") or "",
-        "reply_template": q.get("reply_template") or "",
-        "option_effects": q.get("option_effects") or {},
-    }
+    """Hub / form page card — stable 5-slot schema (A–D + option 5 free-text)."""
+    from form_official_option_schema_v1 import normalize_question_row  # noqa: WPS433
+
+    return normalize_question_row(q)
+
+
+def _load_option_schema() -> dict:
+    from form_official_option_schema_v1 import load_schema  # noqa: WPS433
+
+    return load_schema()
 
 
 def founder_readable_cards(*, limit: int | None = None) -> list[dict]:
@@ -1291,12 +1282,13 @@ def payload() -> dict:
             "synthesis_script": "scripts/form_official_chat_synthesis_v1.py",
         },
         "founder_voice_sources": _founder_voice_sources(),
-        "open_questions": numbered_questions,
+        "open_questions": founder_readable_cards(),
         "open_questions_count": oq_count,
         "founder_readable_cards": founder_readable_cards(),
         "founder_head_card": founder_readable_cards(limit=1)[0] if oq_count else None,
         "form_page_url": "http://127.0.0.1:13020/form/",
         "form_headline": _form_headline(oq_count),
+        "option_schema": _load_option_schema(),
         "pending_outside_count": pending_high,
         "norm_caps_locked": norm_ok and "100% equivalent" in NORM_MD.read_text(encoding="utf-8", errors="replace"),
         "live_policy": "form v2 filled · hub repair until RT LIVE gate PASS · read receipt on SCAN",

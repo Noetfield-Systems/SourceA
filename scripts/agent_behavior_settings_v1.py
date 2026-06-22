@@ -66,6 +66,8 @@ def inject_slice() -> dict:
     truth = ssot.get("truth_hard_concrete") or {}
     report_lang = ssot.get("agent_report_language") or {}
     mp_trig = ssot.get("main_problem_trigger") or {}
+    nt_trig = ssot.get("next_task_trigger") or {}
+    tp_pri = ssot.get("task_plan_priority") or {}
     comp_loop = ssot.get("cloud_comprehension_pipeline_loop") or {}
     out = {
         "schema": "agent-behavior-inject-v1",
@@ -89,6 +91,31 @@ def inject_slice() -> dict:
             "mode": mp_trig.get("mode"),
             "trigger_phrases": mp_trig.get("trigger_phrases") or [],
             "ssot": mp_trig.get("ssot"),
+        },
+        "next_task_trigger": {
+            "active": bool(nt_trig.get("active")),
+            "always_apply": bool(nt_trig.get("always_apply", True)),
+            "one_law": nt_trig.get("one_law"),
+            "mode": nt_trig.get("mode"),
+            "trigger_phrases": nt_trig.get("trigger_phrases") or [],
+            "task_plan_topic_patterns": nt_trig.get("task_plan_topic_patterns") or [],
+            "required_question": "What is the real-world output supposed to be?",
+            "reply_sections": [
+                "What is this task?",
+                "Benefit and priority",
+                "Real-world output",
+                "Usefulness verdict",
+                "Proceed?",
+            ],
+            "command_refresh": "python3 scripts/next_task_trigger_v1.py --refresh --json",
+            "ssot": nt_trig.get("ssot"),
+        },
+        "task_plan_priority": {
+            "active": bool(tp_pri.get("active", True)),
+            "one_law": tp_pri.get("one_law"),
+            "priority_stack": tp_pri.get("priority_stack") or [],
+            "command_refresh": "python3 scripts/task_plan_priority_v1.py --refresh --json",
+            "ssot": tp_pri.get("ssot"),
         },
         "cloud_comprehension_pipeline_loop": {
             "active": bool(comp_loop.get("active")),

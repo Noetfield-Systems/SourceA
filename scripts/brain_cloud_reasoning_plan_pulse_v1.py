@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SINA = Path.home() / ".sina"
 PLAN = ROOT / "data" / "brain-cloud-reasoning-1000-upgrade-plan-v1.json"
 PULSE = SINA / "brain-cloud-reasoning-plan-pulse-v1.json"
+PULSE_RECEIPT_ALIAS = SINA / "brain-cloud-reasoning-plan-pulse-receipt-v1.json"
 
 
 def _now() -> str:
@@ -106,7 +107,9 @@ def run_pulse(*, write: bool = True) -> dict:
     }
     if write:
         SINA.mkdir(parents=True, exist_ok=True)
-        PULSE.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+        payload = json.dumps(row, indent=2) + "\n"
+        PULSE.write_text(payload, encoding="utf-8")
+        PULSE_RECEIPT_ALIAS.write_text(payload, encoding="utf-8")
     return row
 
 

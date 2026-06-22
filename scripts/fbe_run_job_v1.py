@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -125,11 +126,15 @@ def run_job(
         router_result: dict = {}
         critic_result: dict = {}
         graph_path = str(ctx.get("task_graph_path") or "")
-        if graph_path and Path(graph_path).is_file():
+        graph: dict = {}
+        if isinstance(ctx.get("task_graph"), dict):
+            graph = ctx["task_graph"]
+        elif graph_path and Path(graph_path).is_file():
+            graph = json.loads(Path(graph_path).read_text(encoding="utf-8"))
+        if graph:
             from forge_router_execute_v01 import execute_graph  # noqa: WPS433
             from forge_critic_loop_v01 import run_critic_loop  # noqa: WPS433
 
-            graph = json.loads(Path(graph_path).read_text(encoding="utf-8"))
             router_result = execute_graph(graph=graph, bay=bay_slug)
             pick_stub = {
                 "id": ctx.get("plan_id"),
@@ -166,7 +171,12 @@ def run_job(
 
     from fbe_motor_delegate_v1 import delegate as motor_delegate  # noqa: WPS433
 
-    motor_delegate(fbe_prove=True, skip_federate=True)
+    if os.environ.get("FBE_MODE") == "headless" or os.environ.get("FBE_HOME") == "/app":
+        from fbe_cloud_motor_seed_v1 import seed  # noqa: WPS433
+
+        seed(force=True)
+    else:
+        motor_delegate(fbe_prove=True, skip_federate=True)
     fed = federate(work_order_id=woid, bay_slug=bay_slug, wave=wave, factory_id=factory_id)
     sync = pull_assembly_receipts(bay_slug=bay_slug)
     bridge = mirror_full_job(bay_slug=bay_slug, template_id=template_id, tier_achieved=tier_achieved)

@@ -683,9 +683,17 @@ def run_forge_v02_from_github(
     scoring = load_scoring_with_overlays(root=base)
     pipeline = _run_v01_pipeline(blueprints_for_pipeline, scoring)
 
+    from forge_v02_implement_v1 import (  # noqa: WPS433
+        is_mac_control_blueprint,
+        is_real_shippable_blueprint,
+    )
+
+    cloud_ranked = [r for r in pipeline["ranked"] if is_real_shippable_blueprint(r)]
+    mac_control_ranked = [r for r in pipeline["ranked"] if is_mac_control_blueprint(r)]
+
     top_20 = []
     win_test_card: list[str] = []
-    for row in pipeline["ranked"][:20]:
+    for row in cloud_ranked[:20]:
         from forge_v01_engine_v1 import _human_line  # noqa: WPS433
 
         line = _human_line(row)
@@ -723,8 +731,15 @@ def run_forge_v02_from_github(
             "malformedDropped": len(pipeline["malformed_ids"]),
             "alreadyHaveDropped": len(pipeline["already_have_ids"]),
             "validRemaining": len(pipeline["unique"]),
+            "macControlExcluded": len(mac_control_ranked),
+            "cloudShippableRemaining": len(cloud_ranked),
         },
         "top_20": top_20,
+        "mac_control_queue": [
+            {**{k: v for k, v in r.items() if not k.startswith("_")}, "reason": _one_line_reason(r)}
+            for r in mac_control_ranked[:20]
+        ],
+        "dropped_mac_control_ids": [str(r.get("id") or "") for r in mac_control_ranked],
         "routed": pipeline["routed"],
         "dropped_malformed_ids": pipeline["malformed_ids"],
         "dropped_duplicate_ids": pipeline["duplicate_ids"],
@@ -750,6 +765,8 @@ def run_forge_v02_from_github(
                 "github": result["github"],
                 "funnel": result["funnel"],
                 "top_20": top_20,
+                "mac_control_queue": result.get("mac_control_queue") or [],
+                "dropped_mac_control_ids": result.get("dropped_mac_control_ids") or [],
                 "routed_summary": {k: len(v) for k, v in pipeline["routed"].items()},
             },
         )

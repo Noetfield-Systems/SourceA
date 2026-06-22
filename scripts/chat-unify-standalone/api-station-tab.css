@@ -1,0 +1,131 @@
+/* API Station tab — shared across portfolio stack apps */
+.sina-mode-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: #1e293b;
+  border-bottom: 1px solid #334155;
+  position: sticky;
+  top: 36px;
+  z-index: 90;
+  font: 13px/1.4 system-ui, -apple-system, sans-serif;
+}
+.sina-mode-bar .mode-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-right: 4px;
+}
+.sina-mode-tab {
+  appearance: none;
+  border: 1px solid #475569;
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.sina-mode-tab.active {
+  border-color: #6366f1;
+  background: #312e81;
+  color: #e0e7ff;
+  font-weight: 600;
+}
+.sina-mode-tab.station.active {
+  border-color: #10b981;
+  background: #064e3b;
+  color: #6ee7b7;
+}
+.sina-app-view { display: block; }
+.sina-app-view.hidden { display: none !important; }
+.api-station-panel {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 20px 18px 48px;
+  color: #e2e8f0;
+  font: 14px/1.5 system-ui, -apple-system, sans-serif;
+}
+.api-station-panel.hidden { display: none !important; }
+.api-station-hero {
+  background: linear-gradient(145deg, #0f172a, #1e293b);
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+.api-station-hero h1 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+  color: #f8fafc;
+}
+.api-station-hero p { margin: 0; color: #94a3b8; font-size: 0.86rem; }
+.api-station-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.api-station-pill {
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #475569;
+  background: #0f172a;
+  color: #cbd5e1;
+}
+.api-station-pill.ok { border-color: #065f46; color: #6ee7b7; background: #064e3b; }
+.api-station-pill.bad { border-color: #991b1b; color: #fca5a5; background: #450a0a; }
+.api-station-endpoint {
+  margin: 14px 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #0f172a;
+  border: 1px dashed #475569;
+  font-family: ui-monospace, monospace;
+  font-size: 0.76rem;
+  color: #a5b4fc;
+  word-break: break-all;
+}
+.api-station-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+.api-station-task {
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 14px;
+  background: #1e293b;
+}
+.api-station-task h3 { margin: 0 0 4px; font-size: 0.92rem; color: #f1f5f9; }
+.api-station-task p { margin: 0 0 10px; font-size: 0.78rem; color: #94a3b8; }
+.api-station-task button {
+  appearance: none;
+  border: 1px solid #6366f1;
+  background: #4338ca;
+  color: #fff;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+.api-station-task button:disabled { opacity: 0.5; cursor: wait; }
+.api-station-output {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 12px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  font-family: ui-monospace, monospace;
+  font-size: 0.72rem;
+  color: #cbd5e1;
+  white-space: pre-wrap;
+  max-height: 280px;
+  overflow: auto;
+}
