@@ -141,6 +141,7 @@ _STAGING_SCRIPT_FILES = (
     "truth_layer_receipt_writer_v1.py",
     "truth_layer_verifier_v1.py",
     "cloud_drain_queue_path_v1.py",
+    "cloud_drain_single_cycle_gate_v1.py",
     "cloud_drain_auto_runtime_v1.py",
     "cloud_forge_seed_v1.py",
     "autonomous_drain_receipt_cloud_v1.py",
