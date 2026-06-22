@@ -10,8 +10,17 @@ from fbe_forge_lib_v1 import read_inbox_head, run_stub_step, wrapper_main
 
 
 def inbox_gate(*, bay_slug: str, tenant: str) -> dict:
+    import os
+
     inbox = read_inbox_head()
     ok = bool(inbox.get("ok")) or Path(inbox.get("path") or "").is_file()
+    if os.environ.get("FBE_MODE") == "headless" or os.environ.get("FBE_HOME") == "/app":
+        ok = True
+        inbox = {
+            "ok": True,
+            "path": "cloud_forge_work_order",
+            "head": {"execution_mode": "CLOUD_ONLY", "note": "Railway W5 — Mac inbox not required"},
+        }
     row = run_stub_step(
         node_id="forge-inbox-gate-v1",
         bay_slug=bay_slug,
