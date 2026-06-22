@@ -108,6 +108,11 @@ def proxy_to_cloud(*, path: str, body: dict[str, Any], timeout_s: int = 300) -> 
             detail = json.loads(exc.read().decode("utf-8"))
         except Exception:
             detail = {"message": str(exc)}
+        # Logical BLOCKED (422) is still a valid bay receipt — not a transport failure.
+        if exc.code == 422 and isinstance(detail, dict) and detail.get("verdict"):
+            detail.setdefault("execution_plane", "headless_cloud")
+            detail.setdefault("proxied", True)
+            return detail
         return {
             "ok": False,
             "error": "cloud_proxy_http_error",
@@ -126,6 +131,28 @@ def proxy_to_cloud(*, path: str, body: dict[str, Any], timeout_s: int = 300) -> 
             "execution_plane": "cloud_deferred",
             "proxied": True,
         }
+
+
+def proxy_get_from_cloud(*, path: str, timeout_s: int = 60) -> dict[str, Any]:
+    url_base = cloud_worker_url()
+    if not url_base:
+        return {"ok": False, "error": "cloud_worker_unreachable", "execution_plane": "cloud_deferred"}
+    target = f"{url_base}{path}"
+    headers: dict[str, str] = {}
+    secret = internal_secret()
+    if secret:
+        headers["Authorization"] = f"Bearer {secret}"
+    req = urllib.request.Request(target, headers=headers, method="GET")
+    try:
+        with urllib.request.urlopen(req, timeout=timeout_s) as resp:
+            raw = resp.read().decode("utf-8")
+            row = json.loads(raw) if raw.strip() else {}
+            row.setdefault("ok", True)
+            row.setdefault("execution_plane", "headless_cloud")
+            row.setdefault("proxied", True)
+            return row
+    except Exception as exc:
+        return {"ok": False, "error": "cloud_proxy_get_failed", "details": str(exc), "proxied": True}
 
 
 def dispatch_fbe(
@@ -195,6 +222,24 @@ def dispatch_fbe(
     started = time.time()
     if cloud_execution_required():
         row = proxy_to_cloud(path=path, body={**body, **contract})
+        if not row.get("ok") and row.get("error") in (
+            "cloud_worker_unreachable",
+            "cloud_proxy_fatal",
+            "cloud_proxy_http_error",
+        ):
+            local_row = local_fn()
+            local_row["execution_mode"] = contract.get("execution_mode")
+            local_row["execution_plane"] = local_row.get("execution_plane") or "mac_hub_local_fallback"
+            local_row["cloud_fallback"] = True
+            local_row["cloud_error"] = row.get("error")
+            local_row["execution_receipt"] = normalize_receipt(
+                local_row,
+                contract=contract,
+                started_at=started,
+                policy_passed=bool(gate.get("policy_passed")),
+            )
+            _ledger_sign(contract, local_row)
+            return local_row
         if row.get("execution_receipt"):
             return row
         raw = row.get("raw_receipt") or row
