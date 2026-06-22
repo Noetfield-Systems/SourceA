@@ -352,10 +352,6 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
             _json_response(self, 200, row)
             return
         if parsed.path == "/api/cloud-drain/queue/v1":
-            halt = _single_cycle_gate("/api/cloud-drain/queue/v1")
-            if halt:
-                _json_response(self, 422, halt)
-                return
             from fbe.lib.cloud_drain_queue_v1 import read_head  # noqa: WPS433
 
             _json_response(self, 200, read_head())
@@ -473,12 +469,12 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
             _json_response(self, 400, {"ok": False, "error": "invalid_json"})
             return
 
-        if path in ("/api/cloud-drain/proceed/v1", "/api/cloud-drain/queue/v1"):
+        if path == "/api/cloud-drain/proceed/v1":
             halt = _single_cycle_gate(path, body if isinstance(body, dict) else {})
             if halt:
                 _json_response(self, 422, halt)
                 return
-            if path == "/api/cloud-drain/proceed/v1" and isinstance(body, dict):
+            if isinstance(body, dict):
                 body["_cycle_claimed"] = True
 
         contract = contract_from_hub_body(path, body)
