@@ -1,0 +1,161 @@
+{
+  "schema": "video-ad-factory-forge-v02-cloud-contract-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-23T01:00:00Z",
+  "factory_id": "video-ad-factory-v1",
+  "bay_slug": "video-ad-orchestration-bay",
+  "parent_forge_contract": "data/forge-v02-cloud-contract-v1.json",
+  "parent_forge_schema": "forge-v02-cloud-contract-v1",
+  "architecture": "A",
+  "architecture_note": "Forge v0.2 ranks plans on Railway; video-ad-factory implements cinematic lane plans only. Mac reads HTTP URLs. Cloud runs orchestration · ElevenLabs · Fal.",
+  "worker_base": "https://sourcea-fbe-runner-production.up.railway.app",
+  "hub_base": "http://127.0.0.1:13020",
+  "runtime_ssot": "data/video-ad-factory-runtime-v1.json",
+  "golden_ssot": "data/video-ad-factory-golden-v1.json",
+  "types_ssot": "shared/types/campaign-v1.ts",
+  "orchestration_script": "scripts/video_ad_factory_orchestrate_v1.py",
+  "rendering_script": "scripts/video_ad_rendering_bridge_v1.py",
+  "forge_pick": {
+    "source": "forge_v0.2_top",
+    "volume_path": "receipts/forge_v0.2/forge_v0.2_top.json",
+    "filter": {
+      "factory_id": "video-ad-factory-v1",
+      "workstreams_any": ["ws-run", "ws-ux"],
+      "tags_any": ["video-ad", "cinematic", "commercial-film"],
+      "tier_max": "T2"
+    },
+    "fallback": "rank_order_from_forge_top_20"
+  },
+  "mac_control_lane": "observe-only on Mac — no local Docker video render (INCIDENT-038 · factory isolation)",
+  "workstream_artifact_routing": {
+    "ws-run": {
+      "artifact": "video_ad_campaign_slice",
+      "preview": "/api/video-ad-factory/campaign/v1?plan_id={plan_id}",
+      "volume_path": "receipts/video-ad-factory/{plan_id}.json"
+    },
+    "ws-ux": {
+      "artifact": "video_ad_campaign_slice",
+      "preview": "/api/video-ad-factory/campaign/v1?plan_id={plan_id}",
+      "volume_path": "receipts/video-ad-factory/{plan_id}.json"
+    }
+  },
+  "pipeline_steps": [
+    "BRIEF_ANALYSIS",
+    "AUDIO_READY",
+    "HUMAN_APPROVAL_REQUIRED",
+    "VIDEO_RENDERING",
+    "DISPATCHED"
+  ],
+  "approval_gate": {
+    "required_step": "HUMAN_APPROVAL_REQUIRED",
+    "law": "Stop before final Fal render until founder confirms"
+  },
+  "endpoints": {
+    "contract": {
+      "method": "GET",
+      "local": "apps/video-ad-factory/forge-v02-cloud-contract-v1.json",
+      "parent": "/forge/contract/v02.json"
+    },
+    "forge_status": {
+      "method": "GET",
+      "cloud": "/api/forge/v02/status/v1",
+      "hub_proxy": "/api/forge/v02/status/v1"
+    },
+    "forge_run": {
+      "method": "POST",
+      "cloud": "/api/forge/v02/run/v1",
+      "hub_proxy": "/api/forge/v02/run/v1",
+      "note": "Refresh forge top_20 before picking video-ad-factory plans"
+    },
+    "forge_implement": {
+      "method": "POST",
+      "cloud": "/api/forge/v02/implement/v1",
+      "hub_proxy": "/api/forge/v02/implement/v1",
+      "body": { "plan_id": "{plan_id}", "factory_id": "video-ad-factory-v1" }
+    },
+    "forge_run_and_implement": {
+      "method": "POST",
+      "cloud": "/api/forge/v02/run-and-implement/v1",
+      "hub_proxy": "/api/forge/v02/run-and-implement/v1"
+    },
+    "status": {
+      "method": "GET",
+      "cloud": "/api/video-ad-factory/status/v1",
+      "hub_proxy": "/api/video-ad-factory/status/v1"
+    },
+    "run": {
+      "method": "POST",
+      "cloud": "/api/video-ad-factory/run/v1",
+      "hub_proxy": "/api/video-ad-factory/run/v1",
+      "body": {
+        "plan_id": "{plan_id}",
+        "factory_id": "video-ad-factory-v1",
+        "variation_key": "default",
+        "require_approval": true
+      }
+    },
+    "implement": {
+      "method": "POST",
+      "cloud": "/api/video-ad-factory/implement/v1",
+      "hub_proxy": "/api/video-ad-factory/implement/v1",
+      "body": {
+        "plan_id": "{plan_id}",
+        "forge_parent": "/api/forge/v02/implement/v1"
+      }
+    },
+    "campaign_receipt": {
+      "method": "GET",
+      "cloud": "/receipts/video-ad-factory/{plan_id}.json",
+      "hub_proxy": "/api/video-ad-factory/campaign/v1?plan_id={plan_id}"
+    },
+    "orchestration_receipt": {
+      "method": "GET",
+      "cloud": "/receipts/video-ad-factory/orchestration-receipt-v1.json",
+      "mac_fallback": "~/.sina/video-ad-orchestration-receipt-v1.json"
+    },
+    "forge_data_health": {
+      "method": "GET",
+      "cloud": "/receipts/forge_v0.2/data_health.json",
+      "hub_proxy": "/api/forge/v02/data-health/v1"
+    },
+    "forge_top_20": {
+      "method": "GET",
+      "cloud": "/receipts/forge_v0.2/forge_v0.2_top.json",
+      "hub_proxy": "/api/forge/v02/top/v1"
+    }
+  },
+  "implement_mode": {
+    "real": "Campaign JSON on cloud volume + preview URL 200 · ElevenLabs audio receipt · optional Fal render after approval",
+    "structural_stub": "Forge implement only — no campaign artifact until orchestration run completes"
+  },
+  "execution_flow": [
+    "POST /api/forge/v02/run/v1 — refresh ranked plans",
+    "Pick plan_id from forge_top_20 matching forge_pick.filter",
+    "POST /api/forge/v02/implement/v1 — forge structural implement",
+    "POST /api/video-ad-factory/run/v1 — brief → script → AUDIO_READY → HUMAN_APPROVAL_REQUIRED",
+    "Founder approval — then rendering-bridge (Fal) when allow_fal_render=true"
+  ],
+  "telemetry_format": "Video-ad-factory: {plan_id} · {variation_key} · step={current_step} · forge_pick={rank}",
+  "forge_telemetry_inherit": "Forge v0.2: [N] real → [M] mapped → [D] dupes → [V] malformed → top 20 ranked.",
+  "status_telemetry_format": "VAF: {shippable_count}/{top_20_total} cinematic picks · {pending_approval} awaiting founder · forge parent {forge_status_line}",
+  "required_railway_env": [
+    "FORGE_GITHUB_OWNER",
+    "FORGE_GITHUB_REPO",
+    "FORGE_GITHUB_PLANS_PATH",
+    "FORGE_GITHUB_REF",
+    "GITHUB_TOKEN",
+    "OPENROUTER_API_KEY",
+    "ELEVENLABS_API_KEY",
+    "FAL_KEY",
+    "SUPABASE_URL",
+    "SUPABASE_SERVICE_ROLE_KEY",
+    "FBE_INTERNAL_SECRET"
+  ],
+  "required_railway_env_note": "Forge parent env: python3 scripts/sync_forge_railway_env_v1.py · ElevenLabs: ~/.sina/sourcea-elevenlabs-v1.env",
+  "factory_isolation": {
+    "forbidden_imports": ["apps/apple-store-api/**"],
+    "supabase_tier": "portfolio-spine",
+    "cross_factory_bus": "supabase_only"
+  },
+  "fetch_sources": ["forge_v0.2_top", "github_api", "bundled_fallback"]
+}
