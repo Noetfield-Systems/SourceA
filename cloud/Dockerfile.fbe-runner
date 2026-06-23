@@ -37,6 +37,14 @@ COPY scripts/fbe scripts/fbe
 COPY data/secondary-cloud-drain-next-100-v1.json data/secondary-cloud-drain-next-100-v1.json
 COPY data/cloud-drain-queue-active-v1.json data/cloud-drain-queue-active-v1.json
 COPY data/secondary-cloud-drain-batch-2-locked-v1.json data/secondary-cloud-drain-batch-2-locked-v1.json
+COPY data/secondary-cloud-drain-batch-3-locked-v1.json data/secondary-cloud-drain-batch-3-locked-v1.json
+COPY data/secondary-cloud-drain-batch-4-locked-v1.json data/secondary-cloud-drain-batch-4-locked-v1.json
+COPY data/secondary-cloud-drain-batch-5-locked-v1.json data/secondary-cloud-drain-batch-5-locked-v1.json
+COPY data/secondary-cloud-drain-batch-6-locked-v1.json data/secondary-cloud-drain-batch-6-locked-v1.json
+COPY data/secondary-cloud-drain-batch-7-locked-v1.json data/secondary-cloud-drain-batch-7-locked-v1.json
+COPY data/secondary-cloud-drain-batch-8-locked-v1.json data/secondary-cloud-drain-batch-8-locked-v1.json
+COPY data/secondary-cloud-drain-batch-9-locked-v1.json data/secondary-cloud-drain-batch-9-locked-v1.json
+COPY data/secondary-cloud-drain-batch-10-locked-v1.json data/secondary-cloud-drain-batch-10-locked-v1.json
 COPY data/secondary-cloud-drain-batch-1-complete-locked-v1.json data/secondary-cloud-drain-batch-1-complete-locked-v1.json
 COPY plans/ plans/
 COPY data/forge-scoring-ssot-v01.json data/forge-scoring-ssot-v01.json
