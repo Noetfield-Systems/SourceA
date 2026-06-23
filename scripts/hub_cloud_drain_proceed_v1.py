@@ -216,6 +216,11 @@ def proceed_on_cloud(body: dict[str, Any]) -> dict[str, Any]:
                     ),
                 },
             }
+        cloud_head = str(q.get("cloud_drain_head") or "")
+        if _is_headless_cloud() and cloud_head and plan_id != cloud_head:
+            plan_id = cloud_head
+            resolved = _resolve_next(plan_id=plan_id, maps_registry=registry)
+            registry = registry or str(resolved.get("maps_registry") or "")
     except Exception:
         pass
 
@@ -448,7 +453,11 @@ def _mac_post_process(*, plan_id: str, registry: str, cloud_row: dict[str, Any])
         "hub_proceed": True,
         "forge_dispatch": cloud_row.get("forge_dispatch") or cloud_row.get("cloud_dispatch"),
         "at": now,
-        "evidence": cloud_row.get("for_founder", {}).get("show_this", ""),
+        "evidence": (
+            cloud_row.get("for_founder", {}).get("show_this", "")
+            if isinstance(cloud_row.get("for_founder"), dict)
+            else str(cloud_row.get("for_founder") or "")
+        ),
     }
     receipt_path.parent.mkdir(parents=True, exist_ok=True)
     receipt_path.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
@@ -460,21 +469,26 @@ def _mac_post_process(*, plan_id: str, registry: str, cloud_row: dict[str, Any])
         for p in (drain.get("plans") or [])
         if str(p.get("id", "")).startswith("CLOUD-SEC-")
     ]
-    if plan_id in ids and not cloud_row.get("dry_run"):
-        idx = ids.index(plan_id)
-        nxt = ids[idx + 1] if idx + 1 < len(ids) else plan_id
-        obs_path = SINA / "phase-observed-v1.json"
-        obs = _read(obs_path)
-        obs.update(
-            {
-                "cloud_drain_head": nxt,
-                "cloud_drain_last_completed": plan_id,
-                "rebuilt_at": now,
-                "rebuilt_by": "hub_cloud_drain_proceed_v1",
-            }
-        )
-        obs_path.write_text(json.dumps(obs, indent=2) + "\n", encoding="utf-8")
-        out["steps"].append({"step": "observed_head", "ok": True, "head": nxt, "completed": plan_id})
+    adv = cloud_row.get("queue_advance") if isinstance(cloud_row.get("queue_advance"), dict) else {}
+    pack = cloud_row.get("pack") if isinstance(cloud_row.get("pack"), dict) else {}
+    cloud_head = str(adv.get("head") or pack.get("head_now") or cloud_row.get("head") or "")
+    completed = str(adv.get("completed") or pack.get("last_completed") or cloud_row.get("plan_id") or "")
+    if cloud_head and cloud_head in ids and not cloud_row.get("dry_run"):
+        try:
+            sys.path.insert(0, str(ROOT / "scripts" / "fbe" / "lib"))
+            from cloud_drain_queue_v1 import sync_to_mac_if_newer  # noqa: WPS433
+
+            sync = sync_to_mac_if_newer(
+                {
+                    "cloud_drain_head": cloud_head,
+                    "cloud_drain_last_completed": completed or None,
+                    "at": cloud_row.get("at"),
+                    "observed": {"rebuilt_at": cloud_row.get("at"), "cloud_drain_last_completed": completed or None},
+                }
+            )
+            out["steps"].append({"step": "observed_head", "ok": bool(sync.get("ok")), "head": cloud_head, "sync": sync})
+        except Exception as exc:
+            out["steps"].append({"step": "observed_head", "ok": False, "error": str(exc)[:120]})
 
     brain_id = _next_brain_pair_id()
     if brain_id:
