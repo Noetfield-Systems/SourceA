@@ -1,0 +1,8 @@
+name = "witnessbc-vercel-proxy"
+main = "src/worker.js"
+compatibility_date = "2026-06-21"
+account_id = "2c70de9e879a9b41055642ad47205d71"
+
+[vars]
+VERCEL_ORIGIN = "deploy-witnessbc-agentic-governance-theta.vercel.app"
+PUBLIC_HOST = "www.witnessbc.com"

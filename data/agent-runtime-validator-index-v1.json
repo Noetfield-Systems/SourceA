@@ -1,0 +1,81 @@
+{
+  "schema": "agent-runtime-validator-index-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-06-21T12:00:00Z",
+  "tiers": {
+    "mac_light": {
+      "script": "scripts/validate-agent-runtime-mac-light-v1.sh",
+      "max_runtime_s": 90,
+      "network": false,
+      "includes": [
+        "scripts/validate-cloud-comprehension-bay-v1.sh",
+        "scripts/validate-comprehension-golden-v1.sh",
+        "scripts/validate-cloud-ld-drain-archive-v1.sh",
+        "scripts/validate-cloud-dispatch-dry-run-v1.sh",
+        "scripts/validate-agent-runtime-promotion-v1.sh",
+        "scripts/validate-agent-runtime-rollout-v1.sh",
+        "scripts/validate-comprehension-serialization-v1.sh",
+        "scripts/validate-agent-runtime-index-v1.sh",
+        "scripts/validate-agent-runtime-factories-v1.sh",
+        "scripts/validate-video-ad-factory-runtime-v1.sh",
+        "scripts/validate-noetfield-copilot-runtime-v1.sh",
+        "scripts/test_comprehension_golden_modes_v1.py",
+        "scripts/test_agent_runtime_rollout_edges_v1.py"
+      ]
+    },
+    "ship": {
+      "network": false,
+      "validators": [
+        "scripts/validate-cloud-comprehension-bay-v1.sh",
+        "scripts/validate-comprehension-golden-v1.sh",
+        "scripts/validate-cloud-ld-drain-archive-v1.sh",
+        "scripts/validate-agent-runtime-promotion-v1.sh",
+        "scripts/validate-agent-runtime-rollout-v1.sh",
+        "scripts/validate-comprehension-serialization-v1.sh"
+      ]
+    },
+    "cloud_ci": {
+      "script": "scripts/validate-agent-runtime-cloud-ci-v1.sh",
+      "network": true,
+      "includes": [
+        "scripts/validate-agent-runtime-mac-light-v1.sh",
+        "scripts/validate-cloud-comprehension-client-v1.sh",
+        "scripts/validate-cloud-comprehension-railway-v1.sh",
+        "scripts/validate-comprehension-hub-contract-v1.sh",
+        "scripts/validate-comprehension-nerve-line-v1.sh",
+        "scripts/validate-cloud-ld-drain-live-v1.sh"
+      ]
+    },
+    "deploy_only": {
+      "network": true,
+      "validators": [
+        "scripts/validate-cloud-comprehension-railway-v1.sh"
+      ]
+    }
+  },
+  "validators": {
+    "validate-cloud-comprehension-bay-v1.sh": { "tier": "ship", "max_runtime_s": 30, "network": false },
+    "validate-comprehension-golden-v1.sh": { "tier": "ship", "max_runtime_s": 45, "network": false },
+    "validate-cloud-ld-drain-v1.sh": { "tier": "ship", "max_runtime_s": 10, "network": false },
+    "validate-cloud-ld-drain-archive-v1.sh": { "tier": "ship", "max_runtime_s": 15, "network": false },
+    "validate-cloud-ld-drain-live-v1.sh": { "tier": "cloud_ci", "max_runtime_s": 120, "network": true },
+    "validate-cloud-dispatch-dry-run-v1.sh": { "tier": "mac_light", "max_runtime_s": 10, "network": false },
+    "validate-agent-runtime-promotion-v1.sh": { "tier": "ship", "max_runtime_s": 30, "network": false },
+    "validate-agent-runtime-rollout-v1.sh": { "tier": "ship", "max_runtime_s": 20, "network": false },
+    "validate-comprehension-serialization-v1.sh": { "tier": "ship", "max_runtime_s": 15, "network": false },
+    "validate-agent-runtime-index-v1.sh": { "tier": "mac_light", "max_runtime_s": 5, "network": false },
+    "validate-cloud-comprehension-client-v1.sh": { "tier": "cloud_ci", "max_runtime_s": 120, "network": true },
+    "validate-cloud-comprehension-railway-v1.sh": { "tier": "deploy_only", "max_runtime_s": 180, "network": true },
+    "validate-comprehension-hub-contract-v1.sh": { "tier": "cloud_ci", "max_runtime_s": 120, "network": true },
+    "validate-comprehension-nerve-line-v1.sh": { "tier": "cloud_ci", "max_runtime_s": 30, "network": false },
+    "validate-agent-runtime-mac-light-v1.sh": { "tier": "mac_light", "max_runtime_s": 90, "network": false },
+    "validate-agent-runtime-cloud-ci-v1.sh": { "tier": "cloud_ci", "max_runtime_s": 600, "network": true },
+    "validate-mac-health-cloud-glance-v1.sh": { "tier": "mac_light", "max_runtime_s": 30, "network": true },
+    "validate-worker-hub-live-v1.sh": { "tier": "mac_light", "max_runtime_s": 90, "network": true },
+    "test_comprehension_golden_modes_v1.py": { "tier": "mac_light", "max_runtime_s": 15, "network": false },
+    "validate-agent-runtime-factories-v1.sh": { "tier": "mac_light", "max_runtime_s": 30, "network": false },
+    "validate-video-ad-factory-runtime-v1.sh": { "tier": "mac_light", "max_runtime_s": 25, "network": false },
+    "validate-noetfield-copilot-runtime-v1.sh": { "tier": "mac_light", "max_runtime_s": 25, "network": false },
+    "test_agent_runtime_rollout_edges_v1.py": { "tier": "mac_light", "max_runtime_s": 5, "network": false }
+  }
+}

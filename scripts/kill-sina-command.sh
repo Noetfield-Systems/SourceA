@@ -46,5 +46,4 @@ if rops.is_file():
 
 echo "OK: Hub + rebuild worker stopped · remote_ops paused · auto-paste blocked"
 echo "Blocked attempts log: ~/.sina/cursor-inject-blocked.log"
-echo "To start again: open Sina Command.app (or run serve-sina-command.sh)"
-echo "Alias: ~/Desktop/SourceA/scripts/emergency-stop.sh"
+echo "Retire museum + launchd: bash ~/Desktop/SourceA/scripts/uninstall-sina-command-v1.sh"

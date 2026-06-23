@@ -1,0 +1,46 @@
+{
+  "schema": "truth-log-cloud-contract-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-22T22:15:00Z",
+  "table": "public.truth_log",
+  "migration": "infra/supabase/portfolio-spine/migrations/002_truth_log_v1.sql",
+  "one_law": "Only cloud systems may INSERT. Cursor/Mac/local scripts cannot fake rows (RLS + runtime guard).",
+  "fields": {
+    "id": "uuid",
+    "timestamp": "recorded_at timestamptz",
+    "source": "cloudflare_cron | cloudflare_worker | railway_runtime",
+    "event": "CRON_FIRED | JOB_STARTED | JOB_COMPLETED | JOB_FAILED | QUEUE_ADVANCED",
+    "deployment_id": "text nullable",
+    "queue_head": "text nullable (new head on QUEUE_ADVANCED)",
+    "old_queue_head": "text nullable (old head on QUEUE_ADVANCED)",
+    "receipt_id": "text nullable"
+  },
+  "writers": {
+    "cloudflare_cron": {
+      "event": "CRON_FIRED",
+      "module": "cloud/workers/cloud-drain-tick-v1/src/truth_log.js",
+      "secrets": ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"]
+    },
+    "railway_runtime": {
+      "events": ["JOB_STARTED", "JOB_COMPLETED", "JOB_FAILED", "QUEUE_ADVANCED"],
+      "module": "scripts/truth_log_v1.py",
+      "wired": "scripts/hub_cloud_drain_proceed_v1.py proceed_on_cloud",
+      "env": ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "RAILWAY_DEPLOYMENT_ID"]
+    }
+  },
+  "read_endpoints": {
+    "GET /truth": "scripts/truth_log_v1.py build_truth",
+    "GET /truth/live": "scripts/truth_log_v1.py build_truth_live"
+  },
+  "pass_condition": {
+    "steps": [
+      "Close Cursor",
+      "Sleep Mac",
+      "Wait 60 minutes",
+      "Query Supabase truth_log OR GET /truth/live from phone"
+    ],
+    "pass": "truth_log row count increases (CRON_FIRED every ~10m if cron live)",
+    "fail": "truth_log stops growing — loop does not exist independently"
+  },
+  "forbidden_writers": ["cursor", "mac", "local_scripts", "terminal"]
+}

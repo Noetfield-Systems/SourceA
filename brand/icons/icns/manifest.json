@@ -53,5 +53,20 @@
     "id": "sina-n8n-integration",
     "png": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-n8n-integration.png",
     "icns": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-n8n-integration.icns"
+  },
+  {
+    "id": "sina-portfolio-mail",
+    "png": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-portfolio-mail.png",
+    "icns": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-portfolio-mail.icns"
+  },
+  {
+    "id": "sina-worker-hub",
+    "png": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-worker-hub.png",
+    "icns": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-worker-hub.icns"
+  },
+  {
+    "id": "sina-cloud-workers",
+    "png": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-cloud-workers.png",
+    "icns": "/Users/sinakazemnezhad/Desktop/SourceA/brand/icons/icns/sina-cloud-workers.icns"
   }
 ]

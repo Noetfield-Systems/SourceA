@@ -1,0 +1,79 @@
+{
+  "schema": "execution-state-desired-observed-v1",
+  "version": "1.2.0",
+  "saved_at": "2026-06-21T20:00:00Z",
+  "authority": "WORK close-out — backed era + FORGE motor",
+  "law_doc": "data/execution-state-desired-observed-v1.json",
+  "bundle": "scripts/execution_state_bundle_v1.py",
+  "closeout": "scripts/execution_state_closeout_v1.py",
+  "machines": {
+    "fix1": "scripts/hub_single_owner_v1.py",
+    "fix2": "scripts/phase_reconciler_v1.py",
+    "fix3": "scripts/phase_cloud_execute_v1.py"
+  },
+  "separation": {
+    "desired_read": "scripts/phase_desired_read_v1.py",
+    "probe": "scripts/phase_transition_probe_v1.py",
+    "observed_project": "scripts/phase_observed_project_v1.py",
+    "law": "NEVER share write path between desired author and observed reconciler"
+  },
+  "one_law": "Founder/ASF alone authors desired (assignment.active). Reconciler READ desired · PROBE live · PROJECT observed only.",
+  "model": "kubernetes_spec_status",
+  "desired": {
+    "role": "spec",
+    "question": "Where SHOULD the portfolio work next?",
+    "primary_path": "data/sourcea-worker-professional-assignment-v1.json",
+    "fields": ["active.phase_id", "active.start_plan", "active.next_ssot"],
+    "writers": ["founder", "ASF"],
+    "read_module": "scripts/phase_desired_read_v1.py",
+    "forbidden": ["agent_hand_edit_active", "phase_reconciler_writes_assignment", "shared_code_with_observed_writer"]
+  },
+  "observed": {
+    "role": "status",
+    "question": "What IS executing on factory / RUN INBOX / cloud drain rail?",
+    "write_module": "scripts/phase_observed_project_v1.py",
+    "paths": [
+      "~/.sina/factory-now-v1.json",
+      "~/.sina/healthy-queue-30-active.json",
+      "~/.sina/healthy-queue-state-v1.json",
+      "~/.sina/phase-observed-v1.json",
+      "data/factory-era-v1.json",
+      "~/.sina/factory-era-v1.json"
+    ],
+    "writers": ["phase_observed_project_v1 via phase_reconciler_v1"],
+    "forbidden": ["direct_edit", "partial_fanout", "reconciler_writes_desired"]
+  },
+  "reconciler_rules": {
+    "orchestrator": "scripts/phase_reconciler_v1.py",
+    "preconditions": "scripts/phase_transition_probe_v1.py — ff-001..ff-010 live receipts + queue counters + hub + railway",
+    "closeout_not_gate": "receipts/forge-factory-cycle2-closeout-v1.json is documentary only",
+    "idempotency": "if desired.era == observed.era AND probe-backed ratify exists → no-op",
+    "ratify": {
+      "command": "phase_reconciler_v1.py --transition ratify-phase-market",
+      "law": "Append probe_gate_pass event without re-projecting observed surfaces",
+      "cold_start": "derive_era_from_event_log — last probe_gate_pass to_era wins",
+      "forbidden": ["silent_waiver", "hand_edit_without_probe_backed_event"]
+    },
+    "event_log": "~/.sina/phase-event-log-v1.jsonl"
+  },
+  "loop_auto_dispatch": {
+    "enabled": false,
+    "law": "Do NOT enable until Item 1 ratify + Item 2 full FORGE motor green — execution_state_closeout_v1 --enable-loop-auto"
+  },
+  "probe_beats_file": {
+    "law": "When JSON surfaces contradict live probe, probe wins",
+    "probes": [
+      "curl -sf http://127.0.0.1:13020/health",
+      "launchctl print gui/$UID/com.sourcea.hub",
+      "curl -sf https://sourcea-fbe-runner-production.up.railway.app/health",
+      "receipts/ff-001..ff-010 per forge-factory-queue-cycle2-v1.json"
+    ]
+  },
+  "hub_single_owner": {
+    "owner": "launchd com.sourcea.hub",
+    "port": 13020,
+    "machine": "scripts/hub_single_owner_v1.py",
+    "forbidden": ["nohup_while_launchd_loaded", "pkill_when_health_ok", "kickstart_k_when_healthy"]
+  },
+  "event_bus_backlog": "Full phase_event_bus_v1.py — evolve from phase-event-log-v1.jsonl"
+}

@@ -1,6 +1,6 @@
 ---
 description: Mandatory date + exact UTC time on every doc write (all agents, all founders)
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Doc datetime mandatory (LOCKED — all agents · all doc writes)

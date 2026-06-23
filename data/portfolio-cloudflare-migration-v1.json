@@ -1,0 +1,72 @@
+{
+  "schema": "portfolio-cloudflare-migration-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-23T06:00:00Z",
+  "authority": "ASF",
+  "one_law": "Main portfolio (sourcea.com · trustfield.ca · noetfield.com) moves from Vercel interim to Cloudflare Pages on sinakazemnezhad.ca@gmail.com account — Workers/cron on same main account. WitnessBC stays witness.bc@gmail.com lane.",
+  "human_doc": "docs/PORTFOLIO_CLOUDFLARE_MIGRATION_LOCKED_v1.md",
+  "cloudflare_main": {
+    "login_email": "sinakazemnezhad.ca@gmail.com",
+    "account_id": "0d0b967b77e2e5535455d39ff3dae72c",
+    "wrangler_whoami_required": true,
+    "forbidden_account": "witness.bc@gmail.com for main portfolio Workers/Pages"
+  },
+  "vercel_interim": {
+    "team": "the-777-foundation",
+    "status": "deprecate_after_cf_green",
+    "map_ssot": "data/vercel-portfolio-map-v1.json"
+  },
+  "domains": [
+    {
+      "domain": "sourcea.com",
+      "module": "sourcea",
+      "official": true,
+      "build": "python3 scripts/build_sourcea_vercel_output_v1.py",
+      "output_dir": "SourceA-landing/green-unified/dist",
+      "pages_project": "sourcea-com",
+      "publish_script": "python3 scripts/publish_sourcea_landing_v1.py --target cloudflare",
+      "token_file": "~/.sina/cf-pages-token-v1.json",
+      "dns": "CNAME @ and www → sourcea-com.pages.dev",
+      "sender": "hello@sourcea.com"
+    },
+    {
+      "domain": "trustfield.ca",
+      "module": "trustfield",
+      "official": true,
+      "pages_project": "trustfield-ca",
+      "vercel_interim": "trustfield-personal.vercel.app",
+      "dns": "CNAME www → trustfield-ca.pages.dev",
+      "sender": "hello@trustfield.ca",
+      "note": "MSB email via Google Workspace app password — not WitnessBC CF token"
+    },
+    {
+      "domain": "noetfield.com",
+      "module": "noetfield",
+      "official": true,
+      "pages_project": "noetfield-com",
+      "github_repo": "kazemnezhadsina144-dot/Noetfield",
+      "vercel_interim": "noetfield-www-main.vercel.app",
+      "dns": "CNAME www → noetfield-com.pages.dev",
+      "sender": "operation@noetfield.com"
+    },
+    {
+      "domain": "witnessbc.com",
+      "module": "witnessbc",
+      "lane": "witnessbc_isolated",
+      "cloudflare_login": "witness.bc@gmail.com",
+      "note": "Separate lane — not main account migration batch"
+    }
+  ],
+  "preflight": [
+    "wrangler whoami — confirm account_id 0d0b967b77e2e5535455d39ff3dae72c",
+    "Build dist green locally before DNS cutover",
+    "Keep Vercel project until CF 200 on apex + www for 24h",
+    "Delete noetfield-systems trial Vercel after main green"
+  ],
+  "never_do_again": [
+    "Deploy Cloudflare Workers via witness.bc@gmail.com OAuth for main portfolio",
+    "Mix TrustField zone API token with SourceA Pages deploy",
+    "Cut DNS before dist build PASS"
+  ],
+  "receipt": "~/.sina/portfolio-cloudflare-migration-v1.json"
+}

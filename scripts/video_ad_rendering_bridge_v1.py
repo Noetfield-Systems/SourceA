@@ -87,7 +87,7 @@ def render_video_stub(
         }
 
 
-def run_bridge(campaign_id: str, *, mock_only: bool = True) -> dict:
+def run_bridge(campaign_id: str, *, mock_only: bool = False) -> dict:
     campaign = _load_campaign(campaign_id)
     step = campaign.get("current_step")
     allowed = frozenset({"VIDEO_RENDERING", "HUMAN_APPROVAL_REQUIRED", "DISPATCHED"})

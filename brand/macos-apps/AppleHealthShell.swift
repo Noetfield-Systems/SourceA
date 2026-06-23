@@ -125,6 +125,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.setActivationPolicy(.regular)
+        SinaStandaloneShell.installStandardMenu(appName: "Mac Health Guard")
         HeartLauncher.logLine("double-click launch")
         let config = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: config)

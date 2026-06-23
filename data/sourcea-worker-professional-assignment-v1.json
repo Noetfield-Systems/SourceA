@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-worker-professional-assignment-v1",
-  "version": "1.4.0",
-  "saved_at": "2026-06-20T22:56:42Z",
+  "version": "1.5.0",
+  "saved_at": "2026-06-21T02:02:00Z",
   "authority": "ASF \u2014 Mac control only \u00b7 cloud executes all factory work \u00b7 INCIDENT-038 v1.1",
   "one_law": "Mac = control panel only. Cloud/API/FORGE runs ALL factory work. Secondary competitor-5000 never executes on Mac. Worker does NOT run every plan.",
   "incident_038": "brain-os/incidents/SINA_AGENT_WORKER_FACTORY_PLANE_CONFLATION_INCIDENT_038_LOCKED_v1.md",
@@ -154,7 +154,10 @@
         "trustfield",
         "virlux"
       ],
-      "queue_policy": "Cloud drains T0 free tier first \u00b7 ws order ux\u2192pricing\u2192run\u2192onboard\u2192integrate \u00b7 SourceA stack first"
+      "queue_policy": "Cloud drains T0 free tier first \u00b7 ws order ux\u2192pricing\u2192run\u2192onboard\u2192integrate \u00b7 SourceA stack first",
+      "status": "active",
+      "cloud_drain_head": "CLOUD-SEC-001",
+      "cloud_drain_receipt": "receipts/cloud-sec-001-receipt-v1.json"
     },
     {
       "id": "phase-build",
@@ -174,7 +177,14 @@
       "execution_plane": "cloud_api_worker",
       "mac_build_forbidden": true,
       "mac_executes": false,
-      "status": "active",
+      "status": "complete",
+      "completed_at": "2026-06-21T02:02:00Z",
+      "completion": {
+        "queue_range": "sa-1201..sa-1210",
+        "receipts_dir": "receipts/ff-*-sa-12*-receipt-v1.json",
+        "closeout_receipt": "receipts/forge-factory-cycle2-closeout-v1.json",
+        "ok": true
+      },
       "plan_ssot": "data/forge-factory-queue-cycle2-v1.json",
       "brand_ssot": "data/forge-factory-unified-brand-v1.json",
       "queue_head": "sa-1201",
@@ -201,15 +211,14 @@
     ]
   },
   "active": {
-    "phase_id": "forge-factory-cycle2",
-    "label": "FORGE FACTORY cycle2 — Goal 3 active · queue sa-1201",
-    "execution_plane": "cloud_api_worker",
+    "phase_id": "phase-market",
+    "label": "Secondary competitor-1000 — CLOUD-SEC-001 drain active",
+    "execution_plane": "cloud_forge",
     "mac_executes": false,
-    "next_ssot": "data/forge-factory-queue-cycle2-v1.json",
-    "brand_ssot": "data/forge-factory-unified-brand-v1.json",
-    "start_plan": "sa-1201",
-    "mac_role": "Hub glance · loop specialist cloud dispatch · no Mac motor drain",
-    "prior_phase_complete": "phase-build-archived"
+    "next_ssot": "data/secondary-cloud-drain-next-100-v1.json",
+    "start_plan": "CLOUD-SEC-001",
+    "mac_role": "Hub POST observe · read cloud receipts only · INCIDENT-038",
+    "prior_phase_complete": "forge-factory-cycle2"
   },
   "receipt": "~/.sina/sourcea-worker-professional-assignment-v1.json"
 }

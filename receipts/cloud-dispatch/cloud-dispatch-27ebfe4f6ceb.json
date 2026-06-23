@@ -1,0 +1,31 @@
+{
+  "schema": "cloud-dispatch-receipt-v1",
+  "receipt_id": "cloud-dispatch-27ebfe4f6ceb",
+  "plan_id": "CLOUD-LD-008",
+  "maps_registry": "sa-mkt-ld-0008",
+  "competitor": "LaunchDarkly",
+  "workstream": "ws-onboard",
+  "tier": "T1",
+  "cloud_action": "Map onboarding to SourceA agent_runtime_config_v1 loader",
+  "at": "2026-06-21T04:34:26Z",
+  "execution_plane": "cloud_forge",
+  "source_url": "https://launchdarkly.com/docs/home/agentcontrol/quickstart",
+  "http_status": 200,
+  "bytes_fetched": 500000,
+  "evidence_snippets": [
+    "Quickstart for AgentControl | LaunchDarkly | Documentation",
+    "Pricing Sign in Try it free Light On this page Prerequisites Complete the in-app quickstart Step 1: Install the SDK Installing",
+    "Get started Overview Onboarding Get started Launch Insights LaunchDarkly architecture Launc",
+    "Get started Developer tools LaunchDarkly CLI LaunchDarkly CLI commands LaunchDarkly MCP ser",
+    "free Light On this page Prerequisites Complete the in-app quickstart Step 1: Install",
+    "get started with other frameworks or model providers, read the AgentControl guides",
+    "Install the SDK Installing manually Step 2: Initialize the client Step 3: Create an age",
+    "Install with AI , choose your LLM provider, and give it the prompt available in the UI",
+    "Install the SDK First, install the LaunchDarkly server-side SDK and AI SDK, as well as",
+    "install launchdarkly-server-sdk pip install launchdarkly-server-sdk-ai pip install lang"
+  ],
+  "ok": true,
+  "status": "PASS",
+  "receipt_path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/cloud-dispatch/cloud-dispatch-27ebfe4f6ceb.json",
+  "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-27ebfe4f6ceb.json"
+}

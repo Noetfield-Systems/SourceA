@@ -1,47 +1,1583 @@
 {
   "schema": "fbe-run-receipt-pack-v1",
   "ok": true,
-  "at": "2026-06-17T14:09:32Z",
+  "at": "2026-06-22T15:19:20Z",
   "bay_slug": "forge-bay",
   "artifact_uri": "receipts/packs/forge-bay/run-receipt-v1.zip",
   "receipt_pack_uri": "receipts/packs/forge-bay/run-receipt-v1.zip",
-  "file_count": 9,
+  "file_count": 393,
   "manifest": [
     {
       "path": "receipts/federated-run-v1.json",
-      "sha256": "19232c5730dd102a2469e0f58b2494bf79b04d34789b78beda9ffd1192d0d6f7"
+      "sha256": "9bc812a0a9aa19834c07b48f056a1919137c007062daa73cc2fde0aa8e084cdc"
     },
     {
       "path": "fbe-federated-receipt-v1.json",
-      "sha256": "19232c5730dd102a2469e0f58b2494bf79b04d34789b78beda9ffd1192d0d6f7"
+      "sha256": "9bc812a0a9aa19834c07b48f056a1919137c007062daa73cc2fde0aa8e084cdc"
     },
     {
       "path": "fbe-run-job-receipt-v1.json",
-      "sha256": "f5012ddba0039341f768766b9a66b62bac41b33338fc1ef42c74ba8a5ce64b40"
+      "sha256": "0f50b141c6c78992642439f33d8f0533f6778fc2964a61c61291e4695f005912"
     },
     {
       "path": "receipts/bays/forge-bay/assembly/ledger.jsonl",
-      "sha256": "1de9ba41bbe0b6bcf732416e52c0d31bcd9d711b8e9cef592dcd7681f1879603"
+      "sha256": "042925c40717dcaa25574cf7bf1c86ba921d3ebbb91d5776e5ef28bd0c6c48a7"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171353-sa-mkt-0001-task-graph.json",
+      "sha256": "115b63f0b1cfea04d48db87cf82eba98928e372a2fcfcec02b654a7b71fc15af"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171055-sa-mkt-0001-task-graph.json",
+      "sha256": "1bc37b0390bc9bea9667fe0e0a6abf2629a2c2adab23102054bcd6ecfb7a860f"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171408-sa-mkt-0001-task-graph.json",
+      "sha256": "ae31e261863783209787a4ba9e92dc134f711531b824bd474ab2d5176cc7f5b9"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171536-sa-mkt-0001-task-graph.json",
+      "sha256": "3e4b919febdb76e80fca7042fac9445620f9b7b5457cabc198358f76cce894ae"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171314-sa-mkt-0001-task-graph.json",
+      "sha256": "d1bb17157939972c528be200b4578bba4b0cf378892bdd260d61ba56c34035ba"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T172032-sa-mkt-0001-task-graph.json",
+      "sha256": "301289b8b69fe5b287badfeacd7bb412aafca049922ca3717ff81fc5dfad4cc8"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171244-sa-mkt-0001-task-graph.json",
+      "sha256": "0872bdfd046e9db99f185962149b26960029cc000fdf677385e46e0c30433c0e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171142-sa-mkt-0001-task-graph.json",
+      "sha256": "728472201846578b6ea3f828dd349d28f78b0f07e6352d43bc578649b9129c4d"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171558-sa-mkt-0001-task-graph.json",
+      "sha256": "8dd8869e9770ff8be283f56bcb7009f214ab3a9f460d7e800253e9a27fd5ff12"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171105-sa-mkt-0001-task-graph.json",
+      "sha256": "4dbb77bb54c68d8e044cd6885a4474fca52cd9ccf852ad208f4739969d501725"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171203-sa-mkt-0001-task-graph.json",
+      "sha256": "8dc574d0caee30187523a613294a20504e5a3d588a90ccaf28102df9c27fb8f2"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171421-sa-mkt-0001-task-graph.json",
+      "sha256": "e8d4b0cb55bac7b25131d92345ce79dd04f9f103b0b48a12bb2ed45ead7c5e12"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171511-nf-mkt-0001-task-graph.json",
+      "sha256": "a3e98a8f65dade00ab466bce715d3e1a365e232b86f24cba323b7b70a876ec58"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171459-sa-mkt-0001-task-graph.json",
+      "sha256": "da7ee5af8bf5b20ed9c4184c21d8a43a280b4bfc43732861c5224fc2a600d448"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171345-sa-mkt-0001-task-graph.json",
+      "sha256": "8dfff2cdcf6e2cee5b37ae24bfd004ffed1a84636865e405be55d7cda0d9be6a"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171043-sa-mkt-0001-task-graph.json",
+      "sha256": "92ceaa45ba37aa926bb6c330250e32bde81ce01576e16095375a8dfa36d0a99c"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171520-sa-mkt-0001-task-graph.json",
+      "sha256": "5eeac97d11f2ca8c0889623e3d33ec51f00c6382bda1b1288c95580b719eb296"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171302-sa-mkt-0001-task-graph.json",
+      "sha256": "32ba2754a521505877b45eeb5b3c89fe232e62bbe960b2d2b952929c92b218d0"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171252-sa-mkt-0001-task-graph.json",
+      "sha256": "36b19652222d7dd137d00d55bcdb2f148ea3ba69d944b98e07f90d275b9ed611"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171154-sa-mkt-0001-task-graph.json",
+      "sha256": "3dd15052d82c99433227337f0515bb08f7d1e83ef9222e927beef5ef7b131193"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171507-nf-mkt-0001-task-graph.json",
+      "sha256": "3982be6c79e7bc9fbde98142dd7b4a6197ca793ab9b9cac4384cbda0fe72f550"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171113-sa-mkt-0001-task-graph.json",
+      "sha256": "d093939dd3cd741b9ae8ba5fc6d15434c226c420e0bd513d95803cfa47b09d44"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171215-sa-mkt-0001-task-graph.json",
+      "sha256": "64a69d8b46e3f1eff6158af8a88d629e918233082d6a10b77f8072f76e41d0ca"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171509-sa-mkt-0001-task-graph.json",
+      "sha256": "8feb42f263704f07fe46431942ea09c121d434831ade4008e6326f39885924a7"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171437-sa-mkt-0001-task-graph.json",
+      "sha256": "f4b6ef1c94d15eb988af44b60a7d38567ff78e9f3512f8bacbb5137bd7e0c684"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171424-sa-mkt-0001-task-graph.json",
+      "sha256": "04fda7b6c5f8b31194039c6fc345a45358afc13c2020e69b36dc9d92e4a95338"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171206-sa-mkt-0001-task-graph.json",
+      "sha256": "9ff9287f4f6d71a60acf6c7f3fc4ca80a9b8e1bd518857d081e0c3b648621ff0"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171338-sa-mkt-0001-task-graph.json",
+      "sha256": "bd04a351c48d9c3a29c5d64b2b84ea9cd4152da3fc5f3872cee83675b789d9cd"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171100-sa-mkt-0001-task-graph.json",
+      "sha256": "6acf8544517be3b590931cd4a732af8f1bf203bf1cfe268587015678ec888df9"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171147-sa-mkt-0001-task-graph.json",
+      "sha256": "c1902eadf626abe760ed550a4c50edfbfe8442bae61da8255353f13e188c9db6"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171241-sa-mkt-0001-task-graph.json",
+      "sha256": "e72800bacf4e55f5c5fdc47a6df249714363d167d74513180db1533397e25002"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171311-sa-mkt-0001-task-graph.json",
+      "sha256": "86ab27641c957b85adc7ace66e9ce8b12ecf34e0ada63ed5e6a02f2bcf1b8e47"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171129-sa-mkt-0001-task-graph.json",
+      "sha256": "67ecdf1597017cc2a3134063c7e4a60841e000c344bddbfde120cbb4fa4f35eb"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171533-sa-mkt-0001-task-graph.json",
+      "sha256": "eb30c8a925320ad5d39862a974dd54e116984f1a1653c75cfa313c57707eb3f5"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171050-sa-mkt-0001-task-graph.json",
+      "sha256": "8faf5b53ca16be3ee7282df21eff33def84259f4c787610a51ec125ed5e6c622"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171356-sa-mkt-0001-task-graph.json",
+      "sha256": "419e52ccae4c080871a46866448c72537d2b8b90d083048e6f736b69de6ca8e9"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171432-sa-mkt-0001-task-graph.json",
+      "sha256": "5b8230d5eb8115226c0c70469a03d81f466baae60d82ed02583daaf9d3e137d2"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171210-sa-mkt-0001-task-graph.json",
+      "sha256": "7810ec30d63ed71da3fb7b9aa11db9733222b31d7ae862f945ebf58928f99d2a"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171028-sa-mkt-0001-task-graph.json",
+      "sha256": "3dab5cc0858ee8c9d22dcd8479382a0d858e338d93b1dc5047f65c43df2ae22e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171116-sa-mkt-0001-task-graph.json",
+      "sha256": "0ca0ba7b37592ce8c1f5ab2ff9d45ccb345aa9a80cdc7d7d85aa5a43e20866c9"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171151-sa-mkt-0001-task-graph.json",
+      "sha256": "1eedc85ffe258accdbfd132e99d9bc77bccfd48502f7d61e997b8215b720d39e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171257-sa-mkt-0001-task-graph.json",
+      "sha256": "c85fd2149a42b699810fcfca6cbbb90466256f9d671e715cc7f7627fa26d29e7"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171307-sa-mkt-0001-task-graph.json",
+      "sha256": "51da70d76b25e1a1d6dcb1bb5b973c897282322fb90827945ae4bddf4a0537e9"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171239-sa-mkt-0001-task-graph.json",
+      "sha256": "b810be7d9a6e0a42f10c96003713ae03181a3097dfb56b3cb77dd01b53361b55"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260621T211802-sa-mkt-0005-task-graph.json",
+      "sha256": "88ab78cf8d127d2a04f6ad793e364d1b6b972c7060ab3af264e4eee9fd2c319a"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171525-sa-mkt-0001-task-graph.json",
+      "sha256": "93776531ab2b23f765683ec5c3aaf85b4e60878551a9984d0de90b340091b73b"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171046-sa-mkt-0001-task-graph.json",
+      "sha256": "ec92bdf354e5210ce22c94378658b4b755b181d3a8788a6e045213814cdcfcb2"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171340-sa-mkt-0001-task-graph.json",
+      "sha256": "c04288753a89409a8fbcf99e84aadd672d563c1949343ca94478eb74b31c383f"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171544-sa-mkt-0001-task-graph.json",
+      "sha256": "0015d0dbd15bb1c5cc7bdddbc4678b15b3ae9a589898ab0b0d56d498aa222a19"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171258-sa-mkt-0001-task-graph.json",
+      "sha256": "3b8db41c661704f6d2724cbd02acabe3e9650d1781d0cd6bdf1cbed65542ca1b"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171503-sa-mkt-0001-task-graph.json",
+      "sha256": "f57364d256b2b36523f285466a04d2d4817f6453e0ff69faca100f1c20ab91c0"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171605-sa-mkt-0001-task-graph.json",
+      "sha256": "1bc1383efca0f49f6412d1b021b27c4283e8776c78b7be1c63a752a42b91c57d"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171321-sa-mkt-0001-task-graph.json",
+      "sha256": "ad51e35e002e21019c3a69f42d095c7bf8e5febac3803d6404763534c0670de6"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171119-sa-mkt-0001-task-graph.json",
+      "sha256": "2f3a35fea4fe56c9a8d03123ab1965d276e539a76011ef64020da0bea98aff06"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171027-sa-mkt-0001-task-graph.json",
+      "sha256": "9b2f36aad5776b8b4766692cd44943e76342f08bfa43f8d3e726af360b80f341"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260621T015843-sa-mkt-0001-task-graph.json",
+      "sha256": "105a0170b1f16c631215768fb6523dce64a22420a83132c077623f05b7b795ee"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171049-sa-mkt-0001-task-graph.json",
+      "sha256": "58563b5dad5b87352d54626523fa08389eafb963f5cdc24027d6d0d592b33f02"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171453-sa-mkt-0001-task-graph.json",
+      "sha256": "156ec2d5ffbd7b2a3bdef425fe1956ccdac2bba69709f9cd1f2259df32dfb63d"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171236-sa-mkt-0001-task-graph.json",
+      "sha256": "1664ea1aa1986591548a4e83f5167a08f2fa3697e23ff638580c7a45ef8693fd"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171308-sa-mkt-0001-task-graph.json",
+      "sha256": "e666badb322bc22ecc0143a3ede750d89b852b4a2491b7c911a96c87ffdf46cb"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171130-sa-mkt-0001-task-graph.json",
+      "sha256": "f88d25233a9654461c147e831e47e1496573f5370f2bbc647301241bb77cf242"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171414-sa-mkt-0001-task-graph.json",
+      "sha256": "633e58ccce60738e2dd74826a2279f0d1565998ea75b066ba9bf9f73dabb93b1"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171552-sa-mkt-0001-task-graph.json",
+      "sha256": "bd5198bbbcbb1226f5aa2ce9ce35c78ac18131389f5efefd59340e84d7eef57d"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171148-sa-mkt-0001-task-graph.json",
+      "sha256": "955e45905acc91fd6c727611acdfd27dea78a72ac37608d5295986c8b4978693"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171515-sa-mkt-0001-task-graph.json",
+      "sha256": "3b064e08170fea3e25d004abde5924c320c8b2747fc661041845a17c65ed23f6"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171613-sa-mkt-0001-task-graph.json",
+      "sha256": "04b2a936b15b32e3c3a7fc40aceea5156d0bafedc9ba57c414ea0a020f5c4b26"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171337-sa-mkt-0001-task-graph.json",
+      "sha256": "5a8a4e801073d2681c29e6ad1f627287f023e425d8f73ca147111d5bf9f0676a"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171209-sa-mkt-0001-task-graph.json",
+      "sha256": "cc9d8a9e0627f2301d296595713669a004559e82ceb1525fb274c6b99c9fb733"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171031-sa-mkt-0001-task-graph.json",
+      "sha256": "aed7c98d38622f0ed71861dda8089ecc46d6906d3a476b5bf1f2d61c32874eb9"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171359-sa-mkt-0001-task-graph.json",
+      "sha256": "bfcd8732fdb50454f4714281b357bece2fe19749ec4f4ae609db1ccea6355591"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171445-sa-mkt-0001-task-graph.json",
+      "sha256": "ba7fee2f43aa90163adf323046f0ced64af20128f7a5ef8975c86ac94d9881d3"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171220-sa-mkt-0001-task-graph.json",
+      "sha256": "23051cab2dd47395c96623ca17ee8635d4f58dfcd6de0fbd1385f7a603cfd30a"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171126-sa-mkt-0001-task-graph.json",
+      "sha256": "45565e05951e65ab20ac08845adc8558b83cb69378e06e2335ab60959aacc77b"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171402-sa-mkt-0001-task-graph.json",
+      "sha256": "b533d78d44493c158c2db50a4dffbf663b683389607782a0e756af1eb9ad2dbc"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171411-sa-mkt-0001-task-graph.json",
+      "sha256": "18617ed31648e3dc6fb4857fcde19d0e6e943c6a5b09bba2477cd01a2a337da9"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171135-sa-mkt-0001-task-graph.json",
+      "sha256": "2891431e793900668c9d0d3e9c1494ce126d9c4bcf71be7215e6bfd059c63946"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171233-sa-mkt-0001-task-graph.json",
+      "sha256": "c086124ad108e78b6b3578acdafd187aed8253951f6b914618eb9770b1b72e79"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171421-wb-mkt-0001-task-graph.json",
+      "sha256": "f53d48d183a3e36c163d8beac5b2d9fe9cabbeb938885bc243625bdb30cfee31"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171456-sa-mkt-0001-task-graph.json",
+      "sha256": "8776ea3d9afa9fae962d47418a95c3ecb22155966fecb66afd17c1d732d5a8d8"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171324-sa-mkt-0001-task-graph.json",
+      "sha256": "88ec922eac51d4d7066a0d431465ce70245e66ef1d38eeed2b5bbfac585526d0"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171600-sa-mkt-0001-task-graph.json",
+      "sha256": "c48a6f99e587007de0d54918dc5797ac45f452cc9e0633046394bd82eadb3807"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171438-sa-mkt-0001-task-graph.json",
+      "sha256": "f37ad7f46afcae7361d532d48b85d5742aa690b735b4456802da081686168c1b"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171506-sa-mkt-0001-task-graph.json",
+      "sha256": "35748b3ea6282af43bbe0bd78666a1b68471a6fda0d18849b5dc22c6d9ca77d3"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171541-sa-mkt-0001-task-graph.json",
+      "sha256": "b4e2a8086713234158891fcb48052298fa9336eb27d570a777e633e241a47e71"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171539-sa-mkt-0001-task-graph.json",
+      "sha256": "47fdfbabf3120f60d053707e5616b9bde9d55d5d30018d2f04187408cf529308"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171407-sa-mkt-0001-task-graph.json",
+      "sha256": "de29b8a39dbc8808604508b3635f7b80002658ffc353d22839513c8f42cb04b9"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171123-sa-mkt-0001-task-graph.json",
+      "sha256": "9dcbe291f9cc7c8c70bf89b2a587450a7b6e58b64a1ab8db61eb833bcd6da1fa"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171225-sa-mkt-0001-task-graph.json",
+      "sha256": "432bb9e74033d76285f9ef1751863ab39747b1d94cac74728e0a56dfc11e63c4"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171440-sa-mkt-0001-task-graph.json",
+      "sha256": "20b4369c4947c699ba3c17fb908c14ef6882320dedcb6795e420ba2684dc7bda"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171034-sa-mkt-0001-task-graph.json",
+      "sha256": "544191022d0b7bb8128ef4fc560f9dfebf613837863f83976a12cf4c6d57e817"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171332-sa-mkt-0001-task-graph.json",
+      "sha256": "d8d0115e1738c7e07f5858ae46bb22c0495f097f280046ce92f2441c680cd480"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171616-sa-mkt-0001-task-graph.json",
+      "sha256": "c5d468c5377cae9b54f3d7ef454a7e675f1cd2ee40e381e39ced6eabdc376f21"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171510-sa-mkt-0001-task-graph.json",
+      "sha256": "85502063a3c55cf0065e11f6ca2cfb49af7d7ef296b3d4fc088da6c98ea05a35"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171557-sa-mkt-0001-task-graph.json",
+      "sha256": "5e9ef7183f5ad6ae5510285a7b43fcf55ca5832e2ac904fbd955753b8cda1fd1"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171101-sa-mkt-0001-task-graph.json",
+      "sha256": "8467b0896ab454922832f72d7e3c81e625605fa22977e58c0f62af68703be76e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171207-sa-mkt-0001-task-graph.json",
+      "sha256": "6f855342da04434a5e4f1dc42990705ae2b07591035c332d4f49dfd201e0a383"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171339-sa-mkt-0001-task-graph.json",
+      "sha256": "1cde6f6546b457aac24c2b52f2c123afff2db8436b2ecd21eed2eb708835f08a"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171425-sa-mkt-0001-task-graph.json",
+      "sha256": "673e7039ea1836534063bbba8255892a9a4290b119408c6ff745b6059fa70a22"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171240-sa-mkt-0001-task-graph.json",
+      "sha256": "f6e6894cbc94b336c07be1cdd190efbb0f65df948ea9cb4a6e12b44251e663f0"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171146-sa-mkt-0001-task-graph.json",
+      "sha256": "0150cf6d4e34fbfe6f9e9e7f7d2fa6b4b3bd1aa42219b97c69d0fe86d26dc72d"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171507-vx-mkt-0001-task-graph.json",
+      "sha256": "d475e64181c21be7646ffa78e0aa10e9115d275ff5b9df0a090775b9f52b8bc2"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171532-sa-mkt-0001-task-graph.json",
+      "sha256": "d6ce238398661241c9dbbbcff2dcca176036daf3e61b3e7e2a432a00cc5803e2"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171128-sa-mkt-0001-task-graph.json",
+      "sha256": "a81f55d2f91a9670fa15f5b1ffc664725730ce031ac9d7193b4f16dae00846f6"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171310-sa-mkt-0001-task-graph.json",
+      "sha256": "ba9fd1c3e76a6c1c0996abb5cccc2813b2041c10f36214dec8d472e3502d2b59"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171357-sa-mkt-0001-task-graph.json",
+      "sha256": "8d903cd1693b3b056aad3c0acaa85665866819dfd801285587d5b51a532e790c"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171051-sa-mkt-0001-task-graph.json",
+      "sha256": "0d2ff93e1ea64d86e0d7d62200ec927012d8edce9e84951615a6a49c5575d2e7"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171029-sa-mkt-0001-task-graph.json",
+      "sha256": "4b7bd0d71080a372c8dffa41408ab359ce993d18c9b058bad48450c8ee1e98bc"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171117-sa-mkt-0001-task-graph.json",
+      "sha256": "e5c296099123f32579329104dd6251044115c8681cd1e5967b11531d4126f176"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171211-sa-mkt-0001-task-graph.json",
+      "sha256": "e6b22470d639bcdc8e0da8f9d15b0b583bdc99dde0d0b836e9aced292c9a2729"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171433-sa-mkt-0001-task-graph.json",
+      "sha256": "57249d0fb9784467c0d588a06ba375b4b7c84e63e250df7a26862fb8374f78d1"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171256-sa-mkt-0001-task-graph.json",
+      "sha256": "cfd78122d39c84c3e59706900afdf011b760dcdb9d677e179f4c8196c0466bb5"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171150-sa-mkt-0001-task-graph.json",
+      "sha256": "4441ff391a8a6743b7b61fd43a20544ab2e16686db0cc7ce3706cb00459ebd48"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171524-sa-mkt-0001-task-graph.json",
+      "sha256": "cea076e0d29afaf025c6ec4fea488b4024c5667e0f0bd191093a4bf3b7746c97"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171306-sa-mkt-0001-task-graph.json",
+      "sha256": "0c570ddd27400e338694271b9086b12de2b2bf9612feaaa41be1eb91b7fb2219"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171238-sa-mkt-0001-task-graph.json",
+      "sha256": "610954284782ba169636b78b19940de6c0eadc45f65cb1e1c564829c5838d687"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171341-sa-mkt-0001-task-graph.json",
+      "sha256": "14fd37f57d60b9a34f3b685ab4b7a3646cc167b587b55ab83e113830204ef6e7"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171047-sa-mkt-0001-task-graph.json",
+      "sha256": "d0766daa154c8e21a659d358e76deca18364773b4d87a28d455ec9fdb66cf74c"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171054-sa-mkt-0001-task-graph.json",
+      "sha256": "b790c94e1968a2ba256e083bb22154799ba1987799ac9debb476b5ce1e845724"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171352-sa-mkt-0001-task-graph.json",
+      "sha256": "1b69c1c8ae6f68ab22e25d75da966428e9be2bd5d97ae89995cd8bf00a867be8"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171507-wb-mkt-0001-task-graph.json",
+      "sha256": "4463f46fa88c7afdee91a0ed85db715fce64894832ac78c756a85142fa97b4b3"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171315-sa-mkt-0001-task-graph.json",
+      "sha256": "d2f11a51de888b813b8ed167c34131ad4477f5e04b70b1a3239aa0a7405cc841"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171409-sa-mkt-0001-task-graph.json",
+      "sha256": "3867c6420b058f3ad4012e4a3d8cd2da6a26149db7c9a25e1190cef2c42605c7"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171537-sa-mkt-0001-task-graph.json",
+      "sha256": "dc701704afac0366b204a35e8106140ec5db154dd332ca11c56b7cc16b259c4f"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171559-sa-mkt-0001-task-graph.json",
+      "sha256": "387f50f71eef92df078c20b54b95b7af5d162e690456fbf1869edc4b0753e13e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171143-sa-mkt-0001-task-graph.json",
+      "sha256": "91e6b3a7a48a9f4e1ba0e42d195afd0861fcbbfa457cfd21dbbfc0b50ebc26cb"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171245-sa-mkt-0001-task-graph.json",
+      "sha256": "c1ad724b1de88edcb996fa3e1d9f9817c62263ac61b5bc3e093f163a51ada565"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260621T015927-sa-mkt-0001-task-graph.json",
+      "sha256": "3cf551d7dda6bf33560f5e46df121ab83709628b559bcb407a23843ee82453c0"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171420-sa-mkt-0001-task-graph.json",
+      "sha256": "d90f99ff10147f1eff97d0e1b8f54b1acdb9992bc5b204d958645995d2174080"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171618-sa-mkt-0001-task-graph.json",
+      "sha256": "7e7fea204f2f94063fd25bf80fc45e28cd7b730ecfda112cea1df0a7e80c1c83"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171202-sa-mkt-0001-task-graph.json",
+      "sha256": "61602a89bc3ad71e448d9c024cf1ca50269da525f72809bf9cb396a87a2bd9b2"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171104-sa-mkt-0001-task-graph.json",
+      "sha256": "d6e3f1c7a35be48d4bb2d457b65887c0e0c6467595bcdafce06b97f659cb75b4"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171042-sa-mkt-0001-task-graph.json",
+      "sha256": "4648475139e97026807f366cda0ebcd3d4329ace1ebbdcd5bc74abe5fdb36041"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171344-sa-mkt-0001-task-graph.json",
+      "sha256": "90abc792b7d87ed99483bfe33fd463a3c59dad81adc3842668832a058ad47e1f"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171458-sa-mkt-0001-task-graph.json",
+      "sha256": "8afac836e3180d82934f86a2e0bd8e3563e921ad20d2dd34e63da8609c6ca5b6"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171303-sa-mkt-0001-task-graph.json",
+      "sha256": "b06c3f6ab9e01935c39ed4981526e2c8c54d0250e45828bdb3cb49bd6fc13dff"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171521-sa-mkt-0001-task-graph.json",
+      "sha256": "19f32b021408b7990eb15d8184407f04f51268efbe8b4a8ba9baed2bb6b606d4"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260621T193901-sa-mkt-0002-task-graph.json",
+      "sha256": "778f3ec64a6e202f31d14d25706298cdcb46db6ea883c8dde0cbb0f6674b2cca"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171511-wb-mkt-0001-task-graph.json",
+      "sha256": "30d27f03fd8dd0eacddd19556d645e416d6d07e45afaa91c5ec3c6428b5151eb"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171155-sa-mkt-0001-task-graph.json",
+      "sha256": "c3f5a4945687bb16397e46bd140a9a9e8e87077e6f6d1e46738316607e49cf17"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171253-sa-mkt-0001-task-graph.json",
+      "sha256": "39ff761363042330a41f747a9af8b0ec4cf92a719bc8fc6d3974340e45324f18"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171508-sa-mkt-0001-task-graph.json",
+      "sha256": "7b41af0785767dc1ac57347c1e1259fb728536e22ff2361234d244d52d9d5d9a"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171436-sa-mkt-0001-task-graph.json",
+      "sha256": "39a3da6568384fcb422bab64d8cc4acaeb38163e2224e0320a14cca3f9a05c90"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171214-sa-mkt-0001-task-graph.json",
+      "sha256": "9fd634866db2799b65b1c1ff87892f3e9f5b71af553d239b4c83d0074c4f3394"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171112-sa-mkt-0001-task-graph.json",
+      "sha256": "1ab77857fea7c6fddaaa82b0ddbf26936f7aa478a146b7a9578d5380207c05ee"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171232-sa-mkt-0001-task-graph.json",
+      "sha256": "77bd613c83ef4e662a18735663939c3405ff57f38db63e401bf4fcdd45832c78"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171134-sa-mkt-0001-task-graph.json",
+      "sha256": "8934f77ca4c667ac0f2ad53014e23113bb1831edeef120e7a1a4d82d3e065313"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171410-sa-mkt-0001-task-graph.json",
+      "sha256": "41c7cf607330d467c756dd0adab5bdcbff2b78e35c81073ab6535acdf428ec17"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171457-sa-mkt-0001-task-graph.json",
+      "sha256": "e0ceaa69deb28841641e0042a044a39d01eac1ab8494dba608f7204031997854"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171439-sa-mkt-0001-task-graph.json",
+      "sha256": "5d28782e906cccde9440fb93477843564965038a257b997d4b8fc71afb42ec16"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171507-sa-mkt-0001-task-graph.json",
+      "sha256": "298c3c1994836c5ae8b48eceba566eedfc437453424894f36d42b78abea2cc62"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171601-sa-mkt-0001-task-graph.json",
+      "sha256": "905dfc3fdc19137a90a7b46ab6fc551ca31f7724fcf489e139497ca29d50f3b8"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171325-sa-mkt-0001-task-graph.json",
+      "sha256": "b009dbe42ef5e4f5011b25ef998da9b994df02b3d7e1c2ec4784658df27cc854"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171540-sa-mkt-0001-task-graph.json",
+      "sha256": "ff0ee5823c7e8cb88cbe869acda5181c6c200ed31d84fc9e1c54f0d56a24f0bf"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260621T210932-sa-mkt-0003-task-graph.json",
+      "sha256": "7fd794323a867922b28bc7de26154b2fc7ba002f949907a7ea639c897346cd0b"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171224-sa-mkt-0001-task-graph.json",
+      "sha256": "4d228db85cd93942a6aab78f7a5b0635fa5656b90c5b29c85abb8f0ec98fd59a"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171122-sa-mkt-0001-task-graph.json",
+      "sha256": "42f4a7781986cf144390ed35ff4634ea6015a74410760206b300e600ee3dbd60"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171538-sa-mkt-0001-task-graph.json",
+      "sha256": "25caa0f67069f8166912187679994dcd9a1719cf14548f6e925222e3ad29fa19"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171406-sa-mkt-0001-task-graph.json",
+      "sha256": "a486819c3a6933eb026b76d7b803fc8718a2502f8571f768d1d8e9c52d338536"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171441-sa-mkt-0001-task-graph.json",
+      "sha256": "8fea7f331ad47ef2f9a939461f9aaaa6af227a5d957b6565e0659e879ac8b174"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171511-sa-mkt-0001-task-graph.json",
+      "sha256": "df72de690a74b000fd08225278169c25f0f56065d6ef6c93d7002f162c326754"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171617-sa-mkt-0001-task-graph.json",
+      "sha256": "b00c5f1ce19a6dce54938319a20ad253cb1858721653ecf2b5e271c8755465ff"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171333-sa-mkt-0001-task-graph.json",
+      "sha256": "137b0bc11b41b1f0c30e1536be7d685fc4e66cc4b6f2100b05f917f8b5d23876"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171035-sa-mkt-0001-task-graph.json",
+      "sha256": "85ad1c8ef0d58ec79eb4a47d604b38571eeeab1fe5ccd788b28c8513ddc6fddf"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171556-sa-mkt-0001-task-graph.json",
+      "sha256": "4cb68711c67f7cc7431cb63a8cae6aa866ffa8df7a6bfc750664d71c4b3dd346"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171259-sa-mkt-0001-task-graph.json",
+      "sha256": "b871925489555e63d034e5749862ecf93aa2daf4a94c4ed38a8700bddc1d5043"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171545-sa-mkt-0001-task-graph.json",
+      "sha256": "4b06f772a06388180ac701de30e7787f08d2f33feb60709e1097503a95c4b3f3"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171422-tf-mkt-0001-task-graph.json",
+      "sha256": "1dfeac535e65f84013c2204cbad458fb55a10d5c28aad880e7d0390e75f3f9fd"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260621T183209-sa-mkt-0001-task-graph.json",
+      "sha256": "1aa273a2492f6d671233e2e07417d3d33e02d3531ffaaa20c37491c35fb217f6"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171118-sa-mkt-0001-task-graph.json",
+      "sha256": "45a917b12706c7a86031255534af69a087fd22451c599a1e0a46946da037fa20"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171026-sa-mkt-0001-task-graph.json",
+      "sha256": "ebe23d8a699a32bcbb5d55e8afac238710a29c4983becb611b192ecf85d5a2e9"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171320-sa-mkt-0001-task-graph.json",
+      "sha256": "47650747e45805c47e335618111b37c00714293a0c0e983f0571faa973c79438"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171604-sa-mkt-0001-task-graph.json",
+      "sha256": "be9e809766107f0d36e418ce880cb1c1bfcf16d82ce812b60370ba48df84e5d5"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260621T182134-sa-mkt-0001-task-graph.json",
+      "sha256": "8bd6989c4a2f7da3038c5af55150d0312d7f642dfe544dd4f319f39f367d4138"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171502-sa-mkt-0001-task-graph.json",
+      "sha256": "11eced390c9b7d208fc48331835f6bce073b45bbcc6c06a1af9192c590e76673"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171452-sa-mkt-0001-task-graph.json",
+      "sha256": "0284ed59187430e3cee8bc9d930ddab2c02fa9159a93e88950fdd52f68397645"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171048-sa-mkt-0001-task-graph.json",
+      "sha256": "3e3265a37f9764a69e7c7363910f24b3f2c16ce72eb716b57b03ca4ab838c4c8"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171415-sa-mkt-0001-task-graph.json",
+      "sha256": "d8a2968e1522fa57be0289abcc9d1bd99f749d693d034c4ebab4e3038f60a076"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171131-sa-mkt-0001-task-graph.json",
+      "sha256": "5dd9996805f5993a27dc5137ffe9e4459f76ab1889dd76b25897ac7ccb85fb11"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171237-sa-mkt-0001-task-graph.json",
+      "sha256": "be6d8a270464bc2219a1344656ec7e308943ae6409ca85442ef6890a5235e948"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171309-sa-mkt-0001-task-graph.json",
+      "sha256": "d8cc0ed36cd721dc4f94deb02ca760dcd59ec41341ab3d1b4b7328b01b76b511"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171149-sa-mkt-0001-task-graph.json",
+      "sha256": "4945738ad91aad4bc615460f32717f452ffcd4c63094f34672c634bb482627a4"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171553-sa-mkt-0001-task-graph.json",
+      "sha256": "6add9d1caac2db878d09da7730436db7160b4ab6a135e32baedddb5cefcd0743"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171030-sa-mkt-0001-task-graph.json",
+      "sha256": "bed9a1b6f20e95bdd055f0d75058eccb6655dfd3221e803620198bbe1d6af183"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171336-sa-mkt-0001-task-graph.json",
+      "sha256": "990d3c0ea6a44c9ab2f232c04a10f4e377a44182c30ce630110202b48c5c5e44"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171208-sa-mkt-0001-task-graph.json",
+      "sha256": "bf75a5b81cef23e6cfd70f82ff979aa220b30088361c7950e07282d7eeecfe2d"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171612-sa-mkt-0001-task-graph.json",
+      "sha256": "0f432ab0de6010834b7c7aa89a5df88e287399e1057b57af64943b49358699ee"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171514-sa-mkt-0001-task-graph.json",
+      "sha256": "f7ef3a328ecb99b3d7325eaec9402d7e4123ab87eda9893b79d656fef578d42d"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171444-sa-mkt-0001-task-graph.json",
+      "sha256": "d74b1d6db822e4493ad646e534b238d3ee0766bf7a9fca267924e97e022cec05"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171358-sa-mkt-0001-task-graph.json",
+      "sha256": "ef267e2af9a2243dea9317aca0d5b246a56015b4414af27c573f47b3dff067b8"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171403-sa-mkt-0001-task-graph.json",
+      "sha256": "2addeb0d3ada1e2e11bca3488ccd6f98f1c8b625fa1abaef499e7be84f5b8adf"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171127-sa-mkt-0001-task-graph.json",
+      "sha256": "b549fa26e973af2b98a1c0040391d64cd4ee3b4bdacdffb91ffc38b64e11e237"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171221-sa-mkt-0001-task-graph.json",
+      "sha256": "a87b3f9bbc433c301f03c769807ddeeb0ec21b13f274d107ef96197ae1ae01fd"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171323-sa-mkt-0001-task-graph.json",
+      "sha256": "1f46bec85ebeeb0eb1bb692ab04cae45ee5a52ded7e4a21295cec90ac2a4259f"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171025-sa-mkt-0001-task-graph.json",
+      "sha256": "cfdc95345bae4ff6be4299f8c5401d3632ace179f257e07a41caa3e29821fd98"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171501-sa-mkt-0001-task-graph.json",
+      "sha256": "b38a2197ebd05aa6fa5fd5a2cfe57a3ff728e2855f01c8501e22dd68d861435e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171607-sa-mkt-0001-task-graph.json",
+      "sha256": "85892a7cf7f2073b9802877dc447092ea033f8f968a271175f1e80392ffe5236"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171546-sa-mkt-0001-task-graph.json",
+      "sha256": "237a911115284c1f5b00bc785a6d517f3f4a4cd9231b8d604d7d139d85060682"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T172042-sa-mkt-0001-task-graph.json",
+      "sha256": "af7b24c1e2f6861e68c653d0b2ac93662ae294d64fb2ac32ebf5a18f401a5dfd"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171528-sa-mkt-0001-task-graph.json",
+      "sha256": "45392b9ea232fb7c8fc8f9fdfaffd69a29eed46f0c66efaaf592b76f4052a8a8"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171416-sa-mkt-0001-task-graph.json",
+      "sha256": "3bd67f14d898d1a4644b1b9ce7d66f279d1d2e7668a4922c241c54b54b5b1ace"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171234-sa-mkt-0001-task-graph.json",
+      "sha256": "68ab1cb3d7474bcae954a81d940649ae02daf50432cc4178e8fcd5e5f19319f5"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171132-sa-mkt-0001-task-graph.json",
+      "sha256": "fb6dfe0e9a93134ab1a47111716cdbf90863fbb2bfe91dfd75b3e4abf05a2ca7"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171451-sa-mkt-0001-task-graph.json",
+      "sha256": "5400a7dc79fb87167499ec25d56f79dda8d4001b9348517cd47a7da7ae12c531"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171335-sa-mkt-0001-task-graph.json",
+      "sha256": "988faf621b631bd4427cf97ecf031b26d38ae55c9961da59c8e58da7c154099a"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171033-sa-mkt-0001-task-graph.json",
+      "sha256": "808c851ccf7ff4c2bc2eb368ea1e00662f9f7f9dbe2db0607eacbf91369cbd75"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171429-sa-mkt-0001-task-graph.json",
+      "sha256": "4aecbb916904e02d0bbfa5fa3f5c6eb056eb921dc53d40b4e9ea85342ee012ef"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171517-sa-mkt-0001-task-graph.json",
+      "sha256": "5e9b31a37a8f8f0576e8d7c0166548c72c9d05313d27881897426979da20fb58"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171611-sa-mkt-0001-task-graph.json",
+      "sha256": "b638553775c9ae722fda7ed290f9ca79ebf72f362c26196124d526f77691088a"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171550-sa-mkt-0001-task-graph.json",
+      "sha256": "608d87a684c07bca593dcb7ac026ef05dac29c5a33a9b971e155a30065bcaab9"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171400-sa-mkt-0001-task-graph.json",
+      "sha256": "a84d0316274dc91149c102e0cf236dad871556c44ce206513469049c1524e0bf"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171222-sa-mkt-0001-task-graph.json",
+      "sha256": "979d9c395eb6b89968d37b8c107a8819319aa5d557697b9eec13d21d4097eb05"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171124-sa-mkt-0001-task-graph.json",
+      "sha256": "ee7ab6c2f80cd36892910ba703c2019038bce006b95563738f1d0d0503c0d877"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260621T211148-sa-mkt-0004-task-graph.json",
+      "sha256": "bcfdd9dfbcab9f23c3ffd3fd6d76ab7404af245467b54fc75dd94d767bd0a640"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171447-sa-mkt-0001-task-graph.json",
+      "sha256": "20fc2b15e1b07fa6f834573b0db46bde740c51cdc171a45e4105d9ea696e9141"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171348-sa-mkt-0001-task-graph.json",
+      "sha256": "add6f8e64a1f431b56a7241626d0be69836d60a2562d6a57e3452f20d88e297c"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171454-sa-mkt-0001-task-graph.json",
+      "sha256": "1f860ce6e2cc90f9182afd5d3850d0b84fe873f4827ced460932c79b84d697f7"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171137-sa-mkt-0001-task-graph.json",
+      "sha256": "d401be4f7395b815767d27107a55101b0ffa43ffc34f18df511fb9284703777e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171231-sa-mkt-0001-task-graph.json",
+      "sha256": "7e8cea387b22dc868c3e12f930efcc51016f8cfff0eb3cda26a565e3a7e79999"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171413-sa-mkt-0001-task-graph.json",
+      "sha256": "b2976d1e1fd80e5895f35cca1ad6bf6b4d50c610b25d1bb2b940c45834c82337"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171543-sa-mkt-0001-task-graph.json",
+      "sha256": "7d466b889f5391d69c50a4f1335bac5114ef6493d375b1bfd3b08979d1aac9e1"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171159-sa-mkt-0001-task-graph.json",
+      "sha256": "6e760e35c294ba198ba6142a253355fe1f9b6c98524459d0882e9c338f24cf6e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171602-sa-mkt-0001-task-graph.json",
+      "sha256": "542b24566acac1be2605c88f6657252f580b14058318340fd973bcf5312289bc"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171504-sa-mkt-0001-task-graph.json",
+      "sha256": "5a10430da63e2b3a9b14da3a1909241de1669246532941ee7ac5028cc8fc66cb"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171326-sa-mkt-0001-task-graph.json",
+      "sha256": "0cabaa4e5e2e895d2ecae614194aeeb450fd4f643dd38c7d4d4daaf673e853ed"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171218-sa-mkt-0001-task-graph.json",
+      "sha256": "cdfaa740541dbf87d30e8cccd3b8ef8ace12181a950113be28b4f6846f1f951e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171058-sa-mkt-0001-task-graph.json",
+      "sha256": "a0272970a0114544afadd63a9870bf849246d1106dbc2e897e17112ce13e2847"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171442-sa-mkt-0001-task-graph.json",
+      "sha256": "6b7ad96af227996ea43470496c7d419dcccd2bb7483107efdbfc91789568017c"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171744-sa-mkt-0001-task-graph.json",
+      "sha256": "544de265e79395864cb7ffcf9070313d268b04680c4336e818a3499fb84b6129"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171121-sa-mkt-0001-task-graph.json",
+      "sha256": "d56a3d091ed7c8a6b8e7eea389770c80587131f4b267e967f0d93ede746f0e02"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171227-sa-mkt-0001-task-graph.json",
+      "sha256": "7b0197502ccc2cc787114a3b052064106125fee781540364b37ffe315ad6e759"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171319-sa-mkt-0001-task-graph.json",
+      "sha256": "c4ec3d967ad8640308a1eb7d230a2b853ebc1cfc959079a6a2bcf4916f11ac75"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171405-sa-mkt-0001-task-graph.json",
+      "sha256": "45033904b1d887c8dce1cbb0312ae98e5e285e2bdfd6dccd79b4c9a40e9e5091"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171555-sa-mkt-0001-task-graph.json",
+      "sha256": "4acf48bef63a5b3cb3d201dc826b7a71b2699e26f61e44832a401c43a94b888e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171249-sa-mkt-0001-task-graph.json",
+      "sha256": "563b2ba71cab988f2010dd7bf4db77e1816290f18ffb2245000945b76b379ee1"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171614-sa-mkt-0001-task-graph.json",
+      "sha256": "c26454d1e75f255de6333deefc942adc26c37146a3ca16d7a96c1ce2656d87a6"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171512-sa-mkt-0001-task-graph.json",
+      "sha256": "bbe329a7771f30fa3f2ad0cf50f9772fcac159eb41e325a166ab30d9cff2c332"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171108-sa-mkt-0001-task-graph.json",
+      "sha256": "1e43b7e23754710b56b23a3bb6dc082b4eef327497db5200d557c62e56853eec"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171036-sa-mkt-0001-task-graph.json",
+      "sha256": "899659d655dabf84edf35b16726057e519051b7dcd800a1408c36fc049d7c1f0"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171330-sa-mkt-0001-task-graph.json",
+      "sha256": "322f94ac3fd0b81a5eae87b2ce9cd30fc8cf778087ecb74b2a441f48b10669d9"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171422-nf-mkt-0001-task-graph.json",
+      "sha256": "b5c81000e5a21a427c666031d7ba0c888c361cb9d45968726e95b338a96d3414"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171316-sa-mkt-0001-task-graph.json",
+      "sha256": "47fc9efecbfeb0fc2f53d678c489c876ab6ea34de7ad43f6bb12b46127155e5e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171228-sa-mkt-0001-task-graph.json",
+      "sha256": "9555364df0a95332c4994ad7513ccf570d6b8286f5c2d80b127c831acfba1fe4"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260621T183859-sa-mkt-0001-task-graph.json",
+      "sha256": "d379ade93e0b02bf973bcf2086d71cb0dcf461d55e6e167195ab247c0810ea68"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171534-sa-mkt-0001-task-graph.json",
+      "sha256": "2de9d2e7271a5604c0f7759ed6ddc3d227d2b720ad3f3348655ddc4a577c887a"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171351-sa-mkt-0001-task-graph.json",
+      "sha256": "adeaab1e4c51d17151eb1767ac3a648e14d931ddb7ef971feb6d9a294869c09f"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171057-sa-mkt-0001-task-graph.json",
+      "sha256": "e478b9357707882f3aaf5966cf5160fc08574e84931c26129f67b5d401445d14"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171423-sa-mkt-0001-task-graph.json",
+      "sha256": "5646f4ef2c5a434a9631df0bb6b8eacb2a66340bd852a8523bb73e1e30d85ef7"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171039-sa-mkt-0001-task-graph.json",
+      "sha256": "38332e832cb3e29402db2abc4e021c2775cb7fff95cdbc982c4284624208fea2"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171107-sa-mkt-0001-task-graph.json",
+      "sha256": "8797f62897775a127e3f0c483d52a23cbbadd73f4cce5a8a6497a110ca2549fe"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171201-sa-mkt-0001-task-graph.json",
+      "sha256": "f34bc2444c804cbe9cf2a5d60314e24990d6dbdae9391a43f3f283f9c8f9c04f"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171246-sa-mkt-0001-task-graph.json",
+      "sha256": "9fe101ea075f3acddaa25348954701fdd9033ba6267ad857942f6c51b6b21eb8"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171140-sa-mkt-0001-task-graph.json",
+      "sha256": "2f468916fb65a85a75132bc2dff4ea58c15fb3bf412fae8b72db69b29e662293"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171138-sa-mkt-0001-task-graph.json",
+      "sha256": "ad113d6fc81588e575706c7c4d2399284b7e1379b98b0fd696b68cbca5e2ac47"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171300-sa-mkt-0001-task-graph.json",
+      "sha256": "07b8967e189ffacc7d4e4f59931ce14283ab8f884da9cf0aa7f1ea3488e0dd87"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171522-sa-mkt-0001-task-graph.json",
+      "sha256": "4316aba086069cc2d1b3b8529c877ef88e66db5eabc73864348ab9bc9aecca3d"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171347-sa-mkt-0001-task-graph.json",
+      "sha256": "89de08d093d16a2dbbf67b3c60010de76f17c4a16d92ae8bc770c5d0497c68f5"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171041-sa-mkt-0001-task-graph.json",
+      "sha256": "6272c8c14c534323c90dd43190adcd33d7334d9e0ed4423e895609a60d30614e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171435-sa-mkt-0001-task-graph.json",
+      "sha256": "48be510271eada3f26cc1709eb3ac191d8fef8347db404b0653c5aa969deaa28"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171111-sa-mkt-0001-task-graph.json",
+      "sha256": "244aed6f769d6d0c2cfcdc6c19e16bd78ceeff64df985e83d971bbb5095f8b4c"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171217-sa-mkt-0001-task-graph.json",
+      "sha256": "f65a696322a29557612defbd9246c46a537f78265350edd8c693ea569b22259b"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171329-sa-mkt-0001-task-graph.json",
+      "sha256": "fded7f231fa821157e26dc736a758c046e89972f60f1ce94fb50f85d805594c2"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171250-sa-mkt-0001-task-graph.json",
+      "sha256": "7ff3d70907917a1fffb2473f97226909b1c91532e452ee13963b1804172631d5"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171156-sa-mkt-0001-task-graph.json",
+      "sha256": "e7aece193277f11f4c7901c108d8ab055cb0f0cfb5641f8d8ce94108babbcae3"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171145-sa-mkt-0001-task-graph.json",
+      "sha256": "e0bdc052d979d694eca23949e9d6e14478ee6dfb1380beff4ba8df8b15554880"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171243-sa-mkt-0001-task-graph.json",
+      "sha256": "68f76f1664a33efb286718facaf86c7d555e8c992a383ac0ece35d7cd4c3c772"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T212847-sa-mkt-0001-task-graph.json",
+      "sha256": "f9c1efdbd62d8ef3d73b38facfa9867940e23dabd4d351596efaa67169834959"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171204-sa-mkt-0001-task-graph.json",
+      "sha256": "4052d3e563da03ba0d11f93c71342f1625e693a56eada6ee05e3365a10122748"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171102-sa-mkt-0001-task-graph.json",
+      "sha256": "bcd3d439e542f6fa09da6a7e7456d41fa8768c50ab08e36c0ce4f1b79c6ae847"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171518-sa-mkt-0001-task-graph.json",
+      "sha256": "9cf0b5decceae3f584d6d248deaf7b28ba5ac485ae8b64960b87cea0542db36a"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171426-sa-mkt-0001-task-graph.json",
+      "sha256": "8271c79a3b2e10bc8a1eb6ab6111538cbb9abefe17bb1415c3a55bb849c8bb67"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171448-sa-mkt-0001-task-graph.json",
+      "sha256": "25da3c140ede0f801718dd22fc6e6006494003bcc5ffb4eedb1f35f8e2fcdd1e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171052-sa-mkt-0001-task-graph.json",
+      "sha256": "004f9ebbd956f95e6151b7bb849c543fac57848cd882f83b5f22d35979c62068"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171354-sa-mkt-0001-task-graph.json",
+      "sha256": "55b115294403ee931355bf6d8bf7e0a6d1d120d5118b7fa6a1bd59d452293c00"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171531-sa-mkt-0001-task-graph.json",
+      "sha256": "f9780d7e2e373a17bb75d502102b5849d66c4692327fdc73a4e59c13d8560144"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171313-sa-mkt-0001-task-graph.json",
+      "sha256": "a27aa716ffec86ae2a15669e45389c717645562018147eab1339673f0f71cbac"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171512-vx-mkt-0001-task-graph.json",
+      "sha256": "0c3c6c52e20ee3bfa44e88eb66503cbd9c7b034bcce8e226dfae5bf8d13d9f14"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171153-sa-mkt-0001-task-graph.json",
+      "sha256": "e3e8dd9de0c45495486404a6109d33edeea6603b5a4d8d795d3c33d0f7beafbf"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171255-sa-mkt-0001-task-graph.json",
+      "sha256": "7131dfabc0831ff2bf5b3427a1f3f66e5254db5dfcbd72b07cc24a907e6068fc"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171549-sa-mkt-0001-task-graph.json",
+      "sha256": "4bef5b4c84bfb45549bacee2b20057434ff454fbb0a4a6db42b4089da1e9bbfd"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171212-sa-mkt-0001-task-graph.json",
+      "sha256": "9457df24d1cbcfb4099db9686c35f76df3d070f694289dbf09400daed8109b85"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171114-sa-mkt-0001-task-graph.json",
+      "sha256": "b6fcac417b4699678bde976f6653a5bb755313b385c9dd3bd1c529282fc2af23"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171430-sa-mkt-0001-task-graph.json",
+      "sha256": "aaf7f98ba501337e0ac88918274b35fc8868700f4991eefc6bed32813c576d1e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171608-sa-mkt-0001-task-graph.json",
+      "sha256": "9dd9fb9a24b3db1dbfda1d80c06d4b472d06d06cef60e05f2b8befb954b23fe9"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171044-sa-mkt-0001-task-graph.json",
+      "sha256": "9ecf9f0b5eb62407987d1591b47d309961e55bcc639571300d01ea0a1d7f7441"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171342-sa-mkt-0001-task-graph.json",
+      "sha256": "9d9716dcc89e991c7f218bcff593bd0fa3490818f2a5768f61c1ec2e4aa52a8a"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171419-sa-mkt-0001-task-graph.json",
+      "sha256": "cd1dca344587e1aaaff7246f1762bec9d5cca80c2a9c1aa663f625bdb5a0bd7f"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171527-sa-mkt-0001-task-graph.json",
+      "sha256": "8dcf6c3bdf7ba9c1a4468e812f98521d8c82804e0dbccb50a7a2affbfd672681"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171305-sa-mkt-0001-task-graph.json",
+      "sha256": "5d3d2cdb3819aff85614d61f067bcd64326046d6eb2f38148d4d409ea3e7b44f"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171455-sa-mkt-0001-task-graph.json",
+      "sha256": "569be8cac0f592eb9685fe953ccfc505ebf3dbbf5cf23645199c94c37356d53f"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171349-sa-mkt-0001-task-graph.json",
+      "sha256": "a5b88b80fb4084928aafc21759c170bfa82fca723c7f5c7b40f337663a51445f"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171412-sa-mkt-0001-task-graph.json",
+      "sha256": "79671a644216ae6352c38527fdac8189247da57c5e837219b8e92dc66954c564"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171230-sa-mkt-0001-task-graph.json",
+      "sha256": "cff37a81594049046db8ee8e660ed74039f8525ab55543f6129f039772b8387d"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171136-sa-mkt-0001-task-graph.json",
+      "sha256": "74598bd1d2991876809d7896453545f684a88e551d60c8772715430833229df2"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171158-sa-mkt-0001-task-graph.json",
+      "sha256": "28a1c43922d5b80c4c0de39d89429ffaed28ae85f1ea762d71a5037a031a92dc"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171542-sa-mkt-0001-task-graph.json",
+      "sha256": "e316850d851ab79210a7fdc7d019367dd2c0369effe87866a58a6949741b5957"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171327-sa-mkt-0001-task-graph.json",
+      "sha256": "808b25354ccadac1f68b7aa8cb508a408f04fd94e84940e76710109d85baec7e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171219-sa-mkt-0001-task-graph.json",
+      "sha256": "7c75b12b3ba6b7b8ba8e5df6d5d996fd0bd10fddfcaa0dd1a67852a12574eb61"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171505-sa-mkt-0001-task-graph.json",
+      "sha256": "65f9a706df76779ad49a1bb3cdde80e8a01ed6746029203032a7c261378d65f2"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171603-sa-mkt-0001-task-graph.json",
+      "sha256": "71ae6d3f8860b5bad7a8e3806dc83a851e37d9263decab0fef48c603c5c263c9"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171443-sa-mkt-0001-task-graph.json",
+      "sha256": "d4597ecfa3111082ea7d2d3219c2fa9fa6d49aa6fd011c95bfe84f95c47a873c"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171059-sa-mkt-0001-task-graph.json",
+      "sha256": "71437505efe7f5a0eae6d465078540497e7ee56ca057369756546c9ed521a58b"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260622T151916-sa-mkt-0052-task-graph.json",
+      "sha256": "df33bf4f65a0750f6b461cb1fd479e6240f029fd3bde846421184b80120e9100"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171404-sa-mkt-0001-task-graph.json",
+      "sha256": "34de56af96327afebdf010d6139c9dfce005186dbbd3c7ecd46bbc50ff4dd682"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171226-sa-mkt-0001-task-graph.json",
+      "sha256": "5a33d7b69972e896d59e357afeecbc80033a17ccca12a9d4a008cfb12179243b"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171318-sa-mkt-0001-task-graph.json",
+      "sha256": "92f5c77f363a53614796ee0925f3314b7d43999a9bee0a4f24f6de3758cd35c8"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171120-sa-mkt-0001-task-graph.json",
+      "sha256": "b870767767d8c10815eaaf6d96e54ac190ebc91a1be9d82b6fa1790c59f192ae"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171248-sa-mkt-0001-task-graph.json",
+      "sha256": "117dce1650c491223c92bec562ef3c3c14947f53f7f7e2fc12108ecc32806f39"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171554-sa-mkt-0001-task-graph.json",
+      "sha256": "e3038943a1fbd91bf3f5f33d2f01af6b56bca37479ffd86f7e71bc8b0c86bfe1"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171331-sa-mkt-0001-task-graph.json",
+      "sha256": "63acff1cc600a4e7ec8007e43df00fe203a1efc6b684542c4d41cd6e4f48f0e9"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171109-sa-mkt-0001-task-graph.json",
+      "sha256": "3c6963099537abf911d92ce6523290f07877148ab82fe37c482512b3dd35a730"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171037-sa-mkt-0001-task-graph.json",
+      "sha256": "dee1f8fb56396ea3a9841742aad1b4393ab7984db31774b342c578321e3fa10e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171513-sa-mkt-0001-task-graph.json",
+      "sha256": "5fb52ff9afd37fddb74f5bc19480fe0661929db64d1887d0e4b1f12863c9066a"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171615-sa-mkt-0001-task-graph.json",
+      "sha256": "b61b04f2dd1b54999cb889be9b0304323bc7aa38c203144275e8197492e0112d"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171606-sa-mkt-0001-task-graph.json",
+      "sha256": "3d3e338ea2d3b54421f5961762cd183281edd9fb50ae5d3e883f58a197b01e80"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171500-sa-mkt-0001-task-graph.json",
+      "sha256": "69d521428db928ee55c36e95664cf190953d8c18c709851466c3c7a6ad699e18"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171322-sa-mkt-0001-task-graph.json",
+      "sha256": "4052281b900e24e6a838b753d40130f6dd3b598c4f28a7d449e62a544adf92f6"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171422-vx-mkt-0001-task-graph.json",
+      "sha256": "ffb5cd46d937d4a2388cfd47daa23adab5024a60c2f0133c5a23714b21a3e641"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171547-sa-mkt-0001-task-graph.json",
+      "sha256": "c1eb1570ebb15d7c73b83a1d372f234abf7fe340ea987c2733df56e03a90eca7"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171133-sa-mkt-0001-task-graph.json",
+      "sha256": "61eaa2f752e7cad7b4b8f5b982bcd0c88df79502f1e0aa65db71b3948c74fcd1"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171235-sa-mkt-0001-task-graph.json",
+      "sha256": "feaad4fd12edf82209769a30bda7a3a58f333ad9a58075fd0a7da49c8e2e0c16"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171529-sa-mkt-0001-task-graph.json",
+      "sha256": "230408341caf2dd26fbdcf23466dd9718b5146e6046f0e4ca83f2828a74b8e4f"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171417-sa-mkt-0001-task-graph.json",
+      "sha256": "3ac958f11b8654d2a7ba1cc5ebb37643e5a5b222c4ceec7edad7532c37522269"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171450-sa-mkt-0001-task-graph.json",
+      "sha256": "de0683852da74b27a75b18916fd1ed07d1fa1e9997f3fbeb9044254ed353c902"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171610-sa-mkt-0001-task-graph.json",
+      "sha256": "69bf57b6b46956f9e017e5e04c26fceab65b1275126b594f35ad1cbc136db431"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171428-sa-mkt-0001-task-graph.json",
+      "sha256": "31b098956d8a5b0060e8bdaabf4716fc8f6e0a55fe96582250614e8ee3abb510"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171516-sa-mkt-0001-task-graph.json",
+      "sha256": "63d422f0c3779805f059ac9029e8bf77321906018eb232bdf716bd13c67d4806"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171032-sa-mkt-0001-task-graph.json",
+      "sha256": "1e42726652639fa8dc67dc8920c4aed1162edb998d24609ed94aa4338dee6504"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171334-sa-mkt-0001-task-graph.json",
+      "sha256": "7fbacc26fb385d31fd33dc8b42376b4fa8b2b9417f76bdc21a402a55ddf9391c"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171551-sa-mkt-0001-task-graph.json",
+      "sha256": "2c758370d3973fc2cc366b7389e1c9b73127862e705469de93a15c6a8465cf3c"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171125-sa-mkt-0001-task-graph.json",
+      "sha256": "95838cc7be5687b56c4d1f97a84b2cbc48147aea58a8a875951e186c4abfcab0"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171223-sa-mkt-0001-task-graph.json",
+      "sha256": "750b9d0ca07395310ae3836af6e8ce3f53aad3579b4fb320eb437d7fe3780004"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171401-sa-mkt-0001-task-graph.json",
+      "sha256": "6ffa07e7d361055c6a44bddc766057d49f1b7e1e70e5bf4820b48ca8cc947cdb"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171446-sa-mkt-0001-task-graph.json",
+      "sha256": "fde4a1ce48221a420133b04c9c2c3813a09ff6b1c329442f58bfb8fcaa9285c2"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260621T184327-sa-mkt-0001-task-graph.json",
+      "sha256": "5a4a746af6c2c6aef360b537a85d7b291ed350bb1c4e6d8dd775b8b8fe6b8315"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171507-tf-mkt-0001-task-graph.json",
+      "sha256": "96188139065d09a8755703801331deb19775a5a597cba624f2c880537d00dafb"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171242-sa-mkt-0001-task-graph.json",
+      "sha256": "6245bbe82cd02320afb41d777f88456d29159c6c6ad9a8a168019f8ab6fcf788"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171144-sa-mkt-0001-task-graph.json",
+      "sha256": "b6eed351bcdda7d9b43d98cce3dbb1e5f91725e3bbd8aae0cca7e1aceafbf1ec"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171519-sa-mkt-0001-task-graph.json",
+      "sha256": "9ed3fc13b0bc4d7c5f203894dbf4c1cab73f14aa64dcdc00f27e2aa8df287d54"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171427-sa-mkt-0001-task-graph.json",
+      "sha256": "f6c668bde4ca0895cafa8746f217ab9ff9e568ecc660d7a88f9892431b416031"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171103-sa-mkt-0001-task-graph.json",
+      "sha256": "ec1360f10744f2c3c8789b256212c8cb06c0821a3e8c462a64beedd8a1e89d70"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171205-sa-mkt-0001-task-graph.json",
+      "sha256": "221e96852bb87abf4c8acea01d6023ef79a811ae5e2d4b8b564a1a801853dc5b"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171355-sa-mkt-0001-task-graph.json",
+      "sha256": "fc4c2fbf88b6df7397bdce5147b6a2ccb1fb22568b68613744a71d477e5fc009"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171053-sa-mkt-0001-task-graph.json",
+      "sha256": "51b3fb65e7366c02540de5a73731a809a26d52ed4474a00d989313aee2ea6be5"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171449-sa-mkt-0001-task-graph.json",
+      "sha256": "96dc57ff5fd8ec109ba5d1e1a698686fe92b74c909955a1fdb8747b9b86571da"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171312-sa-mkt-0001-task-graph.json",
+      "sha256": "4bf4ccd2c007a039ad35192c6eb37d05ef05f6da1875321b952706586b59294d"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171530-sa-mkt-0001-task-graph.json",
+      "sha256": "6c77cd3b5b55cdf244125e5f2b66e8b9b6200a7e88df3966b7087b971d9af709"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260621T183621-sa-mkt-0001-task-graph.json",
+      "sha256": "77d4c9794521f67ea364b3d0743e1305be527b57149ecdc9b3a32c4454d33746"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171548-sa-mkt-0001-task-graph.json",
+      "sha256": "9270d4569aafd3536585e6f9f28983b6ff17fbf72743c9e176e6153582545002"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171254-sa-mkt-0001-task-graph.json",
+      "sha256": "36bf70260636ba18ddff7c283d1f972c8ab0edd8d44a450a9ed43ec3ce01d12e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171152-sa-mkt-0001-task-graph.json",
+      "sha256": "0adae0dfdc536cc18da715b3090d22d9aa24903979a509ee0e1b2e337a2ea2b1"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171511-tf-mkt-0001-task-graph.json",
+      "sha256": "4a627f2f3fb36fa683916e038515099690f7c1212dfbe73ba5e159fffcd8cb7e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171609-sa-mkt-0001-task-graph.json",
+      "sha256": "05df1c07fa0451000c86d5969a4bcf8ff216b618396fab156b3498fcda29f524"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171431-sa-mkt-0001-task-graph.json",
+      "sha256": "fcd87e201a4ad22e5e467355870ecc2b1d61bcddb8163c0bee11ece570ecbd53"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171115-sa-mkt-0001-task-graph.json",
+      "sha256": "df8cb1cb3358b4a4aad11bbce5a88bb36edf6e5b6bd0275bd7159148313e6498"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171213-sa-mkt-0001-task-graph.json",
+      "sha256": "ab812e8334790f461c76b1a74ffd8733f7b6e86891632dbd101d948e08a3fca6"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171343-sa-mkt-0001-task-graph.json",
+      "sha256": "b240a2f0fdafbf599c6eb94b76192734197b491657545ee6d86f253b062ad2ae"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171045-sa-mkt-0001-task-graph.json",
+      "sha256": "76e7089bec82c144a3d24306f34d426c0cfdcc7979456ab27341ab8432cc6549"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171759-sa-mkt-0001-task-graph.json",
+      "sha256": "99b5b62e0ca21558d8e3af917f4fb93ab8d2e64e4bacb17d55692625c47ed10b"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171304-sa-mkt-0001-task-graph.json",
+      "sha256": "df7db254a7309efde70150f523bd1ecd9edc3868fda86dc7d858b14c2751d962"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171418-sa-mkt-0001-task-graph.json",
+      "sha256": "acee23b91359cf08f3c6172a0d24ca040df3ddc9b733171e18845305de92d470"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171526-sa-mkt-0001-task-graph.json",
+      "sha256": "e71db630e3a0153fed3bbf29ffb3535cf21bc1a0811869412ecf8878326c17c8"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171535-sa-mkt-0001-task-graph.json",
+      "sha256": "8fe893047e71cab8cdd0df705c602d326aeb907e46793736a9694d910f55159f"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171317-sa-mkt-0001-task-graph.json",
+      "sha256": "76388835f4ba5df269228deb2736a47890e7272b90f11c212ec3773f4bbb3413"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171229-sa-mkt-0001-task-graph.json",
+      "sha256": "e1be150ec30d6f868c3bb8092063a0ccf8d978deb78916abc5afd5c11506c140"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171056-sa-mkt-0001-task-graph.json",
+      "sha256": "3aa01ab5e854ab6c4c4e733da7af42dc1eaa9d8197b747056ab0d4ad78062a66"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171350-sa-mkt-0001-task-graph.json",
+      "sha256": "b26cde6b179aa352f0d354d4faa5c0a251fcddb6b5918a4b38dd81e8c56e4558"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171200-sa-mkt-0001-task-graph.json",
+      "sha256": "0356cc3e4e8e29f5e04b5195bb3b418acbc80c9bb54d8258cbf840937ba413a2"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171038-sa-mkt-0001-task-graph.json",
+      "sha256": "cbccb7099cabed60aac2e8e1aa13076123d6f8edc8be8d68664991cf7c3f86f4"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171106-sa-mkt-0001-task-graph.json",
+      "sha256": "b802bf57effc049de4c5d3d80f518d09645c687ffde5f19d2502690648905528"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171422-sa-mkt-0001-task-graph.json",
+      "sha256": "34e6c0f610c1325f46a28ebe229d6e8e8cd8e64c441d0eaeb8df750b5bdd72b1"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260621T183329-sa-mkt-0001-task-graph.json",
+      "sha256": "dd2a959ec95a33a0dccc37c9bdab33a4370b62383fbb6b32994dff0dfd3bcb8e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171141-sa-mkt-0001-task-graph.json",
+      "sha256": "a7048a919f7e4c8988d1b54cd5b19e12794fdb802c7e9bf57f6fe0332b4125e5"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171247-sa-mkt-0001-task-graph.json",
+      "sha256": "7c6ac33dea268d7122ec0ec0c3844ff43cb30c3e54565fd3325227f5a47c4966"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171523-sa-mkt-0001-task-graph.json",
+      "sha256": "979afa0c2a9d5acc8a025b166096c3954a6ac52cf7d6c011203dfaa2d3083de6"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171301-sa-mkt-0001-task-graph.json",
+      "sha256": "cc9d1445c08382cdee71d9bc836f8d2677fd5b9c5e62ac2560b08fea7c9731aa"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171139-sa-mkt-0001-task-graph.json",
+      "sha256": "93d7f0bf5e38286d1c8ebb37b676f42c21ad40f57e46c0934fbe7a47dc745863"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171040-sa-mkt-0001-task-graph.json",
+      "sha256": "ec2de098185fd0e6e79bc4a5cf374c916dabae95e2eb08a139ab11519253b50e"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171346-sa-mkt-0001-task-graph.json",
+      "sha256": "e25c9cfbac5226f63fcfccec2158275b20ebd5861b4525a3f1372b1b7d269cc4"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171216-sa-mkt-0001-task-graph.json",
+      "sha256": "18ff1fc5836e559345b72fce8032e80eb315dfe51703da956f199dcdc5eeef60"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171328-sa-mkt-0001-task-graph.json",
+      "sha256": "d69aa2c0fc3a069319dc1ed1184598ce3a5170c3c70f75da0dfb69ad041a9603"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171110-sa-mkt-0001-task-graph.json",
+      "sha256": "af71f770df1e2973b689a96dd252768aa378a1f61e0974b5843e820c1e72b727"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171434-sa-mkt-0001-task-graph.json",
+      "sha256": "e81f6b439bfb9022b801ec36078e8fbd317ae4960c499e8d105e9e9a931d7069"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171157-sa-mkt-0001-task-graph.json",
+      "sha256": "3d7c87feac1c4936a843d16f7c948bfea691bc480aa78f02c831f3e70254b11a"
+    },
+    {
+      "path": "receipts/bays/forge-bay/trace/forge-run-20260620T171251-sa-mkt-0001-task-graph.json",
+      "sha256": "6136456cf002400e24dcc32f91f821733f27f6cae426dd56c7f8252d55f01ec7"
     },
     {
       "path": "receipts/bays/forge-bay/assembly/forge-deploy-pack-v1-v1.json",
-      "sha256": "61e4eae09e8d773e4b70175eed9270601932a3cfbda2c28aa943fa0045089965"
+      "sha256": "293150d0a8bcc86169d60eb495756be66e054340e668c132b9bcbe06bed8af5e"
     },
     {
       "path": "receipts/bays/forge-bay/assembly/forge-verify-job-v1-v1.json",
-      "sha256": "19ee8478694b9b2838d03ffb546f0783ded195a87a8ed8d64fe163f92e24b4ae"
+      "sha256": "ce572f406f33ad03b31645bf3f37166a6ed2cdcf6c86256cb58a5edddbb430e8"
     },
     {
       "path": "receipts/bays/forge-bay/refinery/forge-scaffold-v1-v1.json",
-      "sha256": "df6341543e1e18a73dd1e61bdcc0d2d37e74072fc59934d24526225a14d5e802"
+      "sha256": "157a7fdebc1937fee3b81e90dd91217ecb3915bb03c24e9aca5d85a45c6af0e0"
     },
     {
       "path": "receipts/bays/forge-bay/refinery/forge-inbox-gate-v1-v1.json",
-      "sha256": "4819bc69386a0d8542681ed5dbb90798540bf35ec11b64e80a6cfb28ec05f71b"
+      "sha256": "e6a75e6388d66785a23fd4fdbe1d5b56217edc44d816d4d5d93fbdea7fc4e934"
     },
     {
       "path": "receipts/bays/forge-bay/refinery/forge-orient-v1-v1.json",
-      "sha256": "1b9d53d6e47436a0fc0973b96e8239a002ddcb84908e1dc6e2df132021391609"
+      "sha256": "206477efccd994cd6ec911aafa06c544cfbd3460e5989ee836910a2037e02341"
     }
   ]
 }

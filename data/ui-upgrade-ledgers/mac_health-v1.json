@@ -10,22 +10,97 @@
   "ledger_md": "brain-os/law/enforcement/ui-upgrade-ledgers/MAC_HEALTH_UI_UPGRADE_LEDGER_LOCKED_v1.md",
   "law_doc": "brain-os/law/enforcement/SINA_MAC_HEALTH_FOUNDER_GLANCE_UI_LOCKED_v1.md",
   "contract_json": "data/mac-health-founder-glance-ui-contract-v1.json",
-  "saved_at": "2026-06-20T19:30:00Z",
+  "saved_at": "2026-06-22T07:49:54Z",
   "frozen_inventory": [
-    {"id": "health_page", "kind": "page", "marker": "mhg-founder-glance · HTTP 200", "files": ["scripts/mac-health-standalone/index.html"]},
-    {"id": "ui_contract", "kind": "api", "marker": "ui_contract.ui_mode=founder_glance", "files": ["scripts/mac_health_founder_glance_ui_v1.py", "scripts/mac-health-guard-server.py"]},
-    {"id": "standalone_service", "kind": "api", "marker": "standalone: true", "files": ["scripts/mac-health-guard-server.py"]},
-    {"id": "version_ssot", "kind": "version", "marker": "4.0.0", "files": ["scripts/mac_health_version_v1.py"]},
-    {"id": "cloud_glance", "kind": "api", "marker": "cloud-glance-strip · read-only", "files": ["scripts/mac_health_cloud_glance_v1.py"]},
-    {"id": "agent_mandates", "kind": "law", "marker": "MAC_HEALTH_AGENT_MANDATES", "files": ["~/Desktop/MacLaw/MAC_HEALTH_AGENT_MANDATES_LOCKED.md"]},
-    {"id": "quiet_flag", "kind": "ops", "marker": "mac-health-quiet-v1.flag", "files": ["~/.sina/mac-health-quiet-v1.flag"]}
+    {
+      "id": "health_page",
+      "kind": "page",
+      "marker": "mhg-founder-glance \u00b7 HTTP 200",
+      "files": [
+        "scripts/mac-health-standalone/index.html"
+      ]
+    },
+    {
+      "id": "ui_contract",
+      "kind": "api",
+      "marker": "ui_contract.ui_mode=founder_glance",
+      "files": [
+        "scripts/mac_health_founder_glance_ui_v1.py",
+        "scripts/mac-health-guard-server.py"
+      ]
+    },
+    {
+      "id": "standalone_service",
+      "kind": "api",
+      "marker": "standalone: true",
+      "files": [
+        "scripts/mac-health-guard-server.py"
+      ]
+    },
+    {
+      "id": "version_ssot",
+      "kind": "version",
+      "marker": "4.0.0",
+      "files": [
+        "scripts/mac_health_version_v1.py"
+      ]
+    },
+    {
+      "id": "cloud_glance",
+      "kind": "api",
+      "marker": "cloud-glance-strip \u00b7 read-only",
+      "files": [
+        "scripts/mac_health_cloud_glance_v1.py"
+      ]
+    },
+    {
+      "id": "agent_mandates",
+      "kind": "law",
+      "marker": "MAC_HEALTH_AGENT_MANDATES",
+      "files": [
+        "~/Desktop/MacLaw/MAC_HEALTH_AGENT_MANDATES_LOCKED.md"
+      ]
+    },
+    {
+      "id": "quiet_flag",
+      "kind": "ops",
+      "marker": "mac-health-quiet-v1.flag",
+      "files": [
+        "~/.sina/mac-health-quiet-v1.flag"
+      ]
+    }
   ],
   "app_checklist": [
-    {"id": "MH-1", "step": "Read founder-glance SSOT + contract before UI edit", "done": true},
-    {"id": "MH-2", "step": ":13024 health + page HTTP 200 · ui_contract wired", "done": true},
-    {"id": "MH-3", "step": "validate-mac-health-founder-glance-v1.sh PASS", "done": true},
-    {"id": "MH-4", "step": "Included in mac-law surfaces probe", "done": true},
-    {"id": "MH-5", "step": "Bundle sync + mac-health-founder-glance-wire receipt", "done": true}
+    {
+      "id": "MH-1",
+      "step": "Read founder-glance SSOT + contract before UI edit",
+      "done": true
+    },
+    {
+      "id": "MH-2",
+      "step": ":13024 health + page HTTP 200 \u00b7 ui_contract wired",
+      "done": true
+    },
+    {
+      "id": "MH-3",
+      "step": "validate-mac-health-founder-glance-v1.sh PASS",
+      "done": true
+    },
+    {
+      "id": "MH-4",
+      "step": "Included in mac-law surfaces probe",
+      "done": true
+    },
+    {
+      "id": "MH-5",
+      "step": "Bundle sync + mac-health-founder-glance-wire receipt",
+      "done": true
+    },
+    {
+      "id": "MH-6",
+      "step": "Relieve pressure = full_relief (pipeline · zombies · cool down · RAM ≥75%) · references · Hub Pro checklists",
+      "done": true
+    }
   ],
   "upgrades": [
     {
@@ -40,7 +115,9 @@
       "changed": "Per-app Mac Health upgrade ledger created",
       "achieved": "Tracked MH-specific inventory + checklist",
       "founder_approval": "approved",
-      "machine_proof": {":13024": "HTTP 200"},
+      "machine_proof": {
+        ":13024": "HTTP 200"
+      },
       "baseline_before": null,
       "baseline_after": "ledger-v1"
     },
@@ -52,10 +129,10 @@
       "app_checklist": "MH-1..MH-5",
       "status": "approved",
       "quality_vs_last": "founder zero-task cockpit",
-      "preserved": "Auto heal · live pulse · log shield · panic · settings in More",
-      "changed": "Zero tabs · one card · one primary CTA · four stat tiles",
-      "removed": "Tab bar · poem · guardians · SASCIP tile · duplicate toolbars",
-      "achieved": "SSOT law · machine contract · validators · API ui_contract · wire script",
+      "preserved": "Auto heal \u00b7 live pulse \u00b7 log shield \u00b7 panic \u00b7 settings in More",
+      "changed": "Zero tabs \u00b7 one card \u00b7 one primary CTA \u00b7 four stat tiles",
+      "removed": "Tab bar \u00b7 poem \u00b7 guardians \u00b7 SASCIP tile \u00b7 duplicate toolbars",
+      "achieved": "SSOT law \u00b7 machine contract \u00b7 validators \u00b7 API ui_contract \u00b7 wire script",
       "founder_approval": "approved",
       "machine_proof": {
         "validator": "scripts/validate-mac-health-founder-glance-v1.sh",
@@ -73,9 +150,9 @@
       "app_checklist": "MH-1..MH-5",
       "status": "shipped_pending_approval",
       "quality_vs_last": "better",
-      "preserved": "Zero tabs · one CTA · four stat tiles · More · auto heal · log shield · panic · settings",
-      "changed": "Cloud glance strip · mac_health_cloud_glance_v1 · Hub bridge · Cursor RAM tiers · stale-shell hints",
-      "achieved": "Read-only cloud dispatch status on :13024; Mac sends · cloud runs · founder reads",
+      "preserved": "Zero tabs \u00b7 one CTA \u00b7 four stat tiles \u00b7 More \u00b7 auto heal \u00b7 log shield \u00b7 panic \u00b7 settings",
+      "changed": "Cloud glance strip \u00b7 mac_health_cloud_glance_v1 \u00b7 Hub bridge \u00b7 Cursor RAM tiers \u00b7 stale-shell hints",
+      "achieved": "Read-only cloud dispatch status on :13024; Mac sends \u00b7 cloud runs \u00b7 founder reads",
       "founder_approval": "pending",
       "machine_proof": {
         "health": "http://127.0.0.1:13024/health version 4.0.0",
@@ -85,6 +162,20 @@
       },
       "baseline_before": "3.3.0 founder_glance",
       "baseline_after": "4.0.0 control_plane_glance"
+    },
+    {
+      "upgrade_id": "UP-MH-003",
+      "founder_trigger": "full relief + Hub Pro checklists + Hub Hero skill",
+      "general_checklist": "UP-0..UP-7",
+      "app_checklist": "MH-1..MH-6",
+      "status": "shipped",
+      "changed": "run_full_relief; hero pipeline+RAM; sources grid; Hub Pro UP+UI checklist in all apps",
+      "achieved": "Relieve pressure clears pipelines zombies RAM cool down; next agents read checklists in View Hub Pro",
+      "machine_proof": {
+        "health": "http://127.0.0.1:13024/health",
+        "hub_pro": "GET /api/hub-pro-skills/v1?app=mac_health"
+      },
+      "saved_at": "2026-06-22T07:49:54Z"
     }
   ]
 }

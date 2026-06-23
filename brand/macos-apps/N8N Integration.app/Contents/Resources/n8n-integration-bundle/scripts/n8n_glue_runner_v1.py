@@ -71,6 +71,22 @@ def _write_receipt(
     return row
 
 
+def _attach_glue_receipt(result: dict[str, Any], receipt: dict[str, Any]) -> dict[str, Any]:
+    """Attach glue receipt without circular refs when receipt.data is the same dict."""
+    result["glue_receipt"] = {
+        "schema": receipt.get("schema"),
+        "workflow_id": receipt.get("workflow_id"),
+        "tier": receipt.get("tier"),
+        "track": receipt.get("track"),
+        "at": receipt.get("at"),
+        "ok": receipt.get("ok"),
+        "overall": receipt.get("overall"),
+        "summary": receipt.get("summary"),
+        "receipt_path": receipt.get("receipt_path"),
+    }
+    return result
+
+
 def _overall_from_probes(probes: dict[str, dict], *, hub_mode: str) -> str:
     required = ["mac_health", "n8n"]
     for key in required:
@@ -219,20 +235,28 @@ def cmd_poison_track() -> dict[str, Any]:
 
 def cmd_queue_sweep() -> dict[str, Any]:
     from mac_health_guard import pipeline_queue_sweep  # noqa: WPS433
+    from n8n_film_factory_wire_v1 import film_factory_queue_note  # noqa: WPS433
 
     result = pipeline_queue_sweep()
+    film_note = film_factory_queue_note()
     ok = True
     killed = int(result.get("killed") or 0)
+    overall = "green" if killed == 0 else "yellow"
+    if film_note.get("film_render_frozen"):
+        overall = "yellow" if overall == "green" else overall
     receipt = _write_receipt(
         workflow_id="wf-factory-queue-sweeper",
         tier=2,
         track="factory",
         ok=ok,
-        overall="green" if killed == 0 else "yellow",
-        summary=f"Queue sweep killed {killed} zombie(s)",
-        data=result,
+        overall=overall,
+        summary=(
+            f"Queue sweep killed {killed} zombie(s)"
+            + (" · film render FROZEN" if film_note.get("film_render_frozen") else "")
+        ),
+        data={"queue": result, "film_factory": film_note},
     )
-    return {"ok": ok, "result": result, "receipt": receipt}
+    return {"ok": ok, "result": result, "film_factory": film_note, "receipt": receipt}
 
 
 def cmd_disk_wire() -> dict[str, Any]:
@@ -244,7 +268,13 @@ def cmd_disk_wire() -> dict[str, Any]:
         timeout=120,
     )
     ok = proc.returncode == 0
-    if not ok:
+    if ok:
+        if GOVERNANCE_FINDINGS.is_file():
+            try:
+                GOVERNANCE_FINDINGS.unlink()
+            except OSError:
+                pass
+    elif not ok:
         GOVERNANCE_FINDINGS.parent.mkdir(parents=True, exist_ok=True)
         GOVERNANCE_FINDINGS.write_text(
             json.dumps(
@@ -520,6 +550,156 @@ def cmd_cooldown_ingest(payload_json: str | None = None) -> dict[str, Any]:
     return {"ok": True, "alert": alert, "receipt": receipt}
 
 
+def cmd_chat_unify_merge(payload_json: str | None = None) -> dict[str, Any]:
+    payload: dict[str, Any] = {}
+    if payload_json:
+        try:
+            payload = json.loads(payload_json)
+        except json.JSONDecodeError as e:
+            return {"ok": False, "error": str(e)}
+    brief_chars = int(payload.get("brief_chars") or 0)
+    extract_count = int(payload.get("extract_count") or 0)
+    contradiction_count = int(payload.get("contradiction_count") or 0)
+    track_dir = RECEIPTS_ROOT / "intelligence"
+    track_dir.mkdir(parents=True, exist_ok=True)
+    path = track_dir / "chat-unify-merge.jsonl"
+    row = {
+        "schema": "chat-unify-merge-v1",
+        "at": _now(),
+        "source": payload.get("source") or "chat-unify",
+        "event": payload.get("event") or "merge_receipt",
+        "extract_count": extract_count,
+        "contradiction_count": contradiction_count,
+        "brief_chars": brief_chars,
+        "receipt_path": payload.get("receipt_path"),
+        "extract_ids": payload.get("extract_ids") or [],
+    }
+    with path.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(row) + "\n")
+    receipt = _write_receipt(
+        workflow_id="wf-chat-unify-merge-receipt-v1",
+        tier=4,
+        track="intelligence",
+        ok=True,
+        overall="green" if contradiction_count == 0 else "yellow",
+        summary=f"Chat Unify merge · {extract_count} extracts · {contradiction_count} contradictions",
+        data=row,
+    )
+    return {"ok": True, "merge": row, "receipt": receipt}
+
+
+def cmd_film_ingest(payload_json: str | None = None) -> dict[str, Any]:
+    """P0 ship gate — Screen Studio ingest + critic + unfreeze."""
+    payload: dict[str, Any] = {}
+    if payload_json:
+        try:
+            payload = json.loads(payload_json)
+        except json.JSONDecodeError as e:
+            return {"ok": False, "error": str(e)}
+
+    from n8n_film_factory_wire_v1 import film_ship_gate  # noqa: WPS433
+
+    lane = (payload.get("lane") or payload.get("body", {}).get("lane") or "sourcea").strip()
+    lane_map = {
+        "sourcea_commercial": "sourcea",
+        "sourcea_w1": "sourcea",
+        "sourcea": "sourcea",
+        "witnessbc": "witnessbc",
+    }
+    lane = lane_map.get(lane, lane)
+    result = film_ship_gate(
+        lane=lane,
+        skip_ingest=bool(payload.get("skip_ingest")),
+        no_deploy=bool(payload.get("no_deploy")),
+    )
+    receipt = _write_receipt(
+        workflow_id="wf-film-screen-studio-ingest-v1",
+        tier=3,
+        track="film_factory",
+        ok=bool(result.get("publish_allowed")),
+        overall="green" if result.get("publish_allowed") else "red",
+        summary=result.get("factory_now_line") or f"ship_gate lane={lane}",
+        data=result,
+    )
+    result["receipt"] = receipt
+    return result
+
+
+def cmd_film_compile(payload_json: str | None = None) -> dict[str, Any]:
+    payload: dict[str, Any] = {}
+    if payload_json:
+        try:
+            payload = json.loads(payload_json)
+        except json.JSONDecodeError as e:
+            return {"ok": False, "error": str(e)}
+    from n8n_film_factory_wire_v1 import film_compile  # noqa: WPS433
+
+    lane = (payload.get("lane") or "witnessbc").strip()
+    result = film_compile(lane=lane, skip_capture=bool(payload.get("skip_capture")))
+    receipt = _write_receipt(
+        workflow_id="wf-cinematic-film-compile-v1",
+        tier=3,
+        track="film_factory",
+        ok=bool(result.get("ok")),
+        overall="green" if result.get("ok") else "yellow",
+        summary=f"film_compile lane={lane}",
+        data=result,
+    )
+    return _attach_glue_receipt(result, receipt)
+
+
+def cmd_film_critic(payload_json: str | None = None) -> dict[str, Any]:
+    payload: dict[str, Any] = {}
+    if payload_json:
+        try:
+            payload = json.loads(payload_json)
+        except json.JSONDecodeError as e:
+            return {"ok": False, "error": str(e)}
+    from n8n_film_factory_wire_v1 import film_critic  # noqa: WPS433
+
+    lane = (payload.get("lane") or "all").strip()
+    result = film_critic(lane=lane, no_freeze=bool(payload.get("no_freeze")))
+    receipt = _write_receipt(
+        workflow_id="wf-cinematic-film-critic-v1",
+        tier=3,
+        track="film_factory",
+        ok=bool(result.get("ok")),
+        overall="green" if result.get("verdict") == "PASS" else "red",
+        summary=f"film_critic lane={lane} verdict={result.get('verdict')}",
+        data=result,
+    )
+    return _attach_glue_receipt(result, receipt)
+
+
+def cmd_film_status(_payload_json: str | None = None) -> dict[str, Any]:
+    from n8n_film_factory_wire_v1 import film_status  # noqa: WPS433
+
+    result = film_status()
+    receipt = _write_receipt(
+        workflow_id="wf-cinematic-film-status-v1",
+        tier=2,
+        track="film_factory",
+        ok=True,
+        overall="yellow" if (result.get("freeze") or {}).get("frozen") else "green",
+        summary=result.get("factory_now_line") or "film_status",
+        data=result,
+    )
+    return _attach_glue_receipt(result, receipt)
+
+
+def cmd_cloud_drain_auto_tick() -> dict[str, Any]:
+    from cloud_drain_auto_runtime_v1 import run_auto_tick  # noqa: WPS433
+
+    result = run_auto_tick()
+    receipt = write_receipt(
+        workflow_id="wf-cloud-drain-auto-v1",
+        command="cloud-drain-auto-tick",
+        ok=bool(result.get("ok", True)),
+        data=result,
+    )
+    return _attach_glue_receipt(result, receipt)
+
+
 COMMANDS = {
     "health": cmd_health,
     "governance-fast": cmd_governance_fast,
@@ -528,6 +708,7 @@ COMMANDS = {
     "queue-sweep": cmd_queue_sweep,
     "disk-wire": cmd_disk_wire,
     "cpu-pause-check": cmd_cpu_pause_check,
+    "chat-unify-merge": cmd_chat_unify_merge,
     "signal-ingest": cmd_signal_ingest,
     "cooldown-ingest": cmd_cooldown_ingest,
     "judge-audit": cmd_judge_audit,
@@ -537,6 +718,12 @@ COMMANDS = {
     "founder-request": cmd_founder_request,
     "semej-bookend": cmd_semej_bookend,
     "backup-archive": cmd_backup_archive,
+    "cloud-drain-auto-tick": cmd_cloud_drain_auto_tick,
+    "film-ingest": cmd_film_ingest,
+    "film-ship-gate": cmd_film_ingest,
+    "film-compile": cmd_film_compile,
+    "film-critic": cmd_film_critic,
+    "film-status": cmd_film_status,
 }
 
 
@@ -546,7 +733,7 @@ def main() -> int:
     p.add_argument("--payload", default="", help="JSON payload for ingest commands")
     args = p.parse_args()
     fn = COMMANDS[args.command]
-    if args.command in ("signal-ingest", "cooldown-ingest", "founder-request", "semej-bookend"):
+    if args.command in ("signal-ingest", "cooldown-ingest", "founder-request", "semej-bookend", "chat-unify-merge", "film-ingest"):
         result = fn(args.payload or None)
     else:
         result = fn()

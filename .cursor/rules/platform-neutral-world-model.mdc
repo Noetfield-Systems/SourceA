@@ -1,6 +1,6 @@
 ---
 description: Platform-neutral world model — no Mac-only gates · route takes to product lanes · WTM plan check loop
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Platform-neutral world model (LOCKED machine SSOT)

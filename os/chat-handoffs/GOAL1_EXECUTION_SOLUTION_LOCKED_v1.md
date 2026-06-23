@@ -1,1 +1,1 @@
-../../brain-os/enforcement/GOAL1_EXECUTION_SOLUTION_LOCKED_v1.md
+../../brain-os/law/enforcement/GOAL1_EXECUTION_SOLUTION_LOCKED_v1.md

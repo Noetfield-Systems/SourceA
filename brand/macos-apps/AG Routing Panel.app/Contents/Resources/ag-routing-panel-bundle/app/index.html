@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AG Routing Panel</title>
+  <meta name="sina-app-id" content="ag-routing" />
+  <link rel="stylesheet" href="app.css?v=1.1.0" />
+  <link rel="stylesheet" href="official-links-bar.css?v=1.1.0" />
+  <link rel="stylesheet" href="sina-main-terminal.css?v=1.1.0" />
+</head>
+<body>
+  <nav class="official-links-bar" data-official-links data-active="ag-routing" aria-label="Official links"></nav>
+  <main class="arp-app" data-sina-app-root>
+    <header class="arp-head">
+      <div class="arp-title-row">
+        <div>
+          <h1>AG Routing Panel</h1>
+          <p class="arp-sub" id="arp-sub">Agent start here · cost · route · queue · then jump to the right app</p>
+        </div>
+        <span class="arp-badge" id="arp-version">v1.1</span>
+      </div>
+      <div class="arp-mode-bar">
+        <button type="button" class="arp-mode active" data-mode="light">Agent light</button>
+        <button type="button" class="arp-mode" data-mode="full">Full routing</button>
+        <button type="button" class="arp-btn" id="btn-refresh">Refresh</button>
+        <button type="button" class="arp-btn" id="btn-refresh-panel">Refresh panel disk</button>
+        <a class="arp-btn arp-link" href="http://127.0.0.1:8780/" target="_blank" rel="noopener">Legacy architect :8780</a>
+      </div>
+    </header>
+
+    <section class="arp-glance" id="arp-glance" aria-label="Agent start here">
+      <div class="arp-glance-top">
+        <h2>Agent start here</h2>
+        <p class="arp-glance-role" id="arp-role-hint">—</p>
+      </div>
+      <p class="arp-glance-now" id="arp-glance-now">Loading factory line…</p>
+      <div class="arp-glance-meta">
+        <span class="arp-glance-chip" id="arp-glance-queue">Queue —</span>
+        <span class="arp-glance-chip" id="arp-glance-priority">Priority —</span>
+        <span class="arp-glance-chip arp-glance-cost" id="arp-glance-cost">Cost —</span>
+      </div>
+      <div class="arp-glance-primary" id="arp-glance-primary">
+        <span class="arp-glance-label">Go next</span>
+        <button type="button" class="arp-go-btn" id="arp-go-primary" hidden>—</button>
+        <p class="arp-glance-reason" id="arp-glance-reason">—</p>
+      </div>
+      <div class="arp-glance-quick" id="arp-glance-quick" aria-label="Quick app jumps"></div>
+    </section>
+
+    <p class="arp-headline" id="arp-headline">Loading…</p>
+
+    <section class="arp-grid" id="arp-light">
+      <article class="arp-card arp-span2">
+        <h2>Cursor cost intelligence</h2>
+        <p id="arp-cost-law" class="arp-muted">—</p>
+        <div class="arp-tier-grid" id="arp-tiers"></div>
+      </article>
+      <article class="arp-card">
+        <h2>Active route</h2>
+        <dl class="arp-dl" id="arp-active"></dl>
+      </article>
+      <article class="arp-card">
+        <h2>Queue · orient</h2>
+        <p id="arp-queue" class="arp-big">—</p>
+        <ul id="arp-orient" class="arp-list"></ul>
+      </article>
+      <article class="arp-card arp-span2">
+        <h2>Brand routes</h2>
+        <div class="arp-table-wrap">
+          <table class="arp-table" id="arp-brands">
+            <thead><tr><th>If they say</th><th>Route to</th><th>SKU</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </article>
+      <article class="arp-card arp-span2">
+        <h2>Loop chain (one-liners)</h2>
+        <ul class="arp-list" id="arp-loop"></ul>
+      </article>
+      <article class="arp-card arp-span2">
+        <h2>Golden tips · next moves</h2>
+        <ul class="arp-tips" id="arp-tips"></ul>
+      </article>
+      <article class="arp-card arp-span3 arp-diagram">
+        <h2>Agent flow</h2>
+        <div class="arp-mermaid" id="mermaid-flow"></div>
+      </article>
+      <article class="arp-card arp-span3 arp-diagram">
+        <h2>Brand routing map</h2>
+        <div class="arp-mermaid" id="mermaid-brands"></div>
+      </article>
+    </section>
+
+    <section class="arp-grid arp-hidden" id="arp-full">
+      <article class="arp-card arp-span3">
+        <h2>Investigator machine routes</h2>
+        <div class="arp-table-wrap">
+          <table class="arp-table" id="arp-inv-routes">
+            <thead><tr><th>Primary</th><th>Secondary</th><th>When</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </article>
+      <article class="arp-card arp-span2">
+        <h2>Stack map · weekly</h2>
+        <pre class="arp-pre" id="arp-stack">—</pre>
+      </article>
+      <article class="arp-card arp-span2">
+        <h2>Orient report</h2>
+        <pre class="arp-pre" id="arp-orient-full">—</pre>
+      </article>
+      <article class="arp-card arp-span3 arp-diagram">
+        <h2>Loop chain diagram</h2>
+        <div class="arp-mermaid" id="mermaid-loop"></div>
+      </article>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="sina-main-terminal.js?v=1.1.0"></script>
+  <script src="official-links-bar.js?v=1.4.0"></script>
+  <script src="app.js?v=1.1.0"></script>
+</body>
+</html>

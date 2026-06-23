@@ -1,0 +1,56 @@
+{
+  "schema": "witnessbc-vercel-main-dns-cutover-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-21T02:30:00Z",
+  "authority": "ASF",
+  "vercel": {
+    "team": "the-777-foundation",
+    "project": "deploy-witnessbc-agentic-governance",
+    "project_id": "prj_3bB9wUjC0qPOFUPJZKxvbG0yIg1l",
+    "latest_deploy": "deploy-witnessbc-agentic-governance-57e9aev2o.vercel.app",
+    "commit": "16e247d9",
+    "preview_ok": "Witness AI + /observe/"
+  },
+  "cloudflare": {
+    "zone": "witnessbc.com",
+    "zone_id": "fbaba5b3d756fa9c2d6e5e6368df4414",
+    "account": "witness.bc@gmail.com",
+    "note": "Main lane CF_API_TOKEN in secrets.env is trustfield.ca ONLY. Agent cutover uses wrangler OAuth + Workers Custom Domain (auto DNS). Direct CNAME optional later via WITNESSBC_CF_API_TOKEN.",
+    "agent_cutover": {
+      "method": "workers_custom_domain",
+      "worker": "witnessbc-vercel-proxy",
+      "script": "scripts/witnessbc_vercel_proxy_cutover_v1.py",
+      "receipt": "~/.sina/witnessbc-vercel-proxy-cutover-receipt-v1.json",
+      "www_dns": "Cloudflare proxied A (auto) — 104.21.86.197 / 172.67.136.90",
+      "vercel_origin": "deploy-witnessbc-agentic-governance-theta.vercel.app"
+    }
+  },
+  "dns_change_required": {
+    "www": {
+      "type": "CNAME",
+      "name": "www",
+      "old_content": "8415f825b6fe1d98.vercel-dns-017.com",
+      "new_content": "14c1ee71176829d5.vercel-dns-017.com",
+      "proxied": true
+    },
+    "txt_verification": [
+      {
+        "type": "TXT",
+        "name": "_vercel",
+        "content": "vc-domain-verify=www.witnessbc.com,1c973c91295554fc3767"
+      },
+      {
+        "type": "TXT",
+        "name": "_vercel",
+        "content": "vc-domain-verify=witnessbc.com,daf6300b053924e9be6c"
+      }
+    ],
+    "apex": {
+      "note": "After www green, set witnessbc.com redirect to www in Vercel Domains or apex A 76.76.21.21 per Vercel dashboard"
+    }
+  },
+  "verify_after": [
+    "curl -sL https://www.witnessbc.com/ | grep 'Witness AI'",
+    "curl -sL https://www.witnessbc.com/observe/ | grep 'observe and narrate'"
+  ]
+}

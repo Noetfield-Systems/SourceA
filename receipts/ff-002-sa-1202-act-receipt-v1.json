@@ -1,0 +1,18 @@
+{
+  "schema": "forge-factory-cycle2-act-v1",
+  "sa_id": "sa-1202",
+  "hp_id": "ff-002",
+  "round_type": "act",
+  "ok": true,
+  "at": "2026-06-21T01:56:00Z",
+  "checks": {
+    "supabase_tiers_forge_factory": "portfolio-spine · schema forge_factory per data/supabase-portfolio-tiers-v1.json",
+    "trustfield_tier": "noetfield project (not spine) — SSOT aligned",
+    "portfolio_pulse_wired": true,
+    "external_blocker": "witnessbc_vercel site RED — DNS/Vercel lane"
+  },
+  "evidence": "ACT PASS — forge_factory on spine SSOT · portfolio daily pulse wired · tier drift fixed · WBC vercel external RED receipted",
+  "receipts": [
+    "~/.sina/portfolio-supabase-daily-pulse-v1.json"
+  ]
+}

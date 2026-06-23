@@ -1,7 +1,14 @@
 ---
 description: UI FIRST CHECK zero exception — ALL agents · form · app · website · canvas
 globs:
-alwaysApply: true
+  - "**/*.html"
+  - "**/*.css"
+  - "**/*.js"
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/*.vue"
+  - "**/*.canvas.tsx"
+alwaysApply: false
 ---
 
 # UI FIRST CHECK — ZERO EXCEPTION (UI file edits ONLY — not pre-reply chat)

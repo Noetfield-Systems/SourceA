@@ -49,20 +49,26 @@ def _http_probe(url: str, *, timeout: float = 12.0) -> dict[str, Any]:
         return {"ok": False, "error": str(exc)[:200], "url": url}
 
 
-def _hub_queue_head() -> dict[str, Any]:
-    row = _http_probe(f"http://127.0.0.1:{HUB_PORT}/api/cloud-workers/v1", timeout=20.0)
+def _cloud_queue_ssot(*, timeout: float = 12.0) -> dict[str, Any]:
+    """Cloud queue head — Railway only (no Mac :13020/:13027 polling)."""
+    base = os.environ.get("FBE_CLOUD_WORKER_URL", "https://sourcea-fbe-runner-production.up.railway.app").rstrip("/")
+    row = _http_probe(f"{base}/api/cloud-drain/queue/v1", timeout=timeout)
     if not row.get("ok"):
         return {"ok": False, "error": row.get("error"), "queue_head": None}
     body = row.get("body") or {}
-    sit = body.get("situation") or {}
-    head = sit.get("queue_head")
+    auto = (SINA / "cloud-drain-auto-proceed-v1.flag").is_file()
     return {
         "ok": True,
-        "queue_head": head,
-        "last_completed": sit.get("last_completed"),
-        "pipe": sit.get("pipe"),
-        "auto_proceed": (body.get("auto_runtime") or {}).get("auto_proceed_enabled"),
+        "queue_head": body.get("cloud_drain_head"),
+        "last_completed": body.get("cloud_drain_last_completed"),
+        "pipe": "LIVE",
+        "auto_proceed": auto,
+        "source": "cloud:railway_queue_v1",
     }
+
+
+def _hub_queue_head() -> dict[str, Any]:
+    return _cloud_queue_ssot()
 
 
 def _extract_head(source_url: str, field: str) -> str | None:
@@ -97,7 +103,7 @@ def _hub_queue_fast() -> dict[str, Any]:
                 }
         except (OSError, json.JSONDecodeError):
             pass
-    return _hub_queue_head()
+    return _cloud_queue_ssot(timeout=5.0)
 
 
 def validate_chains_fast(*, write: bool = True) -> dict[str, Any]:

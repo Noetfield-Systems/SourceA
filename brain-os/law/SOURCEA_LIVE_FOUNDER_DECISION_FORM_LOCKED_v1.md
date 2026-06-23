@@ -66,6 +66,8 @@
 ## 2. §ANSWERED — locked from evidence
 
 
+| **Q-MF-12** | Canvas confirm | **B** | Canvas FORM_OFFICIAL · Q-MF-12 | `canvas_form_apply_picks_v1.py` · 2026-06-22T07:14:45Z |
+
 | **Q-GATH-05** | Canvas confirm | **A** | Canvas FORM_OFFICIAL · Q-GATH-05 | `canvas_form_apply_picks_v1.py` · 2026-06-20T02:26:31Z |
 
 | **Q-GATH-04** | Canvas confirm | **A** | Canvas FORM_OFFICIAL · Q-GATH-04 | `canvas_form_apply_picks_v1.py` · 2026-06-20T02:26:31Z |

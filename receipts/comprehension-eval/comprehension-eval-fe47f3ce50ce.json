@@ -1,0 +1,83 @@
+{
+  "schema": "comprehension-eval-batch-receipt-v1",
+  "receipt_id": "comprehension-eval-fe47f3ce50ce",
+  "at": "2026-06-21T04:07:08Z",
+  "variation_key": "default",
+  "config_version": "1.1.0",
+  "total": 8,
+  "passed": 8,
+  "failed": 0,
+  "pass_rate": 1.0,
+  "min_pass_rate": 0.875,
+  "ok": true,
+  "results": [
+    {
+      "id": "golden-001",
+      "expect_verdict": "ACCEPT",
+      "actual_verdict": "ACCEPT",
+      "ok": true,
+      "meaning_score": 75,
+      "variation_key": "default"
+    },
+    {
+      "id": "golden-002",
+      "expect_verdict": "BLOCKED",
+      "actual_verdict": "BLOCKED",
+      "ok": true,
+      "meaning_score": 85,
+      "variation_key": "strong"
+    },
+    {
+      "id": "golden-003",
+      "expect_verdict": "BLOCKED",
+      "actual_verdict": "BLOCKED",
+      "ok": true,
+      "meaning_score": 60,
+      "variation_key": "strong"
+    },
+    {
+      "id": "golden-004",
+      "expect_verdict": "ACCEPT",
+      "actual_verdict": "ACCEPT",
+      "ok": true,
+      "meaning_score": 100,
+      "variation_key": "default"
+    },
+    {
+      "id": "golden-005",
+      "expect_verdict": "ACCEPT",
+      "actual_verdict": "ACCEPT",
+      "ok": true,
+      "meaning_score": 80,
+      "variation_key": "default"
+    },
+    {
+      "id": "golden-006",
+      "expect_verdict": "BLOCKED",
+      "actual_verdict": "BLOCKED",
+      "ok": true,
+      "meaning_score": 100,
+      "variation_key": "strong"
+    },
+    {
+      "id": "golden-007",
+      "expect_verdict": "ACCEPT",
+      "actual_verdict": "ACCEPT",
+      "ok": true,
+      "meaning_score": 100,
+      "variation_key": "default"
+    },
+    {
+      "id": "golden-008",
+      "expect_verdict": "ACCEPT",
+      "actual_verdict": "ACCEPT",
+      "ok": true,
+      "meaning_score": 80,
+      "variation_key": "default"
+    }
+  ],
+  "for_founder": {
+    "show_this": "Golden eval \u00b7 default \u00b7 8/8 pass (100%) \u00b7 PASS"
+  },
+  "receipt_path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/comprehension-eval/comprehension-eval-fe47f3ce50ce.json"
+}

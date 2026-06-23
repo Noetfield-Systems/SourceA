@@ -4,7 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0f1923" />
+  <meta name="sina-app-id" content="machine-hub" />
   <title>Source A · Machine Hub (H2)</title>
+  <link rel="stylesheet" href="/shared/official-links-bar.css" />
+  <link rel="stylesheet" href="/shared/api-station-tab.css" />
+  <link rel="stylesheet" href="/shared/hub-pro-skills-tab.css" />
   <style>
     :root { --bg:#0a1219; --card:#14202c; --text:#e8eef4; --muted:#8fa3b8; --gold:#d4a853; --ok:#3ecf8e; --warn:#f0a500; --bad:#f07178; --line:#243447; }
     * { box-sizing: border-box; }
@@ -40,7 +44,8 @@
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <nav class="official-links-bar" data-official-links data-active="hub" aria-label="Official links"></nav>
+  <div class="wrap" data-sina-app-root>
     <div class="banner">
       <strong>Machine Hub (H2)</strong> — sibling hub · own URL · heavy machines only (not a sub-page of H1).
       Peer daily hub → <a href="/" target="_blank" rel="noopener">Super Fast Hub (H1)</a>
@@ -59,9 +64,11 @@
       </div>
       <p class="timing" id="load-timing">—</p>
       <div class="row">
-        <button type="button" id="btn-heal" class="primary">Sync registry + heal</button>
+        <button type="button" id="btn-heal" class="primary">Dual-hub heal (H1+H2)</button>
         <button type="button" id="btn-refresh">Light refresh</button>
+        <button type="button" class="btn primary" id="btn-open-station">API Station · all ASF ops</button>
       </div>
+      <p class="sub" style="margin-top:8px"><strong>View → API Station</strong> — full founder catalog (heals · cloud · pipelines · validators · machines). Judge/Thread below are only 3 of <span id="ops-count">—</span> ops.</p>
     </section>
 
     <section class="card">
@@ -219,17 +226,18 @@
       if (healing) return;
       healing = true;
       $("btn-heal").disabled = true;
-      log("H2 heal (" + reason + ") — registry sync + H1 light heal…");
+      log("Dual-hub heal (" + reason + ")…");
       try {
-        const res = await fetch(API + "/api/worker-hub/heal", {
+        const res = await fetch(API + "/api/founder-ops/v1", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ reason: reason }),
+          body: JSON.stringify({ op: "dual_heal", payload: { reason: reason } }),
         });
         const j = await res.json();
+        const steps = ((j.result || {}).steps) || [];
         log(
-          (j.ok ? "Heal OK" : "Heal partial") + " · H2 registry synced via worker-hub/heal\n" +
-          (j.steps || []).map(function (s) { return s.step + "=" + (s.ok ? "ok" : "fail"); }).join(" · ")
+          (j.ok ? "Dual heal OK" : "Dual heal partial") + "\n" +
+          steps.map(function (s) { return s.step + "=" + (s.ok ? "ok" : "fail"); }).join(" · ")
         );
         await load({ silent: true });
       } catch (e) {
@@ -268,6 +276,11 @@
     $("btn-run-judge").onclick = function () { runRooms("judge"); };
     $("btn-run-thread").onclick = function () { runRooms("thread"); };
     $("btn-heal").onclick = function () { runHeal("founder-tap"); };
+    $("btn-open-station").onclick = function () {
+      if (window.sinaSetViewMode) window.sinaSetViewMode("station");
+      else if (window.SinaApiStation) window.SinaApiStation.setMode("station");
+      else if (window.setMode) window.setMode("station");
+    };
     $("btn-refresh").onclick = async function () {
       $("btn-refresh").disabled = true;
       log("Light refresh…");
@@ -290,7 +303,24 @@
       if (!document.hidden) load({ silent: true });
     });
     load().then(schedulePoll);
+    fetch(API + "/api/founder-ops/v1")
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var el = $("ops-count");
+        if (el && d.ops) el.textContent = String(d.ops.length);
+      })
+      .catch(function () {});
+    if (location.search.indexOf("station=1") >= 0) {
+      setTimeout(function () {
+        if (window.sinaSetViewMode) window.sinaSetViewMode("station");
+        else if (window.SinaApiStation) window.SinaApiStation.setMode("station");
+      }, 300);
+    }
   })();
   </script>
+  <script src="/shared/official-links-bar.js"></script>
+  <script src="/shared/sina-view-mode.js"></script>
+  <script src="/shared/api-station-tab.js"></script>
+  <script src="/shared/hub-pro-skills-tab.js"></script>
 </body>
 </html>

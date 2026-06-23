@@ -1,0 +1,188 @@
+{
+  "schema": "portfolio-vault-email-tags-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-06-21T05:06:59Z",
+  "authority": "ASF",
+  "human_doc": "docs/PORTFOLIO_VAULT_EMAIL_TAGS_LOCKED_v1.md",
+  "vault_path": "~/.sina/secrets.env",
+  "one_law": "Three licensed mailboxes per domain · one app password tag per mailbox · one brand lane",
+  "tag_pattern": "{BRAND}-{LOCALPART}-GOOGLE_WORKSPACE_APP_PASSWORD",
+  "mailboxes_per_domain": 3,
+  "total_tags": 15,
+  "app_password_rules": {
+    "length": 16,
+    "spaces_allowed": false,
+    "type": "google_workspace_app_password",
+    "requires_2fa": true,
+    "one_per_mailbox_user": true
+  },
+  "roles": {
+    "greet": "Outbound commercial · support · AB1 · MSB",
+    "intake": "Inbound forms · general contact · receive",
+    "ops": "Ops routing · compliance outbound · proof/demo · support"
+  },
+  "canonical_runtime_key": "GOOGLE_WORKSPACE_APP_PASSWORD",
+  "canonical_address": "hello@trustfield.ca",
+  "canonical_resolution_order": [
+    "GOOGLE_WORKSPACE_APP_PASSWORD",
+    "TF-HELLO-GOOGLE_WORKSPACE_APP_PASSWORD"
+  ],
+  "domains": [
+    {
+      "domain": "trustfield.ca",
+      "brand_code": "TF",
+      "brand": "TrustField Technologies",
+      "lane_id": "main_lane",
+      "mailboxes": [
+        {
+          "localpart": "hello",
+          "role": "greet",
+          "vault_tag": "TF-HELLO-GOOGLE_WORKSPACE_APP_PASSWORD",
+          "export_env": "TF_HELLO_GOOGLE_WORKSPACE_APP_PASSWORD",
+          "maps_to_canonical": true,
+          "scripts": ["agentic_msb_wave_send.sh", "trustfield_google_workspace_outbound_probe.sh", "commercial_mail_draft_v1.py --lane TF"]
+        },
+        {
+          "localpart": "contact",
+          "role": "intake",
+          "vault_tag": "TF-CONTACT-GOOGLE_WORKSPACE_APP_PASSWORD",
+          "export_env": "TF_CONTACT_GOOGLE_WORKSPACE_APP_PASSWORD",
+          "scripts": ["founder_email_deliver.sh", "founder_email_send_test.sh"]
+        },
+        {
+          "localpart": "operations",
+          "role": "ops",
+          "vault_tag": "TF-OPERATIONS-GOOGLE_WORKSPACE_APP_PASSWORD",
+          "export_env": "TF_OPERATIONS_GOOGLE_WORKSPACE_APP_PASSWORD",
+          "scripts": []
+        }
+      ]
+    },
+    {
+      "domain": "noetfield.com",
+      "brand_code": "NF",
+      "brand": "Noetfield",
+      "lane_id": "main_lane",
+      "mailboxes": [
+        {
+          "localpart": "hello",
+          "role": "greet",
+          "vault_tag": "NF-HELLO-GOOGLE_WORKSPACE_APP_PASSWORD",
+          "export_env": "NF_HELLO_GOOGLE_WORKSPACE_APP_PASSWORD",
+          "scripts": ["canada-priority-a-emails-v1.json"]
+        },
+        {
+          "localpart": "operations",
+          "role": "intake",
+          "vault_tag": "NF-OPERATIONS-GOOGLE_WORKSPACE_APP_PASSWORD",
+          "export_env": "NF_OPERATIONS_GOOGLE_WORKSPACE_APP_PASSWORD",
+          "scripts": ["INTAKE_EMAIL_TO", "send_nw1_single_v1.py intake"]
+        },
+        {
+          "localpart": "operation",
+          "role": "ops",
+          "vault_tag": "NF-OPERATION-GOOGLE_WORKSPACE_APP_PASSWORD",
+          "export_env": "NF_OPERATION_GOOGLE_WORKSPACE_APP_PASSWORD",
+          "scripts": ["commercial_mail_draft_v1.py --lane NF", "send_w3_canada_v1.py"]
+        }
+      ]
+    },
+    {
+      "domain": "sourcea.com",
+      "brand_code": "SA",
+      "brand": "SourceA",
+      "lane_id": "main_lane",
+      "mailboxes": [
+        {
+          "localpart": "hello",
+          "role": "greet",
+          "vault_tag": "SA-HELLO-GOOGLE_WORKSPACE_APP_PASSWORD",
+          "export_env": "SA_HELLO_GOOGLE_WORKSPACE_APP_PASSWORD",
+          "scripts": ["send_ab1_single_v1.py", "commercial_mail_draft_v1.py --lane AB1"]
+        },
+        {
+          "localpart": "contact",
+          "role": "intake",
+          "vault_tag": "SA-CONTACT-GOOGLE_WORKSPACE_APP_PASSWORD",
+          "export_env": "SA_CONTACT_GOOGLE_WORKSPACE_APP_PASSWORD",
+          "scripts": []
+        },
+        {
+          "localpart": "proof",
+          "role": "ops",
+          "vault_tag": "SA-PROOF-GOOGLE_WORKSPACE_APP_PASSWORD",
+          "export_env": "SA_PROOF_GOOGLE_WORKSPACE_APP_PASSWORD",
+          "scripts": []
+        }
+      ]
+    },
+    {
+      "domain": "virlux.com",
+      "brand_code": "VL",
+      "brand": "VIRLUX",
+      "lane_id": "main_lane",
+      "mailboxes": [
+        {
+          "localpart": "hello",
+          "role": "greet",
+          "vault_tag": "VL-HELLO-GOOGLE_WORKSPACE_APP_PASSWORD",
+          "export_env": "VL_HELLO_GOOGLE_WORKSPACE_APP_PASSWORD",
+          "scripts": []
+        },
+        {
+          "localpart": "contact",
+          "role": "intake",
+          "vault_tag": "VL-CONTACT-GOOGLE_WORKSPACE_APP_PASSWORD",
+          "export_env": "VL_CONTACT_GOOGLE_WORKSPACE_APP_PASSWORD",
+          "scripts": []
+        },
+        {
+          "localpart": "support",
+          "role": "ops",
+          "vault_tag": "VL-SUPPORT-GOOGLE_WORKSPACE_APP_PASSWORD",
+          "export_env": "VL_SUPPORT_GOOGLE_WORKSPACE_APP_PASSWORD",
+          "scripts": []
+        }
+      ]
+    },
+    {
+      "domain": "witnessbc.com",
+      "brand_code": "WBC",
+      "brand": "WitnessBC",
+      "lane_id": "witnessbc_lane",
+      "mailboxes": [
+        {
+          "localpart": "hello",
+          "role": "greet",
+          "vault_tag": "WBC-HELLO-GOOGLE_WORKSPACE_APP_PASSWORD",
+          "export_env": "WBC_HELLO_GOOGLE_WORKSPACE_APP_PASSWORD",
+          "forbidden_in_trustfield_canonical": true,
+          "scripts": ["witnessbc-site toolkits support_email"]
+        },
+        {
+          "localpart": "proof",
+          "role": "ops",
+          "vault_tag": "WBC-PROOF-GOOGLE_WORKSPACE_APP_PASSWORD",
+          "export_env": "WBC_PROOF_GOOGLE_WORKSPACE_APP_PASSWORD",
+          "forbidden_in_trustfield_canonical": true,
+          "scripts": ["witnessbc-site/data/cta.json proof_email"]
+        },
+        {
+          "localpart": "contact",
+          "role": "intake",
+          "vault_tag": "WBC-CONTACT-GOOGLE_WORKSPACE_APP_PASSWORD",
+          "export_env": "WBC_CONTACT_GOOGLE_WORKSPACE_APP_PASSWORD",
+          "forbidden_in_trustfield_canonical": true,
+          "scripts": []
+        }
+      ]
+    }
+  ],
+  "forbidden_cross_lane": [
+    "WBC-* or WITNESSBC_* loaded as GOOGLE_WORKSPACE_APP_PASSWORD in TrustField scripts",
+    "CF_API_TOKEN used as email send token",
+    "personal Gmail app password for commercial FROM",
+    "Reusing one app password across multiple mailbox users"
+  ],
+  "loader_script": "~/Desktop/TrustField Technologies/scripts/load_founder_secrets.sh"
+}

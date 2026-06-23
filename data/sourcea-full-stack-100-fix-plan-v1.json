@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-full-stack-100-fix-plan-v2",
   "version": "2.1.0",
-  "saved_at": "2026-06-20T22:58:29Z",
+  "saved_at": "2026-06-22T13:13:42Z",
   "law": "100 fix plans v2.1 \u2014 pulse wired \u00b7 outbound cross \u00b7 gate cart \u00b7 C4 decoupled",
   "parent_audit": "Brain chat full honest audit 2026-06-18",
   "human_doc": "docs/SOURCEA_FULL_STACK_100_FIX_PLAN_LOCKED_v1.md",
@@ -473,7 +473,7 @@
       "parent_spec": "data/sourcea-full-stack-100-fix-plan-v1.json",
       "human_doc": "docs/SOURCEA_FULL_STACK_100_FIX_PLAN_LOCKED_v1.md",
       "pulse": "scripts/full_stack_fix_plan_pulse_v1.py",
-      "live_note": "last_completed_sa aligned with active queue"
+      "live_note": "last_completed_sa cleared on idle unit"
     },
     {
       "id": "F012",
@@ -1235,7 +1235,7 @@
       "parent_spec": "data/sourcea-full-stack-100-fix-plan-v1.json",
       "human_doc": "docs/SOURCEA_FULL_STACK_100_FIX_PLAN_LOCKED_v1.md",
       "pulse": "scripts/full_stack_fix_plan_pulse_v1.py",
-      "live_note": "C4 decoupled \u00b7 aligned=PASS \u00b7 execution_blocked=yes"
+      "live_note": "C4 decoupled \u00b7 aligned=PASS \u00b7 execution_blocked=no"
     },
     {
       "id": "F050",

@@ -9,7 +9,28 @@ import sys
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import unquote, urlparse
+from urllib.parse import parse_qs, unquote, urlparse
+
+DEBUG_LOG = Path(__file__).resolve().parents[1] / ".cursor" / "debug-e9f1f5.log"
+
+
+def _dbg(hypothesis_id: str, location: str, message: str, data: dict | None = None) -> None:
+    # #region agent log
+    try:
+        row = {
+            "sessionId": "e9f1f5",
+            "hypothesisId": hypothesis_id,
+            "location": location,
+            "message": message,
+            "data": data or {},
+            "timestamp": int(datetime.now(timezone.utc).timestamp() * 1000),
+        }
+        DEBUG_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with DEBUG_LOG.open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps(row) + "\n")
+    except OSError:
+        pass
+    # #endregion
 
 
 def _bundle_root_env() -> str:
@@ -54,6 +75,15 @@ REAL_SA = _resolve_source_a()
 os.environ.setdefault("SINA_SOURCE_A", str(REAL_SA))
 os.environ.setdefault("N8N_INTEGRATION_STANDALONE", "1")
 os.environ.setdefault("N8N_INTEGRATION_PORT", str(PORT))
+# Prefer live SourceA UI when repo is on disk (avoids stale bundled v1.1 HTML).
+LIVE_APP = REAL_SA / "scripts" / "n8n-standalone"
+if LIVE_APP.is_dir() and (LIVE_APP / "index.html").is_file():
+    APP_DIR = LIVE_APP
+_path = os.environ.get("PATH", "")
+if "/opt/homebrew/bin" not in _path:
+    os.environ["PATH"] = (
+        "/opt/homebrew/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:" + _path
+    )
 
 sys.path.insert(0, str(SCRIPTS_DIR))
 if str(REAL_SA / "scripts") not in sys.path:
@@ -98,26 +128,125 @@ class N8nIntegrationHandler(BaseHTTPRequestHandler):
             )
             return
         if path == "/api/n8n-integration":
-            from n8n_integration_core import build_report  # noqa: WPS433
+            try:
+                from n8n_integration_core import build_report, build_report_fast  # noqa: WPS433
 
-            self._json(200, build_report())
+                qs = parse_qs(urlparse(self.path).query)
+                if qs.get("full"):
+                    payload = build_report()
+                else:
+                    payload = build_report_fast()
+                self._json(200, payload)
+            except Exception as exc:
+                self._json(500, {"ok": False, "error": str(exc)[:200]})
+            return
+        if path == "/api/validator-terminal/v1":
+            from validator_machine_v1 import terminal_tail, run_terminal_session, start_terminal_session_async  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            if qs.get("run"):
+                tier = (qs.get("tier") or ["probe"])[0]
+                app_id = (qs.get("app") or ["n8n_integration"])[0]
+                if qs.get("async"):
+                    self._json(200, start_terminal_session_async(app_id=app_id, tier=tier, include_chain=True))
+                    return
+                self._json(200, run_terminal_session(app_id=app_id, tier=tier, include_chain=True))
+                return
+            lines = int((qs.get("lines") or ["80"])[0])
+            self._json(200, terminal_tail(lines=lines))
+            return
+        if path == "/api/validator-machine/v1":
+            from validator_machine_v1 import hub_slice, run_all  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            if qs.get("run"):
+                tier = (qs.get("tier") or ["probe"])[0]
+                self._json(200, run_all(tier=tier))
+                return
+            app_id = (qs.get("app") or [None])[0]
+            self._json(200, hub_slice(app_id=app_id))
+            return
+        if path == "/api/api-station/terminal/v1":
+            from api_station_v1 import handle_terminal_get  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            lines = int((qs.get("lines") or ["120"])[0])
+            self._json(200, handle_terminal_get(lines=lines))
+            return
+        if path == "/api/api-station/v1":
+            from api_station_v1 import handle_get  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            app_id = (qs.get("app") or ["n8n-integration"])[0]
+            self._json(200, handle_get(app_id=app_id))
+            return
+        if path == "/api/hub-pro-skills/v1":
+            from hub_pro_skills_v1 import payload as hub_pro_payload  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            app_id = (qs.get("app") or ["n8n_integration"])[0]
+            if app_id == "n8n-integration":
+                app_id = "n8n_integration"
+            self._json(200, hub_pro_payload(app_id=app_id))
             return
         self._serve_static(path)
 
     def do_POST(self):
         path = urlparse(self.path).path
-        if path != "/api/n8n-integration":
-            self._json(404, {"ok": False, "error": "not_found"})
-            return
         length = int(self.headers.get("Content-Length", 0))
         raw = self.rfile.read(length) if length else b"{}"
         try:
             body = json.loads(raw.decode("utf-8"))
         except json.JSONDecodeError:
             body = {}
+        if path == "/api/api-station/v1":
+            from api_station_v1 import handle_post  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            app_id = (qs.get("app") or ["n8n-integration"])[0]
+            result = handle_post(app_id=app_id, body=body)
+            self._json(200 if result.get("ok") else 400, result)
+            return
+        if path == "/api/hub-pro-skills/v1":
+            from hub_pro_skills_v1 import append_entry  # noqa: WPS433
+
+            action = str(body.get("action") or "").strip().lower()
+            if action == "append":
+                app_id = str(body.get("app_id") or "n8n_integration")
+                if app_id == "n8n-integration":
+                    app_id = "n8n_integration"
+                result = append_entry(
+                    app_id=app_id,
+                    agent=str(body.get("agent") or "founder-ui"),
+                    summary=str(body.get("summary") or ""),
+                    obstacles=body.get("obstacles"),
+                    fixes=body.get("fixes"),
+                    golden_tips=body.get("golden_tips"),
+                    paths=body.get("paths"),
+                )
+                self._json(200 if result.get("ok") else 400, result)
+                return
+            from hub_pro_skills_v1 import payload as hub_pro_payload  # noqa: WPS433
+
+            app_id = str(body.get("app_id") or "n8n_integration")
+            if app_id == "n8n-integration":
+                app_id = "n8n_integration"
+            self._json(200, hub_pro_payload(app_id=app_id))
+            return
+        if path != "/api/n8n-integration":
+            self._json(404, {"ok": False, "error": "not_found"})
+            return
         from n8n_integration_core import handle_action  # noqa: WPS433
 
-        result = handle_action(body)
+        try:
+            result = handle_action(body)
+        except Exception as exc:
+            result = {
+                "ok": False,
+                "error": "execution_failed",
+                "message": str(exc)[:500],
+                "action": body.get("action"),
+            }
         err = (result.get("error") or "").strip().lower()
         if err.startswith("unknown") or err == "not_found":
             self._json(400, result)
