@@ -69,6 +69,120 @@ def _cloud_plans() -> list[dict[str, Any]]:
     return [p for p in (drain.get("plans") or []) if str(p.get("id", "")).startswith("CLOUD-SEC-")]
 
 
+def _queue_diagnostics() -> dict[str, Any]:
+    ptr = _read(ACTIVE_POINTER)
+    qpath = drain_ssot_path()
+    return {
+        "active_pointer": str(ACTIVE_POINTER),
+        "batch_id": ptr.get("batch_id"),
+        "queue_path": str(ptr.get("queue_path") or ""),
+        "queue_file": str(qpath),
+        "queue_file_exists": qpath.is_file(),
+        "cloud_plan_count": len(_cloud_plans()),
+        "next_batch": ptr.get("next_batch"),
+    }
+
+
+def boot_heal_queue(*, force: bool = False) -> dict[str, Any]:
+    """Railway boot — heal missing queue file / stale phase vs active pointer."""
+    if not _is_headless() and not force:
+        return {"ok": True, "skipped": "not_headless"}
+    diag = _queue_diagnostics()
+    ptr = _read(ACTIVE_POINTER)
+    plans = _cloud_plans()
+    obs = _read(phase_path())
+    head = str(obs.get("cloud_drain_head") or "")
+    plan_ids = [str(p.get("id") or "") for p in plans]
+
+    if not diag.get("queue_file_exists"):
+        nxt = ptr.get("next_batch") or {}
+        nxt_rel = str(nxt.get("queue_path") or "").strip()
+        if nxt_rel and (ROOT / nxt_rel).is_file():
+            swapped = swap_to_next_batch(reason="boot_heal_missing_active_queue")
+            swapped["heal"] = "swapped_to_next_batch"
+            return swapped
+        return {
+            "ok": False,
+            "error": "active_queue_file_missing_in_image",
+            "diagnostics": diag,
+            "for_founder": {
+                "show_this": (
+                    f"BLOCKER — queue file missing in Railway image: {diag.get('queue_path')} · "
+                    "redeploy FBE runner (Dockerfile COPY must include active batch JSON)"
+                ),
+            },
+        }
+
+    if plans and head and head not in plan_ids:
+        return activate_batch(reason="boot_heal_head_not_in_queue")
+
+    if not plans:
+        return {
+            "ok": False,
+            "error": "no_cloud_plans_in_active_queue",
+            "diagnostics": diag,
+        }
+
+    reset = ptr.get("phase_reset") or {}
+    reset_head = str(reset.get("cloud_drain_head") or plan_ids[0])
+    needs_activate = (
+        bool(obs.get("queue_batch_complete"))
+        or int(obs.get("batch_id") or 0) != int(ptr.get("batch_id") or 0)
+        or (head and head not in plan_ids)
+    )
+    if needs_activate:
+        return activate_batch(reason="boot_heal_stale_phase")
+    return {"ok": True, "healed": False, "head": head or reset_head, "diagnostics": diag}
+
+
+def swap_to_next_batch(*, reason: str = "batch_complete_handoff") -> dict[str, Any]:
+    """Pointer swap — arm pre-locked next batch (batch N+1 on disk)."""
+    ptr = _read(ACTIVE_POINTER)
+    nxt = ptr.get("next_batch") or {}
+    rel = str(nxt.get("queue_path") or "").strip()
+    batch_id = int(nxt.get("batch_id") or 0)
+    if not rel or not batch_id:
+        return {"ok": False, "error": "no_next_batch_ready", "next_batch": nxt}
+    nxt_path = ROOT / rel
+    if not nxt_path.is_file():
+        return {"ok": False, "error": "next_batch_file_missing", "path": str(nxt_path)}
+    drain = _read(nxt_path)
+    cloud_plans = [p for p in (drain.get("plans") or []) if str(p.get("id", "")).startswith("CLOUD-SEC-")]
+    first_head = str(cloud_plans[0].get("id")) if cloud_plans else ""
+    if not first_head:
+        return {"ok": False, "error": "next_batch_empty"}
+    prev_batch = int(ptr.get("batch_id") or 0)
+    archive_key = f"archive_batch{prev_batch}" if prev_batch else "archive_batch_prev"
+    new_ptr = {
+        **ptr,
+        "batch_id": batch_id,
+        "queue_path": rel,
+        "saved_at": _now(),
+        archive_key: str(ptr.get("queue_path") or ""),
+        "phase_reset": {
+            "cloud_drain_head": first_head,
+            "cloud_drain_last_completed": None,
+            "queue_batch_complete": False,
+        },
+        "next_batch": nxt.get("next_batch"),
+    }
+    nxt_batch_id = batch_id + 1
+    candidate = ROOT / f"data/secondary-cloud-drain-batch-{nxt_batch_id}-locked-v1.json"
+    if candidate.is_file():
+        cand_drain = _read(candidate)
+        rng = (cand_drain.get("summary") or {}).get("cloud_sec_range")
+        new_ptr["next_batch"] = {
+            "batch_id": nxt_batch_id,
+            "status": "ready_locked",
+            "queue_path": f"data/secondary-cloud-drain-batch-{nxt_batch_id}-locked-v1.json",
+            "cloud_sec_range": rng,
+        }
+    else:
+        new_ptr.pop("next_batch", None)
+    ACTIVE_POINTER.write_text(json.dumps(new_ptr, indent=2) + "\n", encoding="utf-8")
+    return activate_batch(reason=reason)
+
+
 def _plan_by_id(plan_id: str) -> dict[str, Any] | None:
     return next((p for p in _cloud_plans() if str(p.get("id")) == plan_id), None)
 
@@ -204,7 +318,14 @@ def advance_on_pass(*, plan_id: str) -> dict[str, Any]:
         }
     )
     _write(path, obs)
-    return {"ok": True, "completed": plan_id, "head": nxt, "phase_path": str(path)}
+    result = {"ok": True, "completed": plan_id, "head": nxt, "phase_path": str(path)}
+    if at_end:
+        ptr = _read(ACTIVE_POINTER)
+        nxt_batch = ptr.get("next_batch") or {}
+        if nxt_batch.get("status") in ("ready_locked", "ready") and nxt_batch.get("queue_path"):
+            handoff = swap_to_next_batch(reason="advance_on_pass_batch_complete")
+            result["next_batch_handoff"] = handoff
+    return result
 
 
 def sync_to_mac_if_newer(cloud_row: dict[str, Any]) -> dict[str, Any]:
@@ -238,11 +359,70 @@ def sync_to_mac_if_newer(cloud_row: dict[str, Any]) -> dict[str, Any]:
     return {"ok": True, "synced": True, "head": head, "reason": reason, "repaired_from": local_head if diverged else None}
 
 
+def activate_batch(*, reason: str = "founder_activate_batch", batch_id: int | None = None) -> dict[str, Any]:
+    ptr = _read(ACTIVE_POINTER)
+    bid = int(batch_id or ptr.get("batch_id") or 0)
+    if bid and bid != int(ptr.get("batch_id") or 0):
+        return {"ok": False, "error": "batch_id_mismatch", "active": ptr.get("batch_id"), "requested": bid}
+    plans = _cloud_plans()
+    if not plans:
+        healed = boot_heal_queue(force=True)
+        if healed.get("ok"):
+            plans = _cloud_plans()
+        if not plans:
+            return {
+                "ok": False,
+                "error": "no_cloud_plans_in_active_queue",
+                "diagnostics": _queue_diagnostics(),
+                "boot_heal": healed,
+                "for_founder": {
+                    "show_this": (
+                        "BLOCKER — active drain queue empty in Railway image · "
+                        "redeploy with Dockerfile COPY for batch JSON"
+                    ),
+                },
+            }
+    first = str(plans[0].get("id"))
+    reset = ptr.get("phase_reset") or {}
+    path = phase_path()
+    obs = _read(path)
+    obs.update(
+        {
+            "cloud_drain_head": str(reset.get("cloud_drain_head") or first),
+            "cloud_drain_last_completed": reset.get("cloud_drain_last_completed"),
+            "queue_batch_complete": False,
+            "batch_id": ptr.get("batch_id"),
+            "rebuilt_by": "cloud_drain_queue_v1.activate_batch",
+            "activate_reason": reason,
+        }
+    )
+    _write(path, obs)
+    head_now = str(obs.get("cloud_drain_head") or first)
+    return {
+        "ok": True,
+        "batch_id": ptr.get("batch_id"),
+        "head": head_now,
+        "queue_batch_complete": False,
+        "phase_path": str(path),
+        "queue_path": str(ptr.get("queue_path") or ""),
+        "for_founder": {"show_this": f"Batch {ptr.get('batch_id')} ARMED — head {head_now} · automation resumed"},
+    }
+
+
 def handle_queue_action(body: dict[str, Any] | None) -> dict[str, Any]:
     body = body or {}
     action = str(body.get("action") or "get_head").strip().lower()
     if action in ("get_head", "status"):
         return read_head()
+    if action == "boot_heal":
+        return boot_heal_queue(force=bool(body.get("force")))
+    if action == "reset_pack_gate":
+        from cloud_drain_single_cycle_gate_v1 import reset_gate_for_pack, gate_status  # noqa: WPS433
+
+        reset_gate_for_pack()
+        return {"ok": True, "schema": "cloud-drain-queue-action-v1", "action": "reset_pack_gate", "gate": gate_status()}
+    if action == "swap_to_next_batch":
+        return swap_to_next_batch(reason=str(body.get("reason") or "api_swap_to_next_batch"))
     if action == "skip_head":
         return skip_head(reason=str(body.get("reason") or "api_skip_head"))
     if action == "skip_to_next_real":
@@ -264,6 +444,13 @@ def handle_queue_action(body: dict[str, Any] | None) -> dict[str, Any]:
                 "set_reason": str(body.get("reason") or "founder_set_head"),
             }
         )
+        if "queue_batch_complete" in body:
+            obs["queue_batch_complete"] = bool(body.get("queue_batch_complete"))
         _write(path, obs)
         return {"ok": True, "head": head, "phase_path": str(path)}
+    if action == "activate_batch":
+        return activate_batch(
+            reason=str(body.get("reason") or "founder_activate_batch"),
+            batch_id=int(body["batch_id"]) if body.get("batch_id") is not None else None,
+        )
     return {"ok": False, "error": "unknown_action", "action": action}
