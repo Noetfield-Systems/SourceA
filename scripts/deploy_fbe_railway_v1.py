@@ -16,6 +16,7 @@ import shutil
 import subprocess
 import sys
 import urllib.request
+from typing import Any
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -77,9 +78,18 @@ _STAGING_DATA_FILES = (
     "secondary-cloud-drain-next-100-v1.json",
     "cloud-drain-queue-active-v1.json",
     "secondary-cloud-drain-batch-2-locked-v1.json",
+    "secondary-cloud-drain-batch-3-locked-v1.json",
+    "secondary-cloud-drain-batch-4-locked-v1.json",
+    "secondary-cloud-drain-batch-5-locked-v1.json",
+    "secondary-cloud-drain-batch-6-locked-v1.json",
+    "secondary-cloud-drain-batch-7-locked-v1.json",
+    "secondary-cloud-drain-batch-8-locked-v1.json",
+    "secondary-cloud-drain-batch-9-locked-v1.json",
+    "secondary-cloud-drain-batch-10-locked-v1.json",
     "secondary-cloud-drain-batch-1-complete-locked-v1.json",
     "cloud-drain-queue-path-v1.py",
     "hub-cloud-drain-proceed-v1.json",
+    "cloud-drain-full-pack-pattern-v1.json",
     "truth-log-cloud-contract-v1.json",
     "cloud-drain-auto-runtime-v1.json",
     "living-system-chain-registry-cloud-v1.json",
@@ -365,6 +375,23 @@ def _ensure_railway_service(*, project_id: str, service: str, environment: str =
     return {"ok": True, "steps": steps}
 
 
+def _validate_dockerfile_batch_sync() -> dict[str, Any]:
+    """Fail deploy early if Dockerfile COPY omits active/next batch queue files."""
+    dockerfile = ROOT / "cloud" / "Dockerfile.fbe-runner"
+    ptr = _read(ROOT / "data" / "cloud-drain-queue-active-v1.json")
+    required: list[str] = ["cloud-drain-queue-active-v1.json"]
+    qrel = str(ptr.get("queue_path") or "").strip()
+    if qrel.startswith("data/"):
+        required.append(qrel.replace("data/", "", 1))
+    nxt = ptr.get("next_batch") or {}
+    nrel = str(nxt.get("queue_path") or "").strip()
+    if nrel.startswith("data/"):
+        required.append(nrel.replace("data/", "", 1))
+    text = dockerfile.read_text(encoding="utf-8") if dockerfile.is_file() else ""
+    missing = [name for name in required if name not in text]
+    return {"ok": not missing, "missing_in_dockerfile": missing, "required": required}
+
+
 def deploy(*, link: bool = True, verify_comprehension: bool = False) -> dict:
     cfg = _read(CONFIG)
     rail = cfg.get("railway") or {}
@@ -377,6 +404,15 @@ def deploy(*, link: bool = True, verify_comprehension: bool = False) -> dict:
         "deployment": "railway",
         "comprehension_verify": dict(COMPREHENSION_VERIFY_SKIPPED),
     }
+
+    batch_sync = _validate_dockerfile_batch_sync()
+    row["dockerfile_batch_sync"] = batch_sync
+    if not batch_sync.get("ok"):
+        row["ok"] = False
+        row["error"] = "dockerfile_missing_batch_queue_copy"
+        row["founder_action"] = f"Add COPY lines to cloud/Dockerfile.fbe-runner: {batch_sync.get('missing_in_dockerfile')}"
+        _write_receipt(row)
+        return row
 
     if link and project_id:
         ensure = _ensure_railway_service(project_id=project_id, service=service, environment=environment)

@@ -24,6 +24,55 @@ RECEIPT = SINA / "hub-cloud-drain-proceed-receipt-v1.json"
 
 sys.path.insert(0, str(SCRIPTS))
 
+DEBUG_LOG = ROOT / ".cursor" / "debug-23242e.log"
+
+
+def _dbg(hypothesis_id: str, location: str, message: str, data: dict | None = None) -> None:
+    # #region agent log
+    try:
+        import time
+
+        payload = {
+            "sessionId": "23242e",
+            "hypothesisId": hypothesis_id,
+            "location": location,
+            "message": message,
+            "data": data or {},
+            "timestamp": int(time.time() * 1000),
+        }
+        DEBUG_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with DEBUG_LOG.open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps(payload, ensure_ascii=False) + "\n")
+    except OSError:
+        pass
+    # #endregion
+
+
+def _founder_show(row: dict[str, Any] | None) -> str:
+    """Normalize for_founder — Railway may return str or dict."""
+    if not row:
+        return ""
+    ff = row.get("for_founder")
+    if isinstance(ff, dict):
+        return str(ff.get("show_this") or ff.get("line") or "")
+    if isinstance(ff, str):
+        return ff
+    return str(row.get("hub_proceed_line") or row.get("message") or "")
+
+
+def _founder_dict(row: dict[str, Any] | None, fallback: dict[str, Any] | None = None) -> dict[str, Any]:
+    if not row:
+        return fallback or {"show_this": "Cloud proceed — no response"}
+    ff = row.get("for_founder")
+    if isinstance(ff, dict):
+        return ff
+    if isinstance(ff, str):
+        return {"show_this": ff}
+    if fallback:
+        return fallback
+    show = _founder_show(row)
+    return {"show_this": show} if show else {"show_this": "Cloud proceed complete"}
+
 
 def active_drain_path() -> Path:
     """Resolve active drain queue — fbe.lib first (Railway image), Mac script fallback."""
@@ -212,7 +261,7 @@ def proceed_on_cloud(body: dict[str, Any]) -> dict[str, Any]:
                 "for_founder": {
                     "show_this": (
                         f"Cloud drain batch COMPLETE — {q.get('cloud_drain_last_completed')} · "
-                        "100/100 done · no further auto ticks needed"
+                        "100/100 done · full-pack batch finished"
                     ),
                 },
             }
@@ -239,7 +288,7 @@ def proceed_on_cloud(body: dict[str, Any]) -> dict[str, Any]:
         elif tier == "T3":
             full_motor = False
 
-    if auto_tick and _is_headless_cloud() and not dry_run:
+    if auto_tick and _is_headless_cloud() and not dry_run and not body.get("_pack_prove_done"):
         if str(os.environ.get("CLOUD_DRAIN_AUTO_PROCEED", "")).lower() not in ("1", "true", "yes") and not bool(
             body.get("force")
         ):
@@ -381,7 +430,7 @@ def proceed_on_cloud(body: dict[str, Any]) -> dict[str, Any]:
         except Exception as exc:
             row["queue_advance"] = {"ok": False, "error": str(exc)[:120]}
 
-    if auto_tick and _is_headless_cloud() and not dry_run:
+    if auto_tick and _is_headless_cloud() and not dry_run and not body.get("_pack_internal"):
         from cloud_drain_auto_runtime_v1 import _write_cycle_receipt, _update_ramp_state_cloud  # noqa: WPS433
         from fbe.lib.cloud_drain_queue_v1 import read_head  # noqa: WPS433
 
@@ -414,7 +463,7 @@ def proceed_on_cloud(body: dict[str, Any]) -> dict[str, Any]:
         row["cycle_receipt_path"] = str(path)
         row["ramp"] = _update_ramp_state_cloud(green=bool(row.get("ok")))
 
-    if row.get("ok") and not dry_run:
+    if row.get("ok") and not dry_run and not body.get("_pack_internal"):
         from cloud_drain_single_cycle_gate_v1 import claim_or_halt  # noqa: WPS433
 
         claim_or_halt(path="/api/cloud-drain/proceed/v1", trigger_source=body.get("trigger_source", "unknown"), after_pass=True)
@@ -453,11 +502,7 @@ def _mac_post_process(*, plan_id: str, registry: str, cloud_row: dict[str, Any])
         "hub_proceed": True,
         "forge_dispatch": cloud_row.get("forge_dispatch") or cloud_row.get("cloud_dispatch"),
         "at": now,
-        "evidence": (
-            cloud_row.get("for_founder", {}).get("show_this", "")
-            if isinstance(cloud_row.get("for_founder"), dict)
-            else str(cloud_row.get("for_founder") or "")
-        ),
+        "evidence": _founder_show(cloud_row),
     }
     receipt_path.parent.mkdir(parents=True, exist_ok=True)
     receipt_path.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
@@ -546,18 +591,36 @@ def proceed_from_hub(body: dict[str, Any] | None = None) -> dict[str, Any]:
         "dry_run": bool(body.get("dry_run")),
         "llm_provider": llm,
         "founder_proceed": True,
+        "full_pack": bool(body.get("full_pack", True)),
+        "max_advance": int(body.get("max_advance") or 100),
+        "trigger_source": str(body.get("trigger_source") or "hub_proceed_pack"),
+        "force_reset_gate": bool(body.get("force_reset_gate", True)),
         "stack": body.get("stack") or "sourcea",
     }
 
     from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
 
-    cloud_row = proxy_to_cloud(path="/api/cloud-drain/proceed/v1", body=payload, timeout_s=300)
+    if payload.get("force_reset_gate"):
+        proxy_to_cloud(
+            path="/api/cloud-drain/queue/v1",
+            body={"action": "reset_pack_gate"},
+            timeout_s=30,
+        )
+
+    cloud_row = proxy_to_cloud(path="/api/cloud-drain/auto-tick/v1", body=payload, timeout_s=900)
+    _dbg("H1", "hub_cloud_drain_proceed_v1:proceed_from_hub", "cloud proxy returned", {
+        "ok": cloud_row.get("ok"),
+        "for_founder_type": type(cloud_row.get("for_founder")).__name__,
+        "plan_id": plan_id,
+    })
     dry_run = bool(payload.get("dry_run"))
-    post = (
-        _mac_post_process(plan_id=plan_id, registry=registry, cloud_row=cloud_row)
-        if cloud_row.get("ok") and not dry_run
-        else {}
-    )
+    post: dict[str, Any] = {}
+    if cloud_row.get("ok") and not dry_run:
+        try:
+            post = _mac_post_process(plan_id=plan_id, registry=registry, cloud_row=cloud_row)
+        except Exception as exc:
+            _dbg("H1", "hub_cloud_drain_proceed_v1:mac_post_process", "post_process failed", {"error": str(exc)[:200]})
+            post = {"ok": False, "error": str(exc)[:200]}
 
     founder_hint: dict[str, Any] = {}
     if not cloud_row.get("ok"):
@@ -583,9 +646,10 @@ def proceed_from_hub(body: dict[str, Any] | None = None) -> dict[str, Any]:
             f"hub-proceed · {plan_id} · {registry} · "
             f"{'PASS' if cloud_row.get('ok') else 'FAIL'} · {llm} · cloud_only"
         ),
-        "for_founder": cloud_row.get("for_founder")
-        or founder_hint
-        or {"show_this": f"Hub proceed · {plan_id} · use Worker Hub Proceed button"},
+        "for_founder": _founder_dict(
+            cloud_row,
+            founder_hint or {"show_this": f"Hub proceed · {plan_id} · use Cloud Workers Proceed button"},
+        ),
         "failure_class": (founder_hint or {}).get("failure_class"),
         "pipe_live": (founder_hint or {}).get("pipe_live", cloud_row.get("proxied")),
         "ssot": str(SSOT.relative_to(ROOT)),
@@ -610,7 +674,7 @@ def proceed_from_hub(body: dict[str, Any] | None = None) -> dict[str, Any]:
                 "llm_provider": llm,
                 "line": row["hub_proceed_line"],
                 "failure_class": classified.get("failure_class"),
-                "show_this": (row.get("for_founder") or {}).get("show_this"),
+                "show_this": _founder_show(row),
             },
         )
     except Exception:
@@ -640,13 +704,17 @@ def hub_slice() -> dict:
 def inject_for_agents() -> dict:
     ssot = load_ssot()
     sl = hub_slice()
+    cockpit = ssot.get("primary_cockpit") or {}
     return {
         "one_law": ssot.get("one_law"),
-        "hub_api": "POST http://127.0.0.1:13020/api/cloud-drain/proceed/v1",
-        "hub_button": "Worker Hub · Cloud proceed · Proceed next cloud task",
+        "cockpit": cockpit.get("app", "Cloud Workers.app"),
+        "cockpit_api": cockpit.get("api", "POST http://127.0.0.1:13027/api/cloud-workers/v1"),
+        "cockpit_button": "Cloud Workers · Proceed next cloud task (full-pack)",
+        "hub_api": ssot.get("hub_api", "POST http://127.0.0.1:13027/api/cloud-drain/proceed/v1"),
         "forbidden": ssot.get("forbidden"),
         "next": sl.get("next"),
-        "body_example": {"llm_provider": "openrouter", "full_motor": True},
+        "batch2_complete": ssot.get("batch2_complete"),
+        "body_example": {"action": "proceed", "full_pack": True, "max_advance": 100, "llm_provider": "openrouter", "full_motor": True},
     }
 
 
@@ -681,7 +749,7 @@ def main() -> int:
     if args.json:
         print(json.dumps(row, indent=2, ensure_ascii=False))
     else:
-        print(row.get("hub_proceed_line") or row.get("for_founder", {}).get("show_this") or json.dumps(row))
+        print(row.get("hub_proceed_line") or _founder_show(row) or json.dumps(row))
     return 0 if row.get("ok", True) else 1
 
 
