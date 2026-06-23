@@ -409,6 +409,11 @@ def proceed_on_cloud(body: dict[str, Any]) -> dict[str, Any]:
         row["cycle_receipt_path"] = str(path)
         row["ramp"] = _update_ramp_state_cloud(green=bool(row.get("ok")))
 
+    if row.get("ok") and not dry_run:
+        from cloud_drain_single_cycle_gate_v1 import claim_or_halt  # noqa: WPS433
+
+        claim_or_halt(path="/api/cloud-drain/proceed/v1", trigger_source=body.get("trigger_source", "unknown"), after_pass=True)
+
     return _truth_return(row, truth_ctx)
 
 
