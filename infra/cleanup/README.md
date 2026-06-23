@@ -4,6 +4,8 @@
 
 ## Phase 0 — Before any git snapshot
 
+**CLOUD-LD receipts:** newest `at` wins per `plan_id` — see [`docs/CLOUD_LD_RECEIPT_POLICY_v1.md`](../../docs/CLOUD_LD_RECEIPT_POLICY_v1.md).
+
 1. Confirm `.gitignore` blocks `.env*`, `*.local`, `~/.sourcea-secrets` patterns
 2. Run secret scan:
 

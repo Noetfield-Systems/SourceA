@@ -1,6 +1,6 @@
 ---
 description: Stranger agent safety live wire — ADMIT PROBE PANIC WATCH SERVE before any write
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Stranger agent safety live wire (SASCIP wired)

@@ -1,0 +1,78 @@
+{
+  "schema": "vercel-pro-migration-week-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-21T00:45:00Z",
+  "authority": "ASF",
+  "decision_id": "ASF-2026-06-27-VERCEL-PRO-WEEK",
+  "human_doc": "docs/VERCEL_PRO_MIGRATION_WEEK_LOCKED_v1.md",
+  "target_date": "2026-06-27",
+  "status": "locked_plan",
+  "one_law": "2026-06-27: Upgrade the-777-foundation Hobby → Pro. Mac CLI off trial. Delete noetfield-systems deploys after main green. Stripe stays noetfield@gmail.com.",
+  "trial_reasons_preserved": {
+    "stripe_billing": "noetfield@gmail.com — permanent",
+    "pro_trial_deploys": "noetfield-systems — delete after migration",
+    "noetfield_intake_env": "trial www (project-gc7lm) — copy RESEND_* to main noetfield before delete",
+    "cross_gmail_transfer": false
+  },
+  "disconnect_trial_from_mac": {
+    "why_cursor_matched_trial": "Cursor uses Mac Vercel CLI OAuth — was logged in as noetfield-6488",
+    "fix": "vercel logout → main login in Terminal OR switch_vercel_cli_main_v1.sh --token",
+    "forbidden": "vercel login from Cursor agent",
+    "script": "scripts/switch_vercel_cli_main_v1.sh",
+    "env_file": "~/.sina/vercel-main-cli-v1.env",
+    "verify": "bash scripts/switch_vercel_cli_main_v1.sh --check"
+  },
+  "phases": [
+    {
+      "id": "prep",
+      "window": "before 2026-06-27",
+      "items": [
+        "Delete duplicate source-a-ezhe on main",
+        "Copy trial www RESEND env to main noetfield",
+        "GitHub repos pushed",
+        "Mac CLI on main or token saved"
+      ]
+    },
+    {
+      "id": "pro_upgrade",
+      "date": "2026-06-27",
+      "items": [
+        "Upgrade the-777-foundation to Pro on kazemnezhadsina144@gmail.com",
+        "Do not keep long-term Pro only on noetfield@gmail.com"
+      ]
+    },
+    {
+      "id": "post_pro",
+      "date": "2026-06-27",
+      "items": [
+        "validate-vercel-deploy-urls-v1.sh PASS",
+        "witnessbc-governance-main live",
+        "noetfield intake green on www.noetfield.com"
+      ]
+    },
+    {
+      "id": "trial_cleanup",
+      "after": "main green confirmed",
+      "delete_on_noetfield_systems": [
+        "sourcea-landing",
+        "sourcea-landing-clone",
+        "deploy",
+        "deploy-clone",
+        "deploy-witnessbc-agentic-governance",
+        "www",
+        "www-clone"
+      ]
+    }
+  ],
+  "canonical_main": {
+    "gmail": "kazemnezhadsina144@gmail.com",
+    "vercel_team": "the-777-foundation",
+    "github_org": "kazemnezhadsina144-dot"
+  },
+  "trial_lane_after_migration": {
+    "gmail": "noetfield@gmail.com",
+    "vercel_team": "noetfield-systems",
+    "retain": ["stripe_billing"],
+    "delete": ["all_vercel_projects_after_main_green"]
+  }
+}

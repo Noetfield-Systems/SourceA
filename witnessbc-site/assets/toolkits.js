@@ -2,6 +2,7 @@
   "use strict";
 
   var LINKS = {};
+  var CHECKOUT_LIVE = false;
 
   function loadLinks(cb) {
     fetch("/data/stripe-links-v1.json", { cache: "no-store" })
@@ -10,6 +11,7 @@
       })
       .then(function (data) {
         if (data && data.links) LINKS = data.links;
+        applyCheckoutState(data);
         if (typeof cb === "function") cb();
       })
       .catch(function () {
@@ -25,9 +27,36 @@
     );
   }
 
-  function buy(key) {
+  function applyCheckoutState(data) {
+    CHECKOUT_LIVE = !!(data && data.stripe_links_live);
+    if (CHECKOUT_LIVE || document.body.getAttribute("data-stripe-live") === "true") {
+      document.body.classList.add("checkout-live");
+    }
+    document.querySelectorAll("[data-buy]").forEach(function (el) {
+      var key = el.getAttribute("data-buy");
+      var url = LINKS[key];
+      if (isLive(url)) {
+        el.removeAttribute("disabled");
+        el.setAttribute("aria-disabled", "false");
+        var label = (el.textContent || "").trim();
+        el.setAttribute("aria-label", label + " — Opens Stripe checkout (CAD)");
+      } else {
+        el.setAttribute("disabled", "disabled");
+        el.setAttribute("aria-disabled", "true");
+      }
+    });
+  }
+
+  function buy(key, el) {
     var url = LINKS[key];
     if (isLive(url)) {
+      if (el && el.tagName === "BUTTON") {
+        var prev = el.textContent;
+        el.textContent = "Opening checkout…";
+        setTimeout(function () {
+          el.textContent = prev;
+        }, 1200);
+      }
       window.open(url, "_blank", "noopener,noreferrer");
       return;
     }
@@ -43,7 +72,7 @@
     document.querySelectorAll("[data-buy]").forEach(function (el) {
       el.addEventListener("click", function (e) {
         e.preventDefault();
-        buy(el.getAttribute("data-buy"));
+        buy(el.getAttribute("data-buy"), el);
       });
     });
   }

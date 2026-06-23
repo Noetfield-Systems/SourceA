@@ -20,16 +20,103 @@
     setTimeout(() => el.remove(), ms || 4000);
   }
 
-  async function api(body) {
-    const res = await fetch(`${API}/api/n8n-integration`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body || { action: "report" }),
-    });
-    return res.json();
+  const SLOW_ACTIONS = new Set([
+    "wire_chat_unify",
+    "wire_portfolio_mail",
+    "upgrade_all",
+    "commercial_all",
+    "commercial_grade",
+    "capture_intelligence",
+    "governance_wire",
+    "sync_cursor_transcripts",
+    "validate_chain",
+    "validator_run",
+    "force_auto_tick",
+  ]);
+
+  async function fetchJson(url, opts, timeoutMs) {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), timeoutMs || 30000);
+    try {
+      const res = await fetch(url, { ...(opts || {}), signal: ctrl.signal, cache: "no-store" });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok && data.ok !== false) {
+        return { ok: false, error: data.error || `HTTP ${res.status}` };
+      }
+      return data;
+    } catch (e) {
+      return { ok: false, error: e.name === "AbortError" ? "Request timed out" : e.message };
+    } finally {
+      clearTimeout(timer);
+    }
   }
 
-  function setStat(id, up, text) {
+  function renderTerminal(lines, running) {
+    const vmLog = $("n8-validator-log");
+    const badge = $("n8-terminal-badge");
+    if (vmLog) {
+      vmLog.textContent = lines && lines.length ? lines.join("\n") : "Waiting for run…";
+      vmLog.classList.toggle("n8-terminal-running", !!running);
+      vmLog.scrollTop = vmLog.scrollHeight;
+    }
+    if (badge) {
+      badge.textContent = running ? "running" : lines && lines.length ? "ready" : "idle";
+      badge.className = "n8-terminal-badge" + (running ? " n8-running" : "");
+    }
+  }
+
+  async function pollTerminalUntilDone(maxMs) {
+    const deadline = Date.now() + (maxMs || 60000);
+    while (Date.now() < deadline) {
+      const tail = await fetchJson(API + "/api/validator-terminal/v1?lines=120", null, 8000);
+      const lines = tail.terminal_lines || [];
+      renderTerminal(lines, tail.running);
+      if (!tail.running && lines.length) return tail;
+      await new Promise((r) => setTimeout(r, 400));
+    }
+    return null;
+  }
+
+  function renderAutomation(auto) {
+    const line = $("n8-automation-line");
+    const motors = $("n8-automation-motors");
+    if (!auto) return;
+    if (line) {
+      line.textContent = auto.summary_line || auto.for_founder?.show_this || "—";
+      line.className = "n8-quality-line " + (auto.ok ? "n8-commercial-ready" : "n8-commercial-warn");
+    }
+    if (motors && auto.motors) {
+      motors.textContent = auto.motors
+        .map((m) => `[${m.id}] ${m.label} · ${m.schedule || m.decision || (m.active ? "active" : m.armed ? "armed" : "—")}`)
+        .join("\n");
+    }
+  }
+
+  async function api(body) {
+    const action = (body && body.action) || "report";
+    const timeoutMs = SLOW_ACTIONS.has(action)
+      ? action === "force_auto_tick"
+        ? 360000
+        : 60000
+      : action === "report_full"
+        ? 120000
+        : 25000;
+    return fetchJson(
+      `${API}/api/n8n-integration`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body || { action: "report" }),
+      },
+      timeoutMs
+    );
+  }
+
+  async function apiFast() {
+    return fetchJson(`${API}/api/n8n-integration`, { method: "GET" }, 15000);
+  }
+
+  function setStat(id, up, text, optionalOff) {
     const el = $(id);
     if (!el) return;
     const val = el.querySelector(".n8-stat-val");
@@ -37,6 +124,11 @@
     if (text != null) {
       val.textContent = text;
       val.className = "n8-stat-val";
+      return;
+    }
+    if (!up && optionalOff) {
+      val.textContent = "OFF";
+      val.className = "n8-stat-val n8-optional";
       return;
     }
     val.textContent = up ? "UP" : "DOWN";
@@ -111,17 +203,45 @@
     const st = data.status || {};
     const line = $("n8-status-line");
     if (line) {
-      const parts = [];
-      parts.push(st.n8n_running ? "n8n running" : "n8n stopped");
-      parts.push(st.runtime_running ? "runtime up" : "runtime down");
-      parts.push(st.hub_running ? "hub up" : "hub down");
-      line.textContent = parts.join(" · ");
-      line.className = "n8-status-line " + (st.n8n_running ? "n8-status-ok" : "");
+      const cw = data.cloud_workers_live || {};
+      const chain = data.chain_live || {};
+      if (cw.hub_line) {
+        line.textContent = cw.hub_line + (chain.ok === false ? " · chain DEGRADED" : " · chain LIVE");
+        line.className = "n8-status-line " + (chain.ok === false ? "n8-status-error" : "n8-status-ok");
+      } else {
+        const parts = [];
+        parts.push(st.n8n_running ? "n8n running" : "n8n stopped");
+        parts.push(st.runtime_running ? "runtime up" : "runtime optional");
+        parts.push(st.hub_running ? "hub up" : "hub down");
+        if (cw.queue_head) parts.push("cloud head " + cw.queue_head);
+        line.textContent = parts.join(" · ");
+        line.className = "n8-status-line " + (st.n8n_running ? "n8-status-ok" : "");
+      }
     }
 
     setStat("stat-n8n", !!st.n8n_running);
-    setStat("stat-runtime", !!st.runtime_running);
+    setStat("stat-runtime", !!st.runtime_running, null, true);
     setStat("stat-hub", !!st.hub_running);
+
+    const cw = data.cloud_workers_live || {};
+    const head = cw.queue_head || "—";
+    const cloudOk = cw.ok && head && head !== "—";
+    setStat("stat-cloud", null, head);
+    const cloudEl = $("stat-cloud");
+    if (cloudEl) {
+      const val = cloudEl.querySelector(".n8-stat-val");
+      if (val) val.className = "n8-stat-val " + (cloudOk ? "n8-up" : "n8-down");
+    }
+
+    const chain = data.chain_live || {};
+    const chainUp = chain.ok === true;
+    const chainLabel = chainUp ? "LIVE" : chain.ok === false ? "FAIL" : "—";
+    setStat("stat-chain", null, chainLabel);
+    const chainEl = $("stat-chain");
+    if (chainEl) {
+      const val = chainEl.querySelector(".n8-stat-val");
+      if (val) val.className = "n8-stat-val " + (chainUp ? "n8-up" : chain.ok === false ? "n8-down" : "");
+    }
 
     const q = data.quality || {};
     const wfs = data.workflows || [];
@@ -146,9 +266,10 @@
     const ql = $("n8-quality-line");
     if (ql) {
       const allOk = q.workflow_all_ok;
+      const cwNote = cw.queue_head ? ` · Hub cloud ${cw.queue_head}` : "";
       ql.textContent = allOk
-        ? `Quality gate PASS — ${total} workflows validated · stack ${score ?? "—"} ${grade || ""}`.trim()
-        : `Quality gate PARTIAL — ${okCount}/${total} workflows OK · tap Sync stubs or Capture intelligence`;
+        ? `Workflows ${okCount}/${total} OK (glue spine)${cwNote} · stack ${score ?? "—"} ${grade || ""}`.trim()
+        : `Workflows ${okCount}/${total} OK · cloud queue separate from workflow count${cwNote}`;
     }
 
     renderWorkflows(wfs);
@@ -158,7 +279,33 @@
     if (wh) wh.textContent = lastWebhook || "—";
 
     const ver = $("n8-version");
-    if (ver) ver.textContent = "v" + (data.version || "1.1").replace(/\.0$/, "");
+    if (ver) ver.textContent = "v" + (data.version || "—");
+
+    const chainLine = $("n8-chain-line");
+    if (chainLine) {
+      const ch = data.chain_live || {};
+      const chains = ch.chains || [];
+      const fails = chains.filter((c) => !c.ok && c.tier === "critical");
+      if (ch.summary_line) {
+        chainLine.textContent = ch.summary_line + (fails.length ? " · blockers: " + fails.map((f) => f.id).join(", ") : "");
+        chainLine.className = "n8-quality-line " + (ch.ok ? "n8-commercial-ready" : "n8-commercial-warn");
+      } else if (ch.error) {
+        chainLine.textContent = "Chain probe failed: " + ch.error;
+        chainLine.className = "n8-quality-line n8-commercial-warn";
+      }
+    }
+
+    renderAutomation(data.automation_24_7);
+
+    const vm = data.validator_machine || {};
+    const vmSum = $("n8-validator-summary");
+    if (vmSum) {
+      vmSum.textContent = vm.summary_line || "Validator terminal — tap Run probe or Run chain";
+    }
+    const termLines = vm.terminal_lines || vm.log_tail || [];
+    if (termLines.length) {
+      renderTerminal(termLines, vm.terminal_running);
+    }
 
     const tag = $("n8-tagline");
     if (tag && data.tagline) tag.textContent = data.tagline;
@@ -174,24 +321,63 @@
     }
   }
 
-  async function loadReport() {
-    const data = await api({ action: "report" });
+  async function loadReportFast() {
+    const data = await apiFast();
+    if (!data || data.ok === false) {
+      const line = $("n8-status-line");
+      if (line) {
+        line.textContent = "Refresh failed — " + (data?.error || "server unreachable");
+        line.className = "n8-status-line n8-status-error";
+      }
+      return data;
+    }
     renderReport(data);
     return data;
+  }
+
+  async function loadReportFull() {
+    const data = await api({ action: "report_full" });
+    if (!data || data.ok === false) return data;
+    renderReport(data);
+    return data;
+  }
+
+  async function loadReport() {
+    return loadReportFast();
   }
 
   async function runAction(action, label, extraBody) {
     if (busy) return;
     busy = true;
     document.querySelectorAll(".n8-btn").forEach((b) => (b.disabled = true));
-    toast(label || action + "…");
+    const term = window.SinaMainTerminal;
+    const slowDone = action === "capture_intelligence" || action === "report_full";
+    const deferFinish = slowDone || action === "validate_chain" || action === "validator_run" || action === "force_auto_tick";
+    if (term) term.start(action, label || action);
+    if (!slowDone) toast(label || action + "…");
     try {
       const body = Object.assign({ action }, extraBody || {});
+      if (action === "validator_run") body.tier = "probe";
+      if (action === "validate_chain" || action === "validator_run") {
+        renderTerminal(["═══ starting " + action + " ═══"], true);
+      }
       const result = await api(body);
-      if (result.ok === false) {
+      if (action === "capture_intelligence") {
+        if (term) {
+          term.log("→ phase 1 capture returned · loading full wire report (still running)…");
+          term.setRunning(true);
+        }
+        if (result.ok === false) {
+          if (term) term.log("[ERROR] " + (result.error || result.message || "capture failed"));
+        } else if (term) {
+          term.log("→ phase 1 ok · workflows snapshot received");
+        }
+      } else if (result.ok === false) {
         toast("Error: " + (result.error || result.message || action));
-      } else {
+        if (term) term.finish(false, "Error: " + (result.error || result.message || action));
+      } else if (!deferFinish) {
         toast((label || action) + " done");
+        if (term) term.finish(true, (label || action) + " complete");
       }
       const out = $("n8-output");
       if (out) {
@@ -201,6 +387,35 @@
           out.textContent = formatIntel(result);
         } else if (action === "test_extended" || action === "test_flow" || action === "run_suite") {
           out.textContent = formatSteps(result);
+        } else if (action === "validate_chain" || action === "validator_run") {
+          const lines = result.terminal_lines || [];
+          if (term) term.appendBlock(lines);
+          renderTerminal(lines, false);
+          const badge = $("n8-terminal-badge");
+          if (badge) {
+            badge.textContent = result.ok ? "pass" : "fail";
+            badge.className = "n8-terminal-badge " + (result.ok ? "n8-pass" : "n8-fail");
+          }
+          if (term) term.finish(!!result.ok, result.summary_line || action + " complete");
+          if (result.automation_24_7) renderAutomation(result.automation_24_7);
+          out.textContent = [
+            result.summary_line || "",
+            "",
+            ...(lines.length ? lines : ["(no terminal output)"]),
+          ].join("\n");
+          await loadReportFast();
+        } else if (action === "force_auto_tick") {
+          if (term) {
+            term.log(result.for_founder?.show_this || result.decision || "auto tick done");
+            term.finish(result.ok !== false, "Force auto tick complete");
+          }
+          renderAutomation(result.automation_24_7);
+          out.textContent = [
+              result.for_founder?.show_this || result.decision || result.message || "Auto tick done",
+              "",
+              JSON.stringify(result.steps || [], null, 2).slice(0, 4000),
+          ].join("\n");
+          await loadReportFast();
         } else if (action === "validate") {
           const checks = result.checks || [];
           out.textContent = [
@@ -302,6 +517,21 @@
             "",
             result.next_founder || "",
           ].join("\n");
+        } else if (action === "wire_portfolio_mail") {
+          const st = result.status || {};
+          out.textContent = [
+            result.ok ? "PORTFOLIO MAIL WIRE PASS ✓" : "WIRE INCOMPLETE",
+            result.founder_line || "",
+            "",
+            `Portfolio Mail: ${st.portfolio_mail_up ? "UP" : "DOWN"} (${st.portfolio_mail_live_count ?? 0} live)`,
+            `Chat Unify: ${st.chat_unify_up ? "UP" : "DOWN"}`,
+            `N8N Integration: ${st.n8n_integration_up ? "UP" : "DOWN"}`,
+            `Stack wired: ${st.wired ? "YES" : "NO"}`,
+            "",
+            ...(result.steps || []).map((s) => `• ${s.step}: ${s.ok === false ? "FAIL" : "OK"}`),
+          ].join("\n");
+        } else if (action === "open_portfolio_mail") {
+          out.textContent = result.ok ? "Opened Portfolio Mail in browser." : result.error || "Could not open Portfolio Mail.";
         } else if (action === "sync_cursor_transcripts") {
           out.textContent = [
             result.ok ? "CURSOR IMPORT ✓" : "IMPORT FAILED",
@@ -326,7 +556,27 @@
           out.textContent = result.tail;
         }
       }
-      await loadReport();
+      await loadReportFast();
+      if (action === "capture_intelligence" || action === "report_full") {
+        if (term) term.log("→ loading full report from disk + hub wire…");
+        const full = await loadReportFull().catch(() => null);
+        if (action === "capture_intelligence") {
+          const ok = full && full.ok !== false && result.ok !== false;
+          if (term) {
+            const wfs = (full && full.quality) || {};
+            term.log(
+              "→ full wire done · workflows " +
+                (wfs.workflow_ok_count ?? "?") +
+                "/" +
+                (wfs.workflow_total ?? "?") +
+                " · cloud " +
+                ((full && full.cloud_workers_live && full.cloud_workers_live.queue_head) || "—")
+            );
+            term.finish(!!ok, ok ? "Capture intelligence complete — brief logged" : "Capture finished with errors — check lines above");
+          }
+          toast(ok ? "Capture intelligence complete" : "Capture finished — see terminal");
+        }
+      }
     } catch (e) {
       toast("Request failed: " + e.message);
     } finally {
@@ -346,7 +596,13 @@
     });
   });
 
-  $("btn-refresh")?.addEventListener("click", () => loadReport());
+  $("btn-refresh")?.addEventListener("click", async () => {
+    if (busy) return;
+    toast("Refreshing…");
+    await loadReportFast();
+    loadReportFull().catch(() => {});
+    toast("Refreshed");
+  });
 
   $("btn-copy-webhook")?.addEventListener("click", async () => {
     const url = lastWebhook || $("n8-webhook")?.textContent || "";
@@ -362,15 +618,24 @@
     }
   });
 
-  loadReport().catch((e) => {
+  (async function boot() {
     const line = $("n8-status-line");
     if (line) {
-      line.textContent = "Server unreachable: " + e.message;
-      line.className = "n8-status-line n8-status-error";
+      line.textContent = "Connecting to N8N Integration…";
+      line.className = "n8-status-line n8-status-loading";
     }
-  });
+    try {
+      await loadReportFast();
+      loadReportFull().catch(() => {});
+    } catch (e) {
+      if (line) {
+        line.textContent = "Server unreachable: " + e.message;
+        line.className = "n8-status-line n8-status-error";
+      }
+    }
+  })();
 
   setInterval(() => {
-    if (!busy) loadReport().catch(() => {});
-  }, 90000);
+    if (!busy) loadReportFast().catch(() => {});
+  }, 15000);
 })();

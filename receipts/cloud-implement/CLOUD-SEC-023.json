@@ -1,0 +1,26 @@
+{
+  "schema": "forge-v0.2-implement-receipt",
+  "at": "2026-06-21T01:50:12Z",
+  "architecture": "A",
+  "plan_id": "CLOUD-SEC-023",
+  "status": "PASS",
+  "verdict": "PASS",
+  "preview_url": "https://sourcea-fbe-runner-production.up.railway.app/receipts/cloud-implement/CLOUD-SEC-023.json",
+  "run_id": "forge-run-20260621T015012-CLOUD-SEC-023",
+  "intent": "sourcea competitor parity \u00b7 Trigger.dev \u00b7 ws-run",
+  "action": "Cloud implement smallest run-detail slice PASS/FAIL",
+  "workstream": "ws-run",
+  "competitor": "Trigger.dev",
+  "router": {
+    "ok": true,
+    "tasks_run": 3,
+    "cost_usd_total": 0.08
+  },
+  "critic": {
+    "ok": true,
+    "final_verdict": "PASS",
+    "replans": 0
+  },
+  "implementation_signature": "cloud_implement_receipt_pass",
+  "receipt_url": "/receipts/cloud-implement/CLOUD-SEC-023.json"
+}

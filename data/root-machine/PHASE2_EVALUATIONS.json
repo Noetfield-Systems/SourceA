@@ -1,0 +1,171 @@
+{
+  "generated_at": "2026-06-02 06:45 UTC",
+  "generator": "SinaPromptOS/ai_control",
+  "evaluations": {
+    "trustfield": {
+      "project_id": "trustfield",
+      "name": "TrustField",
+      "task": "Run ./scripts/founder_free_auto.sh until founder_free_verify.sh PASS",
+      "evaluation": {
+        "verdict": "NOT_DONE",
+        "confidence": 0.2,
+        "risk": "MEDIUM",
+        "next_micro_step": "Submit EXECUTION LOG for: Run ./scripts/founder_free_auto.sh until founder_free_verify.sh PASS",
+        "reasons": [
+          "no execution log"
+        ],
+        "mode": "rules"
+      },
+      "has_task_definition": true,
+      "has_execution_log": false
+    },
+    "sinaai_mono": {
+      "project_id": "sinaai_mono",
+      "name": "Sinaai PAIOS (MonoRepo)",
+      "task": "Commit SinaaiDataBase/governance/ to git (mirror Source A structure, not Desktop files)",
+      "evaluation": {
+        "verdict": "NOT_DONE",
+        "confidence": 0.2,
+        "risk": "MEDIUM",
+        "next_micro_step": "Submit EXECUTION LOG for: Commit SinaaiDataBase/governance/ to git (mirror Source A structure, not Desktop files)",
+        "reasons": [
+          "no execution log"
+        ],
+        "mode": "rules"
+      },
+      "has_task_definition": true,
+      "has_execution_log": false
+    },
+    "virlux": {
+      "project_id": "virlux",
+      "name": "VIRLUX",
+      "task": "Confirm staging Vercel + API ports 3100/3001/3002 health",
+      "evaluation": {
+        "verdict": "DONE",
+        "confidence": 1.0,
+        "risk": "LOW",
+        "next_micro_step": "",
+        "reasons": [
+          "log task mismatch: 'staging smoke test' vs 'Confirm staging Vercel + API ports 3100/3001/3002 health'",
+          "execution log meets truth rules"
+        ],
+        "mode": "rules"
+      },
+      "has_task_definition": true,
+      "has_execution_log": true
+    },
+    "noetfield": {
+      "project_id": "noetfield",
+      "name": "Noetfield (spec)",
+      "task": "Extract top 5 MVP requirements from existing noetfield markdown into os/plan.json done criteria",
+      "evaluation": {
+        "verdict": "NOT_DONE",
+        "confidence": 0.2,
+        "risk": "MEDIUM",
+        "next_micro_step": "Submit EXECUTION LOG for: Extract top 5 MVP requirements from existing noetfield markdown into os/plan.json done criteria",
+        "reasons": [
+          "no execution log"
+        ],
+        "mode": "rules"
+      },
+      "has_task_definition": true,
+      "has_execution_log": false
+    },
+    "seven77": {
+      "project_id": "seven77",
+      "name": "777 Foundation",
+      "task": "Review docs/c1-ops-close.md open items and close or defer with date",
+      "evaluation": {
+        "verdict": "NOT_DONE",
+        "confidence": 0.2,
+        "risk": "MEDIUM",
+        "next_micro_step": "Submit EXECUTION LOG for: Review docs/c1-ops-close.md open items and close or defer with date",
+        "reasons": [
+          "no execution log"
+        ],
+        "mode": "rules"
+      },
+      "has_task_definition": true,
+      "has_execution_log": false
+    },
+    "sina_prompt_os": {
+      "project_id": "sina_prompt_os",
+      "name": "Sina Prompt OS (meta — not a daily lane)",
+      "task": "Add daily scheduled snapshot (launchd or cron) writing to data/",
+      "evaluation": {
+        "verdict": "NOT_DONE",
+        "confidence": 0.2,
+        "risk": "MEDIUM",
+        "next_micro_step": "Submit EXECUTION LOG for: Add daily scheduled snapshot (launchd or cron) writing to data/",
+        "reasons": [
+          "no execution log"
+        ],
+        "mode": "rules"
+      },
+      "has_task_definition": true,
+      "has_execution_log": false
+    }
+  },
+  "proposals": {
+    "trustfield": {
+      "project_id": "trustfield",
+      "action": "NEEDS_ASF",
+      "status": "NEEDS_ASF",
+      "confidence": 0.2,
+      "verdict": "NOT_DONE",
+      "proposed_next": "Submit EXECUTION LOG for: Run ./scripts/founder_free_auto.sh until founder_free_verify.sh PASS",
+      "current_task": "Run ./scripts/founder_free_auto.sh until founder_free_verify.sh PASS",
+      "auto_apply": false
+    },
+    "sinaai_mono": {
+      "project_id": "sinaai_mono",
+      "action": "NEEDS_ASF",
+      "status": "NEEDS_ASF",
+      "confidence": 0.2,
+      "verdict": "NOT_DONE",
+      "proposed_next": "Submit EXECUTION LOG for: Commit SinaaiDataBase/governance/ to git (mirror Source A structure, not Desktop files)",
+      "current_task": "Commit SinaaiDataBase/governance/ to git (mirror Source A structure, not Desktop files)",
+      "auto_apply": false
+    },
+    "virlux": {
+      "project_id": "virlux",
+      "action": "ADVANCE_QUEUE",
+      "status": "AUTO_OK",
+      "confidence": 1.0,
+      "verdict": "DONE",
+      "proposed_next": "Document current blockers in docs/LIVE-DEPLOY-RUNBOOK.md",
+      "current_task": "Confirm staging Vercel + API ports 3100/3001/3002 health",
+      "auto_apply": false
+    },
+    "noetfield": {
+      "project_id": "noetfield",
+      "action": "NEEDS_ASF",
+      "status": "NEEDS_ASF",
+      "confidence": 0.2,
+      "verdict": "NOT_DONE",
+      "proposed_next": "Submit EXECUTION LOG for: Extract top 5 MVP requirements from existing noetfield markdown into os/plan.json done criteria",
+      "current_task": "Extract top 5 MVP requirements from existing noetfield markdown into os/plan.json done criteria",
+      "auto_apply": false
+    },
+    "seven77": {
+      "project_id": "seven77",
+      "action": "NEEDS_ASF",
+      "status": "NEEDS_ASF",
+      "confidence": 0.2,
+      "verdict": "NOT_DONE",
+      "proposed_next": "Submit EXECUTION LOG for: Review docs/c1-ops-close.md open items and close or defer with date",
+      "current_task": "Review docs/c1-ops-close.md open items and close or defer with date",
+      "auto_apply": false
+    },
+    "sina_prompt_os": {
+      "project_id": "sina_prompt_os",
+      "action": "NEEDS_ASF",
+      "status": "NEEDS_ASF",
+      "confidence": 0.2,
+      "verdict": "NOT_DONE",
+      "proposed_next": "Submit EXECUTION LOG for: Add daily scheduled snapshot (launchd or cron) writing to data/",
+      "current_task": "Add daily scheduled snapshot (launchd or cron) writing to data/",
+      "auto_apply": false
+    }
+  }
+}

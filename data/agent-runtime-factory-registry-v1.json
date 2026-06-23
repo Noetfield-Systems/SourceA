@@ -1,0 +1,40 @@
+{
+  "schema": "agent-runtime-factory-registry-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-21T14:00:00Z",
+  "one_law": "Every factory runtime config follows comprehension-bay shape — variations · rollout · promotion_gate · founder manual bump only",
+  "factories": {
+    "comprehension-loop-factory-v1": {
+      "factory_id": "comprehension-loop-factory-v1",
+      "bay_slug": "comprehension-loop-bay",
+      "ssot": "data/cloud-comprehension-bay-v1.json",
+      "golden": "data/comprehension-golden-v1.json",
+      "eval_script": "scripts/fbe_comprehension_eval_batch_v1.py",
+      "validator": "scripts/validate-comprehension-golden-v1.sh",
+      "env_ssot": "AGENT_RUNTIME_BAY_SSOT",
+      "receipt": "~/.sina/cloud-comprehension-bay-receipt-v1.json"
+    },
+    "video-ad-factory-v1": {
+      "factory_id": "video-ad-factory-v1",
+      "bay_slug": "video-ad-orchestration-bay",
+      "ssot": "data/video-ad-factory-runtime-v1.json",
+      "golden": "data/video-ad-factory-golden-v1.json",
+      "eval_script": "scripts/video_ad_factory_eval_batch_v1.py",
+      "validator": "scripts/validate-video-ad-factory-runtime-v1.sh",
+      "env_ssot": "AGENT_RUNTIME_VIDEO_AD_FACTORY_SSOT",
+      "receipt": "~/.sina/video-ad-factory-runtime-receipt-v1.json",
+      "orchestration_script": "scripts/video_ad_factory_orchestrate_v1.py"
+    },
+    "noetfield-copilot-factory-v1": {
+      "factory_id": "noetfield-copilot-factory-v1",
+      "bay_slug": "noetfield-copilot-bay",
+      "ssot": "data/noetfield-copilot-runtime-v1.json",
+      "golden": "data/noetfield-copilot-golden-v1.json",
+      "eval_script": "scripts/noetfield_copilot_eval_batch_v1.py",
+      "validator": "scripts/validate-noetfield-copilot-runtime-v1.sh",
+      "env_ssot": "AGENT_RUNTIME_NOETFIELD_COPILOT_SSOT",
+      "receipt": "~/.sina/noetfield-copilot-runtime-receipt-v1.json",
+      "runtime_script": "scripts/noetfield_copilot_runtime_v1.py"
+    }
+  }
+}

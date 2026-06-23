@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-founder-ai-platform-proposal-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-23T06:30:00Z",
+  "positioning": "Founder-AI platform: MVP website to production agentic business — controlled and receipted",
+  "website": "keep green-unified design · add /sourcea/platform/ copy",
+  "booking": "hello@sourcea.com · Agentic Platform Discovery 45min",
+  "tiers": ["A-Launch", "B-AgenticOps", "C-FullPlatform", "D-Portfolio"],
+  "human_doc": "docs/SOURCEA_FOUNDER_AI_AGENTIC_PLATFORM_PROPOSAL_v1.md",
+  "phase_0": "compact center + SinaaiDB archive",
+  "recommended_next": "phase_1_platform_page_and_booking_cta"
+}

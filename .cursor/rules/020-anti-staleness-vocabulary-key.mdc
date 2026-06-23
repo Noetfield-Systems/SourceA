@@ -1,6 +1,6 @@
 ---
 description: Anti-staleness + vocabulary are KEY — disk wire first, positive inject only, never stale phrases
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Anti-staleness + vocabulary (KEY — always paired)

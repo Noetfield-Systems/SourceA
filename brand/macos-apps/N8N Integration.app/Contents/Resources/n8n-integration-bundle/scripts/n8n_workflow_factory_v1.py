@@ -9,7 +9,17 @@ from pathlib import Path
 SOURCE_A = Path(__file__).resolve().parents[1]
 OUT = SOURCE_A / "n8n/workflows"
 MONO = Path.home() / "Desktop/SinaaiMonoRepo/n8n/workflows"
-GLUE = "cd ~/Desktop/SourceA/scripts && python3 n8n_glue_runner_v1.py"
+GLUE_URL = "http://127.0.0.1:13020/api/cloud-workers/v1"
+PAYLOAD_CMDS = frozenset(
+    {
+        "signal-ingest",
+        "cooldown-ingest",
+        "founder-request",
+        "semej-bookend",
+        "chat-unify-merge",
+        "film-ingest",
+    }
+)
 
 SPECS = [
     ("wf-mac-health-cooldown-v1", "webhook", "mac-health-cooldown", "cooldown-ingest", None),
@@ -26,13 +36,46 @@ SPECS = [
     ("wf-founder-request-registrar-v1", "webhook", "founder-request", "founder-request", None),
     ("wf-semej-session-bookend-v1", "webhook", "semej-bookend", "semej-bookend", None),
     ("wf-backup-receipt-archiver-v1", "cron", "0 3 * * 0", "backup-archive", 10080),
-    ("wf-chat-unify-merge-receipt-v1", "webhook", "chat-unify-merge", "signal-ingest", None),
+    ("wf-chat-unify-merge-receipt-v1", "webhook", "chat-unify-merge", "chat-unify-merge", None),
+    ("wf-cloud-drain-auto-v1", "cron", "*/15 * * * *", "cloud-drain-auto-tick", 15),
 ]
+
+
+def _glue_http_node(*, cmd: str, webhook_payload: bool) -> dict:
+    if webhook_payload or cmd in PAYLOAD_CMDS:
+        json_body = (
+            f"={{{{ JSON.stringify({{ action: 'glue_run', command: '{cmd}', "
+            f"payload: $json }}) }}}}"
+        )
+    else:
+        json_body = json.dumps({"action": "glue_run", "command": cmd})
+    return {
+        "id": str(uuid.uuid4()),
+        "name": "Hub glue",
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "parameters": {
+            "method": "POST",
+            "url": GLUE_URL,
+            "sendBody": True,
+            "specifyBody": "json",
+            "jsonBody": json_body,
+            "options": {
+                "response": {
+                    "response": {
+                        "neverError": True,
+                    }
+                }
+            },
+        },
+        "position": [280, 300],
+    }
 
 
 def _wf(name: str, trigger: str, trig_val: str, cmd: str) -> dict:
     nodes = []
     conns: dict = {}
+    glue = _glue_http_node(cmd=cmd, webhook_payload=(trigger == "webhook"))
     if trigger == "webhook":
         nodes.append({
             "id": str(uuid.uuid4()),
@@ -42,15 +85,8 @@ def _wf(name: str, trigger: str, trig_val: str, cmd: str) -> dict:
             "parameters": {"path": trig_val, "httpMethod": "POST", "options": {}},
             "position": [0, 300],
         })
-        nodes.append({
-            "id": str(uuid.uuid4()),
-            "name": "Glue runner",
-            "type": "n8n-nodes-base.executeCommand",
-            "typeVersion": 1,
-            "parameters": {"command": f"{GLUE} {cmd} --payload '{{{{ JSON.stringify($json) }}}}'"},
-            "position": [280, 300],
-        })
-        conns = {"Webhook": {"main": [[{"node": "Glue runner", "type": "main", "index": 0}]]}}
+        nodes.append(glue)
+        conns = {"Webhook": {"main": [[{"node": "Hub glue", "type": "main", "index": 0}]]}}
     else:
         nodes.append({
             "id": str(uuid.uuid4()),
@@ -60,15 +96,8 @@ def _wf(name: str, trigger: str, trig_val: str, cmd: str) -> dict:
             "parameters": {"rule": {"interval": [{"field": "cronExpression", "expression": trig_val}]}},
             "position": [0, 300],
         })
-        nodes.append({
-            "id": str(uuid.uuid4()),
-            "name": "Glue runner",
-            "type": "n8n-nodes-base.executeCommand",
-            "typeVersion": 1,
-            "parameters": {"command": f"{GLUE} {cmd}"},
-            "position": [280, 300],
-        })
-        conns = {"Schedule": {"main": [[{"node": "Glue runner", "type": "main", "index": 0}]]}}
+        nodes.append(glue)
+        conns = {"Schedule": {"main": [[{"node": "Hub glue", "type": "main", "index": 0}]]}}
     return {
         "name": name,
         "nodes": nodes,

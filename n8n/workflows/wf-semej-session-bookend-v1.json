@@ -2,7 +2,7 @@
   "name": "wf-semej-session-bookend-v1",
   "nodes": [
     {
-      "id": "78804ae5-a2e7-4ffc-9105-e94ecb5f1baa",
+      "id": "e222abf4-320c-4712-9e52-8c2795a6c1ff",
       "name": "Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
@@ -17,12 +17,23 @@
       ]
     },
     {
-      "id": "6b4381bb-593c-4beb-95bc-80fbee97d4a5",
-      "name": "Glue runner",
-      "type": "n8n-nodes-base.executeCommand",
-      "typeVersion": 1,
+      "id": "2b7cce1f-d432-4d3b-8905-15071272c13d",
+      "name": "Hub glue",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
       "parameters": {
-        "command": "cd ~/Desktop/SourceA/scripts && python3 n8n_glue_runner_v1.py semej-bookend --payload '{{ JSON.stringify($json) }}'"
+        "method": "POST",
+        "url": "http://127.0.0.1:13020/api/cloud-workers/v1",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ action: 'glue_run', command: 'semej-bookend', payload: $json }) }}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
       },
       "position": [
         280,
@@ -35,7 +46,7 @@
       "main": [
         [
           {
-            "node": "Glue runner",
+            "node": "Hub glue",
             "type": "main",
             "index": 0
           }

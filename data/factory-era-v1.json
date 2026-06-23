@@ -3,26 +3,36 @@
   "version": "1.0.0",
   "saved_at": "2026-06-20T22:41:33Z",
   "authority": "ASF",
-  "current_era": "forge_factory_cycle2",
-  "current_brand": "FORGE FACTORY",
+  "current_era": "phase_market",
+  "current_brand": "PORTFOLIO-COMPETITOR",
   "archived_eras": [
     {
       "id": "goal1_bootstrap_1000",
       "status": "complete_archived",
       "archived_at": "2026-06-20T22:41:33Z",
       "archive_path": "archive/attachments/factory-era/goal1-bootstrap-1000-complete-2026-06-20/",
-      "note": "Valid YES 1000/1000 — historical only; do not inject as live queue state"
+      "note": "Valid YES 1000/1000 \u2014 historical only; do not inject as live queue state"
     },
     {
       "id": "outbound_factory_108",
       "status": "complete_archived",
       "archived_at": "2026-06-19T23:52:05Z",
       "note": "Outbound factory upgrade drain complete"
+    },
+    {
+      "id": "forge_factory_cycle2",
+      "status": "complete_archived",
+      "archived_at": "2026-06-21T18:07:38Z",
+      "closeout_receipt": "receipts/forge-factory-cycle2-closeout-v1.json"
     }
   ],
-  "live_mode": "FORGE_FACTORY",
+  "live_mode": "CLOUD_DRAIN",
   "supabase_brand_schema": "forge_factory",
-  "queue_ssot": "data/forge-factory-queue-cycle2-v1.json",
+  "queue_ssot": "data/secondary-cloud-drain-next-100-v1.json",
   "brand_ssot": "data/forge-factory-unified-brand-v1.json",
-  "rule_propagation_ssot": "data/rule-propagation-zero-latency-v1.json"
+  "rule_propagation_ssot": "data/rule-propagation-zero-latency-v1.json",
+  "cloud_drain_head": "CLOUD-SEC-001",
+  "reconciled_at": "2026-06-21T18:28:28Z",
+  "reconciled_by": "phase_observed_project_v1",
+  "prior_era": "forge_factory_cycle2"
 }

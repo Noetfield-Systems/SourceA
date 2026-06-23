@@ -3,7 +3,7 @@
 
 **Lane:** SourceA Worker only — if you are Brain, ignore this file.
 
-**Updated:** 2026-06-20T22:55:06Z
+**Updated:** 2026-06-21T01:54:27Z
 
 ---
 

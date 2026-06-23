@@ -6,13 +6,16 @@
   <meta name="description" content="Mac Health — auto heal for this Mac. Private. Local only." />
   <title>Mac Health</title>
   <!-- v4.0.0 · Control Plane Glance -->
+  <meta name="sina-app-id" content="mac_health" />
+  <link rel="stylesheet" href="http://127.0.0.1:13020/shared/api-station-tab.css" />
+  <link rel="stylesheet" href="http://127.0.0.1:13020/shared/hub-pro-skills-tab.css" />
   <link rel="stylesheet" href="app.css?v=4.0.0" />
 </head>
 <body>
   <div class="mhg-panic-flash" id="panic-flash" hidden aria-live="assertive"></div>
 
   <main class="mhg-app mhg-founder-glance">
-    <article class="mhg-founder-card">
+    <article class="mhg-founder-card" data-sina-app-root>
       <header class="mhg-founder-head">
         <div class="mhg-founder-title-row">
           <div>
@@ -54,6 +57,10 @@
         </div>
 
         <button type="button" class="mhg-btn mhg-btn-primary mhg-btn-block" id="btn-heal">Relieve pressure</button>
+        <div class="mhg-quick-relief" id="quick-relief">
+          <button type="button" class="mhg-btn mhg-btn-ghost" id="btn-pipeline-hero">Clear pipeline</button>
+          <button type="button" class="mhg-btn mhg-btn-ghost" id="btn-ram-purge-hero">Reset inactive RAM</button>
+        </div>
         <button type="button" class="mhg-cloud-glance-strip" id="cloud-glance-strip">Cloud · reading…</button>
         <p class="mhg-heal-msg" id="heal-msg" hidden></p>
         <p class="mhg-meta mhg-h1-sync-line" id="h1-status" hidden aria-live="polite"></p>
@@ -104,6 +111,11 @@
           <p class="mhg-settings-msg" id="settings-msg" hidden></p>
         </div>
         <div class="mhg-more-block">
+          <p class="mhg-more-label">References &amp; skills</p>
+          <p class="mhg-meta">Apple security sources · Hub Pro · Mac Law — for agents and founder.</p>
+          <div class="mhg-sources mhg-sources-grid" id="sources-grid"><p class="mhg-meta">Loading…</p></div>
+        </div>
+        <div class="mhg-more-block">
           <p class="mhg-more-label">Tools</p>
           <div class="mhg-more-actions">
             <button type="button" class="mhg-btn mhg-btn-ghost" id="btn-rescan">Security scan</button>
@@ -146,6 +158,9 @@
       <button type="button" data-action="cpu_restart_cursor"></button>
     </div>
   </main>
+  <script src="http://127.0.0.1:13020/shared/official-links-bar.js" defer></script>
+  <script src="http://127.0.0.1:13020/shared/sina-view-mode.js" defer></script>
   <script src="app.js?v=4.0.0" defer></script>
+  <script src="http://127.0.0.1:13020/shared/hub-pro-skills-tab.js" defer></script>
 </body>
 </html>

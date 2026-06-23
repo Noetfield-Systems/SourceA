@@ -1,0 +1,38 @@
+{
+  "schema": "sourcea-living-center-v1",
+  "version": "1.0.0",
+  "at": "2026-06-23T06:02:26Z",
+  "one_law": "SourceA = compact living center \u2014 apps \u00b7 scripts \u00b7 cloud \u00b7 data SSOT \u00b7 8 cursor rules \u00b7 brain-os entry law only.",
+  "archive_broker": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23",
+  "sinaaidatabase": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase",
+  "planes": {
+    "product": [
+      "apps/",
+      "packages/",
+      "SourceA-landing/green-unified/",
+      "witnessbc-site/"
+    ],
+    "cloud": [
+      "cloud/",
+      "scripts/deploy_fbe_railway_v1.py"
+    ],
+    "data_ssot": [
+      "data/*.json",
+      "PROGRAM_PROGRESS.json"
+    ],
+    "law_entry": [
+      "brain-os/law/entry/START_HERE_LOCKED_v1.md",
+      "brain-os/law/BRAIN_UNIFIED_RULES_LOCKED_v1.md",
+      "brain-os/INDEX_LOCKED_v1.md"
+    ],
+    "cursor_rules_always": 8,
+    "cursor_rules_doc": "data/cursor-cost-intelligence-routing-v1.json"
+  },
+  "forbidden_in_sourcea": [
+    "archive attachments as daily law",
+    "superseded cursor rules",
+    "1000-prompt trees locally (broker only)",
+    "duplicate os/plan-library"
+  ],
+  "proposal": "docs/SOURCEA_FOUNDER_AI_AGENTIC_PLATFORM_PROPOSAL_v1.md"
+}

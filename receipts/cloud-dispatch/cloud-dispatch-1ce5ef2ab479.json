@@ -1,0 +1,27 @@
+{
+  "schema": "cloud-dispatch-receipt-v1",
+  "receipt_id": "cloud-dispatch-1ce5ef2ab479",
+  "plan_id": "CLOUD-LD-002",
+  "maps_registry": "sa-mkt-ld-0002",
+  "competitor": "LaunchDarkly",
+  "workstream": "ws-ux",
+  "tier": "T1",
+  "cloud_action": "Map AgentControl lifecycle Configure\u2192Benchmark\u2192Release\u2192Observe\u2192Iterate vs SourceA bay",
+  "at": "2026-06-21T04:34:23Z",
+  "execution_plane": "cloud_forge",
+  "source_url": "https://launchdarkly.com/platform/agent-control/",
+  "http_status": 200,
+  "bytes_fetched": 500000,
+  "evidence_snippets": [
+    "Control your agents in production. | LaunchDarkly",
+    "Free trial Pricing Sign in Book a demo Book a demo Control your agents in production",
+    "free Group By Chat Completion Code Assistant Summarization Embedding Chat Completion",
+    "Pricing Sign in Book a demo Book a demo Control your agents in production",
+    "Free trial CodeControl AgentControl Inboxes love LaunchDarkly",
+    "free self"
+  ],
+  "ok": true,
+  "status": "PASS",
+  "receipt_path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/cloud-dispatch/cloud-dispatch-1ce5ef2ab479.json",
+  "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-1ce5ef2ab479.json"
+}

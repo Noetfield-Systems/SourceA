@@ -1,0 +1,107 @@
+{
+  "schema": "archive-classification-v1",
+  "built_at": "2026-06-23T05:26:29Z",
+  "using_buckets": [
+    {
+      "path": "archive/attachments",
+      "kind": "dir",
+      "tier": "using",
+      "bytes": 315909012,
+      "active_refs": 401,
+      "reason": "Active archive plane \u2014 scripts/law/validators cite this path."
+    },
+    {
+      "path": "archive/legacy",
+      "kind": "dir",
+      "tier": "using",
+      "bytes": 26976,
+      "active_refs": 4,
+      "reason": "Active archive plane \u2014 scripts/law/validators cite this path."
+    },
+    {
+      "path": "archive/root-stubs",
+      "kind": "dir",
+      "tier": "using",
+      "bytes": 11282,
+      "active_refs": 1,
+      "reason": "Active archive plane \u2014 scripts/law/validators cite this path."
+    },
+    {
+      "path": "archive/superseded",
+      "kind": "dir",
+      "tier": "using",
+      "bytes": 164307,
+      "active_refs": 52,
+      "reason": "Active archive plane \u2014 scripts/law/validators cite this path."
+    }
+  ],
+  "stale_buckets": [
+    {
+      "path": "archive/stale/retired-products/witnessbc-journalism-clone-v1",
+      "category": "retired-products",
+      "bytes": 827899,
+      "note": "Frozen \u2014 audit / git history only"
+    },
+    {
+      "path": "archive/stale/trials/noetfield-trial-clone-v1",
+      "category": "trials",
+      "bytes": 7076,
+      "note": "Frozen \u2014 audit / git history only"
+    },
+    {
+      "path": "archive/stale/trials/trial-vercel-full-clone-v1",
+      "category": "trials",
+      "bytes": 124674,
+      "note": "Frozen \u2014 audit / git history only"
+    },
+    {
+      "path": "archive/stale/trials/trial-vercel-live-snapshot-v1",
+      "category": "trials",
+      "bytes": 156188,
+      "note": "Frozen \u2014 audit / git history only"
+    },
+    {
+      "path": "archive/stale/trials/trial-vercel-local-clones-v1",
+      "category": "trials",
+      "bytes": 29761553,
+      "note": "Frozen \u2014 audit / git history only"
+    }
+  ],
+  "docs_archive": [
+    {
+      "path": "docs/archive/AGENT_SELF_AUDIT_ASF_REPORT_2026-06-04.md",
+      "kind": "file",
+      "tier": "using_plane",
+      "bytes": 4475,
+      "active_refs": 1,
+      "reason": "docs/archive = superseded-draft destination plane (content stale; folder in use)."
+    },
+    {
+      "path": "docs/archive/PHASE1_UNIFIED_BLUEPRINT_v2_3.md",
+      "kind": "file",
+      "tier": "using_plane",
+      "bytes": 34536,
+      "active_refs": 1,
+      "reason": "docs/archive = superseded-draft destination plane (content stale; folder in use)."
+    },
+    {
+      "path": "docs/archive/cursor-tooling",
+      "kind": "dir",
+      "tier": "using_plane",
+      "bytes": 20781,
+      "active_refs": 1,
+      "reason": "docs/archive = superseded-draft destination plane (content stale; folder in use)."
+    },
+    {
+      "path": "docs/archive/sourcea-site-v1-QUARANTINE.md",
+      "kind": "file",
+      "tier": "using_plane",
+      "bytes": 791,
+      "active_refs": 1,
+      "reason": "docs/archive = superseded-draft destination plane (content stale; folder in use)."
+    }
+  ],
+  "moved": [],
+  "path_rewrites": [],
+  "law": "infra/cleanup/README.md"
+}

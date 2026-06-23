@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Video ad factory orchestration — brief → script → AUDIO_READY (thin slice).
+"""Video ad factory orchestration — brief → script → AUDIO_READY → render bridge.
 
 Maps Gemini orchestration to SourceA disk:
   - Zod-equivalent validation via inline schema
   - ElevenLabs via scripts/film_elevenlabs_wire_v1.py (live wire)
-  - Stops at HUMAN_APPROVAL_REQUIRED when --require-approval
+  - After AUDIO_READY invokes scripts/video_ad_rendering_bridge_v1.py (no approval gate)
   - Supabase optional — local JSON campaign file for P1 stdio
 
 Law: data/multi-factory-enterprise-tree-advisory-v1.json · shared/types/campaign-v1.ts
@@ -136,9 +136,7 @@ def preview_orchestration(raw_brief: str, *, cfg: dict[str, Any]) -> dict[str, A
     script = validated["refined_script"]
     if len(script) > int(cfg.get("max_script_chars") or 500):
         return {"ok": False, "verdict": "BLOCKED", "error": "script_too_long"}
-    step = "AUDIO_READY"
-    if cfg.get("require_approval", True) or not cfg.get("allow_fal_render"):
-        step = "HUMAN_APPROVAL_REQUIRED"
+    step = "VIDEO_RENDERING"
     return {
         "ok": True,
         "verdict": "ALLOW",
@@ -152,7 +150,7 @@ def preview_orchestration(raw_brief: str, *, cfg: dict[str, Any]) -> dict[str, A
 def orchestrate_campaign(
     campaign_id: str,
     *,
-    require_approval: bool = True,
+    require_approval: bool = False,
     mock_llm: bool = True,
     vo_lane: str = "sourcea",
     variation_key: str | None = None,
@@ -163,7 +161,6 @@ def orchestrate_campaign(
     from agent_runtime_config_v1 import load_factory_runtime_config  # noqa: WPS433
 
     cfg = load_factory_runtime_config(FACTORY_ID, variation_key=variation_key)
-    require_approval = bool(cfg.get("require_approval", require_approval))
     mock_llm = bool(cfg.get("mock_llm", mock_llm))
     vo_lane = str(cfg.get("vo_lane") or vo_lane)
 
@@ -184,12 +181,15 @@ def orchestrate_campaign(
     campaign["current_step"] = "AUDIO_READY"
 
     audio = synthesize_audio_via_wire(validated["refined_script"], vo_lane=vo_lane)
-    if audio.get("verdict") == "PASS":
-        campaign["current_step"] = "VIDEO_RENDERING"
-    elif require_approval:
-        campaign["current_step"] = "HUMAN_APPROVAL_REQUIRED"
-
+    campaign["current_step"] = "VIDEO_RENDERING"
     _save_campaign(campaign)
+
+    from video_ad_rendering_bridge_v1 import run_bridge  # noqa: WPS433
+
+    render_receipt = run_bridge(
+        campaign_id,
+        mock_only=not bool(cfg.get("allow_fal_render", False)),
+    )
 
     receipt = {
         "schema": "video-ad-orchestration-receipt-v1",
@@ -199,10 +199,11 @@ def orchestrate_campaign(
         "factory_id": FACTORY_ID,
         "config_version": cfg.get("config_version"),
         "variation_key": cfg.get("variation_key"),
-        "current_step": campaign["current_step"],
+        "current_step": render_receipt.get("current_step"),
         "audio": audio,
-        "honest_label": audio.get("verdict", "MOCK_ONLY"),
-        "next": "scripts/video_ad_rendering_bridge_v1.py after founder approval",
+        "render": render_receipt.get("render"),
+        "honest_label": render_receipt.get("render", {}).get("verdict") or audio.get("verdict", "MOCK_ONLY"),
+        "next": "scripts/video_ad_rendering_bridge_v1.py",
     }
     if write_receipt:
         SINA.mkdir(parents=True, exist_ok=True)
@@ -241,7 +242,6 @@ def main() -> int:
     try:
         row = orchestrate_campaign(
             args.campaign_id,
-            require_approval=not args.no_approval_gate,
             variation_key=args.variation_key or None,
             write_receipt=not args.no_write,
         )

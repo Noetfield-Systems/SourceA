@@ -15,14 +15,14 @@
 |--------|-------|
 | honest_done | 1000 / 1000 |
 | valid_yes | 1000 |
-| factory_mode | FORGE_FACTORY |
+| factory_mode | FREEZE |
 | kill_flag | True |
-| queue_sa | sa-1201 (dual-pick law — wins over phase-first head) |
-| live_pick | sa-1201 |
-| find_critical_bugs | critical 0 |
+| queue_sa |  (dual-pick law — wins over phase-first head) |
+| live_pick |  |
+| find_critical_bugs | critical 5 |
 | dispatch_ready | False |
 | eval_1b_gate_ok | structural_only_until_openrouter_credits |
-| synced_at | 2026-06-20T23:22:57Z |
+| synced_at | 2026-06-23T06:10:03Z |
 
 **Dual-pick law:** `run-inbox-disk-truth-v1.json` / `factory-now-v1.json` `queue_sa` wins over phase-first registry head. Phase-first is fallback only when queue_sa absent.
 

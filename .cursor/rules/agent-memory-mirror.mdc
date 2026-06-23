@@ -1,6 +1,6 @@
 ---
 description: Agent memory mirror — positive disk wire only · NEVER orders validator marathons (INCIDENT-034/039)
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Agent enforcement stack v2 — mirror is NOT a validator launcher

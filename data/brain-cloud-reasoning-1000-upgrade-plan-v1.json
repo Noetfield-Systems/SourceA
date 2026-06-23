@@ -1,7 +1,7 @@
 {
   "schema": "brain-cloud-reasoning-1000-upgrade-plan-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-20T22:58:29Z",
+  "saved_at": "2026-06-22T17:11:50Z",
   "law": "Brain reasons \u00b7 Mac controls \u00b7 Cloud/API workers execute \u00b7 local Cursor Worker graduates to control-plane only",
   "strategic_pivot": {
     "from": "local Cursor Worker INBOX as primary factory execution",
@@ -82,9 +82,9 @@
   ],
   "progress": {
     "total": 1000,
-    "done": 2,
-    "planned": 998,
-    "pct": 0.2,
+    "done": 41,
+    "planned": 959,
+    "pct": 4.1,
     "mac_proven": 2
   },
   "waves": [
@@ -195,7 +195,7 @@
       ],
       "range": "B0001-B0100",
       "count": 100,
-      "status": "pending",
+      "status": "active",
       "brain_blocker": true
     },
     {
@@ -1203,10 +1203,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0001.json"
     },
     {
       "id": "B0002",
@@ -1221,10 +1225,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0002.json"
     },
     {
       "id": "B0003",
@@ -1239,10 +1247,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0003.json"
     },
     {
       "id": "B0004",
@@ -1257,10 +1269,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0004.json"
     },
     {
       "id": "B0005",
@@ -1275,10 +1291,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0005.json"
     },
     {
       "id": "B0006",
@@ -1293,10 +1313,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0006.json"
     },
     {
       "id": "B0007",
@@ -1311,10 +1335,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0007.json"
     },
     {
       "id": "B0008",
@@ -1329,10 +1357,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0008.json"
     },
     {
       "id": "B0009",
@@ -1347,10 +1379,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0009.json"
     },
     {
       "id": "B0010",
@@ -1365,10 +1401,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0010.json"
     },
     {
       "id": "B0011",
@@ -1383,10 +1423,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0011.json"
     },
     {
       "id": "B0012",
@@ -1401,10 +1445,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0012.json"
     },
     {
       "id": "B0013",
@@ -1419,10 +1467,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0013.json"
     },
     {
       "id": "B0014",
@@ -1437,10 +1489,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0014.json"
     },
     {
       "id": "B0015",
@@ -1455,10 +1511,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0015.json"
     },
     {
       "id": "B0016",
@@ -1473,10 +1533,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0016.json"
     },
     {
       "id": "B0017",
@@ -1491,10 +1555,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0017.json"
     },
     {
       "id": "B0018",
@@ -1509,10 +1577,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0018.json"
     },
     {
       "id": "B0019",
@@ -1527,10 +1599,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0019.json"
     },
     {
       "id": "B0020",
@@ -1545,10 +1621,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0020.json"
     },
     {
       "id": "B0021",
@@ -1563,10 +1643,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0021.json"
     },
     {
       "id": "B0022",
@@ -1581,10 +1665,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0022.json"
     },
     {
       "id": "B0023",
@@ -1599,10 +1687,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0023.json"
     },
     {
       "id": "B0024",
@@ -1617,10 +1709,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0024.json"
     },
     {
       "id": "B0025",
@@ -1635,10 +1731,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0025.json"
     },
     {
       "id": "B0026",
@@ -1653,10 +1753,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0026.json"
     },
     {
       "id": "B0027",
@@ -1671,10 +1775,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0027.json"
     },
     {
       "id": "B0028",
@@ -1689,10 +1797,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0028.json"
     },
     {
       "id": "B0029",
@@ -1707,10 +1819,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0029.json"
     },
     {
       "id": "B0030",
@@ -1725,10 +1841,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0030.json"
     },
     {
       "id": "B0031",
@@ -1743,10 +1863,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0031.json"
     },
     {
       "id": "B0032",
@@ -1761,10 +1885,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0032.json"
     },
     {
       "id": "B0033",
@@ -1779,10 +1907,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0033.json"
     },
     {
       "id": "B0034",
@@ -1797,10 +1929,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0034.json"
     },
     {
       "id": "B0035",
@@ -1815,10 +1951,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0035.json"
     },
     {
       "id": "B0036",
@@ -1833,10 +1973,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0036.json"
     },
     {
       "id": "B0037",
@@ -1851,10 +1995,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0037.json"
     },
     {
       "id": "B0038",
@@ -1869,10 +2017,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0038.json"
     },
     {
       "id": "B0039",
@@ -1887,10 +2039,14 @@
       "control_plane": "mac_hub",
       "wired_to": "brain-os/lanes/GOAL_SPECIALIST_CHAT_PACK_LOCKED_v1.md \u00b7 docs/SOURCEA_FACTORY_BUILDER_ENGINE_LOCKED_v1.md",
       "acceptance": "Brain reasoning receipt + cloud federated proof \u2014 not local Cursor Worker turn",
-      "status": "planned",
-      "local_worker_deprecated": false,
+      "status": "done",
+      "local_worker_deprecated": true,
       "parent_spec": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
-      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md"
+      "human_doc": "docs/SOURCEA_BRAIN_CLOUD_REASONING_1000_PLAN_LOCKED_v1.md",
+      "brain_proof": true,
+      "cloud_proof": true,
+      "work_order_id": "wo-brain-2eedbc0c5725",
+      "brain_receipt_path": "/Users/sinakazemnezhad/.sina/brain-reasoning-receipt-b0039.json"
     },
     {
       "id": "B0040",
@@ -19209,7 +19365,7 @@
     "anti_theater_loop": "data/anti-theater-validator-loop-v1.json",
     "orchestrator": "scripts/plans_unified_upgrade_v1.py"
   },
-  "active_epic": "E08",
+  "active_epic": "E01",
   "phase0_reference": {
     "ssot": "data/phase0-freemium-sandbox-reference-v1.json",
     "pulse": "scripts/phase0_freemium_sandbox_pulse_v1.py",

@@ -1,0 +1,155 @@
+{
+  "schema": "sourcea-task-plan-priority-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-06-21T21:15:00Z",
+  "locked": true,
+  "one_law": "Smart rank every task and plan row: sequential cloud drain head first · then unified P0–P4 · free-tier cost · real-world output · blockers.",
+  "parent_law": "data/sourcea-next-task-trigger-v1.json",
+  "tier_cost_policy": "docs/SOURCEA_TIER_PRIORITY_COST_INTELLIGENCE_POLICY_LOCKED_v1.md",
+  "task_plan_validation": "scripts/next_task_trigger_v1.py",
+  "script": "scripts/task_plan_priority_v1.py",
+  "validator": "scripts/validate-task-plan-priority-v1.sh",
+  "receipt": "~/.sina/task-plan-priority-receipt-v1.json",
+  "priority_stack": [
+    {
+      "id": "P0",
+      "rank": 0,
+      "label": "Founder form picks + nerve cascade",
+      "because": "Official form batch submit is the only lawful desired-state writer",
+      "lanes": ["hub_form", "form", "founder_picks"],
+      "output_types": []
+    },
+    {
+      "id": "P1",
+      "rank": 1,
+      "label": "Cloud FORGE revenue lane (full motor)",
+      "because": "phase_market · competitor evidence → labs rows · buyer-visible product",
+      "lanes": ["cloud_forge", "CLOUD-SEC", "sa-mkt", "forge", "fbe"],
+      "output_types": ["ai_agent_product", "data_pipeline"]
+    },
+    {
+      "id": "P2",
+      "rank": 2,
+      "label": "Noetfield freemium cloud bay",
+      "because": "Phase 0 north star — freemium before paid",
+      "lanes": ["noetfield", "nf_freemium", "phase0"],
+      "output_types": ["ai_agent_product", "marketing_system"]
+    },
+    {
+      "id": "P3",
+      "rank": 3,
+      "label": "TrustField sandbox + outreach",
+      "because": "Steps 6–7 demos/outreach — cloud/API not Mac Worker body",
+      "lanes": ["trustfield", "outbound", "gtm", "witnessbc"],
+      "output_types": ["marketing_system", "file_generation"]
+    },
+    {
+      "id": "P4",
+      "rank": 4,
+      "label": "Brain / governance meta rows",
+      "because": "Useful only when tied to cloud federated proof or buyer-visible output",
+      "lanes": ["brain", "B000", "governance", "full_stack_meta", "mac_health"],
+      "output_types": ["internal_meta", "unknown"]
+    }
+  ],
+  "output_type_scores": {
+    "ai_agent_product": 920,
+    "data_pipeline": 900,
+    "marketing_system": 780,
+    "file_generation": 650,
+    "internal_meta": 200,
+    "unknown": 100
+  },
+  "verdict_adjustments": {
+    "useful": 80,
+    "blocked": -400,
+    "noise": -600,
+    "needs_founder_answer": -50
+  },
+  "blocker_penalties": {
+    "factory_FREEZE": -300,
+    "loop_blocked": -150,
+    "eval_gate": -100
+  },
+  "sequential_drain_law": {
+    "one_rule": "cloud_drain_head row wins tie-break over later CLOUD-SEC rows in same workstream",
+    "head_bonus": 500,
+    "ssot_head": "~/.sina/phase-observed-v1.json:cloud_drain_head",
+    "forbidden": "smart_pick skipping head to later sa-mkt without founder override"
+  },
+  "cost_intelligence": {
+    "order": ["free_tier_eligible", "unified_priority", "roi_output_type", "paid_escalation_gate"],
+    "cost_tier_boost": {"free": 80, "openrouter_cap": 20, "paid": -100},
+    "policy_ref": "docs/SOURCEA_TIER_PRIORITY_COST_INTELLIGENCE_POLICY_LOCKED_v1.md §2–3"
+  },
+  "vocabulary_map": {
+    "unified_P0": "Founder form · desired-state writer (not governance P0–P7)",
+    "unified_P1": "Cloud FORGE phase_market drain (maps queue T0–T3 sa-mkt)",
+    "unified_P2": "Noetfield freemium bay",
+    "unified_P3": "TrustField · outbound · GTM",
+    "unified_P4": "Brain meta · M111 mac observe · full-stack when no product pair",
+    "note": "Never mix governance P0–P7 with unified P0–P4 in agent replies — say which table"
+  },
+  "smart_rank_rules": [
+    "Apply sequential_drain_law head bonus before sorting",
+    "Collect open rows from brain-cloud · cloud-drain · full-stack · outbound · ecosystem M111",
+    "Classify real-world output type per row (reuse task_plan_validation classifier)",
+    "Apply cost_tier_boost from cloud drain cost_tier field",
+    "Map lane + output_type → unified P0–P4",
+    "Apply verdict + blocker penalties from live disk",
+    "Pair brain meta rows with cloud registry plan when maps_registry exists — boost score",
+    "Deprioritize full_stack + M111 during phase_market unless blocker on cloud path",
+    "Return smart_pick + sequential_next (head) + roi_ranked top 12"
+  ],
+  "plan_sources": [
+    {
+      "id": "brain_cloud_1000",
+      "path": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
+      "item_key": "upgrades",
+      "id_field": "id",
+      "status_open": ["planned", "pending", "open"],
+      "lane": "brain"
+    },
+    {
+      "id": "cloud_drain",
+      "path": "data/secondary-cloud-drain-next-100-v1.json",
+      "item_key": "plans",
+      "id_field": "id",
+      "status_open": ["open", "planned"],
+      "lane": "cloud_forge",
+      "head_from": "~/.sina/phase-observed-v1.json:cloud_drain_head"
+    },
+    {
+      "id": "full_stack_100",
+      "path": "data/sourcea-full-stack-100-fix-plan-v1.json",
+      "item_key": "fixes",
+      "id_field": "id",
+      "status_open": ["planned", "in_progress", "blocked"],
+      "lane": "full_stack"
+    },
+    {
+      "id": "outbound_100",
+      "path": "data/outbound-factory-100-upgrade-plan-v1.json",
+      "item_key": "upgrades",
+      "id_field": "id",
+      "status_open": ["planned", "pending"],
+      "lane": "outbound"
+    },
+    {
+      "id": "ecosystem_m111",
+      "path": "data/ecosystem-mac-health-111-upgrade-plan-v1.json",
+      "item_key": "upgrades",
+      "id_field": "id",
+      "status_open": ["planned", "pending"],
+      "lane": "mac_health"
+    }
+  ],
+  "wired_to": [
+    "scripts/next_task_trigger_v1.py",
+    "scripts/plans_unified_upgrade_v1.py",
+    "scripts/agent_session_gate_run_v1.py",
+    "scripts/disk_live_wire_sync_v1.py",
+    "scripts/agent_behavior_settings_v1.py",
+    "scripts/healthy_queue_ssot_lib.py"
+  ]
+}

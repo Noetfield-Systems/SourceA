@@ -5,7 +5,7 @@ globs:
   - scripts/hub_form_submit_v1.py
   - scripts/canvas_form_submit_v1.py
   - scripts/canvas_form_apply_picks_v1.py
-alwaysApply: true
+alwaysApply: false
 ---
 
 # FORM — founder pick Submit only (INCIDENT-037)

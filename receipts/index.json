@@ -1,0 +1,137 @@
+{
+  "schema": "cloud-dispatch-index-v1",
+  "receipts": [
+    {
+      "plan_id": "CLOUD-LD-001",
+      "competitor": "LaunchDarkly",
+      "workstream": "ws-ux",
+      "status": "PASS",
+      "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-a757a9f8eb3c.json",
+      "receipt_id": "cloud-dispatch-a757a9f8eb3c",
+      "at": "2026-06-21T04:07:08Z"
+    },
+    {
+      "plan_id": "CLOUD-LD-002",
+      "competitor": "LaunchDarkly",
+      "workstream": "ws-ux",
+      "status": "PASS",
+      "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-1ce5ef2ab479.json",
+      "receipt_id": "cloud-dispatch-1ce5ef2ab479",
+      "at": "2026-06-21T04:34:23Z"
+    },
+    {
+      "plan_id": "CLOUD-LD-003",
+      "competitor": "LaunchDarkly",
+      "workstream": "ws-pricing",
+      "status": "PASS",
+      "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-e2e3b1c674cc.json",
+      "receipt_id": "cloud-dispatch-e2e3b1c674cc",
+      "at": "2026-06-21T04:34:23Z"
+    },
+    {
+      "plan_id": "CLOUD-LD-004",
+      "competitor": "LaunchDarkly",
+      "workstream": "ws-pricing",
+      "status": "PASS",
+      "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-6c8fb0d63d9b.json",
+      "receipt_id": "cloud-dispatch-6c8fb0d63d9b",
+      "at": "2026-06-21T04:34:24Z"
+    },
+    {
+      "plan_id": "CLOUD-LD-005",
+      "competitor": "LaunchDarkly",
+      "workstream": "ws-run",
+      "status": "PASS",
+      "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-79b5bc07071d.json",
+      "receipt_id": "cloud-dispatch-79b5bc07071d",
+      "at": "2026-06-21T04:34:24Z"
+    },
+    {
+      "plan_id": "CLOUD-LD-006",
+      "competitor": "LaunchDarkly",
+      "workstream": "ws-run",
+      "status": "PASS",
+      "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-071d534532ce.json",
+      "receipt_id": "cloud-dispatch-071d534532ce",
+      "at": "2026-06-21T04:34:25Z"
+    },
+    {
+      "plan_id": "CLOUD-LD-007",
+      "competitor": "LaunchDarkly",
+      "workstream": "ws-onboard",
+      "status": "PASS",
+      "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-04b4b6b17aa6.json",
+      "receipt_id": "cloud-dispatch-04b4b6b17aa6",
+      "at": "2026-06-21T04:34:25Z"
+    },
+    {
+      "plan_id": "CLOUD-LD-008",
+      "competitor": "LaunchDarkly",
+      "workstream": "ws-onboard",
+      "status": "PASS",
+      "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-27ebfe4f6ceb.json",
+      "receipt_id": "cloud-dispatch-27ebfe4f6ceb",
+      "at": "2026-06-21T04:34:26Z"
+    },
+    {
+      "plan_id": "CLOUD-LD-009",
+      "competitor": "LaunchDarkly",
+      "workstream": "ws-integrate",
+      "status": "PASS",
+      "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-1793dd475133.json",
+      "receipt_id": "cloud-dispatch-1793dd475133",
+      "at": "2026-06-21T04:34:26Z"
+    },
+    {
+      "plan_id": "CLOUD-LD-010",
+      "competitor": "LaunchDarkly",
+      "workstream": "ws-integrate",
+      "status": "PASS",
+      "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-2b6624101f67.json",
+      "receipt_id": "cloud-dispatch-2b6624101f67",
+      "at": "2026-06-21T04:34:27Z"
+    },
+    {
+      "plan_id": "CLOUD-SEC-001",
+      "competitor": "Trigger.dev",
+      "workstream": "ws-ux",
+      "status": "PASS",
+      "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-46ab84af2584.json",
+      "receipt_id": "cloud-dispatch-46ab84af2584",
+      "at": "2026-06-21T18:28:24Z"
+    },
+    {
+      "plan_id": "CLOUD-SEC-005",
+      "competitor": "Trigger.dev",
+      "workstream": "ws-ux",
+      "status": "PASS",
+      "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-8eabc6553a18.json",
+      "receipt_id": "cloud-dispatch-8eabc6553a18",
+      "at": "2026-06-21T04:07:24Z"
+    },
+    {
+      "plan_id": "CLOUD-SEC-037",
+      "competitor": "Trigger.dev",
+      "workstream": "ws-onboard",
+      "status": "PASS",
+      "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-4099338f7467.json",
+      "receipt_id": "cloud-dispatch-4099338f7467",
+      "at": "2026-06-21T03:58:30Z"
+    },
+    {
+      "plan_id": "CLOUD-SEC-104",
+      "competitor": "Inngest",
+      "workstream": "ws-integrate",
+      "status": "PASS",
+      "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-5f7418bd8c8a.json",
+      "receipt_id": "cloud-dispatch-5f7418bd8c8a",
+      "at": "2026-06-22T18:49:52Z"
+    }
+  ],
+  "updated_at": "2026-06-22T18:49:52Z",
+  "summary": {
+    "pass": 14,
+    "fail": 0,
+    "total": 14
+  }
+}

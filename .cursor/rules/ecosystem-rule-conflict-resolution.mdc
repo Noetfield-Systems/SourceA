@@ -2,7 +2,7 @@
 description: Auto conflict resolution when ecosystem rules disagree — all agents
 globs:
   - "**/*"
-alwaysApply: true
+alwaysApply: false
 ---
 
 # SourceA ecosystem — AUTO CONFLICT RESOLUTION

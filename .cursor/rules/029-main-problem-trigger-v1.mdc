@@ -1,6 +1,6 @@
 ---
 description: Main problem trigger — PREPARE next action (not report theater)
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Main problem trigger (LOCKED)

@@ -1,7 +1,0 @@
-{
-  "schema": "factory-mode-v1",
-  "mode": "FREEZE",
-  "since": "2026-06-20T22:45:35Z",
-  "set_by": "mac_control_plane",
-  "reason": "Mac control plane \u2014 cloud/API executes"
-}

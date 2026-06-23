@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
-# Install launchd supervisor for Sina Command hub (:13020) — KeepAlive + RunAtLoad.
-# Law: data/execution-state-desired-observed-v1.json — launchd = sole owner; no pkill when healthy.
+# Install launchd supervisor for Hub (:13020) — blocked when Sina Command museum retired.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+RETIRED_FLAG="${HOME}/.sina/sina-command-museum-retired-v1.flag"
+if [[ -f "${RETIRED_FLAG}" && "${SINA_HUB_FORCE:-}" != "1" ]]; then
+  echo "SKIP: Sina Command museum retired — no launchd install (${RETIRED_FLAG})"
+  exit 0
+fi
 PLIST_SRC="$ROOT/launch/com.sourcea.hub.plist"
 PLIST_DST="${HOME}/Library/LaunchAgents/com.sourcea.hub.plist"
 LABEL="com.sourcea.hub"

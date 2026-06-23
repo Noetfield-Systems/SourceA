@@ -1,9 +1,0 @@
-$ python3 /Users/sinakazemnezhad/Desktop/SourceA/scripts/critic_boot_v1.py --json --no-aeg
-
-CRITIC_BOOT BLOCK ok=False
-RECEIPT=/Users/sinakazemnezhad/.sina/critic-boot-v1.json
-
-  [FAIL] ssot_brief: synthetic test blocker
-
-blockers:
-  - synthetic test blocker

@@ -1,6 +1,6 @@
 ---
 description: Executor daily duty card — 22 founder reminders wired locally (D01–D22)
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Agent daily duty card (every session)
