@@ -194,7 +194,7 @@ def run_job(
         "work_order_id": woid,
         "mode": mode,
         "execution_plane": plane,
-        "deliveryMode": "prove_only",
+        "deliveryMode": "full_delivery" if bay_slug == "video-ad-orchestration-bay" else "prove_only",
         "tier_target": tier_target,
         "tier_achieved": tier_achieved,
         "lines": {
