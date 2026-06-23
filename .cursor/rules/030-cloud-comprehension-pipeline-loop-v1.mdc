@@ -1,6 +1,6 @@
 ---
 description: Cloud comprehension pipeline loop — C1→C5 translate every agent answer
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Cloud comprehension pipeline loop (LOCKED)

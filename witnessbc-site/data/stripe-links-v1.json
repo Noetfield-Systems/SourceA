@@ -1,6 +1,6 @@
 {
   "schema": "witnessbc-stripe-links-v1",
-  "saved_at": "2026-06-21T01:51:23Z",
+  "saved_at": "2026-06-21T04:30:10Z",
   "account": "witness.bc@gmail.com",
   "billing": {
     "legal_display": "WitnessBC",
@@ -10,24 +10,24 @@
   },
   "law": "Matches witnessbc.com/toolkits stripeLinks map \u2014 paste live buy.stripe.com URLs in ~/.sina/witnessbc-stripe-links-v1.env",
   "links": {
-    "sourcing": "https://buy.stripe.com/REPLACE_SOURCING_19",
-    "corrections": "https://buy.stripe.com/REPLACE_CORRECTIONS_9",
-    "privacy": "https://buy.stripe.com/REPLACE_PRIVACY_19",
-    "publicrec": "https://buy.stripe.com/REPLACE_PUBLICREC_29",
-    "storytemp": "https://buy.stripe.com/REPLACE_STORYTEMP_19",
-    "actionmap": "https://buy.stripe.com/REPLACE_ACTIONMAP_29",
-    "starter": "https://buy.stripe.com/REPLACE_STARTER_39",
-    "pro": "https://buy.stripe.com/REPLACE_PRO_99",
-    "team": "https://buy.stripe.com/REPLACE_TEAM_149",
-    "train_evidence101": "https://buy.stripe.com/REPLACE_TRAIN_EVIDENCE101",
-    "train_privacy": "https://buy.stripe.com/REPLACE_TRAIN_PRIVACY"
+    "sourcing": "https://buy.stripe.com/3cI28rfjx9sz6NOdzg4Ni01",
+    "corrections": "https://buy.stripe.com/3cIeVddbp7krb44eDk4Ni02",
+    "privacy": "https://buy.stripe.com/5kQfZhgnB2071tu1Qy4Ni03",
+    "publicrec": "https://buy.stripe.com/eVq5kD2wL48fgoogLs4Ni04",
+    "storytemp": "https://buy.stripe.com/dRmcN5c7l7kr8VW7aS4Ni05",
+    "actionmap": "https://buy.stripe.com/cNi3cv3APfQXa00eDk4Ni06",
+    "starter": "https://buy.stripe.com/28EdR9efteMT2xyfHo4Ni07",
+    "pro": "https://buy.stripe.com/5kQ28r9Zd0W30pq2UC4Ni08",
+    "team": "https://buy.stripe.com/28E8wP7R55cj8VWfHo4Ni09",
+    "train_evidence101": "https://buy.stripe.com/14AaEX6N18ovc888eW4Ni0a",
+    "train_privacy": "https://buy.stripe.com/cNicN5b3h2071tu66O4Ni0b"
   },
   "pricing_cta": {
     "pro_pdf": "pro",
     "starter_bundle": "starter",
     "team_bundle": "team"
   },
-  "stripe_links_live": false,
-  "live_count": 0,
+  "stripe_links_live": true,
+  "live_count": 11,
   "total_count": 11
 }

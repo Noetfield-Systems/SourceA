@@ -1,0 +1,37 @@
+{
+  "schema": "video-ad-factory-golden-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-21T14:00:00Z",
+  "factory_id": "video-ad-factory-v1",
+  "bay_slug": "video-ad-orchestration-bay",
+  "promotion_gate": {
+    "min_pass_rate": 0.875
+  },
+  "cases": [
+    {
+      "id": "vaf-001",
+      "raw_brief": "15s ad for SourceA Forge — proof layer for AI agents.",
+      "expect_step": "HUMAN_APPROVAL_REQUIRED",
+      "expect_ok": true
+    },
+    {
+      "id": "vaf-002",
+      "raw_brief": "",
+      "expect_ok": false
+    },
+    {
+      "id": "vaf-003",
+      "raw_brief": "30s cinematic product demo with voiceover and neon factory visuals.",
+      "expect_step": "HUMAN_APPROVAL_REQUIRED",
+      "expect_ok": true,
+      "run_modes": ["default"]
+    },
+    {
+      "id": "vaf-004",
+      "raw_brief": "Enterprise trust film — board-ready governance story for Noetfield with extended voiceover.",
+      "expect_step": "HUMAN_APPROVAL_REQUIRED",
+      "expect_ok": true,
+      "run_modes": ["strong"]
+    }
+  ]
+}

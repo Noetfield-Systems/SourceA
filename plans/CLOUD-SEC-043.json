@@ -14,11 +14,13 @@
   },
   "inputs": {
     "plane": "cloud_forge",
-    "action": "Cloud adapter stub mock_only if not prod",
+    "action": "Cloud adapter evidence row — production honesty labels in Supabase labs",
     "workstream": "ws-integrate",
     "tier": "T1",
     "": "Trigger.dev",
-    "maps_registry": "sa-mkt-0043"
+    "maps_registry": "sa-mkt-0043",
+    "drain_lane": "scaffold",
+    "auto_pass": true
   },
   "outputs": {
     "artifact": "cloud_receipt",

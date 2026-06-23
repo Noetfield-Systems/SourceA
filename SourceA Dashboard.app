@@ -1,0 +1,1 @@
+launchers/SourceA Dashboard.app

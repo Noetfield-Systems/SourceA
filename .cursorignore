@@ -1,2 +1,62 @@
-sourcea-site-v1/
-sourcea-site-v1/**
+# Mission B firewall — SourceA root scope only (no upward/sibling scan)
+# Match .gitignore heavy dirs + block agent drift outside repo
+
+# --- Block escape from repo root ---
+../
+../*
+~/
+~/Library/
+~/Desktop/
+~/Documents/
+~/Downloads/
+
+# --- Archive + receipts (heavy / stale) ---
+archive/
+receipts/
+commercial-video-factory/node_modules/
+commercial-video-factory/out/
+data/root-machine/graphify-out/
+infra/cleanup/secret-scan-report.txt
+**/*-receipt*.json
+**/*.jsonl
+**/*.log
+
+# --- Standard heavy dirs (mirror .gitignore) ---
+node_modules/
+.venv/
+venv/
+.turbo/
+.next/
+dist/
+.git/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.supabase/
+.DS_Store
+
+# --- Binaries / installers ---
+**/*.dmg
+**/*.pkg
+**/*.zip
+**/*.tar
+**/*.tar.gz
+**/*.tgz
+**/*.7z
+**/*.iso
+**/*.app/Contents/
+
+# --- Secrets (never index) ---
+.env
+.env.*
+**/.env.local
+**/.env.*.local
+infra/secrets/
+.sourcea-secrets/
+**/*.pem
+**/*.key
+
+# --- Local agent caches ---
+.cursor/debug-*.log
+.sina-loop/

@@ -1,0 +1,21 @@
+{
+  "schema": "remotion-prospect-reel-v1",
+  "pipeline_row_id": "cp-0b9b8c4eff",
+  "company": "NW1 design partner (draft)",
+  "lane": "NW1",
+  "hook": "Can Copilot act before your policy runs?",
+  "pain": "Microsoft logs what happened \u2014 not whether it was allowed before it ran.",
+  "proof_line": "BLOCK \u00b7 ESCALATE \u00b7 ALLOW \u2014 receipt chain on disk",
+  "scenario": "copilot-governance",
+  "verdict": "BLOCK",
+  "receipt_hash": "sha256:aeg-20260620T044750Z-ac101c6b",
+  "proof_url": "https://sourcea-landing.vercel.app/sourcea/proof/live.html",
+  "w1_film_url": "https://sourcea-landing.vercel.app/sourcea/proof.html#w1-demo-film",
+  "cta": "Book 15-min walkthrough",
+  "brand": "Noetfield",
+  "accent": "#2dd4bf",
+  "duration_seconds": 30,
+  "engine": "ENGINE-404",
+  "broll_video_file": "broll/w1-proof.mp4",
+  "broll_law": "w1-demo.mp4 real UI \u2014 TerminalMock blocked for outbound"
+}

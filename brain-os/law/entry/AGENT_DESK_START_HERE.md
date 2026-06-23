@@ -3,14 +3,13 @@
 **Organized entry:** `brain-os/law/entry/START_HERE_LOCKED_v1.md` · `brain-os/law/entry/MANDATORY_READ_BY_ROLE_LOCKED_v1.md`
 
 **Daily ops law:** `SINA_COMMAND_DEACTIVATED_INCIDENT_READ_POLICY_LOCKED_v1.md`  
-**Hub:** Sina Command brand = **DEACTIVATED** · optional **Worker Hub** `http://127.0.0.1:13020/` · legacy `/legacy/` archive only
+**Hub:** Worker Hub only `http://127.0.0.1:13020/` · Sina Command / museum **deleted** (ASF 2026-06-23)
 
 ## Daily founder path (2026-06-14)
 
 1. **Cursor Worker chat** — say **RUN INBOX** (one sa per turn)
 2. **Optional glance:** Worker Hub → Next steps · Safety (`http://127.0.0.1:13020/`)
-3. **Museum (browse only):** `http://127.0.0.1:13020/legacy/`
-4. **Quote disk:** `factory_now_line` from `~/.sina/agent-live-surfaces-v1.json` — chat transcript is not SSOT
+3. **Quote disk:** `factory_now_line` from `~/.sina/agent-live-surfaces-v1.json` — chat transcript is not SSOT
 
 **Session start (agents):** `python3 scripts/agent_session_gate_run_v1.py --role <role> --json`
 
@@ -20,11 +19,9 @@
 cd ~/Desktop/SourceA && ./scripts/update-program-progress.sh
 ```
 
-## Legacy monolith (archive — ASF/maintainer only)
+## Legacy monolith (deleted — git history only)
 
-```bash
-# Archive UI → http://127.0.0.1:13020/legacy/
-```
+Sina Command museum removed 2026-06-23 · `scripts/uninstall-sina-command-v1.sh` · law `ASF_RETIRE_SINA_COMMAND_FOREVER_LOCKED_v1.md`
 
 Morning brief: `./scripts/sina-morning-brief.sh`
 

@@ -1,0 +1,47 @@
+---
+description: Cursor token pools · local disk map · eight alwaysApply cap · Auto-first routing (ASF 2026-06-21)
+alwaysApply: true
+---
+
+# Cursor cost intelligence routing (045)
+
+**Law:** `brain-os/law/enforcement/SOURCEA_CURSOR_COST_INTELLIGENCE_ROUTING_LOCKED_v1.md`  
+**Machine:** `data/cursor-cost-intelligence-routing-v1.json`  
+**Cloud ROI pairs:** `docs/SOURCEA_TIER_PRIORITY_COST_INTELLIGENCE_POLICY_LOCKED_v1.md`
+
+## One law
+
+> **Mac heat + token burn = local IDE rehydration. Bounded paths · `.cursorignore` · Auto/Composer pool · cloud executes factory body.**
+
+## Cursor pools
+
+| Pool | Use |
+|------|-----|
+| **Auto + Composer** | Daily Brain route + Worker build (default) |
+| **API ($20/mo)** | Named models + Max Mode — ship window only |
+
+**Never** switch to Opus/GPT-5 for routine work — burns API pool.
+
+## Where new files go
+
+| Type | Path |
+|------|------|
+| Product/factory code | `apps/<name>/` |
+| Governance/law | `brain-os/` |
+| Gates/validators | `scripts/` |
+| Heavy logs/data | `receipts/` (ignored) |
+| Experiments | `labs/` |
+
+**Order shape:** `WORK: sa-XXXX — save ONLY under apps/foo/ — do not search whole repo.`
+
+## AlwaysApply cap
+
+**Eight rules only** (this file is #8). All other `.mdc` → `alwaysApply: false` or globs.
+
+Validator: `bash scripts/validate-cursor-alwaysapply-cap-v1.sh`
+
+## Role routing
+
+- **Brain** → Auto · <30s · no sa implement  
+- **Worker** → Auto → Composer · one sa · bounded paths  
+- **Proof/E2E** → Railway/cloud CI — not Cursor validators on Mac

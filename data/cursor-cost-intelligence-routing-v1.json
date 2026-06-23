@@ -1,0 +1,79 @@
+{
+  "schema": "cursor-cost-intelligence-routing-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-21T19:46:56Z",
+  "authority": "ASF SAVE 2026-06-21",
+  "law": "brain-os/law/enforcement/SOURCEA_CURSOR_COST_INTELLIGENCE_ROUTING_LOCKED_v1.md",
+  "cursor_rule": ".cursor/rules/045-cursor-cost-intelligence-routing-v1.mdc",
+  "pairs_with": "docs/SOURCEA_TIER_PRIORITY_COST_INTELLIGENCE_POLICY_LOCKED_v1.md",
+  "one_law": "Mac heat and Cursor token burn are local IDE problems — bounded paths, eight alwaysApply rules, Auto/Composer pools, cloud execution.",
+  "cursor_pools": {
+    "auto_composer": {
+      "models": ["Auto", "Composer Fast", "Composer 1.5", "Composer 2.5"],
+      "use_for": ["brain_route", "worker_build", "daily_coding"],
+      "note": "Generous included pool — dashboard is truth; not unlimited"
+    },
+    "api": {
+      "pro_included_usd": 20,
+      "use_for": ["architecture", "security", "max_mode_ship_window"],
+      "avoid_for": ["receipt_reads", "hub_copy", "routine_sa"]
+    }
+  },
+  "cursor_model_routing": [
+    {"role": "brain", "default": "Auto", "escalate": "Composer 1.5", "never": "implement_sa"},
+    {"role": "worker", "default": "Auto", "escalate": "Composer 2.5", "scope": "one_sa_bounded_paths"},
+    {"role": "ship_proof", "default": "named_api_pool", "max_mode": "ship_window_only"}
+  ],
+  "local_disk_map": {
+    "apps/": "executable factories and product code",
+    "brain-os/": "governance SSOT and agent law",
+    "scripts/": "validators gates hub executors",
+    "receipts/": "heavy raw logs JSON CSV — cursorignore zero tokens",
+    "labs/": "disposable experiments labs-sandbox tier",
+    "shared/types/": "Zod contracts",
+    "docs/": "non-law docs and routers",
+    "agent-control-panel/": "hub UI surfaces"
+  },
+  "cursorignore_additions": [
+    "brain-os/plan-registry/sourcea--1000/prompts/",
+    "brain-os/plan-registry/sourcea-1000/prompts/",
+    "infra/cleanup/secret-scan-report.txt"
+  ],
+  "alwaysapply_cap": {
+    "max_count": 8,
+    "allowed_files": [
+      ".cursor/rules/000-entry-gate.mdc",
+      ".cursor/rules/000-cross-lane-edit-forbidden.mdc",
+      ".cursor/rules/000-workspace-lock.mdc",
+      ".cursor/rules/mac-control-plane.mdc",
+      ".cursor/rules/034-mac-no-validator-stuck-red-flag.mdc",
+      ".cursor/rules/agent-founder-intent-first.mdc",
+      ".cursor/rules/agent-disk-live-wire-first.mdc",
+      ".cursor/rules/045-cursor-cost-intelligence-routing-v1.mdc"
+    ],
+    "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+  },
+  "task_tiers": {
+    "T0": {"where": "cursor_brain", "model": "Auto"},
+    "T1": {"where": "cursor_worker", "model": "Auto_then_Composer"},
+    "T2": {"where": "cloud_worker_bay", "model": "groq_flash"},
+    "T3": {"where": "cursor_api_or_cloud_leader", "model": "sonnet_opus_class"},
+    "T4": {"where": "railway_ci", "model": "none_or_lint"}
+  },
+  "cloud_llm_chains": {
+    "leader": [
+      "openrouter:deepseek/deepseek-r1-0528:free",
+      "gemini:gemini-2.5-flash",
+      "openrouter:meta-llama/llama-3.3-70b-instruct:free",
+      "github-models:gpt-4o"
+    ],
+    "worker": [
+      "groq:llama-3.1-8b-instant",
+      "gemini:gemini-2.5-flash-lite",
+      "cerebras:llama-3.1-8b",
+      "openrouter:openrouter/free"
+    ],
+    "batch": ["mistral:mistral-small"]
+  },
+  "founder_order_template": "WORK: sa-XXXX — build {what} and save ONLY under {path}/. Do not read brain-os/, archive/, plan-registry/, or receipts/ unless this task names them."
+}

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="portfolio-mail-ui-version" content="1.2.0" />
+  <meta name="sina-app-id" content="portfolio-mail" />
+  <title>Portfolio Mail · Source A</title>
+  <link rel="stylesheet" href="/shared/official-links-bar.css" />
+  <link rel="stylesheet" href="/shared/api-station-tab.css" />
+  <link rel="stylesheet" href="/shared/hub-pro-skills-tab.css" />
+  <style>
+    :root {
+      --bg: #0f172a; --panel: #1e293b; --card: #ffffff; --line: #e2e8f0;
+      --text: #0f172a; --muted: #64748b; --accent: #6366f1;
+      --ok: #10b981; --warn: #f59e0b; --bad: #ef4444;
+      --radius: 16px; --shadow: 0 20px 50px rgba(15,23,42,.12);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 15px/1.5 system-ui, -apple-system, sans-serif; background: linear-gradient(145deg,#eef2ff 0%,#f8fafc 40%,#ecfdf5 100%); color: var(--text); min-height: 100vh; }
+    .integration-rail { background: rgba(15,23,42,.96); color: #e2e8f0; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid #334155; position: sticky; top: 0; z-index: 20; }
+    .integration-rail .title { font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #94a3b8; }
+    .pill-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .pill { font-size: .72rem; padding: 6px 10px; border-radius: 999px; border: 1px solid #475569; background: #1e293b; color: #cbd5e1; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .pill.ok { border-color: #065f46; background: #064e3b; color: #6ee7b7; }
+    .pill.bad { border-color: #991b1b; background: #450a0a; color: #fca5a5; }
+    .pill.warn { border-color: #92400e; background: #451a03; color: #fcd34d; }
+    .pill:hover { filter: brightness(1.08); }
+    .pill .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: .85; }
+    .shell { display: grid; grid-template-columns: 280px 1fr 360px; gap: 0; max-width: 1440px; margin: 0 auto; min-height: calc(100vh - 96px); }
+    @media (max-width: 1100px) { .shell { grid-template-columns: 240px 1fr; } .compose { display: none; } .compose.open { display: flex; position: fixed; inset: 0; z-index: 50; top: 96px; } }
+    @media (max-width: 760px) { .shell { grid-template-columns: 1fr; } .sidebar { position: fixed; z-index: 40; transform: translateX(-100%); transition: .2s; width: 280px; height: calc(100vh - 96px); top: 96px; } .sidebar.open { transform: none; } }
+
+    .sidebar { background: var(--bg); color: #e2e8f0; padding: 20px 16px; overflow-y: auto; border-right: 1px solid #334155; }
+    .brand { font-size: 1.1rem; font-weight: 700; letter-spacing: -.02em; margin: 0 0 4px; color: #fff; }
+    .brand-sub { font-size: .75rem; color: #94a3b8; margin-bottom: 18px; }
+    .stat-row { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+    .stat { font-size: .68rem; padding: 6px 10px; border-radius: 999px; background: #334155; color: #cbd5e1; }
+    .stat.ok { background: #064e3b; color: #6ee7b7; }
+    .domain-block { margin-bottom: 14px; }
+    .domain-head { font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; margin: 12px 0 6px 4px; }
+    .mb-btn { width: 100%; text-align: left; border: 1px solid #334155; background: #1e293b; color: #e2e8f0; border-radius: 12px; padding: 10px 12px; margin-bottom: 6px; cursor: pointer; transition: .15s; }
+    .mb-btn:hover { border-color: #475569; background: #273549; }
+    .mb-btn.active { border-color: var(--mb-accent, #6366f1); box-shadow: 0 0 0 1px var(--mb-accent, #6366f1); background: #0f172a; }
+    .mb-btn .addr { font-size: .82rem; font-weight: 600; display: block; }
+    .mb-btn .meta { font-size: .68rem; color: #94a3b8; margin-top: 2px; display: flex; justify-content: space-between; gap: 6px; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; margin-right: 4px; }
+    .dot.ok { background: var(--ok); } .dot.skip { background: #64748b; } .dot.fail { background: var(--bad); }
+
+    .main { display: flex; flex-direction: column; min-height: calc(100vh - 96px); background: rgba(255,255,255,.72); backdrop-filter: blur(8px); }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.9); position: sticky; top: 96px; z-index: 10; }
+    .topbar h1 { margin: 0; font-size: 1.15rem; font-weight: 700; }
+    .topbar p { margin: 2px 0 0; font-size: .78rem; color: var(--muted); }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    button, .btn { appearance: none; border: 1px solid var(--line); background: #fff; color: var(--text); padding: 9px 14px; border-radius: 10px; font: inherit; font-size: .84rem; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
+    button.primary { background: linear-gradient(135deg,#4f46e5,#6366f1); color: #fff; border: 0; font-weight: 600; }
+    button.ghost { background: transparent; }
+    button:disabled { opacity: .5; cursor: wait; }
+
+    .inbox { flex: 1; overflow-y: auto; padding: 12px 16px 24px; }
+    .msg { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px; cursor: pointer; box-shadow: 0 1px 2px rgba(15,23,42,.04); transition: .12s; }
+    .msg:hover { border-color: #cbd5e1; box-shadow: var(--shadow); }
+    .msg.active { border-color: #a5b4fc; background: #fafaff; }
+    .msg-subj { font-weight: 600; font-size: .92rem; margin-bottom: 4px; }
+    .msg-from { font-size: .78rem; color: var(--muted); }
+    .msg-when { font-size: .72rem; color: #94a3b8; float: right; }
+    .msg-preview { font-size: .82rem; color: #475569; margin-top: 8px; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .empty { text-align: center; color: var(--muted); padding: 48px 20px; }
+    .empty h2 { font-size: 1rem; color: var(--text); }
+    .skeleton { height: 72px; border-radius: var(--radius); background: linear-gradient(90deg,#f1f5f9,#e2e8f0,#f1f5f9); background-size: 200% 100%; animation: shimmer 1.2s infinite; margin-bottom: 10px; }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+    .compose { background: #fff; border-left: 1px solid var(--line); display: flex; flex-direction: column; min-height: calc(100vh - 96px); }
+    .compose-head { padding: 16px 18px; border-bottom: 1px solid var(--line); font-weight: 700; font-size: .9rem; display: flex; justify-content: space-between; align-items: center; }
+    .compose-body { padding: 16px 18px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+    label { font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+    input, textarea, select { width: 100%; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; font: inherit; font-size: .88rem; }
+    textarea { flex: 1; min-height: 160px; resize: vertical; }
+    .read-pane { padding: 16px 18px; flex: 1; overflow-y: auto; }
+    .read-pane h2 { margin: 0 0 8px; font-size: 1.05rem; }
+    .read-meta { font-size: .78rem; color: var(--muted); margin-bottom: 14px; }
+    .read-body { white-space: pre-wrap; font-size: .88rem; line-height: 1.55; color: #334155; }
+    .toast { position: fixed; bottom: 20px; right: 20px; background: #0f172a; color: #fff; padding: 12px 16px; border-radius: 12px; font-size: .84rem; opacity: 0; pointer-events: none; transition: .2s; z-index: 99; max-width: 360px; }
+    .toast.show { opacity: 1; }
+    .toast.err { background: #7f1d1d; }
+    .loading { opacity: .6; pointer-events: none; }
+  </style>
+</head>
+<body>
+  <nav class="official-links-bar" data-official-links data-active="mail" aria-label="Official links"></nav>
+  <header class="integration-rail" id="integration-rail">
+    <div>
+      <div class="title">Portfolio stack</div>
+      <div class="pill-row" id="integration-pills">
+        <span class="pill warn"><span class="dot"></span>Checking…</span>
+      </div>
+    </div>
+    <div class="pill-row">
+      <button type="button" class="pill" id="btn-wire" style="cursor:pointer;border-style:dashed;">Wire all</button>
+      <a class="pill" href="http://127.0.0.1:13023/" data-sina-app="chat" rel="noopener">Chat Unify</a>
+      <a class="pill" href="http://127.0.0.1:13026/" data-sina-app="n8n" rel="noopener">N8N Integration</a>
+      <a class="pill" href="http://127.0.0.1:8781/" data-sina-app="mac-law" rel="noopener">Mac Law</a>
+      <a class="pill" href="/" data-sina-app="hub">Worker Hub</a>
+    </div>
+  </header>
+
+  <div class="shell" data-sina-app-root>
+    <aside class="sidebar" id="sidebar">
+      <p class="brand">Portfolio Mail</p>
+      <p class="brand-sub">15 inboxes · one cockpit · wired sends log to n8n + Chat Unify</p>
+      <div class="stat-row" id="stats"></div>
+      <div id="mailbox-list"></div>
+    </aside>
+
+    <section class="main">
+      <header class="topbar">
+        <div>
+          <h1 id="inbox-title">Select a mailbox</h1>
+          <p id="inbox-sub">Wired mailboxes show live inbox · vault-missing show gray</p>
+        </div>
+        <div class="actions">
+          <button type="button" class="ghost" id="btn-menu" style="display:none;">☰</button>
+          <button type="button" id="btn-refresh">Refresh all</button>
+          <button type="button" class="primary" id="btn-compose">Compose</button>
+        </div>
+      </header>
+      <div class="inbox" id="inbox"></div>
+    </section>
+
+    <aside class="compose" id="compose">
+      <div class="compose-head">
+        <span id="pane-title">Compose</span>
+        <button type="button" class="ghost" id="btn-close-compose" style="display:none;font-size:.75rem;">Close</button>
+      </div>
+      <div class="compose-body" id="compose-form">
+        <div>
+          <label for="from-select">From</label>
+          <select id="from-select"></select>
+        </div>
+        <div>
+          <label for="to-input">To</label>
+          <input id="to-input" type="email" placeholder="recipient@company.com" autocomplete="off" />
+        </div>
+        <div>
+          <label for="subj-input">Subject</label>
+          <input id="subj-input" type="text" placeholder="Subject line" />
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;">
+          <label for="body-input">Message</label>
+          <textarea id="body-input" placeholder="Write your message…"></textarea>
+        </div>
+        <button type="button" class="primary" id="btn-send">Send · logs to stack</button>
+      </div>
+      <div class="read-pane" id="read-pane" hidden>
+        <h2 id="read-subj"></h2>
+        <div class="read-meta" id="read-meta"></div>
+        <div class="read-body" id="read-body"></div>
+        <button type="button" class="primary" id="btn-reply" style="margin-top:16px;">Reply</button>
+      </div>
+    </aside>
+  </div>
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const API = "/api/portfolio-mail/v1";
+    const INT_API = "/api/portfolio-mail/v1/integration";
+    let state = { domains: [], selected: null, messages: [], mode: "compose", integration: null };
+
+    function toast(msg, err) {
+      const el = document.getElementById("toast");
+      el.textContent = msg;
+      el.className = "toast show" + (err ? " err" : "");
+      setTimeout(() => el.classList.remove("show"), 4200);
+    }
+
+    function roleLabel(r) {
+      return ({ greet: "Outbound", intake: "Intake", ops: "Ops" }[r] || r || "");
+    }
+
+    function pill(label, ok, href, appId) {
+      const cls = ok === true ? "ok" : ok === false ? "bad" : "warn";
+      const inner = `<span class="dot"></span>${label}`;
+      const appAttr = appId ? ` data-sina-app="${appId}"` : "";
+      if (href) return `<a class="pill ${cls}" href="${href}"${appAttr} rel="noopener">${inner}</a>`;
+      return `<span class="pill ${cls}">${inner}</span>`;
+    }
+
+    function bindNativeAppLinks(root) {
+      (root || document).querySelectorAll("[data-sina-app]").forEach((a) => {
+        a.addEventListener("click", (e) => {
+          if (window.SinaOfficialLinks && window.SinaOfficialLinks.openNativeApp(a.getAttribute("data-sina-app"), e)) return;
+        });
+      });
+    }
+
+    function renderIntegration(row) {
+      state.integration = row || {};
+      const wired = !!row.wired;
+      const pills = [
+        pill("Mail " + (row.portfolio_mail_live_count || 0) + " live", row.portfolio_mail_up, "/mail-hub/", "mail"),
+        pill("Chat Unify", row.chat_unify_up, "http://127.0.0.1:13023/", "chat"),
+        pill("N8N Integration", row.n8n_integration_up, "http://127.0.0.1:13026/", "n8n"),
+        pill("Mac Law", row.mac_law_up, "http://127.0.0.1:8781/", "mac-law"),
+        pill(wired ? "Stack wired" : "Stack pending", wired),
+      ];
+      document.getElementById("integration-pills").innerHTML = pills.join("");
+      bindNativeAppLinks(document.getElementById("integration-rail"));
+      document.getElementById("btn-wire").textContent = wired ? "Re-wire" : "Wire all";
+    }
+
+    async function loadIntegration() {
+      try {
+        const r = await fetch(INT_API);
+        renderIntegration(await r.json());
+      } catch (e) {
+        renderIntegration({ wired: false, portfolio_mail_up: false, chat_unify_up: false, n8n_integration_up: false });
+      }
+    }
+
+    async function wireAll() {
+      const btn = document.getElementById("btn-wire");
+      btn.disabled = true;
+      btn.textContent = "Wiring…";
+      try {
+        const r = await fetch(INT_API, { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" });
+        const data = await r.json();
+        renderIntegration(data.status || data);
+        toast(data.ok ? (data.founder_line || "Stack wired") : "Wire incomplete — check services", !data.ok);
+        if (data.ok) await loadOverview();
+      } catch (e) {
+        toast(e.message, true);
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    function renderStats(summary) {
+      const s = summary || {};
+      document.getElementById("stats").innerHTML = [
+        `<span class="stat ok">${s.ok || 0} live</span>`,
+        `<span class="stat">${s.skip || 0} vault pending</span>`,
+        `<span class="stat">${s.total || 15} total</span>`,
+      ].join("");
+    }
+
+    function showSkeleton() {
+      document.getElementById("inbox").innerHTML = Array(4).fill('<div class="skeleton"></div>').join("");
+    }
+
+    function renderSidebar() {
+      const root = document.getElementById("mailbox-list");
+      root.innerHTML = "";
+      const fromSel = document.getElementById("from-select");
+      fromSel.innerHTML = "";
+      (state.domains || []).forEach((dom) => {
+        const head = document.createElement("div");
+        head.className = "domain-head";
+        head.textContent = dom.brand + " · " + dom.domain;
+        root.appendChild(head);
+        (dom.mailboxes || []).forEach((mb) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "mb-btn" + (state.selected === mb.address ? " active" : "");
+          btn.style.setProperty("--mb-accent", mb.accent || dom.accent || "#6366f1");
+          const st = mb.status || (mb.wired ? "ok" : "skip");
+          btn.innerHTML = `<span class="addr">${mb.address}</span><span class="meta"><span><span class="dot ${st}"></span>${roleLabel(mb.role)}</span><span>${mb.messages_total ?? 0} msg</span></span>`;
+          btn.onclick = () => selectMailbox(mb.address);
+          root.appendChild(btn);
+          if (mb.wired || mb.status === "ok") {
+            const opt = document.createElement("option");
+            opt.value = mb.address;
+            opt.textContent = mb.address;
+            fromSel.appendChild(opt);
+          }
+        });
+      });
+    }
+
+    function renderInbox() {
+      const box = document.getElementById("inbox");
+      if (!state.selected) {
+        box.innerHTML = `<div class="empty"><h2>Pick a mailbox</h2><p>All portfolio domains on the left — wired boxes load live IMAP.</p></div>`;
+        return;
+      }
+      if (!state.messages.length) {
+        box.innerHTML = `<div class="empty"><h2>No messages</h2><p>Inbox empty or vault not wired for this address.</p><p style="font-size:.8rem;margin-top:8px;">Add app passwords to ~/.sina/secrets.env per portfolio vault tags.</p></div>`;
+        return;
+      }
+      box.innerHTML = state.messages.map((m, i) => `
+        <article class="msg" data-i="${i}">
+          <span class="msg-when">${escapeHtml(m.when || "")}</span>
+          <div class="msg-subj">${escapeHtml(m.subject || "(no subject)")}</div>
+          <div class="msg-from">${escapeHtml(m.from || "")}</div>
+          <div class="msg-preview">${escapeHtml(m.preview || "")}</div>
+        </article>`).join("");
+      box.querySelectorAll(".msg").forEach((el) => {
+        el.onclick = () => openRead(+el.dataset.i);
+      });
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    }
+
+    function openRead(i) {
+      const m = state.messages[i];
+      if (!m) return;
+      state.mode = "read";
+      state.readIndex = i;
+      document.getElementById("compose-form").hidden = true;
+      const pane = document.getElementById("read-pane");
+      pane.hidden = false;
+      document.getElementById("pane-title").textContent = "Message";
+      document.getElementById("read-subj").textContent = m.subject || "(no subject)";
+      document.getElementById("read-meta").textContent = `${m.from || ""} · ${m.when || ""}`;
+      document.getElementById("read-body").textContent = m.preview || "";
+      document.querySelectorAll(".msg").forEach((el, j) => el.classList.toggle("active", j === i));
+      document.getElementById("compose").classList.add("open");
+    }
+
+    function showCompose() {
+      state.mode = "compose";
+      document.getElementById("read-pane").hidden = true;
+      document.getElementById("compose-form").hidden = false;
+      document.getElementById("pane-title").textContent = "Compose";
+      if (state.selected) document.getElementById("from-select").value = state.selected;
+      document.getElementById("compose").classList.add("open");
+    }
+
+    function replyToMessage() {
+      const m = state.messages[state.readIndex];
+      if (!m) return;
+      showCompose();
+      const fromMatch = (m.from || "").match(/[\w.+-]+@[\w.-]+\.\w+/);
+      document.getElementById("to-input").value = fromMatch ? fromMatch[0] : "";
+      document.getElementById("subj-input").value = /^re:/i.test(m.subject || "") ? m.subject : "Re: " + (m.subject || "");
+      document.getElementById("body-input").focus();
+    }
+
+    async function loadOverview() {
+      document.body.classList.add("loading");
+      showSkeleton();
+      try {
+        const r = await fetch(API + "?limit=8");
+        const data = await r.json();
+        state.domains = data.domains || [];
+        renderStats(data.summary);
+        renderSidebar();
+        if (!state.selected) {
+          const first = (data.mailboxes || []).find((m) => m.status === "ok");
+          if (first) await selectMailbox(first.address, false);
+        } else {
+          await selectMailbox(state.selected, false);
+        }
+      } catch (e) {
+        toast("Could not load mail hub: " + e.message, true);
+      } finally {
+        document.body.classList.remove("loading");
+      }
+    }
+
+    async function selectMailbox(address, reloadOverview = true) {
+      state.selected = address;
+      document.getElementById("inbox-title").textContent = address;
+      document.getElementById("inbox-sub").textContent = "Loading inbox…";
+      if (reloadOverview) renderSidebar();
+      showSkeleton();
+      try {
+        const r = await fetch(API + "?address=" + encodeURIComponent(address) + "&limit=25");
+        const data = await r.json();
+        if (!data.ok) {
+          state.messages = [];
+          document.getElementById("inbox-sub").textContent = data.error || "Not wired";
+          if (data.status === "skip") toast("Vault password missing for this mailbox", true);
+          else toast(data.error || "Mailbox not available", true);
+        } else {
+          state.messages = data.messages || [];
+          document.getElementById("inbox-sub").textContent = `${data.messages_total || 0} messages · ${roleLabel(data.role)}`;
+        }
+        renderInbox();
+        showCompose();
+        document.getElementById("from-select").value = address;
+      } catch (e) {
+        toast(e.message, true);
+      }
+    }
+
+    async function sendMail() {
+      const payload = {
+        from_address: document.getElementById("from-select").value,
+        to: document.getElementById("to-input").value.trim(),
+        subject: document.getElementById("subj-input").value.trim(),
+        body: document.getElementById("body-input").value.trim(),
+      };
+      const btn = document.getElementById("btn-send");
+      btn.disabled = true;
+      try {
+        const r = await fetch(API + "/send", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+        const data = await r.json();
+        if (!data.ok) throw new Error(data.error || "send failed");
+        const integ = (data.integration || {}).ok ? " · logged to stack" : "";
+        toast("Sent to " + payload.to + integ);
+        document.getElementById("to-input").value = "";
+        document.getElementById("subj-input").value = "";
+        document.getElementById("body-input").value = "";
+      } catch (e) {
+        toast(e.message, true);
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    document.getElementById("btn-refresh").onclick = () => { loadOverview(); loadIntegration(); };
+    document.getElementById("btn-compose").onclick = () => showCompose();
+    document.getElementById("btn-send").onclick = () => sendMail();
+    document.getElementById("btn-wire").onclick = () => wireAll();
+    document.getElementById("btn-reply").onclick = () => replyToMessage();
+    document.getElementById("btn-close-compose").onclick = () => document.getElementById("compose").classList.remove("open");
+    if (window.matchMedia("(max-width:760px)").matches) {
+      document.getElementById("btn-menu").style.display = "inline-flex";
+      document.getElementById("btn-close-compose").style.display = "inline-flex";
+      document.getElementById("btn-menu").onclick = () => document.getElementById("sidebar").classList.toggle("open");
+    }
+    loadIntegration();
+    loadOverview();
+    bindNativeAppLinks(document);
+  </script>
+  <script src="/shared/official-links-bar.js"></script>
+  <script src="/shared/official-links-bar.js"></script>
+  <script src="/shared/sina-view-mode.js"></script>
+  <script src="/shared/api-station-tab.js"></script>
+  <script src="/shared/hub-pro-skills-tab.js"></script>
+</body>
+</html>

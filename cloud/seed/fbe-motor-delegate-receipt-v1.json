@@ -1,0 +1,14 @@
+{
+  "schema": "fbe-motor-delegate-receipt-v1",
+  "ok": true,
+  "at": "2026-06-21T01:42:48Z",
+  "mode": "motor_delegate",
+  "skipped": true,
+  "freeze_flag": "/Users/sinakazemnezhad/.sina/auto-run-disabled-v1.flag",
+  "freeze_line": "cursor-agent-law \u00b7 2026-06-20T23:05:08Z",
+  "script": "fbe_motor_delegate_v1.py",
+  "note": "FBE motor deferred \u2014 run on cloud worker (--force to override)",
+  "execution_plane": "cloud_deferred",
+  "wave": "W1",
+  "fbe_prove": true
+}

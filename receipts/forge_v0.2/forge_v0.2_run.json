@@ -1,0 +1,3945 @@
+{
+  "schema": "forge-v0.2-run",
+  "at": "2026-06-21T04:07:23Z",
+  "architecture": "A",
+  "github": {
+    "owner": "kazemnezhadsina144-dot",
+    "repo": "SourceA",
+    "plans_path": "plans",
+    "ref": "main"
+  },
+  "adapter": {
+    "schema": "forge-v0.2-adapter-mapping",
+    "at": "2026-06-21T04:07:23Z",
+    "sample_size": 5,
+    "sample_paths": [
+      "plans/CLOUD-SEC-001.json",
+      "plans/CLOUD-SEC-002.json",
+      "plans/CLOUD-SEC-003.json",
+      "plans/CLOUD-SEC-004.json",
+      "plans/CLOUD-SEC-005.json"
+    ],
+    "observed_keys": [
+      "inputs",
+      "inputs.action",
+      "inputs.",
+      "inputs.maps_registry",
+      "inputs.plane",
+      "inputs.tier",
+      "inputs.workstream",
+      "metadata",
+      "metadata.client_problem_id",
+      "metadata.",
+      "metadata.core_capability",
+      "metadata.cost_tier",
+      "metadata.maps_registry",
+      "metadata.tier",
+      "metadata.workstream",
+      "outputs",
+      "outputs.artifact",
+      "outputs.receipt_url",
+      "plan_id",
+      "target",
+      "validation",
+      "version"
+    ],
+    "field_mapping": {
+      "id": "plan_id",
+      "schema_version": "version",
+      "destination_repo": "target",
+      "inputs": "inputs",
+      "outputs": "outputs",
+      "validation_rule": "validation",
+      "metadata.core_capability": "metadata.core_capability",
+      "metadata.client_problem_id": "metadata.client_problem_id"
+    },
+    "destination_repo_default": "sourcea/fbe-cloud-worker",
+    "note": "Maps real GitHub plan fields onto Forge schema. Missing sources stay absent \u2014 never invented."
+  },
+  "data_health": {
+    "schema": "forge-v0.2-data-health",
+    "at": "2026-06-21T04:07:23Z",
+    "total_real_plans_found": 100,
+    "mapped_cleanly_to_full_schema": 100,
+    "most_commonly_missing_fields": [],
+    "parse_failures": 0,
+    "adapted_count": 100,
+    "fetch_source": "bundled_fallback"
+  },
+  "telemetry_line": "Forge v0.2: 100 real \u2192 100 mapped \u2192 0 dupes \u2192 0 malformed \u2192 top 20 ranked. Most-missing field: none (0).",
+  "win_test_question": "Are these the 20 you would have picked by hand, or better?",
+  "win_test_card": [
+    "CLOUD-SEC-005 score=44 [ws-ux|Trigger.dev] Diff copy vs Trigger.dev \u2014 fix top gap in cloud repo",
+    "CLOUD-SEC-024 score=42 [ws-run|Trigger.dev] Wire cloud factory receipt emit on run complete",
+    "CLOUD-SEC-003 score=40 [ws-ux|Trigger.dev] Cloud sandbox smallest Hub UX slice \u2014 FORGE deploy preview URL",
+    "CLOUD-SEC-038 score=40 [ws-onboard|Trigger.dev] Wire cloud dispatch hook for onboarding \u2014 API only",
+    "CLOUD-SEC-088 score=40 [ws-onboard|Inngest] Wire cloud dispatch hook onboarding",
+    "CLOUD-SEC-007 score=36 [ws-ux|Trigger.dev] ICP one-liner evidence row \u2014 Trigger.dev vs ours",
+    "CLOUD-SEC-015 score=36 [ws-pricing|Trigger.dev] PLG motion compare row \u2014 Trigger.dev vs us",
+    "CLOUD-SEC-016 score=36 [ws-pricing|Trigger.dev] Why buyers pay \u2014 evidence paragraph",
+    "CLOUD-SEC-017 score=36 [ws-pricing|Trigger.dev] Upgrade CTA on cloud preview",
+    "CLOUD-SEC-025 score=36 [ws-run|Trigger.dev] Retention note vs Trigger.dev tiers",
+    "CLOUD-SEC-026 score=36 [ws-run|Trigger.dev] Surface run id + link in cloud Hub projection",
+    "CLOUD-SEC-027 score=36 [ws-run|Trigger.dev] Attribute infra vs agent failure class",
+    "CLOUD-SEC-035 score=36 [ws-onboard|Trigger.dev] Pair onboarding with run-detail receipt \u2014 cloud",
+    "CLOUD-SEC-036 score=36 [ws-onboard|Trigger.dev] SOW snippet if services-led \u2014 vault row",
+    "CLOUD-SEC-045 score=36 [ws-integrate|Trigger.dev] Log external calls on cloud run timeline",
+    "CLOUD-SEC-046 score=36 [ws-integrate|Trigger.dev] Document secrets path ~/.sourcea-secrets",
+    "CLOUD-SEC-047 score=36 [ws-integrate|Trigger.dev] Rate-limit + retry policy from Trigger.dev model",
+    "CLOUD-SEC-055 score=36 [ws-ux|Inngest] Diff copy vs Inngest \u2014 cloud fix P0 gap",
+    "CLOUD-SEC-057 score=36 [ws-ux|Inngest] ICP compare Inngest vs ours \u2014 evidence row",
+    "CLOUD-SEC-065 score=36 [ws-pricing|Inngest] Dev-first PLG compare row"
+  ],
+  "funnel": {
+    "totalReal": 100,
+    "mappedClean": 100,
+    "dupesDropped": 0,
+    "malformedDropped": 0,
+    "alreadyHaveDropped": 14,
+    "validRemaining": 86
+  },
+  "top_20": [
+    {
+      "id": "CLOUD-SEC-005",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Diff copy vs Trigger.dev \u2014 fix top gap in cloud repo",
+        "workstream": "ws-ux",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0005"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-005.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 44,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 8,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; pattern +8; tier +6 \u2014 Diff copy vs Trigger.dev \u2014 fix top gap in cloud repo",
+      "win_test_line": "CLOUD-SEC-005 score=44 [ws-ux|Trigger.dev] Diff copy vs Trigger.dev \u2014 fix top gap in cloud repo"
+    },
+    {
+      "id": "CLOUD-SEC-024",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Wire cloud factory receipt emit on run complete",
+        "workstream": "ws-run",
+        "tier": "T1",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0024"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-024.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "worker_run_dashboard",
+        "client_problem_id": "P1-run-visibility"
+      },
+      "core_capability": "worker_run_dashboard",
+      "client_problem": "P1-run-visibility",
+      "score": 42,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 8,
+        "tier_adjustment": 4
+      },
+      "reason": "core capability match; client problem match; minimal deps; pattern +8; tier +4 \u2014 Wire cloud factory receipt emit on run complete",
+      "win_test_line": "CLOUD-SEC-024 score=42 [ws-run|Trigger.dev] Wire cloud factory receipt emit on run complete"
+    },
+    {
+      "id": "CLOUD-SEC-003",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Cloud sandbox smallest Hub UX slice \u2014 FORGE deploy preview URL",
+        "workstream": "ws-ux",
+        "tier": "T1",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0003"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-003.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 40,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 6,
+        "tier_adjustment": 4
+      },
+      "reason": "core capability match; client problem match; minimal deps; pattern +6; tier +4 \u2014 Cloud sandbox smallest Hub UX slice \u2014 FORGE deploy preview URL",
+      "win_test_line": "CLOUD-SEC-003 score=40 [ws-ux|Trigger.dev] Cloud sandbox smallest Hub UX slice \u2014 FORGE deploy preview URL"
+    },
+    {
+      "id": "CLOUD-SEC-038",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Wire cloud dispatch hook for onboarding \u2014 API only",
+        "workstream": "ws-onboard",
+        "tier": "T3",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0038"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-038.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 40,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 14,
+        "tier_adjustment": -4
+      },
+      "reason": "core capability match; client problem match; minimal deps; pattern +14; tier -4 \u2014 Wire cloud dispatch hook for onboarding \u2014 API only",
+      "win_test_line": "CLOUD-SEC-038 score=40 [ws-onboard|Trigger.dev] Wire cloud dispatch hook for onboarding \u2014 API only"
+    },
+    {
+      "id": "CLOUD-SEC-088",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Wire cloud dispatch hook onboarding",
+        "workstream": "ws-onboard",
+        "tier": "T3",
+        "": "Inngest",
+        "maps_registry": "sa-mkt-0088"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-088.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 40,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 14,
+        "tier_adjustment": -4
+      },
+      "reason": "core capability match; client problem match; minimal deps; pattern +14; tier -4 \u2014 Wire cloud dispatch hook onboarding",
+      "win_test_line": "CLOUD-SEC-088 score=40 [ws-onboard|Inngest] Wire cloud dispatch hook onboarding"
+    },
+    {
+      "id": "CLOUD-SEC-007",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "ICP one-liner evidence row \u2014 Trigger.dev vs ours",
+        "workstream": "ws-ux",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0007"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-007.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 ICP one-liner evidence row \u2014 Trigger.dev vs ours",
+      "win_test_line": "CLOUD-SEC-007 score=36 [ws-ux|Trigger.dev] ICP one-liner evidence row \u2014 Trigger.dev vs ours"
+    },
+    {
+      "id": "CLOUD-SEC-015",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "PLG motion compare row \u2014 Trigger.dev vs us",
+        "workstream": "ws-pricing",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0015"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-015.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P3-pricing-clarity"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P3-pricing-clarity",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 PLG motion compare row \u2014 Trigger.dev vs us",
+      "win_test_line": "CLOUD-SEC-015 score=36 [ws-pricing|Trigger.dev] PLG motion compare row \u2014 Trigger.dev vs us"
+    },
+    {
+      "id": "CLOUD-SEC-016",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Why buyers pay \u2014 evidence paragraph",
+        "workstream": "ws-pricing",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0016"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-016.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P3-pricing-clarity"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P3-pricing-clarity",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Why buyers pay \u2014 evidence paragraph",
+      "win_test_line": "CLOUD-SEC-016 score=36 [ws-pricing|Trigger.dev] Why buyers pay \u2014 evidence paragraph"
+    },
+    {
+      "id": "CLOUD-SEC-017",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Upgrade CTA on cloud preview",
+        "workstream": "ws-pricing",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0017"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-017.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P3-pricing-clarity"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P3-pricing-clarity",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Upgrade CTA on cloud preview",
+      "win_test_line": "CLOUD-SEC-017 score=36 [ws-pricing|Trigger.dev] Upgrade CTA on cloud preview"
+    },
+    {
+      "id": "CLOUD-SEC-025",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Retention note vs Trigger.dev tiers",
+        "workstream": "ws-run",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0025"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-025.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "worker_run_dashboard",
+        "client_problem_id": "P1-run-visibility"
+      },
+      "core_capability": "worker_run_dashboard",
+      "client_problem": "P1-run-visibility",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Retention note vs Trigger.dev tiers",
+      "win_test_line": "CLOUD-SEC-025 score=36 [ws-run|Trigger.dev] Retention note vs Trigger.dev tiers"
+    },
+    {
+      "id": "CLOUD-SEC-026",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Surface run id + link in cloud Hub projection",
+        "workstream": "ws-run",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0026"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-026.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "worker_run_dashboard",
+        "client_problem_id": "P1-run-visibility"
+      },
+      "core_capability": "worker_run_dashboard",
+      "client_problem": "P1-run-visibility",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Surface run id + link in cloud Hub projection",
+      "win_test_line": "CLOUD-SEC-026 score=36 [ws-run|Trigger.dev] Surface run id + link in cloud Hub projection"
+    },
+    {
+      "id": "CLOUD-SEC-027",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Attribute infra vs agent failure class",
+        "workstream": "ws-run",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0027"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-027.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "worker_run_dashboard",
+        "client_problem_id": "P1-run-visibility"
+      },
+      "core_capability": "worker_run_dashboard",
+      "client_problem": "P1-run-visibility",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Attribute infra vs agent failure class",
+      "win_test_line": "CLOUD-SEC-027 score=36 [ws-run|Trigger.dev] Attribute infra vs agent failure class"
+    },
+    {
+      "id": "CLOUD-SEC-035",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Pair onboarding with run-detail receipt \u2014 cloud",
+        "workstream": "ws-onboard",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0035"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-035.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Pair onboarding with run-detail receipt \u2014 cloud",
+      "win_test_line": "CLOUD-SEC-035 score=36 [ws-onboard|Trigger.dev] Pair onboarding with run-detail receipt \u2014 cloud"
+    },
+    {
+      "id": "CLOUD-SEC-036",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "SOW snippet if services-led \u2014 vault row",
+        "workstream": "ws-onboard",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0036"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-036.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 SOW snippet if services-led \u2014 vault row",
+      "win_test_line": "CLOUD-SEC-036 score=36 [ws-onboard|Trigger.dev] SOW snippet if services-led \u2014 vault row"
+    },
+    {
+      "id": "CLOUD-SEC-045",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Log external calls on cloud run timeline",
+        "workstream": "ws-integrate",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0045"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-045.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "cloud_worker_dispatch_api",
+        "client_problem_id": "P0-trust-receipt-gap"
+      },
+      "core_capability": "cloud_worker_dispatch_api",
+      "client_problem": "P0-trust-receipt-gap",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Log external calls on cloud run timeline",
+      "win_test_line": "CLOUD-SEC-045 score=36 [ws-integrate|Trigger.dev] Log external calls on cloud run timeline"
+    },
+    {
+      "id": "CLOUD-SEC-046",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Document secrets path ~/.sourcea-secrets",
+        "workstream": "ws-integrate",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0046"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-046.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "cloud_worker_dispatch_api",
+        "client_problem_id": "P0-trust-receipt-gap"
+      },
+      "core_capability": "cloud_worker_dispatch_api",
+      "client_problem": "P0-trust-receipt-gap",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Document secrets path ~/.sourcea-secrets",
+      "win_test_line": "CLOUD-SEC-046 score=36 [ws-integrate|Trigger.dev] Document secrets path ~/.sourcea-secrets"
+    },
+    {
+      "id": "CLOUD-SEC-047",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Rate-limit + retry policy from Trigger.dev model",
+        "workstream": "ws-integrate",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0047"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-047.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "cloud_worker_dispatch_api",
+        "client_problem_id": "P0-trust-receipt-gap"
+      },
+      "core_capability": "cloud_worker_dispatch_api",
+      "client_problem": "P0-trust-receipt-gap",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Rate-limit + retry policy from Trigger.dev model",
+      "win_test_line": "CLOUD-SEC-047 score=36 [ws-integrate|Trigger.dev] Rate-limit + retry policy from Trigger.dev model"
+    },
+    {
+      "id": "CLOUD-SEC-055",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Diff copy vs Inngest \u2014 cloud fix P0 gap",
+        "workstream": "ws-ux",
+        "tier": "T2",
+        "": "Inngest",
+        "maps_registry": "sa-mkt-0055"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-055.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Diff copy vs Inngest \u2014 cloud fix P0 gap",
+      "win_test_line": "CLOUD-SEC-055 score=36 [ws-ux|Inngest] Diff copy vs Inngest \u2014 cloud fix P0 gap"
+    },
+    {
+      "id": "CLOUD-SEC-057",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "ICP compare Inngest vs ours \u2014 evidence row",
+        "workstream": "ws-ux",
+        "tier": "T2",
+        "": "Inngest",
+        "maps_registry": "sa-mkt-0057"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-057.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 ICP compare Inngest vs ours \u2014 evidence row",
+      "win_test_line": "CLOUD-SEC-057 score=36 [ws-ux|Inngest] ICP compare Inngest vs ours \u2014 evidence row"
+    },
+    {
+      "id": "CLOUD-SEC-065",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Dev-first PLG compare row",
+        "workstream": "ws-pricing",
+        "tier": "T2",
+        "": "Inngest",
+        "maps_registry": "sa-mkt-0065"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-065.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P3-pricing-clarity"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P3-pricing-clarity",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Dev-first PLG compare row",
+      "win_test_line": "CLOUD-SEC-065 score=36 [ws-pricing|Inngest] Dev-first PLG compare row"
+    }
+  ],
+  "routed": {
+    "sourcea/fbe-cloud-worker": [
+      {
+        "_source_path": "plans/CLOUD-SEC-005.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-005",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Diff copy vs Trigger.dev \u2014 fix top gap in cloud repo",
+          "workstream": "ws-ux",
+          "tier": "T2",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0005"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-005.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 44,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 8,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-024.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-024",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Wire cloud factory receipt emit on run complete",
+          "workstream": "ws-run",
+          "tier": "T1",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0024"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-024.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "worker_run_dashboard",
+          "client_problem_id": "P1-run-visibility"
+        },
+        "core_capability": "worker_run_dashboard",
+        "client_problem": "P1-run-visibility",
+        "score": 42,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 8,
+          "tier_adjustment": 4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-003.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-003",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Cloud sandbox smallest Hub UX slice \u2014 FORGE deploy preview URL",
+          "workstream": "ws-ux",
+          "tier": "T1",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0003"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-003.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 40,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 6,
+          "tier_adjustment": 4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-038.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-038",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Wire cloud dispatch hook for onboarding \u2014 API only",
+          "workstream": "ws-onboard",
+          "tier": "T3",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0038"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-038.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 40,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 14,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-088.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-088",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Wire cloud dispatch hook onboarding",
+          "workstream": "ws-onboard",
+          "tier": "T3",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0088"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-088.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 40,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 14,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-007.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-007",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "ICP one-liner evidence row \u2014 Trigger.dev vs ours",
+          "workstream": "ws-ux",
+          "tier": "T2",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0007"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-007.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-015.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-015",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "PLG motion compare row \u2014 Trigger.dev vs us",
+          "workstream": "ws-pricing",
+          "tier": "T2",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0015"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-015.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-016.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-016",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Why buyers pay \u2014 evidence paragraph",
+          "workstream": "ws-pricing",
+          "tier": "T2",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0016"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-016.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-017.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-017",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Upgrade CTA on cloud preview",
+          "workstream": "ws-pricing",
+          "tier": "T2",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0017"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-017.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-025.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-025",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Retention note vs Trigger.dev tiers",
+          "workstream": "ws-run",
+          "tier": "T2",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0025"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-025.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "worker_run_dashboard",
+          "client_problem_id": "P1-run-visibility"
+        },
+        "core_capability": "worker_run_dashboard",
+        "client_problem": "P1-run-visibility",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-026.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-026",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Surface run id + link in cloud Hub projection",
+          "workstream": "ws-run",
+          "tier": "T2",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0026"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-026.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "worker_run_dashboard",
+          "client_problem_id": "P1-run-visibility"
+        },
+        "core_capability": "worker_run_dashboard",
+        "client_problem": "P1-run-visibility",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-027.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-027",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Attribute infra vs agent failure class",
+          "workstream": "ws-run",
+          "tier": "T2",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0027"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-027.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "worker_run_dashboard",
+          "client_problem_id": "P1-run-visibility"
+        },
+        "core_capability": "worker_run_dashboard",
+        "client_problem": "P1-run-visibility",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-035.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-035",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Pair onboarding with run-detail receipt \u2014 cloud",
+          "workstream": "ws-onboard",
+          "tier": "T2",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0035"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-035.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-036.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-036",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "SOW snippet if services-led \u2014 vault row",
+          "workstream": "ws-onboard",
+          "tier": "T2",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0036"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-036.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-045.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-045",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Log external calls on cloud run timeline",
+          "workstream": "ws-integrate",
+          "tier": "T2",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0045"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-045.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "cloud_worker_dispatch_api",
+          "client_problem_id": "P0-trust-receipt-gap"
+        },
+        "core_capability": "cloud_worker_dispatch_api",
+        "client_problem": "P0-trust-receipt-gap",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-046.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-046",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Document secrets path ~/.sourcea-secrets",
+          "workstream": "ws-integrate",
+          "tier": "T2",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0046"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-046.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "cloud_worker_dispatch_api",
+          "client_problem_id": "P0-trust-receipt-gap"
+        },
+        "core_capability": "cloud_worker_dispatch_api",
+        "client_problem": "P0-trust-receipt-gap",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-047.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-047",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Rate-limit + retry policy from Trigger.dev model",
+          "workstream": "ws-integrate",
+          "tier": "T2",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0047"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-047.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "cloud_worker_dispatch_api",
+          "client_problem_id": "P0-trust-receipt-gap"
+        },
+        "core_capability": "cloud_worker_dispatch_api",
+        "client_problem": "P0-trust-receipt-gap",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-055.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-055",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Diff copy vs Inngest \u2014 cloud fix P0 gap",
+          "workstream": "ws-ux",
+          "tier": "T2",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0055"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-055.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-057.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-057",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "ICP compare Inngest vs ours \u2014 evidence row",
+          "workstream": "ws-ux",
+          "tier": "T2",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0057"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-057.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-065.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-065",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Dev-first PLG compare row",
+          "workstream": "ws-pricing",
+          "tier": "T2",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0065"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-065.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-066.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-066",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Why buyers pay Inngest \u2014 evidence",
+          "workstream": "ws-pricing",
+          "tier": "T2",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0066"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-066.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-067.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-067",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Upgrade CTA cloud preview",
+          "workstream": "ws-pricing",
+          "tier": "T2",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0067"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-067.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-075.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-075",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Retention note vs Inngest tiers",
+          "workstream": "ws-run",
+          "tier": "T2",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0075"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-075.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "worker_run_dashboard",
+          "client_problem_id": "P1-run-visibility"
+        },
+        "core_capability": "worker_run_dashboard",
+        "client_problem": "P1-run-visibility",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-076.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-076",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Run id + link in cloud Hub glance",
+          "workstream": "ws-run",
+          "tier": "T2",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0076"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-076.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "worker_run_dashboard",
+          "client_problem_id": "P1-run-visibility"
+        },
+        "core_capability": "worker_run_dashboard",
+        "client_problem": "P1-run-visibility",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-077.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-077",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Infra vs agent failure attribution",
+          "workstream": "ws-run",
+          "tier": "T2",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0077"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-077.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "worker_run_dashboard",
+          "client_problem_id": "P1-run-visibility"
+        },
+        "core_capability": "worker_run_dashboard",
+        "client_problem": "P1-run-visibility",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-085.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-085",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Pair onboarding with run receipt \u2014 cloud",
+          "workstream": "ws-onboard",
+          "tier": "T2",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0085"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-085.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-086.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-086",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "SOW snippet if services-led",
+          "workstream": "ws-onboard",
+          "tier": "T2",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0086"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-086.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-087.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-087",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Fix onboarding friction vs Inngest \u2014 cloud",
+          "workstream": "ws-onboard",
+          "tier": "T2",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0087"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-087.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 36,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-004.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-004",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Cloud E2E glance check \u2014 receipt URL for founder",
+          "workstream": "ws-ux",
+          "tier": "T1",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0004"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-004.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 34,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-013.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-013",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Cloud update public price card on preview site",
+          "workstream": "ws-pricing",
+          "tier": "T1",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0013"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-013.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 34,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-014.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-014",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Honest free vs paid labels in cloud copy",
+          "workstream": "ws-pricing",
+          "tier": "T1",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0014"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-014.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 34,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-033.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-033",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Cloud onboarding wizard step on preview Hub",
+          "workstream": "ws-onboard",
+          "tier": "T1",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0033"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-033.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 34,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-034.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-034",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Freemium cap label before first run \u2014 cloud copy",
+          "workstream": "ws-onboard",
+          "tier": "T1",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0034"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-034.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 34,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-044.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-044",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Signed webhook/event pattern \u2014 no cross-project DB joins",
+          "workstream": "ws-integrate",
+          "tier": "T1",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0044"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-044.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "cloud_worker_dispatch_api",
+          "client_problem_id": "P0-trust-receipt-gap"
+        },
+        "core_capability": "cloud_worker_dispatch_api",
+        "client_problem": "P0-trust-receipt-gap",
+        "score": 34,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-053.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-053",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Cloud Hub UX slice for Inngest lesson",
+          "workstream": "ws-ux",
+          "tier": "T1",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0053"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-053.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 34,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-054.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-054",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Cloud E2E glance \u2014 receipt URL",
+          "workstream": "ws-ux",
+          "tier": "T1",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0054"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-054.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 34,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-063.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-063",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Cloud public price card update",
+          "workstream": "ws-pricing",
+          "tier": "T1",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0063"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-063.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 34,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-064.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-064",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Honest free vs paid labels",
+          "workstream": "ws-pricing",
+          "tier": "T1",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0064"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-064.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 34,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-074.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-074",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Cloud receipt emit on run complete",
+          "workstream": "ws-run",
+          "tier": "T1",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0074"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-074.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "worker_run_dashboard",
+          "client_problem_id": "P1-run-visibility"
+        },
+        "core_capability": "worker_run_dashboard",
+        "client_problem": "P1-run-visibility",
+        "score": 34,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-083.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-083",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Cloud onboarding wizard step",
+          "workstream": "ws-onboard",
+          "tier": "T1",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0083"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-083.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 34,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-084.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-084",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Freemium cap label cloud copy",
+          "workstream": "ws-onboard",
+          "tier": "T1",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0084"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-084.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 34,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-002.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-002",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Write UX spec row \u2014 cloud evidence store only",
+          "workstream": "ws-ux",
+          "tier": "T0",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0002"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-002.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 30,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 0
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-012.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-012",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Map revenue model row \u2014 usage SaaS vs our lanes",
+          "workstream": "ws-pricing",
+          "tier": "T0",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0012"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-012.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 30,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 0
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-022.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-022",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Spec run fields row \u2014 status steps retry timestamp",
+          "workstream": "ws-run",
+          "tier": "T0",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0022"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-022.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "worker_run_dashboard",
+          "client_problem_id": "P1-run-visibility"
+        },
+        "core_capability": "worker_run_dashboard",
+        "client_problem": "P1-run-visibility",
+        "score": 30,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 0
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-032.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-032",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Define 30s-to-value step \u2014 cloud checklist spec",
+          "workstream": "ws-onboard",
+          "tier": "T0",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0032"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-032.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 30,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 0
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-042.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-042",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Spec cloud dispatch contract input\u2192gate\u2192output+receipt",
+          "workstream": "ws-integrate",
+          "tier": "T0",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0042"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-042.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "cloud_worker_dispatch_api",
+          "client_problem_id": "P0-trust-receipt-gap"
+        },
+        "core_capability": "cloud_worker_dispatch_api",
+        "client_problem": "P0-trust-receipt-gap",
+        "score": 30,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 0
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-052.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-052",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "UX spec row Inngest \u2192 cloud evidence",
+          "workstream": "ws-ux",
+          "tier": "T0",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0052"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-052.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 30,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 0
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-062.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-062",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Map tiered SaaS model row",
+          "workstream": "ws-pricing",
+          "tier": "T0",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0062"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-062.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 30,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 0
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-072.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-072",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Spec run fields from step-timeline lesson",
+          "workstream": "ws-run",
+          "tier": "T0",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0072"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-072.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "worker_run_dashboard",
+          "client_problem_id": "P1-run-visibility"
+        },
+        "core_capability": "worker_run_dashboard",
+        "client_problem": "P1-run-visibility",
+        "score": 30,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 0
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-082.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-082",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "30s-to-value cloud checklist spec",
+          "workstream": "ws-onboard",
+          "tier": "T0",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0082"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-082.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 30,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 0
+        }
+      },
+      {
+        "_source_path": "plans/MAC-CTL-003.json",
+        "_adapter": "forge-v0.2",
+        "id": "MAC-CTL-003",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "mac_control",
+          "action": "Mac control VERIFY: Read brain-cloud pulse receipt B0001\u2192B1000 \u00b7 cloud executed not Mac",
+          "workstream": "mac_control",
+          "tier": null,
+          "": null,
+          "maps_registry": null
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": null
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "mac_control_cockpit_observe",
+          "client_problem_id": "P4-mac-cockpit-only"
+        },
+        "core_capability": "mac_control_cockpit_observe",
+        "client_problem": "P4-mac-cockpit-only",
+        "score": 30,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 0
+        }
+      },
+      {
+        "_source_path": "plans/MAC-CTL-004.json",
+        "_adapter": "forge-v0.2",
+        "id": "MAC-CTL-004",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "mac_control",
+          "action": "Mac control: Read mac-worker-vs-factory vocabulary SSOT \u00b7 confirm cloud executes factory body",
+          "workstream": "mac_control",
+          "tier": null,
+          "": null,
+          "maps_registry": null
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": null
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "mac_control_cockpit_observe",
+          "client_problem_id": "P4-mac-cockpit-only"
+        },
+        "core_capability": "mac_control_cockpit_observe",
+        "client_problem": "P4-mac-cockpit-only",
+        "score": 30,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 0
+        }
+      },
+      {
+        "_source_path": "plans/MAC-CTL-006.json",
+        "_adapter": "forge-v0.2",
+        "id": "MAC-CTL-006",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "mac_control",
+          "action": "Mac control: Confirm secrets path ~/.sourcea-secrets only \u00b7 no repo env \u00b7 glance",
+          "workstream": "mac_control",
+          "tier": null,
+          "": null,
+          "maps_registry": null
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": null
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "mac_control_cockpit_observe",
+          "client_problem_id": "P4-mac-cockpit-only"
+        },
+        "core_capability": "mac_control_cockpit_observe",
+        "client_problem": "P4-mac-cockpit-only",
+        "score": 30,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 0
+        }
+      },
+      {
+        "_source_path": "plans/MAC-CTL-007.json",
+        "_adapter": "forge-v0.2",
+        "id": "MAC-CTL-007",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "mac_control",
+          "action": "Mac control: Read forge/federated cloud receipts \u00b7 portfolio- manifest glance",
+          "workstream": "mac_control",
+          "tier": null,
+          "": null,
+          "maps_registry": null
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": null
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "mac_control_cockpit_observe",
+          "client_problem_id": "P4-mac-cockpit-only"
+        },
+        "core_capability": "mac_control_cockpit_observe",
+        "client_problem": "P4-mac-cockpit-only",
+        "score": 30,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 0
+        }
+      },
+      {
+        "_source_path": "plans/MAC-CTL-008.json",
+        "_adapter": "forge-v0.2",
+        "id": "MAC-CTL-008",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "mac_control",
+          "action": "Mac control: Read loop-specialist tick receipt \u00b7 cloud tick not Mac motor",
+          "workstream": "mac_control",
+          "tier": null,
+          "": null,
+          "maps_registry": null
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": null
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "mac_control_cockpit_observe",
+          "client_problem_id": "P4-mac-cockpit-only"
+        },
+        "core_capability": "mac_control_cockpit_observe",
+        "client_problem": "P4-mac-cockpit-only",
+        "score": 30,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 0
+        }
+      },
+      {
+        "_source_path": "plans/MAC-CTL-010.json",
+        "_adapter": "forge-v0.2",
+        "id": "MAC-CTL-010",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "mac_control",
+          "action": "Mac control: Read factory-now FREEZE + mac-law lock receipts \u00b7 no fbe_motor_delegate on Mac",
+          "workstream": "mac_control",
+          "tier": null,
+          "": null,
+          "maps_registry": null
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": null
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "mac_control_cockpit_observe",
+          "client_problem_id": "P4-mac-cockpit-only"
+        },
+        "core_capability": "mac_control_cockpit_observe",
+        "client_problem": "P4-mac-cockpit-only",
+        "score": 30,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": 0
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-008.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-008",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Reject abstract rename \u2014 keep market words in evidence",
+          "workstream": "ws-ux",
+          "tier": "T3",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0008"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-008.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-009.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-009",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Cloud ship summary row in PRIORITY evidence table",
+          "workstream": "ws-ux",
+          "tier": "T3",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0009"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-009.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-018.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-018",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Validator: no stale public prices in cloud deploy",
+          "workstream": "ws-pricing",
+          "tier": "T3",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0018"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-018.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-019.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-019",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": " pricing \u2192 SKU evidence row",
+          "workstream": "ws-pricing",
+          "tier": "T3",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0019"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-019.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-020.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-020",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Close pricing workstream slice \u2014 cloud receipt",
+          "workstream": "ws-pricing",
+          "tier": "T3",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0020"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-020.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-028.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-028",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Export last run bundle for diligence \u2014 cloud storage",
+          "workstream": "ws-run",
+          "tier": "T3",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0028"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-028.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "worker_run_dashboard",
+          "client_problem_id": "P1-run-visibility"
+        },
+        "core_capability": "worker_run_dashboard",
+        "client_problem": "P1-run-visibility",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-029.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-029",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Regression verify after run UI change \u2014 cloud CI",
+          "workstream": "ws-run",
+          "tier": "T3",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0029"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-029.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "worker_run_dashboard",
+          "client_problem_id": "P1-run-visibility"
+        },
+        "core_capability": "worker_run_dashboard",
+        "client_problem": "P1-run-visibility",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-030.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-030",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Close run workstream \u2014 cloud screenshot receipt",
+          "workstream": "ws-run",
+          "tier": "T3",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0030"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-030.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "worker_run_dashboard",
+          "client_problem_id": "P1-run-visibility"
+        },
+        "core_capability": "worker_run_dashboard",
+        "client_problem": "P1-run-visibility",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-039.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-039",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Docs cite Trigger.dev as market analog with links",
+          "workstream": "ws-onboard",
+          "tier": "T3",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0039"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-039.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-040.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-040",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Close onboard workstream \u2014 cloud evidence receipt",
+          "workstream": "ws-onboard",
+          "tier": "T3",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0040"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-040.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-048.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-048",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Validate adapter fixture test \u2014 cloud CI",
+          "workstream": "ws-integrate",
+          "tier": "T3",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0048"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-048.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "cloud_worker_dispatch_api",
+          "client_problem_id": "P0-trust-receipt-gap"
+        },
+        "core_capability": "cloud_worker_dispatch_api",
+        "client_problem": "P0-trust-receipt-gap",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-049.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-049",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Update catalog row Trigger.dev row 1",
+          "workstream": "ws-integrate",
+          "tier": "T3",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0049"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-049.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "cloud_worker_dispatch_api",
+          "client_problem_id": "P0-trust-receipt-gap"
+        },
+        "core_capability": "cloud_worker_dispatch_api",
+        "client_problem": "P0-trust-receipt-gap",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-050.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-050",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Close Trigger.dev stack slice \u2014 cloud receipt",
+          "workstream": "ws-integrate",
+          "tier": "T3",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0050"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-050.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "cloud_worker_dispatch_api",
+          "client_problem_id": "P0-trust-receipt-gap"
+        },
+        "core_capability": "cloud_worker_dispatch_api",
+        "client_problem": "P0-trust-receipt-gap",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-058.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-058",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Keep Inngest market words \u2014 no rename",
+          "workstream": "ws-ux",
+          "tier": "T3",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0058"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-058.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-059.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-059",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Ship summary row vs Inngest UX \u2014 cloud PRIORITY evidence",
+          "workstream": "ws-ux",
+          "tier": "T3",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0059"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-059.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-068.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-068",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "No stale prices validator \u2014 cloud",
+          "workstream": "ws-pricing",
+          "tier": "T3",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0068"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-068.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-069.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-069",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Inngest pricing \u2192 SKU evidence",
+          "workstream": "ws-pricing",
+          "tier": "T3",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0069"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-069.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-070.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-070",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Close Inngest pricing slice \u2014 cloud receipt",
+          "workstream": "ws-pricing",
+          "tier": "T3",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0070"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-070.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P3-pricing-clarity"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P3-pricing-clarity",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-078.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-078",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Export run bundle \u2014 cloud storage",
+          "workstream": "ws-run",
+          "tier": "T3",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0078"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-078.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "worker_run_dashboard",
+          "client_problem_id": "P1-run-visibility"
+        },
+        "core_capability": "worker_run_dashboard",
+        "client_problem": "P1-run-visibility",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-079.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-079",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Regression verify \u2014 cloud CI",
+          "workstream": "ws-run",
+          "tier": "T3",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0079"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-079.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "worker_run_dashboard",
+          "client_problem_id": "P1-run-visibility"
+        },
+        "core_capability": "worker_run_dashboard",
+        "client_problem": "P1-run-visibility",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-080.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-080",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Close Inngest run slice \u2014 cloud receipt",
+          "workstream": "ws-run",
+          "tier": "T3",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0080"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-080.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "worker_run_dashboard",
+          "client_problem_id": "P1-run-visibility"
+        },
+        "core_capability": "worker_run_dashboard",
+        "client_problem": "P1-run-visibility",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-089.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-089",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Docs cite Inngest market analog",
+          "workstream": "ws-onboard",
+          "tier": "T3",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0089"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-089.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-090.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-090",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Close Inngest onboard batch \u2014 cloud receipt \u00b7 Mac reads only",
+          "workstream": "ws-onboard",
+          "tier": "T3",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0090"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-090.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 26,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": 0,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-010.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-010",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Mark sa-mkt-0010 done in REGISTRY from cloud receipt \u2014 not Mac hand-edit",
+          "workstream": "ws-ux",
+          "tier": "T3",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0010"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-010.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 18,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": -8,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-060.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-060",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Mark sa-mkt-0060 done from cloud receipt",
+          "workstream": "ws-ux",
+          "tier": "T3",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0060"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-060.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 18,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": false,
+          "already_implemented": false,
+          "pattern_adjustment": -8,
+          "tier_adjustment": -4
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-006.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-006",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Mock run-detail row mock_only in cloud preview",
+          "workstream": "ws-ux",
+          "tier": "T2",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0006"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-006.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 6,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": true,
+          "already_implemented": false,
+          "pattern_adjustment": -15,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-056.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-056",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Mock run-detail row mock_only cloud preview",
+          "workstream": "ws-ux",
+          "tier": "T2",
+          "": "Inngest",
+          "maps_registry": "sa-mkt-0056"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-056.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "_evidence_pipeline",
+          "client_problem_id": "P2-onboard-friction"
+        },
+        "core_capability": "_evidence_pipeline",
+        "client_problem": "P2-onboard-friction",
+        "score": 6,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": true,
+          "already_implemented": false,
+          "pattern_adjustment": -15,
+          "tier_adjustment": 6
+        }
+      },
+      {
+        "_source_path": "plans/CLOUD-SEC-043.json",
+        "_adapter": "forge-v0.2",
+        "id": "CLOUD-SEC-043",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "cloud_forge",
+          "action": "Cloud adapter stub mock_only if not prod",
+          "workstream": "ws-integrate",
+          "tier": "T1",
+          "": "Trigger.dev",
+          "maps_registry": "sa-mkt-0043"
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-043.json"
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "cloud_worker_dispatch_api",
+          "client_problem_id": "P0-trust-receipt-gap"
+        },
+        "core_capability": "cloud_worker_dispatch_api",
+        "client_problem": "P0-trust-receipt-gap",
+        "score": 4,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": true,
+          "already_implemented": false,
+          "pattern_adjustment": -15,
+          "tier_adjustment": 4
+        }
+      },
+      {
+        "_source_path": "plans/MAC-CTL-001.json",
+        "_adapter": "forge-v0.2",
+        "id": "MAC-CTL-001",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "mac_control",
+          "action": "Mac control CHECK: Read mac-law + federated-run receipts \u00b7 cloud worker URL glance only",
+          "workstream": "mac_control",
+          "tier": null,
+          "": null,
+          "maps_registry": null
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": null
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "mac_control_cockpit_observe",
+          "client_problem_id": "P4-mac-cockpit-only"
+        },
+        "core_capability": "mac_control_cockpit_observe",
+        "client_problem": "P4-mac-cockpit-only",
+        "score": 3,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": true,
+          "already_implemented": false,
+          "pattern_adjustment": -12,
+          "tier_adjustment": 0
+        }
+      },
+      {
+        "_source_path": "plans/MAC-CTL-009.json",
+        "_adapter": "forge-v0.2",
+        "id": "MAC-CTL-009",
+        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "destination_repo": "sourcea/fbe-cloud-worker",
+        "inputs": {
+          "plane": "mac_control",
+          "action": "Mac control: Read fbe-cloud-adapter receipt \u2014 Mac glance only",
+          "workstream": "mac_control",
+          "tier": null,
+          "": null,
+          "maps_registry": null
+        },
+        "outputs": {
+          "artifact": "cloud_receipt",
+          "receipt_url": null
+        },
+        "validation_rule": "cloud_forge_incident_038",
+        "metadata": {
+          "core_capability": "mac_control_cockpit_observe",
+          "client_problem_id": "P4-mac-cockpit-only"
+        },
+        "core_capability": "mac_control_cockpit_observe",
+        "client_problem": "P4-mac-cockpit-only",
+        "score": 3,
+        "score_breakdown": {
+          "core_capability": true,
+          "client_problem": true,
+          "minimal_dependencies": true,
+          "vague_keywords": true,
+          "already_implemented": false,
+          "pattern_adjustment": -12,
+          "tier_adjustment": 0
+        }
+      }
+    ]
+  },
+  "dropped_malformed_ids": [],
+  "dropped_duplicate_ids": [],
+  "dropped_already_have_ids": [
+    "CLOUD-SEC-001",
+    "CLOUD-SEC-011",
+    "CLOUD-SEC-021",
+    "CLOUD-SEC-023",
+    "CLOUD-SEC-031",
+    "CLOUD-SEC-037",
+    "CLOUD-SEC-041",
+    "CLOUD-SEC-051",
+    "CLOUD-SEC-061",
+    "CLOUD-SEC-071",
+    "CLOUD-SEC-073",
+    "CLOUD-SEC-081",
+    "MAC-CTL-002",
+    "MAC-CTL-005"
+  ],
+  "urls": {
+    "data_health": "/receipts/forge_v0.2/data_health.json",
+    "forge_top": "/receipts/forge_v0.2/forge_v0.2_top.json"
+  }
+}

@@ -14,11 +14,13 @@
   },
   "inputs": {
     "plane": "cloud_forge",
-    "action": "Mock run-detail row mock_only cloud preview",
+    "action": "Cloud run-detail slice — PASS/FAIL on preview (Inngest parity)",
     "workstream": "ws-ux",
     "tier": "T2",
     "": "Inngest",
-    "maps_registry": "sa-mkt-0056"
+    "maps_registry": "sa-mkt-0056",
+    "drain_lane": "scaffold",
+    "auto_pass": true
   },
   "outputs": {
     "artifact": "cloud_receipt",

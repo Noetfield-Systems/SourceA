@@ -1,0 +1,12 @@
+{
+  "schema": "forge-factory-cycle2-check-v1",
+  "sa_id": "sa-1208",
+  "hp_id": "ff-008",
+  "round_type": "check",
+  "ok": true,
+  "at": "2026-06-21T02:00:00Z",
+  "fbe_bundle": "data/fbe_factory_builder_bundle_v1.json",
+  "fbe_bay_pulse": "~/.sina/fbe-first-bay-pulse-v1.json",
+  "fly_billing_required": false,
+  "evidence": "CHECK PASS — FBE bundle present · fbe-first-bay pulse MARKET_READY=OK · cloud_worker_url empty external blocker"
+}

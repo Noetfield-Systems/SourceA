@@ -52,6 +52,21 @@ def _cohort_tokens() -> dict[str, str]:
     }
 
 
+STRIPE_LINK_TOKEN_MAP: dict[str, str] = {
+    "sourcing": "STRIPE_SOURCING_19_URL",
+    "corrections": "STRIPE_CORRECTIONS_9_URL",
+    "privacy": "STRIPE_PRIVACY_19_URL",
+    "publicrec": "STRIPE_PUBLICREC_29_URL",
+    "storytemp": "STRIPE_STORYTEMP_19_URL",
+    "actionmap": "STRIPE_ACTIONMAP_29_URL",
+    "starter": "STRIPE_STARTER_39_URL",
+    "pro": "STRIPE_PRO_99_URL",
+    "team": "STRIPE_TEAM_149_URL",
+    "train_evidence101": "STRIPE_TRAIN_EVIDENCE101_URL",
+    "train_privacy": "STRIPE_TRAIN_PRIVACY_URL",
+}
+
+
 def _stripe_tokens() -> dict[str, str]:
     toolkits = "toolkits.html"
     if STRIPE_RECEIPT.is_file():
@@ -62,18 +77,16 @@ def _stripe_tokens() -> dict[str, str]:
                 return {str(k): str(v) for k, v in tokens.items()}
         except (OSError, json.JSONDecodeError):
             pass
+    fallback = {token: toolkits for token in STRIPE_LINK_TOKEN_MAP.values()}
+    fallback["STRIPE_TOOLKITS_HUB_URL"] = toolkits
+    fallback["STRIPE_LINKS_LIVE"] = "false"
+    fallback["STRIPE_CURRENCY"] = "cad"
+    fallback["STRIPE_DESCRIPTOR"] = "WITNESSBC"
     if not STRIPE_DATA.is_file():
-        return {
-            "STRIPE_PRO_99_URL": toolkits,
-            "STRIPE_STARTER_39_URL": toolkits,
-            "STRIPE_TEAM_149_URL": toolkits,
-            "STRIPE_CORRECTIONS_9_URL": toolkits,
-            "STRIPE_SOURCING_19_URL": toolkits,
-            "STRIPE_TOOLKITS_HUB_URL": toolkits,
-            "STRIPE_LINKS_LIVE": "false",
-        }
+        return fallback
     data = json.loads(STRIPE_DATA.read_text(encoding="utf-8"))
     links = data.get("links") or {}
+    billing = data.get("billing") or {}
 
     def _live(key: str) -> bool:
         u = str(links.get(key) or "")
@@ -83,16 +96,14 @@ def _stripe_tokens() -> dict[str, str]:
         u = str(links.get(key) or "")
         return u if _live(key) else toolkits
 
-    live_count = sum(1 for k in links if _live(k))
-    return {
-        "STRIPE_PRO_99_URL": _url("pro"),
-        "STRIPE_STARTER_39_URL": _url("starter"),
-        "STRIPE_TEAM_149_URL": _url("team"),
-        "STRIPE_CORRECTIONS_9_URL": _url("corrections"),
-        "STRIPE_SOURCING_19_URL": _url("sourcing"),
-        "STRIPE_TOOLKITS_HUB_URL": toolkits,
-        "STRIPE_LINKS_LIVE": "true" if live_count >= 3 else "false",
-    }
+    live_count = sum(1 for k in STRIPE_LINK_TOKEN_MAP if _live(k))
+    total = len(STRIPE_LINK_TOKEN_MAP)
+    out = {token: _url(link_key) for link_key, token in STRIPE_LINK_TOKEN_MAP.items()}
+    out["STRIPE_TOOLKITS_HUB_URL"] = toolkits
+    out["STRIPE_LINKS_LIVE"] = "true" if live_count == total else "false"
+    out["STRIPE_CURRENCY"] = str(billing.get("currency") or "cad").lower()
+    out["STRIPE_DESCRIPTOR"] = str(billing.get("statement_descriptor") or "WITNESSBC")
+    return out
 
 
 def _site_tokens() -> dict[str, str]:
@@ -165,6 +176,10 @@ def assemble_page(
     nav = _nav_classes(page.get("nav_active", ""))
     tokens = {**cta, **nav, "BREADCRUMB_LABEL": page.get("breadcrumb", "")}
 
+    body_class = page.get("body_class", "")
+    if cta.get("STRIPE_LINKS_LIVE") == "true" and page.get("file") == "toolkits.html":
+        body_class = f"{body_class} checkout-live".strip()
+
     header_out = _apply_tokens(header, tokens)
     breadcrumb_out = ""
     if page.get("breadcrumb"):
@@ -182,7 +197,7 @@ def assemble_page(
         head.replace("{{TITLE}}", page["title"])
         .replace("{{DESCRIPTION}}", page["description"])
         .replace("{{CANONICAL}}", page["canonical"])
-        .replace("{{BODY_CLASS}}", page.get("body_class", "")),
+        .replace("{{BODY_CLASS}}", body_class),
         tokens,
     )
     if page.get("file") == "toolkits.html" or page.get("body_class", "").startswith("page-toolkits"):

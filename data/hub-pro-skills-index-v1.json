@@ -1,0 +1,136 @@
+{
+  "schema": "hub-pro-skills-index-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-22T08:00:00Z",
+  "label": "Hub Pro Skills",
+  "one_law": "Every agent touching Hub apps must read Hub Pro skills + per-app checklist before build/upgrade/e2e — append change log after ship.",
+  "skills_root": ".cursor/skills",
+  "experience_log": "data/hub-pro-app-experience-log-v1.json",
+  "experience_log_script": "scripts/hub_pro_skills_v1.py",
+  "api": "GET /api/hub-pro-skills/v1",
+  "ui_panel": "agent-control-panel/shared/hub-pro-skills-tab.js",
+  "related_law": [
+    ".cursor/rules/024-ui-upgrade-mandatory-checklist.mdc",
+    "brain-os/law/enforcement/SOURCEA_UI_UPGRADE_MANDATORY_PROCESS_LOCKED_v1.md",
+    "data/ui-upgrade-surface-registry-v1.json",
+    "~/Desktop/MacLaw/MAC_CONTROL_PLANE_LOCKED.md",
+    "brain-os/law/enforcement/SINA_MAC_HEALTH_GUARD_LOCKED_v1.md"
+  ],
+  "skills": [
+    {
+      "id": "hub-pro-master",
+      "path": ".cursor/skills/hub-pro-master/SKILL.md",
+      "title": "Hub Pro — master index",
+      "when": "Any Worker Hub app build, upgrade, e2e, or incident fix"
+    },
+    {
+      "id": "hub-pro-ui-upgrade",
+      "path": ".cursor/skills/hub-pro-ui-upgrade/SKILL.md",
+      "title": "UI upgrade checklist (UP-0..UP-7 + per-app ledger)",
+      "when": "HTML/CSS/JS/TSX edit on any registered surface"
+    },
+    {
+      "id": "hub-pro-app-e2e",
+      "path": ".cursor/skills/hub-pro-app-e2e/SKILL.md",
+      "title": "App e2e wire — ports, health, API, founder session",
+      "when": "Wire links, API Station, health probes, smoke tests"
+    },
+    {
+      "id": "hub-pro-mac-security",
+      "path": ".cursor/skills/hub-pro-mac-security/SKILL.md",
+      "title": "Mac Security Guard — Gatekeeper, codesign, TCC",
+      "when": "Desktop .app build, blocked scripts, Console crashes"
+    },
+    {
+      "id": "hub-pro-standalone-apps",
+      "path": ".cursor/skills/hub-pro-standalone-apps/SKILL.md",
+      "title": "Standalone shell apps (WKWebView + local server)",
+      "when": "Worker Hub.app, Mac Health Guard.app, Chat Unify, n8n"
+    },
+    {
+      "id": "hub-pro-form-official",
+      "path": ".cursor/skills/hub-pro-form-official/SKILL.md",
+      "title": "FORM_OFFICIAL — 5 slots + disk-first submit",
+      "when": "Official form UI/API/schema changes"
+    },
+    {
+      "id": "hub-pro-cloud-api",
+      "path": ".cursor/skills/hub-pro-cloud-api/SKILL.md",
+      "title": "Cloud proceed + API Station + founder ops",
+      "when": "H1/H2 proceed, founder-ops, machine hub tasks"
+    },
+    {
+      "id": "hub-pro-mac-session",
+      "path": ".cursor/skills/hub-pro-mac-session/SKILL.md",
+      "title": "Mac founder session — no validator marathons",
+      "when": "Any agent work on Mac during founder session (INCIDENT-039)"
+    },
+    {
+      "id": "hub-pro-hub-hero",
+      "path": ".cursor/skills/hub-pro-hub-hero/SKILL.md",
+      "title": "Hub Hero — H1/H2/Cloud/API Station/Mac Health field playbook",
+      "when": "Hub wiring, LIVE vs OFFLINE UI, cloud workers, form, Mac relief, next-agent onboarding"
+    },
+    {
+      "id": "hub-pro-change-log",
+      "path": ".cursor/skills/hub-pro-change-log/SKILL.md",
+      "title": "App experience change log — append after every ship",
+      "when": "After any app upgrade/fix — mandatory append"
+    }
+  ],
+  "apps": {
+    "worker_hub": {
+      "surface_id": "worker_hub",
+      "port": 13020,
+      "url": "http://127.0.0.1:13020/",
+      "ledger": "brain-os/law/enforcement/ui-upgrade-ledgers/WORKER_HUB_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+      "build": "scripts/build-worker-hub-standalone-app-v1.sh",
+      "e2e": "curl -sf http://127.0.0.1:13020/health"
+    },
+    "machine_hub": {
+      "surface_id": "worker_hub",
+      "port": 13020,
+      "url": "http://127.0.0.1:13020/machines/",
+      "e2e": "curl -sf http://127.0.0.1:13020/api/founder-ops/v1"
+    },
+    "cloud_workers": {
+      "surface_id": "cloud_workers",
+      "port": 13027,
+      "url": "http://127.0.0.1:13027/",
+      "build": "scripts/build-cloud-workers-standalone-app-v1.sh",
+      "e2e": "curl -sf http://127.0.0.1:13027/health"
+    },
+    "hub_form": {
+      "surface_id": "hub_form",
+      "port": 13020,
+      "url": "http://127.0.0.1:13020/form/",
+      "ledger": "brain-os/law/enforcement/ui-upgrade-ledgers/HUB_FORM_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+      "schema": "data/form-official-question-schema-v1.json"
+    },
+    "mac_health": {
+      "surface_id": "mac_health",
+      "port": 13024,
+      "url": "http://127.0.0.1:13024/",
+      "ledger": "brain-os/law/enforcement/ui-upgrade-ledgers/MAC_HEALTH_UI_UPGRADE_LEDGER_LOCKED_v1.md",
+      "build": "scripts/build-mac-health-standalone-app-v1.sh",
+      "contract": "data/mac-health-founder-glance-ui-contract-v1.json"
+    },
+    "chat_unify": {
+      "surface_id": "chat_unify",
+      "port": 13023,
+      "url": "http://127.0.0.1:13023/",
+      "build": "scripts/build-chat-unify-standalone-app-v1.sh"
+    },
+    "n8n_integration": {
+      "surface_id": "n8n_integration",
+      "port": 13026,
+      "url": "http://127.0.0.1:13026/",
+      "build": "scripts/build-n8n-integration-standalone-app-v1.sh"
+    },
+    "portfolio_mail": {
+      "surface_id": "portfolio_mail",
+      "port": 13020,
+      "url": "http://127.0.0.1:13020/mail-hub/"
+    }
+  }
+}

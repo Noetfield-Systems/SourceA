@@ -1,0 +1,33 @@
+{
+  "schema": "worker-run-detail-v1",
+  "at": "2026-06-21T02:11:30Z",
+  "id": "CLOUD-SEC-073",
+  "plan_id": "CLOUD-SEC-073",
+  "status": "completed",
+  "_pattern": "Inngest run dashboard",
+  "queue": "forge-implement",
+  "retry_count": 0,
+  "steps": [
+    {
+      "id": "fetch",
+      "name": "Fetch plan",
+      "status": "completed",
+      "duration_ms": 120
+    },
+    {
+      "id": "validate",
+      "name": "Validate schema",
+      "status": "completed",
+      "duration_ms": 45
+    },
+    {
+      "id": "implement",
+      "name": "Ship run-detail slice",
+      "status": "completed",
+      "duration_ms": 890
+    }
+  ],
+  "log_tail": "[CLOUD-SEC-073] run-detail slice live on cloud worker \u00b7 receipt-native",
+  "workstream": "ws-run",
+  "artifact": "worker_run_dashboard_slice"
+}

@@ -1,6 +1,6 @@
 {
   "schema": "witnessbc-trust-signals-v1",
-  "at": "2026-06-21T01:51:23Z",
+  "at": "2026-06-21T04:30:10Z",
   "receipts_signed_today": 2,
   "receipts_date": "2026-06-21",
   "receipt_samples": [
@@ -12,9 +12,9 @@
   "valid_yes_total": 1000,
   "factory_now_line": "factory-now \u00b7 FORGE FACTORY \u00b7 cycle2 \u00b7 mode FORGE_FACTORY \u00b7 queue sa-1201",
   "governance": {
-    "verdict": "PASS",
-    "session_gate_ok": true,
-    "at": "2026-06-21T01:49:29Z"
+    "verdict": "BLOCK",
+    "session_gate_ok": false,
+    "at": "2026-06-21T02:46:51Z"
   },
   "deploy": {
     "bundle": "witnessbc-site-v8",

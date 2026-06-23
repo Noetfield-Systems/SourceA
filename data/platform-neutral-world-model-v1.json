@@ -1,7 +1,7 @@
 {
   "schema": "platform-neutral-world-model-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-20T23:22:40Z",
+  "saved_at": "2026-06-22T13:16:21Z",
   "one_law": "No surface discrimination \u2014 absorb best world-model takes \u00b7 route value into Noetfield \u00b7 TrustField \u00b7 SourceA Forge \u00b7 WitnessBC",
   "founder_execution_model": "data/founder-execution-model-v1.json",
   "execution_split": {

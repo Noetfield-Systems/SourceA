@@ -1,0 +1,10 @@
+{
+  "schema": "forge-v0.2-data-health",
+  "at": "2026-06-21T04:07:23Z",
+  "total_real_plans_found": 100,
+  "mapped_cleanly_to_full_schema": 100,
+  "most_commonly_missing_fields": [],
+  "parse_failures": 0,
+  "adapted_count": 100,
+  "fetch_source": "bundled_fallback"
+}

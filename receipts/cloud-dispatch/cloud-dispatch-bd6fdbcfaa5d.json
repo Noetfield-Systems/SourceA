@@ -1,0 +1,20 @@
+{
+  "schema": "cloud-dispatch-receipt-v1",
+  "receipt_id": "cloud-dispatch-bd6fdbcfaa5d",
+  "plan_id": "CLOUD-LD-001",
+  "maps_registry": "sa-mkt-ld-0001",
+  "": "LaunchDarkly",
+  "workstream": "ws-ux",
+  "tier": "T0",
+  "cloud_action": "Fetch LaunchDarkly AgentControl UX page \u2014 runtime control + adaptive triggers evidence",
+  "at": "2026-06-21T04:02:12Z",
+  "execution_plane": "cloud_forge",
+  "source_url": "https://launchdarkly.com/platform/agent-control/",
+  "http_status": 0,
+  "bytes_fetched": 0,
+  "evidence_snippets": [],
+  "ok": false,
+  "status": "FAIL",
+  "receipt_path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/cloud-dispatch/cloud-dispatch-bd6fdbcfaa5d.json",
+  "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-bd6fdbcfaa5d.json"
+}

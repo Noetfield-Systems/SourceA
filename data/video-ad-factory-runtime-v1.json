@@ -1,0 +1,40 @@
+{
+  "schema": "video-ad-factory-runtime-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-21T14:00:00Z",
+  "factory_id": "video-ad-factory-v1",
+  "bay_slug": "video-ad-orchestration-bay",
+  "active_variation_key": "default",
+  "rollout": {
+    "active": "default",
+    "percent": 100
+  },
+  "promotion_gate": {
+    "min_pass_rate": 0.875,
+    "note": "Founder manual bump only — agents must not auto-promote active_variation_key"
+  },
+  "variations": {
+    "default": {
+      "config_version": "1.0.0",
+      "label": "mock_safe",
+      "mock_llm": true,
+      "require_approval": true,
+      "vo_lane": "sourcea",
+      "elevenlabs_model": "eleven_multilingual_v2",
+      "max_script_chars": 500,
+      "allow_fal_render": false
+    },
+    "strong": {
+      "config_version": "1.0.0-live",
+      "label": "extended_pilot",
+      "mock_llm": true,
+      "require_approval": true,
+      "vo_lane": "sourcea",
+      "elevenlabs_model": "eleven_multilingual_v2",
+      "max_script_chars": 800,
+      "allow_fal_render": false,
+      "fallback_variation": "default",
+      "retry_on_blocked": true
+    }
+  }
+}

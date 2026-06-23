@@ -1,13 +1,13 @@
 {
   "schema": "fbe-run-receipt-v1",
   "ok": true,
-  "at": "2026-06-20T23:12:43Z",
-  "wave": "W2",
-  "factory_id": "factory_1",
+  "at": "2026-06-22T15:19:18Z",
+  "wave": "W5",
+  "factory_id": "factory_3",
   "mode": "federated_headless",
   "deliveryMode": "prove_only",
-  "work_order_id": null,
-  "bay_slug": "sample-bay",
+  "work_order_id": "sa-mkt-0052",
+  "bay_slug": "forge-bay",
   "lines": {
     "motor": {
       "sascip": {
@@ -15,21 +15,21 @@
         "exists": true,
         "ok": true,
         "schema": "stranger-agent-safety-live-wire-v1",
-        "sha256": "29a2ccd8f2fa39d37fcb41f54f0c612cf73989a18e48d7e26e3bb93648f9820b",
+        "sha256": "1c52f73deb87d92ab7cf3e24b1ca072d6072bc21334ccd001022f5fcee28863a",
         "body": {
           "schema": "stranger-agent-safety-live-wire-v1",
           "ok": true,
-          "at": "2026-06-20T23:12:36Z",
+          "at": "2026-06-22T13:16:39Z",
           "role": "worker",
           "tier": "session",
           "law": "docs/STRANGER_AGENT_SAFETY_CONTROL_PIPELINE_LOCKED_v1.md",
-          "sascip_safety_line": "SASCIP WIRED \u00b7 sourcea_worker \u00b7 T2_fleet_L2 \u00b7 risk 45 \u00b7 ADMIT \u00b7 probes=PASS \u00b7 panic=clear \u00b7 watch=ok",
+          "sascip_safety_line": "SASCIP WIRED \u00b7 sourcea_worker \u00b7 T2_fleet_L2 \u00b7 risk 30 \u00b7 ADMIT \u00b7 probes=PASS \u00b7 panic=clear \u00b7 watch=ok",
           "admission": {
             "ok": true,
             "stranger": false,
             "trust_tier": "T2_fleet_L2",
             "resolved_agent_id": "sourcea_worker",
-            "risk_score": 45,
+            "risk_score": 30,
             "cross_lane_writes": "allow",
             "receipt_path": "/Users/sinakazemnezhad/.sina/stranger-agent-admission-receipt-v1.json"
           },
@@ -47,7 +47,7 @@
             "watch": true,
             "stranger_quarantine": false
           },
-          "elapsed_sec": 0.28,
+          "elapsed_sec": 0.24,
           "within_budget": true,
           "steps": [
             {
@@ -100,7 +100,7 @@
               "stage": "WATCH",
               "step": "watch_pulse",
               "ok": true,
-              "note": "skipped fresh age_sec=0.9"
+              "note": "skipped fresh age_sec=0.7"
             }
           ],
           "pre_write_guard": "python3 scripts/pre_write_guard_v1.py check --agent <id> --path <target> --json"
@@ -111,19 +111,19 @@
         "exists": true,
         "ok": false,
         "schema": "governance-zero-drift-live-wire-v1",
-        "sha256": "6f09ad7e9be473d00abc3569524a8d555bea044133cc38bb3b9da87d3953ab1b",
+        "sha256": "9669b3b66e93cc5cc6c62647bbd267cbb7197b545e0ae42971e6a6a5da615ed2",
         "body": {
           "schema": "governance-zero-drift-live-wire-v1",
           "ok": false,
-          "at": "2026-06-20T23:00:53Z",
-          "role": "any",
+          "at": "2026-06-22T13:16:41Z",
+          "role": "worker",
           "tier": "session",
           "law": "brain-os/law/GOVERNANCE_DRIFT_ENGINE_LOCKED_v1.md",
-          "zero_drift_line": "ZERO-DRIFT REVIEW \u00b7 score=100 \u00b7 queue=sa-1201 \u00b7 L0.5+L1+L2+SASCIP \u00b7 ops=DOWN",
-          "drift_score": 100,
-          "drift_items": 3,
+          "zero_drift_line": "ZERO-DRIFT REVIEW \u00b7 score=86 \u00b7 queue=sa-1201 \u00b7 L0.5+L1+L2+SASCIP \u00b7 ops=LIVE",
+          "drift_score": 86,
+          "drift_items": 1,
           "queue_sa": "sa-1201",
-          "factory_now_line": "factory-now \u00b7 FORGE FACTORY \u00b7 cycle2 \u00b7 mode FORGE_FACTORY \u00b7 queue sa-1201",
+          "factory_now_line": "factory-now \u00b7 Valid YES 1000 \u00b7 brain 1000 \u00b7 dual_proof True \u00b7 mode FREEZE \u00b7 queue ",
           "chains": {
             "L0_5_L1_L2": true,
             "cross_layer": false,
@@ -132,7 +132,7 @@
             "vocabulary": true,
             "L8_voyage": true,
             "monitor_pulse": true,
-            "mac_law": false,
+            "mac_law": true,
             "outbound_worker": true
           },
           "layers": {
@@ -141,10 +141,10 @@
             "L2": true,
             "cross_ref": true,
             "queue_aligned": true,
-            "dual_pick": false,
+            "dual_pick": true,
             "ui_upgrade_first_check": false,
-            "mac_law_agent_lock": false,
-            "mac_law_universal_wire": false
+            "mac_law_agent_lock": true,
+            "mac_law_universal_wire": true
           },
           "paths": {
             "anti_staleness": "/Users/sinakazemnezhad/.sina/anti-staleness-auto-wire-v1.json",
@@ -164,50 +164,35 @@
               "chain": "cross_layer",
               "step": "cross_layer_chain_check",
               "ok": false,
-              "drift_items": 3,
-              "queue_sa": "sa-1201",
+              "drift_items": 1,
+              "queue_sa": "",
               "issues": [
-                "ui_upgrade_first_check wire_ok=false",
-                "mac_law_agent_execution_plane_lock receipt not ok",
-                "mac_law_universal_wire receipt not ok"
+                "ui_upgrade_first_check wire_ok=false"
               ]
             },
             {
               "chain": "mac_law",
               "step": "mac_law_agent_execution_plane_lock",
-              "ok": false,
-              "line": "mac-law-agent-lock \u00b7 mac-control-only=YES \u00b7 no-factory-body-on-mac=NO \u00b7 cloud-body=YES \u00b7 ok=RED"
+              "ok": true,
+              "line": "mac-law-agent-lock \u00b7 mac-control-only=YES \u00b7 no-factory-body-on-mac=YES \u00b7 cloud-body=YES \u00b7 ok=PASS"
             },
             {
               "chain": "governance_drift",
               "step": "drift_report",
               "ok": true,
-              "source": "session_light",
-              "aggregate_score": 100,
-              "status": "ok",
-              "sensors": [
-                {
-                  "id": "GD-BOWL",
-                  "ok": true,
-                  "score": 100,
-                  "detail": "0 drift item(s) in DRIFT.json"
-                },
-                {
-                  "id": "GD-OPS",
-                  "ok": false,
-                  "score": 0,
-                  "detail": "[Errno 61] Connection refused"
-                }
-              ],
-              "live_ops_ok": false,
-              "drift_items_bowl": 0
+              "source": "cached",
+              "age_sec": 8.0,
+              "aggregate_score": 86,
+              "status": "needs_review",
+              "sensors": 7,
+              "live_ops_ok": true
             },
             {
               "chain": "SASCIP",
               "step": "stranger_agent_admission",
               "ok": true,
               "trust_tier": "T2_fleet_L2",
-              "risk_score": 45
+              "risk_score": 30
             },
             {
               "chain": "vocab",
@@ -254,18 +239,18 @@
           "realtime": {
             "pulse": {
               "schema": "monitor-live-v1",
-              "at": "2026-06-20T23:00:37Z",
+              "at": "2026-06-22T13:16:02Z",
               "reason": "zero_drift_live_wire:session",
               "signature_changed": true,
               "honest_status_written": true,
               "valid_yes": 1000,
               "receipt_done": 1000,
-              "here_sa": "sa-1202",
-              "here_role": "act",
-              "queue_pos": 2,
+              "here_sa": "",
+              "here_role": "",
+              "queue_pos": 11,
               "queue_total": 10,
-              "factory_mode": "FORGE_FACTORY",
-              "freeze": false,
+              "factory_mode": "FREEZE",
+              "freeze": true,
               "phase_strict": "Hub only (H1/H2) \u00b7 Sina Command RETIRED \u00b7 factory drain phase-s8",
               "inbox_pending": false,
               "law": "disk-wired \u00b7 no agent refresh required",
@@ -276,7 +261,7 @@
               },
               "run_inbox_truth": {
                 "schema": "run-inbox-disk-truth-v1",
-                "at": "2026-06-20T23:00:37Z",
+                "at": "2026-06-22T13:16:02Z",
                 "execution_lane": "run_inbox",
                 "next_steps_lane": "advisory_only",
                 "law": "brain-os/law/enforcement/law/enforcement/RUN_INBOX_DISK_TRUTH_EXECUTION_LOCKED_v1.md",
@@ -286,74 +271,74 @@
                   "goal_line": "1000/1000 honest (100.0%)"
                 },
                 "factory": {
-                  "mode": "FORGE_FACTORY",
-                  "freeze": false,
+                  "mode": "FREEZE",
+                  "freeze": true,
                   "stop_receipt_open": false
                 },
                 "queue": {
                   "phase_strict": false,
                   "pos": 1,
                   "total": 10,
-                  "sa_id": "sa-1201",
-                  "role": "check",
-                  "phase": "forge-factory-cycle2",
+                  "sa_id": "",
+                  "role": "",
+                  "phase": null,
                   "sa_range": [
                     "sa-1201",
                     "sa-1210"
                   ],
-                  "queue_exhausted": false
+                  "queue_exhausted": true
                 },
                 "phase_strict_order": "Hub only (H1/H2) \u00b7 Sina Command RETIRED \u00b7 factory drain phase-s8",
                 "inbox": {
                   "pending": false,
-                  "sa_id": "sa-1201",
+                  "sa_id": "",
                   "delivered_at": "2026-06-20T22:46:51Z",
                   "truth_match": true,
                   "execution_mode": "worker_inbox",
                   "work_order_id": null,
                   "local_worker_deprecated": false
                 },
-                "monitor_live_at": "2026-06-20T22:59:05Z",
+                "monitor_live_at": "2026-06-22T13:15:56Z",
                 "you_are_here": {
-                  "n": 1202,
-                  "sa_id": "sa-1202",
-                  "queue_pos": 2,
+                  "n": 11,
+                  "sa_id": "",
+                  "queue_pos": 11,
                   "queue_total": 10,
-                  "role": "act",
-                  "queue_exhausted": false,
-                  "label": ""
+                  "role": "",
+                  "queue_exhausted": true,
+                  "label": "Queue complete"
                 }
               },
               "live_ongoing_prompts": {
                 "ok": true,
                 "schema": "live-ongoing-prompts-next-10-v1",
-                "built_at": "2026-06-20T23:00:37Z",
+                "built_at": "2026-06-22T13:16:02Z",
                 "law": "SOURCEA_LIVE_ONGOING_PROMPTS_LOCKED_v1.md",
-                "cursor_pos": 2,
+                "cursor_pos": 10,
                 "queue_total": 10,
                 "queue_path": "/Users/sinakazemnezhad/.sina/healthy-queue-30-active.json",
                 "valid_yes": "1000/1000",
                 "honest_done": 1000,
                 "honest_total": 1000,
-                "factory_mode": "FORGE_FACTORY",
-                "freeze": false,
+                "factory_mode": "FREEZE",
+                "freeze": true,
                 "founder_confirmed_at": null,
                 "validator_receipt": {
                   "ok": false,
                   "schema": "live-pack-validator-receipt-v1",
-                  "at": "2026-06-20T23:00:37Z",
+                  "at": "2026-06-22T13:16:02Z",
                   "law": "SOURCEA_LIVE_ONGOING_PROMPTS_LOCKED_v1.md",
                   "checks": [
                     {
                       "id": "run_inbox_truth",
                       "ok": true,
-                      "detail": "sa-1202",
+                      "detail": "sa-1210",
                       "inbox_pending": false
                     },
                     {
                       "id": "healthy_pack_bind",
                       "ok": false,
-                      "detail": "queue=sa-1202 inbox=sa-1201 bind=mismatch"
+                      "detail": "queue=sa-1210 inbox= bind=mismatch"
                     }
                   ],
                   "failed": [
@@ -363,134 +348,6 @@
                 "turns": [
                   {
                     "order": 1,
-                    "queue_pos": 2,
-                    "sa_id": "sa-1202",
-                    "queue_role": "act",
-                    "title": "Wire FORGE FACTORY Supabase schema + portfolio pulse",
-                    "preview": "",
-                    "feasible": true,
-                    "feasibility_reasons": [],
-                    "quarantined": false,
-                    "founder_edit": null,
-                    "is_current": true,
-                    "execution_bind": "bound",
-                    "execution_surface": "inbox_only",
-                    "label": "RUN INBOX \u2014 current turn"
-                  },
-                  {
-                    "order": 2,
-                    "queue_pos": 3,
-                    "sa_id": "sa-1203",
-                    "queue_role": "verify",
-                    "title": "Governance zero drift after fanout",
-                    "preview": "",
-                    "feasible": true,
-                    "feasibility_reasons": [],
-                    "quarantined": false,
-                    "founder_edit": null,
-                    "is_current": false,
-                    "execution_bind": "preview_not_bound",
-                    "execution_surface": "not_bound",
-                    "label": "not bound \u2014 preview only"
-                  },
-                  {
-                    "order": 3,
-                    "queue_pos": 4,
-                    "sa_id": "sa-1204",
-                    "queue_role": "check",
-                    "title": "WitnessBC prod markers",
-                    "preview": "",
-                    "feasible": true,
-                    "feasibility_reasons": [],
-                    "quarantined": false,
-                    "founder_edit": null,
-                    "is_current": false,
-                    "execution_bind": "preview_not_bound",
-                    "execution_surface": "not_bound",
-                    "label": "not bound \u2014 preview only"
-                  },
-                  {
-                    "order": 4,
-                    "queue_pos": 5,
-                    "sa_id": "sa-1205",
-                    "queue_role": "act",
-                    "title": "WitnessBC commercial cutover prep",
-                    "preview": "",
-                    "feasible": true,
-                    "feasibility_reasons": [],
-                    "quarantined": false,
-                    "founder_edit": null,
-                    "is_current": false,
-                    "execution_bind": "preview_not_bound",
-                    "execution_surface": "not_bound",
-                    "label": "not bound \u2014 preview only"
-                  },
-                  {
-                    "order": 5,
-                    "queue_pos": 6,
-                    "sa_id": "sa-1206",
-                    "queue_role": "check",
-                    "title": "TrustField ladder commercial_blocked",
-                    "preview": "",
-                    "feasible": true,
-                    "feasibility_reasons": [],
-                    "quarantined": false,
-                    "founder_edit": null,
-                    "is_current": false,
-                    "execution_bind": "preview_not_bound",
-                    "execution_surface": "not_bound",
-                    "label": "not bound \u2014 preview only"
-                  },
-                  {
-                    "order": 6,
-                    "queue_pos": 7,
-                    "sa_id": "sa-1207",
-                    "queue_role": "act",
-                    "title": "TrustField ladder unblock bounded",
-                    "preview": "",
-                    "feasible": true,
-                    "feasibility_reasons": [],
-                    "quarantined": false,
-                    "founder_edit": null,
-                    "is_current": false,
-                    "execution_bind": "preview_not_bound",
-                    "execution_surface": "not_bound",
-                    "label": "not bound \u2014 preview only"
-                  },
-                  {
-                    "order": 7,
-                    "queue_pos": 8,
-                    "sa_id": "sa-1208",
-                    "queue_role": "check",
-                    "title": "FBE cloud factory builder bundle",
-                    "preview": "",
-                    "feasible": true,
-                    "feasibility_reasons": [],
-                    "quarantined": false,
-                    "founder_edit": null,
-                    "is_current": false,
-                    "execution_bind": "preview_not_bound",
-                    "execution_surface": "not_bound",
-                    "label": "not bound \u2014 preview only"
-                  },
-                  {
-                    "order": 8,
-                    "queue_pos": 9,
-                    "sa_id": "sa-1209",
-                    "queue_role": "act",
-                    "title": "Loop specialist cloud dispatch tick",
-                    "preview": "",
-                    "feasible": true,
-                    "feasibility_reasons": [],
-                    "quarantined": false,
-                    "founder_edit": null,
-                    "is_current": false,
-                    "execution_bind": "preview_not_bound",
-                    "execution_surface": "not_bound",
-                    "label": "not bound \u2014 preview only"
-                  },
-                  {
-                    "order": 9,
                     "queue_pos": 10,
                     "sa_id": "sa-1210",
                     "queue_role": "verify",
@@ -500,42 +357,42 @@
                     "feasibility_reasons": [],
                     "quarantined": false,
                     "founder_edit": null,
-                    "is_current": false,
-                    "execution_bind": "preview_not_bound",
-                    "execution_surface": "not_bound",
-                    "label": "not bound \u2014 preview only"
+                    "is_current": true,
+                    "execution_bind": "bound",
+                    "execution_surface": "inbox_only",
+                    "label": "RUN INBOX \u2014 current turn"
                   }
                 ],
-                "count": 9,
+                "count": 1,
                 "limit": 10,
                 "execution_surface": "inbox_only",
-                "note": "Live machine order: queue turns 2..10"
+                "note": "Live machine order: queue turns 10..10"
               },
               "factory_now": {
                 "schema": "factory-now-v1",
-                "at": "2026-06-20T23:00:37Z",
-                "era": "forge_factory_cycle2",
-                "brand": "FORGE FACTORY",
+                "at": "2026-06-22T13:16:02Z",
+                "era": "phase_market",
+                "brand": "PORTFOLIO-",
                 "valid_yes": 1000,
-                "valid_yes_note": "archived_goal1_bootstrap",
+                "valid_yes_note": "",
                 "backlog": 0,
                 "brain_vy": 1000,
                 "dual_proof_ok": true,
-                "mode": "FORGE_FACTORY",
-                "kill_flag": false,
+                "mode": "FREEZE",
+                "kill_flag": true,
                 "stop_receipt_open": false,
-                "queue_sa": "sa-1201",
-                "inbox_sa": "sa-1201",
+                "queue_sa": "",
+                "inbox_sa": "",
                 "orchestrator_status": "idle",
                 "broker_status": "idle",
                 "poison_stall": false,
                 "rebuilt_by": "queue_ssot_unify",
                 "law": "cite this line only in chat",
-                "line": "factory-now \u00b7 FORGE FACTORY \u00b7 cycle2 \u00b7 mode FORGE_FACTORY \u00b7 queue sa-1201"
+                "line": "factory-now \u00b7 Valid YES 1000 \u00b7 brain 1000 \u00b7 dual_proof True \u00b7 mode FREEZE \u00b7 queue "
               }
             },
-            "anti_staleness_age_sec": 4.0,
-            "live_ops_ok": false
+            "anti_staleness_age_sec": 23.3,
+            "live_ops_ok": true
           },
           "outbound_progress_line": "outbound \u00b7 0/100 done \u00b7 head=? \u00b7 plan=? \u00b7 sa=sa-1201"
         }
@@ -545,21 +402,21 @@
         "exists": true,
         "ok": false,
         "schema": "disk-live-wire-receipt-v1",
-        "sha256": "deff0943d2ffa2535131fd4edeb3864092283bcfe2d10a48aeda1ba02876058b",
+        "sha256": "caf19f811c2fa3016f56bb20e334e29df0adcd6d374925ce5ee404633417d294",
         "body": {
           "schema": "disk-live-wire-receipt-v1",
           "ok": false,
-          "at": "2026-06-20T18:47:30Z",
-          "role": "any",
+          "at": "2026-06-22T13:16:41Z",
+          "role": "founder",
           "law": "AGENT_DISK_LIVE_WIRE_FIRST_LOCKED_v1.md",
           "factory_now_line": "factory-now \u00b7 Valid YES 1000 \u00b7 brain 1000 \u00b7 dual_proof True \u00b7 mode FREEZE \u00b7 queue ",
           "queue_sa": "",
-          "nerve_system_line": "nerve \u00b7 queue=idle \u00b7 aligned \u00b7 drift=100 \u00b7 loop=3sys\u00b73comm \u00b7 rules=forbidden_one,lane_forbidden,salvage_pattern,ship_gate:w3_critic_circle+1 \u00b7 fleet66% \u00b7 research=YES \u00b7 AS=ok \u00b7 ui_fc=mandatory \u00b7 maclaw=PASS \u00b7 worker=BLOCK",
+          "nerve_system_line": "nerve \u00b7 queue=idle \u00b7 aligned \u00b7 drift=100 \u00b7 loop=3sys\u00b73comm \u00b7 rules=forbidden_one,lane_forbidden,salvage_pattern,ship_gate:w3_critic_circle+1 \u00b7 fleet90+ \u00b7 research=YES \u00b7 AS=ok \u00b7 ui_fc=BLOCK \u00b7 maclaw=PASS \u00b7 worker=PASS \u00b7 outbound \u00b7 0/100 done \u00b7 head=? \u00b7 plan=? \u00b7 sa=sa-",
           "mode": "FREEZE",
           "paths": {
             "truth_bundle": "/Users/sinakazemnezhad/.sina/last-truth-bundle-v1.json",
             "agent_surfaces": "/Users/sinakazemnezhad/.sina/agent-live-surfaces-v1.json",
-            "brain_surfaces": "/Users/sinakazemnezhad/.sina/brain/BRAIN_LIVE_SURFACES_v1.json",
+            "brain_surfaces": null,
             "mirror": "/Users/sinakazemnezhad/.sina/agent-memory-mirror-v1.json",
             "worker_live_context": "/Users/sinakazemnezhad/.sina/worker-live-context-v1.json",
             "brain_live_context": "/Users/sinakazemnezhad/.sina/brain-live-context-v1.json"
@@ -578,11 +435,6 @@
               "step": "agent_live_surfaces",
               "ok": true,
               "path": "/Users/sinakazemnezhad/.sina/agent-live-surfaces-v1.json"
-            },
-            {
-              "step": "brain_live_surfaces",
-              "ok": true,
-              "path": "/Users/sinakazemnezhad/.sina/brain/BRAIN_LIVE_SURFACES_v1.json"
             },
             {
               "step": "mac_law_agent_execution_plane_lock",
@@ -604,25 +456,25 @@
             {
               "step": "loop_specialist_tick",
               "ok": true,
-              "tick_decision": "execute_pending",
-              "loop_specialist_line": "loop-specialist \u00b7 execute_pending \u00b7 auto=ON \u00b7 Brain work-order \u00b7 Hub glance only"
+              "tick_decision": "compose_blocked",
+              "loop_specialist_line": "loop-specialist \u00b7 blocked \u00b7 auto=ON \u00b7 freeze_no_resume,queue_idle \u00b7 observe \u00b7 queue=idle \u00b7 FREEZE \u00b7 3 sys \u00b7 3 commercial"
             },
             {
               "step": "investigator_circle",
               "ok": true,
               "investigation_verdict": "YELLOW",
-              "investigator_line": "investigator \u00b7 YELLOW \u00b7 routes=2 \u00b7 \u2192Commercial / W3 lane \u00b7 observe \u00b7 queue=idle \u00b7 FREEZE \u00b7 3 sys \u00b7 3 commercial \u00b7 upgrad"
+              "investigator_line": "investigator \u00b7 YELLOW \u00b7 routes=3 \u00b7 \u2192Commercial / W3 lane \u00b7 observe \u00b7 queue=idle \u00b7 FREEZE \u00b7 3 sys \u00b7 3 commercial \u00b7 upgrad"
             },
             {
               "step": "judge_loop_room",
               "ok": true,
-              "loop_verdict": "LOOP_DEGRADED",
-              "judge_loop_line": "judge-loop \u00b7 LOOP_DEGRADED \u00b7 inv=YELLOW \u00b7 tick=execute_pending \u00b7 routes=2"
+              "loop_verdict": "DISPATCH_BLOCKED",
+              "judge_loop_line": "judge-loop \u00b7 DISPATCH_BLOCKED \u00b7 inv=YELLOW \u00b7 tick=compose_blocked \u00b7 routes=3"
             },
             {
               "step": "founder_routing_panel",
               "ok": true,
-              "founder_routing_panel_line": "routing \u00b7 loop=LOOP_DEGRADED \u00b7 \u2192Commercial / W3 lane \u00b7 tick=execute_pending \u00b7 brands=6"
+              "founder_routing_panel_line": "routing \u00b7 loop=DISPATCH_BLOCKED \u00b7 \u2192Commercial / W3 lane \u00b7 tick=compose_blocked \u00b7 brands=6"
             },
             {
               "step": "disclosure_ladder",
@@ -655,14 +507,14 @@
             {
               "step": "full_stack_fix_plan_pulse",
               "ok": true,
-              "full_stack_fix_line": "full-stack-fix \u00b7 wave=W3 \u00b7 60/100 \u00b7 exec=?/6 \u00b7 next=F051",
+              "full_stack_fix_line": "full-stack-fix \u00b7 wave=W3 \u00b7 62/100 \u00b7 exec=12/12 \u00b7 next=F051",
               "active_wave": "W3"
             },
             {
               "step": "brain_cloud_reasoning_plan_pulse",
               "ok": true,
-              "brain_cloud_line": "brain-cloud \u00b7 epic=E01 \u00b7 0/1000 \u00b7 blocker=BRAIN \u00b7 local_primary=NO \u00b7 work_order=YES \u00b7 head=B0001",
-              "active_epic": "E01"
+              "brain_cloud_line": "brain-cloud \u00b7 epic=E02 \u00b7 25/1000 \u00b7 blocker=BRAIN \u00b7 local_primary=NO \u00b7 work_order=YES \u00b7 head=B0001",
+              "active_epic": "E02"
             },
             {
               "step": "brain_cloud_practical_300_pulse",
@@ -673,7 +525,7 @@
             {
               "step": "plans_unified_upgrade",
               "ok": false,
-              "plans_unified_line": "Plans \u00b7 outbound 0/0 W1 \u00b7 full-stack 60/100 W3 \u00b7 brain 2/1000 E08 \u00b7 M111 43/111"
+              "plans_unified_line": "Plans \u00b7 outbound 0/0 W1 \u00b7 full-stack 62/100 W3 \u00b7 brain 25/1000 E01 \u00b7 M111 43/111"
             },
             {
               "step": "world_model_plan_check",
@@ -698,11 +550,6 @@
             },
             {
               "step": "brain_live_context",
-              "ok": true,
-              "exit": 0
-            },
-            {
-              "step": "brain_stale_prompt_scrub",
               "ok": true,
               "exit": 0
             },
@@ -810,15 +657,15 @@
         "exists": true,
         "ok": true,
         "schema": "fbe-motor-delegate-receipt-v1",
-        "sha256": "2c01b195e40d7a6fafdf51fb0add560657bb8f77dff95e03d5de8a538ba981bc",
+        "sha256": "ecfb7893cd4ba15dde2feb7f661d07536ec2d41aafc5d9b9106f15402008e0f9",
         "body": {
           "schema": "fbe-motor-delegate-receipt-v1",
           "ok": true,
-          "at": "2026-06-20T23:12:41Z",
+          "at": "2026-06-22T15:19:17Z",
           "mode": "motor_delegate",
           "skipped": true,
           "freeze_flag": "/Users/sinakazemnezhad/.sina/auto-run-disabled-v1.flag",
-          "freeze_line": "cursor-agent-law \u00b7 2026-06-20T23:05:08Z",
+          "freeze_line": "cursor-agent-law \u00b7 2026-06-21T19:38:46Z",
           "script": "fbe_motor_delegate_v1.py",
           "note": "FBE motor deferred \u2014 run on cloud worker (--force to override)",
           "execution_plane": "cloud_deferred",
@@ -942,165 +789,494 @@
         "exists": true,
         "ok": true,
         "schema": "fbe-cloud-adapter-receipt-v1",
-        "sha256": "7b1c37b60660e26570a9cbbc68fe9d386e01a78ff6e226a84a04203fd3c8c494",
+        "sha256": "bd85449feda1ef3bee7398d37f40805a8af27f2406962786c93c5506324bd2e9",
         "body": {
           "schema": "fbe-cloud-adapter-receipt-v1",
           "ok": true,
-          "at": "2026-06-20T23:12:41Z",
-          "mode": "w1_skeleton",
+          "at": "2026-06-21T21:18:23Z",
+          "mode": "w2_headless",
           "submit_mode": "railway_fbe",
-          "run_mode": "refinery",
-          "template_id": "web-product-factory-v1",
-          "work_order_id": "wo-validate",
-          "tenant": "wil_ai_design_partner",
-          "bay_slug": "sample-bay",
-          "execution_plane": "cloud_skeleton",
-          "dry_run": true,
+          "run_mode": "forge",
+          "template_id": "forge-app-factory-v1",
+          "work_order_id": "sa-mkt-0005",
+          "tenant": "forge",
+          "bay_slug": "forge-bay",
+          "execution_plane": "headless_w2",
+          "dry_run": false,
           "skeleton": {
             "dockerfile": true,
             "entrypoint": true,
             "entrypoint_executable": true,
             "bay_jobs": true
           },
-          "run_result": {},
-          "forge_context": null,
-          "remote_status": "deferred_w2",
+          "run_result": {
+            "schema": "fbe-run-job-receipt-v1",
+            "ok": true,
+            "at": "2026-06-21T21:18:23Z",
+            "wave": "W5",
+            "factory_id": "factory_3",
+            "bay_slug": "forge-bay",
+            "template_id": "forge-app-factory-v1",
+            "tenant": "forge",
+            "work_order_id": "sa-mkt-0005",
+            "mode": "railway_fbe",
+            "execution_plane": "headless_w5",
+            "deliveryMode": "prove_only",
+            "tier_target": "GOLD",
+            "tier_achieved": "GOLD",
+            "lines": {
+              "motor": {
+                "ok": true,
+                "proof": "motor_verify PASS"
+              },
+              "refinery": {
+                "ok": true,
+                "proof": "forge_refinery via forge_runner"
+              },
+              "assembly": {
+                "ok": true,
+                "proof": "forge_assembly via forge_runner"
+              }
+            },
+            "federated_ok": true,
+            "market_ready_proof": "forge_verify PASS",
+            "artifact_uri": "receipts/packs/forge-bay/run-receipt-v1.zip",
+            "receipt_pack_uri": "receipts/packs/forge-bay/run-receipt-v1.zip",
+            "mono_bridge": "reachable",
+            "cloud_sync": "pull_assembly_receipts",
+            "forge_router": {
+              "schema": "forge-router-execute-v0.1",
+              "ok": true,
+              "at": "2026-06-21T21:18:23Z",
+              "run_id": "forge-run-20260621T211802-sa-mkt-0005",
+              "tasks_run": 3,
+              "cost_usd_total": 0.05,
+              "cost_cap_usd": 2.0,
+              "results": [
+                {
+                  "task_id": "T1",
+                  "route": "gemini_context",
+                  "cost_usd": 0.03,
+                  "ok": true,
+                  "stub": true,
+                  "note": "MVP stub \u2014 cloud key lane gemini_context"
+                },
+                {
+                  "task_id": "T2",
+                  "route": "openrouter_bulk",
+                  "cost_usd": 0.02,
+                  "ok": true,
+                  "model": "deepseek/deepseek-chat",
+                  "usage": {
+                    "prompt_tokens": 26,
+                    "completion_tokens": 592,
+                    "total_tokens": 618,
+                    "cost": 0.0004788644,
+                    "is_byok": false,
+                    "prompt_tokens_details": {
+                      "cached_tokens": 0,
+                      "cache_write_tokens": 0,
+                      "audio_tokens": 0,
+                      "video_tokens": 0
+                    },
+                    "cost_details": {
+                      "upstream_inference_cost": 0.0004788644,
+                      "upstream_inference_prompt_cost": 5.2052e-06,
+                      "upstream_inference_completions_cost": 0.0004736592
+                    },
+                    "completion_tokens_details": {
+                      "reasoning_tokens": 0,
+                      "image_tokens": 0,
+                      "audio_tokens": 0
+                    }
+                  }
+                },
+                {
+                  "task_id": "T3",
+                  "route": "sandbox",
+                  "cost_usd": 0.0,
+                  "ok": true,
+                  "note": "delegated_to_fbe_w5_wrappers"
+                }
+              ]
+            },
+            "forge_critic": {
+              "ok": true,
+              "schema": "forge-critic-loop-v0.1",
+              "at": "2026-06-21T21:18:23Z",
+              "replans": 0,
+              "final_verdict": "PASS",
+              "history": [
+                {
+                  "replan": 0,
+                  "eval": {
+                    "schema": "forge-critic-eval-v0.1",
+                    "at": "2026-06-21T21:18:23Z",
+                    "run_id": "forge-run-20260621T211802-sa-mkt-0005",
+                    "verdict": "PASS",
+                    "intent": "SourceA  parity \u00b7 Trigger.dev \u00b7 ws-ux",
+                    "cost_usd_total": 0.05,
+                    "reasons": []
+                  },
+                  "run_id": "forge-run-20260621T211802-sa-mkt-0005"
+                }
+              ]
+            },
+            "forge_context": {
+              "plan_id": "sa-mkt-0005",
+              "run_id": "forge-run-20260621T211802-sa-mkt-0005",
+              "task_graph_path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/trace/forge-run-20260621T211802-sa-mkt-0005-task-graph.json",
+              "stack": "SourceA",
+              "stack_key": "sourcea",
+              "": "Trigger.dev",
+              "workstream": "ws-ux",
+              "phase": "phase-c01-trigger-dev",
+              "prompt_abs": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/sourcea--1000/prompts/phase-c01-trigger-dev/ws-ux/sa-mkt-0005.md",
+              "execution_mode": "CLOUD_ONLY",
+              "preview_url": null,
+              "task_graph": {
+                "schema": "forge-task-graph-v0.1",
+                "version": "0.1.0",
+                "run_id": "forge-run-20260621T211802-sa-mkt-0005",
+                "saved_at": "2026-06-21T21:18:02Z",
+                "prompt": {
+                  "raw": "Diff our public copy vs Trigger.dev pricing/product page \u2014 list 3 concrete gaps; fix highest P0 gap only",
+                  "intent": "SourceA  parity \u00b7 Trigger.dev \u00b7 ws-ux",
+                  "constraints": [
+                    "cloud_only",
+                    "receipt_required",
+                    "mac_build_forbidden"
+                  ],
+                  "entities": [
+                    "Trigger.dev",
+                    "ws-ux"
+                  ],
+                  "risk_signals": []
+                },
+                "tasks": [
+                  {
+                    "id": "T1",
+                    "kind": "research",
+                    "title": "Trigger.dev \u00b7 ws-ux \u00b7 research",
+                    "depends_on": [],
+                    "route_hint": "gemini_context",
+                    "artifact_out": "forge-run-20260621T211802-sa-mkt-0005/T1"
+                  },
+                  {
+                    "id": "T2",
+                    "kind": "ui_gen",
+                    "title": "Trigger.dev \u00b7 ws-ux \u00b7 ui_gen",
+                    "depends_on": [
+                      "T1"
+                    ],
+                    "route_hint": "openrouter_bulk",
+                    "artifact_out": "forge-run-20260621T211802-sa-mkt-0005/T2"
+                  },
+                  {
+                    "id": "T3",
+                    "kind": "validate",
+                    "title": "Trigger.dev \u00b7 ws-ux \u00b7 validate",
+                    "depends_on": [
+                      "T2"
+                    ],
+                    "route_hint": "sandbox",
+                    "artifact_out": "forge-run-20260621T211802-sa-mkt-0005/T3"
+                  },
+                  {
+                    "id": "T4",
+                    "kind": "evaluate",
+                    "title": "Critic evaluate vs intent",
+                    "depends_on": [
+                      "T3"
+                    ],
+                    "route_hint": "gpt_control"
+                  }
+                ],
+                "edges": [
+                  {
+                    "from": "T1",
+                    "to": "T2"
+                  },
+                  {
+                    "from": "T2",
+                    "to": "T3"
+                  },
+                  {
+                    "from": "T3",
+                    "to": "T4"
+                  }
+                ],
+                "meta_loop": {
+                  "max_replan": 2,
+                  "on_fail": "replan"
+                },
+                "work_order": {
+                  "plan_id": "sa-mkt-0005",
+                  "stack": "SourceA",
+                  "stack_key": "sourcea",
+                  "tenant": "forge",
+                  "": "Trigger.dev",
+                  "workstream": "ws-ux",
+                  "prompt_abs": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/sourcea--1000/prompts/phase-c01-trigger-dev/ws-ux/sa-mkt-0005.md"
+                }
+              }
+            },
+            "proof_class": "G0-G3",
+            "execution_mode": "CLOUD_ONLY",
+            "execution_receipt": {
+              "schema": "fbe-execution-receipt-v1",
+              "job_id": "5661cab6-5681-4a57-bdaf-b3fada8c43c6",
+              "factory_id": "forge-app-factory-v1",
+              "tenant_id": "forge",
+              "status": "success",
+              "ok": true,
+              "nodes_executed": 76,
+              "duration_ms": 20243,
+              "cost_usd": null,
+              "artifact_urls": [
+                "receipts/packs/forge-bay/run-receipt-v1.zip",
+                "receipts/packs/forge-bay/run-receipt-v1.zip"
+              ],
+              "policy_passed": true,
+              "policy_pack": "trust_motor",
+              "policy_hash": "8455e1b929d0f418",
+              "kernel_hash": "f1d2de5c446c1937",
+              "kernel_version": "fbe-v1.0.0+f1d2de5c446c1937",
+              "execution_plane": "headless_w5",
+              "execution_mode": "CLOUD_ONLY",
+              "tier_achieved": "GOLD",
+              "tier_target": "GOLD",
+              "federated_ok": true,
+              "at": "2026-06-21T21:18:23Z",
+              "raw_receipt": {
+                "schema": "fbe-run-job-receipt-v1",
+                "ok": true,
+                "at": "2026-06-21T21:18:23Z",
+                "wave": "W5",
+                "factory_id": "factory_3",
+                "bay_slug": "forge-bay",
+                "template_id": "forge-app-factory-v1",
+                "tenant": "forge",
+                "work_order_id": "sa-mkt-0005",
+                "mode": "full_job_w5",
+                "execution_plane": "headless_w5",
+                "deliveryMode": "prove_only",
+                "tier_target": "GOLD",
+                "tier_achieved": "GOLD",
+                "lines": "<cycle>",
+                "federated_ok": true,
+                "market_ready_proof": "forge_verify PASS",
+                "artifact_uri": "receipts/packs/forge-bay/run-receipt-v1.zip",
+                "receipt_pack_uri": "receipts/packs/forge-bay/run-receipt-v1.zip",
+                "mono_bridge": "reachable",
+                "cloud_sync": "pull_assembly_receipts",
+                "forge_router": "<cycle>",
+                "forge_critic": "<cycle>",
+                "forge_context": "<cycle>",
+                "proof_class": "G0-G3"
+              }
+            },
+            "run_mode": "forge"
+          },
+          "forge_context": {
+            "plan_id": "sa-mkt-0005",
+            "run_id": "forge-run-20260621T211802-sa-mkt-0005",
+            "task_graph_path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/trace/forge-run-20260621T211802-sa-mkt-0005-task-graph.json",
+            "stack": "SourceA",
+            "stack_key": "sourcea",
+            "": "Trigger.dev",
+            "workstream": "ws-ux",
+            "phase": "phase-c01-trigger-dev",
+            "prompt_abs": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/sourcea--1000/prompts/phase-c01-trigger-dev/ws-ux/sa-mkt-0005.md",
+            "execution_mode": "CLOUD_ONLY",
+            "preview_url": null,
+            "task_graph": {
+              "schema": "forge-task-graph-v0.1",
+              "version": "0.1.0",
+              "run_id": "forge-run-20260621T211802-sa-mkt-0005",
+              "saved_at": "2026-06-21T21:18:02Z",
+              "prompt": {
+                "raw": "Diff our public copy vs Trigger.dev pricing/product page \u2014 list 3 concrete gaps; fix highest P0 gap only",
+                "intent": "SourceA  parity \u00b7 Trigger.dev \u00b7 ws-ux",
+                "constraints": [
+                  "cloud_only",
+                  "receipt_required",
+                  "mac_build_forbidden"
+                ],
+                "entities": [
+                  "Trigger.dev",
+                  "ws-ux"
+                ],
+                "risk_signals": []
+              },
+              "tasks": [
+                {
+                  "id": "T1",
+                  "kind": "research",
+                  "title": "Trigger.dev \u00b7 ws-ux \u00b7 research",
+                  "depends_on": [],
+                  "route_hint": "gemini_context",
+                  "artifact_out": "forge-run-20260621T211802-sa-mkt-0005/T1"
+                },
+                {
+                  "id": "T2",
+                  "kind": "ui_gen",
+                  "title": "Trigger.dev \u00b7 ws-ux \u00b7 ui_gen",
+                  "depends_on": [
+                    "T1"
+                  ],
+                  "route_hint": "openrouter_bulk",
+                  "artifact_out": "forge-run-20260621T211802-sa-mkt-0005/T2"
+                },
+                {
+                  "id": "T3",
+                  "kind": "validate",
+                  "title": "Trigger.dev \u00b7 ws-ux \u00b7 validate",
+                  "depends_on": [
+                    "T2"
+                  ],
+                  "route_hint": "sandbox",
+                  "artifact_out": "forge-run-20260621T211802-sa-mkt-0005/T3"
+                },
+                {
+                  "id": "T4",
+                  "kind": "evaluate",
+                  "title": "Critic evaluate vs intent",
+                  "depends_on": [
+                    "T3"
+                  ],
+                  "route_hint": "gpt_control"
+                }
+              ],
+              "edges": [
+                {
+                  "from": "T1",
+                  "to": "T2"
+                },
+                {
+                  "from": "T2",
+                  "to": "T3"
+                },
+                {
+                  "from": "T3",
+                  "to": "T4"
+                }
+              ],
+              "meta_loop": {
+                "max_replan": 2,
+                "on_fail": "replan"
+              },
+              "work_order": {
+                "plan_id": "sa-mkt-0005",
+                "stack": "SourceA",
+                "stack_key": "sourcea",
+                "tenant": "forge",
+                "": "Trigger.dev",
+                "workstream": "ws-ux",
+                "prompt_abs": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/sourcea--1000/prompts/phase-c01-trigger-dev/ws-ux/sa-mkt-0005.md"
+              }
+            }
+          },
+          "remote_status": "local_primary",
           "wave": "W2"
         }
       }
     },
     "refinery": {
-      "mode": "headless_w2",
-      "bay_slug": "sample-bay",
+      "mode": "headless_w5",
+      "bay_slug": "forge-bay",
+      "factory_id": "factory_3",
       "run_ok": true,
       "verify_ok": true,
-      "proof": "refinery_verify PASS",
-      "ledger_lines": 6381,
+      "proof": "forge_verify PASS",
+      "proof_class": "G0-G3",
+      "refinery_ledger_lines": 80,
+      "assembly_ledger_lines": 52,
       "receipts": {
-        "factory-route-audit-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/factory-route-audit-v1-v1.json",
+        "forge-scaffold-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/refinery/forge-scaffold-v1-v1.json",
           "exists": true
         },
-        "factory-verify-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/factory-verify-v1-v1.json",
+        "forge-inbox-gate-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/refinery/forge-inbox-gate-v1-v1.json",
           "exists": true
         },
-        "factory-mirror-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/factory-mirror-v1-v1.json",
+        "forge-orient-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/refinery/forge-orient-v1-v1.json",
           "exists": true
         },
-        "creed-session-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/creed-session-v1-v1.json",
+        "forge-deploy-pack-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/assembly/forge-deploy-pack-v1-v1.json",
           "exists": true
         },
-        "factory-definition-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/factory-definition-v1-v1.json",
-          "exists": true
-        },
-        "factory-clone-parity-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/factory-clone-parity-v1-v1.json",
-          "exists": true
-        },
-        "creed-orient-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/creed-orient-v1-v1.json",
+        "forge-verify-job-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/assembly/forge-verify-job-v1-v1.json",
           "exists": true
         }
       }
     },
     "assembly": {
-      "mode": "headless_w3",
-      "bay_slug": "sample-bay",
+      "mode": "headless_w5",
+      "bay_slug": "forge-bay",
+      "factory_id": "factory_3",
       "run_ok": true,
       "verify_ok": true,
-      "proof": "assembly_verify PASS",
-      "ledger_lines": 550,
+      "proof": "forge_verify PASS",
+      "proof_class": "G0-G3",
+      "refinery_ledger_lines": 80,
+      "assembly_ledger_lines": 52,
       "receipts": {
-        "church-deploy-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-deploy-v1-v1.json",
+        "forge-scaffold-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/refinery/forge-scaffold-v1-v1.json",
           "exists": true
         },
-        "church-dealer-letter-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-dealer-letter-v1-v1.json",
+        "forge-inbox-gate-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/refinery/forge-inbox-gate-v1-v1.json",
           "exists": true
         },
-        "church-demo-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-demo-v1-v1.json",
+        "forge-orient-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/refinery/forge-orient-v1-v1.json",
           "exists": true
         },
-        "church-verify-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-verify-v1-v1.json",
+        "forge-deploy-pack-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/assembly/forge-deploy-pack-v1-v1.json",
           "exists": true
         },
-        "church-brand-unity-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-brand-unity-v1-v1.json",
+        "forge-verify-job-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/assembly/forge-verify-job-v1-v1.json",
+          "exists": true
+        }
+      }
+    },
+    "forge": {
+      "mode": "headless_w5",
+      "bay_slug": "forge-bay",
+      "factory_id": "factory_3",
+      "run_ok": true,
+      "verify_ok": true,
+      "proof": "forge_verify PASS",
+      "proof_class": "G0-G3",
+      "refinery_ledger_lines": 80,
+      "assembly_ledger_lines": 52,
+      "receipts": {
+        "forge-scaffold-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/refinery/forge-scaffold-v1-v1.json",
           "exists": true
         },
-        "church-architect-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-architect-v1-v1.json",
+        "forge-inbox-gate-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/refinery/forge-inbox-gate-v1-v1.json",
           "exists": true
         },
-        "church-market-fidelity-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-market-fidelity-v1-v1.json",
+        "forge-orient-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/refinery/forge-orient-v1-v1.json",
           "exists": true
         },
-        "church-intake-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-intake-v1-v1.json",
+        "forge-deploy-pack-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/assembly/forge-deploy-pack-v1-v1.json",
           "exists": true
         },
-        "church-narrative-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-narrative-v1-v1.json",
-          "exists": true
-        },
-        "church-scaffold-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-scaffold-v1-v1.json",
-          "exists": true
-        },
-        "church-forbidden-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-forbidden-v1-v1.json",
-          "exists": true
-        },
-        "church-merge-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-merge-v1-v1.json",
-          "exists": true
-        },
-        "church-boundary-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-boundary-v1-v1.json",
-          "exists": true
-        },
-        "church-domain-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-domain-v1-v1.json",
-          "exists": true
-        },
-        "church-gtm-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-gtm-v1-v1.json",
-          "exists": true
-        },
-        "church-policy-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-policy-v1-v1.json",
-          "exists": true
-        },
-        "church-orient-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-orient-v1-v1.json",
-          "exists": true
-        },
-        "church-neutrality-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-neutrality-v1-v1.json",
-          "exists": true
-        },
-        "church-definition-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-definition-v1-v1.json",
-          "exists": true
-        },
-        "church-live-smoke-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-live-smoke-v1-v1.json",
-          "exists": true
-        },
-        "church-isolation-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-isolation-v1-v1.json",
-          "exists": true
-        },
-        "church-rules-v1-v1": {
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/sample-bay/assembly/church-rules-v1-v1.json",
+        "forge-verify-job-v1-v1": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/bays/forge-bay/assembly/forge-verify-job-v1-v1.json",
           "exists": true
         }
       }
@@ -1108,8 +1284,8 @@
   },
   "artifact_uri": null,
   "receipt_pack_uri": "/Users/sinakazemnezhad/.sina/fbe-federated-receipt-v1.json",
-  "tier_achieved": "GOLD+assembly_wired",
-  "sha256": "f5608cabf3a6830e26b8363e4c341ea31444feed61a95265a4474ee287d76b48",
+  "tier_achieved": "GOLD",
+  "sha256": "af06951a560d8a1d16fc58e71a9b93875a6f1fb44d699db49a5675fd4d940555",
   "missing": [
     "session_gate"
   ]

@@ -1,0 +1,134 @@
+{
+  "schema": "forge-scoring-ssot-v01",
+  "version": "1.0.0",
+  "saved_at": "2026-06-20T21:45:00Z",
+  "authority": "ASF \u00b7 Forge-v0.1 win test",
+  "architecture": "A",
+  "architecture_note": "Code + artifacts live in cloud (GitHub/Railway volume). Mac reads receipts/URLs only \u2014 no MCP write-back to Mac disk.",
+  "target_repo": "sourcea/fbe-cloud-worker",
+  "core_capabilities": [
+    "cloud_worker_dispatch_api",
+    "receipt_native_store",
+    "_evidence_pipeline",
+    "gap_ranking_engine",
+    "worker_hub_projection",
+    "worker_run_dashboard",
+    "mac_control_cockpit_observe",
+    "forge_deterministic_router"
+  ],
+  "client_problems": [
+    "P0-trust-receipt-gap",
+    "P1-run-visibility",
+    "P2-onboard-friction",
+    "P3-pricing-clarity",
+    "P4-mac-cockpit-only"
+  ],
+  "workstream_client_problem": {
+    "ws-ux": "P2-onboard-friction",
+    "ws-pricing": "P3-pricing-clarity",
+    "ws-run": "P1-run-visibility",
+    "ws-onboard": "P2-onboard-friction",
+    "ws-integrate": "P0-trust-receipt-gap",
+    "mac_control": "P4-mac-cockpit-only"
+  },
+  "workstream_core_capability": {
+    "ws-ux": "_evidence_pipeline",
+    "ws-pricing": "_evidence_pipeline",
+    "ws-run": "worker_run_dashboard",
+    "ws-onboard": "_evidence_pipeline",
+    "ws-integrate": "cloud_worker_dispatch_api",
+    "mac_control": "mac_control_cockpit_observe"
+  },
+  "already_implemented_plan_ids": [
+    "MAC-CTL-002",
+    "MAC-CTL-005",
+    "CLOUD-SEC-001",
+    "CLOUD-SEC-011",
+    "CLOUD-SEC-021",
+    "CLOUD-SEC-031",
+    "CLOUD-SEC-041",
+    "CLOUD-SEC-051",
+    "CLOUD-SEC-061",
+    "CLOUD-SEC-071",
+    "CLOUD-SEC-081",
+    "CLOUD-SEC-023"
+  ],
+  "already_implemented_signatures": [
+    "legacy-hub-batch-prompt-loop",
+    "mac-local-validator-marathon",
+    "fbe_motor_delegate_on_mac",
+    "auto-run-worker-bootstrap",
+    "mcp-write-back-to-mac-disk",
+    "hub_post_dispatch_dry_run_v1",
+    "_evidence_fetch_receipt_pass",
+    "cloud_implement_receipt_pass"
+  ],
+  "vague_keyword_patterns": [
+    "optimize later",
+    "tbd",
+    "fix style",
+    "maybe later",
+    "todo later",
+    "mock_only",
+    "glance only"
+  ],
+  "dedup_similarity_threshold": 85,
+  "score_boost_patterns": [
+    {
+      "pattern": "implement smallest",
+      "points": 8
+    },
+    {
+      "pattern": "run-detail slice",
+      "points": 8
+    },
+    {
+      "pattern": "Wire cloud",
+      "points": 8
+    },
+    {
+      "pattern": "fix top gap",
+      "points": 8
+    },
+    {
+      "pattern": "fix one onboarding",
+      "points": 8
+    },
+    {
+      "pattern": "Cloud sandbox",
+      "points": 6
+    },
+    {
+      "pattern": "dispatch hook",
+      "points": 6
+    }
+  ],
+  "score_penalty_patterns": [
+    {
+      "pattern": "Close workstream",
+      "points": 10
+    },
+    {
+      "pattern": "Close onboard batch",
+      "points": 10
+    },
+    {
+      "pattern": "Mark sa-mkt",
+      "points": 8
+    },
+    {
+      "pattern": "mock_only",
+      "points": 15
+    },
+    {
+      "pattern": "glance only",
+      "points": 12
+    }
+  ],
+  "tier_score": {
+    "T0": 0,
+    "T1": 4,
+    "T2": 6,
+    "T3": -4
+  }
+}

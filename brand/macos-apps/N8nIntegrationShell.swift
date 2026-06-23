@@ -111,12 +111,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
     var webView: WKWebView!
     let port = HeartLauncher.port
+    let appRouter = SinaAppRouter(homeApp: .n8n)
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        NSApp.setActivationPolicy(.regular)
+        SinaStandaloneShell.installStandardMenu(appName: "N8N Integration")
         HeartLauncher.logLine("double-click launch")
-        let config = WKWebViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: config)
         window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 1100, height: 780),
             styleMask: [.titled, .closable, .miniaturizable, .resizable],
@@ -124,10 +123,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             defer: false
         )
         window.title = "N8N Integration"
+        window.isReleasedWhenClosed = false
+        SinaStandaloneShell.showWindow(window)
+        let config = WKWebViewConfiguration()
+        appRouter.prepare(config: config)
+        webView = WKWebView(frame: window.contentView!.bounds, configuration: config)
+        webView.autoresizingMask = [.width, .height]
+        appRouter.attach(to: webView)
         window.contentView = webView
-        window.center()
-        window.makeKeyAndOrderFront(nil)
-        NSApp.activate(ignoringOtherApps: true)
         showLoading()
         HeartLauncher.startServer { ok in
             DispatchQueue.main.async {
@@ -185,12 +188,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }.resume()
     }
 
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        SinaStandaloneShell.handleReopen(window: window)
+    }
+
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         true
     }
+
+    func applicationWillTerminate(_ notification: Notification) {
+        if let proc = HeartLauncher.serverProcess, proc.isRunning {
+            proc.terminate()
+        }
+    }
 }
 
-let app = NSApplication.shared
-let delegate = AppDelegate()
-app.delegate = delegate
-app.run()
+@main
+struct N8nIntegrationAppMain {
+    static func main() {
+        let app = NSApplication.shared
+        let delegate = AppDelegate()
+        app.delegate = delegate
+        app.setActivationPolicy(.regular)
+        app.run()
+    }
+}

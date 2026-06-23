@@ -1,0 +1,82 @@
+:root {
+  --bg: #f6f8fc;
+  --card: #ffffff;
+  --text: #1a2332;
+  --muted: #5c6b7f;
+  --accent: #4f6ef7;
+  --accent-soft: #eef2ff;
+  --ok: #0d9f6e;
+  --warn: #d97706;
+  --bad: #dc3545;
+  --line: #e2e8f0;
+  --radius: 14px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font: 15px/1.55 system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); }
+.cw-standalone-wrap { max-width: 920px; margin: 0 auto; padding: 16px 16px 72px; }
+.cw-standalone-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-bottom: 16px; align-items: flex-start; }
+.cw-standalone-head h1 { margin: 0; font-size: 1.35rem; }
+.cw-standalone-nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.sub { color: var(--muted); font-size: 0.86rem; margin-top: 4px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; margin-bottom: 14px; }
+.card h2 { margin: 0 0 10px; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 700; }
+.next { font-size: 1.02rem; margin: 8px 0; font-weight: 500; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; align-items: center; }
+button, a.btn { appearance: none; border: 1px solid var(--line); background: #fff; color: var(--text); padding: 10px 14px; border-radius: 10px; font: inherit; cursor: pointer; text-decoration: none; font-size: 0.88rem; }
+button.primary { background: linear-gradient(135deg, #4f6ef7, #6366f1); color: #fff; border-color: transparent; font-weight: 600; }
+button.ghost { background: transparent; }
+button:disabled { opacity: 0.5; cursor: wait; }
+.cloud-workers-status { font-size: 0.82rem; padding: 8px 10px; border-radius: 8px; margin: 8px 0; border: 1px solid var(--line); background: #f8fafc; }
+.cloud-workers-status.stale { border-color: #f59e0b; background: #fffbeb; color: #92400e; }
+.cloud-workers-status.ok { border-color: #10b981; background: #ecfdf5; color: #065f46; }
+.cloud-workers-plans { font-size: 0.75rem; max-height: 140px; overflow: auto; margin: 8px 0; }
+.cloud-deploy-cmd { font-family: ui-monospace, monospace; font-size: 0.72rem; background: #1e293b; color: #e2e8f0; padding: 10px; border-radius: 8px; margin: 8px 0; word-break: break-all; white-space: pre-wrap; }
+.cloud-proceed-result { margin-top: 10px; white-space: pre-wrap; font-family: ui-monospace, monospace; font-size: 0.76rem; max-height: 240px; overflow: auto; background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid var(--line); }
+.cloud-mock-banner {
+  margin: 10px 0; padding: 12px 14px; border-radius: 10px;
+  border: 2px solid #f59e0b; background: #fffbeb; color: #92400e; font-size: 0.88rem;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px; justify-content: space-between;
+}
+.cloud-mock-banner button { margin: 0; cursor: pointer; pointer-events: auto; flex-shrink: 0; }
+.cloud-auto-banner {
+  margin: 10px 0; padding: 12px 14px; border-radius: 10px;
+  border: 2px solid #10b981; background: #ecfdf5; color: #065f46; font-size: 0.88rem; font-weight: 500;
+}
+.cloud-motor-fail-banner {
+  margin: 10px 0; padding: 12px 14px; border-radius: 10px;
+  border: 2px solid #f87171; background: #fef2f2; color: #991b1b; font-size: 0.88rem;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px; justify-content: space-between;
+}
+.cloud-motor-fail-banner button { margin: 0; cursor: pointer; pointer-events: auto; flex-shrink: 0; }
+.cloud-situation-line { font-size: 0.88rem; font-weight: 600; margin: 8px 0; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line); background: #f8fafc; }
+.cloud-situation-line.motor { border-color: #fcd34d; background: #fffbeb; color: #92400e; }
+.cloud-situation-line.live { border-color: #86efac; background: #f0fdf4; color: #065f46; }
+.cloud-situation-line.down { border-color: #fecaca; background: #fef2f2; color: #991b1b; }
+.cloud-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+@media (max-width: 720px) { .cloud-grid { grid-template-columns: 1fr; } }
+.cloud-panel { border: 1px solid var(--line); border-radius: 10px; padding: 12px; background: #fafbfc; max-height: 260px; overflow: auto; }
+.cloud-panel.cw-panel-tall { max-height: 320px; }
+.cloud-panel h4 { margin: 0 0 8px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.cloud-row-item { font-size: 0.74rem; padding: 6px 0; border-bottom: 1px solid var(--line); display: flex; gap: 8px; align-items: flex-start; }
+.cloud-row-item:last-child { border: 0; }
+.cloud-badge { font-size: 0.65rem; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--line); white-space: nowrap; background: #fff; }
+.cloud-badge.head { color: var(--accent); border-color: #c7d2fe; background: var(--accent-soft); }
+.cloud-badge.fail { color: var(--bad); border-color: #fecaca; background: #fef2f2; }
+.cloud-badge.done { color: var(--ok); border-color: #86efac; background: #f0fdf4; }
+.cloud-cli-row { font-family: ui-monospace, monospace; font-size: 0.68rem; padding: 6px 0; border-bottom: 1px dashed var(--line); word-break: break-all; }
+.cloud-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+.cloud-tabs button { font-size: 0.75rem; padding: 6px 10px; }
+.cloud-tabs button.active { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.cw-foot { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--line); }
+.cw-triggers-card .cw-trigger-grid {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+}
+.cw-hub-pill {
+  font-size: 0.78rem; font-weight: 700; padding: 6px 12px; border-radius: 999px;
+  border: 1px solid var(--line); background: #f8fafc;
+}
+.cw-hub-pill.ok { border-color: #86efac; background: #ecfdf5; color: #065f46; }
+.cw-hub-pill.warn { border-color: #fcd34d; background: #fffbeb; color: #92400e; }
+.cw-link { color: var(--accent); font-weight: 600; text-decoration: none; }
+.cw-link:hover { text-decoration: underline; }
+.cw-panel-tall { max-height: 360px; }

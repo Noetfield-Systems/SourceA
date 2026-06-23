@@ -1,0 +1,31 @@
+{
+  "schema": "cloud-dispatch-receipt-v1",
+  "receipt_id": "cloud-dispatch-5f7418bd8c8a",
+  "plan_id": "CLOUD-SEC-104",
+  "maps_registry": "sa-mkt-0094",
+  "": "Inngest",
+  "workstream": "ws-integrate",
+  "tier": "T1",
+  "cloud_action": "Add signed webhook/event/async pattern \u2014 no cross-project DB joins",
+  "at": "2026-06-22T18:49:52Z",
+  "execution_plane": "cloud_forge",
+  "source_url": "https://www.inngest.com/docs/events",
+  "http_status": 200,
+  "bytes_fetched": 140670,
+  "evidence_snippets": [
+    "Sending Events to Inngest | SDK &amp; HTTP Reference",
+    "Sending events to Inngest",
+    "API) Deduplication Further reading TypeScript SDK v4 is now available! See what&#x2",
+    "API) You can send events from any system or programming language with our API and a",
+    "webhook events Parallel steps Fan-out Working with loops Delayed functions Cron functio",
+    "Event payload format Writing expressions Consuming webhook events Parallel steps Fan-",
+    "Event Key Event payload format Sending multiple events at once Sending events from wi",
+    "Event IDs Sending events from within functions Using Event IDs Using Event IDs Send e",
+    "Event API) Deduplication Further reading TypeScript SDK v4 is now available! See what",
+    "event can trigger multiple functions, enabling you to consume a single event in multi"
+  ],
+  "ok": true,
+  "status": "PASS",
+  "receipt_path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/cloud-dispatch/cloud-dispatch-5f7418bd8c8a.json",
+  "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-5f7418bd8c8a.json"
+}

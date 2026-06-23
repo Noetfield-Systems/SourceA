@@ -56,7 +56,7 @@
       "root": "agent-control-panel",
       "url": "http://127.0.0.1:13020/",
       "blueprint": [
-        "HUB_SOURCE_UI_ALIGNMENT_PROCEDURE_LOCKED_v1.md",
+        "brain-os/law/HUB_SOURCE_UI_ALIGNMENT_PROCEDURE_LOCKED_v1.md",
         "scripts/system_roadmap.py"
       ],
       "pre_edit": "python3 scripts/audit_hub_source_alignment.py",
@@ -160,7 +160,7 @@
       "ledger_md": "brain-os/law/enforcement/ui-upgrade-ledgers/WITNESSBC_COMMERCIAL_UI_UPGRADE_LEDGER_LOCKED_v1.md",
       "ledger_json": "data/ui-upgrade-ledgers/witnessbc_commercial-v1.json",
       "root": "witnessbc-site",
-      "url": "https://witnessbc-commercial.pages.dev/",
+      "url": "https://www.witnessbc.com/",
       "blueprint": [
         "witnessbc-site/data/ui-upgrade-e2e-v12.json",
         "witnessbc-site/data/pages.json",

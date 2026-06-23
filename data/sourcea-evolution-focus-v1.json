@@ -1,0 +1,30 @@
+{
+  "schema": "sourcea-evolution-focus-v1",
+  "version": "1.0.0",
+  "at": "2026-06-23T05:30:00Z",
+  "law": "Cleanup is survival — let go of past weight to reach future goals.",
+  "keep": {
+    "product": ["apps/video-ad-factory", "apps/apple-store-api", "cloud/ Railway FBE"],
+    "daily": ["Cursor Worker RUN INBOX", "brain-os/law active LOCKED", "data/ live JSON SSOT"],
+    "archive_using": ["archive/attachments (cited)", "archive/superseded", "archive/legacy"]
+  },
+  "let_go": {
+    "stale_plane": "SinaaiDataBase/archive/sourcea-exit-2026-06-23/",
+    "mac_no_auto": "Sina Command museum retired — no launchd hub",
+    "heavy_local": "node_modules, render out/, graphify-out, secret-scan dumps",
+    "sourcea_archive": "moved entirely to SinaaiDataBase — SourceA/archive/ is pointer only"
+  },
+  "commands": {
+    "survival": "python3 scripts/sourcea_survival_cleanup_v1.py --apply --json",
+    "compact": "python3 scripts/sourcea_compact_to_sinaai_database_v1.py --apply --json",
+    "rule_audit": "python3 scripts/rule_fragmentation_audit_v1.py --json",
+    "retire_command": "bash scripts/uninstall-sina-command-v1.sh",
+    "cf_migration": "docs/PORTFOLIO_CLOUDFLARE_MIGRATION_LOCKED_v1.md"
+  },
+  "hosting_target": {
+    "phase": "vercel_interim_to_cloudflare_pages",
+    "domains": ["sourcea.com", "trustfield.ca", "noetfield.com"],
+    "account": "sinakazemnezhad.ca@gmail.com",
+    "ssot": "data/portfolio-cloudflare-migration-v1.json"
+  }
+}

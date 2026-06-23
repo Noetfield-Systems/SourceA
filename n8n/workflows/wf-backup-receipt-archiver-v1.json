@@ -2,7 +2,7 @@
   "name": "wf-backup-receipt-archiver-v1",
   "nodes": [
     {
-      "id": "fee35e77-3599-4358-bad1-b6e7017a19db",
+      "id": "246aaf99-04a2-4867-97e9-89ec130d7e13",
       "name": "Schedule",
       "type": "n8n-nodes-base.cron",
       "typeVersion": 1,
@@ -22,12 +22,23 @@
       ]
     },
     {
-      "id": "ba687ca3-b3e9-46c0-9c16-7264eeb3eb6d",
-      "name": "Glue runner",
-      "type": "n8n-nodes-base.executeCommand",
-      "typeVersion": 1,
+      "id": "600add68-1daa-4dd9-91e7-3d75fc1c7af9",
+      "name": "Hub glue",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
       "parameters": {
-        "command": "cd ~/Desktop/SourceA/scripts && python3 n8n_glue_runner_v1.py backup-archive"
+        "method": "POST",
+        "url": "http://127.0.0.1:13020/api/cloud-workers/v1",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"action\": \"glue_run\", \"command\": \"backup-archive\"}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
       },
       "position": [
         280,
@@ -40,7 +51,7 @@
       "main": [
         [
           {
-            "node": "Glue runner",
+            "node": "Hub glue",
             "type": "main",
             "index": 0
           }

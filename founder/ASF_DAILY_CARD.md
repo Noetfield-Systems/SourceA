@@ -2,8 +2,7 @@
 
 **Print or pin this.** Founder law: **taps only** — never copy shell from chat or docs.
 
-**H1 daily:** http://127.0.0.1:13020/ (Worker Hub)  
-**Founder museum (read-only):** http://127.0.0.1:13020/legacy/
+**H1 daily:** http://127.0.0.1:13020/ (Worker Hub)
 
 **PIN:** [`../SOURCEA_FOUNDER_PINNED_ACTIONS_LOCKED_v1.md`](../SOURCEA_FOUNDER_PINNED_ACTIONS_LOCKED_v1.md)
 

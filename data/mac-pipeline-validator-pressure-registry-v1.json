@@ -120,6 +120,8 @@
         "anti_staleness_auto_wire_v1",
         "goal1_worker_batch_loop",
         "auto_run_worker_batch",
+        "auto_start_worker_batch_on_hub",
+        "cloud-workers-server",
         "find_critical_bugs.py",
         "queue_ssot_unify",
         "commercial_short_film_v1",

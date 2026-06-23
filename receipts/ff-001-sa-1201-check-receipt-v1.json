@@ -1,0 +1,24 @@
+{
+  "schema": "forge-factory-cycle2-check-v1",
+  "sa_id": "sa-1201",
+  "hp_id": "ff-001",
+  "round_type": "check",
+  "ok": true,
+  "at": "2026-06-21T01:54:30Z",
+  "checks": {
+    "goal1_archived": "1000/1000 complete_archived",
+    "mode": "FORGE_FACTORY",
+    "queue_head": "sa-1201",
+    "era": "forge_factory_cycle2",
+    "rule_fanout": {
+      "ok": true,
+      "tier": "fast",
+      "receipt": "~/.sina/rule-propagation-fanout-receipt-v1.json"
+    }
+  },
+  "evidence": "CHECK PASS — factory-era FORGE_FACTORY · Goal1 archived · rule fanout fast PASS · queue sa-1201",
+  "ssot_read": [
+    "data/factory-era-v1.json",
+    "data/rule-propagation-zero-latency-v1.json"
+  ]
+}

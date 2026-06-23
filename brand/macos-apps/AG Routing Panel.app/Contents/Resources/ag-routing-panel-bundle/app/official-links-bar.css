@@ -1,0 +1,64 @@
+/* Portfolio stack — official links tab (Worker · Mail · Chat Unify · N8N) */
+.official-links-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 8px 14px;
+  background: #0f172a;
+  color: #e2e8f0;
+  border-bottom: 1px solid #334155;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font: 13px/1.4 system-ui, -apple-system, sans-serif;
+}
+.official-links-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-right: 4px;
+}
+.official-link-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid #475569;
+  background: #1e293b;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 500;
+  transition: filter 0.12s, border-color 0.12s;
+}
+.official-link-tab:hover {
+  filter: brightness(1.1);
+  border-color: #64748b;
+}
+.official-link-tab.active {
+  border-color: #6366f1;
+  background: #312e81;
+  color: #e0e7ff;
+  font-weight: 600;
+}
+.official-link-tab .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #64748b;
+}
+.official-link-tab.active .dot {
+  background: #818cf8;
+}
+.official-link-tab.agent-priority {
+  border-color: #38bdf8;
+  background: #0c4a6e;
+  color: #e0f2fe;
+}
+.official-link-tab.agent-priority .dot {
+  background: #38bdf8;
+}
