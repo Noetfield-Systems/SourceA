@@ -1,0 +1,5 @@
+{"at":"2026-06-21T01:50:12Z","schema":"forge-critic-eval-v0.1","run_id":"forge-run-20260621T015012-CLOUD-SEC-023","verdict":"PASS","intent":"sourcea competitor parity \u00b7 Trigger.dev \u00b7 ws-run","cost_usd_total":0.08,"reasons":[]}
+{"at":"2026-06-21T02:11:30Z","schema":"forge-critic-eval-v0.1","run_id":"forge-run-20260621T021130-CLOUD-SEC-073","verdict":"PASS","intent":"sourcea competitor parity \u00b7 Inngest \u00b7 ws-run","cost_usd_total":0.08,"reasons":[]}
+{"at":"2026-06-21T03:58:30Z","schema":"forge-critic-eval-v0.1","run_id":"forge-run-20260621T035830-CLOUD-SEC-037","verdict":"PASS","intent":"sourcea competitor parity \u00b7 Trigger.dev \u00b7 ws-onboard","cost_usd_total":0.11,"reasons":[]}
+{"at":"2026-06-21T04:07:23Z","schema":"forge-critic-eval-v0.1","run_id":"forge-run-20260621T040723-CLOUD-SEC-005","verdict":"PASS","intent":"sourcea competitor parity \u00b7 Trigger.dev \u00b7 ws-ux","cost_usd_total":0.05,"reasons":[]}
+{"at":"2026-06-22T15:19:17Z","schema":"forge-critic-eval-v0.1","run_id":"forge-run-20260622T151916-sa-mkt-0052","verdict":"PASS","intent":"SourceA competitor parity \u00b7 Inngest \u00b7 ws-ux","cost_usd_total":0.05,"reasons":[]}

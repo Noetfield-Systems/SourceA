@@ -1,10 +1,17 @@
 #!/usr/bin/env bash
-# Sina Command — one production server (UI + API on :13020)
+# Hub server (UI + API on :13020) — Sina Command museum retired; no auto-start when flagged.
 # Law: data/execution-state-desired-observed-v1.json hub_single_owner
 # launchd com.sourcea.hub = sole owner when plist loaded; this script delegates, never fights nohup.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PORT="${SINA_COMMAND_PORT:-13020}"
+RETIRED_FLAG="${HOME}/.sina/sina-command-museum-retired-v1.flag"
+
+if [[ -f "${RETIRED_FLAG}" && "${SINA_HUB_FORCE:-}" != "1" ]]; then
+  echo "Sina Command museum retired — no auto-start (flag: ${RETIRED_FLAG})"
+  echo "Manual Hub only: SINA_HUB_FORCE=1 $0 fg"
+  exit 0
+fi
 PIDFILE="${HOME}/.sina/command-server.pid"
 LOGFILE="${HOME}/.sina/command-server.log"
 FAILSNIP="${HOME}/.sina/command-server.fail-snippet.log"

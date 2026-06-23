@@ -1,9 +1,0 @@
-subject: automation
-label: Automation Agencies
-thread: THREAD-ECOSYSTEM
-artifact_count: 1
-by_worker:
-  research_acquisitor:
-  - trace_id: 2026-06-06_AUTOMATION_AGENCIES
-    date: '2026-06-06'
-    path: by_date/2026-06-06/research_acquisitor/automation/2026-06-06_AUTOMATION_AGENCIES/2026-06-06_AUTOMATION_AGENCIES.yaml

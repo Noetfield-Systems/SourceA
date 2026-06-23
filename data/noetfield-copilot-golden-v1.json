@@ -1,0 +1,66 @@
+{
+  "schema": "noetfield-copilot-golden-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-21T14:00:00Z",
+  "factory_id": "noetfield-copilot-factory-v1",
+  "bay_slug": "noetfield-copilot-bay",
+  "promotion_gate": {
+    "min_pass_rate": 0.875
+  },
+  "cases": [
+    {
+      "id": "nf-001",
+      "action": "read",
+      "payload": {},
+      "tenant": "pilot-tenant-a",
+      "expect_verdict": "ALLOW"
+    },
+    {
+      "id": "nf-002",
+      "action": "summarize",
+      "payload": {"document_id": "policy-v3"},
+      "tenant": "pilot-tenant-a",
+      "expect_verdict": "ALLOW"
+    },
+    {
+      "id": "nf-003",
+      "action": "export_pii",
+      "payload": {"contains_pii": true},
+      "tenant": "pilot-tenant-a",
+      "expect_verdict": "BLOCKED"
+    },
+    {
+      "id": "nf-004",
+      "action": "external_send",
+      "payload": {"channel": "email"},
+      "tenant": "pilot-tenant-a",
+      "expect_verdict": "BLOCKED"
+    },
+    {
+      "id": "nf-005",
+      "action": "draft_reply",
+      "payload": {"thread_id": "copilot-thread-1"},
+      "tenant": "pilot-tenant-a",
+      "expect_verdict": "BLOCKED",
+      "no_escalation": true,
+      "run_modes": ["default"]
+    },
+    {
+      "id": "nf-006",
+      "action": "draft_reply",
+      "payload": {"thread_id": "copilot-thread-1"},
+      "tenant": "pilot-tenant-a",
+      "expect_verdict": "ALLOW",
+      "run_modes": ["strong"]
+    },
+    {
+      "id": "nf-007",
+      "action": "draft_reply",
+      "payload": {"thread_id": "copilot-thread-1"},
+      "tenant": "pilot-tenant-a",
+      "expect_verdict": "ALLOW",
+      "expect_escalated": true,
+      "run_modes": ["default"]
+    }
+  ]
+}

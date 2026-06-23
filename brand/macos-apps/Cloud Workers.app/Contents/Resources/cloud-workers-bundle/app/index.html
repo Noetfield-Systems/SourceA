@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="sina-app-id" content="cloud_workers" />
+  <title>Cloud Workers · Command Center</title>
+  <link rel="stylesheet" href="/shared/official-links-bar.css" />
+  <link rel="stylesheet" href="/shared/sina-main-terminal.css" />
+  <link rel="stylesheet" href="/shared/api-station-tab.css" />
+  <link rel="stylesheet" href="/shared/hub-pro-skills-tab.css" />
+  <link rel="stylesheet" href="/shared/cloud-workers-panel.css" />
+</head>
+<body>
+  <nav class="official-links-bar" data-official-links data-active="cloud" aria-label="Official links"></nav>
+  <div class="cw-standalone-wrap" data-sina-app-root>
+    <header class="cw-standalone-head">
+      <div>
+        <h1>Cloud Workers · Command Center</h1>
+        <p class="sub" id="cw-hub-line">You manage Railway deploy · this app triggers motor · reports · plans · inbox · events</p>
+      </div>
+      <div class="cw-hub-pill" id="cw-hub-pill">Hub …</div>
+      <div class="cw-hub-pill warn" id="cw-auto-pill">Auto …</div>
+    </header>
+
+    <section class="card cw-triggers-card">
+      <h2>Triggers · founder control</h2>
+      <div class="cw-trigger-grid">
+        <button type="button" class="primary" id="btn-cloud-proceed">Proceed next cloud task</button>
+        <button type="button" class="ghost" id="btn-cw-refresh-all">Refresh all</button>
+        <button type="button" class="ghost" id="btn-cloud-refresh">Probe Railway</button>
+        <button type="button" class="ghost" id="btn-cloud-dry-run">Dry-run (Mac)</button>
+        <button type="button" class="ghost" id="btn-cw-dry-cloud">Dry-run (Railway)</button>
+        <button type="button" class="ghost" id="btn-cw-skip-head">Skip queue head</button>
+        <button type="button" class="ghost" id="btn-cw-auto-tick">Auto tick now</button>
+        <button type="button" class="ghost" id="btn-cw-enable-auto">Auto status</button>
+        <button type="button" class="ghost" id="btn-cw-deploy">Deploy command</button>
+        <label class="sub" for="cloud-proceed-llm">LLM</label>
+        <select id="cloud-proceed-llm" aria-label="Cloud LLM provider">
+          <option value="openrouter" selected>OpenRouter</option>
+          <option value="gemini">Gemini</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="card" id="cloud-proceed-card">
+      <h2>Situation · proceed</h2>
+      <div class="cloud-workers-status" id="cloud-workers-status">Loading…</div>
+      <div class="cloud-situation-line" id="cloud-situation-line">—</div>
+      <div class="cloud-auto-banner" id="cw-auto-banner" hidden></div>
+      <div class="cloud-mock-banner" id="cw-mock-banner" hidden>
+        <strong>Scaffold row at queue head</strong> — 24/7 cron auto-skips; manual override only when auto drain is OFF.
+        <button type="button" class="primary" id="btn-cw-skip-mock">Skip scaffold rows →</button>
+      </div>
+      <div class="cloud-motor-fail-banner" id="cw-motor-fail-banner" hidden>
+        <strong>Motor blocked at head</strong> — Pipe LIVE · cron self-heals on next tick; manual skip only when auto drain is OFF.
+        <button type="button" class="primary" id="btn-cw-skip-fail">Skip head · try next row →</button>
+      </div>
+      <p class="next" id="cloud-proceed-next">—</p>
+      <p class="sub" id="cloud-proceed-last">—</p>
+      <div class="cloud-deploy-cmd" id="cloud-deploy-cmd" hidden></div>
+      <button type="button" class="ghost" id="btn-cloud-deploy-info">Show deploy command (you run in Terminal)</button>
+      <div class="cloud-workers-plans" id="cloud-workers-plans"></div>
+      <pre id="cloud-proceed-result" class="cloud-proceed-result">Run a trigger or Proceed to see output…</pre>
+    </section>
+
+    <section class="card" id="cloud-workers-card">
+      <h2>Plans · inbox · events · CLI · links</h2>
+      <div class="cloud-tabs" role="tablist">
+        <button type="button" class="active" data-cw-tab="queue">Queue</button>
+        <button type="button" data-cw-tab="inbox">Inbox</button>
+        <button type="button" data-cw-tab="events">Events</button>
+        <button type="button" data-cw-tab="cli">CLI &amp; API</button>
+        <button type="button" data-cw-tab="links">Links</button>
+        <button type="button" data-cw-tab="reports">Reports</button>
+      </div>
+      <div id="cw-tab-queue" class="cw-tab-panel">
+        <div class="cloud-grid">
+          <div class="cloud-panel cw-panel-tall">
+            <h4>Cloud forge queue (CLOUD-SEC)</h4>
+            <div id="cw-queue-cloud"></div>
+          </div>
+          <div class="cloud-panel cw-panel-tall">
+            <h4>Mac control (observe only)</h4>
+            <div id="cw-queue-mac"></div>
+          </div>
+        </div>
+      </div>
+      <div id="cw-tab-inbox" class="cw-tab-panel" hidden>
+        <div class="cloud-panel cw-panel-tall">
+          <h4>Cloud inbox · P0 actions</h4>
+          <p class="sub" id="cw-inbox-worker-note">—</p>
+          <div id="cw-inbox-items"></div>
+        </div>
+      </div>
+      <div id="cw-tab-events" class="cw-tab-panel" hidden>
+        <div class="cloud-panel cw-panel-tall">
+          <h4>Event timeline</h4>
+          <div id="cw-events"></div>
+        </div>
+      </div>
+      <div id="cw-tab-cli" class="cw-tab-panel" hidden>
+        <div class="cloud-panel cw-panel-tall">
+          <h4>Founder CLI · curl · API</h4>
+          <div id="cw-cli"></div>
+        </div>
+        <pre class="cloud-deploy-cmd" id="cw-deploy-block" hidden></pre>
+      </div>
+      <div id="cw-tab-links" class="cw-tab-panel" hidden>
+        <div class="cloud-panel cw-panel-tall" id="cw-links"></div>
+      </div>
+      <div id="cw-tab-reports" class="cw-tab-panel" hidden>
+        <div class="cloud-panel cw-panel-tall" id="cw-reports"></div>
+      </div>
+    </section>
+  </div>
+  <script src="/shared/sina-main-terminal.js"></script>
+  <script src="/shared/official-links-bar.js"></script>
+  <script src="/shared/sina-view-mode.js"></script>
+  <script src="/shared/cloud-workers-panel.js"></script>
+  <script src="/shared/api-station-tab.js"></script>
+  <script src="/shared/hub-pro-skills-tab.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      SinaCloudWorkers.init({ api: window.location.origin, full: true });
+    });
+  </script>
+</body>
+</html>

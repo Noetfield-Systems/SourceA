@@ -1,0 +1,27 @@
+{
+  "schema": "cloud-dispatch-receipt-v1",
+  "receipt_id": "cloud-dispatch-a757a9f8eb3c",
+  "plan_id": "CLOUD-LD-001",
+  "maps_registry": "sa-mkt-ld-0001",
+  "competitor": "LaunchDarkly",
+  "workstream": "ws-ux",
+  "tier": "T0",
+  "cloud_action": "Fetch LaunchDarkly AgentControl UX page \u2014 runtime control + adaptive triggers evidence",
+  "at": "2026-06-21T04:07:08Z",
+  "execution_plane": "cloud_forge",
+  "source_url": "https://launchdarkly.com/platform/agent-control/",
+  "http_status": 200,
+  "bytes_fetched": 500000,
+  "evidence_snippets": [
+    "Control your agents in production. | LaunchDarkly",
+    "Free trial Pricing Sign in Book a demo Book a demo Control your agents in production",
+    "free Group By Chat Completion Code Assistant Summarization Embedding Chat Completion",
+    "Pricing Sign in Book a demo Book a demo Control your agents in production",
+    "Free trial CodeControl AgentControl Inboxes love LaunchDarkly",
+    "free self"
+  ],
+  "ok": true,
+  "status": "PASS",
+  "receipt_path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/cloud-dispatch/cloud-dispatch-a757a9f8eb3c.json",
+  "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-a757a9f8eb3c.json"
+}

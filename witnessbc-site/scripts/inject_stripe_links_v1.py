@@ -62,30 +62,43 @@ def merge_links() -> dict:
     data["links"] = links
     data["saved_at"] = _now()
     live = sum(1 for u in links.values() if _is_live(u))
-    data["stripe_links_live"] = live >= 3
+    data["stripe_links_live"] = live == len(ENV_KEYS)
     data["live_count"] = live
     data["total_count"] = len(links)
     STRIPE_JSON.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
     return data
 
 
+STRIPE_LINK_TOKEN_MAP: dict[str, str] = {
+    "sourcing": "STRIPE_SOURCING_19_URL",
+    "corrections": "STRIPE_CORRECTIONS_9_URL",
+    "privacy": "STRIPE_PRIVACY_19_URL",
+    "publicrec": "STRIPE_PUBLICREC_29_URL",
+    "storytemp": "STRIPE_STORYTEMP_19_URL",
+    "actionmap": "STRIPE_ACTIONMAP_29_URL",
+    "starter": "STRIPE_STARTER_39_URL",
+    "pro": "STRIPE_PRO_99_URL",
+    "team": "STRIPE_TEAM_149_URL",
+    "train_evidence101": "STRIPE_TRAIN_EVIDENCE101_URL",
+    "train_privacy": "STRIPE_TRAIN_PRIVACY_URL",
+}
+
+
 def assemble_tokens(data: dict) -> dict[str, str]:
     links = data.get("links") or {}
+    billing = data.get("billing") or {}
     toolkits = "toolkits.html"
 
     def eff(key: str, fallback: str = toolkits) -> str:
         url = str(links.get(key) or "")
         return url if _is_live(url) else fallback
 
-    return {
-        "STRIPE_PRO_99_URL": eff("pro"),
-        "STRIPE_STARTER_39_URL": eff("starter"),
-        "STRIPE_TEAM_149_URL": eff("team"),
-        "STRIPE_CORRECTIONS_9_URL": eff("corrections"),
-        "STRIPE_SOURCING_19_URL": eff("sourcing"),
-        "STRIPE_TOOLKITS_HUB_URL": toolkits,
-        "STRIPE_LINKS_LIVE": "true" if data.get("stripe_links_live") else "false",
-    }
+    out = {token: eff(link_key) for link_key, token in STRIPE_LINK_TOKEN_MAP.items()}
+    out["STRIPE_TOOLKITS_HUB_URL"] = toolkits
+    out["STRIPE_LINKS_LIVE"] = "true" if data.get("stripe_links_live") else "false"
+    out["STRIPE_CURRENCY"] = str(billing.get("currency") or "cad").lower()
+    out["STRIPE_DESCRIPTOR"] = str(billing.get("statement_descriptor") or "WITNESSBC")
+    return out
 
 
 def main() -> int:

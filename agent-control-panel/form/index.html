@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <title>Source A · Official Founder Form</title>
+  <meta name="sina-app-id" content="hub_form" />
+  <link rel="stylesheet" href="/shared/official-links-bar.css" />
+  <link rel="stylesheet" href="/shared/api-station-tab.css" />
+  <link rel="stylesheet" href="/shared/hub-pro-skills-tab.css" />
   <style>
     :root {
       --bg:#f6f8fc; --card:#fff; --text:#1a2332; --muted:#5c6b7f;
@@ -13,17 +17,29 @@
     }
     * { box-sizing:border-box; }
     body { margin:0; font:15px/1.5 system-ui,sans-serif; background:var(--bg); color:var(--text); }
-    .wrap { max-width:920px; margin:0 auto; padding:16px 16px 100px; }
+    .wrap { max-width:920px; margin:0 auto; padding:156px 16px 110px; }
     .banner { background:#fef2f2; border:2px solid var(--red); border-radius:var(--radius); padding:12px 14px; margin-bottom:12px; font-size:.88rem; }
     .banner strong { color:var(--red); }
     h1 { margin:0; font-size:1.3rem; }
     .sub { color:var(--muted); font-size:.85rem; margin:4px 0 0; }
-    .submit-bar { position:fixed; bottom:0; left:0; right:0; z-index:9; background:#fff; border-top:2px solid var(--accent); padding:14px 16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:center; box-shadow:0 -4px 16px rgba(0,0,0,.08); }
+    .submit-bar {
+      position:fixed; left:0; right:0; z-index:95; background:#fff;
+      border:2px solid var(--accent); padding:12px 16px;
+      display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:center;
+      box-shadow:0 4px 16px rgba(0,0,0,.08);
+    }
+    .submit-bar.top { top:72px; border-bottom-width:2px; }
+    .submit-bar.bottom { bottom:0; border-top-width:2px; }
     .submit-bar .stat { font-weight:700; font-size:1rem; }
-    button.primary { background:var(--accent); color:#fff; border:none; padding:14px 32px; border-radius:10px; font:inherit; font-size:1.05rem; font-weight:700; cursor:pointer; }
+    button.primary {
+      background:var(--accent); color:#fff; border:none; padding:12px 28px;
+      border-radius:10px; font:inherit; font-size:1rem; font-weight:700; cursor:pointer;
+    }
     button.primary:disabled { opacity:.4; cursor:not-allowed; }
-    .msg { font-size:.9rem; color:var(--ok); font-weight:600; }
+    .msg { font-size:.9rem; color:var(--ok); font-weight:600; min-height:1.2em; }
     .msg.err { color:var(--red); }
+    .msg.ok-flash { animation: form-ok 0.6s ease; }
+    @keyframes form-ok { from { background:#ecfdf5; } to { background:transparent; } }
     .tier { margin:14px 0 6px; font-size:.75rem; font-weight:700; text-transform:uppercase; color:var(--muted); }
     .row-card { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:12px 14px; margin-bottom:10px; }
     .row-card.picked { border-color:var(--ok); box-shadow:0 0 0 1px var(--ok); }
@@ -31,20 +47,28 @@
     .row-meta { font-family:ui-monospace,monospace; font-size:.7rem; color:var(--gold); }
     .row-title { font-weight:600; font-size:.9rem; margin:6px 0 8px; }
     .row-q { font-size:.85rem; color:var(--muted); margin-bottom:10px; }
-    .opt { display:flex; gap:8px; align-items:flex-start; padding:8px 10px; margin:4px 0; border:1px solid var(--line); border-radius:8px; cursor:pointer; }
+    .opt { display:flex; gap:8px; align-items:flex-start; padding:8px 10px; margin:4px 0; border:1px solid var(--line); border-radius:8px; cursor:pointer; position:relative; z-index:1; }
     .opt:hover { background:#f8fafc; }
+    .opt.disabled { opacity:.45; cursor:not-allowed; }
     .opt input { margin-top:3px; flex-shrink:0; }
     .opt label { cursor:pointer; font-size:.85rem; flex:1; }
-    .founder-write { width:100%; margin-top:8px; padding:10px; border:2px solid var(--accent); border-radius:8px; font:inherit; min-height:72px; resize:vertical; display:none; }
-    .founder-write.show { display:block; }
+    .opt-slot5 { border:2px solid var(--accent); border-radius:var(--radius); padding:10px 12px; margin-top:8px; background:#f8faff; }
+    .opt-slot5 .slot-label { font-weight:700; font-size:.85rem; margin-bottom:6px; }
+    .founder-write { width:100%; padding:10px; border:1px solid var(--line); border-radius:8px; font:inherit; min-height:72px; resize:vertical; }
     .rec-hint { font-size:.72rem; color:var(--muted); margin-top:4px; }
     a { color:var(--accent); }
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <nav class="official-links-bar" data-official-links data-active="form" aria-label="Official links"></nav>
+  <div class="submit-bar top" id="submit-top">
+    <span class="stat" id="stat-top">—</span>
+    <button type="button" class="primary submit-btn">SUBMIT</button>
+    <span class="msg" id="msg-top"></span>
+  </div>
+  <div class="wrap" data-sina-app-root>
     <div class="banner">
-      <strong>FOUNDER PICK ONLY</strong> — Tap <strong>your</strong> answer (A–D or <strong>E write your own</strong>) · then <strong>Submit</strong>.
+      <strong>FOUNDER PICK ONLY</strong> — Every row has <strong>5 options</strong>: A–D plus <strong>option 5</strong> (write your own). Tap Submit top or bottom — picks land on disk immediately.
     </div>
     <header>
       <h1>Official founder form</h1>
@@ -52,94 +76,132 @@
     </header>
     <div id="list"></div>
   </div>
-  <div class="submit-bar">
-    <span class="stat" id="stat">—</span>
-    <button type="button" class="primary" id="btn-submit" disabled>Submit my picks</button>
-    <span class="msg" id="msg"></span>
+  <div class="submit-bar bottom" id="submit-bottom">
+    <span class="stat" id="stat-bottom">—</span>
+    <button type="button" class="primary submit-btn">SUBMIT</button>
+    <span class="msg" id="msg-bottom"></span>
   </div>
   <script>
   (function () {
     const API = location.origin;
-    const state = { rows: [], picks: {}, comments: {}, explicit: {}, rendered: 0 };
-    const OPTION_E_LABEL = "E — FOUNDER writes own answer (type below)";
+    const state = { rows: [], picks: {}, comments: {}, explicit: {}, rendered: 0, schema: null };
 
     function esc(s) {
       return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
     }
-    function pickKey(opt) {
-      const m = String(opt).match(/^([A-Za-z0-9_]+)/);
-      return m ? m[1].toUpperCase() : "";
-    }
-    function ensureFiveOptions(q) {
-      const opts = (q.options || []).slice();
-      if (!opts.some(function (o) { return pickKey(o) === "E"; })) {
-        opts.push(OPTION_E_LABEL);
+    function slotsFor(q) {
+      if (q.option_slots && q.option_slots.length === 5) return q.option_slots;
+      const opts = (q.options || []).slice(0, 4);
+      const slots = [];
+      for (let i = 0; i < 4; i++) {
+        const key = String.fromCharCode(65 + i);
+        const text = opts[i] ? String(opts[i]).replace(/^[A-Z0-9_]+\s*[—–-]\s*/i, "") : "—";
+        slots.push({ slot: i + 1, key: key, type: "choice", text: text, label: key + " — " + text, disabled: text === "—" });
       }
-      return opts;
+      slots.push({
+        slot: 5, key: "E", type: "founder_free_text",
+        label: "5 — Write your own answer",
+        placeholder: "Type your answer here (option 5)"
+      });
+      return slots;
     }
     function updateStat() {
       const total = state.rows.length;
       const picked = state.rows.filter(function (q) { return state.explicit[q.id]; }).length;
-      document.getElementById("stat").textContent = picked + " / " + total + " YOU picked";
-      const btn = document.getElementById("btn-submit");
-      btn.disabled = picked < 1;
-      btn.textContent = picked >= total && total > 0
-        ? "Submit all my picks"
-        : (picked > 0 ? "Submit my " + picked + " picks (batch)" : "Pick at least one row");
+      const line = picked + " / " + total + " YOU picked";
+      document.getElementById("stat-top").textContent = line;
+      document.getElementById("stat-bottom").textContent = line;
+      document.querySelectorAll(".submit-btn").forEach(function (btn) {
+        btn.textContent = "SUBMIT";
+        btn.disabled = false;
+        btn.setAttribute("aria-label", picked > 0 ? "Submit " + picked + " picks" : "Submit — pick at least one row first");
+      });
+    }
+    function registerPick(qid, pickKey, card) {
+      if (!qid || !pickKey) return;
+      state.picks[qid] = pickKey;
+      if (card) markPicked(card, qid);
+      else {
+        state.explicit[qid] = true;
+        const el = document.querySelector('.row-card[data-qid="' + qid + '"]');
+        if (el) { el.classList.remove("unpicked"); el.classList.add("picked"); }
+        updateStat();
+      }
+    }
+    function setMsg(text, isErr) {
+      ["msg-top", "msg-bottom"].forEach(function (id) {
+        const el = document.getElementById(id);
+        el.textContent = text;
+        el.className = "msg" + (isErr ? " err" : "");
+      });
+    }
+    function markPicked(card, qid) {
+      card.classList.remove("unpicked");
+      card.classList.add("picked");
+      state.explicit[qid] = true;
+      updateStat();
     }
     function renderRow(q) {
       const card = document.createElement("div");
       const youPicked = !!state.explicit[q.id];
       card.className = "row-card" + (youPicked ? " picked" : " unpicked");
       card.dataset.qid = q.id;
-      const options = ensureFiveOptions(q);
+      const slots = slotsFor(q);
 
       let optsHtml = "";
-      options.forEach(function (opt) {
-        const key = pickKey(opt);
+      slots.forEach(function (slot) {
+        if (slot.type === "founder_free_text") return;
+        const key = slot.key;
         const checked = youPicked && state.picks[q.id] === key ? " checked" : "";
+        const dis = slot.disabled ? " disabled" : "";
+        const cls = slot.disabled ? " opt disabled" : " opt";
         optsHtml +=
-          '<label class="opt">' +
-          '<input type="radio" name="' + esc(q.id) + '" value="' + esc(key) + '"' + checked + ' />' +
-          '<span><strong>' + esc(key) + '</strong> — ' + esc(String(opt).replace(/^[A-Z0-9_]+\s*[—–-]\s*/i, "")) + "</span></label>";
+          '<label class="' + cls + '">' +
+          '<input type="radio" name="' + esc(q.id) + '" value="' + esc(key) + '"' + checked + dis + ' />' +
+          "<span><strong>" + esc(key) + "</strong> — " + esc(slot.text || "") + "</span></label>";
       });
+
+      const slot5 = slots.find(function (s) { return s.type === "founder_free_text"; }) || {};
+      const eChecked = youPicked && state.picks[q.id] === "E" ? " checked" : "";
+      const slot5Html =
+        '<div class="opt-slot5">' +
+        '<label class="opt" style="border:none;padding:0;margin:0">' +
+        '<input type="radio" name="' + esc(q.id) + '" value="E"' + eChecked + ' />' +
+        '<span class="slot-label">' + esc(slot5.label || "5 — Write your own answer") + "</span></label>" +
+        '<textarea class="founder-write" data-qid="' + esc(q.id) + '" placeholder="' +
+        esc(slot5.placeholder || "Type your answer here") + '">' +
+        esc(state.comments[q.id] || "") + "</textarea></div>";
 
       const rec = q.recommended ? ('<div class="rec-hint">Agent suggestion only (not your pick): ' + esc(q.recommended) + "</div>") : "";
       const unpicked = youPicked ? "" : '<div class="rec-hint" style="color:var(--red);font-weight:600">Tap YOUR answer — nothing is selected until you tap</div>';
-      const writeBox =
-        '<textarea class="founder-write' + (youPicked && state.picks[q.id] === "E" ? " show" : "") + '" ' +
-        'data-qid="' + esc(q.id) + '" placeholder="Your answer in your own words (required when E is selected)">' +
-        esc(state.comments[q.id] || "") + "</textarea>";
 
       card.innerHTML =
         '<div class="row-meta">Q' + (q.number || "?") + " · " + esc(q.id) + (q.gather_tier ? " · " + esc(q.gather_tier) : "") + "</div>" +
         '<div class="row-title">' + esc(q.subject || q.title || "") + "</div>" +
         (q.question ? '<div class="row-q">' + esc(q.question) + "</div>" : "") +
-        optsHtml + writeBox + unpicked + rec;
+        optsHtml + slot5Html + unpicked + rec;
 
       const ta = card.querySelector(".founder-write");
       card.querySelectorAll('input[type=radio]').forEach(function (inp) {
         inp.addEventListener("change", function () {
-          state.picks[q.id] = inp.value;
-          state.explicit[q.id] = true;
-          if (inp.value === "E") {
-            ta.classList.add("show");
-            ta.focus();
-          } else {
-            ta.classList.remove("show");
-            delete state.comments[q.id];
-          }
-          card.classList.remove("unpicked");
-          card.classList.add("picked");
-          updateStat();
+          registerPick(q.id, inp.value, card);
+        });
+        inp.addEventListener("click", function () {
+          registerPick(q.id, inp.value, card);
         });
       });
       ta.addEventListener("input", function () {
         state.comments[q.id] = ta.value;
-        if (state.picks[q.id] === "E" && ta.value.trim()) {
-          state.explicit[q.id] = true;
-          updateStat();
+        if (ta.value.trim()) {
+          const eRadio = card.querySelector('input[value="E"]');
+          if (eRadio) eRadio.checked = true;
+          registerPick(q.id, "E", card);
         }
+      });
+      ta.addEventListener("focus", function () {
+        const eRadio = card.querySelector('input[value="E"]');
+        if (eRadio) eRadio.checked = true;
+        registerPick(q.id, "E", card);
       });
       return card;
     }
@@ -167,81 +229,116 @@
       const res = await fetch(API + "/api/live-founder-decision-form-v1");
       if (!res.ok) throw new Error("Hub form API HTTP " + res.status);
       const d = await res.json();
+      state.schema = d.option_schema || null;
       state.rows = d.open_questions || d.founder_readable_cards || [];
       state.rows.forEach(function (q, i) { if (!q.number) q.number = i + 1; });
+      const schemaLine = state.schema ? " · schema " + (state.schema.schema || "v1") : "";
       document.getElementById("meta").textContent =
-        (d.form_headline || "FORM_OFFICIAL") + " · " + state.rows.length + " questions · 5 options each (E = your words)";
+        (d.form_headline || "FORM_OFFICIAL") + " · " + state.rows.length + " questions · 5 options each" + schemaLine;
       if (!state.rows.length) {
         document.getElementById("list").innerHTML = "<p>Form clear — nothing open.</p>";
-        document.getElementById("stat").textContent = "0 rows";
+        document.getElementById("stat-top").textContent = "0 rows";
+        document.getElementById("stat-bottom").textContent = "0 rows";
         return;
       }
       renderChunk();
     }
-    document.getElementById("btn-submit").addEventListener("click", async function () {
-      const btn = document.getElementById("btn-submit");
-      const msg = document.getElementById("msg");
-      for (const q of state.rows) {
-        if (state.explicit[q.id] && state.picks[q.id] === "E") {
-          const text = (state.comments[q.id] || "").trim();
+    async function doSubmit() {
+      const pickedIds = state.rows.filter(function (q) { return state.explicit[q.id]; }).map(function (q) { return q.id; });
+      if (pickedIds.length < 1) {
+        setMsg("Tap YOUR answer on at least one row, then SUBMIT (1 or more is OK)", true);
+        return;
+      }
+      const picksOut = {};
+      const commentsOut = {};
+      pickedIds.forEach(function (qid) {
+        picksOut[qid] = state.picks[qid];
+        if (state.comments[qid]) commentsOut[qid] = state.comments[qid];
+      });
+      for (const qid of pickedIds) {
+        if (picksOut[qid] === "E") {
+          const q = state.rows.find(function (r) { return r.id === qid; });
+          const text = (commentsOut[qid] || "").trim();
           if (!text) {
-            msg.textContent = "Q" + q.number + " (" + q.id + "): E selected — type your answer first";
-            msg.className = "msg err";
+            setMsg((q ? "Q" + q.number + " (" + qid + ")" : qid) + ": option 5 — type your answer first", true);
             return;
           }
         }
       }
-      btn.disabled = true;
-      msg.textContent = "Submitting your picks…";
-      msg.className = "msg";
+      document.querySelectorAll(".submit-btn").forEach(function (b) { b.disabled = true; });
+      setMsg("Submitting " + pickedIds.length + " pick(s) to disk…", false);
       const controller = new AbortController();
-      const timer = setTimeout(function () { controller.abort(); }, 120000);
+      const timer = setTimeout(function () { controller.abort(); }, 45000);
       try {
         const res = await fetch(API + "/api/live-founder-decision-form-v1", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             action: "submit",
-            picks: state.picks,
-            founder_comments: state.comments,
+            picks: picksOut,
+            founder_comments: commentsOut,
             founder_submit: true,
-            partial_batch: state.rows.filter(function (q) { return state.explicit[q.id]; }).length < state.rows.length,
+            partial_batch: pickedIds.length < state.rows.length,
           }),
           signal: controller.signal,
         });
         clearTimeout(timer);
         let d;
-        try {
-          d = await res.json();
-        } catch (parseErr) {
+        try { d = await res.json(); } catch (e) {
           throw new Error("Hub returned invalid JSON (HTTP " + res.status + ")");
         }
         if (d.ok) {
-          msg.textContent = d.message || ("Saved " + (d.applied_now || 0) + " picks · nerve cascade on disk");
-          msg.className = "msg";
-          setTimeout(function () { location.reload(); }, 1200);
+          const n = d.submitted_count != null ? d.submitted_count : pickedIds.length;
+          const shipped = d.applied_now != null ? d.applied_now : 0;
+          const open = d.open_questions_count != null ? d.open_questions_count : "?";
+          const line = shipped > 0
+            ? "SUBMIT OK — shipped " + shipped + " · " + open + " open remaining"
+            : "SUBMIT OK — saved " + n + " pick(s) on disk · " + open + " open · receipt hub-form-submit-receipt-v1.json";
+          setMsg(line, false);
+          document.querySelectorAll(".msg").forEach(function (el) { el.classList.add("ok-flash"); });
+          document.querySelectorAll(".submit-btn").forEach(function (b) { b.textContent = "SUBMITTED ✓"; });
+          setTimeout(function () { location.reload(); }, 1400);
         } else {
-          msg.textContent = d.error || d.law || "Submit failed";
-          msg.className = "msg err";
-          btn.disabled = false;
+          setMsg(d.error || d.law || "Submit failed", true);
+          updateStat();
         }
       } catch (e) {
         clearTimeout(timer);
         if (e.name === "AbortError") {
-          msg.textContent = "Timed out — Hub may still be processing. Refresh in 30s.";
+          setMsg("Timed out — check ~/.sina/hub-form-submit-receipt-v1.json on disk", true);
         } else if (e.message === "Failed to fetch") {
-          msg.textContent = "Hub not reachable — is Worker Hub running on this Mac?";
+          setMsg("Hub not reachable — is Worker Hub running on this Mac?", true);
         } else {
-          msg.textContent = e.message;
+          setMsg(e.message, true);
         }
-        msg.className = "msg err";
-        btn.disabled = false;
+        updateStat();
       }
+    }
+    document.getElementById("list").addEventListener("click", function (e) {
+      const label = e.target.closest("label.opt");
+      if (!label || label.classList.contains("disabled")) return;
+      const inp = label.querySelector('input[type="radio"]');
+      if (!inp || inp.disabled) return;
+      const card = label.closest(".row-card");
+      if (!card || !card.dataset.qid) return;
+      inp.checked = true;
+      registerPick(card.dataset.qid, inp.value, card);
+      if (inp.value === "E") {
+        const ta = card.querySelector(".founder-write");
+        if (ta) ta.focus();
+      }
+    });
+    document.querySelectorAll(".submit-btn").forEach(function (btn) {
+      btn.addEventListener("click", doSubmit);
     });
     load().catch(function (e) {
       document.getElementById("meta").textContent = "Failed to load form: " + e.message;
     });
   })();
   </script>
+  <script src="/shared/official-links-bar.js"></script>
+  <script src="/shared/sina-view-mode.js"></script>
+  <script src="/shared/api-station-tab.js"></script>
+  <script src="/shared/hub-pro-skills-tab.js"></script>
 </body>
 </html>

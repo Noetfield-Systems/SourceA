@@ -1,0 +1,70 @@
+/* Portable main terminal — truth layer (not stale status tiles) */
+body.sina-has-main-terminal {
+  padding-bottom: 220px;
+}
+.sina-main-terminal-dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 500;
+  background: #060a0e;
+  border-top: 2px solid #334155;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.45);
+}
+.sina-main-terminal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 14px;
+  background: #0f172a;
+  border-bottom: 1px solid #1e293b;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #94a3b8;
+}
+.sina-main-terminal-head strong {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+.sina-main-terminal-badge {
+  font-size: 0.62rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #1e293b;
+  color: #64748b;
+}
+.sina-main-terminal-badge.running { background: #422006; color: #fb923c; }
+.sina-main-terminal-badge.pass { background: #052e16; color: #4ade80; }
+.sina-main-terminal-badge.fail { background: #450a0a; color: #f87171; }
+.sina-main-terminal-hint {
+  padding: 4px 14px 0;
+  font-size: 0.68rem;
+  color: #64748b;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+.sina-main-terminal-body {
+  margin: 0;
+  padding: 10px 14px 12px;
+  max-height: 180px;
+  overflow: auto;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  color: #4ade80;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.sina-main-terminal-body.running {
+  border-top: 1px solid rgba(251, 146, 60, 0.25);
+}
+.sina-honest-note {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  margin: 0 0 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px dashed #475569;
+  background: rgba(15, 23, 42, 0.5);
+}

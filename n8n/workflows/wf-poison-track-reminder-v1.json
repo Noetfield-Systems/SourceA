@@ -2,7 +2,7 @@
   "name": "wf-poison-track-reminder-v1",
   "nodes": [
     {
-      "id": "8c87e618-9ab3-4bc5-83bd-ac5b0c273ae5",
+      "id": "ae39637d-901e-4d5e-a026-3f1771374e39",
       "name": "Schedule",
       "type": "n8n-nodes-base.cron",
       "typeVersion": 1,
@@ -22,12 +22,23 @@
       ]
     },
     {
-      "id": "1e2bf1ef-8770-4761-add2-de66bacc74ff",
-      "name": "Glue runner",
-      "type": "n8n-nodes-base.executeCommand",
-      "typeVersion": 1,
+      "id": "97e8bf09-d6d9-4ac1-a275-6c0d041186cc",
+      "name": "Hub glue",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
       "parameters": {
-        "command": "cd ~/Desktop/SourceA/scripts && python3 n8n_glue_runner_v1.py poison-track"
+        "method": "POST",
+        "url": "http://127.0.0.1:13020/api/cloud-workers/v1",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"action\": \"glue_run\", \"command\": \"poison-track\"}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
       },
       "position": [
         280,
@@ -40,7 +51,7 @@
       "main": [
         [
           {
-            "node": "Glue runner",
+            "node": "Hub glue",
             "type": "main",
             "index": 0
           }

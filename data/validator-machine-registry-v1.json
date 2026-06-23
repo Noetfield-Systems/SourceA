@@ -1,0 +1,52 @@
+{
+  "schema": "validator-machine-registry-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-22T12:30:00Z",
+  "one_law": "Validators are smart machines with disk logs — agents read receipts, not re-run marathons.",
+  "log_dir": "~/.sina/validator-machine/logs",
+  "receipt": "~/.sina/validator-machine-last-receipt-v1.json",
+  "machine": "scripts/validator_machine_v1.py",
+  "hub_api": "GET /api/validator-machine/v1",
+  "tiers": {
+    "probe": "Health HTTP only — under 5s per app",
+    "light": "Probe + disk receipts + chain slice — under 30s total",
+    "full": "Registered shell validator with tee log — ship window only"
+  },
+  "apps": [
+    {
+      "id": "worker_hub",
+      "label": "Worker Hub H1",
+      "port": 13020,
+      "health": "http://127.0.0.1:13020/health",
+      "probe": "http://127.0.0.1:13020/health",
+      "light_validator": "scripts/validate-worker-hub-live-v1.sh",
+      "full_validator": "scripts/validate-worker-hub-live-v1.sh"
+    },
+    {
+      "id": "n8n_integration",
+      "label": "N8N Integration",
+      "port": 13026,
+      "health": "http://127.0.0.1:13026/health",
+      "probe": "http://127.0.0.1:13026/health",
+      "light_validator": "scripts/living_system_chain_validate_v1.py",
+      "light_args": ["--fast", "--json"],
+      "full_validator": "scripts/validate-n8n-integration-standalone-v1.sh"
+    },
+    {
+      "id": "chat_unify",
+      "label": "Chat Unify",
+      "port": 13023,
+      "health": "http://127.0.0.1:13023/health",
+      "probe": "http://127.0.0.1:13023/health",
+      "full_validator": "scripts/validate-chat-unify-standalone-v1.sh"
+    },
+    {
+      "id": "mac_health",
+      "label": "Mac Health Guard",
+      "port": 13024,
+      "health": "http://127.0.0.1:13024/health",
+      "probe": "http://127.0.0.1:13024/health",
+      "full_validator": "scripts/validate-mac-health-founder-glance-v1.sh"
+    }
+  ]
+}

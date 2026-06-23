@@ -1,6 +1,6 @@
 ---
 description: Governance source of truth — brain-os law plane + cleanup manifest law
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Workspace governance core

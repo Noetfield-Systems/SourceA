@@ -83,6 +83,57 @@
     "mode": "PREPARE_NOT_REPORT",
     "one_law": "When founder says main problem — read SSOT · pick next_action from disk · execute bounded WORK — not a report"
   },
+  "next_task_trigger": {
+    "active": true,
+    "always_apply": true,
+    "order": "Any task/plan discussion → tiny validation pipeline before proceed · NEXT TASK trigger also · all agents",
+    "saved_at": "2026-06-21T21:15:00Z",
+    "ssot": "data/sourcea-next-task-trigger-v1.json",
+    "law": ".cursor/rules/034-next-task-trigger-v1.mdc",
+    "script": "scripts/next_task_trigger_v1.py",
+    "validator": "scripts/validate-next-task-trigger-v1.sh",
+    "always_on_flag": "~/.sina/task-plan-validation-always-v1.flag",
+    "flag": "~/.sina/next-task-trigger-active-v1.flag",
+    "receipt": "~/.sina/next-task-trigger-receipt-v1.json",
+    "trigger_phrases": [
+      "next task",
+      "NEXT TASK",
+      "next TASK",
+      "what is the next task",
+      "finish the next",
+      "FINISH THE NEXT"
+    ],
+    "task_plan_topic_patterns": [
+      "next task",
+      "this task",
+      "work order",
+      "backlog",
+      "roadmap",
+      "upgrade plan",
+      "cloud drain",
+      "sa-mkt-",
+      "CLOUD-SEC-",
+      "real-world output"
+    ],
+    "mode": "TASK_PLAN_VALIDATE_ALWAYS",
+    "one_law": "Every agent discussing ANY task or plan must run validation pipeline — what is task · benefit · real-world output · verdict · proceed"
+  },
+  "task_plan_priority": {
+    "active": true,
+    "saved_at": "2026-06-21T22:00:00Z",
+    "ssot": "data/sourcea-task-plan-priority-v1.json",
+    "script": "scripts/task_plan_priority_v1.py",
+    "validator": "scripts/validate-task-plan-priority-v1.sh",
+    "receipt": "~/.sina/task-plan-priority-receipt-v1.json",
+    "one_law": "Smart rank: sequential cloud drain head first · unified P0–P4 · free-tier cost · output type · blockers",
+    "priority_stack": [
+      {"id": "P0", "label": "Founder form picks + nerve cascade"},
+      {"id": "P1", "label": "Cloud FORGE revenue lane (full motor)"},
+      {"id": "P2", "label": "Noetfield freemium cloud bay"},
+      {"id": "P3", "label": "TrustField sandbox + outreach"},
+      {"id": "P4", "label": "Brain / governance meta rows"}
+    ]
+  },
   "cloud_comprehension_pipeline_loop": {
     "active": true,
     "order": "Every agent answer → C1 understand → C2 explain → C3 benefit → C4 proof → C5 bug signal · loop back next turn",

@@ -1,0 +1,96 @@
+{
+  "schema": "forge-v0.2-implement-receipt",
+  "at": "2026-06-21T02:11:30Z",
+  "architecture": "A",
+  "plan_id": "CLOUD-SEC-073",
+  "status": "PASS",
+  "verdict": "PASS",
+  "implement_mode": "real",
+  "telemetry_line": "Implement: CLOUD-SEC-073 real PASS",
+  "preview_url": "https://sourcea-fbe-runner-production.up.railway.app/api/worker-run-detail/v1?plan_id=CLOUD-SEC-073",
+  "artifact_paths": [
+    "receipts/worker-run-detail/CLOUD-SEC-073.json"
+  ],
+  "run_id": "forge-run-20260621T021130-CLOUD-SEC-073",
+  "intent": "sourcea competitor parity \u00b7 Inngest \u00b7 ws-run",
+  "action": "Cloud run-detail slice PASS/FAIL",
+  "workstream": "ws-run",
+  "competitor": "Inngest",
+  "artifact": {
+    "ok": true,
+    "artifact": "worker_run_dashboard_slice",
+    "artifact_path": "receipts/worker-run-detail/CLOUD-SEC-073.json",
+    "preview_url": "https://sourcea-fbe-runner-production.up.railway.app/api/worker-run-detail/v1?plan_id=CLOUD-SEC-073",
+    "run_detail": {
+      "schema": "worker-run-detail-v1",
+      "at": "2026-06-21T02:11:30Z",
+      "id": "CLOUD-SEC-073",
+      "plan_id": "CLOUD-SEC-073",
+      "status": "completed",
+      "competitor_pattern": "Inngest run dashboard",
+      "queue": "forge-implement",
+      "retry_count": 0,
+      "steps": [
+        {
+          "id": "fetch",
+          "name": "Fetch plan",
+          "status": "completed",
+          "duration_ms": 120
+        },
+        {
+          "id": "validate",
+          "name": "Validate schema",
+          "status": "completed",
+          "duration_ms": 45
+        },
+        {
+          "id": "implement",
+          "name": "Ship run-detail slice",
+          "status": "completed",
+          "duration_ms": 890
+        }
+      ],
+      "log_tail": "[CLOUD-SEC-073] run-detail slice live on cloud worker \u00b7 receipt-native",
+      "workstream": "ws-run",
+      "artifact": "worker_run_dashboard_slice"
+    }
+  },
+  "router": {
+    "ok": true,
+    "tasks_run": 3,
+    "cost_usd_total": 0.08,
+    "has_stub": true,
+    "results": [
+      {
+        "task_id": "T1",
+        "route": "claude_code",
+        "cost_usd": 0.08,
+        "ok": true,
+        "stub": true,
+        "note": "MVP stub \u2014 cloud key lane claude_code"
+      },
+      {
+        "task_id": "T2",
+        "route": "sandbox",
+        "cost_usd": 0.0,
+        "ok": true,
+        "note": "delegated_to_fbe_w5_wrappers"
+      },
+      {
+        "task_id": "T3",
+        "route": "sandbox",
+        "cost_usd": 0.0,
+        "ok": true,
+        "note": "delegated_to_fbe_w5_wrappers"
+      }
+    ]
+  },
+  "critic": {
+    "ok": true,
+    "final_verdict": "PASS",
+    "replans": 0
+  },
+  "implementation_signature": "cloud_implement_receipt_pass",
+  "receipt_url": "/receipts/cloud-implement/CLOUD-SEC-073.json",
+  "ok": true
+}

@@ -1,6 +1,6 @@
 ---
 description: Lost link recovery — search messages and disk; FOUND reports are complete reward
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Lost link recovery reward (LOCKED)

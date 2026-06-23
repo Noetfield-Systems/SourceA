@@ -22,7 +22,7 @@
       "/stories": "/observe/"
     }
   },
-  "journalism_clone_archive": "~/Desktop/SourceA/archive/witnessbc-journalism-clone-v1/Witness-BC",
+  "journalism_clone_archive": "~/Desktop/SourceA/archive/stale/retired-products/witnessbc-journalism-clone-v1/Witness-BC",
   "build": {
     "data": "witnessbc-site/data/observe-feed-v1.json",
     "renderer": "witnessbc-site/scripts/render_observe_v1.py",

@@ -1,0 +1,30 @@
+{
+  "schema": "living-system-chain-registry-cloud-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-22T16:10:00Z",
+  "one_law": "Server-side PROVE on Railway — cloud-reachable chains only · no Mac localhost probes.",
+  "autopilot_env": "CLOUD_DRAIN_AUTO_PROCEED",
+  "chains": [
+    {
+      "id": "railway_fbe_health",
+      "label": "Railway FBE /health",
+      "tier": "critical",
+      "probe": { "type": "http", "url": "http://127.0.0.1:8080/health", "env_url": "FBE_SELF_URL" }
+    },
+    {
+      "id": "railway_cloud_queue",
+      "label": "Cloud drain queue SSOT",
+      "tier": "critical",
+      "probe": { "type": "http", "url": "http://127.0.0.1:8080/api/cloud-drain/queue/v1", "env_url": "FBE_SELF_URL" }
+    },
+    {
+      "id": "cloud_drain_auto_armed",
+      "label": "Cloud auto drain armed",
+      "tier": "critical",
+      "probe": { "type": "env", "key": "CLOUD_DRAIN_AUTO_PROCEED", "expect": "true" }
+    }
+  ],
+  "validator": {
+    "machine": "scripts/living_system_chain_validate_v1.py --cloud --fast"
+  }
+}

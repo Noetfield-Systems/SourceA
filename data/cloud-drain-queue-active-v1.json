@@ -1,0 +1,19 @@
+{
+  "schema": "cloud-drain-queue-active-v1",
+  "version": "1.0.0",
+  "batch_id": 2,
+  "locked": true,
+  "saved_at": "2026-06-22T17:38:04Z",
+  "queue_path": "data/secondary-cloud-drain-batch-2-locked-v1.json",
+  "archive_batch1": "data/secondary-cloud-drain-batch-1-complete-locked-v1.json",
+  "phase_reset": {
+    "cloud_drain_head": "CLOUD-SEC-101",
+    "cloud_drain_last_completed": null,
+    "queue_batch_complete": false
+  },
+  "cloud_workers_feed": {
+    "machine": "scripts/cloud_workers_hub_v1.py",
+    "control_plane": "data/cloud-workers-control-plane-v1.json",
+    "auto_runtime": "data/cloud-drain-auto-runtime-v1.json"
+  }
+}

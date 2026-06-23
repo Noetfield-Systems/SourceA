@@ -1,0 +1,46 @@
+{
+  "schema": "cloud-comprehension-bay-rollout-test-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-21T12:00:00Z",
+  "note": "Test-only rollout fixture — production SSOT stays percent 100 until founder bump",
+  "bay_slug": "comprehension-loop-bay",
+  "active_variation_key": "default",
+  "rollout": {
+    "active": "strong",
+    "percent": 50
+  },
+  "variations": {
+    "default": {
+      "config_version": "1.1.0-test-default",
+      "meaning_min": 65,
+      "label": "test-default"
+    },
+    "strong": {
+      "config_version": "1.1.0-test-strong",
+      "meaning_min": 60,
+      "label": "test-strong"
+    }
+  },
+  "fixtures": [
+    {
+      "context_id": "rollout-0000",
+      "expect_variation_key": "strong",
+      "note": "legacy fixture — in bucket at 50%"
+    },
+    {
+      "context_id": "rollout-0001",
+      "expect_variation_key": "default",
+      "note": "legacy fixture — out of bucket at 50%"
+    },
+    {
+      "context_id": "rollout-boundary-00006",
+      "expect_variation_key": "strong",
+      "note": "bucket slot 49 — boundary in at percent 50"
+    },
+    {
+      "context_id": "rollout-boundary-00138",
+      "expect_variation_key": "default",
+      "note": "bucket slot 50 — boundary out at percent 50"
+    }
+  ]
+}

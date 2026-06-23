@@ -1,7 +1,7 @@
 {
   "schema": "cloud-comprehension-bay-v1",
-  "version": "1.0.0",
-  "saved_at": "2026-06-20T03:25:00Z",
+  "version": "1.1.0",
+  "saved_at": "2026-06-21T02:00:00Z",
   "locked": true,
   "one_law": "Comprehension loop runs on Railway FBE — client POSTs draft direct to cloud · Mac Hub optional fallback · no Mac validators",
   "bay_slug": "comprehension-loop-bay",
@@ -14,8 +14,45 @@
   "script": "scripts/fbe_comprehension_bay_v1.py",
   "client": "scripts/cloud_comprehension_bay_client_v1.py",
   "validator": "scripts/validate-cloud-comprehension-bay-v1.sh",
+  "validator_tiers": {
+    "mac_light": "scripts/validate-agent-runtime-mac-light-v1.sh",
+    "ship": [
+      "scripts/validate-cloud-comprehension-bay-v1.sh",
+      "scripts/validate-comprehension-golden-v1.sh",
+      "scripts/validate-comprehension-serialization-v1.sh"
+    ],
+    "cloud_ci": "scripts/validate-agent-runtime-cloud-ci-v1.sh",
+    "deploy_only": "scripts/validate-cloud-comprehension-railway-v1.sh"
+  },
+  "validator_index": "data/agent-runtime-validator-index-v1.json",
   "receipt": "~/.sina/cloud-comprehension-bay-receipt-v1.json",
   "execution_plane": "headless_cloud",
   "mac_role": "POST draft + optional snapshot · display for_founder · never run comprehension validators locally",
-  "cloud_role": "translate · score · ACCEPT or BLOCK · plain English only in for_founder"
+  "cloud_role": "translate · score · ACCEPT or BLOCK · plain English only in for_founder",
+  "active_variation_key": "default",
+  "rollout": {
+    "active": "default",
+    "percent": 100
+  },
+  "promotion_gate": {
+    "min_pass_rate": 0.875,
+    "note": "Founder manual bump only — no agent auto-promote of active_variation_key"
+  },
+  "variations": {
+    "default": {
+      "config_version": "1.1.0",
+      "meaning_min": 65,
+      "label": "standard",
+      "fallback_variation": "strong",
+      "retry_on_blocked": true,
+      "relax_language_gate": false
+    },
+    "strong": {
+      "config_version": "1.1.0-strong",
+      "meaning_min": 60,
+      "label": "fallback_judge",
+      "retry_on_blocked": false,
+      "relax_language_gate": true
+    }
+  }
 }

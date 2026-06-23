@@ -950,6 +950,7 @@
 
   function renderSources(knowledge) {
     const grid = $("sources-grid");
+    if (!grid) return;
     const sources = (knowledge && knowledge.sources) || [];
     grid.innerHTML = sources
       .map(
@@ -963,6 +964,7 @@
 
   function renderHistory(history) {
     const chart = $("history-chart");
+    if (!chart) return;
     const rows = history || [];
     if (!rows.length) {
       chart.innerHTML = `<p class="mhg-meta">No history yet — live pulses begin logging after the first minute.</p>`;
@@ -1070,6 +1072,33 @@
     }
     if (!heal || (lastAction !== "heal" && lastAction !== "pipeline" && !lastAction.startsWith("cpu_"))) {
       if (lastAction !== "scan") el.hidden = true;
+      return;
+    }
+    if (heal.full_relief && lastAction === "heal") {
+      const pipe = heal.pipeline || {};
+      const ram = heal.ram || {};
+      const parts = [];
+      if (heal.cpu_before != null && heal.cpu_after != null) {
+        parts.push(`CPU ${heal.cpu_before}% → ${heal.cpu_after}%`);
+      } else if (heal.summary) {
+        parts.push(heal.summary);
+      }
+      const pk = pipe.killed ?? 0;
+      if (pk) parts.push(`pipeline −${pk}`);
+      if (heal.cart && (heal.cart.patched || heal.cart.closed)) {
+        parts.push(`ghosts ${(heal.cart.patched || 0) + (heal.cart.closed || 0)}`);
+      }
+      if (ram.ok && !ram.skipped) {
+        parts.push(`RAM +${ram.free_gained_gb ?? 0} GB`);
+      } else if (ram.cancelled) {
+        parts.push("RAM purge cancelled");
+      }
+      if (heal.after_score != null) {
+        parts.push(`score ${heal.before_score} → ${heal.after_score}`);
+      }
+      el.textContent = `Full relief · ${parts.join(" · ")}.`;
+      el.className = "mhg-heal-msg" + (heal.improved || heal.ran_ok ? "" : " warn");
+      el.hidden = false;
       return;
     }
     if (heal.cpu_relief_only || lastAction.startsWith("cpu_")) {
@@ -1662,7 +1691,8 @@
     if (fresh !== "LIVE") parts.push(fresh);
     parts.push(fw);
     if (when) parts.push(`scan ${when}`);
-    $("scan-meta").textContent = parts.join(" · ");
+    const scanMeta = $("scan-meta");
+    if (scanMeta) scanMeta.textContent = parts.join(" · ");
     renderAgents(data.agents);
     renderFindings(data.findings);
     renderDomains(scan.domains);
@@ -1789,15 +1819,19 @@
     btnRef.disabled = true;
     if (btnHeal) btnHeal.disabled = true;
     if (btnPipeline) btnPipeline.disabled = true;
-    $("score-mood").textContent =
-      action === "pipeline"
-        ? "Clearing pipeline…"
-        : action === "heal"
-          ? "Healing…"
-          : action === "scan"
-            ? "Listening…"
-            : "Reading…";
-    $("score-grade").textContent = "";
+    const scoreMood = $("score-mood");
+    const scoreGrade = $("score-grade");
+    if (scoreMood) {
+      scoreMood.textContent =
+        action === "pipeline"
+          ? "Clearing pipeline…"
+          : action === "heal"
+            ? "Healing…"
+            : action === "scan"
+              ? "Listening…"
+              : "Reading…";
+    }
+    if (scoreGrade) scoreGrade.textContent = "";
     const msgEl = $("heal-msg");
     if (msgEl && (action === "scan" || action === "heal" || action === "pipeline")) {
       msgEl.hidden = false;
@@ -1806,7 +1840,7 @@
         action === "scan"
           ? "Listen again — running full macOS security scan…"
           : action === "heal"
-            ? "Brain heal — ghosts · pipeline · firewall · rescan…"
+            ? "Full relief — zombies · pipeline · cool down · RAM · firewall…"
             : "Clearing leaked pipeline processes…";
     }
     try {
@@ -1815,10 +1849,14 @@
       paintReport(data);
       if (action.startsWith("cpu_")) paintCpuRelief(data);
     } catch (e) {
-      $("score-value").textContent = "!";
-      $("score-mood").textContent = "";
-      $("score-grade").textContent = "Offline";
-      $("scan-meta").textContent = e.message;
+      const scoreVal = $("score-value");
+      const scoreMood = $("score-mood");
+      const scoreGrade = $("score-grade");
+      const scanMeta = $("scan-meta");
+      if (scoreVal) scoreVal.textContent = "!";
+      if (scoreMood) scoreMood.textContent = "";
+      if (scoreGrade) scoreGrade.textContent = "Offline";
+      if (scanMeta) scanMeta.textContent = e.message;
     } finally {
       btnScan.disabled = false;
       btnRef.disabled = false;
@@ -1832,6 +1870,8 @@
   $("btn-restart-cursor-banner")?.addEventListener("click", () => runCpuRelief("cpu_restart_cursor"));
   $("btn-restart-cursor")?.addEventListener("click", () => runCpuRelief("cpu_restart_cursor"));
   $("btn-pipeline")?.addEventListener("click", () => load("pipeline"));
+  $("btn-pipeline-hero")?.addEventListener("click", () => load("pipeline"));
+  $("btn-ram-purge-hero")?.addEventListener("click", () => runRamPurge());
   $("btn-heal")?.addEventListener("click", () => load("heal"));
   $("btn-rescan")?.addEventListener("click", () => load("scan"));
   $("btn-firewall")?.addEventListener("click", () => {

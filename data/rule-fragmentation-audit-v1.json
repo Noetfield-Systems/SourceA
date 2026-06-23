@@ -1,0 +1,36 @@
+{
+  "schema": "rule-fragmentation-audit-v1",
+  "at": "2026-06-23T06:02:32Z",
+  "ok": true,
+  "alwaysapply_cap": {
+    "ok": true,
+    "max": 8,
+    "found": 8,
+    "always_on": [
+      ".cursor/rules/000-cross-lane-edit-forbidden.mdc",
+      ".cursor/rules/000-entry-gate.mdc",
+      ".cursor/rules/000-workspace-lock.mdc",
+      ".cursor/rules/034-mac-no-validator-stuck-red-flag.mdc",
+      ".cursor/rules/045-cursor-cost-intelligence-routing-v1.mdc",
+      ".cursor/rules/agent-disk-live-wire-first.mdc",
+      ".cursor/rules/agent-founder-intent-first.mdc",
+      ".cursor/rules/mac-control-plane.mdc"
+    ],
+    "extra": [],
+    "missing": [],
+    "allowed": [
+      ".cursor/rules/000-cross-lane-edit-forbidden.mdc",
+      ".cursor/rules/000-entry-gate.mdc",
+      ".cursor/rules/000-workspace-lock.mdc",
+      ".cursor/rules/034-mac-no-validator-stuck-red-flag.mdc",
+      ".cursor/rules/045-cursor-cost-intelligence-routing-v1.mdc",
+      ".cursor/rules/agent-disk-live-wire-first.mdc",
+      ".cursor/rules/agent-founder-intent-first.mdc",
+      ".cursor/rules/mac-control-plane.mdc"
+    ]
+  },
+  "superseded_stubs": [],
+  "sina_command_stale": [],
+  "known_conflicts": [],
+  "unify_law": "Eight alwaysApply only \u2014 per data/cursor-cost-intelligence-routing-v1.json"
+}

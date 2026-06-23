@@ -1,0 +1,421 @@
+{
+  "schema": "sourcea-survival-cleanup-v1",
+  "at": "2026-06-23T05:34:27Z",
+  "dry_run": false,
+  "freed_bytes": 937314653,
+  "freed_mb": 937.3,
+  "cache_actions": [
+    {
+      "action": "deleted_cache",
+      "path": "cinematic-film-factory/__pycache__",
+      "bytes": 32050
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/__pycache__",
+      "bytes": 7975735
+    },
+    {
+      "action": "deleted_cache",
+      "path": "brain-os/scripts/__pycache__",
+      "bytes": 6384
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/eval_packet_v1b/__pycache__",
+      "bytes": 38830
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/execution_spine/__pycache__",
+      "bytes": 33460
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/fbe/__pycache__",
+      "bytes": 31510
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/runtime/__pycache__",
+      "bytes": 271
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/execution_intelligence_v2/__pycache__",
+      "bytes": 23532
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/execution_intelligence/__pycache__",
+      "bytes": 11628
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/__pycache__",
+      "bytes": 215
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/eval_packet_v1/__pycache__",
+      "bytes": 5809
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/runreceipt/__pycache__",
+      "bytes": 16367
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/fbe/exchange/__pycache__",
+      "bytes": 8143
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/fbe/assembly/__pycache__",
+      "bytes": 10589
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/fbe/forge/__pycache__",
+      "bytes": 7833
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/fbe/lib/__pycache__",
+      "bytes": 91999
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/fbe/refinery/__pycache__",
+      "bytes": 7108
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/runtime/graph_executor/__pycache__",
+      "bytes": 9348
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/runtime/tool_graph/__pycache__",
+      "bytes": 25861
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/runtime/repair_loop/__pycache__",
+      "bytes": 21339
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/runtime/context_fabric/__pycache__",
+      "bytes": 9909
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/runtime/multi_step_planner/__pycache__",
+      "bytes": 13672
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/runtime/execution_router/__pycache__",
+      "bytes": 27425
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/runtime/tool_graph_verification/__pycache__",
+      "bytes": 30270
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/runtime/dispatch_policy/__pycache__",
+      "bytes": 35149
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/runtime/orchestrator/__pycache__",
+      "bytes": 12954
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/runtime/event_bus/__pycache__",
+      "bytes": 3178
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/execution_intelligence/planner_upgrade/__pycache__",
+      "bytes": 25412
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/execution_intelligence/pattern_engine/__pycache__",
+      "bytes": 23835
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/execution_intelligence/decision_memory/__pycache__",
+      "bytes": 19702
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/execution_intelligence/context_intelligence/__pycache__",
+      "bytes": 38171
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/execution_intelligence/feedback_loop/__pycache__",
+      "bytes": 24901
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/execution_intelligence/self_optimization/__pycache__",
+      "bytes": 33830
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/packet_memory_merge/__pycache__",
+      "bytes": 18892
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/query_expansion/__pycache__",
+      "bytes": 12653
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/validation_layer/__pycache__",
+      "bytes": 18844
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/semantic_history/__pycache__",
+      "bytes": 3007
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/planning_engine/__pycache__",
+      "bytes": 14207
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/user_signals/__pycache__",
+      "bytes": 8808
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/graph_fusion/__pycache__",
+      "bytes": 12578
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/memory_git_bridge/__pycache__",
+      "bytes": 21238
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/code_intelligence/__pycache__",
+      "bytes": 31378
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/diff_intelligence/__pycache__",
+      "bytes": 22118
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/context_packet/__pycache__",
+      "bytes": 22686
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/intent_engine/__pycache__",
+      "bytes": 21970
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/context_assembly/__pycache__",
+      "bytes": 23336
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/vector_retrieval/__pycache__",
+      "bytes": 30588
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/tool_router/__pycache__",
+      "bytes": 14740
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/graph_reasoning/__pycache__",
+      "bytes": 3158
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/context_compression/__pycache__",
+      "bytes": 20905
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/context_ranking/__pycache__",
+      "bytes": 22036
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/dependency_graph/__pycache__",
+      "bytes": 14908
+    },
+    {
+      "action": "deleted_cache",
+      "path": "scripts/pre_llm/packet_readiness/__pycache__",
+      "bytes": 5911
+    },
+    {
+      "action": "deleted_cache",
+      "path": "packages/noetfield/src/noetfield/__pycache__",
+      "bytes": 18178
+    },
+    {
+      "action": "deleted_cache",
+      "path": "packages/sourcea-boot/src/sourcea_boot/__pycache__",
+      "bytes": 20577
+    },
+    {
+      "action": "deleted_cache",
+      "path": "witnessbc-site/scripts/__pycache__",
+      "bytes": 14281
+    },
+    {
+      "action": "deleted_ds_store",
+      "path": ".DS_Store",
+      "bytes": 22532
+    },
+    {
+      "action": "deleted_ds_store",
+      "path": "demo/.DS_Store",
+      "bytes": 6148
+    },
+    {
+      "action": "deleted_ds_store",
+      "path": ".cursor/.DS_Store",
+      "bytes": 6148
+    },
+    {
+      "action": "deleted_ds_store",
+      "path": "brain-os/.DS_Store",
+      "bytes": 12292
+    },
+    {
+      "action": "deleted_ds_store",
+      "path": "archive/.DS_Store",
+      "bytes": 6148
+    },
+    {
+      "action": "deleted_ds_store",
+      "path": "agent-control-panel/.DS_Store",
+      "bytes": 6148
+    },
+    {
+      "action": "deleted_ds_store",
+      "path": "brand/.DS_Store",
+      "bytes": 6148
+    },
+    {
+      "action": "deleted_ds_store",
+      "path": "agent-skills/.DS_Store",
+      "bytes": 10244
+    },
+    {
+      "action": "deleted_ds_store",
+      "path": "docs/.DS_Store",
+      "bytes": 6148
+    },
+    {
+      "action": "deleted_ds_store",
+      "path": "founder-light-v1/.DS_Store",
+      "bytes": 6148
+    },
+    {
+      "action": "deleted_ds_store",
+      "path": "scripts/.DS_Store",
+      "bytes": 10244
+    },
+    {
+      "action": "deleted_ds_store",
+      "path": "os/.DS_Store",
+      "bytes": 6148
+    },
+    {
+      "action": "deleted_ds_store",
+      "path": "brain-os/plan-registry/.DS_Store",
+      "bytes": 6148
+    },
+    {
+      "action": "deleted_ds_store",
+      "path": "archive/stale/trials/trial-vercel-local-clones-v1/noetfield-www/from-disk-repo/.DS_Store",
+      "bytes": 6148
+    },
+    {
+      "action": "deleted_ds_store",
+      "path": "data/repo-logs/execution/.DS_Store",
+      "bytes": 6148
+    },
+    {
+      "action": "deleted_ds_store",
+      "path": "data/root-machine/RESEARCH/.DS_Store",
+      "bytes": 6148
+    }
+  ],
+  "stale_moves": [
+    {
+      "action": "move_stale",
+      "from": "archive/attachments/evidence",
+      "to": "archive/stale/evidence",
+      "bytes": 311041712,
+      "note": "345MB AEG evidence blobs \u2014 audit only; not daily factory"
+    },
+    {
+      "action": "move_stale",
+      "from": "data/root-machine/graphify-out",
+      "to": "archive/stale/mirrors/graphify-out-v1",
+      "bytes": 15772629,
+      "note": "22MB graphify output \u2014 reproducible; not symlinked at root"
+    },
+    {
+      "action": "move_stale",
+      "from": "data/root-machine/RESEARCH",
+      "to": "archive/stale/mirrors/root-machine-research-v1",
+      "bytes": 1570013,
+      "note": "Duplicate RESEARCH mirror \u2014 canonical vault is RESEARCH/ at repo root"
+    },
+    {
+      "action": "move_stale",
+      "from": "infra/cleanup/secret-scan-report.txt",
+      "to": "archive/stale/cleanup-reports/secret-scan-report-v1.txt",
+      "bytes": 76345924,
+      "note": "73MB grep dump \u2014 regenerate via scan-secrets-v1.sh"
+    }
+  ],
+  "local_purges": [
+    {
+      "action": "purge_local",
+      "path": "commercial-video-factory/node_modules",
+      "bytes": 508620594,
+      "note": "Reproducible / gitignored \u2014 Mac light"
+    },
+    {
+      "action": "purge_local",
+      "path": "commercial-video-factory/out",
+      "bytes": 13750522,
+      "note": "Reproducible / gitignored \u2014 Mac light"
+    },
+    {
+      "action": "purge_local",
+      "path": ".tmp",
+      "bytes": 1030755,
+      "note": "Reproducible / gitignored \u2014 Mac light"
+    }
+  ],
+  "start_here_patched": true,
+  "law": "Let go of past weight \u2014 archive/stale/ holds audit; apps/ + cloud hold future."
+}

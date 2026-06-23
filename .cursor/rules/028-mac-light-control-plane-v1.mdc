@@ -1,6 +1,6 @@
 ---
 description: Mac light — no screenshot auto capture · no heavy factory on Mac
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Mac light control plane (mandatory)

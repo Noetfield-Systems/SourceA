@@ -294,6 +294,28 @@
   background: rgba(13, 148, 136, 0.08);
 }
 
+.toolkit-pill-checkout {
+  display: none;
+  border-color: var(--accent, #0d9488);
+  color: var(--accent, #0d9488);
+  background: rgba(13, 148, 136, 0.12);
+  font-weight: 600;
+}
+
+body.checkout-live .toolkit-pill-checkout,
+body[data-stripe-live="true"] .toolkit-pill-checkout {
+  display: inline-flex;
+}
+
+body.checkout-live [data-buy]:not([disabled]) {
+  cursor: pointer;
+}
+
+body.checkout-live [data-buy][disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 .toolkit-freemium-status {
   display: flex;
   flex-wrap: wrap;

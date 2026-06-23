@@ -1,0 +1,11 @@
+{
+  "schema": "forge-factory-cycle2-verify-v1",
+  "sa_id": "sa-1210",
+  "hp_id": "ff-010",
+  "round_type": "verify",
+  "ok": true,
+  "at": "2026-06-21T02:02:00Z",
+  "closeout": true,
+  "evidence": "VERIFY PASS — portfolio daily run · assignment v1.5.0 handoff phase-market · cycle2 closeout receipt",
+  "closeout_receipt": "receipts/forge-factory-cycle2-closeout-v1.json"
+}

@@ -4,3 +4,4 @@
  */
 export * from "./receipts-v1.js";
 export * from "./campaign-v1.js";
+export * from "./execution-contract-v1.js";

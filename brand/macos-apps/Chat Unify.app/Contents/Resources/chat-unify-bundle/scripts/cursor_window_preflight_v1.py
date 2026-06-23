@@ -18,7 +18,7 @@ LOG = Path.home() / ".sina" / "cursor-window-preflight-v1.jsonl"
 FOCUS_STEAL_DISABLED_FLAG = Path.home() / ".sina" / "cursor-focus-steal-disabled-v1.flag"
 DEFAULT_SLEEP_SEC = 2.0
 # ASF Worker chat — never last-active Brain tab
-DEFAULT_WORKER_CHAT_ID = "fd67502f-5f95-43b8-bdfc-f2dba306f828"
+DEFAULT_WORKER_CHAT_ID = "e54ddfa8-531b-40de-8443-d8167f80a614"
 
 
 def cursor_focus_steal_disabled() -> bool:

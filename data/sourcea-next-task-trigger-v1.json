@@ -1,0 +1,132 @@
+{
+  "schema": "sourcea-next-task-trigger-v1",
+  "version": "2.0.0",
+  "saved_at": "2026-06-21T21:10:00Z",
+  "locked": true,
+  "always_apply": true,
+  "always_on_flag": "~/.sina/task-plan-validation-always-v1.flag",
+  "flag": "~/.sina/next-task-trigger-receipt-v1.json",
+  "receipt": "~/.sina/next-task-trigger-receipt-v1.json",
+  "script": "scripts/next_task_trigger_v1.py",
+  "validator": "scripts/validate-next-task-trigger-v1.sh",
+  "law_rule": ".cursor/rules/034-next-task-trigger-v1.mdc",
+  "behavior_ssot": "data/agent-behavior-settings-v1.json",
+  "one_law": "Every agent discussing ANY task or plan must run the tiny validation pipeline — not only on NEXT TASK trigger. Validate before proceed.",
+  "trigger_phrases": [
+    "next task",
+    "NEXT TASK",
+    "next TASK",
+    "what is the next task",
+    "finish the next",
+    "FINISH THE NEXT"
+  ],
+  "task_plan_topic_patterns": [
+    "next task",
+    "this task",
+    "the task",
+    "work order",
+    "backlog",
+    "roadmap",
+    "upgrade plan",
+    "brain row",
+    "cloud drain",
+    "sa-mkt-",
+    "CLOUD-SEC-",
+    "B000",
+    "execute",
+    "proceed",
+    "useful or noise",
+    "real-world output",
+    "what is the plan"
+  ],
+  "applies_to": [
+    "cursor_worker",
+    "sourcea_brain",
+    "brain",
+    "worker",
+    "maintainer",
+    "any_agent_in_sourceA"
+  ],
+  "pipeline": {
+    "name": "task_plan_validation_v1",
+    "always_when": "founder or agent message discusses a task, plan, work order, backlog item, or next step",
+    "required_fields": [
+      "what_is_task",
+      "benefit_and_priority",
+      "real_world_output",
+      "output_type",
+      "usefulness_verdict",
+      "proceed"
+    ],
+    "reply_sections": [
+      "What is this task?",
+      "Benefit and priority",
+      "Real-world output",
+      "Usefulness verdict",
+      "Proceed?"
+    ],
+    "output_types": [
+      "file_generation",
+      "marketing_system",
+      "ai_agent_product",
+      "data_pipeline",
+      "internal_meta",
+      "unknown"
+    ],
+    "verdicts": ["useful", "noise", "blocked", "needs_founder_answer"]
+  },
+  "resolution_order": [
+    "explicit_id_in_founder_text (B#### · sa-mkt-#### · CLOUD-SEC-### · sa-####)",
+    "explicit --task-id / --plan-id CLI",
+    "paired cloud row from maps_registry",
+    "disk_next brain + cloud drain pointers"
+  ],
+  "priority_stack": [
+    {
+      "id": "P0",
+      "label": "Founder form picks + nerve cascade",
+      "because": "Official form batch submit is the only lawful desired-state writer"
+    },
+    {
+      "id": "P1",
+      "label": "Cloud FORGE revenue lane (full motor)",
+      "because": "phase_market · competitor evidence → labs rows · market traction"
+    },
+    {
+      "id": "P2",
+      "label": "Noetfield freemium cloud bay",
+      "because": "Phase 0 north star — freemium before paid"
+    },
+    {
+      "id": "P3",
+      "label": "TrustField sandbox + outreach (TF agent lane)",
+      "because": "Steps 6–7 demos/outreach — not Mac Worker body"
+    },
+    {
+      "id": "P4",
+      "label": "Brain / governance meta rows",
+      "because": "Useful only when tied to cloud federated proof or buyer-visible output"
+    }
+  ],
+  "required_founder_question": "What is the real-world output supposed to be? (file · marketing system · AI agent product · data pipeline · internal meta · other)",
+  "forbidden_always": [
+    "Discussing or executing a task/plan without validation pipeline sections",
+    "Marking cloud_proof without real-world output class",
+    "Queue drain without usefulness verdict",
+    "Treating internal_meta receipt as product progress"
+  ],
+  "forbidden_when_triggered": [
+    "Executing next queue row without validation pipeline",
+    "Long plan status without usefulness verdict"
+  ],
+  "wired_to": [
+    "scripts/agent_session_gate_run_v1.py",
+    "scripts/agent_memory_mirror_v1.py",
+    "scripts/agentic_conduct_gate_v1.py",
+    "scripts/agent_behavior_settings_v1.py",
+    "scripts/disk_live_wire_sync_v1.py",
+    "scripts/founder_reply_quality_loop_v1.py",
+    "scripts/task_plan_priority_v1.py",
+    "scripts/plans_unified_upgrade_v1.py"
+  ]
+}

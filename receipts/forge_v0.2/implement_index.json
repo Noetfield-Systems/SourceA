@@ -1,0 +1,35 @@
+{
+  "schema": "forge-v02-implement-index-v1",
+  "at": "2026-06-21T04:07:24Z",
+  "architecture": "A",
+  "count": 3,
+  "entries": [
+    {
+      "plan_id": "CLOUD-SEC-005",
+      "workstream": "ws-ux",
+      "competitor": "Trigger.dev",
+      "preview_url": "https://sourcea-fbe-runner-production.up.railway.app/api/competitor-evidence/v1?plan_id=CLOUD-SEC-005",
+      "at": "2026-06-21T04:07:24Z",
+      "implement_mode": "real",
+      "status": "PASS"
+    },
+    {
+      "plan_id": "CLOUD-SEC-037",
+      "workstream": "ws-onboard",
+      "competitor": "Trigger.dev",
+      "preview_url": "https://sourcea-fbe-runner-production.up.railway.app/api/competitor-evidence/v1?plan_id=CLOUD-SEC-037",
+      "at": "2026-06-21T03:58:30Z",
+      "implement_mode": "real",
+      "status": "PASS"
+    },
+    {
+      "plan_id": "CLOUD-SEC-073",
+      "workstream": "ws-run",
+      "competitor": "Inngest",
+      "preview_url": "https://sourcea-fbe-runner-production.up.railway.app/api/worker-run-detail/v1?plan_id=CLOUD-SEC-073",
+      "at": "2026-06-21T02:11:30Z",
+      "implement_mode": "real",
+      "status": "PASS"
+    }
+  ]
+}

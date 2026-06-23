@@ -1,7 +1,14 @@
 ---
 description: UI FIRST CHECK live wire — mandatory machine gate before ANY form/app/website UI edit
 globs:
-alwaysApply: true
+  - "**/*.html"
+  - "**/*.css"
+  - "**/*.js"
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/*.vue"
+  - "**/*.canvas.tsx"
+alwaysApply: false
 ---
 
 # UI FIRST CHECK — mandatory before every UI edit (ALL agents)

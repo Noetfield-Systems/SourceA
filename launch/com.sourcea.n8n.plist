@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.sourcea.n8n</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>/Users/sinakazemnezhad/.sina/start-n8n-launchd.sh</string>
+	</array>
+	<key>WorkingDirectory</key>
+	<string>/Users/sinakazemnezhad/.sina</string>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<dict>
+		<key>SuccessfulExit</key>
+		<false/>
+	</dict>
+	<key>ThrottleInterval</key>
+	<integer>30</integer>
+	<key>StandardOutPath</key>
+	<string>/Users/sinakazemnezhad/.sina/n8n-launchd.log</string>
+	<key>StandardErrorPath</key>
+	<string>/Users/sinakazemnezhad/.sina/n8n-launchd.err</string>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key>
+		<string>/opt/homebrew/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+		<key>N8N_HOST</key>
+		<string>127.0.0.1</string>
+		<key>N8N_PORT</key>
+		<string>5678</string>
+		<key>N8N_SECURE_COOKIE</key>
+		<string>false</string>
+	</dict>
+</dict>
+</plist>
