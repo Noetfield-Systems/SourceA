@@ -178,6 +178,16 @@ def skip_to_next_real(*, reason: str = "", max_skips: int = 12) -> dict[str, Any
 def advance_on_pass(*, plan_id: str) -> dict[str, Any]:
     path = phase_path()
     obs = _read(path)
+    current_head = str(obs.get("cloud_drain_head") or "")
+    if not current_head:
+        current_head = str(read_head().get("cloud_drain_head") or "")
+    if current_head and plan_id != current_head:
+        return {
+            "ok": False,
+            "error": "plan_not_queue_head",
+            "plan_id": plan_id,
+            "cloud_drain_head": current_head,
+        }
     ids = [str(p.get("id") or "") for p in _cloud_plans()]
     if plan_id not in ids:
         return {"ok": False, "error": "plan_not_in_queue", "plan_id": plan_id}
