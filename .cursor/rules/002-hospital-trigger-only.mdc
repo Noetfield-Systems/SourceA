@@ -1,6 +1,6 @@
 ---
 description: Orientation/Hospital/Maze — founder one-word trigger only; session start = session gate
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Three pipelines — founder trigger only (LOCKED)

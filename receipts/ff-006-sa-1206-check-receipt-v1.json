@@ -1,0 +1,22 @@
+{
+  "schema": "forge-factory-cycle2-check-v1",
+  "sa_id": "sa-1206",
+  "hp_id": "ff-006",
+  "round_type": "check",
+  "ok": true,
+  "at": "2026-06-21T18:28:30Z",
+  "checks": {
+    "ladder_state": "~/Desktop/TrustField Technologies/os/ladder_state.json",
+    "steps_1_4": "green",
+    "commercial_blocked": false,
+    "step_6_outreach": "red",
+    "step_7_demos": "red",
+    "probe_ok": true
+  },
+  "evidence": "CHECK PASS — TrustField ladder steps 1–4 GREEN on disk · commercial_blocked=false · steps 6–7 RED (outreach/demos) do not block P0 unlock chain",
+  "ssot_read": [
+    "data/portfolio-fix-plan-v1.json",
+    "~/Desktop/TrustField Technologies/os/ladder_state.json"
+  ],
+  "probe_method": "live_disk_read_not_closeout"
+}

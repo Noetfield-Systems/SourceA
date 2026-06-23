@@ -1,0 +1,263 @@
+{
+  "schema": "cloud-sec-receipt-v1",
+  "id": "CLOUD-SEC-009",
+  "maps_registry": "sa-mkt-0009",
+  "ok": true,
+  "dry_run": false,
+  "full_motor": true,
+  "hub_proceed": true,
+  "forge_dispatch": {
+    "schema": "fbe-cloud-adapter-receipt-v1",
+    "ok": true,
+    "at": "2026-06-22T09:27:00Z",
+    "mode": "w5_headless",
+    "submit_mode": "in_process",
+    "run_mode": "forge",
+    "template_id": "forge-app-factory-v1",
+    "work_order_id": "sa-mkt-0009",
+    "tenant": "forge",
+    "bay_slug": "forge-bay",
+    "execution_plane": "headless_w5",
+    "dry_run": false,
+    "skeleton": {
+      "dockerfile": true,
+      "entrypoint": true,
+      "entrypoint_executable": true,
+      "bay_jobs": true,
+      "headless_bypass": true
+    },
+    "run_result": {
+      "schema": "fbe-run-job-receipt-v1",
+      "ok": true,
+      "at": "2026-06-22T09:27:00Z",
+      "wave": "W5",
+      "factory_id": "factory_3",
+      "bay_slug": "forge-bay",
+      "template_id": "forge-app-factory-v1",
+      "tenant": "forge",
+      "work_order_id": "sa-mkt-0009",
+      "mode": "in_process",
+      "execution_plane": "headless_w5",
+      "deliveryMode": "prove_only",
+      "tier_target": "GOLD",
+      "tier_achieved": "GOLD",
+      "lines": {
+        "motor": {
+          "ok": true,
+          "proof": "motor_verify PASS"
+        },
+        "refinery": {
+          "ok": true,
+          "proof": "forge_refinery via forge_runner"
+        },
+        "assembly": {
+          "ok": true,
+          "proof": "forge_assembly via forge_runner"
+        }
+      },
+      "federated_ok": true,
+      "market_ready_proof": "forge_verify PASS",
+      "artifact_uri": "receipts/packs/forge-bay/run-receipt-v1.zip",
+      "receipt_pack_uri": "receipts/packs/forge-bay/run-receipt-v1.zip",
+      "mono_bridge": "reachable",
+      "cloud_sync": "pull_assembly_receipts",
+      "forge_router": {
+        "schema": "forge-router-execute-v0.1",
+        "ok": true,
+        "at": "2026-06-22T09:27:00Z",
+        "run_id": "forge-run-20260622T092652-sa-mkt-0009",
+        "tasks_run": 3,
+        "cost_usd_total": 0.05,
+        "cost_cap_usd": 2.0,
+        "results": [
+          {
+            "task_id": "T1",
+            "route": "gemini_context",
+            "cost_usd": 0.03,
+            "ok": true,
+            "stub": true,
+            "note": "MVP stub \u2014 cloud key lane gemini_context"
+          },
+          {
+            "task_id": "T2",
+            "route": "openrouter_bulk",
+            "cost_usd": 0.02,
+            "ok": true,
+            "model": "deepseek/deepseek-chat",
+            "usage": {
+              "prompt_tokens": 26,
+              "completion_tokens": 364,
+              "total_tokens": 390,
+              "cost": 0.00033228,
+              "is_byok": false,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "cache_write_tokens": 0,
+                "audio_tokens": 0,
+                "video_tokens": 0
+              },
+              "cost_details": {
+                "upstream_inference_cost": 0.00033228,
+                "upstream_inference_prompt_cost": 8.32e-06,
+                "upstream_inference_completions_cost": 0.00032396
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "image_tokens": 0,
+                "audio_tokens": 0
+              }
+            }
+          },
+          {
+            "task_id": "T3",
+            "route": "sandbox",
+            "cost_usd": 0.0,
+            "ok": true,
+            "note": "delegated_to_fbe_w5_wrappers"
+          }
+        ]
+      },
+      "forge_critic": {
+        "ok": true,
+        "schema": "forge-critic-loop-v0.1",
+        "at": "2026-06-22T09:27:00Z",
+        "replans": 0,
+        "final_verdict": "PASS",
+        "history": [
+          {
+            "replan": 0,
+            "eval": {
+              "schema": "forge-critic-eval-v0.1",
+              "at": "2026-06-22T09:27:00Z",
+              "run_id": "forge-run-20260622T092652-sa-mkt-0009",
+              "verdict": "PASS",
+              "intent": "SourceA competitor parity \u00b7 Trigger.dev \u00b7 ws-ux",
+              "cost_usd_total": 0.05,
+              "reasons": []
+            },
+            "run_id": "forge-run-20260622T092652-sa-mkt-0009"
+          }
+        ]
+      },
+      "forge_context": {
+        "plan_id": "sa-mkt-0009",
+        "run_id": "forge-run-20260622T092652-sa-mkt-0009",
+        "task_graph_path": "/app/receipts/bays/forge-bay/trace/forge-run-20260622T092652-sa-mkt-0009-task-graph.json",
+        "stack": "SourceA",
+        "stack_key": "sourcea",
+        "competitor": "Trigger.dev",
+        "workstream": "ws-ux",
+        "phase": "phase-c01-trigger-dev",
+        "prompt_abs": "/app/brain-os/plan-registry/sourcea-competitor-1000/prompts/phase-c01-trigger-dev/ws-ux/sa-mkt-0009.md",
+        "execution_mode": "CLOUD_ONLY",
+        "preview_url": null,
+        "task_graph": {
+          "schema": "forge-task-graph-v0.1",
+          "version": "0.1.0",
+          "run_id": "forge-run-20260622T092652-sa-mkt-0009",
+          "saved_at": "2026-06-22T09:26:52Z",
+          "prompt": {
+            "raw": "Ship summary in PRIORITY: preserved \u00b7 changed \u00b7 achieved vs Trigger.dev Buyer-visible UX",
+            "intent": "SourceA competitor parity \u00b7 Trigger.dev \u00b7 ws-ux",
+            "constraints": [
+              "cloud_only",
+              "receipt_required",
+              "mac_build_forbidden"
+            ],
+            "entities": [
+              "Trigger.dev",
+              "ws-ux"
+            ],
+            "risk_signals": []
+          },
+          "tasks": [
+            {
+              "id": "T1",
+              "kind": "research",
+              "title": "Trigger.dev \u00b7 ws-ux \u00b7 research",
+              "depends_on": [],
+              "route_hint": "gemini_context",
+              "artifact_out": "forge-run-20260622T092652-sa-mkt-0009/T1"
+            },
+            {
+              "id": "T2",
+              "kind": "ui_gen",
+              "title": "Trigger.dev \u00b7 ws-ux \u00b7 ui_gen",
+              "depends_on": [
+                "T1"
+              ],
+              "route_hint": "openrouter_bulk",
+              "artifact_out": "forge-run-20260622T092652-sa-mkt-0009/T2"
+            },
+            {
+              "id": "T3",
+              "kind": "validate",
+              "title": "Trigger.dev \u00b7 ws-ux \u00b7 validate",
+              "depends_on": [
+                "T2"
+              ],
+              "route_hint": "sandbox",
+              "artifact_out": "forge-run-20260622T092652-sa-mkt-0009/T3"
+            },
+            {
+              "id": "T4",
+              "kind": "evaluate",
+              "title": "Critic evaluate vs intent",
+              "depends_on": [
+                "T3"
+              ],
+              "route_hint": "gpt_control"
+            }
+          ],
+          "edges": [
+            {
+              "from": "T1",
+              "to": "T2"
+            },
+            {
+              "from": "T2",
+              "to": "T3"
+            },
+            {
+              "from": "T3",
+              "to": "T4"
+            }
+          ],
+          "meta_loop": {
+            "max_replan": 2,
+            "on_fail": "replan"
+          },
+          "work_order": {
+            "plan_id": "sa-mkt-0009",
+            "stack": "SourceA",
+            "stack_key": "sourcea",
+            "tenant": "forge",
+            "competitor": "Trigger.dev",
+            "workstream": "ws-ux",
+            "prompt_abs": "/app/brain-os/plan-registry/sourcea-competitor-1000/prompts/phase-c01-trigger-dev/ws-ux/sa-mkt-0009.md"
+          }
+        }
+      },
+      "proof_class": "G0-G3",
+      "run_mode": "forge"
+    },
+    "forge_context": "<cycle>",
+    "remote_status": "local_primary",
+    "wave": "W5",
+    "competitor_plan": "<cycle>",
+    "task_graph_path": "/app/receipts/bays/forge-bay/trace/forge-run-20260622T092652-sa-mkt-0009-task-graph.json",
+    "run_id": "forge-run-20260622T092652-sa-mkt-0009",
+    "forge_loop": [
+      "reasoning",
+      "planning_dag",
+      "routing_openrouter",
+      "execution_workers",
+      "verification_critic",
+      "aggregation",
+      "meta_replan"
+    ],
+    "mac_build_forbidden": true
+  },
+  "at": "2026-06-22T09:27:00Z",
+  "evidence": "CLOUD-SEC-009 \u00b7 sa-mkt-0009 \u00b7 PASS \u00b7 openrouter on cloud"
+}

@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "saved_at": "2026-06-21T01:15:00Z",
   "authority": "ASF",
-  "one_law": "SourceA + WitnessBC commercial latest live in kazemnezhadsina144-dot/SourceA monorepo → separate Vercel projects on the-777-foundation. Cloudflare is DNS only — different login per domain zone.",
+  "one_law": "Interim: Vercel the-777-foundation until Cloudflare Pages green on main account. Target: sourcea.com · trustfield.ca · noetfield.com on CF Pages (sinakazemnezhad.ca@gmail.com · account 0d0b967b77e2e5535455d39ff3dae72c). SSOT: data/portfolio-cloudflare-migration-v1.json",
   "human_doc": "docs/VERCEL_PORTFOLIO_MAP_LOCKED_v1.md",
   "script": "scripts/vercel_portfolio_map_v1.py",
   "receipt": "~/.sina/vercel-portfolio-map-v1.json",
@@ -24,7 +24,9 @@
       "rule": "One Vercel project per product surface · same GitHub repo · different root directory"
     },
     "cloudflare": {
-      "rule": "DNS + optional Pages legacy · separate from GitHub/Vercel deploy pipeline",
+      "rule": "Main lane: Pages + Workers on sinakazemnezhad.ca@gmail.com — migration SSOT portfolio-cloudflare-migration-v1.json",
+      "migration_doc": "docs/PORTFOLIO_CLOUDFLARE_MIGRATION_LOCKED_v1.md",
+      "main_account_id": "0d0b967b77e2e5535455d39ff3dae72c",
       "zones": {
         "witnessbc.com": "witness.bc@gmail.com Cloudflare account",
         "noetfield.com": "sinakazemnezhad.ca@gmail.com main lane",
@@ -52,7 +54,15 @@
     "vercel_dashboard": "https://vercel.com/the-777-foundation",
     "plan": "hobby",
     "plan_target": "pro",
-    "plan_target_date": "2026-06-27"
+    "plan_target_date": "2026-06-27",
+    "pro_migration_week": {
+      "locked_doc": "docs/VERCEL_PRO_MIGRATION_WEEK_LOCKED_v1.md",
+      "machine_ssot": "data/vercel-pro-migration-week-v1.json",
+      "target_date": "2026-06-27",
+      "status": "locked_plan",
+      "disconnect_trial_cli": "scripts/switch_vercel_cli_main_v1.sh",
+      "forbidden": "vercel login from Cursor agent"
+    }
   },
   "migration_source": {
     "gmail": "noetfield@gmail.com",

@@ -1,7 +1,7 @@
 {
   "schema": "fbe-refinery-step-receipt-v1",
   "ok": true,
-  "at": "2026-06-20T23:12:42Z",
+  "at": "2026-06-21T01:42:49Z",
   "node_id": "factory-definition-v1",
   "bay_slug": "sample-bay",
   "tenant": "wil_ai_design_partner",

@@ -1,0 +1,110 @@
+{
+  "schema": "sourcea-compact-migration-v1",
+  "at": "2026-06-23T06:02:26Z",
+  "dry_run": false,
+  "dest": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23",
+  "freed_bytes": 455460838,
+  "freed_mb": 455.5,
+  "actions": [
+    {
+      "from": "archive",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/archive-from-sourcea",
+      "bytes": 440674217
+    },
+    {
+      "from": ".cursor/rules/000-founder-rules.mdc",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/cursor-rules-retired/000-founder-rules.mdc",
+      "bytes": 431
+    },
+    {
+      "from": ".cursor/rules/001-founder-zero-sina-command-name.mdc",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/cursor-rules-retired/001-founder-zero-sina-command-name.mdc",
+      "bytes": 561
+    },
+    {
+      "from": ".cursor/rules/agent-report-story-quality.mdc",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/cursor-rules-retired/agent-report-story-quality.mdc",
+      "bytes": 298
+    },
+    {
+      "from": ".cursor/rules/sina-command-ui.mdc",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/cursor-rules-retired/sina-command-ui.mdc",
+      "bytes": 362
+    },
+    {
+      "from": ".cursor/rules/prompt-queue.mdc",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/cursor-rules-retired/prompt-queue.mdc",
+      "bytes": 1148
+    },
+    {
+      "from": ".cursor/rules/background-terminal-cart-check.mdc",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/cursor-rules-retired/background-terminal-cart-check.mdc",
+      "bytes": 1986
+    },
+    {
+      "from": ".cursor/rules/sina-advisor.mdc",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/cursor-rules-retired/sina-advisor.mdc",
+      "bytes": 502
+    },
+    {
+      "from": ".cursor/rules/sina-command-protected.mdc",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/cursor-rules-retired/sina-command-protected.mdc",
+      "bytes": 1228
+    },
+    {
+      "from": ".cursor/rules/sina-command-readonly.mdc",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/cursor-rules-retired/sina-command-readonly.mdc",
+      "bytes": 507
+    },
+    {
+      "from": "brain-os/plan-registry/sourcea-1000/prompts",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/plan-registry-prompts/sourcea-1000__prompts",
+      "bytes": 2277533
+    },
+    {
+      "from": "brain-os/plan-registry/sourcea-competitor-1000/prompts",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/plan-registry-prompts/sourcea-competitor-1000__prompts",
+      "bytes": 1457378
+    },
+    {
+      "from": "brain-os/plan-registry/enforcement-1000/prompts",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/plan-registry-prompts/enforcement-1000__prompts",
+      "bytes": 2405526
+    },
+    {
+      "from": "brain-os/plan-registry/broker-pack-1000/prompts",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/plan-registry-prompts/broker-pack-1000__prompts",
+      "bytes": 1312123
+    },
+    {
+      "from": "brain-os/plan-registry/automation-converge-1000/prompts",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/plan-registry-prompts/automation-converge-1000__prompts",
+      "bytes": 2070982
+    },
+    {
+      "from": "brain-os/plan-registry/automation-fast-track-100/prompts",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/plan-registry-prompts/automation-fast-track-100__prompts",
+      "bytes": 121782
+    },
+    {
+      "from": "brain-os/plan-registry/healthy-prompt-pack-v1/prompts",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/plan-registry-prompts/healthy-prompt-pack-v1__prompts",
+      "bytes": 105314
+    },
+    {
+      "from": "os/plan-library",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/os-plan-library",
+      "bytes": 41049
+    },
+    {
+      "from": "REPO_EXECUTION_LOGS",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/REPO_EXECUTION_LOGS",
+      "bytes": 2493350
+    },
+    {
+      "from": "data/repo-logs",
+      "to": "/Users/sinakazemnezhad/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/data_repo-logs",
+      "bytes": 2494561
+    }
+  ]
+}

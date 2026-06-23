@@ -1,0 +1,53 @@
+{
+  "schema": "cloud-drain-auto-runtime-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-22T10:25:31Z",
+  "enabled": true,
+  "auto_proceed": true,
+  "auto_skip_mock": true,
+  "self_heal_motor_fail_mock": true,
+  "self_heal_any_motor_fail": true,
+  "cron": "*/10 * * * *",
+  "min_interval_minutes": 10,
+  "max_skips_per_tick": 8,
+  "llm_provider": "openrouter",
+  "full_motor": true,
+  "one_law": "Auto drain runs on Cloudflare cron → Railway server-side PROVE→SHIP. Mac n8n is backup only.",
+  "primary_scheduler": "cloudflare_cron",
+  "backup_scheduler": "n8n_mac_hub",
+  "motor_auto_tick": "POST /api/cloud-drain/auto-tick/v1",
+  "observer_url": "https://sourcea-fbe-runner-production.up.railway.app/observer",
+  "observer_cf_proxy": "https://sourcea-cloud-drain-tick-v1.witness-bc.workers.dev/observer",
+  "cloud_receipts": "/app/receipts/cloud/autonomous-drain-cycles/",
+  "mac_mirror": "~/.sina/autonomous-drain-cycle-receipts/",
+  "founder_opt_in": {
+    "cloud_secret": "CLOUD_DRAIN_AUTO_PROCEED=true",
+    "mac_flag": "~/.sina/cloud-drain-auto-proceed-v1.flag",
+    "enable_cmd": "python3 scripts/cloud_drain_auto_runtime_v1.py --enable"
+  },
+  "wired_to": [
+    "scripts/cloud_drain_auto_runtime_v1.py",
+    "scripts/cloud_workers_hub_v1.py",
+    "data/cloud-drain-queue-active-v1.json",
+    "data/secondary-cloud-drain-batch-2-locked-v1.json",
+    "cloud/workers/cloud-drain-tick-v1",
+    "n8n/workflows/wf-cloud-drain-auto-v1.json"
+  ],
+  "hub_api": {
+    "auto_tick": "POST /api/cloud-workers/v1 {\"action\":\"auto_tick\"}",
+    "skip_to_next_real": "POST /api/cloud-workers/v1 {\"action\":\"skip_to_next_real\"}",
+    "auto_status": "POST /api/cloud-workers/v1 {\"action\":\"auto_status\"}"
+  },
+  "cloudflare_worker": {
+    "name": "sourcea-cloud-drain-tick-v1",
+    "root": "cloud/workers/cloud-drain-tick-v1",
+    "url": "https://sourcea-cloud-drain-tick-v1.witness-bc.workers.dev",
+    "deploy": "cd cloud/workers/cloud-drain-tick-v1 && npx wrangler deploy",
+    "secrets_cmd": "bash scripts/cloud_drain_cf_secrets_v1.sh",
+    "deployed_at": "2026-06-22T09:32:00Z",
+    "cron": "*/10 * * * *",
+    "secrets_set_at": "2026-06-22T09:32:00Z",
+    "secrets_pending": []
+  },
+  "receipt": "~/.sina/cloud-drain-auto-tick-receipt-v1.json"
+}

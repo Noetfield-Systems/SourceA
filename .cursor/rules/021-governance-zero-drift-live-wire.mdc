@@ -1,6 +1,6 @@
 ---
 description: Zero governance drift — all layers live-wired L0→L0.5→L1→L2→SASCIP→vocab→monitor
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Governance zero-drift live wire (real-time chain)

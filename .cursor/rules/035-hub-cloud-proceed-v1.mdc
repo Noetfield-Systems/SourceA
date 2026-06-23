@@ -1,0 +1,41 @@
+---
+description: Hub cloud proceed — activation via Railway POST (request when founder says proceed)
+alwaysApply: false
+---
+
+# Hub cloud proceed (035)
+
+**SSOT:** `data/hub-cloud-drain-proceed-v1.json` · **Script:** `scripts/hub_cloud_drain_proceed_v1.py`
+
+## One law
+
+> **Cloud activation "proceed" = Hub click or POST only.** Mac proxies one tap to Railway · OpenRouter or Gemini on cloud · no local FORGE motor for drain rows.
+
+## Hub API
+
+```bash
+POST http://127.0.0.1:13020/api/cloud-drain/proceed/v1
+{"llm_provider":"openrouter","full_motor":true}
+```
+
+Worker Hub card: **Cloud proceed · Proceed next cloud task** · LLM selector OpenRouter / Gemini.
+
+## Agents MUST
+
+- On founder **proceed** / **next task** for CLOUD-SEC / sa-mkt drain → point to Hub Proceed button or POST above
+- Run task/plan validation pipeline (034) then recommend Hub proceed — not Mac dispatch
+
+## Agents MUST NOT
+
+- Run `portfolio_competitor_forge_dispatch_v1.py --full-motor` on Mac for activation cloud tasks
+- Chat-only proceed without hub receipt `~/.sina/hub-cloud-drain-proceed-receipt-v1.json`
+
+## Validator
+
+```bash
+bash scripts/validate-hub-cloud-drain-proceed-v1.sh
+```
+
+## Wired
+
+`sina-command-server.py` · `fbe_cloud_worker_http_v1.py` · `worker_hub_v1.py` · `next_task_trigger_v1.py` · `agentic_conduct_gate_v1.py` · nerves via `_mac_post_process`

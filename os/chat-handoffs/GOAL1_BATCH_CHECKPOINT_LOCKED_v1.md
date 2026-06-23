@@ -1,1 +1,1 @@
-../../brain-os/enforcement/GOAL1_BATCH_CHECKPOINT_LOCKED_v1.md
+../../brain-os/law/enforcement/GOAL1_BATCH_CHECKPOINT_LOCKED_v1.md

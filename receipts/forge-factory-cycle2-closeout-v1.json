@@ -1,0 +1,25 @@
+{
+  "schema": "forge-factory-cycle2-closeout-v1",
+  "at": "2026-06-21T02:02:00Z",
+  "ok": true,
+  "queue_range": "sa-1201..sa-1210",
+  "receipts": [
+    "receipts/ff-001-sa-1201-check-receipt-v1.json",
+    "receipts/ff-002-sa-1202-act-receipt-v1.json",
+    "receipts/ff-003-sa-1203-verify-receipt-v1.json",
+    "receipts/ff-004-sa-1204-check-receipt-v1.json",
+    "receipts/ff-005-sa-1205-act-receipt-v1.json",
+    "receipts/ff-008-sa-1208-check-receipt-v1.json",
+    "receipts/ff-009-sa-1209-act-receipt-v1.json",
+    "receipts/cloud-sec-001-receipt-v1.json"
+  ],
+  "portfolio_daily": "~/.sina/portfolio-supabase-daily-pulse-v1.json",
+  "assignment": "data/sourcea-worker-professional-assignment-v1.json v1.5.0",
+  "handoff": "phase-market · CLOUD-SEC-001",
+  "blockers": [
+    "WBC prod DNS — founder action data/wbc-dns-cutover-checklist-v1.json",
+    "TF ladder RED — TrustField agent lane",
+    "Loop auto compose_blocked — dual_pick_fail",
+    "FORGE full_job motor_verify on sa-mkt-0001 — evidence slice PASS via cloud_worker_dispatch"
+  ]
+}

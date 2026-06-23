@@ -1,0 +1,19 @@
+{
+  "schema": "agent-execution-discipline-v1",
+  "version": "1.0.0",
+  "locked_at": "2026-06-22T23:25:00Z",
+  "always_apply_rule": ".cursor/rules/036-agent-execution-discipline-v1.mdc",
+  "law": "brain-os/law/enforcement/AGENT_EXECUTION_DISCIPLINE_LOCKED_v1.md",
+  "rules": [
+    "Never wait. Never observe. Never sleep.",
+    "Do the task. Show proof. Stop.",
+    "Proof = raw output only. No summaries. No reports.",
+    "If a command takes more than 30 seconds, kill it and report why.",
+    "Never run more than 3 commands per response.",
+    "Never say fixed without showing curl/log proof.",
+    "Never deploy unless explicitly told to.",
+    "Never open polling loops.",
+    "One task per message. No multi-step plans.",
+    "If you don't know, say I don't know. Do not guess."
+  ]
+}

@@ -2,7 +2,7 @@
   "name": "wf-chat-unify-merge-receipt-v1",
   "nodes": [
     {
-      "id": "8df7e4e7-07ef-4428-b6c2-2e903217ebb4",
+      "id": "a94a0093-7864-4117-8f6a-f4c9348894f7",
       "name": "Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
@@ -17,12 +17,23 @@
       ]
     },
     {
-      "id": "5cea17e7-1174-4eb0-a12d-0c3b23bc4e41",
-      "name": "Glue runner",
-      "type": "n8n-nodes-base.executeCommand",
-      "typeVersion": 1,
+      "id": "00348ac9-f41c-4ee1-b6b2-8a8b1df52ca4",
+      "name": "Hub glue",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
       "parameters": {
-        "command": "cd ~/Desktop/SourceA/scripts && python3 n8n_glue_runner_v1.py chat-unify-merge --payload '{{ JSON.stringify($json) }}'"
+        "method": "POST",
+        "url": "http://127.0.0.1:13020/api/cloud-workers/v1",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ action: 'glue_run', command: 'chat-unify-merge', payload: $json }) }}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
       },
       "position": [
         280,
@@ -35,7 +46,7 @@
       "main": [
         [
           {
-            "node": "Glue runner",
+            "node": "Hub glue",
             "type": "main",
             "index": 0
           }

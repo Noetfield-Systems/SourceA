@@ -1,0 +1,147 @@
+{
+  "schema": "cloud-sec-receipt-v1",
+  "id": "CLOUD-SEC-019",
+  "maps_registry": "sa-mkt-0019",
+  "ok": true,
+  "dry_run": false,
+  "full_motor": true,
+  "hub_proceed": true,
+  "forge_dispatch": {
+    "schema": "fbe-cloud-adapter-receipt-v1",
+    "ok": true,
+    "at": "2026-06-22T10:03:42Z",
+    "mode": "w1_skeleton",
+    "submit_mode": "in_process",
+    "run_mode": "forge",
+    "template_id": "forge-app-factory-v1",
+    "work_order_id": "sa-mkt-0019",
+    "tenant": "forge",
+    "bay_slug": "forge-bay",
+    "execution_plane": "cloud_skeleton",
+    "dry_run": true,
+    "skeleton": {
+      "dockerfile": true,
+      "entrypoint": true,
+      "entrypoint_executable": true,
+      "bay_jobs": true,
+      "headless_bypass": true
+    },
+    "run_result": {},
+    "forge_context": {
+      "plan_id": "sa-mkt-0019",
+      "run_id": "forge-run-20260622T100342-sa-mkt-0019",
+      "task_graph_path": "/app/receipts/bays/forge-bay/trace/forge-run-20260622T100342-sa-mkt-0019-task-graph.json",
+      "stack": "SourceA",
+      "stack_key": "sourcea",
+      "competitor": "Trigger.dev",
+      "workstream": "ws-pricing",
+      "phase": "phase-c01-trigger-dev",
+      "prompt_abs": "/app/brain-os/plan-registry/sourcea-competitor-1000/prompts/phase-c01-trigger-dev/ws-pricing/sa-mkt-0019.md",
+      "execution_mode": "CLOUD_ONLY",
+      "preview_url": null,
+      "task_graph": {
+        "schema": "forge-task-graph-v0.1",
+        "version": "0.1.0",
+        "run_id": "forge-run-20260622T100342-sa-mkt-0019",
+        "saved_at": "2026-06-22T10:03:42Z",
+        "prompt": {
+          "raw": "Write competitor row evidence: Trigger.dev pricing \u2192 our SKU \u2192 defer/shipped with path",
+          "intent": "SourceA competitor parity \u00b7 Trigger.dev \u00b7 ws-pricing",
+          "constraints": [
+            "cloud_only",
+            "receipt_required",
+            "mac_build_forbidden"
+          ],
+          "entities": [
+            "Trigger.dev",
+            "ws-pricing"
+          ],
+          "risk_signals": []
+        },
+        "tasks": [
+          {
+            "id": "T1",
+            "kind": "research",
+            "title": "Trigger.dev \u00b7 ws-pricing \u00b7 research",
+            "depends_on": [],
+            "route_hint": "gemini_context",
+            "artifact_out": "forge-run-20260622T100342-sa-mkt-0019/T1"
+          },
+          {
+            "id": "T2",
+            "kind": "code_gen",
+            "title": "Trigger.dev \u00b7 ws-pricing \u00b7 code_gen",
+            "depends_on": [
+              "T1"
+            ],
+            "route_hint": "claude_code",
+            "artifact_out": "forge-run-20260622T100342-sa-mkt-0019/T2"
+          },
+          {
+            "id": "T3",
+            "kind": "validate",
+            "title": "Trigger.dev \u00b7 ws-pricing \u00b7 validate",
+            "depends_on": [
+              "T2"
+            ],
+            "route_hint": "sandbox",
+            "artifact_out": "forge-run-20260622T100342-sa-mkt-0019/T3"
+          },
+          {
+            "id": "T4",
+            "kind": "evaluate",
+            "title": "Critic evaluate vs intent",
+            "depends_on": [
+              "T3"
+            ],
+            "route_hint": "gpt_control"
+          }
+        ],
+        "edges": [
+          {
+            "from": "T1",
+            "to": "T2"
+          },
+          {
+            "from": "T2",
+            "to": "T3"
+          },
+          {
+            "from": "T3",
+            "to": "T4"
+          }
+        ],
+        "meta_loop": {
+          "max_replan": 2,
+          "on_fail": "replan"
+        },
+        "work_order": {
+          "plan_id": "sa-mkt-0019",
+          "stack": "SourceA",
+          "stack_key": "sourcea",
+          "tenant": "forge",
+          "competitor": "Trigger.dev",
+          "workstream": "ws-pricing",
+          "prompt_abs": "/app/brain-os/plan-registry/sourcea-competitor-1000/prompts/phase-c01-trigger-dev/ws-pricing/sa-mkt-0019.md"
+        }
+      }
+    },
+    "remote_status": "deferred_w2",
+    "wave": "W5",
+    "competitor_plan": "<cycle>",
+    "task_graph_path": "/app/receipts/bays/forge-bay/trace/forge-run-20260622T100342-sa-mkt-0019-task-graph.json",
+    "run_id": "forge-run-20260622T100342-sa-mkt-0019",
+    "forge_loop": [
+      "reasoning",
+      "planning_dag",
+      "routing_openrouter",
+      "execution_workers",
+      "verification_critic",
+      "aggregation",
+      "meta_replan"
+    ],
+    "mac_build_forbidden": true
+  },
+  "at": "2026-06-22T10:03:42Z",
+  "evidence": "DRY-RUN \u00b7 CLOUD-SEC-019 \u00b7 sa-mkt-0019 \u00b7 PASS \u00b7 openrouter on cloud"
+}

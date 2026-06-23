@@ -1,0 +1,40 @@
+{
+  "schema": "living-system-chain-registry-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-06-23T04:30:00Z",
+  "one_law": "Mac e2e = cloud-reachable chains only (Railway · CF cron · autopilot flag) — no :13020/:13027 localhost polling.",
+  "autopilot_flag": "~/.sina/cloud-drain-auto-proceed-v1.flag",
+  "autopilot_ssot": "data/cloud-drain-auto-runtime-v1.json",
+  "chains": [
+    {
+      "id": "railway_cloud_queue",
+      "label": "Railway cloud queue SSOT",
+      "tier": "critical",
+      "probe": {
+        "type": "http",
+        "url": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-drain/queue/v1"
+      }
+    },
+    {
+      "id": "cf_cron_drain",
+      "label": "Cloudflare 24/7 cron",
+      "tier": "critical",
+      "probe": {
+        "type": "http",
+        "url": "https://sourcea-cloud-drain-tick-v1.witness-bc.workers.dev/health"
+      }
+    },
+    {
+      "id": "auto_drain_armed",
+      "label": "Auto drain armed",
+      "tier": "critical",
+      "probe": { "type": "file", "path": "~/.sina/cloud-drain-auto-proceed-v1.flag" }
+    }
+  ],
+  "validator": {
+    "machine": "scripts/living_system_chain_validate_v1.py",
+    "shell": "scripts/validate-living-system-chain-v1.sh",
+    "receipt": "~/.sina/living-system-chain-validate-receipt-v1.json",
+    "hub_api": "GET /api/living-system-chain/v1"
+  }
+}

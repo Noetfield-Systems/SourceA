@@ -1,0 +1,86 @@
+{
+  "schema": "forge-task-graph-v0.1",
+  "version": "0.1.0",
+  "run_id": "forge-run-20260622T151916-sa-mkt-0052",
+  "saved_at": "2026-06-22T15:19:16Z",
+  "prompt": {
+    "raw": "Write one-line UX spec: `Inngest Buyer-visible UX` \u2192 buyer sees X \u2192 we show on `Worker Hub Next steps + factory-now line` (lesson: Step timeline + trace retention tiers on every factory job)",
+    "intent": "SourceA competitor parity \u00b7 Inngest \u00b7 ws-ux",
+    "constraints": [
+      "cloud_only",
+      "receipt_required",
+      "mac_build_forbidden"
+    ],
+    "entities": [
+      "Inngest",
+      "ws-ux"
+    ],
+    "risk_signals": []
+  },
+  "tasks": [
+    {
+      "id": "T1",
+      "kind": "research",
+      "title": "Inngest \u00b7 ws-ux \u00b7 research",
+      "depends_on": [],
+      "route_hint": "gemini_context",
+      "artifact_out": "forge-run-20260622T151916-sa-mkt-0052/T1"
+    },
+    {
+      "id": "T2",
+      "kind": "ui_gen",
+      "title": "Inngest \u00b7 ws-ux \u00b7 ui_gen",
+      "depends_on": [
+        "T1"
+      ],
+      "route_hint": "openrouter_bulk",
+      "artifact_out": "forge-run-20260622T151916-sa-mkt-0052/T2"
+    },
+    {
+      "id": "T3",
+      "kind": "validate",
+      "title": "Inngest \u00b7 ws-ux \u00b7 validate",
+      "depends_on": [
+        "T2"
+      ],
+      "route_hint": "sandbox",
+      "artifact_out": "forge-run-20260622T151916-sa-mkt-0052/T3"
+    },
+    {
+      "id": "T4",
+      "kind": "evaluate",
+      "title": "Critic evaluate vs intent",
+      "depends_on": [
+        "T3"
+      ],
+      "route_hint": "gpt_control"
+    }
+  ],
+  "edges": [
+    {
+      "from": "T1",
+      "to": "T2"
+    },
+    {
+      "from": "T2",
+      "to": "T3"
+    },
+    {
+      "from": "T3",
+      "to": "T4"
+    }
+  ],
+  "meta_loop": {
+    "max_replan": 2,
+    "on_fail": "replan"
+  },
+  "work_order": {
+    "plan_id": "sa-mkt-0052",
+    "stack": "SourceA",
+    "stack_key": "sourcea",
+    "tenant": "forge",
+    "competitor": "Inngest",
+    "workstream": "ws-ux",
+    "prompt_abs": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/sourcea-competitor-1000/prompts/phase-c02-inngest/ws-ux/sa-mkt-0052.md"
+  }
+}

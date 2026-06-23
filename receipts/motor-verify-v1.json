@@ -1,7 +1,7 @@
 {
   "schema": "fbe-motor-verify-v1",
   "ok": true,
-  "at": "2026-06-20T23:12:41Z",
+  "at": "2026-06-22T15:19:17Z",
   "wave": "W1",
   "checks": [
     {
@@ -27,7 +27,7 @@
     {
       "id": "cloud_adapter_receipt",
       "ok": true,
-      "execution_plane": "cloud_skeleton"
+      "execution_plane": "headless_w2"
     },
     {
       "id": "graph_compile",

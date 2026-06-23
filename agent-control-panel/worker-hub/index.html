@@ -4,7 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f6f8fc" />
+  <meta name="sina-app-id" content="worker-hub" />
   <title>Source A · Super Fast Hub</title>
+  <link rel="stylesheet" href="/shared/official-links-bar.css" />
+  <link rel="stylesheet" href="/shared/sina-main-terminal.css" />
+  <link rel="stylesheet" href="/shared/api-station-tab.css" />
+  <link rel="stylesheet" href="/shared/hub-pro-skills-tab.css" />
   <style>
     :root {
       --bg:#f6f8fc; --card:#ffffff; --text:#1a2332; --muted:#5c6b7f;
@@ -39,6 +44,37 @@
     .pill.run { color:var(--ok); border-color:#86efac; background:#f0fdf4; }
     .card { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px; margin-bottom:14px; box-shadow:var(--shadow); }
     .card h2 { margin:0 0 10px; font-size:.82rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); font-weight:700; }
+    .cloud-proceed-in-health { margin-top:14px; padding-top:14px; border-top:1px solid var(--line); }
+    .cloud-proceed-in-health h3 { margin:0 0 8px; font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); font-weight:700; }
+    .cloud-proceed-result { margin-top:10px; white-space:pre-wrap; font-family:ui-monospace,monospace; font-size:.76rem; max-height:220px; overflow:auto; background:#f8fafc; padding:10px; border-radius:8px; border:1px solid var(--line); }
+    .cloud-workers-status { font-size:.82rem; padding:8px 10px; border-radius:8px; margin:8px 0; border:1px solid var(--line); background:#f8fafc; }
+    .cloud-workers-status.stale { border-color:#f59e0b; background:#fffbeb; color:#92400e; }
+    .cloud-workers-status.ok { border-color:#10b981; background:#ecfdf5; color:#065f46; }
+    .cloud-workers-plans { font-size:.75rem; max-height:140px; overflow:auto; margin:8px 0; }
+    .cloud-deploy-cmd { font-family:ui-monospace,monospace; font-size:.72rem; background:#1e293b; color:#e2e8f0; padding:10px; border-radius:8px; margin:8px 0; word-break:break-all; }
+    .cloud-situation-line { font-size:.88rem; font-weight:600; margin:8px 0; padding:10px 12px; border-radius:8px; border:1px solid var(--line); background:#f8fafc; }
+    .cloud-situation-line.motor { border-color:#fcd34d; background:#fffbeb; color:#92400e; }
+    .cloud-situation-line.live { border-color:#86efac; background:#f0fdf4; color:#065f46; }
+    .cloud-situation-line.down { border-color:#fecaca; background:#fef2f2; color:#991b1b; }
+    .cloud-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px; }
+    @media (max-width:720px) { .cloud-grid { grid-template-columns:1fr; } }
+    .cloud-panel { border:1px solid var(--line); border-radius:10px; padding:12px; background:#fafbfc; max-height:220px; overflow:auto; }
+    .cloud-panel h4 { margin:0 0 8px; font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); }
+    .cloud-row-item { font-size:.74rem; padding:6px 0; border-bottom:1px solid var(--line); display:flex; gap:8px; align-items:flex-start; }
+    .cloud-row-item:last-child { border:0; }
+    .cloud-badge { font-size:.65rem; padding:2px 7px; border-radius:999px; border:1px solid var(--line); white-space:nowrap; background:#fff; }
+    .cloud-badge.head { color:var(--accent); border-color:#c7d2fe; background:var(--accent-soft); }
+    .cloud-badge.fail { color:var(--bad); border-color:#fecaca; background:#fef2f2; }
+    .cloud-badge.done { color:var(--ok); border-color:#86efac; background:#f0fdf4; }
+    .cloud-cli-row { font-family:ui-monospace,monospace; font-size:.68rem; padding:6px 0; border-bottom:1px dashed var(--line); word-break:break-all; }
+    .cloud-tabs { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; }
+    .cloud-tabs button { font-size:.75rem; padding:6px 10px; }
+    .cloud-tabs button.active { border-color:var(--accent); background:var(--accent-soft); color:var(--accent); font-weight:600; }
+    .cloud-mock-banner {
+      margin: 10px 0; padding: 12px 14px; border-radius: 10px;
+      border: 2px solid #f59e0b; background: #fffbeb; color: #92400e; font-size: 0.88rem;
+    }
+    .cloud-mock-banner button { margin-top: 8px; }
     .task-id { font-family:ui-monospace,monospace; font-size:.8rem; color:var(--gold); }
     .next { font-size:1.06rem; margin:8px 0 0; font-weight:500; }
     .row { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; align-items:center; }
@@ -160,7 +196,8 @@
   </style>
 </head>
 <body>
-  <div class="hub-shell">
+  <nav class="official-links-bar" data-official-links data-active="hub" aria-label="Official links"></nav>
+  <div class="hub-shell" data-sina-app-root>
   <aside class="hub-sidebar" id="hub-sidebar" aria-label="Hub navigation">
     <div class="sidebar-brand">Source A · H1</div>
     <nav class="sidebar-nav">
@@ -169,8 +206,12 @@
         <span class="sidebar-badge" id="nav-form-badge">…</span>
       </a>
       <a href="/" class="sidebar-link active">Worker Hub</a>
+      <a href="/mail-hub/" class="sidebar-link" data-sina-app="mail">Portfolio Mail</a>
+      <a href="http://127.0.0.1:13023/" class="sidebar-link" data-sina-app="chat">Chat Unify</a>
+      <a href="http://127.0.0.1:13026/" class="sidebar-link" data-sina-app="n8n">N8N Integration</a>
+      <a href="http://127.0.0.1:8781/" class="sidebar-link" data-sina-app="mac-law">Mac Law</a>
       <a href="/machines/" class="sidebar-link">Machines · H2</a>
-      <a href="/legacy/" class="sidebar-link">Museum</a>
+      <a href="http://127.0.0.1:13027/" class="sidebar-link sidebar-link-cloud">Cloud Workers</a>
     </nav>
     <p class="sidebar-hint" id="sidebar-form-hint">Founder PICKs · fill on /form/</p>
   </aside>
@@ -195,6 +236,83 @@
       <p class="latch" id="latch-line">Anti-staleness latches —</p>
       <div class="row">
         <button type="button" id="btn-heal" class="ghost">Auto-heal now</button>
+      </div>
+      <div class="cloud-proceed-in-health" id="cloud-proceed-block">
+        <h3>Cloud Workers · dispatch · proceed · plans</h3>
+        <p class="sub" id="cloud-proceed-headline">You manage Railway deploy — Hub triggers cloud motor and shows reports.</p>
+        <div class="cloud-workers-status" id="cloud-workers-status">Loading cloud status…</div>
+        <p class="next" id="cloud-proceed-next">—</p>
+        <div class="row" style="flex-wrap:wrap;gap:8px">
+          <button type="button" class="ghost" id="btn-cloud-refresh">Refresh status</button>
+          <button type="button" class="ghost" id="btn-cloud-dry-run">Dry run next</button>
+          <label for="cloud-proceed-llm" class="sub">LLM</label>
+          <select id="cloud-proceed-llm" aria-label="Cloud LLM provider">
+            <option value="openrouter" selected>OpenRouter</option>
+            <option value="gemini">Gemini</option>
+          </select>
+          <button type="button" class="primary" id="btn-cloud-proceed">Proceed next cloud task</button>
+        </div>
+        <p class="sub" id="cloud-proceed-last">—</p>
+        <div class="cloud-deploy-cmd" id="cloud-deploy-cmd" hidden></div>
+        <button type="button" class="ghost" id="btn-cloud-deploy-info" style="margin-top:6px">Show deploy command (you run this)</button>
+        <div class="cloud-workers-plans" id="cloud-workers-plans"></div>
+        <pre id="cloud-proceed-result" class="timing cloud-proceed-result">—</pre>
+        <p class="sub" style="margin-top:10px">Validators · ops: <strong>View → API Station</strong> · <a href="/machines/?station=1">H2 API Station</a> · <strong>Hub Pro</strong> skills tab.</p>
+      </div>
+    </section>
+
+    <section class="card" id="cloud-workers-card">
+      <h2>Cloud Workers command center</h2>
+      <p class="sub">You manage Railway · Hub triggers · API/CLI/machines — agents do not deploy or proceed for you.</p>
+      <div class="cloud-situation-line" id="cloud-situation-line">Loading situation…</div>
+      <div class="cloud-mock-banner" id="cw-mock-banner" hidden>
+        <strong>Queue head is mock_only</strong> — CLOUD-SEC-006 / sa-mkt-0006 is a preview row. Proceed cannot ship real output.
+        <button type="button" class="primary" id="btn-cw-skip-mock">Skip to next real row →</button>
+      </div>
+      <div class="row" style="flex-wrap:wrap;gap:8px;margin-top:8px">
+        <button type="button" class="ghost" id="btn-cw-refresh-all">Refresh all</button>
+        <button type="button" class="ghost" id="btn-cw-dry-mac">Dry-run (Mac queue)</button>
+        <button type="button" class="ghost" id="btn-cw-dry-cloud">Dry-run (Railway)</button>
+        <button type="button" class="ghost" id="btn-cw-skip-head">Skip queue head</button>
+        <button type="button" class="ghost" id="btn-cw-deploy">Deploy command</button>
+      </div>
+      <div class="cloud-tabs" role="tablist">
+        <button type="button" class="active" data-cw-tab="queue">Queue</button>
+        <button type="button" data-cw-tab="inbox">Inbox</button>
+        <button type="button" data-cw-tab="events">Events</button>
+        <button type="button" data-cw-tab="cli">CLI &amp; API</button>
+      </div>
+      <div id="cw-tab-queue" class="cw-tab-panel">
+        <div class="cloud-grid">
+          <div class="cloud-panel">
+            <h4>Cloud forge queue (CLOUD-SEC)</h4>
+            <div id="cw-queue-cloud"></div>
+          </div>
+          <div class="cloud-panel">
+            <h4>Mac control (observe only)</h4>
+            <div id="cw-queue-mac"></div>
+          </div>
+        </div>
+      </div>
+      <div id="cw-tab-inbox" class="cw-tab-panel" hidden>
+        <div class="cloud-panel" style="max-height:none">
+          <h4>Cloud inbox · P0 actions</h4>
+          <p class="sub" id="cw-inbox-worker-note">—</p>
+          <div id="cw-inbox-items"></div>
+        </div>
+      </div>
+      <div id="cw-tab-events" class="cw-tab-panel" hidden>
+        <div class="cloud-panel" style="max-height:280px">
+          <h4>Event timeline</h4>
+          <div id="cw-events"></div>
+        </div>
+      </div>
+      <div id="cw-tab-cli" class="cw-tab-panel" hidden>
+        <div class="cloud-panel" style="max-height:280px">
+          <h4>Founder CLI · curl · API</h4>
+          <div id="cw-cli"></div>
+        </div>
+        <pre class="cloud-deploy-cmd" id="cw-deploy-block" hidden></pre>
       </div>
     </section>
 
@@ -248,7 +366,7 @@
       <div class="row">
         <a href="/form/" class="btn primary" id="btn-form">Open official form · fill PICKs</a>
       </div>
-      <p class="sub">Official form = same rows as M1 Canvas Pending confirmations (INCIDENT-029) · not code editor · Museum <a href="/legacy/" target="_blank" rel="noopener" style="color:var(--gold)">/legacy/</a></p>
+      <p class="sub">Official form = same rows as M1 Canvas Pending confirmations (INCIDENT-029) · not code editor</p>
     </section>
 
     <section class="card" id="pipeline-card">
@@ -258,15 +376,6 @@
       <div id="pipeline-next"></div>
       <div class="row" id="pipeline-actions"></div>
       <p class="sub">State transitions beat email volume · SSOT <code>~/.sina/commercial-pipeline-v1.jsonl</code></p>
-    </section>
-
-    <section class="card" id="cloud-send-job-card">
-      <h2>Cloud dispatch · Send job</h2>
-      <p class="sub">Mac sends one message · Railway runs the job · answer shows here. Plan <span class="task-id">CLOUD-SEC-011</span> (Trigger.dev pricing).</p>
-      <div class="row">
-        <button type="button" class="primary" id="btn-send-job">Send job</button>
-      </div>
-      <pre id="cloud-send-job-result" class="timing" style="margin-top:10px;white-space:pre-wrap;font-family:ui-monospace,monospace;font-size:.76rem;max-height:220px;overflow:auto;background:#f8fafc;padding:10px;border-radius:8px;border:1px solid var(--line);">—</pre>
     </section>
 
     <section class="card" id="loop-rooms-card">
@@ -438,6 +547,17 @@
     let lastHealAt = 0;
     let loadCtrl = null;
     let healing = false;
+
+    function fetchWithTimeout(url, options, ms) {
+      const outer = (options && options.signal) || null;
+      const ctrl = new AbortController();
+      const timer = setTimeout(function () { ctrl.abort(); }, ms);
+      if (outer) {
+        outer.addEventListener("abort", function () { ctrl.abort(); });
+      }
+      const opts = Object.assign({}, options || {}, { signal: ctrl.signal });
+      return fetch(url, opts).finally(function () { clearTimeout(timer); });
+    }
 
     function esc(s) {
       return String(s == null ? "" : s)
@@ -894,6 +1014,141 @@
       }).join("");
     }
 
+    function renderCloudProceed(cp) {
+      if (!cp) return;
+      const nxt = cp.next || {};
+      const tid = nxt.task_id || nxt.maps_registry || "—";
+      const title = nxt.title || nxt.cloud_action || "";
+      $("cloud-proceed-next").textContent = "Next: " + tid + (title ? " · " + title : "");
+      const last = cp.last_line || (cp.last_ok === true ? "Last proceed PASS" : cp.last_ok === false ? "Last proceed FAIL" : "—");
+      $("cloud-proceed-last").textContent = last;
+    }
+
+    function renderCloudWorkers(cw) {
+      if (!cw) return;
+      const st = $("cloud-workers-status");
+      const probe = cw.probe || {};
+      const situation = cw.situation || {};
+      const ff = situation.for_founder || cw.for_founder || probe.for_founder || {};
+      const stale = probe.cloud_stale || ff.cloud_stale;
+      const failureClass = situation.last_proceed && situation.last_proceed.failure_class;
+      const line = situation.summary_line || ff.show_this || (probe.modules_ok ? "Cloud worker ready." : "Cloud status unknown.");
+      if (st) {
+        st.textContent = ff.show_this || line;
+        st.className = "cloud-workers-status " + (stale ? "stale" : failureClass === "motor_failed" ? "stale" : probe.modules_ok !== false ? "ok" : "");
+      }
+      const sitEl = $("cloud-situation-line");
+      if (sitEl) {
+        sitEl.textContent = line;
+        sitEl.className = "cloud-situation-line " + (
+          stale || failureClass === "motor_failed" ? "motor" :
+          situation.pipe === "LIVE" ? "live" : "down"
+        );
+      }
+      const cmdEl = $("cloud-deploy-cmd");
+      const deploy = ff.founder_runs_this || (cw.deploy && cw.deploy.founder_runs_this) || "";
+      if (cmdEl && deploy && stale) {
+        cmdEl.hidden = false;
+        cmdEl.textContent = "You run in Terminal:\n" + deploy;
+      } else if (cmdEl) {
+        cmdEl.hidden = true;
+      }
+      const plansEl = $("cloud-workers-plans");
+      const cloudPlans = (cw.plans && cw.plans.cloud_forge) || cw.plans || [];
+      if (plansEl && cloudPlans.length) {
+        plansEl.innerHTML = cloudPlans.slice(0, 12).map(function (p) {
+          const head = p.is_head || p.status === "head" ? " ▶ " : " · ";
+          const badge = p.status === "completed" ? "done" : p.status === "head" ? "head" : "";
+          return "<div>" + head + esc(p.id) + " · " + esc(p.title || "") + (badge ? " <span class=\"cloud-badge " + badge + "\">" + esc(p.status) + "</span>" : "") + "</div>";
+        }).join("");
+      }
+      const qc = $("cw-queue-cloud");
+      if (qc && cw.plans && cw.plans.cloud_forge) {
+        qc.innerHTML = cw.plans.cloud_forge.slice(0, 18).map(function (p) {
+          const cls = p.status === "head" ? "head" : p.status === "completed" ? "done" : "";
+          return "<div class=\"cloud-row-item\"><span class=\"cloud-badge " + cls + "\">" + esc(p.status || "?") + "</span><span><strong>" + esc(p.id) + "</strong> · " + esc(p.maps_registry || "") + "<br>" + esc((p.title || "").slice(0, 70)) + "</span></div>";
+        }).join("");
+      }
+      const qm = $("cw-queue-mac");
+      if (qm && cw.plans && cw.plans.mac_control) {
+        qm.innerHTML = cw.plans.mac_control.map(function (p) {
+          return "<div class=\"cloud-row-item\"><span class=\"cloud-badge\">mac</span><span><strong>" + esc(p.id) + "</strong><br>" + esc((p.title || "").slice(0, 70)) + "</span></div>";
+        }).join("");
+      }
+      const inbox = cw.inbox || {};
+      const note = $("cw-inbox-worker-note");
+      if (note && inbox.worker_inbox_note) {
+        note.textContent = inbox.worker_inbox_note.show_this || "—";
+      }
+      const itemsEl = $("cw-inbox-items");
+      if (itemsEl && inbox.items) {
+        itemsEl.innerHTML = inbox.items.map(function (it) {
+          return "<div class=\"cloud-row-item\"><span class=\"cloud-badge head\">" + esc(it.priority) + "</span><span><strong>" + esc(it.id) + "</strong> · " + esc(it.maps_registry || "") + "<br>" + esc(it.title || "") + "<br><em>" + esc(it.note || "") + "</em></span></div>";
+        }).join("");
+      }
+      const evEl = $("cw-events");
+      if (evEl && cw.events) {
+        evEl.innerHTML = cw.events.slice(0, 25).map(function (e) {
+          const ok = e.ok === true ? "done" : e.ok === false ? "fail" : "";
+          return "<div class=\"cloud-row-item\"><span class=\"cloud-badge " + ok + "\">" + esc(e.kind || "?") + "</span><span>" + esc(e.at || "") + " · " + esc(e.plan_id || "") + "<br>" + esc(e.line || "") + (e.failure_class ? " · <em>" + esc(e.failure_class) + "</em>" : "") + "</span></div>";
+        }).join("");
+      }
+      const cliEl = $("cw-cli");
+      if (cliEl && cw.cli) {
+        cliEl.innerHTML = cw.cli.map(function (c) {
+          return "<div class=\"cloud-cli-row\"><strong>" + esc(c.label) + "</strong><br>" + esc(c.cmd) + "</div>";
+        }).join("");
+      }
+      if (cw.proceed_slice) renderCloudProceed(cw.proceed_slice);
+      var mockBanner = $("cw-mock-banner");
+      var blob = JSON.stringify(cw.situation || cw.probe || cw);
+      var isMock = blob.indexOf("mock_only") >= 0 || failureClass === "motor_failed";
+      var headPlan = ((cw.plans && cw.plans.cloud_forge) || []).find(function (p) { return p.status === "head"; });
+      if (headPlan && String(headPlan.title || "").toLowerCase().indexOf("mock") >= 0) isMock = true;
+      if (mockBanner) mockBanner.hidden = !isMock;
+    }
+
+    function cwSelectTab(name) {
+      document.querySelectorAll(".cloud-tabs button").forEach(function (b) {
+        b.classList.toggle("active", b.getAttribute("data-cw-tab") === name);
+      });
+      ["queue", "inbox", "events", "cli"].forEach(function (t) {
+        const el = $("cw-tab-" + t);
+        if (el) el.hidden = t !== name;
+      });
+    }
+
+    document.querySelectorAll(".cloud-tabs button").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        cwSelectTab(btn.getAttribute("data-cw-tab"));
+      });
+    });
+
+    async function cwAction(action, body) {
+      const res = await fetch(API + "/api/cloud-workers/v1", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.assign({ action: action }, body || {})),
+      });
+      return res.json();
+    }
+
+    async function loadCloudWorkers() {
+      try {
+        const res = await fetch(API + "/api/cloud-workers/v1", { cache: "no-store" });
+        const cw = await res.json();
+        renderCloudWorkers(cw);
+        return cw;
+      } catch (e) {
+        const st = $("cloud-workers-status");
+        if (st) {
+          st.textContent = "Cloud Workers load failed: " + e.message;
+          st.className = "cloud-workers-status stale";
+        }
+        return null;
+      }
+    }
+
     function renderPlansUnified(pu) {
       if (!pu || pu.ok === false) {
         $("plans-unified-line").textContent = "Plans — load failed";
@@ -1024,6 +1279,8 @@
       renderMcpStack(d.mcp_stack);
       renderToolPick(d.tool_pick);
       renderPlansUnified(d.plans_unified);
+      renderCloudProceed(d.cloud_drain_proceed);
+      loadCloudWorkers();
       renderAntiTheater(d.anti_theater || (d.plans_unified && d.plans_unified.anti_theater));
       renderPhase0(d.phase0_reference);
       renderWorldModel(d.world_model_check);
@@ -1176,10 +1433,10 @@
         if (cached) renderData(cached);
       }
       try {
-        const res = await fetch(API + "/api/worker-hub/v1", {
+        const res = await fetchWithTimeout(API + "/api/worker-hub/v1", {
           cache: "no-store",
           signal: loadCtrl.signal,
-        });
+        }, 45000);
         const raw = await res.text();
         const ms = Math.round(performance.now() - t0);
         const d = JSON.parse(raw);
@@ -1262,27 +1519,150 @@
       return res.json();
     }
 
-    $("btn-send-job").addEventListener("click", async function () {
-      const out = $("cloud-send-job-result");
-      $("btn-send-job").disabled = true;
-      out.textContent = "Sending CLOUD-SEC-011 to Railway…";
+    $("btn-cloud-proceed").addEventListener("click", async function () {
+      const out = $("cloud-proceed-result");
+      const llm = ($("cloud-proceed-llm") && $("cloud-proceed-llm").value) || "openrouter";
+      $("btn-cloud-proceed").disabled = true;
+      out.textContent = "Proceeding on Railway via " + llm + "…";
       try {
-        const res = await fetch(API + "/api/cloud-worker/dispatch/v1", {
+        const res = await fetchWithTimeout(API + "/api/cloud-drain/proceed/v1", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ plan_id: "CLOUD-SEC-011" }),
+          body: JSON.stringify({ llm_provider: llm, full_motor: true }),
+        }, 180000);
+        const raw = await res.text();
+        let j;
+        try {
+          j = JSON.parse(raw);
+        } catch (parseErr) {
+          throw new Error("Hub returned non-JSON (HTTP " + res.status + "): " + raw.slice(0, 200));
+        }
+        const ff = j.for_founder || {};
+        const cloudErr = (j.cloud && (j.cloud.error || j.cloud.message || j.cloud.details)) || "";
+        const line = ff.show_this || j.hub_proceed_line || j.message || j.error || cloudErr || "—";
+        const failNote = j.failure_class === "motor_failed" ? "\n\nNote: Pipe is LIVE — this is FORGE motor/task failure on Railway, not Hub connectivity." : "";
+        out.textContent = "HTTP " + res.status + " · " + line + failNote + "\n\n" + JSON.stringify(j, null, 2);
+        if (ff.cloud_stale && ff.founder_runs_this) {
+          const cmdEl = $("cloud-deploy-cmd");
+          if (cmdEl) {
+            cmdEl.hidden = false;
+            cmdEl.textContent = "YOU deploy (agents do not):\n" + ff.founder_runs_this;
+          }
+        }
+        await loadCloudWorkers();
+        if (j.ok) await load({ silent: true });
+      } catch (e) {
+        const msg = e.name === "AbortError"
+          ? "Timed out — check ~/.sina/hub-cloud-drain-proceed-receipt-v1.json"
+          : e.message;
+        out.textContent = "Error: " + msg;
+      } finally {
+        $("btn-cloud-proceed").disabled = false;
+      }
+    });
+
+    $("btn-cloud-refresh").addEventListener("click", async function () {
+      const out = $("cloud-proceed-result");
+      out.textContent = "Probing Railway…";
+      try {
+        const res = await fetch(API + "/api/cloud-workers/v1", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ action: "probe" }),
         });
         const j = await res.json();
-        const line = j.for_founder && j.for_founder.show_this
-          ? j.for_founder.show_this
-          : (j.message || j.error || "—");
-        out.textContent =
-          "HTTP " + res.status + " · " + line + "\n\n" + JSON.stringify(j, null, 2);
+        renderCloudWorkers(j);
+        out.textContent = JSON.stringify(j.probe || j, null, 2);
       } catch (e) {
-        out.textContent = "Error: " + e.message;
-      } finally {
-        $("btn-send-job").disabled = false;
+        out.textContent = "Probe error: " + e.message;
       }
+    });
+
+    $("btn-cloud-dry-run").addEventListener("click", async function () {
+      const out = $("cloud-proceed-result");
+      try {
+        const res = await fetch(API + "/api/cloud-workers/v1", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ action: "dry_run" }),
+        });
+        const j = await res.json();
+        out.textContent = (j.for_founder && j.for_founder.show_this) || JSON.stringify(j, null, 2);
+        if (j.next) $("cloud-proceed-next").textContent = "Dry run: " + (j.next.task_id || "—") + " · " + (j.next.title || "");
+      } catch (e) {
+        out.textContent = "Dry run error: " + e.message;
+      }
+    });
+
+    $("btn-cloud-deploy-info").addEventListener("click", async function () {
+      const out = $("cloud-proceed-result");
+      try {
+        const j = await cwAction("deploy_instructions");
+        const d = j.deploy || {};
+        const cmdEl = $("cloud-deploy-cmd");
+        if (cmdEl) {
+          cmdEl.hidden = false;
+          cmdEl.textContent = (d.why || "") + "\n\nYOU run:\n" + (d.founder_runs_this || "");
+        }
+        const block = $("cw-deploy-block");
+        if (block) {
+          block.hidden = false;
+          block.textContent = (d.founder_runs_this || "") + "\n\n" + (d.agent_rule || "");
+        }
+        out.textContent = JSON.stringify(d, null, 2);
+      } catch (e) {
+        out.textContent = e.message;
+      }
+    });
+
+    $("btn-cw-refresh-all").addEventListener("click", async function () {
+      const out = $("cloud-proceed-result");
+      out.textContent = "Refreshing cloud command center…";
+      try {
+        const cw = await loadCloudWorkers();
+        out.textContent = (cw && cw.situation && cw.situation.summary_line) || "Refreshed.";
+      } catch (e) {
+        out.textContent = e.message;
+      }
+    });
+
+    $("btn-cw-dry-mac").addEventListener("click", async function () {
+      const out = $("cloud-proceed-result");
+      try {
+        const j = await cwAction("dry_run");
+        out.textContent = (j.for_founder && j.for_founder.show_this) || JSON.stringify(j, null, 2);
+      } catch (e) { out.textContent = e.message; }
+    });
+
+    $("btn-cw-dry-cloud").addEventListener("click", async function () {
+      const out = $("cloud-proceed-result");
+      const llm = ($("cloud-proceed-llm") && $("cloud-proceed-llm").value) || "openrouter";
+      out.textContent = "Cloud dry-run on Railway…";
+      try {
+        const j = await cwAction("proceed_dry_cloud", { llm_provider: llm });
+        out.textContent = (j.for_founder && j.for_founder.show_this) || JSON.stringify(j, null, 2);
+        await loadCloudWorkers();
+      } catch (e) { out.textContent = e.message; }
+    });
+
+    $("btn-cw-skip-head").addEventListener("click", async function () {
+      const out = $("cloud-proceed-result");
+      if (!confirm("Skip current CLOUD-SEC queue head and advance to next row?")) return;
+      try {
+        const j = await cwAction("skip_head", { reason: "founder_hub_skip" });
+        out.textContent = j.ok ? ("Skipped " + j.from + " → head now " + j.to) : JSON.stringify(j, null, 2);
+        await loadCloudWorkers();
+        await load({ silent: true });
+      } catch (e) { out.textContent = e.message; }
+    });
+
+    $("btn-cw-skip-mock")?.addEventListener("click", function () {
+      $("btn-cw-skip-head")?.click();
+    });
+
+    $("btn-cw-deploy").addEventListener("click", function () {
+      $("btn-cloud-deploy-info").click();
+      cwSelectTab("cli");
     });
 
     $("btn-loop-chain").addEventListener("click", async function () {
@@ -1561,5 +1941,18 @@
     }
   })();
   </script>
+  <script src="/shared/official-links-bar.js"></script>
+  <script>
+    document.querySelectorAll(".sidebar-nav [data-sina-app]").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        if (window.SinaOfficialLinks && SinaOfficialLinks.openNativeApp(a.getAttribute("data-sina-app"), e)) return;
+      });
+    });
+  </script>
+  <script src="/shared/sina-main-terminal.js"></script>
+  <script src="/shared/official-links-bar.js"></script>
+  <script src="/shared/sina-view-mode.js"></script>
+  <script src="/shared/api-station-tab.js"></script>
+  <script src="/shared/hub-pro-skills-tab.js"></script>
 </body>
 </html>

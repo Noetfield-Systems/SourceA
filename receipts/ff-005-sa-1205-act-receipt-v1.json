@@ -1,0 +1,10 @@
+{
+  "schema": "forge-factory-cycle2-act-v1",
+  "sa_id": "sa-1205",
+  "hp_id": "ff-005",
+  "round_type": "act",
+  "ok": true,
+  "at": "2026-06-21T02:00:00Z",
+  "evidence": "ACT PASS — founder DNS checklist written data/wbc-dns-cutover-checklist-v1.json · no founder Terminal",
+  "checklist": "data/wbc-dns-cutover-checklist-v1.json"
+}

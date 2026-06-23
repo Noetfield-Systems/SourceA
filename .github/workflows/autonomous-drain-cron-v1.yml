@@ -1,0 +1,25 @@
+name: autonomous-drain-cron-v1
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  cloud-tick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: POST Railway auto-tick
+        env:
+          FBE_CLOUD_WORKER_URL: ${{ secrets.FBE_CLOUD_WORKER_URL }}
+          FBE_INTERNAL_SECRET: ${{ secrets.FBE_INTERNAL_SECRET }}
+        run: |
+          set -euo pipefail
+          test -n "$FBE_CLOUD_WORKER_URL"
+          test -n "$FBE_INTERNAL_SECRET"
+          curl -sf --max-time 600 -X POST \
+            "${FBE_CLOUD_WORKER_URL%/}/api/cloud-drain/proceed/v1" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${FBE_INTERNAL_SECRET}" \
+            -d '{"trigger_source":"github_actions_cron","auto_tick":true,"full_motor":true,"llm_provider":"openrouter"}'

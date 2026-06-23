@@ -1,0 +1,205 @@
+{
+  "schema": "hub-pro-app-experience-log-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-22T13:58:24Z",
+  "one_law": "Agents append one entry per app change \u2014 obstacles, fixes, golden tips. Read before touching that app again.",
+  "append_command": "python3 scripts/hub_pro_skills_v1.py --append --app <app_id> --agent <id> --summary \"...\" --json",
+  "entries": [
+    {
+      "id": "HPL-2026-06-22-001",
+      "at": "2026-06-22T07:14:00Z",
+      "app_id": "hub_form",
+      "agent": "cursor-auto",
+      "summary": "FORM_OFFICIAL: stable 5-slot schema (A\u2013D + option 5 free-text); top+bottom Submit; disk-first submit ~31ms; background wire after HTTP response.",
+      "obstacles": [
+        "Hub POST dropped connection \u2014 background subprocess before HTTP response (macOS threading)",
+        "applied_now=0 when pick already on disk (already_applied skip)",
+        "open_questions lacked option_slots until normalize_question_row wired"
+      ],
+      "fixes": [
+        "hub_form_submit_v1.py: disk_fast_apply + defer background wire until after _json",
+        "form_official_option_schema_v1.py + data/form-official-question-schema-v1.json",
+        "Slim submit response \u2014 no 410KB form payload in POST"
+      ],
+      "golden_tips": [
+        "Always partial_batch:true for founder batch submit",
+        "channel must be hub_browser for INCIDENT-037 guard",
+        "Never chain canvas_form_submit synchronously on founder path"
+      ],
+      "paths": [
+        "agent-control-panel/form/index.html",
+        "scripts/hub_form_submit_v1.py",
+        "scripts/form_official_option_schema_v1.py"
+      ]
+    },
+    {
+      "id": "HPL-2026-06-22-002",
+      "at": "2026-06-22T07:15:00Z",
+      "app_id": "mac_health",
+      "agent": "cursor-auto",
+      "summary": "Mac Health v4 founder_glance: fixed OFFLINE UI \u2014 null guard on removed DOM ids (sources-grid, history-chart).",
+      "obstacles": [
+        "API LIVE on :13024 but UI showed OFFLINE \u2014 JS throw on grid.innerHTML",
+        "v4 HTML removed legacy panels; app.js still called renderSources/renderHistory without null checks",
+        "build-mac-health-standalone blocked on founder session heavy gate"
+      ],
+      "fixes": [
+        "Null guards in scripts/mac-health-standalone/app.js",
+        "Synced app.js to Desktop Mac Health Guard.app bundle",
+        "Report API score 91 \u2014 server was healthy entire time"
+      ],
+      "golden_tips": [
+        "When upgrading to founder_glance: grep app.js for getElementById \u2014 guard every removed id",
+        "Proof = curl :13024/health + POST report \u2014 not UI badge alone",
+        "Console WorkerHubShell crashes are separate from Mac Health server"
+      ],
+      "paths": [
+        "scripts/mac-health-standalone/app.js",
+        "data/mac-health-founder-glance-ui-contract-v1.json"
+      ]
+    },
+    {
+      "id": "HPL-2026-06-22-003",
+      "at": "2026-06-22T06:00:00Z",
+      "app_id": "worker_hub",
+      "agent": "cursor-auto",
+      "summary": "Worker Hub: hub cache fix, Cloud Proceed under Auto-heal, Railway deploy fix, API Station + founder ops.",
+      "obstacles": [
+        "Hub Load failed ~37s \u2014 worker_hub_v1 recursive validator marathon",
+        "Proceed missing import invalidate_worker_hub_cache",
+        "Railway Docker build failed \u2014 brain-os excluded from .dockerignore",
+        "WorkerHubShell 7\u00d7 crash Jun 21 \u2014 instant SIGTRAP on launch"
+      ],
+      "fixes": [
+        "worker_hub_v1.py: disk receipts only, 15s cache TTL",
+        "Cloud proceed in #health-card; hub_cloud_drain_proceed_v1.py",
+        "Rebuilt Worker Hub.app with SinaStandaloneShell.prepareApp single-instance",
+        "founder_ops_v1.py + API Station H1/H2 tasks"
+      ],
+      "golden_tips": [
+        "kickstart hub after server code change: launchctl kickstart -k gui/$UID/com.sourcea.hub",
+        "Cloud proceed = Hub POST only \u2014 never portfolio_competitor_forge on Mac",
+        "Read ~/.sina/hub-cloud-drain-proceed-receipt-v1.json for proof"
+      ],
+      "paths": [
+        "scripts/worker_hub_v1.py",
+        "agent-control-panel/worker-hub/index.html",
+        "scripts/founder_ops_v1.py"
+      ]
+    },
+    {
+      "id": "HPL-2026-06-22-006",
+      "at": "2026-06-22T09:00:00Z",
+      "app_id": "worker_hub",
+      "agent": "cursor-auto",
+      "summary": "Cloud Workers command center \u2014 situation \u00b7 organized plans \u00b7 cloud inbox \u00b7 event log \u00b7 CLI catalog \u00b7 skip head \u00b7 motor vs pipe classification.",
+      "obstacles": [
+        "Proceed FAIL shown without explaining pipe LIVE vs motor FAIL",
+        "No single place for plans/inbox/events/CLI for founder self-serve"
+      ],
+      "fixes": [
+        "scripts/cloud_workers_hub_v1.py expanded",
+        "data/cloud-workers-control-plane-v1.json",
+        "Worker Hub #cloud-workers-card with Queue/Inbox/Events/CLI tabs",
+        "founder_ops cloud category +12 ops"
+      ],
+      "golden_tips": [
+        "MOTOR FAIL on mock_only row = skip head or fix Railway FORGE deps \u2014 not Hub pipe",
+        "GET /api/cloud-workers/v1 returns full bundle",
+        "python3 scripts/cloud_workers_hub_v1.py --action situation --json"
+      ],
+      "paths": [
+        "scripts/cloud_workers_hub_v1.py",
+        "agent-control-panel/worker-hub/index.html",
+        "data/cloud-workers-control-plane-v1.json"
+      ]
+    },
+    {
+      "id": "HPL-20260622-005",
+      "at": "2026-06-22T07:49:35Z",
+      "app_id": "mac_health",
+      "agent": "cursor-auto",
+      "summary": "Mac Health full relief \u2014 pipeline zombies \u00b7 CPU cool \u00b7 RAM inactive purge when hot \u00b7 visible quick actions \u00b7 references panel \u00b7 Hub Pro checklists wired",
+      "obstacles": [
+        "Relieve pressure only cleared ghosts not full stack; RAM/pipeline hidden; sources-grid missing from founder glance HTML"
+      ],
+      "fixes": [
+        "run_full_relief in mac_health_guard.py; hero Clear pipeline + Reset RAM; sources in More; hub-pro-hub-hero skill + UP-0..UP-7 in Hub Pro tab"
+      ],
+      "golden_tips": [
+        "Relieve pressure = full_relief not legacy heal only; RAM purge needs Mac password at 75%+; sync mac-health-standalone to .app bundle after edits"
+      ],
+      "paths": [
+        "scripts/mac_health_guard.py",
+        "scripts/mac-health-standalone/",
+        "agent-control-panel/shared/hub-pro-skills-tab.js",
+        ".cursor/skills/hub-pro-hub-hero/SKILL.md"
+      ]
+    },
+    {
+      "id": "HPL-20260622-006",
+      "at": "2026-06-22T07:54:03Z",
+      "app_id": "worker_hub",
+      "agent": "cursor-auto",
+      "summary": "Worker Hub crash fix + standalone Cloud Workers command center at /cloud-workers/",
+      "obstacles": [
+        "Worker Hub.app SIGTRAP on launch \u2014 prepareApp used NSApp before NSApplication.shared"
+      ],
+      "fixes": [
+        "SinaStandaloneShell.prepareApp init order + duplicate instance guard; rebuilt Worker Hub.app v11; /cloud-workers/ standalone panel"
+      ],
+      "golden_tips": [
+        "Crash at prepareApp = NSApplication.shared must run first; cloud panel: http://127.0.0.1:13020/cloud-workers/"
+      ],
+      "paths": [
+        "brand/macos-apps/SinaStandaloneShell.swift",
+        "agent-control-panel/cloud-workers/",
+        "agent-control-panel/shared/cloud-workers-panel.js"
+      ]
+    },
+    {
+      "id": "HPL-20260622-007",
+      "at": "2026-06-22T13:49:34Z",
+      "app_id": "ag_routing_panel",
+      "agent": "cursor-auto",
+      "summary": "AG Routing Panel v1.0 standalone :8782 \u2014 agent light/full, compact UI, mermaid diagrams, cost intelligence",
+      "obstacles": [
+        "legacy:8780 heavy WebGL empty space",
+        "app.js/css path swap bug",
+        "orient_roles dict slice KeyError"
+      ],
+      "fixes": [
+        "standalone app+shell+build script",
+        "official-links bar",
+        "SinaAppRouter",
+        "_as_list helper"
+      ],
+      "golden_tips": [],
+      "paths": [
+        "scripts/ag-routing-panel-standalone",
+        "scripts/ag_routing_panel_core.py",
+        "brand/macos-apps/AgRoutingPanelShell.swift"
+      ]
+    },
+    {
+      "id": "HPL-20260622-008",
+      "at": "2026-06-22T13:58:24Z",
+      "app_id": "ag_routing_panel",
+      "agent": "cursor-auto",
+      "summary": "v1.1 agent glance + official tabs wired all apps \u00b7 AG Routing 2nd tab",
+      "obstacles": [
+        "stale n8n/chat local official-links copies"
+      ],
+      "fixes": [
+        "sync-official-links-bar-v1.sh",
+        "agent_glance hero",
+        "mac-health nav bar"
+      ],
+      "golden_tips": [],
+      "paths": [
+        "agent-control-panel/shared/official-links-bar.js",
+        "scripts/ag-routing-panel-standalone"
+      ]
+    }
+  ]
+}

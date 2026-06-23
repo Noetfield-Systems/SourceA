@@ -1,0 +1,70 @@
+{
+  "name": "wf-cloud-drain-auto-v1",
+  "nodes": [
+    {
+      "id": "fa84a53a-ed68-4df0-8d75-1f36aabd867f",
+      "name": "Schedule",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "*/10 * * * *"
+            }
+          ]
+        }
+      },
+      "position": [
+        0,
+        300
+      ]
+    },
+    {
+      "id": "e51ca761-1279-4e96-82c8-2da58449d0b8",
+      "name": "Hub glue",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:13020/api/cloud-workers/v1",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"action\": \"glue_run\", \"command\": \"cloud-drain-auto-tick\"}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
+      },
+      "position": [
+        280,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Schedule": {
+      "main": [
+        [
+          {
+            "node": "Hub glue",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "schema": "sina-n8n-glue-workflow-v1",
+    "glue_command": "cloud-drain-auto-tick"
+  }
+}
