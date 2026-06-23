@@ -501,6 +501,107 @@ def _update_ramp_state_cloud(*, green: bool) -> dict[str, Any]:
     return row
 
 
+def _pack_in_progress(mark: bool) -> None:
+    from cloud_drain_single_cycle_gate_v1 import _read_gate, _write_gate, SCHEMA  # noqa: WPS433
+
+    state = _read_gate()
+    if mark:
+        state.update({"schema": SCHEMA, "pack_in_progress": True, "pack_started_at": _now()})
+    else:
+        state.pop("pack_in_progress", None)
+        state.pop("pack_started_at", None)
+    _write_gate(state)
+
+
+def run_pack_loop(
+    *,
+    body: dict[str, Any],
+    ssot: dict[str, Any],
+    trigger_source: str,
+    llm_provider: str,
+) -> dict[str, Any]:
+    """One external trigger — internal loop advances up to max_advance CLOUD-SEC rows."""
+    from hub_cloud_drain_proceed_v1 import proceed_on_cloud  # noqa: WPS433
+    from fbe.lib.cloud_drain_queue_v1 import read_head, skip_head  # noqa: WPS433
+
+    max_advance = int(body.get("max_advance") or ssot.get("max_advance_per_tick") or 100)
+    max_skips = int(ssot.get("max_skips_per_tick") or 8)
+    self_heal = bool(ssot.get("self_heal_any_motor_fail") or ssot.get("self_heal_motor_fail_mock"))
+    advanced = 0
+    skipped = 0
+    pack_results: list[dict[str, Any]] = []
+    last_proceed: dict[str, Any] = {}
+
+    _pack_in_progress(True)
+    try:
+        while advanced < max_advance:
+            head_row = read_head()
+            if head_row.get("queue_batch_complete"):
+                break
+            last_proceed = proceed_on_cloud(
+                {
+                    "full_motor": bool(ssot.get("full_motor", True)),
+                    "llm_provider": llm_provider or str(ssot.get("llm_provider") or "openrouter"),
+                    "auto_tick": True,
+                    "_cycle_claimed": True,
+                    "_pack_prove_done": True,
+                    "_pack_internal": True,
+                    "trigger_source": trigger_source,
+                    **{k: v for k, v in body.items() if k not in ("full_pack", "max_advance")},
+                }
+            )
+            pid = str(last_proceed.get("plan_id") or "")
+            ok = bool(last_proceed.get("ok"))
+            pack_results.append({"plan_id": pid, "ok": ok})
+            if ok:
+                advanced += 1
+                continue
+            if self_heal and skipped < max_skips:
+                skip_row = skip_head(reason="pack_self_heal_motor_fail")
+                if skip_row.get("ok"):
+                    skipped += 1
+                    continue
+                if skip_row.get("error") == "no_next_plan":
+                    from fbe.lib.cloud_drain_queue_v1 import swap_to_next_batch  # noqa: WPS433
+
+                    handoff = swap_to_next_batch(reason="pack_self_heal_batch_end")
+                    pack_results.append({"plan_id": pid, "ok": False, "batch_handoff": handoff})
+                    if handoff.get("ok"):
+                        skipped += 1
+                        continue
+                break
+            break
+    finally:
+        _pack_in_progress(False)
+        try:
+            from cloud_drain_single_cycle_gate_v1 import reset_gate_for_pack  # noqa: WPS433
+
+            reset_gate_for_pack()
+        except Exception:
+            pass
+
+    head_now = read_head()
+    batch_done = bool(head_now.get("queue_batch_complete"))
+    return {
+        "ok": advanced > 0 or batch_done,
+        "schema": "cloud-drain-pack-v1",
+        "advanced": advanced,
+        "skipped": skipped,
+        "batch_complete": batch_done,
+        "head_now": str(head_now.get("cloud_drain_head") or ""),
+        "last_completed": str(head_now.get("cloud_drain_last_completed") or ""),
+        "pack_results_tail": pack_results[-5:],
+        "last_proceed": last_proceed,
+        "for_founder": {
+            "show_this": (
+                f"Pack SHIP · advanced {advanced} · skipped {skipped} · "
+                f"head {head_now.get('cloud_drain_head')} · "
+                + ("100/100 batch COMPLETE" if batch_done else "continuing on next trigger")
+            ),
+        },
+    }
+
+
 def run_cloud_auto_tick(
     *,
     body: dict[str, Any] | None = None,
@@ -532,11 +633,31 @@ def run_cloud_auto_tick(
 
     cloud_tick_receipt = Path("/app/receipts/cloud/cloud-drain-auto-tick-receipt-v1.json")
 
+    full_pack_early = body.get("full_pack")
+    if full_pack_early is None:
+        full_pack_early = bool(ssot.get("full_pack", True))
+    if full_pack_early and (
+        trigger_source in ("cloudflare_cron", "cloudflare_scheduled", "hub_proceed_pack")
+        or body.get("force_reset_gate")
+    ):
+        from cloud_drain_single_cycle_gate_v1 import reset_gate_for_pack  # noqa: WPS433
+
+        reset_gate_for_pack()
+
     if not body.get("_cycle_claimed"):
         from cloud_drain_single_cycle_gate_v1 import claim_or_halt  # noqa: WPS433
 
         halt = claim_or_halt(path="/api/cloud-drain/auto-tick/v1", trigger_source=trigger_source)
         if halt:
+            if halt.get("reason") == "pack_in_progress":
+                return {
+                    "ok": True,
+                    "schema": "cloud-drain-auto-tick-v1",
+                    "at": at,
+                    "decision": "pack_in_progress_skip",
+                    "trigger_source": trigger_source,
+                    "for_founder": {"show_this": "Pack already running on Railway — skip duplicate trigger"},
+                }
             return {**halt, "schema": "cloud-drain-auto-tick-v1"}
 
     head_row = read_head()
@@ -582,6 +703,46 @@ def run_cloud_auto_tick(
         return cycle_row
 
     from hub_cloud_drain_proceed_v1 import proceed_on_cloud  # noqa: WPS433
+
+    full_pack = body.get("full_pack")
+    if full_pack is None:
+        full_pack = bool(ssot.get("full_pack", True))
+
+    if full_pack:
+        pack = run_pack_loop(body=body, ssot=ssot, trigger_source=trigger_source, llm_provider=llm_provider)
+        steps.append({"step": "pack", "result": pack})
+        from cloud_drain_single_cycle_gate_v1 import claim_or_halt  # noqa: WPS433
+
+        if pack.get("ok"):
+            claim_or_halt(path="/api/cloud-drain/auto-tick/v1", trigger_source=trigger_source, after_pass=True)
+        row = {
+            "ok": bool(pack.get("ok")),
+            "schema": "cloud-drain-auto-tick-v1",
+            "at": at,
+            "decision": "pack_complete" if pack.get("batch_complete") else ("pack" if pack.get("ok") else "pack_stalled"),
+            "head": pack.get("head_now"),
+            "plan_id": (pack.get("last_proceed") or {}).get("plan_id"),
+            "trigger_source": trigger_source,
+            "execution_plane": "headless_cloud",
+            "pack": pack,
+            "prove_ok": True,
+            "contract_ok": True,
+            "for_founder": pack.get("for_founder"),
+            "steps": steps,
+        }
+        ship_row = pack.get("last_proceed") or {}
+        cycle_path = _write_cycle_receipt(
+            cycle=row,
+            trigger_source=trigger_source,
+            head=str(pack.get("head_now") or head),
+            prove=prove,
+            ship=ship_row,
+        )
+        row["cycle_receipt_path"] = str(cycle_path)
+        row["ramp"] = _update_ramp_state_cloud(green=bool(pack.get("ok")))
+        cloud_tick_receipt.parent.mkdir(parents=True, exist_ok=True)
+        _write(cloud_tick_receipt, row)
+        return row
 
     proceed = proceed_on_cloud(
         {

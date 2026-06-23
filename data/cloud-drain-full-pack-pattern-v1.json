@@ -1,0 +1,98 @@
+{
+  "schema": "cloud-drain-full-pack-pattern-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-23T11:05:00Z",
+  "locked": true,
+  "incident_ref": "brain-os/incidents/SINA_CLOUD_DRAIN_BATCH3_RAILWAY_CHAIN_INCIDENT_042_LOCKED_v1.md",
+  "law_doc": "brain-os/law/enforcement/SOURCEA_CLOUD_DRAIN_FULL_PACK_PATTERN_LOCKED_v1.md",
+  "one_law": "One external trigger = full_pack max_advance 100 internal loop on Railway — same pattern batch 2 and batch 3+",
+  "pattern": {
+    "full_pack": true,
+    "max_advance_per_tick": 100,
+    "internal_loop": "run_pack_loop in cloud_drain_auto_runtime_v1.py",
+    "not": "one CLOUD-SEC per cloudflare cron tick"
+  },
+  "triggers": [
+    {
+      "id": "cloudflare_cron",
+      "source": "cloud/workers/cloud-drain-tick-v1",
+      "cron": "*/10 * * * *",
+      "body": {
+        "trigger_source": "cloudflare_cron",
+        "full_pack": true,
+        "max_advance": 100,
+        "auto_tick": true
+      }
+    },
+    {
+      "id": "cloud_workers_proceed",
+      "source": "Cloud Workers.app :13027",
+      "body": {
+        "action": "proceed",
+        "full_pack": true,
+        "max_advance": 100,
+        "trigger_source": "hub_proceed_pack"
+      }
+    }
+  ],
+  "execution_plane": {
+    "motor": "Railway sourcea-fbe-runner",
+    "queue_api": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-drain/queue/v1",
+    "auto_tick_api": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-drain/auto-tick/v1",
+    "observer": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-drain/observer/v1",
+    "mac_cockpit": "Cloud Workers.app http://127.0.0.1:13027/"
+  },
+    "batches": {
+    "batch_2": {
+      "status": "COMPLETE",
+      "range": "CLOUD-SEC-101..CLOUD-SEC-200",
+      "completed_at": "2026-06-23T08:55:06Z"
+    },
+    "batch_3": {
+      "status": "COMPLETE",
+      "range": "CLOUD-SEC-201..CLOUD-SEC-300"
+    },
+    "batch_4": {
+      "status": "COMPLETE",
+      "range": "CLOUD-SEC-301..CLOUD-SEC-400"
+    },
+    "batch_5": {
+      "status": "ACTIVE",
+      "range": "CLOUD-SEC-401..CLOUD-SEC-500",
+      "queue_path": "data/secondary-cloud-drain-batch-5-locked-v1.json"
+    },
+    "batch_6": {
+      "status": "ready_locked",
+      "range": "CLOUD-SEC-501..CLOUD-SEC-600"
+    },
+    "batch_7": {
+      "status": "ready_locked",
+      "range": "CLOUD-SEC-601..CLOUD-SEC-700"
+    },
+    "batch_8": {
+      "status": "ready_locked",
+      "range": "CLOUD-SEC-701..CLOUD-SEC-800"
+    },
+    "batch_9": {
+      "status": "ready_locked",
+      "range": "CLOUD-SEC-801..CLOUD-SEC-900"
+    },
+    "batch_10": {
+      "status": "ready_locked",
+      "range": "CLOUD-SEC-901..CLOUD-SEC-910",
+      "note": "Final 10 registry backlog rows — sa-mkt-0991..1000"
+    }
+  },
+  "deploy_guard": {
+    "script": "scripts/deploy_fbe_railway_v1.py",
+    "check": "_validate_dockerfile_batch_sync",
+    "dockerfile": "cloud/Dockerfile.fbe-runner",
+    "must_copy_active_queue_json": true
+  },
+  "forbidden_agent_verbs": [
+    "change to single-cycle drain",
+    "boot_heal on read_head hot path",
+    "fake SHIP PASS without advanced > 0",
+    "Worker Hub :13020 required for proceed"
+  ]
+}
