@@ -51,7 +51,11 @@
         {
           "service": "cloudflare",
           "login_email": "sinakazemnezhad.ca@gmail.com",
-          "scope": "trustfield.ca · noetfield.com · sourcea.com DNS · TrustField Email API tokens (main only)"
+          "account_id": "0d0b967b77e2e5535455d39ff3dae72c",
+          "scope": "trustfield.ca · noetfield.com · sourcea.com — Pages + DNS + Workers (main lane)",
+          "migration_ssot": "data/portfolio-cloudflare-migration-v1.json",
+          "migration_doc": "docs/PORTFOLIO_CLOUDFLARE_MIGRATION_LOCKED_v1.md",
+          "vercel_interim_until": "CF Pages green on all three domains"
         },
         {
           "service": "stripe",
@@ -102,12 +106,19 @@
       ],
       "vault_keys": [
         "GOOGLE_WORKSPACE_APP_PASSWORD",
+        "TF-HELLO-GOOGLE_WORKSPACE_APP_PASSWORD",
+        "NF-OPERATION-GOOGLE_WORKSPACE_APP_PASSWORD",
+        "SA-HELLO-GOOGLE_WORKSPACE_APP_PASSWORD",
+        "VL-HELLO-GOOGLE_WORKSPACE_APP_PASSWORD",
         "CF_API_TOKEN",
         "CF_EMAIL_API_TOKEN",
         "CF_ZONE_ID",
         "VERCEL_TOKEN",
         "RESEND_API_KEY"
       ],
+      "vault_email_tags_ssot": "data/portfolio-vault-email-tags-v1.json",
+      "vault_email_tags_law": "docs/PORTFOLIO_VAULT_EMAIL_TAGS_LOCKED_v1.md",
+      "mailboxes_per_domain": 3,
       "vault_path_hint": "~/.sina/secrets.env"
     },
     {
@@ -185,11 +196,14 @@
     }
   ],
   "vercel_pro_migration": {
-    "decision_id": "ASF-2026-06-20-VERCEL-PRO-MAIN",
-    "saved_at": "2026-06-20T21:45:00Z",
+    "decision_id": "ASF-2026-06-27-VERCEL-PRO-WEEK",
+    "saved_at": "2026-06-21T00:45:00Z",
     "owner_gmail": "kazemnezhadsina144@gmail.com",
-    "action": "Upgrade hobby → Pro on main account; migrate noetfield@gmail.com projects by 2026-06-27",
-    "rejected": "Separate Pro only on noetfield@gmail.com long-term"
+    "target_date": "2026-06-27",
+    "action": "Upgrade Hobby → Pro on the-777-foundation; disconnect Mac CLI from noetfield-systems; delete trial deploys after main green",
+    "locked_plan": "docs/VERCEL_PRO_MIGRATION_WEEK_LOCKED_v1.md",
+    "machine_ssot": "data/vercel-pro-migration-week-v1.json",
+    "rejected": "Separate Pro only on noetfield@gmail.com long-term · vercel login from Cursor agent"
   },
   "mandatory_law": {
     "cursor_rule": ".cursor/rules/044-portfolio-account-structure-mandatory.mdc",

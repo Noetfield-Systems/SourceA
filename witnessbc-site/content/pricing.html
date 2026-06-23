@@ -87,15 +87,38 @@
         </div>
         <p class="pricing-footnotes">Educational policy templates only — not legal advice. Deposit and SOW on request for Witness AI Flow. Witness AI Ops requires 3-month minimum retainer.</p>
 
-        <div class="stripe-packs-strip" aria-label="Stripe checkout packs">
-          <p class="section-eyebrow">Self-serve checkout</p>
+        <div class="stripe-packs-strip" aria-label="Stripe checkout packs" data-stripe-live="{{STRIPE_LINKS_LIVE}}">
+          <p class="section-eyebrow">Self-serve checkout · {{STRIPE_DESCRIPTOR}} · {{STRIPE_CURRENCY}}</p>
           <h2>Buy policy packs on witnessbc.com</h2>
-          <p class="section-lead">Same Stripe links as <a href="{{STRIPE_TOOLKITS_HUB_URL}}">witnessbc.com/toolkits</a> — digital delivery after checkout.</p>
-          <div class="stripe-pack-grid">
-            <a class="btn btn-outline" href="{{STRIPE_CORRECTIONS_9_URL}}" target="_blank" rel="noopener noreferrer">Corrections — $9</a>
-            <a class="btn btn-outline" href="{{STRIPE_STARTER_39_URL}}" target="_blank" rel="noopener noreferrer">Starter — $39</a>
-            <a class="btn btn-primary" href="{{STRIPE_PRO_99_URL}}" target="_blank" rel="noopener noreferrer">Pro — $99</a>
-            <a class="btn btn-outline" href="{{STRIPE_TEAM_149_URL}}" target="_blank" rel="noopener noreferrer">Team — $149</a>
+          <p class="section-lead">Same Stripe links as <a href="{{STRIPE_TOOLKITS_HUB_URL}}">witnessbc.com/toolkits</a> — digital delivery after checkout. Card statement shows <strong>{{STRIPE_DESCRIPTOR}}</strong>.</p>
+
+          <div class="stripe-pack-group">
+            <h3 class="stripe-pack-group-title">Individual packs</h3>
+            <div class="stripe-pack-grid">
+              <a class="btn btn-outline" href="{{STRIPE_CORRECTIONS_9_URL}}" target="_blank" rel="noopener noreferrer">Corrections — $9</a>
+              <a class="btn btn-outline" href="{{STRIPE_SOURCING_19_URL}}" target="_blank" rel="noopener noreferrer">Sourcing — $19</a>
+              <a class="btn btn-outline" href="{{STRIPE_PRIVACY_19_URL}}" target="_blank" rel="noopener noreferrer">Privacy — $19</a>
+              <a class="btn btn-outline" href="{{STRIPE_PUBLICREC_29_URL}}" target="_blank" rel="noopener noreferrer">Public record — $29</a>
+              <a class="btn btn-outline" href="{{STRIPE_STORYTEMP_19_URL}}" target="_blank" rel="noopener noreferrer">Story template — $19</a>
+              <a class="btn btn-outline" href="{{STRIPE_ACTIONMAP_29_URL}}" target="_blank" rel="noopener noreferrer">Action map — $29</a>
+            </div>
+          </div>
+
+          <div class="stripe-pack-group">
+            <h3 class="stripe-pack-group-title">Bundles</h3>
+            <div class="stripe-pack-grid">
+              <a class="btn btn-outline" href="{{STRIPE_STARTER_39_URL}}" target="_blank" rel="noopener noreferrer">Starter — $39</a>
+              <a class="btn btn-primary" href="{{STRIPE_PRO_99_URL}}" target="_blank" rel="noopener noreferrer">Pro — $99</a>
+              <a class="btn btn-outline" href="{{STRIPE_TEAM_149_URL}}" target="_blank" rel="noopener noreferrer">Team — $149</a>
+            </div>
+          </div>
+
+          <div class="stripe-pack-group">
+            <h3 class="stripe-pack-group-title">Training</h3>
+            <div class="stripe-pack-grid">
+              <a class="btn btn-outline" href="{{STRIPE_TRAIN_EVIDENCE101_URL}}" target="_blank" rel="noopener noreferrer">Evidence 101 — $79</a>
+              <a class="btn btn-outline" href="{{STRIPE_TRAIN_PRIVACY_URL}}" target="_blank" rel="noopener noreferrer">Privacy-first publishing — $99</a>
+            </div>
           </div>
         </div>
 

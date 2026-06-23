@@ -1,0 +1,42 @@
+{
+  "schema": "form-official-question-schema-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-22T07:10:00Z",
+  "law": "SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md · INCIDENT-037",
+  "one_law": "Every official form row = exactly 5 answer slots · slots 1–4 = A–D choices · slot 5 = founder free-text blank (key E)",
+  "option_count": 5,
+  "slots": [
+    { "slot": 1, "key": "A", "type": "choice", "label": "Option A" },
+    { "slot": 2, "key": "B", "type": "choice", "label": "Option B" },
+    { "slot": 3, "key": "C", "type": "choice", "label": "Option C" },
+    { "slot": 4, "key": "D", "type": "choice", "label": "Option D" },
+    {
+      "slot": 5,
+      "key": "E",
+      "type": "founder_free_text",
+      "label": "Option 5 — write your own answer",
+      "placeholder": "Type your answer in your own words",
+      "required_when_selected": true
+    }
+  ],
+  "agent_add_question": {
+    "required_fields": ["id", "title", "question", "options"],
+    "options_rule": "Provide 2–4 choice strings in options[] (prefix A— B— etc. optional). Never add slot 5 — machine adds free-text slot E automatically.",
+    "intake_path": "~/.sina/live-founder-decision-form-intake-v1.json",
+    "wire_script": "scripts/form_official_gather_extraction_v1.py",
+    "form_api": "GET /api/live-founder-decision-form-v1",
+    "submit_api": "POST /api/live-founder-decision-form-v1",
+    "submit_body": {
+      "action": "submit",
+      "founder_submit": true,
+      "picks": { "Q-EXAMPLE": "A" },
+      "founder_comments": { "Q-EXAMPLE": "only when pick is E" },
+      "partial_batch": true
+    }
+  },
+  "founder_ui": {
+    "url": "http://127.0.0.1:13020/form/",
+    "submit_positions": ["top", "bottom"],
+    "pick_rule": "FOUNDER PICK > AGENT RECOMMENDATION — recommended is hint only"
+  }
+}

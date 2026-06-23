@@ -1,5 +1,1 @@
-#!/usr/bin/env bash
-# P0 SourceA ship gate — Screen Studio master → ingest → critic → unfreeze
-set -euo pipefail
-ROOT="$HOME/Desktop/SourceA"
-exec python3 "$ROOT/scripts/commercial_film_ship_gate_v1.py" --lane sourcea "$@"
+/Users/sinakazemnezhad/Desktop/SourceA/scripts/film/sourcea-commercial-film-ship.sh

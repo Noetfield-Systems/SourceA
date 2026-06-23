@@ -1,0 +1,36 @@
+{
+  "schema": "cloud-dispatch-receipt-v1",
+  "receipt_id": "cloud-dispatch-4099338f7467",
+  "plan_id": "CLOUD-SEC-037",
+  "maps_registry": "sa-mkt-0037",
+  "": "Trigger.dev",
+  "workstream": "ws-onboard",
+  "tier": "T2",
+  "cloud_action": "Fix one onboarding friction vs Trigger.dev \u2014 cloud",
+  "at": "2026-06-21T03:58:30Z",
+  "execution_plane": "cloud_forge",
+  "source_url": "https://trigger.dev/docs/quick-start",
+  "http_status": 200,
+  "bytes_fetched": 500000,
+  "evidence_snippets": [
+    "Quick start: add Trigger.dev to your project",
+    "Quick start Manual setup Video walkthrough How it works Limits Migrating from v3 Fundamenta",
+    "Install the SDK, create your first background task, and trigger it from your code",
+    "Quick Start Building agents Features Patterns Reference Configuration trigger",
+    "install-mcp ## Critical rules - ALWAYS import from `@trigger",
+    "Install the \\\\\\\"Hello World\\\\\\\" example task when prompted",
+    "install it (best DX: gives you direct access to Trigger",
+    "Install the \u201cHello World\u201d example task when prompted",
+    "get started: npm pnpm yarn npx trigger",
+    "Install the required SDK packages"
+  ],
+  "ok": true,
+  "status": "PASS",
+  "receipt_path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/cloud-dispatch/cloud-dispatch-4099338f7467.json",
+  "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-037.json",
+  "for_founder": {
+    "show_this": "CLOUD-SEC-037 \u00b7 Trigger.dev \u00b7 ws-onboard \u2014 PASS \u00b7 10 snippets \u00b7 cloud-dispatch-4099338f7467",
+    "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-4099338f7467.json"
+  },
+  "canonical_plan_receipt": true
+}

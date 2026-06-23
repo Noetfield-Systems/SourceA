@@ -1,0 +1,14 @@
+{
+  "schema": "forge-factory-cycle2-verify-v1",
+  "sa_id": "sa-1203",
+  "hp_id": "ff-003",
+  "round_type": "verify",
+  "ok": true,
+  "at": "2026-06-21T01:57:00Z",
+  "governance": {
+    "drift_score": 100,
+    "receipt": "~/.sina/governance-zero-drift-live-wire-v1.json"
+  },
+  "evidence": "VERIFY PASS — governance zero drift session tier · drift_score=100 · queue aligned sa-1203",
+  "closeout": true
+}

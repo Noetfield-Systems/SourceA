@@ -1,0 +1,39 @@
+{
+  "schema": "noetfield-copilot-runtime-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-21T14:00:00Z",
+  "factory_id": "noetfield-copilot-factory-v1",
+  "bay_slug": "noetfield-copilot-bay",
+  "active_variation_key": "default",
+  "rollout": {
+    "active": "strong",
+    "percent": 100
+  },
+  "promotion_gate": {
+    "min_pass_rate": 0.875,
+    "note": "Founder manual bump only — NF-RD pilot config bump is founder-only"
+  },
+  "variations": {
+    "default": {
+      "config_version": "1.0.0-strict",
+      "label": "strict_tle",
+      "policy_strictness": "strict",
+      "require_tle_receipt": true,
+      "allowed_actions": ["read", "summarize"],
+      "block_pii_export": true,
+      "block_external_send": true,
+      "fallback_variation": "strong",
+      "retry_on_blocked": true
+    },
+    "strong": {
+      "config_version": "1.0.0-pilot",
+      "label": "pilot_read_draft",
+      "policy_strictness": "pilot",
+      "require_tle_receipt": true,
+      "allowed_actions": ["read", "summarize", "draft_reply"],
+      "block_pii_export": true,
+      "block_external_send": true,
+      "retry_on_blocked": false
+    }
+  }
+}

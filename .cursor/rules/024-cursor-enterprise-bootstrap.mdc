@@ -1,6 +1,6 @@
 ---
 description: Enterprise bootstrap pack — ledger · context index · factory isolation
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Cursor enterprise bootstrap (024)

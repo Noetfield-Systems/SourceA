@@ -1,5 +1,5 @@
 /**
- * Mock cloud plan source — 100 raw plans for Forge-v0.1 funnel testing.
+ * Mock cloud blueprint source — 100 raw plans for Forge-v0.1 funnel testing.
  * Fetched in-memory (simulates GitHub API / Supabase Storage payload).
  *
  * Composition: 67 unique valid + 18 intentional dupes + 15 malformed = 100
@@ -17,6 +17,9 @@ export interface RawPlan {
   core_capability?: string;
   notes?: string;
 }
+
+/** Canonical blueprint type alias for Forge-v0.1 engine */
+export type Blueprint = RawPlan;
 
 function basePlan(
   id: string,
@@ -220,3 +223,6 @@ export function fetchMockCloudPlans(): RawPlan[] {
 
   return payload as RawPlan[];
 }
+
+/** Cloud stream alias — 100 blueprints for Forge-v0.1 */
+export const fetchMockCloudBlueprints = fetchMockCloudPlans;

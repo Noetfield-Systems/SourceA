@@ -1,0 +1,112 @@
+{
+  "schema": "forge-v0.2-implement-receipt",
+  "at": "2026-06-21T03:58:30Z",
+  "architecture": "A",
+  "plan_id": "CLOUD-SEC-037",
+  "status": "PASS",
+  "verdict": "PASS",
+  "implement_mode": "real",
+  "telemetry_line": "Implement: CLOUD-SEC-037 real PASS",
+  "preview_url": "https://sourcea-fbe-runner-production.up.railway.app/api/-evidence/v1?plan_id=CLOUD-SEC-037",
+  "artifact_paths": [
+    "receipts/cloud-dispatch/CLOUD-SEC-037.json"
+  ],
+  "run_id": "forge-run-20260621T035830-CLOUD-SEC-037",
+  "intent": "sourcea  parity \u00b7 Trigger.dev \u00b7 ws-onboard",
+  "action": "Fix one onboarding friction vs Trigger.dev \u2014 cloud",
+  "workstream": "ws-onboard",
+  "": "Trigger.dev",
+  "artifact": {
+    "ok": true,
+    "artifact": "_evidence_slice",
+    "artifact_path": "receipts/cloud-dispatch/CLOUD-SEC-037.json",
+    "preview_url": "https://sourcea-fbe-runner-production.up.railway.app/api/-evidence/v1?plan_id=CLOUD-SEC-037",
+    "dispatch_receipt": {
+      "schema": "cloud-dispatch-receipt-v1",
+      "receipt_id": "cloud-dispatch-4099338f7467",
+      "plan_id": "CLOUD-SEC-037",
+      "maps_registry": "sa-mkt-0037",
+      "": "Trigger.dev",
+      "workstream": "ws-onboard",
+      "tier": "T2",
+      "cloud_action": "Fix one onboarding friction vs Trigger.dev \u2014 cloud",
+      "at": "2026-06-21T03:58:30Z",
+      "execution_plane": "cloud_forge",
+      "source_url": "https://trigger.dev/docs/quick-start",
+      "http_status": 200,
+      "bytes_fetched": 500000,
+      "evidence_snippets": [
+        "Quick start: add Trigger.dev to your project",
+        "Quick start Manual setup Video walkthrough How it works Limits Migrating from v3 Fundamenta",
+        "Install the SDK, create your first background task, and trigger it from your code",
+        "Quick Start Building agents Features Patterns Reference Configuration trigger",
+        "install-mcp ## Critical rules - ALWAYS import from `@trigger",
+        "Install the \\\\\\\"Hello World\\\\\\\" example task when prompted",
+        "install it (best DX: gives you direct access to Trigger",
+        "Install the \u201cHello World\u201d example task when prompted",
+        "get started: npm pnpm yarn npx trigger",
+        "Install the required SDK packages"
+      ],
+      "ok": true,
+      "status": "PASS",
+      "receipt_path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/cloud-dispatch/cloud-dispatch-4099338f7467.json",
+      "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-4099338f7467.json",
+      "for_founder": {
+        "show_this": "CLOUD-SEC-037 \u00b7 Trigger.dev \u00b7 ws-onboard \u2014 PASS \u00b7 10 snippets \u00b7 cloud-dispatch-4099338f7467",
+        "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-4099338f7467.json"
+      }
+    },
+    "evidence_snippets": [
+      "Quick start: add Trigger.dev to your project",
+      "Quick start Manual setup Video walkthrough How it works Limits Migrating from v3 Fundamenta",
+      "Install the SDK, create your first background task, and trigger it from your code",
+      "Quick Start Building agents Features Patterns Reference Configuration trigger",
+      "install-mcp ## Critical rules - ALWAYS import from `@trigger",
+      "Install the \\\\\\\"Hello World\\\\\\\" example task when prompted",
+      "install it (best DX: gives you direct access to Trigger",
+      "Install the \u201cHello World\u201d example task when prompted",
+      "get started: npm pnpm yarn npx trigger",
+      "Install the required SDK packages"
+    ],
+    "source_url": "https://trigger.dev/docs/quick-start"
+  },
+  "router": {
+    "ok": true,
+    "tasks_run": 3,
+    "cost_usd_total": 0.11,
+    "has_stub": true,
+    "results": [
+      {
+        "task_id": "T1",
+        "route": "gemini_context",
+        "cost_usd": 0.03,
+        "ok": true,
+        "stub": true,
+        "note": "MVP stub \u2014 cloud key lane gemini_context"
+      },
+      {
+        "task_id": "T2",
+        "route": "claude_code",
+        "cost_usd": 0.08,
+        "ok": true,
+        "stub": true,
+        "note": "MVP stub \u2014 cloud key lane claude_code"
+      },
+      {
+        "task_id": "T3",
+        "route": "sandbox",
+        "cost_usd": 0.0,
+        "ok": true,
+        "note": "delegated_to_fbe_w5_wrappers"
+      }
+    ]
+  },
+  "critic": {
+    "ok": true,
+    "final_verdict": "PASS",
+    "replans": 0
+  },
+  "implementation_signature": "cloud_implement_receipt_pass",
+  "receipt_url": "/receipts/cloud-implement/CLOUD-SEC-037.json",
+  "ok": true
+}

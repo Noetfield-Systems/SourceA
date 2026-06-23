@@ -1,6 +1,6 @@
 ---
 description: Dead features only — live surfaces from disk_live_wire_sync (INCIDENT-034 positive law)
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Dead features — live disk only (INCIDENT-034)

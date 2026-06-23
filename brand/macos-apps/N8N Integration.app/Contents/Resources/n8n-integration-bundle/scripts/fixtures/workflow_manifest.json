@@ -187,6 +187,37 @@
       "tier": 6
     },
     {
+      "id": "wf-film-screen-studio-ingest",
+      "path": "n8n/workflows/wf-film-screen-studio-ingest-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-film-screen-studio-ingest-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.webhook", "n8n-nodes-base.executeCommand"],
+      "role": "film_factory",
+      "tier": 3,
+      "note": "P0 ship gate — lanes: sourcea, witnessbc (Screen Studio master required)"
+    },
+    {
+      "id": "wf-cinematic-film-compile",
+      "path": "n8n/workflows/wf-cinematic-film-compile-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-cinematic-film-compile-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.webhook", "n8n-nodes-base.executeCommand"],
+      "role": "film_factory",
+      "tier": 3
+    },
+    {
+      "id": "wf-cinematic-film-critic",
+      "path": "n8n/workflows/wf-cinematic-film-critic-v1.json",
+      "source_a_path": "~/Desktop/SourceA/n8n/workflows/wf-cinematic-film-critic-v1.json",
+      "requires_credentials": [],
+      "min_nodes": 2,
+      "required_node_types": ["n8n-nodes-base.webhook", "n8n-nodes-base.executeCommand"],
+      "role": "film_factory",
+      "tier": 3
+    },
+    {
       "id": "sinaai-telegram-agents",
       "path": "n8n/workflows/sinaai-telegram-agents.json",
       "requires_credentials": ["telegram"],

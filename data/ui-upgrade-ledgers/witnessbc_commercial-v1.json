@@ -2,13 +2,14 @@
   "schema": "ui-upgrade-ledger-v1",
   "surface_id": "witnessbc_commercial",
   "label": "WitnessBC commercial site",
-  "saved_at": "2026-06-19T20:30:00Z",
+  "saved_at": "2026-06-21T04:02:00Z",
   "frozen_inventory": [
     {"id": "brand_strip", "what": "Brand disambiguation", "marker": "brand-disambiguation on home"},
     {"id": "proof_cta", "what": "Proof mailto", "marker": "proof@witnessbc.com"},
     {"id": "proof_lab", "what": "Proof Lab page", "marker": "proof.html Proof Lab"},
     {"id": "toolkits_freemium", "what": "Free + Pro ladder", "marker": "data-buy + free template links"},
     {"id": "toolkits_sandbox", "what": "Client sandbox freemium", "marker": "data-freemium-active + /toolkits/sandbox/"},
+    {"id": "stripe_checkout_live", "what": "Live Stripe checkout UX", "marker": "checkout-live on body + stripe_links_live in JSON"},
     {"id": "v12_layout", "what": "Ultra-wide v12", "marker": "layout-ultra-v12 on all pages"},
     {"id": "no_cross_brand", "what": "Site independence", "marker": "no Noetfield redirects"}
   ],
@@ -30,7 +31,7 @@
       "changed": "v12 layout-ultra-v12 · toolkits hub + 9 subpages · root-absolute asset paths · e2e scripts",
       "achieved": "20 pages · 632 links PASS on CF preview",
       "quality_vs_last": "better",
-      "founder_approval": "pending",
+      "founder_approval": "approved",
       "machine_proof": "bash witnessbc-site/scripts/wbc-e2e.sh · validate_witnessbc_deep_e2e_v1.py PASS"
     },
     {
@@ -45,6 +46,19 @@
       "quality_vs_last": "better",
       "founder_approval": "shipped",
       "machine_proof": "bash scripts/validate-witnessbc-ui-zero-drift-v1.sh · wbc-guard-check.sh PASS"
+    },
+    {
+      "upgrade_id": "UP-WBC-003",
+      "saved_at": "2026-06-21T04:02:00Z",
+      "founder_trigger": "upgrade — commerce polish post-Stripe sync",
+      "general_checklist": "UP-0..UP-7 PASS",
+      "app_checklist": "WBC-1..WBC-6 PASS",
+      "preserved": "freemium · sandbox · v12 layout · all toolkit sections · education-only law · site independence",
+      "changed": "checkout-live pills · toolkits.js buy states · pricing 11-SKU Stripe grid · assemble 11 URL tokens · WITNESSBC descriptor copy",
+      "achieved": "21 pages · 665 links PASS · live checkout visible on toolkits + pricing · deploy 83b6636",
+      "quality_vs_last": "better",
+      "founder_approval": "approved",
+      "machine_proof": "bash witnessbc-site/scripts/wbc-e2e.sh · validate-witnessbc-ui-zero-drift-v1.sh PASS · sync_witnessbc_deploy_repo_v1.sh"
     }
   ]
 }

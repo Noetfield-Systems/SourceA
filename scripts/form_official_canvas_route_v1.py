@@ -14,7 +14,6 @@ M1_DEFAULT = (
 H1_HUB_URL = "http://127.0.0.1:13020/"
 FORM_PAGE_URL = "http://127.0.0.1:13020/form/"
 H2_MACHINES_URL = "http://127.0.0.1:13020/machines/"
-MUSEUM_URL = "http://127.0.0.1:13020/legacy/"
 FORM_ACTION_ID = "founder-open-integrity-form"
 
 
@@ -103,7 +102,6 @@ def hub_canvas_target() -> dict:
         ),
         "hub_url": H1_HUB_URL,
         "h2_machines_url": H2_MACHINES_URL,
-        "museum_url": MUSEUM_URL,
         "form_action_id": FORM_ACTION_ID,
         "form_api": "/api/live-founder-decision-form-v1",
         "open_pick_ids_head": open_ids[:5],

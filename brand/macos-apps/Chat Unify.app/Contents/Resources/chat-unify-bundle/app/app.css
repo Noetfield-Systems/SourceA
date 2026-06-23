@@ -24,6 +24,51 @@ body {
   min-height: 100vh;
 }
 
+/* Official links tab — portfolio stack */
+.official-links-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 8px 14px;
+  background: #0f172a;
+  color: #e2e8f0;
+  border-bottom: 1px solid #334155;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.official-links-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-right: 4px;
+}
+.official-link-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid #475569;
+  background: #1e293b;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+.official-link-tab:hover { filter: brightness(1.1); }
+.official-link-tab.active {
+  border-color: #a78bfa;
+  background: #4c1d95;
+  color: #ede9fe;
+  font-weight: 600;
+}
+.official-link-tab .dot { width: 6px; height: 6px; border-radius: 50%; background: #64748b; }
+.official-link-tab.active .dot { background: #c4b5fd; }
+
 /* v2.4 — full page · original boxes · 3×3 square grid */
 .cu-app {
   width: 100%;

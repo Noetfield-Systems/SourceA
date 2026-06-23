@@ -99,7 +99,6 @@ def _live_form_slice() -> dict:
             "canvas_button_label": route.get("button_label"),
             "hub_url": route.get("hub_url") or "http://127.0.0.1:13020/",
             "h2_machines_url": route.get("h2_machines_url") or "http://127.0.0.1:13020/machines/",
-            "museum_url": route.get("museum_url") or "http://127.0.0.1:13020/legacy/",
             "form_hub_line": route.get("form_hub_line") or "",
             "open_canvas_hint": route.get("open_canvas_hint") or "",
         }

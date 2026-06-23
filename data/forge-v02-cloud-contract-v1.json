@@ -1,11 +1,41 @@
 {
   "schema": "forge-v02-cloud-contract-v1",
-  "version": "1.0.0",
-  "saved_at": "2026-06-21T00:15:00Z",
+  "version": "1.3.1",
+  "saved_at": "2026-06-21T05:30:00Z",
   "architecture": "A",
   "architecture_note": "Mac reads HTTP URLs only. Cloud worker fetches plans via GitHub API and writes receipts to Railway volume.",
   "worker_base": "https://sourcea-fbe-runner-production.up.railway.app",
   "hub_base": "http://127.0.0.1:13020",
+  "run_and_implement_picker": "rank_order",
+  "drain_success_threshold": "cloud_queue_complete OR top_20_shippable_real_pass >= 18 OR shippable_pending <= 2",
+  "mac_control_lane": "observe-only on Mac — excluded from top_20 and cloud implement drain (INCIDENT-038)",
+  "workstream_artifact_routing": {
+    "ws-run": {
+      "artifact": "worker_run_dashboard_slice",
+      "preview": "/api/worker-run-detail/v1?plan_id={plan_id}",
+      "volume_path": "receipts/worker-run-detail/{plan_id}.json"
+    },
+    "ws-onboard": {
+      "artifact": "_evidence_slice",
+      "preview": "/api/-evidence/v1?plan_id={plan_id}",
+      "volume_path": "receipts/cloud-dispatch/{plan_id}.json"
+    },
+    "ws-ux": {
+      "artifact": "_evidence_slice",
+      "preview": "/api/-evidence/v1?plan_id={plan_id}",
+      "volume_path": "receipts/cloud-dispatch/{plan_id}.json"
+    },
+    "ws-pricing": {
+      "artifact": "_evidence_slice",
+      "preview": "/api/-evidence/v1?plan_id={plan_id}",
+      "volume_path": "receipts/cloud-dispatch/{plan_id}.json"
+    },
+    "ws-integrate": {
+      "artifact": "_evidence_slice",
+      "preview": "/api/-evidence/v1?plan_id={plan_id}",
+      "volume_path": "receipts/cloud-dispatch/{plan_id}.json"
+    }
+  },
   "github_source": {
     "owner": "kazemnezhadsina144-dot",
     "repo": "SourceA",
@@ -18,6 +48,17 @@
     "contract": {
       "method": "GET",
       "cloud": "/forge/contract/v02.json"
+    },
+    "status": {
+      "method": "GET",
+      "cloud": "/api/forge/v02/status/v1",
+      "hub_proxy": "/api/forge/v02/status/v1"
+    },
+    "drain": {
+      "method": "POST",
+      "cloud": "/api/forge/v02/drain/v1",
+      "hub_proxy": "/api/forge/v02/drain/v1",
+      "body": { "max_cycles": 20, "target": "top_20" }
     },
     "run": {
       "method": "POST",
@@ -32,7 +73,17 @@
     "implement": {
       "method": "POST",
       "cloud": "/api/forge/v02/implement/v1",
-      "body": { "plan_id": "CLOUD-SEC-023" }
+      "body": { "plan_id": "CLOUD-SEC-037" }
+    },
+    "worker_run_detail": {
+      "method": "GET",
+      "cloud": "/api/worker-run-detail/v1?plan_id={plan_id}",
+      "preview_url_pattern": "https://sourcea-fbe-runner-production.up.railway.app/api/worker-run-detail/v1?plan_id={plan_id}"
+    },
+    "_evidence": {
+      "method": "GET",
+      "cloud": "/api/-evidence/v1?plan_id={plan_id}",
+      "preview_url_pattern": "https://sourcea-fbe-runner-production.up.railway.app/api/-evidence/v1?plan_id={plan_id}"
     },
     "data_health": {
       "method": "GET",
@@ -44,20 +95,32 @@
       "cloud": "/receipts/forge_v0.2/forge_v0.2_top.json",
       "hub_proxy": "/api/forge/v02/top/v1"
     },
+    "implement_index": {
+      "method": "GET",
+      "cloud": "/receipts/forge_v0.2/implement_index.json"
+    },
     "implement_receipt": {
       "method": "GET",
       "cloud": "/receipts/cloud-implement/{plan_id}.json"
     }
   },
+  "implement_mode": {
+    "real": "Artifact shipped on cloud volume + preview URL returns 200 JSON",
+    "structural_stub": "Task graph + router/critic only — status FAIL until real artifact exists"
+  },
+  "fetch_source_expectation": "github_api",
   "telemetry_format": "Forge v0.2: [N] real → [M] mapped → [D] dupes → [V] malformed → top 20 ranked. Most-missing field: [field] ([count]).",
+  "implement_telemetry_format": "Implement: {plan_id} {implement_mode} {status}",
+  "status_telemetry_format": "Forge drain: {top_20_real_pass}/{top_20_total} cloud top real PASS · {cloud_shippable_remaining} cloud pending · {overlay_count} total shipped | Forge cloud queue complete · {overlay_count} total shipped · {mac_control_excluded} mac observe-only excluded",
   "required_railway_env": [
     "FORGE_GITHUB_OWNER",
     "FORGE_GITHUB_REPO",
     "FORGE_GITHUB_PLANS_PATH",
     "FORGE_GITHUB_REF",
-    "GITHUB_TOKEN"
+    "GITHUB_TOKEN",
+    "OPENROUTER_API_KEY"
   ],
-  "required_railway_env_note": "GITHUB_TOKEN required for private GitHub repos (read-only Contents API). Without token, worker uses bundled plans/ fallback (FORGE_V02_BUNDLED_FALLBACK=1, default).",
+  "required_railway_env_note": "Sync via: python3 scripts/sync_forge_railway_env_v1.py",
   "bundled_fallback_env": "FORGE_V02_BUNDLED_FALLBACK",
   "fetch_sources": ["github_api", "bundled_fallback", "fixture"]
 }

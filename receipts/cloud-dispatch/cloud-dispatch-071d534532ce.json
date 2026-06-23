@@ -1,0 +1,31 @@
+{
+  "schema": "cloud-dispatch-receipt-v1",
+  "receipt_id": "cloud-dispatch-071d534532ce",
+  "plan_id": "CLOUD-LD-006",
+  "maps_registry": "sa-mkt-ld-0006",
+  "": "LaunchDarkly",
+  "workstream": "ws-run",
+  "tier": "T1",
+  "cloud_action": "Evidence row \u2014 sub-200ms config propagation vs Hub\u2192Railway proxy",
+  "at": "2026-06-21T04:34:25Z",
+  "execution_plane": "cloud_forge",
+  "source_url": "https://launchdarkly.com/docs/home/agentcontrol",
+  "http_status": 200,
+  "bytes_fetched": 500000,
+  "evidence_snippets": [
+    "AgentControl | LaunchDarkly | Documentation",
+    "Run experiments with AgentControl Agents Agent graphs Config targeting Monitor conf",
+    "run time Analyzing experiments Experiment results data Bayesian experiment results",
+    "Run experiments to measure the impact of generative AI features on end-user behavio",
+    "run targeted experiments, and adopt new models safely without being locked into a s",
+    "Run experiments with AgentControl Agents Agents Agent graphs Deliver and monitor co",
+    "step workflows using structured instructions",
+    "step model responses",
+    "step workflows",
+    "Pricing Sign in Try it free Docs Guides SDKs Integrations API docs Tutorials Flagship blog Search / Docs Guides SDKs Integratio"
+  ],
+  "ok": true,
+  "status": "PASS",
+  "receipt_path": "/Users/sinakazemnezhad/Desktop/SourceA/receipts/cloud-dispatch/cloud-dispatch-071d534532ce.json",
+  "receipt_url": "/receipts/cloud-dispatch/cloud-dispatch-071d534532ce.json"
+}

@@ -1,10 +1,12 @@
-# Portfolio consolidation — trial Vercel → main GitHub + main Vercel
+# Portfolio consolidation — trial Vercel → main GitHub + Cloudflare Pages
 
-**Saved:** 2026-06-21T01:35:00Z · **Authority:** ASF
+**Saved:** 2026-06-21T01:35:00Z · **Updated:** 2026-06-23 — CF migration target  
+**Authority:** ASF  
+**Next:** `docs/PORTFOLIO_CLOUDFLARE_MIGRATION_LOCKED_v1.md` · `data/portfolio-cloudflare-migration-v1.json`
 
 ## One law
 
-All latest commercial code lives in **`kazemnezhadsina144-dot/SourceA`** monorepo → deployed on **`the-777-foundation`**. Cloudflare = DNS only.
+All latest commercial code lives in **`kazemnezhadsina144-dot/SourceA`** monorepo. **Vercel = interim** until **Cloudflare Pages** green on main account for sourcea.com · trustfield.ca · noetfield.com.
 
 ## Main Vercel projects (the-777-foundation)
 

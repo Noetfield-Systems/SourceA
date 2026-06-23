@@ -467,7 +467,6 @@ def _surfaces_from_bundle(bundle: dict) -> dict:
             "hub_action": hub_label,
             "hub_url": str(route.get("hub_url") or "http://127.0.0.1:13020/"),
             "h2_machines_url": str(route.get("h2_machines_url") or "http://127.0.0.1:13020/machines/"),
-            "museum_url": str(route.get("museum_url") or "http://127.0.0.1:13020/legacy/"),
             "form_action_id": str(route.get("form_action_id") or "founder-open-integrity-form"),
             "form_hub_line": str(route.get("form_hub_line") or ""),
             "law": "INCIDENT-029 · INTEGRITY PACK 5 slot D",

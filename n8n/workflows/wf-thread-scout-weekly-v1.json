@@ -2,7 +2,7 @@
   "name": "wf-thread-scout-weekly-v1",
   "nodes": [
     {
-      "id": "20feee6d-d74a-4452-82e3-4a942eb10cf7",
+      "id": "045c3456-89db-4d42-91f2-8e0243a772f2",
       "name": "Schedule",
       "type": "n8n-nodes-base.cron",
       "typeVersion": 1,
@@ -22,12 +22,23 @@
       ]
     },
     {
-      "id": "d9c16f71-4f8b-4604-9260-3f75c8cd1cc2",
-      "name": "Glue runner",
-      "type": "n8n-nodes-base.executeCommand",
-      "typeVersion": 1,
+      "id": "8cd26d5e-7d22-457c-ba75-8d70eced7abf",
+      "name": "Hub glue",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
       "parameters": {
-        "command": "cd ~/Desktop/SourceA/scripts && python3 n8n_glue_runner_v1.py thread-scout"
+        "method": "POST",
+        "url": "http://127.0.0.1:13020/api/cloud-workers/v1",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"action\": \"glue_run\", \"command\": \"thread-scout\"}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
       },
       "position": [
         280,
@@ -40,7 +51,7 @@
       "main": [
         [
           {
-            "node": "Glue runner",
+            "node": "Hub glue",
             "type": "main",
             "index": 0
           }

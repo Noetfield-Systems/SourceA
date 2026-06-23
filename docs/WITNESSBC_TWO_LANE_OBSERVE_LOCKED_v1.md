@@ -37,7 +37,7 @@ Specialized journalism desk on **AI policy**, **governance**, and **agentic star
 | `/observe/principles/` | Editorial standards (AI policy reporting) |
 | `/observe/corrections/` | Visible corrections log + request form |
 
-**Not** general BC civic journalism at `/` — that positioning is retired. Archive: `archive/witnessbc-journalism-clone-v1/`.
+**Not** general BC civic journalism at `/` — that positioning is retired. Archive: `archive/stale/retired-products/witnessbc-journalism-clone-v1/`.
 
 ---
 

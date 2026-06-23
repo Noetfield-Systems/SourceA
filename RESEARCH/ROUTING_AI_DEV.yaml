@@ -1,9 +1,0 @@
-subject: ai_dev
-label: AI Dev / Cloud IDE
-thread: THREAD-CURSOR-OS-PRO
-artifact_count: 1
-by_worker:
-  research_acquisitor:
-  - trace_id: 2026-06-06_CLOUD_IDE_AGENTS
-    date: '2026-06-06'
-    path: by_date/2026-06-06/research_acquisitor/ai_dev/2026-06-06_CLOUD_IDE_AGENTS/2026-06-06_CLOUD_IDE_AGENTS.yaml

@@ -2748,32 +2748,6 @@ def _bootstrap_vault_env() -> None:
             os.environ[k] = v.strip().strip('"').strip("'")
 
 
-def _kick_autorun_on_hub_start() -> None:
-    """Background kick — spawn worker batch when hub binds (no ASF tap)."""
-    if os.environ.get("SINA_AUTORUN_DISABLED", "").strip().lower() in ("1", "true", "yes"):
-        return
-
-    def _run() -> None:
-        import time
-
-        time.sleep(2.0)
-        script = SOURCE_A / "scripts" / "auto_start_worker_batch_on_hub_v1.sh"
-        if not script.is_file():
-            return
-        try:
-            subprocess.Popen(
-                ["bash", str(script)],
-                cwd=str(SOURCE_A),
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
-                start_new_session=True,
-            )
-        except OSError:
-            pass
-
-    threading.Thread(target=_run, daemon=True, name="autorun-hub-kick").start()
-
-
 def main() -> None:
     _bootstrap_vault_env()
     if not PANEL_DIR.is_dir():
@@ -2785,7 +2759,6 @@ def main() -> None:
     if not data_file.is_file():
         hub_after_mutation(write_html=True)
     server = ThreadingHTTPServer(("127.0.0.1", PORT), SinaCommandHandler)
-    _kick_autorun_on_hub_start()
     print(f"Hub → http://127.0.0.1:{PORT}/", flush=True)
     print("  UI + API unified — use Refresh for live rebuild", flush=True)
     server.serve_forever()

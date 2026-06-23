@@ -2,7 +2,7 @@
   "name": "wf-governance-fast-15m-v1",
   "nodes": [
     {
-      "id": "34653af3-b676-411f-bf7c-5bfeeeb4d50f",
+      "id": "ee6532d9-e961-4a9e-ab13-864688a9b545",
       "name": "Schedule",
       "type": "n8n-nodes-base.cron",
       "typeVersion": 1,
@@ -22,12 +22,23 @@
       ]
     },
     {
-      "id": "12087425-550e-4a2d-b487-9e2180f2cbb6",
-      "name": "Glue runner",
-      "type": "n8n-nodes-base.executeCommand",
-      "typeVersion": 1,
+      "id": "fb8ddd48-8d55-49bd-93be-6acfa53561c6",
+      "name": "Hub glue",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
       "parameters": {
-        "command": "cd ~/Desktop/SourceA/scripts && python3 n8n_glue_runner_v1.py governance-fast"
+        "method": "POST",
+        "url": "http://127.0.0.1:13020/api/cloud-workers/v1",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"action\": \"glue_run\", \"command\": \"governance-fast\"}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
       },
       "position": [
         280,
@@ -40,7 +51,7 @@
       "main": [
         [
           {
-            "node": "Glue runner",
+            "node": "Hub glue",
             "type": "main",
             "index": 0
           }

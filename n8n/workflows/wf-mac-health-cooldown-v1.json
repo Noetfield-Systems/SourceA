@@ -2,7 +2,7 @@
   "name": "wf-mac-health-cooldown-v1",
   "nodes": [
     {
-      "id": "7eecd622-0a74-4af2-9e3e-8cec77946167",
+      "id": "baa78b6d-c586-4290-991a-3a8f53ad8c35",
       "name": "Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
@@ -17,12 +17,23 @@
       ]
     },
     {
-      "id": "f59a5e98-7c88-42f7-bd6f-cb43911e8b60",
-      "name": "Glue runner",
-      "type": "n8n-nodes-base.executeCommand",
-      "typeVersion": 1,
+      "id": "98e1be9b-a3e6-4adf-b3cf-6dd2c23b9d25",
+      "name": "Hub glue",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
       "parameters": {
-        "command": "cd ~/Desktop/SourceA/scripts && python3 n8n_glue_runner_v1.py cooldown-ingest --payload '{{ JSON.stringify($json) }}'"
+        "method": "POST",
+        "url": "http://127.0.0.1:13020/api/cloud-workers/v1",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ action: 'glue_run', command: 'cooldown-ingest', payload: $json }) }}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
       },
       "position": [
         280,
@@ -35,7 +46,7 @@
       "main": [
         [
           {
-            "node": "Glue runner",
+            "node": "Hub glue",
             "type": "main",
             "index": 0
           }
@@ -49,18 +60,6 @@
   },
   "meta": {
     "schema": "sina-n8n-glue-workflow-v1",
-    "glue_command": "cooldown-ingest",
-    "commercial": {
-      "schema": "n8n-workflow-commercial-v1",
-      "sku_id": "SKU-SOLO-001",
-      "product_name": "Mac Guard Solo",
-      "setup_usd": 0,
-      "monthly_usd": 99,
-      "buyer_icp": "Solo founder \u00b7 Cursor power user",
-      "sell_line": "$99/mo \u2014 Mac relief + weekly report. No setup fee.",
-      "proof_export": "scripts/n8n_commercial_grade_v1.py --pack",
-      "w3_signal": "first paid month"
-    },
-    "commercial_grade_at": "2026-06-15T06:09:28Z"
+    "glue_command": "cooldown-ingest"
   }
 }

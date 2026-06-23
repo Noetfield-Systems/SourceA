@@ -1,7 +1,14 @@
 ---
 description: Mandatory UI upgrade — general UP checklist + per-app ledger for every website/app
 globs:
-alwaysApply: true
+  - "**/*.html"
+  - "**/*.css"
+  - "**/*.js"
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/*.vue"
+  - "**/*.canvas.tsx"
+alwaysApply: false
 ---
 
 # UI upgrade mandatory — FIRST CHECK always (general + per-app ledger)

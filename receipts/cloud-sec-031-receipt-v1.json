@@ -1,0 +1,241 @@
+{
+  "schema": "cloud-sec-receipt-v1",
+  "id": "CLOUD-SEC-031",
+  "maps_registry": "sa-mkt-0031",
+  "ok": true,
+  "dry_run": false,
+  "full_motor": true,
+  "hub_proceed": true,
+  "forge_dispatch": {
+    "schema": "fbe-cloud-adapter-receipt-v1",
+    "ok": true,
+    "at": "2026-06-22T11:16:56Z",
+    "mode": "w5_headless",
+    "submit_mode": "in_process",
+    "run_mode": "forge",
+    "template_id": "forge-app-factory-v1",
+    "work_order_id": "sa-mkt-0031",
+    "tenant": "forge",
+    "bay_slug": "forge-bay",
+    "execution_plane": "headless_w5",
+    "dry_run": false,
+    "skeleton": {
+      "dockerfile": true,
+      "entrypoint": true,
+      "entrypoint_executable": true,
+      "bay_jobs": true,
+      "headless_bypass": true
+    },
+    "run_result": {
+      "schema": "fbe-run-job-receipt-v1",
+      "ok": true,
+      "at": "2026-06-22T11:16:56Z",
+      "wave": "W5",
+      "factory_id": "factory_3",
+      "bay_slug": "forge-bay",
+      "template_id": "forge-app-factory-v1",
+      "tenant": "forge",
+      "work_order_id": "sa-mkt-0031",
+      "mode": "in_process",
+      "execution_plane": "headless_w5",
+      "deliveryMode": "prove_only",
+      "tier_target": "GOLD",
+      "tier_achieved": "GOLD",
+      "lines": {
+        "motor": {
+          "ok": true,
+          "proof": "motor_verify PASS"
+        },
+        "refinery": {
+          "ok": true,
+          "proof": "forge_refinery via forge_runner"
+        },
+        "assembly": {
+          "ok": true,
+          "proof": "forge_assembly via forge_runner"
+        }
+      },
+      "federated_ok": true,
+      "market_ready_proof": "forge_verify PASS",
+      "artifact_uri": "receipts/packs/forge-bay/run-receipt-v1.zip",
+      "receipt_pack_uri": "receipts/packs/forge-bay/run-receipt-v1.zip",
+      "mono_bridge": "reachable",
+      "cloud_sync": "pull_assembly_receipts",
+      "forge_router": {
+        "schema": "forge-router-execute-v0.1",
+        "ok": true,
+        "at": "2026-06-22T11:16:56Z",
+        "run_id": "forge-run-20260622T111656-sa-mkt-0031",
+        "tasks_run": 3,
+        "cost_usd_total": 0.11,
+        "cost_cap_usd": 2.0,
+        "results": [
+          {
+            "task_id": "T1",
+            "route": "gemini_context",
+            "cost_usd": 0.03,
+            "ok": true,
+            "stub": true,
+            "note": "MVP stub \u2014 cloud key lane gemini_context"
+          },
+          {
+            "task_id": "T2",
+            "route": "claude_code",
+            "cost_usd": 0.08,
+            "ok": true,
+            "stub": true,
+            "note": "MVP stub \u2014 cloud key lane claude_code"
+          },
+          {
+            "task_id": "T3",
+            "route": "sandbox",
+            "cost_usd": 0.0,
+            "ok": true,
+            "note": "delegated_to_fbe_w5_wrappers"
+          }
+        ]
+      },
+      "forge_critic": {
+        "ok": true,
+        "schema": "forge-critic-loop-v0.1",
+        "at": "2026-06-22T11:16:56Z",
+        "replans": 0,
+        "final_verdict": "PASS",
+        "history": [
+          {
+            "replan": 0,
+            "eval": {
+              "schema": "forge-critic-eval-v0.1",
+              "at": "2026-06-22T11:16:56Z",
+              "run_id": "forge-run-20260622T111656-sa-mkt-0031",
+              "verdict": "PASS",
+              "intent": "SourceA  parity \u00b7 Trigger.dev \u00b7 ws-onboard",
+              "cost_usd_total": 0.11,
+              "reasons": []
+            },
+            "run_id": "forge-run-20260622T111656-sa-mkt-0031"
+          }
+        ]
+      },
+      "forge_context": {
+        "plan_id": "sa-mkt-0031",
+        "run_id": "forge-run-20260622T111656-sa-mkt-0031",
+        "task_graph_path": "/app/receipts/bays/forge-bay/trace/forge-run-20260622T111656-sa-mkt-0031-task-graph.json",
+        "stack": "SourceA",
+        "stack_key": "sourcea",
+        "": "Trigger.dev",
+        "workstream": "ws-onboard",
+        "phase": "phase-c01-trigger-dev",
+        "prompt_abs": "/app/brain-os/plan-registry/sourcea--1000/prompts/phase-c01-trigger-dev/ws-onboard/sa-mkt-0031.md",
+        "execution_mode": "CLOUD_ONLY",
+        "preview_url": null,
+        "task_graph": {
+          "schema": "forge-task-graph-v0.1",
+          "version": "0.1.0",
+          "run_id": "forge-run-20260622T111656-sa-mkt-0031",
+          "saved_at": "2026-06-22T11:16:56Z",
+          "prompt": {
+            "raw": "Document Trigger.dev onboarding path (Open source \u2192 dev community \u2192 PLG cloud tiers): who runs (Vendor-managed cloud; optional self-host MIT) \u2192 first value moment",
+            "intent": "SourceA  parity \u00b7 Trigger.dev \u00b7 ws-onboard",
+            "constraints": [
+              "cloud_only",
+              "receipt_required",
+              "mac_build_forbidden"
+            ],
+            "entities": [
+              "Trigger.dev",
+              "ws-onboard"
+            ],
+            "risk_signals": []
+          },
+          "tasks": [
+            {
+              "id": "T1",
+              "kind": "research",
+              "title": "Trigger.dev \u00b7 ws-onboard \u00b7 research",
+              "depends_on": [],
+              "route_hint": "gemini_context",
+              "artifact_out": "forge-run-20260622T111656-sa-mkt-0031/T1"
+            },
+            {
+              "id": "T2",
+              "kind": "code_gen",
+              "title": "Trigger.dev \u00b7 ws-onboard \u00b7 code_gen",
+              "depends_on": [
+                "T1"
+              ],
+              "route_hint": "claude_code",
+              "artifact_out": "forge-run-20260622T111656-sa-mkt-0031/T2"
+            },
+            {
+              "id": "T3",
+              "kind": "validate",
+              "title": "Trigger.dev \u00b7 ws-onboard \u00b7 validate",
+              "depends_on": [
+                "T2"
+              ],
+              "route_hint": "sandbox",
+              "artifact_out": "forge-run-20260622T111656-sa-mkt-0031/T3"
+            },
+            {
+              "id": "T4",
+              "kind": "evaluate",
+              "title": "Critic evaluate vs intent",
+              "depends_on": [
+                "T3"
+              ],
+              "route_hint": "gpt_control"
+            }
+          ],
+          "edges": [
+            {
+              "from": "T1",
+              "to": "T2"
+            },
+            {
+              "from": "T2",
+              "to": "T3"
+            },
+            {
+              "from": "T3",
+              "to": "T4"
+            }
+          ],
+          "meta_loop": {
+            "max_replan": 2,
+            "on_fail": "replan"
+          },
+          "work_order": {
+            "plan_id": "sa-mkt-0031",
+            "stack": "SourceA",
+            "stack_key": "sourcea",
+            "tenant": "forge",
+            "": "Trigger.dev",
+            "workstream": "ws-onboard",
+            "prompt_abs": "/app/brain-os/plan-registry/sourcea--1000/prompts/phase-c01-trigger-dev/ws-onboard/sa-mkt-0031.md"
+          }
+        }
+      },
+      "proof_class": "G0-G3",
+      "run_mode": "forge"
+    },
+    "forge_context": "<cycle>",
+    "remote_status": "local_primary",
+    "wave": "W5",
+    "_plan": "<cycle>",
+    "task_graph_path": "/app/receipts/bays/forge-bay/trace/forge-run-20260622T111656-sa-mkt-0031-task-graph.json",
+    "run_id": "forge-run-20260622T111656-sa-mkt-0031",
+    "forge_loop": [
+      "reasoning",
+      "planning_dag",
+      "routing_openrouter",
+      "execution_workers",
+      "verification_critic",
+      "aggregation",
+      "meta_replan"
+    ],
+    "mac_build_forbidden": true
+  },
+  "at": "2026-06-22T11:16:56Z",
+  "evidence": "CLOUD-SEC-031 \u00b7 sa-mkt-0031 \u00b7 PASS \u00b7 openrouter on cloud"
+}

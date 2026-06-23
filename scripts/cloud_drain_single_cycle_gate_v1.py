@@ -99,12 +99,33 @@ def halt_response(
     }
 
 
-def claim_or_halt(*, path: str, trigger_source: str = "unknown") -> dict[str, Any] | None:
+def claim_or_halt(
+    *,
+    path: str,
+    trigger_source: str = "unknown",
+    after_pass: bool = False,
+) -> dict[str, Any] | None:
     """Claim this cycle or return a halt payload. None means proceed."""
     if not is_gated_path(path):
         return None
 
     state = _read_gate()
+    if after_pass:
+        _write_gate(
+            {
+                **state,
+                "schema": SCHEMA,
+                "halted": False,
+                "halt_reason": None,
+                "halt_at": None,
+                "last_completed_at": _now(),
+                "last_completed_path": path,
+                "last_completed_trigger_source": trigger_source,
+                "cycle_seconds": CYCLE_SECONDS,
+            }
+        )
+        return None
+
     if state.get("halted"):
         return halt_response(
             path=path,

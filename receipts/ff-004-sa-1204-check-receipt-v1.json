@@ -1,0 +1,10 @@
+{
+  "schema": "forge-factory-cycle2-check-v1",
+  "sa_id": "sa-1204",
+  "hp_id": "ff-004",
+  "round_type": "check",
+  "ok": true,
+  "at": "2026-06-21T02:00:00Z",
+  "evidence": "CHECK PASS — www.witnessbc.com journalism_stale=true · preview commercial markers GREEN · DNS gap documented",
+  "probe": "data/wbc-dns-cutover-checklist-v1.json"
+}

@@ -7,9 +7,9 @@
 
 ---
 
-**Current Goal:** Goal 3 — FORGE FACTORY (Goal 2 merged · Goal 1 archived)
+**Current Goal:** Goal 1 — Controlled automation factory → Pre-LLM eval-dispatch spine (archived idle)
 
-**Current Sprint:** FORGE FACTORY cycle2 — cloud execute · Mac control panel
+**Current Sprint:** Goal 1 honest complete · commercial flywheel · Hub advisory
 
 **Current Founder Mode:** `founder_absent`
 
@@ -17,11 +17,11 @@
 
 **Current Cost Policy:** `cost_smart_default`
 
-**Current Queue:** `~/.sina/healthy-queue-30-active.json` · FORGE FACTORY cycle2 · `sa-1201`
+**Current Queue:** `~/.sina/healthy-queue-30-active.json` · factory-now queue `?` · **Goal 1 idle (archived)**
 
-**Current sa_id:** `sa-1202` · FORGE FACTORY cycle2
+**Current sa_id:** `idle` · Goal 1 complete
 
-**Current Blocker:** FORGE FACTORY active · mode FORGE_FACTORY · `factory-now · FORGE FACTORY · cycle2 · mode FORGE_FACTORY · queue sa-1201` · commercial P0 parallel (WitnessBC · TrustField · form picks)
+**Current Blocker:** Goal 1 complete · queue idle · AUTO-RUN FREEZE · `factory-now · Valid YES 1000 · brain 1000 · dual_proof True · mode FREEZE · queue ` · commercial P0 · ASF: resume drain or name Cycle 4 pack for next factory drain
 
 **Resume law (Phase 2 pick 1.05-B — ASF locked 2026-06-11):** **One sa/turn** on Brain route only when kill flag ON. Founder says `ASF: resume drain — max 1 — receipt required`. Maintainer runs `python3 scripts/factory_control_v1.py resume --max-turns 1` (or `founder_resume_drain_v1.py --max-turns 1`). Never unbounded drain · never `rm ~/.sina/auto-run-disabled-v1.flag`. Hub Stop → `stop_goal1_auto_run_v1.py` (stop receipt).
 

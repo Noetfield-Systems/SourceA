@@ -2,7 +2,7 @@
   "name": "wf-founder-request-registrar-v1",
   "nodes": [
     {
-      "id": "95914a04-1209-44cd-8997-ea1676f74c70",
+      "id": "fb39c7f0-ab6b-4e85-9162-076a2f4356ae",
       "name": "Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
@@ -17,12 +17,23 @@
       ]
     },
     {
-      "id": "9a2891d8-1dae-484b-9ed6-594a00abdefb",
-      "name": "Glue runner",
-      "type": "n8n-nodes-base.executeCommand",
-      "typeVersion": 1,
+      "id": "02394885-07a0-4fd8-9da5-117fbf9123ce",
+      "name": "Hub glue",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
       "parameters": {
-        "command": "cd ~/Desktop/SourceA/scripts && python3 n8n_glue_runner_v1.py founder-request --payload '{{ JSON.stringify($json) }}'"
+        "method": "POST",
+        "url": "http://127.0.0.1:13020/api/cloud-workers/v1",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ action: 'glue_run', command: 'founder-request', payload: $json }) }}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
       },
       "position": [
         280,
@@ -35,7 +46,7 @@
       "main": [
         [
           {
-            "node": "Glue runner",
+            "node": "Hub glue",
             "type": "main",
             "index": 0
           }

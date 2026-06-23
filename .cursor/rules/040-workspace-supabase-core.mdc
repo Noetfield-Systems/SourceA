@@ -1,6 +1,6 @@
 ---
 description: Supabase tier constitution — portfolio spine vs labs sandbox (ASF Virlux→Labs)
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Workspace Supabase core

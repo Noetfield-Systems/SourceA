@@ -1,7 +1,7 @@
 {
   "schema": "fbe-forge-step-receipt-v1",
   "ok": true,
-  "at": "2026-06-20T17:15:12Z",
+  "at": "2026-06-22T15:19:17Z",
   "node_id": "forge-scaffold-v1",
   "bay_slug": "forge-bay",
   "tenant": "forge",

@@ -2,7 +2,7 @@
   "name": "wf-judge-audit-batch-v1",
   "nodes": [
     {
-      "id": "2138c613-e038-445a-a6af-4847dca55966",
+      "id": "77cb1469-fab8-40c7-8d71-9e6a405345b0",
       "name": "Schedule",
       "type": "n8n-nodes-base.cron",
       "typeVersion": 1,
@@ -22,12 +22,23 @@
       ]
     },
     {
-      "id": "ab502e77-b623-4add-84d7-29125a05ef55",
-      "name": "Glue runner",
-      "type": "n8n-nodes-base.executeCommand",
-      "typeVersion": 1,
+      "id": "2473c216-bf14-4c54-b6c9-314b03571c8b",
+      "name": "Hub glue",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
       "parameters": {
-        "command": "cd ~/Desktop/SourceA/scripts && python3 n8n_glue_runner_v1.py judge-audit"
+        "method": "POST",
+        "url": "http://127.0.0.1:13020/api/cloud-workers/v1",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"action\": \"glue_run\", \"command\": \"judge-audit\"}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
       },
       "position": [
         280,
@@ -40,7 +51,7 @@
       "main": [
         [
           {
-            "node": "Glue runner",
+            "node": "Hub glue",
             "type": "main",
             "index": 0
           }

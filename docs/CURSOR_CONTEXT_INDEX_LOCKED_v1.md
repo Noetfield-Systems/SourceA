@@ -1,6 +1,6 @@
 # Cursor context index — LOCKED v1 (cache pointers, not mega-paste)
 
-**Version:** 1.0.0 · **Saved:** 2026-06-19T06:34:29Z · **Authority:** ASF · Corporate Promax bootstrap  
+**Version:** 1.0.0 · **Saved:** 2026-06-21T19:46:56Z · **Authority:** ASF · Corporate Promax bootstrap  
 **Path:** `docs/CURSOR_CONTEXT_INDEX_LOCKED_v1.md`  
 **Replaces:** naive `COMPLETE_CONTEXT.md` megafile — INCIDENT-034 anti-staleness law
 
@@ -21,6 +21,7 @@
 | 3 | `~/.sina/agent-live-surfaces-v1.json` | `factory_now_line` |
 | 4 | `data/cursor-bootstrap-ledger-v1.json` | Architecture GPS |
 | 5 | `brain-os/law/entry/START_HERE_LOCKED_v1.md` | Role picker |
+| 6 | `brain-os/law/enforcement/SOURCEA_CURSOR_COST_INTELLIGENCE_ROUTING_LOCKED_v1.md` | Cursor pools · disk map · 8-rule cap |
 
 ---
 

@@ -1,0 +1,83 @@
+---
+description: Task / plan validation — on when discussing tasks (flag + requestable)
+alwaysApply: false
+---
+
+# Task / plan validation (LOCKED — always-on · all agents)
+
+**SSOT:** `data/sourcea-next-task-trigger-v1.json` v2.0.0  
+**Machine:** `scripts/next_task_trigger_v1.py`  
+**Validator:** `bash scripts/validate-next-task-trigger-v1.sh`  
+**Always flag:** `~/.sina/task-plan-validation-always-v1.flag`
+
+## One law
+
+> **Every agent discussing ANY task or plan must run the tiny validation pipeline — not only on NEXT TASK trigger. Validate before proceed.**
+
+Applies whenever founder or agent talks about: backlog rows · work orders · upgrade plans · cloud drain · B#### · sa-mkt-#### · CLOUD-SEC-### · execute/proceed · usefulness · real-world output.
+
+## Trigger phrases (also activate explicit NEXT TASK mode)
+
+**next task** · **NEXT TASK** · **what is the next task** · **finish the next**
+
+## Mandatory sequence
+
+**Every session (baseline):**
+
+```bash
+python3 scripts/next_task_trigger_v1.py --refresh --json
+```
+
+**When founder message or task id is known:**
+
+```bash
+python3 scripts/next_task_trigger_v1.py --activate --text "<founder message>" --json
+python3 scripts/next_task_trigger_v1.py --refresh --task-id B0006 --json
+python3 scripts/next_task_trigger_v1.py --refresh --plan-id sa-mkt-0003 --json
+```
+
+Read receipt `pipeline` block. Reply MUST include:
+
+| Section | Agent answers |
+|---------|----------------|
+| **What is this task?** | Resolved id(s) · title · cloud_action · resolution source |
+| **Benefit and priority** | P0–P4 stack · north-star fit · because/so |
+| **Real-world output** | Type: `file_generation` · `marketing_system` · `ai_agent_product` · `data_pipeline` · `internal_meta` |
+| **Usefulness verdict** | `useful` · `noise` · `blocked` · `needs_founder_answer` |
+| **Proceed?** | `yes` · `no` · `wait` · `ask_founder` |
+
+## Required founder question (state once)
+
+> What is the real-world output supposed to be?
+
+## Forbidden (always)
+
+- Discussing or executing a task/plan without pipeline sections
+- Marking `cloud_proof` when verdict is `noise`
+- Queue drain without usefulness verdict
+- Treating internal_meta receipt as product progress
+
+## Applies to
+
+SourceA Brain · SourceA Worker · any Cursor agent in `~/Desktop/SourceA`
+
+## Unified priority stack (P0–P4 — smart rank)
+
+**SSOT:** `data/sourcea-task-plan-priority-v1.json`  
+**Machine:** `python3 scripts/task_plan_priority_v1.py --refresh --json`  
+**Receipt line:** `task_plan_priority_line` on live surfaces
+
+| Priority | Lane |
+|----------|------|
+| **P0** | Founder form picks + nerve cascade |
+| **P1** | Cloud FORGE / sa-mkt / full motor |
+| **P2** | Noetfield freemium cloud bay |
+| **P3** | TrustField / outbound / GTM |
+| **P4** | Brain meta — only when paired with product output |
+
+Agents MUST cite unified priority in **Benefit and priority** section. Machines (`plans_unified_upgrade`) refresh smart_pick every tick.
+
+## Related
+
+- `029-main-problem-trigger-v1.mdc` — north star (different trigger)
+- `027-agent-report-plan-story-v1.mdc` — plain English first

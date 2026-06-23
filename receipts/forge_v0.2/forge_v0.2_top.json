@@ -1,0 +1,768 @@
+{
+  "schema": "forge-v0.2-top",
+  "at": "2026-06-21T04:07:23Z",
+  "telemetry_line": "Forge v0.2: 100 real \u2192 100 mapped \u2192 0 dupes \u2192 0 malformed \u2192 top 20 ranked. Most-missing field: none (0).",
+  "fetch_source": "bundled_fallback",
+  "win_test_question": "Are these the 20 you would have picked by hand, or better?",
+  "win_test_card": [
+    "CLOUD-SEC-005 score=44 [ws-ux|Trigger.dev] Diff copy vs Trigger.dev \u2014 fix top gap in cloud repo",
+    "CLOUD-SEC-024 score=42 [ws-run|Trigger.dev] Wire cloud factory receipt emit on run complete",
+    "CLOUD-SEC-003 score=40 [ws-ux|Trigger.dev] Cloud sandbox smallest Hub UX slice \u2014 FORGE deploy preview URL",
+    "CLOUD-SEC-038 score=40 [ws-onboard|Trigger.dev] Wire cloud dispatch hook for onboarding \u2014 API only",
+    "CLOUD-SEC-088 score=40 [ws-onboard|Inngest] Wire cloud dispatch hook onboarding",
+    "CLOUD-SEC-007 score=36 [ws-ux|Trigger.dev] ICP one-liner evidence row \u2014 Trigger.dev vs ours",
+    "CLOUD-SEC-015 score=36 [ws-pricing|Trigger.dev] PLG motion compare row \u2014 Trigger.dev vs us",
+    "CLOUD-SEC-016 score=36 [ws-pricing|Trigger.dev] Why buyers pay \u2014 evidence paragraph",
+    "CLOUD-SEC-017 score=36 [ws-pricing|Trigger.dev] Upgrade CTA on cloud preview",
+    "CLOUD-SEC-025 score=36 [ws-run|Trigger.dev] Retention note vs Trigger.dev tiers",
+    "CLOUD-SEC-026 score=36 [ws-run|Trigger.dev] Surface run id + link in cloud Hub projection",
+    "CLOUD-SEC-027 score=36 [ws-run|Trigger.dev] Attribute infra vs agent failure class",
+    "CLOUD-SEC-035 score=36 [ws-onboard|Trigger.dev] Pair onboarding with run-detail receipt \u2014 cloud",
+    "CLOUD-SEC-036 score=36 [ws-onboard|Trigger.dev] SOW snippet if services-led \u2014 vault row",
+    "CLOUD-SEC-045 score=36 [ws-integrate|Trigger.dev] Log external calls on cloud run timeline",
+    "CLOUD-SEC-046 score=36 [ws-integrate|Trigger.dev] Document secrets path ~/.sourcea-secrets",
+    "CLOUD-SEC-047 score=36 [ws-integrate|Trigger.dev] Rate-limit + retry policy from Trigger.dev model",
+    "CLOUD-SEC-055 score=36 [ws-ux|Inngest] Diff copy vs Inngest \u2014 cloud fix P0 gap",
+    "CLOUD-SEC-057 score=36 [ws-ux|Inngest] ICP compare Inngest vs ours \u2014 evidence row",
+    "CLOUD-SEC-065 score=36 [ws-pricing|Inngest] Dev-first PLG compare row"
+  ],
+  "github": {
+    "owner": "kazemnezhadsina144-dot",
+    "repo": "SourceA",
+    "plans_path": "plans",
+    "ref": "main"
+  },
+  "funnel": {
+    "totalReal": 100,
+    "mappedClean": 100,
+    "dupesDropped": 0,
+    "malformedDropped": 0,
+    "alreadyHaveDropped": 14,
+    "validRemaining": 86
+  },
+  "top_20": [
+    {
+      "id": "CLOUD-SEC-005",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Diff copy vs Trigger.dev \u2014 fix top gap in cloud repo",
+        "workstream": "ws-ux",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0005"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-005.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 44,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 8,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; pattern +8; tier +6 \u2014 Diff copy vs Trigger.dev \u2014 fix top gap in cloud repo",
+      "win_test_line": "CLOUD-SEC-005 score=44 [ws-ux|Trigger.dev] Diff copy vs Trigger.dev \u2014 fix top gap in cloud repo"
+    },
+    {
+      "id": "CLOUD-SEC-024",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Wire cloud factory receipt emit on run complete",
+        "workstream": "ws-run",
+        "tier": "T1",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0024"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-024.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "worker_run_dashboard",
+        "client_problem_id": "P1-run-visibility"
+      },
+      "core_capability": "worker_run_dashboard",
+      "client_problem": "P1-run-visibility",
+      "score": 42,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 8,
+        "tier_adjustment": 4
+      },
+      "reason": "core capability match; client problem match; minimal deps; pattern +8; tier +4 \u2014 Wire cloud factory receipt emit on run complete",
+      "win_test_line": "CLOUD-SEC-024 score=42 [ws-run|Trigger.dev] Wire cloud factory receipt emit on run complete"
+    },
+    {
+      "id": "CLOUD-SEC-003",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Cloud sandbox smallest Hub UX slice \u2014 FORGE deploy preview URL",
+        "workstream": "ws-ux",
+        "tier": "T1",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0003"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-003.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 40,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 6,
+        "tier_adjustment": 4
+      },
+      "reason": "core capability match; client problem match; minimal deps; pattern +6; tier +4 \u2014 Cloud sandbox smallest Hub UX slice \u2014 FORGE deploy preview URL",
+      "win_test_line": "CLOUD-SEC-003 score=40 [ws-ux|Trigger.dev] Cloud sandbox smallest Hub UX slice \u2014 FORGE deploy preview URL"
+    },
+    {
+      "id": "CLOUD-SEC-038",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Wire cloud dispatch hook for onboarding \u2014 API only",
+        "workstream": "ws-onboard",
+        "tier": "T3",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0038"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-038.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 40,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 14,
+        "tier_adjustment": -4
+      },
+      "reason": "core capability match; client problem match; minimal deps; pattern +14; tier -4 \u2014 Wire cloud dispatch hook for onboarding \u2014 API only",
+      "win_test_line": "CLOUD-SEC-038 score=40 [ws-onboard|Trigger.dev] Wire cloud dispatch hook for onboarding \u2014 API only"
+    },
+    {
+      "id": "CLOUD-SEC-088",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Wire cloud dispatch hook onboarding",
+        "workstream": "ws-onboard",
+        "tier": "T3",
+        "": "Inngest",
+        "maps_registry": "sa-mkt-0088"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-088.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 40,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 14,
+        "tier_adjustment": -4
+      },
+      "reason": "core capability match; client problem match; minimal deps; pattern +14; tier -4 \u2014 Wire cloud dispatch hook onboarding",
+      "win_test_line": "CLOUD-SEC-088 score=40 [ws-onboard|Inngest] Wire cloud dispatch hook onboarding"
+    },
+    {
+      "id": "CLOUD-SEC-007",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "ICP one-liner evidence row \u2014 Trigger.dev vs ours",
+        "workstream": "ws-ux",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0007"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-007.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 ICP one-liner evidence row \u2014 Trigger.dev vs ours",
+      "win_test_line": "CLOUD-SEC-007 score=36 [ws-ux|Trigger.dev] ICP one-liner evidence row \u2014 Trigger.dev vs ours"
+    },
+    {
+      "id": "CLOUD-SEC-015",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "PLG motion compare row \u2014 Trigger.dev vs us",
+        "workstream": "ws-pricing",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0015"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-015.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P3-pricing-clarity"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P3-pricing-clarity",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 PLG motion compare row \u2014 Trigger.dev vs us",
+      "win_test_line": "CLOUD-SEC-015 score=36 [ws-pricing|Trigger.dev] PLG motion compare row \u2014 Trigger.dev vs us"
+    },
+    {
+      "id": "CLOUD-SEC-016",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Why buyers pay \u2014 evidence paragraph",
+        "workstream": "ws-pricing",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0016"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-016.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P3-pricing-clarity"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P3-pricing-clarity",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Why buyers pay \u2014 evidence paragraph",
+      "win_test_line": "CLOUD-SEC-016 score=36 [ws-pricing|Trigger.dev] Why buyers pay \u2014 evidence paragraph"
+    },
+    {
+      "id": "CLOUD-SEC-017",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Upgrade CTA on cloud preview",
+        "workstream": "ws-pricing",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0017"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-017.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P3-pricing-clarity"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P3-pricing-clarity",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Upgrade CTA on cloud preview",
+      "win_test_line": "CLOUD-SEC-017 score=36 [ws-pricing|Trigger.dev] Upgrade CTA on cloud preview"
+    },
+    {
+      "id": "CLOUD-SEC-025",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Retention note vs Trigger.dev tiers",
+        "workstream": "ws-run",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0025"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-025.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "worker_run_dashboard",
+        "client_problem_id": "P1-run-visibility"
+      },
+      "core_capability": "worker_run_dashboard",
+      "client_problem": "P1-run-visibility",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Retention note vs Trigger.dev tiers",
+      "win_test_line": "CLOUD-SEC-025 score=36 [ws-run|Trigger.dev] Retention note vs Trigger.dev tiers"
+    },
+    {
+      "id": "CLOUD-SEC-026",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Surface run id + link in cloud Hub projection",
+        "workstream": "ws-run",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0026"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-026.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "worker_run_dashboard",
+        "client_problem_id": "P1-run-visibility"
+      },
+      "core_capability": "worker_run_dashboard",
+      "client_problem": "P1-run-visibility",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Surface run id + link in cloud Hub projection",
+      "win_test_line": "CLOUD-SEC-026 score=36 [ws-run|Trigger.dev] Surface run id + link in cloud Hub projection"
+    },
+    {
+      "id": "CLOUD-SEC-027",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Attribute infra vs agent failure class",
+        "workstream": "ws-run",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0027"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-027.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "worker_run_dashboard",
+        "client_problem_id": "P1-run-visibility"
+      },
+      "core_capability": "worker_run_dashboard",
+      "client_problem": "P1-run-visibility",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Attribute infra vs agent failure class",
+      "win_test_line": "CLOUD-SEC-027 score=36 [ws-run|Trigger.dev] Attribute infra vs agent failure class"
+    },
+    {
+      "id": "CLOUD-SEC-035",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Pair onboarding with run-detail receipt \u2014 cloud",
+        "workstream": "ws-onboard",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0035"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-035.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Pair onboarding with run-detail receipt \u2014 cloud",
+      "win_test_line": "CLOUD-SEC-035 score=36 [ws-onboard|Trigger.dev] Pair onboarding with run-detail receipt \u2014 cloud"
+    },
+    {
+      "id": "CLOUD-SEC-036",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "SOW snippet if services-led \u2014 vault row",
+        "workstream": "ws-onboard",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0036"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-036.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 SOW snippet if services-led \u2014 vault row",
+      "win_test_line": "CLOUD-SEC-036 score=36 [ws-onboard|Trigger.dev] SOW snippet if services-led \u2014 vault row"
+    },
+    {
+      "id": "CLOUD-SEC-045",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Log external calls on cloud run timeline",
+        "workstream": "ws-integrate",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0045"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-045.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "cloud_worker_dispatch_api",
+        "client_problem_id": "P0-trust-receipt-gap"
+      },
+      "core_capability": "cloud_worker_dispatch_api",
+      "client_problem": "P0-trust-receipt-gap",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Log external calls on cloud run timeline",
+      "win_test_line": "CLOUD-SEC-045 score=36 [ws-integrate|Trigger.dev] Log external calls on cloud run timeline"
+    },
+    {
+      "id": "CLOUD-SEC-046",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Document secrets path ~/.sourcea-secrets",
+        "workstream": "ws-integrate",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0046"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-046.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "cloud_worker_dispatch_api",
+        "client_problem_id": "P0-trust-receipt-gap"
+      },
+      "core_capability": "cloud_worker_dispatch_api",
+      "client_problem": "P0-trust-receipt-gap",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Document secrets path ~/.sourcea-secrets",
+      "win_test_line": "CLOUD-SEC-046 score=36 [ws-integrate|Trigger.dev] Document secrets path ~/.sourcea-secrets"
+    },
+    {
+      "id": "CLOUD-SEC-047",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Rate-limit + retry policy from Trigger.dev model",
+        "workstream": "ws-integrate",
+        "tier": "T2",
+        "": "Trigger.dev",
+        "maps_registry": "sa-mkt-0047"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-047.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "cloud_worker_dispatch_api",
+        "client_problem_id": "P0-trust-receipt-gap"
+      },
+      "core_capability": "cloud_worker_dispatch_api",
+      "client_problem": "P0-trust-receipt-gap",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Rate-limit + retry policy from Trigger.dev model",
+      "win_test_line": "CLOUD-SEC-047 score=36 [ws-integrate|Trigger.dev] Rate-limit + retry policy from Trigger.dev model"
+    },
+    {
+      "id": "CLOUD-SEC-055",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Diff copy vs Inngest \u2014 cloud fix P0 gap",
+        "workstream": "ws-ux",
+        "tier": "T2",
+        "": "Inngest",
+        "maps_registry": "sa-mkt-0055"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-055.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Diff copy vs Inngest \u2014 cloud fix P0 gap",
+      "win_test_line": "CLOUD-SEC-055 score=36 [ws-ux|Inngest] Diff copy vs Inngest \u2014 cloud fix P0 gap"
+    },
+    {
+      "id": "CLOUD-SEC-057",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "ICP compare Inngest vs ours \u2014 evidence row",
+        "workstream": "ws-ux",
+        "tier": "T2",
+        "": "Inngest",
+        "maps_registry": "sa-mkt-0057"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-057.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P2-onboard-friction"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P2-onboard-friction",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 ICP compare Inngest vs ours \u2014 evidence row",
+      "win_test_line": "CLOUD-SEC-057 score=36 [ws-ux|Inngest] ICP compare Inngest vs ours \u2014 evidence row"
+    },
+    {
+      "id": "CLOUD-SEC-065",
+      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "destination_repo": "sourcea/fbe-cloud-worker",
+      "inputs": {
+        "plane": "cloud_forge",
+        "action": "Dev-first PLG compare row",
+        "workstream": "ws-pricing",
+        "tier": "T2",
+        "": "Inngest",
+        "maps_registry": "sa-mkt-0065"
+      },
+      "outputs": {
+        "artifact": "cloud_receipt",
+        "receipt_url": "/receipts/cloud-dispatch/CLOUD-SEC-065.json"
+      },
+      "validation_rule": "cloud_forge_incident_038",
+      "metadata": {
+        "core_capability": "_evidence_pipeline",
+        "client_problem_id": "P3-pricing-clarity"
+      },
+      "core_capability": "_evidence_pipeline",
+      "client_problem": "P3-pricing-clarity",
+      "score": 36,
+      "score_breakdown": {
+        "core_capability": true,
+        "client_problem": true,
+        "minimal_dependencies": true,
+        "vague_keywords": false,
+        "already_implemented": false,
+        "pattern_adjustment": 0,
+        "tier_adjustment": 6
+      },
+      "reason": "core capability match; client problem match; minimal deps; tier +6 \u2014 Dev-first PLG compare row",
+      "win_test_line": "CLOUD-SEC-065 score=36 [ws-pricing|Inngest] Dev-first PLG compare row"
+    }
+  ],
+  "routed_summary": {
+    "sourcea/fbe-cloud-worker": 86
+  }
+}

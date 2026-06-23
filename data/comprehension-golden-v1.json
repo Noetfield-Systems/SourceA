@@ -1,0 +1,70 @@
+{
+  "schema": "comprehension-golden-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-21T02:00:00Z",
+  "bay_slug": "comprehension-loop-bay",
+  "promotion_gate": {
+    "min_pass_rate": 0.875,
+    "note": "Founder manual bump only — agents must not auto-promote active_variation_key"
+  },
+  "escalation_probe_draft": "sites=RED defer ON gate PASS wired but email blocked until DNS switches for you.",
+  "escalation_probe_founder_message": "why defer",
+  "cases": [
+    {
+      "id": "golden-001",
+      "draft": "You asked why email stays off. WitnessBC still shows old journalism on the live site, so outbound email stays blocked until prod DNS switches. TrustField and Noetfield load fine.",
+      "founder_message": "why defer",
+      "expect_verdict": "ACCEPT"
+    },
+    {
+      "id": "golden-002",
+      "draft": "sites=RED; defer flag ON; gate PASS; wired.",
+      "founder_message": "why",
+      "expect_verdict": "BLOCKED"
+    },
+    {
+      "id": "golden-003",
+      "draft": "PASS wired SSOT defer sites=RED.",
+      "founder_message": "explain",
+      "expect_verdict": "BLOCKED"
+    },
+    {
+      "id": "golden-004",
+      "draft": "You wanted to know what blocks launch. The form still has open picks, which means nothing ships until you submit those decisions on Canvas.",
+      "founder_message": "what blocks launch",
+      "expect_verdict": "ACCEPT"
+    },
+    {
+      "id": "golden-005",
+      "draft": "Cloud workers run on Railway because Mac is control panel only, so heavy factory work never runs on your laptop during a founder session.",
+      "founder_message": "how does cloud work",
+      "expect_verdict": "ACCEPT"
+    },
+    {
+      "id": "golden-006",
+      "draft": "defer · RED · wired · PASS",
+      "founder_message": "why",
+      "expect_verdict": "BLOCKED"
+    },
+    {
+      "id": "golden-007",
+      "draft": "You asked about Mac heat. Cursor and validators were stacking on the Mac body, so the law now limits checks to receipts and one light shell under ninety seconds.",
+      "founder_message": "why mac hot",
+      "expect_verdict": "ACCEPT"
+    },
+    {
+      "id": "golden-008",
+      "draft": "The hub shows next steps because disk live wire sync keeps queue_sa aligned, which means you see one factory-now line instead of conflicting chat memory.",
+      "founder_message": "what is factory now",
+      "expect_verdict": "ACCEPT"
+    },
+    {
+      "id": "golden-009",
+      "draft": "sites=RED defer ON gate PASS wired but email blocked until DNS switches for you.",
+      "founder_message": "why defer",
+      "expect_verdict": "ACCEPT",
+      "expect_escalated": true,
+      "run_modes": ["default"]
+    }
+  ]
+}
