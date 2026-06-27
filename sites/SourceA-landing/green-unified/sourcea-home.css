@@ -1,0 +1,147 @@
+/* sourcea.app — world-class root landing (2026) */
+.sa-root-home { --sa-home-glow: rgba(105, 212, 25, 0.35); }
+
+.sa-root-home .sa-root-hero {
+  padding: clamp(3rem, 8vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4rem);
+  position: relative; overflow: hidden; min-height: 88vh;
+}
+.sa-root-home .sa-root-hero .ar-container { position: relative; z-index: 2; }
+.sa-root-home .sa-hero-grid { align-items: center; }
+
+.sa-root-global-pill {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.35rem 0.85rem; border-radius: 999px;
+  background: rgba(4, 68, 65, 0.08); border: 1px solid rgba(4, 68, 65, 0.12);
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--ar-text-muted); margin-bottom: 0.75rem;
+}
+.sa-root-global-pill .sa-globe-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--ar-accent); box-shadow: 0 0 12px var(--sa-home-glow);
+  animation: sa-globe-pulse 2.4s ease-in-out infinite;
+}
+@keyframes sa-globe-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(0.85); }
+}
+
+.sa-root-home h1 { font-size: clamp(2.4rem, 5.5vw, 4.1rem); line-height: 1.05; }
+
+.sa-root-signin-card {
+  background: linear-gradient(160deg, rgba(255,255,255,0.97) 0%, rgba(244,250,240,0.95) 100%);
+  border: 1px solid rgba(4, 68, 65, 0.1);
+  border-radius: 24px; padding: 2rem;
+  box-shadow: 0 32px 80px rgba(4, 68, 65, 0.14), 0 0 0 1px rgba(255,255,255,0.6) inset;
+  backdrop-filter: blur(12px);
+}
+.sa-root-signin-card h2 { font-size: 1.4rem; margin: 0 0 0.5rem; }
+.sa-root-signin-card p { font-size: 0.92rem; color: var(--ar-text-muted); margin: 0 0 1.25rem; line-height: 1.55; }
+.sa-root-signin-actions { display: flex; flex-direction: column; gap: 0.65rem; }
+
+/* Bento product grid */
+.sa-root-bento {
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(12, 1fr);
+  margin-top: 2.5rem;
+}
+.sa-root-bento-card {
+  grid-column: span 12; padding: 1.75rem; border-radius: 20px;
+  border: 1px solid var(--ar-line); background: #fff;
+  text-decoration: none; color: inherit; position: relative; overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+@media (min-width: 720px) {
+  .sa-root-bento-card.span-7 { grid-column: span 7; }
+  .sa-root-bento-card.span-5 { grid-column: span 5; }
+  .sa-root-bento-card.span-4 { grid-column: span 4; }
+  .sa-root-bento-card.span-8 { grid-column: span 8; }
+}
+.sa-root-bento-card::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 100% 0%, rgba(105,212,25,0.08), transparent 55%);
+  pointer-events: none;
+}
+.sa-root-bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 56px rgba(4, 68, 65, 0.12);
+  border-color: rgba(105, 212, 25, 0.35);
+}
+.sa-root-bento-card strong { display: block; font-size: 1.15rem; margin-bottom: 0.4rem; position: relative; }
+.sa-root-bento-card span { font-size: 0.9rem; color: var(--ar-text-muted); line-height: 1.5; position: relative; }
+.sa-root-bento-card em {
+  display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 1rem;
+  font-style: normal; font-size: 0.84rem; font-weight: 600; color: var(--ar-accent); position: relative;
+}
+.sa-root-bento-icon {
+  font-size: 1.75rem; margin-bottom: 0.75rem; display: block; position: relative;
+}
+
+/* Audience lanes */
+.sa-root-lanes {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem; margin-top: 2rem;
+}
+.sa-root-lane {
+  padding: 1.5rem; border-radius: 18px; position: relative;
+  background: linear-gradient(145deg, #fff, #f8fcf5);
+  border: 1px solid var(--ar-line);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.sa-root-lane:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(4,68,65,0.08); }
+.sa-root-lane-num {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ar-accent); margin-bottom: 0.5rem;
+}
+.sa-root-lane h3 { margin: 0 0 0.4rem; font-size: 1.05rem; }
+.sa-root-lane p { margin: 0 0 0.85rem; font-size: 0.86rem; color: var(--ar-text-muted); line-height: 1.45; }
+.sa-root-lane a { font-size: 0.84rem; font-weight: 600; color: var(--ar-accent); }
+
+/* Why section */
+.sa-root-why-grid {
+  display: grid; gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 2rem;
+}
+.sa-root-why-card {
+  padding: 1.5rem; border-radius: 16px;
+  background: rgba(4, 68, 65, 0.04); border: 1px solid rgba(4, 68, 65, 0.08);
+}
+.sa-root-why-card h3 { margin: 0 0 0.5rem; font-size: 1rem; }
+.sa-root-why-card p { margin: 0; font-size: 0.88rem; color: var(--ar-text-muted); line-height: 1.5; }
+
+/* CTA band */
+.sa-root-cta-band {
+  margin: 0; padding: clamp(3rem, 8vw, 5rem) 0;
+  background: linear-gradient(135deg, #044441 0%, #0a5c58 50%, #044441 100%);
+  color: #fff; text-align: center; position: relative; overflow: hidden;
+}
+.sa-root-cta-band::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(105,212,25,0.15), transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(105,212,25,0.08), transparent 40%);
+  pointer-events: none;
+}
+.sa-root-cta-band .ar-container { position: relative; z-index: 1; }
+.sa-root-cta-band h2 { color: #fff; font-size: clamp(1.75rem, 4vw, 2.75rem); margin: 0 0 0.75rem; }
+.sa-root-cta-band p { color: rgba(255,255,255,0.82); max-width: 36rem; margin: 0 auto 1.75rem; font-size: 1.05rem; }
+.sa-root-cta-band .ar-hero-actions { justify-content: center; }
+.sa-root-cta-band .ar-btn-ghost { color: #fff; border-color: rgba(255,255,255,0.35); }
+
+/* Trust + global strip */
+.sa-root-trust-strip {
+  padding: 2.5rem 0; border-top: 1px solid var(--ar-line);
+}
+.sa-root-global-line {
+  text-align: center; font-size: 0.88rem; color: var(--ar-text-muted);
+  margin-top: 1.5rem; letter-spacing: 0.02em;
+}
+.sa-root-global-line strong { color: var(--ar-text); }
+
+/* Footer upgrade */
+.sa-root-home .sa-footer-rich { padding-top: 3rem; }
+.sa-root-home .sa-footer-bottom {
+  padding: 1.25rem 0 2rem;
+  border-top: 1px solid var(--ar-line);
+  display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center;
+}
+.sa-root-home .sa-footer-bottom p { margin: 0; font-size: 0.85rem; color: var(--ar-text-muted); }

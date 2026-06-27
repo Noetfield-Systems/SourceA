@@ -1,45 +1,40 @@
 {
   "schema": "sourcea-boot-proof-v1",
-  "at": "2026-06-18T00:04:50Z",
-  "verdict": "BLOCK",
-  "ok": false,
+  "at": "2026-06-24T03:23:04Z",
+  "verdict": "PASS",
+  "ok": true,
   "checks": [
     {
       "id": "C1",
       "name": "policy_version",
       "ok": true,
-      "reason": "SSOT v3.2 current",
-      "mode": "sourcea_factory",
-      "version": "3.2",
-      "briefing_path": "/Users/sinakazemnezhad/.sina/agent-briefing/AGENT-AUTO-MONO-latest.json"
+      "reason": "no policy file (POLICY.md) \u2014 skipped",
+      "mode": "portable",
+      "skipped": true
     },
     {
       "id": "C2",
       "name": "provider",
       "ok": true,
-      "reason": "voyage semantic active",
-      "mode": "sourcea_factory"
+      "reason": "provider env present (ANTHROPIC_API_KEY)",
+      "mode": "portable"
     },
     {
       "id": "C3",
       "name": "receipt_fresh",
       "ok": true,
-      "reason": "receipt fresh (0.3h)",
-      "receipt_path": "/Users/sinakazemnezhad/.sina/agent_session_gate_receipt_v1.json"
+      "reason": "no prior receipt \u2014 first boot allowed",
+      "mode": "portable",
+      "skipped": true
     },
     {
       "id": "C4",
       "name": "queue_truth",
-      "ok": false,
-      "reason": "run-inbox truth_match=false",
-      "mode": "sourcea_factory",
-      "inbox": {
-        "pending": false,
-        "sa_id": null,
-        "delivered_at": null,
-        "truth_match": false
-      }
+      "ok": true,
+      "reason": "no queue files configured \u2014 skipped",
+      "mode": "portable",
+      "skipped": true
     }
   ],
-  "founder_line": "Factory boot BLOCK \u2014 four checks logged"
+  "founder_line": "Factory boot PASS \u2014 four checks logged"
 }

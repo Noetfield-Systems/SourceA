@@ -5,7 +5,7 @@
     {
       "id": "outreach",
       "title": "Outreach",
-      "href": "/sourcea/loops/outreach.html",
+      "href": "/sourcea/loops/outreach",
       "lane": "revenue",
       "tier": "starter",
       "badge": "pass",
@@ -19,7 +19,7 @@
     {
       "id": "eval-booking",
       "title": "Eval booking",
-      "href": "/sourcea/loops/eval-booking.html",
+      "href": "/sourcea/loops/eval-booking",
       "lane": "revenue",
       "tier": "growth",
       "badge": "live",
@@ -33,7 +33,7 @@
     {
       "id": "ops-monitor",
       "title": "Ops monitor",
-      "href": "/sourcea/loops/ops-monitor.html",
+      "href": "/sourcea/loops/ops-monitor",
       "lane": "ops",
       "tier": "core",
       "badge": "block",
@@ -47,7 +47,7 @@
     {
       "id": "session-gate",
       "title": "Session gate",
-      "href": "/sourcea/loops/session-gate.html",
+      "href": "/sourcea/loops/session-gate",
       "lane": "ops",
       "tier": "core",
       "badge": "boot",
@@ -61,7 +61,7 @@
     {
       "id": "research",
       "title": "Research",
-      "href": "/sourcea/loops/research.html",
+      "href": "/sourcea/loops/research",
       "lane": "proof",
       "tier": "starter",
       "badge": "save",
@@ -75,7 +75,7 @@
     {
       "id": "proof-export",
       "title": "Proof export",
-      "href": "/sourcea/loops/proof-export.html",
+      "href": "/sourcea/loops/proof-export",
       "lane": "proof",
       "tier": "growth",
       "badge": "replay",

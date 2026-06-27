@@ -1542,6 +1542,8 @@ body.ar-nav-locked { overflow: hidden; }
 @media (max-width: 900px) {
   .ar-nav-toggle { display: inline-flex; margin-left: auto; }
   .ar-header-cta { display: none; }
+  .ar-header-actions { display: none; }
+  .ar-nav-signin-mobile { display: inline-flex; }
   .ar-nav {
     display: none;
     position: fixed;

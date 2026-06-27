@@ -1,0 +1,94 @@
+.sa-brain-settings-page {
+  --bcs-accent: #3ecf8e;
+  --bcs-bg: #0c0e12;
+  --bcs-surface: #141820;
+  --bcs-border: #252a35;
+  background: var(--bcs-bg);
+  color: #e8eaef;
+  min-height: 100vh;
+}
+.sa-bcs-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(62, 207, 142, 0.12);
+  color: var(--bcs-accent);
+  border: 1px solid rgba(62, 207, 142, 0.35);
+}
+.sa-bcs-main { padding: 1.5rem 1rem 3rem; max-width: 880px; }
+.sa-bcs-card {
+  background: var(--bcs-surface);
+  border: 1px solid var(--bcs-border);
+  border-radius: 12px;
+  padding: 1.25rem 1.35rem;
+  margin-bottom: 1rem;
+}
+.sa-bcs-card h1, .sa-bcs-card h2, .sa-bcs-card h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+}
+.sa-bcs-card h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: #8b93a7; }
+.sa-bcs-hint { font-size: 0.78rem; color: #8b93a7; line-height: 1.45; }
+.sa-bcs-hint code { color: var(--bcs-accent); font-size: 0.72rem; }
+.sa-bcs-unlock-row { display: flex; gap: 0.5rem; margin: 0.5rem 0; }
+.sa-bcs-unlock-row input { flex: 1; }
+.sa-bcs-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.sa-bcs-status { margin-left: auto; font-size: 0.78rem; color: #8b93a7; }
+.sa-bcs-status.is-live { color: var(--bcs-accent); }
+.sa-bcs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.sa-bcs-grid label, .sa-bcs-card > label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #8b93a7;
+  margin-bottom: 0.75rem;
+}
+.sa-bcs-input {
+  font-size: 0.88rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid var(--bcs-border);
+  background: var(--bcs-bg);
+  color: #e8eaef;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+.sa-bcs-models {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid var(--bcs-border);
+  border-radius: 8px;
+  padding: 0.5rem;
+  font-size: 0.78rem;
+  margin-bottom: 1rem;
+}
+.sa-bcs-model-row {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #1e2430;
+}
+.sa-bcs-model-row code { color: var(--bcs-accent); min-width: 140px; }
+.sa-bcs-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}

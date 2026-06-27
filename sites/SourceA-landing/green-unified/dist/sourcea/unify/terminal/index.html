@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SourceA Forge IDE</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="terminal.css?v=4.9.9-sendfix" />
+  <link rel="stylesheet" href="terminal-desktop.css?v=4.9.9-sendfix" />
+  <script>
+    document.documentElement.classList.add("forge-desktop-app", "forge-page-scroll");
+    document.addEventListener("DOMContentLoaded", function () {
+      document.body.classList.add("forge-desktop-app", "forge-page-scroll", "forge-embed-root");
+      var app = document.getElementById("forge-app");
+      if (app) app.classList.add("forge-desktop-app", "forge-embed", "forge-page-scroll");
+    });
+  </script>
+</head>
+<body>
+  <div class="forge-app" id="forge-app">
+    <header class="forge-topbar">
+      <div class="forge-brand">
+        <span class="forge-mark"></span>
+        <span class="forge-title">SourceA Forge</span>
+      </div>
+      <div id="offline-banner" class="forge-offline-banner" hidden>LLM offline — drafts only until keys are set in ~/.sina/secrets.env</div>
+      <div class="forge-topbar-controls">
+        <button type="button" class="forge-btn forge-btn-ghost" id="btn-reload-ui" title="Reload UI (⌘R)">↻</button>
+        <label class="forge-check"><input type="checkbox" id="opt-llm" checked /> Live LLM</label>
+        <button type="button" class="forge-btn forge-btn-primary" id="btn-run" disabled>Send</button>
+        <span class="forge-pill forge-pill-live" id="pill-llm">LLM</span>
+        <span class="forge-pill" id="pill-anthropic">Anthropic</span>
+        <span class="forge-pill" id="pill-chat-unify">Chat Unify</span>
+        <span class="forge-pill" id="pill-cloud">Cloud</span>
+        <span class="forge-run-id" id="run-id-label"></span>
+      </div>
+    </header>
+
+    <div class="forge-workbench" id="forge-workbench">
+      <aside class="forge-sidebar forge-sidebar-ws" aria-label="Workspaces">
+        <div class="forge-sidebar-head">
+          <button type="button" class="forge-btn forge-btn-open-folder" id="btn-open-folder" title="Open New Workspace (⌘O)">Open New Workspace…</button>
+        </div>
+        <p class="forge-section-label">Your workspaces</p>
+        <nav class="forge-ws-hub" id="ws-hub" aria-label="Workspace list"></nav>
+        <div class="forge-workspace-nav" hidden aria-hidden="true">
+          <span class="forge-ws-root" id="ws-root-label">NO WORKSPACE</span>
+          <p class="forge-folder-path" id="folder-path" title=""></p>
+        </div>
+        <div class="forge-onboard-card" id="forge-onboard-card" hidden aria-hidden="true"></div>
+        <button type="button" id="btn-open-platform-ws" hidden aria-hidden="true"></button>
+        <div id="file-tree" hidden aria-hidden="true"></div>
+        <nav class="forge-ws-list" id="ws-list" hidden aria-hidden="true"></nav>
+        <div class="forge-mesh-list" id="mesh-list" hidden aria-hidden="true"></div>
+        <ul class="forge-agents" id="agents-list" hidden aria-hidden="true"></ul>
+      </aside>
+
+      <div class="forge-sidebar-resize" id="sidebar-resize" title="Drag to resize sidebar" aria-hidden="true"></div>
+
+      <div class="forge-center-col" id="forge-center-col">
+        <div class="forge-main-split" id="forge-main-split">
+          <section class="forge-editor-pane" id="editor-pane" hidden>
+            <div class="forge-editor-head">
+              <span class="forge-editor-path" id="editor-path">—</span>
+              <button type="button" class="forge-btn forge-btn-ghost" id="btn-close-editor" title="Close editor">×</button>
+            </div>
+            <textarea id="editor-body" class="forge-code-editor" spellcheck="false" readonly></textarea>
+          </section>
+          <div class="forge-editor-resize" id="editor-resize" title="Drag to resize editor" aria-hidden="true" hidden></div>
+
+          <main class="forge-chat-column" id="forge-main">
+          <div class="forge-embed-ws-strip" id="embed-ws-strip" aria-label="Workspaces">
+            <span class="forge-embed-ws-label">Workspaces</span>
+            <button type="button" class="forge-embed-ws-open" id="embed-btn-open-folder">Open folder…</button>
+            <div class="forge-embed-ws-chips" id="embed-ws-chips"></div>
+            <button type="button" class="forge-embed-ws-toggle" id="embed-sidebar-toggle" title="Toggle workspaces sidebar">Workspaces</button>
+          </div>
+          <div class="forge-thread-tabs forge-thread-tabs-hidden" id="thread-tabs" role="tablist" hidden aria-hidden="true">
+            <div class="forge-thread-tabs-scroll" id="thread-tabs-scroll"></div>
+            <button type="button" class="forge-thread-tab-new" id="btn-new-thread" title="New chat (⌘N)">+</button>
+          </div>
+          <section class="forge-editor-window" id="forge-editor-window" aria-label="Editor window">
+          <div class="forge-chat-toolbar forge-editor-toolbar">
+            <h2 class="forge-chat-title">Editor</h2>
+            <select id="agent-select" class="forge-select forge-select-compact" aria-label="Agent">
+              <option value="auto">Auto — smart router</option>
+              <option value="planner">planner</option>
+              <option value="builder">builder</option>
+              <option value="verifier">verifier</option>
+            </select>
+            <select id="role-select" class="forge-select forge-select-compact" aria-label="Work tier">
+              <option value="bulk">Massive work</option>
+              <option value="build">Build</option>
+              <option value="act">Act</option>
+              <option value="check">Check</option>
+              <option value="reason">Reason</option>
+              <option value="critical">Critical</option>
+            </select>
+            <select id="model-select" class="forge-select forge-select-compact" aria-label="Model">
+              <optgroup label="OpenAI">
+                <option value="gpt-4o" selected>GPT-4o — Build · $$$</option>
+                <option value="openai-o1">OpenAI o1 — Reason · $$$$</option>
+              </optgroup>
+              <optgroup label="Anthropic">
+                <option value="claude-haiku-4-direct">Claude Haiku 4.5 — Check · $</option>
+                <option value="claude-sonnet-4-direct">Claude Sonnet 4.6 — Build · $$$</option>
+              </optgroup>
+              <optgroup label="OpenRouter">
+                <option value="deepseek-v4">DeepSeek V4 — Logic · $</option>
+                <option value="deepseek-r1-or">DeepSeek R1 — Reason · $$</option>
+                <option value="claude-3.5-sonnet">Claude Sonnet 4 — Agentic · $$$</option>
+                <option value="claude-opus-4-or">Claude Opus 4 — Critical · $$$$</option>
+                <option value="gpt-4o-mini-or">GPT-4o mini — Cheap · $</option>
+              </optgroup>
+              <optgroup label="Google">
+                <option value="gemini-1.5-flash">Gemini 1.5 Flash — Fast verify · $</option>
+                <option value="gemini-1.5-pro">Gemini 1.5 Pro — Architecture · $$$</option>
+              </optgroup>
+            </select>
+            <span class="forge-model-hint forge-muted" id="model-hint"></span>
+            <span class="forge-muted" id="chat-meta"></span>
+            <div class="forge-mode-pills" id="forge-mode-pills" role="tablist" aria-label="Forge mode">
+              <button type="button" class="forge-mode-pill is-active" data-mode="chat" id="mode-chat">Chat</button>
+              <button type="button" class="forge-mode-pill" data-mode="advisor" id="mode-advisor">Advisor</button>
+              <button type="button" class="forge-mode-pill" data-mode="selfheal" id="mode-selfheal">Self-heal</button>
+            </div>
+            <label class="forge-check" title="Cloud L3 when L2 fails (default off on Mac)"><input type="checkbox" id="opt-cloud-l3" /> Cloud L3</label>
+            <button type="button" class="forge-btn forge-btn-ghost" id="btn-forge-settings" title="Chat routing &amp; workers">Settings</button>
+            <button type="button" class="forge-btn forge-btn-ghost" id="btn-toggle-gate" title="Show decision gate">Gate</button>
+            <button type="button" class="forge-btn forge-btn-ghost forge-btn-sm" id="btn-save-chat-toolbar" title="Save chat to file">Save</button>
+            <button type="button" class="forge-btn forge-btn-ghost forge-btn-sm" id="btn-clear-chat-toolbar" title="Clear this thread">Clear</button>
+          </div>
+
+          <div class="forge-chat-live-window forge-editor-body" id="forge-chat-live-window" aria-label="Editor body">
+            <div class="forge-message-window" id="forge-message-window" aria-label="Message scroll window">
+              <div class="forge-chat-window-head forge-message-window-head">
+                <span class="forge-chat-window-title">Message history</span>
+                <span class="forge-chat-window-meta forge-muted" id="chat-window-meta"></span>
+                <div class="forge-chat-window-actions">
+                  <button type="button" class="forge-btn forge-btn-ghost forge-btn-sm" id="btn-jump-latest" hidden title="Jump to latest messages">↓ Latest</button>
+                  <button type="button" class="forge-btn forge-btn-ghost forge-btn-sm" id="btn-save-chat" title="Save chat to file">Save</button>
+                  <button type="button" class="forge-btn forge-btn-ghost forge-btn-sm" id="btn-clear-chat" title="Clear this thread">Clear</button>
+                </div>
+              </div>
+              <div class="forge-chat-thread" id="chat-thread" role="log" aria-live="polite">
+                <div class="forge-chat-spacer" id="chat-thread-spacer" aria-hidden="true"></div>
+                <p class="forge-placeholder" id="chat-placeholder" hidden></p>
+                <div class="forge-chat-anchor" id="chat-thread-anchor" aria-hidden="true"></div>
+              </div>
+            </div>
+            <div class="forge-exec-strip" id="exec-strip" hidden>
+              <span class="forge-badge" id="decision-badge">pending</span>
+              <span class="forge-muted" id="quality-score-inline"></span>
+              <div class="forge-exec-actions">
+                <button type="button" class="forge-btn forge-btn-approve" id="btn-approve">Approve</button>
+                <button type="button" class="forge-btn forge-btn-revise" id="btn-revise">Revise</button>
+                <button type="button" class="forge-btn forge-btn-rerun" id="btn-rerun" title="Re-run quality">Re-run</button>
+                <button type="button" class="forge-btn forge-btn-rerun" id="btn-self-heal" title="L2 patch + re-gate">Self-heal</button>
+                <button type="button" class="forge-btn forge-btn-cursor" id="btn-cursor">Cursor</button>
+                <button type="button" class="forge-btn forge-btn-execute" id="btn-execute">Execute</button>
+                <button type="button" class="forge-btn forge-btn-cloud" id="btn-cloud">Cloud</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="forge-composer-bar forge-composer-pro" id="forge-composer">
+            <div class="forge-composer-arena">
+              <div class="forge-composer-stack">
+                <div class="forge-composer-head">
+                  <div class="forge-composer-head-titles">
+                    <label class="forge-composer-label" for="prompt-input">Your goal</label>
+                    <span class="forge-write-label">✦ Write with Forge</span>
+                  </div>
+                  <div class="forge-composer-head-actions">
+                    <button type="button" class="forge-btn forge-btn-ghost forge-btn-sm" id="btn-toggle-model-guide" aria-expanded="true" title="Hide model guide for more chat room">Hide guide</button>
+                    <span class="forge-composer-live-pill">Living chat</span>
+                  </div>
+                </div>
+                <div class="forge-model-guide" id="forge-model-guide">
+                  <div class="forge-model-guide-body" id="forge-model-guide-body">
+                    <p class="forge-model-guide-lead" id="forge-model-guide-lead">Pick agent · tier · model above — quick prompts below.</p>
+                    <div class="forge-chat-chips" id="forge-chat-chips" aria-label="Quick prompts"></div>
+                  </div>
+                </div>
+                <div class="forge-composer-row">
+                  <div class="forge-composer-field">
+                    <textarea id="prompt-input" class="forge-prompt" rows="7" placeholder="What are you trying to run, build, or automate? Paste context, goals, or constraints — Enter to send · Shift+Enter new line" maxlength="8000"></textarea>
+                  </div>
+                  <button type="button" class="forge-btn-send" id="btn-run-composer" title="Send (Enter)" aria-label="Send message">↑</button>
+                </div>
+                <div class="forge-composer-meta">
+                  <span class="forge-muted" id="composer-hint">No folder required for chat · open one to Execute</span>
+                  <span class="forge-muted" id="composer-chars"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          </section>
+
+          <section class="forge-settings-drawer" id="settings-panel" hidden aria-label="Chat settings">
+            <div class="forge-settings-head">
+              <h3>Living chat control</h3>
+              <span class="forge-muted forge-settings-live" id="settings-llm-live">Checking LLM…</span>
+            </div>
+            <div class="forge-settings-grid">
+              <label class="forge-settings-field">Default model
+                <input type="text" id="settings-default-model" class="forge-settings-input" placeholder="gpt-4o" />
+              </label>
+              <label class="forge-settings-field">Brain worker URL
+                <input type="url" id="settings-brain-url" class="forge-settings-input" />
+              </label>
+              <label class="forge-settings-field">Cloud Workers
+                <input type="url" id="settings-cloud-url" class="forge-settings-input" />
+              </label>
+              <label class="forge-settings-field">Chat Unify
+                <input type="url" id="settings-unify-url" class="forge-settings-input" />
+              </label>
+            </div>
+            <div class="forge-settings-toggles">
+              <label class="forge-check"><input type="checkbox" id="settings-fallback-or" checked /> OpenRouter fallback on 503</label>
+              <label class="forge-check"><input type="checkbox" id="settings-require-ws" /> Require folder before send</label>
+            </div>
+            <p class="forge-muted forge-settings-path">Disk: <code id="settings-path-label">~/.sina/forge-chat-settings-v1.json</code></p>
+            <p class="forge-muted forge-settings-path">Site config: <code id="settings-brain-config-path"></code></p>
+            <div class="forge-settings-models" id="settings-model-list" aria-label="Available models"></div>
+            <div class="forge-settings-actions">
+              <button type="button" class="forge-btn forge-btn-execute" id="btn-settings-save">Save settings</button>
+              <button type="button" class="forge-btn forge-btn-ghost" id="btn-settings-site">Open site control panel</button>
+            </div>
+          </section>
+
+          <section class="forge-decision-drawer" id="decision-panel" hidden>
+            <div class="forge-quality-panel" id="quality-panel" hidden>
+              <div class="forge-quality-head">
+                <span class="forge-quality-title">Quality Engine</span>
+                <span class="forge-badge forge-quality-verdict" id="quality-verdict">—</span>
+                <span class="forge-muted" id="quality-score"></span>
+              </div>
+              <ul class="forge-quality-layers" id="quality-layers"></ul>
+            </div>
+            <dl class="forge-card" id="decision-card"></dl>
+            <p class="forge-feedback" id="action-feedback" hidden></p>
+          </section>
+
+          <section class="forge-panel forge-response-panel" hidden aria-hidden="true">
+            <div class="forge-response forge-markdown" id="response-body"></div>
+          </section>
+        </main>
+        </div>
+
+        <div class="forge-dock-resize" id="dock-resize" title="Drag to resize terminal" aria-hidden="true"></div>
+
+        <div class="forge-terminal-dock" id="terminal-dock">
+          <div class="forge-dock-head">
+            <div class="forge-tabs" role="tablist">
+              <button type="button" class="forge-tab is-active" data-tab="logs">Terminal</button>
+              <button type="button" class="forge-tab" data-tab="outbox">Outbox</button>
+              <button type="button" class="forge-tab" data-tab="receipts">Receipts</button>
+              <button type="button" class="forge-tab" data-tab="connect">Connect</button>
+              <button type="button" class="forge-tab" data-tab="tasks">Tasks</button>
+            </div>
+            <button type="button" class="forge-dock-toggle" id="btn-toggle-terminal" title="Toggle terminal (⌘J)">▾</button>
+          </div>
+          <div class="forge-tab-panels">
+            <div class="forge-tab-panel is-active" id="tab-logs" data-tab="logs"></div>
+            <div class="forge-tab-panel" id="tab-outbox" data-tab="outbox"></div>
+            <div class="forge-tab-panel" id="tab-receipts" data-tab="receipts"></div>
+            <div class="forge-tab-panel" id="tab-connect" data-tab="connect"></div>
+            <div class="forge-tab-panel" id="tab-tasks" data-tab="tasks"></div>
+          </div>
+        </div>
+
+        <section class="forge-machines-deck" id="forge-machines-deck" aria-label="Machines">
+          <header class="forge-machines-head">
+            <h2 class="forge-machines-title">Machines</h2>
+            <p class="forge-machines-lead">Scroll the <strong>right edge</strong> of this app — Terminal above · Machines here · Tools below</p>
+          </header>
+          <div class="forge-machines-grid" id="forge-machines-grid"></div>
+        </section>
+
+        <section class="forge-tools-deck" id="forge-tools-deck" aria-label="Forge Terminal tools">
+          <header class="forge-tools-deck-head">
+            <h2 class="forge-tools-deck-title">Tools</h2>
+            <p class="forge-tools-deck-lead">Forge-native panels — scroll page right edge to reach Terminal + Machines + Tools</p>
+          </header>
+          <div class="forge-tools-grid">
+            <article class="forge-tool-block">
+              <h3>Connect · execution mesh</h3>
+              <div class="forge-tool-body" id="forge-tool-connect-deck"></div>
+            </article>
+            <article class="forge-tool-block">
+              <h3>Tasks · workspace queue</h3>
+              <div class="forge-tool-body" id="forge-tool-tasks-deck"></div>
+            </article>
+            <article class="forge-tool-block">
+              <h3>Quality gate</h3>
+              <div class="forge-tool-body" id="forge-tool-quality-deck"></div>
+              <button type="button" class="forge-btn forge-btn-ghost forge-btn-sm" id="btn-deck-jump-gate">Jump to gate ↑</button>
+            </article>
+            <article class="forge-tool-block">
+              <h3>Settings · models &amp; workers</h3>
+              <div class="forge-tool-body" id="forge-tool-settings-deck"></div>
+              <button type="button" class="forge-btn forge-btn-ghost forge-btn-sm" id="btn-deck-jump-settings">Jump to settings ↑</button>
+            </article>
+            <article class="forge-tool-block">
+              <h3>Receipts</h3>
+              <div class="forge-tool-body" id="forge-tool-receipts-deck"></div>
+            </article>
+            <article class="forge-tool-block">
+              <h3>Outbox</h3>
+              <div class="forge-tool-body" id="forge-tool-outbox-deck"></div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <footer class="forge-statusbar">
+      <span id="sb-workspace">Folder —</span>
+      <span id="sb-model">Model —</span>
+      <span id="sb-time">Time —</span>
+      <span id="sb-cost">Cost —</span>
+      <span id="sb-status" class="forge-status-msg">Ready</span>
+    </footer>
+  </div>
+  <script src="terminal.js?v=4.9.9-guide-collapse"></script>
+<script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-interact-v1.js" defer></script>
+<script src="/sourcea/sourcea-segment-router-v1.js" defer></script>
+</body>
+</html>

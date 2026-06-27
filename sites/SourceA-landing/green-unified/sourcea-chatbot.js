@@ -1,13 +1,23 @@
 /**
- * SourceA Brain chatbot + Governance Gauntlet proof quiz.
- * Loads live boot-proof.json from deploy inject; honest illustrative game only.
+ * SourceA Brain chatbot — execution platform guide for Forge, examples, and booking.
  */
 (function () {
   "use strict";
 
   const BOOT_URL = "/sourcea/data/boot-proof.json";
-  const QUIZ_ANCHOR = "/sourcea/scenario.html#proof-quiz";
+  const CONFIG_URL = "/sourcea/data/sourcea-brain-chat-config-v1.json";
+  const POSITIONING_URL = "/sourcea/data/sourcea-positioning-v1.json";
+  const DEFAULT_POSITIONING = {
+    brain_subtitle: "AI execution platform powered by Forge — builds, automations, and agent workflows",
+    composer_placeholder: "What are you trying to run, build, or automate?",
+    brain_greet_html:
+      "Hi — I'm <strong>Brain</strong>. SourceA is an <strong>AI execution platform powered by Forge</strong> — real builds, automations, and agent workflows, with a verifiable receipt on every run.<br><span class='sa-brain-hint'>Tell me what you're trying to ship, try Forge Terminal, or ask for examples — no pitch until you want one.</span>",
+  };
+  const DEFAULT_WORKER_API =
+    "https://sourcea-brain-chat-v1.sina-kazemnezhad-ca.workers.dev/api/brain/chat/v1";
+  const QUIZ_ANCHOR = "/sourcea/scenario#proof-quiz";
   const DEMO_URL = "https://cal.com/sourcea/proof-demo";
+  const DEMO_OVERLAY = "https://cal.com/sourcea/proof-demo?overlayCalendar=true&embed=true";
 
   const SCENARIOS = [
     {
@@ -72,6 +82,46 @@
   let bootProof = null;
   let quizIndex = 0;
   let quizScore = 0;
+  let chatConfig = {};
+  let positioning = { ...DEFAULT_POSITIONING };
+  let chatHistory = [];
+  let chatBusy = false;
+  let openrouterReady = null;
+  let statusCheckedAt = 0;
+  const STATUS_TTL_MS = 60000;
+  const CHAT_TIMEOUT_MS = 20000;
+
+  let configReady;
+
+  async function loadPositioning() {
+    try {
+      const r = await fetch(POSITIONING_URL, { cache: "no-store" });
+      if (r.ok) {
+        const ct = r.headers.get("content-type") || "";
+        if (ct.includes("application/json")) {
+          const row = await r.json();
+          positioning = {
+            ...DEFAULT_POSITIONING,
+            brain_subtitle: row.brain_subtitle || DEFAULT_POSITIONING.brain_subtitle,
+            composer_placeholder: row.composer_placeholder || DEFAULT_POSITIONING.composer_placeholder,
+            brain_greet_html: row.brain_greet_html || DEFAULT_POSITIONING.brain_greet_html,
+          };
+        }
+      }
+    } catch (_) {
+      /* offline — inline fallbacks */
+    }
+    return positioning;
+  }
+
+  function applyPositioningToDom() {
+    const sub = document.querySelector(".sa-brain-head-sub");
+    if (sub && positioning.brain_subtitle) sub.textContent = positioning.brain_subtitle;
+    const inputEl = document.getElementById("sa-brain-input");
+    if (inputEl && positioning.composer_placeholder) {
+      inputEl.setAttribute("placeholder", positioning.composer_placeholder);
+    }
+  }
 
   function el(tag, cls, html) {
     const n = document.createElement(tag);
@@ -80,13 +130,81 @@
     return n;
   }
 
+  function escapeHtml(s) {
+    return String(s || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function scrubPublicText(text) {
+    return String(text || "")
+      .replace(/\bopenrouter\b/gi, "")
+      .replace(/\bgoogle\/gemini[-\w.]*/gi, "")
+      .replace(/\bbuyer routing\b/gi, "")
+      .replace(/\breceipts?\s+on\s+disk\b/gi, "verified records")
+      .replace(/\bPASS\/BLOCK\b/gi, "checked")
+      .replace(/\bExecution Proof Infrastructure\b/gi, "verified AI delivery")
+      .replace(/\bcontrolled agentic\b/gi, "verified AI")
+      .replace(/\bproof sandbox\b/gi, "free trial")
+      .replace(/\borchestrat\w*/gi, "run")
+      .replace(/\bgovernance gauntlet\b/gi, "quick quiz")
+      .replace(/\bINCIDENT-\d+\b/gi, "")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+  }
+
+  function formatReply(text) {
+    const cleaned = scrubPublicText(text);
+    const safe = escapeHtml(cleaned).replace(/\n/g, "<br>");
+    return safe.replace(
+      /(https?:\/\/[^\s<]+|cal\.com\/[^\s<]+)/g,
+      '<a href="$1" target="_blank" rel="noopener">$1</a>'
+    );
+  }
+
+  function apiUrl() {
+    const host = window.location.hostname;
+    if (host === "127.0.0.1" || host === "localhost") {
+      return chatConfig.local_dev_api || "http://127.0.0.1:13020/api/brain/chat/v1";
+    }
+    if (chatConfig.api_worker_url) return chatConfig.api_worker_url;
+    if (chatConfig.api_relative) return chatConfig.api_relative;
+    return DEFAULT_WORKER_API;
+  }
+
+  async function loadConfig() {
+    const defaults = {
+      api_worker_url: DEFAULT_WORKER_API,
+      api_relative: "/api/brain/chat/v1",
+      hint_offline: "I'm offline right now — use the buttons below or book a call.",
+    };
+    try {
+      const r = await fetch(CONFIG_URL, { cache: "no-store" });
+      if (r.ok) {
+        const ct = r.headers.get("content-type") || "";
+        if (ct.includes("application/json")) {
+          chatConfig = { ...defaults, ...(await r.json()) };
+          return;
+        }
+      }
+    } catch (_) {
+      /* offline */
+    }
+    chatConfig = defaults;
+  }
+
+  configReady = loadConfig();
+  const positioningReady = loadPositioning();
+
   async function loadBootProof() {
     if (bootProof) return bootProof;
     try {
       const r = await fetch(BOOT_URL, { cache: "no-store" });
       if (r.ok) bootProof = await r.json();
     } catch (_) {
-      /* offline / pre-inject */
+      /* offline */
     }
     if (!bootProof) {
       bootProof = {
@@ -102,6 +220,33 @@
       };
     }
     return bootProof;
+  }
+
+  async function checkBrainStatus(force) {
+    const now = Date.now();
+    if (!force && openrouterReady != null && now - statusCheckedAt < STATUS_TTL_MS) {
+      return openrouterReady;
+    }
+    try {
+      await configReady;
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 8000);
+      const r = await fetch(apiUrl(), { method: "GET", cache: "no-store", signal: ctrl.signal });
+      clearTimeout(timer);
+      if (!r.ok) {
+        openrouterReady = false;
+        statusCheckedAt = now;
+        return false;
+      }
+      const data = await r.json();
+      openrouterReady = Boolean(data.openrouter_ready);
+      statusCheckedAt = now;
+      return openrouterReady;
+    } catch (_) {
+      openrouterReady = false;
+      statusCheckedAt = now;
+      return false;
+    }
   }
 
   function formatBootHtml(proof) {
@@ -157,13 +302,15 @@
       options.innerHTML = "";
       if (feedback) {
         feedback.hidden = false;
-        feedback.textContent = `Final score: ${quizScore}/${SCENARIOS.length}. Same beats we screen-share on proof calls.`;
+        feedback.textContent = `Final score: ${quizScore}/${SCENARIOS.length}. Same beats you verify on the live demo — in your browser.`;
         feedback.className = "sa-quiz-feedback is-win";
       }
       if (next) {
         next.hidden = false;
-        next.textContent = "Book proof demo →";
-        next.onclick = () => window.open(DEMO_URL, "_blank", "noopener");
+        next.textContent = "See live receipt →";
+        next.onclick = () => {
+          window.location.href = "/sourcea/proof/live";
+        };
       }
       return;
     }
@@ -216,42 +363,104 @@
         showQuizRound();
       };
     }
-    document.getElementById("sa-quiz-score").textContent = `Score: ${quizScore}`;
+    const scoreEl = document.getElementById("sa-quiz-score");
+    if (scoreEl) scoreEl.textContent = `Score: ${quizScore}`;
   }
 
   function mountChatbot() {
     if (document.getElementById("sa-brain-chat")) return;
+
+    if (!document.querySelector('link[data-sa-brain-preconnect]')) {
+      const pre = document.createElement("link");
+      pre.rel = "preconnect";
+      pre.href = "https://sourcea-brain-chat-v1.sina-kazemnezhad-ca.workers.dev";
+      pre.crossOrigin = "anonymous";
+      pre.dataset.saBrainPreconnect = "1";
+      document.head.appendChild(pre);
+    }
 
     const wrap = el("div", "sa-brain-chat", "");
     wrap.id = "sa-brain-chat";
     wrap.innerHTML = `
       <div class="sa-brain-backdrop" id="sa-brain-backdrop" hidden aria-hidden="true"></div>
       <button type="button" class="sa-brain-fab" id="sa-brain-fab" aria-expanded="false" aria-controls="sa-brain-panel">
-        <span class="sa-brain-fab-dot"></span>
+        <span class="sa-brain-fab-dot" id="sa-brain-fab-dot"></span>
         <span class="sa-brain-fab-label">Brain</span>
       </button>
       <div class="sa-brain-panel" id="sa-brain-panel" hidden role="dialog" aria-label="Brain assistant">
         <header class="sa-brain-head">
-          <span class="sa-brain-handle" aria-hidden="true"></span>
-          <span>◎ Brain</span>
-          <button type="button" class="sa-brain-close" id="sa-brain-close" aria-label="Close">×</button>
+          <div class="sa-brain-head-drag" aria-hidden="true">
+            <span class="sa-brain-handle"></span>
+          </div>
+          <div class="sa-brain-head-main">
+            <div class="sa-brain-head-brand">
+              <span class="sa-brain-head-title">◎ Brain <em class="sa-brain-provider" id="sa-brain-provider"></em></span>
+              <span class="sa-brain-head-sub">AI execution platform powered by Forge — builds, automations, and agent workflows</span>
+            </div>
+            <button type="button" class="sa-brain-close" id="sa-brain-close" aria-label="Close">×</button>
+          </div>
         </header>
-        <div class="sa-brain-messages" id="sa-brain-messages"></div>
+        <div class="sa-brain-messages" id="sa-brain-messages" role="log" aria-live="polite"></div>
+        <div class="sa-brain-offline" id="sa-brain-offline" hidden role="status">
+          <p>I'm offline — use the buttons below or <button type="button" class="sa-brain-retry" id="sa-brain-retry">retry</button></p>
+        </div>
         <div class="sa-brain-chips" id="sa-brain-chips"></div>
+        <form class="sa-brain-composer" id="sa-brain-composer">
+          <label class="visually-hidden" for="sa-brain-input">Message Brain</label>
+          <textarea id="sa-brain-input" class="sa-brain-input" rows="2" maxlength="2000" placeholder="What are you trying to run, build, or automate?" autocomplete="off"></textarea>
+          <button type="submit" class="sa-brain-send" id="sa-brain-send" aria-label="Send">
+            <span aria-hidden="true">↑</span>
+          </button>
+        </form>
       </div>`;
     document.body.appendChild(wrap);
     document.body.classList.add("sa-has-chatbot");
 
     const fab = document.getElementById("sa-brain-fab");
+    const fabDot = document.getElementById("sa-brain-fab-dot");
     const panel = document.getElementById("sa-brain-panel");
     const backdrop = document.getElementById("sa-brain-backdrop");
     const close = document.getElementById("sa-brain-close");
     const messages = document.getElementById("sa-brain-messages");
     const chips = document.getElementById("sa-brain-chips");
+    const composer = document.getElementById("sa-brain-composer");
+    const input = document.getElementById("sa-brain-input");
+    const sendBtn = document.getElementById("sa-brain-send");
+    const providerEl = document.getElementById("sa-brain-provider");
+    const offlineBanner = document.getElementById("sa-brain-offline");
+    const retryBtn = document.getElementById("sa-brain-retry");
+    let userHasChatted = false;
+
+    function syncOfflineBanner(ready, connecting) {
+      if (!offlineBanner) return;
+      const hidden = connecting || Boolean(ready);
+      offlineBanner.hidden = hidden;
+      if (hidden) {
+        offlineBanner.setAttribute("aria-hidden", "true");
+      } else {
+        offlineBanner.removeAttribute("aria-hidden");
+      }
+    }
+
+    function setProviderLabel(ready, connecting) {
+      if (!providerEl) return;
+      if (connecting) {
+        providerEl.textContent = "";
+        providerEl.className = "sa-brain-provider is-connecting";
+        syncOfflineBanner(ready, true);
+        return;
+      }
+      providerEl.textContent = ready ? "" : "· offline";
+      providerEl.className = `sa-brain-provider${ready ? " is-live" : " is-offline"}`;
+      if (fabDot) fabDot.classList.toggle("is-offline", !ready);
+      syncOfflineBanner(ready, false);
+      panel.classList.toggle("is-offline", !ready);
+    }
 
     function toggle(open) {
       const on = typeof open === "boolean" ? open : panel.hidden;
       panel.hidden = !on;
+      panel.classList.toggle("is-open", on);
       if (backdrop) {
         backdrop.hidden = !on;
         backdrop.setAttribute("aria-hidden", String(!on));
@@ -261,13 +470,16 @@
       document.body.classList.toggle("sa-brain-open", on);
       if (on && !messages.dataset.greeted) {
         messages.dataset.greeted = "1";
-        addMsg(
-          "bot",
-          "Hi — I'm Brain. Want <strong>live boot proof</strong>, the <strong>Governance Gauntlet</strong> quiz, or a demo slot?"
-        );
-        renderChips();
+        greet();
       }
-      if (on) close.focus();
+      if (on) {
+        setTimeout(renderChips, 400);
+      }
+      if (on) {
+        setProviderLabel(null, true);
+        checkBrainStatus().then((ready) => setProviderLabel(ready, false));
+        setTimeout(() => input && input.focus(), 80);
+      }
     }
 
     fab.addEventListener("click", () => toggle());
@@ -277,27 +489,94 @@
       if (e.key === "Escape" && wrap.classList.contains("is-open")) toggle(false);
     });
 
-    function addMsg(role, html) {
-      const m = el("div", `sa-brain-msg sa-brain-msg-${role}`);
-      m.innerHTML = html;
+    function addMsg(role, html, opts) {
+      const extra = opts && opts.error ? " sa-brain-msg-error" : "";
+      const m = el("div", `sa-brain-msg sa-brain-msg-${role}${opts && opts.typing ? " is-typing" : ""}${extra}`);
+      const time =
+        role === "bot" && !(opts && opts.typing)
+          ? `<span class="sa-brain-time">${new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</span>`
+          : "";
+      m.innerHTML = time + html;
       messages.appendChild(m);
       messages.scrollTop = messages.scrollHeight;
+      return m;
+    }
+
+    function collapseChips() {
+      if (!userHasChatted) {
+        userHasChatted = true;
+        chips.classList.add("is-collapsed");
+      }
+    }
+
+    function greet() {
+      positioningReady.then(() => {
+        addMsg("bot", positioning.brain_greet_html || DEFAULT_POSITIONING.brain_greet_html);
+        renderChips();
+      });
     }
 
     function renderChips() {
       chips.innerHTML = "";
-      [
-        { label: "Live boot proof", action: showBoot },
-        { label: "Play proof quiz", action: goQuiz },
-        { label: "Book proof demo", action: () => window.open(DEMO_URL, "_blank", "noopener") },
-        { label: "Verification", action: () => (window.location.href = "/sourcea/proof.html") },
-      ].forEach(({ label, action }) => {
-        const b = el("button", "sa-brain-chip");
+      const chipDefs = [
+        { label: "What is SourceA?", action: () => sendUserMessage("What is SourceA in one sentence?") },
+        {
+          label: "See live receipt",
+          accent: true,
+          action: () => {
+            addMsg("bot", "Opening live factory proof — verify the receipt yourself, no call needed.");
+            window.location.href = "/sourcea/proof/live";
+          },
+        },
+        { label: "Try Forge Terminal", action: () => sendUserMessage("What is Forge Terminal and how do I try it in my browser?") },
+        {
+          label: "Report a bug",
+          action: () => {
+            if (window.SourceAPulse) {
+              document.getElementById("sa-pulse-feedback-fab")?.click();
+              addMsg("bot", "Feedback form opened — tell us what's broken or confusing on this page.");
+            } else {
+              sendUserMessage("I want to report a bug on this website");
+            }
+          },
+        },
+        { label: "Examples for my agency", action: () => sendUserMessage("Give me 3 exact examples how SourceA helps an agency with work I'm already doing") },
+        {
+          label: "Talk to a human",
+          action: () => {
+            if (window.SourceAInteract && window.SourceAInteract.openCal) {
+              window.SourceAInteract.openCal();
+              addMsg("bot", "Optional walkthrough — only if you want a human. Proof is self-serve on the site.");
+            } else {
+              window.open(DEMO_URL, "_blank", "noopener");
+            }
+          },
+        },
+        { label: "Pricing", action: () => sendUserMessage("How does SourceA pricing work?") },
+      ];
+      const extras =
+        window.SourceAInteract && window.SourceAInteract.brainExtraChips
+          ? window.SourceAInteract.brainExtraChips()
+          : [];
+      extras.forEach(({ label, message }) => {
+        chipDefs.splice(chipDefs.length - 1, 0, {
+          label,
+          action: () => sendUserMessage(message),
+        });
+      });
+      chipDefs.forEach(({ label, action, accent }) => {
+        const b = el("button", "sa-brain-chip" + (accent ? " is-accent" : ""));
         b.type = "button";
         b.textContent = label;
         b.addEventListener("click", action);
         chips.appendChild(b);
       });
+    }
+
+    function autoGrowInput() {
+      if (!input) return;
+      input.style.height = "auto";
+      input.style.height = Math.min(input.scrollHeight, 144) + "px";
     }
 
     async function showBoot() {
@@ -319,6 +598,95 @@
       }
     }
 
+    async function sendUserMessage(text) {
+      const msg = String(text || "").trim();
+      if (!msg || chatBusy) return;
+      addMsg("user", escapeHtml(msg));
+      collapseChips();
+      chatBusy = true;
+      sendBtn.disabled = true;
+      const typing = addMsg("bot", "<span class='sa-brain-typing-dots'><span></span><span></span><span></span></span>", {
+        typing: true,
+      });
+
+      try {
+        await configReady;
+        const ctrl = new AbortController();
+        const timer = setTimeout(() => ctrl.abort(), CHAT_TIMEOUT_MS);
+        const r = await fetch(apiUrl(), {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: msg, history: chatHistory }),
+          signal: ctrl.signal,
+        });
+        clearTimeout(timer);
+        const data = await r.json().catch(() => ({}));
+        typing.remove();
+        if (!r.ok && !data.reply) {
+          addMsg(
+            "bot",
+            escapeHtml(chatConfig.hint_offline || "I'm offline — use the buttons below or book a call."),
+            { error: true }
+          );
+          setProviderLabel(false, false);
+          return;
+        }
+        const reply = data.reply || data.message || chatConfig.hint_offline || "I'm offline — use the buttons below or book a call.";
+        const isError = !data.ok;
+        addMsg("bot", formatReply(reply), { error: isError });
+        if (!isError) {
+          chatHistory.push({ role: "user", content: msg });
+          chatHistory.push({ role: "assistant", content: reply });
+          if (chatHistory.length > 20) chatHistory = chatHistory.slice(-20);
+          if (window.SourceAPulse) window.SourceAPulse.track("brain_chat", { ok: true });
+        }
+        setProviderLabel(Boolean(data.ok), false);
+      } catch (_) {
+        typing.remove();
+        addMsg(
+          "bot",
+          escapeHtml(chatConfig.hint_offline || "I'm offline — use the buttons below or book a call."),
+          { error: true }
+        );
+        setProviderLabel(false, false);
+      } finally {
+        chatBusy = false;
+        sendBtn.disabled = false;
+        input.focus();
+      }
+    }
+
+    composer.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const val = input.value.trim();
+      if (!val) return;
+      input.value = "";
+      autoGrowInput();
+      sendUserMessage(val);
+    });
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        composer.requestSubmit();
+      }
+    });
+
+    input.addEventListener("input", autoGrowInput);
+
+    positioningReady.then(applyPositioningToDom);
+    setProviderLabel(null, true);
+    configReady.then(() =>
+      checkBrainStatus(true).then((ready) => {
+        setProviderLabel(ready, false);
+      })
+    );
+    if (retryBtn) {
+      retryBtn.addEventListener("click", () => {
+        setProviderLabel(null, true);
+        checkBrainStatus(true).then((ready) => setProviderLabel(ready, false));
+      });
+    }
     renderChips();
   }
 

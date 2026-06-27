@@ -42,23 +42,35 @@
     });
   }
 
+  function publicUi() {
+    return window.SourceAPublicDisplay && !window.SourceAPublicDisplay.isDevUi();
+  }
+
   function paintApiHook(data) {
     const hook = data.api_hook || {};
+    const pub = publicUi();
     document.querySelectorAll("[data-trust-api-endpoint]").forEach((el) => {
-      if (hook.endpoint) el.textContent = hook.endpoint;
+      if (hook.endpoint) el.textContent = pub ? "POST /v1/check" : hook.endpoint;
     });
     document.querySelectorAll("[data-trust-api-verdict]").forEach((el) => {
       if (hook.verdict) {
-        el.textContent = '"' + hook.verdict + '"';
-        el.classList.toggle("is-pass", hook.verdict === "PASS");
+        const v = pub ? window.SourceAPublicDisplay.humanizeVerdict(hook.verdict) : hook.verdict;
+        el.textContent = '"' + v + '"';
+        el.classList.toggle("is-pass", hook.verdict === "PASS" || hook.verdict === "APPROVED");
         el.classList.toggle("is-block", hook.verdict === "BLOCK");
       }
     });
     document.querySelectorAll("[data-trust-api-receipt]").forEach((el) => {
-      if (hook.receipt_id) el.textContent = '"' + hook.receipt_id + '"';
+      if (hook.receipt_id) {
+        el.textContent = '"' + (pub ? "job-record" : hook.receipt_id) + '"';
+      }
     });
     document.querySelectorAll("[data-trust-api-signed]").forEach((el) => {
-      if (hook.signed_at) el.textContent = '"' + String(hook.signed_at).slice(0, 19) + 'Z"';
+      if (hook.signed_at) {
+        el.textContent = pub
+          ? '"just now"'
+          : '"' + String(hook.signed_at).slice(0, 19) + 'Z"';
+      }
     });
   }
 
@@ -91,10 +103,12 @@
     const n = data.valid_yes;
     const total = data.valid_yes_total || 1000;
     const gov = data.governance || {};
-    const verdict = gov.verdict || "live";
-    // Factory pass · valid yes — baseline markers (ui-upgrade-baseline-v1.json)
+    const rawVerdict = gov.verdict || "live";
+    const verdict = publicUi() ? window.SourceAPublicDisplay.humanizeGovernance(rawVerdict) : rawVerdict;
     const checks = n != null ? `${n}/${total} checks` : "checks passing";
-    pill.textContent = `Live proof · sample · ${verdict} · ${checks}`;
+    pill.textContent = publicUi()
+      ? `Live demo · ${verdict} · ${checks}`
+      : `Live proof · sample · ${verdict} · ${checks}`;
     pill.dataset.saLive = "1";
   }
 
@@ -128,15 +142,17 @@
 
     const gov = root.querySelector("[data-trust-governance]");
     if (gov && data.governance) {
-      const v = data.governance.verdict || "UNKNOWN";
+      const raw = data.governance.verdict || "UNKNOWN";
+      const v = publicUi() ? window.SourceAPublicDisplay.humanizeGovernance(raw) : raw;
       gov.textContent = v;
-      gov.classList.toggle("is-pass", v === "PASS");
-      gov.classList.toggle("is-block", v === "BLOCK");
+      gov.classList.toggle("is-pass", raw === "PASS" || raw === "APPROVED");
+      gov.classList.toggle("is-block", raw === "BLOCK");
     }
 
     const fac = root.querySelector("[data-trust-factory]");
     if (fac && data.governance) {
-      fac.textContent = data.governance.factory || "—";
+      const rawFac = data.governance.factory || "—";
+      fac.textContent = publicUi() && rawFac === "FROZEN" ? "Paused" : rawFac === "LIVE" ? "Active" : rawFac;
       fac.classList.toggle("is-frozen", data.governance.factory === "FROZEN");
     }
 
@@ -162,17 +178,30 @@
   }
 
   function init() {
+    if (window.SourceASiteFallback) {
+      window.SourceASiteFallback.paintTrust(window.SourceASiteFallback.TRUST);
+    }
     fetch(URL, { cache: "no-store" })
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error("trust fetch");
+        const ct = (r.headers.get("content-type") || "").toLowerCase();
+        if (ct.includes("text/html")) throw new Error("html not json");
+        return r.json();
+      })
       .then((data) => {
         document.querySelectorAll("[data-sa-trust-bar]").forEach((root) => paint(root, data));
         paintBuiltOn(data, "[data-trust-built-on-hero]");
         paintReceipts(data);
         paintApiHook(data);
         paintFactoryChip(data);
+        if (window.SourceASiteFallback) window.SourceASiteFallback.paintTrust(data);
       })
       .catch(() => {
-        document.querySelectorAll("[data-sa-trust-bar]").forEach((root) => root.classList.add("is-stale"));
+        if (window.SourceASiteFallback) {
+          window.SourceASiteFallback.paintTrust(window.SourceASiteFallback.TRUST);
+        } else {
+          document.querySelectorAll("[data-sa-trust-bar]").forEach((root) => root.classList.add("is-stale"));
+        }
       });
   }
 

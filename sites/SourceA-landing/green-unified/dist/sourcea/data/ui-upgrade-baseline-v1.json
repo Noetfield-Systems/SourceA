@@ -16,9 +16,11 @@
         "data-trust-valid-yes",
         "data-trust-receipts-lifetime",
         "Close clients with live proof",
-        "/sourcea/proof/live.html",
+        "/sourcea/proof/live",
         "sourcea-trust-bar.js",
-        "sourcea-live-console.js"
+        "sourcea-live-console.js",
+        "id=\"case-studies\"",
+        "sourcea-products.js"
       ],
       "min_count": {
         "sa-chain-beat": 6
@@ -38,7 +40,34 @@
       "must_contain": [
         "sa-buyer-chip",
         "data-trust-valid-yes",
-        "data-trust-receipts-lifetime"
+        "data-trust-receipts-lifetime",
+        "id=\"sa-products-grid\"",
+        "data-mode=\"full\"",
+        "sourcea-products.js"
+      ]
+    },
+    "offer.html": {
+      "must_contain": [
+        "sourcea-chatbot.js",
+        "case-studies/pureflow",
+        "case-studies/agentgo",
+        "data-mode=\"case-studies\""
+      ]
+    },
+    "case-studies/index.html": {
+      "must_contain": [
+        "id=\"case-studies-grid\"",
+        "data-mode=\"case-studies\"",
+        "sourcea-chatbot.js",
+        "sourcea-products.js"
+      ]
+    },
+    "sourcea-chatbot.js": {
+      "must_contain": [
+        "sa-brain-composer",
+        "sa-brain-input",
+        "sa-brain-offline",
+        "openrouter"
       ]
     },
     "security.html": {
@@ -80,7 +109,9 @@
         "sa-buyer-toggle",
         "sa-chain-beats",
         "sa-mock-panel",
-        "sa-hero-stats-row"
+        "sa-hero-stats-row",
+        "sa-brain-composer",
+        "sa-products-grid"
       ]
     }
   }

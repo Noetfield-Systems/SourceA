@@ -2,8 +2,8 @@
   "use strict";
 
   var PLAIN = {
-    hub: "Opens Worker Hub — your task queue, cloud proceed, and form picks on :13020.",
-    cloud: "Opens Cloud Workers — Railway queue, CLOUD-SEC drain, deploy commands on :13027.",
+    hub: "Worker Hub — optional legacy glance :13020 (form picks · mail hub).",
+    cloud: "Cloud Workers — CLOUD-SEC queue · Railway full-pack Proceed (:13027).",
     mail: "Opens Portfolio Mail — inbox wiring and mail hub on Hub :13020/mail-hub.",
     chat: "Opens Chat Unify — merges Cursor chats and fires n8n webhook on :13023.",
     n8n: "Opens N8N Integration — automation spine, validators, n8n workflows on :13026.",
@@ -14,10 +14,11 @@
     start: "Starts local n8n process on :5678 if stopped.",
     validate_chain: "Runs fast parallel living-chain probes — all links in terminal.",
     validator_run: "Probe N8N Integration health + disk receipts.",
-    force_auto_tick: "Forces cloud drain auto-tick (skips 15m rate limit) — advances CLOUD-SEC queue.",
+    force_auto_tick: "Mac observe only — CF cron */10 runs full_pack×100 on cloud.",
     wire_chat_unify: "Wires Chat Unify merge pipeline to n8n webhook.",
     wire_portfolio_mail: "Wires Portfolio Mail + Chat + N8N glue.",
-    refresh: "Reloads fast disk snapshot — not a full validator run.",
+    refresh: "Reloads local chain_status + live queue via CF proxy.",
+    trigger_cf_pack: "Browser POST to CF /tick → Railway full_pack×100 (Mac never calls Railway).",
   };
 
   var lines = [];

@@ -41,6 +41,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 PAGES=(
+  start.html
   index.html
   platform.html
   team.html
@@ -91,7 +92,7 @@ for p in "${PAGES[@]}"; do
   [[ -f "$ROOT/$p" ]] || { echo "FAIL: missing page $ROOT/$p"; exit 1; }
 done
 page_count="${#PAGES[@]}"
-grep -q "hello@sourcea.com" "$ROOT/index.html" || { echo "FAIL: no hello@sourcea.com in index"; exit 1; }
+grep -q "hello@sourcea.app" "$ROOT/index.html" || { echo "FAIL: no hello@sourcea.app in index"; exit 1; }
 grep -qi "noetfield.com\|operations@noetfield" "$ROOT/index.html" && { echo "FAIL: Noetfield leak in index"; exit 1; }
 AGENTGO="${HOME}/Desktop/SA4"
 AGENTRUN="${HOME}/Desktop/agentrun-app"
@@ -141,6 +142,18 @@ echo ""
 
 echo "=== step 2d: inject AEG live proof ==="
 python3 "$REPO/scripts/inject_landing_aeg_proof_v1.py" || { echo "FAIL: aeg live inject"; exit 1; }
+echo ""
+
+echo "=== step 2e: commercial copy gate (mandatory pre-ship) ==="
+bash "$REPO/scripts/validate-landing-commercial-copy-v1.sh" || { echo "FAIL: commercial copy gate"; exit 1; }
+echo ""
+
+echo "=== step 2f: copy depth gate (repetition · filler · padding) ==="
+bash "$REPO/scripts/validate-landing-copy-depth-v1.sh" || { echo "FAIL: copy depth gate"; exit 1; }
+echo ""
+
+echo "=== step 2g: UI mechanical gate (positioning · layout · tokens) ==="
+bash "$REPO/scripts/validate-sourcea-ui-mechanical-v1.sh" || { echo "FAIL: UI mechanical gate"; exit 1; }
 echo ""
 
 echo "=== step 3: deploy → agentrun-app + SA4 ==="
@@ -199,6 +212,13 @@ receipt = {
         "preflight",
     "sync_sourcea_landing_pages_v1.py",
     "ui_upgrade_baseline_guard_v1.py verify-all",
+    "inject_sourcea_boot_terminal_v1.py",
+    "inject_landing_buyer_trust_v1.py",
+    "validate-landing-buyer-trust-v1.sh",
+    "inject_landing_aeg_proof_v1.py",
+    "validate-landing-commercial-copy-v1.sh",
+    "validate-landing-copy-depth-v1.sh",
+    "validate-sourcea-ui-mechanical-v1.sh",
     "deploy_sourcea_desktop_landing_v1.py",
         "validate-sourcea-desktop-landing-v1.sh",
     ],

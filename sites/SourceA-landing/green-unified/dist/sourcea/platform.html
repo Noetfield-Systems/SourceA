@@ -6,6 +6,8 @@
   <title>Platform | SourceA</title>
   <meta name="description" content="Agent loops run without receipts. SourceA closes the gap with policy at dispatch, signed ledger, and replay." />
   <meta name="theme-color" content="#044441" />
+  <meta property="og:title" content="SourceA — AI that proves its work" />
+  <meta property="og:description" content="For platform teams — controlled runtime, signed receipts, replay in your browser." />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
   <link rel="stylesheet" href="/assets/agentrun.css" />
   <link rel="stylesheet" href="/sourcea/sourcea.css" />
@@ -20,26 +22,27 @@
 <header class="ar-header sa-header">
   <div class="ar-container ar-header-shell">
     <div class="ar-header-inner">
-      <a class="ar-logo" href="/sourcea/" aria-label="SourceA home">
+      <a class="ar-logo" href="/" aria-label="SourceA home">
         <span class="ar-logo-text">Source<span class="ar-logo-run sa-logo-run">A</span></span>
       </a>
       <nav class="ar-nav" id="ar-nav" aria-label="Primary">
-        <a href="/sourcea/" data-sa-nav>Home</a>
-        <a href="/sourcea/platform.html" data-sa-nav>Platform</a>
-        <a href="/sourcea/team.html" data-sa-nav>Team</a>
-        <a href="/sourcea/growth.html" data-sa-nav>Growth</a>
-        <a href="/sourcea/scenario.html" data-sa-nav>Scenario</a>
-        <a href="/sourcea/proof.html" data-sa-nav>>Verification</a>
-        <a href="/sourcea/compare.html" data-sa-nav>Compare</a>
-        <a href="/sourcea/pricing.html" data-sa-nav>Pricing</a>
-        <a class="ar-btn ar-btn-primary ar-btn-sm ar-nav-cta-mobile sa-btn-glow" href="mailto:hello@sourcea.com">Book proof demo</a>
+        <a href="/" data-sa-nav data-sa-nav-home>Home</a>
+        <a href="/sourcea/offer" data-sa-nav>Offer</a>
+        <a href="/sourcea/pricing" data-sa-nav>Pricing</a>
+        <a href="/sourcea/investors" data-sa-nav>Investors</a>
+        <a href="/sourcea/kernel/" data-sa-nav>Kernel</a>
+        <a class="ar-btn ar-btn-ghost ar-btn-sm ar-nav-signin-mobile" href="/platform">Sign in</a>
+        <a class="ar-btn ar-btn-primary ar-btn-sm ar-nav-cta-mobile sa-btn-glow" data-sa-proof-cta href="/sourcea/proof/live">See live receipt</a>
       </nav>
       <button type="button" class="ar-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="ar-nav">
         <span class="ar-nav-toggle-bar"></span>
         <span class="ar-nav-toggle-bar"></span>
         <span class="ar-nav-toggle-bar"></span>
       </button>
-      <a class="ar-btn ar-btn-primary ar-btn-sm sa-btn-glow ar-header-cta" href="mailto:hello@sourcea.com">Book proof demo</a>
+      <div class="ar-header-actions">
+        <a class="ar-btn ar-btn-ghost ar-btn-sm ar-header-signin" href="/platform">Sign in</a>
+        <a class="ar-btn ar-btn-primary ar-btn-sm sa-btn-glow ar-header-cta" data-sa-proof-cta href="/sourcea/proof/live">See live receipt</a>
+      </div>
     </div>
   </div>
 </header>
@@ -48,20 +51,22 @@
   <section class="ar-section ar-page-hero sa-sub-hero ar-reveal">
     <div class="ar-container">
       <nav class="ar-breadcrumb" aria-label="Breadcrumb">
-        <a href="/sourcea/">Home</a><span class="ar-breadcrumb-sep">/</span><span>Platform</span>
+        <a href="/sourcea/">Home</a><span class="ar-breadcrumb-sep">/</span>
+        <a href="/sourcea/kernel/">Kernel</a><span class="ar-breadcrumb-sep">/</span><span>Platform</span>
       </nav>
-      <p class="ar-kicker">The problem you already feel</p>
+      <p class="ar-kicker">For platform &amp; engineering teams</p>
       <h1>Your agents ran. <span class="ar-hero-accent">Your audit trail did not.</span></h1>
-      <p class="ar-lead">You can demo the loop. Your buyer asks what executed overnight — and whether it is safe to run again. That question deserves a receipt, not a log dump.</p>
+      <p class="ar-lead">A platform that logs every AI action so your team can review it and show clients a clear demo — procurement-friendly.</p>
       <div class="sa-buyer-chips" role="navigation" aria-label="Buyer paths">
-        <a class="sa-buyer-chip is-active" href="/sourcea/platform.html">I run a platform team</a>
-        <a class="sa-buyer-chip sa-buyer-chip-secondary" href="/sourcea/#agency-path">I run an agency</a>
+        <a class="sa-buyer-chip is-active" href="/sourcea/platform">For platform teams</a>
+        <a class="sa-buyer-chip sa-buyer-chip-secondary" href="/sourcea/growth">For agencies</a>
+        <a class="sa-buyer-chip sa-buyer-chip-secondary" href="/sourcea/sandbox">48h MVP path</a>
       </div>
       <div class="ar-hero-actions" style="margin-top:1.25rem">
-        <a class="ar-btn ar-btn-primary sa-btn-glow" href="https://github.com/sourcea-io/sourcea-boot" target="_blank" rel="noopener">Try sourcea-boot<span class="ar-btn-arrow">→</span></a>
-        <a class="ar-btn ar-btn-ghost" href="mailto:hello@sourcea.com">Book proof demo</a>
-        <a class="ar-btn ar-btn-ghost" href="/sourcea/security.html">Security &amp; procurement</a>
-        <a class="ar-btn ar-btn-ghost" href="/sourcea/attach/procurement-pack.html" target="_blank" rel="noopener">Procurement pack</a>
+        <a class="ar-btn ar-btn-primary sa-btn-glow" href="/sourcea/forge/terminal">Try Forge Terminal<span class="ar-btn-arrow">→</span></a>
+        <a class="ar-btn ar-btn-ghost" href="/sourcea/pricing">Rent · Own pricing</a>
+        <a class="ar-btn ar-btn-ghost" href="/sourcea/security">Security &amp; procurement</a>
+        <a class="ar-btn ar-btn-ghost" href="/sourcea/attach/procurement-pack" target="_blank" rel="noopener">Procurement pack</a>
       </div>
       <div class="sa-platform-api-hook ar-reveal" id="platform-api" aria-label="Buyer 1 API hook">
         <p class="sa-platform-api-label">Policy at dispatch — one call, one receipt</p>
@@ -75,7 +80,7 @@
 
   <section class="sa-reference-band ar-reveal" aria-label="Market reference signals">
     <div class="ar-container sa-reference-inner">
-      <p class="sa-reference-label">Execution Proof Infrastructure</p>
+      <p class="sa-reference-label">Factory · Runtime · Proof</p>
       <div class="sa-badge-row">
         <span class="sa-badge"><strong>6/6</strong> verification complete</span>
         <span class="sa-badge"><strong>&lt;5m</strong> live replay demo</span>
@@ -88,15 +93,15 @@
   <section class="ar-section ar-section-muted ar-reveal">
     <div class="ar-container">
       <div class="ar-problem-grid ar-stagger">
-        <article class="ar-problem-card sa-card-lift"><span class="ar-card-dot"></span><h3>Closeout has no receipt</h3><p>Your client asks "what ran?" and you forward logs. They wanted a signed PASS or BLOCK — something counsel can file.</p></article>
+        <article class="ar-problem-card sa-card-lift"><span class="ar-card-dot"></span><h3>Closeout has no receipt</h3><p>Stakeholders ask "what ran?" and you forward logs. They wanted a signed PASS or BLOCK — something counsel can file.</p></article>
         <article class="ar-problem-card sa-card-lift"><span class="ar-card-dot"></span><h3>Policy arrives too late</h3><p>Governance at session start misses the dangerous action at minute forty. You need a gate on every dispatch.</p></article>
         <article class="ar-problem-card sa-card-lift"><span class="ar-card-dot"></span><h3>Automation without accountability</h3><p>Workflow tools connect steps. They do not prove outcomes, catch tampering, or let you replay yesterday cold.</p></article>
       </div>
       <div class="ar-features-grid ar-stagger sa-features" style="margin-top:2rem">
-        <article class="ar-feature-card sa-card-lift"><span class="ar-feature-num">01</span><h3>We run it first</h3><p>Our factory runs these loops nightly — you inherit the spine we dogfood.</p></article>
+        <article class="ar-feature-card sa-card-lift"><span class="ar-feature-num">01</span><h3>Proven in production</h3><p>The same controlled spine ships to every customer — not a slide-deck promise.</p></article>
         <article class="ar-feature-card sa-card-lift"><span class="ar-feature-num">02</span><h3>Policy before the model</h3><p>Every action passes your rules in the repository before the LLM executes.</p></article>
-        <article class="ar-feature-card sa-card-lift"><span class="ar-feature-num">03</span><h3>Receipts your client keeps</h3><p>Weekly export with what ran, what blocked, and which policy applied.</p></article>
-        <article class="ar-feature-card sa-card-lift"><span class="ar-feature-num">04</span><h3>Proof in one sitting</h3><p>ALLOW, BLOCK, and tamper detection — screen-shared in under five minutes.</p></article>
+        <article class="ar-feature-card sa-card-lift"><span class="ar-feature-num">03</span><h3>Receipts your team keeps</h3><p>Weekly export with what ran, what blocked, and which policy applied — yours logged.</p></article>
+        <article class="ar-feature-card sa-card-lift"><span class="ar-feature-num">04</span><h3>Proof in one sitting</h3><p>ALLOW, BLOCK, and tamper detection — verifiable in under five minutes on the page.</p></article>
       </div>
     </div>
   </section>
@@ -106,13 +111,13 @@
       <div class="ar-section-head ar-section-head-center">
         <p class="ar-kicker">Before you read another slide deck</p>
         <h2>Live proof beats any logo wall.</h2>
-        <p class="ar-section-copy">Receipt counter from disk · GitHub eval path · downloadable proof bundle · governance status page.</p>
+        <p class="ar-section-copy">Live demo · GitHub eval · downloadable sample · status page.</p>
       </div>
-      <div class="sa-trust-bar" data-sa-trust-bar>
+      <div class="sa-trust-bar sa-public-demo" data-sa-trust-bar>
           <article class="sa-trust-stat">
-            <span class="sa-trust-stat-label">Receipts logged</span>
+            <span class="sa-trust-stat-label">Jobs completed</span>
             <strong class="sa-trust-stat-value" data-trust-receipts-lifetime>—</strong>
-            <span class="sa-trust-stat-hint"><span data-trust-receipts-lifetime-label>Logged and reviewable</span> · <span data-trust-receipts>—</span> today</span>
+            <span class="sa-trust-stat-hint"><span data-trust-receipts-lifetime-label>Verified for clients</span> · <span data-trust-receipts>—</span> today</span>
           </article>
         <article class="sa-trust-stat">
           <span class="sa-trust-stat-label">Proof checks</span>
@@ -120,19 +125,19 @@
           <span class="sa-trust-stat-hint">Live sample · checks passing</span>
         </article>
         <article class="sa-trust-stat">
-          <span class="sa-trust-stat-label">Boot gate</span>
+          <span class="sa-trust-stat-label">Quality check</span>
           <strong class="sa-trust-stat-value sa-trust-gov" data-trust-governance>—</strong>
-          <span class="sa-trust-stat-hint">Factory · <span data-trust-factory>—</span></span>
+          <span class="sa-trust-stat-hint">Platform · <span data-trust-factory>—</span></span>
         </article>
         <article class="sa-trust-stat">
-          <span class="sa-trust-stat-label">sourcea-boot</span>
+          <span class="sa-trust-stat-label">Open source</span>
           <strong class="sa-trust-stat-value"><span data-trust-github-stars>—</span> ★</strong>
           <span class="sa-trust-stat-hint">Last push <span data-trust-github-pushed>—</span></span>
         </article>
         <article class="sa-trust-stat">
           <span class="sa-trust-stat-label">Evaluate first</span>
           <strong class="sa-trust-stat-value sa-trust-link"><a data-trust-github-link href="https://github.com/sourcea-io/sourcea-boot" target="_blank" rel="noopener">Clone repo</a></strong>
-          <span class="sa-trust-stat-hint"><a data-trust-sample-link href="/sourcea/attach/proof-bundle-sample.html" target="_blank" rel="noopener">Proof sample</a> · <a data-trust-status-link href="/sourcea/status.html">Status</a></span>
+          <span class="sa-trust-stat-hint"><a data-trust-sample-link href="/sourcea/attach/proof-bundle-sample" target="_blank" rel="noopener">Proof sample</a> · <a data-trust-status-link href="/sourcea/status">Status</a></span>
         </article>
       </div>
       <div class="sa-built-on" aria-label="Built on technology dependencies">
@@ -162,38 +167,51 @@
   <section class="ar-section ar-section-muted ar-reveal">
     <div class="ar-container">
       <div class="ar-section-head ar-section-head-center">
-        <p class="ar-kicker">Loops we run for clients</p>
+        <p class="ar-kicker">Scoped loops you can buy</p>
         <h2>Three patterns. One proof spine.</h2>
       </div>
       <div class="ar-tracker-grid">
-        <a class="ar-tracker-card" href="/sourcea/loops/index.html"><strong>All loops</strong><span>Six scoped loops · live factory</span></a>
-        <a class="ar-tracker-card" href="/sourcea/loops/outreach.html"><strong>Outreach</strong><span>Controlled sends · passes logged</span></a>
-        <a class="ar-tracker-card" href="/sourcea/loops/ops-monitor.html"><strong>Ops monitor</strong><span>When policy must say no</span></a>
-        <a class="ar-tracker-card" href="/sourcea/loops/research.html"><strong>Research</strong><span>Bounded gather · one receipt</span></a>
-        <a class="ar-tracker-card" href="/sourcea/scenario.html"><strong>Live scenario</strong><span>Watch a controlled night unfold</span></a>
+        <a class="ar-tracker-card" href="/sourcea/loops/"><strong>All loops</strong><span>Six scoped loops · live proof</span></a>
+        <a class="ar-tracker-card" href="/sourcea/loops/outreach"><strong>Outreach</strong><span>Controlled sends · passes logged</span></a>
+        <a class="ar-tracker-card" href="/sourcea/loops/ops-monitor"><strong>Ops monitor</strong><span>When policy must say no</span></a>
+        <a class="ar-tracker-card" href="/sourcea/loops/research"><strong>Research</strong><span>Bounded gather · one receipt</span></a>
+        <a class="ar-tracker-card" href="/sourcea/forge/"><strong>Prompt Forge</strong><span>Founder language → Cursor mission</span></a>
+        <a class="ar-tracker-card" href="/sourcea/scenario"><strong>Live scenario</strong><span>Watch a controlled night unfold</span></a>
       </div>
     </div>
   </section>
 
-  <section class="ar-section ar-section-muted ar-reveal sa-explore">
+  <section class="ar-section ar-reveal" id="products-catalog">
+    <div class="ar-container">
+      <div class="ar-section-head ar-section-head-center">
+        <p class="ar-kicker">Product catalog · auto-reconciled</p>
+        <h2>Case studies · platform · services — <span class="ar-hero-accent">one spine.</span></h2>
+        <p class="ar-section-copy" style="max-width:40rem;margin:0.5rem auto 0">PureFlow and AgentGo ship as proof products. Platform SKUs wire through the same controlled runtime. </p>
+      </div>
+      <div class="sa-products-grid ar-stagger" id="sa-products-grid" data-mode="full" aria-live="polite"></div>
+      <p class="sa-metric-note" id="sa-products-note" style="margin-top:1.25rem;text-align:center">Loading product catalog…</p>
+    </div>
+  </section>
+
+  <section class="ar-section ar-section-muted ar-reveal sa-explore" id="cloud-workers">
     <div class="ar-container">
       <div class="ar-section-head ar-section-head-center">
         <p class="ar-kicker">Go deeper</p>
         <h2>Every story. <span class="ar-hero-accent">Its own chapter.</span></h2>
       </div>
       <div class="sa-explore-grid">
-        <a class="sa-explore-card" href="/sourcea/team.html"><span class="sa-explore-num">01</span><strong>Your team</strong><span>6 agents orbiting your command center</span></a>
+        <a class="sa-explore-card" href="/sourcea/team"><span class="sa-explore-num">01</span><strong>Your team</strong><span>Six specialists · one controlled console</span></a>
         <a class="sa-explore-card" href="/sourcea/#reference"><span class="sa-explore-num">02</span><strong>Reference</strong><span>Why buyers name SourceA first</span></a>
-        <a class="sa-explore-card" href="/sourcea/platform.html"><span class="sa-explore-num">03</span><strong>Platform</strong><span>Why the audit trail breaks today</span></a>
-        <a class="sa-explore-card" href="/sourcea/growth.html"><span class="sa-explore-num">04</span><strong>Growth system</strong><span>Attract → prove → close → expand</span></a>
-        <a class="sa-explore-card" href="/sourcea/scenario.html"><span class="sa-explore-num">05</span><strong>Scenario</strong><span>Watch a controlled night unfold</span></a>
-        <a class="sa-explore-card" href="/sourcea/proof.html"><span class="sa-explore-num">06</span><strong>>Verification</strong><span>What you screen-share in five minutes</span></a>
-        <a class="sa-explore-card" href="/sourcea/compare.html"><span class="sa-explore-num">07</span><strong>Compare</strong><span>How alternatives stack up</span></a>
-        <a class="sa-explore-card" href="/sourcea/pricing.html"><span class="sa-explore-num">08</span><strong>Pricing</strong><span>Plans without hourly surprise</span></a>
-        <a class="sa-explore-card" href="/sourcea/loops/index.html"><span class="sa-explore-num">09</span><strong>All loops</strong><span>Outreach · ops · research hub</span></a>
-        <a class="sa-explore-card" href="/sourcea/loops/outreach.html"><span class="sa-explore-num">10</span><strong>Outreach loop</strong><span>Controlled sends that pass logged</span></a>
-        <a class="sa-explore-card" href="/sourcea/loops/ops-monitor.html"><span class="sa-explore-num">11</span><strong>Ops monitor</strong><span>When policy says no</span></a>
-        <a class="sa-explore-card" href="/sourcea/loops/research.html"><span class="sa-explore-num">12</span><strong>Research</strong><span>Bounded gather with a receipt</span></a>
+        <a class="sa-explore-card" href="/sourcea/platform"><span class="sa-explore-num">03</span><strong>Platform</strong><span>Why the audit trail breaks today</span></a>
+        <a class="sa-explore-card" href="/sourcea/growth"><span class="sa-explore-num">04</span><strong>Growth system</strong><span>Attract → prove → close → expand</span></a>
+        <a class="sa-explore-card" href="/sourcea/scenario"><span class="sa-explore-num">05</span><strong>Scenario</strong><span>Watch a controlled night unfold</span></a>
+        <a class="sa-explore-card" href="/sourcea/proof"><span class="sa-explore-num">06</span><strong>>Verification</strong><span>Verify the chain in five minutes</span></a>
+        <a class="sa-explore-card" href="/sourcea/compare"><span class="sa-explore-num">07</span><strong>Compare</strong><span>How alternatives stack up</span></a>
+        <a class="sa-explore-card" href="/sourcea/pricing"><span class="sa-explore-num">08</span><strong>Pricing</strong><span>Plans without hourly surprise</span></a>
+        <a class="sa-explore-card" href="/sourcea/loops/"><span class="sa-explore-num">09</span><strong>All loops</strong><span>Outreach · ops · research hub</span></a>
+        <a class="sa-explore-card" href="/sourcea/loops/outreach"><span class="sa-explore-num">10</span><strong>Outreach loop</strong><span>Controlled sends that pass logged</span></a>
+        <a class="sa-explore-card" href="/sourcea/loops/ops-monitor"><span class="sa-explore-num">11</span><strong>Ops monitor</strong><span>When policy says no</span></a>
+        <a class="sa-explore-card" href="/sourcea/loops/research"><span class="sa-explore-num">12</span><strong>Research</strong><span>Bounded gather with a receipt</span></a>
       </div>
     </div>
   </section>
@@ -203,8 +221,8 @@
       <h2>Ready to show proof?</h2>
       <p>Walk the chain from request to receipt — live, in the time it takes to finish a coffee.</p>
       <div class="sa-cta-actions">
-        <a class="ar-btn ar-btn-primary sa-btn-glow" href="/sourcea/proof.html">Verification →</a>
-        <a class="ar-btn ar-btn-ghost" href="/sourcea/scenario.html">Live scenario</a>
+        <a class="ar-btn ar-btn-primary sa-btn-glow" href="/sourcea/proof">Verification →</a>
+        <a class="ar-btn ar-btn-ghost" href="/sourcea/scenario">Live scenario</a>
       </div>
     </div>
   </section>
@@ -214,39 +232,54 @@
   <div class="ar-container sa-footer-grid">
     <div class="sa-footer-brand">
       <strong class="sa-footer-logo">Source<span>A</span></strong>
-      <p>Execution Proof Infrastructure — controlled agentic team for platform engineers and revenue agencies.</p>
-      <p class="sa-footer-meta">Self-hosted receipts · replay without vendor lock-in</p>
+      <p>AI execution platform powered by Forge — proof built in.</p>
+      <p class="sa-footer-meta">Your data stays yours · export anytime</p>
     </div>
     <nav class="sa-footer-col" aria-label="Product pages">
       <h4>Product</h4>
-      <a href="/sourcea/platform.html">Platform</a>
-      <a href="/sourcea/team.html">Your team</a>
-      <a href="/sourcea/growth.html">Growth system</a>
-      <a href="/sourcea/scenario.html">Scenario</a>
-      <a href="/sourcea/proof.html">>Verification</a>
-      <a href="/sourcea/compare.html">Compare</a>
-      <a href="/sourcea/pricing.html">Pricing</a>
+      <a href="/learn">Learn &amp; build</a>
+      <a href="/sourcea/platform">Platform</a>
+      <a href="/sourcea/team">Your team</a>
+      <a href="/sourcea/growth">Growth system</a>
+      <a href="/sourcea/scenario">Scenario</a>
+      <a href="/sourcea/proof">Verification</a>
+      <a href="/sourcea/compare">Compare</a>
+      <a href="/sourcea/pricing">Pricing</a>
     </nav>
-    <nav class="sa-footer-col" aria-label="Factory loops">
+        <nav class="sa-footer-col" aria-label="Case studies">
+      <h4>Case studies</h4>
+      <a href="/sourcea/case-studies/">All case studies</a>
+      <a href="/sourcea/case-studies/pureflow">PureFlow (#1 · trades)</a>
+      <a href="/sourcea/case-studies/agentgo">AgentGo (#2 · factory)</a>
+    </nav>
+<nav class="sa-footer-col" aria-label="Factory loops">
       <h4>Loops</h4>
-      <a href="/sourcea/loops/index.html">All loops</a>
-      <a href="/sourcea/loops/outreach.html">Outreach</a>
-      <a href="/sourcea/loops/ops-monitor.html">Ops monitor</a>
-      <a href="/sourcea/loops/research.html">Research</a>
+      <a href="/sourcea/loops/">All loops</a>
+      <a href="/sourcea/loops/outreach">Outreach</a>
+      <a href="/sourcea/loops/ops-monitor">Ops monitor</a>
+      <a href="/sourcea/loops/research">Research</a>
     </nav>
     <nav class="sa-footer-col" aria-label="Contact">
       <h4>Contact</h4>
-      <a href="mailto:hello@sourcea.com">hello@sourcea.com</a>
+      <a href="mailto:hello@sourcea.app">hello@sourcea.app</a>
       <a href="https://github.com/sourcea-io/sourcea-boot">sourcea-boot</a>
-      <a href="https://sourcea.com">sourcea.com</a>
+      <a href="https://sourcea.app">sourcea.app</a>
     </nav>
   </div>
-  <div class="ar-container sa-footer-bottom"><p>© SourceA 2026 · Execution Proof Infrastructure</p></div>
+  <div class="ar-container sa-footer-bottom"><p>© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · <a href="https://noetfield.com" rel="noopener">noetfield.com</a></p></div>
 </footer>
 
 <script src="/assets/agentrun.js" defer></script>
+<script src="/sourcea/sourcea-public-display-v1.js" defer></script>
 <script src="/sourcea/sourcea-trust-bar.js" defer></script>
 <script src="/sourcea/sourcea-motion.js" defer></script>
+<script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-interact-v1.js" defer></script>
+<script src="/sourcea/sourcea-segment-router-v1.js" defer></script>
 <script src="/sourcea/sourcea-chatbot.js" defer></script>
+<script src="/sourcea/sourcea-products.js" defer></script>
+  <script src="/sourcea/sourcea-cta-gate.js" defer></script>
+<script src="/sourcea/sourcea-landing-cta.js" defer></script>
+<script src="/sourcea/sourcea-boot-wire.js" defer></script>
 </body>
 </html>

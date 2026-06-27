@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Forge Terminal — live demo | SourceA</title>
+  <meta name="description" content="Try Forge Terminal in your browser — living chat with prompt forge on every send. Public demo for founders and agencies." />
+  <meta name="theme-color" content="#0c0e12" />
+  <meta property="og:title" content="Forge Terminal — living chat demo" />
+  <meta property="og:description" content="Paste a goal. Prompt forge runs before the model. See if you'd pay — in 60 seconds." />
+  <meta name="sourcea-forge-demo-version" content="1.4.1" />
+  <link rel="preconnect" href="https://sourcea-brain-chat-v1.sina-kazemnezhad-ca.workers.dev" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="/assets/agentrun.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea-forge-terminal-demo.css?v=1.4.1" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body class="ar-body sa-v2 sa-forge-demo" data-sa-page="forge-terminal-demo">
+<a class="skip-link" href="#sa-ft-composer">Skip to chat</a>
+
+<header class="ar-header sa-header">
+  <div class="ar-container ar-header-shell">
+    <div class="ar-header-inner">
+      <a class="ar-logo" href="/sourcea/forge/" aria-label="Forge hub">
+        <span class="ar-logo-text">Source<span class="ar-logo-run sa-logo-run">A</span></span>
+        <span class="sa-ft-badge">Forge Terminal · demo</span>
+      </a>
+      <div class="ar-header-actions">
+        <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/sourcea/forge/">About Forge</a>
+        <a class="ar-btn ar-btn-primary ar-btn-sm" data-sa-book-fallback href="https://cal.com/sourcea/proof-demo">Talk to a human</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="sa-ft-shell">
+  <aside class="sa-ft-aside" aria-label="Demo guide">
+    <h2>What this is</h2>
+    <p style="margin:0 0 0.75rem;color:var(--ft-text)">A <strong>stranger can open this page</strong> and try living chat — the same spine as the Mac Forge Terminal desk, without installing anything.</p>
+    <ul>
+      <li><strong>Prompt forge</strong> runs before every model reply</li>
+      <li>Answers in founder language — not raw JSON</li>
+      <li>Full Mac IDE adds workspace, quality gate, cloud dispatch</li>
+    </ul>
+    <h2>Try asking</h2>
+    <div class="sa-ft-chip-row">
+      <button type="button" class="sa-ft-chip" data-prompt="Audit my agency's AI deliverables before a client QBR next week">Client QBR audit</button>
+      <button type="button" class="sa-ft-chip" data-prompt="Turn this idea into a bounded build: weekly content engine for B2B SaaS">Content engine</button>
+      <button type="button" class="sa-ft-chip" data-prompt="What would you charge for controlled agent ops for a 12-person agency?">Pricing sense-check</button>
+    </div>
+    <p style="margin-top:1rem;font-size:0.8rem;color:var(--ft-muted)">Mac app (founder desk): <code style="color:var(--ft-accent)">http://127.0.0.1:13029</code> · Not public — this page is the online try.</p>
+    <p style="margin-top:0.5rem;font-size:0.8rem"><a href="mailto:forge@sourcea.app" style="color:var(--ft-accent)">forge@sourcea.app</a> · <a href="/downloads/chat-unify-mac-v1.dmg" style="color:var(--ft-accent)">Download Mac app</a></p>
+    <p style="margin-top:0.75rem;font-size:0.8rem"><a href="/sourcea/forge/terminal/signin" style="color:var(--ft-accent)">Sign in for workspace</a> · profile → project logged</p>
+  </aside>
+
+  <div class="sa-ft-main">
+    <div class="sa-ft-toolbar">
+      <h1>Living chat</h1>
+      <select id="sa-ft-model" class="sa-ft-model-select" aria-label="Model">
+        <option value="google/gemini-2.5-flash">Gemini 2.5 Flash</option>
+      </select>
+      <span class="sa-ft-status" id="sa-ft-status">Connecting…</span>
+    </div>
+
+    <div class="sa-ft-thread" id="sa-ft-thread" role="log" aria-live="polite">
+      <p class="sa-ft-bubble system" id="sa-ft-placeholder">Paste a goal below — Enter to send · Shift+Enter for newline · Prompt forge shapes your message before the model sees it.</p>
+    </div>
+
+    <div class="sa-ft-composer" id="sa-ft-composer">
+      <div class="sa-ft-chip-row sa-ft-composer-chips" id="sa-ft-composer-chips"></div>
+      <label for="sa-ft-input">Your goal</label>
+      <textarea id="sa-ft-input" rows="4" placeholder="Example: I run a 10-person agency — I need clients to trust our AI deliverables before renewal season…"></textarea>
+      <div class="sa-ft-actions">
+        <button type="button" class="ar-btn ar-btn-primary ar-btn-sm" id="sa-ft-send">Send →</button>
+        <span class="sa-ft-hint" id="sa-ft-hint">Public demo · no workspace · feedback welcome after 2 turns</span>
+      </div>
+    </div>
+
+    <section class="sa-ft-feedback" id="sa-ft-feedback" hidden aria-label="Human feedback">
+      <h3>Help us make this sellable — 30 seconds</h3>
+      <p class="sa-ft-hint" style="margin-bottom:0.75rem">Agents verify truth. Only humans judge taste. Tell us what you felt.</p>
+      <div class="ar-field">
+        <label for="sa-ft-fb-name">Name (optional)</label>
+        <input type="text" id="sa-ft-fb-name" autocomplete="name" placeholder="Alex · Agency founder" />
+      </div>
+      <div class="ar-field">
+        <label for="sa-ft-fb-call">What would you call this product?</label>
+        <input type="text" id="sa-ft-fb-call" placeholder="e.g. verified AI ops desk" />
+      </div>
+      <div class="ar-field">
+        <label for="sa-ft-fb-pay">Would you pay? Rough band?</label>
+        <input type="text" id="sa-ft-fb-pay" placeholder="Yes / No / Maybe · $X/mo" />
+      </div>
+      <div class="ar-field">
+        <label for="sa-ft-fb-confused">Where were you confused?</label>
+        <textarea id="sa-ft-fb-confused" rows="2" placeholder="First 10 seconds · labels · missing X"></textarea>
+      </div>
+      <button type="button" class="ar-btn ar-btn-ghost ar-btn-sm" id="sa-ft-fb-save">Email feedback to forge@sourcea.app</button>
+    </section>
+  </div>
+</div>
+
+<script src="/sourcea/sourcea-forge-terminal-demo.js?v=1.4.1" defer></script>
+<script src="/sourcea/sourcea-cta-gate.js" defer></script>
+<script src="/sourcea/sourcea-landing-cta.js" defer></script>
+<script src="/sourcea/sourcea-public-display-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-fallback-v1.js" defer></script>
+<script src="/sourcea/sourcea-boot-wire.js" defer></script>
+<script src="/sourcea/sourcea-chatbot.js" defer></script>
+</body>
+</html>

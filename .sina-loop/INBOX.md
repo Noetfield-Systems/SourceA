@@ -1,10 +1,9 @@
-<!-- WORKER_INBOX pending=0 source=broker_worker_submit queue=1/10 role=check sa=sa-1201 -->
-# SourceA Worker — INBOX cleared
+<!-- WORKER_INBOX pending=0 source=cloud_forge_run_backlog head=CLOUD-SEC-6967 -->
+# SourceA Worker - no Worker INBOX task
 
-**Lane:** SourceA Worker only — if you are Brain, ignore this file.
+Cloud Workers.app / Cloudflare cron owns the all-plan backlog now.
 
-**Updated:** 2026-06-21T01:54:27Z
-
----
-
-No pending turn. Next queue head: **sa-1201** (check) · 1/10.
+- Head: `CLOUD-SEC-6967`
+- Batch: `71`
+- Shape: `100` Cloud Forge Run rows per trigger, `100` tasks per row
+- Queue file: `data/secondary-cloud-forge-run-batch-71-locked-v1.json`

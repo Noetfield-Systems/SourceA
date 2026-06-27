@@ -686,6 +686,30 @@
       ]
     },
     {
+      "port": 13023,
+      "status": "free",
+      "owner_id": "chat_unify",
+      "alt_owners": ["forge_terminal_api"],
+      "purpose": "Chat Unify + Forge Terminal API (mobile/Tailscale bridge)",
+      "doc_ref": "scripts/serve-chat-unify.sh; scripts/forge_terminal_os_bridge_v1.py",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": ["chat_unify", "forge_terminal_api"],
+      "listeners": []
+    },
+    {
+      "port": 13029,
+      "status": "free",
+      "owner_id": "forge_terminal",
+      "alt_owners": [],
+      "purpose": "Forge Terminal standalone macOS .app (Swift WebKit shell)",
+      "doc_ref": "scripts/build-forge-terminal-standalone-app-v1.sh; brand/macos-apps/ForgeTerminalShell.swift",
+      "exclusive": true,
+      "frozen": false,
+      "may_bind": ["forge_terminal"],
+      "listeners": []
+    },
+    {
       "port": 13030,
       "status": "busy",
       "owner_id": "hub_rebuild_worker",

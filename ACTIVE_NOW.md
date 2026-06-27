@@ -21,9 +21,9 @@
 
 **Current sa_id:** `idle` · Goal 1 complete
 
-**Current Blocker:** Goal 1 complete · queue idle · AUTO-RUN FREEZE · `factory-now · Valid YES 1000 · brain 1000 · dual_proof True · mode FREEZE · queue ` · commercial P0 · ASF: resume drain or name Cycle 4 pack for next factory drain
+**Current Blocker:** Goal 1 complete · queue idle · AUTO-RUN FREEZE · `factory-now · Valid YES 1000 · brain 1000 · dual_proof True · mode FREEZE · queue ` · commercial P0 · ASF: Cloud Forge Run or name Cycle 4 pack for next Cloud Forge Run
 
-**Resume law (Phase 2 pick 1.05-B — ASF locked 2026-06-11):** **One sa/turn** on Brain route only when kill flag ON. Founder says `ASF: resume drain — max 1 — receipt required`. Maintainer runs `python3 scripts/factory_control_v1.py resume --max-turns 1` (or `founder_resume_drain_v1.py --max-turns 1`). Never unbounded drain · never `rm ~/.sina/auto-run-disabled-v1.flag`. Hub Stop → `stop_goal1_auto_run_v1.py` (stop receipt).
+**Resume law (Phase 2 pick 1.05-B — ASF locked 2026-06-11):** **One sa/turn** on Brain route only when kill flag ON. Founder says `ASF: Cloud Forge Run — max 1 — receipt required`. Maintainer runs `python3 scripts/factory_control_v1.py resume --max-turns 1` (or `founder_resume_drain_v1.py --max-turns 1`). Never unbounded drain · never `rm ~/.sina/auto-run-disabled-v1.flag`. Hub Stop → `stop_goal1_auto_run_v1.py` (stop receipt).
 
 **Forbidden:** CLI ACT · API ACT · autorun CLI/API · OpenRouter on this pack · commercial `sa-050x` · Terminal for founder — unless Sleep Escalation `on` + no Worker path · unbounded resume · raw flag unlink
 

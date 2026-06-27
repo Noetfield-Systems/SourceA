@@ -1,0 +1,38 @@
+{
+  "name": "SourceA Chat Unify → Proof Pack",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "sourcea-forge",
+        "responseMode": "responseNode"
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://hooks.sourcea.app/v1/relay",
+        "method": "POST",
+        "jsonParameters": true,
+        "options": {},
+        "bodyParametersJson": "={{ JSON.stringify({ event: $json.body.event || 'forge.mission', payload: $json.body, source: 'n8n' }) }}"
+      },
+      "name": "SourceA Relay",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [480, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [[{ "node": "SourceA Relay", "type": "main", "index": 0 }]]
+    }
+  },
+  "meta": {
+    "templateId": "sourcea-chat-unify-webhook-v1",
+    "description": "STAB-057 — n8n webhook → SourceA hosted relay → Chat Unify hook"
+  }
+}
