@@ -1,0 +1,26 @@
+{
+  "name": "@sourcea/forge-worker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Forge worker — queue consumer, governance gate, executor v1",
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@sourcea/forge-core": "file:../forge-core",
+    "@sourcea/forge-governance": "file:../forge-governance",
+    "bullmq": "^5.41.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}

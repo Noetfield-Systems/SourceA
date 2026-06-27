@@ -47,7 +47,7 @@ fi
 echo "=== deploy_witnessbc_v1: stage dist/deploy ==="
 rm -rf "$DEPLOY_DIR"
 mkdir -p "$DEPLOY_DIR/assets" "$DEPLOY_DIR/data"
-PAGE_FILES=(index.html platform.html lifecycle.html proof.html compare.html policy.html pricing.html faq.html sources.html learn.html toolkits.html dark.html)
+PAGE_FILES=(index.html platform.html lifecycle.html proof.html compare.html policy.html pricing.html contact.html faq.html sources.html learn.html toolkits.html dark.html)
 for pf in "${PAGE_FILES[@]}"; do
   cp "$ROOT/$pf" "$DEPLOY_DIR/$pf"
 done
@@ -111,6 +111,27 @@ cat >"$DEPLOY_DIR/_headers" <<'EOF'
   Referrer-Policy: strict-origin-when-cross-origin
 EOF
 
+cat >"$DEPLOY_DIR/vercel.json" <<'EOF'
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}
+EOF
+
 cat >"$DEPLOY_DIR/e2e.sh" <<'EOF'
 #!/usr/bin/env bash
 # Run E2E from this folder:  bash e2e.sh
@@ -129,7 +150,7 @@ Path("$manifest").write_text(json.dumps({
     "schema": "witnessbc-deploy-v10",
     "version": "v10.0",
     "files": files,
-    "pages": 10,
+    "pages": 13,
     "routes": ["_redirects", "_routes.json"],
 }, indent=2) + "\n")
 PY
@@ -164,7 +185,7 @@ fi
 if [[ -n "$VERIFY_URL" ]]; then
   echo "=== deploy_witnessbc_v1: post-deploy verify ==="
   base="${VERIFY_URL%/}"
-  checks=( "$base/" "$base/proof.html" "$base/faq.html" "$base/assets/site.js" )
+  checks=( "$base/" "$base/proof.html" "$base/contact.html" "$base/faq.html" "$base/assets/site.js" )
   for url in "${checks[@]}"; do
     code="$(curl -sS -o /dev/null -w '%{http_code}' -L "$url" || echo "000")"
     if [[ "$code" != "200" ]]; then
@@ -180,6 +201,9 @@ if [[ -n "$VERIFY_URL" ]]; then
   proof_body="$(curl -sS -L "$base/proof.html")"
   echo "$proof_body" | grep -q 'Proof Lab' || { echo "FAIL: missing Proof Lab on proof.html"; exit 1; }
   echo "$proof_body" | grep -qi 'noetfield' && { echo "FAIL: noetfield leak on proof.html"; exit 1; }
+  contact_body="$(curl -sS -L "$base/contact.html")"
+  echo "$contact_body" | grep -q 'contact@witnessbc.com' || { echo "FAIL: missing contact@witnessbc.com on contact.html"; exit 1; }
+  echo "$contact_body" | grep -q 'Book 15-min proof' || { echo "FAIL: missing proof CTA on contact.html"; exit 1; }
   echo "PASS: post-deploy verify"
 fi
 

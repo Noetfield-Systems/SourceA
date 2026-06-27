@@ -1,0 +1,44 @@
+/* Platform / Agent Run hub — sourcea.app/platform */
+.sa-platform-page .sa-platform-hero {
+  padding: clamp(2.5rem, 6vw, 4rem) 0 2rem;
+  position: relative; overflow: hidden;
+}
+.sa-platform-auth-block {
+  background: linear-gradient(160deg, #fff 0%, #f4faf0 100%);
+  border: 1px solid var(--ar-line); border-radius: 20px;
+  padding: 1.75rem; margin-bottom: 2rem;
+  box-shadow: 0 20px 50px rgba(4, 68, 65, 0.1);
+}
+.sa-platform-auth-block h1 { font-size: 1.6rem; margin: 0 0 0.5rem; }
+.sa-platform-launcher {
+  display: grid; gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-top: 1.5rem;
+}
+.sa-platform-launch-tile {
+  display: flex; flex-direction: column; gap: 0.35rem;
+  padding: 1.1rem 1.2rem; border-radius: 14px;
+  border: 1px solid var(--ar-line); background: #fff;
+  text-decoration: none; color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.sa-platform-launch-tile:hover {
+  transform: translateY(-2px);
+  border-color: rgba(105, 212, 25, 0.4);
+  box-shadow: 0 12px 28px rgba(4, 68, 65, 0.08);
+}
+.sa-platform-launch-tile strong { font-size: 0.95rem; }
+.sa-platform-launch-tile span { font-size: 0.82rem; color: var(--ar-text-muted); line-height: 1.4; }
+.sa-platform-launch-tile em {
+  font-style: normal; font-size: 0.78rem; font-weight: 600; color: var(--ar-accent); margin-top: 0.35rem;
+}
+.sa-platform-console-wrap { margin: 2rem 0; }
+.sa-platform-console-wrap .sa-fleet-panel { max-width: 100%; }
+.sa-platform-loops { margin-top: 2.5rem; }
+.sa-platform-loops .sa-loops-live-strip { margin-bottom: 1.5rem; }
+.sa-platform-sync-note {
+  font-size: 0.82rem; color: var(--ar-text-muted); text-align: center;
+  padding: 1rem; border-radius: 12px; background: rgba(4, 68, 65, 0.04);
+  margin-top: 2rem;
+}
+.sa-platform-sync-note strong { color: var(--ar-text); }

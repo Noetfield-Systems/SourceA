@@ -1,0 +1,12 @@
+{
+  "intent_id": "ab-ops-block-001",
+  "policy_id": "ops_spend_v1",
+  "intent": "execute_spend",
+  "action": "purchase",
+  "amount_usd": 75,
+  "vendor": "ad-platform",
+  "purpose": "boost post",
+  "actor": "asset_b_demo",
+  "agent_id": "asset_b_demo",
+  "object_id": "ASSET-B-OPS-DEMO"
+}

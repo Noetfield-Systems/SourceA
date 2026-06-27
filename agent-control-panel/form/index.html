@@ -83,6 +83,18 @@
   </div>
   <script>
   (function () {
+    if (location.search.indexOf("embedded=1") >= 0) {
+      document.documentElement.classList.add("form-embedded");
+      var style = document.createElement("style");
+      style.textContent =
+        ".form-embedded .official-links-bar{display:none!important}" +
+        ".form-embedded .wrap{padding-top:110px}";
+      document.head.appendChild(style);
+    }
+  })();
+  </script>
+  <script>
+  (function () {
     const API = location.origin;
     const state = { rows: [], picks: {}, comments: {}, explicit: {}, rendered: 0, schema: null };
 
@@ -307,7 +319,7 @@
         if (e.name === "AbortError") {
           setMsg("Timed out — check ~/.sina/hub-form-submit-receipt-v1.json on disk", true);
         } else if (e.message === "Failed to fetch") {
-          setMsg("Hub not reachable — is Worker Hub running on this Mac?", true);
+          setMsg("Form API not reachable — is Chat Unify running on :13023?", true);
         } else {
           setMsg(e.message, true);
         }

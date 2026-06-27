@@ -23,6 +23,7 @@ SEED_PATHS = [
     "/compare.html",
     "/policy.html",
     "/pricing.html",
+    "/contact.html",
     "/faq.html",
     "/sources.html",
     "/learn.html",
@@ -42,6 +43,7 @@ SEED_PATHS = [
 REQUIRED_MARKERS = {
     "/index.html": ["brand-disambiguation", "proof@witnessbc.com", "layout-ultra-v12"],
     "/proof.html": ["Proof Lab", "layout-ultra-v12"],
+    "/contact.html": ["contact@witnessbc.com", "Book 15-min proof", "layout-ultra-v12"],
     "/toolkits.html": ["Education only", "data-buy=", "layout-ultra-v12"],
     "/toolkits/free/sourcing/": ["toolkit-textarea", 'href="/assets/styles.css"', "data-buy="],
     "/toolkits/training/": ["Courses", "layout-ultra-v12", "data-buy="],

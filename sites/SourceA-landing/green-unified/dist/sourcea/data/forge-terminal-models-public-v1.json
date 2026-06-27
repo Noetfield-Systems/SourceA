@@ -1,0 +1,413 @@
+{
+  "schema": "forge-terminal-models-public-v1",
+  "version": "1.0.0",
+  "generated_at": "2026-06-25T15:26:12Z",
+  "models": [
+    {
+      "id": "gemini-1.5-flash",
+      "label": "Gemini 1.5 Flash",
+      "subtitle": "Fast verify loop \u00b7 $",
+      "group": "Google",
+      "provider": "gemini_direct",
+      "api_model": "gemini-2.5-flash",
+      "tier_hint": "T1_fast",
+      "use_roles": [
+        "check",
+        "bulk"
+      ],
+      "cost_band": "$",
+      "available": true
+    },
+    {
+      "id": "gemini-1.5-pro",
+      "label": "Gemini 1.5 Pro",
+      "subtitle": "2M context \u00b7 architecture \u00b7 $$$",
+      "group": "Google",
+      "provider": "gemini_direct",
+      "api_model": "gemini-2.5-pro",
+      "tier_hint": "T3_heavy",
+      "use_roles": [
+        "build",
+        "reason",
+        "critical"
+      ],
+      "cost_band": "$$$",
+      "available": true
+    },
+    {
+      "id": "deepseek-v4",
+      "label": "DeepSeek V4",
+      "subtitle": "OpenRouter \u00b7 Logic & JSON \u00b7 $",
+      "group": "OpenRouter",
+      "provider": "openrouter",
+      "api_model": "deepseek/deepseek-chat-v3-0324",
+      "tier_hint": "T1_fast",
+      "use_roles": [
+        "bulk",
+        "check"
+      ],
+      "cost_band": "$",
+      "available": true
+    },
+    {
+      "id": "deepseek-r1-or",
+      "label": "DeepSeek R1",
+      "subtitle": "OpenRouter \u00b7 Reasoning \u00b7 $$",
+      "group": "OpenRouter",
+      "provider": "openrouter",
+      "api_model": "deepseek/deepseek-r1-0528",
+      "tier_hint": "T3_heavy",
+      "use_roles": [
+        "reason"
+      ],
+      "cost_band": "$$",
+      "available": true
+    },
+    {
+      "id": "claude-haiku-4-direct",
+      "label": "Claude Haiku 4.5",
+      "subtitle": "Anthropic direct \u00b7 Check & bulk \u00b7 $",
+      "group": "Anthropic",
+      "provider": "anthropic_direct",
+      "api_model": "claude-haiku-4-5-20251001",
+      "tier_hint": "T1_fast",
+      "use_roles": [
+        "bulk",
+        "check"
+      ],
+      "cost_band": "$",
+      "available": true
+    },
+    {
+      "id": "claude-sonnet-4-direct",
+      "label": "Claude Sonnet 4.6",
+      "subtitle": "Anthropic direct \u00b7 Build & act \u00b7 $$$",
+      "group": "Anthropic",
+      "provider": "anthropic_direct",
+      "api_model": "claude-sonnet-4-6",
+      "tier_hint": "T2_medium",
+      "use_roles": [
+        "build",
+        "act",
+        "critical"
+      ],
+      "cost_band": "$$$",
+      "available": true
+    },
+    {
+      "id": "claude-3.5-sonnet",
+      "label": "Claude 3.5 Sonnet",
+      "subtitle": "OpenRouter \u00b7 Agentic coding \u00b7 $$$",
+      "group": "OpenRouter",
+      "provider": "openrouter",
+      "api_model": "anthropic/claude-3.5-sonnet",
+      "tier_hint": "T2_medium",
+      "use_roles": [
+        "build",
+        "act"
+      ],
+      "cost_band": "$$$",
+      "available": true
+    },
+    {
+      "id": "claude-opus-4-or",
+      "label": "Claude Opus 4",
+      "subtitle": "OpenRouter \u00b7 Critical \u00b7 $$$$",
+      "group": "OpenRouter",
+      "provider": "openrouter",
+      "api_model": "anthropic/claude-opus-4",
+      "tier_hint": "T4_marathon",
+      "use_roles": [
+        "critical",
+        "reason"
+      ],
+      "cost_band": "$$$$",
+      "available": true
+    },
+    {
+      "id": "gpt-4o-mini-or",
+      "label": "GPT-4o mini",
+      "subtitle": "OpenRouter \u00b7 Cheap control \u00b7 $",
+      "group": "OpenRouter",
+      "provider": "openrouter",
+      "api_model": "openai/gpt-4o-mini",
+      "tier_hint": "T1_fast",
+      "use_roles": [
+        "check",
+        "bulk"
+      ],
+      "cost_band": "$",
+      "available": true
+    },
+    {
+      "id": "gpt-4o",
+      "label": "GPT-4o",
+      "subtitle": "OpenAI \u00b7 Build & act \u00b7 $$$",
+      "group": "OpenAI",
+      "provider": "openai",
+      "api_model": "gpt-4o",
+      "tier_hint": "T2_medium",
+      "use_roles": [
+        "build",
+        "act"
+      ],
+      "cost_band": "$$$",
+      "available": true
+    },
+    {
+      "id": "openai-o1",
+      "label": "OpenAI o1",
+      "subtitle": "Deep reasoning \u00b7 Critical \u00b7 $$$$",
+      "group": "OpenAI",
+      "provider": "openai",
+      "api_model": "o1",
+      "tier_hint": "T4_marathon",
+      "use_roles": [
+        "reason",
+        "critical"
+      ],
+      "cost_band": "$$$$",
+      "available": true
+    }
+  ],
+  "model_groups": [
+    {
+      "name": "Google",
+      "models": [
+        {
+          "id": "gemini-1.5-flash",
+          "label": "Gemini 1.5 Flash",
+          "subtitle": "Fast verify loop \u00b7 $",
+          "group": "Google",
+          "provider": "gemini_direct",
+          "api_model": "gemini-2.5-flash",
+          "tier_hint": "T1_fast",
+          "use_roles": [
+            "check",
+            "bulk"
+          ],
+          "cost_band": "$",
+          "available": true
+        },
+        {
+          "id": "gemini-1.5-pro",
+          "label": "Gemini 1.5 Pro",
+          "subtitle": "2M context \u00b7 architecture \u00b7 $$$",
+          "group": "Google",
+          "provider": "gemini_direct",
+          "api_model": "gemini-2.5-pro",
+          "tier_hint": "T3_heavy",
+          "use_roles": [
+            "build",
+            "reason",
+            "critical"
+          ],
+          "cost_band": "$$$",
+          "available": true
+        }
+      ]
+    },
+    {
+      "name": "Anthropic",
+      "models": [
+        {
+          "id": "claude-haiku-4-direct",
+          "label": "Claude Haiku 4.5",
+          "subtitle": "Anthropic direct \u00b7 Check & bulk \u00b7 $",
+          "group": "Anthropic",
+          "provider": "anthropic_direct",
+          "api_model": "claude-haiku-4-5-20251001",
+          "tier_hint": "T1_fast",
+          "use_roles": [
+            "bulk",
+            "check"
+          ],
+          "cost_band": "$",
+          "available": true
+        },
+        {
+          "id": "claude-sonnet-4-direct",
+          "label": "Claude Sonnet 4.6",
+          "subtitle": "Anthropic direct \u00b7 Build & act \u00b7 $$$",
+          "group": "Anthropic",
+          "provider": "anthropic_direct",
+          "api_model": "claude-sonnet-4-6",
+          "tier_hint": "T2_medium",
+          "use_roles": [
+            "build",
+            "act",
+            "critical"
+          ],
+          "cost_band": "$$$",
+          "available": true
+        }
+      ]
+    },
+    {
+      "name": "OpenRouter",
+      "models": [
+        {
+          "id": "deepseek-v4",
+          "label": "DeepSeek V4",
+          "subtitle": "OpenRouter \u00b7 Logic & JSON \u00b7 $",
+          "group": "OpenRouter",
+          "provider": "openrouter",
+          "api_model": "deepseek/deepseek-chat-v3-0324",
+          "tier_hint": "T1_fast",
+          "use_roles": [
+            "bulk",
+            "check"
+          ],
+          "cost_band": "$",
+          "available": true
+        },
+        {
+          "id": "deepseek-r1-or",
+          "label": "DeepSeek R1",
+          "subtitle": "OpenRouter \u00b7 Reasoning \u00b7 $$",
+          "group": "OpenRouter",
+          "provider": "openrouter",
+          "api_model": "deepseek/deepseek-r1-0528",
+          "tier_hint": "T3_heavy",
+          "use_roles": [
+            "reason"
+          ],
+          "cost_band": "$$",
+          "available": true
+        },
+        {
+          "id": "claude-3.5-sonnet",
+          "label": "Claude 3.5 Sonnet",
+          "subtitle": "OpenRouter \u00b7 Agentic coding \u00b7 $$$",
+          "group": "OpenRouter",
+          "provider": "openrouter",
+          "api_model": "anthropic/claude-3.5-sonnet",
+          "tier_hint": "T2_medium",
+          "use_roles": [
+            "build",
+            "act"
+          ],
+          "cost_band": "$$$",
+          "available": true
+        },
+        {
+          "id": "claude-opus-4-or",
+          "label": "Claude Opus 4",
+          "subtitle": "OpenRouter \u00b7 Critical \u00b7 $$$$",
+          "group": "OpenRouter",
+          "provider": "openrouter",
+          "api_model": "anthropic/claude-opus-4",
+          "tier_hint": "T4_marathon",
+          "use_roles": [
+            "critical",
+            "reason"
+          ],
+          "cost_band": "$$$$",
+          "available": true
+        },
+        {
+          "id": "gpt-4o-mini-or",
+          "label": "GPT-4o mini",
+          "subtitle": "OpenRouter \u00b7 Cheap control \u00b7 $",
+          "group": "OpenRouter",
+          "provider": "openrouter",
+          "api_model": "openai/gpt-4o-mini",
+          "tier_hint": "T1_fast",
+          "use_roles": [
+            "check",
+            "bulk"
+          ],
+          "cost_band": "$",
+          "available": true
+        }
+      ]
+    },
+    {
+      "name": "OpenAI",
+      "models": [
+        {
+          "id": "gpt-4o",
+          "label": "GPT-4o",
+          "subtitle": "OpenAI \u00b7 Build & act \u00b7 $$$",
+          "group": "OpenAI",
+          "provider": "openai",
+          "api_model": "gpt-4o",
+          "tier_hint": "T2_medium",
+          "use_roles": [
+            "build",
+            "act"
+          ],
+          "cost_band": "$$$",
+          "available": true
+        },
+        {
+          "id": "openai-o1",
+          "label": "OpenAI o1",
+          "subtitle": "Deep reasoning \u00b7 Critical \u00b7 $$$$",
+          "group": "OpenAI",
+          "provider": "openai",
+          "api_model": "o1",
+          "tier_hint": "T4_marathon",
+          "use_roles": [
+            "reason",
+            "critical"
+          ],
+          "cost_band": "$$$$",
+          "available": true
+        }
+      ]
+    }
+  ],
+  "model_roles": [
+    {
+      "id": "bulk",
+      "label": "Massive work",
+      "hint": "Highest volume \u00b7 lowest $/token \u2014 drafts, rows, exploration",
+      "default_model": "gpt-4o",
+      "available": true
+    },
+    {
+      "id": "build",
+      "label": "Build",
+      "hint": "Code gen \u00b7 patches \u00b7 refactors \u00b7 ship-quality output",
+      "default_model": "claude-sonnet-4-direct",
+      "available": true
+    },
+    {
+      "id": "act",
+      "label": "Act",
+      "hint": "Execute plans \u00b7 tool-heavy \u00b7 multi-step agent turns",
+      "default_model": "claude-sonnet-4-direct",
+      "available": true
+    },
+    {
+      "id": "check",
+      "label": "Check",
+      "hint": "Verify \u00b7 lint \u00b7 read-only audit \u00b7 Haiku-class ROI",
+      "default_model": "claude-haiku-4-direct",
+      "available": true
+    },
+    {
+      "id": "reason",
+      "label": "Reason",
+      "hint": "Deep logic \u00b7 architecture \u00b7 debug root-cause",
+      "default_model": "deepseek-r1-or",
+      "available": true
+    },
+    {
+      "id": "critical",
+      "label": "Critical",
+      "hint": "Governance \u00b7 security \u00b7 no-fail decisions \u2014 spend only when blocked",
+      "default_model": "claude-opus-4-or",
+      "available": true
+    }
+  ],
+  "default_model": "gpt-4o",
+  "default_role": "bulk",
+  "keys_ready": {
+    "gemini": true,
+    "openrouter": true,
+    "openai": true,
+    "anthropic": true
+  }
+}

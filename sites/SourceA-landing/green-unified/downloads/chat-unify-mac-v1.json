@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-download-artifact-v1",
+  "at": "2026-06-24T05:27:16Z",
+  "product": "chat-unify",
+  "version": "4.6.2",
+  "filename": "chat-unify-mac-v1.dmg",
+  "public_path": "/downloads/chat-unify-mac-v1.dmg",
+  "public_url": "https://sourcea.app/downloads/chat-unify-mac-v1.dmg",
+  "bytes": 2437484,
+  "sha256": "0efef924b000f30f23d4f3679a1373f7ddc0f0a73bf913d0bb643bae787ef5a3",
+  "build_script": "scripts/publish_chat_unify_dmg_v1.sh"
+}
