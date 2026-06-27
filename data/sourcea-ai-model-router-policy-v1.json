@@ -1,0 +1,54 @@
+{
+  "schema": "sourcea-ai-model-router-policy-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-27T09:43:00Z",
+  "authority": [
+    "docs/SOURCEA_AI_MODEL_ROI_FULL_MODE_TEST_PLAN_LOCKED_v1.md",
+    "data/sourcea-ai-model-roi-test-matrix-v1.json",
+    "data/forge-model-roi-matrix-v1.json"
+  ],
+  "one_law": "Auto routing may recommend the best ROI model by role, but explicit user or product model locks must win unless the selected model fails.",
+  "explicit_lock_policy": {
+    "brain_chat": "request body model wins before worker env default and fallback chain",
+    "forge_terminal": "user-selected model wins before smart route recommendation",
+    "chat_unify": "per-turn explicit model wins before smart route recommendation"
+  },
+  "auto_defaults": {
+    "brain_chat": {
+      "bulk": "google/gemini-2.5-flash",
+      "check": "google/gemini-2.5-flash",
+      "build": "anthropic/claude-3.5-sonnet",
+      "act": "anthropic/claude-3.5-sonnet",
+      "reason": "deepseek/deepseek-chat-v3-0324",
+      "critical": "anthropic/claude-3.5-sonnet"
+    },
+    "forge_terminal": {
+      "bulk": "gpt-4o",
+      "check": "claude-haiku-4-direct",
+      "build": "claude-sonnet-4-direct",
+      "act": "claude-sonnet-4-direct",
+      "reason": "deepseek-r1-or",
+      "critical": "claude-opus-4-or"
+    },
+    "chat_unify": {
+      "bulk": "gpt-4o",
+      "check": "claude-haiku-4-direct",
+      "build": "claude-sonnet-4-direct",
+      "act": "claude-sonnet-4-direct",
+      "reason": "deepseek-r1-or",
+      "critical": "claude-opus-4-or"
+    }
+  },
+  "fallback_policy": [
+    "try explicit model first when supplied",
+    "fallback only on provider failure, timeout, or unavailable key",
+    "fallback stays inside same role where possible",
+    "T4 critical models require explicit critical role or restricted approval"
+  ],
+  "forbidden": [
+    "silently replacing user-selected model",
+    "defaulting to a future candidate without a real api_model",
+    "promoting a brand-name model without ROI receipt",
+    "adding model-specific fake-green branches"
+  ]
+}
