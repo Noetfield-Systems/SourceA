@@ -1,8 +1,8 @@
 {
   "schema": "sourcea-supabase-plan-registry-chain-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-27T10:24:00Z",
-  "status": "blocked_on_db_ddl_access",
+  "saved_at": "2026-06-27T10:57:00Z",
+  "status": "connected_imported",
   "one_law": "Plans are useful only when reachable by Brain, Hub Pro, Chat Unify, Cloudflare Workers, and Railway cloud workers through portfolio-spine Supabase.",
   "project": {
     "id": "portfolio-spine",
@@ -14,6 +14,9 @@
   "table": "sourcea_plan_registry",
   "migration": "infra/supabase/portfolio-spine/migrations/004_sourcea_plan_registry_v1.sql",
   "importer": "scripts/sourcea_supabase_plan_registry_import_v1.py",
+  "read_client": "scripts/sourcea_plan_registry_client_v1.py",
+  "read_contract": "docs/SOURCEA_PLAN_REGISTRY_READ_CONTRACT_LOCKED_v1.md",
+  "read_validator": "scripts/validate-sourcea-plan-registry-read-v1.sh",
   "primary_source": {
     "path": "data/all-remaining-plan-backlog-v1.json",
     "array_key": "items",
@@ -27,16 +30,22 @@
     "supabase_url": "present",
     "supabase_anon_key": "present",
     "supabase_service_role_key": "present",
-    "db_password_or_connection_string": "missing_or_placeholder",
+    "db_password_or_connection_string": "present",
     "management_access_token": "missing"
   },
+  "last_verified": {
+    "at": "2026-06-27T10:51:30Z",
+    "table": "public.sourcea_plan_registry",
+    "table_exists": true,
+    "imported_rows": 23485,
+    "readback_content_range": "0-0/23485",
+    "receipt": "~/.sina/sourcea-supabase-plan-registry-import-v1.json"
+  },
   "founder_next_action": [
-    "In Supabase dashboard for project ldfruywifqnfpwsfgmdl, open Project Settings -> Database.",
-    "Copy the database password or pooled connection string.",
-    "Put it in ~/.sourcea-secrets/portfolio-spine-db.env as SUPABASE_DB_PASSWORD=... or SUPABASE_DB_URL=...",
-    "Alternatively run the migration SQL manually in Supabase SQL Editor.",
-    "Then run: python3 scripts/sourcea_supabase_plan_registry_import_v1.py --check --json",
-    "Then run: python3 scripts/sourcea_supabase_plan_registry_import_v1.py --import --limit 100 --json for first live slice."
+    "Keep Supabase secrets only in ~/.sourcea-secrets; do not paste them into repo files.",
+    "Use scripts/validate-sourcea-plan-registry-read-v1.sh for light read-chain proof.",
+    "Use /api/sourcea/plan-registry/v1 on FBE/Railway for server-side reads.",
+    "Use /plan-registry on Cloudflare for browser-safe proxy reads."
   ],
   "cloud_chain_after_import": [
     "Cloudflare Worker reads plan rows by id/status/lane.",
