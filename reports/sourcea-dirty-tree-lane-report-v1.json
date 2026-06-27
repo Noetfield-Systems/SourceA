@@ -1,0 +1,3502 @@
+{
+  "schema": "sourcea-dirty-tree-lane-report-v1",
+  "at": "2026-06-27T10:02:32Z",
+  "map_version": "1.0.0",
+  "dirty_count": 192,
+  "lane_count": 9,
+  "summary": {
+    "brain_chat_runtime": {
+      "count": 27,
+      "frozen_count": 0,
+      "sample": [
+        ".cursor/skills/sourcea-brain-chatbot-audit/SKILL.md",
+        "cloud/workers/sourcea-brain-chat-v1/src/index.js",
+        "cloud/workers/sourcea-brain-chat-v1/src/retrieval.js",
+        "data/CHATBOT_KNOWLEDGE_MANIFEST.json",
+        "data/brain-chat-eval-canonical-v1.json",
+        "scripts/brain_chat_knowledge_db_v1.py",
+        "scripts/brain_chat_knowledge_lib_v1.py",
+        "scripts/brain_chatbot_refresh_v1.sh",
+        "scripts/sourcea_brain_chat_v1.py",
+        "scripts/sync_brain_chat_knowledge_v1.py",
+        "scripts/test_brain_chat_quality_v1.py",
+        "scripts/validate-sourcea-brain-chat-v1.sh"
+      ]
+    },
+    "chat_unify": {
+      "count": 4,
+      "frozen_count": 0,
+      "sample": [
+        "data/chat-unify-platform-catalog-v1.json",
+        "scripts/chat_unify_engine_v1.py",
+        "scripts/chat_unify_smart_router_v1.py",
+        "sites/SourceA-landing/green-unified/data/chat-unify-platform-catalog-v1.json"
+      ]
+    },
+    "docs_plan_registry": {
+      "count": 8,
+      "frozen_count": 0,
+      "sample": [
+        "brain-os/plan-registry/SOURCEA-PRIORITY.md",
+        "brain-os/plan-registry/SOURCEA_BRAIN_CHATBOT_100_PLAN_LOCKED_v1.md",
+        "docs/CHATBOT_KNOWLEDGE_RUNBOOK.md",
+        "docs/BRAIN_CHATBOT_100_PLANS_REGISTRY_LOCKED_v1.md",
+        "docs/BRAIN_INTELLIGENCE_PIPELINE_LOCKED_v1.md",
+        "docs/SOURCEA_DIRTY_TREE_LANE_OWNERSHIP_LOCKED_v1.md",
+        "scripts/generate_brain_chatbot_100_plans_v1.py",
+        "scripts/validate-brain-chatbot-100-plans-v1.sh"
+      ]
+    },
+    "generated_brain_corpus": {
+      "count": 118,
+      "frozen_count": 118,
+      "sample": [
+        "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json",
+        "data/brain-chat-knowledge-bundle-v1.json",
+        "data/chatbot-knowledge/brain_knowledge_v1.sqlite",
+        "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_DISCLOSURE_LADDER_AND_PUBLIC_VOICE_LOCKED_v1.md.md",
+        "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_DUAL_PLANE_KERNEL_AND_COMMERCIAL_LOCKED_v1.md.md",
+        "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_FOUNDER_AI_AGENTIC_PLATFORM_PROPOSAL_v1.md.md",
+        "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_LANDING_DEPLOY_FOUNDER_ONE_PAGER_LOCKED_v1.md.md",
+        "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_ORIENTATION_AND_ROUTING_LOCKED_v1.md.md",
+        "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_PHASE0_FREEMIUM_SANDBOX_REFERENCE_POLICY_LOCKED_v1.md.md",
+        "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_POSITIONING_ONE_LINE_LOCKED_v1.md.md",
+        "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_RUNTIME_STACK_HYBRID_LOCKED_v1.md.md",
+        "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_TERMINOLOGY_AND_COMMERCIAL_TUNE_2026_LOCKED_v1.md.md"
+      ]
+    },
+    "incidents_rules": {
+      "count": 10,
+      "frozen_count": 0,
+      "sample": [
+        "brain-os/incidents/AGENT_INCIDENTS_REGISTRY_LOCKED_v1.md",
+        "brain-os/incidents/INCIDENT_SUBJECT_INDEX_LOCKED_v1.md",
+        "docs/BRAIN_CHATBOT_GAP_REPORT_LOCKED_v1.md",
+        ".cursor/rules/046-brain-code-general-capability-no-hardcode-v1.mdc",
+        ".cursor/rules/047-agent-intent-over-literal-copy-v1.mdc",
+        ".cursor/rules/048-dirty-tree-lane-ownership-v1.mdc",
+        "SINA_AGENT_LITERAL_INTENT_COPY_BRAIN_CONFIDENCE_INCIDENT_049_REPORT_LOCKED_v1.md",
+        "SINA_BRAIN_PUBLIC_CHAT_FAKE_GREEN_HARDCODED_CAPABILITY_INCIDENT_048_REPORT_LOCKED_v1.md",
+        "brain-os/incidents/SINA_AGENT_LITERAL_INTENT_COPY_BRAIN_CONFIDENCE_INCIDENT_049_LOCKED_v1.md",
+        "brain-os/incidents/SINA_BRAIN_PUBLIC_CHAT_FAKE_GREEN_HARDCODED_CAPABILITY_INCIDENT_048_LOCKED_v1.md"
+      ]
+    },
+    "intent_approval_machine": {
+      "count": 4,
+      "frozen_count": 0,
+      "sample": [
+        "data/founder-intent-approval-machine-v1.json",
+        "docs/FOUNDER_INTENT_APPROVAL_MACHINE_LOCKED_v1.md",
+        "scripts/founder_intent_approval_machine_v1.py",
+        "scripts/validate-founder-intent-approval-machine-v1.sh"
+      ]
+    },
+    "model_roi": {
+      "count": 7,
+      "frozen_count": 0,
+      "sample": [
+        "scripts/model_dispatch.py",
+        "data/sourcea-ai-model-roi-eval-cases-v1.json",
+        "data/sourcea-ai-model-roi-test-matrix-v1.json",
+        "data/sourcea-ai-model-router-policy-v1.json",
+        "docs/SOURCEA_AI_MODEL_ROI_FULL_MODE_TEST_PLAN_LOCKED_v1.md",
+        "scripts/sourcea_ai_model_roi_test_runner_v1.py",
+        "scripts/validate-sourcea-ai-model-roi-tests-v1.sh"
+      ]
+    },
+    "other_control": {
+      "count": 5,
+      "frozen_count": 0,
+      "sample": [
+        "agent-control-panel/command-data.json",
+        "data/sourcea-dirty-tree-lane-map-v1.json",
+        "reports/sourcea-dirty-tree-lane-report-v1.json",
+        "scripts/sourcea_dirty_tree_lane_map_v1.py",
+        "scripts/validate-sourcea-dirty-tree-lanes-v1.sh"
+      ]
+    },
+    "site_assets": {
+      "count": 9,
+      "frozen_count": 0,
+      "sample": [
+        "scripts/publish_sourcea_landing_v1.py",
+        "scripts/validate-forge-terminal-public-demo-v1.sh",
+        "sites/SourceA-landing/green-unified/data/aeg-live.json",
+        "sites/SourceA-landing/green-unified/data/sourcea-platform-auth-config-v1.json",
+        "sites/SourceA-landing/green-unified/dist/sourcea/data/aeg-live.json",
+        "sites/SourceA-landing/green-unified/dist/sourcea/data/sourcea-platform-auth-config-v1.json",
+        "sites/SourceA-landing/green-unified/dist/sourcea/sourcea-forge-terminal-demo.js",
+        "sites/SourceA-landing/green-unified/sourcea-forge-terminal-demo.js",
+        "reports/sourcea-app-e2e-all-pages-v1.json"
+      ]
+    }
+  },
+  "lanes": {
+    "brain_chat_runtime": [
+      {
+        "status": " M",
+        "path": ".cursor/skills/sourcea-brain-chatbot-audit/SKILL.md",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": ".cursor/skills/sourcea-brain-chatbot-audit/SKILL.md",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          },
+          {
+            "lane": "other_control",
+            "owner": "Coordinator",
+            "pattern": ".cursor/skills/**",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "cloud/workers/sourcea-brain-chat-v1/src/index.js",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "cloud/workers/sourcea-brain-chat-v1/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "cloud/workers/sourcea-brain-chat-v1/src/retrieval.js",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "cloud/workers/sourcea-brain-chat-v1/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/CHATBOT_KNOWLEDGE_MANIFEST.json",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "data/CHATBOT_KNOWLEDGE_MANIFEST.json",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/brain-chat-eval-canonical-v1.json",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "data/brain-chat-eval-canonical-v1.json",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "scripts/brain_chat_knowledge_db_v1.py",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "scripts/brain_*",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "scripts/brain_chat_knowledge_lib_v1.py",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "scripts/brain_*",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "scripts/brain_chatbot_refresh_v1.sh",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "scripts/brain_*",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "scripts/sourcea_brain_chat_v1.py",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "scripts/sourcea_brain_*",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "scripts/sync_brain_chat_knowledge_v1.py",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "scripts/sync_brain_*",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "scripts/test_brain_chat_quality_v1.py",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "scripts/test_brain_*",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "scripts/validate-sourcea-brain-chat-v1.sh",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "scripts/validate-sourcea-brain*",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "sites/SourceA-landing/green-unified/dist/sourcea/sourcea-chatbot.js",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "sites/SourceA-landing/green-unified/dist/sourcea/sourcea-chatbot.js",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          },
+          {
+            "lane": "site_assets",
+            "owner": "Landing/site asset agent",
+            "pattern": "sites/SourceA-landing/green-unified/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "sites/SourceA-landing/green-unified/dist/sourcea/sourcea.css",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "sites/SourceA-landing/green-unified/dist/sourcea/sourcea.css",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          },
+          {
+            "lane": "site_assets",
+            "owner": "Landing/site asset agent",
+            "pattern": "sites/SourceA-landing/green-unified/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "sites/SourceA-landing/green-unified/sourcea-chatbot.js",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "sites/SourceA-landing/green-unified/sourcea-chatbot.js",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          },
+          {
+            "lane": "site_assets",
+            "owner": "Landing/site asset agent",
+            "pattern": "sites/SourceA-landing/green-unified/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "sites/SourceA-landing/green-unified/sourcea.css",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "sites/SourceA-landing/green-unified/sourcea.css",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          },
+          {
+            "lane": "site_assets",
+            "owner": "Landing/site asset agent",
+            "pattern": "sites/SourceA-landing/green-unified/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "cloud/workers/sourcea-brain-chat-v1/README.md",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "cloud/workers/sourcea-brain-chat-v1/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "cloud/workers/sourcea-brain-chat-v1/src/guardrails.js",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "cloud/workers/sourcea-brain-chat-v1/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "cloud/workers/sourcea-brain-chat-v1/src/live-tools.js",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "cloud/workers/sourcea-brain-chat-v1/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "scripts/brain_cli_v1.sh",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "scripts/brain_*",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "scripts/brain_intelligence_pipeline_v1.py",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "scripts/brain_*",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "scripts/brain_retrieval_engine_v1.py",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "scripts/brain_*",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "scripts/distill_brain_live_sources_v1.py",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "scripts/distill_brain_*",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "scripts/distill_brain_public_rules_v1.py",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "scripts/distill_brain_*",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "scripts/validate-sourcea-brain-knowledge-v1.sh",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "scripts/validate-sourcea-brain*",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "scripts/verify_brain_guardrails_v1.sh",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "scripts/verify_brain*",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "scripts/verify_brain_reply_positioning_v1.py",
+        "lane": "brain_chat_runtime",
+        "owner": "Brain runtime agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "scripts/verify_brain*",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+      }
+    ],
+    "chat_unify": [
+      {
+        "status": " M",
+        "path": "data/chat-unify-platform-catalog-v1.json",
+        "lane": "chat_unify",
+        "owner": "Chat Unify agent",
+        "matches": [
+          {
+            "lane": "chat_unify",
+            "owner": "Chat Unify agent",
+            "pattern": "data/chat-unify-platform-catalog-v1.json",
+            "freeze_default": false,
+            "validator": "scripts/chat_unify_full_e2e_v1.py"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/chat_unify_full_e2e_v1.py"
+      },
+      {
+        "status": " M",
+        "path": "scripts/chat_unify_engine_v1.py",
+        "lane": "chat_unify",
+        "owner": "Chat Unify agent",
+        "matches": [
+          {
+            "lane": "chat_unify",
+            "owner": "Chat Unify agent",
+            "pattern": "scripts/chat_unify_*",
+            "freeze_default": false,
+            "validator": "scripts/chat_unify_full_e2e_v1.py"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/chat_unify_full_e2e_v1.py"
+      },
+      {
+        "status": " M",
+        "path": "scripts/chat_unify_smart_router_v1.py",
+        "lane": "chat_unify",
+        "owner": "Chat Unify agent",
+        "matches": [
+          {
+            "lane": "chat_unify",
+            "owner": "Chat Unify agent",
+            "pattern": "scripts/chat_unify_*",
+            "freeze_default": false,
+            "validator": "scripts/chat_unify_full_e2e_v1.py"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/chat_unify_full_e2e_v1.py"
+      },
+      {
+        "status": " M",
+        "path": "sites/SourceA-landing/green-unified/data/chat-unify-platform-catalog-v1.json",
+        "lane": "chat_unify",
+        "owner": "Chat Unify agent",
+        "matches": [
+          {
+            "lane": "chat_unify",
+            "owner": "Chat Unify agent",
+            "pattern": "sites/SourceA-landing/green-unified/data/chat-unify-platform-catalog-v1.json",
+            "freeze_default": false,
+            "validator": "scripts/chat_unify_full_e2e_v1.py"
+          },
+          {
+            "lane": "site_assets",
+            "owner": "Landing/site asset agent",
+            "pattern": "sites/SourceA-landing/green-unified/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/chat_unify_full_e2e_v1.py"
+      }
+    ],
+    "docs_plan_registry": [
+      {
+        "status": " M",
+        "path": "brain-os/plan-registry/SOURCEA-PRIORITY.md",
+        "lane": "docs_plan_registry",
+        "owner": "Docs and plan registry agent",
+        "matches": [
+          {
+            "lane": "docs_plan_registry",
+            "owner": "Docs and plan registry agent",
+            "pattern": "brain-os/plan-registry/**",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": null
+      },
+      {
+        "status": " M",
+        "path": "brain-os/plan-registry/SOURCEA_BRAIN_CHATBOT_100_PLAN_LOCKED_v1.md",
+        "lane": "docs_plan_registry",
+        "owner": "Docs and plan registry agent",
+        "matches": [
+          {
+            "lane": "docs_plan_registry",
+            "owner": "Docs and plan registry agent",
+            "pattern": "brain-os/plan-registry/**",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": null
+      },
+      {
+        "status": " M",
+        "path": "docs/CHATBOT_KNOWLEDGE_RUNBOOK.md",
+        "lane": "docs_plan_registry",
+        "owner": "Docs and plan registry agent",
+        "matches": [
+          {
+            "lane": "docs_plan_registry",
+            "owner": "Docs and plan registry agent",
+            "pattern": "docs/**",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": null
+      },
+      {
+        "status": "??",
+        "path": "docs/BRAIN_CHATBOT_100_PLANS_REGISTRY_LOCKED_v1.md",
+        "lane": "docs_plan_registry",
+        "owner": "Docs and plan registry agent",
+        "matches": [
+          {
+            "lane": "docs_plan_registry",
+            "owner": "Docs and plan registry agent",
+            "pattern": "docs/**",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": null
+      },
+      {
+        "status": "??",
+        "path": "docs/BRAIN_INTELLIGENCE_PIPELINE_LOCKED_v1.md",
+        "lane": "docs_plan_registry",
+        "owner": "Docs and plan registry agent",
+        "matches": [
+          {
+            "lane": "docs_plan_registry",
+            "owner": "Docs and plan registry agent",
+            "pattern": "docs/**",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": null
+      },
+      {
+        "status": "??",
+        "path": "docs/SOURCEA_DIRTY_TREE_LANE_OWNERSHIP_LOCKED_v1.md",
+        "lane": "docs_plan_registry",
+        "owner": "Docs and plan registry agent",
+        "matches": [
+          {
+            "lane": "docs_plan_registry",
+            "owner": "Docs and plan registry agent",
+            "pattern": "docs/**",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": null
+      },
+      {
+        "status": "??",
+        "path": "scripts/generate_brain_chatbot_100_plans_v1.py",
+        "lane": "docs_plan_registry",
+        "owner": "Docs and plan registry agent",
+        "matches": [
+          {
+            "lane": "docs_plan_registry",
+            "owner": "Docs and plan registry agent",
+            "pattern": "scripts/generate_brain_chatbot_100_plans_v1.py",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": null
+      },
+      {
+        "status": "??",
+        "path": "scripts/validate-brain-chatbot-100-plans-v1.sh",
+        "lane": "docs_plan_registry",
+        "owner": "Docs and plan registry agent",
+        "matches": [
+          {
+            "lane": "docs_plan_registry",
+            "owner": "Docs and plan registry agent",
+            "pattern": "scripts/validate-brain-chatbot-100-plans-v1.sh",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": null
+      }
+    ],
+    "generated_brain_corpus": [
+      {
+        "status": " M",
+        "path": "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "brain_chat_runtime",
+            "owner": "Brain runtime agent",
+            "pattern": "cloud/workers/sourcea-brain-chat-v1/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-brain-chat-v1.sh"
+          },
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/brain-chat-knowledge-bundle-v1.json",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/brain-chat-knowledge-bundle-v1.json",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/brain_knowledge_v1.sqlite",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_DISCLOSURE_LADDER_AND_PUBLIC_VOICE_LOCKED_v1.md.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_DUAL_PLANE_KERNEL_AND_COMMERCIAL_LOCKED_v1.md.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_FOUNDER_AI_AGENTIC_PLATFORM_PROPOSAL_v1.md.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_LANDING_DEPLOY_FOUNDER_ONE_PAGER_LOCKED_v1.md.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_ORIENTATION_AND_ROUTING_LOCKED_v1.md.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_PHASE0_FREEMIUM_SANDBOX_REFERENCE_POLICY_LOCKED_v1.md.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_POSITIONING_ONE_LINE_LOCKED_v1.md.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_RUNTIME_STACK_HYBRID_LOCKED_v1.md.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_TERMINOLOGY_AND_COMMERCIAL_TUNE_2026_LOCKED_v1.md.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/docs/docs__SOURCEA_UI_STANDARD_RUBRIC_LOCKED_v1.md.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/aeg-live.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/boot-proof.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/chat-unify-demo-web-config-v1.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/chat-unify-integrations-v1.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/chat-unify-platform-catalog-v1.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/chat-unify-web-access-v1.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/chat-unify-web-config-v1.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/factories-catalog.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/factory-live.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/forge-catalog.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/forge-terminal-models-public-v1.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/loops-catalog.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/mvp-intake-config.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/n8n-template-sourcea-chat-unify-v1.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/phase1-proof-pack-public-v1.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/sourcea-inbox-live-status-v1.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/sourcea-landing-cta-v1.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/sourcea-positioning-v1.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/sourcea-products-catalog-v1.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/sourcea-site-interact-v1.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/sourcea-site-pulse-config-v1.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/trust-signals-public-v1.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/trust-signals.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/json/ui-upgrade-baseline-v1.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/48h-mvp.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/attach__agency-onepager.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/attach__procurement-pack.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/attach__proof-bundle-sample.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/brain-chat-settings.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/case-studies__agentgo.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/case-studies__index.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/case-studies__pureflow.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/changelog.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/compare.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/downloads__index.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/eval.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/factories__aml-screening-factory.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/factories__cross-border-kyb-factory.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/factories__governed-app-factory.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/factories__governed-exchange-factory.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/factories__governed-web-product-factory.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/factories__index.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/factories__ma-diligence-factory.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/factories__try-factory-demo.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/factories__try-noetfield-freemium.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/factories__witnessbc-proof-lab.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/forge__chat-unify.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/forge__cursor-bridge.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/forge__how-it-works.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/forge__index.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/forge__mission-template.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/forge__ssot-policy.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/forge__terminal.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/forge__terminal__profile.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/forge__terminal__signin.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/forge__terminal__signup.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/forge__terminal__workspace.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/forge__try.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/founder-home.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/funnel.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/growth.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/home.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/hub.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/index.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/investors.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/kernel__index.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/learn.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/loops__eval-booking.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/loops__index.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/loops__ops-monitor.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/loops__outreach.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/loops__proof-export.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/loops__research.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/loops__session-gate.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/mvp-landing.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/offer.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/platform-portal.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/platform.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/pricing.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/proof.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/proof__live.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/sandbox.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/scenario.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/security.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/sources.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/start.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/status.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/team.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/trust__index.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/unify-demo__index.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/unify__index.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/crawled/www/unify__terminal__index.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/distilled/developer-tools.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/distilled/forge-runtime.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/distilled/investors-lane.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/distilled/kernel-overview.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/distilled/offer-48h.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/distilled/pricing-matrix.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "data/chatbot-knowledge/distilled/sandbox-freemium.md",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "data/brain-chatbot-100-plans-v1.json",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/brain-chatbot-100-plans-v1.json",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "data/brain-live-source-index-v1.json",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/brain-live-source-index-v1.json",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "data/brain-public-data-allowlist-v1.json",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/brain-public-data-allowlist-v1.json",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "data/brain-public-rules-v1.json",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/brain-public-rules-v1.json",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "data/chatbot-knowledge/crawled/data/",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "data/chatbot-knowledge/rules/",
+        "lane": "generated_brain_corpus",
+        "owner": "Brain knowledge refresh agent",
+        "matches": [
+          {
+            "lane": "generated_brain_corpus",
+            "owner": "Brain knowledge refresh agent",
+            "pattern": "data/chatbot-knowledge/**",
+            "freeze_default": true,
+            "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+          }
+        ],
+        "freeze_default": true,
+        "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      }
+    ],
+    "incidents_rules": [
+      {
+        "status": " M",
+        "path": "brain-os/incidents/AGENT_INCIDENTS_REGISTRY_LOCKED_v1.md",
+        "lane": "incidents_rules",
+        "owner": "Incident/rule agent",
+        "matches": [
+          {
+            "lane": "incidents_rules",
+            "owner": "Incident/rule agent",
+            "pattern": "brain-os/incidents/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "brain-os/incidents/INCIDENT_SUBJECT_INDEX_LOCKED_v1.md",
+        "lane": "incidents_rules",
+        "owner": "Incident/rule agent",
+        "matches": [
+          {
+            "lane": "incidents_rules",
+            "owner": "Incident/rule agent",
+            "pattern": "brain-os/incidents/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "docs/BRAIN_CHATBOT_GAP_REPORT_LOCKED_v1.md",
+        "lane": "incidents_rules",
+        "owner": "Incident/rule agent",
+        "matches": [
+          {
+            "lane": "incidents_rules",
+            "owner": "Incident/rule agent",
+            "pattern": "docs/BRAIN_CHATBOT_GAP_REPORT_LOCKED_v1.md",
+            "freeze_default": false,
+            "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+          },
+          {
+            "lane": "docs_plan_registry",
+            "owner": "Docs and plan registry agent",
+            "pattern": "docs/**",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": ".cursor/rules/046-brain-code-general-capability-no-hardcode-v1.mdc",
+        "lane": "incidents_rules",
+        "owner": "Incident/rule agent",
+        "matches": [
+          {
+            "lane": "incidents_rules",
+            "owner": "Incident/rule agent",
+            "pattern": ".cursor/rules/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": ".cursor/rules/047-agent-intent-over-literal-copy-v1.mdc",
+        "lane": "incidents_rules",
+        "owner": "Incident/rule agent",
+        "matches": [
+          {
+            "lane": "incidents_rules",
+            "owner": "Incident/rule agent",
+            "pattern": ".cursor/rules/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": ".cursor/rules/048-dirty-tree-lane-ownership-v1.mdc",
+        "lane": "incidents_rules",
+        "owner": "Incident/rule agent",
+        "matches": [
+          {
+            "lane": "incidents_rules",
+            "owner": "Incident/rule agent",
+            "pattern": ".cursor/rules/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "SINA_AGENT_LITERAL_INTENT_COPY_BRAIN_CONFIDENCE_INCIDENT_049_REPORT_LOCKED_v1.md",
+        "lane": "incidents_rules",
+        "owner": "Incident/rule agent",
+        "matches": [
+          {
+            "lane": "incidents_rules",
+            "owner": "Incident/rule agent",
+            "pattern": "*INCIDENT*REPORT_LOCKED_v1.md",
+            "freeze_default": false,
+            "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "SINA_BRAIN_PUBLIC_CHAT_FAKE_GREEN_HARDCODED_CAPABILITY_INCIDENT_048_REPORT_LOCKED_v1.md",
+        "lane": "incidents_rules",
+        "owner": "Incident/rule agent",
+        "matches": [
+          {
+            "lane": "incidents_rules",
+            "owner": "Incident/rule agent",
+            "pattern": "*INCIDENT*REPORT_LOCKED_v1.md",
+            "freeze_default": false,
+            "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "brain-os/incidents/SINA_AGENT_LITERAL_INTENT_COPY_BRAIN_CONFIDENCE_INCIDENT_049_LOCKED_v1.md",
+        "lane": "incidents_rules",
+        "owner": "Incident/rule agent",
+        "matches": [
+          {
+            "lane": "incidents_rules",
+            "owner": "Incident/rule agent",
+            "pattern": "brain-os/incidents/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "brain-os/incidents/SINA_BRAIN_PUBLIC_CHAT_FAKE_GREEN_HARDCODED_CAPABILITY_INCIDENT_048_LOCKED_v1.md",
+        "lane": "incidents_rules",
+        "owner": "Incident/rule agent",
+        "matches": [
+          {
+            "lane": "incidents_rules",
+            "owner": "Incident/rule agent",
+            "pattern": "brain-os/incidents/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh"
+      }
+    ],
+    "intent_approval_machine": [
+      {
+        "status": "??",
+        "path": "data/founder-intent-approval-machine-v1.json",
+        "lane": "intent_approval_machine",
+        "owner": "Intent approval agent",
+        "matches": [
+          {
+            "lane": "intent_approval_machine",
+            "owner": "Intent approval agent",
+            "pattern": "data/founder-intent-approval-machine-v1.json",
+            "freeze_default": false,
+            "validator": "scripts/validate-founder-intent-approval-machine-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-founder-intent-approval-machine-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "docs/FOUNDER_INTENT_APPROVAL_MACHINE_LOCKED_v1.md",
+        "lane": "intent_approval_machine",
+        "owner": "Intent approval agent",
+        "matches": [
+          {
+            "lane": "intent_approval_machine",
+            "owner": "Intent approval agent",
+            "pattern": "docs/FOUNDER_INTENT_APPROVAL_MACHINE_LOCKED_v1.md",
+            "freeze_default": false,
+            "validator": "scripts/validate-founder-intent-approval-machine-v1.sh"
+          },
+          {
+            "lane": "docs_plan_registry",
+            "owner": "Docs and plan registry agent",
+            "pattern": "docs/**",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-founder-intent-approval-machine-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "scripts/founder_intent_approval_machine_v1.py",
+        "lane": "intent_approval_machine",
+        "owner": "Intent approval agent",
+        "matches": [
+          {
+            "lane": "intent_approval_machine",
+            "owner": "Intent approval agent",
+            "pattern": "scripts/founder_intent_approval_machine_v1.py",
+            "freeze_default": false,
+            "validator": "scripts/validate-founder-intent-approval-machine-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-founder-intent-approval-machine-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "scripts/validate-founder-intent-approval-machine-v1.sh",
+        "lane": "intent_approval_machine",
+        "owner": "Intent approval agent",
+        "matches": [
+          {
+            "lane": "intent_approval_machine",
+            "owner": "Intent approval agent",
+            "pattern": "scripts/validate-founder-intent-approval-machine-v1.sh",
+            "freeze_default": false,
+            "validator": "scripts/validate-founder-intent-approval-machine-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-founder-intent-approval-machine-v1.sh"
+      }
+    ],
+    "model_roi": [
+      {
+        "status": " M",
+        "path": "scripts/model_dispatch.py",
+        "lane": "model_roi",
+        "owner": "Model ROI agent",
+        "matches": [
+          {
+            "lane": "model_roi",
+            "owner": "Model ROI agent",
+            "pattern": "scripts/model_dispatch.py",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "data/sourcea-ai-model-roi-eval-cases-v1.json",
+        "lane": "model_roi",
+        "owner": "Model ROI agent",
+        "matches": [
+          {
+            "lane": "model_roi",
+            "owner": "Model ROI agent",
+            "pattern": "data/sourcea-ai-model-*.json",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "data/sourcea-ai-model-roi-test-matrix-v1.json",
+        "lane": "model_roi",
+        "owner": "Model ROI agent",
+        "matches": [
+          {
+            "lane": "model_roi",
+            "owner": "Model ROI agent",
+            "pattern": "data/sourcea-ai-model-*.json",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "data/sourcea-ai-model-router-policy-v1.json",
+        "lane": "model_roi",
+        "owner": "Model ROI agent",
+        "matches": [
+          {
+            "lane": "model_roi",
+            "owner": "Model ROI agent",
+            "pattern": "data/sourcea-ai-model-*.json",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "docs/SOURCEA_AI_MODEL_ROI_FULL_MODE_TEST_PLAN_LOCKED_v1.md",
+        "lane": "model_roi",
+        "owner": "Model ROI agent",
+        "matches": [
+          {
+            "lane": "model_roi",
+            "owner": "Model ROI agent",
+            "pattern": "docs/SOURCEA_AI_MODEL_ROI_FULL_MODE_TEST_PLAN_LOCKED_v1.md",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh"
+          },
+          {
+            "lane": "docs_plan_registry",
+            "owner": "Docs and plan registry agent",
+            "pattern": "docs/**",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "scripts/sourcea_ai_model_roi_test_runner_v1.py",
+        "lane": "model_roi",
+        "owner": "Model ROI agent",
+        "matches": [
+          {
+            "lane": "model_roi",
+            "owner": "Model ROI agent",
+            "pattern": "scripts/sourcea_ai_model_roi_*",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh",
+        "lane": "model_roi",
+        "owner": "Model ROI agent",
+        "matches": [
+          {
+            "lane": "model_roi",
+            "owner": "Model ROI agent",
+            "pattern": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh",
+            "freeze_default": false,
+            "validator": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh"
+      }
+    ],
+    "other_control": [
+      {
+        "status": " M",
+        "path": "agent-control-panel/command-data.json",
+        "lane": "other_control",
+        "owner": "Coordinator",
+        "matches": [
+          {
+            "lane": "other_control",
+            "owner": "Coordinator",
+            "pattern": "agent-control-panel/**",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": null
+      },
+      {
+        "status": "??",
+        "path": "data/sourcea-dirty-tree-lane-map-v1.json",
+        "lane": "other_control",
+        "owner": "Coordinator",
+        "matches": [
+          {
+            "lane": "other_control",
+            "owner": "Coordinator",
+            "pattern": "data/sourcea-dirty-tree-lane-map-v1.json",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": null
+      },
+      {
+        "status": "??",
+        "path": "reports/sourcea-dirty-tree-lane-report-v1.json",
+        "lane": "other_control",
+        "owner": "Coordinator",
+        "matches": [
+          {
+            "lane": "other_control",
+            "owner": "Coordinator",
+            "pattern": "reports/**",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": null
+      },
+      {
+        "status": "??",
+        "path": "scripts/sourcea_dirty_tree_lane_map_v1.py",
+        "lane": "other_control",
+        "owner": "Coordinator",
+        "matches": [
+          {
+            "lane": "other_control",
+            "owner": "Coordinator",
+            "pattern": "scripts/sourcea_dirty_tree_lane_map_v1.py",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": null
+      },
+      {
+        "status": "??",
+        "path": "scripts/validate-sourcea-dirty-tree-lanes-v1.sh",
+        "lane": "other_control",
+        "owner": "Coordinator",
+        "matches": [
+          {
+            "lane": "other_control",
+            "owner": "Coordinator",
+            "pattern": "scripts/validate-sourcea-dirty-tree-lanes-v1.sh",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": null
+      }
+    ],
+    "site_assets": [
+      {
+        "status": " M",
+        "path": "scripts/publish_sourcea_landing_v1.py",
+        "lane": "site_assets",
+        "owner": "Landing/site asset agent",
+        "matches": [
+          {
+            "lane": "site_assets",
+            "owner": "Landing/site asset agent",
+            "pattern": "scripts/publish_sourcea_landing_v1.py",
+            "freeze_default": false,
+            "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "scripts/validate-forge-terminal-public-demo-v1.sh",
+        "lane": "site_assets",
+        "owner": "Landing/site asset agent",
+        "matches": [
+          {
+            "lane": "site_assets",
+            "owner": "Landing/site asset agent",
+            "pattern": "scripts/validate-forge-terminal-public-demo-v1.sh",
+            "freeze_default": false,
+            "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "sites/SourceA-landing/green-unified/data/aeg-live.json",
+        "lane": "site_assets",
+        "owner": "Landing/site asset agent",
+        "matches": [
+          {
+            "lane": "site_assets",
+            "owner": "Landing/site asset agent",
+            "pattern": "sites/SourceA-landing/green-unified/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "sites/SourceA-landing/green-unified/data/sourcea-platform-auth-config-v1.json",
+        "lane": "site_assets",
+        "owner": "Landing/site asset agent",
+        "matches": [
+          {
+            "lane": "site_assets",
+            "owner": "Landing/site asset agent",
+            "pattern": "sites/SourceA-landing/green-unified/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "sites/SourceA-landing/green-unified/dist/sourcea/data/aeg-live.json",
+        "lane": "site_assets",
+        "owner": "Landing/site asset agent",
+        "matches": [
+          {
+            "lane": "site_assets",
+            "owner": "Landing/site asset agent",
+            "pattern": "sites/SourceA-landing/green-unified/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "sites/SourceA-landing/green-unified/dist/sourcea/data/sourcea-platform-auth-config-v1.json",
+        "lane": "site_assets",
+        "owner": "Landing/site asset agent",
+        "matches": [
+          {
+            "lane": "site_assets",
+            "owner": "Landing/site asset agent",
+            "pattern": "sites/SourceA-landing/green-unified/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "sites/SourceA-landing/green-unified/dist/sourcea/sourcea-forge-terminal-demo.js",
+        "lane": "site_assets",
+        "owner": "Landing/site asset agent",
+        "matches": [
+          {
+            "lane": "site_assets",
+            "owner": "Landing/site asset agent",
+            "pattern": "sites/SourceA-landing/green-unified/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+      },
+      {
+        "status": " M",
+        "path": "sites/SourceA-landing/green-unified/sourcea-forge-terminal-demo.js",
+        "lane": "site_assets",
+        "owner": "Landing/site asset agent",
+        "matches": [
+          {
+            "lane": "site_assets",
+            "owner": "Landing/site asset agent",
+            "pattern": "sites/SourceA-landing/green-unified/**",
+            "freeze_default": false,
+            "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+      },
+      {
+        "status": "??",
+        "path": "reports/sourcea-app-e2e-all-pages-v1.json",
+        "lane": "site_assets",
+        "owner": "Landing/site asset agent",
+        "matches": [
+          {
+            "lane": "site_assets",
+            "owner": "Landing/site asset agent",
+            "pattern": "reports/sourcea-app-e2e-all-pages-v1.json",
+            "freeze_default": false,
+            "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+          },
+          {
+            "lane": "other_control",
+            "owner": "Coordinator",
+            "pattern": "reports/**",
+            "freeze_default": false,
+            "validator": null
+          }
+        ],
+        "freeze_default": false,
+        "validator": "scripts/validate-forge-terminal-public-demo-v1.sh"
+      }
+    ]
+  },
+  "rules": [
+    "Never revert unrelated dirty files.",
+    "Before editing, identify the lane and inspect path-scoped status/diff.",
+    "Generated Brain corpus files are frozen unless the assigned task is a knowledge refresh.",
+    "Runtime code, generated corpus, docs, incidents, model ROI, and site assets must not be mixed without an explicit multi-lane order.",
+    "If a task needs another lane, stop and report the required lane handoff."
+  ]
+}
