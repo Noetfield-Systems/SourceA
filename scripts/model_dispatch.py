@@ -9,6 +9,7 @@ from typing import Any, Callable
 
 ROOT = Path(__file__).resolve().parents[1]
 ROI_MATRIX_PATH = ROOT / "data" / "forge-model-roi-matrix-v1.json"
+ROUTER_POLICY_PATH = ROOT / "data" / "sourcea-ai-model-router-policy-v1.json"
 
 GATE_MODE_PREF_PATH = Path.home() / ".sina" / "gate_mode_v1.txt"
 SHADOW_LOG = Path.home() / ".sina" / "gate_shadow_v1.jsonl"
@@ -172,6 +173,33 @@ def _load_roi_matrix() -> dict[str, Any]:
     return {"roles": {}}
 
 
+def _load_router_policy() -> dict[str, Any]:
+    if ROUTER_POLICY_PATH.is_file():
+        try:
+            row = json.loads(ROUTER_POLICY_PATH.read_text(encoding="utf-8"))
+            if row.get("auto_defaults"):
+                return row
+        except (OSError, json.JSONDecodeError):
+            pass
+    return {"auto_defaults": {}}
+
+
+def _provider_for_model_id(model_id: str) -> str:
+    entry = FORGE_MODEL_CATALOG.get(model_id)
+    if entry:
+        return str(entry.get("provider") or "auto")
+    if "/" in model_id:
+        return "openrouter"
+    return "auto"
+
+
+def _api_model_for_model_id(model_id: str) -> str:
+    entry = FORGE_MODEL_CATALOG.get(model_id)
+    if entry:
+        return str(entry.get("api_model") or model_id)
+    return model_id
+
+
 def provider_key_ready(provider: str, keys: dict[str, str] | None = None) -> bool:
     """Whether secrets support this provider (optional pre-loaded keys dict)."""
     if keys is None:
@@ -236,6 +264,63 @@ def pick_roi_model(role: str, keys: dict[str, str] | None = None) -> str:
         if model_available(entry["id"], keys):
             return entry["id"]
     return pick_forge_default_model(keys)
+
+
+def resolve_sourcea_model(
+    *,
+    product: str,
+    role: str = "",
+    explicit_model: str = "",
+    preserve_explicit: bool = True,
+    keys: dict[str, str] | None = None,
+) -> dict[str, Any]:
+    """Resolve SourceA model by product/role while preserving explicit locks.
+
+    This is the shared policy for Brain, Forge Terminal, and Chat Unify. It does
+    not call providers. It returns the model recommendation and whether it came
+    from an explicit lock or ROI auto-routing.
+    """
+    product_id = (product or "chat_unify").strip().lower()
+    role_id = (role or FORGE_DEFAULT_ROLE).strip().lower()
+    explicit = (explicit_model or "").strip()
+    if explicit and preserve_explicit:
+        return {
+            "ok": True,
+            "product": product_id,
+            "role": role_id,
+            "model_id": explicit,
+            "provider": _provider_for_model_id(explicit),
+            "api_model": _api_model_for_model_id(explicit),
+            "source": "explicit_lock",
+            "preserve_explicit": True,
+        }
+
+    policy = _load_router_policy()
+    defaults = policy.get("auto_defaults") if isinstance(policy.get("auto_defaults"), dict) else {}
+    product_defaults = defaults.get(product_id) if isinstance(defaults.get(product_id), dict) else {}
+    candidate = str(product_defaults.get(role_id) or "")
+    if candidate:
+        if candidate in FORGE_MODEL_CATALOG:
+            if model_available(candidate, keys):
+                mid = candidate
+            else:
+                mid = pick_roi_model(role_id, keys)
+        else:
+            # Brain OpenRouter IDs are not all in the Forge catalog.
+            mid = candidate
+    else:
+        mid = pick_roi_model(role_id, keys)
+
+    return {
+        "ok": True,
+        "product": product_id,
+        "role": role_id,
+        "model_id": mid,
+        "provider": _provider_for_model_id(mid),
+        "api_model": _api_model_for_model_id(mid),
+        "source": "roi_policy",
+        "preserve_explicit": preserve_explicit,
+    }
 
 
 def _now() -> str:
