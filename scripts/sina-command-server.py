@@ -277,6 +277,22 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
 
             self._json(200, worker_hub_extended_payload())
             return
+        if path == "/api/sourcea/plan-registry/v1":
+            from sourcea_plan_registry_client_v1 import contains_secret_like, handle_query  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            row = handle_query(qs)
+            row["endpoint"] = "/api/sourcea/plan-registry/v1"
+            row["contract"] = "sourcea-plan-registry-read-v1"
+            if contains_secret_like(row):
+                self._json(500, {"ok": False, "error": "secret_like_response_blocked"})
+                return
+            plan_id = (qs.get("plan_id") or [""])[0].strip()
+            if plan_id and row.get("ok") and not row.get("found"):
+                self._json(404, row)
+                return
+            self._json(200 if row.get("ok") else 422, row)
+            return
         if path == "/api/worker-hub/outbound-salvage/v1":
             from outbound_telemetry_v1 import hub_slice as outbound_salvage_slice  # noqa: WPS433
 
