@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-ENGINE_VERSION = "1.1.0"
+ENGINE_VERSION = "1.2.0"
 ENGINE_SCHEMA = "chat-unify-engine-v1"
 SINA = Path.home() / ".sina"
 ENGINE_DIR = SINA / "chat-unify-engine"
@@ -38,6 +38,7 @@ MACHINES = [
     {"id": "hubpro", "label": "Operations", "engine": "hub_pro_skills", "actions": ["skills", "log"]},
     {"id": "proofpack", "label": "Proof Pack", "engine": "proof_pack", "actions": ["seal"]},
     {"id": "vocab", "label": "Vocabulary", "engine": "vocabulary", "actions": ["scan"]},
+    {"id": "intent_approval", "label": "Intent Approval", "engine": "founder_intent_approval", "actions": ["classify", "critic", "approve"]},
     {"id": "living-chat", "label": "Living chat", "engine": "chat_unify_engine", "actions": ["chat_turn", "multi_agent_run"]},
 ]
 
