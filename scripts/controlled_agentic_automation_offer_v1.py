@@ -16,9 +16,12 @@ SINA = Path.home() / ".sina"
 RECEIPT = SINA / "controlled-agentic-automation-offer-v1.json"
 EMAIL_TEMPLATES = SINA / "controlled-agentic-automation-email-templates-v1.json"
 OUTREACH = SINA / "controlled-agentic-automation-outreach-v1.json"
-LAW = SOURCE_A / "SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md"
-SENDER_LAW = SOURCE_A / "SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md"
-FROM_EMAIL = "hello@sourcea.com"
+LAW = SOURCE_A / "brain-os/law/SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md"
+SENDER_LAW = SOURCE_A / "brain-os/law/SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md"
+POLICY_PACK_LAW = SOURCE_A / "docs/SOURCEA_ASSET_B_POLICY_PACK_LOCKED_v1.md"
+POLICY_PACK_REGISTRY = SOURCE_A / "data/asset-b-policy-pack-v1.json"
+POLICY_PACK_SOW = SOURCE_A / "docs/asset-b-policy-pack/SOW_MAPPING_LOCKED_v1.md"
+FROM_EMAIL = "hello@sourcea.app"
 FROM_NAME = "SourceA"
 COMPANY_URL = "https://sourcea.com"
 FOUNDER_NAME = os.environ.get("SOURCEA_FOUNDER_NAME", "Sina Kazemnezhad").strip() or "Sina Kazemnezhad"
@@ -125,8 +128,8 @@ EMAIL_TEMPLATES_BODY: dict[str, Any] = {
             "in the repository — and build the same for clients:\n\n"
             "• Agent Loop Build — one scoped loop live in 2–3 weeks ($3–10K project)\n"
             "• Agent Loop Retainer — weekly proof export + ongoing ops ($2–5K/month)\n\n"
-            "No deck. Happy to screen-share today's receipts in 15 minutes: "
-            "PASS/BLOCK gate, export bundle, replay.\n\n"
+            "No deck. I attach three buyer policy JSONs (outreach / ops / creative) — "
+            "happy to screen-share block → allow → signed receipt in 15 minutes.\n\n"
             "Worth a look?\n\n"
             f"{SIGNATURE}"
         ),
@@ -253,6 +256,22 @@ def build_receipt(*, refresh_gate: bool = False) -> dict[str, Any]:
         },
         "fixed_run_cost_usd_month": 200,
         "outreach_targets": OUTREACH_TARGETS,
+        "policy_pack": {
+            "law": str(POLICY_PACK_LAW),
+            "registry": str(POLICY_PACK_REGISTRY),
+            "sow_mapping": str(POLICY_PACK_SOW),
+            "demo_script": str(SOURCE_A / "scripts/demo-asset-b-policy-v1.sh"),
+            "policies": {
+                "outreach": str(SOURCE_A / "docs/asset-b-policy-pack/outreach_loop_v1.json"),
+                "ops": str(SOURCE_A / "docs/asset-b-policy-pack/ops_spend_v1.json"),
+                "creative": str(SOURCE_A / "docs/asset-b-policy-pack/creative_publish_v1.json"),
+            },
+            "talk_track": (
+                "We ship your first governable agent in 48 hours. Outreach can't send without "
+                "your approval ref. Ops can't spend over $50. Nothing posts without human handoff. "
+                "Every allowed action emits a signed receipt you can export."
+            ),
+        },
         "paths": {
             "law": str(LAW),
             "sender_law": str(SENDER_LAW),
@@ -260,6 +279,8 @@ def build_receipt(*, refresh_gate: bool = False) -> dict[str, Any]:
             "email_templates": str(EMAIL_TEMPLATES),
             "outreach": str(OUTREACH),
             "w3_log": str(SINA / "controlled-agentic-automation-w3-v1.json"),
+            "policy_pack_law": str(POLICY_PACK_LAW),
+            "policy_pack_sow": str(POLICY_PACK_SOW),
         },
     }
 

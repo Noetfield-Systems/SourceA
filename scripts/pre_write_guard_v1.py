@@ -142,6 +142,22 @@ def main() -> int:
         from rule_zero_latency_hook_v1 import run_hook  # noqa: WPS433
 
         row = run_hook(path=args.path, reason=f"post_write:{args.agent}", tier="fast", sync_cursor_index=True)
+        try:
+            from rule_zero_latency_hook_v1 import is_rule_governance_path  # noqa: WPS433
+            from anti_poison_lib_v1 import scan_file, ship_window_active, mac_founder_session  # noqa: WPS433
+
+            if is_rule_governance_path(args.path):
+                hits = scan_file(_resolve_target(args.path))
+                row["anti_poison_post_write"] = {
+                    "hits": len(hits),
+                    "ok": len(hits) == 0,
+                    "sample": hits[:3],
+                }
+                if hits and ship_window_active() and not mac_founder_session():
+                    row["ok"] = False
+                    row["anti_poison_post_write"]["block"] = "ship_window_poison_in_new_rule"
+        except Exception as exc:
+            row["anti_poison_post_write"] = {"ok": True, "skipped": str(exc)[:80]}
     else:
         row = check_pre_write(agent=args.agent, path=args.path, explicit_order=args.explicit_order)
     if args.json:

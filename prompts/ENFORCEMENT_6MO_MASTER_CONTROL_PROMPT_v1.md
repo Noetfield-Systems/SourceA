@@ -59,7 +59,7 @@ ALLOWED SURFACE (build only here unless W1–W3 blocked)
 FORBIDDEN (6 months)
   Trust OS / Decision Cloud / AWS-for-AI naming sprints
   Whitepaper-first · platform expansion · learning loops · twin/causal/chaos lab
-  Factory drain / 1000-pack as investor hero
+  Cloud Forge Run / 1000-pack as investor hero
   Hub rewrite · command-data hero scrub (Maintainer lane)
   Market analysis loops · critic-driven reorder
   Any work that does not move W1, W2, or W3

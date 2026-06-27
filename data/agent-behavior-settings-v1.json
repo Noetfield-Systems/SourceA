@@ -1,8 +1,21 @@
 {
   "schema": "agent-behavior-settings-v1",
-  "version": "2.0.0",
-  "saved_at": "2026-06-20T01:35:00Z",
-  "one_law": "Always care about founder intent before mechanics, blame, or path substitution.",
+  "version": "2.2.0",
+  "saved_at": "2026-06-24T10:00:00Z",
+  "one_law": "One goal: autorun automation. Fix blockers. No reports.",
+  "brain_north_star": {
+    "active": true,
+    "one_goal": "autorun_automation",
+    "one_law": "CF cron every 10m → Railway auto-tick → 100 rows. Brain keeps it moving — never status theater.",
+    "motor": "data/cloud-auto-runtime-v1.json",
+    "forbidden": [
+      "status reports",
+      "stale disk dumps",
+      "planning essays",
+      "secondary goals in Brain chat",
+      "meta governance theater"
+    ]
+  },
   "ui_first_check_mandatory": {
     "active": true,
     "order": "FIRST CHECK before ANY UI edit — form · app · website · hub · canvas — zero exceptions",
@@ -110,7 +123,7 @@
       "backlog",
       "roadmap",
       "upgrade plan",
-      "cloud drain",
+      "Cloud Forge Run",
       "sa-mkt-",
       "CLOUD-SEC-",
       "real-world output"
@@ -125,7 +138,7 @@
     "script": "scripts/task_plan_priority_v1.py",
     "validator": "scripts/validate-task-plan-priority-v1.sh",
     "receipt": "~/.sina/task-plan-priority-receipt-v1.json",
-    "one_law": "Smart rank: sequential cloud drain head first · unified P0–P4 · free-tier cost · output type · blockers",
+    "one_law": "Smart rank: sequential Cloud Forge Run head first · unified P0–P4 · free-tier cost · output type · blockers",
     "priority_stack": [
       {"id": "P0", "label": "Founder form picks + nerve cascade"},
       {"id": "P1", "label": "Cloud FORGE revenue lane (full motor)"},
@@ -228,24 +241,28 @@
   },
   "role_anchors": {
     "brain": {
-      "title": "Brain — route · handoff Worker · observe loop",
-      "main_job": "Read disk · route founder · dispatch Worker RUN INBOX · never implement sa",
-      "reply_shape": "Restate founder ask · answer in plain sentences · plan beat · disk proof · STOP"
+      "title": "Brain",
+      "main_job": "Keep autorun moving — fix blockers — route Worker — never report",
+      "reply_shape": "Motor running or blocker fixed — one line · STOP",
+      "north_star": "autorun_automation",
+      "forbidden": [
+        "status reports",
+        "stale info",
+        "goals besides autorun",
+        "receipt dumps"
+      ]
     },
     "worker": {
-      "title": "Worker — implement · verify · receipt",
-      "main_job": "RUN INBOX head · wire minimal diff · VERIFY chain · STOP",
-      "reply_shape": "What changed and why · plan row in a sentence · validator proof · STOP"
+      "title": "Worker",
+      "main_job": "RUN INBOX · implement · verify · STOP",
+      "reply_shape": "What changed · why · one proof line if needed · STOP"
     }
   },
   "applies_to": ["brain", "worker", "governance", "commercial", "brief", "research_l2", "maintainers", "all_agents"],
   "intent_first": {
     "read_order": [
       "founder current message (latest turn wins)",
-      "prior turns in this chat (corrections + frustration = signal)",
-      "brain-os/memory/BRAIN_FOUNDER_INTENT_REGISTRY_LOCKED_v1.md",
-      "SOURCEA_LOST_LINK_RECOVERY_ETHICS_LOCKED_v1.md",
-      "~/.sina/agent-live-surfaces-v1.json factory_now_line"
+      "prior turns in this chat (corrections + frustration = signal)"
     ],
     "before_act": [
       "State what you think founder wants to understand or decide — in one plain sentence",
@@ -294,9 +311,9 @@
     },
     {
       "id": "brain_role_anchor",
-      "trigger": "Brain chat · founder asks status or next step",
-      "do": "Brain title · disk truth · route Worker RUN INBOX · quote factory_now_line",
-      "dont": "Implement sa · claim ship-ready · optimism without w3_sina_read proof · invite founder to act"
+      "trigger": "Brain chat · any message",
+      "do": "Keep autorun moving or fix blocker — one line — STOP",
+      "dont": "Report · stale disk · secondary goals · planning essay"
     },
     {
       "id": "no_founder_invitation",

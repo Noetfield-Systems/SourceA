@@ -5,7 +5,7 @@
   "authority": "ASF \u2014 Mac control only \u00b7 cloud executes all factory work \u00b7 INCIDENT-038 v1.1",
   "one_law": "Mac = control panel only. Cloud/API/FORGE runs ALL factory work. Secondary -5000 never executes on Mac. Worker does NOT run every plan.",
   "incident_038": "brain-os/incidents/SINA_AGENT_WORKER_FACTORY_PLANE_CONFLATION_INCIDENT_038_LOCKED_v1.md",
-  "next_100_ssot": "data/secondary-cloud-drain-next-100-v1.json",
+  "next_100_ssot": "data/secondary-cloud-forge-run-next-100-v1.json",
   "mac_law": {
     "boss": "~/Desktop/MacLaw/MAC_LAW_SSOT_LOCKED.md",
     "control_plane": "~/Desktop/MacLaw/MAC_CONTROL_PLANE_LOCKED.md",
@@ -143,9 +143,9 @@
       "mac_executes": false,
       "incident_038": "Mac never executes sa-mkt \u2014 cloud tick batch only",
       "plan_ssot": "data/portfolio--1000-manifest-v1.json",
-      "next_100_ssot": "data/secondary-cloud-drain-next-100-v1.json",
+      "next_100_ssot": "data/secondary-cloud-forge-run-next-100-v1.json",
       "market_format": "docs/_ANALYSIS_FORMAT_MARKET_REALITY_v1.md",
-      "cloud_drain": "bash scripts/plan--mkt-run.sh dispatch-forge {stack}",
+      "cloud_forge_run": "bash scripts/plan--mkt-run.sh dispatch-forge {stack}",
       "mac_role": "optional Hub POST start/stop drain \u00b7 read cloud receipts only",
       "stacks": [
         "sourcea",
@@ -154,10 +154,10 @@
         "trustfield",
         "virlux"
       ],
-      "queue_policy": "Cloud drains T0 free tier first \u00b7 ws order ux\u2192pricing\u2192run\u2192onboard\u2192integrate \u00b7 SourceA stack first",
+      "queue_policy": "Cloud Forge Runs T0 free tier first \u00b7 ws order ux\u2192pricing\u2192run\u2192onboard\u2192integrate \u00b7 SourceA stack first",
       "status": "active",
-      "cloud_drain_head": "CLOUD-SEC-001",
-      "cloud_drain_receipt": "receipts/cloud-sec-001-receipt-v1.json"
+      "cloud_forge_run_head": "CLOUD-SEC-001",
+      "cloud_forge_run_receipt": "receipts/cloud-sec-001-receipt-v1.json"
     },
     {
       "id": "phase-build",
@@ -188,7 +188,7 @@
       "plan_ssot": "data/forge-factory-queue-cycle2-v1.json",
       "brand_ssot": "data/forge-factory-unified-brand-v1.json",
       "queue_head": "sa-1201",
-      "queue_policy": "Loop specialist cloud dispatch · Mac Hub glance only"
+      "queue_policy": "Auto Runtime specialist cloud dispatch · Mac Hub glance only"
     }
   ],
   "dispatch": {
@@ -215,7 +215,7 @@
     "label": "Secondary -1000 — CLOUD-SEC-001 drain active",
     "execution_plane": "cloud_forge",
     "mac_executes": false,
-    "next_ssot": "data/secondary-cloud-drain-next-100-v1.json",
+    "next_ssot": "data/secondary-cloud-forge-run-next-100-v1.json",
     "start_plan": "CLOUD-SEC-001",
     "mac_role": "Hub POST observe · read cloud receipts only · INCIDENT-038",
     "prior_phase_complete": "forge-factory-cycle2"

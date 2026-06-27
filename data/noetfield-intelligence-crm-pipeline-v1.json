@@ -1,0 +1,38 @@
+{
+  "schema": "noetfield-intelligence-crm-pipeline-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-24T18:00:00Z",
+  "authority": "docs/NOETFIELD_INTELLIGENCE_613_PLAN_LOCKED_v1.md",
+  "runtime_path": "~/.sina/noetfield-intelligence-crm-v1.json",
+  "sender": "operations@noetfield.com",
+  "diagnostic_intake_url": "https://www.noetfield.com/intelligence/intake/",
+  "homepage_url": "https://www.noetfield.com/",
+  "one_law": "Log every outreach row in the repository — insight hook first, Diagnostic URL second. NW1 fires on first ≥$2.5K Diagnostic invoice.",
+  "stages": [
+    { "id": "lead", "label": "Lead", "order": 1 },
+    { "id": "outreach_sent", "label": "Outreach sent", "order": 2 },
+    { "id": "reply", "label": "Reply", "order": 3 },
+    { "id": "diagnostic_booked", "label": "Diagnostic booked", "order": 4 },
+    { "id": "invoiced", "label": "Invoiced", "order": 5 },
+    { "id": "paid", "label": "Paid", "order": 6 }
+  ],
+  "wedge_targets": {
+    "diaspora": 30,
+    "rcic": 50,
+    "mortgage": 0,
+    "trades": 0
+  },
+  "templates": {
+    "diaspora_dm": "Quick observation for {{org}}: most Persian-owned shops here still run client follow-ups across WhatsApp + Excel. We mapped 3 automation leaks like that for a Vancouver SME last month — fixed fee Diagnostic, one week, roadmap PDF. Worth a look? {{diagnostic_url}}",
+    "rcic_linkedin": "Hi {{name}} — IRCC volume is crushing manual doc workflows. We run a $2,500 one-week Diagnostic for RCIC firms: top 3 automations mapped, no code in week one. If {{org}} still copies between email/PDF/Excel, I can send the one-pager. {{diagnostic_url}}",
+    "insight_hook": "3 automation leaks I see in {{vertical}} shops in Vancouver — not a pitch deck, just patterns from recent Diagnostics. Reply if you want the checklist."
+  },
+  "prospects": [],
+  "outreach_log": [],
+  "week_1_actions": [
+    "Log 30 Persian-business + 50 RCIC CRM rows",
+    "Send first 10 diaspora network DMs (insight template)",
+    "Send first 10 RCIC LinkedIn DMs",
+    "Close 2 Diagnostics @ $2.5K — invoice from Noetfield Systems Inc."
+  ]
+}

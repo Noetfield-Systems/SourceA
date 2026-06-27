@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate Forge-v0.1 real blueprint payload from secondary-cloud-drain-next-100 SSOT.
+"""Generate Forge-v0.1 real blueprint payload from secondary-cloud-forge-run-next-100 SSOT.
 
 Output: data/forge-real-blueprints-v01.json (cloud-fetchable · one repo batch)
 """
@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PLANS_PATH = ROOT / "data" / "secondary-cloud-drain-next-100-v1.json"
+PLANS_PATH = ROOT / "data" / "secondary-cloud-forge-run-next-100-v1.json"
 SCORING_PATH = ROOT / "data" / "forge-scoring-ssot-v01.json"
 OUT_PATH = ROOT / "data" / "forge-real-blueprints-v01.json"
 
@@ -105,7 +105,7 @@ def plan_to_blueprint(plan: dict, scoring: dict) -> dict:
 
     return {
         "id": pid,
-        "schema_version": "secondary-cloud-drain-next-100-v1",
+        "schema_version": "secondary-cloud-forge-run-next-100-v1",
         "inputs": inputs,
         "outputs": _output_artifact(plan),
         "destination_repo": target,
@@ -129,7 +129,7 @@ def generate() -> dict:
         "schema": "forge-real-blueprints-v01",
         "version": "1.0.0",
         "saved_at": _now(),
-        "source": "data/secondary-cloud-drain-next-100-v1.json",
+        "source": "data/secondary-cloud-forge-run-next-100-v1.json",
         "scoring_ssot": "data/forge-scoring-ssot-v01.json",
         "target_repo": scoring.get("target_repo"),
         "count": len(blueprints),

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #020617;
+      }
+      body {
+        font-family: "Inter", system-ui, sans-serif;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        color: #f8fafc;
+      }
+      .bg-mesh {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 70% 55% at 15% 0%, #1d4ed833, transparent 55%),
+          radial-gradient(ellipse 55% 45% at 90% 15%, #0ea5e922, transparent 50%),
+          linear-gradient(160deg, #020617 0%, #0f172a 55%, #020617 100%);
+      }
+      .beat-label {
+        position: absolute;
+        top: 72px;
+        left: 96px;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #38bdf8;
+      }
+      .title {
+        position: absolute;
+        left: 96px;
+        right: 96px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 78px;
+        font-weight: 900;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        max-width: 1400px;
+      }
+      .subtitle {
+        position: absolute;
+        left: 96px;
+        right: 96px;
+        top: calc(50% + 120px);
+        font-size: 34px;
+        line-height: 1.35;
+        color: #cbd5e1;
+        max-width: 1200px;
+      }
+      .brand-lockup {
+        position: absolute;
+        bottom: 72px;
+        left: 96px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .brand-dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 999px;
+        background: #38bdf8;
+        box-shadow: 0 0 24px #38bdf8aa;
+      }
+      .progress {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 6px;
+        width: 0;
+        background: linear-gradient(90deg, #38bdf8, #2563eb);
+      }
+      .cta-pill {
+        display: inline-block;
+        margin-top: 36px;
+        padding: 22px 40px;
+        border-radius: 999px;
+        background: #38bdf8;
+        color: #082f49;
+        font-size: 30px;
+        font-weight: 800;
+      }
+      .url-chip {
+        position: absolute;
+        top: 72px;
+        right: 96px;
+        padding: 12px 20px;
+        border-radius: 999px;
+        border: 1px solid #334155;
+        background: rgba(15, 23, 42, 0.72);
+        color: #94a3b8;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-ajmz" id="root" data-composition-id="trustfield-rpaa-storyboard" data-start="0" data-duration="90" data-width="1920" data-height="1080">
+      <div data-hf-id="hf-r47l" class="bg-mesh"></div>
+
+      <div data-hf-id="hf-bxv4" id="hook" class="clip" data-start="0" data-duration="8" data-track-index="1">
+        <div data-hf-id="hf-0q2m" class="beat-label">Hook</div>
+        <div data-hf-id="hf-uu6f" class="title">Your MSB program runs on spreadsheets until an auditor asks for proof.</div>
+        <div data-hf-id="hf-rwao" class="subtitle">TrustField — RPAA Readiness in Repository</div>
+      </div>
+
+      <div data-hf-id="hf-09ou" id="urgency" class="clip" data-start="8" data-duration="18" data-track-index="2">
+        <div data-hf-id="hf-mg6i" class="beat-label">RPAA urgency</div>
+        <div data-hf-id="hf-0bjs" class="title">Registration deadline pressure</div>
+        <div data-hf-id="hf-xnh7" class="subtitle">
+          RPAA registration is not optional. Your program needs a working system before the auditor arrives.
+        </div>
+        <div data-hf-id="hf-bkki" class="url-chip">trustfield.ca</div>
+      </div>
+
+      <div data-hf-id="hf-dy4u" id="sandbox" class="clip" data-start="26" data-duration="20" data-track-index="3">
+        <div data-hf-id="hf-m4w0" class="beat-label">Live sandbox</div>
+        <div data-hf-id="hf-bfcx" class="title">First instruction in seven days</div>
+        <div data-hf-id="hf-dpxu" class="subtitle">
+          TrustField gives you a live sandbox — intake, references, operator workflows, audit export.
+        </div>
+        <div data-hf-id="hf-tiks" class="url-chip">trustfield.ca/demo</div>
+      </div>
+
+      <div data-hf-id="hf-1dxn" id="pilot" class="clip" data-start="46" data-duration="18" data-track-index="4">
+        <div data-hf-id="hf-4y9n" class="beat-label">Pilot offer</div>
+        <div data-hf-id="hf-s28o" class="title">RPAA Readiness Pilot</div>
+        <div data-hf-id="hf-1jdc" class="subtitle">
+          Checklist, sandbox, and counsel-ready exports in weeks — not quarters.
+        </div>
+        <div data-hf-id="hf-4us3" class="url-chip">trustfield.ca/pilot</div>
+      </div>
+
+      <div data-hf-id="hf-1puc" id="trust" class="clip" data-start="64" data-duration="10" data-track-index="5">
+        <div data-hf-id="hf-y3dc" class="beat-label">Built on</div>
+        <div data-hf-id="hf-1lvv" class="title">Licensed partners move money</div>
+        <div data-hf-id="hf-gsts" class="subtitle">
+          VoPay and licensed partners move money. TrustField gives your MLRO a system they can review.
+        </div>
+      </div>
+
+      <div data-hf-id="hf-ih1w" id="cta" class="clip" data-start="74" data-duration="16" data-track-index="6">
+        <div data-hf-id="hf-qe3w" class="beat-label">Call to action</div>
+        <div data-hf-id="hf-dh2k" class="title">Book your demo today</div>
+        <div data-hf-id="hf-0ps4" class="subtitle">
+          TrustField. RPAA-aligned readiness on trustfield.ca.
+          <div data-hf-id="hf-y94h" class="cta-pill">trustfield.ca/demo · RPAA Readiness Pilot</div>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-0yx0" id="brand-lockup" class="brand-lockup clip" data-start="0" data-duration="90" data-track-index="7">
+        <span data-hf-id="hf-i9p2" class="brand-dot"></span>
+        <span data-hf-id="hf-kqgr">TrustField</span>
+      </div>
+
+      <div data-hf-id="hf-ks4j" id="progress" class="progress clip" data-start="0" data-duration="90" data-track-index="8"></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      function beatIntro(start, titleSel, subtitleSel, labelSel, chipSel) {
+        tl.from(labelSel, { opacity: 0, x: -24, duration: 0.45 }, start);
+        tl.from(titleSel, { opacity: 0, y: 48, duration: 0.7, ease: "power3.out" }, start + 0.1);
+        tl.from(subtitleSel, { opacity: 0, y: 28, duration: 0.55, ease: "power2.out" }, start + 0.45);
+        if (chipSel) {
+          tl.from(chipSel, { opacity: 0, y: -12, duration: 0.4 }, start + 0.2);
+        }
+      }
+
+      beatIntro(0, "#hook .title", "#hook .subtitle", "#hook .beat-label", null);
+      beatIntro(8, "#urgency .title", "#urgency .subtitle", "#urgency .beat-label", "#urgency .url-chip");
+      beatIntro(26, "#sandbox .title", "#sandbox .subtitle", "#sandbox .beat-label", "#sandbox .url-chip");
+      beatIntro(46, "#pilot .title", "#pilot .subtitle", "#pilot .beat-label", "#pilot .url-chip");
+      beatIntro(64, "#trust .title", "#trust .subtitle", "#trust .beat-label", null);
+      beatIntro(74, "#cta .title", "#cta .subtitle", "#cta .beat-label", null);
+      tl.from("#cta .cta-pill", { opacity: 0, scale: 0.9, duration: 0.5, ease: "back.out(1.4)" }, 75.2);
+
+      tl.to("#progress", { width: "100%", duration: 90, ease: "none" }, 0);
+
+      window.__timelines["trustfield-rpaa-storyboard"] = tl;
+    </script>
+  </body>
+</html>

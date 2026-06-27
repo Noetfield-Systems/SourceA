@@ -21,12 +21,12 @@ Check and upgrade **all tasks and plans** under the new wise priorities and poli
 | Signal | Value |
 |--------|-------|
 | Era | `phase_market` (ratified · probe-backed) |
-| Cloud drain head | **CLOUD-SEC-005** · `sa-mkt-0005` |
+| Cloud Forge Run head | **CLOUD-SEC-005** · `sa-mkt-0005` |
 | Last completed | CLOUD-SEC-004 · `sa-mkt-0004` |
 | Brain done / cloud_proven | **9 / 1000** · **7** cloud_proof rows |
 | Full-stack fix plan | ~62/100 done |
 | Factory mode | **FREEZE** (Mac observe · cloud executes) |
-| Loop auto | ON · tick blocked while FREEZE |
+| Auto Runtime | ON · tick blocked while FREEZE |
 | Form | 116 open PICKs (official desired-state writer) |
 
 **Proven this session (cloud FORGE full motor · GOLD):**
@@ -38,7 +38,7 @@ Check and upgrade **all tasks and plans** under the new wise priorities and poli
 
 ## 3. One law (proposed — already wired v1.1.0)
 
-> **Sequential cloud drain head first · then unified P0–P4 · free-tier cost · real-world output type · blockers.**
+> **Sequential Cloud Forge Run head first · then unified P0–P4 · free-tier cost · real-world output type · blockers.**
 
 Agents answer every task/plan with five sections (034 rule). Machines write `task-plan-priority-receipt-v1.json` every session + `plans_unified` tick.
 
@@ -87,7 +87,7 @@ Agents answer every task/plan with five sections (034 rule). Machines write `tas
 
 ## 7. Cost intelligence alignment (tier policy §2–3)
 
-Pick order for cloud drain rows:
+Pick order for Cloud Forge Run rows:
 
 1. **Free tier** (`cost_tier: free`) — boost +80  
 2. **Unified priority** (P0 form → P1 cloud → …)  
@@ -103,7 +103,7 @@ Pick order for cloud drain rows:
 
 | Plan | Progress | Role now | Priority |
 |------|----------|----------|----------|
-| **Cloud drain 100** | 4/110 proven | **Primary execution queue** | P1 |
+| **Cloud Forge Run 100** | 4/110 proven | **Primary execution queue** | P1 |
 | **Brain cloud 1000** | 9/1000 | Proof compiler · pair with sa-mkt | P4 alone · P1 when paired |
 | **Full-stack 100 fix** | ~62/100 | Blockers only if cloud path red | P4 default |
 | **Outbound 100** | low done | Defer until ws-ux slice 010 | P3 |
@@ -159,7 +159,7 @@ Pick order for cloud drain rows:
 ## 11. Founder decisions requested
 
 1. **Confirm Wave A** — drain 005→010 before ws-pricing (011)?  
-2. **P0 form** — schedule form session vs keep cloud drain primary?  
+2. **P0 form** — schedule form session vs keep Cloud Forge Run primary?  
 3. **FREEZE** — resume loop tick on cloud-only drain (no Mac motor)?  
 4. **Promote this draft** to LOCKED after pick → `SOURCEA_TASK_PLAN_PRIORITY_UPGRADE_LOCKED_v1.md`  
 

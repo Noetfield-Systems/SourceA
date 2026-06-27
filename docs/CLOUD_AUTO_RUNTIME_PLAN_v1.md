@@ -1,8 +1,8 @@
-# Cloud Drain Auto-Runtime v1 — Full Plan (LOCKED draft)
+# Cloud Forge Run Auto-Runtime v1 — Full Plan (LOCKED draft)
 
 **Saved:** 2026-06-22T09:00:00Z  
-**SSOT:** `data/cloud-drain-auto-runtime-v1.json`  
-**Machine:** `scripts/cloud_drain_auto_runtime_v1.py`
+**SSOT:** `data/cloud-auto-runtime-v1.json`  
+**Machine:** `scripts/cloud_auto_runtime_v1.py`
 
 ---
 
@@ -19,11 +19,11 @@
 | # | Deliverable | Path |
 |---|-------------|------|
 | 1 | **Skip fix** — `skip_to_next_real` action, no confirm, Hub proxy from :13027 | `cloud-workers-panel.js`, `cloud-workers-server.py` |
-| 2 | **Queue intelligence** — `is_mock_plan`, `auto_pass` on drain rows | `cloud_workers_hub_v1.py`, `secondary-cloud-drain-next-100-v1.json` |
-| 3 | **Auto tick** — mock skip · self-heal on motor fail · optional proceed | `cloud_drain_auto_runtime_v1.py` |
-| 4 | **SSOT** | `data/cloud-drain-auto-runtime-v1.json` |
-| 5 | **CF Worker cron** (deploy pending) | `cloud/workers/cloud-drain-tick-v1/` |
-| 6 | **N8N workflow** | `wf-cloud-drain-auto-v1` via `n8n_workflow_factory_v1.py` + glue `cloud-drain-auto-tick` |
+| 2 | **Queue intelligence** — `is_mock_plan`, `auto_pass` on drain rows | `cloud_workers_hub_v1.py`, `secondary-cloud-forge-run-next-100-v1.json` |
+| 3 | **Auto tick** — mock skip · self-heal on motor fail · optional proceed | `cloud_auto_runtime_v1.py` |
+| 4 | **SSOT** | `data/cloud-auto-runtime-v1.json` |
+| 5 | **CF Worker cron** (deploy pending) | `cloud/workers/cloud-auto-runtime-tick-v1/` |
+| 6 | **N8N workflow** | `wf-cloud-auto-runtime-v1` via `n8n_workflow_factory_v1.py` + glue `cloud-auto-runtime-tick` |
 | 7 | **UI** — Auto tick · Auto status pills | Cloud Workers Command Center |
 
 ---
@@ -31,9 +31,9 @@
 ## Founder opt-in (arm auto proceed)
 
 ```bash
-python3 scripts/cloud_drain_auto_runtime_v1.py --enable
-# or: touch ~/.sina/cloud-drain-auto-proceed-v1.flag
-# or on Cloudflare: CLOUD_DRAIN_AUTO_PROCEED=true
+python3 scripts/cloud_auto_runtime_v1.py --enable
+# or: touch ~/.sina/cloud-forge-run-auto-proceed-v1.flag
+# or on Cloudflare: CLOUD_FORGE_RUN_AUTO_PROCEED=true
 ```
 
 **Default:** auto_skip_mock ON · auto_proceed OFF (safe).
@@ -44,8 +44,8 @@ python3 scripts/cloud_drain_auto_runtime_v1.py --enable
 
 1. **Restart Hub** — `launchctl kickstart -k "gui/$(id -u)/com.sourcea.hub"`
 2. **Rebuild Cloud Workers.app** — `bash scripts/build-cloud-workers-standalone-app-v1.sh`
-3. **N8N** — `python3 scripts/n8n_workflow_factory_v1.py` then import `n8n/workflows/wf-cloud-drain-auto-v1.json`
-4. **Cloudflare** — `cd cloud/workers/cloud-drain-tick-v1 && npx wrangler deploy` + set secrets
+3. **N8N** — `python3 scripts/n8n_workflow_factory_v1.py` then import `n8n/workflows/wf-cloud-auto-runtime-v1.json`
+4. **Cloudflare** — `cd cloud/workers/cloud-auto-runtime-tick-v1 && npx wrangler deploy` + set secrets
 5. **Arm** — `--enable` or CF secret when ready for unattended Proceed
 
 ---

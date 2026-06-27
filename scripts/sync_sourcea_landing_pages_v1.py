@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sync nav, footer, explore grid across SourceA green-unified HTML pages."""
+"""Sync nav, footer, explore grid, chatbot script across SourceA green-unified HTML pages."""
 
 from __future__ import annotations
 
@@ -8,38 +8,44 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1] / "SourceA-landing" / "green-unified"
 
-NAV_OLD = """        <a href="/sourcea/platform.html" data-sa-nav>Platform</a>
-        <a href="/sourcea/growth.html" data-sa-nav>Growth</a>"""
+NAV_OLD = """        <a href="/sourcea/platform" data-sa-nav>Platform</a>
+        <a href="/sourcea/growth" data-sa-nav>Growth</a>"""
 
-NAV_NEW = """        <a href="/sourcea/platform.html" data-sa-nav>Platform</a>
-        <a href="/sourcea/team.html" data-sa-nav>Team</a>
-        <a href="/sourcea/growth.html" data-sa-nav>Growth</a>"""
+NAV_NEW = """        <a href="/sourcea/platform" data-sa-nav>Platform</a>
+        <a href="/sourcea/team" data-sa-nav>Team</a>
+        <a href="/sourcea/growth" data-sa-nav>Growth</a>"""
 
-FOOTER_PRODUCT_OLD = """      <a href="/sourcea/platform.html">Platform</a>
-      <a href="/sourcea/growth.html">Growth system</a>"""
+FOOTER_PRODUCT_OLD = """      <a href="/sourcea/platform">Platform</a>
+      <a href="/sourcea/growth">Growth system</a>"""
 
-FOOTER_PRODUCT_NEW = """      <a href="/sourcea/platform.html">Platform</a>
-      <a href="/sourcea/team.html">Your team</a>
-      <a href="/sourcea/growth.html">Growth system</a>
-      <a href="/sourcea/scenario.html">Scenario</a>
-      <a href="/sourcea/proof.html">>Verification</a>
-      <a href="/sourcea/compare.html">Compare</a>
-      <a href="/sourcea/pricing.html">Pricing</a>
-      <a href="/sourcea/security.html">Security &amp; procurement</a>
-      <a href="/sourcea/sources.html">Sources &amp; evidence</a>"""
+FOOTER_PRODUCT_NEW = """      <a href="/sourcea/platform">Platform</a>
+      <a href="/sourcea/offer">Offer</a>
+      <a href="/sourcea/case-studies/">Case studies</a>
+      <a href="/sourcea/team">Your team</a>
+      <a href="/sourcea/growth">Growth system</a>
+      <a href="/sourcea/scenario">Scenario</a>
+      <a href="/sourcea/proof">Verification</a>
+      <a href="/sourcea/compare">Compare</a>
+      <a href="/sourcea/pricing">Pricing</a>
+      <a href="/sourcea/security">Security &amp; procurement</a>
+      <a href="/sourcea/sources">Sources &amp; evidence</a>"""
 
-FOOTER_LOOPS_OLD = """      <h4>Loops</h4>
-      <a href="/sourcea/loops/outreach.html">Outreach</a>"""
+FOOTER_CASE_STUDIES_BLOCK = """    <nav class="sa-footer-col" aria-label="Case studies">
+      <h4>Case studies</h4>
+      <a href="/sourcea/case-studies/">All case studies</a>
+      <a href="/sourcea/case-studies/pureflow">PureFlow (#1 · trades)</a>
+      <a href="/sourcea/case-studies/agentgo">AgentGo (#2 · factory)</a>
+    </nav>
+"""
 
-FOOTER_LOOPS_NEW = """      <h4>Loops</h4>
-      <a href="/sourcea/loops/index.html">All loops</a>
-      <a href="/sourcea/loops/outreach.html">Outreach</a>"""
+FOOTER_BRAND_OLD = "      <p>Proof-backed acquisition systems in 48 hours — built in Canada.</p>"
+FOOTER_BRAND_NEW = "      <p>Business Acquisition Systems — proof-backed engines for contracts and recurring revenue.</p>"
 
-FOOTER_BRAND_OLD = "      <p>Controlled agent automation — built for platform engineers and agencies who owe their clients proof.</p>"
-FOOTER_BRAND_NEW = "      <p>Execution Proof Infrastructure — controlled agentic team for platform engineers and revenue agencies.</p>"
-
-FOOTER_BOTTOM_OLD = "© SourceA 2026 · Runtime governance infrastructure"
-FOOTER_BOTTOM_NEW = "© SourceA 2026 · Execution Proof Infrastructure"
+FOOTER_BOTTOM_OLD = "© SourceA 2026 · One brand · outcome-first"
+FOOTER_BOTTOM_NEW = (
+    "© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · "
+    '<a href="https://noetfield.com" rel="noopener">noetfield.com</a>'
+)
 
 HEADER_SHELL = """<div class="ar-scroll-progress" aria-hidden="true"><div class="ar-scroll-progress-bar"></div></div>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -48,26 +54,27 @@ HEADER_SHELL = """<div class="ar-scroll-progress" aria-hidden="true"><div class=
 <header class="ar-header sa-header">
   <div class="ar-container ar-header-shell">
     <div class="ar-header-inner">
-      <a class="ar-logo" href="/sourcea/" aria-label="SourceA home">
+      <a class="ar-logo" href="/" aria-label="SourceA home">
         <span class="ar-logo-text">Source<span class="ar-logo-run sa-logo-run">A</span></span>
       </a>
       <nav class="ar-nav" id="ar-nav" aria-label="Primary">
-        <a href="/sourcea/" data-sa-nav>Home</a>
-        <a href="/sourcea/platform.html" data-sa-nav>Platform</a>
-        <a href="/sourcea/team.html" data-sa-nav>Team</a>
-        <a href="/sourcea/growth.html" data-sa-nav>Growth</a>
-        <a href="/sourcea/scenario.html" data-sa-nav>Scenario</a>
-        <a href="/sourcea/proof.html" data-sa-nav>>Verification</a>
-        <a href="/sourcea/compare.html" data-sa-nav>Compare</a>
-        <a href="/sourcea/pricing.html" data-sa-nav>Pricing</a>
-        <a class="ar-btn ar-btn-primary ar-btn-sm ar-nav-cta-mobile sa-btn-glow" href="mailto:hello@sourcea.com">Book proof demo</a>
+        <a href="/" data-sa-nav data-sa-nav-home>Home</a>
+        <a href="/sourcea/offer" data-sa-nav>Offer</a>
+        <a href="/sourcea/pricing" data-sa-nav>Pricing</a>
+        <a href="/sourcea/investors" data-sa-nav>Investors</a>
+        <a href="/sourcea/kernel/" data-sa-nav>Kernel</a>
+        <a class="ar-btn ar-btn-ghost ar-btn-sm ar-nav-signin-mobile" href="/platform">Sign in</a>
+        <a class="ar-btn ar-btn-primary ar-btn-sm ar-nav-cta-mobile sa-btn-glow" data-sa-book-cta href="https://cal.com/sourcea/proof-demo">Book a call</a>
       </nav>
       <button type="button" class="ar-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="ar-nav">
         <span class="ar-nav-toggle-bar"></span>
         <span class="ar-nav-toggle-bar"></span>
         <span class="ar-nav-toggle-bar"></span>
       </button>
-      <a class="ar-btn ar-btn-primary ar-btn-sm sa-btn-glow ar-header-cta" href="mailto:hello@sourcea.com">Book proof demo</a>
+      <div class="ar-header-actions">
+        <a class="ar-btn ar-btn-ghost ar-btn-sm ar-header-signin" href="/platform">Sign in</a>
+        <a class="ar-btn ar-btn-primary ar-btn-sm sa-btn-glow ar-header-cta" data-sa-book-cta href="https://cal.com/sourcea/proof-demo">Book a call</a>
+      </div>
     </div>
   </div>
 </header>"""
@@ -78,59 +85,90 @@ HEADER_RE = re.compile(
 )
 
 NAV_LINKS_EXPECTED = [
-    "/sourcea/",
-    "/sourcea/platform.html",
-    "/sourcea/team.html",
-    "/sourcea/growth.html",
-    "/sourcea/scenario.html",
-    "/sourcea/proof.html",
-    "/sourcea/compare.html",
-    "/sourcea/pricing.html",
+    "/",
+    "/sourcea/offer",
+    "/sourcea/pricing",
+    "/sourcea/investors",
+    "/sourcea/kernel/",
 ]
 
-EXPLORE = """
+COMMERCIAL_EXPLORE_PAGES = frozenset({"pricing.html"})
+
+COMMERCIAL_PAGES_NO_CASE_FOOTER = frozenset(
+    {"index.html", "offer.html", "investors.html", "pricing.html"}
+)
+
+KERNEL_HEADER_SKIP = frozenset({"legacy-full-home-v1.html"})
+
+CHATBOT_SCRIPT = '<script src="/sourcea/sourcea-chatbot.js" defer></script>'
+
+EXPLORE_COMMERCIAL = """
   <section class="ar-section ar-section-muted ar-reveal sa-explore">
     <div class="ar-container">
       <div class="ar-section-head ar-section-head-center">
-        <p class="ar-kicker">Go deeper</p>
-        <h2>Every story. <span class="ar-hero-accent">Its own chapter.</span></h2>
+        <p class="ar-kicker">Close a deal</p>
+        <h2>Book a call or review the offer.</h2>
       </div>
       <div class="sa-explore-grid">
-        <a class="sa-explore-card" href="/sourcea/growth.html"><span class="sa-explore-num">01</span><strong>Growth system</strong><span>Attract → prove → close → expand</span></a>
-        <a class="sa-explore-card" href="/sourcea/loops/index.html"><span class="sa-explore-num">02</span><strong>All loops</strong><span>Outreach · ops · research hub</span></a>
-        <a class="sa-explore-card" href="/sourcea/loops/outreach.html"><span class="sa-explore-num">03</span><strong>Outreach loop</strong><span>Your first controlled send</span></a>
-        <a class="sa-explore-card" href="/sourcea/team.html"><span class="sa-explore-num">04</span><strong>Your team</strong><span>6 agents orbiting your command center</span></a>
-        <a class="sa-explore-card" href="/sourcea/scenario.html"><span class="sa-explore-num">05</span><strong>Scenario</strong><span>Screen-share script · controlled night</span></a>
-        <a class="sa-explore-card" href="/sourcea/proof.html"><span class="sa-explore-num">06</span><strong>>Verification</strong><span>What you screen-share in five minutes</span></a>
-        <a class="sa-explore-card" href="/sourcea/pricing.html"><span class="sa-explore-num">07</span><strong>Pricing</strong><span>$3–10K builds · retainer from $2K</span></a>
-        <a class="sa-explore-card" href="/sourcea/#reference"><span class="sa-explore-num">08</span><strong>Reference</strong><span>Why buyers name SourceA first</span></a>
-        <a class="sa-explore-card" href="/sourcea/platform.html"><span class="sa-explore-num">09</span><strong>Platform</strong><span>Why the audit trail breaks today</span></a>
-        <a class="sa-explore-card" href="/sourcea/compare.html"><span class="sa-explore-num">10</span><strong>Compare</strong><span>How alternatives stack up</span></a>
-        <a class="sa-explore-card" href="/sourcea/loops/ops-monitor.html"><span class="sa-explore-num">11</span><strong>Ops monitor</strong><span>When policy says no</span></a>
-        <a class="sa-explore-card" href="/sourcea/loops/research.html"><span class="sa-explore-num">12</span><strong>Research</strong><span>Bounded gather with a receipt</span></a>
-        <a class="sa-explore-card" href="/sourcea/security.html"><span class="sa-explore-num">13</span><strong>Security</strong><span>Procurement &amp; trust strip</span></a>
-        <a class="sa-explore-card" href="/sourcea/sources.html"><span class="sa-explore-num">14</span><strong>Sources</strong><span>Cited evidence &amp; frameworks</span></a>
+        <a class="sa-explore-card" href="https://cal.com/sourcea/proof-demo"><span class="sa-explore-num">01</span><strong>Book a call</strong><span>Scope your 48-hour system</span></a>
+        <a class="sa-explore-card" href="/sourcea/offer"><span class="sa-explore-num">02</span><strong>48-hour offer</strong><span>Deliverables and setup pricing</span></a>
+        <a class="sa-explore-card" href="mailto:hello@sourcea.app"><span class="sa-explore-num">03</span><strong>Email</strong><span>hello@sourcea.app</span></a>
       </div>
     </div>
   </section>
 """
 
+EXPLORE_KERNEL_LINK = '<p class="sa-metric-note" style="margin-top:1.25rem;text-align:center">Technical depth: <a href="/sourcea/kernel/">Kernel hub →</a></p>'
+
 BREADCRUMB_LOOP_FIX = re.compile(
-    r'(<a href="/sourcea/platform\.html">Platform</a>)\s*'
-    r'(<a href="/sourcea/growth\.html">Growth system</a><span class="ar-breadcrumb-sep">/</span>)',
+    r'(<a href="/sourcea/platform\">Platform</a>)\s*'
+    r'(<a href="/sourcea/growth\">Growth system</a><span class="ar-breadcrumb-sep">/</span>)',
     re.MULTILINE,
 )
 
-BREADCRUMB_LOOP_REPL = r'\1<span class="ar-breadcrumb-sep">/</span>\n        <a href="/sourcea/loops/index.html">Loops</a><span class="ar-breadcrumb-sep">/</span>'
+BREADCRUMB_LOOP_REPL = r'\1<span class="ar-breadcrumb-sep">/</span>\n        <a href="/sourcea/loops/">Loops</a><span class="ar-breadcrumb-sep">/</span>'
 
-# Pages with alternate nav shells — skip canonical header inject/validate
-HEADER_SYNC_SKIP_PREFIXES = ("attach", "reference", "factories")
+HEADER_SYNC_SKIP_PREFIXES = ("attach", "reference", "factories", "dist", "downloads", "trust")
+SCRIPT_SYNC_SKIP_PREFIXES = ("attach", "reference", "factories", "dist", "downloads", "trust")
+HEADER_SYNC_SKIP_NAMES = frozenset(
+    {"funnel.html", "home.html", "hub.html", "sandbox.html", "start.html", "changelog.html", "mvp-landing.html"}
+)
 
 
 def skip_header_sync(rel: Path) -> bool:
+    if rel.name in HEADER_SYNC_SKIP_NAMES:
+        return True
+    if rel.parts and rel.parts[0] == "kernel" and rel.name in KERNEL_HEADER_SKIP:
+        return True
     if not rel.parts:
         return False
     return rel.parts[0] in HEADER_SYNC_SKIP_PREFIXES
+
+
+def skip_script_sync(rel: Path) -> bool:
+    if not rel.parts:
+        return False
+    return rel.parts[0] in SCRIPT_SYNC_SKIP_PREFIXES
+
+
+def inject_chatbot_script(text: str) -> tuple[str, bool]:
+    if CHATBOT_SCRIPT in text:
+        return text, False
+    if "</body>" not in text:
+        return text, False
+    return text.replace("</body>", f"{CHATBOT_SCRIPT}\n</body>", 1), True
+
+
+def inject_footer_case_studies(text: str) -> tuple[str, bool]:
+    if 'aria-label="Case studies"' in text and "case-studies/" in text:
+        return text, False
+    marker = '<nav class="sa-footer-col" aria-label="Factory loops">'
+    if marker in text:
+        return text.replace(marker, FOOTER_CASE_STUDIES_BLOCK + marker, 1), True
+    marker2 = '<nav class="sa-footer-col" aria-label="Contact">'
+    if marker2 in text and "sa-footer-rich" in text:
+        return text.replace(marker2, FOOTER_CASE_STUDIES_BLOCK + marker2, 1), True
+    return text, False
 
 
 def patch_file(path: Path) -> list[str]:
@@ -145,10 +183,6 @@ def patch_file(path: Path) -> list[str]:
     if FOOTER_PRODUCT_OLD in text:
         text = text.replace(FOOTER_PRODUCT_OLD, FOOTER_PRODUCT_NEW)
         changes.append("footer-product")
-
-    if FOOTER_LOOPS_OLD in text and "All loops" not in text:
-        text = text.replace(FOOTER_LOOPS_OLD, FOOTER_LOOPS_NEW)
-        changes.append("footer-loops")
 
     if FOOTER_BRAND_OLD in text:
         text = text.replace(FOOTER_BRAND_OLD, FOOTER_BRAND_NEW)
@@ -171,28 +205,52 @@ def patch_file(path: Path) -> list[str]:
         text = BREADCRUMB_LOOP_FIX.sub(BREADCRUMB_LOOP_REPL, text)
         changes.append("breadcrumb")
 
-    if path.name == "index.html" and path.parent == ROOT:
-        # Update home explore grid
+    rel_key = str(rel).replace("\\", "/")
+    if rel_key in COMMERCIAL_EXPLORE_PAGES:
         old_explore = re.search(
             r'<section class="ar-section ar-section-muted ar-reveal sa-explore">.*?</section>',
             text,
             re.DOTALL,
         )
         if old_explore:
-            text = text[: old_explore.start()] + EXPLORE.strip() + "\n\n" + text[old_explore.end() :]
-            changes.append("index-explore")
-    elif "sa-explore" not in text and "<main" in text:
-        # Insert explore before last cta-band or before footer
-        if "<footer class=\"ar-site-footer" in text:
+            text = (
+                text[: old_explore.start()]
+                + EXPLORE_COMMERCIAL.strip()
+                + "\n\n"
+                + text[old_explore.end() :]
+            )
+            changes.append("commercial-explore")
+        elif "sa-explore" not in text and "<footer" in text:
             marker = "<footer class=\"ar-site-footer"
-            if "sa-cta-band" in text:
-                idx = text.rfind("<section class=\"sa-cta-band")
-                if idx != -1:
-                    text = text[:idx] + EXPLORE.strip() + "\n\n  " + text[idx:]
-                    changes.append("explore-before-cta")
-            else:
-                text = text.replace(marker, EXPLORE.strip() + "\n\n" + marker, 1)
-                changes.append("explore-before-footer")
+            text = text.replace(marker, EXPLORE_COMMERCIAL.strip() + "\n\n" + marker, 1)
+            changes.append("commercial-explore-inject")
+
+    # Strip legacy 16-card explore from kernel-era pages (platform, growth, etc.)
+    if rel_key not in COMMERCIAL_EXPLORE_PAGES and rel.name != "index.html":
+        old_big = re.search(
+            r'<section class="ar-section ar-section-muted ar-reveal sa-explore">.*?Every story\..*?</section>',
+            text,
+            re.DOTALL,
+        )
+        if old_big:
+            text = text[: old_big.start()] + text[old_big.end() :]
+            if EXPLORE_KERNEL_LINK not in text and "<footer" in text and rel.parts and rel.parts[0] != "kernel":
+                text = text.replace(
+                    "<footer class=\"ar-site-footer",
+                    EXPLORE_KERNEL_LINK + "\n\n<footer class=\"ar-site-footer",
+                    1,
+                )
+            changes.append("strip-legacy-explore")
+
+    if not skip_script_sync(rel):
+        rel_key = str(rel).replace("\\", "/")
+        if rel_key not in COMMERCIAL_PAGES_NO_CASE_FOOTER:
+            text, did = inject_footer_case_studies(text)
+            if did:
+                changes.append("footer-case-studies")
+        text, did = inject_chatbot_script(text)
+        if did:
+            changes.append("chatbot-script")
 
     if text != orig:
         path.write_text(text, encoding="utf-8")

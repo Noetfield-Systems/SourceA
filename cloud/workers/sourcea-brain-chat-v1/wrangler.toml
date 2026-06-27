@@ -1,0 +1,8 @@
+name = "sourcea-brain-chat-v1"
+main = "src/index.js"
+compatibility_date = "2024-06-01"
+account_id = "0d0b967b77e2e5535455d39ff3dae72c"
+
+# Route on sourcea.app when DNS is on Cloudflare:
+# routes = [{ pattern = "sourcea.app/api/brain/chat/v1", zone_name = "sourcea.app" }]
+# Secret: wrangler secret put OPENROUTER_API_KEY

@@ -23,7 +23,7 @@ SINA = Path.home() / ".sina"
 SSOT = ROOT / "data/sourcea-task-plan-priority-v1.json"
 RECEIPT = SINA / "task-plan-priority-receipt-v1.json"
 BRAIN = ROOT / "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json"
-DRAIN = ROOT / "data/secondary-cloud-drain-next-100-v1.json"
+DRAIN = ROOT / "data/secondary-cloud-forge-run-next-100-v1.json"
 FULL_STACK = ROOT / "data/sourcea-full-stack-100-fix-plan-v1.json"
 OUTBOUND = ROOT / "data/outbound-factory-100-upgrade-plan-v1.json"
 ECO111 = ROOT / "data/ecosystem-mac-health-111-upgrade-plan-v1.json"
@@ -101,7 +101,7 @@ def _map_unified_priority(
 
 
 def _disk_head() -> str:
-    return str(_read(SINA / "phase-observed-v1.json").get("cloud_drain_head") or "CLOUD-SEC-001")
+    return str(_read(SINA / "phase-observed-v1.json").get("cloud_forge_run_head") or "CLOUD-SEC-001")
 
 
 def score_task(
@@ -158,8 +158,8 @@ def score_task(
     if tid == head:
         score += int(seq.get("head_bonus") or 500)
         sequential = "drain_head"
-    elif str(task.get("source")) == "cloud_drain" and tid.startswith("CLOUD-SEC-"):
-        sequential = "cloud_drain_ahead"
+    elif str(task.get("source")) == "cloud_forge_run" and tid.startswith("CLOUD-SEC-"):
+        sequential = "cloud_forge_run_ahead"
     else:
         sequential = "other"
 
@@ -206,7 +206,7 @@ def _brain_open(limit: int = 5) -> list[dict]:
 def _cloud_from_head(limit: int = 5) -> list[dict]:
     drain = _read(DRAIN)
     obs = _read(SINA / "phase-observed-v1.json")
-    head = str(obs.get("cloud_drain_head") or "CLOUD-SEC-001")
+    head = str(obs.get("cloud_forge_run_head") or "CLOUD-SEC-001")
     plans = drain.get("plans") or []
     ids = [str(p.get("id") or "") for p in plans if str(p.get("id", "")).startswith("CLOUD-SEC-")]
     out: list[dict] = []
@@ -225,7 +225,7 @@ def _cloud_from_head(limit: int = 5) -> list[dict]:
                     "title": row.get("cloud_action"),
                     "action": row.get("cloud_action"),
                     "lane": row.get("workstream") or "cloud_forge",
-                    "source": "cloud_drain",
+                    "source": "cloud_forge_run",
                 }
             )
     return out
@@ -298,7 +298,7 @@ def sequential_next() -> dict | None:
         "title": row.get("cloud_action"),
         "action": row.get("cloud_action"),
         "lane": row.get("workstream") or "cloud_forge",
-        "source": "cloud_drain",
+        "source": "cloud_forge_run",
     }
     return score_task(
         ssot,
@@ -319,10 +319,10 @@ def priority_for_task_id(task_id: str) -> dict:
         task = {**u, "task_id": u.get("id"), "source": "brain_cloud_1000", "lane": "brain"}
     elif tid.startswith("CLOUD-SEC"):
         row = next((p for p in (_read(DRAIN).get("plans") or []) if p.get("id") == tid), {})
-        task = {**row, "task_id": row.get("id"), "title": row.get("cloud_action"), "action": row.get("cloud_action"), "source": "cloud_drain"}
+        task = {**row, "task_id": row.get("id"), "title": row.get("cloud_action"), "action": row.get("cloud_action"), "source": "cloud_forge_run"}
     elif tid.startswith("sa-mkt"):
         row = next((p for p in (_read(DRAIN).get("plans") or []) if p.get("maps_registry") == tid), {})
-        task = {**row, "task_id": row.get("id"), "title": row.get("cloud_action"), "action": row.get("cloud_action"), "source": "cloud_drain"}
+        task = {**row, "task_id": row.get("id"), "title": row.get("cloud_action"), "action": row.get("cloud_action"), "source": "cloud_forge_run"}
     reg = str(task.get("maps_registry") or "")
     return score_task(ssot, task, blockers=blockers, paired_registry=reg)
 
@@ -351,7 +351,7 @@ def refresh(*, write: bool = True) -> dict:
         "ok": True,
         "one_law": ssot.get("one_law"),
         "blockers": blockers,
-        "cloud_drain_head": _disk_head(),
+        "cloud_forge_run_head": _disk_head(),
         "sequential_next": seq_row,
         "smart_pick": smart_pick,
         "ranked": ranked,
@@ -374,7 +374,7 @@ def inject_slice() -> dict:
         "priority_stack": ssot.get("priority_stack"),
         "smart_pick": row.get("smart_pick"),
         "sequential_next": row.get("sequential_next"),
-        "cloud_drain_head": row.get("cloud_drain_head"),
+        "cloud_forge_run_head": row.get("cloud_forge_run_head"),
         "top_ranked": (row.get("ranked") or [])[:5],
         "task_plan_priority_line": row.get("task_plan_priority_line"),
         "command_refresh": "python3 scripts/task_plan_priority_v1.py --refresh --json",

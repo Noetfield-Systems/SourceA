@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""Resolve active cloud drain queue SSOT path (batch pointer · locked)."""
+"""Resolve active Cloud Forge Run queue SSOT path (batch pointer · locked)."""
 from __future__ import annotations
 
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-ACTIVE_POINTER = ROOT / "data/cloud-drain-queue-active-v1.json"
-LEGACY = ROOT / "data/secondary-cloud-drain-next-100-v1.json"
+ACTIVE_POINTER = ROOT / "data/cloud-forge-run-queue-active-v1.json"
+VOLUME_POINTER = Path("/app/receipts/cloud-forge-run/queue-active-pointer-v1.json")
+LEGACY = ROOT / "data/secondary-cloud-forge-run-next-100-v1.json"
 
 
 def _read(path: Path) -> dict:
@@ -19,8 +20,17 @@ def _read(path: Path) -> dict:
         return {}
 
 
+def active_pointer_doc() -> dict:
+    """Volume pointer survives Railway redeploy; image pointer is bootstrap only."""
+    if VOLUME_POINTER.is_file():
+        doc = _read(VOLUME_POINTER)
+        if doc.get("queue_path"):
+            return doc
+    return _read(ACTIVE_POINTER)
+
+
 def active_drain_path() -> Path:
-    ptr = _read(ACTIVE_POINTER)
+    ptr = active_pointer_doc()
     rel = str(ptr.get("queue_path") or "").strip()
     if rel:
         return ROOT / rel
@@ -28,7 +38,7 @@ def active_drain_path() -> Path:
 
 
 def active_batch_meta() -> dict:
-    ptr = _read(ACTIVE_POINTER)
+    ptr = active_pointer_doc()
     if ptr:
         return ptr
     leg = _read(LEGACY)

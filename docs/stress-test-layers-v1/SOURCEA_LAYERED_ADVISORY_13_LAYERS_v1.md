@@ -248,7 +248,7 @@ On advisory asks: read tracker + threads + goal-progress · name lens weights ·
 | # | Position |
 |---|----------|
 | 1 | Primary earn path = receipt spine SKU (RunReceipt/FORGE) |
-| 2 | Factory drain P0 until s2 T0 green |
+| 2 | Cloud Forge Run P0 until s2 T0 green |
 | 3 | Semantic flip P1 per 014 — after AUTH-LIVE |
 | 4 | TrustField parallel calendar — not Worker default |
 | 5 | β+ hybrid week before α or β alone |

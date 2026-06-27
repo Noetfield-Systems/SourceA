@@ -16,6 +16,8 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+FORM_PAGE_URL = "http://127.0.0.1:13023/form/"
+CW_COCKPIT_URL = "http://127.0.0.1:13027/"
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
 SINA = Path.home() / ".sina"
@@ -74,6 +76,8 @@ def _disk_snapshot() -> dict:
         pass
     portfolio = _read(SINA / "portfolio-fix-plan-pulse-v1.json")
     wo = _read(SINA / "brain-outbound-work-order-active-v1.json")
+    drain = _read(ROOT / "data/cloud-forge-run-queue-active-v1.json")
+    cloud_batch_complete = bool(drain.get("queue_batch_complete"))
     return {
         "fbe_url": fbe_url,
         "fbe_public_ok": _fbe_health(fbe_url),
@@ -81,6 +85,9 @@ def _disk_snapshot() -> dict:
         "nf_bay_ok": bool(bay.get("ok")),
         "tf_sandbox_ok": bool(tf.get("ok")),
         "form_open": int(form.get("open_questions_count") or 0),
+        "cloud_batch_complete": cloud_batch_complete,
+        "cloud_workers_cockpit": CW_COCKPIT_URL,
+        "form_page_url": FORM_PAGE_URL,
         "factory_now_line": surfaces.get("factory_now_line") or "",
         "cloud_300_line": surfaces.get("cloud_practical_300_line") or "",
         "portfolio_line": portfolio.get("portfolio_fix_line") or "",
@@ -113,11 +120,16 @@ def _pick_next_action(ssot: dict, snap: dict) -> dict:
             "because": "TrustField sandbox is P1 after NF bay on cloud path",
         }
     if snap.get("form_open", 0) > 0:
+        batch_note = " · batch200=COMPLETE" if snap.get("cloud_batch_complete") else ""
         return {
             "id": "P3",
             "action": "form_batch_submit_ready",
-            "surface": "http://127.0.0.1:13020/form/",
-            "because": f"{snap['form_open']} founder PICKs open — batch submit wires nerves on Hub /form/",
+            "surface": FORM_PAGE_URL,
+            "cockpit": CW_COCKPIT_URL,
+            "because": (
+                f"{snap['form_open']} founder PICKs open — batch submit on Chat Unify /form/ "
+                f"wires nerves to disk{batch_note}"
+            ),
         }
     return {
         "id": "P4",
@@ -149,7 +161,8 @@ def activate(*, founder_text: str = "", write: bool = True) -> dict:
         "main_problem_line": (
             f"main-problem · PREPARE · next={next_action.get('id')} · "
             f"{next_action.get('action')} · fbe={'PASS' if snap.get('fbe_public_ok') else 'RED'} · "
-            f"form_open={snap.get('form_open', 0)}"
+            f"batch200={'COMPLETE' if snap.get('cloud_batch_complete') else 'OPEN'} · "
+            f"form_open={snap.get('form_open', 0)} · form={FORM_PAGE_URL}"
         ),
         "ssot": str(SSOT.relative_to(ROOT)),
     }

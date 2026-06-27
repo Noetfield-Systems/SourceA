@@ -1,0 +1,264 @@
+{
+  "typography": [
+    {
+      "role": "display",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "65.6px",
+      "fontWeight": "700",
+      "lineHeight": "68.88px",
+      "letterSpacing": "-2.624px",
+      "color": "#404747",
+      "sampleText": "AI that proves its work."
+    },
+    {
+      "role": "heading",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "40px",
+      "fontWeight": "700",
+      "lineHeight": "64px",
+      "letterSpacing": "-1.2px",
+      "color": "#404747",
+      "sampleText": "Most AI asks you to trust it."
+    },
+    {
+      "role": "body",
+      "fontFamily": "Inter",
+      "fontSize": "19.2px",
+      "fontWeight": "400",
+      "lineHeight": "30.72px",
+      "letterSpacing": "normal",
+      "color": "#2D6360",
+      "sampleText": "SourceA runs your work through a controlled factory — every "
+    },
+    {
+      "role": "heading-3",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "18.72px",
+      "fontWeight": "700",
+      "lineHeight": "29.952px",
+      "letterSpacing": "normal",
+      "color": "#404747",
+      "sampleText": "Custom machine"
+    },
+    {
+      "role": "heading-3",
+      "fontFamily": "Inter",
+      "fontSize": "16.8px",
+      "fontWeight": "700",
+      "lineHeight": "26.88px",
+      "letterSpacing": "normal",
+      "color": "#404747",
+      "sampleText": "Run an agentic startup"
+    },
+    {
+      "role": "link",
+      "fontFamily": "Inter",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "lineHeight": "25.6px",
+      "letterSpacing": "normal",
+      "color": "#FFFFFF",
+      "sampleText": "Skip to content"
+    },
+    {
+      "role": "body-small",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "14.4px",
+      "fontWeight": "500",
+      "lineHeight": "23.04px",
+      "letterSpacing": "-0.96px",
+      "color": "#225A58",
+      "sampleText": "/mo"
+    },
+    {
+      "role": "label",
+      "fontFamily": "Inter",
+      "fontSize": "13.12px",
+      "fontWeight": "700",
+      "lineHeight": "20.992px",
+      "letterSpacing": "normal",
+      "color": "#044441",
+      "sampleText": "Open full forensic proof"
+    },
+    {
+      "role": "code",
+      "fontFamily": "monospace",
+      "fontSize": "12.48px",
+      "fontWeight": "700",
+      "lineHeight": "19.968px",
+      "letterSpacing": "normal",
+      "color": "#044441",
+      "sampleText": "policy_version"
+    },
+    {
+      "role": "heading-4",
+      "fontFamily": "Inter",
+      "fontSize": "10.88px",
+      "fontWeight": "700",
+      "lineHeight": "17.408px",
+      "letterSpacing": "1.088px",
+      "color": "#225A58",
+      "sampleText": "Start"
+    }
+  ],
+  "spacing": {
+    "observed": [
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      14,
+      15,
+      16,
+      18,
+      20,
+      24
+    ],
+    "baseUnit": 8
+  },
+  "radius": [
+    "8px",
+    "14px",
+    "18px",
+    "999px"
+  ],
+  "shadows": [
+    {
+      "value": "rgba(4, 68, 65, 0.12) 0px 8px 24px 0px",
+      "count": 7
+    },
+    {
+      "value": "rgba(4, 68, 65, 0.08) 0px 8px 32px 0px",
+      "count": 1
+    },
+    {
+      "value": "rgba(105, 212, 25, 0.12) 0px 0px 0px 1px, rgba(4, 68, 65, 0.12) 0px 32px 80px 0px",
+      "count": 1
+    },
+    {
+      "value": "rgb(105, 212, 25) -3px 0px 0px 0px, rgba(4, 68, 65, 0.08) 0px 6px 20px 0px",
+      "count": 1
+    },
+    {
+      "value": "rgba(154, 231, 97, 0.25) 0px 20px 48px 0px",
+      "count": 1
+    }
+  ],
+  "buttons": [
+    {
+      "label": "Free proof",
+      "background": "#9AE761",
+      "color": "#032E2C",
+      "padding": "8px 14px",
+      "borderRadius": "999px",
+      "border": "1px solid rgba(0, 0, 0, 0)",
+      "boxShadow": "rgba(4, 68, 65, 0.12) 0px 8px 24px 0px",
+      "fontSize": "13.12px",
+      "fontWeight": "700",
+      "height": "44px"
+    },
+    {
+      "label": "→",
+      "background": "#044441",
+      "color": "#FFFFFF",
+      "padding": "0px",
+      "borderRadius": "999px",
+      "border": "0px none rgb(255, 255, 255)",
+      "boxShadow": "none",
+      "fontSize": "13.6px",
+      "fontWeight": "600",
+      "height": "28px"
+    },
+    {
+      "label": "See a live receipt→",
+      "background": "#FFFFFF",
+      "color": "#404747",
+      "padding": "11px 20px",
+      "borderRadius": "999px",
+      "border": "1px solid rgb(225, 233, 220)",
+      "boxShadow": "none",
+      "fontSize": "14.4px",
+      "fontWeight": "600",
+      "height": "52px"
+    },
+    {
+      "label": "→",
+      "background": "#9AE761",
+      "color": "#032E2C",
+      "padding": "0px",
+      "borderRadius": "999px",
+      "border": "0px none rgb(3, 46, 44)",
+      "boxShadow": "none",
+      "fontSize": "13.6px",
+      "fontWeight": "600",
+      "height": "28px"
+    }
+  ],
+  "cards": [
+    {
+      "label": "card",
+      "background": "#000000",
+      "color": "#404747",
+      "padding": "0px",
+      "borderRadius": "16px",
+      "border": "1px solid rgba(20, 30, 15, 0.12)",
+      "boxShadow": "rgba(105, 212, 25, 0.12) 0px 0px 0px 1px, rgba(4, 68, 65, 0.12) 0px 32px 80px 0px",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "711.875px"
+    },
+    {
+      "label": "card",
+      "background": "#000000",
+      "color": "#404747",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "border": "0px none rgb(64, 71, 71)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "616.906px"
+    },
+    {
+      "label": "card",
+      "background": "#060D18",
+      "color": "#404747",
+      "padding": "16px 17.6px",
+      "borderRadius": "14px",
+      "border": "1px solid rgba(45, 212, 191, 0.2)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "112.625px"
+    },
+    {
+      "label": "card",
+      "background": "#000000",
+      "color": "#404747",
+      "padding": "24px",
+      "borderRadius": "18px",
+      "border": "1px solid rgb(225, 233, 220)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "195.906px"
+    }
+  ],
+  "nav": {
+    "label": "navigation",
+    "background": "#FFFFFF",
+    "color": "#404747",
+    "padding": "0px",
+    "borderRadius": "0px",
+    "border": "0px none rgb(64, 71, 71)",
+    "boxShadow": "rgba(4, 68, 65, 0.08) 0px 8px 32px 0px",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "height": "56px"
+  }
+}

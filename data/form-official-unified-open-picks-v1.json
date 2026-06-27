@@ -523,11 +523,11 @@
     },
     {
       "id": "Q-FINAL-07",
-      "title": "Loop auto ON (True) + unmapped bay dispatch \u2014 safe?",
+      "title": "Auto Runtime ON (True) + unmapped bay dispatch \u2014 safe?",
       "recommended": "C",
       "options": [
-        "A \u2014 Keep loop auto on all items",
-        "B \u2014 Loop auto OFF until all bays mapped",
+        "A \u2014 Keep Auto Runtime on all items",
+        "B \u2014 Auto Runtime OFF until all bays mapped",
         "C \u2014 Auto dispatch mapped bays only \u00b7 sign_only unmapped (recommended)",
         "D \u2014 Manual Hub tap per upgrade only"
       ],
@@ -736,7 +736,7 @@
       "title": "B0503 open \u2014 cloud worker still reads chat not work-order?",
       "recommended": "A",
       "options": [
-        "A \u2014 YES \u2014 B0503 P0 before more loop auto dispatch (recommended)",
+        "A \u2014 YES \u2014 B0503 P0 before more Auto Runtime dispatch (recommended)",
         "B \u2014 Parallel \u2014 dispatch continues \u00b7 B0503 background",
         "C \u2014 Defer B0503 until outbound-rrl bay exists",
         "D \u2014 Revert to Worker chat prompt consumption"
@@ -802,7 +802,7 @@
         "A \u2014 YES \u2014 hard guard \u00b7 no done without bay+receipt (recommended)",
         "B \u2014 Soft warning only",
         "C \u2014 Allow done for sign_only work-orders",
-        "D \u2014 Revert guard \u2014 trust loop auto"
+        "D \u2014 Revert guard \u2014 trust Auto Runtime"
       ],
       "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-CONF-FALSE-DONE-GUARD A",
       "gather_tier": "P0_conflict",
@@ -859,7 +859,7 @@
     },
     {
       "id": "Q-BC-01",
-      "title": "Who executes outbound upgrades when loop auto is ON?",
+      "title": "Who executes outbound upgrades when Auto Runtime is ON?",
       "recommended": "C",
       "options": [
         "A \u2014 Cloud/API only \u2014 retire Worker INBOX completely for outbound",
@@ -928,7 +928,7 @@
         "A \u2014 Brain reasons + signs work-orders \u00b7 Worker only on explicit WORK: (recommended)",
         "B \u2014 Worker still runs daily INBOX for all factory queue items",
         "C \u2014 Single merged chat for both roles",
-        "D \u2014 Brain implements when loop auto ON"
+        "D \u2014 Brain implements when Auto Runtime ON"
       ],
       "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-04 A",
       "gather_tier": "P0_brain_cloud",
@@ -985,13 +985,13 @@
     },
     {
       "id": "Q-BC-07",
-      "title": "Loop auto dispatch without your tap each upgrade",
+      "title": "Auto Runtime dispatch without your tap each upgrade",
       "recommended": "C",
       "options": [
         "A \u2014 YES \u2014 Hub glance only was always the motion",
         "B \u2014 NO \u2014 require Hub Action tap per upgrade before dispatch",
         "C \u2014 Auto for mapped bays only \u00b7 manual/sign_only for unmapped (recommended)",
-        "D \u2014 Turn loop auto OFF until Third Form picks done"
+        "D \u2014 Turn Auto Runtime OFF until Third Form picks done"
       ],
       "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-07 C",
       "gather_tier": "P0_brain_cloud",

@@ -1,0 +1,277 @@
+[a] Skip to content
+[span] Source
+[a] Platform
+[a] Proof site
+[a] Free proof
+[a] Free proof
+[p] Global platform · founders worldwide
+[p] For AI startup founders · Cursor developers · teams new to agents
+[span] AI that proves
+[span] its work.
+[p] SourceA runs your work through a controlled factory — every step gated, every result verified, every job delivered with an auditable receipt you can replay. The model is swappable. The proof is permanent.
+[a] Run a free proof
+[a] See a live receipt
+[a] I'm building a product
+[a] I'm a Cursor pro
+[a] I need an MVP fast
+[span] Plan
+[span] Control
+[span] Execute
+[span] Verify
+[span] Commit
+[span] command.sourcea.com/team
+[span] PASS
+[span] Receipt
+[span] AEG · aeg-20260620T044750Z-ac101c6b · boot PASS · Valid YES —
+[strong] Proof
+[span] Sealed
+[span] AEG · automated evidence
+[span] PASS · on site
+[span] Checks passing
+[strong] 50Z-ac101c6b
+[span] Evidence ID
+[span] Evals live
+[span] Open full forensic proof
+[code] policy_version
+[span] no policy file (POLICY.md) — skipped
+[span] PASS
+[code] provider
+[span] provider env present (ANTHROPIC_API_KEY)
+[span] PASS
+[code] receipt_fresh
+[span] no prior receipt — first boot allowed
+[span] PASS
+[code] queue_truth
+[span] no queue files configured — skipped
+[span] PASS
+[span] $ python3 ~/Desktop/SourceA/scripts/critic_boot_v1.py --json --no-aeg
+[pre] CRITIC_BOOT
+[span] BLOCK
+[pre] ok=False
+RECEIPT=~/.sina/critic-boot-v1.json
+[span] [PASS]
+[pre] policy_brief: policy pack v3.1 sig refreshed from disk
+[span] [PASS]
+[pre] voyage_provider: voyage
+[span] [PASS]
+[pre] pipeline_sync: inbox matches queue head
+[span] [FAIL]
+[pre] gate_fresh: last rules check receipt ok=false
+
+blockers:
+  - last rules check receipt ok=false
+[span] FOUNDER PICK
+[time] eval scheduled
+[strong] AEG proof prospect (draft)
+[p] · Founder send eval invite · Mail draft in outbound pack
+[a] Live forensic proof →
+[span] Command center · live sample
+[span] 4/4 checks · PASS
+[span] Active deals
+[span] Evals booked
+[span] Proof viewed
+[code] Brain
+[span] queue
+[span] ROUTING
+[code] Outreach
+[span] 0 sent
+[span] DRAFT
+[code] Prove
+[span] 3 viewed
+[span] READY
+[code] Guard
+[span] rules check
+[span] PASS
+[span] PASS
+[time] Now
+[p] 0 sent · 4 active · 0 close — optimize pipeline state
+[span] Commercial pipeline
+[span] 4 active · SourceA only
+[span] Proof viewed
+[span] Eval scheduled
+[span] Deposits
+[code] AB1
+[span] AB1 prospect (draft)
+[span] proof viewed
+[code] AB1
+[span] AEG proof prospect (draft)
+[span] eval scheduled
+[code] NW1
+[span] NW1 design partner (draft)
+[span] proof viewed
+[code] WBC
+[span] WitnessBC Proof Lab (reference)
+[span] proof viewed
+[span] AB1
+[time] proof viewed
+[strong] AB1 prospect (draft)
+[p] · Book 15 min eval · eval booking agent
+[a] Proof link →
+[span] AB1
+[time] eval scheduled
+[strong] AEG proof prospect (draft)
+[p] · Founder send eval invite · Mail draft in outbound pack
+[a] Live forensic proof →
+[span] NW1
+[time] proof viewed
+[strong] NW1 design partner (draft)
+[p] · Book 15 min eval · eval booking agent
+[a] Proof link →
+[span] Ops monitor · policy at dispatch
+[span] All PASS
+[span] Boot checks
+[span] Blocked
+[span] Passed
+[code] policy_version
+[span] no policy file (POLICY.md) — skipped
+[span] PASS
+[code] provider
+[span] provider env present (ANTHROPIC_API_KEY)
+[span] PASS
+[code] receipt_fresh
+[span] no prior receipt — first boot allowed
+[span] PASS
+[code] queue_truth
+[span] no queue files configured — skipped
+[span] PASS
+[span] PASS
+[time] Now
+[p] All boot checks passed.
+[span] Verification · replay
+[span] PASS · disk
+[pre] sourcea-boot --json
+[span] SOURCEA_BOOT PASS
+[span] [PASS]
+[pre] policy_version: no policy file (POLICY.md) — skipped
+[span] [PASS]
+[pre] provider: provider env present (ANTHROPIC_API_KEY)
+[span] [PASS]
+[pre] receipt_fresh: no prior receipt — first boot allowed
+[span] [PASS]
+[pre] queue_truth: no queue files configured — skipped
+[span] AEG
+[time] ac101c6b
+[a] Full forensic page →
+[a] Gauntlet quiz →
+[p] Powered by
+[li] Temporal
+[li] Anthropic Claude
+[li] OpenAI
+[li] LangGraph
+[li] Cursor
+[li] Cloudflare
+[strong] 5,655
+[span] Logged and reviewable logged
+[span] Receipts
+[strong] 5,655
+[span] In the repository · replayable
+[span] Gate
+[strong] PASS
+[span] PASS or BLOCK
+[span] sourcea-boot
+[span] Eval
+[a] GitHub eval
+[a] 5-min path
+[span] Live proof
+[a] Forensic page
+[a] Sample PDF
+[a] Why SourceA
+[p] The problem
+[h2] Most AI asks you to
+[span] trust
+[h2] it.
+[p] Agents say "done" without proof. They drift. They can't be audited. You can't ship — or sell, or pass an audit — on what you can't verify. SourceA is the controlled runtime that refuses to ship until it passes — and hands you the receipt.
+[p] What SourceA is
+[h2] A controlled runtime —
+[span] not a chatbot.
+[p] An LLM only proposes a plan. A contract decides what's allowed. Work executes deterministically. A validator verifies it. Every run commits a receipt — output, evidence, and decision — that you can replay and audit.
+[p] Founder
+[h3] Run an agentic startup
+[p] Platform subscription · Chat Unify · controlled factories · proof on every run.
+[a] Sign in →
+[p] Builder
+[h3] Forge factory missions
+[p] Founder language → bounded Cursor work · policy before dispatch.
+[a] Prompt Forge →
+[p] Operator
+[h3] Use the full machine row
+[p] Chat Unify · Portfolio Mail · Cloud Workers — one sign-in.
+[a] Platform →
+[p] Evaluator
+[h3] See the proof story
+[p] Scenario replay · compare matrix · procurement depth.
+[a] Proof site →
+[p] Proof
+[h2] Don't take our word for it.
+[span] That's the point.
+[p] We show you the receipt — not the recipe. One real gated run beats a hundred claims.
+[a] Open live forensic proof
+[a] Download proof sample
+[a] Watch scenario replay
+[p] Every job on SourceA is designed to look like this — verifiable, every time.
+[p] What you can get
+[h2] Build · rent · own —
+[span] your lane.
+[span] Build
+[h3] Custom machine
+[p] Fixed scope
+[li] Your workflow · your rules · your output
+[li] Gated factory machine · auditable every run
+[li] 48-hour MVP path for fast ships
+[a] Request a build →
+[span] Rent
+[h3] Platform · SaaS
+[p] From $2K
+[small] /mo
+[li] Chat Unify · Forge · Cloud Workers
+[li] Team seats · machine dispatch
+[li] Every run verified · receipted
+[a] Sign in →
+[span] Own
+[h3] Licensed machine
+[p] Custom
+[li] Configured factory in your stack
+[li] Same gates and receipts
+[li] Enterprise · procurement ready
+[a] Talk to us →
+[p] Proof sandbox
+[h2] Bring one real job.
+[span] Get one real proof. Free.
+[p] Run a bounded task through the factory once — you get the output and a shareable receipt. You feel verifiable execution without touching our internals.
+[a] Run your free proof →
+[a] Download Chat Unify
+[p] Machines & apps · Agent Run hub at
+[a] /platform
+[h2] Forge → verify → prove →
+[span] run.
+[h3] Prompt Forge
+[p] Founder language → bounded mission.
+[a] Forge →
+[h3] Chat Unify
+[p] Verify · audit · unify sessions.
+[a] Download →
+[h3] Portfolio Mail
+[p] Controlled inbox · outreach.
+[a] Platform →
+[h3] Cloud Workers
+[p] Factory proceed · dispatch.
+[a] Sign in →
+[h2] Stop trusting AI. Start verifying it.
+[p] Run a free proof — or sign in and use the full platform today.
+[a] Run a free proof →
+[a] Sign in to Platform
+[p] Privacy-first · audit-ready by design · global platform
+[p] AI that proves its work — controlled agentic systems for founders worldwide.
+[a] sourcea-boot eval
+[a] Free proof
+[a] Platform sign-in
+[a] Download app
+[a] Live forensic
+[a] Scenario
+[a] Full proof site
+[a] Prompt Forge
+[a] 48h MVP hub
+[p] © SourceA ·
+[a] sourcea.app
+[a] sourcea-boot
+[p] Global platform · receipts logged

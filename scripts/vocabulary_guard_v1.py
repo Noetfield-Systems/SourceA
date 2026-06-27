@@ -37,12 +37,12 @@ TOOLING_FORBIDDEN: list[tuple[str, str]] = [
 ]
 
 POSITIVE_REQUIRED_IN_SURFACES: list[tuple[str, str]] = [
-    (r"work-order|brain-outbound|loop auto|factory.now|factory-now", "execution-path"),
+    (r"work-order|brain-outbound|Auto Runtime|factory.now|factory-now", "execution-path"),
     (r"factory.now|factory-now", "factory-now-line"),
 ]
 
 POSITIVE_CANONICAL: dict[str, str] = {
-    "founder_daily_ops": "Loop auto · Brain work-order · Hub glance",
+    "founder_daily_ops": "Auto Runtime · Brain work-order · Hub glance",
     "execution_path": "brain work-order dispatch",
     "local_brand": "brand:disk / brand:assets / local-brand",
     "stranger_gate": "sascip",

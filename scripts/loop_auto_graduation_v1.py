@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Loop auto graduation — enable shadow auto loop (observe + dispatch) after validators PASS.
+"""Auto Runtime graduation — enable shadow auto loop (observe + dispatch) after validators PASS.
 
 Law: data/loop-specialist-cloud-contract-v1.json · CL10
 Receipt: ~/.sina/loop-auto-graduation-receipt-v1.json
@@ -56,7 +56,7 @@ def graduate(*, mode: str = "shadow_auto", write: bool = True) -> dict:
         cfg["loop_auto_dispatch_enabled"] = True
         cfg["loop_auto_observe_enabled"] = True
         cfg["loop_auto_mode"] = mode
-        cfg["founder_motion"] = "Hub glance only · Loop specialist auto-tick · no RUN INBOX verb"
+        cfg["founder_motion"] = "Hub glance only · Auto Runtime specialist auto-tick · no RUN INBOX verb"
         cfg["graduated_at"] = _now()
         save_config(cfg)
         subprocess.run(
@@ -69,7 +69,7 @@ def graduate(*, mode: str = "shadow_auto", write: bool = True) -> dict:
     elif mode == "off":
         cfg["loop_auto_dispatch_enabled"] = False
         cfg["loop_auto_mode"] = "off"
-        cfg["founder_motion"] = "ASF resume drain when FREEZE · Loop specialist tick on Hub"
+        cfg["founder_motion"] = "ASF resume Cloud Forge Run when FREEZE · Auto Runtime specialist tick on Hub"
         save_config(cfg)
 
     row = {
@@ -91,7 +91,7 @@ def graduate(*, mode: str = "shadow_auto", write: bool = True) -> dict:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Loop auto graduation")
+    ap = argparse.ArgumentParser(description="Auto Runtime graduation")
     ap.add_argument("--enable-shadow", action="store_true")
     ap.add_argument("--enable-full", action="store_true")
     ap.add_argument("--disable", action="store_true")

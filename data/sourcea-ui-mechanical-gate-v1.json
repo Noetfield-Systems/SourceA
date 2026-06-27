@@ -1,0 +1,175 @@
+{
+  "schema": "sourcea-ui-mechanical-gate-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-06-25T14:00:00Z",
+  "one_law": "Machine grades not broken — positioning consistency, layout invariants, tokens, links, JSON integrity. Never grades desire.",
+  "law_ref": "docs/SOURCEA_UI_STANDARD_RUBRIC_LOCKED_v1.md",
+  "positioning_ssot": "SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
+  "receipt": "~/.sina/enforcement/sourcea-ui-mechanical-gate-receipt-v1.json",
+  "gate": "scripts/sourcea_ui_mechanical_gate_v1.py",
+  "validator": "scripts/validate-sourcea-ui-mechanical-v1.sh",
+  "landing_root": "SourceA-landing/green-unified",
+  "scan_pages": [
+    "index.html",
+    "start.html",
+    "platform.html",
+    "pricing.html",
+    "offer.html",
+    "growth.html",
+    "team.html",
+    "proof.html",
+    "scenario.html",
+    "compare.html",
+    "forge/index.html",
+    "case-studies/pureflow.html",
+    "case-studies/agentgo.html"
+  ],
+  "scan_assets": [
+    "sourcea-chatbot.js",
+    "sourcea.css",
+    "data/sourcea-brain-chat-config-v1.json",
+    "data/sourcea-positioning-v1.json",
+    "data/boot-proof.json"
+  ],
+  "forbidden_primary_phrases": [
+    {
+      "id": "old_footer_line",
+      "pattern": "ship AI work clients can verify",
+      "suggestion": "Use execution-first footer from sourcea-positioning-v1.json one_line."
+    },
+    {
+      "id": "proof_first_cta_band",
+      "pattern": "VERIFY from receipts — not chat theater",
+      "suggestion": "Use Forge executes it — not chat theater (execution-first)."
+    },
+    {
+      "id": "old_brain_subtitle",
+      "pattern": "Your SourceA guide — proof, pricing",
+      "suggestion": "Use execution, Forge Terminal, examples, booking subtitle."
+    },
+    {
+      "id": "old_brain_placeholder",
+      "pattern": "Ask about proof, pricing, Forge Terminal",
+      "suggestion": "Use Ask what SourceA runs for you… placeholder."
+    },
+    {
+      "id": "records_as_product",
+      "pattern": "verification software",
+      "suggestion": "SourceA is an execution platform — proof is a feature."
+    },
+    {
+      "id": "verify_on_call",
+      "pattern": "verify on a call",
+      "suggestion": "Use verify in your browser / on the page — agentic self-serve first."
+    },
+    {
+      "id": "call_first_hero",
+      "pattern": "We show real work on a call",
+      "suggestion": "Use browser self-serve: Forge Terminal or live receipt."
+    },
+    {
+      "id": "book_scope_call",
+      "pattern": "Book a scope call",
+      "suggestion": "Primary CTA: Try Forge Terminal. Escalation: Talk to a human."
+    },
+    {
+      "id": "book_proof_demo_primary",
+      "pattern": "Book proof demo",
+      "suggestion": "Rename to Talk to a human and demote below Forge Terminal."
+    },
+    {
+      "id": "watch_before_book",
+      "pattern": "Watch before you book",
+      "suggestion": "Use Try it yourself — self-serve framing."
+    },
+    {
+      "id": "demo_script_call",
+      "pattern": "15-minute demo script",
+      "suggestion": "Use Self-serve walkthrough — browser-first."
+    },
+    {
+      "id": "book_screen_share",
+      "pattern": "Book screen-share",
+      "suggestion": "Link to Forge Terminal or proof/live — no call bottleneck."
+    },
+    {
+      "id": "live_demo_on_calls",
+      "pattern": "Live demo on calls",
+      "suggestion": "Live demo in browser — Forge Terminal or proof/live."
+    },
+    {
+      "id": "business_acquisition_systems_footer",
+      "pattern": "Business Acquisition Systems — proof-backed engines",
+      "suggestion": "Footer: AI execution platform powered by Forge — proof built in."
+    }
+  ],
+  "forbidden_poison": [
+    {
+      "id": "retired_hello_email",
+      "pattern": "mailto:hello@sourcea.com",
+      "suggestion": "Use hello@sourcea.app — hello@sourcea.com is retired poison."
+    }
+  ],
+  "placeholder_patterns": [
+    "\\{[A-Z][A-Z0-9_]+\\}",
+    "\\{\\{",
+    "lorem ipsum",
+    "TODO:\\s*replace",
+    "FIXME:\\s*copy"
+  ],
+  "chatbot_required": [
+    {
+      "id": "execution_greet",
+      "pattern": "AI execution platform powered by Forge",
+      "suggestion": "Brain greet must lead with execution platform positioning."
+    },
+    {
+      "id": "forge_terminal_in_chat",
+      "pattern": "What is Forge Terminal and how do I try it",
+      "suggestion": "Try Forge Terminal chip must stay in chat — sendUserMessage prompt."
+    },
+    {
+      "id": "pricing_in_chat",
+      "pattern": "How does SourceA pricing work",
+      "suggestion": "Pricing chip must ask in chat before routing to pricing page."
+    },
+    {
+      "id": "mobile_head_fix",
+      "pattern": "sa-brain-head-main",
+      "file": "sourcea-chatbot.js",
+      "suggestion": "Brain header must use head-drag + head-main structure (mobile-safe layout)."
+    }
+  ],
+  "chatbot_forbidden": [
+    {
+      "id": "forge_chip_hard_nav",
+      "pattern": "Try Forge Terminal\", accent: true, action: () => (window.location.href = \"/sourcea/forge/terminal\")",
+      "suggestion": "Do not hard-navigate away on Try Forge Terminal chip."
+    },
+    {
+      "id": "pricing_chip_hard_nav",
+      "pattern": "Pricing\", action: () => (window.location.href = \"/sourcea/pricing\")",
+      "suggestion": "Do not dump stranger on pricing page from chip — ask in chat first."
+    }
+  ],
+  "css_brain_mobile_invariants": [
+    {
+      "id": "brain_head_column",
+      "pattern": "\\.sa-brain-head \\{[^}]*flex-direction: column",
+      "suggestion": ".sa-brain-head must use flex-direction: column (prevents handle/brand crush)."
+    },
+    {
+      "id": "brain_head_main_row",
+      "pattern": "\\.sa-brain-head-main \\{[^}]*width: 100%",
+      "suggestion": ".sa-brain-head-main must span full header width on mobile."
+    },
+    {
+      "id": "brain_brand_min_width",
+      "pattern": "\\.sa-brain-head-brand \\{[^}]*min-width: 0",
+      "suggestion": ".sa-brain-head-brand needs min-width: 0 so subtitle can wrap."
+    }
+  ],
+  "delegate_validators": [
+    "scripts/validate-sourcea-brain-chat-v1.sh"
+  ]
+}

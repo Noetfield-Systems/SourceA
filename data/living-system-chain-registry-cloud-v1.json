@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "saved_at": "2026-06-22T16:10:00Z",
   "one_law": "Server-side PROVE on Railway — cloud-reachable chains only · no Mac localhost probes.",
-  "autopilot_env": "CLOUD_DRAIN_AUTO_PROCEED",
+  "autopilot_env": "CLOUD_FORGE_RUN_AUTO_PROCEED",
   "chains": [
     {
       "id": "railway_fbe_health",
@@ -13,15 +13,15 @@
     },
     {
       "id": "railway_cloud_queue",
-      "label": "Cloud drain queue SSOT",
+      "label": "Cloud forge queue SSOT",
       "tier": "critical",
-      "probe": { "type": "http", "url": "http://127.0.0.1:8080/api/cloud-drain/queue/v1", "env_url": "FBE_SELF_URL" }
+      "probe": { "type": "http", "url": "http://127.0.0.1:8080/api/cloud-forge-run/queue/v1", "env_url": "FBE_SELF_URL" }
     },
     {
-      "id": "cloud_drain_auto_armed",
-      "label": "Cloud auto drain armed",
+      "id": "cloud_forge_run_auto_armed",
+      "label": "Cloud Cloud Forge Run armed",
       "tier": "critical",
-      "probe": { "type": "env", "key": "CLOUD_DRAIN_AUTO_PROCEED", "expect": "true" }
+      "probe": { "type": "env", "key": "CLOUD_FORGE_RUN_AUTO_PROCEED", "expect": "true" }
     }
   ],
   "validator": {

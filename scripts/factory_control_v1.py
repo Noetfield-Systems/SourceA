@@ -27,7 +27,7 @@ DRAIN_MODES = frozenset({"SINGLE_SA", "FORGE_FACTORY"})
 VALID_MODES = frozenset({"FREEZE", "AUDIT", "SINGLE_SA", "SHIP_MAINTAINER", "FORGE_FACTORY"})
 
 _STOP_PATTERNS = (r"\bstop\b", r"\bhalt\b", r"stop all", r"why stuck", r"\binterrupt\b", r"freeze")
-_RESUME_PATTERNS = (r"ASF:\s*resume drain", r"resume healthy drain", r"resume drain")
+_RESUME_PATTERNS = (r"ASF:\s*Cloud Forge Run", r"resume healthy drain", r"Cloud Forge Run")
 
 _GATE_TTL_SEC = 2.0
 _NOW_TTL_SEC = 5.0
@@ -187,7 +187,7 @@ def write_resume_token(
     *,
     max_turns: int = 1,
     max_packs: int = 1,
-    trigger: str = "ASF: resume drain",
+    trigger: str = "ASF: Cloud Forge Run",
     ttl_minutes: int = 30,
     set_by: str = "founder_resume_drain",
 ) -> dict:
@@ -435,15 +435,15 @@ def drain_spawn_allowed(*, caller: str, require_bind: bool = True) -> dict:
     if g["stop_open"] and not resume:
         return _blocked(
             reason="stop_receipt_open",
-            action="ASF: resume drain — max N — receipt required",
+            action="ASF: Cloud Forge Run — max N — receipt required",
             caller=caller,
         )
     if g["kill_flag"] and not resume:
-        return _blocked(reason="kill_flag", action="Hub Stop or ASF: resume drain", caller=caller)
+        return _blocked(reason="kill_flag", action="Hub Stop or ASF: Cloud Forge Run", caller=caller)
     if g["mode"] not in DRAIN_MODES and not resume:
         return _blocked(
             reason=f"factory_mode_{g['mode'].lower()}",
-            action="ASF: resume drain — max 1 — receipt required",
+            action="ASF: Cloud Forge Run — max 1 — receipt required",
             caller=caller,
             extra={"mode": g["mode"]},
         )

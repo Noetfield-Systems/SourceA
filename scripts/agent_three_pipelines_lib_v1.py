@@ -99,7 +99,7 @@ GATE_TREE: dict[str, Any] = {
     "rule": "Pick ONE branch · never read 49 files",
     "branches": [
         {"id": "role", "pick": "brain-os/law/entry/START_HERE_LOCKED_v1.md", "then": "MANDATORY_READ_BY_ROLE"},
-        {"id": "daily_ops", "pick": "README_SOURCE_A.md + docs/ONBOARDING.md", "then": "Loop auto · Brain work-order · Hub glance"},
+        {"id": "daily_ops", "pick": "README_SOURCE_A.md + docs/ONBOARDING.md", "then": "Auto Runtime · Brain work-order · Hub glance"},
         {"id": "build_wtm", "pick": "system_roadmap.py CURRENT_*_STEP", "then": "WTM map v5"},
         {"id": "critic_paste", "pick": "CHATGPT_EXTERNAL_CRITIC_LAW", "then": "INPUT CLASS: EXTERNAL_CRITIC"},
         {"id": "hub", "pick": "SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md", "then": "H1 daily · H2 deep · never legacy"},

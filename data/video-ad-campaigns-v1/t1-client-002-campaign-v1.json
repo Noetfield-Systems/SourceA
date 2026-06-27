@@ -1,0 +1,20 @@
+{
+  "schema": "campaign-automation-v1",
+  "id": "t1-client-002-campaign-v1",
+  "creator_id": "t1-client-002",
+  "raw_brief": "15s vertical ad for Meridian AI Studio \u2014 controlled AI output with proof receipt.",
+  "current_step": "HUMAN_APPROVAL_REQUIRED",
+  "created_at": "2026-06-24T06:23:43Z",
+  "updated_at": "2026-06-24T06:23:43Z",
+  "refined_script": "The future of technology is in your hands. Automate your business with our new stack.",
+  "video_prompt_loop": {
+    "positive_prompt": "Futuristic cybernetic factory ultra realistic 4k cinematic lighting neon accents",
+    "aspect_ratio": "9:16",
+    "variants": [
+      {
+        "label": "primary",
+        "prompt": "Futuristic cybernetic factory ultra realistic 4k cinematic lighting neon accents"
+      }
+    ]
+  }
+}

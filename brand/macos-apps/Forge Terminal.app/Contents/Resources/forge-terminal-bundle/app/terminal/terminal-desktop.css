@@ -1,0 +1,385 @@
+/* Forge Terminal desktop — movable editor · inner message scroll · page scroll to machines */
+html.forge-desktop-app,
+body.forge-desktop-app {
+  overflow-x: hidden !important;
+  overflow-y: scroll !important;
+  height: auto !important;
+  min-height: 100% !important;
+  max-height: none !important;
+  scrollbar-gutter: stable;
+}
+html.forge-desktop-app .forge-topbar,
+html.forge-desktop-app .forge-statusbar,
+.forge-app.forge-desktop-app .forge-topbar,
+.forge-app.forge-desktop-app .forge-statusbar {
+  display: none !important;
+}
+html.forge-desktop-app .forge-mode-pills,
+html.forge-desktop-app #role-select,
+html.forge-desktop-app #opt-cloud-l3,
+html.forge-desktop-app #model-hint,
+html.forge-desktop-app #chat-meta {
+  display: none !important;
+}
+.forge-app.forge-desktop-app {
+  display: block !important;
+  height: auto !important;
+  min-height: 100% !important;
+  overflow: visible !important;
+  grid-template-rows: none !important;
+  padding-bottom: 64px;
+}
+.forge-app.forge-desktop-app .forge-workbench {
+  display: grid !important;
+  height: auto !important;
+  min-height: 175vh !important;
+  overflow: visible !important;
+  align-items: start;
+}
+.forge-app.forge-desktop-app .forge-sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  max-height: 100dvh;
+  height: auto !important;
+  overflow-y: auto !important;
+}
+.forge-app.forge-desktop-app .forge-center-col {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+}
+.forge-app.forge-desktop-app .forge-chat-column,
+.forge-app.forge-desktop-app .forge-main-split {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* ── OUTER editor window (movable · ~58vh — NOT full screen) ── */
+.forge-editor-window {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 10px 12px;
+  height: min(58vh, 620px);
+  min-height: 380px;
+  max-height: min(58vh, 620px);
+  overflow: hidden;
+  border: 3px solid rgba(62, 207, 142, 0.45);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #07090d 0%, #0b0e14 100%);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 12;
+}
+.forge-editor-window.forge-movable-window {
+  will-change: transform;
+}
+.forge-editor-toolbar {
+  cursor: grab;
+  user-select: none;
+}
+.forge-editor-toolbar.forge-dragging {
+  cursor: grabbing;
+}
+.forge-app.forge-desktop-app .forge-editor-window .forge-editor-toolbar {
+  flex: 0 0 auto;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid rgba(62, 207, 142, 0.2);
+}
+.forge-app.forge-desktop-app .forge-editor-window .forge-editor-body,
+.forge-app.forge-desktop-app .forge-editor-window .forge-chat-live-window {
+  flex: 1 1 auto;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  margin: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* ── INNER message window (scrollable history) ── */
+.forge-message-window {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 8px 10px 6px;
+  border: 2px solid rgba(167, 139, 250, 0.45);
+  border-radius: 8px;
+  background: #05070b;
+  overflow: hidden;
+  box-shadow: inset 0 0 28px rgba(0, 0, 0, 0.5);
+}
+.forge-message-window-head {
+  flex: 0 0 auto;
+  border-bottom: 1px solid rgba(167, 139, 250, 0.2);
+  background: rgba(12, 16, 22, 0.95);
+}
+.forge-chat-spacer {
+  flex: 1 1 auto;
+  min-height: 4px;
+  pointer-events: none;
+}
+.forge-chat-anchor {
+  flex: 0 0 1px;
+  height: 1px;
+  width: 100%;
+  pointer-events: none;
+  overflow-anchor: auto;
+}
+
+/* Smart scroll: latest at bottom — scroll UP inside purple box for first message */
+.forge-app.forge-desktop-app .forge-editor-window .forge-chat-thread,
+.forge-app.forge-desktop-app .forge-editor-window .forge-chat-thread.forge-editor-scroll {
+  display: block !important;
+  overflow-x: hidden !important;
+  overflow-y: scroll !important;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+  padding: 1rem 1.25rem 1.25rem;
+}
+.forge-app.forge-desktop-app .forge-editor-window .forge-chat-thread::-webkit-scrollbar {
+  width: 11px;
+}
+.forge-app.forge-desktop-app .forge-editor-window .forge-chat-thread::-webkit-scrollbar-thumb {
+  background: rgba(62, 207, 142, 0.45);
+  border-radius: 6px;
+}
+
+.forge-app.forge-desktop-app .forge-editor-window .forge-composer-bar {
+  flex: 0 0 auto;
+  position: static !important;
+  min-height: 148px !important;
+  border-top: 2px solid rgba(62, 207, 142, 0.24);
+  border-radius: 0 0 10px 10px;
+}
+.forge-app.forge-desktop-app .forge-editor-window .forge-composer-bar .forge-prompt {
+  min-height: 88px !important;
+  max-height: 120px !important;
+}
+
+.forge-app.forge-embed .forge-editor-window {
+  height: min(58vh, 620px) !important;
+  max-height: min(58vh, 620px) !important;
+  overflow: hidden !important;
+}
+.forge-app.forge-embed .forge-editor-window .forge-composer-bar {
+  position: static !important;
+  bottom: auto !important;
+}
+
+/* Chat Unify combined embed — green outer · purple inner · scroll inside inner */
+html.forge-cu-combined,
+body.forge-cu-combined {
+  overflow: hidden !important;
+  height: 100% !important;
+  max-height: 100% !important;
+}
+.forge-app.forge-embed.forge-cu-combined {
+  height: 100% !important;
+  min-height: 0 !important;
+  max-height: 100% !important;
+  overflow: hidden !important;
+}
+.forge-app.forge-embed.forge-cu-combined .forge-workbench {
+  min-height: 0 !important;
+  height: 100% !important;
+  max-height: 100% !important;
+}
+.forge-app.forge-embed.forge-cu-combined .forge-center-col,
+.forge-app.forge-embed.forge-cu-combined .forge-chat-column,
+.forge-app.forge-embed.forge-cu-combined .forge-main-split {
+  min-height: 0 !important;
+  height: 100% !important;
+  flex: 1 1 auto !important;
+}
+.forge-app.forge-embed.forge-cu-combined .forge-embed-ws-strip {
+  display: none !important;
+}
+.forge-app.forge-embed.forge-cu-combined .forge-machines-deck {
+  display: none !important;
+}
+.forge-app.forge-embed.forge-cu-combined .forge-editor-window {
+  height: calc(100% - 12px) !important;
+  min-height: 360px !important;
+  max-height: calc(100% - 12px) !important;
+  overflow: hidden !important;
+  border: 3px solid rgba(62, 207, 142, 0.62) !important;
+  box-shadow: 0 0 0 1px rgba(62, 207, 142, 0.2), 0 20px 60px rgba(0, 0, 0, 0.55) !important;
+}
+.forge-app.forge-embed.forge-cu-combined .forge-message-window {
+  border: 3px solid rgba(167, 139, 250, 0.55) !important;
+  flex: 1 1 auto !important;
+  min-height: 220px !important;
+  overflow: hidden !important;
+}
+.forge-app.forge-embed.forge-cu-combined .forge-message-window .forge-chat-thread {
+  overflow-y: scroll !important;
+  display: block !important;
+}
+.forge-editor-toolbar .forge-btn,
+.forge-chat-window-actions .forge-btn,
+.forge-mode-pills .forge-mode-pill,
+.forge-btn-send {
+  pointer-events: auto;
+  position: relative;
+  z-index: 6;
+  cursor: pointer;
+}
+.forge-cu-empty {
+  margin: 12px 14px;
+  color: #8b93a7;
+  font-size: 0.86rem;
+}
+.forge-app.forge-embed.forge-cu-combined .forge-chat-live-window {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+  flex: 1 1 auto !important;
+  overflow: hidden !important;
+}
+.forge-app.forge-embed.forge-cu-combined .forge-exec-strip {
+  display: flex !important;
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 5;
+}
+.forge-app.forge-embed.forge-cu-combined .forge-exec-actions .forge-btn {
+  flex-shrink: 0;
+}
+.forge-app.forge-embed.forge-cu-combined .forge-mode-pills {
+  display: inline-flex !important;
+  flex-shrink: 0;
+}
+.forge-app.forge-embed.forge-cu-combined .forge-exec-strip.is-live {
+  display: flex !important;
+}
+.forge-app.forge-embed.forge-cu-combined .forge-exec-strip[hidden] {
+  display: none !important;
+}
+.forge-app.forge-embed.forge-cu-combined .forge-chat-toolbar {
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.forge-app.forge-desktop-app .forge-terminal-dock {
+  display: flex !important;
+  flex: 0 0 auto !important;
+  min-height: 320px !important;
+  height: 320px !important;
+  margin: 12px 12px 20px;
+}
+.forge-app.forge-desktop-app .forge-tab-panel {
+  overflow-y: auto !important;
+}
+
+/* Machines deck — scroll page right edge to here */
+.forge-machines-deck {
+  margin: 12px 12px 20px;
+  padding: 18px 16px 22px;
+  border: 2px solid rgba(167, 139, 250, 0.35);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #0c0a12 0%, #100e18 100%);
+}
+.forge-machines-title {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #a78bfa;
+}
+.forge-machines-lead {
+  margin: 0 0 14px;
+  font-size: 0.86rem;
+  color: #8b93a7;
+}
+.forge-machines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.forge-machine-tile {
+  border: 1px solid #2a3344;
+  border-radius: 10px;
+  padding: 12px;
+  background: #141820;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 120px;
+}
+.forge-machine-tile.is-here {
+  border-color: rgba(62, 207, 142, 0.5);
+  box-shadow: 0 0 0 1px rgba(62, 207, 142, 0.2);
+}
+.forge-machine-tile.is-live .forge-machine-top strong {
+  color: #3ecf8e;
+}
+.forge-machine-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+.forge-machine-port {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-family: var(--mono, "JetBrains Mono", monospace);
+}
+.forge-machine-note {
+  margin: 0;
+  flex: 1;
+  font-size: 0.78rem;
+  color: #9aa3b5;
+  line-height: 1.45;
+}
+
+.forge-tools-deck {
+  margin: 8px 12px 72px;
+  padding: 20px 18px 28px;
+  border: 1px solid rgba(62, 207, 142, 0.28);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #0a0c10 0%, #0e1218 100%);
+}
+.forge-tools-deck-title {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #3ecf8e;
+}
+.forge-tools-deck-lead {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #8b93a7;
+}
+.forge-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+.forge-tool-block {
+  border: 1px solid #2a3344;
+  border-radius: 10px;
+  padding: 14px;
+  background: #141820;
+  min-height: 140px;
+}
+.forge-tool-block h3 {
+  margin: 0 0 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #a78bfa;
+}
+.forge-tool-body {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #c8d0dc;
+  overflow-y: auto;
+  max-height: 200px;
+}

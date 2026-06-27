@@ -1,0 +1,23 @@
+{
+  "schema": "sourcea-mvp-intake-receipt-v1",
+  "ok": true,
+  "intake_id": "mvp-31704ea15416",
+  "at": "2026-06-23T06:25:48Z",
+  "channel": "local_http",
+  "plane": "commercial",
+  "business": "48h-mvp-service",
+  "intake": {
+    "building": "Test SaaS dashboard",
+    "building_type": "mvp",
+    "": "linear.app",
+    "deadline": "two_weeks",
+    "budget": "1k_3k",
+    "email": "e2e@example.com"
+  },
+  "end_screen": "We'll respond in 2 hours with a plan.",
+  "notify": {
+    "ok": false,
+    "skipped": true,
+    "reason": "RESEND_API_KEY_missing"
+  }
+}

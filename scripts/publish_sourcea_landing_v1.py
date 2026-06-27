@@ -16,6 +16,7 @@ import shutil
 import subprocess
 import sys
 import time
+import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -30,6 +31,10 @@ TUNNEL_LOG = SINA / "sourcea-landing-tunnel-v1.log"
 TUNNEL_PID = SINA / "sourcea-landing-tunnel-v1.pid"
 TUNNEL_PORT = int(os.environ.get("SOURCEA_LANDING_TUNNEL_PORT", "8190"))
 DEFAULT_PROJECT = os.environ.get("SOURCEA_PAGES_PROJECT", "source-a")
+PAGES_CUSTOM_DOMAINS: dict[str, tuple[str, ...]] = {
+    "sourcea-com": ("sourcea.app", "www.sourcea.app"),
+    "sourcea-landing": ("sourcea.com", "www.sourcea.com"),
+}
 CLOUDFLARED = SINA / "bin" / "cloudflared"
 CF_TOKEN_FILE = SINA / "cf-pages-token-v1.json"
 
@@ -82,15 +87,12 @@ def _wrangler_env() -> dict[str, str]:
 
 
 def _write_vercel_json(staging: Path) -> None:
-    """Vercel Hobby static — rewrites mirror Cloudflare _redirects."""
+    """Vercel Hobby static — rewrites mirror Cloudflare _redirects (extensionless)."""
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from sourcea_clean_urls_v1 import vercel_rewrites  # noqa: WPS433
+
     vercel = {
-        "rewrites": [
-            {"source": "/", "destination": "/sourcea/index.html"},
-            {"source": "/sourcea", "destination": "/sourcea/index.html"},
-            {"source": "/proof", "destination": "/sourcea/proof.html"},
-            {"source": "/platform", "destination": "/sourcea/platform.html"},
-            {"source": "/scenario", "destination": "/sourcea/scenario.html"},
-        ],
+        "rewrites": vercel_rewrites(),
         "headers": [
             {
                 "source": "/(.*)",
@@ -110,20 +112,13 @@ def _write_vercel_json(staging: Path) -> None:
 
 
 def _write_pages_extras(staging: Path) -> None:
-    """Cloudflare Pages — redirects, headers, root → /sourcea/."""
-    (staging / "_redirects").write_text(
-        "\n".join(
-            [
-                "/              /sourcea/              302",
-                "/sourcea       /sourcea/              302",
-                "/proof         /sourcea/proof.html    302",
-                "/platform      /sourcea/platform.html 302",
-                "/scenario      /sourcea/scenario.html 302",
-            ]
-        )
-        + "\n",
-        encoding="utf-8",
-    )
+    """Cloudflare Pages — headers; _redirects from build (extensionless clean URLs)."""
+    redirects = staging / "_redirects"
+    if not redirects.is_file():
+        sys.path.insert(0, str(ROOT / "scripts"))
+        from sourcea_clean_urls_v1 import write_redirects  # noqa: WPS433
+
+        write_redirects(staging)
     (staging / "_headers").write_text(
         "\n".join(
             [
@@ -140,12 +135,119 @@ def _write_pages_extras(staging: Path) -> None:
         encoding="utf-8",
     )
     root_index = staging / "index.html"
-    if not root_index.is_file():
-        root_index.write_text(
-            '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=/sourcea/" />'
-            '<link rel="canonical" href="/sourcea/" /></head><body></body></html>\n',
-            encoding="utf-8",
-        )
+    start_page = staging / "sourcea" / "start.html"
+    if not root_index.is_file() and start_page.is_file():
+        shutil.copy2(start_page, root_index)
+
+
+def _copy_pages_functions(staging: Path) -> None:
+    """Cloudflare Pages Functions — commercial MVP intake API."""
+    src = ROOT / "cloud" / "pages-functions"
+    if not src.is_dir():
+        return
+    dest = staging / "functions"
+    if dest.exists():
+        shutil.rmtree(dest)
+    shutil.copytree(src, dest)
+
+
+def run_copy_depth_gate() -> dict:
+    proc = _run(
+        [sys.executable, str(ROOT / "scripts" / "landing_copy_depth_gate_v1.py"), "--json"],
+        cwd=ROOT,
+        timeout=120,
+    )
+    ok = proc.returncode == 0
+    body: dict = {}
+    try:
+        body = json.loads(proc.stdout) if (proc.stdout or "").strip().startswith("{") else {}
+    except json.JSONDecodeError:
+        body = {}
+    return {
+        "ok": ok,
+        "returncode": proc.returncode,
+        "verdict": body.get("verdict"),
+        "finding_count": body.get("finding_count"),
+        "findings_tail": (body.get("findings") or [])[:8],
+        "receipt": str(Path.home() / ".sina/enforcement/landing-copy-depth-gate-receipt-v1.json"),
+        "stdout_tail": (proc.stdout or "")[-1200:],
+        "stderr_tail": (proc.stderr or "")[-400:],
+    }
+
+
+def run_brain_live_smoke(*, base: str = "https://sourcea.app") -> dict:
+    env = {**os.environ, "SOURCEA_E2E_BASE": base}
+    proc = _run(
+        ["bash", str(ROOT / "scripts" / "validate-sourcea-brain-live-v1.sh")],
+        cwd=ROOT,
+        timeout=120,
+        env=env,
+    )
+    ok = proc.returncode == 0
+    receipt = Path.home() / ".sina/enforcement/sourcea-brain-live-gate-receipt-v1.json"
+    body: dict = {}
+    if receipt.is_file():
+        try:
+            body = json.loads(receipt.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            body = {}
+    return {
+        "ok": ok,
+        "returncode": proc.returncode,
+        "verdict": body.get("verdict") or ("PASS" if ok else "BLOCK"),
+        "base": base,
+        "receipt": str(receipt),
+        "stdout_tail": (proc.stdout or "")[-1200:],
+        "stderr_tail": (proc.stderr or "")[-400:],
+    }
+
+
+def run_ui_mechanical_gate() -> dict:
+    proc = _run(
+        [sys.executable, str(ROOT / "scripts" / "sourcea_ui_mechanical_gate_v1.py"), "--json"],
+        cwd=ROOT,
+        timeout=120,
+    )
+    ok = proc.returncode == 0
+    body: dict = {}
+    try:
+        body = json.loads(proc.stdout) if (proc.stdout or "").strip().startswith("{") else {}
+    except json.JSONDecodeError:
+        body = {}
+    return {
+        "ok": ok,
+        "returncode": proc.returncode,
+        "verdict": body.get("verdict"),
+        "finding_count": body.get("finding_count"),
+        "findings_tail": (body.get("findings") or [])[:8],
+        "receipt": str(Path.home() / ".sina/enforcement/sourcea-ui-mechanical-gate-receipt-v1.json"),
+        "stdout_tail": (proc.stdout or "")[-1200:],
+        "stderr_tail": (proc.stderr or "")[-400:],
+    }
+
+
+def run_commercial_copy_gate() -> dict:
+    proc = _run(
+        [sys.executable, str(ROOT / "scripts" / "landing_commercial_copy_gate_v1.py"), "--json"],
+        cwd=ROOT,
+        timeout=120,
+    )
+    ok = proc.returncode == 0
+    body: dict = {}
+    try:
+        body = json.loads(proc.stdout) if (proc.stdout or "").strip().startswith("{") else {}
+    except json.JSONDecodeError:
+        body = {}
+    return {
+        "ok": ok,
+        "returncode": proc.returncode,
+        "verdict": body.get("verdict"),
+        "finding_count": body.get("finding_count"),
+        "findings_tail": (body.get("findings") or [])[:8],
+        "receipt": str(Path.home() / ".sina/enforcement/landing-commercial-copy-gate-receipt-v1.json"),
+        "stdout_tail": (proc.stdout or "")[-1200:],
+        "stderr_tail": (proc.stderr or "")[-400:],
+    }
 
 
 def run_recipe() -> dict:
@@ -155,31 +257,54 @@ def run_recipe() -> dict:
     return {"ok": ok, "returncode": proc.returncode, "stdout_tail": (proc.stdout or "")[-800:], "stderr_tail": (proc.stderr or "")[-400:]}
 
 
-def stage_site() -> Path:
-    src_sourcea = AGENTRUN / "sourcea"
-    src_assets = AGENTRUN / "assets"
-    if not src_sourcea.is_dir():
-        raise SystemExit(f"FAIL: deploy missing — run recipe first: {src_sourcea}")
-    boot_proof = src_sourcea / "data" / "boot-proof.json"
+def stage_from_build_dist() -> Path:
+    """Stage from green-unified/dist when agentrun-app absent (compact living center)."""
+    proc = _run([sys.executable, str(ROOT / "scripts" / "build_sourcea_vercel_output_v1.py")], cwd=ROOT, timeout=120)
+    if proc.returncode != 0:
+        raise SystemExit(f"FAIL: build dist — {(proc.stderr or proc.stdout or '')[-800:]}")
+    dist = ROOT / "SourceA-landing" / "green-unified" / "dist"
+    if not dist.is_dir():
+        raise SystemExit(f"FAIL: dist missing: {dist}")
+    boot_proof = dist / "sourcea" / "data" / "boot-proof.json"
     if not boot_proof.is_file():
-        raise SystemExit("FAIL: boot-proof.json missing — run inject_sourcea_boot_terminal_v1.py")
+        raise SystemExit("FAIL: boot-proof.json missing in dist")
+    proof_pack = dist / "sourcea" / "data" / "phase1-proof-pack-public-v1.json"
+    if not proof_pack.is_file():
+        raise SystemExit("FAIL: phase1-proof-pack-public-v1.json missing in dist — site truth gate")
+    try:
+        pack_row = json.loads(proof_pack.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise SystemExit(f"FAIL: phase1-proof-pack-public-v1.json invalid JSON: {exc}") from exc
+    if pack_row.get("schema") != "sourcea-phase1-proof-pack-public-v1":
+        raise SystemExit(
+            f"FAIL: phase1-proof-pack-public-v1.json bad schema: {pack_row.get('schema')!r}"
+        )
     if STAGING.exists():
         shutil.rmtree(STAGING)
-    STAGING.mkdir(parents=True)
-    shutil.copytree(src_sourcea, STAGING / "sourcea")
-    if src_assets.is_dir():
-        shutil.copytree(src_assets, STAGING / "assets")
+    shutil.copytree(dist, STAGING)
     _write_pages_extras(STAGING)
+    _copy_pages_functions(STAGING)
     _write_vercel_json(STAGING)
     manifest = {
         "schema": "sourcea-landing-staging-v1",
         "at": _now(),
+        "source": "green-unified/dist",
         "files": sorted(str(p.relative_to(STAGING)) for p in STAGING.rglob("*") if p.is_file()),
         "pages_extras": ["_redirects", "_headers", "index.html"],
+        "pages_functions": sorted(
+            str(p.relative_to(STAGING)) for p in (STAGING / "functions").rglob("*") if p.is_file()
+        )
+        if (STAGING / "functions").is_dir()
+        else [],
         "vercel_json": True,
     }
     (STAGING / "staging-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     return STAGING
+
+
+def stage_site() -> Path:
+    """Always stage from green-unified/dist — agentrun-app may lag repo (Week 0 INCIDENT-042)."""
+    return stage_from_build_dist()
 
 
 def _parse_pages_url(output: str) -> str | None:
@@ -270,21 +395,43 @@ def deploy_vercel(staging: Path, *, project: str) -> dict:
     }
 
 
+def _wrangler_env_oauth_fallback() -> dict[str, str] | None:
+    """Wrangler OAuth on main portfolio account when api token file absent."""
+    proc = _run(_wrangler_cmd() + ["whoami"], timeout=60)
+    if proc.returncode != 0:
+        return None
+    out = (proc.stdout or "") + (proc.stderr or "")
+    if "logged in" not in out.lower():
+        return None
+    main_acct = "0d0b967b77e2e5535455d39ff3dae72c"
+    if main_acct not in out:
+        return None
+    env = dict(os.environ)
+    env.pop("CLOUDFLARE_API_TOKEN", None)
+    env["CLOUDFLARE_ACCOUNT_ID"] = main_acct
+    return env
+
+
 def deploy_pages(staging: Path, *, project: str) -> dict:
     tok, _ = _load_cf_api_token()
-    if not tok:
-        return {
-            "ok": False,
-            "backend": "cloudflare_pages",
-            "error": (
-                "no SourceA CF token — create ~/.sina/cf-pages-token-v1.json "
-                "(SourceA account only — NOT TrustField secrets.env)"
-            ),
-            "gate_k": "SMART-331",
-            "lane": "sourcea_only",
-        }
+    if tok:
+        wenv = _wrangler_env()
+        auth_mode = "api_token_file"
+    else:
+        wenv = _wrangler_env_oauth_fallback()
+        if not wenv:
+            return {
+                "ok": False,
+                "backend": "cloudflare_pages",
+                "error": (
+                    "no SourceA CF token — create ~/.sina/cf-pages-token-v1.json "
+                    "or run: wrangler login (main account 0d0b967b…)"
+                ),
+                "gate_k": "SMART-331",
+                "lane": "sourcea_only",
+            }
+        auth_mode = "wrangler_oauth"
     wr = _wrangler_cmd()
-    wenv = _wrangler_env()
     listed = _run(wr + ["pages", "project", "list"], timeout=120, env=wenv)
     if project not in (listed.stdout or ""):
         created = _run(
@@ -295,7 +442,15 @@ def deploy_pages(staging: Path, *, project: str) -> dict:
         if created.returncode != 0 and "already exists" not in (created.stderr or "").lower():
             return {"ok": False, "backend": "cloudflare_pages", "error": (created.stderr or created.stdout or "").strip()}
     deploy = _run(
-        wr + ["pages", "deploy", str(staging), f"--project-name={project}", "--commit-dirty=true"],
+        wr
+        + [
+            "pages",
+            "deploy",
+            str(staging),
+            f"--project-name={project}",
+            "--branch=main",
+            "--commit-dirty=true",
+        ],
         timeout=300,
         env=wenv,
     )
@@ -306,11 +461,90 @@ def deploy_pages(staging: Path, *, project: str) -> dict:
     return {
         "ok": True,
         "backend": "cloudflare_pages",
+        "auth_mode": auth_mode,
         "base_url": base.rstrip("/"),
         "ephemeral": False,
         "gate_k": "SMART-392",
         "project": project,
     }
+
+
+def _load_wrangler_oauth_token() -> str | None:
+    """Return a valid wrangler OAuth access token (refresh if expired)."""
+    try:
+        sys.path.insert(0, str(ROOT / "scripts"))
+        from sourcea_pages_activate_domains_v1 import _get_access_token  # noqa: WPS433
+
+        return _get_access_token()
+    except SystemExit:
+        return None
+    except Exception:
+        cfg = Path.home() / "Library/Preferences/.wrangler/config/default.toml"
+        if not cfg.is_file():
+            return None
+        m = re.search(r'^oauth_token = "(.+)"', cfg.read_text(encoding="utf-8"), re.M)
+        return m.group(1) if m else None
+
+
+def _cf_api(token: str, path: str, *, method: str = "GET", data: dict | None = None) -> dict:
+    body = json.dumps(data).encode() if data is not None else None
+    req = urllib.request.Request(
+        f"https://api.cloudflare.com/client/v4{path}",
+        data=body,
+        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+        method=method,
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=35) as resp:
+            return json.loads(resp.read().decode())
+    except urllib.error.HTTPError as exc:
+        try:
+            payload = json.loads(exc.read().decode())
+        except Exception:
+            payload = {"success": False, "errors": [{"message": str(exc)}]}
+        payload["_http_status"] = exc.code
+        return payload
+
+
+def add_pages_custom_domains(*, project: str, domains: tuple[str, ...] | None = None) -> dict:
+    """Attach custom domains via Cloudflare API (wrangler v4 removed pages domain CLI)."""
+    doms = domains or PAGES_CUSTOM_DOMAINS.get(project, ())
+    if not doms:
+        return {"ok": True, "skipped": True, "reason": "no_domains_for_project", "project": project}
+
+    tok, acct = _load_cf_api_token()
+    if not tok:
+        tok = _load_wrangler_oauth_token()
+    if not tok:
+        return {
+            "ok": False,
+            "error": "no_cf_auth_for_custom_domains",
+            "fix": "wrangler login or ~/.sina/cf-pages-token-v1.json",
+        }
+    account_id = acct or os.environ.get("CLOUDFLARE_ACCOUNT_ID") or "0d0b967b77e2e5535455d39ff3dae72c"
+    rows: list[dict] = []
+    all_ok = True
+    for dom in doms:
+        res = _cf_api(
+            tok,
+            f"/accounts/{account_id}/pages/projects/{project}/domains",
+            method="POST",
+            data={"name": dom},
+        )
+        ok = bool(res.get("success"))
+        errs = [str(e.get("message") or e) for e in res.get("errors") or []]
+        if not ok and any("already" in e.lower() for e in errs):
+            ok = True
+        rows.append(
+            {
+                "domain": dom,
+                "ok": ok,
+                "note": errs[0] if errs and not ok else "added or exists",
+            }
+        )
+        if not ok:
+            all_ok = False
+    return {"ok": all_ok, "project": project, "account_id": account_id, "domains": rows}
 
 
 def _cloudflared() -> Path | None:
@@ -403,9 +637,15 @@ def deploy_tunnel(staging: Path) -> dict:
 def verify_public(base_url: str, *, local_port: int | None = None) -> dict:
     base = base_url.rstrip("/")
     checks = [
+        f"{base}/",
+        f"{base}/sourcea/start.html",
         f"{base}/sourcea/scenario.html",
         f"{base}/sourcea/proof.html",
+        f"{base}/sourcea/forge/terminal",
+        f"{base}/forge/terminal",
         f"{base}/sourcea/data/boot-proof.json",
+        f"{base}/sourcea/data/phase1-proof-pack-public-v1.json",
+        f"{base}/sourcea/data/sourcea-brain-chat-config-v1.json",
     ]
     results: list[dict] = []
     ok = True
@@ -447,6 +687,47 @@ def verify_public(base_url: str, *, local_port: int | None = None) -> dict:
                 row["boot_ok"] = boot.get("ok")
             except json.JSONDecodeError:
                 row["boot_verdict"] = "invalid_json"
+                ok = False
+        elif "sourcea-brain-chat-config-v1.json" in url and body:
+            if body.lstrip().startswith("<!") or body.lstrip().startswith("<html"):
+                row["brain_config_schema"] = "html_poison"
+                row["ok"] = False
+                ok = False
+            else:
+                try:
+                    cfg = json.loads(body)
+                    row["brain_config_schema"] = cfg.get("schema")
+                    row["brain_worker_url"] = bool(cfg.get("api_worker_url"))
+                    if cfg.get("schema") != "sourcea-brain-chat-config-v1":
+                        row["ok"] = False
+                        ok = False
+                except json.JSONDecodeError:
+                    row["brain_config_schema"] = "invalid_json"
+                    row["ok"] = False
+                    ok = False
+        elif "phase1-proof-pack-public-v1.json" in url and body:
+            if body.lstrip().startswith("<!") or body.lstrip().startswith("<html"):
+                row["proof_pack_schema"] = "html_poison"
+                row["ok"] = False
+                ok = False
+            else:
+                try:
+                    pack = json.loads(body)
+                    row["proof_pack_schema"] = pack.get("schema")
+                    row["proof_pack_id"] = pack.get("pack_id")
+                    row["proof_pack_verdict"] = pack.get("verdict")
+                    row["proof_pack_ok"] = pack.get("schema") == "sourcea-phase1-proof-pack-public-v1"
+                    if not row["proof_pack_ok"]:
+                        row["ok"] = False
+                        ok = False
+                except json.JSONDecodeError:
+                    row["proof_pack_schema"] = "invalid_json"
+                    row["ok"] = False
+                    ok = False
+        elif url == f"{base}/" or url == base:
+            row["founder_headline"] = "AI that proves its work" in body or "sourcea-boot" in body
+            if row.get("ok") and not row["founder_headline"]:
+                row["ok"] = False
                 ok = False
         if not row.get("ok"):
             ok = False
@@ -493,6 +774,7 @@ def write_public_urls(base_url: str, *, boot_verdict: str | None) -> dict:
         "w1_proof_url": f"{base}/sourcea/proof.html#w1-demo-film",
         "boot_proof_url": f"{base}/sourcea/data/boot-proof.json",
         "boot_verdict": boot_verdict,
+        "phase1_proof_pack_url": f"{base}/sourcea/data/phase1-proof-pack-public-v1.json",
     }
     PUBLIC_URLS.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
     write_desktop_url_note(row)
@@ -500,15 +782,58 @@ def write_public_urls(base_url: str, *, boot_verdict: str | None) -> dict:
 
 
 def refresh_outbound_packs() -> dict:
-    proc = _run([sys.executable, str(ROOT / "scripts" / "commercial_pipeline_repair_v1.py"), "--json"], cwd=ROOT, timeout=120)
+    try:
+        proc = _run(
+            [sys.executable, str(ROOT / "scripts" / "commercial_pipeline_repair_v1.py"), "--json"],
+            cwd=ROOT,
+            timeout=30,
+        )
+    except subprocess.TimeoutExpired:
+        return {"ok": True, "skipped": True, "reason": "outbound_refresh_timeout"}
     try:
         return json.loads(proc.stdout) if proc.stdout.strip().startswith("{") else {"ok": proc.returncode == 0}
     except json.JSONDecodeError:
         return {"ok": proc.returncode == 0, "out": (proc.stdout or "")[-400:]}
 
 
-def publish(*, backend: str = "auto", project: str = DEFAULT_PROJECT, skip_recipe: bool = False) -> dict:
+def publish(
+    *,
+    backend: str = "auto",
+    project: str = DEFAULT_PROJECT,
+    skip_recipe: bool = False,
+    custom_domain: bool = False,
+) -> dict:
     steps: list[dict] = []
+    copy_gate = run_commercial_copy_gate()
+    steps.append({"step": "commercial_copy_gate", **copy_gate})
+    if not copy_gate.get("ok"):
+        return {
+            "ok": False,
+            "schema": "sourcea-landing-publish-v1",
+            "steps": steps,
+            "error": "commercial_copy_gate BLOCK — fix copy in the repository before publish",
+        }
+
+    depth_gate = run_copy_depth_gate()
+    steps.append({"step": "copy_depth_gate", **depth_gate})
+    if not depth_gate.get("ok"):
+        return {
+            "ok": False,
+            "schema": "sourcea-landing-publish-v1",
+            "steps": steps,
+            "error": "copy_depth_gate BLOCK — cut repetition/padding in the repository before publish",
+        }
+
+    ui_gate = run_ui_mechanical_gate()
+    steps.append({"step": "ui_mechanical_gate", **ui_gate})
+    if not ui_gate.get("ok"):
+        return {
+            "ok": False,
+            "schema": "sourcea-landing-publish-v1",
+            "steps": steps,
+            "error": "ui_mechanical_gate BLOCK — fix mechanical UI regressions before publish",
+        }
+
     if not skip_recipe:
         recipe = run_recipe()
         steps.append({"step": "run_recipe", **recipe})
@@ -516,7 +841,13 @@ def publish(*, backend: str = "auto", project: str = DEFAULT_PROJECT, skip_recip
             return {"ok": False, "schema": "sourcea-landing-publish-v1", "steps": steps, "error": "run_recipe failed"}
 
     staging = stage_site()
-    steps.append({"step": "stage", "ok": True, "path": str(staging), "boot_proof": str(staging / "sourcea" / "data" / "boot-proof.json")})
+    steps.append({
+        "step": "stage",
+        "ok": True,
+        "path": str(staging),
+        "boot_proof": str(staging / "sourcea" / "data" / "boot-proof.json"),
+        "phase1_proof_pack": str(staging / "sourcea" / "data" / "phase1-proof-pack-public-v1.json"),
+    })
 
     boot_verdict = None
     try:
@@ -541,17 +872,35 @@ def publish(*, backend: str = "auto", project: str = DEFAULT_PROJECT, skip_recip
     if not deploy_row.get("ok"):
         return {"ok": False, "schema": "sourcea-landing-publish-v1", "at": _now(), "steps": steps}
 
+    if custom_domain and deploy_row.get("backend") == "cloudflare_pages":
+        domain_row = add_pages_custom_domains(project=project)
+        steps.append({"step": "custom_domains", **domain_row})
+
     base_url = str(deploy_row.get("base_url") or "")
     local_port = TUNNEL_PORT if deploy_row.get("backend") == "cloudflared_tunnel" else None
     verify = verify_public(base_url, local_port=local_port)
     steps.append({"step": "verify", **verify})
+
+    brain_live: dict = {"ok": True, "skipped": True, "reason": "ephemeral or non-pages deploy"}
+    if deploy_row.get("backend") in ("cloudflare_pages", "vercel") and not deploy_row.get("ephemeral"):
+        brain_live = run_brain_live_smoke(base="https://sourcea.app")
+    steps.append({"step": "brain_live_production", **brain_live})
+    if not brain_live.get("ok"):
+        return {
+            "ok": False,
+            "schema": "sourcea-landing-publish-v1",
+            "at": _now(),
+            "steps": steps,
+            "error": "brain_live_production BLOCK — production Brain smoke failed on sourcea.app",
+        }
+
     public = write_public_urls(base_url, boot_verdict=boot_verdict)
     steps.append({"step": "public_urls", "ok": True, "path": str(PUBLIC_URLS)})
     repair = refresh_outbound_packs()
     steps.append({"step": "outbound_refresh", **repair})
 
     row = {
-        "ok": verify.get("ok", False),
+        "ok": verify.get("ok", False) and brain_live.get("ok", False),
         "schema": "sourcea-landing-publish-v1",
         "at": _now(),
         "base_url": base_url,
@@ -571,12 +920,25 @@ def publish(*, backend: str = "auto", project: str = DEFAULT_PROJECT, skip_recip
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Publish SourceA landing (recipe + boot-proof + public URL)")
-    ap.add_argument("--backend", choices=["auto", "vercel", "pages", "tunnel"], default="auto")
+    ap.add_argument("--backend", choices=["auto", "vercel", "pages", "tunnel", "cloudflare"], default="auto")
     ap.add_argument("--project", default=DEFAULT_PROJECT)
     ap.add_argument("--skip-recipe", action="store_true")
+    ap.add_argument(
+        "--custom-domain",
+        action="store_true",
+        help="Add project custom domains after Pages deploy (sourcea-com → sourcea.app)",
+    )
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
-    row = publish(backend=args.backend, project=args.project, skip_recipe=args.skip_recipe)
+    backend = args.backend
+    if backend == "cloudflare":
+        backend = "pages"
+    row = publish(
+        backend=backend,
+        project=args.project,
+        skip_recipe=args.skip_recipe,
+        custom_domain=args.custom_domain,
+    )
     if args.json:
         print(json.dumps(row, indent=2))
     else:

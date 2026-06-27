@@ -222,36 +222,15 @@ def scan_poison_in_text(text: str, *, rel: str) -> list[dict]:
     return hits
 
 
+def scan_repo_hits() -> list[dict]:
+    sys.path.insert(0, str(SCRIPTS))
+    from anti_poison_lib_v1 import scan_repo  # noqa: WPS433
+
+    return scan_repo(projection=False)
+
+
 def scan_repo_rules_and_inject() -> list[dict]:
-    hits: list[dict] = []
-    scan_dirs = [
-        ROOT / ".cursor/rules",
-        ROOT / "brain-os/law/enforcement",
-        ROOT / "data",
-    ]
-    for base in scan_dirs:
-        if not base.is_dir():
-            continue
-        glob = "*.mdc" if base.name == "rules" else ("*.json" if base.name == "data" else "*.md")
-        for path in base.glob(glob):
-            if path.name in SKIP_RULE_FILES:
-                continue
-            rel = str(path.relative_to(ROOT))
-            if any(s in rel for s in SKIP_PATH_PARTS):
-                continue
-            text = path.read_text(encoding="utf-8", errors="replace")
-            for h in scan_poison_in_text(text, rel=rel):
-                hits.append(h)
-    mirror = SINA / "agent-memory-mirror-v1.json"
-    if mirror.is_file():
-        inj = (_read_json(mirror) or {}).get("inject") or {}
-        blob = json.dumps(inj, ensure_ascii=False)
-        hits.extend(scan_poison_in_text(blob, rel="~/.sina/agent-memory-mirror-v1.json inject"))
-    duty = SINA / "agent-executor-daily-duty-card-v1.json"
-    if duty.is_file():
-        blob = json.dumps(_read_json(duty) or {}, ensure_ascii=False)
-        hits.extend(scan_poison_in_text(blob, rel="~/.sina/agent-executor-daily-duty-card-v1.json"))
-    return hits
+    return scan_repo_hits()
 
 
 def sync_mirror() -> dict:
@@ -296,7 +275,7 @@ def run(*, scrub: bool, sync: bool, validate_only: bool) -> dict:
     if sync and not validate_only:
         report["mirror_sync"] = {"ok": True, "hash8": sync_mirror().get("mirror_hash8")}
         report["truth_bundle"] = sync_truth_bundle()
-    report["poison_hits"] = scan_repo_rules_and_inject()
+    report["poison_hits"] = scan_repo_hits()
     report["ok"] = len(report["poison_hits"]) == 0
     try:
         RECEIPT.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

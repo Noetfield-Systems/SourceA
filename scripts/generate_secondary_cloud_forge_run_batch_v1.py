@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate locked cloud drain queue batch N (10 MAC-CTL + 100 CLOUD-SEC)."""
+"""Generate locked Cloud Forge Run queue batch N (10 MAC-CTL + 100 CLOUD-SEC)."""
 from __future__ import annotations
 
 import argparse
@@ -10,9 +10,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REG = ROOT / "brain-os/plan-registry/sourcea--1000/REGISTRY.json"
-ACTIVE_POINTER = ROOT / "data/cloud-drain-queue-active-v1.json"
-BATCH1_ARCHIVE = ROOT / "data/secondary-cloud-drain-batch-1-complete-locked-v1.json"
-LEGACY = ROOT / "data/secondary-cloud-drain-next-100-v1.json"
+ACTIVE_POINTER = ROOT / "data/cloud-forge-run-queue-active-v1.json"
+BATCH1_ARCHIVE = ROOT / "data/secondary-cloud-forge-run-batch-1-complete-locked-v1.json"
+LEGACY = ROOT / "data/secondary-cloud-forge-run-next-100-v1.json"
 
 
 def _now() -> str:
@@ -88,7 +88,7 @@ def generate_batch(*, batch_id: int, offset: int, count: int = 100, lock: bool =
     maps_hi = slice_rows[-1]["id"]
 
     return {
-        "schema": "secondary-cloud-drain-batch-v1",
+        "schema": "secondary-cloud-forge-run-batch-v1",
         "version": "2.0.0",
         "batch_id": batch_id,
         "locked": lock,
@@ -98,7 +98,7 @@ def generate_batch(*, batch_id: int, offset: int, count: int = 100, lock: bool =
         "one_law": "1-10 Mac control only. 11-110 cloud secondary drain. Mac NEVER executes sa-mkt bodies.",
         "forbidden": ["Worker on Mac runs every plan", "RUN INBOX per sa-mkt on Mac", "hand-edit while locked"],
         "incident_ref": "brain-os/incidents/SINA_AGENT_WORKER_FACTORY_PLANE_CONFLATION_INCIDENT_038_LOCKED_v1.md",
-        "generator": "scripts/generate_secondary_cloud_drain_batch_v1.py",
+        "generator": "scripts/generate_secondary_cloud_forge_run_batch_v1.py",
         "registry_offset": offset,
         "registry_count": count,
         "supersedes_batch": batch_id - 1 if batch_id > 1 else None,
@@ -124,7 +124,7 @@ def main() -> int:
     ap.add_argument("--archive-batch1", action="store_true", default=True)
     args = ap.parse_args()
 
-    out_path = ROOT / f"data/secondary-cloud-drain-batch-{args.batch}-locked-v1.json"
+    out_path = ROOT / f"data/secondary-cloud-forge-run-batch-{args.batch}-locked-v1.json"
     doc = generate_batch(batch_id=args.batch, offset=args.offset, count=args.count, lock=args.lock)
     out_path.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
 
@@ -139,22 +139,22 @@ def main() -> int:
 
     first_cloud = doc["summary"]["cloud_sec_range"].split("..")[0]
     ptr = {
-        "schema": "cloud-drain-queue-active-v1",
+        "schema": "cloud-forge-run-queue-active-v1",
         "version": "1.0.0",
         "batch_id": args.batch,
         "locked": True,
         "saved_at": _now(),
-        "queue_path": f"data/secondary-cloud-drain-batch-{args.batch}-locked-v1.json",
-        "archive_batch1": "data/secondary-cloud-drain-batch-1-complete-locked-v1.json",
+        "queue_path": f"data/secondary-cloud-forge-run-batch-{args.batch}-locked-v1.json",
+        "archive_batch1": "data/secondary-cloud-forge-run-batch-1-complete-locked-v1.json",
         "phase_reset": {
-            "cloud_drain_head": first_cloud,
-            "cloud_drain_last_completed": None,
+            "cloud_forge_run_head": first_cloud,
+            "cloud_forge_run_last_completed": None,
             "queue_batch_complete": False,
         },
         "cloud_workers_feed": {
             "machine": "scripts/cloud_workers_hub_v1.py",
             "control_plane": "data/cloud-workers-control-plane-v1.json",
-            "auto_runtime": "data/cloud-drain-auto-runtime-v1.json",
+            "auto_runtime": "data/cloud-auto-runtime-v1.json",
         },
     }
     if args.activate:

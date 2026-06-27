@@ -1,7 +1,11 @@
 {
   "schema": "founder-reply-glossary-v1",
-  "version": "1.4.0",
-  "saved_at": "2026-06-20T19:15:00Z",
+  "version": "1.7.0",
+  "saved_at": "2026-06-24T21:35:00Z",
+  "unified_index": "data/sourcea-vocabulary-unified-index-v1.json",
+  "unified_law": "brain-os/law/enforcement/SOURCEA_VOCABULARY_UNIFIED_LOCKED_v1.md",
+  "cloud_motor_vocab": "data/cloud-motor-founder-vocabulary-v1.json",
+  "cloud_forge_run_law": "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_AUTO_RUNTIME_VOCABULARY_LOCKED_v1.md",
   "incident_038_ref": "data/mac-worker-vs-factory-vocabulary-v1.json",
   "incident_039_ref": "data/mac-validator-stuck-red-flag-v1.json",
   "translations": {
@@ -61,7 +65,23 @@
     "Let me run all validators to confirm": "FORBIDDEN PHRASE — INCIDENT-039 instant fail",
     "FBE": "the cloud factory runner on Railway",
     "bay dispatch": "running one product step on the cloud factory",
-    "sina read": "final quality check before anything sends to customers"
+    "sina read": "final quality check before anything sends to customers",
+    "drain": "POISON retired filename — Cloud Forge Run (full-pack factory queue on Railway · 100 rows per trigger)",
+    "Cloud Forge Run": "Cloud Forge Run — full-pack factory queue on Railway",
+    "Cloud Forge Run": "Cloud Forge Run — Cloud Workers full-pack proceed",
+    "Cloud Forge Run": "Cloud Forge Run — cloud factory queue motor",
+    "Cloud Forge Run": "resume Cloud Forge Run full-pack",
+    "Cloud Forge Run": "Auto Runtime — CF cron auto proceed (Mac observe only)",
+    "Cloud Forge Run": "Auto Runtime — CF cron auto proceed",
+    "loop": "Auto Runtime — scheduled cloud motor tick (when cloud motor context)",
+    "drain loop": "Auto Runtime — internal 100-row step inside one Forge Run request",
+    "Auto Runtime specialist": "Auto Runtime dispatch — cloud queue specialist",
+    "Auto Runtime": "Auto Runtime ON — cron arms Cloud Forge Run",
+    "Cloud Forge Run": "cloud factory queue motor — full_pack × 100 rows per trigger on Railway (mandatory quota)",
+    "Auto Runtime": "CF cron */10 auto proceed — arms Cloud Forge Run — Mac observe only",
+    "Forge Run": "short for Cloud Forge Run",
+    "retired motor word: drain": "say Cloud Forge Run — not governance poison",
+    "retired motor word: loop": "say Auto Runtime — not governance poison"
   },
   "strip_patterns": [
     "bash ~/Desktop/SourceA/",

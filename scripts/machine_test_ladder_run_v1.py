@@ -120,6 +120,31 @@ def run_ladder(*, tier: str, role: str = "worker") -> dict:
     }
     SINA.mkdir(parents=True, exist_ok=True)
     RECEIPT.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+    try:
+        sys.path.insert(0, str(SCRIPTS))
+        from sourcea_e2e_run_v1 import ingest_external_run  # noqa: WPS433
+
+        bundle_id = f"machine_ladder_{tier}"
+        check_results = [
+            {
+                "id": str(s.get("id")),
+                "ok": bool(s.get("ok")),
+                "at": _now(),
+                "tail": str(s.get("tail") or "")[-200:],
+                "kind": "ladder",
+            }
+            for s in steps
+        ]
+        ingest_external_run(
+            bundle_id=bundle_id,
+            ok=bool(row.get("ok")),
+            log_path=str(RECEIPT),
+            check_results=check_results,
+            cadence=tier if tier in ("daily", "3day", "weekly", "monthly") else "weekly",
+            role=role,
+        )
+    except Exception:
+        pass
     return row
 
 

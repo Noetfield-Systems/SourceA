@@ -46,7 +46,7 @@ Ecosystem-connected rollup may PASS while individual nerves/nodes/gates remain R
 | L2-5 | SourceA Worker | **Yes** | `cursor_entry_gate.py --role worker` · RUN INBOX |
 | L2-6–8 | RA L2 · Maintainers | Hub/runtime | Brain wire + live context |
 
-Loop specialists (observe/advise — not ship authority): observatory · advisory · investigator · judge · loop specialist · routing panel.
+Auto Runtime specialists (observe/advise — not ship authority): observatory · advisory · investigator · judge · loop specialist · routing panel.
 
 ---
 
@@ -135,7 +135,7 @@ Nerve rollup must not show `ok:true` while child nodes (e.g. `zero_drift`) are R
 
 **Loop chain order** (`sina-command-server.py` `_run_loop_chain_tick`):
 
-observatory → advisory → investigator → judge → loop specialist → routing panel → disclosure ladder → MCP stack → tool pick → anti_theater_loop → plans unified → phase0 → world model
+observatory → advisory → investigator → judge → Auto Runtime specialist → routing panel → disclosure ladder → MCP stack → tool pick → anti_theater_loop → plans unified → phase0 → world model
 
 **Orient cascade** (`data/sourcea_orient_routing_v1.json`): session_gate → disk truth → run_inbox → orient → hub projection.
 

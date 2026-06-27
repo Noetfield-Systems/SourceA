@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""AB1 single send — Asset B outreach. Opens Mail draft from hello@sourcea.com."""
+"""AB1 single send — Asset B outreach. Opens Mail draft from hello@sourcea.app."""
 
 from __future__ import annotations
 
@@ -16,7 +16,7 @@ OUT = SINA / "outbound" / "ab1-send-001"
 RECEIPT = SINA / "ab1-outbound-send-receipt-v1.json"
 
 # Locked sender — SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md
-FROM_EMAIL = "hello@sourcea.com"
+FROM_EMAIL = "hello@sourcea.app"
 FROM_NAME = "SourceA"
 COMPANY_URL = "https://sourcea.com"
 FOUNDER_NAME = os.environ.get("SOURCEA_FOUNDER_NAME", "Sina Kazemnezhad").strip() or "Sina Kazemnezhad"
@@ -189,7 +189,7 @@ def main() -> int:
         return 1
 
     print(f"OK: AB1 draft opened · variant={variant} · from={FROM_EMAIL} · pack={OUT}")
-    print("Founder: verify hello@sourcea.com · populate --name · one relevant agency · Send")
+    print("Founder: verify hello@sourcea.app · populate --name · one relevant agency · Send")
     return 0
 
 

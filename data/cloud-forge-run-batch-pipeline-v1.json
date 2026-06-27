@@ -1,0 +1,580 @@
+{
+  "schema": "cloud-forge-run-batch-pipeline-v1",
+  "version": "1.3.0",
+  "saved_at": "2026-06-24T20:31:23Z",
+  "active_batch_id": 70,
+  "auto_handoff": true,
+  "handoff_on": "swap_to_next_batch at batch end in run_auto_runtime_pack",
+  "pattern": "full_pack max_advance 100 per trigger \u2014 CF cron */10",
+  "_5000_total": 5000,
+  "extension_wave2_total": 1954,
+  "extension_wave2_batches": 20,
+  "stacks": 7,
+  "batches_total": 70,
+  "drain_status": "extension_wave2_complete",
+  "registry_exhausted": true,
+  "batches": [
+    {
+      "batch_id": 1,
+      "status": "COMPLETE",
+      "stack": "",
+      "library": "",
+      "range": "",
+      "file": "data/secondary-cloud-forge-run-batch-1-complete-locked-v1.json"
+    },
+    {
+      "batch_id": 2,
+      "status": "COMPLETE",
+      "stack": "",
+      "library": "",
+      "range": "CLOUD-SEC-101..CLOUD-SEC-200",
+      "file": "data/secondary-cloud-forge-run-batch-2-locked-v1.json"
+    },
+    {
+      "batch_id": 3,
+      "status": "COMPLETE",
+      "stack": "",
+      "library": "",
+      "range": "CLOUD-SEC-201..CLOUD-SEC-300",
+      "file": "data/secondary-cloud-forge-run-batch-3-locked-v1.json"
+    },
+    {
+      "batch_id": 4,
+      "status": "COMPLETE",
+      "stack": "",
+      "library": "",
+      "range": "CLOUD-SEC-301..CLOUD-SEC-400",
+      "file": "data/secondary-cloud-forge-run-batch-4-locked-v1.json"
+    },
+    {
+      "batch_id": 5,
+      "status": "COMPLETE",
+      "stack": "",
+      "library": "",
+      "range": "CLOUD-SEC-401..CLOUD-SEC-500",
+      "file": "data/secondary-cloud-forge-run-batch-5-locked-v1.json"
+    },
+    {
+      "batch_id": 6,
+      "status": "COMPLETE",
+      "stack": "",
+      "library": "",
+      "range": "CLOUD-SEC-501..CLOUD-SEC-600",
+      "file": "data/secondary-cloud-forge-run-batch-6-locked-v1.json"
+    },
+    {
+      "batch_id": 7,
+      "status": "COMPLETE",
+      "stack": "",
+      "library": "",
+      "range": "CLOUD-SEC-601..CLOUD-SEC-700",
+      "file": "data/secondary-cloud-forge-run-batch-7-locked-v1.json"
+    },
+    {
+      "batch_id": 8,
+      "status": "COMPLETE",
+      "stack": "",
+      "library": "",
+      "range": "CLOUD-SEC-701..CLOUD-SEC-800",
+      "file": "data/secondary-cloud-forge-run-batch-8-locked-v1.json"
+    },
+    {
+      "batch_id": 9,
+      "status": "COMPLETE",
+      "stack": "",
+      "library": "",
+      "range": "CLOUD-SEC-801..CLOUD-SEC-900",
+      "file": "data/secondary-cloud-forge-run-batch-9-locked-v1.json"
+    },
+    {
+      "batch_id": 10,
+      "status": "COMPLETE",
+      "stack": "",
+      "library": "",
+      "range": "CLOUD-SEC-901..CLOUD-SEC-910",
+      "file": "data/secondary-cloud-forge-run-batch-10-locked-v1.json"
+    },
+    {
+      "batch_id": 11,
+      "status": "COMPLETE",
+      "stack": "witnessbc",
+      "library": "",
+      "range": "CLOUD-SEC-1001..CLOUD-SEC-1100",
+      "file": "data/secondary-cloud-forge-run-batch-11-locked-v1.json"
+    },
+    {
+      "batch_id": 12,
+      "status": "COMPLETE",
+      "stack": "witnessbc",
+      "library": "",
+      "range": "CLOUD-SEC-1101..CLOUD-SEC-1200",
+      "file": "data/secondary-cloud-forge-run-batch-12-locked-v1.json"
+    },
+    {
+      "batch_id": 13,
+      "status": "COMPLETE",
+      "stack": "witnessbc",
+      "library": "",
+      "range": "CLOUD-SEC-1201..CLOUD-SEC-1300",
+      "file": "data/secondary-cloud-forge-run-batch-13-locked-v1.json"
+    },
+    {
+      "batch_id": 14,
+      "status": "COMPLETE",
+      "stack": "witnessbc",
+      "library": "",
+      "range": "CLOUD-SEC-1301..CLOUD-SEC-1400",
+      "file": "data/secondary-cloud-forge-run-batch-14-locked-v1.json"
+    },
+    {
+      "batch_id": 15,
+      "status": "COMPLETE",
+      "stack": "witnessbc",
+      "library": "",
+      "range": "CLOUD-SEC-1401..CLOUD-SEC-1500",
+      "file": "data/secondary-cloud-forge-run-batch-15-locked-v1.json"
+    },
+    {
+      "batch_id": 16,
+      "status": "COMPLETE",
+      "stack": "witnessbc",
+      "library": "",
+      "range": "CLOUD-SEC-1501..CLOUD-SEC-1600",
+      "file": "data/secondary-cloud-forge-run-batch-16-locked-v1.json"
+    },
+    {
+      "batch_id": 17,
+      "status": "COMPLETE",
+      "stack": "witnessbc",
+      "library": "",
+      "range": "CLOUD-SEC-1601..CLOUD-SEC-1700",
+      "file": "data/secondary-cloud-forge-run-batch-17-locked-v1.json"
+    },
+    {
+      "batch_id": 18,
+      "status": "COMPLETE",
+      "stack": "witnessbc",
+      "library": "",
+      "range": "CLOUD-SEC-1701..CLOUD-SEC-1800",
+      "file": "data/secondary-cloud-forge-run-batch-18-locked-v1.json"
+    },
+    {
+      "batch_id": 19,
+      "status": "COMPLETE",
+      "stack": "witnessbc",
+      "library": "",
+      "range": "CLOUD-SEC-1801..CLOUD-SEC-1900",
+      "file": "data/secondary-cloud-forge-run-batch-19-locked-v1.json"
+    },
+    {
+      "batch_id": 20,
+      "status": "COMPLETE",
+      "stack": "witnessbc",
+      "library": "",
+      "range": "CLOUD-SEC-1901..CLOUD-SEC-2000",
+      "file": "data/secondary-cloud-forge-run-batch-20-locked-v1.json"
+    },
+    {
+      "batch_id": 21,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "",
+      "range": "CLOUD-SEC-2001..CLOUD-SEC-2100",
+      "file": "data/secondary-cloud-forge-run-batch-21-locked-v1.json"
+    },
+    {
+      "batch_id": 22,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "",
+      "range": "CLOUD-SEC-2101..CLOUD-SEC-2200",
+      "file": "data/secondary-cloud-forge-run-batch-22-locked-v1.json"
+    },
+    {
+      "batch_id": 23,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "",
+      "range": "CLOUD-SEC-2201..CLOUD-SEC-2300",
+      "file": "data/secondary-cloud-forge-run-batch-23-locked-v1.json"
+    },
+    {
+      "batch_id": 24,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "",
+      "range": "CLOUD-SEC-2301..CLOUD-SEC-2400",
+      "file": "data/secondary-cloud-forge-run-batch-24-locked-v1.json"
+    },
+    {
+      "batch_id": 25,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "",
+      "range": "CLOUD-SEC-2401..CLOUD-SEC-2500",
+      "file": "data/secondary-cloud-forge-run-batch-25-locked-v1.json"
+    },
+    {
+      "batch_id": 26,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "",
+      "range": "CLOUD-SEC-2501..CLOUD-SEC-2600",
+      "file": "data/secondary-cloud-forge-run-batch-26-locked-v1.json"
+    },
+    {
+      "batch_id": 27,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "",
+      "range": "CLOUD-SEC-2601..CLOUD-SEC-2700",
+      "file": "data/secondary-cloud-forge-run-batch-27-locked-v1.json"
+    },
+    {
+      "batch_id": 28,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "",
+      "range": "CLOUD-SEC-2701..CLOUD-SEC-2800",
+      "file": "data/secondary-cloud-forge-run-batch-28-locked-v1.json"
+    },
+    {
+      "batch_id": 29,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "",
+      "range": "CLOUD-SEC-2801..CLOUD-SEC-2900",
+      "file": "data/secondary-cloud-forge-run-batch-29-locked-v1.json"
+    },
+    {
+      "batch_id": 30,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "",
+      "range": "CLOUD-SEC-2901..CLOUD-SEC-3000",
+      "file": "data/secondary-cloud-forge-run-batch-30-locked-v1.json"
+    },
+    {
+      "batch_id": 31,
+      "status": "COMPLETE",
+      "stack": "trustfield",
+      "library": "",
+      "range": "CLOUD-SEC-3001..CLOUD-SEC-3100",
+      "file": "data/secondary-cloud-forge-run-batch-31-locked-v1.json"
+    },
+    {
+      "batch_id": 32,
+      "status": "COMPLETE",
+      "stack": "trustfield",
+      "library": "",
+      "range": "CLOUD-SEC-3101..CLOUD-SEC-3200",
+      "file": "data/secondary-cloud-forge-run-batch-32-locked-v1.json"
+    },
+    {
+      "batch_id": 33,
+      "status": "COMPLETE",
+      "stack": "trustfield",
+      "library": "",
+      "range": "CLOUD-SEC-3201..CLOUD-SEC-3300",
+      "file": "data/secondary-cloud-forge-run-batch-33-locked-v1.json"
+    },
+    {
+      "batch_id": 34,
+      "status": "COMPLETE",
+      "stack": "trustfield",
+      "library": "",
+      "range": "CLOUD-SEC-3301..CLOUD-SEC-3400",
+      "file": "data/secondary-cloud-forge-run-batch-34-locked-v1.json"
+    },
+    {
+      "batch_id": 35,
+      "status": "COMPLETE",
+      "stack": "trustfield",
+      "library": "",
+      "range": "CLOUD-SEC-3401..CLOUD-SEC-3500",
+      "file": "data/secondary-cloud-forge-run-batch-35-locked-v1.json"
+    },
+    {
+      "batch_id": 36,
+      "status": "COMPLETE",
+      "stack": "trustfield",
+      "library": "",
+      "range": "CLOUD-SEC-3501..CLOUD-SEC-3600",
+      "file": "data/secondary-cloud-forge-run-batch-36-locked-v1.json"
+    },
+    {
+      "batch_id": 37,
+      "status": "COMPLETE",
+      "stack": "trustfield",
+      "library": "",
+      "range": "CLOUD-SEC-3601..CLOUD-SEC-3700",
+      "file": "data/secondary-cloud-forge-run-batch-37-locked-v1.json"
+    },
+    {
+      "batch_id": 38,
+      "status": "COMPLETE",
+      "stack": "trustfield",
+      "library": "",
+      "range": "CLOUD-SEC-3701..CLOUD-SEC-3800",
+      "file": "data/secondary-cloud-forge-run-batch-38-locked-v1.json"
+    },
+    {
+      "batch_id": 39,
+      "status": "COMPLETE",
+      "stack": "trustfield",
+      "library": "",
+      "range": "CLOUD-SEC-3801..CLOUD-SEC-3900",
+      "file": "data/secondary-cloud-forge-run-batch-39-locked-v1.json"
+    },
+    {
+      "batch_id": 40,
+      "status": "COMPLETE",
+      "stack": "trustfield",
+      "library": "",
+      "range": "CLOUD-SEC-3901..CLOUD-SEC-4000",
+      "file": "data/secondary-cloud-forge-run-batch-40-locked-v1.json"
+    },
+    {
+      "batch_id": 41,
+      "status": "COMPLETE",
+      "stack": "virlux",
+      "library": "",
+      "range": "CLOUD-SEC-4001..CLOUD-SEC-4100",
+      "file": "data/secondary-cloud-forge-run-batch-41-locked-v1.json"
+    },
+    {
+      "batch_id": 42,
+      "status": "COMPLETE",
+      "stack": "virlux",
+      "library": "",
+      "range": "CLOUD-SEC-4101..CLOUD-SEC-4200",
+      "file": "data/secondary-cloud-forge-run-batch-42-locked-v1.json"
+    },
+    {
+      "batch_id": 43,
+      "status": "COMPLETE",
+      "stack": "virlux",
+      "library": "",
+      "range": "CLOUD-SEC-4201..CLOUD-SEC-4300",
+      "file": "data/secondary-cloud-forge-run-batch-43-locked-v1.json"
+    },
+    {
+      "batch_id": 44,
+      "status": "COMPLETE",
+      "stack": "virlux",
+      "library": "",
+      "range": "CLOUD-SEC-4301..CLOUD-SEC-4400",
+      "file": "data/secondary-cloud-forge-run-batch-44-locked-v1.json"
+    },
+    {
+      "batch_id": 45,
+      "status": "COMPLETE",
+      "stack": "virlux",
+      "library": "",
+      "range": "CLOUD-SEC-4401..CLOUD-SEC-4500",
+      "file": "data/secondary-cloud-forge-run-batch-45-locked-v1.json"
+    },
+    {
+      "batch_id": 46,
+      "status": "COMPLETE",
+      "stack": "virlux",
+      "library": "",
+      "range": "CLOUD-SEC-4501..CLOUD-SEC-4600",
+      "file": "data/secondary-cloud-forge-run-batch-46-locked-v1.json"
+    },
+    {
+      "batch_id": 47,
+      "status": "COMPLETE",
+      "stack": "virlux",
+      "library": "",
+      "range": "CLOUD-SEC-4601..CLOUD-SEC-4700",
+      "file": "data/secondary-cloud-forge-run-batch-47-locked-v1.json"
+    },
+    {
+      "batch_id": 48,
+      "status": "COMPLETE",
+      "stack": "virlux",
+      "library": "",
+      "range": "CLOUD-SEC-4701..CLOUD-SEC-4800",
+      "file": "data/secondary-cloud-forge-run-batch-48-locked-v1.json"
+    },
+    {
+      "batch_id": 49,
+      "status": "COMPLETE",
+      "stack": "virlux",
+      "library": "",
+      "range": "CLOUD-SEC-4801..CLOUD-SEC-4900",
+      "file": "data/secondary-cloud-forge-run-batch-49-locked-v1.json"
+    },
+    {
+      "batch_id": 50,
+      "status": "COMPLETE",
+      "stack": "virlux",
+      "library": "",
+      "range": "CLOUD-SEC-4901..CLOUD-SEC-5000",
+      "file": "data/secondary-cloud-forge-run-batch-50-locked-v1.json"
+    },
+    {
+      "batch_id": 51,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "range": "CLOUD-SEC-5001..CLOUD-SEC-5100",
+      "file": "data/secondary-cloud-forge-run-batch-51-locked-v1.json"
+    },
+    {
+      "batch_id": 52,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "range": "CLOUD-SEC-5101..CLOUD-SEC-5200",
+      "file": "data/secondary-cloud-forge-run-batch-52-locked-v1.json"
+    },
+    {
+      "batch_id": 53,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "range": "CLOUD-SEC-5201..CLOUD-SEC-5300",
+      "file": "data/secondary-cloud-forge-run-batch-53-locked-v1.json"
+    },
+    {
+      "batch_id": 54,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "range": "CLOUD-SEC-5301..CLOUD-SEC-5400",
+      "file": "data/secondary-cloud-forge-run-batch-54-locked-v1.json"
+    },
+    {
+      "batch_id": 55,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "range": "CLOUD-SEC-5401..CLOUD-SEC-5500",
+      "file": "data/secondary-cloud-forge-run-batch-55-locked-v1.json"
+    },
+    {
+      "batch_id": 56,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "range": "CLOUD-SEC-5501..CLOUD-SEC-5600",
+      "file": "data/secondary-cloud-forge-run-batch-56-locked-v1.json"
+    },
+    {
+      "batch_id": 57,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "range": "CLOUD-SEC-5601..CLOUD-SEC-5700",
+      "file": "data/secondary-cloud-forge-run-batch-57-locked-v1.json"
+    },
+    {
+      "batch_id": 58,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "range": "CLOUD-SEC-5701..CLOUD-SEC-5800",
+      "file": "data/secondary-cloud-forge-run-batch-58-locked-v1.json"
+    },
+    {
+      "batch_id": 59,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "range": "CLOUD-SEC-5801..CLOUD-SEC-5900",
+      "file": "data/secondary-cloud-forge-run-batch-59-locked-v1.json"
+    },
+    {
+      "batch_id": 60,
+      "status": "COMPLETE",
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "range": "CLOUD-SEC-5901..CLOUD-SEC-5988",
+      "file": "data/secondary-cloud-forge-run-batch-60-locked-v1.json"
+    },
+    {
+      "batch_id": 61,
+      "status": "COMPLETE",
+      "stack": "mono",
+      "library": "mono-1000",
+      "range": "CLOUD-SEC-6001..CLOUD-SEC-6100",
+      "file": "data/secondary-cloud-forge-run-batch-61-locked-v1.json"
+    },
+    {
+      "batch_id": 62,
+      "status": "COMPLETE",
+      "stack": "mono",
+      "library": "mono-1000",
+      "range": "CLOUD-SEC-6101..CLOUD-SEC-6200",
+      "file": "data/secondary-cloud-forge-run-batch-62-locked-v1.json"
+    },
+    {
+      "batch_id": 63,
+      "status": "COMPLETE",
+      "stack": "mono",
+      "library": "mono-1000",
+      "range": "CLOUD-SEC-6201..CLOUD-SEC-6300",
+      "file": "data/secondary-cloud-forge-run-batch-63-locked-v1.json"
+    },
+    {
+      "batch_id": 64,
+      "status": "COMPLETE",
+      "stack": "mono",
+      "library": "mono-1000",
+      "range": "CLOUD-SEC-6301..CLOUD-SEC-6400",
+      "file": "data/secondary-cloud-forge-run-batch-64-locked-v1.json"
+    },
+    {
+      "batch_id": 65,
+      "status": "COMPLETE",
+      "stack": "mono",
+      "library": "mono-1000",
+      "range": "CLOUD-SEC-6401..CLOUD-SEC-6500",
+      "file": "data/secondary-cloud-forge-run-batch-65-locked-v1.json"
+    },
+    {
+      "batch_id": 66,
+      "status": "COMPLETE",
+      "stack": "mono",
+      "library": "mono-1000",
+      "range": "CLOUD-SEC-6501..CLOUD-SEC-6600",
+      "file": "data/secondary-cloud-forge-run-batch-66-locked-v1.json"
+    },
+    {
+      "batch_id": 67,
+      "status": "COMPLETE",
+      "stack": "mono",
+      "library": "mono-1000",
+      "range": "CLOUD-SEC-6601..CLOUD-SEC-6700",
+      "file": "data/secondary-cloud-forge-run-batch-67-locked-v1.json"
+    },
+    {
+      "batch_id": 68,
+      "status": "COMPLETE",
+      "stack": "mono",
+      "library": "mono-1000",
+      "range": "CLOUD-SEC-6701..CLOUD-SEC-6800",
+      "file": "data/secondary-cloud-forge-run-batch-68-locked-v1.json"
+    },
+    {
+      "batch_id": 69,
+      "status": "COMPLETE",
+      "stack": "mono",
+      "library": "mono-1000",
+      "range": "CLOUD-SEC-6801..CLOUD-SEC-6900",
+      "file": "data/secondary-cloud-forge-run-batch-69-locked-v1.json"
+    },
+    {
+      "batch_id": 70,
+      "status": "COMPLETE",
+      "stack": "mono",
+      "library": "mono-1000",
+      "range": "CLOUD-SEC-6901..CLOUD-SEC-6966",
+      "file": "data/secondary-cloud-forge-run-batch-70-locked-v1.json"
+    }
+  ],
+  "extension_manifest": "/Users/sinakazemnezhad/Desktop/SourceA/data/portfolio-extension-wave2-manifest-v1.json",
+  "next_motor_ssot": "data/forge-real-blueprints-v01.json"
+}

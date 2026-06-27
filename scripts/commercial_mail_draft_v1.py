@@ -16,10 +16,10 @@ MAIL_APPLESCRIPT_ALLOWLIST = frozenset({"commercial_mail_draft_v1.py"})
 
 # SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md
 LANE_FROM: dict[str, tuple[str, str]] = {
-    "AB1": ("SourceA", "hello@sourcea.com"),
+    "AB1": ("SourceA", "hello@sourcea.app"),
     "NW1": ("Noetfield Systems Inc.", "operations@noetfield.com"),
     "NF": ("Noetfield", "operation@noetfield.com"),
-    "AEG": ("SourceA", "hello@sourcea.com"),
+    "AEG": ("SourceA", "hello@sourcea.app"),
     "TF": ("TrustField Technologies", "hello@trustfield.ca"),
 }
 
@@ -198,7 +198,7 @@ def ensure_founder_blocklist() -> None:
         "blocked": [
             "sina.kazemnezhad@gmail.com",
             "sina.kazemnezhad@icloud.com",
-            "me@sourcea.com",
+            "hello@sourcea.app",
         ],
     }
     if BLOCKLIST.is_file():

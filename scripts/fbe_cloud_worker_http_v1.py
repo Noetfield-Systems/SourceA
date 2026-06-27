@@ -24,6 +24,13 @@ from fbe.lib.execution_contract_v1 import (  # noqa: E402
 )
 
 
+def _normalize_motor_path(path: str) -> str:
+    """Legacy alias: /api/cloud-drain/* → /api/cloud-forge-run/* (physical rename v3)."""
+    if path.startswith("/api/cloud-drain/"):
+        return "/api/cloud-forge-run/" + path[len("/api/cloud-drain/") :]
+    return path
+
+
 def _json_response(handler: BaseHTTPRequestHandler, code: int, row: dict[str, Any]) -> None:
     body = json.dumps(json_safe_dict(row), indent=2).encode("utf-8")
     handler.send_response(code)
@@ -42,7 +49,7 @@ def _auth_ok(handler: BaseHTTPRequestHandler) -> bool:
 
 
 def _single_cycle_gate(path: str, body: dict[str, Any] | None = None) -> dict[str, Any] | None:
-    from cloud_drain_single_cycle_gate_v1 import claim_or_halt, is_gated_path  # noqa: WPS433
+    from cloud_auto_runtime_single_cycle_gate_v1 import claim_or_halt, is_gated_path  # noqa: WPS433
 
     if not is_gated_path(path):
         return None
@@ -140,18 +147,39 @@ def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
         if not plan_id:
             return {"ok": False, "error": "plan_id_required"}
         return dispatch(plan_id=plan_id, dry_run=dry_run)
-    if path == "/api/cloud-drain/proceed/v1":
-        from hub_cloud_drain_proceed_v1 import proceed_on_cloud  # noqa: WPS433
+    if path == "/api/cloud-forge-run/proceed/v1":
+        from hub_cloud_forge_run_proceed_v1 import proceed_on_cloud  # noqa: WPS433
 
         return proceed_on_cloud(body if isinstance(body, dict) else {})
-    if path == "/api/cloud-drain/queue/v1":
-        from fbe.lib.cloud_drain_queue_v1 import handle_queue_action  # noqa: WPS433
+    if path == "/api/cloud-forge-run/queue/v1":
+        from fbe.lib.cloud_forge_run_queue_v1 import handle_queue_action  # noqa: WPS433
 
         return handle_queue_action(body if isinstance(body, dict) else {})
-    if path == "/api/cloud-drain/auto-tick/v1":
-        from cloud_drain_auto_runtime_v1 import run_cloud_auto_tick  # noqa: WPS433
+    if path == "/api/cloud-forge-run/auto-tick/v1":
+        from cloud_auto_runtime_v1 import run_cloud_auto_tick  # noqa: WPS433
 
         return run_cloud_auto_tick(body=body if isinstance(body, dict) else {})
+    if path == "/api/cloud-forge-run/supabase/ensure/v1":
+        from cloud_forge_run_supabase_v1 import count_rows, ensure_schema  # noqa: WPS433
+
+        mig = ensure_schema()
+        return {
+            "ok": bool(mig.get("ok")),
+            "schema": "cloud-forge-run-supabase-ensure-v1",
+            "migration": mig,
+            "count": count_rows(),
+        }
+    if path == "/api/cloud-forge-run/supabase/backfill/v1":
+        from cloud_forge_run_supabase_v1 import backfill_from_artifacts, count_rows  # noqa: WPS433
+
+        limit = int(body.get("limit") or 0)
+        bf = backfill_from_artifacts(limit=limit)
+        return {
+            "ok": bool(bf.get("ok")),
+            "schema": "cloud-forge-run-supabase-backfill-v1",
+            "backfill": bf,
+            "count": count_rows(),
+        }
     if path == "/api/cloud-worker/dispatch-batch/v1":
         from cloud_worker_dispatch_v1 import dispatch_batch  # noqa: WPS433
 
@@ -321,7 +349,7 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
         sys.stderr.write("[FBE KERNEL] " + (fmt % args) + "\n")
 
     def do_GET(self) -> None:
-        parsed = urlparse(self.path)
+        parsed = urlparse(_normalize_motor_path(self.path))
         if parsed.path in ("/health", "/api/fbe/health/v1"):
             _json_response(
                 self,
@@ -351,10 +379,56 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
                 return
             _json_response(self, 200, row)
             return
-        if parsed.path == "/api/cloud-drain/queue/v1":
-            from fbe.lib.cloud_drain_queue_v1 import read_head  # noqa: WPS433
+        if parsed.path == "/api/cloud-forge-run/queue/v1":
+            from fbe.lib.cloud_forge_run_queue_v1 import read_head  # noqa: WPS433
 
             _json_response(self, 200, read_head())
+            return
+        if parsed.path == "/api/cloud-forge-run/evidence-audit/v1":
+            from autonomous_drain_receipt_cloud_v1 import (  # noqa: WPS433
+                evidence_audit_html,
+                evidence_audit_payload,
+                evidence_audit_row,
+            )
+            from urllib.parse import parse_qs
+
+            qs = parse_qs(parsed.query or "")
+            plan = (qs.get("plan_id") or [""])[0].strip()
+            accept = self.headers.get("Accept", "")
+            if "text/html" in accept and not accept.strip().startswith("application/json"):
+                try:
+                    limit = min(int((qs.get("limit") or ["50"])[0]), 200)
+                    offset = max(int((qs.get("offset") or ["0"])[0]), 0)
+                except ValueError:
+                    limit, offset = 50, 0
+                html_doc = evidence_audit_html(limit=limit, offset=offset, plan_id=plan)
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.end_headers()
+                self.wfile.write(html_doc.encode("utf-8"))
+                return
+            if plan:
+                _json_response(self, 200, evidence_audit_row(plan_id=plan))
+                return
+            try:
+                limit = min(int((qs.get("limit") or ["50"])[0]), 200)
+                offset = max(int((qs.get("offset") or ["0"])[0]), 0)
+            except ValueError:
+                limit, offset = 50, 0
+            _json_response(self, 200, evidence_audit_payload(limit=limit, offset=offset))
+            return
+        if parsed.path == "/api/cloud-forge-run/supabase/rows/v1":
+            from cloud_forge_run_supabase_v1 import count_rows, query_rows  # noqa: WPS433
+            from urllib.parse import parse_qs
+
+            qs = parse_qs(parsed.query or "")
+            try:
+                limit = min(int((qs.get("limit") or ["20"])[0]), 200)
+            except ValueError:
+                limit = 20
+            row = query_rows(limit=limit)
+            row["total"] = count_rows().get("total")
+            _json_response(self, 200, row)
             return
         if parsed.path == "/truth/status":
             from truth_layer_verifier_v1 import build_truth_status  # noqa: WPS433
@@ -371,7 +445,7 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
 
             _json_response(self, 200, build_truth_live())
             return
-        if parsed.path in ("/api/cloud-drain/observer/v1", "/observer", "/observer/"):
+        if parsed.path in ("/api/cloud-forge-run/observer/v1", "/observer", "/observer/"):
             try:
                 from autonomous_drain_receipt_cloud_v1 import observer_html, observer_payload  # noqa: WPS433
 
@@ -432,9 +506,9 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
         _json_response(self, 404, {"ok": False, "error": "not_found"})
 
     def do_POST(self) -> None:
-        parsed = urlparse(self.path)
+        parsed = urlparse(_normalize_motor_path(self.path))
         path = parsed.path
-        if path == "/api/cloud-drain/auto-tick/v1":
+        if path == "/api/cloud-forge-run/auto-tick/v1":
             if not _auth_ok(self):
                 _json_response(self, 401, {"ok": False, "error": "unauthorized"})
                 return
@@ -446,12 +520,17 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
                 _json_response(self, 400, {"ok": False, "error": "invalid_json"})
                 return
             body = body if isinstance(body, dict) else {}
+            trigger = str(body.get("trigger_source") or "http")
+            if trigger in ("cloudflare_cron", "cloudflare_scheduled", "hub_proceed_pack") or body.get("force_reset_gate"):
+                from cloud_auto_runtime_single_cycle_gate_v1 import reset_gate_for_pack  # noqa: WPS433
+
+                reset_gate_for_pack()
             halt = _single_cycle_gate(path, body)
             if halt:
                 _json_response(self, 422, halt)
                 return
             body["_cycle_claimed"] = True
-            from cloud_drain_auto_runtime_v1 import run_cloud_auto_tick  # noqa: WPS433
+            from cloud_auto_runtime_v1 import run_cloud_auto_tick  # noqa: WPS433
 
             row = run_cloud_auto_tick(body=body)
             _json_response(self, 200 if row.get("ok") else 422, row)
@@ -469,7 +548,7 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
             _json_response(self, 400, {"ok": False, "error": "invalid_json"})
             return
 
-        if path == "/api/cloud-drain/proceed/v1":
+        if path == "/api/cloud-forge-run/proceed/v1":
             halt = _single_cycle_gate(path, body if isinstance(body, dict) else {})
             if halt:
                 _json_response(self, 422, halt)
@@ -518,8 +597,12 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
             "/api/cloud-worker/dispatch/v1",
             "/api/cloud-worker/dispatch-batch/v1",
             "/api/cloud-worker/build-summary/v1",
+            "/api/cloud-forge-run/proceed/v1",
+            "/api/cloud-forge-run/queue/v1",
+            "/api/cloud-forge-run/auto-tick/v1",
             "/api/cloud-drain/proceed/v1",
             "/api/cloud-drain/queue/v1",
+            "/api/cloud-drain/auto-tick/v1",
             "/api/fbe/comprehension-loop/v1",
             "/api/fbe/comprehension-eval-batch/v1",
             "/api/forge/v01/run/v1",

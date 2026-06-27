@@ -1,5 +1,5 @@
 {
-  "schema": "secondary-cloud-drain-next-100-v1",
+  "schema": "secondary-cloud-forge-run-next-100-v1",
   "version": "1.0.0",
   "saved_at": "2026-06-20T20:45:00Z",
   "authority": "INCIDENT-038 v1.1",
@@ -10,7 +10,7 @@
     "sa-mkt as Mac implement queue"
   ],
   "incident_ref": "brain-os/incidents/SINA_AGENT_WORKER_FACTORY_PLANE_CONFLATION_INCIDENT_038_LOCKED_v1.md",
-  "generator": "scripts/generate_secondary_cloud_drain_next_100_v1.py",
+  "generator": "scripts/generate_secondary_cloud_forge_run_next_100_v1.py",
   "count": 110,
   "summary": {
     "mac_control": 10,

@@ -1,0 +1,35 @@
+{
+  "schema": "cloud-forge-run-proof-tier-policy-v1",
+  "version": "1.0.0",
+  "locked": true,
+  "saved_at": "2026-06-24T09:30:00Z",
+  "law_doc": "brain-os/law/enforcement/SOURCEA_PROOF_TIER_POLICY_LOCKED_v1.md",
+  "one_law": "Three proof tiers — never merged. Only http_fetch counts as verified/sellable.",
+  "tiers": {
+    "verified_fetch": {
+      "evidence_source": "http_fetch",
+      "badge": "http_fetch",
+      "sellable": true,
+      "founder_label": "Verified fetch — sellable proof"
+    },
+    "labeled_claim": {
+      "evidence_source": "cloud_action_vendor_says",
+      "badge": "vendor_says",
+      "sellable": false,
+      "founder_label": "Labeled claim — not market proof"
+    },
+    "blocked_recipe": {
+      "evidence_source": "cloud_action_locked_recipe",
+      "badge": "locked_recipe",
+      "sellable": false,
+      "founder_label": "Blocked recipe — queue motion only"
+    }
+  },
+  "forbidden_aggregates": [
+    "1710 done",
+    "all greens",
+    " research complete",
+    "100% verified"
+  ],
+  "audit_api": "/api/cloud-forge-run/evidence-audit/v1"
+}

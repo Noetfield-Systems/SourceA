@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Wire cloud-drain-queue-active-v1 next_batch chain through all locked batch files logged."""
+"""Wire cloud-forge-run-queue-active-v1 next_batch chain through all locked batch files logged."""
 from __future__ import annotations
 
 import json
@@ -8,8 +8,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-ACTIVE = ROOT / "data/cloud-drain-queue-active-v1.json"
-BATCH_GLOB = "data/secondary-cloud-drain-batch-{n}-locked-v1.json"
+ACTIVE = ROOT / "data/cloud-forge-run-queue-active-v1.json"
+BATCH_GLOB = "data/secondary-cloud-forge-run-batch-{n}-locked-v1.json"
 
 
 def _now() -> str:
@@ -22,7 +22,7 @@ def _read(path: Path) -> dict:
 
 def discover_batches() -> list[int]:
     out: list[int] = []
-    for path in sorted((ROOT / "data").glob("secondary-cloud-drain-batch-*-locked-v1.json")):
+    for path in sorted((ROOT / "data").glob("secondary-cloud-forge-run-batch-*-locked-v1.json")):
         m = re.search(r"batch-(\d+)-", path.name)
         if m:
             out.append(int(m.group(1)))
@@ -38,7 +38,7 @@ def batch_meta(batch_id: int) -> dict | None:
     return {
         "batch_id": batch_id,
         "status": "ready_locked",
-        "queue_path": f"data/secondary-cloud-drain-batch-{batch_id}-locked-v1.json",
+        "queue_path": f"data/secondary-cloud-forge-run-batch-{batch_id}-locked-v1.json",
         "cloud_sec_range": summary.get("cloud_sec_range"),
     }
 
@@ -70,15 +70,15 @@ def wire(*, active_batch_id: int | None = None) -> dict:
         if b < bid and b != 1
     }
     if 1 in batches and bid > 1:
-        complete = ROOT / "data/secondary-cloud-drain-batch-1-complete-locked-v1.json"
-        legacy = ROOT / "data/secondary-cloud-drain-batch-1-locked-v1.json"
+        complete = ROOT / "data/secondary-cloud-forge-run-batch-1-complete-locked-v1.json"
+        legacy = ROOT / "data/secondary-cloud-forge-run-batch-1-locked-v1.json"
         if complete.is_file():
-            archives["archive_batch1"] = "data/secondary-cloud-drain-batch-1-complete-locked-v1.json"
+            archives["archive_batch1"] = "data/secondary-cloud-forge-run-batch-1-complete-locked-v1.json"
         elif legacy.is_file():
-            archives["archive_batch1"] = "data/secondary-cloud-drain-batch-1-locked-v1.json"
+            archives["archive_batch1"] = "data/secondary-cloud-forge-run-batch-1-locked-v1.json"
 
     new_ptr = {
-        "schema": "cloud-drain-queue-active-v1",
+        "schema": "cloud-forge-run-queue-active-v1",
         "version": "1.1.0",
         "batch_id": bid,
         "locked": True,
@@ -86,19 +86,19 @@ def wire(*, active_batch_id: int | None = None) -> dict:
         "queue_path": BATCH_GLOB.format(n=bid),
         **archives,
         "phase_reset": {
-            "cloud_drain_head": first_head,
-            "cloud_drain_last_completed": None,
+            "cloud_forge_run_head": first_head,
+            "cloud_forge_run_last_completed": None,
             "queue_batch_complete": False,
         },
         "cloud_workers_feed": ptr.get("cloud_workers_feed")
         or {
             "machine": "scripts/cloud_workers_hub_v1.py",
             "control_plane": "data/cloud-workers-control-plane-v1.json",
-            "auto_runtime": "data/cloud-drain-auto-runtime-v1.json",
+            "auto_runtime": "data/cloud-auto-runtime-v1.json",
             "cockpit": "Cloud Workers.app :13027 — Proceed full-pack · no Worker Hub required",
         },
         "proof_url": ptr.get("proof_url")
-        or "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-drain/queue/v1",
+        or "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/queue/v1",
     }
     if nxt is not None:
         meta = batch_meta(nxt)
@@ -110,7 +110,7 @@ def wire(*, active_batch_id: int | None = None) -> dict:
     ACTIVE.write_text(json.dumps(new_ptr, indent=2) + "\n", encoding="utf-8")
     return {
         "ok": True,
-        "schema": "cloud-drain-batch-chain-wire-v1",
+        "schema": "cloud-forge-run-batch-chain-wire-v1",
         "active_batch_id": bid,
         "head": first_head,
         "next_batch": new_ptr.get("next_batch"),

@@ -22,7 +22,7 @@ SCRIPTS = ROOT / "scripts"
 SINA = Path.home() / ".sina"
 
 sys.path.insert(0, str(SCRIPTS))
-from phase_desired_read_v1 import desired_cloud_drain_head, read_desired_active  # noqa: E402
+from phase_desired_read_v1 import desired_cloud_forge_run_head, read_desired_active  # noqa: E402
 from phase_observed_project_v1 import (  # noqa: E402
     already_reconciled_phase_market,
     append_event,
@@ -46,7 +46,7 @@ def _write_receipt(path: Path, row: dict) -> None:
 def ratify_phase_market(*, dry_run: bool = False) -> dict:
     """Append probe-backed ratify event without re-projecting observed surfaces (law v1.2.0)."""
     desired = read_desired_active()
-    cloud_head = desired_cloud_drain_head()
+    cloud_head = desired_cloud_forge_run_head()
     probe = probe_cycle2_to_market_preconditions()
     ff = (probe.get("probes") or {}).get("ff_cycle2") or {}
 
@@ -69,7 +69,7 @@ def ratify_phase_market(*, dry_run: bool = False) -> dict:
             "reason": "already_ratified",
             "observed_era": read_observed_era(),
             "derived_era_from_log": derive_era_from_event_log(),
-            "cloud_drain_head": cloud_head,
+            "cloud_forge_run_head": cloud_head,
             "at": _now(),
         }
 
@@ -97,7 +97,7 @@ def ratify_phase_market(*, dry_run: bool = False) -> dict:
             "probe_gate_pass": True,
             "from_era": "forge_factory_cycle2",
             "to_era": "phase_market",
-            "cloud_drain_head": cloud_head,
+            "cloud_forge_run_head": cloud_head,
             "desired_ref": desired.get("source"),
             "probe_ff_ok_count": ff.get("ok_count"),
             "probe_snapshot_at": probe.get("at"),
@@ -123,7 +123,7 @@ def ratify_phase_market(*, dry_run: bool = False) -> dict:
 
 def reconcile_cycle2_to_market(*, dry_run: bool = False, force: bool = False) -> dict:
     desired = read_desired_active()
-    cloud_head = desired_cloud_drain_head()
+    cloud_head = desired_cloud_forge_run_head()
     phase_id = str(desired.get("phase_id") or "")
 
     if not force and already_reconciled_phase_market(desired_phase_id=phase_id, cloud_head=cloud_head):
@@ -133,7 +133,7 @@ def reconcile_cycle2_to_market(*, dry_run: bool = False, force: bool = False) ->
             "noop": True,
             "reason": "already_reconciled",
             "observed_era": read_observed_era() or "phase_market",
-            "cloud_drain_head": cloud_head,
+            "cloud_forge_run_head": cloud_head,
             "desired_source": desired.get("source"),
             "at": _now(),
         }
@@ -158,7 +158,7 @@ def reconcile_cycle2_to_market(*, dry_run: bool = False, force: bool = False) ->
             "event": "forge_factory_cycle2_closed",
             "from_era": read_observed_era(),
             "to_era": "phase_market",
-            "cloud_drain_head": cloud_head,
+            "cloud_forge_run_head": cloud_head,
             "desired_active": desired,
             "probe_ok": probe.get("ok"),
             "at": _now(),
@@ -180,7 +180,7 @@ def reconcile_cycle2_to_market(*, dry_run: bool = False, force: bool = False) ->
             "event": "forge_factory_cycle2_closed",
             "from_era": "forge_factory_cycle2",
             "to_era": "phase_market",
-            "cloud_drain_head": cloud_head,
+            "cloud_forge_run_head": cloud_head,
             "desired_ref": desired.get("source"),
             "probe_ff_ok_count": (probe.get("probes") or {}).get("ff_cycle2", {}).get("ok_count"),
             "reconciler": "phase_reconciler_v1.py",
@@ -193,7 +193,7 @@ def reconcile_cycle2_to_market(*, dry_run: bool = False, force: bool = False) ->
         "event": "forge_factory_cycle2_closed",
         "from_era": "forge_factory_cycle2",
         "to_era": "phase_market",
-        "cloud_drain_head": cloud_head,
+        "cloud_forge_run_head": cloud_head,
         "desired_active": desired,
         "noop": False,
         "steps": projected.get("steps") or [],

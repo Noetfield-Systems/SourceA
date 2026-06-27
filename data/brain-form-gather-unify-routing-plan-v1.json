@@ -241,7 +241,7 @@
         "Q-FINAL-07"
       ],
       "executor_after_pick": "brain",
-      "plan": "Locks STRATEGIC-SLICE vs outbound vs FBE catalog \u00b7 U031 bay \u00b7 Mono never_sync \u00b7 vocabulary \u00b7 disk-first Brain law \u00b7 loop auto safety.",
+      "plan": "Locks STRATEGIC-SLICE vs outbound vs FBE catalog \u00b7 U031 bay \u00b7 Mono never_sync \u00b7 vocabulary \u00b7 disk-first Brain law \u00b7 Auto Runtime safety.",
       "proof": "brain_outbound_work_order_v1.py --json \u00b7 queue_ssot_unify_v1.py",
       "question_count": 6,
       "fresh_count": 6,
@@ -288,7 +288,7 @@
         },
         {
           "id": "Q-FINAL-07",
-          "title": "Loop auto ON (True) + unmapped bay dispatch \u2014 safe?",
+          "title": "Auto Runtime ON (True) + unmapped bay dispatch \u2014 safe?",
           "recommended": "C",
           "prior_pick": null,
           "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-FINAL-07 C",
@@ -392,7 +392,7 @@
       "questions": [
         {
           "id": "Q-BC-01",
-          "title": "Who executes outbound upgrades when loop auto is ON?",
+          "title": "Who executes outbound upgrades when Auto Runtime is ON?",
           "recommended": "C",
           "prior_pick": null,
           "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-01 C",
@@ -440,7 +440,7 @@
         },
         {
           "id": "Q-BC-07",
-          "title": "Loop auto dispatch without your tap each upgrade",
+          "title": "Auto Runtime dispatch without your tap each upgrade",
           "recommended": "C",
           "prior_pick": null,
           "reply_template": "ASF: FIVE-STEP \u2014 PICK: Q-BC-07 C",

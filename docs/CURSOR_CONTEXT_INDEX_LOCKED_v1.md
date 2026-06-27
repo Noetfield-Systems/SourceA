@@ -29,6 +29,10 @@
 
 | Path | Content |
 |------|---------|
+| `docs/SOURCEA_SSOT_INDEX_LOCKED_v1.md` | Layer index · L0 vs L1–L8 · governance pack read order |
+| `brain-os/ssot/SSOT_PLANE_INDEX_LOCKED_v1.md` | LLM Operating Law v3 · lineage · ORD dispatch law |
+| `brain-os/roadmap/ROADMAP_INDEX_LOCKED_v1.md` | Master Blueprint v1 · Storefront GTM v1 |
+| `docs/Source-A-Cloud-Kernel-v1.3.pdf` | Cloud kernel target (L1–L8) |
 | `docs/CURSOR_CORPORATE_BOOTSTRAP_PACK_LOCKED_v1.md` | Enterprise workspace tree |
 | `docs/SCALE_EVOLUTION_LOCKED_v1.md` | Phase 1→3 without breaking base |
 | `data/cursor-corporate-bootstrap-master-v1.json` | Cross-repo Promax setup |

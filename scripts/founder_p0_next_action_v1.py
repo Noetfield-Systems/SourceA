@@ -25,7 +25,7 @@ DRAIN_HEADLINE_PATTERNS = (
     r"worker inbox",
     r"valid yes \d+/\d+",
     r"queue \d+/\d+",
-    r"resume drain",
+    r"Cloud Forge Run",
     r"bounded resume",
     r"check · sa-",
     r"pick sa-\d{4}",

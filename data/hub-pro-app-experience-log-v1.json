@@ -1,7 +1,7 @@
 {
   "schema": "hub-pro-app-experience-log-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-22T13:58:24Z",
+  "saved_at": "2026-06-27T00:31:24Z",
   "one_law": "Agents append one entry per app change \u2014 obstacles, fixes, golden tips. Read before touching that app again.",
   "append_command": "python3 scripts/hub_pro_skills_v1.py --append --app <app_id> --agent <id> --summary \"...\" --json",
   "entries": [
@@ -72,14 +72,14 @@
       ],
       "fixes": [
         "worker_hub_v1.py: disk receipts only, 15s cache TTL",
-        "Cloud proceed in #health-card; hub_cloud_drain_proceed_v1.py",
+        "Cloud proceed in #health-card; hub_cloud_forge_run_proceed_v1.py",
         "Rebuilt Worker Hub.app with SinaStandaloneShell.prepareApp single-instance",
         "founder_ops_v1.py + API Station H1/H2 tasks"
       ],
       "golden_tips": [
         "kickstart hub after server code change: launchctl kickstart -k gui/$UID/com.sourcea.hub",
         "Cloud proceed = Hub POST only \u2014 never portfolio__forge on Mac",
-        "Read ~/.sina/hub-cloud-drain-proceed-receipt-v1.json for proof"
+        "Read ~/.sina/hub-cloud-forge-run-proceed-receipt-v1.json for proof"
       ],
       "paths": [
         "scripts/worker_hub_v1.py",
@@ -199,6 +199,62 @@
       "paths": [
         "agent-control-panel/shared/official-links-bar.js",
         "scripts/ag-routing-panel-standalone"
+      ]
+    },
+    {
+      "id": "HPL-20260626-009",
+      "at": "2026-06-26T22:23:33Z",
+      "app_id": "worker_hub",
+      "agent": "gpt-5.5",
+      "summary": "Cloud Workers backlog repair: replaced stale 30 Worker queue with batch 71 Cloud Forge Run head CLOUD-SEC-6967.",
+      "obstacles": [
+        "stale 30-item Worker queue",
+        "disk_live_wire_sync hang",
+        "Cloud Workers server not running"
+      ],
+      "fixes": [
+        "generated 100-row Cloud Forge Run batch with 100 tasks per row",
+        "cleared Worker INBOX",
+        "started :13027 cockpit",
+        "updated priority receipt"
+      ],
+      "golden_tips": [],
+      "paths": [
+        "scripts/refill_cloud_forge_run_from_backlog_v1.py",
+        "scripts/refill_healthy_queue_from_backlog_v1.py",
+        "scripts/portfolio_daily_priority_queue_v1.py",
+        "data/cloud-forge-run-queue-active-v1.json",
+        "data/secondary-cloud-forge-run-batch-71-locked-v1.json",
+        "data/cloud-workers-control-plane-v1.json"
+      ]
+    },
+    {
+      "id": "HPL-20260627-010",
+      "at": "2026-06-27T00:31:24Z",
+      "app_id": "worker_hub",
+      "agent": "gpt-5.5",
+      "summary": "Cloud Workers deploy lesson: Railway healthcheck can pass while queue stays on old batch because volume pointer overrides image pointer.",
+      "obstacles": [
+        "healthcheck false confidence",
+        "Railway volume pointer stale after batch 71 deploy",
+        "old batch 70 still served after successful image build"
+      ],
+      "fixes": [
+        "verified queue endpoint",
+        "used sync_pointer_from_image once",
+        "proved Railway and local Cloud Workers both report CLOUD-SEC-6967 batch 71"
+      ],
+      "golden_tips": [
+        "After Railway deploy, proof is /api/cloud-forge-run/queue/v1 head and batch_id, not /health.",
+        "If health passes but queue stays on old batch, call sync_pointer_from_image once; do not redeploy repeatedly.",
+        "Railway volume pointer can override baked image pointer: /app/receipts/cloud-forge-run/queue-active-pointer-v1.json.",
+        "Batch 71 proof path: ~/.sina/github-autonomous-drain-cron-fix-receipt-v1.json."
+      ],
+      "paths": [
+        "data/cloud-workers-control-plane-v1.json",
+        ".cursor/skills/hub-pro-cloud-api/SKILL.md",
+        ".cursor/rules/035-hub-cloud-proceed-v1.mdc",
+        "~/.sina/github-autonomous-drain-cron-fix-receipt-v1.json"
       ]
     }
   ]

@@ -1462,6 +1462,23 @@ def mini_apps_catalog() -> list[dict]:
             },
         },
         {
+            "id": "forge-terminal",
+            "title": "Forge Terminal",
+            "subtitle": "Executive terminal · :13029 app · :13023 mobile API",
+            "type": "standalone",
+            "accent": "amber",
+            "port": 13029,
+            "open_url": "http://127.0.0.1:13029/terminal/",
+            "hub_link": "http://127.0.0.1:13023/terminal/",
+            "desktop": "Forge Terminal.app",
+            "launch": {
+                "kind": "nohup",
+                "cwd": str(SOURCE_A),
+                "argv": ["bash", str(SOURCE_A / "scripts" / "wire-forge-terminal-os-v1.sh"), "--no-open"],
+                "log": str(Path.home() / ".sina/forge-terminal-app-launch.log"),
+            },
+        },
+        {
             "id": "n8n-integration",
             "title": "N8N Integration",
             "subtitle": "Automation spine · standalone :13026",
@@ -2030,7 +2047,7 @@ def founder_actions_flat() -> list[dict]:
             "icon": "⏹",
             "kind": "goal1_unified_autorun_stop",
             "group": "drain",
-            "hint": "FREEZE factory drain · stop receipt · spawn gate ON",
+            "hint": "FREEZE Cloud Forge Run · stop receipt · spawn gate ON",
         },
         {
             "id": "founder-start-worker-batch-5",
@@ -2205,232 +2222,20 @@ def founder_actions_flat() -> list[dict]:
 
 
 def goal1_auto_run_payload() -> dict:
-    """Hub Goal 1 auto-run tab — Brain executor + broker + INBOX SSOT."""
-    out: dict = {"ok": True, "schema": "goal1-auto-run-hub-v1"}
-    try:
-        proc = subprocess.run(
-            [sys.executable, str(SOURCE_A / "scripts" / "program-1000-honest-status-v1.py"), "--write"],
-            capture_output=True,
-            text=True,
-            timeout=20,
-            cwd=str(SOURCE_A),
-        )
-        if proc.returncode == 0 and proc.stdout.strip():
-            out["program_1000"] = json.loads(proc.stdout)
-        else:
-            out["program_1000"] = {"ok": False}
-    except Exception as exc:
-        out["program_1000"] = {"ok": False, "error": str(exc)}
-    try:
-        from worker_drain_lib import healthy_queue_status  # noqa: WPS433
-
-        out["queue"] = healthy_queue_status()
-    except Exception as exc:
-        out["queue"] = {"ok": False, "error": str(exc)}
-    try:
-        from worker_inject_lib import inbox_status  # noqa: WPS433
-
-        out["inbox"] = inbox_status()
-    except Exception as exc:
-        out["inbox"] = {"ok": False, "pending": False, "error": str(exc)}
-    try:
-        proc = subprocess.run(
-            [
-                sys.executable,
-                str(SOURCE_A / "scripts" / "healthy-drain-orchestrator-v1.py"),
-                "status",
-            ],
-            capture_output=True,
-            text=True,
-            timeout=15,
-            cwd=str(SOURCE_A),
-        )
-        out["orchestrator"] = json.loads(proc.stdout) if proc.returncode == 0 else {"ok": False}
-    except Exception as exc:
-        out["orchestrator"] = {"ok": False, "error": str(exc)}
-    try:
-        proc = subprocess.run(
-            [sys.executable, str(SOURCE_A / "scripts" / "goal1_lane_broker.py"), "brain-poll"],
-            capture_output=True,
-            text=True,
-            timeout=20,
-            cwd=str(SOURCE_A),
-        )
-        out["broker_poll"] = proc.stdout[:4000] if proc.returncode == 0 else proc.stderr[:500]
-        out["broker_ok"] = proc.returncode == 0
-    except Exception as exc:
-        out["broker_ok"] = False
-        out["broker_poll"] = str(exc)
-    def _lock_busy(path: Path) -> dict:
-        if not path.is_file():
-            return {"busy": False}
-        try:
-            row = json.loads(path.read_text(encoding="utf-8"))
-            pid = row.get("pid")
-            if pid:
-                try:
-                    os.kill(int(pid), 0)
-                    return {"busy": True, "pid": pid, "since": row.get("at")}
-                except OSError:
-                    pass
-        except (OSError, json.JSONDecodeError):
-            pass
-        return {"busy": False}
-
-    brain_lock = _lock_busy(Path.home() / ".sina" / "brain-executor-lock-v1.json")
-    batch_lock = _lock_busy(Path.home() / ".sina" / "goal1-worker-batch-lock-v1.json")
-    auto_lock = _lock_busy(Path.home() / ".sina" / "goal1-auto-run-lock-v1.json")
-    if not auto_lock.get("busy"):
-        auto_lock = _lock_busy(Path.home() / ".sina" / "goal1-auto-loop-lock-v1.json")
-    factory_lock = _lock_busy(Path.home() / ".sina" / "factory-validation-lock-v1.json")
-    auto_running = False
-    try:
-        sys.path.insert(0, str(SOURCE_A / "scripts"))
-        from goal1_auto_run_deliver_v1 import _auto_run_running  # noqa: WPS433
-
-        auto_running = _auto_run_running()
-    except Exception:
-        pass
-    auto_busy = bool(auto_running)
-    busy = (
-        brain_lock.get("busy")
-        or batch_lock.get("busy")
-        or auto_lock.get("busy")
-        or factory_lock.get("busy")
-        or auto_busy
-    )
-    out["executor"] = {
-        "busy": busy,
-        "pid": (
-            (auto_lock.get("pid") if auto_lock.get("busy") else None)
-            or batch_lock.get("pid")
-            or brain_lock.get("pid")
-            or (auto_running.get("pid") if isinstance(auto_running, dict) else None)
-        ),
-        "since": (
-            auto_lock.get("since")
-            or factory_lock.get("since")
-            or batch_lock.get("since")
-            or brain_lock.get("since")
-        ),
-        "factory_validation_lock": factory_lock.get("busy"),
-        "mode": (
-            "unified_autorun"
-            if auto_lock.get("busy") or auto_busy
-            else ("worker_batch" if batch_lock.get("busy") else ("brain_turn" if brain_lock.get("busy") else "ready"))
-        ),
+    """Purged — Mac Cursor AUTO-RUN poison removed. Cloud Auto Runtime only."""
+    return {
+        "ok": True,
+        "schema": "goal1-auto-run-hub-v1",
+        "poison_purged": True,
+        "motor": "cloud_auto_runtime_only",
+        "law": "brain-os/law/enforcement/SOURCEA_MAC_CURSOR_AUTORUN_POISON_PURGED_LOCKED_v1.md",
+        "receipt": str(Path.home() / ".sina/mac-cursor-autorun-poison-purge-receipt-v1.json"),
+        "primary_action_id": "cloud-auto-runtime",
+        "tab_hint": "Cloud Auto Runtime only — Mac Cursor AUTO-RUN purged",
+        "brief": "Automation = Cloud Forge Run + Auto Runtime. Mac observe only.",
+        "executor": {"busy": False, "mode": "cloud_observe_only"},
+        "unified_autorun": {"purged": True, "running": False},
     }
-    orch = out.get("orchestrator") or {}
-    out["brief"] = orch.get("brief") or (out.get("queue") or {}).get("brief") or "Factory drain — RUN INBOX when Brain routes"
-    try:
-        bst = json.loads((Path.home() / ".sina" / "goal1-lane-broker-v1.json").read_text(encoding="utf-8"))
-        out["broker_batch"] = bst.get("batch") or {}
-        out["broker_status"] = bst.get("status")
-    except Exception:
-        out["broker_batch"] = {}
-        out["broker_status"] = "unknown"
-    try:
-        cp = Path.home() / ".sina" / "goal1-batch-checkpoint-v1.json"
-        out["last_checkpoint"] = json.loads(cp.read_text(encoding="utf-8")) if cp.is_file() else None
-    except Exception:
-        out["last_checkpoint"] = None
-    freeze = False
-    factory_line = ""
-    try:
-        from factory_control_v1 import load_factory_now  # noqa: WPS433
-
-        fn = load_factory_now()
-        freeze = bool(fn.get("kill_flag")) or str(fn.get("mode")) == "FREEZE"
-        factory_line = str(fn.get("line") or "")
-        out["factory_state"] = {
-            "freeze": freeze,
-            "mode": fn.get("mode") or "FREEZE",
-            "line": factory_line,
-            "stop_receipt_open": bool(fn.get("stop_receipt_open")),
-            "queue_sa": fn.get("queue_sa") or "",
-        }
-    except Exception:
-        pass
-
-    try:
-        sys.path.insert(0, str(SOURCE_A / "scripts"))
-        from goal1_unified_autorun_v1 import is_active, status as unified_status  # noqa: WPS433
-
-        ua = unified_status()
-        out["unified_autorun"] = ua
-        if freeze:
-            out["primary_action_id"] = "founder-ecosystem-safety"
-            out["tab_hint"] = (
-                f"{factory_line} · tap Safety · Cursor AUTO-RUN rejected"
-                if factory_line
-                else "FREEZE — tap Safety · bounded resume on ASF order only"
-            )
-        elif is_active() or ua.get("running"):
-            out["primary_action_id"] = "founder-goal1-autorun-stop"
-            out["tab_hint"] = ua.get("message") or "Drain active — watch Batch log"
-            out["execution_surface"] = "unified_orchestrator"
-            out["worker_chat_visible"] = True
-            out["visibility_hint"] = (
-                "RUN INBOX when Brain routes — one sa per turn. "
-                "Watch status line · Batch log for detail."
-            )
-        else:
-            out["primary_action_id"] = "founder-ecosystem-safety"
-            out["tab_hint"] = "RUN INBOX when Brain routes · tap Safety · Cursor AUTO-RUN rejected"
-    except Exception:
-        out["primary_action_id"] = "founder-ecosystem-safety"
-        out["tab_hint"] = (
-            "FREEZE — tap Safety"
-            if freeze
-            else "RUN INBOX when Brain routes · tap Safety"
-        )
-    try:
-        ar = Path.home() / ".sina" / "auto-run-worker-batch-v1.json"
-        out["autorun"] = json.loads(ar.read_text(encoding="utf-8")) if ar.is_file() else {}
-    except Exception:
-        out["autorun"] = {}
-    batch_log = Path.home() / ".sina" / "goal1-worker-batch-latest.log"
-    if batch_log.is_file():
-        try:
-            out["batch_log_tail"] = batch_log.read_text(encoding="utf-8", errors="replace")[-4000:]
-        except OSError:
-            out["batch_log_tail"] = ""
-    try:
-        tp = Path.home() / ".sina" / "goal1-turn-progress-v1.json"
-        out["turn_progress"] = json.loads(tp.read_text(encoding="utf-8")) if tp.is_file() else None
-        if (
-            not out["executor"].get("busy")
-            and isinstance(out.get("turn_progress"), dict)
-            and out["turn_progress"].get("status") == "RUNNING"
-        ):
-            out["turn_progress"] = {
-                "status": "STOPPED",
-                "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-                "message": "Stale — agent was killed; autorun will respawn next batch",
-            }
-        elif (
-            not out["executor"].get("busy")
-            and isinstance(out.get("turn_progress"), dict)
-            and out["turn_progress"].get("status") == "STOPPED"
-            and out["turn_progress"].get("stop_note") in ("auto_run_prepare", "auto_loop_prepare")
-        ):
-            out["turn_progress"] = {
-                "status": "READY",
-                "at": out["turn_progress"].get("at"),
-                "message": "Ready — RUN INBOX when Brain routes",
-            }
-    except Exception:
-        out["turn_progress"] = None
-    if not out.get("execution_surface"):
-        out["execution_surface"] = "headless_agent_cli"
-    if "worker_chat_visible" not in out:
-        out["worker_chat_visible"] = False
-    if not out.get("visibility_hint"):
-        out["visibility_hint"] = (
-            "Headless agent CLI — Worker chat stays empty. Watch Batch log (AGENT START/DONE) "
-            "on this tab; auto-refresh every 25s while executor is busy."
-        )
-    return out
 
 
 def goal1_loop_payload() -> dict:
@@ -2448,7 +2253,7 @@ def founder_actions_grouped() -> list[dict]:
     """UI sections for one-click command bar."""
     groups = [
         ("emergency", "Emergency", "One tap — stop hub, auto-paste, and background inject"),
-        ("drain", "Factory drain", "RUN INBOX when Brain routes — Brain+Worker+broker PEV"),
+        ("drain", "Cloud Forge Run", "RUN INBOX when Brain routes — Brain+Worker+broker PEV"),
         ("hub", "Hub", "Refresh and restart — no typing"),
         ("daily", "Daily rhythm", "Dispatch and status"),
         ("engines", "Engines", "Background automation"),
@@ -2795,38 +2600,18 @@ def run_branch_action(action_id: str) -> dict:
             return healthy_drain_paste()
 
         if kind == "goal1_unified_autorun_start":
-            sys.path.insert(0, str(SOURCE_A / "scripts"))
-            from goal1_unified_autorun_v1 import start as unified_start  # noqa: WPS433
-
-            max_turns = int(spec.get("max_turns") or 30)
-            result = unified_start(max_turns=max_turns)
-            payload = build_payload(run_refresh_scripts=False)
-            g1 = goal1_auto_run_payload()
             return {
-                **result,
-                "message": result.get("message") or "Unified auto-run started",
-                **goal1_hub_status_bundle(g1),
-                "turn_progress": g1.get("turn_progress"),
-                "data": payload,
-                "background": True,
+                "ok": False,
+                "poison_purged": True,
+                "error": "Mac Cursor AUTO-RUN purged — use Cloud Auto Runtime only",
+                "law": "SOURCEA_MAC_CURSOR_AUTORUN_POISON_PURGED_LOCKED_v1.md",
             }
 
         if kind == "goal1_unified_autorun_stop":
-            sys.path.insert(0, str(SOURCE_A / "scripts"))
-            from goal1_unified_autorun_v1 import stop as unified_stop  # noqa: WPS433
-
-            result = unified_stop(note="hub_action")
-            payload = build_payload(run_refresh_scripts=False)
-            stop_row = result.get("stop") or {}
-            g1 = goal1_auto_run_payload()
             return {
-                **result,
-                "message": result.get("message") or "Auto-run stopped — tap RESUME to continue",
-                "paused": True,
-                "killed": stop_row.get("killed"),
-                "remaining_pids": stop_row.get("remaining_pids"),
-                **goal1_hub_status_bundle(g1),
-                "data": payload,
+                "ok": True,
+                "poison_purged": True,
+                "message": "Mac Cursor AUTO-RUN already purged — cloud motor only",
             }
 
         if kind == "worker_batch_loop":

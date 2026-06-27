@@ -364,7 +364,7 @@ def start_batch(*, batch_size: int = 5) -> dict:
 
 
 def _broker_founder_action(inbox: dict) -> str:
-    """Loop auto smart loop owns next motion — never Hub Deliver when auto ON."""
+    """Auto Runtime smart loop owns next motion — never Hub Deliver when auto ON."""
     sys.path.insert(0, str(SCRIPTS))
     try:
         from execution_path_vocabulary_v1 import execute_line, loop_auto_on  # noqa: WPS433
@@ -374,8 +374,8 @@ def _broker_founder_action(inbox: dict) -> str:
     except Exception:
         pass
     if inbox.get("pending"):
-        return "Loop auto · Worker inbox pending · specialist tick dispatch"
-    return "Loop specialist auto-tick · smart loop owns queue motion"
+        return "Auto Runtime · Worker inbox pending · specialist tick dispatch"
+    return "Auto Runtime specialist auto-tick · smart loop owns queue motion"
 
 
 def _auto_deliver_next() -> dict:

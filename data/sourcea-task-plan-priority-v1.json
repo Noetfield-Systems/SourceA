@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "saved_at": "2026-06-21T21:15:00Z",
   "locked": true,
-  "one_law": "Smart rank every task and plan row: sequential cloud drain head first · then unified P0–P4 · free-tier cost · real-world output · blockers.",
+  "one_law": "Smart rank every task and plan row: sequential Cloud Forge Run head first · then unified P0–P4 · free-tier cost · real-world output · blockers.",
   "parent_law": "data/sourcea-next-task-trigger-v1.json",
   "tier_cost_policy": "docs/SOURCEA_TIER_PRIORITY_COST_INTELLIGENCE_POLICY_LOCKED_v1.md",
   "task_plan_validation": "scripts/next_task_trigger_v1.py",
@@ -72,9 +72,9 @@
     "eval_gate": -100
   },
   "sequential_drain_law": {
-    "one_rule": "cloud_drain_head row wins tie-break over later CLOUD-SEC rows in same workstream",
+    "one_rule": "cloud_forge_run_head row wins tie-break over later CLOUD-SEC rows in same workstream",
     "head_bonus": 500,
-    "ssot_head": "~/.sina/phase-observed-v1.json:cloud_drain_head",
+    "ssot_head": "~/.sina/phase-observed-v1.json:cloud_forge_run_head",
     "forbidden": "smart_pick skipping head to later sa-mkt without founder override"
   },
   "cost_intelligence": {
@@ -92,9 +92,9 @@
   },
   "smart_rank_rules": [
     "Apply sequential_drain_law head bonus before sorting",
-    "Collect open rows from brain-cloud · cloud-drain · full-stack · outbound · ecosystem M111",
+    "Collect open rows from brain-cloud · cloud-forge-run · full-stack · outbound · ecosystem M111",
     "Classify real-world output type per row (reuse task_plan_validation classifier)",
-    "Apply cost_tier_boost from cloud drain cost_tier field",
+    "Apply cost_tier_boost from Cloud Forge Run cost_tier field",
     "Map lane + output_type → unified P0–P4",
     "Apply verdict + blocker penalties from live disk",
     "Pair brain meta rows with cloud registry plan when maps_registry exists — boost score",
@@ -111,13 +111,13 @@
       "lane": "brain"
     },
     {
-      "id": "cloud_drain",
-      "path": "data/secondary-cloud-drain-next-100-v1.json",
+      "id": "cloud_forge_run",
+      "path": "data/secondary-cloud-forge-run-next-100-v1.json",
       "item_key": "plans",
       "id_field": "id",
       "status_open": ["open", "planned"],
       "lane": "cloud_forge",
-      "head_from": "~/.sina/phase-observed-v1.json:cloud_drain_head"
+      "head_from": "~/.sina/phase-observed-v1.json:cloud_forge_run_head"
     },
     {
       "id": "full_stack_100",
