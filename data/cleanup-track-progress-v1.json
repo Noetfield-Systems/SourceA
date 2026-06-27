@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "saved_at": "2026-06-20T18:49:43Z",
+  "saved_at": "2026-06-27T06:08:09Z",
   "manifest_path": "infra/cleanup/cleanup-manifest.md",
   "inventory_path": "infra/cleanup/inventory-root.tsv",
   "status": "CLEANUP_COMPLETE",
