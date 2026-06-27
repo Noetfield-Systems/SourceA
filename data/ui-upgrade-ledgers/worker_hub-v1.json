@@ -6,7 +6,7 @@
   "root": "agent-control-panel",
   "url": "http://127.0.0.1:13020/",
   "ledger_md": "brain-os/law/enforcement/ui-upgrade-ledgers/WORKER_HUB_UI_UPGRADE_LEDGER_LOCKED_v1.md",
-  "saved_at": "2026-06-21T21:30:30Z",
+  "saved_at": "2026-06-27T11:10:48Z",
   "frozen_inventory": [
     {
       "id": "next_steps",
@@ -117,6 +117,28 @@
       "machine_proof": {
         "validate-hub-cloud-forge-run-proceed-v1.sh": "PASS"
       }
+    },
+    {
+      "upgrade_id": "UP-WH-PLAN-REGISTRY-20260627",
+      "summary": "Added Supabase plan registry card for live count, next rows, and exact plan lookup.",
+      "preserved": [
+        "Worker Hub navigation",
+        "Cloud Workers command center",
+        "Founder form card",
+        "Routing panel",
+        "Action log"
+      ],
+      "changed": [
+        "Added plan-registry-card below Cloud Workers command center",
+        "Added safe browser lookup controls bound to /api/sourcea/plan-registry/v1"
+      ],
+      "verification": [
+        "validate-sourcea-plan-registry-consumers-v1.sh",
+        "validate-sourcea-dirty-tree-lanes-v1.sh"
+      ],
+      "quality_vs_last": "better",
+      "founder_approval": "pending",
+      "saved_at": "2026-06-27T11:10:48Z"
     }
   ]
 }

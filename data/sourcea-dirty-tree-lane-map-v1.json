@@ -112,9 +112,11 @@
         "docs/*SUPABASE*",
         "docs/SOURCEA_SUPABASE_CONNECTION_BLOCKER_LOCKED_v1.md",
         "docs/SOURCEA_PLAN_REGISTRY_READ_CONTRACT_LOCKED_v1.md",
+        "docs/SOURCEA_PLAN_REGISTRY_CONSUMER_ROLLOUT_LOCKED_v1.md",
         "scripts/*supabase*",
         "scripts/sourcea_plan_registry_client_v1.py",
-        "scripts/validate-sourcea-plan-registry-read-v1.sh"
+        "scripts/validate-sourcea-plan-registry-read-v1.sh",
+        "scripts/validate-sourcea-plan-registry-consumers-v1.sh"
       ],
       "validator": "scripts/run-portfolio-supabase-daily-v1.sh",
       "notes": "Founder-owned secrets stay in ~/.sourcea-secrets. Agents never write Supabase secrets into the repo."

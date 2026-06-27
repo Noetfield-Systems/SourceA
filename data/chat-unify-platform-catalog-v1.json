@@ -1,7 +1,7 @@
 {
   "schema": "chat-unify-platform-catalog-v1",
-  "version": "1.3.0",
-  "saved_at": "2026-06-27T09:22:00Z",
+  "version": "1.4.0",
+  "saved_at": "2026-06-27T11:04:00Z",
   "product_name": "Chat Unify",
   "tagline": "Paste · verify · audit · unify — receipts logged",
   "website": "https://sourcea.app/",
@@ -43,6 +43,7 @@
     {"id": "hub_pro", "name": "Operations", "tab": "hubpro", "desc": "Skills · checklists · experience log"},
     {"id": "proof_pack", "name": "Proof Pack", "steps": 5, "tab": "proofpack", "desc": "Seal verified runs · deliver proof"},
     {"id": "vocabulary_intelligence", "name": "Vocabulary Intel", "steps": 6, "tab": "vocab", "desc": "Repo · URL · paste · file — scan founder-facing words"},
+    {"id": "plan_registry", "name": "Plan Registry", "steps": 3, "tab": "api", "desc": "Read count · next rows · exact plan lookup from Supabase"},
     {"id": "intent_approval", "name": "Intent Approval", "steps": 9, "tab": "founder", "desc": "Founder words → intent → critic → machine proof → approved output"}
   ],
   "help_links": [

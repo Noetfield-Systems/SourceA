@@ -1,7 +1,7 @@
 {
   "schema": "hub-pro-app-experience-log-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-27T00:31:24Z",
+  "saved_at": "2026-06-27T11:10:48Z",
   "one_law": "Agents append one entry per app change \u2014 obstacles, fixes, golden tips. Read before touching that app again.",
   "append_command": "python3 scripts/hub_pro_skills_v1.py --append --app <app_id> --agent <id> --summary \"...\" --json",
   "entries": [
@@ -256,6 +256,19 @@
         ".cursor/rules/035-hub-cloud-proceed-v1.mdc",
         "~/.sina/github-autonomous-drain-cron-fix-receipt-v1.json"
       ]
+    },
+    {
+      "id": "HPL-20260627-011",
+      "at": "2026-06-27T11:10:48Z",
+      "app_id": "worker_hub",
+      "agent": "gpt-5.5",
+      "summary": "Added Supabase plan registry card with count, lane-limited rows, exact lookup, and no-secret read route.",
+      "obstacles": [],
+      "fixes": [
+        "Bound Hub UI to /api/sourcea/plan-registry/v1; added Chat Unify read-only plan registry machine; deployed Cloudflare proxy."
+      ],
+      "golden_tips": [],
+      "paths": []
     }
   ]
 }
