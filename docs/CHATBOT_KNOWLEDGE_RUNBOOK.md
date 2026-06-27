@@ -23,9 +23,28 @@ Public Brain on sourcea.app uses a **manifest-driven knowledge pipeline** (v2 â€
 
 ```bash
 cd ~/Desktop/SourceA
-bash scripts/brain_chatbot_refresh_v1.sh
-# Redeploy worker (cloud CI / wrangler deploy)
+bash scripts/brain_cli_v1.sh refresh    # crawl + sync + optional eval
+bash scripts/brain_cli_v1.sh deploy     # refresh + wrangler deploy + validate
 ```
+
+Or step by step:
+
+```bash
+cd ~/Desktop/SourceA
+bash scripts/brain_chatbot_refresh_v1.sh
+cd cloud/workers/sourcea-brain-chat-v1 && wrangler deploy
+bash scripts/validate-sourcea-brain-knowledge-v1.sh
+```
+
+**CLI (works from any directory if you use full path to script):**
+
+```bash
+bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh search "What factories do you offer?"
+bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh chat "How much does Build tier cost?"
+bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh health
+```
+
+**Do not** run `python3 scripts/...` from inside `cloud/workers/sourcea-brain-chat-v1/` â€” scripts live at repo root.
 
 Skip live eval on Mac founder session:
 
