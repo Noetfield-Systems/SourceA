@@ -193,6 +193,15 @@
     .routing-settings { font-size:.78rem; color:var(--muted); padding:12px 14px; border-radius:10px; background:#f8fafc; border:1px dashed var(--line); margin-bottom:12px; }
     .routing-sina-link { display:inline-flex; align-items:center; gap:6px; font-size:.82rem; color:var(--accent); font-weight:600; text-decoration:none; margin-top:4px; }
     .routing-sina-link:hover { text-decoration:underline; }
+    .plan-registry-card { border:1px solid #bfdbfe; background:linear-gradient(165deg,#ffffff 0%,#f8fbff 55%,#f0fdf4 100%); }
+    .plan-registry-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:10px; }
+    @media (max-width:720px) { .plan-registry-grid { grid-template-columns:1fr; } }
+    .plan-registry-row { font-size:.78rem; padding:7px 0; border-bottom:1px solid var(--line); }
+    .plan-registry-row:last-child { border-bottom:0; }
+    .plan-registry-row code { color:var(--accent); }
+    .plan-registry-controls { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:10px; }
+    .plan-registry-controls input { min-width:140px; flex:1; padding:9px 10px; border:1px solid var(--line); border-radius:9px; font:inherit; font-size:.82rem; }
+    .plan-registry-result { margin-top:10px; font-family:ui-monospace,monospace; font-size:.74rem; white-space:pre-wrap; max-height:170px; overflow:auto; background:#f8fafc; border:1px solid var(--line); border-radius:8px; padding:10px; }
   </style>
 </head>
 <body>
@@ -313,6 +322,28 @@
           <div id="cw-cli"></div>
         </div>
         <pre class="cloud-deploy-cmd" id="cw-deploy-block" hidden></pre>
+      </div>
+    </section>
+
+    <section class="card plan-registry-card" id="plan-registry-card">
+      <h2>Plan registry · Supabase live</h2>
+      <p class="next" id="plan-registry-line">Loading plan registry…</p>
+      <p class="sub" id="plan-registry-contract">Reads only · anon/RLS safe · no service keys in browser responses</p>
+      <div class="plan-registry-controls">
+        <input id="plan-registry-lane" type="text" placeholder="lane filter, optional" autocomplete="off" />
+        <input id="plan-registry-id" type="text" placeholder="plan_id lookup" autocomplete="off" />
+        <button type="button" class="ghost" id="btn-plan-registry-refresh">Refresh rows</button>
+        <button type="button" class="primary" id="btn-plan-registry-lookup">Lookup plan</button>
+      </div>
+      <div class="plan-registry-grid">
+        <div class="cloud-panel">
+          <h4>Next rows</h4>
+          <div id="plan-registry-rows">—</div>
+        </div>
+        <div class="cloud-panel">
+          <h4>Lookup result</h4>
+          <pre class="plan-registry-result" id="plan-registry-result">—</pre>
+        </div>
       </div>
     </section>
 
@@ -616,6 +647,64 @@
       const res = await fetch(API + path, { cache: "no-store" });
       if (!res.ok) throw new Error("fetch failed " + res.status);
       return JSON.parse(await res.text());
+    }
+
+    function renderPlanRegistry(row, lookup) {
+      const line = $("plan-registry-line");
+      const rowsEl = $("plan-registry-rows");
+      const resultEl = $("plan-registry-result");
+      if (!row || !row.ok) {
+        line.textContent = "Plan registry unavailable — " + ((row && row.error) || "load failed");
+        rowsEl.innerHTML = '<p class="sub">No rows loaded</p>';
+        return;
+      }
+      line.textContent = "Supabase live · " + (row.total || row.count || 0) + " plans · showing " + (row.count || 0);
+      $("plan-registry-contract").textContent =
+        "Contract " + (row.contract || "sourcea-plan-registry-read-v1") +
+        " · auth=" + (row.auth_mode || "anon") +
+        " · secret_leak=" + Boolean(row.secret_leak);
+      rowsEl.innerHTML = (row.rows || []).length
+        ? (row.rows || []).map(function (r) {
+            return '<div class="plan-registry-row"><code>' + esc(r.plan_id) + "</code> · " +
+              esc(r.title || "untitled") + "<br><span class=\"sub\">" +
+              esc([r.status, r.lane, r.priority].filter(Boolean).join(" · ")) + "</span></div>";
+          }).join("")
+        : '<p class="sub">No rows match this filter</p>';
+      if (lookup) {
+        const hit = lookup.rows && lookup.rows[0] ? lookup.rows[0] : null;
+        resultEl.textContent = hit
+          ? JSON.stringify({
+              plan_id: hit.plan_id,
+              title: hit.title,
+              status: hit.status,
+              lane: hit.lane,
+              priority: hit.priority,
+              source_registry: hit.source_registry,
+            }, null, 2)
+          : JSON.stringify({ ok: lookup.ok, found: lookup.found, error: lookup.error || "not_found" }, null, 2);
+      }
+    }
+
+    async function loadPlanRegistry(opts) {
+      opts = opts || {};
+      const lane = $("plan-registry-lane") ? $("plan-registry-lane").value.trim() : "";
+      const qs = new URLSearchParams({ limit: "5", offset: "0" });
+      if (lane) qs.set("lane", lane);
+      const row = await fetchPayload("/api/sourcea/plan-registry/v1?" + qs.toString());
+      renderPlanRegistry(row, opts.lookup || null);
+      return row;
+    }
+
+    async function lookupPlanRegistry() {
+      const planId = $("plan-registry-id").value.trim();
+      if (!planId) {
+        log("Plan registry — enter a plan_id first");
+        return;
+      }
+      const res = await fetch(API + "/api/sourcea/plan-registry/v1?plan_id=" + encodeURIComponent(planId), { cache: "no-store" });
+      const lookup = await res.json();
+      await loadPlanRegistry({ lookup });
+      log("Plan registry lookup · " + planId + " · found=" + Boolean(lookup.found));
     }
 
     function renderPipeline(cp, agents) {
@@ -1444,6 +1533,9 @@
         $("load-timing").textContent = "Core " + raw.length + " bytes in " + ms + "ms · extended lazy · poll " + (pollMs / 1000) + "s";
         saveCache(d);
         renderData(d);
+        loadPlanRegistry({ silent: true }).catch(function (err) {
+          $("plan-registry-line").textContent = "Plan registry unavailable — " + err.message;
+        });
         loadExtended(d).then(function (merged) {
           if (merged !== d) {
             saveCache(merged);
@@ -1735,6 +1827,30 @@
     });
 
     $("btn-sina-refresh").addEventListener("click", function () { load({ silent: false }); });
+
+    $("btn-plan-registry-refresh").addEventListener("click", async function () {
+      $("btn-plan-registry-refresh").disabled = true;
+      log("Plan registry refresh…");
+      try {
+        const row = await loadPlanRegistry();
+        log("Plan registry OK · total=" + (row.total || row.count || 0));
+      } catch (e) {
+        log("Plan registry error: " + e.message);
+      } finally {
+        $("btn-plan-registry-refresh").disabled = false;
+      }
+    });
+
+    $("btn-plan-registry-lookup").addEventListener("click", async function () {
+      $("btn-plan-registry-lookup").disabled = true;
+      try {
+        await lookupPlanRegistry();
+      } catch (e) {
+        log("Plan lookup error: " + e.message);
+      } finally {
+        $("btn-plan-registry-lookup").disabled = false;
+      }
+    });
 
     $("btn-disclosure-tick").addEventListener("click", async function () {
       $("btn-disclosure-tick").disabled = true;
