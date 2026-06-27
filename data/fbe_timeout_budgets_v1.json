@@ -1,0 +1,20 @@
+{
+  "schema": "fbe-timeout-budgets-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-24T06:00:00Z",
+  "default_timeout_s": 300,
+  "capabilities": {
+    "web-product-factory-v1": 420,
+    "exchange-factory-v1": 360,
+    "forge-app-factory-v1": 600,
+    "comprehension-loop-factory-v1": 180,
+    "forge-drain": 900,
+    "hub_cloud_forge_run_proceed": 900,
+    "fbe_run_job_default": 300
+  },
+  "on_timeout": {
+    "status": "timeout",
+    "write_receipt": true,
+    "receipt_schema": "fbe-execution-timeout-receipt-v1"
+  }
+}

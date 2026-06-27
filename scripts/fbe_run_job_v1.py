@@ -90,7 +90,14 @@ def run_job(
     tenant: str = "",
     work_order_id: str = "",
     forge_context: dict | None = None,
+    idempotency_key: str = "",
 ) -> dict:
+    from fbe.lib.execution_contract_v1 import (  # noqa: WPS433
+        build_contract,
+        check_idempotency,
+        record_idempotency,
+    )
+
     cfg = _resolve_factory(template_id=template_id, bay_slug=bay_slug, tenant=tenant)
     bay_slug = cfg["bay_slug"]
     tenant = cfg["tenant"]
@@ -98,6 +105,33 @@ def run_job(
     wave = cfg.get("wave", "W3")
     factory_id = cfg.get("factory_id", "factory_1")
     woid = work_order_id or f"wo-{bay_slug}-{wave.lower()}"
+
+    contract = build_contract(
+        factory_id=template_id,
+        tenant_id=tenant or cfg.get("tenant", "wil_ai_design_partner"),
+        bay_slug=bay_slug,
+        work_order_id=woid,
+        idempotency_key=idempotency_key,
+    )
+    idem = check_idempotency(str(contract.get("idempotency_key") or ""))
+    if idem.get("duplicate"):
+        return {
+            "schema": "fbe-run-job-receipt-v1",
+            "ok": True,
+            "skipped": True,
+            "idempotent_replay": True,
+            "at": _now(),
+            "idempotency_key": contract.get("idempotency_key"),
+            "prior_job_id": idem.get("prior_job_id"),
+            "prior_receipt_path": idem.get("prior_receipt_path"),
+            "work_order_id": woid,
+            "template_id": template_id,
+        }
+    record_idempotency(
+        idempotency_key=str(contract.get("idempotency_key") or ""),
+        job_id=str(contract.get("job_id") or ""),
+        status="running",
+    )
 
     motor = ensure_motor(wave=wave, bay_slug=bay_slug, factory_id=factory_id)
 
@@ -186,6 +220,9 @@ def run_job(
         "schema": "fbe-run-job-receipt-v1",
         "ok": False,
         "at": _now(),
+        "job_id": contract.get("job_id"),
+        "idempotency_key": contract.get("idempotency_key"),
+        "timeout_s": contract.get("timeout_s"),
         "wave": wave,
         "factory_id": factory_id,
         "bay_slug": bay_slug,
@@ -249,6 +286,12 @@ def run_job(
     SINA.mkdir(parents=True, exist_ok=True)
     RECEIPT_PATH.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
     record_run_job(job_receipt=row)
+    record_idempotency(
+        idempotency_key=str(contract.get("idempotency_key") or ""),
+        job_id=str(contract.get("job_id") or ""),
+        status="success" if row.get("ok") else "failed",
+        receipt_path=str(RECEIPT_PATH),
+    )
 
     if row.get("ok"):
         if template_id == "exchange-factory-v1":
@@ -267,6 +310,7 @@ def main() -> int:
     ap.add_argument("--template", default="web-product-factory-v1")
     ap.add_argument("--tenant", default="")
     ap.add_argument("--work-order-id", default="")
+    ap.add_argument("--idempotency-key", default="")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
     default_bay = "sample-bay"
@@ -279,6 +323,7 @@ def main() -> int:
         template_id=args.template,
         tenant=args.tenant,
         work_order_id=args.work_order_id,
+        idempotency_key=args.idempotency_key,
     )
     if args.json:
         print(json.dumps(row, indent=2))
