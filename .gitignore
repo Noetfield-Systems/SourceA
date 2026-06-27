@@ -53,6 +53,8 @@ receipts/e2e-reports/
 receipts/outreach/
 receipts/valid-yes-progress-verdict-lock-*.json
 receipts/**/*.jsonl
+receipts/*-receipt-v1.json
+receipts/*.png
 
 # Hub runtime projections — rebuilt by disk_live_wire_sync (do not commit drift)
 agent-control-panel/command-data-runtime.json
