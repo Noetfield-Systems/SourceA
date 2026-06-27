@@ -57,6 +57,9 @@
 | D21 | Wait for incidents | Self-heal every session |
 | D22 | "I keep reminding you" | **This card is law** |
 | D23 | Auto hospital/maze on session start | **Session start = session gate only** · orientation/hospital/maze **ONLY** on founder one word |
+| D24 | E2E without reading last report | Before any E2E: read `~/.sina/sourcea-e2e-last-report-v1.json` via `sourcea_e2e_run_v1.py --read-last` |
+| D25 | E2E without writing report | After any E2E: `--write-report` or ingest — logs in `~/.sina/e2e-logs/` not `/tmp` only |
+| D26 | No weekly E2E cadence | Sunday ship window: `sourcea_e2e_run_v1.py --cadence weekly --write-report` or cloud CI dispatch |
 
 Full JSON rows: `~/.sina/agent-executor-daily-duty-card-v1.json`
 

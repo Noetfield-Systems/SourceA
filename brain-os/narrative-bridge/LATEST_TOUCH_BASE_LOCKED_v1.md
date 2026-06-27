@@ -59,7 +59,7 @@ RT: `python3 scripts/ecosystem_master_catalog_v1.py --json` → `mega_chat_ancho
 
 ## HUMAN GATES (ASF)
 
-- INCIDENT-022 sign-off · INCIDENT-015-CONDUCT 41–45 · Phase 7 cadence `ASF: resume drain — max 1`
+- INCIDENT-022 sign-off · INCIDENT-015-CONDUCT 41–45 · Phase 7 cadence `ASF: Cloud Forge Run — max 1`
 
 ---
 

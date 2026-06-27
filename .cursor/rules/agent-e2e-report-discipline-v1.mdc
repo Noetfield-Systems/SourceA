@@ -1,0 +1,46 @@
+---
+description: E2E read-before / write-after report discipline for all agents
+globs:
+  - scripts/validate-*
+  - scripts/*e2e*
+  - brain-os/**
+  - .cursor/skills/hub-pro-*
+alwaysApply: false
+---
+
+# E2E report discipline (read-before · write-after)
+
+**Law:** `brain-os/law/enforcement/SOURCEA_E2E_WEEKLY_CHECKLIST_LOCKED_v1.md`  
+**Registry:** `data/sourcea-e2e-check-registry-v1.json`  
+**Runner:** `scripts/sourcea_e2e_run_v1.py`  
+**Last report:** `~/.sina/sourcea-e2e-last-report-v1.json`
+
+## Before any E2E
+
+```bash
+python3 scripts/sourcea_e2e_run_v1.py --read-last --json
+```
+
+Read `blockers[]`, `stale_checks`, `summary` — do not re-run fresh PASS unless founder says `--force`.
+
+## Run one bundle (not validator chains)
+
+```bash
+python3 scripts/sourcea_e2e_run_v1.py --bundle <id> --write-report --json
+python3 scripts/sourcea_e2e_run_v1.py --cadence weekly --write-report --json
+```
+
+## After E2E
+
+Report must land in `~/.sina/sourcea-e2e-last-report-v1.json` + `~/.sina/e2e-logs/` — **not `/tmp` only**.
+
+## Mac founder session (INCIDENT-039)
+
+- **Allowed:** T0_probe · T1_fast (`mac_daily_smoke` bundle)
+- **Forbidden:** T2+ without ship window — route to cloud CI
+
+## Forbidden
+
+- Chained `validate-* && validate-*` to prove chat answers
+- Full E2E in Brain chat (`BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md`)
+- Re-run when last report shows fresh PASS

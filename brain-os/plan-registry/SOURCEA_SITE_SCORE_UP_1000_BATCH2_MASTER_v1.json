@@ -1,0 +1,20 @@
+{
+  "schema": "sourcea-site-score-up-1000-batch2-master-v1",
+  "version": "1.0.0",
+  "generated_at": "2026-06-25T09:28:52Z",
+  "generator": "scripts/generate_sourcea_site_score_up_1000_plans_batch2_v1.py",
+  "law_doc": "docs/SOURCEA_SITE_SCORE_UP_1000_BATCH2_LOCKED_v1.md",
+  "analysis_doc": "docs/SOURCEA_SITE_SCORE_ANALYSIS_v2_LOCKED_v1.md",
+  "plan_count": 1000,
+  "batch": 2,
+  "baseline_score": 78,
+  "target_score": 93,
+  "dedup_verified_against_batch1": true,
+  "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/sourcea-site-score-up-1000-batch2",
+  "phase_law": {
+    "NOW": "ranks 1\u201360 \u2014 proof crypto \u00b7 conversion \u00b7 enterprise \u00b7 first-win",
+    "NEXT": "ranks 61\u2013220",
+    "LATER": "ranks 221\u2013550",
+    "MOONSHOT": "ranks 551\u20131000"
+  }
+}

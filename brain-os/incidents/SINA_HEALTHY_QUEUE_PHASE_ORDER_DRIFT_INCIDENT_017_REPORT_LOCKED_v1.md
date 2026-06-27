@@ -20,6 +20,6 @@ Automation was **lazy**: it picked the next 10 easy SAs (`pick_floor` forward), 
 
 1. Approve pack reorg draft  
 2. Audit conduct receipts  
-3. `resume drain PHASE_STRICT s7-P1` only after yes
+3. `Cloud Forge Run PHASE_STRICT s7-P1` only after yes
 
 **Status:** OPEN

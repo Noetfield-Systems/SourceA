@@ -79,7 +79,8 @@ SASCIP → cross-lane guard → founder verbs → role separation → session ga
 | Verb | Disk |
 |------|------|
 | `WORK:` + INBOX / sa-* | Bounded build |
-| `SAVE TO:` + path | One new doc (docs/ also needs `EDIT ALLOWED:` for guard) |
+| `SAVE TO:` + path | One new doc at named path |
+| Pathless `SAVE` / `SAVE AND LOCK` / `LOCK` / `FILE` | Run filing registry; use resolved `route_id` + `path` + `next_steps[]`; ask category only if unresolved |
 | `EDIT ALLOWED:` + path + `ACTION:` | Cross-lane LOCKED edits only |
 | `orientation` / `hospital` / `maze` | One word → pipeline router |
 

@@ -34,7 +34,7 @@ Morning brief: `./scripts/sina-morning-brief.sh`
 **Cursor AUTO-RUN / Hub ▶ START WORKER BATCH = STALE.** Execution = **RUN INBOX** in Worker chat when Brain routes and kill flag allows.
 
 1. Open **Cursor** → workspace `~/Desktop/SourceA` → **SourceA Worker** chat
-2. Founder says **RUN INBOX** (or bounded `ASF: resume drain — max 1`)
+2. Founder says **RUN INBOX** (or bounded `ASF: Cloud Forge Run — max 1`)
 3. Executor runs one CHECK/ACT/VERIFY turn · broker-submit · STOP
 
 **Law:** `ACTIVE_NOW.md` · `brain-os/law/enforcement/MANDATORY_SOURCEA_WORKER_CHAT_LOCKED_v1.md` · INCIDENT-028/031

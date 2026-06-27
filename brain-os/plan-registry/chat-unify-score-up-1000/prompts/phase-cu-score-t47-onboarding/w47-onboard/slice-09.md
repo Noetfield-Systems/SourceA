@@ -1,0 +1,10 @@
+# cu-score-0669 — Onboard onboarding ends on first successful paste receipt
+
+**Surface:** Chat Unify `http://127.0.0.1:13023/` + DMG
+**Worker:** Pre-LLM Mac RAW AI · Cursor observes only
+
+## Task
+
+P3 — bench
+
+**Deliverable:** Onboard onboarding ends on first successful paste receipt

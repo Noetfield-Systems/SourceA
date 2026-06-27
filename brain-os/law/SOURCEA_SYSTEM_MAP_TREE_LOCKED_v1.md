@@ -99,7 +99,7 @@ LAW PLANE (disk SSOT for rules)
 │   ├── ACTIVE_NOW.md + brain-os/laws/ACTIVE_NOW_HEARTBEAT_LOCKED_v1.md
 │   └── brain-os/system/FOUNDER_DAILY_OPERATING_MODEL_LOCKED_v1.md
 │
-├── S10 audit lane (third lane — NOT factory drain)
+├── S10 audit lane (third lane — NOT Cloud Forge Run)
 │   ├── SOURCEA_S10_ETERNAL_SELF_HEAL_AUDIT_LOCKED_v1.md
 │   ├── agent-skills/shared/s10-eternal-self-heal/SKILL.md
 │   └── scripts/s10_eternal_audit_loop_v1.py
@@ -233,7 +233,7 @@ CODE ENFORCEMENT (not prose)
 | **Factory** | `run-inbox-disk-truth` | RUN INBOX when Brain routes · Valid YES only | Cursor AUTO-RUN as P0 |
 | **Conduct** | `factory-now` | `factory_control_v1.py` · STOP words → stop first | Plan todo > ASF STOP (INCIDENT-015) |
 | **Commercial** | `agentic-commercial` | `@sina-agentic-commercial` | Founder email/call |
-| **S10 audit** | `s10-eternal` | `s10_eternal_audit_loop_v1.py` | Replace factory drain |
+| **S10 audit** | `s10-eternal` | `s10_eternal_audit_loop_v1.py` | Replace Cloud Forge Run |
 | **Portfolio** | per-repo | `brain-os/lanes/MANDATORY_*` | Mix in Worker handoff |
 
 ---

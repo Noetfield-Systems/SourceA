@@ -113,6 +113,24 @@
 | `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/worker-dual-40/REGISTRY.json` · `AUTO-TRACE-WORKER-W1-REGISTRY-v1.2` |
 | `/Users/sinakazemnezhad/Desktop/SourceA/.sina-loop/WORKER-1-PASTE-QUEUE.md` · `AUTO-TRACE-WORKER-W1-QUEUE-v1.2` |
 
+## ssot/ (governance operating law — June 2026 pack)
+
+| Canonical path |
+|----------------|
+| `/Users/sinakazemnezhad/Desktop/SourceA/data/sourcea-governance-ssot-registry-v1.json` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/law/enforcement/SOURCEA_GOVERNANCE_SSOT_AUTHORITY_AND_STALE_LOCKED_v1.md` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/ssot/SSOT_PLANE_INDEX_LOCKED_v1.md` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/ssot/SOURCEA_LLM_AGENT_OPERATING_LAW_SSOT_v3.md` (**ACTIVE**) |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/ssot/superseded/README_LOCKED_v1.md` |
+
+## roadmap/ (execution + private GTM)
+
+| Canonical path |
+|----------------|
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/roadmap/ROADMAP_INDEX_LOCKED_v1.md` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/roadmap/SOURCEA_MASTER_BLUEPRINT_v1.md` |
+| `/Users/sinakazemnezhad/Desktop/SourceA/brain-os/roadmap/SOURCEA_STOREFRONT_GTM_v1.md` |
+
 ## scripts/ (executors — stay under SourceA/scripts/)
 
 | Script |

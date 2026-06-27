@@ -206,7 +206,7 @@ After stall (pack 39), STOP, and conduct events, the system **did not**:
 
 ### P3 — Resume
 
-- [ ] ASF: `resume drain PHASE_STRICT s7-P1` only after P1 audit yes
+- [ ] ASF: `Cloud Forge Run PHASE_STRICT s7-P1` only after P1 audit yes
 
 ---
 

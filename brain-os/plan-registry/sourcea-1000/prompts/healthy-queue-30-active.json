@@ -1,0 +1,24 @@
+{
+  "schema": "healthy-queue-30-active.v1",
+  "product": "Cloud Workers owns all-plan backlog packs",
+  "thread": "CLOUD-FORGE-RUN",
+  "repo": "sourcea",
+  "count": 0,
+  "generated_at": "2026-06-26T22:22:33Z",
+  "phase_strict": false,
+  "phase_strict_complete": true,
+  "queue_exhausted": true,
+  "execution_plane": "cloud_workers_app_and_cloudflare_cron",
+  "cloud_forge_run": {
+    "head": "CLOUD-SEC-6967",
+    "batch_id": 71,
+    "queue_path": "data/secondary-cloud-forge-run-batch-71-locked-v1.json",
+    "rows_per_turn": 100,
+    "tasks_per_row": 100,
+    "task_capacity_this_turn": 10000,
+    "backlog_total": 23485
+  },
+  "stop_reason": "worker_inbox_not_execution_queue_for_cloud_forge_run",
+  "sa_range": [],
+  "queue": []
+}

@@ -8,14 +8,21 @@ alwaysApply: true
 **Law:** `brain-os/law/enforcement/AGENT_VERBS_SAVE_WORK_EDIT_LOCKED_v1.md`  
 **On conflict:** [skill-007-ecosystem-conflict-resolution](../skills/skill-007-ecosystem-conflict-resolution/SKILL.md) · [ecosystem-rule-conflict-resolution.mdc](ecosystem-rule-conflict-resolution.mdc) · R-010
 
-## SAVE (research / reports)
+## SAVE / LOCK / FILE (registry-first)
 
-**One physical file in docs — stable reference. Nothing else.**
+**ASF never needs to provide exact save paths when registry routing can resolve the destination.**
 
-- Named path only → write once → **STOP**
-- No SSOT · AGENTS · roadmap · registry · sync · “helpful wiring”
+- First resolve path from `data/agent-filing-registry-v1.json`
+- Machine gate:
 
-No path named → **ASK** which file. No path → no write.
+```bash
+python3 scripts/agent_filing_registry_gate_v1.py resolve --agent <id> --intent "<founder message>" --json
+```
+
+- If `ok:true` → use resolved `path`, then run pre-write / cross-lane guard before writing.
+- If `ok:false REGISTRY_NO_MATCH` or `REGISTRY_AMBIGUOUS` → ask ASF to choose category/scope, **not exact path**.
+- Report proof as: `route_id` + resolved path.
+- Do not create ad hoc paths outside the registry.
 
 ## WORK (SourceA Worker / Product build)
 
