@@ -27,7 +27,34 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
+# Build / deps / logs (keep TS + Git fast)
+node_modules/
+**/.next/
+build/
+*.log
+.cursor/*
+!/.cursor/rules/
+!/.cursor/skills/
+.cursor/debug-*.log
+.cursor/_hub_probe.html
+.cursor/handoff_state.md
+apps/**/node_modules/
+
 # dist is COMMITTED for Vercel static deploy (regenerate via build_sourcea_vercel_output_v1.py before push)
 
 # Cleanup scan output may list paths — ok to commit report without keys
 # infra/cleanup/secret-scan-report.txt
+
+# Runtime receipts — cloud/Mac session churn (canonical truth in ~/.sina + cloud volume)
+receipts/bays/
+receipts/cloud-dispatch/
+receipts/cloud-forge-run/
+receipts/e2e-reports/
+receipts/outreach/
+receipts/valid-yes-progress-verdict-lock-*.json
+receipts/**/*.jsonl
+
+# Hub runtime projections — rebuilt by disk_live_wire_sync (do not commit drift)
+agent-control-panel/command-data-runtime.json
+agent-control-panel/command-data-shell.json
+agent-control-panel/command-data-canonical.json
