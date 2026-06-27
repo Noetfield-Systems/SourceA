@@ -1,0 +1,21 @@
+{
+  "schema": "brain-public-data-allowlist-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-27T07:00:00Z",
+  "paths": [
+    "data/sourcea-products-catalog-v1.json",
+    "data/sourcea-landing-cta-v1.json",
+    "data/sourcea-mvp-intake-schema-v1.json",
+    "data/sourcea-dual-plane-v1.json",
+    "data/sourcea_orient_routing_v1.json",
+    "data/sourcea-landing-client-voice-v1.json",
+    "data/sourcea-forge-vocabulary-disambiguation-v1.json"
+  ],
+  "forbidden_prefixes": [
+    "data/sourcea-stripe",
+    "data/sourcea-governance",
+    "data/mac-",
+    "data/cursor-",
+    "data/agent-"
+  ]
+}

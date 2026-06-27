@@ -1,6 +1,6 @@
 ---
 lane: core
-updated: 2026-06-27T06:08:27Z
+updated: 2026-06-27T08:46:57Z
 source_path: docs/SOURCEA_UI_STANDARD_RUBRIC_LOCKED_v1.md
 public: true
 ---
