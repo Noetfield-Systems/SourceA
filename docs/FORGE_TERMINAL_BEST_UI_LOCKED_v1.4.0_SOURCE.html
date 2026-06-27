@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Forge Terminal Best UI — Locked v1.4.0</title>
+<style>
+body { font-family: -apple-system, Helvetica, Arial, sans-serif; line-height: 1.5; max-width: 720px; margin: 2rem auto; color: #111; }
+h1 { font-size: 22pt; border-bottom: 2px solid #3ecf8e; padding-bottom: 8px; }
+h2 { font-size: 14pt; color: #0d5c3a; margin-top: 1.5rem; }
+h3 { font-size: 12pt; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border: 1px solid #ccc; padding: 8px; text-align: left; font-size: 10pt; }
+th { background: #f0f0f0; }
+code { background: #f4f4f4; padding: 2px 4px; font-size: 10pt; }
+.meta { color: #555; font-size: 10pt; }
+img { max-width: 100%; border: 1px solid #ddd; margin: 1rem 0; }
+.lock { background: #e8faf0; border: 1px solid #3ecf8e; padding: 12px; border-radius: 8px; }
+</style>
+</head>
+<body>
+
+<h1>Forge Terminal — Best UI (Locked Reference)</h1>
+<p class="meta"><strong>Version:</strong> 1.4.0 · <strong>Locked:</strong> 2026-06-25 · <strong>Status:</strong> FOUNDER PIN — do not drift without explicit unlock</p>
+
+<div class="lock">
+<p><strong>This document pins the ONLY approved public Forge Terminal UI.</strong> URL: <code>https://sourcea.app/sourcea/forge/terminal</code> — public demo + Brain sidebar. Not the sign-in flow. Not the Mac desktop IDE shell.</p>
+</div>
+
+<h2>1. Reference screenshot</h2>
+<p>Captured 2026-06-25 — founder-approved “best” layout: living chat (left/center) + Brain execution guide (right) + Tools/Feedback floats.</p>
+<img src="FORGE_TERMINAL_BEST_UI_v1.4.0_REFERENCE_SCREENSHOT.png" alt="Forge Terminal best UI screenshot" width="680" />
+
+<h2>2. Canonical URL &amp; version pins</h2>
+<table>
+<tr><th>Item</th><th>Value</th></tr>
+<tr><td>Live URL</td><td>https://sourcea.app/sourcea/forge/terminal</td></tr>
+<tr><td>Demo version meta</td><td>sourcea-forge-demo-version = 1.4.0</td></tr>
+<tr><td>CSS cache bust</td><td>sourcea-forge-terminal-demo.css?v=1.4.0</td></tr>
+<tr><td>JS cache bust</td><td>sourcea-forge-terminal-demo.js?v=1.4.0</td></tr>
+<tr><td>Brain widget</td><td>sourcea-chatbot.js (◎ Brain panel, right)</td></tr>
+</table>
+
+<h2>3. Disk source files (do not delete)</h2>
+<ul>
+<li>SourceA-landing/green-unified/forge/terminal.html</li>
+<li>SourceA-landing/green-unified/sourcea-forge-terminal-demo.css</li>
+<li>SourceA-landing/green-unified/sourcea-forge-terminal-demo.js</li>
+<li>SourceA-landing/green-unified/sourcea-chatbot.js</li>
+</ul>
+
+<h2>4. Layout architecture</h2>
+<h3>Header (pill bar)</h3>
+<ul>
+<li>SourceA logo + badge “Forge Terminal · demo”</li>
+<li>Actions: About Forge · Talk to a human (cal.com)</li>
+<li>Dark bar, no overlap with content</li>
+</ul>
+
+<h3>Left sidebar — “What this is”</h3>
+<ul>
+<li>Prompt forge · founder language · Mac IDE upsell</li>
+<li>Try asking chips: Client QBR audit · Content engine · Pricing sense-check</li>
+<li>Link: Sign in for workspace → /sourcea/forge/terminal/signin</li>
+</ul>
+
+<h3>Center — Living chat</h3>
+<ul>
+<li>Toolbar: Living chat · model select · live status</li>
+<li>Thread: founder-language sections (BOTTOM LINE, BLOCKERS OR RISKS, SUGGESTED NEXT STEP, WHAT THIS MEANS…)</li>
+<li>Assistant bubbles: white text #ffffff on #1a2230, section headers #5ef0a8</li>
+<li>User bubbles: green tint rgba(62,207,142,0.14)</li>
+<li>Composer: multi-line textarea (rows 4), green Send → button</li>
+<li>No sign-in on demo — chat open immediately</li>
+</ul>
+
+<h3>Right — Brain chatbot</h3>
+<ul>
+<li>Floating ◎ Brain panel — “AI execution platform powered by Forge”</li>
+<li>Quick chips: What is SourceA? · See live receipt · Try Forge Terminal</li>
+<li>Separate from living chat — site-wide guide layer</li>
+</ul>
+
+<h3>Bottom floats</h3>
+<ul>
+<li>Tools (lightning) · Feedback (chat bubble)</li>
+</ul>
+
+<h2>5. Design tokens (v1.4.0)</h2>
+<table>
+<tr><th>Token</th><th>Value</th><th>Use</th></tr>
+<tr><td>--ft-bg</td><td>#0c0e12</td><td>Page background</td></tr>
+<tr><td>--ft-surface</td><td>#141820</td><td>Sidebar, toolbar, composer</td></tr>
+<tr><td>--ft-border</td><td>#252a35</td><td>Dividers</td></tr>
+<tr><td>--ft-text</td><td>#e8eaef</td><td>Body copy</td></tr>
+<tr><td>--ft-muted</td><td>#8b93a7</td><td>Hints, labels</td></tr>
+<tr><td>--ft-accent</td><td>#3ecf8e</td><td>CTAs, badges, send</td></tr>
+<tr><td>Section headers</td><td>#5ef0a8</td><td>Founder section titles in replies</td></tr>
+<tr><td>Assistant text</td><td>#ffffff !important</td><td>Readable on dark — never grey</td></tr>
+</table>
+
+<h2>6. Typography &amp; feel</h2>
+<ul>
+<li>Font: Inter (body), JetBrains Mono (code paths)</li>
+<li>Rounded corners on bubbles, chips, composer (8–10px)</li>
+<li>Duolingo-modern: soft dark cards, neon green accents, generous padding</li>
+<li>Grid: 280px sidebar + 1fr main at ≥960px</li>
+</ul>
+
+<h2>7. What this version is NOT</h2>
+<ul>
+<li>NOT /sourcea/forge/terminal/signin (auth onboarding)</li>
+<li>NOT Mac Forge Terminal.app IDE (port 13029)</li>
+<li>NOT workspace signed-in shell</li>
+<li>Do NOT add email/password fields to this demo page</li>
+</ul>
+
+<h2>8. Restore procedure</h2>
+<ol>
+<li>Checkout disk files listed in §3 at version 1.4.0</li>
+<li>Deploy: python3 scripts/build_sourcea_vercel_output_v1.py → Cloudflare Pages sourcea-com</li>
+<li>Verify: bash scripts/validate-forge-terminal-public-demo-e2e-v1.sh</li>
+<li>Hard refresh browser Cmd+Shift+R</li>
+</ol>
+
+<h2>9. Founder lock statement</h2>
+<p><em>“This is the BEST UI — this version only.”</em> — pinned 2026-06-25. Any redesign must fork a new version doc; this v1.4.0 reference stays frozen.</p>
+
+</body>
+</html>

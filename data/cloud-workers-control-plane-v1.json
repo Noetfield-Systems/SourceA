@@ -1,7 +1,7 @@
 {
   "schema": "cloud-workers-control-plane-v1",
   "version": "1.4.0",
-  "saved_at": "2026-06-26T22:22:33Z",
+  "saved_at": "2026-06-27T00:31:18Z",
   "one_law": "Cloud Workers (:13027) is the founder cockpit for Railway + CF cron. Cloud Forge Run full-pack only \u2014 100 rows per trigger every 10 min; all-plan backlog rows carry 100 tasks per row.",
   "ssot_paths": {
     "drain_queue_active": "data/cloud-forge-run-queue-active-v1.json",
@@ -44,7 +44,8 @@
     "pipe_live": "Mac\u2192Railway HTTP works",
     "stale_image": "Railway missing modules \u2014 founder runs deploy",
     "motor_failed": "FORGE motor failed on cloud \u2014 skip/self-heal in pack",
-    "batch_complete": "queue_batch_complete true \u2014 swap_to_next_batch in pack loop"
+    "batch_complete": "queue_batch_complete true \u2014 swap_to_next_batch in pack loop",
+    "stale_volume_pointer": "Deploy image is current but Railway queue endpoint still serves old batch from persistent volume pointer; run sync_pointer_from_image."
   },
   "active_batch": {
     "batch_id": 71,
@@ -59,5 +60,14 @@
     "tasks_per_row": 100,
     "queue_path": "data/secondary-cloud-forge-run-batch-71-locked-v1.json"
   },
-  "ready_batch": null
+  "ready_batch": null,
+  "deployment_lessons": {
+    "last_updated_at": "2026-06-27T00:31:18Z",
+    "queue_proof_not_health": "Railway /health only proves service is alive; Cloud Forge Run proof is /api/cloud-forge-run/queue/v1 head + batch_id.",
+    "volume_pointer_lag": "Railway volume pointer /app/receipts/cloud-forge-run/queue-active-pointer-v1.json may override the baked image pointer after deploy.",
+    "repair_action": "POST /api/cloud-forge-run/queue/v1 {\"action\":\"sync_pointer_from_image\",\"reason\":\"post_deploy_queue_pointer_repair\"}",
+    "when_to_use": "Use once when deploy build and healthcheck pass but queue still reports the old batch/head.",
+    "do_not": "Do not redeploy repeatedly or call the cloud motor on Mac when only the volume pointer is stale.",
+    "proof_receipt": "~/.sina/github-autonomous-drain-cron-fix-receipt-v1.json"
+  }
 }

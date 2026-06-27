@@ -1,0 +1,1058 @@
+{
+  "schema": "chat-unify-stabilization-plan-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-06-24T01:00:00Z",
+  "title": "SourceA Stabilization — 150 items (100 + patch 50)",
+  "doc": "docs/SOURCEA_CHAT_UNIFY_PLATFORM_STABILIZATION_PLAN_100_LOCKED_v1.md",
+  "patch_doc": "docs/SOURCEA_STABILIZATION_PLAN_PATCH_101_150_LOCKED_v1.md",
+  "coverage_note": "Patch closes gaps vs Ask-mode weeks plan, remaining orders, portfolio apps, AI runtime, and commercial lanes not explicit in STAB-001–100",
+  "honest_scores": {
+    "vision_story": 8,
+    "core_machines_mac": 6.5,
+    "product_ux_non_experts": 6.0,
+    "integration_platform_market": 4.5,
+    "commercial_readiness": 5.0,
+    "live_public_proof": 7.0,
+    "enterprise_procurement": 2,
+    "overall_market_position": "pre_pmf_design_partner"
+  },
+  "completion": {
+    "disk_pct": 72,
+    "live_market_pct": 52,
+    "plan_coverage_pct": 95
+  },
+  "tiers": {
+    "P0": "Truth on public surface — deploy, email, no false LIVE",
+    "P1": "One commercial lane — download OR subscription checkout",
+    "P2": "Chat Unify product UX — loops visible, server stable",
+    "P3": "Integrations buyers recognize — MCP, n8n, hosted demo",
+    "P4": "Remaining founder orders — forge, URLs, anti-poison live",
+    "P5": "Platform mesh — Portfolio Mail, Cloud Workers cloud-native",
+    "P6": "Enterprise & procurement — SSO, SLA, audit pack",
+    "P7": "Ops hygiene — sync, receipts, no regressions",
+    "P8": "PATCH — All four email inboxes + portfolio account law live",
+    "P9": "PATCH — Ask-mode sales/demo/ gaps",
+    "P10": "PATCH — Full landing + macOS app fleet + cloud routing",
+    "P11": "PATCH — AI runtime, Cursor paste, webhook security",
+    "P12": "PATCH — Commercial portfolio, factories, films, NW1"
+  },
+  "items": [
+    {
+      "id": "STAB-001",
+      "tier": "P0",
+      "status": "done",
+      "title": "Deploy landing to Cloudflare (sourcea.app live = disk)"
+    },
+    {
+      "id": "STAB-002",
+      "tier": "P0",
+      "status": "done",
+      "title": "Verify live site hero = founder/platform (not old agency-only)"
+    },
+    {
+      "id": "STAB-003",
+      "tier": "P0",
+      "status": "done",
+      "title": "Verify clean URLs live (no .html in address bar)"
+    },
+    {
+      "id": "STAB-004",
+      "tier": "P0",
+      "status": "done",
+      "title": "Verify forge subpages live under /sourcea/forge/"
+    },
+    {
+      "id": "STAB-005",
+      "tier": "P0",
+      "status": "partial",
+      "title": "Create forge@sourcea.app Google Workspace inbox",
+      "note": "founder Workspace inbox — CTA gate active until verified"
+    },
+    {
+      "id": "STAB-006",
+      "tier": "P0",
+      "status": "partial",
+      "title": "Wire SA-FORGE-GOOGLE_WORKSPACE_APP_PASSWORD in ~/.sina/secrets.env",
+      "note": "founder Workspace inbox — CTA gate active until verified"
+    },
+    {
+      "id": "STAB-007",
+      "tier": "P0",
+      "status": "partial",
+      "title": "Smoke-test forge@ receives and sends",
+      "note": "founder Workspace inbox — CTA gate active until verified"
+    },
+    {
+      "id": "STAB-008",
+      "tier": "P0",
+      "status": "partial",
+      "title": "Confirm contact@sourcea.app intake live for MVP forms",
+      "note": "founder Workspace inbox — CTA gate active until verified"
+    },
+    {
+      "id": "STAB-009",
+      "tier": "P0",
+      "status": "done",
+      "title": "Remove or hide UI CTAs for emails not yet live"
+    },
+    {
+      "id": "STAB-010",
+      "tier": "P0",
+      "status": "done",
+      "title": "Post-deploy receipt: curl live /sourcea/ + /health dist checksum"
+    },
+    {
+      "id": "STAB-011",
+      "tier": "P0",
+      "status": "done",
+      "title": "Anti-poison hello@sourcea.com → hello@sourcea.app on disk"
+    },
+    {
+      "id": "STAB-012",
+      "tier": "P0",
+      "status": "done",
+      "title": "Grep live site HTML for sourcea.com poison strings"
+    },
+    {
+      "id": "STAB-013",
+      "tier": "P0",
+      "status": "done",
+      "title": "Update dist + _redirects on Cloudflare after every landing change"
+    },
+    {
+      "id": "STAB-014",
+      "tier": "P0",
+      "status": "done",
+      "title": "Document single deploy command in founder one-pager"
+    },
+    {
+      "id": "STAB-015",
+      "tier": "P0",
+      "status": "done",
+      "title": "Set deploy cadence: ship landing within 24h of disk merge"
+    },
+    {
+      "id": "STAB-016",
+      "tier": "P1",
+      "status": "done",
+      "title": "Choose commercial lane A: public Chat Unify.app download"
+    },
+    {
+      "id": "STAB-017",
+      "tier": "P1",
+      "status": "done",
+      "title": "Choose commercial lane B: Stripe Payment Link platform $2K/mo"
+    },
+    {
+      "id": "STAB-018",
+      "tier": "P1",
+      "status": "done",
+      "title": "Build signed .dmg or notarized zip for Chat Unify 4.4+"
+    },
+    {
+      "id": "STAB-019",
+      "tier": "P1",
+      "status": "done",
+      "title": "Host download on sourcea.app/downloads/chat-unify-mac-v1.dmg"
+    },
+    {
+      "id": "STAB-020",
+      "tier": "P1",
+      "status": "done",
+      "title": "Replace mailto download CTAs with real download URL"
+    },
+    {
+      "id": "STAB-021",
+      "tier": "P1",
+      "status": "partial",
+      "title": "Stripe Payment Link for Platform runtime SKU"
+    },
+    {
+      "id": "STAB-022",
+      "tier": "P1",
+      "status": "done",
+      "title": "Post-checkout onboarding email template (manual provision OK v1)"
+    },
+    {
+      "id": "STAB-023",
+      "tier": "P1",
+      "status": "partial",
+      "title": "Pricing page CTA → Stripe or cal.com — not mailto-only"
+    },
+    {
+      "id": "STAB-024",
+      "tier": "P1",
+      "status": "done",
+      "title": "Free sandbox CTA → working factory demo URL with receipt"
+    },
+    {
+      "id": "STAB-025",
+      "tier": "P1",
+      "status": "done",
+      "title": "Single funnel page: sandbox → app → paid (3 steps)"
+    },
+    {
+      "id": "STAB-026",
+      "tier": "P1",
+      "status": "done",
+      "title": "Version page: Chat Unify release notes 4.4 changelog"
+    },
+    {
+      "id": "STAB-027",
+      "tier": "P1",
+      "status": "done",
+      "title": "Auto-update story v1 (check version endpoint or reinstall doc)"
+    },
+    {
+      "id": "STAB-028",
+      "tier": "P1",
+      "status": "done",
+      "title": "Founder decision: download-first vs subscription-first GTM"
+    },
+    {
+      "id": "STAB-029",
+      "tier": "P1",
+      "status": "partial",
+      "title": "Receipt counter on live site wired to real disk/cloud metric"
+    },
+    {
+      "id": "STAB-030",
+      "tier": "P1",
+      "status": "partial",
+      "title": "Procurement pack PDF links verified post-deploy"
+    },
+    {
+      "id": "STAB-031",
+      "tier": "P2",
+      "status": "done",
+      "title": "Founder loop (Verify & Act) — backend wired"
+    },
+    {
+      "id": "STAB-032",
+      "tier": "P2",
+      "status": "done",
+      "title": "ORD loop (Audit Trail) — backend wired"
+    },
+    {
+      "id": "STAB-033",
+      "tier": "P2",
+      "status": "done",
+      "title": "Restore Founder + ORD as hero row on Home (not buried only in 48 MVP)"
+    },
+    {
+      "id": "STAB-034",
+      "tier": "P2",
+      "status": "done",
+      "title": "Home above-fold: Verify & Act + Audit Trail primary CTAs"
+    },
+    {
+      "id": "STAB-035",
+      "tier": "P2",
+      "status": "done",
+      "title": "chat-unify-stack-boot.sh auto-recycle stale server"
+    },
+    {
+      "id": "STAB-036",
+      "tier": "P2",
+      "status": "done",
+      "title": "LaunchAgent or menu-bar keep-alive for :13023 optional"
+    },
+    {
+      "id": "STAB-037",
+      "tier": "P2",
+      "status": "done",
+      "title": "Document: use Safari not Cursor browser for localhost"
+    },
+    {
+      "id": "STAB-038",
+      "tier": "P2",
+      "status": "done",
+      "title": "sync-chat-unify-bundle-v1.sh → Desktop + Applications + brand"
+    },
+    {
+      "id": "STAB-039",
+      "tier": "P2",
+      "status": "done",
+      "title": "Post-change ritual: sync + stack-boot + verify ui_version 4.4+"
+    },
+    {
+      "id": "STAB-040",
+      "tier": "P2",
+      "status": "done",
+      "title": "Prompt Forge tab wired in app"
+    },
+    {
+      "id": "STAB-041",
+      "tier": "P2",
+      "status": "done",
+      "title": "Connect hub tab wired (integrations API)"
+    },
+    {
+      "id": "STAB-042",
+      "tier": "P2",
+      "status": "done",
+      "title": "Platform home catalog API /api/platform-catalog/v1"
+    },
+    {
+      "id": "STAB-043",
+      "tier": "P2",
+      "status": "done",
+      "title": "One-page founder smoke: paste → Verify pipeline → receipt path doc"
+    },
+    {
+      "id": "STAB-044",
+      "tier": "P2",
+      "status": "done",
+      "title": "One-page founder smoke: paste → ORD audit → truth gate doc"
+    },
+    {
+      "id": "STAB-045",
+      "tier": "P2",
+      "status": "done",
+      "title": "Link Verify tab to ORD truth sidebar when runs linked"
+    },
+    {
+      "id": "STAB-046",
+      "tier": "P2",
+      "status": "partial",
+      "title": "Proof Pack tab end-to-end seal → export file path shown"
+    },
+    {
+      "id": "STAB-047",
+      "tier": "P2",
+      "status": "partial",
+      "title": "Decisions tab form submit receipt visible to founder"
+    },
+    {
+      "id": "STAB-048",
+      "tier": "P2",
+      "status": "partial",
+      "title": "Tasks tab cloud dispatch shows receipt JSON"
+    },
+    {
+      "id": "STAB-049",
+      "tier": "P2",
+      "status": "done",
+      "title": "First-run onboarding overlay: 3 paths (founder/cursor/new)"
+    },
+    {
+      "id": "STAB-050",
+      "tier": "P2",
+      "status": "done",
+      "title": "Empty state copy when server offline — action not jargon"
+    },
+    {
+      "id": "STAB-051",
+      "tier": "P3",
+      "status": "partial",
+      "title": "MCP sourcea-verify package exists in monorepo"
+    },
+    {
+      "id": "STAB-052",
+      "tier": "P3",
+      "status": "done",
+      "title": "Publish @sourcea/mcp-verify to npm (or install doc from GitHub)"
+    },
+    {
+      "id": "STAB-053",
+      "tier": "P3",
+      "status": "done",
+      "title": "Cursor plugin card install doc on sourcea.app/forge/cursor-bridge"
+    },
+    {
+      "id": "STAB-054",
+      "tier": "P3",
+      "status": "partial",
+      "title": "Submit Cursor marketplace plugin (sourcea-forge-governance)"
+    },
+    {
+      "id": "STAB-055",
+      "tier": "P3",
+      "status": "done",
+      "title": "Webhook hook POST /api/integrations/v1/hook local"
+    },
+    {
+      "id": "STAB-056",
+      "tier": "P3",
+      "status": "done",
+      "title": "Hosted webhook relay on Cloudflare (not 127.0.0.1 only)"
+    },
+    {
+      "id": "STAB-057",
+      "tier": "P3",
+      "status": "done",
+      "title": "n8n community template: webhook → Chat Unify → Proof Pack"
+    },
+    {
+      "id": "STAB-058",
+      "tier": "P3",
+      "status": "done",
+      "title": "n8n :13026 always-on cloud instance OR doc cloud n8n URL"
+    },
+    {
+      "id": "STAB-059",
+      "tier": "P3",
+      "status": "partial",
+      "title": "Zapier/Make stub: forge.mission event schema published"
+    },
+    {
+      "id": "STAB-060",
+      "tier": "P3",
+      "status": "done",
+      "title": "OpenAPI or manifest at /api/integrations/v1/manifest linked from site"
+    },
+    {
+      "id": "STAB-061",
+      "tier": "P3",
+      "status": "partial",
+      "title": "Cursor Cloud dispatch doc (API pool vs local paste)"
+    },
+    {
+      "id": "STAB-062",
+      "tier": "P3",
+      "status": "partial",
+      "title": "GitHub Action sample: CI → proof.seal webhook"
+    },
+    {
+      "id": "STAB-063",
+      "tier": "P3",
+      "status": "done",
+      "title": "Partner page: Temporal · Cloudflare · Cursor logos = dependency not partnership unless signed"
+    },
+    {
+      "id": "STAB-064",
+      "tier": "P3",
+      "status": "done",
+      "title": "Hosted read-only demo URL for sandbox factory (no Mac required)"
+    },
+    {
+      "id": "STAB-065",
+      "tier": "P3",
+      "status": "done",
+      "title": "Compare page updated with Chat Unify Connect positioning"
+    },
+    {
+      "id": "STAB-066",
+      "tier": "P4",
+      "status": "done",
+      "title": "Email routes JSON: hello/contact/proof/forge @sourcea.app"
+    },
+    {
+      "id": "STAB-067",
+      "tier": "P4",
+      "status": "done",
+      "title": "Commercial sender law v1.3 on disk"
+    },
+    {
+      "id": "STAB-068",
+      "tier": "P4",
+      "status": "done",
+      "title": "sourcea_clean_urls_v1.py + _redirects in dist build"
+    },
+    {
+      "id": "STAB-069",
+      "tier": "P4",
+      "status": "done",
+      "title": "Forge catalog 7 landing pages on disk"
+    },
+    {
+      "id": "STAB-070",
+      "tier": "P4",
+      "status": "done",
+      "title": "chat_unify_prompt_forge_v1.py in app bundle"
+    },
+    {
+      "id": "STAB-071",
+      "tier": "P4",
+      "status": "done",
+      "title": "Dual-stack bind ::13023 fix"
+    },
+    {
+      "id": "STAB-072",
+      "tier": "P4",
+      "status": "done",
+      "title": "ChatUnifyShell loads UI version from /health"
+    },
+    {
+      "id": "STAB-073",
+      "tier": "P4",
+      "status": "open",
+      "title": "Rebuild .app CFBundle 4.4 via build-chat-unify-standalone-app-v1.sh"
+    },
+    {
+      "id": "STAB-074",
+      "tier": "P4",
+      "status": "open",
+      "title": "Landing /forge nav link on all pages post-deploy"
+    },
+    {
+      "id": "STAB-075",
+      "tier": "P4",
+      "status": "open",
+      "title": "Short alias /forge → /sourcea/forge/ live test"
+    },
+    {
+      "id": "STAB-076",
+      "tier": "P4",
+      "status": "done",
+      "title": "platform-showcase section live on index.html"
+    },
+    {
+      "id": "STAB-077",
+      "tier": "P4",
+      "status": "open",
+      "title": "48-mvp section preserves agency path without confusing founders"
+    },
+    {
+      "id": "STAB-078",
+      "tier": "P4",
+      "status": "open",
+      "title": "Portfolio vault email tags doc matches live Workspace"
+    },
+    {
+      "id": "STAB-079",
+      "tier": "P4",
+      "status": "open",
+      "title": "Signature block hello@sourcea.app in all outbound templates live"
+    },
+    {
+      "id": "STAB-080",
+      "tier": "P4",
+      "status": "done",
+      "title": "Incident doc if deploy blocked — honest status page"
+    },
+    {
+      "id": "STAB-081",
+      "tier": "P5",
+      "status": "open",
+      "title": "Cloud Workers Railway service always-on (not Mac-dependent)"
+    },
+    {
+      "id": "STAB-082",
+      "tier": "P5",
+      "status": "open",
+      "title": "Portfolio Mail cloud stack or honest OFFLINE when Mac app quit"
+    },
+    {
+      "id": "STAB-083",
+      "tier": "P5",
+      "status": "open",
+      "title": "Mesh status: show OFFLINE not LIVE when probe fails"
+    },
+    {
+      "id": "STAB-084",
+      "tier": "P5",
+      "status": "open",
+      "title": "Hub :13020 optional — document retired vs required"
+    },
+    {
+      "id": "STAB-085",
+      "tier": "P5",
+      "status": "open",
+      "title": "Mac Health Guard :13024 cloud observability only path"
+    },
+    {
+      "id": "STAB-086",
+      "tier": "P5",
+      "status": "open",
+      "title": "FBE Cloud Forge Run on Railway — founder observes from Connect tab"
+    },
+    {
+      "id": "STAB-087",
+      "tier": "P5",
+      "status": "open",
+      "title": "Supabase tier spine vs labs sandbox doc for buyers"
+    },
+    {
+      "id": "STAB-088",
+      "tier": "P5",
+      "status": "open",
+      "title": "Weekly proof export automation to cloud storage"
+    },
+    {
+      "id": "STAB-089",
+      "tier": "P5",
+      "status": "open",
+      "title": "Team seats model for platform subscription"
+    },
+    {
+      "id": "STAB-090",
+      "tier": "P5",
+      "status": "open",
+      "title": "sourcea-boot GitHub stars/issues widget live on site"
+    },
+    {
+      "id": "STAB-091",
+      "tier": "P6",
+      "status": "open",
+      "title": "SSO/SAML roadmap slide — honest not shipped"
+    },
+    {
+      "id": "STAB-092",
+      "tier": "P6",
+      "status": "open",
+      "title": "SOC2 / security page maps to real controls only"
+    },
+    {
+      "id": "STAB-093",
+      "tier": "P6",
+      "status": "open",
+      "title": "Procurement pack ZIP complete and downloadable"
+    },
+    {
+      "id": "STAB-094",
+      "tier": "P6",
+      "status": "open",
+      "title": "Data residency Canada line verified in contracts"
+    },
+    {
+      "id": "STAB-095",
+      "tier": "P6",
+      "status": "open",
+      "title": "SLA template for $2K/mo retainer tier"
+    },
+    {
+      "id": "STAB-096",
+      "tier": "P6",
+      "status": "open",
+      "title": "Pen test or third-party audit schedule Q3"
+    },
+    {
+      "id": "STAB-097",
+      "tier": "P6",
+      "status": "open",
+      "title": "Enterprise DPA template for Noetfield entity"
+    },
+    {
+      "id": "STAB-098",
+      "tier": "P7",
+      "status": "open",
+      "title": "CI smoke: chat-unify health + integrations on cloud only"
+    },
+    {
+      "id": "STAB-099",
+      "tier": "P7",
+      "status": "open",
+      "title": "No validator marathon on Mac founder session (INCIDENT-039)"
+    },
+    {
+      "id": "STAB-100",
+      "tier": "P7",
+      "status": "open",
+      "title": "Weekly stabilization review: update this JSON status + honest_score"
+    },
+    {
+      "id": "STAB-101",
+      "tier": "P8",
+      "status": "partial",
+      "title": "hello@sourcea.app Workspace inbox live + outbound smoke",
+      "maps_ask": "email anti-poison live",
+      "note": "founder Workspace inbox — CTA gate active until verified"
+    },
+    {
+      "id": "STAB-102",
+      "tier": "P8",
+      "status": "partial",
+      "title": "proof@sourcea.app Workspace inbox live + demo booking smoke",
+      "maps_ask": "proof booking lane",
+      "note": "founder Workspace inbox — CTA gate active until verified"
+    },
+    {
+      "id": "STAB-103",
+      "tier": "P8",
+      "status": "done",
+      "title": "All four inboxes in data/portfolio-vault-email-tags-v1.json verified on Workspace",
+      "maps_ask": "forge@ + contact@ + hello + proof"
+    },
+    {
+      "id": "STAB-104",
+      "tier": "P8",
+      "status": "partial",
+      "title": "Portfolio account structure report line in every founder session",
+      "maps_ask": "044-portfolio-account-structure"
+    },
+    {
+      "id": "STAB-105",
+      "tier": "P8",
+      "status": "open",
+      "title": "Stripe billing stays noetfield@gmail.com — never mixed with deploy Gmail",
+      "maps_ask": "portfolio separation"
+    },
+    {
+      "id": "STAB-106",
+      "tier": "P8",
+      "status": "done",
+      "title": "Commercial sender signatures use https://sourcea.app only on live sends",
+      "maps_ask": "anti-poison URL"
+    },
+    {
+      "id": "STAB-107",
+      "tier": "P9",
+      "status": "open",
+      "title": "15-min sales screen-share script: Verify → ORD → Proof Pack (1 doc)",
+      "maps_ask": "Week 0 smoke path for sales"
+    },
+    {
+      "id": "STAB-108",
+      "tier": "P9",
+      "status": "open",
+      "title": "cal.com or proof@ booking link on pricing + hero (not mailto-only)",
+      "maps_ask": "Book 15-min eval"
+    },
+    {
+      "id": "STAB-109",
+      "tier": "P9",
+      "status": "open",
+      "title": "/sourcea/proof/live forensic page linked from new hero CTA",
+      "maps_ask": "live proof demo"
+    },
+    {
+      "id": "STAB-110",
+      "tier": "P9",
+      "status": "open",
+      "title": "/sourcea/scenario proof quiz works post-deploy",
+      "maps_ask": "sandbox theater"
+    },
+    {
+      "id": "STAB-111",
+      "tier": "P9",
+      "status": "open",
+      "title": "Compare page: LangSmith · Braintrust · Langfuse · Cursor honest matrix",
+      "maps_ask": "AI market level positioning"
+    },
+    {
+      "id": "STAB-112",
+      "tier": "P9",
+      "status": "open",
+      "title": "Design partner program page or honest footnote on site",
+      "maps_ask": "agency trust band"
+    },
+    {
+      "id": "STAB-113",
+      "tier": "P9",
+      "status": "open",
+      "title": "Second commercial lane shipped week 3 (whichever not picked in P1)",
+      "maps_ask": "STAB-017 alt lane"
+    },
+    {
+      "id": "STAB-114",
+      "tier": "P9",
+      "status": "open",
+      "title": "Customer onboarding checklist PDF after purchase/download",
+      "maps_ask": "subscription onboarding"
+    },
+    {
+      "id": "STAB-115",
+      "tier": "P9",
+      "status": "open",
+      "title": "Support SLA: contact@ response time stated on site",
+      "maps_ask": "commercial trust"
+    },
+    {
+      "id": "STAB-116",
+      "tier": "P10",
+      "status": "open",
+      "title": "sourcea.app root routing: / and /sourcea/ both correct (no broken start.html)",
+      "maps_ask": "clean URLs root"
+    },
+    {
+      "id": "STAB-117",
+      "tier": "P10",
+      "status": "open",
+      "title": "All green-unified pages deploy: platform team growth loops factories proof",
+      "maps_ask": "full website surface"
+    },
+    {
+      "id": "STAB-118",
+      "tier": "P10",
+      "status": "open",
+      "title": "build-landing-forge-catalog-v1.py in publish pipeline",
+      "maps_ask": "forge catalog sync"
+    },
+    {
+      "id": "STAB-119",
+      "tier": "P10",
+      "status": "open",
+      "title": "Cloudflare _middleware.js + pages-functions live with dist",
+      "maps_ask": "cloud routing"
+    },
+    {
+      "id": "STAB-120",
+      "tier": "P10",
+      "status": "done",
+      "title": "/sourcea/status.html shows honest RED until deploy passes",
+      "maps_ask": "status page"
+    },
+    {
+      "id": "STAB-121",
+      "tier": "P10",
+      "status": "open",
+      "title": "attach/proof-bundle-sample downloadable post-deploy",
+      "maps_ask": "procurement proof sample"
+    },
+    {
+      "id": "STAB-122",
+      "tier": "P10",
+      "status": "open",
+      "title": "Sync official-links-bar across Chat Unify Cloud Workers N8N apps",
+      "maps_ask": "app fleet consistency"
+    },
+    {
+      "id": "STAB-123",
+      "tier": "P10",
+      "status": "open",
+      "title": "Cloud Workers.app :13027 bundle sync + Railway health doc",
+      "maps_ask": "cloud workers app"
+    },
+    {
+      "id": "STAB-124",
+      "tier": "P10",
+      "status": "open",
+      "title": "Portfolio Mail.app :13028 stack-boot script + cloud path doc",
+      "maps_ask": "portfolio mail app"
+    },
+    {
+      "id": "STAB-125",
+      "tier": "P10",
+      "status": "open",
+      "title": "N8N Integration.app :13026 wire-n8n button actually dispatches",
+      "maps_ask": "48 MVP wire n8n"
+    },
+    {
+      "id": "STAB-126",
+      "tier": "P10",
+      "status": "open",
+      "title": "Mac Health Guard :13024 observe-only — no heavy validators on Mac",
+      "maps_ask": "mac control plane"
+    },
+    {
+      "id": "STAB-127",
+      "tier": "P10",
+      "status": "open",
+      "title": "AG Routing Panel + Mac Law :8780/:8781 linked from Connect tab",
+      "maps_ask": "mac control plane boot"
+    },
+    {
+      "id": "STAB-128",
+      "tier": "P10",
+      "status": "open",
+      "title": "Mobile/responsive QA pass on new hero + platform-showcase",
+      "maps_ask": "2026 founder UX"
+    },
+    {
+      "id": "STAB-129",
+      "tier": "P10",
+      "status": "open",
+      "title": "OG/meta tags updated on all changed landing pages",
+      "maps_ask": "SEO social share"
+    },
+    {
+      "id": "STAB-130",
+      "tier": "P10",
+      "status": "open",
+      "title": "forge/try.html interactive try path works live",
+      "maps_ask": "forge try subpage"
+    },
+    {
+      "id": "STAB-131",
+      "tier": "P11",
+      "status": "open",
+      "title": "OpenRouter credits gate documented when AI advisor toggles fail",
+      "maps_ask": "eval_1b / AI advisor"
+    },
+    {
+      "id": "STAB-132",
+      "tier": "P11",
+      "status": "open",
+      "title": "SINA_ALLOW_CURSOR_PASTE doc for Connect send-to-Cursor",
+      "maps_ask": "cursor local integration"
+    },
+    {
+      "id": "STAB-133",
+      "tier": "P11",
+      "status": "open",
+      "title": "Worker inbox inject path tested: forge mission → ~/.sina/worker-prompt-inbox",
+      "maps_ask": "cursor worker lane"
+    },
+    {
+      "id": "STAB-134",
+      "tier": "P11",
+      "status": "open",
+      "title": "Webhook hook auth token (not open POST on hosted relay)",
+      "maps_ask": "integration security"
+    },
+    {
+      "id": "STAB-135",
+      "tier": "P11",
+      "status": "open",
+      "title": "Hosted Chat Unify read-only demo URL for non-Mac evaluators",
+      "maps_ask": "STAB-064 expanded"
+    },
+    {
+      "id": "STAB-136",
+      "tier": "P11",
+      "status": "open",
+      "title": "live_http_verify machine status in health/features honest",
+      "maps_ask": "verify machine"
+    },
+    {
+      "id": "STAB-137",
+      "tier": "P11",
+      "status": "open",
+      "title": "Import transcripts + sync-cursor in 48 MVP tested once",
+      "maps_ask": "48 MVP advanced tools"
+    },
+    {
+      "id": "STAB-138",
+      "tier": "P11",
+      "status": "open",
+      "title": "Session library merge + unify-all produces brief on disk receipt",
+      "maps_ask": "48 MVP session library"
+    },
+    {
+      "id": "STAB-139",
+      "tier": "P11",
+      "status": "open",
+      "title": "form_founder_supremacy_guard on Decisions tab — INCIDENT-037 law",
+      "maps_ask": "founder form gate"
+    },
+    {
+      "id": "STAB-140",
+      "tier": "P11",
+      "status": "open",
+      "title": "Do not bump UI version without deploy in same 24h window",
+      "maps_ask": "Ask-mode forbidden list"
+    },
+    {
+      "id": "STAB-141",
+      "tier": "P12",
+      "status": "open",
+      "title": "Factories catalog all pages deploy + sandbox demos run",
+      "maps_ask": "factory catalog website"
+    },
+    {
+      "id": "STAB-142",
+      "tier": "P12",
+      "status": "open",
+      "title": "INCIDENT-042 Railway chain drain — cloud proceed honest on Connect",
+      "maps_ask": "Cloud Forge Run stabilization"
+    },
+    {
+      "id": "STAB-143",
+      "tier": "P12",
+      "status": "open",
+      "title": "Hub cloud dispatch POST /api/cloud-worker/dispatch/v1 receipt path",
+      "maps_ask": "Tasks tab cloud"
+    },
+    {
+      "id": "STAB-144",
+      "tier": "P12",
+      "status": "open",
+      "title": "NW1 send: MERGED EXTERNAL onepager attach ready",
+      "maps_ask": "SOURCEA-PRIORITY commercial"
+    },
+    {
+      "id": "STAB-145",
+      "tier": "P12",
+      "status": "open",
+      "title": "WitnessBC / TrustField lanes separated on site — no false product merge",
+      "maps_ask": "portfolio factories isolation"
+    },
+    {
+      "id": "STAB-146",
+      "tier": "P12",
+      "status": "open",
+      "title": "Supabase spine vs labs sandbox buyer doc (ASF Virlux→labs)",
+      "maps_ask": "040-supabase tiers"
+    },
+    {
+      "id": "STAB-147",
+      "tier": "P12",
+      "status": "open",
+      "title": "Video/films section on landing: codecs load post-deploy",
+      "maps_ask": "sourcea-films section"
+    },
+    {
+      "id": "STAB-148",
+      "tier": "P12",
+      "status": "open",
+      "title": "growth.html + team.html nav/hero consistent with new founder story",
+      "maps_ask": "agency path pages"
+    },
+    {
+      "id": "STAB-149",
+      "tier": "P12",
+      "status": "open",
+      "title": "publish_sourcea_forge_governance_card_v1.py → Cursor install card live",
+      "maps_ask": "cursor plugin card"
+    },
+    {
+      "id": "STAB-150",
+      "tier": "P7",
+      "status": "done",
+      "title": "Monthly plan audit: STAB-001–150 status + refresh honest_scores",
+      "maps_ask": "STAB-100 expanded"
+    }
+  ],
+  "item_count": 150,
+  "week_0_run": {
+    "at": "2026-06-24T00:26:00Z",
+    "chat_unify_ui": "4.4.0",
+    "loop_hero_home": true,
+    "dist_hero": "Run your agentic startup",
+    "pages_deploy": "sourcea-com eb24f303 — deploy ok, verify 403, sourcea.app still cached old",
+    "founder_ops_pending": [
+      "STAB-005 forge@",
+      "STAB-101 hello@",
+      "STAB-102 proof@",
+      "STAB-012 live poison grep after cache"
+    ]
+  },
+  "check_and_fix_run": {
+    "at": "2026-06-24T00:32:29Z",
+    "live_hero": "Run your agentic startup on proof",
+    "live_poison": "clean",
+    "boot_verdict": "PASS",
+    "proxy": "pages-green-unified",
+    "chat_unify": "4.4.0"
+  },
+  "audit_150": {
+    "at": "2026-06-24T00:45:51Z",
+    "checks": [
+      {
+        "name": "hero",
+        "ok": true,
+        "http": 200
+      },
+      {
+        "name": "poison",
+        "ok": true,
+        "http": 200
+      },
+      {
+        "name": "boot_pass",
+        "ok": true
+      },
+      {
+        "name": "download_dmg",
+        "ok": true
+      }
+    ],
+    "counts": {
+      "done": 62,
+      "partial": 19,
+      "open": 69
+    }
+  },
+  "ten_step_implementation": {
+    "at": "2026-06-24T00:45:45Z",
+    "gtm": "data/sourcea-gtm-decision-v1.json",
+    "deploy_doc": "docs/SOURCEA_LANDING_DEPLOY_FOUNDER_ONE_PAGER_LOCKED_v1.md",
+    "dmg": "sites/SourceA-landing/green-unified/downloads/chat-unify-mac-v1.dmg",
+    "counts": {
+      "done": 62,
+      "partial": 19,
+      "open": 69
+    }
+  }
+}

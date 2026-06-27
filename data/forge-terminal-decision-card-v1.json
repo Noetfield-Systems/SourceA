@@ -1,0 +1,22 @@
+{
+  "schema": "forge-terminal-decision-card-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-24T21:00:00Z",
+  "required_fields": ["goal", "risk", "cost_usd", "decision", "summary"],
+  "decision_values": ["pending", "approved", "rejected", "revise"],
+  "risk_values": ["low", "medium", "high"],
+  "example": {
+    "schema": "forge-terminal-decision-card-v1",
+    "run_id": "ft-abc123",
+    "goal": "WitnessBC MVP scope",
+    "files": 8,
+    "file_hints": ["apps/witnessbc/"],
+    "risk": "low",
+    "cost_usd": 0.08,
+    "cost_note": "OpenRouter flash · ~2k tokens",
+    "decision": "pending",
+    "summary": "Bounded MVP plan with receipt-native advisory scope.",
+    "cursor_prompt": "WORK: …",
+    "founder_input": "Design an MVP for WitnessBC"
+  }
+}

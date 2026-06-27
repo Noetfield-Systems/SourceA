@@ -1,12 +1,12 @@
 {
-  "schema": "secondary-cloud-drain-next-100-v1",
+  "schema": "secondary-cloud-forge-run-next-100-v1",
   "version": "1.0.0",
   "saved_at": "2026-06-20T20:45:00Z",
   "authority": "INCIDENT-038 v1.1",
   "one_law": "Plans 1-10 = Mac control only (read receipts · optional dispatch POST). Plans 11-100 = cloud/API secondary drain. Mac NEVER executes sa-mkt bodies or bash validate-*.",
   "forbidden": ["Worker on Mac runs every plan", "RUN INBOX per sa-mkt on Mac", "sa-mkt as Mac implement queue"],
   "incident_ref": "brain-os/incidents/SINA_AGENT_WORKER_FACTORY_PLANE_CONFLATION_INCIDENT_038_LOCKED_v1.md",
-  "generator": "scripts/generate_secondary_cloud_drain_next_100_v1.py",
+  "generator": "scripts/generate_secondary_cloud_forge_run_next_100_v1.py",
   "count": 110,
   "summary": {"mac_control": 10, "cloud_forge": 100, "maps_registry": "sa-mkt-0001 through sa-mkt-0090 + sa-mkt-ld-0001 through ld-0010"},
   "plans": [

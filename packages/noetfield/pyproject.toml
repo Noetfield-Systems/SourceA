@@ -9,7 +9,7 @@ description = "Noetfield governance SDK — check, execute, audit, sign factory 
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [{ name = "Noetfield", email = "hello@sourcea.com" }]
+authors = [{ name = "Noetfield", email = "operations@noetfield.com" }]
 keywords = ["governance", "agents", "factory", "noetfield", "fbe"]
 classifiers = [
   "Development Status :: 4 - Beta",

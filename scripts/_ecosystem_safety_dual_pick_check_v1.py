@@ -74,7 +74,7 @@ def _phase_market_observed(truth: dict) -> dict | None:
         return None
     if not (obs.get("queue_exhausted") or (truth.get("queue") or {}).get("queue_exhausted")):
         return None
-    head = str(obs.get("cloud_drain_head") or "CLOUD-SEC-001")
+    head = str(obs.get("cloud_forge_run_head") or "CLOUD-SEC-001")
     return {
         "ok": True,
         "dual_pick_ok": True,
@@ -82,7 +82,7 @@ def _phase_market_observed(truth: dict) -> dict | None:
         "phase_market": True,
         "live_pick_sa": head,
         "queue_sa": "",
-        "reason": "phase_market_cloud_drain_observed",
+        "reason": "phase_market_cloud_forge_run_observed",
     }
 
 

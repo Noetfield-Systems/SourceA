@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Plus Jakarta Sans";
+        src: url("capture/assets/fonts/LDIbaomQNQcsA88c7O9yZ4KMCoOg4IA6-91aHEjcWuA_KUnNSg.ttf")
+          format("truetype");
+        font-weight: 800;
+      }
+      @font-face {
+        font-family: "JetBrains Mono";
+        src: url("capture/assets/fonts/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8-qxjPQ.ttf")
+          format("truetype");
+        font-weight: 500;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #sting-root {
+        position: relative;
+        width: 1080px;
+        height: 1080px;
+        overflow: hidden;
+        background: #032e2c;
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+      .glow {
+        position: absolute;
+        inset: -20%;
+        background: radial-gradient(circle at 50% 45%, rgba(105, 212, 25, 0.28), transparent 55%);
+      }
+      .ring {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 640px;
+        height: 640px;
+        margin: -320px 0 0 -320px;
+        border: 3px dashed rgba(154, 231, 97, 0.25);
+        border-radius: 50%;
+      }
+      .center {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        padding: 80px;
+      }
+      .logo {
+        font-size: 120px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        color: #fdfefb;
+      }
+      .logo span {
+        color: #69d419;
+      }
+      .tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #9ae761;
+      }
+      .pill {
+        padding: 20px 36px;
+        border-radius: 999px;
+        background: #69d419;
+        color: #032e2c;
+        font-size: 30px;
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="sting-root"
+      data-composition-id="sourcea-sting-v1"
+      data-start="0"
+      data-duration="8"
+      data-width="1080"
+      data-height="1080"
+    >
+      <div id="sting-glow" class="glow clip" data-start="0" data-duration="8" data-track-index="0"></div>
+      <div id="sting-ring" class="ring clip" data-start="0" data-duration="8" data-track-index="1"></div>
+      <div class="center clip" data-start="0" data-duration="8" data-track-index="2">
+        <div id="sting-tag" class="tag">verify · replay · ship</div>
+        <div id="sting-logo" class="logo">Source<span>A</span></div>
+        <div id="sting-pill" class="pill">sourcea.app</div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#sting-glow", { scale: 0.8, opacity: 0.3 }, { scale: 1.15, opacity: 1, duration: 8, ease: "sine.inOut" }, 0);
+      tl.fromTo("#sting-ring", { rotation: 0, scale: 0.7, opacity: 0 }, { rotation: 90, scale: 1, opacity: 1, duration: 1.2, ease: "power3.out" }, 0.1);
+      tl.fromTo("#sting-logo", { scale: 1.5, filter: "blur(16px)", opacity: 0 }, { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.55, ease: "power4.out" }, 0.35);
+      tl.fromTo("#sting-tag", { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "expo.out" }, 0.7);
+      tl.fromTo("#sting-pill", { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(2)" }, 1.1);
+      tl.to("#sting-logo", { scale: 1.03, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: 3 }, 2.2);
+      window.__timelines["sourcea-sting-v1"] = tl;
+    </script>
+  </body>
+</html>

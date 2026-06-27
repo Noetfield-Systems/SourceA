@@ -1,0 +1,42 @@
+{
+  "schema": "cloud-motor-founder-vocabulary-v1",
+  "version": "3.0.0",
+  "locked": true,
+  "saved_at": "2026-06-24T22:00:00Z",
+  "physical_rename": "scripts/cloud_forge_run_physical_rename_v1.py",
+  "rename_manifest": "data/cloud-forge-run-rename-manifest-v1.json",
+  "anti_poison_activated": true,
+  "incident_refs": ["INCIDENT-042", "INCIDENT-043"],
+  "law_doc": "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_AUTO_RUNTIME_VOCABULARY_LOCKED_v1.md",
+  "cursor_rule": ".cursor/rules/038-cloud-forge-run-vocabulary-v1.mdc",
+  "one_law": "Physical names: cloud-forge-run + cloud-auto-runtime on disk. drain and loop filenames retired.",
+  "terms": {
+    "drain": {
+      "status": "RETIRED_FILENAME",
+      "display_name": "Cloud Forge Run",
+      "short_name": "Forge Run",
+      "paths_now": [
+        "scripts/hub_cloud_forge_run_proceed_v1.py",
+        "scripts/fbe/lib/cloud_forge_run_queue_v1.py",
+        "data/cloud-forge-run-queue-active-v1.json",
+        "api/cloud-forge-run/*"
+      ]
+    },
+    "loop": {
+      "status": "RETIRED_FILENAME",
+      "display_name": "Auto Runtime",
+      "short_name": "Auto Runtime",
+      "paths_now": [
+        "scripts/cloud_auto_runtime_v1.py",
+        "data/cloud-auto-runtime-v1.json",
+        "cloud/workers/cloud-auto-runtime-tick-v1"
+      ]
+    }
+  },
+  "pairs": [
+    "data/cloud-forge-run-hundred-rows-per-turn-vocabulary-v1.json",
+    "data/founder-reply-glossary-v1.json"
+  ],
+  "glossary_inject": "data/founder-reply-glossary-v1.json",
+  "validator": "scripts/validate-cloud-motor-founder-vocabulary-v1.sh"
+}

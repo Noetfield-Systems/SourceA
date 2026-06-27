@@ -85,7 +85,7 @@ def _specialist_reports(*, investigation: dict, loop_verdict: str) -> list[dict]
             {
                 "route_id": "loop_ok",
                 "specialist": "loop_specialist",
-                "specialist_label": "Loop Specialist",
+                "specialist_label": "Auto Runtime specialist",
                 "action": "INSIGHT",
                 "counsel": "KEEP",
                 "message": "Loop healthy — advisory ranks next prompts",
@@ -122,7 +122,7 @@ def run_judge_loop(*, write: bool = True) -> dict:
 
     escalations: list[str] = []
     if loop_verdict == "DISPATCH_BLOCKED":
-        escalations.append((obs.get("freeze") or {}).get("action") or "ASF: resume drain")
+        escalations.append((obs.get("freeze") or {}).get("action") or "ASF: Cloud Forge Run")
     if investigation.get("investigation_verdict") == "RED":
         escalations.append("Run hospital pipeline or find_critical_bugs owner")
 

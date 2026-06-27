@@ -1,0 +1,23 @@
+{
+  "schema": "sourcea-mvp-intake-receipt-v1",
+  "ok": true,
+  "intake_id": "mvp-1a3233f3e9a5",
+  "at": "2026-06-23T06:25:47Z",
+  "channel": "self_test",
+  "plane": "commercial",
+  "business": "48h-mvp-service",
+  "intake": {
+    "building": "App Store fitness app with AI coach",
+    "building_type": "app",
+    "": "https://example.com",
+    "deadline": "this_week",
+    "budget": "3k_10k",
+    "email": "founder@example.com"
+  },
+  "end_screen": "We'll respond in 2 hours with a plan.",
+  "notify": {
+    "ok": false,
+    "skipped": true,
+    "reason": "RESEND_API_KEY_missing"
+  }
+}

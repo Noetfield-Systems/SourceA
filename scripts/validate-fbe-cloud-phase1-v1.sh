@@ -71,7 +71,7 @@ grep -q 'dispatch_fbe_route' scripts/sina-command-server.py || { echo "FAIL: hub
 grep -q '/api/fbe/cloud-proxy/v1' scripts/sina-command-server.py || { echo "FAIL: hub missing cloud-proxy route"; fail=1; }
 grep -q '/api/loop-specialist/tick/v1' scripts/sina-command-server.py || { echo "FAIL: hub missing loop-specialist tick route"; fail=1; }
 
-echo "=== Loop specialist cloud contract ==="
+echo "=== Auto Runtime specialist cloud contract ==="
 test -f data/loop-specialist-cloud-contract-v1.json || { echo "FAIL: missing loop-specialist cloud contract"; fail=1; }
 python3 - <<'PY' || fail=1
 import sys

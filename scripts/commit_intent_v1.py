@@ -26,6 +26,7 @@ RECEIPT_LOG = RECEIPT_DIR / "receipts.jsonl"
 COPILOT_RECEIPT_LOG = SINA / "demo-enforcement/receipt-log.jsonl"
 LATEST_DEMO = RECEIPT_DIR / "latest-demo-receipt.json"
 COPILOT_INTENTS = ROOT / "brain-os/demo/governance_demo_intents_v1.json"
+ASSET_B_REGISTRY = ROOT / "data/asset-b-policy-pack-v1.json"
 
 
 def _now() -> str:
@@ -95,6 +96,73 @@ def _load_copilot_case(case: str) -> dict:
     intent["intent_id"] = f"copilot-{case}-{uuid.uuid4().hex[:8]}"
     intent["rule_id"] = "P-001"
     return intent
+
+
+def _load_asset_b_intent(policy_key: str, case: str) -> tuple[dict, dict]:
+    registry = json.loads(ASSET_B_REGISTRY.read_text(encoding="utf-8"))
+    row = (registry.get("policies") or {}).get(policy_key)
+    if not row:
+        raise FileNotFoundError(f"asset-b policy missing: {policy_key}")
+    policy_path = ROOT / str(row.get("path") or "")
+    policy = json.loads(policy_path.read_text(encoding="utf-8"))
+    intent_rel = (row.get("demo_intents") or {}).get(case)
+    if not intent_rel:
+        raise FileNotFoundError(f"asset-b intent missing: {policy_key}/{case}")
+    intent_path = ROOT / str(intent_rel)
+    intent = json.loads(intent_path.read_text(encoding="utf-8"))
+    intent["intent_id"] = f"ab-{policy_key}-{case}-{uuid.uuid4().hex[:8]}"
+    return intent, policy
+
+
+def commit_asset_b_policy(policy_key: str, case: str, *, dry_run: bool = False) -> dict:
+    """Asset B buyer policy demo — outreach / ops / creative."""
+    sys.path.insert(0, str(SCRIPTS))
+    from asset_b_policy_gate_v1 import evaluate  # noqa: WPS433
+
+    intent, policy = _load_asset_b_intent(policy_key, case)
+    gate = evaluate(intent, policy)
+    intent_id = intent.get("intent_id")
+    object_id = str(intent.get("object_id") or f"ASSET-B-{policy_key.upper()}-DEMO")
+    policy_id = str(policy.get("policy_id") or policy_key)
+
+    base = {
+        "schema": "enforcement-action-receipt-v1",
+        "receipt_id": f"RCP-{uuid.uuid4().hex[:12]}",
+        "intent_id": intent_id,
+        "action": str(intent.get("action") or policy.get("intent") or "execute"),
+        "object_id": object_id,
+        "rule_id": policy_id,
+        "agent_id": str(intent.get("agent_id") or "asset_b_demo"),
+        "policy_id": policy_id,
+        "approval_ref": intent.get("approval_ref"),
+        "demo_case": case,
+        "asset_b_policy": policy_key,
+        "gate_status": "PASS" if gate.get("safe_to_execute") else "DENY",
+        "gate_reasons": [] if gate.get("safe_to_execute") else [gate.get("reason") or "policy DENY"],
+        "created_at": _now(),
+        "law": "docs/SOURCEA_ASSET_B_POLICY_PACK_LOCKED_v1.md",
+    }
+
+    if not gate.get("safe_to_execute"):
+        base["outcome"] = "BLOCKED"
+        receipt = _write_copilot_receipt(base, bind_spine=False)
+        return {"ok": False, "blocked": True, "asset_b_gate": gate, "receipt": receipt}
+
+    if dry_run:
+        base["outcome"] = "DRY_RUN"
+        base["evidence"] = "EXECUTE_STUB: asset-b policy applied (dry-run)"
+        base["receipt_fields"] = (gate.get("receipt") or {}).get("include") or []
+        return {"ok": True, "dry_run": True, "asset_b_gate": gate, "receipt_preview": base}
+
+    base["outcome"] = "COMMITTED"
+    base["status"] = "DONE"
+    base["evidence"] = "EXECUTE_STUB: asset-b policy applied"
+    base["receipt_fields"] = (gate.get("receipt") or {}).get("include") or []
+    for field in base["receipt_fields"]:
+        if field in intent and field not in base:
+            base[field] = intent.get(field)
+    receipt = _write_copilot_receipt(base, bind_spine=True)
+    return {"ok": True, "asset_b_gate": gate, "receipt": receipt}
 
 
 def commit_copilot_demo(case: str, *, dry_run: bool = False) -> dict:
@@ -241,12 +309,20 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="commit(intent) — single enforcement gate")
     ap.add_argument("--intent", default="", help="Path to intent JSON")
     ap.add_argument("--demo-enforcement", action="store_true", help="Copilot P-001 demo path")
+    ap.add_argument(
+        "--asset-b-policy",
+        choices=("outreach", "ops", "creative"),
+        default="",
+        help="Asset B buyer policy demo (outreach|ops|creative)",
+    )
     ap.add_argument("--case", choices=("block", "allow"), default="allow")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
 
-    if args.demo_enforcement:
+    if args.asset_b_policy:
+        out = commit_asset_b_policy(args.asset_b_policy, args.case, dry_run=args.dry_run)
+    elif args.demo_enforcement:
         out = commit_copilot_demo(args.case, dry_run=args.dry_run)
     else:
         if not args.intent:

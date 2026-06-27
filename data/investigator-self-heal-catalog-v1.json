@@ -29,11 +29,11 @@
     },
     {
       "id": "resume_suggest",
-      "label": "ASF resume drain suggest only",
+      "label": "ASF Cloud Forge Run suggest only",
       "cmd": null,
       "when": ["freeze_block"],
       "risk": "founder_gate",
-      "founder_action": "ASF: resume drain — max 1 — receipt required"
+      "founder_action": "ASF: Cloud Forge Run — max 1 — receipt required"
     }
   ],
   "report_only": ["conflict_room", "incident_room", "council_room"]

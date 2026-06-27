@@ -234,7 +234,7 @@ Each iteration = metered cost + delivered artifact. Forge bills the **loop**, no
 - Custom LLM training
 - Multi-agent chat without DAG
 - Heavy infra redesign
-- Mac-body docker factory drain (Mac Law blocks under freeze)
+- Mac-body docker Cloud Forge Run (Mac Law blocks under freeze)
 
 ---
 

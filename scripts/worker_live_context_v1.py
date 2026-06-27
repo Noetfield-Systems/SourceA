@@ -55,8 +55,8 @@ def build_worker_live_context() -> dict:
         execute_line = execute_line()
         live_header = live_disk_header()
     except Exception:
-        close = "Loop auto · Brain work-order dispatch · Hub glance only."
-        execute_line = "Loop auto-tick ON · Brain work-order dispatch · Hub glance only"
+        close = "Auto Runtime · Brain work-order dispatch · Hub glance only."
+        execute_line = "Auto Runtime ON · Brain work-order dispatch · Hub glance only"
         live_header = "LIVE DISK (wins over old chat — Brain work-order primary)"
 
     queue_sa = surfaces.get("queue_sa") or ""

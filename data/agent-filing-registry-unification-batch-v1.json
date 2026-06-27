@@ -1,0 +1,34 @@
+{
+  "schema": "agent-filing-registry-unification-batch-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-27T01:35:30Z",
+  "asf_order": "ASF: apply filing registry unification batch",
+  "resolved_from": {
+    "registry": "data/agent-filing-registry-v1.json",
+    "route_id": "machine_registry_data",
+    "initial_path": "data/apply_filing_registry_unification_batch-v1.json"
+  },
+  "applied": [
+    {
+      "path": "data/agent-filing-registry-v1.json",
+      "change": "Added explicit agent_filing_registry_unification_batch route so this ASF batch resolves to a canonical batch receipt instead of a generic registry-data filename."
+    },
+    {
+      "path": "scripts/agent_filing_registry_gate_v1.py",
+      "change": "Unified intent normalization for scoring and slugging, including founder typo handling for batc -> batch."
+    },
+    {
+      "path": "scripts/validate-agent-filing-registry-v1.sh",
+      "change": "Added focused coverage for canonical and typo variants of the unification batch phrase."
+    }
+  ],
+  "canonical_resolution_after_batch": {
+    "intent": "ASF: apply filing registry unification batc",
+    "route_id": "agent_filing_registry_unification_batch",
+    "path": "data/agent-filing-registry-unification-batch-v1.json"
+  },
+  "proof": {
+    "validator": "bash scripts/validate-agent-filing-registry-v1.sh",
+    "expected": "validate-agent-filing-registry-v1: PASS"
+  }
+}

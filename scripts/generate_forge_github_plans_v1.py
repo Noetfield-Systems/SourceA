@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate plans/*.json for Forge v0.2 GitHub source (real field names, not forge-native).
 
-Exports secondary-cloud-drain plans using a GitHub-friendly schema so Stage 0b
+Exports secondary-cloud-forge-run plans using a GitHub-friendly schema so Stage 0b
 adapter must map plan_id→id, version→schema_version, target→destination_repo, etc.
 """
 from __future__ import annotations
@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DRAIN = ROOT / "data" / "secondary-cloud-drain-next-100-v1.json"
+DRAIN = ROOT / "data" / "secondary-cloud-forge-run-next-100-v1.json"
 OUT = ROOT / "plans"
 CAPABILITY = {
     "mac_control": "mac_control_cockpit_observe",
@@ -46,7 +46,7 @@ def main() -> int:
         action = str(p.get("cloud_action") or p.get("title") or "")
         plan = {
             "plan_id": pid,
-            "version": "secondary-cloud-drain-next-100-v1",
+            "version": "secondary-cloud-forge-run-next-100-v1",
             "target": "sourcea/fbe-cloud-worker",
             "validation": "cloud_forge_incident_038",
             "metadata": {

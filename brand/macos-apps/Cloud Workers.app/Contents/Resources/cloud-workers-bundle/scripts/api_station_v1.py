@@ -236,7 +236,7 @@ def _exec_cloud_workers(task: str, payload: dict[str, Any]) -> dict[str, Any]:
             body.setdefault("dry_run", True)
             body.setdefault("llm_provider", body.get("llm_provider") or "openrouter")
         if task == "cloud_auto_tick":
-            from cloud_drain_auto_runtime_v1 import run_auto_tick  # noqa: WPS433
+            from cloud_auto_runtime_v1 import run_auto_tick  # noqa: WPS433
 
             result = run_auto_tick(force=bool(payload.get("force")))
             return {"ok": bool(result.get("ok", True)), "task": task, "result": result}

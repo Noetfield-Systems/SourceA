@@ -1,10 +1,10 @@
 {
   "schema": "living-system-chain-registry-v1",
-  "version": "1.1.0",
-  "saved_at": "2026-06-23T04:30:00Z",
+  "version": "1.2.0",
+  "saved_at": "2026-06-24T09:30:00Z",
   "one_law": "Mac e2e = cloud-reachable chains only (Railway · CF cron · autopilot flag) — no :13020/:13027 localhost polling.",
-  "autopilot_flag": "~/.sina/cloud-drain-auto-proceed-v1.flag",
-  "autopilot_ssot": "data/cloud-drain-auto-runtime-v1.json",
+  "autopilot_flag": "~/.sina/cloud-forge-run-auto-proceed-v1.flag",
+  "autopilot_ssot": "data/cloud-auto-runtime-v1.json",
   "chains": [
     {
       "id": "railway_cloud_queue",
@@ -12,23 +12,23 @@
       "tier": "critical",
       "probe": {
         "type": "http",
-        "url": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-drain/queue/v1"
+        "url": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/queue/v1"
       }
     },
     {
-      "id": "cf_cron_drain",
-      "label": "Cloudflare 24/7 cron",
+      "id": "cf_cron_auto_runtime",
+      "label": "Cloudflare Auto Runtime cron",
       "tier": "critical",
       "probe": {
         "type": "http",
-        "url": "https://sourcea-cloud-drain-tick-v1.witness-bc.workers.dev/health"
+        "url": "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev/health"
       }
     },
     {
-      "id": "auto_drain_armed",
-      "label": "Auto drain armed",
+      "id": "auto_runtime_armed",
+      "label": "Auto Runtime armed",
       "tier": "critical",
-      "probe": { "type": "file", "path": "~/.sina/cloud-drain-auto-proceed-v1.flag" }
+      "probe": { "type": "file", "path": "~/.sina/cloud-forge-run-auto-proceed-v1.flag" }
     }
   ],
   "validator": {

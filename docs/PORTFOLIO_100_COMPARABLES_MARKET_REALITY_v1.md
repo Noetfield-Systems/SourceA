@@ -276,7 +276,7 @@ Each row is a **real vendor** with links and pricing evidence. Portfolio compani
 
 ### 16. Relay.app
 
-**Stack:** SourceA · **Product / service:** Human-in-the-loop automation
+**Stack:** SourceA · **Product / service:** Human-in-the-Auto Runtimemation
 
 | Field | Answer |
 |-------|--------|
@@ -1610,7 +1610,7 @@ Each row is a **real vendor** with links and pricing evidence. Portfolio compani
 
 ### 94. Relay.app
 
-**Stack:** VIRLUX (agentic factory SaaS) · **Product / service:** Human-in-the-loop automation
+**Stack:** VIRLUX (agentic factory SaaS) · **Product / service:** Human-in-the-Auto Runtimemation
 
 | Field | Answer |
 |-------|--------|

@@ -1,7 +1,7 @@
 # SourceA SSOT Index — LOCKED v1
 
 **Saved:** 2026-06-22T16:00:00Z  
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Status:** LOCKED  
 **Authority:** ASF — SSOT unification (no single flat SSOT)
 
@@ -71,12 +71,13 @@ Agents **cannot SHIP** on self-report. Advancement requires validator receipt an
 ## Read order (agents · advisors · critics)
 
 1. **This index** — scope before depth  
-2. **L0 Workbench** — daily Mac operations  
-3. **Reconciliation** — what is real vs target on disk  
-4. **Cloud Kernel target PDF (v1.3)** — north-star factory architecture (target; v1.2 superseded)  
-5. **Portfolio DB tiers** — `data/supabase-portfolio-tiers-v1.json`  
-6. **Execution contract** — `data/fbe_execution_contract_v1.json`  
-7. **Cursor cost routing** — `data/cursor-cost-intelligence-routing-v1.json`
+2. **Governance pack (June 2026)** — `brain-os/ssot/SSOT_PLANE_INDEX_LOCKED_v1.md` · operating law v3 · roadmap · GTM  
+3. **L0 Workbench** — daily Mac operations  
+4. **Reconciliation** — what is real vs target on disk  
+5. **Cloud Kernel target PDF (v1.3)** — north-star factory architecture (target; v1.2 superseded)  
+6. **Portfolio DB tiers** — `data/supabase-portfolio-tiers-v1.json`  
+7. **Execution contract** — `data/fbe_execution_contract_v1.json`  
+8. **Cursor cost routing** — `data/cursor-cost-intelligence-routing-v1.json`
 
 ---
 
@@ -96,6 +97,10 @@ Agents **cannot SHIP** on self-report. Advancement requires validator receipt an
 
 | Domain | Path |
 |--------|------|
+| **Governance pack (June 2026)** | `brain-os/ssot/SSOT_PLANE_INDEX_LOCKED_v1.md` · `brain-os/roadmap/ROADMAP_INDEX_LOCKED_v1.md` |
+| LLM Agent Operating Law v3 | `brain-os/ssot/SOURCEA_LLM_AGENT_OPERATING_LAW_SSOT_v3.md` |
+| Master Blueprint v1 | `brain-os/roadmap/SOURCEA_MASTER_BLUEPRINT_v1.md` |
+| Storefront & GTM v1 (private) | `brain-os/roadmap/SOURCEA_STOREFRONT_GTM_v1.md` |
 | Brain unified entry | `brain-os/law/BRAIN_UNIFIED_RULES_LOCKED_v1.md` |
 | Automation spine | `brain-os/law/SINA_AUTOMATION_SPINE_AND_N8N_LOCKED_v1.md` |
 | Hub daily surface | `brain-os/law/HUB_WORKER_ONLY_ARCHIVED_MONOLITH_LOCKED_v1.md` |
@@ -109,5 +114,6 @@ These **reference** this index for layer scope; they do not replace it.
 
 | Version | Date | Change |
 |---------|------|--------|
+| 1.2.0 | 2026-06-23T22:35:00Z | Governance pack filed — brain-os/ssot + brain-os/roadmap · read order step 2 |
 | 1.1.0 | 2026-06-22T16:00:00Z | Target Kernel → v1.3 PDF · v1.2 superseded |
 | 1.0.0 | 2026-06-22T15:30:00Z | Initial LOCK — 3-tier index · L0/L1–L8 split · PEVC nests in SHIP |

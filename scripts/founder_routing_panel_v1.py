@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Founder Routing Panel — weekly brand routes + live loop specialist routing.
+"""Founder Routing Panel — weekly brand routes + live Auto Runtime specialist routing.
 
 Law: docs/SOURCEA_ECOSYSTEM_FAST_BUSINESS_MODEL_LOCKED_v2.md §3
       docs/SOURCEA_INVESTIGATOR_JUDGE_LOOP_ROOM_LOCKED_v1.md §4

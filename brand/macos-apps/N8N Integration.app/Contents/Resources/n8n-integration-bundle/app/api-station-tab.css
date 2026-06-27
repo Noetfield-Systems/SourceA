@@ -153,43 +153,16 @@
   color: #e0e7ff;
   background: #312e81;
 }
-.api-station-terminal-wrap {
-  margin-top: 16px;
-}
-.api-station-terminal-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 6px;
-  font-size: 0.78rem;
-  color: #94a3b8;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-.api-station-terminal-badge {
-  font-size: 0.65rem;
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: #1e293b;
-  color: #64748b;
-}
-.api-station-terminal-badge.is-running { background: #422006; color: #fb923c; }
-.api-station-terminal-badge.is-pass { background: #052e16; color: #4ade80; }
-.api-station-terminal-badge.is-fail { background: #450a0a; color: #f87171; }
 .api-station-output {
-  margin-top: 0;
+  margin-top: 16px;
   padding: 14px;
   border-radius: 12px;
-  background: #0a0f14;
+  background: #0f172a;
   border: 1px solid #334155;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-family: ui-monospace, monospace;
   font-size: 0.72rem;
-  color: #4ade80;
+  color: #cbd5e1;
   white-space: pre-wrap;
-  max-height: 360px;
+  max-height: 280px;
   overflow: auto;
-}
-.api-station-output.api-station-terminal-running {
-  border-color: #fb923c;
-  box-shadow: 0 0 0 1px rgba(251, 146, 60, 0.2);
 }

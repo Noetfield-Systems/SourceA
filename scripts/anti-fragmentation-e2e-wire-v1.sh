@@ -25,7 +25,7 @@ bash scripts/validate-l1-agent-pipeline-v1.sh || fail "validate-l1-agent-pipelin
 pass "L1→Brain pipeline"
 
 bash scripts/validate-loop-specialist-v1.sh || fail "validate-loop-specialist"
-pass "loop specialist wire"
+pass "Auto Runtime specialist wire"
 
 bash scripts/validate-super-fast-hub-v1.sh || fail "validate-super-fast-hub"
 pass "H1/H2 hub apps"

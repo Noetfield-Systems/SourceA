@@ -2,8 +2,8 @@ import Cocoa
 import WebKit
 
 final class StackLauncher {
-    static let hubPort = ProcessInfo.processInfo.environment["SINA_COMMAND_PORT"] ?? "13020"
-    static var bootProcess: Process?
+    static let mailPort = ProcessInfo.processInfo.environment["PORTFOLIO_MAIL_PORT"] ?? "13028"
+    static var serverProcess: Process?
 
     static func bundleRoot() -> String {
         Bundle.main.bundlePath + "/Contents/Resources/portfolio-mail-bundle"
@@ -15,7 +15,7 @@ final class StackLauncher {
         if FileManager.default.fileExists(atPath: desktop.path) {
             return desktop
         }
-        return home.appendingPathComponent("Desktop/SourceA", isDirectory: true)
+        return desktop
     }
 
     static func logLine(_ msg: String) {
@@ -37,8 +37,20 @@ final class StackLauncher {
         }
     }
 
-    static func healthOK(port: String, path: String = "/health", completion: @escaping (Bool) -> Void) {
-        guard let url = URL(string: "http://127.0.0.1:\(port)\(path)") else {
+    static func pythonPath() -> String {
+        let candidates = [
+            "/usr/bin/python3",
+            "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3",
+            "/opt/homebrew/bin/python3",
+        ]
+        for p in candidates where FileManager.default.isExecutableFile(atPath: p) {
+            return p
+        }
+        return "/usr/bin/python3"
+    }
+
+    static func healthOK(completion: @escaping (Bool) -> Void) {
+        guard let url = URL(string: "http://127.0.0.1:\(mailPort)/health") else {
             completion(false)
             return
         }
@@ -48,10 +60,89 @@ final class StackLauncher {
     }
 
     static func mailHubReady(completion: @escaping (Bool) -> Void) {
-        healthOK(port: hubPort, path: "/health") { hubUp in
-            completion(hubUp)
+        guard let url = URL(string: "http://127.0.0.1:\(mailPort)/mail-hub/") else {
+            completion(false)
+            return
+        }
+        URLSession.shared.dataTask(with: url) { _, resp, _ in
+            completion((resp as? HTTPURLResponse)?.statusCode == 200)
+        }.resume()
+    }
+
+    static func recycleStalePort(completion: @escaping () -> Void) {
+        let task = Process()
+        task.executableURL = URL(fileURLWithPath: "/bin/bash")
+        task.arguments = ["-c", "lsof -ti:\(mailPort) | xargs kill -9 2>/dev/null || true; sleep 0.35"]
+        task.terminationHandler = { _ in completion() }
+        try? task.run()
+    }
+
+    static func launchServer(completion: @escaping (Bool) -> Void) {
+        let script = sourceA().appendingPathComponent("scripts/portfolio-mail-server.py").path
+        guard FileManager.default.fileExists(atPath: script) else {
+            logLine("FAIL missing portfolio-mail-server.py")
+            completion(false)
+            return
+        }
+        let proc = Process()
+        proc.executableURL = URL(fileURLWithPath: pythonPath())
+        proc.arguments = [script]
+        var env = ProcessInfo.processInfo.environment
+        env["SINA_SOURCE_A"] = sourceA().path
+        env["PORTFOLIO_MAIL_PORT"] = mailPort
+        env["PATH"] = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+        proc.environment = env
+        do {
+            try proc.run()
+            serverProcess = proc
+            logLine("started portfolio-mail-server pid=\(proc.processIdentifier)")
+            waitForReady(attempts: 0, completion: completion)
+        } catch {
+            logLine("FAIL start server \(error.localizedDescription)")
+            completion(false)
         }
     }
+
+    static func startStack(completion: @escaping (Bool) -> Void) {
+        healthOK { ok in
+            if ok {
+                mailHubReady { wired in
+                    if wired {
+                        logLine("mail server healthy + mail-hub wired")
+                        completion(true)
+                    } else {
+                        logLine("stale mail server — recycling")
+                        recycleStalePort { launchServer(completion: completion) }
+                    }
+                }
+                return
+            }
+            let boot = bootScriptPath()
+            if FileManager.default.fileExists(atPath: boot) {
+                let proc = Process()
+                proc.executableURL = URL(fileURLWithPath: "/bin/bash")
+                proc.arguments = [boot]
+                var env = ProcessInfo.processInfo.environment
+                env["SINA_SOURCE_A"] = sourceA().path
+                env["PORTFOLIO_MAIL_PORT"] = mailPort
+                proc.environment = env
+                do {
+                    try proc.run()
+                    bootProcess = proc
+                    logLine("boot pid=\(proc.processIdentifier)")
+                    proc.terminationHandler = { _ in
+                        waitForReady(attempts: 0, completion: completion)
+                    }
+                } catch {
+                    launchServer(completion: completion)
+                }
+            } else {
+                launchServer(completion: completion)
+            }
+        }
+    }
+
+    static var bootProcess: Process?
 
     static func bootScriptPath() -> String {
         let bundled = bundleRoot() + "/scripts/portfolio-mail-stack-boot.sh"
@@ -59,41 +150,6 @@ final class StackLauncher {
             return bundled
         }
         return sourceA().appendingPathComponent("scripts/portfolio-mail-stack-boot.sh").path
-    }
-
-    static func startStack(completion: @escaping (Bool) -> Void) {
-        mailHubReady { ready in
-            if ready {
-                logLine("stack already ready")
-                completion(true)
-                return
-            }
-            let script = bootScriptPath()
-            guard FileManager.default.fileExists(atPath: script) else {
-                logLine("FAIL missing boot script \(script)")
-                completion(false)
-                return
-            }
-            let proc = Process()
-            proc.executableURL = URL(fileURLWithPath: "/bin/bash")
-            proc.arguments = [script]
-            var env = ProcessInfo.processInfo.environment
-            env["SINA_SOURCE_A"] = sourceA().path
-            env["SINA_COMMAND_PORT"] = hubPort
-            env["PATH"] = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-            proc.environment = env
-            do {
-                try proc.run()
-                bootProcess = proc
-                logLine("boot pid=\(proc.processIdentifier)")
-                proc.terminationHandler = { _ in
-                    waitForReady(attempts: 0, completion: completion)
-                }
-            } catch {
-                logLine("FAIL boot \(error.localizedDescription)")
-                completion(false)
-            }
-        }
     }
 
     static func waitForReady(attempts: Int, completion: @escaping (Bool) -> Void) {
@@ -115,7 +171,7 @@ final class StackLauncher {
 class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
     var webView: WKWebView!
-    let hubPort = StackLauncher.hubPort
+    let mailPort = StackLauncher.mailPort
     let appRouter = SinaAppRouter(homeApp: .mail)
 
     func applicationDidFinishLaunching(_ notification: Notification) {
@@ -153,7 +209,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         <html><body style='background:#0f172a;color:#e2e8f0;font-family:system-ui;padding:48px;text-align:center'>
         <div style='font-size:2.5rem;margin-bottom:16px'>✉</div>
         <h1 style='font-weight:600'>Portfolio Mail</h1>
-        <p style='color:#94a3b8'>Wiring Hub · Chat Unify · N8N Integration…</p>
+        <p style='color:#94a3b8'>Starting mail server on :\(mailPort)…</p>
         </body></html>
         """
         webView.loadHTMLString(html, baseURL: nil)
@@ -162,20 +218,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func showFailure() {
         let alert = NSAlert()
         alert.messageText = "Portfolio Mail"
-        alert.informativeText = "Could not start the mail stack. Log: ~/.sina/portfolio-mail-app-launch.log"
+        alert.informativeText = "Could not start mail server on :\(mailPort). Log: ~/.sina/portfolio-mail-app-launch.log"
         alert.alertStyle = .warning
         alert.runModal()
         let html = """
         <html><body style='background:#0f172a;color:#e2e8f0;font-family:system-ui;padding:40px'>
         <h1>Portfolio Mail</h1>
-        <p>Stack failed to start. Double-click again or check ~/.sina/portfolio-mail-stack-boot.log</p>
+        <p>Stack failed. Double-click again or check ~/.sina/portfolio-mail-stack-boot.log</p>
         </body></html>
         """
         webView.loadHTMLString(html, baseURL: nil)
     }
 
     func loadMailHub(attempts: Int) {
-        guard let pageURL = URL(string: "http://127.0.0.1:\(hubPort)/mail-hub/?t=\(Int(Date().timeIntervalSince1970))") else { return }
+        guard let pageURL = URL(string: "http://127.0.0.1:\(mailPort)/mail-hub/?t=\(Int(Date().timeIntervalSince1970))") else { return }
         URLSession.shared.dataTask(with: pageURL) { _, resp, _ in
             DispatchQueue.main.async {
                 if let http = resp as? HTTPURLResponse, http.statusCode == 200 {

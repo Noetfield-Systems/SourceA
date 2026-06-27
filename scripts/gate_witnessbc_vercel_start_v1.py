@@ -100,8 +100,9 @@ def _probe(url: str) -> int | None:
     import urllib.request
 
     try:
-        req = urllib.request.Request(url, method="HEAD")
+        req = urllib.request.Request(url, headers={"User-Agent": "witnessbc-gate-w/1.0"})
         with urllib.request.urlopen(req, timeout=20) as resp:
+            resp.read(2048)
             return int(resp.status)
     except OSError:
         return None
@@ -180,7 +181,14 @@ def gate_w_start(*, project: str = DEFAULT_PROJECT, skip_recipe: bool = False) -
     steps.append({"step": "vercel_deploy", **deploy_row})
 
     verify_code = _probe(f"{CANONICAL_URL}/")
-    gate_w_pass = bool(deploy_row.get("ok")) and verify_code is not None and 200 <= verify_code < 300
+    contact_code = _probe(f"{CANONICAL_URL}/contact")
+    gate_w_pass = (
+        bool(deploy_row.get("ok"))
+        and verify_code is not None
+        and 200 <= verify_code < 300
+        and contact_code is not None
+        and 200 <= contact_code < 300
+    )
 
     row = {
         "ok": gate_w_pass,
@@ -191,6 +199,7 @@ def gate_w_start(*, project: str = DEFAULT_PROJECT, skip_recipe: bool = False) -
         "scope": scope,
         "canonical_url": CANONICAL_URL,
         "verify_http": verify_code,
+        "contact_http": contact_code,
         "deploy": deploy_row,
         "steps": steps,
         "founder_line": (

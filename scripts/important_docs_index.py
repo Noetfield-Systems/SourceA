@@ -14,6 +14,21 @@ DESKTOP = Path.home() / "Desktop"
 # path: relative to SourceA, or absolute for repo/external
 _RAW_SECTIONS: list[tuple[str, list[tuple[str, str, str, str, str, str]]]] = [
     (
+        "governance_pack_2026",
+        "Governance pack — June 2026 (P0)",
+        "both",
+        [
+            ("docs/SOURCEA_SSOT_INDEX_LOCKED_v1.md", "SSOT layer index", "L0 Mac vs L1–L8 cloud · single entry · read order.", "P0", "both", "ssot"),
+            ("brain-os/ssot/SSOT_PLANE_INDEX_LOCKED_v1.md", "SSOT plane index", "Operating law v3 lineage · dispatch gate · not ~/.sina.", "P0", "both", "ssot"),
+            ("brain-os/ssot/SOURCEA_LLM_AGENT_OPERATING_LAW_SSOT_v3.md", "LLM Agent Operating Law v3", "Cursor missions · disk-bound truth · ORD gate · Chat Unify cycle.", "P0", "both", "ssot"),
+            ("brain-os/roadmap/ROADMAP_INDEX_LOCKED_v1.md", "Roadmap plane index", "Master Blueprint + Storefront GTM · private strategy.", "P0", "both", "roadmap"),
+            ("brain-os/roadmap/SOURCEA_MASTER_BLUEPRINT_v1.md", "Master Blueprint v1", "Zero → enterprise · Proof Pack · receipt moat.", "P0", "both", "roadmap"),
+            ("brain-os/roadmap/SOURCEA_STOREFRONT_GTM_v1.md", "Storefront & GTM v1", "Private GTM · show receipt not recipe · sourcea.app strategy.", "P0", "founder", "roadmap"),
+            ("docs/Source-A-Cloud-Kernel-v1.3.pdf", "Cloud Kernel v1.3", "L1–L8 factory target PDF · symlink in docs/.", "P0", "both", "ssot"),
+            ("docs/SOURCEA_CLOUD_KERNEL_VS_DISK_RECONCILIATION_LOCKED_v1.md", "Kernel vs disk reconciliation", "Honest GREEN/AMBER/TARGET map.", "P1", "both", "ssot"),
+        ],
+    ),
+    (
         "agent_session",
         "Agents — read every session (P0)",
         "agent",

@@ -65,7 +65,7 @@ def desired_targets_phase_market() -> bool:
     return read_desired_active().get("phase_id") == "phase-market"
 
 
-def desired_cloud_drain_head() -> str:
+def desired_cloud_forge_run_head() -> str:
     return str(read_desired_active().get("start_plan") or "CLOUD-SEC-001")
 
 

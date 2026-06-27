@@ -1,0 +1,302 @@
+{
+  "schema": "cloud-forge-run-extension-wave2-patch-v1",
+  "version": "1.0.0",
+  "ok": true,
+  "at": "2026-06-24T14:11:27Z",
+  "generated_batches": [
+    {
+      "batch_id": 51,
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-51-locked-v1.json",
+      "range": "CLOUD-SEC-5001..CLOUD-SEC-5100",
+      "count": 100
+    },
+    {
+      "batch_id": 52,
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-52-locked-v1.json",
+      "range": "CLOUD-SEC-5101..CLOUD-SEC-5200",
+      "count": 100
+    },
+    {
+      "batch_id": 53,
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-53-locked-v1.json",
+      "range": "CLOUD-SEC-5201..CLOUD-SEC-5300",
+      "count": 100
+    },
+    {
+      "batch_id": 54,
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-54-locked-v1.json",
+      "range": "CLOUD-SEC-5301..CLOUD-SEC-5400",
+      "count": 100
+    },
+    {
+      "batch_id": 55,
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-55-locked-v1.json",
+      "range": "CLOUD-SEC-5401..CLOUD-SEC-5500",
+      "count": 100
+    },
+    {
+      "batch_id": 56,
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-56-locked-v1.json",
+      "range": "CLOUD-SEC-5501..CLOUD-SEC-5600",
+      "count": 100
+    },
+    {
+      "batch_id": 57,
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-57-locked-v1.json",
+      "range": "CLOUD-SEC-5601..CLOUD-SEC-5700",
+      "count": 100
+    },
+    {
+      "batch_id": 58,
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-58-locked-v1.json",
+      "range": "CLOUD-SEC-5701..CLOUD-SEC-5800",
+      "count": 100
+    },
+    {
+      "batch_id": 59,
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-59-locked-v1.json",
+      "range": "CLOUD-SEC-5801..CLOUD-SEC-5900",
+      "count": 100
+    },
+    {
+      "batch_id": 60,
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-60-locked-v1.json",
+      "range": "CLOUD-SEC-5901..CLOUD-SEC-5988",
+      "count": 88
+    },
+    {
+      "batch_id": 61,
+      "stack": "mono",
+      "library": "mono-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-61-locked-v1.json",
+      "range": "CLOUD-SEC-6001..CLOUD-SEC-6100",
+      "count": 100
+    },
+    {
+      "batch_id": 62,
+      "stack": "mono",
+      "library": "mono-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-62-locked-v1.json",
+      "range": "CLOUD-SEC-6101..CLOUD-SEC-6200",
+      "count": 100
+    },
+    {
+      "batch_id": 63,
+      "stack": "mono",
+      "library": "mono-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-63-locked-v1.json",
+      "range": "CLOUD-SEC-6201..CLOUD-SEC-6300",
+      "count": 100
+    },
+    {
+      "batch_id": 64,
+      "stack": "mono",
+      "library": "mono-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-64-locked-v1.json",
+      "range": "CLOUD-SEC-6301..CLOUD-SEC-6400",
+      "count": 100
+    },
+    {
+      "batch_id": 65,
+      "stack": "mono",
+      "library": "mono-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-65-locked-v1.json",
+      "range": "CLOUD-SEC-6401..CLOUD-SEC-6500",
+      "count": 100
+    },
+    {
+      "batch_id": 66,
+      "stack": "mono",
+      "library": "mono-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-66-locked-v1.json",
+      "range": "CLOUD-SEC-6501..CLOUD-SEC-6600",
+      "count": 100
+    },
+    {
+      "batch_id": 67,
+      "stack": "mono",
+      "library": "mono-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-67-locked-v1.json",
+      "range": "CLOUD-SEC-6601..CLOUD-SEC-6700",
+      "count": 100
+    },
+    {
+      "batch_id": 68,
+      "stack": "mono",
+      "library": "mono-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-68-locked-v1.json",
+      "range": "CLOUD-SEC-6701..CLOUD-SEC-6800",
+      "count": 100
+    },
+    {
+      "batch_id": 69,
+      "stack": "mono",
+      "library": "mono-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-69-locked-v1.json",
+      "range": "CLOUD-SEC-6801..CLOUD-SEC-6900",
+      "count": 100
+    },
+    {
+      "batch_id": 70,
+      "stack": "mono",
+      "library": "mono-1000",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-70-locked-v1.json",
+      "range": "CLOUD-SEC-6901..CLOUD-SEC-6966",
+      "count": 66
+    }
+  ],
+  "skipped_existing": [],
+  "active_batch_id": 51,
+  "head": "CLOUD-SEC-5001",
+  "last_batch_id": 70,
+  "noetfield_plans_in_patch": 988,
+  "noetfield_batches": 10,
+  "extension_plan_total": 1954,
+  "pointer": "/Users/sinakazemnezhad/Desktop/SourceA/data/cloud-forge-run-queue-active-v1.json",
+  "pipeline": "/Users/sinakazemnezhad/Desktop/SourceA/data/cloud-forge-run-batch-pipeline-v1.json",
+  "source_slices": [
+    {
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "batch_id": 51,
+      "maps_registry": "nf-0001 through nf-0100"
+    },
+    {
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "batch_id": 52,
+      "maps_registry": "nf-0101 through nf-0202"
+    },
+    {
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "batch_id": 53,
+      "maps_registry": "nf-0203 through nf-0303"
+    },
+    {
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "batch_id": 54,
+      "maps_registry": "nf-0304 through nf-0403"
+    },
+    {
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "batch_id": 55,
+      "maps_registry": "nf-0404 through nf-0503"
+    },
+    {
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "batch_id": 56,
+      "maps_registry": "nf-0504 through nf-0603"
+    },
+    {
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "batch_id": 57,
+      "maps_registry": "nf-0604 through nf-0711"
+    },
+    {
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "batch_id": 58,
+      "maps_registry": "nf-0712 through nf-0812"
+    },
+    {
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "batch_id": 59,
+      "maps_registry": "nf-0813 through nf-0912"
+    },
+    {
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "batch_id": 60,
+      "maps_registry": "nf-0913 through nf-1000"
+    },
+    {
+      "stack": "mono",
+      "library": "mono-1000",
+      "batch_id": 61,
+      "maps_registry": "mx-0029 through mx-0133"
+    },
+    {
+      "stack": "mono",
+      "library": "mono-1000",
+      "batch_id": 62,
+      "maps_registry": "mx-0134 through mx-0234"
+    },
+    {
+      "stack": "mono",
+      "library": "mono-1000",
+      "batch_id": 63,
+      "maps_registry": "mx-0235 through mx-0334"
+    },
+    {
+      "stack": "mono",
+      "library": "mono-1000",
+      "batch_id": 64,
+      "maps_registry": "mx-0335 through mx-0434"
+    },
+    {
+      "stack": "mono",
+      "library": "mono-1000",
+      "batch_id": 65,
+      "maps_registry": "mx-0435 through mx-0534"
+    },
+    {
+      "stack": "mono",
+      "library": "mono-1000",
+      "batch_id": 66,
+      "maps_registry": "mx-0535 through mx-0634"
+    },
+    {
+      "stack": "mono",
+      "library": "mono-1000",
+      "batch_id": 67,
+      "maps_registry": "mx-0635 through mx-0734"
+    },
+    {
+      "stack": "mono",
+      "library": "mono-1000",
+      "batch_id": 68,
+      "maps_registry": "mx-0735 through mx-0834"
+    },
+    {
+      "stack": "mono",
+      "library": "mono-1000",
+      "batch_id": 69,
+      "maps_registry": "mx-0835 through mx-0934"
+    },
+    {
+      "stack": "mono",
+      "library": "mono-1000",
+      "batch_id": 70,
+      "maps_registry": "mx-0935 through mx-1000"
+    }
+  ],
+  "for_founder": {
+    "show_this": "Wave-2 patch ready \u00b7 988 Noetfield + mono plans \u00b7 batches 51-70 \u00b7 head CLOUD-SEC-5001 \u00b7 deploy Railway"
+  }
+}

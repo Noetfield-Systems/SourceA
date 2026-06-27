@@ -30,9 +30,9 @@ def _w1_proof_page() -> str:
 
 BOOKING_URL = os.environ.get(
     "SOURCEA_BOOKING_URL",
-    "mailto:hello@sourcea.com?subject=SourceA%20%E2%80%94%2015-min%20live%20proof%20eval",
+    "mailto:hello@sourcea.app?subject=SourceA%20%E2%80%94%2015-min%20live%20proof%20eval",
 )
-FROM_EMAIL = "hello@sourcea.com"
+FROM_EMAIL = "hello@sourcea.app"
 FROM_NAME = "SourceA"
 NW1_FROM_EMAIL = "operations@noetfield.com"
 NW1_FROM_NAME = "Noetfield Systems Inc."

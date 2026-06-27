@@ -319,7 +319,7 @@ def ab1_html() -> str:
     <p class="lead">Done-for-you governed automation — outreach, ops, research — built on the same factory stack we run daily. Policy at dispatch. Signed proof on closeout.</p>
     <blockquote class="quote">We run this stack on our own factory every day. Your loop gets the same receipts — what ran, what was blocked, what policy applied.</blockquote>
     <div class="cta-row no-print">
-      <a class="btn btn-primary" href="mailto:hello@sourcea.com">Book discovery call</a>
+      <a class="btn btn-primary" href="mailto:hello@sourcea.app">Book discovery call</a>
       <a class="btn btn-ghost" href="https://github.com/sourcea-io/sourcea-boot">Try sourcea-boot</a>
     </div>
     <div class="stats">
@@ -394,7 +394,7 @@ def ab1_html() -> str:
   </section>
 
   <footer class="footer wrap">
-    <p><strong>From:</strong> <a href="mailto:hello@sourcea.com">hello@sourcea.com</a> · SourceA</p>
+    <p><strong>From:</strong> <a href="mailto:hello@sourcea.app">hello@sourcea.app</a> · SourceA</p>
     <p style="margin-top:0.5rem"><strong>Subject line (AB1):</strong> Can you prove what your agents executed last night?</p>
     <p style="margin-top:1.25rem;font-size:0.8rem">SourceA · Runtime governance infrastructure · Pre-LLM policy at dispatch · Ledger + replay</p>
   </footer>

@@ -60,7 +60,7 @@ def _write(path: Path, row: dict) -> None:
 
 
 def brain_work_order_enabled() -> bool:
-    """Loop auto ON + outbound queue → Brain work-order primary (not Worker INBOX)."""
+    """Auto Runtime ON + outbound queue → Brain work-order primary (not Worker INBOX)."""
     cfg = _read(SINA / "loop-specialist-config-v1.json")
     if not cfg.get("loop_auto_dispatch_enabled"):
         return False
@@ -302,7 +302,7 @@ def clear_inbox_work_order(*, work_order: dict, bay: dict) -> dict:
         "bay_slug": work_order.get("bay_slug"),
         "execution_plane": work_order.get("execution_plane"),
         "bay_ok": bool(bay.get("ok")),
-        "founder_note": "Loop auto · Brain work-order dispatched · Hub glance only",
+        "founder_note": "Auto Runtime · Brain work-order dispatched · Hub glance only",
         "local_worker_deprecated": True,
     }
     _write(ACTIVE_PATH, active)
@@ -379,9 +379,9 @@ def dispatch_current(
             "bay_slug": bay_slug or "unmapped",
             "execution_plane": work_order.get("execution_plane"),
             "founder_note": (
-                "Loop auto · local Worker RUN INBOX · Hub glance"
+                "Auto Runtime · local Worker RUN INBOX · Hub glance"
                 if local
-                else "Loop auto · Brain work-order signed · awaiting cloud bay"
+                else "Auto Runtime · Brain work-order signed · awaiting cloud bay"
             ),
             "local_worker_deprecated": not local,
         }
@@ -432,7 +432,7 @@ def dispatch_current(
         "work_order_id": work_order["id"],
         "bay_slug": bay_slug,
         "b0501": True,
-        "founder_facing": "Loop auto · Brain work-order · Hub glance only",
+        "founder_facing": "Auto Runtime · Brain work-order · Hub glance only",
     }
     _write(REASONING_RECEIPT, reasoning)
 

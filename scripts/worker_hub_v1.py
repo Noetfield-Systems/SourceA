@@ -275,13 +275,13 @@ def _plans_unified_slice() -> dict:
         return {"ok": False, "error": str(exc), "schema": "worker-hub-plans-unified-v1"}
 
 
-def _cloud_drain_proceed_slice() -> dict:
+def _cloud_forge_run_proceed_slice() -> dict:
     try:
-        from hub_cloud_drain_proceed_v1 import hub_slice  # noqa: WPS433
+        from hub_cloud_forge_run_proceed_v1 import hub_slice  # noqa: WPS433
 
         return hub_slice()
     except Exception as exc:
-        return {"ok": False, "error": str(exc)[:120], "ssot": "data/hub-cloud-drain-proceed-v1.json"}
+        return {"ok": False, "error": str(exc)[:120], "ssot": "data/hub-cloud-forge-run-proceed-v1.json"}
 
 
 def _world_model_slice() -> dict:
@@ -358,9 +358,9 @@ def _fast_worker_slices() -> dict:
         else:
             p0_next = f"Form · {form_pending} open PICK(s) — tap {btn}"
     elif freeze_status == "FREEZE":
-        p0_next = f"Loop specialist · ASF resume drain · queue {sa} · {role}"
+        p0_next = f"Auto Runtime specialist · ASF resume Cloud Forge Run · queue {sa} · {role}"
     else:
-        p0_next = f"Loop auto-tick · Worker chat · {sa} · {role}"
+        p0_next = f"Auto Runtime · Worker chat · {sa} · {role}"
 
     executor_busy = bool((inbox.get("meta") or {}).get("busy"))
     unified_state = str(fn.get("autorun_state") or fn.get("state") or "ready")
@@ -707,7 +707,7 @@ def _build_worker_hub_payload_row() -> dict:
         }
     )
     plans_unified = _plans_unified_slice()
-    cloud_drain_proceed = _cloud_drain_proceed_slice()
+    cloud_forge_run_proceed = _cloud_forge_run_proceed_slice()
     anti_theater = _anti_theater_slice()
     agent_behavior = _behavior_settings_slice()
     factory_cost_intelligence = _factory_cost_intelligence_slice()
@@ -743,7 +743,7 @@ def _build_worker_hub_payload_row() -> dict:
         "mac_health_live": _mac_health_live_slice(),
         "cloud_glance_line": (ecosystem_mac_health.get("cloud_glance") or {}).get("founder_line"),
         "plans_unified": plans_unified,
-        "cloud_drain_proceed": cloud_drain_proceed,
+        "cloud_forge_run_proceed": cloud_forge_run_proceed,
         "anti_theater": anti_theater,
         "agent_behavior": agent_behavior,
         "factory_cost_intelligence": factory_cost_intelligence,
@@ -828,8 +828,8 @@ def _build_worker_hub_payload_row() -> dict:
                 "path": "/api/plans-unified/tick/v1",
                 "method": "POST",
             },
-            "cloud_drain_proceed": {
-                "path": "/api/cloud-drain/proceed/v1",
+            "cloud_forge_run_proceed": {
+                "path": "/api/cloud-forge-run/proceed/v1",
                 "method": "POST",
                 "label": "Proceed next cloud task (OpenRouter/Gemini on Railway)",
                 "body": {"llm_provider": "openrouter", "full_motor": True},

@@ -1531,7 +1531,7 @@ PHASE_SPEC: list[tuple[str, str, list[tuple[str, list[str]]]]] = [
                     "AUTOMATION_CONVERGE program parent",
                     "TODAY_AUTORUN_50 active today",
                     "fast-track-100 debug curriculum",
-                    "sourcea-1000 factory drain",
+                    "sourcea-1000 Cloud Forge Run",
                     "broker-pack broker spine only",
                     "no duplicate ft titles",
                     "no duplicate sa titles",
@@ -1639,7 +1639,7 @@ pack_role: broker_curriculum
 ## Broker law
 
 - One turn · one sa or br closeout · YAML → broker submit · no architecture redesign
-- Not a substitute for Hub ▶ AUTO-RUN 50 or `plan-no-asf-run.sh pick 1` factory drain
+- Not a substitute for Hub ▶ AUTO-RUN 50 or `plan-no-asf-run.sh pick 1` Cloud Forge Run
 - Distinct from `ft-*` fast-track and `sa-*` sourcea-1000 (no shared titles)
 
 ## Agent prompt
@@ -1745,7 +1745,7 @@ def main() -> int:
         "pick_script": "scripts/plan-broker-pack-run.sh",
         "program_doc": PROGRAM,
         "distinct_from": [
-            "sourcea-1000 (sa-* factory drain)",
+            "sourcea-1000 (sa-* Cloud Forge Run)",
             "automation-fast-track-100 (ft-* Musk curriculum)",
             "automation-converge-1000 (retired ac-* tier mirrors)",
         ],
@@ -1777,7 +1777,7 @@ python3 scripts/generate-broker-pack-1000.py
 
 ## Runtime default
 
-**Hub ▶ AUTO-RUN 50** + `goal1_run_loop_v1.py` — parallel **factory drain:** `plan-no-asf-run.sh pick 1`
+**Hub ▶ AUTO-RUN 50** + `goal1_run_loop_v1.py` — parallel **Cloud Forge Run:** `plan-no-asf-run.sh pick 1`
 
 ## Grid
 

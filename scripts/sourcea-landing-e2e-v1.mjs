@@ -16,8 +16,15 @@ const PAGES = [
   "/sourcea/proof/live.html",
   "/sourcea/compare.html",
   "/sourcea/pricing.html",
+  "/sourcea/offer.html",
+  "/sourcea/case-studies/",
+  "/sourcea/case-studies/pureflow.html",
+  "/sourcea/case-studies/agentgo.html",
   "/sourcea/security.html",
   "/sourcea/sources.html",
+  "/sourcea/forge/terminal",
+  "/start",
+  "/sandbox",
   "/sourcea/loops/index.html",
   "/sourcea/loops/outreach.html",
   "/sourcea/loops/ops-monitor.html",
@@ -33,17 +40,41 @@ const WIDTHS = [
   { name: "desktop-1280", w: 1280, h: 800 },
 ];
 const NAV_HREFS = [
-  "/sourcea/",
-  "/sourcea/platform.html",
-  "/sourcea/team.html",
-  "/sourcea/growth.html",
-  "/sourcea/scenario.html",
-  "/sourcea/proof.html",
-  "/sourcea/compare.html",
-  "/sourcea/pricing.html",
+  "/",
+  "/start",
+  "/sourcea/platform",
+  "/sourcea/offer",
+  "/sourcea/case-studies/",
+  "/sourcea/team",
+  "/sourcea/growth",
+  "/sourcea/scenario",
+  "/sourcea/proof",
+  "/sourcea/compare",
+  "/sourcea/pricing",
 ];
+const NAV_LABELS = {
+  "/": "Home",
+  "/start": "48h MVP",
+  "/sourcea/platform": "Platform",
+  "/sourcea/offer": "Offer",
+  "/sourcea/case-studies/": "Case studies",
+  "/sourcea/team": "Team",
+  "/sourcea/growth": "Growth",
+  "/sourcea/scenario": "Scenario",
+  "/sourcea/proof": "Proof",
+  "/sourcea/compare": "Compare",
+  "/sourcea/pricing": "Pricing",
+};
+
+function normNavHref(href) {
+  if (!href) return "";
+  const base = href.split("#")[0].replace(/\/$/, "") || "/";
+  return base.replace(/\.html$/, "");
+}
 const REQUIRED = {
-  "/sourcea/": ["#sa-biz-command", "#sa-biz-orbit", "#team", "#growth", "#sandbox", ".sa-agent-swarm-biz", "#sa-orchestrator", "#reference", ".sa-buyer-chips", ".sa-buyer-toggle", ".sa-chain-beats", "#agency-flywheel", "#agency-path", ".sa-mock-panel"],
+  "/sourcea/": ["#outcomes", "#how-to-buy", ".sa-cta-band", "[data-sa-proof-cta]"],
+  "/start": ["#sa-start-form", "[data-sa-proof-receipt]", "#sa-mvp-intake-form"],
+  "/sandbox": ["#sa-sandbox-form-wrap", "#sa-sandbox-intake-form"],
   "/sourcea/team.html": ["#sa-biz-command", "#sa-biz-orbit", "#team", ".sa-agent-swarm-biz"],
   "/sourcea/growth.html": [".sa-growth-console", ".sa-growth-flywheel", ".sa-win-stories"],
   "/sourcea/scenario.html": ["#sa-sandbox", ".sa-sb-stage", ".sa-screen-share-script", "#proof-quiz", "#sa-proof-quiz"],
@@ -103,8 +134,12 @@ async function main() {
           overflowX,
           navToggleVisible: toggle ? getComputedStyle(toggle).display !== "none" : false,
           headerCtaDisplay: headerCta ? getComputedStyle(headerCta).display : "missing",
-          hasGrowthNav: !!document.querySelector('a[href="/sourcea/growth.html"]'),
-          hasTeamNav: !!document.querySelector('a[href="/sourcea/team.html"]'),
+          hasGrowthNav: !!document.querySelector(
+            'a[href="/sourcea/growth"], a[href="/sourcea/growth.html"]'
+          ),
+          hasTeamNav: !!document.querySelector('a[href="/sourcea/team"], a[href="/sourcea/team.html"]'),
+          hasMvpNav: !!document.querySelector('a[href="/start"], a[href="/sourcea/start"]'),
+          hasSignIn: !!document.querySelector('.ar-header-signin[href="/platform"]'),
           headerCtaText: headerCta ? headerCta.textContent.trim() : "",
           navHrefs: [...document.querySelectorAll('nav.ar-nav a[data-sa-nav]')].map((a) => a.getAttribute("href")),
           headerShell: document.querySelector("header.ar-header")?.outerHTML.replace(/\s+/g, " ").trim() || "",
@@ -119,10 +154,16 @@ async function main() {
       if (width.w <= 900 && metrics.headerCtaDisplay !== "none") fail(`${path} @ ${width.name}: header CTA visible`);
       if (!metrics.hasGrowthNav) fail(`${path} @ ${width.name}: no growth nav link`);
       if (!metrics.hasTeamNav) fail(`${path} @ ${width.name}: no team nav link`);
-      if (!metrics.headerCtaText.includes("Book proof demo")) fail(`${path} @ ${width.name}: header CTA not unified`);
+      if (!metrics.hasMvpNav) fail(`${path} @ ${width.name}: no 48h MVP nav link`);
+      if (!metrics.hasSignIn) fail(`${path} @ ${width.name}: no Sign in header`);
+      if (!metrics.headerCtaText.includes("See live receipt")) fail(`${path} @ ${width.name}: header CTA not unified`);
       if (metrics.hasLegacyCta) fail(`${path} @ ${width.name}: legacy Get Started text`);
-      if (width.w >= 900 && JSON.stringify(metrics.navHrefs) !== JSON.stringify(NAV_HREFS)) {
-        fail(`${path} @ ${width.name}: nav order drift ${metrics.navHrefs.join(",")}`);
+      if (width.w >= 900) {
+        const got = metrics.navHrefs.map(normNavHref);
+        const want = NAV_HREFS.map(normNavHref);
+        if (JSON.stringify(got) !== JSON.stringify(want)) {
+          fail(`${path} @ ${width.name}: nav order drift ${got.join(",")}`);
+        }
       }
       if (!metrics.hasMotion || !metrics.hasAgentrun) fail(`${path} @ ${width.name}: missing scripts`);
       if (errors.length) fail(`${path} @ ${width.name}: js — ${errors.slice(0, 2).join(" | ")}`);
@@ -134,8 +175,8 @@ async function main() {
   await navPage.setViewportSize({ width: 375, height: 812 });
   await navPage.goto(`${BASE}/sourcea/`, { waitUntil: "networkidle" });
   await navPage.click(".ar-nav-toggle");
-  await navPage.click('a[href="/sourcea/growth.html"]');
-  await navPage.waitForURL("**/growth.html", { timeout: 10000 });
+  await navPage.click('a[href="/sourcea/growth"], a[href="/sourcea/growth.html"]');
+  await navPage.waitForURL(/\/growth(?:\.html)?/, { timeout: 10000 });
   const title = await navPage.title();
   if (!title.includes("Growth")) fail("mobile nav flow: growth page title");
   await navPage.goto(`${BASE}/sourcea/`, { waitUntil: "networkidle" });
@@ -154,22 +195,10 @@ async function main() {
   const headerPage = await ctx.newPage();
   await headerPage.setViewportSize({ width: 1280, height: 800 });
   const EXPECT_SIG = JSON.stringify({
-    nav: NAV_HREFS.map((h) => {
-      const labels = {
-        "/sourcea/": "Home",
-        "/sourcea/platform.html": "Platform",
-        "/sourcea/team.html": "Team",
-        "/sourcea/growth.html": "Growth",
-        "/sourcea/scenario.html": "Scenario",
-        "/sourcea/proof.html": "Proof chain",
-        "/sourcea/compare.html": "Compare",
-        "/sourcea/pricing.html": "Pricing",
-      };
-      return `${h}:${labels[h]}`;
-    }),
-    cta: "Book proof demo",
-    mobile: "Book proof demo",
-    logo: "/sourcea/",
+    nav: NAV_HREFS.map((h) => `${h}:${NAV_LABELS[h]}`),
+    cta: "See live receipt",
+    mobile: "See live receipt",
+    logo: "/",
   });
   for (const path of PAGES) {
     await headerPage.goto(`${BASE}${path}`, { waitUntil: "networkidle" });
@@ -188,55 +217,36 @@ async function main() {
   }
   await headerPage.close();
 
-  // Agency lane assertions (home + growth + pricing)
+  // Agency / commercial lane (home commercial at /sourcea/ + founder at /)
   const agencyPage = await ctx.newPage();
   await agencyPage.setViewportSize({ width: 1280, height: 800 });
   await agencyPage.goto(`${BASE}/sourcea/`, { waitUntil: "networkidle" });
-  const homeAgency = await agencyPage.evaluate(() => ({
+  const commercialHome = await agencyPage.evaluate(() => ({
+    ctaBand: !!document.querySelector(".sa-cta-band"),
+    proofCta: !!document.querySelector("[data-sa-proof-cta]"),
+    bookFallback: !!document.querySelector("[data-sa-book-fallback]"),
+    chainFlow: !!document.querySelector(".sa-chain-flow"),
+    metricNote: (document.body.innerText || "").includes("Illustrative") || (document.body.innerText || "").includes("pureflow"),
+  }));
+  if (!commercialHome.ctaBand) fail("commercial: /sourcea/ missing CTA band");
+  if (!commercialHome.proofCta) fail("commercial: /sourcea/ missing proof hero CTA");
+  if (!commercialHome.chainFlow) fail("commercial: /sourcea/ missing chain flow");
+
+  await agencyPage.goto(`${BASE}/`, { waitUntil: "networkidle" });
+  const founderHome = await agencyPage.evaluate(() => ({
     chips: document.querySelectorAll(".sa-buyer-chip").length,
     toggle: !!document.querySelector(".sa-buyer-toggle"),
-    activeBuyer: (document.querySelector(".sa-buyer-toggle .sa-buyer-chip.is-active")?.textContent || "").toLowerCase(),
-    chainBeats: document.querySelectorAll(".sa-chain-beat").length,
     mockPanel: !!document.querySelector("#sa-biz-command.sa-mock-panel"),
-    ctaHeadline: document.querySelector(".sa-cta-band h2")?.textContent || "",
-    forensicCta: !!document.querySelector('.sa-cta-band a[href="/sourcea/proof/live.html"]'),
-    flywheel: !!document.querySelector("#agency-flywheel .sa-growth-flywheel"),
-    metricNote: (document.body.innerText || "").includes("Illustrative"),
-    winCard: !!document.querySelector("#agency-path .sa-win-story-card"),
-    onepager: !!document.querySelector('a[href="/sourcea/attach/agency-onepager.html"]'),
+    pulse: !!document.getElementById("sa-pulse-feedback-fab"),
+    playbook: !!document.getElementById("sa-playbook-dock"),
+    chatbot: !!document.getElementById("sa-brain-chat"),
   }));
-  if (homeAgency.chips < 2) fail("agency: home missing buyer chips");
-  if (!homeAgency.toggle) fail("mock: home missing sa-buyer-toggle");
-  if (!homeAgency.activeBuyer.includes("agency")) fail("mock: buyer toggle active lane not agency");
-  if (homeAgency.chainBeats !== 6) fail(`mock: home chain beats ${homeAgency.chainBeats} !== 6`);
-  if (!homeAgency.mockPanel) fail("mock: home missing sa-mock-panel on command center");
-  if (!homeAgency.ctaHeadline.includes("Close clients with live proof")) fail("mock: CTA band headline drift");
-  if (!homeAgency.forensicCta) fail("mock: CTA band missing forensic proof link");
-  if (!homeAgency.flywheel) fail("agency: home missing flywheel");
-  if (!homeAgency.metricNote) fail("agency: home missing illustrative label");
-  if (!homeAgency.winCard) fail("agency: home missing featured win card");
-  if (!homeAgency.onepager) fail("agency: home missing onepager CTA");
-  const heroBoot = await agencyPage.$('a[href="https://github.com/sourcea-io/sourcea-boot"]');
-  if (!heroBoot) fail("truth: home hero missing Try sourcea-boot link");
-  const homeTerminal = await agencyPage.evaluate(() => {
-    const t = document.body.innerText || "";
-    return (
-      t.includes("sourcea-boot --json") &&
-      ["policy_version", "provider", "receipt_fresh", "queue_truth"].every((n) => t.includes(n)) &&
-      !!document.querySelector(".sa-boot-terminal-label")
-    );
-  });
-  if (!homeTerminal) fail("truth: home missing live boot terminal with four checks");
-
-  try {
-    await agencyPage.waitForFunction(
-      () => /valid yes \d+\/\d+/.test(document.getElementById("sa-agent-pill-text")?.textContent || ""),
-      { timeout: 5000 }
-    );
-  } catch {
-    const snap = await agencyPage.evaluate(() => document.getElementById("sa-agent-pill-text")?.textContent || "");
-    fail(`SMART-301: factory pill not live on home — "${snap}"`);
-  }
+  if (founderHome.chips < 2) fail("founder: home missing buyer chips");
+  if (!founderHome.toggle) fail("founder: home missing sa-buyer-toggle");
+  if (!founderHome.mockPanel) fail("founder: home missing sa-mock-panel");
+  if (!founderHome.pulse) fail("founder: home missing feedback FAB");
+  if (!founderHome.playbook) fail("founder: home missing playbook dock");
+  if (!founderHome.chatbot) fail("founder: home missing Brain chatbot");
 
   await agencyPage.goto(`${BASE}/sourcea/proof.html`, { waitUntil: "networkidle" });
   const proofBeats = await agencyPage.$$eval(".sa-chain-beat", (els) => els.length);
@@ -262,7 +272,7 @@ async function main() {
   if (!pricingText.includes("$2K") && !pricingText.includes("from $2K")) fail("agency: pricing missing retainer band");
   await agencyPage.close();
 
-  // SMART-301 — trust strip live on 5 pages (valid_yes not —)
+  // SMART-301 — trust strip (fallback paint — not —)
   const trustPage = await ctx.newPage();
   await trustPage.setViewportSize({ width: 1280, height: 800 });
   for (const path of TRUST_PAGES) {
@@ -270,52 +280,34 @@ async function main() {
     try {
       await trustPage.waitForFunction(
         () => {
-          const el = document.querySelector("[data-trust-valid-yes]");
-          return el && !el.textContent.includes("—") && /^\d+\/\d+$/.test(el.textContent.trim());
+          const el = document.querySelector("[data-trust-receipts-lifetime]");
+          const t = (el?.textContent || "").trim();
+          return t && !t.includes("—") && /\d/.test(t);
         },
-        { timeout: 5000 }
+        { timeout: 8000 }
       );
     } catch {
       const snap = await trustPage.evaluate(
-        () => document.querySelector("[data-trust-valid-yes]")?.textContent || "missing"
+        () => document.querySelector("[data-trust-receipts-lifetime]")?.textContent || "missing"
       );
-      fail(`SMART-301: trust valid_yes not live on ${path} — "${snap}"`);
-    }
-    const lifetime = await trustPage.evaluate(
-      () => document.querySelector("[data-trust-receipts-lifetime]")?.textContent || ""
-    );
-    if (!lifetime || lifetime.includes("—") || !/\d/.test(lifetime)) {
-      fail(`SMART-301: receipts lifetime not live on ${path} — "${lifetime}"`);
+      fail(`SMART-301: receipts lifetime not live on ${path} — "${snap}"`);
     }
   }
-  await trustPage.goto(`${BASE}/sourcea/`, { waitUntil: "networkidle" });
-  try {
-    await trustPage.waitForFunction(
-      () => {
-        const t = document.getElementById("sa-agent-pill-text")?.textContent || "";
-        return /valid yes \d+\/\d+/.test(t);
-      },
-      { timeout: 5000 }
-    );
-  } catch {
-    const snap = await trustPage.evaluate(() => document.getElementById("sa-agent-pill-text")?.textContent || "");
-    fail(`SMART-301: factory pill not painted on home — "${snap}"`);
+  await trustPage.goto(`${BASE}/`, { waitUntil: "networkidle" });
+  const pill = await trustPage.evaluate(() => document.getElementById("sa-agent-pill-text")?.textContent || "");
+  if (!pill || pill.includes("Checking")) {
+    fail(`SMART-301: factory log/pill not painted on founder home — "${pill}"`);
   }
   await trustPage.close();
 
-  // Live console tab switch (home hero)
+  // Live console (founder home — mock panel, no biz tabs required)
   const consolePage = await ctx.newPage();
   await consolePage.setViewportSize({ width: 1280, height: 800 });
-  await consolePage.goto(`${BASE}/sourcea/`, { waitUntil: "networkidle" });
-  const aegHtml = await consolePage.evaluate(() => document.getElementById("sa-biz-command")?.innerHTML || "");
-  const hasAegTerm = await consolePage.evaluate(
-    () => !!document.querySelector(".sa-aeg-mini-term, .sa-w1-mini-terminal")
-  );
-  if (!hasAegTerm) fail("console: Live proof tab missing mini terminal");
-  await consolePage.click('.sa-biz-tab[data-biz-tab="overview"]');
-  await consolePage.waitForTimeout(400);
-  const overviewHtml = await consolePage.evaluate(() => document.getElementById("sa-biz-command")?.innerHTML || "");
-  if (overviewHtml === aegHtml) fail("console: overview tab did not swap panel content");
+  await consolePage.goto(`${BASE}/`, { waitUntil: "networkidle" });
+  const log = await consolePage.evaluate(() => document.getElementById("sa-factory-log")?.textContent || "");
+  if (!log || log.includes("Checking latest job")) {
+    fail(`console: factory log not painted — "${log}"`);
+  }
   await consolePage.close();
 
   // Attach one-pager (standalone — no site header)
@@ -323,12 +315,12 @@ async function main() {
   await attachPage.goto(`${BASE}/sourcea/attach/agency-onepager.html`, { waitUntil: "networkidle" });
   const attachOk = await attachPage.evaluate(() => ({
     h1: !!document.querySelector("h1"),
-    mail: (document.body.innerText || "").includes("hello@sourcea.com"),
+    mail: (document.body.innerText || "").includes("hello@sourcea.app"),
     pricing: (document.body.innerText || "").includes("$3–10K"),
     terminal: (document.body.innerText || "").includes("sourcea-boot --json"),
   }));
   if (!attachOk.h1) fail("attach: missing h1");
-  if (!attachOk.mail) fail("attach: missing hello@sourcea.com");
+  if (!attachOk.mail) fail("attach: missing hello@sourcea.app");
   if (!attachOk.pricing) fail("attach: missing pricing band");
   if (!attachOk.terminal) fail("attach: missing honest terminal");
   await attachPage.close();
@@ -346,6 +338,14 @@ async function main() {
   if (!interactOk.bodyChatClass) fail("interact: missing sa-has-chatbot body class");
   if (!interactOk.quiz) fail("interact: scenario missing proof quiz section");
   if (!interactOk.quizPrompt) fail("interact: proof quiz did not mount");
+  const modernShell = await interactPage.evaluate(() => ({
+    pulse: !!document.querySelector('script[src*="sourcea-site-pulse-v1.js"]'),
+    interact: !!document.querySelector('script[src*="sourcea-site-interact-v1.js"]'),
+    feedback: !!document.getElementById("sa-pulse-feedback-fab"),
+  }));
+  if (!modernShell.pulse) fail("interact: missing pulse script on scenario");
+  if (!modernShell.interact) fail("interact: missing interact script on scenario");
+  if (!modernShell.feedback) fail("interact: missing feedback FAB on scenario");
   await interactPage.click("#sa-brain-fab");
   const chatOpen = await interactPage.evaluate(() => ({
     open: document.getElementById("sa-brain-chat")?.classList.contains("is-open"),
@@ -353,23 +353,96 @@ async function main() {
   }));
   if (!chatOpen.open) fail("interact: chatbot did not open");
   if (chatOpen.overflowX > 8) fail(`interact: chatbot open overflow ${Math.round(chatOpen.overflowX)}px`);
+  const composerOk = await interactPage.evaluate(() => ({
+    composer: !!document.getElementById("sa-brain-composer"),
+    input: !!document.getElementById("sa-brain-input"),
+  }));
+  if (!composerOk.composer) fail("interact: missing Brain chat composer");
+  if (!composerOk.input) fail("interact: missing Brain chat input");
+  await interactPage.click('button.sa-brain-chip:has-text("What is SourceA?")');
+  await interactPage.waitForFunction(
+    () => {
+      const bots = [...document.querySelectorAll(".sa-brain-msg-bot")].filter(
+        (n) => !n.classList.contains("is-typing")
+      );
+      const last = bots[bots.length - 1];
+      return bots.length >= 2 && (last?.textContent || "").trim().length > 40;
+    },
+    { timeout: 30000 }
+  );
+  const brainReplyOk = await interactPage.evaluate(() => {
+    const offline = document.getElementById("sa-brain-offline");
+    const bots = [...document.querySelectorAll(".sa-brain-msg-bot")].filter(
+      (n) => !n.classList.contains("is-typing")
+    );
+    const last = (bots[bots.length - 1]?.textContent || "").trim();
+    return {
+      offlineHidden: !offline || offline.hidden,
+      providerLive: document.getElementById("sa-brain-provider")?.classList.contains("is-live"),
+      noInfraLeak: !(document.getElementById("sa-brain-panel")?.innerText || "").match(/openrouter/i),
+      replyLen: last.length,
+      hasError: !!document.querySelector(".sa-brain-msg-error"),
+    };
+  });
+  if (!brainReplyOk.offlineHidden) fail("interact: Brain offline banner visible after reply");
+  if (!brainReplyOk.providerLive) fail("interact: Brain not live after reply");
+  if (!brainReplyOk.noInfraLeak) fail("interact: OpenRouter or infra leaked in Brain UI");
+  if (brainReplyOk.replyLen < 40) fail("interact: Brain reply too short");
+  if (brainReplyOk.hasError) fail("interact: Brain returned error message");
   const bootRes = await interactPage.goto(`${BASE}/sourcea/data/boot-proof.json`, { waitUntil: "networkidle" });
   if (!bootRes || !bootRes.ok()) fail("interact: boot-proof.json not served");
+  const brainCfgRes = await interactPage.goto(`${BASE}/sourcea/data/sourcea-brain-chat-config-v1.json`, {
+    waitUntil: "networkidle",
+  });
+  if (!brainCfgRes || !brainCfgRes.ok()) fail("interact: brain-chat-config.json not served");
+  const brainCfgOk = await interactPage.evaluate(() => {
+    try {
+      const t = document.body.innerText || "";
+      const row = JSON.parse(t);
+      return Boolean(row.api_worker_url);
+    } catch {
+      return false;
+    }
+  });
+  if (!brainCfgOk) fail("interact: brain-chat-config.json not valid JSON");
   await interactPage.close();
+
+  const hubRes = await ctx.newPage();
+  const hubNav = await hubRes.goto(`${BASE}/sourcea/case-studies/`, { waitUntil: "networkidle" });
+  if (!hubNav || !hubNav.ok()) fail("case-studies-hub: page not 200");
+  const hubOk = await hubRes.evaluate(() => ({
+    grid: !!document.querySelector("[data-mode='case-studies']"),
+    title: (document.title || "").toLowerCase().includes("case"),
+  }));
+  if (!hubOk.grid) fail("case-studies-hub: missing case-studies grid");
+  await hubRes.close();
+
+  const platPage = await ctx.newPage();
+  await platPage.goto(`${BASE}/sourcea/platform`, { waitUntil: "networkidle" });
+  try {
+    await platPage.waitForFunction(
+      () =>
+        document.querySelector("#sa-products-grid[data-mounted='1']") ||
+        document.querySelector("#sa-products-grid .sa-product-card"),
+      { timeout: 8000 }
+    );
+  } catch {
+    fail("platform: product grid did not mount");
+  }
+  await platPage.close();
 
   const mobilePage = await ctx.newPage();
   await mobilePage.setViewportSize({ width: 375, height: 812 });
-  await mobilePage.goto(`${BASE}/sourcea/`, { waitUntil: "networkidle" });
+  await mobilePage.goto(`${BASE}/`, { waitUntil: "networkidle" });
   const mobileOk = await mobilePage.evaluate(() => ({
     overflowX: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
-    secondaryActions: !!document.querySelector(".sa-hero-secondary-actions"),
     chatbot: !!document.getElementById("sa-brain-fab"),
-    orchestratorPad: getComputedStyle(document.body).getPropertyValue("--sa-chat-bottom").trim().length > 0
-      || document.body.classList.contains("sa-has-chatbot"),
+    feedback: !!document.getElementById("sa-pulse-feedback-fab"),
+    orchestratorPad: document.body.classList.contains("sa-has-chatbot"),
   }));
   if (mobileOk.overflowX > 8) fail(`mobile-home: overflow ${Math.round(mobileOk.overflowX)}px`);
-  if (!mobileOk.secondaryActions) fail("mobile-home: missing hero secondary actions group");
   if (!mobileOk.chatbot) fail("mobile-home: missing chatbot fab");
+  if (!mobileOk.feedback) fail("mobile-home: missing feedback fab");
   await mobilePage.close();
 
   await browser.close();

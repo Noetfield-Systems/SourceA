@@ -9,7 +9,7 @@ description = "PASS or BLOCK before any agent executes — four disk checks, one
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [{ name = "SourceA", email = "hello@sourcea.com" }]
+authors = [{ name = "SourceA", email = "hello@sourcea.app" }]
 keywords = ["agents", "governance", "boot-gate", "llm", "cursor"]
 classifiers = [
   "Development Status :: 4 - Beta",

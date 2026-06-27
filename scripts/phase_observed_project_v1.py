@@ -2,7 +2,7 @@
 """Observed (status) projection writer — NEVER touches desired/assignment.
 
 Law: data/execution-state-desired-observed-v1.json
-Imports phase_desired_read_v1 read-only for cloud_drain_head label only.
+Imports phase_desired_read_v1 read-only for cloud_forge_run_head label only.
 """
 from __future__ import annotations
 
@@ -121,7 +121,7 @@ def mark_forge_queue_exhausted() -> dict[str, Any]:
                 "phase_strict_complete": True,
                 "completed_at": _now(),
                 "completed_by": "phase_observed_project_v1",
-                "note": "forge_factory_cycle2 observed complete — cloud drain head from founder desired",
+                "note": "forge_factory_cycle2 observed complete — Cloud Forge Run head from founder desired",
             }
         )
         _write(HOME_QUEUE, q)
@@ -147,11 +147,11 @@ def project_era_phase_market(*, cloud_head: str) -> dict[str, Any]:
         "current_era": "phase_market",
         "current_brand": "PORTFOLIO-",
         "live_mode": "CLOUD_DRAIN",
-        "cloud_drain_head": cloud_head,
+        "cloud_forge_run_head": cloud_head,
         "reconciled_at": _now(),
         "reconciled_by": "phase_observed_project_v1",
         "prior_era": "forge_factory_cycle2",
-        "queue_ssot": "data/secondary-cloud-drain-next-100-v1.json",
+        "queue_ssot": "data/secondary-cloud-forge-run-next-100-v1.json",
     }
     archived = list(row.get("archived_eras") or [])
     if not any(a.get("id") == "forge_factory_cycle2" for a in archived):
@@ -173,7 +173,7 @@ def write_phase_observed(*, cloud_head: str) -> dict[str, Any]:
     row = {
         "schema": "phase-observed-v1",
         "era": "phase_market",
-        "cloud_drain_head": cloud_head,
+        "cloud_forge_run_head": cloud_head,
         "forge_cycle2": "complete",
         "queue_exhausted": True,
         "mac_executes": False,
@@ -195,9 +195,9 @@ def rebuild_factory_now_observed(*, cloud_head: str, caller: str) -> dict[str, A
     if stop:
         stop.update({"cleared_by_asf": True, "cleared_at": _now(), "cleared_by": caller})
         _atomic_write(STOP_RECEIPT, stop)
-    _set_mode_file("FREEZE", set_by=caller, reason="phase_market mac observe · cloud drain active")
+    _set_mode_file("FREEZE", set_by=caller, reason="phase_market mac observe · Cloud Forge Run active")
     fn = rebuild_factory_now(caller=caller, force=True)
-    fn["cloud_drain_head"] = cloud_head
+    fn["cloud_forge_run_head"] = cloud_head
     fn["era"] = "phase_market"
     _atomic_write(SINA / "factory-now-v1.json", fn)
     return fn
@@ -213,7 +213,7 @@ def project_cycle2_to_market(*, cloud_head: str, caller: str = "phase_observed_p
     steps.append({"step": "phase_observed", "ok": True, **obs})
     try:
         fn = rebuild_factory_now_observed(cloud_head=cloud_head, caller=caller)
-        steps.append({"step": "factory_now", "ok": True, "line": fn.get("line"), "cloud_drain_head": cloud_head})
+        steps.append({"step": "factory_now", "ok": True, "line": fn.get("line"), "cloud_forge_run_head": cloud_head})
     except Exception as exc:
         steps.append({"step": "factory_now", "ok": False, "error": str(exc)[:200]})
         return {"ok": False, "steps": steps}
@@ -224,7 +224,7 @@ def project_cycle2_to_market(*, cloud_head: str, caller: str = "phase_observed_p
         steps.append({"step": "queue_ssot_unify", "ok": bool(u.get("ok", True))})
     except Exception as exc:
         steps.append({"step": "queue_ssot_unify", "ok": False, "error": str(exc)[:120]})
-    return {"ok": True, "steps": steps, "cloud_drain_head": cloud_head}
+    return {"ok": True, "steps": steps, "cloud_forge_run_head": cloud_head}
 
 
 def already_reconciled_phase_market(*, desired_phase_id: str, cloud_head: str) -> bool:
@@ -234,4 +234,4 @@ def already_reconciled_phase_market(*, desired_phase_id: str, cloud_head: str) -
     era = read_observed_era().replace("-", "_")
     if era not in ("phase_market", "phase-market") and obs.get("era") != "phase_market":
         return False
-    return obs.get("forge_cycle2") == "complete" and str(obs.get("cloud_drain_head") or "") == cloud_head
+    return obs.get("forge_cycle2") == "complete" and str(obs.get("cloud_forge_run_head") or "") == cloud_head

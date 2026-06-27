@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Auto smart loop — post outbound-factory completion (108/108).
 
-When outbound upgrade plan is done, loop specialist owns next motion — not founder taps.
+When outbound upgrade plan is done, Auto Runtime specialist owns next motion — not founder taps.
 Receipt: ~/.sina/outbound-factory-phase-complete-v1.json
 """
 from __future__ import annotations
@@ -58,8 +58,8 @@ def mark_outbound_queue_exhausted(*, write: bool = True) -> dict:
         "thread": "OUTBOUND-FACTORY",
         "repo": "sourcea",
         "count": 0,
-        "rhythm": "complete — loop specialist owns next phase",
-        "law": "outbound_factory_phase_complete_v1 · loop auto smart loop",
+        "rhythm": "complete — Auto Runtime specialist owns next phase",
+        "law": "outbound_factory_phase_complete_v1 · Auto Runtime smart loop",
         "generated_at": _now(),
         "phase_strict": False,
         "phase_strict_complete": True,
@@ -106,7 +106,7 @@ def enable_loop_auto(*, write: bool = True) -> dict:
     cfg["loop_auto_dispatch_enabled"] = True
     cfg["loop_auto_observe_enabled"] = True
     cfg["loop_auto_mode"] = cfg.get("loop_auto_mode") or "shadow_auto"
-    cfg["founder_motion"] = "Hub glance only · Loop specialist auto-tick · no RUN INBOX verb"
+    cfg["founder_motion"] = "Hub glance only · Auto Runtime specialist auto-tick · no RUN INBOX verb"
     cfg["outbound_complete_at"] = _now()
     if write:
         cfg_path.write_text(json.dumps(cfg, indent=2) + "\n", encoding="utf-8")
@@ -144,7 +144,7 @@ def advance_next_phase_queue(*, write: bool = True) -> dict:
 
 
 def run_auto_transition(*, write: bool = True, dispatch: bool = False) -> dict:
-    """Full auto smart loop handoff after outbound factory drain."""
+    """Full auto smart loop handoff after outbound Cloud Forge Run."""
     prog = outbound_plan_progress()
     if not prog.get("complete"):
         return {"ok": False, "error": "outbound_not_complete", "progress": prog}
@@ -194,7 +194,7 @@ def run_auto_transition(*, write: bool = True, dispatch: bool = False) -> dict:
 def main() -> int:
     ap = argparse.ArgumentParser(description="Outbound factory → auto smart loop handoff")
     ap.add_argument("--run", action="store_true", help="Run full auto transition")
-    ap.add_argument("--dispatch", action="store_true", help="Also run loop specialist tick dispatch")
+    ap.add_argument("--dispatch", action="store_true", help="Also run Auto Runtime specialist tick dispatch")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
     if args.run:

@@ -14,8 +14,12 @@
   },
   "commercial_plane": {
     "role": "Paying customers only — service + future platform",
-    "domain_primary": "sourcea.com",
-    "domain_app_alias": "sourcea.app",
+      "domain_primary": "sourcea.app",
+      "domain_vercel": "deprecated_interim_only",
+      "domain_pages": "sourcea-com.pages.dev",
+      "domain_email": "hello@sourcea.app",
+      "url_mvp_home": "https://sourcea.app/",
+      "url_kernel": "https://sourcea.app/kernel/",
     "website_surface": "SourceA-landing/green-unified/",
     "must_not_leak_into_kernel": ["trial infra vibes", "customer PII in brain-os", "sandbox auth in governance law"],
     "business_a_service": {
@@ -34,7 +38,11 @@
       ],
       "end_screen": "We'll respond in 2 hours with a plan.",
       "scope_v1": "No platform · no sandbox · no free tier — form + skills + Cursor delivery",
-      "wedge": "Apple App Store apps built with AI — specific, credible ICP"
+      "wedge": "Apple App Store apps built with AI — specific, credible ICP",
+      "landing_path": "SourceA-landing/green-unified/start.html",
+      "intake_api": "/api/commercial/mvp-intake/v1",
+      "intake_script": "scripts/sourcea_mvp_intake_submit_v1.py",
+      "e2e_validator": "scripts/validate-sourcea-mvp-intake-e2e-v1.sh"
     },
     "business_b_platform": {
       "id": "forge-platform",

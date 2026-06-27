@@ -91,7 +91,7 @@ def _build_agent_glance(
     routing: dict[str, Any],
 ) -> dict[str, Any]:
     """First-screen agent routing — where to go next."""
-    queue = phase.get("cloud_drain_head") or phase.get("queue_head") or "—"
+    queue = phase.get("cloud_forge_run_head") or phase.get("queue_head") or "—"
     factory = (
         live.get("factory_now_line")
         or routing.get("founder_routing_panel_line")
@@ -210,7 +210,7 @@ def build_report_light() -> dict[str, Any]:
             "compile_order": routing_receipt.get("compile_order")
             or (routing_receipt.get("stack_map") or {}).get("compile_order"),
         },
-        "queue_head": phase.get("cloud_drain_head") or phase.get("queue_head"),
+        "queue_head": phase.get("cloud_forge_run_head") or phase.get("queue_head"),
         "orient_roles": _as_list(orient.get("role_routing") or orient.get("roles"), 8),
         "golden_tips": _golden_tips(routing=routing_receipt, cost=cost, active=active),
         "agent_glance": _build_agent_glance(

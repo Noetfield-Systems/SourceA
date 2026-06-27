@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Close-out bundle — Item 1 ratify era · Item 2 full FORGE motor · then loop auto.
+"""Close-out bundle — Item 1 ratify era · Item 2 full FORGE motor · then Auto Runtime.
 
 Law: data/execution-state-desired-observed-v1.json v1.2.0
 DO NOT enable loop_auto until BOTH items green.
@@ -119,7 +119,7 @@ def run_closeout(*, skip_item2: bool = False, enable_loop_auto: bool = False, dr
     both_green = item1_ok and item2.get("ok")
     out["both_green"] = both_green
 
-    # Last step — loop auto only when both green and explicitly requested
+    # Last step — Auto Runtime only when both green and explicitly requested
     loop_cfg = _read(LOOP_CFG)
     if both_green and enable_loop_auto and not dry_run:
         loop_cfg["loop_auto_dispatch_enabled"] = True
@@ -145,7 +145,7 @@ def run_closeout(*, skip_item2: bool = False, enable_loop_auto: bool = False, dr
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Close-out — ratify era + full FORGE motor + optional loop auto")
+    ap = argparse.ArgumentParser(description="Close-out — ratify era + full FORGE motor + optional Auto Runtime")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--skip-item2", action="store_true")
     ap.add_argument("--enable-loop-auto", action="store_true", help="Last step — only after both items green")

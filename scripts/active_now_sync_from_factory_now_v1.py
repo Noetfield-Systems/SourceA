@@ -68,7 +68,7 @@ def sync_active_now(*, dry_run: bool = False) -> dict:
         )
         blocker_line = (
             f"**Current Blocker:** Goal 1 complete · queue idle · AUTO-RUN FREEZE · `{line}` · "
-            f"commercial P0 · ASF: resume drain or name Cycle 4 pack for next factory drain"
+            f"commercial P0 · ASF: Cloud Forge Run or name Cycle 4 pack for next Cloud Forge Run"
         )
         sprint_line = "**Current Sprint:** Goal 1 honest complete · commercial flywheel · Hub advisory"
     elif active:
@@ -83,7 +83,7 @@ def sync_active_now(*, dry_run: bool = False) -> dict:
         goal_line = "**Current Goal:** Goal 1 — Governed automation factory → Pre-LLM eval-dispatch spine"
         blocker_line = (
             f"**Current Blocker:** FREEZE — kill flag ON · mode {mode} · `{line}` · "
-            f"ASF: resume drain — max N — receipt required"
+            f"ASF: Cloud Forge Run — max N — receipt required"
         )
         sprint_line = "**Current Sprint:** Paused — all engines off · no spend"
     else:

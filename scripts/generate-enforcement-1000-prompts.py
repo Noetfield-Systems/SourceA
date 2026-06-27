@@ -193,7 +193,7 @@ PHASE_TASKS: list[list[str]] = [
         "Script close: TF/NF pilot path — ask for design partner meeting",
         "Time each beat — total ≤5:00 on rehearsal",
         "Add demo checklist card for ASF pre-meeting (hub Refresh + terminal font size)",
-        "Validate demo works with FREEZE ON — governance does not need factory drain",
+        "Validate demo works with FREEZE ON — governance does not need Cloud Forge Run",
         "Add demo witness log signer field proved_by maintainer|worker",
         "Cross-check demo does not expose ~/.sina secrets in terminal",
         "Add ENFORCEMENT_DEMO_RUNBOOK_v1.md troubleshooting table",

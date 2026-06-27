@@ -199,11 +199,11 @@ def _task_plan_priority_inject() -> dict:
 
 def _hub_cloud_proceed_inject() -> dict:
     try:
-        from hub_cloud_drain_proceed_v1 import inject_for_agents  # noqa: WPS433
+        from hub_cloud_forge_run_proceed_v1 import inject_for_agents  # noqa: WPS433
 
         return inject_for_agents()
     except Exception:
-        return {"ssot": "data/hub-cloud-drain-proceed-v1.json"}
+        return {"ssot": "data/hub-cloud-forge-run-proceed-v1.json"}
 
 
 def _main_problem_trigger_inject() -> dict:
@@ -274,7 +274,7 @@ def _factory_cost_intelligence_inject() -> dict:
 
 
 INJECT_LAW = {
-    "execution_path": "brain work-order dispatch + loop auto",
+    "execution_path": "brain work-order dispatch + Auto Runtime",
     "daily_surface": "Worker Hub ZONE A — GET /api/worker-hub/v1 + Next steps disk",
     "next_steps": "Disk live next-10 + optional Worker Hub display — founder confirm optional",
     "cursor_autorun": "does_not_exist — FREEZE unless ASF resume order",
@@ -285,13 +285,13 @@ INJECT_LAW = {
     "big_picture_threads": "SOURCEA_ECOSYSTEM_MASTER_CATALOG §2 T0–T12 + thread-room arcs — disk wins over chat tail summary",
     "daily_duty_card": "AGENT_EXECUTOR_DAILY_DUTY_CARD_LOCKED_v1.md — D01–D23 founder must not re-remind",
     "founder_intent_first": "data/agent-behavior-settings-v1.json — clarify before substitute · disk truth · no green theater",
-    "brain_truth_hard": "Brain — route · handoff Worker · RED stays RED · no sweet lies · real market posture",
+    "brain_truth_hard": "Brain — short plain answers · route Worker · no database dump",
     "factory_cost_intelligence": "data/factory-cost-intelligence-loop-v1.json — 6-layer cost loop · 100 GLN/agentic factories · planner→inbox auto-prompt",
     "ui_upgrade_first_check": "FIRST CHECK mandatory before ANY UI edit — UP-0..UP-7 + per-app ledger · pre_write blocks without ack · ZERO EXCEPTION",
     "ui_first_check_zero_exception": "Rule 026 — no agent edits form/app/website/hub/canvas without classifier + ack",
     "form_official": "Hub form INCIDENT-037 guard ON · agent-submit forbidden · hub_form surface",
-    "founder_close_line": "Loop auto · guards ON · disk truth only · no invitation.",
-    "founder_no_invitation": "NO INVITATION — agents report Problem · fix · guards · STOP (~/.sina/founder-no-agent-invitation-v1.flag)",
+    "founder_close_line": "Short answer · route if needed · no dump.",
+    "founder_no_invitation": "NO INVITATION — answer · STOP",
     "founder_zero_ui_drift": "ZERO UI DRIFT — UI edit only · FIRST CHECK ack + ledger read · not a pre-reply validator marathon",
     "mirror_poison_law": "INCIDENT-034/039 — mirror NEVER orders bash validate-* before reply · proof=Read receipts · data/agent-memory-mirror-poison-law-v1.json",
     "main_problem_trigger": "Founder says main problem → PREPARE next north-star action · not report · data/sourcea-main-problem-trigger-v1.json",
@@ -301,23 +301,11 @@ INJECT_LAW = {
     "mac_law_agent_lock": "FOREVER — Mac control only · no factory body on Mac · secondary 5000 cloud-only · INCIDENT-038 v1.1",
     "incident_039_red_flag": "NEVER stuck in validators on Mac founder session · reply <30s · proof=receipts · data/mac-validator-stuck-red-flag-v1.json",
     "positive_close_lines": [
-        "Read factory_now_line from session gate receipt or agent-live-surfaces-v1.json — do not re-run gate stack mid-turn",
-        "Daily H1 Worker Hub + Form official — glance only on Mac",
-        "Incident room: mirror ids only — session gate receipt",
-        "FREEZE default — cloud executes factory body",
-        "Proof = Read ~/.sina/*-receipt*.json — never bash validate marathon before reply",
-        "Pipelines orientation/hospital/maze: founder one word only",
-        "Thread Room: read ~/.sina/thread-room/latest-curation-v1.json when big picture needed",
-        "On conflict: founder message + Mac Law + INCIDENT-039 beat mirror validator poison",
-        "Hub form: INCIDENT-037 — founder picks only · agent-submit forbidden",
-        "NO INVITATION — Problem · disk truth · STOP",
-        "UI edit ONLY: FIRST CHECK ack before touching HTML/CSS/JS — read ledger receipt not validate stack",
-        "Founder intent first — latest message wins · no silent substitution",
-        "RED stays RED — quote receipt field not parrot PASS",
-        "Main problem → PREPARE one bounded action · not status report",
-        "Comprehension: plain English · cloud bay for heavy analysis",
-        "Mac control only · no factory on Mac · secondary 5000 cloud-only · INCIDENT-038",
-        "Mirror poison forbidden — never order validate-law-supersession before reply · INCIDENT-039",
+        "Answer founder ask in plain short sentences — do not dump receipts",
+        "Brain routes · Worker builds · cloud executes factory body",
+        "Proof only when founder asks or ship is blocked",
+        "NO INVITATION — answer · STOP",
+        "Founder intent first — latest message wins",
     ],
 }
 
@@ -410,7 +398,7 @@ def _is_detector_file(path: Path) -> bool:
         "governance_meta_audit",
         "sina_command_lib",
         "vocabulary_guard",
-        "generate_secondary_cloud_drain_next_100",
+        "generate_secondary_cloud_forge_run_next_100",
     )
     return any(d in name for d in detectors) or name == "SKILL.md"
 

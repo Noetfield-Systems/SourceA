@@ -34,9 +34,9 @@ python3 scripts/commercial_mail_draft_v1.py --lane AB1 --check-mail --json 2>/de
 import json,sys
 d=json.load(sys.stdin)
 if d.get('ok'):
-    print('OK: hello@sourcea.com in Mail.app — open-mail allowed')
+    print('OK: hello@sourcea.app in Mail.app — open-mail allowed')
 else:
-    print('WARN: hello@sourcea.com not in Mail.app — packs OK but open-mail blocked')
+    print('WARN: hello@sourcea.app not in Mail.app — packs OK but open-mail blocked')
     print('  accounts:', d.get('mail_accounts'))
 " || true
 

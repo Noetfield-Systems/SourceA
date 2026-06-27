@@ -1,5 +1,5 @@
 {
-  "schema": "secondary-cloud-drain-batch-v1",
+  "schema": "secondary-cloud-forge-run-batch-v1",
   "version": "2.0.0",
   "batch_id": 2,
   "locked": true,
@@ -13,7 +13,7 @@
     "hand-edit while locked"
   ],
   "incident_ref": "brain-os/incidents/SINA_AGENT_WORKER_FACTORY_PLANE_CONFLATION_INCIDENT_038_LOCKED_v1.md",
-  "generator": "scripts/generate_secondary_cloud_drain_batch_v1.py",
+  "generator": "scripts/generate_secondary_cloud_forge_run_batch_v1.py",
   "registry_offset": 90,
   "registry_count": 100,
   "supersedes_batch": 1,

@@ -1,0 +1,16 @@
+schema: sourcea-project-v2
+name: virelux
+type: startup
+mode: production
+version: "2.0.0"
+models:
+  planner: claude-3.5-sonnet
+  executor: gemini-3.1-flash-lite
+  verifier: deepseek-v4
+rules:
+  approve_required: true
+  cloud_only: true
+agents:
+  - planner
+  - builder
+  - verifier

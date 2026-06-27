@@ -1,12 +1,20 @@
 {
   "schema": "validator-machine-registry-v1",
-  "version": "1.0.0",
-  "saved_at": "2026-06-22T12:30:00Z",
-  "one_law": "Validators are smart machines with disk logs — agents read receipts, not re-run marathons.",
+  "version": "1.1.0",
+  "saved_at": "2026-06-24T04:10:00Z",
+  "one_law": "Validators are smart machines with disk logs — agents read receipts, not re-run marathons. Worker Hub :13020 is legacy archived; Cloud Workers :13027 is primary cockpit.",
   "log_dir": "~/.sina/validator-machine/logs",
   "receipt": "~/.sina/validator-machine-last-receipt-v1.json",
   "machine": "scripts/validator_machine_v1.py",
   "hub_api": "GET /api/validator-machine/v1",
+  "legacy_archived": {
+    "worker_hub": {
+      "port": 13020,
+      "reason": "asf_hub_legacy_trash_v1.sh — Sina Command / Worker Hub trashed; do not probe",
+      "replacement": "cloud_workers",
+      "replacement_url": "http://127.0.0.1:13027/"
+    }
+  },
   "tiers": {
     "probe": "Health HTTP only — under 5s per app",
     "light": "Probe + disk receipts + chain slice — under 30s total",
@@ -14,13 +22,14 @@
   },
   "apps": [
     {
-      "id": "worker_hub",
-      "label": "Worker Hub H1",
-      "port": 13020,
-      "health": "http://127.0.0.1:13020/health",
-      "probe": "http://127.0.0.1:13020/health",
-      "light_validator": "scripts/validate-worker-hub-live-v1.sh",
-      "full_validator": "scripts/validate-worker-hub-live-v1.sh"
+      "id": "cloud_workers",
+      "label": "Cloud Workers (primary cockpit)",
+      "port": 13027,
+      "health": "http://127.0.0.1:13027/health",
+      "probe": "http://127.0.0.1:13027/health",
+      "light_validator": "scripts/verify-founder-desktop-apps-v1.sh",
+      "full_validator": "scripts/verify-founder-desktop-apps-v1.sh",
+      "ssot": "data/cloud-workers-control-plane-v1.json"
     },
     {
       "id": "n8n_integration",

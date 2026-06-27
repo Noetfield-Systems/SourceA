@@ -1,0 +1,11 @@
+schema: sourcea-models-v2
+catalog:
+  planner:
+    provider: openrouter
+    model: claude-3.5-sonnet
+  executor:
+    provider: gemini_direct
+    model: gemini-3.1-flash-lite
+  verifier:
+    provider: openrouter
+    model: deepseek-v4
