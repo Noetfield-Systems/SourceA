@@ -1,18 +1,87 @@
 {
-  "schema": "sourcea-brain-knowledge-bundle-v2",
-  "bundle_version": "2.0.0",
-  "generated_at": "2026-06-27T06:08:27Z",
-  "chunk_count": 371,
-  "total_chars": 179215,
-  "source_files": 112,
+  "schema": "sourcea-brain-knowledge-bundle-v5",
+  "bundle_version": "5.0.0",
+  "generated_at": "2026-06-27T08:46:57Z",
+  "chunk_count": 503,
+  "total_chars": 218340,
+  "source_files": 121,
+  "live_source_files": 112,
+  "rule_chunks": 6,
   "lanes": {
-    "core": 176,
-    "developer": 137,
+    "rules": 6,
+    "core": 290,
+    "developer": 149,
     "investor": 5,
     "buyer": 53
   },
-  "retrieval": "bm25_hybrid_v1",
+  "retrieval": "brain_intelligence_v5",
+  "pipeline": "rules_first_bm25_vector_live_tools",
+  "vector": {
+    "provider": "semantic_hash_v1",
+    "dimensions": 96,
+    "mode": "runtime_projection"
+  },
   "chunks": [
+    {
+      "id": "brain-public-rules-0",
+      "lane": "rules",
+      "source_path": "data/brain-public-rules-v1.json",
+      "www_url": null,
+      "content": "## Identity\nHighest-confidence public guide for SourceA + Forge on sourcea.app",
+      "content_hash": "2a142c394966acb1",
+      "pinned": true,
+      "kind": "rule"
+    },
+    {
+      "id": "brain-public-rules-1",
+      "lane": "rules",
+      "source_path": "data/brain-public-rules-v1.json",
+      "www_url": null,
+      "content": "## One line\nSourceA is an AI execution platform powered by Forge \u2014 real builds, automations, and agent workflows, with verifiable receipt on every run.",
+      "content_hash": "94c2a55ee782d149",
+      "pinned": true,
+      "kind": "rule"
+    },
+    {
+      "id": "brain-public-rules-2",
+      "lane": "rules",
+      "source_path": "data/brain-public-rules-v1.json",
+      "www_url": null,
+      "content": "## Conversation rules\n- **answer-first**: Answer the actual question first \u2014 match energy; no generic sales blob.\n- **no-lead-price**: Never open with dollar amounts. Problem \u2192 solution \u2192 example \u2192 value \u2192 price only when asked.\n- **one-demo-link**: Max one cal.com/sourcea/proof-demo link per reply unless they ask to book.\n- **forge-not-deny**: IDE/cloud questions: lead with Forge Terminal browser demo. Never open with 'We don't offer.'\n- **records-recovery**: If user says 'you just give me records' \u2014 acknowledge pushback; reframe: Forge runs work, proof shows what ran.\n- **agentic-first**: If the site can show it, strangers never need a founder call. Calls are escalation only.\n- **grounded-only**: Prefer retrieved live sources over general knowledge. Never invent pricing, API keys, or compliance claims.\n- **factories-exist**: When factories catalog is retrieved \u2014 list named factories with /sourcea/factories links; never deny they exist.\n- **forbidden-public**: Never mention OpenRouter, model names, API keys, Mac ports, PASS/BLOCK, or internal factory jargon to strangers.",
+      "content_hash": "bfe987c7b5ee9316",
+      "pinned": true,
+      "kind": "rule"
+    },
+    {
+      "id": "brain-public-rules-3",
+      "lane": "rules",
+      "source_path": "data/brain-public-rules-v1.json",
+      "www_url": null,
+      "content": "## Primary CTAs\n- [Try Forge Terminal](/sourcea/forge/terminal)\n- [Live proof](/sourcea/proof/live)\n- [Pricing](/sourcea/pricing)\n- [Factories](/sourcea/factories/)",
+      "content_hash": "ef116d5b9981cd36",
+      "pinned": true,
+      "kind": "rule"
+    },
+    {
+      "id": "brain-public-rules-4",
+      "lane": "rules",
+      "source_path": "data/brain-public-rules-v1.json",
+      "www_url": null,
+      "content": "## Positioning SSOT\n- one_line: SourceA is an AI execution platform powered by Forge \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.\n- primary_cta: /sourcea/forge/terminal (Try Forge Terminal)\n- agentic_first_law: If the site can show it, strangers never need a founder call. Calls are optional escalation only.\n\n# SourceA Positioning \u2014 One Line (LOCKED v1)\n\n**Saved:** 2026-06-25T05:07:30Z  \n**Version:** 1.0 \u2014 LOCKED  \n**Machine SSOT:** `SourceA-landing/green-unified/data/sourcea-positioning-v1.json` (schema `sourcea-positioning-v1` v3.1.0)  \n**Brain prompt:** `cloud/workers/sourcea-brain-chat-v1` \u00b7 `brain_prompt_version` 2.0.0\n\n---",
+      "content_hash": "1940408011b19586",
+      "pinned": true,
+      "kind": "rule"
+    },
+    {
+      "id": "brain-public-rules-5",
+      "lane": "rules",
+      "source_path": "data/brain-public-rules-v1.json",
+      "www_url": null,
+      "content": "## One law\n\n> **SourceA is an AI execution platform powered by Forge \u2014 not a \u201cproof records\u201d product. Proof is built in; it is not the whole product.**\n\n---",
+      "content_hash": "da782084e60a8ce2",
+      "pinned": true,
+      "kind": "rule"
+    },
     {
       "id": "positioning-public-0",
       "lane": "core",
@@ -1408,8 +1477,8 @@
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/data/aeg-live.json",
       "www_url": null,
-      "content": "# Aeg Live\n\n- **schema**: sourcea-aeg-live-v1\n- **at**: 2026-06-27T03:41:31Z\n- **evidence_id**: aeg-20260620T044750Z-ac101c6b\n- **verdict**: PASS\n## blockers\n- **terminal_transcript**: $ python3 [REDACTED]/scripts/critic_boot_v1.py --json --no-aeg\n\nCRITIC_BOOT BLOCK ok=False\nRECEIPT=~/.sina/critic-boot-v1.json\n\n  [PASS] ssot_brief: SSOT v3.1 sig refreshed from disk\n  [PASS] voyage_provider: voyage\n  [PASS] truth_match: inbox matches queue head\n  [FAIL] gate_fresh: last session gate receipt ok=false\n\nblockers:\n  - last session gate receipt ok=false\n## checks\n## policy_version\n- **id**: C1\n- **name**: policy_version\n- **ok**: True\n- **reason**: no policy file (POLICY.md) \u2014 skipped\n- **mode**: portable\n- **skipped**: True\n## provider\n- **id**: C2\n- **name**: provider\n- **ok**: True\n- **reason**: provider env present (ANTHROPIC_API_KEY)\n- **mode**: portable\n## receipt_fresh\n- **id**: C3\n- **name**: receipt_fresh\n- **ok**: True\n- **reason**: no prior receipt \u2014 first boot allowed\n- **mode**: portable\n- **skipped**: True\n## queue_truth\n- **id**: C4\n- **name**: queue_truth\n- **ok**: True\n- **reason**: no queue files configured \u2014 skipped\n- **mode**: portable\n- **skipped**: True\n- **boot_verdict**: PASS\n- **site_proof_url**: https://source-a.vercel.app/sourcea/proof/live.html\n- **forensic_archive_url**: https://locally-projected-shade-projection.trycloudflare.com/aeg-20260620T044750Z-ac101c6b/\n- **hosted_at**: 2026-06-20T04:47:50Z\n- **disclaimer**: Live inject from factory repository \u00b7 same schema as weekly export bundle",
-      "content_hash": "01b46d33143ee489",
+      "content": "# Aeg Live\n\n- **schema**: sourcea-aeg-live-v1\n- **at**: 2026-06-27T06:23:21Z\n- **evidence_id**: aeg-20260620T044750Z-ac101c6b\n- **verdict**: PASS\n## blockers\n- **terminal_transcript**: $ python3 [REDACTED]/scripts/critic_boot_v1.py --json --no-aeg\n\nCRITIC_BOOT BLOCK ok=False\nRECEIPT=~/.sina/critic-boot-v1.json\n\n  [PASS] ssot_brief: SSOT v3.1 sig refreshed from disk\n  [PASS] voyage_provider: voyage\n  [PASS] truth_match: inbox matches queue head\n  [FAIL] gate_fresh: last session gate receipt ok=false\n\nblockers:\n  - last session gate receipt ok=false\n## checks\n## policy_version\n- **id**: C1\n- **name**: policy_version\n- **ok**: True\n- **reason**: no policy file (POLICY.md) \u2014 skipped\n- **mode**: portable\n- **skipped**: True\n## provider\n- **id**: C2\n- **name**: provider\n- **ok**: True\n- **reason**: provider env present (ANTHROPIC_API_KEY)\n- **mode**: portable\n## receipt_fresh\n- **id**: C3\n- **name**: receipt_fresh\n- **ok**: True\n- **reason**: no prior receipt \u2014 first boot allowed\n- **mode**: portable\n- **skipped**: True\n## queue_truth\n- **id**: C4\n- **name**: queue_truth\n- **ok**: True\n- **reason**: no queue files configured \u2014 skipped\n- **mode**: portable\n- **skipped**: True\n- **boot_verdict**: PASS\n- **site_proof_url**: https://source-a.vercel.app/sourcea/proof/live.html\n- **forensic_archive_url**: https://locally-projected-shade-projection.trycloudflare.com/aeg-20260620T044750Z-ac101c6b/\n- **hosted_at**: 2026-06-20T04:47:50Z\n- **disclaimer**: Live inject from factory repository \u00b7 same schema as weekly export bundle",
+      "content_hash": "5f58c2ef13a4e54a",
       "pinned": false,
       "kind": "json"
     },
@@ -1778,8 +1847,8 @@
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/data/factories-catalog.json",
       "www_url": null,
-      "content": "# Factories Catalog\n\n- **schema**: sourcea-factories-catalog-v1\n- **built_at**: 2026-06-23T23:32:33Z\n- **platform**: Noetfield\n- **tagline**: AI Factory Operating Platform \u2014 deployable apps with policy packs and certainty receipts.\n- **hero_factory_id**: exchange-factory-v1",
-      "content_hash": "26ed5facb041057d",
+      "content": "# Factories Catalog\n\n- **schema**: sourcea-factories-catalog-v1\n- **built_at**: 2026-06-23T23:32:33Z\n- **platform**: SourceA\n- **tagline**: AI Factory Operating Platform \u2014 deployable apps with policy packs and certainty receipts.\n- **hero_factory_id**: exchange-factory-v1",
+      "content_hash": "1fcfe216ad247601",
       "pinned": false,
       "kind": "json"
     },
@@ -1858,8 +1927,8 @@
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/data/factories-catalog.json",
       "www_url": null,
-      "content": "## Noetfield TLE reference factory\n- **id**: cat-noetfield-freemium\n- **factory_id**: noetfield-freemium-factory-v1\n- **name**: Noetfield TLE reference factory\n- **tagline**: Board pack \u00b7 Copilot readiness \u00b7 governance receipt language \u2014 freemium mock.\n- **buyer**: Prospects \u00b7 diligence teams \u00b7 board advisors\n- **tier**: freemium\n- **kind**: freemium\n- **href**: /sourcea/factories/try-noetfield-freemium\n- **website_slug**: try-noetfield-freemium\n- **inputs**: data/schemas/sandbox-demo-input-v1.json\n- **operational_nodes**: 76\n- **guaranteed_output**: 30s TLE one-pager + governance receipt mock JSON\n- **maintenance_fee_usd**: 0\n- **demo_seconds**: 30\n- **policy_pack_id**: noetfield_governance\n- **install_label**: Try TLE demo\n- **status**: mock_only\n- **tier_cap_honest**: FREEMIUM",
-      "content_hash": "9325efa308e3278f",
+      "content": "## Noetfield TLE reference factory\n- **id**: cat-noetfield-freemium\n- **factory_id**: noetfield-freemium-factory-v1\n- **name**: SourceA TLE reference factory\n- **tagline**: Board pack \u00b7 Copilot readiness \u00b7 governance receipt language \u2014 freemium mock.\n- **buyer**: Prospects \u00b7 diligence teams \u00b7 board advisors\n- **tier**: freemium\n- **kind**: freemium\n- **href**: /sourcea/factories/try-noetfield-freemium\n- **website_slug**: try-noetfield-freemium\n- **inputs**: data/schemas/sandbox-demo-input-v1.json\n- **operational_nodes**: 76\n- **guaranteed_output**: 30s TLE one-pager + governance receipt mock JSON\n- **maintenance_fee_usd**: 0\n- **demo_seconds**: 30\n- **policy_pack_id**: noetfield_governance\n- **install_label**: Try TLE demo\n- **status**: mock_only\n- **tier_cap_honest**: FREEMIUM",
+      "content_hash": "d3037357a075c4c6",
       "pinned": false,
       "kind": "json"
     },
@@ -3722,6 +3791,1266 @@
       "content_hash": "1c9da67e59da936b",
       "pinned": false,
       "kind": "doc"
+    },
+    {
+      "id": "data__sourcea-dual-plane-v1.json-0",
+      "lane": "core",
+      "source_path": "data/sourcea-dual-plane-v1.json",
+      "www_url": null,
+      "content": "# Sourcea Dual Plane V1\n\n- **schema**: sourcea-dual-plane-v1\n- **version**: 1.0.0\n- **saved_at**: 2026-06-23T07:00:00Z\n- **one_law**: SourceA has TWO sides: KERNEL (foundation \u2014 feeds all repos) and COMMERCIAL (paying customers \u2014 less infra, more agentic product). Never mix them logged or in agent rules.",
+      "content_hash": "abdc8de926d4b961",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-dual-plane-v1.json-1",
+      "lane": "core",
+      "source_path": "data/sourcea-dual-plane-v1.json",
+      "www_url": null,
+      "content": "## foundation_kernel\n- **role**: Governance systems, engines, cloud factory, brain-os entry, scripts, data SSOT\n### feeds\n- TrustField\n- Noetfield\n- WitnessBC\n- VIRLUX\n- all portfolio repos\n### paths\n- brain-os/law/entry/\n- scripts/\n- cloud/\n- apps/\n- data/\n- packages/\n- **backup_tag**: foundation-kernel-2026-06-23\n- **backup_broker**: ~/Desktop/SinaaiDataBase/archive/sourcea-foundation-kernel-backup-2026-06-23/\n- **living_center**: data/sourcea-living-center-v1.json\n- **archive_broker**: ~/Desktop/SinaaiDataBase/archive/sourcea-exit-2026-06-23/",
+      "content_hash": "8b6afd7a725740e4",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-dual-plane-v1.json-2",
+      "lane": "core",
+      "source_path": "data/sourcea-dual-plane-v1.json",
+      "www_url": null,
+      "content": "## commercial_plane\n- **role**: Paying customers only \u2014 service + future platform\n- **domain_primary**: sourcea.app\n- **domain_vercel**: deprecated_interim_only\n- **domain_pages**: sourcea-com.pages.dev\n- **domain_email**: hello@sourcea.app\n- **url_mvp_home**: https://sourcea.app/\n- **url_kernel**: https://sourcea.app/kernel/\n- **website_surface**: SourceA-landing/green-unified/\n### must_not_leak_into_kernel\n- trial infra vibes\n- customer PII in brain-os\n- sandbox auth in governance law\n### business_a_service\n- **id**: 48h-mvp-service\n- **headline**: We build your startup's MVP in 48 hours.\n- **target**: founders, startups\n- **revenue**: $2k\u2013$10k per project\n- **timeline_first_dollar**: this week\n- **cta**: Start your project \u2192\n#### form_questions\n- What are you building? (app / website / MVP / video / free text)\n- Competitor or example? (URL or name)\n- Deadline? (this week / 2 weeks / flexible)\n- Budget? ($500\u20131k / $1k\u20133k / $3k\u201310k / let's talk)\n- Your email\n- **end_screen**: We'll respond in 2 hours with a plan.\n- **scope_v1**: No platform \u00b7 no sandbox \u00b7 no free tier \u2014 form + skills + Cursor delivery\n- **wedge**: Apple App Store apps built with AI \u2014 specific, credible ICP\n- **landing_path**: SourceA-landing/green-unified/start.html\n- **intake_api**: /api/commercial/mvp-intake/v1\n- **intake_script**: scripts/sourcea_mvp_intake_submit_v1.py\n- **e2e_validator**: scripts/validate-sourcea-mvp-intake-e2e-v1.sh\n### business_b_platform\n- **id**: forge-platform\n- **headline**: Come build on our platform\n- **target**: broader market\n- **revenue**: subscriptions + usage\n#### needs\n- Forge complete\n- auth\n- sandbox\n- billing\n- **timeline_first_dollar**: 2\u20133 months minimum\n- **phase**: AFTER first 3 service clients fund build ($6k\u2013$10k)\n### lock_order\n- Business A landing + 5-fiel",
+      "content_hash": "307abd095edbad2e",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-dual-plane-v1.json-3",
+      "lane": "core",
+      "source_path": "data/sourcea-dual-plane-v1.json",
+      "www_url": null,
+      "content": "hs minimum\n- **phase**: AFTER first 3 service clients fund build ($6k\u2013$10k)\n### lock_order\n- Business A landing + 5-field form FIRST\n- Business B only after service revenue",
+      "content_hash": "ed9cb6b370f7d0fe",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-dual-plane-v1.json-4",
+      "lane": "core",
+      "source_path": "data/sourcea-dual-plane-v1.json",
+      "www_url": null,
+      "content": "## human_docs\n- docs/SOURCEA_DUAL_PLANE_KERNEL_AND_COMMERCIAL_LOCKED_v1.md\n- docs/SOURCEA_FOUNDER_AI_AGENTIC_PLATFORM_PROPOSAL_v1.md",
+      "content_hash": "5dcf32183bb5ed34",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-forge-vocabulary-disambiguation-v1.json-0",
+      "lane": "developer",
+      "source_path": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+      "www_url": null,
+      "content": "# Sourcea Forge Vocabulary Disambiguation V1\n\n- **schema**: sourcea-forge-vocabulary-disambiguation-v1\n- **version**: 1.1.0\n- **saved_at**: 2026-06-18T21:05:49Z\n- **law**: INCIDENT-034 vocabulary \u00b7 Forge name purity",
+      "content_hash": "d6580bb75aae5517",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-forge-vocabulary-disambiguation-v1.json-1",
+      "lane": "developer",
+      "source_path": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+      "www_url": null,
+      "content": "## docs_mirror\n### human_locked_docs_blocked_for_agents\n### human_locked_docs_synced\n- docs/SOURCEA_FACTORY_VOCABULARY_FOUNDER_HUMAN_ONLY_LOCKED_v1.md\n- docs/SOURCEA_FOUNDER_EMAIL_FACTORY_v2_SPEC_LOCKED_v1.md\n- docs/SOURCEA_STACK_MAP_AND_BETTER_LOOP_LOCKED_v1.md\n- MACHINE_THREE_PIPELINES_CALIBRATE_TUNE_FORGE_LOCKED_v1.md\n### machine_ssot_use_instead\n- data/sourcea-forge-vocabulary-disambiguation-v1.json\n- data/founder-email-factory-v2-machine-v1.json\n- data/icp-output-compiler-v1.json",
+      "content_hash": "372a39efed32d735",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-forge-vocabulary-disambiguation-v1.json-2",
+      "lane": "developer",
+      "source_path": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+      "www_url": null,
+      "content": "## forge_product_definition\n- **repo**: ~/Desktop/forge\n- **readme**: AI-native dev platform \u2014 Cursor \u00d7 Lovable hybrid\n- **phase_1**: Cursor IDE integration\n- **independence**: More pro and independent than DevBridge remote IDE\n### beats\n- Lovable\n- Replit\n- remote IDE bridges\n- dumb no-code glue",
+      "content_hash": "610d29979dda4e81",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-forge-vocabulary-disambiguation-v1.json-3",
+      "lane": "developer",
+      "source_path": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+      "www_url": null,
+      "content": "## canonical\n- **id**: forge_product\n- **label**: Forge\n- **capitalization**: Forge \u2014 always capital F when meaning the product\n- **one_sentence**: AI-native dev platform \u2014 pro independent surface beyond DevBridge; better than Lovable, Replit, and remote-IDE bridges.\n- **repo**: ~/Desktop/forge\n- **thread**: THREAD-FORGE\n- **phase_1**: Cursor IDE integration\n- **positioning**: Full-codebase context \u00b7 surgical diffs \u00b7 orchestrator \u00b7 deploy \u2014 not a remote IDE wrapper\n### competitors_beaten\n- Lovable\n- Replit\n- remote IDE bridges\n- dumb no-code glue\n### not\n- DevBridge\n- icp compile\n- machine prove\n- Controlled App Factory line id",
+      "content_hash": "3b1322fe0df6d254",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-forge-vocabulary-disambiguation-v1.json-4",
+      "lane": "developer",
+      "source_path": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+      "www_url": null,
+      "content": "## forge_product\n- **id**: forge_product\n- **say**: Forge\n- **means**: Future pro no-code / AI-native dev platform product\n#### paths\n- ~/Desktop/forge\n- forge/docs/PRD.md\n#### forbidden_confusion_with\n- icp compile\n- forge email\n- machine forge trigger",
+      "content_hash": "dab98895d65f38b1",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-forge-vocabulary-disambiguation-v1.json-5",
+      "lane": "developer",
+      "source_path": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+      "www_url": null,
+      "content": "## icp_compile\n- **id**: icp_compile\n- **say**: ICP compile\n#### never_say\n- forge email\n- icp-forge\n- forge ocree\n- forge fundmore\n- **means**: FDG failure moment \u2192 specialized ICP body \u2192 loops \u2192 RRL \u2192 Sina read\n#### paths\n- data/icp-compile/\n- data/icp-output-compiler-v1.json\n- scripts/icp_output_compiler_v1.py\n#### deprecated_paths\n- data/icp-forge/\n- data/icp-output-forge-v1.json",
+      "content_hash": "f4db97252954b5ab",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-forge-vocabulary-disambiguation-v1.json-6",
+      "lane": "developer",
+      "source_path": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+      "www_url": null,
+      "content": "## controlled_app_factory\n- **id**: controlled_app_factory\n- **say**: Controlled App Factory\n#### never_say\n- Forge app\n- the Forge product\n- **means**: FBE factory line 3 \u2014 ships controlled app deploy packs for Forge SKU tenant\n#### technical_ids\n- forge-app-factory-v1\n- forge-bay\n- factory_3\n- **note**: Technical ids retain forge- prefix for receipt stability \u2014 human label never substitutes for Forge product",
+      "content_hash": "1100c5838dd330ba",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-forge-vocabulary-disambiguation-v1.json-7",
+      "lane": "developer",
+      "source_path": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+      "www_url": null,
+      "content": "## machine_prove\n- **id**: machine_prove\n- **say**: machine prove\n- **founder_trigger_word**: forge\n- **trigger_note**: Founder one-word forge still runs machine_forge_pipeline_v1.py \u2014 agents must label it machine prove in prose\n- **means**: Calibrate \u00b7 Tune \u00b7 Prove \u2014 machine upgrade gauntlet before ship\n#### paths\n- scripts/machine_forge_pipeline_v1.py\n- MACHINE_THREE_PIPELINES_CALIBRATE_TUNE_FORGE_LOCKED_v1.md\n#### never_confuse_with\n- Forge product\n- ICP compile",
+      "content_hash": "17b05dd01e274b09",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-forge-vocabulary-disambiguation-v1.json-8",
+      "lane": "developer",
+      "source_path": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+      "www_url": null,
+      "content": "## devbridge\n- **id**: devbridge\n- **say**: DevBridge\n- **means**: Cursor extension + MCP + internal workflow packs \u2014 wire lane \u00b7 Week-1 plumbing\n- **similar_to_forge**: Shares Cursor integration phase \u2014 subset of Forge vision\n- **not_forge**: DevBridge is not the Forge product \u2014 Forge is more pro, more independent, full surface\n#### paths\n- DEVBRIDGE_EXTENSION_NO_CODE_300_STEP_PLAN_LOCKED_v1.md\n- AI Dev Bridge OS/",
+      "content_hash": "f5e86502a1e4095a",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-forge-vocabulary-disambiguation-v1.json-9",
+      "lane": "developer",
+      "source_path": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+      "www_url": null,
+      "content": "## portfolio_sequence\n### active_brands_icp_compile\n- SourceA\n- Noetfield\n- TrustField\n### parallel_after_commercial\n- Noetfield\n- TrustField\n- **then**: SourceA\n- **then_forge**: Forge product build (THREAD-FORGE)\n### then_rest\n- WitnessBC\n- 777 Foundation\n- advisor_pre_call",
+      "content_hash": "eb77d16785e55bf0",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-forge-vocabulary-disambiguation-v1.json-10",
+      "lane": "developer",
+      "source_path": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+      "www_url": null,
+      "content": "## agent_rules\n- Forge (capital F) = product only \u2014 ~/Desktop/forge\n- ICP compile = email/output factory \u2014 never forge verb\n- Controlled App Factory = FBE line name \u2014 not Forge product\n- machine prove = upgrade gauntlet \u2014 founder trigger word forge only\n- DevBridge \u2282 Forge integration story \u2014 not equal to Forge",
+      "content_hash": "34342e154ca976d1",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-forge-vocabulary-disambiguation-v1.json-11",
+      "lane": "developer",
+      "source_path": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
+      "www_url": null,
+      "content": "## drift_watch\n### stale_terms\n- icp-forge\n- forge_ssot\n- forge_dir\n- forge_now\n- forge_queued\n- forge each brand\n### replacements\n- icp-compile\n- icp_compiler_ssot\n- compile_dir\n- compile_now\n- compile_queued\n- compile each brand",
+      "content_hash": "6f40789d602cc1a1",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-landing-client-voice-v1.json-0",
+      "lane": "core",
+      "source_path": "data/sourcea-landing-client-voice-v1.json",
+      "www_url": null,
+      "content": "# Sourcea Landing Client Voice V1\n\n- **schema**: sourcea-landing-client-voice-v1\n- **version**: 1.0.0\n- **saved_at**: 2026-06-24T20:45:00Z\n- **one_law**: Public site speaks to the visitor's outcome \u2014 never mirror founder ops, stack names, or internal vocabulary.",
+      "content_hash": "c8a5b7e37d22ca6e",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-landing-client-voice-v1.json-1",
+      "lane": "core",
+      "source_path": "data/sourcea-landing-client-voice-v1.json",
+      "www_url": null,
+      "content": "## forbidden_public\n- OpenRouter\n- openrouter\n- buyer routing\n- Execution Proof Infrastructure\n- controlled agentic\n- receipts logged\n- receipt logged\n- PASS/BLOCK\n- PASS \u00b7\n- ALLOW \u00b7\n- BLOCK \u00b7\n- tamper-FAIL\n- factory-live\n- sourcea-boot\n- Kernel hub\n- orchestrat\n- governance gauntlet\n- disk wins\n- INCIDENT-",
+      "content_hash": "f2458341b9d7b90c",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-landing-client-voice-v1.json-2",
+      "lane": "core",
+      "source_path": "data/sourcea-landing-client-voice-v1.json",
+      "www_url": null,
+      "content": "## replacements\n- ['Execution Proof Infrastructure \u2014 Prompt Forge turns founder language into bounded Cursor missions.', 'SourceA is an AI execution platform powered by Forge \u2014 real builds, automations, and agent workflows.']\n- ['Execution Proof Infrastructure', 'AI work your clients can verify']\n- ['controlled agentic systems for founders worldwide', 'helping teams ship AI their clients trust']\n- ['controlled agentic systems', 'teams shipping with AI']\n- ['Controlled runtime for teams who need PASS/BLOCK before every AI call \u2014 signed receipts logged, replay in one screen-share, procurement path included.', 'A platform that logs every AI action so your team can review it and show clients a clear demo \u2014 procurement-friendly.']\n- ['Brain chat routes buyers via OpenRouter on cloud.', '']\n- ['receipts logged and signed', 'verified jobs completed']\n- ['receipts logged', 'verified records']\n- ['receipt logged', 'record clients can check']\n- ['all receipted', 'all logged']\n- ['Outreach ALLOW \u00b7 12 sends \u00b7 3 replies \u00b7 all receipted', 'Outreach sent \u00b7 12 emails \u00b7 3 replies \u00b7 all logged']\n- ['Ops-monitor BLOCK with signed receipt \u2014 security lead approved scope same session.', 'A safety check stopped a risky change \u2014 security lead approved scope in the same meeting.']\n- ['BLOCK demo \u2192 security-minded client signs', 'Safety demo \u2192 security-minded client signs']\n- ['Live forensic', 'Live demo']\n- ['sourcea-boot eval', 'Technical overview']\n- ['Self-hosted receipts \u00b7 replay without vendor lock-in', 'Your data stays yours \u00b7 export anytime']\n- ['Show the receipt, not the recipe.', 'Show the work, not a slide deck.']\n- ['controlled factory \u2014 every step gated, every result verified, every job delivered with an auditable receipt you can replay', 'clear process \u2014 every job scoped, checked, and de",
+      "content_hash": "3fd9a821e9fa4350",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-landing-client-voice-v1.json-3",
+      "lane": "core",
+      "source_path": "data/sourcea-landing-client-voice-v1.json",
+      "www_url": null,
+      "content": "ified, every job delivered with an auditable receipt you can replay', 'clear process \u2014 every job scoped, checked, and delivered with a record you can show clients']\n- ['Controlled agentic systems for AI startup founders.', 'AI delivery for startup founders who need client-ready proof.']\n- ['Show the receipt, not the recipe.', 'Show the work, not a slide deck.']\n- ['Open live forensic proof', 'Watch a live demo']\n- ['Live forensic', 'Live demo']\n- ['Run a free proof', 'Try it free']\n- ['Run your free proof', 'Start free trial']\n- ['Proof sandbox', 'Free trial']\n- ['sourcea-boot eval', 'Technical overview']\n- ['Kernel hub', 'Technical overview']\n- ['Controlled inbox \u00b7 outreach.', 'Client outreach \u00b7 tracked sends.']\n- ['Factory proceed \u00b7 dispatch.', 'Cloud automation \u00b7 runs in the background.']\n- ['Founder language \u2192 bounded mission.', 'Requirements \u2192 scoped work your team can review.']",
+      "content_hash": "d19961bbdf8fa598",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-landing-cta-v1.json-0",
+      "lane": "core",
+      "source_path": "data/sourcea-landing-cta-v1.json",
+      "www_url": null,
+      "content": "# Sourcea Landing Cta V1\n\n- **schema**: sourcea-landing-cta-v1\n- **version**: 1.2.0\n- **saved_at**: 2026-06-25T14:00:00Z\n- **hero_primary**: proof\n- **forge_url**: /forge/terminal\n- **forge_label**: Try Forge Terminal\n- **proof_url**: /sourcea/proof/live\n- **proof_label**: See live receipt\n- **proof_quiz_url**: /sourcea/scenario#proof-quiz\n- **proof_quiz_label**: Try the proof quiz\n- **learn_url**: /learn\n- **learn_label**: Learn & build\n- **booking_url**: https://cal.com/sourcea/proof-demo\n- **booking_overlay_url**: https://cal.com/sourcea/proof-demo?overlayCalendar=true&embed=true\n- **booking_label**: Talk to a human\n- **sandbox_url**: /sandbox\n- **sandbox_label**: Submit a bounded job\n- **contact_email**: hello@sourcea.app\n- **proof_email**: proof@sourcea.app",
+      "content_hash": "8a19ecf9a5f4f045",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-mvp-intake-schema-v1.json-0",
+      "lane": "core",
+      "source_path": "data/sourcea-mvp-intake-schema-v1.json",
+      "www_url": null,
+      "content": "# Sourcea Mvp Intake Schema V1\n\n- **schema**: sourcea-mvp-intake-schema-v1\n- **version**: 1.0.0\n- **plane**: commercial\n- **business**: 48h-mvp-service\n## fields\n### building\n- **required**: True\n- **type**: string\n- **max_len**: 2000\n- **label**: What are you building?\n### building_type\n- **required**: False\n- **type**: enum\n#### values\n- app\n- website\n- mvp\n- video\n- other\n### competitor\n- **required**: False\n- **type**: string\n- **max_len**: 500\n- **label**: Competitor or example\n### deadline\n- **required**: True\n- **type**: enum\n#### values\n- this_week\n- two_weeks\n- flexible\n### budget\n- **required**: True\n- **type**: enum\n#### values\n- 500_1k\n- 1k_3k\n- 3k_10k\n- lets_talk\n### email\n- **required**: True\n- **type**: email\n- **label**: Your email\n- **contact_email**: hello@sourcea.app\n- **notify_to**: hello@sourcea.app\n- **public_domain**: source.app\n- **notify_from**: SourceA Intake <onboarding@resend.dev>\n- **end_screen**: We'll respond in 2 hours with a plan.\n- **inbox_dir**: data/commercial-intake/inbox",
+      "content_hash": "49534258c832b07f",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-0",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "# Sourcea Products Catalog V1\n\n- **schema**: sourcea-products-catalog-v1\n- **version**: 1.0.0\n- **generated_at**: 2026-06-24T15:11:48Z\n- **product_count**: 9",
+      "content_hash": "05b03ba00139b8b1",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-1",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## PureFlow\n- **id**: pureflow-case-study\n- **slug**: pureflow\n- **kind**: case_study\n- **rank**: 1\n- **title**: PureFlow\n- **subtitle**: Case study #1 \u00b7 Local trades acquisition\n- **buyer**: Pool & spa operators \u00b7 local service businesses\n- **proof**: Live site + visit reports \u00b7 48-hour acquisition path\n- **url**: /sourcea/case-studies/pureflow\n- **live_url**: https://pureflow.sourcea.app/\n- **status**: shipped\n- **tier**: T1",
+      "content_hash": "a231817eda012f91",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-2",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## AgentGo\n- **id**: agentgo-case-study\n- **slug**: agentgo\n- **kind**: case_study\n- **rank**: 2\n- **title**: AgentGo\n- **subtitle**: Case study #2 \u00b7 Factory-scale GEO surface\n- **buyer**: SaaS & marketing leaders \u00b7 agency CTOs\n- **proof**: 1,259 HTML pages \u00b7 dual deploy \u00b7 Wil L3 separation\n- **url**: /sourcea/case-studies/agentgo\n- **status**: shipped\n- **tier**: T1\n#### metrics\n- **html_pages**: 1259\n- **research_topics**: 592\n- **compare_pages**: 83",
+      "content_hash": "b00dabafcf91ef19",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-3",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## Brain \u00b7 Public chat\n- **id**: brain-public-chat\n- **slug**: brain-chat\n- **kind**: platform\n- **rank**: 4\n- **title**: Brain \u00b7 Public chat\n- **subtitle**: OpenRouter routing on sourcea.app\n- **buyer**: All visitors\n- **proof**: Live chat \u00b7 proof chips \u00b7 honest offline\n- **url**: /sourcea/scenario\n- **status**: active\n- **tier**: T1\n- **api**: /api/brain/chat/v1",
+      "content_hash": "705c2a22f26c5d92",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-4",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## Prompt Forge\n- **id**: prompt-forge\n- **slug**: prompt-forge\n- **kind**: platform\n- **rank**: 10\n- **title**: Prompt Forge\n- **subtitle**: Founder language \u2192 bounded mission\n- **buyer**: Founders \u00b7 operators\n- **proof**: scoped prompt pipeline logged\n- **url**: /sourcea/forge/\n- **status**: active\n- **tier**: T2",
+      "content_hash": "989b2da663c7c91d",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-5",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## Chat Unify\n- **id**: chat-unify\n- **slug**: chat-unify\n- **kind**: platform\n- **rank**: 11\n- **title**: Chat Unify\n- **subtitle**: Verify \u00b7 audit \u00b7 unify AI sessions\n- **buyer**: Power users \u00b7 compliance teams\n- **proof**: Mac app \u00b7 session truth gate\n- **url**: /downloads/chat-unify-mac-v1.dmg\n- **status**: active\n- **tier**: T2",
+      "content_hash": "8b9d1ae9e97f1c1e",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-6",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## Cloud Workers\n- **id**: cloud-workers\n- **slug**: cloud-workers\n- **kind**: platform\n- **rank**: 12\n- **title**: Cloud Workers\n- **subtitle**: Factory proceed \u00b7 OpenRouter on cloud\n- **buyer**: Engineering \u00b7 factory operators\n- **proof**: Railway full-pack \u00b7 receipt per tick\n- **url**: /sourcea/platform#cloud-workers\n- **status**: active\n- **tier**: T2",
+      "content_hash": "c1c0e91522c0536e",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-7",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## Scoped loops\n- **id**: proof-loops\n- **slug**: loops\n- **kind**: platform\n- **rank**: 13\n- **title**: Scoped loops\n- **subtitle**: Outreach \u00b7 ops \u00b7 research\n- **buyer**: Growth \u00b7 ops teams\n- **proof**: Six loops \u00b7 live scenario\n- **url**: /sourcea/loops/\n- **status**: active\n- **tier**: T2",
+      "content_hash": "7455795b1b7386bc",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-8",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## Asset B \u00b7 Agent Loop Build\n- **id**: asset-b-loop-build\n- **slug**: asset-b\n- **kind**: service\n- **rank**: 3\n- **title**: Asset B \u00b7 Agent Loop Build\n- **subtitle**: Fixed-scope controlled automation\n- **buyer**: Revenue agencies \u00b7 platform teams\n- **proof**: Signed receipt \u00b7 cross-lane guard \u00b7 replay demo\n- **url**: /sourcea/offer\n- **price_band**: $3\u201310K\n- **status**: active\n- **tier**: T1",
+      "content_hash": "e27794ec8315ecc1",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-9",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## sourcea-boot\n- **id**: sourcea-boot\n- **slug**: sourcea-boot\n- **kind**: eval\n- **rank**: 5\n- **title**: sourcea-boot\n- **subtitle**: Self-serve gate eval\n- **buyer**: Platform engineers\n- **proof**: PASS/BLOCK before you buy\n- **url**: https://github.com/sourcea-io/sourcea-boot\n- **status**: active\n- **tier**: T0",
+      "content_hash": "fe8d8888a2d7818f",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-10",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## PureFlow\n- **id**: pureflow-case-study\n- **slug**: pureflow\n- **kind**: case_study\n- **rank**: 1\n- **title**: PureFlow\n- **subtitle**: Case study #1 \u00b7 Local trades acquisition\n- **buyer**: Pool & spa operators \u00b7 local service businesses\n- **proof**: Live site + visit reports \u00b7 48-hour acquisition path\n- **url**: /sourcea/case-studies/pureflow\n- **live_url**: https://pureflow.sourcea.app/\n- **status**: shipped\n- **tier**: T1",
+      "content_hash": "a231817eda012f91",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-11",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## AgentGo\n- **id**: agentgo-case-study\n- **slug**: agentgo\n- **kind**: case_study\n- **rank**: 2\n- **title**: AgentGo\n- **subtitle**: Case study #2 \u00b7 Factory-scale GEO surface\n- **buyer**: SaaS & marketing leaders \u00b7 agency CTOs\n- **proof**: 1,259 HTML pages \u00b7 dual deploy \u00b7 Wil L3 separation\n- **url**: /sourcea/case-studies/agentgo\n- **status**: shipped\n- **tier**: T1\n#### metrics\n- **html_pages**: 1259\n- **research_topics**: 592\n- **compare_pages**: 83",
+      "content_hash": "b00dabafcf91ef19",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-12",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## Asset B \u00b7 Agent Loop Build\n- **id**: asset-b-loop-build\n- **slug**: asset-b\n- **kind**: service\n- **rank**: 3\n- **title**: Asset B \u00b7 Agent Loop Build\n- **subtitle**: Fixed-scope controlled automation\n- **buyer**: Revenue agencies \u00b7 platform teams\n- **proof**: Signed receipt \u00b7 cross-lane guard \u00b7 replay demo\n- **url**: /sourcea/offer\n- **price_band**: $3\u201310K\n- **status**: active\n- **tier**: T1",
+      "content_hash": "e27794ec8315ecc1",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-13",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## Brain \u00b7 Public chat\n- **id**: brain-public-chat\n- **slug**: brain-chat\n- **kind**: platform\n- **rank**: 4\n- **title**: Brain \u00b7 Public chat\n- **subtitle**: OpenRouter routing on sourcea.app\n- **buyer**: All visitors\n- **proof**: Live chat \u00b7 proof chips \u00b7 honest offline\n- **url**: /sourcea/scenario\n- **status**: active\n- **tier**: T1\n- **api**: /api/brain/chat/v1",
+      "content_hash": "705c2a22f26c5d92",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-14",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## sourcea-boot\n- **id**: sourcea-boot\n- **slug**: sourcea-boot\n- **kind**: eval\n- **rank**: 5\n- **title**: sourcea-boot\n- **subtitle**: Self-serve gate eval\n- **buyer**: Platform engineers\n- **proof**: PASS/BLOCK before you buy\n- **url**: https://github.com/sourcea-io/sourcea-boot\n- **status**: active\n- **tier**: T0",
+      "content_hash": "fe8d8888a2d7818f",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-15",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## Prompt Forge\n- **id**: prompt-forge\n- **slug**: prompt-forge\n- **kind**: platform\n- **rank**: 10\n- **title**: Prompt Forge\n- **subtitle**: Founder language \u2192 bounded mission\n- **buyer**: Founders \u00b7 operators\n- **proof**: scoped prompt pipeline logged\n- **url**: /sourcea/forge/\n- **status**: active\n- **tier**: T2",
+      "content_hash": "989b2da663c7c91d",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-16",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## Chat Unify\n- **id**: chat-unify\n- **slug**: chat-unify\n- **kind**: platform\n- **rank**: 11\n- **title**: Chat Unify\n- **subtitle**: Verify \u00b7 audit \u00b7 unify AI sessions\n- **buyer**: Power users \u00b7 compliance teams\n- **proof**: Mac app \u00b7 session truth gate\n- **url**: /downloads/chat-unify-mac-v1.dmg\n- **status**: active\n- **tier**: T2",
+      "content_hash": "8b9d1ae9e97f1c1e",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-17",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## Cloud Workers\n- **id**: cloud-workers\n- **slug**: cloud-workers\n- **kind**: platform\n- **rank**: 12\n- **title**: Cloud Workers\n- **subtitle**: Factory proceed \u00b7 OpenRouter on cloud\n- **buyer**: Engineering \u00b7 factory operators\n- **proof**: Railway full-pack \u00b7 receipt per tick\n- **url**: /sourcea/platform#cloud-workers\n- **status**: active\n- **tier**: T2",
+      "content_hash": "c1c0e91522c0536e",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-18",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## Scoped loops\n- **id**: proof-loops\n- **slug**: loops\n- **kind**: platform\n- **rank**: 13\n- **title**: Scoped loops\n- **subtitle**: Outreach \u00b7 ops \u00b7 research\n- **buyer**: Growth \u00b7 ops teams\n- **proof**: Six loops \u00b7 live scenario\n- **url**: /sourcea/loops/\n- **status**: active\n- **tier**: T2",
+      "content_hash": "7455795b1b7386bc",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-19",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## AgentGo case study 6000\n- **id**: agentgo-case-study-6000\n- **kind**: plan_pack\n- **title**: AgentGo case study 6000\n- **count**: 6000\n- **schema_version**: 3.0.0\n- **smart_tier**: pure-unique-smart-polished\n- **pick**: bash scripts/plan-no-asf-run.sh pick-agentgo 3\n- **law**: docs/AGENTGO_SA4_CASE_STUDY_6000_PLANS_LOCKED_v1.md",
+      "content_hash": "1ad6d0341d4dd4e6",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea-products-catalog-v1.json-20",
+      "lane": "core",
+      "source_path": "data/sourcea-products-catalog-v1.json",
+      "www_url": null,
+      "content": "## Portfolio next 6000\n- **id**: portfolio-next-6000\n- **kind**: plan_pack\n- **title**: Portfolio next 6000\n- **count**: 6000\n- **pick**: bash scripts/plan-no-asf-run.sh pick-next 3\n- **law**: docs/PORTFOLIO_UPGRADE_PLANS_CANONICAL_LOCKED_v1.md\n- **conflicts_resolved**: 0",
+      "content_hash": "470e085ac46ca299",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-0",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "# Sourcea_Node_Mesh_Catalog_V1\n\n- **schema**: sourcea-node-mesh-catalog-v1\n- **version**: 1.1.0\n- **saved_at**: 2026-06-16T09:45:00Z\n- **synestm**: SourceA unified multi-parallel node mesh \u2014 not fragmented pipelines\n- **graph**: data/sourcea_pipeline_node_graph_v1.json\n- **directory_map**: data/sourcea_directory_node_map_v1.json\n- **build_plan**: docs/SOURCEA_NODE_MESH_SYNESTM_BUILD_PLAN_LOCKED_v1.md\n- **skill**: .cursor/skills/skill-node-architect-agentic-system/SKILL.md\n- **topology**: multi-parallel-tier-mesh",
+      "content_hash": "a21ba902607d8416",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-1",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## stats\n- **active_runner_nodes**: 12\n- **logical_nodes**: 11\n- **parallel_groups**: 5\n- **explicit_edges**: 24\n- **planned_nodes**: 24\n- **waves**: 5",
+      "content_hash": "0d05b2762994fe82",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-2",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## T0_safety_fanout\n- **id**: T0_safety_fanout\n- **tier**: T0_safety\n- **nodes**: 2\n- **command**: python3 scripts/pipeline_node_graph_runner_v1.py --tier T0_safety --json",
+      "content_hash": "73d71b2729d045f0",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-3",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## T1_truth_fanout\n- **id**: T1_truth_fanout\n- **tier**: T1_truth_parallel\n- **nodes**: 3\n- **command**: python3 scripts/pipeline_node_graph_runner_v1.py --tier T1_truth_parallel --json",
+      "content_hash": "343c7a289e8b8530",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-4",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## T2_fleet_fanout\n- **id**: T2_fleet_fanout\n- **tier**: T2_fleet_parallel\n- **nodes**: 3\n- **command**: python3 scripts/pipeline_node_graph_runner_v1.py --tier T2_fleet_parallel --json",
+      "content_hash": "051ccad39479ac4f",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-5",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## T3_proof_fanout\n- **id**: T3_proof_fanout\n- **tier**: T3_proof_parallel\n- **nodes**: 3\n- **command**: python3 scripts/pipeline_node_graph_runner_v1.py --tier T3_proof_parallel --json",
+      "content_hash": "78029760b79a208c",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-6",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## T_lat_orient_fanout\n- **id**: T_lat_orient_fanout\n- **tier**: T_lat_orient\n- **nodes**: 1\n- **command**: python3 scripts/pipeline_node_graph_runner_v1.py --tier T_lat_orient --json\n#### founder_word_siblings\n- orientation_pipeline_v1\n- hospital_pipeline_v1\n- maze_pipeline_v1",
+      "content_hash": "feacb8c7b326e957",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-7",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## sascip_live_wire\n- **id**: sascip_live_wire\n- **tier**: T0\n- **pipeline**: Safety\n- **status**: active\n- **parallel**: True",
+      "content_hash": "1d758a7b762e7288",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-8",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## mac_health_probe\n- **id**: mac_health_probe\n- **tier**: T0\n- **pipeline**: Safety\n- **status**: active\n- **parallel**: True",
+      "content_hash": "4076158564f29e09",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-9",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## disk_live_wire\n- **id**: disk_live_wire\n- **tier**: T1\n- **pipeline**: Truth\n- **status**: active\n- **parallel**: True",
+      "content_hash": "e4f6aabc423ccfbb",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-10",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## governance_zero_drift\n- **id**: governance_zero_drift\n- **tier**: T1\n- **pipeline**: Truth\n- **status**: active\n- **parallel**: True",
+      "content_hash": "aea864cf04af4f91",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-11",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## crawl_mirror_session\n- **id**: crawl_mirror_session\n- **tier**: T1\n- **pipeline**: Truth\n- **status**: active\n- **parallel**: True",
+      "content_hash": "3fb089b0903ebb49",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-12",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## agentic_layer_fast\n- **id**: agentic_layer_fast\n- **tier**: T2\n- **pipeline**: Fleet\n- **status**: active\n- **parallel**: True",
+      "content_hash": "9e46a7e70a62e2b3",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-13",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## l1_brain_wire\n- **id**: l1_brain_wire\n- **tier**: T2\n- **pipeline**: Fleet\n- **status**: active\n- **parallel**: True",
+      "content_hash": "13a4ce32f18b8eb0",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-14",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## hub_dual_heal\n- **id**: hub_dual_heal\n- **tier**: T2\n- **pipeline**: Fleet\n- **status**: active\n- **parallel**: True",
+      "content_hash": "f23c743f169b495f",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-15",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## validate_w10_vocab\n- **id**: validate_w10_vocab\n- **tier**: T3\n- **pipeline**: Proof\n- **status**: active\n- **parallel**: True",
+      "content_hash": "8facf536ec75f017",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-16",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## validate_two_hub\n- **id**: validate_two_hub\n- **tier**: T3\n- **pipeline**: Proof\n- **status**: active\n- **parallel**: True",
+      "content_hash": "a45fed9bf089783c",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-17",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## n8n_p0_operational\n- **id**: n8n_p0_operational\n- **tier**: T3\n- **pipeline**: Proof\n- **status**: active\n- **plane**: RUNTIME_GLUE\n- **parallel**: True",
+      "content_hash": "640d06ff479532af",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-18",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## orient_routing_v1\n- **id**: orient_routing_v1\n- **tier**: T_lat\n- **pipeline**: Orient\n- **status**: active\n- **parallel**: False\n- **handler**: scripts/agent_orient_v1.py\n- **receipt**: ~/.sina/orient-routing-report-v1.json",
+      "content_hash": "ef7995afec5d7277",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-19",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## session_gate_v1\n- **id**: session_gate_v1\n- **status**: active\n- **wiring_target**: N03 delegate T0-T1 to runner",
+      "content_hash": "2f5480640f75c62d",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-20",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## pipeline_node_graph_runner_v1\n- **id**: pipeline_node_graph_runner_v1\n- **status**: active",
+      "content_hash": "7233ffaff2e8891b",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-21",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## worker_inbox_v1\n- **id**: worker_inbox_v1\n- **status**: active",
+      "content_hash": "4d70b6408b057470",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-22",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## hub_projection_v1\n- **id**: hub_projection_v1\n- **status**: active",
+      "content_hash": "4af764c6a238fb2d",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-23",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## mac_health_guard_v1\n- **id**: mac_health_guard_v1\n- **status**: active",
+      "content_hash": "489ccc10a5042141",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-24",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## program_1000_honest_v1\n- **id**: program_1000_honest_v1\n- **status**: active",
+      "content_hash": "de5e3c6128d11c3f",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-25",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## directory_node_map_v1\n- **id**: directory_node_map_v1\n- **status**: active",
+      "content_hash": "e0e154263a723526",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-26",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## terminology_2026_v1\n- **id**: terminology_2026_v1\n- **status**: active",
+      "content_hash": "e20be9bd73170abd",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-27",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## orientation_pipeline_v1\n- **id**: orientation_pipeline_v1\n- **status**: active\n- **layer**: LAT\n- **founder_word**: orientation\n- **handler**: scripts/agent_orientation_pipeline_v1.py\n- **receipt**: ~/.sina/agent-orientation-receipt-v1.json",
+      "content_hash": "fec56346db3de00f",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-28",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## hospital_pipeline_v1\n- **id**: hospital_pipeline_v1\n- **status**: active\n- **layer**: LAT\n- **founder_word**: hospital\n- **handler**: scripts/agent_hospital_pipeline_v1.py\n- **receipt**: ~/.sina/agent-hospital-receipt-v1.json",
+      "content_hash": "115c6cd4db6fe367",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-29",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## maze_pipeline_v1\n- **id**: maze_pipeline_v1\n- **status**: active\n- **layer**: LAT\n- **founder_word**: maze\n- **handler**: scripts/agent_maze_pipeline_v1.py\n- **receipt**: ~/.sina/agent-maze-receipt-v1.json",
+      "content_hash": "55e2abc098e942fe",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-30",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## session_gate_graph_delegate\n- **id**: session_gate_graph_delegate\n- **build**: N03\n- **priority**: P0\n- **replaces**: duplicate linear gate steps",
+      "content_hash": "6684e240a84d6901",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-31",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## event_spine_emit_v1\n- **id**: event_spine_emit_v1\n- **build**: N06\n- **priority**: P1\n#### topics\n- spine.bridge\n- factory.advance",
+      "content_hash": "77e550c5317a0fc4",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-32",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## hub_node_canvas_v1\n- **id**: hub_node_canvas_v1\n- **build**: N07\n- **priority**: P1\n- **surface**: :13020",
+      "content_hash": "6d97ad1c3be4cdf3",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-33",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## hub_run_tier_tap_v1\n- **id**: hub_run_tier_tap_v1\n- **build**: N08\n- **priority**: P1",
+      "content_hash": "90a134ee782298ea",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-34",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## crawl_subgraph_c1_c10\n- **id**: crawl_subgraph_c1_c10\n- **build**: N11\n- **priority**: P1\n- **count**: 10",
+      "content_hash": "21502e5658fa1519",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-35",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## mirror_subgraph_m1_m11\n- **id**: mirror_subgraph_m1_m11\n- **build**: N12\n- **priority**: P1\n- **count**: 11",
+      "content_hash": "56a04b8c2e163dec",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-36",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## scheduled_graph_tier_v1\n- **id**: scheduled_graph_tier_v1\n- **build**: N13\n- **priority**: P2",
+      "content_hash": "4bd67f2a4345c172",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-37",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## node_health_dashboard_v1\n- **id**: node_health_dashboard_v1\n- **build**: N14\n- **priority**: P2\n- **surface**: :13024",
+      "content_hash": "daf1ef8dd10a9cc6",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-38",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## runreceipt_per_node_v1\n- **id**: runreceipt_per_node_v1\n- **build**: N15\n- **priority**: P2",
+      "content_hash": "8cd9c355630950c5",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-39",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## portfolio_ya5_node_v1\n- **id**: portfolio_ya5_node_v1\n- **build**: N10\n- **priority**: P2\n- **plane**: PORTFOLIO",
+      "content_hash": "c0595424fbcede2e",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-40",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## portfolio_trustfield_node_v1\n- **id**: portfolio_trustfield_node_v1\n- **build**: N10\n- **priority**: P2\n- **plane**: PORTFOLIO",
+      "content_hash": "4a1c80936aa41db1",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-41",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## portfolio_noetfield_node_v1\n- **id**: portfolio_noetfield_node_v1\n- **build**: N10\n- **priority**: P2\n- **plane**: PORTFOLIO",
+      "content_hash": "6e99986db7087bca",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-42",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## self_heal_runner_v1\n- **id**: self_heal_runner_v1\n- **build**: N18\n- **priority**: P3",
+      "content_hash": "db045e7534d68fa6",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-43",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## nightly_full_graph_v1\n- **id**: nightly_full_graph_v1\n- **build**: N19\n- **priority**: P3",
+      "content_hash": "a4d66edc3a189cc6",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-44",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## mirror_audit_pack_export_v1\n- **id**: mirror_audit_pack_export_v1\n- **build**: N20\n- **priority**: P4\n- **commerce**: True",
+      "content_hash": "d0ec3ae808e7a0c3",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-45",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## anti_fragmentation_rules\n- New capability = graph node row + directory map row + mesh catalog row\n- No orphan validate-* without node id\n- Pipelines declare node cluster ids (dual nav)\n- Three pipelines (orientation/hospital/maze) = LAT logical nodes \u00b7 orient_routing_v1 = T_lat runner\n- n8n = glue tier only \u2014 never law SSOT\n- Session gate must delegate to runner (N03) \u2014 no duplicate crawl-mirror\n- Parallel only within tier \u2014 sequential across tiers",
+      "content_hash": "ec1858e4c762e081",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_node_mesh_catalog_v1.json-46",
+      "lane": "core",
+      "source_path": "data/sourcea_node_mesh_catalog_v1.json",
+      "www_url": null,
+      "content": "## proof_ladder\n- bash scripts/validate-pipeline-node-graph-v1.sh\n- python3 scripts/pipeline_node_graph_runner_v1.py --dry-run --json\n- CART TASK node-mesh\n- bash scripts/validate-anti-staleness-vocabulary-gate-v1.sh",
+      "content_hash": "2083ac64c8dec244",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-0",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "# Sourcea_Orient_Routing_V1\n\n- **schema**: sourcea-orient-routing-v1\n- **version**: 1.1.0\n- **saved_at**: 2026-06-16T09:45:00Z\n- **human**: docs/SOURCEA_ORIENTATION_AND_ROUTING_LOCKED_v1.md\n- **law**: AGENT_THREE_PIPELINES_ORIENTATION_HOSPITAL_MAZE_LOCKED_v1.md\n- **mesh_catalog**: data/sourcea_node_mesh_catalog_v1.json\n- **node_graph**: data/sourcea_pipeline_node_graph_v1.json\n- **report_receipt**: ~/.sina/orient-routing-report-v1.json",
+      "content_hash": "7c0ddd9dd0c160d7",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-1",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## commands\n- **orient**: python3 scripts/agent_orient_v1.py --json\n- **orient_routing_validate**: bash scripts/validate-orient-routing-v1.sh\n- **orientation_pipeline**: python3 scripts/agent_three_pipelines_router_v1.py orientation --json\n- **hospital_pipeline**: python3 scripts/agent_three_pipelines_router_v1.py hospital --json\n- **maze_pipeline**: python3 scripts/agent_three_pipelines_router_v1.py maze --json\n- **node_graph_lat**: python3 scripts/pipeline_node_graph_runner_v1.py --tier T_lat_orient --json\n- **session_gate**: python3 scripts/agent_session_gate_run_v1.py --role <role> --json\n- **session_start_rule**: agent_session_gate_run_v1.py ONLY \u2014 not orientation/hospital/maze",
+      "content_hash": "1d6fcc81d8944e46",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-2",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## graph_tiers\n### session\n- T0_safety\n- T1_truth_parallel\n- T2_fleet_parallel\n- T3_proof_parallel\n### lat\n- T_lat_orient\n### all_runner\n- T0_safety\n- T1_truth_parallel\n- T2_fleet_parallel\n- T3_proof_parallel\n- T_lat_orient",
+      "content_hash": "c495e86f6d55618a",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-3",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## pipeline_nodes\n### orientation\n- **node_id**: orientation_pipeline_v1\n- **tier**: 1\n- **layer**: LAT\n- **trigger**: orientation\n- **handler**: scripts/agent_orientation_pipeline_v1.py\n- **receipt**: ~/.sina/agent-orientation-receipt-v1.json\n- **founder_word_only**: True\n### hospital\n- **node_id**: hospital_pipeline_v1\n- **tier**: 2\n- **layer**: LAT\n- **trigger**: hospital\n- **handler**: scripts/agent_hospital_pipeline_v1.py\n- **receipt**: ~/.sina/agent-hospital-receipt-v1.json\n- **founder_word_only**: True\n### maze\n- **node_id**: maze_pipeline_v1\n- **tier**: 3\n- **layer**: LAT\n- **trigger**: maze\n- **handler**: scripts/agent_maze_pipeline_v1.py\n- **receipt**: ~/.sina/agent-maze-receipt-v1.json\n- **founder_word_only**: True\n- **quarantine**: True\n### orient_routing\n- **node_id**: orient_routing_v1\n- **tier**: T_lat_orient\n- **layer**: LAT\n- **handler**: scripts/agent_orient_v1.py\n- **receipt**: ~/.sina/orient-routing-report-v1.json\n- **runner_tier**: T_lat_orient\n- **founder_word_only**: False",
+      "content_hash": "570b53afa2ce95de",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-4",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## orientation_station_nodes\n- **O1**: session_gate_v1\n- **O2**: governance_zero_drift\n- **O6**: agentic_layer_fast\n- **O8**: orientation_pipeline_v1\n- **O15**: orient_routing_v1\n- **O16**: pipeline_node_graph_runner_v1\n- **O17**: directory_node_map_v1\n- **O18**: agentic_layer_fast\n- **O19**: orient_routing_v1\n- **O20**: pipeline_node_graph_runner_v1\n- **orientation_stations_ssot**: data/sourcea_agentic_unified_bundle_v1.json\n- **unified_bundle**: data/sourcea_agentic_unified_bundle_v1.json",
+      "content_hash": "dc0bbdc86adbad40",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-5",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## founder_word_routing\n### orientation\n- **tier**: 1\n- **node_id**: orientation_pipeline_v1\n- **router**: agent_three_pipelines_router_v1.py orientation\n- **receipt**: ~/.sina/agent-orientation-receipt-v1.json\n- **authority**: False\n### hospital\n- **tier**: 2\n- **node_id**: hospital_pipeline_v1\n- **router**: agent_three_pipelines_router_v1.py hospital\n- **receipt**: ~/.sina/agent-hospital-receipt-v1.json\n- **authority**: False\n### maze\n- **tier**: 3\n- **node_id**: maze_pipeline_v1\n- **router**: agent_three_pipelines_router_v1.py maze\n- **receipt**: ~/.sina/agent-maze-receipt-v1.json\n- **authority**: False\n- **quarantine**: True",
+      "content_hash": "584ebabebce23211",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-6",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## role_routing\n### brain\n- **daily**: Route \u00b7 pick \u00b7 handoff \u00b7 quote factory_now_line\n- **session_start**: agent_session_gate_run_v1.py --role brain\n- **build**: False\n- **orient_hint**: Pick ONE branch from gate_tree \u00b7 no sa-* implementation\n- **next_tap**: Worker chat RUN INBOX or role handoff\n- **skill**: agent-skills/sourcea_brain/SKILL.md\n### worker\n- **daily**: RUN INBOX \u00b7 one sa-* \u00b7 validators PASS\n- **session_start**: agent_session_gate_run_v1.py --role worker\n- **build**: True\n- **orient_hint**: H1 glance optional \u00b7 disk queue SSOT\n- **next_tap**: RUN INBOX\n- **skill**: agent-skills/sourcea_worker/SKILL.md\n### governance\n- **daily**: Advise \u00b7 audit \u00b7 poison track checkcart\n- **session_start**: agent_session_gate_run_v1.py --role any\n- **build**: False\n- **orient_hint**: Receipt cascade \u00b7 no product build\n- **next_tap**: CART TASK poison-track if open\n- **skill**: agent-skills/shared/conscious-recovery/SKILL.md\n### any\n- **daily**: Session gate \u00b7 quote factory_now_line \u00b7 role scope\n- **session_start**: agent_session_gate_run_v1.py --role any\n- **orient_hint**: Say worker or brain for lane-specific routing",
+      "content_hash": "6915f44c382e4ae6",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-7",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## start_here\n- **step**: 1\n- **id**: start_here\n- **path**: brain-os/law/entry/START_HERE_LOCKED_v1.md\n- **why**: Law front door \u00b7 pick role",
+      "content_hash": "faea974f9790eda2",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-8",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## orient_routing\n- **step**: 2\n- **id**: orient_routing\n- **path**: docs/SOURCEA_ORIENTATION_AND_ROUTING_LOCKED_v1.md\n- **why**: Routing + receipt cascade",
+      "content_hash": "d04d8cda21259729",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-9",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## foundational_index\n- **step**: 3\n- **id**: foundational_index\n- **path**: docs/SOURCEA_FOUNDATIONAL_AGENTIC_SYSTEMS_INDEX_LOCKED_v1.md\n- **why**: Skill load order",
+      "content_hash": "354019d204201f30",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-10",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## node_mesh_plan\n- **step**: 4\n- **id**: node_mesh_plan\n- **path**: docs/SOURCEA_NODE_MESH_SYNESTM_BUILD_PLAN_LOCKED_v1.md\n- **why**: Parallel node mesh \u00b7 synestm",
+      "content_hash": "c6693fec62615371",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-11",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## three_pipelines\n- **step**: 5\n- **id**: three_pipelines\n- **path**: AGENT_THREE_PIPELINES_ORIENTATION_HOSPITAL_MAZE_LOCKED_v1.md\n- **why**: Founder word triggers",
+      "content_hash": "78e9debe680f3eac",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-12",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## layer_stack\n- **step**: 6\n- **id**: layer_stack\n- **path**: SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md\n- **why**: L0\u2013L3 roles",
+      "content_hash": "35f43d051a2d6339",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-13",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## node_graph\n- **step**: 7\n- **id**: node_graph\n- **path**: data/sourcea_pipeline_node_graph_v1.json\n- **why**: 12 nodes \u00b7 5 tiers \u00b7 LAT orient",
+      "content_hash": "7b2d5c875b5d916d",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-14",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## directory_map\n- **step**: 8\n- **id**: directory_map\n- **path**: data/sourcea_directory_node_map_v1.json\n- **why**: Folder \u2192 node wiring",
+      "content_hash": "cec044a9b197fdc7",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-15",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## live_surfaces\n- **step**: 9\n- **id**: live_surfaces\n- **path**: ~/.sina/agent-live-surfaces-v1.json\n- **why**: factory_now_line inject",
+      "content_hash": "be1926a45d4c5b50",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-16",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## session_gate_receipt\n- **step**: 10\n- **id**: session_gate_receipt\n- **path**: ~/.sina/agent_session_gate_receipt_v1.json\n- **why**: Session proof",
+      "content_hash": "734488d732c33981",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-17",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## session_gate_step_nodes\n- **anti_staleness_auto_wire**: disk_live_wire\n- **memory_mirror_sync**: disk_live_wire\n- **daily_duty_card**: session_gate_v1\n- **truth_bundle**: disk_live_wire\n- **rules_loop**: governance_zero_drift\n- **agentic_pipeline_v2**: agentic_layer_fast\n- **stranger_agent_safety_live_wire**: sascip_live_wire\n- **governance_zero_drift_live_wire**: governance_zero_drift\n- **sourcea_crawl_mirror_pipeline**: crawl_mirror_session\n- **conduct**: session_gate_v1",
+      "content_hash": "e864efb1d3610149",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-18",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## validator_check_nodes\n- **validate-disk-live-wire-v1**: disk_live_wire\n- **validate-crawl-mirror-v1**: crawl_mirror_session\n- **validate-stranger-agent-safety-v1**: sascip_live_wire\n- **validate-stranger-agent-safety-live-wire-v1**: sascip_live_wire\n- **validate-anti-staleness-vocabulary-gate-v1**: validate_w10_vocab\n- **validate-pipeline-node-graph-v1**: pipeline_node_graph_runner_v1\n- **validate-two-hub-v1**: validate_two_hub\n- **validate-n8n-p0-operational-v1**: n8n_p0_operational\n- **validate-orient-routing-v1**: orient_routing_v1\n- **validate-agent-three-pipelines-v1**: orientation_pipeline_v1\n- **find_critical_bugs**: validate_w10_vocab",
+      "content_hash": "f48daa9b561a8c23",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-19",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## daily_pipeline_to_node\n### brain\n- **entry**: brain-session-start.sh\n#### nodes\n- session_gate_v1\n- disk_live_wire\n- l1_brain_wire\n- brain_governance_wire_v1\n- **execute**: route handoff only \u2014 never implement sa\n### worker\n- **entry**: worker_turn_entry_v1.sh\n#### nodes\n- session_gate_v1\n- worker_inbox_v1\n- goal1_lane_broker\n- outbound_post_ship_v1\n- **execute**: RUN INBOX head only \u2014 queue_pos>1 preview not bound\n### governance\n- **entry**: l1_agent_pipeline_wire_v1.py\n#### nodes\n- l1_brain_wire\n- governance_zero_drift\n### commercial\n- **entry**: l1_agent_pipeline_wire_v1.py\n#### nodes\n- l1_brain_wire\n- commercial_command_pulse\n### brief\n- **entry**: l1_agent_pipeline_wire_v1.py\n#### nodes\n- l1_brain_wire\n- research_acquisitor",
+      "content_hash": "52d66c8d8599e204",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-20",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## session_gate\n- **id**: session_gate\n- **path**: ~/.sina/agent_session_gate_receipt_v1.json\n- **step_key**: steps",
+      "content_hash": "ac17e7dd8531e51d",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-21",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## graph_run\n- **id**: graph_run\n- **path**: ~/.sina/pipeline-node-graph-receipt-v1.json\n- **tier_key**: tiers",
+      "content_hash": "992cb7b954436f84",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-22",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## critical_bugs\n- **id**: critical_bugs\n- **path**: ~/.sina/find-bugs/last-run.json\n- **field**: critical_count",
+      "content_hash": "f79e14f9e3c08562",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-23",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## live_surfaces\n- **id**: live_surfaces\n- **path**: ~/.sina/agent-live-surfaces-v1.json\n- **field**: factory_now_line",
+      "content_hash": "bd7dd11bc63b1c2c",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-24",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## orientation\n- **id**: orientation\n- **path**: ~/.sina/agent-orientation-receipt-v1.json\n- **node_id**: orientation_pipeline_v1\n- **only_if_exists**: True",
+      "content_hash": "124472c0f48d0443",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-25",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## hospital\n- **id**: hospital\n- **path**: ~/.sina/agent-hospital-receipt-v1.json\n- **node_id**: hospital_pipeline_v1\n- **only_if_exists**: True",
+      "content_hash": "53cf89da65aba499",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-26",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## maze\n- **id**: maze\n- **path**: ~/.sina/agent-maze-receipt-v1.json\n- **node_id**: maze_pipeline_v1\n- **only_if_exists**: True",
+      "content_hash": "2511e11eeab13d4e",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-27",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## orient_report\n- **id**: orient_report\n- **path**: ~/.sina/orient-routing-report-v1.json\n- **node_id**: orient_routing_v1\n- **field**: cascade_ok\n- **invert**: True",
+      "content_hash": "79f0af3d6783586b",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-28",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## investigator_judge\n- **id**: investigator_judge\n- **path**: ~/.sina/investigator-judge-unified-receipt-v1.json\n- **node_id**: investigator_judge_unified_v1\n- **only_if_exists**: True",
+      "content_hash": "30bce3a4898241b9",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-29",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## session_gate\n- **order**: 1\n- **id**: session_gate\n- **handler**: agent_session_gate_run_v1.py\n- **node_id**: session_gate_v1\n- **enhance**: False",
+      "content_hash": "aeab60f8a5573484",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-30",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## live_surfaces\n- **order**: 2\n- **id**: live_surfaces\n- **handler**: agent-live-surfaces-v1.json\n- **node_id**: disk_live_wire\n- **enhance**: False",
+      "content_hash": "a862b1dfc3ed84f2",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-31",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## run_inbox\n- **order**: 3\n- **id**: run_inbox\n- **handler**: healthy_prompt_turn_v1.py\n- **node_id**: worker_inbox_v1\n- **enhance**: False",
+      "content_hash": "255e6a7a8896e16a",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-32",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## node_graph_pulse\n- **order**: 4\n- **id**: node_graph_pulse\n- **handler**: pipeline_node_graph_runner_v1.py\n- **node_id**: pipeline_node_graph_runner_v1\n- **enhance**: False",
+      "content_hash": "a419e885903e0516",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-33",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## orient_cascade\n- **order**: 5\n- **id**: orient_cascade\n- **handler**: agent_orient_v1.py\n- **node_id**: orient_routing_v1\n- **enhance**: False",
+      "content_hash": "8c4f9a2e6f48c608",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-34",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## hub_glance\n- **order**: 6\n- **id**: hub_glance\n- **handler**: http://127.0.0.1:13020/\n- **skip_if**: hub_down\n- **node_id**: hub_projection_v1",
+      "content_hash": "e34379e977950a66",
+      "pinned": false,
+      "kind": "json"
     }
   ]
 }

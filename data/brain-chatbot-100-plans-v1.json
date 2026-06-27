@@ -1,0 +1,1934 @@
+{
+  "schema": "sourcea-brain-chatbot-100-plans-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-27T08:49:37Z",
+  "law": "100 shippable units for sourcea.app Brain \u2014 retrieval-first, not keyword chatbot.",
+  "adapted_from": "Noetfield CHAT-P blueprint + SourceA brain_intelligence_v3",
+  "ssot_json": "data/brain-chatbot-100-plans-v1.json",
+  "human_doc": "brain-os/plan-registry/SOURCEA_BRAIN_CHATBOT_100_PLAN_LOCKED_v1.md",
+  "registry_doc": "docs/BRAIN_CHATBOT_100_PLANS_REGISTRY_LOCKED_v1.md",
+  "manifest": "data/CHATBOT_KNOWLEDGE_MANIFEST.json",
+  "validator": "scripts/validate-brain-chatbot-100-plans-v1.sh",
+  "generator": "scripts/generate_brain_chatbot_100_plans_v1.py",
+  "cross_ref": {
+    "gap_report": "docs/BRAIN_CHATBOT_GAP_REPORT_LOCKED_v1.md",
+    "pipeline": "docs/BRAIN_INTELLIGENCE_PIPELINE_LOCKED_v1.md",
+    "eval": "data/brain-chat-eval-canonical-v1.json",
+    "rules": "data/brain-public-rules-v1.json"
+  },
+  "tier_counts": {
+    "P0": 32,
+    "P1": 40,
+    "P2": 28
+  },
+  "progress": {
+    "total": 100,
+    "done": 38,
+    "in_progress": 11,
+    "planned": 46,
+    "deferred": 5,
+    "pct": 38.0
+  },
+  "critical_path": [
+    "BRAIN-P2-10",
+    "BRAIN-P4-03",
+    "BRAIN-P4-05",
+    "BRAIN-P8-07",
+    "BRAIN-P10-09"
+  ],
+  "phases": [
+    {
+      "phase": 1,
+      "title": "Knowledge corpus (foundation)",
+      "plan_ids": [
+        "BRAIN-P1-01",
+        "BRAIN-P1-02",
+        "BRAIN-P1-03",
+        "BRAIN-P1-04",
+        "BRAIN-P1-05",
+        "BRAIN-P1-06",
+        "BRAIN-P1-07",
+        "BRAIN-P1-08",
+        "BRAIN-P1-09",
+        "BRAIN-P1-10"
+      ]
+    },
+    {
+      "phase": 2,
+      "title": "Vector index & retrieval",
+      "plan_ids": [
+        "BRAIN-P2-01",
+        "BRAIN-P2-02",
+        "BRAIN-P2-03",
+        "BRAIN-P2-04",
+        "BRAIN-P2-05",
+        "BRAIN-P2-06",
+        "BRAIN-P2-07",
+        "BRAIN-P2-08",
+        "BRAIN-P2-09",
+        "BRAIN-P2-10"
+      ]
+    },
+    {
+      "phase": 3,
+      "title": "LLM orchestration (replace hardcode)",
+      "plan_ids": [
+        "BRAIN-P3-01",
+        "BRAIN-P3-02",
+        "BRAIN-P3-03",
+        "BRAIN-P3-04",
+        "BRAIN-P3-05",
+        "BRAIN-P3-06",
+        "BRAIN-P3-07",
+        "BRAIN-P3-08",
+        "BRAIN-P3-09",
+        "BRAIN-P3-10"
+      ]
+    },
+    {
+      "phase": 4,
+      "title": "Guardrails & compliance (public-safe)",
+      "plan_ids": [
+        "BRAIN-P4-01",
+        "BRAIN-P4-02",
+        "BRAIN-P4-03",
+        "BRAIN-P4-04",
+        "BRAIN-P4-05",
+        "BRAIN-P4-06",
+        "BRAIN-P4-07",
+        "BRAIN-P4-08",
+        "BRAIN-P4-09",
+        "BRAIN-P4-10"
+      ]
+    },
+    {
+      "phase": 5,
+      "title": "Live product context (read-only tools)",
+      "plan_ids": [
+        "BRAIN-P5-01",
+        "BRAIN-P5-02",
+        "BRAIN-P5-03",
+        "BRAIN-P5-04",
+        "BRAIN-P5-05",
+        "BRAIN-P5-06",
+        "BRAIN-P5-07",
+        "BRAIN-P5-08",
+        "BRAIN-P5-09",
+        "BRAIN-P5-10"
+      ]
+    },
+    {
+      "phase": 6,
+      "title": "Conversation quality & memory",
+      "plan_ids": [
+        "BRAIN-P6-01",
+        "BRAIN-P6-02",
+        "BRAIN-P6-03",
+        "BRAIN-P6-04",
+        "BRAIN-P6-05",
+        "BRAIN-P6-06",
+        "BRAIN-P6-07",
+        "BRAIN-P6-08",
+        "BRAIN-P6-09",
+        "BRAIN-P6-10"
+      ]
+    },
+    {
+      "phase": 7,
+      "title": "Admin, analytics & learning loop",
+      "plan_ids": [
+        "BRAIN-P7-01",
+        "BRAIN-P7-02",
+        "BRAIN-P7-03",
+        "BRAIN-P7-04",
+        "BRAIN-P7-05",
+        "BRAIN-P7-06",
+        "BRAIN-P7-07",
+        "BRAIN-P7-08",
+        "BRAIN-P7-09",
+        "BRAIN-P7-10"
+      ]
+    },
+    {
+      "phase": 8,
+      "title": "Commercial intelligence (SourceA buyers)",
+      "plan_ids": [
+        "BRAIN-P8-01",
+        "BRAIN-P8-02",
+        "BRAIN-P8-03",
+        "BRAIN-P8-04",
+        "BRAIN-P8-05",
+        "BRAIN-P8-06",
+        "BRAIN-P8-07",
+        "BRAIN-P8-08",
+        "BRAIN-P8-09",
+        "BRAIN-P8-10"
+      ]
+    },
+    {
+      "phase": 9,
+      "title": "Multi-channel parity",
+      "plan_ids": [
+        "BRAIN-P9-01",
+        "BRAIN-P9-02",
+        "BRAIN-P9-03",
+        "BRAIN-P9-04",
+        "BRAIN-P9-05",
+        "BRAIN-P9-06",
+        "BRAIN-P9-07",
+        "BRAIN-P9-08",
+        "BRAIN-P9-09",
+        "BRAIN-P9-10"
+      ]
+    },
+    {
+      "phase": 10,
+      "title": "Production hardening & north star",
+      "plan_ids": [
+        "BRAIN-P10-01",
+        "BRAIN-P10-02",
+        "BRAIN-P10-03",
+        "BRAIN-P10-04",
+        "BRAIN-P10-05",
+        "BRAIN-P10-06",
+        "BRAIN-P10-07",
+        "BRAIN-P10-08",
+        "BRAIN-P10-09",
+        "BRAIN-P10-10"
+      ]
+    }
+  ],
+  "plans": [
+    {
+      "id": "BRAIN-P1-01",
+      "phase": 1,
+      "phase_title": "Knowledge corpus (foundation)",
+      "seq": 1,
+      "title": "Corpus manifest SSOT",
+      "summary": "Single manifest listing every allowed public source, lane, hash, and distill path.",
+      "paths": [
+        "data/CHATBOT_KNOWLEDGE_MANIFEST.json"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": "scripts/validate-sourcea-brain-knowledge-v1.sh",
+      "depends_on": [],
+      "acceptance": "Corpus manifest SSOT verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P1-02",
+      "phase": 1,
+      "phase_title": "Knowledge corpus (foundation)",
+      "seq": 2,
+      "title": "Public copy ingest",
+      "summary": "Export positioning JSON, founder-home, and locked positioning law into chunked markdown.",
+      "paths": [
+        "scripts/distill_www_to_brain_knowledge_v1.py",
+        "data/chatbot-knowledge/manual/"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Public copy ingest verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P1-03",
+      "phase": 1,
+      "phase_title": "Knowledge corpus (foundation)",
+      "seq": 3,
+      "title": "FAQ pack",
+      "summary": "Distill live FAQ / scenario / offer pages into Q/A pairs with canonical www_url metadata.",
+      "paths": [
+        "data/chatbot-knowledge/distilled/faq-live.md"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "FAQ pack verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P1-04",
+      "phase": 1,
+      "phase_title": "Knowledge corpus (foundation)",
+      "seq": 4,
+      "title": "API surface ingest",
+      "summary": "Ingest public developer pages, kernel docs, and OpenAPI slice for procedural answers.",
+      "paths": [
+        "sites/SourceA-landing/green-unified/eval",
+        "data/chatbot-knowledge/distilled/developer-tools.md"
+      ],
+      "status": "in_progress",
+      "progress": "in_progress",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "API surface ingest verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P1-05",
+      "phase": 1,
+      "phase_title": "Knowledge corpus (foundation)",
+      "seq": 5,
+      "title": "Public rules guardrail snippets",
+      "summary": "Distill brain-public-rules-v1.json into rule lane chunks \u2014 retrieved, not prompt-dumped.",
+      "paths": [
+        "data/brain-public-rules-v1.json",
+        "scripts/distill_brain_public_rules_v1.py"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Public rules guardrail snippets verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P1-06",
+      "phase": 1,
+      "phase_title": "Knowledge corpus (foundation)",
+      "seq": 6,
+      "title": "llms.txt + sitemap sync",
+      "summary": "Auto-regenerate llms.txt and sitemap brain summary from manifest on corpus rebuild.",
+      "paths": [
+        "sites/SourceA-landing/green-unified/llms.txt"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "llms.txt + sitemap sync verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P1-07",
+      "phase": 1,
+      "phase_title": "Knowledge corpus (foundation)",
+      "seq": 7,
+      "title": "Forbidden corpus denylist",
+      "summary": "Machine gate blocking brain-os/, Mac ports, secrets, GTM internals from distill.",
+      "paths": [
+        "data/brain-public-data-allowlist-v1.json",
+        "data/brain-chat-public-docs-allowlist-v1.json"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Forbidden corpus denylist verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P1-08",
+      "phase": 1,
+      "phase_title": "Knowledge corpus (foundation)",
+      "seq": 8,
+      "title": "Chunk strategy",
+      "summary": "400\u2013800 token target chunks with lane, page, updated_at, content_hash, www_url.",
+      "paths": [
+        "scripts/sync_brain_chat_knowledge_v1.py"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Chunk strategy verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P1-09",
+      "phase": 1,
+      "phase_title": "Knowledge corpus (foundation)",
+      "seq": 9,
+      "title": "Corpus rebuild on deploy",
+      "summary": "Hook brain_chatbot_refresh_v1.sh into publish_sourcea_landing_v1.py and worker deploy.",
+      "paths": [
+        "scripts/brain_chatbot_refresh_v1.sh",
+        "scripts/publish_sourcea_landing_v1.py"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Corpus rebuild on deploy verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P1-10",
+      "phase": 1,
+      "phase_title": "Knowledge corpus (foundation)",
+      "seq": 10,
+      "title": "Verify gate",
+      "summary": "Coverage + no-leak verify before deploy; disk bundle matches live worker.",
+      "paths": [
+        "scripts/validate-sourcea-brain-knowledge-v1.sh"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": "scripts/validate-sourcea-brain-knowledge-v1.sh",
+      "depends_on": [],
+      "acceptance": "Verify gate verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P2-01",
+      "phase": 2,
+      "phase_title": "Vector index & retrieval",
+      "seq": 1,
+      "title": "Embedding provider",
+      "summary": "Semantic-hash vector provider runs in Worker without extra API bill or secrets.",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1/src/retrieval.js"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Embedding provider verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P2-02",
+      "phase": 2,
+      "phase_title": "Vector index & retrieval",
+      "seq": 2,
+      "title": "Vector store",
+      "summary": "Bundle exposes vector metadata; Worker projects chunks at runtime with semantic_hash_v1.",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Vector store verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P2-03",
+      "phase": 2,
+      "phase_title": "Vector index & retrieval",
+      "seq": 3,
+      "title": "Hybrid BM25 + vector merge",
+      "summary": "BM25 + page boost + semantic vector score merged in Worker ranking.",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1/src/retrieval.js"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Hybrid BM25 + vector merge verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P2-04",
+      "phase": 2,
+      "phase_title": "Vector index & retrieval",
+      "seq": 4,
+      "title": "Retriever service",
+      "summary": "Shared retrieve() API in Python hub + JS worker with identical ranking semantics.",
+      "paths": [
+        "scripts/brain_retrieval_engine_v1.py",
+        "retrieval.js"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": "bash scripts/brain_cli_v1.sh search",
+      "depends_on": [],
+      "acceptance": "Retriever service verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P2-05",
+      "phase": 2,
+      "phase_title": "Vector index & retrieval",
+      "seq": 5,
+      "title": "Page-aware boost",
+      "summary": "Widget sends page_path and data-sa-page; boost chunks matching current route.",
+      "paths": [
+        "sites/SourceA-landing/green-unified/sourcea-chatbot.js",
+        "retrieval.js"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Page-aware boost verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P2-06",
+      "phase": 2,
+      "phase_title": "Vector index & retrieval",
+      "seq": 6,
+      "title": "Intent routing buckets",
+      "summary": "sandbox/pricing/API/compliance/contact/developer/investor pre-retrieve lane boost.",
+      "paths": [
+        "scripts/brain_retrieval_engine_v1.py classify_intent"
+      ],
+      "status": "in_progress",
+      "progress": "in_progress",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Intent routing buckets verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P2-07",
+      "phase": 2,
+      "phase_title": "Vector index & retrieval",
+      "seq": 7,
+      "title": "Citation objects",
+      "summary": "Return {source, url, excerpt, lane, score, kind} on every answer.",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1/src/index.js"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Citation objects verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P2-08",
+      "phase": 2,
+      "phase_title": "Vector index & retrieval",
+      "seq": 8,
+      "title": "Stale chunk detection",
+      "summary": "Flag chunks older than SITE_BUILD_ID or freshness_sla_hours from manifest.",
+      "paths": [
+        "data/CHATBOT_KNOWLEDGE_MANIFEST.json freshness_sla_hours"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Stale chunk detection verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P2-09",
+      "phase": 2,
+      "phase_title": "Vector index & retrieval",
+      "seq": 9,
+      "title": "Re-index cron",
+      "summary": "Nightly Railway/cloud CI refresh + worker redeploy without Mac founder validators.",
+      "paths": [
+        "scripts/brain_chatbot_refresh_v1.sh"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Re-index cron verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P2-10",
+      "phase": 2,
+      "phase_title": "Vector index & retrieval",
+      "seq": 10,
+      "title": "Retrieval eval set \u2014 50 golden",
+      "summary": "Expand brain-chat-eval-canonical-v1.json to 50 questions from FAQ + sales one-pager.",
+      "paths": [
+        "data/brain-chat-eval-canonical-v1.json",
+        "scripts/test_brain_chat_quality_v1.py"
+      ],
+      "status": "in_progress",
+      "progress": "in_progress",
+      "priority": "P0",
+      "verify": "python3 scripts/test_brain_chat_quality_v1.py --json",
+      "depends_on": [],
+      "acceptance": "Retrieval eval set \u2014 50 golden verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P3-01",
+      "phase": 3,
+      "phase_title": "LLM orchestration (replace hardcode)",
+      "seq": 1,
+      "title": "ChatBrain service",
+      "summary": "Replace any keyword branches with retrieve\u2192assemble\u2192generate pipeline.",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1/src/index.js",
+        "scripts/brain_intelligence_pipeline_v1.py"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "ChatBrain service verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P3-02",
+      "phase": 3,
+      "phase_title": "LLM orchestration (replace hardcode)",
+      "seq": 2,
+      "title": "System prompt lock",
+      "summary": "Minimal BRAIN_CORE only; all product truth injected per turn from retrieval.",
+      "paths": [
+        "docs/BRAIN_INTELLIGENCE_PIPELINE_LOCKED_v1.md",
+        "retrieval.js BRAIN_CORE"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "System prompt lock verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P3-03",
+      "phase": 3,
+      "phase_title": "LLM orchestration (replace hardcode)",
+      "seq": 3,
+      "title": "Provider adapter",
+      "summary": "OpenRouter primary with model fallback chain; env OPENROUTER_MODEL.",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1/src/index.js"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Provider adapter verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P3-04",
+      "phase": 3,
+      "phase_title": "LLM orchestration (replace hardcode)",
+      "seq": 4,
+      "title": "Fallback ladder",
+      "summary": "LLM down \u2192 retrieval-only template answer \u2192 static offline hint.",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1/src/guardrails.js"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Fallback ladder verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P3-05",
+      "phase": 3,
+      "phase_title": "LLM orchestration (replace hardcode)",
+      "seq": 5,
+      "title": "History window",
+      "summary": "Last 12 turns worker-side; widget keeps 20; context budget ~4K tokens retrieved.",
+      "paths": [
+        "sourcea-chatbot.js",
+        "index.js MAX_HISTORY"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "History window verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P3-06",
+      "phase": 3,
+      "phase_title": "LLM orchestration (replace hardcode)",
+      "seq": 6,
+      "title": "Dynamic chip generator",
+      "summary": "LLM or intent engine suggests 3 chips per reply instead of static chip list.",
+      "paths": [
+        "sites/SourceA-landing/green-unified/sourcea-chatbot.js"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Dynamic chip generator verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P3-07",
+      "phase": 3,
+      "phase_title": "LLM orchestration (replace hardcode)",
+      "seq": 7,
+      "title": "Streaming SSE",
+      "summary": "POST /api/brain/chat/v1/stream for first-token latency on widget.",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1/src/index.js"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Streaming SSE verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P3-08",
+      "phase": 3,
+      "phase_title": "LLM orchestration (replace hardcode)",
+      "seq": 8,
+      "title": "Token + cost logging",
+      "summary": "Log prompt/completion tokens per session in metadata_json receipt.",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1",
+        "Supabase or KV"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Token + cost logging verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P3-09",
+      "phase": 3,
+      "phase_title": "LLM orchestration (replace hardcode)",
+      "seq": 9,
+      "title": "Rate limit + Turnstile",
+      "summary": "Session + IP limits; Turnstile on abuse patterns for public widget.",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Rate limit + Turnstile verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P3-10",
+      "phase": 3,
+      "phase_title": "LLM orchestration (replace hardcode)",
+      "seq": 10,
+      "title": "Feature flag BRAIN_RAG_LEGACY",
+      "summary": "Shadow legacy toggle for A/B; default RAG-on after verify green.",
+      "paths": [
+        "data/sourcea-brain-chat-config-v1.json"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Feature flag BRAIN_RAG_LEGACY verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P4-01",
+      "phase": 4,
+      "phase_title": "Guardrails & compliance (public-safe)",
+      "seq": 1,
+      "title": "Pre-filter input",
+      "summary": "Block legal advice, custody/compliance filing, and internal ops requests.",
+      "paths": [
+        "scripts/brain_chat_input_filter_v1.py"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Pre-filter input verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P4-02",
+      "phase": 4,
+      "phase_title": "Guardrails & compliance (public-safe)",
+      "seq": 2,
+      "title": "Post-filter positioning CI",
+      "summary": "Run forbidden phrase + must-not-lead-price scan on every generated reply.",
+      "paths": [
+        "scripts/verify_brain_reply_positioning_v1.py",
+        "guardrails.js"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": "bash scripts/verify_brain_guardrails_v1.sh",
+      "depends_on": [],
+      "acceptance": "Post-filter positioning CI verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P4-03",
+      "phase": 4,
+      "phase_title": "Guardrails & compliance (public-safe)",
+      "seq": 3,
+      "title": "Forbidden phrase scanner",
+      "summary": "Same boundaries as public rules + anti-ICP eval forbidden_any lists.",
+      "paths": [
+        "data/brain-public-rules-v1.json",
+        "brain-chat-eval-canonical-v1.json"
+      ],
+      "status": "in_progress",
+      "progress": "in_progress",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Forbidden phrase scanner verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P4-04",
+      "phase": 4,
+      "phase_title": "Guardrails & compliance (public-safe)",
+      "seq": 4,
+      "title": "Agentic-first CTA law",
+      "summary": "Primary CTAs: Forge Terminal, /start, pricing \u2014 not book-a-call first.",
+      "paths": [
+        "data/brain-public-rules-v1.json",
+        "sourcea-positioning-v1.json"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Agentic-first CTA law verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P4-05",
+      "phase": 4,
+      "phase_title": "Guardrails & compliance (public-safe)",
+      "seq": 5,
+      "title": "No invitation law",
+      "summary": "Cal.com proof-demo only on escalation; max one demo link per reply.",
+      "paths": [
+        "sourcea-chatbot.js",
+        "brain-public-rules one-demo-link"
+      ],
+      "status": "in_progress",
+      "progress": "in_progress",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "No invitation law verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P4-06",
+      "phase": 4,
+      "phase_title": "Guardrails & compliance (public-safe)",
+      "seq": 6,
+      "title": "Confidence gate UI",
+      "summary": "Low retrieval confidence \u2192 honest deferral + route link, not hallucination.",
+      "paths": [
+        "sourcea-chatbot.js",
+        "worker confidence object"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Confidence gate UI verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P4-07",
+      "phase": 4,
+      "phase_title": "Guardrails & compliance (public-safe)",
+      "seq": 7,
+      "title": "Human escalate contact",
+      "summary": "Interested buyer \u2192 /start or intake prefill, not auto-founder email.",
+      "paths": [
+        "sites/SourceA-landing/green-unified/start"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Human escalate contact verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P4-08",
+      "phase": 4,
+      "phase_title": "Guardrails & compliance (public-safe)",
+      "seq": 8,
+      "title": "CASL-safe chat",
+      "summary": "No unsolicited email capture; feedback opt-in only.",
+      "paths": [
+        "sourcea-chatbot.js",
+        "Site Pulse"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "CASL-safe chat verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P4-09",
+      "phase": 4,
+      "phase_title": "Guardrails & compliance (public-safe)",
+      "seq": 9,
+      "title": "Audit trail chunk IDs",
+      "summary": "Log retrieved chunk_id list per reply in receipt + optional platform store.",
+      "paths": [
+        "sync_brain_chat_knowledge_v1.py chunk ids",
+        "worker receipt"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Audit trail chunk IDs verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P4-10",
+      "phase": 4,
+      "phase_title": "Guardrails & compliance (public-safe)",
+      "seq": 10,
+      "title": "verify_brain_guardrails.sh",
+      "summary": "Machine gate in CI: pre/post filters + positioning smoke on live worker.",
+      "paths": [
+        "scripts/verify_brain_guardrails_v1.sh"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": "bash scripts/verify_brain_guardrails_v1.sh",
+      "depends_on": [],
+      "acceptance": "verify_brain_guardrails.sh verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P5-01",
+      "phase": 5,
+      "phase_title": "Live product context (read-only tools)",
+      "seq": 1,
+      "title": "Tool: boot-proof snapshot",
+      "summary": "Read /sourcea/data/boot-proof.json for live proof availability answers.",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1/src/live-tools.js"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Tool: boot-proof snapshot verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P5-02",
+      "phase": 5,
+      "phase_title": "Live product context (read-only tools)",
+      "seq": 2,
+      "title": "Tool: products catalog",
+      "summary": "Live read sourcea-products-catalog-v1.json at query time for public product truth.",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1/src/live-tools.js"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Tool: products catalog verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P5-03",
+      "phase": 5,
+      "phase_title": "Live product context (read-only tools)",
+      "seq": 3,
+      "title": "Tool: factories catalog",
+      "summary": "Live factories list with /sourcea/factories links \u2014 never deny when catalog exists.",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1/src/live-tools.js"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Tool: factories catalog verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P5-04",
+      "phase": 5,
+      "phase_title": "Live product context (read-only tools)",
+      "seq": 4,
+      "title": "Tool: pricing tiers",
+      "summary": "Route to current public pricing page with Build/Rent/Own explanation; no invented dollar amounts.",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1/src/live-tools.js"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Tool: pricing tiers verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P5-05",
+      "phase": 5,
+      "phase_title": "Live product context (read-only tools)",
+      "seq": 5,
+      "title": "Tool: site map resolver",
+      "summary": "Resolve 'where is X?' to manifest www_url or site-map chunk.",
+      "paths": [
+        "data/chatbot-knowledge/manual/site-map.md"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Tool: site map resolver verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P5-06",
+      "phase": 5,
+      "phase_title": "Live product context (read-only tools)",
+      "seq": 6,
+      "title": "Forge Terminal live probe",
+      "summary": "HEAD check sourcea.app/sourcea/forge/terminal before claiming demo is up.",
+      "paths": [
+        "scripts/brain_tool_forge_terminal_probe_v1.py"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Forge Terminal live probe verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P5-07",
+      "phase": 5,
+      "phase_title": "Live product context (read-only tools)",
+      "seq": 7,
+      "title": "Tool: positioning JSON live",
+      "summary": "Fetch positioning-v1.json cache for greet/one-line consistency checks.",
+      "paths": [
+        "data/sourcea-positioning-v1.json"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Tool: positioning JSON live verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P5-08",
+      "phase": 5,
+      "phase_title": "Live product context (read-only tools)",
+      "seq": 8,
+      "title": "Tool registry allowlist",
+      "summary": "os/chat_tools_v1.json listing read-only tools Brain may call.",
+      "paths": [
+        "data/brain-chat-tools-v1.json"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Tool registry allowlist verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P5-09",
+      "phase": 5,
+      "phase_title": "Live product context (read-only tools)",
+      "seq": 9,
+      "title": "Read-only enforcement",
+      "summary": "No POST/PATCH from chat except anonymous feedback/intake endpoints.",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Read-only enforcement verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P5-10",
+      "phase": 5,
+      "phase_title": "Live product context (read-only tools)",
+      "seq": 10,
+      "title": "Tool eval \u2014 20 live questions",
+      "summary": "Golden set requiring live JSON/tool answers not static corpus alone.",
+      "paths": [
+        "data/brain-chat-tool-eval-v1.json"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Tool eval \u2014 20 live questions verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P6-01",
+      "phase": 6,
+      "phase_title": "Conversation quality & memory",
+      "seq": 1,
+      "title": "Session summary compress",
+      "summary": "Summarize history after 20 turns to stay inside context budget.",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1/src/index.js"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Session summary compress verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P6-02",
+      "phase": 6,
+      "phase_title": "Conversation quality & memory",
+      "seq": 2,
+      "title": "Clarifying questions",
+      "summary": "Ask one follow-up when intent ambiguous and confidence low.",
+      "paths": [
+        "retrieval.js",
+        "BRAIN_CORE"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Clarifying questions verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P6-03",
+      "phase": 6,
+      "phase_title": "Conversation quality & memory",
+      "seq": 3,
+      "title": "Multi-turn /start guide",
+      "summary": "Step user through sandbox intake when they ask how to begin.",
+      "paths": [
+        "data/chatbot-knowledge/distilled/sandbox-freemium.md"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Multi-turn /start guide verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P6-04",
+      "phase": 6,
+      "phase_title": "Conversation quality & memory",
+      "seq": 4,
+      "title": "Developer mode",
+      "summary": "Detect curl/OpenAPI/kernel questions \u2192 recipe and /eval links.",
+      "paths": [
+        "data/chatbot-knowledge/distilled/developer-tools.md"
+      ],
+      "status": "in_progress",
+      "progress": "in_progress",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Developer mode verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P6-05",
+      "phase": 6,
+      "phase_title": "Conversation quality & memory",
+      "seq": 5,
+      "title": "Agency operator mode",
+      "summary": "Agency QBR / deliverable audit vocabulary from public scenario copy.",
+      "paths": [
+        "sites/SourceA-landing/green-unified/scenario.html"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Agency operator mode verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P6-06",
+      "phase": 6,
+      "phase_title": "Conversation quality & memory",
+      "seq": 6,
+      "title": "Investor mode routing",
+      "summary": "Route /showcase?track=investor and investors chunk; no confidential data.",
+      "paths": [
+        "data/chatbot-knowledge",
+        "investors lane"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Investor mode routing verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P6-07",
+      "phase": 6,
+      "phase_title": "Conversation quality & memory",
+      "seq": 7,
+      "title": "Language EN-CA default",
+      "summary": "Canadian English default; FR stub deferred for procurement.",
+      "paths": [
+        "sourcea-chatbot.js"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Language EN-CA default verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P6-08",
+      "phase": 6,
+      "phase_title": "Conversation quality & memory",
+      "seq": 8,
+      "title": "Widget ARIA + keyboard",
+      "summary": "Audit Brain panel for focus trap, aria-live, and keyboard send.",
+      "paths": [
+        "sourcea-chatbot.js",
+        "sourcea.css"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Widget ARIA + keyboard verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P6-09",
+      "phase": 6,
+      "phase_title": "Conversation quality & memory",
+      "seq": 9,
+      "title": "Offline graceful degrade",
+      "summary": "Worker+LLM down \u2192 cached FAQ chips + Forge Terminal link.",
+      "paths": [
+        "sourcea-chatbot.js hint_offline"
+      ],
+      "status": "in_progress",
+      "progress": "in_progress",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Offline graceful degrade verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P6-10",
+      "phase": 6,
+      "phase_title": "Conversation quality & memory",
+      "seq": 10,
+      "title": "Golden transcript tests",
+      "summary": "30 multi-turn pytest/playwright scenarios in cloud CI.",
+      "paths": [
+        "scripts/test_brain_chat_transcripts_v1.py"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Golden transcript tests verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P7-01",
+      "phase": 7,
+      "phase_title": "Admin, analytics & learning loop",
+      "seq": 1,
+      "title": "Admin chat logs tab",
+      "summary": "Surface anonymized Brain sessions in Hub admin (read-only).",
+      "paths": [
+        "agent-control-panel"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Admin chat logs tab verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P7-02",
+      "phase": 7,
+      "phase_title": "Admin, analytics & learning loop",
+      "seq": 2,
+      "title": "Thumbs up/down",
+      "summary": "Per-reply feedback wired to Site Pulse + gap queue.",
+      "paths": [
+        "sourcea-site-pulse",
+        "sourcea-chatbot.js"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Thumbs up/down verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P7-03",
+      "phase": 7,
+      "phase_title": "Admin, analytics & learning loop",
+      "seq": 3,
+      "title": "Gap queue",
+      "summary": "Low-score / failed eval sessions \u2192 founder review CSV.",
+      "paths": [
+        "data/brain-chat-gap-queue-v1.json"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Gap queue verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P7-04",
+      "phase": 7,
+      "phase_title": "Admin, analytics & learning loop",
+      "seq": 4,
+      "title": "Site Pulse brain metrics",
+      "summary": "Track brain_chat starts, citation clicks, Forge Terminal CTR.",
+      "paths": [
+        "sourcea-site-pulse-v1.js"
+      ],
+      "status": "in_progress",
+      "progress": "in_progress",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Site Pulse brain metrics verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P7-05",
+      "phase": 7,
+      "phase_title": "Admin, analytics & learning loop",
+      "seq": 5,
+      "title": "Founder alert mirror",
+      "summary": "Optional Telegram on first high-intent message (defer Hub ASK).",
+      "paths": [
+        "deferred"
+      ],
+      "status": "deferred",
+      "progress": "deferred",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Founder alert mirror verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P7-06",
+      "phase": 7,
+      "phase_title": "Admin, analytics & learning loop",
+      "seq": 6,
+      "title": "Weekly corpus diff report",
+      "summary": "New/changed www pages \u2192 re-index reminder artifact.",
+      "paths": [
+        "scripts/brain_corpus_diff_report_v1.py"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Weekly corpus diff report verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P7-07",
+      "phase": 7,
+      "phase_title": "Admin, analytics & learning loop",
+      "seq": 7,
+      "title": "A/B retrieval metrics",
+      "summary": "Compare page-boost vs baseline on /start click-through.",
+      "paths": [
+        "data/brain-chat-ab-v1.json"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "A/B retrieval metrics verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P7-08",
+      "phase": 7,
+      "phase_title": "Admin, analytics & learning loop",
+      "seq": 8,
+      "title": "Search Console \u2192 FAQ",
+      "summary": "Top search queries feed new FAQ chunks in manifest.",
+      "paths": [
+        "data/CHATBOT_KNOWLEDGE_MANIFEST.json"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Search Console \u2192 FAQ verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P7-09",
+      "phase": 7,
+      "phase_title": "Admin, analytics & learning loop",
+      "seq": 9,
+      "title": "llms.txt auto-update",
+      "summary": "Corpus summary paragraph regenerated on each refresh.",
+      "paths": [
+        "sites/SourceA-landing/green-unified/llms.txt"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "llms.txt auto-update verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P7-10",
+      "phase": 7,
+      "phase_title": "Admin, analytics & learning loop",
+      "seq": 10,
+      "title": "Weekly analytics JSON",
+      "summary": "reports/analytics/brain-weekly-v1.json dashboard feed.",
+      "paths": [
+        "receipts/brain-analytics/"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Weekly analytics JSON verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P8-01",
+      "phase": 8,
+      "phase_title": "Commercial intelligence (SourceA buyers)",
+      "seq": 1,
+      "title": "Agency wedge vocabulary",
+      "summary": "Ingest public agency/SME positioning only \u2014 no internal GTM matrix.",
+      "paths": [
+        "data/chatbot-knowledge/distilled/intelligence-lane.md"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Agency wedge vocabulary verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P8-02",
+      "phase": 8,
+      "phase_title": "Commercial intelligence (SourceA buyers)",
+      "seq": 2,
+      "title": "Build vs Rent vs Own explainer",
+      "summary": "Explain tiers without hero dollar anchors; scope-first language.",
+      "paths": [
+        "pricing-matrix.md",
+        "brain-public-rules no-lead-price"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Build vs Rent vs Own explainer verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P8-03",
+      "phase": 8,
+      "phase_title": "Commercial intelligence (SourceA buyers)",
+      "seq": 3,
+      "title": "Forge handoff explainer",
+      "summary": "Homepage vs Forge Terminal vs platform sign-in state machine.",
+      "paths": [
+        "forge-runtime.md",
+        "eval forge-vs-homepage"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Forge handoff explainer verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P8-04",
+      "phase": 8,
+      "phase_title": "Commercial intelligence (SourceA buyers)",
+      "seq": 4,
+      "title": "Proof/receipt framing",
+      "summary": "Evidence for buyers \u2014 not regulatory filing or compliance SKU claims.",
+      "paths": [
+        "trust-ledger-public.md",
+        "brain-public-rules"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Proof/receipt framing verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P8-05",
+      "phase": 8,
+      "phase_title": "Commercial intelligence (SourceA buyers)",
+      "seq": 5,
+      "title": "Competitor-safe answers",
+      "summary": "Categories only; never named peer trash-talk in corpus or replies.",
+      "paths": [
+        "brain-public-rules forbidden-public"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Competitor-safe answers verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P8-06",
+      "phase": 8,
+      "phase_title": "Commercial intelligence (SourceA buyers)",
+      "seq": 6,
+      "title": "Objection handling playbook",
+      "summary": "Public chunks for 'just records', 'we have Cursor', 'too expensive'.",
+      "paths": [
+        "data/chatbot-knowledge/manual/objections-public.md"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Objection handling playbook verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P8-07",
+      "phase": 8,
+      "phase_title": "Commercial intelligence (SourceA buyers)",
+      "seq": 7,
+      "title": "DEMO async path",
+      "summary": "Forge Terminal browser demo before Cal.com; DEMO keyword \u2192 terminal URL.",
+      "paths": [
+        "sourcea-chatbot.js",
+        "forge/terminal.html"
+      ],
+      "status": "in_progress",
+      "progress": "in_progress",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "DEMO async path verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P8-08",
+      "phase": 8,
+      "phase_title": "Commercial intelligence (SourceA buyers)",
+      "seq": 8,
+      "title": "Qualification intent tags",
+      "summary": "Log agency/founder/developer intent tags without PII.",
+      "paths": [
+        "Site Pulse metadata"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Qualification intent tags verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P8-09",
+      "phase": 8,
+      "phase_title": "Commercial intelligence (SourceA buyers)",
+      "seq": 9,
+      "title": "Handoff to intake form",
+      "summary": "Structured /start prefill from chat context (no auto-email).",
+      "paths": [
+        "sites/SourceA-landing/green-unified/start"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Handoff to intake form verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P8-10",
+      "phase": 8,
+      "phase_title": "Commercial intelligence (SourceA buyers)",
+      "seq": 10,
+      "title": "Outbound policy sync",
+      "summary": "Same boundary language as public outreach policy docs in rules lane.",
+      "paths": [
+        "data/brain-public-rules-v1.json"
+      ],
+      "status": "in_progress",
+      "progress": "in_progress",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Outbound policy sync verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P9-01",
+      "phase": 9,
+      "phase_title": "Multi-channel parity",
+      "seq": 1,
+      "title": "Shared brain module",
+      "summary": "One retrieval+generate path for web widget and hub Python fallback.",
+      "paths": [
+        "scripts/sourcea_brain_chat_v1.py",
+        "worker"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Shared brain module verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P9-02",
+      "phase": 9,
+      "phase_title": "Multi-channel parity",
+      "seq": 2,
+      "title": "Hub ASK same backend",
+      "summary": "Route Hub ASK tab through same worker URL and bundle version.",
+      "paths": [
+        "scripts/sourcea_brain_chat_v1.py"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Hub ASK same backend verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P9-03",
+      "phase": 9,
+      "phase_title": "Multi-channel parity",
+      "seq": 3,
+      "title": "n8n webhook ask",
+      "summary": "External agents call worker with shared auth secret (read-only).",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "n8n webhook ask verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P9-04",
+      "phase": 9,
+      "phase_title": "Multi-channel parity",
+      "seq": 4,
+      "title": "Forge Terminal product mode",
+      "summary": "forge_terminal product uses same RAG + sectioned reply format.",
+      "paths": [
+        "sourcea-forge-terminal-demo.js",
+        "index.js"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Forge Terminal product mode verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P9-05",
+      "phase": 9,
+      "phase_title": "Multi-channel parity",
+      "seq": 5,
+      "title": "Email async defer",
+      "summary": "Do not auto-reply outreach; link to Brain on www.",
+      "paths": [
+        "deferred"
+      ],
+      "status": "deferred",
+      "progress": "deferred",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Email async defer verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P9-06",
+      "phase": 9,
+      "phase_title": "Multi-channel parity",
+      "seq": 6,
+      "title": "Widget rollout audit",
+      "summary": "Document which pages mount sourcea-chatbot.js vs Forge-only.",
+      "paths": [
+        "sites/SourceA-landing/green-unified"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Widget rollout audit verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P9-07",
+      "phase": 9,
+      "phase_title": "Multi-channel parity",
+      "seq": 7,
+      "title": "Embeddable snippet defer",
+      "summary": "Partner white-label widget defer until P0 eval green.",
+      "paths": [
+        "deferred"
+      ],
+      "status": "deferred",
+      "progress": "deferred",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Embeddable snippet defer verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P9-08",
+      "phase": 9,
+      "phase_title": "Multi-channel parity",
+      "seq": 8,
+      "title": "Voice defer",
+      "summary": "Text-first per phase1-sales-truth.",
+      "paths": [
+        "deferred"
+      ],
+      "status": "deferred",
+      "progress": "deferred",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Voice defer verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P9-09",
+      "phase": 9,
+      "phase_title": "Multi-channel parity",
+      "seq": 9,
+      "title": "Internal Slack ops defer",
+      "summary": "Ops channel internal only \u2014 not public Brain.",
+      "paths": [
+        "deferred"
+      ],
+      "status": "deferred",
+      "progress": "deferred",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Internal Slack ops defer verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P9-10",
+      "phase": 9,
+      "phase_title": "Multi-channel parity",
+      "seq": 10,
+      "title": "verify_chat_channels.sh",
+      "summary": "Smoke all channels hit same bundle_version and citation schema.",
+      "paths": [
+        "scripts/verify_brain_chat_channels_v1.sh"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "verify_chat_channels.sh verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P10-01",
+      "phase": 10,
+      "phase_title": "Production hardening & north star",
+      "seq": 1,
+      "title": "Prod deploy RAG always-on",
+      "summary": "Worker + landing publish pipeline documented and automated.",
+      "paths": [
+        "scripts/brain_cli_v1.sh deploy"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P0",
+      "verify": "bash scripts/brain_cli_v1.sh deploy",
+      "depends_on": [],
+      "acceptance": "Prod deploy RAG always-on verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P10-02",
+      "phase": 10,
+      "phase_title": "Production hardening & north star",
+      "seq": 2,
+      "title": "Latency SLO streaming",
+      "summary": "p95 first token < 3s with SSE; full reply < 8s.",
+      "paths": [
+        "cloud/workers/sourcea-brain-chat-v1"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Latency SLO streaming verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P10-03",
+      "phase": 10,
+      "phase_title": "Production hardening & north star",
+      "seq": 3,
+      "title": "Cache hot FAQs at build",
+      "summary": "Embed top 20 question answers in bundle pinned chunks.",
+      "paths": [
+        "sync_brain_chat_knowledge_v1.py pinned"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Cache hot FAQs at build verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P10-04",
+      "phase": 10,
+      "phase_title": "Production hardening & north star",
+      "seq": 4,
+      "title": "DR rebuild < 5 min",
+      "summary": "git pull \u2192 brain_chatbot_refresh \u2192 wrangler deploy runbook.",
+      "paths": [
+        "docs/CHATBOT_KNOWLEDGE_RUNBOOK.md"
+      ],
+      "status": "shipped",
+      "progress": "done",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "DR rebuild < 5 min verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P10-05",
+      "phase": 10,
+      "phase_title": "Production hardening & north star",
+      "seq": 5,
+      "title": "Prompt injection suite",
+      "summary": "Red-team tests for corpus escape and secret exfil attempts.",
+      "paths": [
+        "scripts/test_brain_prompt_injection_v1.py"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Prompt injection suite verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P10-06",
+      "phase": 10,
+      "phase_title": "Production hardening & north star",
+      "seq": 6,
+      "title": "Privacy page disclosure",
+      "summary": "Chat logging + OpenRouter processor disclosure on /trust.",
+      "paths": [
+        "sites/SourceA-landing/green-unified/trust"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Privacy page disclosure verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P10-07",
+      "phase": 10,
+      "phase_title": "Production hardening & north star",
+      "seq": 7,
+      "title": "SEO FAQ schema",
+      "summary": "Inject FAQPage JSON-LD from same corpus as Brain.",
+      "paths": [
+        "scripts/build_sourcea_vercel_output_v1.py"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "SEO FAQ schema verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P10-08",
+      "phase": 10,
+      "phase_title": "Production hardening & north star",
+      "seq": 8,
+      "title": "AI search citation",
+      "summary": "Structured answers + llms.txt for Google/Perplexity.",
+      "paths": [
+        "llms.txt",
+        "brain citations"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P2",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "AI search citation verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P10-09",
+      "phase": 10,
+      "phase_title": "Production hardening & north star",
+      "seq": 9,
+      "title": "Machine verify stack",
+      "summary": "validate-sourcea-brain-* scripts in cloud CI machines index.",
+      "paths": [
+        "scripts/validate-sourcea-brain-landing-e2e-v1.sh"
+      ],
+      "status": "in_progress",
+      "progress": "in_progress",
+      "priority": "P0",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "Machine verify stack verified on sourcea.app Brain stack."
+    },
+    {
+      "id": "BRAIN-P10-10",
+      "phase": 10,
+      "phase_title": "Production hardening & north star",
+      "seq": 10,
+      "title": "North star metric",
+      "summary": "Forge Terminal demo click within 24h of first Brain chat session.",
+      "paths": [
+        "Site Pulse",
+        "brain-weekly analytics"
+      ],
+      "status": "todo",
+      "progress": "planned",
+      "priority": "P1",
+      "verify": null,
+      "depends_on": [],
+      "acceptance": "North star metric verified on sourcea.app Brain stack."
+    }
+  ]
+}
