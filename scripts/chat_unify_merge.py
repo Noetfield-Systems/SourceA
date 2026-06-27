@@ -46,7 +46,7 @@ def _prompts_dir() -> Path:
 
 
 SOURCE_A = _source_a_root()
-STATE_DIR = Path.home() / ".sina" / "chat-unify"
+STATE_DIR = Path(os.environ.get("CHAT_UNIFY_STATE_DIR", str(Path.home() / ".sina" / "chat-unify")))
 EXTRACTS_DIR = STATE_DIR / "extracts"
 UNIFIED_PATH = STATE_DIR / "last-unified.json"
 PROMPTS_DIR = _prompts_dir()
@@ -1522,6 +1522,108 @@ def handle_action(body: dict) -> dict:
         from chat_ord_loop_v1 import read_ord_progress  # noqa: WPS433
 
         return read_ord_progress()
+    if action in ("proof_pack", "run_proof_pack"):
+        from chat_unify_proof_pack_v1 import run_proof_pack_loop  # noqa: WPS433
+
+        return run_proof_pack_loop(
+            receipt_path=(body.get("receipt_path") or body.get("text") or "").strip(),
+            founder_message=(body.get("founder_message") or body.get("context") or "").strip(),
+            use_ai=body.get("use_ai") is True,
+            write_receipt=True,
+            write_progress=body.get("write_progress") is not False,
+        )
+    if action in ("proof_pack_stage", "run_proof_pack_stage"):
+        stage = (body.get("stage") or "").strip().lower()
+        if not stage:
+            return {"ok": False, "error": "missing_stage", "message": "stage required"}
+        from chat_unify_proof_pack_v1 import run_proof_pack_stage  # noqa: WPS433
+
+        return run_proof_pack_stage(
+            stage=stage,
+            receipt_path=(body.get("receipt_path") or body.get("text") or "").strip(),
+            founder_message=(body.get("founder_message") or body.get("context") or "").strip(),
+            use_ai=body.get("use_ai") is True,
+            kernel=body.get("kernel") if isinstance(body.get("kernel"), dict) else None,
+            run_id=(body.get("run_id") or "").strip() or None,
+            write_receipt=body.get("write_receipt") is not False,
+        )
+    if action in ("proof_pack_progress", "proof_pack_loop_progress"):
+        from chat_unify_proof_pack_v1 import read_proof_pack_progress  # noqa: WPS433
+
+        return read_proof_pack_progress()
+    if action in ("prompt_forge", "run_prompt_forge"):
+        from chat_unify_prompt_forge_v1 import run_prompt_forge_loop  # noqa: WPS433
+
+        return run_prompt_forge_loop(
+            founder_text=(body.get("text") or body.get("draft") or "").strip(),
+            use_ai=body.get("use_ai") is True,
+            write_receipt=body.get("write_receipt") is not False,
+        )
+    if action in ("vocabulary_intelligence", "run_vocabulary_intelligence"):
+        from chat_unify_vocabulary_intelligence_v1 import run_vocabulary_intelligence_loop  # noqa: WPS433
+
+        return run_vocabulary_intelligence_loop(
+            founder_text=(body.get("text") or body.get("draft") or "").strip(),
+            founder_message=(body.get("founder_message") or body.get("context") or "").strip(),
+            url=(body.get("url") or "").strip(),
+            file_path=(body.get("file_path") or body.get("path") or "").strip(),
+            source_type=(body.get("source_type") or body.get("source") or "").strip(),
+            use_ai=body.get("use_ai") is True or body.get("prefer_ai") is True,
+            write_receipt=body.get("write_receipt") is not False,
+            write_progress=body.get("write_progress") is not False,
+        )
+    if action in (
+        "vocabulary_intelligence_ingest",
+        "vocabulary_intelligence_ingest_v1",
+        "vim_ingest",
+    ):
+        from chat_unify_vocabulary_intelligence_v1 import run_vocabulary_intelligence_ingest  # noqa: WPS433
+
+        return run_vocabulary_intelligence_ingest(
+            founder_text=(body.get("text") or body.get("draft") or body.get("paste") or "").strip(),
+            founder_message=(body.get("founder_message") or body.get("context") or "").strip(),
+            url=(body.get("url") or "").strip(),
+            file_path=(body.get("file_path") or body.get("path") or "").strip(),
+            source_type=(body.get("source_type") or body.get("source") or "").strip(),
+            use_ai=body.get("use_ai") is True or body.get("prefer_ai") is True,
+            write_receipt=body.get("write_receipt") is not False,
+        )
+    if action in ("vocabulary_intelligence_stage", "run_vocabulary_intelligence_stage"):
+        stage = (body.get("stage") or "").strip().lower()
+        if not stage:
+            return {"ok": False, "error": "missing_stage", "message": "stage required"}
+        from chat_unify_vocabulary_intelligence_v1 import run_vocabulary_intelligence_stage  # noqa: WPS433
+
+        return run_vocabulary_intelligence_stage(
+            stage=stage,
+            founder_text=(body.get("text") or body.get("draft") or body.get("paste") or "").strip(),
+            founder_message=(body.get("founder_message") or body.get("context") or "").strip(),
+            url=(body.get("url") or "").strip(),
+            file_path=(body.get("file_path") or body.get("path") or "").strip(),
+            source_type=(body.get("source_type") or body.get("source") or "").strip(),
+            use_ai=body.get("use_ai") is True or body.get("prefer_ai") is True,
+            kernel=body.get("kernel") if isinstance(body.get("kernel"), dict) else None,
+            run_id=(body.get("run_id") or "").strip() or None,
+            write_receipt=body.get("write_receipt") is not False,
+        )
+    if action in ("vocabulary_intelligence_progress", "vocabulary_intelligence_loop_progress"):
+        from chat_unify_vocabulary_intelligence_v1 import read_vocabulary_intelligence_progress  # noqa: WPS433
+
+        return read_vocabulary_intelligence_progress()
+    if action in ("prompt_forge_stage", "run_prompt_forge_stage"):
+        stage = (body.get("stage") or "").strip().lower()
+        if not stage:
+            return {"ok": False, "error": "missing_stage", "message": "stage required"}
+        from chat_unify_prompt_forge_v1 import run_prompt_forge_stage  # noqa: WPS433
+
+        return run_prompt_forge_stage(
+            stage=stage,
+            founder_text=(body.get("text") or body.get("draft") or "").strip(),
+            use_ai=body.get("use_ai") is True,
+            kernel=body.get("kernel") if isinstance(body.get("kernel"), dict) else None,
+            run_id=(body.get("run_id") or "").strip() or None,
+            write_receipt=body.get("write_receipt") is not False,
+        )
     if action == "live_http_verify":
         from chat_unify_live_http_verify_v1 import verify_url, verify_atoms_live_http  # noqa: WPS433
 

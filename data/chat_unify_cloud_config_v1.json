@@ -1,0 +1,30 @@
+{
+  "schema": "chat-unify-cloud-config-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-26T08:30:33Z",
+  "worker_url": "https://sourcea-chat-unify-production.up.railway.app",
+  "worker_url_env": "CHAT_UNIFY_UPSTREAM_URL",
+  "health_path": "/health",
+  "pages_project": "sourcea-com",
+  "pages_domains": [
+    "sourcea.app",
+    "www.sourcea.app"
+  ],
+  "railway": {
+    "dockerfile": "cloud/Dockerfile.chat-unify",
+    "railway_toml": "cloud/railway.chat-unify.toml",
+    "project_id": "109939ed-697c-4211-b0b4-a96fbba51db3",
+    "project_name": "mergepack-api",
+    "environment": "production",
+    "service_name": "sourcea-chat-unify",
+    "deploy_script": "scripts/deploy_chat_unify_railway_v1.py",
+    "volume_mount": "/data/chat-unify"
+  },
+  "web": {
+    "full_path": "/unify/",
+    "demo_path": "/unify-demo/",
+    "api_full": "/unify/api",
+    "api_demo": "/unify-demo/api"
+  },
+  "api_upstream_default": "https://sourcea-chat-unify-production.up.railway.app"
+}
