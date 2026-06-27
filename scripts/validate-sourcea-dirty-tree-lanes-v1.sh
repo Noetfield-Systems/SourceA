@@ -59,7 +59,10 @@ checks = {
     "docs/FOUNDER_INTENT_APPROVAL_MACHINE_LOCKED_v1.md": "intent_approval_machine",
     "infra/supabase/portfolio-spine/migrations/004_sourcea_plan_registry_v1.sql": "supabase_db",
     "scripts/sourcea_supabase_plan_registry_import_v1.py": "supabase_db",
+    "scripts/sourcea_plan_registry_client_v1.py": "supabase_db",
+    "scripts/validate-sourcea-plan-registry-read-v1.sh": "supabase_db",
     "docs/SOURCEA_SUPABASE_CONNECTION_BLOCKER_LOCKED_v1.md": "supabase_db",
+    "docs/SOURCEA_PLAN_REGISTRY_READ_CONTRACT_LOCKED_v1.md": "supabase_db",
     "data/sourcea-generated-artifact-review-policy-v1.json": "other_control",
     ".cursor/rules/048-dirty-tree-lane-ownership-v1.mdc": "incidents_rules",
 }
