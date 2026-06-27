@@ -13,7 +13,7 @@
   "pick_script": "scripts/plan-broker-pack-run.sh",
   "program_doc": "brain-os/plan-registry/BROKER-PACK-1000-LOCK.md",
   "distinct_from": [
-    "sourcea-1000 (sa-* factory drain)",
+    "sourcea-1000 (sa-* Cloud Forge Run)",
     "automation-fast-track-100 (ft-* Musk curriculum)",
     "automation-converge-1000 (retired ac-* tier mirrors)"
   ],
@@ -13508,12 +13508,12 @@
       "priority": "P0",
       "lane": "sourcea_worker",
       "slot": 64,
-      "title": "cross-pack: sourcea-1000 factory drain",
+      "title": "cross-pack: sourcea-1000 Cloud Forge Run",
       "path": "prompts/phase-br10-broker-e2e/br-0964.md",
       "status": "backlog",
       "verify": "cd scripts && bash validate-goal1-lane-broker-v1.sh && python3 goal1_lane_broker.py brain-poll --json && python3 brain_validate_goal1_v1.py --json",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 BROKER \u2014 br-0964: cross-pack: sourcea-1000 factory drain"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 BROKER \u2014 br-0964: cross-pack: sourcea-1000 Cloud Forge Run"
     },
     {
       "id": "br-0965",

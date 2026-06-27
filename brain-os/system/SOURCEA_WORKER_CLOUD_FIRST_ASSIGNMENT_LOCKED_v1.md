@@ -12,7 +12,7 @@
 
 > **Mac = control panel only. Cloud/API/FORGE runs ALL factory work. Secondary -5000 = cloud batch drain only — Mac NEVER executes sa-mkt. Worker does NOT run every plan.**
 
-**Next 100 SSOT:** `data/secondary-cloud-drain-next-100-v1.json` (10 Mac control · 90 cloud secondary)
+**Next 100 SSOT:** `data/secondary-cloud-forge-run-next-100-v1.json` (10 Mac control · 90 cloud secondary)
 
 ---
 
@@ -67,9 +67,9 @@
 |----|------|------------------|-------------------|------------|
 | **W-CLOUD-001** | CHECK | `~/.sina/mac-law-*-receipt-v1.json` · `receipts/federated-run-v1.json` | `POST /api/fbe/forge--run/v1` dry-run | Railway FORGE |
 | **W-CLOUD-002** | ACT | `receipts/cloud-dispatch/` | `POST /api/cloud-worker/dispatch/v1` `plan_id: MAC-CTL-002` | Railway dispatch |
-| **W-CLOUD-003** | VERIFY | `~/.sina/brain-cloud-*` pulse receipt | `POST /api/loop-specialist/tick/v1` | Cloud loop specialist |
+| **W-CLOUD-003** | VERIFY | `~/.sina/brain-cloud-*` pulse receipt | `POST /api/loop-specialist/tick/v1` | Cloud Auto Runtime specialist |
 
-**No `validate-*` on Mac.** MAC-CTL bind: `MAC-CTL-001..003` in `data/secondary-cloud-drain-next-100-v1.json`.
+**No `validate-*` on Mac.** MAC-CTL bind: `MAC-CTL-001..003` in `data/secondary-cloud-forge-run-next-100-v1.json`.
 
 **Inbox rule header:** `.cursor/rules/099-worker-inbox-active.mdc` is written by `scripts/worker_inject_lib.py` → `write_active_inbox_rule()` — Mac proof only (Read receipts · optional one Hub POST · no validator chains).
 

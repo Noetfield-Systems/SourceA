@@ -1,0 +1,49 @@
+{
+  "schema": "forge-mission-6000-master-v1",
+  "version": "1.0.0",
+  "generated_at": "2026-06-25T09:38:58Z",
+  "law_doc": "docs/FORGE_MISSION_6000_PLANS_LOCKED_v1.md",
+  "observer_law": "brain-os/law/enforcement/SOURCEA_CURSOR_OBSERVER_FORGE_MISSION_LOCKED_v1.md",
+  "visual_contract": "data/forge-visual-parity-contract-v1.json",
+  "plan_count": 6000,
+  "cursor_role": "observer_facilitator",
+  "worker": "pre-llm-mac-raw-ai",
+  "surfaces": {
+    "online_forge": "https://sourcea.app/sourcea/forge/terminal",
+    "local_forge": "http://127.0.0.1:13029/",
+    "chat_unify": "http://127.0.0.1:13023/",
+    "site": "https://sourcea.app/"
+  },
+  "packs": [
+    {
+      "key": "spine-batch1",
+      "label": "Shared spine batch 1",
+      "prefix": "sa-score",
+      "path": "brain-os/plan-registry/sourcea-site-score-up-1000",
+      "count": 1000
+    },
+    {
+      "key": "spine-batch2",
+      "label": "Shared spine batch 2",
+      "prefix": "sa-score2",
+      "path": "brain-os/plan-registry/sourcea-site-score-up-1000-batch2",
+      "count": 1000
+    },
+    {
+      "key": "forge-terminal",
+      "label": "Forge Terminal local+online",
+      "prefix": "ft-score",
+      "path": "brain-os/plan-registry/forge-terminal-score-up-1000",
+      "count": 1000
+    },
+    {
+      "key": "chat-unify",
+      "label": "Chat Unify platform",
+      "prefix": "cu-score",
+      "path": "brain-os/plan-registry/chat-unify-score-up-1000",
+      "count": 1000
+    }
+  ],
+  "pick_script": "scripts/pick_forge_mission_plan_v1.py",
+  "validate_script": "scripts/validate-forge-mission-6000-v1.sh"
+}

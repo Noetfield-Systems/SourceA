@@ -80,7 +80,7 @@ Reply with: `ASF: FIVE-STEP — PICK: [id]=KEY` + Effect line (see Batch 2 §10)
 | **1.08** | Conduct priority | INCIDENT-022 AUTO-RUN advice first | INCIDENT-023 STOP ignored first | Factory evidence (007) first | **A** — AS-01 latch gap |
 | **2.02** | Quarantine public site | **Promote** to SourceA spine after Stripe fidelity check | Keep quarantine until P1 site law | Delete / archive only | **B** — site exists at `_quarantine/sourcea-site-v1` · promote after §95 fidelity |
 | **2.03** | Cursor AUTO-RUN forever | **Reject as P0 permanently** | Revisit at Valid YES 800 | Hub hero only (no north star) | **A** — `FOUNDER_AGENTIC` LOCKED |
-| **2.04** | Factory drain pace | Stay FREEZE (no spawn) | **SINGLE_SA** one turn when Brain routes | Maintainer SHIP_MAINTAINER batch | **B** — current factory-now mode |
+| **2.04** | Cloud Forge Run pace | Stay FREEZE (no spawn) | **SINGLE_SA** one turn when Brain routes | Maintainer SHIP_MAINTAINER batch | **B** — current factory-now mode |
 | **2.05** | TrustField MSB P10 | Activate outreach agent now | **Defer** until TF-001 deposit path | Pilot one vertical only | **B** — commercial after disk proof |
 | **2.06** | MergePack | **Active parallel** (current) | Park until STRATEGIC-SLICE T4 | Rescore factory only | **A** — PROGRAM_PROGRESS active_parallel |
 | **2.07** | Noetfield cloud | Deploy when NF-001 invoice | **Local-only** until Layer A SSOT stable | Fly.io sandbox only | **B** — SUPERBRAIN-P0 background |

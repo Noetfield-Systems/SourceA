@@ -17,7 +17,7 @@ disable-model-invocation: true
 
 | Tier | Source | Examples |
 |------|--------|----------|
-| **T0** | Founder **current message** explicit order | `SAVE TO:`, `EDIT ALLOWED:` + `ACTION:`, `ASF:`, `WORK: sa-0010`, bounded implement |
+| **T0** | Founder **current message** explicit order | `SAVE TO:`, registry-resolvable `SAVE/LOCK/FILE`, `EDIT ALLOWED:` + `ACTION:`, `ASF:`, `WORK: sa-0010`, bounded implement |
 | **T1** | Hard permission / ask-first | `001-founder-verbs` · SAVE/WORK/EDIT ALLOWED · cross-lane guard |
 | **T2** | Open **P0/P1 incidents** | INCIDENT-010/011 · CIR-COSPRO · compendium Part A |
 | **T3** | `execution_authority: false` | Research · advise · Brain read-only chats |
@@ -36,9 +36,13 @@ ON session start OR before first disk mutation:
   2. PARSE founder message for T0 (intent + evidence in same message)
   3. IF workflow/mandatory paste says implement AND T0 missing:
        CONFLICT → step 5
-  4. IF T0 present AND bounded:
+  4. IF T0 is pathless SAVE/LOCK/FILE:
+       RUN scripts/agent_filing_registry_gate_v1.py resolve --json
+       IF ok:true → use route_id/path/next_steps; never ask exact path
+       IF REGISTRY_NO_MATCH/AMBIGUOUS → ask category/scope, not exact path
+  5. IF T0 present AND bounded:
        PROCEED inside bundle only (SKILL-006 already satisfied)
-  5. CONFLICT HANDLER:
+  6. CONFLICT HANDLER:
        a. Name Rule A vs Rule B (one line each)
        b. State winner (T0–T5)
        c. Propose A/B/C
@@ -52,8 +56,8 @@ ON session start OR before first disk mutation:
 
 | Rule A | Rule B | Winner | Allowed path |
 |--------|--------|--------|--------------|
-| RESEARCH SAVE LOCK 4-step paste | SAVE = one file (INCIDENT-010) | **INCIDENT-010** | Full 4-step **only** when founder orders with `ASF:` or explicit save bundle |
-| Bare **save** / save report | `001-founder-verbs` intent+evidence | **001-founder-verbs** | Ask `SAVE TO:` path; one file → STOP |
+| RESEARCH SAVE LOCK 4-step paste | SAVE guard (INCIDENT-010) | **INCIDENT-010** | Full 4-step **only** when founder orders with `ASF:` or explicit save bundle |
+| Bare **save** / save report | `001-founder-verbs` intent+evidence | **001-founder-verbs + filing registry** | Run filing registry; ask category only on `REGISTRY_NO_MATCH` / `REGISTRY_AMBIGUOUS`; never ask exact path when resolved |
 | **REWRITE** / report / golden suggestion | Any disk write | **REWRITE = chat** (INCIDENT-011) | Chat only until `SAVE TO:` |
 | Research lane B scope | Product SSOT (`AGENTS`, SSOT, roadmap) | **Lane ownership** | Refuse unless `EDIT ALLOWED` |
 | `research_root_sync` register/sync | Explicit founder order | **T0 required** | No auto-register from refresh scripts alone |
@@ -72,6 +76,7 @@ ON session start OR before first disk mutation:
 | Founder says | Bounded bundle |
 |--------------|----------------|
 | `SAVE TO: <path>` | One new file at path → STOP |
+| `SAVE` / `SAVE AND LOCK` / `LOCK` / `FILE` with no path | Run filing registry → use `route_id` + `path` + `next_steps[]` if resolved |
 | `EDIT ALLOWED: <path>` + `ACTION:` | That path/action only |
 | `ASF: <phrase>` | Only what phrase authorizes |
 | `WORK: sa-XXXX` / bound INBOX | Worker scope only |

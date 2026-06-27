@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <title>Source-A SSOT FA v1.0</title>
+  <style>
+@page { size: A4; margin: 18mm 16mm 22mm 16mm; }
+* { box-sizing: border-box; }
+body {
+  font-family: Tahoma, "Arial Unicode MS", "Geeza Pro", "Noto Sans Arabic", sans-serif;
+  direction: rtl;
+  text-align: right;
+  color: #1a2332;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  margin: 0;
+  background: #fff;
+}
+.cover {
+  page-break-after: always;
+  min-height: 250mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(145deg, #0f172a 0%, #1e3a5f 45%, #0c4a6e 100%);
+  color: #f8fafc;
+  padding: 24mm 18mm;
+  margin: -18mm -16mm 0;
+}
+.cover .eyebrow {
+  letter-spacing: 0.35em;
+  font-size: 9pt;
+  opacity: 0.85;
+  margin-bottom: 12mm;
+}
+.cover h1 {
+  font-size: 26pt;
+  font-weight: 700;
+  margin: 0 0 6mm;
+  line-height: 1.25;
+  color: #fff;
+}
+.cover h2 {
+  font-size: 14pt;
+  font-weight: 400;
+  margin: 0 0 14mm;
+  color: #bae6fd;
+}
+.cover .meta { font-size: 10pt; opacity: 0.9; margin: 2mm 0; }
+.cover .badges {
+  display: flex;
+  gap: 10mm;
+  margin-top: 16mm;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.badge {
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 8px;
+  padding: 4mm 8mm;
+  min-width: 36mm;
+}
+.badge .val { font-size: 16pt; font-weight: 700; display: block; }
+.badge .lbl { font-size: 8pt; opacity: 0.85; }
+.cover .locked {
+  margin-top: 14mm;
+  padding: 3mm 10mm;
+  border: 2px solid #38bdf8;
+  border-radius: 999px;
+  font-size: 9pt;
+  letter-spacing: 0.2em;
+}
+.content { padding-top: 4mm; }
+h2 {
+  font-size: 14pt;
+  color: #0f4c81;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 2mm;
+  margin-top: 10mm;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 11.5pt;
+  color: #334155;
+  margin-top: 6mm;
+  page-break-after: avoid;
+}
+p { margin: 3mm 0; }
+blockquote {
+  border-right: 4px solid #0ea5e9;
+  margin: 4mm 0;
+  padding: 3mm 5mm;
+  background: #f0f9ff;
+  color: #0c4a6e;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 4mm 0 6mm;
+  font-size: 9pt;
+  page-break-inside: avoid;
+}
+th {
+  background: #0f4c81;
+  color: #fff;
+  padding: 2.5mm 3mm;
+  text-align: right;
+  font-weight: 600;
+}
+td {
+  border: 1px solid #cbd5e1;
+  padding: 2.5mm 3mm;
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #f8fafc; }
+code, pre {
+  font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+  direction: ltr;
+  text-align: left;
+}
+code {
+  background: #f1f5f9;
+  padding: 0.5px 4px;
+  border-radius: 3px;
+  font-size: 8.5pt;
+  unicode-bidi: embed;
+}
+pre {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 4mm;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 8pt;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+hr {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 8mm 0;
+}
+ul { margin: 2mm 0; padding-right: 6mm; }
+li { margin: 1.5mm 0; }
+.footer-note {
+  margin-top: 12mm;
+  padding-top: 4mm;
+  border-top: 1px solid #cbd5e1;
+  font-size: 8.5pt;
+  color: #64748b;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <div class="eyebrow">SINGLE SOURCE OF TRUTH</div>
+  <h1>سیستم‌عامل عامل هوشمند Source-A</h1>
+  <h2>سند معماری اصلی — نسخه هم‌راستا با دیسک</h2>
+  <p class="meta">نسخه ۱.۰ (FA) · Consolidated Edition · Disk + ROI</p>
+  <p class="meta">Noetfield Systems Inc. · TrustField Technologies Inc.</p>
+  <p class="meta">Vancouver, BC — ۲۰۲۶</p>
+  <div class="badges">
+    <div class="badge"><span class="val">۸۵٪</span><span class="lbl">هم‌راستایی روح معماری</span></div>
+    <div class="badge"><span class="val">۱۰۰٪</span><span class="lbl">قانون عامل SSOT v3</span></div>
+    <div class="badge"><span class="val">۱۰۰</span><span class="lbl">Blueprint JSON</span></div>
+  </div>
+  <div class="locked">LOCKED · RECEIPT-NATIVE · FOUNDER READABLE</div>
+</section>
+
+<main class="content">
+<p><strong>نسخه:</strong> ۱.۰ (FA) · <strong>وضعیت:</strong> فعال — مرجع بنیان‌گذار و مشاور<br />
+<strong>تاریخ:</strong> ۲۰۲۶-۰۶-۲۴T04:30:00Z<br />
+<strong>شرکت‌ها:</strong> Noetfield Systems Inc. · TrustField Technologies Inc.<br />
+<strong>مکان:</strong> ونکوور، بریتیش کلمبیا<br />
+<strong>جایگزین نمی‌کند:</strong> <code>brain-os/ssot/SOURCEA_LLM_AGENT_OPERATING_LAW_SSOT_v3.md</code> (قانون dispatch)<br />
+<strong>مکمل می‌کند:</strong> Master Blueprint v1 · Cloud Kernel v1.3 · reconciliation map</p>
+<blockquote>
+<p><strong>هیچ تصمیم معماری یا dispatch بدون ارجاع به اسناد فعال روی دیسک گرفته نمی‌شود.</strong><br />
+این سند نسخهٔ فارسیِ <strong>واقعیت دیسک + برنامه ROI</strong> است — نه بازنویسی v1.1 قدیمی.</p>
+</blockquote>
+<p><strong>امتیاز هم‌راستایی با دیسک:</strong> ۸۵٪ روح معماری · ۴۵٪ هسته ابری به‌شکل PDF · ۱۰۰٪ قانون عامل (SSOT v3)</p>
+<p><strong>وضعیت:</strong> LOCKED برای برنامه‌ریزی · Production-Ready Thinking · Receipt-Native</p>
+<hr />
+<h2>فهرست (۲۰ بخش — الگوی v1.1)</h2>
+<table>
+<thead>
+<tr>
+<th>§</th>
+<th>عنوان</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>۱</td>
+<td>چهار ستون</td>
+</tr>
+<tr>
+<td>۲</td>
+<td>هسته L0 + L1–L8</td>
+</tr>
+<tr>
+<td>۳</td>
+<td>سلسله‌مراتب داده</td>
+</tr>
+<tr>
+<td>۴</td>
+<td>طرح Blueprint (JSON — نه SQL هنوز)</td>
+</tr>
+<tr>
+<td>۵</td>
+<td>لایهٔ قرارداد اجرا (Execution Contract)</td>
+</tr>
+<tr>
+<td>۶</td>
+<td>چهار Worker منطقی (W1–W4)</td>
+</tr>
+<tr>
+<td>۷</td>
+<td>چرخه Chat Unify + قانون عامل v3</td>
+</tr>
+<tr>
+<td>۸</td>
+<td>رسید سه‌تایی: Artifact · Evidence · Decision</td>
+</tr>
+<tr>
+<td>۹</td>
+<td>مسیریابی قابلیت و هزینه</td>
+</tr>
+<tr>
+<td>۱۰</td>
+<td>Mac L0 — میز کار (فراتر از PDF قدیمی)</td>
+</tr>
+<tr>
+<td>۱۱</td>
+<td>نقشهٔ فازها — واقعیت دیسک</td>
+</tr>
+<tr>
+<td>۱۲</td>
+<td>Master Blueprint — مسیر درآمد</td>
+</tr>
+<tr>
+<td>۱۳</td>
+<td>مقایسه: v1.1 قدیمی در برابر دیسک امروز</td>
+</tr>
+<tr>
+<td>۱۴</td>
+<td>آنچه نگه داشتیم / آنچه رد کردیم</td>
+</tr>
+<tr>
+<td>۱۵</td>
+<td>اولویت ارتقا (ROI)</td>
+</tr>
+<tr>
+<td>۱۶</td>
+<td>مشخصات سخت‌سازی Executor</td>
+</tr>
+<tr>
+<td>۱۷</td>
+<td>Supabase + مسیر آینده (بدون Neon زودهنگام)</td>
+</tr>
+<tr>
+<td>۱۸</td>
+<td>KPI و رسید اثبات</td>
+</tr>
+<tr>
+<td>۱۹</td>
+<td>غیراهداف صریح (LOCKED)</td>
+</tr>
+<tr>
+<td>۲۰</td>
+<td>قفل نهایی هسته</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>§۱ — چهار ستون (The 4 Pillars)</h2>
+<p>معماری Source-A روی <strong>چهار ستون</strong> استوار است. تفاوت با v1.1: ستون <strong>Governance</strong> امروز قوی‌تر از PDF قدیمی است (SSOT v3 + Mac Law).</p>
+<table>
+<thead>
+<tr>
+<th>ستون</th>
+<th>نام</th>
+<th>مسئولیت</th>
+<th>اثبات روی دیسک</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Product</strong></td>
+<td>محصول</td>
+<td>Forge، Noetfield، TrustField، WitnessBC، ویدیو تبلیغاتی</td>
+<td><code>apps/video-ad-factory/</code> · <code>sourcea.app</code></td>
+</tr>
+<tr>
+<td><strong>Governance</strong></td>
+<td>حاکمیت</td>
+<td>قانون عامل، dispatch gate، رسید، قفل Mac</td>
+<td><code>brain-os/ssot/SOURCEA_LLM_AGENT_OPERATING_LAW_SSOT_v3.md</code> · <code>brain-os/law/</code></td>
+</tr>
+<tr>
+<td><strong>Runtime</strong></td>
+<td>زمان اجرا</td>
+<td>موتور ابری قرارداد-محور؛ Mac فقط کنترل</td>
+<td><code>data/fbe_execution_contract_v1.json</code> · Railway FBE</td>
+</tr>
+<tr>
+<td><strong>Factory</strong></td>
+<td>کارخانه</td>
+<td>Blueprint = کارخانه؛ یک Executor، N طرح JSON</td>
+<td><code>data/forge-real-blueprints-v01.json</code> (۱۰۰ ردیف)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>قانون طلایی:</strong>  </p>
+<blockquote>
+<p>Workers = عضله · Graph/Blueprint = مغز · Contract = دروازه · Receipt = حقیقت</p>
+</blockquote>
+<hr />
+<h2>§۲ — هسته L0 + L1–L8 (Kernel Layers)</h2>
+<h3>L0 — میز کار Mac (روی دیسک — GREEN)</h3>
+<p><strong>در v1.1 نبود؛ شما جلوتر ساختید.</strong></p>
+<table>
+<thead>
+<tr>
+<th>جزء</th>
+<th>پورت / مسیر</th>
+<th>وضعیت</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Worker Hub</td>
+<td><code>:13020</code> · <code>scripts/worker_hub_v1.py</code></td>
+<td><span style="color:#059669">✓</span> GREEN</td>
+</tr>
+<tr>
+<td>AG Routing Panel</td>
+<td><code>:8782</code></td>
+<td><span style="color:#059669">✓</span> GREEN</td>
+</tr>
+<tr>
+<td>Mac Law</td>
+<td><code>:8781</code></td>
+<td><span style="color:#059669">✓</span> GREEN</td>
+</tr>
+<tr>
+<td>کمربند SCAN→SHIP</td>
+<td>session gate · next-task trigger</td>
+<td><span style="color:#059669">✓</span> GREEN</td>
+</tr>
+<tr>
+<td>رسیدها</td>
+<td><code>~/.sina/*-receipt*.json</code> (۸۰۰۰+)</td>
+<td><span style="color:#059669">✓</span> GREEN</td>
+</tr>
+</tbody>
+</table>
+<p><strong>قانون:</strong> Mac = control plane only · هیچ factory سنگین روی بدنه Mac.</p>
+<hr />
+<h3>L1–L8 — موتور ابری (Hybrid — نه PDF خام)</h3>
+<table>
+<thead>
+<tr>
+<th>لایه</th>
+<th>نام هدف (v1.3)</th>
+<th>پیاده‌سازی امروز روی دیسک</th>
+<th>وضعیت</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>L1</strong></td>
+<td>UI / Interface</td>
+<td>Hub HTML + اپ‌های macOS (Chat Unify، Cloud Workers)</td>
+<td><span style="color:#d97706">◐</span> AMBER</td>
+</tr>
+<tr>
+<td><strong>L2</strong></td>
+<td>Auth &amp; RLS</td>
+<td>Supabase · <code>data/supabase-portfolio-tiers-v1.json</code></td>
+<td><span style="color:#059669">✓</span> GREEN</td>
+</tr>
+<tr>
+<td><strong>L3</strong></td>
+<td>State Engine</td>
+<td>Supabase (portfolio-spine، noetfield، labs-sandbox)</td>
+<td><span style="color:#d97706">◐</span> AMBER</td>
+</tr>
+<tr>
+<td><strong>L4</strong></td>
+<td>Queue</td>
+<td>Hub Cloud Forge Run · <code>hub_cloud_forge_run_proceed_v1.py</code></td>
+<td><span style="color:#d97706">◐</span> AMBER</td>
+</tr>
+<tr>
+<td><strong>L5</strong></td>
+<td>Runtime</td>
+<td>Railway FBE · <code>fbe_run_job_v1.py</code></td>
+<td><span style="color:#d97706">◐</span> AMBER (W3 قوی)</td>
+</tr>
+<tr>
+<td><strong>L6</strong></td>
+<td>Capability Router</td>
+<td><code>forge-scoring-ssot-v01.json</code> · OpenRouter ابری</td>
+<td><span style="color:#d97706">◐</span> AMBER</td>
+</tr>
+<tr>
+<td><strong>L7</strong></td>
+<td>Heavy Compute</td>
+<td>Fal · ElevenLabs · video-ad-factory</td>
+<td><span style="color:#059669">✓</span> GREEN</td>
+</tr>
+<tr>
+<td><strong>L8</strong></td>
+<td>Observability</td>
+<td>JSON receipts + Hub terminal</td>
+<td><span style="color:#d97706">◐</span> AMBER</td>
+</tr>
+</tbody>
+</table>
+<p><strong>قانون LOCKED:</strong> موتور را به Cloudflare Workers بازنویسی نکنید بدون پنجره ship ASF.</p>
+<hr />
+<h2>§۳ — سلسله‌مراتب داده (Data Hierarchy)</h2>
+<pre><code>بنیان‌گذار (ناظر / دروازه)
+└── L0 Mac Workbench (کنترل · SCAN→SHIP)
+    └── Tenant / Project (سطوح Supabase · ماژول‌های برند)
+        └── Factory (قالب FBE: forge-app-factory-v1، web-product-factory-v1، …)
+            └── Blueprint (۱۰۰ ردیف JSON — forge-real-blueprints-v01)
+                └── Run (رسید job FBE · forge drain)
+                    └── Task (صف CLOUD-SEC-* · sa-mkt-*)
+                        ├── Artifact (خروجی: ویدیو · متن · فایل)
+                        ├── Evidence (ردیابی · curl · زنجیره PROVE)
+                        └── Decision (approved | rejected | escalated)
+</code></pre>
+<p><strong>وضعیت:</strong> شکل JSON <strong>ثابت و GREEN</strong> (بلیت Phase-1). جدول SQL یکپارچه هنوز <strong>TARGET</strong>.</p>
+<p><strong>اثبات:</strong> <code>~/.sina/phase1-pevc-truth-ticket-v1.json</code> → <code>decision.verdict: "approved"</code> · blueprint <code>MAC-CTL-002</code> · صف <code>CLOUD-SEC-052</code> · سطح GOLD.</p>
+<hr />
+<h2>§۴ — طرح Blueprint (JSON — الگوی v1.1 §3.1)</h2>
+<p>امروز Blueprint روی دیسک <strong>JSON</strong> است، نه جدول SQL.</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;MAC-CTL-002&quot;,
+  &quot;inputs&quot;: { &quot;plane&quot;: &quot;mac_control&quot;, &quot;action&quot;: &quot;...&quot; },
+  &quot;outputs&quot;: { &quot;artifact&quot;: &quot;forge_drain_run_receipt&quot;, &quot;receipt_url&quot;: null },
+  &quot;core_capability&quot;: &quot;...&quot;,
+  &quot;validation_rule&quot;: &quot;cloud_forge_incident_038&quot;,
+  &quot;dependencies&quot;: []
+}
+</code></pre>
+<p><strong>منبع:</strong> <code>data/forge-real-blueprints-v01.json</code> — <strong>count: 100</strong></p>
+<p><strong>قانون ROI:</strong>  </p>
+<blockquote>
+<p>Blueprint جدید = کارخانه جدید · Worker جدید نه · کد جدید نه</p>
+</blockquote>
+<p><strong>TARGET بعدی:</strong> dual-write به Supabase پس از ۵ Proof Pack سبز متوالی.</p>
+<hr />
+<h2>§۵ — لایه قرارداد اجرا (Execution Contract)</h2>
+<p>مغز سیستم — LLM فقط <strong>پیشنهاد</strong> می‌دهد؛ قرارداد <strong>اجازه</strong> می‌دهد.</p>
+<table>
+<thead>
+<tr>
+<th>فیلد</th>
+<th>نقش</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>job_id</code> · <code>factory_id</code> · <code>kernel_version</code></td>
+<td>هویت اجرا</td>
+</tr>
+<tr>
+<td><code>execution_mode</code></td>
+<td><code>CLOUD_ONLY</code> (پیش‌فرض)</td>
+</tr>
+<tr>
+<td><code>policy_gate</code></td>
+<td>deny local وقتی FREEZE · تطابق kernel</td>
+</tr>
+<tr>
+<td><code>route_map</code></td>
+<td><code>/api/fbe/run-forge/v1</code> و مسیرهای FBE</td>
+</tr>
+</tbody>
+</table>
+<p><strong>مسیرها:</strong> <code>data/fbe_execution_contract_v1.json</code> · <code>scripts/fbe/lib/execution_contract_v1.py</code></p>
+<p><strong>فلسفه v1.1 حفظ شده:</strong> deterministic kernel؛ LLM فقط planner.</p>
+<hr />
+<h2>§۶ — چهار Worker منطقی W1–W4</h2>
+<table>
+<thead>
+<tr>
+<th>Worker</th>
+<th>نقش PDF</th>
+<th>پیاده‌سازی دیسک</th>
+<th>وضعیت</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>W1 Intake</strong></td>
+<td>ورودی · ایجاد run</td>
+<td>Hub dispatch · gate قرارداد</td>
+<td><span style="color:#d97706">◐</span></td>
+</tr>
+<tr>
+<td><strong>W2 Planner</strong></td>
+<td>DAG از blueprint</td>
+<td><code>fbe_node_graph_v1.json</code> · comprehension loop</td>
+<td><span style="color:#d97706">◐</span></td>
+</tr>
+<tr>
+<td><strong>W3 Executor</strong></td>
+<td>فراخوانی ابزار</td>
+<td><code>fbe_run_job_v1.py</code> · forge runner · Railway</td>
+<td><span style="color:#059669">✓</span></td>
+</tr>
+<tr>
+<td><strong>W4 Memory</strong></td>
+<td>تکمیل · projection</td>
+<td>رسید · <code>fbe_hub_projection_v1.py</code></td>
+<td><span style="color:#d97706">◐</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>تفاوت فنی با v1.1:</strong> نقش‌ها <strong>منطقی</strong> روی Railway Python — نه ۴ Cloudflare Worker جدا.</p>
+<hr />
+<h2>§۷ — چرخه Chat Unify + قانون عامل SSOT v3</h2>
+<p><strong>این بخش در v1.1 نبود — مزیت رقابتی شماست.</strong></p>
+<pre><code>زبان بنیان‌گذار
+      │
+      ▼
+[Prompt Forge] ── مأموریت Cursor
+      │
+      ▼
+   Cursor (عامل کار می‌کند)
+      │
+      ▼
+[ORD + Truth Gate] ── PASS / BLOCK
+      │ PASS
+      ▼
+[Founder Loop] ── یک اقدام محدود
+      │
+      ▼
+دستور محدود به Cursor
+</code></pre>
+<h3>قوانین بالادست (خلاصه v3)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>قانون</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>۰</td>
+<td>جهت، نه زور — بنیان‌گذار هدف می‌دهد؛ عامل مسیر را پیدا می‌کند</td>
+</tr>
+<tr>
+<td>A</td>
+<td>یک مأموریت · یک کار · ALREADY DONE را سنجاق کن</td>
+</tr>
+<tr>
+<td>B</td>
+<td><strong>Disk-bound یا پیش‌نویس</strong> · حقیقت فقط از رسید</td>
+</tr>
+<tr>
+<td>C</td>
+<td>سبز کافی است اگر نیاز را برطرف کند — بدهی را لاگ کن</td>
+</tr>
+<tr>
+<td>E</td>
+<td>هیچ dispatch بدون عبور از gate</td>
+</tr>
+</tbody>
+</table>
+<p><strong>مرجع کامل:</strong> <code>brain-os/ssot/SOURCEA_LLM_AGENT_OPERATING_LAW_SSOT_v3.md</code><br />
+<strong>Registry:</strong> <code>data/sourcea-governance-ssot-registry-v1.json</code> → <code>llm_agent_operating_law_v3</code> <strong>ACTIVE</strong></p>
+<hr />
+<h2>§۸ — رسید سه‌تایی (Artifact · Evidence · Decision)</h2>
+<p>واحد محصول Source-A — یک شیء، چهار خریدار (مشتری · سرمایه‌گذار · ممیزی · خودتان).</p>
+<table>
+<thead>
+<tr>
+<th>بخش</th>
+<th>معنی</th>
+<th>مثال دیسک</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>artifact</strong></td>
+<td>خروجی قابل تحویل</td>
+<td><code>forge_drain_run_receipt</code> · ویدیو · ZIP</td>
+</tr>
+<tr>
+<td><strong>evidence</strong></td>
+<td>رد پای اثبات</td>
+<td>curl 200 · 7/7 chains · hub receipt</td>
+</tr>
+<tr>
+<td><strong>decision</strong></td>
+<td>حکم gate</td>
+<td><code>approved</code> · <code>rejected</code> + rationale</td>
+</tr>
+</tbody>
+</table>
+<p><strong>قانون فروش (Master Blueprint):</strong>  </p>
+<blockquote>
+<p>سیستم‌های قابل سرمایه‌گذاری با <strong>رسید</strong> اثبات می‌شوند، نه با دیاگرام.</p>
+</blockquote>
+<p><strong>ماشین بعدی:</strong> Proof Pack — تبدیل run سبز به بسته قابل فروش.</p>
+<hr />
+<h2>§۹ — مسیریابی قابلیت و هزینه</h2>
+<h3>Mac (Cursor)</h3>
+<p><strong>SSOT زنده:</strong> <code>data/cursor-cost-intelligence-routing-v1.json</code></p>
+<table>
+<thead>
+<tr>
+<th>نقش</th>
+<th>مدل پیش‌فرض</th>
+<th>هرگز</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brain</td>
+<td>Auto</td>
+<td>implement sa</td>
+</tr>
+<tr>
+<td>Worker</td>
+<td>Auto → Composer</td>
+<td>کل repo</td>
+</tr>
+<tr>
+<td>Ship proof</td>
+<td>API pool</td>
+<td>روزمره</td>
+</tr>
+</tbody>
+</table>
+<h3>Cloud (FBE / Forge)</h3>
+<p><strong>SSOT:</strong> <code>data/forge-scoring-ssot-v01.json</code> · OpenRouter روی Railway</p>
+<table>
+<thead>
+<tr>
+<th>سطح SLA</th>
+<th>کاربرد</th>
+<th>وضعیت</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>draft</td>
+<td>intake · research</td>
+<td><span style="color:#d97706">◐</span> جزئی</td>
+</tr>
+<tr>
+<td>normal</td>
+<td>reasoning</td>
+<td><span style="color:#d97706">◐</span></td>
+</tr>
+<tr>
+<td>premium</td>
+<td>writing</td>
+<td><span style="color:#d97706">◐</span></td>
+</tr>
+<tr>
+<td>critical</td>
+<td>governance / audit</td>
+<td><span style="color:#d97706">◐</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>توجه:</strong> نام مدل‌های PDF v1.1 (Gemini 3.1 Flash-Lite و …) <strong>TARGET</strong> هستند — endpoint زنده از env ابری می‌آید.</p>
+<hr />
+<h2>§۱۰ — Mac L0 میز کار (جزئیات)</h2>
+<table>
+<thead>
+<tr>
+<th>قانون</th>
+<th>مسیر</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mac control plane flag</td>
+<td><code>~/.sina/mac-control-plane-v1.flag</code></td>
+</tr>
+<tr>
+<td>CLI drain غیرفعال</td>
+<td><code>~/.sina/cli-disabled-v1.flag</code></td>
+</tr>
+<tr>
+<td>Factory mode FREEZE</td>
+<td><code>SOURCEA-PRIORITY.md</code></td>
+</tr>
+<tr>
+<td>مدل بنیان‌گذار</td>
+<td><code>data/founder-execution-model-v1.json</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>کارخانه‌های ابری اصلی (هدف آنلاین):</strong> fbe_railway · video_ad_factory · supabase_edge · openrouter_cloud · …</p>
+<p><strong>وضعیت فعلی:</strong> cloud factories <strong>۸/۹ RED</strong> — ارتقای عملیاتی U4 در اولویت، نه بازنویسی معماری.</p>
+<hr />
+<h2>§۱۱ — نقشه فازها — واقعیت دیسک (صادقانه)</h2>
+<table>
+<thead>
+<tr>
+<th>فاز PDF</th>
+<th>ادعای قدیمی</th>
+<th>حقیقت دیسک ۲۰۲۶-۰۶</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phase 1 Core</td>
+<td>✓</td>
+<td><strong>جزئی</strong> — قرارداد + blueprint + Supabase؛ SQL graph نه</td>
+</tr>
+<tr>
+<td>Phase 2 Execution</td>
+<td>✓</td>
+<td><strong>جزئی</strong> — FBE + Cloud Forge Run؛ forge drain <strong>GREEN</strong></td>
+</tr>
+<tr>
+<td>Phase 3 Router</td>
+<td>✓</td>
+<td><strong>TARGET</strong></td>
+</tr>
+<tr>
+<td>Phase 4 Observability</td>
+<td>✓</td>
+<td><strong>TARGET</strong> — JSON receipts کافی برای T1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>بلیت Phase-1 PEVC:</strong> <span style="color:#059669">✓</span> <strong>approved</strong> (از رسید فقط — نه از چت)</p>
+<p><strong>قانون:</strong> JSON now · SQL later.</p>
+<hr />
+<h2>§۱۲ — Master Blueprint — مسیر درآمد (ROI)</h2>
+<p><strong>مرجع:</strong> <code>brain-os/roadmap/SOURCEA_MASTER_BLUEPRINT_v1.md</code></p>
+<h3>نردبان پیشنهاد (فروش از بالا به پایین)</h3>
+<table>
+<thead>
+<tr>
+<th>سطح</th>
+<th>چیست</th>
+<th>کی</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T1</strong></td>
+<td>Done-for-you run + Proof Pack</td>
+<td><strong>الان</strong></td>
+</tr>
+<tr>
+<td><strong>T2</strong></td>
+<td>صندلی early-access</td>
+<td>بعد از T1</td>
+</tr>
+<tr>
+<td><strong>T3</strong></td>
+<td>SaaS چندمستأجره</td>
+<td>بعد از اثبات تقاضا</td>
+</tr>
+</tbody>
+</table>
+<h3>فازهای اجرا (با رسید)</h3>
+<table>
+<thead>
+<tr>
+<th>فاز</th>
+<th>هدف</th>
+<th>اثبات</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>۰</strong></td>
+<td>offer روی sourcea.app · ۱ مشتری پولی</td>
+<td>SOW + proof-pack receipt</td>
+</tr>
+<tr>
+<td><strong>۱</strong></td>
+<td>Proof Pack machine · ۵ run سبز</td>
+<td>۲ مشتری</td>
+</tr>
+<tr>
+<td><strong>۲</strong></td>
+<td>۳–۵ design partner</td>
+<td>NRR</td>
+</tr>
+<tr>
+<td><strong>۳</strong></td>
+<td>enterprise / fundraise</td>
+<td>audit pack پذیرفته‌شده</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ICP پیش‌فرض:</strong> بنیان‌گذاران و آژانس‌هایی که خروجی AI می‌فروشند و از «agent soup» سوخته‌اند.<br />
+<strong>عمود پیشنهادی:</strong> تولید تبلیغ/محتوای AI — <code>video-ad-factory</code> از قبل سبز.</p>
+<hr />
+<h2>§۱۳ — مقایسه: v1.1 قدیمی در برابر دیسک امروز</h2>
+<table>
+<thead>
+<tr>
+<th>موضوع</th>
+<th>v1.1 (superseded)</th>
+<th>دیسک Source-A امروز</th>
+<th>برنده ROI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>موتور runtime</td>
+<td>۴ CF Worker</td>
+<td>Railway FBE + نقش منطقی W1–W4</td>
+<td><strong>دیسک</strong> — بدون rewrite</td>
+</tr>
+<tr>
+<td>صف</td>
+<td>Cloudflare Queues</td>
+<td>Hub Cloud Forge Run</td>
+<td><strong>دیسک</strong> — کار می‌کند</td>
+</tr>
+<tr>
+<td>DB</td>
+<td>DDL کامل روز اول</td>
+<td>Supabase + JSON receipts</td>
+<td><strong>دیسک</strong> — اثبات قبل از SQL</td>
+</tr>
+<tr>
+<td>Neon</td>
+<td>فاز ۳+</td>
+<td>ممنوع تا ASF</td>
+<td><strong>دیسک</strong></td>
+</tr>
+<tr>
+<td>Governance</td>
+<td>SLA در PDF</td>
+<td>SSOT v3 + ORD gate</td>
+<td><strong>دیسک</strong> — قوی‌تر</td>
+</tr>
+<tr>
+<td>Mac</td>
+<td>نبود</td>
+<td>L0 shipped</td>
+<td><strong>دیسک</strong> — منحصربفرد</td>
+</tr>
+<tr>
+<td>درآمد</td>
+<td>implicit</td>
+<td>T1 → T2 → T3 صریح</td>
+<td><strong>دیسک</strong></td>
+</tr>
+<tr>
+<td>Blueprint</td>
+<td>SQL table</td>
+<td>۱۰۰ JSON + صف drain</td>
+<td><strong>دیسک</strong></td>
+</tr>
+<tr>
+<td>Observability</td>
+<td>جداول token</td>
+<td>~/.sina receipts</td>
+<td><strong>دیسک</strong> برای T1</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>§۱۴ — آنچه نگه داشتیم <span style="color:#059669">✓</span> / آنچه رد کردیم <span style="color:#dc2626">✗</span></h2>
+<h3><span style="color:#059669">✓</span> نگه داشتیم (روح v1.1 + قانون دیسک)</h3>
+<ul>
+<li>Factory = Data Graph (Blueprint-driven)</li>
+<li>یک Executor · N Blueprint (نه ۵۰ Worker)</li>
+<li>Capability-based Router (جزئی · در حال تکمیل)</li>
+<li>Artifact / Evidence / Decision</li>
+<li>Execution Contract = مغز</li>
+<li>Observability از روز اول (به‌صورت JSON)</li>
+<li>Supabase برای spine و RLS</li>
+<li>Heavy compute ابری (Fal/ElevenLabs نه Mac)</li>
+</ul>
+<h3><span style="color:#dc2626">✗</span> رد کردیم / به تأخیر انداختیم</h3>
+<ul>
+<li>بازنویسی کامل به Cloudflare Workers</li>
+<li>Neon migration زودهنگام</li>
+<li>DDL کامل v1.1 قبل از اثبات JSON</li>
+<li>۵۰ Worker اختصاصی per tool</li>
+<li>if premium: hardcode Claude در Router</li>
+<li>SaaS self-serve قبل از T1 پولی</li>
+<li>validator marathon روی Mac در جلسه بنیان‌گذار (INCIDENT-039)</li>
+</ul>
+<h3><span style="color:#6366f1">…</span> در صف ROI</h3>
+<ul>
+<li>Proof Pack machine</li>
+<li>سخت‌سازی Executor (idempotency · timeout · breaker)</li>
+<li>SQL dual-write پس از ۵ Proof Pack</li>
+<li>OTel / جداول model_calls (enterprise بعداً)</li>
+</ul>
+<hr />
+<h2>§۱۵ — اولویت ارتقا (Revised Build Priority — LOCKED ROI)</h2>
+<table>
+<thead>
+<tr>
+<th>اولویت</th>
+<th>جزء</th>
+<th>چرا اول</th>
+<th>باز می‌کند</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>#1 NOW</strong></td>
+<td>Proof Pack + T1 فروش</td>
+<td>درآمد · اثبات بازار</td>
+<td>بودجه برای U1–U3</td>
+</tr>
+<tr>
+<td><strong>#2 NOW</strong></td>
+<td>سخت‌سازی Executor</td>
+<td>گلوگاه 502 / retry</td>
+<td>drain پایدار</td>
+</tr>
+<tr>
+<td><strong>#3 Next</strong></td>
+<td>Router + SLA روی blueprint</td>
+<td>کنترل هزینه</td>
+<td>حاشیه سود</td>
+</tr>
+<tr>
+<td><strong>#4 Next</strong></td>
+<td>cloud factories 9/9 GREEN</td>
+<td>اعتبار فروش</td>
+<td>claim = disk</td>
+</tr>
+<tr>
+<td><strong>#5 Later</strong></td>
+<td>SQL graph migration</td>
+<td>مقیاس blueprint</td>
+<td>Registry enterprise</td>
+</tr>
+<tr>
+<td><strong>#6 Later</strong></td>
+<td>Neon · OTel · CF Queues</td>
+<td>فقط با فشار scale + ASF</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>§۱۶ — مشخصات سخت‌سازی Executor (§11 v1.1 — هدف دیسک)</h2>
+<table>
+<thead>
+<tr>
+<th>مکانیزم</th>
+<th>هدف پیاده‌سازی</th>
+<th>وضعیت</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Idempotency keys</td>
+<td><code>execution_contract_v1.py</code> · همه مسیرهای FBE</td>
+<td><span style="color:#d97706">◐</span> جزئی</td>
+</tr>
+<tr>
+<td>Retry + backoff</td>
+<td><code>fbe_run_job_v1.py</code></td>
+<td>TARGET</td>
+</tr>
+<tr>
+<td>Timeout budget</td>
+<td><code>data/fbe_timeout_budgets_v1.json</code> (پیشنهاد)</td>
+<td>TARGET</td>
+</tr>
+<tr>
+<td>Tool isolation</td>
+<td>try/catch per node</td>
+<td>TARGET</td>
+</tr>
+<tr>
+<td>Snapshot input/output</td>
+<td>evidence در هر task</td>
+<td><span style="color:#d97706">◐</span> شکل Phase-1</td>
+</tr>
+<tr>
+<td>Circuit breaker</td>
+<td><code>forge-scoring-ssot-v01.json</code></td>
+<td><span style="color:#d97706">◐</span> fallback هست · breaker رسمی نه</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ماشین حالت Task (هدف):</strong><br />
+<code>PENDING → QUEUED → RUNNING → COMPLETED → ARCHIVED</code><br />
+شکست → <code>RETRY_WAIT</code> → پس از ۳ بار → <code>FAILED</code> → escalate</p>
+<hr />
+<h2>§۱۷ — Supabase + مسیر آینده</h2>
+<h3>پروژه‌های زنده (GREEN)</h3>
+<table>
+<thead>
+<tr>
+<th>پروژه</th>
+<th>tier</th>
+<th>ماژول‌ها</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>portfolio-spine</td>
+<td>production</td>
+<td>witnessbc · gov · forge_factory · …</td>
+</tr>
+<tr>
+<td>noetfield</td>
+<td>production</td>
+<td>noetfield · trustfield</td>
+</tr>
+<tr>
+<td>labs-sandbox</td>
+<td>labs</td>
+<td>Virlux · آزمایش</td>
+</tr>
+</tbody>
+</table>
+<p><strong>SSOT:</strong> <code>data/supabase-portfolio-tiers-v1.json</code></p>
+<h3>migration موجود (شروع truth layer — نه DDL کامل v1.1)</h3>
+<ul>
+<li><code>infra/supabase/portfolio-spine/migrations/001_truth_layer_cycle_receipts_v1.sql</code></li>
+</ul>
+<h3>جدول hybrid (قانون reconciliation)</h3>
+<table>
+<thead>
+<tr>
+<th>لایه</th>
+<th>Supabase الان</th>
+<th>Neon / SQL graph</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auth &amp; RLS</td>
+<td><span style="color:#059669">✓</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Realtime</td>
+<td><span style="color:#059669">✓</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Execution graph</td>
+<td>JSON receipts</td>
+<td>TARGET dual-write</td>
+</tr>
+<tr>
+<td>Observability SQL</td>
+<td>—</td>
+<td>TARGET Phase 4</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>§۱۸ — KPI و رسید اثبات</h2>
+<table>
+<thead>
+<tr>
+<th>KPI</th>
+<th>خط پایه</th>
+<th>هدف U0</th>
+<th>هدف U1–U2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>مشتری T1 پولی</td>
+<td>۰</td>
+<td>۱</td>
+<td>۳</td>
+</tr>
+<tr>
+<td>Proof Pack مهرشده</td>
+<td>۰</td>
+<td>۱ نمونه + ۱ مشتری</td>
+<td>۵ متوالی</td>
+</tr>
+<tr>
+<td>نرخ drain سبز</td>
+<td>وقفه 502</td>
+<td>۳ متوالی</td>
+<td>۱۰</td>
+</tr>
+<tr>
+<td>ORD pass rate</td>
+<td>live</td>
+<td>ردیابی</td>
+<td>≥۸۰٪</td>
+</tr>
+<tr>
+<td>cloud factories</td>
+<td>۸/۹ RED</td>
+<td>۹/۹</td>
+<td>۳۰ روز پایدار</td>
+</tr>
+<tr>
+<td>registry 1000-pack</td>
+<td>۱۰۰۰/۱۰۰۰ done</td>
+<td>—</td>
+<td>queue_sa head</td>
+</tr>
+</tbody>
+</table>
+<p><strong>خواندن روزانه:</strong> <code>brain-os/plan-registry/SOURCEA-PRIORITY.md</code> · <code>~/.sina/agent-live-surfaces-v1.json</code></p>
+<hr />
+<h2>§۱۹ — غیراهداف صریح (LOCKED)</h2>
+<p>از <code>docs/SOURCEA_CLOUD_KERNEL_VS_DISK_RECONCILIATION_LOCKED_v1.md</code>:</p>
+<ol>
+<li><strong>بدون Neon</strong> تا تأیید ASF migration  </li>
+<li><strong>بدون بازنویسی CF Worker</strong> برای موتور  </li>
+<li><strong>بدون IDE دوم</strong> — Cursor سطح ویرایش می‌ماند  </li>
+<li><strong>بدون ادغام تخت</strong> PDF + Workbench در یک فایل SSOT  </li>
+<li><strong>بدون factory bootstrap روی Mac</strong> در FREEZE  </li>
+<li><strong>بدون validator marathon</strong> در جلسه بنیان‌گذار (≤۹۰ثانیه · یک shell)</li>
+</ol>
+<hr />
+<h2>§۲۰ — قفل نهایی هسته</h2>
+<pre><code>SOURCE-A KERNEL — DISK-ALIGNED FA v1.0 — LOCKED FOR PLANNING
+
+مرجع dispatch عامل:     SSOT v3 (انگلیسی — authority)
+مرجع معماری ابری:      Cloud Kernel v1.3 PDF (target)
+مرجع صادقانه دیسک:      reconciliation LOCKED v1.1
+مرجع درآمد:             Master Blueprint v1
+کارخانه عملیاتی:       100 blueprint JSON + FBE Railway
+اثبات Phase-1:          phase1-pevc-truth-ticket → approved
+نسخه superseded:        Source-A-SSOT-v1.1.pdf (فقط lineage)
+</code></pre>
+<h3>ترتیب خواندن برای عامل / ORD / Chat Unify</h3>
+<ol>
+<li><code>docs/SOURCEA_SSOT_INDEX_LOCKED_v1.md</code>  </li>
+<li><code>brain-os/ssot/SOURCEA_LLM_AGENT_OPERATING_LAW_SSOT_v3.md</code>  </li>
+<li><code>brain-os/roadmap/SOURCEA_MASTER_BLUEPRINT_v1.md</code>  </li>
+<li><code>docs/SOURCEA_CLOUD_KERNEL_VS_DISK_RECONCILIATION_LOCKED_v1.md</code>  </li>
+<li><strong>این سند (FA)</strong> — برای بنیان‌گذار و مشاور فارسی‌زبان  </li>
+<li><code>docs/Source-A-Cloud-Kernel-v1.3.pdf</code> — هنگام اجرای body کارخانه</li>
+</ol>
+<h3>جملهٔ پایانی (همان closing line)</h3>
+<blockquote>
+<p>شما نیازی به «بازگشت به v1.1» ندارید — در governance (v3) و control plane (Mac L0) از آن جلوتر رفته‌اید.<br />
+مسیر ارتقا: <strong>رسید سبز را monetize کن (Proof Pack) → موتور را سخت کن → هزینه را discipline کن → SQL وقتی اثبات شد.</strong><br />
+هر حرکتی که token ذخیره کرد، rewrite را رد کرد، و رسید را جلوتر از دیاگرام گذاشت — <strong>همان استراتژی ROI درست است.</strong></p>
+</blockquote>
+<hr />
+<p><strong>Noetfield Systems Inc. | TrustField Technologies Inc.</strong><br />
+<strong>Vancouver, BC — ۲۰۲۶</strong><br />
+<strong>Source-A · Disk-Aligned Operating SSOT FA v1.0 · Page 20 / 20</strong></p>
+<hr />
+<p></p>
+<div class="footer-note">
+Source-A · Disk-Aligned Operating SSOT FA v1.0 · brain-os/ssot/ · authored law plane
+</div>
+</main>
+</body>
+</html>

@@ -109,12 +109,12 @@ The system is self-enforcing. Compliance is not honor-based.
 | Current active roadmap | ENFORCE → STRATEGIC-SLICE · factory **background** |
 | Current execution rail | Hub Actions · SCAN→PICK→PROVE — **not** Cursor AUTO-RUN P0 |
 | Current highest priority | `validate-demo-write-path-v1.sh` · agentic W3 batch 1 · film W1 |
-| Current execution pointer | → `~/.sina/next-execution-pointer-v1.json` (`sa-1203` VERIFY · queue pos 3) |
-| Brain phase-first pick | enf-* / CLOCK C — **not** factory drain hero |
+| Current execution pointer | → `~/.sina/next-execution-pointer-v1.json` (`sa-1210` VERIFY · queue pos 10) |
+| Brain phase-first pick | enf-* / CLOCK C — **not** Cloud Forge Run hero |
 | Current system health | → validators + RT LIVE receipt (refresh disk) |
 | Current strategic blocker | **W3 = $0** · agentic outreach not wired |
 | Current next milestone | W1 recording on disk OR W3 LOI conversation |
-| Tracker last verified | 2026-06-21T01:55:17Z |
+| Tracker last verified | 2026-06-24T08:48:57Z |
 
 > Runtime state is referenced from canonical runtime files (Section 8). It is never duplicated here.
 

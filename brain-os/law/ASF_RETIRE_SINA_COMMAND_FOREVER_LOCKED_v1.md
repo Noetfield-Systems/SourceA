@@ -3,7 +3,7 @@
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
 **Version:** 1.0 · **Locked:** 2026-06-15 · **Authority:** ASF order  
 **Supersedes for product naming:** daily use of “Sina Command” and `/legacy/` as founder surface  
-**Preserves:** Hub 1 `/` · Hub 2 `/machines/` · factory drain · disk law · `~/.sina` registry
+**Preserves:** Hub 1 `/` · Hub 2 `/machines/` · Cloud Forge Run · disk law · `~/.sina` registry
 
 ---
 
@@ -41,7 +41,7 @@
 
 - `command_retired_forever: true`
 - `no_hub_rebuild: true` · `no_hub_archive: true`
-- `hub2_drain_allowed: true` (factory drain continues on H2 validators)
+- `hub2_drain_allowed: true` (Cloud Forge Run continues on H2 validators)
 
 ---
 

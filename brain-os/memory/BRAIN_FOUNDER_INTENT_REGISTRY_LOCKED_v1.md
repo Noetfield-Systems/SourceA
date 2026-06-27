@@ -35,7 +35,7 @@ ASF wants **two systems working together**:
    - Trigger phrase: `PLAN WITH NO ASF`
    - T0 tier: "Critical — machine verify without founder"
 
-3. **10-loop automation** — agents work **10 rounds** with **minimal human observation**
+3. **10-Auto Runtimemation** — agents work **10 rounds** with **minimal human observation**
    - Hub: `scripts/agent_loop.py` — 10 rounds max
    - **Today:** Submit round required each round; auto-paste **OFF** (incident law)
 

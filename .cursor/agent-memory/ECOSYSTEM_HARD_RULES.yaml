@@ -1,16 +1,18 @@
 # Ecosystem hard rules snippet — ported from Noetfield MEMORY_LOCKED v7 (R-007–R-010)
 # Read at session start. Full Noetfield memory: Noetfield-All-Documents/Noetfield/.cursor/agent-memory/MEMORY_LOCKED.yaml
 
-version: 1
-updated: "2026-06-10"
+version: 2
+updated: "2026-06-26"
 source: Noetfield PR #34 · adapted for SourceA ecosystem
 
 hard_rules:
   - id: R-007
-    rule: NO disk edits (write, delete, commit, push, registry) without explicit founder permission and bounded task order (SAVE TO / EDIT ALLOWED / ASF / WORK sa-*).
+    rule: NO disk edits (write, delete, commit, push, registry) without explicit founder permission and bounded task order. Pathless SAVE/LOCK/FILE intent must run the filing registry first; use resolved route_id/path/next_steps and never ask ASF for an exact path when registry resolves.
     incident: INCIDENT-010 · INCIDENT-011 · CIR-COSPRO-RESEARCH-SAVE-2026-06-07
+    gate: scripts/agent_filing_registry_gate_v1.py
+    proof: scripts/validate-agent-filing-registry-v1.sh
   - id: R-008
-    rule: ALWAYS ask for next move, clarification, and suggested implementation before acting. Default advise-only.
+    rule: ALWAYS ask for next move, clarification, and suggested implementation before acting, except registry-first filing resolution is allowed after founder SAVE/LOCK/ASF filing intent; ask only on REGISTRY_NO_MATCH or REGISTRY_AMBIGUOUS.
     skill: skill-006-ask-before-implement
   - id: R-009
     rule: If mandatory SourceA handoff file is not on disk, BLOCK — do not pseudo-ACK; ask founder to sync or paste.
@@ -21,6 +23,7 @@ hard_rules:
 
 session_start_checklist:
   - Read ECOSYSTEM_HARD_RULES.yaml
+  - For pathless SAVE/LOCK/FILE, run scripts/agent_filing_registry_gate_v1.py before asking ASF for any path
   - Read brain-os/incidents/SINA_CROSS_LANE_EDIT_FORBIDDEN_INCIDENT_LOCKED_v1.md (or compendium Part A)
   - Apply SKILL-007 if any rule conflict detected
   - Apply SKILL-006 ask-before-implement

@@ -18,7 +18,7 @@ python3 scripts/generate-broker-pack-1000.py
 
 ## Runtime default
 
-**Hub ▶ AUTO-RUN 50** + `goal1_run_loop_v1.py` — parallel **factory drain:** `plan-no-asf-run.sh pick 1`
+**Hub ▶ AUTO-RUN 50** + `goal1_run_loop_v1.py` — parallel **Cloud Forge Run:** `plan-no-asf-run.sh pick 1`
 
 ## Grid
 

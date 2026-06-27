@@ -1,0 +1,10 @@
+{
+  "schema": "sourcea-upgrade-plans-888-registry-redirect-v1",
+  "status": "superseded",
+  "superseded_at": "2026-06-24T14:25:04Z",
+  "message": "UP-888 superseded by portfolio-next-6000 canonical registry.",
+  "canonical_master": "brain-os/plan-registry/PORTFOLIO_NEXT_6000_MASTER_v1.json",
+  "canonical_law": "docs/PORTFOLIO_UPGRADE_PLANS_CANONICAL_LOCKED_v1.md",
+  "mapping_manifest": "data/upgrade-888-to-sa-next-mapping-v1.json",
+  "lineage_copy": "brain-os/ssot/superseded/SOURCEA_UPGRADE_PLANS_888_REGISTRY_v1.json"
+}

@@ -236,7 +236,7 @@ On advisory asks: read tracker + threads + goal-progress · name lens weights ·
 | # | Position |
 |---|----------|
 | 1 | Primary earn path = receipt spine SKU (RunReceipt/FORGE) |
-| 2 | Factory drain P0 until s2 T0 green |
+| 2 | Cloud Forge Run P0 until s2 T0 green |
 | 3 | Semantic flip P1 per 014 — after AUTH-LIVE |
 | 4 | TrustField parallel calendar — not Worker default |
 | 5 | β+ hybrid week before α or β alone |
@@ -265,7 +265,7 @@ On advisory asks: read tracker + threads + goal-progress · name lens weights ·
 | Honest counter | 152/1000 (15.2%) | **616/1000 (61.6%)** |
 | s2 hub-build-ci | 0% — credibility gap | **100/100 done** |
 | Live pick | sa-0084 · s0 band | **sa-0798** · s7 council |
-| Hub P0 | Factory drain hero | **STRATEGIC-SLICE** + RT-LIVE + FR-003 |
+| Hub P0 | Cloud Forge Run hero | **STRATEGIC-SLICE** + RT-LIVE + FR-003 |
 | AUTO-RUN | AM factory pattern | **Permanently rejected** (`auto-run-disabled-v1.flag`) |
 | Investor clock | Receipt SKU / β+ week | **ENFORCEMENT-6MO** W1–W3 (demo + deposit) |
 | WTM active | D2 fusion (implied) | **D16 shipped** · **ENFORCE** active |
@@ -288,7 +288,7 @@ On advisory asks: read tracker + threads + goal-progress · name lens weights ·
 | # | Draft position | **2026-06-12 read** |
 |---|----------------|---------------------|
 | 1 | Receipt spine SKU | **Still true** — plus Copilot demo on disk |
-| 2 | Factory drain P0 until s2 green | **Partially superseded** — s2 green; hub P0 = STRATEGIC-SLICE |
+| 2 | Cloud Forge Run P0 until s2 green | **Partially superseded** — s2 green; hub P0 = STRATEGIC-SLICE |
 | 3 | Semantic P1 after AUTH-LIVE | **Still true** |
 | 4 | TF parallel calendar | **Still true** — now **W3 P0** |
 | 5 | β+ hybrid week | **Evolved** → Engine clock (demo) + Money clock (deposit) parallel |
@@ -297,7 +297,7 @@ On advisory asks: read tracker + threads + goal-progress · name lens weights ·
 
 1. **Money:** one TF/NF call (`investor/ENFORCEMENT_OUTREACH_v1.md`)  
 2. **Engine:** film Copilot demo or Maintainer FR-003/RT-LIVE scrub  
-3. **Background:** factory drain — not hub hero  
+3. **Background:** Cloud Forge Run — not hub hero  
 
 **Do not** re-litigate Layer 0–13 prose — use **Layer 14** when draft numbers conflict with `goal-progress-v1.py`.
 

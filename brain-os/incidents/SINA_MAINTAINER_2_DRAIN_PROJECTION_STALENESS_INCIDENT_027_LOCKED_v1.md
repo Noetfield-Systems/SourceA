@@ -29,9 +29,9 @@
 
 ## 1. Executive summary
 
-**Disk law (2026-06-11):** Live founder form **v2 FILLED** (6 picks locked). Maintainer P0 = **RT-LIVE-GATE** proof + **FR-003** wiring. Factory drain / `sa-XXXX` / resume / queue head = **background** — Phases 3–10 **paused** (Q-NEXT-WORK **10.10 D**).
+**Disk law (2026-06-11):** Live founder form **v2 FILLED** (6 picks locked). Maintainer P0 = **RT-LIVE-GATE** proof + **FR-003** wiring. Cloud Forge Run / `sa-XXXX` / resume / queue head = **background** — Phases 3–10 **paused** (Q-NEXT-WORK **10.10 D**).
 
-**Maintainer 2 failure:** After form gate closed, Maintainer **continued to headline factory drain** (`sa-0798`, `616/1000`, `resume drain — max 1`, queue pos) in SCAN reports and session briefs — sourced from **hub projection** (`command-data.json` P0 line) and **stale SCAN templates** — while **not reading** `PROGRAM_PROGRESS.founder_open`, `SESSION_LOG` Maintainer-next, or live form §4 **RT-LIVE-GATE** as the sole open high blocker.
+**Maintainer 2 failure:** After form gate closed, Maintainer **continued to headline Cloud Forge Run** (`sa-0798`, `616/1000`, `Cloud Forge Run — max 1`, queue pos) in SCAN reports and session briefs — sourced from **hub projection** (`command-data.json` P0 line) and **stale SCAN templates** — while **not reading** `PROGRAM_PROGRESS.founder_open`, `SESSION_LOG` Maintainer-next, or live form §4 **RT-LIVE-GATE** as the sole open high blocker.
 
 **Severity:** **High** — same failure class as INCIDENT-022 (law on disk · wrong founder headline) and INCIDENT-020 (factory lane vs integrity lane conflation). Founder had to shout to break the loop.
 
@@ -133,7 +133,7 @@ Form v2 fill is a **state transition** on disk:
 - **Before:** ASF must answer · hub repair + form live  
 - **After:** Maintainer proves RT LIVE · Phases 3–10 parked  
 
-Maintainer behaved as if still in **before** state (optional resume drain, form pending language).
+Maintainer behaved as if still in **before** state (optional Cloud Forge Run, form pending language).
 
 ### 4.6 Role brief not re-derived from disk each turn
 
@@ -208,7 +208,7 @@ p0.next_action: "FREEZE · Valid YES 614/1000 · Queue 37/333 · CHECK · sa-079
 ```text
 SESSION OPEN (every turn — before reply):
   1. python3 scripts/live_founder_decision_form_v1.py --json
-     → if needs_asf_fill false: NEVER say "answer the 6 questions" or resume drain as P0
+     → if needs_asf_fill false: NEVER say "answer the 6 questions" or Cloud Forge Run as P0
   2. Read PROGRAM_PROGRESS.json → SYS-INTEGRITY-100.founder_open (one line = P0 story)
   3. Read SOURCEA_SYSTEM_INTEGRITY_SESSION_LOG_v1.md last Maintainer-next block
   4. Read live form §4 PENDING — headline ONLY top high row (RT-LIVE-GATE until PASS)
@@ -218,7 +218,7 @@ REPORT FORMAT (founder-facing):
   · Form: edition + filled/pending (from JSON only)
   · Maintainer P0: one line from SESSION_LOG / form §4
   · Factory: optional footnote — "background · FREEZE · not executing unless ASF names drain"
-  · Ban from headline: sa-XXXX · Valid YES % · resume drain · queue pos (unless ASF explicitly asks)
+  · Ban from headline: sa-XXXX · Valid YES % · Cloud Forge Run · queue pos (unless ASF explicitly asks)
 
 On founder "MOVE ON" / "NOT DRAIN":
   · Hard stop — zero factory metrics in reply
@@ -268,7 +268,7 @@ On state transitions (form fill · M1 EOS · ASF pick):
 
 | Test | Pass criteria |
 |------|----------------|
-| Form filled simulation | Maintainer report contains **RT LIVE** · zero **resume drain** |
+| Form filled simulation | Maintainer report contains **RT LIVE** · zero **Cloud Forge Run** |
 | Hub rebuild | `p0.next_action` no `sa-` when RT-LIVE-GATE open |
 | Founder shout test | "MOVE ON FROM DRAIN" → next reply has no Valid YES / queue pos |
 

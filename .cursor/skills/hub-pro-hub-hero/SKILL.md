@@ -38,8 +38,8 @@ Hard refresh browser / WKWebView after shared tab JS changes (`api-station-tab.j
 ## Cloud Workers command center (P1)
 
 - **API:** `GET /api/cloud-workers/v1` — situation, plans, inbox, events, CLI
-- **Proceed:** Hub `POST /api/cloud-drain/proceed/v1` only — not Mac FORGE motor
-- **Receipt:** `~/.sina/hub-cloud-drain-proceed-receipt-v1.json`
+- **Proceed:** Hub `POST /api/cloud-forge-run/proceed/v1` only — not Mac FORGE motor
+- **Receipt:** `~/.sina/hub-cloud-forge-run-proceed-receipt-v1.json`
 - **Events:** `~/.sina/cloud-workers-event-log-v1.json`
 - **Motor FAIL vs pipe LIVE:** Railway image/stale motor — not missing Hub route
 

@@ -32,7 +32,7 @@
 | Paradox | Side A | Side B | **Ruling** |
 |---------|--------|--------|--------------|
 | **P1 Manual vs agentic commercial** | Weekly plan §3/§6: founder calls · LinkedIn | P0 law Pillar A · FOUNDER_AGENTIC | **B wins** — weekly plan v1.1 patched |
-| **P2 Factory drain vs ENFORCEMENT** | Layered advisory: factory AM P0 | CLOCK C: W1/W2/W3 P0 | **C wins** — factory **background** until W1 filmed |
+| **P2 Cloud Forge Run vs ENFORCEMENT** | Layered advisory: factory AM P0 | CLOCK C: W1/W2/W3 P0 | **C wins** — factory **background** until W1 filmed |
 | **P3 AUTO-RUN vs FREEZE vs agentic** | Tracker §1: AUTO-RUN P0 | FREEZE ON · FOUNDER_AGENTIC | **FREEZE + agentic win** — AUTO-RUN factory background only when ASF unfreezes |
 | **P4 Rebuild demo vs shipped kernel** | MASTER-PLAN weeks 1–6 engineering | S1–S6 done on disk | **Shipped wins** — MASTER-PLAN engineering **void** |
 | **P5 1000 count vs revenue** | "Finish 1000 first" chat drift | ENFORCEMENT: W3 deposit | **W3 wins** — 1000 = background |

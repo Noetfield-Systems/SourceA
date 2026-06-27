@@ -1,0 +1,36 @@
+---
+description: Cloud Forge Run + Auto Runtime — drain/loop poison retired (founder + agent replies)
+alwaysApply: false
+globs:
+  - brain-os/law/enforcement/*
+  - brain-os/incidents/*CLOUD*
+  - data/cloud-forge-run*.json
+  - data/cloud-motor-founder-vocabulary-v1.json
+  - data/founder-reply-glossary-v1.json
+  - agent-control-panel/**
+  - .cursor/rules/035*.mdc
+  - .cursor/rules/037*.mdc
+---
+
+# Cloud Forge Run + Auto Runtime vocabulary (038)
+
+**Law:** `brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_AUTO_RUNTIME_VOCABULARY_LOCKED_v1.md`  
+**SSOT:** `data/cloud-motor-founder-vocabulary-v1.json`
+
+## One law
+
+> **Say Cloud Forge Run (not drain). Say Auto Runtime (not loop). Anti-poison activated — internal `cloud-forge-run-*` paths stay for APIs.**
+
+| Poison (forbidden founder chat) | Say instead |
+|---------------------------------|-------------|
+| drain · Cloud Forge Run · Cloud Forge Run | **Cloud Forge Run** |
+| loop · Cloud Forge Run · drain loop | **Auto Runtime** |
+
+## Agents MUST NOT
+
+- Use “drain” or “loop” in founder-facing replies about the cloud motor
+- Rename API paths in chat to confuse founder (`/api/cloud-forge-run/` → “Forge Run queue API” is OK)
+
+## Validator
+
+`bash scripts/validate-cloud-motor-founder-vocabulary-v1.sh`

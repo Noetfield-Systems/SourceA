@@ -118,7 +118,7 @@
 
 ---
 
-## 4. Factory drain alignment
+## 4. Cloud Forge Run alignment
 
 | Signal | Value |
 |--------|-------|

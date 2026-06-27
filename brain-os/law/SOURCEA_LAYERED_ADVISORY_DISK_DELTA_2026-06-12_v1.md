@@ -70,7 +70,7 @@ python3 scripts/goal-progress-v1.py
 | Draft says | Disk law now |
 |------------|--------------|
 | AM Safety → AUTO RUN | AUTO-RUN **rejected** — `FOUNDER_AGENTIC_COMMERCIAL` · Phase 2 pick 2.03-A |
-| Factory drain = hub P0 | **STRATEGIC-SLICE** · factory **background** · INCIDENT-027 |
+| Cloud Forge Run = hub P0 | **STRATEGIC-SLICE** · factory **background** · INCIDENT-027 |
 | β+ hybrid = factory AM + TF PM | **Two clocks:** Engine (W1/W2) + Money (W3) — `BIG-PICTURE-REAL-GOAL-031` |
 | Finish 1000 before revenue | **Reject** — ENFORCEMENT-6MO + `MARKET_RECEIPT_ARCH` |
 | Primary earn = RunReceipt only | **Plus** Copilot demo path + FORGE launch-ready |
@@ -87,7 +87,7 @@ python3 scripts/goal-progress-v1.py
 2. **GOAL-COMM-TF-NF-001** — first invoice  
 3. **FORGE** — launch/GTM (checklist complete)  
 4. **COMM-PARTNER-BOOT** — credits ≠ revenue (CLOCK E)  
-5. **Factory drain** — background band sa-0798+  
+5. **Cloud Forge Run** — background band sa-0798+  
 
 ---
 
@@ -101,7 +101,7 @@ python3 scripts/goal-progress-v1.py
 | γ Semantic first | Reject if no AUTH-LIVE | **Still reject** |
 | δ Portfolio spray | Reject | **Still reject** |
 
-**Recommended now:** **β+ evolved** = film W1 + W3 call + Maintainer RT/FR-003 parallel — not factory drain hero.
+**Recommended now:** **β+ evolved** = film W1 + W3 call + Maintainer RT/FR-003 parallel — not Cloud Forge Run hero.
 
 ---
 
