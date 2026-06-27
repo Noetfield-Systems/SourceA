@@ -1,0 +1,276 @@
+{
+  "schema": "cloud-forge-run-competitor-5000-patch-v1",
+  "version": "1.0.0",
+  "ok": true,
+  "at": "2026-06-24T06:23:57Z",
+  "generated_batches": [
+    {
+      "batch_id": 11,
+      "stack": "witnessbc",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-11-locked-v1.json",
+      "range": "CLOUD-SEC-1001..CLOUD-SEC-1100"
+    },
+    {
+      "batch_id": 12,
+      "stack": "witnessbc",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-12-locked-v1.json",
+      "range": "CLOUD-SEC-1101..CLOUD-SEC-1200"
+    },
+    {
+      "batch_id": 13,
+      "stack": "witnessbc",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-13-locked-v1.json",
+      "range": "CLOUD-SEC-1201..CLOUD-SEC-1300"
+    },
+    {
+      "batch_id": 14,
+      "stack": "witnessbc",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-14-locked-v1.json",
+      "range": "CLOUD-SEC-1301..CLOUD-SEC-1400"
+    },
+    {
+      "batch_id": 15,
+      "stack": "witnessbc",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-15-locked-v1.json",
+      "range": "CLOUD-SEC-1401..CLOUD-SEC-1500"
+    },
+    {
+      "batch_id": 16,
+      "stack": "witnessbc",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-16-locked-v1.json",
+      "range": "CLOUD-SEC-1501..CLOUD-SEC-1600"
+    },
+    {
+      "batch_id": 17,
+      "stack": "witnessbc",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-17-locked-v1.json",
+      "range": "CLOUD-SEC-1601..CLOUD-SEC-1700"
+    },
+    {
+      "batch_id": 18,
+      "stack": "witnessbc",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-18-locked-v1.json",
+      "range": "CLOUD-SEC-1701..CLOUD-SEC-1800"
+    },
+    {
+      "batch_id": 19,
+      "stack": "witnessbc",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-19-locked-v1.json",
+      "range": "CLOUD-SEC-1801..CLOUD-SEC-1900"
+    },
+    {
+      "batch_id": 20,
+      "stack": "witnessbc",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-20-locked-v1.json",
+      "range": "CLOUD-SEC-1901..CLOUD-SEC-2000"
+    },
+    {
+      "batch_id": 21,
+      "stack": "noetfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-21-locked-v1.json",
+      "range": "CLOUD-SEC-2001..CLOUD-SEC-2100"
+    },
+    {
+      "batch_id": 22,
+      "stack": "noetfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-22-locked-v1.json",
+      "range": "CLOUD-SEC-2101..CLOUD-SEC-2200"
+    },
+    {
+      "batch_id": 23,
+      "stack": "noetfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-23-locked-v1.json",
+      "range": "CLOUD-SEC-2201..CLOUD-SEC-2300"
+    },
+    {
+      "batch_id": 24,
+      "stack": "noetfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-24-locked-v1.json",
+      "range": "CLOUD-SEC-2301..CLOUD-SEC-2400"
+    },
+    {
+      "batch_id": 25,
+      "stack": "noetfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-25-locked-v1.json",
+      "range": "CLOUD-SEC-2401..CLOUD-SEC-2500"
+    },
+    {
+      "batch_id": 26,
+      "stack": "noetfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-26-locked-v1.json",
+      "range": "CLOUD-SEC-2501..CLOUD-SEC-2600"
+    },
+    {
+      "batch_id": 27,
+      "stack": "noetfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-27-locked-v1.json",
+      "range": "CLOUD-SEC-2601..CLOUD-SEC-2700"
+    },
+    {
+      "batch_id": 28,
+      "stack": "noetfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-28-locked-v1.json",
+      "range": "CLOUD-SEC-2701..CLOUD-SEC-2800"
+    },
+    {
+      "batch_id": 29,
+      "stack": "noetfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-29-locked-v1.json",
+      "range": "CLOUD-SEC-2801..CLOUD-SEC-2900"
+    },
+    {
+      "batch_id": 30,
+      "stack": "noetfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-30-locked-v1.json",
+      "range": "CLOUD-SEC-2901..CLOUD-SEC-3000"
+    },
+    {
+      "batch_id": 31,
+      "stack": "trustfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-31-locked-v1.json",
+      "range": "CLOUD-SEC-3001..CLOUD-SEC-3100"
+    },
+    {
+      "batch_id": 32,
+      "stack": "trustfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-32-locked-v1.json",
+      "range": "CLOUD-SEC-3101..CLOUD-SEC-3200"
+    },
+    {
+      "batch_id": 33,
+      "stack": "trustfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-33-locked-v1.json",
+      "range": "CLOUD-SEC-3201..CLOUD-SEC-3300"
+    },
+    {
+      "batch_id": 34,
+      "stack": "trustfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-34-locked-v1.json",
+      "range": "CLOUD-SEC-3301..CLOUD-SEC-3400"
+    },
+    {
+      "batch_id": 35,
+      "stack": "trustfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-35-locked-v1.json",
+      "range": "CLOUD-SEC-3401..CLOUD-SEC-3500"
+    },
+    {
+      "batch_id": 36,
+      "stack": "trustfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-36-locked-v1.json",
+      "range": "CLOUD-SEC-3501..CLOUD-SEC-3600"
+    },
+    {
+      "batch_id": 37,
+      "stack": "trustfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-37-locked-v1.json",
+      "range": "CLOUD-SEC-3601..CLOUD-SEC-3700"
+    },
+    {
+      "batch_id": 38,
+      "stack": "trustfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-38-locked-v1.json",
+      "range": "CLOUD-SEC-3701..CLOUD-SEC-3800"
+    },
+    {
+      "batch_id": 39,
+      "stack": "trustfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-39-locked-v1.json",
+      "range": "CLOUD-SEC-3801..CLOUD-SEC-3900"
+    },
+    {
+      "batch_id": 40,
+      "stack": "trustfield",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-40-locked-v1.json",
+      "range": "CLOUD-SEC-3901..CLOUD-SEC-4000"
+    },
+    {
+      "batch_id": 41,
+      "stack": "virlux",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-41-locked-v1.json",
+      "range": "CLOUD-SEC-4001..CLOUD-SEC-4100"
+    },
+    {
+      "batch_id": 42,
+      "stack": "virlux",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-42-locked-v1.json",
+      "range": "CLOUD-SEC-4101..CLOUD-SEC-4200"
+    },
+    {
+      "batch_id": 43,
+      "stack": "virlux",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-43-locked-v1.json",
+      "range": "CLOUD-SEC-4201..CLOUD-SEC-4300"
+    },
+    {
+      "batch_id": 44,
+      "stack": "virlux",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-44-locked-v1.json",
+      "range": "CLOUD-SEC-4301..CLOUD-SEC-4400"
+    },
+    {
+      "batch_id": 45,
+      "stack": "virlux",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-45-locked-v1.json",
+      "range": "CLOUD-SEC-4401..CLOUD-SEC-4500"
+    },
+    {
+      "batch_id": 46,
+      "stack": "virlux",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-46-locked-v1.json",
+      "range": "CLOUD-SEC-4501..CLOUD-SEC-4600"
+    },
+    {
+      "batch_id": 47,
+      "stack": "virlux",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-47-locked-v1.json",
+      "range": "CLOUD-SEC-4601..CLOUD-SEC-4700"
+    },
+    {
+      "batch_id": 48,
+      "stack": "virlux",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-48-locked-v1.json",
+      "range": "CLOUD-SEC-4701..CLOUD-SEC-4800"
+    },
+    {
+      "batch_id": 49,
+      "stack": "virlux",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-49-locked-v1.json",
+      "range": "CLOUD-SEC-4801..CLOUD-SEC-4900"
+    },
+    {
+      "batch_id": 50,
+      "stack": "virlux",
+      "path": "/Users/sinakazemnezhad/Desktop/SourceA/data/secondary-cloud-forge-run-batch-50-locked-v1.json",
+      "range": "CLOUD-SEC-4901..CLOUD-SEC-5000"
+    }
+  ],
+  "skipped_existing": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "active_batch_id": 11,
+  "head": "CLOUD-SEC-1001",
+  "batches_on_disk": 50,
+  "dockerfile": {
+    "ok": true,
+    "skipped": true,
+    "reason": "already_glob"
+  },
+  "deploy_script": {
+    "ok": false,
+    "error": "deploy_staging_anchor_missing"
+  },
+  "pointer": "/Users/sinakazemnezhad/Desktop/SourceA/data/cloud-forge-run-queue-active-v1.json",
+  "pipeline": "/Users/sinakazemnezhad/Desktop/SourceA/data/cloud-forge-run-batch-pipeline-v1.json",
+  "for_founder": {
+    "show_this": "Competitor-5000 patch ready \u00b7 batch 11 armed \u00b7 head CLOUD-SEC-1001 \u00b7 40 new files \u00b7 deploy Railway + CF cron */10"
+  }
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Loop Specialist tick — observe · advise · compose · dispatch (Mac control plane).
+"""Auto Runtime specialist tick — observe · advise · compose · dispatch (Mac control plane).
 
 Replaces founder RUN INBOX as trigger when loop_auto_dispatch_enabled.
 Law: SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md — Brain execution_authority only
@@ -65,7 +65,7 @@ def load_config(*, write_default: bool = True) -> dict:
         "loop_auto_dispatch_enabled": False,
         "loop_auto_observe_enabled": True,
         "loop_auto_mode": "off",
-        "founder_motion": "ASF resume drain when FREEZE · Loop specialist tick on Hub",
+        "founder_motion": "ASF resume Cloud Forge Run when FREEZE · Auto Runtime specialist tick on Hub",
         "law": "CL10 safe rollout — graduate via loop_auto_graduation_v1.py after validators PASS",
     }
     if write_default:
@@ -103,7 +103,7 @@ def _is_outbound_queue(head: dict, hq: dict) -> bool:
 
 
 def _outbound_drain_idle(head: dict, hq: dict | None = None) -> bool:
-    """Outbound factory drain is done — empty queue or no head, even if doc flag stale."""
+    """Outbound Cloud Forge Run is done — empty queue or no head, even if doc flag stale."""
     if not _outbound_plan_complete():
         return False
     hq = hq or _read_json(SINA / "healthy-queue-30-active.json")
@@ -292,7 +292,7 @@ def run_tick(*, write: bool = True, dispatch: bool | None = None) -> dict:
         from cloud_loop_specialist_client_v1 import tick_via_cloud  # noqa: WPS433
 
         cloud = tick_via_cloud(
-            founder_message="Loop auto · cloud executes · Hub glance only · no RUN INBOX",
+            founder_message="Auto Runtime · cloud executes · Hub glance only · no RUN INBOX",
             dispatch=do_dispatch,
             write_receipt=False,
         )
@@ -457,7 +457,7 @@ def run_tick(*, write: bool = True, dispatch: bool | None = None) -> dict:
         next_action = (
             (freeze.get("action") or execute_line())
             if auto_on and _outbound_plan_complete()
-            else (freeze.get("action") or "ASF: resume drain — max 1")
+            else (freeze.get("action") or "ASF: Cloud Forge Run — max 1")
         )
     elif int((obs.get("commercial") or {}).get("commercial_red_count") or 0) > 0:
         if auto_on:
@@ -469,12 +469,12 @@ def run_tick(*, write: bool = True, dispatch: bool | None = None) -> dict:
             next_action = (obs.get("commercial") or {}).get("founder_action") or "commercial P0"
     elif decision == "observe_only":
         next_action = (
-            "Enable loop auto on Hub · Refresh loop chain"
+            "Enable Auto Runtime on Hub · Refresh loop chain"
             if not auto_on
-            else "Loop auto-tick observe · dispatch when resume valid"
+            else "Auto Runtime observe · dispatch when resume valid"
         )
     else:
-        next_action = "Loop auto-tick · Brain work-order when inbox pending"
+        next_action = "Auto Runtime · Brain work-order when inbox pending"
 
     row = {
         "schema": "loop-specialist-tick-receipt-v1",
@@ -558,14 +558,14 @@ def handle_hub_post(body: dict | None = None) -> dict:
         cfg["loop_auto_dispatch_enabled"] = True
         cfg["loop_auto_observe_enabled"] = True
         cfg["loop_auto_mode"] = cfg.get("loop_auto_mode") or "shadow_auto"
-        cfg["founder_motion"] = "Hub glance only · Loop specialist auto-tick · no RUN INBOX verb"
+        cfg["founder_motion"] = "Hub glance only · Auto Runtime specialist auto-tick · no RUN INBOX verb"
         cfg["graduated_at"] = _now()
         save_config(cfg)
     if body.get("enable_auto_dispatch") is False:
         cfg = load_config()
         cfg["loop_auto_dispatch_enabled"] = False
         cfg["loop_auto_mode"] = "off"
-        cfg["founder_motion"] = "ASF resume drain when FREEZE · Loop specialist tick on Hub"
+        cfg["founder_motion"] = "ASF resume Cloud Forge Run when FREEZE · Auto Runtime specialist tick on Hub"
         save_config(cfg)
     return run_tick(
         write=True,
@@ -574,7 +574,7 @@ def handle_hub_post(body: dict | None = None) -> dict:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Loop Specialist tick")
+    ap = argparse.ArgumentParser(description="Auto Runtime specialist tick")
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--no-write", action="store_true")
     ap.add_argument("--dispatch", action="store_true", help="Attempt dispatch if policy allows")

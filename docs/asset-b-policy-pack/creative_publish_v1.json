@@ -1,0 +1,41 @@
+{
+  "schema": "asset-b-policy-pack-v1",
+  "policy_id": "creative_publish_v1",
+  "buyer_facing_name": "Creative/Post Loop — Human Handoff Required",
+  "intent": "publish_content",
+  "description": "Blocks publish to Instagram/LinkedIn/etc unless human_handoff == true. After handoff, publish is allowed with receipt.",
+  "rules": [
+    {
+      "effect": "deny",
+      "when": "human_handoff != true",
+      "reason": "Publish requires human approval"
+    },
+    {
+      "effect": "allow",
+      "when": "human_handoff == true",
+      "receipt": {
+        "sign": true,
+        "include": [
+          "platform",
+          "asset_id",
+          "caption_hash",
+          "approver",
+          "timestamp"
+        ],
+        "tamper_check": "sha256"
+      }
+    }
+  ],
+  "demo_steps": [
+    "attempt publish → BLOCKED",
+    "set human_handoff true → ALLOWED",
+    "view receipt → VERIFIED",
+    "modify receipt → TAMPER FAIL"
+  ],
+  "sku_mapping": "SKU-DFY-001 / client agent",
+  "demo_intents": {
+    "block": "demo/asset-b/creative-block.json",
+    "allow": "demo/asset-b/creative-allow.json"
+  },
+  "law": "docs/SOURCEA_ASSET_B_POLICY_PACK_LOCKED_v1.md"
+}

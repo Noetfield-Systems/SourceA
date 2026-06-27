@@ -1,0 +1,42 @@
+{
+  "schema": "asset-b-policy-pack-v1",
+  "policy_id": "outreach_loop_v1",
+  "buyer_facing_name": "Outreach Loop — No Send Without Approval",
+  "intent": "send_outreach",
+  "description": "Blocks any outbound email/DM unless an approval_ref is present. Every allowed send emits a signed receipt.",
+  "rules": [
+    {
+      "effect": "deny",
+      "when": "approval_ref == null",
+      "reason": "Outbound requires manager approval"
+    },
+    {
+      "effect": "allow",
+      "when": "approval_ref != null",
+      "receipt": {
+        "sign": true,
+        "include": [
+          "to",
+          "channel",
+          "subject",
+          "approval_ref",
+          "actor",
+          "timestamp"
+        ],
+        "tamper_check": "sha256"
+      }
+    }
+  ],
+  "demo_steps": [
+    "attempt send without ref → BLOCKED",
+    "add approval_ref → ALLOWED",
+    "view receipt → VERIFIED",
+    "modify receipt → TAMPER FAIL"
+  ],
+  "sku_mapping": "SKU-DFY-001 / outreach",
+  "demo_intents": {
+    "block": "demo/asset-b/outreach-block.json",
+    "allow": "demo/asset-b/outreach-allow.json"
+  },
+  "law": "docs/SOURCEA_ASSET_B_POLICY_PACK_LOCKED_v1.md"
+}

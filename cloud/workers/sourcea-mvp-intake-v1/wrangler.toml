@@ -1,0 +1,8 @@
+name = "sourcea-mvp-intake-v1"
+main = "src/index.js"
+compatibility_date = "2024-06-01"
+account_id = "0d0b967b77e2e5535455d39ff3dae72c"
+
+# Route on sourcea.com when DNS is on Cloudflare:
+# routes = [{ pattern = "sourcea.com/api/commercial/mvp-intake/v1", zone_name = "sourcea.com" }]
+# Secret: wrangler secret put RESEND_API_KEY

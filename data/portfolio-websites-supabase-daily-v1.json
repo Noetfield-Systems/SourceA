@@ -56,7 +56,7 @@
       "module": "noetfield",
       "supabase_tier": "noetfield",
       "url": "https://www.noetfield.com",
-      "health_paths": ["/", "/copilot/pilot/"],
+      "health_paths": ["/", "/intelligence/intake/", "/governance/", "/copilot/pilot/"],
       "required": true
     },
     {

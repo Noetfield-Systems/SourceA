@@ -52,15 +52,15 @@ def _http_probe(url: str, *, timeout: float = 12.0) -> dict[str, Any]:
 def _cloud_queue_ssot(*, timeout: float = 12.0) -> dict[str, Any]:
     """Cloud queue head — Railway only (no Mac :13020/:13027 polling)."""
     base = os.environ.get("FBE_CLOUD_WORKER_URL", "https://sourcea-fbe-runner-production.up.railway.app").rstrip("/")
-    row = _http_probe(f"{base}/api/cloud-drain/queue/v1", timeout=timeout)
+    row = _http_probe(f"{base}/api/cloud-forge-run/queue/v1", timeout=timeout)
     if not row.get("ok"):
         return {"ok": False, "error": row.get("error"), "queue_head": None}
     body = row.get("body") or {}
-    auto = (SINA / "cloud-drain-auto-proceed-v1.flag").is_file()
+    auto = (SINA / "cloud-forge-run-auto-proceed-v1.flag").is_file()
     return {
         "ok": True,
-        "queue_head": body.get("cloud_drain_head"),
-        "last_completed": body.get("cloud_drain_last_completed"),
+        "queue_head": body.get("cloud_forge_run_head"),
+        "last_completed": body.get("cloud_forge_run_last_completed"),
         "pipe": "LIVE",
         "auto_proceed": auto,
         "source": "cloud:railway_queue_v1",
@@ -79,8 +79,8 @@ def _extract_head(source_url: str, field: str) -> str | None:
     if field == "queue_head":
         sit = body.get("situation") or {}
         return sit.get("queue_head") or (body.get("cloud_workers_live") or {}).get("queue_head")
-    if field == "cloud_drain_head":
-        return body.get("cloud_drain_head")
+    if field == "cloud_forge_run_head":
+        return body.get("cloud_forge_run_head")
     return body.get(field)
 
 
@@ -90,13 +90,13 @@ def _hub_queue_fast() -> dict[str, Any]:
     if phase_path.is_file():
         try:
             phase = json.loads(phase_path.read_text(encoding="utf-8"))
-            head = phase.get("cloud_drain_head") or phase.get("queue_head")
+            head = phase.get("cloud_forge_run_head") or phase.get("queue_head")
             if head:
-                auto = (SINA / "cloud-drain-auto-proceed-v1.flag").is_file()
+                auto = (SINA / "cloud-forge-run-auto-proceed-v1.flag").is_file()
                 return {
                     "ok": True,
                     "queue_head": head,
-                    "last_completed": phase.get("cloud_drain_last_completed"),
+                    "last_completed": phase.get("cloud_forge_run_last_completed"),
                     "pipe": "LIVE",
                     "auto_proceed": auto,
                     "source": "disk:phase-observed-v1.json",
@@ -128,7 +128,7 @@ def validate_chains_fast(*, write: bool = True) -> dict[str, Any]:
                 row["error"] = pr.get("error")
             body = pr.get("body") or {}
             if cid == "railway_cloud_queue":
-                row["queue_head"] = body.get("cloud_drain_head")
+                row["queue_head"] = body.get("cloud_forge_run_head")
             if cid in ("cloud_workers_app", "n8n_integration_app"):
                 sit = body.get("situation") or {}
                 row["queue_head"] = sit.get("queue_head") or (body.get("cloud_workers_live") or {}).get("queue_head")
@@ -154,7 +154,7 @@ def validate_chains_fast(*, write: bool = True) -> dict[str, Any]:
             chains_out.append(row)
     chains_out.sort(key=lambda r: str(r.get("id") or ""))
 
-    flag_path = _expand(str(ssot.get("autopilot_flag") or "~/.sina/cloud-drain-auto-proceed-v1.flag"))
+    flag_path = _expand(str(ssot.get("autopilot_flag") or "~/.sina/cloud-forge-run-auto-proceed-v1.flag"))
     receipt = {
         "schema": "living-system-chain-validate-receipt-v1",
         "mode": "fast",
@@ -198,7 +198,7 @@ def validate_chains(*, write: bool = True) -> dict[str, Any]:
                 row["error"] = pr.get("error")
             body = pr.get("body") or {}
             if cid == "railway_cloud_queue":
-                row["queue_head"] = body.get("cloud_drain_head")
+                row["queue_head"] = body.get("cloud_forge_run_head")
             if cid == "cloud_workers_app" and body.get("situation"):
                 row["queue_head"] = (body.get("situation") or {}).get("queue_head")
             if cid == "n8n_integration_app":
@@ -231,7 +231,7 @@ def validate_chains(*, write: bool = True) -> dict[str, Any]:
         chains_out.append(row)
 
     autopilot = bool(hub.get("auto_proceed"))
-    flag_path = _expand(str(ssot.get("autopilot_flag") or "~/.sina/cloud-drain-auto-proceed-v1.flag"))
+    flag_path = _expand(str(ssot.get("autopilot_flag") or "~/.sina/cloud-forge-run-auto-proceed-v1.flag"))
     receipt = {
         "schema": "living-system-chain-validate-receipt-v1",
         "at": _now(),
@@ -264,11 +264,11 @@ def validate_chains_cloud(*, write: bool = False) -> dict[str, Any]:
     port = int(os.environ.get("PORT", "8080"))
     self_base = (os.environ.get("FBE_SELF_URL") or f"http://127.0.0.1:{port}").rstrip("/")
     try:
-        from fbe.lib.cloud_drain_queue_v1 import read_head  # noqa: WPS433
+        from fbe.lib.cloud_forge_run_queue_v1 import read_head  # noqa: WPS433
 
         hub = {
             "ok": True,
-            "queue_head": read_head().get("cloud_drain_head"),
+            "queue_head": read_head().get("cloud_forge_run_head"),
             "source": "cloud:phase-observed",
         }
     except Exception as exc:
@@ -304,11 +304,17 @@ def validate_chains_cloud(*, write: bool = False) -> dict[str, Any]:
                     row["error"] = pr.get("error")
                 body = pr.get("body") or {}
                 if cid == "railway_cloud_queue":
-                    row["queue_head"] = body.get("cloud_drain_head")
+                    row["queue_head"] = body.get("cloud_forge_run_head")
         elif ptype == "env":
             key = str(probe.get("key") or "")
-            val = str(os.environ.get(key, "")).lower()
             expect = str(probe.get("expect") or "true").lower()
+            if key == "CLOUD_FORGE_RUN_AUTO_PROCEED":
+                val = str(
+                    os.environ.get("CLOUD_FORGE_RUN_AUTO_PROCEED")
+                    or os.environ.get("CLOUD_DRAIN_AUTO_PROCEED", "")
+                ).lower()
+            else:
+                val = str(os.environ.get(key, "")).lower()
             row["ok"] = val == expect
             if not row["ok"]:
                 row["error"] = f"env:{key}!={expect}"
@@ -326,7 +332,10 @@ def validate_chains_cloud(*, write: bool = False) -> dict[str, Any]:
         "ok": critical_fail == 0,
         "critical_fail": critical_fail,
         "hub_queue": hub,
-        "autopilot_armed": str(os.environ.get("CLOUD_DRAIN_AUTO_PROCEED", "")).lower() == "true",
+        "autopilot_armed": str(
+            os.environ.get("CLOUD_FORGE_RUN_AUTO_PROCEED") or os.environ.get("CLOUD_DRAIN_AUTO_PROCEED", "")
+        ).lower()
+        == "true",
         "chains": chains_out,
         "chains_up": sum(1 for c in chains_out if c.get("ok")),
         "chains_total": len(chains_out),

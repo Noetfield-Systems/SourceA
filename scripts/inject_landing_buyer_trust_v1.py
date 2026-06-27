@@ -279,8 +279,8 @@ def build_trust_signals() -> dict:
         "github": github,
         "governance": gov,
         "factory_now_line": surf_line,
-        "status_page": "/sourcea/status.html",
-        "proof_sample": "/sourcea/attach/proof-bundle-sample.html",
+        "status_page": "/sourcea/status",
+        "proof_sample": "/sourcea/attach/proof-bundle-sample",
         "built_on": [
             {"id": "temporal", "label": "Temporal", "note": "durable workflow orchestration"},
             {"id": "anthropic", "label": "Anthropic Claude", "note": "Claude API · policy at dispatch"},

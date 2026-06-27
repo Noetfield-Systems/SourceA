@@ -1,0 +1,15 @@
+{
+  "name": "sourcea-commercial-66s-hf-v1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.7.4 preview",
+    "check": "npx --yes hyperframes@0.7.4 lint && npx --yes hyperframes@0.7.4 validate && npx --yes hyperframes@0.7.4 inspect",
+    "render": "bash render-all.sh",
+    "publish": "npx --yes hyperframes@0.7.4 publish"
+  },
+  "devDependencies": {
+    "ffmpeg-static": "5.2.0",
+    "ffprobe-static": "3.1.0"
+  }
+}

@@ -360,7 +360,7 @@ Full dictionary: `archive/attachments/founder-language/dictionary.yaml`
 | Sina Command / Command panel (founder daily) | Worker Hub · Next steps |
 | AUTO-RUN / Goal 1 auto-run | RUN INBOX · auto-run-disabled flag |
 | Mirror site / rebrand skin (Wil) | Sovereign Wil AI · local-brand presentation |
-| 616 or factory drain as hero | Honest counter background · 986/1000 internal |
+| 616 or Cloud Forge Run as hero | Honest counter background · 986/1000 internal |
 | $100M close in 6 months | Narrative upside band — not guarantee |
 | Trust OS / Decision Cloud as build | Governed execution layer · demo scope |
 | We custody funds / move money | Pre-execution advisory · licensed partners execute |

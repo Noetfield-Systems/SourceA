@@ -1,0 +1,16 @@
+{
+  "schema": "sourcea-stripe-config-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-24T01:35:00Z",
+  "billing_account": "noetfield@gmail.com",
+  "billing_law": "Stripe billing stays noetfield@gmail.com — never mixed with deploy Gmail (STAB-104)",
+  "platform_sku": {
+    "name": "SourceA Platform Runtime",
+    "band": "$2K/mo",
+    "payment_link_env": "SOURCEA_STRIPE_PLATFORM_PAYMENT_LINK",
+    "payment_link_placeholder": "https://buy.stripe.com/test_REPLACE_ME",
+    "post_checkout_template": "docs/templates/sourcea-platform-onboarding-email-v1.txt"
+  },
+  "sandbox_free": true,
+  "founder_line": "Set SOURCEA_STRIPE_PLATFORM_PAYMENT_LINK in ~/.sina/secrets.env when Payment Link created"
+}

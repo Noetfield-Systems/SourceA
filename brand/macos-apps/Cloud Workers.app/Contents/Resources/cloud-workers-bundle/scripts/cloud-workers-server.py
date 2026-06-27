@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Cloud Workers Command Center — standalone server (UI + API). Default :13027."""
+"""Cloud Workers Command Center — standalone server (UI + API). Default :13027.
+
+Law: Cloud Workers is the founder cockpit for Railway + CF cron — NOT Worker Hub :13020.
+Proceed / probe / dispatch go direct to FBE cloud worker URL. Hub is optional glance only.
+"""
 from __future__ import annotations
 
 import json
@@ -13,7 +17,9 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlparse
 
+# Legacy hub port — optional only; never required for Proceed.
 HUB_PORT = int(os.environ.get("SINA_COMMAND_PORT", "13020"))
+PROCEED_LOG = Path.home() / ".sina" / "cloud-workers-proceed-log-v1.jsonl"
 
 
 def _bundle_root_env() -> str:
@@ -39,17 +45,7 @@ else:
     SCRIPTS_DIR = SOURCE_A / "scripts"
 
 PORT = int(os.environ.get("CLOUD_WORKERS_PORT", "13027"))
-UI_VERSION = "1.1.0"
-
-MUTATING_ACTIONS = frozenset(
-    {
-        "skip_head",
-        "skip_to_next_real",
-        "auto_tick",
-        "dispatch",
-        "proceed",
-    }
-)
+UI_VERSION = "1.3.0"
 
 
 def _resolve_source_a() -> Path:
@@ -68,13 +64,26 @@ def _resolve_source_a() -> Path:
 
 
 REAL_SA = _resolve_source_a()
+# Live UI + SSOT from repo — .app bundle is fallback when Desktop/SourceA is missing.
+if (REAL_SA / "agent-control-panel" / "shared" / "cloud-workers-panel.js").is_file():
+    SHARED_DIR = REAL_SA / "agent-control-panel" / "shared"
+if (REAL_SA / "scripts" / "cloud-workers-standalone" / "index.html").is_file():
+    APP_DIR = REAL_SA / "scripts" / "cloud-workers-standalone"
+DEBUG_LOG = REAL_SA / ".cursor" / "debug-23242e.log"
 os.environ.setdefault("SINA_SOURCE_A", str(REAL_SA))
 os.environ.setdefault("CLOUD_WORKERS_STANDALONE", "1")
 os.environ.setdefault("CLOUD_WORKERS_PORT", str(PORT))
-# Prefer live workspace scripts over bundled copies so UI/API always
-# reflect current disk + cloud truth after upgrades.
 sys.path.insert(0, str(SCRIPTS_DIR))
 sys.path.insert(0, str(REAL_SA / "scripts"))
+
+
+def _read_json(path: Path) -> dict:
+    if not path.is_file():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
 
 
 def cors_headers(handler: BaseHTTPRequestHandler) -> None:
@@ -85,39 +94,123 @@ def cors_headers(handler: BaseHTTPRequestHandler) -> None:
 
 def _hub_up() -> bool:
     try:
-        with urllib.request.urlopen(f"http://127.0.0.1:{HUB_PORT}/health", timeout=2.5) as resp:
+        with urllib.request.urlopen(f"http://127.0.0.1:{HUB_PORT}/health", timeout=2.0) as resp:
             return resp.status == 200
     except Exception:
         return False
 
 
-def _proxy_hub_json(path: str, *, method: str = "GET", body: dict | None = None, timeout: float = 180.0) -> dict:
-    url = f"http://127.0.0.1:{HUB_PORT}{path}"
-    data = json.dumps(body or {}).encode() if body is not None else None
-    req = urllib.request.Request(
-        url,
-        data=data,
-        headers={"Content-Type": "application/json"} if data else {},
-        method=method,
-    )
+def _railway_up() -> bool:
+    deploy_path = Path.home() / ".sina" / "fbe-cloud-deploy-receipt-v1.json"
     try:
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            raw = resp.read().decode("utf-8", errors="replace")
-            parsed = json.loads(raw) if raw.strip() else {}
-            return {"ok": True, "status": resp.status, **parsed} if isinstance(parsed, dict) else {"ok": True, "body": parsed}
-    except urllib.error.HTTPError as exc:
-        raw = exc.read().decode("utf-8", errors="replace")
+        deploy = json.loads(deploy_path.read_text(encoding="utf-8"))
+        health = deploy.get("health") if isinstance(deploy.get("health"), dict) else {}
+        return bool(deploy.get("ok")) and bool(health.get("ok"))
+    except (OSError, json.JSONDecodeError):
+        return False
+
+
+def _dbg(hypothesis_id: str, location: str, message: str, data: dict | None = None) -> None:
+    # #region agent log
+    try:
+        payload = {
+            "sessionId": "23242e",
+            "hypothesisId": hypothesis_id,
+            "location": location,
+            "message": message,
+            "data": data or {},
+            "timestamp": int(datetime.now(timezone.utc).timestamp() * 1000),
+        }
+        DEBUG_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with DEBUG_LOG.open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps(payload, ensure_ascii=False) + "\n")
+    except OSError:
+        pass
+    # #endregion
+
+
+def _append_proceed_log(row: dict) -> None:
+    try:
+        PROCEED_LOG.parent.mkdir(parents=True, exist_ok=True)
+        entry = {
+            "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "ok": row.get("ok"),
+            "plan_id": row.get("plan_id"),
+            "error": row.get("error"),
+            "decision": row.get("decision"),
+            "pack_advanced": (row.get("pack") or {}).get("advanced"),
+            "show_this": (row.get("for_founder") or {}).get("show_this"),
+            "cloud_url": row.get("cloud_worker_url"),
+        }
+        with PROCEED_LOG.open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    except OSError:
+        pass
+
+
+def _proceed_direct_cloud(body: dict | None) -> dict:
+    """Full-pack proceed — Railway only, no Worker Hub."""
+    _dbg("H1", "cloud-workers-server:_proceed_direct_cloud", "proceed start", {"full_pack": (body or {}).get("full_pack")})
+    try:
+        from hub_cloud_forge_run_proceed_v1 import proceed_from_hub  # noqa: WPS433
+        from fbe.lib.hub_cloud_proxy_v1 import cloud_worker_url  # noqa: WPS433
+
+        payload = dict(body or {})
+        payload.setdefault("full_pack", True)
+        payload.setdefault("max_advance", 100)
+        payload.setdefault("full_motor", True)
+        payload.setdefault("trigger_source", "hub_proceed_pack")
+        payload.setdefault("force_reset_gate", True)
+        row = proceed_from_hub(payload)
+        if row.get("error") == "mac_observe_only":
+            ssot = _read_json(REAL_SA / "data/cloud-auto-runtime-v1.json")
+            cf = (ssot.get("cloudflare_worker") or {}).get("url") or ""
+            cf = str(cf).rstrip("/")
+            row = {
+                **row,
+                "ok": True,
+                "decision": "use_cf_cron",
+                "redirect": "browser_cf_tick",
+                "cf_tick_url": f"{cf}/tick" if cf else None,
+                "for_founder": {
+                    "show_this": (
+                        "Mac observe only — use Trigger CF full-pack button (browser→CF→Railway). "
+                        "CF cron */10 runs automatically."
+                    ),
+                },
+            }
+        cloud = row.get("cloud") if isinstance(row.get("cloud"), dict) else {}
+        if cloud.get("pack"):
+            row["pack"] = cloud.get("pack")
+        row["execution_plane"] = "cloud_workers_standalone"
+        row["cloud_worker_url"] = cloud_worker_url() or None
+        row["hub_required"] = False
+        _append_proceed_log(row)
         try:
-            parsed = json.loads(raw) if raw.strip() else {}
-        except json.JSONDecodeError:
-            parsed = {"raw": raw[:500]}
-        if isinstance(parsed, dict):
-            parsed.setdefault("ok", False)
-            parsed["status"] = exc.code
-            return parsed
-        return {"ok": False, "status": exc.code, "error": str(exc)}
+            from cloud_workers_hub_v1 import append_event  # noqa: WPS433
+
+            append_event(
+                "proceed",
+                {
+                    "ok": bool(row.get("ok")),
+                    "plan_id": row.get("plan_id"),
+                    "line": row.get("hub_proceed_line") or (row.get("for_founder") or {}).get("show_this"),
+                    "pack_advanced": (row.get("pack") or {}).get("advanced"),
+                    "source": "cloud_workers_standalone",
+                },
+            )
+        except Exception:
+            pass
+        _dbg("H1", "cloud-workers-server:_proceed_direct_cloud", "proceed done", {"ok": row.get("ok"), "plan_id": row.get("plan_id")})
+        return row
     except Exception as exc:
-        return {"ok": False, "error": str(exc), "hub_required": True, "hint": f"Start Worker Hub on :{HUB_PORT}"}
+        _dbg("H1", "cloud-workers-server:_proceed_direct_cloud", "proceed exception", {"error": str(exc)[:300]})
+        return {
+            "ok": False,
+            "error": "proceed_failed",
+            "message": str(exc)[:500],
+            "for_founder": {"show_this": f"Proceed failed: {str(exc)[:200]}"},
+        }
 
 
 class CloudWorkersHTTPServer(ThreadingHTTPServer):
@@ -137,6 +230,7 @@ class CloudWorkersHandler(BaseHTTPRequestHandler):
         path = urlparse(self.path).path
         if path == "/health":
             from founder_glance_cockpit_v1 import build_ui_contract  # noqa: WPS433
+            from fbe.lib.hub_cloud_proxy_v1 import cloud_worker_url  # noqa: WPS433
 
             self._json(
                 200,
@@ -146,25 +240,26 @@ class CloudWorkersHandler(BaseHTTPRequestHandler):
                     "port": PORT,
                     "standalone": True,
                     "version": UI_VERSION,
-                    "hub_port": HUB_PORT,
-                    "hub_live": _hub_up(),
+                    "ui_version": UI_VERSION,
+                    "shared_dir": str(SHARED_DIR),
+                    "app_dir": str(APP_DIR),
+                    "railway_live": _railway_up(),
+                    "railway_url": cloud_worker_url() or None,
+                    "legacy_hub_port": HUB_PORT,
+                    "legacy_hub_live": _hub_up(),
+                    "hub_required_for_proceed": False,
                     "ui_contract": build_ui_contract("cloud_workers", port=PORT),
                 },
             )
             return
         if path == "/api/cloud-workers/v1":
-            hub_live = _hub_up()
-            if hub_live:
-                row = _proxy_hub_json("/api/cloud-workers/v1", method="GET", timeout=180.0)
-                code = int(row.pop("status", 200) or 200)
-                row["hub_live"] = True
-                self._json(code, row)
-                return
             from cloud_workers_hub_v1 import payload  # noqa: WPS433
 
             row = payload()
-            row["hub_live"] = False
-            row["fallback_mode"] = "local_payload"
+            row["hub_live"] = _railway_up()
+            row["railway_live"] = row["hub_live"]
+            row["legacy_hub_live"] = _hub_up()
+            row["standalone_mode"] = True
             self._json(200, row)
             return
         if path == "/api/hub-pro-skills/v1":
@@ -209,41 +304,22 @@ class CloudWorkersHandler(BaseHTTPRequestHandler):
             body = {}
         if path == "/api/cloud-workers/v1":
             action = str(body.get("action") or "").strip().lower()
-            standalone = os.environ.get("CLOUD_WORKERS_STANDALONE") == "1"
-            if standalone and action in MUTATING_ACTIONS and _hub_up():
-                result = _proxy_hub_json("/api/cloud-workers/v1", method="POST", body=body, timeout=180.0)
-                code = int(result.pop("status", 200) or 200)
-                if result.get("ok", True) or result.get("error") != "execution_failed":
-                    self._json(code, result)
-                    return
+            if action == "proceed":
+                result = _proceed_direct_cloud(body)
+                code = 200 if result.get("ok") else 422
+                self._json(code, result)
+                return
             from cloud_workers_hub_v1 import handle_action  # noqa: WPS433
 
             try:
                 result = handle_action(body)
             except Exception as exc:
                 result = {"ok": False, "error": "execution_failed", "message": str(exc)[:500]}
-                if standalone and _hub_up() and action in MUTATING_ACTIONS:
-                    result = _proxy_hub_json("/api/cloud-workers/v1", method="POST", body=body, timeout=180.0)
-                    code = int(result.pop("status", 200) or 200)
-                    self._json(code, result)
-                    return
             self._json(200 if result.get("ok", True) else 400, result)
             return
-        if path == "/api/cloud-drain/proceed/v1":
-            if not _hub_up():
-                self._json(
-                    503,
-                    {
-                        "ok": False,
-                        "error": "hub_down",
-                        "for_founder": {
-                            "show_this": f"Worker Hub :{HUB_PORT} must be running for Proceed — open Worker Hub.app first.",
-                        },
-                    },
-                )
-                return
-            result = _proxy_hub_json(path, method="POST", body=body, timeout=180.0)
-            code = int(result.pop("status", 200) or 200)
+        if path == "/api/cloud-forge-run/proceed/v1":
+            result = _proceed_direct_cloud(body)
+            code = 200 if result.get("ok") else 422
             self._json(code, result)
             return
         if path == "/api/hub-pro-skills/v1":

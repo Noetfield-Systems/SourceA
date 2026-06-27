@@ -15,7 +15,7 @@ def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--max-turns", type=int, default=1)
     p.add_argument("--max-packs", type=int, default=1)
-    p.add_argument("--trigger", default="ASF: resume drain")
+    p.add_argument("--trigger", default="ASF: Cloud Forge Run")
     p.add_argument("--ttl-minutes", type=int, default=30)
     args = p.parse_args()
     print(json.dumps(write_resume_token(

@@ -18,7 +18,7 @@ if not gen.get("ok"):
 
 checks = [
     ("noetfield", "operations@noetfield.com", "NF-RD", "tamper-FAIL"),
-    ("ab1", "hello@sourcea.com", "Agent Loop Build", "policy at dispatch"),
+    ("ab1", "hello@sourcea.app", "Agent Loop Build", "policy at dispatch"),
 ]
 
 for key, *needles in checks:

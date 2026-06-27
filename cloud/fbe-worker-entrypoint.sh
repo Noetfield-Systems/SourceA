@@ -84,6 +84,12 @@ run_full_job() {
 if [[ "$MODE" == "--serve-http" ]]; then
   validate_skeleton
   python3 scripts/fbe_cloud_motor_seed_v1.py --json || true
+  python3 -c "
+from fbe.lib.cloud_forge_run_queue_v1 import boot_heal_queue
+from cloud_auto_runtime_single_cycle_gate_v1 import heal_stale_pack_gate
+import json
+print(json.dumps({'cloud_forge_run_boot_heal': boot_heal_queue(force=True), 'pack_gate': heal_stale_pack_gate()}, indent=2))
+" 2>/dev/null || true
   echo "FBE W6 headless HTTP worker (port ${PORT:-8080})"
   exec python3 scripts/fbe_cloud_worker_http_v1.py --port "${PORT:-8080}"
 fi

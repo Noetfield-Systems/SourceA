@@ -91,7 +91,7 @@ def main() -> int:
         ("P0", "execution_inbox", "Broker round-trip", "Broker submit after U029", "goal1-lane-broker-v1.py", "last_worker_report fresh"),
         ("P0", "execution_inbox", "Plan mark honesty", "Mark U029 done with execution_proof", "outbound-factory-100-upgrade-plan-v1.json", "worker proof not bulk_wiring"),
         ("P0", "execution_inbox", "Heal chain post-turn", "Run outbound_disk_coherence_heal", "outbound_disk_coherence_heal_v1.py", "heal_ok true"),
-        ("P0", "execution_inbox", "Loop specialist clear", "Tick after U029 clears inbox", "loop_specialist_tick_v1.py", "execute_pending or observe"),
+        ("P0", "execution_inbox", "Auto Runtime specialist clear", "Tick after U029 clears inbox", "loop_specialist_tick_v1.py", "execute_pending or observe"),
         ("P0", "execution_inbox", "INBOX truth patch", "Refresh disk truth block", "run_inbox_disk_truth_v1.py", "truth_match true"),
         ("P1", "execution_inbox", "U030 worker proof", "Re-verify U030 compile_sequence receipt", "icp_output_compiler_v1.py", "NF|TF then SA in receipt"),
         ("P1", "execution_inbox", "Queue drain U031", "Execute U031 RRL per-account history", "Worker INBOX", "U031 done + receipt"),
@@ -165,7 +165,7 @@ def main() -> int:
         ("P1", "session_gate", "Governance center fast", "governance_center gate pass", "governance_center_run_v1.py", "center ok"),
         ("P1", "session_gate", "Gate cart 17/17", "cart ok when execution+commercial founder done", "governance_gate_cart_v1.py", "17/17 or documented founder block"),
         ("P2", "session_gate", "Loop observatory freeze", "freeze truth with override", "loop_observatory_report_v1.py", "freeze honest"),
-        ("P2", "session_gate", "Loop auto graduation", "shadow_auto to full auto", "loop_auto_graduation_v1.py", "graduation when validators pass"),
+        ("P2", "session_gate", "Auto Runtime graduation", "shadow_auto to full auto", "loop_auto_graduation_v1.py", "graduation when validators pass"),
         ("P2", "session_gate", "Anti-staleness vocab pair", "both keys PASS", "validate-anti-staleness-vocabulary-gate-v1.sh", "paired PASS"),
         ("P2", "session_gate", "Disk live wire chain", "all steps including nerve research", "disk_live_wire_sync_v1.py", "full chain ok"),
     ]
@@ -220,9 +220,9 @@ def main() -> int:
     w7_items = [
         ("P1", "vocabulary", "Duty card taps", "Hub glance not RUN INBOX only", "agent-executor-daily-duty-card-v1.json", "inject aligned"),
         ("P1", "vocabulary", "Session gate inject", "match surfaces", "agent_session_gate_run_v1.py", "no split-brain"),
-        ("P1", "vocabulary", "GATE_TREE daily_ops", "loop auto disk INBOX", "agent_three_pipelines_lib_v1.py", "text fixed"),
+        ("P1", "vocabulary", "GATE_TREE daily_ops", "Auto Runtime disk INBOX", "agent_three_pipelines_lib_v1.py", "text fixed"),
         ("P1", "vocabulary", "MCP one_law", "assist not replace", "mcp-stack-free-tier-v1.json", "wording fixed"),
-        ("P2", "vocabulary", "Better loop motion", "Loop auto line", "better_loop_pulse_v1.py", "aligned"),
+        ("P2", "vocabulary", "Better loop motion", "Auto Runtime line", "better_loop_pulse_v1.py", "aligned"),
         ("P2", "vocabulary", "Stack map sync", "cross_ref aligned", "stack-map-routing-v1.json", "aligned"),
     ]
     for row in w7_items:
@@ -255,7 +255,7 @@ def main() -> int:
         ("W4", "Commercial L3 100%", "Sina read · mail · send"),
         ("W5", "Research L1/L2", "sync · orientation · nerve"),
         ("W6", "MCP free-tier", "GitHub P0 · leverage lanes"),
-        ("W7", "Vocabulary unify", "loop auto inject"),
+        ("W7", "Vocabulary unify", "Auto Runtime inject"),
         ("W8", "Governance honesty", "cart · bulk vs worker"),
         ("W9", "Cloud defer", "phase 2b · FBE"),
     ]:

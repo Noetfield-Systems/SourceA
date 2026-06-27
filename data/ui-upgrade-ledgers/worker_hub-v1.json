@@ -111,11 +111,11 @@
       "status": "approved",
       "quality_vs_last": "better",
       "preserved": "next_steps, command_tab, form_tab, system_roadmap_payload, build_pipeline",
-      "changed": "Cloud proceed card replaces hardcoded Send job \u00b7 dynamic next row \u00b7 OpenRouter/Gemini selector \u00b7 POST /api/cloud-drain/proceed/v1",
+      "changed": "Cloud proceed card replaces hardcoded Send job \u00b7 dynamic next row \u00b7 OpenRouter/Gemini selector \u00b7 POST /api/cloud-forge-run/proceed/v1",
       "achieved": "Founder one-tap cloud activation proceed wired to Railway proxy",
       "founder_approval": "pending",
       "machine_proof": {
-        "validate-hub-cloud-drain-proceed-v1.sh": "PASS"
+        "validate-hub-cloud-forge-run-proceed-v1.sh": "PASS"
       }
     }
   ]

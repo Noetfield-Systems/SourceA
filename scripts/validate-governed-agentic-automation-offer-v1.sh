@@ -45,7 +45,7 @@ PY
 
 grep -qE "## 2c\.|§2c" "$SSOT" || fail "SSOT missing §2c Asset B pointer"
 grep -q "SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md" "$SSOT" || fail "SSOT missing Asset B law pointer"
-grep -q "hello@sourcea.com" "$LAW" || fail "Asset B law missing hello@sourcea.com sender"
+grep -q "hello@sourcea.app" "$LAW" || fail "Asset B law missing hello@sourcea.app sender"
 grep -q "send_ab1_single_v1.py" "$LAW" || fail "Asset B law missing send script"
 [[ -f "$ROOT/scripts/send_ab1_single_v1.py" ]] || fail "missing send_ab1_single_v1.py"
 
@@ -57,10 +57,10 @@ from pathlib import Path
 p = Path.home() / ".sina/governed-agentic-automation-email-templates-v1.json"
 data = json.loads(p.read_text())
 sender = (data.get("templates") or {}).get("sender") or {}
-assert sender.get("from_email") == "hello@sourcea.com", sender
+assert sender.get("from_email") == "hello@sourcea.app", sender
 body = (data.get("templates") or {}).get("ab1_primary", {}).get("body", "")
 subj = (data.get("templates") or {}).get("ab1_primary", {}).get("subject", "")
-assert "hello@sourcea.com" in body
+assert "hello@sourcea.app" in body
 assert 'Reply "stop"' in body
 assert "executed last night" in subj
 assert "ab1_short_punchy" in (data.get("templates") or {})

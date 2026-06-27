@@ -1,0 +1,39 @@
+{
+  "schema": "forge-model-roi-matrix-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-25T01:30:00Z",
+  "authority": "docs/SOURCEA_TIER_PRIORITY_COST_INTELLIGENCE_POLICY_LOCKED_v1.md",
+  "one_law": "Free/cheap first for bulk+check; escalate to Sonnet-class for build/act; Opus/o1 only for critical/reason when ROI gate passes.",
+  "roles": {
+    "bulk": {
+      "label": "Massive work",
+      "hint": "Highest volume · lowest $/token — drafts, rows, exploration",
+      "priority": ["gpt-4o", "deepseek-v4", "claude-haiku-4-direct", "gpt-4o-mini-or"]
+    },
+    "build": {
+      "label": "Build",
+      "hint": "Code gen · patches · refactors · ship-quality output",
+      "priority": ["claude-sonnet-4-direct", "claude-3.5-sonnet", "gpt-4o", "gemini-1.5-pro"]
+    },
+    "act": {
+      "label": "Act",
+      "hint": "Execute plans · tool-heavy · multi-step agent turns",
+      "priority": ["claude-sonnet-4-direct", "gpt-4o", "claude-3.5-sonnet", "gemini-1.5-pro"]
+    },
+    "check": {
+      "label": "Check",
+      "hint": "Verify · lint · read-only audit · Haiku-class ROI",
+      "priority": ["claude-haiku-4-direct", "gpt-4o-mini-or", "deepseek-v4", "gemini-1.5-flash"]
+    },
+    "reason": {
+      "label": "Reason",
+      "hint": "Deep logic · architecture · debug root-cause",
+      "priority": ["deepseek-r1-or", "openai-o1", "claude-sonnet-4-direct", "gemini-1.5-pro"]
+    },
+    "critical": {
+      "label": "Critical",
+      "hint": "Governance · security · no-fail decisions — spend only when blocked",
+      "priority": ["claude-opus-4-or", "openai-o1", "claude-sonnet-4-direct", "gemini-1.5-pro"]
+    }
+  }
+}

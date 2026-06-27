@@ -9,7 +9,7 @@ AUTONOMY NOT PROVEN unless all steps below produce independent evidence.
 ## Steps
 
 1. Apply Supabase migration `001_truth_layer_cycle_receipts_v1.sql` to portfolio-spine.
-2. Set on Railway `sourcea-fbe-runner`: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `CLOUD_DRAIN_AUTO_PROCEED=true`.
+2. Set on Railway `sourcea-fbe-runner`: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `CLOUD_FORGE_RUN_AUTO_PROCEED=true`.
 3. Redeploy FBE runner after migration + env.
 4. Record Mac power-off time (UTC).
 5. Shut down Mac completely (not sleep).
@@ -44,7 +44,7 @@ Missing any field → VERDICT = FAIL.
 
 ### B — Cloudflare (SOURCE 3)
 
-Cloudflare dashboard → Workers → `sourcea-cloud-drain-tick-v1` → Logs.
+Cloudflare dashboard → Workers → `sourcea-cloud-auto-runtime-tick-v1` → Logs.
 
 Filter cron executions between Mac off and Mac on.
 
@@ -58,7 +58,7 @@ Each cron must correspond to one Supabase receipt within ±2 minutes.
 railway logs -s sourcea-fbe-runner -e production --since 2h --json
 ```
 
-Find `[FBE KERNEL] "POST /api/cloud-drain/proceed/v1` lines matching Supabase `started_at` windows.
+Find `[FBE KERNEL] "POST /api/cloud-forge-run/proceed/v1` lines matching Supabase `started_at` windows.
 
 Record `RAILWAY_DEPLOYMENT_INSTANCE_ID` from runtime env; must match Supabase `execution_id` for GREEN rows.
 

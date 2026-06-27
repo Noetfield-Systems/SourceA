@@ -1,7 +1,7 @@
 {
   "schema": "ecosystem-mac-health-111-upgrade-plan-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-22T13:13:42Z",
+  "saved_at": "2026-06-24T08:37:08Z",
   "law": "Mac = control panel \u00b7 Mac Health = silent auto heal \u00b7 validators/E2E on cloud \u00b7 founder progress honest on disk",
   "waves": {
     "W1": [
@@ -124,7 +124,7 @@
       "cloud_proof_required": false,
       "local_worker_allowed": false,
       "founder_session_safe": true,
-      "done_at": "2026-06-22T13:13:42Z",
+      "done_at": "2026-06-24T08:37:08Z",
       "execution_proof": {
         "probe": "health_tab_count_zero"
       }
@@ -783,12 +783,12 @@
       "epic": "E03",
       "epic_label": "Hub founder glance merge",
       "tier": "P1",
-      "title": "Hub loop specialist tick button \u2014 POST cloud dispatch only",
+      "title": "Hub Auto Runtime specialist tick button \u2014 POST cloud dispatch only",
       "goal_alignment": "mac_health_founder",
       "execution_plane": "mac_control_panel",
       "control_plane": "mac_hub",
       "wired_to": "scripts/sina-command-server.py",
-      "work_template": "WORK: M111-029 \u2014 Hub loop specialist tick button \u2014 POST cloud dispatch only",
+      "work_template": "WORK: M111-029 \u2014 Hub Auto Runtime specialist tick button \u2014 POST cloud dispatch only",
       "acceptance": "tick receipt execution_plane=cloud_api_worker",
       "receipt_path": "~/.sina/loop-specialist-tick-receipt-v1.json",
       "status": "done",
@@ -1246,12 +1246,12 @@
       "epic": "E05",
       "epic_label": "Cloud factory heartbeat",
       "tier": "P0",
-      "title": "Loop specialist Cloudflare cron POST hub tick when auto enabled",
+      "title": "Auto Runtime specialist Cloudflare cron POST hub tick when auto enabled",
       "goal_alignment": "cloud_execute",
       "execution_plane": "cloud_api_worker",
       "control_plane": "mac_hub",
       "wired_to": "data/loop-specialist-cloud-contract-v1.json",
-      "work_template": "WORK: M111-051 \u2014 Loop specialist Cloudflare cron POST hub tick when auto enabled",
+      "work_template": "WORK: M111-051 \u2014 Auto Runtime specialist Cloudflare cron POST hub tick when auto enabled",
       "acceptance": "Worker cron hits hub_api dispatch=true",
       "receipt_path": "~/.sina/loop-specialist-cloud-cron-v1.json",
       "status": "done",

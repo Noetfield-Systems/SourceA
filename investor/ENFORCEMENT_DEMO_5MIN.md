@@ -22,7 +22,7 @@
 
 > We make AI execution impossible to bypass governance.
 
-**Do not say:** Trust OS · Decision Cloud · AI Kernel · $100M close in 6 months · factory drain %.
+**Do not say:** Trust OS · Decision Cloud · AI Kernel · $100M close in 6 months · Cloud Forge Run %.
 
 ---
 

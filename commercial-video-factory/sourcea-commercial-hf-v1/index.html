@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Plus Jakarta Sans";
+        src: url("capture/assets/fonts/LDIbaomQNQcsA88c7O9yZ4KMCoOg4IA6-91aHEjcWuA_KUnNSg.ttf")
+          format("truetype");
+        font-weight: 800;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Inter";
+        src: url("capture/assets/fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf")
+          format("truetype");
+        font-weight: 600;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "JetBrains Mono";
+        src: url("capture/assets/fonts/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8-qxjPQ.ttf")
+          format("truetype");
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #032e2c;
+      }
+
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+      }
+
+      .scene {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      .bg-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(154, 231, 97, 0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(154, 231, 97, 0.06) 1px, transparent 1px);
+        background-size: 64px 64px;
+        opacity: 0.35;
+      }
+      .bg-glow {
+        position: absolute;
+        width: 900px;
+        height: 900px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(105, 212, 25, 0.22), transparent 68%);
+        top: -200px;
+        right: -120px;
+      }
+      .ghost {
+        position: absolute;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 280px;
+        font-weight: 800;
+        color: rgba(154, 231, 97, 0.07);
+        letter-spacing: -0.04em;
+        line-height: 1;
+        user-select: none;
+      }
+      .meta-tag {
+        position: absolute;
+        top: 72px;
+        left: 96px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 20px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #9ae761;
+        padding: 10px 18px;
+        border: 2px solid rgba(154, 231, 97, 0.35);
+        border-radius: 999px;
+        background: rgba(3, 46, 44, 0.55);
+      }
+      .meta-right {
+        position: absolute;
+        top: 72px;
+        right: 96px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 18px;
+        color: rgba(248, 250, 252, 0.55);
+        letter-spacing: 0.08em;
+      }
+      .rule {
+        position: absolute;
+        left: 96px;
+        right: 96px;
+        height: 3px;
+        background: linear-gradient(90deg, #69d419, transparent);
+        transform-origin: left center;
+      }
+
+      .kinetic-stage {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 120px 160px;
+        gap: 0;
+      }
+      .k-word {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 168px;
+        font-weight: 800;
+        line-height: 0.92;
+        letter-spacing: -0.04em;
+        color: #fdfefb;
+        will-change: transform, filter, opacity;
+      }
+      .k-word.accent {
+        color: #69d419;
+        text-shadow: 0 0 80px rgba(105, 212, 25, 0.45);
+      }
+
+      .hook-panel {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 90% 80% at 50% 40%, #044441, #032e2c 70%);
+      }
+      .hook-line {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 92px;
+        font-weight: 800;
+        line-height: 1.02;
+        letter-spacing: -0.03em;
+        color: #fdfefb;
+        max-width: 1500px;
+      }
+      .hook-line span {
+        color: #69d419;
+      }
+
+      .ui-frame {
+        position: absolute;
+        inset: 64px 96px 96px 96px;
+        border-radius: 28px;
+        overflow: hidden;
+        border: 3px solid rgba(154, 231, 97, 0.35);
+        box-shadow:
+          0 40px 120px rgba(0, 0, 0, 0.55),
+          0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+        background: #f4f8ea;
+      }
+      .ui-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        transform-origin: center center;
+        will-change: transform;
+      }
+      .ui-caption {
+        position: absolute;
+        left: 120px;
+        bottom: 120px;
+        max-width: 720px;
+        padding: 28px 32px;
+        border-radius: 20px;
+        background: rgba(3, 46, 44, 0.88);
+        border: 2px solid rgba(105, 212, 25, 0.4);
+        backdrop-filter: blur(8px);
+      }
+      .ui-caption .label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 18px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #9ae761;
+        margin-bottom: 10px;
+      }
+      .ui-caption .text {
+        font-size: 34px;
+        font-weight: 600;
+        line-height: 1.25;
+        color: #f8fafc;
+      }
+
+      .stamp-row {
+        position: absolute;
+        left: 96px;
+        right: 96px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        gap: 28px;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .stamp {
+        padding: 22px 36px;
+        border-radius: 16px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 42px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        border: 3px solid;
+        will-change: transform, opacity;
+      }
+      .stamp.block {
+        color: #f87171;
+        border-color: #f87171;
+        background: rgba(248, 113, 113, 0.12);
+      }
+      .stamp.escalate {
+        color: #fbbf24;
+        border-color: #fbbf24;
+        background: rgba(251, 191, 36, 0.12);
+      }
+      .stamp.allow {
+        color: #69d419;
+        border-color: #69d419;
+        background: rgba(105, 212, 25, 0.14);
+      }
+
+      .receipt-panel {
+        position: absolute;
+        left: 96px;
+        right: 96px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 48px 56px;
+        border-radius: 24px;
+        background: rgba(6, 13, 24, 0.92);
+        border: 2px solid rgba(105, 212, 25, 0.35);
+        font-family: "JetBrains Mono", monospace;
+      }
+      .receipt-panel .line {
+        font-size: 28px;
+        line-height: 1.65;
+        color: #cbd5e1;
+      }
+      .receipt-panel .line.hi {
+        color: #69d419;
+      }
+
+      .cta-stage {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 120px 160px;
+        background: radial-gradient(ellipse 80% 70% at 30% 50%, #044441, #032e2c);
+      }
+      .cta-title {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 108px;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.03em;
+        color: #fdfefb;
+        margin-bottom: 36px;
+      }
+      .cta-pill {
+        display: inline-block;
+        padding: 26px 44px;
+        border-radius: 999px;
+        background: #69d419;
+        color: #032e2c;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 38px;
+        font-weight: 800;
+      }
+      .cta-url {
+        margin-top: 32px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 26px;
+        color: rgba(248, 250, 252, 0.65);
+        letter-spacing: 0.06em;
+      }
+
+      .beat-bar {
+        position: absolute;
+        bottom: 48px;
+        left: 96px;
+        right: 96px;
+        display: flex;
+        gap: 10px;
+        align-items: flex-end;
+      }
+      .beat-bar i {
+        display: block;
+        width: 8px;
+        background: #69d419;
+        opacity: 0.25;
+        border-radius: 4px;
+      }
+      .progress-rail {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 6px;
+        width: 0;
+        background: linear-gradient(90deg, #69d419, #9ae761);
+      }
+      .brand-lock {
+        position: absolute;
+        bottom: 72px;
+        left: 96px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 28px;
+        font-weight: 800;
+        color: #fdfefb;
+      }
+      .brand-lock .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #69d419;
+        box-shadow: 0 0 20px #69d419;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="sourcea-commercial-v1"
+      data-start="0"
+      data-duration="22"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="bg-grid" class="bg-grid"></div>
+      <div id="bg-glow" class="bg-glow"></div>
+      <div id="ghost-proof" class="ghost">PROOF</div>
+      <div id="progress-rail" class="progress-rail"></div>
+
+      <!-- 0–3.2 kinetic open -->
+      <div id="scene-open" class="scene clip" data-start="0" data-duration="3.2" data-track-index="1">
+        <div class="meta-tag">// verify · act i</div>
+        <div class="meta-right">sourcea.app</div>
+        <div class="kinetic-stage">
+          <div id="kw-stop" class="k-word">STOP</div>
+          <div id="kw-trusting" class="k-word accent">TRUSTING</div>
+          <div id="kw-ai" class="k-word">AI.</div>
+        </div>
+        <div id="open-rule" class="rule" style="top: 820px"></div>
+        <div class="beat-bar" aria-hidden="true">
+          <i style="height: 18px"></i><i style="height: 28px"></i><i style="height: 22px"></i><i style="height: 34px"></i><i style="height: 20px"></i>
+        </div>
+      </div>
+
+      <!-- 3.2–5.8 hook -->
+      <div id="scene-hook" class="scene clip" data-start="3.2" data-duration="2.6" data-track-index="2">
+        <div class="hook-panel"></div>
+        <div class="meta-tag">governed runtime</div>
+        <div class="kinetic-stage">
+          <div id="hook-text" class="hook-line">Start <span>verifying</span> it.</div>
+        </div>
+      </div>
+
+      <!-- 5.8–9.2 command wheel -->
+      <div id="scene-wheel" class="scene clip" data-start="5.8" data-duration="3.4" data-track-index="3">
+        <div class="meta-tag">command mesh</div>
+        <div class="meta-right">receipt · synced</div>
+        <div class="ui-frame">
+          <img id="img-wheel" src="assets/sourcea-command-wheel.png" alt="SourceA command wheel" />
+        </div>
+        <div id="cap-wheel" class="ui-caption">
+          <div class="label">act vi · record</div>
+          <div class="text">The verdict writes to disk — not a Slack thread.</div>
+        </div>
+      </div>
+
+      <!-- 9.2–12.2 brain -->
+      <div id="scene-brain" class="scene clip" data-start="9.2" data-duration="3" data-track-index="4">
+        <div class="meta-tag">brain · live proof</div>
+        <div class="ui-frame">
+          <img id="img-brain" src="assets/sourcea-brain-ui.png" alt="SourceA Brain UI" />
+        </div>
+        <div id="cap-brain" class="ui-caption">
+          <div class="label">governance gauntlet</div>
+          <div class="text">Live boot proof · demo slot · proof chain.</div>
+        </div>
+      </div>
+
+      <!-- 12.2–14.8 verdict stamps -->
+      <div id="scene-stamps" class="scene clip" data-start="12.2" data-duration="2.6" data-track-index="5">
+        <div class="meta-tag">policy gate</div>
+        <div class="stamp-row">
+          <div id="stamp-block" class="stamp block">BLOCK</div>
+          <div id="stamp-escalate" class="stamp escalate">ESCALATE</div>
+          <div id="stamp-allow" class="stamp allow">ALLOW</div>
+        </div>
+        <div id="stamp-rule" class="rule" style="top: 780px"></div>
+      </div>
+
+      <!-- 14.8–17.4 landing -->
+      <div id="scene-landing" class="scene clip" data-start="14.8" data-duration="2.6" data-track-index="6">
+        <div class="ui-frame">
+          <img id="img-landing" src="assets/sourcea-landing.png" alt="SourceA landing" />
+        </div>
+        <div id="cap-landing" class="ui-caption">
+          <div class="label">global platform</div>
+          <div class="text">Privacy-first · audit-ready · receipts on disk.</div>
+        </div>
+      </div>
+
+      <!-- 17.4–19.6 receipt -->
+      <div id="scene-receipt" class="scene clip" data-start="17.4" data-duration="2.2" data-track-index="7">
+        <div class="meta-tag">forensic proof</div>
+        <div id="receipt-panel" class="receipt-panel">
+          <div class="line hi">$ sourcea-boot --json</div>
+          <div class="line">→ policy.eval&nbsp;&nbsp;verdict=ESCALATE</div>
+          <div class="line">→ receipt.signed&nbsp;&nbsp;sha256:aeg-20260620…</div>
+          <div class="line hi">→ replay.check&nbsp;&nbsp;chain=OK</div>
+        </div>
+      </div>
+
+      <!-- 19.6–22 CTA -->
+      <div id="scene-cta" class="scene clip" data-start="19.6" data-duration="2.4" data-track-index="8">
+        <div class="cta-stage">
+          <div id="cta-title" class="cta-title">Prove it.</div>
+          <div id="cta-pill" class="cta-pill">Run a free proof →</div>
+          <div id="cta-url" class="cta-url">sourcea.app · governed agentic systems</div>
+        </div>
+        <div id="brand-lock" class="brand-lock">
+          <span class="dot"></span><span>SourceA</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const PULSE = 0.55;
+
+      tl.fromTo(
+        "#ghost-proof",
+        { x: 40, opacity: 0.04 },
+        { x: -30, opacity: 0.09, duration: 22, ease: "none" },
+        0
+      );
+      tl.to("#progress-rail", { width: "100%", duration: 22, ease: "none" }, 0);
+
+      tl.fromTo(
+        "#kw-stop",
+        { scale: 1.6, filter: "blur(20px)", opacity: 0 },
+        { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.42, ease: "power4.out" },
+        0.05
+      );
+      tl.fromTo(
+        "#kw-trusting",
+        { x: -420, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.38, ease: "expo.out" },
+        PULSE
+      );
+      tl.fromTo(
+        "#kw-ai",
+        { y: 120, rotation: 4, opacity: 0 },
+        { y: 0, rotation: 0, opacity: 1, duration: 0.45, ease: "circ.out" },
+        PULSE * 2
+      );
+      tl.fromTo("#open-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power3.out" }, PULSE * 2 + 0.1);
+
+      const ticks = gsap.utils.toArray(".beat-bar i");
+      ticks.forEach(function (tick, i) {
+        tl.to(tick, { opacity: 1, duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, 0.2 + i * 0.18);
+      });
+
+      tl.fromTo(
+        "#hook-text",
+        { y: 80, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+        3.25
+      );
+      tl.fromTo(".hook-panel", { opacity: 0.6 }, { opacity: 1, duration: 0.4, ease: "power2.out" }, 3.2);
+
+      tl.fromTo("#scene-wheel", { opacity: 0 }, { opacity: 1, duration: 0.12, ease: "none" }, 5.8);
+      tl.fromTo("#img-wheel", { scale: 1.12, x: 30 }, { scale: 1, x: 0, duration: 3.2, ease: "power2.out" }, 5.85);
+      tl.fromTo("#cap-wheel", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.4)" }, 6.2);
+
+      tl.fromTo("#img-brain", { scale: 1.08, y: -20 }, { scale: 1, y: 0, duration: 2.8, ease: "power2.out" }, 9.25);
+      tl.fromTo("#cap-brain", { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: "expo.out" }, 9.5);
+
+      tl.fromTo(
+        "#stamp-block",
+        { scale: 1.4, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.28, ease: "power4.out" },
+        12.25
+      );
+      tl.fromTo(
+        "#stamp-escalate",
+        { x: -80, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.32, ease: "expo.out" },
+        12.55
+      );
+      tl.fromTo(
+        "#stamp-allow",
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.34, ease: "circ.out" },
+        12.85
+      );
+      tl.fromTo("#stamp-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power3.out" }, 13.1);
+
+      tl.fromTo("#img-landing", { scale: 1.15, y: 40 }, { scale: 1, y: 0, duration: 2.4, ease: "power2.out" }, 14.85);
+      tl.fromTo("#cap-landing", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.38, ease: "power2.out" }, 15.2);
+
+      tl.fromTo("#receipt-panel", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.42, ease: "power3.out" }, 17.45);
+      tl.from(
+        "#receipt-panel .line",
+        { opacity: 0, x: -20, stagger: 0.12, duration: 0.28, ease: "power2.out" },
+        17.55
+      );
+
+      tl.fromTo(
+        "#cta-title",
+        { scale: 1.25, filter: "blur(12px)", opacity: 0 },
+        { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.45, ease: "power4.out" },
+        19.65
+      );
+      tl.fromTo(
+        "#cta-pill",
+        { scale: 0.85, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.38, ease: "back.out(2)" },
+        20.05
+      );
+      tl.fromTo("#cta-url", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.32, ease: "power2.out" }, 20.35);
+      tl.fromTo("#brand-lock", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" }, 20.5);
+
+      window.__timelines["sourcea-commercial-v1"] = tl;
+    </script>
+  </body>
+</html>

@@ -116,7 +116,7 @@
       "step_type": "act",
       "sa_id": "sa-1209",
       "phase": "forge-factory-cycle2",
-      "title": "[ACT] sa-1209 — Loop specialist cloud dispatch tick",
+      "title": "[ACT] sa-1209 — Auto Runtime specialist cloud dispatch tick",
       "instruction": "ACT — POST loop_specialist_tick_v1.py --json. Cloud dispatch only. Mac FREE of local motor drain.",
       "closeout": false,
       "one_sa_per_turn": true

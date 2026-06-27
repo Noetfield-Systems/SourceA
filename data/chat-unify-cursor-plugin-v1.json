@@ -1,0 +1,37 @@
+{
+  "schema": "chat-unify-cursor-plugin-v1",
+  "name": "SourceA Chat Unify Connect",
+  "version": "1.0.0",
+  "description": "Local agent control bridge — forge missions, verify replies, seal proof packs, dispatch cloud work.",
+  "homepage": "https://sourcea.app/sourcea/forge/",
+  "contact": "forge@sourcea.app",
+  "local_base": "http://127.0.0.1:13023",
+  "capabilities": [
+    "prompt_forge",
+    "founder_verify_loop",
+    "ord_audit_trail",
+    "proof_pack_export",
+    "cursor_send_mission",
+    "webhook_triggers",
+    "cloud_worker_dispatch"
+  ],
+  "endpoints": {
+    "health": "GET /health",
+    "integrations": "GET /api/integrations/v1",
+    "hook": "POST /api/integrations/v1/hook",
+    "forge": "POST /api/chat-unify {\"action\":\"prompt_forge\",\"text\":\"...\"}",
+    "verify": "POST /api/chat-unify {\"action\":\"founder_loop_stage\",\"stage\":\"language\",\"text\":\"...\"}",
+    "send_cursor": "POST /api/chat-unify {\"action\":\"send_founder_to_cursor\",\"text\":\"...\"}"
+  },
+  "hook_events": [
+    {"event": "forge.mission", "routes_to": "prompt_forge", "body": {"action": "prompt_forge", "text": "{{founder_text}}"}},
+    {"event": "verify.reply", "routes_to": "founder_loop", "body": {"action": "founder_loop_stage", "stage": "language", "text": "{{agent_reply}}"}},
+    {"event": "proof.seal", "routes_to": "proof_pack", "body": {"action": "proof_pack_stage", "stage": "collect"}}
+  ],
+  "setup": [
+    "Run: bash ~/Desktop/SourceA/scripts/chat-unify-stack-boot.sh",
+    "Open Chat Unify.app or http://127.0.0.1:13023/",
+    "Connect tab → test Cursor local + copy webhook URL",
+    "Optional: n8n at :13026 · Cloud Workers at :13027"
+  ]
+}

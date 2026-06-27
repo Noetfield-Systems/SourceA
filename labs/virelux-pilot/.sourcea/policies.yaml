@@ -1,0 +1,16 @@
+schema: sourcea-policies-v2
+approval:
+  required: true
+  allowed_decisions:
+    - approved
+    - rejected
+    - revise
+execution:
+  cloud_only: true
+  freeze_routes_to_cloud: true
+workspace:
+  jail: true
+  max_path_depth: 8
+telemetry:
+  enabled: true
+  failure_library: true

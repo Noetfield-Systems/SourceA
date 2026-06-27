@@ -381,7 +381,7 @@ def generate_film(
     cta = spec.get("cta") or {}
     if cta.get("narration"):
         cta_png = WORK / "cta.png"
-        _title_card_png("Book 15 minutes", "hello@sourcea.com", cta_png, beat_id="ALLOW")
+        _title_card_png("Book 15 minutes", "hello@sourcea.app", cta_png, beat_id="ALLOW")
         cta_vid = WORK / "cta-card.mp4"
         _png_to_video(cta_png, float(cta.get("seconds") or 8), cta_vid)
         cta_mp3, cta_eng = _narration_audio(str(cta["narration"]), WORK, "cta")

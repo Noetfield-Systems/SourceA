@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cloud loop specialist client — POST tick to Railway FBE (CLOUD_ONLY).
+"""Cloud Auto Runtime specialist client — POST tick to Railway FBE (CLOUD_ONLY).
 
 Mac never runs observatory validators for tick — cloud executes comprehension + optional bay.
 

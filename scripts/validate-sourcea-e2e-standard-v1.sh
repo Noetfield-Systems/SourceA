@@ -115,3 +115,12 @@ fi
 elapsed=$((SECONDS - t0))
 echo ""
 echo "SOURCEA-E2E-STANDARD PASS elapsed=${elapsed}s log=$LOG"
+
+# Durable E2E report (agents read before next run)
+python3 "$SCRIPTS/sourcea_e2e_run_v1.py" \
+  --ingest-bundle sourcea_standard \
+  --ingest-ok \
+  --log-path "${LOG:-}" \
+  --cadence weekly \
+  --write-report \
+  --json >/dev/null 2>&1 || true

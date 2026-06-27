@@ -377,7 +377,7 @@ def step7_loop_auto() -> dict:
             "loop_auto_dispatch_enabled": True,
             "loop_auto_observe_enabled": True,
             "loop_auto_mode": "shadow_auto",
-            "founder_motion": "Hub glance only · Loop specialist auto-tick · cloud URL wired",
+            "founder_motion": "Hub glance only · Auto Runtime specialist auto-tick · cloud URL wired",
             "graduated_at": _now(),
             "cloud_factory_10_steps": True,
         }

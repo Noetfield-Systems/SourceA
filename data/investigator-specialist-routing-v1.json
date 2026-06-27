@@ -63,13 +63,13 @@
   ],
   "specialist_labels": {
     "commercial_w3": "Commercial / W3 lane",
-    "loop_specialist": "Loop Specialist",
+    "loop_specialist": "Auto Runtime specialist",
     "founder_sina_read": "Founder Sina read path",
     "governance_specialist": "Governance specialist",
     "sourcea_worker": "SourceA Worker",
     "brain_route": "Brain router",
     "investigator_fcb": "find_critical_bugs owner",
     "governance_center_full": "Governance Center full tier",
-    "asf_resume_gate": "ASF resume drain"
+    "asf_resume_gate": "ASF Cloud Forge Run"
   }
 }

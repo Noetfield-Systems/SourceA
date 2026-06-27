@@ -1,0 +1,173 @@
+{
+  "schema": "sourcea-vocabulary-unified-index-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-24T21:30:00Z",
+  "law_doc": "brain-os/law/enforcement/SOURCEA_VOCABULARY_UNIFIED_LOCKED_v1.md",
+  "one_law": "One spine for all vocabulary — classify subject before rename · Tier 3 machine paths frozen · poison is governance-only · cloud motor display is Cloud Forge Run + Auto Runtime · 100 rows per turn is quota not ceiling.",
+  "validator": "scripts/validate-sourcea-vocabulary-unified-index-v1.sh",
+  "machine": {
+    "name": "Vocabulary Intelligence",
+    "chat_unify_tab": "vocab",
+    "script": "scripts/chat_unify_vocabulary_intelligence_v1.py",
+    "registry": "data/vocabulary-intelligence-registry-v1.json",
+    "receipt": "~/.sina/chat-unify-vocabulary-intelligence-v1.json",
+    "input_modes": ["repo", "url", "paste", "file"],
+    "stages": ["goal", "scan", "classify", "suggest", "review", "emit"]
+  },
+  "display_names": {
+    "cloud_forge_run": {
+      "display": "Cloud Forge Run",
+      "short": "Forge Run",
+      "retired_founder_words": ["drain", "Cloud Forge Run", "Cloud Forge Run", "Cloud Forge Run", "Cloud Forge Run", "Cloud Forge Run"],
+      "machine_frozen": ["cloud_forge_run", "/api/cloud-forge-run/", "cloud-forge-run-tick", "hub-cloud-forge-run-proceed"]
+    },
+    "auto_runtime": {
+      "display": "Auto Runtime",
+      "short": "Auto Runtime",
+      "retired_founder_words": ["Auto Runtime", "Cloud Forge Run", "Auto Runtime", "Auto Runtime specialist tick"],
+      "machine_frozen": ["cloud_forge_run_auto_runtime", "auto_runtime_status", "loop_specialist_tick_v1.py"]
+    }
+  },
+  "subjects": {
+    "motor_cloud": {
+      "label": "Cloud factory motor",
+      "policy": "rename_display_tier_1_2",
+      "ssot": "data/cloud-motor-founder-vocabulary-v1.json",
+      "quota_law": "data/cloud-forge-run-hundred-rows-per-turn-vocabulary-v1.json"
+    },
+    "product_loop": {
+      "label": "Commercial product loop (SKU)",
+      "policy": "keep",
+      "examples": ["governed loop", "loop build", "/sourcea/loops/", "Agent Loop Build"]
+    },
+    "chat_unify_loop": {
+      "label": "Chat Unify verify/ORD machines",
+      "policy": "keep",
+      "examples": ["founder loop", "ord loop", "verify pipeline", "Audit Trail"]
+    },
+    "governance_poison": {
+      "label": "Governance poison / anti-poison",
+      "policy": "governance_only_never_motor_display",
+      "ssot": "data/agent-memory-mirror-poison-law-v1.json",
+      "law": "brain-os/law/enforcement/SOURCEA_POISON_AND_REALTIME_BLOCKER_TERMINOLOGY_LOCKED_v1.md",
+      "not_display_for": ["drain", "Cloud Forge Run", "factory motor"]
+    },
+    "forge_product": {
+      "label": "Forge product (~/Desktop/forge)",
+      "policy": "disambiguate",
+      "ssot": "data/sourcea-forge-vocabulary-disambiguation-v1.json"
+    },
+    "mac_worker_factory": {
+      "label": "Mac Worker vs cloud factory body",
+      "policy": "incident_038",
+      "ssot": "data/mac-worker-vs-factory-vocabulary-v1.json"
+    }
+  },
+  "tiers": {
+    "1": {
+      "name": "founder_facing",
+      "change": "display_text_yes",
+      "examples": ["hub UI", "landing HTML", "agent close lines", "emails"]
+    },
+    "2": {
+      "name": "ops_display",
+      "change": "copy_not_keys",
+      "examples": ["one_law", "boot.json labels", "show_this", "CLI help"]
+    },
+    "3": {
+      "name": "machine_frozen",
+      "change": "migration_campaign_only",
+      "examples": ["API paths", "env vars", "JSON keys", "filenames", "symbols"]
+    }
+  },
+  "layers": [
+    {
+      "id": "motor_display_law",
+      "role": "Cloud Forge Run + Auto Runtime law (pairs with spine)",
+      "path": "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_AUTO_RUNTIME_VOCABULARY_LOCKED_v1.md"
+    },
+    {
+      "id": "spine",
+      "role": "unified index — read first",
+      "path": "data/sourcea-vocabulary-unified-index-v1.json"
+    },
+    {
+      "id": "motor_display",
+      "role": "cloud motor founder display names",
+      "path": "data/cloud-motor-founder-vocabulary-v1.json"
+    },
+    {
+      "id": "founder_reply",
+      "role": "agent reply translation inject",
+      "path": "data/founder-reply-glossary-v1.json"
+    },
+    {
+      "id": "motor_quota",
+      "role": "100 rows per turn — not up to 100",
+      "path": "data/cloud-forge-run-hundred-rows-per-turn-vocabulary-v1.json",
+      "law": "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_HUNDRED_ROWS_PER_TURN_TERMINOLOGY_LOCKED_v1.md"
+    },
+    {
+      "id": "vim_registry",
+      "role": "scan · classify · suggest · campaigns",
+      "path": "data/vocabulary-intelligence-registry-v1.json",
+      "blueprint": "docs/VOCABULARY_INTELLIGENCE_MACHINE_BLUEPRINT_v1.md"
+    },
+    {
+      "id": "poison_realtime",
+      "role": "poison vs realtime blocker — not motor rename",
+      "path": "brain-os/law/enforcement/SOURCEA_POISON_AND_REALTIME_BLOCKER_TERMINOLOGY_LOCKED_v1.md"
+    },
+    {
+      "id": "forge_disambiguation",
+      "role": "Forge product vs factory prove",
+      "path": "data/sourcea-forge-vocabulary-disambiguation-v1.json"
+    },
+    {
+      "id": "mac_worker",
+      "role": "Worker on Mac ≠ factory body",
+      "path": "data/mac-worker-vs-factory-vocabulary-v1.json"
+    }
+  ],
+  "campaigns": {
+    "motor-rename-v1": {
+      "goal": "Founder sees Cloud Forge Run + Auto Runtime — poison stays governance-only",
+      "registry": "data/vocabulary-intelligence-registry-v1.json",
+      "apply_tiers": [1, 2],
+      "skip_subjects": ["product_loop", "chat_unify_loop", "governance_poison"]
+    }
+  },
+  "forbidden_conflations": [
+    {
+      "wrong": "Rename drain to Anti-Poison or poison vocabulary",
+      "why": "Poison is agent conduct law — not cloud motor display",
+      "right": "Cloud Forge Run"
+    },
+    {
+      "wrong": "Rename product loop build copy to Auto Runtime",
+      "why": "Commercial SKU subject product_loop",
+      "right": "Keep governed loop / loop build"
+    },
+    {
+      "wrong": "Rename Chat Unify founder loop / ORD loop",
+      "why": "chat_unify_loop subject — different machine",
+      "right": "Keep Verify & Act / Audit Trail names"
+    },
+    {
+      "wrong": "Say up to 100 rows per cron",
+      "why": "INCIDENT-043 — 100 is mandatory quota",
+      "right": "100 rows per turn (batch tail excepted)"
+    },
+    {
+      "wrong": "Rename /api/cloud-forge-run/* in a display campaign",
+      "why": "Tier 3 machine frozen",
+      "right": "Change UI copy only; paths stay until migration"
+    }
+  ],
+  "read_order": [
+    "data/sourcea-vocabulary-unified-index-v1.json",
+    "data/cloud-motor-founder-vocabulary-v1.json",
+    "data/vocabulary-intelligence-registry-v1.json",
+    "data/founder-reply-glossary-v1.json"
+  ]
+}

@@ -18,7 +18,7 @@ LOCALHOST_MARKERS = ("127.0.0.1", "localhost", "0.0.0.0")
 # Commercial FROM addresses — valid TO for prospects only, never auto-target
 COMMERCIAL_FROM = frozenset(
     {
-        "hello@sourcea.com",
+        "hello@sourcea.app",
         "operations@noetfield.com",
         "operation@noetfield.com",
         "hello@trustfield.ca",

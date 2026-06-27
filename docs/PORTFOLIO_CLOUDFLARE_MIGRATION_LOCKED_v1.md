@@ -59,7 +59,7 @@ Token: `~/.sina/cf-pages-token-v1.json` (SourceA-only — law: `scripts/sourcea_
 
 ## Workers / cron (already on main account)
 
-Autonomous loop worker: `cloud/workers/cloud-drain-tick-v1/` — checklist `docs/checklists/cloudflare-railway-loop-setup.md`.
+Autonomous loop worker: `cloud/workers/cloud-auto-runtime-tick-v1/` — checklist `docs/checklists/cloudflare-railway-loop-setup.md`.
 
 **Never:** deploy portfolio Workers while OAuth’d as `witness.bc@gmail.com`.
 

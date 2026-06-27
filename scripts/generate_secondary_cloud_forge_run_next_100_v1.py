@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate data/secondary-cloud-drain-next-100-v1.json — INCIDENT-038 v1.1 law."""
+"""Generate data/secondary-cloud-forge-run-next-100-v1.json — INCIDENT-038 v1.1 law."""
 from __future__ import annotations
 
 import json
@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REG = ROOT / "brain-os/plan-registry/sourcea-competitor-1000/REGISTRY.json"
-OUT = ROOT / "data/secondary-cloud-drain-next-100-v1.json"
+OUT = ROOT / "data/secondary-cloud-forge-run-next-100-v1.json"
 
 
 def _now() -> str:
@@ -102,7 +102,7 @@ def main() -> int:
             }
         )
     doc = {
-        "schema": "secondary-cloud-drain-next-100-v1",
+        "schema": "secondary-cloud-forge-run-next-100-v1",
         "version": "1.0.0",
         "saved_at": _now(),
         "authority": "INCIDENT-038 v1.1",

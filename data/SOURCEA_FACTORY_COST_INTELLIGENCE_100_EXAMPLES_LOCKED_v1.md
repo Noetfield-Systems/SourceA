@@ -22,7 +22,7 @@
 
 ## 2. Auto-prompting (planner → executor)
 
-- **planner:** `brain work-order / loop auto`
+- **planner:** `brain work-order / Auto Runtime`
 - **executor:** `Worker RUN INBOX`
 - **receipt:** `outbound-factory receipt + execution_plane_honesty`
 - **anti_theater:** `scripts/anti_theater_validator_loop_v1.py`

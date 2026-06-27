@@ -107,13 +107,58 @@ def _apply_overrides(*, item: dict, pos: int, overrides: dict) -> dict | None:
     return item
 
 
+def _cloud_forge_glance() -> dict:
+    """Read-only Railway queue — Mac FREEZE routes factory body to cloud."""
+    try:
+        from fbe.lib.hub_cloud_proxy_v1 import cloud_worker_url, execution_mode  # noqa: WPS433
+
+        if execution_mode() != "CLOUD_ONLY":
+            return {}
+        base = cloud_worker_url()
+        if not base:
+            return {}
+        import urllib.request
+
+        with urllib.request.urlopen(f"{base.rstrip('/')}/api/cloud-forge-run/queue/v1", timeout=12) as resp:
+            row = json.loads(resp.read().decode("utf-8"))
+        head = str(row.get("cloud_forge_run_head") or "")
+        return {
+            "ok": bool(head),
+            "head": head,
+            "batch_id": row.get("batch_id"),
+            "drain_status": row.get("drain_status"),
+            "queue_batch_complete": row.get("queue_batch_complete"),
+        }
+    except Exception as exc:
+        return {"ok": False, "error": str(exc)[:120]}
+
+
+def _execution_surface() -> str:
+    try:
+        from fbe.lib.hub_cloud_proxy_v1 import execution_mode  # noqa: WPS433
+
+        return "cloud_forge" if execution_mode() == "CLOUD_ONLY" else "inbox_only"
+    except Exception:
+        return "inbox_only"
+
+
 def _inline_validator_receipt(*, cursor_pos: int, items: list[dict]) -> dict:
     head = items[cursor_pos - 1] if 0 < cursor_pos <= len(items) else {}
     inbox_path = SINA / "worker-prompt-inbox-v1.json"
     inbox = _read_json(inbox_path) if inbox_path.is_file() else {}
     sa = str(head.get("sa_id") or "")
-    ib_sa = str((inbox.get("meta") or {}).get("sa_id") or "")
-    bind_ok = sa and ib_sa == sa
+    ib_sa = str((inbox.get("meta") or {}).get("sa_id") or inbox.get("sa_id") or "")
+    bind_ok = bool(sa and ib_sa == sa)
+    cloud = _cloud_forge_glance()
+    cloud_active = bool(cloud.get("ok") and cloud.get("head"))
+    surface = _execution_surface()
+    if surface == "cloud_forge" and cloud_active and not bool(inbox.get("pending")):
+        bind_ok = True
+    bind_detail = (
+        f"queue={sa} cloud_head={cloud.get('head')} batch={cloud.get('batch_id')} surface={surface}"
+        if cloud_active and surface == "cloud_forge"
+        else f"queue={sa} inbox={ib_sa} bind={ib_sa if bind_ok else 'mismatch'}"
+    )
     row = {
         "ok": bind_ok,
         "schema": "live-pack-validator-receipt-v1",
@@ -122,14 +167,19 @@ def _inline_validator_receipt(*, cursor_pos: int, items: list[dict]) -> dict:
         "checks": [
             {
                 "id": "run_inbox_truth",
-                "ok": bool(sa),
-                "detail": sa,
+                "ok": bool(sa) or cloud_active,
+                "detail": sa or str(cloud.get("head") or ""),
                 "inbox_pending": bool(inbox.get("pending")),
             },
             {
                 "id": "healthy_pack_bind",
                 "ok": bind_ok,
-                "detail": f"queue={sa} inbox={ib_sa} bind={ib_sa if bind_ok else 'mismatch'}",
+                "detail": bind_detail,
+            },
+            {
+                "id": "cloud_forge_glance",
+                "ok": cloud_active if surface == "cloud_forge" else True,
+                "detail": cloud.get("head") or cloud.get("error") or "skipped_not_cloud_only",
             },
         ],
         "failed": [],
@@ -187,6 +237,72 @@ def rebuild(*, write: bool = True, preview: bool = True) -> dict:
     cursor_pos = int(state.get("next_pos") or 1)
     if cursor_pos < 1:
         cursor_pos = 1
+    exhausted = bool(queue.get("queue_exhausted") or queue.get("phase_strict_complete"))
+    if cursor_pos > len(items):
+        if exhausted:
+            hp = _honest_progress()
+            factory = _factory_snapshot()
+            cloud = _cloud_forge_glance()
+            surface = _execution_surface()
+            cloud_ok = bool(cloud.get("ok")) if surface == "cloud_forge" else False
+            validator_receipt = {
+                "ok": cloud_ok,
+                "schema": "live-pack-validator-receipt-v1",
+                "at": _now(),
+                "law": "SOURCEA_LIVE_ONGOING_PROMPTS_LOCKED_v1.md",
+                "checks": [
+                    {
+                        "id": "queue_exhausted",
+                        "ok": True,
+                        "detail": f"cursor={cursor_pos} items={len(items)}",
+                    },
+                    {
+                        "id": "healthy_pack_bind",
+                        "ok": cloud_ok,
+                        "detail": f"cloud_head={cloud.get('head')} batch={cloud.get('batch_id')} surface={surface}",
+                    },
+                    {
+                        "id": "cloud_forge_glance",
+                        "ok": cloud_ok,
+                        "detail": cloud.get("head") or cloud.get("error") or "missing",
+                    },
+                ],
+                "failed": [] if cloud_ok else ["healthy_pack_bind", "cloud_forge_glance"],
+            }
+            row = {
+                "ok": cloud_ok,
+                "schema": SCHEMA,
+                "built_at": _now(),
+                "law": "SOURCEA_LIVE_ONGOING_PROMPTS_LOCKED_v1.md",
+                "cursor_pos": cursor_pos,
+                "queue_total": len(items),
+                "queue_exhausted": True,
+                "queue_path": str(queue_path),
+                "valid_yes": hp["label"],
+                "honest_done": hp["honest_done"],
+                "honest_total": hp["total"],
+                "factory_mode": factory.get("mode"),
+                "freeze": factory.get("freeze"),
+                "founder_confirmed_at": load_overrides().get("founder_confirmed_at"),
+                "validator_receipt": validator_receipt,
+                "turns": [],
+                "count": 0,
+                "limit": LIMIT,
+                "execution_surface": surface,
+                "cloud_forge_glance": cloud,
+                "note": (
+                    f"Healthy queue complete · cloud body at {cloud.get('head')} · "
+                    "Mac observes only — CF cron */10"
+                ),
+            }
+            if write:
+                SINA.mkdir(parents=True, exist_ok=True)
+                OUT.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+                VALIDATOR_RECEIPT.write_text(json.dumps(validator_receipt, indent=2) + "\n", encoding="utf-8")
+                _write_worker_drain_compat(row)
+            return row
+        cursor_pos = len(items)
+
     if cursor_pos > len(items):
         cursor_pos = len(items)
 
@@ -195,6 +311,8 @@ def rebuild(*, write: bool = True, preview: bool = True) -> dict:
     factory = _factory_snapshot()
     validator_receipt = _inline_validator_receipt(cursor_pos=cursor_pos, items=items)
 
+    surface = _execution_surface()
+    cloud = _cloud_forge_glance()
     turns: list[dict] = []
     order = 0
     for pos in range(cursor_pos, min(len(items), cursor_pos + LIMIT - 1) + 1):
@@ -234,8 +352,13 @@ def rebuild(*, write: bool = True, preview: bool = True) -> dict:
                 "founder_edit": (overrides.get("edits") or {}).get(str(pos)),
                 "is_current": pos == cursor_pos,
                 "execution_bind": "bound" if pos == cursor_pos else "preview_not_bound",
-                "execution_surface": "inbox_only" if pos == cursor_pos else "not_bound",
-                "label": "RUN INBOX — current turn" if pos == cursor_pos else "not bound — preview only",
+                "execution_surface": surface if pos == cursor_pos else "not_bound",
+                "cloud_forge_head": cloud.get("head") if pos == cursor_pos else None,
+                "label": (
+                    "CLOUD FORGE — CF cron auto-tick"
+                    if pos == cursor_pos and surface == "cloud_forge"
+                    else ("RUN INBOX — current turn" if pos == cursor_pos else "not bound — preview only")
+                ),
             }
         )
 
@@ -257,7 +380,8 @@ def rebuild(*, write: bool = True, preview: bool = True) -> dict:
         "turns": turns,
         "count": len(turns),
         "limit": LIMIT,
-        "execution_surface": "inbox_only",
+        "execution_surface": surface,
+        "cloud_forge_glance": cloud if surface == "cloud_forge" else None,
         "note": (
             f"Live machine order: queue turns {cursor_pos}..{cursor_pos + len(turns) - 1}"
             if turns

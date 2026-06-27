@@ -8,7 +8,7 @@
 1. **Receipt collision** — `receipts/{sa_id}-receipt.json` allowed U031 proof on `sa-1100` to block/overwrite U001.
 2. **False done rows** — U027/U028/U029 marked `done` with `shipped_evidence` only; no upgrade-matched receipt.
 3. **Bay theater** — signed work-order showed `outbound-fdg-icp` while active said `unmapped` for `linter_oqg` head.
-4. **Loop auto blocked local work** — U001 (`linter_oqg`) never reached Worker INBOX while loop auto ON.
+4. **Auto Runtime blocked local work** — U001 (`linter_oqg`) never reached Worker INBOX while Auto Runtime ON.
 5. **Honesty theater** — `execution · 6/6 honest` passed while head unimplemented and collision present.
 6. **Commercial still RED** — L3 25% · `w3_sina_read` · `w3_mail_from` · `w3_send_ready` blocked.
 7. **B0503 planned** — no cloud consumer for non-local bays.

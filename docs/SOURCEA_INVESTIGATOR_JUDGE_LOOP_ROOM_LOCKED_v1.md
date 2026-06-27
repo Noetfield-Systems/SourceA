@@ -17,7 +17,7 @@
 
 ## 0. One sentence (law)
 
-> **Investigator Circle always tracks loop health on disk; Judge Room verdicts conflicts; Advisory Circle ranks next prompts; Loop Specialist composes and dispatches — Brain alone holds execution authority; rooms REPORT or bounded ACT, never a second Brain.**
+> **Investigator Circle always tracks loop health on disk; Judge Room verdicts conflicts; Advisory Circle ranks next prompts; Auto Runtime specialist composes and dispatches — Brain alone holds execution authority; rooms REPORT or bounded ACT, never a second Brain.**
 
 ---
 
@@ -30,7 +30,7 @@
 | **Governance Center** | Planner + Judge + Lawyer + Thread cadence | `governance_center_run_v1.py` | `~/.sina/governance-center-receipt-v1.json` |
 | **Loop Observatory** | Unified observe/check | `loop_observatory_report_v1.py` | `~/.sina/loop-observatory-report-v1.json` |
 | **Future Prompt Advisory** | Deterministic ranked prompts · **no execution** | `future_loop_prompt_advisory_circle_v1.py` | `~/.sina/future-loop-prompt-advisory-v1.json` |
-| **Loop Specialist** | Observe → compose → dispatch | `loop_specialist_tick_v1.py` | `~/.sina/loop-specialist-tick-receipt-v1.json` |
+| **Auto Runtime specialist** | Observe → compose → dispatch | `loop_specialist_tick_v1.py` | `~/.sina/loop-specialist-tick-receipt-v1.json` |
 | **Better Loop** | BL1–BL11 health cart | `better_loop_pulse_v1.py` | `~/.sina/better-loop-pulse-receipt-v1.json` |
 | **Critical bugs** | Machine investigator for FAIL rollup | `find_critical_bugs.py` | `~/.sina/find-bugs/last-run.json` |
 | **Conflict Room** | ACE when laws disagree | `agent_conflict_room.py` | `~/.sina/conflict-room/cases.jsonl` |
@@ -59,7 +59,7 @@ Brain (sole execution_authority)
   │     LOOP_HEALTHY | LOOP_DEGRADED | PROMPT_STALE | DISPATCH_BLOCKED
   │     → INSIGHT | REPORT | bounded ACT catalog | form row drafts
   │
-  └── Loop Specialist (L0.5 · compose + policy-gated dispatch)
+  └── Auto Runtime specialist (L0.5 · compose + policy-gated dispatch)
         → outbound assign / orchestrator · Worker INBOX executor (one sa/turn)
 ```
 
@@ -76,7 +76,7 @@ Brain (sole execution_authority)
 | **Investigator Circle** | ✓ | ✓ | root-cause hints | heal catalog only | ✓ always |
 | **Advisory Circle** | — | ROI rank | next prompts | ✗ | to Specialist composer |
 | **Judge Room** | — | verdict | KEEP/IGNORE | form drafts · remediate prompts | ✓ route table |
-| **Loop Specialist** | via observatory | policy | compose line | dispatch when allowed | hub line |
+| **Auto Runtime specialist** | via observatory | policy | compose line | dispatch when allowed | hub line |
 | **Council / Conflict / Incident** | human | ACE | discourse | ✗ | peers + ASF queue |
 
 ---
@@ -85,7 +85,7 @@ Brain (sole execution_authority)
 
 | Signal | Primary specialist | Secondary | Room if law clash |
 |--------|-------------------|-----------|-------------------|
-| `commercial_red_count` > 0 | Commercial / W3 lane | Loop Specialist compose | — |
+| `commercial_red_count` > 0 | Commercial / W3 lane | Auto Runtime specialist compose | — |
 | `w3_sina_read` FAIL | Founder Sina read path | ICP compiler | — |
 | `system_red_count` > 0 | Governance specialist | G7 self-heal | Incident if material |
 | `dual_pick` FAIL | SourceA Worker + ACTIVE_NOW sync | Brain route | Conflict if two SSOTs |
@@ -144,7 +144,7 @@ Mirror `data/investigator-judge-cloud-contract-v1.json` pattern:
 
 - **POST** `/api/investigator-circle/tick/v1` — observe only  
 - **POST** `/api/judge-loop/tick/v1` — verdict + route; no dispatch  
-- Dispatch remains **Loop Specialist** + Brain resume under freeze  
+- Dispatch remains **Auto Runtime specialist** + Brain resume under freeze  
 
 Mac SSOT until federated mirror ships.
 

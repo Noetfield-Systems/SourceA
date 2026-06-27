@@ -42,7 +42,7 @@ Generator (draft) → Checker (fail list | pass) → Controller (retry | escalat
                     Human queue (Sina read · M1 Canvas) — never auto-outbox
 ```
 
-**Platform loop (separate):** Observatory → Investigator/Judge → Loop Specialist → INBOX. That loop observes the fleet; **this loop** repairs one cold-email draft. See parent IJ10 doc — do not merge.
+**Platform loop (separate):** Observatory → Investigator/Judge → Auto Runtime specialist → INBOX. That loop observes the fleet; **this loop** repairs one cold-email draft. See parent IJ10 doc — do not merge.
 
 ---
 
@@ -191,7 +191,7 @@ Founder signal → `governance_propagation_cascade_v1.py` → disk receipts — 
 
 - [x] One canonical doc (this file) for Generator-Checker-Controller shape
 - [x] Parents cited · no duplicated RIL/OQG/IJ10 prose
-- [x] Distinct from platform Loop Specialist / Observatory loop
+- [x] Distinct from platform Auto Runtime specialist / Observatory loop
 - [x] Distinct from legacy SINA_LOOP 10-round app loop (archived)
 - [x] Wire rows in `data/sourcea_pipeline_node_graph_v1.json` — `N_oegcc_controller` on N_prompt_composer chain
 - [ ] Authority index row — add on next registry sync

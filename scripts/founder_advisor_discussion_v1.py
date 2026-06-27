@@ -37,7 +37,7 @@ _SUBJECTS: list[dict] = [
 _DECISIONS_DEFAULT: list[dict] = [
     {"id": "D1", "title": "Stay frozen?", "options": ["Yes (default)", "Resume now"], "blocks": "Any batch drain", "status": "pending", "choice": ""},
     {"id": "D2", "title": "Packs 41–45 (+69)", "options": ["Accept", "Spot-check", "Rollback"], "blocks": "Closing 015-CONDUCT", "status": "pending", "choice": ""},
-    {"id": "D3", "title": "Resume how?", "options": ["ASF: resume drain — max 1 — receipt required"], "blocks": "Trust recovery", "status": "pending", "choice": ""},
+    {"id": "D3", "title": "Resume how?", "options": ["ASF: Cloud Forge Run — max 1 — receipt required"], "blocks": "Trust recovery", "status": "pending", "choice": ""},
     {"id": "D4", "title": "Hub UX", "options": ["Hide START under FREEZE", "Fix dual pick", "Both"], "blocks": "“Feels stuck” while gates green", "status": "pending", "choice": ""},
 ]
 

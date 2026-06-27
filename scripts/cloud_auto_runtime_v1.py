@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cloud drain auto-runtime — mock skip · self-heal · scheduled proceed (INCIDENT-023 gated)."""
+"""Cloud Auto Runtime — mock skip · self-heal · scheduled Cloud Forge Run proceed."""
 from __future__ import annotations
 
 import json
@@ -12,14 +12,26 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
 SINA = Path.home() / ".sina"
-SSOT = ROOT / "data/cloud-drain-auto-runtime-v1.json"
-TICK_RECEIPT = SINA / "cloud-drain-auto-tick-receipt-v1.json"
-HUB_RECEIPT = SINA / "hub-cloud-drain-proceed-receipt-v1.json"
-AUTO_FLAG = SINA / "cloud-drain-auto-proceed-v1.flag"
-CYCLE_RECEIPTS_DIR = SINA / "autonomous-drain-cycle-receipts"
-RAMP_STATE_PATH = SINA / "autonomous-drain-ramp-state-v1.json"
+SSOT = ROOT / "data/cloud-auto-runtime-v1.json"
+TICK_RECEIPT = SINA / "cloud-auto-runtime-tick-receipt-v1.json"
+HUB_RECEIPT = SINA / "hub-cloud-forge-run-proceed-receipt-v1.json"
+AUTO_FLAG = SINA / "cloud-forge-run-auto-proceed-v1.flag"
+CYCLE_RECEIPTS_DIR = SINA / "autonomous-forge-run-cycle-receipts"
+RAMP_STATE_PATH = SINA / "autonomous-forge-run-ramp-state-v1.json"
 
-sys.path.insert(0, str(SCRIPTS))
+def _normalize_motor_path(path: str) -> str:
+    """Legacy alias: /api/cloud-drain/* → /api/cloud-forge-run/* (physical rename v3)."""
+    if path.startswith("/api/cloud-drain/"):
+        return "/api/cloud-forge-run/" + path[len("/api/cloud-drain/") :]
+    return path
+
+
+def auto_proceed_armed() -> bool:
+    """CLOUD_FORGE_RUN_AUTO_PROCEED (new) or legacy CLOUD_DRAIN_AUTO_PROCEED."""
+    for key in ("CLOUD_FORGE_RUN_AUTO_PROCEED", "CLOUD_DRAIN_AUTO_PROCEED"):
+        if str(os.environ.get(key, "")).lower() in ("1", "true", "yes"):
+            return True
+    return AUTO_FLAG.is_file()
 
 
 def _now() -> str:
@@ -45,7 +57,7 @@ def load_ssot() -> dict[str, Any]:
     if row:
         return row
     return {
-        "schema": "cloud-drain-auto-runtime-v1",
+        "schema": "cloud-auto-runtime-v1",
         "version": "1.0.0",
         "enabled": False,
         "cron": "*/10 * * * *",
@@ -62,7 +74,7 @@ def load_ssot() -> dict[str, Any]:
 
 def auto_proceed_enabled() -> bool:
     ssot = load_ssot()
-    if str(os.environ.get("CLOUD_DRAIN_AUTO_PROCEED", "")).lower() in ("1", "true", "yes"):
+    if auto_proceed_armed():
         return True
     if AUTO_FLAG.is_file():
         return True
@@ -88,7 +100,7 @@ def _factory_stop_blocks() -> dict[str, Any] | None:
             return {
                 "ok": False,
                 "error": "factory_stop",
-                "for_founder": {"show_this": "Factory STOP active — auto drain blocked (INCIDENT-023)."},
+                "for_founder": {"show_this": "Factory STOP active — Auto Runtime blocked (INCIDENT-023)."},
             }
     except Exception as exc:
         return {"ok": False, "error": "factory_gate_failed", "message": str(exc)[:200]}
@@ -146,10 +158,28 @@ def _write_cycle_receipt(
     safe_at = str(cycle.get("at") or _now()).replace(":", "").replace("-", "")
     path = CYCLE_RECEIPTS_DIR / f"cycle-{safe_at}-v1.json"
     prove_ok = bool((prove or {}).get("ok"))
-    ship_ok = bool((ship or {}).get("ok"))
-    verdict = "approved" if prove_ok and ship_ok else "rejected"
+    pack = cycle.get("pack") if isinstance(cycle.get("pack"), dict) else {}
+    shipped = int(pack.get("shipped") or pack.get("advanced") or 0)
+    skipped = int(pack.get("skipped") or 0)
+    quota = int(pack.get("mandatory_quota") or pack.get("max_advance") or 100)
+    processed = shipped
+    idle_batch = bool(pack.get("idle_batch")) or (processed == 0 and bool(pack.get("batch_complete")))
+    registry_exhausted = bool(pack.get("registry_exhausted"))
+    pack_ok = skipped == 0 and (shipped >= quota or (idle_batch and registry_exhausted and shipped > 0))
+    if idle_batch and registry_exhausted:
+        ship_ok = False
+        verdict = "drain_complete"
+    elif idle_batch:
+        ship_ok = False
+        verdict = "idle"
+    elif pack:
+        ship_ok = pack_ok
+    else:
+        ship_ok = bool((ship or {}).get("ok"))
+    if not idle_batch:
+        verdict = "approved" if prove_ok and ship_ok else "rejected"
     doc = {
-        "schema": "autonomous-drain-cycle-receipt-v1",
+        "schema": "autonomous-forge-run-cycle-receipt-v1",
         "version": "1.0.0",
         "at": cycle.get("at") or _now(),
         "trigger_source": trigger_source,
@@ -192,12 +222,21 @@ def _write_cycle_receipt(
             "verdict": verdict,
             "rationale": cycle.get("decision_rationale")
             or (
-                "PROVE and SHIP passed from scheduler receipts"
-                if verdict == "approved"
-                else "Halted — gate failed; no forced green"
+                "Batch complete — idle tick (no rows shipped; not fake SHIP PASS)"
+                if verdict == "idle"
+                else (
+                    "Competitor-1000 drain complete — registry exhausted; next motor forge-real-blueprints"
+                    if verdict == "drain_complete"
+                    else (
+                        "PROVE and SHIP passed from scheduler receipts"
+                        if verdict == "approved"
+                        else "Halted — gate failed; no forced green"
+                    )
+                )
             ),
         },
         "cycle": cycle,
+        "pack": pack or None,
     }
     if (ship or {}).get("artifact_path"):
         doc["forge_seed"] = {
@@ -227,7 +266,7 @@ def _update_ramp_state(*, green: bool) -> dict[str, Any]:
     ssot = load_ssot()
     base_min = float(ssot.get("min_interval_minutes") or 10)
     row = {
-        "schema": "autonomous-drain-ramp-state-v1",
+        "schema": "autonomous-forge-run-ramp-state-v1",
         "at": _now(),
         "consecutive_green": consecutive,
         "cadence_minutes": base_min,
@@ -238,37 +277,56 @@ def _update_ramp_state(*, green: bool) -> dict[str, Any]:
     return row
 
 
+FULL_PACK_BODY: dict[str, Any] = {
+    "full_pack": True,
+    "max_advance": 100,
+    "auto_tick": True,
+    "force_reset_gate": True,
+}
+
+
+def _with_full_pack(body: dict[str, Any] | None) -> dict[str, Any]:
+    """Anti-poison — every Cloud Forge Run trigger is full_pack × 100 (INCIDENT-042)."""
+    row = {**FULL_PACK_BODY, **(body or {})}
+    row["full_pack"] = True
+    row["max_advance"] = int(row.get("max_advance") or 100)
+    if row["max_advance"] < 100:
+        row["max_advance"] = 100
+    return row
+
+
 def _cloud_queue_action(action: str, **kwargs: Any) -> dict[str, Any]:
     from forge_cloud_env_load_v1 import load_cloud_env  # noqa: WPS433
     from fbe.lib.hub_cloud_proxy_v1 import proxy_get_from_cloud, proxy_to_cloud  # noqa: WPS433
 
     load_cloud_env(apply=True)
     if action == "get_head":
-        return proxy_get_from_cloud(path="/api/cloud-drain/queue/v1", timeout_s=60)
+        return proxy_get_from_cloud(path="/api/cloud-forge-run/queue/v1", timeout_s=60)
     body: dict[str, Any] = {"action": action, **kwargs}
-    return proxy_to_cloud(path="/api/cloud-drain/queue/v1", body=body, timeout_s=120)
+    return proxy_to_cloud(path="/api/cloud-forge-run/queue/v1", body=body, timeout_s=120)
 
 
-def _cloud_proceed(*, llm_provider: str, full_motor: bool) -> dict[str, Any]:
+def _cloud_proceed(*, llm_provider: str, full_motor: bool, trigger_source: str = "mac_auto_tick") -> dict[str, Any]:
     from forge_cloud_env_load_v1 import load_cloud_env  # noqa: WPS433
     from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
 
     load_cloud_env(apply=True)
     return proxy_to_cloud(
-        path="/api/cloud-drain/proceed/v1",
-        body={
-            "full_motor": full_motor,
-            "llm_provider": llm_provider,
-            "auto_tick": True,
-            "trigger_source": "mac_auto_tick",
-        },
-        timeout_s=300,
+        path="/api/cloud-forge-run/auto-tick/v1",
+        body=_with_full_pack(
+            {
+                "full_motor": full_motor,
+                "llm_provider": llm_provider,
+                "trigger_source": trigger_source,
+            }
+        ),
+        timeout_s=900,
     )
 
 
 def _sync_mac_from_cloud_queue() -> dict[str, Any]:
     try:
-        from fbe.lib.cloud_drain_queue_v1 import sync_to_mac_if_newer  # noqa: WPS433
+        from fbe.lib.cloud_forge_run_queue_v1 import sync_to_mac_if_newer  # noqa: WPS433
 
         cloud = _cloud_queue_action("get_head")
         return sync_to_mac_if_newer(cloud)
@@ -282,167 +340,37 @@ def run_auto_tick(
     llm_provider: str = "openrouter",
     trigger_source: str = "manual",
 ) -> dict[str, Any]:
-    from cloud_workers_hub_v1 import (  # noqa: WPS433
-        auto_runtime_status,
-        skip_head,
-        _read as cw_read,
-        PHASE_OBS,
-    )
+    """Mac Cloud Workers — observe only. CF cron commands Railway; Mac never proxies drain."""
+    from cloud_workers_hub_v1 import auto_runtime_status  # noqa: WPS433
 
-    ssot = load_ssot()
     at = _now()
-    steps: list[dict[str, Any]] = []
-
-    block = _factory_stop_blocks()
-    if block and not force:
-        block["at"] = at
-        _write(TICK_RECEIPT, block)
-        return block
-
-    _read(TICK_RECEIPT)
-    from cloud_drain_single_cycle_gate_v1 import claim_or_halt  # noqa: WPS433
-
-    halt = claim_or_halt(path="/api/cloud-drain/auto-tick/v1", trigger_source=trigger_source)
-    if halt:
-        halt["schema"] = "cloud-drain-auto-tick-v1"
-        halt["at"] = at
-        halt["steps"] = steps
-        _write(TICK_RECEIPT, halt)
-        return halt
-
-    obs = cw_read(PHASE_OBS)
-    head = str(obs.get("cloud_drain_head") or "")
-
-    if not auto_proceed_enabled() and not force:
-        row = {
-            "ok": True,
-            "schema": "cloud-drain-auto-tick-v1",
-            "at": at,
-            "decision": "observe_only",
-            "head": head,
-            "auto_proceed_enabled": False,
-            "for_founder": {
-                "show_this": f"Auto tick OK — head {head} · mock skipped if needed · proceed OFF (arm flag to auto-run).",
-            },
-            "steps": steps,
-            "auto_runtime": auto_runtime_status(),
-        }
-        _write(TICK_RECEIPT, row)
-        return row
-
-    try:
-        from factory_control_v1 import current_mode  # noqa: WPS433
-
-        # Mac FREEZE is control-plane posture — cloud drain motor runs on Railway only.
-        if current_mode() == "FREEZE" and not force and not auto_proceed_enabled():
-            row = {
-                "ok": True,
-                "schema": "cloud-drain-auto-tick-v1",
-                "at": at,
-                "decision": "freeze_skip_proceed",
-                "head": head,
-                "for_founder": {
-                    "show_this": f"Factory FREEZE — mock skip done · head {head} · arm flag for auto Proceed.",
-                },
-                "steps": steps,
-                "auto_runtime": auto_runtime_status(),
-            }
-            _write(TICK_RECEIPT, row)
-            return row
-    except Exception:
-        pass
-
-    prove = _run_prove_gate()
-    steps.append(
-        {
-            "step": "prove",
-            "result": {
-                "ok": prove.get("ok"),
-                "summary_line": prove.get("summary_line"),
-                "chains_up": prove.get("chains_up"),
-                "chains_total": prove.get("chains_total"),
-            },
-        }
-    )
-    if not prove.get("ok"):
-        halt_reason = "prove_gate_failed"
-        failed = [c for c in (prove.get("chains") or []) if not c.get("ok")]
-        skip_row: dict[str, Any] | None = None
-        if head and ssot.get("self_heal_any_motor_fail", True):
-            skip_row = skip_head(reason="prove_gate_halt_advance_head")
-            steps.append({"step": "halt_skip_head", "result": skip_row})
-        cycle_row = {
-            "ok": False,
-            "schema": "cloud-drain-auto-tick-v1",
-            "at": at,
-            "decision": "halt_prove",
-            "decision_rationale": f"PROVE failed — {prove.get('summary_line') or halt_reason}",
-            "head": head,
-            "trigger_source": trigger_source,
-            "prove": {"ok": False, "failed_chains": failed[:3]},
-            "for_founder": {
-                "show_this": f"Auto drain HALT · PROVE fail · head {head} · advanced per gate law",
-            },
-            "steps": steps,
-            "auto_runtime": auto_runtime_status(),
-        }
-        _write(TICK_RECEIPT, cycle_row)
-        cycle_path = _write_cycle_receipt(
-            cycle=cycle_row,
-            trigger_source=trigger_source,
-            head=head,
-            prove=prove,
-            ship=None,
-        )
-        cycle_row["cycle_receipt_path"] = str(cycle_path)
-        _update_ramp_state(green=False)
-        return cycle_row
-
-    # Headless path: Railway queue + proceed (no Hub process required)
-    proceed = _cloud_proceed(
-        llm_provider=llm_provider or str(ssot.get("llm_provider") or "openrouter"),
-        full_motor=bool(ssot.get("full_motor", True)),
-    )
-    # Mirror receipt for Command Center glance on Mac
-    if proceed.get("ok") is not None:
-        hub_mirror = {
-            "schema": "hub-cloud-drain-proceed-receipt-v1",
-            "at": at,
-            "ok": bool(proceed.get("ok")),
-            "execution_plane": "headless_cloud_auto_tick",
-            "plan_id": proceed.get("plan_id"),
-            "maps_registry": proceed.get("maps_registry"),
-            "cloud": proceed,
-            "for_founder": proceed.get("for_founder") or {"show_this": str(proceed.get("for_founder", ""))},
-        }
-        _write(HUB_RECEIPT, hub_mirror)
-
-    steps.append({"step": "proceed", "result": {"ok": proceed.get("ok"), "plan_id": proceed.get("plan_id")}})
-
+    tick = _read(TICK_RECEIPT)
+    phase = _read(SINA / "phase-observed-v1.json")
+    deploy = _read(SINA / "fbe-cloud-deploy-receipt-v1.json")
+    observer = "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/observer/v1"
     row = {
-        "ok": bool(proceed.get("ok")),
-        "schema": "cloud-drain-auto-tick-v1",
+        "ok": True,
+        "schema": "cloud-auto-runtime-tick-v1",
         "at": at,
-        "decision": "proceed" if proceed.get("ok") else "proceed_failed",
-        "head": head,
-        "plan_id": proceed.get("plan_id"),
+        "decision": "mac_observe_only",
+        "execution_plane": "mac_control_panel",
         "trigger_source": trigger_source,
-        "prove_ok": True,
-        "for_founder": (proceed.get("for_founder") or {}).get("show_this")
-        or proceed.get("hub_proceed_line")
-        or f"Auto tick · head {head}",
-        "steps": steps,
+        "anti_poison": "mac_never_commands_railway",
+        "cloud_scheduler": "cloudflare_cron */10 full_pack max_advance 100",
+        "local_head": phase.get("cloud_forge_run_head"),
+        "local_batch_id": phase.get("batch_id"),
+        "last_cloud_tick_at": tick.get("at"),
+        "last_cloud_pack": (tick.get("pack") if isinstance(tick.get("pack"), dict) else None),
+        "deploy_at": deploy.get("at"),
+        "observer_url": observer,
+        "for_founder": {
+            "show_this": (
+                f"Mac observe only · local head {phase.get('cloud_forge_run_head') or '—'} · "
+                f"Cloud Forge Run = CF cron every 10m · proof {observer}"
+            ),
+        },
         "auto_runtime": auto_runtime_status(),
     }
-    cycle_path = _write_cycle_receipt(
-        cycle=row,
-        trigger_source=trigger_source,
-        head=head,
-        prove=prove,
-        ship=proceed,
-    )
-    row["cycle_receipt_path"] = str(cycle_path)
-    row["ramp"] = _update_ramp_state(green=bool(proceed.get("ok")))
     _write(TICK_RECEIPT, row)
     return row
 
@@ -455,7 +383,7 @@ def _run_contract_gate() -> dict[str, Any]:
         factory_id="forge-app-factory-v1",
         tenant_id="forge",
         execution_mode="CLOUD_ONLY",
-        work_order_id="cloud-drain-auto-tick",
+        work_order_id="cloud-auto-runtime-tick",
     )
     validation = validate_contract(contract)
     if not validation.get("ok"):
@@ -472,7 +400,7 @@ def _run_contract_gate() -> dict[str, Any]:
 
 def _cloud_ramp_path() -> Path:
     if _is_headless_cloud():
-        return Path("/app/receipts/cloud/autonomous-drain-ramp-state-v1.json")
+        return Path("/app/receipts/cloud/autonomous-forge-run-ramp-state-v1.json")
     return RAMP_STATE_PATH
 
 
@@ -486,7 +414,7 @@ def _update_ramp_state_cloud(*, green: bool) -> dict[str, Any]:
     ssot = load_ssot()
     base_min = float(ssot.get("min_interval_minutes") or 10)
     row = {
-        "schema": "autonomous-drain-ramp-state-v1",
+        "schema": "autonomous-forge-run-ramp-state-v1",
         "at": _now(),
         "consecutive_green": consecutive,
         "cadence_minutes": base_min,
@@ -502,7 +430,7 @@ def _update_ramp_state_cloud(*, green: bool) -> dict[str, Any]:
 
 
 def _pack_in_progress(mark: bool) -> None:
-    from cloud_drain_single_cycle_gate_v1 import _read_gate, _write_gate, SCHEMA  # noqa: WPS433
+    from cloud_auto_runtime_single_cycle_gate_v1 import _read_gate, _write_gate, SCHEMA  # noqa: WPS433
 
     state = _read_gate()
     if mark:
@@ -513,24 +441,24 @@ def _pack_in_progress(mark: bool) -> None:
     _write_gate(state)
 
 
-def run_pack_loop(
+def run_auto_runtime_pack(
     *,
     body: dict[str, Any],
     ssot: dict[str, Any],
     trigger_source: str,
     llm_provider: str,
 ) -> dict[str, Any]:
-    """One external trigger — internal loop advances up to max_advance CLOUD-SEC rows."""
-    from hub_cloud_drain_proceed_v1 import proceed_on_cloud  # noqa: WPS433
-    from fbe.lib.cloud_drain_queue_v1 import read_head, skip_head  # noqa: WPS433
+    """One external trigger — ship mandatory max_advance rows (NO skip-on-fail — INCIDENT-044)."""
+    from hub_cloud_forge_run_proceed_v1 import proceed_on_cloud  # noqa: WPS433
+    from fbe.lib.cloud_forge_run_queue_v1 import read_head  # noqa: WPS433
 
     max_advance = int(body.get("max_advance") or ssot.get("max_advance_per_tick") or 100)
-    max_skips = int(ssot.get("max_skips_per_tick") or 8)
-    self_heal = bool(ssot.get("self_heal_any_motor_fail") or ssot.get("self_heal_motor_fail_mock"))
+    no_skip = bool(ssot.get("no_skip_law", True))
     advanced = 0
     skipped = 0
     pack_results: list[dict[str, Any]] = []
     last_proceed: dict[str, Any] = {}
+    pack_motor = bool(body.get("full_motor", ssot.get("pack_full_motor", False)))
 
     _pack_in_progress(True)
     try:
@@ -538,65 +466,83 @@ def run_pack_loop(
             head_row = read_head()
             if head_row.get("queue_batch_complete"):
                 break
+            head_before = str(head_row.get("cloud_forge_run_head") or "")
             last_proceed = proceed_on_cloud(
                 {
-                    "full_motor": bool(ssot.get("full_motor", True)),
+                    "plan_id": head_before,
+                    "full_motor": pack_motor,
                     "llm_provider": llm_provider or str(ssot.get("llm_provider") or "openrouter"),
                     "auto_tick": True,
                     "_cycle_claimed": True,
                     "_pack_prove_done": True,
                     "_pack_internal": True,
                     "trigger_source": trigger_source,
-                    **{k: v for k, v in body.items() if k not in ("full_pack", "max_advance")},
+                    **{
+                        k: v
+                        for k, v in body.items()
+                        if k not in ("full_pack", "max_advance", "full_motor", "plan_id", "maps_registry", "plan_registry")
+                    },
                 }
             )
-            pid = str(last_proceed.get("plan_id") or "")
+            pid = str(last_proceed.get("plan_id") or head_before)
             ok = bool(last_proceed.get("ok"))
             pack_results.append({"plan_id": pid, "ok": ok})
             if ok:
                 advanced += 1
                 continue
-            if self_heal and skipped < max_skips:
-                skip_row = skip_head(reason="pack_self_heal_motor_fail")
-                if skip_row.get("ok"):
-                    skipped += 1
-                    continue
-                if skip_row.get("error") == "no_next_plan":
-                    from fbe.lib.cloud_drain_queue_v1 import swap_to_next_batch  # noqa: WPS433
-
-                    handoff = swap_to_next_batch(reason="pack_self_heal_batch_end")
-                    pack_results.append({"plan_id": pid, "ok": False, "batch_handoff": handoff})
-                    if handoff.get("ok"):
-                        skipped += 1
-                        continue
+            if no_skip:
+                pack_results.append({"plan_id": pid, "ok": False, "halt": "motor_fail_no_skip"})
                 break
             break
     finally:
         _pack_in_progress(False)
         try:
-            from cloud_drain_single_cycle_gate_v1 import reset_gate_for_pack  # noqa: WPS433
+            from cloud_auto_runtime_single_cycle_gate_v1 import reset_gate_for_pack  # noqa: WPS433
 
             reset_gate_for_pack()
         except Exception:
             pass
 
+    processed = advanced
     head_now = read_head()
     batch_done = bool(head_now.get("queue_batch_complete"))
+    idle_batch = processed == 0 and batch_done
+    registry_exhausted = bool(head_now.get("registry_exhausted"))
+    obs = head_now.get("observed") if isinstance(head_now.get("observed"), dict) else {}
+    quota_met = advanced >= max_advance or (batch_done and advanced > 0)
+    pack_ok = skipped == 0 and (quota_met or (idle_batch and registry_exhausted))
     return {
-        "ok": advanced > 0 or batch_done,
-        "schema": "cloud-drain-pack-v1",
+        "ok": pack_ok,
+        "idle_batch": idle_batch,
+        "registry_exhausted": registry_exhausted,
+        "schema": "cloud-forge-run-pack-v1",
         "advanced": advanced,
         "skipped": skipped,
+        "processed": processed,
+        "shipped": advanced,
+        "mandatory_quota": max_advance,
+        "no_skip_law": no_skip,
+        "max_advance": max_advance,
         "batch_complete": batch_done,
-        "head_now": str(head_now.get("cloud_drain_head") or ""),
-        "last_completed": str(head_now.get("cloud_drain_last_completed") or ""),
+        "batch_id": obs.get("batch_id"),
+        "head_start": pack_results[0].get("plan_id") if pack_results else "",
+        "head_now": str(head_now.get("cloud_forge_run_head") or ""),
+        "last_completed": str(head_now.get("cloud_forge_run_last_completed") or ""),
         "pack_results_tail": pack_results[-5:],
         "last_proceed": last_proceed,
         "for_founder": {
             "show_this": (
-                f"Pack SHIP · advanced {advanced} · skipped {skipped} · "
-                f"head {head_now.get('cloud_drain_head')} · "
-                + ("100/100 batch COMPLETE" if batch_done else "continuing on next trigger")
+                f"Pack · shipped {advanced}/{max_advance} (mandatory) · skipped {skipped} (must be 0) · "
+                f"head {head_now.get('cloud_forge_run_head')} · "
+                + (
+                    "competitor-1000 COMPLETE · registry exhausted · next: forge-real-blueprints"
+                    if idle_batch and registry_exhausted
+                    else (
+                    "batch COMPLETE · idle (no SHIP this tick)"
+                    if idle_batch
+                    else ("batch COMPLETE" if batch_done else "next CF cron continues")
+                    )
+                )
             ),
         },
     }
@@ -610,28 +556,63 @@ def run_cloud_auto_tick(
     trigger_source: str = "cloudflare_cron",
 ) -> dict[str, Any]:
     """Server-side autonomous tick on Railway — PROVE → contract → SHIP."""
-    from fbe.lib.cloud_drain_queue_v1 import read_head, skip_head  # noqa: WPS433
+    from fbe.lib.cloud_forge_run_queue_v1 import read_head  # noqa: WPS433
 
-    body = body or {}
+    body = _with_full_pack(body or {})
     trigger_source = str(body.get("trigger_source") or trigger_source)
     force = bool(body.get("force")) or force
     ssot = load_ssot()
     at = _now()
     steps: list[dict[str, Any]] = []
 
-    if str(os.environ.get("CLOUD_DRAIN_AUTO_PROCEED", "")).lower() not in ("1", "true", "yes") and not force:
+    if not auto_proceed_armed() and not force:
         row = {
             "ok": True,
-            "schema": "cloud-drain-auto-tick-v1",
+            "schema": "cloud-auto-runtime-tick-v1",
             "at": at,
             "decision": "observe_only",
             "trigger_source": trigger_source,
             "execution_plane": "headless_cloud",
-            "for_founder": {"show_this": "Cloud auto drain OFF — set CLOUD_DRAIN_AUTO_PROCEED=true"},
+            "for_founder": {"show_this": "Auto Runtime OFF — set CLOUD_FORGE_RUN_AUTO_PROCEED=true"},
         }
         return row
 
-    cloud_tick_receipt = Path("/app/receipts/cloud/cloud-drain-auto-tick-receipt-v1.json")
+    from fbe.lib.cloud_forge_run_queue_v1 import boot_heal_queue, read_head  # noqa: WPS433
+
+    try:
+        from forge_l3_auto_runtime_v1 import list_pending, tick_forge_l3_repairs  # noqa: WPS433
+
+        pending = list_pending()
+        if pending:
+            l3_tick = tick_forge_l3_repairs(dry_run=not auto_proceed_armed())
+            steps.append({"step": "forge_l3_repairs", "pending": len(pending), "result": l3_tick})
+    except Exception as exc:
+        steps.append({"step": "forge_l3_repairs", "skipped": str(exc)[:80]})
+
+    try:
+        from forge_civilization_loop_v1 import civilization_tick  # noqa: WPS433
+
+        civ = civilization_tick(workspace_path=str(Path.home() / "Desktop" / "SourceA"), dry_run=not auto_proceed_armed())
+        steps.append({"step": "forge_civilization_tick", "processed": civ.get("processed"), "result": {"ok": civ.get("ok")}})
+    except Exception as exc:
+        steps.append({"step": "forge_civilization_tick", "skipped": str(exc)[:80]})
+
+    heal = boot_heal_queue(force=True)
+    steps.append({"step": "boot_heal", "result": {"ok": heal.get("ok"), "head": heal.get("head"), "reason": heal.get("activate_reason") or heal.get("heal")}})
+
+    try:
+        from cloud_forge_run_supabase_v1 import table_probe, apply_migration_if_missing  # noqa: WPS433
+
+        sb_probe = table_probe()
+        if not sb_probe.get("exists"):
+            sb_apply = apply_migration_if_missing()
+            steps.append({"step": "supabase_schema", "result": sb_apply})
+        else:
+            steps.append({"step": "supabase_schema", "result": {"ok": True, "exists": True}})
+    except Exception as exc:
+        steps.append({"step": "supabase_schema", "result": {"ok": False, "error": str(exc)[:120]}})
+
+    cloud_tick_receipt = Path("/app/receipts/cloud/cloud-auto-runtime-tick-receipt-v1.json")
 
     full_pack_early = body.get("full_pack")
     if full_pack_early is None:
@@ -640,35 +621,68 @@ def run_cloud_auto_tick(
         trigger_source in ("cloudflare_cron", "cloudflare_scheduled", "hub_proceed_pack")
         or body.get("force_reset_gate")
     ):
-        from cloud_drain_single_cycle_gate_v1 import reset_gate_for_pack  # noqa: WPS433
+        from cloud_auto_runtime_single_cycle_gate_v1 import reset_gate_for_pack  # noqa: WPS433
 
         reset_gate_for_pack()
 
     if not body.get("_cycle_claimed"):
-        from cloud_drain_single_cycle_gate_v1 import claim_or_halt  # noqa: WPS433
+        from cloud_auto_runtime_single_cycle_gate_v1 import claim_or_halt  # noqa: WPS433
 
-        halt = claim_or_halt(path="/api/cloud-drain/auto-tick/v1", trigger_source=trigger_source)
+        halt = claim_or_halt(path="/api/cloud-forge-run/auto-tick/v1", trigger_source=trigger_source)
         if halt:
             if halt.get("reason") == "pack_in_progress":
                 return {
                     "ok": True,
-                    "schema": "cloud-drain-auto-tick-v1",
+                    "schema": "cloud-auto-runtime-tick-v1",
                     "at": at,
                     "decision": "pack_in_progress_skip",
                     "trigger_source": trigger_source,
                     "for_founder": {"show_this": "Pack already running on Railway — skip duplicate trigger"},
                 }
-            return {**halt, "schema": "cloud-drain-auto-tick-v1"}
+            return {**halt, "schema": "cloud-auto-runtime-tick-v1"}
 
     head_row = read_head()
-    head = str(head_row.get("cloud_drain_head") or "")
+    head = str(head_row.get("cloud_forge_run_head") or "")
+    if head_row.get("queue_batch_complete") and not head_row.get("registry_exhausted"):
+        from fbe.lib.cloud_forge_run_queue_v1 import boot_heal_queue, seal_registry_exhausted  # noqa: WPS433
+
+        heal = boot_heal_queue(force=True)
+        steps.append({"step": "boot_heal_batch_handoff", "result": heal})
+        head_row = read_head()
+        if head_row.get("queue_batch_complete") and not head_row.get("registry_exhausted"):
+            seal = seal_registry_exhausted(reason="auto_tick_batch_complete_no_next")
+            steps.append({"step": "seal_registry_exhausted", "result": seal})
+            head_row = read_head()
+        head = str(head_row.get("cloud_forge_run_head") or "")
+    if head_row.get("queue_batch_complete") and head_row.get("registry_exhausted"):
+        row = {
+            "ok": True,
+            "schema": "cloud-auto-runtime-tick-v1",
+            "at": at,
+            "decision": "drain_complete",
+            "head": head,
+            "trigger_source": trigger_source,
+            "execution_plane": "headless_cloud",
+            "queue_batch_complete": True,
+            "registry_exhausted": True,
+            "for_founder": head_row.get("for_founder")
+            or {
+                "show_this": (
+                    f"Extension wave-2 COMPLETE — {head_row.get('cloud_forge_run_last_completed') or head} · "
+                    "registry exhausted · no more CLOUD-SEC rows"
+                ),
+            },
+            "steps": steps,
+        }
+        _write(cloud_tick_receipt, row)
+        return row
 
     prove = _run_prove_gate()
     steps.append({"step": "prove", "result": {"ok": prove.get("ok"), "summary_line": prove.get("summary_line")}})
     if not prove.get("ok"):
         cycle_row = {
             "ok": False,
-            "schema": "cloud-drain-auto-tick-v1",
+            "schema": "cloud-auto-runtime-tick-v1",
             "at": at,
             "decision": "halt_prove",
             "head": head,
@@ -676,7 +690,6 @@ def run_cloud_auto_tick(
             "execution_plane": "headless_cloud",
             "steps": steps,
         }
-        skip_head(reason="cloud_prove_halt")
         _write_cycle_receipt(cycle=cycle_row, trigger_source=trigger_source, head=head, prove=prove, ship=None)
         _update_ramp_state_cloud(green=False)
         cloud_tick_receipt.parent.mkdir(parents=True, exist_ok=True)
@@ -688,7 +701,7 @@ def run_cloud_auto_tick(
     if not contract.get("ok"):
         cycle_row = {
             "ok": False,
-            "schema": "cloud-drain-auto-tick-v1",
+            "schema": "cloud-auto-runtime-tick-v1",
             "at": at,
             "decision": "halt_contract",
             "head": head,
@@ -696,89 +709,59 @@ def run_cloud_auto_tick(
             "execution_plane": "headless_cloud",
             "steps": steps,
         }
-        skip_head(reason="contract_gate_halt")
         _write_cycle_receipt(cycle=cycle_row, trigger_source=trigger_source, head=head, prove=prove, ship=None)
         _update_ramp_state_cloud(green=False)
         _write(cloud_tick_receipt, cycle_row)
         return cycle_row
 
-    from hub_cloud_drain_proceed_v1 import proceed_on_cloud  # noqa: WPS433
+    pack = run_auto_runtime_pack(body=body, ssot=ssot, trigger_source=trigger_source, llm_provider=llm_provider)
+    steps.append({"step": "pack", "result": pack})
+    from cloud_auto_runtime_single_cycle_gate_v1 import claim_or_halt  # noqa: WPS433
 
-    full_pack = body.get("full_pack")
-    if full_pack is None:
-        full_pack = bool(ssot.get("full_pack", True))
-
-    if full_pack:
-        pack = run_pack_loop(body=body, ssot=ssot, trigger_source=trigger_source, llm_provider=llm_provider)
-        steps.append({"step": "pack", "result": pack})
-        from cloud_drain_single_cycle_gate_v1 import claim_or_halt  # noqa: WPS433
-
-        if pack.get("ok"):
-            claim_or_halt(path="/api/cloud-drain/auto-tick/v1", trigger_source=trigger_source, after_pass=True)
-        row = {
-            "ok": bool(pack.get("ok")),
-            "schema": "cloud-drain-auto-tick-v1",
-            "at": at,
-            "decision": "pack_complete" if pack.get("batch_complete") else ("pack" if pack.get("ok") else "pack_stalled"),
-            "head": pack.get("head_now"),
-            "plan_id": (pack.get("last_proceed") or {}).get("plan_id"),
-            "trigger_source": trigger_source,
-            "execution_plane": "headless_cloud",
-            "pack": pack,
-            "prove_ok": True,
-            "contract_ok": True,
-            "for_founder": pack.get("for_founder"),
-            "steps": steps,
-        }
-        ship_row = pack.get("last_proceed") or {}
-        cycle_path = _write_cycle_receipt(
-            cycle=row,
-            trigger_source=trigger_source,
-            head=str(pack.get("head_now") or head),
-            prove=prove,
-            ship=ship_row,
-        )
-        row["cycle_receipt_path"] = str(cycle_path)
-        row["ramp"] = _update_ramp_state_cloud(green=bool(pack.get("ok")))
-        cloud_tick_receipt.parent.mkdir(parents=True, exist_ok=True)
-        _write(cloud_tick_receipt, row)
-        return row
-
-    proceed = proceed_on_cloud(
-        {
-            "full_motor": bool(ssot.get("full_motor", True)),
-            "llm_provider": llm_provider or str(ssot.get("llm_provider") or "openrouter"),
-            "auto_tick": True,
-            "_cycle_claimed": True,
-            **body,
-        }
-    )
-    steps.append({"step": "proceed", "result": {"ok": proceed.get("ok"), "plan_id": proceed.get("plan_id")}})
-
+    shipped = int(pack.get("advanced") or pack.get("shipped") or 0)
+    skipped = int(pack.get("skipped") or 0)
+    processed = shipped
+    idle_batch = bool(pack.get("idle_batch"))
+    registry_exhausted = bool(pack.get("registry_exhausted"))
+    quota = int(pack.get("mandatory_quota") or pack.get("max_advance") or 100)
+    if pack.get("ok") and shipped >= quota:
+        claim_or_halt(path="/api/cloud-forge-run/auto-tick/v1", trigger_source=trigger_source, after_pass=True)
+    if idle_batch and registry_exhausted:
+        tick_decision = "drain_complete"
+    elif idle_batch:
+        tick_decision = "batch_idle"
+    elif pack.get("batch_complete") and processed > 0:
+        tick_decision = "pack_complete"
+    elif pack.get("ok"):
+        tick_decision = "pack"
+    else:
+        tick_decision = "pack_stalled"
     row = {
-        "ok": bool(proceed.get("ok")),
-        "schema": "cloud-drain-auto-tick-v1",
+        "ok": bool(pack.get("ok")) or tick_decision == "drain_complete",
+        "schema": "cloud-auto-runtime-tick-v1",
         "at": at,
-        "decision": "proceed" if proceed.get("ok") else "proceed_failed",
-        "head": head,
-        "plan_id": proceed.get("plan_id"),
+        "decision": tick_decision,
+        "head": pack.get("head_now"),
+        "plan_id": (pack.get("last_proceed") or {}).get("plan_id"),
         "trigger_source": trigger_source,
         "execution_plane": "headless_cloud",
+        "pack": pack,
         "prove_ok": True,
         "contract_ok": True,
-        "for_founder": (proceed.get("for_founder") or {}).get("show_this")
-        or f"Cloud tick · {head}",
+        "for_founder": pack.get("for_founder"),
         "steps": steps,
+        "anti_poison": "full_pack_only",
     }
+    ship_row = pack.get("last_proceed") or {}
     cycle_path = _write_cycle_receipt(
         cycle=row,
         trigger_source=trigger_source,
-        head=head,
+        head=str(pack.get("head_now") or head),
         prove=prove,
-        ship=proceed,
+        ship=ship_row,
     )
     row["cycle_receipt_path"] = str(cycle_path)
-    row["ramp"] = _update_ramp_state_cloud(green=bool(proceed.get("ok")))
+    row["ramp"] = _update_ramp_state_cloud(green=shipped >= quota and skipped == 0)
     cloud_tick_receipt.parent.mkdir(parents=True, exist_ok=True)
     _write(cloud_tick_receipt, row)
     return row
@@ -787,7 +770,7 @@ def run_cloud_auto_tick(
 def main() -> int:
     import argparse
 
-    ap = argparse.ArgumentParser(description="Cloud drain auto-runtime v1")
+    ap = argparse.ArgumentParser(description="Cloud Forge Run auto-runtime v1")
     ap.add_argument("--tick", action="store_true")
     ap.add_argument("--status", action="store_true")
     ap.add_argument("--force", action="store_true")
@@ -802,8 +785,10 @@ def main() -> int:
         ssot = load_ssot()
         ssot["enabled"] = True
         ssot["auto_proceed"] = True
-        ssot["auto_skip_mock"] = True
-        ssot["self_heal_any_motor_fail"] = True
+        ssot["auto_skip_mock"] = False
+        ssot["self_heal_any_motor_fail"] = False
+        ssot["self_heal_motor_fail_mock"] = False
+        ssot["no_skip_law"] = True
         ssot["saved_at"] = _now()
         _write(SSOT, ssot)
         out = {
@@ -811,7 +796,7 @@ def main() -> int:
             "enabled": True,
             "flag": str(AUTO_FLAG),
             "for_founder": {
-                "show_this": "Auto drain ARMED — mock skip + self-heal on motor fail + scheduled proceed when cron runs.",
+                "show_this": "Auto Runtime ARMED — 100 shipped rows per turn, zero skips, CF cron → Cloud Forge Run.",
             },
         }
     elif args.disable:
@@ -830,10 +815,10 @@ def main() -> int:
     if args.json:
         print(json.dumps(out, indent=2))
     elif args.enable:
-        print(out.get("for_founder", {}).get("show_this") or "OK — Auto drain ARMED")
+        print(out.get("for_founder", {}).get("show_this") or "OK — Auto Runtime ARMED")
         print("Flag:", AUTO_FLAG)
     elif args.disable:
-        print("OK — Auto drain OFF")
+        print("OK — Auto Runtime OFF")
     else:
         print(out.get("for_founder", {}).get("show_this") or out.get("decision") or json.dumps(out, indent=2)[:200])
     return 0 if out.get("ok", True) else 1

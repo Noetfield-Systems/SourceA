@@ -4,7 +4,7 @@
 Reads: data/outbound-factory-100-upgrade-plan-v1.json (v2)
 Writes: data/outbound-factory-worker-queue-v1.json
         ~/.sina/healthy-queue-30-active.json
-        ~/.sina/worker-prompt-inbox-v1.json (legacy relay — Brain work-order primary when loop auto)
+        ~/.sina/worker-prompt-inbox-v1.json (legacy relay — Brain work-order primary when Auto Runtime)
         .sina-loop/INBOX.md
 """
 from __future__ import annotations

@@ -1,0 +1,17 @@
+schema: sourcea-agents-v2
+agents:
+  planner:
+    role: planner
+    description: Break founder intent into bounded tasks
+    model_ref: planner
+    file: agents/planner.yaml
+  builder:
+    role: builder
+    description: Execute approved tasks in workspace jail
+    model_ref: executor
+    file: agents/builder.yaml
+  verifier:
+    role: verifier
+    description: Verify receipts and block fake-green
+    model_ref: verifier
+    file: agents/verifier.yaml

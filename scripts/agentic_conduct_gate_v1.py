@@ -73,9 +73,38 @@ def _load_brain_forbidden() -> list[str]:
     return out
 
 
+def _filing_resolution_for_text(text: str) -> dict:
+    """Resolve pathless SAVE/LOCK/FILE intent so agents do not ask ASF for paths."""
+    tl = (text or "").lower().replace("_", " ").replace("-", " ")
+    save_intent = any(
+        marker in tl
+        for marker in (
+            "save and lock",
+            "save this",
+            "save ",
+            " lock ",
+            "locked spec",
+            "mandatory rule",
+            "machine enforceable",
+            "all agents",
+            "filing registry",
+            "path registry",
+        )
+    )
+    if not save_intent:
+        return {}
+    try:
+        from agent_filing_registry_gate_v1 import resolve  # noqa: WPS433
+
+        return resolve(intent=text, agent="cursor")
+    except Exception as exc:
+        return {"ok": False, "reason": "REGISTRY_RESOLVE_ERROR", "error": str(exc)[:120]}
+
+
 def evaluate(*, role: str = "any", task_text: str = "") -> dict:
     warnings: list[str] = []
     violations: list[str] = []
+    filing_resolution: dict = {}
     role = role if role in ROLE_LIMITS else "any"
     limits = ROLE_LIMITS[role]
 
@@ -102,6 +131,40 @@ def evaluate(*, role: str = "any", task_text: str = "") -> dict:
 
     if "&&" in task_text and task_text.count("validate-") >= 2:
         warnings.append("validator_chain_pattern:&&")
+
+    # Filing registry — pathless SAVE/LOCK must resolve before asking ASF for paths.
+    if task_text.strip():
+        filing_resolution = _filing_resolution_for_text(task_text)
+        asks_exact_path = any(
+            marker in task_lower
+            for marker in (
+                "which path",
+                "what path",
+                "provide a path",
+                "provide exact path",
+                "exact save path",
+                "where should i save",
+                "where to save",
+                "ask asf for a path",
+                "ask which file",
+                "no path named",
+            )
+        )
+        if filing_resolution.get("ok"):
+            warnings.append(
+                "filing_registry_resolved:"
+                f"{filing_resolution.get('route_id')}:{filing_resolution.get('path')}"
+            )
+            if asks_exact_path:
+                violations.append(
+                    "filing_registry_first_required:"
+                    f"use route_id={filing_resolution.get('route_id')} path={filing_resolution.get('path')}"
+                )
+        elif filing_resolution and asks_exact_path:
+            warnings.append(
+                "filing_registry_unresolved:"
+                f"{filing_resolution.get('reason') or 'unknown'}:ask category/scope, not exact path"
+            )
 
     # MAC LAW machine enforce — forbidden shell / Mac-body work (031 + 032 universal)
     if task_text.strip():
@@ -272,7 +335,7 @@ def evaluate(*, role: str = "any", task_text: str = "") -> dict:
         )
         if local_forge and proceed_ctx:
             violations.append(
-                "hub_cloud_proceed_forbidden:use POST /api/cloud-drain/proceed/v1 or Worker Hub Proceed — not Mac forge dispatch"
+                "hub_cloud_proceed_forbidden:use Cloud Workers Proceed or POST /api/cloud-forge-run/proceed/v1 — not Mac forge dispatch"
             )
         if local_forge and "python3 scripts/" in tl and role in ("any", "worker", "brain"):
             warnings.append("hub_cloud_proceed_hint:activation cloud tasks → Hub Proceed · cloud OpenRouter/Gemini only")
@@ -291,6 +354,7 @@ def evaluate(*, role: str = "any", task_text: str = "") -> dict:
         "warnings": warnings,
         "violations": violations,
         "forbidden_shells": sorted(forbidden_set),
+        "filing_registry": filing_resolution,
         "law": "SOURCEA_AGENTIC_ENFORCEMENT_STACK_LOCKED_v2.md",
         "g7_receipt_present": g7_hint,
         "incidents": ["026", "027", "028", "016", "037"],

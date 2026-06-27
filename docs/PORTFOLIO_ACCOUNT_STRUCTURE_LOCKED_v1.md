@@ -34,7 +34,7 @@ Never use WitnessBC credentials for TrustField, Noetfield, VIRLUX, or SourceA re
 |---------|-------|----------------|
 | `hello@trustfield.ca` | TrustField Technologies | Workspace · `commercial_mail_draft_v1.py --lane TF` |
 | `operation@noetfield.com` | Noetfield | Mail.app gate · also `operations@noetfield.com` for NW1 |
-| `hello@sourcea.com` | SourceA | `SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md` · AB1 |
+| `hello@sourcea.app` | SourceA | `SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md` · AB1 |
 | `hello@virlux.com` | VIRLUX | Product contact |
 
 Vault keys (names only — values in `~/.sina/secrets.env` / `~/.sourcea-secrets/`):  
@@ -88,6 +88,6 @@ Every portfolio / cloud / repo report must include **`portfolio_account_structur
 ## Related law
 
 - `data/commercial-mail-from-gate-v1.json` — founder Mail.app FROM gate  
-- `brain-os/law/SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md` — hello@sourcea.com  
+- `brain-os/law/SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md` — hello@sourcea.app  
 - `data/platform-neutral-world-model-v1.json` — Stripe billing entity  
 - `.cursor/rules/040-workspace-supabase-core.mdc` — Supabase tier boundaries

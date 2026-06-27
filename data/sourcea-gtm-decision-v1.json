@@ -1,0 +1,21 @@
+{
+  "schema": "sourcea-gtm-decision-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-24T01:30:00Z",
+  "decision": "download_first",
+  "stab_ids": ["STAB-016", "STAB-028"],
+  "primary_lane": {
+    "name": "Chat Unify.app public download",
+    "artifact": "sourcea.app/downloads/chat-unify-mac-v1.dmg",
+    "build": "scripts/build-chat-unify-standalone-app-v1.sh + scripts/publish_chat_unify_dmg_v1.sh",
+    "cta_copy": "Download Chat Unify.app"
+  },
+  "deferred_lane": {
+    "name": "Stripe platform subscription",
+    "target_week": 3,
+    "stab_ids": ["STAB-017", "STAB-021", "STAB-022", "STAB-023"],
+    "sku_band": "$2K/mo platform runtime",
+    "note": "Ship after download lane live — manual provision OK v1"
+  },
+  "founder_line": "Download-first GTM · Stripe queued week 3"
+}

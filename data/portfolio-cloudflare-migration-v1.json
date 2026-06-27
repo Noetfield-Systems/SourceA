@@ -18,6 +18,28 @@
   },
   "domains": [
     {
+      "domain": "sourcea.app",
+      "module": "sourcea",
+      "official": true,
+      "plane": "commercial",
+      "build": "python3 scripts/build_sourcea_vercel_output_v1.py",
+      "output_dir": "SourceA-landing/green-unified/dist",
+      "pages_project": "sourcea-com",
+      "publish_script": "python3 scripts/publish_sourcea_landing_v1.py --backend cloudflare --project sourcea-com --custom-domain --skip-recipe",
+      "routing": {
+        "root": "/ → sites/SourceA-landing/green-unified/start.html (48h MVP)",
+        "kernel": "/kernel/ → sourcea/index.html",
+        "mvp_subpage": "/sourcea/start.html"
+      },
+      "token_file": "~/.sina/cf-pages-token-v1.json",
+      "dns": "CNAME @ and www → sourcea-com.pages.dev (proxied — do not repoint)",
+      "custom_domains": ["sourcea.app", "www.sourcea.app"],
+      "worker_proxy": "cloud/workers/sourcea-app-proxy-v1",
+      "worker_proxy_deploy": "cd cloud/workers/sourcea-app-proxy-v1 && wrangler deploy",
+      "pages_domain_script": "python3 scripts/sourcea_pages_activate_domains_v1.py --json",
+      "sender": "hello@sourcea.app"
+    },
+    {
       "domain": "sourcea.com",
       "module": "sourcea",
       "official": true,
@@ -27,7 +49,7 @@
       "publish_script": "python3 scripts/publish_sourcea_landing_v1.py --target cloudflare",
       "token_file": "~/.sina/cf-pages-token-v1.json",
       "dns": "CNAME @ and www → sourcea-com.pages.dev",
-      "sender": "hello@sourcea.com"
+      "sender": "hello@sourcea.app"
     },
     {
       "domain": "trustfield.ca",

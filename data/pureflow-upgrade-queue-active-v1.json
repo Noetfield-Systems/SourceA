@@ -1,0 +1,12 @@
+{
+  "schema": "pureflow-upgrade-queue-active-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-24T12:18:03Z",
+  "queue_path": "data/pureflow-upgrade-queue-444-locked-v1.json",
+  "head_id": "pf-upg-001",
+  "head_n": 1,
+  "count": 444,
+  "completed": [],
+  "worker_lane": "sunflow_worker",
+  "site_url": "https://pureflow.sourcea.app"
+}

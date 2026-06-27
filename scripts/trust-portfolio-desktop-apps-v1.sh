@@ -29,3 +29,7 @@ for base in "$HOME/Desktop" "$HOME/Applications"; do
 done
 
 echo "Done — if macOS still blocks: Right-click app → Open → Open (one time only)."
+echo ""
+echo "For paying downloaders: ad-hoc sign is NOT enough — need Developer ID + notarization."
+echo "  bash \"$SA/scripts/diagnose-chat-unify-gatekeeper-v1.sh\""
+echo "  https://developer.apple.com/account/resources/certificates/list"

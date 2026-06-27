@@ -240,7 +240,7 @@
         },
         {
           "id": "N_loop_specialist",
-          "label": "Loop Specialist tick — observe advise compose dispatch",
+          "label": "Auto Runtime specialist tick — observe advise compose dispatch",
           "cmd": ["python3", "scripts/loop_specialist_tick_v1.py", "--json"],
           "receipt": "~/.sina/loop-specialist-tick-receipt-v1.json",
           "required": false,

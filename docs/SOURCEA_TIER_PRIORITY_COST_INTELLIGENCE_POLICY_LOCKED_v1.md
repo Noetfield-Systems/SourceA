@@ -26,7 +26,7 @@
 | **Video cost stack** | Tier 0 bootstrap → Tier 1 default → Tier 2 scale | Monthly tool spend | `COMMERCIAL_VIDEO_COST_INTELLIGENCE_2026-06-06_v1.md` |
 | **Agent LLM keys** | Tier 0 service priority 1–11 | Leader vs worker chains | `SINAAI_AGENT_STACK_POLICY_v1.md` |
 
-**Rule:** When founder says “tier,” resolve **which table** before picking. Loop specialist · advisory circle · outbound factory use **queue tier P0–P3 + commercial ROI** — not hub founder P0 alone.
+**Rule:** When founder says “tier,” resolve **which table** before picking. Auto Runtime specialist · advisory circle · outbound factory use **queue tier P0–P3 + commercial ROI** — not hub founder P0 alone.
 
 ---
 
@@ -82,7 +82,7 @@ marginal_cost:    incremental $ this pick only (not sunk stack)
 4. Emit receipt with `deterministic_hash` — no chat as SSOT  
 
 **Machine implementation:** `scripts/future_loop_prompt_advisory_circle_v1.py` — `confidence` from tier + blockers; `execution_authority: false`.  
-**Loop specialist:** composes from advisory + observatory; dispatches only when policy + resume allow (`loop-specialist-config-v1.json`).
+**Auto Runtime specialist:** composes from advisory + observatory; dispatches only when policy + resume allow (`loop-specialist-config-v1.json`).
 
 ### 3.4 Decision gates (category — never pay wrong)
 
@@ -111,7 +111,7 @@ Subordinate: `brain-os/EXECUTION_ENGINE_STRATEGY_LOCKED_v1.md`
 
 ---
 
-## 5. Cloud factories + loop specialist
+## 5. Cloud factories + Auto Runtime specialist
 
 **Control plane (Mac SSOT today):** `data/loop-specialist-cloud-contract-v1.json` · tick via `loop_specialist_tick_v1.py` or `POST /api/loop-specialist/tick/v1`.
 

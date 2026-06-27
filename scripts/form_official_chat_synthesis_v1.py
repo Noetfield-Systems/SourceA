@@ -183,21 +183,21 @@ def synthesize_rows() -> list[dict]:
         ),
         _row(
             id="Q-FINAL-07",
-            title=f"Loop auto ON ({loop_auto}) + unmapped bay dispatch — safe?",
+            title=f"Auto Runtime ON ({loop_auto}) + unmapped bay dispatch — safe?",
             question=(
                 f"loop_auto_dispatch_enabled={loop_auto} · U031 bay unmapped · false-done guard wired. "
-                "Keep loop auto, require mapped bay only, or pause auto until bays exist?"
+                "Keep Auto Runtime, require mapped bay only, or pause auto until bays exist?"
             ),
             blocks="loop-specialist-config-v1.json · Q-CONF-FALSE-DONE-GUARD",
             diskToday=f"loop_auto={loop_auto} · sign_only for unmapped · U031 planned not done",
             recommended="C",
             options=[
-                "A — Keep loop auto on all items",
-                "B — Loop auto OFF until all bays mapped",
+                "A — Keep Auto Runtime on all items",
+                "B — Auto Runtime OFF until all bays mapped",
                 "C — Auto dispatch mapped bays only · sign_only unmapped (recommended)",
                 "D — Manual Hub tap per upgrade only",
             ],
-            effect="Closes loop auto vs unmapped bay paradox from chat",
+            effect="Closes Auto Runtime vs unmapped bay paradox from chat",
             evidence_path=str(SINA / "loop-specialist-config-v1.json"),
             asked_by="Brain cloud E2E · false-done incident",
         ),

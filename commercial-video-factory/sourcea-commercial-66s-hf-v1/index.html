@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Plus Jakarta Sans";
+        src: url("capture/assets/fonts/LDIbaomQNQcsA88c7O9yZ4KMCoOg4IA6-91aHEjcWuA_KUnNSg.ttf") format("truetype");
+        font-weight: 800;
+      }
+      @font-face {
+        font-family: "Inter";
+        src: url("capture/assets/fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf") format("truetype");
+        font-weight: 600;
+      }
+      @font-face {
+        font-family: "JetBrains Mono";
+        src: url("capture/assets/fonts/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8-qxjPQ.ttf") format("truetype");
+        font-weight: 500;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body, #root {
+        width: 1920px; height: 1080px; overflow: hidden;
+        background: #032e2c; font-family: "Inter", sans-serif;
+      }
+      #root { position: relative; color: #fdfefb; }
+      .bg-grid {
+        position: absolute; inset: 0;
+        background-image:
+          linear-gradient(rgba(154,231,97,.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(154,231,97,.06) 1px, transparent 1px);
+        background-size: 48px 48px;
+      }
+      .bg-glow {
+        position: absolute; width: 900px; height: 900px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(105,212,25,.24), transparent 68%);
+        top: -220px; right: -160px;
+      }
+      .ghost {
+        position: absolute; font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 260px; font-weight: 800; color: rgba(154,231,97,.08);
+        letter-spacing: -.04em;
+      }
+      .progress-rail {
+        position: absolute; bottom: 0; left: 0; height: 5px; width: 0;
+        background: linear-gradient(90deg, #69d419, #9ae761);
+      }
+      .scene { position: absolute; inset: 0; overflow: hidden; }
+      .meta-tag {
+        position: absolute; top: 56px; left: 80px;
+        font-family: "JetBrains Mono", monospace; font-size: 16px;
+        letter-spacing: .14em; text-transform: uppercase; color: #9ae761;
+        padding: 6px 14px; border: 2px solid rgba(154,231,97,.4);
+        border-radius: 999px; background: rgba(3,46,44,.65);
+      }
+      .meta-right {
+        position: absolute; top: 56px; right: 80px;
+        font-family: "JetBrains Mono", monospace; font-size: 16px;
+        color: rgba(248,250,252,.55);
+      }
+      .stage {
+        position: absolute; inset: 0;
+        display: flex; flex-direction: column; justify-content: center;
+        padding: 100px 140px;
+      }
+      .display {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-weight: 800; letter-spacing: -.03em; line-height: .92;
+      }
+      .k-word { font-size: 156px; color: #fdfefb; }
+      .k-word.accent { color: #69d419; text-shadow: 0 0 60px rgba(105,212,25,.5); }
+      .headline { font-size: 88px; max-width: 1500px; }
+      .headline span { color: #69d419; }
+      .subline { font-size: 30px; color: #cbd5e1; max-width: 1100px; margin-top: 16px; }
+      .pipeline { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+      .pipe-step {
+        padding: 14px 22px; border-radius: 12px;
+        border: 2px solid rgba(105,212,25,.5); background: rgba(4,68,65,.6);
+        font-family: "JetBrains Mono", monospace; font-size: 22px;
+        letter-spacing: .1em; text-transform: uppercase; color: #9ae761;
+      }
+      .ui-frame {
+        position: absolute; inset: 48px 80px 80px 80px;
+        border-radius: 20px; overflow: hidden;
+        border: 3px solid rgba(154,231,97,.35);
+        box-shadow: 0 28px 80px rgba(0,0,0,.55); background: #f4f8ea;
+      }
+      .ui-frame img {
+        width: 100%; height: 100%; object-fit: cover;
+        object-position: center top; transform-origin: center;
+      }
+      .ui-cap {
+        position: absolute; left: 100px; bottom: 96px; max-width: 680px;
+        padding: 18px 24px; border-radius: 14px;
+        background: rgba(3,46,44,.92); border: 2px solid rgba(105,212,25,.45);
+      }
+      .ui-cap .lbl {
+        font-family: "JetBrains Mono", monospace; font-size: 14px;
+        letter-spacing: .14em; text-transform: uppercase; color: #9ae761;
+      }
+      .ui-cap .txt { font-size: 28px; font-weight: 600; line-height: 1.2; margin-top: 6px; }
+      .terminal {
+        position: absolute; left: 80px; right: 80px; top: 50%;
+        transform: translateY(-50%);
+        padding: 36px 44px; border-radius: 18px;
+        background: rgba(6,13,24,.95); border: 2px solid rgba(105,212,25,.4);
+        font-family: "JetBrains Mono", monospace;
+      }
+      .terminal .line { font-size: 24px; line-height: 1.5; color: #cbd5e1; }
+      .terminal .line.hi { color: #69d419; }
+      .stamps {
+        position: absolute; left: 80px; right: 80px; top: 50%;
+        transform: translateY(-50%); display: flex; gap: 20px;
+      }
+      .stamp {
+        padding: 18px 30px; border-radius: 12px;
+        font-family: "JetBrains Mono", monospace; font-size: 36px;
+        border: 3px solid; letter-spacing: .06em;
+      }
+      .stamp.block { color: #f87171; border-color: #f87171; background: rgba(248,113,113,.12); }
+      .stamp.escalate { color: #fbbf24; border-color: #fbbf24; background: rgba(251,191,36,.12); }
+      .stamp.allow { color: #69d419; border-color: #69d419; background: rgba(105,212,25,.14); }
+      .products {
+        position: absolute; inset: 0;
+        display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+        padding: 120px 100px 96px;
+      }
+      .prod-card {
+        padding: 28px 32px; border-radius: 18px;
+        background: rgba(4,68,65,.78); border: 2px solid rgba(154,231,97,.3);
+      }
+      .prod-card .icon { font-size: 36px; }
+      .prod-card .name {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 32px; font-weight: 800; margin-top: 8px;
+      }
+      .cta-stage {
+        position: absolute; inset: 0;
+        display: flex; flex-direction: column; justify-content: center;
+        padding: 100px 140px;
+        background: radial-gradient(ellipse 75% 65% at 28% 48%, #044441, #032e2c);
+      }
+      .cta-title {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 92px; font-weight: 800; line-height: 1; margin-bottom: 24px;
+      }
+      .cta-pill {
+        display: inline-block; padding: 22px 38px; border-radius: 999px;
+        background: #69d419; color: #032e2c;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 34px; font-weight: 800;
+      }
+      .cta-sub { margin-top: 20px; font-size: 26px; color: rgba(248,250,252,.65); }
+      .brand {
+        position: absolute; bottom: 56px; left: 80px;
+        display: flex; align-items: center; gap: 10px;
+        font-family: "Plus Jakarta Sans", sans-serif; font-size: 24px; font-weight: 800;
+      }
+      .brand .dot {
+        width: 10px; height: 10px; border-radius: 50%;
+        background: #69d419; box-shadow: 0 0 16px #69d419;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- PACING LAW: slide 1 = 3s · every other slide ≤ 2s · total 23s -->
+    <div id="root" data-composition-id="sourcea-commercial-fast" data-start="0" data-duration="23" data-width="1920" data-height="1080">
+      <div id="bg-grid" class="bg-grid"></div>
+      <div id="bg-glow" class="bg-glow"></div>
+      <div id="ghost-word" class="ghost">PROOF</div>
+      <div id="progress-rail" class="progress-rail"></div>
+
+      <div id="s-hook" class="scene clip" data-start="0" data-duration="3" data-track-index="1">
+        <div class="meta-tag">hook · 3s</div>
+        <div class="meta-right">sourcea.app</div>
+        <div class="stage">
+          <div id="kw-stop" class="display k-word">STOP</div>
+          <div id="kw-trusting" class="display k-word accent">TRUSTING</div>
+          <div id="kw-ai" class="display k-word">AI.</div>
+        </div>
+      </div>
+
+      <div id="s-tagline" class="scene clip" data-start="3" data-duration="2" data-track-index="2">
+        <div class="meta-tag">verify</div>
+        <div class="stage">
+          <div id="tag-head" class="display headline">Start <span>verifying</span> it.</div>
+        </div>
+      </div>
+
+      <div id="s-problem" class="scene clip" data-start="5" data-duration="2" data-track-index="3">
+        <div class="meta-tag">problem</div>
+        <div class="stage">
+          <div id="prob-head" class="display headline">Don't <span>trust</span> — verify.</div>
+        </div>
+      </div>
+
+      <div id="s-runtime" class="scene clip" data-start="7" data-duration="2" data-track-index="4">
+        <div class="meta-tag">runtime</div>
+        <div class="stage">
+          <div id="pipe-row" class="pipeline">
+            <div id="ps-plan" class="pipe-step">Plan</div>
+            <div id="ps-control" class="pipe-step">Control</div>
+            <div id="ps-exec" class="pipe-step">Execute</div>
+            <div id="ps-verify" class="pipe-step">Verify</div>
+            <div id="ps-commit" class="pipe-step">Commit</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="s-wheel" class="scene clip" data-start="9" data-duration="2" data-track-index="5">
+        <div class="meta-tag">command</div>
+        <div class="ui-frame"><img id="img-wheel" src="assets/sourcea-command-wheel.png" alt="" /></div>
+        <div id="cap-wheel" class="ui-cap"><div class="txt">Verdict writes to disk.</div></div>
+      </div>
+
+      <div id="s-brain" class="scene clip" data-start="11" data-duration="2" data-track-index="6">
+        <div class="meta-tag">brain</div>
+        <div class="ui-frame"><img id="img-brain" src="assets/sourcea-brain-ui.png" alt="" /></div>
+        <div id="cap-brain" class="ui-cap"><div class="txt">Live boot proof.</div></div>
+      </div>
+
+      <div id="s-proof" class="scene clip" data-start="13" data-duration="2" data-track-index="7">
+        <div class="meta-tag">receipt</div>
+        <div id="term-panel" class="terminal">
+          <div class="line hi">$ sourcea-boot --json</div>
+          <div class="line">→ verdict=ESCALATE · chain=OK</div>
+          <div class="line hi">→ receipt.signed · PASS</div>
+        </div>
+      </div>
+
+      <div id="s-offer" class="scene clip" data-start="15" data-duration="2" data-track-index="8">
+        <div class="meta-tag">apps</div>
+        <div class="products">
+          <div id="pc-forge" class="prod-card"><div class="icon">⚒</div><div class="name">Prompt Forge</div></div>
+          <div id="pc-chat" class="prod-card"><div class="icon">◆</div><div class="name">Chat Unify</div></div>
+          <div id="pc-mail" class="prod-card"><div class="icon">✉</div><div class="name">Portfolio Mail</div></div>
+          <div id="pc-cloud" class="prod-card"><div class="icon">☁</div><div class="name">Cloud Workers</div></div>
+        </div>
+      </div>
+
+      <div id="s-stamps" class="scene clip" data-start="17" data-duration="2" data-track-index="9">
+        <div class="meta-tag">policy</div>
+        <div class="stamps">
+          <div id="st-block" class="stamp block">BLOCK</div>
+          <div id="st-esc" class="stamp escalate">ESCALATE</div>
+          <div id="st-allow" class="stamp allow">ALLOW</div>
+        </div>
+      </div>
+
+      <div id="s-landing" class="scene clip" data-start="19" data-duration="2" data-track-index="10">
+        <div class="meta-tag">sandbox</div>
+        <div class="ui-frame"><img id="img-landing" src="assets/sourcea-landing.png" alt="" /></div>
+        <div id="cap-landing" class="ui-cap"><div class="txt">Free proof on sourcea.app</div></div>
+      </div>
+
+      <div id="s-cta" class="scene clip" data-start="21" data-duration="2" data-track-index="11">
+        <div class="cta-stage">
+          <div id="cta-head" class="cta-title">Prove it.</div>
+          <div id="cta-pill" class="cta-pill">Run a free proof →</div>
+          <div id="cta-sub" class="cta-sub">sourcea.app</div>
+        </div>
+        <div id="brand-lock" class="brand"><span class="dot"></span><span>SourceA</span></div>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const T = 23;
+      const P = 0.28;
+
+      tl.to("#progress-rail", { width: "100%", duration: T, ease: "none" }, 0);
+      tl.fromTo("#ghost-word", { x: 40, opacity: 0.05 }, { x: -60, opacity: 0.1, duration: T, ease: "none" }, 0);
+
+      tl.fromTo("#kw-stop", { scale: 1.5, filter: "blur(14px)", opacity: 0 }, { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.22, ease: "power4.out" }, 0.04);
+      tl.fromTo("#kw-trusting", { x: -320, opacity: 0 }, { x: 0, opacity: 1, duration: 0.2, ease: "expo.out" }, P);
+      tl.fromTo("#kw-ai", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.22, ease: "circ.out" }, P * 2);
+
+      tl.fromTo("#tag-head", { scale: 1.15, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.out" }, 3.02);
+      tl.fromTo("#prob-head", { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.2, ease: "expo.out" }, 5.02);
+      ["#ps-plan", "#ps-control", "#ps-exec", "#ps-verify", "#ps-commit"].forEach(function (sel, i) {
+        tl.fromTo(sel, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.16, ease: "power3.out" }, 7.02 + i * 0.1);
+      });
+
+      tl.fromTo("#img-wheel", { scale: 1.1, x: 20 }, { scale: 1, x: 0, duration: 1.8, ease: "power2.out" }, 9.02);
+      tl.fromTo("#cap-wheel", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 9.15);
+
+      tl.fromTo("#img-brain", { scale: 1.08 }, { scale: 1, duration: 1.8, ease: "power2.out" }, 11.02);
+      tl.fromTo("#cap-brain", { opacity: 0 }, { opacity: 1, duration: 0.16, ease: "power2.out" }, 11.12);
+
+      tl.fromTo("#term-panel", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 13.02);
+      tl.from("#term-panel .line", { opacity: 0, x: -12, stagger: 0.08, duration: 0.14, ease: "power2.out" }, 13.08);
+
+      tl.fromTo("#pc-forge", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "power3.out" }, 15.02);
+      tl.fromTo("#pc-chat", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "power3.out" }, 15.1);
+      tl.fromTo("#pc-mail", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "power3.out" }, 15.18);
+      tl.fromTo("#pc-cloud", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "power3.out" }, 15.26);
+
+      tl.fromTo("#st-block", { scale: 1.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.16, ease: "power4.out" }, 17.02);
+      tl.fromTo("#st-esc", { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.16, ease: "expo.out" }, 17.14);
+      tl.fromTo("#st-allow", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.16, ease: "circ.out" }, 17.26);
+
+      tl.fromTo("#img-landing", { scale: 1.08, y: 20 }, { scale: 1, y: 0, duration: 1.8, ease: "power2.out" }, 19.02);
+      tl.fromTo("#cap-landing", { opacity: 0 }, { opacity: 1, duration: 0.14, ease: "power2.out" }, 19.12);
+
+      tl.fromTo("#cta-head", { scale: 1.2, filter: "blur(8px)", opacity: 0 }, { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.22, ease: "power4.out" }, 21.02);
+      tl.fromTo("#cta-pill", { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.18, ease: "back.out(2)" }, 21.2);
+      tl.fromTo("#cta-sub", { opacity: 0 }, { opacity: 1, duration: 0.14, ease: "power2.out" }, 21.35);
+      tl.fromTo("#brand-lock", { opacity: 0 }, { opacity: 1, duration: 0.12, ease: "power2.out" }, 21.45);
+
+      window.__timelines["sourcea-commercial-fast"] = tl;
+    </script>
+  </body>
+</html>

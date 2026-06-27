@@ -220,7 +220,7 @@ def cmd_resume() -> str:
         return "❌ Resume failed — invalid response from factory_control"
     if row.get("ok"):
         return "▶ Bounded resume token issued (max 1 turn). Run one manual inbox turn — not batch autodrain."
-    return "❌ Resume blocked — ASF: resume drain — max 1 — receipt required"
+    return "❌ Resume blocked — ASF: Cloud Forge Run — max 1 — receipt required"
 
 
 def cmd_log() -> str:

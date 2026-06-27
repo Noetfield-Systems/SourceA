@@ -128,7 +128,7 @@ def audit_conflicts(*, existing_ids: set[str] | None = None) -> dict:
                     title="U031 queue head blocked — no cloud bay mapped",
                     question=(
                         "sa-1100 / U031 has signed Brain work-order but bay_slug=unmapped. "
-                        "Build outbound-rrl-intelligence bay, bounded Worker WORK, or pause loop auto?"
+                        "Build outbound-rrl-intelligence bay, bounded Worker WORK, or pause Auto Runtime?"
                     ),
                     blocks="brain-outbound-work-order-active-v1.json · healthy-queue head",
                     disk_today=(
@@ -140,7 +140,7 @@ def audit_conflicts(*, existing_ids: set[str] | None = None) -> dict:
                         "A — Worker bounded WORK now (skip bay)",
                         "B — Build outbound-rrl-intelligence bay first (recommended)",
                         "C — sign_only forever — no implementation until bay exists",
-                        "D — Pause loop auto until bay registry complete",
+                        "D — Pause Auto Runtime until bay registry complete",
                     ],
                     effect="Unblocks or formally defers outbound queue head U031",
                     evidence_path=str(SINA / "brain-outbound-work-order-active-v1.json"),
@@ -207,7 +207,7 @@ def audit_conflicts(*, existing_ids: set[str] | None = None) -> dict:
                     disk_today="B0502=done · B0503=planned · local_worker_deprecated flip pending",
                     recommended="A",
                     options=[
-                        "A — YES — B0503 P0 before more loop auto dispatch (recommended)",
+                        "A — YES — B0503 P0 before more Auto Runtime dispatch (recommended)",
                         "B — Parallel — dispatch continues · B0503 background",
                         "C — Defer B0503 until outbound-rrl bay exists",
                         "D — Revert to Worker chat prompt consumption",
@@ -395,7 +395,7 @@ def audit_conflicts(*, existing_ids: set[str] | None = None) -> dict:
                         "A — YES — hard guard · no done without bay+receipt (recommended)",
                         "B — Soft warning only",
                         "C — Allow done for sign_only work-orders",
-                        "D — Revert guard — trust loop auto",
+                        "D — Revert guard — trust Auto Runtime",
                     ],
                     effect="Prevents repeat false-done on outbound queue",
                     evidence_path=str(ROOT / "data/outbound-factory-100-upgrade-plan-v1.json"),

@@ -126,7 +126,7 @@
       "lane": "vocabulary",
       "sa_id": "sa-1211",
       "queue_pos": 12,
-      "title": "loop auto disk INBOX",
+      "title": "Auto Runtime disk INBOX",
       "status": "assigned"
     },
     {
@@ -286,7 +286,7 @@
       "lane": "vocabulary",
       "sa_id": "sa-1227",
       "queue_pos": 28,
-      "title": "Loop auto line",
+      "title": "Auto Runtime line",
       "status": "assigned"
     },
     {

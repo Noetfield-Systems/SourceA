@@ -15,12 +15,21 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
 SINA = Path.home() / ".sina"
-DRAIN = ROOT / "data/secondary-cloud-drain-next-100-v1.json"
+DRAIN = ROOT / "data" / "secondary-cloud-forge-run-next-100-v1.json"  # legacy fallback name only
+
+
+def _active_drain_path() -> Path:
+    import sys
+
+    sys.path.insert(0, str(SCRIPTS))
+    from cloud_forge_run_queue_path_v1 import active_drain_path  # noqa: WPS433
+
+    return active_drain_path()
 SSOT = ROOT / "data/cloud-workers-control-plane-v1.json"
 DEPLOY_SCRIPT = ROOT / "scripts/deploy_fbe_railway_v1.py"
 FOUNDER_DEPLOY_CMD = "cd ~/Desktop/SourceA && python3 scripts/deploy_fbe_railway_v1.py"
 EVENT_LOG = SINA / "cloud-workers-event-log-v1.json"
-HUB_RECEIPT = SINA / "hub-cloud-drain-proceed-receipt-v1.json"
+HUB_RECEIPT = SINA / "hub-cloud-forge-run-proceed-receipt-v1.json"
 PHASE_OBS = SINA / "phase-observed-v1.json"
 WORKER_INBOX = SINA / "worker-prompt-inbox-v1.json"
 
@@ -57,7 +66,7 @@ def classify_cloud_result(row: dict[str, Any] | None) -> dict[str, Any]:
     """Plain-English failure class for founder — pipe vs motor vs stale."""
     row = row or {}
     blob = json.dumps(row, default=str)
-    if any(x in blob for x in ("hub_cloud_drain_proceed", "No module named", "ModuleNotFoundError")):
+    if any(x in blob for x in ("hub_cloud_forge_run_proceed", "No module named", "ModuleNotFoundError")):
         return {
             "failure_class": "stale_image",
             "pipe_live": False,
@@ -66,7 +75,7 @@ def classify_cloud_result(row: dict[str, Any] | None) -> dict[str, Any]:
             "show_this": "Railway image missing proceed/FORGE modules — you deploy, then retry.",
             "founder_action": "deploy_railway_then_retry",
         }
-    if row.get("error") in ("no_url", "cloud_proxy_error") or row.get("status") in (502, 503, 504):
+    if row.get("error") in ("no_url", "cloud_proxy_error"):
         return {
             "failure_class": "connectivity",
             "pipe_live": False,
@@ -74,6 +83,20 @@ def classify_cloud_result(row: dict[str, Any] | None) -> dict[str, Any]:
             "color": "red",
             "show_this": "Cannot reach Railway cloud worker — check URL and network.",
             "founder_action": "check_cloud_url",
+        }
+    if row.get("error") == "cloud_proxy_http_error" and row.get("status") in (502, 503, 504):
+        return {
+            "failure_class": "motor_timeout",
+            "pipe_live": True,
+            "label": "MOTOR TIMEOUT",
+            "color": "amber",
+            "show_this": (
+                "Pipe LIVE · Railway edge timed out during FORGE motor — "
+                "cron uses evidence slice on T3/free; tap Proceed or wait for next tick."
+            ),
+            "founder_action": "auto_tick_or_evidence_slice",
+            "plan_id": str(row.get("plan_id") or ""),
+            "maps_registry": str(row.get("maps_registry") or ""),
         }
     if row.get("ok"):
         if row.get("dry_run") or (row.get("details") or {}).get("dry_run"):
@@ -176,7 +199,7 @@ def _cloud_error_founder_hint(cloud_row: dict[str, Any]) -> dict[str, Any]:
     }
     if classified["failure_class"] == "stale_image":
         out["cloud_stale"] = True
-        out.update(founder_deploy_card(reason="Railway image missing hub_cloud_drain_proceed_v1.py"))
+        out.update(founder_deploy_card(reason="Railway image missing hub_cloud_forge_run_proceed_v1.py"))
     else:
         out["cloud_stale"] = False
         out["receipt"] = str(HUB_RECEIPT)
@@ -263,7 +286,20 @@ def event_timeline(*, limit: int = 40) -> list[dict[str, Any]]:
     return out
 
 
+def _last_cloud_plan_id() -> str:
+    ids = [str(p.get("id") or "") for p in _cloud_plans()]
+    return ids[-1] if ids else ""
+
+
+def queue_batch_complete(*, head: str, last_done: str) -> bool:
+    """True when the 100-plan Cloud Forge Run batch finished (head == last row done)."""
+    last_id = _last_cloud_plan_id()
+    return bool(head and last_done and head == last_done and head == last_id)
+
+
 def _plan_status(plan_id: str, *, head: str, last_done: str, last_fail: str) -> str:
+    if queue_batch_complete(head=head, last_done=last_done) and plan_id == head:
+        return "batch_complete"
     if plan_id == head:
         return "head"
     if plan_id == last_fail and plan_id == head:
@@ -287,9 +323,9 @@ def _sync_cloud_queue_to_mac() -> dict[str, Any]:
 
         sys.path.insert(0, str(SCRIPTS))
         from fbe.lib.hub_cloud_proxy_v1 import proxy_get_from_cloud  # noqa: WPS433
-        from fbe.lib.cloud_drain_queue_v1 import sync_to_mac_if_newer  # noqa: WPS433
+        from fbe.lib.cloud_forge_run_queue_v1 import sync_to_mac_if_newer  # noqa: WPS433
 
-        cloud = proxy_get_from_cloud(path="/api/cloud-drain/queue/v1", timeout_s=15)
+        cloud = proxy_get_from_cloud(path="/api/cloud-forge-run/queue/v1", timeout_s=15)
         if cloud.get("error") in ("no_url", "cloud_proxy_error"):
             return {"ok": False, "skipped": "cloud_unreachable"}
         return sync_to_mac_if_newer(cloud)
@@ -303,17 +339,17 @@ def _proxy_queue_action(action: str, *, reason: str = "", max_skips: int = 12) -
 
         sys.path.insert(0, str(SCRIPTS))
         from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
-        from fbe.lib.cloud_drain_queue_v1 import sync_to_mac_if_newer  # noqa: WPS433
+        from fbe.lib.cloud_forge_run_queue_v1 import sync_to_mac_if_newer  # noqa: WPS433
 
         body: dict[str, Any] = {"action": action, "reason": reason}
         if action == "skip_to_next_real":
             body["max_skips"] = max_skips
-        cloud = proxy_to_cloud(path="/api/cloud-drain/queue/v1", body=body, timeout_s=60)
+        cloud = proxy_to_cloud(path="/api/cloud-forge-run/queue/v1", body=body, timeout_s=60)
         if cloud.get("ok"):
             sync_to_mac_if_newer(
                 {
-                    "cloud_drain_head": cloud.get("head_now") or cloud.get("to"),
-                    "cloud_drain_last_completed": cloud.get("from"),
+                    "cloud_forge_run_head": cloud.get("head_now") or cloud.get("to"),
+                    "cloud_forge_run_last_completed": cloud.get("from"),
                     "observed": {"rebuilt_at": _now(), **cloud},
                 }
             )
@@ -324,11 +360,11 @@ def _proxy_queue_action(action: str, *, reason: str = "", max_skips: int = 12) -
 
 def plans_organized(*, limit_cloud: int = 30, limit_mac: int = 10) -> dict[str, Any]:
     _sync_cloud_queue_to_mac()
-    drain = _read(DRAIN)
+    drain = _read(_active_drain_path())
     all_plans = list(drain.get("plans") or [])
     obs = _read(PHASE_OBS)
-    head = str(obs.get("cloud_drain_head") or "")
-    last_done = str(obs.get("cloud_drain_last_completed") or "")
+    head = str(obs.get("cloud_forge_run_head") or "")
+    last_done = str(obs.get("cloud_forge_run_last_completed") or "")
     hub = _read(HUB_RECEIPT)
     last_fail = str(hub.get("plan_id") or "") if hub.get("ok") is False else ""
 
@@ -359,6 +395,7 @@ def plans_organized(*, limit_cloud: int = 30, limit_mac: int = 10) -> dict[str, 
             cloud_rows.append(row)
 
     head_plan = _plan_by_id(head)
+    batch_done = bool(obs.get("queue_batch_complete")) or queue_batch_complete(head=head, last_done=last_done)
     visible = cloud_rows[:limit_cloud]
     head_row = next((r for r in cloud_rows if r.get("id") == head), None)
     if head_row and not any(r.get("id") == head for r in visible):
@@ -368,7 +405,8 @@ def plans_organized(*, limit_cloud: int = 30, limit_mac: int = 10) -> dict[str, 
         "one_law": drain.get("one_law"),
         "queue_head": head,
         "last_completed": last_done,
-        "head_is_mock": is_mock_plan(head_plan),
+        "queue_batch_complete": batch_done,
+        "head_is_mock": False if batch_done else is_mock_plan(head_plan),
         "mac_control": mac_rows[:limit_mac],
         "cloud_forge": visible,
         "cloud_forge_total": len(cloud_rows),
@@ -465,17 +503,17 @@ def cli_catalog() -> list[dict[str, str]]:
         },
         {
             "id": "proceed_curl",
-            "label": "Proceed via curl",
+            "label": "Proceed via curl (Cloud Workers full-pack)",
             "cmd": (
-                'curl -s -X POST http://127.0.0.1:13020/api/cloud-drain/proceed/v1 '
+                'curl -s -X POST http://127.0.0.1:13027/api/cloud-workers/v1 '
                 '-H "Content-Type: application/json" '
-                '-d \'{"llm_provider":"openrouter","full_motor":true}\''
+                '-d \'{"action":"proceed","full_pack":true,"max_advance":100,"llm_provider":"openrouter","full_motor":true}\''
             ),
         },
         {
             "id": "hub_status_curl",
             "label": "Cloud Workers GET",
-            "cmd": "curl -s http://127.0.0.1:13020/api/cloud-workers/v1 | python3 -m json.tool",
+            "cmd": "curl -s http://127.0.0.1:13027/api/cloud-workers/v1 | python3 -m json.tool",
         },
     ]
 
@@ -489,14 +527,19 @@ def situation_card() -> dict[str, Any]:
     classified = classify_cloud_result(cloud if cloud else hub)
     head = str(organized.get("queue_head") or "")
     head_is_mock = bool(organized.get("head_is_mock"))
+    batch_done = bool(organized.get("queue_batch_complete"))
     health_ok = bool((probe.get("health") or {}).get("ok"))
     pipe = "LIVE" if health_ok and not probe.get("cloud_stale") else ("STALE" if probe.get("cloud_stale") else "DOWN")
     hub_dry_run = bool(cloud.get("dry_run") or hub.get("dry_run"))
 
     parts = [
         f"Pipe {pipe}",
-        f"Queue head {organized.get('queue_head') or '—'}",
-        f"Last done {organized.get('last_completed') or '—'}",
+        (
+            f"Batch COMPLETE · {organized.get('last_completed') or '—'}"
+            if batch_done
+            else f"Queue head {organized.get('queue_head') or '—'}"
+        ),
+        (f"Last done {organized.get('last_completed') or '—'}" if not batch_done else "100/100 Cloud Forge Run done"),
     ]
     if hub.get("at") and not hub_dry_run:
         lp = str(hub.get("plan_id") or "")
@@ -513,8 +556,10 @@ def situation_card() -> dict[str, Any]:
         "queue_head": organized.get("queue_head"),
         "last_completed": organized.get("last_completed"),
         "head_is_mock": head_is_mock,
+        "queue_batch_complete": batch_done,
         "head_proceed_failed": bool(
-            hub.get("ok") is False
+            not batch_done
+            and hub.get("ok") is False
             and str(hub.get("plan_id") or "") == head
             and hub.get("at")
             and not bool((hub.get("cloud") or {}).get("dry_run"))
@@ -534,12 +579,32 @@ def situation_card() -> dict[str, Any]:
         "summary_line": " · ".join(parts),
         "for_founder": {
             "show_this": (
-                classified.get("show_this")
-                if (not hub_dry_run and hub.get("ok") is False and hub.get("at") and str(hub.get("plan_id") or "") == head)
+                f"Cloud drain batch COMPLETE — {organized.get('last_completed') or head} shipped · 100/100 done · pipe {pipe}"
+                if batch_done
                 else (
-                    f"Head {head} ready — tap Proceed"
-                    if health_ok and not head_is_mock
-                    else probe.get("for_founder", {}).get("show_this", "Cloud Workers ready.")
+                    classified.get("show_this")
+                    if (
+                        not hub_dry_run
+                        and hub.get("ok") is False
+                        and hub.get("at")
+                        and str(hub.get("plan_id") or "") == head
+                        and classified.get("failure_class") != "motor_timeout"
+                    )
+                    else (
+                        classified.get("show_this")
+                        if (
+                            not hub_dry_run
+                            and hub.get("ok") is False
+                            and hub.get("at")
+                            and str(hub.get("plan_id") or "") == head
+                            and not health_ok
+                        )
+                        else (
+                            f"Head {head} ready — tap Proceed"
+                            if health_ok and not head_is_mock
+                            else probe.get("for_founder", {}).get("show_this", "Cloud Workers ready.")
+                        )
+                    )
                 )
             ),
             "failure_class": classified.get("failure_class") if (not hub_dry_run and hub.get("ok") is False) else None,
@@ -567,7 +632,7 @@ def probe_cloud_worker() -> dict[str, Any]:
     health = proxy_get_from_cloud(path="/health", timeout_s=20) if url else {"ok": False, "error": "no_url"}
     proceed_probe = (
         proxy_to_cloud(
-            path="/api/cloud-drain/proceed/v1",
+            path="/api/cloud-forge-run/proceed/v1",
             body={"dry_run": True, "full_motor": False, "plan_id": "CLOUD-SEC-011"},
             timeout_s=45,
         )
@@ -625,7 +690,7 @@ def reports_recent(*, limit: int = 12) -> list[dict[str, Any]]:
 
 
 def _cloud_plans() -> list[dict[str, Any]]:
-    drain = _read(DRAIN)
+    drain = _read(_active_drain_path())
     return [p for p in (drain.get("plans") or []) if str(p.get("id", "")).startswith("CLOUD-SEC-")]
 
 
@@ -646,7 +711,7 @@ def is_mock_plan(plan: dict[str, Any] | None) -> bool:
 
 def is_mock_at_head() -> bool:
     obs = _read(PHASE_OBS)
-    head = str(obs.get("cloud_drain_head") or "")
+    head = str(obs.get("cloud_forge_run_head") or "")
     return is_mock_plan(_plan_by_id(head))
 
 
@@ -662,7 +727,7 @@ def skip_head(*, reason: str = "") -> dict[str, Any]:
             "cloud_sync": True,
         }
     obs = _read(PHASE_OBS)
-    head = str(obs.get("cloud_drain_head") or "")
+    head = str(obs.get("cloud_forge_run_head") or "")
     cloud_plans = _cloud_plans()
     idx = next((i for i, p in enumerate(cloud_plans) if p.get("id") == head), -1)
     if idx < 0:
@@ -672,8 +737,8 @@ def skip_head(*, reason: str = "") -> dict[str, Any]:
     nxt_id = str(cloud_plans[idx + 1].get("id"))
     obs.update(
         {
-            "cloud_drain_last_completed": head,
-            "cloud_drain_head": nxt_id,
+            "cloud_forge_run_last_completed": head,
+            "cloud_forge_run_head": nxt_id,
             "skipped_from": head,
             "skip_reason": reason or "founder_skip_head",
             "rebuilt_by": "cloud_workers_hub_v1.skip_head",
@@ -708,7 +773,7 @@ def skip_to_next_real(*, reason: str = "", max_skips: int = 12) -> dict[str, Any
     skipped: list[dict[str, Any]] = []
     for _ in range(max_skips):
         obs = _read(PHASE_OBS)
-        head = str(obs.get("cloud_drain_head") or "")
+        head = str(obs.get("cloud_forge_run_head") or "")
         plan = _plan_by_id(head)
         if not is_mock_plan(plan):
             return {
@@ -731,31 +796,31 @@ def skip_to_next_real(*, reason: str = "", max_skips: int = 12) -> dict[str, Any
         "ok": False,
         "error": "max_skips_reached",
         "skipped": skipped,
-        "head_now": str(_read(PHASE_OBS).get("cloud_drain_head") or ""),
+        "head_now": str(_read(PHASE_OBS).get("cloud_forge_run_head") or ""),
     }
 
 
 def auto_runtime_status() -> dict[str, Any]:
-    ssot_path = ROOT / "data/cloud-drain-auto-runtime-v1.json"
+    ssot_path = ROOT / "data/cloud-auto-runtime-v1.json"
     ssot = _read(ssot_path) if ssot_path.is_file() else {}
-    flag = SINA / "cloud-drain-auto-proceed-v1.flag"
-    env_on = str(__import__("os").environ.get("CLOUD_DRAIN_AUTO_PROCEED", "")).lower() in (
+    flag = SINA / "cloud-forge-run-auto-proceed-v1.flag"
+    env_on = str(__import__("os").environ.get("CLOUD_FORGE_RUN_AUTO_PROCEED", "")).lower() in (
         "1",
         "true",
         "yes",
     )
     enabled = bool(ssot.get("enabled")) or flag.is_file() or env_on
     hub = _read(HUB_RECEIPT)
-    tick_rcpt = _read(SINA / "cloud-drain-auto-tick-receipt-v1.json")
+    tick_rcpt = _read(SINA / "cloud-auto-runtime-tick-receipt-v1.json")
     return {
         "ok": True,
-        "schema": "cloud-drain-auto-runtime-status-v1",
+        "schema": "cloud-auto-runtime-status-v1",
         "at": _now(),
         "auto_proceed_enabled": enabled,
         "flag_path": str(flag),
         "ssot": str(ssot_path.relative_to(ROOT)) if ssot_path.is_file() else "",
         "cron": ssot.get("cron") or "*/15 * * * *",
-        "head": str(_read(PHASE_OBS).get("cloud_drain_head") or ""),
+        "head": str(_read(PHASE_OBS).get("cloud_forge_run_head") or ""),
         "head_is_mock": is_mock_at_head(),
         "last_proceed_ok": hub.get("ok"),
         "last_proceed_plan": hub.get("plan_id"),
@@ -768,7 +833,7 @@ def payload() -> dict[str, Any]:
     import sys
 
     sys.path.insert(0, str(SCRIPTS))
-    from hub_cloud_drain_proceed_v1 import hub_slice  # noqa: WPS433
+    from hub_cloud_forge_run_proceed_v1 import hub_slice  # noqa: WPS433
 
     probe = probe_cloud_worker()
     situation = situation_card()
@@ -793,7 +858,7 @@ def payload() -> dict[str, Any]:
             "skip_to_next_real": "POST {\"action\":\"skip_to_next_real\"}",
             "auto_tick": "POST {\"action\":\"auto_tick\"}",
             "auto_status": "POST {\"action\":\"auto_status\"}",
-            "proceed": "POST /api/cloud-drain/proceed/v1",
+            "proceed": "POST /api/cloud-forge-run/proceed/v1",
         },
         "situation": situation,
         "proceed_slice": hub_slice(),
@@ -850,7 +915,7 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
         return row
 
     if action == "dry_run":
-        from hub_cloud_drain_proceed_v1 import _resolve_next  # noqa: WPS433
+        from hub_cloud_forge_run_proceed_v1 import _resolve_next  # noqa: WPS433
 
         nxt = _resolve_next(
             plan_id=str(body.get("plan_id") or ""),
@@ -869,7 +934,7 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
         }
 
     if action == "proceed_dry_cloud":
-        from hub_cloud_drain_proceed_v1 import proceed_from_hub  # noqa: WPS433
+        from hub_cloud_forge_run_proceed_v1 import proceed_from_hub  # noqa: WPS433
 
         row = proceed_from_hub(
             {
@@ -911,11 +976,12 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
         return auto_runtime_status()
 
     if action == "auto_tick":
-        from cloud_drain_auto_runtime_v1 import run_auto_tick  # noqa: WPS433
+        from cloud_auto_runtime_v1 import run_auto_tick  # noqa: WPS433
 
         return run_auto_tick(
             force=bool(body.get("force")),
             llm_provider=str(body.get("llm_provider") or "openrouter"),
+            trigger_source=str(body.get("trigger_source") or "hub_auto_tick"),
         )
 
     if action == "glue_run":
@@ -944,7 +1010,7 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
         return {"ok": bool(result.get("ok", True)), "command": cmd, **result}
 
     if action == "proceed":
-        from hub_cloud_drain_proceed_v1 import proceed_from_hub  # noqa: WPS433
+        from hub_cloud_forge_run_proceed_v1 import proceed_from_hub  # noqa: WPS433
 
         return proceed_from_hub(body)
 
