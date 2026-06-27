@@ -248,6 +248,9 @@
         message: forged,
         model: model,
         history: history,
+        page_path: window.location.pathname || "/sourcea/forge/terminal",
+        page_lane: "developer",
+        sa_page: "forge-terminal-demo",
       },
       90000,
     );
