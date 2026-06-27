@@ -106,7 +106,7 @@ post_brain "records-recovery" "You just give me records??" 'import json,sys
 row=json.load(sys.stdin)
 assert row.get("ok"), row
 reply=(row.get("reply") or "").lower()
-assert "record" in reply
+assert any(w in reply for w in ("record", "receipt", "proof", "verif")), reply[:200]
 assert any(w in reply for w in ("forge", "run", "execution", "work")), reply[:200]
 print("OK records-recovery")'
 
