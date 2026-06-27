@@ -257,6 +257,24 @@ def run_recipe() -> dict:
     return {"ok": ok, "returncode": proc.returncode, "stdout_tail": (proc.stdout or "")[-800:], "stderr_tail": (proc.stderr or "")[-400:]}
 
 
+def run_brain_corpus_refresh() -> dict:
+    """Refresh Brain knowledge bundle before landing build (P1-09)."""
+    env = {**os.environ, "SKIP_BRAIN_EVAL": os.environ.get("SKIP_BRAIN_EVAL", "1")}
+    proc = _run(
+        ["bash", str(ROOT / "scripts" / "brain_chatbot_refresh_v1.sh")],
+        cwd=ROOT,
+        timeout=240,
+        env=env,
+    )
+    ok = proc.returncode == 0
+    return {
+        "ok": ok,
+        "returncode": proc.returncode,
+        "stdout_tail": (proc.stdout or "")[-600:],
+        "stderr_tail": (proc.stderr or "")[-400:],
+    }
+
+
 def stage_from_build_dist() -> Path:
     """Stage from green-unified/dist when agentrun-app absent (compact living center)."""
     proc = _run([sys.executable, str(ROOT / "scripts" / "build_sourcea_vercel_output_v1.py")], cwd=ROOT, timeout=120)
@@ -839,6 +857,16 @@ def publish(
         steps.append({"step": "run_recipe", **recipe})
         if not recipe.get("ok"):
             return {"ok": False, "schema": "sourcea-landing-publish-v1", "steps": steps, "error": "run_recipe failed"}
+
+    brain_refresh = run_brain_corpus_refresh()
+    steps.append({"step": "brain_corpus_refresh", **brain_refresh})
+    if not brain_refresh.get("ok"):
+        return {
+            "ok": False,
+            "schema": "sourcea-landing-publish-v1",
+            "steps": steps,
+            "error": "brain_corpus_refresh failed — fix knowledge pipeline before publish",
+        }
 
     staging = stage_site()
     steps.append({
