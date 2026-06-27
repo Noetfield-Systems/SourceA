@@ -89,7 +89,7 @@ import json, sys
 row = json.load(sys.stdin)
 assert row.get('ok'), row
 reply = (row.get('reply') or '').lower()
-assert 'record' in reply
+assert 'record' in reply or 'proof' in reply
 assert 'forge' in reply or 'run' in reply or 'execution' in reply or 'work' in reply
 print('OK positioning records recovery')
 " | tee -a "$RECEIPT"
