@@ -1,0 +1,47 @@
+{
+  "schema": "sourcea-supabase-plan-registry-chain-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-27T10:24:00Z",
+  "status": "blocked_on_db_ddl_access",
+  "one_law": "Plans are useful only when reachable by Brain, Hub Pro, Chat Unify, Cloudflare Workers, and Railway cloud workers through portfolio-spine Supabase.",
+  "project": {
+    "id": "portfolio-spine",
+    "ref": "ldfruywifqnfpwsfgmdl",
+    "url": "https://ldfruywifqnfpwsfgmdl.supabase.co",
+    "secrets_file": "~/.sourcea-secrets/portfolio-spine.env",
+    "db_secrets_file": "~/.sourcea-secrets/portfolio-spine-db.env"
+  },
+  "table": "sourcea_plan_registry",
+  "migration": "infra/supabase/portfolio-spine/migrations/004_sourcea_plan_registry_v1.sql",
+  "importer": "scripts/sourcea_supabase_plan_registry_import_v1.py",
+  "primary_source": {
+    "path": "data/all-remaining-plan-backlog-v1.json",
+    "array_key": "items",
+    "known_count": 23485
+  },
+  "secondary_sources": [
+    "data/brain-chatbot-100-plans-v1.json",
+    "brain-os/plan-registry/*MASTER_v1.json"
+  ],
+  "current_readiness": {
+    "supabase_url": "present",
+    "supabase_anon_key": "present",
+    "supabase_service_role_key": "present",
+    "db_password_or_connection_string": "missing_or_placeholder",
+    "management_access_token": "missing"
+  },
+  "founder_next_action": [
+    "In Supabase dashboard for project ldfruywifqnfpwsfgmdl, open Project Settings -> Database.",
+    "Copy the database password or pooled connection string.",
+    "Put it in ~/.sourcea-secrets/portfolio-spine-db.env as SUPABASE_DB_PASSWORD=... or SUPABASE_DB_URL=...",
+    "Alternatively run the migration SQL manually in Supabase SQL Editor.",
+    "Then run: python3 scripts/sourcea_supabase_plan_registry_import_v1.py --check --json",
+    "Then run: python3 scripts/sourcea_supabase_plan_registry_import_v1.py --import --limit 100 --json for first live slice."
+  ],
+  "cloud_chain_after_import": [
+    "Cloudflare Worker reads plan rows by id/status/lane.",
+    "Railway cloud worker writes execution/result rows back with service role.",
+    "Hub Pro shows plan counts and next rows.",
+    "Brain and Chat Unify retrieve plan context through public-safe read APIs."
+  ]
+}
