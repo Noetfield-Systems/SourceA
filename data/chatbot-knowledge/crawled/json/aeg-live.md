@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-27T06:08:27Z
+updated: 2026-06-27T08:46:57Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/data/aeg-live.json
 public: true
@@ -9,7 +9,7 @@ kind: json
 # Aeg Live
 
 - **schema**: sourcea-aeg-live-v1
-- **at**: 2026-06-27T03:41:31Z
+- **at**: 2026-06-27T06:23:21Z
 - **evidence_id**: aeg-20260620T044750Z-ac101c6b
 - **verdict**: PASS
 ## blockers

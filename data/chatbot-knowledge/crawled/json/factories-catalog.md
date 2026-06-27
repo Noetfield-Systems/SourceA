@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-27T06:08:27Z
+updated: 2026-06-27T08:46:57Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/data/factories-catalog.json
 public: true
@@ -10,7 +10,7 @@ kind: json
 
 - **schema**: sourcea-factories-catalog-v1
 - **built_at**: 2026-06-23T23:32:33Z
-- **platform**: Noetfield
+- **platform**: SourceA
 - **tagline**: AI Factory Operating Platform — deployable apps with policy packs and certainty receipts.
 - **hero_factory_id**: exchange-factory-v1
 ## factories
@@ -152,7 +152,7 @@ kind: json
 ## Noetfield TLE reference factory
 - **id**: cat-noetfield-freemium
 - **factory_id**: noetfield-freemium-factory-v1
-- **name**: Noetfield TLE reference factory
+- **name**: SourceA TLE reference factory
 - **tagline**: Board pack · Copilot readiness · governance receipt language — freemium mock.
 - **buyer**: Prospects · diligence teams · board advisors
 - **tier**: freemium
