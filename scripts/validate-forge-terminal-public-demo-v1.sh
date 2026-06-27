@@ -26,12 +26,12 @@ js = Path('${GREEN}/sourcea-forge-terminal-demo.js').read_text(encoding='utf-8')
 checks = [
     ('html sa-ft-status', 'id=\"sa-ft-status\"' in html),
     ('html sa-ft-send', 'id=\"sa-ft-send\"' in html),
-    ('html demo js v1.1', 'sourcea-forge-terminal-demo.js?v=1.1.0' in html),
+    ('html demo js v1.4', 'sourcea-forge-terminal-demo.js?v=1.4.1' in html),
     ('html preconnect worker', 'sourcea-brain-chat-v1' in html),
     ('html forge hub link', 'href=\"/sourcea/forge/\"' in html),
     ('js product forge_terminal', 'PRODUCT = \"forge_terminal\"' in js),
     ('js prompt forge', 'function forgeMission' in js),
-    ('js demo version', 'DEMO_VERSION = \"1.1.0\"' in js),
+    ('js demo version', 'DEMO_VERSION = \"1.4.1\"' in js),
 ]
 for name, ok in checks:
     assert ok, name
@@ -66,7 +66,7 @@ echo "=== public URLs (${BASE}) ===" | tee -a "$RECEIPT"
 for url in \
   "${BASE}/sourcea/forge/terminal" \
   "${BASE}/forge/terminal" \
-  "${BASE}/sourcea/sourcea-forge-terminal-demo.js?v=1.1.0" \
+  "${BASE}/sourcea/sourcea-forge-terminal-demo.js?v=1.4.1" \
   "${BASE}/sourcea/data/sourcea-brain-chat-config-v1.json"; do
   code="$(curl -sS -o /dev/null -w '%{http_code}' "$url" || echo 000)"
   [[ "$code" == "200" || "$code" == "302" ]] || { echo "FAIL $url -> $code"; exit 1; }
@@ -82,7 +82,7 @@ p.write_text(json.dumps({
   'schema': 'forge-terminal-public-demo-e2e-v1',
   'at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
   'base': '${BASE}',
-  'demo_version': '1.1.0',
+  'demo_version': '1.4.1',
   'ok': True,
 }, indent=2) + '\n', encoding='utf-8')
 print('OK receipt', p)
