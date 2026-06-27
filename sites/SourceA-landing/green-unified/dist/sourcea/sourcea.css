@@ -2717,6 +2717,26 @@
 .sa-brain-msg-error {
   border: 1px solid rgba(234, 88, 12, 0.35); background: rgba(234, 88, 12, 0.06);
 }
+.sa-brain-citations {
+  margin-top: 0.65rem; padding-top: 0.55rem; border-top: 1px dashed var(--ar-line, #e5e7eb);
+  font-size: 0.72rem; line-height: 1.45; opacity: 0.88;
+}
+.sa-brain-citations-label {
+  font-weight: 700; margin-right: 0.35rem; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.62rem;
+}
+.sa-brain-citations a {
+  color: var(--ar-accent, #69d419); text-decoration: none; font-weight: 600;
+}
+.sa-brain-citations a:hover { text-decoration: underline; }
+.sa-brain-confidence {
+  font-size: 0.72rem; line-height: 1.4; margin-bottom: 0.45rem; padding: 0.35rem 0.5rem;
+  border-radius: 6px; border: 1px solid rgba(234, 88, 12, 0.35); background: rgba(234, 88, 12, 0.08);
+  color: var(--ar-text-muted, #6b7280);
+}
+.sa-brain-confidence.is-medium {
+  border-color: rgba(202, 138, 4, 0.35); background: rgba(202, 138, 4, 0.08);
+}
+.sa-brain-confidence a { color: var(--ar-accent, #69d419); font-weight: 600; }
 .sa-brain-time {
   display: block; font-size: 0.62rem; opacity: 0.55; margin-bottom: 0.2rem;
 }

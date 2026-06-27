@@ -41,6 +41,7 @@ PINNED_STEMS = {
     "forge-runtime",
     "products-catalog",
     "site-map",
+    "brain-public-rules",
 }
 
 
@@ -157,6 +158,7 @@ def json_to_markdown(data: dict | list, title: str) -> str:
                     walk(v, depth + 1)
                 elif v is not None and str(v).strip():
                     sv = strip_secrets(str(v))
+                    sv = sv.replace("Noetfield", "SourceA")
                     if len(sv) < 500:
                         lines.append(f"- **{k}**: {sv}")
         elif isinstance(obj, list):
@@ -192,16 +194,73 @@ def classify_intent(query: str) -> str:
     q = query.lower()
     if any(x in q for x in ("invest", "fund", "raise", "valuation", "cap table")):
         return "investor"
-    if any(x in q for x in ("cursor", "developer", "api", "code", "forge terminal", "kernel", "pypi", "npm", "deploy")):
+    if any(x in q for x in ("cursor", "developer", "api", "code", "forge terminal", "kernel", "pypi", "npm", "deploy", "chat unify", "unify")):
         return "developer"
-    if any(x in q for x in ("price", "pricing", "cost", "how much", "$", "buy", "sandbox", "demo", "proof")):
+    if any(x in q for x in ("factory", "factories", "workflow", "video", "avatar", "outbound")):
+        return "developer"
+    if any(x in q for x in ("price", "pricing", "cost", "how much", "$", "buy", "sandbox", "demo", "proof", "offer", "48")):
         return "buyer"
     if any(x in q for x in ("partner", "agency", "procurement", "enterprise")):
         return "partner"
     return "core"
 
 
-def search_chunks(chunks: list[dict], query: str, *, k: int = 8, lane: str | None = None) -> list[dict]:
+def infer_page_context(page_path: str = "", sa_page: str = "") -> dict:
+    path = (page_path or "/").lower().rstrip("/") or "/"
+    hint = (sa_page or "").lower()
+    ctx: dict = {"page_path": path, "page_lane": "core", "segments": []}
+    if "forge" in hint or "/forge" in path:
+        ctx["page_lane"] = "developer"
+        ctx["segments"].extend(["forge", "terminal", "forge-runtime"])
+    if "pricing" in path or "offer" in path:
+        ctx["page_lane"] = "buyer"
+        ctx["segments"].extend(["pricing", "offer", "pricing-matrix"])
+    if "factor" in path:
+        ctx["page_lane"] = "developer"
+        ctx["segments"].extend(["factories", "factory", "products-catalog"])
+    if "investor" in path:
+        ctx["page_lane"] = "investor"
+        ctx["segments"].append("investor")
+    if any(x in path for x in ("proof", "trust", "security")):
+        ctx["page_lane"] = "buyer"
+        ctx["segments"].extend(["proof", "trust", "security"])
+    if any(x in path for x in ("start", "sandbox", "mvp")):
+        ctx["page_lane"] = "buyer"
+        ctx["segments"].extend(["sandbox", "start", "48h", "mvp"])
+    if "scenario" in path or path in ("/", "/sourcea"):
+        ctx["segments"].extend(["positioning", "founder-home", "scenario"])
+    return ctx
+
+
+def page_boost(chunk: dict, page_ctx: dict | None) -> float:
+    if not page_ctx:
+        return 0.0
+    boost = 0.0
+    path = (chunk.get("source_path") or "").lower()
+    www = (chunk.get("www_url") or "").lower()
+    page_path = (page_ctx.get("page_path") or "").lower()
+    if page_ctx.get("page_lane") and chunk.get("lane") == page_ctx["page_lane"]:
+        boost += 2.5
+    for seg in page_ctx.get("segments") or []:
+        if seg in path or seg in www:
+            boost += 2.0
+    if page_path and page_path != "/":
+        parts = [p for p in page_path.split("/") if p]
+        if parts:
+            slug = parts[-1]
+            if slug in path or slug in www:
+                boost += 2.5
+    return boost
+
+
+def search_chunks(
+    chunks: list[dict],
+    query: str,
+    *,
+    k: int = 8,
+    lane: str | None = None,
+    page_ctx: dict | None = None,
+) -> list[dict]:
     qtok = tokenize(query)
     if not qtok:
         return chunks[:k]
@@ -218,8 +277,11 @@ def search_chunks(chunks: list[dict], query: str, *, k: int = 8, lane: str | Non
         s = bm25_score(qtok, dt, df, N, avgdl)
         if c.get("pinned"):
             s += 2.0
+        if c.get("kind") in ("rule", "rules") or c.get("lane") == "rules":
+            s += 1.0
         if c.get("lane") == intent:
             s += 1.5
+        s += page_boost(c, page_ctx)
         if s > 0:
             scored.append((s, {**c, "score": round(s, 4)}))
     scored.sort(key=lambda x: -x[0])

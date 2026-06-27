@@ -8,11 +8,12 @@ description: >-
 
 # SourceA Brain chatbot audit skill
 
-**Saved:** 2026-06-27T05:30:00Z  
-**Master plan:** `brain-os/plan-registry/SOURCEA_BRAIN_CHATBOT_100_PLAN_LOCKED_v1.md`  
+**Saved:** 2026-06-27T14:00:00Z  
+**Master plan:** `brain-os/plan-registry/SOURCEA_BRAIN_CHATBOT_100_PLAN_LOCKED_v1.md` (**v2** — unified E2E + 100 steps)  
 **Manifest:** `data/CHATBOT_KNOWLEDGE_MANIFEST.json`  
 **Runbook:** `docs/CHATBOT_KNOWLEDGE_RUNBOOK.md`  
-**Gap report:** `docs/BRAIN_CHATBOT_GAP_REPORT_LOCKED_v1.md`
+**Gap report:** `docs/BRAIN_CHATBOT_GAP_REPORT_LOCKED_v1.md` (**v2** — E2E + P0 gaps)  
+**E2E report:** `reports/sourcea-app-e2e-all-pages-v1.json`
 
 ---
 
