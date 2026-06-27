@@ -102,6 +102,21 @@
       "notes": "Does not edit product code; emits interpretation receipts."
     },
     {
+      "id": "supabase_db",
+      "owner": "Supabase database agent",
+      "purpose": "Portfolio-spine Supabase migrations, importers, connection blockers, and DB chain docs.",
+      "globs": [
+        "infra/supabase/**",
+        "data/supabase-*.json",
+        "data/sourcea-supabase-*.json",
+        "docs/*SUPABASE*",
+        "docs/SOURCEA_SUPABASE_CONNECTION_BLOCKER_LOCKED_v1.md",
+        "scripts/*supabase*"
+      ],
+      "validator": "scripts/run-portfolio-supabase-daily-v1.sh",
+      "notes": "Founder-owned secrets stay in ~/.sourcea-secrets. Agents never write Supabase secrets into the repo."
+    },
+    {
       "id": "incidents_rules",
       "owner": "Incident/rule agent",
       "purpose": "Incident reports, incident registries, and Cursor rules.",
