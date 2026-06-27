@@ -92,14 +92,13 @@ def _complexity_team(text: str, ssot: dict[str, Any]) -> list[str] | None:
 def _pick_model(work_tier: str, task_kind: str = "") -> dict[str, str]:
     role = work_tier or "bulk"
     try:
-        from model_dispatch import FORGE_MODEL_CATALOG, pick_roi_model  # noqa: WPS433
+        from model_dispatch import resolve_sourcea_model  # noqa: WPS433
 
-        model_id = pick_roi_model(role)
-        entry = FORGE_MODEL_CATALOG.get(model_id) or {}
+        resolved = resolve_sourcea_model(product="chat_unify", role=role, preserve_explicit=True)
         return {
-            "model_id": model_id,
-            "provider": str(entry.get("provider") or "auto"),
-            "api_model": str(entry.get("api_model") or model_id),
+            "model_id": str(resolved.get("model_id") or "gpt-4o"),
+            "provider": str(resolved.get("provider") or "auto"),
+            "api_model": str(resolved.get("api_model") or resolved.get("model_id") or "gpt-4o"),
             "work_tier": role,
         }
     except Exception:
