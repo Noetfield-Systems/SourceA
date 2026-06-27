@@ -1,6 +1,9 @@
 /** sourcea.app — Pages static + Chat Unify cloud API proxy */
 const PAGES = "https://sourcea-com.pages.dev";
 const CHAT_UNIFY_UPSTREAM_DEFAULT = "https://sourcea-chat-unify-production.up.railway.app";
+const BRAIN_CHAT_PATH = "/api/brain/chat/v1";
+const BRAIN_WORKER_URL =
+  "https://sourcea-brain-chat-v1.sina-kazemnezhad-ca.workers.dev/api/brain/chat/v1";
 
 function upstreamPath(sub) {
   const clean = (sub || "").replace(/^\//, "");
@@ -19,6 +22,10 @@ function corsHeaders(request) {
     Vary: "Origin",
     "Content-Type": "application/json",
   };
+}
+
+function jsonResponse(request, body, status = 200) {
+  return new Response(JSON.stringify(body), { status, headers: corsHeaders(request) });
 }
 
 async function proxyChatUnify(request, env, apiPrefix) {
@@ -50,10 +57,55 @@ async function proxyChatUnify(request, env, apiPrefix) {
   return new Response(resp.body, { status: resp.status, headers });
 }
 
+async function proxyBrainChat(request) {
+  if (request.method === "OPTIONS") {
+    return new Response(null, { status: 204, headers: corsHeaders(request) });
+  }
+  if (request.method !== "GET" && request.method !== "POST") {
+    return jsonResponse(request, { ok: false, error: "method_not_allowed" }, 405);
+  }
+
+  const init = {
+    method: request.method,
+    headers: {
+      Accept: request.headers.get("Accept") || "application/json",
+    },
+  };
+  const ct = request.headers.get("Content-Type");
+  if (ct) init.headers["Content-Type"] = ct;
+  if (request.method === "POST") {
+    init.body = request.body;
+  }
+
+  const resp = await fetch(BRAIN_WORKER_URL, init);
+  const headers = new Headers(resp.headers);
+  Object.entries(corsHeaders(request)).forEach(([k, v]) => {
+    if (k.toLowerCase() !== "content-type" || !headers.get("content-type")) headers.set(k, v);
+  });
+  headers.set("X-SourceA-Proxy", "sourcea-app-proxy-v1");
+  headers.set("X-SourceA-Brain-Upstream", "sourcea-brain-chat-v1");
+  return new Response(resp.body, { status: resp.status, headers });
+}
+
 export default {
   async fetch(request, env) {
     const incoming = new URL(request.url);
     const { pathname } = incoming;
+
+    if (pathname === "/health") {
+      return jsonResponse(request, {
+        ok: true,
+        service: "sourcea.app",
+        plane: "edge",
+        proxy: "sourcea-app-proxy-v1",
+        pages_origin: PAGES,
+        brain_path: BRAIN_CHAT_PATH,
+      });
+    }
+
+    if (pathname === BRAIN_CHAT_PATH) {
+      return proxyBrainChat(request);
+    }
 
     if (pathname.startsWith("/api/chat-unify-cloud/v1") || pathname.startsWith("/api/chat-unify-demo-cloud/v1")) {
       const prefix = pathname.startsWith("/api/chat-unify-demo-cloud/v1")
