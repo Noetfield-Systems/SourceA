@@ -17,15 +17,17 @@ A dirty tree is not a blocker when the agent stays inside its assigned lane.
 
 Before editing in a dirty tree:
 
-1. Identify the lane.
-2. Inspect only the target path status/diff.
-3. Touch only files in the assigned lane.
-4. Ignore unrelated dirty files.
-5. Run the lane validator, not a full Mac validator marathon.
+1. Run the lane report before plain `git status`.
+2. Identify the lane.
+3. Inspect only the target path status/diff.
+4. Touch only files in the assigned lane.
+5. Ignore unrelated dirty files.
+6. Run the lane validator, not a full Mac validator marathon.
 
 Use:
 
 ```bash
+python3 scripts/sourcea_dirty_tree_lane_map_v1.py --write-report --json
 python3 scripts/sourcea_dirty_tree_lane_map_v1.py --path <path> --json
 ```
 
