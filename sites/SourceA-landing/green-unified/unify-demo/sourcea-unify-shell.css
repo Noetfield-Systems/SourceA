@@ -1,0 +1,641 @@
+/**
+ * Chat Unify web desk — SourceA site style (cream · teal · lime)
+ * Active only on sourcea.app /unify/ and /unify-demo/ (html[data-cu-web]).
+ * Mac standalone keeps dark theme from app.css.
+ */
+
+html[data-cu-web] {
+  --cu-bg: #fdfefb;
+  --cu-surface: #f4f8ea;
+  --cu-card: #ffffff;
+  --cu-border: #e1e9dc;
+  --cu-text: #404747;
+  --cu-muted: #225a58;
+  --cu-violet: #044441;
+  --cu-violet-dim: rgba(4, 68, 65, 0.08);
+  --cu-gold: #69d419;
+  --cu-red: #b91c1c;
+  --cu-amber: #c47f17;
+  --cu-green: #2d8a4e;
+  --ar-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --ar-body: "Inter", system-ui, sans-serif;
+}
+
+html[data-cu-web] body {
+  margin: 0;
+  background: var(--cu-bg);
+  color: var(--cu-text);
+  font-family: var(--ar-body);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Site chrome — hidden on Mac standalone */
+.sa-unify-site-chrome { display: none; }
+html[data-cu-web] .sa-unify-site-chrome { display: block; }
+html[data-cu-web] .official-links-bar { display: none !important; }
+html[data-cu-web="demo"] .cu-tab[data-tab="forge-ide"],
+html[data-cu-web="demo"] .cu-tab[data-tab="vocab"],
+html[data-cu-web="demo"] .cu-forge-machines-scroll [data-goto-tab="forge-ide"],
+html[data-cu-web="demo"] .cu-forge-machines-scroll [data-goto-tab="vocab"],
+html[data-cu-web="demo"] .sa-unify-machine-card[data-goto-tab="forge-ide"],
+html[data-cu-web="demo"] .sa-unify-machine-card[data-goto-tab="vocab"],
+html[data-cu-web="demo"] #panel-forge-ide,
+html[data-cu-web="demo"] #panel-vocabulary-intelligence {
+  display: none !important;
+}
+html[data-cu-web="demo"] .cu-tab[data-tab="home"],
+html[data-cu-web="demo"] .cu-forge-machines-scroll [data-goto-tab="home"] {
+  border-color: rgba(105, 212, 25, 0.55);
+  background: rgba(105, 212, 25, 0.14);
+  color: var(--cu-violet);
+}
+
+html[data-cu-web] #main-content.sa-unify-main {
+  padding-top: 20px;
+  padding-bottom: 0;
+  min-height: calc(100vh - 72px);
+}
+
+html[data-cu-web] .sa-unify-nav-active {
+  color: var(--cu-violet) !important;
+  font-weight: 600;
+}
+
+/* Machines rail — pill strip like site trust chips */
+html[data-cu-web] .cu-forge-machines-rail {
+  position: sticky;
+  top: max(76px, calc(64px + env(safe-area-inset-top, 0px)));
+  z-index: 90;
+  margin: 0;
+  padding: 8px clamp(16px, 3vw, 48px);
+  background: rgba(253, 254, 251, 0.92);
+  border-bottom: 1px solid var(--cu-border);
+  backdrop-filter: blur(12px);
+}
+
+/* SourceA product hero — same language as the homepage */
+html[data-cu-web] .sa-unify-hero {
+  padding: clamp(116px, 13vw, 152px) 0 clamp(48px, 7vw, 76px);
+}
+html[data-cu-web] .sa-unify-hero-grid {
+  display: grid;
+  gap: clamp(28px, 4vw, 56px);
+  align-items: center;
+}
+@media (min-width: 960px) {
+  html[data-cu-web] .sa-unify-hero-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+}
+html[data-cu-web] .sa-unify-hero-copy h1 {
+  font-family: var(--ar-display);
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  color: var(--cu-violet);
+  margin: 0 0 20px;
+}
+html[data-cu-web] .sa-unify-hero-copy .ar-hero-lead {
+  max-width: 64ch;
+  color: var(--cu-muted);
+}
+html[data-cu-web] .sa-unify-trust-row {
+  margin-top: 1.5rem;
+}
+html[data-cu-web] .sa-unify-proof-card {
+  min-height: 360px;
+}
+html[data-cu-web] .sa-unify-proof-card .sa-chain-flow {
+  justify-content: flex-start;
+  margin: 1.1rem 0 0;
+}
+html[data-cu-web] .sa-unify-roster li {
+  opacity: 1;
+  transform: none;
+}
+
+html[data-cu-web] .sa-unify-machine-section {
+  padding: clamp(42px, 6vw, 72px) 0;
+  background: #fff;
+  border-top: 1px solid var(--cu-border);
+  border-bottom: 1px solid var(--cu-border);
+}
+html[data-cu-web] .sa-unify-machine-section .ar-section-head {
+  max-width: 820px;
+  margin: 0 auto 1.5rem;
+}
+html[data-cu-web] .sa-unify-machine-section .ar-section-head h2 {
+  font-family: var(--ar-display);
+  font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+  color: var(--cu-violet);
+  letter-spacing: -0.035em;
+  margin: 0.25rem 0 0.55rem;
+}
+html[data-cu-web] .sa-unify-machine-section .ar-section-head p:last-child {
+  color: var(--cu-muted);
+  margin: 0 auto;
+  max-width: 66ch;
+}
+html[data-cu-web] .sa-unify-machine-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+@media (max-width: 1020px) {
+  html[data-cu-web] .sa-unify-machine-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  html[data-cu-web] .sa-unify-machine-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 460px) {
+  html[data-cu-web] .sa-unify-machine-grid { grid-template-columns: 1fr; }
+}
+html[data-cu-web] .sa-unify-machine-card {
+  appearance: none;
+  text-align: left;
+  border: 1px solid var(--cu-border);
+  border-radius: var(--ar-radius, 14px);
+  background: linear-gradient(145deg, #fff, var(--cu-surface));
+  color: var(--cu-text);
+  padding: 1rem 1.05rem;
+  min-height: 92px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(4, 68, 65, 0.05);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+html[data-cu-web] .sa-unify-machine-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(105, 212, 25, 0.45);
+  box-shadow: 0 14px 32px rgba(4, 68, 65, 0.08);
+}
+html[data-cu-web] .sa-unify-machine-card strong {
+  display: block;
+  color: var(--cu-violet);
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+html[data-cu-web] .sa-unify-machine-card span {
+  display: block;
+  color: var(--cu-muted);
+  font-size: 0.82rem;
+}
+html[data-cu-web] .cu-forge-machines-label {
+  color: var(--cu-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+html[data-cu-web] .cu-forge-machines-scroll button {
+  border: 1px solid var(--cu-border);
+  background: #fff;
+  color: var(--cu-text);
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+html[data-cu-web] .cu-forge-machines-scroll button:hover {
+  border-color: rgba(4, 68, 65, 0.35);
+  background: var(--cu-surface);
+}
+html[data-cu-web] .cu-forge-machines-scroll button.is-active {
+  border-color: rgba(105, 212, 25, 0.55);
+  background: rgba(105, 212, 25, 0.14);
+  color: var(--cu-violet);
+  font-weight: 600;
+}
+
+/* App shell */
+html[data-cu-web] .cu-app {
+  max-width: none;
+  padding: clamp(28px, 4vw, 56px) clamp(20px, 4vw, 72px) 48px;
+  background: var(--cu-bg);
+}
+
+html[data-cu-web] .cu-page-head,
+html[data-cu-web] .cu-enterprise-head {
+  background: linear-gradient(165deg, #ffffff 0%, var(--cu-surface) 100%);
+  border: 1px solid var(--cu-border);
+  border-radius: var(--ar-radius, 14px);
+  box-shadow: 0 10px 40px rgba(4, 68, 65, 0.06);
+  margin-bottom: 18px;
+  padding: clamp(18px, 2vw, 28px);
+}
+html[data-cu-web] .cu-kicker {
+  color: var(--cu-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+html[data-cu-web] .cu-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cu-gold);
+  margin-right: 0.45rem;
+  vertical-align: middle;
+}
+html[data-cu-web] .cu-founder-title {
+  font-family: var(--ar-display);
+  color: var(--cu-violet);
+  letter-spacing: -0.03em;
+}
+html[data-cu-web] .cu-enterprise-lead,
+html[data-cu-web] .cu-home-sub {
+  color: var(--cu-muted);
+}
+html[data-cu-web] .cu-stat-inline strong {
+  color: var(--cu-violet);
+}
+
+/* Tabs — card lift like pricing grid */
+html[data-cu-web] .cu-tab {
+  background: #fff;
+  border: 1px solid var(--cu-border);
+  color: var(--cu-muted);
+  border-radius: var(--ar-radius, 14px);
+  box-shadow: 0 2px 8px rgba(4, 68, 65, 0.04);
+  padding: 0.85rem 0.95rem;
+}
+html[data-cu-web] .cu-tab:hover {
+  border-color: rgba(4, 68, 65, 0.28);
+  color: var(--cu-text);
+}
+html[data-cu-web] .cu-tab-active,
+html[data-cu-web] .cu-tab.cu-tab-active {
+  border-color: rgba(105, 212, 25, 0.5) !important;
+  background: rgba(105, 212, 25, 0.1) !important;
+  color: var(--cu-violet) !important;
+  box-shadow: 0 0 0 1px rgba(105, 212, 25, 0.25) !important;
+}
+html[data-cu-web] .cu-tab-active .cu-tab-label {
+  color: var(--cu-violet);
+}
+
+/* Buttons */
+html[data-cu-web] .cu-btn {
+  border: 1px solid var(--cu-border);
+  background: #fff;
+  color: var(--cu-text);
+  border-radius: 999px;
+  font-weight: 600;
+}
+html[data-cu-web] .cu-btn:hover {
+  border-color: rgba(4, 68, 65, 0.3);
+  background: var(--cu-surface);
+}
+html[data-cu-web] .cu-btn-primary {
+  background: #9ae761;
+  border-color: #9ae761;
+  color: #032e2c;
+  box-shadow: 0 8px 24px rgba(4, 68, 65, 0.1);
+}
+html[data-cu-web] .cu-btn-primary:hover {
+  background: #69d419;
+  border-color: #69d419;
+}
+html[data-cu-web] .cu-btn-ghost {
+  background: transparent;
+}
+
+/* Inputs */
+html[data-cu-web] .cu-input,
+html[data-cu-web] .cu-textarea,
+html[data-cu-web] .cu-select {
+  background: #fff;
+  border: 1px solid var(--cu-border);
+  color: var(--cu-text);
+  border-radius: 10px;
+}
+html[data-cu-web] .cu-input:focus,
+html[data-cu-web] .cu-textarea:focus,
+html[data-cu-web] .cu-select:focus {
+  outline: none;
+  border-color: rgba(4, 68, 65, 0.45);
+  box-shadow: 0 0 0 3px rgba(105, 212, 25, 0.15);
+}
+
+/* Panels & cards */
+html[data-cu-web] .cu-home-hero,
+html[data-cu-web] .cu-persona-card,
+html[data-cu-web] .cu-home-flywheel,
+html[data-cu-web] .cu-home-quick,
+html[data-cu-web] .cu-panel,
+html[data-cu-web] .cu-loop-card,
+html[data-cu-web] .cu-card,
+html[data-cu-web] .cu-dropzone {
+  background: #fff;
+  border: 1px solid var(--cu-border);
+  border-radius: var(--ar-radius, 14px);
+  box-shadow: 0 4px 20px rgba(4, 68, 65, 0.05);
+  padding: clamp(20px, 2.4vw, 32px);
+}
+html[data-cu-web] .cu-tab-panel {
+  padding: 0;
+}
+html[data-cu-web] .cu-grid {
+  gap: clamp(18px, 2.5vw, 28px);
+}
+html[data-cu-web] .cu-panel {
+  padding: clamp(22px, 2.5vw, 34px);
+}
+html[data-cu-web] .cu-panel h2,
+html[data-cu-web] .cu-home-hero h2,
+html[data-cu-web] .cu-loop-head h2 {
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  line-height: 1.18;
+  color: var(--cu-text);
+}
+html[data-cu-web] .cu-hint,
+html[data-cu-web] .cu-lead,
+html[data-cu-web] .cu-label,
+html[data-cu-web] .cu-panel p {
+  color: var(--cu-muted);
+}
+html[data-cu-web] .cu-textarea {
+  min-height: 180px;
+  padding: 14px 16px;
+}
+html[data-cu-web] .cu-row {
+  gap: 12px;
+}
+html[data-cu-web] .cu-home-flywheel {
+  background: var(--cu-surface);
+}
+html[data-cu-web] .cu-flywheel-steps li button {
+  background: #fff;
+  border-color: var(--cu-border);
+}
+html[data-cu-web] .cu-platform-tile {
+  background: #fff;
+}
+html[data-cu-web] .cu-platform-active {
+  border-color: rgba(105, 212, 25, 0.45);
+  background: rgba(105, 212, 25, 0.08);
+}
+html[data-cu-web] .cu-home-quick {
+  border-style: dashed;
+  background: rgba(105, 212, 25, 0.06);
+}
+
+/* Status & badges */
+html[data-cu-web] .cu-badge-live {
+  background: rgba(45, 138, 78, 0.12);
+  color: var(--cu-green);
+  border: 1px solid rgba(45, 138, 78, 0.35);
+}
+html[data-cu-web] .cu-meta-ok { color: var(--cu-green); }
+html[data-cu-web] .cu-meta-ai { color: var(--cu-violet); }
+html[data-cu-web] .cu-status-error { color: var(--cu-red); }
+
+/* Web banners — align with site CTA band */
+html[data-cu-web] .cu-web-banner {
+  margin: 0;
+  padding: 0.65rem clamp(16px, 3.5vw, 64px);
+  background: var(--cu-violet);
+  color: #f4f8ea;
+  font-size: 0.88rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+html[data-cu-web] .cu-web-banner a {
+  color: #9ae761;
+  font-weight: 600;
+}
+html[data-cu-web] .cu-web-banner-demo {
+  background: #2d6360;
+}
+html[data-cu-web] .cu-web-banner-promo {
+  background: linear-gradient(90deg, #044441, #2d6360);
+  color: #fdfefb;
+}
+html[data-cu-web] .cu-web-banner-promo a {
+  color: #9ae761;
+}
+
+/* Access gate — light card on frosted overlay */
+html[data-cu-web] .cu-unify-gate {
+  background: rgba(253, 254, 251, 0.82);
+  backdrop-filter: blur(8px);
+}
+html[data-cu-web] .cu-unify-gate-card {
+  background: #fff;
+  border: 1px solid var(--cu-border);
+  color: var(--cu-text);
+  border-radius: var(--ar-radius, 14px);
+  box-shadow: 0 18px 48px rgba(4, 68, 65, 0.12);
+}
+html[data-cu-web] .cu-unify-gate-kicker {
+  color: var(--cu-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+html[data-cu-web] .cu-unify-gate-card h2 {
+  font-family: var(--ar-display);
+  color: var(--cu-violet);
+}
+
+/* Hide in-app footer — site footer replaces it */
+html[data-cu-web] .cu-enterprise-foot { display: none; }
+
+/* Workspace iframe chrome */
+html[data-cu-web] .ft-forge-ide-frame {
+  background: var(--cu-surface);
+  border-radius: 0 0 var(--ar-radius, 14px) var(--ar-radius, 14px);
+}
+
+/* Connect / API station / Hub Pro — light overrides */
+html[data-cu-web] .connect-mesh-node,
+html[data-cu-web] .api-station-card,
+html[data-cu-web] .hubpro-card {
+  background: #fff !important;
+  border-color: var(--cu-border) !important;
+  color: var(--cu-text) !important;
+}
+
+html[data-cu-web] pre,
+html[data-cu-web] code,
+html[data-cu-web] .cu-loop-out pre {
+  background: var(--cu-surface) !important;
+  border: 1px solid var(--cu-border);
+  color: var(--cu-text);
+}
+
+/* Onboarding overlay */
+html[data-cu-web] .cu-onboarding-overlay {
+  background: rgba(253, 254, 251, 0.88);
+}
+html[data-cu-web] .cu-onboarding-card {
+  background: #fff;
+  border: 1px solid var(--cu-border);
+  color: var(--cu-text);
+  box-shadow: 0 20px 50px rgba(4, 68, 65, 0.12);
+}
+
+/* Sub-hero strip above app (injected by boot on web) */
+.sa-unify-sub-hero {
+  display: none;
+}
+html[data-cu-web] .sa-unify-sub-hero {
+  display: block;
+  padding: 1rem clamp(16px, 3.5vw, 64px) 0.5rem;
+  background: var(--cu-surface);
+  border-bottom: 1px solid var(--cu-border);
+}
+html[data-cu-web] .sa-unify-sub-hero .ar-kicker {
+  margin: 0 0 0.35rem;
+}
+html[data-cu-web] .sa-unify-sub-hero h2 {
+  margin: 0;
+  font-family: var(--ar-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  color: var(--cu-violet);
+  letter-spacing: -0.02em;
+}
+html[data-cu-web] .sa-unify-sub-hero p {
+  margin: 0.35rem 0 0;
+  color: var(--cu-muted);
+  font-size: 0.92rem;
+  max-width: 62ch;
+}
+
+/* API Station tab — match site pills */
+html[data-cu-web] .sina-mode-bar {
+  background: var(--cu-surface);
+  border-bottom: 1px solid var(--cu-border);
+  color: var(--cu-text);
+}
+html[data-cu-web] .sina-mode-tab {
+  background: #fff;
+  border-color: var(--cu-border);
+  color: var(--cu-muted);
+}
+html[data-cu-web] .sina-mode-tab.active {
+  border-color: rgba(105, 212, 25, 0.5);
+  background: rgba(105, 212, 25, 0.12);
+  color: var(--cu-violet);
+}
+html[data-cu-web] .api-station-root,
+html[data-cu-web] .api-station-panel,
+html[data-cu-web] .hubpro-root {
+  background: transparent;
+  color: var(--cu-text);
+}
+
+/* Connect tab */
+html[data-cu-web] .cu-connect-hero {
+  background: linear-gradient(135deg, rgba(105, 212, 25, 0.08), rgba(4, 68, 65, 0.06));
+}
+html[data-cu-web] .cu-mesh-pill {
+  background: #fff;
+  color: var(--cu-text);
+}
+html[data-cu-web] .cu-mesh-pill.is-live {
+  border-color: rgba(45, 138, 78, 0.45);
+  color: var(--cu-green);
+}
+html[data-cu-web] .cu-mesh-pill.is-off {
+  border-color: rgba(185, 28, 28, 0.35);
+  color: var(--cu-red);
+}
+html[data-cu-web] .cu-connect-lane {
+  background: #fff;
+  border-color: var(--cu-border);
+}
+
+/* Enterprise home / Start tab */
+html[data-cu-web] .cu-enterprise-hero {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 0%, rgba(105, 212, 25, 0.12), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 90% 100%, rgba(4, 68, 65, 0.08), transparent 50%),
+    linear-gradient(165deg, #ffffff, var(--cu-surface));
+}
+html[data-cu-web] .cu-enterprise-kicker {
+  color: var(--cu-muted);
+}
+html[data-cu-web] .cu-audience-card,
+html[data-cu-web] .cu-machine-card {
+  background: #fff;
+  border-color: var(--cu-border);
+  box-shadow: 0 4px 16px rgba(4, 68, 65, 0.05);
+}
+html[data-cu-web] .cu-audience-card:hover,
+html[data-cu-web] .cu-machine-card:hover {
+  border-color: rgba(4, 68, 65, 0.3);
+}
+
+/* Truth gate / loop panels */
+html[data-cu-web] .cu-truth-gate,
+html[data-cu-web] .cu-loop-step {
+  background: var(--cu-surface);
+  border-color: var(--cu-border);
+}
+html[data-cu-web] .cu-truth-pass {
+  border-color: rgba(45, 138, 78, 0.4);
+  background: rgba(45, 138, 78, 0.08);
+}
+html[data-cu-web] .cu-truth-block {
+  border-color: rgba(185, 28, 28, 0.35);
+  background: rgba(185, 28, 28, 0.06);
+}
+
+/* Library list */
+html[data-cu-web] .cu-library-item {
+  background: #fff;
+  border-color: var(--cu-border);
+}
+html[data-cu-web] .cu-library-item:hover {
+  border-color: rgba(4, 68, 65, 0.28);
+}
+
+@media (max-width: 720px) {
+  html[data-cu-web] .cu-app {
+    padding: 28px max(18px, env(safe-area-inset-left, 0px)) 44px max(18px, env(safe-area-inset-right, 0px));
+  }
+  html[data-cu-web] .cu-grid {
+    grid-template-columns: 1fr;
+  }
+  html[data-cu-web] .cu-page-head,
+  html[data-cu-web] .cu-enterprise-head,
+  html[data-cu-web] .cu-panel,
+  html[data-cu-web] .cu-home-hero,
+  html[data-cu-web] .cu-persona-card,
+  html[data-cu-web] .cu-home-flywheel,
+  html[data-cu-web] .cu-home-quick,
+  html[data-cu-web] .cu-card,
+  html[data-cu-web] .cu-dropzone {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 24px 22px;
+  }
+  html[data-cu-web] .cu-row {
+    gap: 12px;
+  }
+  html[data-cu-web] .cu-row .cu-btn,
+  html[data-cu-web] .cu-home-cta-row .cu-btn {
+    min-width: min(100%, 220px);
+  }
+  html[data-cu-web] .cu-textarea,
+  html[data-cu-web] .cu-input,
+  html[data-cu-web] .cu-select {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  html[data-cu-web] .cu-hint,
+  html[data-cu-web] .cu-lead,
+  html[data-cu-web] .cu-panel p,
+  html[data-cu-web] .cu-enterprise-lead {
+    max-width: 68ch;
+  }
+  html[data-cu-web] .cu-web-banner {
+    padding-left: 18px;
+    padding-right: 18px;
+    line-height: 1.55;
+  }
+}

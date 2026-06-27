@@ -1,0 +1,70 @@
+# Chat Unify cloud API — Railway · sourcea.app/unify + /unify-demo proxy
+FROM python:3.12-slim
+
+WORKDIR /app
+
+ENV PYTHONUNBUFFERED=1
+ENV CHAT_UNIFY_CLOUD=1
+ENV CHAT_UNIFY_STANDALONE=1
+ENV CHAT_UNIFY_STATE_DIR=/data/chat-unify
+ENV SINA_SOURCE_A=/app
+ENV PORT=8080
+
+RUN mkdir -p /data/chat-unify/extracts /data/chat-unify/receipts
+
+COPY scripts/chat-unify-server.py scripts/chat-unify-server.py
+COPY scripts/chat_unify_merge.py scripts/chat_unify_merge.py
+COPY scripts/chat_unify_proof_pack_v1.py scripts/chat_unify_proof_pack_v1.py
+COPY scripts/chat_unify_prompt_forge_v1.py scripts/chat_unify_prompt_forge_v1.py
+COPY scripts/chat_unify_vocabulary_intelligence_v1.py scripts/chat_unify_vocabulary_intelligence_v1.py
+COPY scripts/vocabulary_intelligence_scan_v1.py scripts/vocabulary_intelligence_scan_v1.py
+COPY scripts/chat_unify_integrations_v1.py scripts/chat_unify_integrations_v1.py
+COPY scripts/chat_unify_platform_catalog_v1.py scripts/chat_unify_platform_catalog_v1.py
+COPY scripts/chat_unify_kernel_v1.py scripts/chat_unify_kernel_v1.py
+COPY scripts/chat_unify_truth_gate_v1.py scripts/chat_unify_truth_gate_v1.py
+COPY scripts/chat_ord_loop_v1.py scripts/chat_ord_loop_v1.py
+COPY scripts/chat_ord_atoms_v1.py scripts/chat_ord_atoms_v1.py
+COPY scripts/chat_ord_claim_rules_v1.py scripts/chat_ord_claim_rules_v1.py
+COPY scripts/chat_founder_loop_v1.py scripts/chat_founder_loop_v1.py
+COPY scripts/chat_founder_language_v1.py scripts/chat_founder_language_v1.py
+COPY scripts/chat_founder_reasoning_v1.py scripts/chat_founder_reasoning_v1.py
+COPY scripts/prompt_forge_pipeline_v1.py scripts/prompt_forge_pipeline_v1.py
+COPY scripts/chat_unify_live_http_verify_v1.py scripts/chat_unify_live_http_verify_v1.py
+COPY scripts/ai_unify_api_v1.py scripts/ai_unify_api_v1.py
+COPY scripts/clipboard_safe.py scripts/clipboard_safe.py
+COPY scripts/cursor_window_preflight_v1.py scripts/cursor_window_preflight_v1.py
+COPY scripts/chat_unify_update_check_v1.py scripts/chat_unify_update_check_v1.py
+COPY scripts/hub_form_submit_v1.py scripts/hub_form_submit_v1.py
+COPY scripts/live_founder_decision_form_v1.py scripts/live_founder_decision_form_v1.py
+COPY scripts/form_official_canvas_route_v1.py scripts/form_official_canvas_route_v1.py
+COPY scripts/form_founder_supremacy_guard_v1.py scripts/form_founder_supremacy_guard_v1.py
+COPY scripts/governance_paths_v1.py scripts/governance_paths_v1.py
+COPY scripts/api_station_v1.py scripts/api_station_v1.py
+COPY scripts/founder_glance_cockpit_v1.py scripts/founder_glance_cockpit_v1.py
+COPY scripts/canvas_form_apply_picks_v1.py scripts/canvas_form_apply_picks_v1.py
+COPY scripts/canvas_form_submit_v1.py scripts/canvas_form_submit_v1.py
+COPY scripts/hub_pro_skills_v1.py scripts/hub_pro_skills_v1.py
+COPY scripts/chat_unify_ide_v1.py scripts/chat_unify_ide_v1.py
+COPY scripts/chat_unify_terminal_motor_v1.py scripts/chat_unify_terminal_motor_v1.py
+COPY scripts/chat_unify_engine_v1.py scripts/chat_unify_engine_v1.py
+COPY scripts/chat_unify_smart_router_v1.py scripts/chat_unify_smart_router_v1.py
+COPY scripts/forge_terminal_v1.py scripts/forge_terminal_v1.py
+COPY scripts/workspace_kernel_v2.py scripts/workspace_kernel_v2.py
+COPY scripts/model_dispatch.py scripts/model_dispatch.py
+COPY scripts/worker_inject_lib.py scripts/worker_inject_lib.py
+
+COPY scripts/chat-unify-standalone scripts/chat-unify-standalone
+COPY agent-control-panel/form agent-control-panel/form
+COPY agent-control-panel/shared agent-control-panel/shared
+
+COPY data/chat-unify-platform-catalog-v1.json data/chat-unify-platform-catalog-v1.json
+COPY data/chat-unify-integrations-v1.json data/chat-unify-integrations-v1.json
+COPY data/chat-unify-cursor-plugin-v1.json data/chat-unify-cursor-plugin-v1.json
+COPY data/founder-reply-glossary-v1.json data/founder-reply-glossary-v1.json
+COPY data/agent-report-language-standard-v1.json data/agent-report-language-standard-v1.json
+
+COPY cloud/chat-unify-entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+EXPOSE 8080
+CMD ["/entrypoint.sh"]

@@ -1,0 +1,15 @@
+name = "sourcea-app-proxy-v1"
+main = "src/index.js"
+compatibility_date = "2026-06-23"
+account_id = "0d0b967b77e2e5535455d39ff3dae72c"
+
+[vars]
+CHAT_UNIFY_UPSTREAM_URL = "https://sourcea-chat-unify-production.up.railway.app"
+
+[[routes]]
+pattern = "sourcea.app/*"
+zone_name = "sourcea.app"
+
+[[routes]]
+pattern = "www.sourcea.app/*"
+zone_name = "sourcea.app"
