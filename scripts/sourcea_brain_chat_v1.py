@@ -137,8 +137,11 @@ def _knowledge_meta() -> dict:
         "chunk_count": len(chunks),
         "chars": bundle.get("total_chars", 0),
         "source_files": bundle.get("source_files", 0),
+        "live_source_files": bundle.get("live_source_files", bundle.get("source_files", 0)),
+        "rule_chunks": bundle.get("rule_chunks", 0),
         "lanes": lanes,
-        "mode": bundle.get("retrieval", "bm25_hybrid_v1"),
+        "mode": bundle.get("retrieval", "brain_intelligence_v3"),
+        "pipeline": bundle.get("pipeline", "rules_first_bm25_hybrid"),
     }
 
 
@@ -230,31 +233,16 @@ def handle_chat(body: dict[str, Any] | None) -> dict:
 
     history.append({"role": "user", "content": message})
     product = str(body.get("product") or "").strip().lower()
-    base_sys = _system_for_product(product)
-    citations: list[dict] = []
-    system_prompt = base_sys
-    try:
-        import sys
 
-        scripts = SOURCEA_ROOT / "scripts"
-        if str(scripts) not in sys.path:
-            sys.path.insert(0, str(scripts))
-        db_path = SOURCEA_ROOT / "data" / "chatbot-knowledge" / "brain_knowledge_v1.sqlite"
-        if db_path.is_file():
-            from brain_chat_knowledge_db_v1 import query_db  # noqa: WPS433
+    import sys
 
-            hits = query_db(message, k=8)
-        else:
-            from brain_chat_knowledge_lib_v1 import search_chunks  # noqa: WPS433
+    scripts = SOURCEA_ROOT / "scripts"
+    if str(scripts) not in sys.path:
+        sys.path.insert(0, str(scripts))
+    from brain_intelligence_pipeline_v1 import run as brain_run  # noqa: WPS433
 
-            bundle = _load_knowledge_bundle()
-            hits = search_chunks(bundle.get("chunks") or [], message, k=8)
-        if hits:
-            system_prompt, citations = _ground_prompt(base_sys, hits)
-    except Exception:
-        pass
-
-    ok, reply = _chat_openrouter(history, product=product, system_prompt=system_prompt)
+    pipeline = brain_run(message, product=product)
+    ok, reply = _chat_openrouter(history, product=product, system_prompt=pipeline["prompt"])
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     return {
         "schema": "sourcea-brain-chat-receipt-v1",
@@ -263,7 +251,15 @@ def handle_chat(body: dict[str, Any] | None) -> dict:
         "product": product or "brain",
         "provider": "openrouter",
         "model": os.environ.get("OPENROUTER_MODEL", DEFAULT_MODEL),
-        "citations": citations if ok else [],
+        "citations": pipeline.get("citations") if ok else [],
+        "confidence": pipeline.get("confidence") if ok else None,
+        "retrieval": {
+            "intent": pipeline.get("intent"),
+            "sources_consulted": pipeline.get("sources_consulted"),
+            "rules_applied": pipeline.get("rules_applied"),
+        }
+        if ok
+        else None,
         "knowledge": _knowledge_meta(),
         "at": now,
         "message": "Brain replied" if ok else reply,

@@ -1,9 +1,10 @@
 {
   "schema": "sourcea-chatbot-knowledge-manifest-v1",
-  "version": "2.0.0",
-  "saved_at": "2026-06-27T06:00:00Z",
+  "version": "5.0.0",
+  "saved_at": "2026-06-27T07:00:00Z",
   "owner": "CHATBOT_KNOWLEDGE_OWNER",
-  "knowledge_bundle_version": "2.0.0",
+  "knowledge_bundle_version": "5.0.0",
+  "pipeline": "brain_intelligence_v5",
   "freshness_sla_hours": 168,
   "deploy_path": {
     "www": "https://sourcea.app",
@@ -19,7 +20,13 @@
     "auto_www_root": "sites/SourceA-landing/green-unified",
     "auto_json_root": "sites/SourceA-landing/green-unified/data"
   },
-  "lanes": ["buyer", "developer", "partner", "investor", "core"],
+  "lanes": [
+    "buyer",
+    "developer",
+    "partner",
+    "investor",
+    "core"
+  ],
   "sources": [
     {
       "id": "positioning-ssot",
@@ -28,7 +35,9 @@
       "public": true,
       "distill": "manual",
       "output": "data/chatbot-knowledge/manual/positioning-public.md",
-      "cross_links": ["docs/SOURCEA_POSITIONING_ONE_LINE_LOCKED_v1.md"]
+      "cross_links": [
+        "docs/SOURCEA_POSITIONING_ONE_LINE_LOCKED_v1.md"
+      ]
     },
     {
       "id": "positioning-law",
@@ -123,12 +132,12 @@
       "lane": "core",
       "public": false,
       "distill": "none",
-      "note": "Internal prompt SSOT — not injected raw to strangers"
+      "note": "Internal prompt SSOT \u2014 not injected raw to strangers"
     }
   ],
   "stale_flagged_for_removal": [
     "founder-home.html acquisition copy if diverges from sourcea-positioning-v1.json",
-    "Any FINAL_PUBLIC_SITE.md references (not present in SourceA — do not create)"
+    "Any FINAL_PUBLIC_SITE.md references (not present in SourceA \u2014 do not create)"
   ],
   "public_safe_doc_allowlist_prefixes": [
     "docs/SOURCEA_POSITIONING",
@@ -147,11 +156,23 @@
   ],
   "health_endpoint": {
     "path": "GET /api/brain/chat/v1",
-    "fields": ["knowledge.chars", "knowledge.chunk_count", "knowledge.bundle_version", "provider", "openrouter_ready"]
+    "fields": [
+      "knowledge.chars",
+      "knowledge.chunk_count",
+      "knowledge.bundle_version",
+      "provider",
+      "openrouter_ready"
+    ]
   },
   "eval": {
     "canonical_questions": "data/brain-chat-eval-canonical-v1.json",
     "report_path": "reports/chat_eval_last_run.json",
     "p0_pass_threshold": 0.9
+  },
+  "upgrade_plans": {
+    "ssot": "data/brain-chatbot-100-plans-v1.json",
+    "registry": "docs/BRAIN_CHATBOT_100_PLANS_REGISTRY_LOCKED_v1.md",
+    "validator": "scripts/validate-brain-chatbot-100-plans-v1.sh",
+    "generator": "scripts/generate_brain_chatbot_100_plans_v1.py"
   }
 }

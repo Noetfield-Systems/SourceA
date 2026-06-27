@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
-# Brain chatbot knowledge refresh — full crawl → distill → SQLite DB → worker bundle.
+# Brain Intelligence Pipeline — full refresh: rules + 112+ sources + DB + worker bundle v3.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-echo "=== brain chatbot refresh v2 (full corpus) ==="
+echo "=== Brain Intelligence Pipeline refresh v3 ==="
 
-python3 scripts/distill_www_crawl_brain_knowledge_v1.py
-python3 scripts/distill_www_to_brain_knowledge_v1.py || true
+python3 scripts/distill_brain_public_rules_v1.py
+python3 scripts/distill_brain_live_sources_v1.py
 python3 scripts/distill_docs_to_brain_knowledge_v1.py
+python3 scripts/distill_www_to_brain_knowledge_v1.py || true
 python3 scripts/sync_brain_chat_knowledge_v1.py --json | python3 -c "
 import json,sys
 r=json.load(sys.stdin)
-print(f\"bundle: {r.get('chunk_count')} chunks · {r.get('total_chars',0):,} chars · lanes={r.get('lanes')}\")
+print(f\"bundle v{r.get('bundle_version')}: {r.get('chunk_count')} chunks · {r.get('live_source_files', r.get('source_files'))} live sources\")
+print(f\"lanes: {r.get('lanes')} · rules: {r.get('rule_chunks',0)} · mode: {r.get('retrieval')}\")
 "
 
 if [[ "${SKIP_BRAIN_EVAL:-}" != "1" ]]; then
@@ -21,11 +23,9 @@ import json,sys
 try:
     r=json.load(sys.stdin)
     print('eval:', 'PASS' if r.get('ok') else 'FAIL')
-    for b in r.get('buckets',[]):
-        print(f\"  {b['bucket']}: {b['score']} ({'PASS' if b['pass'] else 'FAIL'})\")
-except Exception as e:
-    print('eval: skipped (', e, ')')
-" || echo "WARN: eval did not pass — see reports/chat_eval_last_run.json"
+except Exception:
+    print('eval: skipped')
+" || true
 fi
 
-echo "brain_chatbot_refresh_v1: DONE — redeploy worker: cd cloud/workers/sourcea-brain-chat-v1 && wrangler deploy"
+echo "DONE — deploy: bash scripts/brain_cli_v1.sh deploy"

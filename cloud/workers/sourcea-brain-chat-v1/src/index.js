@@ -1,13 +1,31 @@
-/** Public Brain chat — OpenRouter proxy for sourcea.app (key never in browser). */
+/** Public Brain v4 — page-aware retrieval-first intelligence. */
 import knowledgeBundle from "./knowledge-bundle.json";
-import { buildGroundedPrompt, knowledgeMeta, retrieveChunks } from "./retrieval.js";
+import {
+  isInternalMetaQuestion,
+  isSensitiveInternalQuestion,
+  lowConfidencePrefix,
+  publicBoundaryReply,
+  requestedLanguage,
+  retrievalOnlyReply,
+  sanitizeHistoryContent,
+  sanitizeReply,
+  strangerRecoveryReply,
+  translationClarifierReply,
+} from "./guardrails.js";
+import {
+  BRAIN_CORE,
+  assembleBrainPrompt,
+  brainRetrieve,
+  inferPageContext,
+  knowledgeMeta,
+} from "./retrieval.js";
+import { directLiveToolAnswer, gatherLiveTools, liveToolsMeta, liveToolsPrompt } from "./live-tools.js";
 
 const CHAT_PATH = "/api/brain/chat/v1";
 const MAX_LEN = 2000;
 const MAX_HISTORY = 12;
 const DEFAULT_MODEL = "google/gemini-2.5-flash";
 
-/** Public demo models (OpenRouter) — shown in UI; server tries fallbacks on 503. */
 const PUBLIC_MODELS = [
   { id: "google/gemini-2.5-flash", label: "Gemini 2.5 Flash", group: "Google", cost: "$" },
   { id: "google/gemini-2.5-flash-lite-preview-06-17", label: "Gemini Flash-Lite", group: "Google", cost: "$" },
@@ -19,66 +37,10 @@ const PUBLIC_MODELS = [
 
 const FALLBACK_MODELS = PUBLIC_MODELS.map((m) => m.id);
 
-const FORGE_TERMINAL_DEMO_SYSTEM = `You are Forge Terminal on sourcea.app — a founder-friendly advisor for strangers trying the public living-chat demo.
+const FORGE_TERMINAL_CORE = `${BRAIN_CORE}
 
-Reply in plain English with four short labeled sections:
-1) Bottom line
-2) What this means for their business
-3) Blockers or risks
-4) Suggested next step
-
-Rules:
-- Helpful operator tone — not a sales bot
-- Never mention OpenRouter, models, API keys, receipts, PASS/BLOCK, or internal governance
-- This public page has no workspace — mention Mac Forge IDE adds workspace, quality gate, and cloud dispatch when relevant
-- Keep under 400 words`;
-
-const BRAIN_SYSTEM = `You are Brain on sourcea.app — a sharp, honest guide for strangers. Not a pushy sales bot.
-
-ONE-LINE (when asked "what is SourceA?"):
-SourceA is an AI execution platform powered by Forge — it runs real builds, automations, agent workflows, and controlled development pipelines for founders and agencies. Proof and receipts are built in; they are not the whole product.
-
-WHAT SOURCEA IS NOT:
-- Not "just records" or "just verification software"
-- Not a generic ChatGPT wrapper
-
-WHAT FORGE IS:
-- Forge Terminal: the execution desk — living chat, workspace, agents, quality gate, cloud dispatch
-- Public try (no install): /sourcea/forge/terminal
-- Flow: idea → prompt forge → agents → quality gate → execute (Cursor / cloud)
-
-CONVERSATION ORDER:
-1) Their problem / what they want to accomplish
-2) One concrete sentence on what SourceA + Forge does for that
-3) ONE matched example (specific, not abstract)
-4) Why this beats chat-only AI
-5) Price or booking ONLY if they ask or value is clear
-
-PRICING:
-- NEVER open with dollar amounts
-- If they ask: scope-dependent; typical controlled deploy setup is often in the $1,500–$5,000 range — say "depends on scope" first
-- /sourcea/offer · /sourcea/pricing
-
-IDE / CLOUD QUESTIONS:
-- Lead with YES partially: Forge Terminal is the execution desk — try in browser at /sourcea/forge/terminal; full Mac IDE for founders
-- Never open with "We don't offer" — reframe to what Forge IS
-- Not a generic hosted IDE clone — controlled AI execution with workspace and agents
-- Ask what they need: app generation, coding agents, deployment, team workflows?
-
-"YOU JUST GIVE ME RECORDS?" (recover honestly):
-- Acknowledge: fair pushback — records alone are not the product
-- Reframe: Forge runs the work; proof shows clients what ran, what changed, and that it passed quality
-
-EXACT HELP EXAMPLES (use when they ask for lists — 3 bullets, concrete):
-- Agency QBR prep: scope "audit client AI deliverables" → agents review outputs → quality gate → client-ready summary + audit trail
-- Content engine: weekly B2B posts → prompt forge → batch runs → founder approves → per-client tracked delivery
-- Dev/automation: "add Stripe webhook" → advisor plans → patch proposal → verify → route to Cursor or cloud execute
-
-TONE:
-- Plain English, short paragraphs, bullets for lists
-- Max one cal.com/sourcea/proof-demo link per reply unless they want to book
-- Never mention OpenRouter, models, API keys, PASS/BLOCK, factories, or governance jargon
-- Be interesting — match their energy, answer the actual question first`;
+Product mode: Forge Terminal public demo.
+Reply in four labeled sections: 1) Bottom line 2) Business impact 3) Blockers 4) Next step. Under 400 words.`;
 
 function cors(request) {
   const origin = request.headers.get("Origin") || "*";
@@ -95,16 +57,34 @@ function json(request, body, status = 200) {
   return new Response(JSON.stringify(body), { status, headers: cors(request) });
 }
 
-function buildSystemPrompt(product, message) {
-  const base = systemForProduct(product);
-  const hits = retrieveChunks(knowledgeBundle, message, 8);
-  return buildGroundedPrompt(base, hits);
+function pageContextFromBody(body) {
+  const pagePath = String(body.page_path || body.pagePath || "").trim();
+  const saPage = String(body.sa_page || body.saPage || "").trim();
+  const pageLane = String(body.page_lane || body.pageLane || "").trim();
+  const ctx = inferPageContext(pagePath, saPage);
+  if (pageLane) ctx.page_lane = pageLane;
+  return ctx;
+}
+
+async function buildSystemPrompt(product, message, pageCtx, language = "") {
+  const base = String(product || "").toLowerCase() === "forge_terminal" ? FORGE_TERMINAL_CORE : BRAIN_CORE;
+  const retrieval = brainRetrieve(knowledgeBundle, message, {
+    pageCtx,
+    page_path: pageCtx.page_path,
+    sa_page: pageCtx.sa_page,
+  });
+  const liveTools = await gatherLiveTools(message);
+  const { prompt, citations, confidence } = assembleBrainPrompt(base, retrieval);
+  const languageBlock =
+    language && language !== "translate"
+      ? `\n\nLANGUAGE REQUEST: Answer in ${language}. Do not say you are English-only. Keep SourceA facts grounded in the retrieved/live sources and keep URLs unchanged.`
+      : "";
+  return { prompt: prompt + liveToolsPrompt(liveTools) + languageBlock, citations, confidence, retrieval, liveTools };
 }
 
 function statusBody(env) {
   const ready = Boolean(env.OPENROUTER_API_KEY);
   const current = env.OPENROUTER_MODEL || DEFAULT_MODEL;
-  const knowledge = knowledgeMeta(knowledgeBundle);
   return {
     schema: "sourcea-brain-chat-status-v1",
     ok: true,
@@ -115,22 +95,16 @@ function statusBody(env) {
     provider: "openrouter",
     plane: "cloudflare_worker",
     max_message_len: MAX_LEN,
-    hint: "Brain — execution platform guide for Forge, examples, and booking",
-    knowledge,
+    hint: "Brain v5 — vector retrieval · read-only live tools · 112+ live sources",
+    knowledge: knowledgeMeta(knowledgeBundle),
+    live_tools: ["proof_status", "products_catalog", "factories_catalog", "pricing_route", "forge_terminal_route"],
   };
-}
-
-function systemForProduct(product) {
-  return String(product || "").toLowerCase() === "forge_terminal" ? FORGE_TERMINAL_DEMO_SYSTEM : BRAIN_SYSTEM;
 }
 
 async function chatOpenRouter(env, messages, product, requestedModel, systemPrompt) {
   const key = env.OPENROUTER_API_KEY;
   if (!key) {
-    return {
-      ok: false,
-      reply: "Brain is not available right now — book a demo at cal.com/sourcea/proof-demo",
-    };
+    return { ok: false, reply: "", llm_error: "no_api_key" };
   }
   const preferred = String(requestedModel || env.OPENROUTER_MODEL || DEFAULT_MODEL).trim();
   const chain = [preferred, ...FALLBACK_MODELS.filter((m) => m !== preferred)];
@@ -164,11 +138,52 @@ async function chatOpenRouter(env, messages, product, requestedModel, systemProm
       detail = await resp.text();
     }
     lastErr = `Brain offline (${status}) — ${detail.slice(0, 200)}`;
-    if (status !== 429 && status !== 503 && status !== 502 && status !== 504) {
-      break;
-    }
+    if (status !== 429 && status !== 503 && status !== 502 && status !== 504) break;
   }
-  return { ok: false, reply: lastErr || "Brain offline — try proof chips or book a demo" };
+  return { ok: false, reply: lastErr || "Brain offline", llm_error: lastErr };
+}
+
+function finalizeReply(message, retrieval, citations, confidence, llmResult, liveTools = []) {
+  let mode = "llm";
+  let reply = "";
+  let ok = true;
+  let guardrail = null;
+  const direct = directLiveToolAnswer(message, liveTools);
+
+  if (direct) {
+    const check = sanitizeReply(direct, { message, intent: retrieval.intent });
+    return {
+      ok: true,
+      reply: check.ok ? check.text : direct,
+      mode: "live_tool_direct",
+      guardrail: check.ok ? null : check.reason,
+    };
+  }
+
+  if (llmResult.ok && llmResult.reply) {
+    const check = sanitizeReply(llmResult.reply, { message, intent: retrieval.intent });
+    if (check.ok) {
+      reply = check.text;
+      if (confidence?.level === "low") {
+        reply = lowConfidencePrefix(confidence) + reply;
+        mode = "llm_low_confidence";
+      } else if (confidence?.level === "medium") {
+        reply = lowConfidencePrefix(confidence) + reply;
+      }
+    } else {
+      guardrail = check.reason;
+      const fallback = retrievalOnlyReply(message, retrieval, citations);
+      reply = fallback.reply;
+      mode = "retrieval_guardrail";
+    }
+  } else {
+    const fallback = retrievalOnlyReply(message, retrieval, citations);
+    reply = fallback.reply;
+    mode = "retrieval_only";
+    ok = true;
+  }
+
+  return { ok, reply, mode, guardrail };
 }
 
 async function handlePost(request, env) {
@@ -200,29 +215,144 @@ async function handlePost(request, env) {
       const role = String(item.role || "").toLowerCase();
       const content = String(item.content || "").trim();
       if ((role === "user" || role === "assistant") && content) {
-        history.push({ role, content: content.slice(0, MAX_LEN) });
+        history.push({ role, content: sanitizeHistoryContent(content).slice(0, MAX_LEN) });
       }
     }
   }
   history.push({ role: "user", content: message });
   const product = String(body.product || "").toLowerCase();
   const requestedModel = String(body.model || "").trim();
-  const { prompt, citations } = buildSystemPrompt(product, message);
-  const result = await chatOpenRouter(env, history, product, requestedModel, prompt);
-  const { ok, reply, model_used, fallback } = result;
+  const pageCtx = pageContextFromBody(body);
+  pageCtx.sa_page = pageCtx.sa_page || String(body.sa_page || body.saPage || "");
+  const language = requestedLanguage(message);
+
+  if (language === "translate") {
+    return json(request, {
+      schema: "sourcea-brain-chat-receipt-v1",
+      ok: true,
+      reply: translationClarifierReply(),
+      product: product || "brain",
+      provider: "guardrail",
+      model: null,
+      model_requested: requestedModel || null,
+      model_fallback: false,
+      reply_mode: "language_support",
+      guardrail: "language_request",
+      citations: [],
+      confidence: { score: 1, level: "high", hits: 0 },
+      retrieval: {
+        intent: "core",
+        page_path: pageCtx.page_path,
+        page_lane: pageCtx.page_lane,
+        sources_consulted: 0,
+        rules_applied: 1,
+        chunk_ids: [],
+        vector: "semantic_hash_v1",
+      },
+      live_tools: [],
+      knowledge: knowledgeMeta(knowledgeBundle),
+      at: new Date().toISOString().replace(/\.\d{3}Z$/, "Z"),
+      message: "Brain handled language request",
+    });
+  }
+
+  if (isSensitiveInternalQuestion(message)) {
+    return json(request, {
+      schema: "sourcea-brain-chat-receipt-v1",
+      ok: true,
+      reply: publicBoundaryReply(),
+      product: product || "brain",
+      provider: "guardrail",
+      model: null,
+      model_requested: requestedModel || null,
+      model_fallback: false,
+      reply_mode: "public_boundary_refusal",
+      guardrail: "sensitive_internal_request",
+      citations: [],
+      confidence: { score: 1, level: "high", hits: 0 },
+      retrieval: {
+        intent: "core",
+        page_path: pageCtx.page_path,
+        page_lane: pageCtx.page_lane,
+        sources_consulted: 0,
+        rules_applied: 1,
+        chunk_ids: [],
+      },
+      knowledge: knowledgeMeta(knowledgeBundle),
+      at: new Date().toISOString().replace(/\.\d{3}Z$/, "Z"),
+      message: "Brain protected public boundary",
+    });
+  }
+
+  if (isInternalMetaQuestion(message)) {
+    return json(request, {
+      schema: "sourcea-brain-chat-receipt-v1",
+      ok: true,
+      reply: strangerRecoveryReply(),
+      product: product || "brain",
+      provider: "guardrail",
+      model: null,
+      model_requested: requestedModel || null,
+      model_fallback: false,
+      reply_mode: "stranger_recovery",
+      guardrail: "internal_meta_recovery",
+      citations: [],
+      confidence: { score: 1, level: "high", hits: 0 },
+      retrieval: {
+        intent: "core",
+        page_path: pageCtx.page_path,
+        page_lane: pageCtx.page_lane,
+        sources_consulted: 0,
+        rules_applied: 1,
+        chunk_ids: [],
+      },
+      knowledge: knowledgeMeta(knowledgeBundle),
+      at: new Date().toISOString().replace(/\.\d{3}Z$/, "Z"),
+      message: "Brain recovered public chat boundary",
+    });
+  }
+
+  const effectiveMessage =
+    language && language !== "translate"
+      ? `Explain SourceA briefly in ${language}. The visitor's message was: ${message}`
+      : message;
+  const { prompt, citations, confidence, retrieval, liveTools } = await buildSystemPrompt(
+    product,
+    effectiveMessage,
+    pageCtx,
+    language,
+  );
+  const llmResult = await chatOpenRouter(env, history, product, requestedModel, prompt);
+  const final = finalizeReply(message, retrieval, citations, confidence, llmResult, liveTools);
+
   return json(request, {
     schema: "sourcea-brain-chat-receipt-v1",
-    ok,
-    reply,
+    ok: final.ok,
+    reply: final.reply,
     product: product || "brain",
-    provider: "openrouter",
-    model: model_used || env.OPENROUTER_MODEL || DEFAULT_MODEL,
+    provider: final.mode.startsWith("retrieval") ? "retrieval" : "openrouter",
+    model: llmResult.model_used || env.OPENROUTER_MODEL || DEFAULT_MODEL,
     model_requested: requestedModel || null,
-    model_fallback: !!fallback,
-    citations: ok ? citations : [],
+    model_fallback: !!llmResult.fallback,
+    reply_mode: final.mode,
+    guardrail: final.guardrail,
+    citations: final.ok ? citations : [],
+    confidence: final.ok ? confidence : null,
+    retrieval: final.ok
+      ? {
+          intent: retrieval.intent,
+          page_path: retrieval.page_path,
+          page_lane: retrieval.page_lane,
+          sources_consulted: retrieval.sources_consulted,
+          rules_applied: retrieval.rules_applied,
+          chunk_ids: retrieval.chunk_ids,
+          vector: "semantic_hash_v1",
+        }
+      : null,
+    live_tools: final.ok ? liveToolsMeta(liveTools) : [],
     knowledge: knowledgeMeta(knowledgeBundle),
     at: new Date().toISOString().replace(/\.\d{3}Z$/, "Z"),
-    message: ok ? "Brain replied" : reply,
+    message: final.ok ? "Brain replied" : final.reply,
   });
 }
 
