@@ -159,9 +159,67 @@
     const cleaned = scrubPublicText(text);
     const safe = escapeHtml(cleaned).replace(/\n/g, "<br>");
     return safe.replace(
-      /(https?:\/\/[^\s<]+|cal\.com\/[^\s<]+)/g,
+      /(https?:\/\/[^\s<]+|cal\.com\/[^\s<]+|\/sourcea\/[^\s<,)]+)/g,
       '<a href="$1" target="_blank" rel="noopener">$1</a>'
     );
+  }
+
+  function formatCitations(citations) {
+    if (!Array.isArray(citations) || !citations.length) return "";
+    const seen = new Set();
+    const links = [];
+    citations.forEach((c) => {
+      let url = c.www_url || "";
+      if (!url && c.source_path) {
+        const rel = String(c.source_path).split("green-unified/").pop() || "";
+        if (rel.endsWith(".html")) {
+          url = "/sourcea/" + rel.replace(/index\.html$/, "").replace(/\.html$/, "");
+        } else if (rel.includes("factories")) {
+          url = "/sourcea/factories/";
+        }
+      }
+      if (!url || seen.has(url)) return;
+      seen.add(url);
+      const href = url.startsWith("http") ? url : (url.startsWith("/") ? url : "/" + url);
+      const label = href.replace("https://sourcea.app", "").replace(/^\//, "") || "docs";
+      links.push(
+        `<a href="${escapeHtml(href)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>`
+      );
+    });
+    if (!links.length) return "";
+    return `<div class="sa-brain-citations" aria-label="Sources"><span class="sa-brain-citations-label">Sources:</span> ${links.slice(0, 4).join(" · ")}</div>`;
+  }
+
+  function formatConfidence(confidence, retrieval) {
+    if (!confidence || !confidence.level) return "";
+    const level = confidence.level;
+    if (level === "high") return "";
+    const routes = {
+      developer: "/sourcea/forge/terminal",
+      buyer: "/sourcea/pricing",
+      investor: "/sourcea/investors",
+      partner: "/start",
+      core: "/sourcea/forge/terminal",
+    };
+    const intent = (retrieval && retrieval.intent) || "core";
+    const route = routes[intent] || "/sourcea/forge/terminal";
+    const msg =
+      level === "low"
+        ? "Low confidence — try a more specific question or open "
+        : "Moderate confidence — see also ";
+    return `<div class="sa-brain-confidence is-${escapeHtml(level)}" role="status">${escapeHtml(msg)}<a href="${escapeHtml(route)}">${escapeHtml(route.replace("/sourcea/", ""))}</a></div>`;
+  }
+
+  function brainPageContext() {
+    let path = window.location.pathname || "/";
+    if (path.startsWith("/sourcea/sourcea/")) path = path.replace("/sourcea/sourcea/", "/sourcea/");
+    const saPage = (document.body && document.body.getAttribute("data-sa-page")) || "";
+    let pageLane = "core";
+    if (saPage.includes("forge") || path.includes("/forge")) pageLane = "developer";
+    else if (path.includes("pricing") || path.includes("offer")) pageLane = "buyer";
+    else if (path.includes("investor")) pageLane = "investor";
+    else if (path.includes("start") || path.includes("sandbox")) pageLane = "buyer";
+    return { page_path: path, page_lane: pageLane, sa_page: saPage };
   }
 
   function apiUrl() {
@@ -178,7 +236,7 @@
     const defaults = {
       api_worker_url: DEFAULT_WORKER_API,
       api_relative: "/api/brain/chat/v1",
-      hint_offline: "I'm offline right now — use the buttons below or book a call.",
+      hint_offline: "I'm offline — try Forge Terminal (/sourcea/forge/terminal) or the chips below.",
     };
     try {
       const r = await fetch(CONFIG_URL, { cache: "no-store" });
@@ -553,6 +611,7 @@
           },
         },
         { label: "Pricing", action: () => sendUserMessage("How does SourceA pricing work?") },
+        { label: "Factories", action: () => sendUserMessage("What factories does SourceA offer and where can I try them?") },
       ];
       const extras =
         window.SourceAInteract && window.SourceAInteract.brainExtraChips
@@ -616,7 +675,7 @@
         const r = await fetch(apiUrl(), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message: msg, history: chatHistory }),
+          body: JSON.stringify({ message: msg, history: chatHistory, ...brainPageContext() }),
           signal: ctrl.signal,
         });
         clearTimeout(timer);
@@ -633,12 +692,20 @@
         }
         const reply = data.reply || data.message || chatConfig.hint_offline || "I'm offline — use the buttons below or book a call.";
         const isError = !data.ok;
-        addMsg("bot", formatReply(reply), { error: isError });
+        const citeHtml = !isError ? formatCitations(data.citations) : "";
+        const confHtml = !isError ? formatConfidence(data.confidence, data.retrieval) : "";
+        addMsg("bot", confHtml + formatReply(reply) + citeHtml, { error: isError });
         if (!isError) {
           chatHistory.push({ role: "user", content: msg });
           chatHistory.push({ role: "assistant", content: reply });
           if (chatHistory.length > 20) chatHistory = chatHistory.slice(-20);
-          if (window.SourceAPulse) window.SourceAPulse.track("brain_chat", { ok: true });
+          if (window.SourceAPulse) {
+            window.SourceAPulse.track("brain_chat", {
+              ok: true,
+              confidence: (data.confidence && data.confidence.level) || "unknown",
+              reply_mode: data.reply_mode || "llm",
+            });
+          }
         }
         setProviderLabel(Boolean(data.ok), false);
       } catch (_) {
