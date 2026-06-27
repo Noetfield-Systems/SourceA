@@ -1,0 +1,224 @@
+{
+  "schema": "founder-intent-approval-machine-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-27T09:22:00Z",
+  "status": "active",
+  "one_law": "Founder intent must become code, policy, proof, or approved output. It must not become copied phrases, hardcoded examples, or fake-green tests.",
+  "receipt": "~/.sina/founder-intent-approval-machine-v1.json",
+  "script": "scripts/founder_intent_approval_machine_v1.py",
+  "validator": "scripts/validate-founder-intent-approval-machine-v1.sh",
+  "human_doc": "docs/FOUNDER_INTENT_APPROVAL_MACHINE_LOCKED_v1.md",
+  "chat_unify_machine_id": "intent_approval",
+  "stages": [
+    {
+      "id": "S1",
+      "name": "input_capture",
+      "purpose": "Save founder text, timestamp, source surface, context hash, and candidate output if present.",
+      "output_key": "input"
+    },
+    {
+      "id": "S2",
+      "name": "intent_gate",
+      "purpose": "Classify founder text before any implementation.",
+      "output_key": "intent_class"
+    },
+    {
+      "id": "S3",
+      "name": "meaning_compiler",
+      "purpose": "Translate founder language into behavior, invariant, UI copy, eval, machine change, or refusal.",
+      "output_key": "meaning"
+    },
+    {
+      "id": "S4",
+      "name": "architecture_mapper",
+      "purpose": "Route the meaning to Brain, retrieval, live tools, guardrails, widget, Chat Unify, Hub/Form, Proof Pack, or docs.",
+      "output_key": "route"
+    },
+    {
+      "id": "S5",
+      "name": "draft_builder",
+      "purpose": "Produce a candidate output or implementation spec.",
+      "output_key": "approved_output_shape"
+    },
+    {
+      "id": "S6",
+      "name": "critic_loop",
+      "purpose": "Reject literal copying, hardcoded examples, fake green, public voice drift, internal leakage, weak proof, and missing benefit.",
+      "output_key": "critic_findings"
+    },
+    {
+      "id": "S7",
+      "name": "machine_checks",
+      "purpose": "Run bounded checks appropriate to the scope: schema, eval, guardrail, lint, or dry-run classifier.",
+      "output_key": "machine_checks"
+    },
+    {
+      "id": "S8",
+      "name": "approval_gate",
+      "purpose": "Return APPROVED, APPROVED_SPEC, RETURN_TO_AGENT, FIX_DISK, FIX_MACHINES, or ASK_FOUNDER.",
+      "output_key": "verdict"
+    },
+    {
+      "id": "S9",
+      "name": "receipt",
+      "purpose": "Persist verifiable receipt with input hash, interpretation, route, checks, verdict, and next action.",
+      "output_key": "receipt"
+    }
+  ],
+  "intent_classes": [
+    {
+      "id": "architecture_intent",
+      "description": "Founder describes a desired system property or architecture state.",
+      "default_route": ["code_layer", "machine_check", "eval"],
+      "example": "Brain should be highest confidence."
+    },
+    {
+      "id": "public_copy",
+      "description": "Founder explicitly asks for wording shown to visitors.",
+      "default_route": ["copy_layer", "public_voice_gate"],
+      "example": "Write homepage copy that says SourceA runs real builds."
+    },
+    {
+      "id": "example_generalization",
+      "description": "Founder gives examples that expose a general capability.",
+      "default_route": ["capability_layer", "generalized_eval"],
+      "example": "Farsi and Spanish were examples; Brain should translate generally."
+    },
+    {
+      "id": "boundary_law",
+      "description": "Founder states a rule, prohibition, or mandatory boundary.",
+      "default_route": ["guardrail", "rule", "validator"],
+      "example": "Brain must never leak internal repo paths."
+    },
+    {
+      "id": "emotional_diagnostic",
+      "description": "Founder expresses frustration that points to a system bug.",
+      "default_route": ["incident", "critic_loop", "regression_eval"],
+      "example": "You are explaining very weird and confusing."
+    },
+    {
+      "id": "work_order",
+      "description": "Founder asks to build, fix, deploy, or run a bounded task.",
+      "default_route": ["todo", "implementation", "validator"],
+      "example": "Implement the plan."
+    },
+    {
+      "id": "approval",
+      "description": "Founder approves a plan, output, or action.",
+      "default_route": ["approval_receipt", "next_action"],
+      "example": "Go ahead."
+    },
+    {
+      "id": "ambiguous",
+      "description": "Intent cannot be safely resolved without a clarifying question.",
+      "default_route": ["ask_founder"],
+      "example": "Make it better."
+    }
+  ],
+  "failure_classes": [
+    {
+      "id": "literal_copy",
+      "description": "Founder architecture language was copied into public code/copy instead of translated into behavior.",
+      "blocker": true
+    },
+    {
+      "id": "hardcoded_example",
+      "description": "Implementation handles only the named examples instead of the general capability.",
+      "blocker": true
+    },
+    {
+      "id": "fake_green",
+      "description": "Tests pass only because the examples were hardcoded.",
+      "blocker": true
+    },
+    {
+      "id": "missing_machine_proof",
+      "description": "No eval, receipt, validator, or schema proves the output.",
+      "blocker": true
+    },
+    {
+      "id": "public_voice_drift",
+      "description": "Output sounds inhuman, self-promotional, detached, or internal.",
+      "blocker": true
+    },
+    {
+      "id": "internal_leakage",
+      "description": "Output exposes internal paths, secrets, config, ports, incidents, or implementation details.",
+      "blocker": true
+    },
+    {
+      "id": "weak_benefit",
+      "description": "Output does not explain why it matters to the founder/user.",
+      "blocker": false
+    }
+  ],
+  "verdicts": {
+    "APPROVED": "Output can be shipped as-is.",
+    "APPROVED_SPEC": "Interpretation/spec is approved; implementation can proceed.",
+    "RETURN_TO_AGENT": "Agent draft has quality/intent issues; rewrite using return_package.",
+    "FIX_DISK": "Disk, source, eval, or rule layer must be fixed first.",
+    "FIX_MACHINES": "Machine, validator, or integration drift must be fixed first.",
+    "ASK_FOUNDER": "Founder decision is required."
+  },
+  "canonical_cases": [
+    {
+      "id": "architecture_highest_confidence",
+      "message": "Brain should be highest confidence.",
+      "expected_intent": "architecture_intent",
+      "must_route_to": ["retrieval", "live_tools", "guardrail", "eval"],
+      "must_not_include": ["highest-confidence public guide", "highest confidence public intelligence"]
+    },
+    {
+      "id": "language_examples_generalize",
+      "message": "Farsi and Spanish are examples. Brain should translate generally.",
+      "expected_intent": "example_generalization",
+      "must_route_to": ["llm_capability", "generalized_eval"],
+      "must_not_include": ["if farsi then", "if spanish then"]
+    },
+    {
+      "id": "public_copy_request",
+      "message": "Write visitor copy for the Forge Terminal CTA.",
+      "expected_intent": "public_copy",
+      "must_route_to": ["copy_layer", "public_voice_gate"]
+    },
+    {
+      "id": "boundary_no_internal",
+      "message": "Brain must never show internal docs or config files to strangers.",
+      "expected_intent": "boundary_law",
+      "must_route_to": ["guardrail", "eval"]
+    },
+    {
+      "id": "emotional_diagnostic_weird",
+      "message": "This sounds weird and confusing for a stranger.",
+      "expected_intent": "emotional_diagnostic",
+      "must_route_to": ["incident", "public_voice_eval"]
+    },
+    {
+      "id": "work_order_implement",
+      "message": "Implement the plan and validate it.",
+      "expected_intent": "work_order",
+      "must_route_to": ["todo", "implementation", "validator"]
+    },
+    {
+      "id": "approval_go",
+      "message": "Go ahead with this slice.",
+      "expected_intent": "approval",
+      "must_route_to": ["approval_receipt", "next_action"]
+    },
+    {
+      "id": "ambiguous_make_better",
+      "message": "Make it better.",
+      "expected_intent": "ambiguous",
+      "must_route_to": ["ask_founder"]
+    }
+  ],
+  "proof_requirements": [
+    "receipt includes input_hash",
+    "intent_class is present",
+    "meaning is plain English",
+    "route includes at least one concrete layer",
+    "critic_findings are explicit",
+    "verdict is machine-readable",
+    "approved output distinguishes copy vs code vs eval"
+  ]
+}
