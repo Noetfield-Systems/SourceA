@@ -1,171 +1,174 @@
 # SourceA Brain chatbot — 10 phases · 100 plans (LOCKED v1)
 
-**Saved:** 2026-06-27T05:30:00Z  
-**Adapted from:** Noetfield NF-ENG chatbot knowledge program  
+**Saved:** 2026-06-27T08:49:37Z  
+**Adapted from:** Noetfield CHAT-P blueprint + SourceA brain_intelligence_v3 audit  
+**Machine SSOT:** `data/brain-chatbot-100-plans-v1.json`  
 **Manifest:** `data/CHATBOT_KNOWLEDGE_MANIFEST.json`  
-**Skills:** `sourcea-brain-chatbot-audit` · `sourcea-cursor-agent-knowledge-audit`
+**Progress:** 38/100 done (38.0%)  
 
 ---
 
-## Phase 1 — Audit & SSOT map (Plans 001–010)
+## Phase 1 — Knowledge corpus (foundation)
 
-| Plan | Action | SourceA path / status |
-|------|--------|------------------------|
-| 001 | Inventory chatbot code paths | `sourcea-chatbot.js`, worker, hub `sourcea_brain_chat_v1.py` |
-| 002 | Document live deploy path | www → Pages proxy → CF worker → OpenRouter |
-| 003 | Map indexed files vs live pages | manifest `sources[]` · `/`, `/sourcea/pricing`, `/forge/terminal` |
-| 004 | Flag stale sources | gap report · positioning JSON vs founder-home |
-| 005 | List public-safe vs internal docs | manifest allowlist / internal prefixes |
-| 006 | Define CHATBOT_KNOWLEDGE_MANIFEST.json | **SHIPPED** `data/CHATBOT_KNOWLEDGE_MANIFEST.json` |
-| 007 | Cross-link positioning SSOT | `SOURCEA_POSITIONING_ONE_LINE_LOCKED_v1.md` |
-| 008 | Pull public product catalog slice | `sourcea-products-catalog-v1.json` |
-| 009 | Baseline health endpoint | GET worker → `knowledge.chars`, `bundle_version`, `mode` |
-| 010 | Publish gap report | **SHIPPED** `docs/BRAIN_CHATBOT_GAP_REPORT_LOCKED_v1.md` |
+| ID | Plan | Status | Priority |
+|----|------|--------|----------|
+| BRAIN-P1-01 | Corpus manifest SSOT | SHIPPED | P0 |
+| BRAIN-P1-02 | Public copy ingest | SHIPPED | P0 |
+| BRAIN-P1-03 | FAQ pack | TODO | P1 |
+| BRAIN-P1-04 | API surface ingest | IN PROGRESS | P1 |
+| BRAIN-P1-05 | Public rules guardrail snippets | SHIPPED | P0 |
+| BRAIN-P1-06 | llms.txt + sitemap sync | TODO | P2 |
+| BRAIN-P1-07 | Forbidden corpus denylist | SHIPPED | P0 |
+| BRAIN-P1-08 | Chunk strategy | SHIPPED | P0 |
+| BRAIN-P1-09 | Corpus rebuild on deploy | SHIPPED | P0 |
+| BRAIN-P1-10 | Verify gate | SHIPPED | P0 |
 
-## Phase 2 — Knowledge corpus expansion (011–020)
+## Phase 2 — Vector index & retrieval
 
-| Plan | Topic | Output |
-|------|-------|--------|
-| 011 | forge-runtime.md | Forge Terminal vs homepage |
-| 012 | developer-tools.md | Cursor bridge, /eval, kernel |
-| 013 | intelligence-lane.md | Agency / SME positioning (future) |
-| 014 | pricing-matrix.md | Synced from pricing.html |
-| 015 | faq-live.md | Distill FAQ page when live |
-| 016 | sandbox-freemium.md | 48h MVP / sandbox paths |
-| 017 | trust-ledger-public.md | Proof / receipt public slice |
-| 018 | copilot-pack.md | Procurement FAQ (future) |
-| 019 | site-map.md | www routes table |
-| 020 | products-catalog.md | Platform products table |
+| ID | Plan | Status | Priority |
+|----|------|--------|----------|
+| BRAIN-P2-01 | Embedding provider | SHIPPED | P1 |
+| BRAIN-P2-02 | Vector store | SHIPPED | P1 |
+| BRAIN-P2-03 | Hybrid BM25 + vector merge | SHIPPED | P1 |
+| BRAIN-P2-04 | Retriever service | SHIPPED | P0 |
+| BRAIN-P2-05 | Page-aware boost | SHIPPED | P0 |
+| BRAIN-P2-06 | Intent routing buckets | IN PROGRESS | P1 |
+| BRAIN-P2-07 | Citation objects | SHIPPED | P0 |
+| BRAIN-P2-08 | Stale chunk detection | TODO | P2 |
+| BRAIN-P2-09 | Re-index cron | TODO | P1 |
+| BRAIN-P2-10 | Retrieval eval set — 50 golden | IN PROGRESS | P0 |
 
-**Status:** 011–012, 014, 016, 019–020 shipped in `data/chatbot-knowledge/`
+## Phase 3 — LLM orchestration (replace hardcode)
 
-## Phase 3 — Distillation pipeline (021–030)
+| ID | Plan | Status | Priority |
+|----|------|--------|----------|
+| BRAIN-P3-01 | ChatBrain service | SHIPPED | P0 |
+| BRAIN-P3-02 | System prompt lock | SHIPPED | P0 |
+| BRAIN-P3-03 | Provider adapter | SHIPPED | P0 |
+| BRAIN-P3-04 | Fallback ladder | SHIPPED | P1 |
+| BRAIN-P3-05 | History window | SHIPPED | P0 |
+| BRAIN-P3-06 | Dynamic chip generator | TODO | P2 |
+| BRAIN-P3-07 | Streaming SSE | TODO | P1 |
+| BRAIN-P3-08 | Token + cost logging | TODO | P2 |
+| BRAIN-P3-09 | Rate limit + Turnstile | TODO | P1 |
+| BRAIN-P3-10 | Feature flag BRAIN_RAG_LEGACY | TODO | P2 |
 
-| Plan | Script | Status |
-|------|--------|--------|
-| 021 | `distill_www_to_brain_knowledge_v1.py` | SHIPPED |
-| 022 | `distill_docs_to_brain_knowledge_v1.py` | SHIPPED |
-| 023 | Strip secrets / internal paths | In distill_docs |
-| 024 | Frontmatter lane, updated, public | All chunks |
-| 025 | `brain_chatbot_refresh_v1.sh` | SHIPPED |
-| 026 | CI: pricing matches pricing-matrix | TODO cloud CI |
-| 027 | CI: manifest source missing | `sync --check-only` |
-| 028 | Version bump bundle_version | manifest + bundle |
-| 029 | Remove _EXTRA_MD dependency | N/A SourceA |
-| 030 | External repo distill | TODO if noetfeld-os public slice needed |
+## Phase 4 — Guardrails & compliance (public-safe)
 
-## Phase 4 — Chunking & sync (031–040)
+| ID | Plan | Status | Priority |
+|----|------|--------|----------|
+| BRAIN-P4-01 | Pre-filter input | TODO | P1 |
+| BRAIN-P4-02 | Post-filter positioning CI | SHIPPED | P0 |
+| BRAIN-P4-03 | Forbidden phrase scanner | IN PROGRESS | P0 |
+| BRAIN-P4-04 | Agentic-first CTA law | SHIPPED | P0 |
+| BRAIN-P4-05 | No invitation law | IN PROGRESS | P0 |
+| BRAIN-P4-06 | Confidence gate UI | SHIPPED | P0 |
+| BRAIN-P4-07 | Human escalate contact | TODO | P1 |
+| BRAIN-P4-08 | CASL-safe chat | SHIPPED | P1 |
+| BRAIN-P4-09 | Audit trail chunk IDs | TODO | P1 |
+| BRAIN-P4-10 | verify_brain_guardrails.sh | SHIPPED | P0 |
 
-| Plan | Action | Status |
-|------|--------|--------|
-| 031 | sync reads manifest + dirs | SHIPPED |
-| 032 | Chunk by ## max 2k | SHIPPED in sync |
-| 033 | lane, url_citations, content_hash | SHIPPED |
-| 034 | knowledge_sync_runs audit table | TODO platform Postgres |
-| 035 | Deploy runbook wire | RUNBOOK.md |
-| 036 | Health chunk count by lane | worker `knowledge.lanes` |
-| 037 | Soft delete on source removal | TODO |
-| 038 | Nightly Railway sync | TODO |
-| 039 | L2 allowlist backfill only | manifest enforced |
-| 040 | CHATBOT_KNOWLEDGE_RUNBOOK.md | SHIPPED |
+## Phase 5 — Live product context (read-only tools)
 
-## Phase 5 — Vector RAG (041–050)
+| ID | Plan | Status | Priority |
+|----|------|--------|----------|
+| BRAIN-P5-01 | Tool: boot-proof snapshot | SHIPPED | P1 |
+| BRAIN-P5-02 | Tool: products catalog | SHIPPED | P1 |
+| BRAIN-P5-03 | Tool: factories catalog | SHIPPED | P0 |
+| BRAIN-P5-04 | Tool: pricing tiers | SHIPPED | P0 |
+| BRAIN-P5-05 | Tool: site map resolver | TODO | P1 |
+| BRAIN-P5-06 | Forge Terminal live probe | TODO | P1 |
+| BRAIN-P5-07 | Tool: positioning JSON live | TODO | P2 |
+| BRAIN-P5-08 | Tool registry allowlist | TODO | P1 |
+| BRAIN-P5-09 | Read-only enforcement | SHIPPED | P0 |
+| BRAIN-P5-10 | Tool eval — 20 live questions | TODO | P1 |
 
-| Plan | Action | Status |
-|------|--------|--------|
-| 041–045 | pgvector + embeddings | TODO platform |
-| 046 | retrieve_chunks hybrid | **LITE:** keyword + pinned in worker |
-| 047 | Replace prompt overflow | SHIPPED hybrid inject |
-| 048 | Citations in response | SHIPPED `citations[]` |
-| 049 | Langfuse retrieval scores | TODO |
-| 050 | A/B shadow hybrid vs keyword | TODO |
+## Phase 6 — Conversation quality & memory
 
-## Phase 6 — Prompt & policy (051–060)
+| ID | Plan | Status | Priority |
+|----|------|--------|----------|
+| BRAIN-P6-01 | Session summary compress | TODO | P2 |
+| BRAIN-P6-02 | Clarifying questions | TODO | P1 |
+| BRAIN-P6-03 | Multi-turn /start guide | TODO | P1 |
+| BRAIN-P6-04 | Developer mode | IN PROGRESS | P1 |
+| BRAIN-P6-05 | Agency operator mode | TODO | P2 |
+| BRAIN-P6-06 | Investor mode routing | TODO | P2 |
+| BRAIN-P6-07 | Language EN-CA default | SHIPPED | P2 |
+| BRAIN-P6-08 | Widget ARIA + keyboard | TODO | P1 |
+| BRAIN-P6-09 | Offline graceful degrade | IN PROGRESS | P1 |
+| BRAIN-P6-10 | Golden transcript tests | TODO | P1 |
 
-| Plan | Action | Status |
-|------|--------|--------|
-| 051 | SKU list from manifest | products-catalog chunk |
-| 052 | Lanes: buyer/developer/investor | retrieval lane boost |
-| 053 | Procedural dev answers | developer-tools chunk |
-| 054 | Hard bans | prompt + anti-ICP eval |
-| 055 | Homepage vs Forge compare | forge-runtime + eval |
-| 056 | Multi-turn memory | history[12] existing |
-| 057 | Telegram bot parity | N/A |
-| 058 | Proxy-only rules | worker + hub mirror |
-| 059 | Widget citation links | TODO UI |
-| 060 | Welcome reflects lanes | positioning JSON greet |
+## Phase 7 — Admin, analytics & learning loop
 
-## Phase 7 — Quality & eval (061–070)
+| ID | Plan | Status | Priority |
+|----|------|--------|----------|
+| BRAIN-P7-01 | Admin chat logs tab | TODO | P2 |
+| BRAIN-P7-02 | Thumbs up/down | TODO | P1 |
+| BRAIN-P7-03 | Gap queue | TODO | P1 |
+| BRAIN-P7-04 | Site Pulse brain metrics | IN PROGRESS | P1 |
+| BRAIN-P7-05 | Founder alert mirror | DEFERRED | P2 |
+| BRAIN-P7-06 | Weekly corpus diff report | TODO | P2 |
+| BRAIN-P7-07 | A/B retrieval metrics | TODO | P2 |
+| BRAIN-P7-08 | Search Console → FAQ | TODO | P2 |
+| BRAIN-P7-09 | llms.txt auto-update | TODO | P2 |
+| BRAIN-P7-10 | Weekly analytics JSON | TODO | P2 |
 
-| Plan | Action | Status |
-|------|--------|--------|
-| 061 | test_brain_chat_quality_v1.py | SHIPPED |
-| 062 | Canonical questions JSON | SHIPPED 11 questions |
-| 063 | Buckets P0–P3 | SHIPPED |
-| 064 | Golden required/forbidden phrases | In eval JSON |
-| 065 | Nightly staging eval | TODO cloud CI |
-| 066 | Block deploy if P0 <90% | TODO CI gate |
-| 067 | PyPI org regression | Add when public |
-| 068 | GEL/Forge acronym regression | forge-runtime eval |
-| 069 | chat_eval_last_run.json | SHIPPED path |
-| 070 | Founder review queue failed Q | TODO |
+## Phase 8 — Commercial intelligence (SourceA buyers)
 
-## Phase 8 — Live truth sync (071–080)
+| ID | Plan | Status | Priority |
+|----|------|--------|----------|
+| BRAIN-P8-01 | Agency wedge vocabulary | TODO | P2 |
+| BRAIN-P8-02 | Build vs Rent vs Own explainer | SHIPPED | P0 |
+| BRAIN-P8-03 | Forge handoff explainer | SHIPPED | P0 |
+| BRAIN-P8-04 | Proof/receipt framing | SHIPPED | P0 |
+| BRAIN-P8-05 | -safe answers | SHIPPED | P1 |
+| BRAIN-P8-06 | Objection handling playbook | TODO | P1 |
+| BRAIN-P8-07 | DEMO async path | IN PROGRESS | P0 |
+| BRAIN-P8-08 | Qualification intent tags | TODO | P2 |
+| BRAIN-P8-09 | Handoff to intake form | TODO | P1 |
+| BRAIN-P8-10 | Outbound policy sync | IN PROGRESS | P1 |
 
-| Plan | Action | Status |
-|------|--------|--------|
-| 071 | Weekly PRODUCT_TRUTH public slice | TODO |
-| 072 | API health in live-surfaces | TODO |
-| 073 | Bot says API up/down from cache | TODO tool |
-| 074 | www E2E → freshness metadata | TODO |
-| 075 | Auto-update gel-runtime from /gel/ | N/A — use forge-runtime |
-| 076–078 | PyPI/npm links when shipped | TODO |
-| 079 | Cloud inventory public summary | site-map |
-| 080 | freshness_sla_hours 168 alerts | manifest set |
+## Phase 9 — Multi-channel parity
 
-## Phase 9 — Smarter behaviors (081–090)
+| ID | Plan | Status | Priority |
+|----|------|--------|----------|
+| BRAIN-P9-01 | Shared brain module | SHIPPED | P0 |
+| BRAIN-P9-02 | Hub ASK same backend | TODO | P2 |
+| BRAIN-P9-03 | n8n webhook ask | TODO | P2 |
+| BRAIN-P9-04 | Forge Terminal product mode | SHIPPED | P0 |
+| BRAIN-P9-05 | Email async defer | DEFERRED | P2 |
+| BRAIN-P9-06 | Widget rollout audit | SHIPPED | P1 |
+| BRAIN-P9-07 | Embeddable snippet defer | DEFERRED | P2 |
+| BRAIN-P9-08 | Voice defer | DEFERRED | P2 |
+| BRAIN-P9-09 | Internal Slack ops defer | DEFERRED | P2 |
+| BRAIN-P9-10 | verify_chat_channels.sh | TODO | P1 |
 
-| Plan | Action | Status |
-|------|--------|--------|
-| 081 | Intent classifier pre-retrieve | TODO |
-| 082 | Off-topic polite redirect | prompt rule |
-| 083 | Structured cards (Pricing/Intake/Docs) | TODO widget |
-| 084 | Form-filling template mode | TODO |
-| 085 | GET ecosystem health tool | TODO |
-| 086 | Sitemap search tool | TODO |
-| 087 | Rate-limit by lane | TODO worker |
-| 088 | Thumbs → Langfuse | Site Pulse partial |
-| 089 | Session RID footer tie-in | TODO |
-| 090 | Partner/investor intake URLs | investors chunk |
+## Phase 10 — Production hardening & north star
 
-## Phase 10 — Operate & scale (091–100)
-
-| Plan | Action | Status |
-|------|--------|--------|
-| 091 | CHATBOT_KNOWLEDGE_OWNER | RUNBOOK |
-| 092 | Weekly chatbot-refresh | `brain_chatbot_refresh_v1.sh` |
-| 093 | Monthly prune unused chunks | TODO |
-| 094 | Quarterly OFFERINGS reconciliation | positioning JSON |
-| 095 | Anti-pattern doc | RUNBOOK + skills |
-| 096 | Train ops: SSOT→distill→sync→eval | RUNBOOK |
-| 097 | Public changelog date | TODO status page |
-| 098 | Deflection rate metrics | TODO |
-| 099 | Auth console assistant separate KB | Phase 2 optional |
-| 100 | **Exit:** GEL/Forge/pricing/homepage @90%+ P0 | **IN PROGRESS** |
+| ID | Plan | Status | Priority |
+|----|------|--------|----------|
+| BRAIN-P10-01 | Prod deploy RAG always-on | SHIPPED | P0 |
+| BRAIN-P10-02 | Latency SLO streaming | TODO | P1 |
+| BRAIN-P10-03 | Cache hot FAQs at build | TODO | P2 |
+| BRAIN-P10-04 | DR rebuild < 5 min | SHIPPED | P1 |
+| BRAIN-P10-05 | Prompt injection suite | TODO | P1 |
+| BRAIN-P10-06 | Privacy page disclosure | TODO | P1 |
+| BRAIN-P10-07 | SEO FAQ schema | TODO | P2 |
+| BRAIN-P10-08 | AI search citation | TODO | P2 |
+| BRAIN-P10-09 | Machine verify stack | IN PROGRESS | P0 |
+| BRAIN-P10-10 | North star metric | TODO | P1 |
 
 ---
 
 ## Exit criteria
 
-Public Brain answers **Forge Terminal**, **pricing**, **homepage vs Forge**, **try without install**, and **Cursor path** with citations at **90%+ P0 eval** — parity with what Cursor would say from **public pages only**, not private build context.
-
----
+Public Brain answers **Forge Terminal**, **pricing**, **homepage vs Forge**, **try without install**, and **Cursor path** with citations at **90%+ P0 eval** — parity with public pages only.
 
 ## Commands
 
 ```bash
-bash scripts/brain_chatbot_refresh_v1.sh
+python3 scripts/generate_brain_chatbot_100_plans_v1.py
+bash scripts/validate-brain-chatbot-100-plans-v1.sh
+bash scripts/brain_cli_v1.sh deploy
 python3 scripts/test_brain_chat_quality_v1.py --write-report --json
 ```
-
-Deploy worker after every bundle sync.
