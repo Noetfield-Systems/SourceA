@@ -20,18 +20,19 @@ This happened during SourceA Worker work. Future agents should reuse the experie
 
 ---
 
-## Current Blocker
+## Current Status
 
 The first blocker was **founder-owned Supabase authentication and secret recovery**, not code.
 
-As of 2026-06-27T10:26:48Z:
+As of 2026-06-27T10:51:30Z:
 
 - `portfolio-spine` Supabase URL is present and reachable.
 - anon key is present.
 - service/server key is present.
-- local DB password / DB URL / management token is still missing.
-- `public.sourcea_plan_registry` does not exist yet.
-- `data/all-remaining-plan-backlog-v1.json` loads 23,485 plan rows ready for import.
+- local DB password is present.
+- `public.sourcea_plan_registry` exists.
+- `data/all-remaining-plan-backlog-v1.json` loaded 23,485 plan rows.
+- Supabase read-back confirmed `0-0/23485`.
 
 Agents can prepare schemas, importers, validators, Cloudflare bindings, and Railway env instructions. Agents must not invent or store Supabase passwords, service-role keys, or access tokens in the repo.
 
@@ -76,7 +77,7 @@ Do not resume `virlux-staging` or `the777foundation` for this task. Those are ma
 SourceA Supabase access restored. portfolio-spine env is filled.
 ```
 
-If the table is still missing, either:
+If the table is missing in a future environment, either:
 
 - fill `~/.sourcea-secrets/portfolio-spine-db.env` with `SUPABASE_DB_PASSWORD=...` or `SUPABASE_DB_URL=...`, or
 - open Supabase SQL Editor and run `infra/supabase/portfolio-spine/migrations/004_sourcea_plan_registry_v1.sql` manually.
@@ -85,13 +86,18 @@ If the table is still missing, either:
 
 ## What Agents Do After Access Is Restored
 
-1. Run a light secrets presence check without printing secrets.
-2. Verify `portfolio-spine` is reachable.
-3. Create/verify `public.sourcea_plan_registry` with RLS.
-4. Import existing plan JSON/markdown into Supabase.
-6. Add read APIs for Brain / Chat Unify / Hub Pro / cloud workers.
-7. Set Cloudflare Worker secrets and Railway environment variables.
-8. Run a small read-only smoke:
+Completed:
+
+1. Light secrets presence check without printing secrets.
+2. Verified `portfolio-spine` is reachable.
+3. Created/verified `public.sourcea_plan_registry` with RLS.
+4. Imported existing plan backlog rows into Supabase.
+
+Next:
+
+1. Add read APIs for Brain / Chat Unify / Hub Pro / cloud workers.
+2. Set Cloudflare Worker secrets and Railway environment variables.
+3. Run a small read-only smoke:
    - plan count is visible,
    - one plan can be fetched by id,
    - Brain/Hub can read through the intended API,
@@ -112,5 +118,5 @@ Supabase portfolio-spine
 → public or founder-facing retrieval
 ```
 
-Until founder Supabase access and local secret files are restored, the correct agent action is preparation only, not another code marathon.
+The access blocker is cleared for `portfolio-spine`. The remaining work is product integration: read API, worker/Railway env, Hub Pro/Brain/Chat Unify consumers, and public-safe retrieval.
 

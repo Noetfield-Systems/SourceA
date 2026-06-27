@@ -430,6 +430,23 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
             row["total"] = count_rows().get("total")
             _json_response(self, 200, row)
             return
+        if parsed.path == "/api/sourcea/plan-registry/v1":
+            from sourcea_plan_registry_client_v1 import contains_secret_like, handle_query  # noqa: WPS433
+            from urllib.parse import parse_qs
+
+            qs = parse_qs(parsed.query or "")
+            row = handle_query(qs)
+            plan_id = (qs.get("plan_id") or [""])[0].strip()
+            row["endpoint"] = "/api/sourcea/plan-registry/v1"
+            row["contract"] = "sourcea-plan-registry-read-v1"
+            if contains_secret_like(row):
+                _json_response(self, 500, {"ok": False, "error": "secret_like_response_blocked"})
+                return
+            if plan_id and row.get("ok") and not row.get("found"):
+                _json_response(self, 404, row)
+                return
+            _json_response(self, 200 if row.get("ok") else 422, row)
+            return
         if parsed.path == "/truth/status":
             from truth_layer_verifier_v1 import build_truth_status  # noqa: WPS433
 
