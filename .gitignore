@@ -55,6 +55,7 @@ receipts/valid-yes-progress-verdict-lock-*.json
 receipts/**/*.jsonl
 receipts/*-receipt-v1.json
 receipts/*.png
+reports/sourcea-dirty-tree-lane-report-v1.json
 
 # Hub runtime projections — rebuilt by disk_live_wire_sync (do not commit drift)
 agent-control-panel/command-data-runtime.json
