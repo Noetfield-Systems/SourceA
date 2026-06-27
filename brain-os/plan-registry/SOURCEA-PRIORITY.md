@@ -22,7 +22,7 @@
 | find_critical_bugs | critical 5 |
 | dispatch_ready | False |
 | eval_1b_gate_ok | structural_only_until_openrouter_credits |
-| synced_at | 2026-06-23T06:10:03Z |
+| synced_at | 2026-06-27T03:43:02Z |
 
 **Dual-pick law:** `run-inbox-disk-truth-v1.json` / `factory-now-v1.json` `queue_sa` wins over phase-first registry head. Phase-first is fallback only when queue_sa absent.
 
@@ -50,7 +50,113 @@ cd ~/Desktop/SourceA && bash scripts/plan-no-asf-run.sh pick 3
 | 1 | **queue_sa** from disk truth (**sa-0886** · s8-H2-P7 CHECK) |
 | 2 | phase-first REGISTRY head (fallback only) |
 
-**Queue:** 30 turns · `sa-0886`+ · Hub H1/H2 factory drain · Command deleted.
+**Queue:** 30 turns · `sa-0886`+ · Hub H1/H2 Cloud Forge Run · Command deleted.
+
+---
+
+## Noetfield Intelligence 613 plan (LOCKED · 2026-06-24)
+
+**Authority:** `docs/NOETFIELD_INTELLIGENCE_613_PLAN_LOCKED_v1.md`  
+**Blueprint source:** `~/Desktop/noetfield-ai-consulting-blueprint.tsx`  
+**Landing copy:** `docs/NOETFIELD_INTELLIGENCE_LANDING_ONEPAGER_v1.md`  
+**Portfolio parent:** `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md` §7–9
+
+**613** = **6** vertical wedges · **1** division (**Noetfield Intelligence**) · **3** horizons (90-day cash · 8-month MRR · 18-month SaaS).
+
+| Signal | Value |
+|--------|-------|
+| primary GTM | Noetfield Intelligence (vertical consulting + SaaS) |
+| secondary GTM | Copilot Governance Pack · Trust Brief (enterprise) |
+| NW1 / NW2 / NW3 | ❌ · ❌ · ❌ |
+| W3 economic (CAD ≥2K) | ❌ |
+| first cash target (H1) | 2 Diagnostic Sprints @ $2.5K · **$5K+ in 90 days** |
+| wedge order | diaspora + RCIC parallel → mortgage → construction/trades/accountant channel |
+
+| # | 613 item | Status |
+|---|----------|--------|
+| 1 | Plan LOCKED on disk | **DONE** — `NOETFIELD_INTELLIGENCE_613_PLAN_LOCKED_v1.md` |
+| 2 | Wired to SOURCEA-PRIORITY | **DONE** — this section |
+| 3 | Landing one-pager copy (noetfield.com hero) | **DONE** — `NOETFIELD_INTELLIGENCE_LANDING_ONEPAGER_v1.md` |
+| 4 | Portfolio SSOT §7b Intelligence SKUs | **DONE** — cross-ref in portfolio law |
+| 5 | First Diagnostic invoiced | **OPEN** — blocks NW1/W3 |
+| 6 | Demote Copilot to secondary nav on noetfield.com | **SHIPPED** — `main` `3b8072d7` · **copy-inside-pro-UI** (hero + below-fold + nav/footer; playground/stat/journey/prove/package/trust DOM frozen) |
+| 7 | BDC LIFT application | **OPEN** — week 9–10 |
+| 8 | First case study on disk | **OPEN** — after Sprint #1 delivery |
+
+**First money race (unchanged):** Intelligence Diagnostic **or** SourceA Asset B DFY **or** Copilot Design Partner — whichever closes first.
+
+**Red line:** no further 90 days of copilot-only positioning with zero Noetfield invoice.
+
+---
+
+## SourceA Revenue Engine v1 (LOCKED · 2026-06-24)
+
+**Authority:** `docs/SOURCEA_REVENUE_ENGINE_V1_LOCKED_v1.md`  
+**Bottleneck:** distribution · sales · paying customers (not more platform polish)  
+**Anchor proof:** PureFlow · Receipt PureFlow-20260624 · https://pureflow.sourcea.app/
+
+| # | Component | Status |
+|---|-----------|--------|
+| 1 | Case study `/sourcea/case-studies/pureflow` | **SHIPPED** |
+| 2 | Offer `/sourcea/offer` | **SHIPPED** |
+| 3 | CRM pipeline + outreach templates | **SHIPPED** — see paths below |
+| 4 | Outreach list 50–100 logged | **OPEN** — `~/.sina/sourcea-revenue-engine-crm-v1.json` |
+| 5 | First paying T1 client (Planning Card A) | **OPEN** |
+
+**CRM:** `data/sourcea-revenue-engine-crm-pipeline-v1.json` · `scripts/sourcea_revenue_engine_crm_v1.py`  
+**Templates:** `docs/commercial/SOURCEA_REVENUE_ENGINE_OUTREACH_TEMPLATES_LOCKED_v1.md`  
+**Runtime spike:** `docs/SOURCEA_RUNTIME_STACK_HYBRID_LOCKED_v1.md` · `apps/factory-runtime-spike/`
+
+**External headline:** Win more contracts with proof-backed systems in 48 hours.  
+**30-day target:** 3 paying clients or $3K–$10K collected.  
+**Win codes:** SW2 · AB1 · W3 — parallel to Noetfield 613 Diagnostic.
+
+---
+
+## Portfolio next 6000 (LOCKED · 2026-06-24)
+
+**Authority:** `docs/PORTFOLIO_NEXT_6000_PLANS_LOCKED_v1.md` · index `brain-os/plan-registry/PORTFOLIO-NEXT-6000.md`  
+**Master:** `brain-os/plan-registry/PORTFOLIO_NEXT_6000_MASTER_v1.json` · **6000 plans** · validate PASS
+
+| Repo | Prefix | Pack |
+|------|--------|------|
+| SourceA | `sa-next-` | `portfolio-next-6000/sourcea/` |
+| WitnessBC | `wb-next-` | `portfolio-next-6000/witnessbc/` |
+| Noetfield | `nf-next-` | `portfolio-next-6000/noetfield/` |
+| TrustField | `tf-next-` | `portfolio-next-6000/trustfield/` |
+| VIRLUX | `vx-next-` | `portfolio-next-6000/virlux/` |
+| Mono | `mx-next-` | `portfolio-next-6000/mono/` |
+
+**Cash law:** Revenue Engine + T1 client beat rank-1 plan pick until W3/SW2 fires.
+
+**Canonical merge:** UP-888 superseded · `docs/PORTFOLIO_UPGRADE_PLANS_CANONICAL_LOCKED_v1.md` · mapping `data/upgrade-888-to-sa-next-mapping-v1.json`
+
+**Pick next:**
+
+```bash
+cd ~/Desktop/SourceA && bash scripts/plan-no-asf-run.sh pick-next 3
+```
+
+---
+
+## AgentGo / SA4 case study 6000 (LOCKED · 2026-06-24)
+
+**Authority:** `docs/AGENTGO_SA4_CASE_STUDY_6000_PLANS_LOCKED_v1.md` · index `brain-os/plan-registry/AGENTGO-CASE-STUDY-6000.md`  
+**Master:** `brain-os/plan-registry/AGENTGO_CASE_STUDY_6000_MASTER_v1.json` · **6000 plans** (3 angles × 2000)
+
+| Angle | Prefix | Story |
+|-------|--------|-------|
+| A — Factory scale | `ag-a-` | 1259-page GEO surface · trackers · research · compare |
+| B — Dual deploy | `ag-b-` | agentrun-app :5180 + SA4 :8080 |
+| C — Wil L3 demo | `ag-c-` | YA5 mirror · AgentGo ≠ SourceA separation |
+
+**Case study #2 target:** `SourceA-landing/green-unified/case-studies/agentgo.html` (PureFlow = #1)
+
+**Pick:**
+
+```bash
+bash scripts/plan-no-asf-run.sh pick-agentgo 3
+```
 
 ---
 
@@ -67,7 +173,7 @@ cd ~/Desktop/SourceA && bash scripts/plan-no-asf-run.sh pick 3
 | 3 | SKU + TLE · Board PDF · Proc ZIP | **DONE** — MERGED EXTERNAL |
 | 4 | Copilot / M365 buyer voice | **DONE** — MERGED EXTERNAL |
 | 5 | ICP scorecard + Phase 0–3 | **DONE** — ICP §3b · ROADMAP_MERGED |
-| 6 | NW1 send | **OPEN** — attach MERGED EXTERNAL + battle card |
+| 6 | NW1 send | **SENT** — `receipts/outreach/nw1-send-kit-v1/nw1-send-kit-v1.zip` · 3 sends logged `~/.sina/t1-pipeline-send-log-v1.json` |
 
 **External use:** Send **MERGED EXTERNAL** only — not raw desktop/2 PAGER v1 alone.
 
@@ -186,6 +292,20 @@ cd ~/Desktop/SourceA && bash scripts/plan-no-asf-run.sh pick 3
 ---
 
 ## Evidence log
+| 2026-06-24 | Platform products + Brain OpenRouter chat | 9-product catalog · reconcile script · platform `#products-catalog` · `/api/brain/chat/v1` hub + CF worker · chatbot composer UI |
+| 2026-06-24 | AgentGo case study 6000 v3 polish | schema v3 · inventory receipt · 36 bootstrapped · `agentgo.html` + `offer.html` parity · `polish_agentgo_case_study_v3.py` |
+| 2026-06-24 | AgentGo case study 6000 v2 smart upgrade | 6000 unique titles · `agentgo.html` shipped · gates wired · `upgrade_agentgo_case_study_6000_smart_v2.py` |
+| 2026-06-24 | AgentGo SA4 case study 6000 generated | 3 angles × 2000 · A factory · B dual deploy · C Wil L3 · `AGENTGO_CASE_STUDY_6000_MASTER_v1.json` · `pick-agentgo` |
+| 2026-06-24 | UP-888 superseded → 6000 canonical | `merge_upgrade_888_into_portfolio_next_v1.py` · 888 mapped · `validate-portfolio-upgrade-canonical-v1.sh` · `pick-next` wired |
+| 2026-06-24 | Portfolio next 6000 plans generated | 6 repos × 1000 · `PORTFOLIO_NEXT_6000_MASTER_v1.json` · `validate-portfolio-next-6000-v1.sh` PASS |
+| 2026-06-24 | MAF factory job pattern (advisor) | `docs/SOURCEA_MAF_FACTORY_JOB_PATTERN_v1.md` · `maf_workflow_v1.py` fan-out/gate sim · `factory-job-fanout-gate-v1` |
+| 2026-06-24 | MAF partner lock + spike embed | `docs/SOURCEA_MICROSOFT_AGENT_FRAMEWORK_MAF_LOCKED_v1.md` · `data/sourcea-runtime-embed-registry-v1.json` · `dry_run_v1.py --embed maf` |
+| 2026-06-24 | Runtime stack hybrid LOCKED + factory spike | `docs/SOURCEA_RUNTIME_STACK_HYBRID_LOCKED_v1.md` · `apps/factory-runtime-spike/` · `validate-factory-runtime-spike-v1.sh` |
+| 2026-06-24 | Revenue Engine CRM + outreach templates | `data/sourcea-revenue-engine-crm-pipeline-v1.json` · `docs/commercial/SOURCEA_REVENUE_ENGINE_OUTREACH_TEMPLATES_LOCKED_v1.md` · `scripts/sourcea_revenue_engine_crm_v1.py` |
+| 2026-06-24 | SourceA Revenue Engine v1 LOCKED + ship pages | `docs/SOURCEA_REVENUE_ENGINE_V1_LOCKED_v1.md` · `offer.html` · `case-studies/pureflow.html` · commercial + depth gates · SOURCEA-PRIORITY §Revenue Engine |
+| 2026-06-24 | Noetfield 613 copy upgrade (UI frozen) | Noetfield `main` `3b8072d7` · Intelligence strategy in existing pro UI · pro-ui guard tests · `about/` rebuild-protected |
+| 2026-06-24 | Noetfield Intelligence 613 site shipped (branch) | Noetfield repo `2557f079` · Intelligence homepage · `/governance/` · `/intelligence/intake/` · nav demotion · CRM `data/noetfield-intelligence-crm-pipeline-v1.json` · merge `main` for www deploy |
+| 2026-06-24 | Noetfield Intelligence 613 plan LOCKED + wired | `docs/NOETFIELD_INTELLIGENCE_613_PLAN_LOCKED_v1.md` · `docs/NOETFIELD_INTELLIGENCE_LANDING_ONEPAGER_v1.md` · SOURCEA-PRIORITY §613 · portfolio SSOT §7b · ROADMAP_INDEX · AUTHORITY_INDEX `NF_INTELLIGENCE_613` · PROGRESS_TRACKER parallel track |
 | 2026-06-15 | sa-0824 Append H2 machine hub evidence row after weekly SHIP pass | archive/attachments/2026-06-15/sa-0824-h2-weekly-ship-evidence-row_LOCKED_v1.md · h2-machine-weekly-bundle-receipt ok · validate-h2-weekly-ship-evidence-row-v1 PASS · bundle_at=2026-06-15T04:11:54Z |
 
 | 2026-06-06 | sa-0425 spine.bridge event proof | spine-smoke-echo ok · founder_action · event_bus spine.bridge · critical 0 |
@@ -204,7 +324,7 @@ cd ~/Desktop/SourceA && bash scripts/plan-no-asf-run.sh pick 3
 | 2026-06-15 | Competitor landscape v1.3 merged | Downloads v1_3 → intake v1_3 · report v1.2 · GATHER · pitch stats · battle card · validate-competitor-landscape-v1_3 PASS |
 | 2026-06-15 | Competitor landscape v1.1 merged | SOURCEA_NOETFIELD_COMPETITOR_LANDSCAPE_2026-06-15_v1_1.md → report v1.1 · GATHER · pitch stats · battle card consolidation § · validate-external-critic updated |
 | 2026-06-15 | 2 PAGER merged for SourceA | Desktop 2 PAGER → intake (identical) · MERGED_EXTERNAL one-pager · LOCKED pilot v1.1 · ICP §3b · ROADMAP_MERGED · send_nw1 attach · validate-noetfield-onepager-merge PASS |
-| 2026-06-15 | Asset B email + sourcea-boot chain tool | hello@sourcea.com sender LOCKED · send_ab1_single_v1.py · packages/sourcea-boot v0.1.0 · CHAIN_TOOLS_PUBLISH law · validate-sourcea-boot PASS |
+| 2026-06-15 | Asset B email + sourcea-boot chain tool | hello@sourcea.app sender LOCKED · send_ab1_single_v1.py · packages/sourcea-boot v0.1.0 · CHAIN_TOOLS_PUBLISH law · validate-sourcea-boot PASS |
 | 2026-06-15 | Asset B DFY commercial lane LOCKED | SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md · governed_agentic_automation_offer_v1.py · validate-governed-agentic-automation-offer-v1.sh · SSOT §2c · agency demo v1.1 · AB1 win codes |
 | 2026-06-15 | SSOT v3.2 agentic automation pivot | SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md v3.2 · ICP §1 · authority index 3.2 · §2b runs daily + sells agency/Buyer1 |
 | 2026-06-10 | sa-0025 Append SOURCEA-PRIORITY row: SSOT alignment PASS with timestamp | validate-phase-s0-ssot-alignment-v1 · SSOT alignment PASS @ 2026-06-10T12:00:00Z · critical 0 |
