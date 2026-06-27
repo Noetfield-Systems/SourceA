@@ -1,0 +1,222 @@
+{
+  "schema": "sourcea-ai-model-roi-test-matrix-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-27T09:43:00Z",
+  "status": "active",
+  "authority": [
+    "docs/SOURCEA_AI_MODEL_ROI_FULL_MODE_TEST_PLAN_LOCKED_v1.md",
+    "data/forge-model-roi-matrix-v1.json",
+    "sites/SourceA-landing/green-unified/data/sourcea-brain-chat-config-v1.json",
+    "sites/SourceA-landing/green-unified/data/forge-terminal-models-public-v1.json"
+  ],
+  "one_law": "Models are replaceable engines. SourceA quality must come from retrieval, tools, prompt forge, intent approval, guardrails, evals, receipts, and ROI routing.",
+  "receipt_dir": "~/.sina/sourcea-ai-model-roi-tests",
+  "runner": "scripts/sourcea_ai_model_roi_test_runner_v1.py",
+  "validator": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh",
+  "surfaces": {
+    "brain_chat": {
+      "current_provider": "openrouter",
+      "current_default_model": "google/gemini-2.5-flash",
+      "api_path": "/api/brain/chat/v1",
+      "model_lock_policy": "requested model is honored first; fallback only on provider failure"
+    },
+    "forge_terminal": {
+      "page_default_model": "google/gemini-2.5-flash",
+      "catalog_default_model": "gpt-4o",
+      "model_lock_policy": "user selected model must not be silently replaced by smart route"
+    },
+    "chat_unify": {
+      "page_url": "https://sourcea.app/unify/",
+      "model_paths": [
+        "optional AI toggles for Verify & Act, Audit Trail, Prompt Forge, Vocabulary Intel",
+        "smart router ROI model selection",
+        "engine agent model resolution from .sourcea/models.yaml",
+        "explicit per-turn model override"
+      ],
+      "model_lock_policy": "explicit model override wins unless the provider fails"
+    }
+  },
+  "roles": {
+    "bulk": {"tier": "T1_fast", "target": "highest volume and lowest cost"},
+    "check": {"tier": "T1_fast", "target": "verification, lint, read-only critique"},
+    "build": {"tier": "T2_medium", "target": "code, patches, refactors, shipping"},
+    "act": {"tier": "T2_medium", "target": "tool-heavy and multi-step agent turns"},
+    "reason": {"tier": "T3_heavy", "target": "deep logic, architecture, root cause"},
+    "critical": {"tier": "T4_critical", "target": "security, governance, no-fail decisions"}
+  },
+  "models": [
+    {
+      "id": "google/gemini-2.5-flash",
+      "label": "Gemini 2.5 Flash",
+      "provider": "openrouter",
+      "api_model": "google/gemini-2.5-flash",
+      "cost_band": "$",
+      "roles": ["bulk", "check"],
+      "surfaces": ["brain_chat"],
+      "status": "current_default"
+    },
+    {
+      "id": "google/gemini-2.5-flash-lite-preview-06-17",
+      "label": "Gemini Flash-Lite",
+      "provider": "openrouter",
+      "api_model": "google/gemini-2.5-flash-lite-preview-06-17",
+      "cost_band": "$",
+      "roles": ["bulk", "check"],
+      "surfaces": ["brain_chat"],
+      "status": "selectable"
+    },
+    {
+      "id": "anthropic/claude-3.5-haiku",
+      "label": "Claude 3.5 Haiku",
+      "provider": "openrouter",
+      "api_model": "anthropic/claude-3.5-haiku",
+      "cost_band": "$",
+      "roles": ["check"],
+      "surfaces": ["brain_chat"],
+      "status": "selectable"
+    },
+    {
+      "id": "anthropic/claude-3.5-sonnet",
+      "label": "Claude 3.5 Sonnet",
+      "provider": "openrouter",
+      "api_model": "anthropic/claude-3.5-sonnet",
+      "cost_band": "$$$",
+      "roles": ["build", "act"],
+      "surfaces": ["brain_chat", "forge_terminal", "chat_unify"],
+      "status": "selectable"
+    },
+    {
+      "id": "openai/gpt-4o-mini",
+      "label": "GPT-4o mini",
+      "provider": "openrouter",
+      "api_model": "openai/gpt-4o-mini",
+      "cost_band": "$",
+      "roles": ["bulk", "check"],
+      "surfaces": ["brain_chat"],
+      "status": "selectable"
+    },
+    {
+      "id": "deepseek/deepseek-chat-v3-0324",
+      "label": "DeepSeek V3 Chat",
+      "provider": "openrouter",
+      "api_model": "deepseek/deepseek-chat-v3-0324",
+      "cost_band": "$",
+      "roles": ["bulk", "check"],
+      "surfaces": ["brain_chat"],
+      "status": "selectable"
+    },
+    {
+      "id": "gemini-1.5-flash",
+      "label": "Gemini Flash",
+      "provider": "gemini_direct",
+      "api_model": "gemini-2.5-flash",
+      "cost_band": "$",
+      "roles": ["bulk", "check"],
+      "surfaces": ["forge_terminal", "chat_unify"],
+      "status": "selectable"
+    },
+    {
+      "id": "gemini-1.5-pro",
+      "label": "Gemini Pro",
+      "provider": "gemini_direct",
+      "api_model": "gemini-2.5-pro",
+      "cost_band": "$$$",
+      "roles": ["build", "reason", "critical"],
+      "surfaces": ["forge_terminal", "chat_unify"],
+      "status": "selectable"
+    },
+    {
+      "id": "deepseek-v4",
+      "label": "DeepSeek V4",
+      "provider": "openrouter",
+      "api_model": "deepseek/deepseek-chat-v3-0324",
+      "cost_band": "$",
+      "roles": ["bulk", "check"],
+      "surfaces": ["forge_terminal", "chat_unify"],
+      "status": "selectable"
+    },
+    {
+      "id": "deepseek-r1-or",
+      "label": "DeepSeek R1",
+      "provider": "openrouter",
+      "api_model": "deepseek/deepseek-r1-0528",
+      "cost_band": "$$",
+      "roles": ["reason"],
+      "surfaces": ["forge_terminal", "chat_unify"],
+      "status": "selectable"
+    },
+    {
+      "id": "claude-haiku-4-direct",
+      "label": "Claude Haiku 4.5",
+      "provider": "anthropic_direct",
+      "api_model": "claude-haiku-4-5-20251001",
+      "cost_band": "$",
+      "roles": ["bulk", "check"],
+      "surfaces": ["forge_terminal", "chat_unify"],
+      "status": "selectable"
+    },
+    {
+      "id": "claude-sonnet-4-direct",
+      "label": "Claude Sonnet 4.6",
+      "provider": "anthropic_direct",
+      "api_model": "claude-sonnet-4-6",
+      "cost_band": "$$$",
+      "roles": ["build", "act", "critical"],
+      "surfaces": ["forge_terminal", "chat_unify"],
+      "status": "selectable"
+    },
+    {
+      "id": "claude-opus-4-or",
+      "label": "Claude Opus 4",
+      "provider": "openrouter",
+      "api_model": "anthropic/claude-opus-4",
+      "cost_band": "$$$$",
+      "roles": ["critical", "reason"],
+      "surfaces": ["forge_terminal", "chat_unify"],
+      "status": "restricted"
+    },
+    {
+      "id": "gpt-4o-mini-or",
+      "label": "GPT-4o mini",
+      "provider": "openrouter",
+      "api_model": "openai/gpt-4o-mini",
+      "cost_band": "$",
+      "roles": ["bulk", "check"],
+      "surfaces": ["forge_terminal", "chat_unify"],
+      "status": "selectable"
+    },
+    {
+      "id": "gpt-4o",
+      "label": "GPT-4o",
+      "provider": "openai",
+      "api_model": "gpt-4o",
+      "cost_band": "$$$",
+      "roles": ["bulk", "build", "act"],
+      "surfaces": ["forge_terminal", "chat_unify"],
+      "status": "catalog_default"
+    },
+    {
+      "id": "openai-o1",
+      "label": "OpenAI o1",
+      "provider": "openai",
+      "api_model": "o1",
+      "cost_band": "$$$$",
+      "roles": ["reason", "critical"],
+      "surfaces": ["forge_terminal", "chat_unify"],
+      "status": "restricted"
+    }
+  ],
+  "future_candidates": [
+    {"family": "Gemini 3.x", "status": "candidate_future", "api_model": null, "reason": "await real provider ID, cost band, and eval receipt"},
+    {"family": "GPT 5.x", "status": "candidate_future", "api_model": null, "reason": "await real provider ID, cost band, and eval receipt"},
+    {"family": "Grok", "status": "candidate_future", "api_model": null, "reason": "await real provider ID, cost band, and eval receipt"},
+    {"family": "new Claude Sonnet", "status": "candidate_future", "api_model": null, "reason": "await real provider ID, cost band, and eval receipt"},
+    {"family": "new DeepSeek", "status": "candidate_future", "api_model": null, "reason": "await real provider ID, cost band, and eval receipt"}
+  ],
+  "approval_statuses": ["APPROVED_DEFAULT", "APPROVED_SELECTABLE", "RESTRICTED", "BLOCKED", "CANDIDATE_ONLY"],
+  "minimum_surface_coverage": {
+    "brain_chat": 6,
+    "forge_terminal": 10,
+    "chat_unify": 10
+  }
+}
