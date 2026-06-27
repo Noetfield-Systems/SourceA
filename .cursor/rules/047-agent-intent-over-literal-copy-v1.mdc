@@ -1,0 +1,71 @@
+---
+description: Founder wording must be translated into intent, not copied literally
+globs: "{cloud/workers/sourcea-brain-chat-v1/**,scripts/*brain*,data/brain-*.json,data/CHATBOT_KNOWLEDGE_MANIFEST.json,docs/**,brain-os/**,sites/SourceA-landing/green-unified/**,SourceA-landing/green-unified/**,.cursor/rules/**}"
+alwaysApply: false
+---
+
+# Intent Over Literal Copy
+
+**Incident:** `brain-os/incidents/SINA_AGENT_LITERAL_INTENT_COPY_BRAIN_CONFIDENCE_INCIDENT_049_LOCKED_v1.md`
+
+## Law
+
+Founder language is often **architecture intent**, not public copy. Preserve the intent; do not paste the phrase.
+
+Turn founder intent into **code + machine-verifiable behavior**:
+
+- implement the capability at the right system layer,
+- add guardrails where needed,
+- add evals that prove the general behavior,
+- keep public copy human,
+- avoid fake-green branches that only satisfy the example.
+
+## Required Before Writing Founder Wording Into Code/Prompts/Rules
+
+Classify the wording:
+
+- **Public copy:** wording is meant for visitors; may preserve.
+- **Architecture intent:** translate into behavior, systems, tests, and invariants.
+- **Example:** generalize capability.
+- **Emotional/diagnostic phrase:** extract failure pattern.
+- **Boundary/law:** encode as guardrail.
+
+## Forbidden
+
+- Copying phrases like “highest confidence” into public Brain identity.
+- Turning founder critique into marketing copy.
+- Treating examples as exact branches.
+- Green tests that prove phrase compliance but miss intent.
+
+## Correct Pattern
+
+Founder says: “Brain should be highest confidence.”
+
+Do not write:
+
+```text
+You are the highest-confidence Brain.
+```
+
+Write behavior:
+
+```text
+Retrieve public sources, use live tools, cite separately, admit uncertainty, refuse internal data, and answer directly.
+```
+
+## Batch 2 Rule
+
+If founder says “Brain can handle everything,” do not make Brain claim omniscience.
+
+Translate it into architecture:
+
+```text
+route broad visitor needs through retrieval, live tools, LLM reasoning, guardrails, clean writing, and evals.
+```
+
+For public Brain voice:
+
+- Do not call Brain “highest confidence.”
+- Do not say “they/their” for SourceA when it creates distance; use “SourceA” or “we” naturally.
+- Scrub old bad phrases from chat history before passing context to the LLM.
+
