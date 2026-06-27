@@ -1,0 +1,28 @@
+{
+  "schema": "sourcea-app-e2e-report-v1",
+  "at": "2026-06-27T07:27:06Z",
+  "base": "https://sourcea.app",
+  "verdict": "PASS_WITH_NOTES",
+  "summary": {
+    "pages_crawled": 225,
+    "pages_http_pass": 225,
+    "pages_http_fail": 0,
+    "forge_mobile": "PASS",
+    "brain_live_assets": "PASS",
+    "brain_live_stranger_prompts": "PARTIAL \u2014 records-recovery assertion flaky (reply uses 'proof' not 'record')"
+  },
+  "notes": [
+    "/api/brain/chat/v1 and /health on sourcea.app return SPA HTML fallback (200) \u2014 real Brain API is Cloudflare Worker",
+    "Brain worker POST ok:true for all 3 stranger prompts; validate-sourcea-brain-live-v1.sh fails on strict 'record' keyword"
+  ],
+  "receipts": {
+    "crawl": "/Users/sinakazemnezhad/.sina/sourcea-app-e2e-all-pages-v1.json",
+    "brain_live_log": "/Users/sinakazemnezhad/.sina/e2e-logs/validate-sourcea-brain-live-v1.log",
+    "forge_mobile": "validate-sourcea-forge-mobile-v1.sh PASS"
+  },
+  "sections": {
+    "root": 1,
+    "sourcea_pages": 222,
+    "health_api_fallbacks": 2
+  }
+}
