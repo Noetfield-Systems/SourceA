@@ -151,9 +151,9 @@ def build_truth_status() -> dict[str, Any]:
 
     current_head = None
     try:
-        from fbe.lib.cloud_drain_queue_v1 import read_head  # noqa: WPS433
+        from fbe.lib.cloud_forge_run_queue_v1 import read_head  # noqa: WPS433
 
-        current_head = read_head().get("cloud_drain_head")
+        current_head = read_head().get("cloud_forge_run_head")
     except Exception:
         current_head = None
 

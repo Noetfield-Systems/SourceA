@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cloud loop specialist tick — comprehension + optional bay dispatch on Railway FBE.
+"""Cloud Auto Runtime specialist tick — comprehension + optional bay dispatch on Railway FBE.
 
 No Mac ~/.sina reads. Body carries founder_message, draft, optional system_snapshot.
 Law: data/loop-specialist-cloud-contract-v1.json · Mac = glance only.

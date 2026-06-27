@@ -1,0 +1,10 @@
+{
+  "schema": "bundle-wire-manifest-v1",
+  "app": "cloud-workers",
+  "built_at": "2026-06-23T10:14:37Z",
+  "cockpit": "http://127.0.0.1:13027/",
+  "form_ui": "http://127.0.0.1:13023/form/",
+  "proceed_api": "/api/cloud-forge-run/proceed/v1",
+  "worker_hub": "RETIRED",
+  "law": "SOURCEA_POISON_AND_REALTIME_BLOCKER_TERMINOLOGY_LOCKED_v1.md"
+}

@@ -1,0 +1,17 @@
+Subject: Welcome to SourceA Platform Runtime
+
+Hi {{name}},
+
+Thanks for subscribing to SourceA Platform Runtime.
+
+Next steps (manual provision v1 — we respond within 2 hours):
+
+1. Download Chat Unify.app: https://sourcea.app/downloads/chat-unify-mac-v1.dmg
+2. Open Connect tab → wire your Cursor or webhook
+3. Run Verify & Act once — receipt lands logged
+
+Your sandbox: https://sourcea.app/sourcea/factories/try-factory-demo
+
+Questions: hello@sourcea.app (when inbox live) or intake form at https://sourcea.app/
+
+— SourceA · https://sourcea.app

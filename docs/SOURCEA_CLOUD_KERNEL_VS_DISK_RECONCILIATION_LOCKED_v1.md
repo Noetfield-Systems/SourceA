@@ -35,7 +35,7 @@
 | **L1** | UI / Interface · Next.js + CF Pages | `agent-control-panel/worker-hub/` · `scripts/*-standalone/` · Vercel landings under portfolio repos | **AMBER** | Right idea (multi-tenant skins); Hub is static HTML + WKWebView `.app`, not Next on CF Pages |
 | **L2** | Auth & Isolation · Supabase Auth + RLS | `data/supabase-portfolio-tiers-v1.json` · `infra/supabase/portfolio-spine/` · `infra/supabase/noetfield/` | **GREEN** | Production tiers locked ASF 2026-06-20 |
 | **L3** | State Engine · **Neon** Postgres | **Supabase** (`portfolio-spine`, `noetfield`, `labs-sandbox`) | **AMBER** | **L3 = Supabase today.** Neon **ONLY** after ASF-approved migration |
-| **L4** | Queue Engine · CF Queues | `~/.sina/phase-observed-v1.json` · `scripts/hub_cloud_drain_proceed_v1.py` · `scripts/cloud_drain_auto_runtime_v1.py` | **AMBER** | **L4 = Hub drain today** → CF Queues later |
+| **L4** | Queue Engine · CF Queues | `~/.sina/phase-observed-v1.json` · `scripts/hub_cloud_forge_run_proceed_v1.py` · `scripts/cloud_auto_runtime_v1.py` | **AMBER** | **L4 = Cloud Forge Run today** → CF Queues later |
 | **L5** | Runtime · 4 stateless CF Workers | `scripts/fbe_cloud_worker_http_v1.py` · Railway deploy `scripts/deploy_fbe_railway_v1.py` · `scripts/fbe_run_job_v1.py` | **AMBER** | **W1–W4 = logical roles** served by **contract-gated Railway FBE** today, not CF Workers |
 | **L6** | Capability Router · tool registry | `data/forge-scoring-ssot-v01.json` · `data/fbe_node_graph_v1.json` · cloud OpenRouter on Railway | **AMBER** | Router logic partial; registry not full SQL-backed tool table |
 | **L7** | Heavy Compute · Modal/RunPod | `apps/video-ad-factory/` · Fal · ElevenLabs · `scripts/video_ad_factory_orchestrate_v1.py` | **GREEN** | Same role; vendor names differ from PDF |
@@ -64,7 +64,7 @@
 | Factory | FBE templates (`web-product-factory-v1`, `forge-app-factory-v1`, …) | **GREEN** |
 | Blueprint | `data/forge-real-blueprints-v01.json` (100 rows) · per-drain JSON schemas | **GREEN** (JSON, not SQL `blueprints` table) |
 | Run | FBE job receipts · `~/.sina/fbe-*-receipt*.json` | **AMBER** |
-| Task | Cloud drain rows · `sa-mkt-*` · CLOUD-SEC queue | **AMBER** |
+| Task | Cloud Forge Run rows · `sa-mkt-*` · CLOUD-SEC queue | **AMBER** |
 | Artifact / Evidence / Decision | Phase-1 ticket triple · gate receipts | **GREEN** (file-based) |
 
 **TARGET:** SQL DDL in PDF §6 — migrate after Phase-1 truth tickets prove JSON shape end-to-end.
@@ -115,7 +115,7 @@ Cloud PEVC **nests inside SHIP** — see SSOT Index.
 | PDF phase | Claim in PDF | Disk truth |
 |-----------|--------------|------------|
 | Phase 1 Core Kernel | “current” | **Partial** — contracts + blueprints + Supabase tiers; no unified SQL graph |
-| Phase 2 Execution Engine | Queues + 4 workers | **Partial** — Railway FBE + hub drain; not CF Queues |
+| Phase 2 Execution Engine | Queues + 4 workers | **Partial** — Railway FBE + Cloud Forge Run; not CF Queues |
 | Phase 3 Router Intelligence | DB tool registry | **TARGET** |
 | Phase 4 Observability | OTel + token tables | **TARGET** |
 

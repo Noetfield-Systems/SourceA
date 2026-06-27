@@ -170,7 +170,7 @@ def _apply_factory_freeze_state(payload: dict) -> None:
     if isinstance(g1, dict):
         g1["factory_state"] = founder.get("factory_state") or {}
         if freeze:
-            line = g1["factory_state"].get("line") or "FROZEN — factory drain blocked"
+            line = g1["factory_state"].get("line") or "FROZEN — Cloud Forge Run blocked"
             g1["primary_action_id"] = "founder-goal1-autorun-stop"
             g1["tab_hint"] = line
             ua = g1.get("unified_autorun")

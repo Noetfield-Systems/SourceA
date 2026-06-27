@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# validate-loop-specialist-v1.sh — CL10 loop specialist + advisory circle
+# validate-loop-specialist-v1.sh — CL10 Auto Runtime specialist + advisory circle
 set -euo pipefail
 cd "$(dirname "$0")/.."
 SINA="${HOME}/.sina"
@@ -9,7 +9,7 @@ fail() { echo "FAIL: validate-loop-specialist-v1 — $*" >&2; exit 1; }
 test -f scripts/loop_specialist_tick_v1.py || fail "missing loop_specialist_tick_v1.py"
 test -f scripts/future_loop_prompt_advisory_circle_v1.py || fail "missing advisory circle"
 test -f data/loop-specialist-cloud-contract-v1.json || fail "missing cloud contract"
-grep -q 'loop_specialist_tick' scripts/disk_live_wire_sync_v1.py || fail "disk_live_wire must call loop specialist"
+grep -q 'loop_specialist_tick' scripts/disk_live_wire_sync_v1.py || fail "disk_live_wire must call Auto Runtime specialist"
 grep -q 'loop_specialist' scripts/worker_hub_v1.py || fail "worker_hub must expose loop_specialist slice"
 
 python3 scripts/future_loop_prompt_advisory_circle_v1.py --json >/dev/null || fail "advisory run"

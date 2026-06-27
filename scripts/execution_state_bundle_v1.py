@@ -55,7 +55,7 @@ def assert_loop_auto_off() -> dict:
         "auto_forbidden": True,
         "ok": not auto,
         "dual_pick": dual,
-        "note": "Bundle never enables loop auto — dual-pick must pass before ASF enables manually",
+        "note": "Bundle never enables Auto Runtime — dual-pick must pass before ASF enables manually",
     }
 
 

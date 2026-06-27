@@ -17,6 +17,17 @@ def _now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def _proof_tier(evidence_source: str) -> str:
+    src = (evidence_source or "").strip()
+    if src == "http_fetch":
+        return "verified_fetch"
+    if src == "cloud_action_vendor_says":
+        return "labeled_claim"
+    if src == "cloud_action_locked_recipe":
+        return "blocked_recipe"
+    return "unknown"
+
+
 def _is_headless() -> bool:
     if str(os.environ.get("FBE_MODE", "")).lower() == "headless":
         return True
@@ -105,6 +116,9 @@ def _build_artifact(plan: dict[str, Any], dispatch_receipt: dict[str, Any], *, r
         "evidence_snippets": snippets,
         "dispatch_receipt_id": dispatch_receipt.get("receipt_id"),
         "dispatch_status": dispatch_receipt.get("status"),
+        "evidence_source": dispatch_receipt.get("evidence_source"),
+        "http_status": dispatch_receipt.get("http_status"),
+        "proof_tier": _proof_tier(str(dispatch_receipt.get("evidence_source") or "")),
         "build": {
             "output_path": str(build_md.relative_to(root)),
             "artifact_json": str(out_path.relative_to(root)),
@@ -176,6 +190,13 @@ def run_forge_seed_cycle(*, plan_id: str, dry_run: bool = False, root: Path | No
             ),
         },
     }
+    if ok:
+        try:
+            from cloud_forge_run_supabase_v1 import persist_shipped_row  # noqa: WPS433
+
+            row["supabase"] = persist_shipped_row(row, plan=plan, artifact_doc=artifact_doc)
+        except Exception as exc:
+            row["supabase"] = {"ok": False, "error": str(exc)[:120]}
     return row
 
 

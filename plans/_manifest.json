@@ -2,6 +2,6 @@
   "schema": "forge-github-plans-manifest-v1",
   "saved_at": "2026-06-20T23:51:17Z",
   "count": 100,
-  "source": "data/secondary-cloud-drain-next-100-v1.json",
+  "source": "data/secondary-cloud-forge-run-next-100-v1.json",
   "note": "GitHub-friendly field names for Forge v0.2 adapter inspect stage"
 }

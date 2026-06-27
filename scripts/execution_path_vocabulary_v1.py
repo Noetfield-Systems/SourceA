@@ -7,6 +7,7 @@ All founder-facing execution lines should import from here (not duplicate).
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 
 SINA = Path.home() / ".sina"
@@ -85,7 +86,7 @@ def commercial_l3_blocker_summary() -> str:
 
 
 def commercial_smart_loop_line() -> str:
-    base = "Loop auto-tick ON · commercial smart loop owns L3 prep · Hub glance only"
+    base = "Auto Runtime ON · commercial smart loop owns L3 prep · Hub glance only"
     if post_outbound_smart_loop_active():
         block = commercial_l3_blocker_summary()
         if block and not block.endswith("100% ready"):
@@ -139,21 +140,21 @@ def _forge_factory_era() -> bool:
 
 def founder_daily_ops_line() -> str:
     if _forge_factory_era():
-        return "FORGE FACTORY cycle2 · Loop auto · cloud execute · Hub glance only"
+        return "FORGE FACTORY cycle2 · Auto Runtime · cloud execute · Hub glance only"
     if post_outbound_smart_loop_active():
         return commercial_smart_loop_line()
     if loop_auto_on():
         if brain_work_order_primary():
-            return "Loop auto · Brain work-order dispatch · Hub glance only"
-        return "Loop specialist auto · Brain work-order · Hub glance only"
-    return "Loop specialist tick on Hub · ASF resume drain if FREEZE"
+            return "Auto Runtime · Brain work-order dispatch · Hub glance only"
+        return "Auto Runtime specialist · Brain work-order · Hub glance only"
+    return "Auto Runtime specialist tick on Hub · ASF resume Cloud Forge Run if FREEZE"
 
 
 def factory_motion_line() -> str:
     if brain_work_order_primary():
-        return "Loop specialist auto · Brain work-order dispatch when pending"
+        return "Auto Runtime specialist · Brain work-order dispatch when pending"
     if loop_auto_on():
-        return "Loop specialist auto · loop auto dispatch when pending"
+        return "Auto Runtime specialist · Auto Runtime dispatch when pending"
     return "Brain routes · Worker implements bounded disk work"
 
 
@@ -161,10 +162,10 @@ def execute_line() -> str:
     if post_outbound_smart_loop_active():
         return commercial_smart_loop_line()
     if brain_work_order_primary():
-        return "Loop auto-tick ON · Brain work-order dispatch · Hub glance only"
+        return "Auto Runtime ON · Brain work-order dispatch · Hub glance only"
     if loop_auto_on():
-        return "Loop auto-tick ON · loop specialist dispatch when pending"
-    return "Loop specialist delivers · ASF resume if FREEZE"
+        return "Auto Runtime ON · Auto Runtime specialist dispatch when pending"
+    return "Auto Runtime specialist delivers · ASF resume Cloud Forge Run if FREEZE"
 
 
 def live_disk_header() -> str:
@@ -175,31 +176,42 @@ def live_disk_header() -> str:
 
 def run_inbox_check_label() -> str:
     if brain_work_order_primary():
-        return "Loop auto · Brain work-order dispatch"
+        return "Auto Runtime · Brain work-order dispatch"
     if loop_auto_on():
-        return "Loop auto · loop specialist dispatch"
+        return "Auto Runtime · Auto Runtime specialist dispatch"
     return "Worker bounded turn · one sa/turn"
 
 
 def founder_motion_line(*, goal1_idle: bool = False) -> str:
     if _forge_factory_era():
-        return "FORGE FACTORY cycle2 · Loop auto · Hub glance · commercial P0 parallel"
+        return "FORGE FACTORY cycle2 · Auto Runtime · Hub glance · commercial P0 parallel"
     if goal1_idle and post_outbound_smart_loop_active():
         return commercial_smart_loop_line()
     if goal1_idle:
         return "Goal 1 idle · Hub glance · commercial P0"
     if brain_work_order_primary():
-        return "Loop auto · Brain work-order · Hub glance"
+        return "Auto Runtime · Brain work-order · Hub glance"
     if loop_auto_on():
-        return "Loop auto · loop specialist · Hub glance"
-    return "Loop specialist tick · Hub glance"
+        return "Auto Runtime · Auto Runtime specialist · Hub glance"
+    return "Auto Runtime specialist tick · Hub glance"
 
 
 def inject_execution_path() -> str:
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        from fbe.lib.hub_cloud_proxy_v1 import execution_mode  # noqa: WPS433
+
+        if execution_mode() == "CLOUD_ONLY":
+            ongoing = _read(SINA / "live-ongoing-prompts-next-10-v1.json")
+            if ongoing.get("execution_surface") == "cloud_forge":
+                head = (ongoing.get("cloud_forge_glance") or {}).get("head") or "Railway"
+                return f"cloud_forge CF cron */10 · head {head} · Mac observes only"
+    except Exception:
+        pass
     if _forge_factory_era():
-        return "FORGE FACTORY cycle2 · healthy-queue-30-active.json · brain work-order + loop auto"
+        return "FORGE FACTORY cycle2 · healthy-queue-30-active.json · brain work-order + Auto Runtime"
     if brain_work_order_primary():
-        return "brain work-order dispatch + loop auto"
+        return "brain work-order dispatch + Auto Runtime"
     return "run inbox + live-ongoing-prompts-next-10-v1.json"
 
 
@@ -214,7 +226,7 @@ def queue_founder_line(*, sa: str, role: str, pos: int, total: int, inbox_pendin
             return f"INBOX stale · {base} · Brain work-order dispatch"
         active = _read(SINA / "brain-outbound-work-order-active-v1.json")
         ref = active.get("upgrade_ref") or "?"
-        return f"{base} · Loop auto · Brain work-order · head={ref}"
+        return f"{base} · Auto Runtime · Brain work-order · head={ref}"
     if loop_auto_on():
-        return f"{base} · Loop auto · loop specialist dispatch"
+        return f"{base} · Auto Runtime · Auto Runtime specialist dispatch"
     return f"{base} · Worker bounded turn when Brain routes"

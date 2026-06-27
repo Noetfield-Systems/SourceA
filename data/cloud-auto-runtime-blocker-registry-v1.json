@@ -1,0 +1,56 @@
+{
+  "schema": "cloud-auto-runtime-blocker-registry-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-24T09:15:00Z",
+  "one_law": "Every CF cron must ship 100 rows with zero skips — blockers below must be mitigated in code, not founder intervention.",
+  "blockers": [
+    {
+      "id": "B01_frozen_plan_loader",
+      "symptom": "plan_not_found after batch handoff",
+      "mitigation": "cloud_worker_dispatch_v1._plans_path() per request",
+      "status": "fixed"
+    },
+    {
+      "id": "B02_pointer_lost_on_redeploy",
+      "symptom": "head in batch N+1 but pointer reads batch N",
+      "mitigation": "volume pointer /app/receipts/cloud-forge-run/queue-active-pointer-v1.json + boot_heal swap",
+      "status": "fixed"
+    },
+    {
+      "id": "B03_prove_env_legacy",
+      "symptom": "halt_prove 2/3 chains CLOUD_DRAIN_AUTO_PROCEED only",
+      "mitigation": "living_system_chain_validate_v1 accepts legacy env",
+      "status": "fixed"
+    },
+    {
+      "id": "B04_http_403_competitors",
+      "symptom": "motor FAIL Drata/Vanta 403 — 98% plans lack vendor says",
+      "mitigation": "cloud_action_locked_recipe evidence fallback on http fail",
+      "status": "fixed"
+    },
+    {
+      "id": "B05_single_cycle_gate",
+      "symptom": "second request halts 10m window",
+      "mitigation": "reset_gate before claim on CF cron in HTTP handler + auto_runtime",
+      "status": "fixed"
+    },
+    {
+      "id": "B06_no_skip_halt",
+      "symptom": "one motor FAIL stops turn at 0 shipped",
+      "mitigation": "motors must PASS via locked recipe fallback — skips forbidden",
+      "status": "by_design"
+    },
+    {
+      "id": "B07_boot_heal_each_tick",
+      "symptom": "stale phase vs pointer after deploy",
+      "mitigation": "boot_heal_queue(force=True) every auto_tick",
+      "status": "fixed"
+    }
+  ],
+  "proof_urls": {
+    "observer": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/observer/v1",
+    "queue": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/queue/v1",
+    "cf_health": "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev/health",
+    "evidence_audit": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/evidence-audit/v1"
+  }
+}

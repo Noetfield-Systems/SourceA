@@ -74,7 +74,7 @@ Every UI control **must** have a machine twin:
 
 | UI control | API / CLI twin (examples) |
 |------------|---------------------------|
-| Cloud proceed | `POST http://127.0.0.1:13020/api/cloud-drain/proceed/v1` |
+| Cloud proceed | `POST http://127.0.0.1:13020/api/cloud-forge-run/proceed/v1` |
 | Routing refresh | `POST http://127.0.0.1:8782/api/ag-routing-panel` `{"action":"refresh_panel"}` |
 | Task/plan validation | `python3 scripts/next_task_trigger_v1.py --refresh --json` |
 | Session gate | `python3 scripts/agent_session_gate_run_v1.py --role worker --json` |

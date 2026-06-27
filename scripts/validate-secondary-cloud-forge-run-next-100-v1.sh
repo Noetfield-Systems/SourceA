@@ -3,12 +3,12 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
-DOC="$ROOT/data/secondary-cloud-drain-next-100-v1.json"
+DOC="$ROOT/data/secondary-cloud-forge-run-next-100-v1.json"
 [[ -f "$DOC" ]] || { echo "FAIL missing $DOC"; exit 1; }
 python3 - <<'PY'
 import json, sys
 from pathlib import Path
-doc = json.loads(Path("data/secondary-cloud-drain-next-100-v1.json").read_text())
+doc = json.loads(Path("data/secondary-cloud-forge-run-next-100-v1.json").read_text())
 plans = doc.get("plans") or []
 if len(plans) != 100:
     print(f"FAIL expected 100 plans got {len(plans)}")
@@ -32,6 +32,6 @@ for p in mac:
 if "Worker on Mac runs every plan" not in str(doc.get("forbidden", [])):
     print("FAIL forbidden list missing bad phrase")
     sys.exit(1)
-print("PASS secondary-cloud-drain-next-100-v1.json")
+print("PASS secondary-cloud-forge-run-next-100-v1.json")
 PY
-echo "PASS validate-secondary-cloud-drain-next-100-v1.sh"
+echo "PASS validate-secondary-cloud-forge-run-next-100-v1.sh"

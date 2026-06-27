@@ -1,0 +1,26 @@
+{
+  "schema": "portfolio-extension-wave2-manifest-v1",
+  "version": "1.0.0",
+  "generated_at": "2026-06-24T14:30:00Z",
+  "law": "Wave 2 — remaining no-asf plan libraries not in competitor-5000 patch",
+  "parent_patch": "data/cloud-forge-run-competitor-5000-patch-v1.json",
+  "sources": [
+    {
+      "stack": "noetfield",
+      "library": "noetfield-1000",
+      "count": 1000,
+      "pack": "/Users/sinakazemnezhad/Desktop/Noetfield/Noetfield-All-Documents/Noetfield/os/plan-library/noetfield-1000",
+      "note": "nf-0001..nf-1000 — primary Noetfield factory plans (600+ in first 6 batches)"
+    },
+    {
+      "stack": "mono",
+      "library": "mono-1000",
+      "count": 1000,
+      "pack": "/Users/sinakazemnezhad/Desktop/Noetfield/SinaaiMonoRepo/os/plan-library/mono-1000",
+      "note": "mx-0001..mx-1000 — SinaaiMonoRepo no-asf backlog"
+    }
+  ],
+  "batch_start": 51,
+  "cloud_sec_start": "CLOUD-SEC-5001",
+  "ok": true
+}

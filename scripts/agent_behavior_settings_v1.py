@@ -43,7 +43,7 @@ def behavior_line(*, ssot: dict | None = None, role: str = "") -> str:
     if role == "brain":
         anchor = (row.get("role_anchors") or {}).get("brain") or {}
         title = str(anchor.get("title") or "Brain")
-        return f"behavior · {title} · disk truth · no green theater"
+        return f"behavior · {title} · short plain answers · no database dump"
     base = f"behavior · intent-first · {one[:72]}"
     if truth:
         return f"{base} · {truth[:48]}"
@@ -53,10 +53,9 @@ def behavior_line(*, ssot: dict | None = None, role: str = "") -> str:
 def brain_truth_line(*, ssot: dict | None = None) -> str:
     row = ssot or load_settings()
     anchor = (row.get("role_anchors") or {}).get("brain") or {}
-    return (
-        f"{anchor.get('title') or 'Brain'} · "
-        f"{anchor.get('main_job') or 'route Worker'} · "
-        "disk truth only · RED stays RED · no sweet lies"
+    return str(
+        anchor.get("reply_shape")
+        or "2–5 plain sentences · answer the ask · proof only when requested"
     )
 
 

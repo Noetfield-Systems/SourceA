@@ -1,0 +1,46 @@
+{
+  "schema": "sourcea-mvp-intake-schema-v1",
+  "version": "1.0.0",
+  "plane": "commercial",
+  "business": "48h-mvp-service",
+  "fields": {
+    "building": {
+      "required": true,
+      "type": "string",
+      "max_len": 2000,
+      "label": "What are you building?"
+    },
+    "building_type": {
+      "required": false,
+      "type": "enum",
+      "values": ["app", "website", "mvp", "video", "other"]
+    },
+    "competitor": {
+      "required": false,
+      "type": "string",
+      "max_len": 500,
+      "label": "Competitor or example"
+    },
+    "deadline": {
+      "required": true,
+      "type": "enum",
+      "values": ["this_week", "two_weeks", "flexible"]
+    },
+    "budget": {
+      "required": true,
+      "type": "enum",
+      "values": ["500_1k", "1k_3k", "3k_10k", "lets_talk"]
+    },
+    "email": {
+      "required": true,
+      "type": "email",
+      "label": "Your email"
+    }
+  },
+  "contact_email": "hello@sourcea.app",
+  "notify_to": "hello@sourcea.app",
+  "public_domain": "source.app",
+  "notify_from": "SourceA Intake <onboarding@resend.dev>",
+  "end_screen": "We'll respond in 2 hours with a plan.",
+  "inbox_dir": "data/commercial-intake/inbox"
+}

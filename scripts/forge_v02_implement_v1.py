@@ -40,7 +40,7 @@ def load_plan_row(plan_id: str, *, root: Path | None = None) -> dict[str, Any]:
         row = _read_json(plan_path)
         if row:
             return row
-    drain = _read_json(base / "data" / "secondary-cloud-drain-next-100-v1.json")
+    drain = _read_json(base / "data" / "secondary-cloud-forge-run-next-100-v1.json")
     for p in drain.get("plans") or []:
         if str(p.get("id") or "") == plan_id:
             return {

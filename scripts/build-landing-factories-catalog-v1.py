@@ -38,16 +38,16 @@ DETAIL_TEMPLATE = """<!DOCTYPE html>
     <div class="ar-header-inner">
       <a class="ar-logo" href="/sourcea/"><span class="ar-logo-text">Source<span class="ar-logo-run sa-logo-run">A</span></span></a>
       <nav class="ar-nav" id="ar-nav">
-        <a href="/sourcea/factories/index.html">Factories</a>
-        <a href="/sourcea/platform.html">Platform</a>
-        <a href="mailto:hello@sourcea.com">Book demo</a>
+        <a href="/sourcea/factories/">Factories</a>
+        <a href="/sourcea/platform">Platform</a>
+        <a href="mailto:hello@sourcea.app">Book demo</a>
       </nav>
     </div>
   </div>
 </header>
 <main id="main-content" class="ar-section">
   <div class="ar-container">
-    <nav class="ar-breadcrumb"><a href="/sourcea/">Home</a> / <a href="/sourcea/factories/index.html">Factories</a> / <span>{name}</span></nav>
+    <nav class="ar-breadcrumb"><a href="/sourcea/">Home</a> / <a href="/sourcea/factories/">Factories</a> / <span>{name}</span></nav>
     <p class="ar-kicker">{tier_label} · {policy_pack_id}</p>
     <h1>{name}</h1>
     <p class="ar-lead">{tagline}</p>
@@ -59,8 +59,8 @@ DETAIL_TEMPLATE = """<!DOCTYPE html>
     </div>
     <p><strong>Buyer:</strong> {buyer} · <strong>Status:</strong> {status} · <strong>Tier cap:</strong> {tier_cap_honest}</p>
     <div class="ar-hero-actions" style="margin-top:1.5rem">
-      <a class="ar-btn ar-btn-primary sa-btn-glow" href="mailto:hello@sourcea.com?subject=Deploy%20{name_encoded}">{install_label}</a>
-      <a class="ar-btn ar-btn-ghost" href="/sourcea/factories/index.html">All factories</a>
+      <a class="ar-btn ar-btn-primary sa-btn-glow" href="mailto:hello@sourcea.app?subject=Deploy%20{name_encoded}">{install_label}</a>
+      <a class="ar-btn ar-btn-ghost" href="/sourcea/factories/">All factories</a>
     </div>
     <div id="sa-sandbox-demo" data-factory-id="{factory_id}" data-kind="{kind}" style="margin-top:2rem;display:none">
       <pre class="sa-email-snippet" id="sa-demo-output">Running 30s sandbox demo…</pre>
@@ -88,7 +88,7 @@ def build(*, write_html: bool = True) -> dict:
                 "tier": item.get("tier"),
                 "kind": item.get("kind"),
                 "hero": item.get("hero"),
-                "href": f"/sourcea/factories/{item.get('website_slug')}.html",
+                "href": f"/sourcea/factories/{item.get('website_slug')}",
                 "website_slug": item.get("website_slug"),
                 "inputs": item.get("inputs"),
                 "operational_nodes": item.get("operational_nodes"),

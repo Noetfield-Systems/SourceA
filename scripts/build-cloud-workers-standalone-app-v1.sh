@@ -25,11 +25,28 @@ rm -rf "$STAGE"
 mkdir -p "$STAGE/Contents/MacOS" "$STAGE/Contents/Resources" \
   "$BUNDLE_STAGE/scripts" "$BUNDLE_STAGE/app" "$BUNDLE_STAGE/shared"
 
-for f in cloud-workers-server.py cloud_workers_hub_v1.py hub_cloud_drain_proceed_v1.py \
-  cloud_drain_auto_runtime_v1.py api_station_v1.py founder_glance_cockpit_v1.py hub_pro_skills_v1.py founder_ops_v1.py; do
+for f in cloud-workers-server.py cloud_workers_hub_v1.py hub_cloud_forge_run_proceed_v1.py \
+  cloud_auto_runtime_v1.py cloud_auto_runtime_single_cycle_gate_v1.py api_station_v1.py founder_glance_cockpit_v1.py hub_pro_skills_v1.py founder_ops_v1.py; do
   cp "$ROOT/scripts/$f" "$BUNDLE_STAGE/scripts/"
 done
 cp -R "$ROOT/scripts/cloud-workers-standalone/." "$BUNDLE_STAGE/app/"
+
+BUILT_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+python3 - <<PY
+import json
+from pathlib import Path
+manifest = {
+    "schema": "bundle-wire-manifest-v1",
+    "app": "cloud-workers",
+    "built_at": "$BUILT_AT",
+    "cockpit": "http://127.0.0.1:13027/",
+    "form_ui": "http://127.0.0.1:13023/form/",
+    "proceed_api": "/api/cloud-forge-run/proceed/v1",
+    "worker_hub": "RETIRED",
+    "law": "SOURCEA_POISON_AND_REALTIME_BLOCKER_TERMINOLOGY_LOCKED_v1.md",
+}
+Path("$BUNDLE_STAGE/bundle-wire-manifest-v1.json").write_text(json.dumps(manifest, indent=2) + "\n")
+PY
 
 for f in official-links-bar.js official-links-bar.css sina-view-mode.js \
   cloud-workers-panel.js cloud-workers-panel.css api-station-tab.js api-station-tab.css \
@@ -58,8 +75,8 @@ cat >"$STAGE/Contents/Info.plist" <<PLIST
   <key>CFBundleName</key><string>${APP_NAME}</string>
   <key>CFBundleDisplayName</key><string>${APP_NAME}</string>
   <key>CFBundlePackageType</key><string>APPL</string>
-  <key>CFBundleShortVersionString</key><string>1.0</string>
-  <key>CFBundleVersion</key><string>10</string>
+  <key>CFBundleShortVersionString</key><string>1.1</string>
+  <key>CFBundleVersion</key><string>11</string>
   <key>LSMinimumSystemVersion</key><string>12.0</string>
   <key>NSPrincipalClass</key><string>NSApplication</string>
   <key>NSHighResolutionCapable</key><true/>
@@ -97,10 +114,10 @@ ditto "$STAGE" "$APPS_HOME"
 sign_app "$DESKTOP"
 sign_app "$APPS_HOME"
 
-echo "→ Cold-start smoke test…"
+echo "→ Cold-start smoke test (health + railway_live)…"
 COLD_OK=0
-for _ in {1..15}; do
-  if /usr/bin/curl -sf "http://127.0.0.1:13027/health" >/dev/null 2>&1; then
+for _ in {1..20}; do
+  if /usr/bin/curl -sf "http://127.0.0.1:13027/health" | python3 -c "import sys,json; d=json.load(sys.stdin); assert d.get('ok') and d.get('service')=='cloud-workers'" 2>/dev/null; then
     echo "✓ Cold-start PASS — cloud workers health OK"
     COLD_OK=1
     break
@@ -113,7 +130,7 @@ if [[ "$COLD_OK" != "1" ]]; then
 fi
 
 echo ""
-echo "✓ ${APP_NAME} v1.0 — double-click only"
+echo "✓ ${APP_NAME} v1.1 — double-click only · Proceed full-pack"
 echo "  Desktop:       $DESKTOP"
 echo "  Applications:  $APPS_HOME"
 echo "  URL:           http://127.0.0.1:13027/"

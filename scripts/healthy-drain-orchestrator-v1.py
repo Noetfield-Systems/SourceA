@@ -285,7 +285,7 @@ def deliver_current(*, force: bool = False, fast: bool | None = None) -> dict:
             "ok": True,
             "path": "brain_outbound_work_order",
             "relay": True,
-            "note": "Loop auto · Brain work-order primary · no Worker INBOX paste",
+            "note": "Auto Runtime · Brain work-order primary · no Worker INBOX paste",
         }
 
     # Worker lane: never pile INBOX while turn open or inbox already pending (stops 18× queue).
@@ -404,7 +404,7 @@ def deliver_current(*, force: bool = False, fast: bool | None = None) -> dict:
             "ok": False,
             "error": "FREEZE_ACT_BLOCKED",
             "role": role,
-            "hint": "FREEZE allows CHECK only — ASF resume drain PHASE_STRICT for ACT/VERIFY",
+            "hint": "FREEZE allows CHECK only — ASF Cloud Forge Run PHASE_STRICT for ACT/VERIFY",
             "state": st,
         }
 

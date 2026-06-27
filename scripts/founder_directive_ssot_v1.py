@@ -54,9 +54,9 @@ def hub_closed() -> bool:
 
 def execution_rail_line() -> str:
     if command_retired_forever() and hub2_drain_allowed():
-        return "Hub only (H1/H2) · Sina Command RETIRED · factory drain phase-s8"
+        return "Hub only (H1/H2) · Sina Command RETIRED · Cloud Forge Run phase-s8"
     if hub2_drain_allowed():
-        return "Hub 2 machine drain (phase-s8) · Command DELETED · factory drain"
+        return "Hub 2 machine drain (phase-s8) · Command DELETED · Cloud Forge Run"
     if hub_closed():
         return "s7 → s9 research · Sina Command ARCHIVED (ASF closed — not open)"
     return "s7 → s9 (legacy s8 skipped)"
@@ -142,8 +142,8 @@ def outbound_directive_note() -> str:
             except (OSError, json.JSONDecodeError):
                 auto = False
         if auto:
-            return f"OUTBOUND FACTORY · {uid} · {sa} · LOOP AUTO · Brain work-order dispatch"
-        return f"OUTBOUND FACTORY · {uid} · {sa} · Loop specialist deliver · ASF resume if FREEZE"
+            return f"OUTBOUND FACTORY · {uid} · {sa} · Auto Runtime · Brain work-order dispatch"
+        return f"OUTBOUND FACTORY · {uid} · {sa} · Auto Runtime specialist deliver · ASF resume if FREEZE"
     except (OSError, json.JSONDecodeError):
         return ""
 

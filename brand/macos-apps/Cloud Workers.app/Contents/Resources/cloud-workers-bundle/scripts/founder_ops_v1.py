@@ -339,7 +339,7 @@ def _dispatch(op_id: str, payload: dict[str, Any]) -> dict[str, Any]:
         )
     if op_id == "cloud_proceed_dry":
         return _hub_json(
-            "/api/cloud-drain/proceed/v1",
+            "/api/cloud-forge-run/proceed/v1",
             method="POST",
             body={
                 "dry_run": True,

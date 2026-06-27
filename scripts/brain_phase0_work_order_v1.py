@@ -267,7 +267,7 @@ def dispatch(*, factory_id: str, dry_run: bool = False, sign_only: bool = False)
         "execution_plane": "cloud_api_worker",
         "q_gath_04": "A",
         "cloud_stub": adapter.get("cloud_stub"),
-        "founder_note": "Loop auto · Brain work-order · cloud bay PASS · Hub glance only",
+        "founder_note": "Auto Runtime · Brain work-order · cloud bay PASS · Hub glance only",
     }
     _write(ACTIVE_PATH, active)
 

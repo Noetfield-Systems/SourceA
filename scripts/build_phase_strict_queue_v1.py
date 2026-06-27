@@ -276,7 +276,7 @@ def build_queue(*, write: bool = True, run_activate: bool = True) -> dict:
             "lazy pick_floor forward scan",
             "s4/s5/s6 founder lanes",
             "s2/s3 complete",
-            "Hub only (H1/H2) · Command DELETED · factory drain active",
+            "Hub only (H1/H2) · Command DELETED · Cloud Forge Run active",
             "s9 blocked: sa-0954 sa-0964 sa-0979 sa-0989",
         ],
         "queue": queue,

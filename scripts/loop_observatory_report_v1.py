@@ -76,16 +76,16 @@ def _freeze_state(*, fn: dict) -> dict:
             if loop_auto_on() and outbound_plan_progress().get("complete"):
                 action = execute_line()
             else:
-                action = "ASF: resume drain — max 1"
+                action = "ASF: Cloud Forge Run — max 1"
         except Exception:
-            action = "ASF: resume drain — max 1"
+            action = "ASF: Cloud Forge Run — max 1"
     elif outbound_override and bool(cfg.get("loop_auto_dispatch_enabled")):
         try:
             from execution_path_vocabulary_v1 import founder_daily_ops_line  # noqa: WPS433
 
             action = founder_daily_ops_line()
         except Exception:
-            action = "Loop auto ON · Brain work-order dispatch · Hub glance only"
+            action = "Auto Runtime ON · Brain work-order dispatch · Hub glance only"
     return {
         "kill_flag": kill,
         "mode": str(fn.get("mode") or ""),

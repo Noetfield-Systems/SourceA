@@ -20,7 +20,7 @@
   ],
   "north_star": "Agentic trust infrastructure → real market traction via cloud-first factories (Noetfield freemium → TrustField sandbox) · Mac = control panel only · OpenRouter/cloud workers execute · official form drives disk",
   "main_problem": {
-    "summary": "SourceA must run factories on cloud (Railway FBE + bays), not Mac muscle. Founder fills official form (M1 Canvas / Hub /form/) with batch submit wired to nerves. Agents kept shipping rules, language, and Mac tangents instead of executing this path.",
+    "summary": "SourceA must run factories on cloud (Railway FBE + bays), not Mac muscle. Founder fills official form on Chat Unify :13023/form/ (M1 Canvas sibling) with batch submit wired to nerves. Agents kept shipping rules, language, and Mac tangents instead of executing this path.",
     "forbidden_when_triggered": [
       "Generic status reports without next bounded WORK",
       "Language-rule or validator theater as the reply",
@@ -58,7 +58,7 @@
     {
       "id": "P3",
       "label": "Official form batch submit + nerve cascade",
-      "surface": "http://127.0.0.1:13020/form/",
+      "surface": "http://127.0.0.1:13023/form/",
       "command": "python3 scripts/form_official_wire_e2e_v1.py --json"
     },
     {

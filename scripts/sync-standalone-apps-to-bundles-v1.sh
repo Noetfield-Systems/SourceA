@@ -32,7 +32,21 @@ sync_app "Mac Health Guard" "mac-health-bundle" "mac-health-standalone" \
 sync_app "Chat Unify" "chat-unify-bundle" "chat-unify-standalone" \
   chat-unify-server.py chat_unify_merge.py chat_founder_language_v1.py chat_founder_reasoning_v1.py \
   chat_founder_loop_v1.py chat_ord_loop_v1.py chat_ord_atoms_v1.py chat_ord_claim_rules_v1.py \
-  chat_unify_kernel_v1.py chat_unify_truth_gate_v1.py chat_unify_live_http_verify_v1.py ai_unify_api_v1.py
+  chat_unify_kernel_v1.py chat_unify_truth_gate_v1.py chat_unify_live_http_verify_v1.py ai_unify_api_v1.py \
+  hub_form_submit_v1.py live_founder_decision_form_v1.py form_official_canvas_route_v1.py \
+  form_founder_supremacy_guard_v1.py governance_paths_v1.py api_station_v1.py founder_glance_cockpit_v1.py
+for base in \
+  "$ROOT/brand/macos-apps/Chat Unify.app/Contents/Resources/chat-unify-bundle" \
+  "$HOME/Desktop/Chat Unify.app/Contents/Resources/chat-unify-bundle" \
+  "$HOME/Applications/Chat Unify.app/Contents/Resources/chat-unify-bundle"; do
+  [[ -d "$base" ]] || continue
+  mkdir -p "$base/form" "$base/shared"
+  cp -R "$ROOT/agent-control-panel/form/." "$base/form/"
+  for f in official-links-bar.js official-links-bar.css sina-main-terminal.js sina-main-terminal.css; do
+    cp "$ROOT/agent-control-panel/shared/$f" "$base/shared/" 2>/dev/null || true
+  done
+  echo "synced Chat Unify form+shared → $base"
+done
 for base in \
   "$ROOT/brand/macos-apps/Chat Unify.app/Contents/Resources/chat-unify-bundle/data" \
   "$HOME/Desktop/Chat Unify.app/Contents/Resources/chat-unify-bundle/data" \

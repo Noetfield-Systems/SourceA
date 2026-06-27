@@ -48,8 +48,8 @@
     "execution_plane": "cloud_forge",
     "mac_build_forbidden": true,
     "mac_executes": false,
-    "next_100_ssot": "data/secondary-cloud-drain-next-100-v1.json",
-    "generator": "scripts/generate_secondary_cloud_drain_next_100_v1.py"
+    "next_100_ssot": "data/secondary-cloud-forge-run-next-100-v1.json",
+    "generator": "scripts/generate_secondary_cloud_forge_run_next_100_v1.py"
   },
   "validation_errors": [],
   "ok": true

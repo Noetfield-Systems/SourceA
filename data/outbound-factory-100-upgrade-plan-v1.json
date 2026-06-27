@@ -23,7 +23,7 @@
     "anti_theater_loop": "data/anti-theater-validator-loop-v1.json",
     "orchestrator": "scripts/plans_unified_upgrade_v1.py"
   },
-  "saved_at": "2026-06-22T13:13:42Z",
+  "saved_at": "2026-06-24T08:37:08Z",
   "upgrade_policy": {
     "phase_1": "exhaust free-tier tools first",
     "phase_2": "affordable AI tools \u2014 founder approval before wire",

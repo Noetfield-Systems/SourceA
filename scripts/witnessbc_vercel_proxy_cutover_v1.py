@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Agentic www cutover via Cloudflare Worker Custom Domain (auto DNS — no manual CNAME).
 
-Uses wrangler OAuth (witness.bc) + Workers Domains API to create www DNS and proxy to main Vercel.
+Uses wrangler OAuth (witness.bc) + Workers Domains API to create www DNS and proxy to the Pages commercial deploy.
 
 Receipt: ~/.sina/witnessbc-vercel-proxy-cutover-receipt-v1.json
 """
@@ -104,6 +104,7 @@ def _verify() -> dict:
     for key, url, needle in (
         ("www", f"https://{HOSTNAME}/", "Witness AI"),
         ("observe", f"https://{HOSTNAME}/observe/", "observe and narrate"),
+        ("contact", f"https://{HOSTNAME}/contact", "contact@witnessbc.com"),
     ):
         try:
             with urllib.request.urlopen(url, timeout=30) as resp:
@@ -137,7 +138,11 @@ def run(apply: bool) -> dict:
 
     row["domain"] = _attach_domain(token)
     row["verify"] = _verify()
-    row["ok"] = bool(row["domain"].get("ok")) and row["verify"].get("www") == "PASS"
+    row["ok"] = (
+        bool(row["domain"].get("ok"))
+        and row["verify"].get("www") == "PASS"
+        and row["verify"].get("contact") == "PASS"
+    )
     RECEIPT.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
     return row
 

@@ -16,11 +16,11 @@ from forge_mvp_lib_v1 import persist_work_order  # noqa: E402
 from forge_task_graph_emit_v01 import emit_for_pick  # noqa: E402
 from portfolio_competitor_pick_lib import enrich_pick, load_registry, phase_order, pick_backlog_plans, resolve_stack  # noqa: E402
 
-DRAIN_SSOT = ROOT / "data" / "secondary-cloud-drain-next-100-v1.json"
+DRAIN_SSOT = ROOT / "data" / "secondary-cloud-forge-run-next-100-v1.json"
 
 
 def _cloud_sec_id_for_registry_plan(registry_plan_id: str) -> str | None:
-    """Map sa-mkt-0001 → CLOUD-SEC-001 via secondary cloud drain SSOT."""
+    """Map sa-mkt-0001 → CLOUD-SEC-001 via secondary Cloud Forge Run SSOT."""
     if not DRAIN_SSOT.is_file():
         return None
     try:

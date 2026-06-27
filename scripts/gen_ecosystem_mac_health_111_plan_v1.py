@@ -64,7 +64,7 @@ def _e03_hub_glance() -> list[Spec]:
         ("Hub form_pick primary — human fork on FORM_OFFICIAL not chat A/B/C", "form route reachable · agent-submit blocked", "form-official-wire-receipt-v1.json"),
         ("Hub /health truth — hub_online vs hub_health_ok separate", "health JSON distinguishes service vs log bomb", "hub-health-truth-v1.json"),
         ("Hub factory_now read-only when FREEZE — no spawn CTA", "factory_now mode FREEZE visible", "factory-now-v1.json"),
-        ("Hub loop specialist tick button — POST cloud dispatch only", "tick receipt execution_plane=cloud_api_worker", "loop-specialist-tick-receipt-v1.json"),
+        ("Hub Auto Runtime specialist tick button — POST cloud dispatch only", "tick receipt execution_plane=cloud_api_worker", "loop-specialist-tick-receipt-v1.json"),
         ("Hub degrade Routing Panel link — optional not default home", "Hub hero links Mac Health before :8780", "hub-nav-priority-v1.json"),
         ("Hub session gate status — agent boot order visible", "session_gate row on worker-hub slice", "agent-session-gate-receipt-v1.json"),
         ("Hub PROGRAM_PROGRESS cloud migration row honest", "execution_plane not local_worker", "PROGRAM_PROGRESS.json"),
@@ -117,7 +117,7 @@ def _e05_cloud_heartbeat() -> list[Spec]:
             "P0" if i < 4 else "P1",
         ))
     rows.extend([
-        ("Loop specialist Cloudflare cron POST hub tick when auto enabled", "Worker cron hits hub_api dispatch=true", "loop-specialist-cloud-cron-v1.json", "data/loop-specialist-cloud-contract-v1.json", "cloud_api_worker", "P0"),
+        ("Auto Runtime specialist Cloudflare cron POST hub tick when auto enabled", "Worker cron hits hub_api dispatch=true", "loop-specialist-cloud-cron-v1.json", "data/loop-specialist-cloud-contract-v1.json", "cloud_api_worker", "P0"),
         ("Brain phase0 work-order dispatch — never local Worker INBOX muscle", "brain_phase0 receipt cloud_stub=false", "brain-phase0-dispatch-receipt-v1.json", "scripts/brain_phase0_work_order_v1.py", "cloud_api_worker", "P0"),
         ("FBE cloud proxy Hub GET /api/fbe/cloud-proxy/v1 configured=true", "Railway URL in secrets not Mac motor", "hub-cloud-proxy-check-v1.json", "scripts/hub_cloud_proxy_v1.py", "cloud_api_worker", "P0"),
     ])

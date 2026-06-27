@@ -14,7 +14,7 @@ from typing import Any
 SOURCE_A = Path(__file__).resolve().parents[1]
 SINA = Path.home() / ".sina"
 WIRE_RECEIPT = SINA / "portfolio-mail-integration-wire-v1.json"
-HUB_PORT = int(os.environ.get("SINA_COMMAND_PORT", "13020"))
+MAIL_PORT = int(os.environ.get("PORTFOLIO_MAIL_PORT", "13028"))
 CHAT_UNIFY_PORT = int(os.environ.get("CHAT_UNIFY_PORT", "13023"))
 N8N_INTEGRATION_PORT = int(os.environ.get("N8N_INTEGRATION_PORT", "13026"))
 
@@ -55,12 +55,12 @@ def _http_json(url: str, *, method: str = "GET", body: dict | None = None, timeo
 
 
 def _urls() -> dict[str, str]:
-    hub = f"http://127.0.0.1:{HUB_PORT}"
+    mail = f"http://127.0.0.1:{MAIL_PORT}"
     return {
-        "hub": hub,
-        "portfolio_mail": f"{hub}/mail-hub/",
-        "portfolio_mail_api": f"{hub}/api/portfolio-mail/v1",
-        "portfolio_mail_integration_api": f"{hub}/api/portfolio-mail/v1/integration",
+        "hub": mail,
+        "portfolio_mail": f"{mail}/mail-hub/",
+        "portfolio_mail_api": f"{mail}/api/portfolio-mail/v1",
+        "portfolio_mail_integration_api": f"{mail}/api/portfolio-mail/v1/integration",
         "chat_unify": f"http://127.0.0.1:{CHAT_UNIFY_PORT}",
         "chat_unify_api": f"http://127.0.0.1:{CHAT_UNIFY_PORT}/api/chat-unify",
         "n8n_integration": f"http://127.0.0.1:{N8N_INTEGRATION_PORT}",
@@ -71,15 +71,16 @@ def _urls() -> dict[str, str]:
 
 
 def ensure_hub_up() -> dict[str, Any]:
-    base = f"http://127.0.0.1:{HUB_PORT}"
+    """Legacy name — starts standalone portfolio mail server (:13028), not Worker Hub."""
+    base = f"http://127.0.0.1:{MAIL_PORT}"
     if _probe(f"{base}/health"):
         return {"ok": True, "already_up": True, "url": base}
-    subprocess.run(
-        ["bash", str(SOURCE_A / "scripts/serve-sina-command.sh")],
+    subprocess.Popen(
+        ["python3", str(SOURCE_A / "scripts/portfolio-mail-server.py")],
         cwd=str(SOURCE_A),
-        capture_output=True,
-        text=True,
-        timeout=90,
+        env={**os.environ, "PORTFOLIO_MAIL_PORT": str(MAIL_PORT), "SINA_SOURCE_A": str(SOURCE_A)},
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
     )
     import time
 
@@ -87,7 +88,7 @@ def ensure_hub_up() -> dict[str, Any]:
         if _probe(f"{base}/health"):
             return {"ok": True, "started": True, "url": base}
         time.sleep(0.25)
-    return {"ok": False, "error": "hub_start_timeout", "url": base}
+    return {"ok": False, "error": "mail_start_timeout", "url": base}
 
 
 def ensure_chat_unify_up() -> dict[str, Any]:

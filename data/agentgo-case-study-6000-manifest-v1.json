@@ -1,0 +1,73 @@
+{
+  "schema": "agentgo-case-study-6000-master-v1",
+  "version": "1.0.0",
+  "generated_at": "2026-06-24T14:32:56Z",
+  "generator": "scripts/generate_agentgo_case_study_6000_plans_v1.py",
+  "law_doc": "docs/AGENTGO_SA4_CASE_STUDY_6000_PLANS_LOCKED_v1.md",
+  "plan_count": 6000,
+  "angle_count": 3,
+  "grid": "3 angles \u00d7 2000 (10 themes \u00d7 10 workstreams \u00d7 20 slices)",
+  "angles": [
+    {
+      "code": "A",
+      "key": "cs-a-factory",
+      "label": "Factory scale",
+      "prefix": "ag-a"
+    },
+    {
+      "code": "B",
+      "key": "cs-b-dual",
+      "label": "Dual deploy",
+      "prefix": "ag-b"
+    },
+    {
+      "code": "C",
+      "key": "cs-c-wil",
+      "label": "Wil L3 demo",
+      "prefix": "ag-c"
+    }
+  ],
+  "repos": [
+    {
+      "angle": "cs-a-factory",
+      "label": "Angle A \u2014 Factory scale",
+      "count": 2000,
+      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/agentgo-case-study-6000/cs-a-factory"
+    },
+    {
+      "angle": "cs-b-dual",
+      "label": "Angle B \u2014 Dual deploy",
+      "count": 2000,
+      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/agentgo-case-study-6000/cs-b-dual"
+    },
+    {
+      "angle": "cs-c-wil",
+      "label": "Angle C \u2014 Wil L3 demo",
+      "count": 2000,
+      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/agentgo-case-study-6000/cs-c-wil"
+    }
+  ],
+  "phase_law": {
+    "NOW": "ranks 1\u201330 per angle \u2014 case study ship \u00b7 gates \u00b7 first proof",
+    "NEXT": "ranks 31\u2013120",
+    "LATER": "ranks 121\u2013400",
+    "MOONSHOT": "ranks 401\u20132000"
+  },
+  "validation_errors": [],
+  "ok": true,
+  "schema_version": "3.0.0",
+  "smart_tier": "pure-unique-smart-polished",
+  "upgraded_at": "2026-06-24T14:40:08Z",
+  "upgrade_script": "scripts/upgrade_agentgo_case_study_6000_smart_v2.py",
+  "polished_at": "2026-06-24T14:47:59Z",
+  "polish_script": "scripts/polish_agentgo_case_study_v3.py",
+  "inventory_receipt": "data/agentgo-sa4-inventory-receipt-v1.json",
+  "inventory_counts": {
+    "html_pages": 1259,
+    "research_topics": 592,
+    "compare_pages": 83,
+    "guide_topics": 120,
+    "tracker_landings": 23,
+    "blog_posts": 18
+  }
+}

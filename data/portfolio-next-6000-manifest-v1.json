@@ -1,0 +1,56 @@
+{
+  "schema": "portfolio-next-6000-master-v1",
+  "version": "1.0.0",
+  "generated_at": "2026-06-24T14:13:21Z",
+  "generator": "scripts/generate_portfolio_next_6000_plans_v1.py",
+  "law_doc": "docs/PORTFOLIO_NEXT_6000_PLANS_LOCKED_v1.md",
+  "plan_count": 6000,
+  "repo_count": 6,
+  "grid": "6 repos \u00d7 1000 (10 themes \u00d7 10 workstreams \u00d7 10 slices)",
+  "repos": [
+    {
+      "repo": "sourcea",
+      "label": "SourceA",
+      "count": 1000,
+      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/portfolio-next-6000/sourcea"
+    },
+    {
+      "repo": "witnessbc",
+      "label": "WitnessBC",
+      "count": 1000,
+      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/portfolio-next-6000/witnessbc"
+    },
+    {
+      "repo": "noetfield",
+      "label": "Noetfield",
+      "count": 1000,
+      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/portfolio-next-6000/noetfield"
+    },
+    {
+      "repo": "trustfield",
+      "label": "TrustField",
+      "count": 1000,
+      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/portfolio-next-6000/trustfield"
+    },
+    {
+      "repo": "virlux",
+      "label": "VIRLUX",
+      "count": 1000,
+      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/portfolio-next-6000/virlux"
+    },
+    {
+      "repo": "mono",
+      "label": "SinaaiMonoRepo",
+      "count": 1000,
+      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/portfolio-next-6000/mono"
+    }
+  ],
+  "phase_law": {
+    "NOW": "ranks 1\u201330 per repo \u2014 revenue \u00b7 proof \u00b7 ship",
+    "NEXT": "ranks 31\u2013120",
+    "LATER": "ranks 121\u2013400",
+    "MOONSHOT": "ranks 401\u20131000"
+  },
+  "validation_errors": [],
+  "ok": true
+}

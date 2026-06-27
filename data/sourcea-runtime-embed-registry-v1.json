@@ -1,0 +1,46 @@
+{
+  "schema": "sourcea-runtime-embed-registry-v1",
+  "saved_at": "2026-06-24T22:00:00Z",
+  "authority": "docs/SOURCEA_MICROSOFT_AGENT_FRAMEWORK_MAF_LOCKED_v1.md",
+  "primary_spine": {
+    "orchestrator": "temporal",
+    "agent_graph": "langgraph",
+    "governance": "sourcea-validators-receipt"
+  },
+  "embeds": [
+    {
+      "id": "langgraph-v1",
+      "layer": "L4",
+      "role": "primary",
+      "status": "spike",
+      "path": "apps/factory-runtime-spike/factory_runtime_spike/langgraph_gate_v1.py",
+      "dry_run": "dry_run_v1.py --fixture pureflow"
+    },
+    {
+      "id": "maf-sim-v1",
+      "layer": "L4",
+      "role": "tertiary",
+      "status": "spike",
+      "framework": "microsoft-agent-framework",
+      "framework_ga": "2026-04-03",
+      "path": "apps/factory-runtime-spike/factory_runtime_spike/maf_workflow_v1.py",
+      "pattern_doc": "docs/SOURCEA_MAF_FACTORY_JOB_PATTERN_v1.md",
+      "maf_pattern": "factory-job-fanout-gate-v1",
+      "dry_run": "dry_run_v1.py --fixture pureflow --embed maf",
+      "sdk_required": false,
+      "notes": "Deterministic sim — swap for agent-framework pip in cloud activity when Copilot-governance job ships"
+    },
+    {
+      "id": "crewai-v1",
+      "layer": "L4",
+      "role": "secondary",
+      "status": "planned",
+      "gate": "after 2+ client jobs same vertical"
+    }
+  ],
+  "forbidden": [
+    "maf_as_outer_orchestrator",
+    "validators_inside_maf_only",
+    "maf_pitch_to_sme_buyers"
+  ]
+}

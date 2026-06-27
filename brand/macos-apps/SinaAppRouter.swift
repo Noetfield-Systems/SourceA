@@ -21,6 +21,7 @@ enum SinaAppId: String {
         if url.port == 13027 { return .cloud }
         if url.port == 8782 { return .agRouting }
         if url.port == 8781 || path.contains("mac-law") { return .macLaw }
+        if url.port == 13028 { return .mail }
         if path.contains("/mail-hub") { return .mail }
         if path.contains("/cloud-workers") { return .cloud }
         if url.port == 13020 { return .hub }
@@ -77,6 +78,12 @@ final class SinaAppRouter: NSObject, WKScriptMessageHandler, WKNavigationDelegat
     }
 
     func openApp(_ appId: SinaAppId) {
+        if appId == homeApp {
+            if let window = webView?.window {
+                SinaStandaloneShell.showWindow(window)
+            }
+            return
+        }
         let home = FileManager.default.homeDirectoryForCurrentUser
         switch appId {
         case .mail:
@@ -85,7 +92,7 @@ final class SinaAppRouter: NSObject, WKScriptMessageHandler, WKNavigationDelegat
                 NSWorkspace.shared.open(app)
                 return
             }
-            NSWorkspace.shared.open(URL(string: "http://127.0.0.1:13020/mail-hub/")!)
+            NSWorkspace.shared.open(URL(string: "http://127.0.0.1:13028/mail-hub/")!)
         case .chat:
             let app = home.appendingPathComponent("Desktop/Chat Unify.app")
             if FileManager.default.fileExists(atPath: app.path) {
@@ -101,12 +108,12 @@ final class SinaAppRouter: NSObject, WKScriptMessageHandler, WKNavigationDelegat
             }
             NSWorkspace.shared.open(URL(string: "http://127.0.0.1:13026/")!)
         case .hub:
-            let app = home.appendingPathComponent("Desktop/Worker Hub.app")
+            let app = home.appendingPathComponent("Desktop/Cloud Workers.app")
             if FileManager.default.fileExists(atPath: app.path) {
                 NSWorkspace.shared.open(app)
                 return
             }
-            NSWorkspace.shared.open(URL(string: "http://127.0.0.1:13020/")!)
+            NSWorkspace.shared.open(URL(string: "http://127.0.0.1:13027/")!)
         case .cloud:
             let app = home.appendingPathComponent("Desktop/Cloud Workers.app")
             if FileManager.default.fileExists(atPath: app.path) {

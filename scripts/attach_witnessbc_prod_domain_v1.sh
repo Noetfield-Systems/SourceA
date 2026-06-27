@@ -22,7 +22,7 @@ if [[ -f "${TOKEN_FILE}" ]]; then
 fi
 
 echo "=== Attach ${DOMAIN} → ${PROJECT} (${SCOPE}) ==="
-"${VC[@]}" domains add "${DOMAIN}" --scope="${SCOPE}" --project="${PROJECT}" 2>&1 || true
+"${VC[@]}" domains add "${DOMAIN}" "${PROJECT}" --scope="${SCOPE}" --force 2>&1 || true
 echo ""
 echo "Verify:"
 curl -sL "https://${DOMAIN}/" | rg -o '<title>[^<]+' | head -1 || true

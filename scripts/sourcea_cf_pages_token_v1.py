@@ -73,12 +73,13 @@ def load_sourcea_cf_config() -> dict[str, Any]:
         }
 
     zone = str(row.get("zone_name") or DEFAULT_ZONE).strip()
-    if zone and zone not in ("sourcea.com", "www.sourcea.com"):
+    allowed_zones = {"sourcea.com", "www.sourcea.com", "sourcea.app", "www.sourcea.app"}
+    if zone and zone not in allowed_zones:
         return {
             "ok": False,
             "error": "wrong_zone",
             "zone_name": zone,
-            "founder_line": f"Gate K blocked — token file zone must be sourcea.com (got {zone})",
+            "founder_line": f"Gate K blocked — token file zone must be sourcea.com or sourcea.app (got {zone})",
         }
 
     return {

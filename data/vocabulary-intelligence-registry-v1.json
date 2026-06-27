@@ -1,0 +1,176 @@
+{
+  "schema": "vocabulary-intelligence-registry-v1",
+  "version": "1.2.0",
+  "saved_at": "2026-06-24T21:30:00Z",
+  "unified_index": "data/sourcea-vocabulary-unified-index-v1.json",
+  "unified_law": "brain-os/law/enforcement/SOURCEA_VOCABULARY_UNIFIED_LOCKED_v1.md",
+  "input_modes": [
+    {"id": "repo", "label": "Repo profiles", "desc": "Scan SourceA tree · founder disk · websites"},
+    {"id": "url", "label": "Live URL", "desc": "Fetch page over HTTPS · scan visible copy"},
+    {"id": "paste", "label": "Paste", "desc": "Paste any text or HTML snippet"},
+    {"id": "file", "label": "Local file", "desc": "Single file under SourceA · ~/.sina · Desktop"}
+  ],
+  "one_law": "Defer to unified index. Scan → classify tier + subject → suggest display word + reason → receipt. Governance poison ≠ motor display.",
+  "blueprint": "docs/VOCABULARY_INTELLIGENCE_MACHINE_BLUEPRINT_v1.md",
+  "scanner": "scripts/vocabulary_intelligence_scan_v1.py",
+  "chat_unify_machine": "scripts/chat_unify_vocabulary_intelligence_v1.py",
+  "receipt": "~/.sina/vocabulary-intelligence-scan-receipt-v1.json",
+  "chat_unify_receipt": "~/.sina/chat-unify-vocabulary-intelligence-v1.json",
+  "machine_stages": [
+    {"id": "goal", "order": 1, "label": "Goal", "badge": "CAMPAIGN"},
+    {"id": "scan", "order": 2, "label": "Scan", "badge": "DISK"},
+    {"id": "classify", "order": 3, "label": "Classify", "badge": "TIER"},
+    {"id": "suggest", "order": 4, "label": "Suggest", "badge": "WORD"},
+    {"id": "review", "order": 5, "label": "Review", "badge": "QUEUE"},
+    {"id": "emit", "order": 6, "label": "Emit", "badge": "RECEIPT"}
+  ],
+  "tiers": {
+    "1": {
+      "id": 1,
+      "name": "founder_facing",
+      "rule": "UI · landing · agent close lines · hub copy — change display text"
+    },
+    "2": {
+      "id": 2,
+      "name": "ops_display",
+      "rule": "one_law strings · boot labels · CLI help · receipt show_this — change copy not keys"
+    },
+    "3": {
+      "id": 3,
+      "name": "machine_frozen",
+      "rule": "API paths · env vars · JSON keys · filenames · symbols — do not rename without migration campaign"
+    }
+  },
+  "subjects": {
+    "motor_cloud": {
+      "label": "Cloud factory motor",
+      "canonical_display": [
+        "Cloud Forge Run",
+        "Auto Runtime",
+        "Forge Run",
+        "Auto Runtime ON",
+        "Auto Runtime specialist",
+        "Cloud Forge Run Proceed"
+      ],
+      "display_map": {
+        "drain": "Cloud Forge Run",
+        "Cloud Forge Run": "Cloud Forge Run",
+        "Cloud Forge Run": "Cloud Forge Run",
+        "Cloud Forge Run": "Cloud Forge Run",
+        "Cloud Forge Run": "Auto Runtime",
+        "Auto Runtime": "Auto Runtime",
+        "Auto Runtime": "Auto Runtime ON",
+        "Auto Runtime specialist": "Auto Runtime specialist",
+        "Cloud Forge Run": "resume Cloud Forge Run",
+        "Cloud Forge Run": "Cloud Forge Run",
+        "Cloud Forge Run": "Cloud Forge Run Proceed"
+      },
+      "retired_patterns": [
+        "Cloud Forge Run",
+        "Cloud Forge Run",
+        "Cloud Forge Run",
+        "Cloud Forge Run",
+        "Auto Runtime",
+        "Auto Runtime",
+        "Cloud Forge Run",
+        "Cloud Forge Run",
+        "Cloud Forge Run",
+        "Auto Runtime specialist"
+      ]
+    },
+    "product_loop": {
+      "label": "Commercial product loop (SKU)",
+      "policy": "keep",
+      "keep_patterns": [
+        "scoped loop",
+        "loop build",
+        "Agent Loop Build",
+        "/sourcea/loops/",
+        "live scoped loop",
+        "outreach loop"
+      ]
+    },
+    "chat_unify_loop": {
+      "label": "Chat Unify verify/ORD machines",
+      "policy": "keep",
+      "keep_patterns": [
+        "founder loop",
+        "ord loop",
+        "panel-founder-loop",
+        "verify pipeline",
+        "Run verify pipeline"
+      ]
+    },
+    "governance_poison": {
+      "label": "Governance poison / anti-poison",
+      "policy": "governance_only",
+      "note": "Never use as motor display name"
+    },
+    "forge_product": {
+      "label": "Forge product disambiguation",
+      "ssot": "data/sourcea-forge-vocabulary-disambiguation-v1.json"
+    }
+  },
+  "scan_profiles": {
+    "sourcea_repo": {
+      "roots": ["."],
+      "root_resolve": "repo",
+      "exclude_dir_globs": [
+        "**/node_modules/**",
+        "**/.git/**",
+        "**/receipts/**",
+        "**/__pycache__/**",
+        "**/.venv/**",
+        "**/dist/**",
+        "**/build/**",
+        "**/architecture_audit/**"
+      ],
+      "extensions": [".py", ".js", ".html", ".json", ".md", ".mdc", ".sh", ".tsx", ".ts", ".css"]
+    },
+    "founder_disk": {
+      "roots": ["~/.sina"],
+      "exclude_dir_globs": ["**/e2e-logs/**", "**/chat-unify-kernels/**"],
+      "extensions": [".json", ".md", ".jsonl"]
+    },
+    "websites": {
+      "roots": ["SourceA-landing", "sites/SourceA-landing"],
+      "root_resolve": "repo",
+      "extensions": [".html", ".js", ".json", ".css"]
+    }
+  },
+  "tier3_path_globs": [
+    "**/secondary-cloud-forge-run-batch-*",
+    "**/cloud-forge-run-competitor-*",
+    "**/api/cloud-forge-run/**",
+    "**/cloud/workers/cloud-forge-run-*",
+    "**/node_modules/**",
+    "**/.git/**"
+  ],
+  "tier3_line_patterns": [
+    "cloud_forge_run_head",
+    "cloud_forge_run_last",
+    "/api/cloud-forge-run/",
+    "api/cloud-forge-run",
+    "cloud-forge-run-tick",
+    "cloud_forge_run_queue",
+    "CLOUD_DRAIN_",
+    "hub-cloud-forge-run-proceed-receipt",
+    "def cloud_forge_run",
+    "import cloud_forge_run"
+  ],
+  "tier2_path_globs": [
+    "**/boot.json",
+    "**/data/*-v1.json",
+    "**/data/hub-*.json"
+  ],
+  "campaigns": {
+    "motor-rename-v1": {
+      "goal": "Founder sees Cloud Forge Run + Auto Runtime for cloud motor — poison stays governance-only",
+      "subjects": ["motor_cloud"],
+      "exclude_subjects": ["product_loop", "chat_unify_loop", "governance_poison"],
+      "apply_tiers": [1, 2],
+      "motor_ssot": "data/cloud-motor-founder-vocabulary-v1.json",
+      "glossary": "data/founder-reply-glossary-v1.json"
+    }
+  }
+}

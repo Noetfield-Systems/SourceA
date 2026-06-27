@@ -10,7 +10,7 @@
     "version": "v2",
     "founder_role": "check_and_optimize_only",
     "weekly_lever": "money",
-    "daily_path": "Loop specialist auto-tick · Worker executes one sa/turn when pending",
+    "daily_path": "Auto Runtime specialist auto-tick · Worker executes one sa/turn when pending",
     "checkcart": "~/.sina/better-loop-checkcart-v1.json",
     "pulse_receipt": "~/.sina/better-loop-pulse-receipt-v1.json",
     "pulse_script": "scripts/better_loop_pulse_v1.py",
@@ -28,7 +28,7 @@
       "Worker Hub",
       "Brain",
       "session gate",
-      "Loop specialist auto",
+      "Auto Runtime specialist auto",
       "phone PWA",
       "web API",
       "Linux CI"
@@ -38,7 +38,7 @@
       "Worker Hub",
       "Brain",
       "session gate",
-      "Loop specialist auto"
+      "Auto Runtime specialist auto"
     ],
     "cloudflare_edge": [
       "noetfield-www-proxy",

@@ -21,8 +21,8 @@ def _fetch_cloud_workers_live(*, fast: bool = False) -> dict:
     if fast and phase_path.is_file():
         try:
             phase = json.loads(phase_path.read_text(encoding="utf-8"))
-            head = phase.get("cloud_drain_head") or phase.get("queue_head")
-            last = phase.get("cloud_drain_last_completed") or phase.get("last_completed")
+            head = phase.get("cloud_forge_run_head") or phase.get("queue_head")
+            last = phase.get("cloud_forge_run_last_completed") or phase.get("last_completed")
             if head:
                 return {
                     "ok": True,
@@ -33,7 +33,7 @@ def _fetch_cloud_workers_live(*, fast: bool = False) -> dict:
                     "pipe": "LIVE",
                     "pending_count": None,
                     "event_count": None,
-                    "auto_proceed_enabled": (Path.home() / ".sina" / "cloud-drain-auto-proceed-v1.flag").is_file(),
+                    "auto_proceed_enabled": (Path.home() / ".sina" / "cloud-forge-run-auto-proceed-v1.flag").is_file(),
                     "hub_line": f"cloud head {head} · last {last or '—'} · disk sync",
                 }
         except (OSError, json.JSONDecodeError):
@@ -114,18 +114,18 @@ def _enrich_intelligence(intel: dict) -> dict:
 
 
 def _automation_24_7_status() -> dict:
-    """24/7 cloud drain motors — CF cron, n8n backup, Mac auto-tick."""
+    """24/7 Cloud Forge Run motors — CF cron, n8n backup, Mac auto-tick."""
     sina = Path.home() / ".sina"
     tick = {}
     hub = {}
     try:
-        if (sina / "cloud-drain-auto-tick-receipt-v1.json").is_file():
-            tick = json.loads((sina / "cloud-drain-auto-tick-receipt-v1.json").read_text(encoding="utf-8"))
+        if (sina / "cloud-auto-runtime-tick-receipt-v1.json").is_file():
+            tick = json.loads((sina / "cloud-auto-runtime-tick-receipt-v1.json").read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         pass
     try:
-        if (sina / "hub-cloud-drain-proceed-receipt-v1.json").is_file():
-            hub = json.loads((sina / "hub-cloud-drain-proceed-receipt-v1.json").read_text(encoding="utf-8"))
+        if (sina / "hub-cloud-forge-run-proceed-receipt-v1.json").is_file():
+            hub = json.loads((sina / "hub-cloud-forge-run-proceed-receipt-v1.json").read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         pass
     try:
@@ -147,7 +147,7 @@ def _automation_24_7_status() -> dict:
     if decision == "rate_limited":
         blocker = (tick.get("for_founder") or {}).get("show_this") or "Mac auto-tick rate limited (15m) — CF cron still runs on Railway"
     elif decision == "observe_only":
-        blocker = "Autopilot OFF — arm ~/.sina/cloud-drain-auto-proceed-v1.flag"
+        blocker = "Autopilot OFF — arm ~/.sina/cloud-forge-run-auto-proceed-v1.flag"
     elif hub.get("ok") is False:
         blocker = f"Last proceed FAIL · plan {hub.get('plan_id') or '—'}"
     armed = bool(ar.get("auto_proceed_enabled"))
@@ -169,12 +169,12 @@ def _automation_24_7_status() -> dict:
             {
                 "id": "cf_cron",
                 "label": "Cloudflare Worker (primary 24/7)",
-                "url": "sourcea-cloud-drain-tick-v1.witness-bc.workers.dev",
+                "url": "sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev",
                 "schedule": "*/15 * * * *",
             },
             {
                 "id": "n8n_cron",
-                "label": "n8n wf-cloud-drain-auto-v1 (Mac awake backup)",
+                "label": "n8n wf-cloud-auto-runtime-v1 (Mac awake backup)",
                 "active": n8n_wf_active,
                 "schedule": "*/15 * * * *",
             },
@@ -372,7 +372,7 @@ def build_report() -> dict:
         or (
             f"n8n {'running' if n8n_on else 'stopped'} · runtime {'on' if rt_on else 'optional'} · hub up"
             if n8n_on
-            else "n8n stopped — auto-start on refresh or bash scripts/n8n_wire_cloud_drain_v1.sh"
+            else "n8n stopped — auto-start on refresh or bash scripts/n8n_wire_cloud_forge_run_v1.sh"
         )
     )
     report["runtime_optional"] = True
@@ -459,7 +459,7 @@ def handle_action(body: dict | None = None) -> dict:
         return run_terminal_session(app_id="n8n_integration", tier=tier, include_chain=bool(body.get("chain", True)))
 
     if action == "force_auto_tick":
-        from cloud_drain_auto_runtime_v1 import run_auto_tick  # noqa: WPS433
+        from cloud_auto_runtime_v1 import run_auto_tick  # noqa: WPS433
 
         result = run_auto_tick(force=True, llm_provider=str(body.get("llm_provider") or "openrouter"))
         result["automation_24_7"] = _automation_24_7_status()

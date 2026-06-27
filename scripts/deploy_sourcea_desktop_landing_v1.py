@@ -14,8 +14,8 @@ SINA = Path.home() / ".sina"
 AGENTGO = Path.home() / "Desktop/SA4"
 AGENTRUN = Path.home() / "Desktop/agentrun-app"
 
-SOURCEA_EMAIL = "hello@sourcea.com"
-SOURCEA_URL = "https://sourcea.com"
+SOURCEA_EMAIL = "hello@sourcea.app"
+SOURCEA_URL = "https://sourcea.app"
 GITHUB_BOOT = "https://github.com/sourcea-io/sourcea-boot"
 
 

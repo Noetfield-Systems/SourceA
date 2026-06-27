@@ -7,6 +7,7 @@ import os
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any
 
 REQUIRED_FIELDS = (
@@ -31,7 +32,8 @@ def _supabase_cfg() -> dict[str, str]:
         or os.environ.get("SUPABASE_SERVICE_KEY", "").strip()
     )
     table = os.environ.get("TRUTH_CYCLE_RECEIPTS_TABLE", "cycle_receipts").strip()
-    return {"url": url, "key": key, "table": table or "cycle_receipts"}
+    fallback = os.environ.get("TRUTH_CYCLE_RECEIPTS_FALLBACK_TABLE", "telemetry_logs").strip()
+    return {"url": url, "key": key, "table": table or "cycle_receipts", "fallback_table": fallback or "telemetry_logs"}
 
 
 def _parse_ts(raw: str) -> datetime | None:
@@ -58,6 +60,120 @@ def _contract_ok(row: dict[str, Any]) -> bool:
     if _parse_ts(str(row.get("finished_at") or "")) is None:
         return False
     return True
+
+
+ROOT = Path(__file__).resolve().parents[1]
+MIGRATION = ROOT / "infra/supabase/portfolio-spine/migrations/001_truth_layer_cycle_receipts_v1.sql"
+
+
+def _apply_truth_migration_if_missing() -> dict[str, Any]:
+    if not MIGRATION.is_file():
+        return {"ok": False, "error": "migration_missing"}
+    try:
+        from cloud_forge_run_supabase_v1 import (  # noqa: WPS433
+            _apply_via_management_api,
+            _apply_via_psycopg,
+            ensure_env,
+            table_probe,
+        )
+
+        ensure_env()
+        cfg = _supabase_cfg()
+        probe = table_probe(cfg={**cfg, "table": cfg["table"]})
+        if probe.get("exists"):
+            return {"ok": True, "skipped": True, "reason": "table_exists"}
+        sql = MIGRATION.read_text(encoding="utf-8")
+        for fn in (_apply_via_management_api, _apply_via_psycopg):
+            result = fn(sql)
+            if result.get("ok"):
+                return result
+        return {"ok": False, "error": "truth_migration_not_applied", "migration_path": str(MIGRATION)}
+    except Exception as exc:
+        return {"ok": False, "error": str(exc)[:200]}
+
+
+def _post_json_row(*, cfg: dict[str, str], table: str, row: dict[str, Any]) -> dict[str, Any]:
+    url = f"{cfg['url'].rstrip('/')}/rest/v1/{table}"
+    req = urllib.request.Request(
+        url,
+        data=json.dumps(row).encode("utf-8"),
+        headers={
+            "Content-Type": "application/json",
+            "apikey": cfg["key"],
+            "Authorization": f"Bearer {cfg['key']}",
+            "Prefer": "return=representation",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=25) as resp:
+        body = resp.read().decode("utf-8", errors="replace")
+        inserted = json.loads(body) if body.strip().startswith("[") else json.loads(body or "{}")
+        if isinstance(inserted, list) and inserted:
+            inserted = inserted[0]
+        receipt_id = inserted.get("id") if isinstance(inserted, dict) else None
+        return {"ok": 200 <= resp.status < 300 and bool(receipt_id), "receipt_row_id": receipt_id, "status": resp.status}
+
+
+def _write_telemetry_fallback(
+    row: dict[str, Any],
+    *,
+    cfg: dict[str, str],
+    verdict: str,
+    contract_complete: bool,
+    cycle_id: str,
+    execution_id: str,
+) -> dict[str, Any]:
+    """Portfolio-spine fallback when cycle_receipts migration not yet applied (DDL needs DB password)."""
+    fb = cfg.get("fallback_table") or "telemetry_logs"
+    payload_row = {
+        "content": f"truth cycle {row.get('cycle_id')}",
+        "memory_type": "truth_cycle_receipt",
+        "metadata": {
+            **row,
+            "schema": "truth-layer-receipt-v1",
+            "fallback_from": cfg["table"],
+            "verdict": verdict,
+        },
+    }
+    try:
+        posted = _post_json_row(cfg=cfg, table=fb, row=payload_row)
+        receipt_id = posted.get("receipt_row_id")
+        return {
+            "ok": bool(posted.get("ok")),
+            "schema": "truth-layer-receipt-write-v1",
+            "at": _now(),
+            "verdict": verdict,
+            "contract_complete": contract_complete,
+            "receipt_row_id": receipt_id,
+            "execution_id": execution_id,
+            "cycle_id": cycle_id,
+            "supabase_status": posted.get("status"),
+            "storage_table": fb,
+            "fallback": True,
+        }
+    except urllib.error.HTTPError as exc:
+        return {
+            "ok": False,
+            "schema": "truth-layer-receipt-write-v1",
+            "at": _now(),
+            "verdict": "FAIL",
+            "contract_complete": contract_complete,
+            "error": exc.read().decode("utf-8", errors="replace")[:300],
+            "supabase_status": exc.code,
+            "storage_table": fb,
+            "fallback": True,
+        }
+    except Exception as exc:
+        return {
+            "ok": False,
+            "schema": "truth-layer-receipt-write-v1",
+            "at": _now(),
+            "verdict": "FAIL",
+            "contract_complete": contract_complete,
+            "error": str(exc)[:200],
+            "storage_table": fb,
+            "fallback": True,
+        }
 
 
 def write_cycle_receipt(
@@ -131,13 +247,36 @@ def write_cycle_receipt(
                 "supabase_status": resp.status,
             }
     except urllib.error.HTTPError as exc:
+        err = exc.read().decode("utf-8", errors="replace")
+        if exc.code in (404, 400) and ("42P01" in err or "does not exist" in err.lower() or "PGRST205" in err):
+            applied = _apply_truth_migration_if_missing()
+            if applied.get("ok") and applied.get("applied"):
+                return write_cycle_receipt(
+                    cycle_id=cycle_id,
+                    execution_id=execution_id,
+                    queue_head_before=queue_head_before,
+                    queue_head_after=queue_head_after,
+                    started_at=started_at,
+                    finished_at=finished_at,
+                    duration_ms=duration_ms,
+                    trigger_source=trigger_source,
+                    job_ok=job_ok,
+                )
+            return _write_telemetry_fallback(
+                row,
+                cfg=cfg,
+                verdict=verdict,
+                contract_complete=contract_complete,
+                cycle_id=cycle_id,
+                execution_id=execution_id,
+            )
         return {
             "ok": False,
             "schema": "truth-layer-receipt-write-v1",
             "at": _now(),
             "verdict": "FAIL",
             "contract_complete": contract_complete,
-            "error": exc.read().decode("utf-8", errors="replace")[:300],
+            "error": err[:300],
             "supabase_status": exc.code,
         }
     except Exception as exc:
@@ -169,9 +308,9 @@ def finalize_proceed_truth(
     if queue_head_after is None:
         queue_head_after = queue_head_before
         try:
-            from fbe.lib.cloud_drain_queue_v1 import read_head  # noqa: WPS433
+            from fbe.lib.cloud_forge_run_queue_v1 import read_head  # noqa: WPS433
 
-            queue_head_after = str(read_head().get("cloud_drain_head") or queue_head_before)
+            queue_head_after = str(read_head().get("cloud_forge_run_head") or queue_head_before)
         except Exception:
             pass
 

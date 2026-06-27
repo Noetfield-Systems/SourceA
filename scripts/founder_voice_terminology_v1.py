@@ -39,7 +39,7 @@ def canvas_terminology(*, max_rows: int = 16) -> list[dict[str, str]]:
     add("EXTERNAL_CRITIC", "ChatGPT/advisor paste — report only, never build order")
     add("FORM_OFFICIAL", "this Canvas — Pending confirmations · Submit when done")
     add("Canva", "Cursor Canvas")
-    add("616 / factory drain hero", "background honest counter — not pitch headline")
+    add("616 / Cloud Forge Run hero", "background honest counter — not pitch headline")
 
     linkedin = _load_yaml(FL / "linkedin-voice.yaml")
     for p in linkedin.get("linkedin_phrases") or []:

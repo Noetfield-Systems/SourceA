@@ -28,7 +28,7 @@ SSOT = ROOT / "data/sourcea-next-task-trigger-v1.json"
 RECEIPT = SINA / "next-task-trigger-receipt-v1.json"
 ALWAYS_FLAG = SINA / "task-plan-validation-always-v1.flag"
 TRIGGER_FLAG = SINA / "next-task-trigger-active-v1.flag"
-DRAIN_SSOT = ROOT / "data/secondary-cloud-drain-next-100-v1.json"
+DRAIN_SSOT = ROOT / "data/secondary-cloud-forge-run-next-100-v1.json"
 BRAIN_PLAN = ROOT / "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json"
 
 
@@ -73,7 +73,7 @@ def detect_task_plan_topic(text: str) -> bool:
         return True
     if re.search(r"\bsa-\d{4}\b", text, re.I):
         return True
-    if re.search(r"\b(next task|work order|backlog|roadmap|upgrade plan|cloud drain|real-world output)\b", t):
+    if re.search(r"\b(next task|work order|backlog|roadmap|upgrade plan|Cloud Forge Run|real-world output)\b", t):
         return True
     if re.search(r"\b(task|plan)\b", t) and re.search(r"\b(execute|proceed|finish|useful|noise|blocked|priority)\b", t):
         return True
@@ -113,8 +113,8 @@ def _next_brain_upgrade(plan: dict) -> dict | None:
     return None
 
 
-def _next_cloud_drain(obs: dict, drain: dict) -> dict | None:
-    head = str(obs.get("cloud_drain_head") or "CLOUD-SEC-001")
+def _next_cloud_forge_run(obs: dict, drain: dict) -> dict | None:
+    head = str(obs.get("cloud_forge_run_head") or "CLOUD-SEC-001")
     plans = drain.get("plans") or []
     ids = [str(p.get("id") or "") for p in plans if str(p.get("id", "")).startswith("CLOUD-SEC-")]
     if head in ids:
@@ -167,7 +167,7 @@ def resolve_task_context(
     if prefer_disk_next or (not brain_row and not cloud_row):
         brain_row = brain_row or _next_brain_upgrade(plan)
         obs = _read(SINA / "phase-observed-v1.json")
-        cloud_row = cloud_row or _next_cloud_drain(obs, drain)
+        cloud_row = cloud_row or _next_cloud_forge_run(obs, drain)
         if source == "disk_next" and (brain_row or cloud_row):
             source = "disk_next"
 
@@ -243,8 +243,8 @@ def _disk_snapshot() -> dict:
         blocked.append("factory_FREEZE")
     return {
         "era": obs.get("era"),
-        "cloud_drain_head": obs.get("cloud_drain_head"),
-        "cloud_drain_last_completed": obs.get("cloud_drain_last_completed"),
+        "cloud_forge_run_head": obs.get("cloud_forge_run_head"),
+        "cloud_forge_run_last_completed": obs.get("cloud_forge_run_last_completed"),
         "desired_start_plan": active.get("start_plan"),
         "factory_now_line": surfaces.get("factory_now_line") or "",
         "factory_mode": fn.get("mode"),
@@ -259,7 +259,7 @@ def build_pipeline(ssot: dict, snap: dict, ctx: dict[str, Any]) -> dict[str, Any
     brain = ctx.get("brain") or {}
     cloud = ctx.get("cloud") or {}
     brain_id = str(brain.get("id") or "")
-    cloud_id = str(cloud.get("id") or snap.get("cloud_drain_head") or "")
+    cloud_id = str(cloud.get("id") or snap.get("cloud_forge_run_head") or "")
     registry = str(cloud.get("maps_registry") or (ctx.get("sa_plan") or {}).get("id") or "")
     action = str(ctx.get("action") or "")
     title = str(ctx.get("title") or "")
@@ -358,7 +358,7 @@ def _recommendation(registry: str, brain_id: str, verdict: str, proceed: str) ->
         return f"Do not execute {brain_id or 'meta row'} alone — pair with product/cloud plan or skip"
     if registry and proceed in ("yes", "ask_founder"):
         return (
-            "Hub Proceed only — POST /api/cloud-drain/proceed/v1 or Worker Hub · Proceed next cloud task · "
+            "Hub Proceed only — POST /api/cloud-forge-run/proceed/v1 or Worker Hub · Proceed next cloud task · "
             f"cloud runs {registry} · OpenRouter/Gemini on Railway · no Mac forge dispatch"
         )
     if verdict == "blocked":
@@ -371,7 +371,7 @@ def _summary_line(pipeline: dict, snap: dict) -> str:
     return (
         f"task-plan-validate · {ids.get('resolution_source')} · "
         f"output={pipeline.get('output_type')} · verdict={pipeline.get('usefulness_verdict')} · "
-        f"proceed={pipeline.get('proceed')} · head={snap.get('cloud_drain_head')}"
+        f"proceed={pipeline.get('proceed')} · head={snap.get('cloud_forge_run_head')}"
     )
 
 

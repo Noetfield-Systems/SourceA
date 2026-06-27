@@ -1,0 +1,44 @@
+{
+  "schema": "asset-b-policy-pack-registry-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-23T12:15:00Z",
+  "law": "docs/SOURCEA_ASSET_B_POLICY_PACK_LOCKED_v1.md",
+  "sow_mapping": "docs/asset-b-policy-pack/SOW_MAPPING_LOCKED_v1.md",
+  "demo_script": "scripts/demo-asset-b-policy-v1.sh",
+  "commit_wire": "scripts/commit_intent_v1.py --asset-b-policy",
+  "gate_script": "scripts/asset_b_policy_gate_v1.py",
+  "default_policy": "outreach",
+  "policies": {
+    "outreach": {
+      "policy_id": "outreach_loop_v1",
+      "path": "docs/asset-b-policy-pack/outreach_loop_v1.json",
+      "demo_intents": {
+        "block": "demo/asset-b/outreach-block.json",
+        "allow": "demo/asset-b/outreach-allow.json"
+      },
+      "sku": "SKU-DFY-001",
+      "scope": "outreach"
+    },
+    "ops": {
+      "policy_id": "ops_spend_v1",
+      "path": "docs/asset-b-policy-pack/ops_spend_v1.json",
+      "demo_intents": {
+        "block": "demo/asset-b/ops-block.json",
+        "allow": "demo/asset-b/ops-allow.json"
+      },
+      "sku": "SKU-DFY-001",
+      "scope": "ops"
+    },
+    "creative": {
+      "policy_id": "creative_publish_v1",
+      "path": "docs/asset-b-policy-pack/creative_publish_v1.json",
+      "demo_intents": {
+        "block": "demo/asset-b/creative-block.json",
+        "allow": "demo/asset-b/creative-allow.json"
+      },
+      "sku": "SKU-DFY-001",
+      "scope": "client agent"
+    }
+  },
+  "talk_track": "We ship your first governable agent in 48 hours. Outreach can't send without your approval ref. Ops can't spend over $50. Nothing posts without human handoff. Every allowed action emits a signed receipt you can export."
+}

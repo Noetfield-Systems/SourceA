@@ -1,0 +1,140 @@
+{
+  "schema": "sourcea-governance-ssot-registry-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-26T06:50:00Z",
+  "definitions": {
+    "active": "Exactly one operating law row \u2014 agents and ORD truth gate may execute from this path only.",
+    "superseded": "Controlled history \u2014 kept for lineage; never executed against; lives under brain-os/ssot/superseded/ or registered pdf_path.",
+    "draft": "Work in progress \u2014 not dispatch authority until promoted to active via registry update.",
+    "stale": "Rule-like doc with no registry row \u2014 ambiguous authority; flag for founder review; never auto-delete."
+  },
+  "stale_law": "brain-os/law/enforcement/SOURCEA_GOVERNANCE_SSOT_AUTHORITY_AND_STALE_LOCKED_v1.md",
+  "law_authority_index": "brain-os/system/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md",
+  "law_root_index": "brain-os/law/entry/LAW_ROOT_INDEX_LOCKED_v1.md",
+  "rule_like_globs": [
+    "brain-os/ssot/*.md",
+    "brain-os/roadmap/SOURCEA_*.md",
+    "brain-os/law/**/*_LOCKED*.md"
+  ],
+  "rule_like_exclude_name_patterns": [
+    "*INDEX_LOCKED*.md",
+    "README_LOCKED*.md"
+  ],
+  "active_operating_law_id": "llm_agent_operating_law_v3",
+  "entries": [
+    {
+      "id": "llm_agent_operating_law_v3",
+      "family": "llm_agent_operating_law",
+      "title": "LLM Agent Operating Law",
+      "version": "3",
+      "status": "active",
+      "path": "brain-os/ssot/SOURCEA_LLM_AGENT_OPERATING_LAW_SSOT_v3.md",
+      "supersedes": [
+        "llm_agent_operating_law_v2",
+        "llm_agent_operating_law_v1"
+      ],
+      "superseded_by": null,
+      "notes": "Dispatch gate \u00b7 disk-bound truth \u00b7 Chat Unify cycle"
+    },
+    {
+      "id": "llm_agent_operating_law_v2",
+      "family": "llm_agent_operating_law",
+      "title": "LLM Agent Operating Law",
+      "version": "2",
+      "status": "superseded",
+      "path": null,
+      "pdf_path": "brain-os/ssot/superseded/Source-A-SSOT-v1.2.pdf",
+      "supersedes": [
+        "llm_agent_operating_law_v1"
+      ],
+      "superseded_by": "llm_agent_operating_law_v3",
+      "notes": "PDF export retained \u2014 no markdown v2 logged"
+    },
+    {
+      "id": "llm_agent_operating_law_v1",
+      "family": "llm_agent_operating_law",
+      "title": "LLM Agent Operating Law",
+      "version": "1",
+      "status": "superseded",
+      "path": "brain-os/ssot/superseded/SOURCEA_LLM_AGENT_OPERATING_LAW_SSOT_v1.md",
+      "pdf_path": "brain-os/ssot/superseded/Source-A-SSOT-v1.1.pdf",
+      "supersedes": [],
+      "superseded_by": "llm_agent_operating_law_v3",
+      "notes": "Do not operate \u2014 lineage only"
+    },
+    {
+      "id": "master_blueprint_v1",
+      "family": "company_roadmap",
+      "title": "Master Blueprint",
+      "version": "1",
+      "status": "active",
+      "path": "brain-os/roadmap/SOURCEA_MASTER_BLUEPRINT_v1.md",
+      "supersedes": [],
+      "superseded_by": null,
+      "notes": "Zero \u2192 enterprise execution path"
+    },
+    {
+      "id": "storefront_gtm_v1",
+      "family": "storefront_gtm",
+      "title": "Storefront & GTM",
+      "version": "1",
+      "status": "active",
+      "path": "brain-os/roadmap/SOURCEA_STOREFRONT_GTM_v1.md",
+      "supersedes": [],
+      "superseded_by": null,
+      "notes": "Private strategy + public copy \u2014 public half ships to SourceA-landing when ready"
+    },
+    {
+      "id": "cloud_kernel_v1_3",
+      "family": "cloud_kernel",
+      "title": "Cloud Kernel",
+      "version": "1.3",
+      "status": "active",
+      "path": "docs/Source-A-Cloud-Kernel-v1.3.pdf",
+      "symlink_path": "docs/SOURCEA_CLOUD_KERNEL_TARGET_v1.3.pdf",
+      "supersedes": [],
+      "superseded_by": null,
+      "notes": "L1\u2013L8 target architecture PDF"
+    },
+    {
+      "id": "upgrade_plans_888",
+      "family": "upgrade_plans",
+      "title": "SourceA Upgrade Plans 888",
+      "version": "1",
+      "status": "superseded",
+      "path": "brain-os/ssot/superseded/SOURCEA_UPGRADE_PLANS_888_REGISTRY_v1.json",
+      "supersedes": [],
+      "superseded_by": "portfolio_next_6000",
+      "notes": "Legacy UP-0001..UP-0888 \u2014 mapped to sa-next-0001..0888"
+    },
+    {
+      "id": "portfolio_next_6000",
+      "family": "upgrade_plans",
+      "title": "Portfolio Next 6000 Plans",
+      "version": "1",
+      "status": "active",
+      "path": "brain-os/plan-registry/PORTFOLIO_NEXT_6000_MASTER_v1.json",
+      "supersedes": [
+        "upgrade_plans_888"
+      ],
+      "superseded_by": null,
+      "notes": "Canonical upgrade plan registry \u2014 6 repos \u00d7 1000"
+    }
+  ],
+  "machine_code": [
+    {
+      "id": "prompt_forge_pipeline_v1",
+      "title": "Prompt Forge pipeline",
+      "status": "active",
+      "path": "scripts/prompt_forge_pipeline_v1.py",
+      "notes": "Chat Unify outbound machine \u2014 code not law plane"
+    },
+    {
+      "id": "proof_pack_machine_v1",
+      "title": "Proof Pack machine",
+      "status": "active",
+      "path": "scripts/chat_unify_proof_pack_v1.py",
+      "notes": "Chat Unify machine #6 \u2014 code not law plane"
+    }
+  ]
+}

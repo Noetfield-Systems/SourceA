@@ -7,7 +7,7 @@ python3 scripts/deploy_sourcea_desktop_landing_v1.py
 
 for f in "$HOME/Desktop/SA4/sourcea/index.html" "$HOME/Desktop/agentrun-app/sourcea/index.html"; do
   test -f "$f" || { echo "FAIL: missing $f"; exit 1; }
-  grep -q "hello@sourcea.com" "$f" || { echo "FAIL: no hello@ in $f"; exit 1; }
+  grep -q "hello@sourcea.app" "$f" || { echo "FAIL: no hello@ in $f"; exit 1; }
   grep -q "SourceA" "$f" || { echo "FAIL: no SourceA in $f"; exit 1; }
   grep -qi "noetfield.com\|operations@noetfield\|Copilot governance" "$f" && { echo "FAIL: Noetfield leak in $f"; exit 1; }
   echo "PASS: $f"
@@ -24,7 +24,7 @@ SUBPAGES=(platform.html team.html growth.html scenario.html proof.html proof/liv
 for p in "${SUBPAGES[@]}"; do
   f="$HOME/Desktop/agentrun-app/sourcea/$p"
   test -f "$f" || { echo "FAIL: missing subpage $f"; exit 1; }
-  grep -q "hello@sourcea.com" "$f" || { echo "FAIL: no hello@ in $f"; exit 1; }
+  grep -q "hello@sourcea.app" "$f" || { echo "FAIL: no hello@ in $f"; exit 1; }
   grep -q "ar-nav-toggle" "$f" || { echo "FAIL: no mobile nav in $f"; exit 1; }
   grep -q 'href="/sourcea/team.html" data-sa-nav' "$f" || { echo "FAIL: no Team nav in $f"; exit 1; }
   grep -q "Book proof demo" "$f" || { echo "FAIL: no unified CTA in $f"; exit 1; }

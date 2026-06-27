@@ -50,7 +50,7 @@ CATALOG: list[dict[str, str]] = [
     {"id": "cloud_proceed_dry_cloud", "label": "Cloud proceed dry-run (Railway)", "tier": "light", "hub": "H1", "category": "cloud", "desc": "Dry-run on Railway via Hub proxy"},
     {"id": "cloud_skip_head", "label": "Skip cloud queue head", "tier": "light", "hub": "H1", "category": "cloud", "desc": "Advance CLOUD-SEC head when motor blocked"},
     {"id": "cloud_skip_to_next_real", "label": "Skip to next real row", "tier": "light", "hub": "H1", "category": "cloud", "desc": "Skip mock_only scaffold rows until shippable head"},
-    {"id": "cloud_auto_tick", "label": "Cloud drain auto tick", "tier": "light", "hub": "H1", "category": "cloud", "desc": "Auto skip mock · self-heal · optional proceed"},
+    {"id": "cloud_auto_tick", "label": "Auto Runtime tick", "tier": "light", "hub": "H1", "category": "cloud", "desc": "Auto skip mock · self-heal · optional Cloud Forge Run"},
     {"id": "cloud_workers_probe", "label": "Cloud Workers probe", "tier": "light", "hub": "H1", "category": "cloud", "desc": "Deep probe proceed module on Railway"},
     {"id": "cloud_workers_dry_run", "label": "Cloud queue dry-run (Mac)", "tier": "light", "hub": "H1", "category": "cloud", "desc": "Resolve next CLOUD-SEC row on Mac only — no motor"},
     {"id": "cloud_deploy_instructions", "label": "Railway deploy command", "tier": "light", "hub": "H1", "category": "cloud", "desc": "Show deploy_fbe_railway_v1 command — founder runs, not agents"},
@@ -61,7 +61,7 @@ CATALOG: list[dict[str, str]] = [
     {"id": "world_model", "label": "World model plan check", "tier": "light", "hub": "H1", "category": "pipelines", "desc": "Platform-neutral WTM · plan alignment"},
     {"id": "anti_theater", "label": "Anti-theater loop", "tier": "light", "hub": "H1", "category": "validators", "desc": "Noise vs useful · cloud proof honesty"},
     {"id": "pipeline_graph", "label": "Node graph T3 proof", "tier": "heavy", "hub": "H1", "category": "pipelines", "desc": "Pipeline node graph parallel proof tier"},
-    {"id": "loop_specialist", "label": "Loop specialist tick", "tier": "light", "hub": "H1", "category": "pipelines", "desc": "ASF resume drain · queue specialist"},
+    {"id": "loop_specialist", "label": "Auto Runtime specialist tick", "tier": "light", "hub": "H1", "category": "pipelines", "desc": "ASF resume Cloud Forge Run · queue specialist"},
     {"id": "investigator", "label": "Investigator tick", "tier": "light", "hub": "H1", "category": "pipelines", "desc": "Investigator circle room"},
     {"id": "judge_loop", "label": "Judge loop tick", "tier": "light", "hub": "H1", "category": "pipelines", "desc": "Judge loop room verdict"},
     {"id": "routing_panel", "label": "Routing panel refresh", "tier": "light", "hub": "H1", "category": "pipelines", "desc": "Founder routing panel · brands · chain"},
@@ -339,7 +339,7 @@ def _dispatch(op_id: str, payload: dict[str, Any]) -> dict[str, Any]:
         )
     if op_id == "cloud_proceed_dry":
         return _hub_json(
-            "/api/cloud-drain/proceed/v1",
+            "/api/cloud-forge-run/proceed/v1",
             method="POST",
             body={
                 "dry_run": True,

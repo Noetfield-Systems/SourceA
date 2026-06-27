@@ -473,6 +473,11 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
 
             self._json(200, {"ok": True, **advisor_payload()})
             return
+        if path == "/api/brain/chat/v1":
+            from sourcea_brain_chat_v1 import status_payload  # noqa: WPS433
+
+            self._json(200, status_payload())
+            return
         if path == "/api/intelligence-circle":
             from intelligence_circle import circle_payload  # noqa: WPS433
 
@@ -1803,8 +1808,8 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
                 invalidate_worker_hub_cache()
             self._json(200 if row.get("ok") else 502, row)
             return
-        if path == "/api/cloud-drain/proceed/v1":
-            from hub_cloud_drain_proceed_v1 import proceed_from_hub  # noqa: WPS433
+        if path == "/api/cloud-forge-run/proceed/v1":
+            from hub_cloud_forge_run_proceed_v1 import proceed_from_hub  # noqa: WPS433
             from worker_hub_v1 import invalidate_worker_hub_cache  # noqa: WPS433
 
             row = proceed_from_hub(body if isinstance(body, dict) else {})
@@ -2603,6 +2608,12 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
             from n8n_intelligence import handle_intelligence_action  # noqa: WPS433
 
             self._json(200, handle_intelligence_action(body))
+            return
+        if path == "/api/brain/chat/v1":
+            from sourcea_brain_chat_v1 import handle_chat  # noqa: WPS433
+
+            row = handle_chat(body)
+            self._json(200 if row.get("ok") else 503, row)
             return
         if path == "/api/intelligence-circle":
             from intelligence_circle import handle_circle_action  # noqa: WPS433

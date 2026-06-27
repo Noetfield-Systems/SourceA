@@ -1,0 +1,368 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "zcp-message-v1",
+  "schema": "zcp-message-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-25T12:00:00Z",
+  "authority": "founder",
+  "title": "Zero-Context Protocol (ZCP) — message schema + Cursor prompt pack",
+  "description": "Stateless file-driven execution contract for Forge Factory. No chat memory in prompts — system memory only (filesystem, receipts, state.json).",
+  "one_law": "No context lives in the prompt. Everything lives in the system.",
+  "cross_refs": {
+    "forge_blueprint": "docs/FORGE_MVP_BLUEPRINT_LOCKED_v1.md",
+    "router_rules": "data/forge-mvp-router-rules-v0.1.json",
+    "task_graph": "data/schemas/forge-task-graph-v0.1.json",
+    "forge_terminal_handoff": "docs/FORGE_TERMINAL_WORKER_CRITIC_HANDOFF_LOCKED_v1.md",
+    "execution_mode": "CLOUD_ONLY",
+    "mac_role": "control_plane_only"
+  },
+  "message_types": {
+    "TASK": "Start work — plan, generate, analyze, or patch with minimal input",
+    "FIX": "Execute only — apply patch, no explanation",
+    "CRITIC": "Gate only — score risks and drift, never design or plan"
+  },
+  "token_rules": {
+    "hard": [
+      "No chat history sent",
+      "No full file dumps",
+      "No multi-file context injection",
+      "No explanatory prompts"
+    ],
+    "allowed_context": [
+      "One file_ref",
+      "One goal sentence",
+      "One error or diff snippet when needed"
+    ],
+    "forbidden_phrases": [
+      "Explain why",
+      "Analyze whole project",
+      "Here is full codebase",
+      "Let's discuss"
+    ]
+  },
+  "station_routing": {
+    "low_complexity": "openrouter_bulk",
+    "medium_complexity": "gemini_context",
+    "high_complexity": "claude_code",
+    "critic": "gpt_control",
+    "validate_apply": "sandbox",
+    "ssot": "data/forge-mvp-router-rules-v0.1.json"
+  },
+  "definitions": {
+    "zcp_station": {
+      "type": "string",
+      "enum": ["openai", "gemini", "router", "openrouter_bulk", "claude_code", "gpt_control", "gemini_context", "sandbox"]
+    },
+    "zcp_action": {
+      "type": "string",
+      "enum": ["patch", "analyze", "generate", "repair"]
+    },
+    "zcp_type": {
+      "type": "string",
+      "enum": ["TASK", "FIX", "CRITIC"]
+    },
+    "task_input": {
+      "type": "object",
+      "required": ["task_id", "action", "goal"],
+      "additionalProperties": false,
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "UUID or monotonic id",
+          "pattern": "^[a-zA-Z0-9_-]+$"
+        },
+        "station": { "$ref": "#/definitions/zcp_station" },
+        "action": { "$ref": "#/definitions/zcp_action" },
+        "file_ref": {
+          "type": "string",
+          "description": "Single file path relative to repo root",
+          "minLength": 1
+        },
+        "range": {
+          "type": "string",
+          "description": "Optional line range e.g. 42-58",
+          "pattern": "^[0-9]+(-[0-9]+)?$"
+        },
+        "goal": {
+          "type": "string",
+          "description": "Single sentence objective",
+          "maxLength": 280
+        },
+        "input": {
+          "type": "string",
+          "description": "Minimal required data only — error snippet, diff hunk, or constraint",
+          "maxLength": 4096
+        }
+      }
+    },
+    "task_output": {
+      "type": "object",
+      "required": ["status", "result", "confidence"],
+      "additionalProperties": false,
+      "properties": {
+        "status": { "type": "string", "enum": ["ok", "fail"] },
+        "result": {
+          "type": "string",
+          "description": "File content OR unified diff patch"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 512
+        },
+        "files_changed": {
+          "type": "array",
+          "items": { "type": "string" },
+          "maxItems": 1,
+          "description": "ZCP allows at most one file per execution"
+        }
+      }
+    },
+    "fix_input": {
+      "type": "object",
+      "required": ["target", "issue"],
+      "additionalProperties": false,
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "file_ref to patch"
+        },
+        "issue": {
+          "type": "string",
+          "description": "One-line defect description",
+          "maxLength": 280
+        },
+        "snippet": {
+          "type": "string",
+          "description": "Optional error or diff snippet",
+          "maxLength": 2048
+        }
+      }
+    },
+    "fix_output": {
+      "type": "object",
+      "required": ["status", "patch"],
+      "additionalProperties": false,
+      "properties": {
+        "status": { "type": "string", "enum": ["ok", "fail"] },
+        "patch": { "type": "string" },
+        "files_changed": {
+          "type": "array",
+          "items": { "type": "string" },
+          "maxItems": 1
+        }
+      }
+    },
+    "critic_input": {
+      "type": "object",
+      "required": ["subject", "checkpoints"],
+      "additionalProperties": false,
+      "properties": {
+        "subject": {
+          "type": "string",
+          "description": "What to evaluate — not what to build",
+          "maxLength": 280
+        },
+        "checkpoints": {
+          "type": "array",
+          "items": { "type": "string", "maxLength": 120 },
+          "minItems": 1,
+          "maxItems": 12
+        },
+        "file_ref": {
+          "type": "string",
+          "description": "Optional single file under review"
+        }
+      }
+    },
+    "critic_output": {
+      "type": "object",
+      "required": ["risk", "fix_priority", "drift_score"],
+      "additionalProperties": false,
+      "properties": {
+        "risk": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "fix_priority": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "drift_score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10
+        }
+      }
+    },
+    "execution_receipt": {
+      "type": "object",
+      "required": ["task_id", "timestamp", "model", "input_hash", "output_hash", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "task_id": { "type": "string" },
+        "timestamp": { "type": "integer", "description": "Unix epoch ms" },
+        "model": { "type": "string" },
+        "station": { "$ref": "#/definitions/zcp_station" },
+        "zcp_type": { "$ref": "#/definitions/zcp_type" },
+        "file_ref": { "type": "string" },
+        "input_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "output_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "status": {
+          "type": "string",
+          "enum": ["applied", "rejected", "failed", "scored"]
+        }
+      }
+    },
+    "zcp_envelope": {
+      "type": "object",
+      "required": ["schema", "version", "type", "payload"],
+      "additionalProperties": false,
+      "properties": {
+        "schema": { "const": "zcp-message-v1" },
+        "version": { "type": "string", "pattern": "^1\\.0" },
+        "saved_at": { "type": "string", "format": "date-time" },
+        "type": { "$ref": "#/definitions/zcp_type" },
+        "payload": {
+          "oneOf": [
+            { "$ref": "#/definitions/task_input" },
+            { "$ref": "#/definitions/fix_input" },
+            { "$ref": "#/definitions/critic_input" }
+          ]
+        }
+      }
+    }
+  },
+  "parser_hints": {
+    "prefix_rules": [
+      { "prefix": "FIX:", "type": "FIX" },
+      { "prefix": "CRITIC:", "type": "CRITIC" },
+      { "default": "TASK" }
+    ],
+    "json_block": "If input parses as JSON object with task_id or target or subject, use typed payload directly"
+  },
+  "prompt_pack": {
+    "cursor_system_header": "You are operating under ZCP (Zero-Context Protocol).\nRULES:\n- no explanations\n- no reasoning text\n- output JSON only\n- minimal file edits only\n- no architectural expansion\n- no chat history\n- at most one file_ref per execution",
+    "templates": {
+      "TASK": {
+        "wrapper": "SYSTEM MODE: ZCP EXECUTION\n{{system_header}}\nINPUT FORMAT:\n{task}\nOUTPUT FORMAT:\n{\n  \"status\": \"ok|fail\",\n  \"result\": \"string\",\n  \"confidence\": 0.0-1.0,\n  \"notes\": \"optional\",\n  \"files_changed\": []\n}\nTASK:\n{{payload}}",
+        "payload_format": "json",
+        "example_payload": {
+          "task_id": "001",
+          "action": "patch",
+          "file_ref": "apps/orchestrator/src/execution_kernel.ts",
+          "goal": "wire receipt consume on spine tick"
+        }
+      },
+      "FIX": {
+        "wrapper": "ZCP_MODE: FIX\nOUTPUT: PATCH ONLY — JSON with status + patch\nNO TEXT OUTSIDE JSON\nTASK:\n{{payload}}",
+        "payload_format": "text_or_json",
+        "text_example": "FIX:\napply patch only · no explanation\ntarget: apps/diff-engine/src/applier.ts\nissue: unified diff not applied atomically",
+        "json_example": {
+          "target": "apps/diff-engine/src/applier.ts",
+          "issue": "unified diff not applied atomically"
+        },
+        "output_format": {
+          "status": "ok|fail",
+          "patch": "unified diff string",
+          "files_changed": []
+        }
+      },
+      "CRITIC": {
+        "wrapper": "ZCP_MODE: CRITIC\nOUTPUT: JSON SCORE ONLY — gate not designer\nNO PATCHES · NO PLANS\nTASK:\n{{payload}}",
+        "payload_format": "text_or_json",
+        "text_example": "CRITIC:\nevaluate station isolation\nCHECKPOINTS:\n- duplicate executor paths\n- bus delivery incomplete\n- health false positive",
+        "output_format": {
+          "risk": [],
+          "fix_priority": [],
+          "drift_score": 0
+        }
+      }
+    },
+    "cursor_paste_block": "SYSTEM MODE: ZCP EXECUTION\nRULES:\n- no explanation\n- no discussion\n- only JSON output\n- only file-level edits\nTASK:\n<paste TASK | FIX | CRITIC block here>",
+    "advisor_conversion_requests": [
+      "convert to TASK",
+      "convert to CRITIC review",
+      "convert to PATCH"
+    ],
+    "workflow_loop": [
+      "Advisor chat (design / critique) → founder copies TASK | FIX | CRITIC block",
+      "Cursor or Forge Terminal → ZCP execution (JSON or patch only)",
+      "Optional CRITIC pass → drift_score + fix_priority",
+      "Receipt ledger append → receipts/YYYY-MM-DD.jsonl or forge-bay trace"
+    ]
+  },
+  "supervisor_rules": {
+    "may": ["route tasks", "validate outputs", "reject unsafe patches", "enforce schema"],
+    "must_not": ["generate code", "edit files directly", "inject chat history"]
+  },
+  "forbidden_outputs": [
+    "markdown fences around JSON",
+    "explanatory prose before or after JSON",
+    "multi-file patches in one response",
+    "architectural expansion beyond goal"
+  ],
+  "examples": [
+    {
+      "type": "TASK",
+      "envelope": {
+        "schema": "zcp-message-v1",
+        "version": "1.0.0",
+        "type": "TASK",
+        "payload": {
+          "task_id": "forge-zcp-001",
+          "station": "claude_code",
+          "action": "patch",
+          "file_ref": "apps/orchestrator/src/execution_kernel.ts",
+          "range": "40-55",
+          "goal": "ensure receiptConsumeOnce runs before scheduler tick",
+          "input": "TypeError: receipt is undefined at spineTick line 48"
+        }
+      },
+      "expected_output": {
+        "status": "ok",
+        "result": "--- a/apps/orchestrator/src/execution_kernel.ts\n+++ b/apps/orchestrator/src/execution_kernel.ts\n@@ ...",
+        "confidence": 0.92,
+        "files_changed": ["apps/orchestrator/src/execution_kernel.ts"]
+      }
+    },
+    {
+      "type": "FIX",
+      "envelope": {
+        "schema": "zcp-message-v1",
+        "version": "1.0.0",
+        "type": "FIX",
+        "payload": {
+          "target": "apps/diff-engine/src/applier.ts",
+          "issue": "patch apply not atomic on partial hunk failure"
+        }
+      }
+    },
+    {
+      "type": "CRITIC",
+      "envelope": {
+        "schema": "zcp-message-v1",
+        "version": "1.0.0",
+        "type": "CRITIC",
+        "payload": {
+          "subject": "station isolation and config drift",
+          "checkpoints": [
+            "duplicate tools.ts",
+            "bus delivery incomplete",
+            "health false positive",
+            "config unused"
+          ]
+        }
+      },
+      "expected_output": {
+        "risk": ["bus delivery incomplete"],
+        "fix_priority": ["wire message ack in router"],
+        "drift_score": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: forge-mvp-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --save "" --appendonly no
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build:
+      context: ../..
+      dockerfile: infra/forge-mvp/Dockerfile.api
+    container_name: forge-mvp-api
+    ports:
+      - "13040:13040"
+    environment:
+      REDIS_URL: redis://redis:6379
+      FORGE_EMBEDDED_REDIS: "0"
+      FORGE_GOVERNANCE_DRY_RUN: "true"
+      SOURCEA_ROOT: /repo
+    volumes:
+      - ../..:/repo:ro
+      - ${HOME}/.sina:/root/.sina:ro
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  worker:
+    build:
+      context: ../..
+      dockerfile: infra/forge-mvp/Dockerfile.worker
+    container_name: forge-mvp-worker
+    environment:
+      REDIS_URL: redis://redis:6379
+      FORGE_EMBEDDED_REDIS: "0"
+      FORGE_GOVERNANCE_DRY_RUN: "true"
+      SOURCEA_ROOT: /repo
+      FORGE_EXECUTOR_PROVIDER: openai
+    volumes:
+      - ../..:/repo:ro
+      - ${HOME}/.sina:/root/.sina:ro
+      - forge-state:/root/.sina/forge-core
+    depends_on:
+      redis:
+        condition: service_healthy
+      api:
+        condition: service_started
+
+volumes:
+  forge-state:

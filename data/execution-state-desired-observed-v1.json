@@ -30,7 +30,7 @@
   },
   "observed": {
     "role": "status",
-    "question": "What IS executing on factory / RUN INBOX / cloud drain rail?",
+    "question": "What IS executing on factory / RUN INBOX / Cloud Forge Run rail?",
     "write_module": "scripts/phase_observed_project_v1.py",
     "paths": [
       "~/.sina/factory-now-v1.json",

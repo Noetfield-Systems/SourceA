@@ -1,0 +1,30 @@
+{
+  "schema": "agentgo-sa4-inventory-receipt-v1",
+  "version": "1.0.0",
+  "generated_at": "2026-06-24T14:47:59Z",
+  "sa4_root": "/Users/sinakazemnezhad/Desktop/YA5/SA4",
+  "symlink": "/Users/sinakazemnezhad/Desktop/SA4",
+  "counts": {
+    "html_pages": 1259,
+    "research_topics": 592,
+    "compare_pages": 83,
+    "guide_topics": 120,
+    "tracker_landings": 23,
+    "blog_posts": 18
+  },
+  "tracker_samples": [
+    "ai-citation-tracker",
+    "ai-mention-tracker",
+    "apple-intelligence-visibility-tracker",
+    "apple-intelligence-visibility-tracker",
+    "chatgpt-visibility-tracker",
+    "chatgpt-visibility-tracker",
+    "claude-visibility-tracker",
+    "claude-visibility-tracker",
+    "comet-visibility-tracker",
+    "comet-visibility-tracker",
+    "copilot-visibility-tracker",
+    "copilot-visibility-tracker"
+  ],
+  "ok": true
+}

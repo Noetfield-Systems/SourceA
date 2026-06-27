@@ -29,7 +29,7 @@ def _w1_proof_page() -> str:
     return resolve_w1_proof_url()
 
 
-FROM_EMAIL = "hello@sourcea.com"
+FROM_EMAIL = "hello@sourcea.app"
 FROM_NAME = "SourceA"
 FOUNDER_NAME = os.environ.get("SOURCEA_FOUNDER_NAME", "Sina Kazemnezhad").strip() or "Sina Kazemnezhad"
 

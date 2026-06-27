@@ -14,6 +14,24 @@
 | EXT-006 | 2026-06-05 | CODE_TRUTH | `scripts/pre_llm/context_packet/schema.py` | WTM-D5 | `validate_packet` |
 
 ## Pending extracts (Chat Unify)
+| EXT-CHAT-48646f3b | 2026-06-26 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/48646f3b1141.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-1a04c2fa | 2026-06-26 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/1a04c2fa9cd2.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-7e3057fd | 2026-06-25 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/7e3057fd04d8.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-e2d1968c | 2026-06-25 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/e2d1968c3874.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-3b1d6e70 | 2026-06-25 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/3b1d6e70ae0f.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-e974c7c3 | 2026-06-25 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/e974c7c3c5ed.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-90b1fe84 | 2026-06-24 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/90b1fe846fbd.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-98e18fdc | 2026-06-24 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/98e18fdcdabf.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-629b5b7f | 2026-06-24 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/629b5b7ff5b3.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-c6ebe523 | 2026-06-24 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/c6ebe5232f08.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-9f0ddb32 | 2026-06-24 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/9f0ddb326dfb.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-5f45d5fe | 2026-06-24 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/5f45d5fe5c01.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-UNIFY-20260624 | 2026-06-24 | CHAT_UNIFY | **B — Gather** | `/Users/sinakazemnezhad/.sina/chat-unify/last-unified.json` | THREAD-CHAT-CONSOLIDATION, THREAD-CURSOR | Unified brief · 17 chats · 881 contradictions |
+| EXT-CHAT-56cc5530 | 2026-06-24 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/56cc5530c83b.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-434555ce | 2026-06-23 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/434555cefb2f.json` | THREAD-CURSOR, THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-4d4bc8d8 | 2026-06-23 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/4d4bc8d8fe8e.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-2043b17f | 2026-06-23 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/2043b17fc7ff.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
+| EXT-CHAT-76c726f8 | 2026-06-23 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/76c726f842a9.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
 | EXT-CHAT-dbac2891 | 2026-06-22 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/dbac2891b96a.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
 | EXT-CHAT-59de8b86 | 2026-06-22 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/59de8b86ba2e.json` | THREAD-CURSOR, THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
 | EXT-CHAT-8d9e29a7 | 2026-06-21 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/8d9e29a75400.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |

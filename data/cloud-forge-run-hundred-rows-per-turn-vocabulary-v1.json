@@ -1,0 +1,82 @@
+{
+  "schema": "cloud-forge-run-hundred-rows-per-turn-vocabulary-v1",
+  "version": "1.3.0",
+  "incident_044": "brain-os/incidents/SINA_CLOUD_FORGE_RUN_NO_SKIP_MANDATORY_SHIP_INCIDENT_044_LOCKED_v1.md",
+  "locked": true,
+  "saved_at": "2026-06-24T21:30:00Z",
+  "unified_index": "data/sourcea-vocabulary-unified-index-v1.json",
+  "founder_display_motor": "Cloud Forge Run",
+  "founder_display_scheduler": "Auto Runtime",
+  "founder_vocabulary_ssot": "data/cloud-motor-founder-vocabulary-v1.json",
+  "founder_correction": "2026-06-24 — 100 is mandatory minimum per turn, NOT up to 100",
+  "incident_ref": "brain-os/incidents/SINA_CLOUD_FORGE_RUN_HUNDRED_ROWS_VOCABULARY_INCIDENT_043_LOCKED_v1.md",
+  "law_doc": "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_HUNDRED_ROWS_PER_TURN_TERMINOLOGY_LOCKED_v1.md",
+  "cursor_rule": ".cursor/rules/037-cloud-forge-run-hundred-rows-per-turn-v1.mdc",
+  "one_law": "Auto Runtime (~10 min) triggers one Cloud Forge Run POST — MUST move 100 queue rows (mandatory quota). Say Cloud Forge Run + Auto Runtime — never drain or loop in founder chat.",
+  "asf_order": {
+    "cadence_minutes": 10,
+    "cron": "*/10 * * * *",
+    "rows_per_turn_quota": 100,
+    "rows_per_turn_minimum": 100,
+    "rows_per_turn_is_not": "up_to_100_ceiling",
+    "external_posts_per_turn": 1,
+    "internal_loop": "run_auto_runtime_pack",
+    "internal_loop_founder_name": "Auto Runtime 100-row internal step (inside one Forge Run POST)",
+    "observer_rows_per_turn": 1,
+    "batch_tail_exception": "when fewer than 100 cloud rows remain in active batch file, Forge Run processes all remaining"
+  },
+  "definitions": {
+    "turn": "One CF cron or one Cloud Workers Proceed tap",
+    "row": "One CLOUD-SEC queue slot SHIPPED (motor PASS + advance_on_pass)",
+    "full_pack": "Boolean flag: 100-row internal loop in this HTTP request only",
+    "max_advance": "Mandatory row quota per turn — 100 — NOT a soft maximum",
+    "batch": "Locked secondary-cloud-forge-run-batch-N JSON in the repository — not a cron turn",
+    "processed": "equals shipped — must be 100 unless batch tail (INCIDENT-044: zero skips)",
+    "shipped": "Motor PASS + advance_on_pass — mandatory quota 100/turn",
+    "skipped": "FORBIDDEN — motor fail halts turn; skipped must always be 0"
+  },
+  "mandatory_reply_lines": [
+    "Auto Runtime: one CF cron (~10 min) arms one Cloud Forge Run POST = 100 rows (mandatory quota).",
+    "Quote queue head or observer pack.processed — must be 100/100 unless batch tail.",
+    "Never say drain or loop to founder — say Cloud Forge Run and Auto Runtime."
+  ],
+  "forbidden_founder_words": [
+    "drain",
+    "Cloud Forge Run",
+    "loop",
+    "drain loop",
+    "Cloud Forge Run"
+  ],
+  "forbidden_phrases": [
+    "up to 100",
+    "up to 100 rows",
+    "as many as 100",
+    "one plan per cron",
+    "one row per 10 minutes",
+    "the 100 pack is still running",
+    "skipped means nothing ran",
+    "redeploy to advance the queue",
+    "full_pack means 100 cron ticks",
+    "max_advance is a ceiling",
+    "wait for the pack to finish across cron"
+  ],
+  "proof_urls": {
+    "queue": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/queue/v1",
+    "observer": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/observer/v1",
+    "cf_health": "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev/health"
+  },
+  "pass_turn_observer_shape": {
+    "pack.max_advance": 100,
+    "pack.shipped": 100,
+    "pack.advanced": 100,
+    "pack.processed": 100,
+    "pack.skipped": 0,
+    "note": "INCIDENT-044 — 100 shipped, 0 skipped; motor fail = turn RED not skip-through"
+  },
+  "pairs": [
+    "data/cloud-motor-founder-vocabulary-v1.json",
+    "data/cloud-forge-run-full-pack-pattern-v1.json",
+    "data/cloud-auto-runtime-v1.json",
+    "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_FULL_PACK_PATTERN_LOCKED_v1.md"
+  ]
+}

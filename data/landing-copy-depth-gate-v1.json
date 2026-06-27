@@ -1,0 +1,139 @@
+{
+  "schema": "landing-copy-depth-gate-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-24T12:30:00Z",
+  "one_law": "Say it once, sharply, with one real proof — cut filler, repetition, and hollow claims before ship.",
+  "law_ref": "docs/SOURCEA_TERMINOLOGY_AND_COMMERCIAL_TUNE_2026_LOCKED_v1.md",
+  "receipt": "~/.sina/enforcement/landing-copy-depth-gate-receipt-v1.json",
+  "gate": "scripts/landing_copy_depth_gate_v1.py",
+  "validator": "scripts/validate-landing-copy-depth-v1.sh",
+  "depth_ship_pages": [
+    "pricing.html",
+    "team.html",
+    "growth.html",
+    "offer.html",
+    "case-studies/pureflow.html",
+    "case-studies/agentgo.html"
+  ],
+  "depth_audit_pages": [
+    "growth.html",
+    "proof.html",
+    "index.html",
+    "platform.html"
+  ],
+  "beats": [
+    {
+      "id": "allow_block_replay",
+      "label": "ALLOW · BLOCK · replay",
+      "pattern": "ALLOW[\\s,·/&]+BLOCK",
+      "max_per_page": 2,
+      "suggestion": "Cut duplicate — say ALLOW/BLOCK/replay once, link to /sourcea/proof for the demo."
+    },
+    {
+      "id": "receipt_on_disk",
+      "label": "receipt logged",
+      "pattern": "receipt(?:s)? logged",
+      "max_per_page": 2,
+      "suggestion": "Cut repeat — one line + one artifact link (sourcea-boot or boot-proof.json)."
+    },
+    {
+      "id": "policy_before_action",
+      "label": "policy before action",
+      "pattern": "policy before (action|every|dispatch)",
+      "max_per_page": 1,
+      "suggestion": "Cut — buyer already read this on the prior page or pricing card."
+    },
+    {
+      "id": "screen_share_15",
+      "label": "15-minute screen-share",
+      "pattern": "15[- ]?minute|15 min",
+      "max_per_page": 2,
+      "suggestion": "Cut duplicate CTA — keep one Book proof call, delete the rest."
+    },
+    {
+      "id": "proof_deck",
+      "label": "proof deck",
+      "pattern": "proof deck",
+      "max_per_page": 2,
+      "suggestion": "Cut — mention proof deck once in the flywheel, not in every card."
+    },
+    {
+      "id": "deposit_8k",
+      "label": "$8K deposit",
+      "pattern": "\\$8K",
+      "max_per_page": 3,
+      "suggestion": "Cut stacked win stories — one illustrative $8K example is enough."
+    },
+    {
+      "id": "weekly_export",
+      "label": "weekly proof export",
+      "pattern": "weekly proof export",
+      "max_per_page": 2,
+      "suggestion": "Cut — retainer section owns weekly export; delete echoes."
+    },
+    {
+      "id": "orchestration_slide",
+      "label": "orchestration slide beat",
+      "pattern": "orchestration slide",
+      "max_per_page": 1,
+      "suggestion": "Cut slogan — show the replay instead."
+    }
+  ],
+  "filler_phrases": [
+    {
+      "id": "not_another_slide",
+      "pattern": "not another orchestration slide",
+      "suggestion": "Cut — empty contrast line; replace with one concrete proof link."
+    },
+    {
+      "id": "prospects_remember",
+      "pattern": "what prospects remember after the call",
+      "suggestion": "Cut filler — state the proof artifact instead."
+    },
+    {
+      "id": "trust_compounds",
+      "pattern": "Trust compounds|compound trust",
+      "suggestion": "Cut slogan — keep the retainer price band only."
+    },
+    {
+      "id": "flips_the_script",
+      "pattern": "flips the script",
+      "suggestion": "Cut — say what the demo shows in one line."
+    },
+    {
+      "id": "cannot_resist",
+      "pattern": "cannot resist",
+      "suggestion": "Cut hype kicker — use a buyer question as the section header."
+    }
+  ],
+  "proof_lexemes": [
+    "proof",
+    "controlled",
+    "verified",
+    "receipt",
+    "ALLOW",
+    "BLOCK",
+    "PASS",
+    "replay",
+    "tamper"
+  ],
+  "artifact_anchors": [
+    "boot-proof",
+    "sourcea-boot",
+    "trust-signals",
+    "w1-demo",
+    "/sourcea/proof",
+    "github.com/sourcea-io",
+    "phase1-proof-pack",
+    "data/boot-proof",
+    "data/trust-signals",
+    "sourcea-boot-wire"
+  ],
+  "padding": {
+    "max_sections_per_page": 7,
+    "max_explore_cards": 12,
+    "explore_section_class": "sa-explore"
+  },
+  "cross_page_beat_min_pages": 3,
+  "cross_page_beat_min_total": 6
+}

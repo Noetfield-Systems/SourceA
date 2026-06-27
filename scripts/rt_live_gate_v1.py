@@ -240,7 +240,7 @@ def generate_scan_brief() -> str:
         f"open_questions: {form.get('open_questions_count')}",
         f"PROGRAM_PROGRESS.founder_open: {founder_open}",
         "READ ORDER: form JSON → PROGRAM_PROGRESS → SESSION_LOG → form §4 → projection (LAG)",
-        "BAN headline: sa-XXXX · Valid YES % · resume drain · queue pos",
+        "BAN headline: sa-XXXX · Valid YES % · Cloud Forge Run · queue pos",
     ]
     if int(form.get("open_questions_count") or 0) > 0:
         lines.append(
