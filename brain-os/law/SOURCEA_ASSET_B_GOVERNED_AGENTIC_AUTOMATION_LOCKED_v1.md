@@ -98,7 +98,7 @@ One engagement · three outcomes:
 
 ## 6. Outreach (Asset B — AB1)
 
-**From:** **hello@sourcea.com** only — `SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md`  
+**From:** **hello@sourcea.app** only — `SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md`  
 **Send:** `python3 scripts/send_ab1_single_v1.py --to recipient@company.com --name "First"`
 
 **Subject:** Agent loops with receipts — live in 2–3 weeks
@@ -111,7 +111,7 @@ One engagement · three outcomes:
 >
 > No pitch deck — 15 minutes to screen-share today's factory receipts.
 >
-> — SourceA · hello@sourcea.com · https://sourcea.com
+> — SourceA · hello@sourcea.app · https://sourcea.app
 
 Templates logged: `~/.sina/controlled-agentic-automation-email-templates-v1.json`  
 Refresh: `python3 scripts/controlled_agentic_automation_offer_v1.py --pack --json`

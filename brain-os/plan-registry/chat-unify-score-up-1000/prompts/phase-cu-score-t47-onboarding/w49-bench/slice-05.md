@@ -1,0 +1,10 @@
+# cu-score-0685 — Bench segment pick on onboarding matches site doors
+
+**Surface:** Chat Unify `http://127.0.0.1:13023/` + DMG
+**Worker:** Pre-LLM Mac RAW AI · Cursor observes only
+
+## Task
+
+P1 — UX delta with receipt
+
+**Deliverable:** Bench segment pick on onboarding matches site doors

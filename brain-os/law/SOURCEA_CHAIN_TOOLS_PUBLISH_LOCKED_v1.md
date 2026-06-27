@@ -4,7 +4,7 @@
 **Version:** 1.0 · **Locked:** 2026-06-15  
 **Authority:** SW1 · Buyer 1 eval motion · open-core GTM  
 **Law:** `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md` §10 · §11 SW1  
-**Sender:** `SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md` → **hello@sourcea.com**
+**Sender:** `SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md` → **hello@sourcea.app**
 
 ---
 
@@ -65,7 +65,7 @@ sourcea-boot
 
 Buyer 1 installs `sourcea-boot` in **<1 minute**. README runnable in **<5 min** = SW1 prerequisite (portfolio SSOT §10).
 
-**Outbound:** chain-tool pitch uses **hello@sourcea.com** — never personal email.
+**Outbound:** chain-tool pitch uses **hello@sourcea.app** — never personal email.
 
 ---
 

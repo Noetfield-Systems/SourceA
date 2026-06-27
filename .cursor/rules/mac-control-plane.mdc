@@ -12,7 +12,7 @@ Read `~/Desktop/MacLaw/MAC_CONTROL_PLANE_LOCKED.md` when Mac, SourceA, factory, 
 ## Law
 
 - **Mac** = control panel only (Hub :13020, Routing :8780, Mac Law :8781, Cursor steering)
-- **Cloud + APIs** = all factory compute (FBE Railway, Supabase, loop specialist, OpenRouter on cloud)
+- **Cloud + APIs** = all factory compute (FBE Railway, Supabase, Auto Runtime specialist, OpenRouter on cloud)
 
 ## Agents MUST
 

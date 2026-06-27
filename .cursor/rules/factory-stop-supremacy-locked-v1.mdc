@@ -13,7 +13,7 @@ When founder message class is **ASF_STOP** (stop · halt · why stuck · interru
 3. **Cancel** plan todos mentally — ASF_ORDER > plan todo.
 4. Reply **second** with `factory-now` line from `~/.sina/factory-now-v1.json`.
 
-Resume only when founder says `ASF: resume drain — max N` and Maintainer runs:
+Resume only when founder says `ASF: Cloud Forge Run — max N` and Maintainer runs:
 
 `python3 scripts/factory_control_v1.py resume --max-turns N` (or `founder_resume_drain_v1.py`)
 

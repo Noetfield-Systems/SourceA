@@ -70,7 +70,7 @@
 | 2.01 | Build decision backlog table | M | | List all open **F** steps from Phases 1–10 | Canvas + Track |
 | 2.02 | **Quarantined public site** | **F** | **D** | Promote site from quarantine to spine? Y/N/when | Written decision |
 | 2.03 | **Cursor AUTO-RUN forever** | **F** | **D** | Reject as P0 permanently? (recommended YES) | `FOUNDER_AGENTIC_POLICY` affirmed |
-| 2.04 | **Factory drain pace** | **F** | **D** | One sa/turn vs batch — under FREEZE? | ASF order line |
+| 2.04 | **Cloud Forge Run pace** | **F** | **D** | One sa/turn vs batch — under FREEZE? | ASF order line |
 | 2.05 | **TrustField commercial activation** | **F** | **D** | Activate MSB P10 agentic outreach now? | Thread pick |
 | 2.06 | **MergePack parallel** | **F** | **D** | Active vs parked — factory rescore only? | `PROGRAM_PROGRESS` row |
 | 2.07 | **Noetfield cloud deploy** | **F** | **D** | When Noetfield leaves local-only? | Lane handoff doc |
@@ -208,7 +208,7 @@
 | 10.03 | Weekly index crosswalk | M | | Fri: law vs READ_CHAIN vs library | 0 MISSING |
 | 10.04 | `find_critical_bugs.py` | M | | CRITICAL = 0 on strict build | Log |
 | 10.05 | Maintainer self-audit loop | M | | Before/after hub edits | Receipt |
-| 10.06 | S10 eternal audit lane | M | | Third lane not factory drain | S10 manifest |
+| 10.06 | S10 eternal audit lane | M | | Third lane not Cloud Forge Run | S10 manifest |
 | 10.07 | **Playbook cadence** | **F** | **D** | Monthly full 100-step vs quarterly? | Track recurrence |
 | 10.08 | GOV_UNIFY on doc batches | M | | Any ASF paste → unification engine | Manifest |
 | 10.09 | **System health grade** | **F** | | ASF rates A–F · what's still broken | Track |
@@ -225,7 +225,7 @@
 | 1.08 | Conduct priority? |
 | 2.02 | Public site promote? |
 | 2.03 | AUTO-RUN forever reject? |
-| 2.04 | Factory drain pace? |
+| 2.04 | Cloud Forge Run pace? |
 | 2.05 | TrustField activate? |
 | 2.06 | MergePack active? |
 | 2.07 | Noetfield cloud? |

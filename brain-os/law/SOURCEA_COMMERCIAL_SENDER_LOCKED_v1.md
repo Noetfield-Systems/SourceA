@@ -1,7 +1,7 @@
 # SourceA Commercial Sender — LOCKED v1.1
 
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
-**Version:** 1.1 · **Locked:** 2026-06-15  
+**Version:** 1.3 · **Locked:** 2026-06-23 (anti-poison · hello@sourcea.app · forge@sourcea.app)  
 **Authority:** Portfolio SSOT §9 separation — SourceA lane only · CASL (Canada)  
 **Law:** `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md` · `SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md`
 
@@ -13,13 +13,27 @@
 
 | Layer | From address | Sign-off |
 |-------|--------------|----------|
-| **SourceA** (Buyer 1 · Asset B · SW1 · chain tools) | **hello@sourcea.com** | **Founder name** + SourceA line |
+| **SourceA** (Buyer 1 · Asset B · SW1 · chain tools) | **hello@sourcea.app** | **Founder name** + SourceA line |
 | Noetfield (NW1 · compliance) | operations@noetfield.com | Noetfield Systems Inc. |
 | TrustField (MSB · regulated) | hello@trustfield.ca | TrustField Technologies |
 
-**Reply-to:** hello@sourcea.com
+**Reply-to:** hello@sourcea.app (commercial) · contact@sourcea.app (intake forms)
 
 **CASL (Canada):** identified sender (company + founder name) · one relevant prospect at a time · **opt-out line required** on commercial email.
+
+---
+
+## SourceA.app email roles (anti-poison · LOCKED)
+
+| Field | Was (poison) | Now |
+|-------|--------------|-----|
+| **Signature / outbound** | hello@sourcea.com | **hello@sourcea.app** |
+| **Signature URL** | sourcea.com | **https://sourcea.app** |
+| **Intake (vault tags · forms)** | contact@sourcea.com | **contact@sourcea.app** |
+| **Proof booking · procurement** | proof@sourcea.com | **proof@sourcea.app** |
+| **Prompt Forge · mission prompts** | — | **forge@sourcea.app** |
+
+Machine SSOT: `data/sourcea-commercial-email-routes-v1.json` · vault: `data/portfolio-vault-email-tags-v1.json`
 
 ---
 
@@ -29,8 +43,8 @@
 —
 Sina Kazemnezhad
 SourceA · controlled agentic automation
-hello@sourcea.com
-https://sourcea.com
+hello@sourcea.app
+https://sourcea.app
 
 Reply "stop" and I won't follow up.
 ```

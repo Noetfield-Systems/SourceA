@@ -1,0 +1,49 @@
+---
+description: Cloud Forge Run ASF order — 100 rows per 10-min turn MANDATORY (INCIDENT-043 — not “up to 100”)
+alwaysApply: false
+globs:
+  - scripts/cloud_forge_run*.py
+  - scripts/hub_cloud_forge_run*.py
+  - scripts/fbe/lib/cloud_forge_run*.py
+  - cloud/workers/cloud-auto-runtime-tick-v1/**
+  - data/cloud-forge-run*.json
+  - data/secondary-cloud-forge-run-batch*.json
+  - brain-os/incidents/*CLOUD_DRAIN*
+  - brain-os/law/enforcement/*CLOUD_DRAIN*
+---
+
+# Cloud Forge Run — 100 rows per turn (037 · INCIDENT-043)
+
+**Law:** `brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_HUNDRED_ROWS_PER_TURN_TERMINOLOGY_LOCKED_v1.md`  
+**Names:** `data/cloud-motor-founder-vocabulary-v1.json` — **Cloud Forge Run** · **Auto Runtime**  
+**SSOT:** `data/cloud-forge-run-hundred-rows-per-turn-vocabulary-v1.json`  
+**Incident:** INCIDENT-043 · **Pair:** `038-cloud-forge-run-vocabulary-v1.mdc`
+
+## One law (ASF — obey in every reply)
+
+> **Auto Runtime (~10 min) → one Cloud Forge Run POST → 100 rows (mandatory). NOT “up to 100.” NOT drain/loop in founder chat.**
+
+## Agents MUST say
+
+| Concept | Correct |
+|---------|---------|
+| Cadence | Auto Runtime cron → one Cloud Forge Run → **`processed` must be 100** |
+| Quota | `max_advance: 100` = **minimum row count per turn**, not a ceiling |
+| Progress proof | `cloud_forge_run_head` delta · observer **`100/100`** processed |
+| Skipped rows | Turn ran 100 rows; motor failed on some; head still moved |
+| Batch vs turn | `batch_id` = locked file · turn = 10-min cron |
+
+## Agents MUST NOT say
+
+- **“drain” / “loop”** in founder reply (use Cloud Forge Run / Auto Runtime)
+- “One plan per 10-minute cron”
+- “100 pack still running” (without `pack_in_progress` gate evidence)
+- “Skipped = turn idle”
+- “Redeploy Railway to drain”
+
+## Read before answer
+
+1. `data/cloud-forge-run-hundred-rows-per-turn-vocabulary-v1.json`
+2. Live queue: `…/api/cloud-forge-run/queue/v1`
+
+**Validator (ship window only):** `bash scripts/validate-cloud-forge-run-hundred-rows-vocabulary-v1.sh`

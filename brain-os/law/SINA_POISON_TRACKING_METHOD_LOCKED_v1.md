@@ -263,7 +263,7 @@ FORBID Fake green · partial blame close · critic-driven reorder
 OWN    P7-QUEUE class · 9.07 A scope · open PICKs to Canvas
 READ   live_founder_decision_form --json before hero claims
 FLAG   sa-05xx in default queue · execution_authority false
-FORBID GOV_UNIFY batch when 3.07 NO · factory drain hero · chat-substitute picks
+FORBID GOV_UNIFY batch when 3.07 NO · Cloud Forge Run hero · chat-substitute picks
 ```
 
 ### 5.5 Maintainer 2 (hub — P3/P5 only)

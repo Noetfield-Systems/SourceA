@@ -72,7 +72,7 @@
 | `LIVE_ONGOING_PROMPTS` | `SOURCEA_LIVE_ONGOING_PROMPTS_LOCKED_v1.md` | 1.0 | Live next-10 queue turns · machine delivery gate | Static OpenRouter 10-pack | `~/.sina/live-ongoing-prompts-next-10-v1.json` | — |
 | `MONITOR_DISK_LIVE` | `SOURCEA_MONITOR_DISK_LIVE_WIRE_LOCKED_v1.md` | 1.0 | Monitor :13021 disk-wired · 5s sync | Agent refresh of monitor | `~/.sina/monitor-live-v1.json` | — |
 | `FOUNDER_AGENTIC_POLICY` | `brain-os/laws/FOUNDER_AGENTIC_COMMERCIAL_AND_NO_CURSOR_AUTORUN_LOCKED_v1.md` | 1.0 | No Cursor AUTO-RUN P0; agentic commercial; founder never email/call | AUTO-RUN north star docs | `~/.sina/auto-run-disabled-v1.flag` | — |
-| `S10_ETERNAL_AUDIT` | `SOURCEA_S10_ETERNAL_SELF_HEAL_AUDIT_LOCKED_v1.md` | 1.0 | Third lane — eternal audit loop, not factory drain | REGISTRY drain as S10 | `~/.sina/s10-eternal-manifest-v1.json` | — |
+| `S10_ETERNAL_AUDIT` | `SOURCEA_S10_ETERNAL_SELF_HEAL_AUDIT_LOCKED_v1.md` | 1.0 | Third lane — eternal audit loop, not Cloud Forge Run | REGISTRY drain as S10 | `~/.sina/s10-eternal-manifest-v1.json` | — |
 | `FACTORY_CONTROL` | `scripts/factory_control_v1.py` | 1.0 | Conduct machine — FREEZE · stop · spawn gate | Plan todo > ASF STOP | `factory_control` state in module | — |
 | `DISK_TRUTH_E2E` | `SOURCEA_DISK_TRUTH_E2E_MATRIX_LOCKED_v1.md` | 1.0 | RT/LAG/GAP matrix · projection vs control · dual-pick FAIL | Archive insight §3 as law | `validate-ecosystem-safety-v1.sh` dual-pick | — |
 | `ANTI_STALENESS` | `SOURCEA_ANTI_STALENESS_MACHINE_ENFORCEMENT_PLAN_LOCKED_v1.md` | 1.0 | Permanent anti-staleness latches AS-01..18 | Chat/hub without validator | `validate-anti-staleness-bundle-v1.sh` (Phase 1) | — |
@@ -225,9 +225,11 @@
 | `NW1_BATTLE_CARD` | `NOETFIELD_NW1_BATTLE_CARD_LOCKED_v1.md` | 1.0 | NW1 outbound battle card — email + discovery | Chat-only pitch prose | `SOURCEA_PORTFOLIO_SSOT` §16 · `ONEPAGER_MERGED_EXTERNAL` | — |
 | `ONEPAGER_MERGED_EXTERNAL` | `NOETFIELD_FOUNDING_CUSTOMER_PILOT_ONEPAGER_MERGED_EXTERNAL_v1.md` | 1.0 | NW1 attach — merged 2 PAGER intake + locked NF-RD | Raw desktop v1 alone | `NOETFIELD_FOUNDING_CUSTOMER_PILOT_ONEPAGER_LOCKED_v1.md` · `validate-noetfield-onepager-merge-v1.sh` | — |
 | `ASSET_B_DFY` | `SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md` | 1.0 | Asset B — DFY controlled agentic automation · fastest cash SKUs | Generic freelancer agent pitch | `controlled_agentic_automation_offer_v1.py` · `SOURCEA_PORTFOLIO_SSOT` §2c | — |
-| `COMMERCIAL_SENDER` | `SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md` | 1.0 | Outbound From addresses — hello@sourcea.com · no personal email | Founder Gmail on Asset B/SW1 | `send_ab1_single_v1.py` · `ASSET_B_DFY` | — |
+| `COMMERCIAL_SENDER` | `SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md` | 1.0 | Outbound From addresses — hello@sourcea.app · no personal email | Founder Gmail on Asset B/SW1 | `send_ab1_single_v1.py` · `ASSET_B_DFY` | — |
 | `CHAIN_TOOLS_PUBLISH` | `SOURCEA_CHAIN_TOOLS_PUBLISH_LOCKED_v1.md` | 1.0 | Graphify-class chain tools — sourcea-boot PyPI · SW1 unlock | "We built an agent" hero | `packages/sourcea-boot` · `validate-sourcea-boot-v1.sh` | — |
 | `NW1_PILOT_ONEPAGER` | `NOETFIELD_FOUNDING_CUSTOMER_PILOT_ONEPAGER_LOCKED_v1.md` | 1.0 | Founding customer pilot onepager — buyer attach | Ad-hoc PDF without SSOT row | `NW1_BATTLE_CARD` | — |
+| `NF_INTELLIGENCE_613` | `docs/NOETFIELD_INTELLIGENCE_613_PLAN_LOCKED_v1.md` | 1.0 | Noetfield Intelligence 613 — vertical consulting + SaaS primary GTM | Copilot-only posture with zero clients | `NF_INTELLIGENCE_LANDING` · `SOURCEA_PORTFOLIO_SSOT` §7b · blueprint TSX | — |
+| `NF_INTELLIGENCE_LANDING` | `docs/NOETFIELD_INTELLIGENCE_LANDING_ONEPAGER_v1.md` | 1.0 | Noetfield.com Intelligence hero + nav demotion copy | React blueprint shell as production homepage | `NF_INTELLIGENCE_613` | — |
 
 ---
 
@@ -236,7 +238,7 @@
 | Topic | Canonical only | Pointers allowed (no restate) |
 |-------|----------------|------------------------------|
 | Hub daily (H1+H2) | `SUPER_FAST_HUB` + `RETIRE_SINA_COMMAND` | `THREE_ZONE_HUB_SPINE` museum zone quarantined |
-| Portfolio commercial | `SOURCEA_PORTFOLIO_SSOT` | `NW1_*` · `ONEPAGER_MERGED_EXTERNAL` · `ASSET_B_DFY` · `COMMERCIAL_SENDER` · `CHAIN_TOOLS_PUBLISH` · `CONTROL_PLANE_200*` · `ORCHESTRATOR_PARTNER` |
+| Portfolio commercial | `SOURCEA_PORTFOLIO_SSOT` | `NW1_*` · `NF_INTELLIGENCE_613` · `NF_INTELLIGENCE_LANDING` · `ONEPAGER_MERGED_EXTERNAL` · `ASSET_B_DFY` · `COMMERCIAL_SENDER` · `CHAIN_TOOLS_PUBLISH` · `CONTROL_PLANE_200*` · `ORCHESTRATOR_PARTNER` |
 | n8n revenue proof | `N8N_COMMERCIAL_GRADE` | `N8N_AUTOMATION_PLAN` execution only |
 | Source vs chat suggestions | `ALIGNMENT` | `CRITIC` §4 step 6 |
 | Memory B vs D | `WTM_AUTHORITY` §4 | `WTM_MAP` one-line, `STEP_CATALOG` fields |
@@ -255,7 +257,7 @@
 | Run inbox disk truth | `RUN_INBOX_DISK_TRUTH` | `SOURCEA_PHASE_STRICT_RUN_INBOX`, Worker mandatory read |
 | Live ongoing prompts / Next steps | `LIVE_ONGOING_PROMPTS` | `RUN_INBOX_DISK_TRUTH`, `validate-next-prompt-pack-live-v1` |
 | Founder commercial + no autorun | `FOUNDER_AGENTIC_POLICY` | `AUTOMATION_CONVERGE`, `AUTO_RUN_FULLY_AUTOMATIC` (legacy) |
-| S10 audit lane | `S10_ETERNAL_AUDIT` | Factory drain, AUTO-RUN |
+| S10 audit lane | `S10_ETERNAL_AUDIT` | Cloud Forge Run, AUTO-RUN |
 | Conduct / FREEZE | `FACTORY_CONTROL` | INCIDENT-015 conduct, `factory-now` lane |
 | Disk truth E2E / hub projection | `DISK_TRUTH_E2E` | `CONVERSATION_FULL_INSIGHT` archive §3 pointer only |
 | AI infra partnerships / bootstrap credits | `COMM_PARTNER` | `investor/ROADMAP.md` Q2 row · Commercial Goal vault |

@@ -14,7 +14,7 @@ alwaysApply: false
 
 > **Every agent discussing ANY task or plan must run the tiny validation pipeline — not only on NEXT TASK trigger. Validate before proceed.**
 
-Applies whenever founder or agent talks about: backlog rows · work orders · upgrade plans · cloud drain · B#### · sa-mkt-#### · CLOUD-SEC-### · execute/proceed · usefulness · real-world output.
+Applies whenever founder or agent talks about: backlog rows · work orders · upgrade plans · Cloud Forge Run · B#### · sa-mkt-#### · CLOUD-SEC-### · execute/proceed · usefulness · real-world output.
 
 ## Trigger phrases (also activate explicit NEXT TASK mode)
 

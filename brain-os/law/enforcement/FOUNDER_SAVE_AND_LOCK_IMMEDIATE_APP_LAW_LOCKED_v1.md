@@ -9,11 +9,13 @@
 
 ## 0. One sentence (law)
 
-**When ASF says save, lock, or never forget — write a LOCKED file in SourceA or the correct Desktop/repo source, mirror to machine registry, and surface in Sina Command the same session — no chat-only memory.**
+**When ASF says save, lock, or never forget — first resolve pathless filing intent through `scripts/agent_filing_registry_gate_v1.py`; then write only the resolved LOCKED file in SourceA or the correct Desktop/repo source, mirror to machine registry when the resolved `next_steps[]` requires it, and surface in Sina Command the same session — no chat-only memory and no invented paths.**
 
 ---
 
 ## 1. Where content lives (priority order)
+
+Pathless SAVE/LOCK/FILE never chooses from this table directly. The filing registry resolves `route_id`, `path`, and `next_steps[]`; this table explains why the resolved destination belongs where it does.
 
 | Tier | Where | When |
 |------|-------|------|

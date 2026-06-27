@@ -396,11 +396,11 @@ Priority investor profiles:
 
 | Lane | Owner | Scope | Forbidden |
 |------|-------|-------|-----------|
-| Engineering — Demo | Worker | D1–D6 · commit gate · tamper validator · demo script · Hub button | Hub rewrite · factory drain · naming sprints |
+| Engineering — Demo | Worker | D1–D6 · commit gate · tamper validator · demo script · Hub button | Hub rewrite · Cloud Forge Run · naming sprints |
 | Engineering — Production | Maintainer 2 | FR-003 · 1.10 seal · receipt validator · hub hero scrub | Demo implementation |
 | Commercial | ASF | TF/NF outreach · discovery calls · LOI · pilot — **starts week 1** | Terminal work · waiting for perfect demo |
 | Architecture / Routing | Brain | Route · cheap proof only | Implementation · E2E ladder |
-| Factory (background) | Worker | sa-0798 VERIFY · FREEZE ON | Factory drain as investor metric |
+| Factory (background) | Worker | sa-0798 VERIFY · FREEZE ON | Cloud Forge Run as investor metric |
 
 ---
 

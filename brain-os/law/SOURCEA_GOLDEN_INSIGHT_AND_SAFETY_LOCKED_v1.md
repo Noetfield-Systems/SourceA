@@ -78,7 +78,7 @@ status: LOCKED
 | **SourceA / Cursor OS Pro** | Internal spine | 144/1000 drain | Not a grant SKU |
 | **Canada playbook** | Strategic reference | Saved, valid | ASF calendar — CanadaBuys, PacifiCan call |
 
-**Canada doc verdict:** pursue procurement + RAII/LIFT **in parallel** with factory drain; do not pivot products; grants follow trust story, not generic AI apps.
+**Canada doc verdict:** pursue procurement + RAII/LIFT **in parallel** with Cloud Forge Run; do not pivot products; grants follow trust story, not generic AI apps.
 
 ### 5. Monitor / truth
 
@@ -180,7 +180,7 @@ bash ~/Desktop/SourceA/scripts/validate-ecosystem-safety-v1.sh
 
 ## Bottom line
 
-**Progress** = factory drain (144→1000) + TrustField demos **in parallel**, never mixed in one chat.
+**Progress** = Cloud Forge Run (144→1000) + TrustField demos **in parallel**, never mixed in one chat.
 
 **You now have:**
 
