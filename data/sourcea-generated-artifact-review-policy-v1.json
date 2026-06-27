@@ -1,0 +1,58 @@
+{
+  "schema": "sourcea-generated-artifact-review-policy-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-27T10:04:00Z",
+  "status": "active",
+  "one_law": "Generated artifacts are either deploy-critical tracked snapshots or ignored runtime receipts; they must not appear as surprise dirty work in unrelated lanes.",
+  "tracked_snapshots": [
+    {
+      "path": "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json",
+      "reason": "Deploy-critical Worker bundle snapshot.",
+      "lane": "generated_brain_corpus"
+    },
+    {
+      "path": "data/brain-chat-knowledge-bundle-v1.json",
+      "reason": "Canonical generated Brain knowledge bundle snapshot.",
+      "lane": "generated_brain_corpus"
+    },
+    {
+      "path": "data/chatbot-knowledge/brain_knowledge_v1.sqlite",
+      "reason": "Brain knowledge database snapshot used by local tooling.",
+      "lane": "generated_brain_corpus"
+    },
+    {
+      "path": "data/chatbot-knowledge/crawled/**",
+      "reason": "Auditable crawl mirror for public Brain knowledge.",
+      "lane": "generated_brain_corpus"
+    },
+    {
+      "path": "sites/SourceA-landing/green-unified/dist/**",
+      "reason": "Committed static deploy output per repository .gitignore policy.",
+      "lane": "site_assets"
+    }
+  ],
+  "ignored_runtime_outputs": [
+    {
+      "path": "~/.sina/sourcea-dirty-tree-lane-report-v1.json",
+      "reason": "Pre-agent status report; changes every run."
+    },
+    {
+      "path": "~/.sina/sourcea-dirty-tree-lane-map-v1.json",
+      "reason": "Pre-agent lane receipt; changes every run."
+    },
+    {
+      "path": "~/.sina/sourcea-ai-model-roi-tests/*.json",
+      "reason": "Dry-run/live model receipts; runtime proof."
+    },
+    {
+      "path": "~/.sina/founder-intent-approval-machine-v1.json",
+      "reason": "Founder intent approval receipt; runtime proof."
+    }
+  ],
+  "commit_policy": [
+    "Generated Brain corpus may be committed only as its own lane commit.",
+    "Runtime reports and receipts must stay outside the repo or ignored.",
+    "Dist assets may be committed only with their matching source asset lane.",
+    "Agents must not mix generated snapshots with runtime code unless the founder explicitly asks for a multi-lane package."
+  ]
+}
