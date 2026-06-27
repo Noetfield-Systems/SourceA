@@ -1,0 +1,309 @@
+/* Business A — 48h MVP commercial landing (commercial plane) */
+
+.sa-start-page {
+  min-height: 100vh;
+  background: linear-gradient(165deg, #f8fdf5 0%, #fff 45%, #f0faf8 100%);
+}
+
+.sa-start-hero {
+  padding: clamp(5rem, 14vw, 8rem) 0 2.5rem;
+  text-align: center;
+}
+
+.sa-start-hero h1 {
+  font-family: var(--ar-display, "Plus Jakarta Sans", system-ui, sans-serif);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--ar-accent, #044441);
+  max-width: 18ch;
+  margin: 0 auto 1rem;
+}
+
+.sa-start-wedge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #2d7a1e;
+  background: rgba(105, 212, 25, 0.14);
+  border: 1px solid rgba(105, 212, 25, 0.35);
+}
+
+.sa-start-lead {
+  max-width: 42ch;
+  margin: 0 auto 1.75rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--ar-text-muted, #5a6b68);
+}
+
+.sa-start-trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: 1.5rem;
+  font-size: 0.82rem;
+  color: var(--ar-text-muted);
+}
+
+.sa-start-trust strong {
+  color: var(--ar-accent);
+}
+
+.sa-start-form-wrap {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+
+.sa-start-card {
+  background: #fff;
+  border: 1px solid var(--ar-line, #e2ebe8);
+  border-radius: 20px;
+  padding: 1.75rem 1.5rem 1.5rem;
+  box-shadow: 0 20px 50px rgba(4, 68, 65, 0.08);
+}
+
+.sa-start-card h2 {
+  font-family: var(--ar-display);
+  font-size: 1.15rem;
+  margin: 0 0 0.35rem;
+  color: var(--ar-accent);
+}
+
+.sa-start-step-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ar-text-muted);
+  margin-bottom: 1rem;
+}
+
+.sa-start-legend {
+  font-family: var(--ar-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ar-accent);
+  margin: 0 0 0.75rem;
+  padding: 0;
+}
+
+.sa-start-fieldset {
+  border: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.sa-mvp-intake-form .sa-start-fieldset:last-of-type {
+  margin-bottom: 0.5rem;
+}
+
+.sa-start-options {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.sa-start-option {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--ar-line);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.sa-start-option:hover {
+  border-color: rgba(105, 212, 25, 0.5);
+  background: rgba(105, 212, 25, 0.06);
+}
+
+.sa-start-option input {
+  accent-color: #69d419;
+}
+
+.sa-start-option.is-selected {
+  border-color: #69d419;
+  background: rgba(105, 212, 25, 0.1);
+}
+
+.sa-start-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.sa-start-actions .ar-btn {
+  flex: 1;
+}
+
+.sa-start-done {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.sa-start-done-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  background: rgba(105, 212, 25, 0.2);
+  color: #2d7a1e;
+}
+
+.sa-start-done h2 {
+  font-family: var(--ar-display);
+  font-size: 1.5rem;
+  color: var(--ar-accent);
+  margin: 0 0 0.5rem;
+}
+
+.sa-start-done p {
+  color: var(--ar-text-muted);
+  margin: 0;
+}
+
+.sa-start-error {
+  margin-top: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  color: #b91c1c;
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.sa-start-hidden {
+  display: none !important;
+}
+
+.sa-start-header-minimal .ar-nav a:not([href*="start"]) {
+  opacity: 0.85;
+}
+
+@media (max-width: 480px) {
+  .sa-start-actions {
+    flex-direction: column;
+  }
+}
+
+/* Client proof receipt — shareable on sales calls */
+.sa-proof-receipt {
+  max-width: 28rem;
+  margin: 0 auto 2rem;
+  padding: 1.25rem 1.35rem;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(4, 68, 65, 0.12);
+  box-shadow: 0 12px 40px rgba(4, 68, 65, 0.08);
+  text-align: left;
+}
+
+.sa-proof-receipt-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ar-text-muted);
+}
+
+.sa-proof-receipt-verdict {
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #166534;
+  background: rgba(34, 197, 94, 0.12);
+}
+
+.sa-proof-receipt-verdict.is-pass { color: #166534; }
+
+.sa-proof-receipt-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.45rem 0;
+  font-size: 0.88rem;
+  border-bottom: 1px solid rgba(4, 68, 65, 0.06);
+}
+
+.sa-proof-receipt-row:last-child { border-bottom: none; }
+
+.sa-proof-receipt-row span:first-child {
+  color: var(--ar-text-muted);
+  flex-shrink: 0;
+}
+
+.sa-proof-receipt-row strong {
+  text-align: right;
+  font-weight: 600;
+  color: var(--ar-accent);
+  word-break: break-word;
+}
+
+.sa-proof-receipt-summary {
+  margin-top: 0.85rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--ar-text-muted);
+}
+
+.sa-start-flow {
+  padding: 2.5rem 0;
+}
+
+.sa-start-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.sa-start-flow-step {
+  padding: 1.1rem 1.15rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(4, 68, 65, 0.1);
+}
+
+.sa-start-flow-step strong {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #2d7a1e;
+  margin-bottom: 0.35rem;
+}
+
+.sa-start-flow-step span {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--ar-text-muted);
+}
+
+.sa-start-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+

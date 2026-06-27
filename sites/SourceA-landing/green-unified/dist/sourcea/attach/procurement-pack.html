@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="SourceA — AI that proves its work" />
+  <meta property="og:description" content="Procurement pack — governed runtime, signed receipts, replay path for platform buyers." />
   <title>SourceA Procurement Pack</title>
   <style>
     :root { --ink: #044441; --muted: #5a7a78; --accent: #69d419; --bg: #f8fbf8; }
@@ -42,13 +44,13 @@
 
   <h2>Evaluate in 5 minutes</h2>
   <!-- sa-boot-terminal:v1 -->
-  <p class="sa-boot-terminal-label">Last factory boot · 2026-06-18 00:04:50 UTC · BLOCK</p>
+  <p class="sa-boot-terminal-label">Last factory boot · 2026-06-24 03:23:04 UTC · PASS</p>
   <div class="proof">$ sourcea-boot --json
-SOURCEA_BOOT BLOCK ok=false
-  [PASS] policy_version: SSOT v3.2 current
-  [PASS] provider: voyage semantic active
-  [PASS] receipt_fresh: receipt fresh (0.3h)
-  [FAIL] queue_truth: run-inbox truth_match=false
+SOURCEA_BOOT PASS ok=true
+  [PASS] policy_version: no policy file (POLICY.md) — skipped
+  [PASS] provider: provider env present (ANTHROPIC_API_KEY)
+  [PASS] receipt_fresh: no prior receipt — first boot allowed
+  [PASS] queue_truth: no queue files configured — skipped
 REPORT=/Users/sinakazemnezhad/Desktop/SourceA/BOOT_REPORT.json</div>
 <!-- /sa-boot-terminal:v1 -->
   <p>Public eval: <a href="https://github.com/sourcea-io/sourcea-boot">github.com/sourcea-io/sourcea-boot</a></p>
@@ -60,17 +62,26 @@ REPORT=/Users/sinakazemnezhad/Desktop/SourceA/BOOT_REPORT.json</div>
     <li>EU AI Act — Art. 12 · 14 (audit trail)</li>
     <li>OWASP LLM Top 10 — LLM06 · LLM08</li>
   </ul>
-  <p class="note">Alignment maps only · not certification · <a href="http://127.0.0.1:5180/sourcea/sources.html">cited sources</a></p>
+  <p class="note">Alignment maps only · not certification · <a href="/sourcea/sources">cited sources</a></p>
 
   <h2>Proof chain (screen-share)</h2>
   <p>request → policy → decision → receipt → replay → tamper-FAIL — under five minutes live.</p>
 
   <div class="cta">
     <p><strong>Book procurement walkthrough</strong></p>
-    <p><a href="mailto:hello@sourcea.com">hello@sourcea.com</a> · 15-minute live demo</p>
-    <p class="note">Platform: <a href="http://127.0.0.1:5180/sourcea/platform.html">sourcea.com/platform</a></p>
+    <p><a href="mailto:hello@sourcea.app">hello@sourcea.app</a> · 15-minute live demo</p>
+    <p class="note">Platform: <a href="/sourcea/platform">sourcea.app/platform</a></p>
   </div>
 
-  <p class="note">© SourceA 2026 · Attach to outbound email · Print to PDF from browser · No SOC2 claims</p>
+  <p class="note">© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · <a href="https://noetfield.com" rel="noopener">noetfield.com</a> · Attach to outbound email · Print to PDF from browser · No SOC2 claims</p>
+  <script src="/sourcea/sourcea-cta-gate.js" defer></script>
+<script src="/sourcea/sourcea-landing-cta.js" defer></script>
+<script src="/sourcea/sourcea-public-display-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-fallback-v1.js" defer></script>
+<script src="/sourcea/sourcea-boot-wire.js" defer></script>
+<script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-interact-v1.js" defer></script>
+<script src="/sourcea/sourcea-segment-router-v1.js" defer></script>
+<script src="/sourcea/sourcea-chatbot.js" defer></script>
 </body>
 </html>

@@ -1,20 +1,20 @@
 {
   "schema": "witnessbc-trust-signals-v1",
-  "at": "2026-06-21T04:30:10Z",
+  "at": "2026-06-26T21:54:51Z",
   "receipts_signed_today": 2,
-  "receipts_date": "2026-06-21",
+  "receipts_date": "2026-06-26",
   "receipt_samples": [
     "agent-governance-events.jsonl:s10_eternal_audit",
-    "agent-governance-events.jsonl:governance_drift"
+    "agent-governance-events.jsonl:s10_eternal_audit"
   ],
   "receipt_metric_label": "Governance events today",
-  "valid_yes": null,
+  "valid_yes": 1000,
   "valid_yes_total": 1000,
-  "factory_now_line": "factory-now \u00b7 FORGE FACTORY \u00b7 cycle2 \u00b7 mode FORGE_FACTORY \u00b7 queue sa-1201",
+  "factory_now_line": "factory-now \u00b7 Valid YES 1000 \u00b7 brain 1000 \u00b7 dual_proof True \u00b7 mode FREEZE \u00b7 queue \u00b7 cloud CLOUD-SEC-5440",
   "governance": {
-    "verdict": "BLOCK",
-    "session_gate_ok": false,
-    "at": "2026-06-21T02:46:51Z"
+    "verdict": "PASS",
+    "session_gate_ok": true,
+    "at": "2026-06-24T14:21:36Z"
   },
   "deploy": {
     "bundle": "witnessbc-site-v8",

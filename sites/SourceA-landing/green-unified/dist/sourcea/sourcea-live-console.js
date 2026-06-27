@@ -74,7 +74,7 @@
     const checks = aeg.checks || boot.checks || [];
     const terminal = (aeg.terminal_transcript || "").split("\n").slice(0, 12).join("\n");
     const verdict = aeg.verdict || boot.verdict || "—";
-    const url = live.aeg_live_url || aeg.site_proof_url || "/sourcea/proof/live.html";
+    const url = live.aeg_live_url || aeg.site_proof_url || "/sourcea/proof/live";
     const eid = aeg.evidence_id || "—";
     const valid = live.valid_yes != null ? `${live.valid_yes}/${live.valid_yes_total || 1000}` : "—";
     const pipe = live.pipeline || {};
@@ -242,7 +242,7 @@
         return `  <span class="${cls}">[${mark}]</span> ${esc(c.name)}: ${esc(c.reason)}`;
       })
       .join("\n");
-    const proofUrl = live.aeg_live_url || "/sourcea/proof/live.html";
+    const proofUrl = live.aeg_live_url || "/sourcea/proof/live";
     panel.innerHTML = `
       <div class="sa-fleet-head">
         <span>Proof chain · replay</span>
@@ -255,7 +255,7 @@ ${terminal}
 <span class="sa-t-cursor">▋</span></pre>
       </div>
       <div class="sa-receipt-feed sa-biz-activity" style="margin-top:0.75rem">
-        <article class="sa-receipt-card is-active"><header><span class="pass">AEG</span><time>${esc((aeg.evidence_id || "").slice(-8) || "live")}</time></header><p><a href="${esc(proofUrl)}">Full forensic page →</a> · <a href="/sourcea/scenario.html#proof-quiz">Gauntlet quiz →</a></p></article>
+        <article class="sa-receipt-card is-active"><header><span class="pass">AEG</span><time>${esc((aeg.evidence_id || "").slice(-8) || "live")}</time></header><p><a href="${esc(proofUrl)}">Full forensic page →</a> · <a href="/sourcea/scenario#proof-quiz">Gauntlet quiz →</a></p></article>
       </div>`;
   }
 
@@ -326,6 +326,36 @@ ${terminal}
     });
   }
 
+  function paintPublicHero(panelRoot, live) {
+    const m = live.metrics || {};
+    const boot = live.boot || {};
+    const pub = window.SourceAPublicDisplay && !window.SourceAPublicDisplay.isDevUi();
+    const urlEl = panelRoot.querySelector(".sa-console-url");
+    if (urlEl) urlEl.textContent = "Live workspace";
+    const log = document.getElementById("sa-factory-log");
+    if (log) {
+      const viewed = m.proof_viewed || 0;
+      log.textContent = pub
+        ? `Latest job verified · ${viewed} demo${viewed === 1 ? "" : "s"} this week`
+        : live.factory_now_line || "Factory sync";
+      log.dataset.saLive = "1";
+    }
+    const pill = document.getElementById("sa-agent-pill-text");
+    if (pill) {
+      const verdict = pub
+        ? window.SourceAPublicDisplay.humanizeGovernance(boot.verdict || "PASS")
+        : boot.verdict || "live";
+      pill.textContent = pub ? `Verified · ${verdict}` : `Live · ${verdict}`;
+    }
+    const livePill = panelRoot.querySelector(".sa-live-pill");
+    if (livePill && pub) {
+      const label = livePill.querySelector(".sa-live-dot")?.nextSibling;
+      if (label && label.nodeType === Node.TEXT_NODE && label.textContent.trim() === "Done") {
+        /* keep Done */
+      }
+    }
+  }
+
   function paintHero(live) {
     const m = live.metrics || {};
     const boot = live.boot || {};
@@ -373,8 +403,17 @@ ${terminal}
     const panelRoot = document.getElementById("sa-biz-command");
     if (!panelRoot) return;
 
+    const isPublicHero =
+      panelRoot.classList.contains("sa-mock-panel") ||
+      document.body.classList.contains("sa-root-home");
+
     const live = await fetchLive();
     if (!live) return;
+
+    if (isPublicHero) {
+      paintPublicHero(panelRoot, live);
+      return;
+    }
 
     paintHero(live);
 

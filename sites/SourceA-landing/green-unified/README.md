@@ -69,6 +69,14 @@ Or standalone:
 
 ```bash
 bash ~/Desktop/SourceA/scripts/validate-sourcea-landing-e2e-v1.sh
+bash ~/Desktop/SourceA/scripts/validate-sourcea-forge-mobile-v1.sh   # Forge @ 375/466px (live)
+```
+
+**Forge ship checklist** (after Pages deploy to sourcea.app):
+
+```bash
+bash ~/Desktop/SourceA/scripts/validate-sourcea-forge-mobile-v1.sh
+curl -fsS "https://sourcea.app/sourcea/forge/?cb=$(date +%s)" | grep -q "verifiable receipt on every run"
 ```
 
 ### Individual steps (debugging)
@@ -110,6 +118,6 @@ Law: `brain-os/law/enforcement/SOURCEA_UI_UPGRADE_NO_DOWNGRADE_LOCKED_v1.md` · 
 
 ## Brand
 
-- **SourceA** · hello@sourcea.com · https://sourcea.com
+- **SourceA** · hello@sourcea.app · https://sourcea.app
 - No Noetfield on first touch
 - Category: Execution Proof Infrastructure

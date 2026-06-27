@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Profile · Forge Terminal · SourceA</title>
+  <meta name="description" content="Set up your Forge Terminal profile — organization, project, and shipping goal." />
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="/assets/agentrun.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea-platform-onboarding-v1.css?v=1.4.0" />
+</head>
+<body class="ar-body sa-v2 sa-platform-onboard" data-sa-page="forge-terminal-profile">
+<header class="ar-header sa-header">
+  <div class="ar-container ar-header-shell">
+    <div class="ar-header-inner sa-po-header-inner">
+      <a class="ar-logo" href="/sourcea/forge/terminal">
+        <span class="ar-logo-text">Source<span class="ar-logo-run">A</span></span>
+        <span class="sa-ws-badge">Forge Terminal</span>
+      </a>
+      <div class="ar-header-actions">
+        <button type="button" class="ar-btn ar-btn-ghost ar-btn-sm" id="sa-po-signout">Sign out</button>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="ar-container">
+  <nav class="sa-po-steps" aria-label="Onboarding steps"></nav>
+  <section class="sa-po-card">
+    <h1>Your profile</h1>
+    <p class="ar-lead">Name your project — we use this for your workspace folder, prompt forge context, and first living chat session.</p>
+
+    <div class="sa-po-identity" id="sa-po-identity">
+      <div class="sa-po-avatar" id="sa-po-avatar" aria-hidden="true">AC</div>
+      <div class="sa-po-identity-meta">
+        <strong id="sa-po-display-name">—</strong>
+        <span id="sa-po-display-email">—</span>
+      </div>
+    </div>
+
+    <form id="sa-po-profile-form">
+      <label class="sa-po-field">Organization
+        <input type="text" id="sa-po-org" class="sa-po-input" autocomplete="organization" placeholder="Northline Agency" />
+        <span class="sa-po-field-hint">Agency, studio, or company name — shown in workspace receipts.</span>
+      </label>
+      <label class="sa-po-field">Project name
+        <input type="text" id="sa-po-project" class="sa-po-input" required placeholder="Client QBR proof engine" />
+        <span class="sa-po-field-hint">Becomes your workspace slug and Mac folder name.</span>
+      </label>
+      <label class="sa-po-field">What are you shipping?
+        <input type="text" id="sa-po-goal" class="sa-po-input" placeholder="Governed agent ops with receipts for renewals" />
+        <span class="sa-po-field-hint">Seeds your first prompt in living chat — one line is enough.</span>
+      </label>
+      <div class="sa-po-next-box">
+        <strong>Next:</strong> We provision a <code>.sourcea</code> workspace, then open <strong>living chat</strong> with quality gates, prompt forge, and optional Mac disk receipts.
+      </div>
+      <div class="sa-po-actions">
+        <button type="submit" class="ar-btn ar-btn-primary">Create workspace →</button>
+        <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/sourcea/forge/terminal/signin">Back</a>
+      </div>
+    </form>
+    <p class="sa-po-status" id="sa-po-profile-status" hidden></p>
+  </section>
+</main>
+<script src="/sourcea/sourcea-platform-session-v1.js?v=1.4.0"></script>
+<script src="/sourcea/sourcea-platform-auth-v1.js?v=1.4.0"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async function () {
+  const S = window.SourceAPlatformSession;
+  const R = S.ROUTES;
+  S.mountStepNav(document.querySelector(".sa-po-steps"), "profile");
+  const cur = await S.routeGuardAsync("profile");
+  if (!S.canAccess("profile", cur)) return;
+  document.getElementById("sa-po-display-name").textContent = cur.name || "Founder";
+  document.getElementById("sa-po-display-email").textContent = cur.email || "";
+  document.getElementById("sa-po-avatar").textContent = S.initials(cur.name, cur.email);
+  if (cur.org) document.getElementById("sa-po-org").value = cur.org;
+  if (cur.project_name) document.getElementById("sa-po-project").value = cur.project_name;
+  if (cur.goal) document.getElementById("sa-po-goal").value = cur.goal;
+  document.getElementById("sa-po-signout").addEventListener("click", function () {
+    S.signOut();
+  });
+  document.getElementById("sa-po-profile-form").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    const org = document.getElementById("sa-po-org").value.trim();
+    const project = document.getElementById("sa-po-project").value.trim();
+    const goal = document.getElementById("sa-po-goal").value.trim();
+    if (!project) return;
+    const status = document.getElementById("sa-po-profile-status");
+    status.hidden = false;
+    status.textContent = "Saving profile…";
+    status.className = "sa-po-status";
+    S.write(Object.assign({}, S.read(), {
+      org: org,
+      project_name: project,
+      goal: goal,
+      step: "workspace",
+    }));
+    S.syncToMac(S.read());
+    status.textContent = "Profile saved — opening workspace…";
+    status.classList.add("is-ok");
+    window.location.href = R.workspace;
+  });
+});
+</script>
+<script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-interact-v1.js" defer></script>
+<script src="/sourcea/sourcea-segment-router-v1.js" defer></script>
+</body>
+</html>

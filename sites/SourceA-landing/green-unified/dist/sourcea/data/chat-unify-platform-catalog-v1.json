@@ -1,0 +1,51 @@
+{
+  "schema": "chat-unify-platform-catalog-v1",
+  "version": "1.2.0",
+  "saved_at": "2026-06-24T18:00:00Z",
+  "product_name": "Chat Unify",
+  "tagline": "Paste · verify · audit · unify — receipts on disk",
+  "website": "https://sourcea.app/",
+  "audiences": [
+    {
+      "id": "newcomer",
+      "title": "New to agents",
+      "subtitle": "No Cursor required",
+      "description": "Paste any AI output in Chat — verify with PASS or BLOCK, or open Audit Trail for plain-English claim checks.",
+      "cta_tab": "home",
+      "cta_label": "Start in Chat"
+    },
+    {
+      "id": "cursor_pro",
+      "title": "Cursor power user",
+      "subtitle": "Forge · connect · dispatch",
+      "description": "Turn intent into a bounded mission in Prompt Forge, wire Cursor and automation in Connect, queue work in Tasks.",
+      "cta_tab": "forge",
+      "cta_label": "Open Prompt Forge"
+    },
+    {
+      "id": "founder",
+      "title": "Verify before you act",
+      "subtitle": "Proof on disk",
+      "description": "Run Verify & Act on every agent reply, seal green runs in Proof Pack, and record scope in Decisions.",
+      "cta_tab": "founder",
+      "cta_label": "Open Verify & Act"
+    }
+  ],
+  "machines": [
+    {"id": "chat", "name": "Chat", "tab": "home", "desc": "Paste · save · unify sessions"},
+    {"id": "start", "name": "Start", "tab": "start", "desc": "First-run guide · pick your path"},
+    {"id": "prompt_forge", "name": "Prompt Forge", "steps": 4, "tab": "forge", "desc": "Turn intent into a bounded mission"},
+    {"id": "connect", "name": "Connect", "steps": 6, "tab": "connect", "desc": "Link Cursor · cloud · automation"},
+    {"id": "founder_loop", "name": "Verify & Act", "steps": 7, "tab": "founder", "desc": "Check one reply · PASS or BLOCK"},
+    {"id": "ord_loop", "name": "Audit Trail", "steps": 7, "tab": "ord", "desc": "Trace claims to disk receipts"},
+    {"id": "form", "name": "Decisions", "tab": "form", "desc": "Approve scope before agents proceed"},
+    {"id": "api_station", "name": "Tasks", "tab": "api", "desc": "Queue work · dispatch with receipts"},
+    {"id": "hub_pro", "name": "Operations", "tab": "hubpro", "desc": "Skills · checklists · experience log"},
+    {"id": "proof_pack", "name": "Proof Pack", "steps": 5, "tab": "proofpack", "desc": "Seal verified runs · deliver proof"},
+    {"id": "vocabulary_intelligence", "name": "Vocabulary Intel", "steps": 6, "tab": "vocab", "desc": "Repo · URL · paste · file — scan founder-facing words"}
+  ],
+  "help_links": [
+    {"name": "sourcea.app", "url": "https://sourcea.app/", "tag": "Product home"},
+    {"name": "Support", "url": "mailto:forge@sourcea.app", "tag": "forge@sourcea.app"}
+  ]
+}

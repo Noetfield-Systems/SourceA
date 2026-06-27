@@ -1,0 +1,27 @@
+{
+  "schema": "sourcea-platform-auth-config-v1",
+  "at": "2026-06-27T03:41:18Z",
+  "configured": true,
+  "supabase_url": "https://ldfruywifqnfpwsfgmdl.supabase.co",
+  "supabase_anon_key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxkZnJ1eXdpZnFuZnB3c2ZnbWRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAwMzY3OTIsImV4cCI6MjA5NTYxMjc5Mn0.ETJQMWEO0eIgwDh9YSmtZ5C-jHGT31oXC1PdsUWR5RQ",
+  "redirect_path": "/sourcea/forge/terminal/signin",
+  "redirect_urls": [
+    "https://sourcea.app/sourcea/forge/terminal/signin",
+    "https://sourcea.app/sourcea/forge/terminal/signup",
+    "https://sourcea.app/sourcea/forge/terminal/profile",
+    "https://sourcea.app/sourcea/forge/terminal/workspace"
+  ],
+  "supabase_callback_url": "https://ldfruywifqnfpwsfgmdl.supabase.co/auth/v1/callback",
+  "site_url": "https://sourcea.app",
+  "oauth_providers": [
+    "google",
+    "github"
+  ],
+  "auth_features": [
+    "oauth",
+    "email_password",
+    "magic_link",
+    "password_reset"
+  ],
+  "tier": "portfolio-spine"
+}

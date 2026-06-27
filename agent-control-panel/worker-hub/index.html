@@ -386,7 +386,7 @@
       <p class="sub" id="loop-judge-daily">—</p>
       <div class="row">
         <button type="button" class="primary" id="btn-loop-chain">Refresh loop chain</button>
-        <button type="button" id="btn-loop-auto-on" class="ghost">Enable loop auto</button>
+        <button type="button" id="btn-loop-auto-on" class="ghost">Enable Auto Runtime</button>
         <button type="button" id="btn-investigator-tick" class="ghost">Investigator tick</button>
         <button type="button" id="btn-judge-loop-tick" class="ghost">Judge loop tick</button>
       </div>
@@ -1279,7 +1279,7 @@
       renderMcpStack(d.mcp_stack);
       renderToolPick(d.tool_pick);
       renderPlansUnified(d.plans_unified);
-      renderCloudProceed(d.cloud_drain_proceed);
+      renderCloudProceed(d.cloud_forge_run_proceed);
       loadCloudWorkers();
       renderAntiTheater(d.anti_theater || (d.plans_unified && d.plans_unified.anti_theater));
       renderPhase0(d.phase0_reference);
@@ -1525,7 +1525,7 @@
       $("btn-cloud-proceed").disabled = true;
       out.textContent = "Proceeding on Railway via " + llm + "…";
       try {
-        const res = await fetchWithTimeout(API + "/api/cloud-drain/proceed/v1", {
+        const res = await fetchWithTimeout(API + "/api/cloud-forge-run/proceed/v1", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ llm_provider: llm, full_motor: true }),
@@ -1553,7 +1553,7 @@
         if (j.ok) await load({ silent: true });
       } catch (e) {
         const msg = e.name === "AbortError"
-          ? "Timed out — check ~/.sina/hub-cloud-drain-proceed-receipt-v1.json"
+          ? "Timed out — check ~/.sina/hub-cloud-forge-run-proceed-receipt-v1.json"
           : e.message;
         out.textContent = "Error: " + msg;
       } finally {
@@ -1684,16 +1684,16 @@
 
     $("btn-loop-auto-on").addEventListener("click", async function () {
       $("btn-loop-auto-on").disabled = true;
-      log("Graduate loop auto (shadow)…");
+      log("Graduate Auto Runtime (shadow)…");
       try {
         const j = await postLoopApi("/api/loop-specialist/tick/v1", { enable_auto_dispatch: true, dispatch: true });
         log(
-          (j.ok ? "Loop auto ON" : "Loop auto partial") + " · " +
+          (j.ok ? "Auto Runtime ON" : "Auto Runtime partial") + " · " +
           (j.tick_decision || "—") + " · " + (j.loop_specialist_line || "—")
         );
         await load({ silent: true });
       } catch (e) {
-        log("Loop auto error: " + e.message);
+        log("Auto Runtime error: " + e.message);
       } finally {
         $("btn-loop-auto-on").disabled = false;
       }
