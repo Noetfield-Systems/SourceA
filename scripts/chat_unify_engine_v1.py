@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-ENGINE_VERSION = "1.2.0"
+ENGINE_VERSION = "1.3.0"
 ENGINE_SCHEMA = "chat-unify-engine-v1"
 SINA = Path.home() / ".sina"
 ENGINE_DIR = SINA / "chat-unify-engine"
@@ -38,6 +38,7 @@ MACHINES = [
     {"id": "hubpro", "label": "Operations", "engine": "hub_pro_skills", "actions": ["skills", "log"]},
     {"id": "proofpack", "label": "Proof Pack", "engine": "proof_pack", "actions": ["seal"]},
     {"id": "vocab", "label": "Vocabulary", "engine": "vocabulary", "actions": ["scan"]},
+    {"id": "plan_registry", "label": "Plan Registry", "engine": "sourcea_plan_registry", "actions": ["count", "next_rows", "lookup"]},
     {"id": "intent_approval", "label": "Intent Approval", "engine": "founder_intent_approval", "actions": ["classify", "critic", "approve"]},
     {"id": "living-chat", "label": "Living chat", "engine": "chat_unify_engine", "actions": ["chat_turn", "multi_agent_run"]},
 ]
@@ -424,6 +425,48 @@ def machines_status() -> dict[str, Any]:
     }
 
 
+def plan_registry_read(body: dict[str, Any]) -> dict[str, Any]:
+    """Bounded read-only plan registry tool for Chat Unify."""
+    from sourcea_plan_registry_client_v1 import contains_secret_like, get_plan, query_rows  # noqa: WPS433
+
+    plan_id = str(body.get("plan_id") or "").strip()
+    if plan_id:
+        row = get_plan(plan_id)
+        mode = "lookup"
+    else:
+        try:
+            limit = int(body.get("limit") or 5)
+        except (TypeError, ValueError):
+            limit = 5
+        try:
+            offset = int(body.get("offset") or 0)
+        except (TypeError, ValueError):
+            offset = 0
+        limit = max(1, min(limit, 10))
+        row = query_rows(
+            limit=limit,
+            offset=max(0, offset),
+            status=str(body.get("status") or "").strip(),
+            lane=str(body.get("lane") or "").strip(),
+        )
+        mode = "next_rows"
+    row["ok"] = bool(row.get("ok"))
+    row["engine"] = ENGINE_SCHEMA
+    row["machine"] = "plan_registry"
+    row["mode"] = mode
+    row["contract"] = "sourcea-plan-registry-read-v1"
+    row["max_limit"] = 10
+    row["summary"] = {
+        "total": row.get("total"),
+        "count": row.get("count"),
+        "plan_id": plan_id or None,
+        "found": row.get("found") if plan_id else None,
+    }
+    if contains_secret_like(row):
+        return {"ok": False, "engine": ENGINE_SCHEMA, "machine": "plan_registry", "error": "secret_like_response_blocked"}
+    return row
+
+
 def status_payload(workspace_path: str | None = None) -> dict[str, Any]:
     agents = list_agents(workspace_path)
     return {
@@ -450,6 +493,8 @@ def handle_post(body: dict[str, Any]) -> dict[str, Any]:
         return list_agents(ws)
     if action == "machines_status":
         return machines_status()
+    if action in ("plan_registry", "plan_registry_read", "plan_registry_lookup"):
+        return plan_registry_read(body)
     if action == "smart_route":
         return smart_route(
             str(body.get("text") or ""),
