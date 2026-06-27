@@ -1,47 +1,63 @@
 {
   "schema": "cloud-workers-control-plane-v1",
-  "version": "1.0.0",
-  "saved_at": "2026-06-22T08:00:00Z",
-  "one_law": "Founder manages Railway deploy + cloud motor — Hub/API/CLI trigger and report only. Agents never auto-deploy.",
+  "version": "1.4.0",
+  "saved_at": "2026-06-26T22:22:33Z",
+  "one_law": "Cloud Workers (:13027) is the founder cockpit for Railway + CF cron. Cloud Forge Run full-pack only \u2014 100 rows per trigger every 10 min; all-plan backlog rows carry 100 tasks per row.",
   "ssot_paths": {
-    "drain_queue_active": "data/cloud-drain-queue-active-v1.json",
-    "drain_queue_batch_2": "data/secondary-cloud-drain-batch-2-locked-v1.json",
-    "drain_queue_batch_1_archive": "data/secondary-cloud-drain-batch-1-complete-locked-v1.json",
-    "drain_queue_legacy": "data/secondary-cloud-drain-next-100-v1.json",
-    "proceed_config": "data/hub-cloud-drain-proceed-v1.json",
+    "drain_queue_active": "data/cloud-forge-run-queue-active-v1.json",
+    "drain_queue_batch_5": "data/secondary-cloud-forge-run-batch-5-locked-v1.json",
+    "drain_queue_batch_6_ready": "data/secondary-cloud-forge-run-batch-6-locked-v1.json",
+    "drain_queue_batch_4_archive": "data/secondary-cloud-forge-run-batch-4-locked-v1.json",
+    "drain_queue_batch_3_archive": "data/secondary-cloud-forge-run-batch-3-locked-v1.json",
+    "drain_queue_batch_2_archive": "data/secondary-cloud-forge-run-batch-2-locked-v1.json",
+    "drain_queue_batch_1_archive": "data/secondary-cloud-forge-run-batch-1-complete-locked-v1.json",
+    "proceed_config": "data/hub-cloud-forge-run-proceed-v1.json",
+    "full_pack_pattern": "data/cloud-forge-run-full-pack-pattern-v1.json",
     "phase_observed": "~/.sina/phase-observed-v1.json",
-    "hub_proceed_receipt": "~/.sina/hub-cloud-drain-proceed-receipt-v1.json",
+    "hub_proceed_receipt": "~/.sina/hub-cloud-forge-run-proceed-receipt-v1.json",
+    "proceed_log": "~/.sina/cloud-workers-proceed-log-v1.jsonl",
     "event_log": "~/.sina/cloud-workers-event-log-v1.json",
-    "worker_inbox": "~/.sina/worker-prompt-inbox-v1.json",
     "deploy_script": "scripts/deploy_fbe_railway_v1.py",
-    "machine": "scripts/cloud_workers_hub_v1.py"
+    "machine": "scripts/cloud_workers_hub_v1.py",
+    "server": "scripts/cloud-workers-server.py"
   },
   "hub_api": {
-    "status": "GET /api/cloud-workers/v1",
-    "action": "POST /api/cloud-workers/v1",
-    "proceed": "POST /api/cloud-drain/proceed/v1",
-    "dispatch": "POST /api/cloud-worker/dispatch/v1",
-    "auto_tick": "POST /api/cloud-workers/v1 {\"action\":\"auto_tick\"}",
-    "skip_to_next_real": "POST /api/cloud-workers/v1 {\"action\":\"skip_to_next_real\"}"
+    "status": "GET http://127.0.0.1:13027/api/cloud-workers/v1",
+    "proceed": "POST http://127.0.0.1:13027/api/cloud-workers/v1 {\"action\":\"proceed\",\"full_pack\":true,\"max_advance\":100}",
+    "auto_tick": "POST http://127.0.0.1:13027/api/cloud-workers/v1 {\"action\":\"auto_tick\"}",
+    "probe": "POST http://127.0.0.1:13027/api/cloud-workers/v1 {\"action\":\"probe\"}",
+    "activate_batch": "POST /api/cloud-forge-run/queue/v1 {\"action\":\"activate_batch\",\"batch_id\":5}"
   },
-  "auto_runtime_ssot": "data/cloud-drain-auto-runtime-v1.json",
-  "auto_runtime_script": "scripts/cloud_drain_auto_runtime_v1.py",
+  "railway_proof": {
+    "queue": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/queue/v1",
+    "observer": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/observer/v1",
+    "auto_tick": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/auto-tick/v1",
+    "health": "https://sourcea-fbe-runner-production.up.railway.app/health"
+  },
+  "auto_runtime_ssot": "data/cloud-auto-runtime-v1.json",
+  "anti_poison": {
+    "single_plan_proceed": "FORBIDDEN",
+    "law": "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_FULL_PACK_PATTERN_LOCKED_v1.md",
+    "incident": "INCIDENT-042"
+  },
   "failure_classes": {
-    "pipe_live": "Mac→Railway HTTP works — Hub proxy OK",
-    "stale_image": "Railway missing modules — founder runs deploy",
-    "motor_failed": "FORGE motor failed on cloud — task logic/deps, not Hub pipe",
-    "connectivity": "Cannot reach Railway — check URL/network",
-    "dry_run_ok": "Preview resolved — no full motor run"
-  },
-  "planes": {
-    "mac_control": "MAC-CTL-011..020 (batch 2) — observe · dispatch POST · read receipts only",
-    "cloud_forge": "CLOUD-SEC-101..200 (batch 2) — evidence slice / FORGE on Railway"
+    "pipe_live": "Mac\u2192Railway HTTP works",
+    "stale_image": "Railway missing modules \u2014 founder runs deploy",
+    "motor_failed": "FORGE motor failed on cloud \u2014 skip/self-heal in pack",
+    "batch_complete": "queue_batch_complete true \u2014 swap_to_next_batch in pack loop"
   },
   "active_batch": {
-    "batch_id": 2,
+    "batch_id": 71,
     "locked": true,
-    "head": "CLOUD-SEC-101",
-    "maps_registry_range": "sa-mkt-0091..sa-mkt-0190",
-    "supersedes": "batch-1-complete CLOUD-SEC-090"
-  }
+    "status": "ACTIVE",
+    "head": "CLOUD-SEC-6967",
+    "last_completed": "CLOUD-SEC-6966",
+    "queue_batch_complete": false,
+    "maps_registry_range": "all-remaining-plan-backlog",
+    "cloud_sec_range": "CLOUD-SEC-6967..CLOUD-SEC-7066",
+    "rows_per_turn": 100,
+    "tasks_per_row": 100,
+    "queue_path": "data/secondary-cloud-forge-run-batch-71-locked-v1.json"
+  },
+  "ready_batch": null
 }
