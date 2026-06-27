@@ -10,6 +10,7 @@
 2. Skim `SourceA/GLOBAL_BLOCKERS.json` + `GLOBAL_PRIORITY.json`
 3. Adjust repo `os/plan.json` **next_tasks** if needed (ASF decision)
 4. Optional: `cd ~/Desktop/SinaPromptOS && ./scripts/run-full-cycle.sh`
+5. **E2E weekly:** `python3 scripts/sourcea_e2e_run_v1.py --cadence weekly --write-report --json` (ship window or cloud CI) — receipt: `~/.sina/sourcea-e2e-weekly-checklist-receipt-v1.json`
 
 ---
 
