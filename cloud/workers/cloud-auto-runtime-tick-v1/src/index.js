@@ -86,9 +86,44 @@ export default {
       },
     });
   }
+    if (url.pathname === "/plan-registry" && request.method === "GET") {
+      return proxyPlanRegistry(url, env);
+    }
     return Response.json({ ok: false, error: "not_found" }, { status: 404 });
   },
 };
+
+async function proxyPlanRegistry(url, env) {
+  const base = (env.FBE_CLOUD_WORKER_URL || "").replace(/\/$/, "");
+  if (!base) {
+    return Response.json({ ok: false, error: "missing_FBE_CLOUD_WORKER_URL" }, { status: 503 });
+  }
+  const headers = { Accept: "application/json" };
+  if (env.FBE_INTERNAL_SECRET) {
+    headers.Authorization = `Bearer ${env.FBE_INTERNAL_SECRET}`;
+  }
+  const upstream = new URL(`${base}/api/sourcea/plan-registry/v1`);
+  for (const [key, value] of url.searchParams.entries()) {
+    upstream.searchParams.append(key, value);
+  }
+  try {
+    const resp = await fetch(upstream, { headers });
+    const text = await resp.text();
+    return new Response(text, {
+      status: resp.status,
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "no-store",
+      },
+    });
+  } catch (err) {
+    return Response.json(
+      { ok: false, error: "plan_registry_proxy_failed", message: String(err && err.message ? err.message : err).slice(0, 160) },
+      { status: 502, headers: { "Access-Control-Allow-Origin": "*", "Cache-Control": "no-store" } },
+    );
+  }
+}
 
 async function runTick(env, { proceed }) {
   const base = (env.FBE_CLOUD_WORKER_URL || "").replace(/\/$/, "");
