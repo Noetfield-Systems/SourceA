@@ -1,7 +1,7 @@
 {
   "schema": "forge-factory-queue-cycle2-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-20T22:41:33Z",
+  "saved_at": "2026-06-27T11:12:44Z",
   "authority": "ASF",
   "product": "FORGE FACTORY — cycle 2 smart queue",
   "brand": "FORGE FACTORY",
@@ -33,7 +33,7 @@
       "sa_id": "sa-1202",
       "phase": "forge-factory-cycle2",
       "title": "[ACT] sa-1202 — Wire FORGE FACTORY Supabase schema + portfolio pulse",
-      "instruction": "ACT — verify portfolio-spine.env has SUPABASE_SCHEMA_FORGE_FACTORY. Run portfolio_supabase_daily_pulse_v1.py --json. Fix tier SSOT drift if trustfield still on spine in daily JSON.",
+      "instruction": "ACT — verify portfolio-spine.env has SUPABASE_SCHEMA_FORGE_FACTORY. Run portfolio_supabase_daily_pulse_v1.py --json. Fix tier SSOT drift if trustfield is not hosted by noetfield in daily JSON.",
       "closeout": false,
       "one_sa_per_turn": true
     },
