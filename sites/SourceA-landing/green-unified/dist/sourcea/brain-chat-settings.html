@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brain chat control · private | SourceA</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="/assets/agentrun.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea-brain-chat-settings-v1.css?v=1.0.0" />
+</head>
+<body class="ar-body sa-v2 sa-brain-settings-page" data-sa-page="brain-chat-settings">
+<header class="ar-header sa-header">
+  <div class="ar-container ar-header-shell">
+    <div class="ar-header-inner">
+      <a class="ar-logo" href="/sourcea/"><span class="ar-logo-text">Source<span class="ar-logo-run">A</span></span></a>
+      <span class="sa-bcs-badge">Private · Brain + Forge chat routing</span>
+    </div>
+  </div>
+</header>
+
+<main class="ar-container sa-bcs-main">
+  <section class="sa-bcs-card" id="sa-bcs-unlock">
+    <h1>Brain chat control panel</h1>
+    <p>Founder-only — set routing, default model, worker URLs. Changes here are preview + copy; ship via repo config logged.</p>
+    <label for="sa-bcs-pass">Founder key (same family as pulse dashboard)</label>
+    <div class="sa-bcs-unlock-row">
+      <input type="password" id="sa-bcs-pass" autocomplete="current-password" placeholder="FOUNDER_PULSE_KEY" />
+      <button type="button" class="ar-btn ar-btn-primary ar-btn-sm" id="sa-bcs-unlock-btn">Unlock</button>
+    </div>
+    <p class="sa-bcs-hint">No key? Edit <code>SourceA-landing/green-unified/data/sourcea-brain-chat-config-v1.json</code> in the repo.</p>
+  </section>
+
+  <section class="sa-bcs-card" id="sa-bcs-panel" hidden>
+    <div class="sa-bcs-toolbar">
+      <h2>Live routing</h2>
+      <span class="sa-bcs-status" id="sa-bcs-worker-status">Checking worker…</span>
+      <button type="button" class="ar-btn ar-btn-ghost ar-btn-sm" id="sa-bcs-refresh">Refresh</button>
+    </div>
+
+    <div class="sa-bcs-grid">
+      <label>Default model
+        <select id="sa-bcs-model" class="sa-bcs-input"></select>
+      </label>
+      <label>Provider
+        <input type="text" id="sa-bcs-provider" class="sa-bcs-input" />
+      </label>
+      <label>Brain worker URL
+        <input type="url" id="sa-bcs-api-url" class="sa-bcs-input" />
+      </label>
+      <label>Max message length
+        <input type="number" id="sa-bcs-max-len" class="sa-bcs-input" min="200" max="8000" />
+      </label>
+    </div>
+
+    <label>Offline hint
+      <input type="text" id="sa-bcs-offline-hint" class="sa-bcs-input" />
+    </label>
+
+    <h3>Models catalog</h3>
+    <div class="sa-bcs-models" id="sa-bcs-models"></div>
+
+    <h3>Add custom model (session preview)</h3>
+    <div class="sa-bcs-grid">
+      <label>Model id
+        <input type="text" id="sa-bcs-custom-id" class="sa-bcs-input" placeholder="google/gemini-2.5-flash" />
+      </label>
+      <label>Label
+        <input type="text" id="sa-bcs-custom-label" class="sa-bcs-input" placeholder="Gemini 2.5 Flash" />
+      </label>
+    </div>
+    <button type="button" class="ar-btn ar-btn-ghost ar-btn-sm" id="sa-bcs-add-model">Add to preview list</button>
+
+    <div class="sa-bcs-actions">
+      <button type="button" class="ar-btn ar-btn-primary ar-btn-sm" id="sa-bcs-copy-json">Copy config JSON</button>
+      <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/sourcea/forge/terminal">Forge Terminal demo</a>
+      <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/sourcea/pulse-founder">Founder pulse</a>
+    </div>
+
+    <p class="sa-bcs-hint" id="sa-bcs-disk-path"></p>
+  </section>
+</main>
+
+<script src="/sourcea/sourcea-brain-chat-settings-v1.js?v=1.0.0" defer></script>
+<script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-interact-v1.js" defer></script>
+<script src="/sourcea/sourcea-segment-router-v1.js" defer></script>
+</body>
+</html>

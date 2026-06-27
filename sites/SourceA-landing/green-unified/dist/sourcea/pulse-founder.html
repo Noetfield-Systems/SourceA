@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Founder pulse | SourceA</title>
+  <meta name="description" content="Founder dashboard — site pageviews, stranger feedback inbox, top events. Private — founder key required." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#044441" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="/assets/agentrun.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea.css" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body class="ar-body sa-v2 sa-agentic sa-pulse-founder-page" data-sa-page="pulse-founder">
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="ar-header sa-header">
+  <div class="ar-container ar-header-shell">
+    <div class="ar-header-inner">
+      <a class="ar-logo" href="/" aria-label="SourceA home">
+        <span class="ar-logo-text">Source<span class="ar-logo-run sa-logo-run">A</span></span>
+      </a>
+      <nav class="ar-nav" id="ar-nav" aria-label="Primary">
+        <a href="/sourcea/status">Status</a>
+        <a href="/sourcea/pulse-founder" aria-current="page">Founder pulse</a>
+        <a href="/sourcea/forge/terminal">Forge Terminal</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="ar-section ar-page-hero sa-sub-hero ar-reveal">
+    <div class="ar-container">
+      <p class="ar-kicker">Founder only</p>
+      <h1>Site pulse. <span class="ar-hero-accent">Strangers → data.</span></h1>
+      <p class="ar-lead">Pageviews, feedback inbox, and Brain chat counts — unlock once with your founder key. Form submissions also land here when the pulse worker is configured.</p>
+    </div>
+  </section>
+
+  <section class="ar-section ar-section-muted ar-reveal" id="sa-pulse-founder-app">
+    <div class="ar-container">
+      <div class="sa-pulse-unlock" id="sa-pulse-unlock">
+        <h2>Unlock founder dashboard</h2>
+        <p class="sa-metric-note">This is <strong>not</strong> customer sign-in — it is your private analytics password for stranger activity on sourcea.app.</p>
+        <ol class="sa-pulse-setup-steps">
+          <li>Cloudflare: <code>cd cloud/workers/sourcea-site-pulse-v1 && npx wrangler secret put FOUNDER_PULSE_KEY</code> (pick a long random string)</li>
+          <li>Optional email alerts: <code>npx wrangler secret put RESEND_API_KEY</code> — paste API key from <a href="https://resend.com/api-keys" target="_blank" rel="noopener">resend.com/api-keys</a></li>
+          <li>Paste the <strong>same</strong> founder key below → inbox + stats appear</li>
+        </ol>
+        <form class="sa-pulse-unlock-form">
+          <label for="sa-pulse-key-input">Founder pulse key</label>
+          <input id="sa-pulse-key-input" type="password" name="key" autocomplete="off" placeholder="Same value you set in wrangler secret" required />
+          <button type="submit" class="ar-btn ar-btn-primary sa-btn-glow">Unlock dashboard →</button>
+        </form>
+        <p class="sa-metric-note" style="margin-top:1rem">Public aggregates (no key): <a href="/sourcea/status">/sourcea/status</a></p>
+      </div>
+
+      <div class="sa-pulse-founder-dash" id="sa-pulse-founder-dash" hidden>
+        <div class="sa-pulse-dash-toolbar">
+          <p class="sa-metric-note" data-dash-updated>Loading…</p>
+          <div class="sa-pulse-dash-actions">
+            <button type="button" class="ar-btn ar-btn-ghost ar-btn-sm" data-dash-refresh>Refresh</button>
+            <button type="button" class="ar-btn ar-btn-ghost ar-btn-sm" data-dash-lock>Lock</button>
+          </div>
+        </div>
+        <p class="sa-pulse-dash-error" data-dash-error hidden role="alert"></p>
+
+        <div class="sa-trust-bar sa-trust-bar-page sa-pulse-dash-stats">
+          <article class="sa-trust-stat">
+            <span class="sa-trust-stat-label">Pageviews today</span>
+            <strong class="sa-trust-stat-value" data-dash-pv-today>—</strong>
+          </article>
+          <article class="sa-trust-stat">
+            <span class="sa-trust-stat-label">Feedback today</span>
+            <strong class="sa-trust-stat-value" data-dash-fb-today>—</strong>
+          </article>
+          <article class="sa-trust-stat">
+            <span class="sa-trust-stat-label">Pageviews (7d)</span>
+            <strong class="sa-trust-stat-value" data-dash-pv-week>—</strong>
+          </article>
+          <article class="sa-trust-stat">
+            <span class="sa-trust-stat-label">Feedback (7d)</span>
+            <strong class="sa-trust-stat-value" data-dash-fb-week>—</strong>
+          </article>
+        </div>
+
+        <div class="sa-pulse-dash-grid">
+          <article class="sa-pulse-dash-card">
+            <h3>Top events today</h3>
+            <ul class="sa-pulse-rank-list" data-dash-top-events></ul>
+          </article>
+          <article class="sa-pulse-dash-card">
+            <h3>Top pages today</h3>
+            <ul class="sa-pulse-rank-list" data-dash-top-pages></ul>
+          </article>
+        </div>
+
+        <article class="sa-pulse-dash-card sa-pulse-inbox-card">
+          <h3>Stranger feedback inbox</h3>
+          <p class="sa-metric-note">From the 💬 Feedback button on every page. Also emailed to <code>forge@sourcea.app</code> when Resend is configured.</p>
+          <div class="sa-pulse-inbox-wrap">
+            <table class="sa-pulse-inbox-table">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Message</th>
+                  <th>Page</th>
+                  <th>Email</th>
+                  <th>When</th>
+                </tr>
+              </thead>
+              <tbody data-dash-inbox></tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ar-site-footer sa-footer-rich">
+  <div class="ar-container sa-footer-bottom">
+    <p>© 2026 Noetfield Systems Inc. · <a href="/sourcea/status">Public status</a> · <a href="/">Home</a></p>
+  </div>
+</footer>
+
+<script src="/sourcea/sourcea-pulse-founder-v1.js" defer></script>
+<script src="/sourcea/sourcea-landing-cta.js" defer></script>
+<script src="/sourcea/sourcea-public-display-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-fallback-v1.js" defer></script>
+<script src="/sourcea/sourcea-boot-wire.js" defer></script>
+<script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-interact-v1.js" defer></script>
+<script src="/sourcea/sourcea-segment-router-v1.js" defer></script>
+<script src="/sourcea/sourcea-chatbot.js" defer></script>
+</body>
+</html>

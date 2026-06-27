@@ -12,6 +12,100 @@
       .replace(/>/g, "&gt;");
   }
 
+  var CF_BASE = "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev";
+
+  function mountTerminal() {
+    if (window.SinaMainTerminal && window.SinaMainTerminal.mount) window.SinaMainTerminal.mount();
+  }
+
+  function termStart(action, label) {
+    mountTerminal();
+    if (window.SinaMainTerminal && window.SinaMainTerminal.start) window.SinaMainTerminal.start(action, label);
+  }
+
+  function termFinish(ok, summary) {
+    if (window.SinaMainTerminal && window.SinaMainTerminal.finish) window.SinaMainTerminal.finish(ok, summary);
+  }
+
+  async function fetchLiveChainFromCf() {
+    var out = { cf_health: null, cf_queue: null, cf_observer: null, errors: [] };
+    try {
+      var hres = await fetch(CF_BASE + "/health", { cache: "no-store" });
+      out.cf_health = await hres.json();
+    } catch (e) {
+      out.errors.push("cf_health: " + e.message);
+    }
+    try {
+      var qres = await fetch(CF_BASE + "/queue", { cache: "no-store" });
+      out.cf_queue = await qres.json();
+      if (out.cf_queue && out.cf_queue.error === "not_found") {
+        out.errors.push("cf_queue: deploy CF worker — cd cloud/workers/cloud-auto-runtime-tick-v1 && npx wrangler deploy");
+        out.cf_queue = null;
+      }
+    } catch (e) {
+      out.errors.push("cf_queue: " + e.message);
+    }
+    try {
+      var ores = await fetch(CF_BASE + "/observer-json", { cache: "no-store" });
+      out.cf_observer = await ores.json();
+    } catch (e) {
+      out.errors.push("cf_observer: " + e.message);
+    }
+    return out;
+  }
+
+  function formatLiveChainLog(local, live) {
+    var lines = [];
+    if (local && local.chain) {
+      var c = local.chain;
+      lines.push("LOCAL · " + ((c.for_founder && c.for_founder.show_this) || "chain_status"));
+      lines.push("  deploy " + ((c.railway && c.railway.deploy_at) || "—") + " · health " + (c.railway && c.railway.health_ok ? "PASS" : "FAIL"));
+      lines.push("  local head " + ((c.queue_local && c.queue_local.head) || "—") + " · batch " + ((c.queue_local && c.queue_local.batch_id) || "—"));
+    }
+    if (live) {
+      if (live.cf_health) lines.push("CF cron · " + (live.cf_health.cron || "*/10 * * * *") + " · service " + (live.cf_health.service || "—"));
+      if (live.cf_queue && live.cf_queue.cloud_forge_run_head) {
+        lines.push(
+          "LIVE queue · head " +
+            live.cf_queue.cloud_forge_run_head +
+            " · last " +
+            (live.cf_queue.cloud_forge_run_last_completed || "—") +
+            " · batch " +
+            ((live.cf_queue.observed && live.cf_queue.observed.batch_id) || "—")
+        );
+      }
+      if (live.cf_observer && live.cf_observer.last_pack) {
+        var p = live.cf_observer.last_pack;
+        lines.push("LIVE last pack · processed " + (p.processed != null ? p.processed : "—") + "/" + (p.max_advance || 100));
+      } else if (live.cf_observer && live.cf_observer.cycles && live.cf_observer.cycles.length) {
+        var tail = live.cf_observer.cycles[live.cf_observer.cycles.length - 1];
+        var pk = tail.pack || {};
+        if (pk.processed != null) lines.push("LIVE cycle · processed " + pk.processed + " · advanced " + (pk.advanced || 0));
+      }
+      if (live.errors && live.errors.length) lines.push("LIVE errors · " + live.errors.join(" · "));
+    }
+    lines.push("Forge L3 queue · ~/.sina/forge-l3-repair-queue-v1.json");
+    lines.push("Forge L3 receipt · ~/.sina/forge-l3-auto-runtime-latest-v1.json");
+    lines.push("Forge swarm cloud · ~/.sina/forge-swarm-cloud-dispatch-latest-v1.json");
+    lines.push("Forge civilization memory · ~/.sina/forge-civilization-memory-v1.json");
+    lines.push("Forge agent registry · ~/.sina/forge-agent-registry-v1.json");
+    lines.push("Forge civilization tick · ~/.sina/forge-civilization-tick-latest-v1.json");
+    lines.push("Forge governance · ~/.sina/forge-governance-violations-v1.jsonl");
+    lines.push("Forge legal cases v3 · ~/.sina/forge-governance-cases-v3.json");
+    lines.push("Forge legal precedent v3 · ~/.sina/forge-governance-precedent-v3.json");
+    lines.push("Forge geo legal v4 · ~/.sina/forge-geopolitical-legal-v4.json");
+    lines.push("Forge self-build v1 · ~/.sina/forge-self-build-latest-v1.json");
+    lines.push("Forge world system v6 · ~/.sina/forge-world-system-tick-latest-v6.json");
+    lines.push("Forge consciousness v7 · ~/.sina/forge-planetary-consciousness-v7.json");
+    lines.push("Forge reality consciousness v8 · ~/.sina/forge-reality-consciousness-v8.json");
+    lines.push("Forge Prompt OS runtime v3 · ~/.sina/forge-prompt-os-runtime-latest-v3.json");
+    lines.push("Forge Prompt OS queue v3 · ~/.sina/forge-prompt-os-runtime-queue-v3.json");
+    lines.push("Forge Prompt OS learning · ~/.sina/forge-prompt-os-learning-v2.json");
+    lines.push("Forge economy credits · ~/.sina/forge-economy-v1.json");
+    lines.push("Forge world state v6 · ~/.sina/forge-world-state-v1.json");
+    return lines.join("\n");
+  }
+
   function fetchWithTimeout(url, opts, ms) {
     var ctrl = new AbortController();
     var t = setTimeout(function () {
@@ -31,7 +125,7 @@
     if (nextEl) nextEl.textContent = "Next: " + tid + (title ? " · " + title : "");
     var lastEl = $("cloud-proceed-last");
     if (lastEl) {
-      var last = cp.last_line || (cp.last_ok === true ? "Last proceed PASS" : cp.last_ok === false ? "Last proceed FAIL" : "—");
+      var last = cp.last_line || "Mac observe — CF cron runs full_pack×100 (no Mac proceed)";
       lastEl.textContent = last;
     }
   }
@@ -42,8 +136,8 @@
     var probe = cw.probe || {};
     var situation = cw.situation || {};
     var ff = situation.for_founder || cw.for_founder || probe.for_founder || {};
-    var stale = probe.cloud_stale || ff.cloud_stale;
-    var failureClass = situation.last_proceed && situation.last_proceed.failure_class;
+    var stale = probe.cloud_stale && !situation.mac_observe_only;
+    var failureClass = situation.head_proceed_failed && situation.last_proceed && situation.last_proceed.failure_class;
     var line = situation.summary_line || ff.show_this || (probe.modules_ok ? "Cloud worker ready." : "Cloud status unknown.");
     if (st) {
       st.textContent = ff.show_this || line;
@@ -121,11 +215,12 @@
       autoBanner.hidden = !autoArmed;
       if (autoArmed) {
         autoBanner.textContent =
-          "24/7 auto drain ARMED — CF cron (primary) + n8n backup skip scaffold, heal motor fail, and proceed. No manual Skip needed.";
+          "CF cron */10 (primary) · full_pack×100 on Railway · Mac observe only — no Mac→Railway commands.";
       }
     }
-    if (mockBanner) mockBanner.hidden = autoArmed || !headIsMock;
-    if (motorBanner) motorBanner.hidden = autoArmed || !(headProceedFail && !headIsMock);
+    var macObserve = situation.mac_observe_only === true || (cw.chain && cw.chain.mac_never_commands_railway);
+    if (mockBanner) mockBanner.hidden = macObserve || autoArmed || !headIsMock;
+    if (motorBanner) motorBanner.hidden = macObserve || autoArmed || !(headProceedFail && !headIsMock);
     ["btn-cw-skip-head", "btn-cw-skip-mock", "btn-cw-skip-fail"].forEach(function (id) {
       var btn = $(id);
       if (btn) btn.hidden = autoArmed;
@@ -136,7 +231,7 @@
     var autoPill = $("cw-auto-pill");
     if (autoPill && cw.auto_runtime) {
       var ar = cw.auto_runtime;
-      autoPill.textContent = ar.auto_proceed_enabled ? "Auto drain ARMED" : "Auto drain OFF";
+      autoPill.textContent = ar.auto_proceed_enabled ? "Auto Runtime ARMED" : "Auto Runtime OFF";
       autoPill.className = "cw-hub-pill " + (ar.auto_proceed_enabled ? "ok" : "warn");
     }
   }
@@ -156,12 +251,12 @@
     if (!el) return;
     var apis = (cw && cw.hub_apis) || {};
     var rows = [
-      { label: "Worker Hub H1", href: "http://127.0.0.1:13020/" },
-      { label: "Machine Hub H2", href: "http://127.0.0.1:13020/machines/" },
-      { label: "Official Form", href: "http://127.0.0.1:13020/form/" },
-      { label: "Portfolio Mail", href: "http://127.0.0.1:13020/mail-hub/" },
-      { label: "Mac Health", href: "http://127.0.0.1:13024/" },
-      { label: "Proceed receipt", path: "~/.sina/hub-cloud-drain-proceed-receipt-v1.json" },
+      { label: "Railway FBE runner", href: "https://sourcea-fbe-runner-production.up.railway.app/health" },
+      { label: "Cloud forge queue", href: "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/queue/v1" },
+      { label: "Observer", href: "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/observer/v1" },
+      { label: "Evidence audit (split tiers)", href: "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/evidence-audit/v1" },
+      { label: "Proceed log", path: "~/.sina/cloud-workers-proceed-log-v1.jsonl" },
+      { label: "Proceed receipt", path: "~/.sina/hub-cloud-forge-run-proceed-receipt-v1.json" },
       { label: "Event log", path: "~/.sina/cloud-workers-event-log-v1.json" },
       { label: "Control plane SSOT", path: "data/cloud-workers-control-plane-v1.json" },
     ];
@@ -208,13 +303,59 @@
   function updateHubPill(cw) {
     var pill = $("cw-hub-pill");
     if (!pill) return;
-    var live = cw && (cw.hub_live === true || (cw.probe && cw.probe.modules_ok));
-    pill.textContent = live ? "Hub LIVE :13020" : "Hub check :13020";
+    var chain = (cw && cw.chain) || (cw && cw.situation && cw.situation.chain) || {};
+    var railway = chain.railway || {};
+    var live = !!(railway.health_ok || (cw.probe && cw.probe.ok));
+    var url = railway.url || (cw.probe && cw.probe.cloud_worker_url) || "Railway FBE";
+    pill.textContent = live ? "Railway LIVE · Mac observe" : "Railway check deploy receipt";
+    pill.title = url;
     pill.className = "cw-hub-pill " + (live ? "ok" : "warn");
+  }
+
+  function dbgLog(hypothesisId, location, message, data) {
+    // #region agent log
+    fetch("http://127.0.0.1:7877/ingest/9e528f93-f3e7-4118-9598-fd5e8f7cc69a", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "23242e" },
+      body: JSON.stringify({
+        sessionId: "23242e",
+        hypothesisId: hypothesisId,
+        location: location,
+        message: message,
+        data: data || {},
+        timestamp: Date.now(),
+      }),
+    }).catch(function () {});
+    // #endregion
+  }
+
+  function termLog(msg) {
+    if (window.SinaMainTerminal && window.SinaMainTerminal.log) window.SinaMainTerminal.log(msg);
+  }
+
+  function formatProceedLog(res, j) {
+    var ff = typeof j.for_founder === "string" ? { show_this: j.for_founder } : j.for_founder || {};
+    var pack = j.pack || (j.cloud && j.cloud.pack) || (j.motor && j.motor.pack) || {};
+    var parts = ["HTTP " + res.status];
+    if (pack.processed != null) parts.push("pack processed " + pack.processed + "/" + (pack.max_advance || 100));
+    if (pack.advanced != null) parts.push("shipped " + pack.advanced);
+    if (pack.skipped != null) parts.push("skipped " + pack.skipped);
+    if (pack.head_now) parts.push("head " + pack.head_now);
+    if (pack.batch_complete) parts.push("BATCH COMPLETE");
+    parts.push(ff.show_this || j.hub_proceed_line || j.message || j.error || "—");
+    if (j.cloud_worker_url) parts.push("→ " + j.cloud_worker_url);
+    var failNote = "";
+    if (j.failure_class === "pack_gate_halt") {
+      failNote = "\n\nGate latched — Proceed will auto-reset after Railway deploy; not a FORGE motor fail.";
+    } else if (j.failure_class === "motor_failed") {
+      failNote = "\n\nPipe LIVE — FORGE motor failure on Railway.";
+    }
+    return parts.join(" · ") + failNote + "\n\n" + JSON.stringify(j, null, 2);
   }
 
   function init(opts) {
     var API = (opts && opts.api) || window.location.origin;
+    mountTerminal();
     document.querySelectorAll(".cloud-tabs button").forEach(function (btn) {
       btn.addEventListener("click", function () {
         cwSelectTab(btn.getAttribute("data-cw-tab"));
@@ -239,28 +380,57 @@
       return j;
     }
 
+    async function refreshChainToTerminal(label) {
+      termStart("refresh", label || "Refresh chain");
+      termLog("Reading local chain_status (Mac — no Railway HTTP)…");
+      var local = await cwAction("chain_status", {});
+      termLog(formatLiveChainLog({ chain: local }, null));
+      termLog("Fetching LIVE queue via CF proxy (browser→CF→Railway)…");
+      var live = await fetchLiveChainFromCf();
+      termLog(formatLiveChainLog(null, live));
+      var block = formatLiveChainLog({ chain: local }, live);
+      var out = $("cloud-proceed-result");
+      if (out) out.textContent = block + "\n\n" + JSON.stringify({ local: local, live: live }, null, 2);
+      termFinish(local.ok !== false, (live.cf_queue && live.cf_queue.cloud_forge_run_head) ? "Live head " + live.cf_queue.cloud_forge_run_head : "Chain refreshed");
+      return { local: local, live: live };
+    }
+
     async function loadCloudWorkers() {
       try {
+        dbgLog("H3", "cloud-workers-panel:load", "start", { api: API });
         var res = await fetch(API + "/api/cloud-workers/v1", { cache: "no-store" });
         var cw = await res.json();
+        dbgLog("H3", "cloud-workers-panel:load", "ok", { status: res.status, head: ((cw.situation || {}).queue_head) });
         renderCloudWorkers(cw);
+        if (cw.chain && cw.chain.cf_cron && cw.chain.cf_cron.url) {
+          CF_BASE = String(cw.chain.cf_cron.url).replace(/\/$/, "");
+        }
+        try {
+          var live = await fetchLiveChainFromCf();
+          if (live.cf_queue && live.cf_queue.cloud_forge_run_head) {
+            termLog("Live sync · head " + live.cf_queue.cloud_forge_run_head);
+            await cwAction("sync_live_queue", { queue: live.cf_queue });
+            var res2 = await fetch(API + "/api/cloud-workers/v1", { cache: "no-store" });
+            cw = await res2.json();
+            renderCloudWorkers(cw);
+          }
+        } catch (syncErr) {
+          termLog("Live sync skip: " + syncErr.message);
+        }
         var line = $("cw-hub-line");
         if (line) {
-          var chain = cw.living_system_chain || {};
-          var chainNote = chain.summary_line ? " · " + chain.summary_line : "";
+          var chain = cw.chain || (cw.situation && cw.situation.chain) || {};
           line.textContent =
-            "Live sync " +
-            new Date().toLocaleTimeString() +
-            " · queue " +
-            (((cw.situation || {}).queue_head) || "—") +
-            " · pending " +
-            (((cw.plans || {}).counts || {}).pending_estimate || 0) +
-            chainNote;
+            "Mac observe only · CF cron " +
+            ((chain.cf_cron && chain.cf_cron.cron) || "*/10 * * * *") +
+            " · local head " +
+            (((chain.queue_local && chain.queue_local.head) || (cw.situation || {}).queue_head) || "—");
         }
         try {
           var hres = await fetch(API + "/health", { cache: "no-store" });
           var h = await hres.json();
-          cw.hub_live = h.hub_live;
+          cw.railway_live = h.railway_live;
+          cw.hub_live = h.railway_live;
           updateHubPill(cw);
         } catch (e) {}
         return cw;
@@ -272,6 +442,7 @@
         }
         var out = $("cloud-proceed-result");
         if (out) out.textContent = "API DOWN at " + new Date().toLocaleTimeString() + " — " + e.message;
+        termLog("Load failed: " + e.message);
         return null;
       }
     }
@@ -279,28 +450,38 @@
     $("btn-cloud-proceed") &&
       $("btn-cloud-proceed").addEventListener("click", async function () {
         var out = $("cloud-proceed-result");
-        var llm = ($("cloud-proceed-llm") && $("cloud-proceed-llm").value) || "openrouter";
         $("btn-cloud-proceed").disabled = true;
-        if (out) out.textContent = "Proceeding on Railway via " + llm + "…";
+        termStart("trigger_cf_pack", "Trigger CF full-pack (browser→cloud)");
+        termLog("POST " + CF_BASE + "/tick · full_pack×100 on Railway · Mac does NOT call Railway");
+        if (out) out.textContent = "Triggering CF cron full-pack via browser (not Mac server)…";
         try {
           var res = await fetchWithTimeout(
-            API + "/api/cloud-drain/proceed/v1",
+            CF_BASE + "/tick",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ llm_provider: llm, full_motor: true }),
+              body: JSON.stringify({ proceed: true }),
             },
-            180000
+            900000
           );
           var raw = await res.text();
-          var j = JSON.parse(raw);
-          var ff = j.for_founder || {};
-          var line = ff.show_this || j.hub_proceed_line || j.message || j.error || "—";
-          var failNote = j.failure_class === "motor_failed" ? "\n\nPipe LIVE — FORGE motor failure on Railway." : "";
-          if (out) out.textContent = "HTTP " + res.status + " · " + line + failNote + "\n\n" + JSON.stringify(j, null, 2);
+          var j;
+          try {
+            j = JSON.parse(raw);
+          } catch (parseErr) {
+            j = { ok: false, error: "invalid_json", message: raw.slice(0, 500) };
+          }
+          var line = formatProceedLog(res, j.motor || j);
+          if (j.processed != null) line = "CF tick · processed " + j.processed + "\n" + line;
+          if (out) out.textContent = line;
+          termLog(line.split("\n\n")[0]);
+          termFinish(!!j.ok, j.ok ? "CF full-pack triggered" : "CF tick returned fail");
           await loadCloudWorkers();
         } catch (e) {
-          if (out) out.textContent = e.name === "AbortError" ? "Timed out — check ~/.sina/hub-cloud-drain-proceed-receipt-v1.json" : "Error: " + e.message;
+          var errMsg = e.name === "AbortError" ? "Timed out — pack may still run on Railway; check CF /observer-json" : "Error: " + e.message;
+          if (out) out.textContent = errMsg;
+          termLog(errMsg);
+          termFinish(false, errMsg);
         } finally {
           $("btn-cloud-proceed").disabled = false;
         }
@@ -308,15 +489,13 @@
 
     $("btn-cloud-refresh") &&
       $("btn-cloud-refresh").addEventListener("click", async function () {
-        var out = $("cloud-proceed-result");
-        if (out) out.textContent = "Probing Railway…";
-        try {
-          var j = await cwAction("probe");
-          renderCloudWorkers(j);
-          if (out) out.textContent = JSON.stringify(j.probe || j, null, 2);
-        } catch (e) {
-          if (out) out.textContent = "Probe error: " + e.message;
-        }
+        await refreshChainToTerminal("Probe chain");
+      });
+
+    $("btn-cw-refresh-all") &&
+      $("btn-cw-refresh-all").addEventListener("click", async function () {
+        await refreshChainToTerminal("Refresh all");
+        await loadCloudWorkers();
       });
 
     $("btn-cloud-dry-run") &&
@@ -352,14 +531,6 @@
         }
       });
 
-    $("btn-cw-refresh-all") &&
-      $("btn-cw-refresh-all").addEventListener("click", async function () {
-        var out = $("cloud-proceed-result");
-        if (out) out.textContent = "Refreshing…";
-        var cw = await loadCloudWorkers();
-        if (out) out.textContent = (cw && cw.situation && cw.situation.summary_line) || "Refreshed.";
-      });
-
     $("btn-cw-dry-mac") &&
       $("btn-cw-dry-mac").addEventListener("click", async function () {
         var out = $("cloud-proceed-result");
@@ -387,38 +558,20 @@
 
     async function runSkip(action, body, label) {
       var out = $("cloud-proceed-result");
-      var btns = document.querySelectorAll("#btn-cw-skip-mock, #btn-cw-skip-head, #btn-cw-skip-fail");
-      btns.forEach(function (b) {
-        b.disabled = true;
-      });
-      if (out) out.textContent = label || "Skipping…";
+      termStart(action, label || "Skip");
+      termLog("Mac observe only — skip blocked on Mac; CF cron self-heals on Railway");
       try {
         var j = await cwAction(action, body || {});
-        if (!j.ok) {
-          var errLine =
-            (j.for_founder && j.for_founder.show_this) ||
-            j.error ||
-            j.message ||
-            ("HTTP " + (j.http_status || "?"));
-          if (out) out.textContent = "Skip failed: " + errLine;
-          await loadCloudWorkers();
-          return j;
-        }
-        var line =
-          (j.for_founder && j.for_founder.show_this) ||
-          (j.ok && j.to ? "Skipped " + j.from + " → head now " + j.to : "") ||
-          (j.ok && j.head_now ? "Head now " + j.head_now + (j.skipped_count ? " (skipped " + j.skipped_count + " mock row(s))" : "") : "") ||
-          JSON.stringify(j, null, 2);
+        var line = (j.for_founder && j.for_founder.show_this) || j.error || JSON.stringify(j, null, 2);
         if (out) out.textContent = line;
+        termLog(line);
+        termFinish(false, "Mac observe only");
         await loadCloudWorkers();
         return j;
       } catch (e) {
-        if (out) out.textContent = "Skip failed: " + e.message;
+        if (out) out.textContent = e.message;
+        termFinish(false, e.message);
         return null;
-      } finally {
-        btns.forEach(function (b) {
-          b.disabled = false;
-        });
       }
     }
 
@@ -439,15 +592,18 @@
 
     $("btn-cw-auto-tick") &&
       $("btn-cw-auto-tick").addEventListener("click", async function () {
-        var out = $("cloud-proceed-result");
         $("btn-cw-auto-tick").disabled = true;
-        if (out) out.textContent = "Running auto tick (skip mock · optional proceed)…";
+        termStart("auto_tick", "Mac auto tick (observe only)");
         try {
           var j = await cwAction("auto_tick", {});
-          if (out) out.textContent = (j.for_founder && j.for_founder.show_this) || JSON.stringify(j, null, 2);
+          termLog((j.for_founder && j.for_founder.show_this) || JSON.stringify(j));
+          var out = $("cloud-proceed-result");
+          if (out) out.textContent = JSON.stringify(j, null, 2);
+          termFinish(j.decision === "mac_observe_only", "Mac observe only — use Trigger CF full-pack");
           await loadCloudWorkers();
         } catch (e) {
-          if (out) out.textContent = e.message;
+          termLog(e.message);
+          termFinish(false, e.message);
         } finally {
           $("btn-cw-auto-tick").disabled = false;
         }
@@ -462,7 +618,7 @@
             out.textContent =
               "Auto proceed: " +
               (j.auto_proceed_enabled ? "ON" : "OFF") +
-              " · To arm: touch ~/.sina/cloud-drain-auto-proceed-v1.flag or set CLOUD_DRAIN_AUTO_PROCEED=true on cloud cron.\n" +
+              " · To arm: touch ~/.sina/cloud-forge-run-auto-proceed-v1.flag or set CLOUD_FORGE_RUN_AUTO_PROCEED=true on cloud cron.\n" +
               JSON.stringify(j, null, 2);
           }
         } catch (e) {

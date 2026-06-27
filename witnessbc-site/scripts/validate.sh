@@ -23,7 +23,7 @@ if [[ ! -f "$ROOT/data/references.json" ]]; then
   exit 1
 fi
 
-PAGE_FILES=(index.html platform.html lifecycle.html proof.html compare.html policy.html pricing.html faq.html sources.html learn.html toolkits.html)
+PAGE_FILES=(index.html platform.html lifecycle.html proof.html compare.html policy.html pricing.html contact.html faq.html sources.html learn.html toolkits.html)
 for pf in "${PAGE_FILES[@]}"; do
   if [[ ! -f "$ROOT/$pf" ]]; then
     echo "FAIL: missing assembled page $pf"

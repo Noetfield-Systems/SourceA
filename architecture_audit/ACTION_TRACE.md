@@ -135,12 +135,12 @@ POST /api/action { id: "founder-factory-stop" } or branch
 
 ---
 
-## 8. Resume drain (founder-gated)
+## 8. Resume Cloud Forge Run (founder-gated)
 
 ```
 Founder phrase → factory_control_v1.resume --max-turns 1
   → write_resume_token to ~/.sina
-  → spawn gate allows one bounded drain turn
+  → spawn gate allows one bounded Cloud Forge Run turn
   → Does NOT auto-call hub_after_mutation unless via branch action
 ```
 

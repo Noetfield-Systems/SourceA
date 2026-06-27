@@ -1,0 +1,13 @@
+{
+  "intent_id": "ab-outreach-allow-001",
+  "policy_id": "outreach_loop_v1",
+  "intent": "send_outreach",
+  "action": "send",
+  "approval_ref": "MGR-2026-001",
+  "to": "prospect@example.com",
+  "channel": "email",
+  "subject": "Quick intro — controlled agent loops",
+  "actor": "asset_b_demo",
+  "agent_id": "asset_b_demo",
+  "object_id": "ASSET-B-OUTREACH-DEMO"
+}

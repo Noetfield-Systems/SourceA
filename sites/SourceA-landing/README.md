@@ -34,7 +34,7 @@ Witness BC (separate brand): `bash witnessbc-site/scripts/run-recipe.sh`
 
 ## Copy
 
-- **From:** hello@sourcea.com  
+- **From:** hello@sourcea.app  
 - **Site:** https://sourcea.com  
 - **Category:** Execution Proof Infrastructure — policy at dispatch · ledger + replay  
 - **SKUs:** $750 audit · $3–10K DFY · $2–5K/mo retainer  

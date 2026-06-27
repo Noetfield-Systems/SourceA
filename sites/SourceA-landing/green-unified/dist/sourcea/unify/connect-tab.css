@@ -1,0 +1,139 @@
+/* Chat Unify Connect — integration hub (UI 4.3) */
+.cu-connect-hero {
+  margin-bottom: 20px;
+  padding: 20px 22px;
+  border-radius: 14px;
+  border: 1px solid var(--cu-border);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(15, 23, 42, 0.6));
+}
+.cu-connect-hero h2 {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+}
+.cu-connect-hero p {
+  margin: 0;
+  color: var(--cu-muted);
+  max-width: 62ch;
+  line-height: 1.5;
+}
+.cu-connect-mesh {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.cu-mesh-pill {
+  font-size: 0.72rem;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--cu-border);
+  background: rgba(0, 0, 0, 0.25);
+}
+.cu-mesh-pill.is-live {
+  border-color: rgba(34, 197, 94, 0.45);
+  color: #86efac;
+}
+.cu-mesh-pill.is-off {
+  border-color: rgba(248, 113, 113, 0.35);
+  color: #fca5a5;
+}
+.cu-connect-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.cu-connect-card {
+  border: 1px solid var(--cu-border);
+  border-radius: 12px;
+  padding: 16px;
+  background: var(--cu-card);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cu-connect-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+.cu-connect-card h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.cu-connect-cat {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cu-muted);
+}
+.cu-connect-desc {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--cu-muted);
+  line-height: 1.45;
+  flex: 1;
+}
+.cu-status-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.cu-status-pill.live { background: rgba(34, 197, 94, 0.15); color: #86efac; }
+.cu-status-pill.ready { background: rgba(250, 204, 21, 0.12); color: #fde047; }
+.cu-status-pill.setup { background: rgba(96, 165, 250, 0.12); color: #93c5fd; }
+.cu-status-pill.offline { background: rgba(248, 113, 113, 0.12); color: #fca5a5; }
+.cu-connect-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.cu-connect-panel {
+  border: 1px solid var(--cu-border);
+  border-radius: 12px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+  margin-bottom: 16px;
+}
+.cu-connect-panel h3 {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+}
+.cu-hook-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.cu-hook-url {
+  flex: 1;
+  min-width: 200px;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.75rem;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--cu-border);
+  background: var(--cu-bg);
+  color: var(--cu-text);
+}
+.cu-trigger-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 160px;
+  overflow: auto;
+}
+.cu-trigger-list li {
+  font-size: 0.78rem;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--cu-border);
+  color: var(--cu-muted);
+}
+.cu-tab-connect.cu-tab-active {
+  border-color: rgba(34, 211, 238, 0.5);
+}

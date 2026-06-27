@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Technical overview · SourceA</title>
+  <meta name="description" content="Evaluate SourceA in five minutes — sourcea-boot runs four checks, PASS or BLOCK, writes BOOT_REPORT.json. No sales call required." />
+  <meta name="theme-color" content="#044441" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="/assets/agentrun.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea.css" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body class="ar-body sa-v2 sa-agentic sa-dev-ui" data-sa-dev-ui="1" data-sa-page="sourcea-boot-eval">
+
+<div class="ar-scroll-progress" aria-hidden="true"><div class="ar-scroll-progress-bar"></div></div>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="ar-nav-backdrop" aria-hidden="true"></div>
+
+<header class="ar-header sa-header">
+  <div class="ar-container ar-header-shell">
+    <div class="ar-header-inner">
+      <a class="ar-logo" href="/" aria-label="SourceA home">
+        <span class="ar-logo-text">Source<span class="ar-logo-run sa-logo-run">A</span></span>
+      </a>
+      <nav class="ar-nav" id="ar-nav" aria-label="Primary">
+        <a href="/" data-sa-nav data-sa-nav-home>Home</a>
+        <a href="/sourcea/offer" data-sa-nav>Offer</a>
+        <a href="/sourcea/pricing" data-sa-nav>Pricing</a>
+        <a href="/sourcea/investors" data-sa-nav>Investors</a>
+        <a href="/sourcea/kernel/" data-sa-nav>Kernel</a>
+        <a class="ar-btn ar-btn-ghost ar-btn-sm ar-nav-signin-mobile" href="/platform">Sign in</a>
+        <a class="ar-btn ar-btn-primary ar-btn-sm ar-nav-cta-mobile sa-btn-glow" data-sa-proof-cta href="/sourcea/proof/live">See live receipt</a>
+      </nav>
+      <button type="button" class="ar-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="ar-nav">
+        <span class="ar-nav-toggle-bar"></span>
+        <span class="ar-nav-toggle-bar"></span>
+        <span class="ar-nav-toggle-bar"></span>
+      </button>
+      <div class="ar-header-actions">
+        <a class="ar-btn ar-btn-ghost ar-btn-sm ar-header-signin" href="/platform">Sign in</a>
+        <a class="ar-btn ar-btn-primary ar-btn-sm sa-btn-glow ar-header-cta" data-sa-proof-cta href="/sourcea/proof/live">See live receipt</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="ar-section ar-page-hero sa-sub-hero ar-reveal">
+    <div class="ar-container">
+      <p class="ar-kicker">Buyer eval · no sales call</p>
+      <h1>One command. <span class="ar-hero-accent">PASS or BLOCK.</span></h1>
+      <p class="ar-lead"><strong>sourcea-boot</strong> runs four checks before your agents execute — policy, provider, receipt freshness, queue truth. You get <code>BOOT_REPORT.json</code> logged. Show the work, not a slide deck.</p>
+      <div class="ar-hero-actions">
+        <a class="ar-btn ar-btn-primary sa-btn-glow" data-trust-github-link href="https://github.com/sourcea-io/sourcea-boot" target="_blank" rel="noopener">Clone sourcea-boot<span class="ar-btn-arrow">→</span></a>
+        <a class="ar-btn ar-btn-ghost" href="/sourcea/proof/live">See live forensic proof</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ar-section ar-section-muted ar-reveal" aria-label="Live boot proof">
+    <div class="ar-container">
+      <div class="sa-trust-bar" data-sa-trust-bar>
+        <article class="sa-trust-stat">
+          <span class="sa-trust-stat-label">Proof checks</span>
+          <strong class="sa-trust-stat-value" data-trust-valid-yes>—</strong>
+          <span class="sa-trust-stat-hint">Live sample · checks passing</span>
+        </article>
+        <article class="sa-trust-stat">
+          <span class="sa-trust-stat-label">Boot gate</span>
+          <strong class="sa-trust-stat-value sa-trust-gov" data-trust-governance>—</strong>
+          <span class="sa-trust-stat-hint">PASS or BLOCK · four checks</span>
+        </article>
+        <article class="sa-trust-stat">
+          <span class="sa-trust-stat-label">sourcea-boot</span>
+          <strong class="sa-trust-stat-value"><span data-trust-github-stars>—</span> ★</strong>
+          <span class="sa-trust-stat-hint"><a data-trust-github-link href="https://github.com/sourcea-io/sourcea-boot" target="_blank" rel="noopener">GitHub eval</a></span>
+        </article>
+        <article class="sa-trust-stat">
+          <span class="sa-trust-stat-label">Status</span>
+          <strong class="sa-trust-stat-value sa-trust-link"><a data-trust-status-link href="/sourcea/status">Live status</a></strong>
+          <span class="sa-trust-stat-hint"><a data-trust-sample-link href="/sourcea/attach/proof-bundle-sample" target="_blank" rel="noopener">Proof sample PDF</a></span>
+        </article>
+      </div>
+      <div class="sa-terminal sa-terminal-light ar-reveal" style="margin-top:2rem">
+        <div class="sa-terminal-head"><span class="sa-dot red"></span><span class="sa-dot yellow"></span><span class="sa-dot green"></span><span>replay · sourcea-boot</span></div>
+        <p class="sa-boot-terminal-label">Last factory boot · 2026-06-24 03:23:04 UTC · PASS</p>
+        <pre class="sa-terminal-body" id="sa-terminal-replay"><span class="sa-t-prompt">$</span> sourcea-boot --json
+<span class="sa-t-ok">SOURCEA_BOOT PASS</span> <span class="sa-t-dim">ok=true</span>
+  <span class="sa-t-ok">[PASS]</span> policy_version: no policy file (POLICY.md) — skipped
+  <span class="sa-t-ok">[PASS]</span> provider: provider env present (ANTHROPIC_API_KEY)
+  <span class="sa-t-ok">[PASS]</span> receipt_fresh: no prior receipt — first boot allowed
+  <span class="sa-t-ok">[PASS]</span> queue_truth: no queue files configured — skipped
+<span class="sa-t-dim">REPORT=/Users/sinakazemnezhad/Desktop/SourceA/BOOT_REPORT.json</span><span class="sa-t-cursor">▋</span></pre>
+      </div>
+      <p class="sa-metric-note" style="margin-top:1rem;text-align:center">Terminal injects from live <code>boot-proof.json</code> on deploy — same output you can verify on a screen-share.</p>
+      <p style="text-align:center;margin-top:1rem"><a class="ar-btn ar-btn-primary ar-btn-sm" href="mailto:hello@sourcea.app?subject=sourcea-boot%20eval">See live receipt</a></p>
+    </div>
+  </section>
+
+  <section class="ar-section ar-reveal" id="run">
+    <div class="ar-container">
+      <div class="ar-section-head ar-section-head-center">
+        <p class="ar-kicker">Run in 5 minutes</p>
+        <h2>README path — <span class="ar-hero-accent">clone · install · run.</span></h2>
+      </div>
+      <div class="ar-pricing-grid ar-stagger">
+        <article class="ar-price-card sa-card-lift">
+          <span class="ar-price-badge">01</span>
+          <h3>Clone</h3>
+          <p class="ar-price" style="font-size:0.9rem;font-family:var(--font-mono,monospace)">git clone …/sourcea-boot</p>
+          <ul>
+            <li>Public eval repo on GitHub</li>
+            <li>MIT license</li>
+            <li>Or <code>pip install sourcea-boot</code></li>
+          </ul>
+        </article>
+        <article class="ar-price-card is-featured sa-card-lift">
+          <span class="ar-price-badge">02</span>
+          <h3>Run</h3>
+          <p class="ar-price" style="font-size:0.9rem;font-family:var(--font-mono,monospace)">sourcea-boot --json</p>
+          <ul>
+            <li>Four checks · PASS or BLOCK</li>
+            <li>Writes BOOT_REPORT.json</li>
+            <li>Exit 0 = PASS · 1 = BLOCK</li>
+          </ul>
+        </article>
+        <article class="ar-price-card sa-card-lift">
+          <span class="ar-price-badge">03</span>
+          <h3>Prove</h3>
+          <p class="ar-price" style="font-size:0.9rem">Screen-share</p>
+          <ul>
+            <li><a href="/sourcea/scenario">Watch scenario replay</a></li>
+            <li><a href="/sourcea/proof">How verification works</a></li>
+            <li><a href="/sourcea/compare">Compare matrix</a></li>
+          </ul>
+        </article>
+      </div>
+      <div class="ar-hero-actions" style="justify-content:center;margin-top:2rem">
+        <a class="ar-btn ar-btn-primary sa-btn-glow" data-trust-github-link href="https://github.com/sourcea-io/sourcea-boot" target="_blank" rel="noopener">Open GitHub repo →</a>
+        <a class="ar-btn ar-btn-ghost" href="/sourcea/factories/try-factory-demo">Free proof sandbox</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ar-section ar-section-muted ar-reveal">
+    <div class="ar-container ar-section-head ar-section-head-center">
+      <h2>What the four checks mean</h2>
+      <div class="sa-root-why-grid" style="margin-top:1.5rem;text-align:left">
+        <article class="sa-root-why-card"><h3>policy_version</h3><p>Project policy / SSOT not stale vs last brief.</p></article>
+        <article class="sa-root-why-card"><h3>provider</h3><p>LLM provider configured — no fake-green when keys exist.</p></article>
+        <article class="sa-root-why-card"><h3>receipt_fresh</h3><p>Last boot/gate receipt fresh (&lt;8h) and ok.</p></article>
+        <article class="sa-root-why-card"><h3>queue_truth</h3><p>Agent queue head matches inbox truth when queue files present.</p></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+
+<p class="sa-metric-note" style="margin-top:1.25rem;text-align:center">Technical depth: <a href="/sourcea/kernel/">Technical overview →</a></p>
+
+<footer class="ar-site-footer sa-footer-rich">
+  <div class="ar-container sa-footer-bottom">
+    <p>© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · <a href="https://noetfield.com" rel="noopener">noetfield.com</a> · <a href="/">sourcea.app</a> · <a href="/eval">Technical overview</a> · <a data-trust-github-link href="https://github.com/sourcea-io/sourcea-boot" target="_blank" rel="noopener">GitHub</a></p>
+  </div>
+</footer>
+
+<script src="/assets/agentrun.js" defer></script>
+<script src="/sourcea/sourcea-trust-bar.js" defer></script>
+<script src="/sourcea/sourcea-motion.js" defer></script>
+<script src="/sourcea/sourcea-cta-gate.js" defer></script>
+<script src="/sourcea/sourcea-boot-wire.js" defer></script>
+<script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-interact-v1.js" defer></script>
+<script src="/sourcea/sourcea-segment-router-v1.js" defer></script>
+<script src="/sourcea/sourcea-chatbot.js" defer></script>
+<script src="/sourcea/sourcea-landing-cta.js" defer></script>
+<script src="/sourcea/sourcea-public-display-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-fallback-v1.js" defer></script>
+<script src="/sourcea/sourcea-boot-wire.js" defer></script>
+<script src="/sourcea/sourcea-chatbot.js" defer></script>
+</body>
+</html>

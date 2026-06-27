@@ -1,0 +1,17 @@
+{
+  "schema": "forge-agent-registry-v1",
+  "agents": [
+    {
+      "id": "forge-worker-1",
+      "role": "builder",
+      "reputation": 0.75,
+      "status": "active"
+    },
+    {
+      "id": "forge-api-intake",
+      "role": "planner",
+      "reputation": 0.8,
+      "status": "active"
+    }
+  ]
+}

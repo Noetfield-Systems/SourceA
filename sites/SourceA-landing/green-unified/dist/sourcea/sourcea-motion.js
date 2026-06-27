@@ -223,7 +223,7 @@
   /* ── AgentGo: factory log ticker ── */
   function factoryLog() {
     const log = document.getElementById("sa-factory-log");
-    if (!log) return;
+    if (!log || log.dataset.saLive === "1") return;
     const msgs = [
       "Brain routing · 6 agents active · $24K pipeline",
       "Outreach agent booked 3 discovery calls today",
@@ -373,7 +373,7 @@
     const hint = document.querySelector(".sa-command-hint");
     if (!hint) return;
     hint.addEventListener("click", () => {
-      showToast("Proof agent · replay demo in <5m · hello@sourcea.com");
+      showToast("Proof agent · replay demo in <5m · hello@sourcea.app");
     });
   }
 
@@ -569,16 +569,34 @@
   }
 
   function pageNavActive() {
-    const parts = window.location.pathname.split("/").filter(Boolean);
+    const path = window.location.pathname.replace(/\/$/, "") || "/";
+    const parts = path.split("/").filter(Boolean);
     const file = parts[parts.length - 1] || "";
-    const isIndex = !file || file === "index.html" || file === "sourcea";
 
     document.querySelectorAll("[data-sa-nav]").forEach((a) => {
-      const href = a.getAttribute("href") || "";
-      const segments = href.split("/").filter(Boolean);
-      const target = segments[segments.length - 1] || "";
-      const targetIsIndex = href.endsWith("/sourcea/") || href === "/sourcea/";
-      const active = (isIndex && targetIsIndex) || (target && file === target);
+      const href = (a.getAttribute("href") || "").replace(/\/$/, "") || "/";
+      let active = false;
+
+      if (a.hasAttribute("data-sa-nav-home")) {
+        active = path === "/" || path === "" || file === "founder-home";
+      } else if (a.hasAttribute("data-sa-nav-mvp")) {
+        active =
+          path === "/start" ||
+          path.endsWith("/start") ||
+          file === "48h-mvp" ||
+          file === "mvp-landing" ||
+          path.endsWith("/48h-mvp");
+      } else if (href === "/sourcea" || href.endsWith("/sourcea")) {
+        active = path === "/sourcea" || (parts[0] === "sourcea" && parts.length === 1);
+      } else {
+        const segments = href.split("/").filter(Boolean);
+        const target = segments[segments.length - 1] || "";
+        active =
+          Boolean(target && file === target) ||
+          path === href ||
+          (href.startsWith("/sourcea/") && path.endsWith(href.replace("/sourcea", "")));
+      }
+
       a.classList.toggle("is-active", active);
       if (active) a.setAttribute("aria-current", "page");
       else a.removeAttribute("aria-current");

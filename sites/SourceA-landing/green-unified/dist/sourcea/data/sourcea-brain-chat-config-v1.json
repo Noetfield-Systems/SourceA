@@ -1,0 +1,14 @@
+{
+  "schema": "sourcea-brain-chat-config-v1",
+  "api_relative": "/api/brain/chat/v1",
+  "api_worker_url": "https://sourcea-brain-chat-v1.sina-kazemnezhad-ca.workers.dev/api/brain/chat/v1",
+  "local_dev_api": "http://127.0.0.1:13020/api/brain/chat/v1",
+  "provider": "openrouter",
+  "model": "google/gemini-2.5-flash",
+  "max_message_len": 2000,
+  "public_domain": "https://sourcea.app",
+  "fallback_chips": true,
+  "hint_offline": "Brain is offline right now — use the buttons below or book a call.",
+  "settings_panel": "/sourcea/brain-chat-settings",
+  "forge_terminal_demo": "/sourcea/forge/terminal"
+}

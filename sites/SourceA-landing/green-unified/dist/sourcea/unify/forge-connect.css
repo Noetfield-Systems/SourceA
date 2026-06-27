@@ -1,0 +1,208 @@
+/* Forge Terminal Connect — OUTER window scrolls (right-edge scrollbar) · iframe grows tall */
+html.cu-chat-unify-focus:not(.cu-forge-ide-focus),
+body.cu-chat-unify-focus:not(.cu-forge-ide-focus) {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
+  min-height: 100dvh;
+  margin: 0;
+}
+html.cu-forge-ide-focus,
+body.cu-forge-ide-focus {
+  overflow-x: hidden !important;
+  overflow-y: scroll !important;
+  height: auto !important;
+  min-height: 100dvh;
+  max-height: none !important;
+  margin: 0;
+}
+body.cu-forge-ide-focus {
+  display: block;
+}
+body.cu-forge-ide-focus .cu-page-head,
+body.cu-forge-ide-focus .cu-meta,
+body.cu-forge-ide-focus .cu-founder-foot,
+body.cu-forge-ide-focus .cu-enterprise-foot {
+  display: none !important;
+}
+body.cu-forge-ide-focus .official-links-bar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  border-bottom: 1px solid var(--cu-border, #1e293b);
+  background: #0c0e12;
+}
+body.cu-forge-ide-focus .cu-forge-machines-rail {
+  position: sticky;
+  top: 36px;
+  z-index: 199;
+}
+body.cu-forge-ide-focus .cu-app {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+  display: block !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+body:not(.cu-forge-ide-focus) .cu-app {
+  overflow: visible !important;
+  height: auto !important;
+}
+body:not(.cu-forge-ide-focus) .cu-tab-panel {
+  overflow: visible;
+}
+.cu-forge-machines-rail {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  background: linear-gradient(180deg, #12151c 0%, #0c0e12 100%);
+  border-bottom: 1px solid rgba(62, 207, 142, 0.35);
+  flex-shrink: 0;
+  overflow-x: auto;
+  overflow-y: visible;
+  position: sticky;
+  top: 0;
+  z-index: 250;
+}
+body.cu-forge-ide-focus .cu-forge-machines-rail {
+  display: flex;
+}
+.cu-forge-machines-label {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+.cu-forge-machines-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  padding-bottom: 2px;
+}
+.cu-forge-machines-scroll button {
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: #c8d0dc;
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.cu-forge-machines-scroll button.is-active {
+  border-color: rgba(62, 207, 142, 0.55);
+  background: rgba(62, 207, 142, 0.12);
+  color: #3ecf8e;
+}
+.ft-forge-ide-panel {
+  padding: 0 !important;
+  margin: 0 !important;
+  display: block !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+.ft-forge-ide-frame {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 1040px;
+  max-height: none;
+  border: none;
+  background: #0c0e12;
+  display: block;
+  vertical-align: top;
+}
+
+.cu-web-banner {
+  margin: 0;
+  padding: 0.55rem 1rem;
+  background: #0b3d3a;
+  color: #e8f5f3;
+  font-size: 0.85rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.cu-web-banner a {
+  color: #7ee8d8;
+  margin: 0 0.35rem;
+}
+.cu-web-banner-demo {
+  background: #1a3a4a;
+}
+.cu-web-banner-full {
+  background: #0b3d3a;
+}
+.cu-web-banner-promo {
+  background: #3d2e0b;
+  color: #fff8e8;
+}
+.cu-web-banner-promo a {
+  color: #ffd966;
+}
+
+html.cu-unify-gated .cu-app,
+html.cu-unify-gated .cu-forge-machines-rail,
+html.cu-unify-gated .official-links-bar,
+html.cu-unify-gated .cu-web-banner-full {
+  filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+}
+.cu-unify-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(6, 12, 14, 0.72);
+}
+.cu-unify-gate-card {
+  max-width: 28rem;
+  padding: 1.5rem 1.75rem;
+  border-radius: 12px;
+  background: #0f1719;
+  border: 1px solid rgba(126, 232, 216, 0.25);
+  color: #e8f5f3;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+}
+.cu-unify-gate-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7ee8d8;
+}
+.cu-unify-gate-card h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.35rem;
+}
+.cu-unify-gate-card p {
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+  color: #c5ddd8;
+}
+.cu-unify-gate-promo-ended {
+  color: #ffd966 !important;
+}
+.cu-unify-gate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 0.75rem;
+}
+.cu-unify-gate-foot {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #8aa8a2;
+}
+.cu-unify-gate-foot a {
+  color: #7ee8d8;
+}

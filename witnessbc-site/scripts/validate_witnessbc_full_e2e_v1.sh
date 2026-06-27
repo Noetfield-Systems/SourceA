@@ -15,6 +15,7 @@ COMMERCIAL_PAGES=(
   "/compare.html"
   "/policy.html"
   "/pricing.html"
+  "/contact.html"
   "/faq.html"
   "/sources.html"
   "/learn.html"
@@ -104,7 +105,7 @@ check_asset() {
 echo "=== WITNESSBC FULL E2E — $BASE ==="
 echo ""
 
-echo "--- commercial pages (11) ---"
+echo "--- commercial pages (12) ---"
 for p in "${COMMERCIAL_PAGES[@]}"; do
   check_page "$p"
 done
@@ -164,6 +165,16 @@ else
 fi
 
 checked=$((checked + 1))
+curl -sS -L "${BASE%/}/contact.html" -o "$TMP"
+if grep -q 'contact@witnessbc.com' "$TMP" && grep -q 'Book 15-min proof' "$TMP"; then
+  passed=$((passed + 1))
+  echo "OK  [marker] contact route has intake + proof CTA"
+else
+  echo "FAIL [marker] contact route missing intake/proof CTA"
+  fail=1
+fi
+
+checked=$((checked + 1))
 curl -sS -L "${BASE%/}/toolkits/free/sourcing/" -o "$TMP"
 if grep -q 'toolkit-textarea' "$TMP" && grep -q 'href="/assets/styles.css"' "$TMP"; then
   passed=$((passed + 1))
@@ -210,4 +221,4 @@ if [[ "$fail" -ne 0 ]]; then
 fi
 
 echo "PASS: full E2E — $passed/$checked checks on $BASE"
-echo "  11 commercial · 9 toolkit subpages · 14 assets · 4 markers · hub links"
+echo "  12 commercial · 9 toolkit subpages · 14 assets · 6 markers · hub links"

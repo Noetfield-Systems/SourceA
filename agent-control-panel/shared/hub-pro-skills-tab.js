@@ -43,18 +43,18 @@
 
   function hubBase() {
     var port = String(window.location.port || "");
-    if (port === "13024" || port === "13023" || port === "13026" || port === "13027") {
-      return "http://127.0.0.1:13020";
+    if (port === "13024" || port === "13023" || port === "13026" || port === "13027" || port === "13028") {
+      return window.location.origin;
     }
     return window.location.origin;
   }
 
+  function postUrl() {
+    return window.location.origin + "/api/hub-pro-skills/v1";
+  }
+
   function apiUrl() {
-    var port = String(window.location.port || "");
-    if (port === "13023" || port === "13026" || port === "13027") {
-      return window.location.origin + "/api/hub-pro-skills/v1?app=" + encodeURIComponent(appId());
-    }
-    return hubBase() + "/api/hub-pro-skills/v1?app=" + encodeURIComponent(appId());
+    return postUrl() + "?app=" + encodeURIComponent(appId());
   }
 
   function ensurePanel() {
@@ -79,7 +79,7 @@
       '<button type="button" id="hub-pro-append-btn">Save to experience log</button>' +
       '<p id="hub-pro-append-msg"></p>' +
       "</div>";
-    document.body.appendChild(panel);
+    (document.getElementById("panel-hub-pro") || document.body).appendChild(panel);
     $("hub-pro-append-btn").addEventListener("click", appendNote);
   }
 
@@ -188,6 +188,8 @@
 
   async function loadHubPro() {
     ensurePanel();
+    var panel = $("hub-pro-panel");
+    if (panel && $("panel-hub-pro")) panel.classList.remove("hidden");
     try {
       var res = await fetch(apiUrl(), { cache: "no-store" });
       var d = await res.json();
@@ -213,7 +215,7 @@
       return;
     }
     try {
-      var res = await fetch(hubBase() + "/api/hub-pro-skills/v1", {
+      var res = await fetch(postUrl(), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
