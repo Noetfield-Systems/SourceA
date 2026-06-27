@@ -141,3 +141,13 @@ This needs `brain_chat_runtime` plus `generated_brain_corpus`. I can edit runtim
 
 This keeps every other agent satisfied: each agent gets bounded ownership, proof, and no surprise edits.
 
+---
+
+## Known External Blocker
+
+The git dirty-tree problem is solved by lane commits and lane reports. The remaining large-system blocker is Supabase access for the SourceA cloud data chain.
+
+See: `docs/SOURCEA_SUPABASE_CONNECTION_BLOCKER_LOCKED_v1.md`
+
+Short version: founder must recover Supabase dashboard access and fill `~/.sourcea-secrets/portfolio-spine.env` before agents can connect the 7000+ plan registry to Supabase, Cloudflare Workers, Railway cloud workers, Brain, Hub Pro, and Chat Unify.
+
