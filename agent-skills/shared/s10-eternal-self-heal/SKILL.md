@@ -18,7 +18,7 @@ disable-model-invocation: true
 
 | Lane | SSOT | Role |
 |------|------|------|
-| Factory drain (s0–s9) | `run-inbox-disk-truth-v1.json` | `run inbox` execution |
+| Cloud Forge Run (s0–s9) | `run-inbox-disk-truth-v1.json` | `run inbox` execution |
 | S10 eternal (s10) | `s10-eternal-manifest-v1.json` | Audit · heal · skills · E2E |
 
 Prompt feed 10-batch = **advisory only**. S10 = **machine audit SSOT**.

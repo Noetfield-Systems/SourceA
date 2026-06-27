@@ -18,9 +18,12 @@ disable-model-invocation: true
 
 1. State what you understood from the founder message.
 2. List **suggested** next moves (options A/B/C).
-3. **ASK** founder: which option, or provide clarification.
-4. Wait for explicit order: `SAVE TO:`, `EDIT ALLOWED:` + `ACTION:`, `ASF:`, or bounded `WORK:` / `sa-*`.
-5. Only then: edit, commit, push (if authorized).
+3. If founder gave pathless `SAVE` / `SAVE AND LOCK` / `LOCK` / `FILE` / filing `ASF:` intent, run:
+   `python3 scripts/agent_filing_registry_gate_v1.py resolve --agent <id> --intent "<founder message>" --json`.
+   If `ok:true`, use `route_id`, `path`, and `next_steps[]`; do not ask ASF for an exact path.
+4. **ASK** founder only when no registry route exists, routes are ambiguous, or a non-filing task still lacks scope.
+5. Wait for explicit order: `SAVE TO:`, registry-resolved filing intent, `EDIT ALLOWED:` + `ACTION:`, `ASF:`, or bounded `WORK:` / `sa-*`.
+6. Only then: edit, commit, push (if authorized).
 
 ## Default mode
 
@@ -31,6 +34,7 @@ disable-model-invocation: true
 | Trigger | Meaning |
 |---------|---------|
 | `SAVE TO:` / `SAVE AS:` + path | **One new file** at that path only → STOP |
+| Pathless `SAVE` / `SAVE AND LOCK` / `LOCK` / `FILE` | Run filing registry; use resolved path and next steps; ask category/scope only if unresolved |
 | `EDIT ALLOWED:` + path + `ACTION:` | Named path/action only |
 | `ASF:` + explicit phrase | Only what the phrase authorizes |
 | `WORK:` + `sa-*` or INBOX scope | Worker/Product bound build — normal speed in scope |

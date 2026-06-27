@@ -1,0 +1,9 @@
+{
+  "schema": "healthy-queue-state-v1",
+  "next_pos": 1,
+  "queue_exhausted": true,
+  "last_advanced_at": "2026-06-26T22:22:33Z",
+  "last_completed_pos": 0,
+  "reset_by": "refill_cloud_forge_run_from_backlog_v1",
+  "reason": "Cloud Workers.app/CF cron owns 100-row Cloud Forge Run packs"
+}

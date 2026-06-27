@@ -14,6 +14,14 @@ FORBIDDEN: everything else
 
 Agent writes **that one file** → **STOP**.
 
+For pathless `SAVE`, `SAVE AND LOCK`, `LOCK`, or `FILE`, do **not** ask ASF for an exact path. Run:
+
+```bash
+python3 scripts/agent_filing_registry_gate_v1.py resolve --agent <id> --intent "<founder message>" --json
+```
+
+Use the resolved `route_id`, `path`, and `next_steps[]`; ask only category/scope on no-match or ambiguity.
+
 ---
 
 ## What SAVE means
@@ -21,6 +29,7 @@ Agent writes **that one file** → **STOP**.
 - One physical file in docs (or lane vault)
 - Stable for future reference
 - **No** SSOT · AGENTS · roadmap · registry · sync · other agents' files
+- Exception: pathless filing uses the filing registry only to choose the one physical target.
 
 ## What SAVE does not mean
 

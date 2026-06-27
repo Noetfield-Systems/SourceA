@@ -66,6 +66,22 @@
 ## 2. §ANSWERED — locked from evidence
 
 
+| **Q-NF-SPEC-PROMOTE** | Canvas confirm | **A** | Canvas FORM_OFFICIAL · Q-NF-SPEC-PROMOTE | `canvas_form_apply_picks_v1.py` · 2026-06-23T10:34:42Z |
+
+| **Q-HUB-LAG** | Canvas confirm | **E** | Canvas FORM_OFFICIAL · Q-HUB-LAG | `canvas_form_apply_picks_v1.py` · 2026-06-23T10:34:42Z · note: STALE QUESTION THERE IS NO HUB ANYMORE |
+
+| **Q-ACTIVE-NOW-SYNC** | Canvas confirm | **E** | Canvas FORM_OFFICIAL · Q-ACTIVE-NOW-SYNC | `canvas_form_apply_picks_v1.py` · 2026-06-23T10:33:24Z · note: WORKER |
+
+| **Q-FR-1013f0** | Canvas confirm | **A** | Canvas FORM_OFFICIAL · Q-FR-1013f0 | `canvas_form_apply_picks_v1.py` · 2026-06-23T10:33:24Z |
+
+| **Q-FR-002-WTM** | Canvas confirm | **A** | Canvas FORM_OFFICIAL · Q-FR-002-WTM | `canvas_form_apply_picks_v1.py` · 2026-06-23T10:32:12Z |
+
+| **Q-WIRE-G3** | Canvas confirm | **B** | Canvas FORM_OFFICIAL · Q-WIRE-G3 | `canvas_form_apply_picks_v1.py` · 2026-06-23T10:32:12Z |
+
+| **Q-INC-015** | Canvas confirm | **B** | Canvas FORM_OFFICIAL · Q-INC-015 | `canvas_form_apply_picks_v1.py` · 2026-06-23T10:25:50Z |
+
+| **Q-M2-REG** | Canvas confirm | **E** | Canvas FORM_OFFICIAL · Q-M2-REG | `canvas_form_apply_picks_v1.py` · 2026-06-23T10:25:50Z · note: SHIP IN CHATUNIFY IF ITS NOT STALE! |
+
 | **Q-MF-12** | Canvas confirm | **B** | Canvas FORM_OFFICIAL · Q-MF-12 | `canvas_form_apply_picks_v1.py` · 2026-06-22T07:14:45Z |
 
 | **Q-GATH-05** | Canvas confirm | **A** | Canvas FORM_OFFICIAL · Q-GATH-05 | `canvas_form_apply_picks_v1.py` · 2026-06-20T02:26:31Z |
@@ -213,7 +229,7 @@
 | **1.08** | Conduct vs factory evidence | **A** — INCIDENT-022 conduct before factory evidence | Same receipt |
 | **2.02** | Quarantined public site | **B** — hold until ≥95% Stripe fidelity | Same receipt |
 | **2.03** | AUTO-RUN P0 | **A** — reject permanently · `auto-run-disabled-v1.flag` | Same receipt |
-| **2.04** | Factory drain pace | **B** — SINGLE_SA one turn when Brain routes | Same receipt |
+| **2.04** | Cloud Forge Run pace | **B** — SINGLE_SA one turn when Brain routes | Same receipt |
 | **2.05** | TrustField activate | **B** — MSB P10 deferred; commercial after disk proof | Same receipt |
 | **2.06** | MergePack lane | **A** — active parallel L1 evidence | Same receipt |
 | **2.07** | Noetfield cloud | **B** — local-only until Layer A SSOT | Same receipt |

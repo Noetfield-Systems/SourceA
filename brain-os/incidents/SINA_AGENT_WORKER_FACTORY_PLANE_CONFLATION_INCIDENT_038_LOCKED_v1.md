@@ -86,7 +86,7 @@ Mac never enters the loop body for secondary.
 2. MAC LAW? → control panel only · no factory building on Mac
 3. NEVER say "Worker on Mac runs every plan" — INSTANT FAIL (INCIDENT-038)
 4. NEVER say "cloud only" without "Mac control · cloud body executes · Mac does not build"
-5. Plan lists for founder = cloud drain policy · not Cursor turn lists for Mac
+5. Plan lists for founder = Cloud Forge Run policy · not Cursor turn lists for Mac
 6. READ data/mac-worker-vs-factory-vocabulary-v1.json before Mac Law + plans reply
 ```
 
@@ -103,13 +103,13 @@ Mac never enters the loop body for secondary.
 | `scripts/agent_memory_mirror_v1.py` | Inject line corrected |
 | `scripts/mac_law_agent_execution_plane_lock_v1.py` | Surface line: `mac-control-only` not `worker-on-mac=YES` |
 
-| `data/secondary-cloud-drain-next-100-v1.json` | Legitimate next 100: 10 Mac control · 90 cloud secondary |
+| `data/secondary-cloud-forge-run-next-100-v1.json` | Legitimate next 100: 10 Mac control · 90 cloud secondary |
 
 ---
 
 ## 8. Legitimate next 100 (NOT Mac sa-mkt queue)
 
-**SSOT:** `data/secondary-cloud-drain-next-100-v1.json`
+**SSOT:** `data/secondary-cloud-forge-run-next-100-v1.json`
 
 | Range | Plane | Count | Mac executes plan body? |
 |-------|-------|-------|-------------------------|

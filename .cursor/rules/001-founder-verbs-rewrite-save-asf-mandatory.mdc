@@ -14,12 +14,22 @@ alwaysApply: false
 
 **No agent may create, edit, delete, or run commands that mutate disk** until the founder’s message contains **both**:
 
-1. **Intent** — one of: `ASF:` · `EDIT ALLOWED:` · `SAVE TO:` · `SAVE AS:` · `WORK:` (with `sa-*` or named scope)
-2. **Evidence** — in the **same message**: full path(s) and/or explicit `ACTION:` and/or named ASF batch phrase
+1. **Intent** — one of: `ASF:` · `EDIT ALLOWED:` · `SAVE TO:` · `SAVE AS:` · `SAVE AND LOCK:` · `WORK:` (with `sa-*` or named scope)
+2. **Evidence** — in the **same message**: full path(s), explicit `ACTION:`, named ASF batch phrase, or registry-resolvable filing category
 
-Missing either → **REFUSE disk** · reply in chat only · **ask one clarification question**.
+Missing intent → **REFUSE disk** · reply in chat only · ask one clarification question.
 
-**No inference** from: rewrite · improve · lock · implement · save · fix · summarize · prior thread · advisor paste · summarized context.
+Path missing but intent present → run registry resolver first:
+
+```bash
+python3 scripts/agent_filing_registry_gate_v1.py resolve --agent <id> --intent "<founder message>" --json
+```
+
+Ask ASF only if registry returns `REGISTRY_NO_MATCH` or `REGISTRY_AMBIGUOUS`.
+
+**No free-form inference** from: rewrite · improve · lock · implement · save · fix · summarize · prior thread · advisor paste · summarized context.
+
+**Only allowed inference:** registry-first filing resolution from `data/agent-filing-registry-v1.json`. If the registry resolves, use that path and report `route_id + path`; do not ask ASF for an exact path.
 
 ## Before first write (every session)
 
@@ -32,7 +42,7 @@ Missing either → **REFUSE disk** · reply in chat only · **ask one clarificat
 | Verb | Disk |
 |------|------|
 | **REWRITE** / **rewrite** / **best version** | **Never** — chat only |
-| **SAVE** / **save** (no `SAVE TO:` path) | **Never** — ask path |
+| **SAVE** / **save** / **SAVE AND LOCK** (no path) | Run filing registry gate; ask only if unresolved |
 | **SAVE TO:** / **SAVE AS:** + path | **One new file** at that path only |
 | **EDIT ALLOWED:** + path + **ACTION:** | Edit only that path/action |
 | **ASF:** + explicit phrase | Only what the phrase authorizes |

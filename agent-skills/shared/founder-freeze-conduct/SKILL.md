@@ -2,7 +2,7 @@
 name: founder-freeze-conduct
 description: >-
   ASF STOP, FREEZE, bounded resume — factory spawn gate law. Use on stop, halt,
-  freeze, interrupt, or resume drain requests.
+  freeze, interrupt, or Cloud Forge Run requests.
 disable-model-invocation: true
 ---
 
@@ -22,7 +22,7 @@ Then quote `factory-now` from `~/.sina/factory-now-v1.json`.
 
 ## Resume (bounded only)
 
-Founder: `ASF: resume drain — max N — receipt required`
+Founder: `ASF: Cloud Forge Run — max N — receipt required`
 
 Maintainer:
 

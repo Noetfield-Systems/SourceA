@@ -76,7 +76,7 @@ Founder validation is **never** a delivery gate.
 Receipt: `~/.sina/live-pack-validator-receipt-v1.json`  
 On FAIL: `~/.sina/live-pack-blocked-v1.json` — no INBOX inject.
 
-FREEZE (`kill_flag` ON): auto-deliver **CHECK** turns only until ASF `resume drain PHASE_STRICT`.
+FREEZE (`kill_flag` ON): auto-deliver **CHECK** turns only until ASF `Cloud Forge Run PHASE_STRICT`.
 
 ---
 

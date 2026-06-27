@@ -13,7 +13,7 @@ topic: agent-founder-communication
 |--|--|
 | **Version** | `AGENT-FOUNDER-BASH-1.0-LOCKED` |
 | **Class** | Cross-cutting · agent communication hygiene |
-| **Not** | S10 · factory drain · any single subsystem |
+| **Not** | S10 · Cloud Forge Run · any single subsystem |
 | **Incident** | `brain-os/incidents/SINA_AGENT_FOUNDER_BASH_COMMUNICATION_INCIDENT_019_LOCKED_v1.md` |
 
 **Parent:** `SINA_COMMAND_NO_TERMINAL_FOUNDER_LOCKED_v1.md`

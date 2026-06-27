@@ -7,11 +7,21 @@
 
 Founder wants a **physical file kept for future reference**.
 
-- Write **only** the named path under `docs/` or lane vault.
+- If founder provides `SAVE TO:` / `SAVE AS:` with a path, write **only** that named path under `docs/` or lane vault.
+- If founder gives pathless `SAVE`, `SAVE AND LOCK`, `LOCK`, `FILE`, or an `ASF:` batch phrase, run the filing registry first:
+
+```bash
+python3 scripts/agent_filing_registry_gate_v1.py resolve --agent <id> --intent "<founder message>" --json
+```
+
+- If registry returns `ok:true`, use its `route_id`, `path`, and `next_steps[]`; do **not** ask ASF for an exact path.
+- Ask ASF only when registry returns `REGISTRY_NO_MATCH` or `REGISTRY_AMBIGUOUS`, and ask for category/scope, not a filesystem path.
+- Never let path-asking words from an agent reply become a filename slug.
 - File is **stable archive** — no follow-up edits to SSOT, registry, scripts, or other agents’ docs.
 - **Stop** after the file exists.
 
 Example: `Save golden report to docs/research/golden_site_v1.yaml` → one write → done.
+Example: `SAVE_AND_LOCK site intelligence hub` → registry route `locked_product_spec_doc` → `docs/SITE_INTELLIGENCE_HUB_LOCKED_v1.md`.
 
 ## WORK
 
@@ -35,6 +45,7 @@ Run `.cursor/skills/skill-007-ecosystem-conflict-resolution/SKILL.md` before any
 ## Monitoring
 
 ```bash
+bash scripts/validate-agent-filing-registry-v1.sh
 bash scripts/validate-cross-lane-edit-v1.sh
 ```
 

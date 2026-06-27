@@ -139,7 +139,7 @@ Law: `brain-os/law/GOVERNANCE_RUNTIME_GOLDEN_RULE_LOCKED_v1.md`
 | Priority | Name | What it is | Wins when |
 |----------|------|------------|-----------|
 | **0** | Disk + validators | Machine PASS/FAIL | Always over chat, hub lag, critic paste |
-| **0b** | Live Founder Form v2 + RT-LIVE receipt | Thorn→leaf read order | Over hub hero / factory drain (`INCIDENT-027`) |
+| **0b** | Live Founder Form v2 + RT-LIVE receipt | Thorn→leaf read order | Over hub hero / Cloud Forge Run (`INCIDENT-027`) |
 | **1** | ASF Hub PICK | Founder override | Over Brain default |
 | **2** | T0 north star | Governed automation factory · FORGE path | Over T2b side SKUs |
 | **3** | Hub P0 headline | **STRATEGIC-SLICE** (WTM spine) | Over RunReceipt drain hero |
@@ -248,7 +248,7 @@ CLOCK B — PORTFOLIO (multi-project delivery)
 
 CLOCK C — INVESTOR WEDGE (ENFORCEMENT-6MO)
   W1 demo · W2 kernel · W3 TF/NF deposit
-  Frozen: Trust OS sprint · whitepaper-first · factory drain hero
+  Frozen: Trust OS sprint · whitepaper-first · Cloud Forge Run hero
 
 CLOCK D — INTEGRITY 100 (SYS-INTEGRITY-100)
   Phase 2 picks SHIPPED (2026-06-11 receipt)
