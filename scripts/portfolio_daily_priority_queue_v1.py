@@ -7,6 +7,7 @@ Receipt: ~/.sina/portfolio-daily-priority-queue-v1.json
 from __future__ import annotations
 
 import argparse
+import collections
 import json
 import re
 import subprocess
@@ -24,6 +25,8 @@ SECRETS_DIR = Path.home() / ".sourcea-secrets"
 TF_LADDER = Path.home() / "Desktop" / "TrustField Technologies" / "os" / "ladder_state.json"
 VIRLUX_COPY = Path.home() / "Desktop" / "VIRLUX" / "packages" / "shared" / "src" / "public-copy.ts"
 WBC_DEPLOY = ROOT / "witnessbc-site" / "dist" / "deploy" / "index.html"
+ALL_PLAN_BACKLOG = ROOT / "data" / "all-remaining-plan-backlog-v1.json"
+CLOUD_FORGE_ACTIVE_QUEUE = ROOT / "data" / "cloud-forge-run-queue-active-v1.json"
 
 
 def _now() -> str:
@@ -140,18 +143,79 @@ def _probe_vercel_token() -> dict:
 
 def _probe_sourcea_dirty() -> dict:
     proc = subprocess.run(
-        ["git", "status", "--porcelain"],
+        ["git", "status", "--porcelain=v1", "-z"],
         cwd=str(ROOT),
         capture_output=True,
-        text=True,
+        text=False,
         timeout=15,
     )
-    n = len([ln for ln in (proc.stdout or "").splitlines() if ln.strip()])
+    entries = (proc.stdout or b"").split(b"\0")
+    items: list[tuple[str, str]] = []
+    i = 0
+    while i < len(entries):
+        entry = entries[i]
+        if not entry:
+            i += 1
+            continue
+        status = entry[:2].decode("utf-8", errors="replace")
+        path = entry[3:].decode("utf-8", errors="replace")
+        if status.startswith(("R", "C")):
+            i += 1
+            if i < len(entries) and entries[i]:
+                path = f"{path} -> {entries[i].decode('utf-8', errors='replace')}"
+        items.append((status, path))
+        i += 1
+    n = len(items)
+    top_dirs = collections.Counter(
+        (path.split("/", 1)[0] if "/" in path else path) for _, path in items
+    ).most_common(12)
+    by_status = collections.Counter(status for status, _ in items).most_common()
     return {
         "id": "sourcea-commit",
         "status": "green" if n < 20 else ("yellow" if n < 80 else "red"),
         "dirty_count": n,
+        "dirty_top_dirs": [{"path": path, "count": count} for path, count in top_dirs],
+        "dirty_by_status": [{"status": status, "count": count} for status, count in by_status],
         "blocker": None if n < 20 else f"{n} uncommitted files",
+    }
+
+
+def _probe_all_plan_backlog() -> dict:
+    backlog = _read(ALL_PLAN_BACKLOG)
+    queue = _read(CLOUD_FORGE_ACTIVE_QUEUE)
+    qrel = str(queue.get("queue_path") or "")
+    qdoc = _read(ROOT / qrel) if qrel else {}
+    items = [
+        row
+        for row in (qdoc.get("plans") or [])
+        if str(row.get("id") or "").startswith("CLOUD-SEC-")
+    ]
+    total = int(backlog.get("total_remaining") or 0)
+    active = len(items)
+    phase_reset = queue.get("phase_reset") if isinstance(queue.get("phase_reset"), dict) else {}
+    head = str(phase_reset.get("cloud_forge_run_head") or (items[0].get("id") if items else "") or "")
+    rows_per_turn = int(queue.get("rows_per_turn") or 100)
+    tasks_per_row = int(queue.get("tasks_per_row") or 100)
+    ok = (
+        total > 0
+        and active == rows_per_turn == 100
+        and tasks_per_row == 100
+        and bool(head)
+        and not queue.get("queue_batch_complete")
+    )
+    return {
+        "id": "all-plan-backlog",
+        "status": "green" if ok else "yellow",
+        "backlog_total": total,
+        "active_cloud_rows": active,
+        "rows_per_turn": rows_per_turn,
+        "tasks_per_row": tasks_per_row,
+        "active_task_capacity": active * tasks_per_row,
+        "batch_id": queue.get("batch_id"),
+        "queue_path": qrel,
+        "head": head,
+        "remaining_after_window": max(0, total - (active * tasks_per_row)),
+        "blocker": None if ok else "Run refill_cloud_forge_run_from_backlog_v1.py",
     }
 
 
@@ -177,6 +241,7 @@ def run_assess(*, wire: bool = False) -> dict:
         _probe_virlux_copy(),
         _probe_supabase_secrets(),
         _probe_vercel_token(),
+        _probe_all_plan_backlog(),
         _probe_sourcea_dirty(),
     ]
     line = _compose_line(probes)
