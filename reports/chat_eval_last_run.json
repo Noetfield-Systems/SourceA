@@ -1,0 +1,55 @@
+{
+  "schema": "sourcea-brain-chat-eval-report-v1",
+  "at": "2026-06-27T05:59:17Z",
+  "worker_url": "https://sourcea-brain-chat-v1.sina-kazemnezhad-ca.workers.dev/api/brain/chat/v1",
+  "buckets": [
+    {
+      "bucket": "p0_positioning",
+      "score": 0.0,
+      "pass_threshold": 0.9,
+      "pass": false,
+      "passed": 0,
+      "total": 4,
+      "results": [
+        {
+          "id": "what-is-sourcea",
+          "pass": false,
+          "failures": [
+            "chat_not_ok",
+            "missing_any_of:['forge', 'execution']"
+          ],
+          "reply_preview": "error code: 1010"
+        },
+        {
+          "id": "ide-cloud",
+          "pass": false,
+          "failures": [
+            "chat_not_ok",
+            "missing_any_of:['forge terminal', 'forge/terminal', 'forge terminal']"
+          ],
+          "reply_preview": "error code: 1010"
+        },
+        {
+          "id": "records-recovery",
+          "pass": false,
+          "failures": [
+            "chat_not_ok",
+            "missing_required:record",
+            "missing_any_of:['forge', 'execution', 'run', 'work']"
+          ],
+          "reply_preview": "error code: 1010"
+        },
+        {
+          "id": "forge-vs-homepage",
+          "pass": false,
+          "failures": [
+            "chat_not_ok",
+            "missing_any_of:['forge terminal', 'demo', 'execution']"
+          ],
+          "reply_preview": "error code: 1010"
+        }
+      ]
+    }
+  ],
+  "ok": false
+}
