@@ -33,6 +33,7 @@ required = {
     "chat_unify",
     "model_roi",
     "intent_approval_machine",
+    "supabase_db",
     "incidents_rules",
     "docs_plan_registry",
     "site_assets",
@@ -56,6 +57,9 @@ checks = {
     "cloud/workers/sourcea-brain-chat-v1/src/index.js": "brain_chat_runtime",
     "scripts/chat_unify_smart_router_v1.py": "chat_unify",
     "docs/FOUNDER_INTENT_APPROVAL_MACHINE_LOCKED_v1.md": "intent_approval_machine",
+    "infra/supabase/portfolio-spine/migrations/004_sourcea_plan_registry_v1.sql": "supabase_db",
+    "scripts/sourcea_supabase_plan_registry_import_v1.py": "supabase_db",
+    "docs/SOURCEA_SUPABASE_CONNECTION_BLOCKER_LOCKED_v1.md": "supabase_db",
     "data/sourcea-generated-artifact-review-policy-v1.json": "other_control",
     ".cursor/rules/048-dirty-tree-lane-ownership-v1.mdc": "incidents_rules",
 }
