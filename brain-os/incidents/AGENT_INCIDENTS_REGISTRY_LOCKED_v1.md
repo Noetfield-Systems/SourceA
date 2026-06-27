@@ -96,6 +96,8 @@ ls -1 ~/Desktop/SourceA/SINA_*INCIDENT*REPORT*.md
 | **047** | Forge Terminal Living Desktop E2E (template) | High | `brain-os/law/enforcement/SOURCEA_FORGE_TERMINAL_LIVING_DESKTOP_E2E_LOCKED_v1.md` §Incident template | — | **template** · file as `SINA_FORGE_TERMINAL_LIVING_DESKTOP_<TOPIC>_INCIDENT_NNN_LOCKED_v1.md` |
 | **046** | Forge Terminal Quality Engine E2E (template) | High | `brain-os/law/enforcement/SOURCEA_FORGE_TERMINAL_QUALITY_ENGINE_E2E_LOCKED_v1.md` §Incident template | — | **template** · file as `SINA_FORGE_TERMINAL_QUALITY_ENGINE_<TOPIC>_INCIDENT_NNN_LOCKED_v1.md` |
 | **045** | Forge Terminal desktop E2E / bundle integrity (template) | High | `brain-os/law/enforcement/SOURCEA_FORGE_TERMINAL_DESKTOP_E2E_LOCKED_v1.md` §Incident template | — | **template** · file as `SINA_FORGE_TERMINAL_<TOPIC>_INCIDENT_NNN_LOCKED_v1.md` |
+| **048** | Brain public chat fake-green hardcoded capability patch | **P0** | `SINA_BRAIN_PUBLIC_CHAT_FAKE_GREEN_HARDCODED_CAPABILITY_INCIDENT_048_LOCKED_v1.md` | `SINA_BRAIN_PUBLIC_CHAT_FAKE_GREEN_HARDCODED_CAPABILITY_INCIDENT_048_REPORT_LOCKED_v1.md` | **remediated** 2026-06-27 · mandatory no-hardcode Brain code rule |
+| **049** | Agent copied founder intent literally into Brain public identity | **P0** | `SINA_AGENT_LITERAL_INTENT_COPY_BRAIN_CONFIDENCE_INCIDENT_049_LOCKED_v1.md` | `SINA_AGENT_LITERAL_INTENT_COPY_BRAIN_CONFIDENCE_INCIDENT_049_REPORT_LOCKED_v1.md` | **remediated** 2026-06-27 · mandatory intent-over-literal-copy rule |
 
 ---
 

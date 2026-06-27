@@ -72,6 +72,8 @@ cd /Users/sinakazemnezhad/Desktop/SourceA && ls -1 brain-os/incidents/SINA_*INCI
 | 019 | Agent-founder bash communication | High | `SINA_AGENT_FOUNDER_BASH_COMMUNICATION_INCIDENT_019_LOCKED_v1.md` |
 | 020 | Agent topic conflation | High | `SINA_AGENT_TOPIC_CONFLATION_INCIDENT_020_LOCKED_v1.md` |
 | 026 | Brain chat validator recursion | **P0** | `SINA_BRAIN_CHAT_VALIDATOR_RECURSION_INCIDENT_026_LOCKED_v1.md` · report `SINA_BRAIN_CHAT_VALIDATOR_RECURSION_INCIDENT_026_REPORT_LOCKED_v1.md` |
+| 048 | Brain public chat fake-green hardcoded capability patch | **P0** | `SINA_BRAIN_PUBLIC_CHAT_FAKE_GREEN_HARDCODED_CAPABILITY_INCIDENT_048_LOCKED_v1.md` · report `SINA_BRAIN_PUBLIC_CHAT_FAKE_GREEN_HARDCODED_CAPABILITY_INCIDENT_048_REPORT_LOCKED_v1.md` |
+| 049 | Agent copied founder intent literally into Brain public identity | **P0** | `SINA_AGENT_LITERAL_INTENT_COPY_BRAIN_CONFIDENCE_INCIDENT_049_LOCKED_v1.md` · report `SINA_AGENT_LITERAL_INTENT_COPY_BRAIN_CONFIDENCE_INCIDENT_049_REPORT_LOCKED_v1.md` |
 | 038 | Mac control vs cloud · secondary cloud-only | High / vocabulary | `SINA_AGENT_WORKER_FACTORY_PLANE_CONFLATION_INCIDENT_038_LOCKED_v1.md` · report `SINA_AGENT_WORKER_FACTORY_PLANE_CONFLATION_INCIDENT_038_REPORT_LOCKED_v1.md` |
 
 ### SUBJ-LANE — Lane boundaries
