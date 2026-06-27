@@ -22,11 +22,13 @@ from brain_chat_knowledge_lib_v1 import (  # noqa: E402
 
 DB_PATH = ROOT / "data" / "chatbot-knowledge" / "brain_knowledge_v1.sqlite"
 KNOWLEDGE_DIRS = [
+    ROOT / "data" / "chatbot-knowledge" / "rules",
     ROOT / "data" / "chatbot-knowledge" / "manual",
     ROOT / "data" / "chatbot-knowledge" / "distilled",
     ROOT / "data" / "chatbot-knowledge" / "crawled" / "www",
     ROOT / "data" / "chatbot-knowledge" / "crawled" / "json",
     ROOT / "data" / "chatbot-knowledge" / "crawled" / "docs",
+    ROOT / "data" / "chatbot-knowledge" / "crawled" / "data",
 ]
 
 FM_RE = __import__("re").compile(r"^---\n([\s\S]*?)\n---\n([\s\S]*)", __import__("re").M)
@@ -87,7 +89,8 @@ def load_md_chunks() -> list[dict]:
             lane = meta.get("lane", "core")
             source = meta.get("source_path", md.relative_to(ROOT).as_posix())
             www_url = meta.get("www_url")
-            pinned = md.stem in PINNED_STEMS
+            kind = meta.get("kind", "doc")
+            pinned = md.stem in PINNED_STEMS or meta.get("pinned", "").lower() == "true" or kind == "rule"
             for i, sec in enumerate(chunk_text(body)):
                 if len(sec.strip()) < 40:
                     continue
@@ -99,7 +102,7 @@ def load_md_chunks() -> list[dict]:
                         content=sec,
                         www_url=www_url,
                         pinned=pinned,
-                        kind=meta.get("kind", "doc"),
+                        kind=kind,
                     )
                 )
     return chunks, files
@@ -144,27 +147,18 @@ def rebuild_db() -> dict:
 
 
 def query_db(text: str, k: int = 8) -> list[dict]:
+    if not DB_PATH.is_file():
+        return []
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
-    # FTS pre-filter then BM25 rerank
-    rows = conn.execute(
-        """SELECT c.* FROM knowledge_chunks c
-           JOIN knowledge_chunks_fts f ON c.id = f.id
-           WHERE knowledge_chunks_fts MATCH ?
-           AND c.active = 1 LIMIT ?""",
-        (text.replace('"', ""), max(k * 4, 24)),
-    ).fetchall()
+    chunks = [dict(r) for r in conn.execute("SELECT * FROM knowledge_chunks WHERE active=1").fetchall()]
     conn.close()
-    chunks = [dict(r) for r in rows]
-    if not chunks:
-        conn = sqlite3.connect(DB_PATH)
-        conn.row_factory = sqlite3.Row
-        chunks = [dict(r) for r in conn.execute("SELECT * FROM knowledge_chunks WHERE active=1").fetchall()]
-        conn.close()
     for c in chunks:
         c["pinned"] = bool(c.get("pinned"))
-    intent = classify_intent(text)
-    return search_chunks(chunks, text, k=k, lane=intent)
+    from brain_retrieval_engine_v1 import retrieve  # noqa: WPS433
+
+    result = retrieve(chunks, text, k_knowledge=k)
+    return result.get("hits") or []
 
 
 def main() -> int:

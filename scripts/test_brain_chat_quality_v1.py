@@ -25,12 +25,19 @@ def load_worker_url() -> str:
     raise SystemExit("FAIL: no api_worker_url in brain chat config")
 
 
-def post_chat(url: str, message: str) -> dict:
-    body = json.dumps({"message": message}).encode()
+def post_chat(url: str, message: str, extra: dict | None = None) -> dict:
+    payload = {"message": message}
+    if extra:
+        payload.update(extra)
+    body = json.dumps(payload).encode()
     req = urllib.request.Request(
         url,
         data=body,
-        headers={"Content-Type": "application/json"},
+        headers={
+            "Content-Type": "application/json",
+            "User-Agent": "SourceA-Brain-Eval/1.0",
+            "Referer": "https://sourcea.app/",
+        },
         method="POST",
     )
     ctx = ssl.create_default_context()
@@ -51,6 +58,9 @@ def score_question(q: dict, reply: str, ok: bool) -> dict:
     for phrase in q.get("required_all", []):
         if phrase.lower() not in r:
             failures.append(f"missing_required:{phrase}")
+    for group in q.get("required_all_any", []):
+        if not any(str(p).lower() in r for p in group):
+            failures.append(f"missing_all_any_of:{group}")
     req_any = q.get("required_any", [])
     if req_any and not any(p.lower() in r for p in req_any):
         failures.append(f"missing_any_of:{req_any}")
@@ -73,7 +83,12 @@ def score_question(q: dict, reply: str, ok: bool) -> dict:
 def run_bucket(name: str, bucket: dict, url: str) -> dict:
     results = []
     for q in bucket.get("questions", []):
-        resp = post_chat(url, q["message"])
+        extra = {}
+        if q.get("page_path"):
+            extra["page_path"] = q["page_path"]
+        if q.get("page_lane"):
+            extra["page_lane"] = q["page_lane"]
+        resp = post_chat(url, q["message"], extra or None)
         reply = (resp.get("reply") or "").strip()
         results.append(score_question(q, reply, bool(resp.get("ok"))))
     passed = sum(1 for r in results if r["pass"])
