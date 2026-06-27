@@ -1,0 +1,36 @@
+---
+description: Brain code must implement general capabilities, not hardcoded examples
+globs: "{cloud/workers/sourcea-brain-chat-v1/**,scripts/*brain*,scripts/test_brain_chat_quality_v1.py,data/brain-*.json,data/CHATBOT_KNOWLEDGE_MANIFEST.json,sites/SourceA-landing/green-unified/sourcea-chatbot.js,SourceA-landing/green-unified/sourcea-chatbot.js}"
+alwaysApply: false
+---
+
+# Brain Code — No Fake-Green Hardcoding
+
+**Incident:** `brain-os/incidents/SINA_BRAIN_PUBLIC_CHAT_FAKE_GREEN_HARDCODED_CAPABILITY_INCIDENT_048_LOCKED_v1.md`
+
+## Law
+
+Brain fixes must implement the **general capability** behind a failure, not one branch per reported example.
+
+## Required Before Brain Code Edits
+
+1. Ask: what capability did the founder’s example expose?
+2. Patch the capability at the right layer: retrieval, live tools, prompt policy, guardrail, widget, or eval.
+3. Keep SourceA product facts retrieval-backed or live-tool-backed.
+4. Use the LLM for general AI abilities: translation, rewriting, summarizing, tone, and language style.
+5. Add evals for the exact example and at least one generalized variant.
+
+## Forbidden
+
+- Canned public answers for examples like “Farsi” or “Spanish.”
+- One `if` branch per founder example unless it is a stable product fact or safety refusal.
+- Green tests that only prove the hardcoded examples.
+- Saying “Brain cannot translate” when the model can translate.
+
+## Allowed
+
+- Small routing metadata, e.g. detecting that a language was requested.
+- Generic instructions, e.g. “answer in requested language; keep URLs unchanged.”
+- Stable direct answers for canonical product routes.
+- Safety templates for secrets, private config, internal paths, and local ports.
+
