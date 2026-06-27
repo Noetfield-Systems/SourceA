@@ -1,8 +1,8 @@
 # Cleanup manifest — SourceA root sprawl
 
-**Status:** CLEANUP_COMPLETE — Batch 6 closeout (Option A + Path 2)  
-**Updated:** 2026-06-20T22:50:00Z  
-**Inventory:** `infra/cleanup/inventory-root.tsv` (**2** files after batch 5f — keep-root only)  
+**Status:** CLEANUP_COMPLETE — Batch 7 post-drift closeout (2026-06-27)  
+**Updated:** 2026-06-27T12:00:00Z  
+**Inventory:** `infra/cleanup/inventory-root.tsv` (**2** files — keep-root only)  
 **Machine receipt:** `data/cleanup-track-progress-v1.json`
 
 ## Patch tree — cleanup track (do not lose thread)
@@ -25,6 +25,7 @@ SourceA root cleanup
 ├── ✅ Lineage   Path 2                           (ASF 2026-06-20)
 ├── ✅ Batch 6   archive trim duplicate root-stubs      (20 deleted · 2026-06-20)
 ├── ✅ Runtime trim ~/.sina inject + vector reindex     (2026-06-20)
+├── ✅ Batch 7   root sprawl + runtime gitignore          (2026-06-27)
 ```
 
 **North star:** one canonical tree · agents read one path · zero drift · trim everywhere (not museum).
@@ -575,4 +576,29 @@ git commit -m "cleanup: batch-1 agent law → brain-os"
 - **Dupes:** `AGENT_RULES_IN_CHARGE` and `AGENT_VERBS` already exist in `brain-os/law/` and `brain-os/law/enforcement/` — root copies are stubs → archive only.
 - Do not move `START_HERE.md`, `ACTIVE_NOW.md`, or `data/*.json` in batch 1.
 - Virlux stays under `labs/virlux/`.
+
+## Batch 7 — post-drift closeout (2026-06-27) **APPROVED**
+
+**ASF:** founder session "do it all" — secret scan clear · runtime gitignore · root back to 2 files.
+
+| source | size | first_heading | proposed_dest | batch | action |
+|--------|------|---------------|---------------|-------|--------|
+| `./SINA_CLOUD_FORGE_RUN_BATCH3_RAILWAY_CHAIN_INCIDENT_042_REPORT_LOCKED_v1.md` | 4K | INCIDENT-042 report pointer | `brain-os/incidents/` | 7 | move |
+| `./SINA_CLOUD_FORGE_RUN_HUNDRED_ROWS_VOCABULARY_INCIDENT_043_REPORT_LOCKED_v1.md` | 4K | INCIDENT-043 report pointer | `brain-os/incidents/` | 7 | move |
+| `./START_HERE_COMPACT_v1.md` | 4K | compact living center | `docs/` | 7 | move |
+
+**Runtime gitignore (no manifest row — index untrack):**
+
+- `receipts/bays/` · `receipts/cloud-dispatch/` — `git rm --cached`
+- `agent-control-panel/command-data-{runtime,shell,canonical}.json` — `git rm --cached`
+
+**Execute:**
+
+```bash
+# moves done manually 2026-06-27
+bash infra/cleanup/generate-inventory-v1.sh
+python3 scripts/cleanup_track_sync_v1.py --json
+git add .gitignore infra/cleanup/ agent-control-panel/command-data*.json receipts/
+git commit -m "cleanup: batch 7 — root sprawl + runtime gitignore"
+```
 
