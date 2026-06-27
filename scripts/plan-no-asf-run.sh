@@ -19,6 +19,14 @@ case "$MODE" in
     echo "=== PLAN WITH NO ASF — next SourceA prompt ==="
     python3 "$ROOT/scripts/pick-sourcea-no-asf-plan.py" --any-tier --limit "$LIMIT" --prompt
     ;;
+  pick-next)
+    echo "=== PLAN WITH NO ASF — next portfolio-next plan (sa-next-*) ==="
+    python3 "$ROOT/scripts/pick_portfolio_next_plan_v1.py" --repo sourcea --any-phase --limit "$LIMIT" --prompt
+    ;;
+  pick-agentgo)
+    echo "=== PLAN WITH NO ASF — AgentGo SA4 case study 6000 (A→B→C) ==="
+    python3 "$ROOT/scripts/pick_agentgo_case_study_plan_v1.py" --all-angles --any-phase --limit "$LIMIT" --prompt
+    ;;
   validate-pack)
     bash "$ROOT/scripts/validate-sourcea-1000-pack.sh"
     ;;
@@ -49,7 +57,7 @@ case "$MODE" in
     echo "  bash scripts/plan-no-asf-run.sh closeout"
     ;;
   *)
-    echo "Usage: bash scripts/plan-no-asf-run.sh {pick|route|validate-pack|verify-hub|closeout|l1-cycle|full} [limit|keyword lane]"
+    echo "Usage: bash scripts/plan-no-asf-run.sh {pick|pick-next|pick-agentgo|route|validate-pack|verify-hub|closeout|l1-cycle|full} [limit|keyword lane]"
     echo "  route implement sourcea [--dry-run|--invoke-loop|--json]"
     exit 1
     ;;

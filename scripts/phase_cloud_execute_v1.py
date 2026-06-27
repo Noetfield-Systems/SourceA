@@ -17,7 +17,7 @@ SINA = Path.home() / ".sina"
 CLOUD_SEC_RECEIPT = ROOT / "receipts" / "cloud-sec-001-receipt-v1.json"
 
 sys.path.insert(0, str(SCRIPTS))
-from phase_desired_read_v1 import desired_cloud_drain_head, read_desired_active  # noqa: E402
+from phase_desired_read_v1 import desired_cloud_forge_run_head, read_desired_active  # noqa: E402
 from phase_transition_probe_v1 import probe_railway  # noqa: E402
 
 
@@ -39,8 +39,8 @@ def _write(path: Path, row: dict) -> None:
     path.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
 
 
-def execute_cloud_drain(*, plan_id: str | None = None, dry_run: bool = False) -> dict:
-    plan_id = plan_id or desired_cloud_drain_head() or "CLOUD-SEC-001"
+def execute_cloud_forge_run(*, plan_id: str | None = None, dry_run: bool = False) -> dict:
+    plan_id = plan_id or desired_cloud_forge_run_head() or "CLOUD-SEC-001"
     railway = probe_railway()
     if not railway.get("ok") and not dry_run:
         return {
@@ -104,11 +104,11 @@ def mark_brain_cloud_proof(*, upgrade_ids: list[str], evidence: str) -> dict:
 
 def run_fix3(*, dry_run: bool = False, brain_ids: list[str] | None = None) -> dict:
     brain_ids = brain_ids or ["B0001", "B0002", "B0003"]
-    cloud = execute_cloud_drain(dry_run=dry_run)
+    cloud = execute_cloud_forge_run(dry_run=dry_run)
     brain: dict | None = None
     if cloud.get("ok") and not dry_run:
         evidence = (
-            f"{desired_cloud_drain_head()} live PASS · "
+            f"{desired_cloud_forge_run_head()} live PASS · "
             f"{cloud.get('receipt_path')} · dry_run=false"
         )
         brain = mark_brain_cloud_proof(upgrade_ids=brain_ids, evidence=evidence)
@@ -128,7 +128,7 @@ def run_fix3(*, dry_run: bool = False, brain_ids: list[str] | None = None) -> di
         "brain": brain,
         "pulse": {"cloud_proven": (pulse.get("progress") or {}).get("cloud_proven"), "done": (pulse.get("progress") or {}).get("done")},
         "at": _now(),
-        "line": f"Fix3 · {desired_cloud_drain_head()} {'dry-run' if dry_run else 'live'} · brain={brain_ids}",
+        "line": f"Fix3 · {desired_cloud_forge_run_head()} {'dry-run' if dry_run else 'live'} · brain={brain_ids}",
     }
     _write(SINA / "phase-cloud-execute-receipt-v1.json", receipt)
     return receipt
@@ -143,7 +143,7 @@ def main() -> int:
     args = ap.parse_args()
 
     if args.plan_id:
-        row = execute_cloud_drain(plan_id=args.plan_id, dry_run=args.dry_run)
+        row = execute_cloud_forge_run(plan_id=args.plan_id, dry_run=args.dry_run)
     else:
         ids = [x.strip() for x in args.brain_ids.split(",") if x.strip()]
         row = run_fix3(dry_run=args.dry_run, brain_ids=ids)

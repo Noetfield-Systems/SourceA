@@ -35,7 +35,7 @@ Compete with: agencies + Zapier stacks + raw ChatGPT — win on **governance + s
 | **C — Full platform** | Tier B + custom app bay + ads orchestration | `apps/*` factory · video-ad bay · Supabase spine | $25–75K + retainer |
 | **D — Portfolio** | Multi-brand (like your stack) | Account map · lane isolation · Mac control plane training | Custom |
 
-**Booking:** `hello@sourcea.com` · Calendly/proof page on existing site — no new design required for v1.
+**Booking:** `hello@sourcea.app` · Calendly/proof page on existing site — no new design required for v1.
 
 ---
 
@@ -63,7 +63,7 @@ Add one page: `/sourcea/platform/` — link from hero (static HTML in green-unif
 ### Phase 1 — Commercial surface (2 weeks)
 
 - [ ] `/sourcea/platform/` page in green-unified (copy only)  
-- [ ] Booking form → `contact@sourcea.com` + Hub form nerve  
+- [ ] Booking form → `contact@sourcea.app` + Hub form nerve  
 - [ ] One-pager PDF: "Governed Agentic Platform" (investor package style)
 
 ### Phase 2 — Productized delivery (4 weeks)

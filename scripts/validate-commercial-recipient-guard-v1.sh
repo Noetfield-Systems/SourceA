@@ -14,7 +14,7 @@ spec = importlib.util.spec_from_file_location('g', 'scripts/commercial_recipient
 mod = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(mod)
 assert mod.is_placeholder_to("PASTE_RECIPIENT@company.com")
-assert mod.is_blocked_recipient("hello@sourcea.com")[0]
+assert mod.is_blocked_recipient("hello@sourcea.app")[0]
 print("OK: guard module")
 PY
 

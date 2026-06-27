@@ -1,0 +1,11 @@
+{
+  "schema": "bundle-wire-manifest-v1",
+  "app": "chat-unify",
+  "built_at": "2026-06-25T15:03:37Z",
+  "ui_version": "4.9.9-cu-combined",
+  "cockpit": "http://127.0.0.1:13027/",
+  "form_ui": "http://127.0.0.1:13023/form/",
+  "form_api": "/api/live-founder-decision-form-v1",
+  "worker_hub": "RETIRED",
+  "law": "SOURCEA_POISON_AND_REALTIME_BLOCKER_TERMINOLOGY_LOCKED_v1.md"
+}

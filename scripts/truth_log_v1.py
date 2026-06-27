@@ -285,9 +285,9 @@ def emit_job_lifecycle(
     ).strip() or None
     queue_after = str(ctx.get("queue_head_before") or "")
     try:
-        from fbe.lib.cloud_drain_queue_v1 import read_head  # noqa: WPS433
+        from fbe.lib.cloud_forge_run_queue_v1 import read_head  # noqa: WPS433
 
-        queue_after = str(read_head().get("cloud_drain_head") or queue_after)
+        queue_after = str(read_head().get("cloud_forge_run_head") or queue_after)
     except Exception:
         pass
 

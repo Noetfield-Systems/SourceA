@@ -266,7 +266,7 @@
               "queue_total": 10,
               "factory_mode": "FORGE_FACTORY",
               "freeze": false,
-              "phase_strict": "Hub only (H1/H2) \u00b7 Sina Command RETIRED \u00b7 factory drain phase-s8",
+              "phase_strict": "Hub only (H1/H2) \u00b7 Sina Command RETIRED \u00b7 Cloud Forge Run phase-s8",
               "inbox_pending": false,
               "law": "disk-wired \u00b7 no agent refresh required",
               "queue_ssot_unify": {
@@ -303,7 +303,7 @@
                   ],
                   "queue_exhausted": false
                 },
-                "phase_strict_order": "Hub only (H1/H2) \u00b7 Sina Command RETIRED \u00b7 factory drain phase-s8",
+                "phase_strict_order": "Hub only (H1/H2) \u00b7 Sina Command RETIRED \u00b7 Cloud Forge Run phase-s8",
                 "inbox": {
                   "pending": false,
                   "sa_id": "sa-1201",
@@ -478,7 +478,7 @@
                     "queue_pos": 9,
                     "sa_id": "sa-1209",
                     "queue_role": "act",
-                    "title": "Loop specialist cloud dispatch tick",
+                    "title": "Auto Runtime specialist cloud dispatch tick",
                     "preview": "",
                     "feasible": true,
                     "feasibility_reasons": [],

@@ -1,0 +1,231 @@
+{
+  "schema": "agent-filing-registry-v1",
+  "version": "1.2.1",
+  "saved_at": "2026-06-27T01:38:00Z",
+  "law": "ASF never needs to provide exact save paths when registry routing can resolve the destination.",
+  "default_behavior": {
+    "pathless_save": "resolve_from_registry_first",
+    "ask_founder_only_when": "registry_no_match_or_multiple_equal_matches",
+    "proof_required": "agent must report resolved route id and path",
+    "machine_enforced_by": "scripts/agentic_conduct_gate_v1.py",
+    "slug_policy": "normalize command words, separators, and path-asking phrases before filename generation",
+    "next_steps_policy": "resolved routes return next_steps[] so agents know the next guard/action without asking ASF for exact paths"
+  },
+  "routes": [
+    {
+      "id": "agent_filing_registry_unification_batch",
+      "priority": 120,
+      "intent": [
+        "filing registry",
+        "unification",
+        "batch",
+        "apply"
+      ],
+      "triggers_any": [
+        "filing registry unification batch",
+        "filing registry unification batc",
+        "registry unification batch",
+        "apply filing registry unification"
+      ],
+      "save_dir": "data",
+      "filename_template": "agent-filing-registry-unification-batch-v1.json",
+      "edit_policy": "apply_registry_unification_batch",
+      "allowed_agents": [
+        "sourcea_worker",
+        "sourcea_execution_core",
+        "cursor"
+      ]
+    },
+    {
+      "id": "locked_product_spec_doc",
+      "priority": 100,
+      "intent": [
+        "save",
+        "lock",
+        "spec",
+        "plan",
+        "product",
+        "architecture",
+        "site intelligence",
+        "hub"
+      ],
+      "triggers_any": [
+        "save and lock",
+        "locked spec",
+        "lock this",
+        "product spec",
+        "site intelligence hub"
+      ],
+      "save_dir": "docs",
+      "filename_template": "{slug}_LOCKED_v1.md",
+      "edit_policy": "edit_existing_when_same_slug_exists",
+      "allowed_agents": [
+        "sourcea_worker",
+        "sourcea_execution_core",
+        "cursor"
+      ]
+    },
+    {
+      "id": "agent_rule_policy",
+      "priority": 95,
+      "intent": [
+        "mandatory rule",
+        "policy",
+        "all agents",
+        "machine enforceable",
+        "cursor rule",
+        "agent law"
+      ],
+      "triggers_any": [
+        "mandatory rule",
+        "machine enforceable",
+        "all agents",
+        "agent policy",
+        "registry-first"
+      ],
+      "save_dir": ".cursor/rules",
+      "filename_template": "{slug}.mdc",
+      "edit_policy": "prefer_existing_rule_when_trigger_matches",
+      "preferred_existing": [
+        ".cursor/rules/000-cross-lane-edit-forbidden.mdc",
+        ".cursor/rules/001-founder-verbs-rewrite-save-asf-mandatory.mdc"
+      ],
+      "allowed_agents": [
+        "sourcea_worker",
+        "sourcea_execution_core",
+        "cursor"
+      ]
+    },
+    {
+      "id": "machine_gate_script",
+      "priority": 92,
+      "intent": [
+        "gate",
+        "guard",
+        "machine enforceable",
+        "resolver",
+        "registry"
+      ],
+      "triggers_any": [
+        "machine enforceable gate",
+        "path resolver",
+        "filing registry",
+        "save registry"
+      ],
+      "save_dir": "scripts",
+      "filename_template": "{slug}_v1.py",
+      "edit_policy": "edit_existing_when_same_slug_exists",
+      "allowed_agents": [
+        "sourcea_worker",
+        "sourcea_execution_core",
+        "cursor"
+      ]
+    },
+    {
+      "id": "machine_registry_data",
+      "priority": 90,
+      "intent": [
+        "registry",
+        "routing",
+        "filing",
+        "classification"
+      ],
+      "triggers_any": [
+        "filing registry",
+        "routing registry",
+        "path registry",
+        "registry for filing"
+      ],
+      "save_dir": "data",
+      "filename_template": "{slug}-v1.json",
+      "edit_policy": "edit_existing_when_same_slug_exists",
+      "allowed_agents": [
+        "sourcea_worker",
+        "sourcea_execution_core",
+        "cursor"
+      ]
+    },
+    {
+      "id": "incident_locked_body",
+      "priority": 85,
+      "intent": [
+        "incident",
+        "red flag",
+        "postmortem",
+        "report"
+      ],
+      "triggers_any": [
+        "incident",
+        "red flag",
+        "never again",
+        "postmortem"
+      ],
+      "save_dir": "brain-os/incidents",
+      "filename_template": "SINA_{slug}_INCIDENT_LOCKED_v1.md",
+      "edit_policy": "new_incident_uses_registry_next_id",
+      "registry_path": "brain-os/incidents/AGENT_INCIDENTS_REGISTRY_LOCKED_v1.md",
+      "allowed_agents": [
+        "sourcea_worker",
+        "sourcea_execution_core",
+        "cursor"
+      ]
+    },
+    {
+      "id": "research_report_archive",
+      "priority": 70,
+      "intent": [
+        "research",
+        "lessons",
+        "deep search",
+        "market",
+        "competitor"
+      ],
+      "triggers_any": [
+        "research",
+        "lessons",
+        "deep search",
+        "competitor",
+        "market analog"
+      ],
+      "save_dir": "archive/attachments/research",
+      "filename_template": "{slug}_REPORT_v1.md",
+      "edit_policy": "new_report_unless_same_slug_exists",
+      "allowed_agents": [
+        "sourcea_worker",
+        "sourcea_execution_core",
+        "cursor",
+        "research_acquisitor"
+      ]
+    },
+    {
+      "id": "product_code",
+      "priority": 60,
+      "intent": [
+        "implement",
+        "build",
+        "fix",
+        "work",
+        "app",
+        "ui",
+        "api"
+      ],
+      "triggers_any": [
+        "implement",
+        "build",
+        "fix",
+        "upgrade",
+        "app",
+        "api",
+        "ui"
+      ],
+      "save_dir": "apps",
+      "filename_template": "{slug}",
+      "edit_policy": "requires_code_context_resolution",
+      "allowed_agents": [
+        "sourcea_worker",
+        "sourcea_execution_core",
+        "cursor"
+      ]
+    }
+  ]
+}

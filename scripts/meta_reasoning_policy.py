@@ -212,7 +212,7 @@ def _application_guide() -> dict[str, Any]:
                 "wrong": "Merge or map layer tables across tabs",
             },
             {
-                "situation": "Loop auto-paste into Cursor",
+                "situation": "Auto Runtime-paste into Cursor",
                 "apply": "L12 — founder opt-in only",
                 "wrong": "Auto-inject prompt",
             },

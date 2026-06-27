@@ -133,7 +133,7 @@ Intent → Gate → Execute → Receipt → Proof
 - Perimeter from `linkedin-voice.yaml`: pre-execution advisory · no custody · no payment initiation
 
 **Hide:**
-- Brain · session gate · SASCIP · `sa-*` queue · investigator/judge/loop specialist rooms
+- Brain · session gate · SASCIP · `sa-*` queue · investigator/judge/Auto Runtime specialist rooms
 - Mac control plane · FBE internals · campus node counts
 - Five-entity portfolio map · RunReceipt factory · Goal 1 sa-step progress
 - MSB/TrustField as **homepage hero** (brand pages OK on own domains)
@@ -237,7 +237,7 @@ Intent → Packet → Gate → Dispatch → Execute → Receipt → Eval → (lo
 - Investigator Circle → loop health receipt
 - Judge Loop Room → verdict
 - Advisory Circle → ranked prompts (no execution)
-- Loop Specialist → compose/dispatch (policy-gated)
+- Auto Runtime specialist → compose/dispatch (policy-gated)
 - Brain → sole `execution_authority`
 
 ---
@@ -273,7 +273,7 @@ Intent → Packet → Gate → Dispatch → Execute → Receipt → Eval → (lo
 | Founder LinkedIn anchor | Canada / funding | 10–20% human | T0–T1 |
 | Advisor pre-call (APC) | Business-not-AI mentor | human translation | T1–T2 |
 | `investor/` deck scripts | Angels / strategics | portfolio OS | T3 |
-| Brain · loop specialist · investigator · judge | Disk + founder ops | receipt lines | T4 only |
+| Brain · Auto Runtime specialist · investigator · judge | Disk + founder ops | receipt lines | T4 only |
 | GPT/Gemini advisor critique | Internal | **never ship authority** | — |
 
 **Ratio lock:** Human **10–20%** · System **80–90%** — “system” = **product proof**, not internal architecture.

@@ -70,7 +70,7 @@ WAVE_SPECS: list[dict] = [
             "Q-FINAL-07",
         ],
         "executor_after_pick": "brain",
-        "plan": "Locks STRATEGIC-SLICE vs outbound vs FBE catalog · U031 bay · Mono never_sync · vocabulary · disk-first Brain law · loop auto safety.",
+        "plan": "Locks STRATEGIC-SLICE vs outbound vs FBE catalog · U031 bay · Mono never_sync · vocabulary · disk-first Brain law · Auto Runtime safety.",
         "proof": "brain_outbound_work_order_v1.py --json · queue_ssot_unify_v1.py",
     },
     {

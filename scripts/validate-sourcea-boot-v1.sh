@@ -17,7 +17,7 @@ CRITIC="$ROOT/scripts/critic_boot_v1.py"
 python3 - <<'PY' || fail "chain tools law contract"
 from pathlib import Path
 text = Path("SOURCEA_CHAIN_TOOLS_PUBLISH_LOCKED_v1.md").read_text(encoding="utf-8")
-for needle in ("sourcea-boot", "Graphify", "BOOT_REPORT.json", "pip install sourcea-boot", "hello@sourcea.com"):
+for needle in ("sourcea-boot", "Graphify", "BOOT_REPORT.json", "pip install sourcea-boot", "hello@sourcea.app"):
     if needle not in text:
         raise SystemExit(f"missing {needle}")
 print("OK: chain tools law contract")

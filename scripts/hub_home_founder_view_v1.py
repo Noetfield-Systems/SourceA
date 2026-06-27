@@ -282,7 +282,7 @@ def _home_actions(*, busy: bool, g1: dict | None = None) -> list[dict]:
         {
             "id": "founder-goal1-autorun-stop",
             "label": "Factory STOP",
-            "hint": "FREEZE factory drain · stop receipt · spawn gate ON",
+            "hint": "FREEZE Cloud Forge Run · stop receipt · spawn gate ON",
             "kind": "stop",
             "disabled": not (active or running),
         },
@@ -551,14 +551,14 @@ def hub_home_founder_payload(*, hub_payload: dict | None = None, light: bool = T
         freeze_line = re.sub(r"\bsa-\d{4}\b", "next task", freeze_line, flags=re.I)
         status = {
             "headline": "FROZEN",
-            "subline": "Factory drain blocked — kill flag ON",
+            "subline": "Cloud Forge Run blocked — kill flag ON",
             "next_plain": freeze_line
-            or "FROZEN — Hub Stop or ASF: resume drain — max N — receipt required",
+            or "FROZEN — Hub Stop or ASF: Cloud Forge Run — max N — receipt required",
             "tone": "blocked",
         }
         next_steps = [
             {"n": 1, "text": "Factory FROZEN — no drain until ASF resume token"},
-            {"n": 2, "text": "Resume only: ASF: resume drain — max N — receipt required"},
+            {"n": 2, "text": "Resume only: ASF: Cloud Forge Run — max N — receipt required"},
             {"n": 3, "text": "Need help? Tap 🛡 Safety check — read result in Actions"},
         ]
 

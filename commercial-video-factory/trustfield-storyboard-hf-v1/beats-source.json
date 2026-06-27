@@ -1,0 +1,15 @@
+{
+  "schema": "hyperframes-storyboard-beats-v1",
+  "ssot": "../../data/trustfield-commercial-film-beats-v1.json",
+  "composition_id": "trustfield-rpaa-storyboard",
+  "duration_seconds": 90,
+  "snapshot_times_seconds": [1, 12, 32, 52, 68, 82],
+  "snapshot_labels": [
+    "hook",
+    "urgency",
+    "sandbox",
+    "pilot",
+    "trust",
+    "cta"
+  ]
+}

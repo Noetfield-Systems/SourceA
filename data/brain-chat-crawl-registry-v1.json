@@ -1,0 +1,814 @@
+{
+  "schema": "brain-chat-crawl-registry-v1",
+  "generated_at": "2026-06-27T06:08:27Z",
+  "html_count": 68,
+  "json_count": 24,
+  "html": [
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/48h-mvp.html",
+      "output": "data/chatbot-knowledge/crawled/www/48h-mvp.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/48h-mvp",
+      "chars": 2605,
+      "content_hash": "78ca6acbf8209b67"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/attach/agency-onepager.html",
+      "output": "data/chatbot-knowledge/crawled/www/attach__agency-onepager.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/attach/agency-onepager",
+      "chars": 1187,
+      "content_hash": "0bce8a98f1f865a8"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/attach/procurement-pack.html",
+      "output": "data/chatbot-knowledge/crawled/www/attach__procurement-pack.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/attach/procurement-pack",
+      "chars": 803,
+      "content_hash": "91e2b83ac84a7ec0"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/attach/proof-bundle-sample.html",
+      "output": "data/chatbot-knowledge/crawled/www/attach__proof-bundle-sample.md",
+      "lane": "buyer",
+      "www_url": "https://sourcea.app/sourcea/attach/proof-bundle-sample",
+      "chars": 1515,
+      "content_hash": "c168cdf01c304acb"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/brain-chat-settings.html",
+      "output": "data/chatbot-knowledge/crawled/www/brain-chat-settings.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/brain-chat-settings",
+      "chars": 589,
+      "content_hash": "a1655a482274f832"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/case-studies/agentgo.html",
+      "output": "data/chatbot-knowledge/crawled/www/case-studies__agentgo.md",
+      "lane": "buyer",
+      "www_url": "https://sourcea.app/sourcea/case-studies/agentgo",
+      "chars": 3468,
+      "content_hash": "75a3bf7503ae34c5"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/case-studies/index.html",
+      "output": "data/chatbot-knowledge/crawled/www/case-studies__index.md",
+      "lane": "buyer",
+      "www_url": "https://sourcea.app/sourcea/case-studies",
+      "chars": 1090,
+      "content_hash": "763b5454199d301b"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/case-studies/pureflow.html",
+      "output": "data/chatbot-knowledge/crawled/www/case-studies__pureflow.md",
+      "lane": "buyer",
+      "www_url": "https://sourcea.app/sourcea/case-studies/pureflow",
+      "chars": 2691,
+      "content_hash": "9ed9cbf5f879a794"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/changelog.html",
+      "output": "data/chatbot-knowledge/crawled/www/changelog.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/changelog",
+      "chars": 482,
+      "content_hash": "5dcf6c5196b7d543"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/compare.html",
+      "output": "data/chatbot-knowledge/crawled/www/compare.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/compare",
+      "chars": 1345,
+      "content_hash": "907a83e66613cfa2"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/downloads/index.html",
+      "output": "data/chatbot-knowledge/crawled/www/downloads__index.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/downloads",
+      "chars": 593,
+      "content_hash": "0d97c76f336b20ad"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/eval.html",
+      "output": "data/chatbot-knowledge/crawled/www/eval.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/eval",
+      "chars": 1343,
+      "content_hash": "0ba9a75724de7a06"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/factories/aml-screening-factory.html",
+      "output": "data/chatbot-knowledge/crawled/www/factories__aml-screening-factory.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/factories/aml-screening-factory",
+      "chars": 631,
+      "content_hash": "22b40896afa43d95"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/factories/cross-border-kyb-factory.html",
+      "output": "data/chatbot-knowledge/crawled/www/factories__cross-border-kyb-factory.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/factories/cross-border-kyb-factory",
+      "chars": 623,
+      "content_hash": "8bfc5e9e2a0e8265"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/factories/governed-app-factory.html",
+      "output": "data/chatbot-knowledge/crawled/www/factories__governed-app-factory.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/factories/governed-app-factory",
+      "chars": 624,
+      "content_hash": "710be7b62194dfe2"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/factories/governed-exchange-factory.html",
+      "output": "data/chatbot-knowledge/crawled/www/factories__governed-exchange-factory.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/factories/governed-exchange-factory",
+      "chars": 663,
+      "content_hash": "091ff0063084d688"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/factories/governed-web-product-factory.html",
+      "output": "data/chatbot-knowledge/crawled/www/factories__governed-web-product-factory.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/factories/governed-web-product-factory",
+      "chars": 653,
+      "content_hash": "0fc1e713d2a40c44"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/factories/index.html",
+      "output": "data/chatbot-knowledge/crawled/www/factories__index.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/factories",
+      "chars": 537,
+      "content_hash": "2947e97a14b6046f"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/factories/ma-diligence-factory.html",
+      "output": "data/chatbot-knowledge/crawled/www/factories__ma-diligence-factory.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/factories/ma-diligence-factory",
+      "chars": 617,
+      "content_hash": "2ccdecee3b5d399c"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/factories/try-factory-demo.html",
+      "output": "data/chatbot-knowledge/crawled/www/factories__try-factory-demo.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/factories/try-factory-demo",
+      "chars": 280,
+      "content_hash": "c200cc10b5bf17d4"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/factories/try-noetfield-freemium.html",
+      "output": "data/chatbot-knowledge/crawled/www/factories__try-noetfield-freemium.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/factories/try-noetfield-freemium",
+      "chars": 673,
+      "content_hash": "a7d2e1de50991820"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/factories/witnessbc-proof-lab.html",
+      "output": "data/chatbot-knowledge/crawled/www/factories__witnessbc-proof-lab.md",
+      "lane": "buyer",
+      "www_url": "https://sourcea.app/sourcea/factories/witnessbc-proof-lab",
+      "chars": 604,
+      "content_hash": "7875c5a9b796f4b3"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/forge/chat-unify.html",
+      "output": "data/chatbot-knowledge/crawled/www/forge__chat-unify.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/forge/chat-unify",
+      "chars": 1538,
+      "content_hash": "b07c1e5ba5615c04"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/forge/cursor-bridge.html",
+      "output": "data/chatbot-knowledge/crawled/www/forge__cursor-bridge.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/forge/cursor-bridge",
+      "chars": 1775,
+      "content_hash": "3f82f0e08a555e46"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/forge/how-it-works.html",
+      "output": "data/chatbot-knowledge/crawled/www/forge__how-it-works.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/forge/how-it-works",
+      "chars": 1891,
+      "content_hash": "6d57c6228ad8042a"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/forge/index.html",
+      "output": "data/chatbot-knowledge/crawled/www/forge__index.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/forge",
+      "chars": 1367,
+      "content_hash": "83fa28c945b57222"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/forge/mission-template.html",
+      "output": "data/chatbot-knowledge/crawled/www/forge__mission-template.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/forge/mission-template",
+      "chars": 2095,
+      "content_hash": "d36543d14ccf9188"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/forge/ssot-policy.html",
+      "output": "data/chatbot-knowledge/crawled/www/forge__ssot-policy.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/forge/ssot-policy",
+      "chars": 1494,
+      "content_hash": "adac690684bcbd4c"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/forge/terminal/profile.html",
+      "output": "data/chatbot-knowledge/crawled/www/forge__terminal__profile.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/forge/terminal/profile",
+      "chars": 485,
+      "content_hash": "26ddf44d489e29b9"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/forge/terminal/signin.html",
+      "output": "data/chatbot-knowledge/crawled/www/forge__terminal__signin.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/forge/terminal/signin",
+      "chars": 577,
+      "content_hash": "b9ff4f8c11cd4f18"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/forge/terminal/signup.html",
+      "output": "data/chatbot-knowledge/crawled/www/forge__terminal__signup.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/forge/terminal/signup",
+      "chars": 482,
+      "content_hash": "91856043e51c1ab5"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/forge/terminal/workspace.html",
+      "output": "data/chatbot-knowledge/crawled/www/forge__terminal__workspace.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/forge/terminal/workspace",
+      "chars": 578,
+      "content_hash": "1fdf3f1b8ccd34c5"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/forge/terminal.html",
+      "output": "data/chatbot-knowledge/crawled/www/forge__terminal.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/forge/terminal",
+      "chars": 890,
+      "content_hash": "a8ca6f913e5c2c5e"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/forge/try.html",
+      "output": "data/chatbot-knowledge/crawled/www/forge__try.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/forge/try",
+      "chars": 1409,
+      "content_hash": "614aeb81eeb3c0b2"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/founder-home.html",
+      "output": "data/chatbot-knowledge/crawled/www/founder-home.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/",
+      "chars": 2451,
+      "content_hash": "5ba2bc98683e1263"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/funnel.html",
+      "output": "data/chatbot-knowledge/crawled/www/funnel.md",
+      "lane": "buyer",
+      "www_url": "https://sourcea.app/sourcea/funnel",
+      "chars": 381,
+      "content_hash": "17327acad055409c"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/growth.html",
+      "output": "data/chatbot-knowledge/crawled/www/growth.md",
+      "lane": "buyer",
+      "www_url": "https://sourcea.app/sourcea/growth",
+      "chars": 1378,
+      "content_hash": "57b48bda0fe9e223"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/home.html",
+      "output": "data/chatbot-knowledge/crawled/www/home.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/",
+      "chars": 195,
+      "content_hash": "70e423e267aa1eee"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/hub.html",
+      "output": "data/chatbot-knowledge/crawled/www/hub.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/hub",
+      "chars": 1512,
+      "content_hash": "5f369955a8e753f5"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/index.html",
+      "output": "data/chatbot-knowledge/crawled/www/index.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/",
+      "chars": 1499,
+      "content_hash": "04ae47bd5f337f51"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/investors.html",
+      "output": "data/chatbot-knowledge/crawled/www/investors.md",
+      "lane": "investor",
+      "www_url": "https://sourcea.app/sourcea/investors",
+      "chars": 1781,
+      "content_hash": "357eae524f98ee3d"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/kernel/index.html",
+      "output": "data/chatbot-knowledge/crawled/www/kernel__index.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/kernel",
+      "chars": 1510,
+      "content_hash": "c4239a59dcb7371b"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/learn.html",
+      "output": "data/chatbot-knowledge/crawled/www/learn.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/learn",
+      "chars": 1080,
+      "content_hash": "59b0b1f1894a8e33"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/loops/eval-booking.html",
+      "output": "data/chatbot-knowledge/crawled/www/loops__eval-booking.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/loops/eval-booking",
+      "chars": 1265,
+      "content_hash": "1d153c2e1db0663d"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/loops/index.html",
+      "output": "data/chatbot-knowledge/crawled/www/loops__index.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/loops",
+      "chars": 2365,
+      "content_hash": "7cc4a78bdbbbb3c8"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/loops/ops-monitor.html",
+      "output": "data/chatbot-knowledge/crawled/www/loops__ops-monitor.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/loops/ops-monitor",
+      "chars": 1390,
+      "content_hash": "e4b9f0fdde1162a0"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/loops/outreach.html",
+      "output": "data/chatbot-knowledge/crawled/www/loops__outreach.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/loops/outreach",
+      "chars": 2087,
+      "content_hash": "9c9f0f7f0b249d45"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/loops/proof-export.html",
+      "output": "data/chatbot-knowledge/crawled/www/loops__proof-export.md",
+      "lane": "buyer",
+      "www_url": "https://sourcea.app/sourcea/loops/proof-export",
+      "chars": 1027,
+      "content_hash": "13e0814ef7712d40"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/loops/research.html",
+      "output": "data/chatbot-knowledge/crawled/www/loops__research.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/loops/research",
+      "chars": 1396,
+      "content_hash": "6f5bf0f7f07d0e04"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/loops/session-gate.html",
+      "output": "data/chatbot-knowledge/crawled/www/loops__session-gate.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/loops/session-gate",
+      "chars": 1133,
+      "content_hash": "ad58d520eabc1490"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/mvp-landing.html",
+      "output": "data/chatbot-knowledge/crawled/www/mvp-landing.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/mvp-landing",
+      "chars": 804,
+      "content_hash": "02af9d47a8ba30d7"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/offer.html",
+      "output": "data/chatbot-knowledge/crawled/www/offer.md",
+      "lane": "buyer",
+      "www_url": "https://sourcea.app/sourcea/offer",
+      "chars": 1079,
+      "content_hash": "aae860ccfa791608"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/platform-portal.html",
+      "output": "data/chatbot-knowledge/crawled/www/platform-portal.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/platform-portal",
+      "chars": 1338,
+      "content_hash": "e816954439fd9a49"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/platform.html",
+      "output": "data/chatbot-knowledge/crawled/www/platform.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/platform",
+      "chars": 2456,
+      "content_hash": "675fdb719dfda2a4"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/pricing.html",
+      "output": "data/chatbot-knowledge/crawled/www/pricing.md",
+      "lane": "buyer",
+      "www_url": "https://sourcea.app/sourcea/pricing",
+      "chars": 1263,
+      "content_hash": "195f0255f376b97e"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/proof/live.html",
+      "output": "data/chatbot-knowledge/crawled/www/proof__live.md",
+      "lane": "buyer",
+      "www_url": "https://sourcea.app/sourcea/proof/live",
+      "chars": 704,
+      "content_hash": "766c2367ef87fb45"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/proof.html",
+      "output": "data/chatbot-knowledge/crawled/www/proof.md",
+      "lane": "buyer",
+      "www_url": "https://sourcea.app/sourcea/proof",
+      "chars": 2453,
+      "content_hash": "eb1f87edbd6eea30"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/sandbox.html",
+      "output": "data/chatbot-knowledge/crawled/www/sandbox.md",
+      "lane": "buyer",
+      "www_url": "https://sourcea.app/sourcea/sandbox",
+      "chars": 873,
+      "content_hash": "b92587cff8d02b49"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/scenario.html",
+      "output": "data/chatbot-knowledge/crawled/www/scenario.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/scenario",
+      "chars": 1688,
+      "content_hash": "3b0d7a6c9cff5abb"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/security.html",
+      "output": "data/chatbot-knowledge/crawled/www/security.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/security",
+      "chars": 1502,
+      "content_hash": "7e8784f5cd8e27ed"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/sources.html",
+      "output": "data/chatbot-knowledge/crawled/www/sources.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/sources",
+      "chars": 1544,
+      "content_hash": "d9620a6170ccea3d"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/start.html",
+      "output": "data/chatbot-knowledge/crawled/www/start.md",
+      "lane": "buyer",
+      "www_url": "https://sourcea.app/sourcea/start",
+      "chars": 1102,
+      "content_hash": "7a09443b6189d1b5"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/status.html",
+      "output": "data/chatbot-knowledge/crawled/www/status.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/status",
+      "chars": 882,
+      "content_hash": "8867edbadbbf153e"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/team.html",
+      "output": "data/chatbot-knowledge/crawled/www/team.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/team",
+      "chars": 1318,
+      "content_hash": "d54c50763a2be4a6"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/trust/index.html",
+      "output": "data/chatbot-knowledge/crawled/www/trust__index.md",
+      "lane": "core",
+      "www_url": "https://sourcea.app/sourcea/trust",
+      "chars": 617,
+      "content_hash": "2edce2bf443ee23d"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/unify/index.html",
+      "output": "data/chatbot-knowledge/crawled/www/unify__index.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/unify",
+      "chars": 4243,
+      "content_hash": "433959d25d2adda7"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/unify/terminal/index.html",
+      "output": "data/chatbot-knowledge/crawled/www/unify__terminal__index.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/unify/terminal",
+      "chars": 591,
+      "content_hash": "c629d4cda8bd4ecd"
+    },
+    {
+      "kind": "html",
+      "path": "sites/SourceA-landing/green-unified/unify-demo/index.html",
+      "output": "data/chatbot-knowledge/crawled/www/unify-demo__index.md",
+      "lane": "developer",
+      "www_url": "https://sourcea.app/sourcea/unify-demo",
+      "chars": 4258,
+      "content_hash": "a79f31d058d09162"
+    }
+  ],
+  "json": [
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/aeg-live.json",
+      "output": "data/chatbot-knowledge/crawled/json/aeg-live.md",
+      "lane": "core",
+      "chars": 1672,
+      "content_hash": "31770aa47748be32"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/boot-proof.json",
+      "output": "data/chatbot-knowledge/crawled/json/boot-proof.md",
+      "lane": "buyer",
+      "chars": 954,
+      "content_hash": "758dfa9953f019db"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/chat-unify-demo-web-config-v1.json",
+      "output": "data/chatbot-knowledge/crawled/json/chat-unify-demo-web-config-v1.md",
+      "lane": "developer",
+      "chars": 744,
+      "content_hash": "d2651176f64a5d87"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/chat-unify-integrations-v1.json",
+      "output": "data/chatbot-knowledge/crawled/json/chat-unify-integrations-v1.md",
+      "lane": "developer",
+      "chars": 2951,
+      "content_hash": "20487de6f2e2c01b"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/chat-unify-platform-catalog-v1.json",
+      "output": "data/chatbot-knowledge/crawled/json/chat-unify-platform-catalog-v1.md",
+      "lane": "developer",
+      "chars": 2949,
+      "content_hash": "9c67cbac8dbb6f2e"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/chat-unify-web-access-v1.json",
+      "output": "data/chatbot-knowledge/crawled/json/chat-unify-web-access-v1.md",
+      "lane": "developer",
+      "chars": 915,
+      "content_hash": "b087221f748ca945"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/chat-unify-web-config-v1.json",
+      "output": "data/chatbot-knowledge/crawled/json/chat-unify-web-config-v1.md",
+      "lane": "developer",
+      "chars": 1353,
+      "content_hash": "1cae2d50635fea7e"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/factories-catalog.json",
+      "output": "data/chatbot-knowledge/crawled/json/factories-catalog.md",
+      "lane": "core",
+      "chars": 7027,
+      "content_hash": "f4de4502408c992a"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/factory-live.json",
+      "output": "data/chatbot-knowledge/crawled/json/factory-live.md",
+      "lane": "core",
+      "chars": 4710,
+      "content_hash": "0b8c1ef3620f3928"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/forge-catalog.json",
+      "output": "data/chatbot-knowledge/crawled/json/forge-catalog.md",
+      "lane": "developer",
+      "chars": 3653,
+      "content_hash": "0ba0cba532b0c69e"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/forge-terminal-models-public-v1.json",
+      "output": "data/chatbot-knowledge/crawled/json/forge-terminal-models-public-v1.md",
+      "lane": "developer",
+      "chars": 8251,
+      "content_hash": "fa14f2e99be4b953"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/loops-catalog.json",
+      "output": "data/chatbot-knowledge/crawled/json/loops-catalog.md",
+      "lane": "core",
+      "chars": 2963,
+      "content_hash": "ade2709add632739"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/mvp-intake-config.json",
+      "output": "data/chatbot-knowledge/crawled/json/mvp-intake-config.md",
+      "lane": "core",
+      "chars": 820,
+      "content_hash": "caa04768ef92c12e"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/n8n-template-sourcea-chat-unify-v1.json",
+      "output": "data/chatbot-knowledge/crawled/json/n8n-template-sourcea-chat-unify-v1.md",
+      "lane": "developer",
+      "chars": 1090,
+      "content_hash": "70565e74956ae20f"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/phase1-proof-pack-public-v1.json",
+      "output": "data/chatbot-knowledge/crawled/json/phase1-proof-pack-public-v1.md",
+      "lane": "buyer",
+      "chars": 881,
+      "content_hash": "277f3c6f1089d308"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/sourcea-inbox-live-status-v1.json",
+      "output": "data/chatbot-knowledge/crawled/json/sourcea-inbox-live-status-v1.md",
+      "lane": "core",
+      "chars": 1240,
+      "content_hash": "3fbfe2b94d86afae"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/sourcea-landing-cta-v1.json",
+      "output": "data/chatbot-knowledge/crawled/json/sourcea-landing-cta-v1.md",
+      "lane": "core",
+      "chars": 928,
+      "content_hash": "dd604f2ba3da8c31"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
+      "output": "data/chatbot-knowledge/crawled/json/sourcea-positioning-v1.md",
+      "lane": "core",
+      "chars": 2569,
+      "content_hash": "5e4ce02494975196"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/sourcea-products-catalog-v1.json",
+      "output": "data/chatbot-knowledge/crawled/json/sourcea-products-catalog-v1.md",
+      "lane": "core",
+      "chars": 7696,
+      "content_hash": "34ca3dec4a46fe94"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/sourcea-site-interact-v1.json",
+      "output": "data/chatbot-knowledge/crawled/json/sourcea-site-interact-v1.md",
+      "lane": "core",
+      "chars": 4273,
+      "content_hash": "d4eef09dba09418c"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/sourcea-site-pulse-config-v1.json",
+      "output": "data/chatbot-knowledge/crawled/json/sourcea-site-pulse-config-v1.md",
+      "lane": "core",
+      "chars": 1154,
+      "content_hash": "ec10bb5ae4c7f207"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/trust-signals-public-v1.json",
+      "output": "data/chatbot-knowledge/crawled/json/trust-signals-public-v1.md",
+      "lane": "core",
+      "chars": 635,
+      "content_hash": "d6a848fefee6f947"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/trust-signals.json",
+      "output": "data/chatbot-knowledge/crawled/json/trust-signals.md",
+      "lane": "core",
+      "chars": 1873,
+      "content_hash": "ce0823433c640c6b"
+    },
+    {
+      "kind": "json",
+      "path": "sites/SourceA-landing/green-unified/data/ui-upgrade-baseline-v1.json",
+      "output": "data/chatbot-knowledge/crawled/json/ui-upgrade-baseline-v1.md",
+      "lane": "core",
+      "chars": 2154,
+      "content_hash": "920ca688e1bb8e54"
+    }
+  ]
+}

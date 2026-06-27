@@ -1,0 +1,17 @@
+{
+  "schema": "forge-terminal-bundle-manifest-v1",
+  "app": "forge-terminal",
+  "built_at": "2026-06-25T21:48:05Z",
+  "ui_version": "4.0.6-live-window",
+  "default_model": "gpt-4o",
+  "models": [
+    "gpt-4o",
+    "gemini-1.5-flash",
+    "deepseek-v4",
+    "gpt-4o",
+    "gemini-1.5-pro",
+    "claude-3.5-sonnet",
+    "openai-o1"
+  ],
+  "port": 13029
+}

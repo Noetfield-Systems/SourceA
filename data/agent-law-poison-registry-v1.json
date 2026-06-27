@@ -1,9 +1,11 @@
 {
   "schema": "agent-law-poison-registry-v1",
-  "version": "1.0.0",
-  "saved_at": "2026-06-20T22:43:46Z",
+  "version": "2.0.0",
+  "saved_at": "2026-06-24T08:00:00Z",
   "locked": true,
-  "incidents": ["INCIDENT-034", "INCIDENT-039", "INCIDENT-040", "INCIDENT-041"],
+  "incidents": ["INCIDENT-034", "INCIDENT-039", "INCIDENT-040", "INCIDENT-041", "INCIDENT-042", "INCIDENT-043"],
+  "engine": "scripts/anti_poison_engine_v2.py",
+  "lib": "scripts/anti_poison_lib_v1.py",
   "one_law": "Agent-facing law injects positive read paths — never orders bash validate marathons before founder chat.",
   "positive_replacement": {
     "before_reply": "Read ~/.sina/*-receipt*.json · plain English · reply <30s · STOP",
@@ -11,18 +13,58 @@
     "session_start": "Read session gate receipt once per chat — do not re-run gate stack mid-turn",
     "ui_edit": "FIRST CHECK ack before touching UI files only — not every chat reply"
   },
+  "realtime_ssot": {
+    "cockpit_url": "http://127.0.0.1:13027/",
+    "form_url": "http://127.0.0.1:13023/form/",
+    "chat_unify_url": "http://127.0.0.1:13023/",
+    "cloud_workers_api": "http://127.0.0.1:13027/api/cloud-workers/v1",
+    "form_ssot": "scripts/form_official_canvas_route_v1.py",
+    "cockpit_ssot": "data/cloud-workers-control-plane-v1.json"
+  },
   "poison_patterns": [
-    {"id": "P01", "match": "validate-law-supersession-surfaces-v1.sh before", "incident": "039", "fix": "route to cloud CI / ship window"},
-    {"id": "P02", "match": "Seven surfaces → validate", "incident": "039", "fix": "maintainer ship sync only"},
-    {"id": "P03", "match": "W1–W10 before saying done", "incident": "039", "fix": "ship window / cloud CI only"},
-    {"id": "P04", "match": "W1-W10 before saying done", "incident": "039", "fix": "ship window / cloud CI only"},
-    {"id": "P05", "match": "run all validators", "incident": "039", "fix": "delete — read receipts"},
-    {"id": "P06", "match": "Every session + every turn", "incident": "039", "fix": "session start only — read receipt mid-turn"},
-    {"id": "P07", "match": "every Brain reply", "incident": "039", "fix": "once per chat or after summarization — read receipt"},
-    {"id": "P08", "match": "sync mirror → reply", "incident": "034", "fix": "read mirror JSON — no bash validate before reply"},
-    {"id": "P09", "match": "validators must PASS", "incident": "034", "fix": "scope UI edit or ship window only"},
-    {"id": "P10", "match": "persistent background process", "incident": "041", "fix": "never hold open agent terminal for Hub/server"},
-    {"id": "P11", "match": "block_until_ms: 0.*sina-command-server", "incident": "041", "fix": "one-shot serve-sina-command.sh only — script exits"}
+    {"id": "P01", "match": "validate-law-supersession-surfaces-v1.sh before", "incident": "039", "kind": "substring", "fix": "route to cloud CI / ship window"},
+    {"id": "P02", "match": "Seven surfaces → validate", "incident": "039", "kind": "substring", "fix": "maintainer ship sync only"},
+    {"id": "P03", "match": "W1–W10 before saying done", "incident": "039", "kind": "substring", "fix": "ship window / cloud CI only"},
+    {"id": "P04", "match": "W1-W10 before saying done", "incident": "039", "kind": "substring", "fix": "ship window / cloud CI only"},
+    {"id": "P05", "match": "run all validators", "incident": "039", "kind": "substring", "fix": "delete — read receipts"},
+    {"id": "P06", "match": "Every session + every turn", "incident": "039", "kind": "substring", "fix": "session start only — read receipt mid-turn"},
+    {"id": "P07", "match": "every Brain reply", "incident": "039", "kind": "substring", "fix": "once per chat or after summarization — read receipt", "skip_in_headers": true},
+    {"id": "P08", "match": "sync mirror → reply", "incident": "034", "kind": "substring", "fix": "read mirror JSON — no bash validate before reply"},
+    {"id": "P09", "match": "validators must PASS", "incident": "034", "kind": "substring", "fix": "scope UI edit or ship window only"},
+    {"id": "P10", "match": "persistent background process", "incident": "041", "kind": "substring", "fix": "never hold open agent terminal for Hub/server"},
+    {"id": "P11", "match": "block_until_ms: 0.*sina-command-server", "incident": "041", "kind": "regex", "fix": "one-shot serve-sina-command.sh only — script exits"},
+    {"id": "P12", "match": "single-plan proceed", "incident": "042", "kind": "substring", "fix": "full_pack max_advance 100 only"},
+    {"id": "P13", "match": "one CLOUD-SEC per cron", "incident": "042", "kind": "substring", "fix": "100 rows per Cloud Forge Run turn"},
+    {"id": "P14", "match": "hello@sourcea.com", "incident": "034", "kind": "substring", "fix": "hello@sourcea.app"},
+    {"id": "P15", "match": "https://sourcea.com", "incident": "034", "kind": "substring", "fix": "https://sourcea.app"},
+    {"id": "P16", "match": "run check cart W1", "incident": "039", "kind": "substring", "fix": "ship window / cloud CI only"},
+    {"id": "P17", "match": "wire to ALL surfaces before saying done", "incident": "039", "kind": "substring", "fix": "ship window only"},
+    {"id": "P18", "match": "W1[-–]W10.*before.*(?:reply|done|ship|chat)", "incident": "039", "kind": "regex", "fix": "ship window / cloud CI only"}
+  ],
+  "projection_poison_patterns": [
+    {"id": "PP01", "match": "INCIDENT-037 block ON", "incident": "037", "kind": "substring", "fix": "founder picks only — scrub projection"},
+    {"id": "PP02", "match": "http://127.0.0.1:13020/form/", "incident": "034", "kind": "substring", "fix": "Chat Unify form :13023/form/"},
+    {"id": "PP03", "match": "mandatory_next.*13020", "incident": "034", "kind": "regex", "fix": "Cloud Workers :13027"},
+    {"id": "PP04", "match": "Worker Hub.*daily", "incident": "034", "kind": "regex", "fix": "Cloud Workers cockpit optional glance"},
+    {"id": "PP05", "match": "one plan per 10-minute cron", "incident": "042", "kind": "substring", "fix": "100 rows per Cloud Forge Run turn"},
+    {"id": "PP06", "match": "one CLOUD-SEC per cron tick", "incident": "042", "kind": "substring", "fix": "full_pack max_advance 100"},
+    {"id": "PP07", "match": "hello@sourcea.com", "incident": "034", "kind": "substring", "fix": "hello@sourcea.app"},
+    {"id": "PP08", "match": "gathering_phase", "incident": "037", "kind": "substring", "fix": "founder form intake only"}
+  ],
+  "projection_replacements": [
+    {"old": "INCIDENT-037 block ON", "new": "founder picks only"},
+    {"old": "INCIDENT-037 block ON ·", "new": "founder picks only ·"},
+    {"old": "http://127.0.0.1:13020/form/", "new": "http://127.0.0.1:13023/form/"},
+    {"old": "hello@sourcea.com", "new": "hello@sourcea.app"},
+    {"old": "https://sourcea.com", "new": "https://sourcea.app"},
+    {"old": "one CLOUD-SEC per cron tick", "new": "100 rows per Cloud Forge Run turn (INCIDENT-043)"},
+    {"old": "one plan per 10-minute cron", "new": "Auto Runtime → one Cloud Forge Run → 100 rows"}
+  ],
+  "text_replacements": [
+    {"old": "run check cart W1–W10 before saying done", "new": "wire W1–W10 on ship window / cloud CI only — never Mac founder chat pre-reply (INCIDENT-039)"},
+    {"old": "run check cart W1-W10 before saying done", "new": "wire W1–W10 on ship window / cloud CI only — never Mac founder chat pre-reply (INCIDENT-039)"},
+    {"old": "W1–W10 wire cart before done", "new": "W1–W10 on ship window / cloud CI only — not Mac pre-reply marathon (INCIDENT-039)"},
+    {"old": "wire to ALL surfaces before saying done", "new": "wire W1–W10 on ship window / cloud CI only — not Mac pre-reply marathon (INCIDENT-039)"}
   ],
   "scan_roots": [
     ".cursor/rules",
@@ -32,6 +74,9 @@
     "data/mac-validator-stuck-red-flag-v1.json",
     "scripts/agent_memory_mirror_v1.py"
   ],
+  "projection_scan_roots": [
+    "agent-control-panel"
+  ],
   "skip_rule_files": [
     "034-mac-no-validator-stuck-red-flag.mdc",
     "agent-memory-mirror.mdc",
@@ -40,5 +85,7 @@
   ],
   "scrub_script": "scripts/agent_mirror_poison_scrub_v1.py",
   "validator": "scripts/validate-agent-law-poison-free-v1.sh",
+  "engine_validator": "scripts/validate-anti-poison-engine-v2-v1.sh",
+  "projection_sanitize": "scripts/projection_poison_sanitize_v1.py",
   "companion_ssot": "data/agent-memory-mirror-poison-law-v1.json"
 }

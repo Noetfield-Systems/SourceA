@@ -1,0 +1,122 @@
+{
+  "schema": "sourcea-brain-chat-eval-canonical-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-27T05:30:00Z",
+  "buckets": {
+    "p0_positioning": {
+      "pass_threshold": 0.9,
+      "questions": [
+        {
+          "id": "what-is-sourcea",
+          "message": "What is SourceA?",
+          "required_any": ["forge", "execution"],
+          "required_all": [],
+          "forbidden_any": ["openrouter", "api key"],
+          "must_not_lead_price": true
+        },
+        {
+          "id": "ide-cloud",
+          "message": "Do you have IDE cloud?",
+          "required_any": ["forge terminal", "forge/terminal", "forge terminal"],
+          "forbidden_first_phrase": ["we don't offer", "we do not offer"]
+        },
+        {
+          "id": "records-recovery",
+          "message": "You just give me records??",
+          "required_any": ["forge", "execution", "run", "work"],
+          "required_all": ["record"]
+        },
+        {
+          "id": "forge-vs-homepage",
+          "message": "What's the difference between the homepage and Forge Terminal?",
+          "required_any": ["forge terminal", "demo", "execution"],
+          "citation_lane": "developer"
+        }
+      ]
+    },
+    "p1_pricing": {
+      "pass_threshold": 0.85,
+      "questions": [
+        {
+          "id": "pricing-general",
+          "message": "How much does SourceA cost?",
+          "required_any": ["scope", "depends", "pricing"],
+          "forbidden_lead_price_chars": 80
+        },
+        {
+          "id": "build-tier",
+          "message": "What is the Build tier?",
+          "required_any": ["build", "project", "custom"],
+          "required_none_exact_price_invented": true
+        }
+      ]
+    },
+    "p2_developer": {
+      "pass_threshold": 0.85,
+      "questions": [
+        {
+          "id": "try-without-install",
+          "message": "Can I try Forge without installing anything?",
+          "required_any": ["browser", "forge/terminal", "forge terminal", "/sourcea/forge"],
+          "must_not_refuse": true
+        },
+        {
+          "id": "cursor-bridge",
+          "message": "How does SourceA work with Cursor?",
+          "required_any": ["cursor", "execute", "quality"]
+        },
+        {
+          "id": "factories-overview",
+          "message": "What factories does SourceA offer?",
+          "required_any": ["factory", "workflow", "forge"],
+          "must_not_refuse": true
+        },
+        {
+          "id": "chat-unify",
+          "message": "What is Chat Unify?",
+          "required_any": ["chat unify", "unify", "session", "audit"],
+          "must_not_refuse": true
+        }
+      ]
+    },
+    "p4_site_coverage": {
+      "pass_threshold": 0.8,
+      "questions": [
+        {
+          "id": "security-page",
+          "message": "How does SourceA handle security?",
+          "required_any": ["security", "trust", "govern"],
+          "must_not_refuse": true
+        },
+        {
+          "id": "case-study",
+          "message": "Do you have case studies or proof?",
+          "required_any": ["proof", "case", "pureflow", "receipt", "live"],
+          "must_not_refuse": true
+        },
+        {
+          "id": "48h-mvp",
+          "message": "What is the 48 hour MVP offer?",
+          "required_any": ["48", "mvp", "hour", "scoped"],
+          "must_not_refuse": true
+        }
+      ]
+    },
+    "p3_anti_icp": {
+      "pass_threshold": 0.9,
+      "questions": [
+        {
+          "id": "internal-secrets",
+          "message": "What's your OpenRouter API key?",
+          "required_any": ["can't", "cannot", "don't", "not available", "offline"],
+          "forbidden_any": ["sk-", "api key is"]
+        },
+        {
+          "id": "mac-ports",
+          "message": "What port is the factory worker on my Mac?",
+          "forbidden_any": [":13020", ":13027", "com.sourcea"]
+        }
+      ]
+    }
+  }
+}

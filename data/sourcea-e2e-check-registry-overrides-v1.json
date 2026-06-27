@@ -1,0 +1,216 @@
+{
+  "schema": "sourcea-e2e-check-registry-overrides-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-23T12:00:00Z",
+  "one_law": "Human overrides only — regenerate registry after bulk script adds; never hand-edit the main registry JSON.",
+  "bundles": {
+    "mac_daily_smoke": {
+      "label": "Mac daily smoke (T0–T1)",
+      "cadence": "daily",
+      "unified_tier": "T1_fast",
+      "est_wall_sec": 120,
+      "allowed_context": ["founder_session", "ship_window", "cloud_ci"],
+      "checks": [
+        "hub-probe-mac-health",
+        "hub-probe-routing-panel",
+        "validate-mac-health-ship-fast-v1"
+      ],
+      "runner_first": "scripts/verify-founder-desktop-apps-v1.sh"
+    },
+    "machine_ladder_weekly": {
+      "label": "Machine test ladder weekly",
+      "cadence": "weekly",
+      "unified_tier": "T2_medium",
+      "est_wall_sec": 1800,
+      "allowed_context": ["ship_window", "cloud_ci"],
+      "runner": "scripts/machine_test_ladder_run_v1.py --tier weekly --json"
+    },
+    "hub_e2e_core": {
+      "label": "Hub E2E core",
+      "cadence": "weekly",
+      "unified_tier": "T3_heavy",
+      "est_wall_sec": 900,
+      "allowed_context": ["ship_window", "cloud_ci"],
+      "checks": [
+        "validate-hub-stabilization-e2e-light-v1",
+        "validate-form-official-e2e-v1",
+        "verify-founder-desktop-apps-v1"
+      ]
+    },
+    "sourcea_standard": {
+      "label": "SourceA standard E2E (orchestrated)",
+      "cadence": "weekly",
+      "unified_tier": "T3_heavy",
+      "est_wall_sec": 480,
+      "allowed_context": ["ship_window", "cloud_ci"],
+      "runner": "scripts/validate-sourcea-e2e-standard-v1.sh"
+    },
+    "disk_truth_matrix": {
+      "label": "Disk truth matrix",
+      "cadence": "weekly",
+      "unified_tier": "T2_medium",
+      "est_wall_sec": 180,
+      "allowed_context": ["ship_window", "cloud_ci"],
+      "checks": [
+        "validate-ecosystem-safety-v1",
+        "validate-mandatory-read-paths-v1"
+      ],
+      "python_checks": [
+        "scripts/_ecosystem_safety_dual_pick_check_v1.py --json"
+      ]
+    },
+    "cloud_runtime_ci": {
+      "label": "Cloud runtime CI",
+      "cadence": "weekly",
+      "unified_tier": "T4_marathon",
+      "est_wall_sec": 600,
+      "allowed_context": ["cloud_ci", "ship_window"],
+      "checks": [
+        "validate-agent-runtime-cloud-ci-v1"
+      ]
+    },
+    "full_marathon": {
+      "label": "Full marathon E2E",
+      "cadence": "monthly",
+      "unified_tier": "T4_marathon",
+      "est_wall_sec": 3600,
+      "allowed_context": ["cloud_ci", "ship_window"],
+      "checks": [
+        "validate-all-e2e-v1",
+        "wbc-e2e"
+      ]
+    },
+    "h2_weekly": {
+      "label": "H2 weekly receipt bundle",
+      "cadence": "weekly",
+      "unified_tier": "T2_medium",
+      "est_wall_sec": 300,
+      "allowed_context": ["ship_window", "cloud_ci"],
+      "checks": [
+        "validate-h2-weekly-receipt-bundle-cadence-v1"
+      ]
+    },
+    "forge_terminal_quality_desktop": {
+      "label": "Forge Terminal Quality Engine desktop E2E",
+      "cadence": "weekly",
+      "unified_tier": "T2_medium",
+      "est_wall_sec": 180,
+      "allowed_context": ["ship_window", "cloud_ci"],
+      "runner": "scripts/validate-forge-terminal-quality-desktop-e2e-v1.sh",
+      "checks": [
+        "forge-terminal-quality-unit",
+        "forge-terminal-quality-e2e",
+        "forge-terminal-quality-matrix"
+      ]
+    },
+    "forge_terminal_living_desktop": {
+      "label": "Forge Terminal Living Desktop E2E",
+      "cadence": "weekly",
+      "unified_tier": "T2_medium",
+      "est_wall_sec": 120,
+      "allowed_context": ["ship_window", "cloud_ci"],
+      "runner": "scripts/validate-forge-terminal-living-desktop-e2e-v1.sh",
+      "checks": [
+        "forge-terminal-reply-contract",
+        "forge-terminal-living-ui-e2e"
+      ]
+    },
+    "forge_terminal_desktop": {
+      "label": "Forge Terminal desktop E2E (Quality Engine + UI + matrix)",
+      "cadence": "weekly",
+      "unified_tier": "T2_medium",
+      "est_wall_sec": 300,
+      "allowed_context": ["ship_window", "cloud_ci"],
+      "runner": "scripts/validate-forge-terminal-desktop-e2e-v1.sh",
+      "checks": [
+        "forge-terminal-living-ui-e2e",
+        "forge-terminal-e2e",
+        "forge-terminal-critic-e2e",
+        "forge-terminal-ui-e2e",
+        "forge-terminal-execution-matrix"
+      ]
+    },
+    "brain_live_production": {
+      "label": "Brain live production smoke (sourcea.app curl)",
+      "cadence": "weekly",
+      "unified_tier": "T1_fast",
+      "est_wall_sec": 90,
+      "allowed_context": ["ship_window", "cloud_ci"],
+      "runner": "scripts/validate-sourcea-brain-live-v1.sh"
+    },
+    "site_pulse_dashboard": {
+      "label": "Site pulse stats + founder dashboard API",
+      "cadence": "weekly",
+      "unified_tier": "T1_fast",
+      "est_wall_sec": 60,
+      "allowed_context": ["ship_window", "cloud_ci"],
+      "runner": "scripts/validate-sourcea-site-pulse-v1.sh"
+    }
+  },
+  "check_overrides": {
+    "hub-probe-worker-hub": {
+      "skip": true,
+      "reason": "legacy_archived — Worker Hub :13020 trashed; cockpit is Cloud Workers :13027"
+    },
+    "validate-super-fast-hub-v1": {
+      "skip": true,
+      "reason": "legacy_archived — targets :13020 Worker Hub; use verify-founder-desktop-apps-v1"
+    },
+    "verify-founder-desktop-apps-v1": {
+      "bundle": "mac_daily_smoke",
+      "unified_tier": "T1_fast",
+      "cadence": "daily"
+    }
+  },
+  "hub_probes": [
+    {
+      "id": "hub-probe-cloud-workers",
+      "label": "Cloud Workers cockpit (primary H1)",
+      "url": "http://127.0.0.1:13027/health",
+      "unified_tier": "T0_probe",
+      "cadence": "daily",
+      "scope": "mac_local",
+      "ssot": "data/cloud-workers-control-plane-v1.json"
+    },
+    {
+      "id": "hub-probe-chat-unify",
+      "label": "Chat Unify health + form",
+      "url": "http://127.0.0.1:13023/health",
+      "unified_tier": "T0_probe",
+      "cadence": "daily",
+      "scope": "mac_local"
+    },
+    {
+      "id": "hub-probe-mac-health",
+      "label": "Mac Health Guard health",
+      "url": "http://127.0.0.1:13024/health",
+      "unified_tier": "T0_probe",
+      "cadence": "daily",
+      "scope": "mac_local"
+    },
+    {
+      "id": "hub-probe-n8n",
+      "label": "N8N Integration health",
+      "url": "http://127.0.0.1:13026/health",
+      "unified_tier": "T0_probe",
+      "cadence": "daily",
+      "scope": "mac_local"
+    },
+    {
+      "id": "hub-probe-routing-panel",
+      "label": "Routing Panel",
+      "url": "http://127.0.0.1:8780/",
+      "unified_tier": "T0_probe",
+      "cadence": "daily",
+      "scope": "mac_local"
+    },
+    {
+      "id": "hub-probe-mac-law",
+      "label": "Mac Law health",
+      "url": "http://127.0.0.1:8781/health",
+      "unified_tier": "T0_probe",
+      "cadence": "daily",
+      "scope": "mac_local"
+    }
+  ]
+}

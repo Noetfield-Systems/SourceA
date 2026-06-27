@@ -16,7 +16,7 @@ OUT = SINA / "outbound" / "aeg-proof-send-001"
 RECEIPT = SINA / "aeg-outbound-send-receipt-v1.json"
 AEG_LATEST = SINA / "aeg-latest-receipt-v1.json"
 
-FROM_EMAIL = "hello@sourcea.com"
+FROM_EMAIL = "hello@sourcea.app"
 FROM_NAME = "SourceA"
 COMPANY_URL = "https://sourcea.com"
 FOUNDER_NAME = os.environ.get("SOURCEA_FOUNDER_NAME", "Sina Kazemnezhad").strip() or "Sina Kazemnezhad"

@@ -1,0 +1,27 @@
+name = "pureflow-pool"
+main = "worker/index.js"
+compatibility_date = "2026-01-01"
+workers_dev = false
+
+[assets]
+directory = "."
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+html_handling = "none"
+
+[[kv_namespaces]]
+binding = "PUREFLOW_LEADS"
+id = "299e5658f99c4aae9b8c11170180afeb"
+
+[[send_email]]
+name = "EMAIL"
+
+[vars]
+SITE_URL = "https://pureflow.sourcea.app"
+NOTIFY_FROM = "Pure Flow Pool & Spa <hello@pureflow.sourcea.app>"
+NOTIFY_EMAIL = "sinakazemnezhad.ca@gmail.com"
+SITE_NAME = "Pure Flow Pool & Spa"
+
+[[routes]]
+pattern = "pureflow.sourcea.app"
+custom_domain = true

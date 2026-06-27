@@ -24,6 +24,7 @@ MARKER_END = "<!-- /sa-boot-terminal:v1 -->"
 TARGETS = [
     LANDING / "index.html",
     LANDING / "proof.html",
+    LANDING / "eval.html",
     LANDING / "attach" / "agency-onepager.html",
     LANDING / "attach" / "procurement-pack.html",
 ]

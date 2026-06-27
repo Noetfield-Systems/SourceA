@@ -15,12 +15,21 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
 SINA = Path.home() / ".sina"
-DRAIN = ROOT / "data/secondary-cloud-drain-next-100-v1.json"
+DRAIN = ROOT / "data" / "secondary-cloud-forge-run-next-100-v1.json"  # legacy fallback name only
+
+
+def _active_drain_path() -> Path:
+    import sys
+
+    sys.path.insert(0, str(SCRIPTS))
+    from cloud_forge_run_queue_path_v1 import active_drain_path  # noqa: WPS433
+
+    return active_drain_path()
 SSOT = ROOT / "data/cloud-workers-control-plane-v1.json"
 DEPLOY_SCRIPT = ROOT / "scripts/deploy_fbe_railway_v1.py"
 FOUNDER_DEPLOY_CMD = "cd ~/Desktop/SourceA && python3 scripts/deploy_fbe_railway_v1.py"
 EVENT_LOG = SINA / "cloud-workers-event-log-v1.json"
-HUB_RECEIPT = SINA / "hub-cloud-drain-proceed-receipt-v1.json"
+HUB_RECEIPT = SINA / "hub-cloud-forge-run-proceed-receipt-v1.json"
 PHASE_OBS = SINA / "phase-observed-v1.json"
 WORKER_INBOX = SINA / "worker-prompt-inbox-v1.json"
 
@@ -57,7 +66,7 @@ def classify_cloud_result(row: dict[str, Any] | None) -> dict[str, Any]:
     """Plain-English failure class for founder — pipe vs motor vs stale."""
     row = row or {}
     blob = json.dumps(row, default=str)
-    if any(x in blob for x in ("hub_cloud_drain_proceed", "No module named", "ModuleNotFoundError")):
+    if any(x in blob for x in ("hub_cloud_forge_run_proceed", "No module named", "ModuleNotFoundError")):
         return {
             "failure_class": "stale_image",
             "pipe_live": False,
@@ -66,7 +75,7 @@ def classify_cloud_result(row: dict[str, Any] | None) -> dict[str, Any]:
             "show_this": "Railway image missing proceed/FORGE modules — you deploy, then retry.",
             "founder_action": "deploy_railway_then_retry",
         }
-    if row.get("error") in ("no_url", "cloud_proxy_error") or row.get("status") in (502, 503, 504):
+    if row.get("error") in ("no_url", "cloud_proxy_error"):
         return {
             "failure_class": "connectivity",
             "pipe_live": False,
@@ -74,6 +83,20 @@ def classify_cloud_result(row: dict[str, Any] | None) -> dict[str, Any]:
             "color": "red",
             "show_this": "Cannot reach Railway cloud worker — check URL and network.",
             "founder_action": "check_cloud_url",
+        }
+    if row.get("error") == "cloud_proxy_http_error" and row.get("status") in (502, 503, 504):
+        return {
+            "failure_class": "motor_timeout",
+            "pipe_live": True,
+            "label": "MOTOR TIMEOUT",
+            "color": "amber",
+            "show_this": (
+                "Pipe LIVE · Railway edge timed out during FORGE motor — "
+                "cron uses evidence slice on T3/free; tap Proceed or wait for next tick."
+            ),
+            "founder_action": "auto_tick_or_evidence_slice",
+            "plan_id": str(row.get("plan_id") or ""),
+            "maps_registry": str(row.get("maps_registry") or ""),
         }
     if row.get("ok"):
         if row.get("dry_run") or (row.get("details") or {}).get("dry_run"):
@@ -132,6 +155,26 @@ def classify_cloud_result(row: dict[str, Any] | None) -> dict[str, Any]:
             "maps_registry": registry,
         }
     if status == 422 or motor_ok is False or (forge and not forge.get("ok")):
+        gate_row = inner if inner.get("schema") == "cloud-auto-runtime-single-cycle-gate-v1" else row
+        if (
+            gate_row.get("schema") == "cloud-auto-runtime-single-cycle-gate-v1"
+            or gate_row.get("decision") == "halt_single_cycle"
+            or gate_row.get("decision") == "pack_in_progress_skip"
+        ):
+            reason = str(gate_row.get("reason") or gate_row.get("halt_reason") or "gate_halt")
+            ff = gate_row.get("for_founder") or {}
+            show = ff.get("show_this") if isinstance(ff, dict) else str(ff)
+            return {
+                "failure_class": "pack_gate_halt",
+                "pipe_live": True,
+                "label": "GATE HALT",
+                "color": "amber",
+                "show_this": show or f"Cloud drain gate halted ({reason}) — retry Proceed or wait for cron",
+                "founder_action": "retry_proceed_or_wait_cron",
+                "plan_id": plan_id,
+                "maps_registry": registry,
+                "gate_reason": reason,
+            }
         pid = plan_id or str(inner.get("resolved", {}).get("task_id") or "")
         plan = _plan_by_id(pid) if pid.startswith("CLOUD-SEC-") else None
         mock = is_mock_plan(plan)
@@ -176,7 +219,7 @@ def _cloud_error_founder_hint(cloud_row: dict[str, Any]) -> dict[str, Any]:
     }
     if classified["failure_class"] == "stale_image":
         out["cloud_stale"] = True
-        out.update(founder_deploy_card(reason="Railway image missing hub_cloud_drain_proceed_v1.py"))
+        out.update(founder_deploy_card(reason="Railway image missing hub_cloud_forge_run_proceed_v1.py"))
     else:
         out["cloud_stale"] = False
         out["receipt"] = str(HUB_RECEIPT)
@@ -263,7 +306,20 @@ def event_timeline(*, limit: int = 40) -> list[dict[str, Any]]:
     return out
 
 
+def _last_cloud_plan_id() -> str:
+    ids = [str(p.get("id") or "") for p in _cloud_plans()]
+    return ids[-1] if ids else ""
+
+
+def queue_batch_complete(*, head: str, last_done: str) -> bool:
+    """True when the 100-plan Cloud Forge Run batch finished (head == last row done)."""
+    last_id = _last_cloud_plan_id()
+    return bool(head and last_done and head == last_done and head == last_id)
+
+
 def _plan_status(plan_id: str, *, head: str, last_done: str, last_fail: str) -> str:
+    if queue_batch_complete(head=head, last_done=last_done) and plan_id == head:
+        return "batch_complete"
     if plan_id == head:
         return "head"
     if plan_id == last_fail and plan_id == head:
@@ -280,55 +336,217 @@ def _plan_status(plan_id: str, *, head: str, last_done: str, last_fail: str) -> 
     return "pending"
 
 
-def _sync_cloud_queue_to_mac() -> dict[str, Any]:
-    """Pull cloud queue head when cloud timestamp is newer than local."""
+def _fetch_cf_queue(*, timeout_s: float = 12.0) -> dict[str, Any]:
+    """Mac may read CF /queue proxy — never Railway drain HTTP."""
+    import urllib.error
+    import urllib.request
+
+    ssot = _read(ROOT / "data/cloud-auto-runtime-v1.json")
+    cf = (ssot.get("cloudflare_worker") or {}).get("url") or ""
+    cf_base = str(cf or "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev").rstrip("/")
+    url = f"{cf_base}/queue"
     try:
-        import sys
-
-        sys.path.insert(0, str(SCRIPTS))
-        from fbe.lib.hub_cloud_proxy_v1 import proxy_get_from_cloud  # noqa: WPS433
-        from fbe.lib.cloud_drain_queue_v1 import sync_to_mac_if_newer  # noqa: WPS433
-
-        cloud = proxy_get_from_cloud(path="/api/cloud-drain/queue/v1", timeout_s=15)
-        if cloud.get("error") in ("no_url", "cloud_proxy_error"):
-            return {"ok": False, "skipped": "cloud_unreachable"}
-        return sync_to_mac_if_newer(cloud)
+        req = urllib.request.Request(url, headers={"Accept": "application/json"})
+        with urllib.request.urlopen(req, timeout=timeout_s) as resp:
+            row = json.loads(resp.read().decode("utf-8"))
+            if isinstance(row, dict) and row.get("cloud_forge_run_head"):
+                return row
+            return {"ok": False, "error": "invalid_cf_queue", "url": url}
+    except urllib.error.HTTPError as exc:
+        return {"ok": False, "error": f"cf_http_{exc.code}", "url": url}
     except Exception as exc:
-        return {"ok": False, "error": str(exc)[:120]}
+        return {"ok": False, "error": str(exc)[:120], "url": url}
+
+
+def _sync_cloud_queue_to_mac() -> dict[str, Any]:
+    """Pull live queue from CF proxy when Mac phase diverges from cloud."""
+    phase = _read(PHASE_OBS)
+    local_head = str(phase.get("cloud_forge_run_head") or "")
+    local_batch = int(phase.get("batch_id") or 0)
+    live = _fetch_cf_queue()
+    if not live.get("cloud_forge_run_head"):
+        return {
+            "ok": True,
+            "skipped": "cf_fetch_failed",
+            "head": local_head,
+            "batch_id": phase.get("batch_id"),
+            "cf_error": live.get("error"),
+        }
+    cloud_head = str(live.get("cloud_forge_run_head") or "")
+    observed = live.get("observed") if isinstance(live.get("observed"), dict) else {}
+    cloud_batch = int(observed.get("batch_id") or 0)
+    diverged = bool(local_head and cloud_head != local_head) or (
+        cloud_batch and local_batch and cloud_batch != local_batch
+    )
+    if not diverged and local_head == cloud_head:
+        return {
+            "ok": True,
+            "synced": False,
+            "head": local_head,
+            "batch_id": phase.get("batch_id"),
+            "reason": "already_current",
+        }
+    synced = apply_live_queue(live)
+    synced["synced"] = True
+    synced["source"] = "cf_queue_auto"
+    return synced
+
+
+def _mac_observe_block(action: str) -> dict[str, Any]:
+    cf = _read(ROOT / "data/cloud-auto-runtime-v1.json").get("cloudflare_worker") or {}
+    cf_base = str(cf.get("url") or "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev").rstrip("/")
+    return {
+        "ok": False,
+        "error": "mac_observe_only",
+        "schema": "mac-cloud-observe-only-v1",
+        "action": action,
+        "execution_plane": "mac_control_panel",
+        "for_founder": {
+            "show_this": (
+                f"Mac does not {action} on Railway — CF cron */10 runs full_pack×100. "
+                f"Use Trigger CF full-pack (browser→cloud) or open observer."
+            ),
+        },
+        "cf_tick_url": f"{cf_base}/tick",
+        "cf_queue_url": f"{cf_base}/queue",
+        "cf_observer_url": f"{cf_base}/observer-json",
+    }
+
+
+def apply_live_queue(cloud_row: dict[str, Any]) -> dict[str, Any]:
+    """Sync Mac phase + active batch file pointer from browser-fetched live queue (CF proxy)."""
+    if not isinstance(cloud_row, dict) or not cloud_row.get("cloud_forge_run_head"):
+        return {"ok": False, "error": "invalid_live_queue"}
+    observed = cloud_row.get("observed") if isinstance(cloud_row.get("observed"), dict) else {}
+    batch_id = observed.get("batch_id")
+    head = str(cloud_row.get("cloud_forge_run_head") or "")
+    last = cloud_row.get("cloud_forge_run_last_completed")
+    phase = _read(PHASE_OBS)
+    phase.update(
+        {
+            "schema": "phase-observed-v1",
+            "cloud_forge_run_head": head,
+            "cloud_forge_run_last_completed": last,
+            "queue_batch_complete": cloud_row.get("queue_batch_complete", False),
+            "batch_id": int(batch_id) if batch_id is not None else phase.get("batch_id"),
+            "rebuilt_at": _now(),
+            "rebuilt_by": "cloud_workers_hub_v1.apply_live_queue",
+            "synced_from_cloud": True,
+            "sync_source": "cf_queue_proxy",
+            "skip_reason": observed.get("skip_reason"),
+            "rebuilt_by_cloud": observed.get("rebuilt_by"),
+        }
+    )
+    _write_json(PHASE_OBS, phase)
+    wired: dict[str, Any] = {"ok": True, "skipped": True}
+    if batch_id is not None:
+        ptr = _read(ROOT / "data/cloud-forge-run-queue-active-v1.json")
+        active_batch = int(ptr.get("batch_id") or 0)
+        if active_batch != int(batch_id):
+            try:
+                import sys
+
+                sys.path.insert(0, str(SCRIPTS))
+                from cloud_forge_run_wire_batch_chain_v1 import wire  # noqa: WPS433
+
+                wired = wire(active_batch_id=int(batch_id))
+            except Exception as exc:
+                wired = {"ok": False, "error": str(exc)[:120]}
+        else:
+            wired = {"ok": True, "skipped": True, "reason": "pointer_already_batch"}
+    return {
+        "ok": True,
+        "schema": "cloud-forge-run-live-sync-v1",
+        "at": _now(),
+        "head": head,
+        "last_completed": last,
+        "batch_id": batch_id,
+        "wire": wired,
+        "for_founder": {"show_this": f"Live sync · head {head} · batch {batch_id}"},
+    }
+
+
+def chain_status() -> dict[str, Any]:
+    """Local receipts only — honest chain picture without Mac→Railway HTTP."""
+    deploy = _read(SINA / "fbe-cloud-deploy-receipt-v1.json")
+    phase = _read(PHASE_OBS)
+    tick = _read(SINA / "cloud-auto-runtime-tick-receipt-v1.json")
+    hub = _read(HUB_RECEIPT)
+    ssot = _read(ROOT / "data/cloud-auto-runtime-v1.json")
+    cf = ssot.get("cloudflare_worker") or {}
+    cp = _read(ROOT / "data/cloud-workers-control-plane-v1.json")
+    url = str(deploy.get("worker_url") or deploy.get("url") or "")
+    health = deploy.get("health") if isinstance(deploy.get("health"), dict) else {}
+    health_ok = bool(deploy.get("ok")) and bool(health.get("ok"))
+    cf_base = str(cf.get("url") or "https://sourcea-cloud-auto-runtime-tick-v1.witness-bc.workers.dev").rstrip("/")
+    return {
+        "ok": health_ok,
+        "schema": "cloud-workers-chain-status-v1",
+        "at": _now(),
+        "execution_plane": "mac_observe_only",
+        "mac_never_commands_railway": True,
+        "railway": {
+            "url": url,
+            "deploy_at": deploy.get("at"),
+            "health_ok": health_ok,
+            "health": health,
+            "queue_url": f"{url.rstrip('/')}/api/cloud-forge-run/queue/v1" if url else None,
+            "observer_url": f"{url.rstrip('/')}/api/cloud-forge-run/observer/v1" if url else None,
+        },
+        "cf_cron": {
+            "url": cf_base,
+            "cron": cf.get("cron") or ssot.get("cron") or "*/10 * * * *",
+            "health_url": f"{cf_base}/health",
+            "tick_url": f"{cf_base}/tick",
+            "queue_proxy_url": f"{cf_base}/queue",
+            "observer_proxy_url": f"{cf_base}/observer-json",
+        },
+        "pattern": {
+            "full_pack": True,
+            "max_advance_per_tick": ssot.get("max_advance_per_tick") or 100,
+            "scheduler": "cloudflare_cron_only",
+        },
+        "queue_local": {
+            "head": phase.get("cloud_forge_run_head"),
+            "last_completed": phase.get("cloud_forge_run_last_completed"),
+            "batch_id": phase.get("batch_id"),
+            "queue_batch_complete": phase.get("queue_batch_complete"),
+            "synced_from_cloud": phase.get("synced_from_cloud"),
+        },
+        "active_batch": cp.get("active_batch"),
+        "last_mac_tick": {
+            "at": tick.get("at"),
+            "decision": tick.get("decision"),
+            "local_head": tick.get("local_head"),
+        },
+        "last_hub_receipt": {
+            "at": hub.get("at"),
+            "ok": hub.get("ok"),
+            "error": hub.get("error"),
+            "ignored_on_mac": hub.get("error") == "mac_observe_only",
+        },
+        "for_founder": {
+            "show_this": (
+                f"Chain · Railway deploy {'PASS' if health_ok else 'FAIL'} · "
+                f"CF cron {cf.get('cron') or '*/10 * * * *'} · "
+                f"local head {phase.get('cloud_forge_run_head') or '—'} · "
+                "Mac observe only — live queue via CF /queue in browser"
+            ),
+        },
+    }
 
 
 def _proxy_queue_action(action: str, *, reason: str = "", max_skips: int = 12) -> dict[str, Any]:
-    try:
-        import sys
-
-        sys.path.insert(0, str(SCRIPTS))
-        from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
-        from fbe.lib.cloud_drain_queue_v1 import sync_to_mac_if_newer  # noqa: WPS433
-
-        body: dict[str, Any] = {"action": action, "reason": reason}
-        if action == "skip_to_next_real":
-            body["max_skips"] = max_skips
-        cloud = proxy_to_cloud(path="/api/cloud-drain/queue/v1", body=body, timeout_s=60)
-        if cloud.get("ok"):
-            sync_to_mac_if_newer(
-                {
-                    "cloud_drain_head": cloud.get("head_now") or cloud.get("to"),
-                    "cloud_drain_last_completed": cloud.get("from"),
-                    "observed": {"rebuilt_at": _now(), **cloud},
-                }
-            )
-        return cloud
-    except Exception as exc:
-        return {"ok": False, "error": str(exc)[:120]}
+    return _mac_observe_block(action)
 
 
 def plans_organized(*, limit_cloud: int = 30, limit_mac: int = 10) -> dict[str, Any]:
     _sync_cloud_queue_to_mac()
-    drain = _read(DRAIN)
+    drain = _read(_active_drain_path())
     all_plans = list(drain.get("plans") or [])
     obs = _read(PHASE_OBS)
-    head = str(obs.get("cloud_drain_head") or "")
-    last_done = str(obs.get("cloud_drain_last_completed") or "")
+    head = str(obs.get("cloud_forge_run_head") or "")
+    last_done = str(obs.get("cloud_forge_run_last_completed") or "")
     hub = _read(HUB_RECEIPT)
     last_fail = str(hub.get("plan_id") or "") if hub.get("ok") is False else ""
 
@@ -359,6 +577,7 @@ def plans_organized(*, limit_cloud: int = 30, limit_mac: int = 10) -> dict[str, 
             cloud_rows.append(row)
 
     head_plan = _plan_by_id(head)
+    batch_done = bool(obs.get("queue_batch_complete")) or queue_batch_complete(head=head, last_done=last_done)
     visible = cloud_rows[:limit_cloud]
     head_row = next((r for r in cloud_rows if r.get("id") == head), None)
     if head_row and not any(r.get("id") == head for r in visible):
@@ -368,7 +587,8 @@ def plans_organized(*, limit_cloud: int = 30, limit_mac: int = 10) -> dict[str, 
         "one_law": drain.get("one_law"),
         "queue_head": head,
         "last_completed": last_done,
-        "head_is_mock": is_mock_plan(head_plan),
+        "queue_batch_complete": batch_done,
+        "head_is_mock": False if batch_done else is_mock_plan(head_plan),
         "mac_control": mac_rows[:limit_mac],
         "cloud_forge": visible,
         "cloud_forge_total": len(cloud_rows),
@@ -465,128 +685,106 @@ def cli_catalog() -> list[dict[str, str]]:
         },
         {
             "id": "proceed_curl",
-            "label": "Proceed via curl",
+            "label": "Proceed via curl (Cloud Workers full-pack)",
             "cmd": (
-                'curl -s -X POST http://127.0.0.1:13020/api/cloud-drain/proceed/v1 '
+                'curl -s -X POST http://127.0.0.1:13027/api/cloud-workers/v1 '
                 '-H "Content-Type: application/json" '
-                '-d \'{"llm_provider":"openrouter","full_motor":true}\''
+                '-d \'{"action":"proceed","full_pack":true,"max_advance":100,"llm_provider":"openrouter","full_motor":true}\''
             ),
         },
         {
             "id": "hub_status_curl",
             "label": "Cloud Workers GET",
-            "cmd": "curl -s http://127.0.0.1:13020/api/cloud-workers/v1 | python3 -m json.tool",
+            "cmd": "curl -s http://127.0.0.1:13027/api/cloud-workers/v1 | python3 -m json.tool",
         },
     ]
 
 
 def situation_card() -> dict[str, Any]:
+    chain = chain_status()
     probe = probe_cloud_worker()
     organized = plans_organized(limit_cloud=5)
     inbox = cloud_inbox(window=3)
     hub = _read(HUB_RECEIPT)
-    cloud = hub.get("cloud") or {}
-    classified = classify_cloud_result(cloud if cloud else hub)
-    head = str(organized.get("queue_head") or "")
+    head = str(organized.get("queue_head") or chain.get("queue_local", {}).get("head") or "")
     head_is_mock = bool(organized.get("head_is_mock"))
-    health_ok = bool((probe.get("health") or {}).get("ok"))
-    pipe = "LIVE" if health_ok and not probe.get("cloud_stale") else ("STALE" if probe.get("cloud_stale") else "DOWN")
-    hub_dry_run = bool(cloud.get("dry_run") or hub.get("dry_run"))
+    batch_done = bool(organized.get("queue_batch_complete"))
+    health_ok = bool(chain.get("ok"))
+    pipe = "LIVE" if health_ok else "DOWN"
+    hub_stale_fail = (
+        hub.get("ok") is False
+        and hub.get("error") != "mac_observe_only"
+        and hub.get("at")
+    )
 
     parts = [
-        f"Pipe {pipe}",
-        f"Queue head {organized.get('queue_head') or '—'}",
-        f"Last done {organized.get('last_completed') or '—'}",
+        f"Pipe {pipe} · Mac observe only",
+        (
+            f"Batch COMPLETE · {organized.get('last_completed') or '—'}"
+            if batch_done
+            else f"Queue head {head or '—'}"
+        ),
+        f"CF cron {chain.get('cf_cron', {}).get('cron') or '*/10 * * * *'}",
     ]
-    if hub.get("at") and not hub_dry_run:
-        lp = str(hub.get("plan_id") or "")
-        if lp == head or hub.get("ok") is True:
-            parts.append(f"Last proceed {'PASS' if hub.get('ok') else 'FAIL'} ({classified.get('label', '?')})")
+    if hub_stale_fail:
+        parts.append(f"Stale receipt FAIL (ignored) · {hub.get('error') or 'old proceed'}")
 
     return {
         "schema": "cloud-workers-situation-v1",
         "at": _now(),
         "pipe": pipe,
-        "pipe_live": health_ok and not probe.get("cloud_stale"),
-        "cloud_stale": probe.get("cloud_stale"),
-        "cloud_worker_url": probe.get("cloud_worker_url"),
-        "queue_head": organized.get("queue_head"),
+        "pipe_live": health_ok,
+        "cloud_stale": not health_ok,
+        "mac_observe_only": True,
+        "cloud_worker_url": chain.get("railway", {}).get("url"),
+        "cf_cron_url": chain.get("cf_cron", {}).get("url"),
+        "queue_head": head,
         "last_completed": organized.get("last_completed"),
         "head_is_mock": head_is_mock,
-        "head_proceed_failed": bool(
-            hub.get("ok") is False
-            and str(hub.get("plan_id") or "") == head
-            and hub.get("at")
-            and not bool((hub.get("cloud") or {}).get("dry_run"))
-        ),
+        "queue_batch_complete": batch_done,
+        "head_proceed_failed": False,
         "last_proceed": {
-            "at": None if hub_dry_run else hub.get("at"),
-            "ok": None if hub_dry_run else hub.get("ok"),
-            "plan_id": None if hub_dry_run else hub.get("plan_id"),
-            "maps_registry": None if hub_dry_run else hub.get("maps_registry"),
-            "failure_class": (
-                classified.get("failure_class")
-                if (not hub_dry_run and str(hub.get("plan_id") or "") == head)
-                else None
-            ),
-            "label": classified.get("label") if (not hub_dry_run and str(hub.get("plan_id") or "") == head) else None,
+            "at": None if hub.get("error") == "mac_observe_only" else hub.get("at"),
+            "ok": None if hub.get("error") == "mac_observe_only" else hub.get("ok"),
+            "plan_id": None,
+            "failure_class": None,
+            "label": None,
         },
         "summary_line": " · ".join(parts),
         "for_founder": {
-            "show_this": (
-                classified.get("show_this")
-                if (not hub_dry_run and hub.get("ok") is False and hub.get("at") and str(hub.get("plan_id") or "") == head)
-                else (
-                    f"Head {head} ready — tap Proceed"
-                    if health_ok and not head_is_mock
-                    else probe.get("for_founder", {}).get("show_this", "Cloud Workers ready.")
-                )
-            ),
-            "failure_class": classified.get("failure_class") if (not hub_dry_run and hub.get("ok") is False) else None,
-            "founder_action": classified.get("founder_action"),
-            "head_is_mock": head_is_mock,
+            "show_this": chain.get("for_founder", {}).get("show_this") or probe.get("for_founder", {}).get("show_this"),
         },
+        "chain": chain,
         "inbox_headline": (inbox.get("items") or [{}])[0].get("title") if inbox.get("items") else "—",
         "deploy": founder_deploy_card(),
     }
 
 
 def probe_cloud_worker() -> dict[str, Any]:
-    import sys
-
-    sys.path.insert(0, str(SCRIPTS))
-    from fbe.lib.hub_cloud_proxy_v1 import (  # noqa: WPS433
-        cloud_worker_url,
-        proxy_get_from_cloud,
-        proxy_to_cloud,
-        status_payload,
-    )
-
-    base = status_payload()
-    url = cloud_worker_url()
-    health = proxy_get_from_cloud(path="/health", timeout_s=20) if url else {"ok": False, "error": "no_url"}
-    proceed_probe = (
-        proxy_to_cloud(
-            path="/api/cloud-drain/proceed/v1",
-            body={"dry_run": True, "full_motor": False, "plan_id": "CLOUD-SEC-011"},
-            timeout_s=45,
-        )
-        if url
-        else {"ok": False, "error": "no_url"}
-    )
-    hint = _cloud_error_founder_hint(proceed_probe) if not proceed_probe.get("ok") else {}
-    modules_ok = proceed_probe.get("ok") or not hint.get("cloud_stale")
+    deploy = _read(SINA / "fbe-cloud-deploy-receipt-v1.json")
+    url = str(deploy.get("worker_url") or deploy.get("url") or "")
+    health = deploy.get("health") if isinstance(deploy.get("health"), dict) else {}
+    health_ok = bool(health.get("ok"))
+    observer = f"{url.rstrip('/')}/api/cloud-forge-run/observer/v1" if url else ""
     return {
-        "ok": bool(health.get("ok")),
+        "ok": health_ok,
         "schema": "cloud-workers-probe-v1",
         "at": _now(),
-        "cloud_worker_url": url,
+        "execution_plane": "mac_observe_only",
+        "cloud_worker_url": url or None,
         "health": health,
-        "proceed_probe": proceed_probe,
-        "modules_ok": modules_ok,
-        "cloud_stale": bool(hint.get("cloud_stale")),
-        "for_founder": hint if hint else {"show_this": "Cloud worker healthy — Proceed ready.", "pipe_live": True},
-        "proxy_status": base,
+        "deploy_at": deploy.get("at"),
+        "modules_ok": bool(deploy.get("ok")),
+        "cloud_stale": not health_ok,
+        "observer_url": observer,
+        "for_founder": {
+            "show_this": (
+                f"Mac observe only · last deploy {deploy.get('at') or '—'} · "
+                f"health {'PASS' if health_ok else 'FAIL'} · proof {observer or 'deploy first'}"
+            ),
+            "pipe_live": health_ok,
+        },
+        "mac_observe_only": True,
     }
 
 
@@ -625,7 +823,7 @@ def reports_recent(*, limit: int = 12) -> list[dict[str, Any]]:
 
 
 def _cloud_plans() -> list[dict[str, Any]]:
-    drain = _read(DRAIN)
+    drain = _read(_active_drain_path())
     return [p for p in (drain.get("plans") or []) if str(p.get("id", "")).startswith("CLOUD-SEC-")]
 
 
@@ -646,116 +844,41 @@ def is_mock_plan(plan: dict[str, Any] | None) -> bool:
 
 def is_mock_at_head() -> bool:
     obs = _read(PHASE_OBS)
-    head = str(obs.get("cloud_drain_head") or "")
+    head = str(obs.get("cloud_forge_run_head") or "")
     return is_mock_plan(_plan_by_id(head))
 
 
 def skip_head(*, reason: str = "") -> dict[str, Any]:
-    cloud = _proxy_queue_action("skip_head", reason=reason)
-    if cloud.get("ok") and cloud.get("to"):
-        return {
-            "ok": True,
-            "from": cloud.get("from"),
-            "to": cloud.get("to"),
-            "phase_observed": str(PHASE_OBS),
-            "for_founder": cloud.get("for_founder") or {"show_this": f"Skipped → head now {cloud.get('to')}"},
-            "cloud_sync": True,
-        }
-    obs = _read(PHASE_OBS)
-    head = str(obs.get("cloud_drain_head") or "")
-    cloud_plans = _cloud_plans()
-    idx = next((i for i, p in enumerate(cloud_plans) if p.get("id") == head), -1)
-    if idx < 0:
-        return {"ok": False, "error": "head_not_found", "head": head}
-    if idx >= len(cloud_plans) - 1:
-        return {"ok": False, "error": "no_next_plan", "head": head}
-    nxt_id = str(cloud_plans[idx + 1].get("id"))
-    obs.update(
-        {
-            "cloud_drain_last_completed": head,
-            "cloud_drain_head": nxt_id,
-            "skipped_from": head,
-            "skip_reason": reason or "founder_skip_head",
-            "rebuilt_by": "cloud_workers_hub_v1.skip_head",
-            "rebuilt_at": _now(),
-        }
-    )
-    _write_json(PHASE_OBS, obs)
-    append_event(
-        "skip_head",
-        {
-            "ok": True,
-            "from": head,
-            "to": nxt_id,
-            "reason": reason,
-            "line": f"Skipped {head} → head now {nxt_id}",
-        },
-    )
-    return {
-        "ok": True,
-        "from": head,
-        "to": nxt_id,
-        "phase_observed": str(PHASE_OBS),
-        "for_founder": {"show_this": f"Skipped {head} → head now {nxt_id}"},
-    }
+    return _mac_observe_block("skip_head")
 
 
 def skip_to_next_real(*, reason: str = "", max_skips: int = 12) -> dict[str, Any]:
-    """Skip sequential head rows until next non-mock plan (or queue end)."""
-    cloud = _proxy_queue_action("skip_to_next_real", reason=reason, max_skips=max_skips)
-    if cloud.get("ok") and cloud.get("head_now"):
-        return cloud
-    skipped: list[dict[str, Any]] = []
-    for _ in range(max_skips):
-        obs = _read(PHASE_OBS)
-        head = str(obs.get("cloud_drain_head") or "")
-        plan = _plan_by_id(head)
-        if not is_mock_plan(plan):
-            return {
-                "ok": True,
-                "head_now": head,
-                "skipped": skipped,
-                "skipped_count": len(skipped),
-                "for_founder": {
-                    "show_this": f"Head now {head} — ready for Proceed"
-                    if skipped
-                    else f"Head {head} is already a real row — no skip needed",
-                },
-            }
-        row = skip_head(reason=reason or "skip_to_next_real_mock")
-        if not row.get("ok"):
-            row["skipped_so_far"] = skipped
-            return row
-        skipped.append(row)
-    return {
-        "ok": False,
-        "error": "max_skips_reached",
-        "skipped": skipped,
-        "head_now": str(_read(PHASE_OBS).get("cloud_drain_head") or ""),
-    }
+    return _mac_observe_block("skip_to_next_real")
 
 
 def auto_runtime_status() -> dict[str, Any]:
-    ssot_path = ROOT / "data/cloud-drain-auto-runtime-v1.json"
+    ssot_path = ROOT / "data/cloud-auto-runtime-v1.json"
     ssot = _read(ssot_path) if ssot_path.is_file() else {}
-    flag = SINA / "cloud-drain-auto-proceed-v1.flag"
-    env_on = str(__import__("os").environ.get("CLOUD_DRAIN_AUTO_PROCEED", "")).lower() in (
+    flag = SINA / "cloud-forge-run-auto-proceed-v1.flag"
+    env_on = str(__import__("os").environ.get("CLOUD_FORGE_RUN_AUTO_PROCEED", "")).lower() in (
         "1",
         "true",
         "yes",
     )
     enabled = bool(ssot.get("enabled")) or flag.is_file() or env_on
     hub = _read(HUB_RECEIPT)
-    tick_rcpt = _read(SINA / "cloud-drain-auto-tick-receipt-v1.json")
+    tick_rcpt = _read(SINA / "cloud-auto-runtime-tick-receipt-v1.json")
     return {
         "ok": True,
-        "schema": "cloud-drain-auto-runtime-status-v1",
+        "schema": "cloud-auto-runtime-status-v1",
         "at": _now(),
         "auto_proceed_enabled": enabled,
         "flag_path": str(flag),
         "ssot": str(ssot_path.relative_to(ROOT)) if ssot_path.is_file() else "",
-        "cron": ssot.get("cron") or "*/15 * * * *",
-        "head": str(_read(PHASE_OBS).get("cloud_drain_head") or ""),
+        "cron": ssot.get("cron") or "*/10 * * * *",
+        "mac_observe_only": bool(ssot.get("mac_observe_only", True)),
+        "scheduler": "cloudflare_cron",
+        "head": str(_read(PHASE_OBS).get("cloud_forge_run_head") or ""),
         "head_is_mock": is_mock_at_head(),
         "last_proceed_ok": hub.get("ok"),
         "last_proceed_plan": hub.get("plan_id"),
@@ -768,14 +891,16 @@ def payload() -> dict[str, Any]:
     import sys
 
     sys.path.insert(0, str(SCRIPTS))
-    from hub_cloud_drain_proceed_v1 import hub_slice  # noqa: WPS433
+    from hub_cloud_forge_run_proceed_v1 import hub_slice  # noqa: WPS433
 
+    live_sync = _sync_cloud_queue_to_mac()
     probe = probe_cloud_worker()
     situation = situation_card()
     return {
         "ok": True,
         "schema": "cloud-workers-hub-v1",
         "at": _now(),
+        "live_sync": live_sync,
         "one_law": "Founder manages cloud deploy + plans — Hub dispatches/triggers/reports only.",
         "ssot": str(SSOT.relative_to(ROOT)),
         "hub_apis": {
@@ -791,11 +916,14 @@ def payload() -> dict[str, Any]:
             "dispatch": "POST {\"action\":\"dispatch\",\"plan_id\":\"CLOUD-SEC-011\"}",
             "skip_head": "POST {\"action\":\"skip_head\",\"reason\":\"motor blocked\"}",
             "skip_to_next_real": "POST {\"action\":\"skip_to_next_real\"}",
-            "auto_tick": "POST {\"action\":\"auto_tick\"}",
+            "sync_live_queue": "POST {\"action\":\"sync_live_queue\",\"queue\":{...}}",
+            "chain_status": "POST {\"action\":\"chain_status\"}",
+            "auto_tick": "POST {\"action\":\"auto_tick\"} (Mac observe only)",
             "auto_status": "POST {\"action\":\"auto_status\"}",
-            "proceed": "POST /api/cloud-drain/proceed/v1",
+            "proceed": "POST {\"action\":\"proceed\",\"full_pack\":true,\"max_advance\":100}",
         },
         "situation": situation,
+        "chain": chain_status(),
         "proceed_slice": hub_slice(),
         "probe": probe,
         "deploy": founder_deploy_card(),
@@ -847,10 +975,18 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
     if action == "probe":
         row = probe_cloud_worker()
         row["plans"] = plans_queue(limit=10)
+        row["chain"] = chain_status()
         return row
 
+    if action == "chain_status":
+        return chain_status()
+
+    if action == "sync_live_queue":
+        row = body.get("queue") if isinstance(body.get("queue"), dict) else body
+        return apply_live_queue(row if isinstance(row, dict) else {})
+
     if action == "dry_run":
-        from hub_cloud_drain_proceed_v1 import _resolve_next  # noqa: WPS433
+        from hub_cloud_forge_run_proceed_v1 import _resolve_next  # noqa: WPS433
 
         nxt = _resolve_next(
             plan_id=str(body.get("plan_id") or ""),
@@ -869,7 +1005,7 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
         }
 
     if action == "proceed_dry_cloud":
-        from hub_cloud_drain_proceed_v1 import proceed_from_hub  # noqa: WPS433
+        from hub_cloud_forge_run_proceed_v1 import proceed_from_hub  # noqa: WPS433
 
         row = proceed_from_hub(
             {
@@ -911,11 +1047,12 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
         return auto_runtime_status()
 
     if action == "auto_tick":
-        from cloud_drain_auto_runtime_v1 import run_auto_tick  # noqa: WPS433
+        from cloud_auto_runtime_v1 import run_auto_tick  # noqa: WPS433
 
         return run_auto_tick(
             force=bool(body.get("force")),
             llm_provider=str(body.get("llm_provider") or "openrouter"),
+            trigger_source=str(body.get("trigger_source") or "hub_auto_tick"),
         )
 
     if action == "glue_run":
@@ -944,7 +1081,7 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
         return {"ok": bool(result.get("ok", True)), "command": cmd, **result}
 
     if action == "proceed":
-        from hub_cloud_drain_proceed_v1 import proceed_from_hub  # noqa: WPS433
+        from hub_cloud_forge_run_proceed_v1 import proceed_from_hub  # noqa: WPS433
 
         return proceed_from_hub(body)
 
@@ -967,6 +1104,8 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
             "dispatch",
             "skip_head",
             "skip_to_next_real",
+            "sync_live_queue",
+            "chain_status",
             "auto_tick",
             "auto_status",
             "glue_run",

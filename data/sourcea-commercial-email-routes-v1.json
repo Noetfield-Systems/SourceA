@@ -1,0 +1,46 @@
+{
+  "schema": "sourcea-commercial-email-routes-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-23T12:00:00Z",
+  "domain": "sourcea.app",
+  "signature_url": "https://sourcea.app",
+  "anti_poison": {
+    "retired_domain": "sourcea.com",
+    "retired_hello": "hello@sourcea.com"
+  },
+  "routes": [
+    {
+      "id": "hello",
+      "address": "hello@sourcea.app",
+      "role": "greet",
+      "label": "Signature · outbound",
+      "vault_tag": "SA-HELLO-GOOGLE_WORKSPACE_APP_PASSWORD",
+      "scripts": ["send_ab1_single_v1.py", "commercial_mail_draft_v1.py --lane AB1"]
+    },
+    {
+      "id": "contact",
+      "address": "contact@sourcea.app",
+      "role": "intake",
+      "label": "Intake (vault tags · forms)",
+      "vault_tag": "SA-CONTACT-GOOGLE_WORKSPACE_APP_PASSWORD",
+      "scripts": ["sourcea_mvp_intake_submit_v1.py", "mvp-intake-config.json"]
+    },
+    {
+      "id": "proof",
+      "address": "proof@sourcea.app",
+      "role": "ops",
+      "label": "Proof booking · procurement",
+      "vault_tag": "SA-PROOF-GOOGLE_WORKSPACE_APP_PASSWORD",
+      "scripts": []
+    },
+    {
+      "id": "forge",
+      "address": "forge@sourcea.app",
+      "role": "product",
+      "label": "Prompt Forge · mission prompts",
+      "vault_tag": "SA-FORGE-GOOGLE_WORKSPACE_APP_PASSWORD",
+      "scripts": ["prompt_forge_pipeline_v1.py"],
+      "pages": "/sourcea/forge/"
+    }
+  ]
+}

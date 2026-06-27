@@ -21,7 +21,7 @@ RECEIPT = SINA / "chat-unify-founder-loop-v1.json"
 WORK_ORDER_RECEIPT = SINA / "chat-unify-founder-work-order-v1.json"
 PROGRESS_PATH = SINA / "chat-unify-founder-loop-progress-v1.json"
 EVAL_1B_REPORT = SINA / "eval_packet_v1b_report.json"
-LOOP_VERSION = "2.9.0"
+LOOP_VERSION = "3.0.0"
 
 STAGE_DEPENDS: dict[str, str | None] = {
     "language": None,

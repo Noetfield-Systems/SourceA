@@ -28,10 +28,10 @@
   ],
   "live_mode": "CLOUD_DRAIN",
   "supabase_brand_schema": "forge_factory",
-  "queue_ssot": "data/secondary-cloud-drain-next-100-v1.json",
+  "queue_ssot": "data/secondary-cloud-forge-run-next-100-v1.json",
   "brand_ssot": "data/forge-factory-unified-brand-v1.json",
   "rule_propagation_ssot": "data/rule-propagation-zero-latency-v1.json",
-  "cloud_drain_head": "CLOUD-SEC-001",
+  "cloud_forge_run_head": "CLOUD-SEC-001",
   "reconciled_at": "2026-06-21T18:28:28Z",
   "reconciled_by": "phase_observed_project_v1",
   "prior_era": "forge_factory_cycle2"

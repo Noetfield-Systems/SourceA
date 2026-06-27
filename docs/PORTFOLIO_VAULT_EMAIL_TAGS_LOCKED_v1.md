@@ -46,13 +46,16 @@ Values stay in the vault only — never in git.
 | `NF-OPERATIONS-GOOGLE_WORKSPACE_APP_PASSWORD` | `operations@noetfield.com` | **Intake / inbound** | Form delivery · Resend `INTAKE_EMAIL_TO` |
 | `NF-OPERATION-GOOGLE_WORKSPACE_APP_PASSWORD` | `operation@noetfield.com` | **Outbound / compliance** | `commercial_mail_draft_v1.py --lane NF` · NW1 · W3 |
 
-### sourcea.com — SourceA (`SA`)
+### sourcea.app — SourceA (`SA`)
 
 | Vault tag | Address | Role | Agent / script |
 |-----------|---------|------|----------------|
-| `SA-HELLO-GOOGLE_WORKSPACE_APP_PASSWORD` | `hello@sourcea.com` | **Greet / outbound** | `send_ab1_single_v1.py` · `--lane AB1` |
-| `SA-CONTACT-GOOGLE_WORKSPACE_APP_PASSWORD` | `contact@sourcea.com` | **Intake / inbound** | Inbound · general contact |
-| `SA-PROOF-GOOGLE_WORKSPACE_APP_PASSWORD` | `proof@sourcea.com` | **Proof / demo** | Proof-demo booking · procurement |
+| `SA-HELLO-GOOGLE_WORKSPACE_APP_PASSWORD` | `hello@sourcea.app` | **Greet / outbound** | `send_ab1_single_v1.py` · `--lane AB1` |
+| `SA-CONTACT-GOOGLE_WORKSPACE_APP_PASSWORD` | `contact@sourcea.app` | **Intake / inbound** | MVP intake · general contact |
+| `SA-PROOF-GOOGLE_WORKSPACE_APP_PASSWORD` | `proof@sourcea.app` | **Proof / demo** | Proof-demo booking · procurement |
+| `SA-FORGE-GOOGLE_WORKSPACE_APP_PASSWORD` | `forge@sourcea.app` | **Prompt Forge** | Mission prompts · `/sourcea/forge/` product lane |
+
+**Note:** SourceA uses **four** licensed mailboxes on `sourcea.app` (product lane adds Forge). Signature URL: **https://sourcea.app** only.
 
 ### virlux.com — VIRLUX (`VL`)
 
@@ -103,6 +106,7 @@ All other tags export as `{BRAND}_{LOCALPART}_GOOGLE_WORKSPACE_APP_PASSWORD` (un
 | `SA-HELLO-*` | `SA_HELLO_GOOGLE_WORKSPACE_APP_PASSWORD` |
 | `SA-CONTACT-*` | `SA_CONTACT_GOOGLE_WORKSPACE_APP_PASSWORD` |
 | `SA-PROOF-*` | `SA_PROOF_GOOGLE_WORKSPACE_APP_PASSWORD` |
+| `SA-FORGE-*` | `SA_FORGE_GOOGLE_WORKSPACE_APP_PASSWORD` |
 | `VL-HELLO-*` | `VL_HELLO_GOOGLE_WORKSPACE_APP_PASSWORD` |
 | `VL-CONTACT-*` | `VL_CONTACT_GOOGLE_WORKSPACE_APP_PASSWORD` |
 | `VL-SUPPORT-*` | `VL_SUPPORT_GOOGLE_WORKSPACE_APP_PASSWORD` |

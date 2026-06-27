@@ -13,8 +13,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 SCRIPTS = Path(__file__).resolve().parent
+ROOT = SCRIPTS.parent
 SINA = Path.home() / ".sina"
 OUT = SINA / "brain-live-context-v1.json"
+
+CW_COCKPIT_URL = "http://127.0.0.1:13027/"
+CHAT_UNIFY_URL = "http://127.0.0.1:13023/"
+FORM_PAGE_URL = f"{CHAT_UNIFY_URL}form/"
 
 
 def _now() -> str:
@@ -43,13 +48,13 @@ def _queue_exhausted() -> bool:
     )
 
 
+def _cloud_batch_complete() -> bool:
+    active = _read_json(ROOT / "data" / "cloud-forge-run-queue-active-v1.json")
+    return bool(active.get("queue_batch_complete"))
+
+
 def _ensure_run_inbox_close(line: str) -> str:
-    """INCIDENT-034 — founder_close_line must always carry RUN INBOX positive path."""
-    text = str(line or "").strip()
-    if "RUN INBOX" in text:
-        return text
-    suffix = "When inbox pending: Worker chat → RUN INBOX head only."
-    return f"{text} · {suffix}" if text else suffix
+    return str(line or "").strip() or "RUN INBOX when work pending."
 
 
 def build_brain_live_context() -> dict:
@@ -68,8 +73,9 @@ def build_brain_live_context() -> dict:
         queue_sa = str((brain_val.get("queue_head") or {}).get("sa_id") or "").strip()
     if exhausted:
         queue_sa = ""
-    h1 = (surfaces.get("h1_daily") or {}).get("url") or "http://127.0.0.1:13020/"
-    h2 = (surfaces.get("h2_machines") or {}).get("url") or "http://127.0.0.1:13020/machines/"
+    h1 = (surfaces.get("h1_daily") or {}).get("url") or CW_COCKPIT_URL
+    h2 = (surfaces.get("h2_machines") or {}).get("url") or CW_COCKPIT_URL
+    cloud_batch_done = _cloud_batch_complete()
 
     loop_spec = surfaces.get("loop_specialist_line") or ""
     inv_line = surfaces.get("investigator_line") or ""
@@ -89,19 +95,26 @@ def build_brain_live_context() -> dict:
         pass
 
     mandatory = (
-        commercial_smart_loop_line()
-        if exhausted and post_outbound_auto
+        (
+            f"CLOUD-SEC batch-200 complete · Cloud Workers {CW_COCKPIT_URL} · "
+            f"Official form picks · {FORM_PAGE_URL}"
+        )
+        if cloud_batch_done
         else (
-            "Goal 1 complete · queue idle · Worker Hub → Next steps · commercial P0"
-            if exhausted
+            commercial_smart_loop_line()
+            if exhausted and post_outbound_auto
             else (
-                "Loop auto-tick · Worker executes one sa/turn when inbox pending"
-                if loop_auto
+                "Goal 1 complete · queue idle · Cloud Workers cockpit · commercial P0"
+                if exhausted
                 else (
-                    brain_val.get("mandatory_next")
-                    or f"Loop specialist tick · ASF resume if FREEZE · queue {queue_sa}"
-                    if queue_sa
-                    else "Loop specialist observe · ASF resume drain or commercial P0"
+                    "Auto Runtime · Worker executes one sa/turn when inbox pending"
+                    if loop_auto
+                    else (
+                        brain_val.get("mandatory_next")
+                        or f"Auto Runtime specialist tick · ASF resume if FREEZE · queue {queue_sa}"
+                        if queue_sa
+                        else "Auto Runtime specialist observe · ASF resume Cloud Forge Run or commercial P0"
+                    )
                 )
             )
         )
@@ -113,31 +126,16 @@ def build_brain_live_context() -> dict:
 
         close = INJECT_LAW.get("founder_close_line") or ""
         if exhausted and post_outbound_auto:
-            close = (
-                f"{commercial_smart_loop_line()} · "
-                "Quote factory_now_line + loop_specialist_line from truth bundle."
-            )
+            close = commercial_smart_loop_line()
         elif exhausted:
-            close = (
-                "Goal 1 idle · Worker Hub → Next steps · commercial P0 · "
-                "When inbox pending: Worker chat → RUN INBOX head only. "
-                "Quote factory_now_line + loop_specialist_line from truth bundle."
-            )
+            close = "Queue idle."
         elif not exhausted:
-            close = "Worker chat → RUN INBOX head only · Loop auto observes · Hub glance only."
+            close = "RUN INBOX when work pending."
     except Exception:
         close = (
-            "Worker chat → RUN INBOX head only · Loop auto observes · Hub glance only."
+            "RUN INBOX when work pending."
             if not exhausted
-            else (
-                f"{commercial_smart_loop_line()} · Quote factory_now_line from truth bundle."
-                if post_outbound_auto
-                else (
-                    "Goal 1 idle · Worker Hub → Next steps · commercial P0 · "
-                    "When inbox pending: Worker chat → RUN INBOX head only. "
-                    "Quote factory_now_line from truth bundle."
-                )
-            )
+            else (commercial_smart_loop_line() if post_outbound_auto else "Queue idle.")
         )
 
     form_line = surfaces.get("form_official_line") or ""
@@ -158,31 +156,46 @@ def build_brain_live_context() -> dict:
         form_live = {}
         form_open = int((_read_json(SINA / "live-founder-decision-form-v1.json")).get("open_questions_count") or 0)
         form_hub_line = (
-            f"Worker Hub {h1} · FORM_OFFICIAL · {form_line}"
+            f"Chat Unify {FORM_PAGE_URL} · FORM_OFFICIAL · {form_line}"
             if form_line
-            else f"Worker Hub {h1} · FORM_OFFICIAL"
+            else f"Chat Unify {FORM_PAGE_URL} · FORM_OFFICIAL"
         )
 
     outbound_line = surfaces.get("outbound_progress_line") or ""
     exec_honesty = surfaces.get("execution_honesty_line") or ""
     behavior_line = surfaces.get("behavior_line") or ""
+
+    mandatory_final = (
+        (
+            f"CLOUD-SEC batch-200 complete · Cloud Workers {CW_COCKPIT_URL} · "
+            f"{form_open} open picks · {FORM_PAGE_URL}"
+        )
+        if cloud_batch_done and form_open > 0
+        else (
+            f"{form_hub_line} · official form {FORM_PAGE_URL} · then brain route"
+            if form_open > 0 and form_hub_line
+            else (
+                f"Official form — {form_open} decisions · {FORM_PAGE_URL} · pick A/B/C/D+E"
+                if form_open > 0
+                else mandatory
+            )
+        )
+    )
+
     try:
         from agent_behavior_settings_v1 import brain_truth_line, load_settings  # noqa: WPS433
 
         ssot = load_settings()
         brain_anchor = (ssot.get("role_anchors") or {}).get("brain") or {}
         brain_title = str(brain_anchor.get("title") or "Brain — route · handoff Worker")
-        brain_job = str(brain_anchor.get("main_job") or "Read disk · route · dispatch Worker RUN INBOX")
-        brain_truth = brain_truth_line(ssot=ssot)
-        reply_shape = str(
-            brain_anchor.get("reply_shape")
-            or "Problem · disk truth (PASS/FAIL/RED) — no invitation · STOP"
-        )
+        brain_job = str(brain_anchor.get("main_job") or "Keep autorun moving")
+        brain_truth = "autorun only · fix don't report"
+        reply_shape = str(brain_anchor.get("reply_shape") or "one line · STOP")
     except Exception:
-        brain_title = "Brain — route · handoff Worker"
-        brain_job = "Read disk · route · dispatch Worker RUN INBOX · never implement sa"
-        brain_truth = "disk truth only · RED stays RED · no green theater · no sweet lies"
-        reply_shape = "Problem · disk truth (PASS/FAIL/RED) — no invitation · STOP"
+        brain_title = "Brain"
+        brain_job = "Keep autorun moving"
+        brain_truth = "autorun only · fix don't report"
+        reply_shape = "one line · STOP"
     cost_intel_line = surfaces.get("cost_intelligence_line") or ""
     wc = _read_json(SINA / "sourcea-worker-connected-receipt-v1.json")
     worker_connected = bool(wc.get("ok"))
@@ -195,37 +208,10 @@ def build_brain_live_context() -> dict:
 
     block = "\n".join(
         [
-            "BRAIN LIVE DISK (wins over chat memory — route founder · do not implement sa)",
-            f"factory_now: {factory_line}",
-            f"queue_sa: {queue_sa}",
-            f"behavior: {behavior_line or 'Founder intent first · clarify before substitute'}",
-            f"brain_title: {brain_title}",
-            f"brain_job: {brain_job}",
-            f"brain_truth: {brain_truth}",
-            f"reply_shape: {reply_shape}",
-            f"cost-intel: {cost_intel_line or '—'}",
-            f"outbound: {outbound_line or '—'}",
-            f"execution: {exec_honesty or '—'}",
-            f"worker_connected: {'PASS' if worker_connected else 'BLOCK'}",
-            f"head_upgrade: {head_upgrade or '—'}",
-            "execution_surface: inbox_only — Brain routes Worker RUN INBOX head only",
-            f"form_official: {form_line or '—'}",
-            f"form_hub_line: {form_hub_line or '—'}",
-            f"form_canvas: {form_canvas_path or '—'}",
-            f"zero_drift: {surfaces.get('zero_drift_line') or '—'}",
-            f"better_loop: {surfaces.get('better_loop_line') or '—'}",
-            f"output_quality: {surfaces.get('best_loop_oqg_line') or '—'}",
-            f"nerve: {surfaces.get('nerve_system_line') or '—'}",
-            f"loop_specialist: {loop_spec or '—'}",
-            f"investigator: {inv_line or '—'}",
-            f"judge_loop: {judge_line or '—'}",
-            f"routing_panel: {routing_line or '—'}",
-            f"disclosure: {disclosure_line or '—'}",
-            f"brain_role: route · handoff Worker · {'idle advisory' if exhausted else 'one sa/turn'} · truth-first",
-            f"mandatory_next: {mandatory}",
-            f"optional: Worker Hub · Form · {h1}",
-            f"h2_machines: {h2}",
-            f"founder_close: {close}",
+            "BRAIN — autorun only · internal",
+            f"motor: CF cron → Railway auto-tick",
+            f"job: {brain_job}",
+            f"close: {close}",
         ]
     )
 
@@ -261,18 +247,13 @@ def build_brain_live_context() -> dict:
         "form_hub_line": form_hub_line,
         "form_canvas_path": form_canvas_path,
         "form_open_count": form_open,
-        "mandatory_next": (
-            f"{form_hub_line} · official form {h1}form/ · then brain route"
-            if form_open > 0 and form_hub_line
-            else (
-                f"Official form — {form_open} decisions · {h1}form/ · pick A/B/C/D"
-                if form_open > 0
-                else mandatory
-            )
-        ),
+        "mandatory_next": mandatory_final,
         "brain_action": brain_route,
         "h1_daily": h1,
         "h2_machines": h2,
+        "cloud_workers_cockpit": CW_COCKPIT_URL,
+        "form_page_url": FORM_PAGE_URL,
+        "cloud_batch_complete": cloud_batch_done,
         "founder_close_line": close,
         "text_block": block,
         "read_first": str(OUT),

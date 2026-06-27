@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-full-stack-100-fix-plan-v2",
   "version": "2.1.0",
-  "saved_at": "2026-06-22T13:13:42Z",
+  "saved_at": "2026-06-24T08:37:08Z",
   "law": "100 fix plans v2.1 \u2014 pulse wired \u00b7 outbound cross \u00b7 gate cart \u00b7 C4 decoupled",
   "parent_audit": "Brain chat full honest audit 2026-06-18",
   "human_doc": "docs/SOURCEA_FULL_STACK_100_FIX_PLAN_LOCKED_v1.md",
@@ -65,11 +65,11 @@
   ],
   "progress": {
     "total": 100,
-    "done": 62,
+    "done": 60,
     "in_progress": 0,
-    "planned": 38,
+    "planned": 40,
     "blocked": 0,
-    "pct": 62
+    "pct": 60
   },
   "waves": [
     {
@@ -170,7 +170,7 @@
         "F067",
         "F068"
       ],
-      "status": "active"
+      "status": "pending"
     },
     {
       "id": "W5",
@@ -211,7 +211,7 @@
     {
       "id": "W7",
       "label": "Vocabulary unify",
-      "description": "loop auto inject",
+      "description": "Auto Runtime inject",
       "plan_ids": [
         "F089",
         "F090",
@@ -340,7 +340,7 @@
       "tier": "P0",
       "wave": "W1",
       "lane": "execution_inbox",
-      "lane_label": "Loop specialist clear",
+      "lane_label": "Auto Runtime specialist clear",
       "title": "Tick after U029 clears inbox",
       "wired_to": "loop_specialist_tick_v1.py",
       "acceptance": "execute_pending or observe",
@@ -1235,7 +1235,7 @@
       "parent_spec": "data/sourcea-full-stack-100-fix-plan-v1.json",
       "human_doc": "docs/SOURCEA_FULL_STACK_100_FIX_PLAN_LOCKED_v1.md",
       "pulse": "scripts/full_stack_fix_plan_pulse_v1.py",
-      "live_note": "C4 decoupled \u00b7 aligned=PASS \u00b7 execution_blocked=no"
+      "live_note": "C4 decoupled \u00b7 aligned=PASS \u00b7 execution_blocked=yes"
     },
     {
       "id": "F050",
@@ -1358,7 +1358,7 @@
       "tier": "P2",
       "wave": "W3",
       "lane": "session_gate",
-      "lane_label": "Loop auto graduation",
+      "lane_label": "Auto Runtime graduation",
       "title": "shadow_auto to full auto",
       "wired_to": "loop_auto_graduation_v1.py",
       "acceptance": "graduation when validators pass",
@@ -1419,7 +1419,7 @@
       "title": "Human read session",
       "wired_to": "founder workflow",
       "acceptance": "w3_sina_read PASS",
-      "status": "done",
+      "status": "planned",
       "owner_role": "founder",
       "outbound_ref": "",
       "validator_hook": "scripts/execution_plane_honesty_v1.py",
@@ -1438,7 +1438,7 @@
       "title": "Configure hello@ and operation@",
       "wired_to": "commercial_mail_draft_v1.py",
       "acceptance": "w3_mail_from PASS",
-      "status": "done",
+      "status": "planned",
       "owner_role": "founder",
       "outbound_ref": "",
       "validator_hook": "scripts/execution_plane_honesty_v1.py",
@@ -2025,7 +2025,7 @@
       "wave": "W7",
       "lane": "vocabulary",
       "lane_label": "GATE_TREE daily_ops",
-      "title": "loop auto disk INBOX",
+      "title": "Auto Runtime disk INBOX",
       "wired_to": "agent_three_pipelines_lib_v1.py",
       "acceptance": "text fixed",
       "status": "planned",
@@ -2064,7 +2064,7 @@
       "wave": "W7",
       "lane": "vocabulary",
       "lane_label": "Better loop motion",
-      "title": "Loop auto line",
+      "title": "Auto Runtime line",
       "wired_to": "better_loop_pulse_v1.py",
       "acceptance": "aligned",
       "status": "planned",

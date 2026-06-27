@@ -18,13 +18,13 @@
   "writers": {
     "cloudflare_cron": {
       "event": "CRON_FIRED",
-      "module": "cloud/workers/cloud-drain-tick-v1/src/truth_log.js",
+      "module": "cloud/workers/cloud-auto-runtime-tick-v1/src/truth_log.js",
       "secrets": ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"]
     },
     "railway_runtime": {
       "events": ["JOB_STARTED", "JOB_COMPLETED", "JOB_FAILED", "QUEUE_ADVANCED"],
       "module": "scripts/truth_log_v1.py",
-      "wired": "scripts/hub_cloud_drain_proceed_v1.py proceed_on_cloud",
+      "wired": "scripts/hub_cloud_forge_run_proceed_v1.py proceed_on_cloud",
       "env": ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "RAILWAY_DEPLOYMENT_ID"]
     }
   },

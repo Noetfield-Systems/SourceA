@@ -1,0 +1,66 @@
+{
+  "schema": "forge-visual-parity-contract-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-25T11:00:00Z",
+  "law_doc": "docs/FORGE_MISSION_6000_PLANS_LOCKED_v1.md",
+  "reference_site": "https://sourcea.app/",
+  "reference_pages": [
+    "https://sourcea.app/",
+    "https://sourcea.app/sourcea/forge/terminal"
+  ],
+  "surfaces": {
+    "online_forge_terminal": {
+      "html": "SourceA-landing/green-unified/forge/terminal.html",
+      "css": ["SourceA-landing/green-unified/sourcea.css", "SourceA-landing/green-unified/sourcea-forge-terminal-demo.css"],
+      "js": "SourceA-landing/green-unified/sourcea-forge-terminal-demo.js",
+      "url": "/sourcea/forge/terminal"
+    },
+    "local_forge_ide": {
+      "html": "apps/forge-terminal-v1/index.html",
+      "css": "apps/forge-terminal-v1/terminal.css",
+      "js": "apps/forge-terminal-v1/terminal.js",
+      "url": "http://127.0.0.1:13029/terminal/"
+    },
+    "forge_connect_shell": {
+      "html": "apps/forge-terminal-connect-v1/index.html",
+      "css": ["apps/forge-terminal-connect-v1/app.css", "apps/forge-terminal-connect-v1/home-enterprise.css"],
+      "url": "http://127.0.0.1:13029/"
+    },
+    "chat_unify_standalone": {
+      "html": "scripts/chat-unify-standalone/index.html",
+      "css": "scripts/chat-unify-standalone/",
+      "url": "http://127.0.0.1:13023/"
+    }
+  },
+  "fonts": {
+    "display": "Plus Jakarta Sans",
+    "body": "Inter",
+    "mono": "JetBrains Mono",
+    "google_url": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+  },
+  "css_classes_from_site": [
+    "ar-header",
+    "ar-btn",
+    "ar-btn-primary",
+    "ar-btn-ghost",
+    "sa-btn-glow",
+    "ar-logo",
+    "sa-v2",
+    "ar-body"
+  ],
+  "color_tokens": {
+    "bg": "#0c0e12",
+    "surface": "#141820",
+    "accent": "#5eead4",
+    "text": "#e8eaed",
+    "muted": "#9aa0a6"
+  },
+  "cta_ssot": "SourceA-landing/green-unified/data/sourcea-landing-cta-v1.json",
+  "forbidden": [
+    "mailto: primary CTA on forge surfaces",
+    "disconnected demo skin unlike sourcea.app",
+    "raw JSON in chat bubbles",
+    "Book a demo as hero CTA"
+  ],
+  "parity_gate_script": "scripts/validate-forge-visual-parity-v1.sh"
+}

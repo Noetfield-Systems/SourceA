@@ -1,5 +1,5 @@
 /**
- * SourceA Loop Specialist — Cloudflare cron (phase 2b · FREE tier)
+ * SourceA Auto Runtime specialist — Cloudflare cron (phase 2b · FREE tier)
  * POST Railway FBE loop tick — zero Mac Terminal · zero Mac execution
  */
 export default {
@@ -36,7 +36,7 @@ async function runTick(env, { dispatch }) {
     bay_slug: "noetfield-freemium-bay",
     tenant: "sourcea",
     execution_mode: "CLOUD_ONLY",
-    founder_message: "Loop auto · Cloudflare cron · read chat not disk · Hub glance only",
+    founder_message: "Auto Runtime · Cloudflare cron · read chat not disk · Hub glance only",
     draft: "Cloud loop tick — Mac control plane glance only · no RUN INBOX",
     dispatch: doDispatch,
     loop_auto_dispatch_enabled: autoOn,

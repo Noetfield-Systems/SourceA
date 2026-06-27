@@ -8,7 +8,8 @@
   "one_law": "Three licensed mailboxes per domain · one app password tag per mailbox · one brand lane",
   "tag_pattern": "{BRAND}-{LOCALPART}-GOOGLE_WORKSPACE_APP_PASSWORD",
   "mailboxes_per_domain": 3,
-  "total_tags": 15,
+  "sourcea_app_mailboxes": 4,
+  "total_tags": 16,
   "app_password_rules": {
     "length": 16,
     "spaces_allowed": false,
@@ -88,10 +89,12 @@
       ]
     },
     {
-      "domain": "sourcea.com",
+      "domain": "sourcea.app",
       "brand_code": "SA",
       "brand": "SourceA",
       "lane_id": "main_lane",
+      "mailboxes_per_domain": 4,
+      "signature_url": "https://sourcea.app",
       "mailboxes": [
         {
           "localpart": "hello",
@@ -105,7 +108,7 @@
           "role": "intake",
           "vault_tag": "SA-CONTACT-GOOGLE_WORKSPACE_APP_PASSWORD",
           "export_env": "SA_CONTACT_GOOGLE_WORKSPACE_APP_PASSWORD",
-          "scripts": []
+          "scripts": ["sourcea_mvp_intake_submit_v1.py", "mvp-intake-config.json"]
         },
         {
           "localpart": "proof",
@@ -113,6 +116,14 @@
           "vault_tag": "SA-PROOF-GOOGLE_WORKSPACE_APP_PASSWORD",
           "export_env": "SA_PROOF_GOOGLE_WORKSPACE_APP_PASSWORD",
           "scripts": []
+        },
+        {
+          "localpart": "forge",
+          "role": "product",
+          "vault_tag": "SA-FORGE-GOOGLE_WORKSPACE_APP_PASSWORD",
+          "export_env": "SA_FORGE_GOOGLE_WORKSPACE_APP_PASSWORD",
+          "scripts": ["prompt_forge_pipeline_v1.py"],
+          "pages": "/sourcea/forge/"
         }
       ]
     },

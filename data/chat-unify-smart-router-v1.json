@@ -1,0 +1,128 @@
+{
+  "schema": "chat-unify-smart-router-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-25T13:30:00Z",
+  "authority": [
+    "brain-os/law/enforcement/SOURCEA_CURSOR_COST_INTELLIGENCE_ROUTING_LOCKED_v1.md",
+    "data/cursor-cost-intelligence-routing-v1.json",
+    "data/forge-mvp-router-rules-v0.1.json",
+    "data/forge-model-roi-matrix-v1.json",
+    "scripts/model_dispatch.py",
+    "brain-os/cursor/rules/agent-smart-judgment.mdc"
+  ],
+  "one_law": "Classify founder intent → pick machine tab + agent team + ROI model — never random default.",
+  "intents": {
+    "verify": {
+      "keywords": ["verify", "pass", "block", "gate", "truth", "valid", "check reply", "founder loop"],
+      "machine": "founder",
+      "agents": ["verifier"],
+      "work_tier": "check",
+      "task_kind": "evaluate"
+    },
+    "audit": {
+      "keywords": ["audit", "trace", "claim", "receipt", "red flag", "atom", "ord", "disk proof"],
+      "machine": "ord",
+      "agents": ["verifier"],
+      "work_tier": "check",
+      "task_kind": "evaluate"
+    },
+    "plan": {
+      "keywords": ["plan", "roadmap", "break down", "strategy", "mission", "steps", "architecture", "design"],
+      "machine": "forge",
+      "agents": ["planner"],
+      "work_tier": "reason",
+      "task_kind": "aggregate"
+    },
+    "build": {
+      "keywords": ["build", "implement", "code", "fix", "patch", "refactor", "ship", "deploy", "feature"],
+      "machine": "api",
+      "agents": ["builder"],
+      "work_tier": "build",
+      "task_kind": "code_gen"
+    },
+    "act": {
+      "keywords": ["execute", "run", "dispatch", "cloud worker", "railway", "act now", "proceed"],
+      "machine": "connect",
+      "agents": ["builder"],
+      "work_tier": "act",
+      "task_kind": "code_gen"
+    },
+    "proof": {
+      "keywords": ["proof pack", "seal", "deliver", "evidence", "mvp proof"],
+      "machine": "proofpack",
+      "agents": ["verifier", "builder"],
+      "work_tier": "check",
+      "task_kind": "evaluate"
+    },
+    "decide": {
+      "keywords": ["approve", "decision", "scope", "form", "pick", "founder submit"],
+      "machine": "form",
+      "agents": ["planner", "verifier"],
+      "work_tier": "reason",
+      "task_kind": "aggregate"
+    },
+    "research": {
+      "keywords": ["research", "compare", "market", "competitor", "summarize", "explain"],
+      "machine": "home",
+      "agents": ["planner"],
+      "work_tier": "reason",
+      "task_kind": "research"
+    },
+    "unify": {
+      "keywords": ["unify", "paste", "session", "merge brief", "transcript", "library"],
+      "machine": "home",
+      "agents": ["builder"],
+      "work_tier": "bulk",
+      "task_kind": "ui_gen"
+    },
+    "vocabulary": {
+      "keywords": ["vocabulary", "terminology", "tier", "scan repo", "display word"],
+      "machine": "vocab",
+      "agents": ["verifier"],
+      "work_tier": "check",
+      "task_kind": "evaluate"
+    },
+    "connect": {
+      "keywords": ["webhook", "n8n", "integration", "hook", "cursor plugin", "wire stack"],
+      "machine": "connect",
+      "agents": ["builder"],
+      "work_tier": "build",
+      "task_kind": "code_gen"
+    },
+    "chat": {
+      "keywords": ["hello", "help", "what", "how", "why", "question"],
+      "machine": "living-chat",
+      "agents": ["builder"],
+      "work_tier": "bulk",
+      "task_kind": "ui_gen"
+    },
+    "multi": {
+      "keywords": ["end to end", "full stack", "planner builder verifier", "multi agent", "whole flow", "from idea to ship"],
+      "machine": "living-chat",
+      "agents": ["planner", "builder", "verifier"],
+      "work_tier": "build",
+      "task_kind": "aggregate",
+      "force_multi": true
+    }
+  },
+  "complexity_boost": {
+    "min_chars_multi": 420,
+    "min_lines_multi": 12,
+    "multi_agents": ["planner", "builder", "verifier"]
+  },
+  "task_kind_model_lane": {
+    "research": "gemini_context",
+    "code_gen": "claude_code",
+    "ui_gen": "openrouter_bulk",
+    "evaluate": "gpt_control",
+    "aggregate": "gpt_control"
+  },
+  "tier_to_forge_role": {
+    "bulk": "bulk",
+    "check": "check",
+    "build": "build",
+    "act": "act",
+    "reason": "reason",
+    "critical": "critical"
+  }
+}

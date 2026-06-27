@@ -153,7 +153,7 @@ flowchart TB
 **Principles (unchanged from v5.1):**
 - Request thread: **read disk only** — never `build_payload`
 - Rebuild: worker `:13030` only
-- FREEZE ON — no factory drain in hub gates
+- FREEZE ON — no Cloud Forge Run in hub gates
 - No new ports in U1–U5
 
 ---

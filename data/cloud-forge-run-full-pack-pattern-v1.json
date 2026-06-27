@@ -1,21 +1,24 @@
 {
-  "schema": "cloud-drain-full-pack-pattern-v1",
+  "schema": "cloud-forge-run-full-pack-pattern-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-23T11:05:00Z",
+  "saved_at": "2026-06-23T21:30:00Z",
   "locked": true,
-  "incident_ref": "brain-os/incidents/SINA_CLOUD_DRAIN_BATCH3_RAILWAY_CHAIN_INCIDENT_042_LOCKED_v1.md",
-  "law_doc": "brain-os/law/enforcement/SOURCEA_CLOUD_DRAIN_FULL_PACK_PATTERN_LOCKED_v1.md",
-  "one_law": "One external trigger = full_pack max_advance 100 internal loop on Railway — same pattern batch 2 and batch 3+",
+  "incident_ref": "brain-os/incidents/SINA_CLOUD_FORGE_RUN_BATCH3_RAILWAY_CHAIN_INCIDENT_042_LOCKED_v1.md",
+  "vocabulary_incident_043": "brain-os/incidents/SINA_CLOUD_FORGE_RUN_HUNDRED_ROWS_VOCABULARY_INCIDENT_043_LOCKED_v1.md",
+  "vocabulary_ssot": "data/cloud-forge-run-hundred-rows-per-turn-vocabulary-v1.json",
+  "law_doc": "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_FULL_PACK_PATTERN_LOCKED_v1.md",
+  "vocabulary_law": "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_HUNDRED_ROWS_PER_TURN_TERMINOLOGY_LOCKED_v1.md",
+  "one_law": "One external trigger (~10 min) = 100 queue rows down in one Railway POST (mandatory quota — NOT up to 100) — NOT one row per cron; NOT a background pack job",
   "pattern": {
     "full_pack": true,
     "max_advance_per_tick": 100,
-    "internal_loop": "run_pack_loop in cloud_drain_auto_runtime_v1.py",
+    "internal_loop": "run_auto_runtime_pack in cloud_auto_runtime_v1.py",
     "not": "one CLOUD-SEC per cloudflare cron tick"
   },
   "triggers": [
     {
       "id": "cloudflare_cron",
-      "source": "cloud/workers/cloud-drain-tick-v1",
+      "source": "cloud/workers/cloud-auto-runtime-tick-v1",
       "cron": "*/10 * * * *",
       "body": {
         "trigger_source": "cloudflare_cron",
@@ -37,9 +40,9 @@
   ],
   "execution_plane": {
     "motor": "Railway sourcea-fbe-runner",
-    "queue_api": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-drain/queue/v1",
-    "auto_tick_api": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-drain/auto-tick/v1",
-    "observer": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-drain/observer/v1",
+    "queue_api": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/queue/v1",
+    "auto_tick_api": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/auto-tick/v1",
+    "observer": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/observer/v1",
     "mac_cockpit": "Cloud Workers.app http://127.0.0.1:13027/"
   },
     "batches": {
@@ -59,7 +62,7 @@
     "batch_5": {
       "status": "ACTIVE",
       "range": "CLOUD-SEC-401..CLOUD-SEC-500",
-      "queue_path": "data/secondary-cloud-drain-batch-5-locked-v1.json"
+      "queue_path": "data/secondary-cloud-forge-run-batch-5-locked-v1.json"
     },
     "batch_6": {
       "status": "ready_locked",

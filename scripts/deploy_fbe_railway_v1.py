@@ -75,23 +75,16 @@ _STAGING_DATA_FILES = (
     "cloud-comprehension-bay-v1.json",
     "comprehension-golden-v1.json",
     "loop-specialist-cloud-contract-v1.json",
-    "secondary-cloud-drain-next-100-v1.json",
-    "cloud-drain-queue-active-v1.json",
-    "secondary-cloud-drain-batch-2-locked-v1.json",
-    "secondary-cloud-drain-batch-3-locked-v1.json",
-    "secondary-cloud-drain-batch-4-locked-v1.json",
-    "secondary-cloud-drain-batch-5-locked-v1.json",
-    "secondary-cloud-drain-batch-6-locked-v1.json",
-    "secondary-cloud-drain-batch-7-locked-v1.json",
-    "secondary-cloud-drain-batch-8-locked-v1.json",
-    "secondary-cloud-drain-batch-9-locked-v1.json",
-    "secondary-cloud-drain-batch-10-locked-v1.json",
-    "secondary-cloud-drain-batch-1-complete-locked-v1.json",
-    "cloud-drain-queue-path-v1.py",
-    "hub-cloud-drain-proceed-v1.json",
-    "cloud-drain-full-pack-pattern-v1.json",
+    "secondary-cloud-forge-run-next-100-v1.json",
+    "cloud-forge-run-queue-active-v1.json",
+    "cloud-forge-run-competitor-5000-patch-v1.json",
+    "cloud-forge-run-extension-wave2-patch-v1.json",
+    "portfolio-extension-wave2-manifest-v1.json",
+    "cloud-forge-run-queue-path-v1.py",
+    "hub-cloud-forge-run-proceed-v1.json",
+    "cloud-forge-run-full-pack-pattern-v1.json",
     "truth-log-cloud-contract-v1.json",
-    "cloud-drain-auto-runtime-v1.json",
+    "cloud-auto-runtime-v1.json",
     "living-system-chain-registry-cloud-v1.json",
     "forge-scoring-ssot-v01.json",
     "forge-github-source-v02.json",
@@ -146,14 +139,15 @@ _STAGING_SCRIPT_FILES = (
     "forge_task_graph_emit_v01.py",
     "fbe_sign_work_order_v1.py",
     "fbe_cloud_motor_seed_v1.py",
-    "hub_cloud_drain_proceed_v1.py",
+    "hub_cloud_forge_run_proceed_v1.py",
     "truth_log_v1.py",
     "truth_layer_receipt_writer_v1.py",
     "truth_layer_verifier_v1.py",
-    "cloud_drain_queue_path_v1.py",
-    "cloud_drain_single_cycle_gate_v1.py",
-    "cloud_drain_auto_runtime_v1.py",
+    "cloud_forge_run_queue_path_v1.py",
+    "cloud_auto_runtime_single_cycle_gate_v1.py",
+    "cloud_auto_runtime_v1.py",
     "cloud_forge_seed_v1.py",
+    "cloud_forge_run_supabase_v1.py",
     "autonomous_drain_receipt_cloud_v1.py",
     "living_system_chain_validate_v1.py",
     "portfolio_competitor_forge_dispatch_v1.py",
@@ -204,6 +198,11 @@ def _stage_deploy_context() -> dict:
         if src.is_file():
             _copy_file(src, STAGING / "data" / name)
             copied.append(f"data/{name}")
+    for path in sorted((ROOT / "data").glob("secondary-cloud-forge-run-batch-*.json")):
+        rel = f"data/{path.name}"
+        if rel not in copied:
+            _copy_file(path, STAGING / "data" / path.name)
+            copied.append(rel)
     for sub in ("factory-specs", "policy-packs", "schemas"):
         src = ROOT / "data" / sub
         if src.is_dir():
@@ -301,10 +300,10 @@ def _health(url: str) -> dict:
 
 
 def _probe_cloud_proceed_route(url: str) -> dict:
-    """Dry-run POST — route live when hub-cloud-drain-proceed schema returns (not unknown_route/import)."""
+    """Dry-run POST — route live when hub-cloud-forge-run-proceed schema returns (not unknown_route/import)."""
     try:
         req = urllib.request.Request(
-            f"{url.rstrip('/')}/api/cloud-drain/proceed/v1",
+            f"{url.rstrip('/')}/api/cloud-forge-run/proceed/v1",
             data=json.dumps(
                 {
                     "dry_run": True,
@@ -335,7 +334,7 @@ def _probe_cloud_proceed_route(url: str) -> dict:
         return {"ok": False, "url": url, "route_error": err, "sample": row}
     if "No module named" in str(row.get("message") or ""):
         return {"ok": False, "url": url, "route_error": "import_missing", "sample": row}
-    ok = schema == "hub-cloud-drain-proceed-v1" or (bool(row) and err not in ("unknown_route", "execution_failed"))
+    ok = schema == "hub-cloud-forge-run-proceed-v1" or (bool(row) and err not in ("unknown_route", "execution_failed"))
     return {"ok": ok, "url": url, "route_error": err or None, "sample": row}
 
 
@@ -378,8 +377,8 @@ def _ensure_railway_service(*, project_id: str, service: str, environment: str =
 def _validate_dockerfile_batch_sync() -> dict[str, Any]:
     """Fail deploy early if Dockerfile COPY omits active/next batch queue files."""
     dockerfile = ROOT / "cloud" / "Dockerfile.fbe-runner"
-    ptr = _read(ROOT / "data" / "cloud-drain-queue-active-v1.json")
-    required: list[str] = ["cloud-drain-queue-active-v1.json"]
+    ptr = _read(ROOT / "data" / "cloud-forge-run-queue-active-v1.json")
+    required: list[str] = ["cloud-forge-run-queue-active-v1.json"]
     qrel = str(ptr.get("queue_path") or "").strip()
     if qrel.startswith("data/"):
         required.append(qrel.replace("data/", "", 1))
@@ -388,11 +387,50 @@ def _validate_dockerfile_batch_sync() -> dict[str, Any]:
     if nrel.startswith("data/"):
         required.append(nrel.replace("data/", "", 1))
     text = dockerfile.read_text(encoding="utf-8") if dockerfile.is_file() else ""
+    if "secondary-cloud-forge-run-batch-*" in text or "secondary-cloud-forge-run-batch-*.json" in text:
+        qrel = str(ptr.get("queue_path") or "").strip()
+        if qrel.startswith("data/"):
+            fname = qrel.replace("data/", "", 1)
+            missing = [] if fname in text or "secondary-cloud-forge-run-batch-*" in text else [fname]
+        else:
+            missing = []
+        return {"ok": not missing, "missing_in_dockerfile": missing, "required": required, "mode": "glob"}
     missing = [name for name in required if name not in text]
     return {"ok": not missing, "missing_in_dockerfile": missing, "required": required}
 
 
+def _load_env_file(path: Path) -> dict[str, str]:
+    out: dict[str, str] = {}
+    if not path.is_file():
+        return out
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, val = line.partition("=")
+        out[key.strip()] = val.strip().strip('"').strip("'")
+    return out
+
+
+def _sync_portfolio_spine_supabase_to_railway() -> dict[str, Any]:
+    """Keep FBE on portfolio-spine host — never the paused mmdhnktybjpwlwdczgbq ref."""
+    env = _load_env_file(Path.home() / ".sourcea-secrets/portfolio-spine.env")
+    url = env.get("SUPABASE_URL", "").strip()
+    key = env.get("SUPABASE_SERVICE_ROLE_KEY", "").strip()
+    if not url or not key or "mmdhnktybjpwlwdczgbq" in url:
+        return {"ok": False, "skipped": True, "reason": "portfolio_spine_secrets_missing_or_stale"}
+    results: dict[str, Any] = {"ok": True, "host": url.replace("https://", "").split("/")[0]}
+    for name, val in (("SUPABASE_URL", url), ("SUPABASE_SERVICE_ROLE_KEY", key)):
+        code, out = _run(["railway", "variables", "--set", f"{name}={val}"], cwd=ROOT, timeout=60)
+        results[name] = {"code": code}
+        if code != 0:
+            results["ok"] = False
+            results["error"] = out[-200:]
+    return results
+
+
 def deploy(*, link: bool = True, verify_comprehension: bool = False) -> dict:
+    os.environ["SOURCEA_RAILWAY_DEPLOY"] = "1"
     cfg = _read(CONFIG)
     rail = cfg.get("railway") or {}
     project_id = str(rail.get("project_id") or "")
@@ -404,6 +442,7 @@ def deploy(*, link: bool = True, verify_comprehension: bool = False) -> dict:
         "deployment": "railway",
         "comprehension_verify": dict(COMPREHENSION_VERIFY_SKIPPED),
     }
+    row["supabase_env_sync"] = _sync_portfolio_spine_supabase_to_railway()
 
     batch_sync = _validate_dockerfile_batch_sync()
     row["dockerfile_batch_sync"] = batch_sync

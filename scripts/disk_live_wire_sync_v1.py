@@ -57,6 +57,14 @@ def _sascip_line() -> str:
 
 def _zero_drift_line() -> str:
     path = SINA / "governance-zero-drift-live-wire-v1.json"
+    ongoing = _read_json(SINA / "live-ongoing-prompts-next-10-v1.json")
+    if ongoing.get("queue_exhausted") and ongoing.get("execution_surface") == "cloud_forge":
+        cloud = ongoing.get("cloud_forge_glance") or {}
+        head = str(cloud.get("head") or "cloud")
+        return (
+            f"ZERO-DRIFT REVIEW · queue=exhausted · cloud={head} · "
+            "L0.5+L1+L2+SASCIP · ops=CLOUD_FORGE"
+        )
     if not path.is_file():
         return ""
     try:
@@ -195,7 +203,7 @@ def _founder_daily_ops_line() -> str:
 
         return founder_daily_ops_line()
     except Exception:
-        return "Loop specialist tick on Hub · ASF resume drain if FREEZE"
+        return "Auto Runtime specialist tick on Hub · ASF resume Cloud Forge Run if FREEZE"
 
 
 def _form_official_line() -> str:
@@ -226,13 +234,19 @@ def _surfaces_from_bundle(bundle: dict) -> dict:
         "queue_sa": fn.get("queue_sa") or "",
         "dual_pick": bundle.get("dual_pick") or {},
         "h1_daily": {
-            "name": "Worker Hub (H1 Daily Necessities)",
-            "url": "http://127.0.0.1:13020/",
-            "api": "GET /api/worker-hub/v1",
+            "name": "Cloud Workers (primary cockpit)",
+            "url": "http://127.0.0.1:13027/",
+            "api": "GET /api/cloud-workers/v1",
         },
         "h2_machines": {
-            "name": "Machine Hub (H2)",
-            "url": "http://127.0.0.1:13020/machines/",
+            "name": "Cloud Workers machines glance",
+            "url": "http://127.0.0.1:13027/",
+        },
+        "form_official_ui": {
+            "name": "Official founder form (Chat Unify)",
+            "url": "http://127.0.0.1:13023/form/",
+            "api": "GET|POST /api/live-founder-decision-form-v1",
+            "intake": str(SINA / "live-founder-decision-form-intake-v1.json"),
         },
         "founder_daily_ops": _founder_daily_ops_line(),
         "next_steps": {
@@ -242,6 +256,21 @@ def _surfaces_from_bundle(bundle: dict) -> dict:
         "inject_execution_path": inject.get("execution_path") or "",
         "truth_bundle_at": bundle.get("at") or "",
     }
+    ongoing = _read_json(SINA / "live-ongoing-prompts-next-10-v1.json")
+    if ongoing.get("execution_surface") == "cloud_forge":
+        cloud = ongoing.get("cloud_forge_glance") or {}
+        head = str(cloud.get("head") or "")
+        if head:
+            surfaces["execution_surface"] = "cloud_forge"
+            surfaces["cloud_forge_glance"] = cloud
+            surfaces["queue_sa"] = head
+            surfaces["inject_execution_path"] = (
+                f"cloud_forge CF cron */10 · head {head} · Mac observes only"
+            )
+            surfaces["factory_now_line"] = (
+                (surfaces.get("factory_now_line") or "").rstrip()
+                + f" · cloud {head} batch {cloud.get('batch_id')}"
+            ).strip()
     if sascip:
         surfaces["sascip_line"] = sascip
         surfaces["stranger_agent_monitor"] = {
@@ -487,6 +516,21 @@ def _surfaces_from_bundle(bundle: dict) -> dict:
             }
     except Exception:
         pass
+    try:
+        sys.path.insert(0, str(SCRIPTS))
+        from sourcea_e2e_run_v1 import read_last_report  # noqa: WPS433
+
+        e2e_row = read_last_report()
+        surfaces["e2e_last_report_line"] = e2e_row.get("e2e_last_report_line") or ""
+        surfaces["e2e_last_report_path"] = str(SINA / "sourcea-e2e-last-report-v1.json")
+        surfaces["e2e_weekly_checklist"] = {
+            "law": "brain-os/law/enforcement/SOURCEA_E2E_WEEKLY_CHECKLIST_LOCKED_v1.md",
+            "runner": "scripts/sourcea_e2e_run_v1.py",
+            "registry": "data/sourcea-e2e-check-registry-v1.json",
+        }
+    except Exception:
+        surfaces["e2e_last_report_line"] = "E2E: wire pending — run sourcea_e2e_run_v1.py --read-last"
+        surfaces["e2e_last_report_path"] = str(SINA / "sourcea-e2e-last-report-v1.json")
     return surfaces
 
 

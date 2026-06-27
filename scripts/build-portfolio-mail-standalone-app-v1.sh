@@ -24,6 +24,7 @@ rm -rf "$STAGE"
 mkdir -p "$STAGE/Contents/MacOS" "$STAGE/Contents/Resources" "$BUNDLE_STAGE/scripts"
 
 cp "$ROOT/scripts/portfolio-mail-stack-boot.sh" "$BUNDLE_STAGE/scripts/"
+cp "$ROOT/scripts/portfolio-mail-server.py" "$BUNDLE_STAGE/scripts/"
 chmod +x "$BUNDLE_STAGE/scripts/portfolio-mail-stack-boot.sh"
 
 SWIFT_COMMON="$APPS_BRAND/SinaAppRouter.swift $APPS_BRAND/SinaStandaloneShell.swift"
@@ -58,7 +59,7 @@ cat >"$STAGE/Contents/Info.plist" <<PLIST
   </dict>
   <key>LSEnvironment</key>
   <dict>
-    <key>SINA_COMMAND_PORT</key><string>13020</string>
+    <key>PORTFOLIO_MAIL_PORT</key><string>13028</string>
     <key>PORTFOLIO_MAIL_STANDALONE</key><string>1</string>
   </dict>
 </dict>
@@ -89,7 +90,7 @@ sign_app "$APPS_HOME"
 echo "→ Cold-start smoke test (health only, no open)…"
 COLD_OK=0
 for _ in {1..15}; do
-  if /usr/bin/curl -sf "http://127.0.0.1:13020/mail-hub/" >/dev/null 2>&1; then
+  if /usr/bin/curl -sf "http://127.0.0.1:13028/mail-hub/" >/dev/null 2>&1; then
     echo "✓ Cold-start PASS — mail hub reachable"
     COLD_OK=1
     break

@@ -13,16 +13,16 @@ spec = importlib.util.spec_from_file_location('m', 'scripts/commercial_mail_draf
 mod = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(mod)
 assert mod.is_personal_from("sina.kazemnezhad@gmail.com")
-assert not mod.is_personal_from("hello@sourcea.com")
+assert not mod.is_personal_from("hello@sourcea.app")
 name, email = mod.lane_from("AB1")
-assert email == "hello@sourcea.com"
+assert email == "hello@sourcea.app"
 print("OK: sender guard module")
 PY
 
 # open-mail must refuse when official account missing from Mail.app
 if python3 scripts/commercial_eval_booking_agent_v1.py \
     --row-id cp-32ddb1794d --to prospect@agency.com --open-mail 2>/dev/null; then
-  fail "open-mail should refuse without hello@sourcea.com in Mail.app"
+  fail "open-mail should refuse without hello@sourcea.app in Mail.app"
 fi
 echo "OK: open-mail blocked until official Mail account configured"
 

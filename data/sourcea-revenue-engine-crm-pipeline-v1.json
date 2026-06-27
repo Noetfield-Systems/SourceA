@@ -1,0 +1,207 @@
+{
+  "schema": "sourcea-revenue-engine-crm-pipeline-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-24T17:00:00Z",
+  "authority": "docs/SOURCEA_REVENUE_ENGINE_V1_LOCKED_v1.md",
+  "templates_doc": "docs/commercial/SOURCEA_REVENUE_ENGINE_OUTREACH_TEMPLATES_LOCKED_v1.md",
+  "runtime_path": "~/.sina/sourcea-revenue-engine-crm-v1.json",
+  "sender": "hello@sourcea.app",
+  "booking_url": "https://cal.com/sourcea/proof-demo",
+  "offer_url": "https://sourcea.app/sourcea/offer",
+  "case_study_url": "https://sourcea.app/sourcea/case-studies/pureflow",
+  "pureflow_live_url": "https://pureflow.sourcea.app/",
+  "one_law": "Log every touch on disk — outreach → conversation → proposal → paid. Cash velocity beats perfect TAM for 60 days.",
+  "stages": [
+    {
+      "id": "lead",
+      "label": "Lead",
+      "order": 1,
+      "description": "Named prospect on list — no outreach yet"
+    },
+    {
+      "id": "outreach_sent",
+      "label": "Outreach sent",
+      "order": 2,
+      "description": "First personalized message sent"
+    },
+    {
+      "id": "conversation",
+      "label": "Conversation",
+      "order": 3,
+      "description": "Reply received or live exchange started"
+    },
+    {
+      "id": "meeting_booked",
+      "label": "Meeting booked",
+      "order": 4,
+      "description": "Discovery or proof demo scheduled"
+    },
+    {
+      "id": "proposal_sent",
+      "label": "Proposal sent",
+      "order": 5,
+      "description": "Scoped offer or SOW delivered"
+    },
+    {
+      "id": "won",
+      "label": "Won",
+      "order": 6,
+      "description": "Deposit or full payment received"
+    },
+    {
+      "id": "lost",
+      "label": "Lost",
+      "order": 7,
+      "description": "Declined or gone cold after proposal"
+    },
+    {
+      "id": "nurture",
+      "label": "Nurture",
+      "order": 8,
+      "description": "Not now — follow up later"
+    }
+  ],
+  "segments": [
+    {
+      "id": "warm_network",
+      "label": "Warm network",
+      "priority": "P0",
+      "pay_likelihood_14d": "highest"
+    },
+    {
+      "id": "agency_consultant",
+      "label": "Agency / AI consultant",
+      "priority": "P0",
+      "pay_likelihood_14d": "high"
+    },
+    {
+      "id": "service_operator",
+      "label": "Local service operator",
+      "priority": "P1",
+      "pay_likelihood_14d": "medium"
+    },
+    {
+      "id": "property_strata",
+      "label": "Property / strata",
+      "priority": "P2",
+      "pay_likelihood_14d": "lower"
+    }
+  ],
+  "channels": ["email", "linkedin_dm", "whatsapp", "referral_intro", "in_person"],
+  "offer_skus": [
+    {
+      "id": "SKU-48H-001",
+      "name": "48-Hour Proof-Backed Acquisition System",
+      "price_min_cad": 1500,
+      "price_max_cad": 5000,
+      "type": "project"
+    },
+    {
+      "id": "SKU-DFY-001",
+      "name": "Custom workflow build",
+      "price_min_cad": 3000,
+      "price_max_cad": 10000,
+      "type": "project"
+    },
+    {
+      "id": "SKU-RET-001",
+      "name": "Proof retainer",
+      "price_min_cad": 500,
+      "price_max_cad": 5000,
+      "type": "retainer"
+    }
+  ],
+  "template_ids": [
+    "warm_network_dm",
+    "service_operator_email",
+    "agency_consultant_email",
+    "follow_up_no_reply",
+    "meeting_confirm",
+    "proposal_cover_email",
+    "testimonial_request",
+    "referral_ask"
+  ],
+  "metrics": {
+    "30_day_target": {
+      "paying_clients_min": 3,
+      "cash_collected_cad_min": 3000,
+      "cash_collected_cad_max": 10000,
+      "outreach_sent_min": 50
+    },
+    "funnel": [
+      "outreach_sent",
+      "conversation",
+      "meeting_booked",
+      "proposal_sent",
+      "won"
+    ]
+  },
+  "prospect_fields": {
+    "required": ["id", "name", "segment", "stage", "channel"],
+    "optional": [
+      "company",
+      "email",
+      "linkedin_url",
+      "warmth",
+      "deal_value_cad",
+      "offer_sku",
+      "template_id",
+      "last_touch_at",
+      "next_action",
+      "next_action_due",
+      "notes",
+      "case_study_sent",
+      "offer_page_sent",
+      "pureflow_link_sent"
+    ]
+  },
+  "prospects": [],
+  "activity_log": [],
+  "starter_prospects_example": [
+    {
+      "id": "RE-001",
+      "name": "[First name]",
+      "company": "[Agency or firm]",
+      "segment": "agency_consultant",
+      "channel": "linkedin_dm",
+      "warmth": "warm",
+      "stage": "lead",
+      "offer_sku": "SKU-48H-001",
+      "deal_value_cad": 2500,
+      "template_id": "agency_consultant_email",
+      "next_action": "Personalize warm_network_dm — send with PureFlow link",
+      "next_action_due": "2026-06-25",
+      "notes": "Replace bracket fields before send"
+    },
+    {
+      "id": "RE-002",
+      "name": "[First name]",
+      "company": "[Pool / cleaning / trades co]",
+      "segment": "service_operator",
+      "channel": "email",
+      "warmth": "cold",
+      "stage": "lead",
+      "offer_sku": "SKU-48H-001",
+      "deal_value_cad": 2000,
+      "template_id": "service_operator_email",
+      "next_action": "Insight hook on documented service — not generic pitch",
+      "next_action_due": "2026-06-26",
+      "notes": "BC / Vancouver local if applicable"
+    },
+    {
+      "id": "RE-003",
+      "name": "[First name]",
+      "company": "[Known contact org]",
+      "segment": "warm_network",
+      "channel": "email",
+      "warmth": "warm",
+      "stage": "lead",
+      "offer_sku": "SKU-48H-001",
+      "deal_value_cad": 3500,
+      "template_id": "warm_network_dm",
+      "next_action": "Short note + case study + offer link",
+      "next_action_due": "2026-06-25",
+      "notes": "Highest 14-day pay likelihood"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-products-reconcile-receipt-v1",
+  "version": "1.0.0",
+  "reconciled_at": "2026-06-24T15:11:48Z",
+  "ok": true,
+  "product_count": 9,
+  "conflicts": [],
+  "plan_packs": [
+    "agentgo-case-study-6000",
+    "portfolio-next-6000"
+  ]
+}

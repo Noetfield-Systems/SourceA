@@ -50,51 +50,88 @@ final class HeartLauncher {
         }.resume()
     }
 
+    static func formWireOK(completion: @escaping (Bool) -> Void) {
+        guard let url = URL(string: "http://127.0.0.1:\(port)/form/") else {
+            completion(false)
+            return
+        }
+        URLSession.shared.dataTask(with: url) { _, resp, _ in
+            completion((resp as? HTTPURLResponse)?.statusCode == 200)
+        }.resume()
+    }
+
+    static func recycleStalePort(completion: @escaping () -> Void) {
+        let task = Process()
+        task.executableURL = URL(fileURLWithPath: "/bin/bash")
+        task.arguments = ["-c", "lsof -ti:\(port) | xargs kill -9 2>/dev/null || true; sleep 0.35"]
+        task.terminationHandler = { _ in completion() }
+        do {
+            try task.run()
+        } catch {
+            completion()
+        }
+    }
+
+    static func launchServerProcess(completion: @escaping (Bool) -> Void) {
+        let script = bundleRoot() + "/scripts/chat-unify-server.py"
+        guard FileManager.default.fileExists(atPath: script) else {
+            logLine("FAIL missing server script \(script)")
+            completion(false)
+            return
+        }
+        let home = FileManager.default.homeDirectoryForCurrentUser
+        let proc = Process()
+        proc.executableURL = URL(fileURLWithPath: pythonPath())
+        proc.arguments = [script]
+        var env = ProcessInfo.processInfo.environment
+        env["CHAT_UNIFY_BUNDLE_ROOT"] = bundleRoot()
+        env["CHAT_UNIFY_STANDALONE"] = "1"
+        env["CHAT_UNIFY_PORT"] = port
+        let sourceA = home.appendingPathComponent("Desktop/SourceA", isDirectory: true)
+        if FileManager.default.fileExists(atPath: sourceA.path) {
+            env["SINA_SOURCE_A"] = sourceA.path
+        }
+        env["PATH"] = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+        proc.environment = env
+        do {
+            try proc.run()
+            serverProcess = proc
+            let pidFile = home.appendingPathComponent(".sina/chat-unify-server.pid")
+            try? "\(proc.processIdentifier)".write(to: pidFile, atomically: true, encoding: .utf8)
+            logLine("started server pid=\(proc.processIdentifier)")
+            waitForHealth(attempts: 0, completion: completion)
+        } catch {
+            logLine("FAIL start server \(error.localizedDescription)")
+            completion(false)
+        }
+    }
+
     static func startServer(completion: @escaping (Bool) -> Void) {
         healthOK { ok in
             if ok {
-                logLine("server already healthy")
-                completion(true)
+                formWireOK { wired in
+                    if wired {
+                        logLine("server already healthy + form wired")
+                        completion(true)
+                    } else {
+                        logLine("stale server on :\(port) — recycling for form wire")
+                        recycleStalePort {
+                            launchServerProcess(completion: completion)
+                        }
+                    }
+                }
                 return
             }
-            let script = bundleRoot() + "/scripts/chat-unify-server.py"
-            guard FileManager.default.fileExists(atPath: script) else {
-                logLine("FAIL missing server script \(script)")
-                completion(false)
-                return
-            }
-            let home = FileManager.default.homeDirectoryForCurrentUser
-            let proc = Process()
-            proc.executableURL = URL(fileURLWithPath: pythonPath())
-            proc.arguments = [script]
-            var env = ProcessInfo.processInfo.environment
-            env["CHAT_UNIFY_BUNDLE_ROOT"] = bundleRoot()
-            env["CHAT_UNIFY_STANDALONE"] = "1"
-            env["CHAT_UNIFY_PORT"] = port
-            let sourceA = home.appendingPathComponent("Desktop/SourceA", isDirectory: true)
-            if FileManager.default.fileExists(atPath: sourceA.path) {
-                env["SINA_SOURCE_A"] = sourceA.path
-            }
-            env["PATH"] = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-            proc.environment = env
-            do {
-                try proc.run()
-                serverProcess = proc
-                let pidFile = home.appendingPathComponent(".sina/chat-unify-server.pid")
-                try? "\(proc.processIdentifier)".write(to: pidFile, atomically: true, encoding: .utf8)
-                logLine("started server pid=\(proc.processIdentifier)")
-                waitForHealth(attempts: 0, completion: completion)
-            } catch {
-                logLine("FAIL start server \(error.localizedDescription)")
-                completion(false)
-            }
+            launchServerProcess(completion: completion)
         }
     }
 
     static func waitForHealth(attempts: Int, completion: @escaping (Bool) -> Void) {
         healthOK { ok in
             if ok {
-                completion(true)
+                formWireOK { wired in
+                    completion(wired)
+                }
             } else if attempts < 48 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                     waitForHealth(attempts: attempts + 1, completion: completion)
@@ -171,18 +208,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func pollHealthAndLoad(attempts: Int) {
         guard let healthURL = URL(string: "http://127.0.0.1:\(port)/health") else { return }
-        URLSession.shared.dataTask(with: healthURL) { _, resp, _ in
+        URLSession.shared.dataTask(with: healthURL) { data, resp, _ in
             DispatchQueue.main.async {
-                if let http = resp as? HTTPURLResponse, http.statusCode == 200,
-                   let pageURL = URL(string: "http://127.0.0.1:\(self.port)/?ui=2.7.0&t=\(Int(Date().timeIntervalSince1970))") {
-                    HeartLauncher.logLine("window loading UI")
-                    self.webView.load(URLRequest(url: pageURL))
-                } else if attempts < 48 {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                        self.pollHealthAndLoad(attempts: attempts + 1)
+                guard let http = resp as? HTTPURLResponse, http.statusCode == 200 else {
+                    if attempts < 48 {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                            self.pollHealthAndLoad(attempts: attempts + 1)
+                        }
+                    } else {
+                        self.showFailure()
                     }
-                } else {
-                    self.showFailure()
+                    return
+                }
+                var uiVer = "4.2.0"
+                if let data = data,
+                   let row = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+                   let v = row["ui_version"] as? String, !v.isEmpty {
+                    uiVer = v
+                }
+                if let pageURL = URL(string: "http://127.0.0.1:\(self.port)/?ui=\(uiVer)&t=\(Int(Date().timeIntervalSince1970))") {
+                    HeartLauncher.logLine("window loading UI \(uiVer)")
+                    self.webView.load(URLRequest(url: pageURL))
                 }
             }
         }.resume()
@@ -206,6 +252,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 @main
 struct ChatUnifyAppMain {
     static func main() {
+        guard SinaStandaloneShell.prepareApp(bundleId: "com.sina.chatunify.standalone") else { return }
         let app = NSApplication.shared
         let delegate = AppDelegate()
         app.delegate = delegate

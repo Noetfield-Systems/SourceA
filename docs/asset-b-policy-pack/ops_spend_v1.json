@@ -1,0 +1,41 @@
+{
+  "schema": "asset-b-policy-pack-v1",
+  "policy_id": "ops_spend_v1",
+  "buyer_facing_name": "Ops Loop — $50 Spend Cap",
+  "intent": "execute_spend",
+  "description": "Denies any tool purchase or ad spend over $50. Under-cap actions are allowed and logged.",
+  "rules": [
+    {
+      "effect": "deny",
+      "when": "amount_usd > 50",
+      "reason": "Spend exceeds $50 cap"
+    },
+    {
+      "effect": "allow",
+      "when": "amount_usd <= 50",
+      "receipt": {
+        "sign": true,
+        "include": [
+          "vendor",
+          "amount_usd",
+          "purpose",
+          "actor",
+          "timestamp"
+        ],
+        "tamper_check": "sha256"
+      }
+    }
+  ],
+  "demo_steps": [
+    "attempt $75 spend → BLOCKED",
+    "attempt $25 spend → ALLOWED",
+    "view receipt → VERIFIED",
+    "modify receipt → TAMPER FAIL"
+  ],
+  "sku_mapping": "SKU-DFY-001 / ops",
+  "demo_intents": {
+    "block": "demo/asset-b/ops-block.json",
+    "allow": "demo/asset-b/ops-allow.json"
+  },
+  "law": "docs/SOURCEA_ASSET_B_POLICY_PACK_LOCKED_v1.md"
+}

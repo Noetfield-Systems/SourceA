@@ -48,7 +48,7 @@ gate_id="$(echo "$gate_json" | python3 -c "import sys,json; print(json.load(sys.
 gate_hash8="$(echo "$gate_json" | python3 -c "import sys,json; print(json.load(sys.stdin).get('gate_hash8',''))" 2>/dev/null || echo "")"
 gate_line="$(echo "$gate_json" | python3 -c "import sys,json; print(json.load(sys.stdin).get('reply_line1',''))" 2>/dev/null || echo "")"
 
-# Outbound factory drain has no mono-asf pick — do not fail session on empty pick (pipefail)
+# Outbound Cloud Forge Run has no mono-asf pick — do not fail session on empty pick (pipefail)
 pick_line="$(bash scripts/plan-no-asf-run.sh pick 1 2>/dev/null | awk '/^sa-[0-9]/{print; exit}' || true)"
 next_pick="${pick_line%%$'\t'*}"
 next_pick_path="$(echo "$pick_line" | awk -F'\t' '{print $2}')"

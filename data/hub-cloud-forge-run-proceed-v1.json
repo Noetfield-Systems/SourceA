@@ -1,30 +1,62 @@
 {
-  "schema": "hub-cloud-drain-proceed-v1",
-  "version": "1.0.0",
-  "saved_at": "2026-06-21T21:30:00Z",
+  "schema": "hub-cloud-forge-run-proceed-v1",
+  "version": "1.2.0",
+  "saved_at": "2026-06-23T21:30:00Z",
   "locked": true,
-  "one_law": "Cloud activation tasks proceed ONLY via Hub POST — not local agent dispatch. Mac proxies one click to Railway · OpenRouter or Gemini on cloud.",
-  "hub_api": "POST /api/cloud-drain/proceed/v1",
-  "cloud_api": "POST /api/cloud-drain/proceed/v1",
-  "script": "scripts/hub_cloud_drain_proceed_v1.py",
-  "validator": "scripts/validate-hub-cloud-drain-proceed-v1.sh",
-  "receipt": "~/.sina/hub-cloud-drain-proceed-receipt-v1.json",
+  "one_law": "Cloud Forge Run = Cloud Workers.app (:13027) or CF cron → Railway FBE full_pack max_advance 100. One trigger drains one full batch — INCIDENT-042.",
+  "full_pack_pattern_ssot": "data/cloud-forge-run-full-pack-pattern-v1.json",
+  "incident_ref": "brain-os/incidents/SINA_CLOUD_FORGE_RUN_BATCH3_RAILWAY_CHAIN_INCIDENT_042_LOCKED_v1.md",
+  "primary_cockpit": {
+    "app": "Cloud Workers.app",
+    "port": 13027,
+    "api": "POST http://127.0.0.1:13027/api/cloud-workers/v1",
+    "body": {
+      "action": "proceed",
+      "full_pack": true,
+      "max_advance": 100,
+      "llm_provider": "openrouter",
+      "full_motor": true
+    }
+  },
+  "hub_api": "POST http://127.0.0.1:13027/api/cloud-workers/v1 {\"action\":\"proceed\",\"full_pack\":true,\"max_advance\":100}",
+  "cloud_api": "POST https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/auto-tick/v1",
+  "script": "scripts/hub_cloud_forge_run_proceed_v1.py",
+  "validator": "scripts/validate-hub-cloud-forge-run-proceed-v1.sh",
+  "receipt": "~/.sina/hub-cloud-forge-run-proceed-receipt-v1.json",
+  "proceed_log": "~/.sina/cloud-workers-proceed-log-v1.jsonl",
   "llm_providers": ["openrouter", "gemini"],
   "default_llm": "openrouter",
   "full_motor_default": true,
-  "trigger_phrases": ["proceed", "next task", "finish the next"],
-  "agent_rule": "When founder says proceed for cloud drain — point to Hub Proceed button or POST hub API · never portfolio_competitor_forge_dispatch on Mac",
+  "full_pack_default": true,
+  "batch2_complete": {
+    "at": "2026-06-23T08:55:06Z",
+    "head": "CLOUD-SEC-200",
+    "queue_batch_complete": true
+  },
+  "batch5_active": {
+    "at": "2026-06-23T21:10:53Z",
+    "head": "CLOUD-SEC-401",
+    "queue_batch_complete": false,
+    "queue_path": "data/secondary-cloud-forge-run-batch-5-locked-v1.json",
+    "pattern": "full_pack max_advance 100 — CF cron */10 or Cloud Workers Proceed — anti-poison single-plan forbidden"
+  },
+  "anti_poison": {
+    "single_plan_proceed": "FORBIDDEN",
+    "redirect": "POST /api/cloud-forge-run/auto-tick/v1 with full_pack:true max_advance:100",
+    "incident": "INCIDENT-042"
+  },
+  "trigger_phrases": ["proceed", "next task", "full pack"],
+  "agent_rule": "Point founder to Cloud Workers Proceed — not Worker Hub :13020 · not Mac FORGE",
   "forbidden": [
-    "Agent running portfolio_competitor_forge_dispatch_v1.py on Mac for activation cloud tasks",
-    "Local full FORGE motor when hub-cloud-proceed law active",
-    "Chat proceed without hub receipt"
+    "Requiring Worker Hub :13020 for Cloud Forge Run Proceed",
+    "Agent running portfolio_competitor_forge_dispatch_v1.py on Mac for CLOUD-SEC rows",
+    "Chat proceed without Railway receipt",
+    "Single-plan proceed (/api/cloud-forge-run/proceed/v1 without full_pack) — POISON INCIDENT-042"
   ],
   "wired_to": [
-    "scripts/sina-command-server.py",
+    "scripts/cloud-workers-server.py",
+    "scripts/cloud_workers_hub_v1.py",
     "scripts/fbe_cloud_worker_http_v1.py",
-    "scripts/worker_hub_v1.py",
-    "scripts/next_task_trigger_v1.py",
-    "scripts/agentic_conduct_gate_v1.py",
-    "scripts/agent_nerve_system_v1.py"
+    "cloud/workers/cloud-auto-runtime-tick-v1"
   ]
 }

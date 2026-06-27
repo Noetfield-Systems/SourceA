@@ -92,7 +92,7 @@
           "aliases": ["operations@noetfield.com"]
         },
         {
-          "address": "hello@sourcea.com",
+          "address": "hello@sourcea.app",
           "brand": "SourceA",
           "channel": "Mail.app / commercial sender law",
           "scripts": ["send_ab1_single_v1.py", "commercial_mail_draft_v1.py --lane AB1"]
@@ -109,6 +109,8 @@
         "TF-HELLO-GOOGLE_WORKSPACE_APP_PASSWORD",
         "NF-OPERATION-GOOGLE_WORKSPACE_APP_PASSWORD",
         "SA-HELLO-GOOGLE_WORKSPACE_APP_PASSWORD",
+        "SA-CONTACT-GOOGLE_WORKSPACE_APP_PASSWORD",
+        "SA-FORGE-GOOGLE_WORKSPACE_APP_PASSWORD",
         "VL-HELLO-GOOGLE_WORKSPACE_APP_PASSWORD",
         "CF_API_TOKEN",
         "CF_EMAIL_API_TOKEN",

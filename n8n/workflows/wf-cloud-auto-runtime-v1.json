@@ -1,5 +1,5 @@
 {
-  "name": "wf-cloud-drain-auto-v1",
+  "name": "wf-cloud-auto-runtime-v1",
   "nodes": [
     {
       "id": "fa84a53a-ed68-4df0-8d75-1f36aabd867f",
@@ -31,7 +31,7 @@
         "url": "http://127.0.0.1:13020/api/cloud-workers/v1",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\"action\": \"glue_run\", \"command\": \"cloud-drain-auto-tick\"}",
+        "jsonBody": "{\"action\": \"glue_run\", \"command\": \"cloud-auto-runtime-tick\"}",
         "options": {
           "response": {
             "response": {
@@ -65,6 +65,6 @@
   },
   "meta": {
     "schema": "sina-n8n-glue-workflow-v1",
-    "glue_command": "cloud-drain-auto-tick"
+    "glue_command": "cloud-auto-runtime-tick"
   }
 }

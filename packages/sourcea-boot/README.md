@@ -69,4 +69,4 @@ https://github.com/sourcea-io/sourcea-boot
 
 ## License
 
-MIT · [SourceA](https://sourcea.com) · hello@sourcea.com
+MIT · [SourceA](https://sourcea.com) · hello@sourcea.app

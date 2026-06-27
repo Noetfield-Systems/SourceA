@@ -1,0 +1,21 @@
+{
+  "schema": "cloud-forge-run-rename-manifest-v1",
+  "version": "1.0.0",
+  "at": "2026-06-24T22:00:00Z",
+  "migration_script": "scripts/cloud_forge_run_physical_rename_v1.py",
+  "renamed": {
+    "drain_to": "cloud-forge-run",
+    "loop_to": "cloud-auto-runtime",
+    "examples": {
+      "scripts": "cloud_drain_auto_runtime_v1.py → cloud_auto_runtime_v1.py",
+      "queue": "fbe/lib/cloud_drain_queue_v1.py → fbe/lib/cloud_forge_run_queue_v1.py",
+      "data": "cloud-drain-queue-active-v1.json → cloud-forge-run-queue-active-v1.json",
+      "batches": "secondary-cloud-drain-batch-N → secondary-cloud-forge-run-batch-N",
+      "api": "/api/cloud-drain/* → /api/cloud-forge-run/* (legacy alias kept)",
+      "cf_worker": "cloud-drain-tick-v1 → cloud-auto-runtime-tick-v1",
+      "env": "CLOUD_DRAIN_AUTO_PROCEED → CLOUD_FORGE_RUN_AUTO_PROCEED (legacy env still read)"
+    }
+  },
+  "batch_files_renamed": 50,
+  "text_files_touched": 314
+}

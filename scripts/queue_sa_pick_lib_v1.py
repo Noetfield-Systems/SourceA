@@ -77,14 +77,14 @@ def _phase_market_pick() -> dict | None:
         return None
     if str(obs.get("era") or "") != "phase_market":
         return None
-    head = str(obs.get("cloud_drain_head") or "CLOUD-SEC-001")
+    head = str(obs.get("cloud_forge_run_head") or "CLOUD-SEC-001")
     return {
         "id": head,
         "phase": "phase-market",
         "tier": "T0",
-        "status": "cloud_drain",
-        "title": f"Secondary cloud drain · {head}",
-        "path": "data/secondary-cloud-drain-next-100-v1.json",
+        "status": "cloud_forge_run",
+        "title": f"Secondary Cloud Forge Run · {head}",
+        "path": "data/secondary-cloud-forge-run-next-100-v1.json",
     }
 
 

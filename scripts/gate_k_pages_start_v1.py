@@ -20,8 +20,11 @@ ROOT = Path(__file__).resolve().parents[1]
 SINA = Path.home() / ".sina"
 RECEIPT = SINA / "gate-k-pages-receipt-v1.json"
 
-DEFAULT_PROJECT = "sourcea-landing"
-CUSTOM_DOMAINS = ("sourcea.com", "www.sourcea.com")
+DEFAULT_PROJECT = "sourcea-com"
+CUSTOM_DOMAINS_BY_PROJECT: dict[str, tuple[str, ...]] = {
+    "sourcea-com": ("sourcea.app", "www.sourcea.app"),
+    "sourcea-landing": ("sourcea.com", "www.sourcea.com"),
+}
 
 
 def _now() -> str:
@@ -83,24 +86,12 @@ def gate_k_start(
 
     domain_rows: list[dict] = []
     if custom_domain and publish_row.get("ok"):
-        base = str(publish_row.get("base_url") or "")
-        wenv = pub._wrangler_env()
-        wr = pub._wrangler_cmd()
-        for dom in CUSTOM_DOMAINS:
-            proc = pub._run(
-                wr + ["pages", "project", "domain", "add", dom, f"--project-name={project}"],
-                timeout=120,
-                env=wenv,
-            )
-            ok = proc.returncode == 0 or "already exists" in (proc.stderr or proc.stdout or "").lower()
-            domain_rows.append(
-                {
-                    "domain": dom,
-                    "ok": ok,
-                    "note": (proc.stderr or proc.stdout or "").strip()[-300:] if not ok else "added or exists",
-                }
-            )
-        steps.append({"step": "custom_domains", "rows": domain_rows})
+        domain_rows_result = pub.add_pages_custom_domains(
+            project=project,
+            domains=CUSTOM_DOMAINS_BY_PROJECT.get(project, ()),
+        )
+        domain_rows = domain_rows_result.get("domains") or []
+        steps.append({"step": "custom_domains", **domain_rows_result})
 
     ok = bool(publish_row.get("ok")) and not publish_row.get("ephemeral")
     base_url = str(publish_row.get("base_url") or "")
@@ -137,7 +128,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Gate K — Cloudflare Pages durable publish")
     ap.add_argument("--project", default=DEFAULT_PROJECT)
     ap.add_argument("--skip-recipe", action="store_true")
-    ap.add_argument("--custom-domain", action="store_true", help="Attempt wrangler pages domain add for sourcea.com")
+    ap.add_argument("--custom-domain", action="store_true", help="Add Pages custom domains for this project")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
     row = gate_k_start(

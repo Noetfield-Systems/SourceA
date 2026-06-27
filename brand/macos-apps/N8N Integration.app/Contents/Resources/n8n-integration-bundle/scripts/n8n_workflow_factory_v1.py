@@ -37,7 +37,7 @@ SPECS = [
     ("wf-semej-session-bookend-v1", "webhook", "semej-bookend", "semej-bookend", None),
     ("wf-backup-receipt-archiver-v1", "cron", "0 3 * * 0", "backup-archive", 10080),
     ("wf-chat-unify-merge-receipt-v1", "webhook", "chat-unify-merge", "chat-unify-merge", None),
-    ("wf-cloud-drain-auto-v1", "cron", "*/15 * * * *", "cloud-drain-auto-tick", 15),
+    ("wf-cloud-auto-runtime-v1", "cron", "*/10 * * * *", "cloud-auto-runtime-tick", 10),
 ]
 
 
