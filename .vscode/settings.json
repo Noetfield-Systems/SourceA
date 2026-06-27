@@ -1,0 +1,24 @@
+{
+  "typescript.tsserver.maxTsServerMemory": 4096,
+  "typescript.tsserver.experimental.enableProjectDiagnostics": false,
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.next/**": true,
+    "**/dist/**": true,
+    "**/receipts/**": true,
+    "**/.git/objects/**": true,
+    "**/.cursor/debug-*.log": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/dist": true,
+    "**/receipts": true,
+    "**/pnpm-lock.yaml": true
+  },
+  "files.exclude": {
+    "**/.cursor/debug-*.log": true
+  },
+  "git.ignoreLimitWarning": true,
+  "npm.autoDetect": "off"
+}
