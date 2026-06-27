@@ -1,0 +1,161 @@
+{
+  "schema": "sourcea-dirty-tree-lane-map-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-06-27T09:53:00Z",
+  "status": "active",
+  "one_law": "A dirty tree is not a blocker when an agent stays inside its assigned lane, checks path-scoped diffs, and never reverts unrelated work.",
+  "receipt": "~/.sina/sourcea-dirty-tree-lane-map-v1.json",
+  "report": "reports/sourcea-dirty-tree-lane-report-v1.json",
+  "script": "scripts/sourcea_dirty_tree_lane_map_v1.py",
+  "validator": "scripts/validate-sourcea-dirty-tree-lanes-v1.sh",
+  "human_doc": "docs/SOURCEA_DIRTY_TREE_LANE_OWNERSHIP_LOCKED_v1.md",
+  "global_rules": [
+    "Never revert unrelated dirty files.",
+    "Before editing, identify the lane and inspect path-scoped status/diff.",
+    "Generated Brain corpus files are frozen unless the assigned task is a knowledge refresh.",
+    "Runtime code, generated corpus, docs, incidents, model ROI, and site assets must not be mixed without an explicit multi-lane order.",
+    "If a task needs another lane, stop and report the required lane handoff."
+  ],
+  "lanes": [
+    {
+      "id": "brain_chat_runtime",
+      "owner": "Brain runtime agent",
+      "purpose": "Brain worker, retrieval, guardrails, live tools, Brain eval scripts, public chatbot widget.",
+      "globs": [
+        "cloud/workers/sourcea-brain-chat-v1/**",
+        "scripts/brain_*",
+        "scripts/sourcea_brain_*",
+        "scripts/sync_brain_*",
+        "scripts/distill_brain_*",
+        "scripts/test_brain_*",
+        "scripts/validate-sourcea-brain*",
+        "scripts/verify_brain*",
+        "data/CHATBOT_KNOWLEDGE_MANIFEST.json",
+        "data/brain-chat-eval-canonical-v1.json",
+        ".cursor/skills/sourcea-brain-chatbot-audit/SKILL.md",
+        "sites/SourceA-landing/green-unified/sourcea-chatbot.js",
+        "sites/SourceA-landing/green-unified/sourcea.css",
+        "sites/SourceA-landing/green-unified/dist/sourcea/sourcea-chatbot.js",
+        "sites/SourceA-landing/green-unified/dist/sourcea/sourcea.css"
+      ],
+      "validator": "scripts/validate-sourcea-brain-chat-v1.sh",
+      "notes": "Do not regenerate corpus unless also assigned generated_brain_corpus."
+    },
+    {
+      "id": "generated_brain_corpus",
+      "owner": "Brain knowledge refresh agent",
+      "purpose": "Crawled, distilled, SQLite, bundle, and generated knowledge artifacts.",
+      "freeze_default": true,
+      "globs": [
+        "data/chatbot-knowledge/**",
+        "data/brain-chat-knowledge-bundle-v1.json",
+        "data/brain-live-source-index-v1.json",
+        "data/brain-public-data-allowlist-v1.json",
+        "data/brain-public-rules-v1.json",
+        "data/brain-chatbot-100-plans-v1.json",
+        "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json"
+      ],
+      "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh",
+      "notes": "Large diffs here are expected only after an explicit knowledge refresh."
+    },
+    {
+      "id": "chat_unify",
+      "owner": "Chat Unify agent",
+      "purpose": "Chat Unify engine, smart router, catalog, public /unify assets.",
+      "globs": [
+        "scripts/chat_unify_*",
+        "data/chat-unify-platform-catalog-v1.json",
+        "sites/SourceA-landing/green-unified/data/chat-unify-platform-catalog-v1.json",
+        "sites/SourceA-landing/green-unified/unify/**",
+        "sites/SourceA-landing/green-unified/unify-demo/**"
+      ],
+      "validator": "scripts/chat_unify_full_e2e_v1.py",
+      "notes": "Founder-session-safe checks only on Mac; full E2E is cloud/ship-window."
+    },
+    {
+      "id": "model_roi",
+      "owner": "Model ROI agent",
+      "purpose": "Model inventory, ROI evals, router policy, dry-run/live model scoring.",
+      "globs": [
+        "data/sourcea-ai-model-*.json",
+        "data/forge-model-roi-matrix-v1.json",
+        "docs/SOURCEA_AI_MODEL_ROI_FULL_MODE_TEST_PLAN_LOCKED_v1.md",
+        "scripts/sourcea_ai_model_roi_*",
+        "scripts/validate-sourcea-ai-model-roi-tests-v1.sh",
+        "scripts/model_dispatch.py"
+      ],
+      "validator": "scripts/validate-sourcea-ai-model-roi-tests-v1.sh",
+      "notes": "Dry-run is Mac-safe. Live provider scoring requires explicit --live."
+    },
+    {
+      "id": "intent_approval_machine",
+      "owner": "Intent approval agent",
+      "purpose": "Founder intent approval machine, runner, validator, docs.",
+      "globs": [
+        "data/founder-intent-approval-machine-v1.json",
+        "docs/FOUNDER_INTENT_APPROVAL_MACHINE_LOCKED_v1.md",
+        "scripts/founder_intent_approval_machine_v1.py",
+        "scripts/validate-founder-intent-approval-machine-v1.sh"
+      ],
+      "validator": "scripts/validate-founder-intent-approval-machine-v1.sh",
+      "notes": "Does not edit product code; emits interpretation receipts."
+    },
+    {
+      "id": "incidents_rules",
+      "owner": "Incident/rule agent",
+      "purpose": "Incident reports, incident registries, and Cursor rules.",
+      "globs": [
+        ".cursor/rules/**",
+        "brain-os/incidents/**",
+        "*INCIDENT*REPORT_LOCKED_v1.md",
+        "docs/BRAIN_CHATBOT_GAP_REPORT_LOCKED_v1.md"
+      ],
+      "validator": "scripts/validate-cursor-alwaysapply-cap-v1.sh",
+      "notes": "Rules should be scoped and not alwaysApply unless explicitly required."
+    },
+    {
+      "id": "docs_plan_registry",
+      "owner": "Docs and plan registry agent",
+      "purpose": "Locked docs, runbooks, priority files, plan registries.",
+      "globs": [
+        "docs/**",
+        "brain-os/plan-registry/**",
+        "scripts/generate_brain_chatbot_100_plans_v1.py",
+        "scripts/validate-brain-chatbot-100-plans-v1.sh"
+      ],
+      "validator": null,
+      "notes": "Do not edit generated corpus or runtime code from this lane."
+    },
+    {
+      "id": "site_assets",
+      "owner": "Landing/site asset agent",
+      "purpose": "Landing data, dist assets, CSS/JS not covered by Brain or Chat Unify lanes.",
+      "globs": [
+        "sites/SourceA-landing/green-unified/**",
+        "SourceA-landing/green-unified/**",
+        "reports/sourcea-app-e2e-all-pages-v1.json",
+        "scripts/publish_sourcea_landing_v1.py",
+        "scripts/validate-forge-terminal-public-demo-v1.sh"
+      ],
+      "validator": "scripts/validate-forge-terminal-public-demo-v1.sh",
+      "notes": "Dist/source pairs must be kept consistent when touched."
+    },
+    {
+      "id": "other_control",
+      "owner": "Coordinator",
+      "purpose": "Files that need manual triage or do not fit a narrower lane.",
+      "globs": [
+        "agent-control-panel/**",
+        "agent-control-panel/command-data.json",
+        "reports/**",
+        ".cursor/skills/**",
+        "cloud/workers/sourcea-app-proxy-v1/**",
+        "data/sourcea-dirty-tree-lane-map-v1.json",
+        "scripts/sourcea_dirty_tree_lane_map_v1.py",
+        "scripts/validate-sourcea-dirty-tree-lanes-v1.sh"
+      ],
+      "validator": null,
+      "notes": "Coordinator decides whether to reassign to a narrower lane."
+    }
+  ]
+}
