@@ -4,7 +4,7 @@
 **SSOT:** `data/sourcea-dirty-tree-lane-map-v1.json`  
 **Script:** `scripts/sourcea_dirty_tree_lane_map_v1.py`  
 **Validator:** `scripts/validate-sourcea-dirty-tree-lanes-v1.sh`  
-**Report:** `reports/sourcea-dirty-tree-lane-report-v1.json`  
+**Report:** `~/.sina/sourcea-dirty-tree-lane-report-v1.json`  
 **Receipt:** `~/.sina/sourcea-dirty-tree-lane-map-v1.json`
 
 ---
@@ -19,12 +19,13 @@ The problem is not that SourceA has many changed files. The problem is when runt
 
 ## Required Agent Flow
 
-1. Identify the lane before editing.
-2. Run a path-scoped status/diff for the target files.
-3. Touch only files in the assigned lane.
-4. Do not revert unrelated dirty files.
-5. If another lane is needed, stop and report the handoff.
-6. Run the lane validator, not a full Mac validator marathon.
+1. Run the pre-agent lane report before plain `git status`.
+2. Identify the lane before editing.
+3. Run a path-scoped status/diff for the target files.
+4. Touch only files in the assigned lane.
+5. Do not revert unrelated dirty files.
+6. If another lane is needed, stop and report the handoff.
+7. Run the lane validator, not a full Mac validator marathon.
 
 ---
 
@@ -60,6 +61,14 @@ This lane includes:
 ---
 
 ## Commands
+
+Pre-agent status:
+
+```bash
+python3 scripts/sourcea_dirty_tree_lane_map_v1.py --write-report --json
+```
+
+This writes to `~/.sina` so the status check does not dirty the repo.
 
 Classify current dirty tree:
 
