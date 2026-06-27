@@ -2,14 +2,14 @@
   "schema": "forge-real-blueprints-v01",
   "version": "1.0.0",
   "saved_at": "2026-06-20T23:42:36Z",
-  "source": "data/secondary-cloud-drain-next-100-v1.json",
+  "source": "data/secondary-cloud-forge-run-next-100-v1.json",
   "scoring_ssot": "data/forge-scoring-ssot-v01.json",
   "target_repo": "sourcea/fbe-cloud-worker",
   "count": 100,
   "blueprints": [
     {
       "id": "MAC-CTL-001",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "mac_control",
         "workstream": "mac_control",
@@ -36,7 +36,9 @@
     },
     {
       "id": "MAC-CTL-002",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "sla_tier": "T1",
+      "estimated_cost_usd": 0.18,
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "mac_control",
         "workstream": "mac_control",
@@ -64,7 +66,7 @@
     },
     {
       "id": "MAC-CTL-003",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "mac_control",
         "workstream": "mac_control",
@@ -91,7 +93,7 @@
     },
     {
       "id": "MAC-CTL-004",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "mac_control",
         "workstream": "mac_control",
@@ -118,7 +120,7 @@
     },
     {
       "id": "MAC-CTL-005",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "mac_control",
         "workstream": "mac_control",
@@ -146,7 +148,7 @@
     },
     {
       "id": "MAC-CTL-006",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "mac_control",
         "workstream": "mac_control",
@@ -173,7 +175,7 @@
     },
     {
       "id": "MAC-CTL-007",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "mac_control",
         "workstream": "mac_control",
@@ -200,7 +202,7 @@
     },
     {
       "id": "MAC-CTL-008",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "mac_control",
         "workstream": "mac_control",
@@ -227,7 +229,7 @@
     },
     {
       "id": "MAC-CTL-009",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "mac_control",
         "workstream": "mac_control",
@@ -254,7 +256,7 @@
     },
     {
       "id": "MAC-CTL-010",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "mac_control",
         "workstream": "mac_control",
@@ -281,7 +283,7 @@
     },
     {
       "id": "CLOUD-SEC-001",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -309,7 +311,7 @@
     },
     {
       "id": "CLOUD-SEC-002",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -336,7 +338,7 @@
     },
     {
       "id": "CLOUD-SEC-003",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -365,7 +367,7 @@
     },
     {
       "id": "CLOUD-SEC-004",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -394,7 +396,7 @@
     },
     {
       "id": "CLOUD-SEC-005",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -423,7 +425,7 @@
     },
     {
       "id": "CLOUD-SEC-006",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -452,7 +454,7 @@
     },
     {
       "id": "CLOUD-SEC-007",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -479,7 +481,7 @@
     },
     {
       "id": "CLOUD-SEC-008",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -506,7 +508,7 @@
     },
     {
       "id": "CLOUD-SEC-009",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -533,7 +535,7 @@
     },
     {
       "id": "CLOUD-SEC-010",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -560,7 +562,7 @@
     },
     {
       "id": "CLOUD-SEC-011",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -588,7 +590,7 @@
     },
     {
       "id": "CLOUD-SEC-012",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -615,7 +617,7 @@
     },
     {
       "id": "CLOUD-SEC-013",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -644,7 +646,7 @@
     },
     {
       "id": "CLOUD-SEC-014",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -671,7 +673,7 @@
     },
     {
       "id": "CLOUD-SEC-015",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -698,7 +700,7 @@
     },
     {
       "id": "CLOUD-SEC-016",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -725,7 +727,7 @@
     },
     {
       "id": "CLOUD-SEC-017",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -754,7 +756,7 @@
     },
     {
       "id": "CLOUD-SEC-018",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -781,7 +783,7 @@
     },
     {
       "id": "CLOUD-SEC-019",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -808,7 +810,7 @@
     },
     {
       "id": "CLOUD-SEC-020",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -835,7 +837,7 @@
     },
     {
       "id": "CLOUD-SEC-021",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -863,7 +865,7 @@
     },
     {
       "id": "CLOUD-SEC-022",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -890,7 +892,7 @@
     },
     {
       "id": "CLOUD-SEC-023",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -919,7 +921,7 @@
     },
     {
       "id": "CLOUD-SEC-024",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -948,7 +950,7 @@
     },
     {
       "id": "CLOUD-SEC-025",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -975,7 +977,7 @@
     },
     {
       "id": "CLOUD-SEC-026",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -1004,7 +1006,7 @@
     },
     {
       "id": "CLOUD-SEC-027",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -1033,7 +1035,7 @@
     },
     {
       "id": "CLOUD-SEC-028",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -1060,7 +1062,7 @@
     },
     {
       "id": "CLOUD-SEC-029",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -1087,7 +1089,7 @@
     },
     {
       "id": "CLOUD-SEC-030",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -1114,7 +1116,7 @@
     },
     {
       "id": "CLOUD-SEC-031",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -1142,7 +1144,7 @@
     },
     {
       "id": "CLOUD-SEC-032",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -1169,7 +1171,7 @@
     },
     {
       "id": "CLOUD-SEC-033",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -1198,7 +1200,7 @@
     },
     {
       "id": "CLOUD-SEC-034",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -1225,7 +1227,7 @@
     },
     {
       "id": "CLOUD-SEC-035",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -1254,7 +1256,7 @@
     },
     {
       "id": "CLOUD-SEC-036",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -1281,7 +1283,7 @@
     },
     {
       "id": "CLOUD-SEC-037",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -1310,7 +1312,7 @@
     },
     {
       "id": "CLOUD-SEC-038",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -1339,7 +1341,7 @@
     },
     {
       "id": "CLOUD-SEC-039",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -1366,7 +1368,7 @@
     },
     {
       "id": "CLOUD-SEC-040",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -1393,7 +1395,7 @@
     },
     {
       "id": "CLOUD-SEC-041",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-integrate",
@@ -1421,7 +1423,7 @@
     },
     {
       "id": "CLOUD-SEC-042",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-integrate",
@@ -1448,7 +1450,7 @@
     },
     {
       "id": "CLOUD-SEC-043",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-integrate",
@@ -1477,7 +1479,7 @@
     },
     {
       "id": "CLOUD-SEC-044",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-integrate",
@@ -1506,7 +1508,7 @@
     },
     {
       "id": "CLOUD-SEC-045",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-integrate",
@@ -1535,7 +1537,7 @@
     },
     {
       "id": "CLOUD-SEC-046",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-integrate",
@@ -1562,7 +1564,7 @@
     },
     {
       "id": "CLOUD-SEC-047",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-integrate",
@@ -1589,7 +1591,7 @@
     },
     {
       "id": "CLOUD-SEC-048",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-integrate",
@@ -1616,7 +1618,7 @@
     },
     {
       "id": "CLOUD-SEC-049",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-integrate",
@@ -1643,7 +1645,7 @@
     },
     {
       "id": "CLOUD-SEC-050",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-integrate",
@@ -1670,7 +1672,7 @@
     },
     {
       "id": "CLOUD-SEC-051",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -1698,7 +1700,7 @@
     },
     {
       "id": "CLOUD-SEC-052",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -1725,7 +1727,7 @@
     },
     {
       "id": "CLOUD-SEC-053",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -1754,7 +1756,7 @@
     },
     {
       "id": "CLOUD-SEC-054",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -1783,7 +1785,7 @@
     },
     {
       "id": "CLOUD-SEC-055",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -1812,7 +1814,7 @@
     },
     {
       "id": "CLOUD-SEC-056",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -1841,7 +1843,7 @@
     },
     {
       "id": "CLOUD-SEC-057",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -1868,7 +1870,7 @@
     },
     {
       "id": "CLOUD-SEC-058",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -1895,7 +1897,7 @@
     },
     {
       "id": "CLOUD-SEC-059",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -1922,7 +1924,7 @@
     },
     {
       "id": "CLOUD-SEC-060",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-ux",
@@ -1949,7 +1951,7 @@
     },
     {
       "id": "CLOUD-SEC-061",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -1977,7 +1979,7 @@
     },
     {
       "id": "CLOUD-SEC-062",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -2004,7 +2006,7 @@
     },
     {
       "id": "CLOUD-SEC-063",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -2033,7 +2035,7 @@
     },
     {
       "id": "CLOUD-SEC-064",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -2060,7 +2062,7 @@
     },
     {
       "id": "CLOUD-SEC-065",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -2087,7 +2089,7 @@
     },
     {
       "id": "CLOUD-SEC-066",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -2114,7 +2116,7 @@
     },
     {
       "id": "CLOUD-SEC-067",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -2143,7 +2145,7 @@
     },
     {
       "id": "CLOUD-SEC-068",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -2170,7 +2172,7 @@
     },
     {
       "id": "CLOUD-SEC-069",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -2197,7 +2199,7 @@
     },
     {
       "id": "CLOUD-SEC-070",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-pricing",
@@ -2224,7 +2226,7 @@
     },
     {
       "id": "CLOUD-SEC-071",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -2252,7 +2254,7 @@
     },
     {
       "id": "CLOUD-SEC-072",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -2279,7 +2281,7 @@
     },
     {
       "id": "CLOUD-SEC-073",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -2308,7 +2310,7 @@
     },
     {
       "id": "CLOUD-SEC-074",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -2337,7 +2339,7 @@
     },
     {
       "id": "CLOUD-SEC-075",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -2364,7 +2366,7 @@
     },
     {
       "id": "CLOUD-SEC-076",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -2393,7 +2395,7 @@
     },
     {
       "id": "CLOUD-SEC-077",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -2422,7 +2424,7 @@
     },
     {
       "id": "CLOUD-SEC-078",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -2449,7 +2451,7 @@
     },
     {
       "id": "CLOUD-SEC-079",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -2476,7 +2478,7 @@
     },
     {
       "id": "CLOUD-SEC-080",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-run",
@@ -2503,7 +2505,7 @@
     },
     {
       "id": "CLOUD-SEC-081",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -2531,7 +2533,7 @@
     },
     {
       "id": "CLOUD-SEC-082",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -2558,7 +2560,7 @@
     },
     {
       "id": "CLOUD-SEC-083",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -2587,7 +2589,7 @@
     },
     {
       "id": "CLOUD-SEC-084",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -2614,7 +2616,7 @@
     },
     {
       "id": "CLOUD-SEC-085",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -2643,7 +2645,7 @@
     },
     {
       "id": "CLOUD-SEC-086",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -2670,7 +2672,7 @@
     },
     {
       "id": "CLOUD-SEC-087",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -2699,7 +2701,7 @@
     },
     {
       "id": "CLOUD-SEC-088",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -2728,7 +2730,7 @@
     },
     {
       "id": "CLOUD-SEC-089",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",
@@ -2755,7 +2757,7 @@
     },
     {
       "id": "CLOUD-SEC-090",
-      "schema_version": "secondary-cloud-drain-next-100-v1",
+      "schema_version": "secondary-cloud-forge-run-next-100-v1",
       "inputs": {
         "plane": "cloud_forge",
         "workstream": "ws-onboard",

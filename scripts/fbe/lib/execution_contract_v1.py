@@ -12,6 +12,8 @@ ROOT = Path(__file__).resolve().parents[3]
 CONTRACT_PATH = ROOT / "data" / "fbe_execution_contract_v1.json"
 GRAPH_PATH = ROOT / "data" / "fbe_node_graph_v1.json"
 POLICY_REGISTRY_PATH = ROOT / "data" / "policy-packs" / "registry-v1.json"
+TIMEOUT_BUDGETS_PATH = ROOT / "data" / "fbe_timeout_budgets_v1.json"
+IDEMPOTENCY_INDEX_PATH = Path.home() / ".sina" / "fbe-idempotency-index-v1.json"
 
 
 def _now() -> str:
@@ -97,6 +99,65 @@ def policy_hash_for(*, policy_pack: str, factory_id: str, spec_hash: str = "") -
     return hashlib.sha256(base.encode("utf-8")).hexdigest()[:16]
 
 
+def load_timeout_budgets() -> dict[str, Any]:
+    return _read_json(TIMEOUT_BUDGETS_PATH)
+
+
+def timeout_for_capability(capability: str) -> int:
+    budgets = load_timeout_budgets()
+    caps = budgets.get("capabilities") or {}
+    return int(caps.get(capability) or caps.get("fbe_run_job_default") or budgets.get("default_timeout_s") or 300)
+
+
+def _load_idempotency_index() -> dict[str, Any]:
+    return _read_json(IDEMPOTENCY_INDEX_PATH)
+
+
+def _save_idempotency_index(row: dict[str, Any]) -> None:
+    IDEMPOTENCY_INDEX_PATH.parent.mkdir(parents=True, exist_ok=True)
+    IDEMPOTENCY_INDEX_PATH.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+
+
+def check_idempotency(idempotency_key: str) -> dict[str, Any]:
+    key = str(idempotency_key or "").strip()
+    if not key:
+        return {"ok": True, "duplicate": False, "reason": "no_key"}
+    idx = _load_idempotency_index()
+    jobs = idx.get("jobs") or {}
+    prior = jobs.get(key)
+    if prior and prior.get("status") in ("success", "running"):
+        return {
+            "ok": False,
+            "duplicate": True,
+            "reason": "idempotency_key_already_executed",
+            "prior_job_id": prior.get("job_id"),
+            "prior_receipt_path": prior.get("receipt_path"),
+            "prior_at": prior.get("at"),
+        }
+    return {"ok": True, "duplicate": False}
+
+
+def record_idempotency(
+    *,
+    idempotency_key: str,
+    job_id: str,
+    status: str,
+    receipt_path: str = "",
+) -> None:
+    key = str(idempotency_key or "").strip()
+    if not key:
+        return
+    idx = _load_idempotency_index()
+    jobs = dict(idx.get("jobs") or {})
+    jobs[key] = {
+        "job_id": job_id,
+        "status": status,
+        "receipt_path": receipt_path,
+        "at": _now(),
+    }
+    _save_idempotency_index({"schema": "fbe-idempotency-index-v1", "jobs": jobs, "updated_at": _now()})
+
+
 def build_contract(
     *,
     factory_id: str,
@@ -109,9 +170,15 @@ def build_contract(
     bay_slug: str = "",
     work_order_id: str = "",
     spec_hash: str = "",
+    idempotency_key: str = "",
+    timeout_s: int | None = None,
 ) -> dict[str, Any]:
     pack = policy_pack or policy_pack_from_factory(factory_id)
     ph = policy_hash or policy_hash_for(policy_pack=pack, factory_id=factory_id, spec_hash=spec_hash)
+    cap_timeout = timeout_s if timeout_s is not None else timeout_for_capability(factory_id)
+    idem = str(idempotency_key or "").strip()
+    if not idem and work_order_id:
+        idem = hashlib.sha256(f"{factory_id}:{work_order_id}:{tenant_id}".encode()).hexdigest()[:32]
     return {
         "schema": "fbe-execution-contract-v1",
         "job_id": job_id or str(uuid.uuid4()),
@@ -121,6 +188,8 @@ def build_contract(
         "tenant_id": tenant_id,
         "bay_slug": bay_slug,
         "work_order_id": work_order_id,
+        "idempotency_key": idem,
+        "timeout_s": cap_timeout,
         "input": input_payload or {},
         "policy_pack": pack,
         "policy_hash": ph,
@@ -272,4 +341,6 @@ def contract_from_hub_body(path: str, body: dict[str, Any]) -> dict[str, Any]:
         bay_slug=str(body.get("bay_slug") or ""),
         work_order_id=str(body.get("work_order_id") or ""),
         spec_hash=spec_hash,
+        idempotency_key=str(body.get("idempotency_key") or ""),
+        timeout_s=int(body["timeout_s"]) if body.get("timeout_s") is not None else None,
     )
