@@ -13,7 +13,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 LANE_MAP_PATH = ROOT / "data/sourcea-dirty-tree-lane-map-v1.json"
-REPORT_PATH = ROOT / "reports/sourcea-dirty-tree-lane-report-v1.json"
+REPORT_PATH = Path.home() / ".sina/sourcea-dirty-tree-lane-report-v1.json"
 RECEIPT_PATH = Path.home() / ".sina/sourcea-dirty-tree-lane-map-v1.json"
 
 

@@ -5,7 +5,7 @@
   "status": "active",
   "one_law": "A dirty tree is not a blocker when an agent stays inside its assigned lane, checks path-scoped diffs, and never reverts unrelated work.",
   "receipt": "~/.sina/sourcea-dirty-tree-lane-map-v1.json",
-  "report": "reports/sourcea-dirty-tree-lane-report-v1.json",
+  "report": "~/.sina/sourcea-dirty-tree-lane-report-v1.json",
   "script": "scripts/sourcea_dirty_tree_lane_map_v1.py",
   "validator": "scripts/validate-sourcea-dirty-tree-lanes-v1.sh",
   "human_doc": "docs/SOURCEA_DIRTY_TREE_LANE_OWNERSHIP_LOCKED_v1.md",
@@ -14,7 +14,8 @@
     "Before editing, identify the lane and inspect path-scoped status/diff.",
     "Generated Brain corpus files are frozen unless the assigned task is a knowledge refresh.",
     "Runtime code, generated corpus, docs, incidents, model ROI, and site assets must not be mixed without an explicit multi-lane order.",
-    "If a task needs another lane, stop and report the required lane handoff."
+    "If a task needs another lane, stop and report the required lane handoff.",
+    "Pre-agent status reports write to ~/.sina, not tracked repo files."
   ],
   "lanes": [
     {
@@ -150,6 +151,7 @@
         "reports/**",
         ".cursor/skills/**",
         "cloud/workers/sourcea-app-proxy-v1/**",
+        "data/sourcea-generated-artifact-review-policy-v1.json",
         "data/sourcea-dirty-tree-lane-map-v1.json",
         "scripts/sourcea_dirty_tree_lane_map_v1.py",
         "scripts/validate-sourcea-dirty-tree-lanes-v1.sh"

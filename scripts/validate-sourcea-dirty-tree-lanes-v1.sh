@@ -13,12 +13,16 @@ from pathlib import Path
 
 root = Path(os.environ["SOURCEA_ROOT"])
 map_path = root / "data/sourcea-dirty-tree-lane-map-v1.json"
+artifact_policy_path = root / "data/sourcea-generated-artifact-review-policy-v1.json"
 script_path = root / "scripts/sourcea_dirty_tree_lane_map_v1.py"
 doc_path = root / "docs/SOURCEA_DIRTY_TREE_LANE_OWNERSHIP_LOCKED_v1.md"
 rule_path = root / ".cursor/rules/048-dirty-tree-lane-ownership-v1.mdc"
 
 lane_map = json.loads(map_path.read_text(encoding="utf-8"))
+artifact_policy = json.loads(artifact_policy_path.read_text(encoding="utf-8"))
 assert lane_map["schema"] == "sourcea-dirty-tree-lane-map-v1"
+assert artifact_policy["schema"] == "sourcea-generated-artifact-review-policy-v1"
+assert str(lane_map["report"]).startswith("~/.sina/")
 assert doc_path.is_file()
 assert rule_path.is_file()
 lanes = lane_map["lanes"]
@@ -52,6 +56,7 @@ checks = {
     "cloud/workers/sourcea-brain-chat-v1/src/index.js": "brain_chat_runtime",
     "scripts/chat_unify_smart_router_v1.py": "chat_unify",
     "docs/FOUNDER_INTENT_APPROVAL_MACHINE_LOCKED_v1.md": "intent_approval_machine",
+    "data/sourcea-generated-artifact-review-policy-v1.json": "other_control",
     ".cursor/rules/048-dirty-tree-lane-ownership-v1.mdc": "incidents_rules",
 }
 for path, expected in checks.items():
