@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Proof Sandbox | SourceA</title>
+  <meta name="description" content="Bring one real job. Get one real proof — output plus a shareable receipt. Free, bounded, privacy-first." />
+  <meta name="theme-color" content="#044441" />
+  <meta property="og:title" content="SourceA — AI that proves its work" />
+  <meta property="og:description" content="Run one bounded job through the factory. You get the output and an auditable receipt — gated, verified, replayable." />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="/assets/agentrun.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea.css" />
+  <link rel="stylesheet" href="/sourcea/commercial-start.css" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body class="ar-body sa-v2 sa-start-page" data-sa-page="proof-sandbox">
+
+<a class="skip-link" href="#sa-sandbox-form-wrap">Skip to form</a>
+
+<header class="ar-header sa-header sa-start-header-minimal">
+  <div class="ar-container ar-header-shell">
+    <div class="ar-header-inner">
+      <a class="ar-logo" href="/sourcea/" aria-label="SourceA home">
+        <span class="ar-logo-text">Source<span class="ar-logo-run sa-logo-run">A</span></span>
+      </a>
+      <nav class="ar-nav" id="ar-nav" aria-label="Primary">
+        <a href="/sourcea/">Home</a>
+        <a href="/sourcea/proof#proof-embed">Live receipt</a>
+        <a href="/sourcea/pricing">Pricing</a>
+        <a class="ar-btn ar-btn-primary ar-btn-sm" data-sa-proof-cta href="/sourcea/proof/live">See live receipt</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="sa-start-hero" id="sa-sandbox-hero">
+    <div class="ar-container">
+      <p class="sa-start-wedge">Proof Sandbox · free · one job</p>
+      <h1>Bring one real job. Get one real proof.</h1>
+      <p class="sa-start-lead">Send a single bounded task. We run it through the factory once — you get the output and a shareable receipt. Gated, verified, replayable. Your data stays yours; we never expose our internals.</p>
+      <a class="ar-btn ar-btn-primary sa-btn-glow" data-sa-proof-cta href="/sourcea/proof/live">See a live receipt first →</a>
+      <a class="ar-btn ar-btn-ghost" href="#sa-sandbox-form-wrap" style="margin-left:0.5rem">Submit a job</a>
+      <a class="ar-btn ar-btn-ghost ar-btn-sm" data-sa-book-fallback href="https://cal.com/sourcea/proof-demo" style="margin-left:0.5rem">Talk to a human</a>
+      <div class="sa-start-trust">
+        <span><strong>One job</strong> per sandbox run</span>
+        <span><strong>Output + receipt</strong> on PASS</span>
+        <span><strong>48h</strong> typical turnaround</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="ar-section" id="proof-embed" aria-label="Sample receipt">
+    <div class="ar-container">
+      <p class="ar-kicker" style="text-align:center">What you'll receive</p>
+      <article class="sa-proof-receipt" data-sa-proof-receipt style="margin-bottom:1.5rem">
+        <div class="sa-proof-receipt-head">
+          <span>Sandbox delivery receipt</span>
+          <span class="sa-proof-receipt-verdict is-pass" data-proof-receipt-verdict>Approved</span>
+        </div>
+        <div class="sa-proof-receipt-row"><span>Job</span><strong data-proof-receipt-pack>Sample job</strong></div>
+        <div class="sa-proof-receipt-row"><span>Quality score</span><strong data-proof-receipt-score>98/100</strong></div>
+        <div class="sa-proof-receipt-row"><span>Seal</span><strong data-proof-receipt-seal>225d90aa…</strong></div>
+        <p class="sa-proof-receipt-summary" data-proof-receipt-summary>Output + receipt on PASS — shareable with your team</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sa-start-form-wrap" id="sa-sandbox-form-wrap">
+    <div class="sa-start-card">
+      <p class="sa-start-step-label">5 fields · ~3 minutes</p>
+      <form id="sa-sandbox-intake-form" class="sa-mvp-intake-form" novalidate>
+        <fieldset class="sa-start-fieldset">
+          <legend class="sa-start-legend">1. What's the job?</legend>
+          <div class="ar-field">
+            <textarea id="sa-job" name="job" rows="2" required placeholder="One sentence — the outcome you want"></textarea>
+          </div>
+        </fieldset>
+        <fieldset class="sa-start-fieldset">
+          <legend class="sa-start-legend">2. Inputs</legend>
+          <div class="ar-field">
+            <textarea id="sa-inputs" name="inputs" rows="2" required placeholder="What the machine gets to work with"></textarea>
+          </div>
+        </fieldset>
+        <fieldset class="sa-start-fieldset">
+          <legend class="sa-start-legend">3. Output</legend>
+          <div class="ar-field">
+            <textarea id="sa-output" name="output" rows="2" required placeholder="What it must produce"></textarea>
+          </div>
+        </fieldset>
+        <fieldset class="sa-start-fieldset">
+          <legend class="sa-start-legend">4. Never-rules</legend>
+          <div class="ar-field">
+            <textarea id="sa-never-rules" name="never_rules" rows="2" required placeholder="What it must never do — guardrails that can't break"></textarea>
+          </div>
+        </fieldset>
+        <fieldset class="sa-start-fieldset">
+          <legend class="sa-start-legend">5. Where it runs / who pays</legend>
+          <div class="ar-field">
+            <input type="text" id="sa-where-pays" name="where_pays" required placeholder="Your stack or ours · timeline · budget band" autocomplete="off" />
+          </div>
+        </fieldset>
+        <fieldset class="sa-start-fieldset">
+          <legend class="sa-start-legend">Your email</legend>
+          <div class="ar-field">
+            <input type="email" id="sa-sandbox-email" name="email" required autocomplete="email" placeholder="you@company.com" />
+          </div>
+        </fieldset>
+        <p class="sa-start-error sa-start-hidden" id="sa-sandbox-error" role="alert"></p>
+        <div class="sa-start-actions">
+          <button type="submit" class="ar-btn ar-btn-primary sa-btn-glow" id="sa-sandbox-submit">Submit job →</button>
+        </div>
+        <p class="sa-metric-note" style="margin-top:1rem">Privacy-first — your data stays yours. We show the receipt, not the recipe.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="sa-start-form-wrap sa-start-hidden" id="sa-sandbox-done" aria-live="polite">
+    <div class="sa-start-card sa-start-done">
+      <div class="sa-start-done-icon" aria-hidden="true">✓</div>
+      <h2>Intake sent.</h2>
+      <p>Intake received. We run your bounded job once — you receive output and a shareable receipt, typically within 48 hours. Want to verify how proof works first? <a data-sa-proof-cta href="/sourcea/proof/live">See a live receipt</a>. Optional: <a data-sa-book-fallback href="https://cal.com/sourcea/proof-demo">talk to a human</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="ar-footer" style="margin-top: 2rem;">
+  <div class="ar-container">
+    <p style="text-align:center;font-size:0.85rem;color:var(--ar-text-muted);">
+      SourceA · <a href="mailto:hello@sourcea.app">hello@sourcea.app</a>
+      · <a href="/sourcea/proof#proof-embed">See a live receipt</a>
+    </p>
+  </div>
+</footer>
+
+<script src="/sourcea/sourcea-public-display-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-fallback-v1.js" defer></script>
+<script src="/sourcea/sandbox-intake.js" defer></script>
+<script src="/sourcea/sourcea-landing-cta.js" defer></script>
+<script src="/sourcea/sourcea-boot-wire.js" defer></script>
+<script src="/sourcea/sourcea-chatbot.js" defer></script>
+</body>
+</html>

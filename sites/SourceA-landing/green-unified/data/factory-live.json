@@ -1,23 +1,24 @@
 {
   "schema": "sourcea-factory-live-v1",
-  "at": "2026-06-18T00:04:50Z",
+  "at": "2026-06-24T03:23:04Z",
   "account": "sourcea",
   "console_url": "command.sourcea.com/team",
-  "factory_now_line": "factory-now \u00b7 Valid YES 999 \u00b7 brain 999 \u00b7 dual_proof True \u00b7 mode SINGLE_SA \u00b7 queue ",
+  "factory_now_line": "",
   "queue_sa": "",
-  "mode": "SINGLE_SA",
+  "mode": "",
   "pipeline": {
     "schema": "commercial-pipeline-glance-v1",
-    "at": "2026-06-18T00:04:50Z",
+    "at": "2026-06-24T03:23:04Z",
     "lanes": [
       "AB1",
-      "NW1"
+      "NW1",
+      "WBC"
     ],
     "counts": {
       "researched": 0,
       "personalized_sent": 0,
       "replied": 0,
-      "proof_viewed": 2,
+      "proof_viewed": 3,
       "eval_scheduled": 1,
       "pilot_deposit": 0,
       "close": 0,
@@ -32,8 +33,8 @@
       "pilot_deposit": 5,
       "close": 1
     },
-    "active_conversations": 3,
-    "headline": "0 sent \u00b7 3 active \u00b7 0 close \u2014 optimize pipeline state",
+    "active_conversations": 4,
+    "headline": "0 sent \u00b7 4 active \u00b7 0 close \u2014 optimize pipeline state",
     "founder_line": "Pipeline \u00b7 0 personalized \u00b7 1 eval \u00b7 0 pilot",
     "top_next": [
       {
@@ -42,7 +43,7 @@
         "lane": "AB1",
         "status": "proof_viewed",
         "next_action": "Book 15 min eval \u00b7 eval booking agent",
-        "proof_url": "https://sourcea-landing.vercel.app/sourcea/proof/live.html",
+        "proof_url": "https://30351aca.sourcea-com.pages.dev/sourcea/proof/live.html",
         "next_agent": "eval_booking_agent"
       },
       {
@@ -50,8 +51,8 @@
         "company": "AEG proof prospect (draft)",
         "lane": "AB1",
         "status": "eval_scheduled",
-        "next_action": "Await prospect slot \u00b7 prep BLOCK live screen-share",
-        "proof_url": "https://sourcea-landing.vercel.app/sourcea/proof/live.html",
+        "next_action": "Founder send eval invite \u00b7 Mail draft in outbound pack",
+        "proof_url": "https://30351aca.sourcea-com.pages.dev/sourcea/proof/live.html",
         "next_agent": "await_prospect_slot",
         "proof_label": "Live forensic proof"
       },
@@ -63,114 +64,111 @@
         "next_action": "Book 15 min eval \u00b7 eval booking agent",
         "proof_url": "https://needle-celtic-effectiveness-cheapest.trycloudflare.com/aeg-20260615T174938Z-65bffb9f/",
         "next_agent": "eval_booking_agent"
+      },
+      {
+        "id": "cp-47ccf0bd93",
+        "company": "WitnessBC Proof Lab (reference)",
+        "lane": "WBC",
+        "status": "proof_viewed",
+        "next_action": "Founder send eval invite \u00b7 Mail draft in outbound pack",
+        "proof_url": "https://30351aca.sourcea-com.pages.dev/sourcea/scenario.html",
+        "next_agent": "eval_booking_agent"
       }
     ],
-    "rows_total": 3
+    "rows_total": 4
   },
   "boot": {
-    "verdict": "BLOCK",
-    "ok": false,
+    "verdict": "PASS",
+    "ok": true,
     "checks": [
       {
         "id": "C1",
         "name": "policy_version",
         "ok": true,
-        "reason": "SSOT v3.2 current",
-        "mode": "sourcea_factory",
-        "version": "3.2",
-        "briefing_path": "/Users/sinakazemnezhad/.sina/agent-briefing/AGENT-AUTO-MONO-latest.json"
+        "reason": "no policy file (POLICY.md) \u2014 skipped",
+        "mode": "portable",
+        "skipped": true
       },
       {
         "id": "C2",
         "name": "provider",
         "ok": true,
-        "reason": "voyage semantic active",
-        "mode": "sourcea_factory"
+        "reason": "provider env present (ANTHROPIC_API_KEY)",
+        "mode": "portable"
       },
       {
         "id": "C3",
         "name": "receipt_fresh",
         "ok": true,
-        "reason": "receipt fresh (0.3h)",
-        "receipt_path": "/Users/sinakazemnezhad/.sina/agent_session_gate_receipt_v1.json"
+        "reason": "no prior receipt \u2014 first boot allowed",
+        "mode": "portable",
+        "skipped": true
       },
       {
         "id": "C4",
         "name": "queue_truth",
-        "ok": false,
-        "reason": "run-inbox truth_match=false",
-        "mode": "sourcea_factory",
-        "inbox": {
-          "pending": false,
-          "sa_id": null,
-          "delivered_at": null,
-          "truth_match": false
-        }
+        "ok": true,
+        "reason": "no queue files configured \u2014 skipped",
+        "mode": "portable",
+        "skipped": true
       }
     ],
-    "pass_count": 3,
-    "block_count": 1
+    "pass_count": 4,
+    "block_count": 0
   },
   "metrics": {
-    "active": 3,
-    "proof_viewed": 2,
+    "active": 4,
+    "proof_viewed": 3,
     "eval_scheduled": 1,
     "sent": 0
   },
   "aeg": {
     "schema": "sourcea-aeg-live-v1",
-    "at": "2026-06-17T23:57:39Z",
-    "evidence_id": "aeg-20260617T235711Z-860f2f9e",
-    "verdict": "BLOCK",
-    "blockers": [
-      "run-inbox truth_match=false \u2014 queue/inbox mismatch"
-    ],
-    "terminal_transcript": "$ python3 ~/Desktop/SourceA/scripts/critic_boot_v1.py --json --no-aeg\n\nCRITIC_BOOT BLOCK ok=False\nRECEIPT=~/.sina/critic-boot-v1.json\n\n  [PASS] ssot_brief: SSOT v3.1 brief current\n  [PASS] voyage_provider: voyage\n  [FAIL] truth_match: run-inbox truth_match=false \u2014 queue/inbox mismatch\n  [PASS] gate_fresh: session gate completing\n\nblockers:\n  - run-inbox truth_match=false \u2014 queue/inbox mismatch",
+    "at": "2026-06-24T03:02:39Z",
+    "evidence_id": "aeg-20260620T044750Z-ac101c6b",
+    "verdict": "PASS",
+    "blockers": [],
+    "terminal_transcript": "$ python3 ~/Desktop/SourceA/scripts/critic_boot_v1.py --json --no-aeg\n\nCRITIC_BOOT BLOCK ok=False\nRECEIPT=~/.sina/critic-boot-v1.json\n\n  [PASS] ssot_brief: SSOT v3.1 sig refreshed from disk\n  [PASS] voyage_provider: voyage\n  [PASS] truth_match: inbox matches queue head\n  [FAIL] gate_fresh: last session gate receipt ok=false\n\nblockers:\n  - last session gate receipt ok=false",
     "checks": [
       {
         "id": "C1",
         "name": "policy_version",
         "ok": true,
-        "reason": "SSOT v3.2 current",
-        "mode": "sourcea_factory",
-        "version": "3.2",
-        "briefing_path": "/Users/sinakazemnezhad/.sina/agent-briefing/AGENT-AUTO-MONO-latest.json"
+        "reason": "no policy file (POLICY.md) \u2014 skipped",
+        "mode": "portable",
+        "skipped": true
       },
       {
         "id": "C2",
         "name": "provider",
         "ok": true,
-        "reason": "voyage semantic active",
-        "mode": "sourcea_factory"
+        "reason": "provider env present (ANTHROPIC_API_KEY)",
+        "mode": "portable"
       },
       {
         "id": "C3",
         "name": "receipt_fresh",
         "ok": true,
-        "reason": "receipt fresh (0.1h)",
-        "receipt_path": "/Users/sinakazemnezhad/.sina/agent_session_gate_receipt_v1.json"
+        "reason": "no prior receipt \u2014 first boot allowed",
+        "mode": "portable",
+        "skipped": true
       },
       {
         "id": "C4",
         "name": "queue_truth",
-        "ok": false,
-        "reason": "run-inbox truth_match=false",
-        "mode": "sourcea_factory",
-        "inbox": {
-          "pending": false,
-          "sa_id": null,
-          "delivered_at": null,
-          "truth_match": false
-        }
+        "ok": true,
+        "reason": "no queue files configured \u2014 skipped",
+        "mode": "portable",
+        "skipped": true
       }
     ],
-    "boot_verdict": "BLOCK",
-    "site_proof_url": "https://sourcea-landing.vercel.app/sourcea/proof/live.html",
-    "forensic_archive_url": "https://locally-projected-shade-projection.trycloudflare.com/aeg-20260617T235711Z-860f2f9e/",
-    "hosted_at": "2026-06-17T23:57:11Z",
+    "boot_verdict": "PASS",
+    "site_proof_url": "https://30351aca.sourcea-com.pages.dev/sourcea/proof/live.html",
+    "forensic_archive_url": "https://locally-projected-shade-projection.trycloudflare.com/aeg-20260620T044750Z-ac101c6b/",
+    "hosted_at": "2026-06-20T04:47:50Z",
     "disclaimer": "Live inject from factory disk \u00b7 same schema as weekly export bundle"
   },
-  "valid_yes": 999,
+  "valid_yes": null,
   "valid_yes_total": 1000,
-  "aeg_live_url": "https://sourcea-landing.vercel.app/sourcea/proof/live.html"
+  "aeg_live_url": "https://30351aca.sourcea-com.pages.dev/sourcea/proof/live.html"
 }

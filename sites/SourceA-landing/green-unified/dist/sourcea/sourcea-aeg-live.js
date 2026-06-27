@@ -1,5 +1,5 @@
 /**
- * Live AEG forensic proof — buyer-facing panel on /sourcea/proof/live.html
+ * Live AEG forensic proof — buyer-facing panel on /sourcea/proof/live
  * Data: aeg-live.json + factory-live.json (injected on deploy)
  */
 (function () {

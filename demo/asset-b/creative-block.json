@@ -1,0 +1,13 @@
+{
+  "intent_id": "ab-creative-block-001",
+  "policy_id": "creative_publish_v1",
+  "intent": "publish_content",
+  "action": "publish",
+  "human_handoff": false,
+  "platform": "instagram",
+  "asset_id": "vid-001",
+  "caption_hash": "sha256:abc123",
+  "actor": "asset_b_demo",
+  "agent_id": "asset_b_demo",
+  "object_id": "ASSET-B-CREATIVE-DEMO"
+}

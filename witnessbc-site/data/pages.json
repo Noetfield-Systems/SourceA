@@ -76,6 +76,16 @@
       "scripts": ["site"]
     },
     {
+      "file": "contact.html",
+      "content": "contact.html",
+      "title": "Contact | Witness AI",
+      "description": "Contact Witness AI for proof walkthroughs, policy pack questions, and governance workflow intake.",
+      "canonical": "https://witnessbc.com/contact",
+      "body_class": "page-contact layout-ultra-v12",
+      "breadcrumb": "Contact",
+      "scripts": ["site"]
+    },
+    {
       "file": "faq.html",
       "content": "faq.html",
       "title": "FAQ | Witness AI",

@@ -1,0 +1,12 @@
+export declare const FORGE_QUEUE_NAME = "forge-tasks";
+export declare const FORGE_JOB_NAME = "forge.task.execute";
+export declare function getRepoRoot(): string;
+export declare function getStateRoot(): string;
+export declare function getTasksDir(): string;
+export declare function getRunsDir(): string;
+export declare function getReceiptsDir(): string;
+export declare function getRegistryPath(): string;
+export declare function getGovernanceCliPath(): string;
+export declare function getScriptsDir(): string;
+export declare function getRedisUrl(): string;
+export declare function getApiPort(): number;

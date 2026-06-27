@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SourceA — Agency overview (1 page)</title>
-  <meta name="description" content="Execution Proof Infrastructure for revenue agencies. Flywheel, pricing, proof demo — hello@sourcea.com" />
+  <meta name="description" content="Execution Proof Infrastructure for revenue agencies. Flywheel, pricing, proof demo — hello@sourcea.app" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&display=swap" />
   <style>
     :root { --accent: #044441; --green: #69d419; --muted: #5a6b66; --line: #e2ebe8; }
@@ -48,11 +48,11 @@
       <p class="brand">Source<span>A</span></p>
       <p class="pill">Execution Proof Infrastructure · Agency lane</p>
     </div>
-    <p class="pill">sourcea.com · hello@sourcea.com</p>
+    <p class="pill">sourcea.com · hello@sourcea.app</p>
   </div>
 
-  <h1>Close clients with live proof — not decks.</h1>
-  <p class="lead">Revenue agencies use SourceA to run governed outreach, screen-share ALLOW/BLOCK/replay in 15 minutes, ship $3–10K fixed builds, and expand into $2K+/mo retainers with weekly proof export.</p>
+  <h1>AI that proves its work — for agencies.</h1>
+  <p class="lead">Close clients with live proof, not decks. Build custom machines ($3–10K), rent governed seats (from $2K/mo), or license your own stack — every run receipted on disk.</p>
 
   <h2>Agency flywheel</h2>
   <div class="grid">
@@ -93,23 +93,29 @@
 
   <h2>15-minute screen-share</h2>
   <!-- sa-boot-terminal:v1 -->
-  <p class="sa-boot-terminal-label">Last factory boot · 2026-06-18 00:04:50 UTC · BLOCK</p>
+  <p class="sa-boot-terminal-label">Last factory boot · 2026-06-24 03:23:04 UTC · PASS</p>
   <div class="proof">$ sourcea-boot --json
-SOURCEA_BOOT BLOCK ok=false
-  [PASS] policy_version: SSOT v3.2 current
-  [PASS] provider: voyage semantic active
-  [PASS] receipt_fresh: receipt fresh (0.3h)
-  [FAIL] queue_truth: run-inbox truth_match=false
+SOURCEA_BOOT PASS ok=true
+  [PASS] policy_version: no policy file (POLICY.md) — skipped
+  [PASS] provider: provider env present (ANTHROPIC_API_KEY)
+  [PASS] receipt_fresh: no prior receipt — first boot allowed
+  [PASS] queue_truth: no queue files configured — skipped
 REPORT=/Users/sinakazemnezhad/Desktop/SourceA/BOOT_REPORT.json</div>
 <!-- /sa-boot-terminal:v1 -->
 
   <div class="cta">
-    <p><strong>Book proof demo</strong></p>
-    <p style="margin-top:0.5rem"><a href="mailto:hello@sourcea.com">hello@sourcea.com</a></p>
-    <p style="margin-top:0.35rem;font-size:0.85rem;color:var(--muted)">http://127.0.0.1:5180/sourcea/</p>
+    <p><strong>See live receipt</strong> · <a href="https://sourcea.app/sourcea/proof/live">sourcea.app/proof/live</a></p>
+    <p style="margin-top:0.5rem"><a href="https://cal.com/sourcea/proof-demo">cal.com/sourcea/proof-demo</a> · <a href="/sourcea/sandbox">Run a free proof</a></p>
+    <p style="margin-top:0.35rem;font-size:0.85rem;color:var(--muted)">sourcea.app · Build · Rent · Own</p>
   </div>
 
   <p class="note">* Illustrative metrics and workflow — representative agency outcomes; your numbers vary. Educational only — not certification or legal advice.</p>
-  <p class="note">© SourceA 2026 · Attach to outbound email · Print to PDF from browser</p>
+  <p class="note">© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · <a href="https://noetfield.com" rel="noopener">noetfield.com</a> · Attach to outbound email · Print to PDF from browser</p>
+  <script src="/sourcea/sourcea-cta-gate.js" defer></script>
+<script src="/sourcea/sourcea-landing-cta.js" defer></script>
+<script src="/sourcea/sourcea-public-display-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-fallback-v1.js" defer></script>
+<script src="/sourcea/sourcea-boot-wire.js" defer></script>
+<script src="/sourcea/sourcea-chatbot.js" defer></script>
 </body>
 </html>

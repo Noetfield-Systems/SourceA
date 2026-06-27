@@ -18,6 +18,7 @@
     if (port === "13027") return "cloud-workers";
     if (path.indexOf("/machines") !== -1) return "machine-hub";
     if (path.indexOf("/form") !== -1) return "hub-form";
+    if (port === "13028") return "portfolio-mail";
     if (path.indexOf("/mail-hub") !== -1) return "portfolio-mail";
     if (path.indexOf("/cloud-workers") !== -1) return "cloud-workers";
     if (port === "13020") return "worker-hub";
@@ -35,8 +36,9 @@
     if (id === "chat-unify") base = "http://127.0.0.1:13023/api/api-station/v1";
     else if (id === "n8n-integration") base = "http://127.0.0.1:13026/api/api-station/v1";
     else if (id === "cloud-workers") base = "http://127.0.0.1:13027/api/api-station/v1";
-    else base = "http://127.0.0.1:13020/api/api-station/v1";
-    if (id !== "chat-unify" && id !== "n8n-integration" && id !== "cloud-workers" && id !== "worker-hub") {
+    else if (id === "portfolio-mail") base = "http://127.0.0.1:13028/api/api-station/v1";
+    else base = window.location.origin + "/api/api-station/v1";
+    if (id !== "chat-unify" && id !== "n8n-integration" && id !== "cloud-workers" && id !== "portfolio-mail" && id !== "worker-hub") {
       base += "?app=" + encodeURIComponent(id);
     } else if (id === "worker-hub" && stationAppId() !== "worker-hub") {
       base += "?app=" + encodeURIComponent(stationAppId());

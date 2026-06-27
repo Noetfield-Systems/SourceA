@@ -20,26 +20,27 @@
 <header class="ar-header sa-header">
   <div class="ar-container ar-header-shell">
     <div class="ar-header-inner">
-      <a class="ar-logo" href="/sourcea/" aria-label="SourceA home">
+      <a class="ar-logo" href="/" aria-label="SourceA home">
         <span class="ar-logo-text">Source<span class="ar-logo-run sa-logo-run">A</span></span>
       </a>
       <nav class="ar-nav" id="ar-nav" aria-label="Primary">
-        <a href="/sourcea/" data-sa-nav>Home</a>
-        <a href="/sourcea/platform.html" data-sa-nav>Platform</a>
-        <a href="/sourcea/team.html" data-sa-nav>Team</a>
-        <a href="/sourcea/growth.html" data-sa-nav>Growth</a>
-        <a href="/sourcea/scenario.html" data-sa-nav>Scenario</a>
-        <a href="/sourcea/proof.html" data-sa-nav>Proof chain</a>
-        <a href="/sourcea/compare.html" data-sa-nav>Compare</a>
-        <a href="/sourcea/pricing.html" data-sa-nav>Pricing</a>
-        <a class="ar-btn ar-btn-primary ar-btn-sm ar-nav-cta-mobile sa-btn-glow" href="mailto:hello@sourcea.com">Book proof demo</a>
+        <a href="/" data-sa-nav data-sa-nav-home>Home</a>
+        <a href="/sourcea/offer" data-sa-nav>Offer</a>
+        <a href="/sourcea/pricing" data-sa-nav>Pricing</a>
+        <a href="/sourcea/investors" data-sa-nav>Investors</a>
+        <a href="/sourcea/kernel/" data-sa-nav>Kernel</a>
+        <a class="ar-btn ar-btn-ghost ar-btn-sm ar-nav-signin-mobile" href="/platform">Sign in</a>
+        <a class="ar-btn ar-btn-primary ar-btn-sm ar-nav-cta-mobile sa-btn-glow" data-sa-proof-cta href="/sourcea/proof/live">See live receipt</a>
       </nav>
       <button type="button" class="ar-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="ar-nav">
         <span class="ar-nav-toggle-bar"></span>
         <span class="ar-nav-toggle-bar"></span>
         <span class="ar-nav-toggle-bar"></span>
       </button>
-      <a class="ar-btn ar-btn-primary ar-btn-sm sa-btn-glow ar-header-cta" href="mailto:hello@sourcea.com">Book proof demo</a>
+      <div class="ar-header-actions">
+        <a class="ar-btn ar-btn-ghost ar-btn-sm ar-header-signin" href="/platform">Sign in</a>
+        <a class="ar-btn ar-btn-primary ar-btn-sm sa-btn-glow ar-header-cta" data-sa-proof-cta href="/sourcea/proof/live">See live receipt</a>
+      </div>
     </div>
   </div>
 </header>
@@ -53,6 +54,37 @@
       <p class="ar-kicker">Governance loop</p>
       <h1>Factory status. <span class="ar-hero-accent">From disk — not chat.</span></h1>
       <p class="ar-lead">Platform buyers expect uptime and audit truth. This page reads live inject files from the deploy recipe — boot proof, receipt volume, and factory freeze state.</p>
+    </div>
+  </section>
+
+  <section class="ar-section ar-section-muted ar-reveal" id="sa-pulse-public">
+    <div class="ar-container">
+      <div class="ar-section-head">
+        <p class="ar-kicker">Site pulse</p>
+        <h2>Stranger activity <span class="ar-hero-accent">today.</span></h2>
+        <p class="ar-lead">Anonymous aggregates from the live site — pageviews, feedback reports, and top interaction events.</p>
+      </div>
+      <div class="sa-trust-bar sa-trust-bar-page">
+        <article class="sa-trust-stat">
+          <span class="sa-trust-stat-label">Pageviews today</span>
+          <strong class="sa-trust-stat-value" data-pulse-pageviews>—</strong>
+          <span class="sa-trust-stat-hint">sourcea.app landing</span>
+        </article>
+        <article class="sa-trust-stat">
+          <span class="sa-trust-stat-label">Feedback today</span>
+          <strong class="sa-trust-stat-value" data-pulse-feedback>—</strong>
+          <span class="sa-trust-stat-hint">bug · confused · idea · praise</span>
+        </article>
+        <article class="sa-trust-stat sa-pulse-events-stat">
+          <span class="sa-trust-stat-label">Top events</span>
+          <div class="sa-trust-stat-value sa-pulse-events-value" data-pulse-events>—</div>
+        </article>
+      </div>
+      <p class="sa-metric-note" data-pulse-note style="margin-top:1rem">Loading pulse…</p>
+      <div class="sa-cta-actions" style="margin-top:1rem">
+        <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/sourcea/pulse-founder">Founder inbox →</a>
+        <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/sourcea/forge/terminal">Try Forge Terminal</a>
+      </div>
     </div>
   </section>
 
@@ -72,7 +104,7 @@
         <article class="sa-trust-stat">
           <span class="sa-trust-stat-label" data-trust-receipts-label>Governance events today</span>
           <strong class="sa-trust-stat-value" data-trust-receipts>—</strong>
-          <span class="sa-trust-stat-hint">UTC day · ~/.sina jsonl + gate receipts</span>
+          <span class="sa-trust-stat-hint">Updated daily · verifiable sample</span>
         </article>
         <article class="sa-trust-stat">
           <span class="sa-trust-stat-label">Boot verdict</span>
@@ -88,9 +120,23 @@
       <p class="sa-metric-note" id="sa-status-sync">Loading trust signals…</p>
       <div class="sa-cta-actions" style="margin-top:1.25rem">
         <a class="ar-btn ar-btn-primary sa-btn-glow" data-trust-github-link href="https://github.com/sourcea-io/sourcea-boot" target="_blank" rel="noopener">GitHub repo →</a>
-        <a class="ar-btn ar-btn-ghost" data-trust-sample-link href="/sourcea/attach/proof-bundle-sample.html" target="_blank" rel="noopener">Download proof sample</a>
-        <a class="ar-btn ar-btn-ghost" href="/sourcea/proof.html">Proof chain</a>
+        <a class="ar-btn ar-btn-ghost" data-trust-sample-link href="/sourcea/attach/proof-bundle-sample" target="_blank" rel="noopener">Download proof sample</a>
+        <a class="ar-btn ar-btn-ghost" href="/sourcea/proof">Proof chain</a>
       </div>
+    </div>
+  </section>
+
+  <section class="ar-section ar-reveal">
+    <div class="ar-container">
+      <h2>Cloud mesh (STAB-058 · P5)</h2>
+      <ul class="sa-metric-note" style="line-height:1.9;list-style:none;padding:0">
+        <li><strong>Landing</strong> — <a href="https://sourcea.app/sourcea/">sourcea.app/sourcea/</a> · Pages + proxy</li>
+        <li><strong>Webhook relay</strong> — <a href="https://hooks.sourcea.app/v1/relay">hooks.sourcea.app/v1/relay</a></li>
+        <li><strong>Integrations manifest</strong> — <a href="/sourcea/data/chat-unify-integrations-v1.json">chat-unify-integrations-v1.json</a></li>
+        <li><strong>n8n template</strong> — <a href="/sourcea/data/n8n-template-sourcea-chat-unify-v1.json">import JSON</a></li>
+        <li><strong>Chat Unify local</strong> — <code>127.0.0.1:13023</code> · <a href="/downloads/chat-unify-mac-v1.dmg">Download app</a></li>
+        <li><strong>Cloud Workers</strong> — Cloud Forge Run via Cloud Workers.app · Mac observes only</li>
+      </ul>
     </div>
   </section>
 
@@ -102,36 +148,18 @@
   </section>
 </main>
 
-<section class="ar-section ar-section-muted ar-reveal sa-explore">
-    <div class="ar-container">
-      <div class="ar-section-head ar-section-head-center">
-        <p class="ar-kicker">Go deeper</p>
-        <h2>Every story. <span class="ar-hero-accent">Its own chapter.</span></h2>
-      </div>
-      <div class="sa-explore-grid">
-        <a class="sa-explore-card" href="/sourcea/growth.html"><span class="sa-explore-num">01</span><strong>Growth system</strong><span>Attract → prove → close → expand</span></a>
-        <a class="sa-explore-card" href="/sourcea/loops/index.html"><span class="sa-explore-num">02</span><strong>All loops</strong><span>Outreach · ops · research hub</span></a>
-        <a class="sa-explore-card" href="/sourcea/loops/outreach.html"><span class="sa-explore-num">03</span><strong>Outreach loop</strong><span>Your first governed send</span></a>
-        <a class="sa-explore-card" href="/sourcea/team.html"><span class="sa-explore-num">04</span><strong>Your team</strong><span>6 agents orbiting your command center</span></a>
-        <a class="sa-explore-card" href="/sourcea/scenario.html"><span class="sa-explore-num">05</span><strong>Scenario</strong><span>Screen-share script · governed night</span></a>
-        <a class="sa-explore-card" href="/sourcea/proof.html"><span class="sa-explore-num">06</span><strong>Proof chain</strong><span>What you screen-share in five minutes</span></a>
-        <a class="sa-explore-card" href="/sourcea/pricing.html"><span class="sa-explore-num">07</span><strong>Pricing</strong><span>$3–10K builds · retainer from $2K</span></a>
-        <a class="sa-explore-card" href="/sourcea/#reference"><span class="sa-explore-num">08</span><strong>Reference</strong><span>Why buyers name SourceA first</span></a>
-        <a class="sa-explore-card" href="/sourcea/platform.html"><span class="sa-explore-num">09</span><strong>Platform</strong><span>Why the audit trail breaks today</span></a>
-        <a class="sa-explore-card" href="/sourcea/compare.html"><span class="sa-explore-num">10</span><strong>Compare</strong><span>How alternatives stack up</span></a>
-        <a class="sa-explore-card" href="/sourcea/loops/ops-monitor.html"><span class="sa-explore-num">11</span><strong>Ops monitor</strong><span>When policy says no</span></a>
-        <a class="sa-explore-card" href="/sourcea/loops/research.html"><span class="sa-explore-num">12</span><strong>Research</strong><span>Bounded gather with a receipt</span></a>
-        <a class="sa-explore-card" href="/sourcea/security.html"><span class="sa-explore-num">13</span><strong>Security</strong><span>Procurement &amp; trust strip</span></a>
-        <a class="sa-explore-card" href="/sourcea/sources.html"><span class="sa-explore-num">14</span><strong>Sources</strong><span>Cited evidence &amp; frameworks</span></a>
-      </div>
-    </div>
-  </section>
+
+
+<p class="sa-metric-note" style="margin-top:1.25rem;text-align:center">Technical depth: <a href="/sourcea/kernel/">Technical overview →</a></p>
 
 <footer class="ar-site-footer sa-footer-rich">
-  <div class="ar-container sa-footer-bottom"><p>© SourceA 2026 · <a href="/sourcea/">Home</a> · <a href="/sourcea/security.html">Security</a></p></div>
+  <div class="ar-container sa-footer-bottom"><p>© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · <a href="https://noetfield.com" rel="noopener">noetfield.com</a> · <a href="/sourcea/">Home</a> · <a href="/sourcea/security">Security</a></p></div>
 </footer>
 
+<script src="/sourcea/sourcea-pulse-public-v1.js" defer></script>
 <script src="/assets/agentrun.js" defer></script>
+<script src="/sourcea/sourcea-public-display-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-fallback-v1.js" defer></script>
 <script src="/sourcea/sourcea-trust-bar.js" defer></script>
 <script src="/sourcea/sourcea-motion.js" defer></script>
 <script>
@@ -159,5 +187,13 @@
     });
 })();
 </script>
+  <script src="/sourcea/sourcea-cta-gate.js" defer></script>
+<script src="/sourcea/sourcea-boot-wire.js" defer></script>
+<script src="/sourcea/sourcea-chatbot.js" defer></script>
+<script src="/sourcea/sourcea-landing-cta.js" defer></script>
+<script src="/sourcea/sourcea-public-display-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-fallback-v1.js" defer></script>
+<script src="/sourcea/sourcea-boot-wire.js" defer></script>
+<script src="/sourcea/sourcea-chatbot.js" defer></script>
 </body>
 </html>

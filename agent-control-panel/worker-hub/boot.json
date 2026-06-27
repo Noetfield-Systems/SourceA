@@ -1,1 +1,926 @@
-{"ok":true,"schema":"worker-hub-v1","api":"/api/worker-hub/v1","hub_mode":"worker-only","command_retired_forever":true,"law":"ASF_RETIRE_SINA_COMMAND_FOREVER_LOCKED_v1.md","built_at":"2026-06-23T05:21:57Z","generation_id":364,"freeze_status":"FREEZE","queue_sa_id":"sa-1210","queue_pos":10,"queue_total":10,"queue_role":"verify","valid_yes":1000,"brain_vy":1000,"p0_title":"Source A · Hub","p0_next_action":"URGENT · Form 116/100 FULL — fill M1 Canvas NOW","form_pending":116,"form_live":{"open_questions_count":116,"open_pick_ids":["Q-GATH-01","Q-GATH-02","Q-GATH-03","Q-GATH-04","Q-GATH-05"],"awaiting_founder_picks":true,"form_clear":false,"form_url":"/api/live-founder-decision-form-v1","form_page_url":"http://127.0.0.1:13020/form/","canvas_action":"founder-open-integrity-form","canvas_surface":"m1","canvas_path":"/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-SinaaiDataBase/canvases/sourcea-system-integrity-100.canvas.tsx","form_line":"116 open PICKs on disk · M1 Canvas · INCIDENT-037 block ON · agent-submit forbidden","form_headline":"116 OPEN PICKs · FORM FINAL_FIX_GATHERING on disk · M1 Canvas · INCIDENT-037 block ON · agent-submit forbidden","founder_head_card":{"id":"Q-GATH-01","number":1,"subject":"Form looks empty — which Canvas view is the form office?","title":"Form looks empty — which Canvas view is the form office?","question":"You see an empty form. Disk has open rows but wrong view shows 100-pack only. Which surface is FORM_OFFICIAL?","options":["A — Pending confirmations view ONLY is form office (recommended)","B — 100-agent POV tab is form office","C — Hub Track tab is form office","D — Chat ASF picks only — no Canvas","E — 5 — Write your own answer"],"option_slots":[{"slot":1,"key":"A","type":"choice","text":"Pending confirmations view ONLY is form office (recommended)","label":"A — Pending confirmations view ONLY is form office (recommended)","disabled":false},{"slot":2,"key":"B","type":"choice","text":"100-agent POV tab is form office","label":"B — 100-agent POV tab is form office","disabled":false},{"slot":3,"key":"C","type":"choice","text":"Hub Track tab is form office","label":"C — Hub Track tab is form office","disabled":false},{"slot":4,"key":"D","type":"choice","text":"Chat ASF picks only — no Canvas","label":"D — Chat ASF picks only — no Canvas","disabled":false},{"slot":5,"key":"E","type":"founder_free_text","text":"5 — Write your own answer","label":"5 — Write your own answer","placeholder":"Type your answer here (option 5)"}],"option_schema":"form-official-question-schema-v1","option_count":5,"recommended":"A","gather_tier":"P0_meta","prior_pick":"A","effect":"Sets mandatory founder navigation for all human–machine picks","blocks":"INCIDENT-029 · founder perception · Canvas view routing","reply_template":"ASF: FIVE-STEP — PICK: Q-GATH-01 A","option_effects":{"A":"Hub action opens M1 Canvas → Pending confirmations · all gather rows visible","B":"Revert INCIDENT-029 · 100-pack becomes office (not law)","C":"Hub projection becomes pick surface (027 regression)","D":"Canvas retired · chat-only picks"}},"canvas_button_label":"M1 Canvas","hub_url":"http://127.0.0.1:13020/","h2_machines_url":"http://127.0.0.1:13020/machines/","form_hub_line":"116 open PICKs · M1 Canvas · Form looks empty — which Canvas view is the form office? · guard active","open_canvas_hint":"Hub form page = same PICK rows as M1 Canvas slot D · Cursor Canvas optional beside chat"},"upgrade":{"hub_edition":"super-fast-v1.2","daily_url":"/","h2_machines_url":"/machines/","layer_stack":"Brain(1) · Gov(2) · Commercial(3) · Brief(4) → Worker · R2 · M2 · M3","n8n_wired":false,"n8n_running":true,"openrouter_gate":"enforce","h2_pending_count":0},"ecosystem_mac_health":{"schema":"hub-ecosystem-slice-v1","at":"2026-06-23T05:21:57Z","ok":true,"health_grade":"Excellent","health_live_status":"LIVE","health_score":96,"health_strip":{"grade":"Excellent","score":96,"live_status":"LIVE","relieve_url":"http://127.0.0.1:13024/","modes":[]},"pressure_badge":"OK","pressure":{"schema":"ecosystem-pressure-v1","at":"2026-06-23T05:21:57Z","badge":"OK","reasons":[],"budget":{"cursor_mb_target":6000,"cursor_mb_hard":8000,"control_plane_mb_target":500},"actual":{"cursor_rss_mb":4297.9,"control_plane_python_mb":208.6},"flags":{"mac_control_plane":true,"founder_work_mode":true},"founder_session_safe":true},"cloud_factory_heartbeat":{"ok":true,"line":"cloud-factories · PASS · 9/9 · Mac=control-panel · factories=cloud+API · anti-staleness+zero-drift+zero-fragmentation","passed":9,"total":9,"factories":[{"id":"fbe_factory_builder","online":null,"note":"cloud receipt pending"},{"id":"fbe_railway","online":true,"note":"cloud receipt pending","url":"https://sourcea-fbe-runner-production.up.railway.app"},{"id":"comprehension_loop_bay","online":null,"note":"cloud receipt pending"},{"id":"supabase_edge","online":null,"note":"cloud receipt pending"},{"id":"video_ad_factory","online":null,"note":"cloud receipt pending"},{"id":"noetfield_freemium_bay","online":null,"note":"cloud receipt pending"},{"id":"trustfield_sandbox","online":null,"note":"cloud receipt pending"},{"id":"witnessbc_proof_lab","online":null,"note":"cloud receipt pending"},{"id":"fal_rendering_bridge","online":null,"note":"cloud receipt pending"},{"id":"openrouter_cloud","online":null,"note":"cloud receipt pending"}]},"cloud_glance":{"schema":"mac-health-cloud-glance-v1","ok":true,"at":"2026-06-23T05:21:57Z","execution_plane":"read_only_mac_glance","railway_ok":true,"railway":{"ok":true,"status":200,"service":"fbe-cloud-worker","url":"https://sourcea-fbe-runner-production.up.railway.app"},"last_plan_id":"CLOUD-SEC-011","last_dispatch_ok":true,"last_show_this":"","last_dispatch_at":"2026-06-20T19:18:34Z","last_receipt_id":"cloud-dispatch-146dc015b080","hub_url":"http://127.0.0.1:13020/","founder_line":"Cloud · Railway OK · comprehension ACCEPT · cfg 1.1.0 · score 80 · cloud · last job CLOUD-SEC-011 PASS","for_founder":{"show_this":"Cloud · Railway OK · comprehension ACCEPT · cfg 1.1.0 · score 80 · cloud · last job CLOUD-SEC-011 PASS"},"comprehension_last_verdict":"ACCEPT","config_version":"1.1.0","variation_key":"default","comprehension_last_score":80,"comprehension_escalated":false,"comprehension_execution_plane":"headless_cloud","comprehension_proxied":true,"comprehension_accept_rate_last10":0.0,"comprehension_avg_score_last10":100.0},"cloud_glance_line":"Cloud · Railway OK · comprehension ACCEPT · cfg 1.1.0 · score 80 · cloud · last job CLOUD-SEC-011 PASS","m111_line":"M111 · 43/111 · head=M111-038 · Founder-session deny gate blocks verify-mac-law-routing-pane","m111_head":"M111-038","m111_progress":{"total":111,"done":43,"planned":68,"pct":38.7,"mac_proven":43,"cloud_proven":2},"mandatory_next":{"source":"m111","id":"M111-038","line":"M111 · 43/111 · head=M111-038 · Founder-session deny gate blocks verify-mac-law-routing-pane","action":"WORK M111-038"},"form_primary":true,"form_note":"Human fork on FORM_OFFICIAL — not chat A/B/C","routing_panel_optional":true,"routing_panel_url":"http://127.0.0.1:8780/","mac_health_url":"http://127.0.0.1:13024/","founder_glance_law":"Hub home · Mac Health strip · pressure badge · cloud heartbeat"},"health_grade":"Excellent","pressure_badge":"OK","m111_line":"M111 · 43/111 · head=M111-038 · Founder-session deny gate blocks verify-mac-law-routing-pane","mandatory_next":{"source":"m111","id":"M111-038","line":"M111 · 43/111 · head=M111-038 · Founder-session deny gate blocks verify-mac-law-routing-pane","action":"WORK M111-038"},"relieve_url":"http://127.0.0.1:13024/","mac_health_live":{"schema":"mac-health-h1-bridge-v1","at":"2026-06-23T05:20:03Z","live_status":"LIVE","score":96,"security_score":100,"grade":"Excellent","firewall_enabled":true,"loadavg":"{ 4.22 4.19 4.15 }","load_1min":4.22,"cpu_pct":20.1,"cpu_cores":18,"ram_gb":48.0,"ram_used_pct":64.4,"ram_used_gb":30.9,"memory_pressure_level":"normal","thermal_pressure":false,"gpu_note":"SoC nominal","disk_root_pct":2,"ghost_terminals":0,"queue_zombies":0,"heart_url":"http://127.0.0.1:13024/","heart_ok":true,"wired":{"live_refreshed_at":"2026-06-23T05:20:02.157629+00:00","live_age_sec":1.1,"pressure_age_sec":1.1,"live_ok":true,"pulse_interval_sec":120},"h1":{"ok":true,"url":"http://127.0.0.1:13020/","task_id":"sa-0886","queue_role":"check","honest_ok":null,"valid_yes":986,"built_at":"2026-06-15T18:22:33.097439+00:00"},"founder_line":"Mac Heart LIVE · score 96 · CPU 20.1% · RAM 64.4% · load 4.22/18 · H1 sa-0886 · Cloud · Railway OK · comprehension ACCEPT · cfg 1.1.0 · score 80 · cloud · last job CLOUD-SEC-011 PASS","cloud_glance":{"schema":"mac-health-cloud-glance-v1","ok":true,"at":"2026-06-23T05:20:03Z","execution_plane":"read_only_mac_glance","railway_ok":true,"railway":{"ok":true,"status":200,"service":"fbe-cloud-worker","url":"https://sourcea-fbe-runner-production.up.railway.app"},"last_plan_id":"CLOUD-SEC-011","last_dispatch_ok":true,"last_show_this":"","last_dispatch_at":"2026-06-20T19:18:34Z","last_receipt_id":"cloud-dispatch-146dc015b080","hub_url":"http://127.0.0.1:13020/","founder_line":"Cloud · Railway OK · comprehension ACCEPT · cfg 1.1.0 · score 80 · cloud · last job CLOUD-SEC-011 PASS","for_founder":{"show_this":"Cloud · Railway OK · comprehension ACCEPT · cfg 1.1.0 · score 80 · cloud · last job CLOUD-SEC-011 PASS"},"comprehension_last_verdict":"ACCEPT","config_version":"1.1.0","variation_key":"default","comprehension_last_score":80,"comprehension_escalated":false,"comprehension_execution_plane":"headless_cloud","comprehension_proxied":true,"comprehension_accept_rate_last10":0.0,"comprehension_avg_score_last10":100.0}},"cloud_glance_line":"Cloud · Railway OK · comprehension ACCEPT · cfg 1.1.0 · score 80 · cloud · last job CLOUD-SEC-011 PASS","plans_unified":{"schema":"worker-hub-plans-unified-v1","ok":false,"plans_unified_line":"Plans · outbound 0/0 W1 · full-stack 62/100 W3 · brain 25/1000 E01 · M111 43/111","outbound":{"done":0,"total":0,"active_wave":"W1"},"full_stack":{"done":62,"total":100,"active_wave":"W3"},"brain_cloud":{"done":25,"total":1000,"active_epic":"E01","newly_marked":[],"reset_ids":[]},"phase0_reference":{"ok":true,"line":"Phase0 reference · 15/16 (94%) · head=P0-16","progress":{"done":15,"total":16,"pct":94}},"anti_theater":{"ok":false,"line":"Anti-theater · 16/19 PASS · forbidden=0 · honesty=OK · sina_pending=0","passed":16,"total":19,"sina_pending":0},"task_plan_priority":{"ok":true,"line":"task-priority · seq=CLOUD-SEC-047 · smart=CLOUD-SEC-047 · P1 · output=unknown · score=510","smart_pick":{"task_id":"CLOUD-SEC-047","title":"Rate-limit + retry policy from Trigger.dev model","source":"cloud_drain","lane":"ws-integrate","plane":"cloud_forge","output_type":"unknown","unified_priority":"P1","priority_label":"Cloud FORGE revenue lane (full motor)","score":510,"blocked":true,"paired_registry":"sa-mkt-0047","maps_registry":"sa-mkt-0047","sequential_role":"drain_head","cost_tier":"free"},"top_ranked":[{"task_id":"CLOUD-SEC-049","title":"Update catalog row Trigger.dev row 1","source":"cloud_drain","lane":"ws-integrate","plane":"cloud_forge","output_type":"data_pipeline","unified_priority":"P1","priority_label":"Cloud FORGE revenue lane (full motor)","score":750,"blocked":true,"paired_registry":"sa-mkt-0049","maps_registry":"sa-mkt-0049","sequential_role":"cloud_drain_ahead","cost_tier":"free","brain_pair":false},{"task_id":"CLOUD-SEC-047","title":"Rate-limit + retry policy from Trigger.dev model","source":"cloud_drain","lane":"ws-integrate","plane":"cloud_forge","output_type":"unknown","unified_priority":"P1","priority_label":"Cloud FORGE revenue lane (full motor)","score":510,"blocked":true,"paired_registry":"sa-mkt-0047","maps_registry":"sa-mkt-0047","sequential_role":"drain_head","cost_tier":"free","brain_pair":false},{"task_id":"CLOUD-SEC-048","title":"Validate adapter fixture test — cloud CI","source":"cloud_drain","lane":"ws-integrate","plane":"cloud_forge","output_type":"internal_meta","unified_priority":"P1","priority_label":"Cloud FORGE revenue lane (full motor)","score":50,"blocked":true,"paired_registry":"sa-mkt-0048","maps_registry":"sa-mkt-0048","sequential_role":"cloud_drain_ahead","cost_tier":"free","brain_pair":false},{"task_id":"B0024","title":"Brain refuses Worker-scope implementation in Brain chat","source":"brain_cloud_1000","lane":"brain_reasoning","plane":"","output_type":"internal_meta","unified_priority":"P4","priority_label":"Brain / governance meta rows","score":-450,"blocked":true,"paired_registry":"sa-mkt-0047","maps_registry":"sa-mkt-0047","sequential_role":"other","cost_tier":null,"brain_pair":true},{"task_id":"B0025","title":"Brain maps founder intent to work-order spec for cloud worker","source":"brain_cloud_1000","lane":"brain_reasoning","plane":"","output_type":"internal_meta","unified_priority":"P4","priority_label":"Brain / governance meta rows","score":-450,"blocked":true,"paired_registry":"sa-mkt-0047","maps_registry":"sa-mkt-0047","sequential_role":"other","cost_tier":null,"brain_pair":true}],"ssot":"data/sourcea-task-plan-priority-v1.json"},"task_plan_priority_line":"task-priority · seq=CLOUD-SEC-047 · smart=CLOUD-SEC-047 · P1 · output=unknown · score=510","hub_api":"POST /api/plans-unified/tick/v1"},"cloud_drain_proceed":{"schema":"worker-hub-cloud-drain-proceed-v1","ok":true,"one_law":"Cloud activation tasks proceed ONLY via Hub POST — not local agent dispatch. Mac proxies one click to Railway · OpenRouter or Gemini on cloud.","hub_api":"POST /api/cloud-drain/proceed/v1","default_llm":"openrouter","llm_providers":["openrouter","gemini"],"next":{"task_id":"CLOUD-SEC-111","maps_registry":"sa-mkt-0101","title":"Open https://hatchet.run — screenshot or quote the exact buyer-facing Buyer-visible UX sentence Hatchet uses; paste into plan evidence (vendor says: Low-latency orchestration for agentic AI workflows ","tier":"T0","cost_tier":"free","queue_source":"cloud_drain_queue_v1"},"last_line":"hub-proceed ·  ·  · FAIL · openrouter · cloud_only","last_ok":false},"anti_theater":{"schema":"worker-hub-anti-theater-loop-v1","ok":false,"anti_theater_line":"Anti-theater · 16/19 PASS · forbidden=0 · honesty=OK · sina_pending=0","passed":16,"total":19,"sina_pending":0,"violation_count":3},"agent_behavior":{"schema":"worker-hub-agent-behavior-v1","ok":true,"behavior_line":"behavior · intent-first · Always care about founder intent before mechanics, blame, or path substi · Real market — hard truth beats sweet lies.","one_law":"Always care about founder intent before mechanics, blame, or path substitution.","case_count":12,"required":["Honor exact SAVE TO / EDIT ALLOWED / WORK paths founder names","When correcting yourself: WAS (brief) + INTENT (what founder meant) + FIX (disk action)","When uncertain: one clarifying question — not silent substitution","Quote disk receipts and validators — RED stays RED until founder action fixes it","Lead with blockers and FAIL before wins — never bury RED under green summary","Stay in role title and main job — Brain routes · Worker builds · do not cosplay the other lane","Disk truth only — no invitations to founder to open, submit, tap, or act"],"hub_api":"GET /api/worker-hub/v1 · inject founder_intent_first_detail"},"factory_cost_intelligence":{"schema":"worker-hub-factory-cost-intelligence-v1","ok":true,"cost_intelligence_line":"cost-intel · loop=6 · registry=100 · wef=224 · auto-prompt=planner→inbox","registry_count":100,"wef_gln_total":224,"one_law":"Cost is a control variable — observe $/unit · orient baselines · decide with agents · act via MES/inbox · measure receipts.","hub_api":"GET /api/worker-hub/v1 · slice factory_cost_intelligence"},"world_model_check":{"schema":"worker-hub-world-model-plan-check-v1","ok":true,"world_model_line":"WTM check · phase=D2 · scanned=6 · public=PASS · advisory=0 · routes=5","violation_count":0,"product_routes_detected":[{"lane":"noetfield","keywords":["tle","board pack","governance receipt","copilot","diligence"],"sku_only":false},{"lane":"trustfield","keywords":["trustfield","msb","rpaa","compliance","sandbox"],"sku_only":false},{"lane":"sourcea_forge","keywords":["forge","fbe","factory","sandbox","catalog"],"sku_only":false},{"lane":"witnessbc","keywords":["witness","proof lab","evidence","tamper"],"sku_only":false},{"lane":"mac_guard","keywords":["mac guard","agency","invoice sku"],"sku_only":true}],"stripe_buyer_copy":"Governed AI operations for teams on any stack — web, mobile, and API surfaces. Subscribe to Noetfield Systems for operational TLE evaluation, policy receipts, and upgrade paths with no desktop-only or","stripe_statement_descriptor":"NOETFIELD SYSTEMS","stripe_statement_descriptor_short":"NFS","hub_api":"POST /api/world-model-plan-check/tick/v1"},"extended_api":"/api/worker-hub/extended/v1","inbox_pending":false,"task_id":"sa-1210","task_title":"—","execution_surface":"inbox_only","current_turn":{"is_current":true,"execution_surface":"inbox_only","execution_bind":"bound","sa_id":"sa-1210","upgrade_id":null,"queue_role":"","pending":false,"cta":"RUN INBOX","bind_law":"Never execute queue_pos != 1 unless broker advanced"},"next_steps_preview":{"execution_surface":"inbox_only","cursor_pos":10,"current_turn":{"sa_id":"sa-1210","title":"Portfolio daily + FORGE FACTORY queue closeout","role":null,"is_current":true,"execution_bind":"bound","execution_surface":"inbox_only"},"turns":[{"sa_id":"sa-1210","title":"Portfolio daily + FORGE FACTORY queue closeout","role":null,"is_current":true,"execution_bind":"bound","execution_surface":"inbox_only"}],"note":"Row 1 = RUN INBOX only · rows 2–10 are preview — not bound"},"connected":false,"worker_connected":{"connected":false,"ok":false,"line":"worker-connected · BLOCK:receipt_path","outbound_progress_line":"outbound · 0/100 done · head=? · plan=? · sa=?","execution_honesty_line":"execution · 11/12 honest","checks":{"coherence":true,"receipt_path":false,"acceptance_proof":true,"execution_plane":false,"inbox_latch":true,"hub_api":false,"hub_connected_badge":true},"receipt_at":"2026-06-20T06:12:40Z"},"ecosystem_connected":true,"ecosystem_wire":{"ecosystem_connected":true,"ok":true,"line":"ecosystem-connected · PASS","checks":{"worker_connected":true,"nerve_system":true,"nerve_worker_gate":true,"node_graph_fresh":true,"node_graph_ok":true,"agentic_layer_wire":true,"brain_l2_wire":true,"orient_routing":true,"investigator_judge":true,"oegcc_loop_wired":true},"receipt_at":"2026-06-19T05:34:48Z","outbound_progress_line":"outbound · 108/108 done · head=? · plan=? · sa=?","execution_honesty_line":"execution · 12/12 honest"},"outbound_progress_line":"outbound · 0/100 done · head=? · plan=? · sa=?","execution_honesty_line":"execution · 11/12 honest","worker_busy":false,"worker_mode":"ready","autorun_paused":true,"hero_actions":[{"id":"h2_machines","label":"Machine Hub","path":"/machines/","url":"http://127.0.0.1:13020/machines/"}],"goal1_summary":{"autorun_state":"ready","executor_busy":false,"inbox_pending":false},"health":{"schema":"worker-hub-staleness-v1","status":"fresh","age_sec":0.1,"built_at":"2026-06-23T05:21:57Z","freshness_source":"command-data-shell.json","shell_age_sec":0.1,"auto_heal_recommended":false,"latches":{"as01_p0_no_autorun":true,"dual_pick_aligned":true,"inbox_fresher_than_shell":true,"honest_status_fresh":true,"dual_proof_ok":true,"shell_stale_projection_ok":true},"issues":[],"notes":[],"poll_interval_sec":15,"heal_cooldown_sec":45},"kernel_k1":{"verdict":"PASS","ok":true,"founder_line":"K1 PASS — boot + tamper-on-read","blockers":[]},"daily_rooms":{"schema":"worker-hub-daily-rooms-v1","built_at":"2026-06-23T05:21:57.122141+00:00","form_open":116,"needs_founder":true,"judge_center":{"id":"judge-center","label":"Judge Center","cadence":"daily read · weekly run","law":"SINA_JUDGE_STACK_LOCKED_v1.md","headline":"P1 — 116 form fork(s) open","tone":"amber","case_id":"JC-20260622-79492d44","built_at":"2026-06-22T07:13:58Z","age_sec":79679.1,"active_stale":0,"bad":0,"past_stale_only":2,"form_open":116,"p0_count":0,"executive_resolution":"Judge Center batch JC-20260622-79492d44: 1 TRUSTED/RIGHT · 2 PAST_STALE_ONLY · 0 ACTIVE_STALE · 0 BAD · 0 form actions. RECENT window wins over archaeology. Binding PICK still on M1 Canvas.","run_due":false,"strip_refresh_due":false,"last_run_ok":true,"default_chats":"58148ac9,6245d9dd,e54ddfa8,74f5ccab"},"thread_room":{"id":"thread-room","label":"Thread Room","cadence":"weekly run · daily read","law":"SINA_THREAD_ROOM_LOCKED_v1.md","headline":"Thread Room batch TR-20260622-25c43dec: 4 arcs · 1 gaps · 4 §THREAD drafts. Map only — RIGHT/STALE/BAD is Judge Center. Form open_count=116.","case_id":"TR-20260622-25c43dec","built_at":"2026-06-22T01:16:32Z","age_sec":101125.1,"arc_count":4,"thread_drafts":4,"arcs_preview":["THREAD-ECOSYSTEM","THREAD-FACTORY","THREAD-MERGEPACK","THREAD-SUPERBRAIN"],"run_due":false,"last_run_ok":true,"default_chats":"58148ac9,6245d9dd,e54ddfa8,74f5ccab"},"loop_judge_room":{"id":"loop-judge-room","label":"Judge Loop Room","cadence":"every live wire sync · session gate","law":"docs/SOURCEA_INVESTIGATOR_JUDGE_LOOP_ROOM_LOCKED_v1.md","headline":"judge-loop · DISPATCH_BLOCKED · inv=YELLOW · tick=compose_blocked · routes=3","loop_verdict":"DISPATCH_BLOCKED","investigation_verdict":"YELLOW","tick_decision":"compose_blocked","built_at":"2026-06-22T13:12:53Z","age_sec":58144.1,"escalations":["ASF: resume drain — max 1"],"hub_api":"POST /api/judge-loop/tick/v1"},"actions":{"run_judge":{"path":"/api/worker-hub/rooms/run","body":{"room":"judge"}},"run_thread":{"path":"/api/worker-hub/rooms/run","body":{"room":"thread"}},"run_both":{"path":"/api/worker-hub/rooms/run","body":{"room":"both"}},"refresh_strip":{"path":"/api/worker-hub/rooms/run","body":{"room":"strip"}},"loop_chain_tick":{"path":"/api/loop-chain/tick/v1","method":"POST","body":{}}}},"actions":{"safety":"founder-ecosystem-safety","k1":"founder-enforcement-k1","refresh":{"path":"/refresh","mode":"light"},"heal":{"path":"/api/worker-hub/heal","method":"POST"},"outbound_coherence_heal":{"path":"/api/worker-hub/outbound-coherence-heal/v1","method":"POST","label":"Outbound disk coherence heal"},"pipeline_node_graph_run":{"path":"/api/pipeline-node-graph/run/v1","method":"POST","label":"Run node graph T3 proof tier"},"rooms_run":{"path":"/api/worker-hub/rooms/run","method":"POST"},"commercial_run":{"path":"/api/worker-hub/commercial/run","method":"POST"},"loop_specialist_tick":{"path":"/api/loop-specialist/tick/v1","method":"POST"},"investigator_circle_tick":{"path":"/api/investigator-circle/tick/v1","method":"POST"},"judge_loop_tick":{"path":"/api/judge-loop/tick/v1","method":"POST"},"routing_panel_refresh":{"path":"/api/routing-panel/tick/v1","method":"POST"},"disclosure_ladder_tick":{"path":"/api/disclosure-ladder/tick/v1","method":"POST"},"mcp_stack_tick":{"path":"/api/mcp-stack/tick/v1","method":"POST"},"tool_pick_tick":{"path":"/api/tool-pick/tick/v1","method":"POST"},"plans_unified_tick":{"path":"/api/plans-unified/tick/v1","method":"POST"},"cloud_drain_proceed":{"path":"/api/cloud-drain/proceed/v1","method":"POST","label":"Proceed next cloud task (OpenRouter/Gemini on Railway)","body":{"llm_provider":"openrouter","full_motor":true}},"world_model_tick":{"path":"/api/world-model-plan-check/tick/v1","method":"POST"},"loop_chain_tick":{"path":"/api/loop-chain/tick/v1","method":"POST"},"form":"/api/live-founder-decision-form-v1","extended":{"path":"/api/worker-hub/extended/v1","method":"GET"},"h2_machines":"/machines/"},"boot":true,"boot_at":"2026-06-23T05:21:57Z"}
+{
+  "ok": true,
+  "schema": "worker-hub-v1",
+  "api": "/api/worker-hub/v1",
+  "hub_mode": "worker-only",
+  "command_retired_forever": true,
+  "law": "ASF_RETIRE_SINA_COMMAND_FOREVER_LOCKED_v1.md",
+  "built_at": "2026-06-23T09:16:09Z",
+  "generation_id": 367,
+  "freeze_status": "FREEZE",
+  "queue_sa_id": "sa-1210",
+  "queue_pos": 10,
+  "queue_total": 10,
+  "queue_role": "verify",
+  "valid_yes": 1000,
+  "brain_vy": 1000,
+  "p0_title": "Source A · Hub",
+  "p0_next_action": "URGENT · Form 110/100 FULL — fill M1 Canvas NOW",
+  "form_pending": 110,
+  "form_live": {
+    "open_questions_count": 110,
+    "open_pick_ids": [
+      "Q-1.10-SEAL",
+      "Q-M2-029",
+      "Q-M2-REG",
+      "Q-INC-015",
+      "7.05"
+    ],
+    "awaiting_founder_picks": true,
+    "form_clear": false,
+    "form_url": "/api/live-founder-decision-form-v1",
+    "form_page_url": "http://127.0.0.1:13023/form/",
+    "canvas_action": "founder-open-integrity-form",
+    "canvas_surface": "m1",
+    "canvas_path": "/Users/sinakazemnezhad/.cursor/projects/Users-sinakazemnezhad-Desktop-SinaaiDataBase/canvases/sourcea-system-integrity-100.canvas.tsx",
+    "form_line": "110 open PICKs on disk · M1 Canvas · founder picks only · agent-submit forbidden",
+    "form_headline": "110 OPEN PICKs · FORM THIRD_FORM on disk · M1 Canvas · founder picks only · agent-submit forbidden",
+    "founder_head_card": {
+      "id": "Q-1.10-SEAL",
+      "number": 1,
+      "subject": "Phase 1.10 closeout seal",
+      "title": "Phase 1.10 closeout seal",
+      "question": "RT LIVE gate is PASS on disk. Seal Phase 1 closeout now?",
+      "options": [
+        "A — seal 1.10 DONE · update SESSION_LOG",
+        "B — wait until cascade sustained 7 days",
+        "C — keep 1.10 open",
+        "D — —",
+        "E — 5 — Write your own answer"
+      ],
+      "option_slots": [
+        {
+          "slot": 1,
+          "key": "A",
+          "type": "choice",
+          "text": "seal 1.10 DONE · update SESSION_LOG",
+          "label": "A — seal 1.10 DONE · update SESSION_LOG",
+          "disabled": false
+        },
+        {
+          "slot": 2,
+          "key": "B",
+          "type": "choice",
+          "text": "wait until cascade sustained 7 days",
+          "label": "B — wait until cascade sustained 7 days",
+          "disabled": false
+        },
+        {
+          "slot": 3,
+          "key": "C",
+          "type": "choice",
+          "text": "keep 1.10 open",
+          "label": "C — keep 1.10 open",
+          "disabled": false
+        },
+        {
+          "slot": 4,
+          "key": "D",
+          "type": "choice",
+          "text": "—",
+          "label": "D — —",
+          "disabled": true
+        },
+        {
+          "slot": 5,
+          "key": "E",
+          "type": "founder_free_text",
+          "text": "5 — Write your own answer",
+          "label": "5 — Write your own answer",
+          "placeholder": "Type your answer here (option 5)"
+        }
+      ],
+      "option_schema": "form-official-question-schema-v1",
+      "option_count": 5,
+      "recommended": "Y",
+      "gather_tier": "",
+      "prior_pick": "",
+      "effect": "YES → Maintainer marks 1.10 DONE · Phase 3–10 resume unblocked",
+      "blocks": "SESSION_LOG 1.10 · INTEGRITY playbook Phase 1",
+      "reply_template": "ASF: FIVE-STEP — PICK: Q-1.10-SEAL YES — seal Phase 1 closeout",
+      "option_effects": {}
+    },
+    "canvas_button_label": "M1 Canvas",
+    "hub_url": "http://127.0.0.1:13027/",
+    "h2_machines_url": "http://127.0.0.1:13027/machines/",
+    "form_hub_line": "110 open PICKs · M1 Canvas · Phase 1.10 closeout seal · guard active",
+    "open_canvas_hint": "Hub form page = same PICK rows as M1 Canvas slot D · Cursor Canvas optional beside chat"
+  },
+  "upgrade": {
+    "hub_edition": "super-fast-v1.2",
+    "daily_url": "/",
+    "h2_machines_url": "/machines/",
+    "layer_stack": "Brain(1) · Gov(2) · Commercial(3) · Brief(4) → Worker · R2 · M2 · M3",
+    "n8n_wired": false,
+    "n8n_running": true,
+    "openrouter_gate": "enforce",
+    "h2_pending_count": 0
+  },
+  "ecosystem_mac_health": {
+    "schema": "hub-ecosystem-slice-v1",
+    "at": "2026-06-23T09:16:10Z",
+    "ok": true,
+    "health_grade": "Excellent",
+    "health_live_status": "LIVE",
+    "health_score": 96,
+    "health_strip": {
+      "grade": "Excellent",
+      "score": 96,
+      "live_status": "LIVE",
+      "relieve_url": "http://127.0.0.1:13024/",
+      "modes": []
+    },
+    "pressure_badge": "OK",
+    "pressure": {
+      "schema": "ecosystem-pressure-v1",
+      "at": "2026-06-23T09:16:09Z",
+      "badge": "OK",
+      "reasons": [],
+      "budget": {
+        "cursor_mb_target": 6000,
+        "cursor_mb_hard": 8000,
+        "control_plane_mb_target": 500
+      },
+      "actual": {
+        "cursor_rss_mb": 5132.0,
+        "control_plane_python_mb": 228.3
+      },
+      "flags": {
+        "mac_control_plane": true,
+        "founder_work_mode": true
+      },
+      "founder_session_safe": true
+    },
+    "cloud_factory_heartbeat": {
+      "ok": true,
+      "line": "cloud-factories · PASS · 9/9 · Mac=control-panel · factories=cloud+API · anti-staleness+zero-drift+zero-fragmentation",
+      "passed": 9,
+      "total": 9,
+      "factories": [
+        {
+          "id": "fbe_factory_builder",
+          "online": null,
+          "note": "cloud receipt pending"
+        },
+        {
+          "id": "fbe_railway",
+          "online": true,
+          "note": "cloud receipt pending",
+          "url": "https://sourcea-fbe-runner-production.up.railway.app"
+        },
+        {
+          "id": "comprehension_loop_bay",
+          "online": null,
+          "note": "cloud receipt pending"
+        },
+        {
+          "id": "supabase_edge",
+          "online": null,
+          "note": "cloud receipt pending"
+        },
+        {
+          "id": "video_ad_factory",
+          "online": null,
+          "note": "cloud receipt pending"
+        },
+        {
+          "id": "noetfield_freemium_bay",
+          "online": null,
+          "note": "cloud receipt pending"
+        },
+        {
+          "id": "trustfield_sandbox",
+          "online": null,
+          "note": "cloud receipt pending"
+        },
+        {
+          "id": "witnessbc_proof_lab",
+          "online": null,
+          "note": "cloud receipt pending"
+        },
+        {
+          "id": "fal_rendering_bridge",
+          "online": null,
+          "note": "cloud receipt pending"
+        },
+        {
+          "id": "openrouter_cloud",
+          "online": null,
+          "note": "cloud receipt pending"
+        }
+      ]
+    },
+    "cloud_glance": {
+      "schema": "mac-health-cloud-glance-v1",
+      "ok": true,
+      "at": "2026-06-23T09:16:10Z",
+      "execution_plane": "read_only_mac_glance",
+      "railway_ok": true,
+      "railway": {
+        "ok": true,
+        "status": 200,
+        "service": "fbe-cloud-worker",
+        "url": "https://sourcea-fbe-runner-production.up.railway.app"
+      },
+      "last_plan_id": "CLOUD-SEC-011",
+      "last_dispatch_ok": true,
+      "last_show_this": "",
+      "last_dispatch_at": "2026-06-20T19:18:34Z",
+      "last_receipt_id": "cloud-dispatch-146dc015b080",
+      "hub_url": "http://127.0.0.1:13027/",
+      "founder_line": "Cloud · Railway OK · comprehension ACCEPT · cfg 1.1.0 · score 80 · cloud · last job CLOUD-SEC-011 PASS",
+      "for_founder": {
+        "show_this": "Cloud · Railway OK · comprehension ACCEPT · cfg 1.1.0 · score 80 · cloud · last job CLOUD-SEC-011 PASS"
+      },
+      "comprehension_last_verdict": "ACCEPT",
+      "config_version": "1.1.0",
+      "variation_key": "default",
+      "comprehension_last_score": 80,
+      "comprehension_escalated": false,
+      "comprehension_execution_plane": "headless_cloud",
+      "comprehension_proxied": true,
+      "comprehension_accept_rate_last10": 0.0,
+      "comprehension_avg_score_last10": 100.0
+    },
+    "cloud_glance_line": "Cloud · Railway OK · comprehension ACCEPT · cfg 1.1.0 · score 80 · cloud · last job CLOUD-SEC-011 PASS",
+    "m111_line": "M111 · 43/111 · head=M111-038 · Founder-session deny gate blocks verify-mac-law-routing-pane",
+    "m111_head": "M111-038",
+    "m111_progress": {
+      "total": 111,
+      "done": 43,
+      "planned": 68,
+      "pct": 38.7,
+      "mac_proven": 43,
+      "cloud_proven": 2
+    },
+    "mandatory_next": {
+      "source": "m111",
+      "id": "M111-038",
+      "line": "M111 · 43/111 · head=M111-038 · Founder-session deny gate blocks verify-mac-law-routing-pane",
+      "action": "WORK M111-038"
+    },
+    "form_primary": true,
+    "form_note": "Human fork on FORM_OFFICIAL — not chat A/B/C",
+    "routing_panel_optional": true,
+    "routing_panel_url": "http://127.0.0.1:8780/",
+    "mac_health_url": "http://127.0.0.1:13024/",
+    "founder_glance_law": "Hub home · Mac Health strip · pressure badge · cloud heartbeat"
+  },
+  "health_grade": "Excellent",
+  "pressure_badge": "OK",
+  "m111_line": "M111 · 43/111 · head=M111-038 · Founder-session deny gate blocks verify-mac-law-routing-pane",
+  "mandatory_next": {
+    "source": "m111",
+    "id": "M111-038",
+    "line": "M111 · 43/111 · head=M111-038 · Founder-session deny gate blocks verify-mac-law-routing-pane",
+    "action": "WORK M111-038"
+  },
+  "relieve_url": "http://127.0.0.1:13024/",
+  "mac_health_live": {
+    "schema": "mac-health-h1-bridge-v1",
+    "at": "2026-06-23T09:15:03Z",
+    "live_status": "LIVE",
+    "score": 96,
+    "security_score": 100,
+    "grade": "Excellent",
+    "firewall_enabled": true,
+    "loadavg": "{ 2.79 2.75 2.69 }",
+    "load_1min": 2.79,
+    "cpu_pct": 8.3,
+    "cpu_cores": 18,
+    "ram_gb": 48.0,
+    "ram_used_pct": 73.6,
+    "ram_used_gb": 35.3,
+    "memory_pressure_level": "normal",
+    "thermal_pressure": false,
+    "gpu_note": "SoC nominal",
+    "disk_root_pct": 2,
+    "ghost_terminals": 1,
+    "queue_zombies": 0,
+    "heart_url": "http://127.0.0.1:13024/",
+    "heart_ok": true,
+    "wired": {
+      "live_refreshed_at": "2026-06-23T09:15:01.849782+00:00",
+      "live_age_sec": 0.9,
+      "pressure_age_sec": 0.9,
+      "live_ok": true,
+      "pulse_interval_sec": 120
+    },
+    "h1": {
+      "ok": true,
+      "url": "http://127.0.0.1:13027/",
+      "task_id": "sa-1210",
+      "queue_role": "verify",
+      "honest_ok": null,
+      "valid_yes": 1000,
+      "built_at": "2026-06-23T05:21:57Z"
+    },
+    "founder_line": "Mac Heart LIVE · score 96 · CPU 8.3% · RAM 73.6% · load 2.79/18 · H1 sa-1210 · Cloud · Railway OK · comprehension ACCEPT · cfg 1.1.0 · score 80 · cloud · last job CLOUD-SEC-011 PASS",
+    "cloud_glance": {
+      "schema": "mac-health-cloud-glance-v1",
+      "ok": true,
+      "at": "2026-06-23T09:15:03Z",
+      "execution_plane": "read_only_mac_glance",
+      "railway_ok": true,
+      "railway": {
+        "ok": true,
+        "status": 200,
+        "service": "fbe-cloud-worker",
+        "url": "https://sourcea-fbe-runner-production.up.railway.app"
+      },
+      "last_plan_id": "CLOUD-SEC-011",
+      "last_dispatch_ok": true,
+      "last_show_this": "",
+      "last_dispatch_at": "2026-06-20T19:18:34Z",
+      "last_receipt_id": "cloud-dispatch-146dc015b080",
+      "hub_url": "http://127.0.0.1:13027/",
+      "founder_line": "Cloud · Railway OK · comprehension ACCEPT · cfg 1.1.0 · score 80 · cloud · last job CLOUD-SEC-011 PASS",
+      "for_founder": {
+        "show_this": "Cloud · Railway OK · comprehension ACCEPT · cfg 1.1.0 · score 80 · cloud · last job CLOUD-SEC-011 PASS"
+      },
+      "comprehension_last_verdict": "ACCEPT",
+      "config_version": "1.1.0",
+      "variation_key": "default",
+      "comprehension_last_score": 80,
+      "comprehension_escalated": false,
+      "comprehension_execution_plane": "headless_cloud",
+      "comprehension_proxied": true,
+      "comprehension_accept_rate_last10": 0.0,
+      "comprehension_avg_score_last10": 100.0
+    }
+  },
+  "cloud_glance_line": "Cloud · Railway OK · comprehension ACCEPT · cfg 1.1.0 · score 80 · cloud · last job CLOUD-SEC-011 PASS",
+  "plans_unified": {
+    "schema": "worker-hub-plans-unified-v1",
+    "ok": false,
+    "plans_unified_line": "Plans · outbound 0/0 W1 · full-stack 62/100 W3 · brain 25/1000 E01 · M111 43/111",
+    "outbound": {
+      "done": 0,
+      "total": 0,
+      "active_wave": "W1"
+    },
+    "full_stack": {
+      "done": 62,
+      "total": 100,
+      "active_wave": "W3"
+    },
+    "brain_cloud": {
+      "done": 25,
+      "total": 1000,
+      "active_epic": "E01",
+      "newly_marked": [],
+      "reset_ids": []
+    },
+    "phase0_reference": {
+      "ok": true,
+      "line": "Phase0 reference · 15/16 (94%) · head=P0-16",
+      "progress": {
+        "done": 15,
+        "total": 16,
+        "pct": 94
+      }
+    },
+    "anti_theater": {
+      "ok": false,
+      "line": "Anti-theater · 16/19 PASS · forbidden=0 · honesty=OK · sina_pending=0",
+      "passed": 16,
+      "total": 19,
+      "sina_pending": 0
+    },
+    "task_plan_priority": {
+      "ok": true,
+      "line": "task-priority · seq=CLOUD-SEC-047 · smart=CLOUD-SEC-047 · P1 · output=unknown · score=510",
+      "smart_pick": {
+        "task_id": "CLOUD-SEC-047",
+        "title": "Rate-limit + retry policy from Trigger.dev model",
+        "source": "cloud_forge_run",
+        "lane": "ws-integrate",
+        "plane": "cloud_forge",
+        "output_type": "unknown",
+        "unified_priority": "P1",
+        "priority_label": "Cloud FORGE revenue lane (full motor)",
+        "score": 510,
+        "blocked": false,
+        "paired_registry": "sa-mkt-0047",
+        "maps_registry": "sa-mkt-0047",
+        "sequential_role": "drain_head",
+        "cost_tier": "free"
+      },
+      "top_ranked": [
+        {
+          "task_id": "CLOUD-SEC-049",
+          "title": "Update catalog row Trigger.dev row 1",
+          "source": "cloud_forge_run",
+          "lane": "ws-integrate",
+          "plane": "cloud_forge",
+          "output_type": "data_pipeline",
+          "unified_priority": "P1",
+          "priority_label": "Cloud FORGE revenue lane (full motor)",
+          "score": 750,
+          "blocked": false,
+          "paired_registry": "sa-mkt-0049",
+          "maps_registry": "sa-mkt-0049",
+          "sequential_role": "cloud_forge_run_ahead",
+          "cost_tier": "free",
+          "brain_pair": false
+        },
+        {
+          "task_id": "CLOUD-SEC-047",
+          "title": "Rate-limit + retry policy from Trigger.dev model",
+          "source": "cloud_forge_run",
+          "lane": "ws-integrate",
+          "plane": "cloud_forge",
+          "output_type": "unknown",
+          "unified_priority": "P1",
+          "priority_label": "Cloud FORGE revenue lane (full motor)",
+          "score": 510,
+          "blocked": false,
+          "paired_registry": "sa-mkt-0047",
+          "maps_registry": "sa-mkt-0047",
+          "sequential_role": "drain_head",
+          "cost_tier": "free",
+          "brain_pair": false
+        },
+        {
+          "task_id": "CLOUD-SEC-048",
+          "title": "Validate adapter fixture test — cloud CI",
+          "source": "cloud_forge_run",
+          "lane": "ws-integrate",
+          "plane": "cloud_forge",
+          "output_type": "internal_meta",
+          "unified_priority": "P1",
+          "priority_label": "Cloud FORGE revenue lane (full motor)",
+          "score": 50,
+          "blocked": false,
+          "paired_registry": "sa-mkt-0048",
+          "maps_registry": "sa-mkt-0048",
+          "sequential_role": "cloud_forge_run_ahead",
+          "cost_tier": "free",
+          "brain_pair": false
+        },
+        {
+          "task_id": "B0024",
+          "title": "Brain refuses Worker-scope implementation in Brain chat",
+          "source": "brain_cloud_1000",
+          "lane": "brain_reasoning",
+          "plane": "",
+          "output_type": "internal_meta",
+          "unified_priority": "P4",
+          "priority_label": "Brain / governance meta rows",
+          "score": -450,
+          "blocked": false,
+          "paired_registry": "sa-mkt-0047",
+          "maps_registry": "sa-mkt-0047",
+          "sequential_role": "other",
+          "cost_tier": null,
+          "brain_pair": true
+        },
+        {
+          "task_id": "B0025",
+          "title": "Brain maps founder intent to work-order spec for cloud worker",
+          "source": "brain_cloud_1000",
+          "lane": "brain_reasoning",
+          "plane": "",
+          "output_type": "internal_meta",
+          "unified_priority": "P4",
+          "priority_label": "Brain / governance meta rows",
+          "score": -450,
+          "blocked": false,
+          "paired_registry": "sa-mkt-0047",
+          "maps_registry": "sa-mkt-0047",
+          "sequential_role": "other",
+          "cost_tier": null,
+          "brain_pair": true
+        }
+      ],
+      "ssot": "data/sourcea-task-plan-priority-v1.json"
+    },
+    "task_plan_priority_line": "task-priority · seq=CLOUD-SEC-047 · smart=CLOUD-SEC-047 · P1 · output=unknown · score=510",
+    "hub_api": "POST /api/plans-unified/tick/v1"
+  },
+  "cloud_forge_run_proceed": {
+    "schema": "worker-hub-cloud-forge-run-proceed-v1",
+    "ok": true,
+    "one_law": "Cloud Forge Run = Cloud Workers.app (:13027) or CF cron → Railway FBE full-pack. Worker Hub :13020 is legacy optional glance only — never required.",
+    "hub_api": "POST http://127.0.0.1:13027/api/cloud-forge-run/proceed/v1",
+    "default_llm": "openrouter",
+    "llm_providers": [
+      "openrouter",
+      "gemini"
+    ],
+    "next": {
+      "task_id": "CLOUD-SEC-200",
+      "maps_registry": "sa-mkt-0190",
+      "title": "Close sa-mkt-0190 with onboarding evidence + verify PASS",
+      "tier": "T3",
+      "cost_tier": "free",
+      "queue_source": "cloud_forge_run_queue_v1"
+    },
+    "last_line": "hub-proceed · CLOUD-SEC-200 · sa-mkt-0190 · PASS · openrouter · cloud_only",
+    "last_ok": true
+  },
+  "anti_theater": {
+    "schema": "worker-hub-anti-theater-loop-v1",
+    "ok": false,
+    "anti_theater_line": "Anti-theater · 16/19 PASS · forbidden=0 · honesty=OK · sina_pending=0",
+    "passed": 16,
+    "total": 19,
+    "sina_pending": 0,
+    "violation_count": 3
+  },
+  "agent_behavior": {
+    "schema": "worker-hub-agent-behavior-v1",
+    "ok": true,
+    "behavior_line": "behavior · intent-first · Always care about founder intent before mechanics, blame, or path substi · Real market — hard truth beats sweet lies.",
+    "one_law": "Always care about founder intent before mechanics, blame, or path substitution.",
+    "case_count": 12,
+    "required": [
+      "Honor exact SAVE TO / EDIT ALLOWED / WORK paths founder names",
+      "When correcting yourself: WAS (brief) + INTENT (what founder meant) + FIX (disk action)",
+      "When uncertain: one clarifying question — not silent substitution",
+      "Quote disk receipts and validators — RED stays RED until founder action fixes it",
+      "Lead with blockers and FAIL before wins — never bury RED under green summary",
+      "Stay in role title and main job — Brain routes · Worker builds · do not cosplay the other lane",
+      "Disk truth only — no invitations to founder to open, submit, tap, or act"
+    ],
+    "hub_api": "GET /api/worker-hub/v1 · inject founder_intent_first_detail"
+  },
+  "factory_cost_intelligence": {
+    "schema": "worker-hub-factory-cost-intelligence-v1",
+    "ok": true,
+    "cost_intelligence_line": "cost-intel · loop=6 · registry=100 · wef=224 · auto-prompt=planner→inbox",
+    "registry_count": 100,
+    "wef_gln_total": 224,
+    "one_law": "Cost is a control variable — observe $/unit · orient baselines · decide with agents · act via MES/inbox · measure receipts.",
+    "hub_api": "GET /api/worker-hub/v1 · slice factory_cost_intelligence"
+  },
+  "world_model_check": {
+    "schema": "worker-hub-world-model-plan-check-v1",
+    "ok": true,
+    "world_model_line": "WTM check · phase=D2 · scanned=6 · public=PASS · advisory=0 · routes=5",
+    "violation_count": 0,
+    "product_routes_detected": [
+      {
+        "lane": "noetfield",
+        "keywords": [
+          "tle",
+          "board pack",
+          "governance receipt",
+          "copilot",
+          "diligence"
+        ],
+        "sku_only": false
+      },
+      {
+        "lane": "trustfield",
+        "keywords": [
+          "trustfield",
+          "msb",
+          "rpaa",
+          "compliance",
+          "sandbox"
+        ],
+        "sku_only": false
+      },
+      {
+        "lane": "sourcea_forge",
+        "keywords": [
+          "forge",
+          "fbe",
+          "factory",
+          "sandbox",
+          "catalog"
+        ],
+        "sku_only": false
+      },
+      {
+        "lane": "witnessbc",
+        "keywords": [
+          "witness",
+          "proof lab",
+          "evidence",
+          "tamper"
+        ],
+        "sku_only": false
+      },
+      {
+        "lane": "mac_guard",
+        "keywords": [
+          "mac guard",
+          "agency",
+          "invoice sku"
+        ],
+        "sku_only": true
+      }
+    ],
+    "stripe_buyer_copy": "Governed AI operations for teams on any stack — web, mobile, and API surfaces. Subscribe to Noetfield Systems for operational TLE evaluation, policy receipts, and upgrade paths with no desktop-only or",
+    "stripe_statement_descriptor": "NOETFIELD SYSTEMS",
+    "stripe_statement_descriptor_short": "NFS",
+    "hub_api": "POST /api/world-model-plan-check/tick/v1"
+  },
+  "extended_api": "/api/worker-hub/extended/v1",
+  "inbox_pending": false,
+  "task_id": "sa-1210",
+  "task_title": "—",
+  "execution_surface": "inbox_only",
+  "current_turn": {
+    "is_current": true,
+    "execution_surface": "inbox_only",
+    "execution_bind": "bound",
+    "sa_id": "sa-1210",
+    "upgrade_id": null,
+    "queue_role": "",
+    "pending": false,
+    "cta": "RUN INBOX",
+    "bind_law": "Never execute queue_pos != 1 unless broker advanced"
+  },
+  "next_steps_preview": {
+    "execution_surface": "inbox_only",
+    "cursor_pos": 10,
+    "current_turn": {
+      "sa_id": "sa-1210",
+      "title": "Portfolio daily + FORGE FACTORY queue closeout",
+      "role": null,
+      "is_current": true,
+      "execution_bind": "bound",
+      "execution_surface": "inbox_only"
+    },
+    "turns": [
+      {
+        "sa_id": "sa-1210",
+        "title": "Portfolio daily + FORGE FACTORY queue closeout",
+        "role": null,
+        "is_current": true,
+        "execution_bind": "bound",
+        "execution_surface": "inbox_only"
+      }
+    ],
+    "note": "Row 1 = RUN INBOX only · rows 2–10 are preview — not bound"
+  },
+  "connected": false,
+  "worker_connected": {
+    "connected": false,
+    "ok": false,
+    "line": "worker-connected · BLOCK:receipt_path",
+    "outbound_progress_line": "outbound · 0/100 done · head=? · plan=? · sa=?",
+    "execution_honesty_line": "execution · 11/12 honest",
+    "checks": {
+      "coherence": true,
+      "receipt_path": false,
+      "acceptance_proof": true,
+      "execution_plane": false,
+      "inbox_latch": true,
+      "hub_api": false,
+      "hub_connected_badge": true
+    },
+    "receipt_at": "2026-06-20T06:12:40Z"
+  },
+  "ecosystem_connected": true,
+  "ecosystem_wire": {
+    "ecosystem_connected": true,
+    "ok": true,
+    "line": "ecosystem-connected · PASS",
+    "checks": {
+      "worker_connected": true,
+      "nerve_system": true,
+      "nerve_worker_gate": true,
+      "node_graph_fresh": true,
+      "node_graph_ok": true,
+      "agentic_layer_wire": true,
+      "brain_l2_wire": true,
+      "orient_routing": true,
+      "investigator_judge": true,
+      "oegcc_loop_wired": true
+    },
+    "receipt_at": "2026-06-19T05:34:48Z",
+    "outbound_progress_line": "outbound · 108/108 done · head=? · plan=? · sa=?",
+    "execution_honesty_line": "execution · 12/12 honest"
+  },
+  "outbound_progress_line": "outbound · 0/100 done · head=? · plan=? · sa=?",
+  "execution_honesty_line": "execution · 11/12 honest",
+  "worker_busy": false,
+  "worker_mode": "ready",
+  "autorun_paused": true,
+  "hero_actions": [
+    {
+      "id": "h2_machines",
+      "label": "Machine Hub",
+      "path": "/machines/",
+      "url": "http://127.0.0.1:13027/machines/"
+    }
+  ],
+  "goal1_summary": {
+    "autorun_state": "ready",
+    "executor_busy": false,
+    "inbox_pending": false
+  },
+  "health": {
+    "schema": "worker-hub-staleness-v1",
+    "status": "fresh",
+    "age_sec": 0.3,
+    "built_at": "2026-06-23T09:16:09Z",
+    "freshness_source": "command-data-shell.json",
+    "shell_age_sec": 0.3,
+    "auto_heal_recommended": false,
+    "latches": {
+      "as01_p0_no_autorun": true,
+      "dual_pick_aligned": true,
+      "inbox_fresher_than_shell": true,
+      "honest_status_fresh": true,
+      "dual_proof_ok": true,
+      "shell_stale_projection_ok": true
+    },
+    "issues": [],
+    "notes": [],
+    "poll_interval_sec": 15,
+    "heal_cooldown_sec": 45
+  },
+  "kernel_k1": {
+    "verdict": "PASS",
+    "ok": true,
+    "founder_line": "K1 PASS — boot + tamper-on-read",
+    "blockers": []
+  },
+  "daily_rooms": {
+    "schema": "worker-hub-daily-rooms-v1",
+    "built_at": "2026-06-23T09:16:09.287450+00:00",
+    "form_open": 110,
+    "needs_founder": true,
+    "judge_center": {
+      "id": "judge-center",
+      "label": "Judge Center",
+      "cadence": "daily read · weekly run",
+      "law": "SINA_JUDGE_STACK_LOCKED_v1.md",
+      "headline": "P1 — 116 form fork(s) open",
+      "tone": "amber",
+      "case_id": "JC-20260622-79492d44",
+      "built_at": "2026-06-22T07:13:58Z",
+      "age_sec": 93731.3,
+      "active_stale": 0,
+      "bad": 0,
+      "past_stale_only": 2,
+      "form_open": 116,
+      "p0_count": 0,
+      "executive_resolution": "Judge Center batch JC-20260622-79492d44: 1 TRUSTED/RIGHT · 2 PAST_STALE_ONLY · 0 ACTIVE_STALE · 0 BAD · 0 form actions. RECENT window wins over archaeology. Binding PICK still on M1 Canvas.",
+      "run_due": false,
+      "strip_refresh_due": true,
+      "last_run_ok": true,
+      "default_chats": "58148ac9,6245d9dd,e54ddfa8,74f5ccab"
+    },
+    "thread_room": {
+      "id": "thread-room",
+      "label": "Thread Room",
+      "cadence": "weekly run · daily read",
+      "law": "SINA_THREAD_ROOM_LOCKED_v1.md",
+      "headline": "Thread Room batch TR-20260622-25c43dec: 4 arcs · 1 gaps · 4 §THREAD drafts. Map only — RIGHT/STALE/BAD is Judge Center. Form open_count=116.",
+      "case_id": "TR-20260622-25c43dec",
+      "built_at": "2026-06-22T01:16:32Z",
+      "age_sec": 115177.3,
+      "arc_count": 4,
+      "thread_drafts": 4,
+      "arcs_preview": [
+        "THREAD-ECOSYSTEM",
+        "THREAD-FACTORY",
+        "THREAD-MERGEPACK",
+        "THREAD-SUPERBRAIN"
+      ],
+      "run_due": false,
+      "last_run_ok": true,
+      "default_chats": "58148ac9,6245d9dd,e54ddfa8,74f5ccab"
+    },
+    "loop_judge_room": {
+      "id": "loop-judge-room",
+      "label": "Judge Loop Room",
+      "cadence": "every live wire sync · session gate",
+      "law": "docs/SOURCEA_INVESTIGATOR_JUDGE_LOOP_ROOM_LOCKED_v1.md",
+      "headline": "judge-loop · DISPATCH_BLOCKED · inv=YELLOW · tick=compose_blocked · routes=3",
+      "loop_verdict": "DISPATCH_BLOCKED",
+      "investigation_verdict": "YELLOW",
+      "tick_decision": "compose_blocked",
+      "built_at": "2026-06-22T13:12:53Z",
+      "age_sec": 72196.3,
+      "escalations": [
+        "ASF: Cloud Forge Run — max 1"
+      ],
+      "hub_api": "POST /api/judge-loop/tick/v1"
+    },
+    "actions": {
+      "run_judge": {
+        "path": "/api/worker-hub/rooms/run",
+        "body": {
+          "room": "judge"
+        }
+      },
+      "run_thread": {
+        "path": "/api/worker-hub/rooms/run",
+        "body": {
+          "room": "thread"
+        }
+      },
+      "run_both": {
+        "path": "/api/worker-hub/rooms/run",
+        "body": {
+          "room": "both"
+        }
+      },
+      "refresh_strip": {
+        "path": "/api/worker-hub/rooms/run",
+        "body": {
+          "room": "strip"
+        }
+      },
+      "loop_chain_tick": {
+        "path": "/api/loop-chain/tick/v1",
+        "method": "POST",
+        "body": {}
+      }
+    }
+  },
+  "actions": {
+    "safety": "founder-ecosystem-safety",
+    "k1": "founder-enforcement-k1",
+    "refresh": {
+      "path": "/refresh",
+      "mode": "light"
+    },
+    "heal": {
+      "path": "/api/worker-hub/heal",
+      "method": "POST"
+    },
+    "outbound_coherence_heal": {
+      "path": "/api/worker-hub/outbound-coherence-heal/v1",
+      "method": "POST",
+      "label": "Outbound disk coherence heal"
+    },
+    "pipeline_node_graph_run": {
+      "path": "/api/pipeline-node-graph/run/v1",
+      "method": "POST",
+      "label": "Run node graph T3 proof tier"
+    },
+    "rooms_run": {
+      "path": "/api/worker-hub/rooms/run",
+      "method": "POST"
+    },
+    "commercial_run": {
+      "path": "/api/worker-hub/commercial/run",
+      "method": "POST"
+    },
+    "loop_specialist_tick": {
+      "path": "/api/loop-specialist/tick/v1",
+      "method": "POST"
+    },
+    "investigator_circle_tick": {
+      "path": "/api/investigator-circle/tick/v1",
+      "method": "POST"
+    },
+    "judge_loop_tick": {
+      "path": "/api/judge-loop/tick/v1",
+      "method": "POST"
+    },
+    "routing_panel_refresh": {
+      "path": "/api/routing-panel/tick/v1",
+      "method": "POST"
+    },
+    "disclosure_ladder_tick": {
+      "path": "/api/disclosure-ladder/tick/v1",
+      "method": "POST"
+    },
+    "mcp_stack_tick": {
+      "path": "/api/mcp-stack/tick/v1",
+      "method": "POST"
+    },
+    "tool_pick_tick": {
+      "path": "/api/tool-pick/tick/v1",
+      "method": "POST"
+    },
+    "plans_unified_tick": {
+      "path": "/api/plans-unified/tick/v1",
+      "method": "POST"
+    },
+    "cloud_forge_run_proceed": {
+      "path": "/api/cloud-forge-run/proceed/v1",
+      "method": "POST",
+      "label": "Proceed next cloud task (OpenRouter/Gemini on Railway)",
+      "body": {
+        "llm_provider": "openrouter",
+        "full_motor": true
+      }
+    },
+    "world_model_tick": {
+      "path": "/api/world-model-plan-check/tick/v1",
+      "method": "POST"
+    },
+    "loop_chain_tick": {
+      "path": "/api/loop-chain/tick/v1",
+      "method": "POST"
+    },
+    "form": "/api/live-founder-decision-form-v1",
+    "extended": {
+      "path": "/api/worker-hub/extended/v1",
+      "method": "GET"
+    },
+    "h2_machines": "/machines/"
+  },
+  "boot": true,
+  "boot_at": "2026-06-23T09:16:10Z"
+}

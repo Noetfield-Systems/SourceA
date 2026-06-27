@@ -1,16 +1,18 @@
 {
   "schema": "sourcea-trust-signals-v1",
-  "at": "2026-06-18T00:04:51Z",
-  "receipts_signed_today": 2,
-  "receipts_signed_lifetime": 5039,
+  "at": "2026-06-24T03:23:04Z",
+  "receipts_signed_today": 4,
+  "receipts_signed_lifetime": 5655,
   "receipts_lifetime_label": "Governance receipts signed on disk",
-  "receipts_date": "2026-06-18",
+  "receipts_date": "2026-06-24",
   "receipt_samples": [
+    "agent-governance-events.jsonl:s10_eternal_audit",
+    "agent-governance-events.jsonl:s10_eternal_audit",
     "critic-boot-v1.json",
     "sourcea-boot-terminal-inject-v1.json"
   ],
   "receipt_metric_label": "Material governance events today",
-  "valid_yes": 999,
+  "valid_yes": null,
   "valid_yes_total": 1000,
   "github": {
     "ok": false,
@@ -20,16 +22,16 @@
   },
   "governance": {
     "loop": "governance",
-    "status": "degraded",
-    "verdict": "BLOCK",
-    "checks_pass": 3,
+    "status": "operational",
+    "verdict": "PASS",
+    "checks_pass": 4,
     "checks_total": 4,
-    "at": "2026-06-18T00:04:50Z",
+    "at": "2026-06-24T01:08:33Z",
     "factory": "FROZEN"
   },
-  "factory_now_line": "factory-now \u00b7 Valid YES 999 \u00b7 brain 999 \u00b7 dual_proof True \u00b7 mode SINGLE_SA \u00b7 queue ",
-  "status_page": "/sourcea/status.html",
-  "proof_sample": "/sourcea/attach/proof-bundle-sample.html",
+  "factory_now_line": "",
+  "status_page": "/sourcea/status",
+  "proof_sample": "/sourcea/attach/proof-bundle-sample",
   "built_on": [
     {
       "id": "temporal",
@@ -66,7 +68,7 @@
   "api_hook": {
     "endpoint": "POST /v1/decision",
     "receipt_id": "sa-0886",
-    "verdict": "BLOCK",
-    "signed_at": "2026-06-18T00:04:50Z"
+    "verdict": "PASS",
+    "signed_at": "2026-06-24T01:08:33Z"
   }
 }

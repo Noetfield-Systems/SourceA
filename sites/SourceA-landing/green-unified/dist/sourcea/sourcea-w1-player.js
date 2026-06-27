@@ -87,7 +87,7 @@
           <div class="sa-w1-controls" role="tablist" aria-label="W1 demo beats"></div>
           <p class="sa-metric-note">Live terminal from factory boot · same beats you screen-share</p>
           <div class="sa-cta-actions sa-w1-cta">
-            <a class="ar-btn ar-btn-primary sa-btn-glow" href="/sourcea/scenario.html#proof-quiz">Play full scenario →</a>
+            <a class="ar-btn ar-btn-primary sa-btn-glow" href="/sourcea/scenario#proof-quiz">Play full scenario →</a>
             <button type="button" class="ar-btn ar-btn-ghost" id="sa-w1-replay">Replay film</button>
           </div>
         </div>

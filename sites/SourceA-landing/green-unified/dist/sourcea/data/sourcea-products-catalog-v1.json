@@ -1,0 +1,294 @@
+{
+  "schema": "sourcea-products-catalog-v1",
+  "version": "1.0.0",
+  "generated_at": "2026-06-24T15:11:48Z",
+  "product_count": 9,
+  "case_studies": [
+    {
+      "id": "pureflow-case-study",
+      "slug": "pureflow",
+      "kind": "case_study",
+      "rank": 1,
+      "title": "PureFlow",
+      "subtitle": "Case study #1 \u00b7 Local trades acquisition",
+      "buyer": "Pool & spa operators \u00b7 local service businesses",
+      "proof": "Live site + visit reports \u00b7 48-hour acquisition path",
+      "url": "/sourcea/case-studies/pureflow",
+      "live_url": "https://pureflow.sourcea.app/",
+      "status": "shipped",
+      "tier": "T1"
+    },
+    {
+      "id": "agentgo-case-study",
+      "slug": "agentgo",
+      "kind": "case_study",
+      "rank": 2,
+      "title": "AgentGo",
+      "subtitle": "Case study #2 \u00b7 Factory-scale GEO surface",
+      "buyer": "SaaS & marketing leaders \u00b7 agency CTOs",
+      "proof": "1,259 HTML pages \u00b7 dual deploy \u00b7 Wil L3 separation",
+      "url": "/sourcea/case-studies/agentgo",
+      "live_url": null,
+      "status": "shipped",
+      "tier": "T1",
+      "metrics": {
+        "html_pages": 1259,
+        "research_topics": 592,
+        "compare_pages": 83
+      }
+    }
+  ],
+  "platform": [
+    {
+      "id": "brain-public-chat",
+      "slug": "brain-chat",
+      "kind": "platform",
+      "rank": 4,
+      "title": "Brain \u00b7 Public chat",
+      "subtitle": "OpenRouter routing on sourcea.app",
+      "buyer": "All visitors",
+      "proof": "Live chat \u00b7 proof chips \u00b7 honest offline",
+      "url": "/sourcea/scenario",
+      "status": "active",
+      "tier": "T1",
+      "api": "/api/brain/chat/v1"
+    },
+    {
+      "id": "prompt-forge",
+      "slug": "prompt-forge",
+      "kind": "platform",
+      "rank": 10,
+      "title": "Prompt Forge",
+      "subtitle": "Founder language \u2192 bounded mission",
+      "buyer": "Founders \u00b7 operators",
+      "proof": "Governed prompt pipeline on disk",
+      "url": "/sourcea/forge/",
+      "status": "active",
+      "tier": "T2"
+    },
+    {
+      "id": "chat-unify",
+      "slug": "chat-unify",
+      "kind": "platform",
+      "rank": 11,
+      "title": "Chat Unify",
+      "subtitle": "Verify \u00b7 audit \u00b7 unify AI sessions",
+      "buyer": "Power users \u00b7 compliance teams",
+      "proof": "Web desk · Mac app · session truth gate",
+      "url": "/unify/",
+      "demo_url": "/unify-demo/",
+      "download_url": "/downloads/chat-unify-mac-v1.dmg",
+      "status": "active",
+      "tier": "T2"
+    },
+    {
+      "id": "cloud-workers",
+      "slug": "cloud-workers",
+      "kind": "platform",
+      "rank": 12,
+      "title": "Cloud Workers",
+      "subtitle": "Factory proceed \u00b7 OpenRouter on cloud",
+      "buyer": "Engineering \u00b7 factory operators",
+      "proof": "Railway full-pack \u00b7 receipt per tick",
+      "url": "/sourcea/platform#cloud-workers",
+      "status": "active",
+      "tier": "T2"
+    },
+    {
+      "id": "proof-loops",
+      "slug": "loops",
+      "kind": "platform",
+      "rank": 13,
+      "title": "Governed Loops",
+      "subtitle": "Outreach \u00b7 ops \u00b7 research",
+      "buyer": "Growth \u00b7 ops teams",
+      "proof": "Six loops \u00b7 live scenario",
+      "url": "/sourcea/loops/",
+      "status": "active",
+      "tier": "T2"
+    }
+  ],
+  "services": [
+    {
+      "id": "asset-b-loop-build",
+      "slug": "asset-b",
+      "kind": "service",
+      "rank": 3,
+      "title": "Asset B \u00b7 Agent Loop Build",
+      "subtitle": "Fixed-scope governed automation",
+      "buyer": "Revenue agencies \u00b7 platform teams",
+      "proof": "Signed receipt \u00b7 cross-lane guard \u00b7 replay demo",
+      "url": "/sourcea/offer",
+      "price_band": "$3\u201310K",
+      "status": "active",
+      "tier": "T1"
+    }
+  ],
+  "eval": [
+    {
+      "id": "sourcea-boot",
+      "slug": "sourcea-boot",
+      "kind": "eval",
+      "rank": 5,
+      "title": "sourcea-boot",
+      "subtitle": "Self-serve gate eval",
+      "buyer": "Platform engineers",
+      "proof": "PASS/BLOCK before you buy",
+      "url": "https://github.com/sourcea-io/sourcea-boot",
+      "status": "active",
+      "tier": "T0"
+    }
+  ],
+  "products": [
+    {
+      "id": "pureflow-case-study",
+      "slug": "pureflow",
+      "kind": "case_study",
+      "rank": 1,
+      "title": "PureFlow",
+      "subtitle": "Case study #1 \u00b7 Local trades acquisition",
+      "buyer": "Pool & spa operators \u00b7 local service businesses",
+      "proof": "Live site + visit reports \u00b7 48-hour acquisition path",
+      "url": "/sourcea/case-studies/pureflow",
+      "live_url": "https://pureflow.sourcea.app/",
+      "status": "shipped",
+      "tier": "T1"
+    },
+    {
+      "id": "agentgo-case-study",
+      "slug": "agentgo",
+      "kind": "case_study",
+      "rank": 2,
+      "title": "AgentGo",
+      "subtitle": "Case study #2 \u00b7 Factory-scale GEO surface",
+      "buyer": "SaaS & marketing leaders \u00b7 agency CTOs",
+      "proof": "1,259 HTML pages \u00b7 dual deploy \u00b7 Wil L3 separation",
+      "url": "/sourcea/case-studies/agentgo",
+      "live_url": null,
+      "status": "shipped",
+      "tier": "T1",
+      "metrics": {
+        "html_pages": 1259,
+        "research_topics": 592,
+        "compare_pages": 83
+      }
+    },
+    {
+      "id": "asset-b-loop-build",
+      "slug": "asset-b",
+      "kind": "service",
+      "rank": 3,
+      "title": "Asset B \u00b7 Agent Loop Build",
+      "subtitle": "Fixed-scope governed automation",
+      "buyer": "Revenue agencies \u00b7 platform teams",
+      "proof": "Signed receipt \u00b7 cross-lane guard \u00b7 replay demo",
+      "url": "/sourcea/offer",
+      "price_band": "$3\u201310K",
+      "status": "active",
+      "tier": "T1"
+    },
+    {
+      "id": "brain-public-chat",
+      "slug": "brain-chat",
+      "kind": "platform",
+      "rank": 4,
+      "title": "Brain \u00b7 Public chat",
+      "subtitle": "OpenRouter routing on sourcea.app",
+      "buyer": "All visitors",
+      "proof": "Live chat \u00b7 proof chips \u00b7 honest offline",
+      "url": "/sourcea/scenario",
+      "status": "active",
+      "tier": "T1",
+      "api": "/api/brain/chat/v1"
+    },
+    {
+      "id": "sourcea-boot",
+      "slug": "sourcea-boot",
+      "kind": "eval",
+      "rank": 5,
+      "title": "sourcea-boot",
+      "subtitle": "Self-serve gate eval",
+      "buyer": "Platform engineers",
+      "proof": "PASS/BLOCK before you buy",
+      "url": "https://github.com/sourcea-io/sourcea-boot",
+      "status": "active",
+      "tier": "T0"
+    },
+    {
+      "id": "prompt-forge",
+      "slug": "prompt-forge",
+      "kind": "platform",
+      "rank": 10,
+      "title": "Prompt Forge",
+      "subtitle": "Founder language \u2192 bounded mission",
+      "buyer": "Founders \u00b7 operators",
+      "proof": "Governed prompt pipeline on disk",
+      "url": "/sourcea/forge/",
+      "status": "active",
+      "tier": "T2"
+    },
+    {
+      "id": "chat-unify",
+      "slug": "chat-unify",
+      "kind": "platform",
+      "rank": 11,
+      "title": "Chat Unify",
+      "subtitle": "Verify \u00b7 audit \u00b7 unify AI sessions",
+      "buyer": "Power users \u00b7 compliance teams",
+      "proof": "Web desk · Mac app · session truth gate",
+      "url": "/unify/",
+      "demo_url": "/unify-demo/",
+      "download_url": "/downloads/chat-unify-mac-v1.dmg",
+      "status": "active",
+      "tier": "T2"
+    },
+    {
+      "id": "cloud-workers",
+      "slug": "cloud-workers",
+      "kind": "platform",
+      "rank": 12,
+      "title": "Cloud Workers",
+      "subtitle": "Factory proceed \u00b7 OpenRouter on cloud",
+      "buyer": "Engineering \u00b7 factory operators",
+      "proof": "Railway full-pack \u00b7 receipt per tick",
+      "url": "/sourcea/platform#cloud-workers",
+      "status": "active",
+      "tier": "T2"
+    },
+    {
+      "id": "proof-loops",
+      "slug": "loops",
+      "kind": "platform",
+      "rank": 13,
+      "title": "Governed Loops",
+      "subtitle": "Outreach \u00b7 ops \u00b7 research",
+      "buyer": "Growth \u00b7 ops teams",
+      "proof": "Six loops \u00b7 live scenario",
+      "url": "/sourcea/loops/",
+      "status": "active",
+      "tier": "T2"
+    }
+  ],
+  "plan_packs": [
+    {
+      "id": "agentgo-case-study-6000",
+      "kind": "plan_pack",
+      "title": "AgentGo case study 6000",
+      "count": 6000,
+      "schema_version": "3.0.0",
+      "smart_tier": "pure-unique-smart-polished",
+      "pick": "bash scripts/plan-no-asf-run.sh pick-agentgo 3",
+      "law": "docs/AGENTGO_SA4_CASE_STUDY_6000_PLANS_LOCKED_v1.md"
+    },
+    {
+      "id": "portfolio-next-6000",
+      "kind": "plan_pack",
+      "title": "Portfolio next 6000",
+      "count": 6000,
+      "schema_version": null,
+      "pick": "bash scripts/plan-no-asf-run.sh pick-next 3",
+      "law": "docs/PORTFOLIO_UPGRADE_PLANS_CANONICAL_LOCKED_v1.md"
+    }
+  ],
+  "conflicts_resolved": 0
+}

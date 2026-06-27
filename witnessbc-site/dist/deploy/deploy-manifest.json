@@ -28,6 +28,7 @@
     "assets/trust-signals.js",
     "assets/w1-demo-poster.svg",
     "compare.html",
+    "contact.html",
     "dark.html",
     "data/learn-chapters-v1.json",
     "data/observe-feed-v1.json",
@@ -58,9 +59,10 @@
     "toolkits/sandbox/index.html",
     "toolkits/training/evidence-literacy-101/index.html",
     "toolkits/training/index.html",
-    "toolkits/training/privacy-first-publishing/index.html"
+    "toolkits/training/privacy-first-publishing/index.html",
+    "vercel.json"
   ],
-  "pages": 10,
+  "pages": 13,
   "routes": [
     "_redirects",
     "_routes.json"

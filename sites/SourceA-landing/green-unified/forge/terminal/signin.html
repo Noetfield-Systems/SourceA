@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Sign in · Forge Terminal · SourceA</title>
+  <meta name="description" content="Sign in to Forge Terminal — workspace, quality gates, and governed agent execution." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0c0e12" />
+  <link rel="stylesheet" href="/assets/agentrun.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea-platform-onboarding-v1.css?v=1.4.0" />
+</head>
+<body class="ar-body sa-v2 sa-platform-onboard" data-sa-page="forge-terminal-signin">
+<header class="ar-header sa-header">
+  <div class="ar-container ar-header-shell">
+    <div class="ar-header-inner sa-po-header-inner">
+      <a class="ar-logo" href="/sourcea/forge/terminal">
+        <span class="ar-logo-text">Source<span class="ar-logo-run">A</span></span>
+        <span class="sa-ws-badge">Forge Terminal</span>
+      </a>
+      <div class="ar-header-actions">
+        <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/sourcea/forge/terminal">Public demo</a>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="ar-container">
+  <nav class="sa-po-steps" aria-label="Onboarding steps"></nav>
+  <section class="sa-po-card">
+    <h1>Sign in to Forge Terminal</h1>
+    <p class="ar-lead">Persistent workspace · quality gates · cloud dispatch — not just chat. Sign in, then set up your project.</p>
+
+    <div class="sa-po-auth-banner" id="sa-po-supabase-banner" hidden>
+      <span class="sa-po-supabase-mark">Supabase</span>
+      <span id="sa-po-supabase-banner-text"><strong>Account auth</strong> — Google, GitHub, or email &amp; password</span>
+    </div>
+
+    <div class="sa-po-oauth-row" id="sa-po-supabase-oauth">
+      <button type="button" class="sa-po-oauth sa-po-oauth-google" id="sa-po-google">
+        <span class="sa-po-oauth-icon" aria-hidden="true">G</span>
+        Sign in with Google
+      </button>
+      <button type="button" class="sa-po-oauth sa-po-oauth-github" id="sa-po-github">
+        <span class="sa-po-oauth-icon" aria-hidden="true">⌘</span>
+        Sign in with GitHub
+      </button>
+    </div>
+
+    <p class="sa-po-divider" id="sa-po-email-divider">or email &amp; password</p>
+
+    <form id="sa-po-signin-form">
+      <label class="sa-po-field">Email
+        <input type="email" id="sa-po-email" class="sa-po-input" autocomplete="username" placeholder="you@agency.com" />
+      </label>
+      <label class="sa-po-field">Password
+        <input type="password" id="sa-po-password" class="sa-po-input" autocomplete="current-password" placeholder="Your password" minlength="8" />
+      </label>
+      <div class="sa-po-actions">
+        <button type="submit" class="ar-btn ar-btn-primary">Sign in →</button>
+      </div>
+    </form>
+
+    <p class="sa-po-auth-links">
+      <button type="button" class="sa-po-text-btn" id="sa-po-magic-link">Email me a magic link</button>
+      <span class="sa-po-auth-sep">·</span>
+      <button type="button" class="sa-po-text-btn" id="sa-po-forgot-password">Forgot password?</button>
+    </p>
+
+    <p class="sa-po-divider">or start your Forge project</p>
+    <div class="sa-po-local-box" id="sa-po-local-box">
+      <p class="sa-po-local-lead">No password yet — enter your name and email to continue to profile and workspace.</p>
+      <label class="sa-po-field">Your name
+        <input type="text" id="sa-ft-local-name" class="sa-po-input" autocomplete="name" placeholder="Alex Chen" />
+      </label>
+      <label class="sa-po-field">Email
+        <input type="email" id="sa-ft-local-email" class="sa-po-input" autocomplete="email" placeholder="you@agency.com" />
+      </label>
+      <div class="sa-po-actions">
+        <button type="button" class="ar-btn ar-btn-primary" id="sa-ft-local-start">Continue to profile →</button>
+      </div>
+    </div>
+
+    <p class="sa-po-switch">Don&apos;t have an account? <a href="/sourcea/forge/terminal/signup">Create a new account</a></p>
+    <p class="sa-po-switch sa-po-switch-muted"><a href="/sourcea/forge/terminal">Try the public demo</a> — no sign-in required</p>
+    <p class="sa-po-status" id="sa-po-auth-status" hidden></p>
+  </section>
+</main>
+<script src="/sourcea/sourcea-platform-session-v1.js?v=1.4.0"></script>
+<script src="/sourcea/sourcea-platform-auth-v1.js?v=1.4.0"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  window.SourceAPlatformSession.mountStepNav(document.querySelector(".sa-po-steps"), "sign-in");
+  window.SourceAPlatformAuth.bootSignInPage();
+});
+</script>
+</body>
+</html>
