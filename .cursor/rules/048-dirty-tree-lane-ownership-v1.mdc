@@ -1,0 +1,38 @@
+---
+description: Dirty tree lane ownership for safe multi-agent work
+globs: "{data/**,docs/**,scripts/**,cloud/**,sites/**,brain-os/**,.cursor/rules/**,.cursor/skills/**,reports/**,agent-control-panel/**}"
+alwaysApply: false
+---
+
+# Dirty Tree Lane Ownership
+
+**SSOT:** `data/sourcea-dirty-tree-lane-map-v1.json`  
+**Doc:** `docs/SOURCEA_DIRTY_TREE_LANE_OWNERSHIP_LOCKED_v1.md`
+
+## Law
+
+A dirty tree is not a blocker when the agent stays inside its assigned lane.
+
+## Required
+
+Before editing in a dirty tree:
+
+1. Identify the lane.
+2. Inspect only the target path status/diff.
+3. Touch only files in the assigned lane.
+4. Ignore unrelated dirty files.
+5. Run the lane validator, not a full Mac validator marathon.
+
+Use:
+
+```bash
+python3 scripts/sourcea_dirty_tree_lane_map_v1.py --path <path> --json
+```
+
+## Forbidden
+
+- Reverting unrelated dirty files.
+- Cleaning the whole tree without explicit founder order.
+- Mixing Brain runtime, generated corpus, docs, incidents, model ROI, and site assets in one patch without explicit multi-lane scope.
+- Touching `generated_brain_corpus` unless assigned to knowledge refresh.
+
