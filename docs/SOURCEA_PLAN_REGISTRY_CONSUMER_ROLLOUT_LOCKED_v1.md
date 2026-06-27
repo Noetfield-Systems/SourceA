@@ -1,6 +1,6 @@
 # SourceA Plan Registry Consumer Rollout (LOCKED v1)
 
-**Saved:** 2026-06-27T11:04:00Z  
+**Saved:** 2026-06-27T11:12:44Z  
 **Upstream contract:** `docs/SOURCEA_PLAN_REGISTRY_READ_CONTRACT_LOCKED_v1.md`  
 **Supabase table:** `public.sourcea_plan_registry`  
 **Current row floor:** `23485`
@@ -95,9 +95,10 @@ Hard limits:
 
 Current policy:
 
-- Keep TrustField rows mirrored in SourceA with `lane=trustfield` until Noetfield import and read-back are confirmed.
-- Do not prune TrustField rows from `portfolio-spine` during this slice.
+- TrustField ownership is `noetfield`; SourceA may temporarily keep legacy `lane=trustfield` registry mirror rows only for consumer read-back continuity.
+- Do not prune legacy mirrored `lane=trustfield` rows from the SourceA plan registry during this slice.
 - Noetfield can receive a separate import from `scripts/noetfield_trustfield_plan_registry_import_v1.py`.
+- Authority pointer: `data/supabase-portfolio-tiers-v1.json` → `supabase_repo_split_v1`.
 
 Decision gate before pruning:
 
