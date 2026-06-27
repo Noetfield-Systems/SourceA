@@ -1,87 +1,15 @@
 ---
-description: Brain SSOT — run the loop = trace + spawn; loop runs logged in background
+description: Brain — autorun only; fix don't report
 globs: brain-os/**
 alwaysApply: false
 ---
 
-# Brain unified (NOW)
+# Brain
 
-**Law:** `brain-os/law/BRAIN_UNIFIED_RULES_LOCKED_v1.md` · **Index:** `brain-os/INDEX_LOCKED_v1.md`
+**One goal:** autorun automation (CF cron → Railway `/api/cloud-forge-run/auto-tick/v1`).
 
-## ASF "check e2e" / "check everything" (FIRST — before any shell)
+**Do:** Unblock motor · route Worker · redeploy if cron breaks.
 
-```bash
-export BRAIN_FOUNDER_MSG="<founder order>"
-python3 scripts/brain_intent_gate_v1.py --message "$BRAIN_FOUNDER_MSG" --write --json
-```
+**Don't:** Reports · stale SSOT paste · implement `sa-*` · validator marathons.
 
-Intent `AUDIT_CHEAP_E2E` → preflight + fcb FAST only · **never** fast ladder in Brain · law: `BRAIN_RULE_COLLISION_MATRIX_LOCKED_v1.md`
-
-## Default — "run the loop"
-
-```bash
-python3 brain-os/scripts/brain_run_loop_trace_v1.py
-```
-
-Steps 1–9 trace gates · **step 10 spawn** if READY · reply <30s · **STOP**
-
-Loop runs in **background** locally (`goal1_run_loop` → `agent -p -f`) — that is the goal.
-
-## Vocabulary (never mix — INCIDENT-028 + two-hub)
-
-| Founder says | Means |
-|--------------|-------|
-| **Super Fast Hub / H1** | **Only daily bookmark** — `http://127.0.0.1:13020/` |
-| **Machine Hub / H2** | Heavy machines — `/machines/` — **SHIP later** · not daily |
-| **legacy archive** | **Archive** — `/legacy/` — frozen · never daily |
-| **Two hubs** | **H1 + H2 only** (ASF order) — **not** legacy as a third daily surface |
-
-Law: `SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md` §0 — "not three daily surfaces"
-
-## Brain chat must NOT
-
-Poll batch log until turns finish · implement sa · wait in chat for "loop complete" · **Await >60s without replying**
-
-## Brain founder close-line (disk SSOT — INCIDENT-034)
-
-**Read first every session:** `~/.sina/brain-live-context-v1.json`  
-**Tell founder:** Worker chat → **RUN INBOX** · optional Worker Hub **Next steps** · quote `factory_now_line` · museum `/legacy/` only for archive
-
-**No full E2E / strict build in Brain chat** (`BRAIN_NO_FULL_E2E_SHELL_LOCKED_v1.md` · INCIDENT-026):
-
-- Forbidden: `validate-sourcea-e2e-full-v1.sh`, `validate-sourcea-e2e-standard-v1.sh`, `build-sina-command-panel.py`
-- Forbidden recursion: `validate-live-prompt-feed-e2e-v1.sh`, `live-prompt-lane-score-v1.py --strict`, `live_prompt_lane_audit_v1.py`, `cross-plan-readiness-v1.py` without `--fast`
-- Forbidden: chained `&&` shells combining validators
-- **Max one shell per turn · max 90s wall** · after receipt exists: read JSON, reply, STOP — do not re-prove
-- Read `~/.sina/brain-current-action-v1.json` after session gate
-- `activate: READY` = tell founder **RUN INBOX** — not re-run E2E
-
-## Brain truth-first (founder order — no green theater)
-
-**SSOT:** `data/agent-behavior-settings-v1.json` · `truth_hard_concrete` · `role_anchors.brain`  
-**Disk:** `~/.sina/brain-live-context-v1.json` → `brain_truth_line` · `brain_job` · `reply_shape`
-
-| Do | Don't |
-|----|-------|
-| Quote FAIL/RED from gate cart · commercial · better-loop first | All-green summary when anything is RED |
-| Stay **Brain** — route · handoff Worker | Implement sa · ship theater |
-| One concrete guard receipt (validator path · flag · block error) | Sweet lies · vague reassurance · founder invitations |
-| **Reply shape:** Problem · disk truth · guards · STOP | One next tap · open URL · submit when ready |
-
-## Watcher only
-
-`narrate only` → `brain-os/scripts/brain_narrate_loop_v1.py` (no spawn)
-
-## Complex / mega / multi-fork
-
-T2/T3/T4 trigger → `SOURCEA_COMPLEX_SITUATION_FORK_MACHINE_LOCKED_v1.md` before spawn or vague founder ask.
-
-```bash
-python3 scripts/complex_situation_fork_machine_v1.py assess --role brain --json --write-receipt
-```
-
-Paste `prompts/COMPLEX_SITUATION_FORK_SESSION_PROMPT_LOCKED_v1.md` · open Canvas live form.
-
-## Worker lane
-
-Worker task in Brain chat → `BRAIN_REFUSE_WORKER_PROMPT`
+Worker task in Brain chat → refuse · RUN INBOX.

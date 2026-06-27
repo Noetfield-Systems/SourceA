@@ -11,7 +11,7 @@ sequence_id: SA-2026-06-10-MARKET-RECEIPT-ARCH
 | | |
 |--|--|
 | **Version** | `SOURCEA-MARKET-RECEIPT-ARCH-1.0-LOCKED` |
-| **Purpose** | External positioning + internal north star — what enterprises buy vs what factory drains |
+| **Purpose** | External positioning + internal north star — what enterprises buy vs what Cloud Forge Runs |
 | **Companions** | `SOURCEA_LAYERED_ADVISORY_DRAFT_v1.md` · `SOURCEA_1000PACK_AUDIT_JUDGE_LOCKED_v1.md` |
 | **Honest counter** | `python3 scripts/goal-progress-v1.py` → `honest_done` |
 | **Validator** | `validate-sourcea-market-receipt-arch-locked-v1.sh` |

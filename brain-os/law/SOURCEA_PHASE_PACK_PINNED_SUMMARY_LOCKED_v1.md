@@ -17,7 +17,7 @@ sequence_id: SA-2026-06-10-PHASE-PACK-PIN
 | **Incident** | `brain-os/incidents/SINA_HEALTHY_QUEUE_PHASE_ORDER_DRIFT_INCIDENT_017_LOCKED_v1.md` |
 | **Machine pin** | `~/.sina/PHASE_PACK_REORG_PINNED_v1.json` |
 
-**Law:** s2 and s3 are **100% done — do not touch**. Headless drain resumes only after ASF: `resume drain PHASE_STRICT`.
+**Law:** s2 and s3 are **100% done — do not touch**. Headless drain resumes only after ASF: `Cloud Forge Run PHASE_STRICT`.
 
 ---
 
@@ -36,7 +36,7 @@ sequence_id: SA-2026-06-10-PHASE-PACK-PIN
 
 **Max honest after headless:** ~596 + 119 ≈ **715/1000** (founder lanes excluded)
 
-**Resume point:** **s7-P1** at **sa-0778** (frozen cursor) — only after ASF approves manifest + `resume drain PHASE_STRICT`
+**Resume point:** **s7-P1** at **sa-0778** (frozen cursor) — only after ASF approves manifest + `Cloud Forge Run PHASE_STRICT`
 
 ---
 

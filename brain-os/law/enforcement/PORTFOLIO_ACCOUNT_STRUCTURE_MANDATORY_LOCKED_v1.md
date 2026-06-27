@@ -57,5 +57,5 @@ data/portfolio-account-structure-v1.json
 ## Related
 
 - `data/platform-neutral-world-model-v1.json` — Stripe entity Noetfield Systems  
-- `SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md` — hello@sourcea.com  
+- `SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md` — hello@sourcea.app  
 - `labs/virlux/README.md` — VIRLUX agentic-only policy

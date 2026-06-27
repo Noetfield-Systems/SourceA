@@ -469,7 +469,7 @@ On build · refactor · critic paste · governance edit:
 | ChatGPT sends “new architecture” | L1 + L4 — critic report; draft SSOT if worth it | Treat paste as build order |
 | Confuse governance L12 with WTM L12 | Re-read §9.0 — **unrelated labels** | Map or merge layer tables |
 | Hub tab count ≠ law | L9 — audit + rebuild | Edit law to match broken hub |
-| Loop auto-pastes into Cursor | L12 — block; founder opt-in | “Automation knows best” |
+| Auto Runtime-pastes into Cursor | L12 — block; founder opt-in | “Automation knows best” |
 | Agent says “fixed everything” | L9 — PASS/FAIL evidence | Accept without validators |
 | Good brainstorm, not locked yet | L11 — foundation held; lock when ready | Pretend chat = law |
 | Two laws conflict | L0 rank + conflict engine | Pick chat opinion |

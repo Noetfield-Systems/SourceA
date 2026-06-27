@@ -16849,7 +16849,7 @@
       "": "Relay.app",
       "_row": 16,
       "_slug": "relay-app",
-      "title": "Reject abstract rename \u2014 keep market words buyers know from Relay.app (Human-in-the-loop automation)",
+      "title": "Reject abstract rename \u2014 keep market words buyers know from Relay.app (Human-in-the-Auto Runtimemation)",
       "path": "prompts/phase-c16-relay-app/ws-ux/sa-mkt-0758.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA/scripts && bash worker_verify_fast_v1.sh",
@@ -16858,7 +16858,7 @@
       "source_links": "https://www.relay.app",
       "implementation": "Relay.app Buyer-visible UX -> buyer-visible proof -> Worker Hub Next steps + factory-now line",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0758: Reject abstract rename \u2014 keep market words buyers know from Relay.app (Human-in-the-loop automation)"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-mkt-0758: Reject abstract rename \u2014 keep market words buyers know from Relay.app (Human-in-the-Auto Runtimemation)"
     },
     {
       "id": "sa-mkt-0759",

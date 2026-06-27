@@ -115,12 +115,13 @@ Healthy: **ADMIT** · tier T1–T4 · `stranger: false` · Mac Health `:13024` t
 | Verb | Meaning |
 |------|---------|
 | `WORK:` + INBOX / sa-* | Bounded build in lane |
-| `SAVE TO: docs/...` | One new doc (+ `EDIT ALLOWED:` for docs/ guard) |
+| `SAVE TO: docs/...` | One new doc at named path |
+| Pathless `SAVE` / `SAVE AND LOCK` / `LOCK` / `FILE` | Run filing registry; use resolved `route_id` + `path` + `next_steps[]`; ask category only if unresolved |
 | `EDIT ALLOWED: <path>` + `ACTION:` | Cross-lane LOCKED edit |
 | `ASF:` + explicit phrase | Named batch only |
 | `orientation` / `hospital` / `maze` | One word → pipeline router |
 
-**Refuse:** rewrite · improve · lock · implement without verb + path evidence.
+**Refuse:** rewrite · improve · implement without verb + evidence. For pathless SAVE/LOCK/FILE, registry resolution is the allowed evidence source.
 
 ---
 

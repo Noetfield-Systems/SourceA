@@ -29,8 +29,8 @@ Do **not** pitch SourceA as a Temporal replacement. Pitch as **L6 governance lay
 │ L5 ENTERPRISE EXECUTION — approve → orchestrate → audit     │
 │   (Hubler-class — Order Guardian · task orders logged)     │
 ├─────────────────────────────────────────────────────────────┤
-│ L4 LANGGRAPH / Agent Framework — reasoning · tools · HITL   │
-│   subgraph inside Temporal activities                       │
+│ L4 LANGGRAPH / MAF — reasoning · tools · HITL                       │
+│   subgraph inside Temporal activities                               │
 ├─────────────────────────────────────────────────────────────┤
 │ L3 TEMPORAL / INNGEST / KESTRA — durable workflow spine     │
 │   crash recovery · retries · multi-day waits                │
@@ -163,6 +163,7 @@ Gate mode: `~/.sina/gate_mode_v1.txt` → `off` | `shadow` | `enforce`
 | **P0** | Disk gate — `critic_boot` + `model_dispatch` | **Shipped** |
 | **P1** | HTTP admit API (`/api/admit-v1`) for sidecar embed | Not built |
 | **P2** | Temporal Activity sample in `demo/temporal-sourcea-gate/` | Not built |
+| **P2b** | MAF sim activity in `apps/factory-runtime-spike/` (`--embed maf`) | **Spike shipped** |
 | **P3** | LangGraph gate node sample | Not built |
 | **P4** | pip package `sourcea-gate` (read-only admit + receipt) | Not built — SW4 |
 

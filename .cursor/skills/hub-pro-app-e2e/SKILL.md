@@ -9,38 +9,34 @@ description: >-
 
 ## Port + health matrix
 
-| Service | Port | Health | Primary API |
-|---------|------|--------|-------------|
-| Worker Hub | 13020 | `GET /health` | `GET /api/worker-hub/v1` |
-| Machine Hub UI | 13020 | same hub | `POST /api/founder-ops/v1` |
-| Official Form | 13020 | hub health | `GET/POST /api/live-founder-decision-form-v1` |
-| Mac Health | 13024 | `GET /health` | `GET /api/mac-health/live` |
-| Chat Unify | 13023 | `GET /health` | app-specific |
-| n8n Integration | 13026 | `GET /health` | glue runner APIs |
-| Mac Law | 8781 | `GET /health` | surfaces API |
-| Routing | 8780 | `GET /` | registry |
+| Service | Port | Health | Primary API | Status |
+|---------|------|--------|-------------|--------|
+| **Cloud Workers** (primary cockpit) | 13027 | `GET /health` | `GET /api/cloud-workers/v1` | **daily** |
+| Chat Unify + Official Form | 13023 | `GET /health` | `GET/POST /api/live-founder-decision-form-v1` · `/form/` | **daily** |
+| Mac Health | 13024 | `GET /health` | `GET /api/mac-health/live` | daily |
+| n8n Integration | 13026 | `GET /health` | glue runner APIs | optional |
+| Mac Law | 8781 | `GET /health` | surfaces API | daily |
+| Routing | 8780 | `GET /` | registry | optional |
+| Worker Hub (legacy) | 13020 | — | — | **archived** — `asf_hub_legacy_trash_v1.sh` |
 
 ## E2e sequence (light — founder Mac session)
 
 ```bash
-# Hub alive
-curl -sf http://127.0.0.1:13020/health
+# Primary cockpit — Cloud Workers
+curl -sf http://127.0.0.1:13027/health
 
-# Worker hub payload (disk cache — should be <2s)
-curl -sf --max-time 5 http://127.0.0.1:13020/api/worker-hub/v1 | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('ok'), len(str(d))<500000)"
-
-# Form schema
-curl -sf http://127.0.0.1:13020/api/live-founder-decision-form-v1 | python3 -c "import sys,json; d=json.load(sys.stdin); q=d['open_questions'][0]; print(len(q.get('option_slots',[])))"
+# Chat Unify + form
+curl -sf http://127.0.0.1:13023/health
+curl -sf http://127.0.0.1:13023/form/
 
 # Mac Health live
 curl -sf http://127.0.0.1:13024/api/mac-health/live | python3 -c "import sys,json; print(json.load(sys.stdin).get('live_status'))"
+
+# Full founder-desktop smoke (boots apps if down)
+bash scripts/verify-founder-desktop-apps-v1.sh
 ```
 
-## After code change — restart hub
-
-```bash
-launchctl kickstart -k "gui/$(id -u)/com.sourcea.hub"
-```
+**Do not** probe `:13020` — Worker Hub is legacy archived.
 
 ## API Station (founder ops from UI)
 
@@ -68,5 +64,5 @@ launchctl kickstart -k "gui/$(id -u)/com.sourcea.hub"
 ## Proof = receipts (not green chat)
 
 - `~/.sina/hub-form-submit-receipt-v1.json`
-- `~/.sina/hub-cloud-drain-proceed-receipt-v1.json`
+- `~/.sina/hub-cloud-forge-run-proceed-receipt-v1.json`
 - `~/.sina/agent-live-surfaces-v1.json` → `factory_now_line`

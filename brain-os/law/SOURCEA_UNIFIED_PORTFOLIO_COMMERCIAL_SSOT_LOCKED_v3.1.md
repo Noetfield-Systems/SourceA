@@ -192,6 +192,27 @@ Kubernetes does not compete with app frameworks — it governs **how** they run.
 **Commercial sentence:**  
 > Every Copilot action is evaluated, signed, and logged. When your board asks what was permitted, under which rule, and who approved it — you have a procurement-grade record Microsoft native tooling does not provide. Noetfield delivers it in six weeks.
 
+### 7b. Noetfield Intelligence — primary GTM (613 · LOCKED 2026-06-24)
+
+**Authority:** `docs/NOETFIELD_INTELLIGENCE_613_PLAN_LOCKED_v1.md`  
+**613:** 6 vertical wedges · 1 division · 3 horizons (90-day cash · 8-month MRR · 18-month SaaS).
+
+**Who:** Canadian SME owners · RCIC firms · Persian diaspora operators · mortgage brokers · GC/trades · accountant-referred SMBs.
+
+**What they get:** controlled AI automation for operations still on spreadsheets — bilingual where needed · Trust Brief credential · optional TrustField payment rail (separate contract).
+
+| Offer | Price | Description |
+|-------|-------|-------------|
+| AI Diagnostic Sprint | $2.5K–$5K | 1-week ops audit · top 3 automations · roadmap PDF |
+| Automation Build | $8K–$25K | 2–3 production automations · handoff · replay demo |
+| AI Ops Partner | $3K–$8K/mo | Monitor · tune · deploy · strategic guidance |
+| Vertical SaaS | $99–$499/mo | ImmigrationOS · DiasporaBiz · BrokerBrain (after 3+ same-vertical clients) |
+
+**Commercial sentence (Intelligence — homepage hero):**  
+> We automate the operations Canadian SMEs still run on spreadsheets — with controlled AI you can show your accountant, your client, and your board.
+
+**Sequencing law:** Intelligence Diagnostic **or** §7 Design Partner — whichever closes first. Copilot Pack remains §7 enterprise lane; **not** homepage-only identity when NW1/W3 are ❌.
+
 ---
 
 ## 8. TrustField buyer & offers (trustfield.ca)
@@ -406,7 +427,7 @@ No pitch deck. Message:
 
 ### Asset B (AB1 — fastest cash)
 
-**From:** hello@sourcea.com · **Send:** `scripts/send_ab1_single_v1.py` · law `SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md`
+**From:** hello@sourcea.app · **Send:** `scripts/send_ab1_single_v1.py` · law `SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md`
 
 **Subject:** Agent loops with receipts — live in 2–3 weeks  
 

@@ -11,7 +11,7 @@ alwaysApply: false
 
 ## Precedence (short)
 
-1. **Founder current message** (`SAVE TO:`, `EDIT ALLOWED:` + `ACTION:`, `ASF:`, bounded `WORK:`)
+1. **Founder current message** (`SAVE TO:`, registry-resolved pathless `SAVE/LOCK/FILE`, `EDIT ALLOWED:` + `ACTION:`, `ASF:`, bounded `WORK:`)
 2. **Permission / ask-first** (`001-founder-verbs`, SAVE · WORK · EDIT ALLOWED)
 3. **Open P0/P1 incidents** (INCIDENT-010/011, CIR-COSPRO)
 4. **`execution_authority: false`**
@@ -20,7 +20,7 @@ alwaysApply: false
 
 ## Hard law
 
-> Ship-first, RESEARCH mandatory paste, and bare **save** **never** override ask-first or `001-founder-verbs`.
+> Ship-first and RESEARCH mandatory paste never override ask-first or `001-founder-verbs`. Bare **save/lock/file** must run the filing registry first; if it resolves, do not ask ASF for an exact path.
 
 ## Name unification (INCIDENT-025 — mandatory every session)
 

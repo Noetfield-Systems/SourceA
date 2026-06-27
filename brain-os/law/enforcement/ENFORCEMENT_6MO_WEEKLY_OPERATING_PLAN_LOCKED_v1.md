@@ -77,7 +77,7 @@ You are not building an OS company in 6 months. You are building **the smallest 
 
 | Role | Owns | Never |
 |------|------|-------|
-| **ASF (you)** | Hub tap · wedge PICK · **final contact** on hot leads · film demo presence | Manual post/email/call · Terminal · factory drain hero |
+| **ASF (you)** | Hub tap · wedge PICK · **final contact** on hot leads · film demo presence | Manual post/email/call · Terminal · Cloud Forge Run hero |
 | **Worker** | enf-* T0 ship · S7/S9 · validators · n8n outreach glue · recording artifacts | Hub rewrite · naming sprint |
 | **Maintainer 2** | FR-003 · 1.10 · S8 Hub Action · hero scrub | Demo implementation |
 | **Commercial agents** | Outreach queue · CRM · LOI/SOW drafts · deck polish via agents | SourceA code · manual founder send |

@@ -217,7 +217,7 @@ Producers → register → ~/.sina/research-root/registry.jsonl
 | **D — Integrity 100** | Playbook steps | Post RT LIVE |
 | **E — COMM-PARTNER-BOOT** | Credits · partners | Parallel |
 
-**Hub founder P0:** `STRATEGIC-SLICE` — not RunReceipt hero · not factory drain.
+**Hub founder P0:** `STRATEGIC-SLICE` — not RunReceipt hero · not Cloud Forge Run.
 
 **Autonomous loop:** SCAN → SAY → PICK → PROVE → SHIP — **not** Cursor AUTO-RUN (`auto-run-disabled-v1.flag` ON).
 
@@ -324,7 +324,7 @@ All three: `execution_authority: false` — Brain routes; specialists advise onl
 | # | Paradox | Side A | Side B | Resolution (law wins) |
 |---|---------|--------|--------|------------------------|
 | 1 | Progress | 616 receipts | $0 revenue | Separate slides: engineering vs ARR |
-| 2 | P0 headline | Hub drain/sa-0798 | Form: RT LIVE / STRATEGIC-SLICE | FLEET_READ_ORDER · INCIDENT-027 |
+| 2 | P0 headline | Cloud Forge Run/sa-0798 | Form: RT LIVE / STRATEGIC-SLICE | FLEET_READ_ORDER · INCIDENT-027 |
 | 3 | Autonomy | "24/7" unified engine | kill flag RED · n8n LAG | Honest L1 semi-auto · `[target·LAG]` |
 | 4 | Category | Trust OS | Decision Cloud / skip Trust OS | One sentence frozen 6mo |
 | 5 | Scope | 1000-pack drain | ENFORCEMENT-6MO | Factory background |
@@ -426,7 +426,7 @@ SOW signed ← demo filmed ← write-path PASS ← kernel PASS ← form discipli
 | STOP | START | CONTINUE |
 |------|-------|----------|
 | Category rename sprint | **Film W1** · W3 Week 1 | FR-003 · Phase 1.10 |
-| Hub drain as hero | Data room folders | Demo validator CI |
+| Cloud Forge Run as hero | Data room folders | Demo validator CI |
 | 1000-pack as investor metric | Phase 0 legal consult | Honest 616 counter |
 | Whitepaper before pilot | Agentic outreach post-demo | Spine + receipts |
 | TrustField-only framing | **Whole portfolio map** | Fleet read-order |

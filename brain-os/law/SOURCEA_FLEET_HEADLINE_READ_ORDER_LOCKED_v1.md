@@ -39,7 +39,7 @@
 | **Worker** | healthy-queue bind + INBOX meta | RT LIVE proof work |
 | **Brain** | `brain-current-action-v1.json` only | factory queue |
 
-**Banned from headline** (unless ASF explicitly asks): `sa-XXXX` · `Valid YES %` · `resume drain` · `queue pos/total` · `Worker INBOX ready`
+**Banned from headline** (unless ASF explicitly asks): `sa-XXXX` · `Valid YES %` · `Cloud Forge Run` · `queue pos/total` · `Worker INBOX ready`
 
 ---
 

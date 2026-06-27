@@ -48,7 +48,7 @@ cd /Users/sinakazemnezhad/Desktop/SourceA && ls -1 brain-os/incidents/SINA_*INCI
 |------|---------|--------|
 | **SUBJ-AGENT** | Agent conduct & communication | bash to founder, topic conflation, filing hygiene, rewrite, critic procedure, context memory |
 | **SUBJ-LANE** | Lane boundaries | Brain/Worker cross, cross-lane edit, CIR-COSPRO |
-| **SUBJ-FACTORY** | Factory drain & queue | healthy queue, phase order, feasibility, stall/timing, session closeout |
+| **SUBJ-FACTORY** | Cloud Forge Run & queue | healthy queue, phase order, feasibility, stall/timing, session closeout |
 | **SUBJ-PROGRESS** | Progress truth | fake registry batch, stale receipts, unvalidated proof, stale goal_progress chat |
 | **SUBJ-MONITOR** | Monitor / dashboard | snapshot drift, scroll respect, live wire |
 | **SUBJ-HUB** | Sina Command hub | maintainer self-audit, auto-paste (injection) |
@@ -82,7 +82,7 @@ cd /Users/sinakazemnezhad/Desktop/SourceA && ls -1 brain-os/incidents/SINA_*INCI
 | 038 | Mac control vs cloud · secondary cloud-only | High / Mac Law | `SINA_AGENT_WORKER_FACTORY_PLANE_CONFLATION_INCIDENT_038_LOCKED_v1.md` |
 | 010 | CIR-COSPRO cross-lane edit | P0 | `SINA_CROSS_LANE_EDIT_FORBIDDEN_INCIDENT_LOCKED_v1.md` |
 
-### SUBJ-FACTORY — Factory drain & queue
+### SUBJ-FACTORY — Cloud Forge Run & queue
 
 | ID | Title | Class | Body |
 |----|-------|-------|------|

@@ -12,7 +12,7 @@ phase: phase-s10-eternal-self-heal
 | | |
 |--|--|
 | **Version** | `SOURCEA-S10-ETERNAL-2.0-LOCKED` (insight v2: `archive/attachments/2026-06-10/SOURCEA_CONVERSATION_FULL_INSIGHT_S10_SSOT_V2_LOCKED_v1.md`) |
-| **Class** | Meta-phase **s10** — after s0–s9 factory drain |
+| **Class** | Meta-phase **s10** — after s0–s9 Cloud Forge Run |
 | **Purpose** | Eternal daily machine loop: audit · criticize · heal · harden · skills · E2E |
 | **Machine SSOT** | `~/.sina/s10-eternal-manifest-v1.json` |
 | **Daily runner** | `~/.sina/bin/s10-eternal-daily` (any cwd) · repo: `scripts/s10_eternal_audit_loop_v1.py` |
@@ -33,7 +33,7 @@ phase: phase-s10-eternal-self-heal
 
 | Lane | Role | Machine? |
 |------|------|----------|
-| **Factory drain** (s0–s9) | `run inbox` · one SA per turn | `run-inbox-disk-truth-v1.json` |
+| **Cloud Forge Run** (s0–s9) | `run inbox` · one SA per turn | `run-inbox-disk-truth-v1.json` |
 | **S10 eternal** (s10) | System introspection · self-heal · skills · E2E audit | `s10-eternal-manifest-v1.json` |
 
 Prompt feed 10-batch = **advisory only**. S10 prompts = **machine audit SSOT** (not OpenRouter invention).
@@ -142,4 +142,4 @@ When editing S10:
 4. `SINA_AUTHORITY_INDEX_MAP` row `S10_ETERNAL` (ASF)
 5. `validate-s10-eternal-loop-v1.sh`
 
-**LOCKED** — Eternal self-heal meta-phase. Factory drain unchanged; S10 audits the factory forever.
+**LOCKED** — Eternal self-heal meta-phase. Cloud Forge Run unchanged; S10 audits the factory forever.

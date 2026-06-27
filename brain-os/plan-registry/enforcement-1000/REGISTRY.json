@@ -6193,12 +6193,12 @@
       "slice_ref": "",
       "lane": "enforcement-6mo",
       "slot": 13,
-      "title": "Validate demo works with FREEZE ON \u2014 governance does not need factory drain",
+      "title": "Validate demo works with FREEZE ON \u2014 governance does not need Cloud Forge Run",
       "path": "prompts/phase-e3-demo-live/T0/enf-0314.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA && bash scripts/validate-demo-enforcement-v1.sh && bash scripts/validate-universe-invariants-v1.sh",
       "agent_tag": "AGENT-AUTO-ENFORCEMENT",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0314: Validate demo works with FREEZE ON \u2014 governance does not need factory drain"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0314: Validate demo works with FREEZE ON \u2014 governance does not need Cloud Forge Run"
     },
     {
       "id": "enf-0315",
@@ -6674,7 +6674,7 @@
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA && bash scripts/validate-demo-enforcement-v1.sh && SINA_FCB_FAST=1 python3 scripts/find_critical_bugs.py",
       "agent_tag": "AGENT-AUTO-ENFORCEMENT",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0339: [CI] Wire regression + REPO_EXECUTION_LOGS evidence for: Validate demo works with FREEZE ON \u2014 governance does not need factory drain"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0339: [CI] Wire regression + REPO_EXECUTION_LOGS evidence for: Validate demo works with FREEZE ON \u2014 governance does not need Cloud Forge Run"
     },
     {
       "id": "enf-0340",
@@ -7149,7 +7149,7 @@
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA && bash scripts/demo-enforcement-5min-v1.sh --dry-run",
       "agent_tag": "AGENT-AUTO-ENFORCEMENT",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0364: [CHAOS] Kill/replay stress \u2014 prove still holds: Validate demo works with FREEZE ON \u2014 governance does not need factory drain"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0364: [CHAOS] Kill/replay stress \u2014 prove still holds: Validate demo works with FREEZE ON \u2014 governance does not need Cloud Forge Run"
     },
     {
       "id": "enf-0365",
@@ -7619,12 +7619,12 @@
       "slice_ref": "",
       "lane": "enforcement-6mo",
       "slot": 13,
-      "title": "[POLISH] Document or DELETE if no W1 impact: Validate demo works with FREEZE ON \u2014 governance does not need factory drain",
+      "title": "[POLISH] Document or DELETE if no W1 impact: Validate demo works with FREEZE ON \u2014 governance does not need Cloud Forge Run",
       "path": "prompts/phase-e3-demo-live/T3/enf-0389.md",
       "status": "backlog",
       "verify": "cd ~/Desktop/SourceA && bash scripts/validate-enforcement-demo-v1.sh 2>/dev/null || bash scripts/validate-demo-enforcement-v1.sh",
       "agent_tag": "AGENT-AUTO-ENFORCEMENT",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0389: [POLISH] Document or DELETE if no W1 impact: Validate demo works with FREEZE ON \u2014 governance does not need factory drain"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 ENFORCEMENT-6MO enf-0389: [POLISH] Document or DELETE if no W1 impact: Validate demo works with FREEZE ON \u2014 governance does not need Cloud Forge Run"
     },
     {
       "id": "enf-0390",

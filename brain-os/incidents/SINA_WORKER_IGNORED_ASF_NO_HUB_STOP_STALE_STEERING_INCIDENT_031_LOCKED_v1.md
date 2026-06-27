@@ -91,7 +91,7 @@ The founder correctly called this **stupid and stale**: the agent parroted compl
 | T1 | phase-s8 “next” | sa-0857 hub payload | ASF had **closed hub lane** for this session |
 | T2 | ACTIVE_NOW | “stale sa-0798” hygiene task | Founder did **not** ask for sync — asked for **task list under no-hub rule** |
 | T3 | Healthy queue | sa-0951 research as alternate | Fine as **non-hub** option — but agent **defaulted to hub-ui first** |
-| T4 | Prior turn todos | Cancelled inbox todos irrelevant | Agent still behaved like **hub drain** session |
+| T4 | Prior turn todos | Cancelled inbox todos irrelevant | Agent still behaved like **Cloud Forge Run** session |
 
 ### 4.3 Repeat pattern
 
