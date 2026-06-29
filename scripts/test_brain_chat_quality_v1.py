@@ -80,6 +80,23 @@ def score_question(q: dict, reply: str, ok: bool) -> dict:
     return {"id": q["id"], "pass": not failures, "failures": failures, "reply_preview": reply[:200]}
 
 
+def score_trace(q: dict, resp: dict) -> list[str]:
+    failures: list[str] = []
+    trace = resp.get("trace") or {}
+    if not trace.get("trace_id"):
+        failures.append("missing_trace_id")
+    if not trace.get("conversation_id"):
+        failures.append("missing_conversation_id")
+    if not trace.get("decision_path"):
+        failures.append("missing_decision_path")
+    alignment = trace.get("intent_alignment") or {}
+    if not alignment.get("intent"):
+        failures.append("missing_intent_alignment")
+    if q.get("require_outcome_oriented") and not alignment.get("outcome_oriented"):
+        failures.append("not_outcome_oriented")
+    return failures
+
+
 def run_bucket(name: str, bucket: dict, url: str) -> dict:
     results = []
     for q in bucket.get("questions", []):
@@ -90,7 +107,10 @@ def run_bucket(name: str, bucket: dict, url: str) -> dict:
             extra["page_lane"] = q["page_lane"]
         resp = post_chat(url, q["message"], extra or None)
         reply = (resp.get("reply") or "").strip()
-        results.append(score_question(q, reply, bool(resp.get("ok"))))
+        row = score_question(q, reply, bool(resp.get("ok")))
+        row["failures"].extend(score_trace(q, resp))
+        row["pass"] = not row["failures"]
+        results.append(row)
     passed = sum(1 for r in results if r["pass"])
     total = len(results) or 1
     score = passed / total

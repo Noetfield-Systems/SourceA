@@ -11,6 +11,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 SINA = Path.home() / ".sina"
@@ -38,7 +39,10 @@ def _expand(path: str) -> Path:
 def _http_probe(url: str, *, timeout: float = 12.0) -> dict[str, Any]:
     req = urllib.request.Request(
         url,
-        headers={"User-Agent": "SourceA-living-system-chain-validate/1.0", "Accept": "application/json"},
+        headers={
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) SourceA-living-system-chain-validate/1.0",
+            "Accept": "application/json",
+        },
     )
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
@@ -261,8 +265,16 @@ def validate_chains(*, write: bool = True) -> dict[str, Any]:
 def validate_chains_cloud(*, write: bool = False) -> dict[str, Any]:
     """Server-side PROVE — cloud-reachable chains only (Railway headless)."""
     ssot = _read(SSOT_CLOUD)
+    auto_cfg = _read(ROOT / "data/cloud-auto-runtime-v1.json")
     port = int(os.environ.get("PORT", "8080"))
-    self_base = (os.environ.get("FBE_SELF_URL") or f"http://127.0.0.1:{port}").rstrip("/")
+    if _is_cloud_headless():
+        self_base = (os.environ.get("FBE_SELF_URL") or f"http://127.0.0.1:{port}").rstrip("/")
+    else:
+        self_base = (
+            os.environ.get("FBE_SELF_URL")
+            or os.environ.get("FBE_CLOUD_WORKER_URL")
+            or "https://sourcea-fbe-runner-production.up.railway.app"
+        ).rstrip("/")
     try:
         from fbe.lib.cloud_forge_run_queue_v1 import read_head  # noqa: WPS433
 
@@ -298,6 +310,8 @@ def validate_chains_cloud(*, write: bool = False) -> dict[str, Any]:
                     row["queue_head"] = hub_head
             else:
                 url = str(probe.get("url") or "")
+                if probe.get("env_url") == "FBE_SELF_URL":
+                    url = f"{self_base}{urlparse(url).path}"
                 pr = _http_probe(url, timeout=8.0)
                 row["ok"] = bool(pr.get("ok"))
                 if not row["ok"]:
@@ -313,6 +327,8 @@ def validate_chains_cloud(*, write: bool = False) -> dict[str, Any]:
                     os.environ.get("CLOUD_FORGE_RUN_AUTO_PROCEED")
                     or os.environ.get("CLOUD_DRAIN_AUTO_PROCEED", "")
                 ).lower()
+                if not val and bool(auto_cfg.get("auto_proceed")):
+                    val = "true"
             else:
                 val = str(os.environ.get(key, "")).lower()
             row["ok"] = val == expect
@@ -332,10 +348,11 @@ def validate_chains_cloud(*, write: bool = False) -> dict[str, Any]:
         "ok": critical_fail == 0,
         "critical_fail": critical_fail,
         "hub_queue": hub,
-        "autopilot_armed": str(
-            os.environ.get("CLOUD_FORGE_RUN_AUTO_PROCEED") or os.environ.get("CLOUD_DRAIN_AUTO_PROCEED", "")
-        ).lower()
-        == "true",
+        "autopilot_armed": (
+            str(os.environ.get("CLOUD_FORGE_RUN_AUTO_PROCEED") or os.environ.get("CLOUD_DRAIN_AUTO_PROCEED", "")).lower()
+            == "true"
+            or bool(auto_cfg.get("auto_proceed"))
+        ),
         "chains": chains_out,
         "chains_up": sum(1 for c in chains_out if c.get("ok")),
         "chains_total": len(chains_out),
