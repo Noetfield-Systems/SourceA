@@ -23,13 +23,15 @@ export function isPricingQuestion(message) {
 }
 
 export function isInternalMetaQuestion(message) {
-  return /\b(internal|docx|docs?|source path|repo|config|json|why you mention|what are you talking about|stranger|client|confus)\b/i.test(
+  return /\b(internal|docx|source paths?|repo paths?|private config|config json|what are you talking about)\b/i.test(
+    String(message || ""),
+  ) || /\bwhy (?:did|do|are) you (?:mention|talking about|calling).*\b(?:stranger|client|source|repo|doc|json|config)\b/i.test(
     String(message || ""),
   );
 }
 
 export function isSensitiveInternalQuestion(message) {
-  return /\b(openrouter|api key|secret|token|password|port|mac|brain-os|incident files?|internal files?|repo files?)\b/i.test(
+  return /\b(openrouter|api key|secret|token|password|brain-os|incident files?|internal files?|repo files?|local ports?|localhost|127\.0\.0\.1|mac (?:path|port|config|secret|key|local|file|repo))\b/i.test(
     String(message || ""),
   );
 }
