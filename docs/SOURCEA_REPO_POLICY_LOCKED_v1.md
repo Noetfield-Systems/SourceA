@@ -9,7 +9,7 @@
 
 ## One Law
 
-SourceA is the upstream authority engine. It owns the shared authority layer for the portfolio, not active product operations.
+SourceA is the repo-local shared authority boundary. It holds SourceA-owned shared authority files, not active product operations owned elsewhere.
 
 ---
 
@@ -24,14 +24,13 @@ SourceA is the upstream authority engine. It owns the shared authority layer for
 
 ---
 
-## SourceA Does Not Own
+## SourceA Must Not Store
 
-- Active Noetfield product files
-- Active TrustField product files
-- Legal matter files
-- Entity operations files
+- Active files owned by other product repositories
+- Active files owned by other legal processes
+- Active files owned by other entity processes
 
-Noetfield and TrustField must carry their own process and config ownership. SourceA can expose shared contracts, exports, manifests, or public APIs for those products to consume.
+SourceA can expose shared contracts, exports, manifests, or public APIs for other repos/products to consume. This policy does not define those products; it only keeps active files owned elsewhere out of SourceA changes.
 
 ---
 
