@@ -116,7 +116,8 @@
         "scripts/*supabase*",
         "scripts/sourcea_plan_registry_client_v1.py",
         "scripts/validate-sourcea-plan-registry-read-v1.sh",
-        "scripts/validate-sourcea-plan-registry-consumers-v1.sh"
+        "scripts/validate-sourcea-plan-registry-consumers-v1.sh",
+        "scripts/validate-sourcea-golden-upgrades-v1.sh"
       ],
       "validator": "scripts/run-portfolio-supabase-daily-v1.sh",
       "notes": "Founder-owned secrets stay in ~/.sourcea-secrets. Agents never write Supabase secrets into the repo."
