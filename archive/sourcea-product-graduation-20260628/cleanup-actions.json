@@ -1,0 +1,23 @@
+{
+  "tracked_restored_to_head": [
+    "brain-os/law/TRUSTFIELD_ENTITY_CORRECTION_v3_1.md",
+    "infra/supabase/noetfield/README.md"
+  ],
+  "untracked_removed_after_snapshot": [
+    {
+      "kind": "file",
+      "path": "brain-os/law/NOETFIELD_SOURCEA_TRUSTFIELD_ENTITY_STRUCTURE_LOCKED_v1.md",
+      "size": 3171
+    },
+    {
+      "kind": "dir",
+      "path": "infra/supabase/noetfield/migrations",
+      "size": 1840
+    },
+    {
+      "kind": "file",
+      "path": "scripts/noetfield_trustfield_plan_registry_import_v1.py",
+      "size": 11410
+    }
+  ]
+}
