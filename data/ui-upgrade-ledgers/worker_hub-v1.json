@@ -6,7 +6,7 @@
   "root": "agent-control-panel",
   "url": "http://127.0.0.1:13020/",
   "ledger_md": "brain-os/law/enforcement/ui-upgrade-ledgers/WORKER_HUB_UI_UPGRADE_LEDGER_LOCKED_v1.md",
-  "saved_at": "2026-06-27T11:10:48Z",
+  "saved_at": "2026-06-27T11:19:38Z",
   "frozen_inventory": [
     {
       "id": "next_steps",
@@ -139,6 +139,27 @@
       "quality_vs_last": "better",
       "founder_approval": "pending",
       "saved_at": "2026-06-27T11:10:48Z"
+    },
+    {
+      "upgrade_id": "UP-WH-GOLDEN-REGISTRY-OPS-20260627",
+      "summary": "Added route health and last-read status to the plan registry card.",
+      "preserved": [
+        "Worker Hub navigation",
+        "Cloud Workers command center",
+        "Plan registry row lookup",
+        "Action log"
+      ],
+      "changed": [
+        "Added route status line for Railway and Cloudflare plan registry probes",
+        "Added live operational status route"
+      ],
+      "verification": [
+        "validate-sourcea-golden-upgrades-v1.sh",
+        "node --check cloud/workers/sourcea-brain-chat-v1/src/live-tools.js"
+      ],
+      "quality_vs_last": "better",
+      "founder_approval": "pending",
+      "saved_at": "2026-06-27T11:19:33Z"
     }
   ]
 }
