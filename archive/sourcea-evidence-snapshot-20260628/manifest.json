@@ -1,0 +1,2052 @@
+{
+  "created_at": "2026-06-29T04:06:21Z",
+  "entries": [
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T180927Z-c604de95/critic_boot_receipt.json",
+      "sha256": "95f6dc3d95563275a05c9feb382249c420dacc407372a798727aaf2ce066f0bf",
+      "size": 1225,
+      "timestamp": "2026-06-27T18:09:27Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T180927Z-c604de95/evidence_report.md",
+      "sha256": "f791488748004cfdd95697d6b3d4a8266a00eefbefc60c21ace7b8f3efa89d98",
+      "size": 2008,
+      "timestamp": "2026-06-27T18:09:27Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T180927Z-c604de95/index.html",
+      "sha256": "a1aadb188b2f1efd3cb5b393c8955ec2af5a406943edd54ab326674f763a36b2",
+      "size": 4110,
+      "timestamp": "2026-06-27T18:09:27Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T180927Z-c604de95/manifest.json",
+      "sha256": "cff0ba9f90f549b5dd8e817d828d46701a2f6add0261b566bf28a70bcbe697b4",
+      "size": 864,
+      "timestamp": "2026-06-27T18:09:27Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T180927Z-c604de95/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-27T18:09:27Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T180927Z-fc718ad2/critic_boot_receipt.json",
+      "sha256": "95f6dc3d95563275a05c9feb382249c420dacc407372a798727aaf2ce066f0bf",
+      "size": 1225,
+      "timestamp": "2026-06-27T18:09:27Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T180927Z-fc718ad2/evidence_report.md",
+      "sha256": "bd3dfbfd1324c1a13a2e70c77018cd6963582c02c20c064cd7b80e668ef9ef8b",
+      "size": 2008,
+      "timestamp": "2026-06-27T18:09:27Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T180927Z-fc718ad2/index.html",
+      "sha256": "8ec09f6ce64de1470a8dc34fd439a1e709d2573132bb32bce7dfcbde8d4f37de",
+      "size": 4110,
+      "timestamp": "2026-06-27T18:09:27Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T180927Z-fc718ad2/manifest.json",
+      "sha256": "0c7788cb93903b17e96d7f806caab2f85a9b11875cd2702c3d2e04bee7e8b13a",
+      "size": 864,
+      "timestamp": "2026-06-27T18:09:27Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T180927Z-fc718ad2/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-27T18:09:27Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T190941Z-a3e7b712/critic_boot_receipt.json",
+      "sha256": "67fa3a944369460fcb24a72594bce87cf0397c0625a10e8c6a8122b06c8654c5",
+      "size": 1225,
+      "timestamp": "2026-06-27T19:09:41Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T190941Z-a3e7b712/evidence_report.md",
+      "sha256": "f30075ce12d12bff6a33514fa4f7759439f99224719b17b1b95583ef99aaf393",
+      "size": 2008,
+      "timestamp": "2026-06-27T19:09:41Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T190941Z-a3e7b712/index.html",
+      "sha256": "1731403533a4b941351dbfd73edfc265e469812bf92c121505cf43249bce4619",
+      "size": 4110,
+      "timestamp": "2026-06-27T19:09:41Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T190941Z-a3e7b712/manifest.json",
+      "sha256": "37e18c1ee6c359e9deaaade5098744a2663858b02fe6cf6048dcfe461c58f107",
+      "size": 864,
+      "timestamp": "2026-06-27T19:09:41Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T190941Z-a3e7b712/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-27T19:09:41Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T190941Z-be4c7803/critic_boot_receipt.json",
+      "sha256": "67fa3a944369460fcb24a72594bce87cf0397c0625a10e8c6a8122b06c8654c5",
+      "size": 1225,
+      "timestamp": "2026-06-27T19:09:41Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T190941Z-be4c7803/evidence_report.md",
+      "sha256": "936f00340e5f3238c087f0371cb07fc7dd43a6aecc61ca6f01266e82f23429b3",
+      "size": 2008,
+      "timestamp": "2026-06-27T19:09:41Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T190941Z-be4c7803/index.html",
+      "sha256": "ec110f0a1f56ddb7d075c64bf3b918b0970e130f443087c6c17fdac75e2bd3a4",
+      "size": 4110,
+      "timestamp": "2026-06-27T19:09:41Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T190941Z-be4c7803/manifest.json",
+      "sha256": "f58e1d1c126a657977fc0e25944ef4bbfe9bb34d2c226419531b461cb99bb9b0",
+      "size": 864,
+      "timestamp": "2026-06-27T19:09:41Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T190941Z-be4c7803/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-27T19:09:41Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T200954Z-a7f8474f/critic_boot_receipt.json",
+      "sha256": "b00009f86e7a241d39d097b8f490508f25b38c918cfdfbac6d5813aa208ea197",
+      "size": 1225,
+      "timestamp": "2026-06-27T20:09:54Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T200954Z-a7f8474f/evidence_report.md",
+      "sha256": "c881c86d58abf8f804c02a87db2b207d843c9a4efc752c5767f811a4bd4a22f0",
+      "size": 2008,
+      "timestamp": "2026-06-27T20:09:54Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T200954Z-a7f8474f/index.html",
+      "sha256": "4f233f6674ca6d4ca7d78cd4e628b88be583f7bcba4426a64f7ebadd93868b9f",
+      "size": 4110,
+      "timestamp": "2026-06-27T20:09:54Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T200954Z-a7f8474f/manifest.json",
+      "sha256": "4172bb40acaeaa2aa8329efdf5b188a0292500ec5e8d65eae3deaf60f0fc54ea",
+      "size": 864,
+      "timestamp": "2026-06-27T20:09:54Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T200954Z-a7f8474f/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-27T20:09:54Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T200955Z-429ac7d7/critic_boot_receipt.json",
+      "sha256": "e84a6646e756cc956a0ec130612ba9ec7f7d271d96728150346c1b816b150f8d",
+      "size": 1225,
+      "timestamp": "2026-06-27T20:09:55Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T200955Z-429ac7d7/evidence_report.md",
+      "sha256": "14e4e5313e7220d924f8bf445a74ea0435611bd7cddf645ab2789968487cdd3f",
+      "size": 2008,
+      "timestamp": "2026-06-27T20:09:55Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T200955Z-429ac7d7/index.html",
+      "sha256": "51af41f499485e5ff37ff4896d7e49734d607840f9fd81e1c49ae0b127e42b65",
+      "size": 4110,
+      "timestamp": "2026-06-27T20:09:55Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T200955Z-429ac7d7/manifest.json",
+      "sha256": "72494c6681ffbd91c1e67f4711a4a0433cc4b98b2263c4b6603a6c060f1a6f7f",
+      "size": 864,
+      "timestamp": "2026-06-27T20:09:55Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T200955Z-429ac7d7/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-27T20:09:55Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T211007Z-091949ad/critic_boot_receipt.json",
+      "sha256": "0866cb31434b0187fd4edc5a4311bfec285d86b7bc8eb38bfdb23c945f9ec057",
+      "size": 1225,
+      "timestamp": "2026-06-27T21:10:07Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T211007Z-091949ad/evidence_report.md",
+      "sha256": "7c01948d8d8a3959078d7a1c07aa261e7d9f7660c6e82b3f89a5b5f1b661c83c",
+      "size": 2008,
+      "timestamp": "2026-06-27T21:10:07Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T211007Z-091949ad/index.html",
+      "sha256": "ae31e30f521c99b8c7cbbbd52a34736e4bfca0de5e27229a579b3989e4ad45d7",
+      "size": 4110,
+      "timestamp": "2026-06-27T21:10:07Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T211007Z-091949ad/manifest.json",
+      "sha256": "02a5aa5379122466410b9bfb70356560df36219d9b0f214deb08f80cf0cb857e",
+      "size": 864,
+      "timestamp": "2026-06-27T21:10:07Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T211007Z-091949ad/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-27T21:10:07Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T211007Z-b7b3f980/critic_boot_receipt.json",
+      "sha256": "0866cb31434b0187fd4edc5a4311bfec285d86b7bc8eb38bfdb23c945f9ec057",
+      "size": 1225,
+      "timestamp": "2026-06-27T21:10:07Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T211007Z-b7b3f980/evidence_report.md",
+      "sha256": "a7700ec8086ce1484f51c24ba5cb83fc41594d93c7a6f16b0be34b5b75abfb75",
+      "size": 2008,
+      "timestamp": "2026-06-27T21:10:07Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T211007Z-b7b3f980/index.html",
+      "sha256": "bd8557f067e5b48de988413a32cac4cc19b525f1752700cc947b877cfe8335c2",
+      "size": 4110,
+      "timestamp": "2026-06-27T21:10:07Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T211007Z-b7b3f980/manifest.json",
+      "sha256": "980404bfca731aca1f4fb99f539b4f176eb65fb68d50af0377d92e849acac3cc",
+      "size": 864,
+      "timestamp": "2026-06-27T21:10:07Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T211007Z-b7b3f980/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-27T21:10:07Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T221019Z-16388c47/critic_boot_receipt.json",
+      "sha256": "17e1fd4336c2733a1553865200165b8ac8b9fad632a1e12569714b8ba66559da",
+      "size": 1225,
+      "timestamp": "2026-06-27T22:10:19Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T221019Z-16388c47/evidence_report.md",
+      "sha256": "6ff219fcc7661dbe6f4671bae59d4f64bbee5970f908b6023ff64bcc02c81670",
+      "size": 2008,
+      "timestamp": "2026-06-27T22:10:19Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T221019Z-16388c47/index.html",
+      "sha256": "32b9b95e197ce429af6702764b4d369d0df48867b5923986b27d43636372a931",
+      "size": 4110,
+      "timestamp": "2026-06-27T22:10:19Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T221019Z-16388c47/manifest.json",
+      "sha256": "99ba3b2ebc18ec6059f988ec514801389986029197c17021a624ce48714d98cf",
+      "size": 864,
+      "timestamp": "2026-06-27T22:10:19Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T221019Z-16388c47/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-27T22:10:19Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T221019Z-fcfdfb9a/critic_boot_receipt.json",
+      "sha256": "17e1fd4336c2733a1553865200165b8ac8b9fad632a1e12569714b8ba66559da",
+      "size": 1225,
+      "timestamp": "2026-06-27T22:10:19Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T221019Z-fcfdfb9a/evidence_report.md",
+      "sha256": "43818a2804f9734c79e593c4327a01768ecd549a3fb3dfc8070c9ba05fa2b166",
+      "size": 2008,
+      "timestamp": "2026-06-27T22:10:19Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T221019Z-fcfdfb9a/index.html",
+      "sha256": "c88e04bfecb2a129481e5c39e58b6a83b8d3ff41542e5c1a65e7bbaf90bc3c4e",
+      "size": 4110,
+      "timestamp": "2026-06-27T22:10:19Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T221019Z-fcfdfb9a/manifest.json",
+      "sha256": "3987ddbe265bb89ae8d68030a88d1e231d8ad92c6f186ee39e1fb5563b3110e7",
+      "size": 864,
+      "timestamp": "2026-06-27T22:10:19Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T221019Z-fcfdfb9a/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-27T22:10:19Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T231033Z-abf3d0d1/critic_boot_receipt.json",
+      "sha256": "6f7417e66b8889bce3d31ea2b0d091eb2914a769abb52b4fb472421bc0ee0072",
+      "size": 1225,
+      "timestamp": "2026-06-27T23:10:33Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T231033Z-abf3d0d1/evidence_report.md",
+      "sha256": "eadafd0a0eae49fa349d1b13178e7ebfad6c496ad24c6a47064db4f528b569d5",
+      "size": 2008,
+      "timestamp": "2026-06-27T23:10:33Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T231033Z-abf3d0d1/index.html",
+      "sha256": "017437df9ab2ca64c53be795b96543cef074ef976855350e32af660b946030e9",
+      "size": 4110,
+      "timestamp": "2026-06-27T23:10:33Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T231033Z-abf3d0d1/manifest.json",
+      "sha256": "b44dd4fc9299e734020e90a6a2ae14c0b9c46026fcc8c672e0d9decf863e01f6",
+      "size": 864,
+      "timestamp": "2026-06-27T23:10:33Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T231033Z-abf3d0d1/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-27T23:10:33Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T231033Z-c1db7c14/critic_boot_receipt.json",
+      "sha256": "6f7417e66b8889bce3d31ea2b0d091eb2914a769abb52b4fb472421bc0ee0072",
+      "size": 1225,
+      "timestamp": "2026-06-27T23:10:33Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T231033Z-c1db7c14/evidence_report.md",
+      "sha256": "20c56014124cf109ee37ffbe2da3f67529de7f76db1e4b51090607d143f13fe5",
+      "size": 2008,
+      "timestamp": "2026-06-27T23:10:33Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T231033Z-c1db7c14/index.html",
+      "sha256": "864fd50ceb59192666d86e9c519f2562ac276c4b5458f51304e79efa0b421311",
+      "size": 4110,
+      "timestamp": "2026-06-27T23:10:33Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T231033Z-c1db7c14/manifest.json",
+      "sha256": "01077664ae2289ae4ed18543b753e85fada567cbeb8c5d67fd4eb0666419d30c",
+      "size": 864,
+      "timestamp": "2026-06-27T23:10:33Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260627T231033Z-c1db7c14/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-27T23:10:33Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T001045Z-a58c5463/critic_boot_receipt.json",
+      "sha256": "500e0abfada96ef4c17f6b808d0b90c33de2e4a128474357f0c2ecfba499c171",
+      "size": 1225,
+      "timestamp": "2026-06-28T00:10:45Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T001045Z-a58c5463/evidence_report.md",
+      "sha256": "c0f8b87bf25414e3877a10c8a05954334896b89ed860b4b62ee447d684058bb4",
+      "size": 2008,
+      "timestamp": "2026-06-28T00:10:45Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T001045Z-a58c5463/index.html",
+      "sha256": "4b05d49ae2d61c68aa7a6bc05171f3c8d168de581bbf8dede9bd478824b1ec94",
+      "size": 4110,
+      "timestamp": "2026-06-28T00:10:45Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T001045Z-a58c5463/manifest.json",
+      "sha256": "1c2723c20609ff2c444d0b86d70edbbcf71bddec0a9f1c07349546400a9113fd",
+      "size": 864,
+      "timestamp": "2026-06-28T00:10:45Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T001045Z-a58c5463/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T00:10:45Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T001045Z-f23ccdc5/critic_boot_receipt.json",
+      "sha256": "500e0abfada96ef4c17f6b808d0b90c33de2e4a128474357f0c2ecfba499c171",
+      "size": 1225,
+      "timestamp": "2026-06-28T00:10:45Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T001045Z-f23ccdc5/evidence_report.md",
+      "sha256": "87e90720bd0d0f41f057c5058000c9e5094c5088000568fe32400d2e030d7433",
+      "size": 2008,
+      "timestamp": "2026-06-28T00:10:45Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T001045Z-f23ccdc5/index.html",
+      "sha256": "5375f9b20a933aa77f6b669c07d8c099b992326958723a7f853b1a43f759ed99",
+      "size": 4110,
+      "timestamp": "2026-06-28T00:10:45Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T001045Z-f23ccdc5/manifest.json",
+      "sha256": "5162ff2aa5f91bb385fc5598130a7c18e5712028913ac3e03db15e73198b27ba",
+      "size": 864,
+      "timestamp": "2026-06-28T00:10:45Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T001045Z-f23ccdc5/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T00:10:45Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T011058Z-0befd32e/critic_boot_receipt.json",
+      "sha256": "d7bf48e293eabda4f1cc7d008b7e4f092c585fd2b3712a8e66e49c42c4395534",
+      "size": 1225,
+      "timestamp": "2026-06-28T01:10:58Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T011058Z-0befd32e/evidence_report.md",
+      "sha256": "2f8d92c62f29621c11a136877875de24a9fdd39f26677e5ce7a5828b5220fb56",
+      "size": 2008,
+      "timestamp": "2026-06-28T01:10:58Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T011058Z-0befd32e/index.html",
+      "sha256": "0e26ff8a12c0f749099a7415a986bc223b63f5fea8f8d21024e13bf4cc133f0b",
+      "size": 4110,
+      "timestamp": "2026-06-28T01:10:58Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T011058Z-0befd32e/manifest.json",
+      "sha256": "f144936dabb6c286920400cf0dfe4d76b814d30fb564783f9899369451009851",
+      "size": 864,
+      "timestamp": "2026-06-28T01:10:58Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T011058Z-0befd32e/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T01:10:58Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T011058Z-60e170f1/critic_boot_receipt.json",
+      "sha256": "d7bf48e293eabda4f1cc7d008b7e4f092c585fd2b3712a8e66e49c42c4395534",
+      "size": 1225,
+      "timestamp": "2026-06-28T01:10:58Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T011058Z-60e170f1/evidence_report.md",
+      "sha256": "87cf0d7f74e3ac7aa7e2d02f1b74874aa76dcc541250fb4689ed113978ec35cc",
+      "size": 2008,
+      "timestamp": "2026-06-28T01:10:58Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T011058Z-60e170f1/index.html",
+      "sha256": "06afaf4facaf6900c30195fe0057d338e3c27ef0f2215cf2f53bb8d9ceb7e16f",
+      "size": 4110,
+      "timestamp": "2026-06-28T01:10:58Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T011058Z-60e170f1/manifest.json",
+      "sha256": "dda4990fc57f181857990c36e5cb303b6ca6757317019bd561e710f09f2b6120",
+      "size": 864,
+      "timestamp": "2026-06-28T01:10:58Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T011058Z-60e170f1/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T01:10:58Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T021110Z-1e868434/critic_boot_receipt.json",
+      "sha256": "4a7dd4c2f151875b9e896db7160ed4aced3251f7922113937602fafc9b911121",
+      "size": 1225,
+      "timestamp": "2026-06-28T02:11:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T021110Z-1e868434/evidence_report.md",
+      "sha256": "2b5c8be03b140532ace7744f0e2612947a177c912253f9c2a26c5a99b863ca39",
+      "size": 2008,
+      "timestamp": "2026-06-28T02:11:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T021110Z-1e868434/index.html",
+      "sha256": "43929f401c150cbffe4dbf22c03849f720e0fa9451a1e65e69c2846f57848c9d",
+      "size": 4110,
+      "timestamp": "2026-06-28T02:11:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T021110Z-1e868434/manifest.json",
+      "sha256": "7ffa754abdd86d0ba7ecd48dac1ecfc22805f5a987660d2efdba4b129b193a3c",
+      "size": 864,
+      "timestamp": "2026-06-28T02:11:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T021110Z-1e868434/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T02:11:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T021110Z-cfe86e6f/critic_boot_receipt.json",
+      "sha256": "4a7dd4c2f151875b9e896db7160ed4aced3251f7922113937602fafc9b911121",
+      "size": 1225,
+      "timestamp": "2026-06-28T02:11:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T021110Z-cfe86e6f/evidence_report.md",
+      "sha256": "6bd3a8f4237c16ea33ec6f013fdd07ac9590a057531e18ef057cb20a84e728ef",
+      "size": 2008,
+      "timestamp": "2026-06-28T02:11:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T021110Z-cfe86e6f/index.html",
+      "sha256": "7ea2481fb5dc52fe4d94914dfe7bdfbc510e9cf2f2c42bd13254b050a9592a88",
+      "size": 4110,
+      "timestamp": "2026-06-28T02:11:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T021110Z-cfe86e6f/manifest.json",
+      "sha256": "049e0a657f7ac4aee318ee9881e9e351352b927bf81bd6585d5f50e70c2d221f",
+      "size": 864,
+      "timestamp": "2026-06-28T02:11:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T021110Z-cfe86e6f/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T02:11:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T032022Z-8d49c455/critic_boot_receipt.json",
+      "sha256": "16cc5ef6881f7156e7e2d337a4ec4365cc4b357183b8784bd55b4813e92304e1",
+      "size": 1225,
+      "timestamp": "2026-06-28T03:20:22Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T032022Z-8d49c455/evidence_report.md",
+      "sha256": "f5cffcbb1b8fad8a9be3c9d0ea0f785b02c19fc1c6e12419725fb72b7fa5366b",
+      "size": 2008,
+      "timestamp": "2026-06-28T03:20:22Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T032022Z-8d49c455/index.html",
+      "sha256": "3def38351807d5f3c4af2dda3cceef8f7b30ca23f5aa0ce7c883b0e8e9207308",
+      "size": 4110,
+      "timestamp": "2026-06-28T03:20:22Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T032022Z-8d49c455/manifest.json",
+      "sha256": "5c47553654288d557893758348dea34160bc627deb0b6146eed10763ab7d97bd",
+      "size": 864,
+      "timestamp": "2026-06-28T03:20:22Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T032022Z-8d49c455/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T03:20:22Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T032022Z-b492db3a/critic_boot_receipt.json",
+      "sha256": "16cc5ef6881f7156e7e2d337a4ec4365cc4b357183b8784bd55b4813e92304e1",
+      "size": 1225,
+      "timestamp": "2026-06-28T03:20:22Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T032022Z-b492db3a/evidence_report.md",
+      "sha256": "dba808edc02bdc197d12f7c03f1b65d5228edbdc2006e265cb003469e7e0d92b",
+      "size": 2008,
+      "timestamp": "2026-06-28T03:20:22Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T032022Z-b492db3a/index.html",
+      "sha256": "97fb043813ee422ab270a25ca544bb07efd9ca7d84231109f25a100d5a2a1137",
+      "size": 4110,
+      "timestamp": "2026-06-28T03:20:22Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T032022Z-b492db3a/manifest.json",
+      "sha256": "9adc6d78245ae70f597baf77fb5624f847d8e36db7c4235ecfc5247b9fc4abf6",
+      "size": 864,
+      "timestamp": "2026-06-28T03:20:22Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T032022Z-b492db3a/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T03:20:22Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T042035Z-5233579c/critic_boot_receipt.json",
+      "sha256": "17360f487938c70c3086df89d8d4cfcea3d2afbcc2c2b2d2c4efc9c57135cc1c",
+      "size": 1225,
+      "timestamp": "2026-06-28T04:20:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T042035Z-5233579c/evidence_report.md",
+      "sha256": "c426736dfebef6524b0bb5b317aeb42787f9faec53d4f2d435afcce807c3eb0e",
+      "size": 2008,
+      "timestamp": "2026-06-28T04:20:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T042035Z-5233579c/index.html",
+      "sha256": "f456fc0bd112fc3181f0b5cf61e178828653e542d41349874a791886a3f6a8cc",
+      "size": 4110,
+      "timestamp": "2026-06-28T04:20:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T042035Z-5233579c/manifest.json",
+      "sha256": "c695ecc181157e77a1db726db25b69b1627a52f311783bf861eeb5c78a649859",
+      "size": 864,
+      "timestamp": "2026-06-28T04:20:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T042035Z-5233579c/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T04:20:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T042035Z-accc4fc0/critic_boot_receipt.json",
+      "sha256": "17360f487938c70c3086df89d8d4cfcea3d2afbcc2c2b2d2c4efc9c57135cc1c",
+      "size": 1225,
+      "timestamp": "2026-06-28T04:20:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T042035Z-accc4fc0/evidence_report.md",
+      "sha256": "b47d9671cb056dcd9991cd050a21b2f3d433f7ef07c36ce8f58d5bc049491809",
+      "size": 2008,
+      "timestamp": "2026-06-28T04:20:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T042035Z-accc4fc0/index.html",
+      "sha256": "f92382074bef86843bcb197485afadee682f5bf73d906ab674db14bf46b861e9",
+      "size": 4110,
+      "timestamp": "2026-06-28T04:20:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T042035Z-accc4fc0/manifest.json",
+      "sha256": "b057a6fe02cff8e8cb854e79be21c48433f1f7e5a60339d735119826ccd3285b",
+      "size": 864,
+      "timestamp": "2026-06-28T04:20:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T042035Z-accc4fc0/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T04:20:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T052049Z-a0c499db/critic_boot_receipt.json",
+      "sha256": "3e8b6cc6d77b71a9565b322f1bd8b0a2abecda5827791a7fc3dc450a590a262e",
+      "size": 1225,
+      "timestamp": "2026-06-28T05:20:49Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T052049Z-a0c499db/evidence_report.md",
+      "sha256": "dbef96d3bea325ca7bbfd801aee25560f12be8fbb94729e8b45666e1e34a2f06",
+      "size": 2008,
+      "timestamp": "2026-06-28T05:20:49Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T052049Z-a0c499db/index.html",
+      "sha256": "27d1fdee570d3c95fd5812b9f979054d930043fe93e7400e245c3e9774a8ae17",
+      "size": 4110,
+      "timestamp": "2026-06-28T05:20:49Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T052049Z-a0c499db/manifest.json",
+      "sha256": "6a14323ea0746773d474a8a6dd19ecc4542b8cf0462d05c38b780c189a228045",
+      "size": 864,
+      "timestamp": "2026-06-28T05:20:49Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T052049Z-a0c499db/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T05:20:49Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T052049Z-d39edab2/critic_boot_receipt.json",
+      "sha256": "3e8b6cc6d77b71a9565b322f1bd8b0a2abecda5827791a7fc3dc450a590a262e",
+      "size": 1225,
+      "timestamp": "2026-06-28T05:20:49Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T052049Z-d39edab2/evidence_report.md",
+      "sha256": "9056175c6fda94c5790a9db140fe3b06801d33deb45a39ee4f51893f1dfaafbf",
+      "size": 2008,
+      "timestamp": "2026-06-28T05:20:49Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T052049Z-d39edab2/index.html",
+      "sha256": "eb49d4c62f9f991412453009541d7d934c2233878f3bb759f87824d815290c03",
+      "size": 4110,
+      "timestamp": "2026-06-28T05:20:49Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T052049Z-d39edab2/manifest.json",
+      "sha256": "97c82b8daf3b02dada027f82e13b2464292e0fdbee3ba289b54f32b38c8e8804",
+      "size": 864,
+      "timestamp": "2026-06-28T05:20:49Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T052049Z-d39edab2/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T05:20:49Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T062102Z-0b29fb45/critic_boot_receipt.json",
+      "sha256": "e2381c510b5b02dfe9ea1c60fabfced3426de8277ac1e85cf9c3c5b8f18f4bd8",
+      "size": 1225,
+      "timestamp": "2026-06-28T06:21:02Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T062102Z-0b29fb45/evidence_report.md",
+      "sha256": "8548f3fa205a678719280ccdf47c0b8e0df01f2bca47bfc2a8f4301ea29390d1",
+      "size": 2008,
+      "timestamp": "2026-06-28T06:21:02Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T062102Z-0b29fb45/index.html",
+      "sha256": "9eb713c79f1265ab67a7a1782e4d1a0f0d503c976bc8a0c85790f6ca5ec888c1",
+      "size": 4110,
+      "timestamp": "2026-06-28T06:21:02Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T062102Z-0b29fb45/manifest.json",
+      "sha256": "71b25ec0ed71cde847552a5dc2611272e8e710a5a7bbf57a54bbb732d1c7fd77",
+      "size": 864,
+      "timestamp": "2026-06-28T06:21:02Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T062102Z-0b29fb45/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T06:21:02Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T062102Z-36017a0f/critic_boot_receipt.json",
+      "sha256": "e2381c510b5b02dfe9ea1c60fabfced3426de8277ac1e85cf9c3c5b8f18f4bd8",
+      "size": 1225,
+      "timestamp": "2026-06-28T06:21:02Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T062102Z-36017a0f/evidence_report.md",
+      "sha256": "07aa5c1ca64dec752b2861be5a281e142fd9b060aedeb4363c87a6e18ae51bf7",
+      "size": 2008,
+      "timestamp": "2026-06-28T06:21:02Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T062102Z-36017a0f/index.html",
+      "sha256": "12f8df6a93f013950ceedeb75ab05acba9e360e5e0cf8a29bbf119cb38f51320",
+      "size": 4110,
+      "timestamp": "2026-06-28T06:21:02Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T062102Z-36017a0f/manifest.json",
+      "sha256": "50ede0f2b2d4aff304de0e03d3e9e6e1b9f510f9115212678653c52004148ba3",
+      "size": 864,
+      "timestamp": "2026-06-28T06:21:02Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T062102Z-36017a0f/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T06:21:02Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T072116Z-19f1a7d9/critic_boot_receipt.json",
+      "sha256": "b9290183cdb1d1cc1be345b2a89814a4a943582ac72aa58c55c97f97d8290f77",
+      "size": 1225,
+      "timestamp": "2026-06-28T07:21:16Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T072116Z-19f1a7d9/evidence_report.md",
+      "sha256": "f6908510c401a460e63edb7bf604a4ac39bc8a33ee1cffb71cb2b3cae2e39889",
+      "size": 2008,
+      "timestamp": "2026-06-28T07:21:16Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T072116Z-19f1a7d9/index.html",
+      "sha256": "da113bf17b27e391f360816b8f5de1f82a55c15ad1f653d8f6377d0717f3c40e",
+      "size": 4110,
+      "timestamp": "2026-06-28T07:21:16Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T072116Z-19f1a7d9/manifest.json",
+      "sha256": "581e59293a9ca3f143f286e461a8467e4e97f8acb679d09272bfcc2c7e5378a6",
+      "size": 864,
+      "timestamp": "2026-06-28T07:21:16Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T072116Z-19f1a7d9/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T07:21:16Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T072116Z-dcdf28fa/critic_boot_receipt.json",
+      "sha256": "b9290183cdb1d1cc1be345b2a89814a4a943582ac72aa58c55c97f97d8290f77",
+      "size": 1225,
+      "timestamp": "2026-06-28T07:21:16Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T072116Z-dcdf28fa/evidence_report.md",
+      "sha256": "a1b56c64e10336784ac5b33f1ca7dc2dfe3f5fc562bc28a583a09d0308894dc9",
+      "size": 2008,
+      "timestamp": "2026-06-28T07:21:16Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T072116Z-dcdf28fa/index.html",
+      "sha256": "7f1096d2f92e88d97adf84d39bf3baf5c240854149bf5d1af133b328081de31e",
+      "size": 4110,
+      "timestamp": "2026-06-28T07:21:16Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T072116Z-dcdf28fa/manifest.json",
+      "sha256": "fa094b6855e62aa01353171eb7c4c16e38fd9779682773c503957053a8ce6a3e",
+      "size": 864,
+      "timestamp": "2026-06-28T07:21:16Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T072116Z-dcdf28fa/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T07:21:16Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T082129Z-0d67f460/critic_boot_receipt.json",
+      "sha256": "7d033af22b929c89a703b8a74850b3f11718d31ec86f69a28d6b737d482a57cf",
+      "size": 1225,
+      "timestamp": "2026-06-28T08:21:29Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T082129Z-0d67f460/evidence_report.md",
+      "sha256": "d353f5fce36ce76a6d3d6c120af5f37fd25ada423bc09ca0f9a9a83dc825e6ee",
+      "size": 2008,
+      "timestamp": "2026-06-28T08:21:29Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T082129Z-0d67f460/index.html",
+      "sha256": "42c00d2151a5569762d339f10e6b99b581e625136458c956d20f32ae13f0721a",
+      "size": 4110,
+      "timestamp": "2026-06-28T08:21:29Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T082129Z-0d67f460/manifest.json",
+      "sha256": "889b593ce37ad8a6350858514e9fa088ddcd094ed0c7e99f4aa90ef73f637962",
+      "size": 864,
+      "timestamp": "2026-06-28T08:21:29Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T082129Z-0d67f460/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T08:21:29Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T082129Z-40e3f8f6/critic_boot_receipt.json",
+      "sha256": "7d033af22b929c89a703b8a74850b3f11718d31ec86f69a28d6b737d482a57cf",
+      "size": 1225,
+      "timestamp": "2026-06-28T08:21:29Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T082129Z-40e3f8f6/evidence_report.md",
+      "sha256": "bfac120e074ab304d18e5e09ca1003ec6be23648f8e705ebbd264602a35cbc09",
+      "size": 2008,
+      "timestamp": "2026-06-28T08:21:29Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T082129Z-40e3f8f6/index.html",
+      "sha256": "ab365e8fbf930707034c4b90877402b09a3afb83114b0261db971990467aeac3",
+      "size": 4110,
+      "timestamp": "2026-06-28T08:21:29Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T082129Z-40e3f8f6/manifest.json",
+      "sha256": "3880f078177c4bd69b9f792bbcf5760ee016b8a4448f867447a8cb6127bbbab3",
+      "size": 864,
+      "timestamp": "2026-06-28T08:21:29Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T082129Z-40e3f8f6/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T08:21:29Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T092142Z-008cb017/critic_boot_receipt.json",
+      "sha256": "5e47996d152b966428fa367bdfd395f5ae312520665b448acd6c0890badc836a",
+      "size": 1225,
+      "timestamp": "2026-06-28T09:21:42Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T092142Z-008cb017/evidence_report.md",
+      "sha256": "91f8f35e6ab7ae5dcedf4d04c1e96c281e447b38283dcee6a54f1d87ce202991",
+      "size": 2008,
+      "timestamp": "2026-06-28T09:21:42Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T092142Z-008cb017/index.html",
+      "sha256": "1838a2fcfca85475cc18a7bc9d48cef57af8cdc180827847a5580427f907669f",
+      "size": 4110,
+      "timestamp": "2026-06-28T09:21:42Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T092142Z-008cb017/manifest.json",
+      "sha256": "2bdb14a02548cda7d64d9e96559c2673be9c24895eae2b35b969223078a0fb24",
+      "size": 864,
+      "timestamp": "2026-06-28T09:21:42Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T092142Z-008cb017/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T09:21:42Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T092142Z-918dd69f/critic_boot_receipt.json",
+      "sha256": "5e47996d152b966428fa367bdfd395f5ae312520665b448acd6c0890badc836a",
+      "size": 1225,
+      "timestamp": "2026-06-28T09:21:42Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T092142Z-918dd69f/evidence_report.md",
+      "sha256": "ec12526065d438ac41489c6a76fe88c526e936ac2369b698b253ba50c337690d",
+      "size": 2008,
+      "timestamp": "2026-06-28T09:21:42Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T092142Z-918dd69f/index.html",
+      "sha256": "7032027324483bed011f1b0d19f53909982df424628bc813efd1bcfffc5066e5",
+      "size": 4110,
+      "timestamp": "2026-06-28T09:21:42Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T092142Z-918dd69f/manifest.json",
+      "sha256": "b4f8648f2b77f7c957d58d0937c26c5bd6594f0c55688bdd040201865a9bcf14",
+      "size": 864,
+      "timestamp": "2026-06-28T09:21:42Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T092142Z-918dd69f/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T09:21:42Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T102156Z-89c2d2f4/critic_boot_receipt.json",
+      "sha256": "cd2db06fba989146baf1ab48e720b6ff3f20b92bee51ac0e9ffbee91e5ccb90d",
+      "size": 1225,
+      "timestamp": "2026-06-28T10:21:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T102156Z-89c2d2f4/evidence_report.md",
+      "sha256": "794dd4ea82c50fcf7a55041dcbc21c5269229d3d035b9219be516f41d9559619",
+      "size": 2008,
+      "timestamp": "2026-06-28T10:21:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T102156Z-89c2d2f4/index.html",
+      "sha256": "42f2ce404b3b7a86098a1cf66924e61d7d85198d3cbd9b6473c91ccc998f29c5",
+      "size": 4110,
+      "timestamp": "2026-06-28T10:21:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T102156Z-89c2d2f4/manifest.json",
+      "sha256": "0d0200dc5ed1dcc4eb6051b228f1594c58e7882f8eeefa84697b74fad4f9f3ef",
+      "size": 864,
+      "timestamp": "2026-06-28T10:21:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T102156Z-89c2d2f4/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T10:21:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T102156Z-b08130f4/critic_boot_receipt.json",
+      "sha256": "cd2db06fba989146baf1ab48e720b6ff3f20b92bee51ac0e9ffbee91e5ccb90d",
+      "size": 1225,
+      "timestamp": "2026-06-28T10:21:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T102156Z-b08130f4/evidence_report.md",
+      "sha256": "8d77a278ecbfc4eeefe00a036abec89b324da6f24fb2c66eee858f1b04192a54",
+      "size": 2008,
+      "timestamp": "2026-06-28T10:21:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T102156Z-b08130f4/index.html",
+      "sha256": "c85d82a606e6d0643a1af10c9466c61eab9d54462e7f705fe39988267b65bdd1",
+      "size": 4110,
+      "timestamp": "2026-06-28T10:21:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T102156Z-b08130f4/manifest.json",
+      "sha256": "c26e25aaa86da9d928d5edbf4c0204d557c30c8068cb735071ecb358b750bcd6",
+      "size": 864,
+      "timestamp": "2026-06-28T10:21:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T102156Z-b08130f4/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T10:21:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T112210Z-2d4952fd/critic_boot_receipt.json",
+      "sha256": "ef7a2a414387ea6c48604b813ab056391da3ce3fc2aa00d9eed288d466cadf43",
+      "size": 1225,
+      "timestamp": "2026-06-28T11:22:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T112210Z-2d4952fd/evidence_report.md",
+      "sha256": "7827f1cdb5c445f86db2cf552f20938ed135557be3921fa8d7f032fdba79d19a",
+      "size": 2008,
+      "timestamp": "2026-06-28T11:22:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T112210Z-2d4952fd/index.html",
+      "sha256": "b34e17fbaf0afeaf330d6bd2ed1deec6d43c043074fa7ef7eeee614dfffe9228",
+      "size": 4110,
+      "timestamp": "2026-06-28T11:22:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T112210Z-2d4952fd/manifest.json",
+      "sha256": "9938d8844ac993f7460a4a3489ac5cd82debab49fa9c36f49e7b4ef23762b5ae",
+      "size": 864,
+      "timestamp": "2026-06-28T11:22:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T112210Z-2d4952fd/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T11:22:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T112210Z-7ef244f8/critic_boot_receipt.json",
+      "sha256": "ef7a2a414387ea6c48604b813ab056391da3ce3fc2aa00d9eed288d466cadf43",
+      "size": 1225,
+      "timestamp": "2026-06-28T11:22:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T112210Z-7ef244f8/evidence_report.md",
+      "sha256": "5d9677ec2881731a793cfa9af310f5222166bb89bb5ecd5f79745b4c9ae66903",
+      "size": 2008,
+      "timestamp": "2026-06-28T11:22:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T112210Z-7ef244f8/index.html",
+      "sha256": "87321da99fb3146b33b2f6621d4e6e2494fae0bf6ac7f7a42fc64d736ed0ddd2",
+      "size": 4110,
+      "timestamp": "2026-06-28T11:22:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T112210Z-7ef244f8/manifest.json",
+      "sha256": "6c2ebc9f7d44703537cd5fb2e787ffcac68c8401b42a9944ebad2dce9551d85e",
+      "size": 864,
+      "timestamp": "2026-06-28T11:22:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T112210Z-7ef244f8/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T11:22:10Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T122223Z-10c1b778/critic_boot_receipt.json",
+      "sha256": "6ad02f190a21736b1f09a3e1d235eef33b27ca67335d11501ac47b63fddc2115",
+      "size": 1225,
+      "timestamp": "2026-06-28T12:22:23Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T122223Z-10c1b778/evidence_report.md",
+      "sha256": "a00988e697598fc801a41bd1e08a817aed125ea1983436bbb6beae9a5e474562",
+      "size": 2008,
+      "timestamp": "2026-06-28T12:22:23Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T122223Z-10c1b778/index.html",
+      "sha256": "cb818c8dbfabf72c00cbf8a6a7164513c178dff236d0558936f88ecda3af40c1",
+      "size": 4110,
+      "timestamp": "2026-06-28T12:22:23Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T122223Z-10c1b778/manifest.json",
+      "sha256": "933a35a8170693180fd7730a315a61484d1848a9cd4d32866135d4a11633f1de",
+      "size": 864,
+      "timestamp": "2026-06-28T12:22:23Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T122223Z-10c1b778/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T12:22:23Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T122223Z-ca604aeb/critic_boot_receipt.json",
+      "sha256": "6ad02f190a21736b1f09a3e1d235eef33b27ca67335d11501ac47b63fddc2115",
+      "size": 1225,
+      "timestamp": "2026-06-28T12:22:23Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T122223Z-ca604aeb/evidence_report.md",
+      "sha256": "ffc25f2b94e78b0e33ca2aa5209f5acde21b7086e33daca61b14414d63117992",
+      "size": 2008,
+      "timestamp": "2026-06-28T12:22:23Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T122223Z-ca604aeb/index.html",
+      "sha256": "dc5cfa734b7ed396d13e51b94072c12ff14bf478c45131ee896227f9735acf11",
+      "size": 4110,
+      "timestamp": "2026-06-28T12:22:23Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T122223Z-ca604aeb/manifest.json",
+      "sha256": "17987b3045bb687a7e709087fa7bfe2b6ea69ea3a8db8c9bb0a5e09dea2fe61e",
+      "size": 864,
+      "timestamp": "2026-06-28T12:22:23Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T122223Z-ca604aeb/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T12:22:23Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T132237Z-42f009ea/critic_boot_receipt.json",
+      "sha256": "ab4c6f044340947d8cd854fb0a4d36b388c660fb3a5375cc58431799b979eb7b",
+      "size": 1225,
+      "timestamp": "2026-06-28T13:22:37Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T132237Z-42f009ea/evidence_report.md",
+      "sha256": "b16c3033fc6506cd601548f0d399959df28821f8f7ed46d1992ac884089eced7",
+      "size": 2008,
+      "timestamp": "2026-06-28T13:22:37Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T132237Z-42f009ea/index.html",
+      "sha256": "6158a299deb0978f84eec4287dc51a49e14a86ac924c8588421c6e379e9bd0a0",
+      "size": 4110,
+      "timestamp": "2026-06-28T13:22:37Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T132237Z-42f009ea/manifest.json",
+      "sha256": "9e773ea5987da8ab4732873fe83c3dfacaa73c0fff35ce2285460fddcdfdff33",
+      "size": 864,
+      "timestamp": "2026-06-28T13:22:37Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T132237Z-42f009ea/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T13:22:37Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T132237Z-c297261b/critic_boot_receipt.json",
+      "sha256": "ab4c6f044340947d8cd854fb0a4d36b388c660fb3a5375cc58431799b979eb7b",
+      "size": 1225,
+      "timestamp": "2026-06-28T13:22:37Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T132237Z-c297261b/evidence_report.md",
+      "sha256": "cb35f38c08afb11153fc780ac2bdcc1c2f59a3fb572e9657dd916e8f15fc12fe",
+      "size": 2008,
+      "timestamp": "2026-06-28T13:22:37Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T132237Z-c297261b/index.html",
+      "sha256": "7dc00f5759750ca12f85c750b5299f44cf0a248e8610b670779d3a5f69060bd5",
+      "size": 4110,
+      "timestamp": "2026-06-28T13:22:37Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T132237Z-c297261b/manifest.json",
+      "sha256": "fa301a8a1d581b7f72ff8fa594144aa65867e7152bbb9c7ec75433fd8ebe3051",
+      "size": 864,
+      "timestamp": "2026-06-28T13:22:37Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T132237Z-c297261b/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T13:22:37Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T142251Z-787c6dd7/critic_boot_receipt.json",
+      "sha256": "c64d33a8fa5c3335dea0e81fb8a4040e792b36e515d736d2f77c4c2f99f837a7",
+      "size": 1225,
+      "timestamp": "2026-06-28T14:22:51Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T142251Z-787c6dd7/evidence_report.md",
+      "sha256": "a987b3eebd0c1d3c0885a4e634ff03c48462be9d630293db7d25e5d0652bff85",
+      "size": 2008,
+      "timestamp": "2026-06-28T14:22:51Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T142251Z-787c6dd7/index.html",
+      "sha256": "32ae48c4c6228804899454d71bdb63450fc0267c25f5ffaa7635bb180bb90be1",
+      "size": 4110,
+      "timestamp": "2026-06-28T14:22:51Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T142251Z-787c6dd7/manifest.json",
+      "sha256": "5161bd5a1e7ca5c46889e1f6eee15dce1c131fa8ef8f495fe1753d0e77d40f18",
+      "size": 864,
+      "timestamp": "2026-06-28T14:22:51Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T142251Z-787c6dd7/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T14:22:51Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T142251Z-daff2505/critic_boot_receipt.json",
+      "sha256": "c64d33a8fa5c3335dea0e81fb8a4040e792b36e515d736d2f77c4c2f99f837a7",
+      "size": 1225,
+      "timestamp": "2026-06-28T14:22:51Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T142251Z-daff2505/evidence_report.md",
+      "sha256": "fbd463ba01a173d6dc9499139bc5b5bae612c24118921be2158e0262d9caac7d",
+      "size": 2008,
+      "timestamp": "2026-06-28T14:22:51Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T142251Z-daff2505/index.html",
+      "sha256": "40ef09481acef4260e2d47a63ae937ee5f3e92d1d48c628e9f3b0a50f7cb6c15",
+      "size": 4110,
+      "timestamp": "2026-06-28T14:22:51Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T142251Z-daff2505/manifest.json",
+      "sha256": "d553cea9f5b76d3ed8ba0b4ba1fb6700fd936ac8ce8d66f2f4ec86eb1917c383",
+      "size": 864,
+      "timestamp": "2026-06-28T14:22:51Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T142251Z-daff2505/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T14:22:51Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T152305Z-e9105f67/critic_boot_receipt.json",
+      "sha256": "6ee8d76951a1dc4348ed1a734e385e34d3baf5307a84a91584d9e965fd25b5e5",
+      "size": 1225,
+      "timestamp": "2026-06-28T15:23:05Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T152305Z-e9105f67/evidence_report.md",
+      "sha256": "8e4d996c35af7b47f3b3e6fc73e55b7746803932959b2e2bdbee86882542188b",
+      "size": 2008,
+      "timestamp": "2026-06-28T15:23:05Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T152305Z-e9105f67/index.html",
+      "sha256": "5348d8e07cb096ba279c2a821101d8c39e064719f216967f0d1062829c2cc66c",
+      "size": 4110,
+      "timestamp": "2026-06-28T15:23:05Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T152305Z-e9105f67/manifest.json",
+      "sha256": "a31d8f53ee105fd53e4121fd17655df63814d732a9de24a163e467821b2ce28e",
+      "size": 864,
+      "timestamp": "2026-06-28T15:23:05Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T152305Z-e9105f67/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T15:23:05Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T152305Z-f4c665f1/critic_boot_receipt.json",
+      "sha256": "6ee8d76951a1dc4348ed1a734e385e34d3baf5307a84a91584d9e965fd25b5e5",
+      "size": 1225,
+      "timestamp": "2026-06-28T15:23:05Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T152305Z-f4c665f1/evidence_report.md",
+      "sha256": "c6a7b54117fea3d4b5ed94805d0a19f07e5cbe6a60b0facee58ed7e0eca77c50",
+      "size": 2008,
+      "timestamp": "2026-06-28T15:23:05Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T152305Z-f4c665f1/index.html",
+      "sha256": "cb0b8b8d655b74a5491d18679f28fdb91c5a5bc8528e5f17fc8be01786ae8132",
+      "size": 4110,
+      "timestamp": "2026-06-28T15:23:05Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T152305Z-f4c665f1/manifest.json",
+      "sha256": "414e4eeb074e27def5f99066deba2e6973770bcde85ecab24fc456025c92d3a3",
+      "size": 864,
+      "timestamp": "2026-06-28T15:23:05Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T152305Z-f4c665f1/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T15:23:05Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T162318Z-502aed25/critic_boot_receipt.json",
+      "sha256": "e6137a7c0d4c2b040e118b51b6769f222d555b8bddb29fb96ce2a612979cf860",
+      "size": 1225,
+      "timestamp": "2026-06-28T16:23:18Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T162318Z-502aed25/evidence_report.md",
+      "sha256": "0ef5a4cd568123726043bf4feb3a73be0c18e153487a594c623c44de3ff64ebf",
+      "size": 2008,
+      "timestamp": "2026-06-28T16:23:18Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T162318Z-502aed25/index.html",
+      "sha256": "6c44f8277ad74b33c6b7ad8c4df18d39b749c23fbb166fb2a8b5d0bbc3f1e202",
+      "size": 4110,
+      "timestamp": "2026-06-28T16:23:18Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T162318Z-502aed25/manifest.json",
+      "sha256": "67b6ea8a78b0533f922fd97332ae45b0f6959f5dd4b88cb2b151e37c674ac8b3",
+      "size": 864,
+      "timestamp": "2026-06-28T16:23:18Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T162318Z-502aed25/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T16:23:18Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T162318Z-6778dd53/critic_boot_receipt.json",
+      "sha256": "e6137a7c0d4c2b040e118b51b6769f222d555b8bddb29fb96ce2a612979cf860",
+      "size": 1225,
+      "timestamp": "2026-06-28T16:23:18Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T162318Z-6778dd53/evidence_report.md",
+      "sha256": "4c783f7513ba8ce8cfe103dc2c76bc5e1ee5bcf62e4c38ce0145022eb9052baf",
+      "size": 2008,
+      "timestamp": "2026-06-28T16:23:18Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T162318Z-6778dd53/index.html",
+      "sha256": "5ec299d11234a6403c9a2c9d76c5cc296cb7c3d66d41611f7f79e911c601cb54",
+      "size": 4110,
+      "timestamp": "2026-06-28T16:23:18Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T162318Z-6778dd53/manifest.json",
+      "sha256": "51beb9e41bf9f6b1f2a331f76fc2765c85c9ea7c852b732e9b1117f244ae6883",
+      "size": 864,
+      "timestamp": "2026-06-28T16:23:18Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T162318Z-6778dd53/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T16:23:18Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T172330Z-20f8a470/critic_boot_receipt.json",
+      "sha256": "6106e5d33375f0ba9f5cbb7f4c9fdd83020516b44878797a0800e7b35cd9953d",
+      "size": 1225,
+      "timestamp": "2026-06-28T17:23:30Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T172330Z-20f8a470/evidence_report.md",
+      "sha256": "0f31298402203e6dce6712bfd694617b4e7fa4475a1177b9713156c232dd6ffe",
+      "size": 2008,
+      "timestamp": "2026-06-28T17:23:30Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T172330Z-20f8a470/index.html",
+      "sha256": "a47a325e7bb6fbf27502956a4bc5aeb2adeb53d45f3e3ecfbb398bda421a7071",
+      "size": 4110,
+      "timestamp": "2026-06-28T17:23:30Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T172330Z-20f8a470/manifest.json",
+      "sha256": "95b6812f94029c700ccf412e6968057fce41fa289d76592f9d0059d07c7b9796",
+      "size": 864,
+      "timestamp": "2026-06-28T17:23:30Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T172330Z-20f8a470/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T17:23:30Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T172331Z-6fc5aba7/critic_boot_receipt.json",
+      "sha256": "dc7a8efa0716cdcd44abf586aca0be02d1131e07bfc9fb2253aceadbf8e18936",
+      "size": 1225,
+      "timestamp": "2026-06-28T17:23:31Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T172331Z-6fc5aba7/evidence_report.md",
+      "sha256": "6438ddef48a712fbaecfedf8c503ad2185ef8dacb3a6a7ee379b23cfaf52eb5d",
+      "size": 2008,
+      "timestamp": "2026-06-28T17:23:31Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T172331Z-6fc5aba7/index.html",
+      "sha256": "5be3e831cacba5a1ceebd763891a7c3b16d4ce9cf86af4083cff64ff48519d08",
+      "size": 4110,
+      "timestamp": "2026-06-28T17:23:31Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T172331Z-6fc5aba7/manifest.json",
+      "sha256": "36b1c842b449626f3dce2583ef6c1b9d95ad216292dfa9b3bafcb1b1c87de353",
+      "size": 864,
+      "timestamp": "2026-06-28T17:23:31Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T172331Z-6fc5aba7/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T17:23:31Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T182343Z-398d7e8c/critic_boot_receipt.json",
+      "sha256": "40da8bec35502bfff0ae7a8825030a08c7a1cd93b81d9fbfc9d32fca1107f17c",
+      "size": 1225,
+      "timestamp": "2026-06-28T18:23:43Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T182343Z-398d7e8c/evidence_report.md",
+      "sha256": "bfcf1ca99798d987249641365bba386d25aa269065e737041c8d2130a2dcb220",
+      "size": 2008,
+      "timestamp": "2026-06-28T18:23:43Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T182343Z-398d7e8c/index.html",
+      "sha256": "f3f7fbaeddead78a92c54abeebfca60b0ba659cde0c3109118fa7f26fc5a684a",
+      "size": 4110,
+      "timestamp": "2026-06-28T18:23:43Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T182343Z-398d7e8c/manifest.json",
+      "sha256": "f46a3e780c3bb72e399dc5ccf2953bb53c2680c6d44f177140842657b050796f",
+      "size": 864,
+      "timestamp": "2026-06-28T18:23:43Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T182343Z-398d7e8c/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T18:23:43Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T182343Z-4a3cbee3/critic_boot_receipt.json",
+      "sha256": "40da8bec35502bfff0ae7a8825030a08c7a1cd93b81d9fbfc9d32fca1107f17c",
+      "size": 1225,
+      "timestamp": "2026-06-28T18:23:43Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T182343Z-4a3cbee3/evidence_report.md",
+      "sha256": "0086344ca2390cd3ab9cebd107c0864af49f1b45e8afa35215c6a38d51974f6f",
+      "size": 2008,
+      "timestamp": "2026-06-28T18:23:43Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T182343Z-4a3cbee3/index.html",
+      "sha256": "1488276ef7db3394a325f0b7d54f38bc63f3fdafb46cda9ed6c8d807abb2ce1f",
+      "size": 4110,
+      "timestamp": "2026-06-28T18:23:43Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T182343Z-4a3cbee3/manifest.json",
+      "sha256": "a1f7fca99c2015b7246959c13285c41b7a0c703fd04460333256c6a2520c2282",
+      "size": 864,
+      "timestamp": "2026-06-28T18:23:43Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T182343Z-4a3cbee3/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T18:23:43Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T192356Z-135e1043/critic_boot_receipt.json",
+      "sha256": "86e4a6ad2605fd7cabdce1790b87402017f11b390cb047d5449586b87f5d1ce6",
+      "size": 1225,
+      "timestamp": "2026-06-28T19:23:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T192356Z-135e1043/evidence_report.md",
+      "sha256": "d95cfb2b686fda98a9294a075debe136c1f17b9632f69f76cc7dc4133a21afe9",
+      "size": 2008,
+      "timestamp": "2026-06-28T19:23:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T192356Z-135e1043/index.html",
+      "sha256": "f988ef23d708807337fcda6375b5d85a8656ea1b260e8a01116a07f7eb5b509f",
+      "size": 4110,
+      "timestamp": "2026-06-28T19:23:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T192356Z-135e1043/manifest.json",
+      "sha256": "b9eec1bb544d4b5662deb9caea7e4fc881ad954d1ab3051c81c2ef0c822d6884",
+      "size": 864,
+      "timestamp": "2026-06-28T19:23:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T192356Z-135e1043/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T19:23:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T192356Z-38676e89/critic_boot_receipt.json",
+      "sha256": "86e4a6ad2605fd7cabdce1790b87402017f11b390cb047d5449586b87f5d1ce6",
+      "size": 1225,
+      "timestamp": "2026-06-28T19:23:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T192356Z-38676e89/evidence_report.md",
+      "sha256": "83b05708ac63e9cc19b14bbd2ef6e09cac76b95bef07b3812f2d031f9c15194c",
+      "size": 2008,
+      "timestamp": "2026-06-28T19:23:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T192356Z-38676e89/index.html",
+      "sha256": "0d57e0ee3b544d0549f68467f027ba6b6f7ecf869c69fb2edea9d275e3f43822",
+      "size": 4110,
+      "timestamp": "2026-06-28T19:23:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T192356Z-38676e89/manifest.json",
+      "sha256": "6559a9a5e14906d15466999d82ee855986852bdf6c108dfe2f42d415bd3af881",
+      "size": 864,
+      "timestamp": "2026-06-28T19:23:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T192356Z-38676e89/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T19:23:56Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T202409Z-e116e071/critic_boot_receipt.json",
+      "sha256": "aecaa21c07bc3c272716498543874c69850286c2b3f4baf2670c93618121ff2e",
+      "size": 1225,
+      "timestamp": "2026-06-28T20:24:09Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T202409Z-e116e071/evidence_report.md",
+      "sha256": "55ca9f7018f4681105f3e078fb3da88be1fe3cccd6b77f4bf84be6e4f44482a7",
+      "size": 2008,
+      "timestamp": "2026-06-28T20:24:09Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T202409Z-e116e071/index.html",
+      "sha256": "5837b3ddd37149a0cebca7ff73f1178bfea59b7ad380e8fa11d7079a1bd04dd5",
+      "size": 4110,
+      "timestamp": "2026-06-28T20:24:09Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T202409Z-e116e071/manifest.json",
+      "sha256": "8ea8c439c60b5284658d742b6f9c1669b9e07fd59d215d94e382f18140153c29",
+      "size": 864,
+      "timestamp": "2026-06-28T20:24:09Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T202409Z-e116e071/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T20:24:09Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T202409Z-fa63d0ac/critic_boot_receipt.json",
+      "sha256": "aecaa21c07bc3c272716498543874c69850286c2b3f4baf2670c93618121ff2e",
+      "size": 1225,
+      "timestamp": "2026-06-28T20:24:09Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T202409Z-fa63d0ac/evidence_report.md",
+      "sha256": "2ab57bf0a71aa6ebcff51954b3ef153b02381f6f6bae1ff0b43c2c1b054bdbed",
+      "size": 2008,
+      "timestamp": "2026-06-28T20:24:09Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T202409Z-fa63d0ac/index.html",
+      "sha256": "731db212ef92045c58745b8a3353dea4d410a654417dbc3388395e8f0138b3c1",
+      "size": 4110,
+      "timestamp": "2026-06-28T20:24:09Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T202409Z-fa63d0ac/manifest.json",
+      "sha256": "8e15d540da2369592778fe78d9006266ad03d6a46fa41a585044cc4cd48f5312",
+      "size": 864,
+      "timestamp": "2026-06-28T20:24:09Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T202409Z-fa63d0ac/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T20:24:09Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T212421Z-5c593959/critic_boot_receipt.json",
+      "sha256": "47be1d7646fe5e7fae4272cb70913776c6faa985a399494eea6af7b567e94526",
+      "size": 1225,
+      "timestamp": "2026-06-28T21:24:21Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T212421Z-5c593959/evidence_report.md",
+      "sha256": "74f36e78877cb3270915750cfc6134104079f94a68db685ea9c2d58b0d3017a9",
+      "size": 2008,
+      "timestamp": "2026-06-28T21:24:21Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T212421Z-5c593959/index.html",
+      "sha256": "b7698b4eaf0c29dcaa4ed71b670484f07a1f3bfa33d7d8450d6bfd18fb9e1e07",
+      "size": 4110,
+      "timestamp": "2026-06-28T21:24:21Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T212421Z-5c593959/manifest.json",
+      "sha256": "5174c3b1c013b8d2594b4d7e8ebe3d6a49e8dafb35afc2c512d798c96f8adc46",
+      "size": 864,
+      "timestamp": "2026-06-28T21:24:21Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T212421Z-5c593959/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T21:24:21Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T212421Z-ccddbead/critic_boot_receipt.json",
+      "sha256": "47be1d7646fe5e7fae4272cb70913776c6faa985a399494eea6af7b567e94526",
+      "size": 1225,
+      "timestamp": "2026-06-28T21:24:21Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T212421Z-ccddbead/evidence_report.md",
+      "sha256": "79bc1e0e6b5d6e78e35d53d1b695588de067a55005e72b26ba65b9b032ae60c3",
+      "size": 2008,
+      "timestamp": "2026-06-28T21:24:21Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T212421Z-ccddbead/index.html",
+      "sha256": "7911b6de1dab0e852fe489dd88d9d87c6daee3566748d1aaccf8a3b2ebb4e397",
+      "size": 4110,
+      "timestamp": "2026-06-28T21:24:21Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T212421Z-ccddbead/manifest.json",
+      "sha256": "61c57391e69166fd2a9b066cf632e312515eac8ad48d6123cf722f6cf2491703",
+      "size": 864,
+      "timestamp": "2026-06-28T21:24:21Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T212421Z-ccddbead/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T21:24:21Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T222435Z-2ab79784/critic_boot_receipt.json",
+      "sha256": "9ee0ce9ac1a3b72dbc3451a58c386863925ef57c24d9635d336d38da1e422f60",
+      "size": 1225,
+      "timestamp": "2026-06-28T22:24:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T222435Z-2ab79784/evidence_report.md",
+      "sha256": "cce0f28c7658fc354044f412a1993b41d0a3ef9e4727d16efa6cb84a1dda4f9a",
+      "size": 2008,
+      "timestamp": "2026-06-28T22:24:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T222435Z-2ab79784/index.html",
+      "sha256": "0fbca0627e44a00015eea01389a1be63282d4a369bbd50b67ef92f8ceac1b78f",
+      "size": 4110,
+      "timestamp": "2026-06-28T22:24:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T222435Z-2ab79784/manifest.json",
+      "sha256": "26911c10904b136a5bd963e556fddf42ac934385a98c86d8f8f1a7199d5769c2",
+      "size": 864,
+      "timestamp": "2026-06-28T22:24:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T222435Z-2ab79784/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T22:24:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T222435Z-b0019d67/critic_boot_receipt.json",
+      "sha256": "9ee0ce9ac1a3b72dbc3451a58c386863925ef57c24d9635d336d38da1e422f60",
+      "size": 1225,
+      "timestamp": "2026-06-28T22:24:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T222435Z-b0019d67/evidence_report.md",
+      "sha256": "0097db0d198504033ab36848c07a6644a938bcd5119f9c321e15b9ff20c395e8",
+      "size": 2008,
+      "timestamp": "2026-06-28T22:24:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T222435Z-b0019d67/index.html",
+      "sha256": "2de333b4513c45c29d5b4cf121f04bff031ae5aa408e1659355478360ef6bfc9",
+      "size": 4110,
+      "timestamp": "2026-06-28T22:24:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T222435Z-b0019d67/manifest.json",
+      "sha256": "d9d2589e4385c7c648066a4fbd80396086c34f13f0965fd5ef13100bff15eaf6",
+      "size": 864,
+      "timestamp": "2026-06-28T22:24:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T222435Z-b0019d67/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T22:24:35Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T232448Z-58152ead/critic_boot_receipt.json",
+      "sha256": "07fa6f698aca6c77265af1df1f4edf6515c5dc3d0e13c21750432fd03de44cf9",
+      "size": 1225,
+      "timestamp": "2026-06-28T23:24:48Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T232448Z-58152ead/evidence_report.md",
+      "sha256": "15eebfe1b1c2ba7e0db487ceaa1251015cf579882fd3f3eff6898ffb55629154",
+      "size": 2008,
+      "timestamp": "2026-06-28T23:24:48Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T232448Z-58152ead/index.html",
+      "sha256": "1ac0ea6302b20b6cdfb2ca2abddde60f8b2feec8f7b31ff849595b9850a93814",
+      "size": 4110,
+      "timestamp": "2026-06-28T23:24:48Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T232448Z-58152ead/manifest.json",
+      "sha256": "459fa48a5d7b49c5430aca00cad6062db658f710254eb57a4e926d6cc1263d43",
+      "size": 864,
+      "timestamp": "2026-06-28T23:24:48Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T232448Z-58152ead/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T23:24:48Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T232448Z-b0a97d9a/critic_boot_receipt.json",
+      "sha256": "07fa6f698aca6c77265af1df1f4edf6515c5dc3d0e13c21750432fd03de44cf9",
+      "size": 1225,
+      "timestamp": "2026-06-28T23:24:48Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T232448Z-b0a97d9a/evidence_report.md",
+      "sha256": "2d91fec00c0d80bc68da207e0ce1ddc2b378ee994f3780f3eac7e6025a023d42",
+      "size": 2008,
+      "timestamp": "2026-06-28T23:24:48Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T232448Z-b0a97d9a/index.html",
+      "sha256": "1f793a288d6b6c7af1a5d4689f9d08c4ec229163dcdbf6316e8923ed6886a9d0",
+      "size": 4110,
+      "timestamp": "2026-06-28T23:24:48Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T232448Z-b0a97d9a/manifest.json",
+      "sha256": "2d1a7e276599da5c03ddcecd01a8a6ce31fa375b3b6ef0804f762733767155c3",
+      "size": 864,
+      "timestamp": "2026-06-28T23:24:48Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260628T232448Z-b0a97d9a/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-28T23:24:48Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T002501Z-0c21db0b/critic_boot_receipt.json",
+      "sha256": "9421064c48eff2f58e734c55c3a873127d5e6abc55f37a4a5390a4bace5a97e0",
+      "size": 1225,
+      "timestamp": "2026-06-29T00:25:01Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T002501Z-0c21db0b/evidence_report.md",
+      "sha256": "ff1f99616cfee30feb9438bb18d6f03cc1b32fad1fe5752f628d8bac2bf71ef8",
+      "size": 2008,
+      "timestamp": "2026-06-29T00:25:01Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T002501Z-0c21db0b/index.html",
+      "sha256": "acf09cb3bc0d936211925dcd257dec9512743f17be1318956f7c1eadfde9eb0c",
+      "size": 4110,
+      "timestamp": "2026-06-29T00:25:01Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T002501Z-0c21db0b/manifest.json",
+      "sha256": "470fe54946118df7ad522f852ba41824b1e7c0e479fe46e5f9ae4ac43f532fe2",
+      "size": 864,
+      "timestamp": "2026-06-29T00:25:01Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T002501Z-0c21db0b/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-29T00:25:01Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T002501Z-32110976/critic_boot_receipt.json",
+      "sha256": "9421064c48eff2f58e734c55c3a873127d5e6abc55f37a4a5390a4bace5a97e0",
+      "size": 1225,
+      "timestamp": "2026-06-29T00:25:01Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T002501Z-32110976/evidence_report.md",
+      "sha256": "c21c94b07266924dda657f01172ac0056d5554cc328fca4aae350b1e25979a22",
+      "size": 2008,
+      "timestamp": "2026-06-29T00:25:01Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T002501Z-32110976/index.html",
+      "sha256": "6686d21158df600d0dbbe5724ac2b32e491019602e74f80648f7378c9a457f0b",
+      "size": 4110,
+      "timestamp": "2026-06-29T00:25:01Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T002501Z-32110976/manifest.json",
+      "sha256": "5a46d72cf18ef1adab34a5349763626d342a6fbb823fd6e3b84b495a8fdbc532",
+      "size": 864,
+      "timestamp": "2026-06-29T00:25:01Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T002501Z-32110976/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-29T00:25:01Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T012515Z-197c8f25/critic_boot_receipt.json",
+      "sha256": "4d8e338f8074bd772ba76c6b56e4582e642e7cb0d8f96c197a85fc109b7f3182",
+      "size": 1225,
+      "timestamp": "2026-06-29T01:25:15Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T012515Z-197c8f25/evidence_report.md",
+      "sha256": "cd650920cd2842c5fd6cbdf82d5e5f423ec2add7a18572deb0a235b8835e62af",
+      "size": 2008,
+      "timestamp": "2026-06-29T01:25:15Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T012515Z-197c8f25/index.html",
+      "sha256": "46339f250f9e4481a0a00d1aaa6ff1ef9afd065d1be822233e1cddc1d66b638b",
+      "size": 4110,
+      "timestamp": "2026-06-29T01:25:15Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T012515Z-197c8f25/manifest.json",
+      "sha256": "0eb5ae706e35bb09c64d43f942c07144238ddaebca614d3aac155a32cfef8b9b",
+      "size": 864,
+      "timestamp": "2026-06-29T01:25:15Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T012515Z-197c8f25/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-29T01:25:15Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T012515Z-9495d1e2/critic_boot_receipt.json",
+      "sha256": "4d8e338f8074bd772ba76c6b56e4582e642e7cb0d8f96c197a85fc109b7f3182",
+      "size": 1225,
+      "timestamp": "2026-06-29T01:25:15Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T012515Z-9495d1e2/evidence_report.md",
+      "sha256": "afdb13e683db967dd52883df0b1906b516c50e975598556d19134042c8294299",
+      "size": 2008,
+      "timestamp": "2026-06-29T01:25:15Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T012515Z-9495d1e2/index.html",
+      "sha256": "d14ad065f721eae5120bc51c0f2ba76da98548f57814f059d76de27c5d23b8c7",
+      "size": 4110,
+      "timestamp": "2026-06-29T01:25:15Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T012515Z-9495d1e2/manifest.json",
+      "sha256": "50592ab07f5b6dadb179c259b0b163695022d1ba2c6ec7c4019820736ffe7793",
+      "size": 864,
+      "timestamp": "2026-06-29T01:25:15Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T012515Z-9495d1e2/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-29T01:25:15Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T025253Z-2ae9c8c6/critic_boot_receipt.json",
+      "sha256": "35e896b538524cf3f50777635ed6497620dc85ac3507554e5d37d42667ac2f9a",
+      "size": 1225,
+      "timestamp": "2026-06-29T02:52:53Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T025253Z-2ae9c8c6/evidence_report.md",
+      "sha256": "b3a21951c003a51c993dacc973fd44def5a28c24758d97b187aa542fe1ed8f47",
+      "size": 2008,
+      "timestamp": "2026-06-29T02:52:53Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T025253Z-2ae9c8c6/index.html",
+      "sha256": "540e97fc88b904c2852bd37c01ac60f5bfdca57be1ca97534257933e82263bee",
+      "size": 4110,
+      "timestamp": "2026-06-29T02:52:53Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T025253Z-2ae9c8c6/manifest.json",
+      "sha256": "f5141b13b3b73e4101049b36e278dd963f57e3f5cf88ed9525ac7791458721d2",
+      "size": 864,
+      "timestamp": "2026-06-29T02:52:53Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T025253Z-2ae9c8c6/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-29T02:52:53Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T025254Z-04d02fca/critic_boot_receipt.json",
+      "sha256": "d3882d34252e3b6c994f6691e1e32cd3b730a9a5262c75c3528309a6d14aa3e4",
+      "size": 1225,
+      "timestamp": "2026-06-29T02:52:54Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T025254Z-04d02fca/evidence_report.md",
+      "sha256": "47b04af32157148a20fb6824df17e3da9538ea366ca2091b08a64ea0ccdc0b29",
+      "size": 2008,
+      "timestamp": "2026-06-29T02:52:54Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T025254Z-04d02fca/index.html",
+      "sha256": "75a64d59e549ea7615145e4d133aca68dc73832006ac663c6fcf2b4e6c23496c",
+      "size": 4110,
+      "timestamp": "2026-06-29T02:52:54Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T025254Z-04d02fca/manifest.json",
+      "sha256": "75f8cc21497aafdf931cf7b21774046bc6a71c58c4d424da33089d57a3da0eda",
+      "size": 864,
+      "timestamp": "2026-06-29T02:52:54Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T025254Z-04d02fca/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-29T02:52:54Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T035306Z-1593ec87/critic_boot_receipt.json",
+      "sha256": "a6c3da7d8714a2b3d1b4c12313e8a0f32397fb7875c45a1eefe1080fc775f2e8",
+      "size": 1225,
+      "timestamp": "2026-06-29T03:53:06Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T035306Z-1593ec87/evidence_report.md",
+      "sha256": "93ffb4d8d4a175ce3b8b86286e07b706b8d293f84b3197bae59a979db25815d5",
+      "size": 2008,
+      "timestamp": "2026-06-29T03:53:06Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T035306Z-1593ec87/index.html",
+      "sha256": "aef21e670e5650f739b88b32aa4aa8775a1774ac37e0db1a7193cc6287552390",
+      "size": 4110,
+      "timestamp": "2026-06-29T03:53:06Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T035306Z-1593ec87/manifest.json",
+      "sha256": "ea38ba03600d867bc56a183e91ce630c1b63de3f96d13f2ca1c6be90d3ed40e4",
+      "size": 864,
+      "timestamp": "2026-06-29T03:53:06Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T035306Z-1593ec87/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-29T03:53:06Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T035306Z-b8e2893d/critic_boot_receipt.json",
+      "sha256": "a6c3da7d8714a2b3d1b4c12313e8a0f32397fb7875c45a1eefe1080fc775f2e8",
+      "size": 1225,
+      "timestamp": "2026-06-29T03:53:06Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T035306Z-b8e2893d/evidence_report.md",
+      "sha256": "95dda775afdc92e0ad0e341e9c809809c27877777df1de9a58d4bec99d94ec92",
+      "size": 2008,
+      "timestamp": "2026-06-29T03:53:06Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T035306Z-b8e2893d/index.html",
+      "sha256": "55a8e5f0877b654502d892201d24807b10a018ebc022a8c86b88a02cd9a820be",
+      "size": 4110,
+      "timestamp": "2026-06-29T03:53:06Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T035306Z-b8e2893d/manifest.json",
+      "sha256": "d071e7edcbba05da09f3c3f06a891e3e025fa84b2436538d8d628d18755aee78",
+      "size": 864,
+      "timestamp": "2026-06-29T03:53:06Z"
+    },
+    {
+      "original_path": "archive/attachments/evidence/aeg/aeg-20260629T035306Z-b8e2893d/terminal.txt",
+      "sha256": "d0a2412a5a6b90f838c13a7aa607d0af6f339fb2fcfe6ef706e0bb70adbaa289",
+      "size": 476,
+      "timestamp": "2026-06-29T03:53:06Z"
+    }
+  ],
+  "file_count": 340,
+  "payload_path": "archive/sourcea-evidence-snapshot-20260628/files.tar.gz",
+  "payload_sha256": "d4ab8866b49024e2b1705f863207231a853867e81c0773405157a5c9fa0e54f2",
+  "payload_size": 21678,
+  "snapshot": "sourcea-evidence-snapshot-20260628",
+  "source_root": "archive/attachments/evidence",
+  "total_uncompressed_size": 590444
+}
