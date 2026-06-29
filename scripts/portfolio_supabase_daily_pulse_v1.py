@@ -179,7 +179,7 @@ def run_pulse(*, wire: bool = False) -> dict:
     line = _compose_line(websites=websites, supabase=supabase)
     req_web_ok = all(w.get("ok") for w in websites if w.get("required"))
     req_sb_ok = all(s.get("ok") for s in supabase if s.get("required"))
-    secrets_missing = any(s.get("secrets_missing") for s in supabase)
+    secrets_missing = any(s.get("secrets_missing") and s.get("required") for s in supabase)
     overall = req_web_ok and req_sb_ok
     row = {
         "schema": "portfolio-supabase-daily-pulse-v1",

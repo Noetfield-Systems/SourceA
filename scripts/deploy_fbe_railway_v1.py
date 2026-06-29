@@ -148,6 +148,7 @@ _STAGING_SCRIPT_FILES = (
     "cloud_auto_runtime_v1.py",
     "cloud_forge_seed_v1.py",
     "cloud_forge_run_supabase_v1.py",
+    "sourcea_plan_registry_client_v1.py",
     "autonomous_drain_receipt_cloud_v1.py",
     "living_system_chain_validate_v1.py",
     "portfolio__forge_dispatch_v1.py",

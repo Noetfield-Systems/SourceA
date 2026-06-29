@@ -34,7 +34,14 @@ def _cloud_glance() -> dict:
         base = cloud_worker_url()
         if not base:
             return {}
-        with urllib.request.urlopen(f"{base.rstrip('/')}/api/cloud-forge-run/queue/v1", timeout=12) as resp:
+        req = urllib.request.Request(
+            f"{base.rstrip('/')}/api/cloud-forge-run/queue/v1",
+            headers={
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) SourceA-guard-refresh/1.0",
+                "Accept": "application/json",
+            },
+        )
+        with urllib.request.urlopen(req, timeout=12) as resp:
             row = json.loads(resp.read().decode("utf-8"))
         return {
             "ok": bool(row.get("cloud_forge_run_head")),
