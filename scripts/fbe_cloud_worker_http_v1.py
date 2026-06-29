@@ -447,6 +447,17 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
                 return
             _json_response(self, 200 if row.get("ok") else 422, row)
             return
+        if parsed.path == "/api/sourcea/plan-registry/status/v1":
+            from sourcea_plan_registry_client_v1 import contains_secret_like, handle_status  # noqa: WPS433
+            from urllib.parse import parse_qs
+
+            row = handle_status(parse_qs(parsed.query or ""))
+            row["endpoint"] = "/api/sourcea/plan-registry/status/v1"
+            if contains_secret_like(row):
+                _json_response(self, 500, {"ok": False, "error": "secret_like_response_blocked"})
+                return
+            _json_response(self, 200 if row.get("ok") else 207, row)
+            return
         if parsed.path == "/truth/status":
             from truth_layer_verifier_v1 import build_truth_status  # noqa: WPS433
 
@@ -563,6 +574,26 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
             body = json.loads(raw) if raw.strip() else {}
         except json.JSONDecodeError:
             _json_response(self, 400, {"ok": False, "error": "invalid_json"})
+            return
+
+        if path == "/api/sourcea/plan-registry/receipt-link/v1":
+            from sourcea_plan_registry_client_v1 import attach_execution_receipt, contains_secret_like  # noqa: WPS433
+
+            body = body if isinstance(body, dict) else {}
+            row = attach_execution_receipt(
+                plan_id=str(body.get("plan_id") or ""),
+                run_id=str(body.get("run_id") or body.get("job_id") or ""),
+                receipt_path=str(body.get("receipt_path") or body.get("path") or ""),
+                status=str(body.get("status") or "attached"),
+                completed_at=str(body.get("completed_at") or ""),
+                metadata=body.get("metadata") if isinstance(body.get("metadata"), dict) else None,
+                dry_run=bool(body.get("dry_run")),
+            )
+            row["endpoint"] = "/api/sourcea/plan-registry/receipt-link/v1"
+            if contains_secret_like(row):
+                _json_response(self, 500, {"ok": False, "error": "secret_like_response_blocked"})
+                return
+            _json_response(self, 200 if row.get("ok") else 422, row)
             return
 
         if path == "/api/cloud-forge-run/proceed/v1":
