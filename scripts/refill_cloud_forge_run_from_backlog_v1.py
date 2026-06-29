@@ -58,9 +58,17 @@ def _write(path: Path, row: dict[str, Any]) -> None:
     path.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
 
 
-def _last_cloud_sec() -> int:
+def _batch_id_from_path(path: Path) -> int | None:
+    match = re.search(r"secondary-cloud-forge-run-batch-(\d+)(?:-|_)", path.name)
+    return int(match.group(1)) if match else None
+
+
+def _last_cloud_sec(*, before_batch_id: int | None = None) -> int:
     seen = 6966
     for path in sorted((ROOT / "data").glob("secondary-cloud-forge-run-batch-*-locked-v1.json")):
+        path_batch = _batch_id_from_path(path)
+        if before_batch_id is not None and path_batch is not None and path_batch >= before_batch_id:
+            continue
         try:
             text = path.read_text(encoding="utf-8", errors="replace")
         except OSError:
@@ -68,6 +76,9 @@ def _last_cloud_sec() -> int:
         for match in re.finditer(r"\bCLOUD-SEC-(\d+)\b", text):
             seen = max(seen, int(match.group(1)))
     ptr = _read(ACTIVE_POINTER)
+    ptr_batch = int(ptr.get("batch_id") or 0)
+    if before_batch_id is not None and ptr_batch >= before_batch_id:
+        return seen
     for key in ("cloud_sec_range",):
         text = str(ptr.get(key) or "")
         for match in re.finditer(r"CLOUD-SEC-(\d+)", text):
@@ -84,6 +95,22 @@ def _last_cloud_sec() -> int:
 def _next_batch_id() -> int:
     ptr = _read(ACTIVE_POINTER)
     return max(71, int(ptr.get("batch_id") or 70) + 1)
+
+
+def _used_backlog_capacity(*, before_batch_id: int) -> int:
+    used = 0
+    seen_batches: set[int] = set()
+    for path in sorted((ROOT / "data").glob("secondary-cloud-forge-run-batch-*-locked-v1.json")):
+        batch_id = _batch_id_from_path(path)
+        if batch_id is None or batch_id >= before_batch_id or batch_id in seen_batches:
+            continue
+        row = _read(path)
+        if row.get("library") != "all-remaining-plan-backlog":
+            continue
+        summary = row.get("summary") if isinstance(row.get("summary"), dict) else {}
+        used += int(summary.get("task_capacity_this_turn") or 0)
+        seen_batches.add(batch_id)
+    return used
 
 
 def _pack_ref(item: dict[str, Any]) -> dict[str, Any]:
@@ -346,18 +373,19 @@ def _sync_surfaces(*, head: str, last_before: str, batch_id: int, batch_path: Pa
     _write(LIVE_SURFACES, live)
 
 
-def refill(*, write: bool = True) -> dict[str, Any]:
+def refill(*, write: bool = True, batch_id_override: int | None = None, activate: bool = True) -> dict[str, Any]:
     backlog = _read(BACKLOG)
     items = backlog.get("items") or []
     if not isinstance(items, list) or not items:
         raise SystemExit(f"FAIL: missing backlog items at {BACKLOG}")
 
-    batch_id = _next_batch_id()
-    first_cloud_num = _last_cloud_sec() + 1
+    batch_id = int(batch_id_override or _next_batch_id())
+    first_cloud_num = _last_cloud_sec(before_batch_id=batch_id) + 1
     last_cloud_num = first_cloud_num + ROWS_PER_TURN - 1
     batch_path = ROOT / "data" / f"secondary-cloud-forge-run-batch-{batch_id}-locked-v1.json"
     capacity = ROWS_PER_TURN * TASKS_PER_ROW
-    selected = items[:capacity]
+    backlog_offset = _used_backlog_capacity(before_batch_id=batch_id)
+    selected = items[backlog_offset : backlog_offset + capacity]
     cloud_rows: list[dict[str, Any]] = []
     for row_idx in range(ROWS_PER_TURN):
         start = row_idx * TASKS_PER_ROW
@@ -402,8 +430,13 @@ def refill(*, write: bool = True) -> dict[str, Any]:
             "rows_per_turn": ROWS_PER_TURN,
             "tasks_per_row": TASKS_PER_ROW,
             "task_capacity_this_turn": len(selected),
+            "backlog_offset": backlog_offset,
+            "backlog_end_exclusive": backlog_offset + len(selected),
             "backlog_total": backlog.get("total_remaining"),
-            "remaining_after_this_turn": max(0, int(backlog.get("total_remaining") or 0) - len(selected)),
+            "remaining_after_this_turn": max(
+                0,
+                int(backlog.get("total_remaining") or 0) - (backlog_offset + len(selected)),
+            ),
             "cloud_sec_range": f"CLOUD-SEC-{first_cloud_num:04d}..CLOUD-SEC-{last_cloud_num:04d}",
         },
         "plans": _mac_control_rows(batch_id, first_cloud_num) + cloud_rows,
@@ -471,6 +504,7 @@ def refill(*, write: bool = True) -> dict[str, Any]:
         "schema": "cloud-forge-run-backlog-refill-v1",
         "ok": True,
         "at": now,
+        "activate": activate,
         "backlog_total": backlog.get("total_remaining"),
         "batch_id": batch_id,
         "queue_path": str(batch_path),
@@ -480,6 +514,8 @@ def refill(*, write: bool = True) -> dict[str, Any]:
         "rows_per_turn": ROWS_PER_TURN,
         "tasks_per_row": TASKS_PER_ROW,
         "active_task_capacity": len(selected),
+        "backlog_offset": backlog_offset,
+        "backlog_end_exclusive": backlog_offset + len(selected),
         "remaining_after_this_turn": doc["summary"]["remaining_after_this_turn"],
         "cloud_workers_app": "http://127.0.0.1:13027/",
         "cf_cron": "*/10 * * * *",
@@ -490,31 +526,34 @@ def refill(*, write: bool = True) -> dict[str, Any]:
     }
     if write:
         _write(batch_path, doc)
-        _write(ACTIVE_POINTER, pointer)
-        _write(CONTROL_PLANE, cp)
-        _clear_worker_queue(
-            head=receipt["head"],
-            batch_id=batch_id,
-            batch_path=batch_path,
-            backlog_total=int(backlog.get("total_remaining") or 0),
-        )
-        _sync_surfaces(
-            head=receipt["head"],
-            last_before=receipt["last_completed"],
-            batch_id=batch_id,
-            batch_path=batch_path,
-            backlog_total=int(backlog.get("total_remaining") or 0),
-        )
+        if activate:
+            _write(ACTIVE_POINTER, pointer)
+            _write(CONTROL_PLANE, cp)
+            _clear_worker_queue(
+                head=receipt["head"],
+                batch_id=batch_id,
+                batch_path=batch_path,
+                backlog_total=int(backlog.get("total_remaining") or 0),
+            )
+            _sync_surfaces(
+                head=receipt["head"],
+                last_before=receipt["last_completed"],
+                batch_id=batch_id,
+                batch_path=batch_path,
+                backlog_total=int(backlog.get("total_remaining") or 0),
+            )
         _write(RECEIPT, receipt)
     return receipt
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--batch-id", type=int, default=None, help="Regenerate a specific batch id in place.")
+    ap.add_argument("--batch-only", action="store_true", help="Write only the locked batch file; do not activate pointer.")
     ap.add_argument("--no-write", action="store_true")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
-    row = refill(write=not args.no_write)
+    row = refill(write=not args.no_write, batch_id_override=args.batch_id, activate=not args.batch_only)
     if args.json:
         print(json.dumps(row, indent=2))
     else:
