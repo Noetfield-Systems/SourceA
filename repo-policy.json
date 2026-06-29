@@ -1,0 +1,87 @@
+{
+  "version": "sourcea-repo-policy-v1",
+  "saved_at": "2026-06-29T04:19:44Z",
+  "lane": "repo-policy",
+  "authority": {
+    "name": "SourceA",
+    "role": "upstream authority engine",
+    "owns": [
+      "kernel/eval machines",
+      "traceability",
+      "registries",
+      "reusable contracts",
+      "public API/cloud workers",
+      "versioned exports"
+    ],
+    "does_not_own": [
+      "active Noetfield product files",
+      "active TrustField product files",
+      "legal matter files",
+      "entity operations files"
+    ]
+  },
+  "boundaries": {
+    "cross_product_dependency_mode": [
+      "contracts",
+      "exports",
+      "manifests",
+      "public API/cloud workers"
+    ],
+    "forbidden_cross_product_dependency_mode": [
+      "internal scripts",
+      "private runtime directories",
+      "loose copied generated outputs",
+      "active product implementation files"
+    ],
+    "active_product_markers": [
+      "noetfield",
+      "trustfield",
+      "legal",
+      "entity"
+    ],
+    "allowed_sourcea_product_reference_modes": [
+      "quarantined archive",
+      "graduated versioned export",
+      "shared contract",
+      "public API integration",
+      "manifest reference"
+    ]
+  },
+  "working_tree": {
+    "max_files_per_pass": 40,
+    "recommended_files_per_pass_min": 20,
+    "lane_rule": "one lane, one atomic commit",
+    "no_new_dirty_files_unless_becoming_commit": true,
+    "generated_evidence_backlog_rule": "snapshot + manifest, not loose repo dirt",
+    "forbidden_loose_roots": [
+      "archive/attachments/evidence/",
+      "backlog/",
+      "generated/",
+      "dist/",
+      "node_modules/"
+    ],
+    "snapshot_requirements": [
+      "manifest",
+      "file_count",
+      "sha256",
+      "original_path",
+      "size",
+      "timestamp"
+    ]
+  },
+  "policy_files": [
+    "AGENTS.md",
+    ".cursor/rules/sourcea-repo-boundary.mdc",
+    "repo-policy.json",
+    "scripts/check_sourcea_repo_policy.py",
+    "docs/SOURCEA_REPO_POLICY_LOCKED_v1.md"
+  ],
+  "validator": {
+    "path": "scripts/check_sourcea_repo_policy.py",
+    "commands": [
+      "python3 -m json.tool repo-policy.json",
+      "python3 scripts/check_sourcea_repo_policy.py",
+      "git diff --check"
+    ]
+  }
+}
