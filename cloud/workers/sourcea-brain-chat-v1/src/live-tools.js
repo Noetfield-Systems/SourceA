@@ -2,6 +2,7 @@
 
 const SOURCEA_ORIGIN = "https://sourcea.app";
 const DATA_BASE = `${SOURCEA_ORIGIN}/sourcea/data`;
+const PLAN_REGISTRY_URL = "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev/plan-registry";
 const TOOL_TIMEOUT_MS = 1400;
 
 const ROUTES = {
@@ -15,6 +16,14 @@ const ROUTES = {
 
 function wants(message, pattern) {
   return pattern.test(String(message || "").toLowerCase());
+}
+
+function wantsPricing(message) {
+  const q = String(message || "").toLowerCase();
+  return (
+    /\b(price|pricing|cost|how much|tier)\b/.test(q) ||
+    /\b(?:build|rent|own)\s+(?:tier|plan|pricing|option|model)\b/.test(q)
+  );
 }
 
 async function fetchJson(path) {
@@ -65,6 +74,50 @@ function compactItems(items, limit = 7) {
     status: item.status || "",
     url: publicUrl(item.url || item.href || item.demo_url || ""),
   }));
+}
+
+function findPlanId(message) {
+  const match = String(message || "").match(/\b(?:cu|sa|brain|cloud|tf|nf|fbe|forge|site|sourcea)[a-z0-9-]*-\d{3,5}\b/i);
+  return match ? match[0] : "";
+}
+
+async function fetchPlanRegistry(params) {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), TOOL_TIMEOUT_MS);
+  const url = new URL(PLAN_REGISTRY_URL);
+  for (const [key, value] of Object.entries(params || {})) {
+    if (value !== undefined && value !== null && String(value).trim()) {
+      url.searchParams.set(key, String(value).trim());
+    }
+  }
+  try {
+    const resp = await fetch(url, {
+      headers: { Accept: "application/json", "User-Agent": "Mozilla/5.0 SourceA-Brain-PlanRegistry/1.0" },
+      signal: ctrl.signal,
+    });
+    if (!resp.ok) return { ok: false, status: resp.status };
+    const row = await resp.json();
+    const rows = Array.isArray(row.rows) ? row.rows.slice(0, 5) : [];
+    return {
+      id: "plan_registry",
+      ok: Boolean(row.ok),
+      count: row.count,
+      total: row.total,
+      found: row.found,
+      plan_id: row.plan_id || params.plan_id || "",
+      items: rows.map((item) => ({
+        plan_id: item.plan_id,
+        title: cleanPublicCopy(item.title || item.plan_id || ""),
+        status: item.status || "",
+        lane: item.lane || "",
+        priority: item.priority || "",
+      })),
+    };
+  } catch (err) {
+    return { id: "plan_registry", ok: false, error: String(err && err.message ? err.message : err).slice(0, 120) };
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 function proofTool(row) {
@@ -127,7 +180,7 @@ export async function gatherLiveTools(message) {
     jobs.push(fetchJson("sourcea-products-catalog-v1.json").then((res) => res.ok && tools.push(productsTool(res.row))));
   }
 
-  if (wants(q, /\b(price|pricing|cost|tier|build|rent|own|how much)\b/)) {
+  if (wantsPricing(q)) {
     tools.push(routeTool("pricing_route", ROUTES.pricing, "Public pricing page"));
   }
 
@@ -137,6 +190,15 @@ export async function gatherLiveTools(message) {
 
   if (wants(q, /\b(start|get started|sandbox|register|try sourcea)\b/)) {
     tools.push(routeTool("start_route", ROUTES.start, "Start / sandbox path"));
+  }
+
+  const planId = findPlanId(q);
+  if (planId || wants(q, /\b(plan registry|plan id|plan_id|roadmap row|next plans?)\b/)) {
+    jobs.push(
+      fetchPlanRegistry(planId ? { plan_id: planId } : { limit: 5 }).then((tool) => {
+        if (tool && tool.id === "plan_registry") tools.push(tool);
+      }),
+    );
   }
 
   await Promise.allSettled(jobs);
@@ -149,7 +211,12 @@ export function liveToolsPrompt(tools) {
     if (tool.items) {
       const items = tool.items
         .filter((item) => item.title)
-        .map((item) => `- ${item.title}${item.subtitle ? `: ${item.subtitle}` : ""}${item.url ? ` (${item.url})` : ""}`)
+        .map((item) => {
+          if (tool.id === "plan_registry") {
+            return `- ${item.plan_id}: ${item.title}${item.status ? ` · ${item.status}` : ""}${item.lane ? ` · ${item.lane}` : ""}`;
+          }
+          return `- ${item.title}${item.subtitle ? `: ${item.subtitle}` : ""}${item.url ? ` (${item.url})` : ""}`;
+        })
         .join("\n");
       return `### ${tool.id}\nStatus: ${tool.ok ? "ok" : "unavailable"}\nCount: ${tool.count || tool.items.length}\nURL: ${tool.url}\n${items}`;
     }
@@ -165,6 +232,8 @@ export function liveToolsMeta(tools) {
     count: tool.count || undefined,
     verdict: tool.verdict || undefined,
     url: tool.url || undefined,
+    found: tool.found,
+    plan_id: tool.plan_id || undefined,
   }));
 }
 
@@ -180,7 +249,7 @@ export function directLiveToolAnswer(message, tools) {
   const q = String(message || "").toLowerCase();
   const byId = Object.fromEntries((tools || []).map((tool) => [tool.id, tool]));
 
-  if (/\b(price|pricing|cost|how much|tier|build|rent|own)\b/.test(q) && byId.pricing_route) {
+  if (wantsPricing(q) && byId.pricing_route) {
     return [
       "Pricing depends on the scope and ownership model.",
       "",
@@ -212,7 +281,27 @@ export function directLiveToolAnswer(message, tools) {
     ].join("\n");
   }
 
-  if (/\b(live receipt|receipt|proof|is .* live|running|status)\b/.test(q) && byId.proof_status) {
+  if (byId.plan_registry && /\b(plan registry|plan id|plan_id|roadmap row|next plans?|cu-|sa-|brain-|cloud-)\b/.test(q)) {
+    const t = byId.plan_registry;
+    const items = t.items || [];
+    if (!items.length) {
+      return "I can check only small public-safe plan slices. I could not find a matching plan row for that request.";
+    }
+    return [
+      t.plan_id
+        ? `I found this plan row for ${t.plan_id}:`
+        : `I can summarize a small public-safe slice of the plan registry. Total visible rows: ${t.total || "available"}.`,
+      "",
+      items
+        .slice(0, 5)
+        .map((item) => `- ${item.plan_id}: ${item.title}${item.status ? ` · ${item.status}` : ""}${item.lane ? ` · ${item.lane}` : ""}`)
+        .join("\n"),
+      "",
+      "I will not dump the full backlog into chat. Use an exact plan id or a narrow lane/status filter for more detail.",
+    ].join("\n");
+  }
+
+  if (/\b(live receipt|receipt|is .* live|running|status)\b/.test(q) && byId.proof_status) {
     const t = byId.proof_status;
     if (/\b(is .* live|running|status|up)\b/.test(q)) {
       return [
