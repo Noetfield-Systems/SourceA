@@ -20,7 +20,7 @@ BOOT_FOOTER_SNIPPET = (
 WIRE_SCRIPT = '<script src="/sourcea/sourcea-boot-wire.js" defer></script>'
 TRUST_SCRIPT = '<script src="/sourcea/sourcea-trust-bar.js" defer></script>'
 
-SKIP_DIRS = {"dist", "reference", "attach"}
+SKIP_DIRS = {"dist", "reference", "attach", "unify", "unify-demo"}
 SKIP_FILES = {"sourcea-landing-mock-v1.html"}
 
 

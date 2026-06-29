@@ -135,6 +135,14 @@ def inject_file(path: Path, *, html_pre: str, plain: str, label: str) -> bool:
                 f'        <p class="sa-boot-terminal-label">{escape(label)}</p>',
                 1,
             )
+        else:
+            text = re.sub(
+                r'(<p class="sa-boot-terminal-label">)(.*?)(</p>)',
+                lambda m: f"{m.group(1)}{escape(label)}{m.group(3)}",
+                text,
+                count=1,
+                flags=re.DOTALL,
+            )
     elif 'class="proof"' in text:
         text = re.sub(
             r'(<div class="proof">)(.*?)(</div>)',
