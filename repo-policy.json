@@ -4,7 +4,7 @@
   "lane": "repo-policy",
   "authority": {
     "name": "SourceA",
-    "role": "upstream authority engine",
+    "role": "repo-local shared authority boundary",
     "owns": [
       "kernel/eval machines",
       "traceability",
@@ -14,10 +14,9 @@
       "versioned exports"
     ],
     "does_not_own": [
-      "active Noetfield product files",
-      "active TrustField product files",
-      "legal matter files",
-      "entity operations files"
+      "active files owned by other product repositories",
+      "active files owned by other legal processes",
+      "active files owned by other entity processes"
     ]
   },
   "boundaries": {

@@ -29,10 +29,9 @@ REQUIRED_OWNS = {
 }
 
 REQUIRED_NOT_OWN = {
-    "active Noetfield product files",
-    "active TrustField product files",
-    "legal matter files",
-    "entity operations files",
+    "active files owned by other product repositories",
+    "active files owned by other legal processes",
+    "active files owned by other entity processes",
 }
 
 REQUIRED_DEP_MODES = {
@@ -128,8 +127,8 @@ def validate_policy(data: dict[str, Any]) -> None:
     authority = data.get("authority")
     if not isinstance(authority, dict):
         fail("authority must be an object")
-    if authority.get("role") != "upstream authority engine":
-        fail("authority.role must be upstream authority engine")
+    if authority.get("role") != "repo-local shared authority boundary":
+        fail("authority.role must be repo-local shared authority boundary")
     require_subset("authority.owns", REQUIRED_OWNS, authority.get("owns"))
     require_subset("authority.does_not_own", REQUIRED_NOT_OWN, authority.get("does_not_own"))
 

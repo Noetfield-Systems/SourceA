@@ -11,7 +11,7 @@ alwaysApply: false
 
 ## Law
 
-SourceA is the upstream authority engine. It owns shared authority, not active product operations.
+SourceA is the repo-local shared authority boundary, not a store for active product operations owned elsewhere.
 
 SourceA owns:
 
@@ -22,7 +22,7 @@ SourceA owns:
 - public API/cloud workers
 - versioned exports
 
-SourceA must not own active Noetfield, TrustField, legal, or entity work. Those lanes need their own process and config ownership.
+SourceA must not store active files owned by other repos, products, legal processes, or entity processes.
 
 ## Required
 
