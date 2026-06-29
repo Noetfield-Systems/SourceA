@@ -1,0 +1,356 @@
+{
+  "deleted": [
+    {
+      "kind": "file",
+      "path": ".DS_Store",
+      "size": 8196
+    },
+    {
+      "kind": "file",
+      "path": ".cursor/debug-23242e.log",
+      "size": 270364
+    },
+    {
+      "kind": "file",
+      "path": ".cursor/debug-b810d4.log",
+      "size": 15008
+    },
+    {
+      "kind": "file",
+      "path": ".cursor/debug-baabac.log",
+      "size": 5569669
+    },
+    {
+      "kind": "file",
+      "path": ".cursor/debug-d9a191.log",
+      "size": 7204
+    },
+    {
+      "kind": "file",
+      "path": ".cursor/debug-e54ddf.log",
+      "size": 345732
+    },
+    {
+      "kind": "file",
+      "path": ".cursor/debug-e6507c.log",
+      "size": 54742953
+    },
+    {
+      "kind": "file",
+      "path": ".cursor/debug-e9f1f5.log",
+      "size": 51295
+    },
+    {
+      "kind": "dir",
+      "path": "apps/factory-runtime-spike/factory_runtime_spike/__pycache__",
+      "size": 30893
+    },
+    {
+      "kind": "dir",
+      "path": "apps/forge-core-api/node_modules",
+      "size": 67101849
+    },
+    {
+      "kind": "dir",
+      "path": "apps/forge-core-worker/node_modules",
+      "size": 71694187
+    },
+    {
+      "kind": "dir",
+      "path": "apps/forge-core/node_modules",
+      "size": 49974100
+    },
+    {
+      "kind": "dir",
+      "path": "apps/forge-governance/node_modules",
+      "size": 62417702
+    },
+    {
+      "kind": "dir",
+      "path": "apps/forge-worker/node_modules",
+      "size": 68839073
+    },
+    {
+      "kind": "file",
+      "path": "archive/.DS_Store",
+      "size": 8196
+    },
+    {
+      "kind": "dir",
+      "path": "brain-os/scripts/__pycache__",
+      "size": 6384
+    },
+    {
+      "kind": "dir",
+      "path": "brand/macos-apps/Forge Terminal.app/Contents/Resources/forge-terminal-bundle/scripts/__pycache__",
+      "size": 315380
+    },
+    {
+      "kind": "dir",
+      "path": "brand/macos-apps/Forge Terminal.app/Contents/Resources/forge-terminal-bundle/scripts/fbe/lib/__pycache__",
+      "size": 146269
+    },
+    {
+      "kind": "dir",
+      "path": "commercial-video-factory/sourcea-commercial-66s-hf-v1/node_modules",
+      "size": 398185389
+    },
+    {
+      "kind": "dir",
+      "path": "commercial-video-factory/sourcea-commercial-hf-v1/node_modules",
+      "size": 443757064
+    },
+    {
+      "kind": "dir",
+      "path": "packages/mcp-sourcea-verify/node_modules",
+      "size": 74649084
+    },
+    {
+      "kind": "dir",
+      "path": "packages/sourcea-boot/src/sourcea_boot/__pycache__",
+      "size": 20577
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/__pycache__",
+      "size": 7162999
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/eval_packet_v1/__pycache__",
+      "size": 5809
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/eval_packet_v1b/__pycache__",
+      "size": 38830
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/execution_intelligence/__pycache__",
+      "size": 11628
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/execution_intelligence/context_intelligence/__pycache__",
+      "size": 38171
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/execution_intelligence/decision_memory/__pycache__",
+      "size": 19702
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/execution_intelligence/feedback_loop/__pycache__",
+      "size": 24901
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/execution_intelligence/pattern_engine/__pycache__",
+      "size": 23835
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/execution_intelligence/planner_upgrade/__pycache__",
+      "size": 25412
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/execution_intelligence/self_optimization/__pycache__",
+      "size": 33830
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/execution_intelligence_v2/__pycache__",
+      "size": 23532
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/execution_spine/__pycache__",
+      "size": 33460
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/fbe/__pycache__",
+      "size": 159
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/fbe/forge/__pycache__",
+      "size": 7833
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/fbe/lib/__pycache__",
+      "size": 146269
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/lib/__pycache__",
+      "size": 36013
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/__pycache__",
+      "size": 215
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/code_intelligence/__pycache__",
+      "size": 29512
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/context_assembly/__pycache__",
+      "size": 23336
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/context_compression/__pycache__",
+      "size": 20905
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/context_packet/__pycache__",
+      "size": 22686
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/context_ranking/__pycache__",
+      "size": 22036
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/dependency_graph/__pycache__",
+      "size": 14908
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/diff_intelligence/__pycache__",
+      "size": 22118
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/graph_fusion/__pycache__",
+      "size": 12578
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/graph_reasoning/__pycache__",
+      "size": 3158
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/intent_engine/__pycache__",
+      "size": 21970
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/memory_git_bridge/__pycache__",
+      "size": 21238
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/packet_memory_merge/__pycache__",
+      "size": 18892
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/packet_readiness/__pycache__",
+      "size": 5911
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/planning_engine/__pycache__",
+      "size": 14207
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/query_expansion/__pycache__",
+      "size": 6228
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/semantic_history/__pycache__",
+      "size": 3007
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/tool_router/__pycache__",
+      "size": 14740
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/user_signals/__pycache__",
+      "size": 8808
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/validation_layer/__pycache__",
+      "size": 18844
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/pre_llm/vector_retrieval/__pycache__",
+      "size": 29129
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/runtime/__pycache__",
+      "size": 271
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/runtime/context_fabric/__pycache__",
+      "size": 4437
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/runtime/dispatch_policy/__pycache__",
+      "size": 28632
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/runtime/event_bus/__pycache__",
+      "size": 3178
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/runtime/execution_router/__pycache__",
+      "size": 27425
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/runtime/graph_executor/__pycache__",
+      "size": 9348
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/runtime/multi_step_planner/__pycache__",
+      "size": 3571
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/runtime/tool_graph/__pycache__",
+      "size": 25861
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/runtime/tool_graph_verification/__pycache__",
+      "size": 30270
+    },
+    {
+      "kind": "dir",
+      "path": "scripts/zcp/__pycache__",
+      "size": 25313
+    },
+    {
+      "kind": "dir",
+      "path": "witnessbc-site/scripts/__pycache__",
+      "size": 14281
+    }
+  ],
+  "deleted_count": 70,
+  "total_bytes": 1306295964
+}
