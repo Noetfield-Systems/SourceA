@@ -4,6 +4,16 @@
  */
 import { writeCronFired } from "./truth_log.js";
 
+function json(body, status = 200) {
+  return Response.json(body, {
+    status,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Cache-Control": "no-store",
+    },
+  });
+}
+
 export default {
   async scheduled(event, env, ctx) {
     ctx.waitUntil(
@@ -29,20 +39,45 @@ export default {
     }
     const url = new URL(request.url);
     if (url.pathname === "/health") {
-      return Response.json({ ok: true, service: "cloud-auto-runtime-tick-v1", cron: "*/10 * * * *" });
+      return json({
+        ok: true,
+        schema: "sourcea-auto-runtime-health-v1",
+        service: "cloud-auto-runtime-tick-v1",
+        cron: "*/10 * * * *",
+        auto_proceed_ready:
+          env.CLOUD_FORGE_RUN_AUTO_PROCEED === "true" || env.CLOUD_DRAIN_AUTO_PROCEED === "true",
+        railway_upstream_ready: Boolean(env.FBE_CLOUD_WORKER_URL),
+        internal_secret_ready: Boolean(env.FBE_INTERNAL_SECRET),
+      });
+    }
+    if (url.pathname === "/status" && request.method === "GET") {
+      const [queue, observer] = await Promise.all([
+        fetchRailwayJson(env, "/api/cloud-forge-run/queue/v1"),
+        fetchRailwayJson(env, "/api/cloud-forge-run/observer/v1"),
+      ]);
+      return json({
+        ok: queue.ok && observer.ok,
+        schema: "sourcea-auto-runtime-status-v1",
+        service: "cloud-auto-runtime-tick-v1",
+        cron: "*/10 * * * *",
+        auto_proceed_ready:
+          env.CLOUD_FORGE_RUN_AUTO_PROCEED === "true" || env.CLOUD_DRAIN_AUTO_PROCEED === "true",
+        railway_upstream_ready: Boolean(env.FBE_CLOUD_WORKER_URL),
+        internal_secret_ready: Boolean(env.FBE_INTERNAL_SECRET),
+        queue,
+        observer,
+        at: new Date().toISOString(),
+      });
     }
     if (url.pathname === "/tick" && request.method === "POST") {
       const body = await request.json().catch(() => ({}));
       const row = await runTick(env, { proceed: Boolean(body.proceed) });
-      return Response.json(row, {
-        status: row.ok ? 200 : 422,
-        headers: { "Access-Control-Allow-Origin": "*" },
-      });
+      return json(row, row.ok ? 200 : 422);
     }
   if (url.pathname === "/observer" && request.method === "GET") {
     const base = (env.FBE_CLOUD_WORKER_URL || "").replace(/\/$/, "");
     if (!base) {
-      return Response.json({ ok: false, error: "missing_FBE_CLOUD_WORKER_URL" }, { status: 503 });
+      return json({ ok: false, error: "missing_FBE_CLOUD_WORKER_URL" }, 503);
     }
     const resp = await fetch(`${base}/observer`, { headers: { Accept: "text/html" } });
     return new Response(await resp.text(), {
@@ -53,7 +88,7 @@ export default {
   if (url.pathname === "/observer-json" && request.method === "GET") {
     const base = (env.FBE_CLOUD_WORKER_URL || "").replace(/\/$/, "");
     if (!base) {
-      return Response.json({ ok: false, error: "missing_FBE_CLOUD_WORKER_URL" }, { status: 503 });
+      return json({ ok: false, error: "missing_FBE_CLOUD_WORKER_URL" }, 503);
     }
     const resp = await fetch(`${base}/api/cloud-forge-run/observer/v1`, {
       headers: { Accept: "application/json" },
@@ -70,7 +105,7 @@ export default {
   if (url.pathname === "/queue" && request.method === "GET") {
     const base = (env.FBE_CLOUD_WORKER_URL || "").replace(/\/$/, "");
     if (!base) {
-      return Response.json({ ok: false, error: "missing_FBE_CLOUD_WORKER_URL" }, { status: 503 });
+      return json({ ok: false, error: "missing_FBE_CLOUD_WORKER_URL" }, 503);
     }
     const headers = { Accept: "application/json" };
     if (env.FBE_INTERNAL_SECRET) {
@@ -89,9 +124,37 @@ export default {
     if (url.pathname === "/plan-registry" && request.method === "GET") {
       return proxyPlanRegistry(url, env);
     }
-    return Response.json({ ok: false, error: "not_found" }, { status: 404 });
+    return json({ ok: false, error: "not_found" }, 404);
   },
 };
+
+async function fetchRailwayJson(env, path) {
+  const base = (env.FBE_CLOUD_WORKER_URL || "").replace(/\/$/, "");
+  if (!base) {
+    return { ok: false, error: "missing_FBE_CLOUD_WORKER_URL" };
+  }
+  const headers = { Accept: "application/json" };
+  if (env.FBE_INTERNAL_SECRET) {
+    headers.Authorization = `Bearer ${env.FBE_INTERNAL_SECRET}`;
+  }
+  try {
+    const resp = await fetch(`${base}${path}`, { headers });
+    const text = await resp.text();
+    let body = {};
+    try {
+      body = JSON.parse(text);
+    } catch {
+      body = { ok: false, error: "invalid_json", body_prefix: text.slice(0, 120) };
+    }
+    return {
+      ok: resp.ok && body.ok !== false,
+      status: resp.status,
+      body,
+    };
+  } catch (err) {
+    return { ok: false, error: "fetch_failed", message: String(err && err.message ? err.message : err).slice(0, 160) };
+  }
+}
 
 async function proxyPlanRegistry(url, env) {
   const base = (env.FBE_CLOUD_WORKER_URL || "").replace(/\/$/, "");

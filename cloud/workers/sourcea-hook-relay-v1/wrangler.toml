@@ -2,6 +2,7 @@ name = "sourcea-hook-relay-v1"
 main = "src/index.js"
 compatibility_date = "2026-06-24"
 account_id = "0d0b967b77e2e5535455d39ff3dae72c"
+workers_dev = true
 
 [[routes]]
 pattern = "hooks.sourcea.app/*"

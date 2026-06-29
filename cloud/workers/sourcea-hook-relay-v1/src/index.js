@@ -1,33 +1,67 @@
 /** Hosted webhook relay — forwards to founder Mac hook or queues (STAB-056). */
 const HOOK_SECRET = ""; // set via wrangler secret HOOK_SECRET
+const RELAY_PATH = "/v1/relay";
+const STATUS_PATH = "/v1/status";
+
+function json(body, status = 200) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Cache-Control": "no-store",
+    },
+  });
+}
+
+function statusBody(env) {
+  return {
+    ok: true,
+    schema: "sourcea-hook-relay-status-v1",
+    service: "sourcea-hook-relay-v1",
+    relay: `POST ${RELAY_PATH}`,
+    auth_ready: Boolean(env.HOOK_SECRET || HOOK_SECRET),
+    forward_ready: Boolean(env.MAC_HOOK_URL),
+    manifest: "https://sourcea.app/sourcea/data/chat-unify-integrations-v1.json",
+    n8n_template: "https://sourcea.app/sourcea/data/n8n-template-sourcea-chat-unify-v1.json",
+    endpoints: {
+      health: "/health",
+      status: STATUS_PATH,
+      relay: RELAY_PATH,
+    },
+    at: new Date().toISOString().replace(/\.\d{3}Z$/, "Z"),
+  };
+}
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.pathname !== "/v1/relay" && url.pathname !== "/v1/relay/") {
-      return new Response(JSON.stringify({ ok: false, error: "not_found" }), {
-        status: 404,
-        headers: { "Content-Type": "application/json" },
+    const path = url.pathname.replace(/\/$/, "") || "/";
+    if (path === "/health" && request.method === "GET") {
+      return json({
+        ok: true,
+        schema: "sourcea-hook-relay-health-v1",
+        service: "sourcea-hook-relay-v1",
+        auth_ready: Boolean(env.HOOK_SECRET || HOOK_SECRET),
+        forward_ready: Boolean(env.MAC_HOOK_URL),
+        at: new Date().toISOString().replace(/\.\d{3}Z$/, "Z"),
       });
     }
+    if (path === STATUS_PATH && request.method === "GET") {
+      return json(statusBody(env));
+    }
+    if (path !== RELAY_PATH) {
+      return json({ ok: false, error: "not_found" }, 404);
+    }
     if (request.method === "GET") {
-      return new Response(
-        JSON.stringify({
-          ok: true,
-          schema: "sourcea-hook-relay-v1",
-          hook: "POST /v1/relay",
-          manifest: "https://sourcea.app/sourcea/data/chat-unify-integrations-v1.json",
-          n8n_template: "https://sourcea.app/sourcea/data/n8n-template-sourcea-chat-unify-v1.json",
-        }),
-        { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } },
-      );
+      return json({ ...statusBody(env), schema: "sourcea-hook-relay-v1", hook: `POST ${RELAY_PATH}` });
     }
     if (request.method !== "POST") {
-      return new Response(JSON.stringify({ ok: false, error: "method_not_allowed" }), { status: 405 });
+      return json({ ok: false, error: "method_not_allowed" }, 405);
     }
     const secret = env.HOOK_SECRET || HOOK_SECRET;
     if (secret && request.headers.get("X-SourceA-Hook-Secret") !== secret) {
-      return new Response(JSON.stringify({ ok: false, error: "unauthorized" }), { status: 401 });
+      return json({ ok: false, error: "unauthorized" }, 401);
     }
     let body;
     try {
@@ -56,8 +90,6 @@ export default {
         receipt.forward = { ok: false, error: String(e).slice(0, 120) };
       }
     }
-    return new Response(JSON.stringify(receipt), {
-      headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
-    });
+    return json(receipt);
   },
 };

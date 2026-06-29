@@ -2,8 +2,11 @@
 const PAGES = "https://sourcea-com.pages.dev";
 const CHAT_UNIFY_UPSTREAM_DEFAULT = "https://sourcea-chat-unify-production.up.railway.app";
 const BRAIN_CHAT_PATH = "/api/brain/chat/v1";
-const BRAIN_WORKER_URL =
-  "https://sourcea-brain-chat-v1.sina-kazemnezhad-ca.workers.dev/api/brain/chat/v1";
+const BRAIN_STATUS_PATH = "/api/brain/status/v1";
+const BRAIN_WORKER_BASE = "https://sourcea-brain-chat-v1.sina-kazemnezhad-ca.workers.dev";
+const SITE_PULSE_BASE = "https://sourcea-site-pulse-v1.sina-kazemnezhad-ca.workers.dev";
+const AUTO_RUNTIME_BASE = "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev";
+const ROUTE_MANIFEST_PATH = "/api/sourcea/routes/v1";
 
 function upstreamPath(sub) {
   const clean = (sub || "").replace(/^\//, "");
@@ -25,7 +28,20 @@ function corsHeaders(request) {
 }
 
 function jsonResponse(request, body, status = 200) {
-  return new Response(JSON.stringify(body), { status, headers: corsHeaders(request) });
+  const headers = corsHeaders(request);
+  headers["Cache-Control"] = "no-store";
+  return new Response(JSON.stringify(body), { status, headers });
+}
+
+function applyApiHeaders(request, headers, extra = {}) {
+  Object.entries(corsHeaders(request)).forEach(([k, v]) => {
+    if (k.toLowerCase() !== "content-type" || !headers.get("content-type")) headers.set(k, v);
+  });
+  headers.set("Cache-Control", "no-store");
+  for (const [key, value] of Object.entries(extra)) {
+    headers.set(key, value);
+  }
+  return headers;
 }
 
 async function proxyChatUnify(request, env, apiPrefix) {
@@ -48,16 +64,15 @@ async function proxyChatUnify(request, env, apiPrefix) {
     init.body = await request.arrayBuffer();
   }
   const resp = await fetch(target, init);
-  const headers = new Headers(resp.headers);
-  Object.entries(corsHeaders(request)).forEach(([k, v]) => {
-    if (k.toLowerCase() !== "content-type" || !headers.get("content-type")) headers.set(k, v);
+  const headers = applyApiHeaders(request, new Headers(resp.headers), {
+    "X-SourceA-Proxy": "sourcea-app-proxy-v1",
+    "X-Chat-Unify-Upstream": base,
   });
-  headers.set("X-SourceA-Proxy", "sourcea-app-proxy-v1");
-  headers.set("X-Chat-Unify-Upstream", base);
   return new Response(resp.body, { status: resp.status, headers });
 }
 
-async function proxyBrainChat(request) {
+async function proxyBrain(request) {
+  const incoming = new URL(request.url);
   if (request.method === "OPTIONS") {
     return new Response(null, { status: 204, headers: corsHeaders(request) });
   }
@@ -77,14 +92,79 @@ async function proxyBrainChat(request) {
     init.body = request.body;
   }
 
-  const resp = await fetch(BRAIN_WORKER_URL, init);
-  const headers = new Headers(resp.headers);
-  Object.entries(corsHeaders(request)).forEach(([k, v]) => {
-    if (k.toLowerCase() !== "content-type" || !headers.get("content-type")) headers.set(k, v);
+  const resp = await fetch(`${BRAIN_WORKER_BASE}${incoming.pathname}${incoming.search}`, init);
+  const headers = applyApiHeaders(request, new Headers(resp.headers), {
+    "X-SourceA-Proxy": "sourcea-app-proxy-v1",
+    "X-SourceA-Brain-Upstream": "sourcea-brain-chat-v1",
   });
-  headers.set("X-SourceA-Proxy", "sourcea-app-proxy-v1");
-  headers.set("X-SourceA-Brain-Upstream", "sourcea-brain-chat-v1");
   return new Response(resp.body, { status: resp.status, headers });
+}
+
+async function proxySitePulse(request) {
+  const incoming = new URL(request.url);
+  const target = `${SITE_PULSE_BASE}${incoming.pathname}${incoming.search}`;
+  const init = {
+    method: request.method,
+    headers: {
+      Accept: request.headers.get("Accept") || "application/json",
+    },
+  };
+  const ct = request.headers.get("Content-Type");
+  if (ct) init.headers["Content-Type"] = ct;
+  const pulseKey = request.headers.get("X-SourceA-Pulse-Key");
+  if (pulseKey) init.headers["X-SourceA-Pulse-Key"] = pulseKey;
+  const auth = request.headers.get("Authorization");
+  if (auth) init.headers.Authorization = auth;
+  if (request.method !== "GET" && request.method !== "HEAD") {
+    init.body = request.body;
+  }
+
+  const resp = await fetch(target, init);
+  const headers = applyApiHeaders(request, new Headers(resp.headers), {
+    "X-SourceA-Proxy": "sourcea-app-proxy-v1",
+    "X-SourceA-Site-Upstream": "sourcea-site-pulse-v1",
+  });
+  return new Response(resp.body, { status: resp.status, headers });
+}
+
+async function proxyAutoRuntime(request, targetPath) {
+  if (request.method !== "GET") {
+    return jsonResponse(request, { ok: false, error: "method_not_allowed" }, 405);
+  }
+  const incoming = new URL(request.url);
+  const target = `${AUTO_RUNTIME_BASE}${targetPath}${incoming.search}`;
+  const resp = await fetch(target, { headers: { Accept: "application/json" } });
+  const headers = applyApiHeaders(request, new Headers(resp.headers), {
+    "X-SourceA-Proxy": "sourcea-app-proxy-v1",
+    "X-SourceA-Auto-Runtime-Upstream": "sourcea-cloud-auto-runtime-tick-v1",
+  });
+  return new Response(resp.body, { status: resp.status, headers });
+}
+
+function routeManifest(request) {
+  return jsonResponse(request, {
+    ok: true,
+    schema: "sourcea-public-api-routes-v1",
+    service: "sourcea-app-proxy-v1",
+    routes: [
+      { path: "/health", upstream: "sourcea-app-proxy-v1", public: true },
+      { path: BRAIN_CHAT_PATH, upstream: "sourcea-brain-chat-v1", public: true },
+      { path: BRAIN_STATUS_PATH, upstream: "sourcea-brain-chat-v1", public: true },
+      { path: "/api/site/pulse/v1", upstream: "sourcea-site-pulse-v1", public: true },
+      { path: "/api/site/status/v1", upstream: "sourcea-site-pulse-v1", public: true },
+      { path: "/api/site/stats/v1", upstream: "sourcea-site-pulse-v1", public: true },
+      { path: "/api/site/event/v1", upstream: "sourcea-site-pulse-v1", public: true },
+      { path: "/api/site/feedback/v1", upstream: "sourcea-site-pulse-v1", public: true },
+      { path: "/api/site/dashboard/v1", upstream: "sourcea-site-pulse-v1", public: false },
+      { path: "/api/cloud-forge-run/health/v1", upstream: "sourcea-cloud-auto-runtime-tick-v1", public: true },
+      { path: "/api/cloud-forge-run/status/v1", upstream: "sourcea-cloud-auto-runtime-tick-v1", public: true },
+      { path: "/api/cloud-forge-run/queue/v1", upstream: "sourcea-cloud-auto-runtime-tick-v1", public: true },
+      { path: "/api/cloud-forge-run/observer/v1", upstream: "sourcea-cloud-auto-runtime-tick-v1", public: true },
+      { path: "/api/sourcea/plan-registry/v1", upstream: "sourcea-cloud-auto-runtime-tick-v1", public: true },
+      { path: "/api/chat-unify-cloud/v1/*", upstream: "sourcea-chat-unify-production", public: true },
+      { path: "/api/chat-unify-demo-cloud/v1/*", upstream: "sourcea-chat-unify-production", public: true },
+    ],
+  });
 }
 
 export default {
@@ -100,11 +180,41 @@ export default {
         proxy: "sourcea-app-proxy-v1",
         pages_origin: PAGES,
         brain_path: BRAIN_CHAT_PATH,
+        brain_status_path: BRAIN_STATUS_PATH,
+        site_pulse_prefix: "/api/site/",
+        auto_runtime_prefix: "/api/cloud-forge-run/",
       });
     }
 
+    if (pathname === ROUTE_MANIFEST_PATH) {
+      return routeManifest(request);
+    }
+
     if (pathname === BRAIN_CHAT_PATH) {
-      return proxyBrainChat(request);
+      return proxyBrain(request);
+    }
+    if (pathname === BRAIN_STATUS_PATH) {
+      return proxyBrain(request);
+    }
+
+    if (pathname.startsWith("/api/site/")) {
+      return proxySitePulse(request);
+    }
+
+    if (pathname === "/api/cloud-forge-run/health/v1") {
+      return proxyAutoRuntime(request, "/health");
+    }
+    if (pathname === "/api/cloud-forge-run/status/v1") {
+      return proxyAutoRuntime(request, "/status");
+    }
+    if (pathname === "/api/cloud-forge-run/queue/v1") {
+      return proxyAutoRuntime(request, "/queue");
+    }
+    if (pathname === "/api/cloud-forge-run/observer/v1") {
+      return proxyAutoRuntime(request, "/observer-json");
+    }
+    if (pathname === "/api/sourcea/plan-registry/v1") {
+      return proxyAutoRuntime(request, "/plan-registry");
     }
 
     if (pathname.startsWith("/api/chat-unify-cloud/v1") || pathname.startsWith("/api/chat-unify-demo-cloud/v1")) {
@@ -112,6 +222,16 @@ export default {
         ? "/api/chat-unify-demo-cloud/v1"
         : "/api/chat-unify-cloud/v1";
       return proxyChatUnify(request, env, prefix);
+    }
+
+    if (pathname.startsWith("/api/")) {
+      return jsonResponse(request, {
+        ok: false,
+        schema: "sourcea-public-api-error-v1",
+        error: "api_route_not_found",
+        route_manifest: ROUTE_MANIFEST_PATH,
+        path: pathname,
+      }, 404);
     }
 
     if (pathname === "/kernel" || pathname === "/kernel/") {
