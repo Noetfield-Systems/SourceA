@@ -1,0 +1,80 @@
+# SourceA Cursor index guard — lane-by-lane only
+# Keep Cursor indexing away from bulk generated, cache, evidence, and dependency surfaces.
+
+# Repo escape / local machine
+../
+../*
+~/
+~/Library/
+~/Desktop/
+~/Documents/
+~/Downloads/
+
+# Git / dependencies / builds
+.git/
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+build/
+**/build/
+.next/
+.turbo/
+.cache/
+**/.cache/
+.parcel-cache/
+coverage/
+**/coverage/
+.venv/
+venv/
+__pycache__/
+**/__pycache__/
+.pytest_cache/
+**/.pytest_cache/
+*.py[cod]
+*.egg-info/
+.supabase/
+.DS_Store
+
+# Archives / receipts / evidence
+archive/attachments/evidence/
+archive/sourcea-cleanup-snapshot-*/
+archive/sourcea-product-graduation-*/
+receipts/
+**/*-receipt*.json
+**/*.jsonl
+**/*.log
+
+# Generated queues / crawled knowledge / large DBs
+data/all-remaining-plan-backlog-v1.json
+data/cloud-forge-run-queue-active-v1.json
+data/secondary-cloud-forge-run-batch-*.json
+data/chatbot-knowledge/
+data/**/*.sqlite
+data/**/*.sqlite3
+data/**/*.db
+brain-os/plan-registry/sourcea-1000/prompts/
+brain-os/plan-registry/sourcea-upgrade-path-7500/
+brain-os/plan-registry/sourcea-upgrade-z-continuity-10000/
+brain-os/plan-registry/sourcea-upgrade-z2-continuity-10000/
+
+# Binaries / packages
+**/*.dmg
+**/*.pkg
+**/*.zip
+**/*.tar
+**/*.tar.gz
+**/*.tgz
+**/*.7z
+**/*.iso
+**/*.app/Contents/
+
+# Secrets
+.env
+.env.*
+**/.env.local
+**/.env.*.local
+infra/secrets/
+.sourcea-secrets/
+**/*.pem
+**/*.key
