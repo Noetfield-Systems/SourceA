@@ -23,10 +23,15 @@ from chat_unify_engine_v1 import MACHINES, handle_post  # noqa: E402
 
 doc = root / "docs/SOURCEA_PLAN_REGISTRY_CONSUMER_ROLLOUT_LOCKED_v1.md"
 assert doc.is_file(), doc
-assert "Do not prune TrustField rows" in doc.read_text(encoding="utf-8")
-split_script = (root / "scripts/noetfield_trustfield_plan_registry_import_v1.py").read_text(encoding="utf-8")
-assert "import_not_confirmed" in split_script
-assert "--prune-spine" in split_script
+doc_text = doc.read_text(encoding="utf-8")
+assert "Do not prune" in doc_text and "lane=trustfield" in doc_text
+assert "product-graduation export pack" in doc_text
+graduation_manifest = root / "archive/sourcea-product-graduation-20260628/manifest.json"
+assert graduation_manifest.is_file(), graduation_manifest
+graduation = json.loads(graduation_manifest.read_text(encoding="utf-8"))
+graduated_paths = {row.get("path") for row in graduation.get("files") or []}
+assert "scripts/noetfield_trustfield_plan_registry_import_v1.py" in graduated_paths
+assert any(str(path).startswith("infra/supabase/noetfield/migrations/") for path in graduated_paths)
 
 rows = query_rows(limit=1)
 assert rows["ok"], rows
