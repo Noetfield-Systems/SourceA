@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-pipeline-node-graph-v1",
-  "version": "1.3.0",
-  "saved_at": "2026-06-16T09:45:00Z",
+  "version": "1.4.0",
+  "saved_at": "2026-06-28T07:45:00Z",
   "charter": "docs/SOURCEA_NODE_ARCHITECT_AGENTIC_AUTONOMOUS_SYSTEM_LOCKED_v1.md",
   "build_plan": "docs/SOURCEA_NODE_MESH_SYNESTM_BUILD_PLAN_LOCKED_v1.md",
   "skill": ".cursor/skills/skill-node-architect-agentic-system/SKILL.md",
@@ -37,7 +37,7 @@
       "id": "T3_proof_fanout",
       "tier": "T3_proof_parallel",
       "parallel": true,
-      "nodes": ["validate_w10_vocab", "validate_two_hub", "n8n_p0_operational"]
+      "nodes": ["validate_w10_vocab", "sourcea_plan_traceability_machine", "validate_two_hub", "n8n_p0_operational"]
     },
     {
       "id": "T_lat_orient_fanout",
@@ -59,6 +59,8 @@
     {"from": "agentic_layer_fast", "to": "hub_dual_heal", "kind": "wire", "parallel": true},
     {"from": "l1_brain_wire", "to": "validate_w10_vocab", "kind": "orchestrate"},
     {"from": "hub_dual_heal", "to": "validate_two_hub", "kind": "orchestrate", "parallel": true},
+    {"from": "validate_w10_vocab", "to": "sourcea_plan_traceability_machine", "kind": "data"},
+    {"from": "sourcea_plan_traceability_machine", "to": "hub_projection_v1", "kind": "surface"},
     {"from": "validate_w10_vocab", "to": "hub_projection_v1", "kind": "surface"},
     {"from": "n8n_p0_operational", "to": "external_cron", "kind": "glue"},
     {"from": "worker_inbox_v1", "to": "session_gate_v1", "kind": "trigger"},
@@ -298,6 +300,20 @@
             {"from": "l1_brain_wire", "kind": "orchestrate"}
           ],
           "edges_out": [{"to": "pipeline-node-graph-receipt-v1.json", "kind": "data"}]
+        },
+        {
+          "id": "sourcea_plan_traceability_machine",
+          "label": "Plan traceability — disk/local/live report receipt",
+          "cmd": ["python3", "scripts/sourcea_plan_traceability_machine_v1.py", "--json", "--write", "--no-live", "--limit", "80"],
+          "receipt": "~/.sina/sourcea-plan-traceability-machine-receipt-v1.json",
+          "required": false,
+          "plane": "INTERNAL",
+          "tier": "T3",
+          "edges_in": [{"from": "validate_w10_vocab", "kind": "data"}],
+          "edges_out": [
+            {"to": "hub_projection_v1", "kind": "surface"},
+            {"to": "sourcea-plan-traceability-report-v1.md", "kind": "data"}
+          ]
         },
         {
           "id": "validate_two_hub",

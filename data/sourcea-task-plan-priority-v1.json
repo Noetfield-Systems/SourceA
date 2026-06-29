@@ -147,6 +147,7 @@
   "wired_to": [
     "scripts/next_task_trigger_v1.py",
     "scripts/plans_unified_upgrade_v1.py",
+    "scripts/sourcea_plan_traceability_machine_v1.py",
     "scripts/agent_session_gate_run_v1.py",
     "scripts/disk_live_wire_sync_v1.py",
     "scripts/agent_behavior_settings_v1.py",
