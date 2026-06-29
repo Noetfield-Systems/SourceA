@@ -329,6 +329,7 @@
       <h2>Plan registry · Supabase live</h2>
       <p class="next" id="plan-registry-line">Loading plan registry…</p>
       <p class="sub" id="plan-registry-contract">Reads only · anon/RLS safe · no service keys in browser responses</p>
+      <p class="sub" id="plan-registry-status-line">Route status — loading…</p>
       <div class="plan-registry-controls">
         <input id="plan-registry-lane" type="text" placeholder="lane filter, optional" autocomplete="off" />
         <input id="plan-registry-id" type="text" placeholder="plan_id lookup" autocomplete="off" />
@@ -685,6 +686,27 @@
       }
     }
 
+    function renderPlanRegistryStatus(row) {
+      const el = $("plan-registry-status-line");
+      if (!row || !row.routes) {
+        el.textContent = "Route status unavailable";
+        return;
+      }
+      const fbe = row.routes.railway_fbe || {};
+      const cf = row.routes.cloudflare_proxy || {};
+      el.textContent =
+        "Routes · Railway " + (fbe.ok ? "ok" : "check") +
+        " · Cloudflare " + (cf.ok ? "ok" : "check") +
+        " · last read " + (row.at || "").replace("T", " ").slice(0, 19) +
+        (row.last_error ? " · error: " + row.last_error : "");
+    }
+
+    async function loadPlanRegistryStatus() {
+      const row = await fetchPayload("/api/sourcea/plan-registry/status/v1");
+      renderPlanRegistryStatus(row);
+      return row;
+    }
+
     async function loadPlanRegistry(opts) {
       opts = opts || {};
       const lane = $("plan-registry-lane") ? $("plan-registry-lane").value.trim() : "";
@@ -692,6 +714,9 @@
       if (lane) qs.set("lane", lane);
       const row = await fetchPayload("/api/sourcea/plan-registry/v1?" + qs.toString());
       renderPlanRegistry(row, opts.lookup || null);
+      loadPlanRegistryStatus().catch(function (err) {
+        $("plan-registry-status-line").textContent = "Route status unavailable — " + err.message;
+      });
       return row;
     }
 
