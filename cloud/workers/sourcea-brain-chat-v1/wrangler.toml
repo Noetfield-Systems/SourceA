@@ -6,3 +6,9 @@ account_id = "0d0b967b77e2e5535455d39ff3dae72c"
 # Route on sourcea.app when DNS is on Cloudflare:
 # routes = [{ pattern = "sourcea.app/api/brain/chat/v1", zone_name = "sourcea.app" }]
 # Secret: wrangler secret put OPENROUTER_API_KEY
+
+# Optional durable trace storage:
+# wrangler kv namespace create BRAIN_CHAT_LOGS
+# [[kv_namespaces]]
+# binding = "BRAIN_CHAT_LOGS"
+# id = "<kv_namespace_id>"

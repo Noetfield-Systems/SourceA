@@ -2,6 +2,8 @@ const EVENT_PATH = "/api/site/event/v1";
 const FEEDBACK_PATH = "/api/site/feedback/v1";
 const STATS_PATH = "/api/site/stats/v1";
 const DASHBOARD_PATH = "/api/site/dashboard/v1";
+const STATUS_PATH = "/api/site/status/v1";
+const HEALTH_PATH = "/health";
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 const NOTIFY_TO = "hello@sourcea.app";
 const FEEDBACK_TO = "forge@sourcea.app";
@@ -9,15 +11,18 @@ const NOTIFY_FROM = "SourceA Site <onboarding@resend.dev>";
 const MAX_MSG = 4000;
 const MAX_EVENTS_BATCH = 25;
 const MAX_FEEDBACK_INBOX = 50;
+const ALLOWED_ORIGIN_RE = /^https?:\/\/(?:localhost(?::\d+)?|127\.0\.0\.1(?::\d+)?|(?:www\.)?sourcea\.app|sourcea-com\.pages\.dev)$/;
 
 function cors(request) {
   const origin = request.headers.get("Origin") || "*";
+  const allowOrigin = origin === "*" || ALLOWED_ORIGIN_RE.test(origin) ? origin : "https://sourcea.app";
   return {
-    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Origin": allowOrigin,
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, Authorization, X-SourceA-Pulse-Key",
     Vary: "Origin",
     "Content-Type": "application/json",
+    "Cache-Control": "no-store",
   };
 }
 
@@ -223,6 +228,7 @@ async function handleFeedback(request, env) {
   const record = {
     schema: "sourcea-site-feedback-v1",
     feedback_id: feedbackId,
+    status: "open",
     type,
     message,
     page,
@@ -272,6 +278,28 @@ async function handleStats(request, env) {
   });
 }
 
+async function handleStatus(request, env) {
+  const today = await loadStatsDay(env, utcDay());
+  return json(request, {
+    ok: true,
+    schema: "sourcea-site-pulse-status-v1",
+    service: "sourcea-site-pulse-v1",
+    kv_ready: Boolean(env.PULSE_KV),
+    resend_ready: Boolean(env.RESEND_API_KEY),
+    founder_dashboard_ready: Boolean(env.FOUNDER_PULSE_KEY),
+    endpoints: {
+      event: EVENT_PATH,
+      feedback: FEEDBACK_PATH,
+      stats: STATS_PATH,
+      dashboard: DASHBOARD_PATH,
+      status: STATUS_PATH,
+      health: HEALTH_PATH,
+    },
+    today,
+    at: new Date().toISOString().replace(/\.\d{3}Z$/, "Z"),
+  });
+}
+
 async function handleDashboard(request, env) {
   if (!founderAuthorized(request, env)) {
     return json(
@@ -301,11 +329,13 @@ async function handleDashboard(request, env) {
     ok: true,
     schema: "sourcea-site-dashboard-v1",
     at: new Date().toISOString().replace(/\.\d{3}Z$/, "Z"),
+    service: "sourcea-site-pulse-v1",
     today: range[0],
     rollup,
     range,
     inbox,
     inbox_count: inbox.length,
+    open_feedback_count: inbox.filter((item) => (item.status || "open") === "open").length,
   });
 }
 
@@ -318,6 +348,18 @@ export default {
       return new Response(null, { status: 204, headers: cors(request) });
     }
 
+    if (path === HEALTH_PATH && request.method === "GET") {
+      return json(request, {
+        ok: true,
+        schema: "sourcea-site-pulse-health-v1",
+        service: "sourcea-site-pulse-v1",
+        kv_ready: Boolean(env.PULSE_KV),
+        at: new Date().toISOString().replace(/\.\d{3}Z$/, "Z"),
+      });
+    }
+    if (path === STATUS_PATH && request.method === "GET") {
+      return handleStatus(request, env);
+    }
     if (path === EVENT_PATH && request.method === "POST") {
       return handleEvent(request, env);
     }
@@ -339,7 +381,11 @@ export default {
           feedback: FEEDBACK_PATH,
           stats: STATS_PATH,
           dashboard: DASHBOARD_PATH,
+          status: STATUS_PATH,
+          health: HEALTH_PATH,
         },
+        kv_ready: Boolean(env.PULSE_KV),
+        founder_dashboard_ready: Boolean(env.FOUNDER_PULSE_KEY),
       });
     }
 
