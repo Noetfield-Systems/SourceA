@@ -1,15 +1,15 @@
 {
   "schema": "sourcea-trust-signals-v1",
-  "at": "2026-06-24T03:23:04Z",
+  "at": "2026-06-27T18:07:19Z",
   "receipts_signed_today": 4,
-  "receipts_signed_lifetime": 5655,
+  "receipts_signed_lifetime": 5662,
   "receipts_lifetime_label": "Governance receipts signed on disk",
-  "receipts_date": "2026-06-24",
+  "receipts_date": "2026-06-27",
   "receipt_samples": [
     "agent-governance-events.jsonl:s10_eternal_audit",
     "agent-governance-events.jsonl:s10_eternal_audit",
-    "critic-boot-v1.json",
-    "sourcea-boot-terminal-inject-v1.json"
+    "agent-governance-events.jsonl:governance_drift",
+    "critic-boot-v1.json"
   ],
   "receipt_metric_label": "Material governance events today",
   "valid_yes": null,
@@ -26,10 +26,10 @@
     "verdict": "PASS",
     "checks_pass": 4,
     "checks_total": 4,
-    "at": "2026-06-24T01:08:33Z",
+    "at": "2026-06-24T03:23:04Z",
     "factory": "FROZEN"
   },
-  "factory_now_line": "",
+  "factory_now_line": "factory-now \u00b7 Cloud Workers.app owns Cloud Forge Run \u00b7 head CLOUD-SEC-6967 \u00b7 batch 71 \u00b7 100 rows/10min \u00b7 100 tasks/row",
   "status_page": "/sourcea/status",
   "proof_sample": "/sourcea/attach/proof-bundle-sample",
   "built_on": [
@@ -67,8 +67,8 @@
   "disclaimer": "Built on = technology dependencies \u00b7 not co-marketing partnerships",
   "api_hook": {
     "endpoint": "POST /v1/decision",
-    "receipt_id": "sa-0886",
+    "receipt_id": "CLOUD-SEC-6967",
     "verdict": "PASS",
-    "signed_at": "2026-06-24T01:08:33Z"
+    "signed_at": "2026-06-24T03:23:04Z"
   }
 }
