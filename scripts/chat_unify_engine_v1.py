@@ -462,6 +462,36 @@ def plan_registry_read(body: dict[str, Any]) -> dict[str, Any]:
         "plan_id": plan_id or None,
         "found": row.get("found") if plan_id else None,
     }
+    rows = row.get("rows") if isinstance(row.get("rows"), list) else []
+    suggestions = []
+    for item in rows[:5]:
+        if not isinstance(item, dict):
+            continue
+        pid = str(item.get("plan_id") or "")
+        title = str(item.get("title") or pid)
+        lane = str(item.get("lane") or "unassigned")
+        status = str(item.get("status") or "unknown")
+        suggestions.append(
+            {
+                "plan_id": pid,
+                "label": f"{pid} · {title}"[:140],
+                "lane": lane,
+                "status": status,
+                "next_action": "Open exact plan lookup, then route any execution through Hub/FBE with receipt linkback.",
+                "execution_allowed": False,
+            }
+        )
+    row["next_action_suggestions"] = suggestions
+    if suggestions:
+        row["display_response"] = "\n".join(
+            [
+                "Plan registry suggestions are read-only. Pick a plan id, then route execution through approved Hub/FBE machines.",
+                "",
+                *[f"- {s['label']} · lane={s['lane']} · status={s['status']}" for s in suggestions],
+            ]
+        )
+    else:
+        row["display_response"] = "No matching plan registry rows found. Try an exact plan_id or a smaller lane/status filter."
     if contains_secret_like(row):
         return {"ok": False, "engine": ENGINE_SCHEMA, "machine": "plan_registry", "error": "secret_like_response_blocked"}
     return row
