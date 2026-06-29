@@ -293,6 +293,17 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
                 return
             self._json(200 if row.get("ok") else 422, row)
             return
+        if path == "/api/sourcea/plan-registry/status/v1":
+            from sourcea_plan_registry_client_v1 import contains_secret_like, handle_status  # noqa: WPS433
+
+            qs = parse_qs(urlparse(self.path).query)
+            row = handle_status(qs)
+            row["endpoint"] = "/api/sourcea/plan-registry/status/v1"
+            if contains_secret_like(row):
+                self._json(500, {"ok": False, "error": "secret_like_response_blocked"})
+                return
+            self._json(200 if row.get("ok") else 207, row)
+            return
         if path == "/api/worker-hub/outbound-salvage/v1":
             from outbound_telemetry_v1 import hub_slice as outbound_salvage_slice  # noqa: WPS433
 
