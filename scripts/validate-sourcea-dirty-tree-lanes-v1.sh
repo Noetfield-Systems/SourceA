@@ -62,6 +62,7 @@ checks = {
     "scripts/sourcea_plan_registry_client_v1.py": "supabase_db",
     "scripts/validate-sourcea-plan-registry-read-v1.sh": "supabase_db",
     "scripts/validate-sourcea-plan-registry-consumers-v1.sh": "supabase_db",
+    "scripts/validate-sourcea-golden-upgrades-v1.sh": "supabase_db",
     "docs/SOURCEA_SUPABASE_CONNECTION_BLOCKER_LOCKED_v1.md": "supabase_db",
     "docs/SOURCEA_PLAN_REGISTRY_READ_CONTRACT_LOCKED_v1.md": "supabase_db",
     "docs/SOURCEA_PLAN_REGISTRY_CONSUMER_ROLLOUT_LOCKED_v1.md": "supabase_db",
