@@ -151,6 +151,7 @@
   }
 
   function mountGuidedPrompt() {
+    if (document.body?.dataset?.saPage === "forge-terminal-demo") return;
     if (!config.guided_prompts?.length) return;
     try {
       if (config.guided_once_per_session && sessionStorage.getItem(GUIDED_KEY)) return;
