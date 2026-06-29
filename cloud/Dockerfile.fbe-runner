@@ -104,6 +104,8 @@ COPY scripts/truth_layer_receipt_writer_v1.py scripts/truth_layer_receipt_writer
 COPY scripts/truth_layer_verifier_v1.py scripts/truth_layer_verifier_v1.py
 COPY scripts/truth_log_v1.py scripts/truth_log_v1.py
 COPY scripts/cloud_forge_seed_v1.py scripts/cloud_forge_seed_v1.py
+COPY scripts/cloud_forge_run_supabase_v1.py scripts/cloud_forge_run_supabase_v1.py
+COPY scripts/sourcea_plan_registry_client_v1.py scripts/sourcea_plan_registry_client_v1.py
 COPY scripts/autonomous_drain_receipt_cloud_v1.py scripts/autonomous_drain_receipt_cloud_v1.py
 COPY scripts/living_system_chain_validate_v1.py scripts/living_system_chain_validate_v1.py
 COPY scripts/portfolio__forge_dispatch_v1.py scripts/portfolio__forge_dispatch_v1.py
