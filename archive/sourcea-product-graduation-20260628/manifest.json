@@ -1,0 +1,69 @@
+{
+  "created_utc": "2026-06-29T03:37:38.331353+00:00",
+  "file_count": 5,
+  "files": [
+    {
+      "git_status": "tracked",
+      "path": "brain-os/law/TRUSTFIELD_ENTITY_CORRECTION_v3_1.md",
+      "porcelain": " M",
+      "sha256": "eb32600f74a569a18a27cfba03638e885e0bb551a26a14526d6c4faf93ec78e5",
+      "size": 1665,
+      "snapshot_member": "payload/brain-os/law/TRUSTFIELD_ENTITY_CORRECTION_v3_1.md"
+    },
+    {
+      "git_status": "tracked",
+      "path": "infra/supabase/noetfield/README.md",
+      "porcelain": " M",
+      "sha256": "d12230fc8df0e4b876eb6c4f57295d3deb580d821ce675c48ba8538f538ec054",
+      "size": 826,
+      "snapshot_member": "payload/infra/supabase/noetfield/README.md"
+    },
+    {
+      "git_status": "untracked",
+      "path": "brain-os/law/NOETFIELD_SOURCEA_TRUSTFIELD_ENTITY_STRUCTURE_LOCKED_v1.md",
+      "porcelain": "??",
+      "sha256": "59ebdcd85c2bfe26489c4c063d19fe7f29319906b99c831b622d98c731597775",
+      "size": 3171,
+      "snapshot_member": "payload/brain-os/law/NOETFIELD_SOURCEA_TRUSTFIELD_ENTITY_STRUCTURE_LOCKED_v1.md"
+    },
+    {
+      "git_status": "untracked",
+      "path": "infra/supabase/noetfield/migrations/001_trustfield_plan_registry_v1.sql",
+      "porcelain": "??",
+      "sha256": "ce9faca883c734b8ba435f1defbdad1026f9e14aaba591ebfdd7361e9adc8c79",
+      "size": 1840,
+      "snapshot_member": "payload/infra/supabase/noetfield/migrations/001_trustfield_plan_registry_v1.sql"
+    },
+    {
+      "git_status": "untracked",
+      "path": "scripts/noetfield_trustfield_plan_registry_import_v1.py",
+      "porcelain": "??",
+      "sha256": "f480324bb88720b150f2d7b1d6cbcfbfbb1530526040cdd4dcf6d6f9d1429606",
+      "size": 11410,
+      "snapshot_member": "payload/scripts/noetfield_trustfield_plan_registry_import_v1.py"
+    }
+  ],
+  "payload_archive": "archive/sourcea-product-graduation-20260628/product-graduation-payload.tar.gz",
+  "payload_archive_size": 6997,
+  "policy": {
+    "product_owned": [
+      "site config",
+      "product governance docs",
+      "deploy config",
+      "legal/entity docs",
+      "Supabase/app migrations",
+      "product-specific scripts"
+    ],
+    "sourcea_remains": [
+      "kernel eval machines",
+      "traceability",
+      "plan registry",
+      "reusable governance models",
+      "shared contracts",
+      "versioned exports"
+    ]
+  },
+  "purpose": "Snapshot Noetfield/TrustField product-specific SourceA dirt before graduating ownership out of SourceA active storage.",
+  "schema": "sourcea-product-graduation-quarantine-v1",
+  "total_bytes": 18912
+}
