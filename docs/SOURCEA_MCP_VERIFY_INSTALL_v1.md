@@ -5,7 +5,7 @@
 ## From monorepo (dev)
 
 ```bash
-cd ~/Desktop/SourceA/packages/mcp-verify   # when package present
+cd ~/Desktop/SourceA/packages/mcp-sourcea-verify
 npm install && npm link
 ```
 
@@ -29,8 +29,10 @@ Add to `.cursor/mcp.json`:
 
 ## Tools exposed
 
-- `verify_claim` — run ORD truth gate on pasted agent output
-- `seal_proof` — trigger Proof Pack seal path
+- `verify_run` — return PASS/FAIL/MOCK_ONLY + receipt JSON
+- `factory_status` — read-only `factory_now_line` glance
+- `form_pick_parse` — parse ASF `PICK:` into structured decision JSON
+- `emit_receipt_readonly` — validate receipt schema without writing `~/.sina`
 
 ## Public doc page
 
@@ -38,6 +40,6 @@ https://sourcea.app/sourcea/forge/cursor-bridge
 
 ## npm publish (STAB-052)
 
-When ready: `npm publish --access public` from `packages/mcp-verify` with `@sourcea/mcp-verify` scope.
+When ready: `npm publish --access public` from `packages/mcp-sourcea-verify` with `@sourcea/mcp-verify` scope.
 
-Until npm live: install from GitHub `sourcea-io/sourcea-boot` sibling repo or clone SourceA `packages/mcp-verify`.
+Until npm live: install from GitHub `sourcea-io/sourcea-boot` sibling repo or clone SourceA `packages/mcp-sourcea-verify`.
