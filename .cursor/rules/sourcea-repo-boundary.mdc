@@ -1,0 +1,44 @@
+---
+description: SourceA repo boundary policy
+alwaysApply: false
+---
+
+# SourceA Repo Boundary
+
+**Machine policy:** `repo-policy.json`  
+**Validator:** `python3 scripts/check_sourcea_repo_policy.py`  
+**Law:** `docs/SOURCEA_REPO_POLICY_LOCKED_v1.md`
+
+## Law
+
+SourceA is the upstream authority engine. It owns shared authority, not active product operations.
+
+SourceA owns:
+
+- kernel/eval machines
+- traceability
+- registries
+- reusable contracts
+- public API/cloud workers
+- versioned exports
+
+SourceA must not own active Noetfield, TrustField, legal, or entity work. Those lanes need their own process and config ownership.
+
+## Required
+
+Before new SourceA work:
+
+1. Run `git status --short`.
+2. Confirm the tree is clean or identify the assigned lane.
+3. State the target lane and files to touch.
+4. Avoid generated, evidence, backlog, archive payload, dist, node_modules, SQLite/db, and queue dump context unless explicitly assigned.
+
+## Change Shape
+
+- Work lane-by-lane.
+- Keep each pass to 20-40 files max.
+- Ship one atomic commit per coherent lane.
+- Cross-product dependencies use contracts, exports, manifests, or public API/cloud workers.
+- Do not wire products through SourceA internal scripts.
+- Generated, evidence, and backlog outputs must be snapshot + manifest, not loose repo dirt.
+
