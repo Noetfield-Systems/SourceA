@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 from scripts.brain_core_v1.decision_core import decide, load_locked_definitions
+from scripts.brain_core_v1.gate import run_gate
 from scripts.brain_core_v1.live_status_probe import decision_status_map, probe_live_status_map
 from scripts.brain_core_v1.sanitizer import sanitize_model_output
 
@@ -28,6 +29,7 @@ def main() -> int:
     parser.add_argument("--probe-timeout", type=float, default=5.0)
     parser.add_argument("--definitions", default=None)
     parser.add_argument("--draft", default="")
+    parser.add_argument("--gate", action="store_true")
     args = parser.parse_args()
 
     definitions = load_locked_definitions(args.definitions) if args.definitions else None
@@ -37,6 +39,18 @@ def main() -> int:
     else:
         live_status_map = None
         status_map = decision_status_map(_load_status_map(args.status_json))
+    if args.gate:
+        gate_status = live_status_map if live_status_map is not None else status_map
+        result = {
+            "gate": run_gate(
+                args.message,
+                args.draft,
+                live_status=gate_status,
+                definitions=definitions,
+            )
+        }
+        print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True))
+        return 0
     decision = decide(args.message, status_map, definitions=definitions)
     result = {"decision": decision, "status_map": status_map}
     if live_status_map is not None:
