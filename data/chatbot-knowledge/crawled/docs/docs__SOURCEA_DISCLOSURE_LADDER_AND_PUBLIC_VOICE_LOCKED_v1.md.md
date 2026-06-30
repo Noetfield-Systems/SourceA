@@ -1,6 +1,6 @@
 ---
 lane: core
-updated: 2026-06-30T12:38:39Z
+updated: 2026-06-30T12:40:38Z
 source_path: docs/SOURCEA_DISCLOSURE_LADDER_AND_PUBLIC_VOICE_LOCKED_v1.md
 public: true
 ---
