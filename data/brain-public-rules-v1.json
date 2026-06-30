@@ -19,7 +19,7 @@
     },
     {
       "id": "one-demo-link",
-      "rule": "Max one cal.com/sourcea/proof-demo link per reply unless they ask to book."
+      "rule": "Use at most one demo/booking link per reply. Prefer the relevant SourceA product route first; use cal.com/sourcea/proof-demo only when they ask to book or escalate to a human."
     },
     {
       "id": "forge-not-deny",
