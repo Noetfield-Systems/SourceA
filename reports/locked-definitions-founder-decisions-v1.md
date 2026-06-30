@@ -1,104 +1,84 @@
 # Locked Definitions Founder Decisions v1
 
-Saved: 2026-06-30T15:22:00Z  
-Status: draft decision packet, not live-locked  
-Scope: four unresolved definition decisions only  
+Saved: 2026-06-30T15:27:00Z  
+Status: founder-approved definition decisions; live-locked candidate, not deployed  
+Scope: four ruled definitions only  
 Source draft: `reports/locked-definitions-v1.json`
 
 ## Context
 
-`approved_existing` items in `reports/locked-definitions-v1.json` are ratified as draft-accepted evidence, not live policy. This packet leaves commercial decisions unresolved and only structures the choices that still need founder judgment.
+`approved_existing` items in `reports/locked-definitions-v1.json` remain draft-accepted evidence. The four decisions below are `founder_approved` and incorporated into the definitions draft as a `live_locked_candidate`. No runtime, Worker, or site deployment has been performed.
 
-## Decision 1: `sourcea_is_live`
+## `sourcea_is_live`
 
-Current draft text:
+Final approved claim:
 
-> SourceA has public product routes on sourcea.app.
+> SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.
 
-Current tag: `needs_founder_review`  
-Status signal proposed in draft: `sourcea_app_http_status`
+Required live signal: `sourcea_app_http_status`
 
-Source evidence:
+Fallback language when unsure:
 
-- `data/CHATBOT_KNOWLEDGE_MANIFEST.json`: `"www": "https://sourcea.app"`
-- `data/brain-public-rules-v1.json`: `"primary_ctas": [
-    { "label": "Try Forge Terminal", "url": "/sourcea/forge/terminal" },
-    { "label": "Live proof", "url": "/sourcea/proof/live" },
-    { "label": "Pricing", "url": "/sourcea/pricing" },
-    { "label": "Factories", "url": "/sourcea/factories/" }
-  ]`
+> SourceA has public product routes on sourcea.app. I don’t have a fresh live-status check in this answer, so start from the current product route.
 
-Why founder decision is needed:
+Fallback language when degraded:
 
-The sources prove public routes and sourcea.app exist. They do not define the threshold for saying the broader claim `SourceA is live` instead of the narrower claim `SourceA has public product routes`.
+> SourceA’s public route may be degraded right now. Use the proof/status route first, or escalate to a guided demo if you need a human walkthrough.
 
-Founder decision needed:
+Decision tag: `founder_approved`
 
-Define the allowed public wording and the status signal required before Brain can say `SourceA is live`.
+## `forge_terminal_guaranteed_live_runtime`
 
-## Decision 2: `forge_terminal_guaranteed_live_runtime`
+Final approved claim:
 
-Current draft text:
+> Forge Terminal is the browser product route for trying SourceA/Forge. Say it is available only after a fresh runtime/status signal confirms it.
 
-> Forge Terminal is available as a live runtime.
+Required live signal: `forge_terminal_runtime_status`
 
-Current tag: `needs_founder_review`  
-Status signal proposed in draft: `forge_terminal_runtime_status`
+Fallback language when unsure:
 
-Source evidence:
+> Forge Terminal is the browser product route for SourceA/Forge. I don’t have a fresh runtime check in this answer, so treat it as the route to try, not a guaranteed-live session.
 
-- `sites/SourceA-landing/green-unified/forge/terminal.html`: `<title>Forge Terminal — live demo | SourceA</title>`
-- `sites/SourceA-landing/green-unified/forge/terminal.html`: `<span class="sa-ft-status" id="sa-ft-status">Connecting…</span>`
+Fallback language when degraded:
 
-Why founder decision is needed:
+> Forge Terminal may be degraded right now. Start from the SourceA product/proof route, then use the demo escalation if the browser route does not connect.
 
-The page calls itself a live demo, but runtime availability depends on whether the demo can actually connect. The static title alone should not decide a live-runtime claim.
+Decision tag: `founder_approved`
 
-Founder decision needed:
+## `every_possible_run_has_public_proof`
 
-Decide whether Brain can say `Forge Terminal is available` only after a fresh runtime/status signal, or whether it should default to `Forge Terminal is the browser product route`.
+Final approved claim:
 
-## Decision 3: `every_possible_run_has_public_proof`
+> SourceA is designed around verifiable receipts/proof of work. Do not claim every possible run has perfect public proof unless the specific proof exists.
 
-Current draft text:
+Required live signal: `specific_run_public_proof_status`
 
-> Every possible SourceA run has perfect public proof.
+Fallback language when unsure:
 
-Current tag: `unsafe_or_unclear`  
-Status signal proposed in draft: `specific_run_public_proof_status`
+> SourceA is built around receipts and proof, but I don’t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.
 
-Source evidence:
+Fallback language when degraded:
 
-- No clear source found for the universal claim.
-- Closest supported text from `data/brain-public-rules-v1.json`: `SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run.`
-- Closest supported text from `cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json`: `> **SourceA is an AI execution platform powered by Forge — not a “proof records” product. Proof is built in; it is not the whole product.**`
+> The proof route or specific receipt may be unavailable right now. Don’t treat that as proof failure; treat it as unverified until the specific receipt/status is available.
 
-Why founder decision is needed:
+Decision tag: `founder_approved`
 
-Existing sources support proof/receipts as built in. They do not support a universal promise that every possible run has perfect public proof.
+## `broken_gears`
 
-Founder decision needed:
+Final approved claim:
 
-Approve the narrower proof wording, or provide a real source and limits for any stronger public proof claim.
+> “Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.
 
-## Decision 4: `broken_gears`
+Required live signal: Use the relevant status key for the failing route/tool; no standalone `broken_gears` public status key.
 
-Current draft text:
+Fallback language when unsure:
 
-> broken gears response ladder
+> I don’t have enough live evidence to confirm that path. Use the safest product route first, and I’ll avoid guessing.
 
-Current tag: `unsafe_or_unclear`
+Fallback language when degraded:
 
-Source evidence:
+> That path looks degraded or unavailable right now. Use the safest product/proof route, and escalate to a guided demo only if you need help moving forward.
 
-- No clear source found for the phrase `broken gears` or a named broken-gears ladder.
-- Closest sourced recovery behavior from `data/brain-public-rules-v1.json`: `If user says 'you just give me records' — acknowledge pushback; reframe: Forge runs work, proof shows what ran.`
-- Closest sourced status behavior from `data/brain-public-rules-v1.json`: `For status, health, live proof, and availability questions, use current live-tool/status evidence first and say when evidence is unavailable.`
+Decision tag: `founder_approved`
 
-Why founder decision is needed:
-
-The requested category exists as a task requirement, but no source-backed definition was found. The draft can only cite nearby recovery/status behavior.
-
-Founder decision needed:
-
-Decide whether `broken gears` is a public response ladder, a private diagnostic label, or unsupported wording to remove.
+Public wording rule: `broken_gears` is private diagnostic language only and forbidden in public wording.
