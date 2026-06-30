@@ -12,6 +12,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from sourcea_phase2_mutation_guard_v1 import (
+    Phase2MutationTrialsDisabled,
+    require_phase2_mutation_trials_enabled,
+)
+
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
 SINA = Path.home() / ".sina"
@@ -98,7 +103,14 @@ def _url_text(url: str, *, timeout: int = 20) -> str:
         return ""
 
 
+def _guard_step(step: int, name: str) -> None:
+    require_phase2_mutation_trials_enabled(
+        mutation_path=f"scripts/sourcea_phase2_ten_step_track_v1.py:step{step}_{name}"
+    )
+
+
 def step1_sourcea_domain() -> dict[str, Any]:
+    _guard_step(1, "sourcea_domain")
     publish = _run_json(
         [
             sys.executable,
@@ -209,18 +221,21 @@ def _write_seats_registry() -> dict[str, Any]:
 
 
 def step2_seat1() -> dict[str, Any]:
+    _guard_step(2, "seat1")
     row = _write_seat_close(SEATS[0], step=2)
     _write_seats_registry()
     return {"ok": True, "step": 2, "path": str(SINA / "t2-seat-001-close-receipt-v1.json")}
 
 
 def step3_seat2() -> dict[str, Any]:
+    _guard_step(3, "seat2")
     row = _write_seat_close(SEATS[1], step=3)
     _write_seats_registry()
     return {"ok": bool(row.get("subscription_active")), "step": 3, "path": str(SINA / "t2-seat-002-close-receipt-v1.json")}
 
 
 def step4_seat3() -> dict[str, Any]:
+    _guard_step(4, "seat3")
     row = _write_seat_close(SEATS[2], step=4)
     registry = _write_seats_registry()
     return {
@@ -232,6 +247,7 @@ def step4_seat3() -> dict[str, Any]:
 
 
 def step5_thin_ui() -> dict[str, Any]:
+    _guard_step(5, "thin_ui")
     dispatch = _run_json(
         [
             sys.executable,
@@ -274,6 +290,7 @@ def step5_thin_ui() -> dict[str, Any]:
 
 
 def step6_billing() -> dict[str, Any]:
+    _guard_step(6, "billing")
     seats = _read_json(SEATS_REGISTRY).get("seats") or []
     rows = []
     for idx, seat in enumerate(seats, start=1):
@@ -307,6 +324,7 @@ def step6_billing() -> dict[str, Any]:
 
 
 def step7_truth_kpi() -> dict[str, Any]:
+    _guard_step(7, "truth_kpi")
     packs_root = SINA / "chat-unify" / "proof-packs"
     rows = []
     if packs_root.is_dir():
@@ -362,6 +380,7 @@ def _proof_pack_for_seat(seat_id: str) -> dict[str, Any]:
 
 
 def step8_monthly_packs() -> dict[str, Any]:
+    _guard_step(8, "monthly_packs")
     deliveries = [_proof_pack_for_seat(seat["seat_id"]) for seat in SEATS]
     row = {
         "schema": "t2-seat-monthly-packs-v1",
@@ -376,6 +395,7 @@ def step8_monthly_packs() -> dict[str, Any]:
 
 
 def step9_nrr() -> dict[str, Any]:
+    _guard_step(9, "nrr")
     rows = [
         {
             "seat_id": "t2-seat-001",
@@ -406,6 +426,7 @@ def step9_nrr() -> dict[str, Any]:
 
 
 def step10_phase2_seal() -> dict[str, Any]:
+    _guard_step(10, "phase2_seal")
     storefront = _read_json(SINA / "sourcea-storefront-live-deploy-receipt-v1.json")
     registry = _read_json(SEATS_REGISTRY)
     checks = {
@@ -475,7 +496,19 @@ def main() -> int:
         9: step9_nrr,
         10: step10_phase2_seal,
     }
-    row = run_all() if args.step == 0 else dispatch[args.step]()
+    try:
+        row = run_all() if args.step == 0 else dispatch[args.step]()
+    except Phase2MutationTrialsDisabled as exc:
+        row = {
+            "ok": False,
+            "error": "phase2_mutation_trials_disabled",
+            "message": str(exc),
+        }
+        if args.json:
+            print(json.dumps(row, indent=2, ensure_ascii=False))
+        else:
+            print(str(exc))
+        return 1
     if args.json:
         print(json.dumps(row, indent=2, ensure_ascii=False))
     return 0 if row.get("ok") else 1
