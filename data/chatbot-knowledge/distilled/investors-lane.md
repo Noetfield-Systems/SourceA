@@ -1,6 +1,6 @@
 ---
 lane: investor
-updated: 2026-06-30T11:15:38Z
+updated: 2026-06-30T12:38:39Z
 source_path: sites/SourceA-landing/green-unified/investors.html
 public: true
 www_url: https://sourcea.app/sourcea/investors

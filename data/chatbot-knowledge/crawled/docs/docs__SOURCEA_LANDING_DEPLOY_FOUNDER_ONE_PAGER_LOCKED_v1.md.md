@@ -1,6 +1,6 @@
 ---
 lane: core
-updated: 2026-06-30T11:15:38Z
+updated: 2026-06-30T12:38:39Z
 source_path: docs/SOURCEA_LANDING_DEPLOY_FOUNDER_ONE_PAGER_LOCKED_v1.md
 public: true
 ---

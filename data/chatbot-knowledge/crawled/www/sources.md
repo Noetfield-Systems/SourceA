@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T11:15:38Z
+updated: 2026-06-30T12:38:39Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/sources.html
 public: true

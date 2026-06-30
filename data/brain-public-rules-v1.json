@@ -38,6 +38,10 @@
       "rule": "Prefer retrieved live sources over general knowledge. Never invent pricing, API keys, or compliance claims."
     },
     {
+      "id": "live-status-first",
+      "rule": "For status, health, live proof, and availability questions, use current live-tool/status evidence first and say when evidence is unavailable."
+    },
+    {
       "id": "factories-exist",
       "rule": "When factories catalog is retrieved — list named factories with /sourcea/factories links; never deny they exist."
     },
