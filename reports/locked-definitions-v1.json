@@ -1,0 +1,429 @@
+{
+  "schema": "sourcea-locked-definitions-draft-v1",
+  "status": "draft_accepted_not_live_locked",
+  "created_for": "OBSERVE/EXTRACT -> DRAFT -> REPORT -> STOP",
+  "live_files_modified": false,
+  "note": "Draft extraction only. Every sourced item carries source_path and literal_source_text. Items with no clear source are marked unsafe_or_unclear.",
+  "terms": [
+    {
+      "id": "sourcea",
+      "term": "SourceA",
+      "approved_text": "SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run.",
+      "tag": "approved_existing",
+      "provenance": [
+        {
+          "source_path": "data/brain-public-rules-v1.json",
+          "literal_source_text": "SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run."
+        },
+        {
+          "source_path": "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json",
+          "literal_source_text": "## One line\nSourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run."
+        },
+        {
+          "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
+          "literal_source_text": "\"one_line\": \"SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run.\""
+        }
+      ],
+      "ratification_status": "draft_accepted_not_live_locked"
+    },
+    {
+      "id": "forge",
+      "term": "Forge",
+      "approved_text": "Forge Terminal is the execution desk — living chat, workspace, agents, quality gate, cloud dispatch.",
+      "tag": "approved_existing",
+      "provenance": [
+        {
+          "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
+          "literal_source_text": "Forge Terminal is the execution desk — living chat, workspace, agents, quality gate, cloud dispatch."
+        },
+        {
+          "source_path": "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json",
+          "literal_source_text": "## What Forge is\n\nForge Terminal is the execution desk — living chat, workspace, agents, quality gate, cloud dispatch.\n\nPublic try (no install): `/sourcea/forge/terminal`"
+        }
+      ],
+      "ratification_status": "draft_accepted_not_live_locked"
+    }
+  ],
+  "claims": [
+    {
+      "id": "sourcea_public_platform",
+      "approved_text": "SourceA is an AI execution platform powered by Forge.",
+      "requires_status_signal": false,
+      "status_key": null,
+      "tag": "approved_existing",
+      "provenance": [
+        {
+          "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
+          "literal_source_text": "\"brand_definition\": \"AI execution platform (Forge) with built-in proof\""
+        },
+        {
+          "source_path": "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json",
+          "literal_source_text": "## One law\n\n> **SourceA is an AI execution platform powered by Forge — not a “proof records” product. Proof is built in; it is not the whole product.**"
+        }
+      ],
+      "ratification_status": "draft_accepted_not_live_locked"
+    },
+    {
+      "id": "sourcea_is_live",
+      "approved_text": "SourceA has public product routes on sourcea.app.",
+      "requires_status_signal": true,
+      "status_key": "sourcea_app_http_status",
+      "tag": "needs_founder_review",
+      "provenance": [
+        {
+          "source_path": "data/CHATBOT_KNOWLEDGE_MANIFEST.json",
+          "literal_source_text": "\"www\": \"https://sourcea.app\""
+        },
+        {
+          "source_path": "data/brain-public-rules-v1.json",
+          "literal_source_text": "\"primary_ctas\": [\n    { \"label\": \"Try Forge Terminal\", \"url\": \"/sourcea/forge/terminal\" },\n    { \"label\": \"Live proof\", \"url\": \"/sourcea/proof/live\" },\n    { \"label\": \"Pricing\", \"url\": \"/sourcea/pricing\" },\n    { \"label\": \"Factories\", \"url\": \"/sourcea/factories/\" }\n  ]"
+        }
+      ],
+      "why_not_fully_locked": "Existing sources show public routes and sourcea.app, but the exact public claim 'SourceA is live' needs a defined live-status signal before it can be locked."
+    },
+    {
+      "id": "forge_terminal_product_route",
+      "approved_text": "Forge Terminal is the browser product route a visitor can try at /sourcea/forge/terminal.",
+      "requires_status_signal": false,
+      "status_key": null,
+      "tag": "approved_existing",
+      "provenance": [
+        {
+          "source_path": "data/brain-public-rules-v1.json",
+          "literal_source_text": "\"forge-not-deny\": \"IDE/cloud questions: lead with Forge Terminal browser demo. Never open with 'We don't offer.'\""
+        },
+        {
+          "source_path": "sites/SourceA-landing/green-unified/forge/terminal.html",
+          "literal_source_text": "<meta name=\"description\" content=\"Try Forge Terminal in your browser — living chat with prompt forge on every send. Public demo for founders and agencies.\" />"
+        }
+      ],
+      "ratification_status": "draft_accepted_not_live_locked"
+    },
+    {
+      "id": "forge_terminal_guaranteed_live_runtime",
+      "approved_text": "Forge Terminal is available as a live runtime.",
+      "requires_status_signal": true,
+      "status_key": "forge_terminal_runtime_status",
+      "tag": "needs_founder_review",
+      "provenance": [
+        {
+          "source_path": "sites/SourceA-landing/green-unified/forge/terminal.html",
+          "literal_source_text": "<title>Forge Terminal — live demo | SourceA</title>"
+        },
+        {
+          "source_path": "sites/SourceA-landing/green-unified/forge/terminal.html",
+          "literal_source_text": "<span class=\"sa-ft-status\" id=\"sa-ft-status\">Connecting…</span>"
+        }
+      ],
+      "why_not_fully_locked": "The page calls itself a live demo, but runtime availability should be tied to a fresh status signal rather than the static title."
+    },
+    {
+      "id": "verifiable_proof_receipts",
+      "approved_text": "SourceA runs real builds, automations, and agent workflows with a verifiable receipt on every run.",
+      "requires_status_signal": false,
+      "status_key": null,
+      "tag": "approved_existing",
+      "provenance": [
+        {
+          "source_path": "data/brain-public-rules-v1.json",
+          "literal_source_text": "SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run."
+        },
+        {
+          "source_path": "sites/SourceA-landing/green-unified/forge/how-it-works.html",
+          "literal_source_text": "<p class=\"ar-lead\">SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run. Paste what you want done; Forge scopes one job, runs it through checks, and hands back work you can show clients.</p>"
+        }
+      ],
+      "ratification_status": "draft_accepted_not_live_locked"
+    },
+    {
+      "id": "every_possible_run_has_public_proof",
+      "approved_text": "Every possible SourceA run has perfect public proof.",
+      "requires_status_signal": true,
+      "status_key": "specific_run_public_proof_status",
+      "tag": "unsafe_or_unclear",
+      "provenance": [
+        {
+          "source_path": null,
+          "literal_source_text": null
+        }
+      ],
+      "why_unsafe_or_unclear": "No source found that supports 'every possible run' or 'perfect public proof'. Existing sources support verifiable receipts/proof as a design claim, not universal public proof for all runs."
+    },
+    {
+      "id": "try_before_founder_call",
+      "approved_text": "If the site can show it, strangers never need a founder call. Calls are optional escalation only.",
+      "requires_status_signal": false,
+      "status_key": null,
+      "tag": "approved_existing",
+      "provenance": [
+        {
+          "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
+          "literal_source_text": "\"agentic_first_law\": \"If the site can show it, strangers never need a founder call. Calls are optional escalation only.\""
+        },
+        {
+          "source_path": "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json",
+          "literal_source_text": "## Agentic-first law\n\nIf the site can show it, strangers never need a founder call. Calls are optional escalation only."
+        }
+      ],
+      "ratification_status": "draft_accepted_not_live_locked"
+    },
+    {
+      "id": "demo_booking_escalation",
+      "approved_text": "Use at most one demo/booking link per reply. Prefer the relevant SourceA product route first; use cal.com/sourcea/proof-demo only when they ask to book or escalate to a human.",
+      "requires_status_signal": false,
+      "status_key": null,
+      "tag": "approved_existing",
+      "provenance": [
+        {
+          "source_path": "data/brain-public-rules-v1.json",
+          "literal_source_text": "Use at most one demo/booking link per reply. Prefer the relevant SourceA product route first; use cal.com/sourcea/proof-demo only when they ask to book or escalate to a human."
+        },
+        {
+          "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
+          "literal_source_text": "\"escalation_cta\": \"https://cal.com/sourcea/proof-demo\",\n  \"escalation_cta_label\": \"Talk to a human\""
+        }
+      ],
+      "ratification_status": "draft_accepted_not_live_locked"
+    },
+    {
+      "id": "status_availability_answers",
+      "approved_text": "For status, health, live proof, and availability questions, use current live-tool/status evidence first and say when evidence is unavailable.",
+      "requires_status_signal": true,
+      "status_key": "live_tool_or_status_evidence",
+      "tag": "approved_existing",
+      "provenance": [
+        {
+          "source_path": "data/brain-public-rules-v1.json",
+          "literal_source_text": "For status, health, live proof, and availability questions, use current live-tool/status evidence first and say when evidence is unavailable."
+        },
+        {
+          "source_path": "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json",
+          "literal_source_text": "- **live-status-first**: For status, health, live proof, and availability questions, use current live-tool/status evidence first and say when evidence is unavailable."
+        }
+      ],
+      "ratification_status": "draft_accepted_not_live_locked"
+    },
+    {
+      "id": "ssot_v6_framing",
+      "approved_text": "Governance sources support layered SSOT authority: active operating law is v3; v6 refers to Forge world-system/self-building stack modules, with Mac dry-run/stub behavior and cloud-only full v6 when founder arms it.",
+      "requires_status_signal": false,
+      "status_key": null,
+      "tag": "approved_existing",
+      "provenance": [
+        {
+          "source_path": "data/sourcea-governance-ssot-registry-v1.json",
+          "literal_source_text": "\"active_operating_law_id\": \"llm_agent_operating_law_v3\""
+        },
+        {
+          "source_path": "docs/SOURCEA_SSOT_INDEX_LOCKED_v1.md",
+          "literal_source_text": "> **This index is the single entry point.** SourceA has layered SSOTs — Mac control plane (shipped) and cloud factory kernel (target) — plus a reconciliation map between them. Do not treat any one file as the entire system."
+        },
+        {
+          "source_path": "brain-os/law/enforcement/SOURCEA_FORGE_SELF_BUILD_STACK_LOCKED_v1.md",
+          "literal_source_text": "| v6 World system | `scripts/forge_world_system_v6.py` | `~/.sina/forge-world-system-tick-latest-v6.json` |"
+        },
+        {
+          "source_path": "brain-os/law/enforcement/SOURCEA_FORGE_GOVERNANCE_KERNEL_LOCKED_v1.md",
+          "literal_source_text": "**Not production geopolitics.** Stub: `scripts/forge_world_state_v1.py` · `~/.sina/forge-world-state-v1.json`\n\nThree seed nations: SourceA Mac · Cloud Forge Railway · Labs Sandbox.\n\nFull v6 multi-nation conflict/trade = cloud simulation only when founder arms."
+        }
+      ],
+      "ratification_status": "draft_accepted_not_live_locked"
+    }
+  ],
+  "forbidden_public": [
+    {
+      "id": "forbidden-public",
+      "approved_text": "Never mention OpenRouter, model names, API keys, Mac ports, or internal factory jargon to strangers. Translate PASS/BLOCK into plain public status language such as available, unavailable, blocked, or needs review.",
+      "tag": "approved_existing",
+      "provenance": [
+        {
+          "source_path": "data/brain-public-rules-v1.json",
+          "literal_source_text": "Never mention OpenRouter, model names, API keys, Mac ports, or internal factory jargon to strangers. Translate PASS/BLOCK into plain public status language such as available, unavailable, blocked, or needs review."
+        }
+      ],
+      "tokens_or_topics": [
+        "OpenRouter",
+        "model names",
+        "API keys",
+        "Mac ports",
+        "internal factory jargon",
+        "PASS/BLOCK as raw status language"
+      ],
+      "ratification_status": "draft_accepted_not_live_locked"
+    },
+    {
+      "id": "no_invented_claims",
+      "approved_text": "Prefer retrieved live sources over general knowledge. Never invent pricing, API keys, or compliance claims.",
+      "tag": "approved_existing",
+      "provenance": [
+        {
+          "source_path": "data/brain-public-rules-v1.json",
+          "literal_source_text": "Prefer retrieved live sources over general knowledge. Never invent pricing, API keys, or compliance claims."
+        }
+      ],
+      "tokens_or_topics": [
+        "invented pricing",
+        "API keys",
+        "compliance claims without source"
+      ],
+      "ratification_status": "draft_accepted_not_live_locked"
+    }
+  ],
+  "language_split": {
+    "public": [
+      {
+        "id": "public_voice_grounded_guide",
+        "approved_text": "Public guide for SourceA + Forge on sourcea.app, grounded in retrieved sources, live tools, guardrails, and clear uncertainty handling.",
+        "tag": "approved_existing",
+        "provenance": [
+          {
+            "source_path": "data/brain-public-rules-v1.json",
+            "literal_source_text": "Public guide for SourceA + Forge on sourcea.app, grounded in retrieved sources, live tools, guardrails, and clear uncertainty handling."
+          }
+        ],
+        "ratification_status": "draft_accepted_not_live_locked"
+      },
+      {
+        "id": "answer_first",
+        "approved_text": "Answer the actual question first — match energy; no generic sales blob.",
+        "tag": "approved_existing",
+        "provenance": [
+          {
+            "source_path": "data/brain-public-rules-v1.json",
+            "literal_source_text": "Answer the actual question first — match energy; no generic sales blob."
+          }
+        ],
+        "ratification_status": "draft_accepted_not_live_locked"
+      }
+    ],
+    "private": [
+      {
+        "id": "not_internal_governance_agent",
+        "approved_text": "Brain is not an internal governance agent.",
+        "tag": "approved_existing",
+        "provenance": [
+          {
+            "source_path": "data/brain-public-rules-v1.json",
+            "literal_source_text": "\"not\": [\"generic chatbot\", \"hardcoded FAQ\", \"internal governance agent\"]"
+          }
+        ],
+        "ratification_status": "draft_accepted_not_live_locked"
+      },
+      {
+        "id": "do_not_expose_internal_terms",
+        "approved_text": "Never mention OpenRouter, model names, API keys, Mac ports, or internal factory jargon to strangers.",
+        "tag": "approved_existing",
+        "provenance": [
+          {
+            "source_path": "data/brain-public-rules-v1.json",
+            "literal_source_text": "Never mention OpenRouter, model names, API keys, Mac ports, or internal factory jargon to strangers."
+          }
+        ],
+        "ratification_status": "draft_accepted_not_live_locked"
+      }
+    ]
+  },
+  "response_ladders": {
+    "unsure": [
+      {
+        "step": 1,
+        "approved_text": "Prefer retrieved live sources over general knowledge.",
+        "tag": "approved_existing",
+        "provenance": [
+          {
+            "source_path": "data/brain-public-rules-v1.json",
+            "literal_source_text": "Prefer retrieved live sources over general knowledge. Never invent pricing, API keys, or compliance claims."
+          }
+        ],
+        "ratification_status": "draft_accepted_not_live_locked"
+      },
+      {
+        "step": 2,
+        "approved_text": "For status, health, live proof, and availability questions, use current live-tool/status evidence first and say when evidence is unavailable.",
+        "tag": "approved_existing",
+        "provenance": [
+          {
+            "source_path": "data/brain-public-rules-v1.json",
+            "literal_source_text": "For status, health, live proof, and availability questions, use current live-tool/status evidence first and say when evidence is unavailable."
+          }
+        ],
+        "ratification_status": "draft_accepted_not_live_locked"
+      },
+      {
+        "step": 3,
+        "approved_text": "Prefer the relevant SourceA product route first; use cal.com/sourcea/proof-demo only when they ask to book or escalate to a human.",
+        "tag": "approved_existing",
+        "provenance": [
+          {
+            "source_path": "data/brain-public-rules-v1.json",
+            "literal_source_text": "Use at most one demo/booking link per reply. Prefer the relevant SourceA product route first; use cal.com/sourcea/proof-demo only when they ask to book or escalate to a human."
+          }
+        ],
+        "ratification_status": "draft_accepted_not_live_locked"
+      }
+    ],
+    "broken_gears": [
+      {
+        "step": 1,
+        "approved_text": "broken gears response ladder",
+        "tag": "unsafe_or_unclear",
+        "provenance": [
+          {
+            "source_path": null,
+            "literal_source_text": null
+          }
+        ],
+        "why_unsafe_or_unclear": "No existing source containing 'broken gears' or a defined broken-gears ladder was found in the requested sources."
+      },
+      {
+        "step": 2,
+        "approved_text": "If user says 'you just give me records' — acknowledge pushback; reframe: Forge runs work, proof shows what ran.",
+        "tag": "approved_existing",
+        "provenance": [
+          {
+            "source_path": "data/brain-public-rules-v1.json",
+            "literal_source_text": "If user says 'you just give me records' — acknowledge pushback; reframe: Forge runs work, proof shows what ran."
+          }
+        ],
+        "ratification_status": "draft_accepted_not_live_locked"
+      }
+    ]
+  },
+  "top_founder_decisions_needed": [
+    {
+      "id": "sourcea_is_live",
+      "tag": "needs_founder_review",
+      "source_path": "data/CHATBOT_KNOWLEDGE_MANIFEST.json + data/brain-public-rules-v1.json",
+      "literal_source_text": "\"www\": \"https://sourcea.app\" + primary CTA routes",
+      "why_founder_needed": "The sources prove public routes exist, but not the exact threshold for saying 'SourceA is live' versus 'SourceA public routes are available'. Founder should define the status signal and allowed wording."
+    },
+    {
+      "id": "forge_terminal_guaranteed_live_runtime",
+      "tag": "needs_founder_review",
+      "source_path": "sites/SourceA-landing/green-unified/forge/terminal.html",
+      "literal_source_text": "<title>Forge Terminal — live demo | SourceA</title> + <span class=\"sa-ft-status\" id=\"sa-ft-status\">Connecting…</span>",
+      "why_founder_needed": "The static page says live demo, but runtime availability depends on live status. Founder should decide whether Brain can say 'available' only after status evidence."
+    },
+    {
+      "id": "every_possible_run_has_public_proof",
+      "tag": "unsafe_or_unclear",
+      "source_path": null,
+      "literal_source_text": null,
+      "why_founder_needed": "Existing copy supports verifiable receipts/proof built in, not a universal claim that every possible run has perfect public proof. Founder should approve or reject any stronger universal proof wording."
+    },
+    {
+      "id": "broken_gears",
+      "tag": "unsafe_or_unclear",
+      "source_path": null,
+      "literal_source_text": null,
+      "why_founder_needed": "No existing 'broken gears' ladder was found. The closest sourced behavior is records-recovery and live-status-first. Founder should define whether broken gears is a public ladder, private diagnostic, or not used."
+    }
+  ],
+  "ratification": {
+    "approved_existing_items": "draft_accepted_not_live_locked",
+    "not_live_locked": true,
+    "founder_review_scope": "only sourcea_is_live, forge_terminal_guaranteed_live_runtime, every_possible_run_has_public_proof, broken_gears",
+    "note": "Founder chose #4 sourcing now; approved_existing provenance is accepted as draft evidence, not live policy lock."
+  },
+  "decision_packet_path": "reports/locked-definitions-founder-decisions-v1.md"
+}
