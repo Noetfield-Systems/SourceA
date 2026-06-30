@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-27T08:46:57Z
+updated: 2026-06-30T08:50:46Z
 lane: buyer
 source_path: sites/SourceA-landing/green-unified/start.html
 public: true
@@ -36,6 +36,6 @@ Not sure yet? Try the free sandbox — one bounded job, no card required.
 
 We'll respond in 2 hours with a scoped plan. Urgent? Email hello@sourcea.app .
 
-© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · contact@sourcea.app · hello@sourcea.app · Verification
+© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · contact@sourcea.app · hello@sourcea.app · Verification · sourcea-boot eval
 
 Email your brief to contact@sourcea.app — or use the form above.

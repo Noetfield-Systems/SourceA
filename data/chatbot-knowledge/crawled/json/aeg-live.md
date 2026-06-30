@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-27T08:46:57Z
+updated: 2026-06-30T08:50:46Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/data/aeg-live.json
 public: true
@@ -9,8 +9,8 @@ kind: json
 # Aeg Live
 
 - **schema**: sourcea-aeg-live-v1
-- **at**: 2026-06-27T06:23:21Z
-- **evidence_id**: aeg-20260620T044750Z-ac101c6b
+- **at**: 2026-06-27T18:09:51Z
+- **evidence_id**: aeg-20260627T180927Z-c604de95
 - **verdict**: PASS
 ## blockers
 - **terminal_transcript**: $ python3 [REDACTED]/scripts/critic_boot_v1.py --json --no-aeg
@@ -18,13 +18,13 @@ kind: json
 CRITIC_BOOT BLOCK ok=False
 RECEIPT=~/.sina/critic-boot-v1.json
 
-  [PASS] ssot_brief: SSOT v3.1 sig refreshed from disk
+  [FAIL] ssot_brief: briefed SSOT version mismatch (disk v3.3, brief '** 3.2 — LOCKED')
   [PASS] voyage_provider: voyage
   [PASS] truth_match: inbox matches queue head
-  [FAIL] gate_fresh: last session gate receipt ok=false
+  [PASS] gate_fresh: session gate completing
 
 blockers:
-  - last session gate receipt ok=false
+  - briefed SSOT version mismatch (disk v3.3, brief '** 3.2 — LOCKED')
 ## checks
 ## policy_version
 - **id**: C1
@@ -54,7 +54,7 @@ blockers:
 - **mode**: portable
 - **skipped**: True
 - **boot_verdict**: PASS
-- **site_proof_url**: https://source-a.vercel.app/sourcea/proof/live.html
-- **forensic_archive_url**: https://locally-projected-shade-projection.trycloudflare.com/aeg-20260620T044750Z-ac101c6b/
-- **hosted_at**: 2026-06-20T04:47:50Z
+- **site_proof_url**: https://69c94902.sourcea-com.pages.dev/sourcea/proof/live.html
+- **forensic_archive_url**: https://locally-projected-shade-projection.trycloudflare.com/aeg-20260627T180927Z-c604de95/
+- **hosted_at**: 2026-06-27T18:09:27Z
 - **disclaimer**: Live inject from factory repository · same schema as weekly export bundle

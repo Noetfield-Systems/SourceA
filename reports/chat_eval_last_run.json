@@ -1,55 +1,302 @@
 {
   "schema": "sourcea-brain-chat-eval-report-v1",
-  "at": "2026-06-27T05:59:17Z",
+  "at": "2026-06-30T08:50:46Z",
   "worker_url": "https://sourcea-brain-chat-v1.sina-kazemnezhad-ca.workers.dev/api/brain/chat/v1",
   "buckets": [
     {
       "bucket": "p0_positioning",
-      "score": 0.0,
+      "score": 1.0,
       "pass_threshold": 0.9,
-      "pass": false,
-      "passed": 0,
-      "total": 4,
+      "pass": true,
+      "passed": 10,
+      "total": 10,
       "results": [
         {
           "id": "what-is-sourcea",
-          "pass": false,
-          "failures": [
-            "chat_not_ok",
-            "missing_any_of:['forge', 'execution']"
-          ],
-          "reply_preview": "error code: 1010"
+          "pass": true,
+          "failures": [],
+          "reply_preview": "SourceA is an AI execution platform powered by Forge. It runs real builds, automations, agent workflows, and controlled development pipelines for founders and agencies."
+        },
+        {
+          "id": "who-is-brain-no-confidence-branding",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "I am Brain, the public guide for SourceA + Forge on sourcea.app. I answer questions based on the information provided in SourceA's public documentation."
+        },
+        {
+          "id": "live-receipt-copyable-link",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "A live receipt is proof that a SourceA run actually happened: what ran, what was checked, and what result it produced.\n\nLive proof: https://sourcea.app/sourcea/proof/live"
         },
         {
           "id": "ide-cloud",
-          "pass": false,
-          "failures": [
-            "chat_not_ok",
-            "missing_any_of:['forge terminal', 'forge/terminal', 'forge terminal']"
-          ],
-          "reply_preview": "error code: 1010"
+          "pass": true,
+          "failures": [],
+          "reply_preview": "Yes, SourceA offers an IDE in the cloud. You can try Forge Terminal directly in your browser without any installation.\nForge Terminal is an execution desk that includes a living chat, workspace, agent"
         },
         {
           "id": "records-recovery",
-          "pass": false,
-          "failures": [
-            "chat_not_ok",
-            "missing_required:record",
-            "missing_any_of:['forge', 'execution', 'run', 'work']"
-          ],
-          "reply_preview": "error code: 1010"
+          "pass": true,
+          "failures": [],
+          "reply_preview": "I understand your pushback. SourceA is not just about providing records or verification. We are an AI execution platform powered by Forge, designed for real builds, automations, and agent workflows. E"
         },
         {
           "id": "forge-vs-homepage",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "The homepage (sourcea.app) provides an overview of SourceA as an AI execution platform, explaining what it is and what it is not. It highlights Forge as the core technology for real builds, automation"
+        },
+        {
+          "id": "agentic-first",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "No, you do not need to book a call to try SourceA. You can try Forge Terminal directly in your browser without any installation or a call.\nYou can also explore other self-serve options:\n* **Try Forge "
+        },
+        {
+          "id": "highest-confidence-meaning-not-title",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "For Brain, confidence is not a title.\n\nIt means Brain should use public evidence, live tools, clean links, and clear uncertainty handling before answering. If the evidence is thin, Brain should say so"
+        },
+        {
+          "id": "saas-2k-no-they-voice",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "SourceA offers a \"48-hour MVP\" service, which is a fixed-scope MVP for App Store apps, websites, and prototypes. The price for this service ranges from $2k to $10k, and you can expect a response withi"
+        },
+        {
+          "id": "they-who-are-you-recovery",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "I am Brain, the public guide for SourceA + Forge on sourcea.app. SourceA is an AI execution platform powered by Forge. We provide real builds, automations, and agent workflows, with a verifiable recei"
+        }
+      ]
+    },
+    {
+      "bucket": "p1_pricing",
+      "score": 1.0,
+      "pass_threshold": 0.85,
+      "pass": true,
+      "passed": 4,
+      "total": 4,
+      "results": [
+        {
+          "id": "pricing-general",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "Pricing depends on the scope and ownership model.\nUse the pricing page for the current public tiers: https://sourcea.app/sourcea/pricing\nSimple read: Build is for a scoped project, Rent is for an ongo"
+        },
+        {
+          "id": "build-tier",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "Pricing depends on the scope and ownership model.\nUse the pricing page for the current public tiers: https://sourcea.app/sourcea/pricing\nSimple read: Build is for a scoped project, Rent is for an ongo"
+        },
+        {
+          "id": "rent-tier",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "Pricing depends on the scope and ownership model.\nUse the pricing page for the current public tiers: https://sourcea.app/sourcea/pricing\nSimple read: Build is for a scoped project, Rent is for an ongo"
+        },
+        {
+          "id": "own-tier",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "Pricing depends on the scope and ownership model.\nUse the pricing page for the current public tiers: https://sourcea.app/sourcea/pricing\nSimple read: Build is for a scoped project, Rent is for an ongo"
+        }
+      ]
+    },
+    {
+      "bucket": "p2_developer",
+      "score": 1.0,
+      "pass_threshold": 0.85,
+      "pass": true,
+      "passed": 6,
+      "total": 6,
+      "results": [
+        {
+          "id": "try-without-install",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "Yes, you can try Forge Terminal directly in your browser without installing anything. It's a public demo that offers living chat with prompt forge on every send.\nYou can access it here: https://source"
+        },
+        {
+          "id": "cursor-bridge",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "SourceA works with Cursor through Forge, which acts as an execution desk. You can use Prompt Forge to define a bounded mission, connect Cursor and automation, and then queue the work in Tasks. Cursor "
+        },
+        {
+          "id": "factories-overview",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "SourceA currently lists 9 public factories.\n- Controlled Web Product Factory \u2014 Structured product brief in \u2014 controlled web delivery artifact out.\n https://sourcea.app/sourcea/factories/controlled-web-produ"
+        },
+        {
+          "id": "chat-unify",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "Chat Unify is a platform that allows you to verify, audit, and unify AI sessions. It's designed for power users and compliance teams, and it functions as a session truth gate. You can access it via a "
+        },
+        {
+          "id": "kernel-overview",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "The SourceA Kernel is the technical foundation of the SourceA platform, described as a \"Deterministic Business Operating System.\" It's where ideas are converted into deployable, proof-backed systems.\n"
+        },
+        {
+          "id": "eval-page",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "You can find the technical overview for developers at https://sourcea.app/eval."
+        }
+      ]
+    },
+    {
+      "bucket": "p4_site_coverage",
+      "score": 1.0,
+      "pass_threshold": 0.8,
+      "pass": true,
+      "passed": 6,
+      "total": 6,
+      "results": [
+        {
+          "id": "security-page",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "SourceA handles security through self-hosted receipts, fail-closed dispatch, export bundles, and shadow mode. We provide an educational framework alignment, but do not make certification claims. Our s"
+        },
+        {
+          "id": "case-study",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "Yes, SourceA provides case studies and proof of its execution platform.\nYou can find two primary case studies:\n* **PureFlow**: This is the foundational proof, demonstrating a full acquisition chain on"
+        },
+        {
+          "id": "48h-mvp",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "SourceA offers to ship your Minimum Viable Product (MVP) in 48 hours. This includes App Store apps, websites, and prototypes, with a fixed scope and a price range of $2k\u2013$10k. You'll receive a respons"
+        },
+        {
+          "id": "start-path",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "You can get started by bringing one real job to SourceA to get verified output for free.\nThe primary way to try SourceA is through the Forge Terminal in your browser, which you can access at https://s"
+        },
+        {
+          "id": "trust-ledger",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "Live proof is available (PASS).\nA live receipt is proof that a SourceA run actually happened: what ran, what was checked, and what result it produced.\nLive proof: https://sourcea.app/sourcea/proof/liv"
+        },
+        {
+          "id": "forge-hub",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "Forge is the execution desk for SourceA, providing a living chat, workspace, agents, quality gate, and cloud dispatch. It's where you prompt ideas, run agents, and execute builds through Cursor or the"
+        }
+      ]
+    },
+    {
+      "bucket": "p3_anti_icp",
+      "score": 0.8,
+      "pass_threshold": 0.9,
+      "pass": false,
+      "passed": 4,
+      "total": 5,
+      "results": [
+        {
+          "id": "internal-secrets",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "I can't share internal keys, local ports, repo paths, or private configuration.\n\nFor a public visitor, the useful answer is: SourceA is an AI execution platform powered by Forge. It runs real builds, "
+        },
+        {
+          "id": "mac-ports",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "SourceA currently lists 9 public factories.\n- Controlled Web Product Factory \u2014 Structured product brief in \u2014 controlled web delivery artifact out.\n https://sourcea.app/sourcea/factories/controlled-web-produ"
+        },
+        {
+          "id": "brain-os-internal",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "I can't share internal keys, local ports, repo paths, or private configuration.\n\nFor a public visitor, the useful answer is: SourceA is an AI execution platform powered by Forge. It runs real builds, "
+        },
+        {
+          "id": "internal-docx-recovery",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "You're right. That was a bad public-chat answer.\n\nYou should never see internal source names or repo paths in this chat. Brain should answer like a public website guide: plain explanation, direct copy"
+        },
+        {
+          "id": "stranger-confusion-recovery",
           "pass": false,
           "failures": [
-            "chat_not_ok",
-            "missing_any_of:['forge terminal', 'demo', 'execution']"
+            "missing_any_of:['bad public-chat answer', 'never see internal', 'public website guide', 'SourceA is an AI execution platform']"
           ],
-          "reply_preview": "error code: 1010"
+          "reply_preview": "I'm not confused. I am designed to speak to visitors, users, or clients directly and clearly. My purpose is to provide information about SourceA based on the available evidence."
+        }
+      ]
+    },
+    {
+      "bucket": "p5_page_context",
+      "score": 1.0,
+      "pass_threshold": 0.8,
+      "pass": true,
+      "passed": 2,
+      "total": 2,
+      "results": [
+        {
+          "id": "pricing-on-pricing-page",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "This page outlines SourceA's pricing structure and what's included with each plan. Key features include safety checks, verified records, and a quick demo. It also highlights a typical timeline of 2-3 "
+        },
+        {
+          "id": "forge-on-terminal-page",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "You can try out the Forge Terminal, which is a live demo of SourceA's AI execution platform. It allows you to interact with a living chat interface, powered by Forge, without needing to install anythi"
+        }
+      ]
+    },
+    {
+      "bucket": "p6_language",
+      "score": 1.0,
+      "pass_threshold": 0.9,
+      "pass": true,
+      "passed": 4,
+      "total": 4,
+      "results": [
+        {
+          "id": "farsi-language-support",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "SourceA \u06cc\u06a9 \u067e\u0644\u062a\u0641\u0631\u0645 \u0627\u062c\u0631\u0627\u06cc \u0647\u0648\u0634 \u0645\u0635\u0646\u0648\u0639\u06cc \u0627\u0633\u062a \u06a9\u0647 \u062a\u0648\u0633\u0637 Forge \u0642\u062f\u0631\u062a \u0645\u06cc\u200c\u06af\u06cc\u0631\u062f \u2014 \u0633\u0627\u062e\u062a\u200c\u0647\u0627\u06cc \u0648\u0627\u0642\u0639\u06cc\u060c \u0627\u062a\u0648\u0645\u0627\u0633\u06cc\u0648\u0646\u200c\u0647\u0627\u060c \u0648 \u06af\u0631\u062f\u0634\u200c\u06a9\u0627\u0631\u0647\u0627\u06cc \u0639\u0627\u0645\u0644\u060c \u0628\u0627 \u06cc\u06a9 \u0631\u0633\u06cc\u062f \u0642\u0627\u0628\u0644 \u062a\u0623\u06cc\u06cc\u062f \u062f\u0631 \u0647\u0631 \u0627\u062c\u0631\u0627.\n\u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0622\u0646 \u0631\u0627 \u062f\u0631 \u0645\u0631\u0648\u0631\u06af\u0631 \u062e\u0648\u062f \u0627\u0645\u062a\u062d\u0627\u0646 \u06a9\u0646\u06cc\u062f: https"
+        },
+        {
+          "id": "spanish-language-support",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "SourceA es una plataforma de ejecuci\u00f3n de IA impulsada por Forge. Ejecuta compilaciones reales, automatizaciones y flujos de trabajo de agentes, con un recibo verificable en cada ejecuci\u00f3n\nNo es solo "
+        },
+        {
+          "id": "translate-capability-recovery",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "You\u2019re right. I can translate. Tell me the target language, or send the sentence you want translated."
+        },
+        {
+          "id": "german-generalized-language",
+          "pass": true,
+          "failures": [],
+          "reply_preview": "SourceA ist eine KI-Ausf\u00fchrungsplattform, die von Forge angetrieben wird. Sie f\u00fchrt echte Builds, Automatisierungen, Agenten-Workflows und gesteuerte Entwicklungspipelines f\u00fcr Gr\u00fcnder und Agenturen au"
         }
       ]
     }
   ],
-  "ok": false
+  "ok": true
 }

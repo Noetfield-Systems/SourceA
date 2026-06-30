@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-27T08:46:57Z
+updated: 2026-06-30T08:50:46Z
 lane: buyer
 source_path: sites/SourceA-landing/green-unified/data/boot-proof.json
 public: true
@@ -9,7 +9,7 @@ kind: json
 # Boot Proof
 
 - **schema**: sourcea-boot-proof-v1
-- **at**: 2026-06-24T03:23:04Z
+- **at**: 2026-06-27T18:07:35Z
 - **verdict**: PASS
 - **ok**: True
 ## checks

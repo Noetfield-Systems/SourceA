@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-27T08:46:57Z
+updated: 2026-06-30T08:50:46Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/index.html
 public: true
@@ -44,4 +44,4 @@ Depth: Technical architecture on Kernel · capital narrative on Investors .
 
 Try Forge Terminal, file feedback from any page, or ask Brain — optional human walkthrough only when you want it.
 
-© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · noetfield.com · Built in Canada
+© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · noetfield.com · Built in Canada · sourcea-boot eval · GitHub
