@@ -1,9 +1,9 @@
 {
   "schema": "sourcea-locked-definitions-draft-v1",
-  "status": "draft_accepted_not_live_locked",
+  "status": "live_locked_candidate",
   "created_for": "OBSERVE/EXTRACT -> DRAFT -> REPORT -> STOP",
   "live_files_modified": false,
-  "note": "Draft extraction only. Every sourced item carries source_path and literal_source_text. Items with no clear source are marked unsafe_or_unclear.",
+  "note": "Definitions artifact is a live-locked candidate only. No deploy and no Worker/runtime/site files modified.",
   "terms": [
     {
       "id": "sourcea",
@@ -65,10 +65,10 @@
     },
     {
       "id": "sourcea_is_live",
-      "approved_text": "SourceA has public product routes on sourcea.app.",
+      "approved_text": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
       "requires_status_signal": true,
       "status_key": "sourcea_app_http_status",
-      "tag": "needs_founder_review",
+      "tag": "founder_approved",
       "provenance": [
         {
           "source_path": "data/CHATBOT_KNOWLEDGE_MANIFEST.json",
@@ -79,7 +79,12 @@
           "literal_source_text": "\"primary_ctas\": [\n    { \"label\": \"Try Forge Terminal\", \"url\": \"/sourcea/forge/terminal\" },\n    { \"label\": \"Live proof\", \"url\": \"/sourcea/proof/live\" },\n    { \"label\": \"Pricing\", \"url\": \"/sourcea/pricing\" },\n    { \"label\": \"Factories\", \"url\": \"/sourcea/factories/\" }\n  ]"
         }
       ],
-      "why_not_fully_locked": "Existing sources show public routes and sourcea.app, but the exact public claim 'SourceA is live' needs a defined live-status signal before it can be locked."
+      "final_approved_claim": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
+      "required_live_signal": "sourcea_app_http_status",
+      "fallback_when_unsure": "SourceA has public product routes on sourcea.app. I don’t have a fresh live-status check in this answer, so start from the current product route.",
+      "fallback_when_degraded": "SourceA’s public route may be degraded right now. Use the proof/status route first, or escalate to a guided demo if you need a human walkthrough.",
+      "ratification_status": "founder_approved",
+      "not_deployed": true
     },
     {
       "id": "forge_terminal_product_route",
@@ -101,10 +106,10 @@
     },
     {
       "id": "forge_terminal_guaranteed_live_runtime",
-      "approved_text": "Forge Terminal is available as a live runtime.",
+      "approved_text": "Forge Terminal is the browser product route for trying SourceA/Forge. Say it is available only after a fresh runtime/status signal confirms it.",
       "requires_status_signal": true,
       "status_key": "forge_terminal_runtime_status",
-      "tag": "needs_founder_review",
+      "tag": "founder_approved",
       "provenance": [
         {
           "source_path": "sites/SourceA-landing/green-unified/forge/terminal.html",
@@ -115,7 +120,12 @@
           "literal_source_text": "<span class=\"sa-ft-status\" id=\"sa-ft-status\">Connecting…</span>"
         }
       ],
-      "why_not_fully_locked": "The page calls itself a live demo, but runtime availability should be tied to a fresh status signal rather than the static title."
+      "final_approved_claim": "Forge Terminal is the browser product route for trying SourceA/Forge. Say it is available only after a fresh runtime/status signal confirms it.",
+      "required_live_signal": "forge_terminal_runtime_status",
+      "fallback_when_unsure": "Forge Terminal is the browser product route for SourceA/Forge. I don’t have a fresh runtime check in this answer, so treat it as the route to try, not a guaranteed-live session.",
+      "fallback_when_degraded": "Forge Terminal may be degraded right now. Start from the SourceA product/proof route, then use the demo escalation if the browser route does not connect.",
+      "ratification_status": "founder_approved",
+      "not_deployed": true
     },
     {
       "id": "verifiable_proof_receipts",
@@ -137,17 +147,22 @@
     },
     {
       "id": "every_possible_run_has_public_proof",
-      "approved_text": "Every possible SourceA run has perfect public proof.",
+      "approved_text": "SourceA is designed around verifiable receipts/proof of work. Do not claim every possible run has perfect public proof unless the specific proof exists.",
       "requires_status_signal": true,
       "status_key": "specific_run_public_proof_status",
-      "tag": "unsafe_or_unclear",
+      "tag": "founder_approved",
       "provenance": [
         {
           "source_path": null,
           "literal_source_text": null
         }
       ],
-      "why_unsafe_or_unclear": "No source found that supports 'every possible run' or 'perfect public proof'. Existing sources support verifiable receipts/proof as a design claim, not universal public proof for all runs."
+      "final_approved_claim": "SourceA is designed around verifiable receipts/proof of work. Do not claim every possible run has perfect public proof unless the specific proof exists.",
+      "required_live_signal": "specific_run_public_proof_status",
+      "fallback_when_unsure": "SourceA is built around receipts and proof, but I don’t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
+      "fallback_when_degraded": "The proof route or specific receipt may be unavailable right now. Don’t treat that as proof failure; treat it as unverified until the specific receipt/status is available.",
+      "ratification_status": "founder_approved",
+      "not_deployed": true
     },
     {
       "id": "try_before_founder_call",
@@ -228,6 +243,27 @@
         }
       ],
       "ratification_status": "draft_accepted_not_live_locked"
+    },
+    {
+      "id": "broken_gears",
+      "approved_text": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
+      "final_approved_claim": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
+      "requires_status_signal": true,
+      "status_key": "relevant_route_or_tool_status",
+      "required_live_signal": "Use the relevant status key for the failing route/tool; no standalone `broken_gears` public status key.",
+      "fallback_when_unsure": "I don’t have enough live evidence to confirm that path. Use the safest product route first, and I’ll avoid guessing.",
+      "fallback_when_degraded": "That path looks degraded or unavailable right now. Use the safest product/proof route, and escalate to a guided demo only if you need help moving forward.",
+      "tag": "founder_approved",
+      "ratification_status": "founder_approved",
+      "language_scope": "private_diagnostic_only",
+      "public_wording": "forbidden",
+      "not_deployed": true,
+      "provenance": [
+        {
+          "source_path": "reports/locked-definitions-founder-decisions-v1.md",
+          "literal_source_text": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review."
+        }
+      ]
     }
   ],
   "forbidden_public": [
@@ -267,6 +303,23 @@
         "compliance claims without source"
       ],
       "ratification_status": "draft_accepted_not_live_locked"
+    },
+    {
+      "id": "broken_gears_public_wording",
+      "approved_text": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
+      "tag": "founder_approved",
+      "ratification_status": "founder_approved",
+      "language_scope": "private_diagnostic_only",
+      "public_wording": "forbidden",
+      "tokens_or_topics": [
+        "broken gears"
+      ],
+      "provenance": [
+        {
+          "source_path": "reports/locked-definitions-founder-decisions-v1.md",
+          "literal_source_text": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review."
+        }
+      ]
     }
   ],
   "language_split": {
@@ -365,65 +418,98 @@
     "broken_gears": [
       {
         "step": 1,
-        "approved_text": "broken gears response ladder",
-        "tag": "unsafe_or_unclear",
+        "approved_text": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
+        "final_approved_claim": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
+        "requires_status_signal": true,
+        "status_key": "relevant_route_or_tool_status",
+        "required_live_signal": "Use the relevant status key for the failing route/tool; no standalone `broken_gears` public status key.",
+        "fallback_when_unsure": "I don’t have enough live evidence to confirm that path. Use the safest product route first, and I’ll avoid guessing.",
+        "fallback_when_degraded": "That path looks degraded or unavailable right now. Use the safest product/proof route, and escalate to a guided demo only if you need help moving forward.",
+        "tag": "founder_approved",
+        "ratification_status": "founder_approved",
+        "language_scope": "private_diagnostic_only",
+        "public_wording": "forbidden",
+        "not_deployed": true,
         "provenance": [
           {
-            "source_path": null,
-            "literal_source_text": null
+            "source_path": "reports/locked-definitions-founder-decisions-v1.md",
+            "literal_source_text": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review."
           }
-        ],
-        "why_unsafe_or_unclear": "No existing source containing 'broken gears' or a defined broken-gears ladder was found in the requested sources."
-      },
-      {
-        "step": 2,
-        "approved_text": "If user says 'you just give me records' — acknowledge pushback; reframe: Forge runs work, proof shows what ran.",
-        "tag": "approved_existing",
-        "provenance": [
-          {
-            "source_path": "data/brain-public-rules-v1.json",
-            "literal_source_text": "If user says 'you just give me records' — acknowledge pushback; reframe: Forge runs work, proof shows what ran."
-          }
-        ],
-        "ratification_status": "draft_accepted_not_live_locked"
+        ]
       }
     ]
   },
-  "top_founder_decisions_needed": [
+  "top_founder_decisions_needed": [],
+  "ratification": {
+    "approved_existing_items": "draft_accepted_not_live_locked",
+    "founder_decisions": "founder_approved",
+    "artifact_state": "live_locked_candidate",
+    "not_deployed": true,
+    "founder_review_scope": "sourcea_is_live, forge_terminal_guaranteed_live_runtime, every_possible_run_has_public_proof, broken_gears are founder_approved",
+    "note": "Founder decisions are locked into this definition candidate; runtime enforcement is not built or deployed yet."
+  },
+  "decision_packet_path": "reports/locked-definitions-founder-decisions-v1.md",
+  "not_deployed": true,
+  "founder_approved_decisions": [
     {
       "id": "sourcea_is_live",
-      "tag": "needs_founder_review",
-      "source_path": "data/CHATBOT_KNOWLEDGE_MANIFEST.json + data/brain-public-rules-v1.json",
-      "literal_source_text": "\"www\": \"https://sourcea.app\" + primary CTA routes",
-      "why_founder_needed": "The sources prove public routes exist, but not the exact threshold for saying 'SourceA is live' versus 'SourceA public routes are available'. Founder should define the status signal and allowed wording."
+      "final_approved_claim": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
+      "requires_status_signal": true,
+      "status_key": "sourcea_app_http_status",
+      "required_live_signal": "sourcea_app_http_status",
+      "fallback_when_unsure": "SourceA has public product routes on sourcea.app. I don’t have a fresh live-status check in this answer, so start from the current product route.",
+      "fallback_when_degraded": "SourceA’s public route may be degraded right now. Use the proof/status route first, or escalate to a guided demo if you need a human walkthrough.",
+      "tag": "founder_approved"
     },
     {
       "id": "forge_terminal_guaranteed_live_runtime",
-      "tag": "needs_founder_review",
-      "source_path": "sites/SourceA-landing/green-unified/forge/terminal.html",
-      "literal_source_text": "<title>Forge Terminal — live demo | SourceA</title> + <span class=\"sa-ft-status\" id=\"sa-ft-status\">Connecting…</span>",
-      "why_founder_needed": "The static page says live demo, but runtime availability depends on live status. Founder should decide whether Brain can say 'available' only after status evidence."
+      "final_approved_claim": "Forge Terminal is the browser product route for trying SourceA/Forge. Say it is available only after a fresh runtime/status signal confirms it.",
+      "requires_status_signal": true,
+      "status_key": "forge_terminal_runtime_status",
+      "required_live_signal": "forge_terminal_runtime_status",
+      "fallback_when_unsure": "Forge Terminal is the browser product route for SourceA/Forge. I don’t have a fresh runtime check in this answer, so treat it as the route to try, not a guaranteed-live session.",
+      "fallback_when_degraded": "Forge Terminal may be degraded right now. Start from the SourceA product/proof route, then use the demo escalation if the browser route does not connect.",
+      "tag": "founder_approved"
     },
     {
       "id": "every_possible_run_has_public_proof",
-      "tag": "unsafe_or_unclear",
-      "source_path": null,
-      "literal_source_text": null,
-      "why_founder_needed": "Existing copy supports verifiable receipts/proof built in, not a universal claim that every possible run has perfect public proof. Founder should approve or reject any stronger universal proof wording."
+      "final_approved_claim": "SourceA is designed around verifiable receipts/proof of work. Do not claim every possible run has perfect public proof unless the specific proof exists.",
+      "requires_status_signal": true,
+      "status_key": "specific_run_public_proof_status",
+      "required_live_signal": "specific_run_public_proof_status",
+      "fallback_when_unsure": "SourceA is built around receipts and proof, but I don’t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
+      "fallback_when_degraded": "The proof route or specific receipt may be unavailable right now. Don’t treat that as proof failure; treat it as unverified until the specific receipt/status is available.",
+      "tag": "founder_approved"
     },
     {
       "id": "broken_gears",
-      "tag": "unsafe_or_unclear",
-      "source_path": null,
-      "literal_source_text": null,
-      "why_founder_needed": "No existing 'broken gears' ladder was found. The closest sourced behavior is records-recovery and live-status-first. Founder should define whether broken gears is a public ladder, private diagnostic, or not used."
+      "final_approved_claim": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
+      "requires_status_signal": true,
+      "status_key": "relevant_route_or_tool_status",
+      "required_live_signal": "Use the relevant status key for the failing route/tool; no standalone `broken_gears` public status key.",
+      "fallback_when_unsure": "I don’t have enough live evidence to confirm that path. Use the safest product route first, and I’ll avoid guessing.",
+      "fallback_when_degraded": "That path looks degraded or unavailable right now. Use the safest product/proof route, and escalate to a guided demo only if you need help moving forward.",
+      "public_wording": "forbidden",
+      "language_scope": "private_diagnostic_only",
+      "tag": "founder_approved"
     }
   ],
-  "ratification": {
-    "approved_existing_items": "draft_accepted_not_live_locked",
-    "not_live_locked": true,
-    "founder_review_scope": "only sourcea_is_live, forge_terminal_guaranteed_live_runtime, every_possible_run_has_public_proof, broken_gears",
-    "note": "Founder chose #4 sourcing now; approved_existing provenance is accepted as draft evidence, not live policy lock."
-  },
-  "decision_packet_path": "reports/locked-definitions-founder-decisions-v1.md"
+  "founder_decisions_resolved": [
+    {
+      "id": "sourcea_is_live",
+      "tag": "founder_approved"
+    },
+    {
+      "id": "forge_terminal_guaranteed_live_runtime",
+      "tag": "founder_approved"
+    },
+    {
+      "id": "every_possible_run_has_public_proof",
+      "tag": "founder_approved"
+    },
+    {
+      "id": "broken_gears",
+      "tag": "founder_approved"
+    }
+  ]
 }
