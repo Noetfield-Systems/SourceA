@@ -8,6 +8,7 @@ import {
   requestedLanguage,
   retrievalOnlyReply,
   sanitizeHistoryContent,
+  sanitizePublicBody,
   sanitizeReply,
   strangerRecoveryReply,
   translationClarifierReply,
@@ -60,7 +61,7 @@ function cors(request) {
 }
 
 function json(request, body, status = 200) {
-  return new Response(JSON.stringify(body), { status, headers: cors(request) });
+  return new Response(JSON.stringify(sanitizePublicBody(body)), { status, headers: cors(request) });
 }
 
 function nowIso() {
@@ -357,7 +358,7 @@ function finalizeReply(message, retrieval, citations, confidence, llmResult, liv
     const check = sanitizeReply(direct, { message, intent: retrieval.intent });
     return {
       ok: true,
-      reply: check.ok ? check.text : direct,
+      reply: check.text,
       mode: "live_tool_direct",
       guardrail: check.ok ? null : check.reason,
     };

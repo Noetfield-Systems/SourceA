@@ -28,10 +28,10 @@ STATUS_JSON="$(curl -fsS "$WORKER_URL" 2>/dev/null || echo '{}')"
 echo "$STATUS_JSON" | python3 -c "
 import json, sys
 row = json.load(sys.stdin)
-ready = row.get('openrouter_ready')
-print('openrouter_ready=', ready)
+ready = row.get('ai_model_ready', row.get('openrouter_ready'))
+print('ai_model_ready=', ready)
 if not ready:
-    print('FAIL: OPENROUTER_API_KEY not set on worker — wrangler secret put OPENROUTER_API_KEY')
+    print('FAIL: AI model key not set on worker')
     sys.exit(1)
 print('OK worker status')
 " | tee -a "$RECEIPT"
