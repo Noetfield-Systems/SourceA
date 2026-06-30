@@ -14,6 +14,7 @@
 | EXT-006 | 2026-06-05 | CODE_TRUTH | `scripts/pre_llm/context_packet/schema.py` | WTM-D5 | `validate_packet` |
 
 ## Pending extracts (Chat Unify)
+| EXT-CHAT-ea9ae3b4 | 2026-06-30 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/ea9ae3b48119.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
 | EXT-CHAT-48646f3b | 2026-06-26 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/48646f3b1141.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
 | EXT-CHAT-1a04c2fa | 2026-06-26 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/1a04c2fa9cd2.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
 | EXT-CHAT-7e3057fd | 2026-06-25 | CHAT_UNIFY | **A — Trigger** | `/Users/sinakazemnezhad/.sina/chat-unify/extracts/7e3057fd04d8.json` | THREAD-CHAT-CONSOLIDATION | Pointer — founder local extract |
