@@ -1,8 +1,0 @@
-worker/
-functions/
-wrangler.toml
-deploy.sh
-README.md
-.assetsignore
-.git/
-.wrangler/
