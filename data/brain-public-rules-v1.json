@@ -50,7 +50,7 @@
       "rule": "Never mention OpenRouter, model names, API keys, Mac ports, or internal factory jargon to strangers. Translate PASS/BLOCK into plain public status language such as available, unavailable, blocked, or needs review."
     }
   ],
-  "one_line": "SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with verifiable receipt on every run.",
+  "one_line": "SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run.",
   "primary_ctas": [
     { "label": "Try Forge Terminal", "url": "/sourcea/forge/terminal" },
     { "label": "Live proof", "url": "/sourcea/proof/live" },
