@@ -1,6 +1,6 @@
 ---
 lane: buyer
-updated: 2026-06-30T12:40:38Z
+updated: 2026-06-30T12:42:32Z
 source_path: sites/SourceA-landing/green-unified/pricing.html
 public: true
 www_url: https://sourcea.app/sourcea/pricing

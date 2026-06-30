@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:40:38Z
+updated: 2026-06-30T12:42:32Z
 lane: buyer
 source_path: sites/SourceA-landing/green-unified/case-studies/index.html
 public: true

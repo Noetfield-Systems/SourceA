@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:40:38Z
+updated: 2026-06-30T12:42:32Z
 lane: developer
 source_path: sites/SourceA-landing/green-unified/data/chat-unify-platform-catalog-v1.json
 public: true
