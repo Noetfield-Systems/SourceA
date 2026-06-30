@@ -1,0 +1,10 @@
+{
+  "schema": "sourcea-phase2-mutation-trials-v1",
+  "version": "1.0.0",
+  "flag": "SOURCEA_PHASE2_MUTATION_TRIALS",
+  "enabled": false,
+  "default": false,
+  "owner": "founder_only",
+  "law": "Phase 2 mutation paths must refuse unless this committed flag is true. Only the founder may flip it.",
+  "guard_module": "scripts/sourcea_phase2_mutation_guard_v1.py"
+}
