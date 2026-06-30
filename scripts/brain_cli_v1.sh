@@ -26,6 +26,11 @@ case "$cmd" in
     (cd cloud/workers/sourcea-brain-chat-v1 && wrangler deploy)
     bash scripts/validate-sourcea-brain-knowledge-v1.sh
     ;;
+  deploy-verified|deploy-no-refresh)
+    # Gate path: deploy the already-committed, verifier-signed bundle as-is.
+    (cd cloud/workers/sourcea-brain-chat-v1 && wrangler deploy)
+    bash scripts/validate-sourcea-brain-knowledge-v1.sh
+    ;;
   pipeline)
     python3 scripts/brain_intelligence_pipeline_v1.py -m "${2:-What is SourceA?}" --json
     ;;
@@ -39,6 +44,7 @@ Brain Intelligence CLI (always run via repo root path)
   bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh pipeline "What is SourceA?"
   bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh refresh
   bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh deploy
+  bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh deploy-verified
 
 Repo root: $ROOT
 Docs: docs/BRAIN_INTELLIGENCE_PIPELINE_LOCKED_v1.md
