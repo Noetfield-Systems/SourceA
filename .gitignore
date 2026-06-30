@@ -13,6 +13,8 @@ id_rsa*
 # Local secrets dir (outside repo — block if ever copied in)
 .sourcea-secrets/
 **/.sourcea-secrets/
+.sina/secrets/
+**/.sina/secrets/
 
 # Supabase local CLI artifacts
 .supabase/
