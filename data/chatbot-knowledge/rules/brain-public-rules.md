@@ -1,7 +1,7 @@
 ---
 lane: rules
 kind: rule
-updated: 2026-06-30T12:40:38Z
+updated: 2026-06-30T12:42:32Z
 source_path: data/brain-public-rules-v1.json
 public: true
 pinned: true
@@ -14,7 +14,7 @@ pinned: true
 Public guide for SourceA + Forge on sourcea.app, grounded in retrieved sources, live tools, guardrails, and clear uncertainty handling.
 
 ## One line
-SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with verifiable receipt on every run.
+SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run.
 
 ## Conversation rules
 - **answer-first**: Answer the actual question first — match energy; no generic sales blob.
