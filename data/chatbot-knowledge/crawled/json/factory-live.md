@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-27T08:46:57Z
+updated: 2026-06-30T08:50:46Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/data/factory-live.json
 public: true
@@ -9,12 +9,15 @@ kind: json
 # Factory Live
 
 - **schema**: sourcea-factory-live-v1
-- **at**: 2026-06-24T03:23:04Z
+- **at**: 2026-06-27T18:07:35Z
 - **account**: sourcea
 - **console_url**: command.sourcea.com/team
+- **factory_now_line**: factory-now · Cloud Workers.app owns Cloud Forge Run · head CLOUD-SEC-6967 · batch 71 · 100 rows/10min · 100 tasks/row
+- **queue_sa**: CLOUD-SEC-6967
+- **mode**: FREEZE
 ## pipeline
 - **schema**: commercial-pipeline-glance-v1
-- **at**: 2026-06-24T03:23:04Z
+- **at**: 2026-06-27T18:07:35Z
 ### lanes
 - AB1
 - NW1
@@ -46,15 +49,15 @@ kind: json
 - **lane**: AB1
 - **status**: proof_viewed
 - **next_action**: Book 15 min eval · eval booking agent
-- **proof_url**: https://30351aca.sourcea-com.pages.dev/sourcea/proof/live.html
+- **proof_url**: https://source-a.vercel.app/sourcea/proof/live.html
 - **next_agent**: eval_booking_agent
 ## cp-a0c7c6c607
 - **id**: cp-a0c7c6c607
 - **company**: AEG proof prospect (draft)
 - **lane**: AB1
 - **status**: eval_scheduled
-- **next_action**: Founder send eval invite · Mail draft in outbound pack
-- **proof_url**: https://30351aca.sourcea-com.pages.dev/sourcea/proof/live.html
+- **next_action**: Await prospect slot · prep BLOCK live screen-share
+- **proof_url**: https://source-a.vercel.app/sourcea/proof/live.html
 - **next_agent**: await_prospect_slot
 - **proof_label**: Live forensic proof
 ## cp-0b9b8c4eff
@@ -71,7 +74,7 @@ kind: json
 - **lane**: WBC
 - **status**: proof_viewed
 - **next_action**: Founder send eval invite · Mail draft in outbound pack
-- **proof_url**: https://30351aca.sourcea-com.pages.dev/sourcea/scenario.html
+- **proof_url**: https://source-a.vercel.app/sourcea/scenario.html
 - **next_agent**: eval_booking_agent
 - **rows_total**: 4
 ## boot
@@ -114,7 +117,7 @@ kind: json
 - **sent**: 0
 ## aeg
 - **schema**: sourcea-aeg-live-v1
-- **at**: 2026-06-24T03:02:39Z
+- **at**: 2026-06-27T06:23:21Z
 - **evidence_id**: aeg-20260620T044750Z-ac101c6b
 - **verdict**: PASS
 ### blockers
@@ -159,9 +162,9 @@ blockers:
 - **mode**: portable
 - **skipped**: True
 - **boot_verdict**: PASS
-- **site_proof_url**: https://30351aca.sourcea-com.pages.dev/sourcea/proof/live.html
+- **site_proof_url**: https://source-a.vercel.app/sourcea/proof/live.html
 - **forensic_archive_url**: https://locally-projected-shade-projection.trycloudflare.com/aeg-20260620T044750Z-ac101c6b/
 - **hosted_at**: 2026-06-20T04:47:50Z
 - **disclaimer**: Live inject from factory disk · same schema as weekly export bundle
 - **valid_yes_total**: 1000
-- **aeg_live_url**: https://30351aca.sourcea-com.pages.dev/sourcea/proof/live.html
+- **aeg_live_url**: https://source-a.vercel.app/sourcea/proof/live.html

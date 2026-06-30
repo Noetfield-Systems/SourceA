@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-27T08:46:57Z
+updated: 2026-06-30T08:50:46Z
 lane: developer
 source_path: sites/SourceA-landing/green-unified/platform-portal.html
 public: true
@@ -38,4 +38,4 @@ Desktop Agent Run stack mirrors this hub when you run the landing recipe — sam
 
 Feel verifiable execution before you sign in — one bounded job, one receipt.
 
-© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · noetfield.com · sourcea.app · Technical overview · Platform / Agent Run hub
+© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · noetfield.com · sourcea.app · sourcea-boot eval · Platform / Agent Run hub
