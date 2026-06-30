@@ -1,6 +1,6 @@
 ---
 lane: core
-updated: 2026-06-30T08:50:46Z
+updated: 2026-06-30T11:15:38Z
 source_path: docs/SOURCEA_RUNTIME_STACK_HYBRID_LOCKED_v1.md
 public: true
 ---
