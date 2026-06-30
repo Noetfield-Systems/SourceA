@@ -56,6 +56,14 @@
               "status": "good"
             }
           },
+          "locked_definitions_validation": {
+            "actual_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
+            "expected_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
+            "match": true,
+            "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
+            "reasons": [],
+            "validation_result": "PASS"
+          },
           "mapped_status": {
             "sourcea_app_http_status": "ok"
           },
@@ -73,6 +81,14 @@
             "http_status": 200,
             "status": "good"
           }
+        },
+        "locked_definitions_validation": {
+          "actual_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
+          "expected_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
+          "match": true,
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
+          "reasons": [],
+          "validation_result": "PASS"
         },
         "mapped_status": {
           "sourcea_app_http_status": "ok"
@@ -148,6 +164,14 @@
               "status": "unknown"
             }
           },
+          "locked_definitions_validation": {
+            "actual_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
+            "expected_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
+            "match": true,
+            "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
+            "reasons": [],
+            "validation_result": "PASS"
+          },
           "mapped_status": {
             "sourcea_app_http_status": "unknown"
           },
@@ -168,6 +192,14 @@
             "error": "mock timeout",
             "status": "unknown"
           }
+        },
+        "locked_definitions_validation": {
+          "actual_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
+          "expected_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
+          "match": true,
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
+          "reasons": [],
+          "validation_result": "PASS"
         },
         "mapped_status": {
           "sourcea_app_http_status": "unknown"
@@ -250,6 +282,14 @@
               "status": "degraded"
             }
           },
+          "locked_definitions_validation": {
+            "actual_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
+            "expected_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
+            "match": true,
+            "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
+            "reasons": [],
+            "validation_result": "PASS"
+          },
           "mapped_status": {
             "forge_terminal_runtime_status": "degraded"
           },
@@ -269,6 +309,14 @@
             "http_status": 503,
             "status": "degraded"
           }
+        },
+        "locked_definitions_validation": {
+          "actual_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
+          "expected_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
+          "match": true,
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
+          "reasons": [],
+          "validation_result": "PASS"
         },
         "mapped_status": {
           "forge_terminal_runtime_status": "degraded"
@@ -347,6 +395,14 @@
               "status": "unknown"
             }
           },
+          "locked_definitions_validation": {
+            "actual_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
+            "expected_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
+            "match": true,
+            "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
+            "reasons": [],
+            "validation_result": "PASS"
+          },
           "mapped_status": {
             "specific_run_public_proof_status": "unknown"
           },
@@ -363,6 +419,14 @@
           "specific_run_public_proof_status": {
             "status": "unknown"
           }
+        },
+        "locked_definitions_validation": {
+          "actual_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
+          "expected_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
+          "match": true,
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
+          "reasons": [],
+          "validation_result": "PASS"
         },
         "mapped_status": {
           "specific_run_public_proof_status": "unknown"
