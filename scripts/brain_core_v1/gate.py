@@ -7,6 +7,7 @@ import re
 from typing import Any, Mapping
 
 from scripts.brain_core_v1.decision_core import decide, load_locked_definitions
+from scripts.brain_core_v1.d4_enforcement import enforce_d4
 from scripts.brain_core_v1.live_status_probe import decision_status_map
 from scripts.brain_core_v1.sanitizer import sanitize_model_output
 
@@ -62,11 +63,13 @@ def run_gate(
     if not sanitized_output.get("ok"):
         reasons.append(f"sanitizer_block:{sanitized_output.get('reason', 'unknown')}")
 
-    return {
+    receipt = {
         "schema": "brain-core-gate-v1",
         "receipt_type": "BRAIN_CORE_GATE_RESULT",
+        "lifecycle": "PASS" if not reasons else "BLOCKED",
         "created_at": created_at,
         "author_runtime": "brain_core_v1",
+        "subject_runtime": "public_brain_reply",
         "verifier_runtime": "test_suite",
         "live_status": live_status_map,
         "mapped_status": mapped_status,
@@ -77,3 +80,9 @@ def run_gate(
         "reasons": reasons,
         "input_hash": input_hash,
     }
+    receipt["d4_enforcement"] = enforce_d4(receipt)
+    if not receipt["d4_enforcement"]["ok"] and "d4_enforcement_blocked" not in receipt["reasons"]:
+        receipt["reasons"].append("d4_enforcement_blocked")
+        receipt["gate_result"] = "BLOCK"
+        receipt["lifecycle"] = "BLOCKED"
+    return receipt
