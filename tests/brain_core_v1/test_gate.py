@@ -5,6 +5,7 @@ from scripts.brain_core_v1.gate import run_gate
 DEFINITIONS = load_locked_definitions()
 RECEIPT_FIELDS = {
     "receipt_type",
+    "lifecycle",
     "gate_result",
     "decision",
     "live_status",
@@ -15,7 +16,9 @@ RECEIPT_FIELDS = {
     "input_hash",
     "created_at",
     "author_runtime",
+    "subject_runtime",
     "verifier_runtime",
+    "d4_enforcement",
 }
 
 
@@ -29,7 +32,9 @@ def test_live_healthy_pass_allowed_only_if_decision_confident() -> None:
     assert row["receipt_type"] == "BRAIN_CORE_GATE_RESULT"
     assert RECEIPT_FIELDS.issubset(row)
     assert row["author_runtime"] == "brain_core_v1"
+    assert row["subject_runtime"] == "public_brain_reply"
     assert row["verifier_runtime"] == "test_suite"
+    assert row["d4_enforcement"]["ok"] is True
     assert row["decision"]["ladder_gear"] == "confident"
     assert row["decision"]["allowed_claim_id"] == "sourcea_is_live"
     assert row["sanitized_output"]["ok"] is True
