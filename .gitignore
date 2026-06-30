@@ -58,6 +58,8 @@ receipts/*.png
 reports/sourcea-dirty-tree-lane-report-v1.json
 
 # Hub runtime projections — rebuilt by disk_live_wire_sync (do not commit drift)
+agent-control-panel/command-data.json
 agent-control-panel/command-data-runtime.json
 agent-control-panel/command-data-shell.json
 agent-control-panel/command-data-canonical.json
+brain-os/plan-registry/SOURCEA-PRIORITY.md
