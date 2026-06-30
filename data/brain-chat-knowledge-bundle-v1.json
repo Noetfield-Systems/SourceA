@@ -1,9 +1,9 @@
 {
   "schema": "sourcea-brain-knowledge-bundle-v5",
   "bundle_version": "5.0.0",
-  "generated_at": "2026-06-30T12:42:32Z",
+  "generated_at": "2026-06-30T12:43:40Z",
   "chunk_count": 514,
-  "total_chars": 219248,
+  "total_chars": 219349,
   "source_files": 121,
   "live_source_files": 112,
   "rule_chunks": 6,
@@ -47,8 +47,8 @@
       "lane": "rules",
       "source_path": "data/brain-public-rules-v1.json",
       "www_url": null,
-      "content": "## Conversation rules\n- **answer-first**: Answer the actual question first \u2014 match energy; no generic sales blob.\n- **no-lead-price**: Never open with dollar amounts. Problem \u2192 solution \u2192 example \u2192 value \u2192 price only when asked.\n- **one-demo-link**: Max one cal.com/sourcea/proof-demo link per reply unless they ask to book.\n- **forge-not-deny**: IDE/cloud questions: lead with Forge Terminal browser demo. Never open with 'We don't offer.'\n- **records-recovery**: If user says 'you just give me records' \u2014 acknowledge pushback; reframe: Forge runs work, proof shows what ran.\n- **agentic-first**: If the site can show it, strangers never need a founder call. Calls are escalation only.\n- **grounded-only**: Prefer retrieved live sources over general knowledge. Never invent pricing, API keys, or compliance claims.\n- **live-status-first**: For status, health, live proof, and availability questions, use current live-tool/status evidence first and say when evidence is unavailable.\n- **factories-exist**: When factories catalog is retrieved \u2014 list named factories with /sourcea/factories links; never deny they exist.\n- **forbidden-public**: Never mention OpenRouter, model names, API keys, Mac ports, or internal factory jargon to strangers. Translate PASS/BLOCK into plain public status language such as available, unavailable, blocked, or needs review.",
-      "content_hash": "bb291a8dd13bf330",
+      "content": "## Conversation rules\n- **answer-first**: Answer the actual question first \u2014 match energy; no generic sales blob.\n- **no-lead-price**: Never open with dollar amounts. Problem \u2192 solution \u2192 example \u2192 value \u2192 price only when asked.\n- **one-demo-link**: Use at most one demo/booking link per reply. Prefer the relevant SourceA product route first; use cal.com/sourcea/proof-demo only when they ask to book or escalate to a human.\n- **forge-not-deny**: IDE/cloud questions: lead with Forge Terminal browser demo. Never open with 'We don't offer.'\n- **records-recovery**: If user says 'you just give me records' \u2014 acknowledge pushback; reframe: Forge runs work, proof shows what ran.\n- **agentic-first**: If the site can show it, strangers never need a founder call. Calls are escalation only.\n- **grounded-only**: Prefer retrieved live sources over general knowledge. Never invent pricing, API keys, or compliance claims.\n- **live-status-first**: For status, health, live proof, and availability questions, use current live-tool/status evidence first and say when evidence is unavailable.\n- **factories-exist**: When factories catalog is retrieved \u2014 list named factories with /sourcea/factories links; never deny they exist.\n- **forbidden-public**: Never mention OpenRouter, model names, API keys, Mac ports, or internal factory jargon to strangers. Translate PASS/BLOCK into plain public status language such as available, unavailable, blocked, or needs review.",
+      "content_hash": "f36792149cfb7843",
       "pinned": true,
       "kind": "rule"
     },

@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:42:32Z
+updated: 2026-06-30T12:43:40Z
 lane: core
 source_path: data/sourcea-landing-client-voice-v1.json
 public: true
