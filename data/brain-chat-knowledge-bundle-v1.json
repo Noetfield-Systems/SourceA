@@ -1,9 +1,9 @@
 {
   "schema": "sourcea-brain-knowledge-bundle-v5",
   "bundle_version": "5.0.0",
-  "generated_at": "2026-06-30T11:15:38Z",
+  "generated_at": "2026-06-30T12:22:32Z",
   "chunk_count": 514,
-  "total_chars": 218909,
+  "total_chars": 218978,
   "source_files": 121,
   "live_source_files": 112,
   "rule_chunks": 6,
@@ -27,8 +27,8 @@
       "lane": "rules",
       "source_path": "data/brain-public-rules-v1.json",
       "www_url": null,
-      "content": "## Identity\nHighest-confidence public guide for SourceA + Forge on sourcea.app",
-      "content_hash": "2a142c394966acb1",
+      "content": "## Identity\nPublic guide for SourceA + Forge on sourcea.app, grounded in retrieved sources, live tools, guardrails, and clear uncertainty handling.",
+      "content_hash": "8b23abd8aa26d361",
       "pinned": true,
       "kind": "rule"
     },
