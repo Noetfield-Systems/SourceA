@@ -23,12 +23,20 @@ case "$cmd" in
     ;;
   deploy)
     bash scripts/brain_chatbot_refresh_v1.sh
-    (cd cloud/workers/sourcea-brain-chat-v1 && wrangler deploy)
+    : "${CF_MAIN_TOKEN:?CF_MAIN_TOKEN must be loaded; refusing to use human login state}"
+    (cd cloud/workers/sourcea-brain-chat-v1 && CLOUDFLARE_API_TOKEN="${CF_MAIN_TOKEN}" wrangler deploy)
     bash scripts/validate-sourcea-brain-knowledge-v1.sh
     ;;
   deploy-verified|deploy-no-refresh)
     # Gate path: deploy the already-committed, verifier-signed bundle as-is.
-    (cd cloud/workers/sourcea-brain-chat-v1 && wrangler deploy)
+    : "${CF_MAIN_TOKEN:?CF_MAIN_TOKEN must be loaded; refusing to use human login state}"
+    (cd cloud/workers/sourcea-brain-chat-v1 && CLOUDFLARE_API_TOKEN="${CF_MAIN_TOKEN}" wrangler deploy)
+    bash scripts/validate-sourcea-brain-knowledge-v1.sh
+    ;;
+  deploy-verified-dry-run|deploy-no-refresh-dry-run)
+    # Phase 0.4 proof path: validate upload/auth without publishing a Worker version.
+    : "${CF_MAIN_TOKEN:?CF_MAIN_TOKEN must be loaded; refusing to use human login state}"
+    (cd cloud/workers/sourcea-brain-chat-v1 && CLOUDFLARE_API_TOKEN="${CF_MAIN_TOKEN}" wrangler deploy --dry-run)
     bash scripts/validate-sourcea-brain-knowledge-v1.sh
     ;;
   pipeline)
@@ -45,6 +53,7 @@ Brain Intelligence CLI (always run via repo root path)
   bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh refresh
   bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh deploy
   bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh deploy-verified
+  bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh deploy-verified-dry-run
 
 Repo root: $ROOT
 Docs: docs/BRAIN_INTELLIGENCE_PIPELINE_LOCKED_v1.md
