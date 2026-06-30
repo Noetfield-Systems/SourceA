@@ -54,6 +54,13 @@ function publicUrl(url) {
 
 function cleanPublicCopy(text) {
   return String(text || "")
+    .replace(/\bPASS\/BLOCK\b/g, "allowed-or-stopped result")
+    .replace(/\bPASS or BLOCK\b/g, "allowed or stopped")
+    .replace(/\bALLOW\/BLOCK\b/g, "allowed-or-stopped result")
+    .replace(/\bALLOW or BLOCK\b/g, "allowed or stopped")
+    .replace(/\bPASS\b/g, "passed")
+    .replace(/\bALLOW\b/g, "allowed")
+    .replace(/\bBLOCK\b/g, "stopped")
     .replace(/\bOpenRouter routing\b/gi, "AI model routing")
     .replace(/\bOpenRouter\b/gi, "AI model layer")
     .replace(/\bFactory proceed\b/gi, "Cloud execution")
@@ -305,13 +312,13 @@ export function directLiveToolAnswer(message, tools) {
     const t = byId.proof_status;
     if (/\b(is .* live|running|status|up)\b/.test(q)) {
       return [
-        `Live proof is ${t.ok ? "available" : "not showing as available"}${t.verdict ? ` (${t.verdict})` : ""}.`,
+        `Live proof is ${t.ok ? "available" : "not showing as available"}.`,
         "",
         `Live proof: ${SOURCEA_ORIGIN}/sourcea/proof/live`,
       ].join("\n");
     }
     return [
-      `Live proof is ${t.ok ? "available" : "not showing as available"}${t.verdict ? ` (${t.verdict})` : ""}.`,
+      `Live proof is ${t.ok ? "available" : "not showing as available"}.`,
       "",
       "A live receipt is proof that a SourceA run actually happened: what ran, what was checked, and what result it produced.",
       "",

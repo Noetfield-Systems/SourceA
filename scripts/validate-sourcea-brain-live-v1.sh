@@ -60,10 +60,10 @@ STATUS_JSON="$(curl -fsS "$WORKER_URL")"
 echo "$STATUS_JSON" | python3 -c "
 import json, sys
 row = json.load(sys.stdin)
-assert row.get('openrouter_ready'), row
+assert row.get('ai_model_ready', row.get('openrouter_ready')), row
 hint = (row.get('hint') or '').lower()
 assert 'site assistant' not in hint or 'execution' in hint, row.get('hint')
-print('OK openrouter_ready hint=', row.get('hint', '')[:80])
+print('OK ai_model_ready hint=', row.get('hint', '')[:80])
 " | tee -a "$RECEIPT_LOG"
 
 echo "=== production CORS preflight ===" | tee -a "$RECEIPT_LOG"
