@@ -27,21 +27,14 @@ const STATUS_PATH = "/api/brain/status/v1";
 const HEALTH_PATH = "/health";
 const MAX_LEN = 2000;
 const MAX_HISTORY = 12;
-const DEFAULT_MODEL = "google/gemini-2.5-flash";
+const WORKERS_AI_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast";
 const MODEL_TEMPERATURE = 0.2;
 const TRACE_TTL_SECONDS = 60 * 60 * 24 * 365;
 const TRACE_INDEX_LIMIT = 200;
 
 const PUBLIC_MODELS = [
-  { id: "google/gemini-2.5-flash", label: "Gemini 2.5 Flash", group: "Google", cost: "$" },
-  { id: "google/gemini-2.5-flash-lite-preview-06-17", label: "Gemini Flash-Lite", group: "Google", cost: "$" },
-  { id: "anthropic/claude-3.5-haiku", label: "Claude 3.5 Haiku", group: "Anthropic", cost: "$" },
-  { id: "anthropic/claude-3.5-sonnet", label: "Claude 3.5 Sonnet", group: "Anthropic", cost: "$$$" },
-  { id: "openai/gpt-4o-mini", label: "GPT-4o mini", group: "OpenAI", cost: "$" },
-  { id: "deepseek/deepseek-chat-v3-0324", label: "DeepSeek V4", group: "OpenRouter", cost: "$" },
+  { id: WORKERS_AI_MODEL, label: "Open-source Workers AI model", group: "Cloudflare Workers AI", cost: "$" },
 ];
-
-const FALLBACK_MODELS = PUBLIC_MODELS.map((m) => m.id);
 
 const FORGE_TERMINAL_CORE = `${BRAIN_CORE}
 
@@ -277,20 +270,20 @@ async function buildSystemPrompt(product, message, pageCtx, language = "") {
 }
 
 function statusBody(env) {
-  const ready = Boolean(env.OPENROUTER_API_KEY);
-  const current = env.OPENROUTER_MODEL || DEFAULT_MODEL;
+  const ready = Boolean(env.AI);
+  const current = WORKERS_AI_MODEL;
   const traceReady = Boolean(traceKv(env));
   return {
     schema: "sourcea-brain-chat-status-v1",
     ok: true,
     service: "sourcea-brain-chat-v1",
-    openrouter_ready: ready,
+    ai_model_ready: ready,
     trace_storage_ready: traceReady,
     trace_storage: traceReady ? "kv" : "console",
     model: current,
     default_model: current,
     models: PUBLIC_MODELS,
-    provider: "openrouter",
+    provider: "workers_ai",
     plane: "cloudflare_worker",
     max_message_len: MAX_LEN,
     hint: "Brain v5 — vector retrieval · read-only live tools · 112+ live sources",
@@ -305,46 +298,31 @@ function statusBody(env) {
   };
 }
 
-async function chatOpenRouter(env, messages, product, requestedModel, systemPrompt) {
-  const key = env.OPENROUTER_API_KEY;
-  if (!key) {
-    return { ok: false, reply: "", llm_error: "no_api_key" };
+function workersAIReplyText(result) {
+  if (!result) return "";
+  if (typeof result === "string") return result.trim();
+  if (typeof result.response === "string") return result.response.trim();
+  if (typeof result.result?.response === "string") return result.result.response.trim();
+  const choice = result.choices?.[0]?.message?.content || result.result?.choices?.[0]?.message?.content;
+  return String(choice || "").trim();
+}
+
+async function chatWorkersAI(env, messages, product, _requestedModel, systemPrompt) {
+  if (!env.AI || typeof env.AI.run !== "function") {
+    return { ok: false, reply: "", llm_error: "workers_ai_binding_missing" };
   }
-  const preferred = String(requestedModel || env.OPENROUTER_MODEL || DEFAULT_MODEL).trim();
-  const chain = [preferred, ...FALLBACK_MODELS.filter((m) => m !== preferred)];
-  let lastErr = "";
-  for (const model of chain) {
-    const resp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${key}`,
-        "Content-Type": "application/json",
-        "HTTP-Referer": "https://sourcea.app",
-        "X-Title": "SourceA Brain",
-      },
-      body: JSON.stringify({
-        model,
-        messages: [{ role: "system", content: systemPrompt }, ...messages.slice(-MAX_HISTORY)],
-        temperature: MODEL_TEMPERATURE,
-        max_tokens: product === "forge_terminal" ? 600 : 900,
-      }),
+  try {
+    const result = await env.AI.run(WORKERS_AI_MODEL, {
+      messages: [{ role: "system", content: systemPrompt }, ...messages.slice(-MAX_HISTORY)],
+      temperature: MODEL_TEMPERATURE,
+      max_tokens: product === "forge_terminal" ? 600 : 900,
     });
-    if (resp.ok) {
-      const data = await resp.json();
-      const reply = (data.choices?.[0]?.message?.content || "").trim();
-      return { ok: true, reply, model_used: model, fallback: model !== preferred };
-    }
-    const status = resp.status;
-    let detail = "";
-    try {
-      detail = JSON.stringify(await resp.json());
-    } catch {
-      detail = await resp.text();
-    }
-    lastErr = `Brain offline (${status}) — ${detail.slice(0, 200)}`;
-    if (status !== 429 && status !== 503 && status !== 502 && status !== 504) break;
+    const reply = workersAIReplyText(result);
+    if (reply) return { ok: true, reply, model_used: WORKERS_AI_MODEL, fallback: false };
+    return { ok: false, reply: "", llm_error: "empty_workers_ai_reply" };
+  } catch (err) {
+    return { ok: false, reply: "", llm_error: `workers_ai_error:${String(err?.message || err).slice(0, 180)}` };
   }
-  return { ok: false, reply: lastErr || "Brain offline", llm_error: lastErr };
 }
 
 function finalizeReply(message, retrieval, citations, confidence, llmResult, liveTools = []) {
@@ -619,10 +597,10 @@ async function handlePost(request, env, ctx) {
     pageCtx,
     language,
   );
-  const llmResult = await chatOpenRouter(env, history, product, requestedModel, prompt);
+  const llmResult = await chatWorkersAI(env, history, product, requestedModel, prompt);
   const final = finalizeReply(message, retrieval, citations, confidence, llmResult, liveTools);
   const provider =
-    final.mode === "live_tool_direct" ? "live_tool" : final.mode.startsWith("retrieval") ? "retrieval" : "openrouter";
+    final.mode === "live_tool_direct" ? "live_tool" : final.mode.startsWith("retrieval") ? "retrieval" : "workers_ai";
   const trace = await buildTrace({
     request,
     body,
@@ -647,7 +625,7 @@ async function handlePost(request, env, ctx) {
     reply: final.reply,
     product: product || "brain",
     provider,
-    model: llmResult.model_used || env.OPENROUTER_MODEL || DEFAULT_MODEL,
+    model: llmResult.model_used || WORKERS_AI_MODEL,
     model_requested: requestedModel || null,
     model_fallback: !!llmResult.fallback,
     reply_mode: final.mode,
@@ -687,7 +665,7 @@ export default {
         ok: true,
         schema: "sourcea-brain-chat-health-v1",
         service: "sourcea-brain-chat-v1",
-        openrouter_ready: Boolean(env.OPENROUTER_API_KEY),
+        ai_model_ready: Boolean(env.AI),
         trace_storage_ready: Boolean(traceKv(env)),
         at: nowIso(),
       });

@@ -4,8 +4,9 @@ const SOURCEA_ORIGIN = "https://sourcea.app";
 
 const FORBIDDEN_PATTERNS = [
   /\bopenrouter\b/i,
+  /@cf\/[a-z0-9._:/-]+/i,
   /\b(?:google|anthropic|openai|deepseek)\/[a-z0-9._:/-]+/i,
-  /\b(?:Gemini|Claude|GPT-?4o|DeepSeek)(?:\s+[A-Za-z0-9.:-]+){0,4}\b/i,
+  /\b(?:Gemini|Claude|GPT-?4o|DeepSeek|Llama|Qwen)(?:\s+[A-Za-z0-9.:-]+){0,5}\b/i,
   /\bsk-[a-z0-9_-]{8,}/i,
   /\bapi[_-]?key\s*[:=]/i,
   /:?13020|:?13027|:?8780|:?8781/,
@@ -140,11 +141,14 @@ export function sanitizePublicText(value) {
     .replace(/\bBLOCK\b/g, "stopped")
     .replace(/\bOpenRouter routing\b/gi, "AI model routing")
     .replace(/\bOpenRouter\b/gi, "AI model layer")
+    .replace(/@cf\/[a-z0-9._:/-]+/gi, "AI model")
     .replace(/\b(?:google|anthropic|openai|deepseek)\/[a-z0-9._:/-]+/gi, "AI model")
     .replace(/\bGemini(?:\s+[A-Za-z0-9.:-]+){0,4}\b/g, "AI model")
     .replace(/\bClaude(?:\s+[A-Za-z0-9.:-]+){0,4}\b/g, "AI model")
     .replace(/\bGPT-?4o(?:\s+[A-Za-z0-9.:-]+){0,3}\b/gi, "AI model")
     .replace(/\bDeepSeek(?:\s+[A-Za-z0-9.:-]+){0,4}\b/g, "AI model")
+    .replace(/\bLlama(?:\s+[A-Za-z0-9.:-]+){0,5}\b/g, "AI model")
+    .replace(/\bQwen(?:\s+[A-Za-z0-9.:-]+){0,5}\b/g, "AI model")
     .replace(/\b(?:localhost|127\.0\.0\.1):\d+\b/gi, "local service")
     .replace(/:?\b(?:13020|13027|8780|8781)\b/g, "local service")
     .replace(/\bcom\.sourcea\.[a-z0-9_.-]+\b/gi, "internal app")
