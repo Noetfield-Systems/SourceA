@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:38:39Z
+updated: 2026-06-30T12:40:38Z
 lane: core
 source_path: data/sourcea-dual-plane-v1.json
 public: true
