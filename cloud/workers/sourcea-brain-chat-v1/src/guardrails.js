@@ -4,11 +4,14 @@ const SOURCEA_ORIGIN = "https://sourcea.app";
 
 const FORBIDDEN_PATTERNS = [
   /\bopenrouter\b/i,
+  /\b(?:google|anthropic|openai|deepseek)\/[a-z0-9._:/-]+/i,
+  /\b(?:Gemini|Claude|GPT-?4o|DeepSeek)(?:\s+[A-Za-z0-9.:-]+){0,4}\b/i,
   /\bsk-[a-z0-9_-]{8,}/i,
   /\bapi[_-]?key\s*[:=]/i,
   /:?13020|:?13027|:?8780|:?8781/,
   /\bcom\.sourcea\./i,
   /\bPASS\/BLOCK\b/,
+  /\b(?:PASS|BLOCK|ALLOW)\b/,
   /\bINCIDENT-\d+\b/i,
   /\bbrain-os\b/i,
   /\bhighest[- ]confidence\b/i,
@@ -125,6 +128,59 @@ export function normalizePublicLinks(reply) {
     .replace(/\s+\n/g, "\n");
 }
 
+export function sanitizePublicText(value) {
+  return String(value || "")
+    .replace(/\bPASS\/BLOCK\b/g, "allowed-or-stopped result")
+    .replace(/\bPASS or BLOCK\b/g, "allowed or stopped")
+    .replace(/\bALLOW\/BLOCK\b/g, "allowed-or-stopped result")
+    .replace(/\bALLOW or BLOCK\b/g, "allowed or stopped")
+    .replace(/\bPASS\b/g, "passed")
+    .replace(/\bALLOW\b/g, "allowed")
+    .replace(/\bBLOCK\b/g, "stopped")
+    .replace(/\bOpenRouter routing\b/gi, "AI model routing")
+    .replace(/\bOpenRouter\b/gi, "AI model layer")
+    .replace(/\b(?:google|anthropic|openai|deepseek)\/[a-z0-9._:/-]+/gi, "AI model")
+    .replace(/\bGemini(?:\s+[A-Za-z0-9.:-]+){0,4}\b/g, "AI model")
+    .replace(/\bClaude(?:\s+[A-Za-z0-9.:-]+){0,4}\b/g, "AI model")
+    .replace(/\bGPT-?4o(?:\s+[A-Za-z0-9.:-]+){0,3}\b/gi, "AI model")
+    .replace(/\bDeepSeek(?:\s+[A-Za-z0-9.:-]+){0,4}\b/g, "AI model")
+    .replace(/\b(?:localhost|127\.0\.0\.1):\d+\b/gi, "local service")
+    .replace(/:?\b(?:13020|13027|8780|8781)\b/g, "local service")
+    .replace(/\bcom\.sourcea\.[a-z0-9_.-]+\b/gi, "internal app")
+    .replace(/\bsourcea-brain-chat-config-v1\.json\b/gi, "public chat config")
+    .replace(/\b(?:docs|scripts|brain-os|cloud\/workers|SourceA-landing|sites\/SourceA-landing)\/[^\s),]+/gi, "internal source")
+    .replace(/\bbrain-os\b/gi, "internal knowledge base")
+    .replace(/\bINCIDENT-\d+\b/gi, "internal issue")
+    .replace(/\bFactory proceed\b/gi, "Cloud execution")
+    .replace(/\bfactory-live\.json\b/gi, "live proof data")
+    .replace(/\bfactory repository\b/gi, "proof record")
+    .replace(/\binternal factory jargon\b/gi, "internal wording")
+    .replace(/\bhighest[- ]confidence public guide\b/gi, "public guide")
+    .replace(/\bhighest[- ]confidence public intelligence\b/gi, "public guide")
+    .replace(/\bhighest[- ]confidence\b/gi, "evidence-backed")
+    .replace(/\s+\)/g, ")")
+    .replace(/\(\s*\)/g, "")
+    .replace(/[ \t]{2,}/g, " ")
+    .trim();
+}
+
+function sanitizePublicKey(key) {
+  return String(key || "")
+    .replace(/openrouter/gi, "ai_model")
+    .replace(/model_used/gi, "ai_model")
+    .replace(/model_requested/gi, "ai_model_requested")
+    .replace(/model_fallback/gi, "ai_model_fallback");
+}
+
+export function sanitizePublicBody(value) {
+  if (typeof value === "string") return sanitizePublicText(value);
+  if (Array.isArray(value)) return value.map((item) => sanitizePublicBody(item));
+  if (!value || typeof value !== "object") return value;
+  return Object.fromEntries(
+    Object.entries(value).map(([key, row]) => [sanitizePublicKey(key), sanitizePublicBody(row)]),
+  );
+}
+
 function normalizeSourceAVoice(reply) {
   return String(reply || "")
     .replace(/\bThey promise\b/g, "SourceA aims")
@@ -137,7 +193,7 @@ function normalizeSourceAVoice(reply) {
 
 export function sanitizeHistoryContent(content) {
   return normalizeSourceAVoice(
-    normalizePublicLinks(content)
+    sanitizePublicText(normalizePublicLinks(content))
       .replace(/\bhighest[- ]confidence\b/gi, "evidence-backed")
       .replace(/\bhighest[- ]confidence public guide\b/gi, "public guide")
       .replace(/\bhighest[- ]confidence public intelligence\b/gi, "public guide")
@@ -197,7 +253,7 @@ export function strangerRecoveryReply() {
 export function sanitizeReply(reply, { message = "", intent = "core" } = {}) {
   const text = cleanKnownPublicAnswer(
     message,
-    addRequiredPublicLinks(message, normalizeSourceAVoice(cleanOpeningHedge(normalizePublicLinks(reply)))),
+    sanitizePublicText(addRequiredPublicLinks(message, normalizeSourceAVoice(cleanOpeningHedge(normalizePublicLinks(reply))))),
   ).trim();
   if (!text) return { ok: false, reason: "empty", text: "" };
 
