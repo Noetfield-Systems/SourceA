@@ -65,7 +65,9 @@ def run_gate(
 
     receipt = {
         "schema": "brain-core-gate-v1",
+        "schema_version": "1.0.0",
         "receipt_type": "BRAIN_CORE_GATE_RESULT",
+        "status": "PASS" if not reasons else "BLOCKED",
         "lifecycle": "PASS" if not reasons else "BLOCKED",
         "created_at": created_at,
         "author_runtime": "brain_core_v1",
@@ -78,6 +80,12 @@ def run_gate(
         "pass_claimed": pass_claimed,
         "gate_result": "PASS" if not reasons else "BLOCK",
         "reasons": reasons,
+        "evidence": {
+            "decision": decision,
+            "sanitized_output": sanitized_output,
+            "live_status": live_status_map,
+            "mapped_status": mapped_status,
+        },
         "input_hash": input_hash,
     }
     receipt["d4_enforcement"] = enforce_d4(receipt)
@@ -85,4 +93,5 @@ def run_gate(
         receipt["reasons"].append("d4_enforcement_blocked")
         receipt["gate_result"] = "BLOCK"
         receipt["lifecycle"] = "BLOCKED"
+        receipt["status"] = "BLOCKED"
     return receipt

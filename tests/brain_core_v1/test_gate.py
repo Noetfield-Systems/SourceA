@@ -5,6 +5,8 @@ from scripts.brain_core_v1.gate import run_gate
 DEFINITIONS = load_locked_definitions()
 RECEIPT_FIELDS = {
     "receipt_type",
+    "schema_version",
+    "status",
     "lifecycle",
     "gate_result",
     "decision",
@@ -13,6 +15,7 @@ RECEIPT_FIELDS = {
     "pass_claimed",
     "reasons",
     "sanitized_output",
+    "evidence",
     "input_hash",
     "created_at",
     "author_runtime",
@@ -29,12 +32,17 @@ def test_live_healthy_pass_allowed_only_if_decision_confident() -> None:
         definitions=DEFINITIONS,
     )
     assert row["gate_result"] == "PASS"
+    assert row["status"] == "PASS"
+    assert row["lifecycle"] == "PASS"
+    assert row["schema_version"] == "1.0.0"
     assert row["receipt_type"] == "BRAIN_CORE_GATE_RESULT"
     assert RECEIPT_FIELDS.issubset(row)
     assert row["author_runtime"] == "brain_core_v1"
     assert row["subject_runtime"] == "public_brain_reply"
     assert row["verifier_runtime"] == "test_suite"
     assert row["d4_enforcement"]["ok"] is True
+    assert row["evidence"]["decision"] == row["decision"]
+    assert row["evidence"]["sanitized_output"] == row["sanitized_output"]
     assert row["decision"]["ladder_gear"] == "confident"
     assert row["decision"]["allowed_claim_id"] == "sourcea_is_live"
     assert row["sanitized_output"]["ok"] is True
@@ -48,6 +56,7 @@ def test_live_unhealthy_blocks() -> None:
         definitions=DEFINITIONS,
     )
     assert row["gate_result"] == "BLOCK"
+    assert row["status"] == "BLOCKED"
     assert row["receipt_type"] == "BRAIN_CORE_GATE_RESULT"
     assert RECEIPT_FIELDS.issubset(row)
     assert row["decision"]["allowed_claim_id"] == "forge_terminal_guaranteed_live_runtime"
