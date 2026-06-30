@@ -1,6 +1,8 @@
 """Deterministic Brain Core v1 gate path."""
 from __future__ import annotations
 
+import hashlib
+import json
 import re
 from typing import Any, Mapping
 
@@ -9,10 +11,16 @@ from scripts.brain_core_v1.live_status_probe import decision_status_map
 from scripts.brain_core_v1.sanitizer import sanitize_model_output
 
 PASS_RE = re.compile(r"\bPASS\b", re.I)
+DEFAULT_CREATED_AT = "1970-01-01T00:00:00Z"
 
 
 def _default_model_output(decision: Mapping[str, Any]) -> str:
     return str(decision.get("fallback_text") or decision.get("approved_claim") or "")
+
+
+def _input_hash(payload: Mapping[str, Any]) -> str:
+    encoded = json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
 
 
 def run_gate(
@@ -21,6 +29,7 @@ def run_gate(
     *,
     live_status: Mapping[str, Any] | None = None,
     definitions: Mapping[str, Any] | None = None,
+    created_at: str = DEFAULT_CREATED_AT,
 ) -> dict[str, Any]:
     """Run probe-result -> mapped-status -> decision -> sanitizer -> gate result.
 
@@ -34,6 +43,16 @@ def run_gate(
     draft = model_output or _default_model_output(decision)
     sanitized_output = sanitize_model_output(decision, draft)
     pass_claimed = bool(PASS_RE.search(model_output or ""))
+    input_hash = _input_hash(
+        {
+            "user_message": user_message,
+            "model_output": model_output,
+            "live_status": live_status_map,
+            "mapped_status": mapped_status,
+            "definitions_status": locked_definitions.get("status"),
+            "founder_decisions_resolved": locked_definitions.get("founder_decisions_resolved"),
+        }
+    )
 
     reasons: list[str] = []
     if decision.get("ladder_gear") != "confident":
@@ -45,6 +64,10 @@ def run_gate(
 
     return {
         "schema": "brain-core-gate-v1",
+        "receipt_type": "BRAIN_CORE_GATE_RESULT",
+        "created_at": created_at,
+        "author_runtime": "brain_core_v1",
+        "verifier_runtime": "test_suite",
         "live_status": live_status_map,
         "mapped_status": mapped_status,
         "decision": decision,
@@ -52,4 +75,5 @@ def run_gate(
         "pass_claimed": pass_claimed,
         "gate_result": "PASS" if not reasons else "BLOCK",
         "reasons": reasons,
+        "input_hash": input_hash,
     }
