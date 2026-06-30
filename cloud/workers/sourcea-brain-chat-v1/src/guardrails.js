@@ -136,6 +136,7 @@ export function sanitizePublicText(value) {
     .replace(/\bALLOW or BLOCK\b/g, "allowed or stopped")
     .replace(/\bPASS\b/g, "passed")
     .replace(/\bALLOW\b/g, "allowed")
+    .replace(/\bAPPROVED\b/g, "available")
     .replace(/\bBLOCK\b/g, "stopped")
     .replace(/\bOpenRouter routing\b/gi, "AI model routing")
     .replace(/\bOpenRouter\b/gi, "AI model layer")
@@ -172,12 +173,21 @@ function sanitizePublicKey(key) {
     .replace(/model_fallback/gi, "ai_model_fallback");
 }
 
-export function sanitizePublicBody(value) {
+function isInternalMetadataKey(key) {
+  return /^(chunk_id|chunk_ids|source_path|source_paths)$/i.test(String(key || ""));
+}
+
+export function sanitizePublicBody(value, key = "") {
+  if (isInternalMetadataKey(key)) {
+    if (Array.isArray(value)) return value.map(() => "public source");
+    if (value) return "public source";
+    return value;
+  }
   if (typeof value === "string") return sanitizePublicText(value);
-  if (Array.isArray(value)) return value.map((item) => sanitizePublicBody(item));
+  if (Array.isArray(value)) return value.map((item) => sanitizePublicBody(item, key));
   if (!value || typeof value !== "object") return value;
   return Object.fromEntries(
-    Object.entries(value).map(([key, row]) => [sanitizePublicKey(key), sanitizePublicBody(row)]),
+    Object.entries(value).map(([childKey, row]) => [sanitizePublicKey(childKey), sanitizePublicBody(row, childKey)]),
   );
 }
 
