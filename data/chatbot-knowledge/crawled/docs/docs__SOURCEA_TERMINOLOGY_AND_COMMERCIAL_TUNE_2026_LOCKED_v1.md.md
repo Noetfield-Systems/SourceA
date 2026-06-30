@@ -1,6 +1,6 @@
 ---
 lane: core
-updated: 2026-06-27T08:46:57Z
+updated: 2026-06-30T08:50:46Z
 source_path: docs/SOURCEA_TERMINOLOGY_AND_COMMERCIAL_TUNE_2026_LOCKED_v1.md
 public: true
 ---
