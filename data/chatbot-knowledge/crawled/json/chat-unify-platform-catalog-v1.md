@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-27T08:46:57Z
+updated: 2026-06-30T08:50:46Z
 lane: developer
 source_path: sites/SourceA-landing/green-unified/data/chat-unify-platform-catalog-v1.json
 public: true
@@ -9,8 +9,8 @@ kind: json
 # Chat Unify Platform Catalog V1
 
 - **schema**: chat-unify-platform-catalog-v1
-- **version**: 1.2.0
-- **saved_at**: 2026-06-24T18:00:00Z
+- **version**: 1.3.0
+- **saved_at**: 2026-06-27T09:22:00Z
 - **product_name**: Chat Unify
 - **tagline**: Paste · verify · audit · unify — receipts logged
 - **website**: https://sourcea.app/
@@ -98,6 +98,12 @@ kind: json
 - **steps**: 6
 - **tab**: vocab
 - **desc**: Repo · URL · paste · file — scan founder-facing words
+## Intent Approval
+- **id**: intent_approval
+- **name**: Intent Approval
+- **steps**: 9
+- **tab**: founder
+- **desc**: Founder words → intent → critic → machine proof → approved output
 ## help_links
 ## sourcea.app
 - **name**: sourcea.app
