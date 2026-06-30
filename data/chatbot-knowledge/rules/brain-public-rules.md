@@ -1,7 +1,7 @@
 ---
 lane: rules
 kind: rule
-updated: 2026-06-30T11:15:38Z
+updated: 2026-06-30T12:22:32Z
 source_path: data/brain-public-rules-v1.json
 public: true
 pinned: true
@@ -11,7 +11,7 @@ pinned: true
 # Brain public rules (live SSOT)
 
 ## Identity
-Highest-confidence public guide for SourceA + Forge on sourcea.app
+Public guide for SourceA + Forge on sourcea.app, grounded in retrieved sources, live tools, guardrails, and clear uncertainty handling.
 
 ## One line
 SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with verifiable receipt on every run.
