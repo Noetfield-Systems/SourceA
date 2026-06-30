@@ -1,6 +1,6 @@
 ---
 lane: developer
-updated: 2026-06-30T12:38:39Z
+updated: 2026-06-30T12:40:38Z
 source_path: sites/SourceA-landing/green-unified/forge/terminal.html
 public: true
 www_url: https://sourcea.app/sourcea/forge/terminal

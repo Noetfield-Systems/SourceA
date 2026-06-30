@@ -1,6 +1,6 @@
 ---
 lane: core
-updated: 2026-06-30T12:38:39Z
+updated: 2026-06-30T12:40:38Z
 source_path: docs/SOURCEA_ORIENTATION_AND_ROUTING_LOCKED_v1.md
 public: true
 ---
