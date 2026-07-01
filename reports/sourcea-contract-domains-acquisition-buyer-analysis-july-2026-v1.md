@@ -52,7 +52,7 @@ External signals as of June–July 2026:
 | `sourcea.ca/ai-value-governance` | **200** | AI Value Governance \| SourceA Canada | `contract@sourcea.ca` | **No** | Yes |
 | `sourcea.uk/enterprise-ai-control-plane` | **200** | Enterprise AI Control Plane \| SourceA UK | `contract@sourcea.uk` | **No** | Yes |
 
-**Infrastructure note:** Regional apex domains resolve and serve content. Contact routing is domain-correct. Prior personal-email leak is remediated on all audited routes.
+**Infrastructure note (updated 2026-07-01T23:35:00Z):** Regional apex domains resolve and serve content. Public contact faces use domain-correct `contract@` addresses on each SKU. **Inbound routing:** Google Workspace admin **`operations@noetfield.com`** — `contract@sourcea.app`, `contract@sourcea.ca`, and `contract@sourcea.uk` are **Workspace aliases** (not personal Gmail). Machine SSOT: `data/sourcea-contract-email-routes-v1.json`. Prior personal-email leak is remediated on all audited routes.
 
 ---
 
