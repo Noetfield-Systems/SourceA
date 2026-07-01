@@ -1,0 +1,26 @@
+{
+  "schema": "investor-planning-proof-bundle-v1",
+  "bundle_id": "investor-planning-proof-bundle-2026-07-01",
+  "created_at": "2026-07-01T10:31:02Z",
+  "plan_id": "555-01",
+  "ok": true,
+  "purpose": "IRAP/SR&ED/angel reproducible enforcement proof — no founder narration",
+  "commands_run": [
+    "bash scripts/validate-demo-enforcement-v1.sh",
+    "bash scripts/validate-demo-enforcement-v1.sh --tamper-test",
+    "bash scripts/validate-demo-write-path-v1.sh",
+    "bash scripts/validate-enforcement-kernel-v1.sh",
+    "python3 scripts/commit_intent_v1.py --demo-enforcement --case allow --json"
+  ],
+  "artifacts": [
+    {"file": "validate-demo-enforcement.log", "sha256": "580d69f284de1ade73f6055bbd6e9c596c7bf849c1b7496dbd0f0dba5b2c7f26", "result": "PASS"},
+    {"file": "validate-demo-enforcement-tamper.log", "sha256": "09e9b96e8aa9b76ca1faa3851324db4454803785640323f32e4275401acfa536", "result": "PASS tamper detected"},
+    {"file": "validate-demo-write-path.log", "sha256": "e17a324652932c11fc9bfc577335e2055576baf50baab7c0fbd69e134e8d7a90", "result": "PASS"},
+    {"file": "validate-enforcement-kernel.log", "sha256": "e117e571ac2c1c1ac03247ef4bfecf5c1e1ddbd36cb7a1e801fc5a65bfd107fd", "result": "PASS"},
+    {"file": "commit-intent-allow.json", "sha256": "7d34cb88cbe78176cf97c78f25c70169c21a03f4caada8dddbf49aef767da959", "result": "ok true"},
+    {"file": "receipt-latest-demo.json", "sha256": "816b8b3537933b2f7c2afb50aab6c4721bf0c109f66929c4dad093ef86e8c2a8", "result": "COMMITTED"}
+  ],
+  "matrix_rows_updated": ["ANG-07"],
+  "parent_inbox": "data/investor-planning-555-inbox-v1.json",
+  "parent_plan": "docs/555_PLANS_NEXT_UPGRADES_INVESTOR_PLANNING_INBOX_LOCKED_v1.md"
+}
