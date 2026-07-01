@@ -42,6 +42,9 @@ SHORT_ALIASES: tuple[tuple[str, str], ...] = (
     ("/sandbox", "/sourcea/sandbox"),
     ("/learn", "/sourcea/learn"),
     ("/pulse-founder", "/sourcea/pulse-founder"),
+    ("/operating-brain-install", "/sourcea/operating-brain-install"),
+    ("/ai-value-governance", "/sourcea/ai-value-governance"),
+    ("/enterprise-ai-control-plane", "/sourcea/enterprise-ai-control-plane"),
 )
 
 # Permanent redirects — retired duplicate URLs (ORD: URL-checkable)
