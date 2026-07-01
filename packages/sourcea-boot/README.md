@@ -1,22 +1,22 @@
 # sourcea-boot
 
-[![validate-sourcea-boot](https://github.com/sourcea-io/sourcea-boot/actions/workflows/validate-sourcea-boot-v1.yml/badge.svg)](https://github.com/sourcea-io/sourcea-boot/actions/workflows/validate-sourcea-boot-v1.yml)
+[![validate-sourcea-boot](https://github.com/kazemnezhadsina144-dot/sourcea-boot/actions/workflows/validate-sourcea-boot-v1.yml/badge.svg)](https://github.com/kazemnezhadsina144-dot/sourcea-boot/actions/workflows/validate-sourcea-boot-v1.yml)
 
 **One command. PASS or BLOCK before your agents run.**
 
 ## Run in 5 minutes
 
 ```bash
-git clone https://github.com/sourcea-io/sourcea-boot.git
+git clone https://github.com/kazemnezhadsina144-dot/sourcea-boot.git
 cd sourcea-boot
 pip install -e .
 sourcea-boot --json
 ```
 
-Or from PyPI:
+PyPI (Phase 0b — coming soon):
 
 ```bash
-pip install sourcea-boot
+# pip install sourcea-boot   # not on PyPI yet — clone + editable install above
 sourcea-boot --json
 ```
 
@@ -65,7 +65,9 @@ Works in any project. Optional config: `.sourcea-boot.json` in project root.
 
 ## Repository
 
-https://github.com/sourcea-io/sourcea-boot
+https://github.com/kazemnezhadsina144-dot/sourcea-boot
+
+> **Org alias pending:** Public site still links `sourcea-io/sourcea-boot` until that GitHub org is provisioned; clone this repo today for eval.
 
 ## License
 

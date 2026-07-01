@@ -21,8 +21,8 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Homepage = "https://sourcea.com"
-Repository = "https://github.com/sourcea-io/sourcea-boot"
+Homepage = "https://sourcea.app/eval"
+Repository = "https://github.com/kazemnezhadsina144-dot/sourcea-boot"
 
 [project.scripts]
 sourcea-boot = "sourcea_boot.cli:main"
