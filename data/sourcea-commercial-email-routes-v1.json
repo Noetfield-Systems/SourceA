@@ -42,5 +42,15 @@
       "scripts": ["prompt_forge_pipeline_v1.py"],
       "pages": "/sourcea/forge/"
     }
-  ]
+  ],
+  "contract_skus": {
+    "admin_inbox": "operations@noetfield.com",
+    "routing": "google_workspace_alias",
+    "ssot": "data/sourcea-contract-email-routes-v1.json",
+    "public_addresses": [
+      "contract@sourcea.app",
+      "contract@sourcea.ca",
+      "contract@sourcea.uk"
+    ]
+  }
 }
