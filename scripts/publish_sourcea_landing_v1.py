@@ -32,7 +32,7 @@ TUNNEL_PID = SINA / "sourcea-landing-tunnel-v1.pid"
 TUNNEL_PORT = int(os.environ.get("SOURCEA_LANDING_TUNNEL_PORT", "8190"))
 DEFAULT_PROJECT = os.environ.get("SOURCEA_PAGES_PROJECT", "source-a")
 PAGES_CUSTOM_DOMAINS: dict[str, tuple[str, ...]] = {
-    "sourcea-com": ("sourcea.app", "www.sourcea.app"),
+    "sourcea-com": ("sourcea.app", "www.sourcea.app", "sourcea.ca", "www.sourcea.ca", "sourcea.uk", "www.sourcea.uk"),
     "sourcea-landing": ("sourcea.com", "www.sourcea.com"),
 }
 CANONICAL_PRODUCTION_BASE: dict[str, str] = {
