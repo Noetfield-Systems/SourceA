@@ -13,3 +13,19 @@ zone_name = "sourcea.app"
 [[routes]]
 pattern = "www.sourcea.app/*"
 zone_name = "sourcea.app"
+
+[[routes]]
+pattern = "sourcea.ca"
+custom_domain = true
+
+[[routes]]
+pattern = "www.sourcea.ca"
+custom_domain = true
+
+[[routes]]
+pattern = "sourcea.uk"
+custom_domain = true
+
+[[routes]]
+pattern = "www.sourcea.uk"
+custom_domain = true
