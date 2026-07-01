@@ -77,7 +77,7 @@ CONTRACT_PAGES = {
 
 def has_boot_wire(body: str, path: str) -> bool:
     if path in CONTRACT_PAGES:
-        return "Book an" in body or "mailto:sina.kazemnezhad@gmail.com" in body
+        return "Book an" in body or "mailto:contract@sourcea.app" in body
     if path.endswith(".json"):
         if "trust-signals" in path:
             return "kazemnezhadsina144-dot/sourcea-boot" in body
