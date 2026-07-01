@@ -1,7 +1,7 @@
 # Real Market Analysis — July 2026
 
-**Saved:** 2026-07-01T10:15:32Z  
-**Version:** 1.0 — LOCKED  
+**Saved:** 2026-07-01T10:20:15Z  
+**Version:** 1.1 — LOCKED  
 **route_id:** `locked_product_spec_doc`  
 **sequence_id:** SA-2026-07-01-REAL-MARKET-ANALYSIS-JULY-2026  
 **Class:** Investor planning · market reality lens — traders, VCs, enterprises, agent systems  
@@ -74,6 +74,20 @@ This document captures that reality for SourceA portfolio planning. It is writte
 ---
 
 ## 3. VC and startups — July 2026 is harder than headlines suggest
+
+### 3.0 Canada-specific VC bar (July 2026)
+
+| Signal | Canada 2026  | Portfolio implication |
+|--------|----------------------|------------------------|
+| Credible seed floor | $25K–$50K MRR or equivalent pilot revenue | W3 CAD $3–7.5K is **minimum** economic signal — not seed-ready alone |
+| Seed deal size | ~$3M average | Target Q4 2026 / Q1 2027 after 2 pilots |
+| Seed valuation | $4M–$7M post (AI/ML technical premium) | TrustField front door · SourceA in DD appendix |
+| US syndicate participation | ~27% (down from prior years) | Longer process · more proof required upfront |
+| Non-AI capital | Below 2020 levels (inflation-adjusted) | **SR&ED + IRAP non-optional** for runway |
+| Angel check | $100K–$300K networks | W1 filmed + W3 deposit + clean entity |
+| "Missing middle" | $500K–$1.5M hardest to fill | Bridge from pilot revenue + grants before seed |
+
+**Canada is not US:** Domestic syndicates are consensus-driven and data-heavy. Arrive with **de-risked proof**, not a vision deck.
 
 ### 3.1 Capital structure
 
@@ -241,7 +255,30 @@ The portfolio already has the receipt layer mechanically. The gap is **packaging
 
 ---
 
-## 10. Cross-reference index
+## 10. Portfolio readiness vs market (disk check 2026-07-01)
+
+| Market asks | Disk status | Next action |
+|-------------|-------------|-------------|
+| Live BLOCK/ALLOW/tamper proof | ✅ Validators PASS | Film W1 (`scripts/demo-enforcement-5min-v1.sh`) |
+| Receipt JSON artifact | ✅ `~/.sina/demo-enforcement/receipts/` | Redact for data room |
+| Paid pilot | ❌ $0 revenue | Close TrustField TF-P1-DP · Ocree approved |
+| Entity clean for DD | ❌ COUNSEL items open | CCPC · IP assignment · bank |
+| Founder institutional layer | ❌ No LinkedIn anchor on disk | `data/avatar-scripts-v1.json` → record |
+| Eval-1b live scoreboard | ⚠️ `eval_packet_v1b_report.json` absent | Structural mode honest — document in ANG-20 |
+| Grant narrative | ✅ IRAP doc + matrix | ITA intake call |
+| Trading lane alignment | ✅ TrustField GO · Noetfield split | Priority A sends — FINTRAC subject lines |
+
+---
+
+## 11. Upgrade changelog (v1.0 → v1.1)
+
+- Added Canada-specific VC  (Capital Canada / MaRS band)
+- Added disk-verified readiness table vs July 2026 market asks
+- Cross-linked full 5-doc investor planning database
+
+---
+
+## 12. Cross-reference index
 
 | Doc | Path |
 |-----|------|
