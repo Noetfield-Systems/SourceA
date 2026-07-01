@@ -26,6 +26,9 @@
 /sandbox  /sourcea/sandbox  302
 /learn  /sourcea/learn  302
 /pulse-founder  /sourcea/pulse-founder  302
+/operating-brain-install  /sourcea/operating-brain-install  302
+/ai-value-governance  /sourcea/ai-value-governance  302
+/enterprise-ai-control-plane  /sourcea/enterprise-ai-control-plane  302
 /forge/*  /sourcea/forge/:splat  302
 /mvp  /start  301
 /mvp/  /start  301
