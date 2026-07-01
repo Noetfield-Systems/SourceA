@@ -68,11 +68,11 @@ def fetch(url: str, *, follow: bool = True) -> dict:
 def has_boot_wire(body: str, path: str) -> bool:
     if path.endswith(".json"):
         if "trust-signals" in path:
-            return "sourcea-io/sourcea-boot" in body
+            return "kazemnezhadsina144-dot/sourcea-boot" in body
         if "boot-proof" in path:
             return "sourcea-boot-proof" in body
         return True
-    patterns = [r"sourcea-boot", r'href="/eval"', r"github.com/sourcea-io/sourcea-boot"]
+    patterns = [r"sourcea-boot", r'href="/eval"', r"github.com/kazemnezhadsina144-dot/sourcea-boot"]
     return any(re.search(p, body, re.I) for p in patterns)
 
 
@@ -88,7 +88,7 @@ def run() -> dict:
         r = fetch(url, follow=False)
         ok = r["status"] == code and dest in r.get("location", "")
         checks.append({"path": f"{src} → {dest}", "url": url, "status": r["status"], "location": r.get("location", ""), "ok": ok})
-    gh = fetch("https://api.github.com/repos/sourcea-io/sourcea-boot")
+    gh = fetch("https://api.github.com/repos/kazemnezhadsina144-dot/sourcea-boot")
     return {
         "ok": all(c["ok"] for c in checks),
         "checked_at": datetime.now(timezone.utc).isoformat(),
