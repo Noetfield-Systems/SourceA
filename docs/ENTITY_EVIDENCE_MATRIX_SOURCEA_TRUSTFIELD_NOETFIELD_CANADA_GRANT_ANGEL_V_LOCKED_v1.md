@@ -137,7 +137,7 @@
 | ANG-06 | W2 — single write path | SourceA | `scripts/commit_intent_v1.py --demo-enforcement` | [x] |
 | ANG-07 | Validator PASS artifact | SourceA | `receipts/investor-planning-proof-bundle-2026-07-01/` — **555-01 DONE** | [x] |
 | ANG-08 | Tamper-FAIL on camera | SourceA | `bash scripts/validate-demo-enforcement-v1.sh --tamper-test` — **PASS verified** | [x] |
-| ANG-09 | Latest receipt JSON (redacted) | SourceA | `~/.sina/demo-enforcement/receipts/latest-demo-receipt.json` — **555-03 packages for DD** | [~] |
+| ANG-09 | Latest receipt JSON (redacted) | SourceA | `investor/data-room-v1/02-Technical/receipt-sample-redacted-v1.json` — **555-03 DONE** | [x] |
 | ANG-10 | 90s demo cut for email | SourceA | Film from W1 — path: _______________ | [ ] |
 
 ### 4C. Commercial proof (W3)
@@ -158,7 +158,7 @@
 | ID | Item | Path | Status |
 |----|------|------|--------|
 | ANG-19 | 3-slide deck | `investor/ENFORCEMENT_3SLIDE_DECK_v1.md` | [x] |
-| ANG-20 | Honest counter appendix | eval_1b_gate_ok false when 402 · dispatch_ready | [~] |
+| ANG-20 | Honest counter appendix | eval absent · dispatch gated · W3 $0 | `investor/data-room-v1/02-Technical/HONEST_COUNTER.md` | [x] |
 | ANG-21 | VC Trust Center v1 | `TRUSTFIELD_VC_TRUST_LEGAL_ANTI_MORTEM_v1.md` Part 5 | [ ] |
 | ANG-22 | Use of funds (12–18 mo) | Spreadsheet v___ | [ ] |
 | ANG-23 | BC EBC pre-approval (if BC angels) | eTCA authorization letter | [ ] |
