@@ -22,5 +22,6 @@ npm install playwright@1.61.0 --silent
 npx playwright install chromium >/dev/null 2>&1 || true
 cp "$ROOT/scripts/validate-sourcea-brain-landing-e2e-v1.mjs" .
 SOURCEA_E2E_BASE="$BASE" node validate-sourcea-brain-landing-e2e-v1.mjs
+bash "$ROOT/scripts/validate-sourcea-contract-pages-e2e-v1.sh"
 bash "$ROOT/scripts/validate-sourcea-modern-stack-e2e-v1.sh"
 echo "validate-sourcea-brain-landing-e2e-v1.sh: ALL PASS"
