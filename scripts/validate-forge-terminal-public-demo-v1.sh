@@ -45,8 +45,10 @@ curl -fsS -X POST "$WORKER_URL" \
   -d '{"action":"status","product":"forge_terminal"}' | python3 -c "
 import json, sys
 row = json.load(sys.stdin)
-assert row.get('openrouter_ready'), row
-print('OK worker status openrouter_ready')
+ready = row.get('ai_model_ready', row.get('openrouter_ready'))
+assert ready, row
+provider = row.get('provider') or ('openrouter' if row.get('openrouter_ready') else 'unknown')
+print(f'OK worker status ai_model_ready provider={provider}')
 " | tee -a "$RECEIPT"
 
 curl -fsS -X POST "$WORKER_URL" \
