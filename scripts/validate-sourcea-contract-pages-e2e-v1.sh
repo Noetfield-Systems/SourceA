@@ -30,6 +30,7 @@ PAGES = [
         "title": "Operating Brain Install",
         "cta": "Book an Operating Brain Audit",
         "subject": "Operating%20Brain%20Audit",
+        "email": "contract@sourcea.app",
         "source": GREEN / "operating-brain-install.html",
     },
     {
@@ -37,6 +38,7 @@ PAGES = [
         "title": "AI Value Governance",
         "cta": "Book an AI Value Governance Sprint",
         "subject": "AI%20Value%20Governance%20Sprint",
+        "email": "contract@sourcea.ca",
         "source": GREEN / "ai-value-governance.html",
     },
     {
@@ -44,6 +46,7 @@ PAGES = [
         "title": "Enterprise AI Control Plane",
         "cta": "Book an Enterprise AI Control Plane Briefing",
         "subject": "Enterprise%20AI%20Control%20Plane%20Briefing",
+        "email": "contract@sourcea.uk",
         "source": GREEN / "enterprise-ai-control-plane.html",
     },
 ]
@@ -54,18 +57,21 @@ REGIONAL = [
         "path": "/ai-value-governance",
         "title": "AI Value Governance",
         "cta": "Book an AI Value Governance Sprint",
+        "email": "contract@sourcea.ca",
     },
     {
         "hosts": ("sourcea.uk", "www.sourcea.uk"),
         "path": "/enterprise-ai-control-plane",
         "title": "Enterprise AI Control Plane",
         "cta": "Book an Enterprise AI Control Plane Briefing",
+        "email": "contract@sourcea.uk",
     },
 ]
 
 ctx = ssl.create_default_context()
 fails = []
 notes = []
+PERSONAL_EMAIL_LEAK = ".".join(("sina", "kazemnezhad")) + "@" + "gmail.com"
 
 
 def fetch_http(url: str, host: str | None = None) -> tuple[int, str]:
@@ -126,6 +132,8 @@ def check_page(label: str, status: int, body: str, title_need: str, cta_need: st
         fails.append(f"{label}: title missing {title_need!r} (got {title!r})")
     if cta_need not in body:
         fails.append(f"{label}: missing CTA {cta_need!r}")
+    if PERSONAL_EMAIL_LEAK in body:
+        fails.append(f"{label}: leaked personal email")
     if mailto and mailto not in body:
         fails.append(f"{label}: missing mailto {mailto}")
     print(f"OK {label} · {title}")
@@ -140,7 +148,7 @@ for row in PAGES:
         body,
         row["title"],
         row["cta"],
-        mailto=f"mailto:sina.kazemnezhad@gmail.com?subject={row['subject']}",
+        mailto=f"mailto:{row['email']}?subject={row['subject']}",
     )
     src = row["source"]
     if not src.is_file():
@@ -153,7 +161,14 @@ for row in REGIONAL:
     path = row["path"]
     try:
         status, body, used_host = fetch_regional(row["hosts"], path)
-        check_page(f"https://{host_primary}{path}", status, body, row["title"], row["cta"])
+        check_page(
+            f"https://{host_primary}{path}",
+            status,
+            body,
+            row["title"],
+            row["cta"],
+            mailto=f"mailto:{row['email']}",
+        )
         if used_host != host_primary:
             notes.append(f"verified via {used_host}; canonical host {host_primary}")
     except Exception as exc:
