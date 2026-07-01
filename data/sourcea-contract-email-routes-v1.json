@@ -1,0 +1,69 @@
+{
+  "schema": "sourcea-contract-email-routes-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-01T23:35:00Z",
+  "authority": "ASF",
+  "human_doc": "reports/sourcea-contract-domains-acquisition-buyer-analysis-july-2026-v1.md",
+  "one_law": "Public contract SKUs show domain-correct contract@ addresses. Inbound delivers via Google Workspace aliases to operations@noetfield.com — not personal Gmail.",
+  "google_workspace_admin": "operations@noetfield.com",
+  "routing_mode": "google_workspace_alias",
+  "forbidden_public_leaks": [
+    "sina.kazemnezhad@gmail.com",
+    "sina.kazemnezhad@icloud.com"
+  ],
+  "contract_routes": [
+    {
+      "id": "operating-brain-install",
+      "path": "/operating-brain-install",
+      "public_address": "contract@sourcea.app",
+      "canonical_host": "sourcea.app",
+      "title": "Operating Brain Install",
+      "cta": "Book an Operating Brain Audit",
+      "mailto_subject": "Operating%20Brain%20Audit",
+      "delivers_to": "operations@noetfield.com"
+    },
+    {
+      "id": "ai-value-governance",
+      "path": "/ai-value-governance",
+      "public_address": "contract@sourcea.ca",
+      "canonical_host": "sourcea.ca",
+      "title": "AI Value Governance",
+      "cta": "Book an AI Value Governance Sprint",
+      "mailto_subject": "AI%20Value%20Governance%20Sprint",
+      "delivers_to": "operations@noetfield.com"
+    },
+    {
+      "id": "enterprise-ai-control-plane",
+      "path": "/enterprise-ai-control-plane",
+      "public_address": "contract@sourcea.uk",
+      "canonical_host": "sourcea.uk",
+      "title": "Enterprise AI Control Plane",
+      "cta": "Book an Enterprise AI Control Plane Briefing",
+      "mailto_subject": "Enterprise%20AI%20Control%20Plane%20Briefing",
+      "delivers_to": "operations@noetfield.com"
+    }
+  ],
+  "regional_mirror_checks": [
+    {
+      "hosts": ["sourcea.ca", "www.sourcea.ca"],
+      "path": "/ai-value-governance",
+      "public_address": "contract@sourcea.ca"
+    },
+    {
+      "hosts": ["sourcea.uk", "www.sourcea.uk"],
+      "path": "/enterprise-ai-control-plane",
+      "public_address": "contract@sourcea.uk"
+    }
+  ],
+  "dns_expectations": {
+    "google_workspace_mx_host": "smtp.google.com",
+    "mx_verified_domains": ["sourcea.app", "noetfield.com"],
+    "web_only_apex_note": "sourcea.ca and sourcea.uk may serve web via Cloudflare while contract@ aliases live in Google Workspace admin — do not treat missing public MX as inbox BLOCKED."
+  },
+  "e2e_script": "scripts/validate-sourcea-contract-pages-e2e-v1.sh",
+  "related_ssot": [
+    "data/sourcea-commercial-email-routes-v1.json",
+    "data/portfolio-account-structure-v1.json",
+    "brain-os/law/SOURCEA_COMMERCIAL_SENDER_LOCKED_v1.md"
+  ]
+}

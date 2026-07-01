@@ -32,8 +32,9 @@
 | **Intake (vault tags · forms)** | contact@sourcea.com | **contact@sourcea.app** |
 | **Proof booking · procurement** | proof@sourcea.com | **proof@sourcea.app** |
 | **Prompt Forge · mission prompts** | — | **forge@sourcea.app** |
+| **Contract SKU intake (public face)** | contract@sourcea.app · contract@sourcea.ca · contract@sourcea.uk | **Alias → operations@noetfield.com** (Google Workspace admin) |
 
-Machine SSOT: `data/sourcea-commercial-email-routes-v1.json` · vault: `data/portfolio-vault-email-tags-v1.json`
+Machine SSOT: `data/sourcea-commercial-email-routes-v1.json` · contract aliases: `data/sourcea-contract-email-routes-v1.json` · vault: `data/portfolio-vault-email-tags-v1.json`
 
 ---
 
