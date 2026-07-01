@@ -37,7 +37,7 @@
 | **T2 Angel** | 6/23 | 🟡 Tech + grant records · no W3 | Film W1 · paid pilot · LinkedIn anchor |
 | **T3 Seed VC** | 0/8 | 🔴 Do not raise | W1+W3 + MRR path |
 | **W1/W2/W3 (ENFORCEMENT)** | W2 ✅ · W1 ⏳ · W3 ⏳ | 🟡 Kernel yes · economic no | Film demo · close TF pilot |
-| **555 inbox** | 2/5 | 🟡 40% done | **queue_head: 555-03** |
+| **555 inbox** | 3/5 | 🟡 60% done | **queue_head: 555-04** |
 
 **Disk proof (run before any investor call):**
 
@@ -345,6 +345,7 @@ October–December 2026
 | `data/investor-planning-555-inbox-v1.json` | Machine inbox · queue_head |
 | `receipts/investor-planning-proof-bundle-2026-07-01/` | 555-01 proof bundle (DONE) |
 | `receipts/sred-experiment-log-2026/` | 555-02 SR&ED experiment log (DONE) |
+| `investor/data-room-v1/` | 555-03 angel data room (02-Technical DONE) |
 
 ---
 

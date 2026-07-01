@@ -1,7 +1,7 @@
 # 555 Plans — Immediate Next Upgrades (Investor Planning Inbox)
 
-**Saved:** 2026-07-01T10:33:29Z  
-**Version:** 1.2 — LOCKED  
+**Saved:** 2026-07-01T10:36:38Z  
+**Version:** 1.3 — LOCKED  
 **route_id:** `locked_product_spec_doc`  
 **sequence_id:** SA-2026-07-01-555-PLANS-INVESTOR-INBOX  
 **Parent database:** `docs/CANADA_ICP_GRANT_VC_EVIDENCE_Q3_2026_INVESTOR_PLANNING_DATABASE_LOCKED_v1.md` (v1.1)  
@@ -28,8 +28,8 @@
 |----|-------|----------|-------|--------|
 | **555-01** | IRAP/SR&ED investor proof bundle on disk | ANG-07 · SRED-04/05 · IRAP §15 | Worker | **DONE** — see receipt |
 | **555-02** | SR&ED experiment log + hypothesis register (dated) | SRED-04 · SRED-05 · grant narrative | Worker | **DONE** — see receipt |
-| **555-03** | Redacted receipt JSON + data-room `02 Technical/` folder | ANG-09 · angel DD | Worker | **queue head** |
-| **555-04** | W1 demo transcript + filmed-run checklist | ANG-05 · ANG-10 · W1 | Founder+Worker | pending |
+| **555-03** | Redacted receipt JSON + data-room `02 Technical/` folder | ANG-09 · angel DD | Worker | **DONE** — see receipt |
+| **555-04** | W1 demo transcript + filmed-run checklist | ANG-05 · ANG-10 · W1 | Founder+Worker | **queue head** |
 | **555-05** | Ocree send pack — champion fields + locked email attach list | ANG-18 · W3 · TRD-03 | Commercial | pending |
 
 ---
@@ -103,6 +103,29 @@ grep -q 'EXP-003' receipts/sred-experiment-log-2026/EXPERIMENT_LOG.md
 4. Update matrix ANG-09 packaging → `[x]`
 
 **Acceptance:** Folder contains redacted JSON + validator log copies + one-line honest counter.
+
+---
+
+## 555-03 — Data room technical folder (EXECUTED)
+
+**Proof path:** `investor/data-room-v1/02-Technical/`
+
+| Artifact | Purpose |
+|----------|---------|
+| `receipt-sample-redacted-v1.json` | ALLOW receipt · home path redacted |
+| `PROOF_COMMANDS.md` | Reproduce validators without founder |
+| `HONEST_COUNTER.md` | eval absent · W3 $0 · W2 PASS |
+| `validator-summary-v1.md` | PASS lines from 555-01 |
+| `../MANIFEST.json` | Data room index |
+
+**Matrix updates:** ANG-09 → `[x]` · ANG-20 honest counter → `[x]`
+
+**Verify:**
+```bash
+test -f investor/data-room-v1/MANIFEST.json
+test -f investor/data-room-v1/02-Technical/receipt-sample-redacted-v1.json
+grep -q REDACTED investor/data-room-v1/02-Technical/receipt-sample-redacted-v1.json
+```
 
 ---
 
