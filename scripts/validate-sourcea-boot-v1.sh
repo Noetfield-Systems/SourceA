@@ -7,7 +7,7 @@ cd "$ROOT"
 fail() { echo "FAIL: validate-sourcea-boot-v1 — $*" >&2; exit 1; }
 
 PKG="$ROOT/packages/sourcea-boot"
-LAW="$ROOT/SOURCEA_CHAIN_TOOLS_PUBLISH_LOCKED_v1.md"
+LAW="$ROOT/brain-os/law/SOURCEA_CHAIN_TOOLS_PUBLISH_LOCKED_v1.md"
 CRITIC="$ROOT/scripts/critic_boot_v1.py"
 
 [[ -d "$PKG/src/sourcea_boot" ]] || fail "missing package $PKG"
@@ -16,7 +16,7 @@ CRITIC="$ROOT/scripts/critic_boot_v1.py"
 
 python3 - <<'PY' || fail "chain tools law contract"
 from pathlib import Path
-text = Path("SOURCEA_CHAIN_TOOLS_PUBLISH_LOCKED_v1.md").read_text(encoding="utf-8")
+text = Path("brain-os/law/SOURCEA_CHAIN_TOOLS_PUBLISH_LOCKED_v1.md").read_text(encoding="utf-8")
 for needle in ("sourcea-boot", "Graphify", "BOOT_REPORT.json", "pip install sourcea-boot", "hello@sourcea.app"):
     if needle not in text:
         raise SystemExit(f"missing {needle}")
