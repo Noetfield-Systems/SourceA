@@ -291,6 +291,8 @@ October–December 2026
 
 | Path | Role |
 |------|------|
+| `docs/REAL_MARKET_ANALYSIS_JULY_2026_ENGLISH_INVESTOR_PLANNING_LOCKED_v1.md` | Full July 2026 market reality analysis (English) |
+| `docs/TRADING_LANE_TRUSTFIELD_NOETFIELD_BOUNDED_AUTONOMY_MARKET_ALIGNMENT_ANAL_LOCKED_v1.md` | Trading lane wedge alignment deep dive |
 | `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` | W1/W2/W3 win condition |
 | `investor/TRUSTFIELD_VC_TRUST_LEGAL_ANTI_MORTEM_v1.md` | VC trust center · pre-mortem |
 | `investor/AGENTIC_INFRA_FUNDRAISE_PORTFOLIO_STRATEGY_v1.md` | Fundraise sequencing |
