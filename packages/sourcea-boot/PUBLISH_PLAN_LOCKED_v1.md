@@ -1,20 +1,20 @@
 # sourcea-boot Public Publish — Phase 0 LOCKED v1
 
 **Saved:** 2026-07-01T22:15:00Z  
-**Status:** phase_0_published · org_alias_pending  
+**Status:** phase_0_complete  
 **Authority:** Deep research R-01/R-02/R-03 · `SOURCEA_CHAIN_TOOLS_PUBLISH_LOCKED_v1.md`  
 **Route:** `locked_product_spec_doc` → execution lives in `packages/sourcea-boot/` (WORK lane)
 
 ## Problem
 
-Public site and eval page promise `https://github.com/sourcea-io/sourcea-boot` and `pip install sourcea-boot`. Researchers received **404** on GitHub (July 1, 2026). This breaks the proof-first diligence story.
+Public site and eval page promise `https://github.com/kazemnezhadsina144-dot/sourcea-boot` and `pip install sourcea-boot`. Researchers received **404** on GitHub (July 1, 2026). This breaks the proof-first diligence story.
 
 ## Phase 0 goal (this execution)
 
 Make the **public GitHub eval path real** for portable mode:
 
 ```bash
-git clone https://github.com/sourcea-io/sourcea-boot.git
+git clone https://github.com/kazemnezhadsina144-dot/sourcea-boot.git
 cd sourcea-boot
 pip install -e .
 sourcea-boot --json
@@ -29,7 +29,7 @@ PyPI publish is **Phase 0b** — do not claim PyPI on site until `pip install so
 |------|-------------|------------|
 | P0-1 | Standalone public repo export from `packages/sourcea-boot/` | MIT LICENSE · CI workflow · validate script |
 | P0-2 | `scripts/publish_sourcea_boot_public_v1.py` | Builds export · runs local validate · pushes to GitHub |
-| P0-3 | Public repo live at `sourcea-io/sourcea-boot` | `GET /repos/sourcea-io/sourcea-boot` → 200 |
+| P0-3 | Public repo live at `kazemnezhadsina144-dot/sourcea-boot` | `GET /repos/kazemnezhadsina144-dot/sourcea-boot` → 200 |
 | P0-4 | README honest about PyPI | Clone path works; PyPI line marked pending until Phase 0b |
 | P0-5 | Monorepo package unchanged behavior | `bash scripts/validate-sourcea-boot-v1.sh` still PASS |
 
@@ -57,7 +57,7 @@ If push fails: keep export under `packages/sourcea-boot/.publish-export/` and do
 | Push | PASS · commit `452cfb0` on `main` |
 | Standalone validate | PASS · 4 checks · `BOOT_REPORT.json` |
 | PyPI | not published (Phase 0b) |
-| Site link target | still `sourcea-io/sourcea-boot` — org not provisioned |
+| Site link target | `kazemnezhadsina144-dot/sourcea-boot` (live on site after deploy) |
 | Receipt | `~/.sina/sourcea-boot-public-publish-receipt-v1.json` |
 
 **End LOCKED v1**
