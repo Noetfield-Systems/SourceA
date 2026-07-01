@@ -1,0 +1,19 @@
+{
+  "schema": "w1-demo-transcript-v1",
+  "log_id": "w1-demo-transcript-2026",
+  "created_at": "2026-07-01T10:42:00Z",
+  "plan_id": "555-04",
+  "ok": true,
+  "command": "bash scripts/demo-enforcement-5min-v1.sh",
+  "exit_code": 0,
+  "beats_verified": ["BLOCK", "ALLOW", "TAMPER_FAIL", "VALIDATOR_PASS"],
+  "spine_event_id": "GEV-94f868433dd9",
+  "receipt_checksum": "d1f768963f301ca3",
+  "film_checklist": "investor/W1_FILM_CHECKLIST_LOCKED_v1.md",
+  "speaker_script_ref": "investor/ENFORCEMENT_DEMO_5MIN.md",
+  "parent_inbox": "data/investor-planning-555-inbox-v1.json",
+  "artifacts": [
+    "W1_DEMO_TRANSCRIPT.txt"
+  ],
+  "video_pending": "investor/media/W1_ENFORCEMENT_DEMO_5MIN.mp4"
+}

@@ -1,0 +1,36 @@
+==============================================
+ ENFORCEMENT-6MO — 5-MIN INVESTOR DEMO
+ If AI executes without governance, it fails.
+==============================================
+
+[0:30] BEAT 1 — Copilot policy change without approval → BLOCKED (P-001)
+  outcome: BLOCKED
+  reason: high-risk enable requires approval_ref
+  → Rule P-001 DENY. No DONE receipt on spine.
+
+[1:30] BEAT 2 — Valid Copilot change + approval_ref → receipt + spine
+  outcome: COMMITTED
+  status: DONE
+  policy_id: COPILOT-ALLOW-READONLY
+  spine_event_id: GEV-94f868433dd9
+  checksum: d1f768963f301ca3
+
+[2:30] BEAT 3 — Attacker tampers receipt → validator FAILS
+OK: copilot receipt + spine + P-001
+OK: tamper detected
+OK: validate-demo-enforcement-v1 · Copilot BLOCK/ALLOW · receipt · spine
+
+[4:00] BEAT 4 — Kill switch (FREEZE) on disk
+  (FREEZE flag not set — optional beat)
+OK: copilot receipt + spine + P-001
+OK: validate-demo-enforcement-v1 · Copilot BLOCK/ALLOW · receipt · spine
+
+==============================================
+ DEMO COMPLETE — W1 proof path
+ Next: W3 economic signal (pilot / LOI)
+==============================================
+
+Captured: 2026-07-01T10:42:00Z
+Command: bash scripts/demo-enforcement-5min-v1.sh
+Plan: 555-04
+Exit: 0
