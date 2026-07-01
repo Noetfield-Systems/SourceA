@@ -1,7 +1,7 @@
 # Canada Entity Evidence Matrix — SourceA · TrustField · Noetfield · FORGE
 
-**Saved:** 2026-07-01T10:02:57Z  
-**Version:** 1.0 — LOCKED  
+**Saved:** 2026-07-01T10:20:15Z  
+**Version:** 1.1 — LOCKED  
 **route_id:** `locked_product_spec_doc`  
 **sequence_id:** SA-2026-07-01-CANADA-ENTITY-EVIDENCE-MATRIX  
 **Parent:** `docs/CANADA_ICP_GRANT_VC_EVIDENCE_Q3_2026_INVESTOR_PLANNING_DATABASE_LOCKED_v1.md`  
@@ -9,8 +9,24 @@
 
 **Status legend:** `[ ]` Not started · `[~]` In progress · `[x]` Done · `[—]` N/A for entity · `[!]` Blocker
 
-**Last reviewed:** _______________  
-**Reviewer:** _______________
+**Last reviewed:** 2026-07-01  
+**Reviewer:** cursor-agent (disk audit)
+
+---
+
+## Readiness rollup (auto from status columns)
+
+| Tier | Done | In progress | Not started | Score |
+|------|------|-------------|-------------|-------|
+| T0 Legal | 1 | 2 | 7 | **10%** |
+| SRED | 2 | 4 | 6 | **17%** |
+| IRAP | 2 | 0 | 8 | **20%** |
+| ANG | 3 | 3 | 17 | **13%** |
+| SEED | 0 | 0 | 8 | **0%** |
+
+**Critical path (blocks all funding):** T0-01..04 (entity + IP) · ANG-05 (film W1) · ANG-11 (W3 pilot)
+
+**Disk-verified PASS (2026-07-01):** SRED-02, SRED-03 · ANG-06, ANG-08 · validators + receipts logged
 
 ---
 
@@ -65,11 +81,11 @@
 |----|---------------|--------|----------------------------|--------|
 | SRED-01 | Architecture diagram (enforcement loop) | SourceA | `brain-os/system/SOURCEA_FULL_LAYERED_CONTROL_PLAN_LOCKED_v1.md` + export diagram | [ ] |
 | SRED-02 | Source code — commit gate | SourceA | `scripts/commit_intent_v1.py` | [x] |
-| SRED-03 | Source code — demo enforcement | SourceA | `scripts/validate-demo-enforcement-v1.sh` · `scripts/demo-enforcement-5min-v1.sh` | [x] |
+| SRED-03 | Source code — demo enforcement | SourceA | `scripts/validate-demo-enforcement-v1.sh` · `scripts/demo-enforcement-5min-v1.sh` · `scripts/validate-enforcement-kernel-v1.sh` | [x] |
 | SRED-04 | Experiment log (dated) | SourceA | Create: `receipts/sred-experiment-log-2026/` (manifest-first) | [ ] |
 | SRED-05 | Hypothesis register | SourceA | Link to R&D-01..05 table above — dated entries | [ ] |
 | SRED-06 | Git commit history mapped to project IDs | SourceA | `git log --oneline scripts/commit_intent_v1.py scripts/validate-demo-enforcement-v1.sh` | [~] |
-| SRED-07 | Eval-1b reports | SourceA | `eval_packet_v1b_report.json` (when credits available) | [~] |
+| SRED-07 | Eval-1b reports | SourceA | `eval_packet_v1b_report.json` — **absent logged 2026-07-01**; use structural mode + honest counter | [!] |
 | SRED-08 | Timesheets (% R&D allocation) | All R&D entities | Payroll / timesheet export — _____% SourceA R&D | [ ] |
 | SRED-09 | Meeting minutes (R&D decisions) | SourceA | Dated LOCKED docs in `brain-os/law/` | [~] |
 | SRED-10 | Form T661 technical narrative draft | SourceA | Derive from `docs/IRAP_TECHNICAL_NARRATIVE_ENFORCEMENT_KERNEL_UNCERTAINTY_DRAFT_LOCKED_v1.md` | [~] |
@@ -118,9 +134,9 @@
 |----|------|--------|---------------------|--------|
 | ANG-05 | W1 — 5-min demo filmed | SourceA | `scripts/demo-enforcement-5min-v1.sh` · `investor/ENFORCEMENT_DEMO_5MIN.md` | [ ] |
 | ANG-06 | W2 — single write path | SourceA | `scripts/commit_intent_v1.py --demo-enforcement` | [x] |
-| ANG-07 | Validator PASS artifact | SourceA | `bash scripts/validate-demo-enforcement-v1.sh` stdout saved | [ ] |
-| ANG-08 | Tamper-FAIL on camera | SourceA | `bash scripts/validate-demo-enforcement-v1.sh --tamper-test` | [x] |
-| ANG-09 | Latest receipt JSON (redacted) | SourceA | `~/.sina/demo-enforcement/receipts/latest-demo-receipt.json` | [~] |
+| ANG-07 | Validator PASS artifact | SourceA | `bash scripts/validate-demo-enforcement-v1.sh 2>&1 | tee receipts/investor-validator-pass-2026-07-01.log` | [~] |
+| ANG-08 | Tamper-FAIL on camera | SourceA | `bash scripts/validate-demo-enforcement-v1.sh --tamper-test` — **PASS verified** | [x] |
+| ANG-09 | Latest receipt JSON (redacted) | SourceA | `~/.sina/demo-enforcement/receipts/latest-demo-receipt.json` — **exists** | [x] |
 | ANG-10 | 90s demo cut for email | SourceA | Film from W1 — path: _______________ | [ ] |
 
 ### 4C. Commercial proof (W3)
@@ -134,7 +150,7 @@
 | ANG-15 | Signed SOW + invoice | TrustField | Invoice from TrustField bank only | [ ] |
 | ANG-16 | Bank deposit proof | TrustField | Redacted statement in data room | [ ] |
 | ANG-17 | CRM log (pipeline truth) | TrustField | No verbal "great meetings" — export dated | [ ] |
-| ANG-18 | Priority A send log | TrustField | Ocree / Tetra / etc. — reaction logged: _______________ | [~] |
+| ANG-18 | Priority A send log | TrustField | Ocree **APPROVED** · Fundmore **APPROVED** (NF-RD) — champion pending per `SOURCEA_ECOSYSTEM_FAST_BUSINESS_MODEL_LOCKED_v2.md` | [~] |
 
 ### 4D. Angel deck + data room
 
@@ -172,6 +188,8 @@
 | Investor win condition | `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` |
 | Commit gate | `scripts/commit_intent_v1.py` |
 | Demo validator | `scripts/validate-demo-enforcement-v1.sh` |
+| W2 write-path validator | `scripts/validate-demo-write-path-v1.sh` |
+| Kernel validator | `scripts/validate-enforcement-kernel-v1.sh` |
 | 5-min demo script | `investor/ENFORCEMENT_DEMO_5MIN.md` · `scripts/demo-enforcement-5min-v1.sh` |
 | Receipts (runtime) | `~/.sina/demo-enforcement/receipts/` |
 | Fundraise strategy | `investor/AGENTIC_INFRA_FUNDRAISE_PORTFOLIO_STRATEGY_v1.md` |
@@ -250,20 +268,38 @@ If no → item is not done.
 ```bash
 bash scripts/validate-demo-enforcement-v1.sh
 bash scripts/validate-demo-enforcement-v1.sh --tamper-test
+bash scripts/validate-demo-write-path-v1.sh
+bash scripts/validate-enforcement-kernel-v1.sh
 python3 scripts/commit_intent_v1.py --demo-enforcement --case allow --json
 ```
 
 ---
 
-## 9. Cross-reference index
+## 9. Trading lane evidence rows (from alignment analysis)
+
+| ID | Item | Entity | Status | Notes |
+|----|------|--------|--------|-------|
+| TRD-01 | TrustField = evidence layer positioning frozen | TrustField | [x] | Not trading bot |
+| TRD-02 | Noetfield split from crypto outbound | Noetfield | [x] | Routing law in repository |
+| TRD-03 | Priority A Ocree send | TrustField | [~] | Approved · champion pending |
+| TRD-04 | FINTRAC demo script filmed | TrustField | [ ] | 15-min live demo |
+| TRD-05 | Prop trader lane explicitly declined | All | [x] | AKIVA owns open-source |
+
+---
+
+## 10. Cross-reference index (full database — 5 docs)
 
 | Doc | Path |
 |-----|------|
 | Parent database | `docs/CANADA_ICP_GRANT_VC_EVIDENCE_Q3_2026_INVESTOR_PLANNING_DATABASE_LOCKED_v1.md` |
+| Real market analysis | `docs/REAL_MARKET_ANALYSIS_JULY_2026_ENGLISH_INVESTOR_PLANNING_LOCKED_v1.md` |
+| Trading lane analysis | `docs/TRADING_LANE_TRUSTFIELD_NOETFIELD_BOUNDED_AUTONOMY_MARKET_ALIGNMENT_ANAL_LOCKED_v1.md` |
 | IRAP narrative | `docs/IRAP_TECHNICAL_NARRATIVE_ENFORCEMENT_KERNEL_UNCERTAINTY_DRAFT_LOCKED_v1.md` |
 | Enforcement 6MO | `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` |
 | VC anti-mortem | `investor/TRUSTFIELD_VC_TRUST_LEGAL_ANTI_MORTEM_v1.md` |
 
 ---
 
-*Locked fill-in-the-blank matrix. Update status columns logged weekly; bump `Saved:` UTC on structural edits.*
+*Locked fill-in-the-blank matrix v1.1. Update status columns weekly; bump `Saved:` UTC on structural edits.*
+
+**Upgrade v1.1:** Readiness rollup · disk-verified statuses · trading lane rows · full 5-doc index · eval_packet absent flagged.
