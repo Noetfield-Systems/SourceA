@@ -34,7 +34,7 @@
     {
       agent: "Prove agent · demo prep",
       prompt:
-        "Discovery call in 8 minutes. Run sourcea-boot --json and attach verdict before screen-share?",
+        "Run sourcea-boot --json first — attach BOOT_REPORT.json if you want optional human walkthrough?",
       correct: "ALLOW",
       feedback: {
         ALLOW: "Yes. Real boot checks beat slide theater. Buyers nod at PASS/BLOCK logged.",
