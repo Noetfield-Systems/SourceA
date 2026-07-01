@@ -24,6 +24,7 @@
 | 3 | **IRAP narrative** | ITA one-pager + SR&ED uncertainty spine | NRC intake 1-877-994-4727 |
 | 4 | **Real market analysis** | July 2026 market reality — traders, VC, enterprise | Strategy · brainstorm |
 | 5 | **Trading lane analysis** | TrustField/Noetfield vs bounded-autonomy market | Wedge · outbound routing |
+| 6 | **555 upgrade inbox** | Immediate next 5 plans + execution queue | Worker RUN · one plan/turn |
 
 ---
 
@@ -339,6 +340,9 @@ October–December 2026
 | `os/commercial/CANADA_PRIORITY_A_SEND_READY_EMAILS_LOCKED_v1.md` | Priority A outreach |
 | `investor/ENFORCEMENT_3SLIDE_DECK_v1.md` | Angel first meeting |
 | `docs/research-vault/GOLDEN_REPORT_SOURCEA_SITE_POSITIONING_v1.md` | Positioning SSOT |
+| `docs/555_PLANS_NEXT_UPGRADES_INVESTOR_PLANNING_INBOX_LOCKED_v1.md` | 555 immediate upgrade queue |
+| `data/investor-planning-555-inbox-v1.json` | Machine inbox · queue_head |
+| `receipts/investor-planning-proof-bundle-2026-07-01/` | 555-01 proof bundle (DONE) |
 
 ---
 
