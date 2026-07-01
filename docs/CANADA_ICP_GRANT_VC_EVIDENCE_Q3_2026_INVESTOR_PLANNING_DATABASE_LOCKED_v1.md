@@ -1,7 +1,7 @@
 # Canada ICP — Grant & Angel/VC Evidence Requirements (Q3 2026)
 
-**Saved:** 2026-07-01T10:33:29Z  
-**Version:** 1.2 — LOCKED  
+**Saved:** 2026-07-01T10:42:00Z  
+**Version:** 1.3 — LOCKED  
 **route_id:** `locked_product_spec_doc`  
 **sequence_id:** SA-2026-07-01-CANADA-ICP-GRANT-VC-EVIDENCE-DB  
 **Class:** Investor planning database — market reality + evidence SSOT for grants, angels, seed VC  
@@ -34,10 +34,10 @@
 |------|-------|--------|---------|
 | **T0 Legal/entity** | 1/10 | 🔴 Not fundable | CCPC · IP assignment · bank — COUNSEL |
 | **T1 Grants (SR&ED/IRAP)** | 4/12 | 🟡 Experiment log on disk · ITA call pending | SR&ED 33% · 1-877-994-4727 |
-| **T2 Angel** | 6/23 | 🟡 Tech + grant records · no W3 | Film W1 · paid pilot · LinkedIn anchor |
+| **T2 Angel** | 6/23 | 🟡 Transcript+checklist · video pending · no W3 | Record W1 MP4 · paid pilot · LinkedIn anchor |
 | **T3 Seed VC** | 0/8 | 🔴 Do not raise | W1+W3 + MRR path |
-| **W1/W2/W3 (ENFORCEMENT)** | W2 ✅ · W1 ⏳ · W3 ⏳ | 🟡 Kernel yes · economic no | Film demo · close TF pilot |
-| **555 inbox** | 3/5 | 🟡 60% done | **queue_head: 555-04** |
+| **W1/W2/W3 (ENFORCEMENT)** | W2 ✅ · W1 🟡 · W3 ⏳ | 🟡 Transcript PASS · film one take | Record MP4 · close TF pilot |
+| **555 inbox** | 4/5 | 🟡 80% done | **queue_head: 555-05** |
 
 **Disk proof (run before any investor call):**
 
@@ -346,9 +346,11 @@ October–December 2026
 | `receipts/investor-planning-proof-bundle-2026-07-01/` | 555-01 proof bundle (DONE) |
 | `receipts/sred-experiment-log-2026/` | 555-02 SR&ED experiment log (DONE) |
 | `investor/data-room-v1/` | 555-03 angel data room (02-Technical DONE) |
+| `receipts/w1-demo-transcript-2026/` | 555-04 W1 demo transcript (DONE) |
+| `investor/W1_FILM_CHECKLIST_LOCKED_v1.md` | 555-04 film one-take + 90s cut markers |
 
 ---
 
-*Locked for investor planning database v1.1. Bump `Saved:` UTC on material edits.*
+*Locked for investor planning database v1.3. Bump `Saved:` UTC on material edits.*
 
-**Upgrade v1.2:** 555 inbox wired · 555-01/02 executed · SR&ED log on disk · queue_head 555-03.
+**Upgrade v1.3:** 555-04 executed · W1 transcript on disk · film checklist locked · queue_head 555-05.

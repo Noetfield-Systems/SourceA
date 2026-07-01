@@ -1,13 +1,13 @@
 {
   "schema": "investor-planning-555-inbox-v1",
-  "version": "1.3.0",
-  "saved_at": "2026-07-01T10:36:38Z",
+  "version": "1.4.0",
+  "saved_at": "2026-07-01T10:42:00Z",
   "parent_doc": "docs/555_PLANS_NEXT_UPGRADES_INVESTOR_PLANNING_INBOX_LOCKED_v1.md",
   "database_doc": "docs/CANADA_ICP_GRANT_VC_EVIDENCE_Q3_2026_INVESTOR_PLANNING_DATABASE_LOCKED_v1.md",
-  "queue_head": "555-04",
+  "queue_head": "555-05",
   "one_law": "Execute queue_head only · proof path required to mark done",
-  "completed_count": 3,
-  "pending_count": 2,
+  "completed_count": 4,
+  "pending_count": 1,
   "plans": [
     {
       "id": "555-01",
@@ -39,8 +39,9 @@
     {
       "id": "555-04",
       "title": "W1 demo transcript + film checklist",
-      "status": "pending",
-      "receipt_path": null,
+      "status": "done",
+      "done_at": "2026-07-01T10:42:00Z",
+      "receipt_path": "receipts/w1-demo-transcript-2026/",
       "matrix_rows": ["ANG-05", "ANG-10"],
       "owner": "founder+worker"
     },

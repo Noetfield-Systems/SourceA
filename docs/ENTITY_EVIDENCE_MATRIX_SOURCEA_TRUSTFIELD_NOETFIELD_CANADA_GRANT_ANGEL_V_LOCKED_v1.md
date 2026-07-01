@@ -1,7 +1,7 @@
 # Canada Entity Evidence Matrix — SourceA · TrustField · Noetfield · FORGE
 
-**Saved:** 2026-07-01T10:33:29Z  
-**Version:** 1.2 — LOCKED  
+**Saved:** 2026-07-01T10:42:00Z  
+**Version:** 1.3 — LOCKED  
 **route_id:** `locked_product_spec_doc`  
 **sequence_id:** SA-2026-07-01-CANADA-ENTITY-EVIDENCE-MATRIX  
 **Parent:** `docs/CANADA_ICP_GRANT_VC_EVIDENCE_Q3_2026_INVESTOR_PLANNING_DATABASE_LOCKED_v1.md`  
@@ -9,25 +9,25 @@
 
 **Status legend:** `[ ]` Not started · `[~]` In progress · `[x]` Done · `[—]` N/A for entity · `[!]` Blocker
 
-**Last reviewed:** 2026-07-01T10:33:29Z  
-**Reviewer:** cursor-agent (555-02 execution)
+**Last reviewed:** 2026-07-01T10:42:00Z  
+**Reviewer:** cursor-agent (555-04 execution)
 
 ---
 
-## Readiness rollup (updated after 555-02)
+## Readiness rollup (updated after 555-04)
 
 | Tier | Done | In progress | Not started | Score |
 |------|------|-------------|-------------|-------|
 | T0 Legal | 1 | 2 | 7 | **10%** |
 | SRED | 4 | 3 | 5 | **33%** |
 | IRAP | 2 | 0 | 8 | **20%** |
-| ANG | 4 | 2 | 17 | **17%** |
+| ANG | 4 | 4 | 15 | **22%** |
 | SEED | 0 | 0 | 8 | **0%** |
-| **555 inbox** | 2 | 0 | 3 | **40%** |
+| **555 inbox** | 4 | 0 | 1 | **80%** |
 
-**Critical path (blocks all funding):** T0-01..04 (entity + IP) · ANG-05 (film W1) · ANG-11 (W3 pilot)
+**Critical path (blocks all funding):** T0-01..04 (entity + IP) · ANG-05 (film W1 — transcript+checklist done; video pending) · ANG-11 (W3 pilot)
 
-**Disk-verified PASS (2026-07-01):** SRED-02..05 · ANG-06..09 · 555-01 bundle · 555-02 experiment log
+**Disk-verified PASS (2026-07-01):** SRED-02..05 · ANG-06..09 · 555-01 bundle · 555-02 experiment log · 555-04 W1 transcript
 
 ---
 
@@ -133,12 +133,12 @@
 
 | ID | Item | Entity | Disk path / command | Status |
 |----|------|--------|---------------------|--------|
-| ANG-05 | W1 — 5-min demo filmed | SourceA | `scripts/demo-enforcement-5min-v1.sh` · `investor/ENFORCEMENT_DEMO_5MIN.md` | [ ] |
+| ANG-05 | W1 — 5-min demo filmed | SourceA | `receipts/w1-demo-transcript-2026/` · `investor/W1_FILM_CHECKLIST_LOCKED_v1.md` · video: `investor/media/W1_ENFORCEMENT_DEMO_5MIN.mp4` | [~] |
 | ANG-06 | W2 — single write path | SourceA | `scripts/commit_intent_v1.py --demo-enforcement` | [x] |
 | ANG-07 | Validator PASS artifact | SourceA | `receipts/investor-planning-proof-bundle-2026-07-01/` — **555-01 DONE** | [x] |
 | ANG-08 | Tamper-FAIL on camera | SourceA | `bash scripts/validate-demo-enforcement-v1.sh --tamper-test` — **PASS verified** | [x] |
 | ANG-09 | Latest receipt JSON (redacted) | SourceA | `investor/data-room-v1/02-Technical/receipt-sample-redacted-v1.json` — **555-03 DONE** | [x] |
-| ANG-10 | 90s demo cut for email | SourceA | Film from W1 — path: _______________ | [ ] |
+| ANG-10 | 90s demo cut for email | SourceA | Cut markers in `investor/W1_FILM_CHECKLIST_LOCKED_v1.md` §90s · output: `investor/media/W1_ENFORCEMENT_DEMO_90S.mp4` | [~] |
 
 ### 4C. Commercial proof (W3)
 

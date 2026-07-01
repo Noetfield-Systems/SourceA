@@ -1,7 +1,7 @@
 # 555 Plans — Immediate Next Upgrades (Investor Planning Inbox)
 
-**Saved:** 2026-07-01T10:36:38Z  
-**Version:** 1.3 — LOCKED  
+**Saved:** 2026-07-01T10:42:00Z  
+**Version:** 1.4 — LOCKED  
 **route_id:** `locked_product_spec_doc`  
 **sequence_id:** SA-2026-07-01-555-PLANS-INVESTOR-INBOX  
 **Parent database:** `docs/CANADA_ICP_GRANT_VC_EVIDENCE_Q3_2026_INVESTOR_PLANNING_DATABASE_LOCKED_v1.md` (v1.1)  
@@ -29,8 +29,8 @@
 | **555-01** | IRAP/SR&ED investor proof bundle on disk | ANG-07 · SRED-04/05 · IRAP §15 | Worker | **DONE** — see receipt |
 | **555-02** | SR&ED experiment log + hypothesis register (dated) | SRED-04 · SRED-05 · grant narrative | Worker | **DONE** — see receipt |
 | **555-03** | Redacted receipt JSON + data-room `02 Technical/` folder | ANG-09 · angel DD | Worker | **DONE** — see receipt |
-| **555-04** | W1 demo transcript + filmed-run checklist | ANG-05 · ANG-10 · W1 | Founder+Worker | **queue head** |
-| **555-05** | Ocree send pack — champion fields + locked email attach list | ANG-18 · W3 · TRD-03 | Commercial | pending |
+| **555-04** | W1 demo transcript + filmed-run checklist | ANG-05 · ANG-10 · W1 | Founder+Worker | **DONE** — see receipt |
+| **555-05** | Ocree send pack — champion fields + locked email attach list | ANG-18 · W3 · TRD-03 | Commercial | **queue head** |
 
 ---
 
@@ -140,6 +140,28 @@ grep -q REDACTED investor/data-room-v1/02-Technical/receipt-sample-redacted-v1.j
 4. Matrix ANG-05 → `[~]` until video file exists
 
 **Acceptance:** Transcript on disk + checklist locked — video optional same turn.
+
+---
+
+## 555-04 — W1 demo transcript + film checklist (EXECUTED)
+
+**Proof path:** `receipts/w1-demo-transcript-2026/`
+
+| Artifact | Purpose |
+|----------|---------|
+| `W1_DEMO_TRANSCRIPT.txt` | Live stdout from `demo-enforcement-5min-v1.sh` — all beats PASS |
+| `MANIFEST.json` | Machine index · spine_event_id · checksum |
+| `investor/W1_FILM_CHECKLIST_LOCKED_v1.md` | One-take beats · equipment · 90s cut markers |
+
+**Matrix updates:** ANG-05 → `[~]` (video pending) · ANG-10 → `[~]` (cut markers locked)
+
+**Verify:**
+```bash
+test -f receipts/w1-demo-transcript-2026/MANIFEST.json
+grep -q BLOCKED receipts/w1-demo-transcript-2026/W1_DEMO_TRANSCRIPT.txt
+grep -q "tamper detected" receipts/w1-demo-transcript-2026/W1_DEMO_TRANSCRIPT.txt
+test -f investor/W1_FILM_CHECKLIST_LOCKED_v1.md
+```
 
 ---
 
