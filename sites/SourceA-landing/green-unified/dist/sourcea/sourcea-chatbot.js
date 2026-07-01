@@ -151,6 +151,10 @@
       .replace(/\borchestrat\w*/gi, "run")
       .replace(/\bgovernance gauntlet\b/gi, "quick quiz")
       .replace(/\bINCIDENT-\d+\b/gi, "")
+      .replace(/\s*\((?:Source|Sources)\s+\d+(?:\s*(?:,|and)\s*\d+)*\)\.?/gi, "")
+      .replace(/\s*\bSource\s+\d+(?:\s*(?:,|and)\s*\d+)*\.?/gi, "")
+      .replace(/^it looks like you (?:might be|are) asking about (?:a |an )?["“]?([^"”]+)["”]?\.\s*/i, "")
+      .replace(/^you might be asking about (?:a |an )?["“]?([^"”]+)["”]?\.\s*/i, "")
       .replace(/\s{2,}/g, " ")
       .trim();
   }

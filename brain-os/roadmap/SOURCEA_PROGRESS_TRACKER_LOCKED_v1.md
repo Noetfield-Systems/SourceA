@@ -118,7 +118,7 @@ From `brain-os/ssot/SOURCEA_PLANNING_AUTHORITY_CARD_LOCKED_v1.md`:
 |----------|---------|
 | `hooks.sourcea.app/v1/relay` | Webhook relay |
 | `command.sourcea.app/team` | Command center ref |
-| `github.com/sourcea-io/sourcea-boot` | Public boot eval |
+| `github.com/kazemnezhadsina144-dot/sourcea-boot` | Public boot eval |
 | `hello@sourcea.app` | Commercial contact |
 | `127.0.0.1:13023` | Chat Unify local (documented on status/downloads) |
 

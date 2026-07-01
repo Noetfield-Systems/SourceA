@@ -17,7 +17,7 @@ LANDING = ROOT / "SourceA-landing" / "green-unified"
 DATA = LANDING / "data"
 SINA = Path.home() / ".sina"
 RECEIPT = SINA / "sourcea-buyer-trust-inject-v1.json"
-GITHUB_REPO = "sourcea-io/sourcea-boot"
+GITHUB_REPO = "kazemnezhadsina144-dot/sourcea-boot"
 
 
 def _now() -> str:
@@ -255,6 +255,12 @@ def build_trust_signals() -> dict:
         except (OSError, json.JSONDecodeError):
             pass
     valid = _parse_valid_yes(surf_line)
+    if valid.get("valid_yes") is None:
+        checks_pass = gov.get("checks_pass")
+        checks_total = gov.get("checks_total")
+        if isinstance(checks_pass, int) and isinstance(checks_total, int) and checks_total > 0:
+            valid["valid_yes"] = checks_pass
+            valid["valid_total"] = checks_total
     boot_at = ""
     boot_path = DATA / "boot-proof.json"
     if boot_path.is_file():
