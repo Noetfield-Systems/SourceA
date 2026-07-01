@@ -1,17 +1,19 @@
 {
   "schema": "investor-planning-555-inbox-v1",
-  "version": "1.0.0",
-  "saved_at": "2026-07-01T10:30:27Z",
+  "version": "1.2.0",
+  "saved_at": "2026-07-01T10:33:29Z",
   "parent_doc": "docs/555_PLANS_NEXT_UPGRADES_INVESTOR_PLANNING_INBOX_LOCKED_v1.md",
   "database_doc": "docs/CANADA_ICP_GRANT_VC_EVIDENCE_Q3_2026_INVESTOR_PLANNING_DATABASE_LOCKED_v1.md",
-  "queue_head": "555-02",
+  "queue_head": "555-03",
   "one_law": "Execute queue_head only · proof path required to mark done",
+  "completed_count": 2,
+  "pending_count": 3,
   "plans": [
     {
       "id": "555-01",
       "title": "IRAP/SR&ED investor proof bundle on disk",
       "status": "done",
-      "done_at": "2026-07-01T10:30:27Z",
+      "done_at": "2026-07-01T10:31:02Z",
       "receipt_path": "receipts/investor-planning-proof-bundle-2026-07-01/",
       "matrix_rows": ["ANG-07", "SRED-04"],
       "owner": "worker"
@@ -19,8 +21,9 @@
     {
       "id": "555-02",
       "title": "SR&ED experiment log + hypothesis register",
-      "status": "pending",
-      "receipt_path": null,
+      "status": "done",
+      "done_at": "2026-07-01T10:33:29Z",
+      "receipt_path": "receipts/sred-experiment-log-2026/",
       "matrix_rows": ["SRED-04", "SRED-05"],
       "owner": "worker"
     },
