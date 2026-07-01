@@ -12,7 +12,7 @@ import importlib.util
 spec = importlib.util.spec_from_file_location('m', 'scripts/commercial_mail_draft_v1.py')
 mod = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(mod)
-assert mod.is_personal_from("sina.kazemnezhad@gmail.com")
+assert mod.is_personal_from("sina.kazemnezhad@icloud.com")
 assert not mod.is_personal_from("hello@sourcea.app")
 name, email = mod.lane_from("AB1")
 assert email == "hello@sourcea.app"

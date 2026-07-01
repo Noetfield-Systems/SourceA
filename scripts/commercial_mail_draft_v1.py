@@ -196,7 +196,6 @@ def ensure_founder_blocklist() -> None:
     defaults = {
         "schema": "founder-blocked-recipients-v1",
         "blocked": [
-            "sina.kazemnezhad@gmail.com",
             "sina.kazemnezhad@icloud.com",
             "hello@sourcea.app",
         ],
