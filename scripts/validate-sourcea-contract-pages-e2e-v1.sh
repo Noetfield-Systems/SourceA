@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
-# Contract landing pages E2E — clean URLs, titles, and booking CTAs on sourcea.app + regional domains.
+# Contract landing pages E2E — clean URLs, titles, booking CTAs, contract@ inbox SSOT.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 BASE="${SOURCEA_E2E_BASE:-https://sourcea.app}"
 RECEIPT="${HOME}/.sina/e2e-logs/validate-sourcea-contract-pages-e2e-v1.log"
+SSOT="${ROOT}/data/sourcea-contract-email-routes-v1.json"
 mkdir -p "$(dirname "$RECEIPT")"
 
 echo "=== validate-sourcea-contract-pages-e2e-v1 ===" | tee "$RECEIPT"
 echo "base ${BASE}" | tee -a "$RECEIPT"
+echo "ssot ${SSOT}" | tee -a "$RECEIPT"
 
 python3 - <<PY 2>&1 | tee -a "$RECEIPT"
 import json
@@ -23,55 +25,54 @@ from pathlib import Path
 BASE = "${BASE}".rstrip("/")
 ROOT = Path("${ROOT}")
 GREEN = ROOT / "SourceA-landing" / "green-unified"
+SSOT_PATH = Path("${SSOT}")
 
-PAGES = [
-    {
-        "path": "/operating-brain-install",
-        "title": "Operating Brain Install",
-        "cta": "Book an Operating Brain Audit",
-        "subject": "Operating%20Brain%20Audit",
-        "email": "contract@sourcea.app",
-        "source": GREEN / "operating-brain-install.html",
-    },
-    {
-        "path": "/ai-value-governance",
-        "title": "AI Value Governance",
-        "cta": "Book an AI Value Governance Sprint",
-        "subject": "AI%20Value%20Governance%20Sprint",
-        "email": "contract@sourcea.ca",
-        "source": GREEN / "ai-value-governance.html",
-    },
-    {
-        "path": "/enterprise-ai-control-plane",
-        "title": "Enterprise AI Control Plane",
-        "cta": "Book an Enterprise AI Control Plane Briefing",
-        "subject": "Enterprise%20AI%20Control%20Plane%20Briefing",
-        "email": "contract@sourcea.uk",
-        "source": GREEN / "enterprise-ai-control-plane.html",
-    },
-]
+ssot = json.loads(SSOT_PATH.read_text(encoding="utf-8"))
+ADMIN = ssot["google_workspace_admin"]
+ROUTING = ssot["routing_mode"]
+PERSONAL_LEAKS = ssot.get("forbidden_public_leaks") or []
+GOOGLE_MX = ssot.get("dns_expectations", {}).get("google_workspace_mx_host", "smtp.google.com")
 
-REGIONAL = [
-    {
-        "hosts": ("sourcea.ca", "www.sourcea.ca"),
-        "path": "/ai-value-governance",
-        "title": "AI Value Governance",
-        "cta": "Book an AI Value Governance Sprint",
-        "email": "contract@sourcea.ca",
-    },
-    {
-        "hosts": ("sourcea.uk", "www.sourcea.uk"),
-        "path": "/enterprise-ai-control-plane",
-        "title": "Enterprise AI Control Plane",
-        "cta": "Book an Enterprise AI Control Plane Briefing",
-        "email": "contract@sourcea.uk",
-    },
-]
+PAGES = []
+for row in ssot["contract_routes"]:
+    src_name = {
+        "operating-brain-install": "operating-brain-install.html",
+        "ai-value-governance": "ai-value-governance.html",
+        "enterprise-ai-control-plane": "enterprise-ai-control-plane.html",
+    }[row["id"]]
+    PAGES.append(
+        {
+            "path": row["path"],
+            "title": row["title"],
+            "cta": row["cta"],
+            "subject": row["mailto_subject"],
+            "email": row["public_address"],
+            "delivers_to": row["delivers_to"],
+            "source": GREEN / src_name,
+        }
+    )
+
+REGIONAL = []
+for row in ssot.get("regional_mirror_checks") or []:
+    REGIONAL.append(
+        {
+            "hosts": tuple(row["hosts"]),
+            "path": row["path"],
+            "title": next(
+                (p["title"] for p in PAGES if p["email"] == row["public_address"]),
+                row["path"].strip("/").replace("-", " ").title(),
+            ),
+            "cta": next(
+                (p["cta"] for p in PAGES if p["email"] == row["public_address"]),
+                "",
+            ),
+            "email": row["public_address"],
+        }
+    )
 
 ctx = ssl.create_default_context()
 fails = []
 notes = []
-PERSONAL_EMAIL_LEAK = ".".join(("sina", "kazemnezhad")) + "@" + "gmail.com"
 
 
 def fetch_http(url: str, host: str | None = None) -> tuple[int, str]:
@@ -84,6 +85,25 @@ def fetch_http(url: str, host: str | None = None) -> tuple[int, str]:
     )
     with urllib.request.urlopen(req, context=ctx, timeout=25) as resp:
         return resp.status, resp.read(250_000).decode("utf-8", errors="replace")
+
+
+def dig_mx(domain: str) -> list[str]:
+    try:
+        proc = subprocess.run(
+            ["dig", "+short", "MX", domain],
+            capture_output=True,
+            text=True,
+            timeout=10,
+            check=False,
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        return []
+    out = []
+    for ln in (proc.stdout or "").splitlines():
+        ln = ln.strip()
+        if ln and GOOGLE_MX.split(".")[0] in ln:
+            out.append(ln)
+    return out
 
 
 def dig_a(host: str) -> list[str]:
@@ -132,12 +152,31 @@ def check_page(label: str, status: int, body: str, title_need: str, cta_need: st
         fails.append(f"{label}: title missing {title_need!r} (got {title!r})")
     if cta_need not in body:
         fails.append(f"{label}: missing CTA {cta_need!r}")
-    if PERSONAL_EMAIL_LEAK in body:
-        fails.append(f"{label}: leaked personal email")
+    for leak in PERSONAL_LEAKS:
+        if leak in body:
+            fails.append(f"{label}: leaked personal email {leak}")
     if mailto and mailto not in body:
         fails.append(f"{label}: missing mailto {mailto}")
     print(f"OK {label} · {title}")
 
+
+# Inbox routing truth (Google Workspace aliases → operations@noetfield.com)
+for row in PAGES:
+    if row["delivers_to"] != ADMIN:
+        fails.append(f"SSOT {row['email']}: delivers_to must be {ADMIN}")
+
+mx_app = dig_mx("sourcea.app")
+mx_nf = dig_mx("noetfield.com")
+if not mx_app:
+    fails.append(f"DNS: sourcea.app missing Google Workspace MX ({GOOGLE_MX})")
+else:
+    print(f"OK DNS sourcea.app MX · {mx_app[0]}")
+if not mx_nf:
+    notes.append(f"NOTE: noetfield.com MX not visible — admin inbox may still be wired in Workspace")
+else:
+    print(f"OK DNS noetfield.com MX · {mx_nf[0]}")
+
+print(f"OK inbox routing · mode={ROUTING} · admin={ADMIN}")
 
 for row in PAGES:
     path = row["path"]
@@ -153,8 +192,12 @@ for row in PAGES:
     src = row["source"]
     if not src.is_file():
         fails.append(f"disk missing {src}")
-    elif row["cta"] not in src.read_text(encoding="utf-8"):
-        fails.append(f"disk {src.name}: missing CTA {row['cta']!r}")
+    else:
+        disk = src.read_text(encoding="utf-8")
+        if row["cta"] not in disk:
+            fails.append(f"disk {src.name}: missing CTA {row['cta']!r}")
+        if row["email"] not in disk:
+            fails.append(f"disk {src.name}: missing public address {row['email']!r}")
 
 for row in REGIONAL:
     host_primary = row["hosts"][0]
@@ -192,12 +235,16 @@ fi
 python3 -c "
 import json, time
 from pathlib import Path
+ssot = json.loads(Path('${SSOT}').read_text(encoding='utf-8'))
 p = Path.home() / '.sina' / 'sourcea-contract-pages-e2e-v1.json'
 p.write_text(json.dumps({
   'schema': 'sourcea-contract-pages-e2e-v1',
   'at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
   'base': '${BASE}',
   'ok': True,
+  'inbox_admin': ssot['google_workspace_admin'],
+  'routing_mode': ssot['routing_mode'],
+  'contract_addresses': [r['public_address'] for r in ssot['contract_routes']],
 }, indent=2) + '\n', encoding='utf-8')
 print('OK receipt', p)
 " | tee -a "$RECEIPT"

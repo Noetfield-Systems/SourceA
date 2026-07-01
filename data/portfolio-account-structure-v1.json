@@ -95,7 +95,14 @@
           "address": "hello@sourcea.app",
           "brand": "SourceA",
           "channel": "Mail.app / commercial sender law",
-          "scripts": ["send_ab1_single_v1.py", "commercial_mail_draft_v1.py --lane AB1"]
+          "scripts": ["send_ab1_single_v1.py", "commercial_mail_draft_v1.py --lane AB1"],
+          "contract_aliases": [
+            "contract@sourcea.app",
+            "contract@sourcea.ca",
+            "contract@sourcea.uk"
+          ],
+          "contract_alias_admin": "operations@noetfield.com",
+          "contract_alias_ssot": "data/sourcea-contract-email-routes-v1.json"
         },
         {
           "address": "hello@virlux.com",
