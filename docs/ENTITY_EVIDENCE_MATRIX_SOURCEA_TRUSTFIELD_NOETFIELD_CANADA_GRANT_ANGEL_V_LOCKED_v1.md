@@ -82,7 +82,7 @@
 | SRED-01 | Architecture diagram (enforcement loop) | SourceA | `brain-os/system/SOURCEA_FULL_LAYERED_CONTROL_PLAN_LOCKED_v1.md` + export diagram | [ ] |
 | SRED-02 | Source code — commit gate | SourceA | `scripts/commit_intent_v1.py` | [x] |
 | SRED-03 | Source code — demo enforcement | SourceA | `scripts/validate-demo-enforcement-v1.sh` · `scripts/demo-enforcement-5min-v1.sh` · `scripts/validate-enforcement-kernel-v1.sh` | [x] |
-| SRED-04 | Experiment log (dated) | SourceA | Create: `receipts/sred-experiment-log-2026/` (manifest-first) | [ ] |
+| SRED-04 | Experiment log (dated) | SourceA | `receipts/sred-experiment-log-2026/` — **555-02 next** | [~] |
 | SRED-05 | Hypothesis register | SourceA | Link to R&D-01..05 table above — dated entries | [ ] |
 | SRED-06 | Git commit history mapped to project IDs | SourceA | `git log --oneline scripts/commit_intent_v1.py scripts/validate-demo-enforcement-v1.sh` | [~] |
 | SRED-07 | Eval-1b reports | SourceA | `eval_packet_v1b_report.json` — **absent on disk 2026-07-01**; use structural mode + honest counter | [!] |
@@ -134,7 +134,7 @@
 |----|------|--------|---------------------|--------|
 | ANG-05 | W1 — 5-min demo filmed | SourceA | `scripts/demo-enforcement-5min-v1.sh` · `investor/ENFORCEMENT_DEMO_5MIN.md` | [ ] |
 | ANG-06 | W2 — single write path | SourceA | `scripts/commit_intent_v1.py --demo-enforcement` | [x] |
-| ANG-07 | Validator PASS artifact | SourceA | `bash scripts/validate-demo-enforcement-v1.sh 2>&1 | tee receipts/investor-validator-pass-2026-07-01.log` | [~] |
+| ANG-07 | Validator PASS artifact | SourceA | `receipts/investor-planning-proof-bundle-2026-07-01/` — **555-01 DONE** | [x] |
 | ANG-08 | Tamper-FAIL on camera | SourceA | `bash scripts/validate-demo-enforcement-v1.sh --tamper-test` — **PASS verified** | [x] |
 | ANG-09 | Latest receipt JSON (redacted) | SourceA | `~/.sina/demo-enforcement/receipts/latest-demo-receipt.json` — **exists** | [x] |
 | ANG-10 | 90s demo cut for email | SourceA | Film from W1 — path: _______________ | [ ] |
