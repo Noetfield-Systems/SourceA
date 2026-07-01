@@ -1,25 +1,64 @@
 # Canada ICP — Grant & Angel/VC Evidence Requirements (Q3 2026)
 
-**Saved:** 2026-07-01T10:02:57Z  
-**Version:** 1.0 — LOCKED  
+**Saved:** 2026-07-01T10:20:15Z  
+**Version:** 1.1 — LOCKED  
 **route_id:** `locked_product_spec_doc`  
 **sequence_id:** SA-2026-07-01-CANADA-ICP-GRANT-VC-EVIDENCE-DB  
 **Class:** Investor planning database — market reality + evidence SSOT for grants, angels, seed VC  
 **Authority:** Inform planning and outreach — subordinate to `ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` · `TRUSTFIELD_VC_TRUST_LEGAL_ANTI_MORTEM_v1.md`
 
-**Companion artifacts (same database):**
-- Entity matrix (fill-in-the-blank): `docs/ENTITY_EVIDENCE_MATRIX_SOURCEA_TRUSTFIELD_NOETFIELD_CANADA_GRANT_ANGEL_V_LOCKED_v1.md`
-- IRAP technical narrative draft: `docs/IRAP_TECHNICAL_NARRATIVE_ENFORCEMENT_KERNEL_UNCERTAINTY_DRAFT_LOCKED_v1.md`
+**Companion artifacts (same database — 5 files):**
+- Entity matrix: `docs/ENTITY_EVIDENCE_MATRIX_SOURCEA_TRUSTFIELD_NOETFIELD_CANADA_GRANT_ANGEL_V_LOCKED_v1.md`
+- IRAP narrative: `docs/IRAP_TECHNICAL_NARRATIVE_ENFORCEMENT_KERNEL_UNCERTAINTY_DRAFT_LOCKED_v1.md`
+- Real market analysis: `docs/REAL_MARKET_ANALYSIS_JULY_2026_ENGLISH_INVESTOR_PLANNING_LOCKED_v1.md`
+- Trading lane alignment: `docs/TRADING_LANE_TRUSTFIELD_NOETFIELD_BOUNDED_AUTONOMY_MARKET_ALIGNMENT_ANAL_LOCKED_v1.md`
 
 ---
 
-## Database index
+## Database index (master — 5 locked docs)
 
-| Doc | Purpose | When to use |
-|-----|---------|-------------|
-| **This file** | Full market + evidence requirements by funding lane | Brainstorm, investor prep, quarterly planning |
-| **Entity matrix** | Per-entity checklist with disk paths and status columns | Weekly ops — tick boxes, assign owner |
-| **IRAP narrative** | One-pager for ITA first call + proposal skeleton | NRC IRAP intake (call 1-877-994-4727) |
+| # | Doc | Purpose | When to use |
+|---|-----|---------|-------------|
+| 1 | **This file** | Grant/angel/VC evidence requirements + sequencing | Funding lane planning |
+| 2 | **Entity matrix** | Per-entity checklist · disk paths · status columns | Weekly ops tick-box |
+| 3 | **IRAP narrative** | ITA one-pager + SR&ED uncertainty spine | NRC intake 1-877-994-4727 |
+| 4 | **Real market analysis** | July 2026 market reality — traders, VC, enterprise | Strategy · brainstorm |
+| 5 | **Trading lane analysis** | TrustField/Noetfield vs bounded-autonomy market | Wedge · outbound routing |
+
+---
+
+## Readiness dashboard (disk-verified 2026-07-01)
+
+| Tier | Score | Status | Blocker |
+|------|-------|--------|---------|
+| **T0 Legal/entity** | 1/10 | 🔴 Not fundable | CCPC · IP assignment · bank — COUNSEL |
+| **T1 Grants (SR&ED/IRAP)** | 4/12 | 🟡 Narrative ready · records thin | Experiment log · timesheets · ITA call |
+| **T2 Angel** | 6/23 | 🟡 Tech verification built in · no W3 | Film W1 · paid pilot · LinkedIn anchor |
+| **T3 Seed VC** | 0/8 | 🔴 Do not raise | W1+W3 + MRR path |
+| **W1/W2/W3 (ENFORCEMENT)** | W2 ✅ · W1 ⏳ · W3 ⏳ | 🟡 Kernel yes · economic no | Film demo · close TF pilot |
+
+**Disk proof (run before any investor call):**
+
+```bash
+bash scripts/validate-demo-enforcement-v1.sh
+bash scripts/validate-demo-enforcement-v1.sh --tamper-test
+bash scripts/validate-demo-write-path-v1.sh
+bash scripts/validate-enforcement-kernel-v1.sh
+```
+
+**Commercial signal logged:** Ocree Capital (TrustField T-P6/TF-001) and Fundmore.ai (Noetfield NF-RD) **approved to send** per `os/commercial/SOURCEA_ECOSYSTEM_FAST_BUSINESS_MODEL_LOCKED_v2.md` — champion + send still pending.
+
+---
+
+## Upgrade changelog (v1.0 → v1.1)
+
+| Change | Reason |
+|--------|--------|
+| Added 5-doc master index | Single entry point for planning database |
+| Added readiness dashboard | Quantified gap vs fundable |
+| Linked real market + trading lane docs | Complete database set |
+| Disk-verified validator commands | Replace assumed paths with PASS proof |
+| Ocree/Fundmore approval status | Sync with business model SSOT |
 
 ---
 
@@ -303,4 +342,6 @@ October–December 2026
 
 ---
 
-*Locked for investor planning database. Bump `Saved:` UTC on material edits.*
+*Locked for investor planning database v1.1. Bump `Saved:` UTC on material edits.*
+
+**Upgrade v1.1:** 5-doc master index · readiness dashboard · disk-verified validators · Ocree/Fundmore approval sync.
