@@ -1,7 +1,7 @@
 # IRAP Technical Narrative — Runtime Agent Enforcement Kernel
 
-**Saved:** 2026-07-01T10:02:57Z  
-**Version:** 1.0 — LOCKED (draft for ITA intake — customize applicant entity with counsel)  
+**Saved:** 2026-07-01T10:20:15Z  
+**Version:** 1.1 — LOCKED (draft for ITA intake — customize applicant entity with counsel)  
 **route_id:** `locked_product_spec_doc`  
 **sequence_id:** SA-2026-07-01-IRAP-ENFORCEMENT-KERNEL-NARRATIVE  
 **Parent:** `docs/CANADA_ICP_GRANT_VC_EVIDENCE_Q3_2026_INVESTOR_PLANNING_DATABASE_LOCKED_v1.md`  
@@ -58,15 +58,15 @@
 
 ## 3. Hypotheses to test (experimental development)
 
-| ID | Hypothesis | Test method | Success criterion |
-|----|------------|-------------|-------------------|
-| H1 | A single write entrypoint can enforce 100% of demo-scope agent commits | Route all demo writes through `commit_intent_v1.py` | Zero bypass paths in validator scan |
-| H2 | Policy evaluation can run pre-commit without >500ms p95 overhead | Benchmark gate latency under load | p95 < 500ms on reference hardware |
-| H3 | Receipt checksum chain detects tampering post-hoc | Adversarial edit + `validate-demo-enforcement-v1.sh --tamper-test` | HARD FAIL on tamper |
-| H4 | Eval gate can block factory dispatch when live model eval fails | Integrate eval-1b packet with dispatch gate | `dispatch_ready: false` when eval fails honestly |
-| H5 | Evidence export format is usable by compliance reviewer without founder narration | Blind review by external reviewer | Reviewer reproduces BLOCK/ALLOW from JSON alone |
+| ID | Hypothesis | Test method | Success criterion | Status (2026-07-01) |
+|----|------------|-------------|-------------------|---------------------|
+| H1 | A single write entrypoint can enforce 100% of demo-scope agent commits | Route all demo writes through `commit_intent_v1.py` | Zero bypass paths in validator scan | **Partial PASS** — `validate-demo-write-path-v1.sh` |
+| H2 | Policy evaluation can run pre-commit without >500ms p95 overhead | Benchmark gate latency under load | p95 < 500ms on reference hardware | **Open** — not benchmarked |
+| H3 | Receipt checksum chain detects tampering post-hoc | Adversarial edit + `validate-demo-enforcement-v1.sh --tamper-test` | HARD FAIL on tamper | **PASS** — tamper detected on disk |
+| H4 | Eval gate can block factory dispatch when live model eval fails | Integrate eval-1b packet with dispatch gate | `dispatch_ready: false` when eval fails honestly | **Open** — `eval_packet_v1b_report.json` absent |
+| H5 | Evidence export format is usable by compliance reviewer without founder narration | Blind review by external reviewer | Reviewer reproduces BLOCK/ALLOW from JSON alone | **Open** — needs external reviewer |
 
-**Note:** H1 and H3 have **partial positive results** on demo scope. H2, H4, H5 remain **uncertain** — qualifying ongoing experimental development.
+**Note:** H1 and H3 have **verified positive results** on demo scope (disk audit 2026-07-01). H2, H4, H5 remain **uncertain** — qualifying ongoing experimental development for IRAP/SR&ED.
 
 ---
 
@@ -91,10 +91,13 @@ Agent intent (JSON)
    Validator CI (tamper-FAIL)
 ```
 
-**Existing code paths (evidence of work in progress):**
+**Existing code paths (evidence of work in progress — verified 2026-07-01):**
 - `scripts/commit_intent_v1.py` — commit gate
-- `scripts/validate-demo-enforcement-v1.sh` — BLOCK/ALLOW/tamper CI
+- `scripts/validate-demo-enforcement-v1.sh` — BLOCK/ALLOW/tamper CI ✅ PASS
+- `scripts/validate-demo-write-path-v1.sh` — W2 single write path ✅ PASS
+- `scripts/validate-enforcement-kernel-v1.sh` — K1 tamper-on-read ✅ PASS
 - `scripts/demo-enforcement-5min-v1.sh` — investor/demo runner
+- `~/.sina/demo-enforcement/receipts/` — sample receipts on disk
 - `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` — project scope law
 
 ### 4.2 Experiments (phased)
@@ -123,9 +126,9 @@ Agent intent (JSON)
 
 | Month | Milestone | Deliverable | Evidence artifact |
 |-------|-----------|-------------|-------------------|
-| M1 | Single write path proven | Validator green · bypass scan report | `validate-demo-write-path-v1.sh` output |
-| M2 | Receipt schema frozen v1 | JSON schema + sample receipts | `~/.sina/demo-enforcement/receipts/` |
-| M3 | Tamper suite complete | 10+ adversarial cases | Test log in experiment register |
+| M1 | Single write path proven | Validator green · bypass scan report | `validate-demo-write-path-v1.sh` output — **PASS 2026-07-01** |
+| M2 | Receipt schema frozen v1 | JSON schema + sample receipts | `~/.sina/demo-enforcement/receipts/` — **samples exist** |
+| M3 | Tamper suite complete | 10+ adversarial cases | `--tamper-test` PASS · expand adversarial register |
 | M4 | Latency benchmark report | p50/p95 gate timing | `receipts/sred-experiment-log-2026/latency/` |
 | M5 | Eval-dispatch integration | Honest gate receipt | eval packet + dispatch receipt JSON |
 | M6 | Shadow pilot evidence export | Redacted Trust Brief | TrustField SOW deliverable |
@@ -260,5 +263,21 @@ Agent intent (JSON)
 ---
 
 **Before submission:** Counsel confirms applicant entity · no pre-approval work on funded scope · financials current · sign and date PDF export.
+
+---
+
+## 15. Disk verification appendix (v1.1 upgrade)
+
+Run and attach stdout to IRAP / SR&ED evidence bundle:
+
+```bash
+cd /workspace  # or ~/Desktop/SourceA
+bash scripts/validate-demo-enforcement-v1.sh 2>&1 | tee receipts/irap-proof-validate-demo-$(date -u +%Y%m%d).log
+bash scripts/validate-demo-enforcement-v1.sh --tamper-test 2>&1 | tee -a receipts/irap-proof-validate-demo-$(date -u +%Y%m%d).log
+bash scripts/validate-demo-write-path-v1.sh 2>&1 | tee receipts/irap-proof-write-path-$(date -u +%Y%m%d).log
+bash scripts/validate-enforcement-kernel-v1.sh 2>&1 | tee receipts/irap-proof-kernel-$(date -u +%Y%m%d).log
+```
+
+**Upgrade v1.1:** Hypothesis status column · disk-verified code paths · M1–M3 progress · proof capture commands.
 
 *Locked draft — bump `Saved:` UTC on material edits.*
