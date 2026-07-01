@@ -75,6 +75,26 @@ fails = []
 notes = []
 
 
+class NoRedirect(urllib.request.HTTPErrorProcessor):
+    def http_response(self, request, response):
+        return response
+
+    https_response = http_response
+
+
+def fetch_http_no_redirect(url: str, host: str | None = None) -> tuple[int, str]:
+    opener = urllib.request.build_opener(NoRedirect)
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "SourceA-contract-pages-e2e/1",
+            **({"Host": host} if host else {}),
+        },
+    )
+    with opener.open(req, context=ctx, timeout=25) as resp:
+        return resp.status, resp.read(250_000).decode("utf-8", errors="replace")
+
+
 def fetch_http(url: str, host: str | None = None) -> tuple[int, str]:
     req = urllib.request.Request(
         url,
@@ -189,6 +209,14 @@ for row in PAGES:
         row["cta"],
         mailto=f"mailto:{row['email']}?subject={row['subject']}",
     )
+    try:
+        direct_status, _ = fetch_http_no_redirect(f"{BASE}{path}")
+        if direct_status != 200:
+            fails.append(f"{BASE}{path}: expected direct HTTP 200, got {direct_status} (no redirect follow)")
+        else:
+            print(f"OK direct 200 {BASE}{path}")
+    except urllib.error.HTTPError as exc:
+        fails.append(f"{BASE}{path}: direct check HTTP {exc.code}")
     src = row["source"]
     if not src.is_file():
         fails.append(f"disk missing {src}")
@@ -212,6 +240,16 @@ for row in REGIONAL:
             row["cta"],
             mailto=f"mailto:{row['email']}",
         )
+        try:
+            direct_status, _ = fetch_http_no_redirect(f"https://{used_host}{path}")
+            if direct_status != 200:
+                fails.append(
+                    f"https://{host_primary}{path}: expected direct HTTP 200, got {direct_status} (no redirect follow)"
+                )
+            else:
+                print(f"OK direct 200 https://{host_primary}{path}")
+        except urllib.error.HTTPError as exc:
+            fails.append(f"https://{host_primary}{path}: direct check HTTP {exc.code}")
         if used_host != host_primary:
             notes.append(f"verified via {used_host}; canonical host {host_primary}")
     except Exception as exc:
