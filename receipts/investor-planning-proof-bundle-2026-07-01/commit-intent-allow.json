@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "demo_gate": {
+    "safe_to_execute": true,
+    "rule_id": "P-001",
+    "reason": "approval_ref present or risk not high",
+    "policy_id": "COPILOT-ALLOW-READONLY"
+  },
+  "receipt": {
+    "schema": "enforcement-action-receipt-v1",
+    "receipt_id": "RCP-63947e21de27",
+    "intent_id": "copilot-allow-6444644a",
+    "action": "enable",
+    "object_id": "NF-COPILOT-POLICY-DEMO",
+    "rule_id": "P-001",
+    "agent_id": "investor_demo",
+    "policy_id": "COPILOT-ALLOW-READONLY",
+    "approval_ref": "TLE-2026-001",
+    "demo_case": "allow",
+    "gate_status": "PASS",
+    "gate_reasons": [],
+    "created_at": "2026-07-01T10:31:02Z",
+    "law": "brain-os/demo/governance_demo_policy_v1.json",
+    "outcome": "COMMITTED",
+    "status": "DONE",
+    "evidence": "EXECUTE_STUB: policy applied",
+    "spine_event_id": "GEV-1558961bfc9c",
+    "spine_checksum": "4b3c65b60aeaa81d",
+    "proof_path": "/home/ubuntu/.sina/demo-enforcement/receipts/demo-e4149ddf2b81.json",
+    "receipt_checksum": "127373c4abf72abd"
+  }
+}
