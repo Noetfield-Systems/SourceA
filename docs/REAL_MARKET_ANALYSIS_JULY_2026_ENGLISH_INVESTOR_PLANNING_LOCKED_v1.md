@@ -266,6 +266,7 @@ The portfolio already has the receipt layer mechanically. The gap is **packaging
 | Founder institutional layer | ❌ No LinkedIn anchor on disk | `data/avatar-scripts-v1.json` → record |
 | Eval-1b live scoreboard | ⚠️ `eval_packet_v1b_report.json` absent | Structural mode honest — document in ANG-20 |
 | Grant narrative | ✅ IRAP doc + matrix | ITA intake call |
+| SR&ED contemporaneous log | ✅ `receipts/sred-experiment-log-2026/` | Timesheets SRED-08 |
 | Trading lane alignment | ✅ TrustField GO · Noetfield split | Priority A sends — FINTRAC subject lines |
 
 ---
