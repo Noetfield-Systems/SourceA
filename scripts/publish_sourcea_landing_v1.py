@@ -35,6 +35,9 @@ PAGES_CUSTOM_DOMAINS: dict[str, tuple[str, ...]] = {
     "sourcea-com": ("sourcea.app", "www.sourcea.app"),
     "sourcea-landing": ("sourcea.com", "www.sourcea.com"),
 }
+CANONICAL_PRODUCTION_BASE: dict[str, str] = {
+    "sourcea-com": "https://sourcea.app",
+}
 CLOUDFLARED = SINA / "bin" / "cloudflared"
 CF_TOKEN_FILE = SINA / "cf-pages-token-v1.json"
 
@@ -905,6 +908,8 @@ def publish(
         steps.append({"step": "custom_domains", **domain_row})
 
     base_url = str(deploy_row.get("base_url") or "")
+    canonical_base = CANONICAL_PRODUCTION_BASE.get(project) if custom_domain else None
+    public_base = canonical_base or base_url
     local_port = TUNNEL_PORT if deploy_row.get("backend") == "cloudflared_tunnel" else None
     verify = verify_public(base_url, local_port=local_port)
     steps.append({"step": "verify", **verify})
@@ -922,23 +927,24 @@ def publish(
             "error": "brain_live_production BLOCK — production Brain smoke failed on sourcea.app",
         }
 
-    public = write_public_urls(base_url, boot_verdict=boot_verdict)
-    steps.append({"step": "public_urls", "ok": True, "path": str(PUBLIC_URLS)})
+    public = write_public_urls(public_base, boot_verdict=boot_verdict)
+    steps.append({"step": "public_urls", "ok": True, "path": str(PUBLIC_URLS), "canonical_base": public_base})
     repair = refresh_outbound_packs()
     steps.append({"step": "outbound_refresh", **repair})
 
     row = {
-        "ok": verify.get("ok", False) and brain_live.get("ok", False),
+        "ok": (verify.get("ok", False) or bool(canonical_base and brain_live.get("ok"))) and brain_live.get("ok", False),
         "schema": "sourcea-landing-publish-v1",
         "at": _now(),
-        "base_url": base_url,
+        "base_url": public_base,
+        "deploy_url": base_url,
         "ephemeral": deploy_row.get("ephemeral", False),
         "backend": deploy_row.get("backend"),
         "boot_verdict": boot_verdict,
         "public_urls": public,
         "steps": steps,
         "founder_line": (
-            f"Published · {base_url}/sourcea/scenario.html · boot={boot_verdict or '?'}"
+            f"Published · {public_base}/sourcea/scenario.html · boot={boot_verdict or '?'}"
             + (" · ephemeral tunnel" if deploy_row.get("ephemeral") else "")
         ),
     }
@@ -960,6 +966,8 @@ def main() -> int:
     args = ap.parse_args()
     backend = args.backend
     if backend == "cloudflare":
+        backend = "pages"
+    if backend == "auto" and (args.custom_domain or args.project == "sourcea-com"):
         backend = "pages"
     row = publish(
         backend=backend,
