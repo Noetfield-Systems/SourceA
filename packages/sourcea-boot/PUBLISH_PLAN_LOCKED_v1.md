@@ -49,15 +49,17 @@ python3 scripts/publish_sourcea_boot_public_v1.py --json
 
 If push fails: keep export under `packages/sourcea-boot/.publish-export/` and do not flip public claims.
 
-## Execution receipt (2026-07-01T21:54:00Z)
+## Execution receipt (2026-07-01T22:11:53Z)
 
 | Field | Value |
 |---|---|
 | Live repo | `https://github.com/kazemnezhadsina144-dot/sourcea-boot` |
-| Push | PASS · commit `452cfb0` on `main` |
-| Standalone validate | PASS · 4 checks · `BOOT_REPORT.json` |
+| Canonical production | `https://sourcea.app` via Cloudflare Pages `sourcea-com` + `sourcea-app-proxy-v1` |
+| Staging (non-canonical) | `https://source-a.vercel.app` — Vercel does **not** serve `sourcea.app` |
+| Deploy command | `python3 scripts/publish_sourcea_landing_v1.py --backend cloudflare --project sourcea-com --custom-domain --skip-recipe` |
+| `/eval` verify | links `kazemnezhadsina144-dot/sourcea-boot` |
+| `trust-signals.json` | `github.ok: true` |
 | PyPI | not published (Phase 0b) |
-| Site link target | `kazemnezhadsina144-dot/sourcea-boot` (live on site after deploy) |
 | Receipt | `~/.sina/sourcea-boot-public-publish-receipt-v1.json` |
 
 **End LOCKED v1**
