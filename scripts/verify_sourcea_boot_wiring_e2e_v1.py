@@ -36,6 +36,9 @@ PAGES = [
     "/sourcea/loops/session-gate",
     "/sourcea/data/trust-signals.json",
     "/sourcea/data/boot-proof.json",
+    "/operating-brain-install",
+    "/ai-value-governance",
+    "/enterprise-ai-control-plane",
 ]
 
 REDIRECTS = [
@@ -65,7 +68,16 @@ def fetch(url: str, *, follow: bool = True) -> dict:
         return {"status": e.code, "body": body, "location": e.headers.get("Location", "") if e.headers else ""}
 
 
+CONTRACT_PAGES = {
+    "/operating-brain-install",
+    "/ai-value-governance",
+    "/enterprise-ai-control-plane",
+}
+
+
 def has_boot_wire(body: str, path: str) -> bool:
+    if path in CONTRACT_PAGES:
+        return "Book an" in body or "mailto:sina.kazemnezhad@gmail.com" in body
     if path.endswith(".json"):
         if "trust-signals" in path:
             return "kazemnezhadsina144-dot/sourcea-boot" in body
