@@ -67,8 +67,6 @@ Works in any project. Optional config: `.sourcea-boot.json` in project root.
 
 https://github.com/kazemnezhadsina144-dot/sourcea-boot
 
-> **Org alias pending:** Public site still links `sourcea-io/sourcea-boot` until that GitHub org is provisioned; clone this repo today for eval.
-
 ## License
 
 MIT · [SourceA](https://sourcea.com) · hello@sourcea.app

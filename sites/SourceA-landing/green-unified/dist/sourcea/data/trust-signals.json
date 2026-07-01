@@ -1,24 +1,26 @@
 {
   "schema": "sourcea-trust-signals-v1",
-  "at": "2026-06-24T03:23:04Z",
-  "receipts_signed_today": 4,
-  "receipts_signed_lifetime": 5655,
+  "at": "2026-07-01T22:00:49Z",
+  "receipts_signed_today": 3,
+  "receipts_signed_lifetime": 5670,
   "receipts_lifetime_label": "Logged and reviewable logged",
-  "receipts_date": "2026-06-24",
+  "receipts_date": "2026-07-01",
   "receipt_samples": [
     "agent-governance-events.jsonl:s10_eternal_audit",
     "agent-governance-events.jsonl:s10_eternal_audit",
-    "critic-boot-v1.json",
-    "sourcea-boot-terminal-inject-v1.json"
+    "critic-boot-v1.json"
   ],
   "receipt_metric_label": "Material governance events today",
-  "valid_yes": null,
-  "valid_yes_total": 1000,
+  "valid_yes": 4,
+  "valid_yes_total": 4,
   "github": {
-    "ok": false,
-    "repo": "sourcea-io/sourcea-boot",
-    "url": "https://github.com/sourcea-io/sourcea-boot",
-    "error": "HTTP Error 404: Not Found"
+    "ok": true,
+    "repo": "kazemnezhadsina144-dot/sourcea-boot",
+    "url": "https://github.com/kazemnezhadsina144-dot/sourcea-boot",
+    "stars": 0,
+    "open_issues": 0,
+    "updated_at": "2026-07-01T21:54:05Z",
+    "pushed_at": "2026-07-01T21:54:01Z"
   },
   "governance": {
     "loop": "governance",
@@ -26,10 +28,10 @@
     "verdict": "PASS",
     "checks_pass": 4,
     "checks_total": 4,
-    "at": "2026-06-24T01:08:33Z",
+    "at": "2026-06-27T18:07:35Z",
     "factory": "FROZEN"
   },
-  "factory_now_line": "",
+  "factory_now_line": "factory-now \u00b7 Cloud Workers.app owns Cloud Forge Run \u00b7 head CLOUD-SEC-7267 \u00b7 batch 74 \u00b7 100 rows/10min \u00b7 100 tasks/row",
   "status_page": "/sourcea/status",
   "proof_sample": "/sourcea/attach/proof-bundle-sample",
   "built_on": [
@@ -67,8 +69,8 @@
   "disclaimer": "Built on = technology dependencies \u00b7 not co-marketing partnerships",
   "api_hook": {
     "endpoint": "POST /v1/decision",
-    "receipt_id": "sa-0886",
+    "receipt_id": "CLOUD-SEC-7267",
     "verdict": "PASS",
-    "signed_at": "2026-06-24T01:08:33Z"
+    "signed_at": "2026-06-27T18:07:35Z"
   }
 }

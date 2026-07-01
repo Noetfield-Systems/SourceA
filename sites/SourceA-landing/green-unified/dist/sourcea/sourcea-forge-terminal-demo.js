@@ -39,7 +39,7 @@
       "  1) Bottom line",
       "  2) What this means for their business",
       "  3) Blockers or risks",
-      "  4) Suggested next step (include Mac app if they need disk receipts)",
+      "  4) Suggested next step (include the signed-in workspace if they need saved project proof)",
       "IF BLOCKED: Say what you need from them in one sentence.",
       "",
       "Founder input:",
@@ -54,7 +54,7 @@
   }
 
   function isSectionLine(line) {
-    const t = line.trim();
+    const t = line.trim().replace(/^\*\*/, "").replace(/\*\*$/, "");
     if (!t) return false;
     if (/^#{1,3}\s/.test(t)) return true;
     if (/^\d+\)\s/.test(t)) return true;
@@ -66,6 +66,8 @@
   function sectionTitle(line) {
     return line
       .trim()
+      .replace(/^\*\*/, "")
+      .replace(/\*\*$/, "")
       .replace(/^#{1,3}\s*/, "")
       .replace(/^\d+\)\s*/, "");
   }
