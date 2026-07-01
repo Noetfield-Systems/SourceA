@@ -1,7 +1,7 @@
 # Trading Lane Analysis — TrustField / Noetfield vs Bounded-Autonomy Market
 
-**Saved:** 2026-07-01T10:15:32Z  
-**Version:** 1.0 — LOCKED  
+**Saved:** 2026-07-01T10:20:15Z  
+**Version:** 1.1 — LOCKED  
 **route_id:** `locked_product_spec_doc`  
 **sequence_id:** SA-2026-07-01-TRADING-LANE-BOUNDED-AUTONOMY-ALIGNMENT  
 **Parent:** `docs/REAL_MARKET_ANALYSIS_JULY_2026_ENGLISH_INVESTOR_PLANNING_LOCKED_v1.md`  
@@ -19,6 +19,15 @@
 | **WitnessBC** | **No for trading lane** | GRC tier A — different buyer (CISO) | Tertiary · do not cross-pollinate |
 
 **Bottom line:** The bounded-autonomy trading market in July 2026 buys **risk infrastructure and audit trails**, not trading bots. TrustField is **well aligned** if positioned as *"evidence chain for governed agent actions"* — not *"we trade for you."* Noetfield is **misaligned as a trading outbound brand** but **aligned as internal FI agent governance** when regulators ask *"explain every automated step."*
+
+**Disk verification (2026-07-01):** Enforcement kernel validators PASS — bounded-autonomy **handcuff primitive** is mechanically proven; commercial **W3 pilot** is not closed yet.
+
+```bash
+# Reproduce before any dealer/crypto meeting
+bash scripts/validate-demo-enforcement-v1.sh
+bash scripts/validate-demo-enforcement-v1.sh --tamper-test
+bash scripts/validate-demo-write-path-v1.sh
+```
 
 ---
 
@@ -105,7 +114,15 @@ From `os/commercial/CANADA_RWA_STRATEGY_DEEP_RESEARCH_UPGRADE_LOCKED_v2.md`:
 
 ### 2.3 Canada Priority A accounts — trading lane relevance
 
-From `os/commercial/CANADA_PRIORITY_A_SEND_READY_EMAILS_LOCKED_v1.md`:
+From `os/commercial/CANADA_PRIORITY_A_SEND_READY_EMAILS_LOCKED_v1.md` + `os/commercial/SOURCEA_ECOSYSTEM_FAST_BUSINESS_MODEL_LOCKED_v2.md`:
+
+| Account | Lane | SKU | Send status | Trading relevance |
+|---------|------|-----|-------------|-------------------|
+| **Ocree Capital** | TrustField | T-P6 / TF-001 | **APPROVED** — champion pending | CSA tokenization · EMD evidence |
+| **Fundmore.ai** | Noetfield | NF-RD | **APPROVED** — champion pending | Internal FI Copilot — **not** trading outbound |
+| NDAX, Bitbuy, Newton, Aquanow | TrustField | TF-P1-DP | Locked emails ready | **High** — CIRO + FINTRAC |
+| Tetra, Stablecorp | TrustField | T-P6 | Locked emails ready | **High** — Bill C-15 stablecoin |
+| Fractionvest, Atlas/Parvis | TrustField | TF-001 | Locked emails ready | **Medium** — CSA tokenization |
 
 | Account segment | Trading lane relevance | TrustField hook |
 |-----------------|------------------------|-----------------|
@@ -289,7 +306,7 @@ Week 4–8
 
 Parallel (only on inbound)
 ├── Noetfield thread if FI asks about internal Copilot governance
-└── Separate NDA/MSO/SOW — never mixed invoice
+└── Separate NDA/MSA/SOW — never mixed invoice
 
 Forbidden
 ├── "Trading bot" marketing
@@ -332,7 +349,32 @@ Buyer mentions trading, crypto, dealer, MSB, FINTRAC?
 
 ---
 
-## 11. Cross-reference index
+## 11. Alignment scorecard (upgrade v1.1)
+
+| Dimension | TrustField | Noetfield | WitnessBC |
+|-----------|------------|-----------|-----------|
+| Bounded-autonomy evidence layer | **8/10** | 5/10 (internal only) | 3/10 (different buyer) |
+| Canada trading-lane outbound | **9/10** | 2/10 | 1/10 |
+| FINTRAC/CIRO regulatory moment | **9/10** | 4/10 | 2/10 |
+| Disk proof today (W2 kernel) | **8/10** | 8/10 (shared engine) | N/A |
+| W3 economic proof | **2/10** | 2/10 | N/A |
+| VC fundraise front door | **9/10** | 3/10 (later) | 2/10 |
+
+**Weighted verdict:** **Proceed TrustField-first.** Noetfield only on inbound FI Copilot thread. Do not pursue retail prop traders in 2026.
+
+---
+
+## 12. Upgrade changelog (v1.0 → v1.1)
+
+- Added disk-verified validator proof block
+- Added Ocree/Fundmore approval table from business model SSOT
+- Fixed MSA typo in GTM sequence
+- Added alignment scorecard with W3 gap explicit
+- Synced Priority A account SKU mapping
+
+---
+
+## 13. Cross-reference index
 
 | Doc | Path |
 |-----|------|
