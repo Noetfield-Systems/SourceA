@@ -1,7 +1,7 @@
 # IRAP Technical Narrative — Runtime Agent Enforcement Kernel
 
-**Saved:** 2026-07-01T10:20:15Z  
-**Version:** 1.1 — LOCKED (draft for ITA intake — customize applicant entity with counsel)  
+**Saved:** 2026-07-01T10:33:29Z  
+**Version:** 1.2 — LOCKED (draft for ITA intake — customize applicant entity with counsel)  
 **route_id:** `locked_product_spec_doc`  
 **sequence_id:** SA-2026-07-01-IRAP-ENFORCEMENT-KERNEL-NARRATIVE  
 **Parent:** `docs/CANADA_ICP_GRANT_VC_EVIDENCE_Q3_2026_INVESTOR_PLANNING_DATABASE_LOCKED_v1.md`  
@@ -255,6 +255,8 @@ Agent intent (JSON)
 | Path | Role |
 |------|------|
 | `docs/ENTITY_EVIDENCE_MATRIX_SOURCEA_TRUSTFIELD_NOETFIELD_CANADA_GRANT_ANGEL_V_LOCKED_v1.md` | Fill-in status tracker |
+| `receipts/sred-experiment-log-2026/EXPERIMENT_LOG.md` | Contemporaneous SR&ED entries (555-02) |
+| `receipts/sred-experiment-log-2026/HYPOTHESIS_REGISTER.md` | H1–H5 status register |
 | `docs/CANADA_ICP_GRANT_VC_EVIDENCE_Q3_2026_INVESTOR_PLANNING_DATABASE_LOCKED_v1.md` | Full funding lane analysis |
 | `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` | Scope boundary |
 | `investor/ENFORCEMENT_DEMO_5MIN.md` | Demo script |

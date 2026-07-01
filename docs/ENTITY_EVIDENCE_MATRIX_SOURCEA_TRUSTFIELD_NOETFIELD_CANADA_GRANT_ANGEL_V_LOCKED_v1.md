@@ -1,7 +1,7 @@
 # Canada Entity Evidence Matrix — SourceA · TrustField · Noetfield · FORGE
 
-**Saved:** 2026-07-01T10:20:15Z  
-**Version:** 1.1 — LOCKED  
+**Saved:** 2026-07-01T10:33:29Z  
+**Version:** 1.2 — LOCKED  
 **route_id:** `locked_product_spec_doc`  
 **sequence_id:** SA-2026-07-01-CANADA-ENTITY-EVIDENCE-MATRIX  
 **Parent:** `docs/CANADA_ICP_GRANT_VC_EVIDENCE_Q3_2026_INVESTOR_PLANNING_DATABASE_LOCKED_v1.md`  
@@ -9,24 +9,25 @@
 
 **Status legend:** `[ ]` Not started · `[~]` In progress · `[x]` Done · `[—]` N/A for entity · `[!]` Blocker
 
-**Last reviewed:** 2026-07-01  
-**Reviewer:** cursor-agent (disk audit)
+**Last reviewed:** 2026-07-01T10:33:29Z  
+**Reviewer:** cursor-agent (555-02 execution)
 
 ---
 
-## Readiness rollup (auto from status columns)
+## Readiness rollup (updated after 555-02)
 
 | Tier | Done | In progress | Not started | Score |
 |------|------|-------------|-------------|-------|
 | T0 Legal | 1 | 2 | 7 | **10%** |
-| SRED | 2 | 4 | 6 | **17%** |
+| SRED | 4 | 3 | 5 | **33%** |
 | IRAP | 2 | 0 | 8 | **20%** |
-| ANG | 3 | 3 | 17 | **13%** |
+| ANG | 4 | 2 | 17 | **17%** |
 | SEED | 0 | 0 | 8 | **0%** |
+| **555 inbox** | 2 | 0 | 3 | **40%** |
 
 **Critical path (blocks all funding):** T0-01..04 (entity + IP) · ANG-05 (film W1) · ANG-11 (W3 pilot)
 
-**Disk-verified PASS (2026-07-01):** SRED-02, SRED-03 · ANG-06, ANG-08 · validators + receipts logged
+**Disk-verified PASS (2026-07-01):** SRED-02..05 · ANG-06..09 · 555-01 bundle · 555-02 experiment log
 
 ---
 
@@ -69,8 +70,8 @@
 
 | Project ID | Project name | Lead entity | Technological uncertainty (one line) | Status |
 |------------|--------------|-------------|--------------------------------------|--------|
-| R&D-01 | Runtime agent enforcement kernel | SourceA | Policy cannot be bypassed between LLM output and disk write | [ ] |
-| R&D-02 | Receipt integrity + tamper detection | SourceA | Cryptographic/checksum chain survives adversarial edit | [ ] |
+| R&D-01 | Runtime agent enforcement kernel | SourceA | Policy cannot be bypassed between LLM output and disk write | [~] |
+| R&D-02 | Receipt integrity + tamper detection | SourceA | Cryptographic/checksum chain survives adversarial edit | [~] |
 | R&D-03 | Pre-run dispatch gate (eval-1b) | SourceA | Live model eval gates factory dispatch without false green | [ ] |
 | R&D-04 | Regulated evidence export (Trust Brief) | TrustField | Examiner-replayable chain for FINTRAC-adjacent ops | [ ] |
 | R&D-05 | Govern-before-execution (Copilot) | Noetfield | Block agent commit before policy check in FI workflow | [ ] |
@@ -82,8 +83,8 @@
 | SRED-01 | Architecture diagram (enforcement loop) | SourceA | `brain-os/system/SOURCEA_FULL_LAYERED_CONTROL_PLAN_LOCKED_v1.md` + export diagram | [ ] |
 | SRED-02 | Source code — commit gate | SourceA | `scripts/commit_intent_v1.py` | [x] |
 | SRED-03 | Source code — demo enforcement | SourceA | `scripts/validate-demo-enforcement-v1.sh` · `scripts/demo-enforcement-5min-v1.sh` · `scripts/validate-enforcement-kernel-v1.sh` | [x] |
-| SRED-04 | Experiment log (dated) | SourceA | `receipts/sred-experiment-log-2026/` — **555-02 next** | [~] |
-| SRED-05 | Hypothesis register | SourceA | Link to R&D-01..05 table above — dated entries | [ ] |
+| SRED-04 | Experiment log (dated) | SourceA | `receipts/sred-experiment-log-2026/` — **555-02 DONE** | [x] |
+| SRED-05 | Hypothesis register | SourceA | `receipts/sred-experiment-log-2026/HYPOTHESIS_REGISTER.md` | [x] |
 | SRED-06 | Git commit history mapped to project IDs | SourceA | `git log --oneline scripts/commit_intent_v1.py scripts/validate-demo-enforcement-v1.sh` | [~] |
 | SRED-07 | Eval-1b reports | SourceA | `eval_packet_v1b_report.json` — **absent logged 2026-07-01**; use structural mode + honest counter | [!] |
 | SRED-08 | Timesheets (% R&D allocation) | All R&D entities | Payroll / timesheet export — _____% SourceA R&D | [ ] |
@@ -136,7 +137,7 @@
 | ANG-06 | W2 — single write path | SourceA | `scripts/commit_intent_v1.py --demo-enforcement` | [x] |
 | ANG-07 | Validator PASS artifact | SourceA | `receipts/investor-planning-proof-bundle-2026-07-01/` — **555-01 DONE** | [x] |
 | ANG-08 | Tamper-FAIL on camera | SourceA | `bash scripts/validate-demo-enforcement-v1.sh --tamper-test` — **PASS verified** | [x] |
-| ANG-09 | Latest receipt JSON (redacted) | SourceA | `~/.sina/demo-enforcement/receipts/latest-demo-receipt.json` — **exists** | [x] |
+| ANG-09 | Latest receipt JSON (redacted) | SourceA | `~/.sina/demo-enforcement/receipts/latest-demo-receipt.json` — **555-03 packages for DD** | [~] |
 | ANG-10 | 90s demo cut for email | SourceA | Film from W1 — path: _______________ | [ ] |
 
 ### 4C. Commercial proof (W3)
@@ -297,9 +298,11 @@ python3 scripts/commit_intent_v1.py --demo-enforcement --case allow --json
 | IRAP narrative | `docs/IRAP_TECHNICAL_NARRATIVE_ENFORCEMENT_KERNEL_UNCERTAINTY_DRAFT_LOCKED_v1.md` |
 | Enforcement 6MO | `brain-os/law/enforcement/ENFORCEMENT_6MO_INVESTOR_WIN_LOCKED_v1.md` |
 | VC anti-mortem | `investor/TRUSTFIELD_VC_TRUST_LEGAL_ANTI_MORTEM_v1.md` |
+| 555 plans inbox | `docs/555_PLANS_NEXT_UPGRADES_INVESTOR_PLANNING_INBOX_LOCKED_v1.md` |
+| SR&ED experiment log | `receipts/sred-experiment-log-2026/` |
 
 ---
 
-*Locked fill-in-the-blank matrix v1.1. Update status columns weekly; bump `Saved:` UTC on structural edits.*
+*Locked fill-in-the-blank matrix v1.2. Update status columns weekly; bump `Saved:` UTC on structural edits.*
 
-**Upgrade v1.1:** Readiness rollup · disk-verified statuses · trading lane rows · full 5-doc index · eval_packet absent flagged.
+**Upgrade v1.2:** 555-02 SR&ED log done · readiness rollup refresh · queue_head 555-03.

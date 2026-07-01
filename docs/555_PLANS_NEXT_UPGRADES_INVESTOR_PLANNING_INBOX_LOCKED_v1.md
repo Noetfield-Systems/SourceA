@@ -1,7 +1,7 @@
 # 555 Plans — Immediate Next Upgrades (Investor Planning Inbox)
 
-**Saved:** 2026-07-01T10:30:27Z  
-**Version:** 1.0 — LOCKED  
+**Saved:** 2026-07-01T10:33:29Z  
+**Version:** 1.2 — LOCKED  
 **route_id:** `locked_product_spec_doc`  
 **sequence_id:** SA-2026-07-01-555-PLANS-INVESTOR-INBOX  
 **Parent database:** `docs/CANADA_ICP_GRANT_VC_EVIDENCE_Q3_2026_INVESTOR_PLANNING_DATABASE_LOCKED_v1.md` (v1.1)  
@@ -27,8 +27,8 @@
 | ID | Title | Unblocks | Owner | Status |
 |----|-------|----------|-------|--------|
 | **555-01** | IRAP/SR&ED investor proof bundle logged | ANG-07 · SRED-04/05 · IRAP §15 | Worker | **DONE** — see receipt |
-| **555-02** | SR&ED experiment log + hypothesis register (dated) | SRED-04 · SRED-05 · grant narrative | Worker | pending |
-| **555-03** | Redacted receipt JSON + data-room `02 Technical/` folder | ANG-09 · angel DD | Worker | pending |
+| **555-02** | SR&ED experiment log + hypothesis register (dated) | SRED-04 · SRED-05 · grant narrative | Worker | **DONE** — see receipt |
+| **555-03** | Redacted receipt JSON + data-room `02 Technical/` folder | ANG-09 · angel DD | Worker | **queue head** |
 | **555-04** | W1 demo transcript + filmed-run checklist | ANG-05 · ANG-10 · W1 | Founder+Worker | pending |
 | **555-05** | Ocree send pack — champion fields + locked email attach list | ANG-18 · W3 · TRD-03 | Commercial | pending |
 
@@ -69,6 +69,26 @@ grep -q '"ok": true' receipts/investor-planning-proof-bundle-2026-07-01/MANIFEST
 **Acceptance:** ≥2 dated experiment entries with command + stdout hash reference.
 
 **Scope:** docs + receipts only — no new product code.
+
+---
+
+## 555-02 — SR&ED experiment log (EXECUTED)
+
+**Proof path:** `receipts/sred-experiment-log-2026/`
+
+| Artifact | Purpose |
+|----------|---------|
+| `MANIFEST.json` | Machine index |
+| `EXPERIMENT_LOG.md` | EXP-001..003 dated entries (H1 partial, H3 PASS) |
+| `HYPOTHESIS_REGISTER.md` | R&D-01..05 ↔ H1..H5 map |
+
+**Matrix updates:** SRED-04 → `[x]` · SRED-05 → `[x]` · R&D-01/02 → `[~]`
+
+**Verify:**
+```bash
+test -f receipts/sred-experiment-log-2026/MANIFEST.json
+grep -q 'EXP-003' receipts/sred-experiment-log-2026/EXPERIMENT_LOG.md
+```
 
 ---
 

@@ -1,7 +1,7 @@
 # Canada ICP — Grant & Angel/VC Evidence Requirements (Q3 2026)
 
-**Saved:** 2026-07-01T10:20:15Z  
-**Version:** 1.1 — LOCKED  
+**Saved:** 2026-07-01T10:33:29Z  
+**Version:** 1.2 — LOCKED  
 **route_id:** `locked_product_spec_doc`  
 **sequence_id:** SA-2026-07-01-CANADA-ICP-GRANT-VC-EVIDENCE-DB  
 **Class:** Investor planning database — market reality + evidence SSOT for grants, angels, seed VC  
@@ -33,10 +33,11 @@
 | Tier | Score | Status | Blocker |
 |------|-------|--------|---------|
 | **T0 Legal/entity** | 1/10 | 🔴 Not fundable | CCPC · IP assignment · bank — COUNSEL |
-| **T1 Grants (SR&ED/IRAP)** | 4/12 | 🟡 Narrative ready · records thin | Experiment log · timesheets · ITA call |
-| **T2 Angel** | 6/23 | 🟡 Tech verification built in · no W3 | Film W1 · paid pilot · LinkedIn anchor |
+| **T1 Grants (SR&ED/IRAP)** | 4/12 | 🟡 Experiment log logged · ITA call pending | SR&ED 33% · 1-877-994-4727 |
+| **T2 Angel** | 6/23 | 🟡 Tech + grant records · no W3 | Film W1 · paid pilot · LinkedIn anchor |
 | **T3 Seed VC** | 0/8 | 🔴 Do not raise | W1+W3 + MRR path |
 | **W1/W2/W3 (ENFORCEMENT)** | W2 ✅ · W1 ⏳ · W3 ⏳ | 🟡 Kernel yes · economic no | Film demo · close TF pilot |
+| **555 inbox** | 2/5 | 🟡 40% done | **queue_head: 555-03** |
 
 **Disk proof (run before any investor call):**
 
@@ -343,9 +344,10 @@ October–December 2026
 | `docs/555_PLANS_NEXT_UPGRADES_INVESTOR_PLANNING_INBOX_LOCKED_v1.md` | 555 immediate upgrade queue |
 | `data/investor-planning-555-inbox-v1.json` | Machine inbox · queue_head |
 | `receipts/investor-planning-proof-bundle-2026-07-01/` | 555-01 proof bundle (DONE) |
+| `receipts/sred-experiment-log-2026/` | 555-02 SR&ED experiment log (DONE) |
 
 ---
 
 *Locked for investor planning database v1.1. Bump `Saved:` UTC on material edits.*
 
-**Upgrade v1.1:** 5-doc master index · readiness dashboard · disk-verified validators · Ocree/Fundmore approval sync.
+**Upgrade v1.2:** 555 inbox wired · 555-01/02 executed · SR&ED log logged · queue_head 555-03.

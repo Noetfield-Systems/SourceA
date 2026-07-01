@@ -1,0 +1,17 @@
+{
+  "schema": "sred-experiment-log-v1",
+  "log_id": "sred-experiment-log-2026",
+  "created_at": "2026-07-01T10:33:29Z",
+  "plan_id": "555-02",
+  "ok": true,
+  "lead_entity": "SourceA",
+  "project_ids": ["R&D-01", "R&D-02", "R&D-03"],
+  "hypothesis_ids": ["H1", "H3"],
+  "entry_count": 3,
+  "proof_bundle_ref": "receipts/investor-planning-proof-bundle-2026-07-01/MANIFEST.json",
+  "parent_inbox": "data/investor-planning-555-inbox-v1.json",
+  "artifacts": [
+    "EXPERIMENT_LOG.md",
+    "HYPOTHESIS_REGISTER.md"
+  ]
+}
