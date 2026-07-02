@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-contract-email-routes-v1",
-  "version": "1.1.0",
-  "saved_at": "2026-07-02T00:55:00Z",
+  "version": "1.2.0",
+  "saved_at": "2026-07-02T01:45:00Z",
   "authority": "ASF",
   "human_doc": "reports/sourcea-contract-domains-acquisition-buyer-analysis-july-2026-v1.md",
   "one_law": "Public contract SKUs show domain-correct contract@ addresses. Inbound delivers via Google Workspace aliases to operations@noetfield.com — not personal Gmail.",
@@ -74,7 +74,26 @@
       "buyer-path",
       "diagram-svg",
       "/attach/procurement-pack.html",
-      "trust-brief/intake"
+      "trust-brief/intake",
+      "rel=\"alternate\" hreflang",
+      "Sample data · read-only preview"
+    ],
+    "canonical_e2e_v1": [
+      {
+        "id": "operating-brain-install",
+        "canonical": "https://sourcea.app/operating-brain-install",
+        "hreflang": ["en"]
+      },
+      {
+        "id": "ai-value-governance",
+        "canonical": "https://sourcea.ca/ai-value-governance",
+        "hreflang": ["en-CA", "en"]
+      },
+      {
+        "id": "enterprise-ai-control-plane",
+        "canonical": "https://sourcea.uk/enterprise-ai-control-plane",
+        "hreflang": ["en-GB", "en"]
+      }
     ],
     "eval_path": "/eval",
     "eval_must_include": [

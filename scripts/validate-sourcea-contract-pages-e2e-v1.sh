@@ -44,6 +44,7 @@ for row in ssot["contract_routes"]:
     }[row["id"]]
     PAGES.append(
         {
+            "id": row["id"],
             "path": row["path"],
             "title": row["title"],
             "cta": row["cta"],
@@ -210,6 +211,19 @@ def check_trust_contract(label: str, body: str, disk: str | None = None) -> None
                 fails.append(f"disk {label}: trust missing {needle!r}")
 
 
+def check_canonical(label: str, body: str, *, canonical: str, hreflang: list[str]) -> None:
+    if f'rel="canonical" href="{canonical}"' not in body and f"rel='canonical' href='{canonical}'" not in body:
+        fails.append(f"{label}: canonical must be {canonical!r}")
+    else:
+        ok(f"OK canonical {label} · {canonical}")
+    for lang in hreflang:
+        needle = f'rel="alternate" hreflang="{lang}"'
+        if needle not in body:
+            fails.append(f"{label}: missing hreflang {lang!r}")
+        else:
+            ok(f"OK hreflang {label} · {lang}")
+
+
 def check_trust_eval(label: str, status: int, body: str) -> None:
     if status != 200:
         fails.append(f"{label}: HTTP {status}")
@@ -347,6 +361,9 @@ for row in PAGES:
             fails.append(f"disk {src.name}: missing CTA {row['cta']!r}")
         if row["email"] not in disk:
             fails.append(f"disk {src.name}: missing public address {row['email']!r}")
+        canon_row = next((c for c in (TRUST.get("canonical_e2e_v1") or []) if c.get("id") == row.get("id")), None)
+        if canon_row:
+            check_canonical(f"disk {src.name}", disk, canonical=canon_row["canonical"], hreflang=canon_row.get("hreflang") or [])
 
 for row in REGIONAL:
     host_primary = row["hosts"][0]
