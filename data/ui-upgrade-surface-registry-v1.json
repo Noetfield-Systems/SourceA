@@ -74,7 +74,7 @@
       "blueprint": [
         "brain-os/wtm/WORLD_TARGET_MODEL_UI_INCIDENT_REPORT_LOCKED_v1.md",
         "brain-os/wtm/WORLD_TARGET_MODEL_UI_RESEARCH_LOCKED_v1.md",
-        "HUB_SOURCE_UI_ALIGNMENT_PROCEDURE_LOCKED_v1.md"
+        "brain-os/law/HUB_SOURCE_UI_ALIGNMENT_PROCEDURE_LOCKED_v1.md"
       ],
       "dom_must_contain": [
         "sr-you-are-here",
@@ -144,7 +144,7 @@
       "root": "agent-control-panel/form",
       "url": "http://127.0.0.1:13020/form/",
       "blueprint": [
-        "SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md",
+        "brain-os/law/SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md",
         "brain-os/incidents/SINA_EXECUTOR_IGNORED_M1_INTEGRITY_FORM_CANVAS_INCIDENT_029_LOCKED_v1.md",
         "data/form_official_nerve_map_v1.json",
         ".cursor/rules/form-automatic-submit-only.mdc"
