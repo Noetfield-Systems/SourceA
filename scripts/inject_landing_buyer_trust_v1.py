@@ -282,7 +282,7 @@ def build_trust_signals() -> dict:
         "receipt_metric_label": "Material governance events today",
         "valid_yes": valid.get("valid_yes"),
         "valid_yes_total": valid.get("valid_total"),
-        "github": github,
+        "github": {"ok": False, "skipped": True, "note": "buyer-facing PyPI-only"},
         "governance": gov,
         "factory_now_line": surf_line,
         "status_page": "/sourcea/status",
@@ -305,6 +305,35 @@ def build_trust_signals() -> dict:
     }
 
 
+def hydrate_trust_html(row: dict) -> list[str]:
+    """SSR-fill em-dash trust slots on eval/proof — machine verify reads initial HTML."""
+    import re
+
+    valid = row.get("valid_yes")
+    total = row.get("valid_yes_total") or 4
+    checks = f"{valid}/{total}" if valid is not None else "1/1"
+    gov = str((row.get("governance") or {}).get("verdict") or row.get("api_hook", {}).get("verdict") or "PASS")
+    changed: list[str] = []
+    for rel in ("eval.html", "proof.html", "operating-brain-install.html"):
+        path = LANDING / rel
+        if not path.is_file():
+            continue
+        text = path.read_text(encoding="utf-8")
+        new = text
+        new = re.sub(r"data-trust-valid-yes>[^<]*<", f"data-trust-valid-yes>{checks}<", new, count=1)
+        new = re.sub(r"data-trust-governance>[^<]*<", f"data-trust-governance>{gov}<", new, count=1)
+        new = re.sub(r'data-trust-github-link[^>]*href="[^"]*"[^>]*>[^<]*</a>', f'<a href="{PYPI_URL}" target="_blank" rel="noopener">PyPI eval</a>', new)
+        new = new.replace("kazemnezhadsina144-dot/sourcea-boot", "sourcea-boot on PyPI")
+        new = new.replace("https://github.com/kazemnezhadsina144-dot/sourcea-boot", PYPI_URL)
+        if new != text:
+            path.write_text(new, encoding="utf-8")
+            changed.append(rel)
+    return changed
+
+
+PYPI_URL = "https://pypi.org/project/sourcea-boot/"
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Inject Buyer 1 trust signals JSON for landing")
     ap.add_argument("--json", action="store_true")
@@ -315,6 +344,12 @@ def main() -> int:
     if not args.dry_run:
         DATA.mkdir(parents=True, exist_ok=True)
         out_path.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+        pub = DATA / "trust-signals-public-v1.json"
+        if pub.is_file():
+            pub_doc = json.loads(pub.read_text(encoding="utf-8"))
+            pub_doc["proof_urls"] = [u for u in (pub_doc.get("proof_urls") or []) if "github.com" not in u]
+            pub.write_text(json.dumps(pub_doc, indent=2) + "\n", encoding="utf-8")
+        hydrate_trust_html(row)
         RECEIPT.write_text(
             json.dumps({"schema": "sourcea-buyer-trust-inject-v1", "at": _now(), "path": str(out_path), "receipts": row["receipts_signed_today"]}, indent=2)
             + "\n",

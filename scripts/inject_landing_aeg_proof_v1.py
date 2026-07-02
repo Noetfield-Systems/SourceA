@@ -24,10 +24,10 @@ BUYER_SAFE_TERMINAL = (
     "$ sourcea-boot --json\n\n"
     "SOURCEA_BOOT PASS ok=true\n"
     "REPORT=receipts/sourcea-boot/BOOT_REPORT.json\n\n"
-    "  [PASS] policy_version: no policy file (POLICY.md) — skipped\n"
+    "  [SKIP] policy_version: no policy file (POLICY.md) — skipped\n"
     "  [PASS] provider: provider env present (ANTHROPIC_API_KEY)\n"
-    "  [PASS] receipt_fresh: no prior receipt — first boot allowed\n"
-    "  [PASS] queue_truth: no queue files configured — skipped\n\n"
+    "  [SKIP] receipt_fresh: no prior receipt — first boot allowed\n"
+    "  [SKIP] queue_truth: no queue files configured — skipped\n\n"
     "blockers:\n  (none)"
 )
 
@@ -157,9 +157,10 @@ def _render_checks(checks: list[dict]) -> str:
         return '<div class="sa-aeg-check"><span class="sa-t-ok">[PASS]</span> boot checks loaded</div>'
     parts: list[str] = []
     for c in checks:
-        ok = c.get("ok")
-        mark = "PASS" if ok else "FAIL"
-        cls = "sa-t-ok" if ok else "sa-t-bad"
+        skipped = bool(c.get("skipped"))
+        ok = c.get("ok") and not skipped
+        mark = "SKIP" if skipped else ("PASS" if ok else "FAIL")
+        cls = "sa-t-warn" if skipped else ("sa-t-ok" if ok else "sa-t-bad")
         name = html.escape(str(c.get("name") or c.get("id") or "check"))
         reason = html.escape(str(c.get("reason") or ""))
         line = f'<div class="sa-aeg-check"><span class="{cls}">[{mark}]</span> {name}'
