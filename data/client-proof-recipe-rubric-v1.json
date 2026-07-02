@@ -27,7 +27,8 @@
     "url_artifact_must_use_content_markers": true,
     "url_verify_forbidden": "curl 200-only without grep/script content assertion",
     "url_verify_helper": "scripts/verify_client_proof_artifact_v1.py",
-    "spa_false_pass_law": "sourcea.app SPA fallback serves shell HTML for any path — grep data-sa-page or page-unique copy"
+    "spa_false_pass_law": "sourcea.app SPA fallback serves shell HTML for any path — grep data-sa-page or page-unique copy",
+    "public_verify_law": "Verify = raw HTTPS fetch of the PUBLIC hostname from outside; minimum 60s after deploy; local dist verification is INVALID as PASS."
   },
   "cloud_sec_numbering": {
     "law": "Next CLOUD-SEC = max(actual plan id in prior batches) + 1 — never cloud_sec_range summary text alone",
