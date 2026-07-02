@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# L15 agent-D2 — warn before pushing directly to main from local.
+# Install: git config core.hooksPath .githooks
+set -euo pipefail
+branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")"
+if [[ "$branch" != "main" ]]; then
+  exit 0
+fi
+remote="@{u}"
+if git rev-parse "$remote" >/dev/null 2>&1; then
+  if ! git merge-base --is-ancestor "$remote" HEAD 2>/dev/null; then
+    echo "L15 agent-D2 BLOCK: main is not a fast-forward of $remote — rebase onto origin/main; force-push prohibited." >&2
+    echo "  git fetch origin && git rebase origin/main" >&2
+    exit 1
+  fi
+fi
+echo "L15 agent-D2: pushing to main — cloud Loop Specialist integrates; prefer PR from branch." >&2
+exit 0

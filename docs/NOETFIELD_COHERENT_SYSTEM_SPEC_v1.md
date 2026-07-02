@@ -135,6 +135,8 @@ Missing today: lanes report to the spine but nothing *reads across* lanes and ro
 
 Dispatch protocol (all workers): governed-autorun v3 template — laws header, one sandbox, fixed report fields, op_key on every task.
 
+**L15 agent-D2 (integrator law):** One integrator per repo — cloud Loop Specialist merges to `main`. Local Worker + Brain write on branches only. Before any task, read `main` + open branches for existing work; duplicate implementation = defect (same as L14 unregistered trigger). Non-fast-forward → rebase; force-push prohibited.
+
 ---
 
 ## 7. ROLLOUT (each phase = one dispatch, machine-verifiable done)
