@@ -207,10 +207,15 @@ bash scripts/sync-signal-factory-skill-v1.sh
 ```bash
 cd cloud/workers/signal-factory-tick-v1
 npx wrangler deploy
-# Set secrets: FBE_CLOUD_WORKER_URL, FBE_INTERNAL_SECRET
+bash scripts/signal_factory_cf_secrets_v1.sh
 ```
 
-**Deploy Railway body:** include `signal_factory_*` in `deploy_fbe_railway_v1.py` staging (already listed).
+**24/7 cron:** fires from existing `loop-specialist-tick-v1` scheduled hook every 15m (piggyback — dedicated cron quota blocked on CF account).
+
+**One-command deploy:**
+```bash
+bash scripts/deploy_signal_factory_24_7_v1.sh
+```
 
 ---
 
