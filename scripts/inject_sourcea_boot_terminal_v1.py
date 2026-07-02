@@ -62,8 +62,16 @@ def _public_report_path(report_file: str | None) -> str:
     return f"receipts/sourcea-boot/{name}"
 
 
-def _check_class(ok: bool) -> str:
-    return "sa-t-ok" if ok else "sa-t-bad"
+def _check_class(c: dict) -> str:
+    if c.get("skipped"):
+        return "sa-t-warn"
+    return "sa-t-ok" if c.get("ok") else "sa-t-bad"
+
+
+def _check_mark(c: dict) -> str:
+    if c.get("skipped"):
+        return "SKIP"
+    return "PASS" if c.get("ok") else "FAIL"
 
 
 def format_html_pre(row: dict) -> str:
@@ -76,11 +84,11 @@ def format_html_pre(row: dict) -> str:
         f'<span class="sa-t-dim">ok={str(ok).lower()}</span>',
     ]
     for c in row.get("checks") or []:
-        mark = "PASS" if c.get("ok") else "FAIL"
+        mark = _check_mark(c)
         name = escape(str(c.get("name") or c.get("id") or "check"))
         reason = escape(str(c.get("reason") or ""))
         lines.append(
-            f'  <span class="{_check_class(c.get("ok"))}">[{mark}]</span> {name}: {reason}'
+            f'  <span class="{_check_class(c)}">[{mark}]</span> {name}: {reason}'
         )
     report = escape(_public_report_path(str(row.get("report_file") or "")))
     lines.append(f'<span class="sa-t-dim">REPORT={report}</span><span class="sa-t-cursor">▋</span>')
@@ -95,7 +103,7 @@ def format_plain(row: dict) -> str:
         f"SOURCEA_BOOT {verdict} ok={str(ok).lower()}",
     ]
     for c in row.get("checks") or []:
-        mark = "PASS" if c.get("ok") else "FAIL"
+        mark = _check_mark(c)
         name = str(c.get("name") or c.get("id") or "check")
         reason = str(c.get("reason") or "")
         lines.append(f"  [{mark}] {name}: {reason}")

@@ -1,6 +1,6 @@
 {
   "schema": "sourcea-platform-auth-config-v1",
-  "at": "2026-07-01T22:01:54Z",
+  "at": "2026-07-02T07:19:01Z",
   "configured": true,
   "supabase_url": "https://ldfruywifqnfpwsfgmdl.supabase.co",
   "supabase_anon_key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxkZnJ1eXdpZnFuZnB3c2ZnbWRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAwMzY3OTIsImV4cCI6MjA5NTYxMjc5Mn0.ETJQMWEO0eIgwDh9YSmtZ5C-jHGT31oXC1PdsUWR5RQ",

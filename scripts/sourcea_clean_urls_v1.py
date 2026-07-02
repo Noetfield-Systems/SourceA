@@ -146,6 +146,9 @@ def write_redirects(dist: Path, *, html_rewrites: bool = False) -> list[str]:
 
     # /forge/cursor-bridge, /forge/try, etc. — without this, Pages serves root index.html
     add("/forge/*  /sourcea/forge/:splat  302")
+    add("/attach/*  /sourcea/attach/:splat  200")
+    add("/loops/*  /sourcea/loops/:splat  200")
+    add("/case-studies/*  /sourcea/case-studies/:splat  200")
 
     for src, dest in REDIRECT_301:
         add(f"{src}  {dest}  301")

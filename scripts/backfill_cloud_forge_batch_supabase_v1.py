@@ -92,9 +92,17 @@ def backfill(
                 continue
             artifact_doc = seed.get("forge_seed_artifact") if isinstance(seed.get("forge_seed_artifact"), dict) else {}
             cycle_row = seed
+            cycle_row["origin"] = "mac_replay"
         sb = persist_shipped_row(cycle_row, artifact_doc=artifact_doc)
         if not sb.get("ok"):
-            ship_row = row_from_ship(plan_id=plan_id, cycle_row=cycle_row, plan=None, artifact_doc=artifact_doc or {})
+            ship_row = row_from_ship(
+                plan_id=plan_id,
+                cycle_row=cycle_row,
+                plan=None,
+                artifact_doc=artifact_doc or {},
+                trigger_source="mac_replay_backfill",
+            )
+            ship_row["origin"] = "mac_replay"
             sb = upsert_row_with_retry(ship_row)
         ok = bool(sb.get("ok"))
         if ok:
