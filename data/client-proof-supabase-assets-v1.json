@@ -1,0 +1,41 @@
+{
+  "schema": "client-proof-supabase-assets-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-02T04:22:56Z",
+  "one_law": "Client-proof jobs are organized as one reliable recipe per CLOUD-SEC row and land in Supabase cloud_forge_run_rows after autorun ticks.",
+  "queue_path": "data/client-proof-recipe-queue-v1.json",
+  "queue_total": 200,
+  "supabase_table": "cloud_forge_run_rows",
+  "assets": [
+    {
+      "batch_id": 76,
+      "path": "data/secondary-cloud-forge-run-batch-76-locked-v1.json",
+      "library": "client-proof-recipe",
+      "cloud_sec_range": "CLOUD-SEC-7467..CLOUD-SEC-7566",
+      "rows": 100,
+      "tasks_per_row": 1,
+      "task_packs": 0,
+      "recipes_with_verify": 100,
+      "recipes_with_proof_artifact": 100,
+      "supabase_table": "cloud_forge_run_rows"
+    },
+    {
+      "batch_id": 77,
+      "path": "data/secondary-cloud-forge-run-batch-77-locked-v1.json",
+      "library": "client-proof-recipe",
+      "cloud_sec_range": "CLOUD-SEC-7567..CLOUD-SEC-7666",
+      "rows": 100,
+      "tasks_per_row": 1,
+      "task_packs": 0,
+      "recipes_with_verify": 100,
+      "recipes_with_proof_artifact": 100,
+      "supabase_table": "cloud_forge_run_rows"
+    }
+  ],
+  "verify_helper": "scripts/verify_client_proof_artifact_v1.py",
+  "autorun": {
+    "scheduler": "cloudflare_cron",
+    "cron": "*/10 * * * *",
+    "railway": "https://sourcea-fbe-runner-production.up.railway.app"
+  }
+}
