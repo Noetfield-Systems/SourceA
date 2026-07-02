@@ -86,7 +86,7 @@ def format_html_pre(row: dict) -> str:
     for c in row.get("checks") or []:
         mark = _check_mark(c)
         name = escape(str(c.get("name") or c.get("id") or "check"))
-        reason = escape(str(c.get("reason") or ""))
+        reason = escape(str(c.get("reason") or "").replace("— skipped", "(not configured)"))
         lines.append(
             f'  <span class="{_check_class(c)}">[{mark}]</span> {name}: {reason}'
         )

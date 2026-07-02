@@ -90,7 +90,7 @@ def verify_row(row: dict[str, Any], vbp) -> dict[str, Any]:
                 sys.executable,
                 str(ROOT / "scripts/verify_mvp_intake_proof_v1.py"),
                 "--url",
-                "https://sourcea-mvp-intake-v1.sina-kazemnezhad-ca.workers.dev/api/commercial/mvp-intake/v1",
+                "https://sourcea.app/api/commercial/mvp-intake/v1",
                 "--json",
             ],
             capture_output=True,
