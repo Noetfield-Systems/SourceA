@@ -667,6 +667,132 @@ a:hover {
   max-width: 520px;
 }
 
+.proof-strip {
+  margin-top: 28px;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line-strong);
+  background: rgba(125, 242, 194, 0.06);
+}
+
+.proof-strip p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.proof-strip strong {
+  color: var(--text);
+}
+
+.proof-strip code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  color: var(--accent2);
+}
+
+.buyer-path {
+  padding: 28px clamp(20px, 4vw, 32px) 8px;
+  border-top: 1px solid var(--line);
+}
+
+.buyer-path-title {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent2);
+}
+
+.buyer-path-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.buyer-path-list a {
+  color: var(--accent);
+}
+
+.diagram-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 16px;
+}
+
+.diagram-caption {
+  margin: 0;
+  padding: 0 16px 16px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.eval-institutional-band {
+  border-bottom: 1px solid rgba(4, 68, 65, 0.12);
+  background: rgba(4, 68, 65, 0.04);
+  padding: 12px 0;
+  font-size: 0.9rem;
+  color: var(--ar-text-muted);
+  text-align: center;
+}
+
+.eval-institutional-band a {
+  color: var(--ar-accent);
+  font-weight: 600;
+}
+
+.eval-institutional-band code {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85em;
+}
+
+.contract-sku-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.contract-sku-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  text-decoration: none !important;
+  color: var(--text);
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.contract-sku-card:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+}
+
+.contract-sku-card em {
+  display: block;
+  margin-top: 8px;
+  font-style: normal;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.decision-tree {
+  margin-top: 20px;
+  padding: 18px 20px;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--line-strong);
+  background: rgba(255, 255, 255, 0.02);
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 /* Diligence scan table */
 .scan-table {
   width: 100%;
