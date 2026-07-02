@@ -238,13 +238,68 @@ def _apply_via_management_api(sql: str) -> dict[str, Any]:
         return {"ok": False, "error": str(exc)[:200]}
 
 
+def _pooler_region() -> str:
+    return os.environ.get("SUPABASE_REGION", "us-west-1").strip() or "us-west-1"
+
+
+def _psycopg_connect_attempts(ref: str) -> list[dict[str, Any]]:
+    """Valid Supabase host/port/user triples — avoid pooler+postgres (ENOIDENTIFIER)."""
+    region = _pooler_region()
+    pooler = os.environ.get("SUPABASE_POOLER_HOST", f"aws-0-{region}.pooler.supabase.com").strip()
+    return [
+        {"host": f"db.{ref}.supabase.co", "port": 5432, "user": "postgres", "options": None},
+        {
+            "host": pooler,
+            "port": 6543,
+            "user": f"postgres.{ref}",
+            "options": f"project={ref}",
+        },
+        {
+            "host": pooler,
+            "port": 5432,
+            "user": f"postgres.{ref}",
+            "options": f"project={ref}",
+        },
+    ]
+
+
+def _exec_psycopg_sql(
+    psycopg2: Any,
+    *,
+    connect_target: str,
+    connect_kwargs: dict[str, Any],
+    sql: str,
+) -> dict[str, Any]:
+    conn = psycopg2.connect(**connect_kwargs, connect_timeout=12)
+    conn.autocommit = True
+    cur = conn.cursor()
+    cur.execute(sql)
+    cur.close()
+    conn.close()
+    return {
+        "ok": True,
+        "applied": True,
+        "method": "psycopg",
+        "connect_target": connect_target,
+        "host": connect_kwargs.get("host"),
+        "port": connect_kwargs.get("port"),
+        "user": connect_kwargs.get("user"),
+    }
+
+
 def _apply_via_psycopg(sql: str) -> dict[str, Any]:
     password = (
         os.environ.get("SUPABASE_DB_PASSWORD", "").strip()
         or os.environ.get("POSTGRES_PASSWORD", "").strip()
     )
     ref = os.environ.get("SUPABASE_PROJECT_ID", "").strip()
-    if not password or not ref:
+    db_url = (
+        os.environ.get("SUPABASE_DB_URL", "").strip()
+        or os.environ.get("DATABASE_URL", "").strip()
+    )
+    if not ref and not db_url:
+        return {"ok": False, "skipped": True, "error": "db_ref_or_url_missing"}
+    if not password and not db_url:
         return {"ok": False, "skipped": True, "error": "db_password_missing"}
     try:
         import psycopg2  # noqa: WPS433
@@ -258,30 +313,67 @@ def _apply_via_psycopg(sql: str) -> dict[str, Any]:
             import psycopg2  # noqa: WPS433
         except ImportError:
             return {"ok": False, "error": "psycopg2_missing"}
-    hosts = [f"db.{ref}.supabase.co", "aws-0-us-west-1.pooler.supabase.com"]
+
+    attempts_log: list[dict[str, Any]] = []
     last_err = ""
-    for host in hosts:
-        for port in (5432, 6543):
-            for user in (f"postgres.{ref}", "postgres"):
-                try:
-                    conn = psycopg2.connect(
-                        host=host,
-                        port=port,
-                        user=user,
-                        password=password,
-                        dbname="postgres",
-                        connect_timeout=12,
-                        sslmode="require",
-                    )
-                    conn.autocommit = True
-                    cur = conn.cursor()
-                    cur.execute(sql)
-                    cur.close()
-                    conn.close()
-                    return {"ok": True, "applied": True, "method": "psycopg", "host": host, "port": port}
-                except Exception as exc:
-                    last_err = str(exc)[:200]
-    return {"ok": False, "error": last_err or "psycopg_connect_failed"}
+
+    if db_url:
+        try:
+            return _exec_psycopg_sql(
+                psycopg2,
+                connect_target="SUPABASE_DB_URL",
+                connect_kwargs={"dsn": db_url},
+                sql=sql,
+            )
+        except Exception as exc:
+            last_err = str(exc)[:200]
+            attempts_log.append({"target": "SUPABASE_DB_URL", "error": last_err})
+
+    if password and ref:
+        enc = urllib.parse.quote(password, safe="")
+        built = (
+            f"postgresql://postgres:{enc}@db.{ref}.supabase.co:5432/postgres?sslmode=require"
+        )
+        try:
+            return _exec_psycopg_sql(
+                psycopg2,
+                connect_target="direct_built_url",
+                connect_kwargs={"dsn": built},
+                sql=sql,
+            )
+        except Exception as exc:
+            last_err = str(exc)[:200]
+            attempts_log.append({"target": "direct_built_url", "error": last_err})
+
+        for attempt in _psycopg_connect_attempts(ref):
+            kwargs: dict[str, Any] = {
+                "host": attempt["host"],
+                "port": attempt["port"],
+                "user": attempt["user"],
+                "password": password,
+                "dbname": "postgres",
+                "sslmode": "require",
+            }
+            if attempt.get("options"):
+                kwargs["options"] = f"-c {attempt['options']}"
+            target = f"{attempt['host']}:{attempt['port']} user={attempt['user']}"
+            try:
+                row = _exec_psycopg_sql(
+                    psycopg2,
+                    connect_target=target,
+                    connect_kwargs=kwargs,
+                    sql=sql,
+                )
+                return row
+            except Exception as exc:
+                last_err = str(exc)[:200]
+                attempts_log.append({"target": target, "error": last_err})
+
+    return {
+        "ok": False,
+        "error": last_err or "psycopg_connect_failed",
+        "attempts": attempts_log[-5:],
+    }
 
 
 def _sellable(proof_tier: str) -> bool:
