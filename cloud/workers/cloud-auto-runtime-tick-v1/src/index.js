@@ -17,13 +17,23 @@ function json(body, status = 200) {
 export default {
   async scheduled(event, env, ctx) {
     ctx.waitUntil(
-      writeCronFired(env, {
-        deployment_id: event?.cron || "*/10 * * * *",
-      }),
+      (async () => {
+        const armed =
+          env.CLOUD_FORGE_RUN_AUTO_PROCEED === "true" || env.CLOUD_DRAIN_AUTO_PROCEED === "true";
+        const tick = await runTick(env, { proceed: armed });
+        await writeCronFired(env, {
+          deployment_id: event?.cron || "*/10 * * * *",
+          queue_head: tick?.motor?.head || tick?.pack?.head_now || null,
+          receipt_id: tick?.motor?.cycle_receipt_path || null,
+          tick_decision: tick?.decision || null,
+          cycle_verdict:
+            tick?.motor?.pack?.idle_batch && !(tick?.motor?.pack?.shipped || tick?.motor?.pack?.advanced)
+              ? "IDLE_NO_WORK"
+              : tick?.motor?.decision || null,
+        });
+        return tick;
+      })(),
     );
-    const armed =
-      env.CLOUD_FORGE_RUN_AUTO_PROCEED === "true" || env.CLOUD_DRAIN_AUTO_PROCEED === "true";
-    ctx.waitUntil(runTick(env, { proceed: armed }));
   },
 
   async fetch(request, env) {
