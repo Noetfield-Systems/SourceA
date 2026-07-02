@@ -153,6 +153,17 @@ def _parse_markers(s: str) -> list[str]:
     return [m.strip().strip('"') for m in s.split("·") if m.strip()]
 
 
+def _fetch_meta_slice(meta: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "fetched_at": meta.get("fetched_at"),
+        "http_code": meta.get("http_code"),
+        "body_sha256_prefix": meta.get("body_sha256_prefix"),
+        "body_bytes": meta.get("body_bytes"),
+        "cache_control": meta.get("cache_control"),
+        "location": meta.get("location"),
+    }
+
+
 def verify_row(row: dict[str, Any], vbp, *, deploy_gate: dict[str, Any]) -> dict[str, Any]:
     rid = row["recipe_id"]
     url = row["live_url"]
@@ -281,6 +292,7 @@ def verify_row(row: dict[str, Any], vbp, *, deploy_gate: dict[str, Any]) -> dict
         elif not str(ca.get("location") or "").startswith("https://sourcea.app/ai-value-governance"):
             machine_ok = False
             defects.append(f"sourcea.ca location={ca.get('location')}")
+        regional_redirect_fetch = _fetch_meta_slice(ca)
     else:
         fetch_meta = _public_fetch(url)
         body = fetch_meta["body"]
@@ -302,15 +314,10 @@ def verify_row(row: dict[str, Any], vbp, *, deploy_gate: dict[str, Any]) -> dict
         "defects": defects[:5],
         "fix": "" if verdict == "PASS" else "see defect",
     }
+    if rid == "cpr-contract-aivg":
+        out["regional_redirect_fetch"] = regional_redirect_fetch
     if fetch_meta:
-        out["public_fetch"] = {
-            "fetched_at": fetch_meta.get("fetched_at"),
-            "http_code": fetch_meta.get("http_code"),
-            "body_sha256_prefix": fetch_meta.get("body_sha256_prefix"),
-            "body_bytes": fetch_meta.get("body_bytes"),
-            "cache_control": fetch_meta.get("cache_control"),
-            "location": fetch_meta.get("location"),
-        }
+        out["public_fetch"] = _fetch_meta_slice(fetch_meta)
     return out
 
 
