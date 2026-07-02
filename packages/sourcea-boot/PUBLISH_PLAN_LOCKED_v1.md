@@ -33,9 +33,20 @@ PyPI publish is **Phase 0b** — do not claim PyPI on site until `pip install so
 | P0-4 | README honest about PyPI | Clone path works; PyPI line marked pending until Phase 0b |
 | P0-5 | Monorepo package unchanged behavior | `bash scripts/validate-sourcea-boot-v1.sh` still PASS |
 
+## Phase 0b prep (PyPI trusted publishing — NOT live yet)
+
+| Step | Deliverable | Status |
+|------|-------------|--------|
+| P0b-1 | `.github/workflows/publish-pypi-v1.yml` | In the repository · OIDC · no secrets |
+| P0b-2 | `.github/workflows/build-check-pypi-v1.yml` | Build + `twine check` on push/PR |
+| P0b-3 | `publish/PYPI_TRUSTED_PUBLISHING_SETUP_LOCKED_v1.md` | Founder PyPI trusted publisher checklist |
+| P0b-4 | First PyPI upload | **BLOCKED** — founder must confirm project ownership + trusted publisher |
+
+Export: `python3 scripts/publish_sourcea_boot_public_v1.py --push-existing`
+
 ## Scope OUT (later phases)
 
-- PyPI publish (`pip install sourcea-boot`) — Phase 0b
+- Live PyPI claim on site (`pip install sourcea-boot`) — after Phase 0b upload confirmed
 - Site trust-signals auto-flip (`github.ok: true`) — after deploy probe
 - Brain bundle regen — separate Worker/distill pass
 
