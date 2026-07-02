@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import socket
 import subprocess
 import sys
 import time
@@ -238,6 +239,14 @@ def _apply_via_management_api(sql: str) -> dict[str, Any]:
         return {"ok": False, "error": str(exc)[:200]}
 
 
+def _resolve_ipv4(host: str) -> str | None:
+    try:
+        infos = socket.getaddrinfo(host, None, socket.AF_INET, socket.SOCK_STREAM)
+        return infos[0][4][0] if infos else None
+    except OSError:
+        return None
+
+
 def _pooler_region() -> str:
     return os.environ.get("SUPABASE_REGION", "us-west-1").strip() or "us-west-1"
 
@@ -246,21 +255,31 @@ def _psycopg_connect_attempts(ref: str) -> list[dict[str, Any]]:
     """Valid Supabase host/port/user triples — avoid pooler+postgres (ENOIDENTIFIER)."""
     region = _pooler_region()
     pooler = os.environ.get("SUPABASE_POOLER_HOST", f"aws-0-{region}.pooler.supabase.com").strip()
-    return [
-        {"host": f"db.{ref}.supabase.co", "port": 5432, "user": "postgres", "options": None},
+    direct_host = f"db.{ref}.supabase.co"
+    attempts: list[dict[str, Any]] = [
+        {
+            "host": direct_host,
+            "hostaddr": _resolve_ipv4(direct_host),
+            "port": 5432,
+            "user": "postgres",
+            "options": None,
+        },
         {
             "host": pooler,
+            "hostaddr": _resolve_ipv4(pooler),
             "port": 6543,
             "user": f"postgres.{ref}",
             "options": f"project={ref}",
         },
         {
             "host": pooler,
+            "hostaddr": _resolve_ipv4(pooler),
             "port": 5432,
             "user": f"postgres.{ref}",
             "options": f"project={ref}",
         },
     ]
+    return attempts
 
 
 def _exec_psycopg_sql(
@@ -331,9 +350,11 @@ def _apply_via_psycopg(sql: str) -> dict[str, Any]:
 
     if password and ref:
         enc = urllib.parse.quote(password, safe="")
-        built = (
-            f"postgresql://postgres:{enc}@db.{ref}.supabase.co:5432/postgres?sslmode=require"
-        )
+        direct_host = f"db.{ref}.supabase.co"
+        direct_ipv4 = _resolve_ipv4(direct_host)
+        built = f"postgresql://postgres:{enc}@{direct_host}:5432/postgres?sslmode=require"
+        if direct_ipv4:
+            built += f"&hostaddr={direct_ipv4}"
         try:
             return _exec_psycopg_sql(
                 psycopg2,
@@ -354,6 +375,8 @@ def _apply_via_psycopg(sql: str) -> dict[str, Any]:
                 "dbname": "postgres",
                 "sslmode": "require",
             }
+            if attempt.get("hostaddr"):
+                kwargs["hostaddr"] = attempt["hostaddr"]
             if attempt.get("options"):
                 kwargs["options"] = f"-c {attempt['options']}"
             target = f"{attempt['host']}:{attempt['port']} user={attempt['user']}"
