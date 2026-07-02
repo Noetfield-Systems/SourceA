@@ -825,6 +825,27 @@ def publish(
     custom_domain: bool = False,
 ) -> dict:
     steps: list[dict] = []
+    guard_proc = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "deploy_dirty_tree_guard_v1.py"), "--scope", "landing", "--json"],
+        cwd=str(ROOT),
+        capture_output=True,
+        text=True,
+    )
+    dirty_guard: dict = {"ok": guard_proc.returncode == 0}
+    try:
+        dirty_guard = json.loads(guard_proc.stdout or "{}")
+    except json.JSONDecodeError:
+        dirty_guard["parse_error"] = True
+    steps.append({"step": "dirty_tree_guard", **dirty_guard})
+    if not dirty_guard.get("ok"):
+        return {
+            "ok": False,
+            "schema": "sourcea-landing-publish-v1",
+            "at": _now(),
+            "steps": steps,
+            "error": "dirty_tree_guard BLOCK — commit scoped landing files before publish",
+        }
+
     copy_gate = run_commercial_copy_gate()
     steps.append({"step": "commercial_copy_gate", **copy_gate})
     if not copy_gate.get("ok"):
