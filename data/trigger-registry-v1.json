@@ -1,8 +1,9 @@
 {
   "schema": "trigger-registry-v1",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "system": "sourcea",
   "spec_path": "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md",
+  "law": "L14 T-REG — new trigger requires registry entry in same commit; sweep must pass pre-merge",
   "triggers": [
     {
       "trigger_id": "SA-T1",
@@ -31,29 +32,18 @@
       }
     },
     {
-      "trigger_id": "SA-T-signal-factory",
+      "trigger_id": "SA-T-signal-factory-piggyback",
       "system": "sourcea",
-      "kind": "schedule",
+      "kind": "piggyback",
       "schedule": "*/15 * * * *",
-      "target": "Signal factory tick → Railway dispatch",
+      "target": "Signal factory tick via loop-specialist scheduled() — sole SF trigger (W-LBA-002)",
       "valid_in_verified_window": true,
       "owner_workflow": "signal-factory-tick",
+      "parent_trigger_id": "SA-T-loop-specialist",
       "live_probe": {
-        "type": "wrangler_cron",
-        "path": "cloud/workers/signal-factory-tick-v1/wrangler.toml"
-      }
-    },
-    {
-      "trigger_id": "SA-T-brain-loop",
-      "system": "sourcea",
-      "kind": "schedule",
-      "schedule": "*/30 * * * *",
-      "target": "Brain loop cloud tick",
-      "valid_in_verified_window": true,
-      "owner_workflow": "brain-loop-cloud-tick",
-      "live_probe": {
-        "type": "wrangler_cron",
-        "path": "cloud/workers/sourcea-brain-loop-cloud-tick-v1/wrangler.toml"
+        "type": "piggyback_hook",
+        "path": "cloud/workers/loop-specialist-tick-v1/src/index.js",
+        "expects": ["runSignalFactoryTick"]
       }
     },
     {

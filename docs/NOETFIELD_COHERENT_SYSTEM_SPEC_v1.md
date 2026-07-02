@@ -41,7 +41,7 @@ Current triggers across the estate (audit baseline):
 | T7 | determinism-gate.yml | SourceA | event | live |
 | T8 | Supabase-side (none yet) | — | — | gap: no DB-triggered nerve |
 
-**LAW T-REG (new, machine-enforceable):** `data/trigger-registry-v1.json` lists every trigger: `{trigger_id, system, kind, schedule, target, valid_in_verified_window, owner_workflow}`. The sandbox_health_sweep diffs *live* trigger config (CF cron list via API, GHA workflow files on main, Railway crons) against the registry every heartbeat. Unregistered live trigger, or registered-but-dead trigger → DRIFT receipt (L12). Triggers become governed objects, not tribal knowledge.
+**LAW T-REG (machine-enforceable · L14):** `data/trigger-registry-v1.json` lists every trigger: `{trigger_id, system, kind, schedule, target, valid_in_verified_window, owner_workflow}`. The sandbox_health_sweep diffs *live* trigger config (CF cron list via wrangler on disk, GHA workflow files on main) against the registry every heartbeat. Unregistered live trigger, or registered-but-dead trigger → DRIFT receipt (L12). **New trigger without registry entry in the same commit = defect.** Sweep must pass pre-merge (`determinism-gate.yml`).
 
 ---
 
