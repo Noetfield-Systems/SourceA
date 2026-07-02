@@ -95,6 +95,56 @@ def run_gate(role: str = "any", *, scan_text: str = "", pre_ship: bool = False, 
     freeze_flag = Path.home() / ".sina" / "auto-run-disabled-v1.flag"
     focus_freeze = freeze_flag.is_file() and not pre_ship
     mac_session = _mac_founder_session() and not pre_ship
+    mac_spine_fresh: dict = {}
+    mac_spine_hb: dict = {}
+
+    if not pre_ship:
+        try:
+            sys.path.insert(0, str(SCRIPTS))
+            from mac_spine_bridge_v1 import (  # noqa: WPS433
+                run_mac_spine_fresh_main,
+                run_mac_spine_heartbeat,
+            )
+
+            agent_id = f"cursor-{role}" if role != "any" else "cursor"
+            mac_spine_fresh = run_mac_spine_fresh_main(agent_id=agent_id)
+            steps.append(
+                {
+                    "step": "mac_spine_fresh_main",
+                    "ok": bool(mac_spine_fresh.get("ok")),
+                    "verdict": mac_spine_fresh.get("verdict"),
+                    "reason": mac_spine_fresh.get("reason"),
+                    "local_main_sha": mac_spine_fresh.get("local_main_sha"),
+                    "origin_main_sha": mac_spine_fresh.get("origin_main_sha"),
+                    "sync_id": mac_spine_fresh.get("sync_id"),
+                    "receipt_path": mac_spine_fresh.get("receipt_path"),
+                    "law": "L16 W1",
+                }
+            )
+            if not mac_spine_fresh.get("ok"):
+                ok = False
+            mac_spine_hb = run_mac_spine_heartbeat(agent_id=agent_id, role=role)
+            steps.append(
+                {
+                    "step": "mac_spine_heartbeat",
+                    "ok": bool(mac_spine_hb.get("ok")),
+                    "agent_id": agent_id,
+                    "dashboard_status": (mac_spine_hb.get("dashboard_row") or {}).get("status"),
+                    "receipt_path": mac_spine_hb.get("receipt_path"),
+                    "degraded": mac_spine_hb.get("degraded"),
+                    "law": "L16 W2",
+                }
+            )
+        except Exception as exc:
+            steps.append(
+                {
+                    "step": "mac_spine_bridge",
+                    "ok": False,
+                    "error": str(exc)[:200],
+                    "law": "L16",
+                }
+            )
+            ok = False
 
     if pre_ship:
         if not scan_text.strip():
@@ -918,6 +968,24 @@ def run_gate(role: str = "any", *, scan_text: str = "", pre_ship: bool = False, 
         }
     RECEIPT.parent.mkdir(parents=True, exist_ok=True)
     RECEIPT.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    if not pre_ship:
+        try:
+            from mac_spine_bridge_v1 import dual_write_mac_truth  # noqa: WPS433
+
+            spine_gate = dual_write_mac_truth(
+                "MAC_SESSION_GATE",
+                payload={
+                    **receipt,
+                    "mac_spine_fresh": mac_spine_fresh or None,
+                    "mac_spine_heartbeat": mac_spine_hb or None,
+                },
+                receipt_id=str(receipt.get("gate_id") or ""),
+            )
+            receipt["mac_spine_truth_log"] = spine_gate
+            RECEIPT.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        except Exception:
+            pass
 
     try:
         from governance_event_spine_v1 import append_event  # noqa: WPS433
