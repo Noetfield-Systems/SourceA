@@ -35,6 +35,25 @@
     "health": "https://sourcea-fbe-runner-production.up.railway.app/health"
   },
   "auto_runtime_ssot": "data/cloud-auto-runtime-v1.json",
+  "mac_control_dispatch": {
+    "policy": "scripts/fbe/lib/mac_control_dispatch_v1.py",
+    "fast_path": "scripts/mac_cloud_deploy_dispatch_v1.py",
+    "validator": "scripts/validate-mac-control-dispatch-v1.sh",
+    "launcher": "~/.sina/sourcea-mac-v1.sh",
+    "allowed_on_mac": [
+      "POST /api/cloud-worker/dispatch/v1",
+      "POST /api/loop-specialist/tick/v1",
+      "POST /api/forge/v02/run/v1",
+      "trigger_cf_tick via cloud_workers_hub_v1.py"
+    ],
+    "blocked_on_mac": [
+      "POST /api/cloud-forge-run/auto-tick/v1",
+      "POST /api/cloud-forge-run/proceed/v1",
+      "POST /api/forge/v02/drain/v1",
+      "queue mutate: skip_head, proceed, auto_tick"
+    ],
+    "one_law": "Mac dispatch/deploy via Hub OK; Mac never drains Cloud Forge Run motor — CF cron only."
+  },
   "anti_poison": {
     "single_plan_proceed": "FORBIDDEN",
     "law": "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_FULL_PACK_PATTERN_LOCKED_v1.md",

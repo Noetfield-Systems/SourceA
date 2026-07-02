@@ -80,51 +80,26 @@ def cloud_execution_required() -> bool:
 
 
 def _is_mac_control_plane() -> bool:
-    if str(os.environ.get("FBE_MODE", "")).lower() == "headless":
-        return False
-    if os.environ.get("FBE_HOME", "").strip() == "/app":
-        return False
-    if Path("/app/receipts").is_dir():
-        return False
-    return True
+    from fbe.lib.mac_control_dispatch_v1 import is_mac_control_plane  # noqa: WPS433
+
+    return is_mac_control_plane()
 
 
 def _mac_deploy_bypass() -> bool:
-    return os.environ.get("SOURCEA_RAILWAY_DEPLOY", "").strip() in ("1", "true", "yes")
+    from fbe.lib.mac_control_dispatch_v1 import mac_deploy_bypass  # noqa: WPS433
+
+    return mac_deploy_bypass()
 
 
-def mac_observe_only_block(*, path: str) -> dict[str, Any] | None:
-    """Mac control panel never commands Cloud Forge Run/factory — CF cron only (INCIDENT-042)."""
-    if not _is_mac_control_plane() or _mac_deploy_bypass():
-        return None
-    blocked_prefixes = (
-        "/api/cloud-forge-run/",
-        "/api/cloud-worker/",
-        "/api/loop-specialist/",
-        "/api/forge/",
-    )
-    if not any(path.startswith(p) for p in blocked_prefixes):
-        return None
-    observer = "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/observer/v1"
-    return {
-        "ok": False,
-        "error": "mac_observe_only",
-        "schema": "mac-cloud-observe-only-v1",
-        "execution_plane": "mac_control_panel",
-        "path": path,
-        "for_founder": {
-            "show_this": (
-                "Mac does not command Railway — Cloud Forge Run runs on CF cron */10 · full_pack×100. "
-                f"Proof: {observer}"
-            ),
-        },
-        "observer_url": observer,
-        "queue_url": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/queue/v1",
-    }
+def mac_observe_only_block(*, path: str, body: dict[str, Any] | None = None) -> dict[str, Any] | None:
+    """Mac blocks motor drain only — Hub dispatch/deploy paths stay open (INCIDENT-042)."""
+    from fbe.lib.mac_control_dispatch_v1 import mac_observe_only_block as _policy_block  # noqa: WPS433
+
+    return _policy_block(path=path, body=body)
 
 
 def proxy_to_cloud(*, path: str, body: dict[str, Any], timeout_s: int = 300) -> dict[str, Any]:
-    blocked = mac_observe_only_block(path=path)
+    blocked = mac_observe_only_block(path=path, body=body)
     if blocked:
         return blocked
     url_base = cloud_worker_url()

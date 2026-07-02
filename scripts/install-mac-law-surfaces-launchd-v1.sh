@@ -6,6 +6,7 @@ UID_NUM="$(id -u)"
 DOMAIN="gui/${UID_NUM}"
 mkdir -p "${HOME}/.sina" "${HOME}/Library/LaunchAgents"
 export PATH="/opt/homebrew/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH:-/usr/bin:/bin}"
+bash "$ROOT/scripts/sync-mac-launchd-wrappers-v1.sh" >/dev/null 2>&1 || true
 
 resolve_mono() {
   for d in "$HOME/Desktop/SinaaiMonoRepo" "$HOME/Desktop/Noetfield/SinaaiMonoRepo"; do
@@ -19,15 +20,9 @@ PY="${MONO}/SinaaiRuntime/.venv/bin/python3"
 [[ -x "$PY" ]] || PY="$(command -v python3)"
 
 install_one() {
-  local label="$1" src="$2" port="$3" health_path="$4" py_override="${5:-}"
+  local label="$1" src="$2" port="$3" health_path="$4"
   local dst="${HOME}/Library/LaunchAgents/${label}.plist"
-  cp "$src" "$dst"
-  if [[ -n "$py_override" ]]; then
-    /usr/bin/sed -i '' "s|/Users/sinakazemnezhad/Desktop/SinaaiMonoRepo|${MONO}|g" "$dst" 2>/dev/null || \
-      sed -i "s|/Users/sinakazemnezhad/Desktop/SinaaiMonoRepo|${MONO}|g" "$dst"
-    /usr/bin/sed -i '' "s|${MONO}/SinaaiRuntime/.venv/bin/python3|${PY}|g" "$dst" 2>/dev/null || \
-      sed -i "s|${MONO}/SinaaiRuntime/.venv/bin/python3|${PY}|g" "$dst"
-  fi
+  bash "$ROOT/scripts/render-launchd-plist-v1.sh" "$src" "$dst"
   # Stop orphan listeners so launchd owns the port.
   local pid
   pid=$(lsof -ti ":${port}" -sTCP:LISTEN 2>/dev/null | head -1 || true)
@@ -59,10 +54,12 @@ install_one() {
 
 FAIL=0
 install_one "com.sourcea.mac-law" "$ROOT/launch/com.sourcea.mac-law.plist" 8781 "/api/mac-law/health" || FAIL=1
-install_one "com.sourcea.routing-panel" "$ROOT/launch/com.sourcea.routing-panel.plist" 8780 "/api/panel/health" "yes" || FAIL=1
+install_one "com.sourcea.routing-panel" "$ROOT/launch/com.sourcea.routing-panel.plist" 8780 "/api/panel/health" || FAIL=1
 
 if [[ "$FAIL" -eq 0 ]]; then
   echo "OK: Mac Law surfaces supervised via launchd (:8781 · :8780)"
   exit 0
 fi
+echo "TCC on Desktop? bash $ROOT/scripts/open-mac-launchd-fda-v1.sh" >&2
+echo "Fallback: bash $ROOT/scripts/mac_law_surfaces_boot_v1.sh (nohup path)" >&2
 exit 1
