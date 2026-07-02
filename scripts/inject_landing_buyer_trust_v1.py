@@ -314,7 +314,7 @@ def hydrate_trust_html(row: dict) -> list[str]:
     checks = f"{valid}/{total}" if valid is not None else "1/1"
     gov = str((row.get("governance") or {}).get("verdict") or row.get("api_hook", {}).get("verdict") or "PASS")
     changed: list[str] = []
-    for rel in ("eval.html", "proof.html", "operating-brain-install.html"):
+    for rel in ("eval.html", "proof.html", "operating-brain-install.html", "founder-home.html"):
         path = LANDING / rel
         if not path.is_file():
             continue
