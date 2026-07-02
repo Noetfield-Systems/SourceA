@@ -853,6 +853,7 @@ def publish(
     project: str = DEFAULT_PROJECT,
     skip_recipe: bool = False,
     custom_domain: bool = False,
+    no_inline_verify: bool = False,
 ) -> dict:
     steps: list[dict] = []
     guard_proc = subprocess.run(
@@ -979,7 +980,14 @@ def publish(
         }
 
     founder_proof: dict = {"ok": True, "skipped": True, "reason": "not sourcea-com pages deploy"}
-    if (
+    if no_inline_verify:
+        founder_proof = {
+            "ok": True,
+            "skipped": True,
+            "reason": "deferred_to_external_verify_workflow_run_chain",
+            "platform_native": "deploy_workflow_run_chain",
+        }
+    elif (
         deploy_row.get("backend") == "cloudflare_pages"
         and project == "sourcea-com"
         and not deploy_row.get("ephemeral")
@@ -1030,6 +1038,11 @@ def main() -> int:
         action="store_true",
         help="Add project custom domains after Pages deploy (sourcea-com → sourcea.app)",
     )
+    ap.add_argument(
+        "--no-inline-verify",
+        action="store_true",
+        help="Skip inline 60s founder proof — external-verify chains via workflow_run after deploy",
+    )
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
     backend = args.backend
@@ -1042,6 +1055,7 @@ def main() -> int:
         project=args.project,
         skip_recipe=args.skip_recipe,
         custom_domain=args.custom_domain,
+        no_inline_verify=args.no_inline_verify,
     )
     if args.json:
         print(json.dumps(row, indent=2))

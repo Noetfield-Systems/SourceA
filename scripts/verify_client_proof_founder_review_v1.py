@@ -11,6 +11,7 @@ import argparse
 import hashlib
 import importlib.util
 import json
+import os
 import subprocess
 import sys
 import urllib.error
@@ -353,6 +354,7 @@ def main() -> int:
         "version": "1.1.0",
         "verify_law": PUBLIC_VERIFY_LAW,
         "at": _now(),
+        "trigger_source": os.environ.get("VERIFY_TRIGGER_SOURCE") or "manual",
         "commit_sha": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=str(ROOT), text=True).strip(),
         "deploy_gate": deploy_gate,
         "total": len(rows),

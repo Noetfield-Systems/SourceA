@@ -1,6 +1,6 @@
 {
   "schema": "trigger-registry-v1",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "system": "sourcea",
   "spec_path": "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md",
   "law": "L14 T-REG — new trigger requires registry entry in same commit; sweep must pass pre-merge",
@@ -47,6 +47,20 @@
       }
     },
     {
+      "trigger_id": "SA-T-deploy-buyer-surfaces",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "Cloudflare Pages deploy sourcea-com buyer surfaces",
+      "valid_in_verified_window": true,
+      "owner_workflow": "deploy-sourcea-buyer-surfaces-v1",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/deploy-sourcea-buyer-surfaces-v1.yml",
+        "expects": ["push", "workflow_dispatch"]
+      }
+    },
+    {
       "trigger_id": "SA-T4",
       "system": "sourcea",
       "kind": "event",
@@ -57,7 +71,22 @@
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/external-verify.yml",
-        "expects": ["push"]
+        "expects": ["push", "workflow_dispatch", "workflow_run"]
+      }
+    },
+    {
+      "trigger_id": "SA-T4-chain",
+      "system": "sourcea",
+      "kind": "chain",
+      "schedule": null,
+      "target": "deploy-sourcea-buyer-surfaces-v1 success → external-verify workflow_run (PN-001)",
+      "valid_in_verified_window": true,
+      "owner_workflow": "external-verify",
+      "parent_trigger_id": "SA-T-deploy-buyer-surfaces",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/external-verify.yml",
+        "expects": ["workflow_run"]
       }
     },
     {

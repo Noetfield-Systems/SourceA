@@ -59,6 +59,8 @@ def _parse_gha_workflow(text: str) -> dict[str, Any]:
         events.append("schedule")
         for match in re.finditer(r"cron:\s*['\"]([^'\"]+)['\"]", text):
             schedules.append(match.group(1).strip())
+    if re.search(r"^\s*workflow_run\s*:", text, re.MULTILINE):
+        events.append("workflow_run")
     return {"events": sorted(set(events)), "schedules": schedules}
 
 
