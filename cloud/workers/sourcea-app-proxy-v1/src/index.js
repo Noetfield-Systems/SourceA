@@ -16,7 +16,27 @@ const PAGES_PATH_ALIASES = new Map([
 ]);
 
 function resolvePagesPath(pathname) {
-  return PAGES_PATH_ALIASES.get(pathname) || pathname;
+  if (PAGES_PATH_ALIASES.has(pathname)) return PAGES_PATH_ALIASES.get(pathname);
+  if (pathname.startsWith("/attach/")) return `/sourcea/attach/${pathname.slice("/attach/".length)}`;
+  if (pathname.startsWith("/loops/")) return `/sourcea/loops/${pathname.slice("/loops/".length)}`;
+  if (pathname.startsWith("/case-studies/")) return `/sourcea/case-studies/${pathname.slice("/case-studies/".length)}`;
+  return pathname;
+}
+
+const REGIONAL_TO_APP = new Map([
+  ["sourcea.ca", new Map([["/ai-value-governance", "https://sourcea.app/ai-value-governance"]])],
+  ["www.sourcea.ca", new Map([["/ai-value-governance", "https://sourcea.app/ai-value-governance"]])],
+  ["sourcea.uk", new Map([["/enterprise-ai-control-plane", "https://sourcea.app/enterprise-ai-control-plane"]])],
+  ["www.sourcea.uk", new Map([["/enterprise-ai-control-plane", "https://sourcea.app/enterprise-ai-control-plane"]])],
+]);
+
+function regionalRedirect(request, incoming) {
+  const host = incoming.hostname.toLowerCase();
+  const map = REGIONAL_TO_APP.get(host);
+  if (!map) return null;
+  const target = map.get(incoming.pathname);
+  if (!target) return null;
+  return Response.redirect(`${target}${incoming.search}`, 301);
 }
 
 function upstreamPath(sub) {
@@ -248,6 +268,9 @@ export default {
     if (pathname === "/kernel" || pathname === "/kernel/") {
       return Response.redirect(`${incoming.origin}/sourcea/`, 302);
     }
+
+    const regional = regionalRedirect(request, incoming);
+    if (regional) return regional;
 
     return proxyPages(request, incoming, resolvePagesPath(pathname));
   },

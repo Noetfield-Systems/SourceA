@@ -3,57 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta property="og:title" content="SourceA — AI that proves its work" />
+  <meta property="og:title" content="SourceA Procurement Pack" />
   <meta property="og:description" content="Procurement pack — controlled runtime, signed receipts, replay path for platform buyers." />
   <title>SourceA Procurement Pack</title>
+  <link rel="stylesheet" href="/sourcea/sourcea-contract-institutional-v1.css" />
   <style>
-    :root { --ink: #044441; --muted: #5a7a78; --accent: #69d419; --bg: #f8fbf8; }
-    * { box-sizing: border-box; }
-    body { font-family: Inter, system-ui, sans-serif; color: var(--ink); background: var(--bg); margin: 0; padding: 2rem 1.5rem; line-height: 1.55; max-width: 720px; margin-inline: auto; }
-    h1 { font-size: 1.5rem; margin: 0 0 0.35rem; }
-    h2 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; border-bottom: 1px solid rgba(4,68,65,0.12); padding-bottom: 0.35rem; }
-    p, li { font-size: 0.92rem; }
-    .tag { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 0.75rem; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1rem 0; }
-    .pill { padding: 0.75rem; border-radius: 8px; background: #fff; border: 1px solid rgba(4,68,65,0.12); }
-    .pill strong { display: block; font-size: 0.88rem; }
-    .pill span { font-size: 0.8rem; color: var(--muted); }
-    .proof { font-family: "JetBrains Mono", monospace; font-size: 0.78rem; background: #0d1f1e; color: #e8fff0; padding: 1rem; border-radius: 8px; white-space: pre-wrap; margin: 0.75rem 0; }
-    .cta { margin-top: 1.5rem; padding: 1rem; border-radius: 10px; background: rgba(105,212,25,0.12); border: 1px solid rgba(105,212,25,0.35); }
-    .note { font-size: 0.78rem; color: var(--muted); margin-top: 1.25rem; }
-    a { color: var(--ink); }
-    @media print {
-      body { background: #fff; padding: 0.5in; }
-      .cta { border: 1px solid #ccc; background: #f5f5f5; }
-    }
-    @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+    body.proc-pack { background: var(--bg); color: var(--text); padding: 0; }
+    .proc-wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+    .proc-wrap h1 { font-size: 1.55rem; margin: 0 0 0.35rem; }
+    .proc-wrap h2 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; border-bottom: 1px solid var(--line); padding-bottom: 0.35rem; color: var(--text); }
+    .proc-wrap p, .proc-wrap li { color: var(--muted); font-size: 0.92rem; }
+    .proc-tag { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 0.75rem; }
+    .proc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1rem 0; }
+    .proc-pill { padding: 0.85rem; border-radius: var(--radius-sm); background: var(--panel); border: 1px solid var(--line); }
+    .proc-pill strong { display: block; font-size: 0.88rem; color: var(--text); }
+    .proc-pill span { font-size: 0.8rem; color: var(--muted); }
+    .proc-proof { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.78rem; background: #0d1f1e; color: #e8fff0; padding: 1rem; border-radius: var(--radius-sm); white-space: pre-wrap; margin: 0.75rem 0; border: 1px solid var(--line-strong); }
+    .proc-cta { margin-top: 1.5rem; padding: 1rem 1.1rem; border-radius: var(--radius-md); background: var(--accent-dim); border: 1px solid var(--line-strong); }
+    .proc-cta strong { color: var(--text); }
+    .proc-note { font-size: 0.78rem; color: var(--muted); margin-top: 1.25rem; }
+    .proc-nav { padding: 1rem 1.25rem; border-bottom: 1px solid var(--line); }
+    .proc-nav a { color: var(--accent); text-decoration: none; font-size: 0.88rem; margin-right: 1rem; }
+    @media print { body.proc-pack { background: #fff; color: #111; } .proc-proof { background: #f5f5f5; color: #111; } }
+    @media (max-width: 600px) { .proc-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
-<body>
-  <p class="tag">Procurement pack · platform lane</p>
+<body class="proc-pack">
+  <nav class="proc-nav" aria-label="Procurement navigation">
+    <a href="/eval">Technical eval</a>
+    <a href="/operating-brain-install">Operating Brain</a>
+    <a href="/ai-value-governance">AI Value Governance</a>
+    <a href="/enterprise-ai-control-plane">Control Plane</a>
+  </nav>
+  <div class="proc-wrap">
+  <p class="proc-tag">Procurement pack · enterprise lane</p>
   <h1>SourceA — Execution Proof Infrastructure</h1>
   <p>Self-hosted receipts · fail-closed dispatch · export bundle · shadow mode. Educational framework maps only — not certification.</p>
 
   <h2>What you get</h2>
-  <div class="grid">
-    <div class="pill"><strong>Self-hosted receipts</strong><span>ALLOW/BLOCK on your disk — durable for counsel</span></div>
-    <div class="pill"><strong>Fail-closed dispatch</strong><span>Policy before every action — BLOCK stops the loop</span></div>
-    <div class="pill"><strong>Export bundle</strong><span>Weekly HTML/PDF/replay — what ran, what blocked</span></div>
-    <div class="pill"><strong>Shadow mode</strong><span>Prove policy fires before production enforcement</span></div>
+  <div class="proc-grid">
+    <div class="proc-pill"><strong>Self-hosted receipts</strong><span>ALLOW/BLOCK on your disk — durable for counsel</span></div>
+    <div class="proc-pill"><strong>Fail-closed dispatch</strong><span>Policy before every action — BLOCK stops the loop</span></div>
+    <div class="proc-pill"><strong>Export bundle</strong><span>Weekly HTML/PDF/replay — what ran, what blocked</span></div>
+    <div class="proc-pill"><strong>Shadow mode</strong><span>Prove policy fires before production enforcement</span></div>
   </div>
 
   <h2>Evaluate in 5 minutes</h2>
   <!-- sa-boot-terminal:v1 -->
-  <p class="sa-boot-terminal-label">Last factory boot · 2026-06-27 18:07:35 UTC · PASS</p>
-  <div class="proof">$ sourcea-boot --json
-SOURCEA_BOOT PASS ok=true
-  [PASS] policy_version: no policy file (POLICY.md) — skipped
-  [PASS] provider: provider env present (ANTHROPIC_API_KEY)
-  [PASS] receipt_fresh: no prior receipt — first boot allowed
-  [PASS] queue_truth: no queue files configured — skipped
-REPORT=/Users/sinakazemnezhad/Desktop/SourceA/BOOT_REPORT.json</div>
+        <p class="sa-boot-terminal-label">Last factory boot · 2026-07-02 07:18:45 UTC · PASS</p>
+        <pre class="sa-terminal-body" id="sa-terminal-replay"><span class="sa-t-prompt">$</span> sourcea-boot --json
+<span class="sa-t-ok">SOURCEA_BOOT PASS</span> <span class="sa-t-dim">ok=true</span>
+  <span class="sa-t-warn">[SKIP]</span> policy_version: no policy file (POLICY.md) — skipped
+  <span class="sa-t-ok">[PASS]</span> provider: provider env present (ANTHROPIC_API_KEY)
+  <span class="sa-t-warn">[SKIP]</span> receipt_fresh: no prior receipt — first boot allowed
+  <span class="sa-t-warn">[SKIP]</span> queue_truth: no queue files configured — skipped
+<span class="sa-t-dim">REPORT=receipts/sourcea-boot/BOOT_REPORT.json</span><span class="sa-t-cursor">▋</span></pre>
 <!-- /sa-boot-terminal:v1 -->
-  <p>Public eval: <a href="https://github.com/kazemnezhadsina144-dot/sourcea-boot">github.com/kazemnezhadsina144-dot/sourcea-boot</a></p>
+  <p>Public eval: <a href="https://pypi.org/project/sourcea-boot/">github.com/sourcea-boot on PyPI</a> · <a href="/eval">sourcea.app/eval</a></p>
 
   <h2>Framework alignment (educational)</h2>
   <ul>
@@ -62,18 +68,19 @@ REPORT=/Users/sinakazemnezhad/Desktop/SourceA/BOOT_REPORT.json</div>
     <li>EU AI Act — Art. 12 · 14 (audit trail)</li>
     <li>OWASP LLM Top 10 — LLM06 · LLM08</li>
   </ul>
-  <p class="note">Alignment maps only · not certification · <a href="/sourcea/sources">cited sources</a></p>
+  <p class="proc-note">Alignment maps only · not certification · <a href="/sourcea/sources">cited sources</a></p>
 
   <h2>Verification (screen-share)</h2>
   <p>request → policy → decision → receipt → replay → tamper-FAIL — under five minutes live.</p>
 
-  <div class="cta">
+  <div class="proc-cta">
     <p><strong>Book procurement walkthrough</strong></p>
-    <p><a href="mailto:hello@sourcea.app">hello@sourcea.app</a> · 15-minute live demo</p>
-    <p class="note">Platform: <a href="/sourcea/platform">sourcea.app/platform</a></p>
+    <p><a href="mailto:contract@sourcea.app?subject=Procurement%20walkthrough">contract@sourcea.app</a> · 15-minute live demo</p>
+    <p class="proc-note">Platform: <a href="/sourcea/platform">sourcea.app/platform</a></p>
   </div>
 
-  <p class="note">© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · <a href="https://noetfield.com" rel="noopener">noetfield.com</a> · Attach to outbound email · Print to PDF from browser · No SOC2 claims</p>
+  <p class="proc-note">© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · <a href="https://noetfield.com" rel="noopener">noetfield.com</a> · Attach to outbound email · Print to PDF from browser · No SOC2 claims</p>
+  </div>
   <script src="/sourcea/sourcea-cta-gate.js" defer></script>
 <script src="/sourcea/sourcea-landing-cta.js" defer></script>
 <script src="/sourcea/sourcea-public-display-v1.js" defer></script>

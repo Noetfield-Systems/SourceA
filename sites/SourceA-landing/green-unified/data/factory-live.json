@@ -1,6 +1,6 @@
 {
   "schema": "sourcea-factory-live-v1",
-  "at": "2026-07-02T05:43:23Z",
+  "at": "2026-07-02T07:18:45Z",
   "account": "sourcea",
   "console_url": "command.sourcea.com/team",
   "factory_now_line": "factory-now \u00b7 Cloud Workers.app owns Cloud Forge Run \u00b7 head CLOUD-SEC-7367 \u00b7 batch 75 \u00b7 100 rows/10min \u00b7 100 tasks/row",
@@ -8,7 +8,7 @@
   "mode": "FREEZE",
   "pipeline": {
     "schema": "commercial-pipeline-glance-v1",
-    "at": "2026-07-02T05:43:23Z",
+    "at": "2026-07-02T07:18:45Z",
     "lanes": [
       "AB1",
       "NW1",
@@ -124,7 +124,7 @@
   },
   "aeg": {
     "schema": "sourcea-aeg-live-v1",
-    "at": "2026-07-02T05:38:16Z",
+    "at": "2026-07-02T05:45:40Z",
     "evidence_id": "aeg-20260702T031950Z-e5af018b",
     "verdict": "PASS",
     "blockers": [],
