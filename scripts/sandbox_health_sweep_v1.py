@@ -182,6 +182,22 @@ def _probe_registry_entry(entry: dict[str, Any]) -> dict[str, Any]:
             "expects": expects,
             "reason": None if ok else f"missing_hooks:{','.join(missing)}",
         }
+    if probe_type == "session_gate_hook":
+        expects = probe.get("expects") if isinstance(probe.get("expects"), list) else []
+        also_rel = str(probe.get("also_path") or "")
+        also_path = ROOT / also_rel if also_rel else None
+        also_text = also_path.read_text(encoding="utf-8", errors="replace") if also_path and also_path.is_file() else ""
+        combined = text + "\n" + also_text
+        missing = [e for e in expects if e not in combined]
+        ok = not missing and also_path is not None and also_path.is_file()
+        return {
+            "trigger_id": trigger_id,
+            "ok": ok,
+            "path": rel_path,
+            "also_path": also_rel,
+            "expects": expects,
+            "reason": None if ok else f"missing_hooks:{','.join(missing) or 'also_path_missing'}",
+        }
     return {"trigger_id": trigger_id, "ok": False, "reason": "unknown_probe_type", "path": rel_path}
 
 
@@ -211,6 +227,8 @@ def run_sweep(*, repo_root: Path | None = None) -> dict[str, Any]:
         elif probe_type == "gha_workflow":
             for event in probe.get("expects") or []:
                 claimed.add(f"gha:{rel}:{event}")
+        elif probe_type == "session_gate_hook":
+            claimed.add(f"session_gate:{rel}")
 
     unregistered = [row for row in live_all if row["signature"] not in claimed]
 

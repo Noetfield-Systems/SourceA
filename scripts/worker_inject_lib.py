@@ -603,35 +603,56 @@ def deliver_to_worker_inbox(
             "law": "RUN_INBOX_DISK_TRUTH_EXECUTION_LOCKED_v1.md",
         },
     }
-    INBOX_JSON.parent.mkdir(parents=True, exist_ok=True)
-    INBOX_JSON.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    spine_row_id: str | None = None
+    spine_insert: dict = {"ok": False, "skipped": True}
+    try:
+        from mac_spine_bridge_v1 import mirror_inbox_to_disk, spine_insert_worker_inbox  # noqa: WPS433
 
-    header = healed_meta
-    pos = header.get("queue_pos", "?")
-    total = header.get("queue_total", "?")
-    role = header.get("queue_role", "?")
-    sa = header.get("sa_id", "?")
-
-    md = f"""<!-- WORKER_INBOX pending=1 source={source} queue={pos}/{total} role={role} sa={sa} -->
+        spine_insert = spine_insert_worker_inbox(
+            prompt=text or "",
+            source=source,
+            meta=healed_meta,
+            mark_pending=mark_pending,
+            founder_blocked=bool((healed_meta or {}).get("founder_blocked")),
+        )
+        spine_row_id = (spine_insert.get("spine_post") or {}).get("id")
+        payload["spine_ssot"] = "public.worker_inbox"
+        payload["spine_op_key"] = spine_insert.get("op_key")
+        payload["spine_insert"] = {
+            "ok": spine_insert.get("ok"),
+            "op_key": spine_insert.get("op_key"),
+        }
+        mirror_inbox_to_disk(payload=payload, spine_row_id=spine_row_id, source=source)
+    except Exception as exc:
+        INBOX_JSON.parent.mkdir(parents=True, exist_ok=True)
+        INBOX_JSON.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+        header = healed_meta
+        pos = header.get("queue_pos", "?")
+        total = header.get("queue_total", "?")
+        role = header.get("queue_role", "?")
+        sa = header.get("sa_id", "?")
+        md = f"""<!-- WORKER_INBOX pending=1 source={source} queue={pos}/{total} role={role} sa={sa} -->
 # SourceA Worker — prompt ready (INBOX delivery)
 
-**Do not expect clipboard paste.** Hub/autoloop wrote this file so Brain chat is not hijacked.
-
-**Lane:** SourceA Worker only — if you are Brain, ignore this file.
+**Spine mirror failed — disk fallback:** {str(exc)[:120]}
 
 **Updated:** {payload["delivered_at"]}
 
 ---
 
 {text}
-
----
-
-**Worker:** execute fully · `WORKER_ROUND_REPORT` · STOP  
-**Founder:** stay in Brain or Hub — open Worker chat when ready; no Terminal
 """
-    INBOX_MD.parent.mkdir(parents=True, exist_ok=True)
-    INBOX_MD.write_text(md, encoding="utf-8")
+        INBOX_MD.parent.mkdir(parents=True, exist_ok=True)
+        INBOX_MD.write_text(md, encoding="utf-8")
+        return {
+            "ok": True,
+            "delivered": "inbox",
+            "spine_insert": spine_insert,
+            "spine_error": str(exc)[:200],
+            "inbox_json": str(INBOX_JSON),
+            "inbox_md": str(INBOX_MD),
+        }
+
     # AUTO-RUN: pop Worker editor foreground before inject (never background -g on batch path).
     editor = {"ok": True, "skipped": True, "reason": "deferred_to_worker_chat_pop"}
     if (
@@ -682,7 +703,9 @@ def deliver_to_worker_inbox(
         "delivered": "inbox",
         "injected": False,
         "clipboard_paste": False,
-        "reason": "worker_inbox_delivery",
+        "spine_insert": spine_insert,
+        "spine_row_id": spine_row_id,
+        "mirror_mode": "read_only",
         "message": (
             "Founder says RUN INBOX — prompt logged · no Hub · no app · read inbox JSON",
             "(editor tab NOT opened — that was not loop start)"
