@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "saved_at": "2026-07-02T20:55:00Z",
   "phase": "signal-factory-24-7",
-  "status": "pending_deploy",
+  "status": "live_piggyback_loop_specialist_cron",
+  "cron_note": "Dedicated CF cron quota blocked — signal-factory tick fires from loop-specialist-tick-v1 scheduled() every 15m",
+  "piggyback_worker": "sourcea-loop-specialist-tick-v1",
   "execution_plane": "cloudflare_workers_free",
   "worker_name": "sourcea-signal-factory-tick-v1",
+  "worker_url": "https://sourcea-signal-factory-tick-v1.sina-kazemnezhad-ca.workers.dev",
   "worker_root": "cloud/workers/signal-factory-tick-v1",
   "wrangler": "cloud/workers/signal-factory-tick-v1/wrangler.toml",
   "cron": "*/15 * * * *",
@@ -13,8 +16,8 @@
     "method": "POST",
     "url": "https://sourcea-fbe-runner-production.up.railway.app/api/fbe/signal-factory/tick/v1"
   },
-  "manual_trigger": "POST https://sourcea-signal-factory-tick-v1.witness-bc.workers.dev/tick",
-  "health": "GET https://sourcea-signal-factory-tick-v1.witness-bc.workers.dev/health",
+  "manual_trigger": "POST https://sourcea-signal-factory-tick-v1.sina-kazemnezhad-ca.workers.dev/tick",
+  "health": "GET https://sourcea-signal-factory-tick-v1.sina-kazemnezhad-ca.workers.dev/health",
   "secrets_set": [
     "FBE_CLOUD_WORKER_URL",
     "FBE_INTERNAL_SECRET"

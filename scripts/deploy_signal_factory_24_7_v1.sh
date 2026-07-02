@@ -10,13 +10,29 @@ bash "$ROOT/scripts/validate-signal-factory-e2e-v1.sh"
 
 echo "== 2/6 Railway deploy (FBE body includes signal_factory) =="
 cd "$ROOT"
-"$PY" scripts/deploy_fbe_railway_v1.py --json | tee /tmp/sf-railway-deploy.json
-"$PY" -c "
+"$PY" scripts/deploy_fbe_railway_v1.py --json 2>/dev/null | "$PY" -c "
 import json, sys
-row = json.loads(open('/tmp/sf-railway-deploy.json').read())
+text = sys.stdin.read()
+row = None
+for chunk in text.split('}\n{'):
+    piece = chunk.strip()
+    if not piece:
+        continue
+    if not piece.startswith('{'):
+        piece = '{' + piece
+    if not piece.endswith('}'):
+        piece = piece + '}'
+    try:
+        candidate = json.loads(piece)
+    except json.JSONDecodeError:
+        continue
+    if candidate.get('schema') == 'fbe-cloud-deploy-receipt-v1':
+        row = candidate
+if not row:
+    raise SystemExit('missing fbe-cloud-deploy-receipt-v1 in deploy output')
+open('/tmp/sf-railway-deploy.json','w').write(json.dumps(row, indent=2))
 if not row.get('ok'):
-    print('railway deploy failed:', row.get('error'), file=sys.stderr)
-    sys.exit(1)
+    raise SystemExit('railway deploy failed: ' + str(row.get('error')))
 print('railway ok:', row.get('worker_url'))
 "
 
