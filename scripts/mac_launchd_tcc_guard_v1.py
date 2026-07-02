@@ -23,7 +23,10 @@ TCC_ERR_MARKERS = (
     "deny(1) file-read-data",
 )
 
-DEFAULT_PYTHON = "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
+DEFAULT_PYTHON = "/usr/bin/python3"
+DEFAULT_PYTHON_APP = (
+    "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python"
+)
 
 
 def _now() -> str:
@@ -51,9 +54,9 @@ def is_protected_path(path: str | Path) -> bool:
 
 def fda_binaries() -> list[str]:
     bins: list[str] = []
-    py = DEFAULT_PYTHON if Path(DEFAULT_PYTHON).is_file() else ""
-    if py:
-        bins.append(py)
+    for candidate in (DEFAULT_PYTHON, DEFAULT_PYTHON_APP):
+        if Path(candidate).is_file():
+            bins.append(candidate)
     mono = _read_json(SINA / "mono-root-v1.json").get("root") or str(Path.home() / "Desktop/SinaaiMonoRepo")
     venv_py = Path(str(mono)) / "SinaaiRuntime/.venv/bin/python3"
     if venv_py.is_file():
@@ -146,6 +149,7 @@ def sync_root_pointers(*, sourcea_root: Path | None = None) -> dict[str, Any]:
         "start-routing-panel-launchd.sh": "start-routing-panel-launchd.sh",
         "start-cloud-workers-launchd.sh": "start-cloud-workers-launchd.sh",
         "sourcea-mac-v1.sh": "sourcea-mac-v1.sh",
+        "sourcea-python-v1.sh": "sourcea-python-v1.sh",
     }
     installed: list[str] = []
     for src_name, dst_name in mapping.items():

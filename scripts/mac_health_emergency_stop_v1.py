@@ -121,6 +121,19 @@ PROTECTED_SNIPPETS = (
     "apple-health-server",
     "agent_session_gate_run",
     "agent_memory_mirror_v1",
+    # Mac control panel — never orphan-kill (INCIDENT-042)
+    "sina-command-server",
+    "worker_hub_v1",
+    "cloud-workers-server",
+    "cloud_workers_hub_v1",
+    "mac_cloud_deploy_dispatch",
+    "mac_control_dispatch",
+    "mac-law-server",
+    "routing-panel/server",
+    "mac_launchd_tcc_guard",
+    "mac_pipeline_validator_pressure",
+    "test_mac_control_dispatch_policy",
+    "sourcea-python-v1",
 )
 
 # Unattended false-positive panics must not kill founder Worker Hub (INCIDENT-035).
