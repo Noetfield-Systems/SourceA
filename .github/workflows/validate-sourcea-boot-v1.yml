@@ -10,6 +10,10 @@ on:
     paths:
       - 'packages/sourcea-boot/**'
 
+concurrency:
+  group: validate-sourcea-boot-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   validate:
     runs-on: ubuntu-latest

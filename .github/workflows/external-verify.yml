@@ -1,13 +1,15 @@
 name: external-verify
 
 # L4 buyer-surface lane — founder_proof_15 (body_sha256) + truth_log REST POST.
-# Platform-native: also runs on workflow_run after deploy-sourcea-buyer-surfaces-v1 (no sleep guess).
+# PN-001: workflow_run chain from deploy (no timing guess).
+# PN-002: concurrency group + 15-recipe matrix fan-out (D2 at CI).
 # Determinism: determinism-gate.yml (separate workflow).
 on:
   workflow_dispatch:
   workflow_run:
     workflows: [deploy-sourcea-buyer-surfaces-v1]
     types: [completed]
+    branches: [main]
   push:
     branches: [main]
     paths:
@@ -23,11 +25,79 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: external-verify-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
-  buyer-surfaces-l4:
+  verify-recipe:
     if: >
       github.event_name != 'workflow_run' ||
-      github.event.workflow_run.conclusion == 'success'
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'main')
+    name: Recipe ${{ matrix.recipe_id }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      max-parallel: 15
+      matrix:
+        recipe_id:
+          - cpr-agency-onepager
+          - cpr-agentgo-case
+          - cpr-brain-chat
+          - cpr-contract-aivg
+          - cpr-contract-eacp
+          - cpr-contract-operating-brain
+          - cpr-eval-boot
+          - cpr-forge-terminal
+          - cpr-free-job-intake
+          - cpr-live-receipt
+          - cpr-procurement-pack
+          - cpr-proof-export-loop
+          - cpr-pureflow-case
+          - cpr-railway-observer
+          - cpr-supabase-rows
+    env:
+      VERIFY_TRIGGER_SOURCE: ${{ github.event_name == 'workflow_run' && 'deploy_workflow_run_chain' || github.event_name }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Verify single recipe (matrix fan-out)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+        run: |
+          set -euo pipefail
+          python3 scripts/verify_client_proof_founder_review_v1.py \
+            --json \
+            --min-seconds-after-deploy 0 \
+            --recipe-id "${{ matrix.recipe_id }}" \
+            > "${{ runner.temp }}/recipe-${{ matrix.recipe_id }}.json"
+
+      - name: Upload recipe result
+        uses: actions/upload-artifact@v4
+        with:
+          name: recipe-${{ matrix.recipe_id }}
+          path: ${{ runner.temp }}/recipe-${{ matrix.recipe_id }}.json
+          retention-days: 7
+
+  buyer-surfaces-l4:
+    needs: verify-recipe
+    if: >
+      always() &&
+      needs.verify-recipe.result != 'cancelled' &&
+      (github.event_name != 'workflow_run' ||
+       (github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_branch == 'main'))
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
@@ -38,11 +108,60 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
 
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
+      - name: Download matrix recipe artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: recipe-*
+          path: recipe-results
+          merge-multiple: true
+
+      - name: Aggregate 15-recipe founder proof
+        env:
+          FOUNDER_PROOF_OUT: ${{ runner.temp }}/founder-proof-15.json
+          VERIFY_TRIGGER_SOURCE: ${{ env.VERIFY_TRIGGER_SOURCE }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, subprocess, sys
+          from datetime import datetime, timezone
+          from pathlib import Path
+          root = Path("recipe-results")
+          files = sorted(root.glob("recipe-*.json"))
+          if len(files) != 15:
+              print(f"expected 15 recipe artifacts, got {len(files)}", file=sys.stderr)
+              sys.exit(1)
+          rows = []
+          deploy_gate = None
+          for path in files:
+              doc = json.loads(path.read_text(encoding="utf-8"))
+              deploy_gate = deploy_gate or doc.get("deploy_gate")
+              rows.extend(doc.get("rows") or [])
+          passed = sum(1 for r in rows if r.get("verdict") == "PASS")
+          out = {
+              "schema": "client-proof-founder-review-verify-v1",
+              "version": "1.1.0",
+              "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "trigger_source": os.environ.get("VERIFY_TRIGGER_SOURCE") or "manual",
+              "commit_sha": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
+              "deploy_gate": deploy_gate,
+              "total": len(rows),
+              "passed": passed,
+              "ok": passed == len(rows) == 15,
+              "pack_path": "data/client-proof-founder-review-pack-v1.json",
+              "matrix_fanout": True,
+              "rows": rows,
+          }
+          out_path = Path(os.environ["FOUNDER_PROOF_OUT"])
+          out_path.write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
+          print(json.dumps({"passed": passed, "total": len(rows), "ok": out["ok"]}, indent=2))
+          sys.exit(0 if out["ok"] else 1)
+          PY
 
       - name: Ensure truth_log schema (migrations 002+005)
         env:
@@ -57,27 +176,6 @@ jobs:
           sudo apt-get install -y postgresql-client
           bash scripts/apply_truth_log_migration_v1.sh
           python3 scripts/ensure_truth_log_schema_v1.py --json
-
-      - name: 15-recipe founder proof (public HTTPS only)
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}
-          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
-        run: |
-          set -euo pipefail
-          MIN_WAIT=0
-          if [[ "${VERIFY_TRIGGER_SOURCE}" != "deploy_workflow_run_chain" ]]; then
-            MIN_WAIT=0
-          fi
-          python3 scripts/verify_client_proof_founder_review_v1.py \
-            --json --min-seconds-after-deploy "${MIN_WAIT}" > "${{ runner.temp }}/founder-proof-15.json"
-          python3 -c "
-          import json, sys
-          d=json.load(open('${{ runner.temp }}/founder-proof-15.json'))
-          print(f\"15-recipe {d.get('passed')}/{d.get('total')} ok={d.get('ok')} trigger={d.get('trigger_source')}\")
-          sys.exit(0 if d.get('ok') and d.get('passed')==d.get('total')==15 else 1)
-          "
 
       - name: Build L4 receipt (body hashes)
         env:

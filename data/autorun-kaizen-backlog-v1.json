@@ -1,0 +1,29 @@
+{
+  "schema": "autorun-kaizen-backlog-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-02T21:55:00Z",
+  "law": "CONTROLLED_AUTORUN_LAWS_v3 Kaizen · one machine_safe item per cycle (W-LBA-005)",
+  "items": [
+    {
+      "id": "KZ-001",
+      "title": "Trigger-registry L14 wired — piggyback SF only",
+      "status": "done",
+      "done_at": "2026-07-02T21:58:00Z",
+      "class": "machine_safe",
+      "value_class": "risk_reduction",
+      "roi_rank": 1,
+      "plane": "P4_truth",
+      "w_lba": "coherence-fix"
+    },
+    {
+      "id": "KZ-002",
+      "title": "Kaizen queue motor — pick highest ROI machine_safe per cycle",
+      "status": "pending",
+      "class": "machine_safe",
+      "value_class": "hygiene",
+      "roi_rank": 2,
+      "plane": "P6_improvement",
+      "w_lba": "W-LBA-005"
+    }
+  ]
+}

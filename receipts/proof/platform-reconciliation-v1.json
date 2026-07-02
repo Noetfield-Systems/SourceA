@@ -1,0 +1,41 @@
+{
+  "schema": "platform-reconciliation-receipt-v1",
+  "at": "2026-07-02T22:18:00Z",
+  "ok": true,
+  "collision": {
+    "branch": "cursor/w-lba-cf-bridge-wiring",
+    "branch_range": "ae3f30889..06b303184",
+    "canonical_main_pn001": "3240ac7aa",
+    "action": "cherry-pick PN-002/003 only; reject duplicate PN-001 + duplicate deploy workflow"
+  },
+  "deleted_duplicates": [
+    "branch duplicate deploy workflow (ae3f30889) \u2014 main deploy-sourcea-buyer-surfaces-v1.yml kept",
+    "branch duplicate workflow_run-only external-verify (ae3f30889) \u2014 merged with matrix on main",
+    "docs/NOETFIELD_QUEUE_NATIVE_MIGRATION_PLAN_v1_FOUNDER_GATED.md \u2014 merged into docs/design/SOURCEA_CF_DO_QUEUE_MIGRATION_PLAN_FOUNDER_GATED_v1.md"
+  ],
+  "cherry_picked": {
+    "PN-002": "aeb457c89 \u2014 concurrency groups + 15-recipe matrix (manual merge)",
+    "PN-003": "efb141cec \u2014 .github/ENVIRONMENT_PRODUCTION_PREP_v1.md + environment: production on deploy job"
+  },
+  "also_merged_from_branch": {
+    "W-LBA-004": "D6-D8 tests in verify_autorun_determinism_v1.py",
+    "W-LBA-005": "scripts/autorun_kaizen_queue_v1.py + data/autorun-kaizen-backlog-v1.json"
+  },
+  "l15_agent_d2": {
+    "law": "docs/CONTROLLED_AUTORUN_LAWS_v3.md L15",
+    "spec": "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md \u00a76",
+    "hook": ".githooks/pre-push"
+  },
+  "retired_hand_roll": {
+    "PN-002": "Serial 15-recipe verify in one job \u2192 GHA matrix fan-out + concurrency group",
+    "PN-003": "Honor-system deploy \u2192 environment: production (founder reviewer in UI)",
+    "reconciliation": "Duplicate branch lanes \u2192 single integrator path on main"
+  },
+  "worker_instruction": "Local Worker: git fetch origin && git rebase origin/main (from eb31b0b1e work), open PR \u2014 integrator reviews overlap before merge. Do not push main.",
+  "pending": [
+    "W-LBA-009 vocabulary pass"
+  ],
+  "report_line": "reconciliation complete \u00b7 PN-002/003 on main \u00b7 L15 installed \u00b7 branch duplicates retired",
+  "integrator_merge_sha": "c265f32d5",
+  "integrator_merge_full": "c265f32d53d2fe8fc0a5cf6c2c7924ad39b63178"
+}

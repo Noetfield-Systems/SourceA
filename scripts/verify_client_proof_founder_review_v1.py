@@ -342,12 +342,25 @@ def main() -> int:
         default=str(VERIFY_RECEIPT),
         help="Verify receipt output path",
     )
+    ap.add_argument(
+        "--recipe-id",
+        action="append",
+        default=[],
+        help="Verify only these recipe_id rows (matrix fan-out)",
+    )
     args = ap.parse_args()
     vbp = _load_vbp()
     deploy_gate = _deploy_cooldown_ok(min_seconds=args.min_seconds_after_deploy)
     pack_path = Path(args.pack)
     pack = json.loads(pack_path.read_text(encoding="utf-8"))
-    rows = [verify_row(r, vbp, deploy_gate=deploy_gate) for r in pack["rows"]]
+    pack_rows = pack["rows"]
+    if args.recipe_id:
+        wanted = set(args.recipe_id)
+        pack_rows = [r for r in pack_rows if r.get("recipe_id") in wanted]
+        if not pack_rows:
+            print(json.dumps({"ok": False, "error": "recipe_id_not_in_pack", "wanted": sorted(wanted)}))
+            return 2
+    rows = [verify_row(r, vbp, deploy_gate=deploy_gate) for r in pack_rows]
     passed = sum(1 for r in rows if r["verdict"] == "PASS")
     out = {
         "schema": "client-proof-founder-review-verify-v1",
