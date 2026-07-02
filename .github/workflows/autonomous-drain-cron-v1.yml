@@ -1,3 +1,5 @@
+# Cloud Forge Run — GitHub Actions manual backup (legacy workflow id: autonomous-drain-cron-v1).
+# W-LBA-009 vocabulary: prefer "Cloud Forge Run" / "Auto Runtime" in comments — not "drain".
 name: autonomous-drain-cron-v1
 
 on:
@@ -12,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: POST Railway auto-tick manual backup
+      - name: POST Railway Cloud Forge Run auto-tick manual backup
         env:
           FBE_CLOUD_WORKER_URL: ${{ secrets.FBE_CLOUD_WORKER_URL }}
           FBE_INTERNAL_SECRET: ${{ secrets.FBE_INTERNAL_SECRET }}
