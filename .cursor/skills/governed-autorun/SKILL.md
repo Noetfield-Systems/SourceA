@@ -3,11 +3,11 @@ name: governed-autorun
 description: Design, run, audit, and repair 24/7 multi-workflow autonomous execution systems — parallel sandboxes, cron loops, queue motors, receipt-backed cycles, ROI-governed spend, and self-improving pipelines under one reconciler. Use this skill whenever the user asks to build or fix autorun loops, cron workers, batch queues, multi-sandbox orchestration, cycle receipts, sink invariants, verification gates, cost/ROI attribution for agents, or says things like "make it run 24/7", "full automation", "parallel workflows", "self-improving system", "where is the spend going", "why did the agent report PASS but live is broken", "audit this agent report", or pastes an agent/worker report for review. Also trigger when writing dispatch prompts for coding agents operating in sandboxes.
 ---
 
-# Governed Autorun v2
+# Governed Autorun v3
 
 Operating system for continuous, parallel, self-improving multi-sandbox execution. Every law traces to a real production incident. v2 adds the ROI layer: the machine governs its own spend the way it governs its own state.
 
-## The Twelve Laws
+## The Thirteen Laws
 
 **L1 — ONE reconciler.** One control authority per sandbox. New supervisors/registries extend the existing reconciler or emit desired-state artifacts it consumes. Independent run/lock/state authority = rejected at spec. Every consolidation report carries `reconciler authority: ONE / DUPLICATE`.
 
@@ -32,6 +32,8 @@ Operating system for continuous, parallel, self-improving multi-sandbox executio
 **L11 — Every cycle has a cost; every loop earns its keep.** Each cycle receipt carries `cost` (provider, model, tokens in/out, unit cost, $ total) and `value_class` (revenue_path · proof_asset · risk_reduction · hygiene · none). Loops report rolling cost-per-COMPLETE and spend-by-value_class in the heartbeat. A loop whose trailing-window spend is >X% `value_class: none` auto-enters THROTTLED_ROI (frequency cut, founder notified) — it does not silently keep burning. Budget caps per workflow; cap breach = BLOCKED_WITH_REASON, not overdraft.
 
 **L12 — Drift is detected, not discovered.** Each heartbeat compares deployed truth to committed truth: live config hash vs repo hash, worker version vs expected, cron last-fire vs schedule, route bindings vs manifest. Any mismatch → DRIFT receipt with the diff. Third disk-vs-live incident happens to someone else.
+
+**L13 — Loops are deterministic.** Same inputs → same transitions → same receipts, replayable from the event log. Idempotency keys on every side effect, single writer + compare-and-swap per state cell, IDs from actuals never inference, advance as a pure function of acks, LLM output as proposal never transition, verification as a pure function. Full rules + legal-transition table: `references/deterministic-loops.md` (D1–D8) — read whenever designing, debugging, or auditing a loop.
 
 ## Parallel Orchestration
 
@@ -82,7 +84,7 @@ Result: the system converts its own failures into a prioritized, budgeted upgrad
 ```text
 <VERB> <scope, ONE sandbox>.
 
-Laws in force: governed-autorun L1–L12. Violations = BLOCKED.
+Laws in force: governed-autorun L1–L13. Violations = BLOCKED.
 
 Context: <2–4 lines observable state, receipts cited>
 
@@ -107,7 +109,3 @@ One repo per prompt. ≤3-line reason/goal/outcome header for the founder. Fixed
 5. 24h zero-manual window: scheduled receipts only, sink invariants every cycle, heartbeat with cost table + drift check present
 
 A loop is DECLARED until its 24h window closes green on external receipts; only then VERIFIED. Reports must state which.
-
-## SourceA (this repo)
-
-Load **`references/sourcea-wiring.md`** for paths, boot commands, motor chain, receipt dirs, and Mac dispatch law. Human law mirror: `docs/GOVERNED_AUTORUN_LAWS_v2.md`.
