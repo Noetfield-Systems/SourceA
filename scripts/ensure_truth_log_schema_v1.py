@@ -46,11 +46,20 @@ def _supabase_cfg() -> dict[str, str]:
     return {"url": url, "key": key, "ref": os.environ.get("SUPABASE_PROJECT_ID", "").strip()}
 
 
-def _apply_via_psycopg(sql: str) -> dict[str, Any]:
+def _apply_sql(sql: str) -> dict[str, Any]:
     sys.path.insert(0, str(ROOT / "scripts"))
-    from cloud_forge_run_supabase_v1 import _apply_via_psycopg  # noqa: WPS433
+    from cloud_forge_run_supabase_v1 import (  # noqa: WPS433
+        _apply_via_management_api,
+        _apply_via_psycopg,
+    )
 
-    return _apply_via_psycopg(sql)
+    pg = _apply_via_psycopg(sql)
+    if pg.get("ok"):
+        return pg
+    mgmt = _apply_via_management_api(sql)
+    if mgmt.get("ok"):
+        return {**mgmt, "fallback_from": "psycopg", "psycopg_error": pg.get("error")}
+    return {**pg, "management": mgmt}
 
 
 def probe_table(table: str) -> dict[str, Any]:
@@ -90,11 +99,11 @@ def apply_migrations(*, files: tuple[Path, ...] | None = None) -> dict[str, Any]
         if not sql_path.is_file():
             return {"ok": False, "error": f"missing_{sql_path.name}"}
         sql = sql_path.read_text(encoding="utf-8")
-        row = _apply_via_psycopg(sql)
+        row = _apply_sql(sql)
         results.append({"file": sql_path.name, **row})
         if not row.get("ok"):
             return {"ok": False, "results": results}
-    reload = _apply_via_psycopg("NOTIFY pgrst, 'reload schema';")
+    reload = _apply_sql("NOTIFY pgrst, 'reload schema';")
     results.append({"file": "pgrst_reload", **reload})
     return {"ok": True, "results": results}
 
