@@ -189,20 +189,19 @@ const REGIONAL_MIRROR_HOSTS = {
   "www.sourcea.uk": "/enterprise-ai-control-plane",
 };
 
-function regionalCanonicalRedirect(incoming) {
-  const targetPath = REGIONAL_MIRROR_HOSTS[incoming.hostname];
-  if (!targetPath) return null;
-  const path = incoming.pathname === "/" || incoming.pathname === "" ? targetPath : incoming.pathname;
-  const target = new URL(`${path}${incoming.search}`, "https://sourcea.app");
-  return Response.redirect(target.toString(), 301);
+/** Regional mirror hosts serve contract SKUs on-domain (200) — no 301 to sourcea.app. */
+function resolveRegionalPathname(incoming) {
+  const homePath = REGIONAL_MIRROR_HOSTS[incoming.hostname];
+  if (!homePath) return incoming.pathname;
+  const path = incoming.pathname;
+  if (path === "/" || path === "") return homePath;
+  return path;
 }
 
 export default {
   async fetch(request, env) {
     const incoming = new URL(request.url);
-    const regional = regionalCanonicalRedirect(incoming);
-    if (regional) return regional;
-    const { pathname } = incoming;
+    const pathname = resolveRegionalPathname(incoming);
 
     if (pathname === "/health") {
       return jsonResponse(request, {
