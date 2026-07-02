@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:43:40Z
+updated: 2026-07-02T08:56:13Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/index.html
 public: true
@@ -26,17 +26,35 @@ SourceA is an AI execution platform powered by Forge — real builds, automation
 
 ## Deploy + grow
 
+## Three contract SKUs — pick your lane.
+
+## Operating Brain Install
+
+## AI Value Governance
+
+## Enterprise AI Control Plane
+
 ## Founders, agencies, and Cursor-native builders
 
 ## If the site can show it, you don't need a sales call.
 
-SourceA runs scoped builds, automations, and agent workflows — with proof built in so clients see what ran and why. Try it in your browser before you talk to anyone.
+Evaluate in five minutes with sourcea-boot — PASS or BLOCK on disk. Forge runs scoped builds and agent workflows with proof built in — try it in your browser before you talk to anyone.
 
-Forge Terminal, live receipt, or proof quiz — verify value yourself in under five minutes.
+Forge Terminal, sourcea-boot eval , live receipt, or proof quiz — verify value yourself in under five minutes.
 
 48h MVP intake or sandbox — GOAL · DONE · VERIFY locked in writing before build.
 
 Platform from $2K/mo when you want ongoing execution — every run receipted.
+
+Forge Terminal and eval first — then choose the contract surface that matches your buyer path.
+
+Install definitions, gates, receipts, and routing for AI-native operators.
+
+Canadian regulated sprint — spend visibility, cost-to-value, PIPEDA/OSFI orientation.
+
+UK institutional six-layer control plane — telemetry through evidence chain.
+
+Which offer? Operator → Operating Brain · Canada regulated → AI Value Governance · UK institutional → Enterprise Control Plane · Enterprise OS → Noetfield
 
 Now: Solo founders shipping MVPs, agencies delivering client AI work, and teams who need governed execution — not another chat wrapper.
 

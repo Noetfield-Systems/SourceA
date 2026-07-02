@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:43:40Z
+updated: 2026-07-02T08:56:13Z
 lane: buyer
 source_path: sites/SourceA-landing/green-unified/proof.html
 public: true
@@ -60,7 +60,7 @@ This action, this moment — not governance you discussed at kickoff.
 
 Weekly bundle: HTML, PDF, replay script, handoff for your client.
 
-$ sourcea-boot --json SOURCEA_BOOT PASS ok=true [PASS] policy_version: no policy file (POLICY.md) — skipped [PASS] provider: provider env present (ANTHROPIC_API_KEY) [PASS] receipt_fresh: no prior receipt — first boot allowed [PASS] queue_truth: no queue files configured — skipped REPORT=[REDACTED] ▋ Full stack on camera
+$ sourcea-boot --json SOURCEA_BOOT PASS ok=true [SKIP] policy_version: no policy file (POLICY.md) (not configured) [PASS] provider: provider env present (ANTHROPIC_API_KEY) [SKIP] receipt_fresh: no prior receipt — first boot allowed [SKIP] queue_truth: no queue files configured (not configured) REPORT=receipts/sourcea-boot/BOOT_REPORT.json ▋ Full stack on camera
 
 ~75 seconds — real :5180 UI, Worker Hub, Mac Health. ElevenLabs narration. No deck.
 

@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:43:40Z
+updated: 2026-07-02T08:56:13Z
 lane: buyer
 source_path: sites/SourceA-landing/green-unified/proof/live.html
 public: true
@@ -14,7 +14,7 @@ Live demo proof | SourceA
 ## Summary
 Machine-generated governance proof from today
 
-## Factory verdict: —
+## Factory verdict: PASS
 
 ## What buyers see on the home command center
 
@@ -25,5 +25,9 @@ Machine-generated governance proof from today
 ## Terminal transcript
 
 Not a slide deck — a receipt bundle from disk. Terminal transcript, four boot checks, and blockers your counsel can file. Refreshes on every deploy.
+
+Synced 2026-07-02 UTC08:48:22 · Valid YES 4/4 · aeg-20260702T084822Z-9692b723
+
+$ sourcea-boot --json SOURCEA_BOOT PASS ok=true REPORT=receipts/sourcea-boot/BOOT_REPORT.json [SKIP] policy_version: no policy file (POLICY.md) (not configured) [PASS] provider: provider env present (ANTHROPIC_API_KEY) [SKIP] receipt_fresh: no prior receipt — first boot allowed [SKIP] queue_truth: no queue files configured (not configured) blockers: (none) factory-now · Cloud Workers.app owns Cloud Forge Run · head CLOUD-SEC-7367 · batch 75 · 100 rows/10min · 100 tasks/row
 
 © 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · noetfield.com · Proof chain · Status · Technical overview · GitHub

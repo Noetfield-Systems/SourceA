@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-02T07:50:03Z
+updated: 2026-07-02T08:56:13Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/enterprise-ai-control-plane.html
 public: true
