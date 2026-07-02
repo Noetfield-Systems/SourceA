@@ -144,6 +144,7 @@ def sync_root_pointers(*, sourcea_root: Path | None = None) -> dict[str, Any]:
         "start-sourcea-hub-launchd.sh": "start-sourcea-hub-launchd.sh",
         "start-mac-law-launchd.sh": "start-mac-law-launchd.sh",
         "start-routing-panel-launchd.sh": "start-routing-panel-launchd.sh",
+        "start-cloud-workers-launchd.sh": "start-cloud-workers-launchd.sh",
         "sourcea-mac-v1.sh": "sourcea-mac-v1.sh",
     }
     installed: list[str] = []
