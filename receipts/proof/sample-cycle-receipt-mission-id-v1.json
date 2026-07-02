@@ -1,0 +1,11 @@
+{
+  "schema": "autonomous-forge-run-cycle-receipt-v2",
+  "version": "2.0.0",
+  "at": "2026-07-02T21:56:58Z",
+  "trigger_source": "proof_grade_sample",
+  "mission_id": "M2",
+  "workflow_id": "cloud-forge-run",
+  "factory": "forge-drain",
+  "proof_grade": true,
+  "note": "Proof-grade sample for NOETFIELD P3 \u2014 not a live cycle"
+}

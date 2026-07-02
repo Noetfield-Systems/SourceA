@@ -169,6 +169,17 @@ def _probe_registry_entry(entry: dict[str, Any]) -> dict[str, Any]:
             "live_events": parsed["events"],
             "reason": None if ok else f"missing_events:{','.join(missing)}",
         }
+    if probe_type == "piggyback_hook":
+        expects = probe.get("expects") if isinstance(probe.get("expects"), list) else []
+        missing = [e for e in expects if e not in text]
+        ok = not missing
+        return {
+            "trigger_id": trigger_id,
+            "ok": ok,
+            "path": rel_path,
+            "expects": expects,
+            "reason": None if ok else f"missing_hooks:{','.join(missing)}",
+        }
     return {"trigger_id": trigger_id, "ok": False, "reason": "unknown_probe_type", "path": rel_path}
 
 

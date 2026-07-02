@@ -1,0 +1,23 @@
+{
+  "schema": "w-lba-bridge-fix-receipt-v1",
+  "id": "W-LBA-001",
+  "at": "2026-07-02T21:56:58Z",
+  "ok": true,
+  "fixes": [
+    {
+      "item": "dead_launchd_refs",
+      "action": "removed install-autorun-launchd-v1.sh calls from install-hub-launchd-v1.sh and brain_self_heal_startup_v1.py",
+      "remaining_refs": [
+        "mac_cursor_autorun_poison_purge_v1.py poison list only"
+      ]
+    },
+    {
+      "item": "loop_specialist_cf_account",
+      "action": "aligned wrangler account_id with data/loop-specialist-cloud-cron-v1.json",
+      "account_id": "2c70de9e879a9b41055642ad47205d71",
+      "wrangler": "cloud/workers/loop-specialist-tick-v1/wrangler.toml"
+    }
+  ],
+  "verify": "scripts/validate-cloud-workers-workflows-v1.sh",
+  "sweep_after": "trigger_sweep_clean \u00b7 registry matches live"
+}
