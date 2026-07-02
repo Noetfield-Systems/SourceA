@@ -1,6 +1,6 @@
 {
   "schema": "sourcea-aeg-live-v1",
-  "at": "2026-07-02T07:25:16Z",
+  "at": "2026-07-02T07:29:34Z",
   "evidence_id": "aeg-20260702T031950Z-e5af018b",
   "verdict": "PASS",
   "blockers": [],
@@ -10,7 +10,7 @@
       "id": "C1",
       "name": "policy_version",
       "ok": true,
-      "reason": "no policy file (POLICY.md) \u2014 skipped",
+      "reason": "no policy file (POLICY.md) (not configured)",
       "mode": "portable",
       "skipped": true
     },
@@ -33,7 +33,7 @@
       "id": "C4",
       "name": "queue_truth",
       "ok": true,
-      "reason": "no queue files configured \u2014 skipped",
+      "reason": "no queue files configured (not configured)",
       "mode": "portable",
       "skipped": true
     }
