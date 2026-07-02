@@ -1545,6 +1545,14 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
             invalidate_worker_hub_cache()
             self._json(200 if row.get("ok") else 207, row)
             return
+        if path == "/api/signal-factory/tick/v1":
+            from signal_factory_tick_v1 import handle_hub_post as sf_post  # noqa: WPS433
+            from worker_hub_v1 import invalidate_worker_hub_cache  # noqa: WPS433
+
+            row = sf_post(body)
+            invalidate_worker_hub_cache()
+            self._json(200 if row.get("ok") else 207, row)
+            return
         if path == "/api/investigator-circle/tick/v1":
             from investigator_circle_run_v1 import handle_hub_post as inv_post  # noqa: WPS433
             from worker_hub_v1 import invalidate_worker_hub_cache  # noqa: WPS433

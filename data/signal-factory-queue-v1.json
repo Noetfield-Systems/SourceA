@@ -1,0 +1,20 @@
+{
+  "schema": "signal-factory-queue-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-02T20:55:00Z",
+  "replenish_synthetic": true,
+  "pending": [
+    {
+      "id": "syn-06",
+      "text": "TrustField enterprise buyer requests pricing demo and procurement quote for workflow pilot.",
+      "entity_scope": "TrustField"
+    }
+  ],
+  "done": [
+    "syn-01",
+    "syn-02",
+    "syn-03",
+    "syn-04",
+    "syn-05"
+  ]
+}

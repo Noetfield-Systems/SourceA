@@ -1,0 +1,108 @@
+{
+  "schema": "signal-factory-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-02T12:00:00Z",
+  "law": "Architect/Fable contract — SourceA-owned Signal Factory v1 core skill package.",
+  "skill_path": ".cursor/skills/signal-factory/SKILL.md",
+  "core_script": "scripts/signal_factory_core_v1.py",
+  "verifier": "scripts/validate-signal-factory-v1.sh",
+  "e2e_verifier": "scripts/validate-signal-factory-e2e-v1.sh",
+  "sync_script": "scripts/sync-signal-factory-skill-v1.sh",
+  "tick_script": "scripts/signal_factory_tick_v1.py",
+  "tick_verifier": "scripts/validate-signal-factory-tick-v1.sh",
+  "cloud_contract": "data/signal-factory-cloud-contract-v1.json",
+  "cloud_cron_ssot": "data/signal-factory-cloud-cron-v1.json",
+  "tick": {
+    "queue_path": "data/signal-factory-queue-v1.json",
+    "seed_path": "data/signal-factory-synthetic-seed-v1.json",
+    "receipt_path": "~/.sina/signal-factory-tick-receipt-v1.json",
+    "report_dir": "receipts/signal-factory",
+    "max_batch": 5,
+    "replenish_synthetic": true,
+    "cron": "*/15 * * * *",
+    "cloud_route": "/api/fbe/signal-factory/tick/v1",
+    "hub_route": "/api/signal-factory/tick/v1",
+    "cf_worker": "cloud/workers/signal-factory-tick-v1"
+  },
+  "classifications": [
+    "commercial_inquiry",
+    "partner_equity",
+    "legal_regulatory",
+    "employment_recruitment",
+    "support_request",
+    "technical_integration",
+    "governance_internal",
+    "spam_noise",
+    "unclassified"
+  ],
+  "decisions": [
+    "route",
+    "build_automation",
+    "create_service_pattern",
+    "monitor",
+    "archive",
+    "defer"
+  ],
+  "score_fields": [
+    "trust_score",
+    "risk_score",
+    "automation_value",
+    "commercial_value"
+  ],
+  "required_report_fields": [
+    "signal_summary",
+    "classification",
+    "implied_need",
+    "trust_score",
+    "risk_score",
+    "automation_value",
+    "commercial_value",
+    "decision",
+    "next_action",
+    "receipt",
+    "memory_line"
+  ],
+  "optional_sections": {
+    "automation_recipe": {
+      "allowed_decisions": ["build_automation"]
+    },
+    "commercial_idea": {
+      "allowed_decisions": ["create_service_pattern"]
+    }
+  },
+  "risk_override": {
+    "threshold": 4,
+    "forced_decision": "route",
+    "route_target": "human/legal review"
+  },
+  "sender_claim_rule": "All sender assertions must be tagged sender_declared; never launder as facts.",
+  "entity_hygiene": {
+    "entities": ["Noetfield", "TrustField", "SourceA", "WitnessBC", "SG", "NOOS"],
+    "rule": "No cross-attribution in receipts, memory lines, or service patterns."
+  },
+  "adapter_hooks": {
+    "trustfield": null,
+    "noetfield": null,
+    "witnessbc": null,
+    "partnermesh": null,
+    "client_mvp": null
+  },
+  "sg_guardrails_ref": [
+    "TrustField must not claim custody, settlement, MSB, PSP, or banking capability unless legally established.",
+    "Entity boundaries must be preserved.",
+    "Partner/equity signals produce bounded exploratory next action only.",
+    "No-employment constraint applies to generated outreach/service patterns.",
+    "Claim ladder applies to externally-facing text: VERIFIED / DECLARED / PLANNED."
+  ],
+  "non_scope": [
+    "gmail",
+    "linkedin",
+    "website_forms",
+    "ui",
+    "adapters",
+    "noos",
+    "sg_modifications",
+    "trustfield_adapter_content",
+    "real_inbox"
+  ]
+}
