@@ -617,8 +617,15 @@ async function handlePost(request, env, ctx) {
       const fallback = retrievalOnlyReply(message, retrieval, citations);
       final = {
         ok: true,
-        reply: fallback.reply,
+        reply: brainCoreGate.sanitized_output?.safe_public_language || fallback.reply,
         mode: "brain_core_gate_staging_block",
+        guardrail: "brain_core_gate_staging",
+      };
+    } else if (brainCoreGate.sanitized_output?.public_language) {
+      final = {
+        ...final,
+        reply: brainCoreGate.sanitized_output.public_language,
+        mode: "brain_core_gate_staging_pass",
         guardrail: "brain_core_gate_staging",
       };
     }
