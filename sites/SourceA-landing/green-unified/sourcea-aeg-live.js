@@ -114,7 +114,21 @@
     }
   }
 
+  function readBootstrap() {
+    var el = document.getElementById("sa-aeg-bootstrap");
+    if (!el || !el.textContent) return null;
+    try {
+      return JSON.parse(el.textContent);
+    } catch (e) {
+      return null;
+    }
+  }
+
   function init() {
+    var boot = readBootstrap();
+    if (boot && boot.aeg) {
+      paint(boot.aeg, boot.factory || null);
+    }
     Promise.all([
       fetch(AEG_URL, { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }),
       fetch(FACTORY_URL, { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }),
