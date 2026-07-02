@@ -1131,6 +1131,18 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
         return auto_runtime_status()
 
     if action == "auto_tick":
+        from fbe.lib.mac_control_dispatch_v1 import (  # noqa: WPS433
+            is_mac_control_plane,
+            mac_deploy_bypass,
+            upgrade_mac_motor_block,
+        )
+
+        if is_mac_control_plane() and not mac_deploy_bypass():
+            return upgrade_mac_motor_block(
+                _mac_observe_block("auto_tick"),
+                cf_tick_row=trigger_cf_full_pack(force=bool(body.get("force"))),
+                action="auto_tick",
+            )
         from cloud_auto_runtime_v1 import run_auto_tick  # noqa: WPS433
 
         return run_auto_tick(
@@ -1168,9 +1180,17 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
         return {"ok": bool(result.get("ok", True)), "command": cmd, **result}
 
     if action == "proceed":
+        from fbe.lib.mac_control_dispatch_v1 import upgrade_mac_motor_block  # noqa: WPS433
         from hub_cloud_forge_run_proceed_v1 import proceed_from_hub  # noqa: WPS433
 
-        return proceed_from_hub(body)
+        row = proceed_from_hub(body)
+        if row.get("error") == "mac_observe_only":
+            return upgrade_mac_motor_block(
+                row,
+                cf_tick_row=trigger_cf_full_pack(force=bool(body.get("force"))),
+                action="proceed",
+            )
+        return row
 
     if action == "deploy_instructions":
         return {"ok": True, "deploy": founder_deploy_card(reason=str(body.get("reason") or ""))}

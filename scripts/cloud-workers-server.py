@@ -170,23 +170,11 @@ def _proceed_direct_cloud(body: dict | None) -> dict:
             cf = str(cf).rstrip("/")
             try:
                 from cloud_workers_hub_v1 import trigger_cf_full_pack  # noqa: WPS433
+                from fbe.lib.mac_control_dispatch_v1 import upgrade_mac_motor_block  # noqa: WPS433
 
                 cf_row = trigger_cf_full_pack(force=bool(payload.get("force")))
-                row = {
-                    **row,
-                    "ok": bool(cf_row.get("ok", True)),
-                    "decision": "mac_trigger_cf_tick",
-                    "execution_plane": "mac_control_panel",
-                    "cf_tick": cf_row,
-                    "cf_tick_url": f"{cf}/tick" if cf else None,
-                    "for_founder": cf_row.get("for_founder")
-                    or {
-                        "show_this": (
-                            "Mac motor blocked — triggered CF full-pack tick from Cloud Workers cockpit. "
-                            "Motor runs on cloud, not Mac body."
-                        ),
-                    },
-                }
+                row = upgrade_mac_motor_block(row, cf_tick_row=cf_row, action="proceed")
+                row["cf_tick_url"] = f"{cf}/tick" if cf else None
             except Exception as exc:
                 row = {
                     **row,
