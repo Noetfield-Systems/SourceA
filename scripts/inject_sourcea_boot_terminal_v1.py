@@ -105,7 +105,7 @@ def format_plain(row: dict) -> str:
     for c in row.get("checks") or []:
         mark = _check_mark(c)
         name = str(c.get("name") or c.get("id") or "check")
-        reason = str(c.get("reason") or "")
+        reason = str(c.get("reason") or "").replace("— skipped", "(not configured)")
         lines.append(f"  [{mark}] {name}: {reason}")
     lines.append(f"REPORT={_public_report_path(str(row.get('report_file') or ''))}")
     return "\n".join(lines)
