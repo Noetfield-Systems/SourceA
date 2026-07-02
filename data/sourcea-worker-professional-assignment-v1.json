@@ -157,7 +157,10 @@
       "queue_policy": "Cloud Forge Runs T0 free tier first \u00b7 ws order ux\u2192pricing\u2192run\u2192onboard\u2192integrate \u00b7 SourceA stack first",
       "status": "active",
       "cloud_forge_run_head": "CLOUD-SEC-001",
-      "cloud_forge_run_receipt": "receipts/cloud-sec-001-receipt-v1.json"
+      "cloud_forge_run_receipt": "receipts/cloud-sec-001-receipt-v1.json",
+      "control_plane_ssot": "data/cloud-workers-control-plane-v1.json",
+      "handoff_hub": "http://127.0.0.1:13027/",
+      "handoff_script": "scripts/cloud_workers_hub_v1.py"
     },
     {
       "id": "phase-build",
