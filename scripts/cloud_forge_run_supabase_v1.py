@@ -16,6 +16,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 MIGRATION = ROOT / "infra/supabase/portfolio-spine/migrations/003_cloud_forge_run_rows_v1.sql"
+MIGRATION_ORIGIN = ROOT / "infra/supabase/portfolio-spine/migrations/004_cloud_forge_run_rows_origin_v1.sql"
 STORE = "receipts/forge-seed"
 
 
@@ -105,6 +106,38 @@ def table_probe(*, cfg: dict[str, str] | None = None) -> dict[str, Any]:
         }
     except Exception as exc:
         return {"ok": False, "exists": False, "error": str(exc)[:200]}
+
+
+def apply_origin_migration() -> dict[str, Any]:
+    """Apply origin column migration (004) if SQL file present."""
+    ensure_env()
+    if not MIGRATION_ORIGIN.is_file():
+        return {"ok": False, "error": "origin_migration_missing"}
+    sql = MIGRATION_ORIGIN.read_text(encoding="utf-8")
+    mgmt = _apply_via_management_api(sql)
+    if mgmt.get("ok"):
+        return {**mgmt, "migration": "004_cloud_forge_run_rows_origin_v1"}
+    db_url = (
+        os.environ.get("SUPABASE_DB_URL", "").strip()
+        or os.environ.get("DATABASE_URL", "").strip()
+        or os.environ.get("POSTGRES_URL", "").strip()
+    )
+    if db_url:
+        try:
+            proc = subprocess.run(
+                ["psql", db_url, "-v", "ON_ERROR_STOP=1", "-f", str(MIGRATION_ORIGIN)],
+                capture_output=True,
+                text=True,
+                timeout=60,
+            )
+            if proc.returncode == 0:
+                return {"ok": True, "applied": True, "method": "psql", "migration": "004"}
+        except (FileNotFoundError, subprocess.TimeoutExpired):
+            pass
+    pg = _apply_via_psycopg(sql)
+    if pg.get("ok"):
+        return {**pg, "migration": "004"}
+    return {"ok": False, "error": "origin_migration_not_applied", "management": mgmt, "psycopg": pg}
 
 
 def apply_migration_if_missing() -> dict[str, Any]:
@@ -297,6 +330,7 @@ def row_from_ship(
         "shipped_at": shipped_at,
         "batch_id": batch_id,
         "trigger_source": trigger_source or os.environ.get("CLOUD_FORGE_RUN_TRIGGER_SOURCE"),
+        "origin": str(cycle_row.get("origin") or artifact_doc.get("origin") or plan.get("origin") or ""),
         "updated_at": _now(),
     }
 
@@ -458,6 +492,44 @@ def count_batch_on_railway(
     }
 
 
+def count_batch_origin_in_supabase(
+    *,
+    plan_ids: list[str],
+    origin: str = "mac_replay",
+    cfg: dict[str, str] | None = None,
+) -> dict[str, Any]:
+    ensure_env()
+    cfg = cfg or _supabase_cfg()
+    if not cfg["url"] or not cfg["key"]:
+        return {"ok": False, "error": "supabase_not_configured", "mac_replay_count": 0}
+    quoted = ",".join(f'"{pid}"' for pid in plan_ids)
+    params = urllib.parse.urlencode(
+        {
+            "select": "plan_id,origin",
+            "plan_id": f"in.({quoted})",
+            "origin": f"eq.{origin}",
+        }
+    )
+    url = f"{cfg['url'].rstrip('/')}/rest/v1/{cfg['table']}?{params}"
+    req = urllib.request.Request(
+        url,
+        headers={"apikey": cfg["key"], "Authorization": f"Bearer {cfg['key']}", "Accept": "application/json"},
+        method="GET",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            rows = json.loads(resp.read().decode("utf-8", errors="replace") or "[]")
+            present = sorted({str(r["plan_id"]) for r in rows if r.get("plan_id")})
+            return {
+                "ok": True,
+                "origin": origin,
+                "mac_replay_count": len(present),
+                "present": present,
+            }
+    except Exception as exc:
+        return {"ok": False, "error": str(exc)[:200], "mac_replay_count": 0}
+
+
 def batch_sink_invariant(
     *,
     batch_id: int,
@@ -471,17 +543,20 @@ def batch_sink_invariant(
     plan_ids = batch_plan_ids_from_doc(doc)
     sb = count_batch_in_supabase(plan_ids=plan_ids)
     rw = count_batch_on_railway(plan_ids=plan_ids, base_url=railway_url)
+    mac = count_batch_origin_in_supabase(plan_ids=plan_ids, origin="mac_replay")
+    mac_count = int(mac.get("mac_replay_count") or 0)
+    rw_count = int(rw.get("railway_count") or 0)
+    sb_count = int(sb.get("supabase_count") or 0)
     ok = (
         sb.get("ok")
         and rw.get("ok")
-        and sb.get("supabase_count") == len(plan_ids)
-        and rw.get("railway_count") == len(plan_ids)
-        and sb.get("supabase_count") == rw.get("railway_count")
+        and sb_count == len(plan_ids)
+        and (rw_count + mac_count) == sb_count
     )
     reason = None
     if not ok:
         reason = (
-            f"supabase_count={sb.get('supabase_count')} railway_count={rw.get('railway_count')} "
+            f"supabase_count={sb_count} railway_count={rw_count} mac_replay_count={mac_count} "
             f"expected={len(plan_ids)}"
         )
     return {
@@ -490,12 +565,15 @@ def batch_sink_invariant(
         "at": _now(),
         "batch_id": batch_id,
         "expected": len(plan_ids),
-        "supabase_count": sb.get("supabase_count"),
-        "railway_count": rw.get("railway_count"),
+        "supabase_count": sb_count,
+        "railway_count": rw_count,
+        "mac_replay_count": mac_count,
         "supabase_missing": sb.get("missing") or [],
         "railway_missing": rw.get("missing") or [],
+        "mac_replay_ids": mac.get("present") or [],
         "blocked_reason": reason,
         "verdict": "PASS" if ok else "BLOCKED_WITH_REASON",
+        "law": "railway_count + mac_replay_count == supabase_count",
     }
 
 

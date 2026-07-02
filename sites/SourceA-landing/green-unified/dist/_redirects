@@ -30,6 +30,9 @@
 /learn  /sourcea/learn  302
 /pulse-founder  /sourcea/pulse-founder  302
 /forge/*  /sourcea/forge/:splat  302
+/attach/*  /sourcea/attach/:splat  200
+/loops/*  /sourcea/loops/:splat  200
+/case-studies/*  /sourcea/case-studies/:splat  200
 /mvp  /start  301
 /mvp/  /start  301
 /agent-run  /platform  301

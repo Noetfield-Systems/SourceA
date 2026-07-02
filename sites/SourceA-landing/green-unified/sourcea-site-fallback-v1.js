@@ -13,7 +13,7 @@
     valid_yes: 98,
     valid_yes_total: 100,
     governance: { verdict: "PASS", factory: "Paused", status: "operational" },
-    github: { ok: true, url: "https://github.com/kazemnezhadsina144-dot/sourcea-boot" },
+    github: { ok: true, url: "https://pypi.org/project/sourcea-boot/" },
     status_page: "/sourcea/status",
     proof_sample: "/sourcea/attach/proof-bundle-sample",
     api_hook: { endpoint: "POST /v1/check", verdict: "PASS", receipt_id: "job-record" },

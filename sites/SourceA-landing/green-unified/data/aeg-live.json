@@ -1,10 +1,10 @@
 {
   "schema": "sourcea-aeg-live-v1",
-  "at": "2026-07-02T05:43:23Z",
+  "at": "2026-07-02T07:19:01Z",
   "evidence_id": "aeg-20260702T031950Z-e5af018b",
   "verdict": "PASS",
   "blockers": [],
-  "terminal_transcript": "$ sourcea-boot --json\n\nSOURCEA_BOOT PASS ok=true\nREPORT=receipts/sourcea-boot/BOOT_REPORT.json\n\n  [PASS] policy_version: no policy file (POLICY.md) \u2014 skipped\n  [PASS] provider: provider env present (ANTHROPIC_API_KEY)\n  [PASS] receipt_fresh: no prior receipt \u2014 first boot allowed\n  [PASS] queue_truth: no queue files configured \u2014 skipped\n\nblockers:\n  (none)",
+  "terminal_transcript": "$ sourcea-boot --json\n\nSOURCEA_BOOT PASS ok=true\nREPORT=receipts/sourcea-boot/BOOT_REPORT.json\n\n  [SKIP] policy_version: no policy file (POLICY.md) \u2014 skipped\n  [PASS] provider: provider env present (ANTHROPIC_API_KEY)\n  [SKIP] receipt_fresh: no prior receipt \u2014 first boot allowed\n  [SKIP] queue_truth: no queue files configured \u2014 skipped\n\nblockers:\n  (none)",
   "checks": [
     {
       "id": "C1",

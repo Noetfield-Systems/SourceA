@@ -1,0 +1,132 @@
+{
+  "schema": "client-proof-founder-review-pack-v1",
+  "version": "1.0.0",
+  "generated_at": "2026-07-02T07:19:06Z",
+  "authority": "data/client-proof-recipe-rubric-v1.json",
+  "one_law": "Founder approves proven recipes before buyer calls \u2014 queue expansion waits on this pack.",
+  "total": 15,
+  "human_review_count": 0,
+  "path": "data/client-proof-founder-review-pack-v1.json",
+  "rows": [
+    {
+      "recipe_id": "cpr-agency-onepager",
+      "live_url": "https://sourcea.app/attach/agency-onepager.html",
+      "proof_marker": "Agency overview \u00b7 proof",
+      "buyer_use_risk": "Low \u2014 attach PDF/HTML outbound",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-agentgo-case",
+      "live_url": "https://sourcea.app/case-studies/agentgo",
+      "proof_marker": "AgentGo \u00b7 agency",
+      "buyer_use_risk": "Medium \u2014 case study claims need founder comfort",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-brain-chat",
+      "live_url": "https://sourcea.app/",
+      "proof_marker": "Brain worker health HTTP 200",
+      "buyer_use_risk": "Medium \u2014 answer quality varies; disk-backed not guaranteed every Q",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-contract-aivg",
+      "live_url": "https://sourcea.app/ai-value-governance",
+      "proof_marker": "validate-sourcea-contract-pages-e2e PASS \u00b7 /ai-value-governance",
+      "buyer_use_risk": "Low \u2014 regional mirror; hreflang must stay wired",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-contract-eacp",
+      "live_url": "https://sourcea.app/enterprise-ai-control-plane",
+      "proof_marker": "validate-sourcea-contract-pages-e2e PASS \u00b7 /enterprise-ai-control-plane",
+      "buyer_use_risk": "Low \u2014 UK mirror; demo panel read-only",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-contract-operating-brain",
+      "live_url": "https://sourcea.app/operating-brain-install",
+      "proof_marker": "validate-sourcea-contract-pages-e2e PASS \u00b7 /operating-brain-install",
+      "buyer_use_risk": "Low \u2014 contract E2E locked; proof strip on page",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-eval-boot",
+      "live_url": "https://sourcea.app/eval",
+      "proof_marker": "data-sa-page=\"sourcea-boot-eval\" \u00b7 pip install sourcea-boot",
+      "buyer_use_risk": "Medium \u2014 prospect laptop pip path must match live eval copy",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-forge-terminal",
+      "live_url": "https://sourcea.app/sourcea/forge/terminal",
+      "proof_marker": "Forge Terminal \u00b7 data-sa-proof-cta",
+      "buyer_use_risk": "Medium \u2014 terminal ALLOW/BLOCK beat needs live walkthrough",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-free-job-intake",
+      "live_url": "https://sourcea.app/sourcea/sandbox",
+      "proof_marker": "data-sa-page=\"proof-sandbox\" \u00b7 sa-sandbox-intake-form \u00b7 mvp-intake e2e POST/read-back",
+      "buyer_use_risk": "Medium \u2014 intake form \u2192 MVP worker path must work on call",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-live-receipt",
+      "live_url": "https://sourcea.app/sourcea/proof/live",
+      "proof_marker": "ok=true or verdict field in /sourcea/proof/live JSON",
+      "buyer_use_risk": "Low \u2014 buyer-proof hotfix PASS on both hosts",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-procurement-pack",
+      "live_url": "https://sourcea.app/attach/procurement-pack.html",
+      "proof_marker": "Procurement \u00b7 ISO",
+      "buyer_use_risk": "Low \u2014 regulated buyer pack",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-proof-export-loop",
+      "live_url": "https://sourcea.app/loops/proof-export",
+      "proof_marker": "Proof export \u00b7 retainer",
+      "buyer_use_risk": "Low \u2014 marketing loop page",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-pureflow-case",
+      "live_url": "https://sourcea.app/case-studies/pureflow",
+      "proof_marker": "PureFlow \u00b7 48-hour",
+      "buyer_use_risk": "Medium \u2014 case study claims need founder comfort",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-railway-observer",
+      "live_url": "https://sourcea-fbe-runner-production.up.railway.app/observer",
+      "proof_marker": "Railway queue API ok=true \u00b7 execution_plane headless_cloud",
+      "buyer_use_risk": "Low \u2014 infra receipt; not buyer-facing URL alone",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-supabase-rows",
+      "live_url": "supabase://cloud_forge_run_rows",
+      "proof_marker": "cloud_forge_run_supabase_v1.py --query --count total > 0",
+      "buyer_use_risk": "Medium \u2014 no public URL; show row count delta only",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    }
+  ]
+}
