@@ -1,0 +1,302 @@
+{
+  "schema": "sourcea-living-brain-autorun-master-plan-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-02T21:30:00Z",
+  "one_law": "One living brain — every plane wired through bridges; no island runs without truth_log or repo receipt; Worker implements; Brain routes; cloud executes motors; Mac observes and dispatches.",
+  "authority": {
+    "law": "docs/CONTROLLED_AUTORUN_LAWS_v3.md",
+    "skill": ".cursor/skills/controlled-autorun/SKILL.md",
+    "runtime": "data/cloud-auto-runtime-v1.json",
+    "control_plane": "data/cloud-workers-control-plane-v1.json",
+    "node_graph": "data/sourcea_pipeline_node_graph_v1.json",
+    "worker_assignment": "data/sourcea-worker-professional-assignment-v1.json",
+    "brain_registry": "data/sourcea-brain-registry-inventory-v1.json",
+    "base_brain_skills": "data/sourcea-base-brain-skills-v1.json"
+  },
+  "living_system_definition": {
+    "not_islands": "Every scheduled loop POSTs or mirrors to at least one shared bridge: truth_log, event spine, pending, heartbeat, or nerve receipt.",
+    "bridges": [
+      {
+        "id": "truth_log_bus",
+        "path": "data/truth-log-cloud-contract-v1.json",
+        "writers": ["external-verify.yml", "cloud-auto-runtime-tick-v1", "loop-specialist-tick-v1"],
+        "readers": ["read_action_runs_v1.py", "brain-chat-worker", "loop_specialist_tick_v1.py"]
+      },
+      {
+        "id": "event_spine",
+        "path": "scripts/governance_event_spine_v1.py",
+        "writers": ["agent_session_gate_run_v1.py", "fbe_cloud_worker_http_v1.py", "execution_spine/spine.py"],
+        "event_types": ["CRON_FIRED", "CYCLE_RECEIPT", "FOUNDER_ACTION", "DISPATCH_READY"]
+      },
+      {
+        "id": "autorun_pending",
+        "path": "receipts/cloud/autorun-pending/pending-latest-v1.json",
+        "writer": "scripts/autorun_pending_v1.py",
+        "trigger_on": ["cycle_receipt", "heartbeat", "loop_specialist_tick", "observer_build"]
+      },
+      {
+        "id": "nerve_pulse",
+        "path": "~/.sina/agent-nerve-system-receipt-v1.json",
+        "writer": "scripts/agent_nerve_system_v1.py",
+        "feeds": ["~/.sina/agent-live-surfaces-v1.json", "session_gate", "loop_specialist_tick_v1.py"]
+      },
+      {
+        "id": "living_system_chains",
+        "path": "data/living-system-chain-registry-v1.json",
+        "validator": "scripts/living_system_chain_validate_v1.py",
+        "hub_api": "GET /api/living-system-chain/v1",
+        "gate_before_ship": "cloud_auto_runtime_v1.py PROVE belt"
+      },
+      {
+        "id": "phase_reconciler",
+        "path": "scripts/phase_reconciler_v1.py",
+        "law": "L1 ONE reconciler per sandbox"
+      },
+      {
+        "id": "brain_registry_bridge",
+        "path": "data/sourcea-brain-registry-inventory-v1.json",
+        "skills": "data/sourcea-base-brain-skills-v1.json",
+        "bundle": "data/brain-chat-knowledge-bundle-v1.json"
+      },
+      {
+        "id": "execution_spine_hub",
+        "path": "scripts/execution_spine/",
+        "hub_api": "GET /api/execution-spine",
+        "role": "Mac Hub task queue — not factory motor"
+      }
+    ]
+  },
+  "planes": [
+    {
+      "id": "P1_motor",
+      "label": "Cloud Forge Run motor — 100 rows / 10m",
+      "owner_chat": "cloud_only",
+      "worker_phase": "phase-market",
+      "trigger": "CF */10 cloud-auto-runtime-tick-v1",
+      "executor": "Railway POST /api/cloud-forge-run/auto-tick/v1",
+      "ssot": "data/cloud-auto-runtime-v1.json",
+      "receipts": "receipts/cloud/autonomous-forge-run-cycles/",
+      "heartbeat": "receipts/cloud/autonomous-forge-run-heartbeat/",
+      "bridges_out": ["truth_log_bus", "autorun_pending", "event_spine", "living_system_chains"],
+      "determinism": ["D1", "D2", "D4", "D5"],
+      "status": "live",
+      "gaps": ["Kaizen one-item-per-cycle not wired", "L11 cost table incomplete in heartbeat"]
+    },
+    {
+      "id": "P2_comprehension",
+      "label": "Loop specialist + Brain comprehension",
+      "owner_chat": "Brain routes · Worker implements bridges",
+      "worker_phase": "phase-cloud",
+      "trigger": "CF */15 loop-specialist-tick-v1",
+      "executor": "Railway POST /api/fbe/loop-specialist/tick/v1",
+      "ssot": "data/loop-specialist-cloud-contract-v1.json",
+      "mac_observe": "scripts/loop_specialist_tick_v1.py --json",
+      "bridges_out": ["nerve_pulse", "autorun_pending", "truth_log_bus"],
+      "status": "live",
+      "gaps": ["LOOP_AUTO_DISPATCH secret pending", "CF account URL drift vs SSOT"]
+    },
+    {
+      "id": "P3_triage",
+      "label": "Signal Factory synthetic triage",
+      "owner_chat": "Worker",
+      "trigger": "Piggyback loop-specialist */15",
+      "executor": "Railway POST /api/fbe/signal-factory/tick/v1",
+      "ssot": "data/signal-factory-v1.json",
+      "skill": ".cursor/skills/signal-factory/SKILL.md",
+      "bridges_out": ["brain_registry_bridge", "event_spine"],
+      "status": "live_piggyback",
+      "gaps": ["Dedicated CF cron must stay disabled to avoid double-fire"]
+    },
+    {
+      "id": "P4_truth",
+      "label": "External truth + determinism",
+      "owner_chat": "Brain + CI",
+      "triggers": [
+        "GH push external-verify.yml → L4",
+        "GH */6h determinism-gate.yml → D1-D5"
+      ],
+      "ssot": "data/truth-log-cloud-contract-v1.json",
+      "bridges_out": ["truth_log_bus", "brain_registry_bridge"],
+      "status": "live",
+      "gaps": ["D6-D8 not in CI", "Recipe matrix per lane not split"]
+    },
+    {
+      "id": "P5_governance",
+      "label": "Gates · nerves · orient · session",
+      "owner_chat": "All agents every turn",
+      "entry": "scripts/agent_session_gate_run_v1.py",
+      "graph": "data/sourcea_pipeline_node_graph_v1.json",
+      "tiers": ["T0_safety", "T1_truth_parallel", "T2_fleet_parallel", "T3_proof_parallel", "T_lat_orient"],
+      "bridges_out": ["nerve_pulse", "event_spine", "brain_registry_bridge"],
+      "status": "live",
+      "gaps": ["Mac nerve mesh Phase 3 deferred", "install-autorun-launchd-v1.sh missing"]
+    },
+    {
+      "id": "P6_improvement",
+      "label": "Kaizen · Better Loop · pending · drift",
+      "owner_chat": "Loop Specialist standing + Worker",
+      "components": [
+        "scripts/better_loop_pulse_v1.py",
+        "scripts/autorun_pending_v1.py",
+        "scripts/loop_auto_graduation_v1.py"
+      ],
+      "bridges_out": ["autorun_pending", "event_spine"],
+      "status": "partial",
+      "gaps": ["Kaizen ROI queue executor missing", "L12 drift compare not in every heartbeat"]
+    },
+    {
+      "id": "P7_brain_public",
+      "label": "Public Brain chat + knowledge bundle",
+      "owner_chat": "Worker deploy · Brain route",
+      "assets": ["brain-knowledge-bundle", "brain-chat-worker", "brain-core-gate-staging"],
+      "trigger": "Bundled */10 + standalone */30 brain-loop (redundant)",
+      "bridges_out": ["brain_registry_bridge", "truth_log_bus"],
+      "status": "live",
+      "gaps": ["brain-core-v1 gate not fully deployed", "Redundant */30 cron"]
+    },
+    {
+      "id": "P8_parallel_tier1",
+      "label": "Multi-lane parallel sandboxes",
+      "owner_chat": "Founder trigger required",
+      "law": "CONTROLLED_AUTORUN_LAWS_v3.md §Parallel orchestration Tier 1+",
+      "status": "blocked_founder_gated",
+      "gaps": ["Lane registry JSON", "Concurrency keys", "CF routing per lane"]
+    }
+  ],
+  "worker_queue": {
+    "phase_id": "phase-living-brain-v1",
+    "label": "Living Brain Autorun — wire all planes through bridges",
+    "execution_plane": "cloud_api_worker",
+    "mac_build_forbidden": true,
+    "brain_routes": true,
+    "worker_implements": true,
+    "items": [
+      {
+        "id": "W-LBA-001",
+        "plane": "P5_governance",
+        "role": "fix",
+        "title": "Remove dead install-autorun-launchd refs; align loop-specialist CF account URL",
+        "paths": ["scripts/install-hub-launchd-v1.sh", "cloud/workers/loop-specialist-tick-v1/wrangler.toml", "data/loop-specialist-cloud-cron-v1.json"],
+        "verify": "scripts/validate-cloud-workers-workflows-v1.sh",
+        "receipt": "receipts/cloud/w-lba-001-bridge-fix-v1.json"
+      },
+      {
+        "id": "W-LBA-002",
+        "plane": "P3_triage",
+        "role": "fix",
+        "title": "Disable dedicated signal-factory CF cron; document piggyback-only in SSOT",
+        "paths": ["cloud/workers/signal-factory-tick-v1/wrangler.toml", "data/signal-factory-cloud-cron-v1.json"],
+        "verify": "scripts/validate-signal-factory-tick-v1.sh",
+        "receipt": "receipts/cloud/w-lba-002-sf-piggyback-v1.json"
+      },
+      {
+        "id": "W-LBA-003",
+        "plane": "P7_brain_public",
+        "role": "fix",
+        "title": "Collapse brain verifier to bundled-only; remove redundant */30 standalone cron",
+        "paths": ["cloud/workers/sourcea-brain-loop-cloud-tick-v1/", "cloud/workers/cloud-auto-runtime-tick-v1/src/index.js"],
+        "verify": "light curl health only",
+        "receipt": "receipts/cloud/w-lba-003-brain-dedup-v1.json"
+      },
+      {
+        "id": "W-LBA-004",
+        "plane": "P4_truth",
+        "role": "implement",
+        "title": "Extend determinism gate D6-D8; per-lane verify recipe registry",
+        "paths": ["scripts/verify_autorun_determinism_v1.py", "data/sourcea-verify-recipe-registry-v1.json", ".github/workflows/determinism-gate.yml"],
+        "verify": "scripts/verify_autorun_determinism_v1.py --json",
+        "receipt": "receipts/cloud/w-lba-004-determinism-v1.json"
+      },
+      {
+        "id": "W-LBA-005",
+        "plane": "P6_improvement",
+        "role": "implement",
+        "title": "Kaizen queue motor — one machine_safe item per Forge Run cycle",
+        "paths": ["scripts/autorun_kaizen_queue_v1.py", "data/autorun-kaizen-backlog-v1.json"],
+        "wire_to": ["autorun_pending_v1.py", "cloud_auto_runtime_v1.py"],
+        "verify": "scripts/validate-controlled-autorun-skill-v1.sh",
+        "receipt": "receipts/cloud/w-lba-005-kaizen-v1.json"
+      },
+      {
+        "id": "W-LBA-006",
+        "plane": "P1_motor",
+        "role": "implement",
+        "title": "Expand living-system-chain registry — loop specialist + signal factory + pending bridges",
+        "paths": ["data/living-system-chain-registry-v1.json", "scripts/living_system_chain_validate_v1.py"],
+        "verify": "scripts/validate-living-system-chain-v1.sh",
+        "receipt": "receipts/cloud/w-lba-006-chains-v1.json"
+      },
+      {
+        "id": "W-LBA-007",
+        "plane": "P5_governance",
+        "role": "implement",
+        "title": "Brain living-system dashboard slice on Hub :13027 — all planes + bridge status",
+        "paths": ["scripts/cloud_workers_hub_v1.py", "agent-control-panel/"],
+        "verify": "GET http://127.0.0.1:13027/api/cloud-workers/v1",
+        "receipt": "receipts/cloud/w-lba-007-hub-living-v1.json"
+      },
+      {
+        "id": "W-LBA-008",
+        "plane": "P2_comprehension",
+        "role": "wire",
+        "title": "Set LOOP_AUTO_DISPATCH + loop specialist secrets; wire pending → Worker inbox",
+        "paths": ["scripts/loop_specialist_cf_secrets_v1.sh", ".sina-loop/INBOX.md"],
+        "verify": "scripts/loop_specialist_tick_v1.py --json",
+        "receipt": "receipts/cloud/w-lba-008-loop-dispatch-v1.json"
+      },
+      {
+        "id": "W-LBA-009",
+        "plane": "all",
+        "role": "vocabulary",
+        "title": "Drain→Cloud Forge Run rename pass on env, n8n, GH workflow comments",
+        "paths": ["n8n/workflows/wf-cloud-auto-runtime-v1.json", ".github/workflows/autonomous-drain-cron-v1.yml", "scripts/autorun_pending_v1.py"],
+        "verify": "grep audit only",
+        "receipt": "receipts/cloud/w-lba-009-vocab-v1.json"
+      },
+      {
+        "id": "W-LBA-010",
+        "plane": "P8_parallel_tier1",
+        "role": "founder_gated",
+        "title": "Lane registry + CF scheduler routing for parallel sandboxes (Tier 1+)",
+        "paths": ["data/autorun-lane-registry-v1.json"],
+        "blocked_until": "founder_triggers_tier_1",
+        "receipt": "receipts/cloud/w-lba-010-tier1-v1.json"
+      }
+    ]
+  },
+  "brain_coherence_rules": [
+    "Every plane writes to ≥1 bridge before claiming COMPLETE.",
+    "Worker inbox receives dispatch_ready from loop specialist — not ad hoc chat paste.",
+    "Brain reads pending-latest + nerve receipt + last 3 cycle receipts every session (controlled-autorun standing duties).",
+    "No plane reads another plane's disk directly — truth_log or shared sink only (L10).",
+    "Mac never drains motor; dispatch upgrades blocked paths to CF tick.",
+    "Self-improvement items enter Kaizen backlog with value_class; >30% none spend → THROTTLED_ROI.",
+    "Public Brain answers cite brain_registry assets — signal-factory, controlled-autorun, locked-definitions."
+  ],
+  "session_standing_duties": {
+    "brain": [
+      "Read pending-latest-v1.json",
+      "Read nerve_system_line + ship_gates",
+      "Report loops/states/sink/drift/cost (5 lines)",
+      "Route next W-LBA item to Worker inbox if dispatch_ready"
+    ],
+    "worker": [
+      "Run INBOX head item only",
+      "Implement one W-LBA plane item per session when assigned",
+      "Commit scoped lane; cloud deploy verify only when ship window"
+    ],
+    "loop_specialist": [
+      "Tick observe/advise every 15m on cloud",
+      "Refresh autorun_pending on every cycle",
+      "Escalate founder_blocked — never cancel"
+    ]
+  },
+  "hub_apis": {
+    "living_system": "GET /api/living-system-chain/v1",
+    "cloud_workers": "GET/POST http://127.0.0.1:13027/api/cloud-workers/v1",
+    "loop_specialist": "POST /api/loop-specialist/tick/v1",
+    "execution_spine": "GET /api/execution-spine",
+    "cf_tick": "~/.sina/sourcea-mac-v1.sh cf-tick --json"
+  },
+  "doc_mirror": "docs/SOURCEA_LIVING_BRAIN_AUTORUN_MASTER_PLAN_LOCKED_v1.md"
+}

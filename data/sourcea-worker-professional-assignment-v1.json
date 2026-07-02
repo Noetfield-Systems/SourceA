@@ -214,9 +214,13 @@
     ]
   },
   "active": {
-    "phase_id": "phase-market",
-    "label": "Secondary -1000 — CLOUD-SEC-001 drain active",
+    "phase_id": "phase-living-brain-v1",
+    "label": "Living Brain Autorun — W-LBA bridge wiring (see master plan SSOT)",
     "execution_plane": "cloud_forge",
+    "master_plan_ssot": "data/sourcea-living-brain-autorun-master-plan-v1.json",
+    "master_plan_doc": "docs/SOURCEA_LIVING_BRAIN_AUTORUN_MASTER_PLAN_LOCKED_v1.md",
+    "queue_head": "W-LBA-001",
+    "previous_phase_id": "phase-market",
     "mac_executes": false,
     "next_ssot": "data/secondary-cloud-forge-run-next-100-v1.json",
     "start_plan": "CLOUD-SEC-001",
