@@ -66,6 +66,14 @@ jobs:
             --founder-proof /tmp/founder-proof-15.json \
             --out "$OUT" --json | tee /tmp/receipt-build.json
 
+      - name: Ensure truth_log schema (migration 002+005)
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y postgresql-client
+          bash scripts/apply_truth_log_migration_v1.sh
+
       - name: POST receipt to Supabase truth_log (L4 sink)
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
