@@ -194,8 +194,21 @@ def run_forge_seed_cycle(*, plan_id: str, dry_run: bool = False, root: Path | No
         try:
             from cloud_forge_run_supabase_v1 import persist_shipped_row  # noqa: WPS433
 
-            row["supabase"] = persist_shipped_row(row, plan=plan, artifact_doc=artifact_doc)
+            sb = persist_shipped_row(row, plan=plan, artifact_doc=artifact_doc)
+            row["supabase"] = sb
+            if not sb.get("ok") and not sb.get("skipped"):
+                row["ok"] = False
+                row["failure_class"] = "supabase_sink_not_acked"
+                row["validator_result"] = "FAIL"
+                row["for_founder"] = {
+                    "show_this": (
+                        f"{plan_id} · FAIL · supabase sink not acked · "
+                        f"{sb.get('cause') or sb.get('error') or sb.get('status')}"
+                    ),
+                }
         except Exception as exc:
+            row["ok"] = False
+            row["failure_class"] = "supabase_sink_exception"
             row["supabase"] = {"ok": False, "error": str(exc)[:120]}
     return row
 
