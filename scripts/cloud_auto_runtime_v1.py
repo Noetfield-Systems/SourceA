@@ -227,6 +227,29 @@ def _wrangler_committed_truth() -> dict[str, Any]:
     return {"ok": True, "worker_name": name, "path": str(path), "sha256_prefix": None}
 
 
+def _resolve_mission_id(*, workflow_id: str) -> str:
+    path = ROOT / "data" / "mission-registry-v1.json"
+    row = _read(path)
+    mapping = row.get("workflow_missions") if isinstance(row.get("workflow_missions"), dict) else {}
+    mission_id = str(mapping.get(workflow_id) or row.get("default_mission_id") or "M2")
+    return mission_id
+
+
+def _trigger_registry_sweep_v1() -> dict[str, Any]:
+    try:
+        from sandbox_health_sweep_v1 import run_sweep  # noqa: WPS433
+
+        return run_sweep(repo_root=ROOT)
+    except Exception as exc:
+        return {
+            "schema": "sandbox-health-sweep-v1",
+            "ok": False,
+            "drift": True,
+            "report_line": f"trigger_sweep_error · {exc}",
+            "errors": [str(exc)[:120]],
+        }
+
+
 def _drift_check_v1() -> dict[str, Any]:
     ssot = load_ssot()
     committed_sha = _git_head_sha()
@@ -257,6 +280,18 @@ def _drift_check_v1() -> dict[str, Any]:
                 "deployed_truth": cf_meta[:80],
             }
         )
+    trigger_sweep = _trigger_registry_sweep_v1()
+    if trigger_sweep.get("drift") or not trigger_sweep.get("ok"):
+        mismatches.append(
+            {
+                "surface": "trigger_registry",
+                "committed_truth": trigger_sweep.get("registry_path"),
+                "deployed_truth": trigger_sweep.get("report_line"),
+                "dead_or_mismatch": trigger_sweep.get("dead_or_mismatch"),
+                "unregistered_live": trigger_sweep.get("unregistered_live"),
+            }
+        )
+    deploy_ok = len([m for m in mismatches if m.get("surface") != "trigger_registry"]) == 0
     return {
         "schema": "drift-receipt-v1",
         "checked": True,
@@ -266,8 +301,9 @@ def _drift_check_v1() -> dict[str, Any]:
         "wrangler": wrangler,
         "committed_cron": committed_cron,
         "last_cron_fire": last_cron_fire,
+        "trigger_sweep": trigger_sweep,
         "mismatches": mismatches,
-        "ok": len(mismatches) == 0,
+        "ok": deploy_ok and bool(trigger_sweep.get("ok")),
     }
 
 
@@ -549,11 +585,15 @@ def _write_cycle_receipt(
     )
     founder_blocked = _founder_blocked_snapshot()
     gate_evidence = _gate_evidence_v2(prove=prove, ship=ship, decision=decision_block)
+    workflow_id = "cloud-forge-run"
+    mission_id = _resolve_mission_id(workflow_id=workflow_id)
     doc = {
         "schema": "autonomous-forge-run-cycle-receipt-v2",
         "version": "2.0.0",
         "at": cycle.get("at") or _now(),
         "trigger_source": trigger_source,
+        "mission_id": mission_id,
+        "workflow_id": workflow_id,
         "factory": "forge-drain",
         "blueprint_id": "MAC-CTL-002",
         "queue_head": head,
