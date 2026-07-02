@@ -1,0 +1,20 @@
+{
+  "schema": "autorun-declared-window-v1",
+  "version": "1.0.0",
+  "status": "DECLARED",
+  "started_at": "2026-07-02T21:06:47Z",
+  "closes_at": "2026-07-03T21:06:47Z",
+  "window_hours": 24.0,
+  "head_sha": "d2e45f5bd2190e0422794eae23e2386642df72d2",
+  "law": "governed-autorun \u2014 DECLARED until 24h green on external receipts",
+  "criteria": {
+    "zero_manual": "no manual trigger_source in cycle receipts",
+    "cycle_receipt_v2": "every cycle autonomous-forge-run-cycle-receipt-v2",
+    "sink_invariant": "sink_invariant on every cycle receipt",
+    "daily_heartbeat": "heartbeat receipt each UTC day",
+    "external_verify_pass": "\u22651 truth_log EXTERNAL_VERIFY_PASS per UTC day"
+  },
+  "verify_command": "python3 scripts/verify_autorun_zero_manual_v1.py --hours 24 --json",
+  "ok": true,
+  "report_line": "autorun window DECLARED \u00b7 sha d2e45f5b \u00b7 closes 2026-07-03T21:06:47Z"
+}
