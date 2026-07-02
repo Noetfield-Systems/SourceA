@@ -6,6 +6,7 @@ import json
 import os
 import subprocess
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -329,9 +330,36 @@ def upsert_row(row: dict[str, Any], *, cfg: dict[str, str] | None = None) -> dic
             applied = apply_migration_if_missing()
             if applied.get("ok") and applied.get("applied"):
                 return upsert_row(row, cfg=cfg)
-        return {"ok": False, "status": exc.code, "error": err[:300], "plan_id": row.get("plan_id")}
+        cause = "rate_limit" if exc.code == 429 else "http_error"
+        return {
+            "ok": False,
+            "status": exc.code,
+            "error": err[:300],
+            "cause": cause,
+            "plan_id": row.get("plan_id"),
+        }
     except Exception as exc:
-        return {"ok": False, "error": str(exc)[:200], "plan_id": row.get("plan_id")}
+        return {"ok": False, "error": str(exc)[:200], "cause": "transport_error", "plan_id": row.get("plan_id")}
+
+
+def upsert_row_with_retry(
+    row: dict[str, Any],
+    *,
+    cfg: dict[str, str] | None = None,
+    max_attempts: int = 5,
+) -> dict[str, Any]:
+    """Retry until PostgREST ack or hard fail — no silent sink drops."""
+    last: dict[str, Any] = {"ok": False, "error": "no_attempt"}
+    for attempt in range(1, max_attempts + 1):
+        last = upsert_row(row, cfg=cfg)
+        if last.get("ok") or last.get("skipped"):
+            last["attempts"] = attempt
+            return last
+        if attempt < max_attempts:
+            time.sleep(min(2 ** (attempt - 1), 8))
+    last["attempts"] = max_attempts
+    last["failure_class"] = "supabase_sink_not_acked"
+    return last
 
 
 def persist_shipped_row(
@@ -354,7 +382,121 @@ def persist_shipped_row(
         artifact_doc=artifact_doc if isinstance(artifact_doc, dict) else {},
         trigger_source=trigger_source,
     )
-    return upsert_row(row)
+    return upsert_row_with_retry(row)
+
+
+def batch_plan_ids_from_doc(doc: dict[str, Any]) -> list[str]:
+    return sorted(
+        {
+            str(p.get("id") or "")
+            for p in doc.get("plans") or []
+            if str(p.get("id") or "").startswith("CLOUD-SEC-")
+        },
+        key=lambda x: int(x.rsplit("-", 1)[-1]),
+    )
+
+
+def count_batch_in_supabase(*, plan_ids: list[str], cfg: dict[str, str] | None = None) -> dict[str, Any]:
+    ensure_env()
+    cfg = cfg or _supabase_cfg()
+    if not cfg["url"] or not cfg["key"]:
+        return {"ok": False, "error": "supabase_not_configured", "present": [], "missing": plan_ids}
+    quoted = ",".join(f'"{pid}"' for pid in plan_ids)
+    params = urllib.parse.urlencode({"select": "plan_id", "plan_id": f"in.({quoted})"})
+    url = f"{cfg['url'].rstrip('/')}/rest/v1/{cfg['table']}?{params}"
+    req = urllib.request.Request(
+        url,
+        headers={"apikey": cfg["key"], "Authorization": f"Bearer {cfg['key']}", "Accept": "application/json"},
+        method="GET",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            rows = json.loads(resp.read().decode("utf-8", errors="replace") or "[]")
+            present = sorted({str(r["plan_id"]) for r in rows if r.get("plan_id")})
+            missing = [pid for pid in plan_ids if pid not in present]
+            return {
+                "ok": True,
+                "expected": len(plan_ids),
+                "supabase_count": len(present),
+                "present": present,
+                "missing": missing,
+            }
+    except urllib.error.HTTPError as exc:
+        err = exc.read().decode("utf-8", errors="replace")
+        return {"ok": False, "error": err[:300], "status": exc.code, "missing": plan_ids}
+    except Exception as exc:
+        return {"ok": False, "error": str(exc)[:200], "missing": plan_ids}
+
+
+def count_batch_on_railway(
+    *,
+    plan_ids: list[str],
+    base_url: str = "https://sourcea-fbe-runner-production.up.railway.app",
+) -> dict[str, Any]:
+    present: list[str] = []
+    missing: list[str] = []
+    base = base_url.rstrip("/")
+    for pid in plan_ids:
+        detail_url = f"{base}/api/cloud-forge-run/evidence-audit/v1?plan_id={urllib.parse.quote(pid)}"
+        req = urllib.request.Request(detail_url, headers={"Accept": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                detail = json.loads(resp.read().decode("utf-8", errors="replace"))
+            if detail.get("ok") and detail.get("artifact"):
+                present.append(pid)
+            else:
+                missing.append(pid)
+        except Exception:
+            missing.append(pid)
+    return {
+        "ok": True,
+        "expected": len(plan_ids),
+        "railway_count": len(present),
+        "present": present,
+        "missing": missing,
+        "source": base,
+    }
+
+
+def batch_sink_invariant(
+    *,
+    batch_id: int,
+    batch_path: Path | None = None,
+    railway_url: str = "https://sourcea-fbe-runner-production.up.railway.app",
+) -> dict[str, Any]:
+    path = batch_path or ROOT / f"data/secondary-cloud-forge-run-batch-{batch_id}-locked-v1.json"
+    if not path.is_file():
+        return {"ok": False, "error": "batch_file_missing", "path": str(path)}
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    plan_ids = batch_plan_ids_from_doc(doc)
+    sb = count_batch_in_supabase(plan_ids=plan_ids)
+    rw = count_batch_on_railway(plan_ids=plan_ids, base_url=railway_url)
+    ok = (
+        sb.get("ok")
+        and rw.get("ok")
+        and sb.get("supabase_count") == len(plan_ids)
+        and rw.get("railway_count") == len(plan_ids)
+        and sb.get("supabase_count") == rw.get("railway_count")
+    )
+    reason = None
+    if not ok:
+        reason = (
+            f"supabase_count={sb.get('supabase_count')} railway_count={rw.get('railway_count')} "
+            f"expected={len(plan_ids)}"
+        )
+    return {
+        "ok": ok,
+        "schema": "cloud-forge-batch-sink-invariant-v1",
+        "at": _now(),
+        "batch_id": batch_id,
+        "expected": len(plan_ids),
+        "supabase_count": sb.get("supabase_count"),
+        "railway_count": rw.get("railway_count"),
+        "supabase_missing": sb.get("missing") or [],
+        "railway_missing": rw.get("missing") or [],
+        "blocked_reason": reason,
+        "verdict": "PASS" if ok else "BLOCKED_WITH_REASON",
+    }
 
 
 def query_rows(*, limit: int = 20, proof_tier: str | None = None) -> dict[str, Any]:
