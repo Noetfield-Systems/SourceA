@@ -4,6 +4,12 @@
  */
 import { writeCronFired } from "./truth_log.js";
 
+const DEFAULT_VERIFIER_BASE_URL =
+  "https://sina-governance-ssot-advisory.kazemnezhadsina144.workers.dev";
+const DEFAULT_CANDIDATE_REPO = "kazemnezhadsina144-dot/SourceA";
+const DEFAULT_CANDIDATE_REF = "main";
+const DEFAULT_CANDIDATE_PATH = "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json";
+
 function json(body, status = 200) {
   return Response.json(body, {
     status,
@@ -21,15 +27,21 @@ export default {
         const armed =
           env.CLOUD_FORGE_RUN_AUTO_PROCEED === "true" || env.CLOUD_DRAIN_AUTO_PROCEED === "true";
         const tick = await runTick(env, { proceed: armed });
+        const brain = await runBrainVerifierTick(env);
         await writeCronFired(env, {
           deployment_id: event?.cron || "*/10 * * * *",
           queue_head: tick?.motor?.head || tick?.pack?.head_now || null,
           receipt_id: tick?.motor?.cycle_receipt_path || null,
           tick_decision: tick?.decision || null,
+          brain_verifier_result: brain?.run_result || null,
+          brain_receipt_id: brain?.receipt_id || null,
           cycle_verdict:
-            tick?.motor?.pack?.idle_batch && !(tick?.motor?.pack?.shipped || tick?.motor?.pack?.advanced)
+            tick?.decision === "IDLE_NO_WORK" || tick?.auto_stop
               ? "IDLE_NO_WORK"
-              : tick?.motor?.decision || null,
+              : tick?.motor?.pack?.idle_batch && !(tick?.motor?.pack?.shipped || tick?.motor?.pack?.advanced)
+                ? "IDLE_NO_WORK"
+                : tick?.motor?.decision || tick?.decision || null,
+          motor_invoked: tick?.motor_invoked !== false,
         });
         return tick;
       })(),
@@ -54,10 +66,12 @@ export default {
         schema: "sourcea-auto-runtime-health-v1",
         service: "cloud-auto-runtime-tick-v1",
         cron: "*/10 * * * *",
+        brain_verifier_cron: "bundled_each_tick",
         auto_proceed_ready:
           env.CLOUD_FORGE_RUN_AUTO_PROCEED === "true" || env.CLOUD_DRAIN_AUTO_PROCEED === "true",
         railway_upstream_ready: Boolean(env.FBE_CLOUD_WORKER_URL),
         internal_secret_ready: Boolean(env.FBE_INTERNAL_SECRET),
+        verifier_base_url: env.VERIFIER_BASE_URL || DEFAULT_VERIFIER_BASE_URL,
       });
     }
     if (url.pathname === "/status" && request.method === "GET") {
@@ -82,6 +96,10 @@ export default {
     if (url.pathname === "/tick" && request.method === "POST") {
       const body = await request.json().catch(() => ({}));
       const row = await runTick(env, { proceed: Boolean(body.proceed) });
+      return json(row, row.ok ? 200 : 422);
+    }
+    if (url.pathname === "/brain-tick" && request.method === "POST") {
+      const row = await runBrainVerifierTick(env);
       return json(row, row.ok ? 200 : 422);
     }
   if (url.pathname === "/observer" && request.method === "GET") {
@@ -192,10 +210,124 @@ async function proxyPlanRegistry(url, env) {
     });
   } catch (err) {
     return Response.json(
-      { ok: false, error: "plan_registry_proxy_failed", message: String(err && err.message ? err.message : err).slice(0, 160) },
+      {
+        ok: false,
+        error: "plan_registry_proxy_failed",
+        message: String(err && err.message ? err.message : err).slice(0, 160),
+      },
       { status: 502, headers: { "Access-Control-Allow-Origin": "*", "Cache-Control": "no-store" } },
     );
   }
+}
+
+async function runBrainVerifierTick(env) {
+  const verifier = (env.VERIFIER_BASE_URL || DEFAULT_VERIFIER_BASE_URL).replace(/\/$/, "");
+  const payload = {
+    candidate_repo: env.CANDIDATE_REPO || DEFAULT_CANDIDATE_REPO,
+    candidate_ref: env.CANDIDATE_REF || DEFAULT_CANDIDATE_REF,
+    candidate_path: env.CANDIDATE_PATH || DEFAULT_CANDIDATE_PATH,
+  };
+  const runResp = await fetch(`${verifier}/run`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      "User-Agent": "cloud-auto-runtime-tick-v1/brain",
+    },
+    body: JSON.stringify(payload),
+  });
+  let receipt = {};
+  try {
+    receipt = await runResp.json();
+  } catch {
+    receipt = { ok: false, error: "invalid_json", status: runResp.status };
+  }
+  const pass = receipt.result === "PASS" || receipt.status === "PASS";
+  return {
+    ok: pass && runResp.ok,
+    schema: "sourcea-brain-verifier-cloud-tick-v1",
+    at: new Date().toISOString(),
+    verifier_base_url: verifier,
+    candidate_ref: payload.candidate_ref,
+    run_status: receipt.status,
+    run_result: receipt.result,
+    receipt_id: receipt.receipt_id,
+    candidate_sha256: receipt.candidate_sha256,
+    proxied_status: runResp.status,
+  };
+}
+
+function registryExhaustedFromObserver(body) {
+  if (!body || typeof body !== "object") {
+    return { exhausted: false, head: null, batch_id: null };
+  }
+  const hb = body.daily_heartbeat;
+  const batch = (hb && hb.batch_state) || {};
+  if (batch.registry_exhausted && batch.queue_batch_complete) {
+    return {
+      exhausted: true,
+      head: body.queue_head || hb.queue_head || null,
+      batch_id: batch.batch_id || null,
+      source: "daily_heartbeat",
+    };
+  }
+  const cycles = Array.isArray(body.cycles) ? body.cycles : [];
+  const latest = cycles[0];
+  const pack = latest && latest.pack;
+  if (pack && pack.registry_exhausted && pack.idle_batch) {
+    return {
+      exhausted: true,
+      head: body.queue_head || null,
+      batch_id: pack.batch_id || null,
+      source: "latest_cycle",
+    };
+  }
+  return { exhausted: false, head: body.queue_head || null, batch_id: null };
+}
+
+function edgeIdleReceipt(env, precheck) {
+  const at = new Date().toISOString();
+  const head = precheck.head || null;
+  return {
+    ok: true,
+    schema: "autorun-edge-idle-receipt-v1",
+    at,
+    execution_plane: "cloudflare_cron",
+    trigger_source: "cloudflare_cron",
+    decision: "IDLE_NO_WORK",
+    auto_stop: true,
+    auto_stop_reason: "registry_exhausted",
+    motor_invoked: false,
+    precheck_source: precheck.source,
+    queue_head: head,
+    batch_id: precheck.batch_id,
+    pack: {
+      ok: true,
+      idle_batch: true,
+      registry_exhausted: true,
+      schema: "cloud-forge-run-pack-v1",
+      advanced: 0,
+      skipped: 0,
+      processed: 0,
+      shipped: 0,
+      mandatory_quota: 100,
+      max_advance: 100,
+      batch_complete: true,
+      batch_id: precheck.batch_id,
+      head_now: head,
+    },
+    cost: {
+      provider: "cloudflare",
+      model: "workers-cron",
+      tokens_in: 0,
+      tokens_out: 0,
+      unit_cost_usd: 0,
+      total_usd: 0,
+    },
+    value_class: "hygiene",
+    law: "Tier0 auto-stop — skip Railway POST when registry_exhausted",
+    cf_version: env.CF_VERSION_METADATA || null,
+  };
 }
 
 async function runTick(env, { proceed }) {
@@ -220,6 +352,14 @@ async function runTick(env, { proceed }) {
       decision: "observe_only",
       auto_proceed: false,
     };
+  }
+
+  const observer = await fetchRailwayJson(env, "/api/cloud-forge-run/observer/v1");
+  if (observer.ok) {
+    const precheck = registryExhaustedFromObserver(observer.body);
+    if (precheck.exhausted) {
+      return edgeIdleReceipt(env, precheck);
+    }
   }
 
   const tickPaths = [
@@ -259,6 +399,7 @@ async function runTick(env, { proceed }) {
     trigger_source: "cloudflare_cron",
     decision: row.decision || (row.ok ? "proceed_ok" : "proceed_fail"),
     auto_proceed: doProceed,
+    motor_invoked: true,
     pack: row.pack || (row.motor && row.motor.pack) || null,
     processed: (row.pack && row.pack.processed) || (row.motor && row.motor.pack && row.motor.pack.processed) || null,
     motor: row,
