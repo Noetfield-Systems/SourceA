@@ -1,0 +1,12 @@
+{
+  "id": "test_02_scoring_rubric",
+  "description": "All four scores stay within 0-5 integer rubric",
+  "input": {
+    "text": "SourceA governance autorun validator signal for internal pipeline intake.",
+    "entity_scope": "SourceA"
+  },
+  "expect": {
+    "classification": "governance_internal"
+  },
+  "expect_score_bounds": true
+}

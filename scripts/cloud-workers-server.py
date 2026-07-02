@@ -341,6 +341,13 @@ class CloudWorkersHandler(BaseHTTPRequestHandler):
             result = proxy_to_cloud(path=path, body=body if isinstance(body, dict) else {}, timeout_s=120)
             self._json(200 if result.get("ok") else 502, result)
             return
+        if path == "/api/signal-factory/tick/v1":
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
+
+            fbe_path = "/api/fbe/signal-factory/tick/v1"
+            result = proxy_to_cloud(path=fbe_path, body=body if isinstance(body, dict) else {}, timeout_s=120)
+            self._json(200 if result.get("ok") else 502, result)
+            return
         if path.startswith("/api/forge/"):
             from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
 
