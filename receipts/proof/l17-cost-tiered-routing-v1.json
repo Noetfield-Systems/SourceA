@@ -1,0 +1,42 @@
+{
+  "schema": "l17-cost-tiered-routing-proof-v1",
+  "at": "2026-07-02T22:30:00Z",
+  "law": "L17 COST-TIERED WORKER ROUTING",
+  "l17_diff": {
+    "law_doc": "docs/GOVERNED_AUTORUN_LAWS_v3.md",
+    "section_added": "L17 — Cost-tiered worker routing (COST-TIER)",
+    "spec_section": "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md §6",
+    "artifacts": [
+      "data/worker-cost-tier-queue-v1.json",
+      "data/agent-session-cost-contract-v1.json",
+      "scripts/agent_session_cost_v1.py",
+      "scripts/brain_digest_cost_tier_v1.py",
+      "docs/AGENT_BOOT_PACK_v1.md",
+      "infra/supabase/portfolio-spine/migrations/007_agent_session_cost_v1.sql"
+    ]
+  },
+  "reclassified_queue_table": "data/worker-cost-tier-queue-v1.json",
+  "reclassified_summary": [
+    {"id": "W-LBA-009", "cost_tier": "T0", "worker": "scripts"},
+    {"id": "REG-SYNC-001", "cost_tier": "T0", "worker": "scripts"},
+    {"id": "REG-SYNC-002", "cost_tier": "T0", "worker": "scripts"},
+    {"id": "KZ-002", "cost_tier": "T1", "worker": "copilot_pilot", "blocked_until": "founder P4"},
+    {"id": "W-LBA-007/008", "cost_tier": "T2", "worker": "cursor_auto"},
+    {"id": "L15-INTEGRATE", "cost_tier": "T3", "worker": "cloud_loop_specialist"}
+  ],
+  "first_session_cost_receipt": {
+    "path": "~/.sina/agent-session-cost-receipt-v1.json",
+    "example": {
+      "agent_id": "cursor-l17",
+      "tier": "T2",
+      "model": "auto",
+      "tokens": 25000,
+      "usd_est": 0.15,
+      "tasks": ["session_gate:any"],
+      "truth_log_event": "AGENT_SESSION_COST"
+    },
+    "command": "python3 scripts/agent_session_cost_v1.py post --json"
+  },
+  "boot_pack_path": "docs/AGENT_BOOT_PACK_v1.md",
+  "brain_digest_path": "data/brain-digest-cost-tier-latest-v1.json"
+}

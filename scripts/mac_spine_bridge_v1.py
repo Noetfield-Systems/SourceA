@@ -177,6 +177,8 @@ def dual_write_mac_truth(
         "MAC_FRESH_MAIN_SYNC",
         "MAC_RECEIPT_MIRROR",
         "MAC_SESSION_GATE",
+        "AGENT_SESSION_COST",
+        "TIER_ESCALATION",
     }
     if event not in allowed:
         return {"ok": False, "error": "invalid_mac_event", "event": event}
