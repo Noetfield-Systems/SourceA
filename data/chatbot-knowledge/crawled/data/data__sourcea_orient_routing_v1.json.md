@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-02T08:56:13Z
+updated: 2026-07-02T10:32:00Z
 lane: core
 source_path: data/sourcea_orient_routing_v1.json
 public: true
@@ -183,6 +183,16 @@ kind: json
 - **id**: session_gate_receipt
 - **path**: ~/.sina/agent_session_gate_receipt_v1.json
 - **why**: Session proof
+## cloud_workers_handoff
+- **step**: 11
+- **id**: cloud_workers_handoff
+- **path**: data/cloud-workers-control-plane-v1.json
+- **why**: Cloud Workers cockpit · batch handoff SSOT
+## worker_assignment
+- **step**: 12
+- **id**: worker_assignment
+- **path**: data/sourcea-worker-professional-assignment-v1.json
+- **why**: Phased worker handoff · Mac control → cloud execute
 ## session_gate_step_nodes
 - **anti_staleness_auto_wire**: disk_live_wire
 - **memory_mirror_sync**: disk_live_wire
@@ -220,9 +230,10 @@ kind: json
 #### nodes
 - session_gate_v1
 - worker_inbox_v1
+- cloud_workers_hub_v1
 - goal1_lane_broker
 - outbound_post_ship_v1
-- **execute**: RUN INBOX head only — queue_pos>1 preview not bound
+- **execute**: RUN INBOX head only — queue_pos>1 preview not bound · cloud handoff via :13027
 ### governance
 - **entry**: l1_agent_pipeline_wire_v1.py
 #### nodes
