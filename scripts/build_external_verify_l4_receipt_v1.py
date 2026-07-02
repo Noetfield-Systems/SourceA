@@ -10,7 +10,16 @@ from pathlib import Path
 from typing import Any
 
 
-def build_receipt(*, founder_proof: dict[str, Any], run_id: str, sha: str, run_url: str) -> dict[str, Any]:
+def build_receipt(
+    *,
+    founder_proof: dict[str, Any],
+    run_id: str,
+    sha: str,
+    run_url: str,
+    trigger_source: str = "",
+    deploy_run_id: str = "",
+    deploy_run_url: str = "",
+) -> dict[str, Any]:
     rows = founder_proof.get("rows") or []
     checks: list[dict[str, Any]] = []
     for row in rows:
@@ -33,6 +42,7 @@ def build_receipt(*, founder_proof: dict[str, Any], run_id: str, sha: str, run_u
     passed = int(founder_proof.get("passed") or 0)
     total = int(founder_proof.get("total") or len(rows))
     proof_ok = bool(founder_proof.get("ok")) and passed == total and total == 15
+    chain = trigger_source == "deploy_workflow_run_chain"
     return {
         "schema": "external-verify-l4-receipt-v1",
         "version": "1.0.0",
@@ -43,6 +53,17 @@ def build_receipt(*, founder_proof: dict[str, Any], run_id: str, sha: str, run_u
         "run_url": run_url,
         "workflow": "external-verify.yml",
         "runner": "github_actions",
+        "trigger_source": trigger_source or "push",
+        "platform_native": {
+            "item": "PN-001-workflow_run_chain",
+            "deploy_run_id": deploy_run_id or None,
+            "deploy_run_url": deploy_run_url or None,
+            "chain_active": chain,
+            "retired_hand_roll": [
+                "publish_sourcea_landing run_founder_proof_verify min_seconds=60 sleep",
+                "manual timing guess between deploy complete and external verify",
+            ],
+        },
         "ok": proof_ok,
         "founder_proof_15": founder_proof,
         "checks": checks,
@@ -65,6 +86,9 @@ def main() -> int:
         run_id=os.environ.get("GITHUB_RUN_ID", ""),
         sha=os.environ.get("GITHUB_SHA", ""),
         run_url=os.environ.get("GITHUB_RUN_URL", ""),
+        trigger_source=os.environ.get("VERIFY_TRIGGER_SOURCE", ""),
+        deploy_run_id=os.environ.get("DEPLOY_RUN_ID", ""),
+        deploy_run_url=os.environ.get("DEPLOY_RUN_URL", ""),
     )
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
