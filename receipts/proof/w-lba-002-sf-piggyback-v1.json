@@ -1,0 +1,14 @@
+{
+  "schema": "w-lba-bridge-fix-receipt-v1",
+  "id": "W-LBA-002",
+  "at": "2026-07-02T21:56:58Z",
+  "ok": true,
+  "law": "piggyback-only \u2014 no dedicated signal-factory-tick-v1 cron deploy",
+  "registry_trigger_id": "SA-T-signal-factory-piggyback",
+  "removed_registry_ids": [
+    "SA-T-signal-factory",
+    "SA-T-brain-loop"
+  ],
+  "deprecated": "cloud/workers/signal-factory-tick-v1/DEPRECATED_v1.md",
+  "sweep_after": "trigger_sweep_clean \u00b7 registry matches live"
+}

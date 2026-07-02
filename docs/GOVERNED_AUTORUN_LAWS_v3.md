@@ -76,6 +76,10 @@ Same inputs → same transitions → same receipts, replayable from the event lo
 | D7 | LLM proposes; validator accepts before event log |
 | D8 | Verify is pure function; runner divergence = escalation |
 
+## L14 — Trigger registry co-commit (T-REG)
+
+Every new autonomous trigger — CF cron, GHA schedule/push/dispatch, Railway cron, or piggyback hook — MUST add or update `data/trigger-registry-v1.json` in the **same commit**. `scripts/sandbox_health_sweep_v1.py` MUST pass before merge (enforced in `determinism-gate.yml` and `.githooks/pre-commit` on trigger paths). A live trigger without a registry entry = defect (L12 drift). Piggyback triggers register the hook path, not a duplicate cron worker.
+
 ## Parallel orchestration (Tier 1+ — founder trigger required)
 
 Lanes · concurrency keys · lock ordering · priority within tick · jitter · backpressure. **BLOCKED** until founder triggers Tier 1.

@@ -1,9 +1,13 @@
 name = "sourcea-loop-specialist-tick-v1"
 main = "src/index.js"
 compatibility_date = "2024-06-01"
+account_id = "2c70de9e879a9b41055642ad47205d71"
 
 [triggers]
 crons = ["*/15 * * * *"]
+
+[observability]
+enabled = true
 
 # Secrets (set in Cloudflare dashboard — never commit):
 # FBE_CLOUD_WORKER_URL = https://sourcea-fbe-runner-production.up.railway.app

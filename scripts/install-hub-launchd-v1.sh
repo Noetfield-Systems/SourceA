@@ -54,7 +54,6 @@ launchctl kickstart "$DOMAIN/${LABEL}" 2>/dev/null || true
 for _ in {1..40}; do
   if health_ok; then
     echo "OK: hub supervised via launchd → http://127.0.0.1:${PORT}/"
-    bash "$ROOT/scripts/install-autorun-launchd-v1.sh" 2>/dev/null || true
     exit 0
   fi
   sleep 0.25
@@ -65,7 +64,6 @@ launchctl kickstart -k "$DOMAIN/${LABEL}" 2>/dev/null || true
 for _ in {1..40}; do
   if health_ok; then
     echo "OK: hub supervised via launchd (after kickstart -k) → http://127.0.0.1:${PORT}/"
-    bash "$ROOT/scripts/install-autorun-launchd-v1.sh" 2>/dev/null || true
     exit 0
   fi
   sleep 0.25
