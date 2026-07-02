@@ -3,8 +3,9 @@ main = "src/index.js"
 compatibility_date = "2024-06-01"
 account_id = "0d0b967b77e2e5535455d39ff3dae72c"
 
-[triggers]
-crons = ["*/15 * * * *"]
+# DEPRECATED for scheduled deploy (W-LBA-002).
+# Signal Factory fires from loop-specialist-tick-v1 scheduled() piggyback only.
+# See DEPRECATED_v1.md and data/signal-factory-cloud-cron-v1.json
 
 [observability]
 enabled = true

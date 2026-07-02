@@ -1,27 +1,25 @@
 {
   "schema": "signal-factory-cloud-cron-v1",
-  "version": "1.0.0",
-  "saved_at": "2026-07-02T20:55:00Z",
+  "version": "1.0.1",
+  "saved_at": "2026-07-02T21:55:00Z",
   "phase": "signal-factory-24-7",
   "status": "live_piggyback_loop_specialist_cron",
-  "cron_note": "Dedicated CF cron quota blocked — signal-factory tick fires from loop-specialist-tick-v1 scheduled() every 15m",
+  "dedicated_cron_deploy": false,
+  "piggyback_only": true,
+  "w_lba": "W-LBA-002",
+  "cron_note": "Dedicated CF cron forbidden (W-LBA-002). Signal Factory tick fires from loop-specialist-tick-v1 scheduled() every 15m only.",
   "piggyback_worker": "sourcea-loop-specialist-tick-v1",
+  "piggyback_hook": "runSignalFactoryTick",
+  "registry_trigger_id": "SA-T-signal-factory-piggyback",
   "execution_plane": "cloudflare_workers_free",
-  "worker_name": "sourcea-signal-factory-tick-v1",
-  "worker_url": "https://sourcea-signal-factory-tick-v1.sina-kazemnezhad-ca.workers.dev",
-  "worker_root": "cloud/workers/signal-factory-tick-v1",
-  "wrangler": "cloud/workers/signal-factory-tick-v1/wrangler.toml",
+  "deprecated_worker_name": "sourcea-signal-factory-tick-v1",
+  "deprecated_worker_root": "cloud/workers/signal-factory-tick-v1",
+  "deprecated_wrangler": "cloud/workers/signal-factory-tick-v1/wrangler.toml",
   "cron": "*/15 * * * *",
   "cloud_tick_api": {
     "method": "POST",
     "url": "https://sourcea-fbe-runner-production.up.railway.app/api/fbe/signal-factory/tick/v1"
   },
-  "manual_trigger": "POST https://sourcea-signal-factory-tick-v1.sina-kazemnezhad-ca.workers.dev/tick",
-  "health": "GET https://sourcea-signal-factory-tick-v1.sina-kazemnezhad-ca.workers.dev/health",
-  "secrets_set": [
-    "FBE_CLOUD_WORKER_URL",
-    "FBE_INTERNAL_SECRET"
-  ],
   "mac_role": "control_plane_glance_only",
-  "founder_motion": "No Terminal · synthetic queue only · Cloudflare cron every 15m"
+  "founder_motion": "No Terminal · synthetic queue only · piggyback on loop-specialist cron"
 }

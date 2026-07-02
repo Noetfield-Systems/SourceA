@@ -14,7 +14,7 @@
       "mission_id": "M2",
       "name": "factory-24-7",
       "value_class": "proof_asset",
-      "workflows": ["cloud-forge-run", "loop-specialist-tick", "brain-loop-cloud-tick", "autonomous-drain-cron-v1"],
+      "workflows": ["cloud-forge-run", "loop-specialist-tick", "autonomous-drain-cron-v1"],
       "definition_of_done": "both windows VERIFIED, stay green 7d"
     },
     {

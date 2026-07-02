@@ -129,7 +129,7 @@
       "tiers": ["T0_safety", "T1_truth_parallel", "T2_fleet_parallel", "T3_proof_parallel", "T_lat_orient"],
       "bridges_out": ["nerve_pulse", "event_spine", "brain_registry_bridge"],
       "status": "live",
-      "gaps": ["Mac nerve mesh Phase 3 deferred", "install-autorun-launchd-v1.sh missing"]
+      "gaps": ["Mac nerve mesh Phase 3 deferred"]
     },
     {
       "id": "P6_improvement",
