@@ -77,13 +77,37 @@ def grep_buyer_sources() -> dict[str, Any]:
     return {"ok": not hits, "hits": hits}
 
 
-def verify_live_page(*, base: str, path: str, markers: list[str], forbidden: list[str]) -> dict[str, Any]:
+LOADING_PLACEHOLDERS = (
+    "loading…",
+    "Loading…",
+    "Loading pipeline from factory disk",
+    "Loading checks…",
+    "Loading transcript…",
+)
+
+AEG_EMDASH_SLOTS = (
+    'id="sa-aeg-verdict">—',
+    'id="sa-aeg-proof-viewed">—',
+    'id="sa-aeg-eval-scheduled">—',
+    'id="sa-aeg-deposits">—',
+)
+
+PROOF_EMDASH_SLOTS = AEG_EMDASH_SLOTS + (
+    "data-trust-valid-yes>—",
+    "data-trust-governance>—",
+)
+
+
+def verify_live_page(
+    *, base: str, path: str, markers: list[str], forbidden: list[str], emdash_slots: tuple[str, ...] = AEG_EMDASH_SLOTS
+) -> dict[str, Any]:
     url = f"{base.rstrip('/')}{path}"
     code, body = _fetch(url)
     missing = [m for m in markers if m not in body]
     hits = [f for f in forbidden if f in body]
-    bad_placeholders = [p for p in ("loading…", "Loading pipeline from factory disk", 'id="sa-aeg-verdict">—') if p in body]
-    ok = code == 200 and not missing and not hits and not bad_placeholders
+    bad_placeholders = [p for p in LOADING_PLACEHOLDERS if p in body]
+    emdash = [p for p in emdash_slots if p in body]
+    ok = code == 200 and not missing and not hits and not bad_placeholders and not emdash
     return {
         "ok": ok,
         "url": url,
@@ -91,6 +115,7 @@ def verify_live_page(*, base: str, path: str, markers: list[str], forbidden: lis
         "markers_missing": missing,
         "forbidden_hits": hits,
         "bad_placeholders": bad_placeholders,
+        "emdash_slots": emdash,
     }
 
 
@@ -104,11 +129,30 @@ def run_script(script: str, *args: str) -> dict[str, Any]:
     return {"ok": proc.returncode == 0, "script": script, "code": proc.returncode, "tail": (proc.stdout or proc.stderr)[-400:]}
 
 
-def verify_all(*, base: str = "https://sourcea.app") -> dict[str, Any]:
+PROOF_MARKERS = [
+    'data-sa-page="proof-live"',
+    "Evidence ID · aeg-",
+    "Factory verdict:",
+    "PASS",
+    "sa-aeg-bootstrap",
+    "[PASS] provider",
+]
+
+
+def verify_proof_live(base: str) -> dict[str, Any]:
+    return verify_live_page(
+        base=base,
+        path="/sourcea/proof/live",
+        markers=PROOF_MARKERS,
+        forbidden=list(FORBIDDEN),
+        emdash_slots=PROOF_EMDASH_SLOTS,
+    )
+
+
+def verify_all(*, base: str = "https://sourcea.app", hosts: list[str] | None = None) -> dict[str, Any]:
     eval_markers = ['data-sa-page="sourcea-boot-eval"', "pip install sourcea-boot", "receipts/sourcea-boot/BOOT_REPORT.json"]
-    proof_markers = ['data-sa-page="proof-live"', "Evidence ID · aeg-", "Factory verdict:"]
-    if "aeg-20260702" not in proof_markers[1]:
-        proof_markers.append("PASS")
+    hosts = hosts or ["https://sourcea.app", "https://www.sourcea.app"]
+    proof_by_host = {h: verify_proof_live(h) for h in hosts}
     row = {
         "schema": "buyer-proof-hotfix-verify-v1",
         "at": _now(),
@@ -119,18 +163,8 @@ def verify_all(*, base: str = "https://sourcea.app") -> dict[str, Any]:
             markers=eval_markers,
             forbidden=list(FORBIDDEN),
         ),
-        "proof_live": verify_live_page(
-            base=base,
-            path="/sourcea/proof/live",
-            markers=[
-                'data-sa-page="proof-live"',
-                "Evidence ID · aeg-",
-                "Factory verdict:",
-                "PASS",
-                "sa-aeg-bootstrap",
-            ],
-            forbidden=list(FORBIDDEN) + ["Evidence ID · loading", "Loading pipeline from factory disk"],
-        ),
+        "proof_live": proof_by_host.get(base, verify_proof_live(base)),
+        "proof_live_hosts": proof_by_host,
         "batch_summary_validator": run_script("validate_cloud_forge_batch_summary_v1.py", "--batch-id", "77", "--json"),
         "dirty_tree_guard": run_script("deploy_dirty_tree_guard_v1.py", "--scope", "landing", "--json"),
     }
@@ -138,7 +172,7 @@ def verify_all(*, base: str = "https://sourcea.app") -> dict[str, Any]:
         [
             row["grep"]["ok"],
             row["eval_live"]["ok"],
-            row["proof_live"]["ok"],
+            all(v["ok"] for v in proof_by_host.values()),
             row["batch_summary_validator"]["ok"],
         ]
     )
