@@ -245,6 +245,27 @@ def _write_cycle_receipt(
             "artifact_type": (ship or {}).get("artifact_type"),
             "validator_result": (ship or {}).get("validator_result"),
         }
+    pack = cycle.get("pack") if isinstance(cycle.get("pack"), dict) else {}
+    batch_id = pack.get("batch_id")
+    if batch_id is not None and (pack.get("batch_complete") or cycle.get("decision") in ("pack_complete", "drain_complete")):
+        try:
+            sys.path.insert(0, str(ROOT / "scripts"))
+            from cloud_forge_run_supabase_v1 import batch_sink_invariant  # noqa: WPS433
+
+            inv = batch_sink_invariant(batch_id=int(batch_id))
+            doc["sink_invariant"] = inv
+            if not inv.get("ok"):
+                doc["decision"]["verdict"] = "BLOCKED_WITH_REASON"
+                doc["decision"]["block_reason"] = inv.get("blocked_reason")
+                doc["decision"]["rationale"] = (
+                    f"Sink invariant failed — {inv.get('blocked_reason')} · no silent green"
+                )
+                doc["artifact"]["status"] = "blocked"
+                if doc["belt"].get("SHIP"):
+                    doc["belt"]["SHIP"]["ok"] = False
+                    doc["belt"]["SHIP"]["gate_cleared"] = False
+        except Exception as exc:
+            doc["sink_invariant"] = {"ok": False, "error": str(exc)[:120]}
     _write(path, doc)
     if _is_headless_cloud():
         try:

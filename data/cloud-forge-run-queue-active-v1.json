@@ -3,18 +3,21 @@
   "version": "1.5.0",
   "batch_id": 77,
   "locked": true,
-  "saved_at": "2026-07-02T04:22:47Z",
+  "saved_at": "2026-07-02T06:43:00Z",
   "queue_path": "data/secondary-cloud-forge-run-batch-77-locked-v1.json",
   "library": "client-proof-recipe",
   "registry_exhausted": true,
-  "queue_batch_complete": false,
+  "queue_batch_complete": true,
   "cloud_sec_range": "CLOUD-SEC-7567..CLOUD-SEC-7666",
   "rows_per_turn": 100,
   "tasks_per_row": 1,
   "source_queue": "data/client-proof-recipe-queue-v1.json",
   "phase_reset": {
-    "cloud_forge_run_head": "CLOUD-SEC-7567",
-    "cloud_forge_run_last_completed": "CLOUD-SEC-7566",
-    "queue_batch_complete": false
-  }
+    "cloud_forge_run_head": "CLOUD-SEC-7666",
+    "cloud_forge_run_last_completed": "CLOUD-SEC-7666",
+    "queue_batch_complete": true
+  },
+  "completed_at": "2026-07-02T06:43:00Z",
+  "closed_by": "scripts/close_cloud_forge_batch_pointer_v1.py",
+  "proof_url": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/queue/v1"
 }
