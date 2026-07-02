@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 CANONICAL_LOCKED_DEFINITIONS_PATH = ROOT / "reports" / "locked-definitions-v1.json"
-EXPECTED_LOCKED_DEFINITIONS_SHA256 = "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a"
+EXPECTED_LOCKED_DEFINITIONS_SHA256 = "f680fdbe52785fadce427af7d1a92f340c8d3b57c92b2cbd7df55aeb5aee2bba"
 
 
 def sha256_file(path: str | Path) -> str:
