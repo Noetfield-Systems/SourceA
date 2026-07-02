@@ -1,0 +1,17 @@
+{
+  "id": "test_04_optional_section_gating",
+  "description": "build_automation includes automation_recipe only; monitor excludes optional sections",
+  "input": {
+    "text": "SourceA governance autorun webhook API integration for validator intake pipeline.",
+    "entity_scope": "SourceA"
+  },
+  "expect": {
+    "decision": "build_automation"
+  },
+  "expect_present": [
+    "automation_recipe"
+  ],
+  "expect_absent": [
+    "commercial_idea"
+  ]
+}

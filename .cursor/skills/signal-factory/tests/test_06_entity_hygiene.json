@@ -1,0 +1,21 @@
+{
+  "id": "test_06_entity_hygiene",
+  "description": "TrustField-scoped commercial signal keeps entity_scope TrustField without cross-attribution",
+  "input": {
+    "text": "TrustField enterprise buyer requests pricing demo and procurement quote for workflow pilot.",
+    "entity_scope": "TrustField"
+  },
+  "expect": {
+    "classification": "commercial_inquiry",
+    "decision": "create_service_pattern"
+  },
+  "expect_receipt": {
+    "entity_scope": "TrustField"
+  },
+  "expect_present": [
+    "commercial_idea"
+  ],
+  "expect_absent": [
+    "automation_recipe"
+  ]
+}
