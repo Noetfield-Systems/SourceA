@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-brain-registry-inventory-v1",
   "version": "1.0.0",
-  "saved_at": "2026-07-02T08:08:42Z",
+  "saved_at": "2026-07-02T08:33:36Z",
   "promotion_lane": "receipt_gated_v1",
   "assets": [
     {
@@ -85,7 +85,7 @@
       "asset_id": "locked-definitions-v1",
       "asset_type": "constitution",
       "current_location": "reports/locked-definitions-v1.json",
-      "status": "live_locked_candidate_verified",
+      "status": "live_locked",
       "owning_layer": "CONSTITUTION",
       "mutation_class": "LOCKED",
       "last_modified": "2026-07-02",
