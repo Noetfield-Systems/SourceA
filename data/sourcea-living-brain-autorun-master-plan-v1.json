@@ -244,11 +244,15 @@
         "verify": "scripts/loop_specialist_tick_v1.py --json",
         "receipt": "receipts/cloud/w-lba-008-loop-dispatch-v1.json"
       },
-      {
-        "id": "W-LBA-009",
-        "plane": "all",
-        "role": "vocabulary",
-        "title": "Drain→Cloud Forge Run rename pass on env, n8n, GH workflow comments",
+    {
+      "id": "W-LBA-009",
+      "plane": "all",
+      "role": "vocabulary",
+      "cost_tier": "T0",
+      "worker": "scripts",
+      "status": "done",
+      "done_at": "2026-07-02T22:35:00Z",
+      "title": "Drain→Cloud Forge Run rename pass on env, n8n, GH workflow comments",
         "paths": ["n8n/workflows/wf-cloud-auto-runtime-v1.json", ".github/workflows/autonomous-drain-cron-v1.yml", "scripts/autorun_pending_v1.py"],
         "verify": "grep audit only",
         "receipt": "receipts/cloud/w-lba-009-vocab-v1.json"
