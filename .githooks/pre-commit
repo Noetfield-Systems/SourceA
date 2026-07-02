@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Install: git config core.hooksPath .githooks
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+changed="$(git diff --cached --name-only --diff-filter=ACM | grep -E '^\.github/workflows/.*\.ya?ml$' || true)"
+if [[ -z "$changed" ]]; then
+  exit 0
+fi
+bash "${ROOT}/scripts/validate-github-workflows-v1.sh"
