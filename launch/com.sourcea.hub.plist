@@ -6,11 +6,11 @@
 	<string>com.sourcea.hub</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Library/Frameworks/Python.framework/Versions/3.12/bin/python3</string>
-		<string>/Users/sinakazemnezhad/Desktop/SourceA/scripts/sina-command-server.py</string>
+		<string>/bin/bash</string>
+		<string>__SINA_HOME__/start-sourcea-hub-launchd.sh</string>
 	</array>
 	<key>WorkingDirectory</key>
-	<string>/Users/sinakazemnezhad/Desktop/SourceA</string>
+	<string>__SINA_HOME__</string>
 	<key>RunAtLoad</key>
 	<true/>
 	<key>KeepAlive</key>
@@ -21,9 +21,9 @@
 	<key>ThrottleInterval</key>
 	<integer>2</integer>
 	<key>StandardOutPath</key>
-	<string>/Users/sinakazemnezhad/.sina/command-server-launchd.log</string>
+	<string>__SINA_HOME__/command-server-launchd.log</string>
 	<key>StandardErrorPath</key>
-	<string>/Users/sinakazemnezhad/.sina/command-server-launchd.err</string>
+	<string>__SINA_HOME__/command-server-launchd.err</string>
 	<key>EnvironmentVariables</key>
 	<dict>
 		<key>PATH</key>

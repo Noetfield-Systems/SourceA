@@ -485,8 +485,8 @@ def run_auto_tick(
         "observer_url": observer,
         "for_founder": {
             "show_this": (
-                f"Mac observe only · local head {phase.get('cloud_forge_run_head') or '—'} · "
-                f"Cloud Forge Run = CF cron every 10m · proof {observer}"
+                f"Mac motor observe only · local head {phase.get('cloud_forge_run_head') or '—'} · "
+                f"Cloud Forge Run = CF cron every 10m · dispatch via Hub OK · proof {observer}"
             ),
         },
         "auto_runtime": auto_runtime_status(),
