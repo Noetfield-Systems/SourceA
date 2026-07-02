@@ -1,4 +1,6 @@
 {
+  "schema": "cursor-bootstrap-ledger-v1",
+  "architecture_ledger_ssot": "data/architecture-ledger-v1.json",
   "core_contracts": {
     "mac_role": "control_plane_only",
     "cloud_role": "execution_plane_headless",
