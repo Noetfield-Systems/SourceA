@@ -1,6 +1,6 @@
 {
   "schema": "sourcea-trust-signals-v1",
-  "at": "2026-07-02T07:19:01Z",
+  "at": "2026-07-02T07:25:17Z",
   "receipts_signed_today": 4,
   "receipts_signed_lifetime": 5672,
   "receipts_lifetime_label": "Logged and reviewable logged",
@@ -25,7 +25,7 @@
     "verdict": "PASS",
     "checks_pass": 4,
     "checks_total": 4,
-    "at": "2026-07-02T07:18:45Z",
+    "at": "2026-07-02T07:25:16Z",
     "factory": "FROZEN"
   },
   "factory_now_line": "factory-now \u00b7 Cloud Workers.app owns Cloud Forge Run \u00b7 head CLOUD-SEC-7367 \u00b7 batch 75 \u00b7 100 rows/10min \u00b7 100 tasks/row",
@@ -68,6 +68,6 @@
     "endpoint": "POST /v1/decision",
     "receipt_id": "CLOUD-SEC-7367",
     "verdict": "PASS",
-    "signed_at": "2026-07-02T07:18:45Z"
+    "signed_at": "2026-07-02T07:25:16Z"
   }
 }
