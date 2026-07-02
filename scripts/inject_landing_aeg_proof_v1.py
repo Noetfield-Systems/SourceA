@@ -34,7 +34,7 @@ BUYER_SAFE_TERMINAL = (
 
 def _sanitize_obj(obj: Any) -> Any:
     if isinstance(obj, str):
-        return _sanitize_public_text(obj)
+        return _sanitize_public_text(obj).replace("— skipped", "(not configured)")
     if isinstance(obj, list):
         return [_sanitize_obj(x) for x in obj]
     if isinstance(obj, dict):
@@ -162,7 +162,7 @@ def _render_checks(checks: list[dict]) -> str:
         mark = "SKIP" if skipped else ("PASS" if ok else "FAIL")
         cls = "sa-t-warn" if skipped else ("sa-t-ok" if ok else "sa-t-bad")
         name = html.escape(str(c.get("name") or c.get("id") or "check"))
-        reason = html.escape(str(c.get("reason") or ""))
+        reason = html.escape(str(c.get("reason") or "").replace("— skipped", "(not configured)"))
         line = f'<div class="sa-aeg-check"><span class="{cls}">[{mark}]</span> {name}'
         if reason:
             line += f": {reason}"
@@ -271,8 +271,8 @@ def hydrate_live_html(aeg: dict, factory: dict) -> bool:
         text = re.sub(pattern, repl, text, count=1)
 
     text = re.sub(
-        r'(<div id="sa-aeg-checks"[^>]*>).*?(</div>)',
-        lambda m: f'<div id="sa-aeg-checks" class="sa-aeg-checks">{_render_checks(aeg.get("checks") or [])}</div>',
+        r'(<div id="sa-aeg-checks" class="sa-aeg-checks">).*?(<article class="sa-aeg-panel">\s*<h2>Blockers</h2>)',
+        lambda m: f'<div id="sa-aeg-checks" class="sa-aeg-checks">{_render_checks(aeg.get("checks") or [])}</div>\n        {m.group(2)}',
         text,
         count=1,
         flags=re.DOTALL,
