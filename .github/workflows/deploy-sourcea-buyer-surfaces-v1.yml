@@ -1,6 +1,7 @@
 name: deploy-sourcea-buyer-surfaces-v1
 
-# Platform-native item 1: deploy completes → external-verify chains via workflow_run (no timing guess).
+# PN-001: deploy completes → external-verify chains via workflow_run (no timing guess).
+# PN-003 prep: environment production — founder enables required reviewers in GitHub UI (P4).
 on:
   workflow_dispatch:
   push:
@@ -16,10 +17,15 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: deploy-sourcea-buyer-surfaces-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   deploy-buyer-surfaces:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    environment: production
     env:
       GITHUB_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
     steps:

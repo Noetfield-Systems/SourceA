@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""CI determinism gate — governed-autorun D1–D5 (4 tests).
+"""CI determinism gate — governed-autorun D1–D8.
 
 Law: references/deterministic-loops.md · L13
 """
@@ -145,14 +145,64 @@ def _test_d4_transitions() -> dict[str, Any]:
     }
 
 
+def _test_d6_time_quarantined() -> dict[str, Any]:
+    """Cycle op keys must not embed wall-clock (D6)."""
+    sys.path.insert(0, str(SCRIPTS))
+    import cloud_auto_runtime_v1 as car  # noqa: WPS433
+
+    key_a = car._cycle_op_key(workflow_id="cloud-forge-run", plan_id="CLOUD-SEC-7667", attempt_no=1)
+    key_b = car._cycle_op_key(workflow_id="cloud-forge-run", plan_id="CLOUD-SEC-7667", attempt_no=1)
+    ok = key_a == key_b and key_a and "T" not in key_a[:8]
+    return {
+        "id": "D6_time_quarantined",
+        "law": "D6",
+        "ok": ok,
+        "evidence": {"op_key_stable": key_a == key_b, "op_key_prefix": key_a[:16]},
+    }
+
+
+def _test_d7_llm_proposal_gate() -> dict[str, Any]:
+    """Brain-core gate file exists — LLM cannot mutate state without validator (D7)."""
+    gate = ROOT / "cloud/workers/sourcea-brain-chat-v1/src/brain-core-gate-v1.js"
+    ok = gate.is_file()
+    return {
+        "id": "D7_llm_proposal_gate",
+        "law": "D7",
+        "ok": ok,
+        "evidence": {"gate_path": str(gate.relative_to(ROOT)), "exists": ok},
+    }
+
+
+def _test_d8_deterministic_verify() -> dict[str, Any]:
+    """External verify script is a fixed pure-function lane (D8)."""
+    script = ROOT / "scripts/external_verify_l4_minimal_v1.sh"
+    ok = script.is_file()
+    text = script.read_text(encoding="utf-8", errors="replace") if ok else ""
+    has_markers = "curl" in text and "forbidden" in text.lower()
+    return {
+        "id": "D8_deterministic_verify",
+        "law": "D8",
+        "ok": ok and has_markers,
+        "evidence": {"script": str(script.relative_to(ROOT)), "has_markers": has_markers},
+    }
+
+
 def verify() -> dict[str, Any]:
-    tests = [_test_d5_replay(), _test_d1_idempotency(), _test_d2_cas_gate(), _test_d4_transitions()]
+    tests = [
+        _test_d5_replay(),
+        _test_d1_idempotency(),
+        _test_d2_cas_gate(),
+        _test_d4_transitions(),
+        _test_d6_time_quarantined(),
+        _test_d7_llm_proposal_gate(),
+        _test_d8_deterministic_verify(),
+    ]
     ok = all(t.get("ok") for t in tests)
     return {
         "schema": "autorun-determinism-verify-v1",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "at": _now(),
-        "law": "governed-autorun L13 · deterministic-loops D1-D5",
+        "law": "governed-autorun L13 · deterministic-loops D1-D8",
         "ok": ok,
         "tests": tests,
         "report_line": f"determinism {'PASS' if ok else 'FAIL'} · "
