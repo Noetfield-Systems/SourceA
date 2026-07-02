@@ -189,41 +189,228 @@ def _apply_sink_invariant(doc: dict[str, Any], batch_id: int | None) -> dict[str
     return inv
 
 
+def _git_head_sha() -> str:
+    import subprocess
+
+    try:
+        proc = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=str(ROOT),
+            capture_output=True,
+            text=True,
+            timeout=10,
+        )
+        if proc.returncode == 0:
+            return proc.stdout.strip()
+    except (OSError, subprocess.SubprocessError):
+        pass
+    return "unknown"
+
+
+def _wrangler_committed_truth() -> dict[str, Any]:
+    path = ROOT / "cloud/workers/cloud-auto-runtime-tick-v1/wrangler.toml"
+    if not path.is_file():
+        return {"ok": False, "error": "wrangler_toml_missing"}
+    text = path.read_text(encoding="utf-8", errors="replace")
+    name = ""
+    for line in text.splitlines():
+        if line.strip().startswith("name"):
+            name = line.split("=", 1)[-1].strip().strip('"').strip("'")
+            break
+    return {"ok": True, "worker_name": name, "path": str(path), "sha256_prefix": None}
+
+
+def _drift_check_v1() -> dict[str, Any]:
+    ssot = load_ssot()
+    committed_sha = _git_head_sha()
+    live_railway_sha = (
+        os.environ.get("RAILWAY_GIT_COMMIT_SHA", "").strip()
+        or os.environ.get("GIT_COMMIT_SHA", "").strip()
+        or os.environ.get("SOURCE_VERSION", "").strip()
+    )
+    wrangler = _wrangler_committed_truth()
+    tick = _read(TICK_RECEIPT)
+    last_cron_fire = tick.get("at")
+    committed_cron = str(ssot.get("cron") or "*/10 * * * *")
+    mismatches: list[dict[str, Any]] = []
+    if live_railway_sha and committed_sha not in ("unknown", "") and live_railway_sha[:12] != committed_sha[:12]:
+        mismatches.append(
+            {
+                "surface": "railway_deploy",
+                "committed_truth": committed_sha[:12],
+                "deployed_truth": live_railway_sha[:12],
+            }
+        )
+    cf_meta = os.environ.get("CF_VERSION_METADATA", "").strip()
+    if cf_meta and wrangler.get("worker_name") and cf_meta not in wrangler.get("worker_name", ""):
+        mismatches.append(
+            {
+                "surface": "worker_version",
+                "committed_truth": wrangler.get("worker_name"),
+                "deployed_truth": cf_meta[:80],
+            }
+        )
+    return {
+        "schema": "drift-receipt-v1",
+        "checked": True,
+        "at": _now(),
+        "committed_sha": committed_sha,
+        "live_railway_sha": live_railway_sha or None,
+        "wrangler": wrangler,
+        "committed_cron": committed_cron,
+        "last_cron_fire": last_cron_fire,
+        "mismatches": mismatches,
+        "ok": len(mismatches) == 0,
+    }
+
+
+def _founder_blocked_snapshot() -> dict[str, Any]:
+    candidates = [
+        SINA / "founder-blocked-queue-v1.json",
+        ROOT / "data" / "founder-blocked-queue-v1.json",
+    ]
+    for path in candidates:
+        row = _read(path)
+        if not row:
+            continue
+        items = row.get("items") if isinstance(row.get("items"), list) else []
+        if not items and isinstance(row.get("count"), int):
+            return {
+                "count": int(row.get("count") or 0),
+                "oldest_id": str(row.get("oldest_id") or ""),
+                "priority": str(row.get("priority") or ""),
+                "age_seconds": int(row.get("age_seconds") or 0),
+                "escalated": bool(row.get("escalated")),
+            }
+        if items:
+            oldest = items[0] if isinstance(items[0], dict) else {}
+            return {
+                "count": len(items),
+                "oldest_id": str(oldest.get("id") or oldest.get("item_id") or ""),
+                "priority": str(oldest.get("priority") or ""),
+                "age_seconds": int(oldest.get("age_seconds") or 0),
+                "escalated": bool(oldest.get("escalated")),
+            }
+    return {
+        "count": 0,
+        "oldest_id": "",
+        "priority": "",
+        "age_seconds": 0,
+        "escalated": False,
+    }
+
+
+def _cycle_cost_v2(*, cycle: dict[str, Any], shipped: int, idle: bool) -> dict[str, Any]:
+    existing = cycle.get("cost") if isinstance(cycle.get("cost"), dict) else None
+    if existing:
+        return existing
+    if idle:
+        return {
+            "provider": "none",
+            "model": "",
+            "tokens_in": 0,
+            "tokens_out": 0,
+            "unit_cost_usd": 0,
+            "total_usd": 0,
+        }
+    provider = str(os.environ.get("OPENROUTER_API_KEY") and "openrouter" or load_ssot().get("llm_provider") or "openrouter")
+    est_usd = round(max(0.0, shipped) * 0.002, 4)
+    return {
+        "provider": provider,
+        "model": str(cycle.get("llm_model") or ""),
+        "tokens_in": int(cycle.get("tokens_in") or 0),
+        "tokens_out": int(cycle.get("tokens_out") or 0),
+        "unit_cost_usd": 0.002 if shipped else 0,
+        "total_usd": est_usd,
+    }
+
+
+def _value_class_v2(*, shipped: int, idle: bool, registry_exhausted: bool, verdict: str) -> str:
+    if verdict == "IDLE_NO_WORK" and registry_exhausted:
+        return "hygiene"
+    if shipped > 0:
+        return "proof_asset"
+    if idle:
+        return "hygiene"
+    return "none"
+
+
+def _gate_evidence_v2(
+    *,
+    prove: dict[str, Any] | None,
+    ship: dict[str, Any] | None,
+    decision: dict[str, Any],
+) -> list[dict[str, Any]]:
+    evidence: list[dict[str, Any]] = []
+    if prove is not None:
+        evidence.append(
+            {
+                "command": "living_system_chain_validate_v1",
+                "exit_code": 0 if prove.get("ok") else 1,
+                "output": str(prove.get("summary_line") or prove.get("error") or "")[:500],
+            }
+        )
+    if ship is not None:
+        evidence.append(
+            {
+                "command": "cloud_forge_run_ship",
+                "exit_code": 0 if ship.get("ok") else 1,
+                "output": str(ship.get("hub_proceed_line") or ship.get("validator_result") or "")[:500],
+            }
+        )
+    evidence.append(
+        {
+            "command": "autonomous_drain_gate",
+            "exit_code": 0 if decision.get("verdict") in ("approved", "IDLE_NO_WORK") else 1,
+            "output": str(decision.get("rationale") or decision.get("verdict") or "")[:500],
+        }
+    )
+    return evidence
+
+
 def _write_daily_heartbeat_if_due(
     *,
     head_row: dict[str, Any],
     sink_inv: dict[str, Any],
     trigger_source: str,
 ) -> Path | None:
-    """One UTC-day heartbeat: queue head, batch state, sink status."""
+    """UTC-day heartbeat with L12 drift refresh on every cycle."""
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     hb_dir = _heartbeat_dir()
     hb_dir.mkdir(parents=True, exist_ok=True)
     path = hb_dir / f"heartbeat-{today}-v1.json"
-    if path.is_file():
-        return None
     obs = head_row.get("observed") if isinstance(head_row.get("observed"), dict) else {}
-    doc = {
-        "schema": "autonomous-forge-run-daily-heartbeat-v1",
-        "version": "1.0.0",
-        "date": today,
-        "at": _now(),
-        "trigger_source": trigger_source,
-        "queue_head": head_row.get("cloud_forge_run_head"),
-        "last_completed": head_row.get("cloud_forge_run_last_completed"),
-        "batch_state": {
-            "batch_id": obs.get("batch_id") or head_row.get("batch_id"),
-            "queue_batch_complete": head_row.get("queue_batch_complete"),
-            "registry_exhausted": head_row.get("registry_exhausted"),
-            "drain_status": head_row.get("drain_status"),
-        },
-        "sink_status": sink_inv,
-        "autonomy": {
-            "zero_manual": True,
-            "scheduler": "cloudflare_cron */10 * * * *",
-            "law": "empty_queue=IDLE_NO_WORK · sink mismatch=BLOCKED_WITH_REASON",
-        },
-    }
+    if path.is_file():
+        doc = _read(path)
+    else:
+        doc = {
+            "schema": "autonomous-forge-run-daily-heartbeat-v2",
+            "version": "2.0.0",
+            "date": today,
+            "at": _now(),
+            "trigger_source": trigger_source,
+            "queue_head": head_row.get("cloud_forge_run_head"),
+            "last_completed": head_row.get("cloud_forge_run_last_completed"),
+            "batch_state": {
+                "batch_id": obs.get("batch_id") or head_row.get("batch_id"),
+                "queue_batch_complete": head_row.get("queue_batch_complete"),
+                "registry_exhausted": head_row.get("registry_exhausted"),
+                "drain_status": head_row.get("drain_status"),
+            },
+            "sink_status": sink_inv,
+            "autonomy": {
+                "zero_manual": True,
+                "scheduler": "cloudflare_cron */10 * * * *",
+                "law": "empty_queue=IDLE_NO_WORK · sink mismatch=BLOCKED_WITH_REASON",
+            },
+            "founder_blocked_total": _founder_blocked_snapshot().get("count", 0),
+        }
+    doc["schema"] = "autonomous-forge-run-daily-heartbeat-v2"
+    doc["version"] = "2.0.0"
+    doc["at"] = _now()
+    doc["sink_status"] = sink_inv
+    doc["drift"] = _drift_check_v1()
+    doc["founder_blocked_total"] = _founder_blocked_snapshot().get("count", 0)
     _write(path, doc)
     if not _is_headless_cloud():
         mirror = SINA / "autonomous-forge-run-daily-heartbeat-v1.json"
@@ -297,14 +484,41 @@ def _write_cycle_receipt(
         ship_ok = bool((ship or {}).get("ok"))
     if verdict != "IDLE_NO_WORK":
         verdict = "approved" if prove_ok and ship_ok else "rejected"
+    decision_block = {
+        "decision_type": "autonomous_drain_gate",
+        "verdict": verdict,
+        "rationale": cycle.get("decision_rationale")
+        or (
+            "Empty queue — IDLE_NO_WORK (healthy; no manufactured work)"
+            if verdict == "IDLE_NO_WORK"
+            else (
+                "PROVE and SHIP passed from scheduler receipts"
+                if verdict == "approved"
+                else "Halted — gate failed; no forced green"
+            )
+        ),
+    }
+    cost = _cycle_cost_v2(cycle=cycle, shipped=shipped, idle=verdict == "IDLE_NO_WORK")
+    value_class = _value_class_v2(
+        shipped=shipped,
+        idle=verdict == "IDLE_NO_WORK",
+        registry_exhausted=registry_exhausted,
+        verdict=verdict,
+    )
+    founder_blocked = _founder_blocked_snapshot()
+    gate_evidence = _gate_evidence_v2(prove=prove, ship=ship, decision=decision_block)
     doc = {
-        "schema": "autonomous-forge-run-cycle-receipt-v1",
-        "version": "1.0.0",
+        "schema": "autonomous-forge-run-cycle-receipt-v2",
+        "version": "2.0.0",
         "at": cycle.get("at") or _now(),
         "trigger_source": trigger_source,
         "factory": "forge-drain",
         "blueprint_id": "MAC-CTL-002",
         "queue_head": head,
+        "cost": cost,
+        "value_class": value_class,
+        "founder_blocked": founder_blocked,
+        "gate_evidence": gate_evidence,
         "belt": {
             "PROVE": {
                 "ok": prove_ok,
@@ -336,20 +550,7 @@ def _write_cycle_receipt(
             "hub_receipt": str(HUB_RECEIPT),
             "trigger_source": trigger_source,
         },
-        "decision": {
-            "decision_type": "autonomous_drain_gate",
-            "verdict": verdict,
-            "rationale": cycle.get("decision_rationale")
-            or (
-                "Empty queue — IDLE_NO_WORK (healthy; no manufactured work)"
-                if verdict == "IDLE_NO_WORK"
-                else (
-                    "PROVE and SHIP passed from scheduler receipts"
-                    if verdict == "approved"
-                    else "Halted — gate failed; no forced green"
-                )
-            ),
-        },
+        "decision": decision_block,
         "cycle": cycle,
         "pack": pack or None,
     }
