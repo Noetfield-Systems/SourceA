@@ -5,6 +5,21 @@
   "replenish_synthetic": true,
   "pending": [
     {
+      "id": "syn-03",
+      "text": "Inbound regulatory inquiry about TrustField MSB custody settlement and banking capability claims.",
+      "entity_scope": "TrustField"
+    },
+    {
+      "id": "syn-04",
+      "text": "SourceA governance autorun webhook API integration for validator intake pipeline.",
+      "entity_scope": "SourceA"
+    },
+    {
+      "id": "syn-05",
+      "text": "WitnessBC tier-A proof cut routing governance signal.",
+      "entity_scope": "WitnessBC"
+    },
+    {
       "id": "syn-06",
       "text": "TrustField enterprise buyer requests pricing demo and procurement quote for workflow pilot.",
       "entity_scope": "TrustField"
@@ -12,9 +27,6 @@
   ],
   "done": [
     "syn-01",
-    "syn-02",
-    "syn-03",
-    "syn-04",
-    "syn-05"
+    "syn-02"
   ]
 }
