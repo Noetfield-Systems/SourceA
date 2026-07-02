@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:43:40Z
+updated: 2026-07-02T08:56:13Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/founder-home.html
 public: true
@@ -32,6 +32,14 @@ Turn AI into real production work — builds, automations, and agent workflows t
 
 ## See how it works
 
+## Three contract SKUs — pick your lane.
+
+## Operating Brain Install
+
+## AI Value Governance
+
+## Enterprise AI Control Plane
+
 ## Don't take our word for it. That's the point.
 
 ## Build · rent · own — your lane.
@@ -56,7 +64,7 @@ Turn AI into real production work — builds, automations, and agent workflows t
 
 ## Stop guessing. Start showing clients real work.
 
-Forge runs scoped builds, automations, and agent workflows — with proof built in so clients see what ran and why. Try it in your browser first.
+Evaluate in five minutes with sourcea-boot — PASS or BLOCK on disk. Then Forge Terminal, live receipt, or Brain — no sales call required.
 
 A sample verified job — scored, logged, and shareable. Verify it yourself in under five minutes.
 
@@ -71,6 +79,16 @@ Platform subscription · unified workspace · verified work on every project.
 Turn requirements into scoped, reviewable work — with checks before anything ships.
 
 Walkthroughs · comparisons · what to expect when you verify proof yourself.
+
+Domain-scoped offers for operators, Canada regulated teams, and UK institutional buyers. Contract email on each page · technical proof at /eval .
+
+Definitions, policy gates, receipts, and routing — install the operating brain for AI-native execution.
+
+Spend map, cost-to-value taxonomy, and board-ready governance sprint for regulated Canadian teams.
+
+Six-layer telemetry, policy gate, and evidence chain for UK institutional control-plane buyers.
+
+Which offer? Operator → Operating Brain · Canada regulated → AI Value Governance · UK institutional → Enterprise Control Plane · Enterprise OS → Noetfield
 
 Verified output on the page — not slides. One live receipt beats a hundred promises.
 
