@@ -5,6 +5,7 @@
   "authority": "ASF",
   "human_doc": "reports/sourcea-contract-domains-acquisition-buyer-analysis-july-2026-v1.md",
   "one_law": "Public contract SKUs show domain-correct contract@ addresses. Inbound delivers via Google Workspace aliases to operations@noetfield.com — not personal Gmail.",
+  "buyer_path_note": "Contract SKU → domain-correct contract@ on page · Enterprise OS → Noetfield trust brief intake · Technical proof → sourcea.app/eval · Procurement → /attach/procurement-pack.html",
   "google_workspace_admin": "operations@noetfield.com",
   "routing_mode": "google_workspace_alias",
   "forbidden_public_leaks": [
