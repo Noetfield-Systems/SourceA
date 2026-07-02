@@ -125,11 +125,7 @@ def _latest_external_verify_truth_log(*, since: datetime) -> dict[str, Any]:
         return {"found": False, "error": str(exc)[:200], "source": "supabase_truth_log"}
 
 
-def _latest_external_verify_receipt() -> dict[str, Any]:
-    since = datetime.now(timezone.utc) - timedelta(hours=24)
-    truth = _latest_external_verify_truth_log(since=since)
-    if truth.get("found") and truth.get("ok"):
-        return truth
+def _latest_external_verify_disk() -> dict[str, Any]:
     if not EXTERNAL_VERIFY_DIR.is_dir():
         return {"found": False, "path": str(EXTERNAL_VERIFY_DIR)}
     paths = sorted(EXTERNAL_VERIFY_DIR.glob("external-verify-*-v1.json"))
@@ -144,7 +140,24 @@ def _latest_external_verify_receipt() -> dict[str, Any]:
         "at": doc.get("at"),
         "github_run_id": doc.get("github_run_id"),
         "github_sha": doc.get("github_sha"),
+        "run_url": doc.get("run_url"),
     }
+
+
+def _latest_external_verify_receipt() -> dict[str, Any]:
+    """L4 PASS = Supabase truth_log only; disk is mirror evidence."""
+    since = datetime.now(timezone.utc) - timedelta(hours=24)
+    truth = _latest_external_verify_truth_log(since=since)
+    if truth.get("found"):
+        return truth
+    disk = _latest_external_verify_disk()
+    if disk.get("found"):
+        return {**disk, "mirror_only": True, "l4_pass": False}
+    return disk
+
+
+def _pending_external_verify_evidence() -> dict[str, Any]:
+    return _latest_external_verify_receipt()
 
 
 def _latest_cycle_schema() -> dict[str, Any]:
@@ -213,13 +226,11 @@ def pending_snapshot(*, max_age_hours: float = 24.0) -> dict[str, Any]:
     since = datetime.now(timezone.utc) - timedelta(hours=max_age_hours)
 
     ev = _latest_external_verify_receipt()
-    ev_ok = False
-    if ev.get("found") and ev.get("ok"):
-        if ev.get("source") == "supabase_truth_log":
-            ev_ok = True
-        else:
-            at = _parse_iso(str(ev.get("at") or ""))
-            ev_ok = at is not None and at >= since
+    ev_ok = (
+        ev.get("source") == "supabase_truth_log"
+        and ev.get("found")
+        and ev.get("ok")
+    )
     if not ev_ok:
         items.append(
             {
