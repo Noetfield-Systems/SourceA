@@ -12,14 +12,21 @@ on:
     branches: [main]
     paths:
       - 'scripts/verify_autorun_zero_manual_v1.py'
+      - 'scripts/verify_client_proof_founder_review_v1.py'
+      - 'scripts/build_external_verify_receipt_v1.py'
+      - 'scripts/post_external_verify_truth_v1.py'
       - 'scripts/cloud_auto_runtime_v1.py'
       - 'data/cloud-auto-runtime-v1.json'
       - '.github/workflows/external-verify.yml'
+      - 'infra/supabase/portfolio-spine/migrations/005_truth_log_external_verify_v1.sql'
 
 jobs:
   external-verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
+    env:
+      GITHUB_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      GITHUB_RUN_CONCLUSION: ${{ job.status }}
     steps:
       - uses: actions/checkout@v4
 
@@ -27,50 +34,68 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Run autorun external verify (L4)
+      - name: Autorun verify (24h window)
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          OUT: receipts/cloud/external-verify/external-verify-${{ github.run_id }}-v1.json
-          GITHUB_RUN_ID: ${{ github.run_id }}
-          GITHUB_SHA: ${{ github.sha }}
         run: |
           set -euo pipefail
-          mkdir -p "$(dirname "$OUT")"
-          python3 scripts/verify_autorun_zero_manual_v1.py --hours 24 --json > /tmp/verify-raw.json
-          python3 - <<'PY'
-          import json, os
-          from datetime import datetime, timezone
-          raw = json.load(open("/tmp/verify-raw.json"))
-          row = {
-              "schema": "external-verify-receipt-v1",
-              "version": "1.0.0",
-              "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-              "law": "CONTROLLED_AUTORUN_LAWS_v2 L4 — external verify only",
-              "github_run_id": os.environ["GITHUB_RUN_ID"],
-              "github_sha": os.environ["GITHUB_SHA"],
-              "workflow": "external-verify.yml",
-              "verify": raw,
-              "ok": bool(raw.get("ok")),
-          }
-          out = os.environ["OUT"]
-          os.makedirs(os.path.dirname(out), exist_ok=True)
-          with open(out, "w") as f:
-              json.dump(row, f, indent=2)
-              f.write("\n")
-          print(json.dumps({"ok": row["ok"], "path": out, "report_line": raw.get("report_line")}))
-          if not row["ok"]:
-              raise SystemExit(1)
-          PY
+          python3 scripts/verify_autorun_zero_manual_v1.py --hours 24 --json > /tmp/autorun-verify.json
+          python3 -c "import json; d=json.load(open('/tmp/autorun-verify.json')); print(d.get('report_line','')); exit(0 if d.get('ok') else 0)"
+
+      - name: 15-recipe founder proof (public HTTPS only)
+        run: |
+          set -euo pipefail
+          python3 scripts/verify_client_proof_founder_review_v1.py \
+            --json --min-seconds-after-deploy 0 > /tmp/founder-proof-15.json || true
+          python3 -c "import json; d=json.load(open('/tmp/founder-proof-15.json')); print(f\"15-recipe {d.get('passed')}/{d.get('total')} ok={d.get('ok')}\")"
+
+      - name: Build external-verify receipt
+        env:
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          GITHUB_RUN_CONCLUSION: pending
+        run: |
+          set -euo pipefail
+          mkdir -p receipts/cloud/external-verify
+          OUT="receipts/cloud/external-verify/external-verify-${{ github.run_id }}-v1.json"
+          python3 scripts/build_external_verify_receipt_v1.py \
+            --autorun /tmp/autorun-verify.json \
+            --founder-proof /tmp/founder-proof-15.json \
+            --out "$OUT" --json | tee /tmp/receipt-build.json
+
+      - name: POST receipt to Supabase truth_log (L4 sink)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          set -euo pipefail
+          OUT="receipts/cloud/external-verify/external-verify-${{ github.run_id }}-v1.json"
+          python3 scripts/post_external_verify_truth_v1.py --receipt "$OUT" --json | tee /tmp/truth-post.json
+          python3 -c "import json; r=json.load(open('/tmp/truth-post.json')); assert r.get('ok'), r; print('truth_log_id', r.get('truth_log_id'))"
+
+      - name: Fail closed if verify not PASS
+        run: |
+          set -euo pipefail
+          python3 -c "
+          import json, sys
+          r=json.load(open('receipts/cloud/external-verify/external-verify-${{ github.run_id }}-v1.json'))
+          if not r.get('ok'):
+              print('FAIL:', r.get('report_line'))
+              sys.exit(1)
+          print('PASS:', r.get('report_line'))
+          "
 
       - name: Upload external-verify receipt artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: external-verify-receipt
           path: receipts/cloud/external-verify/
           retention-days: 30
 
-      - name: Commit external-verify receipt (L4 disk proof · auto-clears pending)
+      - name: Commit external-verify receipt (disk mirror)
         if: success()
         run: |
           set -euo pipefail
