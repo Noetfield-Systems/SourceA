@@ -1,0 +1,239 @@
+{
+  "schema": "sourcea-cursor-skills-index-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-07-02T21:12:09Z",
+  "skills_root": ".cursor/skills",
+  "user_skills_root": "~/.cursor/skills",
+  "sync_script": "scripts/sync-all-cursor-skills-v1.sh",
+  "skill_count": 38,
+  "skills": [
+    {
+      "id": "anti-staleness-machine",
+      "name": "anti-staleness-machine",
+      "path": ".cursor/skills/anti-staleness-machine/SKILL.md",
+      "user_path": "~/.cursor/skills/anti-staleness-machine/SKILL.md"
+    },
+    {
+      "id": "forge-living-ui-modern-ide",
+      "name": "forge-living-ui-modern-ide",
+      "path": ".cursor/skills/forge-living-ui-modern-ide/SKILL.md",
+      "user_path": "~/.cursor/skills/forge-living-ui-modern-ide/SKILL.md"
+    },
+    {
+      "id": "founder-linkedin-language",
+      "name": "founder-linkedin-language",
+      "path": ".cursor/skills/founder-linkedin-language/SKILL.md",
+      "user_path": "~/.cursor/skills/founder-linkedin-language/SKILL.md"
+    },
+    {
+      "id": "governed-autorun",
+      "name": "governed-autorun",
+      "path": ".cursor/skills/governed-autorun/SKILL.md",
+      "user_path": "~/.cursor/skills/governed-autorun/SKILL.md"
+    },
+    {
+      "id": "hub-pro-app-e2e",
+      "name": "hub-pro-app-e2e",
+      "path": ".cursor/skills/hub-pro-app-e2e/SKILL.md",
+      "user_path": "~/.cursor/skills/hub-pro-app-e2e/SKILL.md"
+    },
+    {
+      "id": "hub-pro-change-log",
+      "name": "hub-pro-change-log",
+      "path": ".cursor/skills/hub-pro-change-log/SKILL.md",
+      "user_path": "~/.cursor/skills/hub-pro-change-log/SKILL.md"
+    },
+    {
+      "id": "hub-pro-cloud-api",
+      "name": "hub-pro-cloud-api",
+      "path": ".cursor/skills/hub-pro-cloud-api/SKILL.md",
+      "user_path": "~/.cursor/skills/hub-pro-cloud-api/SKILL.md"
+    },
+    {
+      "id": "hub-pro-form-official",
+      "name": "hub-pro-form-official",
+      "path": ".cursor/skills/hub-pro-form-official/SKILL.md",
+      "user_path": "~/.cursor/skills/hub-pro-form-official/SKILL.md"
+    },
+    {
+      "id": "hub-pro-hub-hero",
+      "name": "hub-pro-hub-hero",
+      "path": ".cursor/skills/hub-pro-hub-hero/SKILL.md",
+      "user_path": "~/.cursor/skills/hub-pro-hub-hero/SKILL.md"
+    },
+    {
+      "id": "hub-pro-mac-security",
+      "name": "hub-pro-mac-security",
+      "path": ".cursor/skills/hub-pro-mac-security/SKILL.md",
+      "user_path": "~/.cursor/skills/hub-pro-mac-security/SKILL.md"
+    },
+    {
+      "id": "hub-pro-mac-session",
+      "name": "hub-pro-mac-session",
+      "path": ".cursor/skills/hub-pro-mac-session/SKILL.md",
+      "user_path": "~/.cursor/skills/hub-pro-mac-session/SKILL.md"
+    },
+    {
+      "id": "hub-pro-master",
+      "name": "hub-pro-master",
+      "path": ".cursor/skills/hub-pro-master/SKILL.md",
+      "user_path": "~/.cursor/skills/hub-pro-master/SKILL.md"
+    },
+    {
+      "id": "hub-pro-standalone-apps",
+      "name": "hub-pro-standalone-apps",
+      "path": ".cursor/skills/hub-pro-standalone-apps/SKILL.md",
+      "user_path": "~/.cursor/skills/hub-pro-standalone-apps/SKILL.md"
+    },
+    {
+      "id": "hub-pro-ui-upgrade",
+      "name": "hub-pro-ui-upgrade",
+      "path": ".cursor/skills/hub-pro-ui-upgrade/SKILL.md",
+      "user_path": "~/.cursor/skills/hub-pro-ui-upgrade/SKILL.md"
+    },
+    {
+      "id": "signal-factory",
+      "name": "signal-factory",
+      "path": ".cursor/skills/signal-factory/SKILL.md",
+      "user_path": "~/.cursor/skills/signal-factory/SKILL.md"
+    },
+    {
+      "id": "sina-conscious-recovery",
+      "name": "sina-conscious-recovery",
+      "path": ".cursor/skills/sina-conscious-recovery/SKILL.md",
+      "user_path": "~/.cursor/skills/sina-conscious-recovery/SKILL.md"
+    },
+    {
+      "id": "sina-narrative-translator",
+      "name": "sina-narrative-translator",
+      "path": ".cursor/skills/sina-narrative-translator/SKILL.md",
+      "user_path": "~/.cursor/skills/sina-narrative-translator/SKILL.md"
+    },
+    {
+      "id": "sina-registry-drain",
+      "name": "sina-registry-drain",
+      "path": ".cursor/skills/sina-registry-drain/SKILL.md",
+      "user_path": "~/.cursor/skills/sina-registry-drain/SKILL.md"
+    },
+    {
+      "id": "sina-research-intake",
+      "name": "sina-research-intake",
+      "path": ".cursor/skills/sina-research-intake/SKILL.md",
+      "user_path": "~/.cursor/skills/sina-research-intake/SKILL.md"
+    },
+    {
+      "id": "sina-research-lessons",
+      "name": "sina-research-lessons",
+      "path": ".cursor/skills/sina-research-lessons/SKILL.md",
+      "user_path": "~/.cursor/skills/sina-research-lessons/SKILL.md"
+    },
+    {
+      "id": "sina-sinaai-maintainer",
+      "name": "sina-sinaai-maintainer",
+      "path": ".cursor/skills/sina-sinaai-maintainer/SKILL.md",
+      "user_path": "~/.cursor/skills/sina-sinaai-maintainer/SKILL.md"
+    },
+    {
+      "id": "sina-sourcea-brain",
+      "name": "sina-sourcea-brain",
+      "path": ".cursor/skills/sina-sourcea-brain/SKILL.md",
+      "user_path": "~/.cursor/skills/sina-sourcea-brain/SKILL.md"
+    },
+    {
+      "id": "sina-sourcea-worker",
+      "name": "sina-sourcea-worker",
+      "path": ".cursor/skills/sina-sourcea-worker/SKILL.md",
+      "user_path": "~/.cursor/skills/sina-sourcea-worker/SKILL.md"
+    },
+    {
+      "id": "skill-006-ask-before-implement",
+      "name": "skill-006-ask-before-implement",
+      "path": ".cursor/skills/skill-006-ask-before-implement/SKILL.md",
+      "user_path": "~/.cursor/skills/skill-006-ask-before-implement/SKILL.md"
+    },
+    {
+      "id": "skill-007-ecosystem-conflict-resolution",
+      "name": "skill-007-ecosystem-conflict-resolution",
+      "path": ".cursor/skills/skill-007-ecosystem-conflict-resolution/SKILL.md",
+      "user_path": "~/.cursor/skills/skill-007-ecosystem-conflict-resolution/SKILL.md"
+    },
+    {
+      "id": "skill-architecting-pipelines-pro",
+      "name": "skill-architecting-pipelines-pro",
+      "path": ".cursor/skills/skill-architecting-pipelines-pro/SKILL.md",
+      "user_path": "~/.cursor/skills/skill-architecting-pipelines-pro/SKILL.md"
+    },
+    {
+      "id": "skill-avatar-heygen-factory",
+      "name": "skill-avatar-heygen-factory",
+      "path": ".cursor/skills/skill-avatar-heygen-factory/SKILL.md",
+      "user_path": "~/.cursor/skills/skill-avatar-heygen-factory/SKILL.md"
+    },
+    {
+      "id": "skill-cinematic-finish-v1",
+      "name": "skill-cinematic-finish-v1",
+      "path": ".cursor/skills/skill-cinematic-finish-v1/SKILL.md",
+      "user_path": "~/.cursor/skills/skill-cinematic-finish-v1/SKILL.md"
+    },
+    {
+      "id": "skill-cinematic-orchestration",
+      "name": "skill-cinematic-orchestration",
+      "path": ".cursor/skills/skill-cinematic-orchestration/SKILL.md",
+      "user_path": "~/.cursor/skills/skill-cinematic-orchestration/SKILL.md"
+    },
+    {
+      "id": "skill-commercial-film-factory",
+      "name": "skill-commercial-film-factory",
+      "path": ".cursor/skills/skill-commercial-film-factory/SKILL.md",
+      "user_path": "~/.cursor/skills/skill-commercial-film-factory/SKILL.md"
+    },
+    {
+      "id": "skill-commercial-film-routing",
+      "name": "skill-commercial-film-routing",
+      "path": ".cursor/skills/skill-commercial-film-routing/SKILL.md",
+      "user_path": "~/.cursor/skills/skill-commercial-film-routing/SKILL.md"
+    },
+    {
+      "id": "skill-foundational-agentic-systems",
+      "name": "skill-foundational-agentic-systems",
+      "path": ".cursor/skills/skill-foundational-agentic-systems/SKILL.md",
+      "user_path": "~/.cursor/skills/skill-foundational-agentic-systems/SKILL.md"
+    },
+    {
+      "id": "skill-founder-identity-layers",
+      "name": "skill-founder-identity-layers",
+      "path": ".cursor/skills/skill-founder-identity-layers/SKILL.md",
+      "user_path": "~/.cursor/skills/skill-founder-identity-layers/SKILL.md"
+    },
+    {
+      "id": "skill-node-architect-agentic-system",
+      "name": "skill-node-architect-agentic-system",
+      "path": ".cursor/skills/skill-node-architect-agentic-system/SKILL.md",
+      "user_path": "~/.cursor/skills/skill-node-architect-agentic-system/SKILL.md"
+    },
+    {
+      "id": "sourcea-brain-chatbot-audit",
+      "name": "sourcea-brain-chatbot-audit",
+      "path": ".cursor/skills/sourcea-brain-chatbot-audit/SKILL.md",
+      "user_path": "~/.cursor/skills/sourcea-brain-chatbot-audit/SKILL.md"
+    },
+    {
+      "id": "sourcea-cursor-agent-knowledge-audit",
+      "name": "sourcea-cursor-agent-knowledge-audit",
+      "path": ".cursor/skills/sourcea-cursor-agent-knowledge-audit/SKILL.md",
+      "user_path": "~/.cursor/skills/sourcea-cursor-agent-knowledge-audit/SKILL.md"
+    },
+    {
+      "id": "sourcea-landing-agentic-ui",
+      "name": "sourcea-landing-agentic-ui",
+      "path": ".cursor/skills/sourcea-landing-agentic-ui/SKILL.md",
+      "user_path": "~/.cursor/skills/sourcea-landing-agentic-ui/SKILL.md"
+    },
+    {
+      "id": "truth-projection",
+      "name": "truth-projection",
+      "path": ".cursor/skills/truth-projection/SKILL.md",
+      "user_path": "~/.cursor/skills/truth-projection/SKILL.md"
+    }
+  ]
+}

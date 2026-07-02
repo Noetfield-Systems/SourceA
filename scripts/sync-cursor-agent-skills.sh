@@ -7,8 +7,10 @@ PROJECT_SKILLS="${ROOT}/.cursor/skills"
 REG="${ROOT}/agent-skills/REGISTRY_LOCKED_v1.json"
 
 mkdir -p "$DEST" "$PROJECT_SKILLS"
+PY="$ROOT/scripts/sourcea-python-v1.sh"
+[[ -x "$PY" ]] || PY="/usr/bin/python3"
 
-python3 << PY
+"$PY" << PY
 import json, shutil
 from pathlib import Path
 
