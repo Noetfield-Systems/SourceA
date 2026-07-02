@@ -43,6 +43,8 @@
     "fast_path": "scripts/mac_cloud_deploy_dispatch_v1.py",
     "validator": "scripts/validate-mac-control-dispatch-v1.sh",
     "launcher": "~/.sina/sourcea-mac-v1.sh",
+    "python_resolver": "scripts/sourcea-python-v1.sh",
+    "mac_ctl_plans_ssot": "data/secondary-cloud-forge-run-next-100-v1.json",
     "allowed_on_mac": [
       "POST /api/cloud-worker/dispatch/v1",
       "POST /api/loop-specialist/tick/v1",

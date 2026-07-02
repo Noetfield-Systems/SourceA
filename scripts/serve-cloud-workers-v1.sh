@@ -10,9 +10,14 @@ LABEL="com.sourcea.cloud-workers"
 DOMAIN="gui/$(id -u)"
 MODE="${1:-}"
 
-export PATH="/opt/homebrew/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH:-/usr/bin:/bin}"
-PY="/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
-[[ -x "$PY" ]] || PY="$(command -v python3)"
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:${PATH:-}"
+if [[ -x "$ROOT/scripts/sourcea-python-v1.sh" ]]; then
+  PY="$ROOT/scripts/sourcea-python-v1.sh"
+elif [[ -x /usr/bin/python3 ]]; then
+  PY="/usr/bin/python3"
+else
+  PY="/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python"
+fi
 CURL="$(command -v curl 2>/dev/null || echo /usr/bin/curl)"
 
 mkdir -p "${HOME}/.sina"
