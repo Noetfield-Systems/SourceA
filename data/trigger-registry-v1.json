@@ -1,0 +1,157 @@
+{
+  "schema": "trigger-registry-v1",
+  "version": "1.0.0",
+  "system": "sourcea",
+  "spec_path": "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md",
+  "triggers": [
+    {
+      "trigger_id": "SA-T1",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "*/10 * * * *",
+      "target": "Railway FBE auto-tick via sourcea-cloud-auto-runtime-tick-v1",
+      "valid_in_verified_window": true,
+      "owner_workflow": "cloud-forge-run",
+      "live_probe": {
+        "type": "wrangler_cron",
+        "path": "cloud/workers/cloud-auto-runtime-tick-v1/wrangler.toml"
+      }
+    },
+    {
+      "trigger_id": "SA-T-loop-specialist",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "*/15 * * * *",
+      "target": "Loop specialist tick → Railway dispatch",
+      "valid_in_verified_window": true,
+      "owner_workflow": "loop-specialist-tick",
+      "live_probe": {
+        "type": "wrangler_cron",
+        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml"
+      }
+    },
+    {
+      "trigger_id": "SA-T-signal-factory",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "*/15 * * * *",
+      "target": "Signal factory tick → Railway dispatch",
+      "valid_in_verified_window": true,
+      "owner_workflow": "signal-factory-tick",
+      "live_probe": {
+        "type": "wrangler_cron",
+        "path": "cloud/workers/signal-factory-tick-v1/wrangler.toml"
+      }
+    },
+    {
+      "trigger_id": "SA-T-brain-loop",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "*/30 * * * *",
+      "target": "Brain loop cloud tick",
+      "valid_in_verified_window": true,
+      "owner_workflow": "brain-loop-cloud-tick",
+      "live_probe": {
+        "type": "wrangler_cron",
+        "path": "cloud/workers/sourcea-brain-loop-cloud-tick-v1/wrangler.toml"
+      }
+    },
+    {
+      "trigger_id": "SA-T4",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "external-verify L4 buyer-surface lane on push",
+      "valid_in_verified_window": true,
+      "owner_workflow": "external-verify",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/external-verify.yml",
+        "expects": ["push"]
+      }
+    },
+    {
+      "trigger_id": "SA-T5-external-verify",
+      "system": "sourcea",
+      "kind": "manual",
+      "schedule": null,
+      "target": "external-verify workflow_dispatch",
+      "valid_in_verified_window": false,
+      "owner_workflow": "external-verify",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/external-verify.yml",
+        "expects": ["workflow_dispatch"]
+      }
+    },
+    {
+      "trigger_id": "SA-T5-autonomous-drain",
+      "system": "sourcea",
+      "kind": "manual",
+      "schedule": null,
+      "target": "autonomous-drain-cron manual backup dispatch",
+      "valid_in_verified_window": false,
+      "owner_workflow": "autonomous-drain-cron-v1",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/autonomous-drain-cron-v1.yml",
+        "expects": ["workflow_dispatch"]
+      }
+    },
+    {
+      "trigger_id": "SA-T5-determinism-gate",
+      "system": "sourcea",
+      "kind": "manual",
+      "schedule": null,
+      "target": "determinism-gate workflow_dispatch",
+      "valid_in_verified_window": false,
+      "owner_workflow": "determinism-gate",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/determinism-gate.yml",
+        "expects": ["workflow_dispatch"]
+      }
+    },
+    {
+      "trigger_id": "SA-T7-schedule",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "30 */6 * * *",
+      "target": "determinism-gate scheduled D1-D8 checks",
+      "valid_in_verified_window": true,
+      "owner_workflow": "determinism-gate",
+      "live_probe": {
+        "type": "gha_schedule",
+        "path": ".github/workflows/determinism-gate.yml"
+      }
+    },
+    {
+      "trigger_id": "SA-T7-push",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "determinism-gate on determinism script changes",
+      "valid_in_verified_window": true,
+      "owner_workflow": "determinism-gate",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/determinism-gate.yml",
+        "expects": ["push"]
+      }
+    },
+    {
+      "trigger_id": "SA-T-boot-validate",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "sourcea-boot package validation on push",
+      "valid_in_verified_window": true,
+      "owner_workflow": "validate-sourcea-boot",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/validate-sourcea-boot-v1.yml",
+        "expects": ["push", "pull_request"]
+      }
+    }
+  ]
+}

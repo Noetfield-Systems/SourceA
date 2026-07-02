@@ -10,6 +10,10 @@ on:
     paths:
       - 'scripts/verify_autorun_determinism_v1.py'
       - 'scripts/autorun_legal_transitions_v1.py'
+      - 'scripts/validate_locked_definitions_anatomy_v1.py'
+      - 'reports/locked-definitions-v1.json'
+      - 'data/trigger-registry-v1.json'
+      - 'data/mission-registry-v1.json'
       - '.github/workflows/determinism-gate.yml'
 
 permissions:
@@ -25,6 +29,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
+      - name: Locked definitions anatomy lint (NOETFIELD P2)
+        run: |
+          set -euo pipefail
+          python3 scripts/validate_locked_definitions_anatomy_v1.py --json
+
+      - name: Trigger registry sweep (NOETFIELD P1)
+        run: |
+          set -euo pipefail
+          python3 scripts/sandbox_health_sweep_v1.py --json
 
       - name: Determinism gate (D1-D5)
         run: |
