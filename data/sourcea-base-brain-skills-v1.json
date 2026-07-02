@@ -1,0 +1,101 @@
+{
+  "schema": "sourcea-base-brain-skills-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-07-02T21:05:00Z",
+  "law": "Base Brain skill registry — metadata only; skill body lives at skill_path (never rewritten here).",
+  "skills_index": "data/sourcea-cursor-skills-index-v1.json",
+  "sync_all_script": "scripts/sync-all-cursor-skills-v1.sh",
+  "collision_check_script": "scripts/validate-signal-factory-locked-definitions-collision-v1.py",
+  "registration_receipt": "receipts/brain/signal-factory-v1-base-brain-registration-v1.json",
+  "skills": [
+    {
+      "skill_id": "signal-factory-v1",
+      "skill_name": "signal-factory",
+      "status": "verified_registered",
+      "version": "1.0.0",
+      "contract": "Architect/Fable locked",
+      "owner": "SourceA Worker",
+      "owning_layer": "BASE_BRAIN",
+      "purpose": "Classify inbound/outbound signals, score trust/risk/automation/commercial value, emit fixed decision reports with receipt JSON and memory lines before Brain routing or Worker build.",
+      "trigger": "Triage commercial, partner, legal, support, technical, or governance signals; scoring automation vs service-pattern paths; enforcing risk≥4 route override; tagging sender_declared claims; preserving entity hygiene across Noetfield · TrustField · SourceA · WitnessBC · SG · NOOS.",
+      "skill_path": ".cursor/skills/signal-factory/SKILL.md",
+      "ssot_path": "data/signal-factory-v1.json",
+      "core_script": "scripts/signal_factory_core_v1.py",
+      "output_contract": {
+        "report_schema": "signal-factory-decision-report-v1",
+        "receipt_schema": "signal-factory-receipt-v1",
+        "required_fields": "data/signal-factory-v1.json#required_report_fields",
+        "optional_sections_gated_by": "decision enum only (build_automation | create_service_pattern)"
+      },
+      "guardrail_pointers": {
+        "sg_guardrails_ref": "data/signal-factory-v1.json#sg_guardrails_ref",
+        "entity_hygiene": "data/signal-factory-v1.json#entity_hygiene",
+        "sender_claim_rule": "data/signal-factory-v1.json#sender_claim_rule",
+        "risk_override": "data/signal-factory-v1.json#risk_override",
+        "production_connected": "must remain false (NON-SCOPE v1 core)"
+      },
+      "adapter_hooks": {
+        "schema_ref": "data/signal-factory-v1.json#adapter_hooks",
+        "policy": "empty null slots only — no adapter content in Base Brain registration",
+        "slots": ["trustfield", "noetfield", "witnessbc", "partnermesh", "client_mvp"]
+      },
+      "verifier": {
+        "structural": "scripts/validate-signal-factory-v1.sh",
+        "e2e": "scripts/validate-signal-factory-e2e-v1.sh",
+        "collision": "scripts/validate-signal-factory-locked-definitions-collision-v1.py",
+        "test_report": ".cursor/skills/signal-factory/reports/test-report-v1.json",
+        "result": {
+          "ok": true,
+          "tests_passed": "6/6",
+          "structural": "PASS",
+          "locked_definitions_checksum": "PASS"
+        }
+      },
+      "provenance": {
+        "source": "Worker-built artifact + locked Fable contract",
+        "artifact_paths": [
+          ".cursor/skills/signal-factory/SKILL.md",
+          "data/signal-factory-v1.json",
+          "scripts/signal_factory_core_v1.py",
+          ".cursor/skills/signal-factory/tests/test_01_classification.json",
+          ".cursor/skills/signal-factory/tests/test_02_scoring_rubric.json",
+          ".cursor/skills/signal-factory/tests/test_03_risk_override.json",
+          ".cursor/skills/signal-factory/tests/test_04_optional_section_gating.json",
+          ".cursor/skills/signal-factory/tests/test_05_receipt_schema.json",
+          ".cursor/skills/signal-factory/tests/test_06_entity_hygiene.json",
+          ".cursor/skills/signal-factory/reports/test-report-v1.json"
+        ],
+        "non_modified": ["NOOS", "SG", "adapter_implementations"]
+      },
+      "entity_boundary": {
+        "trustfield": "separate_watched_surface",
+        "trustfield_not_sourcea_child": true,
+        "adapter_hooks_trustfield": null
+      },
+      "brain_registry_asset_id": "signal-factory-v1"
+    },
+    {
+      "skill_id": "controlled-autorun-v3",
+      "skill_name": "controlled-autorun",
+      "status": "installed_synced",
+      "version": "3.0.0",
+      "contract": "Loop Specialist standing assignment",
+      "owner": "SourceA Loop Specialist",
+      "owning_layer": "AUTORUN",
+      "purpose": "Design, run, audit, and repair 24/7 multi-workflow autonomous execution — parallel sandboxes, cron loops, queue motors, receipt-backed cycles, ROI-controlled spend, L13 deterministic loops (D1–D8).",
+      "trigger": "Autorun loops, cron workers, batch queues, multi-sandbox orchestration, cycle receipts, sink invariants, verification gates, cost/ROI attribution, loop specialist tick, or 'make it run 24/7'.",
+      "skill_path": ".cursor/skills/controlled-autorun/SKILL.md",
+      "ssot_path": "docs/CONTROLLED_AUTORUN_LAWS_v3.md",
+      "references": [
+        ".cursor/skills/controlled-autorun/references/deterministic-loops.md",
+        ".cursor/skills/controlled-autorun/references/sourcea-wiring.md",
+        ".cursor/skills/controlled-autorun/references/receipt-schemas.md"
+      ],
+      "verifier": {
+        "structural": "scripts/validate-controlled-autorun-skill-v1.sh",
+        "determinism_ci": "scripts/verify_autorun_determinism_v1.py"
+      },
+      "sync_script": "scripts/sync-controlled-autorun-skill-v1.sh"
+    }
+  ]
+}

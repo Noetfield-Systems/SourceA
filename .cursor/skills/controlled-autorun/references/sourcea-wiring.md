@@ -1,6 +1,7 @@
-# SourceA wiring — controlled autorun v2
+# SourceA wiring — controlled autorun v3
 
-**Law mirror:** `docs/CONTROLLED_AUTORUN_LAWS_v2.md`  
+**Law mirror:** `docs/CONTROLLED_AUTORUN_LAWS_v3.md`  
+**Determinism:** `.cursor/skills/controlled-autorun/references/deterministic-loops.md` (D1–D8)  
 **Mac control:** dispatch OK · motor = CF cron only · `scripts/fbe/lib/mac_control_dispatch_v1.py`
 
 ## Boot (loop specialist session)
