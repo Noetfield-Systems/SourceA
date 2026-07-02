@@ -109,6 +109,31 @@ def forbidden_body_patterns() -> list[str]:
     return list(((reg.get("tiers") or {}).get("forbidden_body") or {}).get("process_patterns") or [])
 
 
+def control_panel_allowed_patterns() -> list[str]:
+    reg = _load_registry()
+    return list(((reg.get("tiers") or {}).get("forbidden_body") or {}).get("control_panel_allowed") or [])
+
+
+def _pid_cmdline(pid: int) -> str:
+    try:
+        proc = subprocess.run(
+            ["ps", "-p", str(pid), "-o", "command="],
+            capture_output=True,
+            text=True,
+            timeout=3.0,
+        )
+        return (proc.stdout or "").strip()
+    except (OSError, subprocess.TimeoutExpired):
+        return ""
+
+
+def _is_control_panel_pid(pid: int) -> bool:
+    cmd = _pid_cmdline(pid).lower()
+    if not cmd:
+        return False
+    return any(pat.lower() in cmd for pat in control_panel_allowed_patterns())
+
+
 def check_script_allowed(*, script_name: str) -> dict[str, Any]:
     name = Path(script_name).name
     tier = classify_script(name)
@@ -193,7 +218,7 @@ def _pgrep(pattern: str) -> list[int]:
 def probe_forbidden_body_processes() -> dict[str, Any]:
     running: list[dict[str, Any]] = []
     for pat in forbidden_body_patterns():
-        pids = _pgrep(pat)
+        pids = [p for p in _pgrep(pat) if not _is_control_panel_pid(p)]
         if pids:
             running.append({"pattern": pat, "pids": pids})
     return {"ok": len(running) == 0, "running": running}
