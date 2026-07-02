@@ -21,6 +21,10 @@ on:
       - 'scripts/ensure_truth_log_schema_v1.py'
       - 'scripts/apply_truth_log_migration_v1.sh'
       - 'scripts/apply_portfolio_spine_migrations_v1.sh'
+      - 'scripts/cloud_forge_run_supabase_v1.py'
+      - 'scripts/mac_spine_bridge_v1.py'
+      - 'scripts/agent_session_cost_v1.py'
+      - 'scripts/query_spine_proof_v1.py'
       - 'data/client-proof-founder-review-pack-v1.json'
 
 permissions:
@@ -171,12 +175,64 @@ jobs:
           SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}
           SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
           SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
         run: |
           set -euo pipefail
           sudo apt-get update -qq
           sudo apt-get install -y postgresql-client
           bash scripts/apply_portfolio_spine_migrations_v1.sh
           python3 scripts/ensure_truth_log_schema_v1.py --json
+
+      - name: Seed spine heartbeat + AGENT_SESSION_COST (L16/L17 proof)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          set -euo pipefail
+          python3 scripts/mac_spine_bridge_v1.py heartbeat --agent-id github-ci --role cloud --json
+          python3 scripts/agent_session_cost_v1.py post --agent-id github-ci --role cloud-ci --tier T0 --json
+
+      - name: Query spine proof (L4 + heartbeat + session cost)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SPINE_PROOF_OUT: ${{ runner.temp }}/spine-proof.json
+        run: |
+          set -euo pipefail
+          python3 scripts/query_spine_proof_v1.py --agent-id github-ci --json | tee "$SPINE_PROOF_OUT"
+          python3 - <<'PY'
+          import json, os, sys
+          from pathlib import Path
+          doc = json.loads(Path(os.environ["SPINE_PROOF_OUT"]).read_text(encoding="utf-8"))
+          l4 = doc.get("l4") or {}
+          spine = doc.get("spine") or {}
+          hb = spine.get("heartbeat") or {}
+          cost = spine.get("session_cost") or {}
+          if not l4.get("l4_closed"):
+              print("FAIL: no EXTERNAL_VERIFY_PASS row yet (prior runs)", file=sys.stderr)
+          if not hb.get("fetch_ok"):
+              print("FAIL: mac_agent_heartbeat table unreachable", file=sys.stderr)
+              sys.exit(1)
+          if hb.get("dashboard_status") == "STALE_DATA":
+              print("FAIL: heartbeat dashboard STALE_DATA", file=sys.stderr)
+              sys.exit(1)
+          if not cost.get("fetch_ok"):
+              print("FAIL: AGENT_SESSION_COST query failed", file=sys.stderr)
+              sys.exit(1)
+          if not cost.get("truth_log_id"):
+              print("FAIL: no AGENT_SESSION_COST row in truth_log", file=sys.stderr)
+              sys.exit(1)
+          payload = (cost.get("row") or {}).get("payload") or {}
+          if "usd_marginal" not in payload or "usd_list_equiv" not in payload:
+              print("FAIL: cost receipt missing usd_marginal/usd_list_equiv", file=sys.stderr)
+              sys.exit(1)
+          print(json.dumps({
+              "l4_truth_log_id": l4.get("truth_log_id"),
+              "heartbeat_id": (hb.get("row") or {}).get("id"),
+              "session_cost_id": cost.get("truth_log_id"),
+              "dashboard_status": hb.get("dashboard_status"),
+          }, indent=2))
+          PY
 
       - name: Build L4 receipt (body hashes)
         env:
@@ -208,3 +264,12 @@ jobs:
           name: external-verify-l4-receipt
           path: ${{ runner.temp }}/external-verify-l4-receipt.json
           retention-days: 30
+
+      - name: Upload spine proof artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spine-proof
+          path: ${{ runner.temp }}/spine-proof.json
+          retention-days: 30
+          if-no-files-found: ignore
