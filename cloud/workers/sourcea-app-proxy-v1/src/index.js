@@ -182,9 +182,26 @@ function routeManifest(request) {
   });
 }
 
+const REGIONAL_MIRROR_HOSTS = {
+  "sourcea.ca": "/ai-value-governance",
+  "www.sourcea.ca": "/ai-value-governance",
+  "sourcea.uk": "/enterprise-ai-control-plane",
+  "www.sourcea.uk": "/enterprise-ai-control-plane",
+};
+
+function regionalCanonicalRedirect(incoming) {
+  const targetPath = REGIONAL_MIRROR_HOSTS[incoming.hostname];
+  if (!targetPath) return null;
+  const path = incoming.pathname === "/" || incoming.pathname === "" ? targetPath : incoming.pathname;
+  const target = new URL(`${path}${incoming.search}`, "https://sourcea.app");
+  return Response.redirect(target.toString(), 301);
+}
+
 export default {
   async fetch(request, env) {
     const incoming = new URL(request.url);
+    const regional = regionalCanonicalRedirect(incoming);
+    if (regional) return regional;
     const { pathname } = incoming;
 
     if (pathname === "/health") {
