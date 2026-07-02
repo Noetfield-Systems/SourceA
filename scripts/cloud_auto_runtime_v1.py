@@ -505,9 +505,30 @@ def _write_cycle_receipt(
         ship_ok = bool((ship or {}).get("ok"))
     if verdict != "IDLE_NO_WORK":
         verdict = "approved" if prove_ok and ship_ok else "rejected"
+    to_state = (
+        "IDLE_NO_WORK"
+        if verdict == "IDLE_NO_WORK"
+        else ("COMPLETE" if verdict == "approved" else "BLOCKED_WITH_REASON")
+    )
+    try:
+        from autorun_legal_transitions_v1 import validate_transition  # noqa: WPS433
+
+        transition = validate_transition("RUNNING", to_state)
+    except Exception as exc:
+        transition = {"ok": False, "reason": str(exc)[:80]}
     decision_block = {
         "decision_type": "autonomous_drain_gate",
         "verdict": verdict,
+        "state": to_state,
+        "transition": transition,
+        "transition_log_tail": [
+            {
+                "from": "RUNNING",
+                "to": to_state,
+                "legal": bool(transition.get("ok")),
+                "at": cycle.get("at") or _now(),
+            }
+        ],
         "rationale": cycle.get("decision_rationale")
         or (
             "Empty queue — IDLE_NO_WORK (healthy; no manufactured work)"

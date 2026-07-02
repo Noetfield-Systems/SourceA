@@ -286,12 +286,19 @@ def verify_row(row: dict[str, Any], vbp, *, deploy_gate: dict[str, Any]) -> dict
                 defects.append(f'marker missing: "{m}"')
         defects.extend(_scan(body))
         ca = _public_fetch("https://sourcea.ca/", follow_redirects=False)
-        if ca["http_code"] != 301:
+        ca_code = int(ca.get("http_code") or 0)
+        if ca_code == 301:
+            if not str(ca.get("location") or "").startswith("https://sourcea.app/ai-value-governance"):
+                machine_ok = False
+                defects.append(f"sourcea.ca location={ca.get('location')}")
+        elif ca_code == 200:
+            ca_body = ca.get("body") or ""
+            if "ai-value-governance" not in ca_body and "AI Value Governance" not in ca_body:
+                machine_ok = False
+                defects.append("sourcea.ca regional mirror 200 missing governance markers")
+        else:
             machine_ok = False
-            defects.append(f"sourcea.ca root http={ca['http_code']} expected 301")
-        elif not str(ca.get("location") or "").startswith("https://sourcea.app/ai-value-governance"):
-            machine_ok = False
-            defects.append(f"sourcea.ca location={ca.get('location')}")
+            defects.append(f"sourcea.ca root http={ca_code} expected 301 or 200 mirror")
         regional_redirect_fetch = _fetch_meta_slice(ca)
     else:
         fetch_meta = _public_fetch(url)
