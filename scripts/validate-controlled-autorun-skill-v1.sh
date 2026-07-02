@@ -10,7 +10,7 @@ fail() { echo "FAIL: validate-controlled-autorun-skill-v1 — $*" >&2; exit 1; }
 [[ -f "$ROOT/docs/CONTROLLED_AUTORUN_LAWS_v2.md" ]] || fail "missing CONTROLLED_AUTORUN_LAWS_v2.md"
 [[ -f "$ROOT/scripts/phase_reconciler_v1.py" ]] || fail "missing phase_reconciler_v1.py"
 [[ -f "$ROOT/scripts/verify_autorun_zero_manual_v1.py" ]] || fail "missing verify_autorun_zero_manual_v1.py"
-[[ -f "$ROOT/.github/workflows/external-verify.yml" ]] || fail "missing external-verify workflow"
+[[ -f "$ROOT/scripts/autorun_pending_v1.py" ]] || fail "missing autorun_pending_v1.py"
 
 grep -q 'name: controlled-autorun' "$ROOT/.cursor/skills/controlled-autorun/SKILL.md" \
   || fail "SKILL frontmatter missing controlled-autorun name"

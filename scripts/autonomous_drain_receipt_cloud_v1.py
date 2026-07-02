@@ -556,6 +556,12 @@ def observer_payload(*, limit: int = 10) -> dict[str, Any]:
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     hb_path = cloud_cycle_dir().parent / "autonomous-forge-run-heartbeat" / f"heartbeat-{today}-v1.json"
     daily_heartbeat = _read(hb_path) if hb_path.is_file() else {}
+    try:
+        from autorun_pending_v1 import write_pending_receipt  # noqa: WPS433
+
+        pending = write_pending_receipt()
+    except Exception:
+        pending = _read(ROOT / "receipts" / "cloud" / "autorun-pending" / "pending-latest-v1.json")
     latest_sink = None
     for c in reversed(cycles):
         inv = c.get("sink_invariant")
@@ -582,6 +588,7 @@ def observer_payload(*, limit: int = 10) -> dict[str, Any]:
             None,
         ),
         "daily_heartbeat": daily_heartbeat or None,
+        "pending": pending or None,
         "sink_status": latest_sink,
     }
 

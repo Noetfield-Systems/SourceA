@@ -327,6 +327,7 @@ function edgeIdleReceipt(env, precheck) {
     value_class: "hygiene",
     law: "Tier0 auto-stop — skip Railway POST when registry_exhausted",
     cf_version: env.CF_VERSION_METADATA || null,
+    pending_auto_note: "see observer.pending or receipts/cloud/autorun-pending/pending-latest-v1.json",
   };
 }
 
