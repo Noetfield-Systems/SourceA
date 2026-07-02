@@ -20,6 +20,7 @@ on:
       - 'scripts/post_external_verify_l4_truth_v1.py'
       - 'scripts/ensure_truth_log_schema_v1.py'
       - 'scripts/apply_truth_log_migration_v1.sh'
+      - 'scripts/apply_portfolio_spine_migrations_v1.sh'
       - 'data/client-proof-founder-review-pack-v1.json'
 
 permissions:
@@ -163,7 +164,7 @@ jobs:
           sys.exit(0 if out["ok"] else 1)
           PY
 
-      - name: Ensure truth_log schema (migrations 002+005)
+      - name: Ensure portfolio-spine schema (migrations 002+005+006+007)
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
@@ -174,7 +175,7 @@ jobs:
           set -euo pipefail
           sudo apt-get update -qq
           sudo apt-get install -y postgresql-client
-          bash scripts/apply_truth_log_migration_v1.sh
+          bash scripts/apply_portfolio_spine_migrations_v1.sh
           python3 scripts/ensure_truth_log_schema_v1.py --json
 
       - name: Build L4 receipt (body hashes)

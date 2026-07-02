@@ -180,6 +180,9 @@ Failed checks, DRIFT, `THROTTLED_ROI`, audit findings auto-file improvement cand
 | Cycle receipts (repo) | `receipts/cloud/autonomous-forge-run-cycles/` |
 | Heartbeat (repo) | `receipts/cloud/autonomous-forge-run-heartbeat/` |
 | Loop specialist | `scripts/loop_specialist_tick_v1.py` |
+| Cost-tier queue | `data/worker-cost-tier-queue-v1.json` |
+| Agent boot pack | `docs/AGENT_BOOT_PACK_v1.md` |
+| Spine migrations CI | `scripts/apply_portfolio_spine_migrations_v1.sh` |
 
 ## Out of scope
 

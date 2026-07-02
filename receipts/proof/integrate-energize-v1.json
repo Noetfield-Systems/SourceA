@@ -1,0 +1,14 @@
+{
+  "schema": "integrate-energize-proof-v1",
+  "at": "2026-07-02T22:35:00Z",
+  "merge_order": ["PR #5 mac-cloud-bridge", "PR #6 L17"],
+  "migration_ci": "scripts/apply_portfolio_spine_migrations_v1.sh (002+005+006+007) wired in external-verify.yml",
+  "cost_receipt_fields": ["usd_marginal", "usd_list_equiv", "usd_est"],
+  "digest_fields": ["spend_by_tier_marginal", "spend_by_tier_list_equiv", "cost_per_merged_change_usd_marginal", "cost_per_merged_change_usd_list_equiv"],
+  "spine_proof_script": "scripts/query_spine_proof_v1.py",
+  "t0_receipts": [
+    "receipts/proof/t0-w-lba-009-vocab-v1.json",
+    "receipts/proof/t0-reg-sync-001-v1.json",
+    "receipts/proof/t0-reg-sync-002-v1.json"
+  ]
+}
