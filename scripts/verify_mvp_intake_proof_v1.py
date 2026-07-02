@@ -53,7 +53,11 @@ def verify(*, base_url: str = DEFAULT_URL) -> dict:
     except (urllib.error.HTTPError, OSError, json.JSONDecodeError) as exc:
         row["post"] = {"ok": False, "error": str(exc)[:200]}
         row["ok"] = False
-        RECEIPT.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+        try:
+            RECEIPT.parent.mkdir(parents=True, exist_ok=True)
+            RECEIPT.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+        except OSError:
+            row["receipt_skipped"] = True
         return row
 
     intake_id = str(post_body.get("intake_id") or "")
@@ -77,7 +81,11 @@ def verify(*, base_url: str = DEFAULT_URL) -> dict:
     storage_ok = bool((post_body.get("storage") or {}).get("ok"))
     row["ok"] = bool(row["post"]["ok"] and row.get("read_back", {}).get("ok") and storage_ok)
     row["intake_id"] = intake_id
-    RECEIPT.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+    try:
+        RECEIPT.parent.mkdir(parents=True, exist_ok=True)
+        RECEIPT.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+    except OSError:
+        row["receipt_skipped"] = True
     return row
 
 
