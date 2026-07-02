@@ -19,7 +19,9 @@ on:
       - 'scripts/cloud_auto_runtime_v1.py'
       - 'data/cloud-auto-runtime-v1.json'
       - '.github/workflows/external-verify.yml'
-      - 'infra/supabase/portfolio-spine/migrations/005_truth_log_external_verify_v1.sql'
+      - 'scripts/verify_autorun_determinism_v1.py'
+      - 'scripts/autorun_legal_transitions_v1.py'
+      - 'docs/GOVERNED_AUTORUN_LAWS_v3.md'
 
 jobs:
   external-verify:
@@ -51,6 +53,12 @@ jobs:
             --json --min-seconds-after-deploy 0 > /tmp/founder-proof-15.json || true
           python3 -c "import json; d=json.load(open('/tmp/founder-proof-15.json')); print(f\"15-recipe {d.get('passed')}/{d.get('total')} ok={d.get('ok')}\")"
 
+      - name: Determinism gate (D1–D5 · L13)
+        run: |
+          set -euo pipefail
+          python3 scripts/verify_autorun_determinism_v1.py --json --write-receipt > /tmp/determinism-verify.json
+          python3 -c "import json; d=json.load(open('/tmp/determinism-verify.json')); print(d.get('report_line','')); exit(0 if d.get('ok') else 1)"
+
       - name: Build external-verify receipt
         env:
           GITHUB_RUN_ID: ${{ github.run_id }}
@@ -64,6 +72,7 @@ jobs:
           python3 scripts/build_external_verify_receipt_v1.py \
             --autorun /tmp/autorun-verify.json \
             --founder-proof /tmp/founder-proof-15.json \
+            --determinism /tmp/determinism-verify.json \
             --out "$OUT" --json | tee /tmp/receipt-build.json
 
       - name: Ensure truth_log schema (migration 002+005)

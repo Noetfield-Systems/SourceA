@@ -1,0 +1,17 @@
+{
+  "schema": "kaizen-improvement-receipt-v1",
+  "version": "1.0.0",
+  "at": "2026-07-02T12:30:00Z",
+  "law": "governed-autorun L13 · D1",
+  "classification": "machine_safe",
+  "id": "kaizen-d1-cycle-idempotency-key",
+  "diff_summary": "Add deterministic idempotency_key to autonomous-forge-run-cycle-receipt-v2 via _cycle_op_key(workflow_id, plan_id, attempt_no)",
+  "expected_effect": "Cycle receipts converge on replay; D1 idempotency test green; sink dedup path unblocked",
+  "expected_roi": "risk_reduction: double-write races · hygiene: replay audit",
+  "rollback_command": "git revert HEAD -- scripts/cloud_auto_runtime_v1.py",
+  "files_touched": ["scripts/cloud_auto_runtime_v1.py"],
+  "before": "cycle receipts lacked op_key",
+  "after": "cycle receipts carry idempotency_key = sha256(cloud-forge-run|head|batch_id)[:40]",
+  "external_verify": "pending — determinism gate step in external-verify.yml",
+  "ok": true
+}
