@@ -27,4 +27,5 @@ fi
 
 psql "$DB_URL" -v ON_ERROR_STOP=1 -f "$SQL_002"
 psql "$DB_URL" -v ON_ERROR_STOP=1 -f "$SQL_005"
+psql "$DB_URL" -v ON_ERROR_STOP=1 -c "NOTIFY pgrst, 'reload schema';"
 echo "OK: truth_log migrations 002+005 applied"
