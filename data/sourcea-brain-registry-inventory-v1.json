@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-brain-registry-inventory-v1",
   "version": "1.0.0",
-  "saved_at": "2026-07-02T08:33:36Z",
+  "saved_at": "2026-07-02T08:52:31Z",
   "promotion_lane": "receipt_gated_v1",
   "assets": [
     {

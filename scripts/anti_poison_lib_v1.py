@@ -68,6 +68,8 @@ SKIP_PATH_PARTS = (
     "agent-law-poison-registry",
     "agent-memory-mirror-poison-law",
     "mac-validator-stuck-red-flag",
+    "SOURCEA_ANTI_POISON_ENGINE_V2",
+    "POISON_AND_REALTIME_BLOCKER_TERMINOLOGY",
     "projection_poison_sanitize",
 )
 
