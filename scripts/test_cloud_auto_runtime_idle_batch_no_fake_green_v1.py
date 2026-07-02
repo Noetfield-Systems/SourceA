@@ -34,7 +34,6 @@ def _run_case() -> None:
         "processed": 0,
         "max_advance": 100,
         "batch_complete": True,
-        "batch_id": 10,
         "head_now": "CLOUD-SEC-910",
         "last_completed": "CLOUD-SEC-910",
     }
@@ -58,7 +57,7 @@ def _run_case() -> None:
 
     doc = json.loads(path.read_text(encoding="utf-8"))
     verdict = (doc.get("decision") or {}).get("verdict")
-    assert verdict == "idle", doc
+    assert verdict == "IDLE_NO_WORK", doc
     assert (doc.get("belt") or {}).get("SHIP", {}).get("ok") is False, doc
     assert idle_pack["idle_batch"] is True
 

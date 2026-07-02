@@ -115,6 +115,122 @@ def _is_headless_cloud() -> bool:
     return Path("/app/receipts").is_dir()
 
 
+HEARTBEAT_DIR_CLOUD = Path("/app/receipts/cloud/autonomous-forge-run-heartbeat")
+HEARTBEAT_DIR_LOCAL = ROOT / "receipts" / "cloud" / "autonomous-forge-run-heartbeat"
+AUTONOMOUS_TRIGGER_SOURCES = frozenset(
+    {"cloudflare_cron", "cloudflare_scheduled", "headless_cloud_auto_tick"}
+)
+
+
+def _heartbeat_dir() -> Path:
+    if _is_headless_cloud():
+        return HEARTBEAT_DIR_CLOUD
+    return HEARTBEAT_DIR_LOCAL
+
+
+def _resolve_batch_id(
+    *,
+    pack: dict[str, Any] | None,
+    head_row: dict[str, Any] | None = None,
+    cycle: dict[str, Any] | None = None,
+) -> int | None:
+    if isinstance(pack, dict) and pack.get("batch_id") is not None:
+        try:
+            return int(pack["batch_id"])
+        except (TypeError, ValueError):
+            pass
+    if isinstance(head_row, dict):
+        obs = head_row.get("observed") if isinstance(head_row.get("observed"), dict) else {}
+        if obs.get("batch_id") is not None:
+            try:
+                return int(obs["batch_id"])
+            except (TypeError, ValueError):
+                pass
+        if head_row.get("batch_id") is not None:
+            try:
+                return int(head_row["batch_id"])
+            except (TypeError, ValueError):
+                pass
+    if isinstance(cycle, dict) and cycle.get("batch_id") is not None:
+        try:
+            return int(cycle["batch_id"])
+        except (TypeError, ValueError):
+            pass
+    return None
+
+
+def _apply_sink_invariant(doc: dict[str, Any], batch_id: int | None) -> dict[str, Any]:
+    """Every cycle receipt must carry supabase_count == railway_count or BLOCKED_WITH_REASON."""
+    if batch_id is None:
+        inv = {"ok": True, "skipped": True, "reason": "no_batch_id", "verdict": "PASS"}
+        doc["sink_invariant"] = inv
+        return inv
+    try:
+        sys.path.insert(0, str(ROOT / "scripts"))
+        from cloud_forge_run_supabase_v1 import batch_sink_invariant  # noqa: WPS433
+
+        inv = batch_sink_invariant(batch_id=int(batch_id))
+    except Exception as exc:
+        inv = {"ok": False, "error": str(exc)[:120], "verdict": "BLOCKED_WITH_REASON"}
+    doc["sink_invariant"] = inv
+    if not inv.get("ok"):
+        decision = doc.setdefault("decision", {})
+        decision["verdict"] = "BLOCKED_WITH_REASON"
+        decision["block_reason"] = inv.get("blocked_reason") or inv.get("error")
+        decision["rationale"] = (
+            f"Sink invariant failed — {decision.get('block_reason')} · supabase_count must equal railway_count"
+        )
+        if isinstance(doc.get("artifact"), dict):
+            doc["artifact"]["status"] = "blocked"
+        ship = doc.get("belt", {}).get("SHIP")
+        if isinstance(ship, dict):
+            ship["ok"] = False
+            ship["gate_cleared"] = False
+    return inv
+
+
+def _write_daily_heartbeat_if_due(
+    *,
+    head_row: dict[str, Any],
+    sink_inv: dict[str, Any],
+    trigger_source: str,
+) -> Path | None:
+    """One UTC-day heartbeat: queue head, batch state, sink status."""
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    hb_dir = _heartbeat_dir()
+    hb_dir.mkdir(parents=True, exist_ok=True)
+    path = hb_dir / f"heartbeat-{today}-v1.json"
+    if path.is_file():
+        return None
+    obs = head_row.get("observed") if isinstance(head_row.get("observed"), dict) else {}
+    doc = {
+        "schema": "autonomous-forge-run-daily-heartbeat-v1",
+        "version": "1.0.0",
+        "date": today,
+        "at": _now(),
+        "trigger_source": trigger_source,
+        "queue_head": head_row.get("cloud_forge_run_head"),
+        "last_completed": head_row.get("cloud_forge_run_last_completed"),
+        "batch_state": {
+            "batch_id": obs.get("batch_id") or head_row.get("batch_id"),
+            "queue_batch_complete": head_row.get("queue_batch_complete"),
+            "registry_exhausted": head_row.get("registry_exhausted"),
+            "drain_status": head_row.get("drain_status"),
+        },
+        "sink_status": sink_inv,
+        "autonomy": {
+            "zero_manual": True,
+            "scheduler": "cloudflare_cron */10 * * * *",
+            "law": "empty_queue=IDLE_NO_WORK · sink mismatch=BLOCKED_WITH_REASON",
+        },
+    }
+    _write(path, doc)
+    if not _is_headless_cloud():
+        mirror = SINA / "autonomous-forge-run-daily-heartbeat-v1.json"
+        _write(mirror, doc)
+    return path
+
+
 def _run_prove_gate() -> dict[str, Any]:
     """PROVE belt step — living system chains must pass before SHIP."""
     if _is_headless_cloud():
@@ -152,6 +268,7 @@ def _write_cycle_receipt(
     head: str,
     prove: dict[str, Any] | None = None,
     ship: dict[str, Any] | None = None,
+    head_row: dict[str, Any] | None = None,
 ) -> Path:
     """Append one autonomous cycle receipt — green or honest-halt."""
     CYCLE_RECEIPTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -166,17 +283,19 @@ def _write_cycle_receipt(
     idle_batch = bool(pack.get("idle_batch")) or (processed == 0 and bool(pack.get("batch_complete")))
     registry_exhausted = bool(pack.get("registry_exhausted"))
     pack_ok = skipped == 0 and (shipped >= quota or (idle_batch and registry_exhausted and shipped > 0))
-    if idle_batch and registry_exhausted:
+    verdict = ""
+    if processed == 0 and (
+        idle_batch
+        or cycle.get("decision") in ("batch_idle", "drain_complete")
+        or (head_row or {}).get("queue_batch_complete")
+    ):
         ship_ok = False
-        verdict = "drain_complete"
-    elif idle_batch:
-        ship_ok = False
-        verdict = "idle"
+        verdict = "IDLE_NO_WORK"
     elif pack:
         ship_ok = pack_ok
     else:
         ship_ok = bool((ship or {}).get("ok"))
-    if not idle_batch:
+    if verdict != "IDLE_NO_WORK":
         verdict = "approved" if prove_ok and ship_ok else "rejected"
     doc = {
         "schema": "autonomous-forge-run-cycle-receipt-v1",
@@ -222,16 +341,12 @@ def _write_cycle_receipt(
             "verdict": verdict,
             "rationale": cycle.get("decision_rationale")
             or (
-                "Batch complete — idle tick (no rows shipped; not fake SHIP PASS)"
-                if verdict == "idle"
+                "Empty queue — IDLE_NO_WORK (healthy; no manufactured work)"
+                if verdict == "IDLE_NO_WORK"
                 else (
-                    "Competitor-1000 drain complete — registry exhausted; next motor forge-real-blueprints"
-                    if verdict == "drain_complete"
-                    else (
-                        "PROVE and SHIP passed from scheduler receipts"
-                        if verdict == "approved"
-                        else "Halted — gate failed; no forced green"
-                    )
+                    "PROVE and SHIP passed from scheduler receipts"
+                    if verdict == "approved"
+                    else "Halted — gate failed; no forced green"
                 )
             ),
         },
@@ -246,26 +361,10 @@ def _write_cycle_receipt(
             "validator_result": (ship or {}).get("validator_result"),
         }
     pack = cycle.get("pack") if isinstance(cycle.get("pack"), dict) else {}
-    batch_id = pack.get("batch_id")
-    if batch_id is not None and (pack.get("batch_complete") or cycle.get("decision") in ("pack_complete", "drain_complete")):
-        try:
-            sys.path.insert(0, str(ROOT / "scripts"))
-            from cloud_forge_run_supabase_v1 import batch_sink_invariant  # noqa: WPS433
-
-            inv = batch_sink_invariant(batch_id=int(batch_id))
-            doc["sink_invariant"] = inv
-            if not inv.get("ok"):
-                doc["decision"]["verdict"] = "BLOCKED_WITH_REASON"
-                doc["decision"]["block_reason"] = inv.get("blocked_reason")
-                doc["decision"]["rationale"] = (
-                    f"Sink invariant failed — {inv.get('blocked_reason')} · no silent green"
-                )
-                doc["artifact"]["status"] = "blocked"
-                if doc["belt"].get("SHIP"):
-                    doc["belt"]["SHIP"]["ok"] = False
-                    doc["belt"]["SHIP"]["gate_cleared"] = False
-        except Exception as exc:
-            doc["sink_invariant"] = {"ok": False, "error": str(exc)[:120]}
+    batch_id = _resolve_batch_id(pack=pack, head_row=head_row, cycle=cycle)
+    sink_inv = _apply_sink_invariant(doc, batch_id)
+    if head_row:
+        _write_daily_heartbeat_if_due(head_row=head_row, sink_inv=sink_inv, trigger_source=trigger_source)
     _write(path, doc)
     if _is_headless_cloud():
         try:
@@ -676,25 +775,54 @@ def run_cloud_auto_tick(
             head_row = read_head()
         head = str(head_row.get("cloud_forge_run_head") or "")
     if head_row.get("queue_batch_complete") and head_row.get("registry_exhausted"):
-        row = {
+        obs = head_row.get("observed") if isinstance(head_row.get("observed"), dict) else {}
+        pack_idle: dict[str, Any] = {
+            "ok": True,
+            "idle_batch": True,
+            "registry_exhausted": True,
+            "schema": "cloud-forge-run-pack-v1",
+            "advanced": 0,
+            "skipped": 0,
+            "processed": 0,
+            "shipped": 0,
+            "mandatory_quota": int(ssot.get("max_advance_per_tick") or 100),
+            "max_advance": int(ssot.get("max_advance_per_tick") or 100),
+            "batch_complete": True,
+            "batch_id": obs.get("batch_id") or head_row.get("batch_id"),
+            "head_now": head,
+            "last_completed": str(head_row.get("cloud_forge_run_last_completed") or ""),
+        }
+        prove_idle = _run_prove_gate()
+        steps.append({"step": "prove", "result": {"ok": prove_idle.get("ok"), "summary_line": prove_idle.get("summary_line")}})
+        cycle_row = {
             "ok": True,
             "schema": "cloud-auto-runtime-tick-v1",
             "at": at,
-            "decision": "drain_complete",
+            "decision": "batch_idle",
             "head": head,
             "trigger_source": trigger_source,
             "execution_plane": "headless_cloud",
             "queue_batch_complete": True,
             "registry_exhausted": True,
+            "pack": pack_idle,
             "for_founder": head_row.get("for_founder")
             or {
                 "show_this": (
-                    f"Extension wave-2 COMPLETE — {head_row.get('cloud_forge_run_last_completed') or head} · "
-                    "registry exhausted · no more CLOUD-SEC rows"
+                    f"Registry exhausted — {head_row.get('cloud_forge_run_last_completed') or head} · "
+                    "IDLE_NO_WORK (no manufactured rows)"
                 ),
             },
             "steps": steps,
         }
+        cycle_path = _write_cycle_receipt(
+            cycle=cycle_row,
+            trigger_source=trigger_source,
+            head=head,
+            prove=prove_idle,
+            ship=None,
+            head_row=head_row,
+        )
+        row = {**cycle_row, "cycle_receipt_path": str(cycle_path)}
         _write(cloud_tick_receipt, row)
         return row
 
@@ -711,7 +839,9 @@ def run_cloud_auto_tick(
             "execution_plane": "headless_cloud",
             "steps": steps,
         }
-        _write_cycle_receipt(cycle=cycle_row, trigger_source=trigger_source, head=head, prove=prove, ship=None)
+        _write_cycle_receipt(
+            cycle=cycle_row, trigger_source=trigger_source, head=head, prove=prove, ship=None, head_row=head_row
+        )
         _update_ramp_state_cloud(green=False)
         cloud_tick_receipt.parent.mkdir(parents=True, exist_ok=True)
         _write(cloud_tick_receipt, cycle_row)
@@ -730,7 +860,9 @@ def run_cloud_auto_tick(
             "execution_plane": "headless_cloud",
             "steps": steps,
         }
-        _write_cycle_receipt(cycle=cycle_row, trigger_source=trigger_source, head=head, prove=prove, ship=None)
+        _write_cycle_receipt(
+            cycle=cycle_row, trigger_source=trigger_source, head=head, prove=prove, ship=None, head_row=head_row
+        )
         _update_ramp_state_cloud(green=False)
         _write(cloud_tick_receipt, cycle_row)
         return cycle_row
@@ -780,6 +912,7 @@ def run_cloud_auto_tick(
         head=str(pack.get("head_now") or head),
         prove=prove,
         ship=ship_row,
+        head_row=head_row,
     )
     row["cycle_receipt_path"] = str(cycle_path)
     row["ramp"] = _update_ramp_state_cloud(green=shipped >= quota and skipped == 0)
