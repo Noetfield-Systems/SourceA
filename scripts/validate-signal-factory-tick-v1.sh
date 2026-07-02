@@ -9,7 +9,17 @@ PY="${SIGNAL_FACTORY_PYTHON:-/usr/bin/python3}"
 [[ -f "$ROOT/scripts/fbe_cloud_signal_factory_tick_v1.py" ]] || fail "missing fbe_cloud_signal_factory_tick_v1.py"
 [[ -f "$ROOT/data/signal-factory-queue-v1.json" ]] || fail "missing queue SSOT"
 [[ -f "$ROOT/data/signal-factory-cloud-contract-v1.json" ]] || fail "missing cloud contract"
-[[ -f "$ROOT/cloud/workers/signal-factory-tick-v1/src/index.js" ]] || fail "missing CF worker"
+[[ -f "$ROOT/cloud/workers/signal-factory-tick-v1/src/index.js" ]] || fail "missing CF worker (manual/debug only — no cron deploy)"
+
+if grep -qE '^\s*crons\s*=' "$ROOT/cloud/workers/signal-factory-tick-v1/wrangler.toml" 2>/dev/null; then
+  fail "dedicated signal-factory CF cron forbidden — piggyback only (W-LBA-002)"
+fi
+grep -q 'runSignalFactoryTick' "$ROOT/cloud/workers/loop-specialist-tick-v1/src/index.js" \
+  || fail "loop-specialist missing runSignalFactoryTick piggyback hook"
+grep -q '"piggyback_only": true' "$ROOT/data/signal-factory-cloud-cron-v1.json" \
+  || fail "signal-factory-cloud-cron SSOT must declare piggyback_only"
+grep -q 'SA-T-signal-factory-piggyback' "$ROOT/data/trigger-registry-v1.json" \
+  || fail "trigger registry missing SA-T-signal-factory-piggyback"
 
 grep -q '/api/fbe/signal-factory/tick/v1' "$ROOT/scripts/fbe_cloud_worker_http_v1.py" \
   || fail "Railway route not wired"

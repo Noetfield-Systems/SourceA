@@ -81,21 +81,17 @@ def check_hub(*, restart: bool = True) -> dict:
                 timeout=15,
                 check=False,
             )
-            autorun_install = SCRIPTS / "install-autorun-launchd-v1.sh"
-            if autorun_install.is_file():
-                subprocess.run(["bash", str(autorun_install)], cwd=str(ROOT), capture_output=True, timeout=90, check=False)
-        else:
-            install = SCRIPTS / "install-hub-launchd-v1.sh"
-            if install.is_file():
-                subprocess.run(["bash", str(install)], cwd=str(ROOT), capture_output=True, timeout=90, check=False)
-            else:
-                subprocess.Popen(
-                    [sys.executable, str(SCRIPTS / "sina-command-server.py")],
-                    cwd=str(ROOT),
-                    stdout=subprocess.DEVNULL,
-                    stderr=subprocess.DEVNULL,
-                    start_new_session=True,
-                )
+        install = SCRIPTS / "install-hub-launchd-v1.sh"
+        if install.is_file():
+            subprocess.run(["bash", str(install)], cwd=str(ROOT), capture_output=True, timeout=90, check=False)
+        elif not plist.is_file():
+            subprocess.Popen(
+                [sys.executable, str(SCRIPTS / "sina-command-server.py")],
+                cwd=str(ROOT),
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                start_new_session=True,
+            )
         time.sleep(2.0)
     except Exception as exc:
         return {"ok": False, "step": "hub_restart", "error": str(exc), "p0": True}
