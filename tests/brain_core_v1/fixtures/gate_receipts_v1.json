@@ -29,14 +29,14 @@
           "status_key": "sourcea_app_http_status",
           "status_value": "ok",
           "ladder_gear": "confident",
-          "approved_claim": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
+          "approved_claim": "SourceA has public product routes on sourcea.app. Say \u201cSourceA is live\u201d only when a fresh site/status check confirms it.",
           "fallback_text": null,
           "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
           "deterministic": true
         },
         "sanitized_output": {
           "ok": true,
-          "public_language": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
+          "public_language": "SourceA has public product routes on sourcea.app. Say \u201cSourceA is live\u201d only when a fresh site/status check confirms it.",
           "forbidden_public_language_removed": []
         },
         "pass_claimed": false,
@@ -51,14 +51,14 @@
             "status_key": "sourcea_app_http_status",
             "status_value": "ok",
             "ladder_gear": "confident",
-            "approved_claim": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
+            "approved_claim": "SourceA has public product routes on sourcea.app. Say \u201cSourceA is live\u201d only when a fresh site/status check confirms it.",
             "fallback_text": null,
             "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
             "deterministic": true
           },
           "sanitized_output": {
             "ok": true,
-            "public_language": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
+            "public_language": "SourceA has public product routes on sourcea.app. Say \u201cSourceA is live\u201d only when a fresh site/status check confirms it.",
             "forbidden_public_language_removed": []
           },
           "live_status": {
@@ -72,8 +72,8 @@
           },
           "locked_definitions_validation": {
             "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
-            "expected_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
-            "actual_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+            "expected_sha256": "f680fdbe52785fadce427af7d1a92f340c8d3b57c92b2cbd7df55aeb5aee2bba",
+            "actual_sha256": "f680fdbe52785fadce427af7d1a92f340c8d3b57c92b2cbd7df55aeb5aee2bba",
             "match": true,
             "validation_result": "PASS",
             "reasons": []
@@ -81,13 +81,13 @@
         },
         "locked_definitions_validation": {
           "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
-          "expected_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
-          "actual_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+          "expected_sha256": "f680fdbe52785fadce427af7d1a92f340c8d3b57c92b2cbd7df55aeb5aee2bba",
+          "actual_sha256": "f680fdbe52785fadce427af7d1a92f340c8d3b57c92b2cbd7df55aeb5aee2bba",
           "match": true,
           "validation_result": "PASS",
           "reasons": []
         },
-        "input_hash": "8c7273478b8a7e39e2156cca0e3a1cb07846501e06027c8ab40c89dbcfa78795",
+        "input_hash": "a3fb2b1be0bbca44adbe93e9fecbd6989d106d23e916c3d054dde0213f42cc2c",
         "d4_enforcement": {
           "schema": "brain-core-d4-enforcement-v1",
           "schema_version": "1.0.0",
@@ -104,7 +104,7 @@
           "author_verifier_separated": true,
           "protected_receipt": true,
           "reasons": [],
-          "enforcement_hash": "d44ef6f40179d2910a0a819f237819d3f28be29c19b9d2d5eccea6d14a56e875"
+          "enforcement_hash": "d15b10eef1c43b001c7086ce4c067c4a1832b79e4563339a44df84443b741747"
         }
       }
     },
@@ -137,15 +137,15 @@
           "status_key": "sourcea_app_http_status",
           "status_value": "unknown",
           "ladder_gear": "unsure",
-          "approved_claim": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
-          "fallback_text": "SourceA has public product routes on sourcea.app. I don’t have a fresh live-status check in this answer, so start from the current product route.",
+          "approved_claim": "SourceA has public product routes on sourcea.app. Say \u201cSourceA is live\u201d only when a fresh site/status check confirms it.",
+          "fallback_text": "SourceA has public product routes on sourcea.app. I don\u2019t have a fresh live-status check in this answer, so start from the current product route.",
           "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
           "deterministic": true
         },
         "sanitized_output": {
           "ok": false,
           "reason": "status_invented_or_strengthened",
-          "safe_public_language": "SourceA has public product routes on sourcea.app. I don’t have a fresh live-status check in this answer, so start from the current product route.",
+          "safe_public_language": "SourceA has public product routes on sourcea.app. I don\u2019t have a fresh live-status check in this answer, so start from the current product route.",
           "forbidden_public_language_removed": [
             "PASS"
           ]
@@ -166,15 +166,15 @@
             "status_key": "sourcea_app_http_status",
             "status_value": "unknown",
             "ladder_gear": "unsure",
-            "approved_claim": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
-            "fallback_text": "SourceA has public product routes on sourcea.app. I don’t have a fresh live-status check in this answer, so start from the current product route.",
+            "approved_claim": "SourceA has public product routes on sourcea.app. Say \u201cSourceA is live\u201d only when a fresh site/status check confirms it.",
+            "fallback_text": "SourceA has public product routes on sourcea.app. I don\u2019t have a fresh live-status check in this answer, so start from the current product route.",
             "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
             "deterministic": true
           },
           "sanitized_output": {
             "ok": false,
             "reason": "status_invented_or_strengthened",
-            "safe_public_language": "SourceA has public product routes on sourcea.app. I don’t have a fresh live-status check in this answer, so start from the current product route.",
+            "safe_public_language": "SourceA has public product routes on sourcea.app. I don\u2019t have a fresh live-status check in this answer, so start from the current product route.",
             "forbidden_public_language_removed": [
               "PASS"
             ]
@@ -190,8 +190,8 @@
           },
           "locked_definitions_validation": {
             "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
-            "expected_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
-            "actual_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+            "expected_sha256": "f680fdbe52785fadce427af7d1a92f340c8d3b57c92b2cbd7df55aeb5aee2bba",
+            "actual_sha256": "f680fdbe52785fadce427af7d1a92f340c8d3b57c92b2cbd7df55aeb5aee2bba",
             "match": true,
             "validation_result": "PASS",
             "reasons": []
@@ -199,13 +199,13 @@
         },
         "locked_definitions_validation": {
           "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
-          "expected_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
-          "actual_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+          "expected_sha256": "f680fdbe52785fadce427af7d1a92f340c8d3b57c92b2cbd7df55aeb5aee2bba",
+          "actual_sha256": "f680fdbe52785fadce427af7d1a92f340c8d3b57c92b2cbd7df55aeb5aee2bba",
           "match": true,
           "validation_result": "PASS",
           "reasons": []
         },
-        "input_hash": "ce5bbf409e80daa16f74806fe5527587dbfb8c656cdc5bce1e86cfcf03e92d82",
+        "input_hash": "1cb1a6810566887fccace7989feb15dc3349aac0de31ce8f9541f1191bf1b2c4",
         "d4_enforcement": {
           "schema": "brain-core-d4-enforcement-v1",
           "schema_version": "1.0.0",
@@ -222,7 +222,7 @@
           "author_verifier_separated": true,
           "protected_receipt": true,
           "reasons": [],
-          "enforcement_hash": "34bd5b2908879af43d861b9a169e8f6b3b9bb7a3fd0f274c87874e137a4c1b32"
+          "enforcement_hash": "1c382b814ede95cc6c6916618f81795608ed5e806b30f18cd37eb6b2c834ebd0"
         }
       }
     },
@@ -304,8 +304,8 @@
           },
           "locked_definitions_validation": {
             "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
-            "expected_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
-            "actual_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+            "expected_sha256": "f680fdbe52785fadce427af7d1a92f340c8d3b57c92b2cbd7df55aeb5aee2bba",
+            "actual_sha256": "f680fdbe52785fadce427af7d1a92f340c8d3b57c92b2cbd7df55aeb5aee2bba",
             "match": true,
             "validation_result": "PASS",
             "reasons": []
@@ -313,13 +313,13 @@
         },
         "locked_definitions_validation": {
           "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
-          "expected_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
-          "actual_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+          "expected_sha256": "f680fdbe52785fadce427af7d1a92f340c8d3b57c92b2cbd7df55aeb5aee2bba",
+          "actual_sha256": "f680fdbe52785fadce427af7d1a92f340c8d3b57c92b2cbd7df55aeb5aee2bba",
           "match": true,
           "validation_result": "PASS",
           "reasons": []
         },
-        "input_hash": "487202090460cb23e82850aef39e3b4fa8680c201b26dcfb12cbab983ee681f6",
+        "input_hash": "98112dfaecccf07e5583b75f472534ef01aa70b510fb33c977ee6345f152f362",
         "d4_enforcement": {
           "schema": "brain-core-d4-enforcement-v1",
           "schema_version": "1.0.0",
@@ -336,7 +336,7 @@
           "author_verifier_separated": true,
           "protected_receipt": true,
           "reasons": [],
-          "enforcement_hash": "62121304efdff2205c2d9a54ebf7d099ecf73d732f2709d3c0418df55012b510"
+          "enforcement_hash": "86725e58b6cbb1ce6ab794589ac8ccb50b2e923c769975410abe99079952888d"
         }
       }
     },
@@ -369,13 +369,13 @@
           "status_value": "unknown",
           "ladder_gear": "unsure",
           "approved_claim": "SourceA is designed around verifiable receipts/proof of work. Do not claim every possible run has perfect public proof unless the specific proof exists.",
-          "fallback_text": "SourceA is built around receipts and proof, but I don’t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
+          "fallback_text": "SourceA is built around receipts and proof, but I don\u2019t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
           "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
           "deterministic": true
         },
         "sanitized_output": {
           "ok": true,
-          "public_language": "SourceA is built around receipts and proof, but I don’t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
+          "public_language": "SourceA is built around receipts and proof, but I don\u2019t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
           "forbidden_public_language_removed": []
         },
         "pass_claimed": false,
@@ -393,13 +393,13 @@
             "status_value": "unknown",
             "ladder_gear": "unsure",
             "approved_claim": "SourceA is designed around verifiable receipts/proof of work. Do not claim every possible run has perfect public proof unless the specific proof exists.",
-            "fallback_text": "SourceA is built around receipts and proof, but I don’t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
+            "fallback_text": "SourceA is built around receipts and proof, but I don\u2019t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
             "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
             "deterministic": true
           },
           "sanitized_output": {
             "ok": true,
-            "public_language": "SourceA is built around receipts and proof, but I don’t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
+            "public_language": "SourceA is built around receipts and proof, but I don\u2019t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
             "forbidden_public_language_removed": []
           },
           "live_status": {
@@ -412,8 +412,8 @@
           },
           "locked_definitions_validation": {
             "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
-            "expected_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
-            "actual_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+            "expected_sha256": "f680fdbe52785fadce427af7d1a92f340c8d3b57c92b2cbd7df55aeb5aee2bba",
+            "actual_sha256": "f680fdbe52785fadce427af7d1a92f340c8d3b57c92b2cbd7df55aeb5aee2bba",
             "match": true,
             "validation_result": "PASS",
             "reasons": []
@@ -421,13 +421,13 @@
         },
         "locked_definitions_validation": {
           "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
-          "expected_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
-          "actual_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+          "expected_sha256": "f680fdbe52785fadce427af7d1a92f340c8d3b57c92b2cbd7df55aeb5aee2bba",
+          "actual_sha256": "f680fdbe52785fadce427af7d1a92f340c8d3b57c92b2cbd7df55aeb5aee2bba",
           "match": true,
           "validation_result": "PASS",
           "reasons": []
         },
-        "input_hash": "b6bcfddb635425d688204c5c91fffceecc357baea1c6068eb43380fa35805f0a",
+        "input_hash": "1104530f16909ac8721bc6e69962daa1b8d4d2729f9c245af2d8191ce9964f8a",
         "d4_enforcement": {
           "schema": "brain-core-d4-enforcement-v1",
           "schema_version": "1.0.0",
@@ -444,7 +444,7 @@
           "author_verifier_separated": true,
           "protected_receipt": true,
           "reasons": [],
-          "enforcement_hash": "c49efa28180fc731dd3333dd0bbe813277d57b7dd1f092d90ddda79b46cd985a"
+          "enforcement_hash": "dab26b0cd2a51055907f59660ae4cc15b3c097806476406bf33f1bd03938c9a7"
         }
       }
     }
