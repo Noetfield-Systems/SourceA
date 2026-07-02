@@ -10,7 +10,9 @@ from __future__ import annotations
 import argparse
 import json
 import os
-import sys
+import urllib.error
+import urllib.parse
+import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
@@ -55,7 +57,79 @@ def _parse_iso(iso: str) -> datetime | None:
         return None
 
 
+def _supabase_cfg() -> dict[str, str]:
+    url = os.environ.get("SUPABASE_URL", "").strip()
+    key = (
+        os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "").strip()
+        or os.environ.get("SUPABASE_SERVICE_KEY", "").strip()
+    )
+    if not url or not key:
+        spine = Path.home() / ".sourcea-secrets" / "portfolio-spine.env"
+        if spine.is_file():
+            for line in spine.read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if line.startswith("#") or "=" not in line:
+                    continue
+                k, _, v = line.partition("=")
+                k = k.strip()
+                v = v.strip().strip('"').strip("'")
+                if k == "SUPABASE_URL" and not url:
+                    url = v
+                if k == "SUPABASE_SERVICE_ROLE_KEY" and not key:
+                    key = v
+    return {"url": url, "key": key}
+
+
+def _latest_external_verify_truth_log(*, since: datetime) -> dict[str, Any]:
+    cfg = _supabase_cfg()
+    if not cfg["url"] or not cfg["key"]:
+        return {"found": False, "error": "supabase_not_configured"}
+    since_iso = since.strftime("%Y-%m-%dT%H:%M:%SZ")
+    params = urllib.parse.urlencode(
+        {
+            "select": "id,recorded_at,event,source,receipt_id,payload",
+            "source": "eq.github_actions",
+            "event": "eq.EXTERNAL_VERIFY_PASS",
+            "recorded_at": f"gte.{since_iso}",
+            "order": "recorded_at.desc",
+            "limit": "1",
+        }
+    )
+    req_url = f"{cfg['url'].rstrip('/')}/rest/v1/truth_log?{params}"
+    req = urllib.request.Request(
+        req_url,
+        headers={
+            "apikey": cfg["key"],
+            "Authorization": f"Bearer {cfg['key']}",
+            "Accept": "application/json",
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=25) as resp:
+            rows = json.loads(resp.read().decode("utf-8", errors="replace") or "[]")
+            if not rows:
+                return {"found": False, "source": "supabase_truth_log"}
+            row = rows[0]
+            payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
+            return {
+                "found": True,
+                "source": "supabase_truth_log",
+                "truth_log_id": row.get("id"),
+                "at": row.get("recorded_at"),
+                "ok": True,
+                "github_run_id": payload.get("github_run_id"),
+                "run_url": payload.get("run_url"),
+                "conclusion": payload.get("conclusion"),
+            }
+    except Exception as exc:
+        return {"found": False, "error": str(exc)[:200], "source": "supabase_truth_log"}
+
+
 def _latest_external_verify_receipt() -> dict[str, Any]:
+    since = datetime.now(timezone.utc) - timedelta(hours=24)
+    truth = _latest_external_verify_truth_log(since=since)
+    if truth.get("found") and truth.get("ok"):
+        return truth
     if not EXTERNAL_VERIFY_DIR.is_dir():
         return {"found": False, "path": str(EXTERNAL_VERIFY_DIR)}
     paths = sorted(EXTERNAL_VERIFY_DIR.glob("external-verify-*-v1.json"))
@@ -141,8 +215,11 @@ def pending_snapshot(*, max_age_hours: float = 24.0) -> dict[str, Any]:
     ev = _latest_external_verify_receipt()
     ev_ok = False
     if ev.get("found") and ev.get("ok"):
-        at = _parse_iso(str(ev.get("at") or ""))
-        ev_ok = at is not None and at >= since
+        if ev.get("source") == "supabase_truth_log":
+            ev_ok = True
+        else:
+            at = _parse_iso(str(ev.get("at") or ""))
+            ev_ok = at is not None and at >= since
     if not ev_ok:
         items.append(
             {
@@ -151,17 +228,18 @@ def pending_snapshot(*, max_age_hours: float = 24.0) -> dict[str, Any]:
                 "severity": "P0",
                 "law": "L4",
                 "reason": (
-                    "no_green_external_verify_receipt_on_disk"
+                    "no_EXTERNAL_VERIFY_PASS_in_supabase_truth_log"
                     if not ev.get("found")
-                    else "external_verify_receipt_stale_or_not_ok"
+                    else "external_verify_truth_log_stale_or_not_ok"
                 ),
                 "evidence": {
-                    "command": "ls receipts/cloud/external-verify/",
+                    "command": "GET /rest/v1/truth_log?event=eq.EXTERNAL_VERIFY_PASS",
                     "exit_code": 0 if ev.get("found") else 1,
                     "output": json.dumps(ev)[:400],
+                    "truth_log_id": ev.get("truth_log_id"),
+                    "run_url": ev.get("run_url"),
                 },
-                "action": "green external-verify.yml run; receipt must land on disk",
-                "actions_url": GITHUB_ACTIONS_EXTERNAL_VERIFY,
+                "action": "machine: read_action_runs_v1.py --dispatch --wait · sink auto-updates on PASS",
             }
         )
 

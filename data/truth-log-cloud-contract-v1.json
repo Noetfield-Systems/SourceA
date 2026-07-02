@@ -16,6 +16,12 @@
     "receipt_id": "text nullable"
   },
   "writers": {
+    "github_actions": {
+      "events": ["EXTERNAL_VERIFY_PASS", "EXTERNAL_VERIFY_FAIL"],
+      "module": "scripts/post_external_verify_truth_v1.py",
+      "workflow": ".github/workflows/external-verify.yml",
+      "secrets": ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"]
+    },
     "cloudflare_cron": {
       "event": "CRON_FIRED",
       "module": "cloud/workers/cloud-auto-runtime-tick-v1/src/truth_log.js",
