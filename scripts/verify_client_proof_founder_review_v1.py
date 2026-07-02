@@ -331,10 +331,21 @@ def main() -> int:
         default=0,
         help="Require at least N seconds since last Pages publish (use 60 for ship proof)",
     )
+    ap.add_argument(
+        "--pack",
+        default=str(PACK),
+        help="Founder review pack JSON path (v1 or v2)",
+    )
+    ap.add_argument(
+        "--receipt",
+        default=str(VERIFY_RECEIPT),
+        help="Verify receipt output path",
+    )
     args = ap.parse_args()
     vbp = _load_vbp()
     deploy_gate = _deploy_cooldown_ok(min_seconds=args.min_seconds_after_deploy)
-    pack = json.loads(PACK.read_text(encoding="utf-8"))
+    pack_path = Path(args.pack)
+    pack = json.loads(pack_path.read_text(encoding="utf-8"))
     rows = [verify_row(r, vbp, deploy_gate=deploy_gate) for r in pack["rows"]]
     passed = sum(1 for r in rows if r["verdict"] == "PASS")
     out = {
@@ -347,12 +358,14 @@ def main() -> int:
         "total": len(rows),
         "passed": passed,
         "ok": passed == len(rows),
+        "pack_path": str(pack_path),
         "rows": rows,
     }
+    receipt_path = Path(args.receipt)
     if args.write_receipt:
-        VERIFY_RECEIPT.parent.mkdir(parents=True, exist_ok=True)
-        VERIFY_RECEIPT.write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
-        out["receipt_path"] = str(VERIFY_RECEIPT)
+        receipt_path.parent.mkdir(parents=True, exist_ok=True)
+        receipt_path.write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
+        out["receipt_path"] = str(receipt_path)
     if args.json:
         print(json.dumps(out, indent=2))
     else:

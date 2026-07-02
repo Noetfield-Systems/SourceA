@@ -1,0 +1,132 @@
+{
+  "schema": "client-proof-founder-review-pack-v2",
+  "version": "1.0.0",
+  "generated_at": "2026-07-02T08:54:19Z",
+  "authority": "data/client-proof-recipe-rubric-v1.json",
+  "one_law": "Tranche 2 expands buyer-call-safe public pages after tranche 1 PASS.",
+  "total": 15,
+  "tranche": 2,
+  "path": "data/client-proof-founder-review-pack-v2.json",
+  "rows": [
+    {
+      "recipe_id": "cpr-public-changelog",
+      "live_url": "https://sourcea.app/changelog",
+      "proof_marker": "STAB-026",
+      "buyer_use_risk": "Low \u2014 public page HTTP 200 + marker",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-public-team",
+      "live_url": "https://sourcea.app/team",
+      "proof_marker": "Your agentic team",
+      "buyer_use_risk": "Low \u2014 public page HTTP 200 + marker",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-public-start",
+      "live_url": "https://sourcea.app/start",
+      "proof_marker": "data-sa-page",
+      "buyer_use_risk": "Low \u2014 public page HTTP 200 + marker",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-public-proof-hub",
+      "live_url": "https://sourcea.app/proof",
+      "proof_marker": "Verification",
+      "buyer_use_risk": "Low \u2014 public page HTTP 200 + marker",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-public-pricing",
+      "live_url": "https://sourcea.app/pricing",
+      "proof_marker": "Pricing",
+      "buyer_use_risk": "Low \u2014 public page HTTP 200 + marker",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-public-proof-sample",
+      "live_url": "https://sourcea.app/attach/proof-bundle-sample",
+      "proof_marker": "proof bundle",
+      "buyer_use_risk": "Low \u2014 public page HTTP 200 + marker",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-public-scenario",
+      "live_url": "https://sourcea.app/sourcea/scenario.html",
+      "proof_marker": "scenario",
+      "buyer_use_risk": "Low \u2014 public page HTTP 200 + marker",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-public-case-index",
+      "live_url": "https://sourcea.app/case-studies/",
+      "proof_marker": "Case studies",
+      "buyer_use_risk": "Low \u2014 public page HTTP 200 + marker",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-public-downloads",
+      "live_url": "https://sourcea.app/downloads/",
+      "proof_marker": "Downloads",
+      "buyer_use_risk": "Low \u2014 public page HTTP 200 + marker",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-public-mvp-landing",
+      "live_url": "https://sourcea.app/mvp-landing",
+      "proof_marker": "MVP",
+      "buyer_use_risk": "Low \u2014 public page HTTP 200 + marker",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-public-learn",
+      "live_url": "https://sourcea.app/learn",
+      "proof_marker": "Learn",
+      "buyer_use_risk": "Low \u2014 public page HTTP 200 + marker",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-public-privacy",
+      "live_url": "https://sourcea.app/legal/privacy",
+      "proof_marker": "Privacy",
+      "buyer_use_risk": "Low \u2014 public page HTTP 200 + marker",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-public-products",
+      "live_url": "https://sourcea.app/products",
+      "proof_marker": "Products",
+      "buyer_use_risk": "Low \u2014 public page HTTP 200 + marker",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-public-forge",
+      "live_url": "https://sourcea.app/forge",
+      "proof_marker": "Forge",
+      "buyer_use_risk": "Low \u2014 public page HTTP 200 + marker",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    },
+    {
+      "recipe_id": "cpr-public-landing",
+      "live_url": "https://sourcea.app/landing",
+      "proof_marker": "SourceA",
+      "buyer_use_risk": "Low \u2014 public page HTTP 200 + marker",
+      "recommendation": "APPROVE \u2014 machine verify PASS target",
+      "human_review_before_buyer_call": false
+    }
+  ]
+}
