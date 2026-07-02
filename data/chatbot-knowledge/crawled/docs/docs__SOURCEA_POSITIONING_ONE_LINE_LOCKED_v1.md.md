@@ -1,6 +1,6 @@
 ---
 lane: core
-updated: 2026-07-02T08:56:13Z
+updated: 2026-07-02T10:32:00Z
 source_path: docs/SOURCEA_POSITIONING_ONE_LINE_LOCKED_v1.md
 public: true
 ---

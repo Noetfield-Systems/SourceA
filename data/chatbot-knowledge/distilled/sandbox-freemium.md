@@ -1,6 +1,6 @@
 ---
 lane: buyer
-updated: 2026-07-02T08:56:13Z
+updated: 2026-07-02T10:32:00Z
 source_path: sites/SourceA-landing/green-unified/48h-mvp.html
 public: true
 www_url: https://sourcea.app/sourcea/48h-mvp
