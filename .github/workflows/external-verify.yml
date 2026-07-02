@@ -9,6 +9,7 @@ on:
     paths:
       - '.github/workflows/external-verify.yml'
       - 'scripts/external_verify_l4_minimal_v1.sh'
+      - 'scripts/post_external_verify_l4_truth_v1.py'
       - 'data/client-proof-founder-review-pack-v1.json'
 
 permissions:
@@ -48,25 +49,4 @@ jobs:
         run: |
           set -euo pipefail
           test -f "$RECEIPT_PATH"
-          EVENT="$(
-            python3 -c "import json; r=json.load(open('$RECEIPT_PATH')); print('EXTERNAL_VERIFY_PASS' if r.get('ok') else 'EXTERNAL_VERIFY_FAIL')"
-          )"
-          BODY="$(
-            python3 -c "
-          import json, os
-          r=json.load(open(os.environ['RECEIPT_PATH']))
-          print(json.dumps({
-            'source': 'github_actions',
-            'event': os.environ['EVENT'],
-            'receipt_id': f\"external-verify-l4-{r.get('github_run_id','')}\",
-            'deployment_id': (r.get('github_sha') or '')[:64] or None,
-            'payload': r,
-          }))
-          " EVENT="$EVENT"
-          )"
-          curl -sfS -X POST "${SUPABASE_URL%/}/rest/v1/truth_log" \
-            -H "apikey: ${SUPABASE_SERVICE_ROLE_KEY}" \
-            -H "Authorization: Bearer ${SUPABASE_SERVICE_ROLE_KEY}" \
-            -H "Content-Type: application/json" \
-            -H "Prefer: return=representation" \
-            --data-binary "$BODY" | python3 -c "import json,sys; rows=json.load(sys.stdin); print('truth_log_id', (rows[0] if isinstance(rows,list) else rows).get('id'))"
+          python3 scripts/post_external_verify_l4_truth_v1.py --receipt "$RECEIPT_PATH" --json
