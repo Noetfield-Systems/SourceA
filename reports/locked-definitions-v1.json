@@ -1,6 +1,6 @@
 {
   "schema": "sourcea-locked-definitions-draft-v1",
-  "status": "live_locked_candidate",
+  "status": "live_locked_candidate_verified",
   "created_for": "OBSERVE/EXTRACT -> DRAFT -> REPORT -> STOP",
   "live_files_modified": false,
   "note": "Definitions artifact is a live-locked candidate only. No deploy and no Worker/runtime/site files modified.",
@@ -8,20 +8,20 @@
     {
       "id": "sourcea",
       "term": "SourceA",
-      "approved_text": "SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run.",
+      "approved_text": "SourceA is an AI execution platform powered by Forge \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.",
       "tag": "approved_existing",
       "provenance": [
         {
           "source_path": "data/brain-public-rules-v1.json",
-          "literal_source_text": "SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run."
+          "literal_source_text": "SourceA is an AI execution platform powered by Forge \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run."
         },
         {
           "source_path": "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json",
-          "literal_source_text": "## One line\nSourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run."
+          "literal_source_text": "## One line\nSourceA is an AI execution platform powered by Forge \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run."
         },
         {
           "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
-          "literal_source_text": "\"one_line\": \"SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run.\""
+          "literal_source_text": "\"one_line\": \"SourceA is an AI execution platform powered by Forge \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.\""
         }
       ],
       "ratification_status": "draft_accepted_not_live_locked"
@@ -29,16 +29,16 @@
     {
       "id": "forge",
       "term": "Forge",
-      "approved_text": "Forge Terminal is the execution desk — living chat, workspace, agents, quality gate, cloud dispatch.",
+      "approved_text": "Forge Terminal is the execution desk \u2014 living chat, workspace, agents, quality gate, cloud dispatch.",
       "tag": "approved_existing",
       "provenance": [
         {
           "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
-          "literal_source_text": "Forge Terminal is the execution desk — living chat, workspace, agents, quality gate, cloud dispatch."
+          "literal_source_text": "Forge Terminal is the execution desk \u2014 living chat, workspace, agents, quality gate, cloud dispatch."
         },
         {
           "source_path": "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json",
-          "literal_source_text": "## What Forge is\n\nForge Terminal is the execution desk — living chat, workspace, agents, quality gate, cloud dispatch.\n\nPublic try (no install): `/sourcea/forge/terminal`"
+          "literal_source_text": "## What Forge is\n\nForge Terminal is the execution desk \u2014 living chat, workspace, agents, quality gate, cloud dispatch.\n\nPublic try (no install): `/sourcea/forge/terminal`"
         }
       ],
       "ratification_status": "draft_accepted_not_live_locked"
@@ -58,14 +58,14 @@
         },
         {
           "source_path": "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json",
-          "literal_source_text": "## One law\n\n> **SourceA is an AI execution platform powered by Forge — not a “proof records” product. Proof is built in; it is not the whole product.**"
+          "literal_source_text": "## One law\n\n> **SourceA is an AI execution platform powered by Forge \u2014 not a \u201cproof records\u201d product. Proof is built in; it is not the whole product.**"
         }
       ],
       "ratification_status": "draft_accepted_not_live_locked"
     },
     {
       "id": "sourcea_is_live",
-      "approved_text": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
+      "approved_text": "SourceA has public product routes on sourcea.app. Say \u201cSourceA is live\u201d only when a fresh site/status check confirms it.",
       "requires_status_signal": true,
       "status_key": "sourcea_app_http_status",
       "tag": "founder_approved",
@@ -79,10 +79,10 @@
           "literal_source_text": "\"primary_ctas\": [\n    { \"label\": \"Try Forge Terminal\", \"url\": \"/sourcea/forge/terminal\" },\n    { \"label\": \"Live proof\", \"url\": \"/sourcea/proof/live\" },\n    { \"label\": \"Pricing\", \"url\": \"/sourcea/pricing\" },\n    { \"label\": \"Factories\", \"url\": \"/sourcea/factories/\" }\n  ]"
         }
       ],
-      "final_approved_claim": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
+      "final_approved_claim": "SourceA has public product routes on sourcea.app. Say \u201cSourceA is live\u201d only when a fresh site/status check confirms it.",
       "required_live_signal": "sourcea_app_http_status",
-      "fallback_when_unsure": "SourceA has public product routes on sourcea.app. I don’t have a fresh live-status check in this answer, so start from the current product route.",
-      "fallback_when_degraded": "SourceA’s public route may be degraded right now. Use the proof/status route first, or escalate to a guided demo if you need a human walkthrough.",
+      "fallback_when_unsure": "SourceA has public product routes on sourcea.app. I don\u2019t have a fresh live-status check in this answer, so start from the current product route.",
+      "fallback_when_degraded": "SourceA\u2019s public route may be degraded right now. Use the proof/status route first, or escalate to a guided demo if you need a human walkthrough.",
       "ratification_status": "founder_approved",
       "not_deployed": true
     },
@@ -99,7 +99,7 @@
         },
         {
           "source_path": "sites/SourceA-landing/green-unified/forge/terminal.html",
-          "literal_source_text": "<meta name=\"description\" content=\"Try Forge Terminal in your browser — living chat with prompt forge on every send. Public demo for founders and agencies.\" />"
+          "literal_source_text": "<meta name=\"description\" content=\"Try Forge Terminal in your browser \u2014 living chat with prompt forge on every send. Public demo for founders and agencies.\" />"
         }
       ],
       "ratification_status": "draft_accepted_not_live_locked"
@@ -113,16 +113,16 @@
       "provenance": [
         {
           "source_path": "sites/SourceA-landing/green-unified/forge/terminal.html",
-          "literal_source_text": "<title>Forge Terminal — live demo | SourceA</title>"
+          "literal_source_text": "<title>Forge Terminal \u2014 live demo | SourceA</title>"
         },
         {
           "source_path": "sites/SourceA-landing/green-unified/forge/terminal.html",
-          "literal_source_text": "<span class=\"sa-ft-status\" id=\"sa-ft-status\">Connecting…</span>"
+          "literal_source_text": "<span class=\"sa-ft-status\" id=\"sa-ft-status\">Connecting\u2026</span>"
         }
       ],
       "final_approved_claim": "Forge Terminal is the browser product route for trying SourceA/Forge. Say it is available only after a fresh runtime/status signal confirms it.",
       "required_live_signal": "forge_terminal_runtime_status",
-      "fallback_when_unsure": "Forge Terminal is the browser product route for SourceA/Forge. I don’t have a fresh runtime check in this answer, so treat it as the route to try, not a guaranteed-live session.",
+      "fallback_when_unsure": "Forge Terminal is the browser product route for SourceA/Forge. I don\u2019t have a fresh runtime check in this answer, so treat it as the route to try, not a guaranteed-live session.",
       "fallback_when_degraded": "Forge Terminal may be degraded right now. Start from the SourceA product/proof route, then use the demo escalation if the browser route does not connect.",
       "ratification_status": "founder_approved",
       "not_deployed": true
@@ -136,11 +136,11 @@
       "provenance": [
         {
           "source_path": "data/brain-public-rules-v1.json",
-          "literal_source_text": "SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run."
+          "literal_source_text": "SourceA is an AI execution platform powered by Forge \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run."
         },
         {
           "source_path": "sites/SourceA-landing/green-unified/forge/how-it-works.html",
-          "literal_source_text": "<p class=\"ar-lead\">SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run. Paste what you want done; Forge scopes one job, runs it through checks, and hands back work you can show clients.</p>"
+          "literal_source_text": "<p class=\"ar-lead\">SourceA is an AI execution platform powered by Forge \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run. Paste what you want done; Forge scopes one job, runs it through checks, and hands back work you can show clients.</p>"
         }
       ],
       "ratification_status": "draft_accepted_not_live_locked"
@@ -159,8 +159,8 @@
       ],
       "final_approved_claim": "SourceA is designed around verifiable receipts/proof of work. Do not claim every possible run has perfect public proof unless the specific proof exists.",
       "required_live_signal": "specific_run_public_proof_status",
-      "fallback_when_unsure": "SourceA is built around receipts and proof, but I don’t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
-      "fallback_when_degraded": "The proof route or specific receipt may be unavailable right now. Don’t treat that as proof failure; treat it as unverified until the specific receipt/status is available.",
+      "fallback_when_unsure": "SourceA is built around receipts and proof, but I don\u2019t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
+      "fallback_when_degraded": "The proof route or specific receipt may be unavailable right now. Don\u2019t treat that as proof failure; treat it as unverified until the specific receipt/status is available.",
       "ratification_status": "founder_approved",
       "not_deployed": true
     },
@@ -231,7 +231,7 @@
         },
         {
           "source_path": "docs/SOURCEA_SSOT_INDEX_LOCKED_v1.md",
-          "literal_source_text": "> **This index is the single entry point.** SourceA has layered SSOTs — Mac control plane (shipped) and cloud factory kernel (target) — plus a reconciliation map between them. Do not treat any one file as the entire system."
+          "literal_source_text": "> **This index is the single entry point.** SourceA has layered SSOTs \u2014 Mac control plane (shipped) and cloud factory kernel (target) \u2014 plus a reconciliation map between them. Do not treat any one file as the entire system."
         },
         {
           "source_path": "brain-os/law/enforcement/SOURCEA_FORGE_SELF_BUILD_STACK_LOCKED_v1.md",
@@ -239,19 +239,19 @@
         },
         {
           "source_path": "brain-os/law/enforcement/SOURCEA_FORGE_GOVERNANCE_KERNEL_LOCKED_v1.md",
-          "literal_source_text": "**Not production geopolitics.** Stub: `scripts/forge_world_state_v1.py` · `~/.sina/forge-world-state-v1.json`\n\nThree seed nations: SourceA Mac · Cloud Forge Railway · Labs Sandbox.\n\nFull v6 multi-nation conflict/trade = cloud simulation only when founder arms."
+          "literal_source_text": "**Not production geopolitics.** Stub: `scripts/forge_world_state_v1.py` \u00b7 `~/.sina/forge-world-state-v1.json`\n\nThree seed nations: SourceA Mac \u00b7 Cloud Forge Railway \u00b7 Labs Sandbox.\n\nFull v6 multi-nation conflict/trade = cloud simulation only when founder arms."
         }
       ],
       "ratification_status": "draft_accepted_not_live_locked"
     },
     {
       "id": "broken_gears",
-      "approved_text": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
-      "final_approved_claim": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
+      "approved_text": "\u201cBroken gears\u201d is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
+      "final_approved_claim": "\u201cBroken gears\u201d is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
       "requires_status_signal": true,
       "status_key": "relevant_route_or_tool_status",
       "required_live_signal": "Use the relevant status key for the failing route/tool; no standalone `broken_gears` public status key.",
-      "fallback_when_unsure": "I don’t have enough live evidence to confirm that path. Use the safest product route first, and I’ll avoid guessing.",
+      "fallback_when_unsure": "I don\u2019t have enough live evidence to confirm that path. Use the safest product route first, and I\u2019ll avoid guessing.",
       "fallback_when_degraded": "That path looks degraded or unavailable right now. Use the safest product/proof route, and escalate to a guided demo only if you need help moving forward.",
       "tag": "founder_approved",
       "ratification_status": "founder_approved",
@@ -261,7 +261,7 @@
       "provenance": [
         {
           "source_path": "reports/locked-definitions-founder-decisions-v1.md",
-          "literal_source_text": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review."
+          "literal_source_text": "\u201cBroken gears\u201d is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review."
         }
       ]
     }
@@ -306,7 +306,7 @@
     },
     {
       "id": "broken_gears_public_wording",
-      "approved_text": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
+      "approved_text": "\u201cBroken gears\u201d is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
       "tag": "founder_approved",
       "ratification_status": "founder_approved",
       "language_scope": "private_diagnostic_only",
@@ -317,7 +317,7 @@
       "provenance": [
         {
           "source_path": "reports/locked-definitions-founder-decisions-v1.md",
-          "literal_source_text": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review."
+          "literal_source_text": "\u201cBroken gears\u201d is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review."
         }
       ]
     }
@@ -338,12 +338,12 @@
       },
       {
         "id": "answer_first",
-        "approved_text": "Answer the actual question first — match energy; no generic sales blob.",
+        "approved_text": "Answer the actual question first \u2014 match energy; no generic sales blob.",
         "tag": "approved_existing",
         "provenance": [
           {
             "source_path": "data/brain-public-rules-v1.json",
-            "literal_source_text": "Answer the actual question first — match energy; no generic sales blob."
+            "literal_source_text": "Answer the actual question first \u2014 match energy; no generic sales blob."
           }
         ],
         "ratification_status": "draft_accepted_not_live_locked"
@@ -418,12 +418,12 @@
     "broken_gears": [
       {
         "step": 1,
-        "approved_text": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
-        "final_approved_claim": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
+        "approved_text": "\u201cBroken gears\u201d is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
+        "final_approved_claim": "\u201cBroken gears\u201d is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
         "requires_status_signal": true,
         "status_key": "relevant_route_or_tool_status",
         "required_live_signal": "Use the relevant status key for the failing route/tool; no standalone `broken_gears` public status key.",
-        "fallback_when_unsure": "I don’t have enough live evidence to confirm that path. Use the safest product route first, and I’ll avoid guessing.",
+        "fallback_when_unsure": "I don\u2019t have enough live evidence to confirm that path. Use the safest product route first, and I\u2019ll avoid guessing.",
         "fallback_when_degraded": "That path looks degraded or unavailable right now. Use the safest product/proof route, and escalate to a guided demo only if you need help moving forward.",
         "tag": "founder_approved",
         "ratification_status": "founder_approved",
@@ -433,7 +433,7 @@
         "provenance": [
           {
             "source_path": "reports/locked-definitions-founder-decisions-v1.md",
-            "literal_source_text": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review."
+            "literal_source_text": "\u201cBroken gears\u201d is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review."
           }
         ]
       }
@@ -453,12 +453,12 @@
   "founder_approved_decisions": [
     {
       "id": "sourcea_is_live",
-      "final_approved_claim": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
+      "final_approved_claim": "SourceA has public product routes on sourcea.app. Say \u201cSourceA is live\u201d only when a fresh site/status check confirms it.",
       "requires_status_signal": true,
       "status_key": "sourcea_app_http_status",
       "required_live_signal": "sourcea_app_http_status",
-      "fallback_when_unsure": "SourceA has public product routes on sourcea.app. I don’t have a fresh live-status check in this answer, so start from the current product route.",
-      "fallback_when_degraded": "SourceA’s public route may be degraded right now. Use the proof/status route first, or escalate to a guided demo if you need a human walkthrough.",
+      "fallback_when_unsure": "SourceA has public product routes on sourcea.app. I don\u2019t have a fresh live-status check in this answer, so start from the current product route.",
+      "fallback_when_degraded": "SourceA\u2019s public route may be degraded right now. Use the proof/status route first, or escalate to a guided demo if you need a human walkthrough.",
       "tag": "founder_approved"
     },
     {
@@ -467,7 +467,7 @@
       "requires_status_signal": true,
       "status_key": "forge_terminal_runtime_status",
       "required_live_signal": "forge_terminal_runtime_status",
-      "fallback_when_unsure": "Forge Terminal is the browser product route for SourceA/Forge. I don’t have a fresh runtime check in this answer, so treat it as the route to try, not a guaranteed-live session.",
+      "fallback_when_unsure": "Forge Terminal is the browser product route for SourceA/Forge. I don\u2019t have a fresh runtime check in this answer, so treat it as the route to try, not a guaranteed-live session.",
       "fallback_when_degraded": "Forge Terminal may be degraded right now. Start from the SourceA product/proof route, then use the demo escalation if the browser route does not connect.",
       "tag": "founder_approved"
     },
@@ -477,17 +477,17 @@
       "requires_status_signal": true,
       "status_key": "specific_run_public_proof_status",
       "required_live_signal": "specific_run_public_proof_status",
-      "fallback_when_unsure": "SourceA is built around receipts and proof, but I don’t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
-      "fallback_when_degraded": "The proof route or specific receipt may be unavailable right now. Don’t treat that as proof failure; treat it as unverified until the specific receipt/status is available.",
+      "fallback_when_unsure": "SourceA is built around receipts and proof, but I don\u2019t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
+      "fallback_when_degraded": "The proof route or specific receipt may be unavailable right now. Don\u2019t treat that as proof failure; treat it as unverified until the specific receipt/status is available.",
       "tag": "founder_approved"
     },
     {
       "id": "broken_gears",
-      "final_approved_claim": "“Broken gears” is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
+      "final_approved_claim": "\u201cBroken gears\u201d is private diagnostic language, not public wording. Public response should say the route/tool/status looks unavailable, incomplete, or needs review.",
       "requires_status_signal": true,
       "status_key": "relevant_route_or_tool_status",
       "required_live_signal": "Use the relevant status key for the failing route/tool; no standalone `broken_gears` public status key.",
-      "fallback_when_unsure": "I don’t have enough live evidence to confirm that path. Use the safest product route first, and I’ll avoid guessing.",
+      "fallback_when_unsure": "I don\u2019t have enough live evidence to confirm that path. Use the safest product route first, and I\u2019ll avoid guessing.",
       "fallback_when_degraded": "That path looks degraded or unavailable right now. Use the safest product/proof route, and escalate to a guided demo only if you need help moving forward.",
       "public_wording": "forbidden",
       "language_scope": "private_diagnostic_only",
@@ -511,5 +511,35 @@
       "id": "broken_gears",
       "tag": "founder_approved"
     }
-  ]
+  ],
+  "promotion_checked_at": "2026-07-02T08:08:42Z",
+  "live_status_probe": {
+    "sourcea_app_http_status": {
+      "key": "sourcea_app_http_status",
+      "target": "https://sourcea.app",
+      "status": "good",
+      "timestamp": "2026-07-02T08:08:41Z",
+      "http_status": 200,
+      "latency_ms": 121.71,
+      "error": null
+    },
+    "forge_terminal_runtime_status": {
+      "key": "forge_terminal_runtime_status",
+      "target": "https://sourcea.app/sourcea/forge/terminal",
+      "status": "good",
+      "timestamp": "2026-07-02T08:08:42Z",
+      "http_status": 200,
+      "latency_ms": 82.33,
+      "error": null
+    },
+    "specific_run_public_proof_status": {
+      "key": "specific_run_public_proof_status",
+      "target": "https://sourcea.app/sourcea/proof/live",
+      "status": "good",
+      "timestamp": "2026-07-02T08:08:42Z",
+      "http_status": 200,
+      "latency_ms": 89.81,
+      "error": null
+    }
+  }
 }

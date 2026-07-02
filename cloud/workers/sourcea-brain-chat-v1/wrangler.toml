@@ -15,8 +15,12 @@ binding = "AI"
 # binding = "BRAIN_CHAT_LOGS"
 # id = "<kv_namespace_id>"
 
-# Staging only — set BRAIN_CORE_GATE_STAGING=1 to enable deterministic gate between draft and reply.
-# Production default: gate OFF. Test with header X-SourceA-Brain-Core-Gate: staging
+# Production default: gate OFF (BRAIN_CORE_GATE_V1_ENABLED=0).
+# Staging env enables BRAIN_CORE_GATE_STAGING=1 for dry probes.
+# Production enable requires promotion gate + SG verifier — set BRAIN_CORE_GATE_V1_ENABLED=1 only after promote_locked_definitions_v1.py PASS.
+
+[vars]
+BRAIN_CORE_GATE_V1_ENABLED = "0"
 
 [env.staging]
 name = "sourcea-brain-chat-v1-staging"

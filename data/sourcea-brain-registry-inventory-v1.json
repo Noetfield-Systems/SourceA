@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-brain-registry-inventory-v1",
   "version": "1.0.0",
-  "saved_at": "2026-07-02T07:55:00Z",
+  "saved_at": "2026-07-02T08:08:42Z",
   "promotion_lane": "receipt_gated_v1",
   "assets": [
     {
@@ -12,7 +12,10 @@
       "owning_layer": "SSOT_RAG",
       "mutation_class": "LOCKED",
       "last_modified": "2026-07-02",
-      "dependents": ["validate-sourcea-contract-pages-e2e-v1", "contract-sku-pages"]
+      "dependents": [
+        "validate-sourcea-contract-pages-e2e-v1",
+        "contract-sku-pages"
+      ]
     },
     {
       "asset_id": "contract-pages-e2e",
@@ -22,7 +25,10 @@
       "owning_layer": "REGRESSION",
       "mutation_class": "GATED",
       "last_modified": "2026-07-02",
-      "dependents": ["contract-email-routes-ssot", "app-proxy-v1"]
+      "dependents": [
+        "contract-email-routes-ssot",
+        "app-proxy-v1"
+      ]
     },
     {
       "asset_id": "app-proxy-v1",
@@ -32,7 +38,9 @@
       "owning_layer": "ROUTER",
       "mutation_class": "GATED",
       "last_modified": "2026-07-02",
-      "dependents": ["contract-pages-e2e"]
+      "dependents": [
+        "contract-pages-e2e"
+      ]
     },
     {
       "asset_id": "brain-knowledge-bundle",
@@ -42,7 +50,10 @@
       "owning_layer": "SSOT_RAG",
       "mutation_class": "GATED",
       "last_modified": "2026-07-02",
-      "dependents": ["brain-chat-worker", "brain-knowledge-validator"]
+      "dependents": [
+        "brain-chat-worker",
+        "brain-knowledge-validator"
+      ]
     },
     {
       "asset_id": "brain-chat-worker",
@@ -52,7 +63,10 @@
       "owning_layer": "AGENT",
       "mutation_class": "GATED",
       "last_modified": "2026-07-02",
-      "dependents": ["brain-core-gate-staging", "brain-knowledge-bundle"]
+      "dependents": [
+        "brain-core-gate-staging",
+        "brain-knowledge-bundle"
+      ]
     },
     {
       "asset_id": "brain-core-gate-staging",
@@ -62,17 +76,22 @@
       "owning_layer": "CRITIC",
       "mutation_class": "GATED",
       "last_modified": "2026-07-02",
-      "dependents": ["locked-definitions-v1", "brain-core-boundary-tests"]
+      "dependents": [
+        "locked-definitions-v1",
+        "brain-core-boundary-tests"
+      ]
     },
     {
       "asset_id": "locked-definitions-v1",
       "asset_type": "constitution",
       "current_location": "reports/locked-definitions-v1.json",
-      "status": "live_locked_candidate",
+      "status": "live_locked_candidate_verified",
       "owning_layer": "CONSTITUTION",
       "mutation_class": "LOCKED",
-      "last_modified": "2026-07-01",
-      "dependents": ["brain-core-gate-staging"]
+      "last_modified": "2026-07-02",
+      "dependents": [
+        "brain-core-gate-staging"
+      ]
     },
     {
       "asset_id": "brain-core-boundary-tests",
@@ -82,7 +101,9 @@
       "owning_layer": "REGRESSION",
       "mutation_class": "GATED",
       "last_modified": "2026-07-02",
-      "dependents": ["brain-core-gate-staging"]
+      "dependents": [
+        "brain-core-gate-staging"
+      ]
     },
     {
       "asset_id": "sourcea-sdk-p1",
@@ -92,7 +113,9 @@
       "owning_layer": "PROMOTION",
       "mutation_class": "OPEN",
       "last_modified": "2026-07-02",
-      "dependents": ["validate-sourcea-sdk-v1"]
+      "dependents": [
+        "validate-sourcea-sdk-v1"
+      ]
     }
   ],
   "promotion_requirements": {
