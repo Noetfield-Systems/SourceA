@@ -3,6 +3,13 @@ main = "src/index.js"
 compatibility_date = "2024-06-01"
 account_id = "0d0b967b77e2e5535455d39ff3dae72c"
 
-# Route on sourcea.com when DNS is on Cloudflare:
-# routes = [{ pattern = "sourcea.com/api/commercial/mvp-intake/v1", zone_name = "sourcea.com" }]
-# Secret: wrangler secret put RESEND_API_KEY
+# Shared RECEIPTS KV (portfolio spine) — intake rows keyed intake:{id}
+# wrangler secret put RESEND_API_KEY
+
+[[kv_namespaces]]
+binding = "INTAKE_KV"
+id = "3c8a1c15f58f48fca9c1cdd442ddd4a9"
+
+[[routes]]
+pattern = "sourcea.app/api/commercial/mvp-intake/v1*"
+zone_name = "sourcea.app"

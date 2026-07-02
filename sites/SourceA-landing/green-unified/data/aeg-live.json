@@ -1,10 +1,10 @@
 {
   "schema": "sourcea-aeg-live-v1",
-  "at": "2026-07-01T22:02:23Z",
-  "evidence_id": "aeg-20260701T220018Z-2d488ee2",
+  "at": "2026-07-02T05:12:37Z",
+  "evidence_id": "aeg-20260702T031950Z-e5af018b",
   "verdict": "PASS",
   "blockers": [],
-  "terminal_transcript": "$ python3 ~/Desktop/SourceA/scripts/critic_boot_v1.py --json --no-aeg\n\nCRITIC_BOOT BLOCK ok=False\nRECEIPT=~/.sina/critic-boot-v1.json\n\n  [PASS] ssot_brief: SSOT v3.1 brief current\n  [PASS] voyage_provider: voyage\n  [PASS] truth_match: inbox matches queue head\n  [FAIL] gate_fresh: last session gate receipt ok=false\n\nblockers:\n  - last session gate receipt ok=false",
+  "terminal_transcript": "$ sourcea-boot --json\n\nSOURCEA_BOOT PASS ok=true\nREPORT=receipts/sourcea-boot/BOOT_REPORT.json\n\n  [PASS] policy_version: no policy file (POLICY.md) \u2014 skipped\n  [PASS] provider: provider env present (ANTHROPIC_API_KEY)\n  [PASS] receipt_fresh: no prior receipt \u2014 first boot allowed\n  [PASS] queue_truth: no queue files configured \u2014 skipped\n\nblockers:\n  (none)",
   "checks": [
     {
       "id": "C1",
@@ -39,8 +39,8 @@
     }
   ],
   "boot_verdict": "PASS",
-  "site_proof_url": "https://source-a.vercel.app/sourcea/proof/live.html",
-  "forensic_archive_url": "https://locally-projected-shade-projection.trycloudflare.com/aeg-20260701T220018Z-2d488ee2/",
-  "hosted_at": "2026-07-01T22:00:18Z",
+  "site_proof_url": "https://sourcea.app/sourcea/proof/live.html",
+  "forensic_archive_url": "https://locally-projected-shade-projection.trycloudflare.com/aeg-20260702T031950Z-e5af018b/",
+  "hosted_at": "2026-07-02T03:19:50Z",
   "disclaimer": "Live inject from factory disk \u00b7 same schema as weekly export bundle"
 }
