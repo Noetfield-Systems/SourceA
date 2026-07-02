@@ -14,6 +14,10 @@ import {
   translationClarifierReply,
 } from "./guardrails.js";
 import {
+  brainCoreGateStagingEnabled,
+  runBrainCoreGateStaging,
+} from "./brain-core-gate-v1.js";
+import {
   BRAIN_CORE,
   assembleBrainPrompt,
   brainRetrieve,
@@ -287,6 +291,7 @@ function statusBody(env) {
     plane: "cloudflare_worker",
     max_message_len: MAX_LEN,
     hint: "Brain v5 — vector retrieval · read-only live tools · 112+ live sources",
+    brain_core_gate_staging: String(env?.BRAIN_CORE_GATE_STAGING || "") === "1",
     knowledge: knowledgeMeta(knowledgeBundle),
     live_tools: ["proof_status", "products_catalog", "factories_catalog", "pricing_route", "forge_terminal_route", "plan_registry"],
     endpoints: {
@@ -598,7 +603,26 @@ async function handlePost(request, env, ctx) {
     language,
   );
   const llmResult = await chatWorkersAI(env, history, product, requestedModel, prompt);
-  const final = finalizeReply(message, retrieval, citations, confidence, llmResult, liveTools);
+  let final = finalizeReply(message, retrieval, citations, confidence, llmResult, liveTools);
+  let brainCoreGate = null;
+  if (brainCoreGateStagingEnabled(env, request)) {
+    brainCoreGate = runBrainCoreGateStaging({
+      userMessage: message,
+      draftReply: final.reply,
+      confidence,
+      citations,
+      liveTools,
+    });
+    if (brainCoreGate.gate_result === "BLOCK") {
+      const fallback = retrievalOnlyReply(message, retrieval, citations);
+      final = {
+        ok: true,
+        reply: fallback.reply,
+        mode: "brain_core_gate_staging_block",
+        guardrail: "brain_core_gate_staging",
+      };
+    }
+  }
   const provider =
     final.mode === "live_tool_direct" ? "live_tool" : final.mode.startsWith("retrieval") ? "retrieval" : "workers_ai";
   const trace = await buildTrace({
@@ -647,6 +671,7 @@ async function handlePost(request, env, ctx) {
     knowledge: knowledgeMeta(knowledgeBundle),
     at: nowIso(),
     message: final.ok ? "Brain replied" : final.reply,
+    brain_core_gate: brainCoreGate,
     trace: publicTrace(trace),
     trace_id: trace.trace_id,
     conversation_id: trace.conversation_id,
