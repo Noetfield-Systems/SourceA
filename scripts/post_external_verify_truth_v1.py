@@ -33,7 +33,9 @@ def _supabase_cfg() -> dict[str, str]:
 def post_external_verify_truth(receipt: dict[str, Any]) -> dict[str, Any]:
     autorun_ok = bool((receipt.get("autorun_verify") or {}).get("ok"))
     proof_ok = bool((receipt.get("founder_proof_15") or {}).get("ok"))
-    overall_ok = bool(receipt.get("ok")) and autorun_ok and proof_ok
+    det = receipt.get("determinism_gate") or {}
+    det_ok = bool(det.get("ok")) if det else True
+    overall_ok = bool(receipt.get("ok")) and autorun_ok and proof_ok and det_ok
     event = "EXTERNAL_VERIFY_PASS" if overall_ok else "EXTERNAL_VERIFY_FAIL"
 
     cfg = _supabase_cfg()
