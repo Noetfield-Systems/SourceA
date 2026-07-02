@@ -181,7 +181,14 @@ function isInternalMetadataKey(key) {
   return /^(chunk_id|chunk_ids|source_path|source_paths)$/i.test(String(key || ""));
 }
 
+function isMachineReceiptKey(key) {
+  return /^brain_core_gate$/i.test(String(key || ""));
+}
+
 export function sanitizePublicBody(value, key = "") {
+  if (isMachineReceiptKey(key)) {
+    return value;
+  }
   if (isInternalMetadataKey(key)) {
     if (Array.isArray(value)) return value.map(() => "public source");
     if (value) return "public source";

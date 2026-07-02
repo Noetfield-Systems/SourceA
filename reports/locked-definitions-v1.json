@@ -24,7 +24,7 @@
           "literal_source_text": "\"one_line\": \"SourceA is an AI execution platform powered by Forge \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.\""
         }
       ],
-      "ratification_status": "draft_accepted_not_live_locked"
+      "ratification_status": "live_locked"
     },
     {
       "id": "forge",
@@ -41,7 +41,7 @@
           "literal_source_text": "## What Forge is\n\nForge Terminal is the execution desk \u2014 living chat, workspace, agents, quality gate, cloud dispatch.\n\nPublic try (no install): `/sourcea/forge/terminal`"
         }
       ],
-      "ratification_status": "draft_accepted_not_live_locked"
+      "ratification_status": "live_locked"
     }
   ],
   "claims": [
@@ -61,7 +61,7 @@
           "literal_source_text": "## One law\n\n> **SourceA is an AI execution platform powered by Forge \u2014 not a \u201cproof records\u201d product. Proof is built in; it is not the whole product.**"
         }
       ],
-      "ratification_status": "draft_accepted_not_live_locked"
+      "ratification_status": "live_locked"
     },
     {
       "id": "sourcea_is_live",
@@ -83,8 +83,8 @@
       "required_live_signal": "sourcea_app_http_status",
       "fallback_when_unsure": "SourceA has public product routes on sourcea.app. I don\u2019t have a fresh live-status check in this answer, so start from the current product route.",
       "fallback_when_degraded": "SourceA\u2019s public route may be degraded right now. Use the proof/status route first, or escalate to a guided demo if you need a human walkthrough.",
-      "ratification_status": "founder_approved",
-      "not_deployed": true
+      "ratification_status": "live_locked",
+      "not_deployed": false
     },
     {
       "id": "forge_terminal_product_route",
@@ -102,7 +102,7 @@
           "literal_source_text": "<meta name=\"description\" content=\"Try Forge Terminal in your browser \u2014 living chat with prompt forge on every send. Public demo for founders and agencies.\" />"
         }
       ],
-      "ratification_status": "draft_accepted_not_live_locked"
+      "ratification_status": "live_locked"
     },
     {
       "id": "forge_terminal_guaranteed_live_runtime",
@@ -124,8 +124,8 @@
       "required_live_signal": "forge_terminal_runtime_status",
       "fallback_when_unsure": "Forge Terminal is the browser product route for SourceA/Forge. I don\u2019t have a fresh runtime check in this answer, so treat it as the route to try, not a guaranteed-live session.",
       "fallback_when_degraded": "Forge Terminal may be degraded right now. Start from the SourceA product/proof route, then use the demo escalation if the browser route does not connect.",
-      "ratification_status": "founder_approved",
-      "not_deployed": true
+      "ratification_status": "live_locked",
+      "not_deployed": false
     },
     {
       "id": "verifiable_proof_receipts",
@@ -143,7 +143,7 @@
           "literal_source_text": "<p class=\"ar-lead\">SourceA is an AI execution platform powered by Forge \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run. Paste what you want done; Forge scopes one job, runs it through checks, and hands back work you can show clients.</p>"
         }
       ],
-      "ratification_status": "draft_accepted_not_live_locked"
+      "ratification_status": "live_locked"
     },
     {
       "id": "every_possible_run_has_public_proof",
@@ -161,8 +161,8 @@
       "required_live_signal": "specific_run_public_proof_status",
       "fallback_when_unsure": "SourceA is built around receipts and proof, but I don\u2019t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
       "fallback_when_degraded": "The proof route or specific receipt may be unavailable right now. Don\u2019t treat that as proof failure; treat it as unverified until the specific receipt/status is available.",
-      "ratification_status": "founder_approved",
-      "not_deployed": true
+      "ratification_status": "live_locked",
+      "not_deployed": false
     },
     {
       "id": "try_before_founder_call",
@@ -180,7 +180,7 @@
           "literal_source_text": "## Agentic-first law\n\nIf the site can show it, strangers never need a founder call. Calls are optional escalation only."
         }
       ],
-      "ratification_status": "draft_accepted_not_live_locked"
+      "ratification_status": "live_locked"
     },
     {
       "id": "demo_booking_escalation",
@@ -198,7 +198,7 @@
           "literal_source_text": "\"escalation_cta\": \"https://cal.com/sourcea/proof-demo\",\n  \"escalation_cta_label\": \"Talk to a human\""
         }
       ],
-      "ratification_status": "draft_accepted_not_live_locked"
+      "ratification_status": "live_locked"
     },
     {
       "id": "status_availability_answers",
@@ -216,7 +216,7 @@
           "literal_source_text": "- **live-status-first**: For status, health, live proof, and availability questions, use current live-tool/status evidence first and say when evidence is unavailable."
         }
       ],
-      "ratification_status": "draft_accepted_not_live_locked"
+      "ratification_status": "live_locked"
     },
     {
       "id": "ssot_v6_framing",
@@ -242,7 +242,7 @@
           "literal_source_text": "**Not production geopolitics.** Stub: `scripts/forge_world_state_v1.py` \u00b7 `~/.sina/forge-world-state-v1.json`\n\nThree seed nations: SourceA Mac \u00b7 Cloud Forge Railway \u00b7 Labs Sandbox.\n\nFull v6 multi-nation conflict/trade = cloud simulation only when founder arms."
         }
       ],
-      "ratification_status": "draft_accepted_not_live_locked"
+      "ratification_status": "live_locked"
     },
     {
       "id": "broken_gears",
@@ -254,10 +254,10 @@
       "fallback_when_unsure": "I don\u2019t have enough live evidence to confirm that path. Use the safest product route first, and I\u2019ll avoid guessing.",
       "fallback_when_degraded": "That path looks degraded or unavailable right now. Use the safest product/proof route, and escalate to a guided demo only if you need help moving forward.",
       "tag": "founder_approved",
-      "ratification_status": "founder_approved",
+      "ratification_status": "live_locked",
       "language_scope": "private_diagnostic_only",
       "public_wording": "forbidden",
-      "not_deployed": true,
+      "not_deployed": false,
       "provenance": [
         {
           "source_path": "reports/locked-definitions-founder-decisions-v1.md",
@@ -449,7 +449,7 @@
     "note": "Founder decisions are locked into this definition candidate; runtime enforcement is not built or deployed yet."
   },
   "decision_packet_path": "reports/locked-definitions-founder-decisions-v1.md",
-  "not_deployed": true,
+  "not_deployed": false,
   "founder_approved_decisions": [
     {
       "id": "sourcea_is_live",
@@ -512,35 +512,36 @@
       "tag": "founder_approved"
     }
   ],
-  "promotion_checked_at": "2026-07-02T08:33:36Z",
+  "promotion_checked_at": "2026-07-02T08:52:26Z",
   "live_status_probe": {
     "sourcea_app_http_status": {
       "key": "sourcea_app_http_status",
       "target": "https://sourcea.app",
       "status": "good",
-      "timestamp": "2026-07-02T08:33:36Z",
+      "timestamp": "2026-07-02T08:52:26Z",
       "http_status": 200,
-      "latency_ms": 91.53,
+      "latency_ms": 74.67,
       "error": null
     },
     "forge_terminal_runtime_status": {
       "key": "forge_terminal_runtime_status",
       "target": "https://sourcea.app/sourcea/forge/terminal",
       "status": "good",
-      "timestamp": "2026-07-02T08:33:36Z",
+      "timestamp": "2026-07-02T08:52:26Z",
       "http_status": 200,
-      "latency_ms": 87.67,
+      "latency_ms": 78.35,
       "error": null
     },
     "specific_run_public_proof_status": {
       "key": "specific_run_public_proof_status",
       "target": "https://sourcea.app/sourcea/proof/live",
       "status": "good",
-      "timestamp": "2026-07-02T08:33:36Z",
+      "timestamp": "2026-07-02T08:52:26Z",
       "http_status": 200,
-      "latency_ms": 77.42,
+      "latency_ms": 83.24,
       "error": null
     }
   },
-  "verifier_receipt_id": "167e3626-2e17-4ffc-a027-1a2d4db8b890"
+  "verifier_receipt_id": "167e3626-2e17-4ffc-a027-1a2d4db8b890",
+  "term_ratification_synced_at": "2026-07-02T08:52:31Z"
 }
