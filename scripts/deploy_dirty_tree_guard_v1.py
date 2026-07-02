@@ -13,6 +13,10 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 
 SCOPE_PATHS: dict[str, list[str]] = {
+    "brain_worker": [
+        "cloud/workers/sourcea-brain-chat-v1/",
+        "scripts/brain_cli_v1.sh",
+    ],
     "landing": [
         "SourceA-landing/green-unified/",
         "scripts/inject_landing_aeg_proof_v1.py",
@@ -78,14 +82,17 @@ def check(*, scope: str, extra_paths: list[str] | None = None) -> dict[str, Any]
         return {"ok": False, "error": f"unknown_scope:{scope}"}
     dirty_all = _git_porcelain()
     scoped = [p for _st, p in dirty_all if _matches_scope(p, prefixes)]
+    dirty_total = len(dirty_all)
+    dirty_total_cap = 200
     return {
-        "ok": not scoped,
+        "ok": not scoped and dirty_total <= dirty_total_cap,
         "schema": "deploy-dirty-tree-guard-v1",
         "at": _now(),
         "scope": scope,
         "scoped_prefixes": prefixes,
         "dirty_scoped": sorted(set(scoped)),
-        "dirty_total": len(dirty_all),
+        "dirty_total": dirty_total,
+        "dirty_total_cap": dirty_total_cap,
     }
 
 
