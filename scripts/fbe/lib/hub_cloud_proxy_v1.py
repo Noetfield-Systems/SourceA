@@ -102,6 +102,19 @@ def proxy_to_cloud(*, path: str, body: dict[str, Any], timeout_s: int = 300) -> 
     blocked = mac_observe_only_block(path=path, body=body)
     if blocked:
         return blocked
+
+    # Mac control cockpit plans — resolve locally; active CLOUD-SEC batch never contains MAC-CTL-*.
+    if path == "/api/cloud-worker/dispatch/v1" and isinstance(body, dict):
+        plan_id = str(body.get("plan_id") or "").strip()
+        if plan_id.startswith("MAC-CTL-"):
+            _ensure_scripts_path()
+            from cloud_worker_dispatch_v1 import dispatch as local_dispatch  # noqa: WPS433
+
+            row = local_dispatch(plan_id=plan_id, dry_run=bool(body.get("dry_run")))
+            row.setdefault("execution_plane", "mac_control_panel")
+            row.setdefault("proxied", False)
+            return row
+
     url_base = cloud_worker_url()
     if not url_base:
         return {

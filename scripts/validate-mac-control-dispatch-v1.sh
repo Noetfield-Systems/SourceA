@@ -32,4 +32,10 @@ grep -q 'control_panel_allowed' "$ROOT/data/mac-pipeline-validator-pressure-regi
 grep -q 'upgrade_mac_motor_block' "$ROOT/scripts/fbe/lib/mac_control_dispatch_v1.py" \
   || fail "mac motor block must upgrade to CF tick — not dead-end error"
 
+grep -q 'MAC-CTL-' "$ROOT/scripts/fbe/lib/hub_cloud_proxy_v1.py" \
+  || fail "hub_cloud_proxy must resolve MAC-CTL plans locally on Mac"
+
+grep -q 'sourcea-python-v1.sh' "$ROOT/scripts/enter-mac-control-plane-v1.sh" \
+  || fail "enter-mac-control-plane must use sourcea-python-v1 (SIGKILL guard)"
+
 echo "PASS: validate-mac-control-dispatch-v1.sh"

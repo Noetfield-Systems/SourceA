@@ -106,6 +106,14 @@ def load_plan(plan_id: str) -> dict[str, Any] | None:
         for row in doc.get("plans") or []:
             if str(row.get("bind") or "") == pid:
                 return row
+    # Mac control cockpit plans (MAC-CTL-*) live in next-100 SSOT — not in active CLOUD-SEC batch.
+    if pid.startswith("MAC-CTL-"):
+        from cloud_forge_run_queue_path_v1 import LEGACY  # noqa: WPS433
+
+        legacy = _read_json(LEGACY)
+        for row in legacy.get("plans") or []:
+            if str(row.get("id") or "") == pid:
+                return row
     return None
 
 
