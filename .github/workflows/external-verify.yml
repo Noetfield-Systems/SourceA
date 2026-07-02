@@ -1,6 +1,7 @@
 name: external-verify
 
 # L4 law: only this Action's receipt counts as PASS evidence for autorun verify.
+# Trigger: push to paths below · workflow_dispatch · cron */6h
 permissions:
   contents: write
 
