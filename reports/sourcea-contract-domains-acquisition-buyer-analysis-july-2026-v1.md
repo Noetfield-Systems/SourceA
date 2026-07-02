@@ -280,3 +280,25 @@ Scores are **0–100**. Grades: **A** 90+ · **B** 80–89 · **C** 70–79 · *
 ---
 
 *Strict analyst note: This report grades **public contract surfaces and market fit**, not private product depth, codebase, or revenue. Diligence grade would move ±15 points with proof artifacts, customer references, and a demonstrable control-plane product.*
+
+---
+
+## Execution status (2026-07-02T03:42:00Z)
+
+**Authority:** `packages/sourcea-boot/PUBLISH_PLAN_LOCKED_v1.md` · Next 10 Upgrades roadmap · 10-step contract trust plan
+
+| Acquisition priority fix | Status | Evidence |
+|---|---|---|
+| **#1 Attach proof, not prose** | **SHIPPED** | SVG diagrams · proof-strip · `/eval` · `/sourcea/proof/live` · PyPI v0.1.0 · read-only `#demo` on all 3 SKUs |
+| **#2 Split CA vs UK content** | **SHIPPED** | Distinct sprint phases · regulatory hooks · unique module names · demotag previews |
+| **#3 Productize control plane** | **SHIPPED** | Read-only demo grids (OB sandbox routing · CA spend · UK control-plane) |
+| **#4 Procurement pack** | **SHIPPED** | Institutional CSS · nav on all contract pages · `/attach/procurement-pack.html` E2E 200 |
+| **#5 Canonical + metadata** | **SHIPPED** | `hreflang` + canonical per host · E2E disk assertions |
+| **PyPI Phase 0b** | **SHIPPED** | `pip install sourcea-boot` live · eval flipped |
+| **Customer logos / fake proof** | **OUT OF SCOPE** | Small-fix law — never add unverified |
+| **Pricing bands** | **FOUNDER GATE** | SSOT says never lead with price |
+| **Outsider re-audit v2** | **PENDING** | Target ≥82 after live deploy soak |
+
+**Estimated uplift (pre re-audit):** portfolio strict score **71 → ~78–82** · procurement pass **68 → ~76–80** · M&A asset defensibility **58 → ~68–72** (demo + PyPI chain tool, still services-led).
+
+**Remaining founder actions:** merge `sandbox/locked-definitions-v1` → `main` · optional Noetfield PyPI org transfer · outsider re-audit v2 report.
