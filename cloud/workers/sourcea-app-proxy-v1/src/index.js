@@ -8,6 +8,17 @@ const SITE_PULSE_BASE = "https://sourcea-site-pulse-v1.sina-kazemnezhad-ca.worke
 const AUTO_RUNTIME_BASE = "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev";
 const ROUTE_MANIFEST_PATH = "/api/sourcea/routes/v1";
 
+/** Clean public paths → Pages canonical paths (200 body, no 302 chain). */
+const PAGES_PATH_ALIASES = new Map([
+  ["/operating-brain-install", "/sourcea/operating-brain-install"],
+  ["/ai-value-governance", "/sourcea/ai-value-governance"],
+  ["/enterprise-ai-control-plane", "/sourcea/enterprise-ai-control-plane"],
+]);
+
+function resolvePagesPath(pathname) {
+  return PAGES_PATH_ALIASES.get(pathname) || pathname;
+}
+
 function upstreamPath(sub) {
   const clean = (sub || "").replace(/^\//, "");
   if (!clean || clean === "health") return "/health";
@@ -238,33 +249,66 @@ export default {
       return Response.redirect(`${incoming.origin}/sourcea/`, 302);
     }
 
-    const target = new URL(pathname + incoming.search, PAGES);
-    const headers = new Headers(request.headers);
-    headers.set("Host", "sourcea-com.pages.dev");
-    headers.delete("cf-connecting-ip");
-    const proxied = new Request(target.toString(), {
-      method: request.method,
-      headers,
-      body: request.body,
-      redirect: "manual",
-    });
-    const response = await fetch(proxied);
-    const out = new Headers(response.headers);
-    out.set("X-SourceA-Proxy", "sourcea-app-proxy-v1");
-    out.set("X-SourceA-Origin", "pages-green-unified");
-    const loc = response.headers.get("Location");
-    if (loc) {
-      out.set(
-        "Location",
-        loc
-          .replace(/^https?:\/\/sourcea-com\.pages\.dev/i, `https://${incoming.host}`)
-          .replace(/^https?:\/\/source-a\.vercel\.app/i, `https://${incoming.host}`),
-      );
-    }
-    return new Response(response.body, {
-      status: response.status,
-      statusText: response.statusText,
-      headers: out,
-    });
+    return proxyPages(request, incoming, resolvePagesPath(pathname));
   },
 };
+
+async function proxyPages(request, incoming, pagesPath) {
+  const candidates = [pagesPath];
+  if (!pagesPath.endsWith(".html") && !pagesPath.endsWith("/")) {
+    candidates.push(`${pagesPath}.html`);
+  }
+
+  let lastError = null;
+  for (const candidate of candidates) {
+    try {
+      const target = new URL(candidate + incoming.search, PAGES);
+      const headers = new Headers(request.headers);
+      headers.set("Host", "sourcea-com.pages.dev");
+      headers.delete("cf-connecting-ip");
+      const proxied = new Request(target.toString(), {
+        method: request.method,
+        headers,
+        body: request.body,
+        redirect: "manual",
+      });
+      const response = await fetch(proxied);
+      if (response.status >= 500 && candidates.indexOf(candidate) < candidates.length - 1) {
+        continue;
+      }
+      const out = new Headers(response.headers);
+      out.set("X-SourceA-Proxy", "sourcea-app-proxy-v1");
+      out.set("X-SourceA-Origin", "pages-green-unified");
+      out.set("X-SourceA-Pages-Path", candidate);
+      const loc = response.headers.get("Location");
+      if (loc) {
+        out.set(
+          "Location",
+          loc
+            .replace(/^https?:\/\/sourcea-com\.pages\.dev/i, `https://${incoming.host}`)
+            .replace(/^https?:\/\/source-a\.vercel\.app/i, `https://${incoming.host}`),
+        );
+      }
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers: out,
+      });
+    } catch (err) {
+      lastError = err;
+    }
+  }
+
+  return jsonResponse(
+    request,
+    {
+      ok: false,
+      schema: "sourcea-public-api-error-v1",
+      error: "pages_origin_unavailable",
+      pages_origin: PAGES,
+      path: pagesPath,
+      detail: lastError ? String(lastError) : "unknown",
+    },
+    502,
+  );
+}
