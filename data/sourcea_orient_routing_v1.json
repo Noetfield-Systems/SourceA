@@ -142,7 +142,8 @@
     {"step": 9, "id": "live_surfaces", "path": "~/.sina/agent-live-surfaces-v1.json", "why": "factory_now_line inject"},
     {"step": 10, "id": "session_gate_receipt", "path": "~/.sina/agent_session_gate_receipt_v1.json", "why": "Session proof"},
     {"step": 11, "id": "cloud_workers_handoff", "path": "data/cloud-workers-control-plane-v1.json", "why": "Cloud Workers cockpit · batch handoff SSOT"},
-    {"step": 12, "id": "worker_assignment", "path": "data/sourcea-worker-professional-assignment-v1.json", "why": "Phased worker handoff · Mac control → cloud execute"}
+    {"step": 12, "id": "worker_assignment", "path": "data/sourcea-worker-professional-assignment-v1.json", "why": "Phased worker handoff · Mac control → cloud execute"},
+    {"step": 13, "id": "mac_control_dispatch", "path": "scripts/fbe/lib/mac_control_dispatch_v1.py", "why": "Mac Hub dispatch OK · motor blocked · CF cron only"}
   ],
   "session_gate_step_nodes": {
     "anti_staleness_auto_wire": "disk_live_wire",
