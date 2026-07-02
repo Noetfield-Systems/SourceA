@@ -1,14 +1,51 @@
 {
   "schema": "integrate-energize-proof-v1",
-  "at": "2026-07-02T22:35:00Z",
-  "merge_order": ["PR #5 mac-cloud-bridge", "PR #6 L17"],
-  "migration_ci": "scripts/apply_portfolio_spine_migrations_v1.sh (002+005+006+007) wired in external-verify.yml",
+  "at": "2026-07-02T22:45:00Z",
+  "merge_order": [
+    {"pr": 5, "title": "MAC-CLOUD BRIDGE W1-W4 + L16", "merge_sha": "08e15575a"},
+    {"pr": 6, "title": "L17 cost-tiered routing + integrate", "merge_sha": "0c9076381"},
+    {"pr": null, "title": "spine ensure 006+007 probe", "merge_sha": "6805fe83c"},
+    {"pr": 7, "title": "spine migration CI seed", "merge_sha": "7c4e20522"},
+    {"pr": 8, "title": "IPv4 hostaddr", "merge_sha": "648296228"},
+    {"pr": 9, "title": "getent pipefail + psycopg path", "merge_sha": "0b9a2389a"},
+    {"pr": 10, "title": "pooler-first ref from URL", "merge_sha": "6adc3217b"},
+    {"pr": 11, "title": "project ref from service-role JWT", "merge_sha": "feaa6a729"}
+  ],
+  "main_head": "feaa6a729",
+  "sweep": {
+    "ok": true,
+    "note": "REG-SYNC-001 sandbox_health_sweep PASS at trigger-registry v1.0.3"
+  },
+  "migrations_006_007": {
+    "ci_path": "scripts/ensure_truth_log_schema_v1.py + pooler psycopg",
+    "applied_live": false,
+    "blocker": "SUPABASE_DB_PASSWORD does not authenticate to pooler for portfolio-spine project (FATAL ENOTFOUND tenant/user postgres.{ref} on all regions). Direct db host is IPv6-only — GitHub Actions cannot reach it.",
+    "fix": "Add GitHub secret SUPABASE_DB_URL with Session pooler URI from Supabase Dashboard → Settings → Database → Connection string (matches SUPABASE_URL project). Optional: SUPABASE_ACCESS_TOKEN for management API fallback."
+  },
   "cost_receipt_fields": ["usd_marginal", "usd_list_equiv", "usd_est"],
-  "digest_fields": ["spend_by_tier_marginal", "spend_by_tier_list_equiv", "cost_per_merged_change_usd_marginal", "cost_per_merged_change_usd_list_equiv"],
-  "spine_proof_script": "scripts/query_spine_proof_v1.py",
+  "digest_fields": [
+    "spend_by_tier_marginal",
+    "spend_by_tier_list_equiv",
+    "cost_per_merged_change_usd_marginal",
+    "cost_per_merged_change_usd_list_equiv"
+  ],
+  "l4": {
+    "closed": true,
+    "truth_log_id": "9c606776-e3d6-4dbb-b83a-5a3c991a28fc",
+    "event": "EXTERNAL_VERIFY_PASS",
+    "recorded_at": "2026-07-02T22:31:13Z",
+    "ci_run": "https://github.com/kazemnezhadsina144-dot/SourceA/actions/runs/28625668094",
+    "note": "Last full L4 POST before ensure step began failing on missing 006+007 tables"
+  },
+  "spine_live": {
+    "mac_agent_heartbeat": {"status": "PENDING_MIGRATION", "dashboard": "STALE_DATA"},
+    "agent_session_cost": {"status": "PENDING_MIGRATION", "truth_log_id": null},
+    "proof_script": "scripts/query_spine_proof_v1.py"
+  },
   "t0_receipts": [
     "receipts/proof/t0-w-lba-009-vocab-v1.json",
     "receipts/proof/t0-reg-sync-001-v1.json",
     "receipts/proof/t0-reg-sync-002-v1.json"
-  ]
+  ],
+  "t0_queue": ["W-LBA-009", "REG-SYNC-001", "REG-SYNC-002"]
 }
