@@ -1836,10 +1836,19 @@ class SinaCommandHandler(BaseHTTPRequestHandler):
             self._json(200 if row.get("ok") else 502, row)
             return
         if path == "/api/cloud-forge-run/proceed/v1":
+            from fbe.lib.mac_control_dispatch_v1 import upgrade_mac_motor_block  # noqa: WPS433
             from hub_cloud_forge_run_proceed_v1 import proceed_from_hub  # noqa: WPS433
             from worker_hub_v1 import invalidate_worker_hub_cache  # noqa: WPS433
 
             row = proceed_from_hub(body if isinstance(body, dict) else {})
+            if row.get("error") == "mac_observe_only":
+                from cloud_workers_hub_v1 import trigger_cf_full_pack  # noqa: WPS433
+
+                row = upgrade_mac_motor_block(
+                    row,
+                    cf_tick_row=trigger_cf_full_pack(force=bool((body or {}).get("force"))),
+                    action="proceed",
+                )
             invalidate_worker_hub_cache()
             self._json(200 if row.get("ok") else 502, row)
             return

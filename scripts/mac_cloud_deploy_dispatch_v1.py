@@ -37,6 +37,14 @@ TARGETS: dict[str, dict[str, Any]] = {
         "description": "Trigger CF full-pack tick from Mac (motor on cloud)",
         "hub_action": "trigger_cf_tick",
     },
+    "boot": {
+        "description": "Boot Hub :13020 + Cloud Workers :13027 (Mac control panel)",
+        "cmd": ["bash", str(SCRIPTS / "enter-mac-control-plane-v1.sh")],
+    },
+    "fbe": {
+        "description": "Deploy FBE runner to Railway (Mac triggers cloud deploy script)",
+        "cmd": ["python3", str(SCRIPTS / "deploy_fbe_railway_v1.py"), "--json"],
+    },
 }
 
 

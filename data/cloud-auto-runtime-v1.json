@@ -28,7 +28,7 @@
     "/api/cloud-forge-run/proceed/v1",
     "/api/forge/v02/drain/v1"
   ],
-  "one_law": "CF cron (~10 min) → one Railway POST → 100 rows down (mandatory quota — NOT up to 100). Mac dispatch/deploy via Hub OK; Mac never drains motor.",
+    "one_law": "CF cron (~10 min) → one Railway POST → 100 rows down (mandatory quota — NOT up to 100). Mac dispatch/deploy via Hub OK; Mac never drains motor; proceed/auto_tick upgrade to CF tick.",
   "founder_display_motor": "Cloud Forge Run",
   "founder_display_scheduler": "Auto Runtime",
   "founder_vocabulary_law": "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_AUTO_RUNTIME_VOCABULARY_LOCKED_v1.md",
