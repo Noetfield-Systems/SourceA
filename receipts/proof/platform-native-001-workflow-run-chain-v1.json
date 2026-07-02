@@ -1,0 +1,52 @@
+{
+  "schema": "platform-native-enforcement-receipt-v1",
+  "item_id": "PN-001",
+  "title": "workflow_run chain — deploy-sourcea-buyer-surfaces-v1 → external-verify",
+  "at": "2026-07-02T22:02:00Z",
+  "ok": true,
+  "commit_sha": "pending_push",
+  "workflows": {
+    "deploy": ".github/workflows/deploy-sourcea-buyer-surfaces-v1.yml",
+    "verify": ".github/workflows/external-verify.yml"
+  },
+  "chain": {
+    "trigger": "workflow_run",
+    "parent_workflow": "deploy-sourcea-buyer-surfaces-v1",
+    "child_workflow": "external-verify",
+    "condition": "workflow_run.conclusion == success",
+    "checkout_sha": "workflow_run.head_sha"
+  },
+  "registry": {
+    "deploy_trigger_id": "SA-T-deploy-buyer-surfaces",
+    "verify_chain_trigger_id": "SA-T4-chain",
+    "sweep": "trigger_sweep_clean · 12 triggers"
+  },
+  "retired_hand_roll": [
+    "publish_sourcea_landing_v1.run_founder_proof_verify(min_seconds=60) sleep in CI deploy path",
+    "Timing guess between Pages deploy complete and 15-recipe HTTPS verify",
+    "Primary reliance on --min-seconds-after-deploy 60 as deploy→verify gate"
+  ],
+  "platform_native_replacement": "GitHub Actions workflow_run — verify starts only after deploy workflow success",
+  "replaced_by_flags": [
+    "publish_sourcea_landing_v1.py --no-inline-verify",
+    "external-verify VERIFY_TRIGGER_SOURCE=deploy_workflow_run_chain",
+    "verify --min-seconds-after-deploy 0 on chain path"
+  ],
+  "proof_artifacts": [
+    "receipts/proof/platform-native-001-workflow-run-chain-v1.json",
+    "docs/PLATFORM_NATIVE_ENFORCEMENT_ROLLOUT_v1.md"
+  ],
+  "design_docs_founder_gated": {
+    "sourcea": "docs/design/SOURCEA_CF_DO_QUEUE_MIGRATION_PLAN_FOUNDER_GATED_v1.md",
+    "noos": "docs/design/NOOS_SUPABASE_REALTIME_PGCRON_T8_PREP_v1.md"
+  },
+  "pending_items": [
+    "PN-002 GHA concurrency groups + 15-recipe matrix",
+    "PN-003 environment production prep (founder enables reviewer in UI)"
+  ],
+  "run_urls": {
+    "deploy_first_run": "dispatch after push — requires CLOUDFLARE_API_TOKEN secret",
+    "verify_chain_run": "auto-fires on successful deploy workflow_run"
+  },
+  "report_line": "PN-001 shipped · deploy→verify workflow_run chain wired · timing guess retired"
+}

@@ -31,6 +31,18 @@ FORBIDDEN_TOKEN_SOURCES = (
 
 def load_sourcea_cf_config() -> dict[str, Any]:
     """Load SourceA Pages token — fail closed if missing."""
+    ci_token = str(os.environ.get("CLOUDFLARE_API_TOKEN") or "").strip()
+    if ci_token and os.environ.get("GITHUB_ACTIONS") == "true":
+        return {
+            "ok": True,
+            "api_token": ci_token,
+            "account_id": str(os.environ.get("CLOUDFLARE_ACCOUNT_ID") or "0d0b967b77e2e5535455d39ff3dae72c").strip(),
+            "zone_name": DEFAULT_ZONE,
+            "project": str(os.environ.get("SOURCEA_PAGES_PROJECT") or DEFAULT_PROJECT).strip(),
+            "path": "env:CLOUDFLARE_API_TOKEN",
+            "schema": "sourcea-cf-pages-token-v1",
+            "auth_mode": "github_actions_secret",
+        }
     if not TOKEN_FILE.is_file():
         return {
             "ok": False,

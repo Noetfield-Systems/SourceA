@@ -1,0 +1,65 @@
+name: deploy-sourcea-buyer-surfaces-v1
+
+# Platform-native item 1: deploy completes → external-verify chains via workflow_run (no timing guess).
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'SourceA-landing/**'
+      - 'sites/SourceA-landing/**'
+      - 'scripts/publish_sourcea_landing_v1.py'
+      - 'scripts/build_sourcea_vercel_output_v1.py'
+      - 'scripts/sourcea_cf_pages_token_v1.py'
+      - '.github/workflows/deploy-sourcea-buyer-surfaces-v1.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  deploy-buyer-surfaces:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GITHUB_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install wrangler
+        run: npm install -g wrangler@3
+
+      - name: Deploy buyer surfaces (Pages — verify deferred to workflow_run chain)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          SOURCEA_PAGES_PROJECT: sourcea-com
+        run: |
+          set -euo pipefail
+          python3 scripts/publish_sourcea_landing_v1.py \
+            --backend pages \
+            --project sourcea-com \
+            --custom-domain \
+            --no-inline-verify \
+            --json | tee "${{ runner.temp }}/deploy-buyer-surfaces.json"
+          python3 -c "
+          import json, sys
+          d=json.load(open('${{ runner.temp }}/deploy-buyer-surfaces.json'))
+          print(d.get('founder_line') or d.get('error') or d)
+          sys.exit(0 if d.get('ok') else 1)
+          "
+
+      - name: Upload deploy receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deploy-buyer-surfaces-receipt
+          path: ${{ runner.temp }}/deploy-buyer-surfaces.json
+          retention-days: 30
