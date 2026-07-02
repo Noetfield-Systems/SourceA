@@ -212,7 +212,7 @@ def _apply_via_management_api(sql: str) -> dict[str, Any]:
             if path.is_file():
                 token = path.read_text(encoding="utf-8").strip()
                 break
-    ref = os.environ.get("SUPABASE_PROJECT_ID", "").strip()
+    ref = _project_ref()
     if not token or not ref:
         return {"ok": False, "skipped": True, "error": "management_token_or_project_missing"}
     url = f"https://api.supabase.com/v1/projects/{ref}/database/query"
@@ -239,46 +239,85 @@ def _apply_via_management_api(sql: str) -> dict[str, Any]:
         return {"ok": False, "error": str(exc)[:200]}
 
 
+def _project_ref() -> str:
+    """Prefer SUPABASE_URL host ref — matches REST secrets; PROJECT_ID may drift."""
+    url = os.environ.get("SUPABASE_URL", "").strip()
+    if url:
+        host = urllib.parse.urlparse(url).hostname or ""
+        if host.endswith(".supabase.co"):
+            ref = host.split(".")[0]
+            if ref and ref not in ("www", "api"):
+                return ref
+    return os.environ.get("SUPABASE_PROJECT_ID", "").strip()
+
+
 def _resolve_ipv4(host: str) -> str | None:
     try:
         infos = socket.getaddrinfo(host, None, socket.AF_INET, socket.SOCK_STREAM)
         return infos[0][4][0] if infos else None
     except OSError:
-        return None
+        pass
+    for cmd in (
+        ["dig", "+short", "A", host],
+        ["getent", "ahostsv4", host],
+    ):
+        try:
+            proc = subprocess.run(cmd, capture_output=True, text=True, timeout=8, check=False)
+            for line in (proc.stdout or "").splitlines():
+                candidate = line.strip().split()[0] if cmd[0] == "getent" else line.strip()
+                if candidate and "." in candidate and ":" not in candidate:
+                    return candidate
+        except (FileNotFoundError, subprocess.TimeoutExpired):
+            continue
+    return None
 
 
-def _pooler_region() -> str:
-    return os.environ.get("SUPABASE_REGION", "us-west-1").strip() or "us-west-1"
+def _pooler_regions() -> list[str]:
+    explicit = os.environ.get("SUPABASE_REGION", "").strip()
+    defaults = (
+        "us-west-1",
+        "us-east-1",
+        "eu-west-1",
+        "eu-central-1",
+        "ap-southeast-1",
+        "ap-northeast-1",
+    )
+    out: list[str] = []
+    for region in (explicit, *defaults):
+        if region and region not in out:
+            out.append(region)
+    return out
 
 
 def _psycopg_connect_attempts(ref: str) -> list[dict[str, Any]]:
-    """Valid Supabase host/port/user triples — avoid pooler+postgres (ENOIDENTIFIER)."""
-    region = _pooler_region()
-    pooler = os.environ.get("SUPABASE_POOLER_HOST", f"aws-0-{region}.pooler.supabase.com").strip()
+    """Pooler-first (IPv4); direct db host only when A record exists (often IPv6-only)."""
+    attempts: list[dict[str, Any]] = []
+    custom_pooler = os.environ.get("SUPABASE_POOLER_HOST", "").strip()
+    regions = _pooler_regions()
+    for idx, region in enumerate(regions):
+        pooler = custom_pooler if custom_pooler and idx == 0 else f"aws-0-{region}.pooler.supabase.com"
+        for port in (6543, 5432):
+            attempts.append(
+                {
+                    "host": pooler,
+                    "hostaddr": _resolve_ipv4(pooler),
+                    "port": port,
+                    "user": f"postgres.{ref}",
+                    "options": f"project={ref}",
+                }
+            )
     direct_host = f"db.{ref}.supabase.co"
-    attempts: list[dict[str, Any]] = [
-        {
-            "host": direct_host,
-            "hostaddr": _resolve_ipv4(direct_host),
-            "port": 5432,
-            "user": "postgres",
-            "options": None,
-        },
-        {
-            "host": pooler,
-            "hostaddr": _resolve_ipv4(pooler),
-            "port": 6543,
-            "user": f"postgres.{ref}",
-            "options": f"project={ref}",
-        },
-        {
-            "host": pooler,
-            "hostaddr": _resolve_ipv4(pooler),
-            "port": 5432,
-            "user": f"postgres.{ref}",
-            "options": f"project={ref}",
-        },
-    ]
+    direct_ipv4 = _resolve_ipv4(direct_host)
+    if direct_ipv4:
+        attempts.append(
+            {
+                "host": direct_host,
+                "hostaddr": direct_ipv4,
+                "port": 5432,
+                "user": "postgres",
+                "options": None,
+            }
+        )
     return attempts
 
 
@@ -311,7 +350,7 @@ def _apply_via_psycopg(sql: str) -> dict[str, Any]:
         os.environ.get("SUPABASE_DB_PASSWORD", "").strip()
         or os.environ.get("POSTGRES_PASSWORD", "").strip()
     )
-    ref = os.environ.get("SUPABASE_PROJECT_ID", "").strip()
+    ref = _project_ref()
     db_url = (
         os.environ.get("SUPABASE_DB_URL", "").strip()
         or os.environ.get("DATABASE_URL", "").strip()
@@ -352,19 +391,21 @@ def _apply_via_psycopg(sql: str) -> dict[str, Any]:
         enc = urllib.parse.quote(password, safe="")
         direct_host = f"db.{ref}.supabase.co"
         direct_ipv4 = _resolve_ipv4(direct_host)
-        built = f"postgresql://postgres:{enc}@{direct_host}:5432/postgres?sslmode=require"
         if direct_ipv4:
-            built += f"&hostaddr={direct_ipv4}"
-        try:
-            return _exec_psycopg_sql(
-                psycopg2,
-                connect_target="direct_built_url",
-                connect_kwargs={"dsn": built},
-                sql=sql,
+            built = (
+                f"postgresql://postgres:{enc}@{direct_host}:5432/postgres"
+                f"?sslmode=require&hostaddr={direct_ipv4}"
             )
-        except Exception as exc:
-            last_err = str(exc)[:200]
-            attempts_log.append({"target": "direct_built_url", "error": last_err})
+            try:
+                return _exec_psycopg_sql(
+                    psycopg2,
+                    connect_target="direct_built_url",
+                    connect_kwargs={"dsn": built},
+                    sql=sql,
+                )
+            except Exception as exc:
+                last_err = str(exc)[:200]
+                attempts_log.append({"target": "direct_built_url", "error": last_err})
 
         for attempt in _psycopg_connect_attempts(ref):
             kwargs: dict[str, Any] = {
