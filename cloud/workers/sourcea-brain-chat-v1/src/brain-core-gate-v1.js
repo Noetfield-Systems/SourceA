@@ -45,6 +45,11 @@ export function runBrainCoreGateStaging({
   }
 
   const gateResult = reasons.length ? "BLOCK" : "PASS";
+  let publicLanguage = String(draftReply || "");
+  for (const bad of FORBIDDEN_PUBLIC) {
+    publicLanguage = publicLanguage.split(bad).join("[redacted]");
+  }
+  publicLanguage = publicLanguage.replace(PASS_RE, "verified");
   return {
     schema: "brain-core-gate-v1",
     schema_version: "1.0.0",
@@ -57,5 +62,11 @@ export function runBrainCoreGateStaging({
     evidence_hits: hits,
     user_message_len: String(userMessage || "").length,
     staging: true,
+    sanitized_output: {
+      ok: gateResult === "PASS",
+      public_language: publicLanguage,
+      safe_public_language:
+        "I can share what SourceA documents publicly. For specifics, use the cited pages or book a scoped audit.",
+    },
   };
 }
