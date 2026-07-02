@@ -139,30 +139,72 @@ PROOF_MARKERS = [
 ]
 
 
-def verify_proof_live(base: str) -> dict[str, Any]:
-    return verify_live_page(
+def _extract_terminal_pre(body: str) -> str:
+    m = re.search(r'id="sa-aeg-terminal"[^>]*>(.*?)</pre>', body, re.DOTALL)
+    return m.group(1) if m else ""
+
+
+def check_proof_contradiction(body: str) -> list[str]:
+    issues: list[str] = []
+    hero_pass = 'id="sa-aeg-verdict">PASS' in body or 'id="sa-aeg-verdict" class="ar-hero-accent sa-aeg-verdict-hero is-pass">PASS' in body
+    terminal = _extract_terminal_pre(body)
+    no_blockers = "No blockers" in body
+    if hero_pass and terminal:
+        if any(x in terminal for x in ("CRITIC_BOOT BLOCK", "ok=False", "[FAIL]", "gate_fresh")):
+            issues.append("hero_pass_with_block_transcript")
+    if no_blockers and terminal:
+        if any(x in terminal for x in ("[FAIL]", "CRITIC_BOOT BLOCK", "ok=False")) or (
+            "blockers:" in terminal.lower() and "(none)" not in terminal.lower()
+        ):
+            issues.append("no_blockers_with_fail_transcript")
+    if hero_pass and "CRITIC_BOOT BLOCK" in body:
+        issues.append("hero_pass_with_critic_boot_anywhere")
+    return issues
+
+
+def verify_eval_live(base: str) -> dict[str, Any]:
+    row = verify_live_page(
         base=base,
-        path="/sourcea/proof/live",
-        markers=PROOF_MARKERS,
+        path="/eval",
+        markers=['data-sa-page="sourcea-boot-eval"', "pip install sourcea-boot", "receipts/sourcea-boot/BOOT_REPORT.json"],
         forbidden=list(FORBIDDEN),
-        emdash_slots=PROOF_EMDASH_SLOTS,
     )
+    row["local_path_leak"] = row.get("forbidden_hits") or []
+    row["ok"] = bool(row.get("ok")) and not row["local_path_leak"]
+    return row
+
+
+def verify_proof_live(base: str) -> dict[str, Any]:
+    url = f"{base.rstrip('/')}/sourcea/proof/live"
+    code, body = _fetch(url)
+    missing = [m for m in PROOF_MARKERS if m not in body]
+    hits = [f for f in FORBIDDEN if f in body]
+    bad_placeholders = [p for p in LOADING_PLACEHOLDERS if p in body]
+    emdash = [p for p in PROOF_EMDASH_SLOTS if p in body]
+    contradictions = check_proof_contradiction(body)
+    ok = code == 200 and not missing and not hits and not bad_placeholders and not emdash and not contradictions
+    return {
+        "ok": ok,
+        "url": url,
+        "http_code": code,
+        "markers_missing": missing,
+        "forbidden_hits": hits,
+        "bad_placeholders": bad_placeholders,
+        "emdash_slots": emdash,
+        "contradictions": contradictions,
+    }
 
 
 def verify_all(*, base: str = "https://sourcea.app", hosts: list[str] | None = None) -> dict[str, Any]:
-    eval_markers = ['data-sa-page="sourcea-boot-eval"', "pip install sourcea-boot", "receipts/sourcea-boot/BOOT_REPORT.json"]
     hosts = hosts or ["https://sourcea.app", "https://www.sourcea.app"]
+    eval_by_host = {h: verify_eval_live(h) for h in hosts}
     proof_by_host = {h: verify_proof_live(h) for h in hosts}
     row = {
         "schema": "buyer-proof-hotfix-verify-v1",
         "at": _now(),
         "grep": grep_buyer_sources(),
-        "eval_live": verify_live_page(
-            base=base,
-            path="/eval",
-            markers=eval_markers,
-            forbidden=list(FORBIDDEN),
-        ),
+        "eval_live": eval_by_host.get(base, verify_eval_live(base)),
+        "eval_live_hosts": eval_by_host,
         "proof_live": proof_by_host.get(base, verify_proof_live(base)),
         "proof_live_hosts": proof_by_host,
         "batch_summary_validator": run_script("validate_cloud_forge_batch_summary_v1.py", "--batch-id", "77", "--json"),
@@ -171,7 +213,7 @@ def verify_all(*, base: str = "https://sourcea.app", hosts: list[str] | None = N
     row["ok"] = all(
         [
             row["grep"]["ok"],
-            row["eval_live"]["ok"],
+            all(v["ok"] for v in eval_by_host.values()),
             all(v["ok"] for v in proof_by_host.values()),
             row["batch_summary_validator"]["ok"],
         ]
