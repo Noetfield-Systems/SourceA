@@ -1,0 +1,47 @@
+{
+  "schema": "client-proof-recipe-rubric-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-02T04:15:00Z",
+  "authority": "docs/FORGE_FACTORY_THREE_OFFERS_AND_FLOWS_LOCKED_v1.md",
+  "one_law": "Each Cloud Forge row must be one bounded client-demo recipe: GOAL · DONE · VERIFY · shareable proof artifact.",
+  "required_fields": [
+    "plan_id",
+    "title",
+    "goal",
+    "done_when",
+    "verify",
+    "proof_artifact",
+    "client_demo"
+  ],
+  "forbidden": [
+    "mock_only without live fallback",
+    " grid slice with no verify",
+    "volume-only task packs without per-row recipe",
+    "green UI without disk receipt"
+  ],
+  "quality_gates": {
+    "must_have_verify_command": true,
+    "must_have_proof_artifact_url_or_path": true,
+    "must_map_client_problem": true,
+    "reject_vague_keywords_from": "data/forge-scoring-ssot-v01.json",
+    "url_artifact_must_use_content_markers": true,
+    "url_verify_forbidden": "curl 200-only without grep/script content assertion",
+    "url_verify_helper": "scripts/verify_client_proof_artifact_v1.py",
+    "spa_false_pass_law": "sourcea.app SPA fallback serves shell HTML for any path — grep data-sa-page or page-unique copy"
+  },
+  "cloud_sec_numbering": {
+    "law": "Next CLOUD-SEC = max(actual plan id in prior batches) + 1 — never cloud_sec_range summary text alone",
+    "gap_7402_7466": "Phantom range: batch 75 summary claimed ..7466 but only 35 rows shipped (7367-7401); batch 76 generator read summary max not actual ids"
+  },
+  "motor_shape": {
+    "library": "client-proof-recipe",
+    "rows_per_turn": 100,
+    "tasks_per_row": 1,
+    "note": "One proven client recipe per CLOUD-SEC row — not 100 registry refs per row."
+  },
+  "wired_to": [
+    "scripts/build_client_proof_recipe_queue_v1.py",
+    "scripts/generate_client_proof_cloud_batch_v1.py",
+    "data/client-proof-recipe-queue-v1.json"
+  ]
+}
