@@ -1,7 +1,7 @@
 {
   "schema": "cloud-workers-control-plane-v1",
   "version": "1.4.0",
-  "saved_at": "2026-07-02T04:08:45Z",
+  "saved_at": "2026-07-02T04:22:47Z",
   "one_law": "Cloud Workers (:13027) is the founder cockpit for Railway + CF cron. Cloud Forge Run full-pack only \u2014 100 rows per trigger every 10 min; all-plan backlog rows carry 100 tasks per row.",
   "ssot_paths": {
     "drain_queue_active": "data/cloud-forge-run-queue-active-v1.json",
@@ -48,15 +48,15 @@
     "stale_volume_pointer": "Deploy image is current but Railway queue endpoint still serves old batch from persistent volume pointer; run sync_pointer_from_image."
   },
   "active_batch": {
-    "batch_id": 76,
+    "batch_id": 77,
     "locked": true,
     "status": "ACTIVE",
     "library": "client-proof-recipe",
-    "head": "CLOUD-SEC-7467",
-    "cloud_sec_range": "CLOUD-SEC-7467..CLOUD-SEC-7566",
+    "head": "CLOUD-SEC-7567",
+    "cloud_sec_range": "CLOUD-SEC-7567..CLOUD-SEC-7666",
     "rows_per_turn": 100,
     "tasks_per_row": 1,
-    "queue_path": "data/secondary-cloud-forge-run-batch-76-locked-v1.json"
+    "queue_path": "data/secondary-cloud-forge-run-batch-77-locked-v1.json"
   },
   "ready_batch": null,
   "deployment_lessons": {
@@ -67,6 +67,6 @@
     "when_to_use": "Use once when deploy build and healthcheck pass but queue still reports the old batch/head.",
     "do_not": "Do not redeploy repeatedly or call the cloud motor on Mac when only the volume pointer is stale.",
     "proof_receipt": "~/.sina/github-autonomous-drain-cron-fix-receipt-v1.json",
-    "cloud_sec_gap_7402_7466": "Batch 75 shipped 35 rows (7367-7401) but summary claimed ..7466; batch 76 started at 7467. IDs 7402-7466 are phantom — never allocated. Fixed: generator uses actual plan ids only; batch 75 summary corrected."
+    "cloud_sec_gap_7402_7466": "Batch 75 shipped 35 rows (7367-7401) but summary claimed ..7466; batch 76 started at 7467. IDs 7402-7466 are phantom \u2014 never allocated. Fixed: generator uses actual plan ids only; batch 75 summary corrected."
   }
 }
