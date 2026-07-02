@@ -67,7 +67,9 @@
       "92/100",
       "5/5 audited",
       "200 live route",
-      "Entity proof placeholder"
+      "Entity proof placeholder",
+      "not on PyPI yet",
+      "PyPI Phase 0b — not"
     ],
     "contract_page_must_include": [
       "proof-strip",
@@ -99,7 +101,7 @@
     "eval_must_include": [
       "eval-institutional-band",
       "/attach/procurement-pack.html",
-      "PyPI Phase 0b"
+      "pip install sourcea-boot"
     ],
     "home_paths": ["/"],
     "home_must_include": [
