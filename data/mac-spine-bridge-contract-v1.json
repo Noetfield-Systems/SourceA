@@ -1,0 +1,32 @@
+{
+  "schema": "mac-spine-bridge-contract-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-02T22:15:00Z",
+  "law": "L16 — Mac agents are registered spine workflows; invisible agents may not write",
+  "migration": "infra/supabase/portfolio-spine/migrations/006_mac_spine_bridge_v1.sql",
+  "module": "scripts/mac_spine_bridge_v1.py",
+  "freshness_window_minutes": 30,
+  "tables": {
+    "mac_agent_heartbeat": {
+      "fields": ["agent_id", "repo", "sha", "dirty_count", "at"],
+      "dashboard_lane": "mac",
+      "stale_rule": "last row age > freshness_window → STALE_DATA"
+    },
+    "worker_inbox": {
+      "statuses": ["pending", "delivered", "acked", "founder_blocked", "cleared"],
+      "disk_mirror": ".sina-loop/INBOX.md",
+      "disk_mirror_mode": "read_only_generated"
+    },
+    "truth_log_mac_events": [
+      "MAC_AGENT_HEARTBEAT",
+      "MAC_FRESH_MAIN_SYNC",
+      "MAC_RECEIPT_MIRROR",
+      "MAC_SESSION_GATE"
+    ]
+  },
+  "receipts_mirror_only": [
+    "~/.sina/agent_session_gate_receipt_v1.json",
+    "~/.sina/mac-fresh-main-sync-receipt-v1.json",
+    "~/.sina/mac-spine-heartbeat-receipt-v1.json"
+  ]
+}

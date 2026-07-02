@@ -1,0 +1,19 @@
+{
+  "schema": "mac-cloud-bridge-proof-v1",
+  "wire": "W3",
+  "title": "worker_inbox spine SSOT + READ-ONLY disk mirror",
+  "at": "2026-07-02T22:22:28Z",
+  "law": "L16 W3",
+  "receipt": {
+    "migration": "infra/supabase/portfolio-spine/migrations/006_mac_spine_bridge_v1.sql",
+    "table": "public.worker_inbox",
+    "statuses": ["pending", "delivered", "acked", "founder_blocked", "cleared"],
+    "disk_mirror": ".sina-loop/INBOX.md",
+    "mirror_mode": "read_only",
+    "module_functions": ["spine_insert_worker_inbox", "spine_read_worker_inbox_head", "mirror_inbox_to_disk"],
+    "wired_in": "scripts/worker_inject_lib.py deliver_to_worker_inbox"
+  },
+  "dashboard_row": null,
+  "registry_diff": null,
+  "brain_route": "W-LBA row insert → worker_inbox (founder_blocked supported)"
+}

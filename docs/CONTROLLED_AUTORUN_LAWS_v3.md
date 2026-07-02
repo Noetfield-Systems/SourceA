@@ -88,6 +88,21 @@ Before starting any task: read `main` and open branches for existing implementat
 
 Enforcement: GitHub branch protection on `main` (founder P4) + `.githooks/pre-push` warning when pushing local commits to `main`.
 
+## L16 — Mac agents are spine citizens (MAC-CLOUD BRIDGE)
+
+Mac Cursor/Worker agents MUST register on the portfolio spine every cycle:
+
+| Wire | Requirement |
+|------|-------------|
+| W1 fresh-main | Session gate `git fetch origin`; local `main` ≠ `origin/main` → `BLOCKED_WITH_REASON` `stale_local_main` until rebased; receipt + `MAC_FRESH_MAIN_SYNC` truth_log |
+| W2 heartbeat | Session gate + Hub keepalive POST `mac_agent_heartbeat` `{agent_id, repo, sha, dirty_count, at}`; dashboard mac lane → `STALE_DATA` when last row >30m |
+| W3 spine inbox | `worker_inbox` Supabase SSOT (incl. `founder_blocked`); Brain W-LBA inserts rows; `.sina-loop/INBOX.md` = generated READ-ONLY mirror |
+| W4 dual-write | Proof-grade Mac receipts self-register to `truth_log` (`mac_agent` source); `~/.sina/` mirror only |
+
+**Registry:** `SA-T-mac-agent-heartbeat` in `data/trigger-registry-v1.json` (L14). **Module:** `scripts/mac_spine_bridge_v1.py`. **Migration:** `006_mac_spine_bridge_v1.sql`.
+
+An agent invisible to the spine (no heartbeat, no fresh-main receipt, no inbox row when delivering) **may not write**.
+
 ## Parallel orchestration (Tier 1+ — founder trigger required)
 
 Lanes · concurrency keys · lock ordering · priority within tick · jitter · backpressure. **BLOCKED** until founder triggers Tier 1.

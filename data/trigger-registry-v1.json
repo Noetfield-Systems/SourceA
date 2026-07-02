@@ -1,6 +1,6 @@
 {
   "schema": "trigger-registry-v1",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "system": "sourcea",
   "spec_path": "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md",
   "law": "L14 T-REG — new trigger requires registry entry in same commit; sweep must pass pre-merge",
@@ -170,6 +170,21 @@
         "type": "gha_workflow",
         "path": ".github/workflows/validate-sourcea-boot-v1.yml",
         "expects": ["push", "pull_request"]
+      }
+    },
+    {
+      "trigger_id": "SA-T-mac-agent-heartbeat",
+      "system": "sourcea",
+      "kind": "keepalive",
+      "schedule": null,
+      "target": "Session gate + Hub keepalive POST mac_agent_heartbeat (L16 W2)",
+      "valid_in_verified_window": true,
+      "owner_workflow": "mac-spine-bridge",
+      "live_probe": {
+        "type": "session_gate_hook",
+        "path": "scripts/agent_session_gate_run_v1.py",
+        "also_path": "scripts/cloud_workers_hub_v1.py",
+        "expects": ["run_mac_spine_fresh_main", "run_mac_spine_heartbeat"]
       }
     }
   ]
