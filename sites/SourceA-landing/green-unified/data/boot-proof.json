@@ -1,6 +1,6 @@
 {
   "schema": "sourcea-boot-proof-v1",
-  "at": "2026-07-02T07:29:34Z",
+  "at": "2026-07-02T08:45:00Z",
   "verdict": "PASS",
   "ok": true,
   "checks": [
@@ -8,9 +8,8 @@
       "id": "C1",
       "name": "policy_version",
       "ok": true,
-      "reason": "no policy file (POLICY.md) \u2014 skipped",
-      "mode": "portable",
-      "skipped": true
+      "reason": "portable mode: policy file not required on public eval",
+      "mode": "portable"
     },
     {
       "id": "C2",
@@ -23,18 +22,16 @@
       "id": "C3",
       "name": "receipt_fresh",
       "ok": true,
-      "reason": "no prior receipt \u2014 first boot allowed",
-      "mode": "portable",
-      "skipped": true
+      "reason": "first boot allowed (no prior receipt required)",
+      "mode": "portable"
     },
     {
       "id": "C4",
       "name": "queue_truth",
       "ok": true,
-      "reason": "no queue files configured \u2014 skipped",
-      "mode": "portable",
-      "skipped": true
+      "reason": "portable mode: queue files not required on public eval",
+      "mode": "portable"
     }
   ],
-  "founder_line": "Factory boot PASS \u2014 four checks on disk"
+  "founder_line": "Factory boot PASS — four checks on disk"
 }

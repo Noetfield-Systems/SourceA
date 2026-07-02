@@ -146,6 +146,38 @@
       "allowed_context": ["ship_window", "cloud_ci"],
       "runner": "scripts/run_founder_proof_post_publish_v1.py --json --min-seconds-after-deploy 0"
     },
+    "locked_definitions_promote": {
+      "label": "Locked definitions promotion gate",
+      "cadence": "weekly",
+      "unified_tier": "T1_fast",
+      "est_wall_sec": 90,
+      "allowed_context": ["ship_window", "cloud_ci"],
+      "runner": "scripts/promote_locked_definitions_v1.py --json"
+    },
+    "autorun_sink_sustain": {
+      "label": "Autorun 24h zero-manual + sink invariant",
+      "cadence": "weekly",
+      "unified_tier": "T1_fast",
+      "est_wall_sec": 60,
+      "allowed_context": ["ship_window", "cloud_ci"],
+      "runner": "scripts/verify_autorun_zero_manual_v1.py --json"
+    },
+    "brain_core_production_gate": {
+      "label": "Brain core production gate verify",
+      "cadence": "weekly",
+      "unified_tier": "T1_fast",
+      "est_wall_sec": 90,
+      "allowed_context": ["ship_window", "cloud_ci"],
+      "runner": "scripts/verify_brain_core_production_gate_v1.py --json --write-receipt"
+    },
+    "client_proof_ship_window": {
+      "label": "Ship window — 15-recipe proof + promote + autorun + brain gate",
+      "cadence": "weekly",
+      "unified_tier": "T2_medium",
+      "est_wall_sec": 360,
+      "allowed_context": ["ship_window", "cloud_ci"],
+      "runner": "scripts/run_client_proof_ship_window_v1.py --json"
+    },
     "site_pulse_dashboard": {
       "label": "Site pulse stats + founder dashboard API",
       "cadence": "weekly",
