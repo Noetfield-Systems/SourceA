@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:43:40Z
+updated: 2026-07-02T08:56:13Z
 lane: core
 source_path: data/sourcea_orient_routing_v1.json
 public: true
@@ -12,7 +12,7 @@ kind: json
 - **version**: 1.1.0
 - **saved_at**: 2026-06-16T09:45:00Z
 - **human**: docs/SOURCEA_ORIENTATION_AND_ROUTING_LOCKED_v1.md
-- **law**: AGENT_THREE_PIPELINES_ORIENTATION_HOSPITAL_MAZE_LOCKED_v1.md
+- **law**: brain-os/law/AGENT_THREE_PIPELINES_ORIENTATION_HOSPITAL_MAZE_LOCKED_v1.md
 - **mesh_catalog**: data/sourcea_node_mesh_catalog_v1.json
 - **node_graph**: data/sourcea_pipeline_node_graph_v1.json
 - **report_receipt**: ~/.sina/orient-routing-report-v1.json
@@ -156,12 +156,12 @@ kind: json
 ## three_pipelines
 - **step**: 5
 - **id**: three_pipelines
-- **path**: AGENT_THREE_PIPELINES_ORIENTATION_HOSPITAL_MAZE_LOCKED_v1.md
+- **path**: brain-os/law/AGENT_THREE_PIPELINES_ORIENTATION_HOSPITAL_MAZE_LOCKED_v1.md
 - **why**: Founder word triggers
 ## layer_stack
 - **step**: 6
 - **id**: layer_stack
-- **path**: SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md
+- **path**: brain-os/law/SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md
 - **why**: L0–L3 roles
 ## node_graph
 - **step**: 7

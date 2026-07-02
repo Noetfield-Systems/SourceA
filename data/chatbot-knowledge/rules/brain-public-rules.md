@@ -1,7 +1,7 @@
 ---
 lane: rules
 kind: rule
-updated: 2026-06-30T12:43:40Z
+updated: 2026-07-02T08:56:13Z
 source_path: data/brain-public-rules-v1.json
 public: true
 pinned: true

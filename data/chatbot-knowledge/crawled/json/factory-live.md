@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:43:40Z
+updated: 2026-07-02T08:56:13Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/data/factory-live.json
 public: true
@@ -9,15 +9,15 @@ kind: json
 # Factory Live
 
 - **schema**: sourcea-factory-live-v1
-- **at**: 2026-06-27T18:07:35Z
+- **at**: 2026-07-02T07:29:34Z
 - **account**: sourcea
 - **console_url**: command.sourcea.com/team
-- **factory_now_line**: factory-now · Cloud Workers.app owns Cloud Forge Run · head CLOUD-SEC-6967 · batch 71 · 100 rows/10min · 100 tasks/row
-- **queue_sa**: CLOUD-SEC-6967
+- **factory_now_line**: factory-now · Cloud Workers.app owns Cloud Forge Run · head CLOUD-SEC-7367 · batch 75 · 100 rows/10min · 100 tasks/row
+- **queue_sa**: CLOUD-SEC-7367
 - **mode**: FREEZE
 ## pipeline
 - **schema**: commercial-pipeline-glance-v1
-- **at**: 2026-06-27T18:07:35Z
+- **at**: 2026-07-02T07:29:34Z
 ### lanes
 - AB1
 - NW1
@@ -49,7 +49,7 @@ kind: json
 - **lane**: AB1
 - **status**: proof_viewed
 - **next_action**: Book 15 min eval · eval booking agent
-- **proof_url**: https://source-a.vercel.app/sourcea/proof/live.html
+- **proof_url**: https://sourcea.app/sourcea/proof/live.html
 - **next_agent**: eval_booking_agent
 ## cp-a0c7c6c607
 - **id**: cp-a0c7c6c607
@@ -57,7 +57,7 @@ kind: json
 - **lane**: AB1
 - **status**: eval_scheduled
 - **next_action**: Await prospect slot · prep BLOCK live screen-share
-- **proof_url**: https://source-a.vercel.app/sourcea/proof/live.html
+- **proof_url**: https://sourcea.app/sourcea/proof/live.html
 - **next_agent**: await_prospect_slot
 - **proof_label**: Live forensic proof
 ## cp-0b9b8c4eff
@@ -74,7 +74,7 @@ kind: json
 - **lane**: WBC
 - **status**: proof_viewed
 - **next_action**: Founder send eval invite · Mail draft in outbound pack
-- **proof_url**: https://source-a.vercel.app/sourcea/scenario.html
+- **proof_url**: https://sourcea.app/sourcea/scenario.html
 - **next_agent**: eval_booking_agent
 - **rows_total**: 4
 ## boot
@@ -117,28 +117,28 @@ kind: json
 - **sent**: 0
 ## aeg
 - **schema**: sourcea-aeg-live-v1
-- **at**: 2026-06-27T06:23:21Z
-- **evidence_id**: aeg-20260620T044750Z-ac101c6b
+- **at**: 2026-07-02T07:28:54Z
+- **evidence_id**: aeg-20260702T031950Z-e5af018b
 - **verdict**: PASS
 ### blockers
-- **terminal_transcript**: $ python3 [REDACTED]/scripts/critic_boot_v1.py --json --no-aeg
+- **terminal_transcript**: $ sourcea-boot --json
 
-CRITIC_BOOT BLOCK ok=False
-RECEIPT=~/.sina/critic-boot-v1.json
+SOURCEA_BOOT PASS ok=true
+REPORT=receipts/sourcea-boot/BOOT_REPORT.json
 
-  [PASS] ssot_brief: SSOT v3.1 sig refreshed from disk
-  [PASS] voyage_provider: voyage
-  [PASS] truth_match: inbox matches queue head
-  [FAIL] gate_fresh: last session gate receipt ok=false
+  [SKIP] policy_version: no policy file (POLICY.md) (not configured)
+  [PASS] provider: provider env present (ANTHROPIC_API_KEY)
+  [SKIP] receipt_fresh: no prior receipt — first boot allowed
+  [SKIP] queue_truth: no queue files configured (not configured)
 
 blockers:
-  - last session gate receipt ok=false
+  (none)
 ### checks
 ## policy_version
 - **id**: C1
 - **name**: policy_version
 - **ok**: True
-- **reason**: no policy file (POLICY.md) — skipped
+- **reason**: no policy file (POLICY.md) (not configured)
 - **mode**: portable
 - **skipped**: True
 ## provider
@@ -158,13 +158,14 @@ blockers:
 - **id**: C4
 - **name**: queue_truth
 - **ok**: True
-- **reason**: no queue files configured — skipped
+- **reason**: no queue files configured (not configured)
 - **mode**: portable
 - **skipped**: True
 - **boot_verdict**: PASS
-- **site_proof_url**: https://source-a.vercel.app/sourcea/proof/live.html
-- **forensic_archive_url**: https://locally-projected-shade-projection.trycloudflare.com/aeg-20260620T044750Z-ac101c6b/
-- **hosted_at**: 2026-06-20T04:47:50Z
+- **site_proof_url**: https://sourcea.app/sourcea/proof/live.html
+- **forensic_archive_url**: https://locally-projected-shade-projection.trycloudflare.com/aeg-20260702T031950Z-e5af018b/
+- **hosted_at**: 2026-07-02T03:19:50Z
 - **disclaimer**: Live inject from factory repository · same schema as weekly export bundle
-- **valid_yes_total**: 1000
-- **aeg_live_url**: https://source-a.vercel.app/sourcea/proof/live.html
+- **valid_yes**: 4
+- **valid_yes_total**: 4
+- **aeg_live_url**: https://sourcea.app/sourcea/proof/live.html

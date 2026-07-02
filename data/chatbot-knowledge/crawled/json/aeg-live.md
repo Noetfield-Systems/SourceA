@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:43:40Z
+updated: 2026-07-02T08:56:13Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/data/aeg-live.json
 public: true
@@ -9,30 +9,29 @@ kind: json
 # Aeg Live
 
 - **schema**: sourcea-aeg-live-v1
-- **at**: 2026-06-27T18:09:51Z
-- **evidence_id**: aeg-20260627T180927Z-c604de95
+- **at**: 2026-07-02T08:54:52Z
+- **evidence_id**: aeg-20260702T084822Z-9692b723
 - **verdict**: PASS
 ## blockers
-- **terminal_transcript**: $ python3 [REDACTED]/scripts/critic_boot_v1.py --json --no-aeg
+- **terminal_transcript**: $ sourcea-boot --json
 
-CRITIC_BOOT BLOCK ok=False
-RECEIPT=~/.sina/critic-boot-v1.json
+SOURCEA_BOOT PASS ok=true
+REPORT=receipts/sourcea-boot/BOOT_REPORT.json
 
-  [FAIL] ssot_brief: briefed SSOT version mismatch (disk v3.3, brief '** 3.2 — LOCKED')
-  [PASS] voyage_provider: voyage
-  [PASS] truth_match: inbox matches queue head
-  [PASS] gate_fresh: session gate completing
+  [SKIP] policy_version: no policy file (POLICY.md) (not configured)
+  [PASS] provider: provider env present (ANTHROPIC_API_KEY)
+  [SKIP] receipt_fresh: no prior receipt — first boot allowed
+  [SKIP] queue_truth: no queue files configured (not configured)
 
 blockers:
-  - briefed SSOT version mismatch (disk v3.3, brief '** 3.2 — LOCKED')
+  (none)
 ## checks
 ## policy_version
 - **id**: C1
 - **name**: policy_version
 - **ok**: True
-- **reason**: no policy file (POLICY.md) — skipped
+- **reason**: portable mode: policy file not required on public eval
 - **mode**: portable
-- **skipped**: True
 ## provider
 - **id**: C2
 - **name**: provider
@@ -43,18 +42,16 @@ blockers:
 - **id**: C3
 - **name**: receipt_fresh
 - **ok**: True
-- **reason**: no prior receipt — first boot allowed
+- **reason**: first boot allowed (no prior receipt required)
 - **mode**: portable
-- **skipped**: True
 ## queue_truth
 - **id**: C4
 - **name**: queue_truth
 - **ok**: True
-- **reason**: no queue files configured — skipped
+- **reason**: portable mode: queue files not required on public eval
 - **mode**: portable
-- **skipped**: True
 - **boot_verdict**: PASS
-- **site_proof_url**: https://69c94902.sourcea-com.pages.dev/sourcea/proof/live.html
-- **forensic_archive_url**: https://locally-projected-shade-projection.trycloudflare.com/aeg-20260627T180927Z-c604de95/
-- **hosted_at**: 2026-06-27T18:09:27Z
+- **site_proof_url**: https://source-a.vercel.app/sourcea/proof/live.html
+- **forensic_archive_url**: https://locally-projected-shade-projection.trycloudflare.com/aeg-20260702T084822Z-9692b723/
+- **hosted_at**: 2026-07-02T08:48:22Z
 - **disclaimer**: Live inject from factory repository · same schema as weekly export bundle

@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:43:40Z
+updated: 2026-07-02T08:56:13Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/attach/procurement-pack.html
 public: true
@@ -22,6 +22,8 @@ SourceA Procurement Pack
 ## Verification (screen-share)
 
 Self-hosted receipts · fail-closed dispatch · export bundle · shadow mode. Educational framework maps only — not certification.
+
+$ sourcea-boot --json SOURCEA_BOOT PASS ok=true [SKIP] policy_version: no policy file (POLICY.md) (not configured) [PASS] provider: provider env present (ANTHROPIC_API_KEY) [SKIP] receipt_fresh: no prior receipt — first boot allowed [SKIP] queue_truth: no queue files configured (not configured) REPORT=receipts/sourcea-boot/BOOT_REPORT.json ▋ Public eval: sourcea-boot on PyPI · sourcea.app/eval
 
 request → policy → decision → receipt → replay → tamper-FAIL — under five minutes live.
 
