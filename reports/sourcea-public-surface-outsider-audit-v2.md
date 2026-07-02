@@ -1,9 +1,9 @@
 # SourceA Public Surface — Outsider Re-Audit v2
 
-**Saved:** 2026-07-02T00:42:00Z  
+**Saved:** 2026-07-02T07:55:00Z  
 **Baseline:** v1 overall **74/100 — NOT CLEAN**  
 **Scope:** 7 public diligence routes + Noetfield entity/trust surfaces  
-**Validator:** `scripts/validate-sourcea-contract-pages-e2e-v1.sh` — **ALL PASS** (direct 200 on regional SKUs)
+**Validator:** `scripts/validate-sourcea-contract-pages-e2e-v1.sh` — **ALL PASS** (direct 200 regional + procurement pack)
 
 ---
 
@@ -53,7 +53,7 @@
 
 | Gap | Posture |
 |-----|---------|
-| PyPI `pip install sourcea-boot` | **BLOCKED** Phase 0b — OIDC not live; site correctly says clone-only |
+| PyPI `pip install sourcea-boot` | **SHIPPED** v0.1.0 — probe PASS 2026-07-02; eval shows live install path |
 | BC registry extract public URL | **NDA path** — appropriate for pre-Series-A diligence |
 | SOC 2 / ISO certification | **Planned** — not claimed |
 | Noetfield live deploy | Source files updated on disk; **separate Noetfield deploy** required for live noetfield.com |
@@ -62,7 +62,9 @@
 
 ## Evidence
 
-- E2E receipt: `~/.sina/sourcea-contract-pages-e2e-v1.json`
+- E2E receipt: `~/.sina/sourcea-contract-pages-e2e-v1.json` (2026-07-02 ALL PASS)
+- Brain deploy receipt: `~/.sina/sourcea-phase-0-3-deploy-receipt-v1.json` (bundle SHA `efe39397…`; SG verifier pending secondary account)
+- Registry: `data/sourcea-brain-registry-inventory-v1.json`
 - Publish: `publish_sourcea_landing_v1.py` → `https://sourcea.app/` (2026-07-02)
 - Upgrade script: `scripts/upgrade_contract_surfaces_v1.py`
 - SSOT: `data/sourcea-contract-email-routes-v1.json` (`buyer_path_note`)
@@ -71,4 +73,4 @@
 
 ## Recommendation
 
-Proceed to procurement conversations on contract SKUs. Next lift: publish Noetfield entity/trust HTML to live noetfield.com; ship PyPI Phase 0b when OIDC credentials are ready — then flip eval copy only after `pip install sourcea-boot` resolves.
+Proceed to procurement conversations on contract SKUs. Brain-core gate live on **staging worker** (`sourcea-brain-chat-v1-staging`); production gate remains OFF until SG verifier receipt. Next lift: publish Noetfield entity/trust HTML to live noetfield.com; promote `locked-definitions-v1` through registry receipt gate.
