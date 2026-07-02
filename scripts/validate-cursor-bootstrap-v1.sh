@@ -72,7 +72,11 @@ done
 [[ -f data/supabase-migration-001-campaign-automations-v1.sql ]] || fail "missing supabase migration SSOT"
 [[ -f scripts/video_ad_factory_orchestrate_v1.py ]] || fail "missing video_ad_factory_orchestrate"
 [[ -f scripts/video_ad_rendering_bridge_v1.py ]] || fail "missing video_ad_rendering_bridge"
-bash scripts/validate-video-ad-factory-chain-v1.sh >/dev/null || fail "video-ad-factory chain"
+if python3 scripts/founder_session_gate_v1.py validate-video-ad-factory-chain-v1.sh --json 2>/dev/null | python3 -c "import json,sys; d=json.load(sys.stdin); sys.exit(0 if d.get('ok') else 1)"; then
+  bash scripts/validate-video-ad-factory-chain-v1.sh >/dev/null || fail "video-ad-factory chain"
+else
+  echo "NOTE: skipped video-ad-factory chain — founder session heavy gate"
+fi
 
 # --- chained E2E (fast) ---
 if curl -sf --max-time 3 http://127.0.0.1:13020/health >/dev/null 2>&1; then

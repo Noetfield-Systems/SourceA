@@ -1,4 +1,6 @@
 {
+  "schema": "architecture-ledger-v1",
+  "ssot_path": "docs/architecture_ledger.json",
   "core_contracts": {
     "mac_role": "control_plane_only",
     "cloud_role": "execution_plane_headless",

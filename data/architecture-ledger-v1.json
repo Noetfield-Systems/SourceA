@@ -1,4 +1,9 @@
 {
+  "schema": "architecture-ledger-v1",
+  "ssot_path": "data/architecture-ledger-v1.json",
+  "ssot_aliases": {
+    "cursor_bootstrap": "data/cursor-bootstrap-ledger-v1.json"
+  },
   "core_contracts": {
     "mac_role": "control_plane_only",
     "cloud_role": "execution_plane_headless",
