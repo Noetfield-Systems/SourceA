@@ -24,10 +24,10 @@ BUYER_SAFE_TERMINAL = (
     "$ sourcea-boot --json\n\n"
     "SOURCEA_BOOT PASS ok=true\n"
     "REPORT=receipts/sourcea-boot/BOOT_REPORT.json\n\n"
-    "  [SKIP] policy_version: no policy file (POLICY.md) — skipped\n"
+    "  [SKIP] policy_version: no policy file (POLICY.md) (not configured)\n"
     "  [PASS] provider: provider env present (ANTHROPIC_API_KEY)\n"
     "  [SKIP] receipt_fresh: no prior receipt — first boot allowed\n"
-    "  [SKIP] queue_truth: no queue files configured — skipped\n\n"
+    "  [SKIP] queue_truth: no queue files configured (not configured)\n\n"
     "blockers:\n  (none)"
 )
 

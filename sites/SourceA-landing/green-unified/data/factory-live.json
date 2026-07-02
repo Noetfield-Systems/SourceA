@@ -1,6 +1,6 @@
 {
   "schema": "sourcea-factory-live-v1",
-  "at": "2026-07-02T07:18:45Z",
+  "at": "2026-07-02T07:25:16Z",
   "account": "sourcea",
   "console_url": "command.sourcea.com/team",
   "factory_now_line": "factory-now \u00b7 Cloud Workers.app owns Cloud Forge Run \u00b7 head CLOUD-SEC-7367 \u00b7 batch 75 \u00b7 100 rows/10min \u00b7 100 tasks/row",
@@ -8,7 +8,7 @@
   "mode": "FREEZE",
   "pipeline": {
     "schema": "commercial-pipeline-glance-v1",
-    "at": "2026-07-02T07:18:45Z",
+    "at": "2026-07-02T07:25:16Z",
     "lanes": [
       "AB1",
       "NW1",
@@ -38,6 +38,24 @@
     "founder_line": "Pipeline \u00b7 0 personalized \u00b7 1 eval \u00b7 0 pilot",
     "top_next": [
       {
+        "id": "cp-0b9b8c4eff",
+        "company": "NW1 design partner (draft)",
+        "lane": "NW1",
+        "status": "proof_viewed",
+        "next_action": "Book 15 min eval \u00b7 eval booking agent",
+        "proof_url": "https://needle-celtic-effectiveness-cheapest.trycloudflare.com/aeg-20260615T174938Z-65bffb9f/",
+        "next_agent": "eval_booking_agent"
+      },
+      {
+        "id": "cp-47ccf0bd93",
+        "company": "WitnessBC Proof Lab (reference)",
+        "lane": "WBC",
+        "status": "proof_viewed",
+        "next_action": "Founder send eval invite \u00b7 Mail draft in outbound pack",
+        "proof_url": "https://sourcea.app/sourcea/scenario.html",
+        "next_agent": "eval_booking_agent"
+      },
+      {
         "id": "cp-32ddb1794d",
         "company": "AB1 prospect (draft)",
         "lane": "AB1",
@@ -55,24 +73,6 @@
         "proof_url": "https://sourcea.app/sourcea/proof/live.html",
         "next_agent": "await_prospect_slot",
         "proof_label": "Live forensic proof"
-      },
-      {
-        "id": "cp-0b9b8c4eff",
-        "company": "NW1 design partner (draft)",
-        "lane": "NW1",
-        "status": "proof_viewed",
-        "next_action": "Book 15 min eval \u00b7 eval booking agent",
-        "proof_url": "https://needle-celtic-effectiveness-cheapest.trycloudflare.com/aeg-20260615T174938Z-65bffb9f/",
-        "next_agent": "eval_booking_agent"
-      },
-      {
-        "id": "cp-47ccf0bd93",
-        "company": "WitnessBC Proof Lab (reference)",
-        "lane": "WBC",
-        "status": "proof_viewed",
-        "next_action": "Founder send eval invite \u00b7 Mail draft in outbound pack",
-        "proof_url": "https://sourcea.app/sourcea/scenario.html",
-        "next_agent": "eval_booking_agent"
       }
     ],
     "rows_total": 4
@@ -124,11 +124,11 @@
   },
   "aeg": {
     "schema": "sourcea-aeg-live-v1",
-    "at": "2026-07-02T05:45:40Z",
+    "at": "2026-07-02T07:21:55Z",
     "evidence_id": "aeg-20260702T031950Z-e5af018b",
     "verdict": "PASS",
     "blockers": [],
-    "terminal_transcript": "$ sourcea-boot --json\n\nSOURCEA_BOOT PASS ok=true\nREPORT=receipts/sourcea-boot/BOOT_REPORT.json\n\n  [PASS] policy_version: no policy file (POLICY.md) \u2014 skipped\n  [PASS] provider: provider env present (ANTHROPIC_API_KEY)\n  [PASS] receipt_fresh: no prior receipt \u2014 first boot allowed\n  [PASS] queue_truth: no queue files configured \u2014 skipped\n\nblockers:\n  (none)",
+    "terminal_transcript": "$ sourcea-boot --json\n\nSOURCEA_BOOT PASS ok=true\nREPORT=receipts/sourcea-boot/BOOT_REPORT.json\n\n  [SKIP] policy_version: no policy file (POLICY.md) \u2014 skipped\n  [PASS] provider: provider env present (ANTHROPIC_API_KEY)\n  [SKIP] receipt_fresh: no prior receipt \u2014 first boot allowed\n  [SKIP] queue_truth: no queue files configured \u2014 skipped\n\nblockers:\n  (none)",
     "checks": [
       {
         "id": "C1",
