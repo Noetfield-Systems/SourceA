@@ -25,7 +25,7 @@ def post_truth(receipt_path: str) -> dict:
     row = {
         "source": "github_actions",
         "event": event,
-        "receipt_id": f"external-verify-l4-{receipt.get('github_run_id', '')}",
+        "receipt_id": f"external-verify-{receipt.get('github_run_id', '')}",
         "deployment_id": (receipt.get("github_sha") or "")[:64] or None,
         "payload": receipt,
     }

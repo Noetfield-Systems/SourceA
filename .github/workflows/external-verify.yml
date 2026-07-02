@@ -1,15 +1,18 @@
 name: external-verify
 
-# L4 minimal lane — buyer public surfaces only (curl + forbidden scan).
-# truth_log POST and determinism are added in separate commits/workflows.
+# L4 buyer-surface lane — founder_proof_15 (body_sha256) + truth_log REST POST.
+# Determinism: determinism-gate.yml (separate workflow).
 on:
   workflow_dispatch:
   push:
     branches: [main]
     paths:
       - '.github/workflows/external-verify.yml'
-      - 'scripts/external_verify_l4_minimal_v1.sh'
+      - 'scripts/verify_client_proof_founder_review_v1.py'
+      - 'scripts/build_external_verify_l4_receipt_v1.py'
       - 'scripts/post_external_verify_l4_truth_v1.py'
+      - 'scripts/ensure_truth_log_schema_v1.py'
+      - 'scripts/apply_truth_log_migration_v1.sh'
       - 'data/client-proof-founder-review-pack-v1.json'
 
 permissions:
@@ -18,19 +21,66 @@ permissions:
 jobs:
   buyer-surfaces-l4:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     env:
       GITHUB_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
     steps:
       - uses: actions/checkout@v4
 
-      - name: Curl 15 buyer surfaces + forbidden scan
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Ensure truth_log schema (migrations 002+005)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y postgresql-client
+          bash scripts/apply_truth_log_migration_v1.sh
+          python3 scripts/ensure_truth_log_schema_v1.py --json
+
+      - name: 15-recipe founder proof (public HTTPS only)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+        run: |
+          set -euo pipefail
+          python3 scripts/verify_client_proof_founder_review_v1.py \
+            --json --min-seconds-after-deploy 0 > "${{ runner.temp }}/founder-proof-15.json"
+          python3 -c "
+          import json, sys
+          d=json.load(open('${{ runner.temp }}/founder-proof-15.json'))
+          print(f\"15-recipe {d.get('passed')}/{d.get('total')} ok={d.get('ok')}\")
+          sys.exit(0 if d.get('ok') and d.get('passed')==d.get('total')==15 else 1)
+          "
+
+      - name: Build L4 receipt (body hashes)
         env:
           GITHUB_RUN_ID: ${{ github.run_id }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          EXTERNAL_VERIFY_L4_RECEIPT: ${{ runner.temp }}/external-verify-l4-receipt.json
-        run: bash scripts/external_verify_l4_minimal_v1.sh
+        run: |
+          set -euo pipefail
+          python3 scripts/build_external_verify_l4_receipt_v1.py \
+            --founder-proof "${{ runner.temp }}/founder-proof-15.json" \
+            --out "${{ runner.temp }}/external-verify-l4-receipt.json" --json
+
+      - name: POST L4 receipt to truth_log (REST)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          RECEIPT_PATH: ${{ runner.temp }}/external-verify-l4-receipt.json
+        run: |
+          set -euo pipefail
+          python3 scripts/post_external_verify_l4_truth_v1.py --receipt "$RECEIPT_PATH" --json
 
       - name: Upload L4 receipt artifact
         if: always()
@@ -39,14 +89,3 @@ jobs:
           name: external-verify-l4-receipt
           path: ${{ runner.temp }}/external-verify-l4-receipt.json
           retention-days: 30
-
-      - name: POST L4 receipt to truth_log (curl REST)
-        if: always()
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          RECEIPT_PATH: ${{ runner.temp }}/external-verify-l4-receipt.json
-        run: |
-          set -euo pipefail
-          test -f "$RECEIPT_PATH"
-          python3 scripts/post_external_verify_l4_truth_v1.py --receipt "$RECEIPT_PATH" --json
