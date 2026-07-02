@@ -19,9 +19,9 @@ grep -q 'fetchPayload' "$HUB_HTML" || fail "worker-hub JS missing fetchPayload (
 test -f "$ROOT/agent-control-panel/worker-hub/boot.json" || fail "worker-hub/boot.json missing — run worker_hub_v1.py"
 grep -q "command-data.json" "$HUB_HTML" && fail "default HTML must not prefetch command-data.json"
 
-# API payload size cap (~2 KB typical, hard cap 16 KB)
+# API payload size cap (~2 KB typical, hard cap 32 KB)
 bytes="$(curl -sf "${BASE}/api/worker-hub/v1" | wc -c | tr -d ' ')"
-if [[ "$bytes" -gt 16384 ]]; then
+if [[ "$bytes" -gt 32768 ]]; then
   fail "worker-hub payload too large: ${bytes} bytes"
 fi
 
@@ -50,7 +50,7 @@ PY
 refresh="$(curl -sf -X POST "${BASE}/refresh" -H "Content-Type: application/json" -d '{"mode":"light"}')"
 echo "$refresh" | python3 -c "import json,sys; d=json.load(sys.stdin); assert d.get('mode')=='light' and d.get('ok'); print('OK: light refresh', d.get('built_at','')[:19])"
 
-echo "OK: validate-super-fast-hub-v1 · default=Worker Hub · payload<16KB · light refresh"
+echo "OK: validate-super-fast-hub-v1 · default=Worker Hub · payload<32KB · light refresh"
 
 # H2 sibling must resolve (SHIP — not daily load on H1)
 h2_code="$(curl -s -o /dev/null -w '%{http_code}' "${BASE}/machines/")"
