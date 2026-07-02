@@ -65,6 +65,7 @@
   },
   "meta": {
     "schema": "sina-n8n-glue-workflow-v1",
-    "glue_command": "cloud-auto-runtime-tick"
+    "glue_command": "cloud-auto-runtime-tick",
+    "motor_label": "Cloud Forge Run auto-tick (W-LBA-009 — not drain)"
   }
 }

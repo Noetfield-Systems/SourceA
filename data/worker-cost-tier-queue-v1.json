@@ -1,0 +1,145 @@
+{
+  "schema": "worker-cost-tier-queue-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-02T22:30:00Z",
+  "law": "L17 — lowest plausible tier first; escalation requires receipt with reason",
+  "routing_rule": "Assign lowest plausible tier; escalate only with TIER_ESCALATION receipt {from_tier, to_tier, reason, evidence}",
+  "tiers": {
+    "T0": {
+      "label": "Scripts / no-LLM",
+      "worker": "bash + python3 validators",
+      "cost_profile": "~$0",
+      "examples": ["grep audit", "registry sweep", "doc lint", "trigger-registry sync"]
+    },
+    "T1": {
+      "label": "Copilot pilot",
+      "worker": "GitHub Copilot coding agent",
+      "cost_profile": "low capped",
+      "gate": "founder P4 (CODEOWNERS + branch protection) before first merge",
+      "examples": ["Kaizen machine_safe PRs", "CODEOWNERS-fenced hygiene"]
+    },
+    "T2": {
+      "label": "Local Auto",
+      "worker": "Cursor Auto / Composer (included pool)",
+      "cost_profile": "included pool — not API burn",
+      "examples": ["branch builds", "scoped sa implementation", "W-LBA plane work on branches"]
+    },
+    "T3": {
+      "label": "Cloud integrator",
+      "worker": "Cloud Loop Specialist (L15)",
+      "cost_profile": "cloud + API ship window",
+      "examples": ["integration to main", "merge", "deploy→verify chain"]
+    }
+  },
+  "reclassified_open_queue": [
+    {
+      "id": "W-LBA-009",
+      "title": "Drain→Cloud Forge Run vocabulary pass",
+      "prior_tier": "unassigned",
+      "cost_tier": "T0",
+      "worker": "scripts",
+      "status": "done",
+      "paths": ["n8n/workflows/wf-cloud-auto-runtime-v1.json", ".github/workflows/autonomous-drain-cron-v1.yml", "scripts/autorun_pending_v1.py"],
+      "verify": "grep audit + sandbox_health_sweep"
+    },
+    {
+      "id": "REG-SYNC-001",
+      "title": "trigger-registry + sweep co-commit hygiene",
+      "prior_tier": "T2",
+      "cost_tier": "T0",
+      "worker": "scripts",
+      "paths": ["data/trigger-registry-v1.json", "scripts/sandbox_health_sweep_v1.py"],
+      "verify": "python3 scripts/sandbox_health_sweep_v1.py --json"
+    },
+    {
+      "id": "REG-SYNC-002",
+      "title": "Laws v3 + spec §6 doc sync (registry cross-refs)",
+      "prior_tier": "T2",
+      "cost_tier": "T0",
+      "worker": "scripts",
+      "paths": ["docs/GOVERNED_AUTORUN_LAWS_v3.md", "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md"],
+      "verify": "grep L17 + §6 alignment"
+    },
+    {
+      "id": "KZ-002",
+      "title": "Kaizen queue motor — pick highest ROI machine_safe per cycle",
+      "prior_tier": "T2",
+      "cost_tier": "T1",
+      "worker": "copilot_pilot",
+      "blocked_until": "founder P4",
+      "paths": ["scripts/autorun_kaizen_queue_v1.py", "data/autorun-kaizen-backlog-v1.json"],
+      "note": "Copilot Kaizen pilot per spec P7 — after CODEOWNERS fences"
+    },
+    {
+      "id": "W-LBA-001",
+      "title": "launchd + loop-specialist CF account align",
+      "cost_tier": "T2",
+      "worker": "cursor_auto",
+      "status": "done"
+    },
+    {
+      "id": "W-LBA-002",
+      "title": "Signal factory piggyback-only",
+      "cost_tier": "T2",
+      "worker": "cursor_auto",
+      "status": "done"
+    },
+    {
+      "id": "W-LBA-003",
+      "title": "Remove SA-T-brain-loop registry drift",
+      "cost_tier": "T2",
+      "worker": "cursor_auto",
+      "status": "done"
+    },
+    {
+      "id": "W-LBA-004",
+      "title": "D6–D8 determinism in verify script",
+      "cost_tier": "T2",
+      "worker": "cursor_auto",
+      "status": "done"
+    },
+    {
+      "id": "W-LBA-005",
+      "title": "Kaizen backlog JSON + queue script",
+      "cost_tier": "T2",
+      "worker": "cursor_auto",
+      "status": "done"
+    },
+    {
+      "id": "W-LBA-006",
+      "title": "Platform-native PN-001 deploy→verify",
+      "cost_tier": "T2",
+      "worker": "cursor_auto",
+      "status": "done"
+    },
+    {
+      "id": "W-LBA-007",
+      "title": "Hub living-system dashboard slice",
+      "cost_tier": "T2",
+      "worker": "cursor_auto",
+      "status": "open"
+    },
+    {
+      "id": "W-LBA-008",
+      "title": "Loop dispatch + pending→inbox",
+      "cost_tier": "T2",
+      "worker": "cursor_auto",
+      "status": "open"
+    },
+    {
+      "id": "MAC-CLOUD-BRIDGE",
+      "title": "L16 W1–W4 mac spine citizens",
+      "cost_tier": "T2",
+      "worker": "cursor_auto",
+      "status": "open"
+    },
+    {
+      "id": "L15-INTEGRATE",
+      "title": "Integration / merge to main",
+      "cost_tier": "T3",
+      "worker": "cloud_loop_specialist",
+      "law": "L15 agent-D2 — never local Worker push main",
+      "status": "standing"
+    }
+  ]
+}
