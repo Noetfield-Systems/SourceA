@@ -1,0 +1,42 @@
+name: determinism-gate
+
+# L13 determinism — separate from L4 buyer-surface lane (never block L4 again).
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 */6 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/verify_autorun_determinism_v1.py'
+      - 'scripts/autorun_legal_transitions_v1.py'
+      - '.github/workflows/determinism-gate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  determinism-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Determinism gate (D1-D5)
+        run: |
+          set -euo pipefail
+          python3 scripts/verify_autorun_determinism_v1.py \
+            --json --write-receipt > "${{ runner.temp }}/determinism-verify.json"
+          python3 -c "import json; d=json.load(open('${{ runner.temp }}/determinism-verify.json')); print(d.get('report_line','')); exit(0 if d.get('ok') else 1)"
+
+      - name: Upload determinism receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: determinism-gate-receipt
+          path: receipts/cloud/autorun-determinism/
+          retention-days: 30
