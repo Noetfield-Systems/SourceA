@@ -1,70 +1,90 @@
 # Controlled Autorun Laws v2
 
 **Schema:** `controlled-autorun-laws-v2`  
-**Saved at (UTC):** 2026-07-02T11:45:00Z  
-**Agent skill:** `.cursor/skills/controlled-autorun/SKILL.md` (+ `references/sourcea-wiring.md`, `references/receipt-schemas.md`)  
+**Saved at (UTC):** 2026-07-02T12:00:00Z  
 **Owner:** SourceA Loop Specialist (standing assignment)  
+**Skill SSOT:** controlled-autorun v2 (Cursor skill)  
 **Scope:** CF cron worker · Railway FBE motor · queue batches · cycle receipts · sink invariants · heartbeats · external verification · Kaizen improvement backlog
+
+Operating system for continuous, parallel, self-improving multi-sandbox execution. Every law traces to a real production incident. v2 adds the ROI layer: the machine governs its own spend the way it governs its own state.
 
 ## L1 — One reconciler
 
-Extend `scripts/phase_reconciler_v1.py` only. Never create parallel control authority. Desired state is founder/ASF-authored; observed state is probe-backed projection only.
+One control authority per sandbox. New supervisors/registries extend `scripts/phase_reconciler_v1.py` or emit desired-state artifacts it consumes. Independent run/lock/state authority = rejected. Every consolidation report carries `reconciler authority: ONE / DUPLICATE`.
 
-## L2 — Scheduled loops only
+## L2 — IDLE_NO_WORK is healthy
 
-Primary scheduler: Cloudflare cron (`*/10 * * * *`) → Railway `POST /api/cloud-forge-run/auto-tick/v1`. Mac is observe/dispatch proxy only — never the motor body.
+Empty queue → `IDLE_NO_WORK` receipt. Never manufactured work, never fake PASS, never silence. States: `RUNNING` · `IDLE_NO_WORK` · `BLOCKED_WITH_REASON` · `COMPLETE` · `FAILED_WITH_RECEIPT` · `TRIAGE_REQUIRED` · `THROTTLED_ROI`.
 
-## L3 — Sink invariant every cycle
+## L3 — No decision without a reason
 
-Every cycle receipt must carry `sink_invariant`. Mismatch → `BLOCKED_WITH_REASON`. Law: `supabase_count == railway_count` (or `railway_count + mac_replay_count == supabase_count` when mac replay is wired).
+Every gate emission = `{decision, reason, evidence: command + output}`. Bare NO/BLOCKED is malformed. Summaries derive from actual row IDs; producer output validated against reality post-write, fail closed.
 
-## L4 — External verify only
+## L4 — Verify from outside
 
-Agent fetches and local curls are **never** PASS evidence. Only the GitHub Action `.github/workflows/external-verify.yml` receipt counts. Verify timestamp within 60s of deploy invalidates the agent's own report — re-run through the external Action.
+PASS is valid only from a probe the building agent does not control: external runner (`.github/workflows/external-verify.yml`), raw public hostname, redirects OFF, content markers + FULL-body hash, ≥60s after deploy. Local dist, same-machine curls, preview URLs = INVALID. Verify-time minus publish-time < 60s = auto-reject.
 
 ## L5 — Verifier freeze
 
-Do not edit `scripts/verify_*` pass criteria. Failing check = fix the system or `BLOCK`. Escalate; do not weaken gates.
+Verifiers and pass criteria are founder-gated. A failing agent fixes the system, never the test. Weakening a failing check = immutability violation = BLOCKED until founder approves the diff.
 
 ## L6 — Commit before deploy
 
-Scoped dirty-guard per lane. Receipts committed in repo under `receipts/cloud/`. No deploy from uncommitted motor changes.
+Deploys run from a clean committed SHA. Dirty guard fails closed; scoped exceptions only via founder-reviewed `dirty_scope_map`. Receipts live in repo under `receipts/cloud/`, not home directories only.
 
-## L7 — Queue batch law
+## L7 — Founder items never block, never vanish
 
-100 rows mandatory quota per tick when work exists. `IDLE_NO_WORK` when registry exhausted. No skip law (INCIDENT-044).
+Status `founder_blocked` (never `cancelled`), excluded from machine scan, present in every cycle receipt with count/oldest/priority/age. Aging founder P0s escalate in heartbeat after age threshold.
 
-## L8 — Heartbeat daily
+## L8 — Sinks are acked or blocked
 
-`receipts/cloud/autonomous-forge-run-heartbeat/heartbeat-YYYY-MM-DD-v1.json` — written by cloud motor, mirrored at `~/.sina/autonomous-forge-run-daily-heartbeat-v1.json`.
+Advance never decouples from sink ack. Invariant per cycle: `Σ(origin counts) == sink_count`, provenance-tagged per row. Mismatch → `BLOCKED_WITH_REASON`.
 
-## L9 — Founder-blocked queue
+## L9 — Fail-closed refill
 
-`founder_blocked` items are surfaced, never processed, never cancelled. Count + oldest + age reported each session.
+Expansion admits only rows passing the current rubric unmodified. 0 admitted is valid and reportable.
 
-## L10 — BLOCKED_WITH_REASON gate
+## L10 — Cross-sandbox reads via shared sink only
 
-If any `BLOCKED_WITH_REASON` exists in the active window: fix or escalate before accepting new work.
+No sandbox reads another's disk/repo. Status flows through Supabase. Rows older than freshness window → `STALE_DATA`, never guessed.
 
-## L11 — Cost meter every cycle
+## L11 — Every cycle has a cost; every loop earns its keep
 
-Meter on every cycle: `provider`, `tokens`, `USD`, `value_class`. Respect budget caps and `THROTTLED_ROI` — throttle when ROI class is below floor.
+Each cycle receipt carries `cost` (provider, model, tokens in/out, unit cost, $ total) and `value_class` (`revenue_path` · `proof_asset` · `risk_reduction` · `hygiene` · `none`). Loops report rolling cost-per-COMPLETE and spend-by-value_class in heartbeat. >30% trailing-window spend on `none` → `THROTTLED_ROI` (frequency cut, founder notified).
 
-## L12 — Drift check in daily heartbeat
+## L12 — Drift is detected, not discovered
 
-Daily heartbeat includes live hash vs committed drift check. Drift without receipt = BLOCK.
+Each heartbeat compares deployed truth to committed truth: live config hash vs repo hash, Railway deploy SHA vs `git rev-parse HEAD`, wrangler worker name vs `CF_VERSION_METADATA`, cron last-fire vs `*/10` schedule. Any mismatch → drift receipt with diff.
+
+## Parallel orchestration (Tier 1+ — founder trigger required)
+
+Lanes · concurrency keys · lock ordering · priority within tick · jitter · backpressure. **BLOCKED** until founder triggers Tier 1.
+
+## Cycle anatomy (per tick)
+
+1. Lock (per-sandbox)
+2. Select one eligible item or `IDLE_NO_WORK`
+3. Execute inside sandbox scope
+4. Meter — capture tokens/cost at call site (L11)
+5. Verify — internal checks may gate advance; only external proves ship (L4)
+6. Ack sink (L8)
+7. Receipt — `autonomous-forge-run-cycle-receipt-v2`
+8. Heartbeat (daily): loops, states, sink invariants, cost table, drift (L12), founder_blocked escalations
+
+## Kaizen — ROI-ranked self-improvement
+
+Failed checks, DRIFT, `THROTTLED_ROI`, audit findings auto-file improvement candidates. `machine_safe` vs `founder_gated`. One highest-ROI `machine_safe` item per cycle. `founder_gated` → weekly digest in heartbeat.
 
 ## Standing duties (each session)
 
 1. Read latest heartbeat + last 3 cycle receipts. Report: loops, states, sink invariant, drift, cost window (5 lines).
-2. Surface `founder_blocked` items (count, oldest, age). Never process or cancel.
+2. Surface `founder_blocked` (count, oldest, age). Never process or cancel.
 3. If `BLOCKED_WITH_REASON` exists: fix or escalate before new work.
 
 ## Work rules
 
 - One improvement per cycle, highest expected ROI, `machine_safe` only.
-- `founder_gated` changes → weekly digest, untouched by loop specialist.
-- Reports: fixed fields only — SHAs, receipt paths, counts before/after, cost table, dirty state, gate receipts with `{decision, reason, evidence}`.
+- Reports: SHAs, receipt paths, counts before/after, cost table, dirty state, gate receipts `{decision, reason, evidence}`.
 - No narrative claims without command + output.
 
 ## Wired artifacts
@@ -75,13 +95,11 @@ Daily heartbeat includes live hash vs committed drift check. Drift without recei
 | Phase reconciler | `scripts/phase_reconciler_v1.py` |
 | Autorun verifier | `scripts/verify_autorun_zero_manual_v1.py` |
 | External verify Action | `.github/workflows/external-verify.yml` |
+| CF cron worker | `cloud/workers/cloud-auto-runtime-tick-v1/` |
 | Cycle receipts (repo) | `receipts/cloud/autonomous-forge-run-cycles/` |
 | Heartbeat (repo) | `receipts/cloud/autonomous-forge-run-heartbeat/` |
-| Cycle mirror (Mac) | `~/.sina/autonomous-forge-run-cycle-receipts/` |
-| Loop specialist tick | `scripts/loop_specialist_tick_v1.py` |
-| Controlled autorun skill | `.cursor/skills/controlled-autorun/SKILL.md` |
-| Skill validator | `scripts/validate-controlled-autorun-skill-v1.sh` |
-| Observer API | `https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/observer/v1` |
+| Loop specialist | `scripts/loop_specialist_tick_v1.py` |
+| Observer API | Railway `/api/cloud-forge-run/observer/v1` |
 
 ## Out of scope
 
