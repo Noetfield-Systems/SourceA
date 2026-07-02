@@ -29,6 +29,7 @@ python3 scripts/verify_autorun_zero_manual_v1.py --hours 24 --json   # ship wind
 | Cycle | `receipts/cloud/autonomous-forge-run-cycles/` |
 | Heartbeat | `receipts/cloud/autonomous-forge-run-heartbeat/` |
 | External verify | `receipts/cloud/external-verify/` |
+| **Auto-pending** | `receipts/cloud/autorun-pending/pending-latest-v1.json` |
 | Schemas | `.cursor/skills/controlled-autorun/references/receipt-schemas.md` |
 
 ## Dirty deploy guard (L6)
@@ -52,6 +53,7 @@ Agent local curls / Mac observe = **not** ship proof.
 3. Sink invariant verdict  
 4. `founder_blocked` count + oldest age  
 5. Cost window + any `THROTTLED_ROI` / `BLOCKED_WITH_REASON`
+6. **Pending auto-note** — `pending-latest-v1.json` count + head id (never manual "confirm in UI")
 
 ## HOLDs (founder)
 

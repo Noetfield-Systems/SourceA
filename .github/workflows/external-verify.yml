@@ -1,6 +1,9 @@
 name: external-verify
 
 # L4 law: only this Action's receipt counts as PASS evidence for autorun verify.
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: '0 */6 * * *'
@@ -66,3 +69,17 @@ jobs:
           name: external-verify-receipt
           path: receipts/cloud/external-verify/
           retention-days: 30
+
+      - name: Commit external-verify receipt (L4 disk proof · auto-clears pending)
+        if: success()
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add receipts/cloud/external-verify/
+          if git diff --staged --quiet; then
+            echo "no receipt diff to commit"
+            exit 0
+          fi
+          git commit -m "chore(receipts): external-verify run ${{ github.run_id }} [skip ci]"
+          git push

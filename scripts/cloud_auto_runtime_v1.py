@@ -411,6 +411,20 @@ def _write_daily_heartbeat_if_due(
     doc["sink_status"] = sink_inv
     doc["drift"] = _drift_check_v1()
     doc["founder_blocked_total"] = _founder_blocked_snapshot().get("count", 0)
+    try:
+        from autorun_pending_v1 import write_pending_receipt  # noqa: WPS433
+
+        pending = write_pending_receipt()
+    except Exception as exc:
+        pending = {
+            "schema": "autorun-pending-v1",
+            "ok": False,
+            "count": 1,
+            "items": [{"id": "pending_write_failed", "reason": str(exc)[:120]}],
+            "report_line": f"pending_write_failed · {exc}",
+        }
+    doc["pending"] = pending
+    doc["escalations"] = [str(i.get("id") or "") for i in pending.get("items") or [] if i.get("severity") == "P0"]
     _write(path, doc)
     if not _is_headless_cloud():
         mirror = SINA / "autonomous-forge-run-daily-heartbeat-v1.json"
@@ -566,6 +580,20 @@ def _write_cycle_receipt(
     sink_inv = _apply_sink_invariant(doc, batch_id)
     if head_row:
         _write_daily_heartbeat_if_due(head_row=head_row, sink_inv=sink_inv, trigger_source=trigger_source)
+    try:
+        from autorun_pending_v1 import write_pending_receipt  # noqa: WPS433
+
+        pending = write_pending_receipt()
+    except Exception as exc:
+        pending = {
+            "schema": "autorun-pending-v1",
+            "ok": False,
+            "count": 1,
+            "items": [{"id": "pending_write_failed", "reason": str(exc)[:120]}],
+            "report_line": f"pending_write_failed · {exc}",
+        }
+    doc["pending"] = pending
+    doc["pending_count"] = int(pending.get("count") or 0)
     _write(path, doc)
     if _is_headless_cloud():
         try:

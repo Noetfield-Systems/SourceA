@@ -56,6 +56,10 @@ receipts/outreach/
 receipts/valid-yes-progress-verdict-lock-*.json
 receipts/**/*.jsonl
 receipts/*-receipt-v1.json
+!receipts/cloud/autorun-pending/
+!receipts/cloud/autorun-pending/**
+!receipts/cloud/external-verify/
+!receipts/cloud/external-verify/**
 receipts/*.png
 reports/sourcea-dirty-tree-lane-report-v1.json
 
