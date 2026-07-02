@@ -12,16 +12,16 @@ for SQL in "$SQL_002" "$SQL_005"; do
   fi
 done
 
-if [[ -f "$ENV" ]]; then
+if [[ -f "${ENV:-$HOME/.sourcea-secrets/portfolio-spine.env}" ]]; then
   set -a
   # shellcheck disable=SC1090
-  source "$ENV"
+  source "${ENV:-$HOME/.sourcea-secrets/portfolio-spine.env}"
   set +a
 fi
 
 DB_URL="${SUPABASE_DB_URL:-${DATABASE_URL:-}}"
 if [[ -z "$DB_URL" ]]; then
-  echo "SKIP: no SUPABASE_DB_URL — apply $SQL via Supabase SQL editor or supabase db push"
+  echo "SKIP: no SUPABASE_DB_URL — apply migrations via Supabase SQL editor"
   exit 0
 fi
 
