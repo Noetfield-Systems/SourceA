@@ -1,6 +1,6 @@
 {
   "schema": "sourcea-locked-definitions-draft-v1",
-  "status": "live_locked_candidate_verified",
+  "status": "live_locked",
   "created_for": "OBSERVE/EXTRACT -> DRAFT -> REPORT -> STOP",
   "live_files_modified": false,
   "note": "Definitions artifact is a live-locked candidate only. No deploy and no Worker/runtime/site files modified.",
@@ -512,34 +512,35 @@
       "tag": "founder_approved"
     }
   ],
-  "promotion_checked_at": "2026-07-02T08:08:42Z",
+  "promotion_checked_at": "2026-07-02T08:33:36Z",
   "live_status_probe": {
     "sourcea_app_http_status": {
       "key": "sourcea_app_http_status",
       "target": "https://sourcea.app",
       "status": "good",
-      "timestamp": "2026-07-02T08:08:41Z",
+      "timestamp": "2026-07-02T08:33:36Z",
       "http_status": 200,
-      "latency_ms": 121.71,
+      "latency_ms": 91.53,
       "error": null
     },
     "forge_terminal_runtime_status": {
       "key": "forge_terminal_runtime_status",
       "target": "https://sourcea.app/sourcea/forge/terminal",
       "status": "good",
-      "timestamp": "2026-07-02T08:08:42Z",
+      "timestamp": "2026-07-02T08:33:36Z",
       "http_status": 200,
-      "latency_ms": 82.33,
+      "latency_ms": 87.67,
       "error": null
     },
     "specific_run_public_proof_status": {
       "key": "specific_run_public_proof_status",
       "target": "https://sourcea.app/sourcea/proof/live",
       "status": "good",
-      "timestamp": "2026-07-02T08:08:42Z",
+      "timestamp": "2026-07-02T08:33:36Z",
       "http_status": 200,
-      "latency_ms": 89.81,
+      "latency_ms": 77.42,
       "error": null
     }
-  }
+  },
+  "verifier_receipt_id": "167e3626-2e17-4ffc-a027-1a2d4db8b890"
 }
