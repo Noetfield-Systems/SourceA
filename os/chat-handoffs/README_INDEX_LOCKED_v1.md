@@ -9,5 +9,6 @@
 | `GOAL1_LOOP_ACTIVATION_CHAIN_*` | `brain-os/law/enforcement/GOAL1_LOOP_ACTIVATION_CHAIN_LOCKED_v1.md` |
 | `GOAL1_BATCH_CHECKPOINT_*` | `brain-os/law/enforcement/GOAL1_BATCH_CHECKPOINT_LOCKED_v1.md` |
 | Worker INBOX one-liners | `factory-now-v1.json` line + `run-inbox-disk-truth-v1.json` |
+| `WORKER_ASSIGNMENT_AND_CHAT_ROUTING_*` | `brain-os/system/WORKER_ASSIGNMENT_AND_CHAT_ROUTING_LOCKED_v1.md` |
 
 **Rule:** Do not cite missing paths in `os/chat-handoffs/` as law — this index is the redirect (near-miss C05 remediated 2026-06-10).
