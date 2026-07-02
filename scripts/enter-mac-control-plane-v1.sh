@@ -13,6 +13,11 @@ python3 "$ROOT/scripts/mac_pipeline_validator_pressure_v1.py" --wire-gates --jso
 python3 "$ROOT/scripts/mac_pipeline_validator_pressure_v1.py" --json >/dev/null 2>&1 || true
 
 echo ""
+echo "=== HUB (:13020) — TCC-safe boot ==="
+python3 "$ROOT/scripts/mac_launchd_tcc_guard_v1.py" --boot-hub --json 2>/dev/null \
+  || bash "$ROOT/scripts/serve-sina-command.sh" || echo "WARN: Hub boot failed — see ~/.sina/mac-launchd-tcc-receipt-v1.json"
+
+echo ""
 echo "=== MAC LAW SURFACES (:8781 · :8780) ==="
 bash "$ROOT/scripts/mac_law_surfaces_boot_v1.sh" || echo "WARN: Mac Law surfaces boot failed — see ~/.sina/mac-law-server.log"
 

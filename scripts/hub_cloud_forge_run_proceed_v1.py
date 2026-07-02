@@ -726,7 +726,8 @@ def proceed_from_hub(body: dict[str, Any] | None = None) -> dict[str, Any]:
             "execution_plane": "mac_control_panel",
             "for_founder": {
                 "show_this": (
-                    "Mac does not Proceed to Railway — CF cron */10 runs full_pack×100 on cloud. "
+                    "Mac does not Proceed motor on Railway — CF cron */10 runs full_pack×100. "
+                    "Deploy/dispatch via Hub still works. "
                     f"Proof: {observer}"
                 ),
             },

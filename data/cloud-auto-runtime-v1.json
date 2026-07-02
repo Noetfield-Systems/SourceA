@@ -16,8 +16,19 @@
   "incident_044": "brain-os/incidents/SINA_CLOUD_FORGE_RUN_NO_SKIP_MANDATORY_SHIP_INCIDENT_044_LOCKED_v1.md",
   "pack_full_motor": false,
   "mac_observe_only": true,
-  "mac_never_commands_railway": true,
-  "one_law": "CF cron (~10 min) \u2192 one Railway POST \u2192 100 rows down (mandatory quota \u2014 NOT up to 100). Founder names: Cloud Forge Run + Auto Runtime. Mac observe only.",
+  "mac_never_commands_railway_motor": true,
+  "mac_control_dispatch_allowed": true,
+  "mac_dispatch_allowed_prefixes": [
+    "/api/cloud-worker/",
+    "/api/loop-specialist/",
+    "/api/forge/"
+  ],
+  "mac_motor_blocked_paths": [
+    "/api/cloud-forge-run/auto-tick/v1",
+    "/api/cloud-forge-run/proceed/v1",
+    "/api/forge/v02/drain/v1"
+  ],
+  "one_law": "CF cron (~10 min) → one Railway POST → 100 rows down (mandatory quota — NOT up to 100). Mac dispatch/deploy via Hub OK; Mac never drains motor.",
   "founder_display_motor": "Cloud Forge Run",
   "founder_display_scheduler": "Auto Runtime",
   "founder_vocabulary_law": "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_AUTO_RUNTIME_VOCABULARY_LOCKED_v1.md",

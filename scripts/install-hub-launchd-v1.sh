@@ -19,9 +19,10 @@ export PATH="/opt/homebrew/bin:/usr/local/bin:/Library/Frameworks/Python.framewo
 mkdir -p "${HOME}/.sina" "${HOME}/Library/LaunchAgents"
 CURL="$(command -v curl 2>/dev/null || echo /usr/bin/curl)"
 
-health_ok() { "$CURL" -sf "http://127.0.0.1:${PORT}/health" >/dev/null 2>&1; }
+bash "$ROOT/scripts/sync-mac-launchd-wrappers-v1.sh" >/dev/null 2>&1 || true
+bash "$ROOT/scripts/render-launchd-plist-v1.sh" "$PLIST_SRC" "$PLIST_DST"
 
-cp "$PLIST_SRC" "$PLIST_DST"
+health_ok() { "$CURL" -sf "http://127.0.0.1:${PORT}/health" >/dev/null 2>&1; }
 
 # Healthy hub — bootstrap only; never pkill a working listener
 if health_ok; then
@@ -71,4 +72,7 @@ for _ in {1..40}; do
 done
 
 echo "FAIL: hub did not become healthy after launchd install" >&2
+python3 "$ROOT/scripts/mac_launchd_tcc_guard_v1.py" --assess --json 2>/dev/null || true
+echo "TCC on Desktop? bash $ROOT/scripts/open-mac-launchd-fda-v1.sh" >&2
+echo "Fallback: SINA_LAUNCHD_TCC_FALLBACK=1 bash $ROOT/scripts/serve-sina-command.sh" >&2
 exit 1
