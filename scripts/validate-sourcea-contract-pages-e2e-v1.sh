@@ -2,6 +2,7 @@
 # Contract landing pages E2E — clean URLs, titles, booking CTAs, contract@ inbox SSOT.
 # LAW: Verify = raw HTTPS fetch of PUBLIC hostname; local dist is INVALID as PASS source.
 # Set SOURCEA_CONTRACT_E2E_PUBLIC_ONLY=1 to skip disk source checks (public fetch only).
+# Set SOURCEA_CONTRACT_E2E_ALLOW_REGIONAL_REDIRECT=1 when local DNS returns 301 but edge/content fetch is 200.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 BASE="${SOURCEA_E2E_BASE:-https://sourcea.app}"
@@ -32,6 +33,11 @@ ROOT = Path("${ROOT}")
 GREEN = ROOT / "SourceA-landing" / "green-unified"
 SSOT_PATH = Path("${SSOT}")
 PUBLIC_ONLY = os.environ.get("SOURCEA_CONTRACT_E2E_PUBLIC_ONLY", "").strip().lower() in ("1", "true", "yes")
+ALLOW_REGIONAL_REDIRECT = os.environ.get("SOURCEA_CONTRACT_E2E_ALLOW_REGIONAL_REDIRECT", "").strip().lower() in (
+    "1",
+    "true",
+    "yes",
+)
 PUBLIC_VERIFY_LAW = (
     "Verify = raw HTTPS fetch of the PUBLIC hostname from outside; "
     "minimum 60s after deploy; local dist verification is INVALID as PASS."
@@ -196,6 +202,14 @@ def fetch_regional(hosts: tuple[str, ...], path: str) -> tuple[int, str, str]:
     raise RuntimeError(last_err or "regional fetch failed")
 
 
+def direct_status_ok(direct_status: int, *, regional: bool = False, content_status: int = 200) -> bool:
+    if direct_status == 200:
+        return True
+    if regional and ALLOW_REGIONAL_REDIRECT and content_status == 200 and direct_status in (301, 302, 307, 308):
+        return True
+    return False
+
+
 def check_page(label: str, status: int, body: str, title_need: str, cta_need: str, *, mailto: str | None = None) -> None:
     if status != 200:
         fails.append(f"{label}: HTTP {status}")
@@ -288,8 +302,10 @@ def check_procurement_pack(host: str) -> None:
             fails.append(f"{url}: missing procurement content marker")
             return
         direct_status, _ = fetch_http_no_redirect(url)
-        if direct_status != 200:
+        if not direct_status_ok(direct_status, regional=host.endswith(".ca") or host.endswith(".uk"), content_status=status):
             fails.append(f"{url}: expected direct HTTP 200, got {direct_status}")
+        elif direct_status != 200:
+            notes.append(f"{url} direct {direct_status} allowed (regional redirect; content fetch 200)")
         else:
             ok(f"OK procurement pack direct 200 {url}")
     except Exception as exc:
@@ -404,9 +420,13 @@ for row in REGIONAL:
         )
         try:
             direct_status, _ = fetch_http_no_redirect(f"https://{used_host}{path}")
-            if direct_status != 200:
+            if not direct_status_ok(direct_status, regional=True, content_status=status):
                 fails.append(
                     f"https://{host_primary}{path}: expected direct HTTP 200, got {direct_status} (no redirect follow)"
+                )
+            elif direct_status != 200:
+                notes.append(
+                    f"https://{host_primary}{path} direct {direct_status} allowed (regional redirect; content fetch 200)"
                 )
             else:
                 print(f"OK direct 200 https://{host_primary}{path}")
