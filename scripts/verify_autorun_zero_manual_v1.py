@@ -26,6 +26,7 @@ CF_HEALTH = "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.work
 OBSERVER = "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/observer/v1"
 AUTONOMOUS = frozenset({"cloudflare_cron", "cloudflare_scheduled", "headless_cloud_auto_tick"})
 MANUAL_MARKERS = frozenset({"manual", "mac_auto_tick", "hub_proceed", "founder"})
+AUTONOMY_VERDICTS = frozenset({"IDLE_NO_WORK", "BLOCKED_WITH_REASON"})
 
 
 def _now() -> str:
@@ -191,26 +192,39 @@ def verify(*, hours: float = 24.0) -> dict[str, Any]:
         if verdict == "IDLE_NO_WORK":
             idle_no_work += 1
 
+    autonomy_observer: list[dict[str, Any]] = []
     for c in cycles_observer:
         at = _parse_iso(str(c.get("at") or ""))
         if at and at < since:
             continue
         observer_in_window += 1
         src = str(c.get("trigger_source") or "")
+        verdict = str(c.get("verdict") or "")
         if src not in AUTONOMOUS or any(m in src for m in MANUAL_MARKERS):
             manual_triggers.append(f"{c.get('at')}:{src}:observer")
-        if c.get("sink_invariant") is None and scheduled_in_window == 0:
+        if verdict in AUTONOMY_VERDICTS:
+            autonomy_observer.append(c)
+        if c.get("sink_invariant") is None and verdict in AUTONOMY_VERDICTS:
             missing_sink.append(f"{c.get('at')}:observer_no_sink_field")
         inv = c.get("sink_invariant")
         if isinstance(inv, dict) and not inv.get("ok") and not inv.get("skipped"):
             sink_blocked.append(str(c.get("at")))
+
+    latest_autonomy = None
+    if autonomy_observer:
+        latest_autonomy = max(
+            autonomy_observer,
+            key=lambda row: _parse_iso(str(row.get("at") or "")) or datetime.min.replace(tzinfo=timezone.utc),
+        )
+    latest_inv = (latest_autonomy or {}).get("sink_invariant")
+    latest_sink_ok = isinstance(latest_inv, dict) and bool(latest_inv.get("ok") or latest_inv.get("skipped"))
 
     cron_ok = truth.get("ok") and int(truth.get("count") or 0) >= max(1, expected_min_cron // 2)
     if truth.get("skipped"):
         cron_ok = cf.get("ok") and cf.get("auto_proceed_ready") and observer_in_window >= 1
 
     zero_manual = len(manual_triggers) == 0
-    sink_every_cycle = len(missing_sink) == 0 or (scheduled_in_window == 0 and observer_in_window == 0)
+    sink_every_cycle = len(missing_sink) == 0 and (latest_sink_ok if latest_autonomy else len(sink_blocked) == 0)
     heartbeat_ok = heartbeat.get("ok") or bool(observer.get("daily_heartbeat"))
 
     ok = (
