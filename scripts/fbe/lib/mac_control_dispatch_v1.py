@@ -107,6 +107,34 @@ def mac_hub_motor_action_blocked(action: str) -> bool:
     return str(action or "").strip().lower() in MAC_HUB_MOTOR_ACTIONS
 
 
+def upgrade_mac_motor_block(
+    row: dict[str, Any],
+    *,
+    cf_tick_row: dict[str, Any] | None = None,
+    action: str = "proceed",
+) -> dict[str, Any]:
+    """When motor is blocked on Mac, return a helpful upgrade (CF tick) — not a dead-end error."""
+    if row.get("error") != "mac_observe_only":
+        return row
+    cf = cf_tick_row or {}
+    return {
+        **row,
+        "ok": bool(cf.get("ok", True)),
+        "motor_blocked": True,
+        "decision": "mac_trigger_cf_tick",
+        "execution_plane": "mac_control_panel",
+        "cf_tick": cf,
+        "for_founder": cf.get("for_founder")
+        or {
+            "show_this": (
+                f"Mac motor blocked for {action} — triggered CF full-pack tick instead. "
+                "Deploy/dispatch via Hub still works · motor runs on cloud."
+            ),
+        },
+        "mac_dispatch_hint": "python3 scripts/mac_cloud_deploy_dispatch_v1.py --target dispatch --plan-id MAC-CTL-002 --json",
+    }
+
+
 def mac_observe_only_block(*, path: str, body: dict[str, Any] | None = None) -> dict[str, Any] | None:
     """Return block receipt when Mac must not proxy; None when dispatch is allowed."""
     if not is_mac_control_plane() or mac_deploy_bypass():
