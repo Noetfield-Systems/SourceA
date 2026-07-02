@@ -1,0 +1,1131 @@
+{
+  "schema": "external-verify-receipt-v1",
+  "version": "1.1.0",
+  "at": "2026-07-02T12:55:45Z",
+  "law": "CONTROLLED_AUTORUN_LAWS_v3 L4+L13 \u2014 external verify + determinism gate",
+  "github_run_id": "28591655977",
+  "github_sha": "94e447ca2d61e7e1c106b04df9cecbb53667a7a0",
+  "run_url": "https://github.com/kazemnezhadsina144-dot/SourceA/actions/runs/28591655977",
+  "conclusion": "pending",
+  "workflow": "external-verify.yml",
+  "runner": "github_actions",
+  "ok": true,
+  "autorun_verify": {
+    "schema": "autorun-zero-manual-verify-v1",
+    "version": "1.0.0",
+    "at": "2026-07-02T12:55:42Z",
+    "commit_sha": "94e447ca2d61e7e1c106b04df9cecbb53667a7a0",
+    "window_hours": 24.0,
+    "since": "2026-07-01T12:55:41Z",
+    "ok": true,
+    "cf_cron": {
+      "health": {
+        "ok": true,
+        "schema": "sourcea-auto-runtime-health-v1",
+        "service": "cloud-auto-runtime-tick-v1",
+        "cron": "*/10 * * * *",
+        "brain_verifier_cron": "bundled_each_tick",
+        "auto_proceed_ready": true,
+        "railway_upstream_ready": true,
+        "internal_secret_ready": true,
+        "verifier_base_url": "https://sina-governance-ssot-advisory.kazemnezhadsina144.workers.dev"
+      },
+      "expected_min_fires": 142,
+      "truth_log": {
+        "ok": false,
+        "error": "HTTP Error 400: Bad Request"
+      },
+      "pass": false
+    },
+    "zero_manual_proof": {
+      "cycles_in_window": 0,
+      "observer_cycles_in_window": 10,
+      "manual_triggers": [],
+      "pass": true
+    },
+    "sink_invariant": {
+      "missing_on_cycles": [],
+      "blocked_cycles": [],
+      "pass": true
+    },
+    "idle_no_work_receipts": 0,
+    "daily_heartbeat": {
+      "ok": false,
+      "error": "no_heartbeat_today",
+      "date": "2026-07-02"
+    },
+    "observer_tail": [
+      {
+        "at": "2026-07-02T11:21:37Z",
+        "trigger_source": "cloudflare_cron",
+        "verdict": "IDLE_NO_WORK",
+        "sink_invariant": {
+          "ok": true,
+          "schema": "cloud-forge-batch-sink-invariant-v1",
+          "at": "2026-07-02T11:21:55Z",
+          "batch_id": 77,
+          "expected": 100,
+          "supabase_count": 100,
+          "railway_count": 77,
+          "mac_replay_count": 23,
+          "supabase_missing": [],
+          "railway_missing": [
+            "CLOUD-SEC-7610",
+            "CLOUD-SEC-7613",
+            "CLOUD-SEC-7615",
+            "CLOUD-SEC-7618",
+            "CLOUD-SEC-7620",
+            "CLOUD-SEC-7622",
+            "CLOUD-SEC-7627",
+            "CLOUD-SEC-7629",
+            "CLOUD-SEC-7631",
+            "CLOUD-SEC-7633",
+            "CLOUD-SEC-7635",
+            "CLOUD-SEC-7637",
+            "CLOUD-SEC-7639",
+            "CLOUD-SEC-7641",
+            "CLOUD-SEC-7643",
+            "CLOUD-SEC-7645",
+            "CLOUD-SEC-7648",
+            "CLOUD-SEC-7650",
+            "CLOUD-SEC-7652",
+            "CLOUD-SEC-7655",
+            "CLOUD-SEC-7657",
+            "CLOUD-SEC-7659",
+            "CLOUD-SEC-7661"
+          ],
+          "mac_replay_ids": [
+            "CLOUD-SEC-7610",
+            "CLOUD-SEC-7613",
+            "CLOUD-SEC-7615",
+            "CLOUD-SEC-7618",
+            "CLOUD-SEC-7620",
+            "CLOUD-SEC-7622",
+            "CLOUD-SEC-7627",
+            "CLOUD-SEC-7629",
+            "CLOUD-SEC-7631",
+            "CLOUD-SEC-7633",
+            "CLOUD-SEC-7635",
+            "CLOUD-SEC-7637",
+            "CLOUD-SEC-7639",
+            "CLOUD-SEC-7641",
+            "CLOUD-SEC-7643",
+            "CLOUD-SEC-7645",
+            "CLOUD-SEC-7648",
+            "CLOUD-SEC-7650",
+            "CLOUD-SEC-7652",
+            "CLOUD-SEC-7655",
+            "CLOUD-SEC-7657",
+            "CLOUD-SEC-7659",
+            "CLOUD-SEC-7661"
+          ],
+          "blocked_reason": null,
+          "verdict": "PASS",
+          "law": "railway_count + mac_replay_count == supabase_count"
+        },
+        "pack": {
+          "ok": true,
+          "idle_batch": true,
+          "registry_exhausted": true,
+          "schema": "cloud-forge-run-pack-v1",
+          "advanced": 0,
+          "skipped": 0,
+          "processed": 0,
+          "shipped": 0,
+          "mandatory_quota": 100,
+          "max_advance": 100,
+          "batch_complete": true,
+          "batch_id": 77,
+          "head_now": "CLOUD-SEC-7666",
+          "last_completed": "CLOUD-SEC-7666"
+        },
+        "prove": {
+          "ok": true,
+          "summary_line": "Cloud chains PASS \u00b7 head CLOUD-SEC-7666 \u00b7 3/3 up (server-side)",
+          "chains_up": 3,
+          "chains_total": 3,
+          "gate_cleared": true
+        },
+        "ship": {
+          "ok": false,
+          "plan_id": null,
+          "dry_run": null,
+          "hub_proceed_line": null,
+          "gate_cleared": false,
+          "artifact_path": null,
+          "artifact_type": null,
+          "validator_result": null
+        },
+        "proof": {
+          "head_start": null,
+          "head_now": "CLOUD-SEC-7666",
+          "batch_id": 77,
+          "shipped": 0,
+          "skipped": 0,
+          "plan_id": null,
+          "title": null,
+          "maps_registry": null,
+          "": null,
+          "cloud_action": null,
+          "source_url": null,
+          "pipeline": [
+            "PLAN",
+            "BUILD",
+            "VALIDATE",
+            "RECEIPT"
+          ],
+          "validator_result": null,
+          "evidence_snippets": [],
+          "artifact_path": "",
+          "dispatch_receipt_url": "",
+          "pack_results_tail": []
+        }
+      },
+      {
+        "at": "2026-07-02T11:30:34Z",
+        "trigger_source": "cloudflare_cron",
+        "verdict": "IDLE_NO_WORK",
+        "sink_invariant": {
+          "ok": true,
+          "schema": "cloud-forge-batch-sink-invariant-v1",
+          "at": "2026-07-02T11:30:54Z",
+          "batch_id": 77,
+          "expected": 100,
+          "supabase_count": 100,
+          "railway_count": 77,
+          "mac_replay_count": 23,
+          "supabase_missing": [],
+          "railway_missing": [
+            "CLOUD-SEC-7610",
+            "CLOUD-SEC-7613",
+            "CLOUD-SEC-7615",
+            "CLOUD-SEC-7618",
+            "CLOUD-SEC-7620",
+            "CLOUD-SEC-7622",
+            "CLOUD-SEC-7627",
+            "CLOUD-SEC-7629",
+            "CLOUD-SEC-7631",
+            "CLOUD-SEC-7633",
+            "CLOUD-SEC-7635",
+            "CLOUD-SEC-7637",
+            "CLOUD-SEC-7639",
+            "CLOUD-SEC-7641",
+            "CLOUD-SEC-7643",
+            "CLOUD-SEC-7645",
+            "CLOUD-SEC-7648",
+            "CLOUD-SEC-7650",
+            "CLOUD-SEC-7652",
+            "CLOUD-SEC-7655",
+            "CLOUD-SEC-7657",
+            "CLOUD-SEC-7659",
+            "CLOUD-SEC-7661"
+          ],
+          "mac_replay_ids": [
+            "CLOUD-SEC-7610",
+            "CLOUD-SEC-7613",
+            "CLOUD-SEC-7615",
+            "CLOUD-SEC-7618",
+            "CLOUD-SEC-7620",
+            "CLOUD-SEC-7622",
+            "CLOUD-SEC-7627",
+            "CLOUD-SEC-7629",
+            "CLOUD-SEC-7631",
+            "CLOUD-SEC-7633",
+            "CLOUD-SEC-7635",
+            "CLOUD-SEC-7637",
+            "CLOUD-SEC-7639",
+            "CLOUD-SEC-7641",
+            "CLOUD-SEC-7643",
+            "CLOUD-SEC-7645",
+            "CLOUD-SEC-7648",
+            "CLOUD-SEC-7650",
+            "CLOUD-SEC-7652",
+            "CLOUD-SEC-7655",
+            "CLOUD-SEC-7657",
+            "CLOUD-SEC-7659",
+            "CLOUD-SEC-7661"
+          ],
+          "blocked_reason": null,
+          "verdict": "PASS",
+          "law": "railway_count + mac_replay_count == supabase_count"
+        },
+        "pack": {
+          "ok": true,
+          "idle_batch": true,
+          "registry_exhausted": true,
+          "schema": "cloud-forge-run-pack-v1",
+          "advanced": 0,
+          "skipped": 0,
+          "processed": 0,
+          "shipped": 0,
+          "mandatory_quota": 100,
+          "max_advance": 100,
+          "batch_complete": true,
+          "batch_id": 77,
+          "head_now": "CLOUD-SEC-7666",
+          "last_completed": "CLOUD-SEC-7666"
+        },
+        "prove": {
+          "ok": true,
+          "summary_line": "Cloud chains PASS \u00b7 head CLOUD-SEC-7666 \u00b7 3/3 up (server-side)",
+          "chains_up": 3,
+          "chains_total": 3,
+          "gate_cleared": true
+        },
+        "ship": {
+          "ok": false,
+          "plan_id": null,
+          "dry_run": null,
+          "hub_proceed_line": null,
+          "gate_cleared": false,
+          "artifact_path": null,
+          "artifact_type": null,
+          "validator_result": null
+        },
+        "proof": {
+          "head_start": null,
+          "head_now": "CLOUD-SEC-7666",
+          "batch_id": 77,
+          "shipped": 0,
+          "skipped": 0,
+          "plan_id": null,
+          "title": null,
+          "maps_registry": null,
+          "": null,
+          "cloud_action": null,
+          "source_url": null,
+          "pipeline": [
+            "PLAN",
+            "BUILD",
+            "VALIDATE",
+            "RECEIPT"
+          ],
+          "validator_result": null,
+          "evidence_snippets": [],
+          "artifact_path": "",
+          "dispatch_receipt_url": "",
+          "pack_results_tail": []
+        }
+      },
+      {
+        "at": "2026-07-02T11:40:34Z",
+        "trigger_source": "cloudflare_cron",
+        "verdict": "IDLE_NO_WORK",
+        "sink_invariant": {
+          "ok": true,
+          "schema": "cloud-forge-batch-sink-invariant-v1",
+          "at": "2026-07-02T11:40:54Z",
+          "batch_id": 77,
+          "expected": 100,
+          "supabase_count": 100,
+          "railway_count": 77,
+          "mac_replay_count": 23,
+          "supabase_missing": [],
+          "railway_missing": [
+            "CLOUD-SEC-7610",
+            "CLOUD-SEC-7613",
+            "CLOUD-SEC-7615",
+            "CLOUD-SEC-7618",
+            "CLOUD-SEC-7620",
+            "CLOUD-SEC-7622",
+            "CLOUD-SEC-7627",
+            "CLOUD-SEC-7629",
+            "CLOUD-SEC-7631",
+            "CLOUD-SEC-7633",
+            "CLOUD-SEC-7635",
+            "CLOUD-SEC-7637",
+            "CLOUD-SEC-7639",
+            "CLOUD-SEC-7641",
+            "CLOUD-SEC-7643",
+            "CLOUD-SEC-7645",
+            "CLOUD-SEC-7648",
+            "CLOUD-SEC-7650",
+            "CLOUD-SEC-7652",
+            "CLOUD-SEC-7655",
+            "CLOUD-SEC-7657",
+            "CLOUD-SEC-7659",
+            "CLOUD-SEC-7661"
+          ],
+          "mac_replay_ids": [
+            "CLOUD-SEC-7610",
+            "CLOUD-SEC-7613",
+            "CLOUD-SEC-7615",
+            "CLOUD-SEC-7618",
+            "CLOUD-SEC-7620",
+            "CLOUD-SEC-7622",
+            "CLOUD-SEC-7627",
+            "CLOUD-SEC-7629",
+            "CLOUD-SEC-7631",
+            "CLOUD-SEC-7633",
+            "CLOUD-SEC-7635",
+            "CLOUD-SEC-7637",
+            "CLOUD-SEC-7639",
+            "CLOUD-SEC-7641",
+            "CLOUD-SEC-7643",
+            "CLOUD-SEC-7645",
+            "CLOUD-SEC-7648",
+            "CLOUD-SEC-7650",
+            "CLOUD-SEC-7652",
+            "CLOUD-SEC-7655",
+            "CLOUD-SEC-7657",
+            "CLOUD-SEC-7659",
+            "CLOUD-SEC-7661"
+          ],
+          "blocked_reason": null,
+          "verdict": "PASS",
+          "law": "railway_count + mac_replay_count == supabase_count"
+        },
+        "pack": {
+          "ok": true,
+          "idle_batch": true,
+          "registry_exhausted": true,
+          "schema": "cloud-forge-run-pack-v1",
+          "advanced": 0,
+          "skipped": 0,
+          "processed": 0,
+          "shipped": 0,
+          "mandatory_quota": 100,
+          "max_advance": 100,
+          "batch_complete": true,
+          "batch_id": 77,
+          "head_now": "CLOUD-SEC-7666",
+          "last_completed": "CLOUD-SEC-7666"
+        },
+        "prove": {
+          "ok": true,
+          "summary_line": "Cloud chains PASS \u00b7 head CLOUD-SEC-7666 \u00b7 3/3 up (server-side)",
+          "chains_up": 3,
+          "chains_total": 3,
+          "gate_cleared": true
+        },
+        "ship": {
+          "ok": false,
+          "plan_id": null,
+          "dry_run": null,
+          "hub_proceed_line": null,
+          "gate_cleared": false,
+          "artifact_path": null,
+          "artifact_type": null,
+          "validator_result": null
+        },
+        "proof": {
+          "head_start": null,
+          "head_now": "CLOUD-SEC-7666",
+          "batch_id": 77,
+          "shipped": 0,
+          "skipped": 0,
+          "plan_id": null,
+          "title": null,
+          "maps_registry": null,
+          "": null,
+          "cloud_action": null,
+          "source_url": null,
+          "pipeline": [
+            "PLAN",
+            "BUILD",
+            "VALIDATE",
+            "RECEIPT"
+          ],
+          "validator_result": null,
+          "evidence_snippets": [],
+          "artifact_path": "",
+          "dispatch_receipt_url": "",
+          "pack_results_tail": []
+        }
+      },
+      {
+        "at": "2026-07-02T11:50:34Z",
+        "trigger_source": "cloudflare_cron",
+        "verdict": "IDLE_NO_WORK",
+        "sink_invariant": {
+          "ok": true,
+          "schema": "cloud-forge-batch-sink-invariant-v1",
+          "at": "2026-07-02T11:50:54Z",
+          "batch_id": 77,
+          "expected": 100,
+          "supabase_count": 100,
+          "railway_count": 77,
+          "mac_replay_count": 23,
+          "supabase_missing": [],
+          "railway_missing": [
+            "CLOUD-SEC-7610",
+            "CLOUD-SEC-7613",
+            "CLOUD-SEC-7615",
+            "CLOUD-SEC-7618",
+            "CLOUD-SEC-7620",
+            "CLOUD-SEC-7622",
+            "CLOUD-SEC-7627",
+            "CLOUD-SEC-7629",
+            "CLOUD-SEC-7631",
+            "CLOUD-SEC-7633",
+            "CLOUD-SEC-7635",
+            "CLOUD-SEC-7637",
+            "CLOUD-SEC-7639",
+            "CLOUD-SEC-7641",
+            "CLOUD-SEC-7643",
+            "CLOUD-SEC-7645",
+            "CLOUD-SEC-7648",
+            "CLOUD-SEC-7650",
+            "CLOUD-SEC-7652",
+            "CLOUD-SEC-7655",
+            "CLOUD-SEC-7657",
+            "CLOUD-SEC-7659",
+            "CLOUD-SEC-7661"
+          ],
+          "mac_replay_ids": [
+            "CLOUD-SEC-7610",
+            "CLOUD-SEC-7613",
+            "CLOUD-SEC-7615",
+            "CLOUD-SEC-7618",
+            "CLOUD-SEC-7620",
+            "CLOUD-SEC-7622",
+            "CLOUD-SEC-7627",
+            "CLOUD-SEC-7629",
+            "CLOUD-SEC-7631",
+            "CLOUD-SEC-7633",
+            "CLOUD-SEC-7635",
+            "CLOUD-SEC-7637",
+            "CLOUD-SEC-7639",
+            "CLOUD-SEC-7641",
+            "CLOUD-SEC-7643",
+            "CLOUD-SEC-7645",
+            "CLOUD-SEC-7648",
+            "CLOUD-SEC-7650",
+            "CLOUD-SEC-7652",
+            "CLOUD-SEC-7655",
+            "CLOUD-SEC-7657",
+            "CLOUD-SEC-7659",
+            "CLOUD-SEC-7661"
+          ],
+          "blocked_reason": null,
+          "verdict": "PASS",
+          "law": "railway_count + mac_replay_count == supabase_count"
+        },
+        "pack": {
+          "ok": true,
+          "idle_batch": true,
+          "registry_exhausted": true,
+          "schema": "cloud-forge-run-pack-v1",
+          "advanced": 0,
+          "skipped": 0,
+          "processed": 0,
+          "shipped": 0,
+          "mandatory_quota": 100,
+          "max_advance": 100,
+          "batch_complete": true,
+          "batch_id": 77,
+          "head_now": "CLOUD-SEC-7666",
+          "last_completed": "CLOUD-SEC-7666"
+        },
+        "prove": {
+          "ok": true,
+          "summary_line": "Cloud chains PASS \u00b7 head CLOUD-SEC-7666 \u00b7 3/3 up (server-side)",
+          "chains_up": 3,
+          "chains_total": 3,
+          "gate_cleared": true
+        },
+        "ship": {
+          "ok": false,
+          "plan_id": null,
+          "dry_run": null,
+          "hub_proceed_line": null,
+          "gate_cleared": false,
+          "artifact_path": null,
+          "artifact_type": null,
+          "validator_result": null
+        },
+        "proof": {
+          "head_start": null,
+          "head_now": "CLOUD-SEC-7666",
+          "batch_id": 77,
+          "shipped": 0,
+          "skipped": 0,
+          "plan_id": null,
+          "title": null,
+          "maps_registry": null,
+          "": null,
+          "cloud_action": null,
+          "source_url": null,
+          "pipeline": [
+            "PLAN",
+            "BUILD",
+            "VALIDATE",
+            "RECEIPT"
+          ],
+          "validator_result": null,
+          "evidence_snippets": [],
+          "artifact_path": "",
+          "dispatch_receipt_url": "",
+          "pack_results_tail": []
+        }
+      },
+      {
+        "at": "2026-07-02T12:00:33Z",
+        "trigger_source": "cloudflare_cron",
+        "verdict": "IDLE_NO_WORK",
+        "sink_invariant": {
+          "ok": true,
+          "schema": "cloud-forge-batch-sink-invariant-v1",
+          "at": "2026-07-02T12:00:53Z",
+          "batch_id": 77,
+          "expected": 100,
+          "supabase_count": 100,
+          "railway_count": 77,
+          "mac_replay_count": 23,
+          "supabase_missing": [],
+          "railway_missing": [
+            "CLOUD-SEC-7610",
+            "CLOUD-SEC-7613",
+            "CLOUD-SEC-7615",
+            "CLOUD-SEC-7618",
+            "CLOUD-SEC-7620",
+            "CLOUD-SEC-7622",
+            "CLOUD-SEC-7627",
+            "CLOUD-SEC-7629",
+            "CLOUD-SEC-7631",
+            "CLOUD-SEC-7633",
+            "CLOUD-SEC-7635",
+            "CLOUD-SEC-7637",
+            "CLOUD-SEC-7639",
+            "CLOUD-SEC-7641",
+            "CLOUD-SEC-7643",
+            "CLOUD-SEC-7645",
+            "CLOUD-SEC-7648",
+            "CLOUD-SEC-7650",
+            "CLOUD-SEC-7652",
+            "CLOUD-SEC-7655",
+            "CLOUD-SEC-7657",
+            "CLOUD-SEC-7659",
+            "CLOUD-SEC-7661"
+          ],
+          "mac_replay_ids": [
+            "CLOUD-SEC-7610",
+            "CLOUD-SEC-7613",
+            "CLOUD-SEC-7615",
+            "CLOUD-SEC-7618",
+            "CLOUD-SEC-7620",
+            "CLOUD-SEC-7622",
+            "CLOUD-SEC-7627",
+            "CLOUD-SEC-7629",
+            "CLOUD-SEC-7631",
+            "CLOUD-SEC-7633",
+            "CLOUD-SEC-7635",
+            "CLOUD-SEC-7637",
+            "CLOUD-SEC-7639",
+            "CLOUD-SEC-7641",
+            "CLOUD-SEC-7643",
+            "CLOUD-SEC-7645",
+            "CLOUD-SEC-7648",
+            "CLOUD-SEC-7650",
+            "CLOUD-SEC-7652",
+            "CLOUD-SEC-7655",
+            "CLOUD-SEC-7657",
+            "CLOUD-SEC-7659",
+            "CLOUD-SEC-7661"
+          ],
+          "blocked_reason": null,
+          "verdict": "PASS",
+          "law": "railway_count + mac_replay_count == supabase_count"
+        },
+        "pack": {
+          "ok": true,
+          "idle_batch": true,
+          "registry_exhausted": true,
+          "schema": "cloud-forge-run-pack-v1",
+          "advanced": 0,
+          "skipped": 0,
+          "processed": 0,
+          "shipped": 0,
+          "mandatory_quota": 100,
+          "max_advance": 100,
+          "batch_complete": true,
+          "batch_id": 77,
+          "head_now": "CLOUD-SEC-7666",
+          "last_completed": "CLOUD-SEC-7666"
+        },
+        "prove": {
+          "ok": true,
+          "summary_line": "Cloud chains PASS \u00b7 head CLOUD-SEC-7666 \u00b7 3/3 up (server-side)",
+          "chains_up": 3,
+          "chains_total": 3,
+          "gate_cleared": true
+        },
+        "ship": {
+          "ok": false,
+          "plan_id": null,
+          "dry_run": null,
+          "hub_proceed_line": null,
+          "gate_cleared": false,
+          "artifact_path": null,
+          "artifact_type": null,
+          "validator_result": null
+        },
+        "proof": {
+          "head_start": null,
+          "head_now": "CLOUD-SEC-7666",
+          "batch_id": 77,
+          "shipped": 0,
+          "skipped": 0,
+          "plan_id": null,
+          "title": null,
+          "maps_registry": null,
+          "": null,
+          "cloud_action": null,
+          "source_url": null,
+          "pipeline": [
+            "PLAN",
+            "BUILD",
+            "VALIDATE",
+            "RECEIPT"
+          ],
+          "validator_result": null,
+          "evidence_snippets": [],
+          "artifact_path": "",
+          "dispatch_receipt_url": "",
+          "pack_results_tail": []
+        }
+      }
+    ],
+    "report_line": "autorun PASS \u00b7 sha 94e447ca \u00b7 cron_fires=n/a \u00b7 cycles=0 \u00b7 obs=10 \u00b7 manual=0 \u00b7 heartbeat=yes"
+  },
+  "founder_proof_15": {
+    "schema": "client-proof-founder-review-verify-v1",
+    "version": "1.1.0",
+    "verify_law": "Verify = raw HTTPS fetch of the PUBLIC hostname from outside; minimum 60s after deploy; local dist verification is INVALID as PASS.",
+    "at": "2026-07-02T12:55:44Z",
+    "commit_sha": "94e447ca2d61e7e1c106b04df9cecbb53667a7a0",
+    "deploy_gate": {
+      "ok": true,
+      "skipped": true,
+      "min_seconds": 0
+    },
+    "total": 15,
+    "passed": 15,
+    "ok": true,
+    "pack_path": "/home/runner/work/SourceA/SourceA/data/client-proof-founder-review-pack-v1.json",
+    "rows": [
+      {
+        "recipe_id": "cpr-agency-onepager",
+        "live_url": "https://sourcea.app/attach/agency-onepager.html",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-02T12:55:42Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 7371,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-agentgo-case",
+        "live_url": "https://sourcea.app/case-studies/agentgo",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-02T12:55:42Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 13700,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-brain-chat",
+        "live_url": "https://sourcea.app/",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-02T12:55:43Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 26845,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-contract-aivg",
+        "live_url": "https://sourcea.app/ai-value-governance",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "regional_redirect_fetch": {
+          "fetched_at": "2026-07-02T12:55:43Z",
+          "http_code": 200,
+          "body_sha256_prefix": "7e6096ba9856e4b918c06e4f171f75ffa319373fd4c0bc4121c46930972ad3c9",
+          "body_bytes": 16115,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        },
+        "public_fetch": {
+          "fetched_at": "2026-07-02T12:55:43Z",
+          "http_code": 200,
+          "body_sha256_prefix": "7e6096ba9856e4b918c06e4f171f75ffa319373fd4c0bc4121c46930972ad3c9",
+          "body_bytes": 16115,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-contract-eacp",
+        "live_url": "https://sourcea.app/enterprise-ai-control-plane",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-02T12:55:43Z",
+          "http_code": 200,
+          "body_sha256_prefix": "2edff560fd83f32dab8a2334725d3215d4b88e6b81cfa3486912c7ca8582304a",
+          "body_bytes": 16648,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-contract-operating-brain",
+        "live_url": "https://sourcea.app/operating-brain-install",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-02T12:55:43Z",
+          "http_code": 200,
+          "body_sha256_prefix": "3410c926542070a3fad91a7e531473419911043e8e6411aba12812ebab90cc8d",
+          "body_bytes": 16326,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-eval-boot",
+        "live_url": "https://sourcea.app/eval",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-02T12:55:43Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 12265,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-forge-terminal",
+        "live_url": "https://sourcea.app/sourcea/forge/terminal",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-02T12:55:43Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 7140,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-free-job-intake",
+        "live_url": "https://sourcea.app/sourcea/sandbox",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-02T12:55:43Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 8162,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-live-receipt",
+        "live_url": "https://sourcea.app/sourcea/proof/live",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-02T12:55:44Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 15808,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-procurement-pack",
+        "live_url": "https://sourcea.app/attach/procurement-pack.html",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-02T12:55:44Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 6327,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-proof-export-loop",
+        "live_url": "https://sourcea.app/loops/proof-export",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-02T12:55:44Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 6027,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-pureflow-case",
+        "live_url": "https://sourcea.app/case-studies/pureflow",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-02T12:55:44Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 13530,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-railway-observer",
+        "live_url": "https://sourcea-fbe-runner-production.up.railway.app/observer",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-02T12:55:44Z",
+          "http_code": 200,
+          "body_sha256_prefix": "de25dc8d5e6ddb696677540815756115693722e060879d61181fce1bf8077a49",
+          "body_bytes": 899,
+          "cache_control": null,
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-supabase-rows",
+        "live_url": "supabase://cloud_forge_run_rows",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": ""
+      }
+    ]
+  },
+  "determinism_gate": {
+    "schema": "autorun-determinism-verify-v1",
+    "version": "1.0.0",
+    "at": "2026-07-02T12:55:44Z",
+    "law": "controlled-autorun L13 \u00b7 deterministic-loops D1-D5",
+    "ok": true,
+    "tests": [
+      {
+        "id": "D5_replay",
+        "law": "D5",
+        "ok": true,
+        "evidence": {
+          "live": {
+            "schema": "cloud-auto-runtime-single-cycle-gate-v1",
+            "halted": false,
+            "last_path": "/api/cloud-forge-run/auto-tick/v1",
+            "halt_reason": "second_request_within_cycle_window",
+            "healed_trigger_source": "cloudflare_cron"
+          },
+          "replay": {
+            "schema": "cloud-auto-runtime-single-cycle-gate-v1",
+            "halted": false,
+            "last_path": "/api/cloud-forge-run/auto-tick/v1",
+            "halt_reason": "second_request_within_cycle_window",
+            "healed_trigger_source": "cloudflare_cron"
+          },
+          "event_count": 3
+        }
+      },
+      {
+        "id": "D1_idempotency",
+        "law": "D1",
+        "ok": true,
+        "evidence": {
+          "first": {
+            "ok": true,
+            "duplicate": false
+          },
+          "second": {
+            "ok": false,
+            "duplicate": true,
+            "reason": "idempotency_key_already_executed",
+            "prior_job_id": "determinism-test-d1",
+            "prior_receipt_path": "/tmp/tmp6ed7ztrk/idempotency.json",
+            "prior_at": "2026-07-02T12:55:44Z"
+          },
+          "op_key": "8959735d39babb20bb6f412ff7954ea715474295"
+        }
+      },
+      {
+        "id": "D2_cas_gate",
+        "law": "D2",
+        "ok": true,
+        "evidence": {
+          "first_claim": "proceed",
+          "second_claim": "halt_single_cycle",
+          "reason": "second_request_within_cycle_window"
+        }
+      },
+      {
+        "id": "D4_transitions",
+        "law": "D4",
+        "ok": true,
+        "evidence": {
+          "illegal_accepted": [],
+          "legal_rejected": [],
+          "illegal_tested": 5,
+          "legal_tested": 3
+        }
+      }
+    ],
+    "report_line": "determinism PASS \u00b7 D5_replay=PASS \u00b7 D1_idempotency=PASS \u00b7 D2_cas_gate=PASS \u00b7 D4_transitions=PASS",
+    "receipt_path": "/home/runner/work/SourceA/SourceA/receipts/cloud/autorun-determinism/determinism-latest-v1.json"
+  },
+  "checks": [
+    {
+      "recipe_id": "cpr-agency-onepager",
+      "url": null,
+      "verdict": "PASS",
+      "http_status": null,
+      "body_sha256": null
+    },
+    {
+      "recipe_id": "cpr-agentgo-case",
+      "url": null,
+      "verdict": "PASS",
+      "http_status": null,
+      "body_sha256": null
+    },
+    {
+      "recipe_id": "cpr-brain-chat",
+      "url": null,
+      "verdict": "PASS",
+      "http_status": null,
+      "body_sha256": null
+    },
+    {
+      "recipe_id": "cpr-contract-aivg",
+      "url": null,
+      "verdict": "PASS",
+      "http_status": null,
+      "body_sha256": null
+    },
+    {
+      "recipe_id": "cpr-contract-eacp",
+      "url": null,
+      "verdict": "PASS",
+      "http_status": null,
+      "body_sha256": null
+    },
+    {
+      "recipe_id": "cpr-contract-operating-brain",
+      "url": null,
+      "verdict": "PASS",
+      "http_status": null,
+      "body_sha256": null
+    },
+    {
+      "recipe_id": "cpr-eval-boot",
+      "url": null,
+      "verdict": "PASS",
+      "http_status": null,
+      "body_sha256": null
+    },
+    {
+      "recipe_id": "cpr-forge-terminal",
+      "url": null,
+      "verdict": "PASS",
+      "http_status": null,
+      "body_sha256": null
+    },
+    {
+      "recipe_id": "cpr-free-job-intake",
+      "url": null,
+      "verdict": "PASS",
+      "http_status": null,
+      "body_sha256": null
+    },
+    {
+      "recipe_id": "cpr-live-receipt",
+      "url": null,
+      "verdict": "PASS",
+      "http_status": null,
+      "body_sha256": null
+    },
+    {
+      "recipe_id": "cpr-procurement-pack",
+      "url": null,
+      "verdict": "PASS",
+      "http_status": null,
+      "body_sha256": null
+    },
+    {
+      "recipe_id": "cpr-proof-export-loop",
+      "url": null,
+      "verdict": "PASS",
+      "http_status": null,
+      "body_sha256": null
+    },
+    {
+      "recipe_id": "cpr-pureflow-case",
+      "url": null,
+      "verdict": "PASS",
+      "http_status": null,
+      "body_sha256": null
+    },
+    {
+      "recipe_id": "cpr-railway-observer",
+      "url": null,
+      "verdict": "PASS",
+      "http_status": null,
+      "body_sha256": null
+    },
+    {
+      "recipe_id": "cpr-supabase-rows",
+      "url": null,
+      "verdict": "PASS",
+      "http_status": null,
+      "body_sha256": null
+    }
+  ],
+  "report_line": "external-verify PASS \u00b7 autorun=PASS \u00b7 determinism=PASS \u00b7 15-recipe=15/15 \u00b7 run=28591655977"
+}
