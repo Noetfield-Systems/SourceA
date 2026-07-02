@@ -247,39 +247,43 @@ def _founder_line(
     advisory: dict,
     config: dict,
     block_reasons: list[str],
+    pending: dict | None = None,
 ) -> str:
     obs_line = str(obs.get("founder_one_line") or "")[:120]
     auto = "auto=ON" if config.get("loop_auto_dispatch_enabled") else "auto=OFF"
     top = ((advisory.get("ranked_prompts") or [{}])[0]).get("upgrade_id") or "?"
+    pending_line = ""
+    if pending and int(pending.get("count") or 0) > 0:
+        pending_line = f" · {pending.get('report_line', '')[:80]}"
     if decision == "compose_blocked":
-        return f"loop-specialist · blocked · {auto} · {','.join(block_reasons[:3])} · {obs_line}"
+        return f"loop-specialist · blocked · {auto} · {','.join(block_reasons[:3])} · {obs_line}{pending_line}"
     if decision == "dispatch_ready":
         freeze = obs.get("freeze") or {}
         resume_hint = "" if freeze.get("outbound_queue_override") else " · ASF resume if FREEZE"
-        return f"loop-specialist · ready · {auto} · top={top}{resume_hint}"
+        return f"loop-specialist · ready · {auto} · top={top}{resume_hint}{pending_line}"
     if decision == "dispatch_done":
-        return f"loop-specialist · dispatched · {auto} · Brain work-order executed"
+        return f"loop-specialist · dispatched · {auto} · Brain work-order executed{pending_line}"
     if decision == "execute_pending":
-        return f"loop-specialist · execute_pending · {auto} · Brain work-order · Hub glance only"
+        return f"loop-specialist · execute_pending · {auto} · Brain work-order · Hub glance only{pending_line}"
     if decision == "auto_commercial":
         sys.path.insert(0, str(SCRIPTS))
         try:
             from execution_path_vocabulary_v1 import commercial_l3_blocker_summary  # noqa: WPS433
 
-            return f"loop-specialist · auto · {commercial_l3_blocker_summary()} · Hub glance only"
+            return f"loop-specialist · auto · {commercial_l3_blocker_summary()} · Hub glance only{pending_line}"
         except Exception:
             pass
         try:
             from outbound_factory_phase_complete_v1 import outbound_plan_progress  # noqa: WPS433
 
             p = outbound_plan_progress()
-            return f"loop-specialist · auto · outbound {p['done']}/{p['total']} · smart loop owns next motion"
+            return f"loop-specialist · auto · outbound {p['done']}/{p['total']} · smart loop owns next motion{pending_line}"
         except Exception:
             pass
-        return f"loop-specialist · auto · outbound complete · smart loop owns next motion"
+        return f"loop-specialist · auto · outbound complete · smart loop owns next motion{pending_line}"
     if decision == "idle":
-        return f"loop-specialist · idle · queue exhausted or commercial P0"
-    return f"loop-specialist · observe · {auto} · advisory={top} · {obs_line[:80]}"
+        return f"loop-specialist · idle · queue exhausted or commercial P0{pending_line}"
+    return f"loop-specialist · observe · {auto} · advisory={top} · {obs_line[:80]}{pending_line}"
 
 
 def run_tick(*, write: bool = True, dispatch: bool | None = None) -> dict:
@@ -476,6 +480,19 @@ def run_tick(*, write: bool = True, dispatch: bool | None = None) -> dict:
     else:
         next_action = "Auto Runtime · Brain work-order when inbox pending"
 
+    try:
+        from autorun_pending_v1 import write_pending_receipt  # noqa: WPS433
+
+        pending = write_pending_receipt()
+    except Exception as exc:
+        pending = {
+            "schema": "autorun-pending-v1",
+            "ok": False,
+            "count": 1,
+            "items": [{"id": "pending_write_failed", "reason": str(exc)[:120]}],
+            "report_line": f"pending_write_failed · {exc}",
+        }
+
     row = {
         "schema": "loop-specialist-tick-receipt-v1",
         "ok": decision in (
@@ -517,7 +534,10 @@ def run_tick(*, write: bool = True, dispatch: bool | None = None) -> dict:
             advisory=advisory,
             config=config,
             block_reasons=block_reasons,
+            pending=pending,
         ),
+        "pending": pending,
+        "pending_count": int(pending.get("count") or 0),
         "next_founder_action": next_action,
         "founder_one_line": "",
         "command": "python3 scripts/loop_specialist_tick_v1.py --json",

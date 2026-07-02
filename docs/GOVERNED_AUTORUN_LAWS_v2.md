@@ -80,6 +80,11 @@ Failed checks, DRIFT, `THROTTLED_ROI`, audit findings auto-file improvement cand
 1. Read latest heartbeat + last 3 cycle receipts. Report: loops, states, sink invariant, drift, cost window (5 lines).
 2. Surface `founder_blocked` (count, oldest, age). Never process or cancel.
 3. If `BLOCKED_WITH_REASON` exists: fix or escalate before new work.
+4. **Auto-note pending** — read `receipts/cloud/autorun-pending/pending-latest-v1.json` every cycle; never ask founder to manually confirm open blockers.
+
+## Auto-pending (machine law)
+
+`scripts/autorun_pending_v1.py` runs on every cycle receipt, heartbeat refresh, loop-specialist tick, and observer build. Pending items carry `{id, status, severity, law, reason, evidence, action}`. P0 pending (e.g. `external_verify_l4`) surfaces in `loop_specialist_line`, heartbeat `escalations[]`, and cycle `pending{}` — **no manual "please confirm" in agent chat**.
 
 ## Work rules
 
