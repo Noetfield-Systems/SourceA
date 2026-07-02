@@ -464,7 +464,7 @@ def proceed_on_cloud(body: dict[str, Any]) -> dict[str, Any]:
             except Exception:
                 pass
         cloud = run_forge_seed_cycle(plan_id=plan_id or registry, dry_run=dry_run)
-        row.update({"ok": bool(cloud.get("ok")), "dispatch_lane": cloud.get("dispatch_lane") or "forge_seed", "cloud_dispatch": cloud.get("cloud_dispatch"), **{k: cloud[k] for k in ("artifact_path", "artifact_type", "validator_result", "pipeline", "forge_seed_artifact") if k in cloud}})
+        row.update({"ok": bool(cloud.get("ok")), "dispatch_lane": cloud.get("dispatch_lane") or "forge_seed", "cloud_dispatch": cloud.get("cloud_dispatch"), **{k: cloud[k] for k in ("artifact_path", "artifact_type", "validator_result", "pipeline", "forge_seed_artifact", "supabase", "failure_class") if k in cloud}})
 
     row["for_founder"] = row.get("for_founder") or {
         "show_this": (
