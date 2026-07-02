@@ -15,25 +15,6 @@ const PAGES_PATH_ALIASES = new Map([
   ["/enterprise-ai-control-plane", "/sourcea/enterprise-ai-control-plane"],
 ]);
 
-/** Regional trust domains → canonical sourcea.app contract paths (301, no duplicate homepage). */
-const REGIONAL_HOST_DEFAULT = new Map([
-  ["sourcea.ca", "https://sourcea.app/ai-value-governance"],
-  ["www.sourcea.ca", "https://sourcea.app/ai-value-governance"],
-  ["sourcea.uk", "https://sourcea.app/enterprise-ai-control-plane"],
-  ["www.sourcea.uk", "https://sourcea.app/enterprise-ai-control-plane"],
-]);
-
-function regionalRedirect(incoming) {
-  const host = incoming.hostname.toLowerCase();
-  const canonical = REGIONAL_HOST_DEFAULT.get(host);
-  if (!canonical) return null;
-  const path = incoming.pathname.replace(/\/$/, "") || "/";
-  if (path === "/" || path === "/ai-value-governance" || path === "/enterprise-ai-control-plane") {
-    return Response.redirect(canonical, 301);
-  }
-  return Response.redirect(canonical, 301);
-}
-
 function resolvePagesPath(pathname) {
   if (PAGES_PATH_ALIASES.has(pathname)) return PAGES_PATH_ALIASES.get(pathname);
   if (pathname.startsWith("/attach/")) return `/sourcea/attach/${pathname.slice("/attach/".length)}`;
@@ -271,9 +252,6 @@ export default {
     if (pathname === "/kernel" || pathname === "/kernel/") {
       return Response.redirect(`${incoming.origin}/sourcea/`, 302);
     }
-
-    const regional = regionalRedirect(incoming);
-    if (regional) return regional;
 
     return proxyPages(request, incoming, resolvePagesPath(pathname));
   },
