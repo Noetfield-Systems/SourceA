@@ -1,0 +1,39 @@
+{
+  "schema": "signal-factory-cloud-contract-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-02T20:55:00Z",
+  "phase": "signal-factory-24-7",
+  "law": "data/signal-factory-v1.json",
+  "mac_control_plane": true,
+  "founder_motion": "Hub glance only — synthetic disk queue · no Gmail · no Mac Terminal",
+  "cloud_worker_url": "https://sourcea-fbe-runner-production.up.railway.app",
+  "cloud_execution_primary": true,
+  "cloud_tick_api": {
+    "method": "POST",
+    "path": "/api/fbe/signal-factory/tick/v1",
+    "base_url": "https://sourcea-fbe-runner-production.up.railway.app",
+    "auth": "Bearer FBE_INTERNAL_SECRET",
+    "request_body": {
+      "max_batch": "integer — default 5",
+      "trigger_source": "cloudflare_cron | hub | cli"
+    }
+  },
+  "hub_api": {
+    "method": "POST",
+    "path": "/api/signal-factory/tick/v1",
+    "base_url_env": "SINA_COMMAND_HUB_URL",
+    "default_base_url": "http://127.0.0.1:13020",
+    "role": "mac_control_plane_glance_only"
+  },
+  "tick_decisions": [
+    "IDLE_NO_WORK",
+    "COMPLETE",
+    "PARTIAL"
+  ],
+  "cloudflare_worker": {
+    "cron": "*/15 * * * *",
+    "worker_name": "sourcea-signal-factory-tick-v1",
+    "worker_root": "cloud/workers/signal-factory-tick-v1",
+    "receipt": "data/signal-factory-cloud-cron-v1.json"
+  }
+}

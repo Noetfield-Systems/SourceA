@@ -86,6 +86,9 @@ COPY scripts/fbe_comprehension_bay_v1.py scripts/fbe_comprehension_bay_v1.py
 COPY scripts/fbe_comprehension_eval_batch_v1.py scripts/fbe_comprehension_eval_batch_v1.py
 COPY scripts/agent_runtime_config_v1.py scripts/agent_runtime_config_v1.py
 COPY scripts/fbe_cloud_loop_specialist_tick_v1.py scripts/fbe_cloud_loop_specialist_tick_v1.py
+COPY scripts/fbe_cloud_signal_factory_tick_v1.py scripts/fbe_cloud_signal_factory_tick_v1.py
+COPY scripts/signal_factory_core_v1.py scripts/signal_factory_core_v1.py
+COPY scripts/signal_factory_tick_v1.py scripts/signal_factory_tick_v1.py
 COPY scripts/founder_reply_translator_v1.py scripts/founder_reply_translator_v1.py
 COPY scripts/agent_report_language_gate_v1.py scripts/agent_report_language_gate_v1.py
 COPY data/founder-reply-glossary-v1.json data/founder-reply-glossary-v1.json
@@ -93,6 +96,10 @@ COPY data/agent-report-language-standard-v1.json data/agent-report-language-stan
 COPY data/cloud-comprehension-bay-v1.json data/cloud-comprehension-bay-v1.json
 COPY data/comprehension-golden-v1.json data/comprehension-golden-v1.json
 COPY data/loop-specialist-cloud-contract-v1.json data/loop-specialist-cloud-contract-v1.json
+COPY data/signal-factory-v1.json data/signal-factory-v1.json
+COPY data/signal-factory-queue-v1.json data/signal-factory-queue-v1.json
+COPY data/signal-factory-synthetic-seed-v1.json data/signal-factory-synthetic-seed-v1.json
+COPY data/signal-factory-cloud-contract-v1.json data/signal-factory-cloud-contract-v1.json
 COPY data/hub-cloud-forge-run-proceed-v1.json data/hub-cloud-forge-run-proceed-v1.json
 COPY data/cloud-auto-runtime-v1.json data/cloud-auto-runtime-v1.json
 COPY data/living-system-chain-registry-cloud-v1.json data/living-system-chain-registry-cloud-v1.json
