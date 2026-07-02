@@ -23,7 +23,7 @@
       "secrets": ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"]
     },
     "mac_agent": {
-      "events": ["MAC_AGENT_HEARTBEAT", "MAC_FRESH_MAIN_SYNC", "MAC_RECEIPT_MIRROR", "MAC_SESSION_GATE"],
+      "events": ["MAC_AGENT_HEARTBEAT", "MAC_FRESH_MAIN_SYNC", "MAC_RECEIPT_MIRROR", "MAC_SESSION_GATE", "AGENT_SESSION_COST", "TIER_ESCALATION"],
       "module": "scripts/mac_spine_bridge_v1.py",
       "contract": "data/mac-spine-bridge-contract-v1.json",
       "secrets": ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"]
@@ -54,5 +54,10 @@
     "pass": "truth_log row count increases (CRON_FIRED every ~10m if cron live)",
     "fail": "truth_log stops growing — loop does not exist independently"
   },
-  "forbidden_writers": ["cursor", "mac", "local_scripts", "terminal"]
+  "forbidden_writers": ["cursor", "mac", "local_scripts", "terminal"],
+  "session_cost_writer": {
+    "module": "scripts/agent_session_cost_v1.py",
+    "event": "AGENT_SESSION_COST",
+    "note": "L17 — mac_agent source via portfolio-spine service role; disk mirror ~/.sina/agent-session-cost-receipt-v1.json"
+  }
 }

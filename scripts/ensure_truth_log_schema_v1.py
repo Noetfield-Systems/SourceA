@@ -15,6 +15,9 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 SQL_002 = ROOT / "infra/supabase/portfolio-spine/migrations/002_truth_log_v1.sql"
 SQL_005 = ROOT / "infra/supabase/portfolio-spine/migrations/005_truth_log_external_verify_v1.sql"
+SQL_006 = ROOT / "infra/supabase/portfolio-spine/migrations/006_mac_spine_bridge_v1.sql"
+SQL_007 = ROOT / "infra/supabase/portfolio-spine/migrations/007_agent_session_cost_v1.sql"
+MIGRATION_SQL = (SQL_002, SQL_005, SQL_006, SQL_007)
 
 
 def _load_env_files() -> None:
@@ -74,7 +77,7 @@ def _apply_via_psycopg(sql: str) -> dict[str, Any]:
 
 def apply_migrations() -> dict[str, Any]:
     results: list[dict[str, Any]] = []
-    for sql_path in (SQL_002, SQL_005):
+    for sql_path in MIGRATION_SQL:
         if not sql_path.is_file():
             return {"ok": False, "error": f"missing_{sql_path.name}"}
         sql = sql_path.read_text(encoding="utf-8")
