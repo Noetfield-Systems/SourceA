@@ -4,7 +4,12 @@
  */
 export default {
   async scheduled(_event, env, ctx) {
-    ctx.waitUntil(runTick(env, { dispatch: env.LOOP_AUTO_DISPATCH === "true" }));
+    ctx.waitUntil(
+      Promise.all([
+        runTick(env, { dispatch: env.LOOP_AUTO_DISPATCH === "true" }),
+        runSignalFactoryTick(env),
+      ]),
+    );
   },
 
   async fetch(request, env) {
@@ -27,7 +32,6 @@ async function runTick(env, { dispatch }) {
     return { ok: false, error: "missing_FBE_CLOUD_WORKER_URL" };
   }
   const autoOn = env.LOOP_AUTO_DISPATCH !== "false";
-  const doDispatch = dispatch !== undefined ? dispatch : autoOn;
   const doDispatch = dispatch !== undefined ? dispatch : autoOn;
   const target = `${base}/api/fbe/loop-specialist/tick/v1`;
   const payload = {
@@ -62,6 +66,45 @@ async function runTick(env, { dispatch }) {
     execution_plane: "cloudflare_cron",
     tick_decision: row.tick_decision,
     loop_specialist_line: row.loop_specialist_line,
+    proxied_status: resp.status,
+    cloud_target: target,
+  };
+}
+
+async function runSignalFactoryTick(env) {
+  const base = (env.FBE_CLOUD_WORKER_URL || "").replace(/\/$/, "");
+  if (!base) {
+    return { ok: false, error: "missing_FBE_CLOUD_WORKER_URL" };
+  }
+  const target = `${base}/api/fbe/signal-factory/tick/v1`;
+  const headers = { "Content-Type": "application/json" };
+  if (env.FBE_INTERNAL_SECRET) {
+    headers.Authorization = `Bearer ${env.FBE_INTERNAL_SECRET}`;
+  }
+  const resp = await fetch(target, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({
+      job_id: crypto.randomUUID(),
+      factory_id: "signal-factory-v1",
+      tenant: "sourcea",
+      execution_mode: "CLOUD_ONLY",
+      max_batch: 5,
+      trigger_source: "cloudflare_cron_loop_specialist",
+    }),
+  });
+  let row = {};
+  try {
+    row = await resp.json();
+  } catch {
+    row = { ok: false, error: "invalid_json", status: resp.status };
+  }
+  return {
+    ok: Boolean(row.ok),
+    at: new Date().toISOString(),
+    execution_plane: "cloudflare_cron_loop_specialist",
+    decision: row.decision,
+    signal_factory_line: row.signal_factory_line,
     proxied_status: resp.status,
     cloud_target: target,
   };
