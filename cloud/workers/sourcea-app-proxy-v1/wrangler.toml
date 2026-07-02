@@ -14,18 +14,19 @@ zone_name = "sourcea.app"
 pattern = "www.sourcea.app/*"
 zone_name = "sourcea.app"
 
+# Regional zones — wildcard zone routes (reliable path coverage; avoids apex-only 502 gaps)
 [[routes]]
-pattern = "sourcea.ca"
-custom_domain = true
+pattern = "sourcea.ca/*"
+zone_name = "sourcea.ca"
 
 [[routes]]
-pattern = "www.sourcea.ca"
-custom_domain = true
+pattern = "www.sourcea.ca/*"
+zone_name = "sourcea.ca"
 
 [[routes]]
-pattern = "sourcea.uk"
-custom_domain = true
+pattern = "sourcea.uk/*"
+zone_name = "sourcea.uk"
 
 [[routes]]
-pattern = "www.sourcea.uk"
-custom_domain = true
+pattern = "www.sourcea.uk/*"
+zone_name = "sourcea.uk"

@@ -83,7 +83,8 @@ class NoRedirect(urllib.request.HTTPErrorProcessor):
 
 
 def fetch_http_no_redirect(url: str, host: str | None = None) -> tuple[int, str]:
-    opener = urllib.request.build_opener(NoRedirect)
+    https_handler = urllib.request.HTTPSHandler(context=ctx)
+    opener = urllib.request.build_opener(NoRedirect, https_handler)
     req = urllib.request.Request(
         url,
         headers={
@@ -91,7 +92,7 @@ def fetch_http_no_redirect(url: str, host: str | None = None) -> tuple[int, str]
             **({"Host": host} if host else {}),
         },
     )
-    with opener.open(req, context=ctx, timeout=25) as resp:
+    with opener.open(req, timeout=25) as resp:
         return resp.status, resp.read(250_000).decode("utf-8", errors="replace")
 
 
