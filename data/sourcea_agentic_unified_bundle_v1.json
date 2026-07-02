@@ -16,17 +16,17 @@
       ]
     },
     "engine_story": {
-      "human": "SINA_UNIFIED_ENGINE_STORY_LOCKED_v1.md",
+      "human": "brain-os/law/SINA_UNIFIED_ENGINE_STORY_LOCKED_v1.md",
       "rule": "One engine · portfolio lanes — never a second motor"
     },
     "runtime_dispatch": {
-      "human": "SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md",
+      "human": "brain-os/law/SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md",
       "machine": "data/brain-form-gather-unify-routing-plan-v1.json",
       "script": "scripts/brain_form_gather_unify_plan_v1.py",
       "fail_policy": "FAIL_IMMEDIATE_NO_TEMPER"
     },
     "human_machine_form": {
-      "human": "SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md",
+      "human": "brain-os/law/SOURCEA_LIVE_FOUNDER_DECISION_FORM_LOCKED_v1.md",
       "nerve_map": "data/form_official_nerve_map_v1.json",
       "extraction": "~/.sina/live-founder-decision-form-extraction-v1.json",
       "canvas": "sourcea-system-integrity-100.canvas.tsx",
@@ -43,7 +43,7 @@
       "rule": "One queue sa-* · plans_unified tick — no parallel hero queues"
     },
     "asset_commercial": {
-      "human": "SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md",
+      "human": "brain-os/law/SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md",
       "script": "scripts/controlled_agentic_automation_offer_v1.py",
       "rule": "DFY SKU only — does not replace apex identity"
     },
@@ -66,7 +66,7 @@
     },
     "node_graph": {
       "machine": "data/sourcea_pipeline_node_graph_v1.json",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "runner": "scripts/pipeline_node_graph_runner_v1.py",
       "report": "~/.sina/pipeline-node-graph-receipt-v1.json"
     },
@@ -80,7 +80,7 @@
       "human": "docs/SOURCEA_DIRECTORY_NODE_MAP_LOCKED_v1.md"
     },
     "three_pipelines_law": {
-      "human": "AGENT_THREE_PIPELINES_ORIENTATION_HOSPITAL_MAZE_LOCKED_v1.md",
+      "human": "brain-os/law/AGENT_THREE_PIPELINES_ORIENTATION_HOSPITAL_MAZE_LOCKED_v1.md",
       "router": "scripts/agent_three_pipelines_router_v1.py",
       "lib": "scripts/agent_three_pipelines_lib_v1.py"
     },
@@ -107,7 +107,7 @@
     }
   },
   "graph_summary": {
-    "runner_nodes": 18,
+    "runner_nodes": 20,
     "tiers": ["T0_safety", "T1_truth_parallel", "T2_fleet_parallel", "T3_proof_parallel", "T_lat_orient"],
     "parallel_groups": 5,
     "edges": 26
@@ -125,9 +125,9 @@
       {"id": "O3", "name": "authority_index", "path": "brain-os/system/SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md"},
       {"id": "O4", "name": "decision_stack_gate_tree", "path": "AGENT_DECISION_STACK_AND_SMART_JUDGMENT_LOCKED_v1.md"},
       {"id": "O5", "name": "why_entry", "path": "brain-os/law/entry/README_SOURCE_A.md"},
-      {"id": "O6", "name": "agentic_stack", "path": "SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md"},
-      {"id": "O7", "name": "two_hub_law", "path": "SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md"},
-      {"id": "O8", "name": "three_pipelines_law", "path": "AGENT_THREE_PIPELINES_ORIENTATION_HOSPITAL_MAZE_LOCKED_v1.md"},
+      {"id": "O6", "name": "agentic_stack", "path": "brain-os/law/SOURCEA_AGENTIC_LAYER_STACK_LOCKED_v2.md"},
+      {"id": "O7", "name": "two_hub_law", "path": "brain-os/law/SOURCEA_SUPER_FAST_HUB_LOCKED_v1.md"},
+      {"id": "O8", "name": "three_pipelines_law", "path": "brain-os/law/AGENT_THREE_PIPELINES_ORIENTATION_HOSPITAL_MAZE_LOCKED_v1.md"},
       {"id": "O9", "name": "roles_map", "path": "brain-os/law/UNDERSTANDING_ROLES_CURSOR_ECOSYSTEM_v1.md"},
       {"id": "O10", "name": "architecture", "path": "docs/ARCHITECTURE.md"},
       {"id": "O11", "name": "onboarding", "path": "docs/ONBOARDING.md"},
