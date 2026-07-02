@@ -11,6 +11,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+import base64
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -239,16 +240,45 @@ def _apply_via_management_api(sql: str) -> dict[str, Any]:
         return {"ok": False, "error": str(exc)[:200]}
 
 
+def _ref_from_service_role_jwt() -> str:
+    key = (
+        os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "").strip()
+        or os.environ.get("SUPABASE_SERVICE_KEY", "").strip()
+    )
+    if not key or key.count(".") < 2:
+        return ""
+    try:
+        payload_b64 = key.split(".")[1]
+        payload_b64 += "=" * (-len(payload_b64) % 4)
+        payload = json.loads(base64.urlsafe_b64decode(payload_b64).decode("utf-8"))
+        ref = str(payload.get("ref") or payload.get("project_id") or "").strip()
+        return ref
+    except (ValueError, json.JSONDecodeError, UnicodeDecodeError):
+        return ""
+
+
 def _project_ref() -> str:
-    """Prefer SUPABASE_URL host ref — matches REST secrets; PROJECT_ID may drift."""
+    """Prefer service-role JWT ref — must match REST; then URL host; then PROJECT_ID."""
+    for candidate in (
+        _ref_from_service_role_jwt(),
+        _ref_from_supabase_url(),
+        os.environ.get("SUPABASE_PROJECT_ID", "").strip(),
+    ):
+        if candidate:
+            return candidate
+    return ""
+
+
+def _ref_from_supabase_url() -> str:
     url = os.environ.get("SUPABASE_URL", "").strip()
-    if url:
-        host = urllib.parse.urlparse(url).hostname or ""
-        if host.endswith(".supabase.co"):
-            ref = host.split(".")[0]
-            if ref and ref not in ("www", "api"):
-                return ref
-    return os.environ.get("SUPABASE_PROJECT_ID", "").strip()
+    if not url:
+        return ""
+    host = urllib.parse.urlparse(url).hostname or ""
+    if host.endswith(".supabase.co"):
+        ref = host.split(".")[0]
+        if ref and ref not in ("www", "api"):
+            return ref
+    return ""
 
 
 def _resolve_ipv4(host: str) -> str | None:
