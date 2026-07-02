@@ -1,15 +1,15 @@
 {
   "schema": "sourcea-brain-knowledge-bundle-v5",
   "bundle_version": "5.0.0",
-  "generated_at": "2026-07-02T08:56:13Z",
-  "chunk_count": 545,
-  "total_chars": 234346,
+  "generated_at": "2026-07-02T10:32:00Z",
+  "chunk_count": 547,
+  "total_chars": 234764,
   "source_files": 124,
   "live_source_files": 115,
   "rule_chunks": 6,
   "lanes": {
     "rules": 6,
-    "core": 331,
+    "core": 333,
     "developer": 150,
     "investor": 5,
     "buyer": 53
@@ -5297,13 +5297,33 @@
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
+      "content": "## cloud_workers_handoff\n- **step**: 11\n- **id**: cloud_workers_handoff\n- **path**: data/cloud-workers-control-plane-v1.json\n- **why**: Cloud Workers cockpit \u00b7 batch handoff SSOT",
+      "content_hash": "dcb02cfa126d4725",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-18",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
+      "content": "## worker_assignment\n- **step**: 12\n- **id**: worker_assignment\n- **path**: data/sourcea-worker-professional-assignment-v1.json\n- **why**: Phased worker handoff \u00b7 Mac control \u2192 cloud execute",
+      "content_hash": "8d140a79cd6af340",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "data__sourcea_orient_routing_v1.json-19",
+      "lane": "core",
+      "source_path": "data/sourcea_orient_routing_v1.json",
+      "www_url": null,
       "content": "## session_gate_step_nodes\n- **anti_staleness_auto_wire**: disk_live_wire\n- **memory_mirror_sync**: disk_live_wire\n- **daily_duty_card**: session_gate_v1\n- **truth_bundle**: disk_live_wire\n- **rules_loop**: governance_zero_drift\n- **agentic_pipeline_v2**: agentic_layer_fast\n- **stranger_agent_safety_live_wire**: sascip_live_wire\n- **governance_zero_drift_live_wire**: governance_zero_drift\n- **sourcea_crawl_mirror_pipeline**: crawl_mirror_session\n- **conduct**: session_gate_v1",
       "content_hash": "e864efb1d3610149",
       "pinned": false,
       "kind": "json"
     },
     {
-      "id": "data__sourcea_orient_routing_v1.json-18",
+      "id": "data__sourcea_orient_routing_v1.json-20",
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
@@ -5313,17 +5333,17 @@
       "kind": "json"
     },
     {
-      "id": "data__sourcea_orient_routing_v1.json-19",
+      "id": "data__sourcea_orient_routing_v1.json-21",
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
-      "content": "## daily_pipeline_to_node\n### brain\n- **entry**: brain-session-start.sh\n#### nodes\n- session_gate_v1\n- disk_live_wire\n- l1_brain_wire\n- brain_governance_wire_v1\n- **execute**: route handoff only \u2014 never implement sa\n### worker\n- **entry**: worker_turn_entry_v1.sh\n#### nodes\n- session_gate_v1\n- worker_inbox_v1\n- goal1_lane_broker\n- outbound_post_ship_v1\n- **execute**: RUN INBOX head only \u2014 queue_pos>1 preview not bound\n### governance\n- **entry**: l1_agent_pipeline_wire_v1.py\n#### nodes\n- l1_brain_wire\n- governance_zero_drift\n### commercial\n- **entry**: l1_agent_pipeline_wire_v1.py\n#### nodes\n- l1_brain_wire\n- commercial_command_pulse\n### brief\n- **entry**: l1_agent_pipeline_wire_v1.py\n#### nodes\n- l1_brain_wire\n- research_acquisitor",
-      "content_hash": "52d66c8d8599e204",
+      "content": "## daily_pipeline_to_node\n### brain\n- **entry**: brain-session-start.sh\n#### nodes\n- session_gate_v1\n- disk_live_wire\n- l1_brain_wire\n- brain_governance_wire_v1\n- **execute**: route handoff only \u2014 never implement sa\n### worker\n- **entry**: worker_turn_entry_v1.sh\n#### nodes\n- session_gate_v1\n- worker_inbox_v1\n- cloud_workers_hub_v1\n- goal1_lane_broker\n- outbound_post_ship_v1\n- **execute**: RUN INBOX head only \u2014 queue_pos>1 preview not bound \u00b7 cloud handoff via :13027\n### governance\n- **entry**: l1_agent_pipeline_wire_v1.py\n#### nodes\n- l1_brain_wire\n- governance_zero_drift\n### commercial\n- **entry**: l1_agent_pipeline_wire_v1.py\n#### nodes\n- l1_brain_wire\n- commercial_command_pulse\n### brief\n- **entry**: l1_agent_pipeline_wire_v1.py\n#### nodes\n- l1_brain_wire\n- research_acquisitor",
+      "content_hash": "d415657bd045d7fd",
       "pinned": false,
       "kind": "json"
     },
     {
-      "id": "data__sourcea_orient_routing_v1.json-20",
+      "id": "data__sourcea_orient_routing_v1.json-22",
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
@@ -5333,7 +5353,7 @@
       "kind": "json"
     },
     {
-      "id": "data__sourcea_orient_routing_v1.json-21",
+      "id": "data__sourcea_orient_routing_v1.json-23",
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
@@ -5343,7 +5363,7 @@
       "kind": "json"
     },
     {
-      "id": "data__sourcea_orient_routing_v1.json-22",
+      "id": "data__sourcea_orient_routing_v1.json-24",
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
@@ -5353,7 +5373,7 @@
       "kind": "json"
     },
     {
-      "id": "data__sourcea_orient_routing_v1.json-23",
+      "id": "data__sourcea_orient_routing_v1.json-25",
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
@@ -5363,7 +5383,7 @@
       "kind": "json"
     },
     {
-      "id": "data__sourcea_orient_routing_v1.json-24",
+      "id": "data__sourcea_orient_routing_v1.json-26",
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
@@ -5373,7 +5393,7 @@
       "kind": "json"
     },
     {
-      "id": "data__sourcea_orient_routing_v1.json-25",
+      "id": "data__sourcea_orient_routing_v1.json-27",
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
@@ -5383,7 +5403,7 @@
       "kind": "json"
     },
     {
-      "id": "data__sourcea_orient_routing_v1.json-26",
+      "id": "data__sourcea_orient_routing_v1.json-28",
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
@@ -5393,7 +5413,7 @@
       "kind": "json"
     },
     {
-      "id": "data__sourcea_orient_routing_v1.json-27",
+      "id": "data__sourcea_orient_routing_v1.json-29",
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
@@ -5403,7 +5423,7 @@
       "kind": "json"
     },
     {
-      "id": "data__sourcea_orient_routing_v1.json-28",
+      "id": "data__sourcea_orient_routing_v1.json-30",
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
@@ -5413,7 +5433,7 @@
       "kind": "json"
     },
     {
-      "id": "data__sourcea_orient_routing_v1.json-29",
+      "id": "data__sourcea_orient_routing_v1.json-31",
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
@@ -5423,7 +5443,7 @@
       "kind": "json"
     },
     {
-      "id": "data__sourcea_orient_routing_v1.json-30",
+      "id": "data__sourcea_orient_routing_v1.json-32",
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
@@ -5433,7 +5453,7 @@
       "kind": "json"
     },
     {
-      "id": "data__sourcea_orient_routing_v1.json-31",
+      "id": "data__sourcea_orient_routing_v1.json-33",
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
@@ -5443,7 +5463,7 @@
       "kind": "json"
     },
     {
-      "id": "data__sourcea_orient_routing_v1.json-32",
+      "id": "data__sourcea_orient_routing_v1.json-34",
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
@@ -5453,7 +5473,7 @@
       "kind": "json"
     },
     {
-      "id": "data__sourcea_orient_routing_v1.json-33",
+      "id": "data__sourcea_orient_routing_v1.json-35",
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
@@ -5463,7 +5483,7 @@
       "kind": "json"
     },
     {
-      "id": "data__sourcea_orient_routing_v1.json-34",
+      "id": "data__sourcea_orient_routing_v1.json-36",
       "lane": "core",
       "source_path": "data/sourcea_orient_routing_v1.json",
       "www_url": null,
