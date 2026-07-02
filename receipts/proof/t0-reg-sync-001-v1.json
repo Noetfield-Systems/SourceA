@@ -1,0 +1,11 @@
+{
+  "schema": "t0-work-receipt-v1",
+  "task_id": "REG-SYNC-001",
+  "cost_tier": "T0",
+  "at": "2026-07-02T22:35:00Z",
+  "title": "trigger-registry + sweep co-commit hygiene",
+  "command": "python3 scripts/sandbox_health_sweep_v1.py --json",
+  "sweep_ok": true,
+  "registry_version": "1.0.3",
+  "law": "L14 T-REG"
+}

@@ -38,6 +38,7 @@
       "prior_tier": "unassigned",
       "cost_tier": "T0",
       "worker": "scripts",
+      "status": "done",
       "paths": ["n8n/workflows/wf-cloud-auto-runtime-v1.json", ".github/workflows/autonomous-drain-cron-v1.yml", "scripts/autorun_pending_v1.py"],
       "verify": "grep audit + sandbox_health_sweep"
     },

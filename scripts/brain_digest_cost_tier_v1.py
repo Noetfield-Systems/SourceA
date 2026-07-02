@@ -66,33 +66,54 @@ def _fetch_session_costs(*, days: int = 7) -> list[dict[str, Any]]:
 
 def build_digest(*, days: int = 7) -> dict[str, Any]:
     rows = _fetch_session_costs(days=days)
-    by_tier: dict[str, float] = defaultdict(float)
+    marginal_by_tier: dict[str, float] = defaultdict(float)
+    list_by_tier: dict[str, float] = defaultdict(float)
     by_tier_count: dict[str, int] = defaultdict(int)
-    total_usd = 0.0
+    total_marginal = 0.0
+    total_list = 0.0
     for row in rows:
         payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
         tier = str(payload.get("tier") or "T2")
-        usd = float(payload.get("usd_est") or 0)
-        by_tier[tier] += usd
+        marginal = float(
+            payload.get("usd_marginal")
+            if payload.get("usd_marginal") is not None
+            else payload.get("usd_est")
+            or 0
+        )
+        list_equiv = float(
+            payload.get("usd_list_equiv")
+            if payload.get("usd_list_equiv") is not None
+            else marginal
+        )
+        marginal_by_tier[tier] += marginal
+        list_by_tier[tier] += list_equiv
         by_tier_count[tier] += 1
-        total_usd += usd
+        total_marginal += marginal
+        total_list += list_equiv
 
     merge_rows = _fetch_merges(days=days)
     merge_count = len(merge_rows)
-    cost_per_merge = round(total_usd / merge_count, 4) if merge_count else None
+    cost_per_merge_marginal = round(total_marginal / merge_count, 4) if merge_count else None
+    cost_per_merge_list = round(total_list / merge_count, 4) if merge_count else None
 
     digest = {
         "schema": "brain-digest-cost-tier-v1",
         "at": _now(),
         "window_days": days,
-        "spend_by_tier": {k: round(v, 4) for k, v in sorted(by_tier.items())},
+        "spend_by_tier_marginal": {k: round(v, 4) for k, v in sorted(marginal_by_tier.items())},
+        "spend_by_tier_list_equiv": {k: round(v, 4) for k, v in sorted(list_by_tier.items())},
+        "spend_by_tier": {k: round(v, 4) for k, v in sorted(marginal_by_tier.items())},
         "sessions_by_tier": dict(sorted(by_tier_count.items())),
-        "total_usd_est": round(total_usd, 4),
+        "total_usd_marginal": round(total_marginal, 4),
+        "total_usd_list_equiv": round(total_list, 4),
+        "total_usd_est": round(total_marginal, 4),
         "merged_changes": merge_count,
-        "cost_per_merged_change_usd_est": cost_per_merge,
-        "trend_note": "cost_per_merged_change = total session usd_est / merge count in window",
+        "cost_per_merged_change_usd_marginal": cost_per_merge_marginal,
+        "cost_per_merged_change_usd_list_equiv": cost_per_merge_list,
+        "cost_per_merged_change_usd_est": cost_per_merge_marginal,
+        "trend_note": "cost_per_merged_change = total session cost / EXTERNAL_VERIFY_PASS count in window",
         "source_rows": len(rows),
-        "law": "L17 — Brain digest weekly spend-by-tier",
+        "law": "L17 — Brain digest weekly spend-by-tier (marginal + list_equiv)",
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(digest, indent=2) + "\n", encoding="utf-8")
