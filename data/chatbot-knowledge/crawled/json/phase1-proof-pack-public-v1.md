@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-02T08:56:13Z
+updated: 2026-07-02T10:32:00Z
 lane: buyer
 source_path: sites/SourceA-landing/green-unified/data/phase1-proof-pack-public-v1.json
 public: true

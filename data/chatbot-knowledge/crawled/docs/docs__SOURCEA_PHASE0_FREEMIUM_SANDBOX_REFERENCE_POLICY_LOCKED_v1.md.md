@@ -1,6 +1,6 @@
 ---
 lane: buyer
-updated: 2026-07-02T08:56:13Z
+updated: 2026-07-02T10:32:00Z
 source_path: docs/SOURCEA_PHASE0_FREEMIUM_SANDBOX_REFERENCE_POLICY_LOCKED_v1.md
 public: true
 ---
