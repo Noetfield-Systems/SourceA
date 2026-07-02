@@ -24,6 +24,11 @@ if [[ -f "${ENV:-$HOME/.sourcea-secrets/portfolio-spine.env}" ]]; then
 fi
 
 DB_URL="${SUPABASE_DB_URL:-${DATABASE_URL:-}}"
+if [[ -z "$DB_URL" && -n "${SUPABASE_DB_PASSWORD:-}" && -n "${SUPABASE_PROJECT_ID:-}" ]]; then
+  export PGPASSWORD="$SUPABASE_DB_PASSWORD"
+  DB_URL="postgresql://postgres@db.${SUPABASE_PROJECT_ID}.supabase.co:5432/postgres?sslmode=require"
+  echo "INFO: built direct DB URL from SUPABASE_DB_PASSWORD + SUPABASE_PROJECT_ID"
+fi
 if [[ -z "$DB_URL" ]]; then
   echo "SKIP: no SUPABASE_DB_URL — apply migrations via Supabase SQL editor or ensure_truth_log_schema_v1.py"
   exit 0
