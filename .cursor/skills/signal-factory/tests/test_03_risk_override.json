@@ -1,0 +1,25 @@
+{
+  "id": "test_03_risk_override",
+  "description": "Legal/regulatory MSB custody language forces risk>=4 and decision=route",
+  "input": {
+    "text": "Inbound regulatory inquiry about TrustField MSB custody settlement and banking capability claims.",
+    "entity_scope": "TrustField",
+    "sender_claims": [
+      {
+        "text": "We are a licensed MSB with full custody settlement.",
+        "source": "sender"
+      }
+    ]
+  },
+  "expect": {
+    "classification": "legal_regulatory",
+    "decision": "route"
+  },
+  "expect_min": {
+    "risk_score": 4
+  },
+  "expect_absent": [
+    "automation_recipe",
+    "commercial_idea"
+  ]
+}

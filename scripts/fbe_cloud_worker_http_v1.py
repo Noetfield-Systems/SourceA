@@ -339,6 +339,10 @@ def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
         from fbe_cloud_loop_specialist_tick_v1 import run_cloud_loop_tick  # noqa: WPS433
 
         return run_cloud_loop_tick(body)
+    if path == "/api/fbe/signal-factory/tick/v1":
+        from fbe_cloud_signal_factory_tick_v1 import run_cloud_signal_factory_tick  # noqa: WPS433
+
+        return run_cloud_signal_factory_tick(body)
     return {"ok": False, "error": "unknown_route", "path": path}
 
 

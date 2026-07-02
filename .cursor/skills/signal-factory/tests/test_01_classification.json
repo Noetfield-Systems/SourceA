@@ -1,0 +1,11 @@
+{
+  "id": "test_01_classification",
+  "description": "Commercial inquiry text classifies as commercial_inquiry",
+  "input": {
+    "text": "Enterprise buyer requests TrustField pricing demo and procurement quote for Q3 pilot.",
+    "entity_scope": "TrustField"
+  },
+  "expect": {
+    "classification": "commercial_inquiry"
+  }
+}

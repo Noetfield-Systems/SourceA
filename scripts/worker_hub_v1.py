@@ -803,6 +803,7 @@ def _build_worker_hub_payload_row() -> dict:
             "rooms_run": {"path": "/api/worker-hub/rooms/run", "method": "POST"},
             "commercial_run": {"path": "/api/worker-hub/commercial/run", "method": "POST"},
             "loop_specialist_tick": {"path": "/api/loop-specialist/tick/v1", "method": "POST"},
+            "signal_factory_tick": {"path": "/api/signal-factory/tick/v1", "method": "POST"},
             "investigator_circle_tick": {
                 "path": "/api/investigator-circle/tick/v1",
                 "method": "POST",

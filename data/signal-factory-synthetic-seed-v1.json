@@ -1,0 +1,38 @@
+{
+  "schema": "signal-factory-synthetic-seed-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-02T20:55:00Z",
+  "law": "Synthetic seed only — no Gmail/LinkedIn/real inbox.",
+  "items": [
+    {
+      "id": "syn-01",
+      "text": "Enterprise buyer requests TrustField pricing demo and procurement quote for Q3 pilot.",
+      "entity_scope": "TrustField"
+    },
+    {
+      "id": "syn-02",
+      "text": "SourceA governance autorun validator signal for internal pipeline intake.",
+      "entity_scope": "SourceA"
+    },
+    {
+      "id": "syn-03",
+      "text": "Inbound regulatory inquiry about TrustField MSB custody settlement and banking capability claims.",
+      "entity_scope": "TrustField"
+    },
+    {
+      "id": "syn-04",
+      "text": "SourceA governance autorun webhook API integration for validator intake pipeline.",
+      "entity_scope": "SourceA"
+    },
+    {
+      "id": "syn-05",
+      "text": "WitnessBC tier-A proof cut routing governance signal.",
+      "entity_scope": "WitnessBC"
+    },
+    {
+      "id": "syn-06",
+      "text": "TrustField enterprise buyer requests pricing demo and procurement quote for workflow pilot.",
+      "entity_scope": "TrustField"
+    }
+  ]
+}

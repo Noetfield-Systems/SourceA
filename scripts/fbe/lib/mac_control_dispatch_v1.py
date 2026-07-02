@@ -22,6 +22,8 @@ MAC_MOTOR_BLOCKED_PREFIXES: tuple[str, ...] = (
 MAC_DISPATCH_ALLOWED_PREFIXES: tuple[str, ...] = (
     "/api/cloud-worker/",
     "/api/loop-specialist/",
+    "/api/signal-factory/",
+    "/api/fbe/signal-factory/",
     "/api/forge/",
 )
 
