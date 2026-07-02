@@ -85,6 +85,23 @@ def _checks_from_boot() -> list[dict]:
     return boot.get("checks") or []
 
 
+def _align_aeg_proof(row: dict) -> dict:
+    """Buyer-facing proof must be internally consistent — no PASS hero with BLOCK transcript."""
+    verdict = str(row.get("verdict") or "UNKNOWN").upper()
+    if verdict == "PASS":
+        row["verdict"] = "PASS"
+        row["blockers"] = []
+        row["terminal_transcript"] = BUYER_SAFE_TERMINAL
+        return row
+    transcript = str(row.get("terminal_transcript") or "")
+    blockers = row.get("blockers") or []
+    if any(x in transcript for x in ("CRITIC_BOOT BLOCK", "ok=False", "[FAIL]", "gate_fresh")):
+        row["verdict"] = "BLOCK"
+        if not blockers:
+            row["blockers"] = ["Factory boot gate not fresh — see terminal transcript"]
+    return row
+
+
 def build_aeg_live() -> dict:
     latest = _read_json(AEG_LATEST)
     bundle_dir = Path(str(latest.get("bundle_dir") or ""))
@@ -128,7 +145,7 @@ def build_aeg_live() -> dict:
         "hosted_at": latest.get("hosted_at") or latest.get("at"),
         "disclaimer": "Live inject from factory disk · same schema as weekly export bundle",
     }
-    return _sanitize_obj(row)
+    return _sanitize_obj(_align_aeg_proof(row))
 
 
 def _esc(s: Any) -> str:
@@ -181,7 +198,25 @@ def _render_pipeline_rows(factory: dict) -> str:
     return "".join(rows)
 
 
+def _consistent_factory(factory: dict, aeg: dict) -> dict:
+    out = dict(factory)
+    nested = dict(out.get("aeg") or {})
+    nested.update(
+        {
+            "verdict": aeg.get("verdict"),
+            "blockers": aeg.get("blockers") or [],
+            "terminal_transcript": aeg.get("terminal_transcript"),
+            "checks": aeg.get("checks") or [],
+            "evidence_id": aeg.get("evidence_id"),
+        }
+    )
+    out["aeg"] = _sanitize_obj(nested)
+    return _sanitize_obj(out)
+
+
 def hydrate_live_html(aeg: dict, factory: dict) -> bool:
+    aeg = _align_aeg_proof(dict(aeg))
+    factory = _consistent_factory(factory, aeg)
     if not LIVE_HTML.is_file():
         return False
     text = LIVE_HTML.read_text(encoding="utf-8")
@@ -203,7 +238,12 @@ def hydrate_live_html(aeg: dict, factory: dict) -> bool:
         meta_parts.append(evidence_id)
     meta = " · ".join(meta_parts) or "Live from factory disk"
     sync_line = factory.get("factory_now_line") or aeg.get("disclaimer") or "Live from factory disk"
-    terminal = html.escape(_sanitize_public_text(str(aeg.get("terminal_transcript") or "")))
+    if str(aeg.get("verdict") or "").upper() == "PASS":
+        terminal = html.escape(BUYER_SAFE_TERMINAL)
+        blockers_html = _render_blockers([])
+    else:
+        terminal = html.escape(_sanitize_public_text(str(aeg.get("terminal_transcript") or "")))
+        blockers_html = _render_blockers(aeg.get("blockers") or [])
     verdict_cls = "is-pass" if verdict == "PASS" else ("is-block" if verdict == "BLOCK" else "")
 
     valid_yes = trust.get("valid_yes")
@@ -238,7 +278,7 @@ def hydrate_live_html(aeg: dict, factory: dict) -> bool:
     )
     text = re.sub(
         r'(<div id="sa-aeg-blockers"[^>]*>).*?(</div>)',
-        lambda m: f'<div id="sa-aeg-blockers" class="sa-aeg-blockers">{_render_blockers(aeg.get("blockers") or [])}</div>',
+        lambda m: f'<div id="sa-aeg-blockers" class="sa-aeg-blockers">{blockers_html}</div>',
         text,
         count=1,
         flags=re.DOTALL,
@@ -260,7 +300,7 @@ def hydrate_live_html(aeg: dict, factory: dict) -> bool:
         flags=re.DOTALL,
     )
 
-    bootstrap = {"aeg": _sanitize_obj(aeg), "factory": _sanitize_obj(factory)}
+    bootstrap = {"aeg": _sanitize_obj(aeg), "factory": _consistent_factory(factory, aeg)}
     bootstrap_tag = (
         f"{BOOTSTRAP_MARKER}\n"
         f'<script type="application/json" id="sa-aeg-bootstrap">{json.dumps(bootstrap)}</script>'
