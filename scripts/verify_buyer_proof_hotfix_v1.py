@@ -144,21 +144,33 @@ def _extract_terminal_pre(body: str) -> str:
     return m.group(1) if m else ""
 
 
+# Raw markers that must never appear anywhere in buyer-facing proof HTML
+# (page shell, hydrated slots, or the bootstrap JSON blob).
+BLOCK_MARKERS = (
+    "CRITIC_BOOT",
+    "BLOCK ok=False",
+    "ok=False",
+    "[FAIL]",
+    "gate_fresh",
+    "last session gate receipt ok=false",
+)
+
+
 def check_proof_contradiction(body: str) -> list[str]:
     issues: list[str] = []
-    hero_pass = 'id="sa-aeg-verdict">PASS' in body or 'id="sa-aeg-verdict" class="ar-hero-accent sa-aeg-verdict-hero is-pass">PASS' in body
-    terminal = _extract_terminal_pre(body)
+    hero_pass = (
+        'id="sa-aeg-verdict">PASS' in body
+        or 'sa-aeg-verdict-hero is-pass" id="sa-aeg-verdict">PASS' in body
+    )
     no_blockers = "No blockers" in body
-    if hero_pass and terminal:
-        if any(x in terminal for x in ("CRITIC_BOOT BLOCK", "ok=False", "[FAIL]", "gate_fresh")):
-            issues.append("hero_pass_with_block_transcript")
-    if no_blockers and terminal:
-        if any(x in terminal for x in ("[FAIL]", "CRITIC_BOOT BLOCK", "ok=False")) or (
-            "blockers:" in terminal.lower() and "(none)" not in terminal.lower()
-        ):
-            issues.append("no_blockers_with_fail_transcript")
-    if hero_pass and "CRITIC_BOOT BLOCK" in body:
-        issues.append("hero_pass_with_critic_boot_anywhere")
+    # Strict: fail on ANY raw BLOCK/FAIL marker anywhere in the public body.
+    global_hits = sorted({m for m in BLOCK_MARKERS if m in body})
+    if global_hits:
+        issues.append(f"block_markers_in_public_html:{global_hits}")
+    if hero_pass and global_hits:
+        issues.append("hero_pass_with_block_markers")
+    if no_blockers and global_hits:
+        issues.append("no_blockers_with_block_markers")
     return issues
 
 
@@ -174,8 +186,7 @@ def verify_eval_live(base: str) -> dict[str, Any]:
     return row
 
 
-def verify_proof_live(base: str) -> dict[str, Any]:
-    url = f"{base.rstrip('/')}/sourcea/proof/live"
+def _verify_proof_url(url: str) -> dict[str, Any]:
     code, body = _fetch(url)
     missing = [m for m in PROOF_MARKERS if m not in body]
     hits = [f for f in FORBIDDEN if f in body]
@@ -193,6 +204,16 @@ def verify_proof_live(base: str) -> dict[str, Any]:
         "emdash_slots": emdash,
         "contradictions": contradictions,
     }
+
+
+def verify_proof_live(base: str) -> dict[str, Any]:
+    b = base.rstrip("/")
+    # Verify both the clean path and the .html variant of the deployed public HTML.
+    primary = _verify_proof_url(f"{b}/sourcea/proof/live")
+    html_variant = _verify_proof_url(f"{b}/sourcea/proof/live.html")
+    primary["html_variant"] = html_variant
+    primary["ok"] = bool(primary["ok"]) and bool(html_variant["ok"])
+    return primary
 
 
 def verify_all(*, base: str = "https://sourcea.app", hosts: list[str] | None = None) -> dict[str, Any]:
