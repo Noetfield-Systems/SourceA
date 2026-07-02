@@ -6,7 +6,7 @@
   "truth_log_event": "AGENT_SESSION_COST",
   "escalation_event": "TIER_ESCALATION",
   "source": "mac_agent",
-  "payload_fields": ["agent_id", "tier", "model", "tokens", "usd_est", "tasks"],
+  "payload_fields": ["agent_id", "tier", "model", "tokens", "usd_marginal", "usd_list_equiv", "usd_est", "tasks"],
   "mirror_receipt": "~/.sina/agent-session-cost-receipt-v1.json",
   "module": "scripts/agent_session_cost_v1.py",
   "digest_module": "scripts/brain_digest_cost_tier_v1.py",
