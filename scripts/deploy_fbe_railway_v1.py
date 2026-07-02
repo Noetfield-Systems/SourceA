@@ -432,6 +432,29 @@ def _sync_portfolio_spine_supabase_to_railway() -> dict[str, Any]:
 
 def deploy(*, link: bool = True, verify_comprehension: bool = False) -> dict:
     os.environ["SOURCEA_RAILWAY_DEPLOY"] = "1"
+    guard_proc = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "deploy_dirty_tree_guard_v1.py"), "--scope", "fbe", "--json"],
+        cwd=str(ROOT),
+        capture_output=True,
+        text=True,
+    )
+    dirty_guard: dict[str, Any] = {"ok": guard_proc.returncode == 0}
+    try:
+        dirty_guard = json.loads(guard_proc.stdout or "{}")
+    except json.JSONDecodeError:
+        dirty_guard["parse_error"] = True
+    if not dirty_guard.get("ok"):
+        row = {
+            "schema": "fbe-cloud-deploy-receipt-v1",
+            "at": _now(),
+            "ok": False,
+            "error": "dirty_tree_guard_blocked",
+            "dirty_tree_guard": dirty_guard,
+            "founder_action": "Commit or stash scoped FBE deploy files before deploy",
+        }
+        _write_receipt(row)
+        return row
+
     cfg = _read(CONFIG)
     rail = cfg.get("railway") or {}
     project_id = str(rail.get("project_id") or "")
@@ -444,6 +467,7 @@ def deploy(*, link: bool = True, verify_comprehension: bool = False) -> dict:
         "comprehension_verify": dict(COMPREHENSION_VERIFY_SKIPPED),
     }
     row["supabase_env_sync"] = _sync_portfolio_spine_supabase_to_railway()
+    row["dirty_tree_guard"] = dirty_guard
 
     batch_sync = _validate_dockerfile_batch_sync()
     row["dockerfile_batch_sync"] = batch_sync
