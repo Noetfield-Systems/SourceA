@@ -4,7 +4,7 @@
  */
 (function () {
   const EVAL = "/eval";
-  const DEFAULT_REPO = "https://github.com/kazemnezhadsina144-dot/sourcea-boot";
+  const DEFAULT_REPO = "https://pypi.org/project/sourcea-boot/";
 
   function ensureGithubLinks(url) {
     document.querySelectorAll("[data-trust-github-link]").forEach((a) => {
