@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:43:40Z
+updated: 2026-07-02T08:56:13Z
 lane: developer
 source_path: sites/SourceA-landing/green-unified/eval.html
 public: true
@@ -16,7 +16,9 @@ Evaluate SourceA in five minutes — sourcea-boot runs four checks, PASS or BLOC
 
 ## One command. PASS or BLOCK.
 
-## README path — clone · install · run.
+## Install path — pip · clone · run.
+
+## Install
 
 ## Clone
 
@@ -34,10 +36,14 @@ Evaluate SourceA in five minutes — sourcea-boot runs four checks, PASS or BLOC
 
 ## queue_truth
 
+Verify in 5 minutes: pip install sourcea-boot or clone from GitHub → sourcea-boot --json → BOOT_REPORT.json logged · PyPI v0.1.0 · Procurement pack
+
 sourcea-boot runs four checks before your agents execute — policy, provider, receipt freshness, queue truth. You get BOOT_REPORT.json logged. Show the work, not a slide deck.
 
-$ sourcea-boot --json SOURCEA_BOOT PASS ok=true [PASS] policy_version: no policy file (POLICY.md) — skipped [PASS] provider: provider env present (ANTHROPIC_API_KEY) [PASS] receipt_fresh: no prior receipt — first boot allowed [PASS] queue_truth: no queue files configured — skipped REPORT=[REDACTED] ▋ Terminal injects from live boot-proof.json on deploy — same output you can verify on a screen-share.
+$ sourcea-boot --json SOURCEA_BOOT PASS ok=true [SKIP] policy_version: no policy file (POLICY.md) (not configured) [PASS] provider: provider env present (ANTHROPIC_API_KEY) [SKIP] receipt_fresh: no prior receipt — first boot allowed [SKIP] queue_truth: no queue files configured (not configured) REPORT=receipts/sourcea-boot/BOOT_REPORT.json ▋ Terminal injects from live boot-proof.json on deploy — same output you can verify on this page, no call required.
+
+LLM provider configured — honest PASS/BLOCK only when keys exist.
 
 Agent queue head matches inbox truth when queue files present.
 
-© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · noetfield.com · sourcea.app · Technical overview · GitHub
+© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · noetfield.com · sourcea.app · Technical overview · PyPI eval

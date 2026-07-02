@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:43:40Z
+updated: 2026-07-02T08:56:13Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/data/sourcea-products-catalog-v1.json
 public: true
@@ -130,7 +130,7 @@ kind: json
 - **subtitle**: Self-serve gate eval
 - **buyer**: Platform engineers
 - **proof**: PASS/BLOCK before you buy
-- **url**: https://github.com/sourcea-io/sourcea-boot
+- **url**: https://pypi.org/project/sourcea-boot/
 - **status**: active
 - **tier**: T0
 ## products
@@ -198,7 +198,7 @@ kind: json
 - **subtitle**: Self-serve gate eval
 - **buyer**: Platform engineers
 - **proof**: PASS/BLOCK before you buy
-- **url**: https://github.com/sourcea-io/sourcea-boot
+- **url**: https://pypi.org/project/sourcea-boot/
 - **status**: active
 - **tier**: T0
 ## Prompt Forge

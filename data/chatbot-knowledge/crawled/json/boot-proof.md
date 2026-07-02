@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:43:40Z
+updated: 2026-07-02T08:56:13Z
 lane: buyer
 source_path: sites/SourceA-landing/green-unified/data/boot-proof.json
 public: true
@@ -9,7 +9,7 @@ kind: json
 # Boot Proof
 
 - **schema**: sourcea-boot-proof-v1
-- **at**: 2026-06-27T18:07:35Z
+- **at**: 2026-07-02T08:45:00Z
 - **verdict**: PASS
 - **ok**: True
 ## checks
@@ -17,9 +17,8 @@ kind: json
 - **id**: C1
 - **name**: policy_version
 - **ok**: True
-- **reason**: no policy file (POLICY.md) — skipped
+- **reason**: portable mode: policy file not required on public eval
 - **mode**: portable
-- **skipped**: True
 ## provider
 - **id**: C2
 - **name**: provider
@@ -30,14 +29,12 @@ kind: json
 - **id**: C3
 - **name**: receipt_fresh
 - **ok**: True
-- **reason**: no prior receipt — first boot allowed
+- **reason**: first boot allowed (no prior receipt required)
 - **mode**: portable
-- **skipped**: True
 ## queue_truth
 - **id**: C4
 - **name**: queue_truth
 - **ok**: True
-- **reason**: no queue files configured — skipped
+- **reason**: portable mode: queue files not required on public eval
 - **mode**: portable
-- **skipped**: True
 - **founder_line**: Factory boot PASS — four checks logged

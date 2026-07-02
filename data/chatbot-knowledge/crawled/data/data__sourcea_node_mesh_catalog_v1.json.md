@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:43:40Z
+updated: 2026-07-02T08:56:13Z
 lane: core
 source_path: data/sourcea_node_mesh_catalog_v1.json
 public: true

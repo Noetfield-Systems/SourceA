@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-27T08:46:57Z
+updated: 2026-07-02T08:56:13Z
 lane: buyer
 source_path: sites/SourceA-landing/green-unified/case-studies/pureflow.html
 public: true
