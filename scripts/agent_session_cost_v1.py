@@ -21,7 +21,8 @@ CONTRACT = ROOT / "data" / "agent-session-cost-contract-v1.json"
 QUEUE_SSOT = ROOT / "data" / "worker-cost-tier-queue-v1.json"
 
 TIER_ORDER = ("T0", "T1", "T2", "T3")
-TIER_USD_EST = {"T0": 0.0, "T1": 0.05, "T2": 0.15, "T3": 0.75}
+TIER_USD_LIST = {"T0": 0.0, "T1": 0.20, "T2": 0.15, "T3": 1.50}
+TIER_USD_MARGINAL = {"T0": 0.0, "T1": 0.05, "T2": 0.0, "T3": 0.75}
 
 
 def _now() -> str:
@@ -52,10 +53,16 @@ def estimate_session_cost(*, tier: str, role: str, step_count: int) -> dict[str,
     )
     base_tokens = {"T0": 0, "T1": 8000, "T2": 25000, "T3": 40000}.get(tier, 25000)
     tokens = base_tokens + max(0, step_count - 5) * 500
-    usd = TIER_USD_EST.get(tier, 0.15)
-    if tier == "T2":
-        usd = 0.0
-    return {"tier": tier, "model": model, "tokens": tokens, "usd_est": round(usd, 4)}
+    usd_marginal = TIER_USD_MARGINAL.get(tier, 0.15)
+    usd_list_equiv = TIER_USD_LIST.get(tier, 0.15)
+    return {
+        "tier": tier,
+        "model": model,
+        "tokens": tokens,
+        "usd_marginal": round(usd_marginal, 4),
+        "usd_list_equiv": round(usd_list_equiv, 4),
+        "usd_est": round(usd_marginal, 4),
+    }
 
 
 def post_tier_escalation(
@@ -112,6 +119,8 @@ def post_session_cost_receipt(
     model: str | None = None,
     tokens: int | None = None,
     usd_est: float | None = None,
+    usd_marginal: float | None = None,
+    usd_list_equiv: float | None = None,
     tasks: list[str] | None = None,
     step_count: int = 0,
     gate_id: str = "",
@@ -122,7 +131,13 @@ def post_session_cost_receipt(
     tier = tier or est["tier"]
     model = model or est["model"]
     tokens = tokens if tokens is not None else est["tokens"]
-    usd_est = usd_est if usd_est is not None else est["usd_est"]
+    usd_marginal = (
+        usd_marginal
+        if usd_marginal is not None
+        else (usd_est if usd_est is not None else est["usd_marginal"])
+    )
+    usd_list_equiv = usd_list_equiv if usd_list_equiv is not None else est["usd_list_equiv"]
+    usd_est = float(usd_marginal)
     task_list = tasks or [f"session_gate:{role}"]
 
     payload = {
@@ -134,7 +149,9 @@ def post_session_cost_receipt(
         "tier": tier,
         "model": model,
         "tokens": int(tokens),
-        "usd_est": float(usd_est),
+        "usd_marginal": float(usd_marginal),
+        "usd_list_equiv": float(usd_list_equiv),
+        "usd_est": usd_est,
         "tasks": task_list,
         "gate_id": gate_id or None,
         "law": "L17 W3 — session cost receipt",
@@ -166,6 +183,8 @@ def post_session_cost_receipt(
         "tier": tier,
         "model": model,
         "tokens": tokens,
+        "usd_marginal": usd_marginal,
+        "usd_list_equiv": usd_list_equiv,
         "usd_est": usd_est,
         "tasks": task_list,
         "receipt_path": str(RECEIPT),
