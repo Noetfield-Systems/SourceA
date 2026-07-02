@@ -228,6 +228,8 @@ def _cycle_verdict(cycle_doc: dict[str, Any]) -> str:
     pack = cycle_doc.get("pack")
     if isinstance(pack, dict) and pack.get("ok") and int(pack.get("shipped") or pack.get("advanced") or 0) > 0:
         return "approved"
+    if isinstance(pack, dict) and pack.get("idle_batch") and int(pack.get("shipped") or pack.get("advanced") or 0) == 0:
+        return "IDLE_NO_WORK"
     return ""
 
 
@@ -541,6 +543,7 @@ def observer_payload(*, limit: int = 10) -> dict[str, Any]:
                 "at": c.get("at"),
                 "trigger_source": c.get("trigger_source"),
                 "verdict": verdict,
+                "sink_invariant": c.get("sink_invariant"),
                 "pack": c.get("pack") or (c.get("cycle") or {}).get("pack"),
                 "prove": (c.get("belt") or {}).get("PROVE"),
                 "ship": (c.get("belt") or {}).get("SHIP"),
@@ -550,6 +553,15 @@ def observer_payload(*, limit: int = 10) -> dict[str, Any]:
     last_proof = _resolve_last_proof(cycle_rows, cycles)
     if not isinstance(last_proof, dict):
         last_proof = {}
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    hb_path = cloud_cycle_dir().parent / "autonomous-forge-run-heartbeat" / f"heartbeat-{today}-v1.json"
+    daily_heartbeat = _read(hb_path) if hb_path.is_file() else {}
+    latest_sink = None
+    for c in reversed(cycles):
+        inv = c.get("sink_invariant")
+        if isinstance(inv, dict):
+            latest_sink = inv
+            break
     return {
         "schema": "autonomous-forge-run-observer-v1",
         "at": _now(),
@@ -569,6 +581,8 @@ def observer_payload(*, limit: int = 10) -> dict[str, Any]:
             ),
             None,
         ),
+        "daily_heartbeat": daily_heartbeat or None,
+        "sink_status": latest_sink,
     }
 
 

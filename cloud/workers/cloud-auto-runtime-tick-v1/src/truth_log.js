@@ -18,6 +18,8 @@ export async function writeCronFired(env, extra = {}) {
     deployment_id: extra.deployment_id || env.CF_VERSION_METADATA || null,
     queue_head: extra.queue_head || null,
     receipt_id: extra.receipt_id || null,
+    tick_decision: extra.tick_decision || null,
+    cycle_verdict: extra.cycle_verdict || null,
   };
 
   const resp = await fetch(`${url}/rest/v1/${TRUTH_TABLE}`, {
