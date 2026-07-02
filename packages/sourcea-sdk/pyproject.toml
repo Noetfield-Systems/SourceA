@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sourcea-sdk"
+version = "0.1.0"
+description = "Governance receipt spine — sign, append, replay after sourcea-boot PASS."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "SourceA", email = "hello@sourcea.app" }]
+keywords = ["agents", "governance", "receipts", "audit", "spine"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://sourcea.app/eval"
+Repository = "https://github.com/kazemnezhadsina144-dot/sourcea-sdk"
+
+[project.scripts]
+sourcea-sdk = "sourcea_sdk.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

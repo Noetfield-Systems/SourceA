@@ -131,7 +131,18 @@ def build_export(export_root: Path) -> None:
     (scripts_dir / "validate-sourcea-boot-v1.sh").chmod(0o755)
     workflow_dir = export_root / ".github" / "workflows"
     workflow_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(PKG / "publish" / "validate-sourcea-boot-v1.yml", workflow_dir / "validate-sourcea-boot-v1.yml")
+    for workflow_name in (
+        "validate-sourcea-boot-v1.yml",
+        "build-check-pypi-v1.yml",
+        "publish-pypi-v1.yml",
+    ):
+        shutil.copy2(PKG / "publish" / workflow_name, workflow_dir / workflow_name)
+    docs_dir = export_root / "docs"
+    docs_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(
+        PKG / "publish" / "PYPI_TRUSTED_PUBLISHING_SETUP_LOCKED_v1.md",
+        docs_dir / "PYPI_TRUSTED_PUBLISHING_SETUP.md",
+    )
 
 
 def validate_export(export_root: Path) -> dict[str, object]:
