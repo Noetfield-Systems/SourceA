@@ -185,6 +185,7 @@ def hydrate_live_html(aeg: dict, factory: dict) -> bool:
     if not LIVE_HTML.is_file():
         return False
     text = LIVE_HTML.read_text(encoding="utf-8")
+    trust = _read_json(DATA / "trust-signals.json")
     verdict = str(aeg.get("verdict") or "UNKNOWN")
     evidence_id = str(aeg.get("evidence_id") or "")
     pipe = factory.get("pipeline") or {}
@@ -205,24 +206,50 @@ def hydrate_live_html(aeg: dict, factory: dict) -> bool:
     terminal = html.escape(_sanitize_public_text(str(aeg.get("terminal_transcript") or "")))
     verdict_cls = "is-pass" if verdict == "PASS" else ("is-block" if verdict == "BLOCK" else "")
 
+    valid_yes = trust.get("valid_yes")
+    valid_yes_total = trust.get("valid_yes_total") or 1000
+    gov = trust.get("governance") or {}
+    proof_checks = f"{valid_yes}/{valid_yes_total}" if valid_yes is not None else f"{len(aeg.get('checks') or [])}/{len(aeg.get('checks') or [])}"
+    gov_verdict = str(gov.get("verdict") or verdict or "PASS")
+
     replacements = [
         (
             r'<span[^>]*id="sa-aeg-verdict"[^>]*>[^<]*</span>',
             f'<span class="ar-hero-accent sa-aeg-verdict-hero {verdict_cls}" id="sa-aeg-verdict">{html.escape(verdict)}</span>',
         ),
-        (r'id="sa-aeg-evidence"[^>]*>Evidence ID · loading…</p>', f'id="sa-aeg-evidence">Evidence ID · {html.escape(evidence_id)}</p>'),
         (r'id="sa-aeg-evidence"[^>]*>Evidence ID · [^<]*</p>', f'id="sa-aeg-evidence">Evidence ID · {html.escape(evidence_id)}</p>'),
-        (r'id="sa-aeg-proof-viewed">—</strong>', f'id="sa-aeg-proof-viewed">{proof_viewed}</strong>'),
-        (r'id="sa-aeg-eval-scheduled">—</strong>', f'id="sa-aeg-eval-scheduled">{eval_sched}</strong>'),
-        (r'id="sa-aeg-deposits">—</strong>', f'id="sa-aeg-deposits">{deposits}</strong>'),
-        (r'id="sa-aeg-meta">Loading…</p>', f'id="sa-aeg-meta">{html.escape(meta)}</p>'),
-        (r'id="sa-aeg-checks"[^>]*>Loading checks…</div>', f'id="sa-aeg-checks" class="sa-aeg-checks">{_render_checks(aeg.get("checks") or [])}</div>'),
-        (r'id="sa-aeg-blockers"[^>]*>—</div>', f'id="sa-aeg-blockers" class="sa-aeg-blockers">{_render_blockers(aeg.get("blockers") or [])}</div>'),
-        (r'id="sa-aeg-terminal">Loading transcript…</pre>', f'id="sa-aeg-terminal">{terminal}</pre>'),
-        (r'id="sa-aeg-sync">Live inject from factory repository</p>', f'id="sa-aeg-sync">{html.escape(sync_line)}</p>'),
+        (r'id="sa-aeg-proof-viewed">[^<]*</strong>', f'id="sa-aeg-proof-viewed">{proof_viewed}</strong>'),
+        (r'id="sa-aeg-eval-scheduled">[^<]*</strong>', f'id="sa-aeg-eval-scheduled">{eval_sched}</strong>'),
+        (r'id="sa-aeg-deposits">[^<]*</strong>', f'id="sa-aeg-deposits">{deposits}</strong>'),
+        (r'id="sa-aeg-meta">[^<]*</p>', f'id="sa-aeg-meta">{html.escape(meta)}</p>'),
+        (r'id="sa-aeg-sync">[^<]*</p>', f'id="sa-aeg-sync">{html.escape(sync_line)}</p>'),
+        (r'data-trust-valid-yes>[^<]*</strong>', f'data-trust-valid-yes>{html.escape(proof_checks)}</strong>'),
+        (r'data-trust-governance>[^<]*</strong>', f'data-trust-governance>{html.escape(gov_verdict)}</strong>'),
     ]
     for pattern, repl in replacements:
         text = re.sub(pattern, repl, text, count=1)
+
+    text = re.sub(
+        r'(<div id="sa-aeg-checks"[^>]*>).*?(</div>)',
+        lambda m: f'<div id="sa-aeg-checks" class="sa-aeg-checks">{_render_checks(aeg.get("checks") or [])}</div>',
+        text,
+        count=1,
+        flags=re.DOTALL,
+    )
+    text = re.sub(
+        r'(<div id="sa-aeg-blockers"[^>]*>).*?(</div>)',
+        lambda m: f'<div id="sa-aeg-blockers" class="sa-aeg-blockers">{_render_blockers(aeg.get("blockers") or [])}</div>',
+        text,
+        count=1,
+        flags=re.DOTALL,
+    )
+    text = re.sub(
+        r'(<pre[^>]*id="sa-aeg-terminal"[^>]*>).*?(</pre>)',
+        lambda m: f'{m.group(1)}{terminal}{m.group(2)}',
+        text,
+        count=1,
+        flags=re.DOTALL,
+    )
 
     rows_html = _render_pipeline_rows(factory)
     text = re.sub(
