@@ -4,7 +4,11 @@
   "title": "workflow_run chain — deploy-sourcea-buyer-surfaces-v1 → external-verify",
   "at": "2026-07-02T22:02:00Z",
   "ok": true,
-  "commit_sha": "pending_push",
+  "commit_sha": "3240ac7aa",
+  "verify_push_run_url": "https://github.com/kazemnezhadsina144-dot/SourceA/actions/runs/28624281631",
+  "verify_push_run_conclusion": "success",
+  "deploy_chain_run_url": null,
+  "deploy_chain_note": "First workflow_run chain fires when deploy-sourcea-buyer-surfaces-v1 completes (needs CLOUDFLARE_API_TOKEN)",
   "workflows": {
     "deploy": ".github/workflows/deploy-sourcea-buyer-surfaces-v1.yml",
     "verify": ".github/workflows/external-verify.yml"
