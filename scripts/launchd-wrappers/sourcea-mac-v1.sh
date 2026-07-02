@@ -40,7 +40,7 @@ case "$CMD" in
   cloud-workers|cw)
     exec bash scripts/serve-cloud-workers-v1.sh
     ;;
-  boot|launch)
+  control-plane|boot)
     exec bash scripts/enter-mac-control-plane-v1.sh
     ;;
   fbe-deploy)
@@ -57,9 +57,6 @@ case "$CMD" in
     ;;
   validate-dispatch)
     exec bash scripts/validate-mac-control-dispatch-v1.sh
-    ;;
-  control-plane|boot)
-    exec bash scripts/enter-mac-control-plane-v1.sh
     ;;
   fda|launchd-fda)
     exec bash scripts/open-mac-launchd-fda-v1.sh

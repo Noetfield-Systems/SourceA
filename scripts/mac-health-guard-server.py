@@ -108,10 +108,20 @@ class MacHealthHandler(BaseHTTPRequestHandler):
             self._json(200, row)
             return
         if path == "/api/mac-health/panic":
+            # GET must never run emergency stop — accidental prefetch killed founder Terminal python.
             from mac_health_emergency_stop_v1 import run_mac_health_emergency_stop  # noqa: WPS433
 
-            row = run_mac_health_emergency_stop(trigger="api-get", fast=True, notify=True)
-            self._json(200, {"ok": True, "emergency_stop": row, "summary": row.get("summary")})
+            row = run_mac_health_emergency_stop(trigger="validate", fast=True, notify=False, dry_run=True)
+            self._json(
+                200,
+                {
+                    "ok": True,
+                    "dry_run": True,
+                    "method_required": "POST",
+                    "targets_before": row.get("targets_before"),
+                    "summary": "POST to run STOP — GET is preview only",
+                },
+            )
             return
         if path == "/api/mac-health":
             from mac_health_guard import build_report  # noqa: WPS433

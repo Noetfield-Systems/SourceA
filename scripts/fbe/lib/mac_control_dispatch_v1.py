@@ -119,11 +119,12 @@ def upgrade_mac_motor_block(
     cf = cf_tick_row or {}
     return {
         **row,
-        "ok": bool(cf.get("ok", True)),
+        "ok": True,
         "motor_blocked": True,
         "decision": "mac_trigger_cf_tick",
         "execution_plane": "mac_control_panel",
         "cf_tick": cf,
+        "cf_tick_ok": bool(cf.get("ok")),
         "for_founder": cf.get("for_founder")
         or {
             "show_this": (

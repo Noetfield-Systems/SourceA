@@ -317,7 +317,8 @@ class CloudWorkersHandler(BaseHTTPRequestHandler):
             action = str(body.get("action") or "").strip().lower()
             if action == "proceed":
                 result = _proceed_direct_cloud(body)
-                code = 200 if result.get("ok") else 422
+                upgraded = result.get("decision") == "mac_trigger_cf_tick"
+                code = 200 if result.get("ok") or upgraded else 422
                 self._json(code, result)
                 return
             from cloud_workers_hub_v1 import handle_action  # noqa: WPS433
