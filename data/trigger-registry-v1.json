@@ -108,7 +108,7 @@
       "system": "sourcea",
       "kind": "manual",
       "schedule": null,
-      "target": "autonomous-drain-cron manual backup dispatch",
+      "target": "Cloud Forge Run manual backup dispatch (legacy id autonomous-drain-cron)",
       "valid_in_verified_window": false,
       "owner_workflow": "autonomous-drain-cron-v1",
       "live_probe": {
