@@ -103,6 +103,23 @@ Mac Cursor/Worker agents MUST register on the portfolio spine every cycle:
 
 An agent invisible to the spine (no heartbeat, no fresh-main receipt, no inbox row when delivering) **may not write**.
 
+## L17 — Cost-tiered worker routing (COST-TIER)
+
+Route every task to the **lowest plausible tier** first. Escalation requires a `TIER_ESCALATION` receipt with `{from_tier, to_tier, reason, evidence}` — bare tier jumps are defects.
+
+| Tier | Worker | Typical work | Cost |
+|------|--------|--------------|------|
+| **T0** | Scripts / no LLM | grep audit · registry sweep · doc/law sync · W-LBA-009 vocab | ~$0 |
+| **T1** | GitHub Copilot pilot | Kaizen `machine_safe` backlog PRs · CODEOWNERS-fenced | low · after founder **P4** |
+| **T2** | Cursor Auto / Composer | Branch builds · scoped sa · open W-LBA plane items | included pool |
+| **T3** | Cloud Loop Specialist | Integration · merge to `main` · deploy→verify | L15 · cloud/API |
+
+**Session cost receipt (every agent session):** post `{agent_id, tier, model, tokens, usd_est, tasks}` to `truth_log` as `AGENT_SESSION_COST` (`scripts/agent_session_cost_v1.py` · session gate hook).
+
+**Brain digest:** weekly `spend_by_tier` + `cost_per_merged_change` trend (`scripts/brain_digest_cost_tier_v1.py` → `data/brain-digest-cost-tier-latest-v1.json`).
+
+**Queue SSOT:** `data/worker-cost-tier-queue-v1.json` · **Boot pack:** `docs/AGENT_BOOT_PACK_v1.md` (tool-agnostic manifest).
+
 ## Parallel orchestration (Tier 1+ — founder trigger required)
 
 Lanes · concurrency keys · lock ordering · priority within tick · jitter · backpressure. **BLOCKED** until founder triggers Tier 1.

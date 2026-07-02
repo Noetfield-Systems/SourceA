@@ -125,10 +125,35 @@ Missing today: lanes report to the spine but nothing *reads across* lanes and ro
 
 ## 6. WORKER MANAGEMENT
 
+### Cost-tier routing (L17)
+
+| Tier | Worker | Territory | Boot |
+|------|--------|-----------|------|
+| **T0** | Scripts | grep · sweep · registry/doc sync · vocab pass | `docs/AGENT_BOOT_PACK_v1.md` |
+| **T1** | Copilot coding agent | Kaizen `machine_safe` PRs only, CODEOWNERS-fenced | issue templates · **after P4** |
+| **T2** | Cursor Auto / Composer | Branch builds · scoped sa on branches | role prompt + laws v3 |
+| **T3** | Cloud Loop Specialist | Integration / merge to `main` (L15) | role prompt + laws v3 |
+
+**Routing rule:** lowest plausible tier first; escalation requires `TIER_ESCALATION` receipt with reason. **Session cost:** every agent session posts `{agent_id, tier, model, tokens, usd_est, tasks}` to `truth_log`. **Brain digest:** weekly spend-by-tier + cost-per-merged-change trend.
+
+**Open queue reclassification (v1):**
+
+| ID | cost_tier | Worker |
+|----|-----------|--------|
+| W-LBA-009 (vocab) | T0 | scripts |
+| REG-SYNC-* (registry/doc sync) | T0 | scripts |
+| Kaizen `machine_safe` backlog | T1 | Copilot (post-P4) |
+| W-LBA branch builds (open) | T2 | Cursor Auto |
+| Integration / merge | T3 | Cloud Loop Specialist |
+
+SSOT: `data/worker-cost-tier-queue-v1.json`
+
+### Workers (territory)
+
 | Worker | Territory | Boot doc |
 |---|---|---|
-| SourceA Loop Specialist | SourceA repo, M1/M2/M5 workflows | role prompt + laws v3 |
-| NOOS Loop Specialist | noetfeld-os, M2/M3 loops, dashboard | role prompt + laws v3 |
+| SourceA Loop Specialist | SourceA repo, M1/M2/M5 workflows | `docs/AGENT_BOOT_PACK_v1.md` |
+| NOOS Loop Specialist | noetfeld-os, M2/M3 loops, dashboard | `docs/AGENT_BOOT_PACK_v1.md` |
 | Copilot coding agent | Kaizen machine_safe PRs only, CODEOWNERS-fenced | issue templates |
 | BRAIN | cross-lane routing, digest | this spec §5 |
 | Founder | decisions, budgets, verifier diffs, missions | daily brain digest |
