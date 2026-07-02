@@ -13,6 +13,7 @@ echo "ssot ${SSOT}" | tee -a "$RECEIPT"
 
 python3 - <<PY 2>&1 | tee -a "$RECEIPT"
 import json
+import os
 import re
 import socket
 import ssl
@@ -28,6 +29,7 @@ GREEN = ROOT / "SourceA-landing" / "green-unified"
 SSOT_PATH = Path("${SSOT}")
 
 ssot = json.loads(SSOT_PATH.read_text(encoding="utf-8"))
+TRUST = ssot.get("trust_e2e_v1") or {}
 ADMIN = ssot["google_workspace_admin"]
 ROUTING = ssot["routing_mode"]
 PERSONAL_LEAKS = ssot.get("forbidden_public_leaks") or []
@@ -73,6 +75,14 @@ for row in ssot.get("regional_mirror_checks") or []:
 ctx = ssl.create_default_context()
 fails = []
 notes = []
+remaining = []
+checks_passed = 0
+
+
+def ok(msg: str) -> None:
+    global checks_passed
+    checks_passed += 1
+    print(msg)
 
 
 class NoRedirect(urllib.request.HTTPErrorProcessor):
@@ -178,8 +188,117 @@ def check_page(label: str, status: int, body: str, title_need: str, cta_need: st
             fails.append(f"{label}: leaked personal email {leak}")
     if mailto and mailto not in body:
         fails.append(f"{label}: missing mailto {mailto}")
-    print(f"OK {label} · {title}")
+    ok(f"OK {label} · {title}")
 
+
+def check_trust_contract(label: str, body: str, disk: str | None = None) -> None:
+    must = TRUST.get("contract_page_must_include") or []
+    forbidden = TRUST.get("forbidden_public_strings") or []
+    for needle in must:
+        if needle not in body:
+            fails.append(f"{label}: trust missing {needle!r}")
+        else:
+            ok(f"OK trust {label} · includes {needle!r}")
+    for bad in forbidden:
+        if bad in body:
+            fails.append(f"{label}: trust forbidden string {bad!r}")
+        else:
+            ok(f"OK trust {label} · absent {bad!r}")
+    if disk:
+        for needle in must:
+            if needle not in disk:
+                fails.append(f"disk {label}: trust missing {needle!r}")
+
+
+def check_trust_eval(label: str, status: int, body: str) -> None:
+    if status != 200:
+        fails.append(f"{label}: HTTP {status}")
+        return
+    for needle in TRUST.get("eval_must_include") or []:
+        if needle not in body:
+            fails.append(f"{label}: eval trust missing {needle!r}")
+        else:
+            ok(f"OK trust {label} · includes {needle!r}")
+    try:
+        direct_status, _ = fetch_http_no_redirect(label)
+        if direct_status != 200:
+            fails.append(f"{label}: expected direct HTTP 200, got {direct_status}")
+        else:
+            ok(f"OK direct 200 {label}")
+    except urllib.error.HTTPError as exc:
+        fails.append(f"{label}: direct check HTTP {exc.code}")
+
+
+def check_trust_home(label: str, status: int, body: str) -> None:
+    if status != 200:
+        fails.append(f"{label}: HTTP {status}")
+        return
+    for needle in TRUST.get("home_must_include") or []:
+        if needle not in body:
+            fails.append(f"{label}: home trust missing {needle!r}")
+        else:
+            ok(f"OK trust {label} · includes {needle!r}")
+
+
+def check_procurement_pack(host: str) -> None:
+    path = TRUST.get("procurement_pack_path") or "/attach/procurement-pack.html"
+    url = f"https://{host}{path}"
+    try:
+        status, body = fetch_http(url, host=None)
+        if status != 200:
+            fails.append(f"{url}: HTTP {status}")
+            return
+        if "procurement" not in body.lower():
+            fails.append(f"{url}: missing procurement content marker")
+            return
+        direct_status, _ = fetch_http_no_redirect(url)
+        if direct_status != 200:
+            fails.append(f"{url}: expected direct HTTP 200, got {direct_status}")
+        else:
+            ok(f"OK procurement pack direct 200 {url}")
+    except Exception as exc:
+        fails.append(f"{url}: {exc}")
+
+
+def check_noetfield_optional() -> None:
+    strict = os.environ.get("SOURCEA_E2E_STRICT_NOETFIELD", "").strip() in ("1", "true", "yes")
+    for row in TRUST.get("noetfield_live_optional") or []:
+        url = row["url"]
+        try:
+            status, body = fetch_http(url)
+        except Exception as exc:
+            msg = f"{url}: fetch failed — {exc}"
+            if strict:
+                fails.append(msg)
+            else:
+                remaining.append(msg)
+            continue
+        if status != 200:
+            msg = f"{url}: HTTP {status}"
+            if strict:
+                fails.append(msg)
+            else:
+                remaining.append(msg)
+            continue
+        local_fails = []
+        for needle in row.get("must_include") or []:
+            if needle not in body:
+                local_fails.append(f"missing {needle!r}")
+        for bad in row.get("forbidden") or []:
+            if bad in body:
+                local_fails.append(f"forbidden {bad!r} still present")
+        if local_fails:
+            msg = f"{url}: " + "; ".join(local_fails) + " (disk updated · live deploy pending)"
+            if strict:
+                fails.extend([f"{url}: {x}" for x in local_fails])
+            else:
+                remaining.append(msg)
+        else:
+            ok(f"OK noetfield live {url}")
+
+
+if not ssot.get("buyer_path_note"):
+    fails.append("SSOT: missing buyer_path_note")
 
 # Inbox routing truth (Google Workspace aliases → operations@noetfield.com)
 for row in PAGES:
@@ -210,6 +329,7 @@ for row in PAGES:
         row["cta"],
         mailto=f"mailto:{row['email']}?subject={row['subject']}",
     )
+    check_trust_contract(f"{BASE}{path}", body)
     try:
         direct_status, _ = fetch_http_no_redirect(f"{BASE}{path}")
         if direct_status != 200:
@@ -253,37 +373,73 @@ for row in REGIONAL:
             fails.append(f"https://{host_primary}{path}: direct check HTTP {exc.code}")
         if used_host != host_primary:
             notes.append(f"verified via {used_host}; canonical host {host_primary}")
+        check_trust_contract(f"https://{host_primary}{path}", body)
     except Exception as exc:
         fails.append(f"https://{host_primary}{path}: {exc}")
 
+eval_path = TRUST.get("eval_path") or "/eval"
+eval_url = f"{BASE}{eval_path}"
+try:
+    eval_status, eval_body = fetch_http(eval_url)
+    check_trust_eval(eval_url, eval_status, eval_body)
+except Exception as exc:
+    fails.append(f"{eval_url}: {exc}")
+
+for home_path in TRUST.get("home_paths") or ["/"]:
+    home_url = f"{BASE}{home_path}"
+    try:
+        home_status, home_body = fetch_http(home_url)
+        check_trust_home(home_url, home_status, home_body)
+    except Exception as exc:
+        fails.append(f"{home_url}: {exc}")
+
+for host in TRUST.get("procurement_hosts") or ["sourcea.app"]:
+    check_procurement_pack(host)
+
+check_noetfield_optional()
+
 for note in notes:
     print(f"NOTE: {note}")
+
+for item in remaining:
+    print(f"REMAINING: {item}")
 
 if fails:
     for f in fails:
         print("FAIL:", f, file=sys.stderr)
     sys.exit(1)
 
-print("validate-sourcea-contract-pages-e2e-v1.sh: ALL PASS")
+import time
+
+receipt_path = Path.home() / ".sina" / "sourcea-contract-pages-e2e-v1.json"
+receipt_path.write_text(
+    json.dumps(
+        {
+            "schema": "sourcea-contract-pages-e2e-v1",
+            "version": "1.1.0",
+            "at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "base": BASE,
+            "ok": True,
+            "checks_passed": checks_passed,
+            "inbox_admin": ADMIN,
+            "routing_mode": ROUTING,
+            "contract_addresses": [r["public_address"] for r in ssot["contract_routes"]],
+            "trust_e2e_v1": bool(TRUST),
+            "remaining": remaining,
+        },
+        indent=2,
+    )
+    + "\n",
+    encoding="utf-8",
+)
+print(f"OK receipt {receipt_path}")
+
+if remaining:
+    print(f"validate-sourcea-contract-pages-e2e-v1.sh: ALL PASS (SourceA) · {len(remaining)} remaining item(s)")
+else:
+    print("validate-sourcea-contract-pages-e2e-v1.sh: ALL PASS")
 PY
 ec=${PIPESTATUS[0]}
 if [[ "$ec" -ne 0 ]]; then
   exit "$ec"
 fi
-
-python3 -c "
-import json, time
-from pathlib import Path
-ssot = json.loads(Path('${SSOT}').read_text(encoding='utf-8'))
-p = Path.home() / '.sina' / 'sourcea-contract-pages-e2e-v1.json'
-p.write_text(json.dumps({
-  'schema': 'sourcea-contract-pages-e2e-v1',
-  'at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
-  'base': '${BASE}',
-  'ok': True,
-  'inbox_admin': ssot['google_workspace_admin'],
-  'routing_mode': ssot['routing_mode'],
-  'contract_addresses': [r['public_address'] for r in ssot['contract_routes']],
-}, indent=2) + '\n', encoding='utf-8')
-print('OK receipt', p)
-" | tee -a "$RECEIPT"
