@@ -14,3 +14,10 @@ binding = "AI"
 # [[kv_namespaces]]
 # binding = "BRAIN_CHAT_LOGS"
 # id = "<kv_namespace_id>"
+
+# Staging only — set BRAIN_CORE_GATE_STAGING=1 to enable deterministic gate between draft and reply.
+# Production default: gate OFF. Test with header X-SourceA-Brain-Core-Gate: staging
+
+[env.staging]
+name = "sourcea-brain-chat-v1-staging"
+vars = { BRAIN_CORE_GATE_STAGING = "1" }
