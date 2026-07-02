@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:43:40Z
+updated: 2026-07-02T08:56:13Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/data/sourcea-site-interact-v1.json
 public: true
@@ -9,8 +9,9 @@ kind: json
 # Sourcea Site Interact V1
 
 - **schema**: sourcea-site-interact-v1
-- **version**: 1.2.0
-- **saved_at**: 2026-06-25T14:00:00Z
+- **version**: 1.3.0
+- **saved_at**: 2026-07-01T23:45:00Z
+- **execution_first**: True
 - **booking_url**: https://cal.com/sourcea/proof-demo
 - **booking_overlay_url**: https://cal.com/sourcea/proof-demo?overlayCalendar=true&embed=true
 - **booking_label**: Talk to a human
@@ -83,6 +84,20 @@ kind: json
 - **href**: /forge/terminal
 - **track**: segment_cursor
 ## skills
+## forge-terminal
+- **id**: forge-terminal
+- **label**: Forge Terminal
+- **hint**: Live agentic demo
+- **href**: /forge/terminal
+- **technique**: living_ui
+- **icon**: ◎
+## sourcea-boot-eval
+- **id**: sourcea-boot-eval
+- **label**: sourcea-boot eval
+- **hint**: PASS or BLOCK · 5 min
+- **href**: /eval
+- **technique**: proof_surface
+- **icon**: ⎋
 ## proof-receipt
 - **id**: proof-receipt
 - **label**: Live receipt
@@ -90,13 +105,6 @@ kind: json
 - **href**: /sourcea/proof/live
 - **technique**: proof_surface
 - **icon**: ✓
-## learn-start
-- **id**: learn-start
-- **label**: Learn & build
-- **hint**: Beginner on-ramp
-- **href**: /learn
-- **technique**: interactive_education
-- **icon**: ★
 ## proof-quiz
 - **id**: proof-quiz
 - **label**: Proof quiz
@@ -104,6 +112,13 @@ kind: json
 - **href**: /sourcea/scenario#proof-quiz
 - **technique**: interactive_education
 - **icon**: ?
+## learn-start
+- **id**: learn-start
+- **label**: Learn & build
+- **hint**: Beginner on-ramp
+- **href**: /learn
+- **technique**: interactive_education
+- **icon**: ★
 ## mvp-intake
 - **id**: mvp-intake
 - **label**: 48h MVP
@@ -118,28 +133,24 @@ kind: json
 - **href**: /sourcea/case-studies/
 - **technique**: proof_surface
 - **icon**: ◇
-## forge-terminal
-- **id**: forge-terminal
-- **label**: Forge Terminal
-- **hint**: Live agentic demo
-- **href**: /forge/terminal
-- **technique**: living_ui
-- **icon**: ◎
 ## book-demo
 - **id**: book-demo
 - **label**: Talk to a human
-- **hint**: Optional 15 min
+- **hint**: Optional escalation
 - **action**: cal_overlay
 - **technique**: cal_com
 - **icon**: 📅
 ## brain_extra_chips
 ## item 1
+- **label**: Run sourcea-boot
+- **message**: How do I evaluate SourceA with sourcea-boot in five minutes — clone, install, and read BOOT_REPORT.json?
+## item 2
 - **label**: I'm new here
 - **message**: I'm new to agentic AI — what's the simplest path to learn and build on SourceA?
-## item 2
+## item 3
 - **label**: See live receipt
 - **message**: Show me what a client receives as proof after a job completes — no call needed.
-## item 3
+## item 4
 - **label**: Ship 48h MVP
 - **message**: I need a 48-hour MVP — what's the intake path and what proof do I get?
 ## techniques

@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:43:40Z
+updated: 2026-07-02T08:56:13Z
 lane: developer
 source_path: sites/SourceA-landing/green-unified/kernel/index.html
 public: true
@@ -30,7 +30,7 @@ Technical hub for SourceA — Intent → Machines → Validators → Loops → R
 
 ## Live proof & eval
 
-SourceA converts ideas into deployable, proof-backed systems. This page holds the technical spine — validators, loops, receipts, and runtime orchestration. Buyers and revenue: Home · Offer · Investors .
+SourceA converts ideas into deployable, proof-backed systems. This page holds the technical spine — validators, loops, receipts, and runtime orchestration. Start with sourcea-boot eval · Buyers and revenue: Home · Offer · Investors .
 
 Deterministic execution plus proof creates the moat — verifiable outcomes where most AI tools deliver only hope.
 

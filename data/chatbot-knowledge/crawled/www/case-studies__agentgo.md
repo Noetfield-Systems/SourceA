@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-30T12:43:40Z
+updated: 2026-07-02T08:56:13Z
 lane: buyer
 source_path: sites/SourceA-landing/green-unified/case-studies/agentgo.html
 public: true
@@ -48,7 +48,7 @@ How a governed factory shipped a 1,259-page AI visibility surface — trackers, 
 
 Case study #2 · Receipt AgentGo-20260624 · Three proof angles
 
-PureFlow (#1) proved local acquisition for trades. AgentGo (#2) proves governed factory throughput: a full GEO intelligence marketing surface — trackers, research, compare — with honest brand separation on disk.
+PureFlow (#1) proved local acquisition for trades. AgentGo (#2) proves agency-scale factory throughput: a full GEO intelligence marketing surface — trackers, research, compare — with honest brand separation on disk.
 
 Disk inventory June 2026 · 1,259 HTML pages · 592 research topics · 83 compare · 23 tracker landings · desktop demo :8080 · AgentGo ≠ SourceA product
 
