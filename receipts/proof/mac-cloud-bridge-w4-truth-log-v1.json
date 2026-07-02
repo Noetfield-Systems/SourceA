@@ -1,0 +1,25 @@
+{
+  "schema": "mac-cloud-bridge-proof-v1",
+  "wire": "W4",
+  "title": "Mac proof receipts dual-write to truth_log",
+  "at": "2026-07-02T22:22:28Z",
+  "law": "L16 W4",
+  "receipt": {
+    "source": "mac_agent",
+    "events": [
+      "MAC_AGENT_HEARTBEAT",
+      "MAC_FRESH_MAIN_SYNC",
+      "MAC_RECEIPT_MIRROR",
+      "MAC_SESSION_GATE"
+    ],
+    "module": "scripts/mac_spine_bridge_v1.py",
+    "functions": ["dual_write_mac_truth", "mirror_mac_receipt_to_truth"],
+    "mirror_only_paths": ["~/.sina/agent_session_gate_receipt_v1.json", "~/.sina/mac-fresh-main-sync-receipt-v1.json"],
+    "wired_in": ["agent_session_gate_run_v1.py MAC_SESSION_GATE post", "mac_spine_bridge fresh_main + heartbeat"]
+  },
+  "dashboard_row": null,
+  "registry_diff": {
+    "truth_log_contract": "data/truth-log-cloud-contract-v1.json writers.mac_agent added"
+  },
+  "command": "python3 scripts/mac_spine_bridge_v1.py mirror_receipt --receipt ~/.sina/mac-fresh-main-sync-receipt-v1.json --json"
+}

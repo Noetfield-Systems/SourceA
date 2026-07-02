@@ -1007,6 +1007,19 @@ def auto_runtime_status() -> dict[str, Any]:
     }
 
 
+def _mac_spine_keepalive(*, agent_id: str = "hub-cloud-workers") -> dict[str, Any]:
+    """L16 W2 — Hub keepalive POST mac_agent_heartbeat."""
+    import sys
+
+    sys.path.insert(0, str(SCRIPTS))
+    try:
+        from mac_spine_bridge_v1 import run_mac_spine_heartbeat  # noqa: WPS433
+
+        return run_mac_spine_heartbeat(agent_id=agent_id, role="hub")
+    except Exception as exc:
+        return {"ok": False, "error": str(exc)[:200], "step": "mac_spine_heartbeat"}
+
+
 def payload() -> dict[str, Any]:
     import sys
 
@@ -1016,11 +1029,14 @@ def payload() -> dict[str, Any]:
     live_sync = _sync_cloud_queue_to_mac()
     probe = probe_cloud_worker()
     situation = situation_card()
+    mac_spine = _mac_spine_keepalive()
     return {
         "ok": True,
         "schema": "cloud-workers-hub-v1",
         "at": _now(),
         "live_sync": live_sync,
+        "mac_spine_keepalive": mac_spine,
+        "mac_dashboard_row": mac_spine.get("dashboard_row"),
         "one_law": "Founder manages cloud deploy + plans — Hub dispatches/triggers/reports only.",
         "ssot": str(SSOT.relative_to(ROOT)),
         "hub_apis": {
@@ -1040,6 +1056,7 @@ def payload() -> dict[str, Any]:
             "chain_status": "POST {\"action\":\"chain_status\"}",
             "auto_tick": "POST {\"action\":\"auto_tick\"} (Mac observe only)",
             "auto_status": "POST {\"action\":\"auto_status\"}",
+            "mac_agent_heartbeat": "POST {\"action\":\"mac_agent_heartbeat\"}",
             "proceed": "POST {\"action\":\"proceed\",\"full_pack\":true,\"max_advance\":100}",
         },
         "situation": situation,
@@ -1166,6 +1183,11 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
     if action == "auto_status":
         return auto_runtime_status()
 
+    if action == "mac_agent_heartbeat":
+        agent_id = str(body.get("agent_id") or "hub-cloud-workers").strip()
+        row = _mac_spine_keepalive(agent_id=agent_id)
+        return {"ok": bool(row.get("ok")), **row}
+
     if action == "auto_tick":
         from fbe.lib.mac_control_dispatch_v1 import (  # noqa: WPS433
             is_mac_control_plane,
@@ -1253,6 +1275,7 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
             "auto_tick",
             "trigger_cf_tick",
             "auto_status",
+            "mac_agent_heartbeat",
             "glue_run",
             "proceed",
             "deploy_instructions",
