@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
   <link rel="stylesheet" href="/assets/agentrun.css" />
   <link rel="stylesheet" href="/sourcea/sourcea.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea-contract-institutional-v1.css" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
 </head>
 <body class="ar-body sa-v2 sa-agentic sa-dev-ui" data-sa-dev-ui="1" data-sa-page="sourcea-boot-eval">
@@ -26,6 +27,7 @@
       <nav class="ar-nav" id="ar-nav" aria-label="Primary">
         <a href="/" data-sa-nav data-sa-nav-home>Home</a>
         <a href="/eval" data-sa-nav aria-current="page">Eval</a>
+        <a href="/attach/procurement-pack.html" data-sa-nav>Procurement</a>
         <a href="/sourcea/platform" data-sa-nav>Platform</a>
         <a href="/sourcea/proof" data-sa-nav>Proof</a>
         <a href="/sourcea/offer" data-sa-nav>Offer</a>
@@ -47,6 +49,12 @@
   </div>
 </header>
 
+<div class="eval-institutional-band">
+  <div class="ar-container">
+    <p><strong>Verify in 5 minutes:</strong> <code>pip install sourcea-boot</code> or <a href="https://github.com/kazemnezhadsina144-dot/sourcea-boot" target="_blank" rel="noopener">clone from GitHub</a> → <code>sourcea-boot --json</code> → <code>BOOT_REPORT.json</code> logged · <a href="https://pypi.org/project/sourcea-boot/" target="_blank" rel="noopener">PyPI v0.1.0</a> · <a href="/attach/procurement-pack.html">Procurement pack</a></p>
+  </div>
+</div>
+
 <main id="main-content">
   <section class="ar-section ar-page-hero sa-sub-hero ar-reveal">
     <div class="ar-container">
@@ -54,7 +62,8 @@
       <h1>One command. <span class="ar-hero-accent">PASS or BLOCK.</span></h1>
       <p class="ar-lead"><strong>sourcea-boot</strong> runs four checks before your agents execute — policy, provider, receipt freshness, queue truth. You get <code>BOOT_REPORT.json</code> logged. Show the work, not a slide deck.</p>
       <div class="ar-hero-actions">
-        <a class="ar-btn ar-btn-primary sa-btn-glow" data-trust-github-link href="https://github.com/kazemnezhadsina144-dot/sourcea-boot" target="_blank" rel="noopener">Clone sourcea-boot<span class="ar-btn-arrow">→</span></a>
+        <a class="ar-btn ar-btn-primary sa-btn-glow" href="https://pypi.org/project/sourcea-boot/" target="_blank" rel="noopener">pip install sourcea-boot<span class="ar-btn-arrow">→</span></a>
+        <a class="ar-btn ar-btn-ghost" data-trust-github-link href="https://github.com/kazemnezhadsina144-dot/sourcea-boot" target="_blank" rel="noopener">Clone from GitHub</a>
         <a class="ar-btn ar-btn-ghost" href="/sourcea/proof/live">See live forensic proof</a>
       </div>
     </div>
@@ -86,14 +95,14 @@
       </div>
       <div class="sa-terminal sa-terminal-light ar-reveal" style="margin-top:2rem">
         <div class="sa-terminal-head"><span class="sa-dot red"></span><span class="sa-dot yellow"></span><span class="sa-dot green"></span><span>replay · sourcea-boot</span></div>
-        <p class="sa-boot-terminal-label">Last factory boot · 2026-06-27 18:07:35 UTC · PASS</p>
+        <p class="sa-boot-terminal-label">Last factory boot · 2026-07-02 05:43:23 UTC · PASS</p>
         <pre class="sa-terminal-body" id="sa-terminal-replay"><span class="sa-t-prompt">$</span> sourcea-boot --json
 <span class="sa-t-ok">SOURCEA_BOOT PASS</span> <span class="sa-t-dim">ok=true</span>
   <span class="sa-t-ok">[PASS]</span> policy_version: no policy file (POLICY.md) — skipped
   <span class="sa-t-ok">[PASS]</span> provider: provider env present (ANTHROPIC_API_KEY)
   <span class="sa-t-ok">[PASS]</span> receipt_fresh: no prior receipt — first boot allowed
   <span class="sa-t-ok">[PASS]</span> queue_truth: no queue files configured — skipped
-<span class="sa-t-dim">REPORT=/Users/sinakazemnezhad/Desktop/SourceA/BOOT_REPORT.json</span><span class="sa-t-cursor">▋</span></pre>
+<span class="sa-t-dim">REPORT=receipts/sourcea-boot/BOOT_REPORT.json</span><span class="sa-t-cursor">▋</span></pre>
       </div>
       <p class="sa-metric-note" style="margin-top:1rem;text-align:center">Terminal injects from live <code>boot-proof.json</code> on deploy — same output you can verify on this page, no call required.</p>
       <p style="text-align:center;margin-top:1rem"><a class="ar-btn ar-btn-primary ar-btn-sm" href="/sourcea/proof/live">See live receipt</a></p>
@@ -104,21 +113,31 @@
     <div class="ar-container">
       <div class="ar-section-head ar-section-head-center">
         <p class="ar-kicker">Run in 5 minutes</p>
-        <h2>README path — <span class="ar-hero-accent">clone · install · run.</span></h2>
+        <h2>Install path — <span class="ar-hero-accent">pip · clone · run.</span></h2>
       </div>
       <div class="ar-pricing-grid ar-stagger">
-        <article class="ar-price-card sa-card-lift">
+        <article class="ar-price-card is-featured sa-card-lift">
           <span class="ar-price-badge">01</span>
+          <h3>Install</h3>
+          <p class="ar-price" style="font-size:0.9rem;font-family:var(--font-mono,monospace)">pip install sourcea-boot</p>
+          <ul>
+            <li>PyPI v0.1.0 live</li>
+            <li>MIT license</li>
+            <li>Fastest path — no clone required</li>
+            <li><a href="https://pypi.org/project/sourcea-boot/" target="_blank" rel="noopener">pypi.org/project/sourcea-boot</a></li>
+          </ul>
+        </article>
+        <article class="ar-price-card sa-card-lift">
+          <span class="ar-price-badge">alt</span>
           <h3>Clone</h3>
           <p class="ar-price" style="font-size:0.9rem;font-family:var(--font-mono,monospace)">git clone …/sourcea-boot</p>
           <ul>
             <li>Public eval repo on GitHub</li>
-            <li>MIT license</li>
-            <li>Clone + editable install today</li>
-            <li>PyPI Phase 0b — not published yet</li>
+            <li>Editable install for contributors</li>
+            <li>Same four checks · same receipt</li>
           </ul>
         </article>
-        <article class="ar-price-card is-featured sa-card-lift">
+        <article class="ar-price-card sa-card-lift">
           <span class="ar-price-badge">02</span>
           <h3>Run</h3>
           <p class="ar-price" style="font-size:0.9rem;font-family:var(--font-mono,monospace)">sourcea-boot --json</p>

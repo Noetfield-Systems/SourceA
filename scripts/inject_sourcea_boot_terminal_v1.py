@@ -17,6 +17,7 @@ LANDING = ROOT / "SourceA-landing" / "green-unified"
 SINA = Path.home() / ".sina"
 RECEIPT = SINA / "sourcea-boot-terminal-inject-v1.json"
 BOOT_PKG = ROOT / "packages" / "sourcea-boot" / "src"
+PUBLIC_REPORT = "receipts/sourcea-boot/BOOT_REPORT.json"
 
 MARKER_START = "<!-- sa-boot-terminal:v1 -->"
 MARKER_END = "<!-- /sa-boot-terminal:v1 -->"
@@ -49,6 +50,18 @@ def run_boot_json() -> dict:
     return json.loads(proc.stdout)
 
 
+def _public_report_path(report_file: str | None) -> str:
+    raw = str(report_file or "").strip()
+    if not raw or "/Users/" in raw or "Desktop/SourceA" in raw or "sinakazemnezhad" in raw:
+        return PUBLIC_REPORT
+    if raw.startswith("receipts/"):
+        return raw
+    name = Path(raw).name or "BOOT_REPORT.json"
+    if name == "BOOT_REPORT.json":
+        return PUBLIC_REPORT
+    return f"receipts/sourcea-boot/{name}"
+
+
 def _check_class(ok: bool) -> str:
     return "sa-t-ok" if ok else "sa-t-bad"
 
@@ -69,7 +82,7 @@ def format_html_pre(row: dict) -> str:
         lines.append(
             f'  <span class="{_check_class(c.get("ok"))}">[{mark}]</span> {name}: {reason}'
         )
-    report = escape(str(row.get("report_file") or "BOOT_REPORT.json"))
+    report = escape(_public_report_path(str(row.get("report_file") or "")))
     lines.append(f'<span class="sa-t-dim">REPORT={report}</span><span class="sa-t-cursor">▋</span>')
     return "\n".join(lines)
 
@@ -86,7 +99,7 @@ def format_plain(row: dict) -> str:
         name = str(c.get("name") or c.get("id") or "check")
         reason = str(c.get("reason") or "")
         lines.append(f"  [{mark}] {name}: {reason}")
-    lines.append(f"REPORT={row.get('report_file') or 'BOOT_REPORT.json'}")
+    lines.append(f"REPORT={_public_report_path(str(row.get('report_file') or ''))}")
     return "\n".join(lines)
 
 
