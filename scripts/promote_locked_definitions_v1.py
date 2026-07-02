@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SINA = Path.home() / ".sina"
 REGISTRY = ROOT / "data/sourcea-brain-registry-inventory-v1.json"
 DEFINITIONS = ROOT / "reports/locked-definitions-v1.json"
+LOCKED_DEFINITIONS_PY = ROOT / "scripts/brain_core_v1/locked_definitions.py"
 CONTRACT_RECEIPT = SINA / "sourcea-contract-pages-e2e-v1.json"
 FOUNDER_VERIFY = SINA / "client-proof-founder-review-verify-v1.json"
 BUNDLE = ROOT / "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json"
@@ -44,6 +45,24 @@ def _definitions_sha() -> str:
     if not DEFINITIONS.is_file():
         return ""
     return hashlib.sha256(DEFINITIONS.read_bytes()).hexdigest()
+
+
+def _sync_expected_checksum_in_py(sha: str) -> bool:
+    if not LOCKED_DEFINITIONS_PY.is_file() or not sha:
+        return False
+    text = LOCKED_DEFINITIONS_PY.read_text(encoding="utf-8")
+    marker = 'EXPECTED_LOCKED_DEFINITIONS_SHA256 = "'
+    start = text.find(marker)
+    if start < 0:
+        return False
+    end = text.find('"', start + len(marker))
+    if end < 0:
+        return False
+    new_text = text[: start + len(marker)] + sha + text[end:]
+    if new_text == text:
+        return False
+    LOCKED_DEFINITIONS_PY.write_text(new_text, encoding="utf-8")
+    return True
 
 
 def _fetch_verifier_receipt() -> dict:
@@ -166,6 +185,8 @@ def check(*, write: bool = False) -> dict:
             "verifier_receipt_id"
         )
         DEFINITIONS.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
+        row["definitions_sha256"] = _definitions_sha()
+        row["synced_expected_checksum_py"] = _sync_expected_checksum_in_py(row["definitions_sha256"])
         reg = _read_json(REGISTRY)
         for asset in reg.get("assets") or []:
             if asset.get("asset_id") == "locked-definitions-v1":
