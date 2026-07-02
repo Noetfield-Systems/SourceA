@@ -116,6 +116,26 @@
       "dependents": [
         "validate-sourcea-sdk-v1"
       ]
+    },
+    {
+      "asset_id": "signal-factory-v1",
+      "asset_type": "skill",
+      "current_location": "data/sourcea-base-brain-skills-v1.json",
+      "status": "verified_registered",
+      "owning_layer": "BASE_BRAIN",
+      "mutation_class": "GATED",
+      "last_modified": "2026-07-02",
+      "dependents": [
+        "signal-factory-core-v1",
+        "validate-signal-factory-v1",
+        "validate-signal-factory-locked-definitions-collision-v1"
+      ],
+      "artifact_paths": [
+        ".cursor/skills/signal-factory/SKILL.md",
+        "data/signal-factory-v1.json",
+        "scripts/signal_factory_core_v1.py"
+      ],
+      "registration_receipt": "receipts/brain/signal-factory-v1-base-brain-registration-v1.json"
     }
   ],
   "promotion_requirements": {

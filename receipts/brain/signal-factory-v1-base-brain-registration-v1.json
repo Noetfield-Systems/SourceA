@@ -1,0 +1,36 @@
+{
+  "schema": "base-brain-skill-registration-receipt-v1",
+  "version": "1.0.0",
+  "registered_at": "2026-07-02T20:55:00Z",
+  "skill_id": "signal-factory-v1",
+  "skill_name": "signal-factory",
+  "status": "verified_registered",
+  "registry_path": "data/sourcea-base-brain-skills-v1.json",
+  "brain_inventory_asset_id": "signal-factory-v1",
+  "provenance_source": "Worker-built artifact + locked Architect/Fable contract",
+  "collision_check": {
+    "script": "scripts/validate-signal-factory-locked-definitions-collision-v1.py",
+    "ok": true,
+    "collisions": [],
+    "locked_definitions_checksum": "PASS"
+  },
+  "verifier_result": {
+    "validate-signal-factory-v1.sh": "PASS",
+    "signal_factory_core_v1.py --run-tests": "6/6 PASS",
+    "test_report": ".cursor/skills/signal-factory/reports/test-report-v1.json"
+  },
+  "entity_boundary": {
+    "trustfield": "separate_watched_surface_not_sourcea_child",
+    "adapter_hooks_trustfield": null,
+    "noos_modified": false,
+    "sg_modified": false
+  },
+  "drift_risks": [
+    "Brain knowledge bundle crawl may omit skill until next brain_chatbot_refresh — registration is registry SSOT, not live RAG until refresh",
+    "locked-definitions checksum drift blocks brain-core gate if reports/locked-definitions-v1.json changes without checksum patch",
+    "Adapter slot fill-in is founder-gated — null hooks must not be populated in Base Brain registration"
+  ],
+  "for_founder": {
+    "show_this": "Signal Factory v1 registered in Base Brain — verified, collision-clear, TrustField separate."
+  }
+}
