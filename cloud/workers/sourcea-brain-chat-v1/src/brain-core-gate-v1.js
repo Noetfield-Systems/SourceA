@@ -10,6 +10,8 @@ const FORBIDDEN_PUBLIC = [
 ];
 
 export function brainCoreGateStagingEnabled(env, request) {
+  const prodFlag = String(env?.BRAIN_CORE_GATE_V1_ENABLED || "").trim();
+  if (prodFlag === "1" || prodFlag.toLowerCase() === "true") return true;
   const flag = String(env?.BRAIN_CORE_GATE_STAGING || "").trim();
   if (flag === "1" || flag.toLowerCase() === "true") return true;
   const header = String(request?.headers?.get("X-SourceA-Brain-Core-Gate") || "").toLowerCase();

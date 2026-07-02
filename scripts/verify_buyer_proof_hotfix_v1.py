@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
-"""Buyer-proof hotfix verification — path leaks, live markers, intake, guards."""
+"""Buyer-proof hotfix verification — path leaks, live markers, intake, guards.
+
+LAW (permanent): Verify = raw HTTPS fetch of the PUBLIC hostname from outside.
+Local dist / workspace HTML is INVALID as a PASS source for live checks.
+"""
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import subprocess
@@ -35,14 +40,54 @@ def _now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def _fetch(url: str) -> tuple[int, str]:
-    req = urllib.request.Request(url, headers={"User-Agent": "sourcea-buyer-proof-verify/1.0"})
+PUBLIC_VERIFY_LAW = (
+    "Verify = raw HTTPS fetch of the PUBLIC hostname from outside; "
+    "minimum 60s after deploy; local dist verification is INVALID as PASS."
+)
+
+
+def _fetch(url: str, *, follow_redirects: bool = True) -> tuple[int, str, dict[str, Any]]:
+    fetched_at = _now()
+    handlers: list[urllib.request.BaseHandler] = []
+    if not follow_redirects:
+        class _NoRedirect(urllib.request.HTTPRedirectHandler):
+            def redirect_request(self, req, fp, code, msg, headers, newurl):
+                return None
+
+        handlers.append(_NoRedirect())
+    opener = urllib.request.build_opener(*handlers)
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "sourcea-buyer-proof-verify/1.0",
+            "Cache-Control": "no-cache",
+            "Pragma": "no-cache",
+        },
+    )
     try:
-        with urllib.request.urlopen(req, timeout=25) as resp:
-            return int(resp.status), resp.read().decode("utf-8", errors="replace")
+        with opener.open(req, timeout=25) as resp:
+            raw = resp.read()
+            body = raw.decode("utf-8", errors="replace")
+            meta = {
+                "fetched_at": fetched_at,
+                "http_code": int(resp.status),
+                "body_sha256_prefix": hashlib.sha256(raw[:100]).hexdigest(),
+                "body_bytes": len(raw),
+                "cache_control": resp.headers.get("Cache-Control"),
+            }
+            return int(resp.status), body, meta
     except urllib.error.HTTPError as exc:
-        body = exc.read().decode("utf-8", errors="replace") if exc.fp else ""
-        return int(exc.code), body
+        raw = exc.read() if exc.fp else b""
+        body = raw.decode("utf-8", errors="replace") if raw else ""
+        meta = {
+            "fetched_at": fetched_at,
+            "http_code": int(exc.code),
+            "body_sha256_prefix": hashlib.sha256(raw[:100]).hexdigest() if raw else "",
+            "body_bytes": len(raw),
+            "cache_control": exc.headers.get("Cache-Control") if exc.headers else None,
+            "location": exc.headers.get("Location") if exc.headers else None,
+        }
+        return int(exc.code), body, meta
 
 
 DIST_BUYER_FILES = (
@@ -102,7 +147,7 @@ def verify_live_page(
     *, base: str, path: str, markers: list[str], forbidden: list[str], emdash_slots: tuple[str, ...] = AEG_EMDASH_SLOTS
 ) -> dict[str, Any]:
     url = f"{base.rstrip('/')}{path}"
-    code, body = _fetch(url)
+    code, body, fetch_meta = _fetch(url)
     missing = [m for m in markers if m not in body]
     hits = [f for f in forbidden if f in body]
     bad_placeholders = [p for p in LOADING_PLACEHOLDERS if p in body]
@@ -112,6 +157,7 @@ def verify_live_page(
         "ok": ok,
         "url": url,
         "http_code": code,
+        "public_fetch": fetch_meta,
         "markers_missing": missing,
         "forbidden_hits": hits,
         "bad_placeholders": bad_placeholders,
@@ -187,7 +233,7 @@ def verify_eval_live(base: str) -> dict[str, Any]:
 
 
 def _verify_proof_url(url: str) -> dict[str, Any]:
-    code, body = _fetch(url)
+    code, body, fetch_meta = _fetch(url)
     missing = [m for m in PROOF_MARKERS if m not in body]
     hits = [f for f in FORBIDDEN if f in body]
     bad_placeholders = [p for p in LOADING_PLACEHOLDERS if p in body]
@@ -198,6 +244,7 @@ def _verify_proof_url(url: str) -> dict[str, Any]:
         "ok": ok,
         "url": url,
         "http_code": code,
+        "public_fetch": fetch_meta,
         "markers_missing": missing,
         "forbidden_hits": hits,
         "bad_placeholders": bad_placeholders,
@@ -222,6 +269,7 @@ def verify_all(*, base: str = "https://sourcea.app", hosts: list[str] | None = N
     proof_by_host = {h: verify_proof_live(h) for h in hosts}
     row = {
         "schema": "buyer-proof-hotfix-verify-v1",
+        "verify_law": PUBLIC_VERIFY_LAW,
         "at": _now(),
         "grep": grep_buyer_sources(),
         "eval_live": eval_by_host.get(base, verify_eval_live(base)),

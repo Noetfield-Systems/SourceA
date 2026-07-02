@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 """E2E verify — Forge Terminal platform pages (signin → profile → workspace).
 
+LAW (permanent): Verify = raw HTTPS fetch of the PUBLIC hostname from outside.
+Local dist verification is INVALID as a PASS source.
+
 Checks live HTML assets + optional Playwright flow with local session.
 Receipt: ~/.sina/forge-terminal-platform-pages-e2e-receipt-v1.json
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -17,6 +21,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 RECEIPT = Path.home() / ".sina" / "forge-terminal-platform-pages-e2e-receipt-v1.json"
 BASE = "https://sourcea.app"
+PUBLIC_VERIFY_LAW = (
+    "Verify = raw HTTPS fetch of the PUBLIC hostname from outside; "
+    "minimum 60s after deploy; local dist verification is INVALID as PASS."
+)
 
 PAGES = {
     "signin": {
@@ -46,7 +54,7 @@ REDIRECTS = {
 }
 
 
-def _fetch(url: str, *, method: str = "GET", follow_redirects: bool = True) -> tuple[int, str, dict[str, str]]:
+def _fetch(url: str, *, method: str = "GET", follow_redirects: bool = True) -> tuple[int, str, dict[str, str], dict[str, object]]:
     handlers: list = []
     if not follow_redirects:
         class NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -55,21 +63,44 @@ def _fetch(url: str, *, method: str = "GET", follow_redirects: bool = True) -> t
 
         handlers.append(NoRedirect())
     opener = urllib.request.build_opener(*handlers)
-    req = urllib.request.Request(url, method=method, headers={"User-Agent": "forge-terminal-platform-e2e/1"})
+    req = urllib.request.Request(
+        url,
+        method=method,
+        headers={
+            "User-Agent": "forge-terminal-platform-e2e/1",
+            "Cache-Control": "no-cache",
+            "Pragma": "no-cache",
+        },
+    )
+    fetched_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     try:
         with opener.open(req, timeout=20) as resp:
+            raw = resp.read()
             headers = {k.lower(): v for k, v in resp.headers.items()}
-            return resp.status, resp.read().decode("utf-8", errors="replace"), headers
+            body = raw.decode("utf-8", errors="replace")
+            meta = {
+                "fetched_at": fetched_at,
+                "body_sha256_prefix": hashlib.sha256(raw[:100]).hexdigest(),
+                "body_bytes": len(raw),
+            }
+            return resp.status, body, headers, meta
     except urllib.error.HTTPError as exc:
+        raw = exc.read() if exc.fp else b""
         headers = {k.lower(): v for k, v in exc.headers.items()}
-        return exc.code, exc.read().decode("utf-8", errors="replace"), headers
+        body = raw.decode("utf-8", errors="replace") if raw else ""
+        meta = {
+            "fetched_at": fetched_at,
+            "body_sha256_prefix": hashlib.sha256(raw[:100]).hexdigest() if raw else "",
+            "body_bytes": len(raw),
+        }
+        return exc.code, body, headers, meta
 
 
 def check_pages() -> list[dict]:
     rows = []
     for name, spec in PAGES.items():
         url = BASE + spec["path"]
-        code, body, _ = _fetch(url)
+        code, body, _, fetch_meta = _fetch(url)
         missing = [m for m in spec["must"] if m not in body]
         rows.append(
             {
@@ -78,6 +109,7 @@ def check_pages() -> list[dict]:
                 "ok": code == 200 and not missing,
                 "status": code,
                 "missing": missing,
+                "public_fetch": fetch_meta,
             }
         )
     return rows
@@ -86,7 +118,7 @@ def check_pages() -> list[dict]:
 def check_legacy_redirects() -> list[dict]:
     rows = []
     for src, dest in REDIRECTS.items():
-        code, _, headers = _fetch(BASE + src, method="GET", follow_redirects=False)
+        code, _, headers, fetch_meta = _fetch(BASE + src, method="GET", follow_redirects=False)
         loc = headers.get("location", "")
         rows.append(
             {
@@ -94,6 +126,7 @@ def check_legacy_redirects() -> list[dict]:
                 "ok": code in (301, 302, 307, 308) and dest in loc,
                 "status": code,
                 "location": loc,
+                "public_fetch": fetch_meta,
             }
         )
     return rows
@@ -157,6 +190,7 @@ def main() -> int:
     ok = all(r["ok"] for r in page_rows) and all(r["ok"] for r in redirect_rows) and flow.get("ok", False)
     row = {
         "schema": "forge-terminal-platform-pages-e2e-v1",
+        "verify_law": PUBLIC_VERIFY_LAW,
         "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "ok": ok,
         "base": BASE,

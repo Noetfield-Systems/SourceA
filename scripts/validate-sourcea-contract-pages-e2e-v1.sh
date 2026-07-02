@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Contract landing pages E2E — clean URLs, titles, booking CTAs, contract@ inbox SSOT.
+# LAW: Verify = raw HTTPS fetch of PUBLIC hostname; local dist is INVALID as PASS source.
+# Set SOURCEA_CONTRACT_E2E_PUBLIC_ONLY=1 to skip disk source checks (public fetch only).
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 BASE="${SOURCEA_E2E_BASE:-https://sourcea.app}"
@@ -13,12 +15,14 @@ echo "ssot ${SSOT}" | tee -a "$RECEIPT"
 
 python3 - <<PY 2>&1 | tee -a "$RECEIPT"
 import json
+import hashlib
 import os
 import re
 import socket
 import ssl
 import subprocess
 import sys
+import time
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -27,6 +31,12 @@ BASE = "${BASE}".rstrip("/")
 ROOT = Path("${ROOT}")
 GREEN = ROOT / "SourceA-landing" / "green-unified"
 SSOT_PATH = Path("${SSOT}")
+PUBLIC_ONLY = os.environ.get("SOURCEA_CONTRACT_E2E_PUBLIC_ONLY", "").strip().lower() in ("1", "true", "yes")
+PUBLIC_VERIFY_LAW = (
+    "Verify = raw HTTPS fetch of the PUBLIC hostname from outside; "
+    "minimum 60s after deploy; local dist verification is INVALID as PASS."
+)
+public_fetches = []
 
 ssot = json.loads(SSOT_PATH.read_text(encoding="utf-8"))
 TRUST = ssot.get("trust_e2e_v1") or {}
@@ -112,11 +122,23 @@ def fetch_http(url: str, host: str | None = None) -> tuple[int, str]:
         url,
         headers={
             "User-Agent": "SourceA-contract-pages-e2e/1",
+            "Cache-Control": "no-cache",
+            "Pragma": "no-cache",
             **({"Host": host} if host else {}),
         },
     )
     with urllib.request.urlopen(req, context=ctx, timeout=25) as resp:
-        return resp.status, resp.read(250_000).decode("utf-8", errors="replace")
+        raw = resp.read(250_000)
+        public_fetches.append(
+            {
+                "url": url,
+                "fetched_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                "http_code": resp.status,
+                "body_sha256_prefix": hashlib.sha256(raw[:100]).hexdigest(),
+                "body_bytes": len(raw),
+            }
+        )
+        return resp.status, raw.decode("utf-8", errors="replace")
 
 
 def dig_mx(domain: str) -> list[str]:
@@ -353,7 +375,9 @@ for row in PAGES:
     except urllib.error.HTTPError as exc:
         fails.append(f"{BASE}{path}: direct check HTTP {exc.code}")
     src = row["source"]
-    if not src.is_file():
+    if PUBLIC_ONLY:
+        notes.append(f"public-only mode: skipped disk check for {src.name}")
+    elif not src.is_file():
         fails.append(f"disk missing {src}")
     else:
         disk = src.read_text(encoding="utf-8")
@@ -426,14 +450,14 @@ if fails:
         print("FAIL:", f, file=sys.stderr)
     sys.exit(1)
 
-import time
-
 receipt_path = Path.home() / ".sina" / "sourcea-contract-pages-e2e-v1.json"
 receipt_path.write_text(
     json.dumps(
         {
             "schema": "sourcea-contract-pages-e2e-v1",
-            "version": "1.1.0",
+            "version": "1.2.0",
+            "verify_law": PUBLIC_VERIFY_LAW,
+            "public_only": PUBLIC_ONLY,
             "at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
             "base": BASE,
             "ok": True,
@@ -442,6 +466,7 @@ receipt_path.write_text(
             "routing_mode": ROUTING,
             "contract_addresses": [r["public_address"] for r in ssot["contract_routes"]],
             "trust_e2e_v1": bool(TRUST),
+            "public_fetches": public_fetches[:20],
             "remaining": remaining,
         },
         indent=2,
