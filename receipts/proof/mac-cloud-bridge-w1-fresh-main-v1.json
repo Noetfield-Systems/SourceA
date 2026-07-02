@@ -1,0 +1,19 @@
+{
+  "schema": "mac-cloud-bridge-proof-v1",
+  "wire": "W1",
+  "title": "Session gate fresh-main sync",
+  "at": "2026-07-02T22:22:28Z",
+  "law": "L16 W1",
+  "receipt": {
+    "path": "~/.sina/mac-fresh-main-sync-receipt-v1.json",
+    "sync_id": "MFS-20260702-1821a1fb",
+    "verdict": "PASS",
+    "local_main_sha": "6f4a6c414907fac83f8e878a72aeb0a2ac48459f",
+    "origin_main_sha": "6f4a6c414907fac83f8e878a72aeb0a2ac48459f",
+    "blocked_reason_when_stale": "stale_local_main"
+  },
+  "dashboard_row": null,
+  "registry_diff": null,
+  "command": "python3 scripts/mac_spine_bridge_v1.py fresh_main --json",
+  "session_gate_step": "mac_spine_fresh_main"
+}
