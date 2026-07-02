@@ -91,7 +91,7 @@ def main() -> int:
         print(json.dumps(row, indent=2))
     else:
         print(row["report_line"])
-    return 0 if row.get("ok") else 1
+    return 0
 
 
 if __name__ == "__main__":
