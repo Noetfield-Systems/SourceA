@@ -1,14 +1,13 @@
-# Governed Autorun Laws v2
+# Governed Autorun Laws v3
 
-> **Superseded by** [`GOVERNED_AUTORUN_LAWS_v3.md`](GOVERNED_AUTORUN_LAWS_v3.md) — adds L13 + D1–D8 determinism gate.
-
-**Schema:** `governed-autorun-laws-v2`  
-**Saved at (UTC):** 2026-07-02T12:00:00Z  
+**Schema:** `governed-autorun-laws-v3`  
+**Saved at (UTC):** 2026-07-02T12:30:00Z  
 **Owner:** SourceA Loop Specialist (standing assignment)  
-**Skill SSOT:** governed-autorun v2 (Cursor skill)  
+**Skill SSOT:** governed-autorun v3 (Cursor skill)  
+**Determinism reference:** `.cursor/skills/governed-autorun/references/deterministic-loops.md` (D1–D8)  
 **Scope:** CF cron worker · Railway FBE motor · queue batches · cycle receipts · sink invariants · heartbeats · external verification · Kaizen improvement backlog
 
-Operating system for continuous, parallel, self-improving multi-sandbox execution. Every law traces to a real production incident. v2 adds the ROI layer: the machine governs its own spend the way it governs its own state.
+Operating system for continuous, parallel, self-improving multi-sandbox execution. v3 adds **L13 — Loops are deterministic** (D1–D8) on top of v2 ROI layer (L11).
 
 ## L1 — One reconciler
 
@@ -24,7 +23,7 @@ Every gate emission = `{decision, reason, evidence: command + output}`. Bare NO/
 
 ## L4 — Verify from outside
 
-PASS is valid only from a probe the building agent does not control: **GitHub Action** `external-verify.yml` posting `EXTERNAL_VERIFY_PASS` to **Supabase `truth_log`** (payload: run_id, run_url, conclusion, per-check verdicts, body hashes). Disk receipt is a mirror. Local dist, same-machine curls, preview URLs, and “check Actions UI” are INVALID. Verify-time minus publish-time < 60s = auto-reject.
+PASS is valid only from a probe the building agent does not control: **GitHub Action** `external-verify.yml` posting `EXTERNAL_VERIFY_PASS` to **Supabase `truth_log`** (payload: run_id, run_url, conclusion, per-check verdicts, body hashes, determinism gate). Disk receipt is a mirror. Local dist, same-machine curls, preview URLs, and “check Actions UI” are INVALID. Verify-time minus publish-time < 60s = auto-reject.
 
 ## L5 — Verifier freeze
 
@@ -60,6 +59,23 @@ Each cycle receipt carries `cost` (provider, model, tokens in/out, unit cost, $ 
 
 Each heartbeat compares deployed truth to committed truth: live config hash vs repo hash, Railway deploy SHA vs `git rev-parse HEAD`, wrangler worker name vs `CF_VERSION_METADATA`, cron last-fire vs `*/10` schedule. Any mismatch → drift receipt with diff.
 
+## L13 — Loops are deterministic
+
+Same inputs → same transitions → same receipts, replayable from the event log. Idempotency keys on every side effect, single writer + compare-and-swap per state cell, IDs from actuals never inference, advance as a pure function of acks, LLM output as proposal never transition, verification as a pure function.
+
+**Full rules:** `references/deterministic-loops.md` (D1–D8) · **CI gate:** `scripts/verify_autorun_determinism_v1.py` (4 tests in `external-verify.yml`).
+
+| Rule | Summary |
+|------|---------|
+| D1 | Idempotency keys on side effects; sinks upsert on `op_key` |
+| D2 | Single writer per state cell; CAS advance |
+| D3 | IDs from max(actual) + 1; post-write range validator |
+| D4 | Advance = f(execute_ok ∧ validate_ok ∧ sink_acked) |
+| D5 | Event log is truth; derived state must replay-match |
+| D6 | Jitter/time quarantined to scheduling edge |
+| D7 | LLM proposes; validator accepts before event log |
+| D8 | Verify is pure function; runner divergence = escalation |
+
 ## Parallel orchestration (Tier 1+ — founder trigger required)
 
 Lanes · concurrency keys · lock ordering · priority within tick · jitter · backpressure. **BLOCKED** until founder triggers Tier 1.
@@ -72,7 +88,7 @@ Lanes · concurrency keys · lock ordering · priority within tick · jitter · 
 4. Meter — capture tokens/cost at call site (L11)
 5. Verify — internal checks may gate advance; only external proves ship (L4)
 6. Ack sink (L8)
-7. Receipt — `autonomous-forge-run-cycle-receipt-v2`
+7. Receipt — `autonomous-forge-run-cycle-receipt-v2` + `idempotency_key` (D1)
 8. Heartbeat (daily): loops, states, sink invariants, cost table, drift (L12), founder_blocked escalations
 
 ## Kaizen — ROI-ranked self-improvement
@@ -84,11 +100,11 @@ Failed checks, DRIFT, `THROTTLED_ROI`, audit findings auto-file improvement cand
 1. Read latest heartbeat + last 3 cycle receipts. Report: loops, states, sink invariant, drift, cost window (5 lines).
 2. Surface `founder_blocked` (count, oldest, age). Never process or cancel.
 3. If `BLOCKED_WITH_REASON` exists: fix or escalate before new work.
-4. **Auto-note pending** — read `receipts/cloud/autorun-pending/pending-latest-v1.json` every cycle; never ask founder to manually confirm open blockers.
+4. **Auto-note pending** — read `receipts/cloud/autorun-pending/pending-latest-v1.json` every cycle.
 
 ## Auto-pending (machine law)
 
-`scripts/autorun_pending_v1.py` runs on every cycle receipt, heartbeat refresh, loop-specialist tick, and observer build. Pending items carry `{id, status, severity, law, reason, evidence, action}`. P0 pending (e.g. `external_verify_l4`) surfaces in `loop_specialist_line`, heartbeat `escalations[]`, and cycle `pending{}` — **no manual "please confirm" in agent chat**.
+`scripts/autorun_pending_v1.py` runs on every cycle receipt, heartbeat refresh, loop-specialist tick, and observer build.
 
 ## Work rules
 
@@ -100,6 +116,10 @@ Failed checks, DRIFT, `THROTTLED_ROI`, audit findings auto-file improvement cand
 
 | Artifact | Path |
 |----------|------|
+| Laws v3 (this doc) | `docs/GOVERNED_AUTORUN_LAWS_v3.md` |
+| Determinism reference | `.cursor/skills/governed-autorun/references/deterministic-loops.md` |
+| Determinism CI gate | `scripts/verify_autorun_determinism_v1.py` |
+| Legal transitions | `scripts/autorun_legal_transitions_v1.py` |
 | Cloud runtime SSOT | `data/cloud-auto-runtime-v1.json` |
 | Phase reconciler | `scripts/phase_reconciler_v1.py` |
 | Autorun verifier | `scripts/verify_autorun_zero_manual_v1.py` |
@@ -108,7 +128,6 @@ Failed checks, DRIFT, `THROTTLED_ROI`, audit findings auto-file improvement cand
 | Cycle receipts (repo) | `receipts/cloud/autonomous-forge-run-cycles/` |
 | Heartbeat (repo) | `receipts/cloud/autonomous-forge-run-heartbeat/` |
 | Loop specialist | `scripts/loop_specialist_tick_v1.py` |
-| Observer API | Railway `/api/cloud-forge-run/observer/v1` |
 
 ## Out of scope
 

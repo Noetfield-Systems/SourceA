@@ -2,6 +2,7 @@
 """Cloud Auto Runtime — mock skip · self-heal · scheduled Cloud Forge Run proceed."""
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import sys
@@ -157,6 +158,12 @@ def _resolve_batch_id(
         except (TypeError, ValueError):
             pass
     return None
+
+
+def _cycle_op_key(*, workflow_id: str, plan_id: str, attempt_no: int | str | None) -> str:
+    """D1 — idempotency key from content only (governed-autorun L13)."""
+    raw = f"{workflow_id}|{plan_id}|{attempt_no or 0}"
+    return hashlib.sha256(raw.encode("utf-8")).hexdigest()[:40]
 
 
 def _apply_sink_invariant(doc: dict[str, Any], batch_id: int | None) -> dict[str, Any]:
@@ -577,6 +584,11 @@ def _write_cycle_receipt(
         }
     pack = cycle.get("pack") if isinstance(cycle.get("pack"), dict) else {}
     batch_id = _resolve_batch_id(pack=pack, head_row=head_row, cycle=cycle)
+    doc["idempotency_key"] = _cycle_op_key(
+        workflow_id="cloud-forge-run",
+        plan_id=head,
+        attempt_no=batch_id,
+    )
     sink_inv = _apply_sink_invariant(doc, batch_id)
     if head_row:
         _write_daily_heartbeat_if_due(head_row=head_row, sink_inv=sink_inv, trigger_source=trigger_source)
