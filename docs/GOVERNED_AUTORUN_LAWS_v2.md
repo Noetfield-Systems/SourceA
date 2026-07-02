@@ -22,7 +22,7 @@ Every gate emission = `{decision, reason, evidence: command + output}`. Bare NO/
 
 ## L4 — Verify from outside
 
-PASS is valid only from a probe the building agent does not control: external runner (`.github/workflows/external-verify.yml`), raw public hostname, redirects OFF, content markers + FULL-body hash, ≥60s after deploy. Local dist, same-machine curls, preview URLs = INVALID. Verify-time minus publish-time < 60s = auto-reject.
+PASS is valid only from a probe the building agent does not control: **GitHub Action** `external-verify.yml` posting `EXTERNAL_VERIFY_PASS` to **Supabase `truth_log`** (payload: run_id, run_url, conclusion, per-check verdicts, body hashes). Disk receipt is a mirror. Local dist, same-machine curls, preview URLs, and “check Actions UI” are INVALID. Verify-time minus publish-time < 60s = auto-reject.
 
 ## L5 — Verifier freeze
 
@@ -34,7 +34,9 @@ Deploys run from a clean committed SHA. Dirty guard fails closed; scoped excepti
 
 ## L7 — Founder items never block, never vanish
 
-Status `founder_blocked` (never `cancelled`), excluded from machine scan, present in every cycle receipt with count/oldest/priority/age. Aging founder P0s escalate in heartbeat after age threshold.
+Status `founder_blocked` (never `cancelled`) is for **founder decisions only** — excluded from machine scan, present in every cycle receipt with count/oldest/priority/age.
+
+**Observations are not founder tasks.** Action run status, page content, deploy SHA, and receipt rows must be machine-retrievable via `scripts/read_action_runs_v1.py` + Supabase `truth_log`. An agent that blocks on “founder please check X” when an API exists is a **defect**.
 
 ## L8 — Sinks are acked or blocked
 
