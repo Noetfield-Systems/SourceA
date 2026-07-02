@@ -113,6 +113,15 @@
     "forbidden_body": {
       "never_on_mac_body": true,
       "route": "cloud_factory_or_loop_specialist",
+      "control_panel_allowed": [
+        "sina-command-server.py",
+        "cloud-workers-server.py",
+        "mac-law-server.py",
+        "chat-unify-server.py",
+        "portfolio-mail-server.py",
+        "routing-panel/server.py",
+        "n8n"
+      ],
       "process_patterns": [
         "fbe_motor_delegate_v1",
         "autorun_dispatcher_v1",
@@ -121,7 +130,6 @@
         "goal1_worker_batch_loop",
         "auto_run_worker_batch",
         "auto_start_worker_batch_on_hub",
-        "cloud-workers-server",
         "find_critical_bugs.py",
         "queue_ssot_unify",
         "commercial_short_film_v1",

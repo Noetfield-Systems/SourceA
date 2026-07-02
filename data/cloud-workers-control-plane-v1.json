@@ -19,7 +19,10 @@
     "event_log": "~/.sina/cloud-workers-event-log-v1.json",
     "deploy_script": "scripts/deploy_fbe_railway_v1.py",
     "machine": "scripts/cloud_workers_hub_v1.py",
-    "server": "scripts/cloud-workers-server.py"
+    "server": "scripts/cloud-workers-server.py",
+    "boot": "scripts/serve-cloud-workers-v1.sh",
+    "launchd": "scripts/install-cloud-workers-launchd-v1.sh",
+    "workflow_validator": "scripts/validate-cloud-workers-workflows-v1.sh"
   },
   "hub_api": {
     "status": "GET http://127.0.0.1:13027/api/cloud-workers/v1",

@@ -168,19 +168,40 @@ def _proceed_direct_cloud(body: dict | None) -> dict:
             ssot = _read_json(REAL_SA / "data/cloud-auto-runtime-v1.json")
             cf = (ssot.get("cloudflare_worker") or {}).get("url") or ""
             cf = str(cf).rstrip("/")
-            row = {
-                **row,
-                "ok": True,
-                "decision": "use_cf_cron",
-                "redirect": "browser_cf_tick",
-                "cf_tick_url": f"{cf}/tick" if cf else None,
-                "for_founder": {
-                    "show_this": (
-                        "Mac observe only — use Trigger CF full-pack button (browser→CF→Railway). "
-                        "CF cron */10 runs automatically."
-                    ),
-                },
-            }
+            try:
+                from cloud_workers_hub_v1 import trigger_cf_full_pack  # noqa: WPS433
+
+                cf_row = trigger_cf_full_pack(force=bool(payload.get("force")))
+                row = {
+                    **row,
+                    "ok": bool(cf_row.get("ok", True)),
+                    "decision": "mac_trigger_cf_tick",
+                    "execution_plane": "mac_control_panel",
+                    "cf_tick": cf_row,
+                    "cf_tick_url": f"{cf}/tick" if cf else None,
+                    "for_founder": cf_row.get("for_founder")
+                    or {
+                        "show_this": (
+                            "Mac motor blocked — triggered CF full-pack tick from Cloud Workers cockpit. "
+                            "Motor runs on cloud, not Mac body."
+                        ),
+                    },
+                }
+            except Exception as exc:
+                row = {
+                    **row,
+                    "ok": True,
+                    "decision": "use_cf_cron",
+                    "redirect": "browser_cf_tick",
+                    "cf_tick_url": f"{cf}/tick" if cf else None,
+                    "for_founder": {
+                        "show_this": (
+                            "Mac motor blocked — tap Trigger CF full-pack or wait for CF cron */10. "
+                            f"Manual: {cf}/tick"
+                        ),
+                    },
+                    "cf_trigger_error": str(exc)[:200],
+                }
         cloud = row.get("cloud") if isinstance(row.get("cloud"), dict) else {}
         if cloud.get("pack"):
             row["pack"] = cloud.get("pack")
@@ -318,6 +339,24 @@ class CloudWorkersHandler(BaseHTTPRequestHandler):
             except Exception as exc:
                 result = {"ok": False, "error": "execution_failed", "message": str(exc)[:500]}
             self._json(200 if result.get("ok", True) else 400, result)
+            return
+        if path in ("/api/cloud-worker/dispatch/v1", "/api/cloud-worker/dispatch-batch/v1"):
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
+
+            result = proxy_to_cloud(path=path, body=body if isinstance(body, dict) else {}, timeout_s=180)
+            self._json(200 if result.get("ok") else 502, result)
+            return
+        if path == "/api/loop-specialist/tick/v1":
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
+
+            result = proxy_to_cloud(path=path, body=body if isinstance(body, dict) else {}, timeout_s=120)
+            self._json(200 if result.get("ok") else 502, result)
+            return
+        if path.startswith("/api/forge/"):
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
+
+            result = proxy_to_cloud(path=path, body=body if isinstance(body, dict) else {}, timeout_s=240)
+            self._json(200 if result.get("ok") else 502, result)
             return
         if path == "/api/cloud-forge-run/proceed/v1":
             result = _proceed_direct_cloud(body)
