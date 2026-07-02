@@ -22,6 +22,12 @@
       "workflow": ".github/workflows/external-verify.yml",
       "secrets": ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"]
     },
+    "mac_agent": {
+      "events": ["MAC_AGENT_HEARTBEAT", "MAC_FRESH_MAIN_SYNC", "MAC_RECEIPT_MIRROR", "MAC_SESSION_GATE"],
+      "module": "scripts/mac_spine_bridge_v1.py",
+      "contract": "data/mac-spine-bridge-contract-v1.json",
+      "secrets": ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"]
+    },
     "cloudflare_cron": {
       "event": "CRON_FIRED",
       "module": "cloud/workers/cloud-auto-runtime-tick-v1/src/truth_log.js",

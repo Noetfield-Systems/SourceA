@@ -1,0 +1,35 @@
+{
+  "schema": "mac-cloud-bridge-proof-v1",
+  "wire": "W2",
+  "title": "mac_agent_heartbeat keepalive",
+  "at": "2026-07-02T22:22:28Z",
+  "law": "L16 W2",
+  "receipt": {
+    "path": "~/.sina/mac-spine-heartbeat-receipt-v1.json",
+    "agent_id": "cursor",
+    "degraded_without_secrets": true
+  },
+  "dashboard_row": {
+    "lane": "mac",
+    "workflow_id": "mac_agent_heartbeat",
+    "agent_id": "cursor",
+    "status": "STALE_DATA",
+    "freshness_window_min": 30,
+    "last_at": null,
+    "supabase_ok": false,
+    "note": "STALE_DATA when no spine row or age >30m — expected in CI without portfolio-spine secrets"
+  },
+  "registry_diff": {
+    "trigger_id": "SA-T-mac-agent-heartbeat",
+    "kind": "keepalive",
+    "registry_version": "1.0.3",
+    "probe_type": "session_gate_hook",
+    "paths": [
+      "scripts/agent_session_gate_run_v1.py",
+      "scripts/cloud_workers_hub_v1.py"
+    ],
+    "sweep_ok": true
+  },
+  "command": "python3 scripts/mac_spine_bridge_v1.py heartbeat --json",
+  "hub_action": "POST {\"action\":\"mac_agent_heartbeat\"}"
+}
