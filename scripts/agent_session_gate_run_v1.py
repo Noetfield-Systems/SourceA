@@ -987,6 +987,33 @@ def run_gate(role: str = "any", *, scan_text: str = "", pre_ship: bool = False, 
         except Exception:
             pass
 
+    if not pre_ship:
+        try:
+            from agent_session_cost_v1 import post_session_cost_receipt  # noqa: WPS433
+
+            agent_id = f"cursor-{role}" if role != "any" else "cursor"
+            cost_row = post_session_cost_receipt(
+                agent_id=agent_id,
+                role=role,
+                step_count=len(steps),
+                gate_id=str(receipt.get("gate_id") or ""),
+            )
+            receipt["session_cost"] = cost_row
+            steps.append(
+                {
+                    "step": "agent_session_cost",
+                    "ok": bool(cost_row.get("ok")),
+                    "tier": cost_row.get("tier"),
+                    "usd_marginal": cost_row.get("usd_marginal"),
+                    "usd_list_equiv": cost_row.get("usd_list_equiv"),
+                    "receipt_path": cost_row.get("receipt_path"),
+                    "law": "L17 W3",
+                }
+            )
+            RECEIPT.write_text(json.dumps(receipt, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        except Exception as exc:
+            steps.append({"step": "agent_session_cost", "ok": False, "error": str(exc)[:200], "law": "L17"})
+
     try:
         from governance_event_spine_v1 import append_event  # noqa: WPS433
 

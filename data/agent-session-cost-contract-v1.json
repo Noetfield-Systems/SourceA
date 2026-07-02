@@ -1,0 +1,15 @@
+{
+  "schema": "agent-session-cost-contract-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-02T22:30:00Z",
+  "law": "L17 COST-TIERED WORKER ROUTING",
+  "truth_log_event": "AGENT_SESSION_COST",
+  "escalation_event": "TIER_ESCALATION",
+  "source": "mac_agent",
+  "payload_fields": ["agent_id", "tier", "model", "tokens", "usd_marginal", "usd_list_equiv", "usd_est", "tasks"],
+  "mirror_receipt": "~/.sina/agent-session-cost-receipt-v1.json",
+  "module": "scripts/agent_session_cost_v1.py",
+  "digest_module": "scripts/brain_digest_cost_tier_v1.py",
+  "digest_cadence": "weekly",
+  "digest_metrics": ["spend_by_tier", "cost_per_merged_change_trend"]
+}
