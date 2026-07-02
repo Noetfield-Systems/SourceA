@@ -4,6 +4,23 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
+CF_TOKENS_FILE="${HOME}/.sina/secrets/cloudflare-tokens.env"
+
+load_cf_main_token() {
+  if [[ -n "${CF_MAIN_TOKEN:-}" ]]; then
+    return 0
+  fi
+  if [[ ! -f "$CF_TOKENS_FILE" ]]; then
+    echo "FAIL: CF_MAIN_TOKEN not set and missing $CF_TOKENS_FILE" >&2
+    exit 1
+  fi
+  set -a
+  # shellcheck disable=SC1090
+  source "$CF_TOKENS_FILE"
+  set +a
+  : "${CF_MAIN_TOKEN:?CF_MAIN_TOKEN missing in $CF_TOKENS_FILE; refusing to use human login state}"
+}
+
 cmd="${1:-help}"
 shift || true
 
@@ -23,19 +40,19 @@ case "$cmd" in
     ;;
   deploy)
     bash scripts/brain_chatbot_refresh_v1.sh
-    : "${CF_MAIN_TOKEN:?CF_MAIN_TOKEN must be loaded; refusing to use human login state}"
+    load_cf_main_token
     (cd cloud/workers/sourcea-brain-chat-v1 && CLOUDFLARE_API_TOKEN="${CF_MAIN_TOKEN}" wrangler deploy)
     bash scripts/validate-sourcea-brain-knowledge-v1.sh
     ;;
   deploy-verified|deploy-no-refresh)
     # Gate path: deploy the already-committed, verifier-signed bundle as-is.
-    : "${CF_MAIN_TOKEN:?CF_MAIN_TOKEN must be loaded; refusing to use human login state}"
+    load_cf_main_token
     (cd cloud/workers/sourcea-brain-chat-v1 && CLOUDFLARE_API_TOKEN="${CF_MAIN_TOKEN}" wrangler deploy)
     bash scripts/validate-sourcea-brain-knowledge-v1.sh
     ;;
   deploy-verified-dry-run|deploy-no-refresh-dry-run)
     # Phase 0.4 proof path: validate upload/auth without publishing a Worker version.
-    : "${CF_MAIN_TOKEN:?CF_MAIN_TOKEN must be loaded; refusing to use human login state}"
+    load_cf_main_token
     (cd cloud/workers/sourcea-brain-chat-v1 && CLOUDFLARE_API_TOKEN="${CF_MAIN_TOKEN}" wrangler deploy --dry-run)
     bash scripts/validate-sourcea-brain-knowledge-v1.sh
     ;;
