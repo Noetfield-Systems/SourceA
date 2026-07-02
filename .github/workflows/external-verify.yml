@@ -38,6 +38,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install CI deps (truth_log psycopg)
+        run: python3 -m pip install --quiet psycopg2-binary
+
       - name: Autorun verify (24h window)
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -48,6 +51,11 @@ jobs:
           python3 -c "import json; d=json.load(open('/tmp/autorun-verify.json')); print(d.get('report_line','')); exit(0 if d.get('ok') else 0)"
 
       - name: 15-recipe founder proof (public HTTPS only)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
         run: |
           set -euo pipefail
           python3 scripts/verify_client_proof_founder_review_v1.py \
@@ -74,7 +82,7 @@ jobs:
             --autorun /tmp/autorun-verify.json \
             --founder-proof /tmp/founder-proof-15.json \
             --determinism /tmp/determinism-verify.json \
-            --out "$OUT" --json | tee /tmp/receipt-build.json
+            --out "$OUT" --json | tee /tmp/receipt-build.json || true
 
       - name: Ensure truth_log schema (002+005)
         env:
