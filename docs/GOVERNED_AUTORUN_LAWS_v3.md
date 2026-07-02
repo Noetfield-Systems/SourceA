@@ -80,6 +80,14 @@ Same inputs → same transitions → same receipts, replayable from the event lo
 
 Every new autonomous trigger — CF cron, GHA schedule/push/dispatch, Railway cron, or piggyback hook — MUST add or update `data/trigger-registry-v1.json` in the **same commit**. `scripts/sandbox_health_sweep_v1.py` MUST pass before merge (enforced in `determinism-gate.yml` and `.githooks/pre-commit` on trigger paths). A live trigger without a registry entry = defect (L12 drift). Piggyback triggers register the hook path, not a duplicate cron worker.
 
+## L15 — One integrator per repo (agent-D2)
+
+**Cloud Loop Specialist** owns integration to `main`. Local Worker and Brain agents implement on branches only — never push `main` directly. Non-fast-forward merge attempts must **rebase**, not force-push.
+
+Before starting any task: read `main` and open branches for existing implementation. **Duplicate implementation = defect** (same severity as unregistered trigger · L14).
+
+Enforcement: GitHub branch protection on `main` (founder P4) + `.githooks/pre-push` warning when pushing local commits to `main`.
+
 ## Parallel orchestration (Tier 1+ — founder trigger required)
 
 Lanes · concurrency keys · lock ordering · priority within tick · jitter · backpressure. **BLOCKED** until founder triggers Tier 1.

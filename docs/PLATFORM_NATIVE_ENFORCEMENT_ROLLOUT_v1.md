@@ -8,9 +8,9 @@
 
 | ID | Item | Status | Owner |
 |---|---|---|---|
-| PN-001 | `workflow_run` chain: deploy → external-verify | **SHIPPED** | both |
-| PN-002 | GHA `concurrency` groups (D2) + 15-recipe matrix fan-out | pending | both |
-| PN-003 | `environment: production` on deploy jobs (founder enables reviewer) | prep only | both |
+| PN-001 | `workflow_run` chain: deploy → external-verify | **SHIPPED** (`3240ac7aa`) | both |
+| PN-002 | GHA `concurrency` groups (D2) + 15-recipe matrix fan-out | **SHIPPED** (reconciled from `aeb457c89`) | both |
+| PN-003 | `environment: production` on deploy jobs (founder enables reviewer) | **PREP SHIPPED** (`efb141cec` + deploy job) | both |
 
 ## PN-001 — retired hand-rolled code
 
