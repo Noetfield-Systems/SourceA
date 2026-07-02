@@ -542,6 +542,72 @@
       "error": null
     }
   },
+  "system_anatomy": {
+    "schema": "noetfield-system-anatomy-v1",
+    "spec_path": "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md",
+    "terms": [
+      {
+        "id": "BRAIN",
+        "term": "BRAIN",
+        "definition": "The routing layer: reads all lane states from the SPINE, ranks work by mission priority + ROI, emits desired-state. Never executes.",
+        "lives_where": "brain tick (CF worker / Action)"
+      },
+      {
+        "id": "SPINE",
+        "term": "SPINE",
+        "definition": "The single shared truth store spanning all lanes: truth_log, cycle receipts, heartbeats, checkpoints, definitions.",
+        "lives_where": "Supabase portfolio-spine"
+      },
+      {
+        "id": "NERVES",
+        "term": "NERVES",
+        "definition": "Probes that sense: external-verify, health/ready endpoints, drift checks, schedule self-registration, dashboards. Read-only.",
+        "lives_where": "GitHub Actions + CF + dashboard"
+      },
+      {
+        "id": "GATES",
+        "term": "GATES",
+        "definition": "Deterministic YES/NO functions with {decision, reason, evidence}. Never prose.",
+        "lives_where": "gate CLIs, verifiers (L5-frozen)"
+      },
+      {
+        "id": "MACHINES",
+        "term": "MACHINES",
+        "definition": "Isolated run units doing work: FBE motor, inbox worker, loop fleet. One writer per state cell (D2).",
+        "lives_where": "Railway, GHA jobs, CF workers"
+      },
+      {
+        "id": "MISSION",
+        "term": "MISSION",
+        "definition": "Top-level goal with a value_class, budget, and definition-of-done. Parent of workflows.",
+        "lives_where": "mission registry"
+      },
+      {
+        "id": "WORKFLOW",
+        "term": "WORKFLOW",
+        "definition": "A loop serving one mission in one lane. Has registry entry, states, receipts.",
+        "lives_where": "workflow registry"
+      },
+      {
+        "id": "CYCLE",
+        "term": "CYCLE",
+        "definition": "One tick of one workflow. Atomic, receipted, deterministic (L13).",
+        "lives_where": "cycle receipts"
+      },
+      {
+        "id": "RECEIPT",
+        "term": "RECEIPT",
+        "definition": "Machine-parseable proof artifact per schema. The only admissible evidence.",
+        "lives_where": "spine + repo receipts/"
+      },
+      {
+        "id": "VERIFIED",
+        "term": "VERIFIED",
+        "definition": "State earned by a closed green 24h window on external receipts. Everything else is DECLARED.",
+        "lives_where": "window receipts"
+      }
+    ]
+  },
   "verifier_receipt_id": "167e3626-2e17-4ffc-a027-1a2d4db8b890",
   "term_ratification_synced_at": "2026-07-02T08:52:31Z"
 }

@@ -1,0 +1,53 @@
+{
+  "schema": "mission-registry-v1",
+  "version": "1.0.0",
+  "spec_path": "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md",
+  "missions": [
+    {
+      "mission_id": "M1",
+      "name": "buyer-proof",
+      "value_class": "revenue_path",
+      "workflows": ["external-verify", "founder-proof-15", "buyer-surface"],
+      "definition_of_done": "15/15 PASS daily via Action"
+    },
+    {
+      "mission_id": "M2",
+      "name": "factory-24-7",
+      "value_class": "proof_asset",
+      "workflows": ["cloud-forge-run", "loop-specialist-tick", "brain-loop-cloud-tick", "autonomous-drain-cron-v1"],
+      "definition_of_done": "both windows VERIFIED, stay green 7d"
+    },
+    {
+      "mission_id": "M3",
+      "name": "truth-spine",
+      "value_class": "risk_reduction",
+      "workflows": ["determinism-gate", "truth-log-sink", "replay-tests"],
+      "definition_of_done": "D-metrics all 0 for 7d"
+    },
+    {
+      "mission_id": "M4",
+      "name": "kaizen",
+      "value_class": "hygiene",
+      "workflows": ["improvement-runner"],
+      "definition_of_done": ">=1 machine_safe/day, 0 rollback debt"
+    },
+    {
+      "mission_id": "M5",
+      "name": "client-recipes",
+      "value_class": "revenue_path",
+      "workflows": ["signal-factory-tick", "recipe-queue", "batch-motor"],
+      "definition_of_done": "queue refilled only by rubric; demos replayable"
+    }
+  ],
+  "workflow_missions": {
+    "cloud-forge-run": "M2",
+    "external-verify": "M1",
+    "determinism-gate": "M3",
+    "loop-specialist-tick": "M2",
+    "signal-factory-tick": "M5",
+    "brain-loop-cloud-tick": "M2",
+    "autonomous-drain-cron-v1": "M2",
+    "validate-sourcea-boot": "M4"
+  },
+  "default_mission_id": "M2"
+}
