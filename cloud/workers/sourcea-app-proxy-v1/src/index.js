@@ -23,22 +23,6 @@ function resolvePagesPath(pathname) {
   return pathname;
 }
 
-const REGIONAL_TO_APP = new Map([
-  ["sourcea.ca", new Map([["/ai-value-governance", "https://sourcea.app/ai-value-governance"]])],
-  ["www.sourcea.ca", new Map([["/ai-value-governance", "https://sourcea.app/ai-value-governance"]])],
-  ["sourcea.uk", new Map([["/enterprise-ai-control-plane", "https://sourcea.app/enterprise-ai-control-plane"]])],
-  ["www.sourcea.uk", new Map([["/enterprise-ai-control-plane", "https://sourcea.app/enterprise-ai-control-plane"]])],
-]);
-
-function regionalRedirect(request, incoming) {
-  const host = incoming.hostname.toLowerCase();
-  const map = REGIONAL_TO_APP.get(host);
-  if (!map) return null;
-  const target = map.get(incoming.pathname);
-  if (!target) return null;
-  return Response.redirect(`${target}${incoming.search}`, 301);
-}
-
 function upstreamPath(sub) {
   const clean = (sub || "").replace(/^\//, "");
   if (!clean || clean === "health") return "/health";
@@ -269,12 +253,35 @@ export default {
       return Response.redirect(`${incoming.origin}/sourcea/`, 302);
     }
 
-    const regional = regionalRedirect(request, incoming);
-    if (regional) return regional;
-
     return proxyPages(request, incoming, resolvePagesPath(pathname));
   },
 };
+
+const REDIRECT_STATUSES = new Set([301, 302, 303, 307, 308]);
+
+async function fetchPagesCandidate(request, incoming, candidate, redirectBudget = 4) {
+  const target = new URL(candidate + incoming.search, PAGES);
+  const headers = new Headers(request.headers);
+  headers.set("Host", "sourcea-com.pages.dev");
+  headers.delete("cf-connecting-ip");
+  const proxied = new Request(target.toString(), {
+    method: request.method,
+    headers,
+    body: request.body,
+    redirect: "manual",
+  });
+  const response = await fetch(proxied);
+  if (REDIRECT_STATUSES.has(response.status) && redirectBudget > 0) {
+    const loc = response.headers.get("Location");
+    if (loc) {
+      const next = new URL(loc, target);
+      if (next.origin === new URL(PAGES).origin) {
+        return fetchPagesCandidate(request, incoming, `${next.pathname}${next.search}`, redirectBudget - 1);
+      }
+    }
+  }
+  return { response, candidate };
+}
 
 async function proxyPages(request, incoming, pagesPath) {
   const candidates = [pagesPath];
@@ -285,35 +292,31 @@ async function proxyPages(request, incoming, pagesPath) {
   let lastError = null;
   for (const candidate of candidates) {
     try {
-      const target = new URL(candidate + incoming.search, PAGES);
-      const headers = new Headers(request.headers);
-      headers.set("Host", "sourcea-com.pages.dev");
-      headers.delete("cf-connecting-ip");
-      const proxied = new Request(target.toString(), {
-        method: request.method,
-        headers,
-        body: request.body,
-        redirect: "manual",
-      });
-      const response = await fetch(proxied);
+      const { response, candidate: resolvedCandidate } = await fetchPagesCandidate(request, incoming, candidate);
       if (response.status >= 500 && candidates.indexOf(candidate) < candidates.length - 1) {
         continue;
       }
       const out = new Headers(response.headers);
       out.set("X-SourceA-Proxy", "sourcea-app-proxy-v1");
       out.set("X-SourceA-Origin", "pages-green-unified");
-      out.set("X-SourceA-Pages-Path", candidate);
-      const loc = response.headers.get("Location");
-      if (loc) {
-        out.set(
-          "Location",
-          loc
-            .replace(/^https?:\/\/sourcea-com\.pages\.dev/i, `https://${incoming.host}`)
-            .replace(/^https?:\/\/source-a\.vercel\.app/i, `https://${incoming.host}`),
+      out.set("X-SourceA-Pages-Path", resolvedCandidate);
+      out.delete("Location");
+      const status = REDIRECT_STATUSES.has(response.status) ? 502 : response.status;
+      if (REDIRECT_STATUSES.has(response.status)) {
+        return jsonResponse(
+          request,
+          {
+            ok: false,
+            schema: "sourcea-public-api-error-v1",
+            error: "pages_redirect_not_resolved",
+            pages_origin: PAGES,
+            path: resolvedCandidate,
+          },
+          502,
         );
       }
       return new Response(response.body, {
-        status: response.status,
+        status,
         statusText: response.statusText,
         headers: out,
       });
