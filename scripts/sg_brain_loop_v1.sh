@@ -34,6 +34,9 @@ case "$cmd" in
   rollback)
     bash "$SOURCEA_ROOT/scripts/brain_rollback_drill_v1.sh" "$@"
     ;;
+  promote)
+    bash "$SG_ROOT/scripts/promote_brain_worker_v1.sh" "$@"
+    ;;
   help|*)
     cat <<EOF
 SourceA → SG brain loop wrapper
@@ -44,6 +47,7 @@ SourceA → SG brain loop wrapper
   bash $SOURCEA_ROOT/scripts/sg_brain_loop_v1.sh independence
   bash $SOURCEA_ROOT/scripts/sg_brain_loop_v1.sh autorun
   bash $SOURCEA_ROOT/scripts/sg_brain_loop_v1.sh rollback [dry-run|execute]
+  bash $SOURCEA_ROOT/scripts/sg_brain_loop_v1.sh promote [--dry-run|--autonomous-deploy]
 
 SG_ROOT=$SG_ROOT
 SOURCEA_ROOT=$SOURCEA_ROOT

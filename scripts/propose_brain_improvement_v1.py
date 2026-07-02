@@ -44,10 +44,20 @@ def main() -> int:
     args = parser.parse_args()
 
     branch = current_branch()
-    if not branch.startswith("sandbox/brain/"):
-        print(f"WARN: branch {branch!r} does not match sandbox/brain/<domain>/<desc>")
+    on_sandbox_branch = branch.startswith("sandbox/brain/")
+    if on_sandbox_branch:
+        print(f"INFO: sandbox branch {branch!r} — verify-only; merge to main before autonomous promote")
 
     tests_ok, tests_tail = run_tests()
+    next_steps = [
+        "Push branch to origin",
+        "Run SG scripts/run_parallel_brain_candidates_v1.sh (verify-only on sandbox branch)",
+        "Merge to main when PASS",
+        "Autorun promotes main only when ~/.sina/brain-autonomous-deploy-v1.flag is active",
+    ]
+    if on_sandbox_branch:
+        next_steps.insert(2, "Do NOT run promotion_gate --autonomous-deploy from sandbox branch")
+
     proposal = {
         "schema": "brain_improvement_proposal_v1",
         "proposed_at": _now(),
@@ -58,11 +68,9 @@ def main() -> int:
         "proposal_label": f"{args.domain}:{args.desc}",
         "local_tests_ok": tests_ok,
         "local_tests_tail": tests_tail,
-        "next_steps": [
-            "Push branch to origin",
-            "Run SG scripts/run_parallel_brain_candidates_v1.sh",
-            "Gate with --sandbox-id brain_worker when PASS",
-        ],
+        "verify_only_on_sandbox_branch": on_sandbox_branch,
+        "autonomous_promote_branch": "main",
+        "next_steps": next_steps,
     }
 
     PROPOSALS_DIR.mkdir(parents=True, exist_ok=True)
