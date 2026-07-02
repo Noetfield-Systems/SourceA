@@ -2,19 +2,21 @@
 # enter-mac-control-plane-v1.sh — Mac = control panel · cloud/API = execution
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+PY="$ROOT/scripts/sourcea-python-v1.sh"
+[[ -x "$PY" ]] || PY="/usr/bin/python3"
 
-python3 "$ROOT/scripts/mac_control_plane_v1.py" --enter
+"$PY" "$ROOT/scripts/mac_control_plane_v1.py" --enter
 
 mkdir -p "${HOME}/.sina"
 touch "${HOME}/.sina/mac-light-validators-only-v1.flag"
-python3 "$ROOT/scripts/mac_law_universal_wire_v1.py" --sync-receipt --json >/dev/null 2>&1 || true
-python3 "$ROOT/scripts/mac_law_agent_execution_plane_lock_v1.py" --sync-receipt --json >/dev/null 2>&1 || true
-python3 "$ROOT/scripts/mac_pipeline_validator_pressure_v1.py" --wire-gates --json >/dev/null 2>&1 || true
-python3 "$ROOT/scripts/mac_pipeline_validator_pressure_v1.py" --json >/dev/null 2>&1 || true
+"$PY" "$ROOT/scripts/mac_law_universal_wire_v1.py" --sync-receipt --json >/dev/null 2>&1 || true
+"$PY" "$ROOT/scripts/mac_law_agent_execution_plane_lock_v1.py" --sync-receipt --json >/dev/null 2>&1 || true
+"$PY" "$ROOT/scripts/mac_pipeline_validator_pressure_v1.py" --wire-gates --json >/dev/null 2>&1 || true
+"$PY" "$ROOT/scripts/mac_pipeline_validator_pressure_v1.py" --json >/dev/null 2>&1 || true
 
 echo ""
 echo "=== HUB (:13020) — TCC-safe boot ==="
-python3 "$ROOT/scripts/mac_launchd_tcc_guard_v1.py" --boot-hub --json 2>/dev/null \
+"$PY" "$ROOT/scripts/mac_launchd_tcc_guard_v1.py" --boot-hub --json 2>/dev/null \
   || bash "$ROOT/scripts/serve-sina-command.sh" || echo "WARN: Hub boot failed — see ~/.sina/mac-launchd-tcc-receipt-v1.json"
 
 echo ""
