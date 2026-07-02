@@ -470,18 +470,33 @@ def count_batch_on_railway(
     present: list[str] = []
     missing: list[str] = []
     base = base_url.rstrip("/")
-    for pid in plan_ids:
+
+    def _has_artifact(pid: str) -> bool:
         detail_url = f"{base}/api/cloud-forge-run/evidence-audit/v1?plan_id={urllib.parse.quote(pid)}"
         req = urllib.request.Request(detail_url, headers={"Accept": "application/json"})
         try:
             with urllib.request.urlopen(req, timeout=20) as resp:
                 detail = json.loads(resp.read().decode("utf-8", errors="replace"))
-            if detail.get("ok") and detail.get("artifact"):
-                present.append(pid)
-            else:
-                missing.append(pid)
+            return bool(detail.get("ok") and detail.get("artifact"))
         except Exception:
+            return False
+
+    for pid in plan_ids:
+        if _has_artifact(pid):
+            present.append(pid)
+        else:
             missing.append(pid)
+    if missing:
+        retry_present: list[str] = []
+        retry_missing: list[str] = []
+        for pid in missing:
+            if _has_artifact(pid):
+                retry_present.append(pid)
+            else:
+                retry_missing.append(pid)
+        if retry_present:
+            present.extend(retry_present)
+            missing = retry_missing
     return {
         "ok": True,
         "expected": len(plan_ids),
@@ -547,10 +562,12 @@ def batch_sink_invariant(
     mac_count = int(mac.get("mac_replay_count") or 0)
     rw_count = int(rw.get("railway_count") or 0)
     sb_count = int(sb.get("supabase_count") or 0)
+    covered = set(rw.get("present") or []) | set(mac.get("present") or [])
     ok = (
         sb.get("ok")
         and rw.get("ok")
         and sb_count == len(plan_ids)
+        and len(covered) == sb_count
         and (rw_count + mac_count) == sb_count
     )
     reason = None
