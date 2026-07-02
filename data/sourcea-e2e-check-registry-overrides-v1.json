@@ -138,6 +138,14 @@
       "allowed_context": ["ship_window", "cloud_ci"],
       "runner": "scripts/validate-sourcea-brain-live-v1.sh"
     },
+    "client_proof_public": {
+      "label": "15-recipe founder proof (public HTTPS only)",
+      "cadence": "weekly",
+      "unified_tier": "T1_fast",
+      "est_wall_sec": 120,
+      "allowed_context": ["ship_window", "cloud_ci"],
+      "runner": "scripts/run_founder_proof_post_publish_v1.py --json --min-seconds-after-deploy 0"
+    },
     "site_pulse_dashboard": {
       "label": "Site pulse stats + founder dashboard API",
       "cadence": "weekly",
