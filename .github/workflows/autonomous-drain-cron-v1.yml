@@ -3,6 +3,10 @@ name: autonomous-drain-cron-v1
 on:
   workflow_dispatch:
 
+concurrency:
+  group: autonomous-drain-cron-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   cloud-tick:
     runs-on: ubuntu-latest

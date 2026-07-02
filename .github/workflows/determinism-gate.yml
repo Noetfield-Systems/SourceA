@@ -19,6 +19,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: determinism-gate-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   determinism-gate:
     runs-on: ubuntu-latest
