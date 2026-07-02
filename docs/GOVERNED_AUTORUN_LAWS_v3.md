@@ -111,6 +111,14 @@ Failed checks, DRIFT, `THROTTLED_ROI`, audit findings auto-file improvement cand
 - One improvement per cycle, highest expected ROI, `machine_safe` only.
 - Reports: SHAs, receipt paths, counts before/after, cost table, dirty state, gate receipts `{decision, reason, evidence}`.
 - No narrative claims without command + output.
+- **CI fix law:** every workflow fix commit MUST quote the failing step log excerpt in the commit message. Blind retrigger commits without quoted error = defect.
+
+## L4 CI bisect law
+
+1. `external-verify.yml` = minimal buyer-surface lane only (curl + forbidden scan → artifact).
+2. Supabase `truth_log` POST = separate step/commit (REST `curl`, never `psql` on runner).
+3. Determinism gate = separate workflow `determinism-gate.yml` — never block L4 again.
+4. Before push: `bash scripts/validate-github-workflows-v1.sh` (yamllint + actionlint).
 
 ## Wired artifacts
 
