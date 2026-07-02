@@ -5,7 +5,7 @@ description: Design, run, audit, and repair 24/7 multi-workflow autonomous execu
 
 # Controlled Autorun v3
 
-Operating system for continuous, parallel, self-improving multi-sandbox execution. Every law traces to a real production incident. v2 adds the ROI layer: the machine governs its own spend the way it governs its own state.
+Operating system for continuous, parallel, self-improving multi-sandbox execution. Every law traces to a real production incident. v3 adds L13 determinism on top of v2's ROI layer (L11).
 
 ## The Thirteen Laws
 
@@ -109,3 +109,7 @@ One repo per prompt. ≤3-line reason/goal/outcome header for the founder. Fixed
 5. 24h zero-manual window: scheduled receipts only, sink invariants every cycle, heartbeat with cost table + drift check present
 
 A loop is DECLARED until its 24h window closes green on external receipts; only then VERIFIED. Reports must state which.
+
+## SourceA (this repo)
+
+Load **`references/sourcea-wiring.md`** for paths, boot commands, motor chain, receipt dirs, and Mac dispatch law. Deterministic loop rules: **`references/deterministic-loops.md`** (D1–D8). Human law mirror: `docs/CONTROLLED_AUTORUN_LAWS_v3.md`.

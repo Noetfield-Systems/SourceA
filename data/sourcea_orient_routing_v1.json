@@ -144,7 +144,7 @@
     {"step": 11, "id": "cloud_workers_handoff", "path": "data/cloud-workers-control-plane-v1.json", "why": "Cloud Workers cockpit · batch handoff SSOT"},
     {"step": 12, "id": "worker_assignment", "path": "data/sourcea-worker-professional-assignment-v1.json", "why": "Phased worker handoff · Mac control → cloud execute"},
     {"step": 13, "id": "mac_control_dispatch", "path": "scripts/fbe/lib/mac_control_dispatch_v1.py", "why": "Mac Hub dispatch OK · motor blocked · CF cron only"},
-    {"step": 14, "id": "controlled_autorun", "path": ".cursor/skills/controlled-autorun/SKILL.md", "why": "24/7 autorun laws L1–L12 · loop specialist standing duties"}
+    {"step": 14, "id": "controlled_autorun", "path": ".cursor/skills/controlled-autorun/SKILL.md", "why": "24/7 autorun laws L1–L13 · D1–D8 determinism · loop specialist standing duties"}
   ],
   "session_gate_step_nodes": {
     "anti_staleness_auto_wire": "disk_live_wire",
