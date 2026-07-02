@@ -1,0 +1,27 @@
+{
+  "schema": "autorun-pending-v1",
+  "version": "1.0.0",
+  "at": "2026-07-02T12:11:19Z",
+  "count": 1,
+  "p0_count": 1,
+  "items": [
+    {
+      "id": "external_verify_l4",
+      "status": "pending",
+      "severity": "P0",
+      "law": "L4",
+      "reason": "no_green_external_verify_receipt_on_disk",
+      "evidence": {
+        "command": "ls receipts/cloud/external-verify/",
+        "exit_code": 1,
+        "output": "{\"found\": false, \"path\": \"/Users/sinakazemnezhad/Desktop/SourceA/receipts/cloud/external-verify\"}"
+      },
+      "action": "green external-verify.yml run; receipt must land on disk",
+      "actions_url": "https://github.com/kazemnezhadsina144-dot/SourceA/actions/workflows/external-verify.yml"
+    }
+  ],
+  "oldest_id": "external_verify_l4",
+  "age_seconds": 0,
+  "ok": false,
+  "report_line": "pending=1 \u00b7 P0=1 \u00b7 head=external_verify_l4 \u00b7 no_green_external_verify_receipt_on_disk"
+}
