@@ -3,449 +3,449 @@
     {
       "id": "sourcea_live_good",
       "receipt": {
-        "author_runtime": "brain_core_v1",
-        "created_at": "1970-01-01T00:00:00Z",
-        "d4_enforcement": {
-          "author_runtime": "brain_core_v1",
-          "author_subject_separated": true,
-          "author_verifier_separated": true,
-          "enforcement_hash": "34742dbe321152f7c399b0481767dac9fa2c46f453feafd2ef8357c040865444",
-          "input_lifecycle": "PASS",
-          "input_status": "PASS",
-          "lifecycle": "PASS",
-          "ok": true,
-          "protected_receipt": true,
-          "reasons": [],
-          "receipt_type": "BRAIN_CORE_GATE_RESULT",
-          "schema": "brain-core-d4-enforcement-v1",
-          "schema_version": "1.0.0",
-          "status": "PASS",
-          "subject_runtime": "public_brain_reply",
-          "verifier_runtime": "test_suite"
-        },
-        "decision": {
-          "allowed_claim_id": "sourcea_is_live",
-          "approved_claim": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
-          "deterministic": true,
-          "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
-          "fallback_text": null,
-          "intent": "sourcea_is_live",
-          "ladder_gear": "confident",
-          "requires_status_signal": true,
-          "schema": "brain-core-decision-v1",
-          "status_key": "sourcea_app_http_status",
-          "status_value": "ok"
-        },
-        "evidence": {
-          "decision": {
-            "allowed_claim_id": "sourcea_is_live",
-            "approved_claim": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
-            "deterministic": true,
-            "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
-            "fallback_text": null,
-            "intent": "sourcea_is_live",
-            "ladder_gear": "confident",
-            "requires_status_signal": true,
-            "schema": "brain-core-decision-v1",
-            "status_key": "sourcea_app_http_status",
-            "status_value": "ok"
-          },
-          "live_status": {
-            "sourcea_app_http_status": {
-              "http_status": 200,
-              "status": "good"
-            }
-          },
-          "locked_definitions_validation": {
-            "actual_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
-            "expected_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
-            "match": true,
-            "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
-            "reasons": [],
-            "validation_result": "PASS"
-          },
-          "mapped_status": {
-            "sourcea_app_http_status": "ok"
-          },
-          "sanitized_output": {
-            "forbidden_public_language_removed": [],
-            "ok": true,
-            "public_language": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it."
-          }
-        },
-        "gate_result": "PASS",
-        "input_hash": "1f019bf582077409ff12ddcbbbbaab0d0d19051aa8d3ae2bc764f76d4bd22bee",
+        "schema": "brain-core-gate-v1",
+        "schema_version": "1.0.0",
+        "receipt_type": "BRAIN_CORE_GATE_RESULT",
+        "status": "PASS",
         "lifecycle": "PASS",
+        "created_at": "1970-01-01T00:00:00Z",
+        "author_runtime": "brain_core_v1",
+        "subject_runtime": "public_brain_reply",
+        "verifier_runtime": "test_suite",
         "live_status": {
           "sourcea_app_http_status": {
-            "http_status": 200,
-            "status": "good"
+            "status": "good",
+            "http_status": 200
           }
-        },
-        "locked_definitions_validation": {
-          "actual_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
-          "expected_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
-          "match": true,
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
-          "reasons": [],
-          "validation_result": "PASS"
         },
         "mapped_status": {
           "sourcea_app_http_status": "ok"
         },
-        "pass_claimed": false,
-        "reasons": [],
-        "receipt_type": "BRAIN_CORE_GATE_RESULT",
-        "sanitized_output": {
-          "forbidden_public_language_removed": [],
-          "ok": true,
-          "public_language": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it."
+        "decision": {
+          "schema": "brain-core-decision-v1",
+          "intent": "sourcea_is_live",
+          "allowed_claim_id": "sourcea_is_live",
+          "requires_status_signal": true,
+          "status_key": "sourcea_app_http_status",
+          "status_value": "ok",
+          "ladder_gear": "confident",
+          "approved_claim": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
+          "fallback_text": null,
+          "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
+          "deterministic": true
         },
-        "schema": "brain-core-gate-v1",
-        "schema_version": "1.0.0",
-        "status": "PASS",
-        "subject_runtime": "public_brain_reply",
-        "verifier_runtime": "test_suite"
+        "sanitized_output": {
+          "ok": true,
+          "public_language": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
+          "forbidden_public_language_removed": []
+        },
+        "pass_claimed": false,
+        "gate_result": "PASS",
+        "reasons": [],
+        "evidence": {
+          "decision": {
+            "schema": "brain-core-decision-v1",
+            "intent": "sourcea_is_live",
+            "allowed_claim_id": "sourcea_is_live",
+            "requires_status_signal": true,
+            "status_key": "sourcea_app_http_status",
+            "status_value": "ok",
+            "ladder_gear": "confident",
+            "approved_claim": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
+            "fallback_text": null,
+            "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
+            "deterministic": true
+          },
+          "sanitized_output": {
+            "ok": true,
+            "public_language": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
+            "forbidden_public_language_removed": []
+          },
+          "live_status": {
+            "sourcea_app_http_status": {
+              "status": "good",
+              "http_status": 200
+            }
+          },
+          "mapped_status": {
+            "sourcea_app_http_status": "ok"
+          },
+          "locked_definitions_validation": {
+            "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
+            "expected_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+            "actual_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+            "match": true,
+            "validation_result": "PASS",
+            "reasons": []
+          }
+        },
+        "locked_definitions_validation": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
+          "expected_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+          "actual_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+          "match": true,
+          "validation_result": "PASS",
+          "reasons": []
+        },
+        "input_hash": "8c7273478b8a7e39e2156cca0e3a1cb07846501e06027c8ab40c89dbcfa78795",
+        "d4_enforcement": {
+          "schema": "brain-core-d4-enforcement-v1",
+          "schema_version": "1.0.0",
+          "ok": true,
+          "receipt_type": "BRAIN_CORE_GATE_RESULT",
+          "input_lifecycle": "PASS",
+          "input_status": "PASS",
+          "lifecycle": "PASS",
+          "status": "PASS",
+          "author_runtime": "brain_core_v1",
+          "subject_runtime": "public_brain_reply",
+          "verifier_runtime": "test_suite",
+          "author_subject_separated": true,
+          "author_verifier_separated": true,
+          "protected_receipt": true,
+          "reasons": [],
+          "enforcement_hash": "d44ef6f40179d2910a0a819f237819d3f28be29c19b9d2d5eccea6d14a56e875"
+        }
       }
     },
     {
       "id": "sourcea_unknown_fake_pass",
       "receipt": {
-        "author_runtime": "brain_core_v1",
-        "created_at": "1970-01-01T00:00:00Z",
-        "d4_enforcement": {
-          "author_runtime": "brain_core_v1",
-          "author_subject_separated": true,
-          "author_verifier_separated": true,
-          "enforcement_hash": "d1b8e6b195aea9ef3a22a635411378947ff951627467d63d7c28faddda0de1f1",
-          "input_lifecycle": "BLOCKED",
-          "input_status": "BLOCKED",
-          "lifecycle": "BLOCKED",
-          "ok": true,
-          "protected_receipt": true,
-          "reasons": [],
-          "receipt_type": "BRAIN_CORE_GATE_RESULT",
-          "schema": "brain-core-d4-enforcement-v1",
-          "schema_version": "1.0.0",
-          "status": "BLOCKED",
-          "subject_runtime": "public_brain_reply",
-          "verifier_runtime": "test_suite"
-        },
-        "decision": {
-          "allowed_claim_id": "sourcea_is_live",
-          "approved_claim": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
-          "deterministic": true,
-          "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
-          "fallback_text": "SourceA has public product routes on sourcea.app. I don’t have a fresh live-status check in this answer, so start from the current product route.",
-          "intent": "sourcea_is_live",
-          "ladder_gear": "unsure",
-          "requires_status_signal": true,
-          "schema": "brain-core-decision-v1",
-          "status_key": "sourcea_app_http_status",
-          "status_value": "unknown"
-        },
-        "evidence": {
-          "decision": {
-            "allowed_claim_id": "sourcea_is_live",
-            "approved_claim": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
-            "deterministic": true,
-            "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
-            "fallback_text": "SourceA has public product routes on sourcea.app. I don’t have a fresh live-status check in this answer, so start from the current product route.",
-            "intent": "sourcea_is_live",
-            "ladder_gear": "unsure",
-            "requires_status_signal": true,
-            "schema": "brain-core-decision-v1",
-            "status_key": "sourcea_app_http_status",
-            "status_value": "unknown"
-          },
-          "live_status": {
-            "sourcea_app_http_status": {
-              "error": "mock timeout",
-              "status": "unknown"
-            }
-          },
-          "locked_definitions_validation": {
-            "actual_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
-            "expected_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
-            "match": true,
-            "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
-            "reasons": [],
-            "validation_result": "PASS"
-          },
-          "mapped_status": {
-            "sourcea_app_http_status": "unknown"
-          },
-          "sanitized_output": {
-            "forbidden_public_language_removed": [
-              "PASS"
-            ],
-            "ok": false,
-            "reason": "status_invented_or_strengthened",
-            "safe_public_language": "SourceA has public product routes on sourcea.app. I don’t have a fresh live-status check in this answer, so start from the current product route."
-          }
-        },
-        "gate_result": "BLOCK",
-        "input_hash": "e1291de1606e0a2a08a6b82e467a26d97915b0c762de019f65a126d8bd3f1cfb",
+        "schema": "brain-core-gate-v1",
+        "schema_version": "1.0.0",
+        "receipt_type": "BRAIN_CORE_GATE_RESULT",
+        "status": "BLOCKED",
         "lifecycle": "BLOCKED",
+        "created_at": "1970-01-01T00:00:00Z",
+        "author_runtime": "brain_core_v1",
+        "subject_runtime": "public_brain_reply",
+        "verifier_runtime": "test_suite",
         "live_status": {
           "sourcea_app_http_status": {
-            "error": "mock timeout",
-            "status": "unknown"
+            "status": "unknown",
+            "error": "mock timeout"
           }
-        },
-        "locked_definitions_validation": {
-          "actual_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
-          "expected_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
-          "match": true,
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
-          "reasons": [],
-          "validation_result": "PASS"
         },
         "mapped_status": {
           "sourcea_app_http_status": "unknown"
         },
+        "decision": {
+          "schema": "brain-core-decision-v1",
+          "intent": "sourcea_is_live",
+          "allowed_claim_id": "sourcea_is_live",
+          "requires_status_signal": true,
+          "status_key": "sourcea_app_http_status",
+          "status_value": "unknown",
+          "ladder_gear": "unsure",
+          "approved_claim": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
+          "fallback_text": "SourceA has public product routes on sourcea.app. I don’t have a fresh live-status check in this answer, so start from the current product route.",
+          "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
+          "deterministic": true
+        },
+        "sanitized_output": {
+          "ok": false,
+          "reason": "status_invented_or_strengthened",
+          "safe_public_language": "SourceA has public product routes on sourcea.app. I don’t have a fresh live-status check in this answer, so start from the current product route.",
+          "forbidden_public_language_removed": [
+            "PASS"
+          ]
+        },
         "pass_claimed": true,
+        "gate_result": "BLOCK",
         "reasons": [
           "status_not_confident:unsure",
           "pass_claimed_without_confident_status",
           "sanitizer_block:status_invented_or_strengthened"
         ],
-        "receipt_type": "BRAIN_CORE_GATE_RESULT",
-        "sanitized_output": {
-          "forbidden_public_language_removed": [
-            "PASS"
-          ],
-          "ok": false,
-          "reason": "status_invented_or_strengthened",
-          "safe_public_language": "SourceA has public product routes on sourcea.app. I don’t have a fresh live-status check in this answer, so start from the current product route."
+        "evidence": {
+          "decision": {
+            "schema": "brain-core-decision-v1",
+            "intent": "sourcea_is_live",
+            "allowed_claim_id": "sourcea_is_live",
+            "requires_status_signal": true,
+            "status_key": "sourcea_app_http_status",
+            "status_value": "unknown",
+            "ladder_gear": "unsure",
+            "approved_claim": "SourceA has public product routes on sourcea.app. Say “SourceA is live” only when a fresh site/status check confirms it.",
+            "fallback_text": "SourceA has public product routes on sourcea.app. I don’t have a fresh live-status check in this answer, so start from the current product route.",
+            "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
+            "deterministic": true
+          },
+          "sanitized_output": {
+            "ok": false,
+            "reason": "status_invented_or_strengthened",
+            "safe_public_language": "SourceA has public product routes on sourcea.app. I don’t have a fresh live-status check in this answer, so start from the current product route.",
+            "forbidden_public_language_removed": [
+              "PASS"
+            ]
+          },
+          "live_status": {
+            "sourcea_app_http_status": {
+              "status": "unknown",
+              "error": "mock timeout"
+            }
+          },
+          "mapped_status": {
+            "sourcea_app_http_status": "unknown"
+          },
+          "locked_definitions_validation": {
+            "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
+            "expected_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+            "actual_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+            "match": true,
+            "validation_result": "PASS",
+            "reasons": []
+          }
         },
-        "schema": "brain-core-gate-v1",
-        "schema_version": "1.0.0",
-        "status": "BLOCKED",
-        "subject_runtime": "public_brain_reply",
-        "verifier_runtime": "test_suite"
+        "locked_definitions_validation": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
+          "expected_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+          "actual_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+          "match": true,
+          "validation_result": "PASS",
+          "reasons": []
+        },
+        "input_hash": "ce5bbf409e80daa16f74806fe5527587dbfb8c656cdc5bce1e86cfcf03e92d82",
+        "d4_enforcement": {
+          "schema": "brain-core-d4-enforcement-v1",
+          "schema_version": "1.0.0",
+          "ok": true,
+          "receipt_type": "BRAIN_CORE_GATE_RESULT",
+          "input_lifecycle": "BLOCKED",
+          "input_status": "BLOCKED",
+          "lifecycle": "BLOCKED",
+          "status": "BLOCKED",
+          "author_runtime": "brain_core_v1",
+          "subject_runtime": "public_brain_reply",
+          "verifier_runtime": "test_suite",
+          "author_subject_separated": true,
+          "author_verifier_separated": true,
+          "protected_receipt": true,
+          "reasons": [],
+          "enforcement_hash": "34bd5b2908879af43d861b9a169e8f6b3b9bb7a3fd0f274c87874e137a4c1b32"
+        }
       }
     },
     {
       "id": "forge_degraded_block",
       "receipt": {
-        "author_runtime": "brain_core_v1",
-        "created_at": "1970-01-01T00:00:00Z",
-        "d4_enforcement": {
-          "author_runtime": "brain_core_v1",
-          "author_subject_separated": true,
-          "author_verifier_separated": true,
-          "enforcement_hash": "483edb3ce60458a22fd626bd14479f045d687d4ab7daafcd06458ef26c6a37b2",
-          "input_lifecycle": "BLOCKED",
-          "input_status": "BLOCKED",
-          "lifecycle": "BLOCKED",
-          "ok": true,
-          "protected_receipt": true,
-          "reasons": [],
-          "receipt_type": "BRAIN_CORE_GATE_RESULT",
-          "schema": "brain-core-d4-enforcement-v1",
-          "schema_version": "1.0.0",
-          "status": "BLOCKED",
-          "subject_runtime": "public_brain_reply",
-          "verifier_runtime": "test_suite"
-        },
-        "decision": {
-          "allowed_claim_id": "forge_terminal_guaranteed_live_runtime",
-          "approved_claim": "Forge Terminal is the browser product route for trying SourceA/Forge. Say it is available only after a fresh runtime/status signal confirms it.",
-          "deterministic": true,
-          "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
-          "fallback_text": "Forge Terminal may be degraded right now. Start from the SourceA product/proof route, then use the demo escalation if the browser route does not connect.",
-          "intent": "forge_terminal_guaranteed_live_runtime",
-          "ladder_gear": "degraded",
-          "requires_status_signal": true,
-          "schema": "brain-core-decision-v1",
-          "status_key": "forge_terminal_runtime_status",
-          "status_value": "degraded"
-        },
-        "evidence": {
-          "decision": {
-            "allowed_claim_id": "forge_terminal_guaranteed_live_runtime",
-            "approved_claim": "Forge Terminal is the browser product route for trying SourceA/Forge. Say it is available only after a fresh runtime/status signal confirms it.",
-            "deterministic": true,
-            "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
-            "fallback_text": "Forge Terminal may be degraded right now. Start from the SourceA product/proof route, then use the demo escalation if the browser route does not connect.",
-            "intent": "forge_terminal_guaranteed_live_runtime",
-            "ladder_gear": "degraded",
-            "requires_status_signal": true,
-            "schema": "brain-core-decision-v1",
-            "status_key": "forge_terminal_runtime_status",
-            "status_value": "degraded"
-          },
-          "live_status": {
-            "forge_terminal_runtime_status": {
-              "http_status": 503,
-              "status": "degraded"
-            }
-          },
-          "locked_definitions_validation": {
-            "actual_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
-            "expected_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
-            "match": true,
-            "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
-            "reasons": [],
-            "validation_result": "PASS"
-          },
-          "mapped_status": {
-            "forge_terminal_runtime_status": "degraded"
-          },
-          "sanitized_output": {
-            "forbidden_public_language_removed": [
-              "BLOCK"
-            ],
-            "ok": true,
-            "public_language": "Forge Terminal may be degraded right now. Start from the SourceA product/proof route, then use the demo escalation if the browser route does not connect."
-          }
-        },
-        "gate_result": "BLOCK",
-        "input_hash": "19347a263ce4faec02a2a4131ec0887e72f4741e9f17fd47e8f0cc5ed8638614",
+        "schema": "brain-core-gate-v1",
+        "schema_version": "1.0.0",
+        "receipt_type": "BRAIN_CORE_GATE_RESULT",
+        "status": "BLOCKED",
         "lifecycle": "BLOCKED",
+        "created_at": "1970-01-01T00:00:00Z",
+        "author_runtime": "brain_core_v1",
+        "subject_runtime": "public_brain_reply",
+        "verifier_runtime": "test_suite",
         "live_status": {
           "forge_terminal_runtime_status": {
-            "http_status": 503,
-            "status": "degraded"
+            "status": "degraded",
+            "http_status": 503
           }
-        },
-        "locked_definitions_validation": {
-          "actual_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
-          "expected_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
-          "match": true,
-          "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
-          "reasons": [],
-          "validation_result": "PASS"
         },
         "mapped_status": {
           "forge_terminal_runtime_status": "degraded"
         },
+        "decision": {
+          "schema": "brain-core-decision-v1",
+          "intent": "forge_terminal_guaranteed_live_runtime",
+          "allowed_claim_id": "forge_terminal_guaranteed_live_runtime",
+          "requires_status_signal": true,
+          "status_key": "forge_terminal_runtime_status",
+          "status_value": "degraded",
+          "ladder_gear": "degraded",
+          "approved_claim": "Forge Terminal is the browser product route for trying SourceA/Forge. Say it is available only after a fresh runtime/status signal confirms it.",
+          "fallback_text": "Forge Terminal may be degraded right now. Start from the SourceA product/proof route, then use the demo escalation if the browser route does not connect.",
+          "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
+          "deterministic": true
+        },
+        "sanitized_output": {
+          "ok": true,
+          "public_language": "Forge Terminal may be degraded right now. Start from the SourceA product/proof route, then use the demo escalation if the browser route does not connect.",
+          "forbidden_public_language_removed": [
+            "BLOCK"
+          ]
+        },
         "pass_claimed": false,
+        "gate_result": "BLOCK",
         "reasons": [
           "status_not_confident:degraded"
         ],
-        "receipt_type": "BRAIN_CORE_GATE_RESULT",
-        "sanitized_output": {
-          "forbidden_public_language_removed": [
-            "BLOCK"
-          ],
-          "ok": true,
-          "public_language": "Forge Terminal may be degraded right now. Start from the SourceA product/proof route, then use the demo escalation if the browser route does not connect."
+        "evidence": {
+          "decision": {
+            "schema": "brain-core-decision-v1",
+            "intent": "forge_terminal_guaranteed_live_runtime",
+            "allowed_claim_id": "forge_terminal_guaranteed_live_runtime",
+            "requires_status_signal": true,
+            "status_key": "forge_terminal_runtime_status",
+            "status_value": "degraded",
+            "ladder_gear": "degraded",
+            "approved_claim": "Forge Terminal is the browser product route for trying SourceA/Forge. Say it is available only after a fresh runtime/status signal confirms it.",
+            "fallback_text": "Forge Terminal may be degraded right now. Start from the SourceA product/proof route, then use the demo escalation if the browser route does not connect.",
+            "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
+            "deterministic": true
+          },
+          "sanitized_output": {
+            "ok": true,
+            "public_language": "Forge Terminal may be degraded right now. Start from the SourceA product/proof route, then use the demo escalation if the browser route does not connect.",
+            "forbidden_public_language_removed": [
+              "BLOCK"
+            ]
+          },
+          "live_status": {
+            "forge_terminal_runtime_status": {
+              "status": "degraded",
+              "http_status": 503
+            }
+          },
+          "mapped_status": {
+            "forge_terminal_runtime_status": "degraded"
+          },
+          "locked_definitions_validation": {
+            "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
+            "expected_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+            "actual_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+            "match": true,
+            "validation_result": "PASS",
+            "reasons": []
+          }
         },
-        "schema": "brain-core-gate-v1",
-        "schema_version": "1.0.0",
-        "status": "BLOCKED",
-        "subject_runtime": "public_brain_reply",
-        "verifier_runtime": "test_suite"
+        "locked_definitions_validation": {
+          "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
+          "expected_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+          "actual_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+          "match": true,
+          "validation_result": "PASS",
+          "reasons": []
+        },
+        "input_hash": "487202090460cb23e82850aef39e3b4fa8680c201b26dcfb12cbab983ee681f6",
+        "d4_enforcement": {
+          "schema": "brain-core-d4-enforcement-v1",
+          "schema_version": "1.0.0",
+          "ok": true,
+          "receipt_type": "BRAIN_CORE_GATE_RESULT",
+          "input_lifecycle": "BLOCKED",
+          "input_status": "BLOCKED",
+          "lifecycle": "BLOCKED",
+          "status": "BLOCKED",
+          "author_runtime": "brain_core_v1",
+          "subject_runtime": "public_brain_reply",
+          "verifier_runtime": "test_suite",
+          "author_subject_separated": true,
+          "author_verifier_separated": true,
+          "protected_receipt": true,
+          "reasons": [],
+          "enforcement_hash": "62121304efdff2205c2d9a54ebf7d099ecf73d732f2709d3c0418df55012b510"
+        }
       }
     },
     {
       "id": "proof_unknown",
       "receipt": {
-        "author_runtime": "brain_core_v1",
+        "schema": "brain-core-gate-v1",
+        "schema_version": "1.0.0",
+        "receipt_type": "BRAIN_CORE_GATE_RESULT",
+        "status": "BLOCKED",
+        "lifecycle": "BLOCKED",
         "created_at": "1970-01-01T00:00:00Z",
-        "d4_enforcement": {
-          "author_runtime": "brain_core_v1",
-          "author_subject_separated": true,
-          "author_verifier_separated": true,
-          "enforcement_hash": "36e9f561891eb797d5b6f91f4a9210ff9d8814141cdb013e03c97ffd66959d42",
-          "input_lifecycle": "BLOCKED",
-          "input_status": "BLOCKED",
-          "lifecycle": "BLOCKED",
-          "ok": true,
-          "protected_receipt": true,
-          "reasons": [],
-          "receipt_type": "BRAIN_CORE_GATE_RESULT",
-          "schema": "brain-core-d4-enforcement-v1",
-          "schema_version": "1.0.0",
-          "status": "BLOCKED",
-          "subject_runtime": "public_brain_reply",
-          "verifier_runtime": "test_suite"
+        "author_runtime": "brain_core_v1",
+        "subject_runtime": "public_brain_reply",
+        "verifier_runtime": "test_suite",
+        "live_status": {
+          "specific_run_public_proof_status": {
+            "status": "unknown"
+          }
+        },
+        "mapped_status": {
+          "specific_run_public_proof_status": "unknown"
         },
         "decision": {
-          "allowed_claim_id": "every_possible_run_has_public_proof",
-          "approved_claim": "SourceA is designed around verifiable receipts/proof of work. Do not claim every possible run has perfect public proof unless the specific proof exists.",
-          "deterministic": true,
-          "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
-          "fallback_text": "SourceA is built around receipts and proof, but I don’t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
-          "intent": "every_possible_run_has_public_proof",
-          "ladder_gear": "unsure",
-          "requires_status_signal": true,
           "schema": "brain-core-decision-v1",
+          "intent": "every_possible_run_has_public_proof",
+          "allowed_claim_id": "every_possible_run_has_public_proof",
+          "requires_status_signal": true,
           "status_key": "specific_run_public_proof_status",
-          "status_value": "unknown"
+          "status_value": "unknown",
+          "ladder_gear": "unsure",
+          "approved_claim": "SourceA is designed around verifiable receipts/proof of work. Do not claim every possible run has perfect public proof unless the specific proof exists.",
+          "fallback_text": "SourceA is built around receipts and proof, but I don’t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
+          "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
+          "deterministic": true
         },
+        "sanitized_output": {
+          "ok": true,
+          "public_language": "SourceA is built around receipts and proof, but I don’t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
+          "forbidden_public_language_removed": []
+        },
+        "pass_claimed": false,
+        "gate_result": "BLOCK",
+        "reasons": [
+          "status_not_confident:unsure"
+        ],
         "evidence": {
           "decision": {
-            "allowed_claim_id": "every_possible_run_has_public_proof",
-            "approved_claim": "SourceA is designed around verifiable receipts/proof of work. Do not claim every possible run has perfect public proof unless the specific proof exists.",
-            "deterministic": true,
-            "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
-            "fallback_text": "SourceA is built around receipts and proof, but I don’t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
-            "intent": "every_possible_run_has_public_proof",
-            "ladder_gear": "unsure",
-            "requires_status_signal": true,
             "schema": "brain-core-decision-v1",
+            "intent": "every_possible_run_has_public_proof",
+            "allowed_claim_id": "every_possible_run_has_public_proof",
+            "requires_status_signal": true,
             "status_key": "specific_run_public_proof_status",
-            "status_value": "unknown"
+            "status_value": "unknown",
+            "ladder_gear": "unsure",
+            "approved_claim": "SourceA is designed around verifiable receipts/proof of work. Do not claim every possible run has perfect public proof unless the specific proof exists.",
+            "fallback_text": "SourceA is built around receipts and proof, but I don’t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
+            "draft_instructions": "Draft public prose using only approved_claim when ladder_gear is confident, otherwise use fallback_text exactly. Do not invent status, pricing, product truth, definitions, or strategy. Do not expose PASS, BLOCK, OpenRouter, model names, API keys, Mac ports, internal factory jargon, or broken_gears.",
+            "deterministic": true
+          },
+          "sanitized_output": {
+            "ok": true,
+            "public_language": "SourceA is built around receipts and proof, but I don’t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt.",
+            "forbidden_public_language_removed": []
           },
           "live_status": {
             "specific_run_public_proof_status": {
               "status": "unknown"
             }
           },
-          "locked_definitions_validation": {
-            "actual_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
-            "expected_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
-            "match": true,
-            "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
-            "reasons": [],
-            "validation_result": "PASS"
-          },
           "mapped_status": {
             "specific_run_public_proof_status": "unknown"
           },
-          "sanitized_output": {
-            "forbidden_public_language_removed": [],
-            "ok": true,
-            "public_language": "SourceA is built around receipts and proof, but I don’t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt."
-          }
-        },
-        "gate_result": "BLOCK",
-        "input_hash": "f96176513eb20d3152b74a5b8aba48de4d4d98ce09621c872e45d4aa735d1422",
-        "lifecycle": "BLOCKED",
-        "live_status": {
-          "specific_run_public_proof_status": {
-            "status": "unknown"
+          "locked_definitions_validation": {
+            "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
+            "expected_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+            "actual_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+            "match": true,
+            "validation_result": "PASS",
+            "reasons": []
           }
         },
         "locked_definitions_validation": {
-          "actual_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
-          "expected_sha256": "078bbf54bc041ebca72d56c3e6f273c6618b671d4bf96460b6677019b6db58df",
-          "match": true,
           "path": "/Users/sinakazemnezhad/Desktop/SourceA/reports/locked-definitions-v1.json",
-          "reasons": [],
-          "validation_result": "PASS"
+          "expected_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+          "actual_sha256": "ad9c824ab84c4ac95d88aa691dc74019d94f0b3a9a56c634e40e88142ff92b5a",
+          "match": true,
+          "validation_result": "PASS",
+          "reasons": []
         },
-        "mapped_status": {
-          "specific_run_public_proof_status": "unknown"
-        },
-        "pass_claimed": false,
-        "reasons": [
-          "status_not_confident:unsure"
-        ],
-        "receipt_type": "BRAIN_CORE_GATE_RESULT",
-        "sanitized_output": {
-          "forbidden_public_language_removed": [],
+        "input_hash": "b6bcfddb635425d688204c5c91fffceecc357baea1c6068eb43380fa35805f0a",
+        "d4_enforcement": {
+          "schema": "brain-core-d4-enforcement-v1",
+          "schema_version": "1.0.0",
           "ok": true,
-          "public_language": "SourceA is built around receipts and proof, but I don’t have specific proof for that run in this answer. Use the live proof route or ask for the specific receipt."
-        },
-        "schema": "brain-core-gate-v1",
-        "schema_version": "1.0.0",
-        "status": "BLOCKED",
-        "subject_runtime": "public_brain_reply",
-        "verifier_runtime": "test_suite"
+          "receipt_type": "BRAIN_CORE_GATE_RESULT",
+          "input_lifecycle": "BLOCKED",
+          "input_status": "BLOCKED",
+          "lifecycle": "BLOCKED",
+          "status": "BLOCKED",
+          "author_runtime": "brain_core_v1",
+          "subject_runtime": "public_brain_reply",
+          "verifier_runtime": "test_suite",
+          "author_subject_separated": true,
+          "author_verifier_separated": true,
+          "protected_receipt": true,
+          "reasons": [],
+          "enforcement_hash": "c49efa28180fc731dd3333dd0bbe813277d57b7dd1f092d90ddda79b46cd985a"
+        }
       }
     }
   ],
