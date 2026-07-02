@@ -179,42 +179,35 @@ def verify_row(row: dict[str, Any], vbp, *, deploy_gate: dict[str, Any]) -> dict
         )
 
     if rid == "cpr-supabase-rows":
-        proc = subprocess.run(
-            [sys.executable, str(ROOT / "scripts/cloud_forge_run_supabase_v1.py"), "--count", "--json"],
-            capture_output=True,
-            text=True,
-            cwd=str(ROOT),
-            env={**__import__("os").environ, "CLOUD_FORGE_RUN_SUPABASE_ALLOW_MAC": "1"},
-        )
         try:
-            d = json.loads(proc.stdout)
-            if not (proc.returncode == 0 and d.get("ok") and int(d.get("total") or 0) > 0):
+            sys.path.insert(0, str(ROOT / "scripts"))
+            from cloud_forge_run_supabase_v1 import count_rows  # noqa: WPS433
+
+            d = count_rows()
+            if not (d.get("ok") and int(d.get("total") or 0) > 0):
                 machine_ok = False
-                defects.append(f"supabase total={d.get('total')}")
+                defects.append(f"supabase total={d.get('total')} err={d.get('error', '')[:80]}")
         except Exception as exc:
             machine_ok = False
-            defects.append(str(exc)[:80])
+            defects.append(str(exc)[:120])
     elif rid == "cpr-free-job-intake":
-        proc = subprocess.run(
-            [
-                sys.executable,
-                str(ROOT / "scripts/verify_mvp_intake_proof_v1.py"),
-                "--url",
-                "https://sourcea.app/api/commercial/mvp-intake/v1",
-                "--json",
-            ],
-            capture_output=True,
-            text=True,
-            cwd=str(ROOT),
-        )
         try:
-            d = json.loads(proc.stdout)
+            import importlib.util
+
+            spec = importlib.util.spec_from_file_location(
+                "mvp_intake_proof",
+                ROOT / "scripts" / "verify_mvp_intake_proof_v1.py",
+            )
+            mod = importlib.util.module_from_spec(spec)
+            assert spec.loader is not None
+            spec.loader.exec_module(mod)
+            d = mod.verify(base_url="https://sourcea.app/api/commercial/mvp-intake/v1")
             if not d.get("ok"):
                 machine_ok = False
                 defects.append(f"mvp_intake_e2e fail post={d.get('post')} read={d.get('read_back')}")
         except Exception as exc:
             machine_ok = False
-            defects.append(str(exc)[:80])
+            defects.append(str(exc)[:120])
         fetch_meta = _public_fetch(url)
         body = fetch_meta["body"]
         if fetch_meta["http_code"] != 200:
