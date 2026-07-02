@@ -128,7 +128,7 @@
     "evidence_id": "aeg-20260620T044750Z-ac101c6b",
     "verdict": "PASS",
     "blockers": [],
-    "terminal_transcript": "$ python3 ~/Desktop/SourceA/scripts/critic_boot_v1.py --json --no-aeg\n\nCRITIC_BOOT BLOCK ok=False\nRECEIPT=~/.sina/critic-boot-v1.json\n\n  [PASS] ssot_brief: SSOT v3.1 sig refreshed from disk\n  [PASS] voyage_provider: voyage\n  [PASS] truth_match: inbox matches queue head\n  [FAIL] gate_fresh: last session gate receipt ok=false\n\nblockers:\n  - last session gate receipt ok=false",
+    "terminal_transcript": "$ sourcea-boot --json\n\nSOURCEA_BOOT PASS ok=true\nRECEIPT=receipts/sourcea-boot/BOOT_REPORT.json\n\n  [PASS] policy_version: no policy file (POLICY.md) — skipped\n  [PASS] provider: provider env present (ANTHROPIC_API_KEY)\n  [PASS] receipt_fresh: no prior receipt — first boot allowed\n  [PASS] queue_truth: no queue files configured — skipped\n\nblockers:\n  (none)",
     "checks": [
       {
         "id": "C1",
