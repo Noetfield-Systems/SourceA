@@ -26,16 +26,31 @@ fi
 DB_URL="${SUPABASE_DB_URL:-${DATABASE_URL:-}}"
 if [[ -z "$DB_URL" && -n "${SUPABASE_DB_PASSWORD:-}" && -n "${SUPABASE_PROJECT_ID:-}" ]]; then
   export PGPASSWORD="$SUPABASE_DB_PASSWORD"
-  DB_URL="postgresql://postgres@db.${SUPABASE_PROJECT_ID}.supabase.co:5432/postgres?sslmode=require"
-  echo "INFO: built direct DB URL from SUPABASE_DB_PASSWORD + SUPABASE_PROJECT_ID"
+  DB_HOST="db.${SUPABASE_PROJECT_ID}.supabase.co"
+  DB_IPV4="$(getent ahostsv4 "$DB_HOST" 2>/dev/null | awk '{print $1; exit}')"
+  if [[ -n "$DB_IPV4" ]]; then
+    DB_URL="postgresql://postgres@${DB_HOST}:5432/postgres?sslmode=require&hostaddr=${DB_IPV4}"
+  else
+    DB_URL="postgresql://postgres@${DB_HOST}:5432/postgres?sslmode=require"
+  fi
+  echo "INFO: built direct DB URL from SUPABASE_DB_PASSWORD + SUPABASE_PROJECT_ID (IPv4=${DB_IPV4:-auto})"
 fi
 if [[ -z "$DB_URL" ]]; then
   echo "SKIP: no SUPABASE_DB_URL — apply migrations via Supabase SQL editor or ensure_truth_log_schema_v1.py"
   exit 0
 fi
 
+PSQL_OK=1
 for SQL in "${MIGRATIONS[@]}"; do
-  psql "$DB_URL" -v ON_ERROR_STOP=1 -f "$SQL"
+  if ! psql "$DB_URL" -v ON_ERROR_STOP=1 -f "$SQL"; then
+    PSQL_OK=0
+    echo "WARN: psql failed on $(basename "$SQL") — ensure_truth_log_schema_v1.py will retry" >&2
+    break
+  fi
 done
-psql "$DB_URL" -v ON_ERROR_STOP=1 -c "NOTIFY pgrst, 'reload schema';"
-echo "OK: portfolio-spine migrations 002+005+006+007 applied"
+if [[ "$PSQL_OK" -eq 1 ]]; then
+  psql "$DB_URL" -v ON_ERROR_STOP=1 -c "NOTIFY pgrst, 'reload schema';"
+  echo "OK: portfolio-spine migrations 002+005+006+007 applied"
+else
+  exit 0
+fi
