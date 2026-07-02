@@ -114,7 +114,7 @@ def _used_backlog_capacity(*, before_batch_id: int) -> int:
 
 
 def _pack_ref(item: dict[str, Any]) -> dict[str, Any]:
-    return {
+    row = {
         "backlog_index": item.get("backlog_index"),
         "plan_id": item.get("plan_id"),
         "title": item.get("title"),
@@ -124,6 +124,19 @@ def _pack_ref(item: dict[str, Any]) -> dict[str, Any]:
         "source_registry": item.get("source_registry"),
         "prompt_path": item.get("prompt_path"),
     }
+    for key in (
+        "goal",
+        "done_when",
+        "verify",
+        "proof_artifact",
+        "client_demo",
+        "client_problem",
+        "proven",
+        "realistic",
+    ):
+        if item.get(key) is not None:
+            row[key] = item.get(key)
+    return row
 
 
 def _mac_control_rows(batch_id: int, first_cloud: int) -> list[dict[str, Any]]:
