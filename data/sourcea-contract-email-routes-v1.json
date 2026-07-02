@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-contract-email-routes-v1",
-  "version": "1.0.0",
-  "saved_at": "2026-07-01T23:35:00Z",
+  "version": "1.1.0",
+  "saved_at": "2026-07-02T00:55:00Z",
   "authority": "ASF",
   "human_doc": "reports/sourcea-contract-domains-acquisition-buyer-analysis-july-2026-v1.md",
   "one_law": "Public contract SKUs show domain-correct contract@ addresses. Inbound delivers via Google Workspace aliases to operations@noetfield.com — not personal Gmail.",
@@ -62,6 +62,53 @@
     "web_only_apex_note": "sourcea.ca and sourcea.uk may serve web via Cloudflare while contract@ aliases live in Google Workspace admin — do not treat missing public MX as inbox BLOCKED."
   },
   "e2e_script": "scripts/validate-sourcea-contract-pages-e2e-v1.sh",
+  "trust_e2e_v1": {
+    "forbidden_public_strings": [
+      "92/100",
+      "5/5 audited",
+      "200 live route",
+      "Entity proof placeholder"
+    ],
+    "contract_page_must_include": [
+      "proof-strip",
+      "buyer-path",
+      "diagram-svg",
+      "/attach/procurement-pack.html",
+      "trust-brief/intake"
+    ],
+    "eval_path": "/eval",
+    "eval_must_include": [
+      "eval-institutional-band",
+      "/attach/procurement-pack.html",
+      "PyPI Phase 0b"
+    ],
+    "home_paths": ["/"],
+    "home_must_include": [
+      "id=\"contract-skus\"",
+      "Which offer?",
+      "/operating-brain-install",
+      "/ai-value-governance",
+      "/enterprise-ai-control-plane"
+    ],
+    "procurement_pack_path": "/attach/procurement-pack.html",
+    "procurement_hosts": [
+      "sourcea.app",
+      "sourcea.ca",
+      "sourcea.uk"
+    ],
+    "noetfield_live_optional": [
+      {
+        "url": "https://www.noetfield.com/about/",
+        "must_include": ["Available under NDA"],
+        "forbidden": ["Pending publication", "Entity proof placeholder"]
+      },
+      {
+        "url": "https://www.noetfield.com/trust/",
+        "must_include": ["Available under NDA"],
+        "forbidden": ["Pending publication"]
+      }
+    ]
+  },
   "related_ssot": [
     "data/sourcea-commercial-email-routes-v1.json",
     "data/portfolio-account-structure-v1.json",
