@@ -20,7 +20,7 @@ binding = "AI"
 # Production enable requires promotion gate + SG verifier — set BRAIN_CORE_GATE_V1_ENABLED=1 only after promote_locked_definitions_v1.py PASS.
 
 [vars]
-BRAIN_CORE_GATE_V1_ENABLED = "0"
+BRAIN_CORE_GATE_V1_ENABLED = "1"
 
 [env.staging]
 name = "sourcea-brain-chat-v1-staging"
