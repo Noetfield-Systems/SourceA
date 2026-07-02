@@ -7,20 +7,20 @@
 ## Run in 5 minutes
 
 ```bash
+pip install sourcea-boot
+sourcea-boot --json
+```
+
+Or clone for editable install:
+
+```bash
 git clone https://github.com/kazemnezhadsina144-dot/sourcea-boot.git
 cd sourcea-boot
 pip install -e .
 sourcea-boot --json
 ```
 
-PyPI (Phase 0b — trusted publishing prepared, not live yet):
-
-```bash
-# pip install sourcea-boot   # not on PyPI yet — clone + editable install above
-sourcea-boot --json
-```
-
-When published, install will be `pip install sourcea-boot` via GitHub Actions trusted publishing (no long-lived PyPI token). See `docs/PYPI_TRUSTED_PUBLISHING_SETUP.md` in this repo after export.
+Published on PyPI via GitHub Actions trusted publishing (OIDC — no long-lived token). See `docs/PYPI_TRUSTED_PUBLISHING_SETUP.md`.
 
 Writes `BOOT_REPORT.json` in the current directory. Exit code `0` = PASS, `1` = BLOCK.
 
