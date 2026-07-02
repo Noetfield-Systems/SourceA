@@ -27,6 +27,12 @@ curl -sf --max-time 15 -X POST "http://127.0.0.1:${PORT}/api/cloud-worker/dispat
   "import json,sys; d=json.load(sys.stdin); assert d.get('error')!='mac_observe_only', d" \
   || fail "dispatch blocked by mac_observe_only"
 
+curl -sf --max-time 15 -X POST "http://127.0.0.1:${PORT}/api/cloud-workers/v1" \
+  -H "Content-Type: application/json" \
+  -d '{"action":"proceed","full_pack":true}' | python3 -c \
+  "import json,sys; d=json.load(sys.stdin); assert d.get('decision')!='mac_observe_only' or d.get('ok'), d; assert d.get('error')!='mac_observe_only' or d.get('decision')=='mac_trigger_cf_tick', d" \
+  || fail "proceed dead-ends on mac_observe_only — must upgrade to CF tick"
+
 grep -q 'start-cloud-workers-launchd.sh' "$ROOT/scripts/mac_launchd_tcc_guard_v1.py" \
   || fail "cloud workers launchd wrapper not wired"
 
