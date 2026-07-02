@@ -20,6 +20,7 @@ import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SINA = Path.home() / ".sina"
@@ -817,6 +818,35 @@ def refresh_outbound_packs() -> dict:
         return {"ok": proc.returncode == 0, "out": (proc.stdout or "")[-400:]}
 
 
+def run_founder_proof_verify(*, min_seconds: int = 60) -> dict[str, Any]:
+    """Public HTTPS verify of 15 founder recipes — fail-closed after Pages publish."""
+    if min_seconds > 0:
+        time.sleep(min_seconds)
+    proc = _run(
+        [
+            sys.executable,
+            str(ROOT / "scripts/verify_client_proof_founder_review_v1.py"),
+            "--json",
+            "--write-receipt",
+            "--min-seconds-after-deploy",
+            str(min_seconds),
+        ],
+        cwd=ROOT,
+        timeout=180,
+    )
+    try:
+        row = json.loads(proc.stdout)
+        return {
+            "ok": proc.returncode == 0 and bool(row.get("ok")),
+            "passed": row.get("passed"),
+            "total": row.get("total"),
+            "receipt_path": str(Path.home() / ".sina/client-proof-founder-review-verify-v1.json"),
+            "verify_law": row.get("verify_law"),
+        }
+    except json.JSONDecodeError:
+        return {"ok": False, "error": (proc.stderr or proc.stdout)[-400:]}
+
+
 def publish(
     *,
     backend: str = "auto",
@@ -946,6 +976,23 @@ def publish(
             "at": _now(),
             "steps": steps,
             "error": "brain_live_production BLOCK — production Brain smoke failed on sourcea.app",
+        }
+
+    founder_proof: dict = {"ok": True, "skipped": True, "reason": "not sourcea-com pages deploy"}
+    if (
+        deploy_row.get("backend") == "cloudflare_pages"
+        and project == "sourcea-com"
+        and not deploy_row.get("ephemeral")
+    ):
+        founder_proof = run_founder_proof_verify(min_seconds=60)
+    steps.append({"step": "founder_proof_verify", **founder_proof})
+    if not founder_proof.get("ok") and not founder_proof.get("skipped"):
+        return {
+            "ok": False,
+            "schema": "sourcea-landing-publish-v1",
+            "at": _now(),
+            "steps": steps,
+            "error": "founder_proof_verify BLOCK — 15-recipe public verify failed after publish",
         }
 
     public = write_public_urls(public_base, boot_verdict=boot_verdict)
