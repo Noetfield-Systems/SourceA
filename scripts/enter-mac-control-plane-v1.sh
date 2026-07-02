@@ -18,6 +18,10 @@ python3 "$ROOT/scripts/mac_launchd_tcc_guard_v1.py" --boot-hub --json 2>/dev/nul
   || bash "$ROOT/scripts/serve-sina-command.sh" || echo "WARN: Hub boot failed — see ~/.sina/mac-launchd-tcc-receipt-v1.json"
 
 echo ""
+echo "=== CLOUD WORKERS (:13027) — factory cockpit ==="
+bash "$ROOT/scripts/serve-cloud-workers-v1.sh" || echo "WARN: Cloud Workers boot failed — see ~/.sina/cloud-workers-server.log"
+
+echo ""
 echo "=== MAC LAW SURFACES (:8781 · :8780) ==="
 bash "$ROOT/scripts/mac_law_surfaces_boot_v1.sh" || echo "WARN: Mac Law surfaces boot failed — see ~/.sina/mac-law-server.log"
 
