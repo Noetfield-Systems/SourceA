@@ -7,6 +7,7 @@ import hashlib
 import json
 import subprocess
 import sys
+import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -18,6 +19,12 @@ CONTRACT_RECEIPT = SINA / "sourcea-contract-pages-e2e-v1.json"
 FOUNDER_VERIFY = SINA / "client-proof-founder-review-verify-v1.json"
 BUNDLE = ROOT / "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json"
 RECEIPT = SINA / "locked-definitions-promotion-v1.json"
+VERIFIER_RECEIPT_URL = (
+    "https://sina-governance-ssot-advisory.kazemnezhadsina144.workers.dev/receipt/latest"
+)
+BRAIN_HEALTH_URL = (
+    "https://sourcea-brain-chat-v1.sina-kazemnezhad-ca.workers.dev/api/brain/chat/v1"
+)
 
 
 def _now() -> str:
@@ -31,6 +38,52 @@ def _read_json(path: Path) -> dict:
 def _bundle_sha() -> str:
     raw = BUNDLE.read_bytes()
     return hashlib.sha256(raw).hexdigest()
+
+
+def _definitions_sha() -> str:
+    if not DEFINITIONS.is_file():
+        return ""
+    return hashlib.sha256(DEFINITIONS.read_bytes()).hexdigest()
+
+
+def _fetch_verifier_receipt() -> dict:
+    request = urllib.request.Request(
+        VERIFIER_RECEIPT_URL,
+        headers={"Accept": "application/json", "User-Agent": "sourcea-promote-locked-definitions-v1"},
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        return json.loads(response.read().decode("utf-8"))
+
+
+def _fetch_brain_health() -> dict:
+    request = urllib.request.Request(
+        BRAIN_HEALTH_URL,
+        headers={"Accept": "application/json", "User-Agent": "sourcea-promote-locked-definitions-v1"},
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        return json.loads(response.read().decode("utf-8"))
+
+
+def _verifier_production_enable_ok(receipt: dict, bundle_sha: str) -> dict:
+    ok = (
+        receipt.get("status") == "PASS"
+        and receipt.get("result") == "PASS"
+        and receipt.get("pass_claimed") is True
+        and receipt.get("secondary_account_proven") is True
+        and receipt.get("edge_execution_proven") is True
+        and receipt.get("artifact_type") in ("brain_worker_bundle", "knowledge_bundle")
+        and receipt.get("candidate_sha256") == bundle_sha
+    )
+    if receipt.get("artifact_type") == "brain_worker_bundle":
+        ok = ok and bool(receipt.get("worker_code_sha256"))
+    return {
+        "ok": ok,
+        "verifier_receipt_id": receipt.get("receipt_id"),
+        "artifact_type": receipt.get("artifact_type"),
+        "candidate_ref": receipt.get("candidate_ref"),
+        "worker_code_sha256": receipt.get("worker_code_sha256"),
+        "definitions_sha256": _definitions_sha(),
+    }
 
 
 def check(*, write: bool = False) -> dict:
@@ -59,12 +112,23 @@ def check(*, write: bool = False) -> dict:
         "bundle_sha256": bundle_sha,
     }
 
-    # brain-core-gate-staging:production_enable (flag OFF until SG verifier — staging only)
-    checks["brain-core-gate-staging:production_enable"] = {
-        "ok": False,
-        "reason": "SG secondary Cloudflare verifier unavailable — production gate stays OFF",
-        "staging_header": "X-SourceA-Brain-Core-Gate: staging",
-    }
+    # brain-core-gate-staging:production_enable via SG verifier PASS + live bundle identity
+    try:
+        verifier_receipt = _fetch_verifier_receipt()
+        checks["brain-core-gate-staging:production_enable"] = _verifier_production_enable_ok(
+            verifier_receipt, bundle_sha
+        )
+        health = _fetch_brain_health()
+        checks["brain-core-gate-staging:production_enable"]["live_ok"] = health.get("ok") is True
+        checks["brain-core-gate-staging:production_enable"]["ok"] = (
+            checks["brain-core-gate-staging:production_enable"]["ok"]
+            and health.get("ok") is True
+        )
+    except OSError as exc:
+        checks["brain-core-gate-staging:production_enable"] = {
+            "ok": False,
+            "reason": f"verifier or live health fetch failed: {exc}",
+        }
 
     founder_ok = FOUNDER_VERIFY.is_file() and _read_json(FOUNDER_VERIFY).get("ok") is True
     checks["founder_proof_15_recipes"] = {"ok": founder_ok}
@@ -93,16 +157,19 @@ def check(*, write: bool = False) -> dict:
         "definitions_status": _read_json(DEFINITIONS).get("status") if DEFINITIONS.is_file() else None,
     }
 
-    if write and promote_ready and DEFINITIONS.is_file():
+    if write and promote_ready and all_required and DEFINITIONS.is_file():
         doc = _read_json(DEFINITIONS)
-        doc["status"] = "live_locked_candidate_verified"
+        doc["status"] = "live_locked"
         doc["promotion_checked_at"] = row["at"]
         doc["live_status_probe"] = probe_map
+        doc["verifier_receipt_id"] = checks.get("brain-core-gate-staging:production_enable", {}).get(
+            "verifier_receipt_id"
+        )
         DEFINITIONS.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
         reg = _read_json(REGISTRY)
         for asset in reg.get("assets") or []:
             if asset.get("asset_id") == "locked-definitions-v1":
-                asset["status"] = "live_locked_candidate_verified"
+                asset["status"] = "live_locked" if all_required else "live_locked_candidate_verified"
                 asset["last_modified"] = row["at"][:10]
         reg["saved_at"] = row["at"]
         REGISTRY.write_text(json.dumps(reg, indent=2) + "\n", encoding="utf-8")
