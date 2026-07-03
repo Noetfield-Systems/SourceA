@@ -1,14 +1,6 @@
-# Canonical CF worker — sourcea-cloud-auto-runtime-tick-v1 (drain vocabulary retired)
 name = "sourcea-cloud-auto-runtime-tick-v1"
 main = "src/index.js"
 compatibility_date = "2024-06-01"
-account_id = "0d0b967b77e2e5535455d39ff3dae72c"
 
 [triggers]
 crons = ["*/10 * * * *"]
-
-# Secrets: bash scripts/cloud_auto_runtime_cf_secrets_v1.sh
-#   FBE_CLOUD_WORKER_URL · FBE_INTERNAL_SECRET · CLOUD_FORGE_RUN_AUTO_PROCEED=true
-
-[observability]
-enabled = true

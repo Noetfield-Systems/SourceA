@@ -1,0 +1,93 @@
+{
+  "schema": "automation-conflict-matrix-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-03T08:59:00Z",
+  "conflicts": [
+    {
+      "id": "C001",
+      "severity": "P0",
+      "action_a": "CF */10 auto-tick",
+      "action_b": "GHA scheduled auto-tick",
+      "rule": "GHA must never schedule motor — workflow_dispatch backup only",
+      "detection": "trigger-registry forbidden_duplicates SA-T1 vs schedule on autonomous-drain"
+    },
+    {
+      "id": "C002",
+      "severity": "P0",
+      "action_a": "Dedicated signal-factory CF cron",
+      "action_b": "Loop-specialist piggyback SF",
+      "rule": "Piggyback only — dedicated wrangler [triggers] forbidden",
+      "detection": "piggyback probe forbidden_cron_present"
+    },
+    {
+      "id": "C003",
+      "severity": "P0",
+      "action_a": "Standalone brain-loop */30 cron",
+      "action_b": "Bundled brain verify in auto-runtime",
+      "rule": "One brain verify path — bundled only",
+      "detection": "SA-T-brain-loop absent from registry; no wrangler cron"
+    },
+    {
+      "id": "C004",
+      "severity": "P1",
+      "action_a": "Push L4 external-verify",
+      "action_b": "workflow_run L4 same SHA",
+      "rule": "concurrency.group l4-external-verify dedupes — cancel-in-progress false",
+      "detection": "gha concurrency block in external-verify.yml"
+    },
+    {
+      "id": "C005",
+      "severity": "P1",
+      "action_a": "Copilot PR implements W-LBA-00N",
+      "action_b": "Worker inbox W-LBA-00N in_progress",
+      "rule": "Copilot comment-only until Worker completes or releases item",
+      "detection": "manual + inbox head check"
+    },
+    {
+      "id": "C006",
+      "severity": "P1",
+      "action_a": "GitHub Agent repository_dispatch motor",
+      "action_b": "Cloud CF auto-tick",
+      "rule": "Agents never dispatch motor class — advisory/run scoped workflows only",
+      "detection": "payload forbidden_actions in governance SSOT"
+    },
+    {
+      "id": "C007",
+      "severity": "P1",
+      "action_a": "Cursor Brain implements code",
+      "action_b": "Worker scoped build",
+      "rule": "Brain routes — Worker implements — no duplicate edits",
+      "detection": "WORKER_ASSIGNMENT routing law"
+    },
+    {
+      "id": "C008",
+      "severity": "P1",
+      "action_a": "Mac Railway auto-tick",
+      "action_b": "Cloud motor",
+      "rule": "mac_control_dispatch blocks motor paths",
+      "detection": "mac_motor_blocked_paths in cloud-auto-runtime-v1.json"
+    },
+    {
+      "id": "C009",
+      "severity": "P2",
+      "action_a": "New cron without registry",
+      "action_b": "L14 trigger-registry law",
+      "rule": "Same-commit registry row + sweep pass",
+      "detection": "validate-trigger-registry-v1.sh"
+    },
+    {
+      "id": "C010",
+      "severity": "P2",
+      "action_a": "15 separate verify workflows",
+      "action_b": "Single external-verify matrix",
+      "rule": "Recipe fan-out inside one workflow — not 15 files",
+      "detection": "SA-GH-recipe-matrix policy_only + workflow count"
+    }
+  ],
+  "resolution_order": [
+    "Stop duplicate motor (lowest latency wins: CF > GHA backup)",
+    "Emit DRIFT receipt with conflict id",
+    "Kaizen queue machine_safe fix",
+    "Founder_blocked only for policy change"
+  ]
+}

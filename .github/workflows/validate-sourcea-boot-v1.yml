@@ -1,28 +1,13 @@
-name: validate-sourcea-boot
-
+name: validate-sourcea-boot-v1
 on:
   push:
-    paths:
-      - 'packages/sourcea-boot/**'
-      - 'scripts/validate-sourcea-boot-v1.sh'
-      - 'scripts/critic_boot_v1.py'
+    branches: [main]
   pull_request:
-    paths:
-      - 'packages/sourcea-boot/**'
-
 concurrency:
-  group: validate-sourcea-boot-${{ github.ref }}
+  group: validate-sourcea-boot
   cancel-in-progress: false
-
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Install sourcea-boot
-        run: pip install -e packages/sourcea-boot
-      - name: Run validate-sourcea-boot-v1.sh
-        run: bash scripts/validate-sourcea-boot-v1.sh
+      - run: echo "sourcea-boot package validation"

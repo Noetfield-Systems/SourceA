@@ -1,0 +1,15 @@
+{
+  "schema": "github-automation-governance-verify-v1",
+  "version": "1.0.0",
+  "at": "2026-07-03T08:59:00Z",
+  "ok": true,
+  "executors": 11,
+  "lanes": 12,
+  "conflicts": 10,
+  "trigger_registry_triggers": 15,
+  "laws": ["L14 trigger-registry same-commit", "L15 automation lane ownership"],
+  "copilot_governed": true,
+  "github_agents_governed": true,
+  "parallel_model": "lanes exclusive per action class · bridges for coherence",
+  "report_line": "github_automation_governance PASS · living system parallel lanes wired"
+}

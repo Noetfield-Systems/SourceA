@@ -1,18 +1,24 @@
 {
   "schema": "trigger-registry-v1",
-  "version": "1.0.3",
+  "version": "1.2.0",
+  "saved_at": "2026-07-03T08:59:00Z",
   "system": "sourcea",
-  "spec_path": "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md",
-  "law": "L14 T-REG — new trigger requires registry entry in same commit; sweep must pass pre-merge",
+  "law": "docs/GITHUB_AUTOMATION_LIVING_SYSTEM_GOVERNANCE_LOCKED_v1.md#L14",
+  "governance_ssot": "data/github-automation-governance-v1.json",
+  "validator": "scripts/validate-trigger-registry-v1.sh",
+  "sweep": "scripts/sandbox_health_sweep_v1.py",
   "triggers": [
     {
       "trigger_id": "SA-T1",
+      "lane_id": "L_cloud_forge_run",
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "*/10 * * * *",
-      "target": "Railway FBE auto-tick via sourcea-cloud-auto-runtime-tick-v1",
+      "target": "Railway POST /api/cloud-forge-run/auto-tick/v1 via cloud-auto-runtime-tick-v1",
+      "owner": "cloud_motor",
       "valid_in_verified_window": true,
       "owner_workflow": "cloud-forge-run",
+      "forbidden_duplicates": ["SA-T5-autonomous-drain-schedule", "SA-GH-copilot-motor"],
       "live_probe": {
         "type": "wrangler_cron",
         "path": "cloud/workers/cloud-auto-runtime-tick-v1/wrangler.toml"
@@ -20,10 +26,12 @@
     },
     {
       "trigger_id": "SA-T-loop-specialist",
+      "lane_id": "L_loop_specialist",
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "*/15 * * * *",
-      "target": "Loop specialist tick → Railway dispatch",
+      "target": "Loop specialist + Signal Factory piggyback → Railway",
+      "owner": "cloud_motor",
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-tick",
       "live_probe": {
@@ -32,57 +40,52 @@
       }
     },
     {
-      "trigger_id": "SA-T-signal-factory-piggyback",
+      "trigger_id": "SA-T-signal-factory",
+      "lane_id": "L_signal_factory",
       "system": "sourcea",
       "kind": "piggyback",
       "schedule": "*/15 * * * *",
-      "target": "Signal factory tick via loop-specialist scheduled() — sole SF trigger (W-LBA-002)",
+      "target": "Signal factory via loop-specialist scheduled() only",
+      "owner": "cloud_motor",
       "valid_in_verified_window": true,
       "owner_workflow": "signal-factory-tick",
-      "parent_trigger_id": "SA-T-loop-specialist",
+      "forbidden_duplicates": ["SA-T-signal-factory-dedicated"],
       "live_probe": {
-        "type": "piggyback_hook",
-        "path": "cloud/workers/loop-specialist-tick-v1/src/index.js",
-        "expects": ["runSignalFactoryTick"]
-      }
-    },
-    {
-      "trigger_id": "SA-T-deploy-buyer-surfaces",
-      "system": "sourcea",
-      "kind": "event",
-      "schedule": null,
-      "target": "Cloudflare Pages deploy sourcea-com buyer surfaces",
-      "valid_in_verified_window": true,
-      "owner_workflow": "deploy-sourcea-buyer-surfaces-v1",
-      "live_probe": {
-        "type": "gha_workflow",
-        "path": ".github/workflows/deploy-sourcea-buyer-surfaces-v1.yml",
-        "expects": ["push", "workflow_dispatch"]
+        "type": "piggyback",
+        "host_path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+        "forbidden_path": "cloud/workers/signal-factory-tick-v1/wrangler.toml",
+        "host_schedule": "*/15 * * * *"
       }
     },
     {
       "trigger_id": "SA-T4",
+      "lane_id": "L_gha_truth_l4",
       "system": "sourcea",
       "kind": "event",
       "schedule": null,
-      "target": "external-verify L4 buyer-surface lane on push",
+      "target": "external-verify buyer surfaces on push (scoped paths)",
+      "owner": "github_actions",
       "valid_in_verified_window": true,
       "owner_workflow": "external-verify",
+      "concurrency_group": "l4-external-verify",
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/external-verify.yml",
-        "expects": ["push", "workflow_dispatch", "workflow_run"]
+        "expects": ["push"]
       }
     },
     {
       "trigger_id": "SA-T4-chain",
+      "lane_id": "L_gha_truth_l4",
       "system": "sourcea",
-      "kind": "chain",
+      "kind": "event",
       "schedule": null,
-      "target": "deploy-sourcea-buyer-surfaces-v1 success → external-verify workflow_run (PN-001)",
+      "target": "external-verify after deploy workflow_run success",
+      "owner": "github_actions",
       "valid_in_verified_window": true,
       "owner_workflow": "external-verify",
-      "parent_trigger_id": "SA-T-deploy-buyer-surfaces",
+      "concurrency_group": "l4-external-verify",
+      "forbidden_duplicates": ["SA-T4-push-duplicate-same-sha"],
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/external-verify.yml",
@@ -91,12 +94,15 @@
     },
     {
       "trigger_id": "SA-T5-external-verify",
+      "lane_id": "L_gha_truth_l4",
       "system": "sourcea",
       "kind": "manual",
       "schedule": null,
       "target": "external-verify workflow_dispatch",
+      "owner": "github_actions",
       "valid_in_verified_window": false,
       "owner_workflow": "external-verify",
+      "concurrency_group": "l4-external-verify",
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/external-verify.yml",
@@ -104,13 +110,16 @@
       }
     },
     {
-      "trigger_id": "SA-T5-autonomous-drain",
+      "trigger_id": "SA-T5-cloud-forge-backup",
+      "lane_id": "L_gha_motor_backup",
       "system": "sourcea",
       "kind": "manual",
       "schedule": null,
-      "target": "Cloud Forge Run manual backup dispatch (legacy id autonomous-drain-cron)",
+      "target": "Cloud Forge Run manual Railway POST — backup only when CF down",
+      "owner": "github_actions",
       "valid_in_verified_window": false,
-      "owner_workflow": "autonomous-drain-cron-v1",
+      "owner_workflow": "cloud-forge-run-manual-backup-v1",
+      "forbidden_duplicates": ["SA-T1", "SA-T5-cloud-forge-backup-schedule"],
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/autonomous-drain-cron-v1.yml",
@@ -119,12 +128,15 @@
     },
     {
       "trigger_id": "SA-T5-determinism-gate",
+      "lane_id": "L_gha_determinism",
       "system": "sourcea",
       "kind": "manual",
       "schedule": null,
       "target": "determinism-gate workflow_dispatch",
+      "owner": "github_actions",
       "valid_in_verified_window": false,
       "owner_workflow": "determinism-gate",
+      "concurrency_group": "determinism-gate",
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/determinism-gate.yml",
@@ -133,12 +145,15 @@
     },
     {
       "trigger_id": "SA-T7-schedule",
+      "lane_id": "L_gha_determinism",
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "30 */6 * * *",
-      "target": "determinism-gate scheduled D1-D8 checks",
+      "target": "determinism-gate D1-D8 + trigger-registry sweep",
+      "owner": "github_actions",
       "valid_in_verified_window": true,
       "owner_workflow": "determinism-gate",
+      "concurrency_group": "determinism-gate",
       "live_probe": {
         "type": "gha_schedule",
         "path": ".github/workflows/determinism-gate.yml"
@@ -146,12 +161,15 @@
     },
     {
       "trigger_id": "SA-T7-push",
+      "lane_id": "L_gha_determinism",
       "system": "sourcea",
       "kind": "event",
       "schedule": null,
-      "target": "determinism-gate on determinism script changes",
+      "target": "determinism-gate on determinism/trigger-registry changes",
+      "owner": "github_actions",
       "valid_in_verified_window": true,
       "owner_workflow": "determinism-gate",
+      "concurrency_group": "determinism-gate",
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/determinism-gate.yml",
@@ -160,12 +178,15 @@
     },
     {
       "trigger_id": "SA-T-boot-validate",
+      "lane_id": "L_gha_package",
       "system": "sourcea",
       "kind": "event",
       "schedule": null,
-      "target": "sourcea-boot package validation on push",
+      "target": "sourcea-boot package validation",
+      "owner": "github_actions",
       "valid_in_verified_window": true,
       "owner_workflow": "validate-sourcea-boot",
+      "concurrency_group": "validate-sourcea-boot",
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/validate-sourcea-boot-v1.yml",
@@ -173,18 +194,71 @@
       }
     },
     {
-      "trigger_id": "SA-T-mac-agent-heartbeat",
+      "trigger_id": "SA-GH-deploy-chain",
+      "lane_id": "L_gha_deploy",
       "system": "sourcea",
-      "kind": "keepalive",
+      "kind": "event",
       "schedule": null,
-      "target": "Session gate + Hub keepalive POST mac_agent_heartbeat (L16 W2)",
+      "target": "Deploy workflow → workflow_run triggers external-verify (no duplicate push L4)",
+      "owner": "github_actions",
       "valid_in_verified_window": true,
-      "owner_workflow": "mac-spine-bridge",
+      "owner_workflow": "deploy-chain",
+      "concurrency_group": "deploy-chain",
       "live_probe": {
-        "type": "session_gate_hook",
-        "path": "scripts/agent_session_gate_run_v1.py",
-        "also_path": "scripts/cloud_workers_hub_v1.py",
-        "expects": ["run_mac_spine_fresh_main", "run_mac_spine_heartbeat"]
+        "type": "gha_workflow",
+        "path": ".github/workflows/deploy-chain-v1.yml",
+        "expects": ["push", "workflow_dispatch"]
+      }
+    },
+    {
+      "trigger_id": "SA-GH-recipe-matrix",
+      "lane_id": "L_gha_truth_l4",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "15-recipe matrix fan-out inside external-verify job (not separate workflows)",
+      "owner": "github_actions",
+      "valid_in_verified_window": true,
+      "owner_workflow": "external-verify",
+      "note": "Matrix jobs share SA-T4 concurrency — not independent triggers",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/external-verify.yml",
+        "expects": ["push"]
+      }
+    },
+    {
+      "trigger_id": "SA-GH-repository-dispatch",
+      "lane_id": "L_gha_agents",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "repository_dispatch from Brain/Copilot/Agents with mission_id + workflow_id + op_key",
+      "owner": "github_agents",
+      "valid_in_verified_window": true,
+      "owner_workflow": "repository-dispatch-handler",
+      "required_payload": ["mission_id", "workflow_id", "op_key"],
+      "forbidden_actions": ["cloud_forge_run_auto_tick", "railway_motor_drain"],
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/repository-dispatch-v1.yml",
+        "expects": ["repository_dispatch"]
+      }
+    },
+    {
+      "trigger_id": "SA-GH-copilot-pr",
+      "lane_id": "L_github_copilot",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "GitHub Copilot coding agent PRs — implementation proposals only",
+      "owner": "github_copilot",
+      "valid_in_verified_window": true,
+      "owner_workflow": "copilot-pr-review",
+      "forbidden_actions": ["merge_without_worker_review", "trigger_motor", "edit_trigger_registry"],
+      "live_probe": {
+        "type": "policy_only",
+        "path": "data/github-automation-governance-v1.json#copilot"
       }
     }
   ]

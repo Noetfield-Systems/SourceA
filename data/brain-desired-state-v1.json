@@ -1,0 +1,17 @@
+{
+  "schema": "brain-desired-state-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-03T08:59:00Z",
+  "law": "Brain emits rows here → repository_dispatch with op_key — never motor class.",
+  "governance": "data/github-automation-governance-v1.json",
+  "rows": [],
+  "row_template": {
+    "mission_id": "M2",
+    "workflow_id": "loop-specialist-tick",
+    "directive": "run|hold|throttle|escalate",
+    "reason": "required",
+    "op_key": "sha256-prefix-40",
+    "evidence": "optional path"
+  },
+  "forbidden_directives": ["auto_tick", "proceed", "motor_drain"]
+}

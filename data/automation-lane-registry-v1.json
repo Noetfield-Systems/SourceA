@@ -1,0 +1,119 @@
+{
+  "schema": "automation-lane-registry-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-03T08:59:00Z",
+  "one_law": "One lane · one owner · parallel safe — crossing lanes requires bridge (truth_log, event spine, pending) not duplicate execution.",
+  "lanes": [
+    {
+      "lane_id": "L_cloud_forge_run",
+      "label": "Cloud Forge Run 100 rows / 10m",
+      "owner_executor": "E_cloud_cf_railway",
+      "mission_id": "M2",
+      "parallel_with": ["L_loop_specialist", "L_gha_truth_l4", "L_gha_determinism", "L_cursor_worker"],
+      "exclusive": ["auto_tick_100_rows"],
+      "bridge_out": ["truth_log", "autorun_pending", "event_spine"]
+    },
+    {
+      "lane_id": "L_loop_specialist",
+      "label": "Loop specialist comprehension 15m",
+      "owner_executor": "E_loop_specialist",
+      "mission_id": "M2",
+      "parallel_with": ["L_cloud_forge_run", "L_signal_factory"],
+      "exclusive": ["loop_specialist_tick"],
+      "bridge_out": ["nerve_pulse", "autorun_pending", "worker_inbox"]
+    },
+    {
+      "lane_id": "L_signal_factory",
+      "label": "Signal Factory triage (piggyback)",
+      "owner_executor": "E_loop_specialist",
+      "mission_id": "M5",
+      "parallel_with": ["L_loop_specialist"],
+      "exclusive": ["signal_factory_tick"],
+      "note": "No dedicated CF cron — piggyback only"
+    },
+    {
+      "lane_id": "L_gha_truth_l4",
+      "label": "External verify L4 + 15-recipe matrix",
+      "owner_executor": "E_gha_l4",
+      "mission_id": "M1",
+      "parallel_with": ["L_cloud_forge_run", "L_gha_deploy"],
+      "exclusive": ["external_verify_pass"],
+      "concurrency_group": "l4-external-verify",
+      "bridge_out": ["truth_log"]
+    },
+    {
+      "lane_id": "L_gha_determinism",
+      "label": "Determinism gate + trigger sweep",
+      "owner_executor": "E_gha_determinism",
+      "mission_id": "M3",
+      "parallel_with": ["all"],
+      "exclusive": ["determinism_gate", "trigger_sweep"],
+      "concurrency_group": "determinism-gate",
+      "pre_merge_required": true
+    },
+    {
+      "lane_id": "L_gha_deploy",
+      "label": "Deploy chain → workflow_run L4",
+      "owner_executor": "E_gha_deploy",
+      "mission_id": "M2",
+      "parallel_with": ["L_gha_truth_l4"],
+      "exclusive": ["production_deploy"],
+      "chains_to": "L_gha_truth_l4",
+      "concurrency_group": "deploy-chain"
+    },
+    {
+      "lane_id": "L_gha_motor_backup",
+      "label": "GHA manual Cloud Forge backup",
+      "owner_executor": "E_gha_motor_backup",
+      "mission_id": "M2",
+      "parallel_with": [],
+      "exclusive": ["manual_auto_tick_backup"],
+      "only_when": "cf_down_or_founder",
+      "conflicts_with": ["L_cloud_forge_run when both fire same window"]
+    },
+    {
+      "lane_id": "L_gha_agents",
+      "label": "GitHub Agents repository_dispatch",
+      "owner_executor": "E_github_agents",
+      "mission_id": "M2",
+      "parallel_with": ["L_cursor_worker", "L_cursor_brain"],
+      "exclusive": ["repository_dispatch_handler"],
+      "required_payload": ["mission_id", "workflow_id", "op_key"]
+    },
+    {
+      "lane_id": "L_github_copilot",
+      "label": "GitHub Copilot coding agent PRs",
+      "owner_executor": "E_github_copilot",
+      "mission_id": "M4",
+      "parallel_with": ["L_cursor_worker"],
+      "exclusive": ["copilot_pr_proposal"],
+      "dedup_with": "L_cursor_worker active W-LBA item"
+    },
+    {
+      "lane_id": "L_cursor_worker",
+      "label": "Cursor Worker implementation",
+      "owner_executor": "E_cursor_worker",
+      "mission_id": "M4",
+      "parallel_with": ["L_cloud_forge_run", "L_github_copilot"],
+      "exclusive": ["disk_implementation", "scoped_commit"]
+    },
+    {
+      "lane_id": "L_cursor_brain",
+      "label": "Cursor Brain route-only",
+      "owner_executor": "E_cursor_brain",
+      "mission_id": "M2",
+      "parallel_with": ["all"],
+      "exclusive": ["route", "dispatch_ready"],
+      "forbidden": ["implement", "verify_replace_l4"]
+    },
+    {
+      "lane_id": "L_mac_hub",
+      "label": "Mac Hub observe/dispatch",
+      "owner_executor": "E_mac_hub",
+      "mission_id": "M2",
+      "parallel_with": ["all"],
+      "exclusive": ["cf_tick_observe", "hub_proxy"],
+      "forbidden": ["motor_drain"]
+    }
+  ]
+}

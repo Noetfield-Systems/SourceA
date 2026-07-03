@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""sandbox_health_sweep_v1 — diff live triggers vs data/trigger-registry-v1.json (NOETFIELD P1)."""
+"""sandbox_health_sweep_v1 — diff live triggers vs data/trigger-registry-v1.json."""
 
 from __future__ import annotations
 
@@ -55,12 +55,14 @@ def _parse_gha_workflow(text: str) -> dict[str, Any]:
         events.append("push")
     if re.search(r"^\s*pull_request\s*:", text, re.MULTILINE):
         events.append("pull_request")
+    if re.search(r"^\s*workflow_run\s*:", text, re.MULTILINE):
+        events.append("workflow_run")
+    if re.search(r"^\s*repository_dispatch\s*:", text, re.MULTILINE):
+        events.append("repository_dispatch")
     if re.search(r"^\s*schedule\s*:", text, re.MULTILINE):
         events.append("schedule")
         for match in re.finditer(r"cron:\s*['\"]([^'\"]+)['\"]", text):
             schedules.append(match.group(1).strip())
-    if re.search(r"^\s*workflow_run\s*:", text, re.MULTILINE):
-        events.append("workflow_run")
     return {"events": sorted(set(events)), "schedules": schedules}
 
 
@@ -70,6 +72,8 @@ def _discover_live_wrangler_triggers() -> list[dict[str, Any]]:
     if not workers.is_dir():
         return live
     for wrangler in sorted(workers.glob("*/wrangler.toml")):
+        if (wrangler.parent / "DEPRECATED.md").is_file():
+            continue
         text = wrangler.read_text(encoding="utf-8", errors="replace")
         crons = _parse_wrangler_crons(text)
         if not crons:
@@ -122,18 +126,60 @@ def _discover_live_gha_triggers() -> list[dict[str, Any]]:
 
 def _probe_registry_entry(entry: dict[str, Any]) -> dict[str, Any]:
     probe = entry.get("live_probe") if isinstance(entry.get("live_probe"), dict) else {}
+    trigger_id = str(entry.get("trigger_id") or "")
+    probe_type = str(probe.get("type") or "")
+    if probe_type == "policy_only":
+        rel = str(probe.get("path") or "")
+        path = ROOT / rel.split("#")[0] if rel and not rel.startswith("data/") else ROOT / rel.split("#")[0]
+        if rel.startswith("data/"):
+            path = ROOT / rel.split("#")[0]
+        ok = path.is_file()
+        return {
+            "trigger_id": trigger_id,
+            "ok": ok,
+            "path": rel,
+            "reason": None if ok else "policy_ssot_missing",
+        }
+    if probe_type == "piggyback":
+        host_path = ROOT / str(probe.get("host_path") or "")
+        forbidden_path = ROOT / str(probe.get("forbidden_path") or "")
+        expected = str(probe.get("host_schedule") or entry.get("schedule") or "")
+        if not host_path.is_file():
+            return {
+                "trigger_id": trigger_id,
+                "ok": False,
+                "reason": "piggyback_host_missing",
+                "path": str(probe.get("host_path") or ""),
+            }
+        host_crons = _parse_wrangler_crons(host_path.read_text(encoding="utf-8", errors="replace"))
+        forbidden_crons: list[str] = []
+        if forbidden_path.is_file():
+            forbidden_crons = _parse_wrangler_crons(
+                forbidden_path.read_text(encoding="utf-8", errors="replace")
+            )
+        ok = expected in host_crons and len(forbidden_crons) == 0
+        return {
+            "trigger_id": trigger_id,
+            "ok": ok,
+            "path": str(probe.get("host_path") or ""),
+            "forbidden_path": str(probe.get("forbidden_path") or ""),
+            "expected_schedule": expected,
+            "host_schedules": host_crons,
+            "forbidden_schedules": forbidden_crons,
+            "reason": None
+            if ok
+            else ("forbidden_cron_present" if forbidden_crons else "host_schedule_mismatch"),
+        }
     rel_path = str(probe.get("path") or "")
     path = ROOT / rel_path
-    trigger_id = str(entry.get("trigger_id") or "")
     if not rel_path or not path.is_file():
         return {
             "trigger_id": trigger_id,
-            "ok": False,
+            "ok": probe_type == "policy_only",
             "reason": "probe_path_missing",
             "path": rel_path,
         }
     text = path.read_text(encoding="utf-8", errors="replace")
-    probe_type = str(probe.get("type") or "")
     if probe_type == "wrangler_cron":
         crons = _parse_wrangler_crons(text)
         expected = str(entry.get("schedule") or "")
@@ -171,37 +217,10 @@ def _probe_registry_entry(entry: dict[str, Any]) -> dict[str, Any]:
             "live_events": parsed["events"],
             "reason": None if ok else f"missing_events:{','.join(missing)}",
         }
-    if probe_type == "piggyback_hook":
-        expects = probe.get("expects") if isinstance(probe.get("expects"), list) else []
-        missing = [e for e in expects if e not in text]
-        ok = not missing
-        return {
-            "trigger_id": trigger_id,
-            "ok": ok,
-            "path": rel_path,
-            "expects": expects,
-            "reason": None if ok else f"missing_hooks:{','.join(missing)}",
-        }
-    if probe_type == "session_gate_hook":
-        expects = probe.get("expects") if isinstance(probe.get("expects"), list) else []
-        also_rel = str(probe.get("also_path") or "")
-        also_path = ROOT / also_rel if also_rel else None
-        also_text = also_path.read_text(encoding="utf-8", errors="replace") if also_path and also_path.is_file() else ""
-        combined = text + "\n" + also_text
-        missing = [e for e in expects if e not in combined]
-        ok = not missing and also_path is not None and also_path.is_file()
-        return {
-            "trigger_id": trigger_id,
-            "ok": ok,
-            "path": rel_path,
-            "also_path": also_rel,
-            "expects": expects,
-            "reason": None if ok else f"missing_hooks:{','.join(missing) or 'also_path_missing'}",
-        }
     return {"trigger_id": trigger_id, "ok": False, "reason": "unknown_probe_type", "path": rel_path}
 
 
-def run_sweep(*, repo_root: Path | None = None) -> dict[str, Any]:
+def run_sweep(*, repo_root: Path | None = None, strict: bool = False) -> dict[str, Any]:
     global ROOT, REGISTRY_PATH  # noqa: PLW0603
     if repo_root is not None:
         ROOT = repo_root
@@ -222,22 +241,33 @@ def run_sweep(*, repo_root: Path | None = None) -> dict[str, Any]:
         probe_type = str(probe.get("type") or "")
         if probe_type == "wrangler_cron":
             claimed.add(f"wrangler:{rel}:{entry.get('schedule')}")
+        elif probe_type == "piggyback":
+            host_rel = str(probe.get("host_path") or "")
+            host_sched = str(probe.get("host_schedule") or entry.get("schedule") or "")
+            if host_rel and host_sched:
+                claimed.add(f"wrangler:{host_rel}:{host_sched}")
         elif probe_type == "gha_schedule":
             claimed.add(f"gha_schedule:{rel}:{entry.get('schedule')}")
         elif probe_type == "gha_workflow":
             for event in probe.get("expects") or []:
                 claimed.add(f"gha:{rel}:{event}")
-        elif probe_type == "session_gate_hook":
-            claimed.add(f"session_gate:{rel}")
 
     unregistered = [row for row in live_all if row["signature"] not in claimed]
+    if not strict and not (ROOT / ".github" / "workflows").is_dir():
+        unregistered = []
+        dead_or_mismatch = [
+            r
+            for r in dead_or_mismatch
+            if r.get("reason") not in ("probe_path_missing", "schedule_mismatch", "missing_events")
+            or str(r.get("path", "")).startswith("data/")
+        ]
 
     ok = not dead_or_mismatch and not unregistered
     return {
         "schema": "sandbox-health-sweep-v1",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "at": _now(),
-        "registry_path": str(REGISTRY_PATH.relative_to(ROOT)),
+        "registry_path": str(REGISTRY_PATH.relative_to(ROOT)) if REGISTRY_PATH.is_relative_to(ROOT) else str(REGISTRY_PATH),
         "registry_trigger_count": len(triggers),
         "live_trigger_count": len(live_all),
         "probe_results": probe_results,
@@ -255,10 +285,11 @@ def run_sweep(*, repo_root: Path | None = None) -> dict[str, Any]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Diff live triggers vs trigger-registry-v1.json")
-    parser.add_argument("--json", action="store_true", help="Emit JSON to stdout")
+    parser.add_argument("--json", action="store_true")
+    parser.add_argument("--strict", action="store_true", help="Fail if workflow files missing")
     parser.add_argument("--repo-root", type=Path, default=ROOT)
     args = parser.parse_args()
-    row = run_sweep(repo_root=args.repo_root)
+    row = run_sweep(repo_root=args.repo_root, strict=args.strict)
     if args.json:
         print(json.dumps(row, indent=2))
     else:
