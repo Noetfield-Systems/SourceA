@@ -103,7 +103,9 @@ def is_forbidden_loose_path(path: str, forbidden_roots: list[str]) -> bool:
     return False
 
 
-def is_active_product_path(path: str, markers: list[str]) -> bool:
+def is_active_product_path(path: str, markers: list[str], allowlist: list[str]) -> bool:
+    if path in allowlist:
+        return False
     lowered = path.lower()
     if any(marker.lower() in lowered for marker in markers):
         allowed_context = (
@@ -175,7 +177,10 @@ def validate_status(data: dict[str, Any], *, clean_tree: bool) -> None:
         fail(f"loose generated/evidence/backlog paths must be snapshotted: {loose[:10]}")
 
     markers = data["boundaries"]["active_product_markers"]
-    active_product_paths = [path for path in paths if is_active_product_path(path, markers)]
+    allowlist = data["boundaries"].get("active_product_path_allowlist", [])
+    if not isinstance(allowlist, list):
+        fail("boundaries.active_product_path_allowlist must be a list when provided")
+    active_product_paths = [path for path in paths if is_active_product_path(path, markers, allowlist)]
     if active_product_paths:
         fail(f"active product/legal/entity paths do not belong in SourceA changes: {active_product_paths[:10]}")
 
