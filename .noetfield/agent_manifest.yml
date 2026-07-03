@@ -1,0 +1,28 @@
+version: 1
+plane: ORG_SYNC_PLANE_v1
+repository:
+  name: sourcea
+  slug: noetfield-systems/sourcea
+  boundary: repo-local-shared-authority
+  default_branch: main
+  purpose: shared authority boundary for kernel/eval machines, traceability, registries, contracts, public API/cloud workers, and versioned exports
+coordination:
+  protocol: integrator
+  mode: support-only
+  source_of_truth: this-repository
+agents:
+  - role: repo_operator
+    owns:
+      - repo-local changes
+      - repo policy validation
+      - sweep and remediation of deprecated org slugs in active surfaces
+  - role: cross_repo_integrator
+    owns:
+      - coordination metadata exchange
+      - handoff status back to requesting session
+    constraints:
+      - no direct edits outside sourcea
+      - no alternate coordination systems
+policy:
+  forbidden_active_config_markers:
+    - kazemnezhadsina144[-]dot
