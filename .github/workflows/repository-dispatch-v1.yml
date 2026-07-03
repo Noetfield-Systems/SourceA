@@ -1,0 +1,49 @@
+name: repository-dispatch-v1
+
+# GitHub Agents / Brain → scoped workflow dispatch (L15 — no motor class).
+on:
+  repository_dispatch:
+    types: [sourcea-automation-v1]
+
+concurrency:
+  group: repository-dispatch-${{ github.event.client_payload.op_key || github.run_id }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  validate-and-route:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate payload (mission_id + workflow_id + op_key)
+        env:
+          PAYLOAD: ${{ toJson(github.event.client_payload) }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, sys
+          payload = json.loads(os.environ.get("PAYLOAD") or "{}")
+          missing = [k for k in ("mission_id", "workflow_id", "op_key", "directive", "reason") if not payload.get(k)]
+          if missing:
+              print(f"FAIL: missing payload keys: {missing}")
+              sys.exit(1)
+          forbidden = payload.get("action") in ("auto_tick", "proceed", "cloud_forge_run_auto_tick")
+          if forbidden:
+              print("FAIL: motor class action forbidden on repository_dispatch")
+              sys.exit(1)
+          print(f"OK payload · mission={payload['mission_id']} workflow={payload['workflow_id']} op_key={payload['op_key'][:12]}")
+          PY
+
+      - name: Trigger registry + governance gate
+        run: |
+          set -euo pipefail
+          bash scripts/validate-github-automation-governance-v1.sh
+
+      - name: Route (placeholder — wire target workflow by workflow_id)
+        run: |
+          echo "repository_dispatch accepted — route to scoped workflow per data/github-automation-governance-v1.json"
+          echo "workflow_id=${{ github.event.client_payload.workflow_id }}"

@@ -1,0 +1,223 @@
+{
+  "schema": "github-automation-governance-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-03T08:59:00Z",
+  "one_law": "Living system — every automation owns exactly one lane; parallel by design; duplicate motor or unregistered trigger = defect.",
+  "doc": "docs/GITHUB_AUTOMATION_LIVING_SYSTEM_GOVERNANCE_LOCKED_v1.md",
+  "trigger_registry": "data/trigger-registry-v1.json",
+  "lane_registry": "data/automation-lane-registry-v1.json",
+  "mission_registry": "data/mission-registry-v1.json",
+  "autorun_laws": "docs/GOVERNED_AUTORUN_LAWS_v3.md",
+  "validator": "scripts/validate-github-automation-governance-v1.sh",
+  "conflict_matrix": "data/automation-conflict-matrix-v1.json",
+  "parallel_model": {
+    "rule": "Lanes run in parallel; only ONE owner may execute each action class per op_key window.",
+    "idempotency": "All cross-repo and GHA dispatches carry mission_id + workflow_id + op_key (D1).",
+    "concurrency": "GHA workflows declare concurrency.group per lane — cancel-in-progress false for truth lanes."
+  },
+  "executors": [
+    {
+      "id": "E_cloud_cf_railway",
+      "label": "Cloud Forge Run motor",
+      "plane": "cloud",
+      "exclusive_actions": ["auto_tick_100_rows", "forge_run_motor"],
+      "triggers": ["SA-T1"],
+      "forbidden_on": ["mac_body", "github_copilot", "cursor_brain"]
+    },
+    {
+      "id": "E_loop_specialist",
+      "label": "Loop specialist + SF piggyback",
+      "plane": "cloud",
+      "exclusive_actions": ["loop_specialist_tick", "signal_factory_piggyback"],
+      "triggers": ["SA-T-loop-specialist", "SA-T-signal-factory"],
+      "forbidden_on": ["dedicated_sf_cron", "mac_motor"]
+    },
+    {
+      "id": "E_gha_l4",
+      "label": "GitHub Actions L4 truth",
+      "plane": "github",
+      "exclusive_actions": ["external_verify_pass", "truth_log_post"],
+      "triggers": ["SA-T4", "SA-T4-chain", "SA-T5-external-verify", "SA-GH-recipe-matrix"],
+      "forbidden_on": ["same_sha_double_l4_without_concurrency"]
+    },
+    {
+      "id": "E_gha_determinism",
+      "label": "GitHub Actions determinism + trigger sweep",
+      "plane": "github",
+      "exclusive_actions": ["determinism_gate", "trigger_registry_sweep"],
+      "triggers": ["SA-T7-schedule", "SA-T7-push", "SA-T5-determinism-gate"]
+    },
+    {
+      "id": "E_gha_deploy",
+      "label": "GitHub Actions deploy chain",
+      "plane": "github",
+      "exclusive_actions": ["railway_deploy", "cf_worker_deploy"],
+      "triggers": ["SA-GH-deploy-chain"],
+      "chains_to": ["SA-T4-chain"],
+      "forbidden_on": ["deploy_and_push_l4_same_commit_without_workflow_run"]
+    },
+    {
+      "id": "E_gha_motor_backup",
+      "label": "GHA Cloud Forge manual backup",
+      "plane": "github",
+      "exclusive_actions": ["manual_auto_tick_backup"],
+      "triggers": ["SA-T5-cloud-forge-backup"],
+      "only_when": "cf_cron_down_or_founder_dispatch",
+      "forbidden_on": ["schedule", "parallel_with_SA-T1"]
+    },
+    {
+      "id": "E_github_agents",
+      "label": "GitHub Agents / repository_dispatch",
+      "plane": "github",
+      "exclusive_actions": ["repository_dispatch_advisory", "workflow_dispatch_scoped"],
+      "triggers": ["SA-GH-repository-dispatch"],
+      "required_payload": ["mission_id", "workflow_id", "op_key"],
+      "forbidden_actions": ["auto_tick", "proceed", "edit_law_without_worker"]
+    },
+    {
+      "id": "E_github_copilot",
+      "label": "GitHub Copilot coding agent",
+      "plane": "github_copilot",
+      "exclusive_actions": ["pr_proposal", "code_suggestion"],
+      "triggers": ["SA-GH-copilot-pr"],
+      "forbidden_actions": [
+        "railway_motor",
+        "cf_cron",
+        "trigger_registry_edit",
+        "merge_to_main_without_ci",
+        "duplicate_worker_implementation"
+      ],
+      "routing": "Copilot opens PR → Worker reviews → CI gates → Brain merges policy"
+    },
+    {
+      "id": "E_cursor_worker",
+      "label": "SourceA Worker (Cursor)",
+      "plane": "cursor",
+      "exclusive_actions": ["disk_implementation", "scoped_commit", "w_lba_queue"],
+      "inbox": [".sina-loop/INBOX.md", "~/.sina/worker-prompt-inbox-v1.json"],
+      "forbidden_on": ["24_7_motor", "mac_auto_tick"]
+    },
+    {
+      "id": "E_cursor_brain",
+      "label": "SourceA Brain (Cursor)",
+      "plane": "cursor",
+      "exclusive_actions": ["route", "dispatch_ready", "five_line_pulse"],
+      "forbidden_on": ["implement", "motor_drain", "duplicate_gha_verify"]
+    },
+    {
+      "id": "E_mac_hub",
+      "label": "Mac Hub control panel",
+      "plane": "mac",
+      "exclusive_actions": ["observe", "cf_tick_trigger", "hub_dispatch_proxy"],
+      "forbidden_on": ["railway_auto_tick", "proceed_motor", "playwright_marathon"]
+    }
+  ],
+  "copilot": {
+    "role": "Implementation accelerator — NOT factory motor, NOT truth prover, NOT trigger authority.",
+    "allowed": [
+      "Open PRs on assigned W-LBA or Worker-scoped paths",
+      "Suggest code within lane_registry write_scope",
+      "Run CI on PR branch"
+    ],
+    "forbidden": [
+      "Add cron/triggers without trigger-registry row in same PR",
+      "POST Railway auto-tick or Cloud Forge proceed",
+      "Merge without external-verify + determinism-gate + trigger-registry pass",
+      "Duplicate active Worker inbox item",
+      "Edit brain-os law or GOVERNED_AUTORUN without EDIT ALLOWED"
+    ],
+    "dedup_rule": "If Worker inbox has W-LBA-00N in_progress, Copilot must not open parallel PR for same item — comment only."
+  },
+  "github_agents": {
+    "role": "Cross-repo dispatch bus — repository_dispatch with deterministic payload.",
+    "payload_schema": {
+      "mission_id": "M1|M2|M3|M4|M5 from mission-registry",
+      "workflow_id": "string — must map to workflow_missions",
+      "op_key": "sha256 prefix — D1 idempotency",
+      "directive": "run|hold|throttle|escalate",
+      "reason": "required string",
+      "evidence": "optional url or path"
+    },
+    "handler_workflow": ".github/workflows/repository-dispatch-v1.yml",
+    "brain_emitter": "data/brain-desired-state-v1.json",
+    "forbidden": ["bare repository_dispatch without op_key", "motor class actions"]
+  },
+  "github_actions": {
+    "concurrency_law": "Every workflow declares concurrency.group matching lane_id; truth lanes use cancel-in-progress: false.",
+    "chain_law": "Deploy completes → workflow_run triggers L4 — do not also push-trigger L4 on same deploy commit without concurrency dedup.",
+    "matrix_law": "15-recipe fan-out is ONE workflow (external-verify) — not 15 separate workflow files.",
+    "workflows": [
+      {
+        "file": ".github/workflows/external-verify.yml",
+        "lane_id": "L_gha_truth_l4",
+        "concurrency_group": "l4-external-verify",
+        "owner": "E_gha_l4"
+      },
+      {
+        "file": ".github/workflows/determinism-gate.yml",
+        "lane_id": "L_gha_determinism",
+        "concurrency_group": "determinism-gate",
+        "owner": "E_gha_determinism",
+        "pre_merge_required": true
+      },
+      {
+        "file": ".github/workflows/autonomous-drain-cron-v1.yml",
+        "lane_id": "L_gha_motor_backup",
+        "display_name": "cloud-forge-run-manual-backup-v1",
+        "schedule_forbidden": true,
+        "owner": "E_gha_motor_backup"
+      },
+      {
+        "file": ".github/workflows/deploy-chain-v1.yml",
+        "lane_id": "L_gha_deploy",
+        "concurrency_group": "deploy-chain",
+        "owner": "E_gha_deploy"
+      },
+      {
+        "file": ".github/workflows/repository-dispatch-v1.yml",
+        "lane_id": "L_gha_agents",
+        "concurrency_group": "repository-dispatch",
+        "owner": "E_github_agents"
+      },
+      {
+        "file": ".github/workflows/validate-sourcea-boot-v1.yml",
+        "lane_id": "L_gha_package",
+        "concurrency_group": "validate-sourcea-boot",
+        "owner": "E_gha_determinism"
+      }
+    ]
+  },
+  "cloud_workers": {
+    "primary_scheduler": "cloudflare_cron",
+    "workers": [
+      {
+        "name": "sourcea-cloud-auto-runtime-tick-v1",
+        "cron": "*/10",
+        "lane_id": "L_cloud_forge_run",
+        "forbidden_duplicate": "gha_scheduled_auto_tick"
+      },
+      {
+        "name": "sourcea-loop-specialist-tick-v1",
+        "cron": "*/15",
+        "lane_id": "L_loop_specialist",
+        "piggyback": ["signal-factory-tick"]
+      },
+      {
+        "name": "sourcea-signal-factory-tick-v1",
+        "status": "DEPRECATED",
+        "cron": "FORBIDDEN",
+        "lane_id": "L_signal_factory"
+      }
+    ]
+  },
+  "integration_checklist": [
+    "trigger-registry row for every live trigger (L14)",
+    "lane_registry exclusive owner per action class",
+    "concurrency.group on every GHA workflow",
+    "Copilot PR checked against conflict_matrix",
+    "repository_dispatch payload validated",
+    "sandbox_health_sweep drift-clean",
+    "No SA-T-brain-loop standalone cron",
+    "No dedicated signal-factory CF cron"
+  ]
+}

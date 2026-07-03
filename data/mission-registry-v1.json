@@ -1,42 +1,53 @@
 {
   "schema": "mission-registry-v1",
-  "version": "1.0.0",
-  "spec_path": "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md",
+  "version": "1.1.0",
+  "saved_at": "2026-07-03T08:59:00Z",
+  "governance": "data/github-automation-governance-v1.json",
   "missions": [
     {
       "mission_id": "M1",
       "name": "buyer-proof",
       "value_class": "revenue_path",
+      "lane_id": "L_gha_truth_l4",
       "workflows": ["external-verify", "founder-proof-15", "buyer-surface"],
-      "definition_of_done": "15/15 PASS daily via Action"
+      "executors": ["E_gha_l4"],
+      "definition_of_done": "15/15 PASS via external-verify · truth_log EXTERNAL_VERIFY_PASS"
     },
     {
       "mission_id": "M2",
       "name": "factory-24-7",
       "value_class": "proof_asset",
-      "workflows": ["cloud-forge-run", "loop-specialist-tick", "autonomous-drain-cron-v1"],
-      "definition_of_done": "both windows VERIFIED, stay green 7d"
+      "lane_id": "L_cloud_forge_run",
+      "workflows": ["cloud-forge-run", "loop-specialist-tick", "cloud-forge-run-manual-backup-v1"],
+      "executors": ["E_cloud_cf_railway", "E_loop_specialist", "E_gha_motor_backup"],
+      "definition_of_done": "CF cron green · trigger sweep clean · no duplicate motors"
     },
     {
       "mission_id": "M3",
       "name": "truth-spine",
       "value_class": "risk_reduction",
-      "workflows": ["determinism-gate", "truth-log-sink", "replay-tests"],
-      "definition_of_done": "D-metrics all 0 for 7d"
+      "lane_id": "L_gha_determinism",
+      "workflows": ["determinism-gate", "trigger-registry-sweep", "truth-log-sink"],
+      "executors": ["E_gha_determinism"],
+      "definition_of_done": "D1-D8 PASS · trigger registry drift-clean"
     },
     {
       "mission_id": "M4",
-      "name": "kaizen",
+      "name": "kaizen-and-build",
       "value_class": "hygiene",
-      "workflows": ["improvement-runner"],
-      "definition_of_done": ">=1 machine_safe/day, 0 rollback debt"
+      "lane_id": "L_cursor_worker",
+      "workflows": ["improvement-runner", "w-lba-queue", "w-auto-queue"],
+      "executors": ["E_cursor_worker", "E_github_copilot"],
+      "definition_of_done": ">=1 machine_safe/day · Copilot dedup with Worker inbox"
     },
     {
       "mission_id": "M5",
       "name": "client-recipes",
       "value_class": "revenue_path",
-      "workflows": ["signal-factory-tick", "recipe-queue", "batch-motor"],
-      "definition_of_done": "queue refilled only by rubric; demos replayable"
+      "lane_id": "L_signal_factory",
+      "workflows": ["signal-factory-tick"],
+      "executors": ["E_loop_specialist"],
+      "definition_of_done": "piggyback tick only · queue rubric-pass refill"
     }
   ],
   "workflow_missions": {
@@ -45,9 +56,12 @@
     "determinism-gate": "M3",
     "loop-specialist-tick": "M2",
     "signal-factory-tick": "M5",
-    "brain-loop-cloud-tick": "M2",
+    "cloud-forge-run-manual-backup-v1": "M2",
     "autonomous-drain-cron-v1": "M2",
-    "validate-sourcea-boot": "M4"
+    "validate-sourcea-boot": "M4",
+    "deploy-chain": "M2",
+    "repository-dispatch-handler": "M2",
+    "copilot-pr-review": "M4"
   },
   "default_mission_id": "M2"
 }

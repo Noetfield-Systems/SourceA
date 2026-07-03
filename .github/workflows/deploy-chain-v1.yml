@@ -1,0 +1,13 @@
+name: deploy-chain-v1
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+concurrency:
+  group: deploy-chain
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploy chain — workflow_run triggers external-verify"

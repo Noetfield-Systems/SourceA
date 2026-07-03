@@ -1,0 +1,212 @@
+{
+  "schema": "sandbox-health-sweep-v1",
+  "version": "1.1.0",
+  "at": "2026-07-03T09:13:27Z",
+  "registry_path": "data/trigger-registry-v1.json",
+  "registry_trigger_count": 15,
+  "live_trigger_count": 16,
+  "probe_results": [
+    {
+      "trigger_id": "SA-T1",
+      "ok": true,
+      "path": "cloud/workers/cloud-auto-runtime-tick-v1/wrangler.toml",
+      "expected_schedule": "*/10 * * * *",
+      "live_schedules": [
+        "*/10 * * * *"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T-loop-specialist",
+      "ok": true,
+      "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+      "expected_schedule": "*/15 * * * *",
+      "live_schedules": [
+        "*/15 * * * *"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T-signal-factory",
+      "ok": true,
+      "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+      "forbidden_path": "cloud/workers/signal-factory-tick-v1/wrangler.toml",
+      "expected_schedule": "*/15 * * * *",
+      "host_schedules": [
+        "*/15 * * * *"
+      ],
+      "forbidden_schedules": [],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T4",
+      "ok": true,
+      "path": ".github/workflows/external-verify.yml",
+      "expects": [
+        "push"
+      ],
+      "live_events": [
+        "push",
+        "workflow_dispatch",
+        "workflow_run"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T4-chain",
+      "ok": true,
+      "path": ".github/workflows/external-verify.yml",
+      "expects": [
+        "workflow_run"
+      ],
+      "live_events": [
+        "push",
+        "workflow_dispatch",
+        "workflow_run"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T5-external-verify",
+      "ok": true,
+      "path": ".github/workflows/external-verify.yml",
+      "expects": [
+        "workflow_dispatch"
+      ],
+      "live_events": [
+        "push",
+        "workflow_dispatch",
+        "workflow_run"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T5-cloud-forge-backup",
+      "ok": true,
+      "path": ".github/workflows/autonomous-drain-cron-v1.yml",
+      "expects": [
+        "workflow_dispatch"
+      ],
+      "live_events": [
+        "workflow_dispatch"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T5-determinism-gate",
+      "ok": true,
+      "path": ".github/workflows/determinism-gate.yml",
+      "expects": [
+        "workflow_dispatch"
+      ],
+      "live_events": [
+        "push",
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T7-schedule",
+      "ok": true,
+      "path": ".github/workflows/determinism-gate.yml",
+      "expected_schedule": "30 */6 * * *",
+      "live_schedules": [
+        "30 */6 * * *"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T7-push",
+      "ok": true,
+      "path": ".github/workflows/determinism-gate.yml",
+      "expects": [
+        "push"
+      ],
+      "live_events": [
+        "push",
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T-boot-validate",
+      "ok": true,
+      "path": ".github/workflows/validate-sourcea-boot-v1.yml",
+      "expects": [
+        "push",
+        "pull_request"
+      ],
+      "live_events": [
+        "pull_request",
+        "push"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-GH-deploy-chain",
+      "ok": true,
+      "path": ".github/workflows/deploy-chain-v1.yml",
+      "expects": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "live_events": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-GH-recipe-matrix",
+      "ok": true,
+      "path": ".github/workflows/external-verify.yml",
+      "expects": [
+        "push"
+      ],
+      "live_events": [
+        "push",
+        "workflow_dispatch",
+        "workflow_run"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-GH-repository-dispatch",
+      "ok": true,
+      "path": ".github/workflows/repository-dispatch-v1.yml",
+      "expects": [
+        "repository_dispatch"
+      ],
+      "live_events": [
+        "repository_dispatch"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-GH-copilot-pr",
+      "ok": true,
+      "path": "data/github-automation-governance-v1.json#copilot",
+      "reason": null
+    }
+  ],
+  "dead_or_mismatch": [],
+  "unregistered_live": [
+    {
+      "signature": "gha:.github/workflows/deploy-sourcea-buyer-surfaces-v1.yml:push",
+      "type": "gha_workflow",
+      "path": ".github/workflows/deploy-sourcea-buyer-surfaces-v1.yml",
+      "event": "push"
+    },
+    {
+      "signature": "gha:.github/workflows/deploy-sourcea-buyer-surfaces-v1.yml:workflow_dispatch",
+      "type": "gha_workflow",
+      "path": ".github/workflows/deploy-sourcea-buyer-surfaces-v1.yml",
+      "event": "workflow_dispatch"
+    }
+  ],
+  "ok": false,
+  "drift": true,
+  "report_line": "trigger_drift \u00b7 dead=0 unregistered=2"
+}
