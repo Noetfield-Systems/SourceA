@@ -1,0 +1,31 @@
+name: SourceA automation surface health
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "11 6 * * *"
+    - cron: "19 7 * * 1"
+
+jobs:
+  automation-surface-health:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate automation catalog
+        run: python3 scripts/validate_sourcea_automation_catalog_v1.py --json --write-receipt
+
+      - name: Run trigger sweep
+        run: python3 scripts/sandbox_health_sweep_v1.py --json
+
+      - name: Verify autorun zero-manual lane
+        run: python3 scripts/verify_autorun_zero_manual_v1.py --json
+
+      - name: Check SourceA repo policy
+        run: python3 scripts/check_sourcea_repo_policy.py
