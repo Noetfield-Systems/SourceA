@@ -26,7 +26,7 @@ CYCLE_DIR_MAC = SINA / "autonomous-forge-run-cycle-receipts"
 PENDING_RECEIPT = PENDING_DIR / "pending-latest-v1.json"
 PENDING_MIRROR = SINA / "autorun-pending-v1.json"
 GITHUB_ACTIONS_EXTERNAL_VERIFY = (
-    "https://github.com/kazemnezhadsina144-dot/SourceA/actions/workflows/external-verify.yml"
+    "https://github.com/noetfield-systems/sourcea/actions/workflows/external-verify.yml"
 )
 
 

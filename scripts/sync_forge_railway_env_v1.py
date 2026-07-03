@@ -59,8 +59,8 @@ def sync(*, dry_run: bool = False) -> dict:
     github = env.get("GITHUB_TOKEN", "").strip() or _gh_token()
     openrouter = env.get("OPENROUTER_API_KEY", "").strip()
     pairs = {
-        "FORGE_GITHUB_OWNER": "kazemnezhadsina144-dot",
-        "FORGE_GITHUB_REPO": "SourceA",
+        "FORGE_GITHUB_OWNER": "noetfield-systems",
+        "FORGE_GITHUB_REPO": "sourcea",
         "FORGE_GITHUB_PLANS_PATH": "plans",
         "FORGE_GITHUB_REF": "main",
         "FBE_CLOUD_WORKER_URL": "https://sourcea-fbe-runner-production.up.railway.app",
