@@ -1,1 +1,1 @@
-/Users/sinakazemnezhad/Desktop/SourceA/scripts/film/avatar-pipeline.sh
+scripts/film/avatar-pipeline.sh
