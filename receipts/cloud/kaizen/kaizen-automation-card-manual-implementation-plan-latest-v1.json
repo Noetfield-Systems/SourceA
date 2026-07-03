@@ -1,0 +1,17 @@
+{
+  "cadence": "manual",
+  "card_id": "manual-implementation-plan",
+  "checked_at": "2026-07-03T06:33:57.439836Z",
+  "focus": "implementation planning from current live SSOTs",
+  "kind": "planning",
+  "ok": true,
+  "schema": "sourcea-automation-card-router-v1",
+  "sources": [
+    "data/sourcea-living-brain-autorun-master-plan-v1.json",
+    "data/sourcea-brain-registry-inventory-v1.json"
+  ],
+  "status": "mapped",
+  "target": "python3 scripts/sourcea_automation_card_router_v1.py --card manual-implementation-plan --json --write-receipt",
+  "title": "Manual implementation plan",
+  "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml"
+}

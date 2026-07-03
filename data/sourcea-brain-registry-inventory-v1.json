@@ -229,6 +229,19 @@
         "sandbox-health-sweep-v1",
         "autorun-zero-manual-verifier"
       ]
+    },
+    {
+      "asset_id": "sourcea-automation-card-router-v1",
+      "asset_type": "script",
+      "current_location": "scripts/sourcea_automation_card_router_v1.py",
+      "status": "live",
+      "owning_layer": "REGRESSION",
+      "mutation_class": "GATED",
+      "last_modified": "2026-07-03",
+      "dependents": [
+        "sourcea-automation-catalog-v1",
+        "sourcea-automation-surface-health"
+      ]
     }
   ],
   "promotion_requirements": {
