@@ -209,6 +209,50 @@ def validate_root_shims(data: dict[str, Any]) -> None:
             fail(f"root shim does not resolve to canonical target: {root_name} -> {canonical_target}")
 
 
+def list_visible_root_entries() -> set[str]:
+    entries: set[str] = set()
+    for path in ROOT.iterdir():
+        if path.name.startswith("."):
+            continue
+        if path.is_symlink() or path.is_file():
+            entries.add(path.name)
+    return entries
+
+
+def require_string_list(name: str, value: object) -> list[str]:
+    if not isinstance(value, list) or not all(isinstance(item, str) for item in value):
+        fail(f"{name} must be a list of strings")
+    return value
+
+
+def validate_root_inventory(data: dict[str, Any]) -> None:
+    working_tree = data["working_tree"]
+    stay_root_files = set(require_string_list("working_tree.stay_root_files", working_tree.get("stay_root_files")))
+    root_symlink_map = working_tree["root_symlink_map"]
+    root_candidates_to_relocate = set(
+        require_string_list(
+            "working_tree.root_candidates_to_relocate",
+            working_tree.get("root_candidates_to_relocate"),
+        )
+    )
+
+    overlap = (stay_root_files & set(root_symlink_map)) | (stay_root_files & root_candidates_to_relocate) | (
+        set(root_symlink_map) & root_candidates_to_relocate
+    )
+    if overlap:
+        fail(f"root inventory categories must be disjoint: {sorted(overlap)}")
+
+    visible_root_entries = list_visible_root_entries()
+    expected_entries = stay_root_files | set(root_symlink_map) | root_candidates_to_relocate
+    missing_entries = sorted(visible_root_entries - expected_entries)
+    if missing_entries:
+        fail(f"visible root files/symlinks are missing inventory classification: {missing_entries}")
+
+    unknown_entries = sorted(expected_entries - visible_root_entries)
+    if unknown_entries:
+        fail(f"root inventory references entries not present at repo root: {unknown_entries}")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--clean-tree", action="store_true", help="Require git status --short to be empty.")
@@ -218,6 +262,7 @@ def main() -> int:
     validate_policy(data)
     validate_status(data, clean_tree=args.clean_tree)
     validate_root_shims(data)
+    validate_root_inventory(data)
 
     status_count = len(parse_status_paths())
     print(
