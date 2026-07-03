@@ -58,6 +58,19 @@ def _run_case() -> None:
     assert ok.get("ok") is True, ok
     assert head_aligned == "CLOUD-SEC-005", head_aligned
 
+    sys.path.insert(0, str(ROOT / "packages" / "sourcea-sdk" / "src"))
+    from sourcea_sdk.workflow_health import score_slo_target
+
+    skipped = score_slo_target(
+        workflow_id="trigger-boundary-sweep",
+        lane="boundary_check",
+        targets=None,
+        observed={"freshness_minutes": 0, "success_rate": 1.0, "latency_minutes": 0},
+        evidence=[],
+    )
+    assert skipped["state"] == "skipped", skipped
+    assert skipped["misses"] == ["missing_optional_slo"], skipped
+
 
 def main() -> int:
     _run_case()
