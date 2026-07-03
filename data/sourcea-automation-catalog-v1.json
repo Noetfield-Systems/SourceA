@@ -1,0 +1,183 @@
+{
+  "schema": "sourcea-automation-catalog-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-03T06:18:00Z",
+  "source": "noetfield-os automation surfaces observed in-app",
+  "owner": "noetfield-systems/sourcea",
+  "catalog": [
+    {
+      "id": "daily-production-surfaces-health",
+      "title": "Daily production surfaces health",
+      "cadence": "daily",
+      "kind": "health",
+      "status": "mapped",
+      "sourcea_target": "scripts/validate-dashboard-no-autorun-v1.sh",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "receipt_path": "receipts/cloud/kaizen/kaizen-automation-catalog-miss-latest-v1.json",
+      "notes": "Production/public surface smoke for the SourceA repo boundary."
+    },
+    {
+      "id": "daily-repo-health",
+      "title": "Daily repo health",
+      "cadence": "daily",
+      "kind": "health",
+      "status": "mapped",
+      "sourcea_target": "scripts/validate-sourcea-e2e-registry-v1.sh",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "receipt_path": "receipts/cloud/kaizen/kaizen-automation-catalog-miss-latest-v1.json",
+      "notes": "Repo health and delivery boundary sweep."
+    },
+    {
+      "id": "daily-autorun-status",
+      "title": "Daily autorun status",
+      "cadence": "daily",
+      "kind": "health",
+      "status": "mapped",
+      "sourcea_target": "scripts/verify_autorun_zero_manual_v1.py",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "receipt_path": "receipts/cloud/kaizen/kaizen-autorun-health-miss-latest-v1.json",
+      "notes": "Autorun zero-manual and sink-invariant health."
+    },
+    {
+      "id": "daily-proof-evidence-drift",
+      "title": "Daily proof evidence drift",
+      "cadence": "daily",
+      "kind": "drift",
+      "status": "mapped",
+      "sourcea_target": "scripts/validate-governance-drift-v1.sh",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "receipt_path": "receipts/cloud/kaizen/kaizen-automation-catalog-miss-latest-v1.json",
+      "notes": "Evidence drift watch over proof chains and receipts."
+    },
+    {
+      "id": "weekly-docs-integrity",
+      "title": "Weekly docs integrity",
+      "cadence": "weekly",
+      "kind": "integrity",
+      "status": "mapped",
+      "sourcea_target": "scripts/validate-governance-ssot-registry-v1.sh",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "notes": "Docs/SSOT coherence gate."
+    },
+    {
+      "id": "weekly-upgrade-sweep",
+      "title": "Weekly upgrade sweep",
+      "cadence": "weekly",
+      "kind": "upgrade",
+      "status": "mapped",
+      "sourcea_target": "scripts/validate-registry-1000-steps-v1.py",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "notes": "Sweep for upgrade/registry drift and blocked items."
+    },
+    {
+      "id": "weekly-roadmap-reconciliation",
+      "title": "Weekly roadmap reconciliation",
+      "cadence": "weekly",
+      "kind": "reconciliation",
+      "status": "mapped",
+      "sourcea_target": "scripts/validate-sourcea-plan-registry-read-v1.sh",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "notes": "Roadmap and plan registry pass."
+    },
+    {
+      "id": "weekly-live-sync-gate",
+      "title": "Weekly live sync gate",
+      "cadence": "weekly",
+      "kind": "sync",
+      "status": "mapped",
+      "sourcea_target": "scripts/validate-governance-zero-drift-live-wire-v1.sh",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "notes": "Live sync gate for boundary and live-wire truth."
+    },
+    {
+      "id": "weekly-security-dependency-review",
+      "title": "Weekly security dependency review",
+      "cadence": "weekly",
+      "kind": "security",
+      "status": "mapped",
+      "sourcea_target": "scripts/validate-incident-registry-ids-v1.sh",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "notes": "Security/dependency review lane."
+    },
+    {
+      "id": "manual-pr-readiness-review",
+      "title": "Manual PR readiness review",
+      "cadence": "manual",
+      "kind": "review",
+      "status": "mapped",
+      "sourcea_target": "scripts/validate-sourcea-plan-registry-consumers-v1.sh",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "notes": "PR boundary readiness check."
+    },
+    {
+      "id": "manual-release-readiness",
+      "title": "Manual release readiness",
+      "cadence": "manual",
+      "kind": "review",
+      "status": "mapped",
+      "sourcea_target": "scripts/validate-sourcea-boot-v1.sh",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "notes": "Release gate for shipping the current batch."
+    },
+    {
+      "id": "manual-proof-demo-audit",
+      "title": "Manual proof demo audit",
+      "cadence": "manual",
+      "kind": "audit",
+      "status": "mapped",
+      "sourcea_target": "scripts/verify_client_proof_founder_review_v1.py",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "notes": "Proof-density review of founder-grade demo surfaces."
+    },
+    {
+      "id": "manual-test-and-package-audit",
+      "title": "Manual test and package audit",
+      "cadence": "manual",
+      "kind": "audit",
+      "status": "mapped",
+      "sourcea_target": "scripts/validate-sourcea-e2e-registry-v1.sh",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "notes": "Package/test quality and registry coherence."
+    },
+    {
+      "id": "manual-commercial-unblock",
+      "title": "Manual commercial unblock",
+      "cadence": "manual",
+      "kind": "review",
+      "status": "mapped",
+      "sourcea_target": "scripts/validate-governed-agentic-automation-offer_v1.sh",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "notes": "Commercial unblock path for buyer-facing releases."
+    },
+    {
+      "id": "manual-runtime-contract-review",
+      "title": "Manual runtime contract review",
+      "cadence": "manual",
+      "kind": "review",
+      "status": "mapped",
+      "sourcea_target": "scripts/validate-cloud-workers-workflows-v1.sh",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "notes": "Runtime and workflow contract inspection."
+    },
+    {
+      "id": "manual-evidence-pack-audit",
+      "title": "Manual evidence pack audit",
+      "cadence": "manual",
+      "kind": "audit",
+      "status": "mapped",
+      "sourcea_target": "scripts/build_external_verify_receipt_v1.py",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "notes": "Evidence pack and proof chain audit."
+    },
+    {
+      "id": "manual-deployment-boundary-audit",
+      "title": "Manual deployment boundary audit",
+      "cadence": "manual",
+      "kind": "audit",
+      "status": "mapped",
+      "sourcea_target": "scripts/validate-dashboard-no-autorun-v1.sh",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "notes": "Deployment boundary and active-config audit."
+    }
+  ]
+}

@@ -65,6 +65,16 @@
         "bundle": "data/brain-chat-knowledge-bundle-v1.json"
       },
       {
+        "id": "automation_catalog_bridge",
+        "path": "data/sourcea-automation-catalog-v1.json",
+        "writer": "scripts/validate_sourcea_automation_catalog_v1.py",
+        "readers": [
+          ".github/workflows/sourcea-automation-surface-health.yml",
+          "scripts/sandbox_health_sweep_v1.py",
+          "scripts/verify_autorun_zero_manual_v1.py"
+        ]
+      },
+      {
         "id": "execution_spine_hub",
         "path": "scripts/execution_spine/",
         "hub_api": "GET /api/execution-spine",
@@ -188,6 +198,22 @@
       "law": "GOVERNED_AUTORUN_LAWS_v3.md §Parallel orchestration Tier 1+",
       "status": "blocked_founder_gated",
       "gaps": ["Lane registry JSON", "Concurrency keys", "CF routing per lane"]
+    },
+    {
+      "id": "P9_automation_catalog",
+      "label": "Noetfield automation catalog + GitHub Actions",
+      "owner_chat": "Brain routes · Worker implements",
+      "trigger": "GH schedule + workflow_dispatch",
+      "executor": ".github/workflows/sourcea-automation-surface-health.yml",
+      "ssot": "data/sourcea-automation-catalog-v1.json",
+      "bridges_out": ["automation_catalog_bridge", "brain_registry_bridge", "event_spine"],
+      "health": {
+        "score_field": "coverage_pct",
+        "heartbeat_field": "mapped_count",
+        "slo_pass_threshold_pct": 100
+      },
+      "status": "live",
+      "gaps": []
     }
   ],
   "worker_queue": {

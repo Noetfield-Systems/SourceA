@@ -1,0 +1,23 @@
+{
+  "schema": "kaizen-improvement-receipt-v1",
+  "version": "1.0.0",
+  "at": "2026-07-03T06:22:44Z",
+  "law": "governed-autorun L14 \u00b7 trigger-registry drift",
+  "classification": "machine_safe",
+  "id": "kaizen-trigger-sweep-drift",
+  "diff_summary": "Trigger sweep drift or SLO miss now files a Kaizen proof receipt.",
+  "expected_effect": "Keep trigger-registry drift and sweep score regressions in the proof chain.",
+  "expected_roi": "faster trigger recovery \u00b7 tighter registry-to-live parity",
+  "rollback_command": "remove the Kaizen receipt writer from scripts/sandbox_health_sweep_v1.py",
+  "files_touched": [
+    "scripts/sandbox_health_sweep_v1.py",
+    "data/trigger-registry-v1.json"
+  ],
+  "before": "Sweep drift only surfaced in console output.",
+  "after": "Sweep drift also files a Kaizen proof receipt under receipts/cloud/kaizen.",
+  "score_pct": 81,
+  "threshold_pct": 95,
+  "ok": false,
+  "dead_or_mismatch": 0,
+  "unregistered_live": 3
+}

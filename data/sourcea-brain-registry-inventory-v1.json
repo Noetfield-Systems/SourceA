@@ -202,6 +202,33 @@
         "scripts/autorun_kaizen_queue_v1.py",
         "receipts/cloud/kaizen/"
       ]
+    },
+    {
+      "asset_id": "sourcea-automation-catalog-v1",
+      "asset_type": "registry",
+      "current_location": "data/sourcea-automation-catalog-v1.json",
+      "status": "live",
+      "owning_layer": "REGISTRY",
+      "mutation_class": "GATED",
+      "last_modified": "2026-07-03",
+      "dependents": [
+        "scripts/validate_sourcea_automation_catalog_v1.py",
+        ".github/workflows/sourcea-automation-surface-health.yml"
+      ]
+    },
+    {
+      "asset_id": "sourcea-automation-surface-health",
+      "asset_type": "config",
+      "current_location": ".github/workflows/sourcea-automation-surface-health.yml",
+      "status": "live",
+      "owning_layer": "REGISTRY",
+      "mutation_class": "GATED",
+      "last_modified": "2026-07-03",
+      "dependents": [
+        "sourcea-automation-catalog-v1",
+        "sandbox-health-sweep-v1",
+        "autorun-zero-manual-verifier"
+      ]
     }
   ],
   "promotion_requirements": {
