@@ -76,9 +76,26 @@ python3 scripts/check_sourcea_repo_policy.py
 git diff --check
 ```
 
+## Automation gate
+
+GitHub Actions workflow: `.github/workflows/repo-policy-gate.yml`
+
+This gate runs the repo-policy JSON check, `scripts/check_sourcea_repo_policy.py`, and `git diff --check` on policy-lane pull requests and on `main` pushes that touch repo-policy surfaces.
+
 Before closeout after commit:
 
 ```bash
 python3 scripts/check_sourcea_repo_policy.py --clean-tree
 git status --short
 ```
+
+## Next lane after repo-policy
+
+After enforcement is green, any root-surface reduction should happen in a separate cleanup lane that inventories root-level scripts, launchers, and canonical-home exceptions before moving anything.
+
+Bound that inventory to the categories already called out in `START_HERE.md`:
+
+- root machine JSON/YAML exceptions that intentionally stay at repo root
+- `*.sh` film entrypoints
+- `*.app` and `*.command` launchers
+- site directories and other documented symlink-backed canonical homes
