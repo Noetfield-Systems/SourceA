@@ -1,0 +1,177 @@
+{
+  "schema": "sandbox-health-sweep-v1",
+  "version": "1.0.0",
+  "at": "2026-07-03T05:42:26Z",
+  "registry_path": "data/trigger-registry-v1.json",
+  "registry_trigger_count": 13,
+  "live_trigger_count": 13,
+  "probe_results": [
+    {
+      "trigger_id": "SA-T1",
+      "ok": true,
+      "path": "cloud/workers/cloud-auto-runtime-tick-v1/wrangler.toml",
+      "expected_schedule": "*/10 * * * *",
+      "live_schedules": [
+        "*/10 * * * *"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T-loop-specialist",
+      "ok": true,
+      "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+      "expected_schedule": "*/15 * * * *",
+      "live_schedules": [
+        "*/15 * * * *"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T-signal-factory-piggyback",
+      "ok": true,
+      "path": "cloud/workers/loop-specialist-tick-v1/src/index.js",
+      "expects": [
+        "runSignalFactoryTick"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T-deploy-buyer-surfaces",
+      "ok": true,
+      "path": ".github/workflows/deploy-sourcea-buyer-surfaces-v1.yml",
+      "expects": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "live_events": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T4",
+      "ok": true,
+      "path": ".github/workflows/external-verify.yml",
+      "expects": [
+        "push",
+        "workflow_dispatch",
+        "workflow_run"
+      ],
+      "live_events": [
+        "push",
+        "workflow_dispatch",
+        "workflow_run"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T4-chain",
+      "ok": true,
+      "path": ".github/workflows/external-verify.yml",
+      "expects": [
+        "workflow_run"
+      ],
+      "live_events": [
+        "push",
+        "workflow_dispatch",
+        "workflow_run"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T5-external-verify",
+      "ok": true,
+      "path": ".github/workflows/external-verify.yml",
+      "expects": [
+        "workflow_dispatch"
+      ],
+      "live_events": [
+        "push",
+        "workflow_dispatch",
+        "workflow_run"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T5-autonomous-drain",
+      "ok": true,
+      "path": ".github/workflows/autonomous-drain-cron-v1.yml",
+      "expects": [
+        "workflow_dispatch"
+      ],
+      "live_events": [
+        "workflow_dispatch"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T5-determinism-gate",
+      "ok": true,
+      "path": ".github/workflows/determinism-gate.yml",
+      "expects": [
+        "workflow_dispatch"
+      ],
+      "live_events": [
+        "push",
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T7-schedule",
+      "ok": true,
+      "path": ".github/workflows/determinism-gate.yml",
+      "expected_schedule": "30 */6 * * *",
+      "live_schedules": [
+        "30 */6 * * *"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T7-push",
+      "ok": true,
+      "path": ".github/workflows/determinism-gate.yml",
+      "expects": [
+        "push"
+      ],
+      "live_events": [
+        "push",
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T-boot-validate",
+      "ok": true,
+      "path": ".github/workflows/validate-sourcea-boot-v1.yml",
+      "expects": [
+        "push",
+        "pull_request"
+      ],
+      "live_events": [
+        "pull_request",
+        "push"
+      ],
+      "reason": null
+    },
+    {
+      "trigger_id": "SA-T-mac-agent-heartbeat",
+      "ok": true,
+      "path": "scripts/agent_session_gate_run_v1.py",
+      "also_path": "scripts/cloud_workers_hub_v1.py",
+      "expects": [
+        "run_mac_spine_fresh_main",
+        "run_mac_spine_heartbeat"
+      ],
+      "reason": null
+    }
+  ],
+  "dead_or_mismatch": [],
+  "unregistered_live": [],
+  "ok": true,
+  "drift": false,
+  "report_line": "trigger_sweep_clean \u00b7 registry matches live"
+}
