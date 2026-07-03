@@ -11,6 +11,6 @@ SourceA is the repo-local authority boundary for shared contracts, public API/cl
 
 ## Active-config guardrails
 
-- **Forbidden active-config marker:** `kazemnezhadsina144[-]dot`
-- Do not introduce or retain the forbidden marker (see `docs/FORBIDDEN_MARKERS.txt`) in active configuration, code defaults, or runtime wiring.
+- **Forbidden active-config markers:** see `docs/FORBIDDEN_MARKERS.txt`
+- Do not introduce or retain forbidden markers listed in `docs/FORBIDDEN_MARKERS.txt` in active configuration, code defaults, or runtime wiring.
 - Use `noetfield-systems/sourcea` for SourceA repo identity in active surfaces.
