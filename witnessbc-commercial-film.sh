@@ -1,1 +1,1 @@
-/Users/sinakazemnezhad/Desktop/SourceA/scripts/film/witnessbc-commercial-film.sh
+scripts/film/witnessbc-commercial-film.sh

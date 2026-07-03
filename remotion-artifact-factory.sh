@@ -1,1 +1,1 @@
-/Users/sinakazemnezhad/Desktop/SourceA/scripts/film/remotion-artifact-factory.sh
+scripts/film/remotion-artifact-factory.sh
