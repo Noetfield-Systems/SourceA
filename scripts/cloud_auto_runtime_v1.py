@@ -12,8 +12,14 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
+sys.path.insert(0, str(ROOT / "packages" / "sourcea-sdk" / "src"))
+
+from sourcea_sdk.workflow_health import build_heartbeat_loop, build_heartbeat_report, emit_improvement_receipt  # noqa: E402
+
 SINA = Path.home() / ".sina"
 SSOT = ROOT / "data/cloud-auto-runtime-v1.json"
+TRIGGER_REGISTRY = ROOT / "data" / "trigger-registry-v1.json"
+E2E_REGISTRY = ROOT / "data" / "sourcea-e2e-check-registry-v1.json"
 TICK_RECEIPT = SINA / "cloud-auto-runtime-tick-receipt-v1.json"
 HUB_RECEIPT = SINA / "hub-cloud-forge-run-proceed-receipt-v1.json"
 AUTO_FLAG = SINA / "cloud-forge-run-auto-proceed-v1.flag"
@@ -307,6 +313,113 @@ def _drift_check_v1() -> dict[str, Any]:
     }
 
 
+def _observe_sync_health_report(
+    *,
+    head_row: dict[str, Any],
+    sink_inv: dict[str, Any],
+    trigger_source: str,
+    drift: dict[str, Any] | None = None,
+) -> tuple[dict[str, Any], dict[str, Any] | None]:
+    tick = _read(TICK_RECEIPT)
+    trigger_sweep = _trigger_registry_sweep_v1()
+    drift = drift or _drift_check_v1()
+    runtime_registry = _read(SSOT)
+    trigger_registry = _read(TRIGGER_REGISTRY)
+    e2e_registry = _read(E2E_REGISTRY)
+    e2e_summary = e2e_registry.get("summary") if isinstance(e2e_registry.get("summary"), dict) else {}
+    e2e_slo = e2e_registry.get("slo") if isinstance(e2e_registry.get("slo"), dict) else {}
+
+    runtime_loop = build_heartbeat_loop(
+        workflow_id="cloud-auto-runtime",
+        lane="observe_sync",
+        targets=runtime_registry.get("slo") if isinstance(runtime_registry.get("slo"), dict) else None,
+        observed={
+            "last_run_at": tick.get("at"),
+            "freshness_minutes": _minutes_since(str(tick.get("at") or "")),
+            "success_rate": 1.0 if tick.get("ok", True) else 0.0,
+            "latency_minutes": 0.0,
+        },
+        evidence=[
+            {
+                "command": "cloud_auto_runtime_tick",
+                "exit_code": 0 if tick.get("ok", True) else 1,
+                "output": str(tick.get("decision") or tick.get("schema") or "")[:240],
+            }
+        ],
+        last_run_at=tick.get("at"),
+        sink_invariant_ok=bool(sink_inv.get("ok", True)),
+    )
+
+    trigger_loop = build_heartbeat_loop(
+        workflow_id="trigger-boundary-sweep",
+        lane="boundary_check",
+        targets=trigger_registry.get("slo") if isinstance(trigger_registry.get("slo"), dict) else None,
+        observed={
+            "last_run_at": trigger_sweep.get("at"),
+            "freshness_minutes": _minutes_since(str(trigger_sweep.get("at") or "")),
+            "success_rate": 1.0 if trigger_sweep.get("ok") else 0.0,
+            "latency_minutes": 0.0,
+        },
+        evidence=[
+            {
+                "command": "sandbox_health_sweep_v1",
+                "exit_code": 0 if trigger_sweep.get("ok") else 1,
+                "output": str(trigger_sweep.get("report_line") or trigger_sweep.get("reason") or "")[:240],
+            }
+        ],
+        last_run_at=trigger_sweep.get("at"),
+        sink_invariant_ok=bool(sink_inv.get("ok", True)),
+        throttled_roi=not bool(trigger_sweep.get("ok")),
+    )
+
+    e2e_loop = build_heartbeat_loop(
+        workflow_id="sourcea-e2e-registry",
+        lane="observe_sync",
+        targets=e2e_slo or None,
+        observed={
+            "last_run_at": e2e_registry.get("generated_at"),
+            "freshness_minutes": _minutes_since(str(e2e_registry.get("generated_at") or "")),
+            "success_rate": 1.0 if e2e_summary.get("filing_registry_validator_present") else 0.0,
+            "latency_minutes": float(e2e_slo.get("latency_target_minutes") or 0.0),
+        },
+        evidence=[
+            {
+                "command": "sourcea_e2e_registry_generate_v1",
+                "exit_code": 0 if e2e_summary.get("filing_registry_validator_present") else 1,
+                "output": str(e2e_summary.get("total_checks") or "")[:240],
+            }
+        ],
+        last_run_at=e2e_registry.get("generated_at"),
+        sink_invariant_ok=True,
+    )
+
+    report = build_heartbeat_report(
+        loops=[runtime_loop, trigger_loop, e2e_loop],
+        drift=drift,
+        founder_blocked_total=_founder_blocked_snapshot().get("count", 0),
+    )
+    report["trigger_source"] = trigger_source
+    report["queue_head"] = head_row.get("cloud_forge_run_head")
+    receipt = emit_improvement_receipt(
+        report=report,
+        repo_root=ROOT,
+        rollback_command="python3 scripts/cloud_auto_runtime_v1.py --disable",
+    )
+    if receipt:
+        report["kaizen_receipt"] = {
+            "id": receipt.get("id"),
+            "path": receipt.get("path"),
+        }
+        report["founder_gated_improvements"] = [
+            {
+                "id": receipt.get("id"),
+                "expected_roi": receipt.get("expected_roi") or {},
+                "age_days": 0,
+            }
+        ]
+    return report, receipt
+
+
 def _founder_blocked_snapshot() -> dict[str, Any]:
     candidates = [
         SINA / "founder-blocked-queue-v1.json",
@@ -468,6 +581,15 @@ def _write_daily_heartbeat_if_due(
         }
     doc["pending"] = pending
     doc["escalations"] = [str(i.get("id") or "") for i in pending.get("items") or [] if i.get("severity") == "P0"]
+    workflow_health, receipt = _observe_sync_health_report(
+        head_row=head_row,
+        sink_inv=sink_inv,
+        trigger_source=trigger_source,
+        drift=doc["drift"],
+    )
+    doc["workflow_health"] = workflow_health
+    if receipt:
+        doc["workflow_health"]["kaizen_receipt_path"] = receipt.get("path")
     _write(path, doc)
     if not _is_headless_cloud():
         mirror = SINA / "autonomous-forge-run-daily-heartbeat-v1.json"
