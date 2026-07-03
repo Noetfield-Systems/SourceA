@@ -6,7 +6,7 @@ import { writeCronFired } from "./truth_log.js";
 
 const DEFAULT_VERIFIER_BASE_URL =
   "https://sina-governance-ssot-advisory.kazemnezhadsina144.workers.dev";
-const DEFAULT_CANDIDATE_REPO = "kazemnezhadsina144-dot/SourceA";
+const DEFAULT_CANDIDATE_REPO = "noetfield-systems/sourcea";
 const DEFAULT_CANDIDATE_REF = "main";
 const DEFAULT_CANDIDATE_PATH = "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json";
 
