@@ -225,6 +225,33 @@ def pending_snapshot(*, max_age_hours: float = 24.0) -> dict[str, Any]:
     items: list[dict[str, Any]] = []
     since = datetime.now(timezone.utc) - timedelta(hours=max_age_hours)
 
+    try:
+        import subprocess
+        import sys as _sys
+
+        probe = subprocess.run(
+            [_sys.executable, str(ROOT / "scripts" / "spine_live_probe_v1.py"), "--json"],
+            cwd=str(ROOT),
+            capture_output=True,
+            text=True,
+            timeout=60,
+        )
+        if probe.returncode != 0 and probe.stdout:
+            row = json.loads(probe.stdout)
+            items.append(
+                {
+                    "id": "spine_live_probe",
+                    "status": "pending",
+                    "severity": "P1",
+                    "law": "L7",
+                    "reason": "spine_live_probe failed — use API not founder observation",
+                    "evidence": {"command": "spine_live_probe_v1.py", "output": probe.stdout[:400]},
+                    "action": "machine: spine_live_probe_v1.py · read_action_runs_v1.py",
+                }
+            )
+    except (OSError, json.JSONDecodeError, subprocess.TimeoutExpired):
+        pass
+
     ev = _latest_external_verify_receipt()
     ev_ok = (
         ev.get("source") == "supabase_truth_log"

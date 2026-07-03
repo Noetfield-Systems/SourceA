@@ -286,6 +286,33 @@ def _founder_line(
     return f"loop-specialist · observe · {auto} · advisory={top} · {obs_line[:80]}{pending_line}"
 
 
+def run_machine_process_cycle() -> dict:
+    """Piggyback machine process loops on loop-specialist tick (SA-T-machine-cycle)."""
+    steps: list[dict] = []
+    py = sys.executable
+    chain = [
+        ("spine_probe", [py, str(SCRIPTS / "spine_live_probe_v1.py"), "--json"]),
+        ("adversarial", ["bash", str(SCRIPTS / "adversarial_critique_gate_v1.sh")]),
+        ("machine_cycle", [py, str(SCRIPTS / "machine_cycle_receipt_v1.py"), "--json"]),
+        ("retirement_eval", [py, str(SCRIPTS / "founder_trigger_retirement_evaluator_v1.py"), "--json"]),
+        ("kaizen_pick", [py, str(SCRIPTS / "autorun_kaizen_queue_v1.py"), "--pick", "--json"]),
+    ]
+    for name, cmd in chain:
+        try:
+            import subprocess as _sp
+
+            r = _sp.run(cmd, cwd=str(ROOT), capture_output=True, text=True, timeout=120)
+            steps.append({"step": name, "ok": r.returncode == 0, "exit": r.returncode})
+        except Exception as exc:
+            steps.append({"step": name, "ok": False, "error": str(exc)[:80]})
+    return {
+        "schema": "machine-process-cycle-run-v1",
+        "at": _now(),
+        "ok": all(s.get("ok") for s in steps),
+        "steps": steps,
+    }
+
+
 def run_tick(*, write: bool = True, dispatch: bool | None = None) -> dict:
     sys.path.insert(0, str(SCRIPTS))
     config = load_config(write_default=True)
@@ -493,6 +520,8 @@ def run_tick(*, write: bool = True, dispatch: bool | None = None) -> dict:
             "report_line": f"pending_write_failed · {exc}",
         }
 
+    machine_cycle = run_machine_process_cycle()
+
     row = {
         "schema": "loop-specialist-tick-receipt-v1",
         "ok": decision in (
@@ -538,6 +567,7 @@ def run_tick(*, write: bool = True, dispatch: bool | None = None) -> dict:
         ),
         "pending": pending,
         "pending_count": int(pending.get("count") or 0),
+        "machine_process_cycle": machine_cycle,
         "next_founder_action": next_action,
         "founder_one_line": "",
         "command": "python3 scripts/loop_specialist_tick_v1.py --json",

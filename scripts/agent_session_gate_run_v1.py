@@ -1066,6 +1066,29 @@ def main() -> int:
         graph_tier=args.graph_tier,
         ecosystem_wire=args.ecosystem_wire,
     )
+    if args.scan_text:
+        try:
+            from founder_intent_approval_machine_v1 import classify_intent  # noqa: WPS433
+
+            intent = classify_intent(args.scan_text)
+            if intent == "ambiguous":
+                subprocess.run(
+                    [
+                        sys.executable,
+                        str(Path(__file__).resolve().parents[1] / "scripts" / "uncertainty_research_enqueue_v1.py"),
+                        "--question",
+                        args.scan_text[:500],
+                        "--intent",
+                        intent,
+                        "--json",
+                    ],
+                    cwd=str(Path(__file__).resolve().parents[1]),
+                    timeout=30,
+                    check=False,
+                )
+                receipt["uncertainty_enqueued"] = True
+        except Exception:
+            pass
     if args.json:
         print(json.dumps(receipt, indent=2, ensure_ascii=False))
     else:

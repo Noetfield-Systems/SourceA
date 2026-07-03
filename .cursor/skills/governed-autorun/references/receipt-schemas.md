@@ -123,3 +123,22 @@ Recovery: founder review OR two consecutive windows under threshold.
 ```
 
 Forbidden marker starter set (extend per project): local user paths (`/Users/`), personal repo IDs where an org is canonical, `— skipped` fake-green lines, bare `—` placeholder counters, internal hostnames, secret patterns.
+
+## Machine cycle rollup (`machine-cycle-v1`)
+
+Path: `receipts/proof/machine-cycle-latest-v1.json` · mirror: `~/.sina/machine-cycle-latest-v1.json`
+
+```json
+{
+  "schema": "machine-cycle-v1",
+  "at": "",
+  "ok": true,
+  "loops": [{ "loop_id": "LP-MACHINE-VALID", "name": "machine_validation", "ok": true, "receipt_path": "", "at": "" }],
+  "founder_blocked_count": 0,
+  "kaizen_pick": "",
+  "retirement_candidates_ready": [],
+  "report_line": "machine_cycle PASS · N/N loops green"
+}
+```
+
+SSOT: `data/machine-process-loops-v1.json` · aggregator: `scripts/machine_cycle_receipt_v1.py`

@@ -38,6 +38,8 @@
 | Session cost contract | `data/agent-session-cost-contract-v1.json` | L17 |
 | Cursor cost routing | `data/cursor-cost-intelligence-routing-v1.json` | 045 pool law |
 | NOETFIELD spec | `docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md` | Cross-repo coherence |
+| Machine process loops | `data/machine-process-loops-v1.json` | 8 loops · no founder routing |
+| Founder trigger retirement | `data/founder-trigger-retirement-registry-v1.json` | Earned autonomy · receipt count |
 
 ---
 

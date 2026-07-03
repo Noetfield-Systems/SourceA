@@ -1,6 +1,6 @@
 {
   "schema": "trigger-registry-v1",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "saved_at": "2026-07-03T08:59:00Z",
   "system": "sourcea",
   "law": "docs/GITHUB_AUTOMATION_LIVING_SYSTEM_GOVERNANCE_LOCKED_v1.md#L14",
@@ -260,6 +260,22 @@
         "type": "gha_workflow",
         "path": ".github/workflows/deploy-sourcea-buyer-surfaces-v1.yml",
         "expects": ["push", "workflow_dispatch"]
+      }
+    },
+    {
+      "trigger_id": "SA-T-machine-cycle",
+      "lane_id": "L_loop_specialist",
+      "system": "sourcea",
+      "kind": "piggyback",
+      "schedule": "*/15 * * * *",
+      "target": "Machine process cycle on loop-specialist tick — pending, spine probe, cycle receipt, retirement, kaizen",
+      "owner": "loop_specialist",
+      "valid_in_verified_window": true,
+      "owner_workflow": "loop-specialist-tick",
+      "parent_trigger_id": "SA-T-loop-specialist",
+      "live_probe": {
+        "type": "policy_only",
+        "path": "scripts/loop_specialist_tick_v1.py"
       }
     },
     {

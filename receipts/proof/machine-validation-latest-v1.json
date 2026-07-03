@@ -1,0 +1,10 @@
+{
+  "schema": "machine-validation-v1",
+  "at": "2026-07-03T11:52:53Z",
+  "ok": true,
+  "steps": [
+    "L14_trigger_sweep:PASS",
+    "L16_governance:PASS"
+  ],
+  "report_line": "machine_validation PASS \u00b7 L14 + L16 + SSOT green"
+}

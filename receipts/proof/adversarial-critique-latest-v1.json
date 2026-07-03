@@ -1,0 +1,10 @@
+{
+  "schema": "adversarial-critique-v1",
+  "at": "2026-07-03T11:52:53Z",
+  "ok": true,
+  "duplicate_scan_ok": false,
+  "conflict_matrix_ok": true,
+  "d1_sample_ok": true,
+  "overlap_count": 30,
+  "report_line": "adversarial_critique PASS"
+}

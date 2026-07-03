@@ -1,12 +1,12 @@
 {
   "schema": "autorun-kaizen-backlog-v1",
   "version": "1.0.0",
-  "saved_at": "2026-07-02T21:55:00Z",
-  "law": "GOVERNED_AUTORUN_LAWS_v3 Kaizen · one machine_safe item per cycle (W-LBA-005)",
+  "saved_at": "2026-07-03T11:51:41Z",
+  "law": "GOVERNED_AUTORUN_LAWS_v3 Kaizen \u00b7 one machine_safe item per cycle (W-LBA-005)",
   "items": [
     {
       "id": "KZ-001",
-      "title": "Trigger-registry L14 wired — piggyback SF only",
+      "title": "Trigger-registry L14 wired \u2014 piggyback SF only",
       "status": "done",
       "done_at": "2026-07-02T21:58:00Z",
       "class": "machine_safe",
@@ -17,7 +17,7 @@
     },
     {
       "id": "KZ-002",
-      "title": "Kaizen queue motor — pick highest ROI machine_safe per cycle",
+      "title": "Kaizen queue motor \u2014 pick highest ROI machine_safe per cycle",
       "status": "pending",
       "class": "machine_safe",
       "cost_tier": "T1",
@@ -27,6 +27,18 @@
       "roi_rank": 2,
       "plane": "P6_improvement",
       "w_lba": "W-LBA-005"
+    },
+    {
+      "id": "KZ-CI-e58124",
+      "title": "CI fix: determinism-gate \u2014 bootstrap stub",
+      "status": "pending",
+      "class": "machine_safe",
+      "value_class": "hygiene",
+      "roi_rank": 3,
+      "plane": "P6_improvement",
+      "evidence_url": "",
+      "log_excerpt": "bootstrap stub",
+      "source": "self_repair_ci_to_kaizen_v1"
     }
   ]
 }

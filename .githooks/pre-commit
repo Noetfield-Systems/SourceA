@@ -16,3 +16,8 @@ gov_changed="$(git diff --cached --name-only --diff-filter=ACM | grep -E \
 if [[ -n "$gov_changed" ]]; then
   bash "${ROOT}/scripts/validate-github-automation-governance-v1.sh" >/dev/null
 fi
+machine_changed="$(git diff --cached --name-only --diff-filter=ACM | grep -E \
+  '^data/machine-process-loops-v1\.json$|^data/founder-trigger-retirement-registry-v1\.json$|^scripts/(worker_execution_gate|duplicate_implementation_scan|adversarial_critique|validate-machine-process|machine_cycle_receipt|founder_trigger_retirement)' || true)"
+if [[ -n "$machine_changed" ]]; then
+  bash "${ROOT}/scripts/validate-machine-process-v1.sh" >/dev/null
+fi

@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -248,6 +249,20 @@ def run(role: str, *, scan_text: str = "") -> int:
         if not fg.get("ok"):
             print("WORKER_FACTORY_GATE_BLOCKED", file=sys.stderr)
             print(json.dumps(fg, indent=2), file=sys.stderr)
+            return 1
+        try:
+            wg = subprocess.run(
+                [sys.executable, str(ROOT / "scripts" / "worker_execution_gate_v1.py"),
+                 "--role", "worker", "--task", scan_text[:200] if scan_text else "worker-entry",
+                 "--skip-session", "--json"],
+                cwd=str(ROOT), capture_output=True, text=True, timeout=120,
+            )
+            if wg.returncode != 0:
+                print("WORKER_EXECUTION_GATE_BLOCKED", file=sys.stderr)
+                print(wg.stdout or wg.stderr, file=sys.stderr)
+                return 1
+        except (subprocess.TimeoutExpired, OSError) as exc:
+            print(f"WORKER_EXECUTION_GATE_ERROR {exc}", file=sys.stderr)
             return 1
         from worker_inject_lib import inbox_status  # noqa: WPS433
 

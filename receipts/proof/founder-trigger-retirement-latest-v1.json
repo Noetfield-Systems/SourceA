@@ -1,0 +1,25 @@
+{
+  "schema": "founder-trigger-retirement-v1",
+  "at": "2026-07-03T11:51:41Z",
+  "ok": true,
+  "retired": [],
+  "patches": [],
+  "triggers": [
+    {
+      "trigger_id": "FT-TIER1-PARALLEL-ORCH",
+      "consecutive_green": 1,
+      "status": "active"
+    },
+    {
+      "trigger_id": "FT-KZ002-COPILOT-P4",
+      "consecutive_green": 1,
+      "status": "active"
+    },
+    {
+      "trigger_id": "FT-FOUNDER-OBSERVATION",
+      "consecutive_green": 1,
+      "status": "active"
+    }
+  ],
+  "report_line": "retirement_eval \u00b7 no triggers ready yet"
+}

@@ -1,0 +1,32 @@
+{
+  "schema": "worker-execution-gate-v1",
+  "version": "1.0.0",
+  "at": "2026-07-03T11:51:40Z",
+  "ok": true,
+  "role": "worker",
+  "task": "machine process bootstrap",
+  "mission_id": "M4",
+  "cost_tier": "T2",
+  "op_key": "523b3b0442e0be96daa7e4f587deb05e576087e0",
+  "steps": [
+    {
+      "step": "session_gate",
+      "ok": true,
+      "skipped": true
+    },
+    {
+      "step": "cost_tier",
+      "ok": true,
+      "tier": "T2",
+      "reason": "default Worker tier"
+    },
+    {
+      "step": "mission_routing",
+      "ok": true,
+      "mission_id": "M4",
+      "lane_id": "L_cursor_worker",
+      "name": "kaizen-and-build"
+    }
+  ],
+  "report_line": "worker_gate PASS \u00b7 mission=M4 tier=T2"
+}
