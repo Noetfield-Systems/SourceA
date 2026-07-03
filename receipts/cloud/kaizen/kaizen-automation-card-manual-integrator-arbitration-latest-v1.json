@@ -1,0 +1,17 @@
+{
+  "cadence": "manual",
+  "card_id": "manual-integrator-arbitration",
+  "checked_at": "2026-07-03T06:33:57.358346Z",
+  "focus": "integrator ownership and arbitration",
+  "kind": "arbitration",
+  "ok": true,
+  "schema": "sourcea-automation-card-router-v1",
+  "sources": [
+    "data/worker-cost-tier-queue-v1.json",
+    "data/noetfield-copilot-runtime-v1.json"
+  ],
+  "status": "mapped",
+  "target": "python3 scripts/sourcea_automation_card_router_v1.py --card manual-integrator-arbitration --json --write-receipt",
+  "title": "Manual integrator arbitration",
+  "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml"
+}
