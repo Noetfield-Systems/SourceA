@@ -82,6 +82,8 @@ GitHub Actions workflow: `.github/workflows/repo-policy-gate.yml`
 
 This gate runs the repo-policy JSON check, `scripts/check_sourcea_repo_policy.py`, and `git diff --check` on policy-lane pull requests and on `main` pushes that touch repo-policy surfaces.
 
+It also watches canonical root-shim targets under `data/root-machine/`, `data/templates/`, `scripts/film/`, `launchers/`, `sites/`, and the docs-backed root shims.
+
 Before closeout after commit:
 
 ```bash
@@ -101,3 +103,11 @@ Bound that inventory to the categories already called out in `START_HERE.md`:
 - site directories and other documented symlink-backed canonical homes
 
 Those root shims should stay as repo-relative symlinks to their canonical homes, never host-specific absolute links.
+
+Visible non-hidden root files and symlinks must be fully classified in `repo-policy.json` as one of:
+
+- `stay_root_files`
+- `root_symlink_map`
+- `root_candidates_to_relocate`
+
+`root_candidates_to_relocate` is for legacy root entries that still exist but should not become new permanent root exceptions.
