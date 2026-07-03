@@ -1,18 +1,21 @@
 {
   "schema": "machine-loops-e2e-v1",
   "canon_version": "FOUNDER_CANON_v1",
-  "at": "2026-07-03T12:02:36Z",
+  "at": "2026-07-03T12:12:23Z",
   "ok": true,
   "steps": [
     "canon_docs:PASS",
     "worker_gate:PASS",
     "adversarial:PASS",
     "critic:PASS",
+    "receipt_chain:PASS",
+    "critic_second:PASS",
     "machine_valid:PASS",
     "merge_gate:PASS",
+    "dispatch_recon:PASS",
     "spine_probe:PASS",
     "retirement:PASS",
     "cycle:PARTIAL"
   ],
-  "report_line": "machine_loops_e2e PASS \u00b7 canon + 8 loops + dispatch templates"
+  "report_line": "machine_loops_e2e PASS \u00b7 canon + 13 loops + HMAC chain + dispatch reconciler"
 }

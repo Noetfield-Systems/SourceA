@@ -2,7 +2,7 @@
   "schema": "machine-cycle-v1",
   "version": "1.1.0",
   "canon_version": "FOUNDER_CANON_v1",
-  "at": "2026-07-03T12:02:36Z",
+  "at": "2026-07-03T12:12:23Z",
   "ok": false,
   "loops": [
     {
@@ -10,35 +10,56 @@
       "name": "worker_execution",
       "ok": true,
       "receipt_path": "receipts/proof/worker-execution-gate-latest-v1.json",
-      "at": "2026-07-03T12:02:35Z"
+      "at": "2026-07-03T12:12:21Z"
     },
     {
       "loop_id": "LP-MACHINE-VALID",
       "name": "machine_validation",
       "ok": true,
       "receipt_path": "receipts/proof/machine-validation-latest-v1.json",
-      "at": "2026-07-03T12:02:36Z"
+      "at": "2026-07-03T12:12:22Z"
     },
     {
       "loop_id": "LP-ADVERSARIAL",
       "name": "adversarial_critique",
       "ok": true,
       "receipt_path": "receipts/proof/adversarial-critique-latest-v1.json",
-      "at": "2026-07-03T12:02:35Z"
+      "at": "2026-07-03T12:12:22Z"
     },
     {
       "loop_id": "LP-CRITIC",
       "name": "adversarial_critic",
       "ok": true,
       "receipt_path": "receipts/proof/adversarial-critic-latest-v1.json",
-      "at": "2026-07-03T12:02:35Z"
+      "at": "2026-07-03T12:12:22Z"
+    },
+    {
+      "loop_id": "LP-CRITIC-SECOND",
+      "name": "adversarial_critic_second",
+      "ok": true,
+      "receipt_path": "receipts/proof/adversarial-critic-second-latest-v1.json",
+      "at": "2026-07-03T12:12:22Z"
+    },
+    {
+      "loop_id": "LP-RECEIPT-CHAIN",
+      "name": "receipt_chain_audit",
+      "ok": true,
+      "receipt_path": "receipts/proof/receipt-chain-audit-latest-v1.json",
+      "at": "2026-07-03T12:12:22Z"
+    },
+    {
+      "loop_id": "LP-DISPATCH-RECON",
+      "name": "dispatch_reconciler",
+      "ok": true,
+      "receipt_path": "receipts/proof/dispatch-instantiated-latest-v1.json",
+      "at": "2026-07-03T12:12:22Z"
     },
     {
       "loop_id": "LP-MERGE",
       "name": "machine_merge",
       "ok": true,
       "receipt_path": "receipts/proof/machine-merge-gate-latest-v1.json",
-      "at": "2026-07-03T12:02:36Z"
+      "at": "2026-07-03T12:12:22Z"
     },
     {
       "loop_id": "LP-SELF-REPAIR",
@@ -52,7 +73,7 @@
       "name": "outside_audit",
       "ok": true,
       "receipt_path": "receipts/proof/spine-live-probe-latest-v1.json",
-      "at": "2026-07-03T12:02:36Z"
+      "at": "2026-07-03T12:12:22Z"
     },
     {
       "loop_id": "LP-RESEARCH",
@@ -66,18 +87,18 @@
       "name": "receipt_proof",
       "ok": false,
       "receipt_path": "receipts/proof/machine-cycle-latest-v1.json",
-      "at": "2026-07-03T12:02:25Z"
+      "at": "2026-07-03T12:02:36Z"
     },
     {
       "loop_id": "LP-EARNED-AUTONOMY",
       "name": "earned_autonomy",
       "ok": true,
       "receipt_path": "receipts/proof/founder-trigger-retirement-latest-v1.json",
-      "at": "2026-07-03T12:02:36Z"
+      "at": "2026-07-03T12:12:23Z"
     }
   ],
   "founder_blocked_count": 0,
   "kaizen_pick": "kaizen_pick \u00b7 KZ-002 \u00b7 Kaizen queue motor \u2014 pick highest ROI machine_safe per cycle",
   "retirement_candidates_ready": [],
-  "report_line": "machine_cycle PARTIAL \u00b7 8/10 loops green"
+  "report_line": "machine_cycle PARTIAL \u00b7 11/13 loops green"
 }

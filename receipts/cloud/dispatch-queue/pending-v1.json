@@ -1,0 +1,34 @@
+{
+  "schema": "dispatch-queue-v1",
+  "at": "2026-07-03T12:12:22Z",
+  "count": 2,
+  "dispatches": [
+    {
+      "dispatch_id": "DISP-770a4cead1",
+      "template_id": "repair-from-failure-v1",
+      "canon_version": "FOUNDER_CANON_v1",
+      "at": "2026-07-03T12:12:22Z",
+      "op_key": "3ab167bff472d4eca7f6f8081e7db7b3913c121a",
+      "source": "kaizen_filed",
+      "parameters": {
+        "kaizen_id": "KZ-CI-e58124",
+        "title": "CI fix: determinism-gate \u2014 bootstrap stub"
+      },
+      "status": "queued_for_worker"
+    },
+    {
+      "dispatch_id": "DISP-a7a3f00672",
+      "template_id": "repair-from-failure-v1",
+      "canon_version": "FOUNDER_CANON_v1",
+      "at": "2026-07-03T12:12:22Z",
+      "op_key": "54eedc54d6f8d83b41400b3195f291b20d84f385",
+      "source": "machine_cycle",
+      "source_path": "/Users/sinakazemnezhad/Desktop/_ARCHIVE_OLD_WORKTREES/SourceA_old_20260702_191948/receipts/proof/machine-cycle-latest-v1.json",
+      "parameters": {
+        "failure_receipt_path": "/Users/sinakazemnezhad/Desktop/_ARCHIVE_OLD_WORKTREES/SourceA_old_20260702_191948/receipts/proof/machine-cycle-latest-v1.json",
+        "log_excerpt": "{\"schema\": \"machine-cycle-v1\", \"version\": \"1.1.0\", \"canon_version\": \"FOUNDER_CANON_v1\", \"at\": \"2026-07-03T12:02:36Z\", \"ok\": false, \"loops\": [{\"loop_id\": \"LP-WORKER-EXEC\", \"name\": \"worker_execution\", \""
+      },
+      "law": "R2 \u2014 fresh lane repair; failed lane preserved read-only"
+    }
+  ]
+}

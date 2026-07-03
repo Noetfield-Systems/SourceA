@@ -23,6 +23,9 @@
 | Machine merge T0–T1 | §2 | `scripts/machine_merge_gate_v1.py` | `receipts/proof/machine-merge-gate-latest-v1.json` |
 | Adversarial critique | §3 | `scripts/adversarial_critique_gate_v1.sh` | `receipts/proof/adversarial-critique-latest-v1.json` |
 | Critic verdict | §3 | `scripts/adversarial_critic_receipt_v1.py` | `receipts/proof/adversarial-critic-latest-v1.json` |
+| Second critic (T2) | §3 | `scripts/adversarial_critic_second_v1.py` | `receipts/proof/adversarial-critic-second-latest-v1.json` |
+| Receipt chain audit | §5 | `scripts/receipt_chain_hmac_audit_v1.py` | `receipts/proof/receipt-chain-audit-latest-v1.json` |
+| Dispatch reconciler | R2 | `scripts/dispatch_template_reconciler_v1.py` | `receipts/proof/dispatch-instantiated-latest-v1.json` |
 | Self-repair | §4 | `scripts/self_repair_ci_to_kaizen_v1.py` | `receipts/proof/self-repair-latest-v1.json` |
 | Outside audit | §5 | `scripts/spine_live_probe_v1.py` | `receipts/proof/spine-live-probe-latest-v1.json` |
 | Deep research | §6 | `scripts/uncertainty_research_enqueue_v1.py` | `receipts/proof/uncertainty-research-latest-v1.json` |
@@ -47,7 +50,7 @@ See Desktop origin and `docs/FOUNDER_CANON_v1.md`. Machine substitutes are live;
 |------|--------------|------|
 | T0 | docs, tests, receipts, lint | `machine_merge_gate_v1.py --tier T0` on criteria 1–4 |
 | T1 | scoped app code | `machine_merge_gate_v1.py --tier T1` + critic APPROVE |
-| T2 | deps, CI files | machine + second critic (future) |
+| T2 | deps, CI files | primary + second critic APPROVE + HMAC receipt chain green |
 | T3 | schema, gates, governance | founder (never auto-retire) |
 
 Bootstrap retirement: `FT-MERGE-T0-T1` in retirement registry — 5 consecutive E2E greens flips T0–T1 to machine merge.

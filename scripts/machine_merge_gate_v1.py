@@ -75,10 +75,15 @@ def evaluate(*, tier: str = "") -> dict[str, Any]:
     critic = _read(ROOT / "receipts/proof/adversarial-critic-latest-v1.json")
     adv = _read(ROOT / "receipts/proof/adversarial-critique-latest-v1.json")
 
+    critic2 = _read(ROOT / "receipts/proof/adversarial-critic-second-latest-v1.json")
+    chain = _read(ROOT / "receipts/proof/receipt-chain-audit-latest-v1.json")
+
     criteria = {
         "external_ci_proxy": bool(validation.get("ok")),
         "receipt_schema_valid": validation.get("schema") == "machine-validation-v1",
         "critic_verdict": critic.get("verdict", "MISSING"),
+        "critic_second_verdict": critic2.get("verdict", "MISSING"),
+        "receipt_chain_ok": bool(chain.get("ok")),
         "adversarial_gate": bool(adv.get("ok")),
         "canon_version_present": True,
     }
@@ -99,9 +104,22 @@ def evaluate(*, tier: str = "") -> dict[str, Any]:
             reason = "T1 requires critic APPROVE"
         if ok:
             reason = f"machine merge authorized for {tier}"
+    elif tier == "T2":
+        ok = (
+            criteria["external_ci_proxy"]
+            and criteria["adversarial_gate"]
+            and criteria["critic_verdict"] == "APPROVE"
+            and criteria["critic_second_verdict"] == "APPROVE"
+            and criteria["receipt_chain_ok"]
+        )
+        reason = (
+            "machine merge authorized for T2"
+            if ok
+            else "T2 requires primary+second critic APPROVE + receipt chain green"
+        )
     else:
         ok = False
-        reason = f"{tier} requires second critic (not yet wired)"
+        reason = f"unknown tier {tier}"
 
     doc = {
         "schema": "machine-merge-gate-v1",

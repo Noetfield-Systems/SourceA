@@ -1,7 +1,7 @@
 {
   "schema": "machine-process-loops-v1",
-  "version": "1.1.0",
-  "saved_at": "2026-07-03T12:00:00Z",
+  "version": "1.2.0",
+  "saved_at": "2026-07-03T17:10:00Z",
   "law": "Default question: How does the process solve this without Sina?",
   "canon_version": "FOUNDER_CANON_v1",
   "canon_doc": "docs/FOUNDER_CANON_v1.md",
@@ -47,6 +47,36 @@
       "receipt_path": "receipts/proof/adversarial-critic-latest-v1.json",
       "founder_substitute": "APPROVE|REJECT|UNCERTAIN verdict on receipt+diff",
       "retires_trigger_ids": ["FT-FOUNDER-RECEIPT-READ"]
+    },
+    {
+      "loop_id": "LP-CRITIC-SECOND",
+      "name": "adversarial_critic_second",
+      "owner_lane": "L_gha_determinism",
+      "entry_script": "scripts/adversarial_critic_second_v1.py",
+      "validator": "scripts/adversarial_critic_second_v1.py",
+      "receipt_path": "receipts/proof/adversarial-critic-second-latest-v1.json",
+      "founder_substitute": "independent second critic for T2 merge authority",
+      "retires_trigger_ids": []
+    },
+    {
+      "loop_id": "LP-RECEIPT-CHAIN",
+      "name": "receipt_chain_audit",
+      "owner_lane": "L_gha_truth_l4",
+      "entry_script": "scripts/receipt_chain_hmac_audit_v1.py",
+      "validator": "scripts/receipt_chain_hmac_audit_v1.py",
+      "receipt_path": "receipts/proof/receipt-chain-audit-latest-v1.json",
+      "founder_substitute": "HMAC-chained tamper detection on proof receipts",
+      "retires_trigger_ids": []
+    },
+    {
+      "loop_id": "LP-DISPATCH-RECON",
+      "name": "dispatch_reconciler",
+      "owner_lane": "L_cursor_worker",
+      "entry_script": "scripts/dispatch_template_reconciler_v1.py",
+      "validator": "scripts/dispatch_template_reconciler_v1.py",
+      "receipt_path": "receipts/proof/dispatch-instantiated-latest-v1.json",
+      "founder_substitute": "R2 template instantiation from failure receipts + queue",
+      "retires_trigger_ids": []
     },
     {
       "loop_id": "LP-MERGE",

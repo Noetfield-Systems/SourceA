@@ -23,8 +23,11 @@ STEPS+=("canon_docs:PASS")
 run worker_gate "$PY" "$ROOT/scripts/worker_execution_gate_v1.py" --task "e2e machine loops" --mission-id M4 --skip-session --json >/dev/null
 run adversarial bash "$ROOT/scripts/adversarial_critique_gate_v1.sh"
 run critic "$PY" "$ROOT/scripts/adversarial_critic_receipt_v1.py" --json >/dev/null || true
+run receipt_chain "$PY" "$ROOT/scripts/receipt_chain_hmac_audit_v1.py" --json >/dev/null
+run critic_second "$PY" "$ROOT/scripts/adversarial_critic_second_v1.py" --json >/dev/null || true
 run machine_valid bash "$ROOT/scripts/validate-machine-process-v1.sh"
 run merge_gate "$PY" "$ROOT/scripts/machine_merge_gate_v1.py" --tier T0 --json >/dev/null || true
+run dispatch_recon "$PY" "$ROOT/scripts/dispatch_template_reconciler_v1.py" --json >/dev/null
 run spine_probe "$PY" "$ROOT/scripts/spine_live_probe_v1.py" --json >/dev/null || true
 run retirement "$PY" "$ROOT/scripts/founder_trigger_retirement_evaluator_v1.py" --dry-run --json >/dev/null
 if "$PY" "$ROOT/scripts/machine_cycle_receipt_v1.py" --json >/dev/null; then
@@ -42,7 +45,7 @@ doc = {
   'at': '$AT',
   'ok': True,
   'steps': '''${STEPS[*]}'''.split(),
-  'report_line': 'machine_loops_e2e PASS · canon + 8 loops + dispatch templates'
+  'report_line': 'machine_loops_e2e PASS · canon + 13 loops + HMAC chain + dispatch reconciler'
 }
 open('$RECEIPT','w').write(json.dumps(doc, indent=2)+'\n')
 print(doc['report_line'])

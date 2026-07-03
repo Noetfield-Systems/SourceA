@@ -1,0 +1,13 @@
+{
+  "schema": "adversarial-critic-second-v1",
+  "version": "1.0.0",
+  "canon_version": "FOUNDER_CANON_v1",
+  "at": "2026-07-03T12:12:22Z",
+  "ok": true,
+  "verdict": "APPROVE",
+  "actor": "independent_second_critic",
+  "primary_verdict": "APPROVE",
+  "findings": [],
+  "merge_tier_gate": "T0",
+  "report_line": "critic_second APPROVE \u00b7 0 findings"
+}

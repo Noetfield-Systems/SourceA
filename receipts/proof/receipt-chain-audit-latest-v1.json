@@ -1,0 +1,12 @@
+{
+  "schema": "receipt-chain-audit-v1",
+  "version": "1.0.0",
+  "canon_version": "FOUNDER_CANON_v1",
+  "at": "2026-07-03T12:12:22Z",
+  "ok": true,
+  "files_audited": 11,
+  "links_updated": 11,
+  "broken_links": [],
+  "head": "aeb6231ca9766d88f2623d6e3c80f545fedec9b0a33f33523035d4fe89b1d34c",
+  "report_line": "receipt_chain PASS \u00b7 11 files \u00b7 head=aeb6231ca976"
+}

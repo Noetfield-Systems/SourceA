@@ -1,7 +1,7 @@
 {
   "schema": "founder-trigger-ledger-v1",
   "version": "1.0.0",
-  "saved_at": "2026-07-03T12:02:36Z",
+  "saved_at": "2026-07-03T12:12:23Z",
   "law": "MACHINE_LOOPS \u00a78 \u2014 shadow-decision metric + trigger ledger",
   "canon_version": "FOUNDER_CANON_v1",
   "shadow_decision": {
@@ -17,7 +17,7 @@
       "trigger_id": "FT-MERGE-T0-T1",
       "class": "merge_authority",
       "retirement_condition": "5 consecutive machine-loops-e2e PASS + critic APPROVE streak",
-      "evidence_counter": 1,
+      "evidence_counter": 2,
       "evidence_source": "receipts/proof/machine-loops-e2e-latest-v1.json",
       "status": "active"
     },
