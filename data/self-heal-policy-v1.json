@@ -1,0 +1,219 @@
+{
+  "$schema": "https://noetfield.systems/schema/self-heal-policy-v1.json",
+  "version": "1.0.0",
+  "description": "Self-healing orchestrator policy: maps fix patterns to classes (auto/proposal/founder_gated)",
+  "scope": "noetfield-os",
+  "effective_date": "2025-01-15",
+  "protected_paths": [
+    ".github/workflows/**",
+    "scripts/verify_*",
+    "scripts/check_*",
+    "repo-policy.json",
+    "data/*-policy-*.json",
+    "data/self-heal-policy-*.json",
+    "data/trigger-registry-*.json",
+    ".noetfield/**",
+    "docs/FORBIDDEN_MARKERS.txt",
+    ".github/copilot-instructions.md"
+  ],
+  "rules": [
+    {
+      "id": "auto-drift-fix",
+      "pattern": "^data/sourcea-.*-v[0-9]+\\.json$",
+      "type": "registry-content",
+      "class": "auto",
+      "conditions": {
+        "requires": ["schema_valid", "version_incremented"],
+        "confidence_min": 0.95,
+        "review_threshold": "none"
+      },
+      "fix_category": "drift_correction",
+      "description": "Auto-fix sourcea registry content drift when schema is valid and version incremented"
+    },
+    {
+      "id": "proposal-new-registry",
+      "pattern": "^data/.*-registry-.*\\.json$",
+      "type": "registry-new",
+      "class": "proposal",
+      "conditions": {
+        "is_new": true,
+        "requires": ["schema_defined", "maintainer_approval"]
+      },
+      "fix_category": "new_registry",
+      "description": "File new registry additions as proposals (GitHub issue) for human approval"
+    },
+    {
+      "id": "founder-gated-protected",
+      "pattern": null,
+      "type": "path-protection",
+      "class": "founder_gated",
+      "conditions": {
+        "matches_protected_paths": true,
+        "requires": ["founder_review", "security_sign_off"]
+      },
+      "fix_category": "protected_surface",
+      "description": "All changes to protected paths must be founder-gated and filed as GitHub issues"
+    },
+    {
+      "id": "auto-script-defaults",
+      "pattern": "^scripts/.*\\.py$",
+      "type": "script-default",
+      "class": "auto",
+      "conditions": {
+        "change_type": "default_value",
+        "requires": ["syntax_valid", "tests_pass"],
+        "confidence_min": 0.90
+      },
+      "fix_category": "default_update",
+      "description": "Auto-fix script defaults when syntax is valid and tests pass"
+    },
+    {
+      "id": "proposal-workflow-change",
+      "pattern": "^\\.github/workflows/.*\\.ya?ml$",
+      "type": "workflow-change",
+      "class": "proposal",
+      "conditions": {
+        "is_scheduled_workflow": true,
+        "requires": ["budget_review", "trigger_registry_check"]
+      },
+      "fix_category": "workflow_modification",
+      "description": "New workflow changes or schedule modifications filed as proposals for budget review"
+    },
+    {
+      "id": "proposal-trigger-new",
+      "pattern": "^data/trigger-registry-.*\\.json$",
+      "type": "trigger-registry",
+      "class": "proposal",
+      "conditions": {
+        "is_new_trigger": true,
+        "requires": ["trigger_documented", "slo_defined"]
+      },
+      "fix_category": "new_trigger",
+      "description": "New triggers in registry filed as proposals for SLO and documentation review"
+    },
+    {
+      "id": "founder-gated-secret",
+      "pattern": null,
+      "type": "secret-management",
+      "class": "founder_gated",
+      "conditions": {
+        "contains_secret": true,
+        "requires": ["vault_scan", "founder_approval"]
+      },
+      "fix_category": "secret_handling",
+      "description": "Any secret-related changes founder-gated and scanned by vault"
+    }
+  ],
+  "default_class": "proposal",
+  "issue_filing": {
+    "enabled": true,
+    "repository": "noetfield-systems/sourcea",
+    "proposal_labels": ["type/proposal", "self-heal/proposal"],
+    "founder_gated_labels": ["type/founder-gated", "self-heal/blocked"],
+    "default_assignee": "founder",
+    "sort_by": "confidence_descending"
+  },
+  "pr_gating": {
+    "enabled": true,
+    "auto_class": {
+      "create_pr": true,
+      "merge_on": ["all_checks_pass"],
+      "commit_directly": false
+    },
+    "proposal_class": {
+      "create_issue": true,
+      "merge_on": ["manual_approval"],
+      "commit_directly": false
+    },
+    "founder_gated_class": {
+      "create_issue": true,
+      "merge_on": ["founder_approval", "all_checks_pass"],
+      "commit_directly": false
+    }
+  },
+  "confidence_scoring": {
+    "enabled": true,
+    "sort_key": "confidence_pct",
+    "suppress_by_threshold": false,
+    "thresholds": {
+      "auto_min": 0.90,
+      "proposal_min": 0.50,
+      "founder_gated_min": 0.0
+    }
+  },
+  "scope_phases": {
+    "phase_1": {
+      "enabled": true,
+      "repos": ["noetfield-systems/noetfield-os"],
+      "reads_from": ["supabase_cross_repo_api"],
+      "writes_to": [],
+      "description": "Phase 1: noetfield-os only, read-only cross-repo coordination"
+    },
+    "phase_2": {
+      "enabled": false,
+      "repos": ["noetfield-systems/sourcea", "noetfield-systems/thunderfield"],
+      "reads_from": ["supabase_cross_repo_api", "phase_1_results"],
+      "writes_to": ["each_repo_self_heal_registry"],
+      "transition_on": "registry_allowlist_addition",
+      "description": "Phase 2: downstream repos enabled after self-heal-policy allowlist entry"
+    }
+  },
+  "actions_budget": {
+    "enabled": true,
+    "daily_minutes_total": 1440,
+    "schedules": [
+      {
+        "job": "audit",
+        "frequency_minutes": 30,
+        "max_runtime_minutes": 15,
+        "daily_budget_minutes": 30
+      },
+      {
+        "job": "heal",
+        "frequency_minutes": 60,
+        "max_runtime_minutes": 45,
+        "daily_budget_minutes": 60
+      },
+      {
+        "job": "research",
+        "frequency_minutes": 120,
+        "max_runtime_minutes": 100,
+        "daily_budget_minutes": 120
+      },
+      {
+        "job": "specialist",
+        "frequency_minutes": 240,
+        "max_runtime_minutes": 180,
+        "daily_budget_minutes": 240
+      },
+      {
+        "job": "orchestrator",
+        "frequency_minutes": 360,
+        "max_runtime_minutes": 300,
+        "daily_budget_minutes": 360
+      }
+    ],
+    "total_allocated_minutes": 810,
+    "remaining_daily_minutes": 630,
+    "budget_monitor_path": "receipts/cloud/budget/actions-minutes-daily-latest-v1.json"
+  },
+  "drill_test": {
+    "enabled": true,
+    "description": "Validation drill: feed Layer 2 a fake finding on scripts/verify_*, assert founder_gated refusal",
+    "test_finding": {
+      "path": "scripts/verify_autorun_zero_manual_v1.py",
+      "issue_type": "synthetic_drift",
+      "confidence": 0.75,
+      "expected_class": "founder_gated",
+      "expected_action": "file_github_issue",
+      "expected_labels": ["type/founder-gated", "self-heal/blocked", "drill-test"]
+    },
+    "receipt_path": "receipts/cloud/self-heal/layer2-drill-test-receipt-v1.json"
+  },
+  "audit_trail": {
+    "enabled": true,
+    "receipt_path": "receipts/cloud/self-heal/layer2-audit-trail-v1.json",
+    "log_all_decisions": true,
+    "retention_days": 90
+  }
+}
