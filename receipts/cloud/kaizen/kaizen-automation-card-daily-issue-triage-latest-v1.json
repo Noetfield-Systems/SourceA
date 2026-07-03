@@ -1,0 +1,17 @@
+{
+  "cadence": "daily",
+  "card_id": "daily-issue-triage",
+  "checked_at": "2026-07-03T06:33:57.328086Z",
+  "focus": "issue intake and owner routing",
+  "kind": "triage",
+  "ok": true,
+  "schema": "sourcea-automation-card-router-v1",
+  "sources": [
+    "data/agent-filing-registry-v1.json",
+    "data/agent-filing-registry-unification-batch-v1.json"
+  ],
+  "status": "mapped",
+  "target": "python3 scripts/sourcea_automation_card_router_v1.py --card daily-issue-triage --json --write-receipt",
+  "title": "Issue triage",
+  "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml"
+}
