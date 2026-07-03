@@ -44,6 +44,10 @@
       "shared contract",
       "public API integration",
       "manifest reference"
+    ],
+    "active_product_path_allowlist": [
+      ".noetfield/agent_manifest.yml",
+      ".github/copilot-instructions.md"
     ]
   },
   "working_tree": {
