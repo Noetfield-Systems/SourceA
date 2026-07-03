@@ -4,6 +4,11 @@
   "saved_at": "2026-07-02T04:20:10Z",
   "enabled": true,
   "auto_proceed": true,
+  "slo": {
+    "freshness_target_minutes": 15,
+    "success_rate_target": 0.99,
+    "latency_target_minutes": 30
+  },
   "cron": "*/10 * * * *",
   "_5000_patch": "data/cloud-forge-run--5000-patch-v1.json",
   "auto_skip_mock": false,
