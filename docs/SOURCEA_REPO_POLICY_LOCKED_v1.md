@@ -99,3 +99,5 @@ Bound that inventory to the categories already called out in `START_HERE.md`:
 - `*.sh` film entrypoints
 - `*.app` and `*.command` launchers
 - site directories and other documented symlink-backed canonical homes
+
+Those root shims should stay as repo-relative symlinks to their canonical homes, never host-specific absolute links.

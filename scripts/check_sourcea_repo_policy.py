@@ -180,6 +180,35 @@ def validate_status(data: dict[str, Any], *, clean_tree: bool) -> None:
         fail(f"active product/legal/entity paths do not belong in SourceA changes: {active_product_paths[:10]}")
 
 
+def validate_root_shims(data: dict[str, Any]) -> None:
+    root_symlink_map = data["working_tree"].get("root_symlink_map")
+    if not isinstance(root_symlink_map, dict) or not root_symlink_map:
+        fail("working_tree.root_symlink_map must be a non-empty object")
+
+    for root_name, canonical_target in root_symlink_map.items():
+        if not isinstance(root_name, str) or not isinstance(canonical_target, str):
+            fail("working_tree.root_symlink_map entries must be string-to-string pairs")
+
+        root_path = ROOT / root_name
+        canonical_path = ROOT / canonical_target
+
+        if not root_path.is_symlink():
+            fail(f"root shim must be a symlink: {root_name}")
+        if not canonical_path.exists():
+            fail(f"canonical root shim target is missing: {canonical_target}")
+
+        actual_target = root_path.readlink()
+        if actual_target.is_absolute():
+            fail(f"root shim must use a repo-relative target, not an absolute path: {root_name}")
+        if actual_target.as_posix() != canonical_target:
+            fail(
+                f"root shim target mismatch for {root_name}: "
+                f"expected {canonical_target}, got {actual_target.as_posix()}"
+            )
+        if root_path.resolve() != canonical_path.resolve():
+            fail(f"root shim does not resolve to canonical target: {root_name} -> {canonical_target}")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--clean-tree", action="store_true", help="Require git status --short to be empty.")
@@ -188,6 +217,7 @@ def main() -> int:
     data = load_policy()
     validate_policy(data)
     validate_status(data, clean_tree=args.clean_tree)
+    validate_root_shims(data)
 
     status_count = len(parse_status_paths())
     print(
