@@ -8,6 +8,13 @@ on:
       - 'repo-policy.json'
       - 'scripts/check_sourcea_repo_policy.py'
       - 'docs/SOURCEA_REPO_POLICY_LOCKED_v1.md'
+      - 'data/root-machine/**'
+      - 'data/templates/**'
+      - 'docs/Source-A-Cloud-Kernel-v1.3.pdf'
+      - 'docs/System-Truth.rtf'
+      - 'launchers/**'
+      - 'scripts/film/**'
+      - 'sites/**'
       - '.github/workflows/repo-policy-gate.yml'
   push:
     branches: [main]
@@ -17,6 +24,13 @@ on:
       - 'repo-policy.json'
       - 'scripts/check_sourcea_repo_policy.py'
       - 'docs/SOURCEA_REPO_POLICY_LOCKED_v1.md'
+      - 'data/root-machine/**'
+      - 'data/templates/**'
+      - 'docs/Source-A-Cloud-Kernel-v1.3.pdf'
+      - 'docs/System-Truth.rtf'
+      - 'launchers/**'
+      - 'scripts/film/**'
+      - 'sites/**'
       - '.github/workflows/repo-policy-gate.yml'
 
 permissions:
