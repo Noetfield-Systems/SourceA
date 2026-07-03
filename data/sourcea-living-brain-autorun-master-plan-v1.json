@@ -35,6 +35,12 @@
         "trigger_on": ["cycle_receipt", "heartbeat", "loop_specialist_tick", "observer_build"]
       },
       {
+        "id": "kaizen_queue",
+        "path": "receipts/cloud/kaizen/",
+        "writer": "scripts/autorun_kaizen_queue_v1.py",
+        "trigger_on": ["slo_miss", "registry_drift", "improvement_cycle"]
+      },
+      {
         "id": "nerve_pulse",
         "path": "~/.sina/agent-nerve-system-receipt-v1.json",
         "writer": "scripts/agent_nerve_system_v1.py",
@@ -79,6 +85,11 @@
       "heartbeat": "receipts/cloud/autonomous-forge-run-heartbeat/",
       "bridges_out": ["truth_log_bus", "autorun_pending", "event_spine", "living_system_chains"],
       "determinism": ["D1", "D2", "D4", "D5"],
+      "health": {
+        "score_field": "score_pct",
+        "heartbeat_field": "heartbeat_score_pct",
+        "slo_pass_threshold_pct": 90
+      },
       "status": "live",
       "gaps": ["Kaizen one-item-per-cycle not wired", "L11 cost table incomplete in heartbeat"]
     },
@@ -92,6 +103,11 @@
       "ssot": "data/loop-specialist-cloud-contract-v1.json",
       "mac_observe": "scripts/loop_specialist_tick_v1.py --json",
       "bridges_out": ["nerve_pulse", "autorun_pending", "truth_log_bus"],
+      "health": {
+        "score_field": "score_pct",
+        "heartbeat_field": "heartbeat_score_pct",
+        "slo_pass_threshold_pct": 90
+      },
       "status": "live",
       "gaps": ["LOOP_AUTO_DISPATCH secret pending", "CF account URL drift vs SSOT"]
     },
@@ -117,6 +133,11 @@
       ],
       "ssot": "data/truth-log-cloud-contract-v1.json",
       "bridges_out": ["truth_log_bus", "brain_registry_bridge"],
+      "health": {
+        "score_field": "score_pct",
+        "drift_field": "drift",
+        "slo_pass_threshold_pct": 95
+      },
       "status": "live",
       "gaps": ["D6-D8 not in CI", "Recipe matrix per lane not split"]
     },
@@ -141,6 +162,12 @@
         "scripts/loop_auto_graduation_v1.py"
       ],
       "bridges_out": ["autorun_pending", "event_spine"],
+      "health": {
+        "score_field": "score_pct",
+        "heartbeat_field": "heartbeat_score_pct",
+        "kaizen_receipt_path": "receipts/cloud/kaizen/kaizen-autorun-health-miss-latest-v1.json",
+        "slo_pass_threshold_pct": 90
+      },
       "status": "partial",
       "gaps": ["Kaizen ROI queue executor missing", "L12 drift compare not in every heartbeat"]
     },
