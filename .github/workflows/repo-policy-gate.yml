@@ -1,0 +1,52 @@
+name: repo-policy-gate
+
+on:
+  pull_request:
+    paths:
+      - 'AGENTS.md'
+      - 'START_HERE.md'
+      - 'repo-policy.json'
+      - 'scripts/check_sourcea_repo_policy.py'
+      - 'docs/SOURCEA_REPO_POLICY_LOCKED_v1.md'
+      - '.github/workflows/repo-policy-gate.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'AGENTS.md'
+      - 'START_HERE.md'
+      - 'repo-policy.json'
+      - 'scripts/check_sourcea_repo_policy.py'
+      - 'docs/SOURCEA_REPO_POLICY_LOCKED_v1.md'
+      - '.github/workflows/repo-policy-gate.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repo-policy-gate-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  repo-policy-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate repo-policy JSON
+        run: |
+          set -euo pipefail
+          python3 -m json.tool repo-policy.json > /dev/null
+
+      - name: Run SourceA repo-policy validator
+        run: |
+          set -euo pipefail
+          python3 scripts/check_sourcea_repo_policy.py
+
+      - name: Check patch hygiene
+        run: |
+          set -euo pipefail
+          git diff --check
