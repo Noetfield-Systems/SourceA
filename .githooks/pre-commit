@@ -11,3 +11,8 @@ trigger_changed="$(git diff --cached --name-only --diff-filter=ACM | grep -E \
 if [[ -n "$trigger_changed" ]]; then
   python3 "${ROOT}/scripts/sandbox_health_sweep_v1.py" --json >/dev/null
 fi
+gov_changed="$(git diff --cached --name-only --diff-filter=ACM | grep -E \
+  '^data/github-automation-governance-v1\.json$|^data/automation-lane-registry-v1\.json$|^data/automation-conflict-matrix-v1\.json$|^data/mission-registry-v1\.json$' || true)"
+if [[ -n "$gov_changed" ]]; then
+  bash "${ROOT}/scripts/validate-github-automation-governance-v1.sh" >/dev/null
+fi

@@ -6,7 +6,7 @@
 **Trigger registry:** `data/trigger-registry-v1.json`  
 **Lane registry:** `data/automation-lane-registry-v1.json`  
 **Conflict matrix:** `data/automation-conflict-matrix-v1.json`  
-**Autorun laws:** `docs/GOVERNED_AUTORUN_LAWS_v3.md` (L14 + L15)
+**Autorun laws:** `docs/GOVERNED_AUTORUN_LAWS_v3.md` (L14 trigger co-commit + L16 automation lane ownership)
 
 ---
 
