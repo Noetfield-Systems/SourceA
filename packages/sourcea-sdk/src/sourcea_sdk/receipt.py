@@ -75,3 +75,53 @@ def load_latest_receipt(cwd: Path | None = None) -> dict[str, Any] | None:
     if not path.is_file():
         return None
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def write_improvement_receipt_v2(
+    *,
+    repo_root: Path | None = None,
+    receipt_id: str | None = None,
+    classification: str = "machine_safe",
+    source: str = "failed_check",
+    diff_summary: str,
+    expected_effect: str,
+    expected_roi: dict[str, Any] | None = None,
+    rollback_command: str,
+    evidence: list[dict[str, Any]] | None = None,
+    external_verify_before: str = "n/a",
+    external_verify_after: str = "n/a",
+    auto_rolled_back: bool = False,
+    extra: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    root = repo_root or Path.cwd()
+    out_dir = root / "receipts" / "cloud" / "kaizen"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    rid = receipt_id or f"kaizen-{uuid.uuid4().hex[:12]}"
+    payload: dict[str, Any] = {
+        "schema": "improvement-receipt-v2",
+        "class": classification,
+        "source": source,
+        "at": _now(),
+        "id": rid,
+        "diff_summary": diff_summary,
+        "expected_effect": expected_effect,
+        "expected_roi": expected_roi
+        or {
+            "cost_saved_usd": 0,
+            "risk_reduced": "",
+            "revenue_unblocked": "",
+            "build_cost_usd": 0,
+        },
+        "rollback_command": rollback_command,
+        "external_verify_before": external_verify_before,
+        "external_verify_after": external_verify_after,
+        "auto_rolled_back": auto_rolled_back,
+        "evidence": evidence or [],
+        "ok": True,
+    }
+    if extra:
+        payload.update(extra)
+    path = out_dir / f"{rid}.json"
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    payload["path"] = str(path)
+    return payload

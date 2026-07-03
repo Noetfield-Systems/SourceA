@@ -2,6 +2,11 @@
   "schema": "trigger-registry-v1",
   "version": "1.0.3",
   "system": "sourcea",
+  "slo": {
+    "freshness_target_minutes": 15,
+    "success_rate_target": 0.995,
+    "latency_target_minutes": 45
+  },
   "spec_path": "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md",
   "law": "L14 T-REG — new trigger requires registry entry in same commit; sweep must pass pre-merge",
   "triggers": [
