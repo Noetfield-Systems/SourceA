@@ -1,6 +1,6 @@
 {
   "schema": "machine-validation-v1",
-  "at": "2026-07-03T11:52:53Z",
+  "at": "2026-07-03T12:02:36Z",
   "ok": true,
   "steps": [
     "L14_trigger_sweep:PASS",

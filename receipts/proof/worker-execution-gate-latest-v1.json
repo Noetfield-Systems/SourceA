@@ -1,13 +1,13 @@
 {
   "schema": "worker-execution-gate-v1",
   "version": "1.0.0",
-  "at": "2026-07-03T11:51:40Z",
+  "at": "2026-07-03T12:02:35Z",
   "ok": true,
   "role": "worker",
-  "task": "machine process bootstrap",
+  "task": "e2e machine loops",
   "mission_id": "M4",
   "cost_tier": "T2",
-  "op_key": "523b3b0442e0be96daa7e4f587deb05e576087e0",
+  "op_key": "5872949f20e8896c5b01e7adde07c192597daeac",
   "steps": [
     {
       "step": "session_gate",
@@ -18,7 +18,7 @@
       "step": "cost_tier",
       "ok": true,
       "tier": "T2",
-      "reason": "default Worker tier"
+      "reason": "matched queue item W-LBA-008"
     },
     {
       "step": "mission_routing",
@@ -26,6 +26,11 @@
       "mission_id": "M4",
       "lane_id": "L_cursor_worker",
       "name": "kaizen-and-build"
+    },
+    {
+      "step": "adversarial_critique",
+      "ok": true,
+      "exit": 0
     }
   ],
   "report_line": "worker_gate PASS \u00b7 mission=M4 tier=T2"

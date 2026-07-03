@@ -1,0 +1,40 @@
+{
+  "schema": "machine-merge-gate-v1",
+  "version": "1.0.0",
+  "canon_version": "FOUNDER_CANON_v1",
+  "at": "2026-07-03T12:02:36Z",
+  "ok": true,
+  "tier": "T0",
+  "inferred_tier": "T3",
+  "files_sample": [
+    ".cursor/skills/governed-autorun/references/receipt-schemas.md",
+    ".githooks/pre-commit",
+    ".github/copilot-instructions.md",
+    ".github/workflows/autonomous-drain-cron-v1.yml",
+    ".github/workflows/deploy-chain-v1.yml",
+    ".github/workflows/determinism-gate.yml",
+    ".github/workflows/external-verify.yml",
+    ".github/workflows/repository-dispatch-v1.yml",
+    ".github/workflows/validate-sourcea-boot-v1.yml",
+    ".gitignore",
+    "cloud/workers/cloud-auto-runtime-tick-v1/wrangler.toml",
+    "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+    "cloud/workers/signal-factory-tick-v1/DEPRECATED.md",
+    "cloud/workers/signal-factory-tick-v1/wrangler.toml",
+    "data/automation-conflict-matrix-v1.json",
+    "data/automation-lane-registry-v1.json",
+    "data/autorun-kaizen-backlog-v1.json",
+    "data/brain-desired-state-v1.json",
+    "data/founder-trigger-retirement-registry-v1.json",
+    "data/github-automation-governance-v1.json"
+  ],
+  "criteria": {
+    "external_ci_proxy": true,
+    "receipt_schema_valid": true,
+    "critic_verdict": "APPROVE",
+    "adversarial_gate": true,
+    "canon_version_present": true
+  },
+  "reason": "machine merge authorized for T0",
+  "report_line": "merge_gate PASS \u00b7 T0 \u00b7 machine merge authorized for T0"
+}

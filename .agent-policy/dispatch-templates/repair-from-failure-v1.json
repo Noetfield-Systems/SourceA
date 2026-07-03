@@ -1,0 +1,21 @@
+{
+  "schema": "dispatch-template-v1",
+  "template_id": "repair-from-failure-v1",
+  "version": "1.0.0",
+  "canon_version": "FOUNDER_CANON_v1",
+  "law": "§4 self-repair — fresh lane, scope derived from failure receipt only",
+  "trigger_sources": ["FAILED_WITH_RECEIPT", "critic_REJECT", "DRIFT", "gate_event"],
+  "dispatch": {
+    "role": "worker",
+    "lane": "repair_fresh",
+    "preserve_failed_lane": true,
+    "scope_derivation": "failure_receipt.files_changed ∪ failing_test_paths",
+    "max_consecutive_failures_before_escalation": 2,
+    "escalation": ["uncertainty_research_enqueue_v1", "spine_live_probe_v1"],
+    "instantiate_script": "scripts/self_repair_ci_to_kaizen_v1.py"
+  },
+  "parameters": {
+    "failure_receipt_path": "path to JSON receipt",
+    "log_excerpt": "quoted CI/log error required"
+  }
+}

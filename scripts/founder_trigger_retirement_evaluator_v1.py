@@ -92,7 +92,19 @@ def evaluate(*, dry_run: bool = False) -> dict[str, Any]:
                     patches.append("KZ-002 unblocked")
                 if tid == "FT-TIER1-PARALLEL-ORCH" and _patch_laws_tier1():
                     patches.append("Tier1 parallel orch machine_enabled")
+                if tid == "FT-MERGE-T0-T1":
+                    patches.append("T0-T1 machine merge bootstrap retired")
             retired.append(tid)
+
+    ledger_path = ROOT / "data" / "founder-trigger-ledger-v1.json"
+    ledger = _read(ledger_path)
+    if ledger and not dry_run:
+        for lt in ledger.get("triggers") or []:
+            for rt in reg.get("triggers") or []:
+                if lt.get("trigger_id") == rt.get("trigger_id"):
+                    lt["evidence_counter"] = rt.get("consecutive_green", 0)
+        ledger["saved_at"] = _now()
+        ledger_path.write_text(json.dumps(ledger, indent=2) + "\n", encoding="utf-8")
 
     if not dry_run:
         reg["saved_at"] = _now()

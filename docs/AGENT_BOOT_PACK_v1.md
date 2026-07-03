@@ -40,6 +40,10 @@
 | NOETFIELD spec | `docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md` | Cross-repo coherence |
 | Machine process loops | `data/machine-process-loops-v1.json` | 8 loops · no founder routing |
 | Founder trigger retirement | `data/founder-trigger-retirement-registry-v1.json` | Earned autonomy · receipt count |
+| Founder canon | `docs/FOUNDER_CANON_v1.md` | Zero-founder validation doctrine |
+| Machine loops design | `docs/MACHINE_LOOPS_v1.md` | Loop mechanics + E2E map |
+| Founder trigger ledger | `data/founder-trigger-ledger-v1.json` | Shadow-decision + evidence counters |
+| Dispatch templates | `.agent-policy/dispatch-templates/` | R2 machine dispatch |
 
 ---
 

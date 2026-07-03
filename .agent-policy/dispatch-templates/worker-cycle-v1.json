@@ -1,0 +1,24 @@
+{
+  "schema": "dispatch-template-v1",
+  "template_id": "worker-cycle-v1",
+  "version": "1.0.0",
+  "canon_version": "FOUNDER_CANON_v1",
+  "law": "R2 — reconciler instantiates from queue; fresh context per role (R1)",
+  "dispatch": {
+    "role": "worker",
+    "cycle": "DISPATCH → [PLAN→PATCH→TEST→REPAIR]×N → RECEIPT → STOP",
+    "walls": ["G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8"],
+    "terminal_states": ["COMPLETE", "FAILED_WITH_RECEIPT", "BLOCKED_WITH_REASON", "IDLE_NO_WORK"],
+    "gates_before_start": [
+      "scripts/worker_execution_gate_v1.py",
+      "scripts/adversarial_critique_gate_v1.sh"
+    ],
+    "receipt_schema": "worker-execution-gate-v1",
+    "allowed_paths_from": "dispatch.allowed_paths"
+  },
+  "parameters": {
+    "mission_id": "M1|M2|M3|M4|M5",
+    "task": "string",
+    "allowed_paths": ["array of repo-relative paths"]
+  }
+}

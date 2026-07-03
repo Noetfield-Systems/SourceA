@@ -293,6 +293,8 @@ def run_machine_process_cycle() -> dict:
     chain = [
         ("spine_probe", [py, str(SCRIPTS / "spine_live_probe_v1.py"), "--json"]),
         ("adversarial", ["bash", str(SCRIPTS / "adversarial_critique_gate_v1.sh")]),
+        ("critic", [py, str(SCRIPTS / "adversarial_critic_receipt_v1.py"), "--json"]),
+        ("merge_gate", [py, str(SCRIPTS / "machine_merge_gate_v1.py"), "--json"]),
         ("machine_cycle", [py, str(SCRIPTS / "machine_cycle_receipt_v1.py"), "--json"]),
         ("retirement_eval", [py, str(SCRIPTS / "founder_trigger_retirement_evaluator_v1.py"), "--json"]),
         ("kaizen_pick", [py, str(SCRIPTS / "autorun_kaizen_queue_v1.py"), "--pick", "--json"]),

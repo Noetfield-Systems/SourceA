@@ -66,7 +66,8 @@ def aggregate() -> dict[str, Any]:
 
     doc = {
         "schema": "machine-cycle-v1",
-        "version": "1.0.0",
+        "version": "1.1.0",
+        "canon_version": "FOUNDER_CANON_v1",
         "at": _now(),
         "ok": all_ok,
         "loops": loops_out,

@@ -1,0 +1,14 @@
+{
+  "schema": "adversarial-critic-v1",
+  "version": "1.0.0",
+  "canon_version": "FOUNDER_CANON_v1",
+  "at": "2026-07-03T12:02:35Z",
+  "ok": true,
+  "verdict": "APPROVE",
+  "findings": [],
+  "evidence": {
+    "diff_stat_lines": 31,
+    "worker_ok": true
+  },
+  "report_line": "critic APPROVE \u00b7 0 findings"
+}

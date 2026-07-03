@@ -1,7 +1,7 @@
 {
   "schema": "sandbox-health-sweep-v1",
   "version": "1.1.0",
-  "at": "2026-07-03T11:52:53Z",
+  "at": "2026-07-03T12:02:36Z",
   "registry_path": "data/trigger-registry-v1.json",
   "registry_trigger_count": 17,
   "live_trigger_count": 16,

@@ -1,0 +1,46 @@
+{
+  "schema": "founder-trigger-ledger-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-03T12:02:36Z",
+  "law": "MACHINE_LOOPS \u00a78 \u2014 shadow-decision metric + trigger ledger",
+  "canon_version": "FOUNDER_CANON_v1",
+  "shadow_decision": {
+    "enabled": true,
+    "match_streak_required": 10,
+    "current_streak": 0,
+    "last_founder_decision_at": null,
+    "last_machine_recommendation": null
+  },
+  "registry_mirror": "data/founder-trigger-retirement-registry-v1.json",
+  "triggers": [
+    {
+      "trigger_id": "FT-MERGE-T0-T1",
+      "class": "merge_authority",
+      "retirement_condition": "5 consecutive machine-loops-e2e PASS + critic APPROVE streak",
+      "evidence_counter": 1,
+      "evidence_source": "receipts/proof/machine-loops-e2e-latest-v1.json",
+      "status": "active"
+    },
+    {
+      "trigger_id": "FT-TIER1-PARALLEL-ORCH",
+      "class": "phase_unlock",
+      "retirement_condition": "30 machine-validation + adversarial greens",
+      "evidence_counter": 0,
+      "status": "active"
+    },
+    {
+      "trigger_id": "FT-KZ002-COPILOT-P4",
+      "class": "cost_tier",
+      "retirement_condition": "10 adversarial + validation greens",
+      "evidence_counter": 0,
+      "status": "active"
+    },
+    {
+      "trigger_id": "FT-FOUNDER-OBSERVATION",
+      "class": "observation",
+      "retirement_condition": "5 spine-live-probe greens",
+      "evidence_counter": 0,
+      "status": "active"
+    }
+  ]
+}

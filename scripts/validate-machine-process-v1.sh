@@ -30,7 +30,10 @@ root = Path('$ROOT')
 loops = json.loads((root / 'data/machine-process-loops-v1.json').read_text())
 retire = json.loads((root / 'data/founder-trigger-retirement-registry-v1.json').read_text())
 assert loops.get('schema') == 'machine-process-loops-v1'
-assert len(loops.get('loops', [])) >= 8
+assert len(loops.get('loops', [])) >= 10
+assert (root / 'docs/FOUNDER_CANON_v1.md').is_file()
+assert (root / 'docs/MACHINE_LOOPS_v1.md').is_file()
+assert (root / 'data/founder-trigger-ledger-v1.json').is_file()
 assert retire.get('schema') == 'founder-trigger-retirement-registry-v1'
 for loop in loops['loops']:
     for key in ('loop_id', 'entry_script', 'receipt_path'):

@@ -34,6 +34,16 @@
       "receipt_sources": ["receipts/proof/spine-live-probe-latest-v1.json"],
       "status": "active",
       "patch_on_retire": null
+    },
+    {
+      "trigger_id": "FT-MERGE-T0-T1",
+      "current_blocker": "Founder merge review for T0-T1 changes during bootstrap",
+      "machine_substitute": "machine_merge_gate_v1.py + adversarial_critic APPROVE + validate-machine-loops-e2e",
+      "green_receipts_required": 5,
+      "consecutive_green": 0,
+      "receipt_sources": ["receipts/proof/machine-loops-e2e-latest-v1.json", "receipts/proof/machine-merge-gate-latest-v1.json"],
+      "status": "active",
+      "patch_on_retire": "docs/MACHINE_LOOPS_v1.md: T0-T1 bootstrap → machine merge enabled"
     }
   ]
 }

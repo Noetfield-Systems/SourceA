@@ -1,8 +1,8 @@
 {
   "schema": "spine-live-probe-v1",
-  "at": "2026-07-03T11:51:41Z",
+  "at": "2026-07-03T12:02:36Z",
   "ok": true,
-  "head_sha": "00279b4fde4b36c0cfc7e147e0462df5745e9b62",
+  "head_sha": "c03b7b0af288c5b287f73cf65cb23fd007d86291",
   "truth_log": {
     "ok": false,
     "reason": "HTTP Error 400: Bad Request"

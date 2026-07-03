@@ -1,8 +1,12 @@
 {
   "schema": "machine-process-loops-v1",
-  "version": "1.0.0",
-  "saved_at": "2026-07-03T11:00:00Z",
+  "version": "1.1.0",
+  "saved_at": "2026-07-03T12:00:00Z",
   "law": "Default question: How does the process solve this without Sina?",
+  "canon_version": "FOUNDER_CANON_v1",
+  "canon_doc": "docs/FOUNDER_CANON_v1.md",
+  "loops_doc": "docs/MACHINE_LOOPS_v1.md",
+  "e2e_gate": "scripts/validate-machine-loops-e2e-v1.sh",
   "loops": [
     {
       "loop_id": "LP-WORKER-EXEC",
@@ -33,6 +37,26 @@
       "receipt_path": "receipts/proof/adversarial-critique-latest-v1.json",
       "founder_substitute": "duplicate impl scan + conflict matrix + D1 sample",
       "retires_trigger_ids": ["FT-DUP-IMPL-FOUNDER"]
+    },
+    {
+      "loop_id": "LP-CRITIC",
+      "name": "adversarial_critic",
+      "owner_lane": "L_gha_determinism",
+      "entry_script": "scripts/adversarial_critic_receipt_v1.py",
+      "validator": "scripts/adversarial_critic_receipt_v1.py",
+      "receipt_path": "receipts/proof/adversarial-critic-latest-v1.json",
+      "founder_substitute": "APPROVE|REJECT|UNCERTAIN verdict on receipt+diff",
+      "retires_trigger_ids": ["FT-FOUNDER-RECEIPT-READ"]
+    },
+    {
+      "loop_id": "LP-MERGE",
+      "name": "machine_merge",
+      "owner_lane": "L_gha_determinism",
+      "entry_script": "scripts/machine_merge_gate_v1.py",
+      "validator": "scripts/machine_merge_gate_v1.py",
+      "receipt_path": "receipts/proof/machine-merge-gate-latest-v1.json",
+      "founder_substitute": "T0-T1 merge on validation+critic criteria",
+      "retires_trigger_ids": ["FT-MERGE-T0-T1"]
     },
     {
       "loop_id": "LP-SELF-REPAIR",
