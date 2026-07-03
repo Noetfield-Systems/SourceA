@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import sys
 import tempfile
+from datetime import datetime, timezone
 from pathlib import Path
 from unittest.mock import patch
 
@@ -60,6 +61,78 @@ def _run_case() -> None:
     assert verdict == "IDLE_NO_WORK", doc
     assert (doc.get("belt") or {}).get("SHIP", {}).get("ok") is False, doc
     assert idle_pack["idle_batch"] is True
+
+    sys.path.insert(0, str(ROOT / "packages" / "sourcea-sdk" / "src"))
+    import cloud_auto_runtime_v1 as auto_health
+    import importlib
+
+    importlib.reload(auto_health)
+    auto_health.ROOT = tmpdir
+    auto_health.SSOT = tmpdir / "data" / "cloud-auto-runtime-v1.json"
+    auto_health.TRIGGER_REGISTRY = tmpdir / "data" / "trigger-registry-v1.json"
+    auto_health.E2E_REGISTRY = tmpdir / "data" / "sourcea-e2e-check-registry-v1.json"
+    auto_health.TICK_RECEIPT = tmpdir / "cloud-auto-runtime-tick-receipt-v1.json"
+
+    (tmpdir / "data").mkdir(exist_ok=True)
+    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    (tmpdir / "data" / "cloud-auto-runtime-v1.json").write_text(
+        json.dumps(
+            {
+                "schema": "cloud-auto-runtime-v1",
+                "slo": {
+                    "freshness_target_minutes": 15,
+                    "success_rate_target": 0.99,
+                    "latency_target_minutes": 30,
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+    (tmpdir / "data" / "trigger-registry-v1.json").write_text(
+        json.dumps(
+            {
+                "schema": "trigger-registry-v1",
+                "slo": {
+                    "freshness_target_minutes": 15,
+                    "success_rate_target": 0.995,
+                    "latency_target_minutes": 45,
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+    (tmpdir / "data" / "sourcea-e2e-check-registry-v1.json").write_text(
+        json.dumps(
+            {
+                "schema": "sourcea-e2e-check-registry-v1",
+                "generated_at": "2020-01-01T00:00:00Z",
+                "slo": {
+                    "freshness_target_minutes": 1,
+                    "success_rate_target": 0.99,
+                    "latency_target_minutes": 60,
+                },
+                "summary": {"filing_registry_validator_present": True, "total_checks": 1},
+            }
+        ),
+        encoding="utf-8",
+    )
+    auto_health.TICK_RECEIPT.write_text(json.dumps({"at": stamp, "ok": True, "decision": "pack"}), encoding="utf-8")
+
+    with patch.object(auto_health, "_trigger_registry_sweep_v1", return_value={"ok": True, "at": stamp, "report_line": "trigger_sweep_clean"}):
+        with patch.object(auto_health, "_drift_check_v1", return_value={"checked": True, "ok": True, "mismatches": []}):
+            with patch.object(auto_health, "_founder_blocked_snapshot", return_value={"count": 0}):
+                report, receipt = auto_health._observe_sync_health_report(
+                    head_row={"cloud_forge_run_head": "CLOUD-SEC-910"},
+                    sink_inv={"ok": True},
+                    trigger_source="cloudflare_cron",
+                    drift={"checked": True, "ok": True, "mismatches": []},
+                )
+
+    assert report["schema"] == "autorun-heartbeat-v2", report
+    assert report["escalations"] == ["sourcea-e2e-registry"], report
+    assert report["loops"][2]["state"] == "missed", report
+    assert receipt and receipt["schema"] == "improvement-receipt-v2", receipt
+    assert Path(receipt["path"]).is_file(), receipt
 
 
 def main() -> int:
