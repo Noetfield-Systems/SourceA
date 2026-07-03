@@ -1,1 +1,1 @@
-/Users/sinakazemnezhad/Desktop/SourceA/scripts/film/witness-film-build.sh
+scripts/film/witness-film-build.sh
