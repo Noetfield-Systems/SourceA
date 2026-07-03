@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "system": "sourcea",
   "spec_path": "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md",
-  "law": "L14 T-REG — new trigger requires registry entry in same commit; sweep must pass pre-merge",
+  "law": "L14 T-REG \u2014 new trigger requires registry entry in same commit; sweep must pass pre-merge",
   "triggers": [
     {
       "trigger_id": "SA-T1",
@@ -23,7 +23,7 @@
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "*/15 * * * *",
-      "target": "Loop specialist tick → Railway dispatch",
+      "target": "Loop specialist tick \u2192 Railway dispatch",
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-tick",
       "live_probe": {
@@ -36,14 +36,16 @@
       "system": "sourcea",
       "kind": "piggyback",
       "schedule": "*/15 * * * *",
-      "target": "Signal factory tick via loop-specialist scheduled() — sole SF trigger (W-LBA-002)",
+      "target": "Signal factory tick via loop-specialist scheduled() \u2014 sole SF trigger (W-LBA-002)",
       "valid_in_verified_window": true,
       "owner_workflow": "signal-factory-tick",
       "parent_trigger_id": "SA-T-loop-specialist",
       "live_probe": {
         "type": "piggyback_hook",
         "path": "cloud/workers/loop-specialist-tick-v1/src/index.js",
-        "expects": ["runSignalFactoryTick"]
+        "expects": [
+          "runSignalFactoryTick"
+        ]
       }
     },
     {
@@ -57,7 +59,10 @@
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/deploy-sourcea-buyer-surfaces-v1.yml",
-        "expects": ["push", "workflow_dispatch"]
+        "expects": [
+          "push",
+          "workflow_dispatch"
+        ]
       }
     },
     {
@@ -71,7 +76,11 @@
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/external-verify.yml",
-        "expects": ["push", "workflow_dispatch", "workflow_run"]
+        "expects": [
+          "push",
+          "workflow_dispatch",
+          "workflow_run"
+        ]
       }
     },
     {
@@ -79,14 +88,16 @@
       "system": "sourcea",
       "kind": "chain",
       "schedule": null,
-      "target": "deploy-sourcea-buyer-surfaces-v1 success → external-verify workflow_run (PN-001)",
+      "target": "deploy-sourcea-buyer-surfaces-v1 success \u2192 external-verify workflow_run (PN-001)",
       "valid_in_verified_window": true,
       "owner_workflow": "external-verify",
       "parent_trigger_id": "SA-T-deploy-buyer-surfaces",
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/external-verify.yml",
-        "expects": ["workflow_run"]
+        "expects": [
+          "workflow_run"
+        ]
       }
     },
     {
@@ -100,7 +111,9 @@
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/external-verify.yml",
-        "expects": ["workflow_dispatch"]
+        "expects": [
+          "workflow_dispatch"
+        ]
       }
     },
     {
@@ -114,7 +127,9 @@
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/autonomous-drain-cron-v1.yml",
-        "expects": ["workflow_dispatch"]
+        "expects": [
+          "workflow_dispatch"
+        ]
       }
     },
     {
@@ -128,7 +143,9 @@
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/determinism-gate.yml",
-        "expects": ["workflow_dispatch"]
+        "expects": [
+          "workflow_dispatch"
+        ]
       }
     },
     {
@@ -155,7 +172,9 @@
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/determinism-gate.yml",
-        "expects": ["push"]
+        "expects": [
+          "push"
+        ]
       }
     },
     {
@@ -169,7 +188,10 @@
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/validate-sourcea-boot-v1.yml",
-        "expects": ["push", "pull_request"]
+        "expects": [
+          "push",
+          "pull_request"
+        ]
       }
     },
     {
@@ -184,8 +206,56 @@
         "type": "session_gate_hook",
         "path": "scripts/agent_session_gate_run_v1.py",
         "also_path": "scripts/cloud_workers_hub_v1.py",
-        "expects": ["run_mac_spine_fresh_main", "run_mac_spine_heartbeat"]
+        "expects": [
+          "run_mac_spine_fresh_main",
+          "run_mac_spine_heartbeat"
+        ]
       }
     }
-  ]
+  ],
+  "slo_targets": {
+    "pass_threshold_pct": 95,
+    "targets": {
+      "SA-T1": {
+        "max_lag_minutes": 15
+      },
+      "SA-T-loop-specialist": {
+        "max_lag_minutes": 20
+      },
+      "SA-T-signal-factory-piggyback": {
+        "max_lag_minutes": 20
+      },
+      "SA-T-deploy-buyer-surfaces": {
+        "max_lag_minutes": 60
+      },
+      "SA-T4": {
+        "max_lag_minutes": 60
+      },
+      "SA-T4-chain": {
+        "max_lag_minutes": 60
+      },
+      "SA-T5-external-verify": {
+        "max_lag_minutes": 60
+      },
+      "SA-T5-autonomous-drain": {
+        "max_lag_minutes": 60
+      },
+      "SA-T5-determinism-gate": {
+        "max_lag_minutes": 60
+      },
+      "SA-T7-schedule": {
+        "max_lag_minutes": 360
+      },
+      "SA-T7-push": {
+        "max_lag_minutes": 60
+      },
+      "SA-T-boot-validate": {
+        "max_lag_minutes": 60
+      },
+      "SA-T-mac-agent-heartbeat": {
+        "max_lag_minutes": 180,
+        "heartbeat_required": true
+      }
+    }
+  }
 }

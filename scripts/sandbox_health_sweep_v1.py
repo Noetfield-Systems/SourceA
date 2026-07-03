@@ -13,6 +13,8 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY_PATH = ROOT / "data" / "trigger-registry-v1.json"
+KAIZEN_DIR = ROOT / "receipts" / "cloud" / "kaizen"
+KAIZEN_RECEIPT = KAIZEN_DIR / "kaizen-trigger-sweep-drift-latest-v1.json"
 
 
 def _now() -> str:
@@ -23,6 +25,33 @@ def _read_json(path: Path) -> dict[str, Any]:
     if not path.is_file():
         return {}
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _write_kaizen_receipt(*, row: dict[str, Any], score_pct: int, threshold_pct: int) -> None:
+    if row.get("ok") and score_pct >= threshold_pct:
+        return
+    receipt = {
+        "schema": "kaizen-improvement-receipt-v1",
+        "version": "1.0.0",
+        "at": _now(),
+        "law": "governed-autorun L14 · trigger-registry drift",
+        "classification": "machine_safe",
+        "id": "kaizen-trigger-sweep-drift",
+        "diff_summary": "Trigger sweep drift or SLO miss now files a Kaizen proof receipt.",
+        "expected_effect": "Keep trigger-registry drift and sweep score regressions in the proof chain.",
+        "expected_roi": "faster trigger recovery · tighter registry-to-live parity",
+        "rollback_command": "remove the Kaizen receipt writer from scripts/sandbox_health_sweep_v1.py",
+        "files_touched": ["scripts/sandbox_health_sweep_v1.py", "data/trigger-registry-v1.json"],
+        "before": "Sweep drift only surfaced in console output.",
+        "after": "Sweep drift also files a Kaizen proof receipt under receipts/cloud/kaizen.",
+        "score_pct": score_pct,
+        "threshold_pct": threshold_pct,
+        "ok": bool(row.get("ok")),
+        "dead_or_mismatch": len(row.get("dead_or_mismatch") or []),
+        "unregistered_live": len(row.get("unregistered_live") or []),
+    }
+    KAIZEN_DIR.mkdir(parents=True, exist_ok=True)
+    KAIZEN_RECEIPT.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
 
 
 def _parse_wrangler_crons(text: str) -> list[str]:
@@ -209,6 +238,8 @@ def run_sweep(*, repo_root: Path | None = None) -> dict[str, Any]:
 
     registry = _read_json(REGISTRY_PATH)
     triggers = registry.get("triggers") if isinstance(registry.get("triggers"), list) else []
+    slo_targets = registry.get("slo_targets") if isinstance(registry.get("slo_targets"), dict) else {}
+    threshold_pct = int(slo_targets.get("pass_threshold_pct") or 95)
     probe_results = [_probe_registry_entry(t) for t in triggers if isinstance(t, dict)]
     dead_or_mismatch = [r for r in probe_results if not r.get("ok")]
 
@@ -233,7 +264,11 @@ def run_sweep(*, repo_root: Path | None = None) -> dict[str, Any]:
     unregistered = [row for row in live_all if row["signature"] not in claimed]
 
     ok = not dead_or_mismatch and not unregistered
-    return {
+    passed = len(probe_results) - len(dead_or_mismatch)
+    score_base = round(100 * passed / max(1, len(probe_results) + len(unregistered)))
+    score_pct = max(0, min(100, score_base))
+    proof_grade = score_pct >= threshold_pct
+    row = {
         "schema": "sandbox-health-sweep-v1",
         "version": "1.0.0",
         "at": _now(),
@@ -243,14 +278,20 @@ def run_sweep(*, repo_root: Path | None = None) -> dict[str, Any]:
         "probe_results": probe_results,
         "dead_or_mismatch": dead_or_mismatch,
         "unregistered_live": unregistered,
+        "score_pct": score_pct,
+        "threshold_pct": threshold_pct,
+        "proof_grade": proof_grade,
+        "slo_targets": slo_targets,
         "ok": ok,
         "drift": not ok,
         "report_line": (
-            "trigger_sweep_clean · registry matches live"
+            f"trigger_sweep_clean · score={score_pct}% · registry matches live"
             if ok
-            else f"trigger_drift · dead={len(dead_or_mismatch)} unregistered={len(unregistered)}"
+            else f"trigger_drift · score={score_pct}% · dead={len(dead_or_mismatch)} unregistered={len(unregistered)}"
         ),
     }
+    _write_kaizen_receipt(row=row, score_pct=score_pct, threshold_pct=threshold_pct)
+    return row
 
 
 def main() -> int:
