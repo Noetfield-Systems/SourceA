@@ -111,3 +111,5 @@ Visible non-hidden root files and symlinks must be fully classified in `repo-pol
 - `root_candidates_to_relocate`
 
 `root_candidates_to_relocate` is for legacy root entries that still exist but should not become new permanent root exceptions.
+
+Current baseline keeps the active legacy-canonical shims (`REPO_STATUS_REPORTS`, `RESEARCH`, `graphify-out`) in `root_symlink_map` with repo-local targets so they resolve consistently across machines.
