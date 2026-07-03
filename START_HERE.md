@@ -13,13 +13,19 @@ Pick your role (Brain · Worker · Founder · Research) — do not read 100 root
 | `FEEDBACK_AGGREGATE.json` · `EXECUTION_TRUTH.json` · `ARCHITECT_REPORT.yaml` | stay — hub sync hardcodes root |
 | `PORT_CATALOG.json` · `PORT_REGISTRY.json` · `GLOBAL_PRIORITY.json` | stay — port law |
 | `vercel.json` · `monitor.html` | stay — deploy + dashboard |
+| `ASF_DECISIONS` · `C12` · `C13` | `data/root-machine/` (repo-relative symlink at root) |
 | `sina_engine_registry_v1.yaml` · `thunderfield_*.yaml` | `data/root-machine/` (repo-relative symlink at root) |
 | `ECOSYSTEM_GRAPH.json` · `PHASE2_EVALUATIONS.json` · `VAULT_STATUS.json` | `data/root-machine/` (repo-relative symlink at root) |
+| `REPO_EXECUTION_LOG_TEMPLATE.yaml` · `REPO_STATUS_REPORT_TEMPLATE.yaml` | `data/templates/` (repo-relative symlink at root) |
 | `*.sh` film entrypoints | `scripts/film/` (repo-relative symlink at root) |
 | `SourceA-landing/` · `WitnessBC-landing/` | `sites/` (symlink at root) |
 | `*.app` · `*.command` launchers | `launchers/` (repo-relative symlink at root) |
+| `Source-A-Cloud-Kernel-v1.3.pdf` · `System Truth.rtf` | `docs/` (repo-relative symlink at root) |
+| `sourcea-founder.code-workspace` | `launchers/` (repo-relative symlink at root) |
 | Execution contract Zod | `shared/types/execution-contract-v1.ts` |
 | Agent firewall | `.cursorignore` |
+
+Legacy root entries not yet normalized should be treated as relocation candidates, not new root exceptions.
 
 Quick links:
 
