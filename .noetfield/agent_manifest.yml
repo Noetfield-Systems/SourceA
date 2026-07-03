@@ -25,4 +25,4 @@ agents:
       - no alternate coordination systems
 policy:
   forbidden_active_config_markers:
-    - kazemnezhadsina144-dot
+    - kazemnezhadsina144[-]dot
