@@ -1,0 +1,18 @@
+{
+  "cadence": "manual",
+  "card_id": "manual-bug-triage-root-cause",
+  "checked_at": "2026-07-03T06:33:57.409809Z",
+  "focus": "bug triage and root cause",
+  "kind": "triage",
+  "ok": true,
+  "schema": "sourcea-automation-card-router-v1",
+  "sources": [
+    "data/cloud-auto-runtime-blocker-registry-v1.json",
+    "data/trigger-registry-v1.json",
+    "data/witnessbc-proof-lab-v1.json"
+  ],
+  "status": "mapped",
+  "target": "python3 scripts/sourcea_automation_card_router_v1.py --card manual-bug-triage-root-cause --json --write-receipt",
+  "title": "Manual bug triage and root cause",
+  "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml"
+}

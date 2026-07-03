@@ -39,6 +39,72 @@
       "notes": "Autorun zero-manual and sink-invariant health."
     },
     {
+      "id": "daily-issue-triage",
+      "title": "Issue triage",
+      "cadence": "daily",
+      "kind": "triage",
+      "status": "mapped",
+      "sourcea_target": "python3 scripts/sourcea_automation_card_router_v1.py --card daily-issue-triage --json --write-receipt",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "receipt_path": "receipts/cloud/kaizen/kaizen-automation-card-daily-issue-triage-latest-v1.json",
+      "notes": "Route GitHub issue intake through the agent-filing registry and maintain owner/prioritization hints."
+    },
+    {
+      "id": "manual-integrator-arbitration",
+      "title": "Manual integrator arbitration",
+      "cadence": "manual",
+      "kind": "arbitration",
+      "status": "mapped",
+      "sourcea_target": "python3 scripts/sourcea_automation_card_router_v1.py --card manual-integrator-arbitration --json --write-receipt",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "receipt_path": "receipts/cloud/kaizen/kaizen-automation-card-manual-integrator-arbitration-latest-v1.json",
+      "notes": "Use the worker-cost-tier queue and runtime policy to arbitrate integrator ownership at the repo boundary."
+    },
+    {
+      "id": "hourly-integrator-sync-audit",
+      "title": "Hourly integrator sync audit",
+      "cadence": "hourly",
+      "kind": "audit",
+      "status": "mapped",
+      "sourcea_target": "python3 scripts/sourcea_automation_card_router_v1.py --card hourly-integrator-sync-audit --json --write-receipt",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "receipt_path": "receipts/cloud/kaizen/kaizen-automation-card-hourly-integrator-sync-audit-latest-v1.json",
+      "notes": "Read-only audit of the integrator coordination layer and registry health."
+    },
+    {
+      "id": "manual-bug-triage-root-cause",
+      "title": "Manual bug triage and root cause",
+      "cadence": "manual",
+      "kind": "triage",
+      "status": "mapped",
+      "sourcea_target": "python3 scripts/sourcea_automation_card_router_v1.py --card manual-bug-triage-root-cause --json --write-receipt",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "receipt_path": "receipts/cloud/kaizen/kaizen-automation-card-manual-bug-triage-root-cause-latest-v1.json",
+      "notes": "Investigate repo-local blockers, trigger drift, and proof failures with root-cause summaries."
+    },
+    {
+      "id": "manual-implementation-plan",
+      "title": "Manual implementation plan",
+      "cadence": "manual",
+      "kind": "planning",
+      "status": "mapped",
+      "sourcea_target": "python3 scripts/sourcea_automation_card_router_v1.py --card manual-implementation-plan --json --write-receipt",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "receipt_path": "receipts/cloud/kaizen/kaizen-automation-card-manual-implementation-plan-latest-v1.json",
+      "notes": "Read the active SourceA SSOTs and generate a plan from the current live registry state."
+    },
+    {
+      "id": "weekly-workflow-effectiveness",
+      "title": "Weekly workflow effectiveness",
+      "cadence": "weekly",
+      "kind": "audit",
+      "status": "mapped",
+      "sourcea_target": "python3 scripts/sourcea_automation_card_router_v1.py --card weekly-workflow-effectiveness --json --write-receipt",
+      "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
+      "receipt_path": "receipts/cloud/kaizen/kaizen-automation-card-weekly-workflow-effectiveness-latest-v1.json",
+      "notes": "Audit the SourceA workflow portfolio, schedules, and validation coverage."
+    },
+    {
       "id": "daily-proof-evidence-drift",
       "title": "Daily proof evidence drift",
       "cadence": "daily",
@@ -145,7 +211,7 @@
       "cadence": "manual",
       "kind": "review",
       "status": "mapped",
-      "sourcea_target": "scripts/validate-controlled-agentic-automation-offer_v1.sh",
+      "sourcea_target": "python3 scripts/sourcea_automation_card_router_v1.py --card manual-commercial-unblock --json --write-receipt",
       "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml",
       "notes": "Commercial unblock path for buyer-facing releases."
     },

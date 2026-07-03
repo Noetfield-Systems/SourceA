@@ -21,6 +21,15 @@ jobs:
       - name: Validate automation catalog
         run: python3 scripts/validate_sourcea_automation_catalog_v1.py --json --write-receipt
 
+      - name: Run visible automation cards
+        run: |
+          python3 scripts/sourcea_automation_card_router_v1.py --card daily-issue-triage --json --write-receipt
+          python3 scripts/sourcea_automation_card_router_v1.py --card manual-integrator-arbitration --json --write-receipt
+          python3 scripts/sourcea_automation_card_router_v1.py --card hourly-integrator-sync-audit --json --write-receipt
+          python3 scripts/sourcea_automation_card_router_v1.py --card manual-bug-triage-root-cause --json --write-receipt
+          python3 scripts/sourcea_automation_card_router_v1.py --card manual-implementation-plan --json --write-receipt
+          python3 scripts/sourcea_automation_card_router_v1.py --card weekly-workflow-effectiveness --json --write-receipt
+
       - name: Run trigger sweep
         run: python3 scripts/sandbox_health_sweep_v1.py --json
 
