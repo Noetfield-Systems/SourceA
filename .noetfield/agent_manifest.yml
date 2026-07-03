@@ -24,5 +24,4 @@ agents:
       - no direct edits outside sourcea
       - no alternate coordination systems
 policy:
-  forbidden_active_config_markers:
-    - kazemnezhadsina144[-]dot
+  forbidden_active_config_markers_file: docs/FORBIDDEN_MARKERS.txt
