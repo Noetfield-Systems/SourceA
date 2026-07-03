@@ -211,6 +211,48 @@
           "run_mac_spine_heartbeat"
         ]
       }
+    },
+    {
+      "trigger_id": "SA-T-automation-surface-daily",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "11 6 * * *",
+      "target": "SourceA automation surface health daily sweep",
+      "valid_in_verified_window": true,
+      "owner_workflow": "sourcea-automation-surface-health",
+      "live_probe": {
+        "type": "gha_schedule",
+        "path": ".github/workflows/sourcea-automation-surface-health.yml"
+      }
+    },
+    {
+      "trigger_id": "SA-T-automation-surface-weekly",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "19 7 * * 1",
+      "target": "SourceA automation surface weekly sweep",
+      "valid_in_verified_window": true,
+      "owner_workflow": "sourcea-automation-surface-health",
+      "live_probe": {
+        "type": "gha_schedule",
+        "path": ".github/workflows/sourcea-automation-surface-health.yml"
+      }
+    },
+    {
+      "trigger_id": "SA-T-automation-surface-manual",
+      "system": "sourcea",
+      "kind": "manual",
+      "schedule": null,
+      "target": "SourceA automation surface workflow_dispatch",
+      "valid_in_verified_window": false,
+      "owner_workflow": "sourcea-automation-surface-health",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/sourcea-automation-surface-health.yml",
+        "expects": [
+          "workflow_dispatch"
+        ]
+      }
     }
   ],
   "slo_targets": {
@@ -255,6 +297,15 @@
       "SA-T-mac-agent-heartbeat": {
         "max_lag_minutes": 180,
         "heartbeat_required": true
+      },
+      "SA-T-automation-surface-daily": {
+        "max_lag_minutes": 1440
+      },
+      "SA-T-automation-surface-weekly": {
+        "max_lag_minutes": 10080
+      },
+      "SA-T-automation-surface-manual": {
+        "max_lag_minutes": 1440
       }
     }
   }
