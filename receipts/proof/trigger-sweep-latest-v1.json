@@ -1,9 +1,9 @@
 {
   "schema": "sandbox-health-sweep-v1",
   "version": "1.1.0",
-  "at": "2026-07-03T09:13:27Z",
+  "at": "2026-07-03T09:13:57Z",
   "registry_path": "data/trigger-registry-v1.json",
-  "registry_trigger_count": 15,
+  "registry_trigger_count": 16,
   "live_trigger_count": 16,
   "probe_results": [
     {
@@ -185,6 +185,20 @@
       "reason": null
     },
     {
+      "trigger_id": "SA-GH-buyer-surfaces-deploy",
+      "ok": true,
+      "path": ".github/workflows/deploy-sourcea-buyer-surfaces-v1.yml",
+      "expects": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "live_events": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "reason": null
+    },
+    {
       "trigger_id": "SA-GH-copilot-pr",
       "ok": true,
       "path": "data/github-automation-governance-v1.json#copilot",
@@ -192,21 +206,8 @@
     }
   ],
   "dead_or_mismatch": [],
-  "unregistered_live": [
-    {
-      "signature": "gha:.github/workflows/deploy-sourcea-buyer-surfaces-v1.yml:push",
-      "type": "gha_workflow",
-      "path": ".github/workflows/deploy-sourcea-buyer-surfaces-v1.yml",
-      "event": "push"
-    },
-    {
-      "signature": "gha:.github/workflows/deploy-sourcea-buyer-surfaces-v1.yml:workflow_dispatch",
-      "type": "gha_workflow",
-      "path": ".github/workflows/deploy-sourcea-buyer-surfaces-v1.yml",
-      "event": "workflow_dispatch"
-    }
-  ],
-  "ok": false,
-  "drift": true,
-  "report_line": "trigger_drift \u00b7 dead=0 unregistered=2"
+  "unregistered_live": [],
+  "ok": true,
+  "drift": false,
+  "report_line": "trigger_sweep_clean \u00b7 registry matches live"
 }

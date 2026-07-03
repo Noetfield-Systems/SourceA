@@ -246,6 +246,23 @@
       }
     },
     {
+      "trigger_id": "SA-GH-buyer-surfaces-deploy",
+      "lane_id": "L_gha_deploy",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "PN-001 buyer surfaces deploy → workflow_run chains external-verify",
+      "owner": "github_actions",
+      "valid_in_verified_window": true,
+      "owner_workflow": "deploy-sourcea-buyer-surfaces-v1",
+      "concurrency_group": "deploy-sourcea-buyer-surfaces",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/deploy-sourcea-buyer-surfaces-v1.yml",
+        "expects": ["push", "workflow_dispatch"]
+      }
+    },
+    {
       "trigger_id": "SA-GH-copilot-pr",
       "lane_id": "L_github_copilot",
       "system": "sourcea",
