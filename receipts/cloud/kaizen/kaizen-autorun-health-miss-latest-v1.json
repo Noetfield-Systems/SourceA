@@ -1,7 +1,7 @@
 {
   "schema": "kaizen-improvement-receipt-v1",
   "version": "1.0.0",
-  "at": "2026-07-03T06:06:30Z",
+  "at": "2026-07-03T06:13:48Z",
   "law": "governed-autorun L4/L13 \u00b7 workflow-health miss",
   "classification": "machine_safe",
   "id": "kaizen-autorun-health-miss",
