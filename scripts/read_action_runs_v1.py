@@ -17,7 +17,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-DEFAULT_REPO = "kazemnezhadsina144-dot/SourceA"
+DEFAULT_REPO = "noetfield-systems/sourcea"
 API = "https://api.github.com"
 
 
