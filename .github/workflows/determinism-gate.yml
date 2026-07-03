@@ -13,4 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: bash scripts/validate-trigger-registry-v1.sh
+      - name: L14 trigger registry sweep
+        run: bash scripts/validate-trigger-registry-v1.sh
+      - name: L16 GitHub automation governance
+        run: bash scripts/validate-github-automation-governance-v1.sh

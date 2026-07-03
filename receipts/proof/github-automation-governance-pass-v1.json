@@ -7,9 +7,12 @@
   "lanes": 12,
   "conflicts": 10,
   "trigger_registry_triggers": 15,
-  "laws": ["L14 trigger-registry same-commit", "L15 automation lane ownership"],
+  "laws": [
+    "L14 trigger-registry same-commit",
+    "L16 automation lane ownership"
+  ],
   "copilot_governed": true,
   "github_agents_governed": true,
-  "parallel_model": "lanes exclusive per action class · bridges for coherence",
-  "report_line": "github_automation_governance PASS · living system parallel lanes wired"
+  "parallel_model": "lanes exclusive per action class \u00b7 bridges for coherence",
+  "report_line": "github_automation_governance PASS \u00b7 living system parallel lanes wired"
 }
