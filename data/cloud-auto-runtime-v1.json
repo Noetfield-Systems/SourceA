@@ -28,7 +28,7 @@
     "/api/cloud-forge-run/proceed/v1",
     "/api/forge/v02/drain/v1"
   ],
-    "one_law": "CF cron (~10 min) → one Railway POST → 100 rows down (mandatory quota — NOT up to 100). Mac dispatch/deploy via Hub OK; Mac never drains motor; proceed/auto_tick upgrade to CF tick.",
+  "one_law": "CF cron (~10 min) \u2192 one Railway POST \u2192 100 rows down (mandatory quota \u2014 NOT up to 100). Mac dispatch/deploy via Hub OK; Mac never drains motor; proceed/auto_tick upgrade to CF tick.",
   "founder_display_motor": "Cloud Forge Run",
   "founder_display_scheduler": "Auto Runtime",
   "founder_vocabulary_law": "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_AUTO_RUNTIME_VOCABULARY_LOCKED_v1.md",
@@ -85,5 +85,11 @@
     "sink_invariant": "supabase_count == railway_count every cycle or BLOCKED_WITH_REASON",
     "daily_heartbeat": "receipts/cloud/autonomous-forge-run-heartbeat/heartbeat-YYYY-MM-DD-v1.json",
     "verify_24h": "python3 scripts/verify_autorun_zero_manual_v1.py --hours 24 --json --write-receipt"
+  },
+  "slo_targets": {
+    "pass_threshold_pct": 90,
+    "heartbeat_hours": 24,
+    "zero_manual_hours": 24,
+    "sink_invariant_required": true
   }
 }
