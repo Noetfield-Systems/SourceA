@@ -69,3 +69,6 @@ agent-control-panel/command-data-runtime.json
 agent-control-panel/command-data-shell.json
 agent-control-panel/command-data-canonical.json
 brain-os/plan-registry/SOURCEA-PRIORITY.md
+
+!receipts/proof/
+!receipts/proof/**
