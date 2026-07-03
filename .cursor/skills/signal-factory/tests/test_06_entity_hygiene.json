@@ -1,21 +1,25 @@
 {
   "id": "test_06_entity_hygiene",
-  "description": "TrustField-scoped commercial signal keeps entity_scope TrustField without cross-attribution",
+  "description": "Regulatory-risk custody request classifies as risk and routes",
   "input": {
-    "text": "TrustField enterprise buyer requests pricing demo and procurement quote for workflow pilot.",
-    "entity_scope": "TrustField"
+    "text": "Inbound regulatory inquiry about TrustField MSB custody settlement and banking capability claims.",
+    "entity_scope": "TrustField",
+    "sender_claims": [
+      {
+        "text": "We are a licensed MSB with full custody settlement.",
+        "source": "sender"
+      }
+    ]
   },
   "expect": {
-    "classification": "commercial_inquiry",
-    "decision": "create_service_pattern"
+    "classification": "risk",
+    "decision": "route"
+  },
+  "expect_min": {
+    "risk_score": 4
   },
   "expect_receipt": {
     "entity_scope": "TrustField"
   },
-  "expect_present": [
-    "commercial_idea"
-  ],
-  "expect_absent": [
-    "automation_recipe"
-  ]
+  "expect_absent": ["automation_recipe", "commercial_idea"]
 }

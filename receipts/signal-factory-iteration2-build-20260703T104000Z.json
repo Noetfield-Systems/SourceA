@@ -1,0 +1,10 @@
+{
+  "schema": "signal-factory-iteration2-build-receipt-v1",
+  "receipt_id": "signal-factory-iteration2-build-20260703T104000Z",
+  "recorded_at": "2026-07-03T10:40:00Z",
+  "owner": "sourcea_worker",
+  "iteration": "2",
+  "verifier": "scripts/validate-signal-factory-v1.sh",
+  "result": "PASS",
+  "tests_passed": "6/6"
+}

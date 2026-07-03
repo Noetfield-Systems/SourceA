@@ -1,17 +1,13 @@
 {
   "id": "test_04_optional_section_gating",
-  "description": "build_automation includes automation_recipe only; monitor excludes optional sections",
+  "description": "Investor/funding note classifies as investor with reply decision",
   "input": {
-    "text": "SourceA governance autorun webhook API integration for validator intake pipeline.",
+    "text": "Angel investor interested in seed round funding for SourceA governance platform.",
     "entity_scope": "SourceA"
   },
   "expect": {
-    "decision": "build_automation"
+    "classification": "investor",
+    "decision": "reply"
   },
-  "expect_present": [
-    "automation_recipe"
-  ],
-  "expect_absent": [
-    "commercial_idea"
-  ]
+  "expect_absent": ["automation_recipe", "commercial_idea"]
 }

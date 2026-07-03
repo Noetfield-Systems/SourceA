@@ -1,8 +1,9 @@
 {
   "schema": "signal-factory-v1",
-  "version": "1.0.0",
-  "saved_at": "2026-07-02T12:00:00Z",
-  "law": "Architect/Fable contract — SourceA-owned Signal Factory v1 core skill package.",
+  "version": "1.1.0",
+  "iteration": "2",
+  "saved_at": "2026-07-03T10:35:00Z",
+  "law": "Signal Factory v1 Iteration 2 — SourceA-owned skill package (Architect lock).",
   "skill_path": ".cursor/skills/signal-factory/SKILL.md",
   "core_script": "scripts/signal_factory_core_v1.py",
   "verifier": "scripts/validate-signal-factory-v1.sh",
@@ -25,23 +26,23 @@
     "cf_worker": "cloud/workers/signal-factory-tick-v1"
   },
   "classifications": [
-    "commercial_inquiry",
-    "partner_equity",
-    "legal_regulatory",
-    "employment_recruitment",
-    "support_request",
-    "technical_integration",
-    "governance_internal",
-    "spam_noise",
-    "unclassified"
+    "vendor",
+    "partner",
+    "client",
+    "investor",
+    "risk",
+    "bug",
+    "idea",
+    "spam",
+    "unclear"
   ],
   "decisions": [
+    "ignore",
+    "archive",
+    "reply",
     "route",
     "build_automation",
-    "create_service_pattern",
-    "monitor",
-    "archive",
-    "defer"
+    "create_service_pattern"
   ],
   "score_fields": [
     "trust_score",
@@ -73,7 +74,7 @@
   "risk_override": {
     "threshold": 4,
     "forced_decision": "route",
-    "route_target": "human/legal review"
+    "route_target": "Sina / legal / human review"
   },
   "sender_claim_rule": "All sender assertions must be tagged sender_declared; never launder as facts.",
   "entity_hygiene": {

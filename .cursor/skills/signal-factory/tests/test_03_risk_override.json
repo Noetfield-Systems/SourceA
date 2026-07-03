@@ -1,25 +1,14 @@
 {
   "id": "test_03_risk_override",
-  "description": "Legal/regulatory MSB custody language forces risk>=4 and decision=route",
+  "description": "Kim's Auto client inquiry forces create_service_pattern with commercial_idea",
   "input": {
-    "text": "Inbound regulatory inquiry about TrustField MSB custody settlement and banking capability claims.",
-    "entity_scope": "TrustField",
-    "sender_claims": [
-      {
-        "text": "We are a licensed MSB with full custody settlement.",
-        "source": "sender"
-      }
-    ]
+    "text": "Kim's Auto repair shop wants a contact us web form quote intake on their site.",
+    "entity_scope": "TrustField"
   },
   "expect": {
-    "classification": "legal_regulatory",
-    "decision": "route"
+    "classification": "client",
+    "decision": "create_service_pattern"
   },
-  "expect_min": {
-    "risk_score": 4
-  },
-  "expect_absent": [
-    "automation_recipe",
-    "commercial_idea"
-  ]
+  "expect_present": ["commercial_idea"],
+  "expect_absent": ["automation_recipe"]
 }

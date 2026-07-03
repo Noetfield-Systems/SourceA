@@ -1,12 +1,12 @@
 {
   "id": "test_02_scoring_rubric",
-  "description": "All four scores stay within 0-5 integer rubric",
+  "description": "Cofounder/advisor DM classifies as partner; scores stay within 0-5",
   "input": {
-    "text": "SourceA governance autorun validator signal for internal pipeline intake.",
+    "text": "Cofounder advisor DM: seeking equity partner for joint venture on AI governance product.",
     "entity_scope": "SourceA"
   },
   "expect": {
-    "classification": "governance_internal"
+    "classification": "partner"
   },
   "expect_score_bounds": true
 }

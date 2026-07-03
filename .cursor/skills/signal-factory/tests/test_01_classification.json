@@ -1,11 +1,11 @@
 {
   "id": "test_01_classification",
-  "description": "Commercial inquiry text classifies as commercial_inquiry",
+  "description": "SEO vendor pitch classifies as vendor",
   "input": {
-    "text": "Enterprise buyer requests TrustField pricing demo and procurement quote for Q3 pilot.",
-    "entity_scope": "TrustField"
+    "text": "We are a marketing agency offering SEO backlink packages and guest post lead gen for your domain.",
+    "entity_scope": "SourceA"
   },
   "expect": {
-    "classification": "commercial_inquiry"
+    "classification": "vendor"
   }
 }

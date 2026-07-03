@@ -21,14 +21,14 @@ TESTS_DIR = SKILL_DIR / "tests"
 REPORT_PATH = SKILL_DIR / "reports/test-report-v1.json"
 
 CLASSIFICATION_KEYWORDS: list[tuple[str, str]] = [
-    ("legal_regulatory", r"\b(msb|psp|custody|settlement|banking|regulator|legal|compliance|subpoena)\b"),
-    ("partner_equity", r"\b(partner|equity|co-founder|investment|jv|joint venture)\b"),
-    ("employment_recruitment", r"\b(hire|hiring|job|resume|cv|employment|recruit)\b"),
-    ("commercial_inquiry", r"\b(pricing|demo|pilot|procurement|rfp|buy|purchase|quote)\b"),
-    ("support_request", r"\b(support|help|bug|broken|issue|ticket)\b"),
-    ("technical_integration", r"\b(api|webhook|integration|sdk|oauth|sso)\b"),
-    ("governance_internal", r"\b(governance|law|incident|validator|autorun|brain)\b"),
-    ("spam_noise", r"\b(unsubscribe|lottery|crypto airdrop|nigerian prince)\b"),
+    ("risk", r"\b(msb|psp|custody|settlement|banking|regulator|legal|compliance|subpoena|fintrac|rpaa)\b"),
+    ("spam", r"\b(unsubscribe|lottery|crypto airdrop|nigerian prince|winner|claim prize)\b"),
+    ("investor", r"\b(investor|funding|seed round|angel|vc|venture capital|term sheet)\b"),
+    ("partner", r"\b(partner|equity|co-founder|cofounder|advisor|joint venture|jv)\b"),
+    ("client", r"\b(quote|contact us|web form|intake|repair shop|auto shop|kim'?s auto)\b"),
+    ("vendor", r"\b(seo|marketing agency|backlink|guest post|lead gen|vendor pitch)\b"),
+    ("bug", r"\b(bug|broken|error|crash|regression|500 error)\b"),
+    ("idea", r"\b(idea|feature request|suggestion|what if|could you build)\b"),
 ]
 
 ENTITY_NAMES = ("Noetfield", "TrustField", "SourceA", "WitnessBC", "SG", "NOOS")
@@ -58,7 +58,7 @@ def classify_signal(text: str) -> str:
     for classification, pattern in CLASSIFICATION_KEYWORDS:
         if re.search(pattern, lower, re.I):
             return classification
-    return "unclassified"
+    return "unclear"
 
 
 def score_signal(text: str, classification: str, sender_claims: list[dict[str, Any]]) -> dict[str, int]:
@@ -73,24 +73,24 @@ def score_signal(text: str, classification: str, sender_claims: list[dict[str, A
     if sender_claims:
         trust = max(0, trust - 1)
 
-    if classification == "legal_regulatory":
+    if classification == "risk":
         risk = max(risk, 4)
     if re.search(r"\b(msb|psp|custody|settlement|banking)\b", lower):
         risk = max(risk, 4)
-    if classification == "partner_equity":
+    if classification == "partner":
         risk = max(risk, 3)
-    if classification == "employment_recruitment":
-        risk = max(risk, 2)
-    if classification == "spam_noise":
+    if classification == "spam":
         risk = max(risk, 1)
         trust = 0
 
-    if classification in ("technical_integration", "governance_internal"):
+    if classification in ("bug", "idea"):
         automation += 2
-    if classification == "commercial_inquiry":
+    if classification == "client":
         commercial += 2
         automation += 1
-    if classification == "partner_equity":
+    if classification in ("vendor", "investor"):
+        commercial += 1
+    if classification == "partner":
         commercial += 1
 
     return {
@@ -112,47 +112,66 @@ def decide(
     classification: str,
     scores: dict[str, int],
     entity_scope: str,
+    text: str = "",
 ) -> tuple[str, str, str]:
     risk = scores["risk_score"]
+    lower = text.lower()
     if risk >= 4:
         return (
             "route",
-            "Route to human/legal review — risk override (risk ≥ 4).",
+            "Route to Sina / legal / human review — risk override (risk ≥ 4).",
             f"route:{entity_scope}:human_legal_review",
         )
 
-    if classification == "spam_noise":
-        return ("archive", "Archive spam/noise signal with receipt only.", f"archive:{entity_scope}")
+    if classification == "spam":
+        return ("archive", "Archive spam signal with receipt only.", f"archive:{entity_scope}")
 
-    if classification == "commercial_inquiry" and scores["commercial_value"] >= 3:
+    if classification == "client" or re.search(r"kim'?s auto", lower):
         return (
             "create_service_pattern",
-            "Draft bounded service pattern outline — no employment outreach.",
-            f"service_pattern:{entity_scope}:explore",
+            "Draft bounded SMB intake chatbot service pattern — no employment outreach.",
+            f"service_pattern:{entity_scope}:smb_intake",
         )
 
-    if classification in ("technical_integration", "governance_internal") and scores["automation_value"] >= 3:
+    if classification == "bug" and scores["automation_value"] >= 3:
         return (
             "build_automation",
             "Propose automation recipe scoped to entity — adapters remain empty hooks.",
             f"automation:{entity_scope}:recipe",
         )
 
-    if classification == "partner_equity":
+    if classification == "idea" and scores["automation_value"] >= 3:
         return (
-            "defer",
-            "Bounded exploratory next action only — partner/equity signal.",
-            f"defer:{entity_scope}:partner_explore",
+            "build_automation",
+            "Propose automation recipe for repeatable idea intake — adapters remain empty hooks.",
+            f"automation:{entity_scope}:recipe",
         )
 
-    if classification == "employment_recruitment":
+    if classification == "investor":
+        return (
+            "reply",
+            "Bounded reply to investor signal — no unverified claims.",
+            f"reply:{entity_scope}:investor",
+        )
+
+    if classification == "partner":
+        return (
+            "reply",
+            "Bounded exploratory reply — partner/advisor signal only.",
+            f"reply:{entity_scope}:partner_explore",
+        )
+
+    if classification == "vendor":
+        return ("ignore", "Ignore vendor pitch — market telemetry logged.", f"ignore:{entity_scope}")
+
+    if classification == "risk":
         return (
             "route",
-            "Route employment/recruitment signal — no-employment constraint on generated patterns.",
-            f"route:{entity_scope}:human_review",
+            "Route to Sina / legal / human review.",
+            f"route:{entity_scope}:human_legal_review",
         )
 
-    return ("monitor", "Monitor signal; no automation or service pattern yet.", f"monitor:{entity_scope}")
+    return ("ignore", "Monitor signal; no automation or service pattern yet.", f"ignore:{entity_scope}")
 
 
 def build_memory_line(entity_scope: str, classification: str, decision: str, signal_id: str) -> str:
@@ -176,12 +195,18 @@ def build_receipt(
     return {
         "schema": "signal-factory-receipt-v1",
         "signal_id": signal_id,
+        "timestamp": _now_iso(),
+        "source": "signal_factory_core_v1",
         "created_at": _now_iso(),
         "entity_scope": entity_scope,
         "classification": classification,
         "scores": scores,
         "decision": decision,
+        "action": next_action,
+        "result": "classified",
+        "status": "ok",
         "next_action": next_action,
+        "risk_score": scores["risk_score"],
         "sender_claims": sender_claims,
         "adapter_hooks": dict(ssot.get("adapter_hooks") or {}),
         "claim_ladder_note": "Externally-facing text uses VERIFIED / DECLARED / PLANNED only.",
@@ -210,7 +235,7 @@ def analyze_signal(
     classification = classify_signal(text)
     scores = score_signal(text, classification, normalized_claims)
     scope = entity_scope or infer_entity_scope(text)
-    decision, next_action, _route_key = decide(classification, scores, scope)
+    decision, next_action, _route_key = decide(classification, scores, scope, text)
     signal_id = str(uuid.uuid4())
 
     report: dict[str, Any] = {
@@ -321,9 +346,9 @@ def verify_report(report: dict[str, Any], ssot: dict[str, Any] | None = None) ->
             errors.append(f"{section} required when decision={decision}")
 
     for forbidden_decision, sections in (
-        ("monitor", OPTIONAL_SECTION_KEYS),
+        ("ignore", OPTIONAL_SECTION_KEYS),
         ("archive", OPTIONAL_SECTION_KEYS),
-        ("defer", OPTIONAL_SECTION_KEYS),
+        ("reply", OPTIONAL_SECTION_KEYS),
         ("route", OPTIONAL_SECTION_KEYS),
     ):
         if decision == forbidden_decision:
