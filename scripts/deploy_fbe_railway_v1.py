@@ -226,6 +226,11 @@ def _stage_deploy_context() -> dict:
     STAGING.mkdir(parents=True)
 
     copied: list[str] = []
+    repo_policy = ROOT / "repo-policy.json"
+    if repo_policy.is_file():
+        _copy_file(repo_policy, STAGING / "repo-policy.json")
+        copied.append("repo-policy.json")
+
     for name in _STAGING_DATA_FILES:
         src = ROOT / "data" / name
         if src.is_file():
