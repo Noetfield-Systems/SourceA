@@ -1,0 +1,35 @@
+{
+  "schema": "kaizen-fix-handlers-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-05T16:35:00Z",
+  "handlers": [
+    {
+      "id": "pgrst-reload",
+      "finding_prefix": "improvement_queue_unreachable",
+      "script": "scripts/kaizen_handler_pgrst_reload_v1.py",
+      "verify": "scripts/improvement_queue_insert_v1.py --probe",
+      "machine_safe": true,
+      "expected_roi": 9.0
+    },
+    {
+      "id": "sandbox-sweep-clean",
+      "finding_prefix": "trigger_drift",
+      "script": null,
+      "verify": "scripts/sandbox_health_sweep_v1.py --json",
+      "machine_safe": false,
+      "note": "registry drift requires human merge — verify only"
+    }
+  ],
+  "nightly": {
+    "cron_utc": "0 3 * * *",
+    "railway_route": "/api/fbe/kaizen/nightly/v1",
+    "max_items": 1,
+    "external_verify_recipe": "cpr-eval-boot",
+    "rollback_on_regression": true
+  },
+  "heartbeat": {
+    "cron_utc": "0 7 * * *",
+    "railway_route": "/api/fbe/ops/heartbeat/v1",
+    "format": "SOURCEA_OPS_HEARTBEAT_v1"
+  }
+}
