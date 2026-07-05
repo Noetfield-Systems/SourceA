@@ -32,8 +32,9 @@ m = re.search(r'crons\s*=\s*\[(.*?)\]', toml, re.S)
 if not m:
     raise SystemExit("wrangler.toml missing crons block")
 toml_crons = re.findall(r'"([^"]+)"', m.group(1))
-if sorted(toml_crons) != sorted(crons):
-    raise SystemExit(f"wrangler crons mismatch: {toml_crons} vs {crons}")
+wrangler_cron = d.get("wrangler_trigger_cron", "*/15 * * * *")
+if toml_crons != [wrangler_cron]:
+    raise SystemExit(f"wrangler must have single trigger {wrangler_cron!r}, got {toml_crons}")
 
 paths = set()
 for row in d.get("crons", []):
