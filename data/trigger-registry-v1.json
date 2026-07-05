@@ -141,12 +141,13 @@
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "30 */6 * * *",
-      "target": "determinism-gate scheduled D1-D8 checks",
+      "target": "determinism-gate scheduled D1-D8 checks (CF cron → Railway)",
       "valid_in_verified_window": true,
-      "owner_workflow": "determinism-gate",
+      "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
-        "type": "gha_schedule",
-        "path": ".github/workflows/determinism-gate.yml"
+        "type": "wrangler_cron",
+        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+        "schedule": "30 */6 * * *"
       }
     },
     {
@@ -226,12 +227,13 @@
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "0 8 * * *",
-      "target": "Daily repo-health sweep → improvement_queue",
+      "target": "Daily repo-health sweep → improvement_queue (CF cron → Railway)",
       "valid_in_verified_window": true,
-      "owner_workflow": "repo-health-daily",
+      "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
-        "type": "gha_schedule",
-        "path": ".github/workflows/repo-health-daily-v1.yml"
+        "type": "wrangler_cron",
+        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+        "schedule": "0 8 * * *"
       }
     },
     {
@@ -253,12 +255,13 @@
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "0 9 * * 0",
-      "target": "Weekly security sweep → improvement_queue",
+      "target": "Weekly security sweep → improvement_queue (CF cron → Railway)",
       "valid_in_verified_window": true,
-      "owner_workflow": "security-sweep-weekly",
+      "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
-        "type": "gha_schedule",
-        "path": ".github/workflows/security-sweep-weekly-v1.yml"
+        "type": "wrangler_cron",
+        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+        "schedule": "0 9 * * 0"
       }
     },
     {
@@ -294,12 +297,13 @@
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "0 * * * *",
-      "target": "Gmail sweep → gmail_inbox_signals + SF triage",
+      "target": "Gmail sweep → gmail_inbox_signals (CF cron → Railway)",
       "valid_in_verified_window": true,
-      "owner_workflow": "gmail-sweep-hourly",
+      "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
-        "type": "gha_schedule",
-        "path": ".github/workflows/gmail-sweep-hourly-v1.yml"
+        "type": "wrangler_cron",
+        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+        "schedule": "0 * * * *"
       }
     },
     {
@@ -307,12 +311,13 @@
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "0 3 * * *",
-      "target": "Nightly Kaizen — one machine_safe improvement_queue item",
+      "target": "Nightly Kaizen — one machine_safe improvement_queue item (CF cron → Railway)",
       "valid_in_verified_window": true,
-      "owner_workflow": "kaizen-nightly",
+      "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
-        "type": "gha_schedule",
-        "path": ".github/workflows/kaizen-nightly-v1.yml"
+        "type": "wrangler_cron",
+        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+        "schedule": "0 3 * * *"
       }
     },
     {
@@ -320,12 +325,13 @@
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "0 7 * * *",
-      "target": "07:00 UTC SOURCEA_OPS_HEARTBEAT_v1",
+      "target": "07:00 UTC SOURCEA_OPS_HEARTBEAT_v1 (CF cron → Railway)",
       "valid_in_verified_window": true,
-      "owner_workflow": "ops-heartbeat-daily",
+      "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
-        "type": "gha_schedule",
-        "path": ".github/workflows/ops-heartbeat-daily-v1.yml"
+        "type": "wrangler_cron",
+        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+        "schedule": "0 7 * * *"
       }
     },
     {

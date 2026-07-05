@@ -1,9 +1,8 @@
 name: ops-heartbeat-daily
 
+# Schedule retired — CF loop-specialist cron 0 7 * * * → Railway /api/fbe/ops/heartbeat/v1
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 7 * * *'
 
 permissions:
   contents: read

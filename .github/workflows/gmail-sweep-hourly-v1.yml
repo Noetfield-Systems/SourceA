@@ -1,9 +1,8 @@
 name: gmail-sweep-hourly
 
+# Schedule retired — CF loop-specialist cron 0 * * * * → Railway /api/fbe/gmail-sweep/v1
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 * * * *'
 
 permissions:
   contents: read
