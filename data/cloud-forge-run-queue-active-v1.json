@@ -1,20 +1,20 @@
 {
   "schema": "cloud-forge-run-queue-active-v1",
   "version": "1.5.0",
-  "batch_id": 79,
+  "batch_id": 80,
   "locked": true,
-  "saved_at": "2026-07-05T15:35:45Z",
-  "queue_path": "data/secondary-cloud-forge-run-batch-79-locked-v1.json",
+  "saved_at": "2026-07-05T15:49:37Z",
+  "queue_path": "data/secondary-cloud-forge-run-batch-80-locked-v1.json",
   "library": "client-proof-recipe",
   "registry_exhausted": false,
   "queue_batch_complete": false,
-  "cloud_sec_range": "CLOUD-SEC-7768..CLOUD-SEC-7867",
+  "cloud_sec_range": "CLOUD-SEC-7868..CLOUD-SEC-7967",
   "rows_per_turn": 100,
   "tasks_per_row": 1,
   "source_queue": "data/client-proof-recipe-queue-v1.json",
   "phase_reset": {
-    "cloud_forge_run_head": "CLOUD-SEC-7768",
-    "cloud_forge_run_last_completed": "CLOUD-SEC-7767",
+    "cloud_forge_run_head": "CLOUD-SEC-7868",
+    "cloud_forge_run_last_completed": "CLOUD-SEC-7867",
     "queue_batch_complete": false
   }
 }
