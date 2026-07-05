@@ -29,9 +29,10 @@ def cmd_check(_: argparse.Namespace) -> dict[str, Any]:
     if PLACEHOLDER.search(instance):
         issues.append("instance_has_placeholders: replace FOUNDER_FILL_* in ACG_FIRST_PROSPECT_INSTANCE_v1.md")
 
-    if "Send authorized: YES" not in gate and "Send authorized:** YES" not in gate.replace(" ", ""):
-        if "Send authorized | YES" not in gate:
-            issues.append("review_gate_unsigned: set Send authorized YES in ACG_FOUNDER_REVIEW_GATE_v1.md")
+    if re.search(r"Send authorized\s*\|\s*YES\s*/\s*NO", gate):
+        issues.append("review_gate_unsigned: set Send authorized YES in ACG_FOUNDER_REVIEW_GATE_v1.md")
+    elif not re.search(r"Send authorized:\s*YES\b", gate, re.I):
+        issues.append("review_gate_unsigned: set Send authorized YES in ACG_FOUNDER_REVIEW_GATE_v1.md")
 
     if not CRM.is_file():
         issues.append("crm_missing: run sourcea_revenue_engine_crm_v1.py init")
