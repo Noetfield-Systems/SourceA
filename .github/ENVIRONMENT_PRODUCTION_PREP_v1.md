@@ -21,5 +21,12 @@
 
 ## Not enabled until founder completes UI
 
-- Branch protection required checks (separate P4 step)
+- Branch protection required checks (separate P4 step) — **apply after first green `validate` on main:**
+
+```bash
+bash scripts/apply_github_main_branch_protection_v1.sh
+```
+
+SSOT: `data/github-main-branch-protection-v1.json` (required context: `validate`)
+
 - CODEOWNERS (P4 before Copilot Kaizen P7)
