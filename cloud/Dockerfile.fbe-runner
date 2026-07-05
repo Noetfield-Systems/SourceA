@@ -95,6 +95,12 @@ COPY scripts/signal_factory_triage_v1.py scripts/signal_factory_triage_v1.py
 COPY scripts/kaizen_nightly_tick_v1.py scripts/kaizen_nightly_tick_v1.py
 COPY scripts/daily_ops_heartbeat_v1.py scripts/daily_ops_heartbeat_v1.py
 COPY scripts/fbe_cloud_ops_motors_v1.py scripts/fbe_cloud_ops_motors_v1.py
+COPY scripts/fbe_cloud_scheduled_loops_v1.py scripts/fbe_cloud_scheduled_loops_v1.py
+COPY scripts/gha_repo_health_sweep_v1.py scripts/gha_repo_health_sweep_v1.py
+COPY scripts/gha_security_sweep_v1.py scripts/gha_security_sweep_v1.py
+COPY scripts/validate_locked_definitions_anatomy_v1.py scripts/validate_locked_definitions_anatomy_v1.py
+COPY scripts/verify_autorun_determinism_v1.py scripts/verify_autorun_determinism_v1.py
+COPY .github/workflows .github/workflows
 COPY scripts/telegram_alert_v1.py scripts/telegram_alert_v1.py
 COPY scripts/improvement_queue_insert_v1.py scripts/improvement_queue_insert_v1.py
 COPY scripts/kaizen_handler_pgrst_reload_v1.py scripts/kaizen_handler_pgrst_reload_v1.py
@@ -125,6 +131,7 @@ COPY data/signal-factory-queue-v1.json data/signal-factory-queue-v1.json
 COPY data/signal-factory-synthetic-seed-v1.json data/signal-factory-synthetic-seed-v1.json
 COPY data/signal-factory-cloud-contract-v1.json data/signal-factory-cloud-contract-v1.json
 COPY data/gmail-sweep-ssot-v1.json data/gmail-sweep-ssot-v1.json
+COPY data/trigger-registry-v1.json data/trigger-registry-v1.json
 COPY data/kaizen-fix-handlers-v1.json data/kaizen-fix-handlers-v1.json
 COPY data/portfolio-vault-email-tags-v1.json data/portfolio-vault-email-tags-v1.json
 COPY data/copilot-scheduled-automations-v1.json data/copilot-scheduled-automations-v1.json
