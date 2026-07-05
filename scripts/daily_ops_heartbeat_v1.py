@@ -99,15 +99,36 @@ def build_heartbeat() -> dict[str, Any]:
     return doc
 
 
+def _truth_exists(receipt_id: str) -> bool:
+    url = os.environ.get("SUPABASE_URL", "").strip().rstrip("/")
+    key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "").strip()
+    if not url or not key:
+        return False
+    q = f"{url}/rest/v1/truth_log?select=id&receipt_id=eq.{receipt_id}&limit=1"
+    req = urllib.request.Request(
+        q,
+        headers={"apikey": key, "Authorization": f"Bearer {key}", "Accept": "application/json"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            rows = json.loads(resp.read().decode("utf-8", errors="replace") or "[]")
+        return bool(isinstance(rows, list) and rows)
+    except (urllib.error.URLError, json.JSONDecodeError):
+        return False
+
+
 def post_truth(doc: dict[str, Any]) -> dict[str, Any]:
     url = os.environ.get("SUPABASE_URL", "").strip().rstrip("/")
     key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "").strip()
     if not url or not key:
         return {"ok": False, "error": "supabase_not_configured"}
+    receipt_id = f"ops-heartbeat-{doc.get('date')}"
+    if _truth_exists(receipt_id):
+        return {"ok": True, "deduped": True, "receipt_id": receipt_id}
     row = {
         "source": "ops_heartbeat",
         "event": "OPS_HEARTBEAT",
-        "receipt_id": f"ops-heartbeat-{doc.get('date')}",
+        "receipt_id": receipt_id,
         "payload": doc,
     }
     req = urllib.request.Request(

@@ -321,11 +321,13 @@ def run_sweep(*, max_per_mailbox: int = 25) -> dict[str, Any]:
                 errors.append(f"imap:{mb['address']}:{exc}"[:120])
 
     insert = _insert_rows(collected)
+    production_connected = mode == "service_account"
     return {
         "schema": "gmail-inbox-sweep-v1",
         "ok": bool(insert.get("ok")),
         "at": _now(),
         "mode": mode,
+        "production_connected": production_connected,
         "swept": len(collected),
         "insert": insert,
         "errors": errors,

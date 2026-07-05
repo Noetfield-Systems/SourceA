@@ -12,6 +12,22 @@
       "expected_roi": 9.0
     },
     {
+      "id": "github-workflow-lint",
+      "finding_prefix": "github_workflow_lint_fail",
+      "script": "scripts/kaizen_handler_workflow_lint_v1.py",
+      "verify": "scripts/sandbox_health_sweep_v1.py --json",
+      "machine_safe": true,
+      "expected_roi": 7.5
+    },
+    {
+      "id": "repo-policy",
+      "finding_prefix": "repo_policy_fail",
+      "script": "scripts/kaizen_handler_repo_policy_v1.py",
+      "verify": "scripts/sandbox_health_sweep_v1.py --json",
+      "machine_safe": true,
+      "expected_roi": 7.0
+    },
+    {
       "id": "sandbox-sweep-clean",
       "finding_prefix": "trigger_drift",
       "script": null,
