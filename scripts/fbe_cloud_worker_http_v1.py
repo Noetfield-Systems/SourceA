@@ -359,6 +359,18 @@ def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
         from fbe_cloud_ops_motors_v1 import run_cloud_ops_heartbeat  # noqa: WPS433
 
         return run_cloud_ops_heartbeat(body)
+    if path == "/api/fbe/repo-health/daily/v1":
+        from fbe_cloud_scheduled_loops_v1 import run_cloud_repo_health_daily  # noqa: WPS433
+
+        return run_cloud_repo_health_daily(body)
+    if path == "/api/fbe/security-sweep/weekly/v1":
+        from fbe_cloud_scheduled_loops_v1 import run_cloud_security_sweep_weekly  # noqa: WPS433
+
+        return run_cloud_security_sweep_weekly(body)
+    if path == "/api/fbe/determinism/gate/v1":
+        from fbe_cloud_scheduled_loops_v1 import run_cloud_determinism_gate  # noqa: WPS433
+
+        return run_cloud_determinism_gate(body)
     return {"ok": False, "error": "unknown_route", "path": path}
 
 
