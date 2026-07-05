@@ -1,0 +1,32 @@
+name: repo-health-daily
+
+# Daily hygiene — findings → improvement_queue (no report artifacts).
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repo-health-daily
+  cancel-in-progress: false
+
+jobs:
+  repo-health:
+    name: repo-health
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Sweep → improvement_queue
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python3 scripts/gha_repo_health_sweep_v1.py --insert --json
