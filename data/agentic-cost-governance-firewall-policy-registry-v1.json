@@ -1,0 +1,61 @@
+{
+  "schema": "agentic-cost-governance-firewall-policy-registry-v1",
+  "version": "1.0.0",
+  "created_at": "2026-07-05T01:15:00Z",
+  "description": "Registry of all Agentic Cost Governance audit clients and firewall policies (SourceA factory)",
+  "policies": [
+    {
+      "client_id": "[generated UUID]",
+      "client_name": "[Company name]",
+      "audit_status": "design | test | pilot | completed | archived",
+      "audit_start_date": "2026-07-XX",
+      "audit_end_date": "2026-08-XX",
+      "pilot_start_date": "2026-07-XX",
+      "pilot_end_date": "2026-08-XX",
+      "policy_version": "POLICY-[client_id]-LOCKED-v1.md",
+      "policy_location": "~/noetfield-secrets/agentic-firewall-policies/POLICY-[client_id]-LOCKED-v1.md",
+      "routing_tiers": {
+        "tier_1_default": "gpt-3.5-turbo",
+        "tier_2_standard": "gpt-4",
+        "tier_3_premium": "gpt-4-turbo"
+      },
+      "org_monthly_cap": "$[X]",
+      "workflows": [
+        {
+          "workflow_name": "[e.g., support-chatbot]",
+          "monthly_cap": "$[X]",
+          "tier_1_cap": "$[X]",
+          "tier_2_cap": "$[X]",
+          "tier_3_cap": "$[X]",
+          "approval_owner_tier2": "[manager email]",
+          "approval_owner_tier3": "[VP email]"
+        }
+      ],
+      "test_run_results": {
+        "test_start": "2026-07-XX",
+        "test_end": "2026-07-XX",
+        "false_positive_rate": "[X%]",
+        "approval_sla_tier2": "[X hours]",
+        "approval_sla_tier3": "[X hours]",
+        "sla_pass": true
+      },
+      "pilot_metrics": {
+        "cost_reduction_percent": "[X%]",
+        "compliance_rate": "[X%]",
+        "incidents": "[X]",
+        "spend_forecast_vs_actual": "+/- [X%]"
+      },
+      "renewal_status": "pending | renewed | sunset",
+      "noetfield_contact": "[email]",
+      "sourcesa_owner": "[SourceA Brain]",
+      "sg_canon": "POLICY-[client_id]-LOCKED-v1.md (final snapshot)",
+      "notes": "[optional]"
+    }
+  ],
+  "summary": {
+    "total_clients": 0,
+    "in_progress": 0,
+    "completed": 0,
+    "total_cost_reduction": "$0"
+  }
+}
