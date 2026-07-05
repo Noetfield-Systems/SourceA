@@ -16,9 +16,11 @@ SQL_002 = ROOT / "infra/supabase/portfolio-spine/migrations/002_truth_log_v1.sql
 SQL_005 = ROOT / "infra/supabase/portfolio-spine/migrations/005_truth_log_external_verify_v1.sql"
 SQL_006 = ROOT / "infra/supabase/portfolio-spine/migrations/006_mac_spine_bridge_v1.sql"
 SQL_007 = ROOT / "infra/supabase/portfolio-spine/migrations/007_agent_session_cost_v1.sql"
+SQL_012 = ROOT / "infra/supabase/portfolio-spine/migrations/012_gmail_inbox_signals_v1.sql"
 SQL_013 = ROOT / "infra/supabase/portfolio-spine/migrations/013_improvement_queue_v1.sql"
-MIGRATION_SQL = (SQL_002, SQL_005, SQL_006, SQL_007, SQL_013)
+MIGRATION_SQL = (SQL_002, SQL_005, SQL_006, SQL_007, SQL_012, SQL_013)
 NERVE_TABLES = ("improvement_queue", "nf_intake_submissions", "nerve_probe_receipts")
+GMAIL_TABLE = "gmail_inbox_signals"
 
 
 def _load_env_files() -> None:
