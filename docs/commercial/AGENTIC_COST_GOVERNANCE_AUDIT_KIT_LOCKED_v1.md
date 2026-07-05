@@ -98,7 +98,7 @@
   "integration": "customer-support-chatbot",
   "tool": "gpt-4-turbo",
   "calls_monthly": 5000,
-  "cost_per_1k_tokens": 0.03,
+  "rate_usd_per_1k_tokens": "[audit_time_rate]",
   "projected_monthly": 150,
   "frequency": "continuous",
   "owner": "support-team",
@@ -146,30 +146,14 @@
 
 **File:** `docs/commercial/PREMIUM_MODEL_FIREWALL_ROUTING_POLICY_LOCKED_v1.md`
 
-**Structure:**
-```
-# Routing Policy (default cheap → escalate on signal)
+**Structure:** See `docs/commercial/PREMIUM_MODEL_FIREWALL_ROUTING_POLICY_LOCKED_v1.md`
 
-## Layer 1 (Default)
-Model: gpt-3.5-turbo (or org cheap tier)
-Usage: standard tasks · high volume · testing
-Cost cap: $0.003 per 1K tokens
-No approval needed
+Model classes (not vendor lock):
+- `tier1_cheap` — default · `[audit_time_rate]` per 1K tokens · no approval
+- `tier2_standard` — escalation · `[audit_time_rate]` · manager approval
+- `tier3_premium` — strategic/urgent · `[audit_time_rate]` · VP approval
 
-## Layer 2 (Escalation signal)
-Model: gpt-4 / claude-3-sonnet
-Trigger: task_type = "analysis" OR tokens_projected > 2000
-Cost cap: $0.03 per 1K tokens
-Manager approval: required
-Reason field: mandatory
-
-## Layer 3 (Premium/urgent)
-Model: gpt-4-turbo / claude-3-opus
-Trigger: task_type = "strategic" OR customer-facing OR time_critical
-Cost cap: $0.15 per 1K tokens
-VP approval: required
-Business case field: mandatory
-```
+`pricing_source: audit_time_live_lookup` — rates set at discovery, not preset in templates.
 
 **Policy enforcement:** Check task metadata before API call · log all escalations · track approval chain
 
