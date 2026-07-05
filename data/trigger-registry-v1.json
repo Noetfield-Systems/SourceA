@@ -288,6 +288,141 @@
         "path": ".github/workflows/repo-policy-gate.yml",
         "expects": ["pull_request", "push"]
       }
+    },
+    {
+      "trigger_id": "SA-T-gmail-sweep-hourly",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "0 * * * *",
+      "target": "Gmail sweep → gmail_inbox_signals + SF triage",
+      "valid_in_verified_window": true,
+      "owner_workflow": "gmail-sweep-hourly",
+      "live_probe": {
+        "type": "gha_schedule",
+        "path": ".github/workflows/gmail-sweep-hourly-v1.yml"
+      }
+    },
+    {
+      "trigger_id": "SA-T-kaizen-nightly",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "0 3 * * *",
+      "target": "Nightly Kaizen — one machine_safe improvement_queue item",
+      "valid_in_verified_window": true,
+      "owner_workflow": "kaizen-nightly",
+      "live_probe": {
+        "type": "gha_schedule",
+        "path": ".github/workflows/kaizen-nightly-v1.yml"
+      }
+    },
+    {
+      "trigger_id": "SA-T-ops-heartbeat-daily",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "0 7 * * *",
+      "target": "07:00 UTC SOURCEA_OPS_HEARTBEAT_v1",
+      "valid_in_verified_window": true,
+      "owner_workflow": "ops-heartbeat-daily",
+      "live_probe": {
+        "type": "gha_schedule",
+        "path": ".github/workflows/ops-heartbeat-daily-v1.yml"
+      }
+    },
+    {
+      "trigger_id": "SA-T-loop-ops-piggyback",
+      "system": "sourcea",
+      "kind": "piggyback",
+      "schedule": "0 * * * *",
+      "target": "Loop-specialist piggyback gmail/triage/kaizen/heartbeat → Railway",
+      "valid_in_verified_window": true,
+      "owner_workflow": "loop-specialist-tick-v1",
+      "parent_trigger_id": "SA-T-loop-specialist",
+      "live_probe": {
+        "type": "piggyback_hook",
+        "path": "cloud/workers/loop-specialist-tick-v1/src/index.js",
+        "expects": ["postFbe", "gmail-sweep"]
+      }
+    },
+    {
+      "trigger_id": "SA-T-loop-cron-hourly",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "0 * * * *",
+      "target": "Loop-specialist CF cron hourly gmail sweep",
+      "valid_in_verified_window": true,
+      "owner_workflow": "loop-specialist-tick-v1",
+      "live_probe": {
+        "type": "wrangler_cron",
+        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml"
+      }
+    },
+    {
+      "trigger_id": "SA-T-loop-cron-heartbeat",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "0 7 * * *",
+      "target": "Loop-specialist CF cron 07:00 ops heartbeat",
+      "valid_in_verified_window": true,
+      "owner_workflow": "loop-specialist-tick-v1",
+      "live_probe": {
+        "type": "wrangler_cron",
+        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml"
+      }
+    },
+    {
+      "trigger_id": "SA-T-loop-cron-kaizen",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "0 3 * * *",
+      "target": "Loop-specialist CF cron 03:00 kaizen nightly",
+      "valid_in_verified_window": true,
+      "owner_workflow": "loop-specialist-tick-v1",
+      "live_probe": {
+        "type": "wrangler_cron",
+        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml"
+      }
+    },
+    {
+      "trigger_id": "SA-T-gmail-sweep-dispatch",
+      "system": "sourcea",
+      "kind": "manual",
+      "schedule": null,
+      "target": "Manual gmail sweep + triage",
+      "valid_in_verified_window": true,
+      "owner_workflow": "gmail-sweep-hourly",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/gmail-sweep-hourly-v1.yml",
+        "expects": ["workflow_dispatch"]
+      }
+    },
+    {
+      "trigger_id": "SA-T-kaizen-nightly-dispatch",
+      "system": "sourcea",
+      "kind": "manual",
+      "schedule": null,
+      "target": "Manual kaizen nightly tick",
+      "valid_in_verified_window": true,
+      "owner_workflow": "kaizen-nightly",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/kaizen-nightly-v1.yml",
+        "expects": ["workflow_dispatch"]
+      }
+    },
+    {
+      "trigger_id": "SA-T-ops-heartbeat-dispatch",
+      "system": "sourcea",
+      "kind": "manual",
+      "schedule": null,
+      "target": "Manual ops heartbeat",
+      "valid_in_verified_window": true,
+      "owner_workflow": "ops-heartbeat-daily",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/ops-heartbeat-daily-v1.yml",
+        "expects": ["workflow_dispatch"]
+      }
     }
   ]
 }

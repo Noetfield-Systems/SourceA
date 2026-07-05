@@ -55,3 +55,6 @@ jobs:
 
       - name: GHA improvement_queue wiring
         run: bash scripts/validate-gha-improvement-queue-v1.sh
+
+      - name: Ops motors wiring
+        run: bash scripts/validate-ops-motors-v1.sh
