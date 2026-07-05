@@ -449,7 +449,7 @@ def trigger_cf_full_pack(*, force: bool = False) -> dict[str, Any]:
     payload = {
         "proceed": True,
         "full_pack": bool(ssot.get("full_pack", True)),
-        "max_advance": int(ssot.get("max_advance_per_tick") or 100),
+        "max_advance": int(ssot.get("max_advance_per_tick") or 10),
         "trigger_source": "mac_hub_trigger_cf",
         "force": bool(force),
     }
@@ -620,7 +620,7 @@ def chain_status() -> dict[str, Any]:
         },
         "pattern": {
             "full_pack": True,
-            "max_advance_per_tick": ssot.get("max_advance_per_tick") or 100,
+            "max_advance_per_tick": ssot.get("max_advance_per_tick") or 10,
             "scheduler": "cloudflare_cron_only",
         },
         "queue_local": {
@@ -1057,7 +1057,7 @@ def payload() -> dict[str, Any]:
             "auto_tick": "POST {\"action\":\"auto_tick\"} (Mac observe only)",
             "auto_status": "POST {\"action\":\"auto_status\"}",
             "mac_agent_heartbeat": "POST {\"action\":\"mac_agent_heartbeat\"}",
-            "proceed": "POST {\"action\":\"proceed\",\"full_pack\":true,\"max_advance\":100}",
+            "proceed": "POST {\"action\":\"proceed\",\"full_pack\":true,\"max_advance\":10}",
         },
         "situation": situation,
         "chain": chain_status(),
