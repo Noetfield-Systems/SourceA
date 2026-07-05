@@ -1,19 +1,30 @@
 /**
- * SourceA Loop Specialist — Cloudflare cron (phase 2b · FREE tier)
- * POST Railway FBE loop tick + signal factory + nerve probes (15-minute cron)
+ * SourceA Loop Specialist — Cloudflare cron
+ * */15 loop + SF tick + nerve + triage
+ * hourly gmail sweep · 07:00 UTC heartbeat · 03:00 UTC kaizen nightly
  */
 import { handleIntakePost, probeSsot } from "./nerve-probe/probes.js";
 import { runNerveProbeCycle } from "./nerve-probe/cycle.js";
 
 export default {
-  async scheduled(_event, env, ctx) {
-    ctx.waitUntil(
-      Promise.all([
-        runTick(env, { dispatch: env.LOOP_AUTO_DISPATCH === "true" }),
-        runSignalFactoryTick(env),
-        runNerveProbeCycle(env),
-      ]),
-    );
+  async scheduled(event, env, ctx) {
+    const cron = event?.cron || "*/15 * * * *";
+    const jobs = [
+      () => runTick(env, { dispatch: env.LOOP_AUTO_DISPATCH === "true" }),
+      () => runSignalFactoryTick(env),
+      () => runNerveProbeCycle(env),
+      () => postFbe(env, "/api/fbe/signal-factory/triage/v1", { max_batch: 10 }),
+    ];
+    if (cron === "0 * * * *") {
+      jobs.push(() => postFbe(env, "/api/fbe/gmail-sweep/v1", { max_per_mailbox: 25 }));
+    }
+    if (cron === "0 7 * * *") {
+      jobs.push(() => postFbe(env, "/api/fbe/ops/heartbeat/v1", {}));
+    }
+    if (cron === "0 3 * * *") {
+      jobs.push(() => postFbe(env, "/api/fbe/kaizen/nightly/v1", {}));
+    }
+    ctx.waitUntil(Promise.all(jobs.map((fn) => fn())));
   },
 
   async fetch(request, env) {
@@ -32,9 +43,9 @@ export default {
       return Response.json({
         ok: true,
         service: "loop-specialist-cron-v1",
-        cron: "*/15 * * * *",
+        crons: ["*/15 * * * *", "0 * * * *", "0 7 * * *", "0 3 * * *"],
         nerve_probe: true,
-        probes: ["nf_intake_e2e", "greeting", "drift", "uptime"],
+        ops_motors: ["gmail-sweep", "signal-triage", "kaizen-nightly", "ops-heartbeat"],
         supabase_ready: Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY),
         telegram_ready: Boolean(
           env.TELEGRAM_BOT_TOKEN && (env.TELEGRAM_ALERT_CHAT_ID || env.TELEGRAM_ALLOWED_CHAT_ID),
@@ -61,6 +72,33 @@ export default {
     return Response.json({ ok: false, error: "not_found" }, { status: 404 });
   },
 };
+
+async function postFbe(env, path, body) {
+  const base = (env.FBE_CLOUD_WORKER_URL || "").replace(/\/$/, "");
+  if (!base) {
+    return { ok: false, error: "missing_FBE_CLOUD_WORKER_URL", path };
+  }
+  const headers = { "Content-Type": "application/json" };
+  if (env.FBE_INTERNAL_SECRET) {
+    headers.Authorization = `Bearer ${env.FBE_INTERNAL_SECRET}`;
+  }
+  const resp = await fetch(`${base}${path}`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({
+      ...body,
+      trigger_source: "cloudflare_cron_loop_specialist",
+      execution_mode: "CLOUD_ONLY",
+    }),
+  });
+  let row = {};
+  try {
+    row = await resp.json();
+  } catch {
+    row = { ok: false, error: "invalid_json", status: resp.status };
+  }
+  return { ok: Boolean(row.ok), path, proxied_status: resp.status, row };
+}
 
 async function runTick(env, { dispatch }) {
   const base = (env.FBE_CLOUD_WORKER_URL || "").replace(/\/$/, "");
