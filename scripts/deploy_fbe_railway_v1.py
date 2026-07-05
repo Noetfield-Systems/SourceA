@@ -95,6 +95,11 @@ _STAGING_DATA_FILES = (
     "forge-mvp-router-rules-v0.1.json",
     "forge-v02-cloud-contract-v1.json",
     "forge-real-blueprints-v01.json",
+    "gmail-sweep-ssot-v1.json",
+    "kaizen-fix-handlers-v1.json",
+    "portfolio-vault-email-tags-v1.json",
+    "copilot-scheduled-automations-v1.json",
+    "client-proof-founder-review-pack-v1.json",
 )
 _STAGING_SCRIPT_FILES = (
     "fbe_cloud_worker_http_v1.py",
@@ -162,6 +167,26 @@ _STAGING_SCRIPT_FILES = (
     "portfolio__pick_lib.py",
     "forge_cloud_env_load_v1.py",
     "task_plan_priority_v1.py",
+    "gmail_inbox_sweep_v1.py",
+    "signal_factory_triage_v1.py",
+    "kaizen_nightly_tick_v1.py",
+    "daily_ops_heartbeat_v1.py",
+    "fbe_cloud_ops_motors_v1.py",
+    "telegram_alert_v1.py",
+    "improvement_queue_insert_v1.py",
+    "kaizen_handler_pgrst_reload_v1.py",
+    "kaizen_handler_workflow_lint_v1.py",
+    "kaizen_handler_repo_policy_v1.py",
+    "verify_client_proof_founder_review_v1.py",
+    "check_sourcea_repo_policy.py",
+    "validate-github-workflows-v1.sh",
+    "portfolio_mail_hub_v1.py",
+    "autorun_pending_v1.py",
+    "sandbox_health_sweep_v1.py",
+    "build_external_verify_l4_receipt_v1.py",
+    "post_external_verify_l4_truth_v1.py",
+    "ops_motors_status_v1.py",
+    "gmail_triage_e2e_v1.py",
 )
 
 
