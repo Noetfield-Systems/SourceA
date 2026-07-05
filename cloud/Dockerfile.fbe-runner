@@ -105,6 +105,8 @@ COPY data/cloud-auto-runtime-v1.json data/cloud-auto-runtime-v1.json
 COPY data/living-system-chain-registry-cloud-v1.json data/living-system-chain-registry-cloud-v1.json
 COPY scripts/hub_cloud_forge_run_proceed_v1.py scripts/hub_cloud_forge_run_proceed_v1.py
 COPY scripts/cloud_forge_run_queue_path_v1.py scripts/cloud_forge_run_queue_path_v1.py
+COPY packages/sourcea-sdk packages/sourcea-sdk
+RUN pip install --no-cache-dir ./packages/sourcea-sdk
 COPY scripts/cloud_auto_runtime_v1.py scripts/cloud_auto_runtime_v1.py
 COPY scripts/cloud_auto_runtime_single_cycle_gate_v1.py scripts/cloud_auto_runtime_single_cycle_gate_v1.py
 COPY scripts/truth_layer_receipt_writer_v1.py scripts/truth_layer_receipt_writer_v1.py
