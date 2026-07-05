@@ -26,11 +26,35 @@ def _load_secrets() -> None:
     ensure_env()
 
 
-def _tables_probe() -> dict[str, Any]:
-    sys.path.insert(0, str(ROOT / "scripts"))
-    from cloud_forge_run_supabase_v1 import table_probe  # noqa: WPS433
+def _table_exists(table: str) -> dict[str, Any]:
+    import urllib.error
+    import urllib.parse
+    import urllib.request
 
-    rows = {t: table_probe(cfg={"url": os.environ.get("SUPABASE_URL", ""), "key": os.environ.get("SUPABASE_SERVICE_ROLE_KEY", ""), "table": t}) for t in TABLES}
+    url = os.environ.get("SUPABASE_URL", "").rstrip("/")
+    key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
+    if not url or not key:
+        return {"ok": False, "exists": False, "error": "supabase_not_configured"}
+    params = urllib.parse.urlencode({"select": "id", "limit": "1"})
+    req = urllib.request.Request(
+        f"{url}/rest/v1/{table}?{params}",
+        headers={
+            "apikey": key,
+            "Authorization": f"Bearer {key}",
+            "Accept": "application/json",
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            return {"ok": True, "exists": True, "status": resp.status}
+    except urllib.error.HTTPError as exc:
+        err = exc.read().decode("utf-8", errors="replace")
+        missing = exc.code == 404 or "PGRST205" in err or "42P01" in err
+        return {"ok": not missing, "exists": not missing, "status": exc.code, "error": err[:200]}
+
+
+def _tables_probe() -> dict[str, Any]:
+    rows = {t: _table_exists(t) for t in TABLES}
     ok = all(r.get("exists") for r in rows.values())
     return {"ok": ok, "tables": rows}
 
