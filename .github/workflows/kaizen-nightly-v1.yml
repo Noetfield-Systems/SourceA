@@ -1,9 +1,8 @@
 name: kaizen-nightly
 
+# Schedule retired — CF loop-specialist cron 0 3 * * * → Railway /api/fbe/kaizen/nightly/v1
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 3 * * *'
 
 permissions:
   contents: read

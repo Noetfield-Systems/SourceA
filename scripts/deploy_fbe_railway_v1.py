@@ -97,6 +97,7 @@ _STAGING_DATA_FILES = (
     "forge-real-blueprints-v01.json",
     "gmail-sweep-ssot-v1.json",
     "kaizen-fix-handlers-v1.json",
+    "trigger-registry-v1.json",
     "portfolio-vault-email-tags-v1.json",
     "copilot-scheduled-automations-v1.json",
     "client-proof-founder-review-pack-v1.json",
@@ -183,10 +184,16 @@ _STAGING_SCRIPT_FILES = (
     "portfolio_mail_hub_v1.py",
     "autorun_pending_v1.py",
     "sandbox_health_sweep_v1.py",
+    "validate-noetfield-nerve-probe-v1.sh",
     "build_external_verify_l4_receipt_v1.py",
     "post_external_verify_l4_truth_v1.py",
     "ops_motors_status_v1.py",
     "gmail_triage_e2e_v1.py",
+    "fbe_cloud_scheduled_loops_v1.py",
+    "gha_repo_health_sweep_v1.py",
+    "gha_security_sweep_v1.py",
+    "validate_locked_definitions_anatomy_v1.py",
+    "verify_autorun_determinism_v1.py",
 )
 
 
@@ -264,6 +271,11 @@ def _stage_deploy_context() -> dict:
         if src.is_file():
             _copy_file(src, STAGING / "scripts" / name)
             copied.append(f"scripts/{name}")
+
+    wf_src = ROOT / ".github" / "workflows"
+    if wf_src.is_dir():
+        shutil.copytree(wf_src, STAGING / ".github" / "workflows")
+        copied.append(".github/workflows/")
 
     plans_src = ROOT / "plans"
     if plans_src.is_dir():
