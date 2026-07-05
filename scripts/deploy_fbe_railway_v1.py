@@ -221,6 +221,10 @@ def _stage_deploy_context() -> dict:
     if fbe_src.is_dir():
         shutil.copytree(fbe_src, STAGING / "scripts" / "fbe")
         copied.append("scripts/fbe/")
+    sdk_src = ROOT / "packages" / "sourcea-sdk"
+    if sdk_src.is_dir():
+        shutil.copytree(sdk_src, STAGING / "packages" / "sourcea-sdk")
+        copied.append("packages/sourcea-sdk/")
     trust = ROOT / "scripts" / "fbe" / "lib" / "trust_ledger_v1.py"
     if trust.is_file():
         _copy_file(trust, STAGING / "scripts" / "fbe" / "lib" / "trust_ledger_v1.py")
