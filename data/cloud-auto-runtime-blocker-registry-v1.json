@@ -2,7 +2,7 @@
   "schema": "cloud-auto-runtime-blocker-registry-v1",
   "version": "1.0.0",
   "saved_at": "2026-06-24T09:15:00Z",
-  "one_law": "Every CF cron must ship 100 rows with zero skips — blockers below must be mitigated in code, not founder intervention.",
+  "one_law": "Every CF cron ships up to 10 proof-gated rows with zero skips — blockers below mitigated in code, not founder intervention.",
   "blockers": [
     {
       "id": "B01_frozen_plan_loader",

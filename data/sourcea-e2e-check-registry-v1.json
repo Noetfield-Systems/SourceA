@@ -20321,6 +20321,30 @@
       "log_path": "~/.sina/e2e-logs/validate-sourcea-mvp-intake-e2e-v1.log"
     },
     {
+      "id": "validate-noetfield-nerve-probe-v1",
+      "script": "scripts/validate-noetfield-nerve-probe-v1.sh",
+      "kind": "shell",
+      "scope": "mac_local",
+      "unified_tier": "T1_light",
+      "pressure_tier": "light",
+      "runtime_tier": null,
+      "cadence": "daily",
+      "est_wall_sec": 30,
+      "slo": {
+        "freshness_target_minutes": 1440,
+        "success_rate_target": 0.99,
+        "latency_target_minutes": 2
+      },
+      "bundle": null,
+      "allowed_context": [
+        "ship_window",
+        "cloud_ci",
+        "founder_session"
+      ],
+      "gated": false,
+      "log_path": "~/.sina/e2e-logs/validate-noetfield-nerve-probe-v1.log"
+    },
+    {
       "id": "validate-sourcea-public-proof-e2e-v1",
       "script": "scripts/validate-sourcea-public-proof-e2e-v1.sh",
       "kind": "shell",

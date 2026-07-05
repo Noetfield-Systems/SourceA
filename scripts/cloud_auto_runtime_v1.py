@@ -65,7 +65,7 @@ def load_ssot() -> dict[str, Any]:
         return row
     return {
         "schema": "cloud-auto-runtime-v1",
-        "version": "1.0.0",
+        "version": "2.0.0",
         "enabled": False,
         "cron": "*/10 * * * *",
         "min_interval_minutes": 10,
@@ -74,9 +74,19 @@ def load_ssot() -> dict[str, Any]:
         "self_heal_motor_fail_mock": True,
         "self_heal_any_motor_fail": True,
         "max_skips_per_tick": 8,
+        "max_advance_per_tick": 10,
+        "rows_per_turn_cap": 10,
         "llm_provider": "openrouter",
         "full_motor": True,
     }
+
+
+def max_advance_cap(*, ssot: dict[str, Any] | None = None, body: dict[str, Any] | None = None) -> int:
+    """INCIDENT-045 — worker-bounded cap per turn (default 10). No 100-row floor."""
+    s = ssot or load_ssot()
+    cap = int(s.get("max_advance_per_tick") or s.get("rows_per_turn_cap") or 10)
+    requested = int((body or {}).get("max_advance") or cap)
+    return max(1, min(requested, cap))
 
 
 def auto_proceed_enabled() -> bool:
@@ -644,7 +654,7 @@ def _write_cycle_receipt(
     pack = cycle.get("pack") if isinstance(cycle.get("pack"), dict) else {}
     shipped = int(pack.get("shipped") or pack.get("advanced") or 0)
     skipped = int(pack.get("skipped") or 0)
-    quota = int(pack.get("mandatory_quota") or pack.get("max_advance") or 100)
+    quota = int(pack.get("mandatory_quota") or pack.get("max_advance") or max_advance_cap())
     processed = shipped
     idle_batch = bool(pack.get("idle_batch")) or (processed == 0 and bool(pack.get("batch_complete")))
     registry_exhausted = bool(pack.get("registry_exhausted"))
@@ -823,19 +833,18 @@ def _update_ramp_state(*, green: bool) -> dict[str, Any]:
 
 FULL_PACK_BODY: dict[str, Any] = {
     "full_pack": True,
-    "max_advance": 100,
+    "max_advance": 10,
     "auto_tick": True,
     "force_reset_gate": True,
 }
 
 
 def _with_full_pack(body: dict[str, Any] | None) -> dict[str, Any]:
-    """Anti-poison — every Cloud Forge Run trigger is full_pack × 100 (INCIDENT-042)."""
+    """Anti-poison — every Cloud Forge Run trigger is full_pack × capped rows (INCIDENT-045)."""
+    ssot = load_ssot()
     row = {**FULL_PACK_BODY, **(body or {})}
     row["full_pack"] = True
-    row["max_advance"] = int(row.get("max_advance") or 100)
-    if row["max_advance"] < 100:
-        row["max_advance"] = 100
+    row["max_advance"] = max_advance_cap(ssot=ssot, body=row)
     return row
 
 
@@ -900,7 +909,7 @@ def run_auto_tick(
         "execution_plane": "mac_control_panel",
         "trigger_source": trigger_source,
         "anti_poison": "mac_never_commands_railway",
-        "cloud_scheduler": "cloudflare_cron */10 full_pack max_advance 100",
+        "cloud_scheduler": "cloudflare_cron */10 full_pack max_advance capped",
         "local_head": phase.get("cloud_forge_run_head"),
         "local_batch_id": phase.get("batch_id"),
         "last_cloud_tick_at": tick.get("at"),
@@ -992,11 +1001,11 @@ def run_auto_runtime_pack(
     trigger_source: str,
     llm_provider: str,
 ) -> dict[str, Any]:
-    """One external trigger — ship mandatory max_advance rows (NO skip-on-fail — INCIDENT-044)."""
+    """One external trigger — ship up to max_advance rows (NO skip-on-fail — INCIDENT-044)."""
     from hub_cloud_forge_run_proceed_v1 import proceed_on_cloud  # noqa: WPS433
     from fbe.lib.cloud_forge_run_queue_v1 import read_head  # noqa: WPS433
 
-    max_advance = int(body.get("max_advance") or ssot.get("max_advance_per_tick") or 100)
+    max_advance = max_advance_cap(ssot=ssot, body=body)
     no_skip = bool(ssot.get("no_skip_law", True))
     advanced = 0
     skipped = 0
@@ -1076,7 +1085,7 @@ def run_auto_runtime_pack(
         "last_proceed": last_proceed,
         "for_founder": {
             "show_this": (
-                f"Pack · shipped {advanced}/{max_advance} (mandatory) · skipped {skipped} (must be 0) · "
+                f"Pack · shipped {advanced}/{max_advance} (cap) · skipped {skipped} (must be 0) · "
                 f"head {head_now.get('cloud_forge_run_head')} · "
                 + (
                     "competitor-1000 COMPLETE · registry exhausted · next: forge-real-blueprints"
@@ -1209,8 +1218,8 @@ def run_cloud_auto_tick(
             "skipped": 0,
             "processed": 0,
             "shipped": 0,
-            "mandatory_quota": int(ssot.get("max_advance_per_tick") or 100),
-            "max_advance": int(ssot.get("max_advance_per_tick") or 100),
+            "mandatory_quota": max_advance_cap(ssot=ssot),
+            "max_advance": max_advance_cap(ssot=ssot),
             "batch_complete": True,
             "batch_id": obs.get("batch_id") or head_row.get("batch_id"),
             "head_now": head,
@@ -1300,7 +1309,7 @@ def run_cloud_auto_tick(
     processed = shipped
     idle_batch = bool(pack.get("idle_batch"))
     registry_exhausted = bool(pack.get("registry_exhausted"))
-    quota = int(pack.get("mandatory_quota") or pack.get("max_advance") or 100)
+    quota = int(pack.get("mandatory_quota") or pack.get("max_advance") or max_advance_cap())
     if pack.get("ok") and shipped >= quota:
         claim_or_halt(path="/api/cloud-forge-run/auto-tick/v1", trigger_source=trigger_source, after_pass=True)
     if idle_batch and registry_exhausted:
@@ -1374,7 +1383,7 @@ def main() -> int:
             "enabled": True,
             "flag": str(AUTO_FLAG),
             "for_founder": {
-                "show_this": "Auto Runtime ARMED — 100 shipped rows per turn, zero skips, CF cron → Cloud Forge Run.",
+                "show_this": "Auto Runtime ARMED — up to 10 proof-gated rows per turn, zero skips, CF cron → Cloud Forge Run.",
             },
         }
     elif args.disable:
