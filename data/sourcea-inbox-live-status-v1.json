@@ -6,6 +6,13 @@
   "portfolio_tags": "data/portfolio-vault-email-tags-v1.json",
   "one_law": "No mailto commercial CTA shown as live until verified=true for that address",
   "inboxes": {
+    "hello@trustfield.ca": {
+      "role": "greet",
+      "vault_tag": "TF-HELLO-GOOGLE_WORKSPACE_APP_PASSWORD",
+      "verified": true,
+      "stab": "STAB-TF-HELLO",
+      "sweep_mode": "imap_fallback"
+    },
     "hello@sourcea.app": {
       "role": "greet",
       "vault_tag": "SA-HELLO-GOOGLE_WORKSPACE_APP_PASSWORD",

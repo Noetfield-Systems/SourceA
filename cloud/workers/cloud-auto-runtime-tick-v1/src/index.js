@@ -310,8 +310,8 @@ function edgeIdleReceipt(env, precheck) {
       skipped: 0,
       processed: 0,
       shipped: 0,
-      mandatory_quota: 100,
-      max_advance: 100,
+      mandatory_quota: maxAdvanceCap(env),
+      max_advance: maxAdvanceCap(env),
       batch_complete: true,
       batch_id: precheck.batch_id,
       head_now: head,
@@ -329,6 +329,11 @@ function edgeIdleReceipt(env, precheck) {
     cf_version: env.CF_VERSION_METADATA || null,
     pending_auto_note: "see observer.pending or receipts/cloud/autorun-pending/pending-latest-v1.json",
   };
+}
+
+function maxAdvanceCap(env) {
+  const n = parseInt(env.MAX_ADVANCE_PER_TICK || "10", 10);
+  return Number.isFinite(n) && n > 0 ? n : 10;
 }
 
 async function runTick(env, { proceed }) {
@@ -376,7 +381,7 @@ async function runTick(env, { proceed }) {
       body: JSON.stringify({
         trigger_source: "cloudflare_cron",
         full_pack: true,
-        max_advance: 100,
+        max_advance: maxAdvanceCap(env),
         auto_tick: true,
       }),
     });

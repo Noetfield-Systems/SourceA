@@ -37,27 +37,33 @@
       "description": "Discovery or proof demo scheduled"
     },
     {
+      "id": "audit_discovery_scheduled",
+      "label": "Audit discovery scheduled",
+      "order": 5,
+      "description": "ACG audit kickoff or discovery call scheduled"
+    },
+    {
       "id": "proposal_sent",
       "label": "Proposal sent",
-      "order": 5,
+      "order": 6,
       "description": "Scoped offer or SOW delivered"
     },
     {
       "id": "won",
       "label": "Won",
-      "order": 6,
+      "order": 7,
       "description": "Deposit or full payment received"
     },
     {
       "id": "lost",
       "label": "Lost",
-      "order": 7,
+      "order": 8,
       "description": "Declined or gone cold after proposal"
     },
     {
       "id": "nurture",
       "label": "Nurture",
-      "order": 8,
+      "order": 9,
       "description": "Not now — follow up later"
     }
   ],
@@ -85,6 +91,12 @@
       "label": "Property / strata",
       "priority": "P2",
       "pay_likelihood_14d": "lower"
+    },
+    {
+      "id": "acg_prospect",
+      "label": "ACG / AI spend governance",
+      "priority": "P0",
+      "pay_likelihood_14d": "high"
     }
   ],
   "channels": ["email", "linkedin_dm", "whatsapp", "referral_intro", "in_person"],
@@ -109,6 +121,13 @@
       "price_min_cad": 500,
       "price_max_cad": 5000,
       "type": "retainer"
+    },
+    {
+      "id": "SKU-ACG-001",
+      "name": "AI Spend Leak Audit + Premium Model Firewall pilot",
+      "price_min_cad": 2000,
+      "price_max_cad": 5000,
+      "type": "project"
     }
   ],
   "template_ids": [
@@ -119,7 +138,8 @@
     "meeting_confirm",
     "proposal_cover_email",
     "testimonial_request",
-    "referral_ask"
+    "referral_ask",
+    "acg_kickoff_email"
   ],
   "metrics": {
     "30_day_target": {
@@ -152,7 +172,8 @@
       "notes",
       "case_study_sent",
       "offer_page_sent",
-      "pureflow_link_sent"
+      "pureflow_link_sent",
+      "audit_id"
     ]
   },
   "prospects": [],

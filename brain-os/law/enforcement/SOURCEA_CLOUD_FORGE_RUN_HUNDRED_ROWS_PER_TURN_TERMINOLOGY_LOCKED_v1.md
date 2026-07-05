@@ -1,5 +1,7 @@
 # SourceA — Cloud Forge Run hundred-rows-per-turn terminology (LOCKED)
 
+> **SUPERSEDED 2026-07-05 (INCIDENT-045).** Active law: `SOURCEA_CLOUD_FORGE_RUN_REALISTIC_MOTOR_LOCKED_v1.md` · SSOT: `data/cloud-forge-run-realistic-motor-law-v1.json`. Retained below for history only.
+
 **Saved:** 2026-06-24 · **UTC:** 2026-06-24T07:45:00Z · **v1.1** (founder correction — 100 is minimum, not “up to”)  
 **Unified vocabulary:** `data/sourcea-vocabulary-unified-index-v1.json` · `SOURCEA_VOCABULARY_UNIFIED_LOCKED_v1.md`  
 **Incident:** INCIDENT-043 · **Pair:** INCIDENT-042 · `SOURCEA_CLOUD_FORGE_RUN_FULL_PACK_PATTERN_LOCKED_v1.md`  

@@ -754,7 +754,7 @@ def proceed_from_hub(body: dict[str, Any] | None = None) -> dict[str, Any]:
         "llm_provider": llm,
         "founder_proceed": True,
         "full_pack": bool(body.get("full_pack", True)),
-        "max_advance": int(body.get("max_advance") or 100),
+        "max_advance": int(body.get("max_advance") or 10),
         "trigger_source": str(body.get("trigger_source") or "hub_proceed_pack"),
         "force_reset_gate": bool(body.get("force_reset_gate", True)),
         "stack": body.get("stack") or "sourcea",
@@ -888,7 +888,7 @@ def inject_for_agents() -> dict:
         "forbidden": ssot.get("forbidden"),
         "next": sl.get("next"),
         "batch2_complete": ssot.get("batch2_complete"),
-        "body_example": {"action": "proceed", "full_pack": True, "max_advance": 100, "llm_provider": "openrouter", "full_motor": True},
+        "body_example": {"action": "proceed", "full_pack": True, "max_advance": 10, "llm_provider": "openrouter", "full_motor": True},
     }
 
 

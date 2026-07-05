@@ -1,0 +1,420 @@
+{
+  "schema": "external-verify-l4-receipt-v1",
+  "version": "1.0.0",
+  "at": "2026-07-05T15:33:05Z",
+  "law": "L4 buyer surfaces \u2014 founder_proof_15 with body_sha256",
+  "github_run_id": "local-recovery-20260705T153305Z",
+  "github_sha": "e0eea1e28be0ac30fc5a9bddd7f255f226278732",
+  "run_url": "https://github.com/Noetfield-Systems/SourceA/actions/runs/local-recovery",
+  "workflow": "external-verify.yml",
+  "runner": "github_actions",
+  "trigger_source": "post_audit_recovery",
+  "platform_native": {
+    "item": "PN-001-workflow_run_chain",
+    "deploy_run_id": null,
+    "deploy_run_url": null,
+    "chain_active": false,
+    "retired_hand_roll": [
+      "publish_sourcea_landing run_founder_proof_verify min_seconds=60 sleep",
+      "manual timing guess between deploy complete and external verify"
+    ]
+  },
+  "ok": true,
+  "founder_proof_15": {
+    "schema": "client-proof-founder-review-verify-v1",
+    "version": "1.1.0",
+    "verify_law": "Verify = raw HTTPS fetch of the PUBLIC hostname from outside; minimum 60s after deploy; local dist verification is INVALID as PASS.",
+    "at": "2026-07-05T15:33:05Z",
+    "trigger_source": "manual",
+    "commit_sha": "e0eea1e28be0ac30fc5a9bddd7f255f226278732",
+    "deploy_gate": {
+      "ok": true,
+      "skipped": true,
+      "min_seconds": 0
+    },
+    "total": 15,
+    "passed": 15,
+    "ok": true,
+    "pack_path": "/Users/sinakazemnezhad/Desktop/Noetfield-Systems/SourceA/data/client-proof-founder-review-pack-v1.json",
+    "rows": [
+      {
+        "recipe_id": "cpr-agency-onepager",
+        "live_url": "https://sourcea.app/attach/agency-onepager.html",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-05T15:33:03Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 7389,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-agentgo-case",
+        "live_url": "https://sourcea.app/case-studies/agentgo",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-05T15:33:03Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 13700,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-brain-chat",
+        "live_url": "https://sourcea.app/",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-05T15:33:03Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 26845,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-contract-aivg",
+        "live_url": "https://sourcea.app/ai-value-governance",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "regional_redirect_fetch": {
+          "fetched_at": "2026-07-05T15:33:03Z",
+          "http_code": 200,
+          "body_sha256_prefix": "7e6096ba9856e4b918c06e4f171f75ffa319373fd4c0bc4121c46930972ad3c9",
+          "body_bytes": 16115,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        },
+        "public_fetch": {
+          "fetched_at": "2026-07-05T15:33:03Z",
+          "http_code": 200,
+          "body_sha256_prefix": "7e6096ba9856e4b918c06e4f171f75ffa319373fd4c0bc4121c46930972ad3c9",
+          "body_bytes": 16115,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-contract-eacp",
+        "live_url": "https://sourcea.app/enterprise-ai-control-plane",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-05T15:33:03Z",
+          "http_code": 200,
+          "body_sha256_prefix": "2edff560fd83f32dab8a2334725d3215d4b88e6b81cfa3486912c7ca8582304a",
+          "body_bytes": 16648,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-contract-operating-brain",
+        "live_url": "https://sourcea.app/operating-brain-install",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-05T15:33:03Z",
+          "http_code": 200,
+          "body_sha256_prefix": "3410c926542070a3fad91a7e531473419911043e8e6411aba12812ebab90cc8d",
+          "body_bytes": 16326,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-eval-boot",
+        "live_url": "https://sourcea.app/eval",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-05T15:33:03Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 12265,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-forge-terminal",
+        "live_url": "https://sourcea.app/sourcea/forge/terminal",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-05T15:33:03Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 7140,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-free-job-intake",
+        "live_url": "https://sourcea.app/sourcea/sandbox",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-05T15:33:04Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 8162,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-live-receipt",
+        "live_url": "https://sourcea.app/sourcea/proof/live",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-05T15:33:04Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 15808,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-procurement-pack",
+        "live_url": "https://sourcea.app/attach/procurement-pack.html",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-05T15:33:04Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 6327,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-proof-export-loop",
+        "live_url": "https://sourcea.app/loops/proof-export",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-05T15:33:04Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 6027,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-pureflow-case",
+        "live_url": "https://sourcea.app/case-studies/pureflow",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-05T15:33:05Z",
+          "http_code": 200,
+          "body_sha256_prefix": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+          "body_bytes": 13530,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-railway-observer",
+        "live_url": "https://sourcea-fbe-runner-production.up.railway.app/observer",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": "",
+        "public_fetch": {
+          "fetched_at": "2026-07-05T15:33:05Z",
+          "http_code": 200,
+          "body_sha256_prefix": "2ccd7554fb4bca00dadabd88a46c2c07f2a558fc01188cc008bd04b3b0defd9b",
+          "body_bytes": 901,
+          "cache_control": null,
+          "location": null
+        }
+      },
+      {
+        "recipe_id": "cpr-supabase-rows",
+        "live_url": "supabase://cloud_forge_run_rows",
+        "verdict": "PASS",
+        "defect": "",
+        "defects": [],
+        "fix": ""
+      }
+    ]
+  },
+  "checks": [
+    {
+      "recipe_id": "cpr-agency-onepager",
+      "url": "https://sourcea.app/attach/agency-onepager.html",
+      "verdict": "PASS",
+      "http_status": 200,
+      "body_sha256": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+      "body_bytes": 7389,
+      "defect": ""
+    },
+    {
+      "recipe_id": "cpr-agentgo-case",
+      "url": "https://sourcea.app/case-studies/agentgo",
+      "verdict": "PASS",
+      "http_status": 200,
+      "body_sha256": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+      "body_bytes": 13700,
+      "defect": ""
+    },
+    {
+      "recipe_id": "cpr-brain-chat",
+      "url": "https://sourcea.app/",
+      "verdict": "PASS",
+      "http_status": 200,
+      "body_sha256": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+      "body_bytes": 26845,
+      "defect": ""
+    },
+    {
+      "recipe_id": "cpr-contract-aivg",
+      "url": "https://sourcea.app/ai-value-governance",
+      "verdict": "PASS",
+      "http_status": 200,
+      "body_sha256": "7e6096ba9856e4b918c06e4f171f75ffa319373fd4c0bc4121c46930972ad3c9",
+      "body_bytes": 16115,
+      "defect": ""
+    },
+    {
+      "recipe_id": "cpr-contract-eacp",
+      "url": "https://sourcea.app/enterprise-ai-control-plane",
+      "verdict": "PASS",
+      "http_status": 200,
+      "body_sha256": "2edff560fd83f32dab8a2334725d3215d4b88e6b81cfa3486912c7ca8582304a",
+      "body_bytes": 16648,
+      "defect": ""
+    },
+    {
+      "recipe_id": "cpr-contract-operating-brain",
+      "url": "https://sourcea.app/operating-brain-install",
+      "verdict": "PASS",
+      "http_status": 200,
+      "body_sha256": "3410c926542070a3fad91a7e531473419911043e8e6411aba12812ebab90cc8d",
+      "body_bytes": 16326,
+      "defect": ""
+    },
+    {
+      "recipe_id": "cpr-eval-boot",
+      "url": "https://sourcea.app/eval",
+      "verdict": "PASS",
+      "http_status": 200,
+      "body_sha256": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+      "body_bytes": 12265,
+      "defect": ""
+    },
+    {
+      "recipe_id": "cpr-forge-terminal",
+      "url": "https://sourcea.app/sourcea/forge/terminal",
+      "verdict": "PASS",
+      "http_status": 200,
+      "body_sha256": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+      "body_bytes": 7140,
+      "defect": ""
+    },
+    {
+      "recipe_id": "cpr-free-job-intake",
+      "url": "https://sourcea.app/sourcea/sandbox",
+      "verdict": "PASS",
+      "http_status": 200,
+      "body_sha256": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+      "body_bytes": 8162,
+      "defect": ""
+    },
+    {
+      "recipe_id": "cpr-live-receipt",
+      "url": "https://sourcea.app/sourcea/proof/live",
+      "verdict": "PASS",
+      "http_status": 200,
+      "body_sha256": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+      "body_bytes": 15808,
+      "defect": ""
+    },
+    {
+      "recipe_id": "cpr-procurement-pack",
+      "url": "https://sourcea.app/attach/procurement-pack.html",
+      "verdict": "PASS",
+      "http_status": 200,
+      "body_sha256": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+      "body_bytes": 6327,
+      "defect": ""
+    },
+    {
+      "recipe_id": "cpr-proof-export-loop",
+      "url": "https://sourcea.app/loops/proof-export",
+      "verdict": "PASS",
+      "http_status": 200,
+      "body_sha256": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+      "body_bytes": 6027,
+      "defect": ""
+    },
+    {
+      "recipe_id": "cpr-pureflow-case",
+      "url": "https://sourcea.app/case-studies/pureflow",
+      "verdict": "PASS",
+      "http_status": 200,
+      "body_sha256": "39f3b35862e746bf1e08fcd1e30e0abe50ba9e5454b3567f8cb5870d789d7187",
+      "body_bytes": 13530,
+      "defect": ""
+    },
+    {
+      "recipe_id": "cpr-railway-observer",
+      "url": "https://sourcea-fbe-runner-production.up.railway.app/observer",
+      "verdict": "PASS",
+      "http_status": 200,
+      "body_sha256": "2ccd7554fb4bca00dadabd88a46c2c07f2a558fc01188cc008bd04b3b0defd9b",
+      "body_bytes": 901,
+      "defect": ""
+    },
+    {
+      "recipe_id": "cpr-supabase-rows",
+      "url": "supabase://cloud_forge_run_rows",
+      "verdict": "PASS",
+      "http_status": null,
+      "body_sha256": null,
+      "body_bytes": null,
+      "defect": ""
+    }
+  ],
+  "report_line": "external-verify-l4 PASS \u00b7 15-recipe=15/15 \u00b7 run=local-recovery-20260705T153305Z"
+}

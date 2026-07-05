@@ -1,5 +1,7 @@
 # SourceA SSOT Index — LOCKED v1
 
+> **SUPERSEDED_BY:** `docs/SOURCEA_GOVERNANCE_ENTRY_UNIFIED_LOCKED_v1.md` + `docs/SOURCEA_UNIFIED_RUNTIME_MODEL_LOCKED_v1.md` — use unified entry for daily ops.
+
 **Saved:** 2026-06-22T16:00:00Z  
 **Version:** 1.2.0  
 **Status:** LOCKED  

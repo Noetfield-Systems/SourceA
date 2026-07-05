@@ -29,7 +29,7 @@
 
 When these conflict, **trust realtime proof**:
 
-1. **Railway Cloud Forge Run** — `GET …/api/cloud-forge-run/queue/v1` · live queue head + `batch_id`. **Auto Runtime** arms Forge Run every ~10 min · **100 rows mandatory** (INCIDENT-043). Forbidden founder words: **drain** · **loop**. SSOT: `data/cloud-motor-founder-vocabulary-v1.json`.
+1. **Railway Cloud Forge Run** — `GET …/api/cloud-forge-run/queue/v1` · live queue head + `batch_id`. **Auto Runtime** arms Forge Run every ~10 min · **up to 10 proof-gated rows per turn** (INCIDENT-045). Forbidden founder words: **drain** · **loop**. SSOT: `data/cloud-motor-founder-vocabulary-v1.json`.
 2. **Cockpit** — **Cloud Workers.app `:13027`** is the primary Mac glance for Proceed/full-pack. Worker Hub `:13020` was **trashed** (legacy poison surface).
 3. **Official form** — Picks stay in `~/.sina/live-founder-decision-form-intake-v1.json`. UI lives at **Chat Unify `:13023/form/`** (same 5-option A–D + E, dual submit bars, POST `/api/live-founder-decision-form-v1`).
 4. **Founder orders** — Recent ASF purge/trash receipts (`~/.sina/asf-hub-legacy-trash-receipt-v1.json`, `asf-anti-poison-kill-receipt-v1.json`) override boot.json or registry rows that still cite Worker Hub.
