@@ -1,10 +1,9 @@
 name: determinism-gate
 
 # L13 determinism — separate from L4 buyer-surface lane (never block L4 again).
+# Schedule retired — CF loop-specialist cron 30 */6 * * * → Railway /api/fbe/determinism/gate/v1
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '30 */6 * * *'
   push:
     branches: [main]
     paths:
