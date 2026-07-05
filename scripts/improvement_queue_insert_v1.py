@@ -9,6 +9,7 @@ import sys
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any
 
 
@@ -16,7 +17,18 @@ def _now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def _load_secrets() -> None:
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from cloud_forge_run_supabase_v1 import ensure_env  # noqa: WPS433
+
+    ensure_env()
+
+
 def _supabase_configured() -> tuple[str, str] | tuple[None, None]:
+    _load_secrets()
     url = os.environ.get("SUPABASE_URL", "").strip().rstrip("/")
     key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "").strip()
     if not url or not key:
