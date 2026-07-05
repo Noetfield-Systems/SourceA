@@ -183,6 +183,7 @@ _STAGING_SCRIPT_FILES = (
     "portfolio_mail_hub_v1.py",
     "autorun_pending_v1.py",
     "sandbox_health_sweep_v1.py",
+    "validate-noetfield-nerve-probe-v1.sh",
     "build_external_verify_l4_receipt_v1.py",
     "post_external_verify_l4_truth_v1.py",
     "ops_motors_status_v1.py",
