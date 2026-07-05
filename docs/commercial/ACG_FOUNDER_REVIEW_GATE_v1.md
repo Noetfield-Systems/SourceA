@@ -16,8 +16,17 @@
 - [ ] **Intake instance:** `ACG-20260705-001` exists under `data/acg-intake-instances/`
 - [ ] **Scope:** No Noetfield.com / NOOS / SG edits in this lane
 - [ ] **Git:** ACG committed on `preserve/acg-2026-07-05` before reconcile
+- [ ] **Readiness script:** `python3 scripts/acg_founder_send_readiness_v1.py check --json` returns `ok: true`
 
 ---
+
+## Automated pre-send check
+
+```bash
+python3 scripts/acg_founder_send_readiness_v1.py check --json
+```
+
+Must pass before setting `Send authorized: YES`.
 
 ## Founder sign-off
 

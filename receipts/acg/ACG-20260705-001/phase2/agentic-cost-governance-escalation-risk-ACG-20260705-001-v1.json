@@ -1,0 +1,56 @@
+{
+  "schema": "agentic-cost-governance-escalation-risk-v1",
+  "version": "1.0.0",
+  "template": false,
+  "created_at": "2026-07-05T12:35:00Z",
+  "description": "Fallback and escalation risk matrix for AI model routing",
+  "audit_id": "ACG-20260705-001",
+  "client_name": "FOUNDER_FILL_COMPANY",
+  "checks": [
+    {
+      "id": "E01",
+      "question": "If cheap model fails, does workflow error or escalate silently to expensive model?",
+      "status": "[pass / fail / unknown]",
+      "severity": "[low / medium / high]",
+      "evidence": "[notes]"
+    },
+    {
+      "id": "E02",
+      "question": "Are there retry loops without backoff that multiply API costs?",
+      "status": "[pass / fail / unknown]",
+      "severity": "[low / medium / high]",
+      "evidence": "[notes]"
+    },
+    {
+      "id": "E03",
+      "question": "Do workflows degrade gracefully on high latency?",
+      "status": "[pass / fail / unknown]",
+      "severity": "[low / medium / high]",
+      "evidence": "[notes]"
+    },
+    {
+      "id": "E04",
+      "question": "Is there manual override allowing bypass of cost controls?",
+      "status": "[pass / fail / unknown]",
+      "severity": "[low / medium / high]",
+      "evidence": "[notes]"
+    },
+    {
+      "id": "E05",
+      "question": "Are there unmonitored escalation paths (e.g., ops can use any model)?",
+      "status": "[pass / fail / unknown]",
+      "severity": "[low / medium / high]",
+      "evidence": "[notes]"
+    },
+    {
+      "id": "E06",
+      "question": "What happens if approval workflow times out?",
+      "status": "[pass / fail / unknown]",
+      "severity": "[low / medium / high]",
+      "evidence": "[notes]"
+    }
+  ],
+  "risk_matrix": [],
+  "incident_scenarios": [],
+  "mitigation_plan": []
+}
