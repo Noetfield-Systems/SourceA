@@ -44,9 +44,18 @@ def _git_ls_files() -> list[str]:
         text=True,
         check=False,
     )
-    if proc.returncode != 0:
-        return []
-    return [line.strip() for line in proc.stdout.splitlines() if line.strip()]
+    if proc.returncode == 0 and proc.stdout.strip():
+        return [line.strip() for line in proc.stdout.splitlines() if line.strip()]
+    # Baked Railway image — no .git; walk scan roots
+    out: list[str] = []
+    for root_name in ("scripts", "cloud", "apps", "infra"):
+        base = ROOT / root_name
+        if not base.is_dir():
+            continue
+        for path in base.rglob("*"):
+            if path.is_file():
+                out.append(str(path.relative_to(ROOT)))
+    return out
 
 
 def _finding(
