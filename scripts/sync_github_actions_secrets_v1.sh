@@ -61,4 +61,18 @@ for token_path in "${HOME}/.config/supabase/access-token" "${HOME}/.supabase/acc
 done
 set_secret SUPABASE_ACCESS_TOKEN "${SUPABASE_ACCESS_TOKEN:-}"
 
+# Gmail service account (optional — Step 2 go-live)
+GMAIL_SA="${HOME}/.sourcea-secrets/gmail-service-account.json"
+if [[ -f "$GMAIL_SA" ]]; then
+  set_secret GOOGLE_SERVICE_ACCOUNT_JSON "$(tr -d '\n' < "$GMAIL_SA")"
+  set_secret GMAIL_DELEGATED_USER "${GMAIL_DELEGATED_USER:-hello@trustfield.ca}"
+else
+  echo "SKIP: GOOGLE_SERVICE_ACCOUNT_JSON (no ${GMAIL_SA})"
+fi
+
+# Telegram (ops motors triage + heartbeat)
+load_env_file "${HOME}/.sina/secrets.env"
+set_secret TELEGRAM_BOT_TOKEN "${TELEGRAM_BOT_TOKEN:-}"
+set_secret TELEGRAM_CHAT_ID "${TELEGRAM_CHAT_ID:-}"
+
 echo "DONE: github actions secrets synced from disk"

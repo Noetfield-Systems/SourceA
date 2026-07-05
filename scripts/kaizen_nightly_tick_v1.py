@@ -88,9 +88,58 @@ def _run_cmd(cmd: list[str]) -> tuple[int, str]:
     return proc.returncode, out.strip()
 
 
+def _scoped_rollback() -> list[str]:
+    proc = subprocess.run(
+        ["git", "diff", "--name-only"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    files = [f.strip() for f in (proc.stdout or "").splitlines() if f.strip()]
+    if files:
+        subprocess.run(["git", "checkout", "--", *files], cwd=ROOT, check=False)
+    return files
+
+
 def _external_verify_receipt(recipe_id: str) -> dict[str, Any]:
-    """Reserved — nightly uses disk validators (no founder_proof_15 on Railway)."""
-    return {"ok": False, "skipped": True, "recipe": recipe_id}
+    if os.environ.get("SOURCEA_MAC_FOUNDER_SESSION", "").strip() in ("1", "true", "yes"):
+        return {"ok": False, "skipped": True, "recipe": recipe_id, "reason": "mac_founder_session"}
+    code, out = _run_cmd(
+        [
+            sys.executable,
+            "scripts/verify_client_proof_founder_review_v1.py",
+            "--recipe-id",
+            recipe_id,
+            "--json",
+        ]
+    )
+    proof: dict[str, Any] = {}
+    try:
+        proof = json.loads(out) if out else {}
+    except json.JSONDecodeError:
+        proof = {}
+    if code != 0 or not proof.get("ok"):
+        return {"ok": False, "recipe": recipe_id, "verify_exit": code, "proof": proof}
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from build_external_verify_l4_receipt_v1 import build_receipt  # noqa: WPS433
+
+    receipt = build_receipt(
+        founder_proof=proof,
+        run_id=os.environ.get("GITHUB_RUN_ID", "kaizen-nightly"),
+        sha=os.environ.get("GITHUB_SHA", "local"),
+        run_url=os.environ.get("GITHUB_RUN_URL", ""),
+        trigger_source="kaizen_nightly",
+    )
+    out_path = RECEIPT_DIR / f"kaizen-l4-{recipe_id}-{datetime.now(timezone.utc).strftime('%Y%m%d')}-v1.json"
+    out_path.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+    try:
+        from post_external_verify_l4_truth_v1 import post_truth  # noqa: WPS433
+
+        post_truth(str(out_path))
+    except Exception as exc:
+        receipt["truth_post_error"] = str(exc)[:200]
+    return {"ok": bool(receipt.get("ok")), "recipe": recipe_id, "path": str(out_path.relative_to(ROOT))}
 
 
 def run_nightly() -> dict[str, Any]:
@@ -130,15 +179,18 @@ def run_nightly() -> dict[str, Any]:
         vcode, vout = _run_cmd([sys.executable, str(ROOT / rel), *rest])
 
     regression = vcode != 0
+    rolled_back: list[str] = []
     if regression and handler and handler.get("script"):
-        subprocess.run(["git", "checkout", "--", "."], cwd=ROOT, check=False)
+        rolled_back = _scoped_rollback()
 
     recipe = str(cfg.get("nightly", {}).get("external_verify_recipe") or "cpr-eval-boot")
     ext = {"ok": not regression and fix_ok, "verify": "sandbox_health_sweep", "recipe": recipe}
     if fix_ok and not regression:
-        v2code, _ = _run_cmd([sys.executable, "scripts/validate-noetfield-nerve-probe-v1.sh"])
+        v2code, _ = _run_cmd(["bash", str(ROOT / "scripts/validate-noetfield-nerve-probe-v1.sh")])
         ext["nerve_probe_disk"] = v2code == 0
         ext["ok"] = ext["ok"] and v2code == 0
+        if ext["ok"]:
+            ext = {**ext, **_external_verify_receipt(recipe)}
 
     status = "done" if fix_ok and not regression and ext.get("ok") else "founder_gated"
     _patch_queue(item_id, {"status": status})
@@ -154,6 +206,7 @@ def run_nightly() -> dict[str, Any]:
         "fix_ok": fix_ok,
         "verify_exit": vcode,
         "regression_rollback": regression,
+        "rollback_files": rolled_back,
         "external_verify": {"ok": ext.get("ok"), "recipe": recipe},
         "report_line": f"kaizen_nightly · {status} · {finding[:60]}",
     }

@@ -89,6 +89,9 @@ def run_triage(*, max_batch: int = 10, notify: bool = True) -> dict[str, Any]:
     from telegram_alert_v1 import send_telegram_alert  # noqa: WPS433
 
     pending = _fetch_unprocessed(limit=max_batch)
+    from gmail_inbox_sweep_v1 import _load_service_account  # noqa: WPS433
+
+    production_connected = _load_service_account() is not None
     if not pending:
         return {
             "schema": "signal-factory-triage-v1",
@@ -96,6 +99,7 @@ def run_triage(*, max_batch: int = 10, notify: bool = True) -> dict[str, Any]:
             "at": _now(),
             "decision": "IDLE_NO_WORK",
             "processed": 0,
+            "production_connected": production_connected,
             "report_line": "signal_triage · IDLE_NO_WORK",
         }
 
@@ -165,6 +169,7 @@ def run_triage(*, max_batch: int = 10, notify: bool = True) -> dict[str, Any]:
         "at": _now(),
         "decision": "COMPLETE",
         "processed": len(results),
+        "production_connected": production_connected,
         "results": results,
         "report_line": f"signal_triage · COMPLETE · processed={len(results)}",
     }

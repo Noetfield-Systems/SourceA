@@ -22,6 +22,7 @@ SA_FILE="${GMAIL_SERVICE_ACCOUNT_PATH:-${HOME}/.sourcea-secrets/gmail-service-ac
 if [[ -z "${GOOGLE_SERVICE_ACCOUNT_JSON:-}" && -f "$SA_FILE" ]]; then
   export GOOGLE_SERVICE_ACCOUNT_JSON="$(python3 -c "import json; print(json.dumps(json.load(open('$SA_FILE'))))")"
 fi
+export GMAIL_DELEGATED_USER="${GMAIL_DELEGATED_USER:-hello@trustfield.ca}"
 
 args=("railway" "variables" "set")
 [[ -n "${SUPABASE_URL:-}" ]] && args+=("SUPABASE_URL=${SUPABASE_URL}")
