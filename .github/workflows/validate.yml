@@ -58,3 +58,6 @@ jobs:
 
       - name: Ops motors wiring
         run: bash scripts/validate-ops-motors-v1.sh
+
+      - name: Ops motors go-live gate
+        run: bash scripts/validate-ops-motors-go-live-v1.sh

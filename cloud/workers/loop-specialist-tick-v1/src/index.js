@@ -1,6 +1,6 @@
 /**
  * SourceA Loop Specialist — Cloudflare cron
- * */15 loop + SF tick + nerve + triage
+ * every-15-min loop + SF tick + nerve + triage
  * hourly gmail sweep · 07:00 UTC heartbeat · 03:00 UTC kaizen nightly
  */
 import { handleIntakePost, probeSsot } from "./nerve-probe/probes.js";
