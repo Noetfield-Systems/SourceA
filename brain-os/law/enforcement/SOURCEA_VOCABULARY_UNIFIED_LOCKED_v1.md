@@ -49,13 +49,15 @@
 
 ---
 
-## Motor quota (separate from display rename)
+## Motor quota (INCIDENT-045 — realistic motor)
 
-**100 rows per turn** is mandatory quota — not “up to 100.”  
-Law: `brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_HUNDRED_ROWS_PER_TURN_TERMINOLOGY_LOCKED_v1.md`  
-SSOT: `data/cloud-forge-run-hundred-rows-per-turn-vocabulary-v1.json`
+**Up to 10 doable tasks per turn** — one recipe unit per row. Proof gate before advance.  
+Law: `brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_REALISTIC_MOTOR_LOCKED_v1.md`  
+SSOT: `data/cloud-forge-run-realistic-motor-law-v1.json`
 
-Founder display for the motor: **Cloud Forge Run** — quota law describes **how many rows**, not what to call poison.
+Retired: mandatory 100-row quota (`SOURCEA_CLOUD_FORGE_RUN_HUNDRED_ROWS_PER_TURN_TERMINOLOGY_LOCKED_v1.md`).
+
+Founder display for the motor: **Cloud Forge Run** — law describes **proof + cap**, not counter theater.
 
 ---
 
@@ -69,7 +71,8 @@ Founder display for the motor: **Cloud Forge Run** — quota law describes **how
 | Scan / campaigns | `data/vocabulary-intelligence-registry-v1.json` |
 | Blueprint | `docs/VOCABULARY_INTELLIGENCE_MACHINE_BLUEPRINT_v1.md` |
 | Poison vs realtime | `brain-os/law/enforcement/SOURCEA_POISON_AND_REALTIME_BLOCKER_TERMINOLOGY_LOCKED_v1.md` |
-| 100 rows / turn | `data/cloud-forge-run-hundred-rows-per-turn-vocabulary-v1.json` |
+| Realistic motor / turn cap | `data/cloud-forge-run-realistic-motor-law-v1.json` |
+| Retired 100-row quota (history) | `data/cloud-forge-run-hundred-rows-per-turn-vocabulary-v1.json` |
 | Forge disambiguation | `data/sourcea-forge-vocabulary-disambiguation-v1.json` |
 | Mac Worker vs factory | `data/mac-worker-vs-factory-vocabulary-v1.json` |
 

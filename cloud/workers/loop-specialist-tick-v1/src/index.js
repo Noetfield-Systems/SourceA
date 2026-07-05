@@ -1,21 +1,57 @@
 /**
- * SourceA Auto Runtime specialist — Cloudflare cron (phase 2b · FREE tier)
- * POST Railway FBE loop tick — zero Mac Terminal · zero Mac execution
+ * SourceA Loop Specialist — Cloudflare cron (phase 2b · FREE tier)
+ * POST Railway FBE loop tick + signal factory + nerve probes (15-minute cron)
  */
+import { handleIntakePost, probeSsot } from "./nerve-probe/probes.js";
+import { runNerveProbeCycle } from "./nerve-probe/cycle.js";
+
 export default {
   async scheduled(_event, env, ctx) {
     ctx.waitUntil(
       Promise.all([
         runTick(env, { dispatch: env.LOOP_AUTO_DISPATCH === "true" }),
         runSignalFactoryTick(env),
+        runNerveProbeCycle(env),
       ]),
     );
   },
 
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (request.method === "OPTIONS") {
+      return new Response(null, {
+        status: 204,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type",
+        },
+      });
+    }
     if (url.pathname === "/health") {
-      return Response.json({ ok: true, service: "loop-specialist-cron-v1" });
+      return Response.json({
+        ok: true,
+        service: "loop-specialist-cron-v1",
+        cron: "*/15 * * * *",
+        nerve_probe: true,
+        probes: ["nf_intake_e2e", "greeting", "drift", "uptime"],
+        supabase_ready: Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY),
+        telegram_ready: Boolean(
+          env.TELEGRAM_BOT_TOKEN && (env.TELEGRAM_ALERT_CHAT_ID || env.TELEGRAM_ALLOWED_CHAT_ID),
+        ),
+      });
+    }
+    if (url.pathname === "/api/noetfield/intake/v1" && request.method === "POST") {
+      const body = await request.json().catch(() => ({}));
+      const row = await handleIntakePost(env, body, { origin: "sourcea_loop_specialist" });
+      return Response.json(row, { status: row.status || (row.ok ? 200 : 422) });
+    }
+    if (url.pathname === "/nerve/run" && request.method === "POST") {
+      const row = await runNerveProbeCycle(env);
+      return Response.json(row, { status: row.ok ? 200 : 422 });
+    }
+    if (url.pathname === "/nerve/ssot" && request.method === "GET") {
+      return Response.json({ ok: true, ssot: probeSsot() });
     }
     if (url.pathname === "/tick" && request.method === "POST") {
       const body = await request.json().catch(() => ({}));
