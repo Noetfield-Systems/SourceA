@@ -1188,6 +1188,21 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
         row = _mac_spine_keepalive(agent_id=agent_id)
         return {"ok": bool(row.get("ok")), **row}
 
+    if action in ("ops_motors", "ops_motors_glance"):
+        from ops_motors_status_v1 import status_row  # noqa: WPS433
+
+        row = status_row()
+        hb = row.get("ops_heartbeat") or {}
+        return {
+            "ok": True,
+            "schema": "hub-ops-motors-glance-v1",
+            "at": _now(),
+            "ops_motors": row,
+            "for_founder": {
+                "show_this": hb.get("last_fixed_line") or "ops motors — no heartbeat yet",
+            },
+        }
+
     if action == "auto_tick":
         from fbe.lib.mac_control_dispatch_v1 import (  # noqa: WPS433
             is_mac_control_plane,
