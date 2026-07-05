@@ -1,17 +1,4 @@
-# SSOT Read Order Addendum (ASF apply to v3.1)
+# ARCHIVED
 
-**Status:** LOCKED addendum — insert into `SINA_OS_SSOT_LOCKED.md` §13 when ASF edits master SSOT.
-
-**Items to insert after line 1:**
-
-```
-2. /Users/sinakazemnezhad/Desktop/SourceA/SINAAI_PROMPT_OS_CORE_FINAL_DECISION_LOCKED_v1.md
-3. /Users/sinakazemnezhad/Desktop/SourceA/SINAAI_AGENTS_AND_AUTOMATION_UNIFIED_BLUEPRINT_LOCKED_v1.md
-4. /Users/sinakazemnezhad/Desktop/SourceA/PROMPT_OS_CORE_MVP_BUILD_ORDER_LOCKED_v1.md
-```
-
-Renumber remaining SSOT items. Farsi mirror optional after step 4.
-
-**Reason:** Sina Prompt OS is now the locked parallel-execution layer; all sessions that generate Cursor work should read it after Source A law.
-
-**Locked:** 2026-06-02
+> **SUPERSEDED** — moved to `docs/archive/superseded-law-v1/brain-os/law/SINA_OS_SSOT_READ_ORDER_ADDENDUM_v1.md`.
+> Use `docs/SOURCEA_GOVERNANCE_ENTRY_UNIFIED_LOCKED_v1.md` for active law.

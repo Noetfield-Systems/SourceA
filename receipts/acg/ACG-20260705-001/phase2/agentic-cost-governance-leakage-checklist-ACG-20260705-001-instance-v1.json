@@ -1,0 +1,75 @@
+{
+  "schema": "agentic-cost-governance-leakage-checklist-v1",
+  "version": "1.0.0",
+  "template": false,
+  "created_at": "2026-07-05T12:35:00Z",
+  "description": "Premium model leakage audit checklist with scoring",
+  "audit_id": "ACG-20260705-001",
+  "client_name": "FOUNDER_FILL_COMPANY",
+  "checks": [
+    {
+      "id": "L01",
+      "question": "Are premium models used for low-complexity tasks (e.g., classify email subject)?",
+      "status": "[pass / fail / unknown]",
+      "evidence": "[notes]",
+      "estimated_monthly_leak_usd": "[range or unknown]"
+    },
+    {
+      "id": "L02",
+      "question": "Are batch jobs using real-time API instead of batch endpoints?",
+      "status": "[pass / fail / unknown]",
+      "evidence": "[notes]",
+      "estimated_monthly_leak_usd": "[range or unknown]"
+    },
+    {
+      "id": "L03",
+      "question": "Do workflows have fallback to cheaper models?",
+      "status": "[pass / fail / unknown]",
+      "evidence": "[notes]",
+      "estimated_monthly_leak_usd": "[range or unknown]"
+    },
+    {
+      "id": "L04",
+      "question": "Are prompts optimized for token count (or verbose)?",
+      "status": "[pass / fail / unknown]",
+      "evidence": "[notes]",
+      "estimated_monthly_leak_usd": "[range or unknown]"
+    },
+    {
+      "id": "L05",
+      "question": "Is context caching enabled where applicable?",
+      "status": "[pass / fail / unknown]",
+      "evidence": "[notes]",
+      "estimated_monthly_leak_usd": "[range or unknown]"
+    },
+    {
+      "id": "L06",
+      "question": "Are high-cost models used in development/testing?",
+      "status": "[pass / fail / unknown]",
+      "evidence": "[notes]",
+      "estimated_monthly_leak_usd": "[range or unknown]"
+    },
+    {
+      "id": "L07",
+      "question": "Do multiple teams pay for overlapping tool licenses?",
+      "status": "[pass / fail / unknown]",
+      "evidence": "[notes]",
+      "estimated_monthly_leak_usd": "[range or unknown]"
+    },
+    {
+      "id": "L08",
+      "question": "Is there unused/trial tool access still active?",
+      "status": "[pass / fail / unknown]",
+      "evidence": "[notes]",
+      "estimated_monthly_leak_usd": "[range or unknown]"
+    }
+  ],
+  "results": {
+    "leakage_score": "[0-100]",
+    "identified_gaps": [],
+    "estimated_savings_range_usd_monthly": "[low-high range \u2014 illustrative only, not guaranteed]"
+  },
+  "prepared_at": "2026-07-05T17:00:20Z",
+  "phase": "audit_in_progress",
+  "status": "awaiting_client_reply"
+}
