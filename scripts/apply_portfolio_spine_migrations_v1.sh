@@ -7,6 +7,7 @@ MIGRATIONS=(
   "$ROOT/infra/supabase/portfolio-spine/migrations/005_truth_log_external_verify_v1.sql"
   "$ROOT/infra/supabase/portfolio-spine/migrations/006_mac_spine_bridge_v1.sql"
   "$ROOT/infra/supabase/portfolio-spine/migrations/007_agent_session_cost_v1.sql"
+  "$ROOT/infra/supabase/portfolio-spine/migrations/012_gmail_inbox_signals_v1.sql"
   "$ROOT/infra/supabase/portfolio-spine/migrations/013_improvement_queue_v1.sql"
 )
 
