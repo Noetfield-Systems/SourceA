@@ -1,0 +1,54 @@
+{
+  "schema": "noetfield-nerve-probe-ssot-v1",
+  "version": "1.1.0",
+  "saved_at": "2026-07-05T16:10:00Z",
+  "owner": "sourcea",
+  "worker": "cloud/workers/loop-specialist-tick-v1",
+  "piggyback": "data/nerve-probe-cloud-cron-v1.json",
+  "cron": "*/15 * * * *",
+  "one_law": "SourceA loop-specialist */15 runs nf_intake_e2e + greeting + drift + uptime; receipts portfolio-spine; Telegram on fail.",
+  "public_urls": {
+    "health": "https://sourcea-loop-specialist-tick-v1.sina-kazemnezhad-ca.workers.dev/health",
+    "intake": "https://sourcea-loop-specialist-tick-v1.sina-kazemnezhad-ca.workers.dev/api/noetfield/intake/v1",
+    "nerve_run": "https://sourcea-loop-specialist-tick-v1.sina-kazemnezhad-ca.workers.dev/nerve/run"
+  },
+  "nf_intake_e2e": {
+    "probe_id": "nf_intake_e2e",
+    "pass_requires": ["post_ok", "supabase_read_back", "telegram_notified"],
+    "intake_path": "/api/noetfield/intake/v1",
+    "probe_payload": {
+      "company": "NF E2E Probe Co",
+      "contact_name": "Nerve Probe",
+      "email": "nerve-probe@noetfield.invalid",
+      "vertical": "diagnostic_sprint",
+      "message": "Automated nf_intake_e2e probe — safe to delete",
+      "probe": true
+    }
+  },
+  "greeting_probe": {
+    "probe_id": "greeting",
+    "url": "https://www.noetfield.com/",
+    "needles": ["Noetfield", "Intelligence"]
+  },
+  "uptime_probe": {
+    "probe_id": "uptime",
+    "base_url": "https://www.noetfield.com",
+    "paths": ["/", "/intelligence/intake/", "/governance/", "/copilot/pilot/"]
+  },
+  "drift_probe": {
+    "probe_id": "drift",
+    "trigger_registry_path": "data/trigger-registry-v1.json",
+    "trigger_id_self": "SA-T-nerve-probe-piggyback"
+  },
+  "supabase_tables": {
+    "improvement_queue": "improvement_queue",
+    "nf_intake_submissions": "nf_intake_submissions",
+    "nerve_probe_receipts": "nerve_probe_receipts"
+  },
+  "scripts": {
+    "e2e": "scripts/nf_intake_e2e_v1.py",
+    "supabase": "scripts/nerve_probe_supabase_v1.py",
+    "deploy": "scripts/deploy_nerve_probe_24_7_v1.sh",
+    "validate": "scripts/validate-noetfield-nerve-probe-v1.sh"
+  }
+}
