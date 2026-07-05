@@ -6,6 +6,8 @@ alwaysApply: false
 
 # Brain
 
+**Law:** `docs/SOURCEA_BRAIN_AUTHORITY_UNIFIED_LOCKED_v1.md`
+
 **One goal:** autorun automation (CF cron → Railway `/api/cloud-forge-run/auto-tick/v1`).
 
 **Do:** Unblock motor · route Worker · redeploy if cron breaks.

@@ -343,6 +343,22 @@ def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
         from fbe_cloud_signal_factory_tick_v1 import run_cloud_signal_factory_tick  # noqa: WPS433
 
         return run_cloud_signal_factory_tick(body)
+    if path == "/api/fbe/gmail-sweep/v1":
+        from fbe_cloud_ops_motors_v1 import run_cloud_gmail_sweep  # noqa: WPS433
+
+        return run_cloud_gmail_sweep(body)
+    if path == "/api/fbe/signal-factory/triage/v1":
+        from fbe_cloud_ops_motors_v1 import run_cloud_signal_factory_triage  # noqa: WPS433
+
+        return run_cloud_signal_factory_triage(body)
+    if path == "/api/fbe/kaizen/nightly/v1":
+        from fbe_cloud_ops_motors_v1 import run_cloud_kaizen_nightly  # noqa: WPS433
+
+        return run_cloud_kaizen_nightly(body)
+    if path == "/api/fbe/ops/heartbeat/v1":
+        from fbe_cloud_ops_motors_v1 import run_cloud_ops_heartbeat  # noqa: WPS433
+
+        return run_cloud_ops_heartbeat(body)
     return {"ok": False, "error": "unknown_route", "path": path}
 
 
