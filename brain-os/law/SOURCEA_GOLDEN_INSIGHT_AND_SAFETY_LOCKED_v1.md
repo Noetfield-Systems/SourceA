@@ -57,7 +57,7 @@ status: LOCKED
 
 | Role | Job | Not their job |
 |------|-----|----------------|
-| **Brain** | Pick, route, advise, receipt | Implement sa-XXXX, edit 10+ files |
+| **Brain** | Pick, route, advise, receipt | Implement sa-XXXX, edit 10+ files — **see** `docs/SOURCEA_BRAIN_AUTHORITY_UNIFIED_LOCKED_v1.md` (Brain never implements) |
 | **Worker** | One sa / one role / one turn | Strategy, grants, cross-lane SSOT |
 | **ASF (you)** | RUN INBOX, auto-run, demos, CanadaBuys | Terminal archaeology, re-research |
 

@@ -1,5 +1,7 @@
 # Cursor context index — LOCKED v1 (cache pointers, not mega-paste)
 
+> **SUPERSEDED_BY:** `docs/SOURCEA_GOVERNANCE_ENTRY_UNIFIED_LOCKED_v1.md` — use unified entry for daily ops. This file kept for lineage.
+
 **Version:** 1.0.0 · **Saved:** 2026-06-21T19:46:56Z · **Authority:** ASF · Corporate Promax bootstrap  
 **Path:** `docs/CURSOR_CONTEXT_INDEX_LOCKED_v1.md`  
 **Replaces:** naive `COMPLETE_CONTEXT.md` megafile — INCIDENT-034 anti-staleness law
