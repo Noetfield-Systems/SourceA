@@ -14,10 +14,23 @@
       "pilot_end_date": "2026-08-XX",
       "policy_version": "POLICY-[client_id]-LOCKED-v1.md",
       "policy_location": "~/noetfield-secrets/agentic-firewall-policies/POLICY-[client_id]-LOCKED-v1.md",
+      "pricing_source": "audit_time_live_lookup",
       "routing_tiers": {
-        "tier_1_default": "gpt-3.5-turbo",
-        "tier_2_standard": "gpt-4",
-        "tier_3_premium": "gpt-4-turbo"
+        "tier1_cheap": {
+          "model_class": "tier1_cheap",
+          "example_model": "[client-defined cheap tier]",
+          "rate_usd_per_1k_tokens": "[audit_time_rate]"
+        },
+        "tier2_standard": {
+          "model_class": "tier2_standard",
+          "example_model": "[client-defined standard premium]",
+          "rate_usd_per_1k_tokens": "[audit_time_rate]"
+        },
+        "tier3_premium": {
+          "model_class": "tier3_premium",
+          "example_model": "[client-defined high-capability model]",
+          "rate_usd_per_1k_tokens": "[audit_time_rate]"
+        }
       },
       "org_monthly_cap": "$[X]",
       "workflows": [

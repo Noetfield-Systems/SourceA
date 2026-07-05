@@ -8,6 +8,12 @@
 
 ---
 
+## Pricing disclaimer
+
+> Model names and per-token rates in this document are **examples only**. Routing uses **model class** (`tier1_cheap`, `tier2_standard`, `tier3_premium`) with `pricing_source: audit_time_live_lookup`. Replace `[audit_time_rate]` at discovery. No guaranteed savings. No production firewall without signed pilot scope.
+
+---
+
 ## One sentence
 
 > Cheap-first model routing: default to cheapest capable model, escalate to premium only when task signals require it, with manager approval and budget enforcement.
@@ -16,27 +22,29 @@
 
 ## 4-tier routing model
 
-### Tier 1: Default (cheap/standard)
+### Tier 1: Default (tier1_cheap)
 
-**Model:** GPT-3.5-turbo (or org-defined cheap tier)
+**Model class:** `tier1_cheap`  
+**Example model:** [client-defined cheap tier — not vendor-locked]
 
 **Triggers:** Standard tasks, no special requirements
 
 **Rules:**
 ```
 IF task_type IN [classification, summarization, standard_chat]:
-  ROUTE TO: gpt-3.5-turbo
-COST: $0.003 per 1K tokens
+  ROUTE TO: model_class=tier1_cheap
+COST: [audit_time_rate] USD per 1K tokens
 APPROVAL: None required
-BUDGET_CAP: Per-workflow limit (e.g., $10/day)
-LOG: {timestamp, task_id, model, tokens, cost, decision: "tier1_default"}
+BUDGET_CAP: Per-workflow limit (set at discovery)
+LOG: {timestamp, task_id, model_class, tokens, cost, decision: "tier1_default"}
 ```
 
 ---
 
-### Tier 2: Escalation signal (standard premium)
+### Tier 2: Escalation signal (tier2_standard)
 
-**Model:** GPT-4 or Claude 3.5-Sonnet
+**Model class:** `tier2_standard`  
+**Example model:** [client-defined standard premium — not vendor-locked]
 
 **Triggers:**
 - Task type = "analysis" OR "code_generation" OR "complex_reasoning"
@@ -48,8 +56,8 @@ LOG: {timestamp, task_id, model, tokens, cost, decision: "tier1_default"}
 **Rules:**
 ```
 IF (task_type IN [analysis, code, reasoning]) OR (tokens > 2000) OR (customer_facing=true):
-  ROUTE TO: gpt-4 / claude-sonnet
-COST: $0.03 per 1K tokens (10x Tier 1)
+  ROUTE TO: model_class=tier2_standard
+COST: [audit_time_rate] USD per 1K tokens (relative to tier1 at audit)
 APPROVAL: Required — async, manager approves within 24h
 REASON_FIELD: Mandatory (why premium needed)
 BUDGET_CAP: Per-workflow limit (e.g., $200/day)
@@ -66,9 +74,10 @@ If denied: revert to tier 1 + log denial reason
 
 ---
 
-### Tier 3: Premium/urgent (high-capability)
+### Tier 3: Premium/urgent (tier3_premium)
 
-**Model:** GPT-4-turbo or Claude 3-Opus
+**Model class:** `tier3_premium`  
+**Example model:** [client-defined high-capability model — not vendor-locked]
 
 **Triggers:**
 - Task type = "strategic" OR "high_impact"
@@ -79,8 +88,8 @@ If denied: revert to tier 1 + log denial reason
 **Rules:**
 ```
 IF (task_type IN [strategic, critical]) OR (impact=high):
-  ROUTE TO: gpt-4-turbo / claude-opus
-COST: $0.15 per 1K tokens (100x Tier 1)
+  ROUTE TO: model_class=tier3_premium
+COST: [audit_time_rate] USD per 1K tokens (relative to tier1 at audit)
 APPROVAL: Required — VP or department head
 BUSINESS_CASE_FIELD: Mandatory (detailed ROI/reason)
 BUDGET_CAP: Per-project limit (e.g., $5K/month)
