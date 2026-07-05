@@ -206,6 +206,88 @@
         "path": "cloud/workers/loop-specialist-tick-v1/src/index.js",
         "expects": ["runNerveProbeCycle"]
       }
+    },
+    {
+      "trigger_id": "SA-T-validate-main",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "Required validate check on PR/push to main",
+      "valid_in_verified_window": true,
+      "owner_workflow": "validate",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/validate.yml",
+        "expects": ["pull_request", "push", "workflow_dispatch"]
+      }
+    },
+    {
+      "trigger_id": "SA-T-repo-health-daily",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "0 8 * * *",
+      "target": "Daily repo-health sweep → improvement_queue",
+      "valid_in_verified_window": true,
+      "owner_workflow": "repo-health-daily",
+      "live_probe": {
+        "type": "gha_schedule",
+        "path": ".github/workflows/repo-health-daily-v1.yml"
+      }
+    },
+    {
+      "trigger_id": "SA-T-repo-health-dispatch",
+      "system": "sourcea",
+      "kind": "manual",
+      "schedule": null,
+      "target": "Manual repo-health sweep → improvement_queue",
+      "valid_in_verified_window": true,
+      "owner_workflow": "repo-health-daily",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/repo-health-daily-v1.yml",
+        "expects": ["workflow_dispatch"]
+      }
+    },
+    {
+      "trigger_id": "SA-T-security-sweep-weekly",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "0 9 * * 0",
+      "target": "Weekly security sweep → improvement_queue",
+      "valid_in_verified_window": true,
+      "owner_workflow": "security-sweep-weekly",
+      "live_probe": {
+        "type": "gha_schedule",
+        "path": ".github/workflows/security-sweep-weekly-v1.yml"
+      }
+    },
+    {
+      "trigger_id": "SA-T-security-sweep-dispatch",
+      "system": "sourcea",
+      "kind": "manual",
+      "schedule": null,
+      "target": "Manual security sweep → improvement_queue",
+      "valid_in_verified_window": true,
+      "owner_workflow": "security-sweep-weekly",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/security-sweep-weekly-v1.yml",
+        "expects": ["workflow_dispatch"]
+      }
+    },
+    {
+      "trigger_id": "SA-T-repo-policy-gate",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "Repo boundary policy gate on policy-path PR/push",
+      "valid_in_verified_window": true,
+      "owner_workflow": "repo-policy-gate",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/repo-policy-gate.yml",
+        "expects": ["pull_request", "push"]
+      }
     }
   ]
 }
