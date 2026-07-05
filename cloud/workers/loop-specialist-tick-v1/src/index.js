@@ -1,30 +1,22 @@
 /**
- * SourceA Loop Specialist — Cloudflare cron
- * every-15-min loop + SF tick + nerve + triage
- * hourly gmail sweep · 07:00 UTC heartbeat · 03:00 UTC kaizen nightly
+ * SourceA Loop Specialist — CF cron dispatch → Railway FBE
  */
 import { handleIntakePost, probeSsot } from "./nerve-probe/probes.js";
 import { runNerveProbeCycle } from "./nerve-probe/cycle.js";
+import { dispatchMeta, jobsForCron, runDispatchJobs, smokeAllJobs } from "./dispatch.js";
+
+const HANDLERS = {
+  loop_specialist_tick: (env) => runTick(env, { dispatch: env.LOOP_AUTO_DISPATCH === "true" }),
+  signal_factory_tick: (env) => runSignalFactoryTick(env),
+  nerve_probe: (env) => runNerveProbeCycle(env),
+};
 
 export default {
   async scheduled(event, env, ctx) {
     const cron = event?.cron || "*/15 * * * *";
-    const jobs = [
-      () => runTick(env, { dispatch: env.LOOP_AUTO_DISPATCH === "true" }),
-      () => runSignalFactoryTick(env),
-      () => runNerveProbeCycle(env),
-      () => postFbe(env, "/api/fbe/signal-factory/triage/v1", { max_batch: 10 }),
-    ];
-    if (cron === "0 * * * *") {
-      jobs.push(() => postFbe(env, "/api/fbe/gmail-sweep/v1", { max_per_mailbox: 25 }));
-    }
-    if (cron === "0 7 * * *") {
-      jobs.push(() => postFbe(env, "/api/fbe/ops/heartbeat/v1", {}));
-    }
-    if (cron === "0 3 * * *") {
-      jobs.push(() => postFbe(env, "/api/fbe/kaizen/nightly/v1", {}));
-    }
-    ctx.waitUntil(Promise.all(jobs.map((fn) => fn())));
+    ctx.waitUntil(
+      runDispatchJobs(env, cron, HANDLERS, { trigger: "cloudflare_cron_loop_specialist" }),
+    );
   },
 
   async fetch(request, env) {
@@ -40,17 +32,36 @@ export default {
       });
     }
     if (url.pathname === "/health") {
+      const meta = dispatchMeta();
       return Response.json({
         ok: true,
         service: "loop-specialist-cron-v1",
-        crons: ["*/15 * * * *", "0 * * * *", "0 7 * * *", "0 3 * * *"],
+        crons: meta.crons,
+        dispatch: meta,
         nerve_probe: true,
         ops_motors: ["gmail-sweep", "signal-triage", "kaizen-nightly", "ops-heartbeat"],
+        scheduled_loops: [
+          "repo-health-daily",
+          "security-sweep-weekly",
+          "determinism-gate-6h",
+        ],
         supabase_ready: Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY),
         telegram_ready: Boolean(
           env.TELEGRAM_BOT_TOKEN && (env.TELEGRAM_ALERT_CHAT_ID || env.TELEGRAM_ALLOWED_CHAT_ID),
         ),
       });
+    }
+    if (url.pathname === "/dispatch/smoke" && request.method === "POST") {
+      const row = await smokeAllJobs(env, HANDLERS);
+      return Response.json(row, { status: row.ok ? 200 : 422 });
+    }
+    if (url.pathname === "/dispatch/run" && request.method === "POST") {
+      const body = await request.json().catch(() => ({}));
+      const cron = String(body.cron || "*/15 * * * *");
+      const row = await runDispatchJobs(env, cron, HANDLERS, {
+        trigger: body.trigger || "manual_dispatch_run",
+      });
+      return Response.json(row, { status: row.ok ? 200 : 422 });
     }
     if (url.pathname === "/api/noetfield/intake/v1" && request.method === "POST") {
       const body = await request.json().catch(() => ({}));
