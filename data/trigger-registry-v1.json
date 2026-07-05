@@ -1,6 +1,6 @@
 {
   "schema": "trigger-registry-v1",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "system": "sourcea",
   "slo": {
     "freshness_target_minutes": 15,
@@ -48,7 +48,7 @@
       "live_probe": {
         "type": "piggyback_hook",
         "path": "cloud/workers/loop-specialist-tick-v1/src/index.js",
-        "expects": ["runSignalFactoryTick"]
+        "expects": ["runSignalFactoryTick", "runNerveProbeCycle"]
       }
     },
     {
@@ -190,6 +190,21 @@
         "path": "scripts/agent_session_gate_run_v1.py",
         "also_path": "scripts/cloud_workers_hub_v1.py",
         "expects": ["run_mac_spine_fresh_main", "run_mac_spine_heartbeat"]
+      }
+    },
+    {
+      "trigger_id": "SA-T-nerve-probe-piggyback",
+      "system": "sourcea",
+      "kind": "piggyback",
+      "schedule": "*/15 * * * *",
+      "target": "Nerve probes (nf_intake_e2e + greeting + drift + uptime) via loop-specialist scheduled()",
+      "valid_in_verified_window": true,
+      "owner_workflow": "nerve-probe",
+      "parent_trigger_id": "SA-T-loop-specialist",
+      "live_probe": {
+        "type": "piggyback_hook",
+        "path": "cloud/workers/loop-specialist-tick-v1/src/index.js",
+        "expects": ["runNerveProbeCycle"]
       }
     }
   ]

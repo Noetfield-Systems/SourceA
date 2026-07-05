@@ -6,7 +6,7 @@
   "brain_north_star": {
     "active": true,
     "one_goal": "autorun_automation",
-    "one_law": "CF cron every 10m → Railway auto-tick → 100 rows. Brain keeps it moving — never status theater.",
+    "one_law": "CF cron every 10m → Railway auto-tick → up to 10 doable tasks per turn. Proof before claim — never counter theater.",
     "motor": "data/cloud-auto-runtime-v1.json",
     "forbidden": [
       "status reports",

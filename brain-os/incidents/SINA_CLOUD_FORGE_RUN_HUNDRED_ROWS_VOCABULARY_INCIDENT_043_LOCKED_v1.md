@@ -1,5 +1,7 @@
 # INCIDENT-043 — Cloud Forge Run “100 rows per turn” · agent vocabulary split · ASF order disobedience
 
+> **SUPERSEDED 2026-07-05 (INCIDENT-045)** for mandatory 100-row quota. Turn/batch/full_pack vocabulary below remains reference. Active motor law: `SOURCEA_CLOUD_FORGE_RUN_REALISTIC_MOTOR_LOCKED_v1.md`.
+
 **Saved:** 2026-06-24T07:15:00Z · **Version:** 1.0 LOCKED  
 **Class:** Agent conduct · ASF vocabulary · Cloud Forge Run semantics · cross-agent inconsistency  
 **Reporter:** Founder — “some agents get it, some not — annoying”  

@@ -16,7 +16,9 @@ SQL_002 = ROOT / "infra/supabase/portfolio-spine/migrations/002_truth_log_v1.sql
 SQL_005 = ROOT / "infra/supabase/portfolio-spine/migrations/005_truth_log_external_verify_v1.sql"
 SQL_006 = ROOT / "infra/supabase/portfolio-spine/migrations/006_mac_spine_bridge_v1.sql"
 SQL_007 = ROOT / "infra/supabase/portfolio-spine/migrations/007_agent_session_cost_v1.sql"
-MIGRATION_SQL = (SQL_002, SQL_005, SQL_006, SQL_007)
+SQL_013 = ROOT / "infra/supabase/portfolio-spine/migrations/013_improvement_queue_v1.sql"
+MIGRATION_SQL = (SQL_002, SQL_005, SQL_006, SQL_007, SQL_013)
+NERVE_TABLES = ("improvement_queue", "nf_intake_submissions", "nerve_probe_receipts")
 
 
 def _load_env_files() -> None:
@@ -113,11 +115,32 @@ def ensure(*, apply: bool = True) -> dict[str, Any]:
     mac_hb = probe_table("mac_agent_heartbeat")
     worker_inbox = probe_table("worker_inbox")
     spine_ok = truth.get("ok") and mac_hb.get("ok") and worker_inbox.get("ok")
-    if spine_ok:
+    nerve_ok = all(probe_table(t).get("ok") for t in NERVE_TABLES)
+    if spine_ok and nerve_ok:
         return {
             "ok": True,
             "action": "probe_pass",
-            "probe": {"truth_log": truth, "mac_agent_heartbeat": mac_hb, "worker_inbox": worker_inbox},
+            "probe": {
+                "truth_log": truth,
+                "mac_agent_heartbeat": mac_hb,
+                "worker_inbox": worker_inbox,
+                "nerve_tables": {t: probe_table(t) for t in NERVE_TABLES},
+            },
+        }
+    if spine_ok and not nerve_ok and apply:
+        mig_nerve = apply_migrations(files=(SQL_013,))
+        nerve2 = {t: probe_table(t) for t in NERVE_TABLES}
+        return {
+            "ok": all(r.get("ok") for r in nerve2.values()) and mig_nerve.get("ok"),
+            "action": "nerve_migrate_then_probe",
+            "migration": mig_nerve,
+            "probe": {"nerve_tables": nerve2},
+        }
+    if spine_ok and not nerve_ok:
+        return {
+            "ok": False,
+            "action": "nerve_tables_missing",
+            "probe": {"nerve_tables": {t: probe_table(t) for t in NERVE_TABLES}},
         }
     if not apply:
         return {
@@ -129,7 +152,7 @@ def ensure(*, apply: bool = True) -> dict[str, Any]:
     if not truth.get("ok"):
         mig = apply_migrations(files=MIGRATION_SQL)
     else:
-        mig = apply_migrations(files=(SQL_006, SQL_007))
+        mig = apply_migrations(files=(SQL_006, SQL_007, SQL_013))
 
     truth2 = probe_truth_log()
     mac_hb2 = probe_table("mac_agent_heartbeat")
