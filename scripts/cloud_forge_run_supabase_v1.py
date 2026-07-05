@@ -358,7 +358,9 @@ def _exec_psycopg_sql(
     connect_kwargs: dict[str, Any],
     sql: str,
 ) -> dict[str, Any]:
-    conn = psycopg2.connect(**connect_kwargs, connect_timeout=12)
+    kwargs = dict(connect_kwargs)
+    kwargs.setdefault("connect_timeout", 12)
+    conn = psycopg2.connect(**kwargs)
     conn.autocommit = True
     cur = conn.cursor()
     cur.execute(sql)
@@ -436,6 +438,26 @@ def _apply_via_psycopg(sql: str) -> dict[str, Any]:
             except Exception as exc:
                 last_err = str(exc)[:200]
                 attempts_log.append({"target": "direct_built_url", "error": last_err})
+
+        # Hostname resolve (IPv6 / system DNS) — free-tier pooler tenant often missing
+        try:
+            return _exec_psycopg_sql(
+                psycopg2,
+                connect_target=f"direct_host:{direct_host}",
+                connect_kwargs={
+                    "host": direct_host,
+                    "port": 5432,
+                    "user": "postgres",
+                    "password": password,
+                    "dbname": "postgres",
+                    "sslmode": "require",
+                    "connect_timeout": 12,
+                },
+                sql=sql,
+            )
+        except Exception as exc:
+            last_err = str(exc)[:200]
+            attempts_log.append({"target": f"direct_host:{direct_host}", "error": last_err})
 
         for attempt in _psycopg_connect_attempts(ref):
             kwargs: dict[str, Any] = {

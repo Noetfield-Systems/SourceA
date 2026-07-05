@@ -1,0 +1,10 @@
+{
+  "findings": [
+    {
+      "finding": "improvement_queue_probe: invalid JSON from probe",
+      "source": "gha_repo_health_daily",
+      "expected_roi": 9.0,
+      "machine_safe": true
+    }
+  ]
+}

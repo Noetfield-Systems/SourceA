@@ -449,7 +449,7 @@ def trigger_cf_full_pack(*, force: bool = False) -> dict[str, Any]:
     payload = {
         "proceed": True,
         "full_pack": bool(ssot.get("full_pack", True)),
-        "max_advance": int(ssot.get("max_advance_per_tick") or 100),
+        "max_advance": int(ssot.get("max_advance_per_tick") or 10),
         "trigger_source": "mac_hub_trigger_cf",
         "force": bool(force),
     }
@@ -620,7 +620,7 @@ def chain_status() -> dict[str, Any]:
         },
         "pattern": {
             "full_pack": True,
-            "max_advance_per_tick": ssot.get("max_advance_per_tick") or 100,
+            "max_advance_per_tick": ssot.get("max_advance_per_tick") or 10,
             "scheduler": "cloudflare_cron_only",
         },
         "queue_local": {
@@ -1057,7 +1057,7 @@ def payload() -> dict[str, Any]:
             "auto_tick": "POST {\"action\":\"auto_tick\"} (Mac observe only)",
             "auto_status": "POST {\"action\":\"auto_status\"}",
             "mac_agent_heartbeat": "POST {\"action\":\"mac_agent_heartbeat\"}",
-            "proceed": "POST {\"action\":\"proceed\",\"full_pack\":true,\"max_advance\":100}",
+            "proceed": "POST {\"action\":\"proceed\",\"full_pack\":true,\"max_advance\":10}",
         },
         "situation": situation,
         "chain": chain_status(),
@@ -1187,6 +1187,21 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
         agent_id = str(body.get("agent_id") or "hub-cloud-workers").strip()
         row = _mac_spine_keepalive(agent_id=agent_id)
         return {"ok": bool(row.get("ok")), **row}
+
+    if action in ("ops_motors", "ops_motors_glance"):
+        from ops_motors_status_v1 import status_row  # noqa: WPS433
+
+        row = status_row()
+        hb = row.get("ops_heartbeat") or {}
+        return {
+            "ok": True,
+            "schema": "hub-ops-motors-glance-v1",
+            "at": _now(),
+            "ops_motors": row,
+            "for_founder": {
+                "show_this": hb.get("last_fixed_line") or "ops motors — no heartbeat yet",
+            },
+        }
 
     if action == "auto_tick":
         from fbe.lib.mac_control_dispatch_v1 import (  # noqa: WPS433
