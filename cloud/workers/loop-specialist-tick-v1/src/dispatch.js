@@ -22,6 +22,52 @@ export function allCronRows() {
   return DISPATCH.crons || [];
 }
 
+/** Match standard 5-field UTC cron against a Date (covers SSOT expressions). */
+export function isCronDue(expr, date = new Date()) {
+  const parts = String(expr || "").trim().split(/\s+/);
+  if (parts.length !== 5) return false;
+  const [minF, hourF, domF, monthF, dowF] = parts;
+  const minute = date.getUTCMinutes();
+  const hour = date.getUTCHours();
+  const dom = date.getUTCDate();
+  const month = date.getUTCMonth() + 1;
+  const dow = date.getUTCDay();
+  return (
+    fieldMatches(minF, minute) &&
+    fieldMatches(hourF, hour) &&
+    fieldMatches(domF, dom) &&
+    fieldMatches(monthF, month) &&
+    fieldMatches(dowF, dow)
+  );
+}
+
+function fieldMatches(field, value) {
+  if (field === "*") return true;
+  if (field.includes(",")) {
+    return field.split(",").some((part) => fieldMatches(part.trim(), value));
+  }
+  if (field.startsWith("*/")) {
+    const step = Number(field.slice(2));
+    return Number.isFinite(step) && step > 0 && value % step === 0;
+  }
+  return Number(field) === value;
+}
+
+export async function runDueDispatch(env, handlers, { trigger = "cloudflare_cron_loop_specialist", now = new Date() } = {}) {
+  const runs = [];
+  for (const row of allCronRows()) {
+    if (!isCronDue(row.cron, now)) continue;
+    runs.push(await runDispatchJobs(env, row.cron, handlers, { trigger }));
+  }
+  return {
+    ok: runs.length > 0 && runs.every((r) => r.ok),
+    schema: "loop-specialist-cron-dispatch-due-v1",
+    at: now.toISOString(),
+    due_count: runs.length,
+    runs,
+  };
+}
+
 export async function runDispatchJobs(env, cron, handlers, { trigger = "cloudflare_cron" } = {}) {
   const row = jobsForCron(cron);
   const results = [];
