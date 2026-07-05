@@ -2,7 +2,8 @@
   "schema": "loop-specialist-cron-dispatch-v1",
   "version": "1.0.0",
   "saved_at": "2026-07-05T18:15:00Z",
-  "one_law": "All scheduled loops: CF Worker cron → internal dispatch table → Railway FBE execution. GHA schedule retired.",
+  "one_law": "All scheduled loops: CF Worker */15 cron → internal dispatch table (isCronDue) → Railway FBE. GHA schedule retired.",
+  "wrangler_trigger_cron": "*/15 * * * *",
   "execution_plane": "cloudflare_cron_loop_specialist",
   "railway_base_env": "FBE_CLOUD_WORKER_URL",
   "crons": [
