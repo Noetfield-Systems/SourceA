@@ -116,9 +116,34 @@ def classify_cloud_result(row: dict[str, Any] | None) -> dict[str, Any]:
             "show_this": "Cloud proceed PASS — motor completed on Railway.",
             "founder_action": "none",
         }
-    # Motor / task failure — pipe often still live
+    # End-of-patch success — Railway may still return HTTP 422 until image deploy catches up
     details = row.get("details") if isinstance(row.get("details"), dict) else {}
-    inner = details or row
+    inner_early = details or row
+    decision = str(row.get("decision") or inner_early.get("decision") or "")
+    pack_early = inner_early.get("pack") or row.get("pack") or {}
+    if decision in ("drain_complete", "batch_complete") or (
+        pack_early.get("idle_batch") and pack_early.get("registry_exhausted")
+    ):
+        last = str(
+            inner_early.get("last_completed")
+            or pack_early.get("last_completed")
+            or inner_early.get("plan_id")
+            or row.get("plan_id")
+            or ""
+        )
+        return {
+            "failure_class": "pass",
+            "pipe_live": True,
+            "label": "PATCH COMPLETE",
+            "color": "green",
+            "show_this": (
+                f"Cloud forge patch COMPLETE — {last or 'queue head'} · "
+                "registry exhausted · no more CLOUD-SEC rows to ship"
+            ),
+            "founder_action": "none",
+        }
+    # Motor / task failure — pipe often still live
+    inner = inner_early
     forge = inner.get("forge_dispatch") or row.get("forge_dispatch") or {}
     plan_id = str(inner.get("plan_id") or row.get("plan_id") or "")
     registry = str(inner.get("maps_registry") or row.get("maps_registry") or "")
@@ -169,7 +194,7 @@ def classify_cloud_result(row: dict[str, Any] | None) -> dict[str, Any]:
                 "pipe_live": True,
                 "label": "GATE HALT",
                 "color": "amber",
-                "show_this": show or f"Cloud drain gate halted ({reason}) — retry Proceed or wait for cron",
+                "show_this": show or f"Cloud Forge Run gate halted ({reason}) — retry Proceed or wait for cron",
                 "founder_action": "retry_proceed_or_wait_cron",
                 "plan_id": plan_id,
                 "maps_registry": registry,
@@ -337,7 +362,7 @@ def _plan_status(plan_id: str, *, head: str, last_done: str, last_fail: str) -> 
 
 
 def _fetch_cf_queue(*, timeout_s: float = 12.0) -> dict[str, Any]:
-    """Mac may read CF /queue proxy — never Railway drain HTTP."""
+    """Mac may read CF /queue proxy — never Cloud Forge Run HTTP."""
     import urllib.error
     import urllib.request
 
@@ -401,16 +426,107 @@ def _mac_observe_block(action: str) -> dict[str, Any]:
         "schema": "mac-cloud-observe-only-v1",
         "action": action,
         "execution_plane": "mac_control_panel",
+        "motor_blocked": True,
         "for_founder": {
             "show_this": (
-                f"Mac does not {action} on Railway — CF cron */10 runs full_pack×100. "
-                f"Use Trigger CF full-pack (browser→cloud) or open observer."
+                f"Mac does not {action} on Railway motor — CF cron */10 runs full_pack×100. "
+                "Deploy/dispatch still works: Hub → cloud-worker · loop-specialist · forge run."
             ),
         },
         "cf_tick_url": f"{cf_base}/tick",
         "cf_queue_url": f"{cf_base}/queue",
         "cf_observer_url": f"{cf_base}/observer-json",
+        "mac_dispatch_hint": "python3 scripts/mac_cloud_deploy_dispatch_v1.py --target dispatch --plan-id MAC-CTL-002",
     }
+
+
+def trigger_cf_full_pack(*, force: bool = False) -> dict[str, Any]:
+    """Mac-safe: trigger Cloudflare cron worker tick (not direct Railway motor)."""
+    ssot = _read(ROOT / "data/cloud-auto-runtime-v1.json")
+    cf = ssot.get("cloudflare_worker") or {}
+    cf_base = str(cf.get("url") or "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev").rstrip("/")
+    tick_url = f"{cf_base}/tick"
+    payload = {
+        "proceed": True,
+        "full_pack": bool(ssot.get("full_pack", True)),
+        "max_advance": int(ssot.get("max_advance_per_tick") or 10),
+        "trigger_source": "mac_hub_trigger_cf",
+        "force": bool(force),
+    }
+    import urllib.error
+    import urllib.request
+
+    headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "User-Agent": (
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        ),
+    }
+    req = urllib.request.Request(
+        tick_url,
+        data=json.dumps(payload).encode("utf-8"),
+        headers=headers,
+        method="POST",
+    )
+    row: dict[str, Any] = {}
+    try:
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            raw = resp.read().decode("utf-8")
+            row = json.loads(raw) if raw.strip() else {}
+    except urllib.error.HTTPError as exc:
+        try:
+            row = json.loads(exc.read().decode("utf-8"))
+        except Exception:
+            row = {"ok": False, "error": "cf_tick_http_error", "status": exc.code, "message": str(exc)}
+        # Cloudflare edge sometimes blocks urllib — curl fallback (INCIDENT-042).
+        if exc.code == 403:
+            try:
+                import subprocess
+
+                proc = subprocess.run(
+                    [
+                        "curl",
+                        "-sfS",
+                        "--max-time",
+                        "120",
+                        "-X",
+                        "POST",
+                        tick_url,
+                        "-H",
+                        "Content-Type: application/json",
+                        "-d",
+                        json.dumps(payload),
+                    ],
+                    capture_output=True,
+                    text=True,
+                    timeout=125,
+                )
+                if proc.stdout.strip():
+                    row = json.loads(proc.stdout)
+            except Exception as curl_exc:
+                row.setdefault("curl_fallback_error", str(curl_exc)[:120])
+    except Exception as exc:
+        row = {"ok": False, "error": "cf_tick_failed", "message": str(exc)[:200]}
+
+    out = {
+        "ok": bool(row.get("ok")),
+        "schema": "mac-cf-trigger-tick-v1",
+        "at": _now(),
+        "execution_plane": "mac_control_panel",
+        "tick_url": tick_url,
+        "payload": payload,
+        "cf_response": row,
+        "for_founder": {
+            "show_this": (
+                "CF full-pack tick triggered from Mac — motor runs on cloud, not Mac body. "
+                f"Observer: {cf_base}/observer-json"
+            ),
+        },
+    }
+    append_event("trigger_cf_tick", {"ok": out.get("ok"), "line": json.dumps(row)[:200]})
+    return out
 
 
 def apply_live_queue(cloud_row: dict[str, Any]) -> dict[str, Any]:
@@ -478,13 +594,14 @@ def chain_status() -> dict[str, Any]:
     url = str(deploy.get("worker_url") or deploy.get("url") or "")
     health = deploy.get("health") if isinstance(deploy.get("health"), dict) else {}
     health_ok = bool(deploy.get("ok")) and bool(health.get("ok"))
-    cf_base = str(cf.get("url") or "https://sourcea-cloud-auto-runtime-tick-v1.witness-bc.workers.dev").rstrip("/")
+    cf_base = str(cf.get("url") or "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev").rstrip("/")
     return {
         "ok": health_ok,
         "schema": "cloud-workers-chain-status-v1",
         "at": _now(),
-        "execution_plane": "mac_observe_only",
-        "mac_never_commands_railway": True,
+        "execution_plane": "mac_control_dispatch",
+        "mac_never_commands_railway_motor": True,
+        "mac_control_dispatch_allowed": True,
         "railway": {
             "url": url,
             "deploy_at": deploy.get("at"),
@@ -503,7 +620,7 @@ def chain_status() -> dict[str, Any]:
         },
         "pattern": {
             "full_pack": True,
-            "max_advance_per_tick": ssot.get("max_advance_per_tick") or 100,
+            "max_advance_per_tick": ssot.get("max_advance_per_tick") or 10,
             "scheduler": "cloudflare_cron_only",
         },
         "queue_local": {
@@ -530,7 +647,7 @@ def chain_status() -> dict[str, Any]:
                 f"Chain · Railway deploy {'PASS' if health_ok else 'FAIL'} · "
                 f"CF cron {cf.get('cron') or '*/10 * * * *'} · "
                 f"local head {phase.get('cloud_forge_run_head') or '—'} · "
-                "Mac observe only — live queue via CF /queue in browser"
+                "Mac dispatch OK · motor = CF cron only"
             ),
         },
     }
@@ -684,13 +801,14 @@ def cli_catalog() -> list[dict[str, str]]:
             "cmd": FOUNDER_DEPLOY_CMD,
         },
         {
-            "id": "proceed_curl",
-            "label": "Proceed via curl (Cloud Workers full-pack)",
-            "cmd": (
-                'curl -s -X POST http://127.0.0.1:13027/api/cloud-workers/v1 '
-                '-H "Content-Type: application/json" '
-                '-d \'{"action":"proceed","full_pack":true,"max_advance":100,"llm_provider":"openrouter","full_motor":true}\''
-            ),
+            "id": "trigger_cf_tick",
+            "label": "Trigger CF full-pack tick (Mac-safe)",
+            "cmd": f"{base} --action trigger_cf_tick --json",
+        },
+        {
+            "id": "dispatch_mac",
+            "label": "Dispatch plan via Hub (Mac OK)",
+            "cmd": "python3 scripts/mac_cloud_deploy_dispatch_v1.py --target dispatch --plan-id MAC-CTL-002 --json",
         },
         {
             "id": "hub_status_curl",
@@ -718,7 +836,7 @@ def situation_card() -> dict[str, Any]:
     )
 
     parts = [
-        f"Pipe {pipe} · Mac observe only",
+        f"Pipe {pipe} · Mac dispatch OK · motor CF cron",
         (
             f"Batch COMPLETE · {organized.get('last_completed') or '—'}"
             if batch_done
@@ -735,7 +853,8 @@ def situation_card() -> dict[str, Any]:
         "pipe": pipe,
         "pipe_live": health_ok,
         "cloud_stale": not health_ok,
-        "mac_observe_only": True,
+        "mac_motor_observe_only": True,
+        "mac_control_dispatch_allowed": True,
         "cloud_worker_url": chain.get("railway", {}).get("url"),
         "cf_cron_url": chain.get("cf_cron", {}).get("url"),
         "queue_head": head,
@@ -770,7 +889,7 @@ def probe_cloud_worker() -> dict[str, Any]:
         "ok": health_ok,
         "schema": "cloud-workers-probe-v1",
         "at": _now(),
-        "execution_plane": "mac_observe_only",
+        "execution_plane": "mac_control_dispatch",
         "cloud_worker_url": url or None,
         "health": health,
         "deploy_at": deploy.get("at"),
@@ -779,12 +898,13 @@ def probe_cloud_worker() -> dict[str, Any]:
         "observer_url": observer,
         "for_founder": {
             "show_this": (
-                f"Mac observe only · last deploy {deploy.get('at') or '—'} · "
+                f"Mac dispatch OK · motor CF cron · last deploy {deploy.get('at') or '—'} · "
                 f"health {'PASS' if health_ok else 'FAIL'} · proof {observer or 'deploy first'}"
             ),
             "pipe_live": health_ok,
         },
-        "mac_observe_only": True,
+        "mac_motor_observe_only": True,
+        "mac_control_dispatch_allowed": True,
     }
 
 
@@ -887,6 +1007,19 @@ def auto_runtime_status() -> dict[str, Any]:
     }
 
 
+def _mac_spine_keepalive(*, agent_id: str = "hub-cloud-workers") -> dict[str, Any]:
+    """L16 W2 — Hub keepalive POST mac_agent_heartbeat."""
+    import sys
+
+    sys.path.insert(0, str(SCRIPTS))
+    try:
+        from mac_spine_bridge_v1 import run_mac_spine_heartbeat  # noqa: WPS433
+
+        return run_mac_spine_heartbeat(agent_id=agent_id, role="hub")
+    except Exception as exc:
+        return {"ok": False, "error": str(exc)[:200], "step": "mac_spine_heartbeat"}
+
+
 def payload() -> dict[str, Any]:
     import sys
 
@@ -896,11 +1029,14 @@ def payload() -> dict[str, Any]:
     live_sync = _sync_cloud_queue_to_mac()
     probe = probe_cloud_worker()
     situation = situation_card()
+    mac_spine = _mac_spine_keepalive()
     return {
         "ok": True,
         "schema": "cloud-workers-hub-v1",
         "at": _now(),
         "live_sync": live_sync,
+        "mac_spine_keepalive": mac_spine,
+        "mac_dashboard_row": mac_spine.get("dashboard_row"),
         "one_law": "Founder manages cloud deploy + plans — Hub dispatches/triggers/reports only.",
         "ssot": str(SSOT.relative_to(ROOT)),
         "hub_apis": {
@@ -920,7 +1056,8 @@ def payload() -> dict[str, Any]:
             "chain_status": "POST {\"action\":\"chain_status\"}",
             "auto_tick": "POST {\"action\":\"auto_tick\"} (Mac observe only)",
             "auto_status": "POST {\"action\":\"auto_status\"}",
-            "proceed": "POST {\"action\":\"proceed\",\"full_pack\":true,\"max_advance\":100}",
+            "mac_agent_heartbeat": "POST {\"action\":\"mac_agent_heartbeat\"}",
+            "proceed": "POST {\"action\":\"proceed\",\"full_pack\":true,\"max_advance\":10}",
         },
         "situation": situation,
         "chain": chain_status(),
@@ -1046,7 +1183,39 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
     if action == "auto_status":
         return auto_runtime_status()
 
+    if action == "mac_agent_heartbeat":
+        agent_id = str(body.get("agent_id") or "hub-cloud-workers").strip()
+        row = _mac_spine_keepalive(agent_id=agent_id)
+        return {"ok": bool(row.get("ok")), **row}
+
+    if action in ("ops_motors", "ops_motors_glance"):
+        from ops_motors_status_v1 import status_row  # noqa: WPS433
+
+        row = status_row()
+        hb = row.get("ops_heartbeat") or {}
+        return {
+            "ok": True,
+            "schema": "hub-ops-motors-glance-v1",
+            "at": _now(),
+            "ops_motors": row,
+            "for_founder": {
+                "show_this": hb.get("last_fixed_line") or "ops motors — no heartbeat yet",
+            },
+        }
+
     if action == "auto_tick":
+        from fbe.lib.mac_control_dispatch_v1 import (  # noqa: WPS433
+            is_mac_control_plane,
+            mac_deploy_bypass,
+            upgrade_mac_motor_block,
+        )
+
+        if is_mac_control_plane() and not mac_deploy_bypass():
+            return upgrade_mac_motor_block(
+                _mac_observe_block("auto_tick"),
+                cf_tick_row=trigger_cf_full_pack(force=bool(body.get("force"))),
+                action="auto_tick",
+            )
         from cloud_auto_runtime_v1 import run_auto_tick  # noqa: WPS433
 
         return run_auto_tick(
@@ -1054,6 +1223,9 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
             llm_provider=str(body.get("llm_provider") or "openrouter"),
             trigger_source=str(body.get("trigger_source") or "hub_auto_tick"),
         )
+
+    if action == "trigger_cf_tick":
+        return trigger_cf_full_pack(force=bool(body.get("force")))
 
     if action == "glue_run":
         cmd = str(body.get("command") or "").strip()
@@ -1081,9 +1253,18 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
         return {"ok": bool(result.get("ok", True)), "command": cmd, **result}
 
     if action == "proceed":
+        from fbe.lib.mac_control_dispatch_v1 import upgrade_mac_motor_block  # noqa: WPS433
         from hub_cloud_forge_run_proceed_v1 import proceed_from_hub  # noqa: WPS433
 
-        return proceed_from_hub(body)
+        row = proceed_from_hub(body)
+        if row.get("error") == "mac_observe_only":
+            row = upgrade_mac_motor_block(
+                row,
+                cf_tick_row=trigger_cf_full_pack(force=bool(body.get("force"))),
+                action="proceed",
+            )
+            row["ok"] = True
+        return row
 
     if action == "deploy_instructions":
         return {"ok": True, "deploy": founder_deploy_card(reason=str(body.get("reason") or ""))}
@@ -1107,7 +1288,9 @@ def handle_action(body: dict[str, Any] | None) -> dict[str, Any]:
             "sync_live_queue",
             "chain_status",
             "auto_tick",
+            "trigger_cf_tick",
             "auto_status",
+            "mac_agent_heartbeat",
             "glue_run",
             "proceed",
             "deploy_instructions",
