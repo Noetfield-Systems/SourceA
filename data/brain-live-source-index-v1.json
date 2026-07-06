@@ -1,8 +1,8 @@
 {
   "schema": "brain-live-source-index-v1",
-  "generated_at": "2026-07-06T13:03:07Z",
-  "source_file_count": 115,
-  "distill_row_count": 103,
+  "generated_at": "2026-07-06T15:51:53Z",
+  "source_file_count": 116,
+  "distill_row_count": 104,
   "target_minimum": 112,
   "meets_target": true,
   "sources": [
@@ -13,7 +13,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/48h-mvp",
       "chars": 2605,
-      "content_hash": "d7c536baf4b1de15"
+      "content_hash": "eb5b1fddc6ce1884",
+      "source_hash": "20a4a116f6c97d64"
     },
     {
       "kind": "html",
@@ -22,7 +23,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/ai-value-governance",
       "chars": 4271,
-      "content_hash": "0a364f6c8f3ab815"
+      "content_hash": "3d573a70f10f6416",
+      "source_hash": "f15e3fae28caa05f"
     },
     {
       "kind": "html",
@@ -31,7 +33,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/attach/agency-onepager",
       "chars": 1187,
-      "content_hash": "ceec1864e5d2d9ca"
+      "content_hash": "911530d60d2f74b4",
+      "source_hash": "ee4617add1414016"
     },
     {
       "kind": "html",
@@ -40,7 +43,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/attach/procurement-pack",
       "chars": 1201,
-      "content_hash": "c3514c99bbdae44a"
+      "content_hash": "e990df61eca59502",
+      "source_hash": "29900e8b27bd7632"
     },
     {
       "kind": "html",
@@ -49,7 +53,8 @@
       "lane": "buyer",
       "www_url": "https://sourcea.app/sourcea/attach/proof-bundle-sample",
       "chars": 1515,
-      "content_hash": "ac5a674b1119e38a"
+      "content_hash": "5a344c74aab55e8e",
+      "source_hash": "bed65a6dd7d6733c"
     },
     {
       "kind": "html",
@@ -58,7 +63,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/brain-chat-settings",
       "chars": 589,
-      "content_hash": "ac376773f02ec10e"
+      "content_hash": "4e9b9a1a4dbcd783",
+      "source_hash": "d7ec85fb7795ddea"
     },
     {
       "kind": "html",
@@ -67,7 +73,8 @@
       "lane": "buyer",
       "www_url": "https://sourcea.app/sourcea/case-studies/agentgo",
       "chars": 3472,
-      "content_hash": "3a6431b9698e7bd4"
+      "content_hash": "49f2b75cf592a488",
+      "source_hash": "a9eefcc2b8f4fa24"
     },
     {
       "kind": "html",
@@ -76,7 +83,8 @@
       "lane": "buyer",
       "www_url": "https://sourcea.app/sourcea/case-studies",
       "chars": 1090,
-      "content_hash": "a69453d7efe857f5"
+      "content_hash": "d2b587969530bb93",
+      "source_hash": "fdb6ba900387ea4c"
     },
     {
       "kind": "html",
@@ -85,7 +93,8 @@
       "lane": "buyer",
       "www_url": "https://sourcea.app/sourcea/case-studies/pureflow",
       "chars": 2691,
-      "content_hash": "7e3153022392f2b1"
+      "content_hash": "d8a653817e73c708",
+      "source_hash": "7f7cca5ebd252a24"
     },
     {
       "kind": "html",
@@ -94,7 +103,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/changelog",
       "chars": 482,
-      "content_hash": "a89b50334ce33ab0"
+      "content_hash": "0bba63f6ea5b1d5f",
+      "source_hash": "e736e04cc7898d54"
     },
     {
       "kind": "html",
@@ -103,7 +113,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/compare",
       "chars": 1345,
-      "content_hash": "25f0e6a883d9de87"
+      "content_hash": "b9f2c17fc576d5fb",
+      "source_hash": "7daf114395661fd4"
     },
     {
       "kind": "html",
@@ -112,7 +123,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/downloads",
       "chars": 593,
-      "content_hash": "fe1b71b499c4f467"
+      "content_hash": "86d6744bd7c0c7ac",
+      "source_hash": "3723a88ac226fbd8"
     },
     {
       "kind": "html",
@@ -121,7 +133,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/enterprise-ai-control-plane",
       "chars": 4631,
-      "content_hash": "61c72221eaec85d1"
+      "content_hash": "ac3c053b138d4efb",
+      "source_hash": "b0002bf5337b9946"
     },
     {
       "kind": "html",
@@ -130,7 +143,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/eval",
       "chars": 1627,
-      "content_hash": "7e8785089ea3c754"
+      "content_hash": "426511224c1b4380",
+      "source_hash": "95109f521c899576"
     },
     {
       "kind": "html",
@@ -139,7 +153,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/factories/aml-screening-factory",
       "chars": 631,
-      "content_hash": "9639d87cf84ac381"
+      "content_hash": "e1567dd5eeacbe3d",
+      "source_hash": "ca4fd254a8d33953"
     },
     {
       "kind": "html",
@@ -148,7 +163,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/factories/cross-border-kyb-factory",
       "chars": 623,
-      "content_hash": "d6a6443d67b0fe53"
+      "content_hash": "74901212400e6246",
+      "source_hash": "dd2db8418cae1579"
     },
     {
       "kind": "html",
@@ -157,7 +173,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/factories/controlled-app-factory",
       "chars": 624,
-      "content_hash": "701ce2069d68372b"
+      "content_hash": "5e95038be5fb6239",
+      "source_hash": "3be33aa10b34257f"
     },
     {
       "kind": "html",
@@ -166,7 +183,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/factories/controlled-exchange-factory",
       "chars": 663,
-      "content_hash": "5282d57a261c7cdb"
+      "content_hash": "95d66a03aad2377d",
+      "source_hash": "38990a065dfd89a9"
     },
     {
       "kind": "html",
@@ -175,7 +193,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/factories/controlled-web-product-factory",
       "chars": 653,
-      "content_hash": "86f4af7f4ef25605"
+      "content_hash": "a57f4fd41ca1c5f9",
+      "source_hash": "fa002b63593eb303"
     },
     {
       "kind": "html",
@@ -184,7 +203,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/factories",
       "chars": 537,
-      "content_hash": "ab5aaa7209892870"
+      "content_hash": "868c3e99177fbbad",
+      "source_hash": "143e1672c376ca26"
     },
     {
       "kind": "html",
@@ -193,7 +213,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/factories/ma-diligence-factory",
       "chars": 617,
-      "content_hash": "56570ee01d9a39d2"
+      "content_hash": "ac875d828c521903",
+      "source_hash": "6c468019004cd3f6"
     },
     {
       "kind": "html",
@@ -202,7 +223,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/factories/try-factory-demo",
       "chars": 280,
-      "content_hash": "b755660c224f035c"
+      "content_hash": "ff7ac258ee7d7e00",
+      "source_hash": "776a12857327ebb7"
     },
     {
       "kind": "html",
@@ -211,7 +233,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/factories/try-noetfield-freemium",
       "chars": 673,
-      "content_hash": "3d60e5793cf6f87f"
+      "content_hash": "9a090ddc8eee7fb5",
+      "source_hash": "a90f6e8c979cfc8a"
     },
     {
       "kind": "html",
@@ -220,7 +243,8 @@
       "lane": "buyer",
       "www_url": "https://sourcea.app/sourcea/factories/witnessbc-proof-lab",
       "chars": 604,
-      "content_hash": "340843eb43d115b0"
+      "content_hash": "ad3fa1d561871246",
+      "source_hash": "a34b6396edbf0d89"
     },
     {
       "kind": "html",
@@ -229,7 +253,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/forge/chat-unify",
       "chars": 1504,
-      "content_hash": "e3ac8c8429fb5836"
+      "content_hash": "3825efcda9ef7905",
+      "source_hash": "699df6e3ae19b2b0"
     },
     {
       "kind": "html",
@@ -238,7 +263,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/forge/cursor-bridge",
       "chars": 1741,
-      "content_hash": "1f97104365774ad8"
+      "content_hash": "455b965e9aa665f7",
+      "source_hash": "e0ff642ecf8549a2"
     },
     {
       "kind": "html",
@@ -247,7 +273,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/forge/how-it-works",
       "chars": 1840,
-      "content_hash": "6b5164b4a45b5a0b"
+      "content_hash": "01c93e33bc7e299d",
+      "source_hash": "82e388cb52b78bfc"
     },
     {
       "kind": "html",
@@ -256,7 +283,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/forge",
       "chars": 1316,
-      "content_hash": "338ffc050fb7bcfe"
+      "content_hash": "e4016ae0876345bf",
+      "source_hash": "097e8c27bc721668"
     },
     {
       "kind": "html",
@@ -265,7 +293,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/forge/mission-template",
       "chars": 2061,
-      "content_hash": "58e8eb71696fdb08"
+      "content_hash": "da0c45f9744677ca",
+      "source_hash": "634ea05f781163fc"
     },
     {
       "kind": "html",
@@ -274,7 +303,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/forge/ssot-policy",
       "chars": 1460,
-      "content_hash": "ec13fd2e4beb6335"
+      "content_hash": "942a8ad4ae64fb47",
+      "source_hash": "161521b0adcb89c1"
     },
     {
       "kind": "html",
@@ -283,7 +313,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/forge/terminal/profile",
       "chars": 485,
-      "content_hash": "72d161205e996d74"
+      "content_hash": "e54f9c7482296698",
+      "source_hash": "0e171bd16a8c3092"
     },
     {
       "kind": "html",
@@ -292,7 +323,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/forge/terminal/signin",
       "chars": 577,
-      "content_hash": "0d70640eaca0fdc2"
+      "content_hash": "3e9c451832aede32",
+      "source_hash": "5eccc148cf346f74"
     },
     {
       "kind": "html",
@@ -301,7 +333,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/forge/terminal/signup",
       "chars": 482,
-      "content_hash": "2e5f0ee23aef5d08"
+      "content_hash": "910dd005b26599f9",
+      "source_hash": "4bfe46cfdd3d90b8"
     },
     {
       "kind": "html",
@@ -310,7 +343,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/forge/terminal/workspace",
       "chars": 578,
-      "content_hash": "21af05125dc6c557"
+      "content_hash": "791164cf505ddf94",
+      "source_hash": "3a801640dd3f4725"
     },
     {
       "kind": "html",
@@ -319,7 +353,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/forge/terminal",
       "chars": 890,
-      "content_hash": "7b21b9c07bacd926"
+      "content_hash": "7f668843d3723764",
+      "source_hash": "938258e3debb49cd"
     },
     {
       "kind": "html",
@@ -328,7 +363,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/forge/try",
       "chars": 1375,
-      "content_hash": "9697ac0b1528602e"
+      "content_hash": "ad912326d86f5e44",
+      "source_hash": "63c6f462ef6617a8"
     },
     {
       "kind": "html",
@@ -336,8 +372,9 @@
       "output": "data/chatbot-knowledge/crawled/www/founder-home.md",
       "lane": "core",
       "www_url": "https://sourcea.app/",
-      "chars": 3448,
-      "content_hash": "bc169bcb1cf9f8c7"
+      "chars": 3435,
+      "content_hash": "523081e42a4d9600",
+      "source_hash": "97eca897583404a5"
     },
     {
       "kind": "html",
@@ -346,7 +383,8 @@
       "lane": "buyer",
       "www_url": "https://sourcea.app/sourcea/funnel",
       "chars": 381,
-      "content_hash": "614e8f14a99d2c7d"
+      "content_hash": "c28054b60a7d75a0",
+      "source_hash": "e846962f287c38af"
     },
     {
       "kind": "html",
@@ -355,7 +393,8 @@
       "lane": "buyer",
       "www_url": "https://sourcea.app/sourcea/growth",
       "chars": 1378,
-      "content_hash": "51ac1e80ed934138"
+      "content_hash": "418ef42e62babe31",
+      "source_hash": "c7414dfac887bae0"
     },
     {
       "kind": "html",
@@ -364,7 +403,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/",
       "chars": 195,
-      "content_hash": "bb35604db5fb22e9"
+      "content_hash": "b2823e85a31a6dfd",
+      "source_hash": "bd73149b53afd578"
     },
     {
       "kind": "html",
@@ -373,7 +413,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/hub",
       "chars": 1512,
-      "content_hash": "5c3c534b37e9adf9"
+      "content_hash": "a7f09daa28a42a96",
+      "source_hash": "cc73c3328556e4dd"
     },
     {
       "kind": "html",
@@ -381,8 +422,9 @@
       "output": "data/chatbot-knowledge/crawled/www/index.md",
       "lane": "core",
       "www_url": "https://sourcea.app/",
-      "chars": 2481,
-      "content_hash": "2d7d5bd5135fb19b"
+      "chars": 2378,
+      "content_hash": "ee8eebd39db12571",
+      "source_hash": "18e6ca34a800c2ce"
     },
     {
       "kind": "html",
@@ -391,7 +433,8 @@
       "lane": "investor",
       "www_url": "https://sourcea.app/sourcea/investors",
       "chars": 1781,
-      "content_hash": "f361f2324b4294c3"
+      "content_hash": "55817f77fff289bb",
+      "source_hash": "babcfff4a4c3acf9"
     },
     {
       "kind": "html",
@@ -400,7 +443,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/kernel",
       "chars": 1541,
-      "content_hash": "252307fc70d6e84c"
+      "content_hash": "7bc11e66460cdf96",
+      "source_hash": "b837a525bbf5c731"
     },
     {
       "kind": "html",
@@ -409,7 +453,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/learn",
       "chars": 1080,
-      "content_hash": "d3c4e7d9e0fbfe57"
+      "content_hash": "1f613de49cb99320",
+      "source_hash": "73d219bedaadbbb8"
     },
     {
       "kind": "html",
@@ -418,7 +463,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/loops/eval-booking",
       "chars": 1265,
-      "content_hash": "d0af7de16a3d9367"
+      "content_hash": "5e33bda441bd8b55",
+      "source_hash": "cd59337cb4a5e7c0"
     },
     {
       "kind": "html",
@@ -427,7 +473,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/loops",
       "chars": 2275,
-      "content_hash": "16a79d1be12d308a"
+      "content_hash": "76d9750aa1b1b923",
+      "source_hash": "8ece9dabd18857c4"
     },
     {
       "kind": "html",
@@ -436,7 +483,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/loops/ops-monitor",
       "chars": 1300,
-      "content_hash": "bbf594596e5903dc"
+      "content_hash": "d3a97072663db995",
+      "source_hash": "f241785c1bc9dd77"
     },
     {
       "kind": "html",
@@ -445,7 +493,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/loops/outreach",
       "chars": 1997,
-      "content_hash": "1f9d5947dae04880"
+      "content_hash": "127d655efbd0c828",
+      "source_hash": "a5176ae433c90c31"
     },
     {
       "kind": "html",
@@ -454,7 +503,8 @@
       "lane": "buyer",
       "www_url": "https://sourcea.app/sourcea/loops/proof-export",
       "chars": 1027,
-      "content_hash": "5dce80d104349e6c"
+      "content_hash": "2919278566c2aa36",
+      "source_hash": "cd8acaf122f68dfd"
     },
     {
       "kind": "html",
@@ -463,7 +513,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/loops/research",
       "chars": 1306,
-      "content_hash": "841e212980bb404f"
+      "content_hash": "365b80b33de43a16",
+      "source_hash": "fbaceb1758ef74ae"
     },
     {
       "kind": "html",
@@ -472,7 +523,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/loops/session-gate",
       "chars": 1133,
-      "content_hash": "58bb672c831e3333"
+      "content_hash": "108c55950d8c06c2",
+      "source_hash": "d1c7bab09d63d3b4"
     },
     {
       "kind": "html",
@@ -481,7 +533,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/mvp-landing",
       "chars": 804,
-      "content_hash": "05f516eded95206e"
+      "content_hash": "27797e1dcc1480f4",
+      "source_hash": "1713273ada268d88"
     },
     {
       "kind": "html",
@@ -490,7 +543,8 @@
       "lane": "buyer",
       "www_url": "https://sourcea.app/sourcea/offer",
       "chars": 1079,
-      "content_hash": "4bcd54323bb1a21a"
+      "content_hash": "25285e1c88b30e28",
+      "source_hash": "905763c067c6c2c0"
     },
     {
       "kind": "html",
@@ -499,7 +553,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/operating-brain-install",
       "chars": 3955,
-      "content_hash": "aaa4b4b99ea44add"
+      "content_hash": "300f963a7a7f5c1a",
+      "source_hash": "eafe7b113a695af4"
     },
     {
       "kind": "html",
@@ -508,7 +563,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/platform-portal",
       "chars": 1337,
-      "content_hash": "3717bd2464b87ebd"
+      "content_hash": "d417df4a555317de",
+      "source_hash": "d77ef38015f587d6"
     },
     {
       "kind": "html",
@@ -517,7 +573,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/platform",
       "chars": 2456,
-      "content_hash": "0f900d9158de4502"
+      "content_hash": "fff1fa978663e638",
+      "source_hash": "0401d7784d677278"
     },
     {
       "kind": "html",
@@ -526,7 +583,8 @@
       "lane": "buyer",
       "www_url": "https://sourcea.app/sourcea/pricing",
       "chars": 1271,
-      "content_hash": "855a10a7b44a5c06"
+      "content_hash": "70364e0bb9e762a1",
+      "source_hash": "02efa0c8792532df"
     },
     {
       "kind": "html",
@@ -535,7 +593,8 @@
       "lane": "buyer",
       "www_url": "https://sourcea.app/sourcea/proof/live",
       "chars": 1265,
-      "content_hash": "5d7b17119576da40"
+      "content_hash": "0127f23984f1758c",
+      "source_hash": "9b982817810dacb4"
     },
     {
       "kind": "html",
@@ -544,7 +603,8 @@
       "lane": "buyer",
       "www_url": "https://sourcea.app/sourcea/proof",
       "chars": 2635,
-      "content_hash": "e90786a198b62250"
+      "content_hash": "8d813f68e16b6824",
+      "source_hash": "a1b9c318b8940e34"
     },
     {
       "kind": "html",
@@ -553,7 +613,8 @@
       "lane": "buyer",
       "www_url": "https://sourcea.app/sourcea/sandbox",
       "chars": 873,
-      "content_hash": "3c2c89a26753e1d7"
+      "content_hash": "b7077dd4866832cb",
+      "source_hash": "1028330b79863b11"
     },
     {
       "kind": "html",
@@ -562,7 +623,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/scenario",
       "chars": 1688,
-      "content_hash": "4ae512a92f2b5b61"
+      "content_hash": "afec3dc9110d8718",
+      "source_hash": "ca3c61ac0246fdae"
     },
     {
       "kind": "html",
@@ -571,7 +633,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/security",
       "chars": 1412,
-      "content_hash": "4679eace2d40c29c"
+      "content_hash": "e7cc8bbcea810fa8",
+      "source_hash": "8232c59f9354ae18"
     },
     {
       "kind": "html",
@@ -580,7 +643,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/sources",
       "chars": 1454,
-      "content_hash": "34c809b8db157f48"
+      "content_hash": "c165dc334cb577a3",
+      "source_hash": "7f0d4925f09a91de"
     },
     {
       "kind": "html",
@@ -589,7 +653,8 @@
       "lane": "buyer",
       "www_url": "https://sourcea.app/sourcea/start",
       "chars": 1244,
-      "content_hash": "27c47868d981cda4"
+      "content_hash": "5b9a1085fd087534",
+      "source_hash": "a6bfd092a10d84b4"
     },
     {
       "kind": "html",
@@ -598,7 +663,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/status",
       "chars": 882,
-      "content_hash": "834b507a46b5c14e"
+      "content_hash": "92897174e0135a33",
+      "source_hash": "220ea454de50f3b5"
     },
     {
       "kind": "html",
@@ -607,7 +673,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/team",
       "chars": 1318,
-      "content_hash": "716c8130d8f282c6"
+      "content_hash": "6c4c9ea59e8d9cf2",
+      "source_hash": "9d83420b212892be"
     },
     {
       "kind": "html",
@@ -616,7 +683,8 @@
       "lane": "core",
       "www_url": "https://sourcea.app/sourcea/trust",
       "chars": 617,
-      "content_hash": "5900bc5fdaefe3d1"
+      "content_hash": "1d932e3bc52876b8",
+      "source_hash": "e9bb43a4628bd48a"
     },
     {
       "kind": "html",
@@ -625,7 +693,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/unify",
       "chars": 4243,
-      "content_hash": "b74fd2e77ad40c7a"
+      "content_hash": "946979f0f24269f7",
+      "source_hash": "680f69496dbfb129"
     },
     {
       "kind": "html",
@@ -634,7 +703,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/unify/terminal",
       "chars": 591,
-      "content_hash": "1707829016a709f0"
+      "content_hash": "ee5c39fcb57c5faf",
+      "source_hash": "e4d21d83b3ce1130"
     },
     {
       "kind": "html",
@@ -643,7 +713,8 @@
       "lane": "developer",
       "www_url": "https://sourcea.app/sourcea/unify-demo",
       "chars": 4258,
-      "content_hash": "4dce1da9d1cce90b"
+      "content_hash": "66da0536e421355b",
+      "source_hash": "680f69496dbfb129"
     },
     {
       "kind": "json",
@@ -651,7 +722,8 @@
       "output": "data/chatbot-knowledge/crawled/json/aeg-live.md",
       "lane": "core",
       "chars": 1653,
-      "content_hash": "69dde6f742f3da8e"
+      "content_hash": "2a1edd8296d3fe35",
+      "source_hash": "e925b24b41c4c062"
     },
     {
       "kind": "json",
@@ -659,7 +731,8 @@
       "output": "data/chatbot-knowledge/crawled/json/boot-proof.md",
       "lane": "buyer",
       "chars": 940,
-      "content_hash": "02dba7feb77b8bf5"
+      "content_hash": "9e3b0bc83c56d99d",
+      "source_hash": "087fbd5021b67680"
     },
     {
       "kind": "json",
@@ -667,7 +740,8 @@
       "output": "data/chatbot-knowledge/crawled/json/chat-unify-demo-web-config-v1.md",
       "lane": "developer",
       "chars": 744,
-      "content_hash": "568914ba8c54e2c8"
+      "content_hash": "f7911df5c32386d0",
+      "source_hash": "54dff84f774a210c"
     },
     {
       "kind": "json",
@@ -675,7 +749,8 @@
       "output": "data/chatbot-knowledge/crawled/json/chat-unify-integrations-v1.md",
       "lane": "developer",
       "chars": 2951,
-      "content_hash": "da3d4509bc209014"
+      "content_hash": "dce580551149cc12",
+      "source_hash": "c77ef8b711d45536"
     },
     {
       "kind": "json",
@@ -683,7 +758,8 @@
       "output": "data/chatbot-knowledge/crawled/json/chat-unify-platform-catalog-v1.md",
       "lane": "developer",
       "chars": 3134,
-      "content_hash": "0bd33d3fd845a1f6"
+      "content_hash": "1966298977cbcdb2",
+      "source_hash": "f9471bddafac5e5d"
     },
     {
       "kind": "json",
@@ -691,7 +767,8 @@
       "output": "data/chatbot-knowledge/crawled/json/chat-unify-web-access-v1.md",
       "lane": "developer",
       "chars": 915,
-      "content_hash": "4a2ffb881bf8f21c"
+      "content_hash": "55364284b9452b9d",
+      "source_hash": "11d1dbeb8e6927a2"
     },
     {
       "kind": "json",
@@ -699,7 +776,8 @@
       "output": "data/chatbot-knowledge/crawled/json/chat-unify-web-config-v1.md",
       "lane": "developer",
       "chars": 1353,
-      "content_hash": "4c24d5a5c918c98d"
+      "content_hash": "4c501eb0e3f29f9a",
+      "source_hash": "c7e82dca83fda6ea"
     },
     {
       "kind": "json",
@@ -707,7 +785,8 @@
       "output": "data/chatbot-knowledge/crawled/json/factories-catalog.md",
       "lane": "core",
       "chars": 7023,
-      "content_hash": "c8bab1ed46c75a23"
+      "content_hash": "84adc13c8418c9d3",
+      "source_hash": "e9db6d2f9ebdc763"
     },
     {
       "kind": "json",
@@ -715,7 +794,8 @@
       "output": "data/chatbot-knowledge/crawled/json/factory-live.md",
       "lane": "core",
       "chars": 4837,
-      "content_hash": "6fc15926355345e8"
+      "content_hash": "8fd8c5b1bf365d1b",
+      "source_hash": "069587589b6b4d6b"
     },
     {
       "kind": "json",
@@ -723,7 +803,8 @@
       "output": "data/chatbot-knowledge/crawled/json/forge-catalog.md",
       "lane": "developer",
       "chars": 3653,
-      "content_hash": "52517357faa43073"
+      "content_hash": "0c6400a449a54c6c",
+      "source_hash": "c95ed201f33a4a21"
     },
     {
       "kind": "json",
@@ -731,7 +812,8 @@
       "output": "data/chatbot-knowledge/crawled/json/forge-terminal-models-public-v1.md",
       "lane": "developer",
       "chars": 8251,
-      "content_hash": "0f4af95b57728e18"
+      "content_hash": "a7c3d8fff6469206",
+      "source_hash": "3de694c528ddc608"
     },
     {
       "kind": "json",
@@ -739,7 +821,8 @@
       "output": "data/chatbot-knowledge/crawled/json/loops-catalog.md",
       "lane": "core",
       "chars": 2963,
-      "content_hash": "40e5ff4c63eacaad"
+      "content_hash": "3113f6b6ec73b92f",
+      "source_hash": "80d90006bcfada01"
     },
     {
       "kind": "json",
@@ -747,7 +830,8 @@
       "output": "data/chatbot-knowledge/crawled/json/mvp-intake-config.md",
       "lane": "core",
       "chars": 778,
-      "content_hash": "0e1630190f0f3583"
+      "content_hash": "fa1bb8aa0a8bbf52",
+      "source_hash": "02ca1693907ba478"
     },
     {
       "kind": "json",
@@ -755,7 +839,8 @@
       "output": "data/chatbot-knowledge/crawled/json/n8n-template-sourcea-chat-unify-v1.md",
       "lane": "developer",
       "chars": 1090,
-      "content_hash": "d5230b804f5aeadb"
+      "content_hash": "b036976216d81150",
+      "source_hash": "2ebff37d9ecc14f8"
     },
     {
       "kind": "json",
@@ -763,7 +848,8 @@
       "output": "data/chatbot-knowledge/crawled/json/phase1-proof-pack-public-v1.md",
       "lane": "buyer",
       "chars": 881,
-      "content_hash": "1f985633cb9ecf58"
+      "content_hash": "f571f9ad26259831",
+      "source_hash": "c04f59d7478f59ee"
     },
     {
       "kind": "json",
@@ -771,7 +857,8 @@
       "output": "data/chatbot-knowledge/crawled/json/sourcea-inbox-live-status-v1.md",
       "lane": "core",
       "chars": 1240,
-      "content_hash": "48a47180bdd137ca"
+      "content_hash": "8a6ad92eabf2b9be",
+      "source_hash": "fa762d610db76d84"
     },
     {
       "kind": "json",
@@ -779,15 +866,17 @@
       "output": "data/chatbot-knowledge/crawled/json/sourcea-landing-cta-v1.md",
       "lane": "core",
       "chars": 928,
-      "content_hash": "32c9673122c7cbaa"
+      "content_hash": "91ba74a6c0ca7d0e",
+      "source_hash": "df0bcded6ff6cbe6"
     },
     {
       "kind": "json",
       "path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
       "output": "data/chatbot-knowledge/crawled/json/sourcea-positioning-v1.md",
       "lane": "core",
-      "chars": 3204,
-      "content_hash": "e90a93af81a3e7a8"
+      "chars": 4015,
+      "content_hash": "03290648735be39f",
+      "source_hash": "1f30717d00383e98"
     },
     {
       "kind": "json",
@@ -795,7 +884,8 @@
       "output": "data/chatbot-knowledge/crawled/json/sourcea-products-catalog-v1.md",
       "lane": "core",
       "chars": 7688,
-      "content_hash": "92838c774c52f4a0"
+      "content_hash": "1241bd3371fdcbdb",
+      "source_hash": "4640581096f43467"
     },
     {
       "kind": "json",
@@ -803,7 +893,8 @@
       "output": "data/chatbot-knowledge/crawled/json/sourcea-site-interact-v1.md",
       "lane": "core",
       "chars": 4642,
-      "content_hash": "94500c6b5d1cc34d"
+      "content_hash": "c13feb454dc92fc1",
+      "source_hash": "3361be9e984b71be"
     },
     {
       "kind": "json",
@@ -811,7 +902,8 @@
       "output": "data/chatbot-knowledge/crawled/json/sourcea-site-pulse-config-v1.md",
       "lane": "core",
       "chars": 1154,
-      "content_hash": "908ccc9d5c0529b3"
+      "content_hash": "9b8cf4c4eaa7134a",
+      "source_hash": "b58c510c197f56b4"
     },
     {
       "kind": "json",
@@ -819,7 +911,8 @@
       "output": "data/chatbot-knowledge/crawled/json/trust-signals-public-v1.md",
       "lane": "core",
       "chars": 859,
-      "content_hash": "e97272bf54b21fa7"
+      "content_hash": "e3582b6d508466c6",
+      "source_hash": "d8d7e677bea70f93"
     },
     {
       "kind": "json",
@@ -827,7 +920,8 @@
       "output": "data/chatbot-knowledge/crawled/json/trust-signals.md",
       "lane": "core",
       "chars": 1965,
-      "content_hash": "bae3da3bd498f928"
+      "content_hash": "4843105427625668",
+      "source_hash": "e62b7880258759aa"
     },
     {
       "kind": "json",
@@ -835,64 +929,72 @@
       "output": "data/chatbot-knowledge/crawled/json/ui-upgrade-baseline-v1.md",
       "lane": "core",
       "chars": 2154,
-      "content_hash": "ee4acbeb5de3edce"
+      "content_hash": "b9b27da3659c8386",
+      "source_hash": "f7e9495e2fa1e16b"
     },
     {
       "kind": "public_data",
       "path": "data/sourcea-dual-plane-v1.json",
       "output": "data/chatbot-knowledge/crawled/data/data__sourcea-dual-plane-v1.json.md",
       "lane": "core",
-      "content_hash": "89bdff3e67d350ae"
+      "content_hash": "3c82cc59bb349bba"
     },
     {
       "kind": "public_data",
       "path": "data/sourcea-forge-vocabulary-disambiguation-v1.json",
       "output": "data/chatbot-knowledge/crawled/data/data__sourcea-forge-vocabulary-disambiguation-v1.json.md",
       "lane": "developer",
-      "content_hash": "724af92d9517b80f"
+      "content_hash": "af58d86c725712dd"
     },
     {
       "kind": "public_data",
       "path": "data/sourcea-landing-client-voice-v1.json",
       "output": "data/chatbot-knowledge/crawled/data/data__sourcea-landing-client-voice-v1.json.md",
       "lane": "core",
-      "content_hash": "741c828c00a5fe3e"
+      "content_hash": "567eb6b78b90f287"
     },
     {
       "kind": "public_data",
       "path": "data/sourcea-landing-cta-v1.json",
       "output": "data/chatbot-knowledge/crawled/data/data__sourcea-landing-cta-v1.json.md",
       "lane": "core",
-      "content_hash": "6a8d8bf460517518"
+      "content_hash": "690968f992063551"
     },
     {
       "kind": "public_data",
       "path": "data/sourcea-mvp-intake-schema-v1.json",
       "output": "data/chatbot-knowledge/crawled/data/data__sourcea-mvp-intake-schema-v1.json.md",
       "lane": "core",
-      "content_hash": "9526b52128e78a59"
+      "content_hash": "b4805c26310612aa"
     },
     {
       "kind": "public_data",
       "path": "data/sourcea-products-catalog-v1.json",
       "output": "data/chatbot-knowledge/crawled/data/data__sourcea-products-catalog-v1.json.md",
       "lane": "core",
-      "content_hash": "1976263465911116"
+      "content_hash": "ed2febc509e53c74"
+    },
+    {
+      "kind": "public_data",
+      "path": "data/sourcea-public-github-v1.json",
+      "output": "data/chatbot-knowledge/crawled/data/data__sourcea-public-github-v1.json.md",
+      "lane": "core",
+      "content_hash": "b9b8a93a6209fe39"
     },
     {
       "kind": "public_data",
       "path": "data/sourcea_node_mesh_catalog_v1.json",
       "output": "data/chatbot-knowledge/crawled/data/data__sourcea_node_mesh_catalog_v1.json.md",
       "lane": "core",
-      "content_hash": "c3253f946c073048"
+      "content_hash": "4774cb2964cbe76f"
     },
     {
       "kind": "public_data",
       "path": "data/sourcea_orient_routing_v1.json",
       "output": "data/chatbot-knowledge/crawled/data/data__sourcea_orient_routing_v1.json.md",
       "lane": "core",
-      "content_hash": "82503489fe69dc19"
+      "content_hash": "bd4901e5fa96e93a"
     }
   ],
-  "chunk_count": 552
+  "chunk_count": 555
 }
