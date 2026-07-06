@@ -1,0 +1,2730 @@
+{
+  "schema": "sourcea-website-ui-e2e-audit-v1",
+  "at": "2026-07-06T12:15:18Z",
+  "base": "https://sourcea.app",
+  "verdict": "PASS_WITH_WARNINGS",
+  "summary": {
+    "paths_discovered": 212,
+    "pages_fetched": 212,
+    "pass": 212,
+    "fail": 0,
+    "warn_only": 37
+  },
+  "failures": [],
+  "warnings": [
+    {
+      "url": "https://sourcea.app/ai-value-governance",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/enterprise-ai-control-plane",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/forge/terminal/profile",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/forge/terminal/signin",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/forge/terminal/signup",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/forge/terminal/workspace",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/operating-brain-install",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/platform/profile",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/platform/sign-in",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/platform/sign-up",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/platform/workspace",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/ai-value-governance",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/ai-value-governance.html",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/brain-chat-settings",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/brain-chat-settings.html",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/enterprise-ai-control-plane",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/enterprise-ai-control-plane.html",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal/profile",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal/profile.html",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal/signin",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal/signin.html",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal/signup",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal/signup.html",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal/workspace",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal/workspace.html",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/operating-brain-install",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/operating-brain-install.html",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/platform/profile",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/platform/sign-in",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/platform/sign-up",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/platform/workspace",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/reference/sourcea-landing-mock-v1",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/reference/sourcea-landing-mock-v1.html",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/unify/terminal/",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/sourcea/unify/terminal/index.html",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/unify/terminal/index",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    },
+    {
+      "url": "https://sourcea.app/unify/terminal/index.html",
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "url": "https://sourcea.app/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 28170,
+      "title": "SourceA \u2014 AI execution platform with proof built in"
+    },
+    {
+      "url": "https://sourcea.app/48h-mvp",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/48h-mvp",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 27193,
+      "title": "48-hour MVP hub \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/agent-run",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/agent-run",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 13459,
+      "title": "Platform \u00b7 Agent Run factory hub \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/agent-run/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/agent-run/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 13459,
+      "title": "Platform \u00b7 Agent Run factory hub \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/ai-value-governance",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/ai-value-governance",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 16619,
+      "title": "AI Value Governance | SourceA Canada"
+    },
+    {
+      "url": "https://sourcea.app/attach/*",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/attach/*",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 28170,
+      "title": "SourceA \u2014 AI execution platform with proof built in"
+    },
+    {
+      "url": "https://sourcea.app/case-studies/*",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/case-studies/*",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 28170,
+      "title": "SourceA \u2014 AI execution platform with proof built in"
+    },
+    {
+      "url": "https://sourcea.app/changelog",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/changelog",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 2981,
+      "title": "Chat Unify 4.4 Release Notes | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/compare",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/compare",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 11631,
+      "title": "Compare | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/downloads",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/downloads",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 2800,
+      "title": "Downloads \u2014 Chat Unify for Mac | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/downloads/index",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/downloads/index",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 2800,
+      "title": "Downloads \u2014 Chat Unify for Mac | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/downloads/index.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/downloads/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 2800,
+      "title": "Downloads \u2014 Chat Unify for Mac | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/enterprise-ai-control-plane",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/enterprise-ai-control-plane",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 17152,
+      "title": "Enterprise AI Control Plane | SourceA UK"
+    },
+    {
+      "url": "https://sourcea.app/eval",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/eval",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 12784,
+      "title": "Technical overview \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/eval.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/eval.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 12784,
+      "title": "Technical overview \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/forge",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/forge",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 12163,
+      "title": "Prompt Forge | Prompt Forge \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/forge/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/forge/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 12163,
+      "title": "Prompt Forge | Prompt Forge \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/forge/*",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/forge/*",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 28170,
+      "title": "SourceA \u2014 AI execution platform with proof built in"
+    },
+    {
+      "url": "https://sourcea.app/forge/terminal",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/forge/terminal",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 7932,
+      "title": "Forge Terminal \u2014 live demo | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/forge/terminal/profile",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/forge/terminal/profile",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6338,
+      "title": "Profile \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/forge/terminal/signin",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/forge/terminal/signin",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 5746,
+      "title": "Sign in \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/forge/terminal/signup",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/forge/terminal/signup",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4986,
+      "title": "Create account \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/forge/terminal/workspace",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/forge/terminal/workspace",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6220,
+      "title": "Workspace \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/funnel",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/funnel",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 2762,
+      "title": "Get started \u2014 Sandbox \u2192 App \u2192 Platform | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/growth",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/growth",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 12575,
+      "title": "Growth system | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/kernel",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 14207,
+      "title": "SourceA | AI Execution Platform"
+    },
+    {
+      "url": "https://sourcea.app/kernel/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 14207,
+      "title": "SourceA | AI Execution Platform"
+    },
+    {
+      "url": "https://sourcea.app/learn",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/learn",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 5559,
+      "title": "Learn & build \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/loops/*",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/loops/*",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 28170,
+      "title": "SourceA \u2014 AI execution platform with proof built in"
+    },
+    {
+      "url": "https://sourcea.app/mvp",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/mvp",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 15116,
+      "title": "48-hour MVP \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/mvp/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/mvp/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 15116,
+      "title": "48-hour MVP \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/operating-brain-install",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/operating-brain-install",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 16830,
+      "title": "Operating Brain Install | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/platform",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/platform",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 13459,
+      "title": "Platform \u00b7 Agent Run factory hub \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/platform-story",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/platform-story",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 19797,
+      "title": "Platform | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/platform.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/platform.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 13459,
+      "title": "Platform \u00b7 Agent Run factory hub \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/platform/profile",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/platform/profile",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6338,
+      "title": "Profile \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/platform/sign-in",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/platform/sign-in",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 5746,
+      "title": "Sign in \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/platform/sign-up",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/platform/sign-up",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4986,
+      "title": "Create account \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/platform/workspace",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/platform/workspace",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6220,
+      "title": "Workspace \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/pricing",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/pricing",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 12701,
+      "title": "Pricing | SourceA \u2014 Build \u00b7 Rent \u00b7 Own"
+    },
+    {
+      "url": "https://sourcea.app/proof",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/proof",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 20485,
+      "title": "Verification | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/pulse-founder",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/pulse-founder",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 7571,
+      "title": "Founder pulse | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sandbox",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sandbox",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8666,
+      "title": "Proof Sandbox | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/scenario",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/scenario",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 14897,
+      "title": "Scenario | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/security",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/security",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 13522,
+      "title": "Security & procurement | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 14207,
+      "title": "SourceA | AI Execution Platform"
+    },
+    {
+      "url": "https://sourcea.app/sourcea-boot",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea-boot",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 12784,
+      "title": "Technical overview \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea-boot/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea-boot/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 12784,
+      "title": "Technical overview \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 14207,
+      "title": "SourceA | AI Execution Platform"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/48h-mvp",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/48h-mvp",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 27193,
+      "title": "48-hour MVP hub \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/48h-mvp.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/48h-mvp.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 27193,
+      "title": "48-hour MVP hub \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/ai-value-governance",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/ai-value-governance",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 16619,
+      "title": "AI Value Governance | SourceA Canada"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/ai-value-governance.html",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/ai-value-governance.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 16619,
+      "title": "AI Value Governance | SourceA Canada"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/attach/agency-onepager",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/attach/agency-onepager",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 7893,
+      "title": "SourceA \u2014 Agency overview (1 page)"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/attach/agency-onepager.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/attach/agency-onepager.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 7893,
+      "title": "SourceA \u2014 Agency overview (1 page)"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/attach/procurement-pack",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/attach/procurement-pack",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6831,
+      "title": "SourceA Procurement Pack"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/attach/procurement-pack.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/attach/procurement-pack.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6831,
+      "title": "SourceA Procurement Pack"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/attach/proof-bundle-sample",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/attach/proof-bundle-sample",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 5264,
+      "title": "Proof bundle sample | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/attach/proof-bundle-sample.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/attach/proof-bundle-sample.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 5264,
+      "title": "Proof bundle sample | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/brain-chat-settings",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/brain-chat-settings",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4906,
+      "title": "Brain chat control \u00b7 private | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/brain-chat-settings.html",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/brain-chat-settings.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4906,
+      "title": "Brain chat control \u00b7 private | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/case-studies/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/case-studies/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 9014,
+      "title": "Case studies | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/case-studies/agentgo",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/case-studies/agentgo",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 14204,
+      "title": "AgentGo case study | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/case-studies/agentgo.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/case-studies/agentgo.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 14204,
+      "title": "AgentGo case study | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/case-studies/index.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/case-studies/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 9014,
+      "title": "Case studies | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/case-studies/pureflow",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/case-studies/pureflow",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 14017,
+      "title": "PureFlow case study | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/case-studies/pureflow.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/case-studies/pureflow.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 14017,
+      "title": "PureFlow case study | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/changelog",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/changelog",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 2981,
+      "title": "Chat Unify 4.4 Release Notes | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/changelog.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/changelog.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 2981,
+      "title": "Chat Unify 4.4 Release Notes | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/compare",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/compare",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 11631,
+      "title": "Compare | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/compare.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/compare.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 11631,
+      "title": "Compare | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/downloads/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/downloads/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 2999,
+      "title": "Downloads \u2014 Chat Unify for Mac | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/downloads/index.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/downloads/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 2999,
+      "title": "Downloads \u2014 Chat Unify for Mac | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/enterprise-ai-control-plane",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/enterprise-ai-control-plane",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 17152,
+      "title": "Enterprise AI Control Plane | SourceA UK"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/enterprise-ai-control-plane.html",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/enterprise-ai-control-plane.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 17152,
+      "title": "Enterprise AI Control Plane | SourceA UK"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/eval",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/eval",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 12983,
+      "title": "Technical overview \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/eval.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/eval.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 12983,
+      "title": "Technical overview \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4314,
+      "title": "Factory Apps | Noetfield Platform"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/aml-screening-factory",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/aml-screening-factory",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4498,
+      "title": "AML Screening Factory | Noetfield"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/aml-screening-factory.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/aml-screening-factory.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4498,
+      "title": "AML Screening Factory | Noetfield"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/cross-border-kyb-factory",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/cross-border-kyb-factory",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4472,
+      "title": "Cross-Border KYB Factory | Noetfield"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/cross-border-kyb-factory.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/cross-border-kyb-factory.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4472,
+      "title": "Cross-Border KYB Factory | Noetfield"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/controlled-app-factory",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/controlled-app-factory",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4458,
+      "title": "Controlled App Factory | Noetfield"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/controlled-app-factory.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/controlled-app-factory.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4458,
+      "title": "Controlled App Factory | Noetfield"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/controlled-exchange-factory",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/controlled-exchange-factory",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4503,
+      "title": "Controlled Exchange Factory | Noetfield"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/controlled-exchange-factory.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/controlled-exchange-factory.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4503,
+      "title": "Controlled Exchange Factory | Noetfield"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/controlled-web-product-factory",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/controlled-web-product-factory",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4489,
+      "title": "Controlled Web Product Factory | Noetfield"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/controlled-web-product-factory.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/controlled-web-product-factory.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4489,
+      "title": "Controlled Web Product Factory | Noetfield"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/index.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4314,
+      "title": "Factory Apps | Noetfield Platform"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/ma-diligence-factory",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/ma-diligence-factory",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4494,
+      "title": "M&A Due Diligence Factory | Noetfield"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/ma-diligence-factory.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/ma-diligence-factory.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4494,
+      "title": "M&A Due Diligence Factory | Noetfield"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/try-factory-demo",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/try-factory-demo",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8666,
+      "title": "Proof Sandbox | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/try-factory-demo.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/try-factory-demo.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8666,
+      "title": "Proof Sandbox | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/try-factory-demo/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/try-factory-demo/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8666,
+      "title": "Proof Sandbox | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/try-noetfield-freemium",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/try-noetfield-freemium",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4574,
+      "title": "Noetfield TLE reference factory | Noetfield"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/try-noetfield-freemium.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/try-noetfield-freemium.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4574,
+      "title": "Noetfield TLE reference factory | Noetfield"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/witnessbc-proof-lab",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/witnessbc-proof-lab",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4489,
+      "title": "WitnessBC Proof Lab | Noetfield"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/factories/witnessbc-proof-lab.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/factories/witnessbc-proof-lab.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4489,
+      "title": "WitnessBC Proof Lab | Noetfield"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 12163,
+      "title": "Prompt Forge | Prompt Forge \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/chat-unify",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/chat-unify",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 7924,
+      "title": "Chat Unify integration | Prompt Forge \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/chat-unify.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/chat-unify.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 7924,
+      "title": "Chat Unify integration | Prompt Forge \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/cursor-bridge",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/cursor-bridge",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8287,
+      "title": "Cursor bridge | Prompt Forge \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/cursor-bridge.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/cursor-bridge.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8287,
+      "title": "Cursor bridge | Prompt Forge \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/how-it-works",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/how-it-works",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8290,
+      "title": "How Prompt Forge works | Prompt Forge \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/how-it-works.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/how-it-works.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8290,
+      "title": "How Prompt Forge works | Prompt Forge \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/index.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 12163,
+      "title": "Prompt Forge | Prompt Forge \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/mission-template",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/mission-template",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8440,
+      "title": "Mission prompt template | Prompt Forge \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/mission-template.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/mission-template.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8440,
+      "title": "Mission prompt template | Prompt Forge \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/ssot-policy",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/ssot-policy",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8209,
+      "title": "SSOT policy layer | Prompt Forge \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/ssot-policy.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/ssot-policy.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8209,
+      "title": "SSOT policy layer | Prompt Forge \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/terminal",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 7932,
+      "title": "Forge Terminal \u2014 live demo | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/terminal.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 7932,
+      "title": "Forge Terminal \u2014 live demo | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal/profile",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/terminal/profile",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6338,
+      "title": "Profile \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal/profile.html",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/terminal/profile.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6338,
+      "title": "Profile \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal/signin",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/terminal/signin",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 5746,
+      "title": "Sign in \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal/signin.html",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/terminal/signin.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 5746,
+      "title": "Sign in \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal/signup",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/terminal/signup",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4986,
+      "title": "Create account \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal/signup.html",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/terminal/signup.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4986,
+      "title": "Create account \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal/workspace",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/terminal/workspace",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6220,
+      "title": "Workspace \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/terminal/workspace.html",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/terminal/workspace.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6220,
+      "title": "Workspace \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/try",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/try",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8403,
+      "title": "Try Prompt Forge | Prompt Forge \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/forge/try.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/forge/try.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8403,
+      "title": "Try Prompt Forge | Prompt Forge \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/founder-home",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/founder-home",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 28170,
+      "title": "SourceA \u2014 AI execution platform with proof built in"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/founder-home.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/founder-home.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 28170,
+      "title": "SourceA \u2014 AI execution platform with proof built in"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/funnel",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/funnel",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 2762,
+      "title": "Get started \u2014 Sandbox \u2192 App \u2192 Platform | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/funnel.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/funnel.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 2762,
+      "title": "Get started \u2014 Sandbox \u2192 App \u2192 Platform | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/growth",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/growth",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 12575,
+      "title": "Growth system | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/growth.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/growth.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 12575,
+      "title": "Growth system | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/home",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/home",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 28170,
+      "title": "SourceA \u2014 AI execution platform with proof built in"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/home.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/home.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 28170,
+      "title": "SourceA \u2014 AI execution platform with proof built in"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/home/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/home/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 28170,
+      "title": "SourceA \u2014 AI execution platform with proof built in"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/hub",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/hub",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 10421,
+      "title": "SourceA \u2014 Controlled agentic systems for founders & developers"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/hub.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/hub.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 10421,
+      "title": "SourceA \u2014 Controlled agentic systems for founders & developers"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/index.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 14207,
+      "title": "SourceA | AI Execution Platform"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/investors",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/investors",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8662,
+      "title": "Investors | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/investors.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/investors.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8662,
+      "title": "Investors | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/kernel/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/kernel/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 11604,
+      "title": "Kernel | SourceA \u2014 Deterministic Business Operating System"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/kernel/index.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/kernel/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 11604,
+      "title": "Kernel | SourceA \u2014 Deterministic Business Operating System"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/kernel/legacy-full-home-v1",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/kernel/legacy-full-home-v1",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 78200,
+      "title": "SourceA | AI execution platform (legacy reference)"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/kernel/legacy-full-home-v1.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/kernel/legacy-full-home-v1.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 78200,
+      "title": "SourceA | AI execution platform (legacy reference)"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/learn",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/learn",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 5559,
+      "title": "Learn & build \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/learn.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/learn.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 5559,
+      "title": "Learn & build \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/loops/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/loops/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 15861,
+      "title": "Factory loops | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/loops/eval-booking",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/loops/eval-booking",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 7192,
+      "title": "Eval booking loop | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/loops/eval-booking.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/loops/eval-booking.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 7192,
+      "title": "Eval booking loop | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/loops/index.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/loops/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 15861,
+      "title": "Factory loops | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/loops/ops-monitor",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/loops/ops-monitor",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8638,
+      "title": "Ops monitor loop | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/loops/ops-monitor.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/loops/ops-monitor.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8638,
+      "title": "Ops monitor loop | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/loops/outreach",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/loops/outreach",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 9470,
+      "title": "Outreach loop | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/loops/outreach.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/loops/outreach.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 9470,
+      "title": "Outreach loop | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/loops/proof-export",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/loops/proof-export",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6531,
+      "title": "Proof export loop | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/loops/proof-export.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/loops/proof-export.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6531,
+      "title": "Proof export loop | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/loops/research",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/loops/research",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8598,
+      "title": "Research loop | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/loops/research.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/loops/research.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8598,
+      "title": "Research loop | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/loops/session-gate",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/loops/session-gate",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6376,
+      "title": "Session gate loop | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/loops/session-gate.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/loops/session-gate.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6376,
+      "title": "Session gate loop | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/mvp-landing",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/mvp-landing",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 10548,
+      "title": "48-hour MVP \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/mvp-landing.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/mvp-landing.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 10548,
+      "title": "48-hour MVP \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/offer",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/offer",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 10682,
+      "title": "48-Hour MVP Offer | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/offer.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/offer.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 10682,
+      "title": "48-Hour MVP Offer | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/operating-brain-install",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/operating-brain-install",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 16830,
+      "title": "Operating Brain Install | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/operating-brain-install.html",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/operating-brain-install.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 16830,
+      "title": "Operating Brain Install | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/platform",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/platform",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 19797,
+      "title": "Platform | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/platform-portal",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/platform-portal",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 13658,
+      "title": "Platform \u00b7 Agent Run factory hub \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/platform-portal.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/platform-portal.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 13658,
+      "title": "Platform \u00b7 Agent Run factory hub \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/platform.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/platform.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 19797,
+      "title": "Platform | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/platform/profile",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/platform/profile",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6338,
+      "title": "Profile \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/platform/sign-in",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/platform/sign-in",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 5746,
+      "title": "Sign in \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/platform/sign-up",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/platform/sign-up",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 4986,
+      "title": "Create account \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/platform/workspace",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/platform/workspace",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6220,
+      "title": "Workspace \u00b7 Forge Terminal \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/pricing",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/pricing",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 12701,
+      "title": "Pricing | SourceA \u2014 Build \u00b7 Rent \u00b7 Own"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/pricing.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/pricing.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 12701,
+      "title": "Pricing | SourceA \u2014 Build \u00b7 Rent \u00b7 Own"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/proof",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/proof",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 20485,
+      "title": "Verification | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/proof.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/proof.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 20485,
+      "title": "Verification | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/proof/live",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/proof/live",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 16304,
+      "title": "Live demo proof | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/proof/live.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/proof/live.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 16304,
+      "title": "Live demo proof | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/pulse-founder",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/pulse-founder",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 7571,
+      "title": "Founder pulse | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/pulse-founder.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/pulse-founder.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 7571,
+      "title": "Founder pulse | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/reference/sourcea-landing-mock-v1",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/reference/sourcea-landing-mock-v1",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 17549,
+      "title": "SourceA \u2014 run your agency on proof"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/reference/sourcea-landing-mock-v1.html",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/reference/sourcea-landing-mock-v1.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 17549,
+      "title": "SourceA \u2014 run your agency on proof"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/sandbox",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/sandbox",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8666,
+      "title": "Proof Sandbox | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/sandbox.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/sandbox.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8666,
+      "title": "Proof Sandbox | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/scenario",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/scenario",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 14897,
+      "title": "Scenario | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/scenario.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/scenario.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 14897,
+      "title": "Scenario | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/security",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/security",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 13522,
+      "title": "Security & procurement | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/security.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/security.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 13522,
+      "title": "Security & procurement | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/sources",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/sources",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 13414,
+      "title": "Sources & evidence | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/sources.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/sources.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 13414,
+      "title": "Sources & evidence | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/start",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/start",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 15116,
+      "title": "48-hour MVP \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/start.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/start.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 15116,
+      "title": "48-hour MVP \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/status",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/status",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 11592,
+      "title": "Status | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/status.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/status.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 11592,
+      "title": "Status | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/team",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/team",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 19518,
+      "title": "Your agentic team | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/team.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/team.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 19518,
+      "title": "Your agentic team | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/trust/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/trust/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 3480,
+      "title": "Trust Center | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/trust/index.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/trust/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 3480,
+      "title": "Trust Center | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/unify-demo/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/unify-demo/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 58558,
+      "title": "Chat Unify \u2014 paste \u00b7 verify \u00b7 unify"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/unify-demo/index.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/unify-demo/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 58558,
+      "title": "Chat Unify \u2014 paste \u00b7 verify \u00b7 unify"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/unify/",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/unify/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 58558,
+      "title": "Chat Unify \u2014 paste \u00b7 verify \u00b7 unify"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/unify/index.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/unify/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 58558,
+      "title": "Chat Unify \u2014 paste \u00b7 verify \u00b7 unify"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/unify/terminal/",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/unify/terminal/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 21323,
+      "title": "SourceA Forge IDE"
+    },
+    {
+      "url": "https://sourcea.app/sourcea/unify/terminal/index.html",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/sourcea/unify/terminal/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 21323,
+      "title": "SourceA Forge IDE"
+    },
+    {
+      "url": "https://sourcea.app/start",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/start",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 15116,
+      "title": "48-hour MVP \u00b7 SourceA"
+    },
+    {
+      "url": "https://sourcea.app/team",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/team",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 19518,
+      "title": "Your agentic team | SourceA"
+    },
+    {
+      "url": "https://sourcea.app/unify",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/unify",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 58359,
+      "title": "Chat Unify \u2014 paste \u00b7 verify \u00b7 unify"
+    },
+    {
+      "url": "https://sourcea.app/unify-demo",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/unify-demo",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 58359,
+      "title": "Chat Unify \u2014 paste \u00b7 verify \u00b7 unify"
+    },
+    {
+      "url": "https://sourcea.app/unify-demo/index",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/unify-demo/index",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 58359,
+      "title": "Chat Unify \u2014 paste \u00b7 verify \u00b7 unify"
+    },
+    {
+      "url": "https://sourcea.app/unify-demo/index.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/unify-demo/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 58359,
+      "title": "Chat Unify \u2014 paste \u00b7 verify \u00b7 unify"
+    },
+    {
+      "url": "https://sourcea.app/unify/index",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/unify/index",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 58359,
+      "title": "Chat Unify \u2014 paste \u00b7 verify \u00b7 unify"
+    },
+    {
+      "url": "https://sourcea.app/unify/index.html",
+      "ok": true,
+      "findings": [],
+      "status": 200,
+      "final_url": "https://sourcea.app/unify/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 58359,
+      "title": "Chat Unify \u2014 paste \u00b7 verify \u00b7 unify"
+    },
+    {
+      "url": "https://sourcea.app/unify/terminal/index",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/unify/terminal/index",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 21124,
+      "title": "SourceA Forge IDE"
+    },
+    {
+      "url": "https://sourcea.app/unify/terminal/index.html",
+      "ok": true,
+      "findings": [
+        {
+          "id": "no_contact_surface",
+          "severity": "WARN",
+          "detail": "commercial page missing hello@/forge@ and chatbot"
+        }
+      ],
+      "status": 200,
+      "final_url": "https://sourcea.app/unify/terminal/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 21124,
+      "title": "SourceA Forge IDE"
+    }
+  ]
+}
