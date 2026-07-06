@@ -51,6 +51,14 @@ def run_cloud_security_sweep_weekly(body: dict[str, Any]) -> dict[str, Any]:
     return {**row, "trigger_source": body.get("trigger_source", "cloudflare_cron")}
 
 
+def run_cloud_workflow_census_weekly(body: dict[str, Any]) -> dict[str, Any]:
+    from workflow_census_v1 import run_census  # noqa: WPS433
+
+    insert = body.get("insert", True) is not False
+    row = run_census(write=insert, audit=insert)
+    return {**row, "trigger_source": body.get("trigger_source", "cloudflare_cron")}
+
+
 def run_cloud_determinism_gate(body: dict[str, Any]) -> dict[str, Any]:
     steps: list[dict[str, Any]] = []
     ok = True

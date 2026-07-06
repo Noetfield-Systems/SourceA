@@ -367,6 +367,10 @@ def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
         from fbe_cloud_scheduled_loops_v1 import run_cloud_security_sweep_weekly  # noqa: WPS433
 
         return run_cloud_security_sweep_weekly(body)
+    if path == "/api/fbe/workflow-census/weekly/v1":
+        from fbe_cloud_scheduled_loops_v1 import run_cloud_workflow_census_weekly  # noqa: WPS433
+
+        return run_cloud_workflow_census_weekly(body)
     if path == "/api/fbe/determinism/gate/v1":
         from fbe_cloud_scheduled_loops_v1 import run_cloud_determinism_gate  # noqa: WPS433
 

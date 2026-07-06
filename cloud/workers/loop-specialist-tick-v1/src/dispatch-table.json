@@ -88,6 +88,19 @@
       ]
     },
     {
+      "cron": "0 10 * * 0",
+      "trigger_id": "SA-T-workflow-census-weekly",
+      "label": "workflow-census-weekly",
+      "jobs": [
+        {
+          "id": "workflow-census",
+          "kind": "railway",
+          "path": "/api/fbe/workflow-census/weekly/v1",
+          "body": { "insert": true }
+        }
+      ]
+    },
+    {
       "cron": "30 */6 * * *",
       "trigger_id": "SA-T7-schedule",
       "label": "determinism-gate-6h",
