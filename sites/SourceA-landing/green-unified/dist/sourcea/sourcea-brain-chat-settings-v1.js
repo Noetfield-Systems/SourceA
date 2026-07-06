@@ -20,6 +20,11 @@
     return d.innerHTML;
   }
 
+  function isAiReady(data) {
+    if (!data || typeof data !== "object") return false;
+    return Boolean(data.ai_model_ready ?? data.openrouter_ready);
+  }
+
   async function loadJson(url) {
     const r = await fetch(url, { cache: "no-store" });
     if (!r.ok) throw new Error(url + " " + r.status);
@@ -79,7 +84,7 @@
         body: JSON.stringify({ action: "status", product: "forge_terminal" }),
       });
       const row = await r.json();
-      if (row.openrouter_ready || row.ok) {
+      if (isAiReady(row) || row.ok) {
         st.textContent = "Worker live · " + (row.models ? row.models.length : 0) + " models";
         st.classList.add("is-live");
       } else {
