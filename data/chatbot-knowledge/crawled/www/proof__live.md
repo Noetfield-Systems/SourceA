@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-06T09:57:10Z
+updated: 2026-07-06T10:57:13Z
 lane: buyer
 source_path: sites/SourceA-landing/green-unified/proof/live.html
 public: true

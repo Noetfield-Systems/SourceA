@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-06T09:57:10Z
+updated: 2026-07-06T10:57:13Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json
 public: true
@@ -11,12 +11,12 @@ kind: json
 - **schema**: sourcea-positioning-v1
 - **version**: 3.3.0
 - **saved_at**: 2026-07-01T23:45:00Z
-- **one_line**: SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run.
+- **one_line**: SourceA is an AI execution platform — real builds, automations, and agent workflows, with a verifiable receipt on every run.
 - **hero_eval_line**: Evaluate in 5 minutes — sourcea-boot PASS or BLOCK — no sales call
 - **eval_path**: /eval
-- **brain_subtitle**: AI execution platform powered by Forge — builds, automations, and agent workflows
+- **brain_subtitle**: AI execution platform — builds, automations, and agent workflows
 - **composer_placeholder**: What are you trying to run, build, or automate?
-- **brain_greet_html**: Hi — I'm <strong>Brain</strong>. SourceA is an <strong>AI execution platform powered by Forge</strong> — real builds, automations, and agent workflows, with a verifiable receipt on every run.<br><span class='sa-brain-hint'>Try Forge Terminal, run <strong>sourcea-boot</strong> on /eval, or ask for examples — no pitch until you want one.</span>
+- **brain_greet_html**: Hi — I'm <strong>Brain</strong>. SourceA is an <strong>AI execution platform</strong> — real builds, automations, and agent workflows, with a verifiable receipt on every run.<br><span class='sa-brain-hint'>Try Forge Terminal, run <strong>sourcea-boot</strong> on /eval, or ask for examples — no pitch until you want one.</span>
 - **proof_is_feature_not_product**: True
 - **brand_definition**: AI execution platform (Forge) with built-in proof
 - **executive_summary**: SourceA helps founders and agencies turn AI into production work — not just chat. Forge runs scoped builds, automations, and agent workflows; every run is tracked and validated so clients see what was done and why.
