@@ -1,7 +1,7 @@
 {
   "schema": "cloud-workers-control-plane-v1",
   "version": "1.4.0",
-  "saved_at": "2026-07-06T09:17:58Z",
+  "saved_at": "2026-07-06T09:37:16Z",
   "one_law": "Cloud Workers cockpit \u00b7 Auto Runtime */10 \u00b7 max_advance=1 \u00b7 one UP-DR recipe per CLOUD-SEC row \u00b7 Supabase proof gate",
   "cf_only_24_7": "data/cf-only-24-7-execution-v1.json",
   "cf_deploy_all": "scripts/deploy_cf_all_motors_v1.sh",
