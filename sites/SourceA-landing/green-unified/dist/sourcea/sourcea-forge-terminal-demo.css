@@ -104,6 +104,16 @@
   margin-left: auto;
 }
 .sa-ft-status.is-live { color: var(--ft-accent); }
+.sa-ft-offline-banner {
+  margin: 0 1rem 0.75rem;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  background: rgba(220, 80, 60, 0.12);
+  border: 1px solid rgba(220, 80, 60, 0.35);
+  color: var(--ft-text, #e8eaed);
+}
+.sa-ft-offline-banner a { color: var(--ft-accent); }
 .sa-ft-thread {
   flex: 1;
   overflow-y: auto;

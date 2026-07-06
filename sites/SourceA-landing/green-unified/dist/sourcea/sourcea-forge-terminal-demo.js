@@ -151,6 +151,11 @@
     if (!el) return;
     el.textContent = text;
     el.classList.toggle("is-live", !!live);
+    const banner = $("sa-ft-offline-banner");
+    if (banner) {
+      const offline = /offline|failed/i.test(text);
+      banner.hidden = !offline;
+    }
   }
 
   function fetchJson(url, body, timeoutMs) {
@@ -232,11 +237,11 @@
         if (orOnly.length) applyDemoModels(orOnly, pub.default_model);
       }
       setStatus(
-        st.openrouter_ready ? "Live · prompt forge on send" : "Demo offline — book a walkthrough",
+        st.openrouter_ready ? "Live · prompt forge on send" : "Demo offline — email forge@sourcea.app",
         !!st.openrouter_ready,
       );
     } catch (_) {
-      setStatus("Demo offline — book a walkthrough", false);
+      setStatus("Demo offline — email forge@sourcea.app", false);
     }
   }
 
