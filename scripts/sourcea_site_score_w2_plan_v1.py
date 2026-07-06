@@ -98,11 +98,11 @@ def probe_step(sa_score_id: str, theme: str, workstream: str) -> bool:
     # Theme-specific high-signal probes
     probes: dict[str, bool] = {
         # UP-SA-W2-07 Live wiring
-        "sa-score-0601:w01-ship": _file_has(ROOT / "cloud/workers/sourcea-app-proxy-v1", "brain"),
+        "sa-score-0601:w01-ship": _file_has(ROOT / "cloud/workers/sourcea-app-proxy-v1/src/index.js", "/api/site/"),
         "sa-score-0611:w02-prove": _http_ok("https://sourcea.app/api/brain/chat/v1", timeout=12)
         or _http_ok("http://127.0.0.1:5180/api/brain/chat/v1"),
         "sa-score-0621:w03-wire": _file_has(ROOT / "scripts/build_sourcea_vercel_output_v1.py", "sourcea-site-pulse"),
-        "sa-score-0631:w04-ui": _file_has(LANDING / "index.html", "sourcea-site-pulse-v1.js"),
+        "sa-score-0631:w04-ui": _file_has(ROOT / "cloud/workers/sourcea-site-pulse-v1/SETUP_LOCKED.md", "FOUNDER_PULSE_KEY rotation"),
         "sa-score-0641:w05-copy": _file_has(LANDING / "data/sourcea-positioning-v1.json", "agentic_first_law"),
         "sa-score-0651:w06-worker": (ROOT / "cloud/workers/sourcea-brain-chat-v1").is_dir(),
         "sa-score-0661:w07-deploy": _file_has(ROOT / "scripts/publish_sourcea_landing_v1.py", "sourcea.app"),

@@ -78,6 +78,34 @@ Ship · Prove · Wire · UI · Copy · Worker · Deploy · E2E · Market bench �
 
 ---
 
+## W2 execution (10 upgrade plans × 10 steps)
+
+**Wave:** W2 · **Gate:** `UP-SA-W2-10` · **Pulse:** `python3 scripts/sourcea_site_score_w2_pulse_v1.py --json`
+
+| Plan | Theme | Step IDs (w01→w10 slice-01) |
+|------|-------|------------------------------|
+| UP-SA-W2-01 | Self-serve proof | 0001, 0011, …, 0091 |
+| UP-SA-W2-02 | Market polish | 0101, …, 0191 |
+| UP-SA-W2-03 | Commercial close | 0201, …, 0291 |
+| UP-SA-W2-04 | Intake → ops | 0301, …, 0391 |
+| UP-SA-W2-05 | Client-facing UI | 0401, …, 0491 |
+| UP-SA-W2-06 | Deterministic routing | 0501, …, 0591 |
+| UP-SA-W2-07 | Live wiring | 0601, …, 0691 |
+| UP-SA-W2-08 | Analytics & feedback | 0701, …, 0791 |
+| UP-SA-W2-09 | Vocabulary SSOT | 0801, …, 0891 |
+| UP-SA-W2-10 | E2E & quality gates | 0901, …, 0991 |
+
+**Critical path:** UP-SA-W2-07 → UP-SA-W2-01 → UP-SA-W2-02 + UP-SA-W2-09 → UP-SA-W2-10
+
+**Merge W2 only (no full regen):**
+
+```bash
+python3 scripts/generate_sourcea_site_score_up_1000_plans_v1.py --write-w2
+python3 scripts/sourcea_site_score_w2_pulse_v1.py --json
+```
+
+---
+
 ## Generate & validate
 
 ```bash
