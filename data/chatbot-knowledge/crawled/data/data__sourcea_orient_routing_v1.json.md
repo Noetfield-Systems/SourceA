@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-02T10:32:00Z
+updated: 2026-07-06T09:57:10Z
 lane: core
 source_path: data/sourcea_orient_routing_v1.json
 public: true
@@ -193,6 +193,21 @@ kind: json
 - **id**: worker_assignment
 - **path**: data/sourcea-worker-professional-assignment-v1.json
 - **why**: Phased worker handoff · Mac control → cloud execute
+## mac_control_dispatch
+- **step**: 13
+- **id**: mac_control_dispatch
+- **path**: scripts/fbe/lib/mac_control_dispatch_v1.py
+- **why**: Mac Hub dispatch OK · motor blocked · CF cron only
+## governed_autorun
+- **step**: 14
+- **id**: governed_autorun
+- **path**: .cursor/skills/governed-autorun/SKILL.md
+- **why**: 24/7 autorun laws L1–L13 · D1–D8 determinism · loop specialist standing duties
+## living_brain_master_plan
+- **step**: 15
+- **id**: living_brain_master_plan
+- **path**: docs/SOURCEA_LIVING_BRAIN_AUTORUN_MASTER_PLAN_LOCKED_v1.md
+- **why**: 8 planes · 8 bridges · W-LBA worker queue · living system not islands
 ## session_gate_step_nodes
 - **anti_staleness_auto_wire**: disk_live_wire
 - **memory_mirror_sync**: disk_live_wire
