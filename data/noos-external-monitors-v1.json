@@ -1,0 +1,62 @@
+{
+  "schema": "noos-external-monitors-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-06T05:45:00Z",
+  "one_law": "UptimeRobot = alert only (GET health). Never POST /loop or trigger workflows.",
+  "provider": "uptimerobot",
+  "tier": "free",
+  "interval_minutes": 5,
+  "monitors": [
+    {
+      "id": "noos-loop-runner-health",
+      "type": "http",
+      "url": "https://noos-loop-runner-production.up.railway.app/health",
+      "keyword": "noos-loop-runner",
+      "role": "railway_loop_runner_up"
+    },
+    {
+      "id": "noos-loop-fleet-tick-health",
+      "type": "http",
+      "url": "https://noos-loop-fleet-tick-v1.sina-kazemnezhad-ca.workers.dev/health",
+      "role": "cf_fleet_motor_up"
+    },
+    {
+      "id": "noos-deadman-health",
+      "type": "http",
+      "url": "https://noos-deadman-v1.sina-kazemnezhad-ca.workers.dev/health",
+      "role": "cf_deadman_up"
+    },
+    {
+      "id": "noetfield-www-optional",
+      "type": "http",
+      "url": "https://www.noetfield.com/",
+      "optional": true,
+      "role": "public_nerve"
+    }
+  ],
+  "cron_job_org": {
+    "max_jobs": 1,
+    "one_law": "Tertiary deadman only — not a second loop motor",
+    "job": {
+      "title": "NOOS deadman check",
+      "method": "POST",
+      "url": "https://noos-deadman-v1.sina-kazemnezhad-ca.workers.dev/check",
+      "schedule": "*/30 * * * *",
+      "forbidden": ["POST /loop", "github dispatch", "*/5 loop ticks"]
+    }
+  },
+  "sina_gateway_additions": [
+    {
+      "id": "sina-gateway-health",
+      "type": "http",
+      "url": "https://sina-gateway-production.up.railway.app/health",
+      "keyword": "ok"
+    },
+    {
+      "id": "sina-gateway-ready",
+      "type": "http",
+      "url": "https://sina-gateway-production.up.railway.app/ready",
+      "expected_status": 200
+    }
+  ]
+}
