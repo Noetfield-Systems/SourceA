@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-deep-research-10-upgrade-plan-v1",
   "version": "1.0.0",
-  "saved_at": "2026-07-06T09:17:58Z",
+  "saved_at": "2026-07-06T09:37:16Z",
   "source": "/Users/sinakazemnezhad/Downloads/sourcea_deep_research_report.md",
   "wave": "W1",
   "gate_plan": "UP-DR-10",
@@ -32,13 +32,13 @@
       "client_demo": "Open /eval \u2014 show install line matches live PyPI or honest GitHub fallback",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/eval.html",
-      "status": "open",
+      "status": "done",
       "steps": [
         {
           "sdr_id": "sdr-p0-001",
           "title": "Fix public install/package claim vs PyPI reality",
           "acceptance": "sdr-p0-001 verify PASS",
-          "status": "open"
+          "status": "done"
         }
       ],
       "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-01-claim-hygiene.md"
@@ -56,13 +56,13 @@
       "client_demo": "Send one prompt on terminal \u2014 response or explicit offline state",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/sourcea/forge/terminal.html",
-      "status": "open",
+      "status": "done",
       "steps": [
         {
           "sdr_id": "sdr-p0-002",
           "title": "Forge Terminal: fix Connecting\u2026 or show honest offline state",
           "acceptance": "sdr-p0-002 verify PASS",
-          "status": "open"
+          "status": "done"
         }
       ],
       "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-02-live-demo.md"
@@ -80,13 +80,13 @@
       "client_demo": "Submit test lead on /start \u2014 show confirmation ID + Supabase row",
       "lane": "sourcea-site",
       "work_path": "cloud/workers/sourcea-mvp-intake-v1/",
-      "status": "open",
+      "status": "done",
       "steps": [
         {
           "sdr_id": "sdr-p0-003",
           "title": "Verify intake submit: store lead + confirmation + notification",
           "acceptance": "sdr-p0-003 verify PASS",
-          "status": "open"
+          "status": "done"
         }
       ],
       "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-03-lead-capture.md"
@@ -104,19 +104,19 @@
       "client_demo": "10-second test: visitor names paid path without reading nav \u00b7 Read hero \u2014 ICP clear in one breath",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/index.html",
-      "status": "open",
+      "status": "done",
       "steps": [
         {
           "sdr_id": "sdr-p1-001",
           "title": "One primary CTA: Request a 48-hour build",
           "acceptance": "sdr-p1-001 verify PASS",
-          "status": "open"
+          "status": "done"
         },
         {
           "sdr_id": "sdr-p1-006",
           "title": "Homepage copy upgrade: proof-backed MVPs headline",
           "acceptance": "sdr-p1-006 verify PASS",
-          "status": "open"
+          "status": "done"
         }
       ],
       "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-04-buyer-path.md"
@@ -134,19 +134,19 @@
       "client_demo": "Tab three pages \u2014 pricing matches \u00b7 Click nav Pricing \u2014 page loads",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/pricing.html",
-      "status": "open",
+      "status": "done",
       "steps": [
         {
           "sdr_id": "sdr-p1-002",
           "title": "Canonical pricing ladder across Offer/Start/Pricing",
           "acceptance": "sdr-p1-002 verify PASS",
-          "status": "open"
+          "status": "done"
         },
         {
           "sdr_id": "sdr-p1-007",
           "title": "Pricing page route reliability (200 + linked from nav)",
           "acceptance": "sdr-p1-007 verify PASS",
-          "status": "open"
+          "status": "done"
         }
       ],
       "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-05-commercial-ladder.md"
@@ -164,13 +164,13 @@
       "client_demo": "Scroll intake \u2014 privacy visible before Submit",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/start.html",
-      "status": "open",
+      "status": "done",
       "steps": [
         {
           "sdr_id": "sdr-p1-003",
           "title": "Privacy/data note visible before intake Submit",
           "acceptance": "sdr-p1-003 verify PASS",
-          "status": "open"
+          "status": "done"
         }
       ],
       "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-06-intake-trust.md"
@@ -188,13 +188,13 @@
       "client_demo": "Read taxonomy box aloud \u2014 under 15 seconds",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/index.html",
-      "status": "open",
+      "status": "done",
       "steps": [
         {
           "sdr_id": "sdr-p1-004",
           "title": "Simplify product taxonomy box on homepage",
           "acceptance": "sdr-p1-004 verify PASS",
-          "status": "open"
+          "status": "done"
         }
       ],
       "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-07-product-taxonomy.md"
@@ -212,13 +212,13 @@
       "client_demo": "Open receipt \u2014 non-technical line explains delivery proof",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/proof.html",
-      "status": "open",
+      "status": "done",
       "steps": [
         {
           "sdr_id": "sdr-p1-005",
           "title": "Buyer-readable proof: What this proves under live receipt",
           "acceptance": "sdr-p1-005 verify PASS",
-          "status": "open"
+          "status": "done"
         }
       ],
       "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-08-proof-readability.md"
@@ -236,13 +236,13 @@
       "client_demo": "Footer answers who-owns-what in 10s",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/index.html",
-      "status": "open",
+      "status": "done",
       "steps": [
         {
           "sdr_id": "sdr-p2-001",
           "title": "Footer relation map: SourceA \u00b7 Noetfield \u00b7 TrustField \u00b7 Gateway",
           "acceptance": "sdr-p2-001 verify PASS",
-          "status": "open"
+          "status": "done"
         }
       ],
       "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-09-ecosystem-map.md"
@@ -260,13 +260,13 @@
       "client_demo": "LinkedIn post inspector shows correct preview",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/index.html",
-      "status": "open",
+      "status": "done",
       "steps": [
         {
           "sdr_id": "sdr-p2-002",
           "title": "OpenGraph / LinkedIn share card",
           "acceptance": "sdr-p2-002 verify PASS",
-          "status": "open"
+          "status": "done"
         }
       ],
       "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-10-share-gate.md"
