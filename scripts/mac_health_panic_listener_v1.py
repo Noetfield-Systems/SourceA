@@ -21,7 +21,16 @@ SINA = Path.home() / ".sina"
 LOG = SINA / "mac-health-panic-hotkey.log"
 PANIC_FILE = SINA / "PANIC.now"
 BASSO = "/System/Library/Sounds/Basso.aiff"
-SOURCE_A = Path(os.environ.get("SINA_SOURCEA", Path.home() / "Desktop/SourceA"))
+SOURCE_A = Path(
+    os.environ.get(
+        "SINA_SOURCEA",
+        str(Path.home() / "Desktop" / "Noetfield-Systems" / "SourceA"),
+    )
+)
+if not (SOURCE_A / "scripts" / "mac-health-guard-server.py").is_file():
+    alt = Path.home() / "Desktop" / "SourceA"
+    if (alt / "scripts" / "mac-health-guard-server.py").is_file():
+        SOURCE_A = alt
 SCRIPT = SOURCE_A / "scripts" / "mac_health_emergency_stop_v1.py"
 DEBOUNCE_SEC = 2.0
 _last = 0.0
