@@ -73,18 +73,18 @@ def load_ssot() -> dict[str, Any]:
         "auto_proceed": False,
         "self_heal_motor_fail_mock": True,
         "self_heal_any_motor_fail": True,
-        "max_skips_per_tick": 8,
-        "max_advance_per_tick": 10,
-        "rows_per_turn_cap": 10,
+        "max_skips_per_tick": 0,
+        "max_advance_per_tick": 1,
+        "rows_per_turn_cap": 1,
         "llm_provider": "openrouter",
         "full_motor": True,
     }
 
 
 def max_advance_cap(*, ssot: dict[str, Any] | None = None, body: dict[str, Any] | None = None) -> int:
-    """INCIDENT-045 — worker-bounded cap per turn (default 10). No 100-row floor."""
+    """INCIDENT-045 — worker-bounded cap per turn (default 1). No 100-row floor."""
     s = ssot or load_ssot()
-    cap = int(s.get("max_advance_per_tick") or s.get("rows_per_turn_cap") or 10)
+    cap = int(s.get("max_advance_per_tick") or s.get("rows_per_turn_cap") or 1)
     requested = int((body or {}).get("max_advance") or cap)
     return max(1, min(requested, cap))
 

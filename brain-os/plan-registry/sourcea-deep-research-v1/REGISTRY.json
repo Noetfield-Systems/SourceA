@@ -1,0 +1,22 @@
+{
+  "schema": "sourcea-deep-research-plan-registry-v1",
+  "saved_at": "2026-07-06T09:03:49Z",
+  "source": "/Users/sinakazemnezhad/Downloads/sourcea_deep_research_report.md",
+  "count": 12,
+  "plans": [
+    "sdr-p0-001",
+    "sdr-p0-002",
+    "sdr-p0-003",
+    "sdr-p1-001",
+    "sdr-p1-002",
+    "sdr-p1-003",
+    "sdr-p1-004",
+    "sdr-p1-005",
+    "sdr-p1-006",
+    "sdr-p1-007",
+    "sdr-p2-001",
+    "sdr-p2-002"
+  ],
+  "motor_law": "data/cloud-forge-run-realistic-motor-law-v1.json",
+  "one_law": "One plan = one CLOUD-SEC row \u00b7 one tick = one row \u00b7 */10 CF cron"
+}
