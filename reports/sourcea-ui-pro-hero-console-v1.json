@@ -1,0 +1,29 @@
+{
+  "schema": "sourcea-ui-pro-hero-console-v1",
+  "at": "2026-07-06T14:48:37Z",
+  "batch": "C",
+  "workstream": "WS-03",
+  "steps": "UP-UI-025..036",
+  "disk": {
+    "hero_module": true,
+    "live_console": true,
+    "polls_boot": true,
+    "polls_aeg": true,
+    "offline_state": true,
+    "chrome_proof": true,
+    "tracking": true,
+    "founder_only": true,
+    "dist_synced": true,
+    "mobile_css": true,
+    "reduced_motion": true,
+    "em_dash_in_console_js": true
+  },
+  "live": {
+    "ok": true,
+    "has_biz_tabs": true,
+    "has_hero_console_js": true,
+    "has_positioning_wire": true,
+    "h1_execution": true,
+    "mock_only": false
+  }
+}

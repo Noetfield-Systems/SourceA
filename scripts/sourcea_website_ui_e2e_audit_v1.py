@@ -98,11 +98,70 @@ def _load_regex_checks() -> list[dict[str, Any]]:
     return list(_load_gate().get("regex_checks") or [])
 
 
+def _normalize_for_deploy_hash(body: str) -> str:
+    """Strip edge-injected analytics so live vs dist compares deploy artifact only."""
+    text = re.sub(
+        r"<script[^>]*cloudflareinsights\.com/beacon\.min\.js[^>]*>.*?</script>",
+        "",
+        body,
+        flags=re.I | re.S,
+    )
+    lines = [ln.rstrip() for ln in text.splitlines()]
+    compact: list[str] = []
+    prev_blank = False
+    for ln in lines:
+        blank = ln == ""
+        if blank and prev_blank:
+            continue
+        compact.append(ln)
+        prev_blank = blank
+    text = "\n".join(compact).strip()
+    text = re.sub(r"\n\s*\n(\s*</body>)", r"\n\1", text, flags=re.I)
+    return text
+
+
 def _body_sha256(body: str) -> str:
     return hashlib.sha256(body.encode("utf-8")).hexdigest()
 
 
-def _fetch_raw(url: str) -> tuple[int, str, str]:
+def _deploy_body_sha256(body: str) -> str:
+    return _body_sha256(_normalize_for_deploy_hash(body))
+
+
+def _dist_html_for_path(path: str) -> Path | None:
+    """Map public path to shipped dist HTML file (deploy truth)."""
+    path = _normalize_path(path)
+    if path == "/":
+        for cand in (DIST / "index.html", DIST / "sourcea" / "founder-home.html"):
+            if cand.is_file():
+                return cand
+        return None
+    if path.endswith(".html"):
+        bare = path[: -len(".html")]
+    else:
+        bare = path
+    candidates = [
+        DIST / f"{bare.lstrip('/')}.html",
+        DIST / bare.lstrip("/") / "index.html",
+        DIST / f"sourcea{bare}.html" if bare.startswith("/sourcea") else None,
+    ]
+    if bare.startswith("/sourcea/"):
+        rel = bare[len("/sourcea/") :]
+        candidates.extend(
+            [
+                DIST / "sourcea" / f"{rel}.html",
+                DIST / "sourcea" / rel / "index.html",
+            ]
+        )
+    elif not bare.startswith("/sourcea"):
+        candidates.append(DIST / "sourcea" / f"{bare.lstrip('/')}.html")
+    for cand in candidates:
+        if cand is not None and cand.is_file():
+            return cand
+    return None
+
+
+def _fetch_with_headers(url: str) -> tuple[int, str, str, dict[str, str]]:
     req = urllib.request.Request(
         url,
         headers={"User-Agent": "sourcea-website-ui-e2e-audit/2.0", "Cache-Control": "no-cache"},
@@ -110,7 +169,13 @@ def _fetch_raw(url: str) -> tuple[int, str, str]:
     ctx = ssl.create_default_context()
     with urllib.request.urlopen(req, timeout=20, context=ctx) as resp:
         body = resp.read().decode("utf-8", errors="replace")
-        return int(resp.status), resp.geturl(), body
+        headers = {k.lower(): v for k, v in resp.headers.items()}
+        return int(resp.status), resp.geturl(), body, headers
+
+
+def _fetch_raw(url: str) -> tuple[int, str, str]:
+    status, final, body, _ = _fetch_with_headers(url)
+    return status, final, body
 
 
 def _normalize_path(path: str) -> str:
@@ -226,21 +291,16 @@ def _visible_html(body: str) -> str:
     return re.sub(r"<style[^>]*>.*?</style>", "", text, flags=re.I | re.S)
 
 
-def _audit_page(url: str, *, home_hash: str | None) -> dict[str, Any]:
+def _audit_page(url: str, *, home_hash: str | None, dist_path: Path | None = None) -> dict[str, Any]:
     row: dict[str, Any] = {"url": url, "ok": False, "findings": []}
     try:
-        req = urllib.request.Request(
-            url,
-            headers={"User-Agent": "sourcea-website-ui-e2e-audit/2.0", "Cache-Control": "no-cache"},
-        )
-        ctx = ssl.create_default_context()
-        with urllib.request.urlopen(req, timeout=20, context=ctx) as resp:
-            raw = resp.read()
-            body = raw.decode("utf-8", errors="replace")
-            row["status"] = int(resp.status)
-            row["final_url"] = resp.geturl()
-            row["content_type"] = resp.headers.get("Content-Type", "")
-            row["bytes"] = len(raw)
+        status, final, body, headers = _fetch_with_headers(url)
+        row["status"] = status
+        row["final_url"] = final
+        row["content_type"] = headers.get("content-type", "")
+        row["cf_cache_status"] = headers.get("cf-cache-status", "")
+        row["x_sourcea_pages_path"] = headers.get("x-sourcea-pages-path", "")
+        row["bytes"] = len(body.encode("utf-8"))
     except urllib.error.HTTPError as exc:
         body = exc.read().decode("utf-8", errors="replace") if exc.fp else ""
         row["status"] = int(exc.code)
@@ -258,6 +318,21 @@ def _audit_page(url: str, *, home_hash: str | None) -> dict[str, Any]:
     title_m = re.search(r"<title[^>]*>([^<]+)</title>", body, re.I)
     row["title"] = unescape(title_m.group(1).strip()) if title_m else ""
     row["body_sha256"] = _body_sha256(body)
+    row["deploy_body_sha256"] = _deploy_body_sha256(body)
+    if dist_path and dist_path.is_file():
+        dist_body = dist_path.read_text(encoding="utf-8", errors="replace")
+        row["dist_path"] = dist_path.relative_to(ROOT).as_posix()
+        row["dist_sha256"] = _body_sha256(dist_body)
+        row["dist_deploy_sha256"] = _deploy_body_sha256(dist_body)
+        row["dist_live_match"] = row["dist_deploy_sha256"] == row["deploy_body_sha256"]
+        if not row["dist_live_match"]:
+            row["findings"].append(
+                {
+                    "id": "deploy_drift",
+                    "severity": "FAIL",
+                    "detail": f"live deploy hash != dist ({row['dist_path']})",
+                }
+            )
     visible = _visible_html(body)
     path = _normalize_path(urllib.parse.urlparse(url).path or "/")
 
@@ -319,6 +394,16 @@ def _audit_page(url: str, *, home_hash: str | None) -> dict[str, Any]:
         sev = "FAIL" if path in SKU_PATHS else "WARN"
         row["findings"].append({"id": "no_contact_surface", "severity": sev, "detail": "missing contact/chatbot"})
 
+    if path in ("/", "") and row.get("status") == 200:
+        if re.search(r"data-trust-receipts-lifetime[^>]*>—<", visible):
+            row["findings"].append(
+                {
+                    "id": "trust_placeholder_ssr",
+                    "severity": "WARN",
+                    "detail": "SSR trust counters show em-dash — hydrated client-side from trust-signals.json",
+                }
+            )
+
     if home_hash and path not in ("/", "") and row.get("status") == 200:
         if row.get("body_sha256") == home_hash:
             row["spa_fallback"] = True
@@ -347,7 +432,15 @@ def _audit(*, base: str, workers: int) -> dict[str, Any]:
         except Exception:  # noqa: BLE001
             home_hash = None
 
-        futs = {pool.submit(_audit_page, u, home_hash=home_hash): u for u in urls}
+        futs = {
+            pool.submit(
+                _audit_page,
+                u,
+                home_hash=home_hash,
+                dist_path=_dist_html_for_path(_normalize_path(urllib.parse.urlparse(u).path or "/")),
+            ): u
+            for u in urls
+        }
         for fut in as_completed(futs):
             results.append(fut.result())
 
@@ -368,6 +461,11 @@ def _audit(*, base: str, workers: int) -> dict[str, Any]:
                     "url": url,
                     "ok": match.get("ok"),
                     "rejected": match.get("rejected"),
+                    "body_sha256": match.get("deploy_body_sha256"),
+                    "dist_sha256": match.get("dist_deploy_sha256"),
+                    "dist_live_match": match.get("dist_live_match"),
+                    "cf_cache_status": match.get("cf_cache_status"),
+                    "title": match.get("title"),
                     "findings": [f for f in match.get("findings", []) if f["severity"] in ("FAIL", "WARN")],
                 }
             )
@@ -381,6 +479,18 @@ def _audit(*, base: str, workers: int) -> dict[str, Any]:
         verdict = "FAIL"
     elif warn_pages:
         verdict = "PASS_WITH_WARNINGS"
+
+    deploy_drift = [
+        {
+            "url": r["url"],
+            "dist_path": r.get("dist_path"),
+            "live_sha256": r.get("deploy_body_sha256"),
+            "dist_sha256": r.get("dist_deploy_sha256"),
+            "match": r.get("dist_live_match"),
+        }
+        for r in results
+        if r.get("dist_path") and r.get("dist_live_match") is False
+    ]
 
     return {
         "schema": "sourcea-website-ui-e2e-audit-v2",
@@ -402,6 +512,13 @@ def _audit(*, base: str, workers: int) -> dict[str, Any]:
             "dist_only_count": len(dist_only),
         },
         "buyer_funnel": buyer_results,
+        "deploy_drift": deploy_drift,
+        "count_math": {
+            "unique_audited": len(paths),
+            "rejected_spa_fallback": len(rejected),
+            "counted_non_rejected": len(counted),
+            "formula": "counted = unique_audited - rejected_spa_fallback",
+        },
         "drift": {"live_only": live_only[:40], "dist_only": dist_only[:40]},
         "failures": [
             {"url": r["url"], "status": r.get("status"), "title": r.get("title"), "findings": r.get("findings")}
@@ -437,13 +554,30 @@ def _markdown(report: dict[str, Any]) -> str:
         f"| FAIL | {s['fail']} |",
         f"| Buyer funnel FAIL | {s['buyer_funnel_fail']} |",
         f"| SPA fallback rejected | {s['rejected_spa_fallback']} |",
+        f"| Count math | {report.get('count_math', {}).get('formula', '')} |",
         "",
-        "## Buyer funnel",
+        "## Deploy drift (live sha256 vs dist)",
         "",
     ]
+    drift = report.get("deploy_drift") or []
+    if drift:
+        for d in drift[:20]:
+            lines.append(
+                f"- `{d['url']}` dist=`{d.get('dist_path')}` live={d.get('live_sha256','')[:12]}… dist={d.get('dist_sha256','')[:12]}…"
+            )
+    else:
+        lines.append("- **None** — all mapped dist files match live body sha256")
+    lines += ["", "## Buyer funnel", ""]
     for b in report.get("buyer_funnel") or []:
         status = "PASS" if b.get("ok") else ("REJECT" if b.get("rejected") else "FAIL")
-        lines.append(f"- `{b['path']}` — **{status}**")
+        hash_note = ""
+        if b.get("body_sha256"):
+            hash_note = f" · sha256 `{b['body_sha256'][:12]}…`"
+            if b.get("dist_live_match") is True:
+                hash_note += " · **dist match**"
+            elif b.get("dist_live_match") is False:
+                hash_note += " · **DIST DRIFT**"
+        lines.append(f"- `{b['path']}` — **{status}**{hash_note}")
         for f in b.get("findings") or []:
             lines.append(f"  - {f['severity']} `{f['id']}`: {f['detail']}")
     lines.append("")
@@ -459,7 +593,7 @@ def _markdown(report: dict[str, Any]) -> str:
         "## Checks",
         "",
         "- Live BFS + sitemap discovery (not splat URLs)",
-        "- Dist vs live drift receipt",
+        "- Dist vs live body sha256 (deploy drift FAIL)",
         "- Path leaks, {ENTITY}, forbidden phrases, regex v2",
         "- SPA fallback rejection",
         "- Buyer funnel explicit bucket",
