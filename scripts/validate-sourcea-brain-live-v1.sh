@@ -90,7 +90,7 @@ post_brain "what-is" "What is SourceA?" 'import json,sys
 row=json.load(sys.stdin)
 assert row.get("ok"), row.get("reply") or row
 reply=(row.get("reply") or "").lower()
-assert "forge" in reply, reply[:200]
+assert "powered by forge" not in reply, reply[:200]
 assert "execution" in reply or "automate" in reply or "build" in reply, reply[:200]
 print("OK what-is:", (row.get("reply") or "")[:100])'
 

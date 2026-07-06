@@ -265,7 +265,7 @@ async function buildSystemPrompt(product, message, pageCtx, language = "") {
     sa_page: pageCtx.sa_page,
   });
   const liveTools = await gatherLiveTools(message);
-  const { prompt, citations, confidence } = assembleBrainPrompt(base, retrieval);
+  const { prompt, citations, confidence } = assembleBrainPrompt(base, retrieval, knowledgeBundle);
   const languageBlock =
     language && language !== "translate"
       ? `\n\nLANGUAGE REQUEST: Answer in ${language}. Do not say you are English-only. Keep SourceA facts grounded in the retrieved/live sources and keep URLs unchanged.`

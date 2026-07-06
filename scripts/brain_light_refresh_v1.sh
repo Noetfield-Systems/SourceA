@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# Light Brain refresh — rules + live sources + bundle sync only (no www crawl).
+# Light Brain refresh — rules + positioning SSOT + live sources + bundle sync (no www crawl).
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
 echo "=== Brain light refresh (no www crawl) ==="
+python3 scripts/distill_positioning_public_v1.py
 python3 scripts/distill_brain_public_rules_v1.py
 python3 scripts/distill_brain_live_sources_v1.py
 python3 scripts/sync_brain_chat_knowledge_v1.py --json | python3 -c "

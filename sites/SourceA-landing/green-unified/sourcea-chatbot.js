@@ -693,13 +693,13 @@
         if (!r.ok && !data.reply) {
           addMsg(
             "bot",
-            escapeHtml(chatConfig.hint_offline || "I'm offline — use the buttons below or book a call."),
+            escapeHtml(chatConfig.hint_offline || "I'm offline — try Forge Terminal, /eval, or live proof below."),
             { error: true }
           );
           setProviderLabel(false, false);
           return;
         }
-        const reply = data.reply || data.message || chatConfig.hint_offline || "I'm offline — use the buttons below or book a call.";
+        const reply = data.reply || data.message || chatConfig.hint_offline || "I'm offline — try Forge Terminal, /eval, or live proof below.";
         const isError = !data.ok;
         const citeHtml = !isError ? formatCitations(data.citations) : "";
         const confHtml = !isError ? formatConfidence(data.confidence, data.retrieval) : "";
