@@ -344,8 +344,8 @@ function edgeIdleReceipt(env, precheck) {
 }
 
 function maxAdvanceCap(env) {
-  const n = parseInt(env.MAX_ADVANCE_PER_TICK || "10", 10);
-  return Number.isFinite(n) && n > 0 ? n : 10;
+  const n = parseInt(env.MAX_ADVANCE_PER_TICK || "1", 10);
+  return Number.isFinite(n) && n > 0 ? n : 1;
 }
 
 async function runTick(env, { proceed }) {

@@ -3,10 +3,10 @@
   "version": "1.5.0",
   "batch_id": 81,
   "locked": true,
-  "saved_at": "2026-07-06T08:30:41Z",
+  "saved_at": "2026-07-06T09:01:50Z",
   "queue_path": "data/secondary-cloud-forge-run-batch-81-locked-v1.json",
   "library": "client-proof-recipe",
-  "registry_exhausted": true,
+  "registry_exhausted": false,
   "queue_batch_complete": false,
   "cloud_sec_range": "CLOUD-SEC-7969..CLOUD-SEC-8068",
   "rows_per_turn": 100,
@@ -16,5 +16,14 @@
     "cloud_forge_run_head": "CLOUD-SEC-7969",
     "cloud_forge_run_last_completed": "CLOUD-SEC-7968",
     "queue_batch_complete": false
+  },
+  "next_batch": {
+    "batch_id": 82,
+    "status": "ready_locked",
+    "queue_path": "data/secondary-cloud-forge-run-batch-82-locked-v1.json",
+    "cloud_sec_range": "CLOUD-SEC-8069..CLOUD-SEC-8095",
+    "library": "client-proof-recipe",
+    "tasks_per_row": 1,
+    "source": "deep_research_v1"
   }
 }
