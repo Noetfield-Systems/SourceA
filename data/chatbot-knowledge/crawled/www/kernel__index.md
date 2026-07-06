@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-02T10:32:00Z
+updated: 2026-07-06T09:57:10Z
 lane: developer
 source_path: sites/SourceA-landing/green-unified/kernel/index.html
 public: true
