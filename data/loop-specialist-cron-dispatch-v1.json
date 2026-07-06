@@ -2,7 +2,7 @@
   "schema": "loop-specialist-cron-dispatch-v1",
   "version": "1.0.0",
   "saved_at": "2026-07-05T18:15:00Z",
-  "one_law": "24/7 scheduled motors: Cloudflare Workers cron only (isCronDue dispatch → Railway FBE). GHA schedule: forbidden — CI + workflow_dispatch backup only.",
+  "one_law": "All scheduled loops: CF Worker */15 cron → isCronDue dispatch → Railway FBE. GHA schedule forbidden — workflow_dispatch backup only.",
   "wrangler_trigger_cron": "*/15 * * * *",
   "execution_plane": "cloudflare_cron_loop_specialist",
   "railway_base_env": "FBE_CLOUD_WORKER_URL",
@@ -11,7 +11,6 @@
       "cron": "*/15 * * * *",
       "trigger_id": "SA-T-loop-specialist",
       "label": "loop-specialist-15m",
-      "parallel_jobs": true,
       "jobs": [
         { "id": "loop-tick", "kind": "handler", "handler": "loop_specialist_tick" },
         { "id": "sf-tick", "kind": "handler", "handler": "signal_factory_tick" },
