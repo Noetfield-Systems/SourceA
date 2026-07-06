@@ -2,6 +2,7 @@
 """Index and distill ALL public live sources for Brain (112+ files target)."""
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import sys
@@ -106,8 +107,17 @@ def build_index(*sections) -> dict:
 
 
 def main() -> int:
-    html_rows = dedupe_www_roots()
-    json_rows = crawl_json()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--light", action="store_true", help="Skip full www/json crawl — curated sources only")
+    parser.add_argument("--json", action="store_true")
+    args = parser.parse_args()
+
+    if args.light:
+        html_rows: list[dict] = []
+        json_rows: list[dict] = []
+    else:
+        html_rows = dedupe_www_roots()
+        json_rows = crawl_json()
     data_rows = crawl_public_data_json()
     index = build_index(html_rows, json_rows, data_rows)
     INDEX_OUT.write_text(json.dumps(index, indent=2) + "\n", encoding="utf-8")
