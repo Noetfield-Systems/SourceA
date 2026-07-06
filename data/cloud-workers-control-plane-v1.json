@@ -1,8 +1,10 @@
 {
   "schema": "cloud-workers-control-plane-v1",
   "version": "1.4.0",
-  "saved_at": "2026-07-05T15:49:37Z",
+  "saved_at": "2026-07-06T08:30:41Z",
   "one_law": "Cloud Workers (:13027) is the founder cockpit for Railway + CF cron. Cloud Forge Run full-pack only \u2014 100 rows per trigger every 10 min; all-plan backlog rows carry 100 tasks per row.",
+  "cf_only_24_7": "data/cf-only-24-7-execution-v1.json",
+  "cf_deploy_all": "scripts/deploy_cf_all_motors_v1.sh",
   "ssot_paths": {
     "drain_queue_active": "data/cloud-forge-run-queue-active-v1.json",
     "drain_queue_batch_5": "data/secondary-cloud-forge-run-batch-5-locked-v1.json",
@@ -72,15 +74,15 @@
     "stale_volume_pointer": "Deploy image is current but Railway queue endpoint still serves old batch from persistent volume pointer; run sync_pointer_from_image."
   },
   "active_batch": {
-    "batch_id": 80,
+    "batch_id": 81,
     "locked": true,
     "status": "ACTIVE",
     "library": "client-proof-recipe",
-    "head": "CLOUD-SEC-7868",
-    "cloud_sec_range": "CLOUD-SEC-7868..CLOUD-SEC-7967",
+    "head": "CLOUD-SEC-7969",
+    "cloud_sec_range": "CLOUD-SEC-7969..CLOUD-SEC-8068",
     "rows_per_turn": 100,
     "tasks_per_row": 1,
-    "queue_path": "data/secondary-cloud-forge-run-batch-80-locked-v1.json"
+    "queue_path": "data/secondary-cloud-forge-run-batch-81-locked-v1.json"
   },
   "ready_batch": null,
   "deployment_lessons": {
