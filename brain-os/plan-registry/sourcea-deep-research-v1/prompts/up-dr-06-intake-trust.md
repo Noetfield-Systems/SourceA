@@ -1,15 +1,15 @@
-# Privacy/data note visible before intake Submit
+# Intake trust — privacy note
 
-**Plan ID:** `sdr-p1-003` · **Tier:** P1 · **Updated:** 2026-07-06T09:17:58Z
-
-## Problem
-Form collects email/project; privacy assurance missing.
+**Plan ID:** `UP-DR-06` · **Tier:** P1 · **Wave:** W1
 
 ## Goal
 Intake form shows no-resale privacy note above Submit
 
 ## Done when
 Start page has data-sa-privacy-note marker before submit button
+
+## Child steps
+- **sdr-p1-003** — Privacy/data note visible before intake Submit (open)
 
 ## Verify
 ```
@@ -26,4 +26,4 @@ Scroll intake — privacy visible before Submit
 `SourceA-landing/green-unified/start.html`
 
 ---
-*Child plan · rolled into UP-DR upgrade wave*
+*One CLOUD-SEC row per Auto Runtime tick · Supabase proof · INCIDENT-045*
