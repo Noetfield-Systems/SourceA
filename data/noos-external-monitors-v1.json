@@ -52,10 +52,11 @@
       "role": "cf_fleet_motor_up"
     },
     {
-      "id": "noos-deadman-health",
+      "id": "sourcea-deadman-health",
       "type": "http",
-      "url": "https://noos-deadman-v1.sina-kazemnezhad-ca.workers.dev/health",
-      "role": "cf_deadman_up"
+      "url": "https://sourcea-deadman-v1.sina-kazemnezhad-ca.workers.dev/health",
+      "keyword": "sourcea-deadman-v1",
+      "role": "cf_deadman_watcher_up"
     },
     {
       "id": "noetfield-www-optional",
