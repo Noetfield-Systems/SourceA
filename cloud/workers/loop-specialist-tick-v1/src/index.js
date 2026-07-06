@@ -41,7 +41,8 @@ export default {
         crons: meta.crons,
         dispatch: meta,
         nerve_probe: true,
-        ops_motors: ["gmail-sweep", "signal-triage", "kaizen-nightly", "ops-heartbeat", "sg-gateway-watchdog", "sg-gateway-heartbeat"],
+        ops_motors: ["gmail-sweep", "signal-triage", "kaizen-nightly", "ops-heartbeat"],
+        gateway_monitoring: "uptimerobot_http_only — never Telegram @Gateway_A",
         scheduled_loops: [
           "repo-health-daily",
           "security-sweep-weekly",
@@ -49,8 +50,11 @@ export default {
         ],
         supabase_ready: Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY),
         telegram_ready: Boolean(
-          env.TELEGRAM_BOT_TOKEN && (env.TELEGRAM_ALERT_CHAT_ID || env.TELEGRAM_ALLOWED_CHAT_ID),
+          env.TELEGRAM_OPS_CHAT_ID &&
+            (env.TELEGRAM_PRIMARY_BOT_TOKEN || env.TELEGRAM_BOT_TOKEN),
         ),
+        telegram_lane: "sourcea_ops_trustfield_only",
+        gateway_telegram: "forbidden",
       });
     }
     if (url.pathname === "/dispatch/smoke" && request.method === "POST") {
