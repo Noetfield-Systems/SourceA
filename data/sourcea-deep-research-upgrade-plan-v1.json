@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-deep-research-upgrade-plan-v1",
   "version": "1.0.0",
-  "saved_at": "2026-07-06T09:17:58Z",
+  "saved_at": "2026-07-06T09:37:16Z",
   "source": "/Users/sinakazemnezhad/Downloads/sourcea_deep_research_report.md",
   "verdict": "PRODUCT_BETA",
   "commercial_framing": "Proof-backed 48-hour acquisition systems for founders, agencies, and service businesses",
@@ -26,7 +26,7 @@
       "client_demo": "Open /eval \u2014 show install line matches live PyPI or honest GitHub fallback",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/eval.html",
-      "status": "open"
+      "status": "done"
     },
     {
       "id": "sdr-p0-002",
@@ -40,7 +40,7 @@
       "client_demo": "Send one prompt on terminal \u2014 response or explicit offline state",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/sourcea/forge/terminal.html",
-      "status": "open"
+      "status": "done"
     },
     {
       "id": "sdr-p0-003",
@@ -54,7 +54,7 @@
       "client_demo": "Submit test lead on /start \u2014 show confirmation ID + Supabase row",
       "lane": "sourcea-site",
       "work_path": "cloud/workers/sourcea-mvp-intake-v1/",
-      "status": "open"
+      "status": "done"
     },
     {
       "id": "sdr-p1-001",
@@ -68,7 +68,7 @@
       "client_demo": "10-second test: visitor names paid path without reading nav",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/index.html",
-      "status": "open"
+      "status": "done"
     },
     {
       "id": "sdr-p1-002",
@@ -82,7 +82,7 @@
       "client_demo": "Tab three pages \u2014 pricing matches",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/pricing.html",
-      "status": "open"
+      "status": "done"
     },
     {
       "id": "sdr-p1-003",
@@ -96,7 +96,7 @@
       "client_demo": "Scroll intake \u2014 privacy visible before Submit",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/start.html",
-      "status": "open"
+      "status": "done"
     },
     {
       "id": "sdr-p1-004",
@@ -110,7 +110,7 @@
       "client_demo": "Read taxonomy box aloud \u2014 under 15 seconds",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/index.html",
-      "status": "open"
+      "status": "done"
     },
     {
       "id": "sdr-p1-005",
@@ -124,7 +124,7 @@
       "client_demo": "Open receipt \u2014 non-technical line explains delivery proof",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/proof.html",
-      "status": "open"
+      "status": "done"
     },
     {
       "id": "sdr-p1-006",
@@ -138,7 +138,7 @@
       "client_demo": "Read hero \u2014 ICP clear in one breath",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/index.html",
-      "status": "open"
+      "status": "done"
     },
     {
       "id": "sdr-p1-007",
@@ -152,7 +152,7 @@
       "client_demo": "Click nav Pricing \u2014 page loads",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/pricing.html",
-      "status": "open"
+      "status": "done"
     },
     {
       "id": "sdr-p2-001",
@@ -166,7 +166,7 @@
       "client_demo": "Footer answers who-owns-what in 10s",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/index.html",
-      "status": "open"
+      "status": "done"
     },
     {
       "id": "sdr-p2-002",
@@ -180,7 +180,7 @@
       "client_demo": "LinkedIn post inspector shows correct preview",
       "lane": "sourcea-site",
       "work_path": "SourceA-landing/green-unified/index.html",
-      "status": "open"
+      "status": "done"
     }
   ],
   "cross_ref": {
