@@ -18,6 +18,12 @@
       "wrangler_cron": "*/10 * * * *",
       "role": "Cloud Forge Run auto-tick · brain verifier bundled",
       "health": "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev/health"
+    },
+    {
+      "worker": "sourcea-deadman-v1",
+      "wrangler_cron": "*/30 * * * *",
+      "role": "loop_registry staleness · alert + one restart attempt · independent cron path",
+      "health": "https://sourcea-deadman-v1.sina-kazemnezhad-ca.workers.dev/health"
     }
   ],
   "gha_allowed": {
@@ -42,5 +48,7 @@
     "noetfield-nerve-probe-v1",
     "sourcea-signal-factory-tick-v1"
   ],
-  "uptime_monitors": "data/noos-external-monitors-v1.json"
+  "uptime_monitors": "data/noos-external-monitors-v1.json",
+  "loop_liveness": "data/loop-registry-v1.json",
+  "trigger_inventory": "scripts/loop_trigger_host_inventory_v1.py --write"
 }
