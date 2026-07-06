@@ -33,7 +33,7 @@ def main() -> int:
 
     lines = [frontmatter(), "# Brain public rules (live SSOT)", ""]
     lines.append(f"## Identity\n{rules['identity']['role']}")
-    lines.append(f"\n## One line\n{rules.get('one_line') or pos.get('one_line', '')}")
+    lines.append(f"\n## One line\n{pos.get('one_line') or rules.get('one_line', '')}")
     lines.append("\n## Conversation rules")
     for r in rules.get("conversation_rules", []):
         lines.append(f"- **{r['id']}**: {r['rule']}")
