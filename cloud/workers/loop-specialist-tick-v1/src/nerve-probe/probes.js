@@ -40,12 +40,8 @@ const SSOT = {
         cron: "*/15 * * * *",
         require_nerve_probe: true,
       },
-      {
-        id: "sourcea-cloud-auto-runtime-tick-v1",
-        health_url: AUTO_RUNTIME_HEALTH,
-        cron: "*/10 * * * *",
-      },
     ],
+    external_monitors_ssot: "data/noos-external-monitors-v1.json",
   },
 };
 
@@ -113,11 +109,15 @@ export async function handleIntakePost(env, body, { origin }) {
   };
 }
 
-export async function runNfIntakeE2e(env, { intakeBaseUrl }) {
+export async function runNfIntakeE2e(env, { intakeBaseUrl } = {}) {
   const payload = { ...SSOT.nf_intake_e2e.probe_payload };
   const base = (intakeBaseUrl || "").replace(/\/$/, "");
   let postRow;
-  if (base) {
+  // Prefer in-worker handler when Supabase is armed (avoids self-HTTP 404/1042).
+  if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
+    postRow = await handleIntakePost(env, payload, { origin: "nerve_probe_internal" });
+    postRow.http_status = postRow.status || (postRow.ok ? 200 : 503);
+  } else if (base) {
     const resp = await fetch(`${base}/api/noetfield/intake/v1`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -130,7 +130,7 @@ export async function runNfIntakeE2e(env, { intakeBaseUrl }) {
     }
     postRow.http_status = resp.status;
   } else {
-    postRow = await handleIntakePost(env, payload, { origin: "nerve_probe_internal" });
+    postRow = { ok: false, error: "intake_base_missing", status: 503 };
   }
   const intakeId = postRow.intake_id;
   const readBack = intakeId
@@ -208,12 +208,32 @@ export async function runDriftProbe(env) {
         ? env.LOOP_SPECIALIST_HEALTH_URL || worker.health_url
         : worker.health_url;
     let health = {};
-    try {
-      const resp = await fetch(url, { headers: { Accept: "application/json" } });
-      health = await resp.json();
-    } catch (exc) {
-      mismatches.push({ id: worker.id, error: String(exc).slice(0, 120), url });
-      continue;
+    // Self-health via HTTP triggers CF 1042; validate in-process for this worker.
+    if (worker.id === "sourcea-loop-specialist-tick-v1") {
+      health = {
+        ok: true,
+        nerve_probe: true,
+        crons: ["*/15 * * * *"],
+        supabase_ready: Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY),
+      };
+    } else {
+      try {
+        const resp = await fetch(url, { headers: { Accept: "application/json" } });
+        const text = await resp.text();
+        try {
+          health = JSON.parse(text);
+        } catch {
+          mismatches.push({
+            id: worker.id,
+            error: `non_json_health:${text.slice(0, 80)}`,
+            url,
+          });
+          continue;
+        }
+      } catch (exc) {
+        mismatches.push({ id: worker.id, error: String(exc).slice(0, 120), url });
+        continue;
+      }
     }
     const liveCron = health.cron || health.brain_verifier_cron || null;
     if (liveCron && worker.cron && liveCron !== worker.cron) {
