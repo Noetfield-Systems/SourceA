@@ -100,7 +100,7 @@
     {
       "id": "business_acquisition_systems_footer",
       "pattern": "Business Acquisition Systems — proof-backed engines",
-      "suggestion": "Footer: AI execution platform powered by Forge — proof built in."
+      "suggestion": "Footer: AI execution platform — proof built in."
     }
   ],
   "forbidden_poison": [
@@ -120,7 +120,7 @@
   "chatbot_required": [
     {
       "id": "execution_greet",
-      "pattern": "AI execution platform powered by Forge",
+      "pattern": "AI execution platform",
       "suggestion": "Brain greet must lead with execution platform positioning."
     },
     {
