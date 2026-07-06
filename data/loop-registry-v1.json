@@ -1,0 +1,36 @@
+{
+  "schema": "loop-registry-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-06T06:55:00Z",
+  "one_law": "Every 24/7 motor upserts last_fired_at. Independent deadman (different CF cron path) checks 2x interval staleness.",
+  "table": "loop_registry",
+  "deadman_worker": "sourcea-deadman-v1",
+  "deadman_cron": "*/30 * * * *",
+  "stale_multiplier": 2,
+  "loops": [
+    {
+      "loop_id": "sourcea-loop-specialist-tick-v1",
+      "trigger_host": "cloudflare",
+      "schedule_cron": "*/15 * * * *",
+      "interval_minutes": 15,
+      "health_url": "https://sourcea-loop-specialist-tick-v1.sina-kazemnezhad-ca.workers.dev/health",
+      "restart": {
+        "method": "POST",
+        "url": "https://sourcea-loop-specialist-tick-v1.sina-kazemnezhad-ca.workers.dev/dispatch/run",
+        "body": { "cron": "*/15 * * * *", "trigger": "deadman_restart" }
+      }
+    },
+    {
+      "loop_id": "sourcea-cloud-auto-runtime-tick-v1",
+      "trigger_host": "cloudflare",
+      "schedule_cron": "*/10 * * * *",
+      "interval_minutes": 10,
+      "health_url": "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev/health",
+      "restart": {
+        "method": "POST",
+        "url": "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev/tick",
+        "body": { "proceed": true, "trigger": "deadman_restart" }
+      }
+    }
+  ]
+}
