@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-02T10:32:00Z
+updated: 2026-07-06T09:57:10Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/data/mvp-intake-config.json
 public: true
@@ -10,7 +10,7 @@ kind: json
 
 - **schema**: sourcea-mvp-intake-config-v1
 - **api_relative**: /api/commercial/mvp-intake/v1
-- **api_worker_url**: https://sourcea-mvp-intake-v1.sina-kazemnezhad-ca.workers.dev/api/commercial/mvp-intake/v1
+- **api_worker_url**: https://sourcea.app/api/commercial/mvp-intake/v1
 - **local_dev_api**: http://127.0.0.1:8192/api/commercial/mvp-intake/v1
 - **contact_email**: contact@sourcea.app
 - **public_domain**: https://sourcea.app

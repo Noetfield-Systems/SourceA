@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-02T10:32:00Z
+updated: 2026-07-06T09:57:10Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/data/aeg-live.json
 public: true
@@ -9,8 +9,8 @@ kind: json
 # Aeg Live
 
 - **schema**: sourcea-aeg-live-v1
-- **at**: 2026-07-02T08:54:52Z
-- **evidence_id**: aeg-20260702T084822Z-9692b723
+- **at**: 2026-07-06T09:54:53Z
+- **evidence_id**: aeg-20260702T194402Z-2c9c78f7
 - **verdict**: PASS
 ## blockers
 - **terminal_transcript**: $ sourcea-boot --json
@@ -51,7 +51,7 @@ blockers:
 - **reason**: portable mode: queue files not required on public eval
 - **mode**: portable
 - **boot_verdict**: PASS
-- **site_proof_url**: https://source-a.vercel.app/sourcea/proof/live.html
-- **forensic_archive_url**: https://locally-projected-shade-projection.trycloudflare.com/aeg-20260702T084822Z-9692b723/
-- **hosted_at**: 2026-07-02T08:48:22Z
+- **site_proof_url**: https://sourcea.app/sourcea/proof/live.html
+- **forensic_archive_url**: https://locally-projected-shade-projection.trycloudflare.com/aeg-20260702T194402Z-2c9c78f7/
+- **hosted_at**: 2026-07-02T19:44:02Z
 - **disclaimer**: Live inject from factory disk · same schema as weekly export bundle

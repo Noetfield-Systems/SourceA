@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-02T10:32:00Z
+updated: 2026-07-06T09:57:10Z
 lane: buyer
 source_path: sites/SourceA-landing/green-unified/pricing.html
 public: true
@@ -16,7 +16,9 @@ Build a custom solution, rent a platform seat, or license your own — fixed out
 
 ## Build · Rent · Own.
 
-## Custom machine for your workflow
+## Acquisition system
+
+## Custom build + runtime
 
 ## Run jobs on SourceA
 
@@ -32,7 +34,7 @@ Build a custom solution, rent a platform seat, or license your own — fixed out
 
 Three ways to get verified AI delivery — every job checked, every result logged. Fixed outcomes, not hourly surprise.
 
-Also available: Ops Health Audit $750 · Agency retainer from $2K/mo — hello@sourcea.app
+Also available: Ops Health Audit $750 · Agency retainer from $2K/mo — start intake
 
 * Illustrative timeline and pricing bands — final scope confirmed on discovery call.
 

@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-02T10:32:00Z
+updated: 2026-07-06T09:57:10Z
 lane: buyer
 source_path: sites/SourceA-landing/green-unified/start.html
 public: true
@@ -33,6 +33,8 @@ We ship your 48-hour MVP — scoped, governed, with proof you can show stakehold
 One bounded outcome: landing + form, intake funnel, or single workflow — agreed in writing. You get a live URL and a shareable receipt, not trust-me chat history.
 
 Not sure yet? Try the free sandbox — one bounded job, no card required.
+
+We use your details only to scope and respond to your request. No resale. No third-party sharing outside delivery tools.
 
 We'll respond in 2 hours with a scoped plan. Urgent? Email hello@sourcea.app .
 

@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-02T10:32:00Z
+updated: 2026-07-06T09:57:10Z
 lane: buyer
 source_path: sites/SourceA-landing/green-unified/proof/live.html
 public: true
@@ -26,7 +26,7 @@ Machine-generated governance proof from today
 
 Not a slide deck — a receipt bundle from disk. Terminal transcript, four boot checks, and blockers your counsel can file. Refreshes on every deploy.
 
-Synced 2026-07-02 UTC08:48:22 · Valid YES 4/4 · aeg-20260702T084822Z-9692b723
+Synced 2026-07-02 UTC19:44:02 · Valid YES 4/4 · aeg-20260702T194402Z-2c9c78f7
 
 $ sourcea-boot --json SOURCEA_BOOT PASS ok=true REPORT=receipts/sourcea-boot/BOOT_REPORT.json [SKIP] policy_version: no policy file (POLICY.md) (not configured) [PASS] provider: provider env present (ANTHROPIC_API_KEY) [SKIP] receipt_fresh: no prior receipt — first boot allowed [SKIP] queue_truth: no queue files configured (not configured) blockers: (none) factory-now · Cloud Workers.app owns Cloud Forge Run · head CLOUD-SEC-7367 · batch 75 · 100 rows/10min · 100 tasks/row
 
