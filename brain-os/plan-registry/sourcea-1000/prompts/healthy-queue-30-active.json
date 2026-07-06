@@ -6,7 +6,7 @@
   "queue": [
     {
       "queue_pos": 1,
-      "sa_id": "sa-9011",
+      "sa_id": "sa-9021",
       "plan_id": "sdr-p0-001",
       "title": "Fix public install/package claim vs PyPI reality",
       "tier": "P0",
@@ -15,7 +15,7 @@
     },
     {
       "queue_pos": 2,
-      "sa_id": "sa-9012",
+      "sa_id": "sa-9022",
       "plan_id": "sdr-p0-002",
       "title": "Forge Terminal: fix Connecting\u2026 or show honest offline state",
       "tier": "P0",
@@ -24,7 +24,7 @@
     },
     {
       "queue_pos": 3,
-      "sa_id": "sa-9013",
+      "sa_id": "sa-9023",
       "plan_id": "sdr-p0-003",
       "title": "Verify intake submit: store lead + confirmation + notification",
       "tier": "P0",
@@ -33,7 +33,7 @@
     },
     {
       "queue_pos": 4,
-      "sa_id": "sa-9014",
+      "sa_id": "sa-9024",
       "plan_id": "sdr-p1-001",
       "title": "One primary CTA: Request a 48-hour build",
       "tier": "P1",
@@ -42,7 +42,7 @@
     },
     {
       "queue_pos": 5,
-      "sa_id": "sa-9015",
+      "sa_id": "sa-9025",
       "plan_id": "sdr-p1-002",
       "title": "Canonical pricing ladder across Offer/Start/Pricing",
       "tier": "P1",
@@ -51,7 +51,7 @@
     },
     {
       "queue_pos": 6,
-      "sa_id": "sa-9016",
+      "sa_id": "sa-9026",
       "plan_id": "sdr-p1-003",
       "title": "Privacy/data note visible before intake Submit",
       "tier": "P1",
@@ -60,7 +60,7 @@
     },
     {
       "queue_pos": 7,
-      "sa_id": "sa-9017",
+      "sa_id": "sa-9027",
       "plan_id": "sdr-p1-004",
       "title": "Simplify product taxonomy box on homepage",
       "tier": "P1",
@@ -69,7 +69,7 @@
     },
     {
       "queue_pos": 8,
-      "sa_id": "sa-9018",
+      "sa_id": "sa-9028",
       "plan_id": "sdr-p1-005",
       "title": "Buyer-readable proof: What this proves under live receipt",
       "tier": "P1",
@@ -78,7 +78,7 @@
     },
     {
       "queue_pos": 9,
-      "sa_id": "sa-9019",
+      "sa_id": "sa-9029",
       "plan_id": "sdr-p1-006",
       "title": "Homepage copy upgrade: proof-backed MVPs headline",
       "tier": "P1",
@@ -87,7 +87,7 @@
     },
     {
       "queue_pos": 10,
-      "sa_id": "sa-9020",
+      "sa_id": "sa-9030",
       "plan_id": "sdr-p1-007",
       "title": "Pricing page route reliability (200 + linked from nav)",
       "tier": "P1",
@@ -95,7 +95,7 @@
       "queue_role": "act"
     }
   ],
-  "head_sa": "sa-9011",
+  "head_sa": "sa-9021",
   "rhythm": "one sa per Worker turn \u00b7 mirrors Cloud Forge Run recipes",
-  "saved_at": "2026-07-06T09:01:50Z"
+  "saved_at": "2026-07-06T09:03:49Z"
 }
