@@ -1,6 +1,6 @@
 ---
 lane: developer
-updated: 2026-07-06T10:57:13Z
+updated: 2026-07-06T15:51:53Z
 source_path: sites/SourceA-landing/green-unified/forge/cursor-bridge.html
 public: true
 www_url: https://sourcea.app/sourcea/forge/cursor-bridge
