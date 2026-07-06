@@ -45,7 +45,13 @@ else:
     SCRIPTS_DIR = SOURCE_A / "scripts"
 
 PORT = int(os.environ.get("CLOUD_WORKERS_PORT", "13027"))
-UI_VERSION = "1.3.0"
+UI_VERSION = "1.4.0"
+
+CF_MOTOR_HEALTH_URLS = {
+    "loop_specialist": "https://sourcea-loop-specialist-tick-v1.sina-kazemnezhad-ca.workers.dev/health",
+    "auto_runtime": "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev/health",
+    "deadman": "https://sourcea-deadman-v1.sina-kazemnezhad-ca.workers.dev/health",
+}
 
 
 def _resolve_source_a() -> Path:
@@ -55,6 +61,7 @@ def _resolve_source_a() -> Path:
         if p.is_dir():
             return p
     for candidate in (
+        Path.home() / "Desktop" / "Noetfield-Systems" / "SourceA",
         Path.home() / "Desktop" / "SourceA",
         Path(__file__).resolve().parents[1],
     ):
@@ -110,6 +117,33 @@ def _railway_up() -> bool:
         return False
 
 
+def _cf_motors_status() -> dict:
+    motors: dict[str, dict] = {}
+    ok_all = True
+    for name, url in CF_MOTOR_HEALTH_URLS.items():
+        row: dict = {"url": url, "ok": False}
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "SourceA-CloudWorkers/1.4"})
+            with urllib.request.urlopen(req, timeout=6.0) as resp:
+                body = json.loads(resp.read().decode("utf-8", errors="replace") or "{}")
+                row["ok"] = bool(body.get("ok"))
+                row["service"] = body.get("service")
+                if name == "auto_runtime":
+                    row["auto_proceed_ready"] = body.get("auto_proceed_ready")
+                if name == "loop_specialist":
+                    row["crons"] = (body.get("dispatch") or {}).get("crons") or body.get("crons")
+        except Exception as exc:
+            row["error"] = str(exc)[:120]
+        motors[name] = row
+        ok_all = ok_all and bool(row.get("ok"))
+    return {
+        "ok": ok_all,
+        "law": "data/cf-only-24-7-execution-v1.json",
+        "deploy_all": "scripts/deploy_cf_all_motors_v1.sh",
+        "motors": motors,
+    }
+
+
 def _dbg(hypothesis_id: str, location: str, message: str, data: dict | None = None) -> None:
     # #region agent log
     try:
@@ -162,23 +196,34 @@ def _proceed_direct_cloud(body: dict | None) -> dict:
         payload.setdefault("trigger_source", "hub_proceed_pack")
         payload.setdefault("force_reset_gate", True)
         row = proceed_from_hub(payload)
+        if row.get("decision") in ("drain_complete", "batch_complete"):
+            row["ok"] = True
         if row.get("error") == "mac_observe_only":
             ssot = _read_json(REAL_SA / "data/cloud-auto-runtime-v1.json")
             cf = (ssot.get("cloudflare_worker") or {}).get("url") or ""
             cf = str(cf).rstrip("/")
-            row = {
-                **row,
-                "ok": True,
-                "decision": "use_cf_cron",
-                "redirect": "browser_cf_tick",
-                "cf_tick_url": f"{cf}/tick" if cf else None,
-                "for_founder": {
-                    "show_this": (
-                        "Mac observe only — use Trigger CF full-pack button (browser→CF→Railway). "
-                        "CF cron */10 runs automatically."
-                    ),
-                },
-            }
+            try:
+                from cloud_workers_hub_v1 import trigger_cf_full_pack  # noqa: WPS433
+                from fbe.lib.mac_control_dispatch_v1 import upgrade_mac_motor_block  # noqa: WPS433
+
+                cf_row = trigger_cf_full_pack(force=bool(payload.get("force")))
+                row = upgrade_mac_motor_block(row, cf_tick_row=cf_row, action="proceed")
+                row["cf_tick_url"] = f"{cf}/tick" if cf else None
+            except Exception as exc:
+                row = {
+                    **row,
+                    "ok": True,
+                    "decision": "use_cf_cron",
+                    "redirect": "browser_cf_tick",
+                    "cf_tick_url": f"{cf}/tick" if cf else None,
+                    "for_founder": {
+                        "show_this": (
+                            "Mac motor blocked — tap Trigger CF full-pack or wait for CF cron */10. "
+                            f"Manual: {cf}/tick"
+                        ),
+                    },
+                    "cf_trigger_error": str(exc)[:200],
+                }
         cloud = row.get("cloud") if isinstance(row.get("cloud"), dict) else {}
         if cloud.get("pack"):
             row["pack"] = cloud.get("pack")
@@ -248,6 +293,7 @@ class CloudWorkersHandler(BaseHTTPRequestHandler):
                     "legacy_hub_port": HUB_PORT,
                     "legacy_hub_live": _hub_up(),
                     "hub_required_for_proceed": False,
+                    "cf_motors_24_7": _cf_motors_status(),
                     "ui_contract": build_ui_contract("cloud_workers", port=PORT),
                 },
             )
@@ -306,7 +352,8 @@ class CloudWorkersHandler(BaseHTTPRequestHandler):
             action = str(body.get("action") or "").strip().lower()
             if action == "proceed":
                 result = _proceed_direct_cloud(body)
-                code = 200 if result.get("ok") else 422
+                upgraded = result.get("decision") == "mac_trigger_cf_tick"
+                code = 200 if result.get("ok") or upgraded else 422
                 self._json(code, result)
                 return
             from cloud_workers_hub_v1 import handle_action  # noqa: WPS433
@@ -316,6 +363,31 @@ class CloudWorkersHandler(BaseHTTPRequestHandler):
             except Exception as exc:
                 result = {"ok": False, "error": "execution_failed", "message": str(exc)[:500]}
             self._json(200 if result.get("ok", True) else 400, result)
+            return
+        if path in ("/api/cloud-worker/dispatch/v1", "/api/cloud-worker/dispatch-batch/v1"):
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
+
+            result = proxy_to_cloud(path=path, body=body if isinstance(body, dict) else {}, timeout_s=180)
+            self._json(200 if result.get("ok") else 502, result)
+            return
+        if path == "/api/loop-specialist/tick/v1":
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
+
+            result = proxy_to_cloud(path=path, body=body if isinstance(body, dict) else {}, timeout_s=120)
+            self._json(200 if result.get("ok") else 502, result)
+            return
+        if path == "/api/signal-factory/tick/v1":
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
+
+            fbe_path = "/api/fbe/signal-factory/tick/v1"
+            result = proxy_to_cloud(path=fbe_path, body=body if isinstance(body, dict) else {}, timeout_s=120)
+            self._json(200 if result.get("ok") else 502, result)
+            return
+        if path.startswith("/api/forge/"):
+            from fbe.lib.hub_cloud_proxy_v1 import proxy_to_cloud  # noqa: WPS433
+
+            result = proxy_to_cloud(path=path, body=body if isinstance(body, dict) else {}, timeout_s=240)
+            self._json(200 if result.get("ok") else 502, result)
             return
         if path == "/api/cloud-forge-run/proceed/v1":
             result = _proceed_direct_cloud(body)
