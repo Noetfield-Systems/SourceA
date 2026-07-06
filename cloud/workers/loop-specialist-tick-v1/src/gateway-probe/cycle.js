@@ -1,9 +1,8 @@
 /**
  * Sina Gateway chain probes — piggyback loop-specialist 15m CF cron (zero new slots).
- * Telegram on RED (SourceA nerve-probe pattern).
+ * LAW: HTTP probes + JSON receipts only. ZERO Telegram — @Gateway_A is NOT this lane.
+ * External alerts: UptimeRobot per data/noos-external-monitors-v1.json
  */
-import { sendTelegramAlert } from "../nerve-probe/telegram.js";
-
 const DEFAULT_BASE = "https://sina-gateway-production.up.railway.app";
 
 export async function runGatewayWatchdog(env) {
@@ -19,20 +18,12 @@ export async function runGatewayWatchdog(env) {
   checks.push(await probeConfig(`${baseUrl}/api/config`));
 
   const ok = checks.every((check) => check.ok);
-  let telegram = { ok: true, skipped: true };
-  if (!ok) {
-    const fails = checks.filter((c) => !c.ok).map((c) => c.name).join(", ");
-    telegram = await sendTelegramAlert(
-      env,
-      `<b>Sina Gateway watchdog RED</b>\n${fails}\n${JSON.stringify(checks).slice(0, 2800)}`,
-    );
-  }
 
   return {
     ok,
     schema: "sina-gateway-watchdog-v1",
     checks,
-    telegram,
+    telegram: { ok: true, skipped: true, reason: "gateway_lane_no_telegram" },
     at: new Date().toISOString(),
     execution_plane: "cloudflare_cron_loop_specialist",
   };
@@ -75,12 +66,11 @@ export async function runGatewayHeartbeat(env) {
 
   const payload = verdictPayload({ gateway, commercial, verdict });
 
-  const telegram = await sendTelegramAlert(
-    env,
-    `<b>Sina Gateway heartbeat ${verdict}</b>\ninfra: ${infraRed ? "RED" : "GREEN"}\ncommercial: ${commercialRed ? "RED (offers_sent=0)" : "GREEN"}\ncapture: ${gateway.capture_mode}`,
-  );
-
-  return { ...payload, telegram, execution_plane: "cloudflare_cron_loop_specialist" };
+  return {
+    ...payload,
+    telegram: { ok: true, skipped: true, reason: "gateway_lane_no_telegram" },
+    execution_plane: "cloudflare_cron_loop_specialist",
+  };
 }
 
 async function probe(url, name) {

@@ -50,13 +50,16 @@
       "id": "sina-gateway-health",
       "type": "http",
       "url": "https://sina-gateway-production.up.railway.app/health",
-      "keyword": "ok"
+      "keyword": "ok",
+      "telegram": "FORBIDDEN — @Gateway_A owns its lane; SourceA UptimeRobot GET only"
     },
     {
       "id": "sina-gateway-ready",
       "type": "http",
       "url": "https://sina-gateway-production.up.railway.app/ready",
-      "expected_status": 200
+      "expected_status": 200,
+      "telegram": "FORBIDDEN — never sendMessage from loop-specialist"
     }
-  ]
+  ],
+  "telegram_routing_ssot": "data/telegram-routing-ssot-v1.json"
 }
