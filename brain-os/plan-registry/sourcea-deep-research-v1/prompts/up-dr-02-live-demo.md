@@ -1,15 +1,15 @@
-# Forge Terminal: fix Connecting… or show honest offline state
+# Live demo — Forge Terminal
 
-**Plan ID:** `sdr-p0-002` · **Tier:** P0 · **Updated:** 2026-07-06T09:17:58Z
-
-## Problem
-Public demo stuck on Connecting damages conversion.
+**Plan ID:** `UP-DR-02` · **Tier:** P0 · **Wave:** W1
 
 ## Goal
 Terminal shows online send path OR clear offline + forge@sourcea.app fallback
 
 ## Done when
 Terminal page markers present; health/send path returns ok or offline banner
+
+## Child steps
+- **sdr-p0-002** — Forge Terminal: fix Connecting… or show honest offline state (open)
 
 ## Verify
 ```
@@ -26,4 +26,4 @@ Send one prompt on terminal — response or explicit offline state
 `SourceA-landing/green-unified/sourcea/forge/terminal.html`
 
 ---
-*Child plan · rolled into UP-DR upgrade wave*
+*One CLOUD-SEC row per Auto Runtime tick · Supabase proof · INCIDENT-045*

@@ -1,8 +1,8 @@
 {
   "schema": "cloud-workers-control-plane-v1",
   "version": "1.4.0",
-  "saved_at": "2026-07-06T09:03:49Z",
-  "one_law": "Cloud Workers cockpit \u00b7 Auto Runtime */10 \u00b7 max_advance=1 \u00b7 one recipe per CLOUD-SEC row \u00b7 Supabase proof gate",
+  "saved_at": "2026-07-06T09:17:58Z",
+  "one_law": "Cloud Workers cockpit \u00b7 Auto Runtime */10 \u00b7 max_advance=1 \u00b7 one UP-DR recipe per CLOUD-SEC row \u00b7 Supabase proof gate",
   "cf_only_24_7": "data/cf-only-24-7-execution-v1.json",
   "cf_deploy_all": "scripts/deploy_cf_all_motors_v1.sh",
   "ssot_paths": {
@@ -86,13 +86,13 @@
     "queue_path": "data/secondary-cloud-forge-run-batch-82-locked-v1.json"
   },
   "ready_batch": {
-    "batch_id": 82,
+    "batch_id": 83,
     "status": "ready_locked",
-    "queue_path": "data/secondary-cloud-forge-run-batch-82-locked-v1.json",
-    "cloud_sec_range": "CLOUD-SEC-8069..CLOUD-SEC-8095",
+    "queue_path": "data/secondary-cloud-forge-run-batch-83-locked-v1.json",
+    "cloud_sec_range": "CLOUD-SEC-8096..CLOUD-SEC-8120",
     "library": "client-proof-recipe",
     "tasks_per_row": 1,
-    "source": "deep_research_v1"
+    "source": "deep_research_up_dr_v1"
   },
   "deployment_lessons": {
     "last_updated_at": "2026-07-02T04:30:00Z",

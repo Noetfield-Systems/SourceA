@@ -1,15 +1,15 @@
-# Buyer-readable proof: What this proves under live receipt
+# Proof readability
 
-**Plan ID:** `sdr-p1-005` · **Tier:** P1 · **Updated:** 2026-07-06T09:17:58Z
-
-## Problem
-Technical receipts need commercial interpretation.
+**Plan ID:** `UP-DR-08` · **Tier:** P1 · **Wave:** W1
 
 ## Goal
 Live receipt page adds plain-English what-this-proves strip
 
 ## Done when
 GET /sourcea/proof/live JSON + human strip on proof page
+
+## Child steps
+- **sdr-p1-005** — Buyer-readable proof: What this proves under live receipt (open)
 
 ## Verify
 ```
@@ -26,4 +26,4 @@ Open receipt — non-technical line explains delivery proof
 `SourceA-landing/green-unified/proof.html`
 
 ---
-*Child plan · rolled into UP-DR upgrade wave*
+*One CLOUD-SEC row per Auto Runtime tick · Supabase proof · INCIDENT-045*
