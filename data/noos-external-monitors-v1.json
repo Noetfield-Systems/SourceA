@@ -6,38 +6,7 @@
   "provider": "uptimerobot",
   "tier": "free",
   "interval_minutes": 5,
-  "interval_seconds": 300,
-  "founder_onboarding": "https://dashboard.uptimerobot.com/onboarding/1",
-  "sync_script": "scripts/uptimerobot_sync_monitors_v1.py",
   "monitors": [
-    {
-      "id": "sourcea-cloud-auto-runtime-health",
-      "type": "http",
-      "url": "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev/health",
-      "keyword": "cloud-auto-runtime-tick-v1",
-      "role": "cf_autorun_motor_up"
-    },
-    {
-      "id": "sourcea-loop-specialist-health",
-      "type": "http",
-      "url": "https://sourcea-loop-specialist-tick-v1.sina-kazemnezhad-ca.workers.dev/health",
-      "keyword": "loop-specialist-cron-v1",
-      "role": "cf_loop_motor_up"
-    },
-    {
-      "id": "sourcea-app-home",
-      "type": "http",
-      "url": "https://sourcea.app/",
-      "expected_status": 200,
-      "role": "public_landing"
-    },
-    {
-      "id": "sourcea-brain-health",
-      "type": "http",
-      "url": "https://sourcea-brain-chat-v1.sina-kazemnezhad-ca.workers.dev/health",
-      "optional": true,
-      "role": "brain_chat_up"
-    },
     {
       "id": "noos-loop-runner-health",
       "type": "http",
@@ -52,11 +21,10 @@
       "role": "cf_fleet_motor_up"
     },
     {
-      "id": "sourcea-deadman-health",
+      "id": "noos-deadman-health",
       "type": "http",
-      "url": "https://sourcea-deadman-v1.sina-kazemnezhad-ca.workers.dev/health",
-      "keyword": "sourcea-deadman-v1",
-      "role": "cf_deadman_watcher_up"
+      "url": "https://noos-deadman-v1.sina-kazemnezhad-ca.workers.dev/health",
+      "role": "cf_deadman_up"
     },
     {
       "id": "noetfield-www-optional",
@@ -82,16 +50,13 @@
       "id": "sina-gateway-health",
       "type": "http",
       "url": "https://sina-gateway-production.up.railway.app/health",
-      "keyword": "ok",
-      "telegram": "FORBIDDEN — @Gateway_A owns its lane; SourceA UptimeRobot GET only"
+      "keyword": "ok"
     },
     {
       "id": "sina-gateway-ready",
       "type": "http",
       "url": "https://sina-gateway-production.up.railway.app/ready",
-      "expected_status": 200,
-      "telegram": "FORBIDDEN — never sendMessage from loop-specialist"
+      "expected_status": 200
     }
-  ],
-  "telegram_routing_ssot": "data/telegram-routing-ssot-v1.json"
+  ]
 }
