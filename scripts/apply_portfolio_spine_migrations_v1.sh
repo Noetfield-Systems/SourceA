@@ -9,6 +9,7 @@ MIGRATIONS=(
   "$ROOT/infra/supabase/portfolio-spine/migrations/007_agent_session_cost_v1.sql"
   "$ROOT/infra/supabase/portfolio-spine/migrations/012_gmail_inbox_signals_v1.sql"
   "$ROOT/infra/supabase/portfolio-spine/migrations/013_improvement_queue_v1.sql"
+  "$ROOT/infra/supabase/portfolio-spine/migrations/014_workflow_census_v1.sql"
 )
 
 for SQL in "${MIGRATIONS[@]}"; do

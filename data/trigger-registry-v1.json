@@ -437,6 +437,20 @@
       }
     },
     {
+      "trigger_id": "SA-T-workflow-census-weekly",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "0 10 * * 0",
+      "target": "Weekly WORKFLOW_CENSUS_v1 — judging layer → workflow_census + improvement_queue audit",
+      "valid_in_verified_window": true,
+      "owner_workflow": "loop-specialist-cron-dispatch",
+      "live_probe": {
+        "type": "dispatch_cron",
+        "dispatch_path": "data/loop-specialist-cron-dispatch-v1.json",
+        "schedule": "0 10 * * 0"
+      }
+    },
+    {
       "trigger_id": "SA-T-deadman-loop-watch",
       "system": "sourcea",
       "kind": "schedule",
