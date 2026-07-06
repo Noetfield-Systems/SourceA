@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-02T10:32:00Z
+updated: 2026-07-06T09:57:10Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/data/sourcea-products-catalog-v1.json
 public: true

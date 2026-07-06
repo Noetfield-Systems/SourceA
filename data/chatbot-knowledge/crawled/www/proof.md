@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-02T10:32:00Z
+updated: 2026-07-06T09:57:10Z
 lane: buyer
 source_path: sites/SourceA-landing/green-unified/proof.html
 public: true
@@ -17,6 +17,8 @@ Every controlled turn leaves a receipt — request, policy, verdict, replay, tam
 ## One chain. Six beats. Five minutes.
 
 ## Don't take our word for it. See the receipt.
+
+## What this proves
 
 ## Something proposes action
 
@@ -53,6 +55,8 @@ Every controlled turn leaves a receipt — request, policy, verdict, replay, tam
 Skip the deck. Walk from request to receipt to replay — on your screen, verifiable without chat history or a sales call.
 
 Every job on SourceA looks like this. Verifiable, every time.
+
+We shipped the work, ran quality checks, logged the result, and can replay delivery — not just claim success in chat.
 
 Policy logged, scope check, feasibility — before any model token spends.
 

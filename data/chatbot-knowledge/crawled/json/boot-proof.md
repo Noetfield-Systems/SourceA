@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-02T10:32:00Z
+updated: 2026-07-06T09:57:10Z
 lane: buyer
 source_path: sites/SourceA-landing/green-unified/data/boot-proof.json
 public: true
