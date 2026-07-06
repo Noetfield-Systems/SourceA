@@ -99,9 +99,18 @@ def _write_vercel_json(staging: Path) -> None:
         "rewrites": vercel_rewrites(),
         "headers": [
             {
+                "source": "/sourcea/forge/terminal(.*)",
+                "headers": [
+                    {
+                        "key": "Content-Security-Policy",
+                        "value": "frame-ancestors 'self' https://sourcea.app https://www.sourcea.app",
+                    },
+                ],
+            },
+            {
                 "source": "/(.*)",
                 "headers": [
-                    {"key": "X-Frame-Options", "value": "DENY"},
+                    {"key": "X-Frame-Options", "value": "SAMEORIGIN"},
                     {"key": "X-Content-Type-Options", "value": "nosniff"},
                     {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"},
                 ],
@@ -115,6 +124,12 @@ def _write_vercel_json(staging: Path) -> None:
     (staging / "vercel.json").write_text(json.dumps(vercel, indent=2) + "\n", encoding="utf-8")
 
 
+FORGE_TERMINAL_EMBED_HEADERS = """
+/sourcea/forge/terminal*
+  Content-Security-Policy: frame-ancestors 'self' https://sourcea.app https://www.sourcea.app https://sourcea.ca https://www.sourcea.ca https://sourcea.uk https://www.sourcea.uk
+""".strip()
+
+
 def _write_pages_extras(staging: Path) -> None:
     """Cloudflare Pages — headers; _redirects from build (extensionless clean URLs)."""
     redirects = staging / "_redirects"
@@ -126,8 +141,10 @@ def _write_pages_extras(staging: Path) -> None:
     (staging / "_headers").write_text(
         "\n".join(
             [
+                FORGE_TERMINAL_EMBED_HEADERS,
+                "",
                 "/*",
-                "  X-Frame-Options: DENY",
+                "  X-Frame-Options: SAMEORIGIN",
                 "  X-Content-Type-Options: nosniff",
                 "  Referrer-Policy: strict-origin-when-cross-origin",
                 "",
