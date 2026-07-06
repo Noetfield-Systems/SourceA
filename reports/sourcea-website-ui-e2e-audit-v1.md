@@ -1,63 +1,44 @@
-# SourceA Website UI E2E Audit
+# SourceA Website UI E2E Audit (v2)
 
-**At:** 2026-07-06T12:15:18Z  
+**At:** 2026-07-06T12:36:16Z  
 **Base:** https://sourcea.app  
-**Verdict:** `PASS_WITH_WARNINGS`  
-
-## Executive summary
-
-- **All 212 routes:** mechanical PASS (0 FAIL)
-- **Warnings:** 37 (auth/contract pages without chatbot — expected)
-- **Fix wave (2026-07-06):** footer sync on security/loops/sources, unify path leaks, legacy kernel page, reference mock CTA
+**Verdict:** `PASS`  
 
 ## Summary
 
 | Metric | Count |
 |--------|-------|
-| Paths discovered | 212 |
-| Pages fetched | 212 |
-| PASS | 212 |
+| Live BFS paths | 51 |
+| Dist paths | 116 |
+| Unique audited | 117 |
+| Counted (non-rejected) | 115 |
+| PASS | 115 |
 | FAIL | 0 |
-| WARN only | 37 |
+| Buyer funnel FAIL | 0 |
+| SPA fallback rejected | 2 |
 
-## Warnings (review)
+## Buyer funnel
 
-- **https://sourcea.app/ai-value-governance**
-  - `no_contact_surface`: commercial page missing hello@/forge@ and chatbot
-- **https://sourcea.app/enterprise-ai-control-plane**
-  - `no_contact_surface`: commercial page missing hello@/forge@ and chatbot
-- **https://sourcea.app/forge/terminal/profile**
-  - `no_contact_surface`: commercial page missing hello@/forge@ and chatbot
-- **https://sourcea.app/forge/terminal/signin**
-  - `no_contact_surface`: commercial page missing hello@/forge@ and chatbot
-- **https://sourcea.app/forge/terminal/signup**
-  - `no_contact_surface`: commercial page missing hello@/forge@ and chatbot
-- **https://sourcea.app/forge/terminal/workspace**
-  - `no_contact_surface`: commercial page missing hello@/forge@ and chatbot
-- **https://sourcea.app/operating-brain-install**
-  - `no_contact_surface`: commercial page missing hello@/forge@ and chatbot
-- **https://sourcea.app/platform/profile**
-  - `no_contact_surface`: commercial page missing hello@/forge@ and chatbot
-- **https://sourcea.app/platform/sign-in**
-  - `no_contact_surface`: commercial page missing hello@/forge@ and chatbot
-- **https://sourcea.app/platform/sign-up**
-  - `no_contact_surface`: commercial page missing hello@/forge@ and chatbot
-- **https://sourcea.app/platform/workspace**
-  - `no_contact_surface`: commercial page missing hello@/forge@ and chatbot
-- **https://sourcea.app/sourcea/ai-value-governance**
-  - `no_contact_surface`: commercial page missing hello@/forge@ and chatbot
-- **https://sourcea.app/sourcea/ai-value-governance.html**
-  - `no_contact_surface`: commercial page missing hello@/forge@ and chatbot
-- **https://sourcea.app/sourcea/brain-chat-settings**
-  - `no_contact_surface`: commercial page missing hello@/forge@ and chatbot
-- **https://sourcea.app/sourcea/brain-chat-settings.html**
-  - `no_contact_surface`: commercial page missing hello@/forge@ and chatbot
-- … and 22 more (see JSON)
+- `/` — **PASS**
+- `/start` — **PASS**
+- `/pricing` — **PASS**
+- `/sourcea/pricing` — **PASS**
+- `/proof` — **PASS**
+- `/sourcea/proof` — **PASS**
+- `/sourcea/offer` — **PASS**
+- `/eval` — **PASS**
+- `/forge/terminal` — **PASS**
+- `/sourcea/forge/terminal` — **PASS**
+- `/security` — **PASS**
+- `/sourcea/security` — **PASS**
 
-## Checks applied
+## Checks
 
-- Live HTTPS fetch (public hostname only)
-- HTTP status + title + HTML shell
-- Path leaks, stale positioning, mechanical gate forbidden phrases
+- Live BFS + sitemap discovery (not splat URLs)
+- Dist vs live drift receipt
+- Path leaks, {ENTITY}, forbidden phrases, regex v2
+- SPA fallback rejection
+- Buyer funnel explicit bucket
+- Contact: hello@ / forge@ / contract@sourcea.*
 
-**Machine:** `scripts/sourcea_website_ui_e2e_audit_v1.py`
+`scripts/sourcea_website_ui_e2e_audit_v1.py` · gate `data/sourcea-ui-mechanical-gate-v1.json`
