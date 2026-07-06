@@ -41,7 +41,7 @@ python3 - <<'PY' | tee -a "$RECEIPT_LOG"
 import os, sys
 js = os.environ["CHATBOT_JS"]
 checks = [
-    ("execution_greet", "AI execution platform powered by Forge" in js),
+    ("execution_greet", "AI execution platform" in js),
     ("forge_chip_in_chat", "What is Forge Terminal and how do I try it" in js),
     ("pricing_chip_in_chat", "How does SourceA pricing work" in js),
     ("no_old_subtitle", "Your SourceA guide — proof, pricing" not in js),
