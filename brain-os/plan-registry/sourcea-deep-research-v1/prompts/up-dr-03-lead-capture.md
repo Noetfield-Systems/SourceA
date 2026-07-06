@@ -1,15 +1,15 @@
-# Verify intake submit: store lead + confirmation + notification
+# Lead capture — intake submit
 
-**Plan ID:** `sdr-p0-003` · **Tier:** P0 · **Updated:** 2026-07-06T09:17:58Z
-
-## Problem
-Lead capture is P0 commercial path; submit not externally verified.
+**Plan ID:** `UP-DR-03` · **Tier:** P0 · **Wave:** W1
 
 ## Goal
 Start/intake POST stores row in Supabase and shows success reference
 
 ## Done when
 mvp-intake-config exposes worker URL; verify_mvp_intake_proof_v1 PASS
+
+## Child steps
+- **sdr-p0-003** — Verify intake submit: store lead + confirmation + notification (open)
 
 ## Verify
 ```
@@ -26,4 +26,4 @@ Submit test lead on /start — show confirmation ID + Supabase row
 `cloud/workers/sourcea-mvp-intake-v1/`
 
 ---
-*Child plan · rolled into UP-DR upgrade wave*
+*One CLOUD-SEC row per Auto Runtime tick · Supabase proof · INCIDENT-045*

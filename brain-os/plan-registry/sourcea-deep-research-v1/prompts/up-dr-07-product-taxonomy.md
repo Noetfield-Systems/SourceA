@@ -1,15 +1,15 @@
-# Simplify product taxonomy box on homepage
+# Product taxonomy
 
-**Plan ID:** `sdr-p1-004` · **Tier:** P1 · **Updated:** 2026-07-06T09:17:58Z
-
-## Problem
-Forge/Brain/Chat Unify/Cloud Workers confuse first-time buyers.
+**Plan ID:** `UP-DR-07` · **Tier:** P1 · **Wave:** W1
 
 ## Goal
 One box: SourceA=product · Forge=engine · components named once
 
 ## Done when
 Homepage has data-sa-taxonomy box with three-line explainer
+
+## Child steps
+- **sdr-p1-004** — Simplify product taxonomy box on homepage (open)
 
 ## Verify
 ```
@@ -26,4 +26,4 @@ Read taxonomy box aloud — under 15 seconds
 `SourceA-landing/green-unified/index.html`
 
 ---
-*Child plan · rolled into UP-DR upgrade wave*
+*One CLOUD-SEC row per Auto Runtime tick · Supabase proof · INCIDENT-045*

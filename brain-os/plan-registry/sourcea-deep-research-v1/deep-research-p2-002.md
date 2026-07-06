@@ -1,6 +1,6 @@
 # OpenGraph / LinkedIn share card
 
-**Plan ID:** `sdr-p2-002` · **Tier:** P2 · **Updated:** 2026-07-06T09:03:49Z
+**Plan ID:** `sdr-p2-002` · **Tier:** P2 · **Updated:** 2026-07-06T09:17:58Z
 
 ## Problem
 Social preview not verified.
@@ -13,7 +13,7 @@ index.html head has og:title Proof-backed AI execution systems
 
 ## Verify
 ```
-cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/ --marker og:title && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count
+cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/ --marker "og:title" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count
 ```
 
 ## Proof artifact
@@ -26,4 +26,4 @@ LinkedIn post inspector shows correct preview
 `SourceA-landing/green-unified/index.html`
 
 ---
-*One row per Auto Runtime tick · Supabase proof required · INCIDENT-045*
+*Child plan · rolled into UP-DR upgrade wave*
