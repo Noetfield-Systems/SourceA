@@ -19,6 +19,11 @@
   const DEMO_URL = "https://cal.com/sourcea/proof-demo";
   const DEMO_OVERLAY = "https://cal.com/sourcea/proof-demo?overlayCalendar=true&embed=true";
 
+  function isAiReady(data) {
+    if (!data || typeof data !== "object") return false;
+    return Boolean(data.ai_model_ready ?? data.openrouter_ready);
+  }
+
   const SCENARIOS = [
     {
       agent: "Outreach agent · 2:03am",
@@ -301,7 +306,7 @@
         return false;
       }
       const data = await r.json();
-      openrouterReady = Boolean(data.openrouter_ready);
+      openrouterReady = isAiReady(data);
       statusCheckedAt = now;
       return openrouterReady;
     } catch (_) {
