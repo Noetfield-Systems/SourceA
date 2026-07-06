@@ -8,10 +8,10 @@
   const CONFIG_URL = "/sourcea/data/sourcea-brain-chat-config-v1.json";
   const POSITIONING_URL = "/sourcea/data/sourcea-positioning-v1.json";
   const DEFAULT_POSITIONING = {
-    brain_subtitle: "AI execution platform powered by Forge — builds, automations, and agent workflows",
+    brain_subtitle: "AI execution platform — builds, automations, and agent workflows",
     composer_placeholder: "What are you trying to run, build, or automate?",
     brain_greet_html:
-      "Hi — I'm <strong>Brain</strong>. SourceA is an <strong>AI execution platform powered by Forge</strong> — real builds, automations, and agent workflows, with a verifiable receipt on every run.<br><span class='sa-brain-hint'>Tell me what you're trying to ship, try Forge Terminal, or ask for examples — no pitch until you want one.</span>",
+      "Hi — I'm <strong>Brain</strong>. SourceA is an <strong>AI execution platform</strong> — real builds, automations, and agent workflows, with a verifiable receipt on every run.<br><span class='sa-brain-hint'>Tell me what you're trying to ship, try Forge Terminal, or ask for examples — no pitch until you want one.</span>",
   };
   const DEFAULT_WORKER_API =
     "https://sourcea-brain-chat-v1.sina-kazemnezhad-ca.workers.dev/api/brain/chat/v1";
@@ -457,7 +457,7 @@
           <div class="sa-brain-head-main">
             <div class="sa-brain-head-brand">
               <span class="sa-brain-head-title">◎ Brain <em class="sa-brain-provider" id="sa-brain-provider"></em></span>
-              <span class="sa-brain-head-sub">AI execution platform powered by Forge — builds, automations, and agent workflows</span>
+              <span class="sa-brain-head-sub">AI execution platform — builds, automations, and agent workflows</span>
             </div>
             <button type="button" class="sa-brain-close" id="sa-brain-close" aria-label="Close">×</button>
           </div>
