@@ -6,6 +6,7 @@ Fetches public HTTPS only (not local dist). Writes JSON + Markdown report.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import ssl
@@ -20,7 +21,6 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "SourceA-landing" / "green-unified" / "dist"
-SINA = Path.home() / ".sina"
 REPORTS = ROOT / "reports"
 GATE = ROOT / "data" / "sourcea-ui-mechanical-gate-v1.json"
 
@@ -48,19 +48,48 @@ def _now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def _load_forbidden_from_gate() -> list[str]:
+def _load_gate() -> dict[str, Any]:
     if not GATE.is_file():
-        return []
+        return {}
     try:
-        row = json.loads(GATE.read_text(encoding="utf-8"))
+        return json.loads(GATE.read_text(encoding="utf-8"))
     except json.JSONDecodeError:
-        return []
+        return {}
+
+
+def _load_forbidden_from_gate() -> list[str]:
+    row = _load_gate()
     out: list[str] = []
     for item in row.get("forbidden_primary_phrases") or []:
         pat = str(item.get("pattern") or "").strip()
         if pat:
             out.append(pat)
     return out
+
+
+def _load_regex_checks() -> list[dict[str, Any]]:
+    return list(_load_gate().get("regex_checks") or [])
+
+
+def _reclassify_finding_ids() -> dict[str, str]:
+    out: dict[str, str] = {}
+    for item in _load_gate().get("reclassify") or []:
+        fid = str(item.get("finding_id") or "")
+        sev = str(item.get("severity") or "FAIL")
+        if not fid:
+            continue
+        for page in item.get("pages") or []:
+            out[str(page)] = sev
+    return out
+
+
+def _body_sha256(body: str) -> str:
+    return hashlib.sha256(body.encode("utf-8")).hexdigest()
+
+
+def _entity_from_body(body: str) -> str | None:
+    m = re.search(r"Noetfield Systems Inc\.|{ENTITY}", body)
+    return m.group(0) if m else None
 
 
 def _discover_paths() -> list[str]:
@@ -75,6 +104,8 @@ def _discover_paths() -> list[str]:
             parts = line.split()
             if len(parts) >= 2:
                 src = parts[0].strip()
+                if "*" in src:
+                    continue
                 if src and not src.startswith(":"):
                     paths.add(src if src.startswith("/") else f"/{src}")
 
@@ -111,7 +142,7 @@ def _discover_paths() -> list[str]:
     ):
         paths.add(short)
 
-    return sorted(paths)
+    return sorted(p for p in paths if "*" not in p)
 
 
 def _fetch(url: str) -> dict[str, Any]:
@@ -149,6 +180,8 @@ def _fetch(url: str) -> dict[str, Any]:
 
     title_m = re.search(r"<title[^>]*>([^<]+)</title>", body, re.I)
     row["title"] = unescape(title_m.group(1).strip()) if title_m else ""
+    row["body_sha256"] = _body_sha256(body)
+    row["entity"] = _entity_from_body(body)
 
     if row.get("status") not in (200, 301, 302):
         row["findings"].append(
@@ -182,18 +215,42 @@ def _fetch(url: str) -> dict[str, Any]:
                 {"id": "forbidden_primary", "severity": "FAIL", "detail": f"forbidden: {phrase!r}"}
             )
 
+    for item in _load_regex_checks():
+        pattern = str(item.get("regex") or "")
+        if not pattern:
+            continue
+        rx = re.compile(pattern, re.I)
+        if rx.search(body):
+            row["findings"].append(
+                {
+                    "id": str(item.get("id") or "regex_check"),
+                    "severity": str(item.get("severity") or "FAIL"),
+                    "detail": str(item.get("suggestion") or item.get("why") or "regex check failed"),
+                }
+            )
+
     if row.get("status") == 200 and "text/html" in str(row.get("content_type", "")):
         path = urllib.parse.urlparse(url).path
+        reclassify = _reclassify_finding_ids()
+        contact_severity = "WARN"
+        for page_key, sev in reclassify.items():
+            if path == page_key or path.rstrip("/") == page_key.rstrip("/"):
+                contact_severity = sev
+                break
         if any(h in path for h in COMMERCIAL_HINTS) or path in ("/", "/sourcea/", "/sourcea"):
             if "hello@sourcea.app" not in body and "forge@sourcea.app" not in body:
                 if "sourcea-chatbot.js" not in body and path not in ("/sourcea/forge/terminal",):
                     row["findings"].append(
                         {
                             "id": "no_contact_surface",
-                            "severity": "WARN",
+                            "severity": contact_severity,
                             "detail": "commercial page missing hello@/forge@ and chatbot",
                         }
                     )
+        if row.get("entity") == "{ENTITY}":
+            row["findings"].append(
+                {"id": "entity_consistency", "severity": "FAIL", "detail": "unrendered {ENTITY} in body"}
+            )
 
     row["ok"] = not any(f["severity"] == "FAIL" for f in row["findings"])
     return row
@@ -201,8 +258,9 @@ def _fetch(url: str) -> dict[str, Any]:
 
 def _audit(*, base: str, workers: int) -> dict[str, Any]:
     paths = _discover_paths()
-    urls = [base.rstrip("/") + (p if p.startswith("/") else f"/{p}") for p in paths]
+    urls = [base.rstrip("/") + (p if p.startswith("/") else f"/{p}") for p in paths if "*" not in p]
     results: list[dict[str, Any]] = []
+    rejected: list[dict[str, Any]] = []
 
     with ThreadPoolExecutor(max_workers=workers) as pool:
         futs = {pool.submit(_fetch, u): u for u in urls}
@@ -210,6 +268,25 @@ def _audit(*, base: str, workers: int) -> dict[str, Any]:
             results.append(fut.result())
 
     results.sort(key=lambda r: r["url"])
+    home = next((r for r in results if urllib.parse.urlparse(r["url"]).path in ("/", "")), None)
+    home_hash = home.get("body_sha256") if home else None
+    if home_hash:
+        for row in results:
+            path = urllib.parse.urlparse(row["url"]).path
+            if path in ("/", "") or row.get("status") != 200:
+                continue
+            if row.get("body_sha256") == home_hash:
+                row["spa_fallback"] = True
+                row["findings"].append(
+                    {
+                        "id": "spa_fallback_detect",
+                        "severity": "REJECT_ROW",
+                        "detail": "body sha256 matches homepage — SPA fallback",
+                    }
+                )
+                rejected.append({"url": row["url"], "id": "spa_fallback_detect"})
+                row["ok"] = not any(f["severity"] == "FAIL" for f in row["findings"])
+
     fail_pages = [r for r in results if not r.get("ok")]
     warn_pages = [r for r in results if r.get("ok") and any(f["severity"] == "WARN" for f in r.get("findings", []))]
 
@@ -230,7 +307,9 @@ def _audit(*, base: str, workers: int) -> dict[str, Any]:
             "pass": sum(1 for r in results if r.get("ok")),
             "fail": len(fail_pages),
             "warn_only": len(warn_pages),
+            "rejected_rows": len(rejected),
         },
+        "rejected_rows": rejected,
         "failures": [
             {
                 "url": r["url"],
@@ -296,9 +375,13 @@ def _markdown(report: dict[str, Any]) -> str:
         "- HTTP status + title + HTML shell",
         "- Path leaks (`/Users/`, local desktop paths)",
         "- Stale positioning (`powered by Forge`, call-first copy)",
-        "- Mechanical gate forbidden primary phrases",
-        "- Commercial contact/chatbot surface (warn)",
+        "- Mechanical gate forbidden primary phrases + v2 regex checks",
+        "- Commercial contact/chatbot surface (FAIL on SKU landers per reclassify)",
+        "- SPA fallback detect (homepage body hash match)",
+        "- Splat URL guard (skip `*` paths)",
+        "- Receipt hygiene (reports/ only; no path leaks in receipt body)",
         "",
+        f"**Gate SSOT:** `data/sourcea-ui-mechanical-gate-v1.json`",
         f"**Machine:** `scripts/sourcea_website_ui_e2e_audit_v1.py`",
         "",
     ]
@@ -317,25 +400,19 @@ def main() -> int:
     REPORTS.mkdir(parents=True, exist_ok=True)
     json_path = REPORTS / "sourcea-website-ui-e2e-audit-v1.json"
     md_path = REPORTS / "sourcea-website-ui-e2e-audit-v1.md"
-    receipt_path = SINA / "sourcea-website-ui-e2e-audit-v1.json"
 
-    json_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    json_text = json.dumps(report, indent=2) + "\n"
+    for needle in FORBIDDEN_PATH_LEAKS:
+        if needle in json_text:
+            report["verdict"] = "FAIL"
+            report.setdefault("receipt_hygiene", []).append(
+                {"id": "receipt_hygiene", "severity": "FAIL", "detail": f"receipt contains {needle!r}"}
+            )
+            json_text = json.dumps(report, indent=2) + "\n"
+            break
+
+    json_path.write_text(json_text, encoding="utf-8")
     md_path.write_text(_markdown(report), encoding="utf-8")
-    receipt_path.write_text(
-        json.dumps(
-            {
-                "schema": "sourcea-website-ui-e2e-audit-receipt-v1",
-                "at": report["at"],
-                "verdict": report["verdict"],
-                "summary": report["summary"],
-                "json": str(json_path),
-                "markdown": str(md_path),
-            },
-            indent=2,
-        )
-        + "\n",
-        encoding="utf-8",
-    )
 
     if args.json:
         print(json.dumps(report, indent=2))
