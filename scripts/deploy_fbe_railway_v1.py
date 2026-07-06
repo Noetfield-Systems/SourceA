@@ -192,6 +192,8 @@ _STAGING_SCRIPT_FILES = (
     "fbe_cloud_scheduled_loops_v1.py",
     "gha_repo_health_sweep_v1.py",
     "gha_security_sweep_v1.py",
+    "workflow_census_v1.py",
+    "workflow_census_audit_v1.py",
     "validate_locked_definitions_anatomy_v1.py",
     "verify_autorun_determinism_v1.py",
 )
