@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-06T09:57:10Z
+updated: 2026-07-06T10:57:13Z
 lane: developer
 source_path: sites/SourceA-landing/green-unified/forge/try.html
 public: true
@@ -26,7 +26,7 @@ Try Forge — browser demo, email a mission, or Mac app. SourceA runs real build
 
 ## Other Forge pages
 
-SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run. Start in the browser, email a mission, or use the Mac app — same execution spine.
+SourceA is an AI execution platform — real builds, automations, and agent workflows, with a verifiable receipt on every run. Start in the browser, email a mission, or use the Mac app — same execution spine.
 
 python3 scripts/prompt_forge_pipeline_v1.py --demo — sample run with receipt saved to your local receipt folder.
 
@@ -34,6 +34,6 @@ python3 scripts/prompt_forge_pipeline_v1.py --demo — sample run with receipt s
 
 How Prompt Forge works · Mission prompt template · SSOT policy layer · Chat Unify integration · Cursor bridge
 
-SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run.
+SourceA is an AI execution platform — real builds, automations, and agent workflows, with a verifiable receipt on every run.
 
 © 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · noetfield.com · Prompt Forge · sourcea.app · Technical overview · GitHub
