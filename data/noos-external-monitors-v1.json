@@ -11,6 +11,13 @@
   "sync_script": "scripts/uptimerobot_sync_monitors_v1.py",
   "monitors": [
     {
+      "id": "sourcea-cloud-auto-runtime-health",
+      "type": "http",
+      "url": "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev/health",
+      "keyword": "cloud-auto-runtime-tick-v1",
+      "role": "cf_autorun_motor_up"
+    },
+    {
       "id": "sourcea-loop-specialist-health",
       "type": "http",
       "url": "https://sourcea-loop-specialist-tick-v1.sina-kazemnezhad-ca.workers.dev/health",
