@@ -6,7 +6,7 @@
   <title>SourceA — AI execution platform with proof built in</title>
   <meta name="description" content="Turn AI into real production work — builds, automations, and agent workflows with proof built in. Evaluate in five minutes, no sales call required." />
   <meta name="theme-color" content="#044441" />
-  <meta property="og:title" content="Proof-backed AI execution systems" />
+  <meta property="og:title" content="Turn AI into real production work — proof built in" />
   <meta property="og:description" content="Turn AI into real production work — builds, automations, and agent workflows with proof built in. Verify on the page, no call required." />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
   <link rel="stylesheet" href="/assets/agentrun.css" />
@@ -69,39 +69,51 @@
       <div class="sa-hero-grid sa-hero-parallax-grid">
         <div class="ar-hero-ref-copy">
           <p class="sa-root-global-pill sa-fade-up"><span class="sa-globe-dot" aria-hidden="true"></span> Global platform · founders worldwide</p>
-          <p class="ar-kicker sa-fade-up">Proof-backed delivery · verify before you commit</p>
-          <p class="sa-category-tag sa-fade-up">AI execution platform — proof built in</p>
+          <p class="ar-kicker sa-fade-up" data-sa-positioning="kicker">Proof-backed delivery · verify before you commit</p>
+          <p class="sa-category-tag sa-fade-up" data-sa-positioning="category">AI execution platform — proof built in</p>
           <h1>
-            <span class="sa-line-reveal">Proof-backed MVPs and acquisition systems,</span>
-            <span class="sa-line-reveal"><span class="ar-hero-accent sa-accent-wipe">shipped fast.</span></span>
+            <span class="sa-line-reveal" data-sa-positioning="h1-line1">Turn AI into real production work,</span>
+            <span class="sa-line-reveal"><span class="ar-hero-accent sa-accent-wipe" data-sa-positioning="h1-accent">with proof built in.</span></span>
           </h1>
-          <p class="ar-hero-lead sa-fade-up">Evaluate in five minutes with <strong>sourcea-boot</strong> — PASS or BLOCK logged. Then Forge Terminal, live receipt, or Brain — no sales call required.</p>
+          <p class="ar-hero-lead sa-fade-up" data-sa-positioning="lead">Evaluate in five minutes with <strong>sourcea-boot</strong> — PASS or BLOCK logged. Forge Terminal, live receipt, or Brain — no sales call required.</p>
           <div class="ar-hero-actions sa-fade-up">
-            <a class="ar-btn ar-btn-primary sa-btn-glow" data-sa-primary-cta href="/start">Request a 48-hour build<span class="ar-btn-arrow">→</span></a>
-            <a class="ar-btn ar-btn-ghost" data-sa-proof-cta href="/sourcea/forge/terminal">Try Forge Terminal<span class="ar-btn-arrow ar-btn-arrow-dark">→</span></a>
-            <a class="ar-btn ar-btn-ghost" href="/eval">Run sourcea-boot eval<span class="ar-btn-arrow ar-btn-arrow-dark">→</span></a>
-            <a class="ar-btn ar-btn-ghost" href="/sourcea/proof/live">See live receipt<span class="ar-btn-arrow ar-btn-arrow-dark">→</span></a>
+            <a class="ar-btn ar-btn-primary sa-btn-glow" data-sa-primary-cta href="/sourcea/forge/terminal">Try Forge Terminal<span class="ar-btn-arrow">→</span></a>
+            <a class="ar-btn ar-btn-ghost" data-sa-secondary-cta href="/eval">Run sourcea-boot eval<span class="ar-btn-arrow ar-btn-arrow-dark">→</span></a>
+            <a class="ar-btn ar-btn-ghost" data-sa-tertiary-cta href="/sourcea/proof/live">See live receipt<span class="ar-btn-arrow ar-btn-arrow-dark">→</span></a>
+            <a class="ar-btn ar-btn-ghost ar-btn-sm" data-sa-intake-cta href="/start">Request a 48-hour build</a>
             <a class="ar-btn ar-btn-ghost ar-btn-sm" data-sa-book-fallback href="https://cal.com/sourcea/proof-demo">Talk to a human</a>
           </div>
           <aside class="sa-taxonomy-box ar-reveal sa-fade-up" data-sa-taxonomy style="margin-top:1.25rem;padding:1rem 1.25rem;border:1px solid rgba(4,68,65,0.2);border-radius:12px;max-width:42rem;font-size:0.9rem;line-height:1.55">
-            <p style="margin:0"><strong>SourceA</strong> ships builds, automations, and agent workflows with a delivery receipt you can verify on the page — no sales call required.</p>
+            <p style="margin:0"><strong>SourceA</strong> is an AI execution platform — real builds, automations, and agent workflows, with a verifiable receipt on every run.</p>
           </aside>
           <div class="sa-buyer-chips sa-buyer-toggle sa-fade-up" role="navigation" aria-label="Who you are">
             <a class="sa-buyer-chip is-active" href="#who-are-you">Pick your lane</a>
             <a class="sa-buyer-chip sa-buyer-chip-secondary" href="/learn">I'm new here</a>
             <a class="sa-buyer-chip sa-buyer-chip-secondary" href="/sourcea/proof/live">Show me proof</a>
           </div>
-          <div class="sa-pillar-chips sa-fade-up sa-engine-row" aria-label="The loop">
-            <span class="sa-engine-chip is-active">Plan</span><span class="sa-engine-chip">Control</span><span class="sa-engine-chip">Execute</span><span class="sa-engine-chip">Verify</span><span class="sa-engine-chip">Commit</span>
+          <div class="sa-pillar-chips sa-fade-up sa-engine-row" aria-label="The loop" role="group">
+            <button type="button" class="sa-engine-chip is-active" data-engine-tab="overview" aria-pressed="true">Plan</button>
+            <button type="button" class="sa-engine-chip" data-engine-tab="ops" aria-pressed="false">Control</button>
+            <button type="button" class="sa-engine-chip" data-engine-tab="pipeline" aria-pressed="false">Execute</button>
+            <button type="button" class="sa-engine-chip" data-engine-tab="aeg" aria-pressed="false">Verify</button>
+            <button type="button" class="sa-engine-chip" data-engine-tab="proof" aria-pressed="false">Commit</button>
           </div>
         </div>
         <div class="ar-hero-ref-visual ar-reveal">
-          <div class="sa-fleet sa-fleet-panel sa-intelligence-console sa-biz-command sa-mock-panel" id="sa-biz-command">
-            <div class="sa-console-chrome">
+          <div class="sa-fleet sa-fleet-panel sa-intelligence-console sa-biz-command" id="sa-biz-command">
+            <div class="sa-console-chrome" role="button" tabindex="0" data-sa-track="hero-console-chrome" aria-label="Open live proof">
               <span class="sa-dot red"></span><span class="sa-dot yellow"></span><span class="sa-dot green"></span>
               <span class="sa-console-url">Live workspace</span>
-              <span class="sa-live-pill"><span class="sa-live-dot"></span> Done</span>
+              <span class="sa-console-sync" aria-hidden="true"><span class="sa-console-sync-dot"></span>Synced</span>
+              <span class="sa-live-pill"><span class="sa-live-dot"></span> Live proof</span>
             </div>
+            <div class="sa-biz-tabs" role="tablist" aria-label="Command views">
+              <button type="button" class="sa-biz-tab sa-biz-tab-aeg is-active" data-biz-tab="aeg" role="tab" aria-selected="true">Live proof</button>
+              <button type="button" class="sa-biz-tab" data-biz-tab="overview" role="tab" aria-selected="false">Overview</button>
+              <button type="button" class="sa-biz-tab" data-biz-tab="pipeline" role="tab" aria-selected="false">Pipeline</button>
+              <button type="button" class="sa-biz-tab" data-biz-tab="ops" role="tab" aria-selected="false">Ops</button>
+            </div>
+            <p class="sa-metric-note">Global runtime · cloud + desktop · your deployment</p>
             <div class="sa-agent-log" aria-live="polite">
               <span class="sa-agent-log-icon" aria-hidden="true"></span>
               <span class="sa-agent-log-label">Status</span>
@@ -111,6 +123,20 @@
               <div class="sa-biz-central-core"><span class="sa-biz-central-glyph">◆</span><strong>Verified</strong><span>Complete</span></div>
             </div>
             <div class="sa-fleet-scan" aria-hidden="true"></div>
+          </div>
+          <div class="sa-forge-hero-embed ar-reveal" id="sa-forge-hero-embed" data-sa-forge-embed>
+            <div class="sa-forge-hero-embed-head">
+              <strong>Forge Terminal</strong>
+              <a class="sa-forge-hero-embed-full" href="/sourcea/forge/terminal" data-sa-track="forge-hero-full-page">Open full demo →</a>
+            </div>
+            <div class="sa-forge-hero-embed-shell" id="sa-forge-hero-embed-shell">
+              <button type="button" class="sa-forge-hero-embed-launch" id="sa-forge-hero-embed-launch" data-sa-track="forge_hero_embed_open">
+                Try living chat — tap to load
+              </button>
+              <p class="sa-forge-hero-embed-offline" id="sa-forge-hero-embed-offline" hidden role="status">
+                Demo offline — <a href="/sourcea/forge/terminal">open full terminal</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -144,7 +170,7 @@
           <article class="sa-trust-stat">
             <span class="sa-trust-stat-label">Open source</span>
             <strong class="sa-trust-stat-value"><span data-trust-github-stars>—</span> ★</strong>
-            <span class="sa-trust-stat-hint"><a <a href="https://pypi.org/project/sourcea-boot/" target="_blank" rel="noopener">PyPI eval</a> · <a href="/eval">For developers</a></span>
+            <span class="sa-trust-stat-hint"><a href="https://pypi.org/project/sourcea-boot/" target="_blank" rel="noopener">PyPI eval</a> · <a href="/eval">For developers</a></span>
           </article>
           <article class="sa-trust-stat">
             <span class="sa-trust-stat-label">Live demo</span>
@@ -442,21 +468,23 @@
   </div>
   <div class="ar-container sa-footer-bottom">
     <p data-sa-relation-map style="font-size:0.85rem;margin-bottom:0.75rem;text-align:center">SourceA: build/execution · Noetfield: governance intelligence · TrustField: execution orchestration · Gateway: routing/intake</p>
-    <p>© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · <a href="/eval">sourcea-boot</a></p>
+    <p>© 2026 <span data-sa-legal-entity>Noetfield Systems Inc.</span> · SourceA is a product of <span data-sa-legal-entity>Noetfield Systems Inc.</span> · <a href="/eval">sourcea-boot</a></p>
     <p>Global platform · verified delivery</p>
   </div>
 </footer>
 
 <script src="/assets/agentrun.js" defer></script>
 <script src="/sourcea/sourcea-public-display-v1.js" defer></script>
+<script src="/sourcea/sourcea-positioning-wire-v1.js" defer></script>
 <script src="/sourcea/sourcea-site-fallback-v1.js" defer></script>
 <script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>
 <script src="/sourcea/sourcea-live-console.js" defer></script>
+<script src="/sourcea/sourcea-hero-console-v1.js" defer></script>
+<script src="/sourcea/sourcea-forge-hero-embed-v1.js" defer></script>
 <script src="/sourcea/sourcea-trust-bar.js" defer></script>
 <script src="/sourcea/sourcea-motion.js" defer></script>
 <script src="/sourcea/sourcea-boot-wire.js" defer></script>
 <script src="/sourcea/sourcea-cta-gate.js" defer></script>
-<script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>
 <script src="/sourcea/sourcea-site-interact-v1.js" defer></script>
 <script src="/sourcea/sourcea-chatbot.js" defer></script>
 <script src="/sourcea/sourcea-landing-cta.js" defer></script>

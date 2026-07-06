@@ -8,6 +8,17 @@
   const AEG_URL = "/sourcea/data/aeg-live.json";
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  function fmtVal(value, fallback = "pending") {
+    if (value == null || value === "" || value === "—") return fallback;
+    return value;
+  }
+
+  function trackHero(event, meta) {
+    if (window.SourceAPulse && typeof window.SourceAPulse.track === "function") {
+      window.SourceAPulse.track(event, meta || {});
+    }
+  }
+
   function esc(s) {
     return String(s ?? "")
       .replace(/&/g, "&amp;")
@@ -73,10 +84,11 @@
     const boot = live.boot || {};
     const checks = aeg.checks || boot.checks || [];
     const terminal = (aeg.terminal_transcript || "").split("\n").slice(0, 12).join("\n");
-    const verdict = aeg.verdict || boot.verdict || "—";
+    const verdict = fmtVal(aeg.verdict || boot.verdict, "pending");
     const url = live.aeg_live_url || aeg.site_proof_url || "/sourcea/proof/live";
-    const eid = aeg.evidence_id || "—";
-    const valid = live.valid_yes != null ? `${live.valid_yes}/${live.valid_yes_total || 1000}` : "—";
+    const eid = fmtVal(aeg.evidence_id, "sample");
+    const valid =
+      live.valid_yes != null ? `${live.valid_yes}/${live.valid_yes_total || 1000}` : "checks live";
     const pipe = live.pipeline || {};
     const heroRow = (pipe.top_next || []).find((r) => r.id === "cp-a0c7c6c607") || (pipe.top_next || [])[0];
 
@@ -134,7 +146,7 @@
     panel.innerHTML = `
       <div class="sa-fleet-head">
         <span>Command center · live sample</span>
-        <span class="sa-live">${boot.pass_count || 0}/${(boot.checks || []).length} checks · ${esc(boot.verdict || "—")}</span>
+        <span class="sa-live">${boot.pass_count || 0}/${(boot.checks || []).length} checks · ${esc(fmtVal(boot.verdict, "pending"))}</span>
       </div>
       <div class="sa-fleet-stats">
         <div class="sa-metric"><strong>${m.active || 0}</strong><span>Active deals</span></div>
@@ -176,7 +188,7 @@
         <div class="sa-metric warn"><strong>${counts.eval_scheduled || 0}</strong><span>Eval scheduled</span></div>
         <div class="sa-metric highlight"><strong>${counts.pilot_deposit || 0}</strong><span>Deposits</span></div>
       </div>
-      <ul class="sa-roster sa-roster-biz">${rows || '<li class="sa-roster-row"><code>—</code><span>No rows</span></li>'}</ul>
+      <ul class="sa-roster sa-roster-biz">${rows || '<li class="sa-roster-row"><code>n/a</code><span>No rows yet</span></li>'}</ul>
       <div class="sa-receipt-feed sa-biz-activity">
         ${top
           .slice(0, 3)
@@ -246,11 +258,11 @@
     panel.innerHTML = `
       <div class="sa-fleet-head">
         <span>Verification · replay</span>
-        <span class="sa-live">${esc(boot.verdict || "—")} · disk</span>
+        <span class="sa-live">${esc(fmtVal(boot.verdict, "pending"))} · disk</span>
       </div>
       <div class="sa-w1-mini-terminal">
         <pre class="sa-terminal-body sa-terminal-light-body"><span class="sa-t-prompt">$</span> sourcea-boot --json
-<span class="${boot.ok ? "sa-t-ok" : "sa-t-bad"}">SOURCEA_BOOT ${esc(boot.verdict || "—")}</span>
+<span class="${boot.ok ? "sa-t-ok" : "sa-t-bad"}">SOURCEA_BOOT ${esc(fmtVal(boot.verdict, "pending"))}</span>
 ${terminal}
 <span class="sa-t-cursor">▋</span></pre>
       </div>
@@ -262,13 +274,13 @@ ${terminal}
   const tabMeta = {
     aeg: {
       render: renderAeg,
-      log: (l) => `AEG · ${(l.aeg || {}).evidence_id || "live"} · boot ${(l.boot || {}).verdict || "—"} · Valid YES ${l.valid_yes || "—"}`,
+      log: (l) => `AEG · ${fmtVal((l.aeg || {}).evidence_id, "live")} · boot ${fmtVal((l.boot || {}).verdict, "pending")} · Valid YES ${l.valid_yes != null ? l.valid_yes : "pending"}`,
       role: "prove",
     },
     overview: { render: renderOverview, log: (l) => l.factory_now_line || (l.pipeline || {}).headline || "Factory overview", role: "brain" },
     pipeline: { render: renderPipeline, log: (l) => (l.pipeline || {}).headline || "Pipeline glance", role: "outreach" },
-    ops: { render: renderOps, log: (l) => `Ops · ${(l.boot || {}).verdict || "—"} on boot`, role: "guard" },
-    proof: { render: renderProof, log: (l) => `Replay · ${(l.boot || {}).verdict || "—"} · four checks`, role: "prove" },
+    ops: { render: renderOps, log: (l) => `Ops · ${fmtVal((l.boot || {}).verdict, "pending")} on boot`, role: "guard" },
+    proof: { render: renderProof, log: (l) => `Replay · ${fmtVal((l.boot || {}).verdict, "pending")} · four checks`, role: "prove" },
   };
 
   async function fetchLive() {
@@ -326,6 +338,22 @@ ${terminal}
     });
   }
 
+  function paintOffline(panelRoot) {
+    panelRoot.classList.add("is-offline", "is-live-panels");
+    const log = document.getElementById("sa-factory-log");
+    if (log) {
+      log.textContent =
+        "Live sync offline — run sourcea-boot on /eval or open proof/live to verify manually.";
+      log.dataset.saLive = "0";
+    }
+    const pill = document.querySelector(".sa-live-pill");
+    if (pill) pill.classList.add("is-block");
+    const sync = panelRoot.querySelector(".sa-console-sync");
+    if (sync) sync.classList.remove("is-pass");
+    const note = panelRoot.querySelector(".sa-metric-note");
+    if (note) note.textContent = "Offline — static fallback · retry on refresh";
+  }
+
   function paintPublicHero(panelRoot, live) {
     const m = live.metrics || {};
     const boot = live.boot || {};
@@ -371,12 +399,12 @@ ${terminal}
     }
     const orchMeta = document.getElementById("sa-orchestrator-meta");
     if (orchMeta) {
-      orchMeta.textContent = `${m.active || 0} active · ${m.eval_scheduled || 0} evals · boot ${boot.verdict || "—"}`;
+      orchMeta.textContent = `${m.active || 0} active · ${m.eval_scheduled || 0} evals · boot ${fmtVal(boot.verdict, "pending")}`;
     }
     const chipMap = {
       outreach: `${m.sent || 0} sent · ${m.proof_viewed || 0} proof`,
-      prove: `AEG live · ${(live.aeg || {}).verdict || boot.verdict || "—"}`,
-      guard: `check ${boot.verdict || "—"}`,
+      prove: `AEG live · ${fmtVal((live.aeg || {}).verdict || boot.verdict, "pending")}`,
+      guard: `check ${fmtVal(boot.verdict, "pending")}`,
       build: "2–3 wk DFY",
       expand: "retainer +$2K",
     };
@@ -404,11 +432,15 @@ ${terminal}
     if (!panelRoot) return;
 
     const isPublicHero =
-      panelRoot.classList.contains("sa-mock-panel") ||
-      document.body.classList.contains("sa-root-home");
+      (panelRoot.classList.contains("sa-mock-panel") ||
+        document.body.classList.contains("sa-root-home")) &&
+      !panelRoot.querySelector(".sa-biz-tabs");
 
     const live = await fetchLive();
-    if (!live) return;
+    if (!live) {
+      paintOffline(panelRoot);
+      return;
+    }
 
     if (isPublicHero) {
       paintPublicHero(panelRoot, live);
@@ -445,14 +477,49 @@ ${terminal}
       setTimeout(() => panelRoot.classList.remove("is-tab-switch"), 350);
       if (log && tabMeta[key]) streamText(log, tabMeta[key].log(live));
       if (tabMeta[key]?.role) highlightAgentRole(tabMeta[key].role);
+      trackHero("hero_console_tab", { tab: key });
     };
 
     tabs.forEach((tab) => {
       tab.setAttribute("role", "tab");
+      tab.setAttribute("data-sa-track", `hero-console-tab-${tab.dataset.bizTab || "unknown"}`);
       tab.addEventListener("click", () => switchTab(tab.dataset.bizTab));
     });
 
     switchTab("aeg");
+
+    const chrome = panelRoot.querySelector(".sa-console-chrome");
+    const proofUrl = (live.aeg || {}).site_proof_url || live.aeg_live_url || "/sourcea/proof/live";
+    const openProof = () => {
+      trackHero("hero_console_chrome", { href: proofUrl });
+      window.location.href = proofUrl;
+    };
+    if (chrome) {
+      chrome.style.cursor = "pointer";
+      chrome.addEventListener("click", openProof);
+      chrome.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openProof();
+        }
+      });
+    }
+
+    document.querySelectorAll("[data-engine-tab]").forEach((chip) => {
+      chip.setAttribute("data-sa-track", `hero-engine-${chip.dataset.engineTab || "unknown"}`);
+      chip.addEventListener("click", () => {
+        const key = chip.dataset.engineTab;
+        if (!key || !tabMeta[key]) return;
+        document.querySelectorAll("[data-engine-tab]").forEach((c) => {
+          const on = c === chip;
+          c.classList.toggle("is-active", on);
+          c.classList.toggle("is-pulse", on);
+          c.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        switchTab(key);
+        trackHero("hero_engine_chip", { tab: key });
+      });
+    });
 
     if (!reduced && tabs.length) {
       const keys = Object.keys(tabMeta);
@@ -465,10 +532,12 @@ ${terminal}
     }
   }
 
-  window.SourceALiveConsole = { init };
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
+  window.SourceALiveConsole = { init, fetchLive, paintOffline };
+  if (!document.body.classList.contains("sa-root-home")) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
   }
 })();

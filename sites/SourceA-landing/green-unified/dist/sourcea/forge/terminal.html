@@ -17,6 +17,13 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
 </head>
 <body class="ar-body sa-v2 sa-forge-demo" data-sa-page="forge-terminal-demo">
+<script>
+(function () {
+  if (new URLSearchParams(location.search).get("embed") === "1") {
+    document.documentElement.classList.add("sa-ft-embed-mode");
+  }
+})();
+</script>
 <a class="skip-link" href="#sa-ft-composer">Skip to chat</a>
 
 <header class="ar-header sa-header">
