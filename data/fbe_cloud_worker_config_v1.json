@@ -1,7 +1,7 @@
 {
   "schema": "fbe-cloud-worker-config-v1",
   "version": "1.0.0",
-  "saved_at": "2026-07-05T15:49:51Z",
+  "saved_at": "2026-07-05T18:09:37Z",
   "default_execution_mode": "CLOUD_ONLY",
   "force_cloud_only": true,
   "worker_url": "https://sourcea-fbe-runner-production.up.railway.app",
