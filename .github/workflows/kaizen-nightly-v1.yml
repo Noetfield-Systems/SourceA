@@ -1,6 +1,6 @@
 name: kaizen-nightly
 
-# Schedule retired — CF loop-specialist cron 0 3 * * * → Railway /api/fbe/kaizen/nightly/v1
+# Manual backup only — 24/7: CF loop-specialist → Railway. Law: data/cf-only-24-7-execution-v1.json
 on:
   workflow_dispatch:
 
@@ -20,6 +20,6 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_ALERT_CHAT_ID: ${{ secrets.TELEGRAM_ALERT_CHAT_ID }}
+          TELEGRAM_PRIMARY_BOT_TOKEN: ${{ secrets.TELEGRAM_PRIMARY_BOT_TOKEN }}
+          TELEGRAM_OPS_CHAT_ID: ${{ secrets.TELEGRAM_OPS_CHAT_ID }}
         run: python3 scripts/kaizen_nightly_tick_v1.py --json
