@@ -1,6 +1,6 @@
 name: gmail-sweep-hourly
 
-# Schedule retired — CF loop-specialist cron 0 * * * * → Railway /api/fbe/gmail-sweep/v1
+# Manual backup only — 24/7: CF loop-specialist → Railway. Law: data/cf-only-24-7-execution-v1.json
 on:
   workflow_dispatch:
 
@@ -22,8 +22,8 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
           GMAIL_DELEGATED_USER: ${{ secrets.GMAIL_DELEGATED_USER }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_ALERT_CHAT_ID: ${{ secrets.TELEGRAM_ALERT_CHAT_ID }}
+          TELEGRAM_PRIMARY_BOT_TOKEN: ${{ secrets.TELEGRAM_PRIMARY_BOT_TOKEN }}
+          TELEGRAM_OPS_CHAT_ID: ${{ secrets.TELEGRAM_OPS_CHAT_ID }}
         run: |
           python3 scripts/gmail_inbox_sweep_v1.py --json
           python3 scripts/signal_factory_triage_v1.py --json
