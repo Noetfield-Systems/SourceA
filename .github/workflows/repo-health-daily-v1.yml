@@ -1,7 +1,7 @@
 name: repo-health-daily
 
 # Daily hygiene — findings → improvement_queue (no report artifacts).
-# Schedule retired — CF loop-specialist cron 0 8 * * * → Railway /api/fbe/repo-health/daily/v1
+# Manual backup only — 24/7: CF loop-specialist → Railway. Law: data/cf-only-24-7-execution-v1.json
 on:
   workflow_dispatch:
 
