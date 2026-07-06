@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Strict live UI E2E audit — sourcea.app all pages + subpages.
+"""Strict live UI E2E audit v2 — sourcea.app (live-discovered paths).
 
-Fetches public HTTPS only (not local dist). Writes JSON + Markdown report.
+Law: discover from live link BFS + sitemap; diff vs dist; no splat URLs;
+SPA-fallback rows REJECTED from pass math; receipts under reports/ only.
 """
 from __future__ import annotations
 
@@ -13,6 +14,7 @@ import ssl
 import urllib.error
 import urllib.parse
 import urllib.request
+from collections import deque
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from html import unescape
@@ -26,22 +28,52 @@ GATE = ROOT / "data" / "sourcea-ui-mechanical-gate-v1.json"
 
 FORBIDDEN_PATH_LEAKS = ("/Users/", "sinakazemnezhad", "Desktop/SourceA", "Desktop/agentrun")
 
-STALE_PHRASES = (
+STALE_WARN = (
     "powered by Forge",
     "Business Acquisition Systems — proof-backed engines",
     "verify on a call",
-    "Book proof demo",
     "We show real work on a call",
     "15-minute demo script",
 )
 
-COMMERCIAL_HINTS = (
-    "/sourcea/pricing",
-    "/sourcea/offer",
-    "/sourcea/start",
-    "/sourcea/proof",
+STALE_FAIL = ("Book proof demo",)
+
+BUYER_FUNNEL = (
     "/",
+    "/start",
+    "/pricing",
+    "/sourcea/pricing",
+    "/proof",
+    "/sourcea/proof",
+    "/offer",
+    "/sourcea/offer",
+    "/eval",
+    "/forge/terminal",
+    "/sourcea/forge/terminal",
+    "/security",
+    "/sourcea/security",
 )
+
+CONTACT_MARKERS = (
+    "hello@sourcea.app",
+    "forge@sourcea.app",
+    "contract@sourcea.app",
+    "contract@sourcea.ca",
+    "contract@sourcea.uk",
+)
+
+SKU_PATHS = frozenset(
+    {
+        "/ai-value-governance",
+        "/enterprise-ai-control-plane",
+        "/operating-brain-install",
+        "/sourcea/ai-value-governance",
+        "/sourcea/enterprise-ai-control-plane",
+        "/sourcea/operating-brain-install",
+    }
+)
+
+HREF_RE = re.compile(r"""href\s*=\s*["']([^"'#]+)""")
 
 
 def _now() -> str:
@@ -59,104 +91,149 @@ def _load_gate() -> dict[str, Any]:
 
 def _load_forbidden_from_gate() -> list[str]:
     row = _load_gate()
-    out: list[str] = []
-    for item in row.get("forbidden_primary_phrases") or []:
-        pat = str(item.get("pattern") or "").strip()
-        if pat:
-            out.append(pat)
-    return out
+    return [str(i.get("pattern") or "").strip() for i in row.get("forbidden_primary_phrases") or [] if i.get("pattern")]
 
 
 def _load_regex_checks() -> list[dict[str, Any]]:
     return list(_load_gate().get("regex_checks") or [])
 
 
-def _reclassify_finding_ids() -> dict[str, str]:
-    out: dict[str, str] = {}
-    for item in _load_gate().get("reclassify") or []:
-        fid = str(item.get("finding_id") or "")
-        sev = str(item.get("severity") or "FAIL")
-        if not fid:
-            continue
-        for page in item.get("pages") or []:
-            out[str(page)] = sev
-    return out
-
-
 def _body_sha256(body: str) -> str:
     return hashlib.sha256(body.encode("utf-8")).hexdigest()
 
 
-def _entity_from_body(body: str) -> str | None:
-    m = re.search(r"Noetfield Systems Inc\.|{ENTITY}", body)
-    return m.group(0) if m else None
+def _fetch_raw(url: str) -> tuple[int, str, str]:
+    req = urllib.request.Request(
+        url,
+        headers={"User-Agent": "sourcea-website-ui-e2e-audit/2.0", "Cache-Control": "no-cache"},
+    )
+    ctx = ssl.create_default_context()
+    with urllib.request.urlopen(req, timeout=20, context=ctx) as resp:
+        body = resp.read().decode("utf-8", errors="replace")
+        return int(resp.status), resp.geturl(), body
 
 
-def _discover_paths() -> list[str]:
+def _normalize_path(path: str) -> str:
+    if not path.startswith("/"):
+        path = "/" + path
+    path = re.sub(r"/+", "/", path)
+    if path != "/" and path.endswith("/"):
+        path = path.rstrip("/")
+    return path
+
+
+def _extract_hrefs(base: str, body: str) -> set[str]:
+    out: set[str] = set()
+    base_p = urllib.parse.urlparse(base)
+    for href in HREF_RE.findall(body):
+        href = href.strip()
+        if not href or href.startswith(("mailto:", "tel:", "javascript:")):
+            continue
+        full = urllib.parse.urljoin(base, href)
+        p = urllib.parse.urlparse(full)
+        if p.netloc and p.netloc not in (base_p.netloc, f"www.{base_p.netloc}", base_p.netloc.removeprefix("www.")):
+            continue
+        path = _normalize_path(p.path or "/")
+        if "*" in path or not _is_page_path(path):
+            continue
+        out.add(path)
+    return out
+
+
+NON_PAGE_SUFFIXES = (".dmg", ".json", ".js", ".css", ".svg", ".webp", ".png", ".jpg", ".jpeg", ".mp4")
+
+
+def _is_page_path(path: str) -> bool:
+    return not any(path.lower().endswith(s) for s in NON_PAGE_SUFFIXES)
+
+
+def _discover_live_bfs(base: str, *, max_pages: int = 120) -> set[str]:
+    seen: set[str] = set()
+    queue: deque[str] = deque(["/"])
+    while queue and len(seen) < max_pages:
+        path = queue.popleft()
+        if path in seen or "*" in path:
+            continue
+        seen.add(path)
+        url = base.rstrip("/") + path
+        try:
+            status, final, body = _fetch_raw(url)
+        except Exception:  # noqa: BLE001
+            continue
+        if status != 200 or "text/html" not in body[:500].lower() and "<html" not in body.lower():
+            continue
+        for link in _extract_hrefs(final, body):
+            if link not in seen and len(seen) + len(queue) < max_pages + 20:
+                queue.append(link)
+    for path in ("/sitemap.xml", "/robots.txt"):
+        try:
+            status, _, body = _fetch_raw(base.rstrip("/") + path)
+            if status == 200 and path == "/sitemap.xml":
+                for loc in re.findall(r"<loc>([^<]+)</loc>", body):
+                    p = urllib.parse.urlparse(loc.strip())
+                    if p.path and "*" not in p.path:
+                        seen.add(_normalize_path(p.path))
+        except Exception:  # noqa: BLE001
+            pass
+    return seen
+
+
+def _discover_dist_paths() -> set[str]:
     paths: set[str] = {"/"}
-
     redirects = DIST / "_redirects"
     if redirects.is_file():
         for line in redirects.read_text(encoding="utf-8").splitlines():
-            line = line.strip()
-            if not line or line.startswith("#"):
-                continue
             parts = line.split()
             if len(parts) >= 2:
                 src = parts[0].strip()
-                if "*" in src:
-                    continue
-                if src and not src.startswith(":"):
-                    paths.add(src if src.startswith("/") else f"/{src}")
-
+                if src and "*" not in src:
+                    paths.add(_normalize_path(src))
     if DIST.is_dir():
         for html in DIST.rglob("*.html"):
             rel = html.relative_to(DIST).as_posix()
             if rel == "index.html":
                 paths.add("/")
-                continue
-            if rel in ("eval.html", "platform.html"):
+            elif rel in ("eval.html", "platform.html"):
                 paths.add(f"/{rel.replace('.html', '')}")
-                paths.add(f"/{rel}")
-            if rel.startswith("sourcea/"):
-                clean = "/" + rel.replace(".html", "").replace("/index", "/")
+            elif rel.startswith("sourcea/"):
+                clean = "/" + rel.replace(".html", "")
                 if clean.endswith("/index"):
-                    clean = clean[: -len("index")]
-                paths.add(clean)
-                paths.add("/" + rel)
+                    clean = clean[: -len("/index")] or "/sourcea/"
+                paths.add(_normalize_path(clean))
             elif rel.startswith(("unify/", "unify-demo/", "downloads/")):
-                paths.add("/" + rel.replace(".html", ""))
-                paths.add("/" + rel)
-
-    # High-value short aliases
-    for short in (
-        "/eval",
-        "/platform",
-        "/start",
-        "/pricing",
-        "/proof",
-        "/forge/terminal",
-        "/operating-brain-install",
-        "/ai-value-governance",
-        "/enterprise-ai-control-plane",
-    ):
-        paths.add(short)
-
-    return sorted(p for p in paths if "*" not in p)
+                paths.add(_normalize_path("/" + rel.replace(".html", "").replace("/index", "")))
+    return {p for p in paths if "*" not in p}
 
 
-def _fetch(url: str) -> dict[str, Any]:
-    req = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent": "sourcea-website-ui-e2e-audit/1.0",
-            "Cache-Control": "no-cache",
-            "Pragma": "no-cache",
-        },
-    )
-    ctx = ssl.create_default_context()
+def _dedupe_paths(paths: set[str]) -> list[str]:
+    """Drop .html twins when extensionless path exists."""
+    norm = {_normalize_path(p) for p in paths}
+    drop: set[str] = set()
+    for p in norm:
+        if p.endswith(".html"):
+            bare = p[: -len(".html")]
+            if bare in norm or f"{bare}/" in norm:
+                drop.add(p)
+    return sorted(norm - drop)
+
+
+def _has_contact(body: str) -> bool:
+    return any(m in body for m in CONTACT_MARKERS) or "sourcea-chatbot.js" in body
+
+
+def _visible_html(body: str) -> str:
+    text = re.sub(r"<script[^>]*>.*?</script>", "", body, flags=re.I | re.S)
+    return re.sub(r"<style[^>]*>.*?</style>", "", text, flags=re.I | re.S)
+
+
+def _audit_page(url: str, *, home_hash: str | None) -> dict[str, Any]:
     row: dict[str, Any] = {"url": url, "ok": False, "findings": []}
     try:
+        req = urllib.request.Request(
+            url,
+            headers={"User-Agent": "sourcea-website-ui-e2e-audit/2.0", "Cache-Control": "no-cache"},
+        )
+        ctx = ssl.create_default_context()
         with urllib.request.urlopen(req, timeout=20, context=ctx) as resp:
             raw = resp.read()
             body = raw.decode("utf-8", errors="replace")
@@ -169,11 +246,11 @@ def _fetch(url: str) -> dict[str, Any]:
         row["status"] = int(exc.code)
         row["final_url"] = url
         row["content_type"] = exc.headers.get("Content-Type", "") if exc.headers else ""
-        row["bytes"] = len(body.encode("utf-8")) if body else 0
+        row["bytes"] = len(body.encode()) if body else 0
         row["findings"].append({"id": "http_error", "severity": "FAIL", "detail": f"HTTP {exc.code}"})
+        return row
     except Exception as exc:  # noqa: BLE001
         row["status"] = 0
-        row["final_url"] = url
         row["error"] = str(exc)
         row["findings"].append({"id": "fetch_error", "severity": "FAIL", "detail": str(exc)})
         return row
@@ -181,151 +258,160 @@ def _fetch(url: str) -> dict[str, Any]:
     title_m = re.search(r"<title[^>]*>([^<]+)</title>", body, re.I)
     row["title"] = unescape(title_m.group(1).strip()) if title_m else ""
     row["body_sha256"] = _body_sha256(body)
-    row["entity"] = _entity_from_body(body)
+    visible = _visible_html(body)
+    path = _normalize_path(urllib.parse.urlparse(url).path or "/")
 
     if row.get("status") not in (200, 301, 302):
-        row["findings"].append(
-            {"id": "bad_status", "severity": "FAIL", "detail": f"status={row.get('status')}"}
-        )
+        row["findings"].append({"id": "bad_status", "severity": "FAIL", "detail": f"status={row.get('status')}"})
 
-    if row.get("status") == 200 and row["bytes"] < 200:
+    is_html = row.get("status") == 200 and (
+        "text/html" in str(row.get("content_type", "")).lower() or "<html" in body.lower()[:2000]
+    )
+
+    if row.get("status") == 200 and row["bytes"] < 200 and is_html:
         row["findings"].append({"id": "tiny_body", "severity": "FAIL", "detail": "body < 200 bytes"})
 
-    if row.get("status") == 200 and "text/html" in str(row.get("content_type", "")):
+    if is_html:
         if not row["title"]:
             row["findings"].append({"id": "missing_title", "severity": "FAIL", "detail": "no <title>"})
-        if "<html" not in body.lower():
-            row["findings"].append({"id": "not_html", "severity": "FAIL", "detail": "missing <html>"})
+
+    if not is_html:
+        row["ok"] = row.get("status") == 200
+        row["skipped_non_html"] = True
+        return row
 
     for needle in FORBIDDEN_PATH_LEAKS:
-        if needle in body:
-            row["findings"].append(
-                {"id": "path_leak", "severity": "FAIL", "detail": f"contains {needle!r}"}
-            )
+        if needle in visible:
+            row["findings"].append({"id": "path_leak", "severity": "FAIL", "detail": f"contains {needle!r}"})
 
-    for phrase in STALE_PHRASES:
-        if phrase.lower() in body.lower():
-            row["findings"].append(
-                {"id": "stale_phrase", "severity": "WARN", "detail": f"stale copy: {phrase!r}"}
-            )
+    for phrase in STALE_FAIL:
+        if phrase.lower() in visible.lower():
+            row["findings"].append({"id": "stale_phrase_fail", "severity": "FAIL", "detail": f"stale: {phrase!r}"})
+
+    for phrase in STALE_WARN:
+        if phrase.lower() in visible.lower():
+            row["findings"].append({"id": "stale_phrase", "severity": "WARN", "detail": f"stale: {phrase!r}"})
 
     for phrase in _load_forbidden_from_gate():
-        if phrase.lower() in body.lower():
+        if phrase and phrase.lower() in visible.lower():
             row["findings"].append(
                 {"id": "forbidden_primary", "severity": "FAIL", "detail": f"forbidden: {phrase!r}"}
             )
 
     for item in _load_regex_checks():
         pattern = str(item.get("regex") or "")
-        if not pattern:
-            continue
-        rx = re.compile(pattern, re.I)
-        if rx.search(body):
+        if pattern and re.search(pattern, visible, re.I):
             row["findings"].append(
                 {
                     "id": str(item.get("id") or "regex_check"),
                     "severity": str(item.get("severity") or "FAIL"),
-                    "detail": str(item.get("suggestion") or item.get("why") or "regex check failed"),
+                    "detail": str(item.get("suggestion") or "regex check failed"),
                 }
             )
 
-    if row.get("status") == 200 and "text/html" in str(row.get("content_type", "")):
-        path = urllib.parse.urlparse(url).path
-        reclassify = _reclassify_finding_ids()
-        contact_severity = "WARN"
-        for page_key, sev in reclassify.items():
-            if path == page_key or path.rstrip("/") == page_key.rstrip("/"):
-                contact_severity = sev
-                break
-        if any(h in path for h in COMMERCIAL_HINTS) or path in ("/", "/sourcea/", "/sourcea"):
-            if "hello@sourcea.app" not in body and "forge@sourcea.app" not in body:
-                if "sourcea-chatbot.js" not in body and path not in ("/sourcea/forge/terminal",):
-                    row["findings"].append(
-                        {
-                            "id": "no_contact_surface",
-                            "severity": contact_severity,
-                            "detail": "commercial page missing hello@/forge@ and chatbot",
-                        }
-                    )
-        if row.get("entity") == "{ENTITY}":
+    if "{ENTITY}" in visible:
+        row["findings"].append({"id": "entity_consistency", "severity": "FAIL", "detail": "unrendered {ENTITY}"})
+
+    commercial = path in BUYER_FUNNEL or path in SKU_PATHS or path.startswith(
+        ("/sourcea/pricing", "/sourcea/offer", "/sourcea/start", "/sourcea/proof")
+    )
+    if row.get("status") == 200 and commercial and not _has_contact(body):
+        sev = "FAIL" if path in SKU_PATHS else "WARN"
+        row["findings"].append({"id": "no_contact_surface", "severity": sev, "detail": "missing contact/chatbot"})
+
+    if home_hash and path not in ("/", "") and row.get("status") == 200:
+        if row.get("body_sha256") == home_hash:
+            row["spa_fallback"] = True
             row["findings"].append(
-                {"id": "entity_consistency", "severity": "FAIL", "detail": "unrendered {ENTITY} in body"}
+                {"id": "spa_fallback_detect", "severity": "REJECT_ROW", "detail": "homepage body hash match"}
             )
 
     row["ok"] = not any(f["severity"] == "FAIL" for f in row["findings"])
+    row["rejected"] = any(f["severity"] == "REJECT_ROW" for f in row["findings"])
     return row
 
 
 def _audit(*, base: str, workers: int) -> dict[str, Any]:
-    paths = _discover_paths()
-    urls = [base.rstrip("/") + (p if p.startswith("/") else f"/{p}") for p in paths if "*" not in p]
-    results: list[dict[str, Any]] = []
-    rejected: list[dict[str, Any]] = []
+    live_paths = _discover_live_bfs(base)
+    dist_paths = _discover_dist_paths()
+    paths = _dedupe_paths(live_paths | dist_paths)
+    paths = [p for p in paths if _is_page_path(p)]
+    urls = [base.rstrip("/") + p for p in paths]
 
+    results: list[dict[str, Any]] = []
     with ThreadPoolExecutor(max_workers=workers) as pool:
-        futs = {pool.submit(_fetch, u): u for u in urls}
+        futs = [pool.submit(_fetch_raw, base.rstrip("/") + "/") for _ in range(1)]
+        try:
+            _, _, home_body = futs[0].result()
+            home_hash = _body_sha256(home_body)
+        except Exception:  # noqa: BLE001
+            home_hash = None
+
+        futs = {pool.submit(_audit_page, u, home_hash=home_hash): u for u in urls}
         for fut in as_completed(futs):
             results.append(fut.result())
 
     results.sort(key=lambda r: r["url"])
-    home = next((r for r in results if urllib.parse.urlparse(r["url"]).path in ("/", "")), None)
-    home_hash = home.get("body_sha256") if home else None
-    if home_hash:
-        for row in results:
-            path = urllib.parse.urlparse(row["url"]).path
-            if path in ("/", "") or row.get("status") != 200:
-                continue
-            if row.get("body_sha256") == home_hash:
-                row["spa_fallback"] = True
-                row["findings"].append(
-                    {
-                        "id": "spa_fallback_detect",
-                        "severity": "REJECT_ROW",
-                        "detail": "body sha256 matches homepage — SPA fallback",
-                    }
-                )
-                rejected.append({"url": row["url"], "id": "spa_fallback_detect"})
-                row["ok"] = not any(f["severity"] == "FAIL" for f in row["findings"])
+    counted = [r for r in results if not r.get("rejected")]
+    fail_pages = [r for r in counted if not r.get("ok")]
+    warn_pages = [r for r in counted if r.get("ok") and any(f["severity"] == "WARN" for f in r.get("findings", []))]
+    rejected = [r for r in results if r.get("rejected")]
 
-    fail_pages = [r for r in results if not r.get("ok")]
-    warn_pages = [r for r in results if r.get("ok") and any(f["severity"] == "WARN" for f in r.get("findings", []))]
+    buyer_results = []
+    for bf in BUYER_FUNNEL:
+        url = base.rstrip("/") + bf
+        match = next((r for r in results if r["url"] == url), None)
+        if match:
+            buyer_results.append(
+                {
+                    "path": bf,
+                    "url": url,
+                    "ok": match.get("ok"),
+                    "rejected": match.get("rejected"),
+                    "findings": [f for f in match.get("findings", []) if f["severity"] in ("FAIL", "WARN")],
+                }
+            )
+
+    buyer_fail = [b for b in buyer_results if not b.get("ok") and not b.get("rejected")]
+    live_only = sorted(live_paths - dist_paths)
+    dist_only = sorted(dist_paths - live_paths)
 
     verdict = "PASS"
-    if fail_pages:
+    if fail_pages or buyer_fail:
         verdict = "FAIL"
     elif warn_pages:
         verdict = "PASS_WITH_WARNINGS"
 
     return {
-        "schema": "sourcea-website-ui-e2e-audit-v1",
+        "schema": "sourcea-website-ui-e2e-audit-v2",
         "at": _now(),
         "base": base,
         "verdict": verdict,
         "summary": {
-            "paths_discovered": len(paths),
+            "paths_live_bfs": len(live_paths),
+            "paths_dist": len(dist_paths),
+            "paths_audited_unique": len(paths),
             "pages_fetched": len(results),
-            "pass": sum(1 for r in results if r.get("ok")),
+            "pages_counted": len(counted),
+            "pass": sum(1 for r in counted if r.get("ok")),
             "fail": len(fail_pages),
             "warn_only": len(warn_pages),
-            "rejected_rows": len(rejected),
+            "rejected_spa_fallback": len(rejected),
+            "buyer_funnel_fail": len(buyer_fail),
+            "live_only_count": len(live_only),
+            "dist_only_count": len(dist_only),
         },
-        "rejected_rows": rejected,
+        "buyer_funnel": buyer_results,
+        "drift": {"live_only": live_only[:40], "dist_only": dist_only[:40]},
         "failures": [
-            {
-                "url": r["url"],
-                "status": r.get("status"),
-                "title": r.get("title"),
-                "findings": r.get("findings"),
-            }
+            {"url": r["url"], "status": r.get("status"), "title": r.get("title"), "findings": r.get("findings")}
             for r in fail_pages
         ],
         "warnings": [
-            {
-                "url": r["url"],
-                "findings": [f for f in r.get("findings", []) if f["severity"] == "WARN"],
-            }
+            {"url": r["url"], "findings": [f for f in r.get("findings", []) if f["severity"] == "WARN"]}
             for r in warn_pages
         ],
+        "rejected_rows": [{"url": r["url"], "reason": "spa_fallback_detect"} for r in rejected],
         "results": results,
     }
 
@@ -333,7 +419,7 @@ def _audit(*, base: str, workers: int) -> dict[str, Any]:
 def _markdown(report: dict[str, Any]) -> str:
     s = report["summary"]
     lines = [
-        "# SourceA Website UI E2E Audit",
+        "# SourceA Website UI E2E Audit (v2)",
         "",
         f"**At:** {report['at']}  ",
         f"**Base:** {report['base']}  ",
@@ -343,53 +429,50 @@ def _markdown(report: dict[str, Any]) -> str:
         "",
         f"| Metric | Count |",
         f"|--------|-------|",
-        f"| Paths discovered | {s['paths_discovered']} |",
-        f"| Pages fetched | {s['pages_fetched']} |",
+        f"| Live BFS paths | {s['paths_live_bfs']} |",
+        f"| Dist paths | {s['paths_dist']} |",
+        f"| Unique audited | {s['paths_audited_unique']} |",
+        f"| Counted (non-rejected) | {s['pages_counted']} |",
         f"| PASS | {s['pass']} |",
         f"| FAIL | {s['fail']} |",
-        f"| WARN only | {s['warn_only']} |",
+        f"| Buyer funnel FAIL | {s['buyer_funnel_fail']} |",
+        f"| SPA fallback rejected | {s['rejected_spa_fallback']} |",
+        "",
+        "## Buyer funnel",
         "",
     ]
-
-    if report["failures"]:
-        lines += ["## Failures (BLOCK)", ""]
-        for f in report["failures"][:50]:
+    for b in report.get("buyer_funnel") or []:
+        status = "PASS" if b.get("ok") else ("REJECT" if b.get("rejected") else "FAIL")
+        lines.append(f"- `{b['path']}` — **{status}**")
+        for f in b.get("findings") or []:
+            lines.append(f"  - {f['severity']} `{f['id']}`: {f['detail']}")
+    lines.append("")
+    if report.get("failures"):
+        lines += ["## Failures", ""]
+        for f in report["failures"][:30]:
             lines.append(f"### {f['url']}")
-            lines.append(f"- HTTP {f.get('status')} · `{f.get('title', '')[:80]}`")
             for finding in f.get("findings") or []:
-                lines.append(f"- **{finding['severity']}** `{finding['id']}`: {finding['detail']}")
+                if finding["severity"] == "FAIL":
+                    lines.append(f"- `{finding['id']}`: {finding['detail']}")
             lines.append("")
-
-    if report["warnings"]:
-        lines += ["## Warnings (review)", ""]
-        for w in report["warnings"][:40]:
-            lines.append(f"- **{w['url']}**")
-            for finding in w.get("findings") or []:
-                lines.append(f"  - `{finding['id']}`: {finding['detail']}")
-        lines.append("")
-
     lines += [
-        "## Checks applied",
+        "## Checks",
         "",
-        "- Live HTTPS fetch (public hostname only)",
-        "- HTTP status + title + HTML shell",
-        "- Path leaks (`/Users/`, local desktop paths)",
-        "- Stale positioning (`powered by Forge`, call-first copy)",
-        "- Mechanical gate forbidden primary phrases + v2 regex checks",
-        "- Commercial contact/chatbot surface (FAIL on SKU landers per reclassify)",
-        "- SPA fallback detect (homepage body hash match)",
-        "- Splat URL guard (skip `*` paths)",
-        "- Receipt hygiene (reports/ only; no path leaks in receipt body)",
+        "- Live BFS + sitemap discovery (not splat URLs)",
+        "- Dist vs live drift receipt",
+        "- Path leaks, {ENTITY}, forbidden phrases, regex v2",
+        "- SPA fallback rejection",
+        "- Buyer funnel explicit bucket",
+        "- Contact: hello@ / forge@ / contract@sourcea.*",
         "",
-        f"**Gate SSOT:** `data/sourcea-ui-mechanical-gate-v1.json`",
-        f"**Machine:** `scripts/sourcea_website_ui_e2e_audit_v1.py`",
+        "`scripts/sourcea_website_ui_e2e_audit_v1.py` · gate `data/sourcea-ui-mechanical-gate-v1.json`",
         "",
     ]
     return "\n".join(lines)
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Strict sourcea.app UI E2E audit")
+    ap = argparse.ArgumentParser(description="Strict sourcea.app UI E2E audit v2")
     ap.add_argument("--base", default="https://sourcea.app")
     ap.add_argument("--workers", type=int, default=12)
     ap.add_argument("--json", action="store_true")
@@ -417,9 +500,11 @@ def main() -> int:
     if args.json:
         print(json.dumps(report, indent=2))
     else:
+        s = report["summary"]
         print(
-            f"{report['verdict']}: {report['summary']['pass']}/{report['summary']['pages_fetched']} pass "
-            f"· report {json_path}"
+            f"{report['verdict']}: {s['pass']}/{s['pages_counted']} pass "
+            f"(audited {s['paths_audited_unique']} unique · buyer_fail {s['buyer_funnel_fail']}) "
+            f"· {json_path.relative_to(ROOT)}"
         )
     return 0 if report["verdict"] != "FAIL" else 1
 
