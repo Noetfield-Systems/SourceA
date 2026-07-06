@@ -91,3 +91,10 @@ Locations referenced
 - Session receipt: `~/.sina/brain_session_receipt_v1.json`  
 - Filing registry: `scripts/agent_filing_registry_gate_v1.py`  
 
+Mac Health Guard (:13024)
+-------------------------
+- **Open heart:** `bash scripts/serve-mac-health-guard.sh` then `open http://127.0.0.1:13024/`  
+- **Path SSOT:** `scripts/resolve_sourcea_root_v1.sh` — never boot from stale `~/Desktop/SourceA` alone  
+- **Founder session proof:** `bash scripts/validate-mac-health-ship-fast-v1.sh` (not full e2e on Mac)  
+- **W2 plan pulse:** `python3 scripts/ecosystem_mac_health_111_plan_pulse_v1.py --json`
+
