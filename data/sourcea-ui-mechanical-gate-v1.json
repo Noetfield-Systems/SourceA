@@ -121,6 +121,11 @@
       "id": "unrendered_js_template",
       "pattern": "${",
       "suggestion": "Unrendered JS template literal — v2 additions locked."
+    },
+    {
+      "id": "intake_primary_hero",
+      "pattern": "data-sa-primary-cta href=\"/start\"",
+      "suggestion": "Primary hero CTA must be Forge Terminal per sourcea-positioning-v1.json cta_order."
     }
   ],
   "regex_checks": [
