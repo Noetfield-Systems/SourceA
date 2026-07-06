@@ -1,0 +1,38 @@
+{
+  "schema": "telegram-routing-ssot-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-06T06:15:00Z",
+  "canonical_ssot": "data/sourcea-telegram-lane-v1.json",
+  "allowed_channels": [
+    {
+      "id": "founder_ops",
+      "env_keys": ["TELEGRAM_ALERT_CHAT_ID", "TELEGRAM_ALLOWED_CHAT_ID"],
+      "bot_env": "TELEGRAM_BOT_TOKEN",
+      "lane": "sourcea_nerve_fail_only"
+    },
+    {
+      "id": "noetfield_ops",
+      "env_keys": ["TELEGRAM_OPS_CHAT_ID", "TELEGRAM_NOETFIELD_OPS_CHAT_ID"],
+      "bot_env": "TELEGRAM_NOETFIELD_OPS_BOT_TOKEN",
+      "lane": "noetfield_www_intake_only",
+      "note": "Separate bot — not loop-specialist nerve"
+    }
+  ],
+  "forbidden_destinations": [
+    {
+      "id": "gateway_a",
+      "match": ["@Gateway_A", "Gateway_A", "gateway_a", "@gateway_a"],
+      "reason": "Sina Gateway owns its own Telegram — SourceA must never message this account"
+    }
+  ],
+  "forbidden_lanes_in_sourcea": [
+    "sina_gateway_watchdog",
+    "sina_gateway_heartbeat",
+    "gateway_watchdog_telegram",
+    "gateway_heartbeat_telegram"
+  ],
+  "monitoring_law": {
+    "sina_gateway": "UptimeRobot HTTP GET only — data/noos-external-monitors-v1.json",
+    "never": ["sendMessage", "POST /loop", "loop-specialist telegram on gateway RED"]
+  }
+}
