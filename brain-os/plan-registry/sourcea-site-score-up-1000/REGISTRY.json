@@ -4106,7 +4106,7 @@
       "tier": "T0",
       "phase": "LATER",
       "title": "Ship pricing CTA \u2192 /start not mailto",
-      "status": "open",
+      "status": "done",
       "score_delta": null,
       "priority_rank": 201,
       "path": "prompts/phase-sa-score-t09-commercial-close/w01-ship/slice-01.md",
@@ -12106,7 +12106,7 @@
       "tier": "T0",
       "phase": "MOONSHOT",
       "title": "Ship pulse worker route on sourcea.app/api/site/*",
-      "status": "open",
+      "status": "done",
       "score_delta": null,
       "priority_rank": 601,
       "path": "prompts/phase-sa-score-t01-live-wiring/w01-ship/slice-01.md",
@@ -12706,7 +12706,7 @@
       "tier": "T0",
       "phase": "MOONSHOT",
       "title": "Polish UI for FOUNDER_PULSE_KEY rotation doc in SETUP",
-      "status": "open",
+      "status": "done",
       "score_delta": null,
       "priority_rank": 631,
       "path": "prompts/phase-sa-score-t01-live-wiring/w04-ui/slice-01.md",
@@ -20337,7 +20337,7 @@
         "title": "Commercial close",
         "score_now": 60,
         "score_target": 92,
-        "status": "in_progress",
+        "status": "done",
         "steps": [
           {
             "step": 1,
@@ -20347,7 +20347,7 @@
             "title": "Ship pricing CTA \u2192 /start not mailto",
             "wired_to": "prompts/phase-sa-score-t09-commercial-close/w01-ship/slice-01.md",
             "acceptance": "REGISTRY sa-score-0201 status=done",
-            "status": "planned"
+            "status": "done"
           },
           {
             "step": 2,
@@ -20781,7 +20781,7 @@
         "title": "Live wiring",
         "score_now": 88,
         "score_target": 100,
-        "status": "in_progress",
+        "status": "done",
         "steps": [
           {
             "step": 1,
@@ -20791,7 +20791,7 @@
             "title": "Ship pulse worker route on sourcea.app/api/site/*",
             "wired_to": "prompts/phase-sa-score-t01-live-wiring/w01-ship/slice-01.md",
             "acceptance": "REGISTRY sa-score-0601 status=done",
-            "status": "planned"
+            "status": "done"
           },
           {
             "step": 2,
@@ -20821,7 +20821,7 @@
             "title": "Polish UI for FOUNDER_PULSE_KEY rotation doc in SETUP",
             "wired_to": "prompts/phase-sa-score-t01-live-wiring/w04-ui/slice-01.md",
             "acceptance": "REGISTRY sa-score-0631 status=done",
-            "status": "planned"
+            "status": "done"
           },
           {
             "step": 5,
@@ -21221,8 +21221,8 @@
     ],
     "progress": {
       "total_steps": 100,
-      "done_steps": 97,
-      "pct": 97.0,
+      "done_steps": 100,
+      "pct": 100.0,
       "plans": 10
     }
   }
