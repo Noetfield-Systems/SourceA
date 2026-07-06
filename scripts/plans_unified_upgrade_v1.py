@@ -22,6 +22,7 @@ RECEIPT = SINA / "plans-unified-upgrade-receipt-v1.json"
 
 UNIFIED_CROSS_REF = {
     "ecosystem_mac_health_111": "data/ecosystem-mac-health-111-upgrade-plan-v1.json",
+    "sourcea_site_score_w2": "brain-os/plan-registry/sourcea-site-score-up-1000/REGISTRY.json",
     "outbound_factory_100": "data/outbound-factory-100-upgrade-plan-v1.json",
     "full_stack_100_fix": "data/sourcea-full-stack-100-fix-plan-v1.json",
     "brain_cloud_1000": "data/brain-cloud-reasoning-1000-upgrade-plan-v1.json",
@@ -197,12 +198,14 @@ def run_upgrade(*, write: bool = True) -> dict:
     from brain_cloud_reasoning_plan_pulse_v1 import run_pulse as brain_pulse  # noqa: WPS433
     from phase0_freemium_sandbox_pulse_v1 import run_pulse as phase0_pulse  # noqa: WPS433
     from ecosystem_mac_health_111_plan_pulse_v1 import pulse as ecosystem_111_pulse  # noqa: WPS433
+    from sourcea_site_score_w2_plan_v1 import pulse_w2 as sourcea_site_w2_pulse  # noqa: WPS433
 
     full_stack_pulse(write=write, sync_plan=write)
     outbound_pulse(write=write)
     brain_pulse(write=write)
     phase0_row = phase0_pulse(write=write)
     eco111_row = ecosystem_111_pulse(sync_plan=write)
+    site_w2_row = sourcea_site_w2_pulse(sync_registry=write)
 
     ob = _read(OUTBOUND)
     fs = _read(FULL_STACK)
@@ -279,7 +282,8 @@ def run_upgrade(*, write: bool = True) -> dict:
             f"Plans · outbound {ob_sum['done']}/{ob_sum['total']} {ob_sum['active_wave']} · "
             f"full-stack {fs_sum['done']}/{fs_sum['total']} {fs_sum['active_wave']} · "
             f"brain {br_sum['done']}/{br_sum['total']} {br_sum['active_epic']} · "
-            f"M111 {eco111_row.get('progress', {}).get('done', '?')}/{eco111_row.get('progress', {}).get('total', 111)}"
+            f"M111 {eco111_row.get('progress', {}).get('done', '?')}/{eco111_row.get('progress', {}).get('total', 111)} · "
+            f"site W2 {site_w2_row.get('progress', {}).get('done_steps', '?')}/{site_w2_row.get('progress', {}).get('total_steps', 100)}"
         ),
         "task_plan_priority": {
             "ok": bool(task_priority_row.get("ok")),
@@ -299,6 +303,8 @@ def run_upgrade(*, write: bool = True) -> dict:
         "brain_cloud": br_sum,
         "ecosystem_mac_health_111": eco111_row.get("progress") or {},
         "ecosystem_mac_health_111_line": eco111_row.get("line"),
+        "sourcea_site_w2": site_w2_row.get("progress") or {},
+        "sourcea_site_w2_line": site_w2_row.get("line"),
         "validators": val_results,
         "anti_theater_check": {
             "ok": bool(anti_theater_row.get("ok")),
