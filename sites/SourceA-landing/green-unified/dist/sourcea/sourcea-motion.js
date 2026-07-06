@@ -264,7 +264,7 @@
   }
 
   function engineChipPulse() {
-    const chips = document.querySelectorAll(".sa-engine-chip");
+    const chips = document.querySelectorAll(".sa-engine-chip:not([data-engine-tab])");
     if (!chips.length || reduced) return;
     const names = ["Outreach", "Prove", "Build", "Guard", "Expand"];
     let i = 0;
