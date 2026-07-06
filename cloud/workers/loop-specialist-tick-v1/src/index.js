@@ -5,7 +5,6 @@ import { handleIntakePost, probeSsot } from "./nerve-probe/probes.js";
 import { runNerveProbeCycle } from "./nerve-probe/cycle.js";
 import { runGatewayWatchdog, runGatewayHeartbeat } from "./gateway-probe/cycle.js";
 import { dispatchMeta, jobsForCron, runDispatchJobs, runDueDispatch, smokeAllJobs } from "./dispatch.js";
-import { upsertLoopLiveness } from "./loop_liveness.js";
 
 const HANDLERS = {
   loop_specialist_tick: (env) => runTick(env, { dispatch: env.LOOP_AUTO_DISPATCH === "true" }),
@@ -18,18 +17,7 @@ const HANDLERS = {
 export default {
   async scheduled(event, env, ctx) {
     ctx.waitUntil(
-      (async () => {
-        const row = await runDueDispatch(env, HANDLERS, { trigger: "cloudflare_cron_loop_specialist" });
-        await upsertLoopLiveness(env, {
-          loop_id: "sourcea-loop-specialist-tick-v1",
-          trigger_host: "cloudflare",
-          schedule_cron: "*/15 * * * *",
-          interval_minutes: 15,
-          last_ok: Boolean(row.ok),
-          last_receipt: { due_count: row.due_count, runs: (row.runs || []).length },
-        });
-        return row;
-      })(),
+      runDueDispatch(env, HANDLERS, { trigger: "cloudflare_cron_loop_specialist" }),
     );
   },
 
@@ -53,7 +41,7 @@ export default {
         crons: meta.crons,
         dispatch: meta,
         nerve_probe: true,
-        ops_motors: ["gmail-sweep", "signal-triage", "kaizen-nightly", "ops-heartbeat", "sg-gateway-watchdog-http", "sg-gateway-heartbeat-http"],
+        ops_motors: ["gmail-sweep", "signal-triage", "kaizen-nightly", "ops-heartbeat", "sg-gateway-watchdog", "sg-gateway-heartbeat"],
         scheduled_loops: [
           "repo-health-daily",
           "security-sweep-weekly",
@@ -61,11 +49,8 @@ export default {
         ],
         supabase_ready: Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY),
         telegram_ready: Boolean(
-          env.TELEGRAM_OPS_CHAT_ID &&
-            (env.TELEGRAM_PRIMARY_BOT_TOKEN || env.TELEGRAM_BOT_TOKEN),
+          env.TELEGRAM_BOT_TOKEN && (env.TELEGRAM_ALERT_CHAT_ID || env.TELEGRAM_ALLOWED_CHAT_ID),
         ),
-        telegram_lane: "sourcea_ops_trustfield_only",
-        gateway_telegram: "forbidden",
       });
     }
     if (url.pathname === "/dispatch/smoke" && request.method === "POST") {
