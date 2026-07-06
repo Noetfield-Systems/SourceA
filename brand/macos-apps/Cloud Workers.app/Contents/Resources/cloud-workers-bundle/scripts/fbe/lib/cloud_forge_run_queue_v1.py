@@ -1,4 +1,4 @@
-"""Cloud drain queue — head state on Railway volume + Mac ~/.sina mirror."""
+"""Cloud Forge Run queue — head state on Railway volume + Mac ~/.sina mirror."""
 from __future__ import annotations
 
 import json
@@ -11,12 +11,33 @@ ROOT = Path(__file__).resolve().parents[3]
 SINA = Path.home() / ".sina"
 MAC_PHASE = SINA / "phase-observed-v1.json"
 ACTIVE_POINTER = ROOT / "data/cloud-forge-run-queue-active-v1.json"
+VOLUME_POINTER = Path("/app/receipts/cloud-forge-run/queue-active-pointer-v1.json")
 LEGACY_DRAIN = ROOT / "data/secondary-cloud-forge-run-next-100-v1.json"
+
+
+def _read_pointer() -> dict[str, Any]:
+    if _is_headless() and VOLUME_POINTER.is_file():
+        doc = _read(VOLUME_POINTER)
+        if doc.get("queue_path"):
+            return doc
+    return _read(ACTIVE_POINTER)
+
+
+def _write_pointer(doc: dict[str, Any]) -> None:
+    doc = {**doc, "saved_at": _now()}
+    text = json.dumps(doc, indent=2) + "\n"
+    if _is_headless():
+        VOLUME_POINTER.parent.mkdir(parents=True, exist_ok=True)
+        VOLUME_POINTER.write_text(text, encoding="utf-8")
+    try:
+        ACTIVE_POINTER.write_text(text, encoding="utf-8")
+    except OSError:
+        pass
 
 
 def active_drain_path() -> Path:
     """Resolve active Cloud Forge Run queue SSOT (batch pointer · locked)."""
-    ptr = _read(ACTIVE_POINTER)
+    ptr = _read_pointer()
     rel = str(ptr.get("queue_path") or "").strip()
     if rel:
         return ROOT / rel
@@ -41,18 +62,36 @@ def _is_headless() -> bool:
 
 def phase_path() -> Path:
     if _is_headless():
-        return Path("/app/receipts/cloud-forge-run/phase-observed-v1.json")
+        forge = Path("/app/receipts/cloud-forge-run/phase-observed-v1.json")
+        legacy = Path("/app/receipts/cloud-drain/phase-observed-v1.json")
+        if forge.is_file():
+            return forge
+        if legacy.is_file():
+            return legacy
+        return forge
     env = os.environ.get("CLOUD_DRAIN_PHASE_PATH", "").strip()
     if env:
         return Path(env)
     return MAC_PHASE
 
 
+def _normalize_phase_keys(doc: dict[str, Any]) -> dict[str, Any]:
+    """Volume may still carry legacy cloud_drain_* keys after physical rename."""
+    if not doc.get("cloud_forge_run_head") and doc.get("cloud_drain_head"):
+        doc["cloud_forge_run_head"] = doc["cloud_drain_head"]
+    if not doc.get("cloud_forge_run_last_completed") and doc.get("cloud_drain_last_completed"):
+        doc["cloud_forge_run_last_completed"] = doc["cloud_drain_last_completed"]
+    return doc
+
+
 def _read(path: Path) -> dict[str, Any]:
     if not path.is_file():
         return {}
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        doc = json.loads(path.read_text(encoding="utf-8"))
+        if path.name == "phase-observed-v1.json":
+            return _normalize_phase_keys(doc)
+        return doc
     except (OSError, json.JSONDecodeError):
         return {}
 
@@ -69,8 +108,80 @@ def _cloud_plans() -> list[dict[str, Any]]:
     return [p for p in (drain.get("plans") or []) if str(p.get("id", "")).startswith("CLOUD-SEC-")]
 
 
+def _plan_num(plan_id: str) -> int:
+    text = str(plan_id or "")
+    if text.startswith("CLOUD-SEC-"):
+        try:
+            return int(text.rsplit("-", 1)[-1])
+        except ValueError:
+            return 0
+    return 0
+
+
+def _has_next_batch_file(ptr: dict[str, Any] | None = None) -> bool:
+    ptr = ptr or _read_pointer()
+    nxt = ptr.get("next_batch") or {}
+    rel = str(nxt.get("queue_path") or "").strip()
+    if rel and (ROOT / rel).is_file():
+        return True
+    bid = int(ptr.get("batch_id") or 0)
+    if bid <= 0:
+        return False
+    return (ROOT / f"data/secondary-cloud-forge-run-batch-{bid + 1}-locked-v1.json").is_file()
+
+
+def seal_registry_exhausted(*, reason: str = "patch_complete") -> dict[str, Any]:
+    """Mark active pointer + phase when final batch is done and no next batch exists."""
+    ptr = _read_pointer()
+    obs = _read(phase_path())
+    batch_id = int(obs.get("batch_id") or ptr.get("batch_id") or 0)
+    head = str(obs.get("cloud_forge_run_head") or read_head().get("cloud_forge_run_head") or "")
+    last = str(obs.get("cloud_forge_run_last_completed") or head)
+    drain_status = str(ptr.get("drain_status") or "")
+    if ptr.get("extension_wave2_patch"):
+        drain_status = "extension_wave2_complete"
+    elif drain_status.endswith("_armed"):
+        drain_status = drain_status.replace("_armed", "_complete")
+    new_ptr = {
+        **ptr,
+        "registry_exhausted": True,
+        "queue_batch_complete": True,
+        "drain_status": drain_status or "registry_exhausted",
+        "completed_at": _now(),
+        "sealed_reason": reason,
+    }
+    new_ptr.pop("next_batch", None)
+    _write_pointer(new_ptr)
+    obs.update(
+        {
+            "cloud_forge_run_head": head,
+            "cloud_forge_run_last_completed": last,
+            "queue_batch_complete": True,
+            "batch_id": batch_id,
+            "rebuilt_by": "cloud_forge_run_queue_v1.seal_registry_exhausted",
+            "rebuilt_at": _now(),
+            "seal_reason": reason,
+        }
+    )
+    _write(phase_path(), obs)
+    return {
+        "ok": True,
+        "schema": "cloud-forge-run-seal-registry-exhausted-v1",
+        "batch_id": batch_id,
+        "head": head,
+        "last_completed": last,
+        "drain_status": new_ptr.get("drain_status"),
+        "for_founder": {
+            "show_this": (
+                f"PATCH COMPLETE — {last} · batch {batch_id} · registry exhausted · "
+                "no more cloud forge rows in queue"
+            ),
+        },
+    }
+
+
 def _queue_diagnostics() -> dict[str, Any]:
-    ptr = _read(ACTIVE_POINTER)
+    ptr = _read_pointer()
     qpath = drain_ssot_path()
     return {
         "active_pointer": str(ACTIVE_POINTER),
@@ -87,8 +198,22 @@ def boot_heal_queue(*, force: bool = False) -> dict[str, Any]:
     """Railway boot — heal missing queue file / stale phase vs active pointer."""
     if not _is_headless() and not force:
         return {"ok": True, "skipped": "not_headless"}
+    ptr = _read_pointer()
+    shipped = _read(ACTIVE_POINTER)
+    ship_batch = int(shipped.get("batch_id") or 0)
+    ptr_batch = int(ptr.get("batch_id") or 0)
+    ship_rel = str(shipped.get("queue_path") or "").strip()
+    obs_pre = _read(phase_path())
+    if (
+        _is_headless()
+        and ship_batch > ptr_batch
+        and ship_rel
+        and (ROOT / ship_rel).is_file()
+        and (bool(shipped.get("extension_wave2_patch")) or bool(obs_pre.get("queue_batch_complete")))
+    ):
+        _write_pointer(shipped)
+        ptr = shipped
     diag = _queue_diagnostics()
-    ptr = _read(ACTIVE_POINTER)
     plans = _cloud_plans()
     obs = _read(phase_path())
     head = str(obs.get("cloud_forge_run_head") or "")
@@ -114,7 +239,23 @@ def boot_heal_queue(*, force: bool = False) -> dict[str, Any]:
         }
 
     if plans and head and head not in plan_ids:
+        nxt = ptr.get("next_batch") or {}
+        nxt_rel = str(nxt.get("queue_path") or "").strip()
+        if nxt_rel:
+            nxt_plans = [
+                p
+                for p in (_read(ROOT / nxt_rel).get("plans") or [])
+                if str(p.get("id", "")).startswith("CLOUD-SEC-")
+            ]
+            if any(str(p.get("id") or "") == head for p in nxt_plans):
+                return swap_to_next_batch(reason="boot_heal_head_in_next_batch")
+            return swap_to_next_batch(reason="boot_heal_head_not_in_queue")
         return activate_batch(reason="boot_heal_head_not_in_queue")
+
+    obs_batch = int(obs.get("batch_id") or 0)
+    ptr_batch = int(ptr.get("batch_id") or 0)
+    if obs_batch > ptr_batch and (ptr.get("next_batch") or {}).get("queue_path"):
+        return swap_to_next_batch(reason="boot_heal_phase_batch_ahead")
 
     if not plans:
         return {
@@ -127,17 +268,27 @@ def boot_heal_queue(*, force: bool = False) -> dict[str, Any]:
     reset_head = str(reset.get("cloud_forge_run_head") or plan_ids[0])
     needs_activate = (
         bool(obs.get("queue_batch_complete"))
-        or int(obs.get("batch_id") or 0) != int(ptr.get("batch_id") or 0)
-        or (head and head not in plan_ids)
+        or (obs_batch > 0 and ptr_batch > 0 and obs_batch == ptr_batch and head and head not in plan_ids)
     )
     if needs_activate:
+        if head and head in plan_ids and _plan_num(head) >= _plan_num(reset_head):
+            obs.update(
+                {
+                    "batch_id": ptr.get("batch_id"),
+                    "queue_batch_complete": False,
+                    "rebuilt_by": "cloud_forge_run_queue_v1.boot_heal_keep_head",
+                    "activate_reason": "boot_heal_sync_batch",
+                }
+            )
+            _write(phase_path(), obs)
+            return {"ok": True, "healed": True, "head": head, "heal": "sync_batch_keep_head", "diagnostics": diag}
         return activate_batch(reason="boot_heal_stale_phase")
     return {"ok": True, "healed": False, "head": head or reset_head, "diagnostics": diag}
 
 
 def swap_to_next_batch(*, reason: str = "batch_complete_handoff") -> dict[str, Any]:
     """Pointer swap — arm pre-locked next batch (batch N+1 on disk)."""
-    ptr = _read(ACTIVE_POINTER)
+    ptr = _read_pointer()
     nxt = ptr.get("next_batch") or {}
     rel = str(nxt.get("queue_path") or "").strip()
     batch_id = int(nxt.get("batch_id") or 0)
@@ -151,6 +302,15 @@ def swap_to_next_batch(*, reason: str = "batch_complete_handoff") -> dict[str, A
     first_head = str(cloud_plans[0].get("id")) if cloud_plans else ""
     if not first_head:
         return {"ok": False, "error": "next_batch_empty"}
+    prev_obs = _read(phase_path())
+    prev_last = str(
+        prev_obs.get("cloud_forge_run_last_completed")
+        or prev_obs.get("cloud_forge_run_head")
+        or ""
+    )
+    prev_plans = [p for p in _cloud_plans() if str(p.get("id", "")).startswith("CLOUD-SEC-")]
+    if not prev_last and prev_plans:
+        prev_last = str(prev_plans[-1].get("id") or "")
     prev_batch = int(ptr.get("batch_id") or 0)
     archive_key = f"archive_batch{prev_batch}" if prev_batch else "archive_batch_prev"
     new_ptr = {
@@ -161,7 +321,7 @@ def swap_to_next_batch(*, reason: str = "batch_complete_handoff") -> dict[str, A
         archive_key: str(ptr.get("queue_path") or ""),
         "phase_reset": {
             "cloud_forge_run_head": first_head,
-            "cloud_forge_run_last_completed": None,
+            "cloud_forge_run_last_completed": prev_last or None,
             "queue_batch_complete": False,
         },
         "next_batch": nxt.get("next_batch"),
@@ -179,7 +339,7 @@ def swap_to_next_batch(*, reason: str = "batch_complete_handoff") -> dict[str, A
         }
     else:
         new_ptr.pop("next_batch", None)
-    ACTIVE_POINTER.write_text(json.dumps(new_ptr, indent=2) + "\n", encoding="utf-8")
+    _write_pointer(new_ptr)
     return activate_batch(reason=reason)
 
 
@@ -199,7 +359,27 @@ def is_mock_plan(plan: dict[str, Any] | None) -> bool:
 
 
 def read_head() -> dict[str, Any]:
+    ptr = _read_pointer()
     obs = _read(phase_path())
+    if _is_headless() and not bool(ptr.get("registry_exhausted")):
+        plans_pre = _cloud_plans()
+        plan_ids_pre = [str(p.get("id") or "") for p in plans_pre]
+        head_pre = str(obs.get("cloud_forge_run_head") or "")
+        ptr_batch = int(ptr.get("batch_id") or 0)
+        obs_batch = int(obs.get("batch_id") or 0)
+        batch_mismatch = obs_batch != ptr_batch and ptr_batch > 0
+        stale_phase = bool(obs.get("queue_batch_complete")) or (
+            head_pre and plan_ids_pre and head_pre not in plan_ids_pre
+        )
+        if batch_mismatch and head_pre in plan_ids_pre:
+            obs["batch_id"] = ptr_batch
+            obs["queue_batch_complete"] = False
+            obs["rebuilt_by"] = "cloud_forge_run_queue_v1.read_head_sync_batch"
+            _write(phase_path(), obs)
+        elif stale_phase:
+            boot_heal_queue(force=True)
+            obs = _read(phase_path())
+            ptr = _read_pointer()
     head = str(obs.get("cloud_forge_run_head") or "")
     if not head:
         plans = _cloud_plans()
@@ -207,8 +387,21 @@ def read_head() -> dict[str, Any]:
     ids = [str(p.get("id") or "") for p in _cloud_plans()]
     last_id = ids[-1] if ids else ""
     last_completed = obs.get("cloud_forge_run_last_completed")
+    if not last_completed and head:
+        try:
+            idx = ids.index(head)
+            if idx > 0:
+                last_completed = ids[idx - 1]
+        except ValueError:
+            pass
     batch_complete = bool(obs.get("queue_batch_complete")) or (
         bool(head and last_completed and head == str(last_completed) and head == last_id)
+    )
+    has_next_batch = _has_next_batch_file(ptr)
+    registry_exhausted = bool(
+        ptr.get("registry_exhausted")
+        or ptr.get("drain_status") in ("competitor_1000_complete", "extension_wave2_complete")
+        or (batch_complete and not has_next_batch)
     )
     return {
         "ok": True,
@@ -217,9 +410,13 @@ def read_head() -> dict[str, Any]:
         "cloud_forge_run_head": head,
         "cloud_forge_run_last_completed": last_completed,
         "queue_batch_complete": batch_complete,
+        "registry_exhausted": registry_exhausted,
+        "drain_status": ptr.get("drain_status"),
+        "next_motor_ssot": ptr.get("next_motor_ssot"),
         "phase_path": str(phase_path()),
         "head_is_mock": is_mock_plan(_plan_by_id(head)),
         "observed": obs,
+        "batch_id": obs.get("batch_id") or ptr.get("batch_id"),
     }
 
 
@@ -320,11 +517,13 @@ def advance_on_pass(*, plan_id: str) -> dict[str, Any]:
     _write(path, obs)
     result = {"ok": True, "completed": plan_id, "head": nxt, "phase_path": str(path)}
     if at_end:
-        ptr = _read(ACTIVE_POINTER)
+        ptr = _read_pointer()
         nxt_batch = ptr.get("next_batch") or {}
         if nxt_batch.get("status") in ("ready_locked", "ready") and nxt_batch.get("queue_path"):
             handoff = swap_to_next_batch(reason="advance_on_pass_batch_complete")
             result["next_batch_handoff"] = handoff
+        elif not _has_next_batch_file(ptr):
+            result["registry_seal"] = seal_registry_exhausted(reason="advance_on_pass_final_batch")
     return result
 
 
@@ -346,7 +545,7 @@ def sync_to_mac_if_newer(cloud_row: dict[str, Any]) -> dict[str, Any]:
     local_head = str(local.get("cloud_forge_run_head") or "")
     diverged = bool(local_head and head != local_head)
     observed = cloud_row.get("observed") if isinstance(cloud_row.get("observed"), dict) else {}
-    ptr = _read(ACTIVE_POINTER)
+    ptr = _read_pointer()
     cloud_batch = observed.get("batch_id") or cloud_row.get("batch_id") or ptr.get("batch_id")
     batch_diverged = cloud_batch is not None and int(local.get("batch_id") or 0) != int(cloud_batch)
     if not cloud_at:
@@ -382,8 +581,30 @@ def sync_to_mac_if_newer(cloud_row: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def sync_pointer_from_image(*, reason: str = "sync_pointer_from_image") -> dict[str, Any]:
+    """Headless — volume pointer may lag shipped image after extension patch deploy."""
+    shipped = _read(ACTIVE_POINTER)
+    rel = str(shipped.get("queue_path") or "").strip()
+    if not rel:
+        return {"ok": False, "error": "no_shipped_pointer"}
+    if not (ROOT / rel).is_file():
+        return {
+            "ok": False,
+            "error": "shipped_queue_missing_in_image",
+            "path": rel,
+            "for_founder": {
+                "show_this": f"BLOCKER — {rel} missing in Railway image · redeploy FBE runner",
+            },
+        }
+    _write_pointer(shipped)
+    armed = activate_batch(reason=reason)
+    armed["synced_from_image"] = True
+    armed["shipped_batch_id"] = shipped.get("batch_id")
+    return armed
+
+
 def activate_batch(*, reason: str = "founder_activate_batch", batch_id: int | None = None) -> dict[str, Any]:
-    ptr = _read(ACTIVE_POINTER)
+    ptr = _read_pointer()
     bid = int(batch_id or ptr.get("batch_id") or 0)
     if bid and bid != int(ptr.get("batch_id") or 0):
         return {"ok": False, "error": "batch_id_mismatch", "active": ptr.get("batch_id"), "requested": bid}
@@ -409,10 +630,21 @@ def activate_batch(*, reason: str = "founder_activate_batch", batch_id: int | No
     reset = ptr.get("phase_reset") or {}
     path = phase_path()
     obs = _read(path)
+    current_head = str(obs.get("cloud_forge_run_head") or "")
+    reset_head = str(reset.get("cloud_forge_run_head") or first)
+    plan_ids = [str(p.get("id") or "") for p in plans]
+    if current_head in plan_ids and _plan_num(current_head) >= _plan_num(reset_head):
+        new_head = current_head
+    elif reset_head in plan_ids:
+        new_head = reset_head
+    else:
+        new_head = first
     obs.update(
         {
-            "cloud_forge_run_head": str(reset.get("cloud_forge_run_head") or first),
-            "cloud_forge_run_last_completed": reset.get("cloud_forge_run_last_completed"),
+            "cloud_forge_run_head": new_head,
+            "cloud_forge_run_last_completed": reset.get("cloud_forge_run_last_completed")
+            if new_head == reset_head
+            else obs.get("cloud_forge_run_last_completed"),
             "queue_batch_complete": False,
             "batch_id": ptr.get("batch_id"),
             "rebuilt_by": "cloud_forge_run_queue_v1.activate_batch",
@@ -471,6 +703,10 @@ def handle_queue_action(body: dict[str, Any] | None) -> dict[str, Any]:
             obs["queue_batch_complete"] = bool(body.get("queue_batch_complete"))
         _write(path, obs)
         return {"ok": True, "head": head, "phase_path": str(path)}
+    if action == "seal_registry_exhausted":
+        return seal_registry_exhausted(reason=str(body.get("reason") or "api_seal_registry_exhausted"))
+    if action == "sync_pointer_from_image":
+        return sync_pointer_from_image(reason=str(body.get("reason") or "api_sync_pointer_from_image"))
     if action == "activate_batch":
         return activate_batch(
             reason=str(body.get("reason") or "founder_activate_batch"),
