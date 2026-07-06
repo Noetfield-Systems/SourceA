@@ -34,6 +34,7 @@ UNIFIED_CROSS_REF = {
     "platform_neutral_world_model": "data/platform-neutral-world-model-v1.json",
     "phase0_freemium_sandbox": "data/phase0-freemium-sandbox-reference-v1.json",
     "anti_theater_loop": "data/anti-theater-validator-loop-v1.json",
+    "sourcea_deep_research_10": "data/sourcea-deep-research-10-upgrade-plan-v1.json",
     "orchestrator": "scripts/plans_unified_upgrade_v1.py",
 }
 

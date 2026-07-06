@@ -1,15 +1,15 @@
-# Fix public install/package claim vs PyPI reality
+# Claim hygiene — install/PyPI
 
-**Plan ID:** `sdr-p0-001` · **Tier:** P0 · **Updated:** 2026-07-06T09:17:58Z
-
-## Problem
-Homepage/eval references pip install sourcea-boot; package must resolve or copy must say GitHub-only.
+**Plan ID:** `UP-DR-01` · **Tier:** P0 · **Wave:** W1
 
 ## Goal
 Eval page and PyPI probe agree — no false install promise
 
 ## Done when
 probe_sourcea_boot_pypi_v1.py ok OR eval copy says GitHub clone pending
+
+## Child steps
+- **sdr-p0-001** — Fix public install/package claim vs PyPI reality (open)
 
 ## Verify
 ```
@@ -26,4 +26,4 @@ Open /eval — show install line matches live PyPI or honest GitHub fallback
 `SourceA-landing/green-unified/eval.html`
 
 ---
-*Child plan · rolled into UP-DR upgrade wave*
+*One CLOUD-SEC row per Auto Runtime tick · Supabase proof · INCIDENT-045*
