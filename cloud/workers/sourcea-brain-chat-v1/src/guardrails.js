@@ -1,6 +1,14 @@
 /** Post-generation guardrails + retrieval-only fallback (Brain v4). */
+import knowledgeBundle from "./knowledge-bundle.json";
 
 const SOURCEA_ORIGIN = "https://sourcea.app";
+
+/** Runtime reads SSOT field embedded at bundle sync — not a separate hardcoded string. */
+export function publicOneLine() {
+  const line = String(knowledgeBundle.public_one_line || "").trim();
+  if (line) return line;
+  return "SourceA is an AI execution platform — real builds, automations, and agent workflows, with a verifiable receipt on every run.";
+}
 
 const FORBIDDEN_PATTERNS = [
   /\bopenrouter\b/i,
@@ -95,7 +103,7 @@ export function publicBoundaryReply() {
   return [
     "I can't share internal keys, local ports, repo paths, or private configuration.",
     "",
-    "For a public visitor, the useful answer is: SourceA is an AI execution platform powered by Forge. It runs real builds, automations, and agent workflows with proof of what ran.",
+    "For a public visitor, the useful answer is: " + publicOneLine(),
     "",
     `Try the public Forge Terminal here: ${SOURCEA_ORIGIN}/sourcea/forge/terminal`,
   ].join("\n");
@@ -163,7 +171,6 @@ export function sanitizePublicText(value) {
     .replace(/\bhighest[- ]confidence public guide\b/gi, "public guide")
     .replace(/\bhighest[- ]confidence public intelligence\b/gi, "public guide")
     .replace(/\bhighest[- ]confidence\b/gi, "evidence-backed")
-    .replace(/\s+\)/g, ")")
     .replace(/\(\s*\)/g, "")
     .replace(/[ \t]{2,}/g, " ")
     .trim();
@@ -267,7 +274,7 @@ export function strangerRecoveryReply() {
     "",
     "You should never see internal source names or repo paths in this chat. Brain should answer like a public website guide: plain explanation, direct copyable links, and no internal file references.",
     "",
-    `SourceA is an AI execution platform powered by Forge. It helps founders and agencies run real builds, automations, and agent workflows with proof of what ran. Try Forge Terminal here: ${SOURCEA_ORIGIN}/sourcea/forge/terminal`,
+    publicOneLine() + ` Try Forge Terminal here: ${SOURCEA_ORIGIN}/sourcea/forge/terminal`,
   ].join("\n");
 }
 
