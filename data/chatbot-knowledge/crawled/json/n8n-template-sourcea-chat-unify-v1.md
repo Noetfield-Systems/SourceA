@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-06T09:57:10Z
+updated: 2026-07-06T10:57:13Z
 lane: developer
 source_path: sites/SourceA-landing/green-unified/data/n8n-template-sourcea-chat-unify-v1.json
 public: true

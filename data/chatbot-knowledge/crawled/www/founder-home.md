@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-06T09:57:10Z
+updated: 2026-07-06T10:57:13Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/founder-home.html
 public: true
@@ -9,10 +9,10 @@ www_url: https://sourcea.app/
 # Founder Home
 
 ## Page title
-SourceA — AI execution platform powered by Forge
+SourceA — AI execution platform with proof built in
 
 ## Summary
-Turn AI into real production work — builds, automations, and agent workflows through Forge, with proof built in. Try Forge Terminal in your browser.
+Turn AI into real production work — builds, automations, and agent workflows with proof built in. Evaluate in five minutes, no sales call required.
 
 ## Proof-backed MVPs and acquisition systems, shipped fast.
 
@@ -66,7 +66,7 @@ Turn AI into real production work — builds, automations, and agent workflows t
 
 Evaluate in five minutes with sourcea-boot — PASS or BLOCK on disk. Then Forge Terminal, live receipt, or Brain — no sales call required.
 
-SourceA is the product. Forge is the execution engine. Chat Unify and Cloud Workers are components — not separate products to buy first.
+SourceA ships builds, automations, and agent workflows with a delivery receipt you can verify on the page — no sales call required.
 
 A sample verified job — scored, logged, and shareable. Verify it yourself in under five minutes.
 
