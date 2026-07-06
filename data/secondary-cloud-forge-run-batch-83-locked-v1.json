@@ -5,7 +5,7 @@
   "library": "client-proof-recipe",
   "locked": true,
   "edit_forbidden": true,
-  "saved_at": "2026-07-06T09:17:58Z",
+  "saved_at": "2026-07-06T09:37:16Z",
   "authority": "client-proof-recipe-rubric-v1 \u00b7 FORGE_FACTORY_THREE_OFFERS",
   "one_law": "One CLOUD-SEC row = one client-demo recipe with GOAL \u00b7 DONE \u00b7 VERIFY \u00b7 proof artifact.",
   "generator": "scripts/generate_client_proof_cloud_batch_v1.py",
