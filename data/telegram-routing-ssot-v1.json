@@ -1,21 +1,16 @@
 {
   "schema": "telegram-routing-ssot-v1",
   "version": "1.0.0",
-  "saved_at": "2026-07-06T06:15:00Z",
+  "saved_at": "2026-07-06T06:20:00Z",
   "canonical_ssot": "data/sourcea-telegram-lane-v1.json",
   "allowed_channels": [
     {
-      "id": "founder_ops",
-      "env_keys": ["TELEGRAM_ALERT_CHAT_ID", "TELEGRAM_ALLOWED_CHAT_ID"],
-      "bot_env": "TELEGRAM_BOT_TOKEN",
-      "lane": "sourcea_nerve_fail_only"
-    },
-    {
-      "id": "noetfield_ops",
-      "env_keys": ["TELEGRAM_OPS_CHAT_ID", "TELEGRAM_NOETFIELD_OPS_CHAT_ID"],
-      "bot_env": "TELEGRAM_NOETFIELD_OPS_BOT_TOKEN",
-      "lane": "noetfield_www_intake_only",
-      "note": "Separate bot — not loop-specialist nerve"
+      "id": "sourcea_ops",
+      "env_chat_id_key": "TELEGRAM_OPS_CHAT_ID",
+      "env_token_keys": ["TELEGRAM_PRIMARY_BOT_TOKEN", "TELEGRAM_BOT_TOKEN"],
+      "bot_username": "TrustFieldBot",
+      "lane": "sourcea_nerve_fail_only",
+      "note": "Loop-specialist nerve probe RED only — never gateway"
     }
   ],
   "forbidden_destinations": [
@@ -25,14 +20,19 @@
       "reason": "Sina Gateway owns its own Telegram — SourceA must never message this account"
     }
   ],
-  "forbidden_lanes_in_sourcea": [
-    "sina_gateway_watchdog",
-    "sina_gateway_heartbeat",
-    "gateway_watchdog_telegram",
-    "gateway_heartbeat_telegram"
+  "forbidden_env_fallbacks": [
+    "TELEGRAM_ALERT_CHAT_ID",
+    "TELEGRAM_ALLOWED_CHAT_ID",
+    "TELEGRAM_NOETFIELD_OPS_BOT_TOKEN",
+    "TELEGRAM_SECONDARY_BOT_TOKEN",
+    "TELEGRAM_ALERT_BOT_TOKEN"
   ],
+  "gateway_handlers_allowed": {
+    "dispatch_jobs": ["gateway_watchdog", "gateway_heartbeat"],
+    "transport": "HTTP probes only — no sendMessage"
+  },
   "monitoring_law": {
-    "sina_gateway": "UptimeRobot HTTP GET only — data/noos-external-monitors-v1.json",
-    "never": ["sendMessage", "POST /loop", "loop-specialist telegram on gateway RED"]
+    "sina_gateway": "UptimeRobot HTTP GET + CF gateway_watchdog HTTP — data/noos-external-monitors-v1.json",
+    "never": ["sendMessage to @Gateway_A", "loop-specialist telegram on gateway RED/GREEN"]
   }
 }

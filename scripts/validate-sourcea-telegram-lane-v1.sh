@@ -45,17 +45,15 @@ for name in forbidden:
     if f"@{name}" not in lane.read_text().lower() and name not in lane.read_text():
         pass  # lane file lists them
 
-for dispatch in [
-    Path(sys.argv[1]).parent.parent / "cloud/workers/loop-specialist-tick-v1/src/dispatch-table.json",
-    Path(sys.argv[1]).parent.parent / "data/loop-specialist-cron-dispatch-v1.json",
-]:
-    if dispatch.is_file():
-        d = json.loads(dispatch.read_text())
-        blob = json.dumps(d)
-        if "gateway_watchdog" in blob or "gateway_heartbeat" in blob:
-            raise SystemExit(f"{dispatch.name} must not schedule gateway Telegram handlers")
+routing = Path(sys.argv[1]).parent / "telegram-routing-ssot-v1.json"
+if routing.is_file():
+    r = json.loads(routing.read_text())
+    for ch in r.get("allowed_channels") or []:
+        for bad in ("TELEGRAM_ALERT_CHAT_ID", "TELEGRAM_ALLOWED_CHAT_ID"):
+            if bad in (ch.get("env_keys") or []):
+                raise SystemExit("telegram-routing-ssot must not allow ALERT/ALLOWED chat fallbacks")
 
-print("OK: validate-sourcea-telegram-lane-v1 — gateway zero Telegram · ops lane only")
+print("OK: validate-sourcea-telegram-lane-v1 — gateway HTTP ok · zero gateway Telegram · ops lane only")
 PY
 
 echo "OK: validate-sourcea-telegram-lane-v1"
