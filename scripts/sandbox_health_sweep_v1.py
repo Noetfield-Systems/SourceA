@@ -122,9 +122,51 @@ def _discover_live_gha_triggers() -> list[dict[str, Any]]:
 
 def _probe_registry_entry(entry: dict[str, Any]) -> dict[str, Any]:
     probe = entry.get("live_probe") if isinstance(entry.get("live_probe"), dict) else {}
-    rel_path = str(probe.get("path") or "")
-    path = ROOT / rel_path
     trigger_id = str(entry.get("trigger_id") or "")
+    probe_type = str(probe.get("type") or "")
+    rel_path = str(probe.get("path") or "")
+    if probe_type == "dispatch_cron":
+        dispatch_rel = str(probe.get("dispatch_path") or "data/loop-specialist-cron-dispatch-v1.json")
+        dispatch_path = ROOT / dispatch_rel
+        wrangler_rel = str(probe.get("wrangler_path") or "cloud/workers/loop-specialist-tick-v1/wrangler.toml")
+        wrangler_path = ROOT / wrangler_rel
+        expected = str(probe.get("schedule") or entry.get("schedule") or "")
+        match_tid = str(probe.get("match_trigger_id") or entry.get("trigger_id") or "")
+        if not dispatch_path.is_file() or not wrangler_path.is_file():
+            return {
+                "trigger_id": trigger_id,
+                "ok": False,
+                "path": dispatch_rel,
+                "reason": "dispatch_or_wrangler_missing",
+            }
+        dispatch = _read_json(dispatch_path)
+        wrangler_crons = _parse_wrangler_crons(wrangler_path.read_text(encoding="utf-8", errors="replace"))
+        wrangler_trigger = str(dispatch.get("wrangler_trigger_cron") or "")
+        cron_rows = dispatch.get("crons") if isinstance(dispatch.get("crons"), list) else []
+        dispatch_match = next(
+            (
+                row
+                for row in cron_rows
+                if isinstance(row, dict)
+                and str(row.get("trigger_id") or "") == match_tid
+                and str(row.get("cron") or "") == expected
+            ),
+            None,
+        )
+        ok = bool(dispatch_match) and wrangler_trigger in wrangler_crons
+        return {
+            "trigger_id": trigger_id,
+            "ok": ok,
+            "path": dispatch_rel,
+            "wrangler_path": wrangler_rel,
+            "expected_schedule": expected,
+            "match_trigger_id": match_tid,
+            "wrangler_trigger_cron": wrangler_trigger,
+            "live_wrangler_schedules": wrangler_crons,
+            "reason": None if ok else "dispatch_schedule_mismatch",
+        }
+
+    path = ROOT / rel_path
     if not rel_path or not path.is_file():
         return {
             "trigger_id": trigger_id,
@@ -133,10 +175,9 @@ def _probe_registry_entry(entry: dict[str, Any]) -> dict[str, Any]:
             "path": rel_path,
         }
     text = path.read_text(encoding="utf-8", errors="replace")
-    probe_type = str(probe.get("type") or "")
     if probe_type == "wrangler_cron":
         crons = _parse_wrangler_crons(text)
-        expected = str(entry.get("schedule") or "")
+        expected = str(probe.get("schedule") or entry.get("schedule") or "")
         ok = expected in crons
         return {
             "trigger_id": trigger_id,
@@ -148,7 +189,7 @@ def _probe_registry_entry(entry: dict[str, Any]) -> dict[str, Any]:
         }
     if probe_type == "gha_schedule":
         parsed = _parse_gha_workflow(text)
-        expected = str(entry.get("schedule") or "")
+        expected = str(probe.get("schedule") or entry.get("schedule") or "")
         ok = expected in parsed["schedules"]
         return {
             "trigger_id": trigger_id,
@@ -227,6 +268,11 @@ def run_sweep(*, repo_root: Path | None = None) -> dict[str, Any]:
         elif probe_type == "gha_workflow":
             for event in probe.get("expects") or []:
                 claimed.add(f"gha:{rel}:{event}")
+        elif probe_type == "dispatch_cron":
+            dispatch_rel = str(probe.get("dispatch_path") or "data/loop-specialist-cron-dispatch-v1.json")
+            match_tid = str(probe.get("match_trigger_id") or entry.get("trigger_id") or "")
+            sched = str(probe.get("schedule") or entry.get("schedule") or "")
+            claimed.add(f"dispatch:{dispatch_rel}:{match_tid}:{sched}")
         elif probe_type == "session_gate_hook":
             claimed.add(f"session_gate:{rel}")
 
