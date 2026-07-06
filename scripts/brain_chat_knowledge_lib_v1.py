@@ -78,6 +78,11 @@ def strip_secrets(text: str) -> str:
     return text
 
 
+def scrub_public_voice(text: str) -> str:
+    """Sync-time only — prefer failing sync over silent rewrite at runtime."""
+    return str(text or "")
+
+
 def strip_html(html: str) -> str:
     text = html
     for pat in STRIP_PATTERNS:
