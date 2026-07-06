@@ -24,4 +24,11 @@ npx wrangler deploy
 HEALTH_AUTO="https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev/health"
 curl -sf "$HEALTH_AUTO" | python3 -m json.tool
 
+echo "== deadman (*/30 loop_registry watcher) =="
+cp "$ROOT/data/loop-registry-v1.json" "$ROOT/cloud/workers/sourcea-deadman-v1/src/loop-registry.json"
+WF="$ROOT/cloud/workers/sourcea-deadman-v1"
+cd "$WF"
+npx wrangler deploy
+curl -sf "https://sourcea-deadman-v1.sina-kazemnezhad-ca.workers.dev/health" | python3 -m json.tool
+
 echo "PASS: deploy_cf_all_motors_v1 — 24/7 on Cloudflare only"
