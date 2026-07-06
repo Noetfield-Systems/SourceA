@@ -11,6 +11,7 @@
       "cron": "*/15 * * * *",
       "trigger_id": "SA-T-loop-specialist",
       "label": "loop-specialist-15m",
+      "parallel_jobs": true,
       "jobs": [
         { "id": "loop-tick", "kind": "handler", "handler": "loop_specialist_tick" },
         { "id": "sf-tick", "kind": "handler", "handler": "signal_factory_tick" },

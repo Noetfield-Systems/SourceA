@@ -70,8 +70,8 @@ export async function runDueDispatch(env, handlers, { trigger = "cloudflare_cron
 
 export async function runDispatchJobs(env, cron, handlers, { trigger = "cloudflare_cron" } = {}) {
   const row = jobsForCron(cron);
-  const results = [];
-  for (const job of row.jobs) {
+
+  async function runOneJob(job) {
     const started = Date.now();
     try {
       let result;
@@ -87,7 +87,7 @@ export async function runDispatchJobs(env, cron, handlers, { trigger = "cloudfla
       } else {
         result = { ok: false, error: "unknown_job_kind", kind: job.kind };
       }
-      results.push({
+      return {
         id: job.id,
         kind: job.kind,
         handler: job.handler || null,
@@ -95,17 +95,27 @@ export async function runDispatchJobs(env, cron, handlers, { trigger = "cloudfla
         ok: Boolean(result?.ok),
         ms: Date.now() - started,
         result,
-      });
+      };
     } catch (exc) {
-      results.push({
+      return {
         id: job.id,
         kind: job.kind,
         ok: false,
         ms: Date.now() - started,
         error: String(exc).slice(0, 200),
-      });
+      };
     }
   }
+
+  const jobs = row.jobs || [];
+  const results = row.parallel_jobs
+    ? await Promise.all(jobs.map((job) => runOneJob(job)))
+    : await jobs.reduce(async (accP, job) => {
+        const acc = await accP;
+        acc.push(await runOneJob(job));
+        return acc;
+      }, Promise.resolve([]));
+
   return {
     ok: results.every((r) => r.ok),
     schema: "loop-specialist-cron-dispatch-run-v1",
@@ -113,6 +123,7 @@ export async function runDispatchJobs(env, cron, handlers, { trigger = "cloudfla
     cron,
     trigger_id: row.trigger_id || null,
     label: row.label || null,
+    parallel_jobs: Boolean(row.parallel_jobs),
     results,
   };
 }
