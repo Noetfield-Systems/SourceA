@@ -1,15 +1,15 @@
-# Footer relation map: SourceA · Noetfield · TrustField · Gateway
+# Ecosystem map
 
-**Plan ID:** `sdr-p2-001` · **Tier:** P2 · **Updated:** 2026-07-06T09:17:58Z
-
-## Problem
-TrustField/Gateway relationship not visible.
+**Plan ID:** `UP-DR-09` · **Tier:** P2 · **Wave:** W1
 
 ## Goal
 Footer or about shows one-line relation map
 
 ## Done when
 Footer contains data-sa-relation-map with four entities
+
+## Child steps
+- **sdr-p2-001** — Footer relation map: SourceA · Noetfield · TrustField · Gateway (open)
 
 ## Verify
 ```
@@ -26,4 +26,4 @@ Footer answers who-owns-what in 10s
 `SourceA-landing/green-unified/index.html`
 
 ---
-*Child plan · rolled into UP-DR upgrade wave*
+*One CLOUD-SEC row per Auto Runtime tick · Supabase proof · INCIDENT-045*

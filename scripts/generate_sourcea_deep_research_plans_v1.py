@@ -3,13 +3,17 @@
 
 Source: external deep research (PRODUCT BETA · P0/P1 fix list).
 Law: data/cloud-forge-run-realistic-motor-law-v1.json — one recipe per row · one row per tick.
+
+Outputs:
+  - 12 child sdr-* plans (granular)
+  - 10 UP-DR upgrade workstreams (§9 fix list)
+  - client-proof queue · batch chain · Worker INBOX
 """
 from __future__ import annotations
 
 import argparse
 import json
 import re
-import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -18,6 +22,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 SINA = Path.home() / ".sina"
 PLAN_OUT = ROOT / "data" / "sourcea-deep-research-upgrade-plan-v1.json"
+UPGRADE_10_OUT = ROOT / "data" / "sourcea-deep-research-10-upgrade-plan-v1.json"
 QUEUE_OUT = ROOT / "data" / "client-proof-recipe-queue-v1.json"
 ACTIVE_POINTER = ROOT / "data" / "cloud-forge-run-queue-active-v1.json"
 CONTROL_PLANE = ROOT / "data" / "cloud-workers-control-plane-v1.json"
@@ -26,10 +31,13 @@ INBOX_MD = ROOT / ".sina-loop" / "INBOX.md"
 RECEIPT = SINA / "sourcea-deep-research-plans-receipt-v1.json"
 RESEARCH_DOC = Path.home() / "Downloads" / "sourcea_deep_research_report.md"
 PLAN_REGISTRY_DIR = ROOT / "brain-os" / "plan-registry" / "sourcea-deep-research-v1"
+PROMPTS_DIR = PLAN_REGISTRY_DIR / "prompts"
 VERIFY_SCRIPT = "scripts/verify_client_proof_artifact_v1.py"
 SUPABASE_VERIFY = (
     "cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count"
 )
+PULSE_SCRIPT = "scripts/sourcea_deep_research_10_pulse_v1.py"
+VALIDATOR_SCRIPT = "scripts/validate-sourcea-deep-research-10-v1.sh"
 
 
 def _now() -> str:
@@ -52,14 +60,9 @@ def _write(path: Path, row: dict[str, Any]) -> None:
 
 
 def _url_verify(url: str, *markers: str) -> str:
-    parts = [
-        "cd ~/Desktop/SourceA",
-        f"python3 {VERIFY_SCRIPT} --url {url}",
-    ]
-    for marker in markers:
-        parts.append(f"--marker {json.dumps(marker)}")
-    parts.append(SUPABASE_VERIFY)
-    return " && ".join(parts)
+    marker_flags = " ".join(f"--marker {json.dumps(marker)}" for marker in markers)
+    cmd = f"python3 {VERIFY_SCRIPT} --url {url} {marker_flags}".strip()
+    return " && ".join(["cd ~/Desktop/SourceA", cmd, SUPABASE_VERIFY])
 
 
 def _cmd_verify(*cmds: str) -> str:
@@ -67,7 +70,7 @@ def _cmd_verify(*cmds: str) -> str:
 
 
 def deep_research_plans() -> list[dict[str, Any]]:
-    """P0/P1 fixes from deep research §9 — one shippable unit each."""
+    """P0/P1/P2 child plans — granular sdr-* rows."""
     return [
         {
             "id": "sdr-p0-001",
@@ -78,7 +81,7 @@ def deep_research_plans() -> list[dict[str, Any]]:
             "done_when": "probe_sourcea_boot_pypi_v1.py ok OR eval copy says GitHub clone pending",
             "verify": _cmd_verify(
                 "python3 scripts/probe_sourcea_boot_pypi_v1.py --json",
-                f"python3 {VERIFY_SCRIPT} --url https://sourcea.app/eval --marker sourcea-boot",
+                f'python3 {VERIFY_SCRIPT} --url https://sourcea.app/eval --marker "sourcea-boot"',
             ),
             "proof_artifact": "https://sourcea.app/eval",
             "client_demo": "Open /eval — show install line matches live PyPI or honest GitHub fallback",
@@ -199,8 +202,8 @@ def deep_research_plans() -> list[dict[str, Any]]:
             "goal": "Live receipt page adds plain-English what-this-proves strip",
             "done_when": "GET /sourcea/proof/live JSON + human strip on proof page",
             "verify": _cmd_verify(
-                "curl -fsS https://sourcea.app/sourcea/proof/live | python3 -c \"import json,sys; d=json.load(sys.stdin); assert d.get('ok') or d.get('verdict')\"",
-                f"python3 {VERIFY_SCRIPT} --url https://sourcea.app/proof --marker What this proves",
+                'curl -fsS https://sourcea.app/sourcea/proof/live | python3 -c "import json,sys; d=json.load(sys.stdin); assert d.get(\'ok\') or d.get(\'verdict\')"',
+                f'python3 {VERIFY_SCRIPT} --url https://sourcea.app/proof --marker "What this proves"',
             ),
             "proof_artifact": "https://sourcea.app/sourcea/proof/live",
             "client_demo": "Open receipt — non-technical line explains delivery proof",
@@ -268,7 +271,7 @@ def deep_research_plans() -> list[dict[str, Any]]:
             "goal": "og:title and og:description match research §9 P2 copy",
             "done_when": "index.html head has og:title Proof-backed AI execution systems",
             "verify": _cmd_verify(
-                f"python3 {VERIFY_SCRIPT} --url https://sourcea.app/ --marker og:title",
+                f'python3 {VERIFY_SCRIPT} --url https://sourcea.app/ --marker "og:title"',
             ),
             "proof_artifact": "https://sourcea.app/",
             "client_demo": "LinkedIn post inspector shows correct preview",
@@ -277,6 +280,137 @@ def deep_research_plans() -> list[dict[str, Any]]:
             "status": "open",
         },
     ]
+
+
+def _sdr_index() -> dict[str, dict[str, Any]]:
+    return {p["id"]: p for p in deep_research_plans()}
+
+
+def build_up_dr_plans() -> list[dict[str, Any]]:
+    """10 upgrade workstreams — deep research §9 fix list."""
+    sdr = _sdr_index()
+
+    def _step(child_id: str) -> dict[str, Any]:
+        c = sdr[child_id]
+        return {
+            "sdr_id": child_id,
+            "title": c["title"],
+            "acceptance": f"{child_id} verify PASS",
+            "status": c.get("status", "open"),
+        }
+
+    specs: list[dict[str, Any]] = [
+        {
+            "id": "UP-DR-01",
+            "tier": "P0",
+            "theme": "claim-hygiene",
+            "title": "Claim hygiene — install/PyPI",
+            "child_ids": ["sdr-p0-001"],
+            "work_path": "SourceA-landing/green-unified/eval.html",
+        },
+        {
+            "id": "UP-DR-02",
+            "tier": "P0",
+            "theme": "live-demo",
+            "title": "Live demo — Forge Terminal",
+            "child_ids": ["sdr-p0-002"],
+            "work_path": "SourceA-landing/green-unified/sourcea/forge/terminal.html",
+        },
+        {
+            "id": "UP-DR-03",
+            "tier": "P0",
+            "theme": "lead-capture",
+            "title": "Lead capture — intake submit",
+            "child_ids": ["sdr-p0-003"],
+            "work_path": "cloud/workers/sourcea-mvp-intake-v1/",
+        },
+        {
+            "id": "UP-DR-04",
+            "tier": "P1",
+            "theme": "buyer-path",
+            "title": "Buyer path — primary CTA + hero",
+            "child_ids": ["sdr-p1-001", "sdr-p1-006"],
+            "work_path": "SourceA-landing/green-unified/index.html",
+        },
+        {
+            "id": "UP-DR-05",
+            "tier": "P1",
+            "theme": "commercial-ladder",
+            "title": "Commercial ladder — pricing",
+            "child_ids": ["sdr-p1-002", "sdr-p1-007"],
+            "work_path": "SourceA-landing/green-unified/pricing.html",
+        },
+        {
+            "id": "UP-DR-06",
+            "tier": "P1",
+            "theme": "intake-trust",
+            "title": "Intake trust — privacy note",
+            "child_ids": ["sdr-p1-003"],
+            "work_path": "SourceA-landing/green-unified/start.html",
+        },
+        {
+            "id": "UP-DR-07",
+            "tier": "P1",
+            "theme": "product-taxonomy",
+            "title": "Product taxonomy",
+            "child_ids": ["sdr-p1-004"],
+            "work_path": "SourceA-landing/green-unified/index.html",
+        },
+        {
+            "id": "UP-DR-08",
+            "tier": "P1",
+            "theme": "proof-readability",
+            "title": "Proof readability",
+            "child_ids": ["sdr-p1-005"],
+            "work_path": "SourceA-landing/green-unified/proof.html",
+        },
+        {
+            "id": "UP-DR-09",
+            "tier": "P2",
+            "theme": "ecosystem-map",
+            "title": "Ecosystem map",
+            "child_ids": ["sdr-p2-001"],
+            "work_path": "SourceA-landing/green-unified/index.html",
+        },
+        {
+            "id": "UP-DR-10",
+            "tier": "P2",
+            "theme": "share-gate",
+            "title": "Shareability + ship gate",
+            "child_ids": ["sdr-p2-002"],
+            "work_path": "SourceA-landing/green-unified/index.html",
+        },
+    ]
+
+    rows: list[dict[str, Any]] = []
+    for spec in specs:
+        children = [sdr[cid] for cid in spec["child_ids"]]
+        goals = " · ".join(c["goal"] for c in children)
+        done = " · ".join(c["done_when"] for c in children)
+        verify_parts = [c["verify"] for c in children]
+        if spec["id"] == "UP-DR-10":
+            verify_parts.append(f"bash {VALIDATOR_SCRIPT}")
+        verify = " && ".join(verify_parts)
+        rows.append(
+            {
+                "id": spec["id"],
+                "wave": "W1",
+                "tier": spec["tier"],
+                "theme": spec["theme"],
+                "title": spec["title"],
+                "goal": goals,
+                "done_when": done,
+                "verify": verify,
+                "proof_artifact": children[0]["proof_artifact"],
+                "client_demo": " · ".join(c["client_demo"] for c in children),
+                "lane": "sourcea-site",
+                "work_path": spec["work_path"],
+                "status": "open",
+                "steps": [_step(cid) for cid in spec["child_ids"]],
+                "prompt_path": f"brain-os/plan-registry/sourcea-deep-research-v1/prompts/{spec['id'].lower()}-{spec['theme']}.md",
+            }
+        )
+    return rows
 
 
 def _plan_doc(plans: list[dict[str, Any]]) -> dict[str, Any]:
@@ -295,15 +429,41 @@ def _plan_doc(plans: list[dict[str, Any]]) -> dict[str, Any]:
         "tier_counts": {"P0": p0, "P1": p1, "P2": p2, "total": len(plans)},
         "plans": plans,
         "cross_ref": {
+            "upgrade_10": "data/sourcea-deep-research-10-upgrade-plan-v1.json",
             "client_proof_queue": "data/client-proof-recipe-queue-v1.json",
             "site_score_registry": "brain-os/plan-registry/sourcea-site-score-up-1000/REGISTRY.json",
-            "full_stack_fix": "data/sourcea-full-stack-100-fix-plan-v1.json",
             "generator": "scripts/generate_sourcea_deep_research_plans_v1.py",
         },
     }
 
 
-def _recipe_from_plan(plan: dict[str, Any]) -> dict[str, Any]:
+def upgrade_10_doc(up_plans: list[dict[str, Any]]) -> dict[str, Any]:
+    return {
+        "schema": "sourcea-deep-research-10-upgrade-plan-v1",
+        "version": "1.0.0",
+        "saved_at": _now(),
+        "source": str(RESEARCH_DOC),
+        "wave": "W1",
+        "gate_plan": "UP-DR-10",
+        "baseline": "PRODUCT_BETA",
+        "target": "WARM_COMMERCIAL_READY",
+        "critical_path": ["UP-DR-01", "UP-DR-02", "UP-DR-03", "UP-DR-10"],
+        "one_law": "One UP-DR plan = one CLOUD-SEC row · one CF tick = one row · Supabase proof gate",
+        "motor_law": "data/cloud-forge-run-realistic-motor-law-v1.json",
+        "pulse_script": PULSE_SCRIPT,
+        "validator": VALIDATOR_SCRIPT,
+        "human_doc": "docs/SOURCEA_DEEP_RESEARCH_10_UPGRADE_PLANS_LOCKED_v1.md",
+        "upgrade_plans": up_plans,
+        "cross_ref": {
+            "child_plans": "data/sourcea-deep-research-upgrade-plan-v1.json",
+            "registry": "brain-os/plan-registry/sourcea-deep-research-v1/REGISTRY.json",
+            "client_proof_queue": "data/client-proof-recipe-queue-v1.json",
+            "generator": "scripts/generate_sourcea_deep_research_plans_v1.py",
+        },
+    }
+
+
+def _recipe_from_up(plan: dict[str, Any]) -> dict[str, Any]:
     return {
         "plan_id": plan["id"],
         "title": plan["title"],
@@ -312,15 +472,15 @@ def _recipe_from_plan(plan: dict[str, Any]) -> dict[str, Any]:
         "verify": plan["verify"],
         "proof_artifact": plan["proof_artifact"],
         "client_demo": plan["client_demo"],
-        "client_problem": plan.get("tier", "P1") + "-deep-research",
+        "client_problem": f"{plan.get('tier')}-deep-research-upgrade",
         "tier": "T0" if plan.get("tier") == "P0" else "T1",
         "lane": plan.get("lane", "sourcea-site"),
         "status": "backlog",
-        "source_registry": "data/sourcea-deep-research-upgrade-plan-v1.json",
-        "prompt_path": plan.get("work_path"),
+        "source_registry": "data/sourcea-deep-research-10-upgrade-plan-v1.json",
+        "prompt_path": plan.get("prompt_path"),
         "proven": False,
         "realistic": True,
-        "recipe_class": "deep_research",
+        "recipe_class": "deep_research_upgrade",
         "human_review_before_buyer_call": plan.get("tier") == "P0",
     }
 
@@ -331,10 +491,10 @@ def build_queue(*, include_proven: bool = True) -> dict[str, Any]:
 
     seen: set[str] = set()
     items: list[dict[str, Any]] = []
-    for plan in deep_research_plans():
+    for plan in build_up_dr_plans():
         pid = plan["id"]
         if pid not in seen:
-            items.append(_recipe_from_plan(plan))
+            items.append(_recipe_from_up(plan))
             seen.add(pid)
     if include_proven:
         for row in PROVEN_LIVE_RECIPES:
@@ -346,13 +506,13 @@ def build_queue(*, include_proven: bool = True) -> dict[str, Any]:
         row["backlog_index"] = idx
     return {
         "schema": "client-proof-recipe-queue-v1",
-        "version": "1.1.0",
+        "version": "1.2.0",
         "generated_at": _now(),
         "rubric": "data/client-proof-recipe-rubric-v1.json",
         "total": len(items),
-        "deep_research_count": sum(1 for x in items if x.get("recipe_class") == "deep_research"),
+        "up_dr_count": sum(1 for x in items if x.get("recipe_class") == "deep_research_upgrade"),
         "proven_live_count": sum(1 for x in items if x.get("recipe_class") == "proven_live"),
-        "one_law": "One row = one client-demo recipe (GOAL · DONE · VERIFY · Supabase proof). One tick = one row.",
+        "one_law": "One row = one UP-DR recipe (GOAL · DONE · VERIFY · Supabase proof). One tick = one row.",
         "items": items,
     }
 
@@ -372,10 +532,14 @@ def _existing_sa_floor() -> int:
 
 
 def fill_inbox(*, window: int = 10) -> dict[str, Any]:
-    plans = [p for p in deep_research_plans() if p.get("status") == "open"][:window]
+    """Fill Worker INBOX — all 10 UP-DR plans; head = first P0."""
+    up_plans = build_up_dr_plans()
+    p0 = [p for p in up_plans if p.get("tier") == "P0"]
+    rest = [p for p in up_plans if p.get("tier") != "P0"]
+    ordered = (p0 + rest)[:window]
     start_sa = _existing_sa_floor()
     queue = []
-    for idx, plan in enumerate(plans, start=1):
+    for idx, plan in enumerate(ordered, start=1):
         sa = f"sa-{start_sa + idx - 1:04d}"
         instruction = (
             f"WORK: {plan['id']} — {plan['title']}\n"
@@ -395,6 +559,7 @@ def fill_inbox(*, window: int = 10) -> dict[str, Any]:
                 "tier": plan["tier"],
                 "instruction": instruction,
                 "queue_role": "act",
+                "phase": "phase-deep-research-w1-v1",
             }
         )
     head = queue[0] if queue else {}
@@ -403,7 +568,7 @@ def fill_inbox(*, window: int = 10) -> dict[str, Any]:
         "schema": "worker-prompt-inbox-v1",
         "pending": True,
         "delivered_at": _now(),
-        "source": "deep_research_plans_v1",
+        "source": "deep_research_up_dr_v1",
         "lane": "sourcea_worker",
         "workspace": str(ROOT),
         "chars": len(prompt),
@@ -414,20 +579,20 @@ def fill_inbox(*, window: int = 10) -> dict[str, Any]:
             "queue_role": "act",
             "queue_pos": 1,
             "queue_total": len(queue),
-            "phase": "phase-deep-research-v1",
+            "phase": "phase-deep-research-w1-v1",
             "queue_exhausted": False,
         },
         "sa_id": head.get("sa_id"),
         "deep_research_queue": queue,
         "pickup": {
-            "founder_line": "RUN INBOX — deep research P0/P1 queue on disk",
+            "founder_line": "RUN INBOX — UP-DR-01..10 deep research upgrade queue",
             "inbox_json": str(INBOX_JSON),
             "inbox_md": str(INBOX_MD),
         },
     }
     _write(INBOX_JSON, payload)
-    md = f"""<!-- WORKER_INBOX pending=1 source=deep_research queue=1/{len(queue)} sa={head.get('sa_id')} -->
-# SourceA Worker — deep research P0/P1
+    md = f"""<!-- WORKER_INBOX pending=1 source=deep_research_up_dr queue=1/{len(queue)} sa={head.get('sa_id')} -->
+# SourceA Worker — UP-DR deep research W1
 
 **Updated:** {payload['delivered_at']}
 
@@ -437,18 +602,18 @@ def fill_inbox(*, window: int = 10) -> dict[str, Any]:
 
 ---
 
-**Worker:** one plan · proof on disk · STOP.
+**Worker:** one UP-DR plan · proof on disk · STOP.
 """
     INBOX_MD.parent.mkdir(parents=True, exist_ok=True)
     INBOX_MD.write_text(md, encoding="utf-8")
     hq = {
         "schema": "healthy-queue-30-active.v1",
-        "product": "Deep research P0/P1 — Worker mirror",
-        "thread": "DEEP-RESEARCH",
+        "product": "Deep research UP-DR-01..10 — Worker mirror",
+        "thread": "DEEP-RESEARCH-W1",
         "count": len(queue),
         "queue": queue,
         "head_sa": head.get("sa_id"),
-        "rhythm": "one sa per Worker turn · mirrors Cloud Forge Run recipes",
+        "rhythm": "one sa per Worker turn · mirrors Cloud Forge Run UP-DR recipes",
         "saved_at": _now(),
     }
     for path in (
@@ -460,7 +625,7 @@ def fill_inbox(*, window: int = 10) -> dict[str, Any]:
 
 
 def write_plan_markdowns(plans: list[dict[str, Any]]) -> dict[str, Any]:
-    """One markdown plan file per deep-research row — Worker + Cloud Forge Run mirror."""
+    """Child sdr-* markdown files."""
     PLAN_REGISTRY_DIR.mkdir(parents=True, exist_ok=True)
     written: list[str] = []
     for plan in plans:
@@ -495,47 +660,130 @@ def write_plan_markdowns(plans: list[dict[str, Any]]) -> dict[str, Any]:
 `{plan.get('work_path', '')}`
 
 ---
-*One row per Auto Runtime tick · Supabase proof required · INCIDENT-045*
+*Child plan · rolled into UP-DR upgrade wave*
 """
         path.write_text(body, encoding="utf-8")
         written.append(str(path.relative_to(ROOT)))
+    return {"ok": True, "written": len(written), "kind": "sdr_child"}
+
+
+def write_up_dr_markdowns(up_plans: list[dict[str, Any]]) -> dict[str, Any]:
+    PROMPTS_DIR.mkdir(parents=True, exist_ok=True)
+    written: list[str] = []
+    for plan in up_plans:
+        slug = f"{plan['id'].lower()}-{plan['theme']}"
+        path = PROMPTS_DIR / f"{slug}.md"
+        steps = plan.get("steps") or []
+        steps_md = "\n".join(
+            f"- **{s['sdr_id']}** — {s['title']} ({s['status']})" for s in steps
+        )
+        body = f"""# {plan['title']}
+
+**Plan ID:** `{plan['id']}` · **Tier:** {plan.get('tier')} · **Wave:** W1
+
+## Goal
+{plan['goal']}
+
+## Done when
+{plan['done_when']}
+
+## Child steps
+{steps_md}
+
+## Verify
+```
+{plan['verify']}
+```
+
+## Proof artifact
+{plan.get('proof_artifact', '')}
+
+## Client demo
+{plan.get('client_demo', '')}
+
+## Work path
+`{plan.get('work_path', '')}`
+
+---
+*One CLOUD-SEC row per Auto Runtime tick · Supabase proof · INCIDENT-045*
+"""
+        path.write_text(body, encoding="utf-8")
+        written.append(str(path.relative_to(ROOT)))
+    return {"ok": True, "written": len(written), "kind": "up_dr"}
+
+
+def write_registry(up_plans: list[dict[str, Any]], sdr_plans: list[dict[str, Any]]) -> dict[str, Any]:
+    w1_execution = {
+        "wave": "W1",
+        "label": "Deep research §9 — 10 upgrade workstreams",
+        "gate_plan": "UP-DR-10",
+        "total_steps": 10,
+        "critical_path": ["UP-DR-01", "UP-DR-02", "UP-DR-03", "UP-DR-10"],
+        "pulse_script": PULSE_SCRIPT,
+        "validator": VALIDATOR_SCRIPT,
+        "upgrade_plans": [
+            {
+                "id": p["id"],
+                "wave": p.get("wave", "W1"),
+                "theme": p["theme"],
+                "title": p["title"],
+                "tier": p["tier"],
+                "status": p.get("status", "open"),
+                "prompt_path": p.get("prompt_path"),
+                "steps": p.get("steps", []),
+            }
+            for p in up_plans
+        ],
+    }
     index = {
         "schema": "sourcea-deep-research-plan-registry-v1",
+        "version": "2.0.0",
         "saved_at": _now(),
         "source": str(RESEARCH_DOC),
-        "count": len(written),
-        "plans": [p["id"] for p in plans],
+        "child_count": len(sdr_plans),
+        "upgrade_count": len(up_plans),
+        "child_plans": [p["id"] for p in sdr_plans],
+        "upgrade_plans": [p["id"] for p in up_plans],
         "motor_law": "data/cloud-forge-run-realistic-motor-law-v1.json",
-        "one_law": "One plan = one CLOUD-SEC row · one tick = one row · */10 CF cron",
+        "one_law": "One UP-DR plan = one CLOUD-SEC row · one tick = one row · */10 CF cron",
+        "w1_execution": w1_execution,
     }
     _write(PLAN_REGISTRY_DIR / "REGISTRY.json", index)
-    return {"ok": True, "written": len(written), "registry": str(PLAN_REGISTRY_DIR.relative_to(ROOT))}
+    return {"ok": True, "registry": str(PLAN_REGISTRY_DIR.relative_to(ROOT)), "w1_execution": True}
 
 
-def arm_next_batch(*, batch_id: int = 82, batch_only: bool = False) -> dict[str, Any]:
+def arm_batch_chain(*, batch_id: int = 83) -> dict[str, Any]:
+    """Generate batch file; chain after existing next_batch without clobbering."""
     sys.path.insert(0, str(ROOT / "scripts"))
     from generate_client_proof_cloud_batch_v1 import generate  # noqa: WPS433
 
-    row = generate(batch_id=batch_id, offset=0, write=True, activate=not batch_only)
+    row = generate(batch_id=batch_id, offset=0, write=True, activate=False)
     ptr = _read(ACTIVE_POINTER)
-    summary_rng = row.get("cloud_sec_range", "")
-    ptr["next_batch"] = {
+    cp = _read(CONTROL_PLANE)
+    batch_meta = {
         "batch_id": batch_id,
         "status": "ready_locked",
         "queue_path": f"data/secondary-cloud-forge-run-batch-{batch_id}-locked-v1.json",
-        "cloud_sec_range": summary_rng,
+        "cloud_sec_range": row.get("cloud_sec_range"),
         "library": "client-proof-recipe",
         "tasks_per_row": 1,
-        "source": "deep_research_v1",
+        "source": "deep_research_up_dr_v1",
     }
-    ptr["registry_exhausted"] = False
-    ptr["saved_at"] = _now()
-    _write(ACTIVE_POINTER, ptr)
-    cp = _read(CONTROL_PLANE)
-    cp["ready_batch"] = ptr["next_batch"]
+    nxt_id = int((ptr.get("next_batch") or {}).get("batch_id") or 0)
+    active_id = int(ptr.get("batch_id") or 0)
+    if nxt_id == batch_id:
+        pass
+    elif nxt_id == batch_id - 1 or (nxt_id == 0 and active_id < batch_id):
+        ptr["next_batch"] = batch_meta
+        ptr["registry_exhausted"] = False
+        ptr["saved_at"] = _now()
+        _write(ACTIVE_POINTER, ptr)
+        cp["ready_batch"] = batch_meta
+    else:
+        cp["queued_batch_chain"] = {**(cp.get("queued_batch_chain") or {}), str(batch_id): batch_meta}
     cp["saved_at"] = _now()
     _write(CONTROL_PLANE, cp)
-    return {**row, "next_batch_armed": True, "batch_only": batch_only}
+    return {**row, "batch_chained": True, "next_batch_preserved": nxt_id if nxt_id != batch_id else None}
 
 
 def patch_motor_ssot(*, max_advance: int = 1) -> dict[str, Any]:
@@ -573,7 +821,7 @@ def patch_motor_ssot(*, max_advance: int = 1) -> dict[str, Any]:
     cp = _read(CONTROL_PLANE)
     cp["one_law"] = (
         f"Cloud Workers cockpit · Auto Runtime */10 · max_advance={max_advance} "
-        "· one recipe per CLOUD-SEC row · Supabase proof gate"
+        "· one UP-DR recipe per CLOUD-SEC row · Supabase proof gate"
     )
     cp["hub_api"]["proceed"] = (
         f'POST http://127.0.0.1:13027/api/cloud-workers/v1 {{"action":"proceed","full_pack":true,"max_advance":{max_advance}}}'
@@ -587,24 +835,30 @@ def patch_motor_ssot(*, max_advance: int = 1) -> dict[str, Any]:
 
 
 def run_all(*, write: bool = True) -> dict[str, Any]:
-    plans = deep_research_plans()
-    plan_doc = _plan_doc(plans)
+    sdr_plans = deep_research_plans()
+    up_plans = build_up_dr_plans()
+    plan_doc = _plan_doc(sdr_plans)
+    upgrade_doc = upgrade_10_doc(up_plans)
     queue_doc = build_queue()
     receipt: dict[str, Any] = {
         "schema": "sourcea-deep-research-plans-receipt-v1",
         "ok": True,
         "at": _now(),
-        "plans": len(plans),
+        "sdr_plans": len(sdr_plans),
+        "up_dr_plans": len(up_plans),
         "queue_total": queue_doc["total"],
-        "deep_research_recipes": queue_doc["deep_research_count"],
+        "up_dr_recipes": queue_doc["up_dr_count"],
     }
     if write:
         _write(PLAN_OUT, plan_doc)
+        _write(UPGRADE_10_OUT, upgrade_doc)
         _write(QUEUE_OUT, queue_doc)
-        receipt["plans_md"] = write_plan_markdowns(plans)
+        receipt["sdr_md"] = write_plan_markdowns(sdr_plans)
+        receipt["up_dr_md"] = write_up_dr_markdowns(up_plans)
+        receipt["registry"] = write_registry(up_plans, sdr_plans)
         receipt["motor"] = patch_motor_ssot(max_advance=1)
         receipt["inbox"] = fill_inbox(window=10)
-        receipt["batch"] = arm_next_batch(batch_id=82)
+        receipt["batch"] = arm_batch_chain(batch_id=83)
     _write(RECEIPT, receipt)
     return receipt
 
@@ -618,10 +872,14 @@ def main() -> int:
     ap.add_argument("--motor-only", action="store_true")
     args = ap.parse_args()
     if args.plans_only:
-        doc = _plan_doc(deep_research_plans())
+        sdr = deep_research_plans()
+        up = build_up_dr_plans()
         if not args.no_write:
-            _write(PLAN_OUT, doc)
-        row = {"ok": True, "plans": len(doc["plans"])}
+            _write(PLAN_OUT, _plan_doc(sdr))
+            _write(UPGRADE_10_OUT, upgrade_10_doc(up))
+            write_registry(up, sdr)
+            write_up_dr_markdowns(up)
+        row = {"ok": True, "sdr": len(sdr), "up_dr": len(up)}
     elif args.inbox_only:
         row = fill_inbox()
     elif args.motor_only:

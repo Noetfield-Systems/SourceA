@@ -1,6 +1,6 @@
 # Pricing page route reliability (200 + linked from nav)
 
-**Plan ID:** `sdr-p1-007` · **Tier:** P1 · **Updated:** 2026-07-06T09:03:49Z
+**Plan ID:** `sdr-p1-007` · **Tier:** P1 · **Updated:** 2026-07-06T09:17:58Z
 
 ## Problem
 Pricing route partially confirmed during external review.
@@ -26,4 +26,4 @@ Click nav Pricing — page loads
 `SourceA-landing/green-unified/pricing.html`
 
 ---
-*One row per Auto Runtime tick · Supabase proof required · INCIDENT-045*
+*Child plan · rolled into UP-DR upgrade wave*
