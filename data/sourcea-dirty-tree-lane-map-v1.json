@@ -57,7 +57,7 @@
         "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json"
       ],
       "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh",
-      "notes": "Large diffs here are expected only after an explicit knowledge refresh."
+      "notes": "Large diffs only after explicit refresh. Landing publish uses brain_refresh_gate_v1 (skip | light | full) — default skip when fingerprints match; SOURCEA_PUBLISH_BRAIN_MODE=full to force."
     },
     {
       "id": "chat_unify",

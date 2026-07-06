@@ -9,13 +9,13 @@
 
 ## One law
 
-> **SourceA is an AI execution platform powered by Forge — not a “proof records” product. Proof is built in; it is not the whole product.**
+> **SourceA is an AI execution platform — not a “proof records” product. Proof is built in; it is not the whole product.**
 
 ---
 
 ## The one line (canonical)
 
-**SourceA is an AI execution platform powered by Forge — it runs real builds, automations, agent workflows, and controlled development pipelines for founders and agencies.**
+**SourceA is an AI execution platform — real builds, automations, and agent workflows, with a verifiable receipt on every run.**
 
 Use this verbatim when a stranger asks “What is SourceA?” — in Brain, sales copy, and founder answers.
 
