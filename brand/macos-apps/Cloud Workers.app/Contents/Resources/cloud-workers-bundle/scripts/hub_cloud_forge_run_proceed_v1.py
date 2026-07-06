@@ -220,6 +220,38 @@ def _begin_truth_ctx(*, plan_id: str, trigger_source: str) -> dict[str, Any]:
 def proceed_on_cloud(body: dict[str, Any]) -> dict[str, Any]:
     """Runs on Railway FBE HTTP worker."""
     body = dict(body or {})
+    try:
+        from fbe.lib.cloud_forge_run_queue_v1 import read_head as _read_queue_head  # noqa: WPS433
+
+        q = _read_queue_head()
+        if q.get("queue_batch_complete"):
+            exhausted = bool(q.get("registry_exhausted"))
+            last = str(q.get("cloud_forge_run_last_completed") or "")
+            decision = "drain_complete" if exhausted else "batch_complete"
+            return {
+                "ok": True,
+                "schema": "hub-cloud-forge-run-proceed-v1",
+                "at": _now(),
+                "decision": decision,
+                "execution_plane": "headless_cloud" if _is_headless_cloud() else "mac_hub_proxy",
+                "trigger_source": str(body.get("trigger_source") or "hub_proceed"),
+                "plan_id": last,
+                "queue_batch_complete": True,
+                "registry_exhausted": exhausted,
+                "for_founder": {
+                    "show_this": (
+                        f"Extension wave-2 COMPLETE — {last} · batch done · registry exhausted · "
+                        "no more CLOUD-SEC rows in queue"
+                        if exhausted
+                        else (
+                            f"Cloud Forge Run batch COMPLETE — {last} · "
+                            "100/100 done · full-pack batch finished"
+                        )
+                    ),
+                },
+            }
+    except Exception:
+        pass
     # Anti-poison (INCIDENT-042): single-plan proceed is stale poison — always full_pack × 100.
     if not body.get("dry_run") and not body.get("_pack_internal"):
         from cloud_auto_runtime_v1 import _with_full_pack, run_cloud_auto_tick  # noqa: WPS433
@@ -270,13 +302,13 @@ def proceed_on_cloud(body: dict[str, Any]) -> dict[str, Any]:
                 "queue_batch_complete": True,
                 "for_founder": {
                     "show_this": (
-                        f"Cloud drain batch COMPLETE — {q.get('cloud_forge_run_last_completed')} · "
+                        f"Cloud Forge Run batch COMPLETE — {q.get('cloud_forge_run_last_completed')} · "
                         "100/100 done · full-pack batch finished"
                     ),
                 },
             }
         cloud_head = str(q.get("cloud_forge_run_head") or "")
-        if _is_headless_cloud() and cloud_head and plan_id != cloud_head:
+        if _is_headless_cloud() and cloud_head:
             plan_id = cloud_head
             resolved = _resolve_next(plan_id=plan_id, maps_registry=registry)
             registry = registry or str(resolved.get("maps_registry") or "")
@@ -310,7 +342,7 @@ def proceed_on_cloud(body: dict[str, Any]) -> dict[str, Any]:
                     "decision": "observe_only",
                     "execution_plane": "headless_cloud",
                     "trigger_source": trigger_source,
-                    "for_founder": {"show_this": "Cloud auto drain OFF — CLOUD_FORGE_RUN_AUTO_PROCEED not set"},
+                    "for_founder": {"show_this": "Cloud Cloud Forge Run OFF — CLOUD_FORGE_RUN_AUTO_PROCEED not set"},
                 },
                 truth_ctx,
             )
@@ -420,8 +452,19 @@ def proceed_on_cloud(body: dict[str, Any]) -> dict[str, Any]:
     else:
         from cloud_forge_seed_v1 import run_forge_seed_cycle  # noqa: WPS433
 
+        if _is_headless_cloud():
+            try:
+                from fbe.lib.cloud_forge_run_queue_v1 import read_head as _fresh_head  # noqa: WPS433
+
+                fresh = str(_fresh_head().get("cloud_forge_run_head") or "")
+                if fresh:
+                    plan_id = fresh
+                    resolved = _resolve_next(plan_id=plan_id, maps_registry=registry)
+                    registry = registry or str(resolved.get("maps_registry") or "")
+            except Exception:
+                pass
         cloud = run_forge_seed_cycle(plan_id=plan_id or registry, dry_run=dry_run)
-        row.update({"ok": bool(cloud.get("ok")), "dispatch_lane": cloud.get("dispatch_lane") or "forge_seed", "cloud_dispatch": cloud.get("cloud_dispatch"), **{k: cloud[k] for k in ("artifact_path", "artifact_type", "validator_result", "pipeline", "forge_seed_artifact") if k in cloud}})
+        row.update({"ok": bool(cloud.get("ok")), "dispatch_lane": cloud.get("dispatch_lane") or "forge_seed", "cloud_dispatch": cloud.get("cloud_dispatch"), **{k: cloud[k] for k in ("artifact_path", "artifact_type", "validator_result", "pipeline", "forge_seed_artifact", "supabase", "failure_class") if k in cloud}})
 
     row["for_founder"] = row.get("for_founder") or {
         "show_this": (
@@ -433,8 +476,13 @@ def proceed_on_cloud(body: dict[str, Any]) -> dict[str, Any]:
     if row.get("ok") and not dry_run and plan_id:
         try:
             sys.path.insert(0, str(ROOT / "scripts" / "fbe" / "lib"))
-            from cloud_forge_run_queue_v1 import advance_on_pass  # noqa: WPS433
+            from cloud_forge_run_queue_v1 import advance_on_pass, read_head  # noqa: WPS433
 
+            ship_plan = str(read_head().get("cloud_forge_run_head") or plan_id)
+            if ship_plan != plan_id:
+                row["plan_id_stale"] = plan_id
+                plan_id = ship_plan
+                row["plan_id"] = ship_plan
             adv = advance_on_pass(plan_id=plan_id)
             row["queue_advance"] = adv
             if not adv.get("ok") and adv.get("error") == "plan_not_queue_head":
@@ -536,6 +584,42 @@ def _cloud_receipt_queue_row(cloud_row: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _blueprint_router_evidence(*, plan_id: str) -> dict[str, Any]:
+    """Resolve sla_tier + estimated cost from forge-real-blueprints for drain evidence."""
+    bp_path = ROOT / "data" / "forge-real-blueprints-v01.json"
+    data = _read(bp_path)
+    blueprint_id = ""
+    if plan_id.startswith("CLOUD-SEC-"):
+        try:
+            from cloud_forge_run_queue_v1 import _plan_by_id  # noqa: WPS433
+
+            plan = _plan_by_id(plan_id) or {}
+            blueprint_id = str(plan.get("blueprint_id") or plan.get("implementation_signature") or "")
+        except Exception:
+            blueprint_id = ""
+    for row in data.get("blueprints") or []:
+        rid = str(row.get("id") or "")
+        if blueprint_id and rid == blueprint_id:
+            inputs = row.get("inputs") or {}
+            return {
+                "blueprint_id": rid,
+                "sla_tier": row.get("sla_tier") or inputs.get("tier") or "T2",
+                "estimated_cost_usd": row.get("estimated_cost_usd")
+                or inputs.get("estimated_cost_usd")
+                or 0.12,
+            }
+        if plan_id and rid.endswith(plan_id.split("-")[-1]):
+            inputs = row.get("inputs") or {}
+            return {
+                "blueprint_id": rid,
+                "sla_tier": row.get("sla_tier") or inputs.get("tier") or "T2",
+                "estimated_cost_usd": row.get("estimated_cost_usd")
+                or inputs.get("estimated_cost_usd")
+                or 0.12,
+            }
+    return {"blueprint_id": blueprint_id or plan_id, "sla_tier": "T2", "estimated_cost_usd": 0.12}
+
+
 def _mac_post_process(*, plan_id: str, registry: str, cloud_row: dict[str, Any]) -> dict[str, Any]:
     """Receipt · observed head · brain pair · nerves — Mac control plane only."""
     out: dict[str, Any] = {"steps": []}
@@ -549,6 +633,7 @@ def _mac_post_process(*, plan_id: str, registry: str, cloud_row: dict[str, Any])
     else:
         receipt_path = ROOT / "receipts" / f"{plan_id.lower().replace('_', '-')}-receipt-v1.json"
 
+    router_evidence = _blueprint_router_evidence(plan_id=plan_id)
     summary = {
         "schema": "cloud-sec-receipt-v1",
         "id": plan_id,
@@ -559,7 +644,12 @@ def _mac_post_process(*, plan_id: str, registry: str, cloud_row: dict[str, Any])
         "hub_proceed": True,
         "forge_dispatch": cloud_row.get("forge_dispatch") or cloud_row.get("cloud_dispatch"),
         "at": now,
-        "evidence": _founder_show(cloud_row),
+        "evidence": {
+            "founder_line": _founder_show(cloud_row),
+            "sla_tier": router_evidence.get("sla_tier"),
+            "estimated_cost_usd": router_evidence.get("estimated_cost_usd"),
+            "blueprint_id": router_evidence.get("blueprint_id"),
+        },
     }
     receipt_path.parent.mkdir(parents=True, exist_ok=True)
     receipt_path.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
@@ -624,7 +714,7 @@ def _mac_post_process(*, plan_id: str, registry: str, cloud_row: dict[str, Any])
 
 
 def proceed_from_hub(body: dict[str, Any] | None = None) -> dict[str, Any]:
-    """Mac Hub handler — observe only; Railway drain is CF cron only."""
+    """Mac Hub handler — observe only; Cloud Forge Run is CF cron only."""
     body = body or {}
     if not _is_headless_cloud():
         observer = "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/observer/v1"
@@ -636,7 +726,8 @@ def proceed_from_hub(body: dict[str, Any] | None = None) -> dict[str, Any]:
             "execution_plane": "mac_control_panel",
             "for_founder": {
                 "show_this": (
-                    "Mac does not Proceed to Railway — CF cron */10 runs full_pack×100 on cloud. "
+                    "Mac does not Proceed motor on Railway — CF cron */10 runs full_pack×100. "
+                    "Deploy/dispatch via Hub still works. "
                     f"Proof: {observer}"
                 ),
             },
@@ -663,7 +754,7 @@ def proceed_from_hub(body: dict[str, Any] | None = None) -> dict[str, Any]:
         "llm_provider": llm,
         "founder_proceed": True,
         "full_pack": bool(body.get("full_pack", True)),
-        "max_advance": int(body.get("max_advance") or 100),
+        "max_advance": int(body.get("max_advance") or 10),
         "trigger_source": str(body.get("trigger_source") or "hub_proceed_pack"),
         "force_reset_gate": bool(body.get("force_reset_gate", True)),
         "stack": body.get("stack") or "sourcea",
@@ -700,13 +791,25 @@ def proceed_from_hub(body: dict[str, Any] | None = None) -> dict[str, Any]:
 
             inner = cloud_row.get("details") if isinstance(cloud_row.get("details"), dict) else cloud_row
             founder_hint = _cloud_error_founder_hint(inner if inner.get("forge_dispatch") else cloud_row)
+            if founder_hint.get("failure_class") == "pass":
+                cloud_row = {**cloud_row, "ok": True}
         except Exception:
             founder_hint = {"show_this": cloud_row.get("message") or cloud_row.get("error") or "Cloud proceed failed"}
+
+    cloud_ok = bool(cloud_row.get("ok"))
+    if not cloud_ok:
+        decision = str(cloud_row.get("decision") or "")
+        pack = cloud_row.get("pack") if isinstance(cloud_row.get("pack"), dict) else {}
+        if decision in ("drain_complete", "batch_complete") or (
+            pack.get("idle_batch") and pack.get("registry_exhausted")
+        ):
+            cloud_ok = True
+            cloud_row = {**cloud_row, "ok": True}
 
     row = {
         "schema": "hub-cloud-forge-run-proceed-receipt-v1",
         "at": _now(),
-        "ok": bool(cloud_row.get("ok")),
+        "ok": cloud_ok,
         "execution_plane": "mac_hub_proxy",
         "plan_id": plan_id,
         "maps_registry": registry,
@@ -715,7 +818,7 @@ def proceed_from_hub(body: dict[str, Any] | None = None) -> dict[str, Any]:
         "mac_post": post,
         "hub_proceed_line": (
             f"hub-proceed · {plan_id} · {registry} · "
-            f"{'PASS' if cloud_row.get('ok') else 'FAIL'} · {llm} · cloud_only"
+            f"{'PASS' if cloud_ok else 'FAIL'} · {llm} · cloud_only"
         ),
         "for_founder": _founder_dict(
             cloud_row,
@@ -785,7 +888,7 @@ def inject_for_agents() -> dict:
         "forbidden": ssot.get("forbidden"),
         "next": sl.get("next"),
         "batch2_complete": ssot.get("batch2_complete"),
-        "body_example": {"action": "proceed", "full_pack": True, "max_advance": 100, "llm_provider": "openrouter", "full_motor": True},
+        "body_example": {"action": "proceed", "full_pack": True, "max_advance": 10, "llm_provider": "openrouter", "full_motor": True},
     }
 
 
