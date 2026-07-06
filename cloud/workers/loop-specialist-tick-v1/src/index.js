@@ -5,6 +5,7 @@ import { handleIntakePost, probeSsot } from "./nerve-probe/probes.js";
 import { runNerveProbeCycle } from "./nerve-probe/cycle.js";
 import { runGatewayWatchdog, runGatewayHeartbeat } from "./gateway-probe/cycle.js";
 import { dispatchMeta, jobsForCron, runDispatchJobs, runDueDispatch, smokeAllJobs } from "./dispatch.js";
+import { upsertLoopLiveness } from "./loop_liveness.js";
 
 const HANDLERS = {
   loop_specialist_tick: (env) => runTick(env, { dispatch: env.LOOP_AUTO_DISPATCH === "true" }),
@@ -17,7 +18,18 @@ const HANDLERS = {
 export default {
   async scheduled(event, env, ctx) {
     ctx.waitUntil(
-      runDueDispatch(env, HANDLERS, { trigger: "cloudflare_cron_loop_specialist" }),
+      (async () => {
+        const row = await runDueDispatch(env, HANDLERS, { trigger: "cloudflare_cron_loop_specialist" });
+        await upsertLoopLiveness(env, {
+          loop_id: "sourcea-loop-specialist-tick-v1",
+          trigger_host: "cloudflare",
+          schedule_cron: "*/15 * * * *",
+          interval_minutes: 15,
+          last_ok: Boolean(row.ok),
+          last_receipt: { due_count: row.due_count, runs: (row.runs || []).length },
+        });
+        return row;
+      })(),
     );
   },
 
