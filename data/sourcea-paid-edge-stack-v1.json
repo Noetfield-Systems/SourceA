@@ -7,7 +7,7 @@
     "at": "2026-07-06T06:30:00Z",
     "status": "active"
   },
-  "one_law": "Paid edge only where ROI clears: faster crons, reliable probes, zero duplicate loop motors.",
+  "one_law": "24/7 scheduled motors: Cloudflare Workers only (data/cf-only-24-7-execution-v1.json). Paid edge: data/sourcea-paid-edge-stack-v1.json",
   "roi_summary": {
     "cloudflare_workers_paid_usd_month": 5,
     "uptimerobot_free_usd_month": 0,
@@ -39,7 +39,9 @@
     "motor_worker": "sourcea-loop-specialist-tick-v1",
     "cron_trigger": "*/15 * * * *",
     "parallel_jobs_on_15m": true,
-    "deploy_script": "scripts/deploy_cf_cron_dispatch_v1.sh"
+    "deploy_script": "scripts/deploy_cf_cron_dispatch_v1.sh",
+    "cf_only_24_7": "data/cf-only-24-7-execution-v1.json",
+    "deploy_all_motors": "scripts/deploy_cf_all_motors_v1.sh"
   },
   "uptimerobot": {
     "status": "founder_signed_up",

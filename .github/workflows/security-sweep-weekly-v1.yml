@@ -1,7 +1,7 @@
 name: security-sweep-weekly
 
 # Weekly security hygiene — findings → improvement_queue (no report artifacts).
-# Schedule retired — CF loop-specialist cron 0 9 * * 0 → Railway /api/fbe/security-sweep/weekly/v1
+# Manual backup only — 24/7: CF loop-specialist → Railway. Law: data/cf-only-24-7-execution-v1.json
 on:
   workflow_dispatch:
 

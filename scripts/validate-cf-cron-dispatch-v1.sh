@@ -54,7 +54,13 @@ retired = [
     "repo-health-daily-v1.yml",
     "security-sweep-weekly-v1.yml",
     "determinism-gate.yml",
+    "autonomous-drain-cron-v1.yml",
 ]
+wf_dir = ssot.parent.parent / ".github" / "workflows"
+for wf in sorted(wf_dir.glob("*.yml")):
+    text = wf.read_text()
+    if re.search(r'^\s*schedule\s*:', text, re.M):
+        raise SystemExit(f"{wf.name} still has schedule: block — CF-only 24/7 law")
 for name in retired:
     wf = ssot.parent.parent / ".github" / "workflows" / name
     text = wf.read_text()
