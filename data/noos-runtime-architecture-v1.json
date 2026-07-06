@@ -1,0 +1,68 @@
+{
+  "schema": "noos-runtime-architecture-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-06T07:40:00Z",
+  "one_law": "24/7 NOOS is not abandoned — runtime roles are split: CF schedules/dispatches, Fly executes one bounded Python tick per request, GHA is CI only.",
+  "target_capabilities": [
+    "self-execute",
+    "self-audit",
+    "self-heal",
+    "self-plan",
+    "self-improve",
+    "roi-smart"
+  ],
+  "platform_roles": {
+    "cloudflare_workers_paid": {
+      "role": "scheduler_motor_dispatcher",
+      "owns": [
+        "cron triggers",
+        "dispatch to Fly POST /loop",
+        "lightweight heartbeat and audit",
+        "budget lock queue coordination"
+      ],
+      "forbidden": ["repo_python", "pytest", "gate_runtime"]
+    },
+    "fly_python_executor": {
+      "app": "noos-loop-executor",
+      "role": "bounded_loop_runtime",
+      "owns": [
+        "GET /health",
+        "POST /loop one tick per HTTP request",
+        "python loop runner gates tests receipts"
+      ],
+      "forbidden": ["daemon", "infinite_loop", "waiting_process"]
+    },
+    "github_actions": {
+      "role": "ci_and_emergency_only",
+      "owns": [
+        "PR validation",
+        "release checks",
+        "workflow_dispatch manual backup",
+        "deep audit emergency"
+      ],
+      "forbidden": ["every_5_minute_runtime_motor"]
+    }
+  },
+  "cron_gate": {
+    "status": "blocked_until_fly_green",
+    "law": "Do not re-enable Cloudflare NOOS fleet cron until Fly GET /health and authenticated POST /loop pass validate-noos-loop-executor-v1.sh",
+    "blocked_workers": ["noos-loop-fleet-tick-v1"],
+    "gate_script": "scripts/validate-noos-loop-executor-v1.sh",
+    "deploy_executor": "scripts/deploy_noos_loop_executor_fly_v1.sh"
+  },
+  "migration_sequence": [
+    "1. Deploy noos-loop-executor on Fly",
+    "2. validate-noos-loop-executor-v1.sh PASS (auth reject + one tick)",
+    "3. Replace noos-loop-fleet-tick-v1 GHA/repository_dispatch with CF → Fly POST /loop",
+    "4. Re-enable CF cron on independent dispatch worker only after step 3 receipt"
+  ],
+  "auth": {
+    "header": "X-NOOS-Loop-Secret",
+    "env": "NOOS_LOOP_SECRET"
+  },
+  "ssot_paths": {
+    "executor_app": "apps/noos-loop-executor",
+    "fly_toml": "apps/noos-loop-executor/fly.toml",
+    "external_monitors": "data/noos-external-monitors-v1.json"
+  }
+}

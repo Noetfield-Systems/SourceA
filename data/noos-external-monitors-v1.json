@@ -8,11 +8,13 @@
   "interval_minutes": 5,
   "monitors": [
     {
-      "id": "noos-loop-runner-health",
+      "id": "noos-loop-executor-fly-health",
       "type": "http",
-      "url": "https://noos-loop-runner-production.up.railway.app/health",
-      "keyword": "noos-loop-runner",
-      "role": "railway_loop_runner_up"
+      "url": "https://noos-loop-executor.fly.dev/health",
+      "keyword": "noos-loop-executor",
+      "optional": true,
+      "role": "fly_bounded_loop_runtime_up",
+      "note": "Enable after fly deploy — replaces Railway loop-runner as Python body"
     },
     {
       "id": "noos-loop-fleet-tick-health",
