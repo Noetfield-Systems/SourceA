@@ -21,7 +21,8 @@ CONTROL_PLANE = ROOT / "data" / "cloud-workers-control-plane-v1.json"
 RECEIPT = SINA / "client-proof-cloud-batch-v1.json"
 
 MAC_CONTROL_ROWS = 10
-ROWS_PER_TURN = 100
+# Batch file may hold many CLOUD-SEC rows; motor advances 1 row per */10 tick (INCIDENT-045).
+MOTOR_ROWS_PER_TICK = 1
 
 
 def _now() -> str:
@@ -138,7 +139,7 @@ def generate(*, batch_id: int | None = None, offset: int = 0, write: bool = True
         raise SystemExit(f"FAIL: empty queue at {QUEUE} — run build_client_proof_recipe_queue_v1.py first")
 
     bid = int(batch_id or _next_batch_id())
-    selected = items[offset : offset + ROWS_PER_TURN]
+    selected = items[offset:]
     if not selected:
         raise SystemExit(f"FAIL: no recipes at offset {offset} (total {len(items)})")
 
@@ -168,7 +169,8 @@ def generate(*, batch_id: int | None = None, offset: int = 0, write: bool = True
             "mac_control": MAC_CONTROL_ROWS,
             "cloud_forge": len(cloud_rows),
             "batch_id": bid,
-            "rows_per_turn": len(cloud_rows),
+            "rows_per_turn": MOTOR_ROWS_PER_TICK,
+            "batch_cloud_rows": len(cloud_rows),
             "tasks_per_row": 1,
             "recipe_offset": offset,
             "recipe_total": len(items),
@@ -189,8 +191,9 @@ def generate(*, batch_id: int | None = None, offset: int = 0, write: bool = True
         "registry_exhausted": offset + len(selected) >= len(items),
         "queue_batch_complete": False,
         "cloud_sec_range": doc["summary"]["cloud_sec_range"],
-        "rows_per_turn": len(cloud_rows),
+        "rows_per_turn": MOTOR_ROWS_PER_TICK,
         "tasks_per_row": 1,
+        "batch_cloud_rows": len(cloud_rows),
         "source_queue": str(QUEUE.relative_to(ROOT)),
         "phase_reset": {
             "cloud_forge_run_head": f"CLOUD-SEC-{first_cloud:04d}",
@@ -226,8 +229,9 @@ def generate(*, batch_id: int | None = None, offset: int = 0, write: bool = True
                         "library": "client-proof-recipe",
                         "head": pointer["phase_reset"]["cloud_forge_run_head"],
                         "cloud_sec_range": doc["summary"]["cloud_sec_range"],
-                        "rows_per_turn": len(cloud_rows),
+                        "rows_per_turn": MOTOR_ROWS_PER_TICK,
                         "tasks_per_row": 1,
+                        "batch_cloud_rows": len(cloud_rows),
                         "queue_path": str(batch_path.relative_to(ROOT)),
                     },
                 }

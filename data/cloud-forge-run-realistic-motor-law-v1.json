@@ -2,7 +2,7 @@
   "schema": "cloud-forge-run-realistic-motor-law-v1",
   "version": "1.0.0",
   "locked": true,
-  "saved_at": "2026-07-06T09:01:50Z",
+  "saved_at": "2026-07-06T09:03:49Z",
   "supersedes": [
     "data/cloud-forge-run-hundred-rows-per-turn-vocabulary-v1.json",
     "brain-os/incidents/SINA_CLOUD_FORGE_RUN_HUNDRED_ROWS_VOCABULARY_INCIDENT_043_LOCKED_v1.md",

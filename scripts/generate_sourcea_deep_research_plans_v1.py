@@ -25,6 +25,7 @@ INBOX_JSON = SINA / "worker-prompt-inbox-v1.json"
 INBOX_MD = ROOT / ".sina-loop" / "INBOX.md"
 RECEIPT = SINA / "sourcea-deep-research-plans-receipt-v1.json"
 RESEARCH_DOC = Path.home() / "Downloads" / "sourcea_deep_research_report.md"
+PLAN_REGISTRY_DIR = ROOT / "brain-os" / "plan-registry" / "sourcea-deep-research-v1"
 VERIFY_SCRIPT = "scripts/verify_client_proof_artifact_v1.py"
 SUPABASE_VERIFY = (
     "cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count"
@@ -458,11 +459,64 @@ def fill_inbox(*, window: int = 10) -> dict[str, Any]:
     return {"ok": True, "inbox": str(INBOX_JSON), "head_sa": head.get("sa_id"), "queue_len": len(queue)}
 
 
-def arm_next_batch(*, batch_id: int = 82, batch_only: bool = True) -> dict[str, Any]:
+def write_plan_markdowns(plans: list[dict[str, Any]]) -> dict[str, Any]:
+    """One markdown plan file per deep-research row — Worker + Cloud Forge Run mirror."""
+    PLAN_REGISTRY_DIR.mkdir(parents=True, exist_ok=True)
+    written: list[str] = []
+    for plan in plans:
+        pid = plan["id"]
+        slug = pid.replace("sdr-", "deep-research-")
+        path = PLAN_REGISTRY_DIR / f"{slug}.md"
+        body = f"""# {plan['title']}
+
+**Plan ID:** `{pid}` · **Tier:** {plan.get('tier')} · **Updated:** {_now()}
+
+## Problem
+{plan.get('problem', '')}
+
+## Goal
+{plan['goal']}
+
+## Done when
+{plan['done_when']}
+
+## Verify
+```
+{plan['verify']}
+```
+
+## Proof artifact
+{plan.get('proof_artifact', '')}
+
+## Client demo
+{plan.get('client_demo', '')}
+
+## Work path
+`{plan.get('work_path', '')}`
+
+---
+*One row per Auto Runtime tick · Supabase proof required · INCIDENT-045*
+"""
+        path.write_text(body, encoding="utf-8")
+        written.append(str(path.relative_to(ROOT)))
+    index = {
+        "schema": "sourcea-deep-research-plan-registry-v1",
+        "saved_at": _now(),
+        "source": str(RESEARCH_DOC),
+        "count": len(written),
+        "plans": [p["id"] for p in plans],
+        "motor_law": "data/cloud-forge-run-realistic-motor-law-v1.json",
+        "one_law": "One plan = one CLOUD-SEC row · one tick = one row · */10 CF cron",
+    }
+    _write(PLAN_REGISTRY_DIR / "REGISTRY.json", index)
+    return {"ok": True, "written": len(written), "registry": str(PLAN_REGISTRY_DIR.relative_to(ROOT))}
+
+
+def arm_next_batch(*, batch_id: int = 82, batch_only: bool = False) -> dict[str, Any]:
     sys.path.insert(0, str(ROOT / "scripts"))
     from generate_client_proof_cloud_batch_v1 import generate  # noqa: WPS433
 
-    row = generate(batch_id=batch_id, offset=0, write=True, activate=False)
+    row = generate(batch_id=batch_id, offset=0, write=True, activate=not batch_only)
     ptr = _read(ACTIVE_POINTER)
     summary_rng = row.get("cloud_sec_range", "")
     ptr["next_batch"] = {
@@ -547,6 +601,7 @@ def run_all(*, write: bool = True) -> dict[str, Any]:
     if write:
         _write(PLAN_OUT, plan_doc)
         _write(QUEUE_OUT, queue_doc)
+        receipt["plans_md"] = write_plan_markdowns(plans)
         receipt["motor"] = patch_motor_ssot(max_advance=1)
         receipt["inbox"] = fill_inbox(window=10)
         receipt["batch"] = arm_next_batch(batch_id=82)

@@ -1,7 +1,7 @@
 {
   "schema": "client-proof-recipe-queue-v1",
   "version": "1.1.0",
-  "generated_at": "2026-07-06T09:01:50Z",
+  "generated_at": "2026-07-06T09:03:49Z",
   "rubric": "data/client-proof-recipe-rubric-v1.json",
   "total": 27,
   "deep_research_count": 12,
