@@ -1,15 +1,18 @@
 {
   "schema": "sourcea-brain-knowledge-bundle-v5",
   "bundle_version": "5.0.0",
-  "generated_at": "2026-07-06T13:03:07Z",
-  "chunk_count": 552,
-  "total_chars": 235739,
+  "generated_at": "2026-07-06T15:10:11Z",
+  "public_one_line": "SourceA is an AI execution platform \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.",
+  "positioning_ssot_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
+  "positioning_version": "3.4.0",
+  "chunk_count": 554,
+  "total_chars": 236460,
   "source_files": 124,
   "live_source_files": 115,
   "rule_chunks": 6,
   "lanes": {
     "rules": 6,
-    "core": 338,
+    "core": 340,
     "developer": 150,
     "investor": 5,
     "buyer": 53
@@ -67,8 +70,8 @@
       "lane": "rules",
       "source_path": "data/brain-public-rules-v1.json",
       "www_url": null,
-      "content": "## Positioning SSOT\n- one_line: SourceA is an AI execution platform \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.\n- primary_cta: /sourcea/forge/terminal (Try Forge Terminal)\n- agentic_first_law: If the site can show it, strangers never need a founder call. Calls are optional escalation only.\n\n# SourceA Positioning \u2014 One Line (LOCKED v1)\n\n**Saved:** 2026-06-25T05:07:30Z  \n**Version:** 1.0 \u2014 LOCKED  \n**Machine SSOT:** `SourceA-landing/green-unified/data/sourcea-positioning-v1.json` (schema `sourcea-positioning-v1` v3.1.0)  \n**Brain prompt:** `cloud/workers/sourcea-brain-chat-v1` \u00b7 `brain_prompt_version` 2.0.0\n\n---",
-      "content_hash": "3754b02f31acec62",
+      "content": "## Positioning SSOT\n- one_line: SourceA is an AI execution platform \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.\n- primary_cta: /sourcea/forge/terminal (Try Forge Terminal)\n- agentic_first_law: If the site can show it, strangers never need a founder call. Calls are optional escalation only.\n- hero_h1: Turn AI into real production work, with proof built in.\n- hero_lead: Evaluate in five minutes with sourcea-boot \u2014 PASS or BLOCK on disk. Forge Terminal, live receipt, or Brain \u2014 no sales call required.\n- hero_denylist: Book a scope call; book a call; We show real work on a call; verify on a call; Watch before you book; Book proof demo\n\n# SourceA Positioning \u2014 One Line (LOCKED v1)\n\n**Saved:** 2026-06-25T05:07:30Z  \n**Version:** 1.0 \u2014 LOCKED  \n**Machine SSOT:** `SourceA-landing/green-unified/data/sourcea-positioning-v1.json` (schema `sourcea-positioning-v1` v3.1.0)  \n**Brain prompt:** `cloud/workers/sourcea-brain-chat-v1` \u00b7 `brain_prompt_version` 2.0.0\n\n---",
+      "content_hash": "3abd7ea9586bd643",
       "pinned": true,
       "kind": "rule"
     },
@@ -87,10 +90,10 @@
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
       "www_url": "https://sourcea.app/",
-      "content": "# SourceA positioning (public)\n\n## One line\n\nSourceA is an AI execution platform powered by Forge \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.\n\n## What SourceA is NOT\n\n- Not \"just records\" or verification-only software\n- Not a generic ChatGPT wrapper\n- Not a pitch that opens with dollar amounts\n\n## What Forge is\n\nForge Terminal is the execution desk \u2014 living chat, workspace, agents, quality gate, cloud dispatch.\n\nPublic try (no install): `/sourcea/forge/terminal`\n\nFlow: idea \u2192 prompt forge \u2192 agents \u2192 quality gate \u2192 execute (Cursor / cloud)\n\n## Primary CTAs\n\n| Intent | URL |\n|--------|-----|\n| Try in browser | `/sourcea/forge/terminal` |\n| Live proof | `/sourcea/proof/live` |\n| Talk to human (escalation only) | `https://cal.com/sourcea/proof-demo` |\n\n## Agentic-first law\n\nIf the site can show it, strangers never need a founder call. Calls are optional escalation only.",
-      "content_hash": "b0e0d1dca1fe7dfa",
+      "content": "# SourceA positioning (public)\n\n## One line\n\nSourceA is an AI execution platform \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.\n\n## What SourceA is NOT\n\n- Not \"just records\" or verification-only software\n- Not a generic ChatGPT wrapper\n- Not a pitch that opens with dollar amounts\n\n## What Forge is\n\nForge Terminal is the execution desk \u2014 try it at `/sourcea/forge/terminal`. It is a product feature, not the SourceA tagline.\n\n## Primary CTAs\n\n| Intent | URL |\n|--------|-----|\n| Try in browser | `/sourcea/forge/terminal` |\n| Live proof | `/sourcea/proof/live` |\n| Talk to human (escalation only) | `https://cal.com/sourcea/proof-demo` |",
+      "content_hash": "d027d986c7edd26e",
       "pinned": true,
-      "kind": "doc"
+      "kind": "positioning"
     },
     {
       "id": "products-catalog-0",
@@ -119,7 +122,7 @@
       "www_url": "https://sourcea.app/sourcea/forge/cursor-bridge",
       "content": "## Other Forge pages\n\nCursor bridge | Prompt Forge \u00b7 SourceA Skip to content Source A Home Offer Pricing Investors Kernel Sign in See live receipt Sign in See live receipt Home / Platform / Prompt Forge / Cursor bridge Forge \u00b7 run real work From Forge to your agent SourceA is an AI execution platform \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run. Forge carries your goal and guardrails into Cursor \u2014 one scoped job, no mystery scope creep. How it works under the hood Direction, not force Forge carries your goal and guardrails. It does not inflate scope, add steps you did not ask for, or guess paths you have not named. Founder decisions stay yours Naming \u00b7 which project \u00b7 which provider \u00b7 what a page shows \u2014 the forged prompt tells the agent to STOP and ask, never substitute. After the agent runs Work is checked against what you asked for. You get a record you can replay or share \u2014 verification is built in, not bolted on later. Forge this job Email raw founder language \u2014 one bounded mission back. forge@sourcea.app \u2192 Integration manifest (STAB-060) chat-unify-integrations-v1.json \u00b7 Hosted webhook relay \u00b7 n8n template MCP install doc \u2014 see docs/SOURCEA_MCP_VERIFY_INSTALL_v1.md in repo Other Forge pages How Prompt Forge works \u00b7 Mission prompt template \u00b7 SSOT policy layer \u00b7 Chat Unify integration \u00b7 Try Prompt Forge Technical depth: Technical overview \u2192 SourceA SourceA is an AI execution platform \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run. Prompt Forge All pages How it works Mission template Try Forge Contact forge@sourcea.app hello@sourcea.app proof@sourcea.app contact@sourcea.app \u00a9 2026 Noetfield Systems Inc. \u00b7 SourceA is a product of Noetfield Systems Inc. \u00b7 noetfield.com \u00b7 Prompt Forge \u00b7",
       "content_hash": "e110e5dee10ad568",
-      "pinned": false,
+      "pinned": true,
       "kind": "doc"
     },
     {
@@ -129,7 +132,7 @@
       "www_url": "https://sourcea.app/sourcea/forge/cursor-bridge",
       "content": "cea.app \u00a9 2026 Noetfield Systems Inc. \u00b7 SourceA is a product of Noetfield Systems Inc. \u00b7 noetfield.com \u00b7 Prompt Forge \u00b7 sourcea.app",
       "content_hash": "78045307ef38e0c9",
-      "pinned": false,
+      "pinned": true,
       "kind": "doc"
     },
     {
@@ -149,7 +152,7 @@
       "www_url": "https://sourcea.app/sourcea/investors",
       "content": "## Business acquisition systems with a proof moat.",
       "content_hash": "4485bcade14494a4",
-      "pinned": false,
+      "pinned": true,
       "kind": "doc"
     },
     {
@@ -159,7 +162,7 @@
       "www_url": "https://sourcea.app/sourcea/investors",
       "content": "## Deterministic execution + accumulating proof",
       "content_hash": "2613b8c48f851283",
-      "pinned": false,
+      "pinned": true,
       "kind": "doc"
     },
     {
@@ -169,7 +172,7 @@
       "www_url": "https://sourcea.app/sourcea/investors",
       "content": "## Investor conversations\n\nInvestors | SourceA Skip to content Source A Home Offer Pricing Investors Kernel Sign in See live receipt Sign in See live receipt Home / Investors Fundraising \u00b7 internal narrative Business acquisition systems with a proof moat. SourceA turns ideas into deployable, proof-backed revenue engines. Capability is built \u2014 the company is in revenue validation: first paying customers, then scale. One brand outward; Factory, Runtime, and Proof inward. Request intro \u2192 Technical kernel \u2192 Thesis Deterministic execution + accumulating proof Most AI tooling sells hope. SourceA ships governed execution \u2014 validators, loops, receipts \u2014 and packages it for buyers as acquisition systems that win contracts . As deployments compound, the Proof layer becomes proprietary intelligence on what converts. Internal OS name: Deterministic Business Operating System (DBOS). External sell: proof-backed acquisition systems in 48 hours. Stage Product built \u00b7 distribution opening Built Factory, Runtime, Proof layers operational. Live demo deployable on calls. Now Revenue validation \u2014 target 3 paying customers or $3K\u2013$10K in 30 days. Bottleneck is sales, not engineering. Moat Validated execution + proof library \u2014 harder to copy than reports or agents alone. Revenue model How money comes in Build-for-you deployments \u2014 setup fees ($1.5\u20135K+) plus optional recurring proof support Vertical packs \u2014 pre-configured acquisition systems for high-fit niches Runtime access \u2014 subscription for teams needing orchestration and proof tools Early wedge: service operators and agency warm network \u2014 fast cash, real validation. Investor conversations Email for deck, live proof on the page, and current traction. Commercial buyers use Offer \u2014 this page is for capital partners. hello@sourcea.app Source",
       "content_hash": "356b134d3f4b7aa0",
-      "pinned": false,
+      "pinned": true,
       "kind": "doc"
     },
     {
@@ -179,7 +182,7 @@
       "www_url": "https://sourcea.app/sourcea/investors",
       "content": "e page, and current traction. Commercial buyers use Offer \u2014 this page is for capital partners. hello@sourcea.app Source A Investors \u00b7 revenue validation stage Links Commercial home Kernel Offer Contact hello@sourcea.app \u00a9 2026 Noetfield Systems Inc. \u00b7 SourceA is a product of Noetfield Systems Inc. \u00b7 noetfield.com",
       "content_hash": "26196085aab33146",
-      "pinned": false,
+      "pinned": true,
       "kind": "doc"
     },
     {
@@ -189,7 +192,7 @@
       "www_url": "https://sourcea.app/sourcea/kernel/",
       "content": "## Deterministic Business Operating System",
       "content_hash": "f143a5201d857f79",
-      "pinned": false,
+      "pinned": true,
       "kind": "doc"
     },
     {
@@ -199,7 +202,7 @@
       "www_url": "https://sourcea.app/sourcea/kernel/",
       "content": "## Everything that used to clutter the home page",
       "content_hash": "24047a30f1d5b7c0",
-      "pinned": false,
+      "pinned": true,
       "kind": "doc"
     },
     {
@@ -209,7 +212,7 @@
       "www_url": "https://sourcea.app/sourcea/kernel/",
       "content": "## Live proof & eval\n\nKernel | SourceA \u2014 Deterministic Business Operating System Skip to content Source A Home Offer Pricing Investors Kernel Sign in See live receipt Sign in See live receipt Home / Kernel Internal \u00b7 platform & engineering Deterministic Business Operating System SourceA converts ideas into deployable, proof-backed systems. This page holds the technical spine \u2014 validators, loops, receipts, and runtime orchestration. Start with sourcea-boot eval \u00b7 Buyers and revenue: Home \u00b7 Offer \u00b7 Investors . Evidence over features \u00b7 Receipts over roadmaps Execution chain Intent \u2192 deployable output Intent \u2192 Machines \u2192 Validators \u2192 Loops \u2192 Receipts \u2192 Deployable output Deterministic execution plus proof creates the moat \u2014 verifiable outcomes where most AI tools deliver only hope. Internal layers Factory \u00b7 Runtime \u00b7 Proof One public brand. Three organizing layers \u2014 not three customer-facing products. Factory MVPs, landing pages, funnels, portals, workflows, vertical systems \u2014 rapid creation. Prompt Forge \u2192 Runtime Machines, agent loops, Chat Unify, validators, orchestration for founders, agencies, and teams. Platform evaluation \u2192 Proof Reports, receipts, audit trails, validation artifacts \u2014 compounds into conversion intelligence. Proof chain \u2192 Technical docs Everything that used to clutter the home page 01 Platform Governed runtime \u00b7 PASS/BLOCK 02 Proof chain Screen-share in five minutes 03 Scenario Governance Gauntlet \u00b7 demo script 04 Prompt Forge Founder language \u2192 missions 05 Loops hub Outreach \u00b7 ops \u00b7 research 06 Agent team Brain \u00b7 Guard \u00b7 Prove \u00b7 Build 07 Growth system Agency flywheel 08 Compare Alternatives matrix 09 Sandbox Free proof eval 10 Security Procurement path 11 Sources Cited evidence 12 Public home Current buyer homepage Live proof & eval sourcea-boot \u2014 eva",
       "content_hash": "3731025de0226741",
-      "pinned": false,
+      "pinned": true,
       "kind": "doc"
     },
     {
@@ -219,7 +222,7 @@
       "www_url": "https://sourcea.app/sourcea/kernel/",
       "content": "ty Procurement path 11 Sources Cited evidence 12 Public home Current buyer homepage Live proof & eval sourcea-boot \u2014 eval the gate before you buy the build Live demo proof \u2014 AEG replay page Chat Unify.app \u2014 Mac desktop runtime Factory demo sandbox Source A Kernel Deterministic Business Operating System \u2014 technical documentation. \u2190 Back to commercial home Commercial Home Offer Case studies Pricing Case studies All case studies PureFlow (#1 \u00b7 trades) AgentGo (#2 \u00b7 factory) Contact hello@sourcea.app sourcea-boot \u00a9 2026 Noetfield Systems Inc. \u00b7 SourceA is a product of Noetfield Systems Inc. \u00b7 noetfield.com \u00b7 Kernel \u00b7 internal architecture",
       "content_hash": "43f444cfc041f2df",
-      "pinned": false,
+      "pinned": true,
       "kind": "doc"
     },
     {
@@ -229,7 +232,7 @@
       "www_url": "https://sourcea.app/sourcea/offer",
       "content": "## We ship your MVP in 48 hours \u2014 scoped, governed, with proof.",
       "content_hash": "f51d1a0c339f840f",
-      "pinned": false,
+      "pinned": true,
       "kind": "doc"
     },
     {
@@ -239,7 +242,7 @@
       "www_url": "https://sourcea.app/sourcea/offer",
       "content": "## Start a deal today\n\n48-Hour MVP Offer | SourceA Skip to content Source A Home Offer Pricing Investors Kernel Sign in See live receipt Sign in See live receipt Home / Offer 48-hour MVP \u00b7 sell first We ship your MVP in 48 hours \u2014 scoped, governed, with proof. Fixed deliverables. Fixed timeline. One bounded outcome \u2014 landing, intake funnel, or workflow \u2014 with a shareable receipt your stakeholders can verify. See live receipt \u2192 Start intake form \u2192 Talk to a human What clients receive Output + shareable receipt. Delivery receipt Approved Job Sample job Quality score 98/100 Live URL + PDF/JSON proof on every 48h delivery Deliverables What you pay for \u2014 what ships Engineered offer \u2014 positioning, tiers, pricing prospects understand Client-facing assets \u2014 landing page or intake funnel, mobile-ready Lead capture \u2014 booking or intake with confirmation path Trust mechanism \u2014 report or proof pattern that closes and retains Handoff doc \u2014 scope, timeline, approval gates, support options Most clients start here 48-hour acquisition system $1,500\u2013$5,000 setup Core system live within 48-hour path Scope locked on 30-min discovery call Deposit before build \u00b7 balance on delivery Optional recurring proof support from $500/mo Start intake \u2192 Talk to a human Larger scope Custom build + runtime $3\u201310K project Deeper automation \u00b7 2\u20133 week delivery Retainer from $2K/mo available For agencies and teams with procurement needs Full pricing \u2192 Sales path Try \u2192 scope \u2192 pay \u2192 deploy Self-serve demo \u2014 Forge Terminal, live receipt, or proof quiz in your browser Written scope \u2014 deliverables, price, timeline, deposit Build \u2014 48-hour path for standard package Recurring \u2014 optional proof and support when you want stickiness Best fit now: service operators, agencies, and warm introductions \u2014 cleaning, property,",
       "content_hash": "563993971147ffec",
-      "pinned": false,
+      "pinned": true,
       "kind": "doc"
     },
     {
@@ -249,7 +252,7 @@
       "www_url": "https://sourcea.app/sourcea/offer",
       "content": "support when you want stickiness Best fit now: service operators, agencies, and warm introductions \u2014 cleaning, property, trades, consultants who need a client-ready deliverable with proof. Start a deal today Start intake, try Forge Terminal, or email with your vertical and timeline. Try Forge Terminal Start intake Talk to a human Source A AI execution platform \u2014 proof built in. Sell Pricing See live receipt Contact hello@sourcea.app Investors \u00a9 2026 Noetfield Systems Inc. \u00b7 SourceA is a product of Noetfield Systems Inc. \u00b7 noetfield.com",
       "content_hash": "00bba715531b1d2a",
-      "pinned": false,
+      "pinned": true,
       "kind": "doc"
     },
     {
@@ -279,7 +282,7 @@
       "www_url": "https://sourcea.app/sourcea/48h-mvp",
       "content": "# Sandbox Freemium\n\n## The agentic stack that proves itself.\n\n## Desktop \u00b7 cloud \u00b7 sandbox \u2014 same proof layer.\n\n## Sign in \u00b7 cloud\n\n## Chat Unify.app\n\n## Free trial\n\n## Forge\n\n## Verify\n\n## Prove\n\n## Run\n\n## Everything you need \u2014 one governed stack.\n\n## We route you \u2014 wherever you ship from.\n\n## AI startup building with agents",
       "content_hash": "68b1c8c0e15c9da3",
-      "pinned": false,
+      "pinned": true,
       "kind": "doc"
     },
     {
@@ -1017,8 +1020,8 @@
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/founder-home.html",
       "www_url": "https://sourcea.app/",
-      "content": "## Proof-backed MVPs and acquisition systems, shipped fast.",
-      "content_hash": "d722abd36f877825",
+      "content": "## Turn AI into real production work, with proof built in.",
+      "content_hash": "6891d87064ba33b3",
       "pinned": false,
       "kind": "doc"
     },
@@ -1067,8 +1070,8 @@
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/founder-home.html",
       "www_url": "https://sourcea.app/",
-      "content": "## Stop guessing. Start showing clients real work.\n\nEvaluate in five minutes with sourcea-boot \u2014 PASS or BLOCK on disk. Then Forge Terminal, live receipt, or Brain \u2014 no sales call required.\n\nSourceA ships builds, automations, and agent workflows with a delivery receipt you can verify on the page \u2014 no sales call required.\n\nA sample verified job \u2014 scored, logged, and shareable. Verify it yourself in under five minutes.\n\nCommercial routing \u2014 not a calendar. Each path is self-serve proof, intake, or learn-by-doing today.\n\nMost AI tools say \"done\" and move on. Work drifts. Clients ask questions you can't answer. You can't sell \u2014 or pass a review \u2014 on work you can't show. SourceA checks every job before you deliver it, and gives you a clear record to share.\n\nAI suggests a plan. Your rules decide what's allowed. Work runs step by step. We check the result. Every job leaves a record \u2014 what was done, what was checked, and what you can show a client.\n\nPlatform subscription \u00b7 unified workspace \u00b7 verified work on every project.\n\nTurn requirements into scoped, reviewable work \u2014 with checks before anything ships.\n\nWalkthroughs \u00b7 comparisons \u00b7 what to expect when you verify proof yourself.\n\nDomain-scoped offers for operators, Canada regulated teams, and UK institutional buyers. Contract email on each page \u00b7 technical proof at /eval .\n\nDefinitions, policy gates, receipts, and routing \u2014 install the operating brain for AI-native execution.\n\nSpend map, cost-to-value taxonomy, and board-ready governance sprint for regulated Canadian teams.\n\nSix-layer telemetry, policy gate, and evidence chain for UK institutional control-plane buyers.\n\nWhich offer? Operator \u2192 Operating Brain \u00b7 Canada regulated \u2192 AI Value Governance \u00b7 UK institutional \u2192 Enterprise Control Plane \u00b7 Enterprise OS \u2192 Governance",
-      "content_hash": "c2df12f3a2606af0",
+      "content": "## Stop guessing. Start showing clients real work.\n\nEvaluate in five minutes with sourcea-boot \u2014 PASS or BLOCK on disk. Forge Terminal, live receipt, or Brain \u2014 no sales call required.\n\nSourceA is an AI execution platform \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.\n\nA sample verified job \u2014 scored, logged, and shareable. Verify it yourself in under five minutes.\n\nCommercial routing \u2014 not a calendar. Each path is self-serve proof, intake, or learn-by-doing today.\n\nMost AI tools say \"done\" and move on. Work drifts. Clients ask questions you can't answer. You can't sell \u2014 or pass a review \u2014 on work you can't show. SourceA checks every job before you deliver it, and gives you a clear record to share.\n\nAI suggests a plan. Your rules decide what's allowed. Work runs step by step. We check the result. Every job leaves a record \u2014 what was done, what was checked, and what you can show a client.\n\nPlatform subscription \u00b7 unified workspace \u00b7 verified work on every project.\n\nTurn requirements into scoped, reviewable work \u2014 with checks before anything ships.\n\nWalkthroughs \u00b7 comparisons \u00b7 what to expect when you verify proof yourself.\n\nDomain-scoped offers for operators, Canada regulated teams, and UK institutional buyers. Contract email on each page \u00b7 technical proof at /eval .\n\nDefinitions, policy gates, receipts, and routing \u2014 install the operating brain for AI-native execution.\n\nSpend map, cost-to-value taxonomy, and board-ready governance sprint for regulated Canadian teams.\n\nSix-layer telemetry, policy gate, and evidence chain for UK institutional control-plane buyers.\n\nWhich offer? Operator \u2192 Operating Brain \u00b7 Canada regulated \u2192 AI Value Governance \u00b7 UK institutional \u2192 Enterprise Control Plane \u00b7 Enterprise OS \u2192 Governance OS\n\nVerified",
+      "content_hash": "f1c9cd7b19017dd4",
       "pinned": false,
       "kind": "doc"
     },
@@ -1077,8 +1080,8 @@
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/founder-home.html",
       "www_url": "https://sourcea.app/",
-      "content": "ain \u00b7 Canada regulated \u2192 AI Value Governance \u00b7 UK institutional \u2192 Enterprise Control Plane \u00b7 Enterprise OS \u2192 Governance OS\n\nVerified output on the page \u2014 not slides. One live receipt beats a hundred promises.\n\nEvery job on SourceA is designed to look like this \u2014 verifiable, every time.\n\nSend us one task \u2014 we run it through our checks and send back output you can share with a client. No setup required.\n\nSourceA: build/execution \u00b7 Noetfield: governance intelligence \u00b7 TrustField: execution orchestration \u00b7 Gateway: routing/intake\n\n\u00a9 2026 Noetfield Systems Inc. \u00b7 SourceA is a product of Noetfield Systems Inc. \u00b7 sourcea-boot",
-      "content_hash": "7c4b04c8e8a9e303",
+      "content": "regulated \u2192 AI Value Governance \u00b7 UK institutional \u2192 Enterprise Control Plane \u00b7 Enterprise OS \u2192 Governance OS\n\nVerified output on the page \u2014 not slides. One live receipt beats a hundred promises.\n\nEvery job on SourceA is designed to look like this \u2014 verifiable, every time.\n\nSend us one task \u2014 we run it through our checks and send back output you can share with a client. No setup required.\n\nSourceA: build/execution \u00b7 Noetfield: governance intelligence \u00b7 TrustField: execution orchestration \u00b7 Gateway: routing/intake\n\n\u00a9 2026 Noetfield Systems Inc. \u00b7 SourceA is a product of Noetfield Systems Inc. \u00b7 sourcea-boot",
+      "content_hash": "e010e92abdf69774",
       "pinned": false,
       "kind": "doc"
     },
@@ -1147,8 +1150,8 @@
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/index.html",
       "www_url": "https://sourcea.app/",
-      "content": "## Proof-backed MVPs and acquisition systems, shipped fast.",
-      "content_hash": "d722abd36f877825",
+      "content": "## Turn AI into real production work, with proof built in.",
+      "content_hash": "6891d87064ba33b3",
       "pinned": false,
       "kind": "doc"
     },
@@ -1177,8 +1180,8 @@
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/index.html",
       "www_url": "https://sourcea.app/",
-      "content": "## If the site can show it, you don't need a sales call.\n\nSourceA helps founders, agencies, and service businesses turn ideas into live systems \u2014 with a delivery receipt you can show clients, partners, or investors. Evaluate in five minutes with sourcea-boot before you talk to anyone.\n\nSourceA ships builds, automations, and agent workflows with a delivery receipt you can verify on the page \u2014 no sales call required.\n\nForge Terminal, sourcea-boot eval , live receipt, or proof quiz \u2014 verify value yourself in under five minutes.\n\n48h MVP intake or sandbox \u2014 GOAL \u00b7 DONE \u00b7 VERIFY locked in writing before build.\n\nPlatform from $2K/mo when you want ongoing execution \u2014 every run receipted.\n\nForge Terminal and eval first \u2014 then choose the contract surface that matches your buyer path.\n\nInstall definitions, gates, receipts, and routing for AI-native operators.\n\nCanadian regulated sprint \u2014 spend visibility, cost-to-value, PIPEDA/OSFI orientation.\n\nUK institutional six-layer control plane \u2014 telemetry through evidence chain.\n\nWhich offer? Operator \u2192 Operating Brain \u00b7 Canada regulated \u2192 AI Value Governance \u00b7 UK institutional \u2192 Enterprise Control Plane \u00b7 Enterprise OS \u2192 Governance OS\n\nNow: Solo founders shipping MVPs, agencies delivering client AI work, and teams who need governed execution \u2014 not another chat wrapper.\n\nDepth: Technical architecture on Kernel \u00b7 capital narrative on Investors .\n\nTry Forge Terminal, file feedback from any page, or ask Brain \u2014 optional human walkthrough only when you want it.\n\nSourceA: build/execution \u00b7 Noetfield: governance intelligence \u00b7 TrustField: execution orchestration \u00b7 Gateway: routing/intake\n\n\u00a9 2026 Noetfield Systems Inc. \u00b7 SourceA is a product of Noetfield Systems Inc. \u00b7 Built in Canada \u00b7 sourcea-boot eval \u00b7 GitHub",
-      "content_hash": "155c2a05392dbfd5",
+      "content": "## If the site can show it, you don't need a sales call.\n\nEvaluate in five minutes with sourcea-boot \u2014 PASS or BLOCK on disk. Forge Terminal, live receipt, or Brain \u2014 no sales call required.\n\nSourceA is an AI execution platform \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.\n\nForge Terminal, sourcea-boot eval , live receipt, or proof quiz \u2014 verify value yourself in under five minutes.\n\n48h MVP intake or sandbox \u2014 GOAL \u00b7 DONE \u00b7 VERIFY locked in writing before build.\n\nPlatform from $2K/mo when you want ongoing execution \u2014 every run receipted.\n\nForge Terminal and eval first \u2014 then choose the contract surface that matches your buyer path.\n\nInstall definitions, gates, receipts, and routing for AI-native operators.\n\nCanadian regulated sprint \u2014 spend visibility, cost-to-value, PIPEDA/OSFI orientation.\n\nUK institutional six-layer control plane \u2014 telemetry through evidence chain.\n\nWhich offer? Operator \u2192 Operating Brain \u00b7 Canada regulated \u2192 AI Value Governance \u00b7 UK institutional \u2192 Enterprise Control Plane \u00b7 Enterprise OS \u2192 Governance OS\n\nNow: Solo founders shipping MVPs, agencies delivering client AI work, and teams who need governed execution \u2014 not another chat wrapper.\n\nDepth: Technical architecture on Kernel \u00b7 capital narrative on Investors .\n\nTry Forge Terminal, file feedback from any page, or ask Brain \u2014 optional human walkthrough only when you want it.\n\nSourceA: build/execution \u00b7 Noetfield: governance intelligence \u00b7 TrustField: execution orchestration \u00b7 Gateway: routing/intake\n\n\u00a9 2026 Noetfield Systems Inc. \u00b7 SourceA is a product of Noetfield Systems Inc. \u00b7 Built in Canada \u00b7 sourcea-boot eval \u00b7 GitHub",
+      "content_hash": "be3541241ba9a2d3",
       "pinned": false,
       "kind": "doc"
     },
@@ -1747,8 +1750,8 @@
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/data/aeg-live.json",
       "www_url": null,
-      "content": "# Aeg Live\n\n- **schema**: sourcea-aeg-live-v1\n- **at**: 2026-07-06T12:33:24Z\n- **evidence_id**: aeg-20260702T194402Z-2c9c78f7\n- **verdict**: PASS\n## blockers\n- **terminal_transcript**: $ sourcea-boot --json\n\nSOURCEA_BOOT PASS ok=true\nREPORT=receipts/sourcea-boot/BOOT_REPORT.json\n\n  [SKIP] policy_version: no policy file (POLICY.md) (not configured)\n  [PASS] provider: provider env present (ANTHROPIC_API_KEY)\n  [SKIP] receipt_fresh: no prior receipt \u2014 first boot allowed\n  [SKIP] queue_truth: no queue files configured (not configured)\n\nblockers:\n  (none)\n## checks\n## policy_version\n- **id**: C1\n- **name**: policy_version\n- **ok**: True\n- **reason**: portable mode: policy file not required on public eval\n- **mode**: portable\n## provider\n- **id**: C2\n- **name**: provider\n- **ok**: True\n- **reason**: provider env present (ANTHROPIC_API_KEY)\n- **mode**: portable\n## receipt_fresh\n- **id**: C3\n- **name**: receipt_fresh\n- **ok**: True\n- **reason**: first boot allowed (no prior receipt required)\n- **mode**: portable\n## queue_truth\n- **id**: C4\n- **name**: queue_truth\n- **ok**: True\n- **reason**: portable mode: queue files not required on public eval\n- **mode**: portable\n- **boot_verdict**: PASS\n- **site_proof_url**: https://sourcea.app/sourcea/proof/live.html\n- **forensic_archive_url**: https://locally-projected-shade-projection.trycloudflare.com/aeg-20260702T194402Z-2c9c78f7/\n- **hosted_at**: 2026-07-02T19:44:02Z\n- **disclaimer**: Live inject from factory disk \u00b7 same schema as weekly export bundle",
-      "content_hash": "8de13b7183f3a07d",
+      "content": "# Aeg Live\n\n- **schema**: sourcea-aeg-live-v1\n- **at**: 2026-07-06T14:53:18Z\n- **evidence_id**: aeg-20260702T194402Z-2c9c78f7\n- **verdict**: PASS\n## blockers\n- **terminal_transcript**: $ sourcea-boot --json\n\nSOURCEA_BOOT PASS ok=true\nREPORT=receipts/sourcea-boot/BOOT_REPORT.json\n\n  [SKIP] policy_version: no policy file (POLICY.md) (not configured)\n  [PASS] provider: provider env present (ANTHROPIC_API_KEY)\n  [SKIP] receipt_fresh: no prior receipt \u2014 first boot allowed\n  [SKIP] queue_truth: no queue files configured (not configured)\n\nblockers:\n  (none)\n## checks\n## policy_version\n- **id**: C1\n- **name**: policy_version\n- **ok**: True\n- **reason**: portable mode: policy file not required on public eval\n- **mode**: portable\n## provider\n- **id**: C2\n- **name**: provider\n- **ok**: True\n- **reason**: provider env present (ANTHROPIC_API_KEY)\n- **mode**: portable\n## receipt_fresh\n- **id**: C3\n- **name**: receipt_fresh\n- **ok**: True\n- **reason**: first boot allowed (no prior receipt required)\n- **mode**: portable\n## queue_truth\n- **id**: C4\n- **name**: queue_truth\n- **ok**: True\n- **reason**: portable mode: queue files not required on public eval\n- **mode**: portable\n- **boot_verdict**: PASS\n- **site_proof_url**: https://sourcea.app/sourcea/proof/live.html\n- **forensic_archive_url**: https://locally-projected-shade-projection.trycloudflare.com/aeg-20260702T194402Z-2c9c78f7/\n- **hosted_at**: 2026-07-02T19:44:02Z\n- **disclaimer**: Live inject from factory disk \u00b7 same schema as weekly export bundle",
+      "content_hash": "c2a5305d2778cdb5",
       "pinned": false,
       "kind": "json"
     },
@@ -2929,7 +2932,7 @@
       "www_url": null,
       "content": "# Sourcea Landing Cta V1\n\n- **schema**: sourcea-landing-cta-v1\n- **version**: 1.2.0\n- **saved_at**: 2026-06-25T14:00:00Z\n- **hero_primary**: proof\n- **forge_url**: /forge/terminal\n- **forge_label**: Try Forge Terminal\n- **proof_url**: /sourcea/proof/live\n- **proof_label**: See live receipt\n- **proof_quiz_url**: /sourcea/scenario#proof-quiz\n- **proof_quiz_label**: Try the proof quiz\n- **learn_url**: /learn\n- **learn_label**: Learn & build\n- **booking_url**: https://cal.com/sourcea/proof-demo\n- **booking_overlay_url**: https://cal.com/sourcea/proof-demo?overlayCalendar=true&embed=true\n- **booking_label**: Talk to a human\n- **sandbox_url**: /sandbox\n- **sandbox_label**: Submit a bounded job\n- **contact_email**: hello@sourcea.app\n- **proof_email**: proof@sourcea.app",
       "content_hash": "8a19ecf9a5f4f045",
-      "pinned": false,
+      "pinned": true,
       "kind": "json"
     },
     {
@@ -2937,13 +2940,33 @@
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
       "www_url": null,
-      "content": "# Sourcea Positioning V1\n\n- **schema**: sourcea-positioning-v1\n- **version**: 3.3.0\n- **saved_at**: 2026-07-01T23:45:00Z\n- **one_line**: SourceA is an AI execution platform \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.\n- **hero_eval_line**: Evaluate in 5 minutes \u2014 sourcea-boot PASS or BLOCK \u2014 no sales call\n- **eval_path**: /eval\n- **brain_subtitle**: AI execution platform \u2014 builds, automations, and agent workflows\n- **composer_placeholder**: What are you trying to run, build, or automate?\n- **brain_greet_html**: Hi \u2014 I'm <strong>Brain</strong>. SourceA is an <strong>AI execution platform</strong> \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.<br><span class='sa-brain-hint'>Try Forge Terminal, run <strong>sourcea-boot</strong> on /eval, or ask for examples \u2014 no pitch until you want one.</span>\n- **proof_is_feature_not_product**: True\n- **brand_definition**: AI execution platform (Forge) with built-in proof\n- **executive_summary**: SourceA helps founders and agencies turn AI into production work \u2014 not just chat. Forge runs scoped builds, automations, and agent workflows; every run is tracked and validated so clients see what was done and why.\n- **external_headline**: Turn AI into real production work \u2014 builds, automations, and agent workflows through Forge, with proof built in.",
-      "content_hash": "e67390fab73cdb44",
+      "content": "# Sourcea Positioning V1\n\n- **schema**: sourcea-positioning-v1\n- **version**: 3.4.0\n- **saved_at**: 2026-07-06T14:45:00Z\n- **one_line**: SourceA is an AI execution platform \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.\n- **hero_eval_line**: Evaluate in 5 minutes \u2014 sourcea-boot PASS or BLOCK \u2014 no sales call\n- **legal_entity**: SourceA Systems Inc.",
+      "content_hash": "58b134390a503c86",
       "pinned": false,
       "kind": "json"
     },
     {
       "id": "sourcea-positioning-v1-1",
+      "lane": "core",
+      "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
+      "www_url": null,
+      "content": "## hero\n- **kicker**: Proof-backed delivery \u00b7 verify before you commit\n- **category_tag**: AI execution platform \u2014 proof built in\n- **h1_line1**: Turn AI into real production work,\n- **h1_accent**: with proof built in.\n- **lead**: Evaluate in five minutes with sourcea-boot \u2014 PASS or BLOCK on disk. Forge Terminal, live receipt, or Brain \u2014 no sales call required.\n- **taxonomy_html**: <strong>SourceA</strong> is an AI execution platform \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.",
+      "content_hash": "5ce31a7a1c8be096",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "sourcea-positioning-v1-2",
+      "lane": "core",
+      "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
+      "www_url": null,
+      "content": "## hero_denylist\n- Book a scope call\n- book a call\n- We show real work on a call\n- verify on a call\n- Watch before you book\n- Book proof demo\n- schedule a discovery call\n- **eval_path**: /eval\n- **brain_subtitle**: AI execution platform \u2014 builds, automations, and agent workflows\n- **composer_placeholder**: What are you trying to run, build, or automate?\n- **brain_greet_html**: Hi \u2014 I'm <strong>Brain</strong>. SourceA is an <strong>AI execution platform</strong> \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.<br><span class='sa-brain-hint'>Try Forge Terminal, run <strong>sourcea-boot</strong> on /eval, or ask for examples \u2014 no pitch until you want one.</span>\n- **proof_is_feature_not_product**: True\n- **brand_definition**: AI execution platform (Forge) with built-in proof\n- **executive_summary**: SourceA helps founders and agencies turn AI into production work \u2014 not just chat. Forge runs scoped builds, automations, and agent workflows; every run is tracked and validated so clients see what was done and why.\n- **external_headline**: Turn AI into real production work \u2014 builds, automations, and agent workflows through Forge, with proof built in.",
+      "content_hash": "314c9ee4325c095a",
+      "pinned": false,
+      "kind": "json"
+    },
+    {
+      "id": "sourcea-positioning-v1-3",
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
       "www_url": null,
@@ -2953,7 +2976,7 @@
       "kind": "json"
     },
     {
-      "id": "sourcea-positioning-v1-2",
+      "id": "sourcea-positioning-v1-4",
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
       "www_url": null,
@@ -2963,17 +2986,17 @@
       "kind": "json"
     },
     {
-      "id": "sourcea-positioning-v1-3",
+      "id": "sourcea-positioning-v1-5",
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
       "www_url": null,
-      "content": "## revenue_target_30d\n- **customers**: 3\n- **revenue_band_usd**: $3,000\u2013$10,000\n- **primary_cta**: /sourcea/forge/terminal\n- **primary_cta_label**: Try Forge Terminal\n- **secondary_cta**: /eval\n- **secondary_cta_label**: Run sourcea-boot eval\n- **tertiary_cta**: /sourcea/proof/live\n- **tertiary_cta_label**: See live receipt\n- **escalation_cta**: https://cal.com/sourcea/proof-demo\n- **escalation_cta_label**: Talk to a human\n- **sales_email**: hello@sourcea.app\n- **kernel_path**: /sourcea/kernel/\n- **investors_path**: /sourcea/investors\n- **platform_path**: /sourcea/platform\n- **proof_path**: /sourcea/proof",
-      "content_hash": "dddff1b5059f9534",
+      "content": "## revenue_target_30d\n- **customers**: 3\n- **revenue_band_usd**: $3,000\u2013$10,000\n- **primary_cta**: /sourcea/forge/terminal\n- **primary_cta_label**: Try Forge Terminal\n- **secondary_cta**: /eval\n- **secondary_cta_label**: Run sourcea-boot eval\n- **tertiary_cta**: /sourcea/proof/live\n- **tertiary_cta_label**: See live receipt\n- **intake_cta**: /start\n- **intake_cta_label**: Request a 48-hour build\n- **escalation_cta**: https://cal.com/sourcea/proof-demo\n- **escalation_cta_label**: Talk to a human\n- **sales_email**: hello@sourcea.app\n- **kernel_path**: /sourcea/kernel/\n- **investors_path**: /sourcea/investors\n- **platform_path**: /sourcea/platform\n- **proof_path**: /sourcea/proof",
+      "content_hash": "e480972a08328ed7",
       "pinned": false,
       "kind": "json"
     },
     {
-      "id": "sourcea-positioning-v1-4",
+      "id": "sourcea-positioning-v1-6",
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
       "www_url": null,
@@ -2983,7 +3006,7 @@
       "kind": "json"
     },
     {
-      "id": "sourcea-positioning-v1-5",
+      "id": "sourcea-positioning-v1-7",
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
       "www_url": null,
@@ -2993,7 +3016,7 @@
       "kind": "json"
     },
     {
-      "id": "sourcea-positioning-v1-6",
+      "id": "sourcea-positioning-v1-8",
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
       "www_url": null,
@@ -3003,7 +3026,7 @@
       "kind": "json"
     },
     {
-      "id": "sourcea-positioning-v1-7",
+      "id": "sourcea-positioning-v1-9",
       "lane": "core",
       "source_path": "sites/SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
       "www_url": null,
@@ -3479,7 +3502,7 @@
       "www_url": null,
       "content": "# Trust Signals Public V1\n\n- **schema**: trust-signals-public-v1\n- **saved_at**: 2026-07-02T03:10:00Z\n- **disclosure_line**: Prove every agent action \u2014 before the model runs, after it ships.\n- **perimeter**: Powered by SourceA governed execution \u2014 advisory only \u00b7 no custody \u00b7 no payment initiation.\n- **mcp_free_tier_summary**: MCP free-tier\n## pypi\n- **ok**: True\n- **package**: sourcea-boot\n- **version**: 0.1.0\n- **url**: https://pypi.org/project/sourcea-boot/\n- **install**: pip install sourcea-boot\n- **verified_at**: 2026-07-02T03:09:26Z\n## proof_urls\n- https://sourcea.app/eval\n- https://pypi.org/project/sourcea-boot/\n- https://www.noetfield.com/copilot/pilot/\n- https://www.trustfield.ca/demo",
       "content_hash": "57199b0e04274ce4",
-      "pinned": false,
+      "pinned": true,
       "kind": "json"
     },
     {
@@ -4097,8 +4120,8 @@
       "lane": "core",
       "source_path": "docs/SOURCEA_POSITIONING_ONE_LINE_LOCKED_v1.md",
       "www_url": null,
-      "content": "## One law\n\n> **SourceA is an AI execution platform powered by Forge \u2014 not a \u201cproof records\u201d product. Proof is built in; it is not the whole product.**\n\n---",
-      "content_hash": "da782084e60a8ce2",
+      "content": "## One law\n\n> **SourceA is an AI execution platform \u2014 not a \u201cproof records\u201d product. Proof is built in; it is not the whole product.**\n\n---",
+      "content_hash": "c04997a9f4fee554",
       "pinned": false,
       "kind": "doc"
     },
@@ -4107,8 +4130,8 @@
       "lane": "core",
       "source_path": "docs/SOURCEA_POSITIONING_ONE_LINE_LOCKED_v1.md",
       "www_url": null,
-      "content": "## The one line (canonical)\n\n**SourceA is an AI execution platform powered by Forge \u2014 it runs real builds, automations, agent workflows, and governed development pipelines for founders and agencies.**\n\nUse this verbatim when a stranger asks \u201cWhat is SourceA?\u201d \u2014 in Brain, sales copy, and founder answers.\n\n---",
-      "content_hash": "3aa476eb953dcbc6",
+      "content": "## The one line (canonical)\n\n**SourceA is an AI execution platform \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.**\n\nUse this verbatim when a stranger asks \u201cWhat is SourceA?\u201d \u2014 in Brain, sales copy, and founder answers.\n\n---",
+      "content_hash": "66dc1039d86dbba8",
       "pinned": false,
       "kind": "doc"
     },
@@ -4427,8 +4450,8 @@
       "lane": "core",
       "source_path": "data/sourcea-landing-client-voice-v1.json",
       "www_url": null,
-      "content": "## replacements\n- ['Execution Proof Infrastructure \u2014 Prompt Forge turns founder language into bounded Cursor missions.', 'SourceA is an AI execution platform powered by Forge \u2014 real builds, automations, and agent workflows.']\n- ['Execution Proof Infrastructure', 'AI work your clients can verify']\n- ['governed agentic systems for founders worldwide', 'helping teams ship AI their clients trust']\n- ['governed agentic systems', 'teams shipping with AI']\n- ['Governed runtime for teams who need PASS/BLOCK before every AI call \u2014 signed receipts on disk, replay in one screen-share, procurement path included.', 'A platform that logs every AI action so your team can review it and show clients a clear demo \u2014 procurement-friendly.']\n- ['Brain chat routes buyers via OpenRouter on cloud.', '']\n- ['receipts signed on disk', 'verified jobs completed']\n- ['receipts on disk', 'verified records']\n- ['receipt on disk', 'record clients can check']\n- ['all receipted', 'all logged']\n- ['Outreach ALLOW \u00b7 12 sends \u00b7 3 replies \u00b7 all receipted', 'Outreach sent \u00b7 12 emails \u00b7 3 replies \u00b7 all logged']\n- ['Ops-monitor BLOCK with signed receipt \u2014 security lead approved scope same session.', 'A safety check stopped a risky change \u2014 security lead approved scope in the same meeting.']\n- ['BLOCK demo \u2192 security-minded client signs', 'Safety demo \u2192 security-minded client signs']\n- ['Live forensic', 'Live demo']\n- ['sourcea-boot eval', 'Technical overview']\n- ['Self-hosted receipts \u00b7 replay without vendor lock-in', 'Your data stays yours \u00b7 export anytime']\n- ['Show the receipt, not the recipe.', 'Show the work, not a slide deck.']\n- ['controlled factory \u2014 every step gated, every result verified, every job delivered with an auditable receipt you can replay', 'clear process \u2014 every job scoped, checked, and de",
-      "content_hash": "3fd9a821e9fa4350",
+      "content": "## replacements\n- ['Execution Proof Infrastructure \u2014 Prompt Forge turns founder language into bounded Cursor missions.', 'SourceA is an AI execution platform \u2014 real builds, automations, and agent workflows.']\n- ['Execution Proof Infrastructure', 'AI work your clients can verify']\n- ['governed agentic systems for founders worldwide', 'helping teams ship AI their clients trust']\n- ['governed agentic systems', 'teams shipping with AI']\n- ['Governed runtime for teams who need PASS/BLOCK before every AI call \u2014 signed receipts on disk, replay in one screen-share, procurement path included.', 'A platform that logs every AI action so your team can review it and show clients a clear demo \u2014 procurement-friendly.']\n- ['Brain chat routes buyers via OpenRouter on cloud.', '']\n- ['receipts signed on disk', 'verified jobs completed']\n- ['receipts on disk', 'verified records']\n- ['receipt on disk', 'record clients can check']\n- ['all receipted', 'all logged']\n- ['Outreach ALLOW \u00b7 12 sends \u00b7 3 replies \u00b7 all receipted', 'Outreach sent \u00b7 12 emails \u00b7 3 replies \u00b7 all logged']\n- ['Ops-monitor BLOCK with signed receipt \u2014 security lead approved scope same session.', 'A safety check stopped a risky change \u2014 security lead approved scope in the same meeting.']\n- ['BLOCK demo \u2192 security-minded client signs', 'Safety demo \u2192 security-minded client signs']\n- ['Live forensic', 'Live demo']\n- ['sourcea-boot eval', 'Technical overview']\n- ['Self-hosted receipts \u00b7 replay without vendor lock-in', 'Your data stays yours \u00b7 export anytime']\n- ['Show the receipt, not the recipe.', 'Show the work, not a slide deck.']\n- ['controlled factory \u2014 every step gated, every result verified, every job delivered with an auditable receipt you can replay', 'clear process \u2014 every job scoped, checked, and delivered with a re",
+      "content_hash": "19fd54746fe6f396",
       "pinned": false,
       "kind": "json"
     },
@@ -4437,8 +4460,8 @@
       "lane": "core",
       "source_path": "data/sourcea-landing-client-voice-v1.json",
       "www_url": null,
-      "content": "ified, every job delivered with an auditable receipt you can replay', 'clear process \u2014 every job scoped, checked, and delivered with a record you can show clients']\n- ['Governed agentic systems for AI startup founders.', 'AI delivery for startup founders who need client-ready proof.']\n- ['Show the receipt, not the recipe.', 'Show the work, not a slide deck.']\n- ['Open live forensic proof', 'Watch a live demo']\n- ['Live forensic', 'Live demo']\n- ['Run a free proof', 'Try it free']\n- ['Run your free proof', 'Start free trial']\n- ['Proof sandbox', 'Free trial']\n- ['sourcea-boot eval', 'Technical overview']\n- ['Kernel hub', 'Technical overview']\n- ['Governed inbox \u00b7 outreach.', 'Client outreach \u00b7 tracked sends.']\n- ['Factory proceed \u00b7 dispatch.', 'Cloud automation \u00b7 runs in the background.']\n- ['Founder language \u2192 bounded mission.', 'Requirements \u2192 scoped work your team can review.']",
-      "content_hash": "d19961bbdf8fa598",
+      "content": "delivered with an auditable receipt you can replay', 'clear process \u2014 every job scoped, checked, and delivered with a record you can show clients']\n- ['Governed agentic systems for AI startup founders.', 'AI delivery for startup founders who need client-ready proof.']\n- ['Show the receipt, not the recipe.', 'Show the work, not a slide deck.']\n- ['Open live forensic proof', 'Watch a live demo']\n- ['Live forensic', 'Live demo']\n- ['Run a free proof', 'Try it free']\n- ['Run your free proof', 'Start free trial']\n- ['Proof sandbox', 'Free trial']\n- ['sourcea-boot eval', 'Technical overview']\n- ['Kernel hub', 'Technical overview']\n- ['Governed inbox \u00b7 outreach.', 'Client outreach \u00b7 tracked sends.']\n- ['Factory proceed \u00b7 dispatch.', 'Cloud automation \u00b7 runs in the background.']\n- ['Founder language \u2192 bounded mission.', 'Requirements \u2192 scoped work your team can review.']",
+      "content_hash": "3408cc4d2411d407",
       "pinned": false,
       "kind": "json"
     },
@@ -4557,7 +4580,7 @@
       "lane": "core",
       "source_path": "data/sourcea-products-catalog-v1.json",
       "www_url": null,
-      "content": "## sourcea-boot\n- **id**: sourcea-boot\n- **slug**: sourcea-boot\n- **kind**: eval\n- **rank**: 5\n- **title**: sourcea-boot\n- **subtitle**: Self-serve gate eval\n- **buyer**: Platform engineers\n- **proof**: PASS/BLOCK before you buy\n- **url**: https://github.com/kazemnezhadsina144-dot/sourcea-boot\n- **status**: active\n- **tier**: T0",
+      "content": "## sourcea-boot\n- **id**: sourcea-boot\n- **slug**: sourcea-boot\n- **kind**: eval\n- **rank**: 5\n- **title**: sourcea-boot\n- **subtitle**: Self-serve gate eval\n- **buyer**: Platform engineers\n- **proof**: PASS/BLOCK before you buy\n- **url**: https://github.com/Noetfield-Systems/sourcea-boot\n- **status**: active\n- **tier**: T0",
       "content_hash": "9647ceb96ff823fe",
       "pinned": false,
       "kind": "json"
@@ -4607,7 +4630,7 @@
       "lane": "core",
       "source_path": "data/sourcea-products-catalog-v1.json",
       "www_url": null,
-      "content": "## sourcea-boot\n- **id**: sourcea-boot\n- **slug**: sourcea-boot\n- **kind**: eval\n- **rank**: 5\n- **title**: sourcea-boot\n- **subtitle**: Self-serve gate eval\n- **buyer**: Platform engineers\n- **proof**: PASS/BLOCK before you buy\n- **url**: https://github.com/kazemnezhadsina144-dot/sourcea-boot\n- **status**: active\n- **tier**: T0",
+      "content": "## sourcea-boot\n- **id**: sourcea-boot\n- **slug**: sourcea-boot\n- **kind**: eval\n- **rank**: 5\n- **title**: sourcea-boot\n- **subtitle**: Self-serve gate eval\n- **buyer**: Platform engineers\n- **proof**: PASS/BLOCK before you buy\n- **url**: https://github.com/Noetfield-Systems/sourcea-boot\n- **status**: active\n- **tier**: T0",
       "content_hash": "9647ceb96ff823fe",
       "pinned": false,
       "kind": "json"

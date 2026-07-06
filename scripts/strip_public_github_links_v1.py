@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Remove personal GitHub repo links from buyer-facing landing — PyPI-only eval path."""
+"""Rewrite legacy personal GitHub repo links to Noetfield-Systems public repos."""
 from __future__ import annotations
 
 import argparse
@@ -9,14 +9,18 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 GREEN = ROOT / "SourceA-landing" / "green-unified"
+if str(ROOT / "scripts") not in __import__("sys").path:
+    __import__("sys").path.insert(0, str(ROOT / "scripts"))
+from sourcea_public_github_ssot_v1 import boot_repo_url  # noqa: E402
+
 GITHUB_RE = re.compile(r"https://github\.com/kazemnezhadsina144-dot/sourcea-boot[^\"'\\s]*", re.I)
 GITHUB_REPO_RE = re.compile(r"kazemnezhadsina144-dot/sourcea-boot", re.I)
-PYPI = "https://pypi.org/project/sourcea-boot/"
+CANONICAL_BOOT = boot_repo_url()
 
 
 def strip_text(text: str) -> str:
-    text = GITHUB_RE.sub(PYPI, text)
-    text = GITHUB_REPO_RE.sub("sourcea-boot on PyPI", text)
+    text = GITHUB_RE.sub(CANONICAL_BOOT, text)
+    text = GITHUB_REPO_RE.sub("Noetfield-Systems/sourcea-boot", text)
     return text
 
 
