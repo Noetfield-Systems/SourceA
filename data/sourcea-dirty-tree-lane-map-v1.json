@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-dirty-tree-lane-map-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-27T09:53:00Z",
+  "saved_at": "2026-07-06T16:00:00Z",
   "status": "active",
   "one_law": "A dirty tree is not a blocker when an agent stays inside its assigned lane, checks path-scoped diffs, and never reverts unrelated work.",
   "receipt": "~/.sina/sourcea-dirty-tree-lane-map-v1.json",
@@ -31,6 +31,11 @@
         "scripts/test_brain_*",
         "scripts/validate-sourcea-brain*",
         "scripts/verify_brain*",
+        "scripts/audit_brain_voice_ssot_v1.py",
+        "scripts/distill_positioning_public_v1.py",
+        "reports/audit-brain-voice-ssot-v1.json",
+        "reports/audit-brain-voice-ssot-v1.md",
+        "data/sourcea-landing-client-voice-v1.json",
         "data/CHATBOT_KNOWLEDGE_MANIFEST.json",
         "data/brain-chat-eval-canonical-v1.json",
         ".cursor/skills/sourcea-brain-chatbot-audit/SKILL.md",
@@ -57,7 +62,7 @@
         "cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json"
       ],
       "validator": "scripts/validate-sourcea-brain-knowledge-v1.sh",
-      "notes": "Large diffs only after explicit refresh. Landing publish uses brain_refresh_gate_v1 (skip | light | full) — default skip when fingerprints match; SOURCEA_PUBLISH_BRAIN_MODE=full to force."
+      "notes": "Crawl mirror gitignored (data/chatbot-knowledge/crawled/). Commit bundle + sqlite + distilled/manual/rules only. Use brain_smart_refresh_v1.py (gate skip/light/full)."
     },
     {
       "id": "chat_unify",
@@ -163,6 +168,28 @@
       "notes": "Dist/source pairs must be kept consistent when touched."
     },
     {
+      "id": "ui_pro_444",
+      "owner": "Landing/site asset agent",
+      "purpose": "UI Pro 444 upgrade — hero console, positioning wire, mechanical gate, ship batches.",
+      "globs": [
+        "brain-os/plan-registry/sourcea-ui-pro-444-v1/**",
+        "data/sourcea-ui-pro-*.json",
+        "data/sourcea-ui-mechanical-gate-v1.json",
+        "docs/SOURCEA_UI_PRO_*",
+        "scripts/sourcea_ui_pro_*",
+        "scripts/generate_sourcea_ui_pro_*",
+        "scripts/validate-sourcea-ui-pro-444-v1.sh",
+        "reports/sourcea-ui-pro-*.json",
+        "reports/sourcea-ui-mechanical-gate-receipt-v1.json",
+        "scripts/build_sourcea_vercel_output_v1.py",
+        "scripts/sourcea_website_ui_e2e_audit_v1.py",
+        "reports/sourcea-website-ui-e2e-audit-v1.json",
+        "reports/sourcea-website-ui-e2e-audit-v1.md"
+      ],
+      "validator": "scripts/validate-sourcea-ui-pro-444-v1.sh",
+      "notes": "Pairs with site_assets for HTML/CSS/JS under green-unified."
+    },
+    {
       "id": "other_control",
       "owner": "Coordinator",
       "purpose": "Files that need manual triage or do not fit a narrower lane.",
@@ -171,10 +198,15 @@
         "agent-control-panel/command-data.json",
         "reports/**",
         ".cursor/skills/**",
+        ".gitignore",
+        "ACTIVE_NOW.md",
+        "commercial-video-factory/**",
         "cloud/workers/sourcea-app-proxy-v1/**",
         "data/sourcea-generated-artifact-review-policy-v1.json",
         "data/sourcea-dirty-tree-lane-map-v1.json",
         "scripts/sourcea_dirty_tree_lane_map_v1.py",
+        "scripts/sourcea_dirty_tree_clean_v1.py",
+        "scripts/deploy_dirty_tree_guard_v1.py",
         "scripts/validate-sourcea-dirty-tree-lanes-v1.sh"
       ],
       "validator": null,
