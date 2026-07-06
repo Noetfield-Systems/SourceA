@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Publish packages/sourcea-boot to public GitHub repo kazemnezhadsina144-dot/sourcea-boot."""
+"""Publish packages/sourcea-boot to public GitHub repo Noetfield-Systems/sourcea-boot."""
 from __future__ import annotations
 
 import argparse
@@ -16,7 +16,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PKG = ROOT / "packages" / "sourcea-boot"
-DEFAULT_REPO = "kazemnezhadsina144-dot/sourcea-boot"
+if str(ROOT / "scripts") not in sys.path:
+    sys.path.insert(0, str(ROOT / "scripts"))
+from sourcea_public_github_ssot_v1 import boot_repo_slug  # noqa: E402
+
+DEFAULT_REPO = boot_repo_slug()
 DEFAULT_REMOTE = f"https://github.com/{DEFAULT_REPO}.git"
 RECEIPT = Path.home() / ".sina" / "sourcea-boot-public-publish-receipt-v1.json"
 
