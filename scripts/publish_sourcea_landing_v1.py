@@ -262,20 +262,53 @@ def run_recipe() -> dict:
 
 
 def run_brain_corpus_refresh() -> dict:
-    """Refresh Brain knowledge bundle before landing build (P1-09)."""
+    """Refresh Brain knowledge — gated: skip by default, light on voice drift, full on HTML change."""
+    gate_proc = _run(
+        [sys.executable, str(ROOT / "scripts" / "brain_refresh_gate_v1.py"), "--json"],
+        cwd=ROOT,
+        timeout=30,
+    )
+    gate: dict = {}
+    if gate_proc.returncode == 0 and gate_proc.stdout:
+        try:
+            gate = json.loads(gate_proc.stdout)
+        except json.JSONDecodeError:
+            gate = {}
+    action = gate.get("action") or "skip"
+
+    if action == "skip":
+        return {
+            "ok": True,
+            "skipped": True,
+            "action": "skip",
+            "reason": gate.get("reason", "brain_fresh_enough"),
+            "gate": gate,
+        }
+
+    script = "brain_light_refresh_v1.sh" if action == "light" else "brain_chatbot_refresh_v1.sh"
     env = {**os.environ, "SKIP_BRAIN_EVAL": os.environ.get("SKIP_BRAIN_EVAL", "1")}
     proc = _run(
-        ["bash", str(ROOT / "scripts" / "brain_chatbot_refresh_v1.sh")],
+        ["bash", str(ROOT / "scripts" / script)],
         cwd=ROOT,
         timeout=240,
         env=env,
     )
     ok = proc.returncode == 0
+    if ok:
+        _run(
+            [sys.executable, str(ROOT / "scripts" / "brain_refresh_gate_v1.py"), "--save", "--json"],
+            cwd=ROOT,
+            timeout=15,
+        )
     return {
         "ok": ok,
+        "action": action,
+        "reason": gate.get("reason"),
+        "script": script,
         "returncode": proc.returncode,
         "stdout_tail": (proc.stdout or "")[-600:],
         "stderr_tail": (proc.stderr or "")[-400:],
+        "gate": gate,
     }
 
 
