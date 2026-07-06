@@ -15,6 +15,11 @@
   const MODELS_PUBLIC_URL = "/sourcea/data/forge-terminal-models-public-v1.json";
   const STATUS_TIMEOUT_MS = 12000;
 
+  function isAiReady(data) {
+    if (!data || typeof data !== "object") return false;
+    return Boolean(data.ai_model_ready ?? data.openrouter_ready);
+  }
+
   const $ = (id) => document.getElementById(id);
   let apiUrl = DEFAULT_API;
   let history = [];
@@ -237,8 +242,8 @@
         if (orOnly.length) applyDemoModels(orOnly, pub.default_model);
       }
       setStatus(
-        st.openrouter_ready ? "Live · prompt forge on send" : "Demo offline — email forge@sourcea.app",
-        !!st.openrouter_ready,
+        isAiReady(st) ? "Live · prompt forge on send" : "Demo offline — email forge@sourcea.app",
+        isAiReady(st),
       );
     } catch (_) {
       setStatus("Demo offline — email forge@sourcea.app", false);
