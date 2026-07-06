@@ -118,7 +118,7 @@ CANONICAL_PRODUCTS = [
         "subtitle": "Self-serve gate eval",
         "buyer": "Platform engineers",
         "proof": "PASS/BLOCK before you buy",
-        "url": "https://github.com/kazemnezhadsina144-dot/sourcea-boot",
+        "url": "https://github.com/Noetfield-Systems/sourcea-boot",
         "status": "active",
         "tier": "T0",
     },

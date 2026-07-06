@@ -10,6 +10,13 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT / "scripts") not in __import__("sys").path:
+    __import__("sys").path.insert(0, str(ROOT / "scripts"))
+from sourcea_public_github_ssot_v1 import boot_repo_slug, boot_repo_url  # noqa: E402
+
+BOOT_REPO_SLUG = boot_repo_slug()
+BOOT_REPO_URL = boot_repo_url()
 BASE = "https://sourcea.app"
 SINA = Path.home() / ".sina"
 RECEIPT = SINA / "sourcea-boot-wiring-e2e-receipt-v1.json"
@@ -80,11 +87,11 @@ def has_boot_wire(body: str, path: str) -> bool:
         return "Book an" in body or "mailto:contract@sourcea.app" in body
     if path.endswith(".json"):
         if "trust-signals" in path:
-            return "kazemnezhadsina144-dot/sourcea-boot" in body
+            return BOOT_REPO_SLUG in body or "pypi.org/project/sourcea-boot" in body
         if "boot-proof" in path:
             return "sourcea-boot-proof" in body
         return True
-    patterns = [r"sourcea-boot", r'href="/eval"', r"github.com/kazemnezhadsina144-dot/sourcea-boot"]
+    patterns = [r"sourcea-boot", r'href="/eval"', re.escape(BOOT_REPO_URL)]
     return any(re.search(p, body, re.I) for p in patterns)
 
 
@@ -100,7 +107,7 @@ def run() -> dict:
         r = fetch(url, follow=False)
         ok = r["status"] == code and dest in r.get("location", "")
         checks.append({"path": f"{src} → {dest}", "url": url, "status": r["status"], "location": r.get("location", ""), "ok": ok})
-    gh = fetch("https://api.github.com/repos/kazemnezhadsina144-dot/sourcea-boot")
+    gh = fetch(f"https://api.github.com/repos/{BOOT_REPO_SLUG}")
     return {
         "ok": all(c["ok"] for c in checks),
         "checked_at": datetime.now(timezone.utc).isoformat(),
