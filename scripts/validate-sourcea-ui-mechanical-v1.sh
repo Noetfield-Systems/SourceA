@@ -5,6 +5,8 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
 test -f data/sourcea-ui-mechanical-gate-v1.json || { echo "FAIL: missing UI mechanical SSOT"; exit 1; }
+test -f data/sourcea-ui-mechanical-gate-v2-additions-locked-v1.json || { echo "FAIL: missing v2 additions locked snapshot"; exit 1; }
+test -f docs/SOURCEA_UI_MECHANICAL_GATE_V2_ADDITIONS_LOCKED_v1.md || { echo "FAIL: missing v2 additions locked doc"; exit 1; }
 test -f scripts/sourcea_ui_mechanical_gate_v1.py || { echo "FAIL: missing UI mechanical gate"; exit 1; }
 
 echo "=== UI mechanical gate · bad-positioning fixture (expect BLOCK) ==="
@@ -21,7 +23,7 @@ print(f"OK bad-positioning BLOCK · {row.get('finding_count')} findings")
 PY
 
 echo ""
-echo "=== UI mechanical gate · green-unified disk scan ==="
+echo "=== UI mechanical gate · green-unified disk scan (v2 may BLOCK until RI-2 fixed) ==="
 if ! python3 scripts/sourcea_ui_mechanical_gate_v1.py --json >/tmp/ui-mech-ship.json; then
   python3 - <<'PY'
 import json
@@ -40,10 +42,13 @@ import json
 from pathlib import Path
 row = json.load(open("/tmp/ui-mech-ship.json"))
 assert row.get("verdict") == "PASS", row.get("verdict")
-rcp = Path.home() / ".sina/enforcement/sourcea-ui-mechanical-gate-receipt-v1.json"
+rcp = Path("reports/sourcea-ui-mechanical-gate-receipt-v1.json")
+mirror = Path.home() / ".sina/enforcement/sourcea-ui-mechanical-gate-receipt-v1.json"
 assert rcp.is_file(), f"missing receipt {rcp}"
+assert mirror.is_file(), f"missing mirror {mirror}"
 on_disk = json.loads(rcp.read_text())
 assert on_disk.get("verdict") == "PASS", on_disk.get("verdict")
+assert row.get("gate_version", "").startswith("1.2"), row.get("gate_version")
 print(f"OK disk scan PASS · {row.get('pages_scanned')} assets · receipt {rcp}")
 PY
 
