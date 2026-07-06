@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-06T09:57:10Z
+updated: 2026-07-06T10:57:13Z
 lane: developer
 source_path: sites/SourceA-landing/green-unified/forge/cursor-bridge.html
 public: true
@@ -28,7 +28,7 @@ Forge hands scoped missions to Cursor and your agents — goal and guardrails in
 
 ## Other Forge pages
 
-SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run. Forge carries your goal and guardrails into Cursor — one scoped job, no mystery scope creep.
+SourceA is an AI execution platform — real builds, automations, and agent workflows, with a verifiable receipt on every run. Forge carries your goal and guardrails into Cursor — one scoped job, no mystery scope creep.
 
 Forge carries your goal and guardrails. It does not inflate scope, add steps you did not ask for, or guess paths you have not named.
 
@@ -42,6 +42,6 @@ MCP install doc — see docs/SOURCEA_MCP_VERIFY_INSTALL_v1.md in repo
 
 How Prompt Forge works · Mission prompt template · SSOT policy layer · Chat Unify integration · Try Prompt Forge
 
-SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run.
+SourceA is an AI execution platform — real builds, automations, and agent workflows, with a verifiable receipt on every run.
 
 © 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · noetfield.com · Prompt Forge · sourcea.app

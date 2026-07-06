@@ -1,6 +1,6 @@
 ---
 lane: developer
-updated: 2026-07-06T09:57:10Z
+updated: 2026-07-06T10:57:13Z
 source_path: sites/SourceA-landing/green-unified/kernel/index.html
 public: true
 www_url: https://sourcea.app/sourcea/kernel/
