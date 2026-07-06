@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-02T10:32:00Z
+updated: 2026-07-06T09:57:10Z
 lane: core
 source_path: sites/SourceA-landing/green-unified/founder-home.html
 public: true
@@ -14,7 +14,7 @@ SourceA — AI execution platform powered by Forge
 ## Summary
 Turn AI into real production work — builds, automations, and agent workflows through Forge, with proof built in. Try Forge Terminal in your browser.
 
-## Turn AI into real production work.
+## Proof-backed MVPs and acquisition systems, shipped fast.
 
 ## Real output, not marketing claims.
 
@@ -66,6 +66,8 @@ Turn AI into real production work — builds, automations, and agent workflows t
 
 Evaluate in five minutes with sourcea-boot — PASS or BLOCK on disk. Then Forge Terminal, live receipt, or Brain — no sales call required.
 
+SourceA is the product. Forge is the execution engine. Chat Unify and Cloud Workers are components — not separate products to buy first.
+
 A sample verified job — scored, logged, and shareable. Verify it yourself in under five minutes.
 
 Commercial routing — not a calendar. Each path is self-serve proof, intake, or learn-by-doing today.
@@ -88,7 +90,7 @@ Spend map, cost-to-value taxonomy, and board-ready governance sprint for regulat
 
 Six-layer telemetry, policy gate, and evidence chain for UK institutional control-plane buyers.
 
-Which offer? Operator → Operating Brain · Canada regulated → AI Value Governance · UK institutional → Enterprise Control Plane · Enterprise OS → Noetfield
+Which offer? Operator → Operating Brain · Canada regulated → AI Value Governance · UK institutional → Enterprise Control Plane · Enterprise OS → Governance OS
 
 Verified output on the page — not slides. One live receipt beats a hundred promises.
 
@@ -96,4 +98,6 @@ Every job on SourceA is designed to look like this — verifiable, every time.
 
 Send us one task — we run it through our checks and send back output you can share with a client. No setup required.
 
-© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · noetfield.com · sourcea-boot
+SourceA: build/execution · Noetfield: governance intelligence · TrustField: execution orchestration · Gateway: routing/intake
+
+© 2026 Noetfield Systems Inc. · SourceA is a product of Noetfield Systems Inc. · sourcea-boot
