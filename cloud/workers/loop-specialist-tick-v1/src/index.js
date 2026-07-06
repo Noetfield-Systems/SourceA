@@ -41,8 +41,7 @@ export default {
         crons: meta.crons,
         dispatch: meta,
         nerve_probe: true,
-        ops_motors: ["gmail-sweep", "signal-triage", "kaizen-nightly", "ops-heartbeat"],
-        gateway_monitoring: "uptimerobot_http_only — never Telegram @Gateway_A",
+        ops_motors: ["gmail-sweep", "signal-triage", "kaizen-nightly", "ops-heartbeat", "sg-gateway-watchdog-http", "sg-gateway-heartbeat-http"],
         scheduled_loops: [
           "repo-health-daily",
           "security-sweep-weekly",
