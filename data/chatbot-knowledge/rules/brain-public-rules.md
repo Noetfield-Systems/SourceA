@@ -1,7 +1,7 @@
 ---
 lane: rules
 kind: rule
-updated: 2026-07-06T09:57:10Z
+updated: 2026-07-06T10:57:13Z
 source_path: data/brain-public-rules-v1.json
 public: true
 pinned: true
@@ -35,7 +35,7 @@ SourceA is an AI execution platform powered by Forge — real builds, automation
 - [Factories](/sourcea/factories/)
 
 ## Positioning SSOT
-- one_line: SourceA is an AI execution platform powered by Forge — real builds, automations, and agent workflows, with a verifiable receipt on every run.
+- one_line: SourceA is an AI execution platform — real builds, automations, and agent workflows, with a verifiable receipt on every run.
 - primary_cta: /sourcea/forge/terminal (Try Forge Terminal)
 - agentic_first_law: If the site can show it, strangers never need a founder call. Calls are optional escalation only.
 
