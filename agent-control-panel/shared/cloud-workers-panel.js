@@ -96,7 +96,7 @@
       }
       if (live.cf_observer && live.cf_observer.last_pack) {
         var p = live.cf_observer.last_pack;
-        lines.push("LIVE last pack · processed " + (p.processed != null ? p.processed : "—") + "/" + (p.max_advance || 100));
+        lines.push("LIVE last pack · processed " + (p.processed != null ? p.processed : "—") + "/" + (p.max_advance || 1));
       } else if (live.cf_observer && live.cf_observer.cycles && live.cf_observer.cycles.length) {
         var tail = live.cf_observer.cycles[live.cf_observer.cycles.length - 1];
         var pk = tail.pack || {};
@@ -145,7 +145,7 @@
     if (nextEl) nextEl.textContent = "Next: " + tid + (title ? " · " + title : "");
     var lastEl = $("cloud-proceed-last");
     if (lastEl) {
-      var last = cp.last_line || "Mac observe — CF cron runs full_pack×100 (no Mac proceed)";
+      var last = cp.last_line || "Mac observe — CF cron runs full_pack×1 (no Mac proceed)";
       lastEl.textContent = last;
     }
   }
@@ -235,7 +235,7 @@
       autoBanner.hidden = !autoArmed;
       if (autoArmed) {
         autoBanner.textContent =
-          "CF cron */10 (primary) · full_pack×100 on Railway · Mac observe only — no Mac→Railway commands.";
+          "CF cron */10 (primary) · full_pack×1 on Railway · Mac observe only — no Mac→Railway commands.";
       }
     }
     var macObserve = situation.mac_observe_only === true || (cw.chain && cw.chain.mac_never_commands_railway);
@@ -357,7 +357,7 @@
     var ff = typeof j.for_founder === "string" ? { show_this: j.for_founder } : j.for_founder || {};
     var pack = j.pack || (j.cloud && j.cloud.pack) || (j.motor && j.motor.pack) || {};
     var parts = ["HTTP " + res.status];
-    if (pack.processed != null) parts.push("pack processed " + pack.processed + "/" + (pack.max_advance || 100));
+    if (pack.processed != null) parts.push("pack processed " + pack.processed + "/" + (pack.max_advance || 1));
     if (pack.advanced != null) parts.push("shipped " + pack.advanced);
     if (pack.skipped != null) parts.push("skipped " + pack.skipped);
     if (pack.head_now) parts.push("head " + pack.head_now);
@@ -472,7 +472,7 @@
         var out = $("cloud-proceed-result");
         $("btn-cloud-proceed").disabled = true;
         termStart("trigger_cf_pack", "Trigger CF full-pack (browser→cloud)");
-        termLog("POST " + CF_BASE + "/tick · full_pack×100 on Railway · Mac does NOT call Railway");
+        termLog("POST " + CF_BASE + "/tick · full_pack×1 on Railway · Mac does NOT call Railway");
         if (out) out.textContent = "Triggering CF cron full-pack via browser (not Mac server)…";
         try {
           var res = await fetchWithTimeout(
