@@ -12,7 +12,7 @@ PROOF_STRIP = (
     '<div class="proof-strip wrap" role="region" aria-label="Technical proof">'
     "<p><strong>Verify in 5 minutes:</strong> "
     '<a href="/eval">Run sourcea-boot eval</a> → <code>BOOT_REPORT.json</code> on disk · '
-    '<a href="https://github.com/kazemnezhadsina144-dot/sourcea-boot" target="_blank" rel="noopener">Public GitHub repo</a>'
+    '<a href="https://github.com/Noetfield-Systems/sourcea-boot" target="_blank" rel="noopener">Public GitHub repo</a>'
     "</p></div>"
 )
 
@@ -41,7 +41,7 @@ PAGES = {
         "proof_grid": (
             '<div class="proofgrid"><div class="proofmetric"><span class="proof-label">Portable eval</span>'
             "<b>4 checks</b><span>sourcea-boot PASS/BLOCK — policy, provider, receipt freshness, queue truth. "
-            '<a href="/eval">Run eval</a> · <a href="https://github.com/kazemnezhadsina144-dot/sourcea-boot" target="_blank" rel="noopener">GitHub</a></span></div>'
+            '<a href="/eval">Run eval</a> · <a href="https://github.com/Noetfield-Systems/sourcea-boot" target="_blank" rel="noopener">GitHub</a></span></div>'
             '<div class="proofmetric"><span class="proof-label">Case proof</span>'
             "<b>PureFlow</b><span>Live trades operator proof chain — 48-hour MVP path. "
             '<a href="/sourcea/case-studies/pureflow">Case study</a> · receipt-backed delivery.</span></div></div>'
