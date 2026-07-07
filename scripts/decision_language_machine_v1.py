@@ -228,16 +228,9 @@ def ingest_rows(*, fixture: str | None = None) -> list[dict[str, Any]]:
     return rows
 
 
-def run_pipeline(
-    *,
-    fixture: str = "form_official_80",
-    write_apply: bool = False,
-    allow_apply_map: bool = False,
-) -> dict[str, Any]:
-    canon = consume_sg_canon()
-    terminology = _sg_terminology_terms(canon)
+def _enrich_rows(*, fixture: str, canon: dict[str, Any]) -> list[dict[str, Any]]:
     raw_rows = ingest_rows(fixture=fixture)
-
+    terminology = _sg_terminology_terms(canon)
     enriched: list[dict[str, Any]] = []
     for row in raw_rows:
         rid = row["id"]
@@ -258,6 +251,19 @@ def run_pipeline(
                 "mapped": mapped,
             }
         )
+    return enriched
+
+
+def run_pipeline(
+    *,
+    fixture: str = "form_official_80",
+    write_apply: bool = False,
+    allow_apply_map: bool = False,
+) -> dict[str, Any]:
+    canon = consume_sg_canon()
+    raw_rows = ingest_rows(fixture=fixture)
+    enriched = _enrich_rows(fixture=fixture, canon=canon)
+    terminology = _sg_terminology_terms(canon)
 
     _write_receipt("rewrite_plain_english", {"count": len(enriched), "sample": enriched[:3]})
     _write_receipt("extract_terms", {"count": len(enriched), "unique_terms": sorted({t for r in enriched for t in r["terms"]})[:40]})
@@ -343,13 +349,73 @@ def run_pipeline(
     return summary
 
 
+def run_decision_apply(*, fixture: str = "form_official_80") -> dict[str, Any]:
+    """Defer excluded rows; skeleton apply-map with empty picks (founder authority only)."""
+    canon = consume_sg_canon()
+    enriched = _enrich_rows(fixture=fixture, canon=canon)
+    excluded = [r for r in enriched if not r["mapped"]]
+    deferred_ids = sorted(r["id"] for r in excluded)
+    evidence_closed = sorted(
+        r["id"]
+        for r in excluded
+        if r["classification"] == "MACHINE_VALIDATABLE" and not r["sg_canon_flags"]
+    )
+    defer_ids = sorted(rid for rid in deferred_ids if rid not in evidence_closed)
+
+    apply_map = {
+        "schema": "decision-language-machine-apply-map-v1",
+        "at": _now(),
+        "fixture": fixture,
+        "authority_note": "Skeleton only — picks empty · partial batch shipped · defer remainder",
+        "partial_batch": True,
+        "mapped_ids": FORM_OFFICIAL_22_MAPPED,
+        "picks": {},
+        "excluded_ids": deferred_ids,
+        "excluded_count": len(deferred_ids),
+        "mapped_count": len(FORM_OFFICIAL_22_MAPPED),
+    }
+    apply_path = RECEIPT_DIR / "apply-map-v1.json"
+    apply_path.write_text(json.dumps(apply_map, indent=2) + "\n", encoding="utf-8")
+
+    from live_founder_decision_form_v1 import all_open_questions
+
+    open_remaining = len(all_open_questions())
+    summary = {
+        "ok": True,
+        "sa_id": "sa-decision-apply-v1",
+        "machine": "decision_language_machine_v1",
+        "mode": "decision_apply_defer",
+        "fixture": fixture,
+        "deferred_ids": deferred_ids,
+        "deferred_count": len(deferred_ids),
+        "evidence_closed_ids": evidence_closed,
+        "evidence_closed_count": len(evidence_closed),
+        "defer_only_ids": defer_ids,
+        "apply_map_picks_empty": True,
+        "apply_map_path": str(apply_path),
+        "open_remaining": open_remaining,
+        "forbidden": ["hub_form_submit_v1", "reopen_80", "recommendations_as_authority"],
+    }
+    receipt_path = RECEIPT_DIR / "decision-apply-receipt-v1.json"
+    receipt_path.write_text(
+        json.dumps({"schema": "decision-language-machine-decision-apply-receipt-v1", "at": _now(), **summary}, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    summary["receipt_path"] = str(receipt_path)
+    return summary
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Decision Language Machine v1 (SourceA consume-only runtime)")
     ap.add_argument("--fixture", default="form_official_80")
     ap.add_argument("--allow-apply-map", action="store_true", help="Write apply map skeleton (no picks — founder authority only)")
+    ap.add_argument("--decision-apply", action="store_true", help="sa-decision-apply-v1 — defer rows, empty picks apply-map")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
-    result = run_pipeline(fixture=args.fixture, write_apply=args.allow_apply_map, allow_apply_map=args.allow_apply_map)
+    if args.decision_apply:
+        result = run_decision_apply(fixture=args.fixture)
+    else:
+        result = run_pipeline(fixture=args.fixture, write_apply=args.allow_apply_map, allow_apply_map=args.allow_apply_map)
     if args.json:
         print(json.dumps(result, indent=2))
     else:
