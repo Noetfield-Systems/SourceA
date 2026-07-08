@@ -12,6 +12,13 @@ cp "$SSOT" "$BUNDLE"
 bash "$ROOT/scripts/validate-cf-cron-dispatch-v1.sh"
 
 cd "$WF"
+unset CF_API_TOKEN CLOUDFLARE_API_TOKEN 2>/dev/null || true
+if [[ -f "${HOME}/.sourcea-secrets/cloudflare-tokens.env" ]]; then
+  set -a
+  # shellcheck disable=SC1091
+  source "${HOME}/.sourcea-secrets/cloudflare-tokens.env"
+  set +a
+fi
 export CLOUDFLARE_API_TOKEN="${CF_MAIN_TOKEN:-${CLOUDFLARE_API_TOKEN:-}}"
 if [[ -z "${CLOUDFLARE_API_TOKEN:-}" ]]; then
   echo "WARN: CF_MAIN_TOKEN / CLOUDFLARE_API_TOKEN not set — wrangler may use OAuth"

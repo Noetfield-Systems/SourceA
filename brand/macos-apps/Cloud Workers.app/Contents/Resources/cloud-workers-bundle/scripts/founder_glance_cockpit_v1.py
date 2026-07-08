@@ -59,7 +59,7 @@ APPS: dict[str, dict[str, Any]] = {
         "label": "Cloud Workers Command Center",
         "port": 13027,
         "version": "1.0.0",
-        "primary_cta": "Proceed next cloud task",
+        "primary_cta": "Trigger CF full-pack ×100",
         "primary_button_id": "btn-cloud-proceed",
         "url": "http://127.0.0.1:13027/",
         "standalone_root": "scripts/cloud-workers-standalone",

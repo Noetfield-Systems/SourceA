@@ -2,7 +2,7 @@
 
 **Saved:** 2026-07-01T24:15:00Z  
 **Status:** prep_only — **do not publish** until founder confirms PyPI project ownership  
-**Package:** `sourcea-boot` · **Public repo:** `https://github.com/kazemnezhadsina144-dot/sourcea-boot`  
+**Package:** `sourcea-boot` · **Public repo:** `https://github.com/Noetfield-Systems/sourcea-boot`  
 **Workflow:** `.github/workflows/publish-pypi-v1.yml`
 
 ---
@@ -30,7 +30,7 @@ In PyPI → **Your projects** → **sourcea-boot** → **Publishing** → **Add 
 | Field | Value |
 |-------|--------|
 | **PyPI Project Name** | `sourcea-boot` |
-| **Owner** | `kazemnezhadsina144-dot` |
+| **Owner** | `Noetfield-Systems` |
 | **Repository name** | `sourcea-boot` |
 | **Workflow name** | `publish-pypi-v1.yml` |
 | **Environment name** | `pypi` *(optional but recommended — matches workflow `environment: pypi`)* |
@@ -39,7 +39,7 @@ Save. PyPI shows the publisher as **pending** until the first successful upload 
 
 ### 3. GitHub environment (recommended)
 
-In `kazemnezhadsina144-dot/sourcea-boot` → **Settings** → **Environments** → **New environment**:
+In `Noetfield-Systems/sourcea-boot` → **Settings** → **Environments** → **New environment**:
 
 - Name: `pypi`
 - **Deployment branches:** restrict to `main` only (optional hardening)

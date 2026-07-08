@@ -1,0 +1,16 @@
+{
+  "schema": "noos-cf-cron-gate-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-06T07:40:00Z",
+  "status": "blocked_until_fly_green",
+  "one_law": "No Cloudflare NOOS fleet cron until Fly noos-loop-executor /health + POST /loop pass validate-noos-loop-executor-v1.sh",
+  "blocked": [
+    "noos-loop-fleet-tick-v1 wrangler crons",
+    "repository_dispatch as primary NOOS motor"
+  ],
+  "unblock_requires": [
+    "scripts/deploy_noos_loop_executor_fly_v1.sh",
+    "scripts/validate-noos-loop-executor-v1.sh against Fly URL"
+  ],
+  "then": "CF dispatcher POST → Fly /loop · retire GHA every-5m motor"
+}

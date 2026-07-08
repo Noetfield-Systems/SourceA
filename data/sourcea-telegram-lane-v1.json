@@ -1,0 +1,25 @@
+{
+  "schema": "sourcea-telegram-lane-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-06T06:10:00Z",
+  "one_law": "SourceA ops alerts only — TrustFieldBot → TELEGRAM_OPS_CHAT_ID. @Gateway_A and Sina Gateway lane NEVER receive agent messages.",
+  "allowed": {
+    "bot_username": "TrustFieldBot",
+    "env_token_keys": ["TELEGRAM_PRIMARY_BOT_TOKEN", "TELEGRAM_BOT_TOKEN"],
+    "env_chat_id_key": "TELEGRAM_OPS_CHAT_ID"
+  },
+  "forbidden_usernames": ["Gateway_A", "gateway_a", "@Gateway_A"],
+  "forbidden_env_token_keys": [
+    "TELEGRAM_NOETFIELD_OPS_BOT_TOKEN",
+    "TELEGRAM_SECONDARY_BOT_TOKEN",
+    "TELEGRAM_ALERT_BOT_TOKEN"
+  ],
+  "forbidden_fallback_chat_keys": [
+    "TELEGRAM_ALERT_CHAT_ID",
+    "TELEGRAM_ALLOWED_CHAT_ID"
+  ],
+  "forbidden_lanes": {
+    "sina_gateway": "HTTP probes + UptimeRobot only — zero Telegram from SourceA workers"
+  },
+  "validator": "scripts/validate-sourcea-telegram-lane-v1.sh"
+}

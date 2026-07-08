@@ -1,24 +1,111 @@
 {
   "schema": "healthy-queue-30-active.v1",
-  "product": "Cloud Workers owns all-plan backlog packs",
-  "thread": "CLOUD-FORGE-RUN",
-  "repo": "sourcea",
-  "count": 0,
-  "generated_at": "2026-07-05T15:35:27Z",
-  "phase_strict": false,
-  "phase_strict_complete": true,
-  "queue_exhausted": true,
-  "execution_plane": "cloud_workers_app_and_cloudflare_cron",
-  "cloud_forge_run": {
-    "head": "CLOUD-SEC-7767",
-    "batch_id": 79,
-    "queue_path": "data/secondary-cloud-forge-run-batch-79-locked-v1.json",
-    "rows_per_turn": 100,
-    "tasks_per_row": 100,
-    "task_capacity_this_turn": 10000,
-    "backlog_total": 23485
-  },
-  "stop_reason": "worker_inbox_not_execution_queue_for_cloud_forge_run",
-  "sa_range": [],
-  "queue": []
+  "product": "Deep research UP-DR-01..10 \u2014 Worker mirror",
+  "thread": "DEEP-RESEARCH-W1",
+  "count": 10,
+  "queue": [
+    {
+      "queue_pos": 1,
+      "sa_id": "sa-9041",
+      "plan_id": "UP-DR-01",
+      "title": "Claim hygiene \u2014 install/PyPI",
+      "tier": "P0",
+      "instruction": "WORK: UP-DR-01 \u2014 Claim hygiene \u2014 install/PyPI\nPath: SourceA-landing/green-unified/eval.html\nGoal: Eval page and PyPI probe agree \u2014 no false install promise\nDone when: probe_sourcea_boot_pypi_v1.py ok OR eval copy says GitHub clone pending\nVerify: cd ~/Desktop/SourceA && python3 scripts/probe_sourcea_boot_pypi_v1.py --json && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/eval --marker \"sourcea-boot\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count\nProof: https://sourcea.app/eval\nOne bounded turn \u00b7 receipt + Supabase row \u00b7 WORKER_ROUND_REPORT \u00b7 STOP.",
+      "queue_role": "act",
+      "phase": "phase-deep-research-w1-v1"
+    },
+    {
+      "queue_pos": 2,
+      "sa_id": "sa-9042",
+      "plan_id": "UP-DR-02",
+      "title": "Live demo \u2014 Forge Terminal",
+      "tier": "P0",
+      "instruction": "WORK: UP-DR-02 \u2014 Live demo \u2014 Forge Terminal\nPath: SourceA-landing/green-unified/sourcea/forge/terminal.html\nGoal: Terminal shows online send path OR clear offline + forge@sourcea.app fallback\nDone when: Terminal page markers present; health/send path returns ok or offline banner\nVerify: cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/sourcea/forge/terminal --marker \"Forge Terminal\" --marker \"data-sa-proof-cta\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count\nProof: https://sourcea.app/sourcea/forge/terminal\nOne bounded turn \u00b7 receipt + Supabase row \u00b7 WORKER_ROUND_REPORT \u00b7 STOP.",
+      "queue_role": "act",
+      "phase": "phase-deep-research-w1-v1"
+    },
+    {
+      "queue_pos": 3,
+      "sa_id": "sa-9043",
+      "plan_id": "UP-DR-03",
+      "title": "Lead capture \u2014 intake submit",
+      "tier": "P0",
+      "instruction": "WORK: UP-DR-03 \u2014 Lead capture \u2014 intake submit\nPath: cloud/workers/sourcea-mvp-intake-v1/\nGoal: Start/intake POST stores row in Supabase and shows success reference\nDone when: mvp-intake-config exposes worker URL; verify_mvp_intake_proof_v1 PASS\nVerify: cd ~/Desktop/SourceA && python3 scripts/verify_mvp_intake_proof_v1.py --json && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count\nProof: supabase://mvp_intake_leads\nOne bounded turn \u00b7 receipt + Supabase row \u00b7 WORKER_ROUND_REPORT \u00b7 STOP.",
+      "queue_role": "act",
+      "phase": "phase-deep-research-w1-v1"
+    },
+    {
+      "queue_pos": 4,
+      "sa_id": "sa-9044",
+      "plan_id": "UP-DR-04",
+      "title": "Buyer path \u2014 primary CTA + hero",
+      "tier": "P1",
+      "instruction": "WORK: UP-DR-04 \u2014 Buyer path \u2014 primary CTA + hero\nPath: SourceA-landing/green-unified/index.html\nGoal: Homepage hero primary CTA = Request a 48-hour build; secondary See proof \u00b7 Hero matches research \u00a710 headline + subheadline\nDone when: Homepage has data-sa-primary-cta marker linking to /start or /offer \u00b7 Homepage contains Proof-backed MVPs and acquisition systems, shipped fast\nVerify: cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/ --marker \"Request a 48-hour build\" --marker \"See proof\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count && cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/ --marker \"Proof-backed MVPs\" --marker \"acquisition systems\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count\nProof: https://sourcea.app/\nOne bounded turn \u00b7 receipt + Supabase row \u00b7 WORKER_ROUND_REPORT \u00b7 STOP.",
+      "queue_role": "act",
+      "phase": "phase-deep-research-w1-v1"
+    },
+    {
+      "queue_pos": 5,
+      "sa_id": "sa-9045",
+      "plan_id": "UP-DR-05",
+      "title": "Commercial ladder \u2014 pricing",
+      "tier": "P1",
+      "instruction": "WORK: UP-DR-05 \u2014 Commercial ladder \u2014 pricing\nPath: SourceA-landing/green-unified/pricing.html\nGoal: One ladder: 48h $1.5K\u2013$5K \u00b7 custom $3K\u2013$10K \u00b7 support from $2K/mo \u00b7 /pricing returns 200 and nav Pricing link resolves\nDone when: pricing.html offer.html start.html share same tier copy hash \u00b7 curl 200 on /pricing and validate-sourcea-contract-pages or link check PASS\nVerify: cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/pricing --marker \"$1,500\" --marker \"$5,000\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count && cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/offer --marker \"48-hour\" --marker \"$1,500\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count && cd ~/Desktop/SourceA && curl -fsS -o /dev/null -w '%{http_code}' https://sourcea.app/pricing | grep -q 200 && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count\nProof: https://sourcea.app/pricing\nOne bounded turn \u00b7 receipt + Supabase row \u00b7 WORKER_ROUND_REPORT \u00b7 STOP.",
+      "queue_role": "act",
+      "phase": "phase-deep-research-w1-v1"
+    },
+    {
+      "queue_pos": 6,
+      "sa_id": "sa-9046",
+      "plan_id": "UP-DR-06",
+      "title": "Intake trust \u2014 privacy note",
+      "tier": "P1",
+      "instruction": "WORK: UP-DR-06 \u2014 Intake trust \u2014 privacy note\nPath: SourceA-landing/green-unified/start.html\nGoal: Intake form shows no-resale privacy note above Submit\nDone when: Start page has data-sa-privacy-note marker before submit button\nVerify: cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/start --marker \"no resale\" --marker \"data-sa-privacy-note\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count\nProof: https://sourcea.app/start\nOne bounded turn \u00b7 receipt + Supabase row \u00b7 WORKER_ROUND_REPORT \u00b7 STOP.",
+      "queue_role": "act",
+      "phase": "phase-deep-research-w1-v1"
+    },
+    {
+      "queue_pos": 7,
+      "sa_id": "sa-9047",
+      "plan_id": "UP-DR-07",
+      "title": "Product taxonomy",
+      "tier": "P1",
+      "instruction": "WORK: UP-DR-07 \u2014 Product taxonomy\nPath: SourceA-landing/green-unified/index.html\nGoal: One box: SourceA=product \u00b7 Forge=engine \u00b7 components named once\nDone when: Homepage has data-sa-taxonomy box with three-line explainer\nVerify: cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/ --marker \"data-sa-taxonomy\" --marker \"Forge is the execution engine\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count\nProof: https://sourcea.app/\nOne bounded turn \u00b7 receipt + Supabase row \u00b7 WORKER_ROUND_REPORT \u00b7 STOP.",
+      "queue_role": "act",
+      "phase": "phase-deep-research-w1-v1"
+    },
+    {
+      "queue_pos": 8,
+      "sa_id": "sa-9048",
+      "plan_id": "UP-DR-08",
+      "title": "Proof readability",
+      "tier": "P1",
+      "instruction": "WORK: UP-DR-08 \u2014 Proof readability\nPath: SourceA-landing/green-unified/proof.html\nGoal: Live receipt page adds plain-English what-this-proves strip\nDone when: GET /sourcea/proof/live JSON + human strip on proof page\nVerify: cd ~/Desktop/SourceA && curl -fsS https://sourcea.app/sourcea/proof/live | python3 -c \"import json,sys; d=json.load(sys.stdin); assert d.get('ok') or d.get('verdict')\" && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/proof --marker \"What this proves\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count\nProof: https://sourcea.app/sourcea/proof/live\nOne bounded turn \u00b7 receipt + Supabase row \u00b7 WORKER_ROUND_REPORT \u00b7 STOP.",
+      "queue_role": "act",
+      "phase": "phase-deep-research-w1-v1"
+    },
+    {
+      "queue_pos": 9,
+      "sa_id": "sa-9049",
+      "plan_id": "UP-DR-09",
+      "title": "Ecosystem map",
+      "tier": "P2",
+      "instruction": "WORK: UP-DR-09 \u2014 Ecosystem map\nPath: SourceA-landing/green-unified/index.html\nGoal: Footer or about shows one-line relation map\nDone when: Footer contains data-sa-relation-map with four entities\nVerify: cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/ --marker \"data-sa-relation-map\" --marker \"Noetfield\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count\nProof: https://sourcea.app/\nOne bounded turn \u00b7 receipt + Supabase row \u00b7 WORKER_ROUND_REPORT \u00b7 STOP.",
+      "queue_role": "act",
+      "phase": "phase-deep-research-w1-v1"
+    },
+    {
+      "queue_pos": 10,
+      "sa_id": "sa-9050",
+      "plan_id": "UP-DR-10",
+      "title": "Shareability + ship gate",
+      "tier": "P2",
+      "instruction": "WORK: UP-DR-10 \u2014 Shareability + ship gate\nPath: SourceA-landing/green-unified/index.html\nGoal: og:title and og:description match research \u00a79 P2 copy\nDone when: index.html head has og:title Proof-backed AI execution systems\nVerify: cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/ --marker \"og:title\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count && bash scripts/validate-sourcea-deep-research-10-v1.sh\nProof: https://sourcea.app/\nOne bounded turn \u00b7 receipt + Supabase row \u00b7 WORKER_ROUND_REPORT \u00b7 STOP.",
+      "queue_role": "act",
+      "phase": "phase-deep-research-w1-v1"
+    }
+  ],
+  "head_sa": "sa-9041",
+  "rhythm": "one sa per Worker turn \u00b7 mirrors Cloud Forge Run UP-DR recipes",
+  "saved_at": "2026-07-06T09:17:58Z"
 }

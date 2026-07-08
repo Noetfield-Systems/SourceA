@@ -16,6 +16,7 @@ from brain_chat_knowledge_lib_v1 import (  # noqa: E402
     PINNED_STEMS,
     chunk_text,
     classify_intent,
+    is_curated_source,
     make_chunk,
     search_chunks,
 )
@@ -90,7 +91,14 @@ def load_md_chunks() -> list[dict]:
             source = meta.get("source_path", md.relative_to(ROOT).as_posix())
             www_url = meta.get("www_url")
             kind = meta.get("kind", "doc")
-            pinned = md.stem in PINNED_STEMS or meta.get("pinned", "").lower() == "true" or kind == "rule"
+            rel_md = md.relative_to(ROOT).as_posix()
+            pinned = (
+                md.stem in PINNED_STEMS
+                or meta.get("pinned", "").lower() == "true"
+                or kind == "rule"
+                or is_curated_source(rel_md)
+                or is_curated_source(source)
+            )
             for i, sec in enumerate(chunk_text(body)):
                 if len(sec.strip()) < 40:
                     continue

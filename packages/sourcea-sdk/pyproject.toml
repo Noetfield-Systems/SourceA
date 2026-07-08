@@ -21,7 +21,7 @@ dependencies = []
 
 [project.urls]
 Homepage = "https://sourcea.app/eval"
-Repository = "https://github.com/kazemnezhadsina144-dot/sourcea-sdk"
+Repository = "https://github.com/Noetfield-Systems/sourcea-sdk"
 
 [project.scripts]
 sourcea-sdk = "sourcea_sdk.cli:main"

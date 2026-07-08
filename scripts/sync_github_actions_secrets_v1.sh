@@ -70,9 +70,10 @@ else
   echo "SKIP: GOOGLE_SERVICE_ACCOUNT_JSON (no ${GMAIL_SA})"
 fi
 
-# Telegram (ops motors triage + heartbeat)
+# Telegram (ops motors triage + heartbeat) — founder chat id only, never @Gateway_A
 load_env_file "${HOME}/.sina/secrets.env"
 set_secret TELEGRAM_BOT_TOKEN "${TELEGRAM_BOT_TOKEN:-}"
-set_secret TELEGRAM_CHAT_ID "${TELEGRAM_CHAT_ID:-}"
+set_secret TELEGRAM_PRIMARY_BOT_TOKEN "${TELEGRAM_PRIMARY_BOT_TOKEN:-${TELEGRAM_BOT_TOKEN:-}}"
+set_secret TELEGRAM_OPS_CHAT_ID "${TELEGRAM_OPS_CHAT_ID:-}"
 
 echo "DONE: github actions secrets synced from disk"

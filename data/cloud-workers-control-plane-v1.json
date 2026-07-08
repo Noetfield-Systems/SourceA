@@ -1,8 +1,10 @@
 {
   "schema": "cloud-workers-control-plane-v1",
   "version": "1.4.0",
-  "saved_at": "2026-07-05T15:49:37Z",
-  "one_law": "Cloud Workers (:13027) is the founder cockpit for Railway + CF cron. Cloud Forge Run full-pack only \u2014 100 rows per trigger every 10 min; all-plan backlog rows carry 100 tasks per row.",
+  "saved_at": "2026-07-06T09:37:16Z",
+  "one_law": "Cloud Workers cockpit \u00b7 Auto Runtime */10 \u00b7 max_advance=1 \u00b7 one UP-DR recipe per CLOUD-SEC row \u00b7 Supabase proof gate",
+  "cf_only_24_7": "data/cf-only-24-7-execution-v1.json",
+  "cf_deploy_all": "scripts/deploy_cf_all_motors_v1.sh",
   "ssot_paths": {
     "drain_queue_active": "data/cloud-forge-run-queue-active-v1.json",
     "drain_queue_batch_5": "data/secondary-cloud-forge-run-batch-5-locked-v1.json",
@@ -26,7 +28,7 @@
   },
   "hub_api": {
     "status": "GET http://127.0.0.1:13027/api/cloud-workers/v1",
-    "proceed": "POST http://127.0.0.1:13027/api/cloud-workers/v1 {\"action\":\"proceed\",\"full_pack\":true,\"max_advance\":100}",
+    "proceed": "POST http://127.0.0.1:13027/api/cloud-workers/v1 {\"action\":\"proceed\",\"full_pack\":true,\"max_advance\":1}",
     "auto_tick": "POST http://127.0.0.1:13027/api/cloud-workers/v1 {\"action\":\"auto_tick\"}",
     "probe": "POST http://127.0.0.1:13027/api/cloud-workers/v1 {\"action\":\"probe\"}",
     "activate_batch": "POST /api/cloud-forge-run/queue/v1 {\"action\":\"activate_batch\",\"batch_id\":5}"
@@ -72,17 +74,26 @@
     "stale_volume_pointer": "Deploy image is current but Railway queue endpoint still serves old batch from persistent volume pointer; run sync_pointer_from_image."
   },
   "active_batch": {
-    "batch_id": 80,
+    "batch_id": 82,
     "locked": true,
     "status": "ACTIVE",
     "library": "client-proof-recipe",
-    "head": "CLOUD-SEC-7868",
-    "cloud_sec_range": "CLOUD-SEC-7868..CLOUD-SEC-7967",
-    "rows_per_turn": 100,
+    "head": "CLOUD-SEC-8069",
+    "cloud_sec_range": "CLOUD-SEC-8069..CLOUD-SEC-8095",
+    "rows_per_turn": 1,
     "tasks_per_row": 1,
-    "queue_path": "data/secondary-cloud-forge-run-batch-80-locked-v1.json"
+    "batch_cloud_rows": 27,
+    "queue_path": "data/secondary-cloud-forge-run-batch-82-locked-v1.json"
   },
-  "ready_batch": null,
+  "ready_batch": {
+    "batch_id": 83,
+    "status": "ready_locked",
+    "queue_path": "data/secondary-cloud-forge-run-batch-83-locked-v1.json",
+    "cloud_sec_range": "CLOUD-SEC-8096..CLOUD-SEC-8120",
+    "library": "client-proof-recipe",
+    "tasks_per_row": 1,
+    "source": "deep_research_up_dr_v1"
+  },
   "deployment_lessons": {
     "last_updated_at": "2026-07-02T04:30:00Z",
     "queue_proof_not_health": "Railway /health only proves service is alive; Cloud Forge Run proof is /api/cloud-forge-run/queue/v1 head + batch_id.",
