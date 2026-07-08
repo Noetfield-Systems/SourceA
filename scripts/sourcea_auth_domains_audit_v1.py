@@ -150,6 +150,31 @@ def audit_dist(machine: dict[str, Any]) -> tuple[list[dict[str, Any]], list[dict
     else:
         findings.append(_finding("auth_config_missing", "FAIL", str(cfg_path)))
 
+    for page in gates.get("tier2_pages") or []:
+        rel = str(page.get("path") or "")
+        path = DIST / rel
+        label = rel or "tier2"
+        if not path.is_file():
+            findings.append(_finding(f"tier2_page:{label}", "FAIL", f"missing {path.relative_to(ROOT)}"))
+            continue
+        text = path.read_text(encoding="utf-8")
+        for needle in page.get("must_contain") or []:
+            if needle in text:
+                passes.append({"id": f"tier2:{label}:{needle}", "detail": "ok"})
+            else:
+                findings.append(_finding(f"tier2:{label}", "FAIL", f"missing {needle!r} in {rel}"))
+
+    session_js = DIST / "sourcea" / "sourcea-platform-session-v1.js"
+    if session_js.is_file():
+        sj = session_js.read_text(encoding="utf-8")
+        for needle in gates.get("session_js_must_contain") or []:
+            if needle in sj:
+                passes.append({"id": f"session_js:{needle}", "detail": "ok"})
+            else:
+                findings.append(_finding(f"session_js:{needle}", "FAIL", f"missing in platform-session"))
+    else:
+        findings.append(_finding("session_js_missing", "FAIL", str(session_js)))
+
     return passes, findings
 
 

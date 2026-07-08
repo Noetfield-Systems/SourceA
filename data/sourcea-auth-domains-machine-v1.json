@@ -63,6 +63,10 @@
     "/platform",
     "/sourcea/forge/terminal/signin"
   ],
+  "tier2_gated_paths": [
+    "/sourcea/forge/terminal/profile",
+    "/sourcea/forge/terminal/workspace"
+  ],
   "dist_gates": {
     "required_files": [
       "auth/sign-in.html",
@@ -77,7 +81,32 @@
     "index_must_contain": ["/auth/sign-in", "sourcea-auth-nav-wire-v1.js"],
     "auth_config_schema": "sourcea-platform-auth-config-v1",
     "auth_config_venture": "sourcea",
-    "forbidden_in_tier0_dist": ["must sign in to view", "login required to access this page"]
+    "forbidden_in_tier0_dist": ["must sign in to view", "login required to access this page"],
+    "tier2_pages": [
+      {
+        "path": "sourcea/forge/terminal/profile.html",
+        "must_contain": [
+          "bootTier2HeadGuard(\"profile\")",
+          "routeGuardAsync(\"profile\")",
+          "data-sa-tier2=\"profile\"",
+          "sourcea-auth-tier"
+        ]
+      },
+      {
+        "path": "sourcea/forge/terminal/workspace.html",
+        "must_contain": [
+          "bootTier2HeadGuard(\"workspace\")",
+          "routeGuardAsync(\"workspace\")",
+          "data-sa-tier2=\"workspace\"",
+          "sourcea-auth-tier"
+        ]
+      }
+    ],
+    "session_js_must_contain": [
+      "signInUrl",
+      "bootTier2HeadGuard",
+      "?next="
+    ]
   },
   "live_gates": {
     "tier0_expect_200": [
@@ -109,6 +138,16 @@
         "url": "https://sourcea.app/auth/sign-up",
         "must_contain": "Create your SourceA account",
         "label": "sign-up page"
+      },
+      {
+        "url": "https://sourcea.app/sourcea/forge/terminal/profile",
+        "must_contain": "bootTier2HeadGuard",
+        "label": "tier2 profile gate"
+      },
+      {
+        "url": "https://sourcea.app/sourcea/forge/terminal/workspace",
+        "must_contain": "bootTier2HeadGuard",
+        "label": "tier2 workspace gate"
       }
     ]
   },
