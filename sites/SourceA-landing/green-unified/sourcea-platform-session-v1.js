@@ -9,11 +9,16 @@
   const STORAGE_KEY = "sourcea-platform-session-v1";
   const STEPS = ["sign-in", "profile", "workspace"];
   const ROUTES = {
-    signin: "/sourcea/forge/terminal/signin",
-    signup: "/sourcea/forge/terminal/signup",
+    signin: "/auth/sign-in",
+    signup: "/auth/sign-up",
+    callback: "/auth/callback",
+    signout: "/auth/sign-out",
+    signinForge: "/sourcea/forge/terminal/signin",
+    signupForge: "/sourcea/forge/terminal/signup",
     profile: "/sourcea/forge/terminal/profile",
     workspace: "/sourcea/forge/terminal/workspace",
     demo: "/sourcea/forge/terminal",
+    platform: "/platform",
   };
 
   function emptySession() {
