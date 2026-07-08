@@ -1,0 +1,42 @@
+{
+  "schema": "sa-runtime-canonical-state-v1",
+  "at": "2026-07-08T00:29:49Z",
+  "work_id": "sa-runtime-surface-heal-v1",
+  "authority_order": [
+    "kill_flag_auto_run_disabled",
+    "runtime_controller_receipt",
+    "worker_prompt_inbox",
+    "phase_observed",
+    "factory_now",
+    "projection_surfaces"
+  ],
+  "kill_flag": false,
+  "current_cloud_head": "CLOUD-SEC-8120",
+  "current_cloud_batch": 83,
+  "current_cloud_observed_at": "2026-07-07T14:01:41Z",
+  "current_worker_job": "sa-9001",
+  "current_worker_plan": "UP-DR-01",
+  "current_queue": {
+    "thread": "DEEP-RESEARCH-W1",
+    "phase": "phase-deep-research-w1-v1",
+    "pos": 1,
+    "total": 10,
+    "path": "/Users/sinakazemnezhad/.sina/healthy-queue-30-active.json"
+  },
+  "current_line": "factory-now \u00b7 Valid YES 1000 \u00b7 brain 1000 \u00b7 dual_proof True \u00b7 mode SINGLE_SA \u00b7 queue sa-9001 \u00b7 cloud CLOUD-SEC-8120",
+  "factory_mode": "SINGLE_SA",
+  "sprint_state": "paused_bounded_resume",
+  "resume_required": true,
+  "inbox_pending": true,
+  "inbox_delivered_at": "2026-07-08T00:05:41Z",
+  "runtime_controller_superseded": true,
+  "runtime_controller_receipt_at": "2026-07-07T09:19:52Z",
+  "drift_healed": {
+    "factory_line_was": "factory-now \u00b7 Valid YES 1000 \u00b7 brain 1000 \u00b7 dual_proof True \u00b7 mode SINGLE_SA \u00b7 queue sa-dlm-v1",
+    "factory_queue_sa_was": "sa-dns-public-v1",
+    "healthy_queue_pos_was": 3,
+    "monitor_here_sa_was": "sa-dlm-v1"
+  },
+  "next_allowed_action": "DISPATCH_WORKER_ONE_TURN",
+  "census_at": "2026-07-06T09:59:11Z"
+}

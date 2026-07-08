@@ -1,0 +1,47 @@
+{
+  "schema": "sa-cf-tick-proof-gap-v1",
+  "at": "2026-07-08T00:29:49Z",
+  "census_stale": true,
+  "census_at": "2026-07-06T09:59:11Z",
+  "loops": [
+    {
+      "name": "sourcea-cloud-auto-runtime-tick-v1",
+      "status": "RUNNING_PROOF_GAP",
+      "schedule_cron": "*/10 * * * *",
+      "last_receipt_at": null,
+      "census_at": "2026-07-06T09:59:11Z",
+      "value_class": "META"
+    },
+    {
+      "name": "sourcea-loop-specialist-tick-v1",
+      "status": "RUNNING_PROOF_GAP",
+      "schedule_cron": "*/15 * * * *",
+      "last_receipt_at": null,
+      "census_at": "2026-07-06T09:59:11Z",
+      "value_class": "META"
+    },
+    {
+      "name": "sourcea-signal-factory-tick-v1",
+      "status": "RUNNING_PROOF_GAP",
+      "schedule_cron": null,
+      "last_receipt_at": null,
+      "census_at": "2026-07-06T09:59:11Z",
+      "value_class": "META"
+    },
+    {
+      "name": "noetfield-nerve-probe-v1",
+      "status": "RUNNING_PROOF_GAP",
+      "schedule_cron": null,
+      "last_receipt_at": null,
+      "census_at": "2026-07-06T09:59:11Z",
+      "value_class": "GUARD"
+    }
+  ],
+  "follow_up_fix_items": [
+    "Wire tick receipt path for sourcea-cloud-auto-runtime-tick-v1 into workflow-census last_receipt_at",
+    "Wire tick receipt path for sourcea-loop-specialist-tick-v1 into workflow-census last_receipt_at",
+    "Wire tick receipt path for sourcea-signal-factory-tick-v1 into workflow-census last_receipt_at",
+    "Wire tick receipt path for noetfield-nerve-probe-v1 into workflow-census last_receipt_at"
+  ],
+  "law": "Do not claim PASS without receipt path"
+}

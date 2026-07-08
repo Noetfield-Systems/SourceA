@@ -117,6 +117,10 @@ def build(*, clean: bool = True) -> dict:
             shutil.copy2(f, auth_dest / f.name)
     if eval_src.is_file():
         shutil.copy2(eval_src, DIST / "eval.html")
+    for legal in ("privacy.html", "cookies.html"):
+        legal_src = GREEN / legal
+        if legal_src.is_file():
+            shutil.copy2(legal_src, DIST / legal)
 
     sys.path.insert(0, str(ROOT / "scripts"))
     from sourcea_clean_urls_v1 import write_redirects  # noqa: WPS433
@@ -127,13 +131,37 @@ def build(*, clean: bool = True) -> dict:
     if headers_src.is_file():
         shutil.copy2(headers_src, DIST / "_headers")
 
+    cookie_css_snippet = '<link rel="stylesheet" href="/sourcea/sourcea-cookie-consent-v1.css" />\n'
+    cookie_js_snippet = (
+        '<script src="/sourcea/sourcea-cookie-consent-v1.js" defer></script>\n'
+        '<script src="/sourcea/sourcea-site-ux-v1.js" defer></script>\n'
+    )
     pulse_snippet = '<script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>\n'
     interact_snippet = '<script src="/sourcea/sourcea-site-interact-v1.js" defer></script>\n'
     segment_snippet = '<script src="/sourcea/sourcea-segment-router-v1.js" defer></script>\n'
     auth_nav_snippet = '<script src="/sourcea/sourcea-auth-nav-wire-v1.js" defer></script>\n'
-    shell_snippet = pulse_snippet + interact_snippet + segment_snippet + auth_nav_snippet
+    shell_snippet = cookie_js_snippet + pulse_snippet + interact_snippet + segment_snippet + auth_nav_snippet
+
+    def inject_cookie_css(text: str) -> str:
+        if "sourcea-cookie-consent-v1.css" in text:
+            return text
+        if "</head>" in text:
+            return text.replace("</head>", cookie_css_snippet + "</head>", 1)
+        return text
+
+    def inject_cookie_js(text: str) -> str:
+        if "sourcea-cookie-consent-v1.js" in text:
+            return text
+        anchor = '<script src="/sourcea/sourcea-site-pulse-v1.js"'
+        if anchor in text:
+            return text.replace(anchor, cookie_js_snippet + anchor, 1)
+        if "</body>" in text:
+            return text.replace("</body>", cookie_js_snippet + "</body>", 1)
+        return text
 
     def inject_shell(text: str) -> str:
+        text = inject_cookie_css(text)
+        text = inject_cookie_js(text)
         if (
             "sourcea-site-interact-v1.js" in text
             and "sourcea-segment-router-v1.js" in text
@@ -167,6 +195,13 @@ def build(*, clean: bool = True) -> dict:
         new_text = inject_shell(text)
         if new_text != text:
             (DIST / "index.html").write_text(new_text, encoding="utf-8")
+    for legal in ("privacy.html", "cookies.html"):
+        legal_path = DIST / legal
+        if legal_path.is_file():
+            text = legal_path.read_text(encoding="utf-8")
+            new_text = inject_shell(text)
+            if new_text != text:
+                legal_path.write_text(new_text, encoding="utf-8")
 
     proof_pack = sourcea_dir / "data" / PROOF_PACK_NAME
     if not proof_pack.is_file():

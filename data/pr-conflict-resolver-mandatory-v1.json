@@ -1,0 +1,64 @@
+{
+  "schema": "pr-conflict-resolver-mandatory-v1",
+  "status": "LOCKED",
+  "locked_at": "2026-07-08T02:25:00Z",
+  "authority": "ASF",
+  "one_law": "Governance-sensitive merge conflicts MUST follow pr-conflict-resolver skill before any side is picked, committed, or declared merge-ready.",
+  "sg_ssot_root": "~/Desktop/Noetfield-Systems/sina-governance-SSOT",
+  "sg_lock_manifest": "data/pr_conflict_skill_lock_v1.json",
+  "canonical_skill": "skills/pr-conflict-resolver/SKILL.md",
+  "sg_lock_doc": "skills/pr-conflict-resolver/PR_CONFLICT_RESOLVER_SKILL_LOCKED_v1.md",
+  "sourcea_lock_doc": "docs/PR_CONFLICT_RESOLVER_REPORT_APP_PR_CONFLICT_RESOLVER_SKILL_MANDATORY_MAC_LOCKED_v1.md",
+  "sourcea_law": "brain-os/law/enforcement/PR_CONFLICT_RESOLVER_MANDATORY_LOCKED_v1.md",
+  "desktop_app": {
+    "ssot_path": "~/Desktop/Noetfield-Systems/sina-governance-SSOT/desktop-app/PR-Conflict-Resolver-Report.app",
+    "desktop_shortcut": "~/Desktop/PR-Conflict-Resolver-Report.app",
+    "launcher": "Contents/MacOS/launcher",
+    "report_html": "Contents/Resources/report.html"
+  },
+  "eval_app": {
+    "open_cmd": "open ~/Desktop/PR-Conflict-Resolver-Report.app",
+    "benchmark_pass_rate_with_skill": 1.0,
+    "benchmark_pass_rate_without_skill": 0.7625
+  },
+  "first_check": {
+    "wire_receipt": "~/.sina/pr-conflict-resolver-first-check-receipt-v1.json",
+    "ack_receipt": "~/.sina/pr-conflict-resolver-ack-v1.json",
+    "wire_cmd": "python3 scripts/pr_conflict_resolver_first_check_v1.py --wire --json",
+    "ack_cmd": "python3 scripts/pr_conflict_resolver_first_check_v1.py --ack --json",
+    "check_cmd": "python3 scripts/pr_conflict_resolver_first_check_v1.py --check --path <file> --json"
+  },
+  "verifiers": {
+    "sg": "python3 ~/Desktop/Noetfield-Systems/sina-governance-SSOT/scripts/verify_pr_conflict_skill_v1.py --mac-desktop --json",
+    "sourcea": "python3 scripts/verify_pr_conflict_skill_v1.py --json",
+    "mandatory_wiring": "bash scripts/validate-pr-conflict-resolver-mandatory-v1.sh"
+  },
+  "governance_sensitive_globs": [
+    "data/*_registry_v1.json",
+    "data/*_surfaces_v1.json",
+    "data/*inventory*.json",
+    "data/github-automation-governance-v1.json",
+    "data/trigger-registry-v1.json",
+    "data/automation-lane-registry-v1.json",
+    "data/automation-conflict-matrix-v1.json",
+    "receipts/**/*.json",
+    "brain-os/**/*LOCKED*.md",
+    "docs/**/*LOCKED*.md",
+    "ssot/**/*LOCKED*"
+  ],
+  "conflict_marker_patterns": [
+    "<<<<<<<",
+    ">>>>>>>",
+    "======="
+  ],
+  "resolution_receipt_glob": "receipts/pr-conflict-resolution-*.json",
+  "mandatory_for_roles": [
+    "sourcea_worker",
+    "sourcea_brain",
+    "sg_sssot_cursor",
+    "cursor"
+  ],
+  "cursor_rule": ".cursor/rules/pr-conflict-resolver-mandatory-v1.mdc",
+  "skill_sha256_prefix": "f460c26916385116",
+  "evals_sha256_prefix": "dbc87948eaeb457d"
+}
