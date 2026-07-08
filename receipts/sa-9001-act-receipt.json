@@ -1,0 +1,16 @@
+{
+  "schema": "sourcea-sa-act-receipt-v1",
+  "sa_id": "sa-9001",
+  "plan_id": "UP-DR-01",
+  "status": "PASS",
+  "round_type": "act",
+  "title": "Claim hygiene — install/PyPI",
+  "evidence": {
+    "pypi_probe": {"ok": true, "package": "sourcea-boot", "version": "0.1.1"},
+    "live_eval": "PASS https://sourcea.app/eval sourcea-boot marker",
+    "supabase_count": 2643,
+    "proof_url": "https://sourcea.app/eval"
+  },
+  "summary": "Eval page and PyPI probe agree — pip install sourcea-boot v0.1.1 live; no false install promise.",
+  "at": "2026-07-08T00:35:00Z"
+}

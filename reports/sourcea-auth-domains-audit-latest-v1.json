@@ -1,0 +1,118 @@
+{
+  "schema": "sourcea-auth-domains-audit-v1",
+  "at": "2026-07-08T07:38:09Z",
+  "mode": "dist",
+  "loop_id": "sourcea_auth_domains_audit_v1",
+  "venture": "sourcea",
+  "domains": [
+    "sourcea.app",
+    "www.sourcea.app",
+    "sourcea.ca",
+    "sourcea.uk"
+  ],
+  "verdict": "PASS",
+  "ok": true,
+  "pass_count": 24,
+  "fail_count": 0,
+  "passes": [
+    {
+      "id": "dist_file:auth/sign-in.html",
+      "detail": "present"
+    },
+    {
+      "id": "dist_file:auth/sign-up.html",
+      "detail": "present"
+    },
+    {
+      "id": "dist_file:auth/callback.html",
+      "detail": "present"
+    },
+    {
+      "id": "dist_file:auth/sign-out.html",
+      "detail": "present"
+    },
+    {
+      "id": "dist_file:sourcea/data/sourcea-platform-auth-config-v1.json",
+      "detail": "present"
+    },
+    {
+      "id": "dist_file:sourcea/sourcea-platform-auth-v1.js",
+      "detail": "present"
+    },
+    {
+      "id": "dist_file:sourcea/sourcea-auth-nav-wire-v1.js",
+      "detail": "present"
+    },
+    {
+      "id": "dist_file:index.html",
+      "detail": "present"
+    },
+    {
+      "id": "index_contains:/auth/sign-in",
+      "detail": "ok"
+    },
+    {
+      "id": "index_contains:sourcea-auth-nav-wire-v1.js",
+      "detail": "ok"
+    },
+    {
+      "id": "index_forbidden_absent:must sign in to view",
+      "detail": "ok"
+    },
+    {
+      "id": "index_forbidden_absent:login required to access this page",
+      "detail": "ok"
+    },
+    {
+      "id": "auth_config",
+      "detail": "schema venture callback ok"
+    },
+    {
+      "id": "tier2:sourcea/forge/terminal/profile.html:bootTier2HeadGuard(\"profile\")",
+      "detail": "ok"
+    },
+    {
+      "id": "tier2:sourcea/forge/terminal/profile.html:routeGuardAsync(\"profile\")",
+      "detail": "ok"
+    },
+    {
+      "id": "tier2:sourcea/forge/terminal/profile.html:data-sa-tier2=\"profile\"",
+      "detail": "ok"
+    },
+    {
+      "id": "tier2:sourcea/forge/terminal/profile.html:sourcea-auth-tier",
+      "detail": "ok"
+    },
+    {
+      "id": "tier2:sourcea/forge/terminal/workspace.html:bootTier2HeadGuard(\"workspace\")",
+      "detail": "ok"
+    },
+    {
+      "id": "tier2:sourcea/forge/terminal/workspace.html:routeGuardAsync(\"workspace\")",
+      "detail": "ok"
+    },
+    {
+      "id": "tier2:sourcea/forge/terminal/workspace.html:data-sa-tier2=\"workspace\"",
+      "detail": "ok"
+    },
+    {
+      "id": "tier2:sourcea/forge/terminal/workspace.html:sourcea-auth-tier",
+      "detail": "ok"
+    },
+    {
+      "id": "session_js:signInUrl",
+      "detail": "ok"
+    },
+    {
+      "id": "session_js:bootTier2HeadGuard",
+      "detail": "ok"
+    },
+    {
+      "id": "session_js:?next=",
+      "detail": "ok"
+    }
+  ],
+  "findings": [],
+  "machine_ssot": "data/sourcea-auth-domains-machine-v1.json",
+  "plan_ssot": "data/sourcea-auth-upgrade-plan-v1.json"
+}
