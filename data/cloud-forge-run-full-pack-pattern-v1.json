@@ -1,17 +1,17 @@
 {
   "schema": "cloud-forge-run-full-pack-pattern-v1",
   "version": "2.0.0",
-  "saved_at": "2026-07-05T15:58:00Z",
+  "saved_at": "2026-07-06T09:17:58Z",
   "locked": true,
   "incident_ref": "brain-os/incidents/SINA_CLOUD_FORGE_RUN_BATCH3_RAILWAY_CHAIN_INCIDENT_042_LOCKED_v1.md",
   "vocabulary_incident_045": "brain-os/incidents/SINA_CLOUD_FORGE_RUN_REALISTIC_MOTOR_SUPERSESSION_INCIDENT_045_LOCKED_v1.md",
   "vocabulary_ssot": "data/cloud-forge-run-realistic-motor-law-v1.json",
   "law_doc": "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_FULL_PACK_PATTERN_LOCKED_v1.md",
   "vocabulary_law": "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_REALISTIC_MOTOR_LOCKED_v1.md",
-  "one_law": "One external trigger (~10 min) = up to 10 doable queue rows in one Railway POST — proof gate per row — NOT mandatory 100 counter theater",
+  "one_law": "CF cron (~10 min) \u2192 one Railway POST \u2192 1 doable task(s) (one recipe per row). Proof gate + Supabase before advance.",
   "pattern": {
     "full_pack": true,
-    "max_advance_per_tick": 10,
+    "max_advance_per_tick": 1,
     "internal_loop": "run_auto_runtime_pack in cloud_auto_runtime_v1.py",
     "not": "one CLOUD-SEC per cloudflare cron tick"
   },
@@ -23,7 +23,7 @@
       "body": {
         "trigger_source": "cloudflare_cron",
         "full_pack": true,
-        "max_advance": 10,
+        "max_advance": 1,
         "auto_tick": true
       }
     },
@@ -33,7 +33,7 @@
       "body": {
         "action": "proceed",
         "full_pack": true,
-        "max_advance": 10,
+        "max_advance": 1,
         "trigger_source": "hub_proceed_pack"
       }
     }
@@ -45,7 +45,7 @@
     "observer": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/observer/v1",
     "mac_cockpit": "Cloud Workers.app http://127.0.0.1:13027/"
   },
-    "batches": {
+  "batches": {
     "batch_2": {
       "status": "COMPLETE",
       "range": "CLOUD-SEC-101..CLOUD-SEC-200",
@@ -83,7 +83,7 @@
     "batch_10": {
       "status": "ready_locked",
       "range": "CLOUD-SEC-901..CLOUD-SEC-910",
-      "note": "Final 10 registry backlog rows — sa-mkt-0991..1000"
+      "note": "Final 10 registry backlog rows \u2014 sa-mkt-0991..1000"
     }
   },
   "deploy_guard": {

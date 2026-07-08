@@ -13,6 +13,8 @@
   }
 
   var CF_BASE = "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev";
+  var CF_LOOP_BASE = "https://sourcea-loop-specialist-tick-v1.sina-kazemnezhad-ca.workers.dev";
+  var CF_DEADMAN_BASE = "https://sourcea-deadman-v1.sina-kazemnezhad-ca.workers.dev";
 
   function mountTerminal() {
     if (window.SinaMainTerminal && window.SinaMainTerminal.mount) window.SinaMainTerminal.mount();
@@ -28,12 +30,24 @@
   }
 
   async function fetchLiveChainFromCf() {
-    var out = { cf_health: null, cf_queue: null, cf_observer: null, errors: [] };
+    var out = { cf_health: null, cf_loop: null, cf_deadman: null, cf_queue: null, cf_observer: null, errors: [] };
     try {
       var hres = await fetch(CF_BASE + "/health", { cache: "no-store" });
       out.cf_health = await hres.json();
     } catch (e) {
       out.errors.push("cf_health: " + e.message);
+    }
+    try {
+      var lres = await fetch(CF_LOOP_BASE + "/health", { cache: "no-store" });
+      out.cf_loop = await lres.json();
+    } catch (e) {
+      out.errors.push("cf_loop: " + e.message);
+    }
+    try {
+      var dres = await fetch(CF_DEADMAN_BASE + "/health", { cache: "no-store" });
+      out.cf_deadman = await dres.json();
+    } catch (e) {
+      out.errors.push("cf_deadman: " + e.message);
     }
     try {
       var qres = await fetch(CF_BASE + "/queue", { cache: "no-store" });
@@ -63,7 +77,13 @@
       lines.push("  local head " + ((c.queue_local && c.queue_local.head) || "—") + " · batch " + ((c.queue_local && c.queue_local.batch_id) || "—"));
     }
     if (live) {
-      if (live.cf_health) lines.push("CF cron · " + (live.cf_health.cron || "*/10 * * * *") + " · service " + (live.cf_health.service || "—"));
+      if (live.cf_loop && live.cf_loop.ok) {
+        lines.push("CF loop-specialist · */15 · jobs " + ((live.cf_loop.dispatch && live.cf_loop.dispatch.job_count) || "—"));
+      }
+      if (live.cf_deadman && live.cf_deadman.ok) {
+        lines.push("CF deadman · " + (live.cf_deadman.cron || "*/30") + " · watches " + ((live.cf_deadman.watches && live.cf_deadman.watches.length) || "—"));
+      }
+      if (live.cf_health) lines.push("CF auto-runtime · " + (live.cf_health.cron || "*/10 * * * *") + " · proceed " + (live.cf_health.auto_proceed_ready ? "ON" : "off"));
       if (live.cf_queue && live.cf_queue.cloud_forge_run_head) {
         lines.push(
           "LIVE queue · head " +
@@ -84,6 +104,25 @@
       }
       if (live.errors && live.errors.length) lines.push("LIVE errors · " + live.errors.join(" · "));
     }
+    lines.push("Forge L3 queue · ~/.sina/forge-l3-repair-queue-v1.json");
+    lines.push("Forge L3 receipt · ~/.sina/forge-l3-auto-runtime-latest-v1.json");
+    lines.push("Forge swarm cloud · ~/.sina/forge-swarm-cloud-dispatch-latest-v1.json");
+    lines.push("Forge civilization memory · ~/.sina/forge-civilization-memory-v1.json");
+    lines.push("Forge agent registry · ~/.sina/forge-agent-registry-v1.json");
+    lines.push("Forge civilization tick · ~/.sina/forge-civilization-tick-latest-v1.json");
+    lines.push("Forge governance · ~/.sina/forge-governance-violations-v1.jsonl");
+    lines.push("Forge legal cases v3 · ~/.sina/forge-governance-cases-v3.json");
+    lines.push("Forge legal precedent v3 · ~/.sina/forge-governance-precedent-v3.json");
+    lines.push("Forge geo legal v4 · ~/.sina/forge-geopolitical-legal-v4.json");
+    lines.push("Forge self-build v1 · ~/.sina/forge-self-build-latest-v1.json");
+    lines.push("Forge world system v6 · ~/.sina/forge-world-system-tick-latest-v6.json");
+    lines.push("Forge consciousness v7 · ~/.sina/forge-planetary-consciousness-v7.json");
+    lines.push("Forge reality consciousness v8 · ~/.sina/forge-reality-consciousness-v8.json");
+    lines.push("Forge Prompt OS runtime v3 · ~/.sina/forge-prompt-os-runtime-latest-v3.json");
+    lines.push("Forge Prompt OS queue v3 · ~/.sina/forge-prompt-os-runtime-queue-v3.json");
+    lines.push("Forge Prompt OS learning · ~/.sina/forge-prompt-os-learning-v2.json");
+    lines.push("Forge economy credits · ~/.sina/forge-economy-v1.json");
+    lines.push("Forge world state v6 · ~/.sina/forge-world-state-v1.json");
     return lines.join("\n");
   }
 
@@ -212,7 +251,7 @@
     var autoPill = $("cw-auto-pill");
     if (autoPill && cw.auto_runtime) {
       var ar = cw.auto_runtime;
-      autoPill.textContent = ar.auto_proceed_enabled ? "Auto drain ARMED" : "Auto drain OFF";
+      autoPill.textContent = ar.auto_proceed_enabled ? "Auto Runtime ARMED" : "Auto Runtime OFF";
       autoPill.className = "cw-hub-pill " + (ar.auto_proceed_enabled ? "ok" : "warn");
     }
   }
@@ -233,8 +272,9 @@
     var apis = (cw && cw.hub_apis) || {};
     var rows = [
       { label: "Railway FBE runner", href: "https://sourcea-fbe-runner-production.up.railway.app/health" },
-      { label: "Cloud drain queue", href: "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/queue/v1" },
+      { label: "Cloud forge queue", href: "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/queue/v1" },
       { label: "Observer", href: "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/observer/v1" },
+      { label: "Evidence audit (split tiers)", href: "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/evidence-audit/v1" },
       { label: "Proceed log", path: "~/.sina/cloud-workers-proceed-log-v1.jsonl" },
       { label: "Proceed receipt", path: "~/.sina/hub-cloud-forge-run-proceed-receipt-v1.json" },
       { label: "Event log", path: "~/.sina/cloud-workers-event-log-v1.json" },

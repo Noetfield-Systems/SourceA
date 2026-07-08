@@ -22,10 +22,56 @@ export function allCronRows() {
   return DISPATCH.crons || [];
 }
 
+/** Match standard 5-field UTC cron against a Date (covers SSOT expressions). */
+export function isCronDue(expr, date = new Date()) {
+  const parts = String(expr || "").trim().split(/\s+/);
+  if (parts.length !== 5) return false;
+  const [minF, hourF, domF, monthF, dowF] = parts;
+  const minute = date.getUTCMinutes();
+  const hour = date.getUTCHours();
+  const dom = date.getUTCDate();
+  const month = date.getUTCMonth() + 1;
+  const dow = date.getUTCDay();
+  return (
+    fieldMatches(minF, minute) &&
+    fieldMatches(hourF, hour) &&
+    fieldMatches(domF, dom) &&
+    fieldMatches(monthF, month) &&
+    fieldMatches(dowF, dow)
+  );
+}
+
+function fieldMatches(field, value) {
+  if (field === "*") return true;
+  if (field.includes(",")) {
+    return field.split(",").some((part) => fieldMatches(part.trim(), value));
+  }
+  if (field.startsWith("*/")) {
+    const step = Number(field.slice(2));
+    return Number.isFinite(step) && step > 0 && value % step === 0;
+  }
+  return Number(field) === value;
+}
+
+export async function runDueDispatch(env, handlers, { trigger = "cloudflare_cron_loop_specialist", now = new Date() } = {}) {
+  const runs = [];
+  for (const row of allCronRows()) {
+    if (!isCronDue(row.cron, now)) continue;
+    runs.push(await runDispatchJobs(env, row.cron, handlers, { trigger }));
+  }
+  return {
+    ok: runs.length > 0 && runs.every((r) => r.ok),
+    schema: "loop-specialist-cron-dispatch-due-v1",
+    at: now.toISOString(),
+    due_count: runs.length,
+    runs,
+  };
+}
+
 export async function runDispatchJobs(env, cron, handlers, { trigger = "cloudflare_cron" } = {}) {
   const row = jobsForCron(cron);
-  const results = [];
-  for (const job of row.jobs) {
+
+  async function runOneJob(job) {
     const started = Date.now();
     try {
       let result;
@@ -41,7 +87,7 @@ export async function runDispatchJobs(env, cron, handlers, { trigger = "cloudfla
       } else {
         result = { ok: false, error: "unknown_job_kind", kind: job.kind };
       }
-      results.push({
+      return {
         id: job.id,
         kind: job.kind,
         handler: job.handler || null,
@@ -49,17 +95,27 @@ export async function runDispatchJobs(env, cron, handlers, { trigger = "cloudfla
         ok: Boolean(result?.ok),
         ms: Date.now() - started,
         result,
-      });
+      };
     } catch (exc) {
-      results.push({
+      return {
         id: job.id,
         kind: job.kind,
         ok: false,
         ms: Date.now() - started,
         error: String(exc).slice(0, 200),
-      });
+      };
     }
   }
+
+  const jobs = row.jobs || [];
+  const results = row.parallel_jobs
+    ? await Promise.all(jobs.map((job) => runOneJob(job)))
+    : await jobs.reduce(async (accP, job) => {
+        const acc = await accP;
+        acc.push(await runOneJob(job));
+        return acc;
+      }, Promise.resolve([]));
+
   return {
     ok: results.every((r) => r.ok),
     schema: "loop-specialist-cron-dispatch-run-v1",
@@ -67,6 +123,7 @@ export async function runDispatchJobs(env, cron, handlers, { trigger = "cloudfla
     cron,
     trigger_id: row.trigger_id || null,
     label: row.label || null,
+    parallel_jobs: Boolean(row.parallel_jobs),
     results,
   };
 }

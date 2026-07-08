@@ -15,6 +15,11 @@
   const MODELS_PUBLIC_URL = "/sourcea/data/forge-terminal-models-public-v1.json";
   const STATUS_TIMEOUT_MS = 12000;
 
+  function isAiReady(data) {
+    if (!data || typeof data !== "object") return false;
+    return Boolean(data.ai_model_ready ?? data.openrouter_ready);
+  }
+
   const $ = (id) => document.getElementById(id);
   let apiUrl = DEFAULT_API;
   let history = [];
@@ -151,6 +156,11 @@
     if (!el) return;
     el.textContent = text;
     el.classList.toggle("is-live", !!live);
+    const banner = $("sa-ft-offline-banner");
+    if (banner) {
+      const offline = /offline|failed/i.test(text);
+      banner.hidden = !offline;
+    }
   }
 
   function fetchJson(url, body, timeoutMs) {
@@ -232,11 +242,11 @@
         if (orOnly.length) applyDemoModels(orOnly, pub.default_model);
       }
       setStatus(
-        st.openrouter_ready ? "Live · prompt forge on send" : "Demo offline — book a walkthrough",
-        !!st.openrouter_ready,
+        isAiReady(st) ? "Live · prompt forge on send" : "Demo offline — email forge@sourcea.app",
+        isAiReady(st),
       );
     } catch (_) {
-      setStatus("Demo offline — book a walkthrough", false);
+      setStatus("Demo offline — email forge@sourcea.app", false);
     }
   }
 
@@ -332,10 +342,24 @@
         input.value = "";
         input.focus();
       }
+      if (document.body.classList.contains("sa-ft-embed")) {
+        try {
+          window.parent.postMessage(
+            {
+              schema: "sa-forge-embed-v1",
+              type: "height",
+              height: Math.ceil(document.documentElement.scrollHeight),
+            },
+            window.location.origin
+          );
+        } catch (_) {
+          /* ignore */
+        }
+      }
     } catch (e) {
       if (typing && typing.parentNode) typing.parentNode.removeChild(typing);
       appendBubble("assistant", "", String(e.message || e));
-      setStatus("Send failed — try again or book a call", false);
+      setStatus("Send failed — try again or open full terminal", false);
     } finally {
       busy = false;
       $("sa-ft-send") && ($("sa-ft-send").disabled = false);
@@ -355,6 +379,50 @@
   }
 
   function bind() {
+    const params = new URLSearchParams(location.search);
+    const embedMode = params.get("embed") === "1" || document.documentElement.classList.contains("sa-ft-embed-mode");
+
+    function postEmbedHeight() {
+      if (!embedMode || window.parent === window) return;
+      try {
+        window.parent.postMessage(
+          {
+            schema: "sa-forge-embed-v1",
+            type: "height",
+            height: Math.ceil(document.documentElement.scrollHeight),
+          },
+          window.location.origin
+        );
+      } catch (_) {
+        /* ignore */
+      }
+    }
+
+    if (embedMode) {
+      document.body.classList.add("sa-ft-embed");
+      const aside = document.querySelector(".sa-ft-aside");
+      if (aside) aside.setAttribute("hidden", "");
+      const header = document.querySelector("header.ar-header");
+      if (header) header.setAttribute("hidden", "");
+      const fb = $("sa-ft-feedback");
+      if (fb) fb.setAttribute("hidden", "");
+      if ("ResizeObserver" in window) {
+        new ResizeObserver(postEmbedHeight).observe(document.body);
+      }
+      window.addEventListener("load", postEmbedHeight);
+      setTimeout(postEmbedHeight, 400);
+      setTimeout(function () {
+        try {
+          window.parent.postMessage(
+            { schema: "sa-forge-embed-v1", type: "ready" },
+            window.location.origin
+          );
+        } catch (_) {
+          /* ignore */
+        }
+      }, 300);
+    }
+
     $("sa-ft-send") && $("sa-ft-send").addEventListener("click", onSend);
     $("sa-ft-input") &&
       $("sa-ft-input").addEventListener("keydown", function (ev) {

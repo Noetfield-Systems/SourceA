@@ -1,23 +1,24 @@
 {
   "schema": "sourcea-trust-signals-v1",
-  "at": "2026-07-02T07:25:17Z",
-  "receipts_signed_today": 4,
-  "receipts_signed_lifetime": 5672,
+  "at": "2026-07-07T07:41:42Z",
+  "receipts_signed_today": 1,
+  "receipts_signed_lifetime": 5677,
   "receipts_lifetime_label": "Governance receipts signed on disk",
-  "receipts_date": "2026-07-02",
+  "receipts_date": "2026-07-07",
   "receipt_samples": [
-    "agent-governance-events.jsonl:s10_eternal_audit",
-    "agent-governance-events.jsonl:s10_eternal_audit",
-    "critic-boot-v1.json",
-    "sourcea-boot-terminal-inject-v1.json"
+    "agent-governance-events.jsonl:s10_eternal_audit"
   ],
   "receipt_metric_label": "Material governance events today",
   "valid_yes": 4,
   "valid_yes_total": 4,
   "github": {
-    "ok": false,
-    "skipped": true,
-    "note": "buyer-facing PyPI-only"
+    "ok": true,
+    "repo": "Noetfield-Systems/sourcea-boot",
+    "url": "https://github.com/Noetfield-Systems/sourcea-boot",
+    "stars": 0,
+    "open_issues": 0,
+    "updated_at": "2026-07-06T15:35:33Z",
+    "pushed_at": "2026-07-06T15:32:39Z"
   },
   "governance": {
     "loop": "governance",
@@ -25,10 +26,10 @@
     "verdict": "PASS",
     "checks_pass": 4,
     "checks_total": 4,
-    "at": "2026-07-02T07:25:16Z",
+    "at": "2026-07-02T08:45:00Z",
     "factory": "FROZEN"
   },
-  "factory_now_line": "factory-now \u00b7 Cloud Workers.app owns Cloud Forge Run \u00b7 head CLOUD-SEC-7367 \u00b7 batch 75 \u00b7 100 rows/10min \u00b7 100 tasks/row",
+  "factory_now_line": "factory-now \u00b7 Cloud Workers.app owns Cloud Forge Run \u00b7 head CLOUD-SEC-7968 \u00b7 batch 81 \u00b7 100 rows/10min \u00b7 100 tasks/row",
   "status_page": "/sourcea/status",
   "proof_sample": "/sourcea/attach/proof-bundle-sample",
   "built_on": [
@@ -66,8 +67,8 @@
   "disclaimer": "Built on = technology dependencies \u00b7 not co-marketing partnerships",
   "api_hook": {
     "endpoint": "POST /v1/decision",
-    "receipt_id": "CLOUD-SEC-7367",
+    "receipt_id": "CLOUD-SEC-7968",
     "verdict": "PASS",
-    "signed_at": "2026-07-02T07:25:16Z"
+    "signed_at": "2026-07-02T08:45:00Z"
   }
 }
