@@ -52,6 +52,7 @@
   }
 
   function track(event, meta) {
+    if (window.SourceACookieConsent && !window.SourceACookieConsent.has("analytics")) return;
     queue.push({
       event,
       at: new Date().toISOString(),
@@ -98,7 +99,10 @@
     return data;
   }
 
+  let clicksBound = false;
   function bindTrackClicks() {
+    if (clicksBound) return;
+    clicksBound = true;
     document.addEventListener(
       "click",
       function (e) {
@@ -115,6 +119,7 @@
 
   function mountFeedbackFab() {
     if (document.getElementById("sa-pulse-feedback-fab")) return;
+    if (window.SourceACookieConsent && !window.SourceACookieConsent.has("functional")) return;
 
     const fab = document.createElement("button");
     fab.type = "button";
@@ -249,10 +254,24 @@
   }
 
   async function init() {
+    if (window.SourceACookieConsent && window.SourceACookieConsent.whenReady) {
+      await window.SourceACookieConsent.whenReady();
+    }
     await loadConfig();
-    track("pageview");
-    bindTrackClicks();
+    if (!window.SourceACookieConsent || window.SourceACookieConsent.has("analytics")) {
+      track("pageview");
+      bindTrackClicks();
+    }
     mountFeedbackFab();
+    window.addEventListener("sourcea:consent-changed", function () {
+      if (window.SourceACookieConsent.has("analytics")) {
+        track("pageview");
+        bindTrackClicks();
+      }
+      if (window.SourceACookieConsent.has("functional")) {
+        mountFeedbackFab();
+      }
+    });
     window.addEventListener("pagehide", flushEvents);
     document.addEventListener("visibilitychange", function () {
       if (document.visibilityState === "hidden") flushEvents();

@@ -1,7 +1,7 @@
 {
   "schema": "brain-cloud-reasoning-1000-upgrade-plan-v1",
   "version": "1.0.0",
-  "saved_at": "2026-06-24T08:37:08Z",
+  "saved_at": "2026-07-08T01:51:52Z",
   "law": "Brain reasons \u00b7 Mac controls \u00b7 Cloud/API workers execute \u00b7 local Cursor Worker graduates to control-plane only",
   "strategic_pivot": {
     "from": "local Cursor Worker INBOX as primary factory execution",
@@ -19371,7 +19371,9 @@
     "platform_neutral_world_model": "data/platform-neutral-world-model-v1.json",
     "phase0_freemium_sandbox": "data/phase0-freemium-sandbox-reference-v1.json",
     "anti_theater_loop": "data/anti-theater-validator-loop-v1.json",
-    "orchestrator": "scripts/plans_unified_upgrade_v1.py"
+    "orchestrator": "scripts/plans_unified_upgrade_v1.py",
+    "sourcea_site_score_w2": "brain-os/plan-registry/sourcea-site-score-up-1000/REGISTRY.json",
+    "sourcea_deep_research_10": "data/sourcea-deep-research-10-upgrade-plan-v1.json"
   },
   "active_epic": "E01",
   "phase0_reference": {

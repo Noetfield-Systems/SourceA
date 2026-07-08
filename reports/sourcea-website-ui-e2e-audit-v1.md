@@ -1,6 +1,6 @@
 # SourceA Website UI E2E Audit (v2)
 
-**At:** 2026-07-06T13:50:58Z  
+**At:** 2026-07-08T01:52:47Z  
 **Base:** https://sourcea.app  
 **Verdict:** `FAIL`  
 
@@ -8,7 +8,7 @@
 
 | Metric | Count |
 |--------|-------|
-| Live BFS paths | 51 |
+| Live BFS paths | 56 |
 | Dist paths | 116 |
 | Unique audited | 117 |
 | Counted (non-rejected) | 115 |
@@ -21,11 +21,11 @@
 ## Deploy drift (live sha256 vs dist)
 
 - `https://sourcea.app/sourcea/factories/try-factory-demo` dist=`SourceA-landing/green-unified/dist/sourcea/factories/try-factory-demo.html` live=436ba1bfb9ec… dist=31b19f564f33…
-- `https://sourcea.app/sourcea/home` dist=`SourceA-landing/green-unified/dist/sourcea/home.html` live=c1f03da14763… dist=6844c003fbfd…
+- `https://sourcea.app/sourcea/home` dist=`SourceA-landing/green-unified/dist/sourcea/home.html` live=957f40b539c2… dist=6844c003fbfd…
 
 ## Buyer funnel
 
-- `/` — **PASS** · sha256 `c1f03da14763…` · **dist match**
+- `/` — **PASS** · sha256 `957f40b539c2…` · **dist match**
   - WARN `trust_placeholder_ssr`: SSR trust counters show em-dash — hydrated client-side from trust-signals.json
 - `/start` — **PASS** · sha256 `834818e121fa…` · **dist match**
 - `/pricing` — **PASS** · sha256 `52b8df159e27…` · **dist match**
@@ -33,9 +33,9 @@
 - `/proof` — **PASS** · sha256 `852891f0ebb4…` · **dist match**
 - `/sourcea/proof` — **PASS** · sha256 `852891f0ebb4…` · **dist match**
 - `/sourcea/offer` — **PASS** · sha256 `ec746d5ec05e…` · **dist match**
-- `/eval` — **PASS** · sha256 `762b9ecc9129…` · **dist match**
-- `/forge/terminal` — **PASS** · sha256 `d0dfd2da9e95…` · **dist match**
-- `/sourcea/forge/terminal` — **PASS** · sha256 `d0dfd2da9e95…` · **dist match**
+- `/eval` — **PASS** · sha256 `e053220621a4…` · **dist match**
+- `/forge/terminal` — **PASS** · sha256 `f047e07ddf04…` · **dist match**
+- `/sourcea/forge/terminal` — **PASS** · sha256 `f047e07ddf04…` · **dist match**
 - `/security` — **PASS** · sha256 `9c6394a55ccb…` · **dist match**
 - `/sourcea/security` — **PASS** · sha256 `9c6394a55ccb…` · **dist match**
 
