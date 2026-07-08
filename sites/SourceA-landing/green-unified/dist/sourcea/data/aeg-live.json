@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-aeg-live-v1",
-  "at": "2026-07-08T00:32:02Z",
-  "evidence_id": "aeg-20260708T003001Z-16e09e46",
+  "at": "2026-07-08T00:39:08Z",
+  "evidence_id": "aeg-20260708T003341Z-59edcfa0",
   "verdict": "PASS",
   "blockers": [],
   "terminal_transcript": "$ sourcea-boot --json\n\nSOURCEA_BOOT PASS ok=true\nREPORT=receipts/sourcea-boot/BOOT_REPORT.json\n\n  [SKIP] policy_version: no policy file (POLICY.md) (not configured)\n  [PASS] provider: provider env present (ANTHROPIC_API_KEY)\n  [SKIP] receipt_fresh: no prior receipt \u2014 first boot allowed\n  [SKIP] queue_truth: no queue files configured (not configured)\n\nblockers:\n  (none)",
@@ -37,7 +37,7 @@
   ],
   "boot_verdict": "PASS",
   "site_proof_url": "https://sourcea.app/sourcea/proof/live.html",
-  "forensic_archive_url": "https://locally-projected-shade-projection.trycloudflare.com/aeg-20260708T003001Z-16e09e46/",
-  "hosted_at": "2026-07-08T00:30:01Z",
+  "forensic_archive_url": "https://locally-projected-shade-projection.trycloudflare.com/aeg-20260708T003341Z-59edcfa0/",
+  "hosted_at": "2026-07-08T00:33:41Z",
   "disclaimer": "Live inject from factory disk \u00b7 same schema as weekly export bundle"
 }
