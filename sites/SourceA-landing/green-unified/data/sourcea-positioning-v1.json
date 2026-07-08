@@ -1,17 +1,17 @@
 {
   "schema": "sourcea-positioning-v1",
-  "version": "3.4.0",
-  "saved_at": "2026-07-06T14:45:00Z",
+  "version": "3.5.0",
+  "saved_at": "2026-07-08T00:12:00Z",
   "one_line": "SourceA is an AI execution platform — real builds, automations, and agent workflows, with a verifiable receipt on every run.",
   "hero_eval_line": "Evaluate in 5 minutes — sourcea-boot PASS or BLOCK — no sales call",
   "legal_entity": "Noetfield Systems Inc.",
   "hero": {
-    "kicker": "Proof-backed delivery · verify before you commit",
+    "kicker": "Proof-backed MVPs · acquisition systems, shipped fast",
     "category_tag": "AI execution platform — proof built in",
-    "h1_line1": "Turn AI into real production work,",
-    "h1_accent": "with proof built in.",
+    "h1_line1": "Proof-backed MVPs and acquisition systems,",
+    "h1_accent": "shipped fast.",
     "lead": "Evaluate in five minutes with sourcea-boot — PASS or BLOCK logged. Forge Terminal, live receipt, or Brain — no sales call required.",
-    "taxonomy_html": "<strong>SourceA</strong> is an AI execution platform — real builds, automations, and agent workflows, with a verifiable receipt on every run."
+    "taxonomy_html": "<strong>SourceA</strong> is the product — AI execution platform with proof on every run. Forge is the execution engine — prompt forge, agents, and delivery desk."
   },
   "hero_denylist": [
     "Book a scope call",
@@ -51,12 +51,12 @@
     "customers": 3,
     "revenue_band_usd": "$3,000–$10,000"
   },
-  "primary_cta": "/sourcea/forge/terminal",
-  "primary_cta_label": "Try Forge Terminal",
-  "secondary_cta": "/eval",
-  "secondary_cta_label": "Run sourcea-boot eval",
-  "tertiary_cta": "/sourcea/proof/live",
-  "tertiary_cta_label": "See live receipt",
+  "primary_cta": "/start",
+  "primary_cta_label": "Request a 48-hour build",
+  "secondary_cta": "/sourcea/proof/live",
+  "secondary_cta_label": "See proof",
+  "tertiary_cta": "/sourcea/forge/terminal",
+  "tertiary_cta_label": "Try Forge Terminal",
   "intake_cta": "/start",
   "intake_cta_label": "Request a 48-hour build",
   "escalation_cta": "https://cal.com/sourcea/proof-demo",
@@ -74,5 +74,5 @@
   "brain_prompt_version": "2.0.0",
   "pricing_rule": "Never lead with price — problem → solution → example → value → price only when asked",
   "agentic_first_law": "If the site can show it, strangers never need a founder call. Calls are optional escalation only.",
-  "cta_order": ["forge_terminal", "sourcea_boot_eval", "live_receipt", "brain", "pricing", "human_escalation"]
+  "cta_order": ["intake_48h", "see_proof", "forge_terminal", "sourcea_boot_eval", "brain", "pricing", "human_escalation"]
 }
