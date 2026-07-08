@@ -12,7 +12,6 @@
     document.querySelectorAll(".ar-header-signin, .ar-nav-signin-mobile").forEach(function (el) {
       if (el.getAttribute("href") === "/platform") {
         el.setAttribute("href", SIGN_IN);
-        el.textContent = el.textContent.trim() === "Sign in" ? "Sign in" : el.textContent;
       }
     });
     document.querySelectorAll("[data-sa-auth-signin]").forEach(function (el) {
@@ -20,6 +19,12 @@
     });
     document.querySelectorAll("[data-sa-auth-signup]").forEach(function (el) {
       el.setAttribute("href", SIGN_UP);
+    });
+    document.querySelectorAll('a[href="/platform"]').forEach(function (el) {
+      var t = (el.textContent || "").toLowerCase();
+      if (t.indexOf("sign in") !== -1 || t.indexOf("sign-in") !== -1) {
+        el.setAttribute("href", SIGN_IN);
+      }
     });
   }
 
