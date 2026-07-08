@@ -11,10 +11,10 @@ pass() { echo "OK $*"; }
 fail() { echo "FAIL $*"; FAIL=1; }
 
 check_200() {
-  local path="$1"
-  local label="${2:-$path}"
+  local url_path="$1"
+  local label="${2:-$url_path}"
   local code
-  code="$(curl -sS -o /dev/null -w '%{http_code}' "${BASE}${path}")"
+  code="$(curl -sS -o /dev/null -w '%{http_code}' "${BASE}${url_path}")"
   if [[ "$code" == "200" ]]; then
     pass "200 ${label}"
   else
@@ -23,10 +23,12 @@ check_200() {
 }
 
 check_body() {
-  local path="$1"
+  local url_path="$1"
   local needle="$2"
-  local label="${3:-$path}"
-  if curl -sS "${BASE}${path}" | grep -q "$needle"; then
+  local label="${3:-$url_path}"
+  local body
+  body="$(curl -sS "${BASE}${url_path}")"
+  if grep -qF "$needle" <<< "$body"; then
     pass "body ${label} · ${needle}"
   else
     fail "body ${label} missing · ${needle}"
@@ -47,7 +49,7 @@ done
 
 check_body "/auth/sign-in" "Sign in to SourceA"
 check_body "/auth/sign-up" "Create your SourceA account"
-check_body "/" "Sign in" "home header"
+check_body "/" "/auth/sign-in" "home header auth link"
 
 # Auth config public (anon key only — no service role)
 if curl -sS "${BASE}/sourcea/data/sourcea-platform-auth-config-v1.json" | python3 -c "
