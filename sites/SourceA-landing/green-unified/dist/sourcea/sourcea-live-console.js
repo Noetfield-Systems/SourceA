@@ -430,6 +430,7 @@ ${terminal}
   async function init() {
     const panelRoot = document.getElementById("sa-biz-command");
     if (!panelRoot) return;
+    const isRootHome = document.body.classList.contains("sa-root-home");
 
     const isPublicHero =
       (panelRoot.classList.contains("sa-mock-panel") ||
@@ -473,9 +474,14 @@ ${terminal}
       panelsWrap.querySelectorAll(".sa-biz-panel").forEach((p) => {
         p.classList.toggle("is-active", p.dataset.bizPanel === key);
       });
-      panelRoot.classList.add("is-tab-switch");
-      setTimeout(() => panelRoot.classList.remove("is-tab-switch"), 350);
-      if (log && tabMeta[key]) streamText(log, tabMeta[key].log(live));
+      if (!isRootHome) {
+        panelRoot.classList.add("is-tab-switch");
+        setTimeout(() => panelRoot.classList.remove("is-tab-switch"), 350);
+      }
+      if (log && tabMeta[key]) {
+        if (isRootHome) log.textContent = tabMeta[key].log(live);
+        else streamText(log, tabMeta[key].log(live));
+      }
       if (tabMeta[key]?.role) highlightAgentRole(tabMeta[key].role);
       trackHero("hero_console_tab", { tab: key });
     };
@@ -521,7 +527,7 @@ ${terminal}
       });
     });
 
-    if (!reduced && tabs.length) {
+    if (!reduced && tabs.length && !isRootHome) {
       const keys = Object.keys(tabMeta);
       let ti = 0;
       setInterval(() => {
