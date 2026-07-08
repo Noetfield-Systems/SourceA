@@ -3,19 +3,21 @@
  */
 import { handleIntakePost, probeSsot } from "./nerve-probe/probes.js";
 import { runNerveProbeCycle } from "./nerve-probe/cycle.js";
-import { dispatchMeta, jobsForCron, runDispatchJobs, smokeAllJobs } from "./dispatch.js";
+import { runGatewayWatchdog, runGatewayHeartbeat } from "./gateway-probe/cycle.js";
+import { dispatchMeta, jobsForCron, runDispatchJobs, runDueDispatch, smokeAllJobs } from "./dispatch.js";
 
 const HANDLERS = {
   loop_specialist_tick: (env) => runTick(env, { dispatch: env.LOOP_AUTO_DISPATCH === "true" }),
   signal_factory_tick: (env) => runSignalFactoryTick(env),
   nerve_probe: (env) => runNerveProbeCycle(env),
+  gateway_watchdog: (env) => runGatewayWatchdog(env),
+  gateway_heartbeat: (env) => runGatewayHeartbeat(env),
 };
 
 export default {
   async scheduled(event, env, ctx) {
-    const cron = event?.cron || "*/15 * * * *";
     ctx.waitUntil(
-      runDispatchJobs(env, cron, HANDLERS, { trigger: "cloudflare_cron_loop_specialist" }),
+      runDueDispatch(env, HANDLERS, { trigger: "cloudflare_cron_loop_specialist" }),
     );
   },
 
@@ -39,7 +41,7 @@ export default {
         crons: meta.crons,
         dispatch: meta,
         nerve_probe: true,
-        ops_motors: ["gmail-sweep", "signal-triage", "kaizen-nightly", "ops-heartbeat"],
+        ops_motors: ["gmail-sweep", "signal-triage", "kaizen-nightly", "ops-heartbeat", "sg-gateway-watchdog", "sg-gateway-heartbeat"],
         scheduled_loops: [
           "repo-health-daily",
           "security-sweep-weekly",

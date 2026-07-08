@@ -1,18 +1,12 @@
 name = "sourcea-loop-specialist-tick-v1"
 main = "src/index.js"
 compatibility_date = "2024-06-01"
-account_id = "2c70de9e879a9b41055642ad47205d71"
+account_id = "0d0b967b77e2e5535455d39ff3dae72c"
+# Workers Paid ($5/mo) — 30s CPU · parallel */15 jobs · SSOT data/sourcea-paid-edge-stack-v1.json
 
 [triggers]
-crons = [
-  "*/15 * * * *",
-  "0 * * * *",
-  "0 3 * * *",
-  "0 7 * * *",
-  "0 8 * * *",
-  "0 9 * * 0",
-  "30 */6 * * *",
-]
+# Single CF trigger — logical schedules evaluated in dispatch.js (isCronDue)
+crons = ["*/15 * * * *"]
 
 [observability]
 enabled = true

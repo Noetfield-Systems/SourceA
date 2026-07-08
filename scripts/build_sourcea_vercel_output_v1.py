@@ -117,6 +117,10 @@ def build(*, clean: bool = True) -> dict:
 
     redirect_lines = write_redirects(DIST)
 
+    headers_src = GREEN / "_headers"
+    if headers_src.is_file():
+        shutil.copy2(headers_src, DIST / "_headers")
+
     pulse_snippet = '<script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>\n'
     interact_snippet = '<script src="/sourcea/sourcea-site-interact-v1.js" defer></script>\n'
     segment_snippet = '<script src="/sourcea/sourcea-segment-router-v1.js" defer></script>\n'

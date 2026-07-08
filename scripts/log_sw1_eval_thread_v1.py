@@ -9,7 +9,7 @@ from pathlib import Path
 
 SINA = Path.home() / ".sina"
 RECEIPT = SINA / "sw1-eval-thread-receipt-v1.json"
-REPO_URL = "https://github.com/kazemnezhadsina144-dot/sourcea-boot"
+REPO_URL = "https://github.com/Noetfield-Systems/sourcea-boot"
 
 
 def _now() -> str:

@@ -7,14 +7,14 @@
 
 ## Problem
 
-Public site and eval page promise `https://github.com/kazemnezhadsina144-dot/sourcea-boot` and `pip install sourcea-boot`. Researchers received **404** on GitHub (July 1, 2026). This breaks the proof-first diligence story.
+Public site and eval page promise `https://github.com/Noetfield-Systems/sourcea-boot` and `pip install sourcea-boot`. Researchers received **404** on GitHub (July 1, 2026). This breaks the proof-first diligence story.
 
 ## Phase 0 goal (this execution)
 
 Make the **public GitHub eval path real** for portable mode:
 
 ```bash
-git clone https://github.com/kazemnezhadsina144-dot/sourcea-boot.git
+git clone https://github.com/Noetfield-Systems/sourcea-boot.git
 cd sourcea-boot
 pip install -e .
 sourcea-boot --json
@@ -29,7 +29,7 @@ PyPI publish is **Phase 0b — COMPLETE** (2026-07-02). Site may claim `pip inst
 |------|-------------|------------|
 | P0-1 | Standalone public repo export from `packages/sourcea-boot/` | MIT LICENSE · CI workflow · validate script |
 | P0-2 | `scripts/publish_sourcea_boot_public_v1.py` | Builds export · runs local validate · pushes to GitHub |
-| P0-3 | Public repo live at `kazemnezhadsina144-dot/sourcea-boot` | `GET /repos/kazemnezhadsina144-dot/sourcea-boot` → 200 |
+| P0-3 | Public repo live at `Noetfield-Systems/sourcea-boot` | `GET /repos/Noetfield-Systems/sourcea-boot` → 200 |
 | P0-4 | README honest install paths | `pip install` primary · clone alt for contributors |
 | P0-5 | Monorepo package unchanged behavior | `bash scripts/validate-sourcea-boot-v1.sh` still PASS |
 
@@ -66,11 +66,11 @@ If push fails: keep export under `packages/sourcea-boot/.publish-export/` and do
 
 | Field | Value |
 |---|---|
-| Live repo | `https://github.com/kazemnezhadsina144-dot/sourcea-boot` |
+| Live repo | `https://github.com/Noetfield-Systems/sourcea-boot` |
 | Canonical production | `https://sourcea.app` via Cloudflare Pages `sourcea-com` + `sourcea-app-proxy-v1` |
 | Staging (non-canonical) | `https://source-a.vercel.app` — Vercel does **not** serve `sourcea.app` |
 | Deploy command | `python3 scripts/publish_sourcea_landing_v1.py --backend cloudflare --project sourcea-com --custom-domain --skip-recipe` |
-| `/eval` | links `kazemnezhadsina144-dot/sourcea-boot` · **`pip install sourcea-boot`** |
+| `/eval` | links `Noetfield-Systems/sourcea-boot` · **`pip install sourcea-boot`** |
 | `trust-signals.json` | `github.ok: true` · **`pypi.ok: true` v0.1.0** |
 | PyPI | **LIVE** · `https://pypi.org/project/sourcea-boot/` v0.1.0 |
 | Receipt | `~/.sina/sourcea-boot-public-publish-receipt-v1.json` |
@@ -80,7 +80,7 @@ If push fails: keep export under `packages/sourcea-boot/.publish-export/` and do
 | Field | Value |
 |---|---|
 | PyPI probe | `scripts/probe_sourcea_boot_pypi_v1.py` → `pypi_ok: true` |
-| Trusted publisher | `kazemnezhadsina144-dot/sourcea-boot` · `publish-pypi-v1.yml` · env `pypi` |
+| Trusted publisher | `Noetfield-Systems/sourcea-boot` · `publish-pypi-v1.yml` · env `pypi` |
 | GitHub Release | `v0.1.0` published |
 | Eval flip commit | `166b1441a` on `sandbox/locked-definitions-v1` |
 | Noetfield PyPI org | Request submitted — transfer optional later |

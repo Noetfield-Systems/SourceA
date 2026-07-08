@@ -1,0 +1,9 @@
+{
+  "schema": "workflow-census-traffic-override-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-06T10:00:00Z",
+  "note": "Founder pastes Cloudflare 24h uniques here until site-pulse API wired",
+  "web_visits_24h": 11250,
+  "source": "founder_screenshot_2026-07-06",
+  "domain": "www.sourcea.app"
+}

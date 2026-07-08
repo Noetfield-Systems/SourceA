@@ -5,7 +5,7 @@ Grades Part A only (docs/SOURCEA_UI_STANDARD_RUBRIC_LOCKED_v1.md).
 Does NOT grade desire, taste, or willingness to pay.
 
 SSOT: data/sourcea-ui-mechanical-gate-v1.json
-Receipt: ~/.sina/enforcement/sourcea-ui-mechanical-gate-receipt-v1.json
+Receipt: reports/sourcea-ui-mechanical-gate-receipt-v1.json (mirror ~/.sina/enforcement/)
 """
 from __future__ import annotations
 
@@ -20,7 +20,9 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 SSOT = ROOT / "data" / "sourcea-ui-mechanical-gate-v1.json"
 SINA = Path.home() / ".sina"
-RECEIPT = SINA / "enforcement" / "sourcea-ui-mechanical-gate-receipt-v1.json"
+REPORTS = ROOT / "reports"
+RECEIPT = REPORTS / "sourcea-ui-mechanical-gate-receipt-v1.json"
+RECEIPT_MIRROR = SINA / "enforcement" / "sourcea-ui-mechanical-gate-receipt-v1.json"
 LOG_PATH = SINA / "e2e-logs" / "validate-sourcea-ui-mechanical-v1.log"
 
 
@@ -42,15 +44,41 @@ def _checksum(row: dict[str, Any]) -> str:
 
 def _write_receipt(row: dict[str, Any]) -> dict[str, Any]:
     RECEIPT.parent.mkdir(parents=True, exist_ok=True)
+    RECEIPT_MIRROR.parent.mkdir(parents=True, exist_ok=True)
     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
     row = dict(row)
     row.pop("receipt_checksum", None)
     row["receipt_checksum"] = _checksum(row)
     text = json.dumps(row, indent=2, ensure_ascii=False) + "\n"
     RECEIPT.write_text(text, encoding="utf-8")
+    RECEIPT_MIRROR.write_text(text, encoding="utf-8")
     with LOG_PATH.open("a", encoding="utf-8") as fh:
         fh.write(text)
     return row
+
+
+def _scan_regex_checks(text: str, rel_path: str, items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    findings: list[dict[str, Any]] = []
+    for item in items:
+        pattern = str(item.get("regex") or "")
+        if not pattern:
+            continue
+        rx = re.compile(pattern, re.I)
+        for m in rx.finditer(text):
+            start = max(0, m.start() - 40)
+            end = min(len(text), m.end() + 40)
+            excerpt = text[start:end].replace("\n", " ").strip()[:240]
+            findings.append(
+                {
+                    "id": str(item.get("id") or "regex_check"),
+                    "severity": str(item.get("severity") or "FAIL"),
+                    "page": rel_path,
+                    "line": text.count("\n", 0, m.start()) + 1,
+                    "excerpt": excerpt,
+                    "suggestion": str(item.get("suggestion") or item.get("why") or "Regex check failed."),
+                }
+            )
+    return findings
 
 
 def _line_hits(text: str, pattern: str, *, flags: int = re.I) -> list[dict[str, Any]]:
@@ -247,6 +275,7 @@ def scan_landing(*, landing_root: Path | None = None, cfg: dict[str, Any] | None
         findings.extend(_scan_phrase_list(text, rel, cfg.get("forbidden_primary_phrases") or [], finding_id="positioning"))
         findings.extend(_scan_phrase_list(text, rel, cfg.get("forbidden_poison") or [], finding_id="poison"))
         findings.extend(_scan_placeholders(text, rel, cfg.get("placeholder_patterns") or []))
+        findings.extend(_scan_regex_checks(text, rel, cfg.get("regex_checks") or []))
 
     for rel in cfg.get("scan_assets") or []:
         path = landing / rel
@@ -302,6 +331,8 @@ def scan_landing(*, landing_root: Path | None = None, cfg: dict[str, Any] | None
         "finding_count": len(findings),
         "findings": findings,
         "ssot": str(SSOT.relative_to(ROOT)),
+        "gate_version": cfg.get("version"),
+        "v2_additions_locked": cfg.get("v2_additions_locked"),
         "landing_root": str(landing),
         "factory_now_line": (
             f"ui-mechanical · {'PASS' if ok else 'BLOCK'} · {len(scanned)} assets · {len(findings)} findings"

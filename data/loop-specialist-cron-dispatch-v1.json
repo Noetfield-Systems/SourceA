@@ -2,7 +2,8 @@
   "schema": "loop-specialist-cron-dispatch-v1",
   "version": "1.0.0",
   "saved_at": "2026-07-05T18:15:00Z",
-  "one_law": "All scheduled loops: CF Worker cron → internal dispatch table → Railway FBE execution. GHA schedule retired.",
+  "one_law": "All scheduled loops: CF Worker */15 cron → isCronDue dispatch → Railway FBE. GHA schedule forbidden — workflow_dispatch backup only.",
+  "wrangler_trigger_cron": "*/15 * * * *",
   "execution_plane": "cloudflare_cron_loop_specialist",
   "railway_base_env": "FBE_CLOUD_WORKER_URL",
   "crons": [
@@ -14,6 +15,7 @@
         { "id": "loop-tick", "kind": "handler", "handler": "loop_specialist_tick" },
         { "id": "sf-tick", "kind": "handler", "handler": "signal_factory_tick" },
         { "id": "nerve-probe", "kind": "handler", "handler": "nerve_probe" },
+        { "id": "sg-watchdog", "kind": "handler", "handler": "gateway_watchdog" },
         {
           "id": "sf-triage",
           "kind": "railway",
@@ -41,6 +43,14 @@
       "label": "kaizen-nightly",
       "jobs": [
         { "id": "kaizen", "kind": "railway", "path": "/api/fbe/kaizen/nightly/v1", "body": {} }
+      ]
+    },
+    {
+      "cron": "0 14 * * *",
+      "trigger_id": "SG-T-gateway-heartbeat-daily",
+      "label": "sg-gateway-heartbeat-0700pt",
+      "jobs": [
+        { "id": "sg-heartbeat", "kind": "handler", "handler": "gateway_heartbeat" }
       ]
     },
     {
@@ -73,6 +83,19 @@
           "id": "security-sweep",
           "kind": "railway",
           "path": "/api/fbe/security-sweep/weekly/v1",
+          "body": { "insert": true }
+        }
+      ]
+    },
+    {
+      "cron": "0 10 * * 0",
+      "trigger_id": "SA-T-workflow-census-weekly",
+      "label": "workflow-census-weekly",
+      "jobs": [
+        {
+          "id": "workflow-census",
+          "kind": "railway",
+          "path": "/api/fbe/workflow-census/weekly/v1",
           "body": { "insert": true }
         }
       ]

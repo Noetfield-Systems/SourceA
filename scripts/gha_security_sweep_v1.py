@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -36,7 +37,21 @@ def _now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def _walk_scan_files() -> list[str]:
+    out: list[str] = []
+    for root_name in ("scripts", "cloud", "apps", "infra", ".github"):
+        base = ROOT / root_name
+        if not base.is_dir():
+            continue
+        for path in base.rglob("*"):
+            if path.is_file():
+                out.append(str(path.relative_to(ROOT)))
+    return out
+
+
 def _git_ls_files() -> list[str]:
+    if not shutil.which("git"):
+        return _walk_scan_files()
     proc = subprocess.run(
         ["git", "ls-files"],
         cwd=ROOT,
@@ -46,16 +61,7 @@ def _git_ls_files() -> list[str]:
     )
     if proc.returncode == 0 and proc.stdout.strip():
         return [line.strip() for line in proc.stdout.splitlines() if line.strip()]
-    # Baked Railway image — no .git; walk scan roots
-    out: list[str] = []
-    for root_name in ("scripts", "cloud", "apps", "infra"):
-        base = ROOT / root_name
-        if not base.is_dir():
-            continue
-        for path in base.rglob("*"):
-            if path.is_file():
-                out.append(str(path.relative_to(ROOT)))
-    return out
+    return _walk_scan_files()
 
 
 def _finding(
