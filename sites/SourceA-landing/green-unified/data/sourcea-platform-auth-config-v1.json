@@ -1,6 +1,6 @@
 {
   "schema": "sourcea-platform-auth-config-v1",
-  "at": "2026-07-08T06:39:55Z",
+  "at": "2026-07-08T07:03:39Z",
   "configured": true,
   "venture": "sourcea",
   "supabase_url": "https://ldfruywifqnfpwsfgmdl.supabase.co",
@@ -12,6 +12,9 @@
     "https://sourcea.app/auth/sign-in",
     "https://sourcea.app/auth/sign-up",
     "https://sourcea.app/auth/sign-out",
+    "https://www.sourcea.app/auth/callback",
+    "https://sourcea.ca/auth/callback",
+    "https://sourcea.uk/auth/callback",
     "https://sourcea.app/sourcea/forge/terminal/signin",
     "https://sourcea.app/sourcea/forge/terminal/signup",
     "https://sourcea.app/sourcea/forge/terminal/profile",
