@@ -1,0 +1,52 @@
+{
+  "schema": "sourcea-cookie-consent-config-v1",
+  "version": "1.0.0",
+  "at": "2026-07-08T07:45:00Z",
+  "policy_version": 1,
+  "entity": "Noetfield Systems Inc.",
+  "links": {
+    "privacy": "/privacy",
+    "cookies": "/cookies",
+    "security": "/sourcea/security"
+  },
+  "categories": [
+    {
+      "id": "necessary",
+      "label": "Strictly necessary",
+      "required": true,
+      "description": "Sign-in sessions, security, and your consent choice. Always on."
+    },
+    {
+      "id": "analytics",
+      "label": "Analytics",
+      "required": false,
+      "description": "Anonymous page views and click patterns to improve the site — no ad networks."
+    },
+    {
+      "id": "functional",
+      "label": "Functional",
+      "required": false,
+      "description": "Feedback widget, chat preferences, and UX helpers you opt into."
+    }
+  ],
+  "cookies": [
+    {
+      "name": "sourcea-cookie-consent-v1",
+      "category": "necessary",
+      "duration": "12 months",
+      "purpose": "Stores your cookie preferences"
+    },
+    {
+      "name": "sourcea-platform-session-v1",
+      "category": "necessary",
+      "duration": "Session / local",
+      "purpose": "Forge Terminal sign-in state when you use the platform"
+    },
+    {
+      "name": "sourcea-pulse-session-v1",
+      "category": "analytics",
+      "duration": "Session",
+      "purpose": "Anonymous session id for site analytics"
+    }
+  ]
+}
