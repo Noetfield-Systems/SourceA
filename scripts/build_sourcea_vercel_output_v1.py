@@ -134,7 +134,11 @@ def build(*, clean: bool = True) -> dict:
     shell_snippet = pulse_snippet + interact_snippet + segment_snippet + auth_nav_snippet
 
     def inject_shell(text: str) -> str:
-        if "sourcea-site-interact-v1.js" in text and "sourcea-segment-router-v1.js" in text:
+        if (
+            "sourcea-site-interact-v1.js" in text
+            and "sourcea-segment-router-v1.js" in text
+            and "sourcea-auth-nav-wire-v1.js" in text
+        ):
             return text
         if "sourcea-site-interact-v1.js" in text and "sourcea-segment-router-v1.js" not in text:
             text = text.replace(
@@ -143,12 +147,12 @@ def build(*, clean: bool = True) -> dict:
                 + segment_snippet,
                 1,
             )
-            return text
-        anchor = '<script src="/sourcea/sourcea-chatbot.js"'
-        if anchor in text:
-            return text.replace(anchor, shell_snippet + anchor, 1)
-        if "</body>" in text:
-            return text.replace("</body>", shell_snippet + "</body>", 1)
+        if "sourcea-auth-nav-wire-v1.js" not in text:
+            anchor = '<script src="/sourcea/sourcea-chatbot.js"'
+            if anchor in text:
+                return text.replace(anchor, shell_snippet + anchor, 1)
+            if "</body>" in text:
+                return text.replace("</body>", shell_snippet + "</body>", 1)
         return text
 
     pulse_injected = 0
@@ -192,6 +196,17 @@ def build(*, clean: bool = True) -> dict:
     if not brain_row.get("api_worker_url"):
         raise SystemExit(f"FAIL: brain chat gate — {BRAIN_CHAT_CONFIG} missing api_worker_url")
 
+    auth_audit = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "sourcea_auth_domains_audit_v1.py"), "--mode", "dist", "--json"],
+        cwd=ROOT,
+        timeout=90,
+        capture_output=True,
+        text=True,
+    )
+    if auth_audit.returncode != 0:
+        tail = (auth_audit.stderr or auth_audit.stdout or "")[-600:]
+        raise SystemExit(f"FAIL: sourcea auth domains dist audit — {tail}")
+
     return {
         "ok": True,
         "dist": str(DIST.relative_to(ROOT)),
@@ -203,6 +218,7 @@ def build(*, clean: bool = True) -> dict:
             "verdict": proof_row.get("verdict"),
             "truth_gate_score": proof_row.get("truth_gate_score"),
         },
+        "auth_domains_dist_audit": "PASS",
         "urls": {
             "root": "/",
             "founder_home": "/",
