@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-auth-upgrade-plan-v1",
-  "version": "1.0.0",
-  "at": "2026-07-08T07:05:00Z",
+  "version": "1.1.0",
+  "at": "2026-07-08T07:35:00Z",
   "scope": "sourcea.app · sourcea.ca · sourcea.uk only",
   "north_star": "Tiered auth on SourceA domains — public SKUs stay open; machine audits every build and publish",
   "phases": [
@@ -15,23 +15,23 @@
     {
       "id": "SA-AUTH-P1",
       "title": "Build + publish machine (fail-closed)",
-      "status": "in_progress",
+      "status": "done",
       "done_when": "post_build dist audit + post_publish live audit wired; receipt JSON; GHA chain",
       "proof": "reports/sourcea-auth-domains-audit-latest-v1.json"
     },
     {
       "id": "SA-AUTH-P2",
       "title": "Regional mirrors stay Tier 0",
-      "status": "in_progress",
+      "status": "done",
       "done_when": "sourcea.ca AIVG + sourcea.uk EACP 200 without session; contract markers present",
       "proof": "live_gates in sourcea-auth-domains-machine-v1.json"
     },
     {
       "id": "SA-AUTH-P3",
       "title": "Tier 2 gates (workspace, profile)",
-      "status": "pending",
-      "done_when": "forge profile/workspace redirect unsigned users to /auth/sign-in?next=",
-      "proof": "dist route guard in sourcea-platform-session-v1.js"
+      "status": "done",
+      "done_when": "forge profile/workspace redirect unsigned users to /auth/sign-in?next=; head guard + routeGuardAsync",
+      "proof": "sourcea-platform-session-v1.js v1.5 + tier2_pages in machine dist_gates"
     },
     {
       "id": "SA-AUTH-P4",
