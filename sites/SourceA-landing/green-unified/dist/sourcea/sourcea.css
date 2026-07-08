@@ -3695,6 +3695,7 @@ body.sa-brain-open { overflow: hidden; }
 }
 .sa-pulse-feedback-fab:hover { transform: translateY(-1px); }
 .sa-has-chatbot .sa-pulse-feedback-fab { bottom: 1.25rem; }
+.sa-has-chatbot .sa-playbook-dock { bottom: 5.25rem; }
 .sa-pulse-feedback-backdrop {
   position: fixed;
   inset: 0;
@@ -3961,7 +3962,7 @@ body.sa-cal-open { overflow: hidden; }
 .sa-playbook-dock {
   position: fixed;
   left: 1rem;
-  bottom: 4.75rem;
+  bottom: 5.25rem;
   z-index: 9996;
 }
 .sa-playbook-toggle {
