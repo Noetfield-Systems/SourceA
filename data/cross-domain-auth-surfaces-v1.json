@@ -1,0 +1,87 @@
+{
+  "schema": "cross-domain-auth-surfaces-v1",
+  "version": "1.0.0",
+  "at": "2026-07-08T06:35:00Z",
+  "identity_plane": {
+    "project": "portfolio-spine",
+    "ref": "ldfruywifqnfpwsfgmdl",
+    "url": "https://ldfruywifqnfpwsfgmdl.supabase.co",
+    "law": "Single auth issuer for sourcea + noetfield + trustfield user identity. Factory/runtime tables on noetfield project link by user_id FK only."
+  },
+  "session_model": "per_domain_sessions",
+  "auth_methods_p0": ["magic_link", "email_password", "google", "github"],
+  "tiers": {
+    "0_public": "Marketing + contract SKUs — no login wall",
+    "1_optional": "Sign-up unlocks sandbox/eval — header CTA only",
+    "2_gated": "Portal, partner access, workspace — middleware getClaims()",
+    "3_api": "Bearer JWT or service role — motors never use user cookies"
+  },
+  "ventures": {
+    "sourcea": {
+      "domains": ["sourcea.app", "sourcea.ca", "sourcea.uk"],
+      "venture_claim": "sourcea",
+      "repo": "SourceA",
+      "agent": "sourcea_worker",
+      "auth_routes": {
+        "sign_in": "/auth/sign-in",
+        "sign_up": "/auth/sign-up",
+        "callback": "/auth/callback",
+        "sign_out": "/auth/sign-out"
+      },
+      "product_routes": {
+        "forge_sign_in": "/sourcea/forge/terminal/signin",
+        "forge_sign_up": "/sourcea/forge/terminal/signup",
+        "platform_hub": "/platform"
+      }
+    },
+    "noetfield": {
+      "domains": ["www.noetfield.com", "noetfield.com", "api.noetfield.com"],
+      "venture_claim": "noetfield",
+      "repo": "Noetfield",
+      "agent": "noetfield_website",
+      "auth_routes": {
+        "sign_in": "/auth/sign-in",
+        "sign_up": "/auth/sign-up",
+        "callback": "/auth/callback"
+      }
+    },
+    "trustfield": {
+      "domains": ["www.trustfield.ca", "trustfield.ca", "api.trustfield.ca"],
+      "venture_claim": "trustfield",
+      "repo": "TrustField-Technologies",
+      "agent": "trustfield_worker",
+      "auth_routes": {
+        "register": "/register",
+        "partner_access": "/partner-access",
+        "callback": "/auth/callback"
+      }
+    }
+  },
+  "redirect_allow_list": [
+    "https://sourcea.app/auth/callback",
+    "https://sourcea.app/auth/sign-in",
+    "https://sourcea.app/auth/sign-up",
+    "https://sourcea.app/sourcea/forge/terminal/signin",
+    "https://sourcea.app/sourcea/forge/terminal/signup",
+    "https://sourcea.app/sourcea/forge/terminal/profile",
+    "https://sourcea.app/sourcea/forge/terminal/workspace",
+    "https://www.noetfield.com/auth/callback",
+    "https://www.trustfield.ca/auth/callback",
+    "https://www.trustfield.ca/register",
+    "http://localhost:3000/auth/callback"
+  ],
+  "tier0_paths": [
+    "/",
+    "/operating-brain-install",
+    "/ai-value-governance",
+    "/enterprise-ai-control-plane",
+    "/sourcea/proof",
+    "/sourcea/pricing",
+    "/eval"
+  ],
+  "sg_verify": {
+    "script": "scripts/verify_auth_surfaces_e2e_v1.sh",
+    "loop_id": "sg_auth_surface_probe_v1",
+    "cadence": "0 */6 * * *"
+  }
+}
