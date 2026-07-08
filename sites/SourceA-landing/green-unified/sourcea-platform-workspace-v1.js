@@ -4,7 +4,7 @@
 (function (global) {
   "use strict";
 
-  const VERSION = "1.4.0";
+  const VERSION = "1.5.0";
   const PRODUCT = "forge_terminal";
   const CONFIG_URL = "/sourcea/data/sourcea-brain-chat-config-v1.json";
   const DEFAULT_API =
