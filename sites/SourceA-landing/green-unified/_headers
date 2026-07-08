@@ -8,3 +8,6 @@
 
 /sourcea/data/*
   Cache-Control: public, max-age=60
+
+/auth/*
+  Cache-Control: private, no-store, max-age=0
