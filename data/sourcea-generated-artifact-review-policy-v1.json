@@ -22,8 +22,9 @@
     },
     {
       "path": "data/chatbot-knowledge/crawled/**",
-      "reason": "Auditable crawl mirror for public Brain knowledge.",
-      "lane": "generated_brain_corpus"
+      "reason": "Local crawl mirror — gitignored; deploy SSOT is knowledge-bundle.json.",
+      "lane": "generated_brain_corpus",
+      "local_only": true
     },
     {
       "path": "sites/SourceA-landing/green-unified/dist/**",

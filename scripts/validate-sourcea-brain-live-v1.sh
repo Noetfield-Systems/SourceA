@@ -41,7 +41,7 @@ python3 - <<'PY' | tee -a "$RECEIPT_LOG"
 import os, sys
 js = os.environ["CHATBOT_JS"]
 checks = [
-    ("execution_greet", "AI execution platform powered by Forge" in js),
+    ("execution_greet", "AI execution platform" in js),
     ("forge_chip_in_chat", "What is Forge Terminal and how do I try it" in js),
     ("pricing_chip_in_chat", "How does SourceA pricing work" in js),
     ("no_old_subtitle", "Your SourceA guide — proof, pricing" not in js),
@@ -90,7 +90,7 @@ post_brain "what-is" "What is SourceA?" 'import json,sys
 row=json.load(sys.stdin)
 assert row.get("ok"), row.get("reply") or row
 reply=(row.get("reply") or "").lower()
-assert "forge" in reply, reply[:200]
+assert "powered by forge" not in reply, reply[:200]
 assert "execution" in reply or "automate" in reply or "build" in reply, reply[:200]
 print("OK what-is:", (row.get("reply") or "")[:100])'
 

@@ -7,6 +7,9 @@ MIGRATIONS=(
   "$ROOT/infra/supabase/portfolio-spine/migrations/005_truth_log_external_verify_v1.sql"
   "$ROOT/infra/supabase/portfolio-spine/migrations/006_mac_spine_bridge_v1.sql"
   "$ROOT/infra/supabase/portfolio-spine/migrations/007_agent_session_cost_v1.sql"
+  "$ROOT/infra/supabase/portfolio-spine/migrations/012_gmail_inbox_signals_v1.sql"
+  "$ROOT/infra/supabase/portfolio-spine/migrations/013_improvement_queue_v1.sql"
+  "$ROOT/infra/supabase/portfolio-spine/migrations/014_workflow_census_v1.sql"
 )
 
 for SQL in "${MIGRATIONS[@]}"; do
@@ -39,7 +42,7 @@ for SQL in "${MIGRATIONS[@]}"; do
 done
 if [[ "$PSQL_OK" -eq 1 ]]; then
   psql "$DB_URL" -v ON_ERROR_STOP=1 -c "NOTIFY pgrst, 'reload schema';"
-  echo "OK: portfolio-spine migrations 002+005+006+007 applied"
+  echo "OK: portfolio-spine migrations 002+005+006+007+013 applied"
 else
   exit 0
 fi

@@ -34,6 +34,9 @@ case "$cmd" in
   refresh)
     bash scripts/brain_chatbot_refresh_v1.sh
     ;;
+  refresh-light)
+    bash scripts/brain_light_refresh_v1.sh
+    ;;
   health)
     URL="$(python3 -c "import json; print(json.load(open('SourceA-landing/green-unified/data/sourcea-brain-chat-config-v1.json'))['api_worker_url'])")"
     curl -s "$URL" | python3 -m json.tool
@@ -68,6 +71,7 @@ Brain Intelligence CLI (always run via repo root path)
   bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh health
   bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh pipeline "What is SourceA?"
   bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh refresh
+  bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh refresh-light
   bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh deploy
   bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh deploy-verified
   bash ~/Desktop/SourceA/scripts/brain_cli_v1.sh deploy-verified-dry-run

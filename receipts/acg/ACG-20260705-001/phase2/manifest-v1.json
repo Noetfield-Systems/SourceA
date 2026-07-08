@@ -1,0 +1,19 @@
+{
+  "schema": "acg-phase2-prepare-v1",
+  "version": "1.0.0",
+  "at": "2026-07-05T17:00:20Z",
+  "audit_id": "ACG-20260705-001",
+  "client_name": "FOUNDER_FILL_COMPANY",
+  "artifacts": [
+    "receipts/acg/ACG-20260705-001/phase2/agentic-cost-governance-tool-inventory-ACG-20260705-001-instance-v1.json",
+    "receipts/acg/ACG-20260705-001/phase2/agentic-cost-governance-api-inventory-ACG-20260705-001-instance-v1.json",
+    "receipts/acg/ACG-20260705-001/phase2/agentic-cost-governance-spend-surface-map-ACG-20260705-001-instance-v1.json",
+    "receipts/acg/ACG-20260705-001/phase2/agentic-cost-governance-leakage-checklist-ACG-20260705-001-instance-v1.json",
+    "receipts/acg/ACG-20260705-001/phase2/agentic-cost-governance-escalation-risk-ACG-20260705-001-instance-v1.json"
+  ],
+  "next_on_reply": [
+    "python3 scripts/agentic_cost_governance_intake_v1.py receipt --audit-id ACG-20260705-001 --json",
+    "Populate phase2 instance JSON with client-supplied inventory data",
+    "python3 scripts/sourcea_revenue_engine_crm_v1.py touch --id RE-ACG-001 --stage audit_discovery_scheduled --json"
+  ]
+}

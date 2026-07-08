@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sourcea-boot"
-version = "0.1.0"
+version = "0.1.1"
 description = "PASS or BLOCK before any agent executes — four disk checks, one receipt."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -22,7 +22,7 @@ dependencies = []
 
 [project.urls]
 Homepage = "https://sourcea.app/eval"
-Repository = "https://github.com/kazemnezhadsina144-dot/sourcea-boot"
+Repository = "https://github.com/Noetfield-Systems/sourcea-boot"
 
 [project.scripts]
 sourcea-boot = "sourcea_boot.cli:main"

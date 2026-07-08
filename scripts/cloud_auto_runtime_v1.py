@@ -12,8 +12,14 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
+sys.path.insert(0, str(ROOT / "packages" / "sourcea-sdk" / "src"))
+
+from sourcea_sdk.workflow_health import build_heartbeat_loop, build_heartbeat_report, emit_improvement_receipt  # noqa: E402
+
 SINA = Path.home() / ".sina"
 SSOT = ROOT / "data/cloud-auto-runtime-v1.json"
+TRIGGER_REGISTRY = ROOT / "data" / "trigger-registry-v1.json"
+E2E_REGISTRY = ROOT / "data" / "sourcea-e2e-check-registry-v1.json"
 TICK_RECEIPT = SINA / "cloud-auto-runtime-tick-receipt-v1.json"
 HUB_RECEIPT = SINA / "hub-cloud-forge-run-proceed-receipt-v1.json"
 AUTO_FLAG = SINA / "cloud-forge-run-auto-proceed-v1.flag"
@@ -59,7 +65,7 @@ def load_ssot() -> dict[str, Any]:
         return row
     return {
         "schema": "cloud-auto-runtime-v1",
-        "version": "1.0.0",
+        "version": "2.0.0",
         "enabled": False,
         "cron": "*/10 * * * *",
         "min_interval_minutes": 10,
@@ -67,10 +73,20 @@ def load_ssot() -> dict[str, Any]:
         "auto_proceed": False,
         "self_heal_motor_fail_mock": True,
         "self_heal_any_motor_fail": True,
-        "max_skips_per_tick": 8,
+        "max_skips_per_tick": 0,
+        "max_advance_per_tick": 1,
+        "rows_per_turn_cap": 1,
         "llm_provider": "openrouter",
         "full_motor": True,
     }
+
+
+def max_advance_cap(*, ssot: dict[str, Any] | None = None, body: dict[str, Any] | None = None) -> int:
+    """INCIDENT-045 — worker-bounded cap per turn (default 1). No 100-row floor."""
+    s = ssot or load_ssot()
+    cap = int(s.get("max_advance_per_tick") or s.get("rows_per_turn_cap") or 1)
+    requested = int((body or {}).get("max_advance") or cap)
+    return max(1, min(requested, cap))
 
 
 def auto_proceed_enabled() -> bool:
@@ -307,6 +323,113 @@ def _drift_check_v1() -> dict[str, Any]:
     }
 
 
+def _observe_sync_health_report(
+    *,
+    head_row: dict[str, Any],
+    sink_inv: dict[str, Any],
+    trigger_source: str,
+    drift: dict[str, Any] | None = None,
+) -> tuple[dict[str, Any], dict[str, Any] | None]:
+    tick = _read(TICK_RECEIPT)
+    trigger_sweep = _trigger_registry_sweep_v1()
+    drift = drift or _drift_check_v1()
+    runtime_registry = _read(SSOT)
+    trigger_registry = _read(TRIGGER_REGISTRY)
+    e2e_registry = _read(E2E_REGISTRY)
+    e2e_summary = e2e_registry.get("summary") if isinstance(e2e_registry.get("summary"), dict) else {}
+    e2e_slo = e2e_registry.get("slo") if isinstance(e2e_registry.get("slo"), dict) else {}
+
+    runtime_loop = build_heartbeat_loop(
+        workflow_id="cloud-auto-runtime",
+        lane="observe_sync",
+        targets=runtime_registry.get("slo") if isinstance(runtime_registry.get("slo"), dict) else None,
+        observed={
+            "last_run_at": tick.get("at"),
+            "freshness_minutes": _minutes_since(str(tick.get("at") or "")),
+            "success_rate": 1.0 if tick.get("ok", True) else 0.0,
+            "latency_minutes": 0.0,
+        },
+        evidence=[
+            {
+                "command": "cloud_auto_runtime_tick",
+                "exit_code": 0 if tick.get("ok", True) else 1,
+                "output": str(tick.get("decision") or tick.get("schema") or "")[:240],
+            }
+        ],
+        last_run_at=tick.get("at"),
+        sink_invariant_ok=bool(sink_inv.get("ok", True)),
+    )
+
+    trigger_loop = build_heartbeat_loop(
+        workflow_id="trigger-boundary-sweep",
+        lane="boundary_check",
+        targets=trigger_registry.get("slo") if isinstance(trigger_registry.get("slo"), dict) else None,
+        observed={
+            "last_run_at": trigger_sweep.get("at"),
+            "freshness_minutes": _minutes_since(str(trigger_sweep.get("at") or "")),
+            "success_rate": 1.0 if trigger_sweep.get("ok") else 0.0,
+            "latency_minutes": 0.0,
+        },
+        evidence=[
+            {
+                "command": "sandbox_health_sweep_v1",
+                "exit_code": 0 if trigger_sweep.get("ok") else 1,
+                "output": str(trigger_sweep.get("report_line") or trigger_sweep.get("reason") or "")[:240],
+            }
+        ],
+        last_run_at=trigger_sweep.get("at"),
+        sink_invariant_ok=bool(sink_inv.get("ok", True)),
+        throttled_roi=not bool(trigger_sweep.get("ok")),
+    )
+
+    e2e_loop = build_heartbeat_loop(
+        workflow_id="sourcea-e2e-registry",
+        lane="observe_sync",
+        targets=e2e_slo or None,
+        observed={
+            "last_run_at": e2e_registry.get("generated_at"),
+            "freshness_minutes": _minutes_since(str(e2e_registry.get("generated_at") or "")),
+            "success_rate": 1.0 if e2e_summary.get("filing_registry_validator_present") else 0.0,
+            "latency_minutes": float(e2e_slo.get("latency_target_minutes") or 0.0),
+        },
+        evidence=[
+            {
+                "command": "sourcea_e2e_registry_generate_v1",
+                "exit_code": 0 if e2e_summary.get("filing_registry_validator_present") else 1,
+                "output": str(e2e_summary.get("total_checks") or "")[:240],
+            }
+        ],
+        last_run_at=e2e_registry.get("generated_at"),
+        sink_invariant_ok=True,
+    )
+
+    report = build_heartbeat_report(
+        loops=[runtime_loop, trigger_loop, e2e_loop],
+        drift=drift,
+        founder_blocked_total=_founder_blocked_snapshot().get("count", 0),
+    )
+    report["trigger_source"] = trigger_source
+    report["queue_head"] = head_row.get("cloud_forge_run_head")
+    receipt = emit_improvement_receipt(
+        report=report,
+        repo_root=ROOT,
+        rollback_command="python3 scripts/cloud_auto_runtime_v1.py --disable",
+    )
+    if receipt:
+        report["kaizen_receipt"] = {
+            "id": receipt.get("id"),
+            "path": receipt.get("path"),
+        }
+        report["founder_gated_improvements"] = [
+            {
+                "id": receipt.get("id"),
+                "expected_roi": receipt.get("expected_roi") or {},
+                "age_days": 0,
+            }
+        ]
+    return report, receipt
+
+
 def _founder_blocked_snapshot() -> dict[str, Any]:
     candidates = [
         SINA / "founder-blocked-queue-v1.json",
@@ -468,6 +591,15 @@ def _write_daily_heartbeat_if_due(
         }
     doc["pending"] = pending
     doc["escalations"] = [str(i.get("id") or "") for i in pending.get("items") or [] if i.get("severity") == "P0"]
+    workflow_health, receipt = _observe_sync_health_report(
+        head_row=head_row,
+        sink_inv=sink_inv,
+        trigger_source=trigger_source,
+        drift=doc["drift"],
+    )
+    doc["workflow_health"] = workflow_health
+    if receipt:
+        doc["workflow_health"]["kaizen_receipt_path"] = receipt.get("path")
     _write(path, doc)
     if not _is_headless_cloud():
         mirror = SINA / "autonomous-forge-run-daily-heartbeat-v1.json"
@@ -522,7 +654,7 @@ def _write_cycle_receipt(
     pack = cycle.get("pack") if isinstance(cycle.get("pack"), dict) else {}
     shipped = int(pack.get("shipped") or pack.get("advanced") or 0)
     skipped = int(pack.get("skipped") or 0)
-    quota = int(pack.get("mandatory_quota") or pack.get("max_advance") or 100)
+    quota = int(pack.get("mandatory_quota") or pack.get("max_advance") or max_advance_cap())
     processed = shipped
     idle_batch = bool(pack.get("idle_batch")) or (processed == 0 and bool(pack.get("batch_complete")))
     registry_exhausted = bool(pack.get("registry_exhausted"))
@@ -701,19 +833,18 @@ def _update_ramp_state(*, green: bool) -> dict[str, Any]:
 
 FULL_PACK_BODY: dict[str, Any] = {
     "full_pack": True,
-    "max_advance": 100,
+    "max_advance": 10,
     "auto_tick": True,
     "force_reset_gate": True,
 }
 
 
 def _with_full_pack(body: dict[str, Any] | None) -> dict[str, Any]:
-    """Anti-poison — every Cloud Forge Run trigger is full_pack × 100 (INCIDENT-042)."""
+    """Anti-poison — every Cloud Forge Run trigger is full_pack × capped rows (INCIDENT-045)."""
+    ssot = load_ssot()
     row = {**FULL_PACK_BODY, **(body or {})}
     row["full_pack"] = True
-    row["max_advance"] = int(row.get("max_advance") or 100)
-    if row["max_advance"] < 100:
-        row["max_advance"] = 100
+    row["max_advance"] = max_advance_cap(ssot=ssot, body=row)
     return row
 
 
@@ -778,7 +909,7 @@ def run_auto_tick(
         "execution_plane": "mac_control_panel",
         "trigger_source": trigger_source,
         "anti_poison": "mac_never_commands_railway",
-        "cloud_scheduler": "cloudflare_cron */10 full_pack max_advance 100",
+        "cloud_scheduler": "cloudflare_cron */10 full_pack max_advance capped",
         "local_head": phase.get("cloud_forge_run_head"),
         "local_batch_id": phase.get("batch_id"),
         "last_cloud_tick_at": tick.get("at"),
@@ -870,11 +1001,11 @@ def run_auto_runtime_pack(
     trigger_source: str,
     llm_provider: str,
 ) -> dict[str, Any]:
-    """One external trigger — ship mandatory max_advance rows (NO skip-on-fail — INCIDENT-044)."""
+    """One external trigger — ship up to max_advance rows (NO skip-on-fail — INCIDENT-044)."""
     from hub_cloud_forge_run_proceed_v1 import proceed_on_cloud  # noqa: WPS433
     from fbe.lib.cloud_forge_run_queue_v1 import read_head  # noqa: WPS433
 
-    max_advance = int(body.get("max_advance") or ssot.get("max_advance_per_tick") or 100)
+    max_advance = max_advance_cap(ssot=ssot, body=body)
     no_skip = bool(ssot.get("no_skip_law", True))
     advanced = 0
     skipped = 0
@@ -954,7 +1085,7 @@ def run_auto_runtime_pack(
         "last_proceed": last_proceed,
         "for_founder": {
             "show_this": (
-                f"Pack · shipped {advanced}/{max_advance} (mandatory) · skipped {skipped} (must be 0) · "
+                f"Pack · shipped {advanced}/{max_advance} (cap) · skipped {skipped} (must be 0) · "
                 f"head {head_now.get('cloud_forge_run_head')} · "
                 + (
                     "competitor-1000 COMPLETE · registry exhausted · next: forge-real-blueprints"
@@ -1087,8 +1218,8 @@ def run_cloud_auto_tick(
             "skipped": 0,
             "processed": 0,
             "shipped": 0,
-            "mandatory_quota": int(ssot.get("max_advance_per_tick") or 100),
-            "max_advance": int(ssot.get("max_advance_per_tick") or 100),
+            "mandatory_quota": max_advance_cap(ssot=ssot),
+            "max_advance": max_advance_cap(ssot=ssot),
             "batch_complete": True,
             "batch_id": obs.get("batch_id") or head_row.get("batch_id"),
             "head_now": head,
@@ -1178,7 +1309,7 @@ def run_cloud_auto_tick(
     processed = shipped
     idle_batch = bool(pack.get("idle_batch"))
     registry_exhausted = bool(pack.get("registry_exhausted"))
-    quota = int(pack.get("mandatory_quota") or pack.get("max_advance") or 100)
+    quota = int(pack.get("mandatory_quota") or pack.get("max_advance") or max_advance_cap())
     if pack.get("ok") and shipped >= quota:
         claim_or_halt(path="/api/cloud-forge-run/auto-tick/v1", trigger_source=trigger_source, after_pass=True)
     if idle_batch and registry_exhausted:
@@ -1252,7 +1383,7 @@ def main() -> int:
             "enabled": True,
             "flag": str(AUTO_FLAG),
             "for_founder": {
-                "show_this": "Auto Runtime ARMED — 100 shipped rows per turn, zero skips, CF cron → Cloud Forge Run.",
+                "show_this": "Auto Runtime ARMED — up to 10 proof-gated rows per turn, zero skips, CF cron → Cloud Forge Run.",
             },
         }
     elif args.disable:

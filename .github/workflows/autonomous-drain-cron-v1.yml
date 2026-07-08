@@ -1,4 +1,7 @@
-name: cloud-forge-run-manual-backup-v1
+# Cloud Forge Run — manual backup only. 24/7 motor: sourcea-cloud-auto-runtime-tick-v1 (CF */10).
+# EXECUTION LAW: data/cf-only-24-7-execution-v1.json — never add schedule: to this file.
+name: autonomous-drain-cron-v1
+
 on:
   workflow_dispatch:
 jobs:

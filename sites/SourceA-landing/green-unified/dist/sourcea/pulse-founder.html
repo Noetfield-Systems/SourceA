@@ -47,6 +47,7 @@
         <p class="sa-metric-note">This is <strong>not</strong> customer sign-in — it is your private analytics password for stranger activity on sourcea.app.</p>
         <ol class="sa-pulse-setup-steps">
           <li>Cloudflare: <code>cd cloud/workers/sourcea-site-pulse-v1 && npx wrangler secret put FOUNDER_PULSE_KEY</code> (pick a long random string)</li>
+          <li><strong>Rotate key:</strong> see <code>cloud/workers/sourcea-site-pulse-v1/SETUP_LOCKED.md</code> § FOUNDER_PULSE_KEY rotation</li>
           <li>Optional email alerts: <code>npx wrangler secret put RESEND_API_KEY</code> — paste API key from <a href="https://resend.com/api-keys" target="_blank" rel="noopener">resend.com/api-keys</a></li>
           <li>Paste the <strong>same</strong> founder key below → inbox + stats appear</li>
         </ol>

@@ -1,7 +1,4 @@
-# RENAMED — was mislabeled “cloud”
+# ARCHIVED
 
-**Correct file:** `SINA_POST_CLAUDE_ANALYSIS_SHIP_READY_COMPANION_v1.md`
-
-Scope is **post–Claude AI / Claude chat** analysis — not “cloud analysis.”
-
-Do not edit this stub; edit the Claude companion.
+> **SUPERSEDED** — moved to `docs/archive/superseded-law-v1/brain-os/law/SINA_POST_CLOUD_ANALYSIS_SHIP_READY_COMPANION_v1.md`.
+> Use `docs/SOURCEA_GOVERNANCE_ENTRY_UNIFIED_LOCKED_v1.md` for active law.
