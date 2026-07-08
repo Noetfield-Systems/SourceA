@@ -1,20 +1,30 @@
 {
   "schema": "cloud-forge-run-queue-active-v1",
   "version": "1.5.0",
-  "batch_id": 80,
+  "batch_id": 82,
   "locked": true,
-  "saved_at": "2026-07-05T15:49:37Z",
-  "queue_path": "data/secondary-cloud-forge-run-batch-80-locked-v1.json",
+  "saved_at": "2026-07-06T09:15:38Z",
+  "queue_path": "data/secondary-cloud-forge-run-batch-82-locked-v1.json",
   "library": "client-proof-recipe",
   "registry_exhausted": false,
   "queue_batch_complete": false,
-  "cloud_sec_range": "CLOUD-SEC-7868..CLOUD-SEC-7967",
-  "rows_per_turn": 100,
+  "cloud_sec_range": "CLOUD-SEC-8069..CLOUD-SEC-8095",
+  "rows_per_turn": 1,
   "tasks_per_row": 1,
+  "batch_cloud_rows": 27,
   "source_queue": "data/client-proof-recipe-queue-v1.json",
   "phase_reset": {
-    "cloud_forge_run_head": "CLOUD-SEC-7868",
-    "cloud_forge_run_last_completed": "CLOUD-SEC-7867",
+    "cloud_forge_run_head": "CLOUD-SEC-8069",
+    "cloud_forge_run_last_completed": "CLOUD-SEC-8068",
     "queue_batch_complete": false
+  },
+  "next_batch": {
+    "batch_id": 83,
+    "status": "ready_locked",
+    "queue_path": "data/secondary-cloud-forge-run-batch-83-locked-v1.json",
+    "cloud_sec_range": "CLOUD-SEC-8096..CLOUD-SEC-8120",
+    "library": "client-proof-recipe",
+    "tasks_per_row": 1,
+    "source": "deep_research_up_dr_v1"
   }
 }

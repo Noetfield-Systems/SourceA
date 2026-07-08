@@ -1,16 +1,21 @@
 {
   "schema": "sourcea-ui-mechanical-gate-v1",
-  "version": "1.1.0",
-  "saved_at": "2026-06-25T14:00:00Z",
+  "version": "1.2.0",
+  "saved_at": "2026-07-06T12:20:00Z",
   "one_law": "Machine grades not broken — positioning consistency, layout invariants, tokens, links, JSON integrity. Never grades desire.",
   "law_ref": "docs/SOURCEA_UI_STANDARD_RUBRIC_LOCKED_v1.md",
+  "v2_additions_locked": "data/sourcea-ui-mechanical-gate-v2-additions-locked-v1.json",
+  "v2_additions_doc": "docs/SOURCEA_UI_MECHANICAL_GATE_V2_ADDITIONS_LOCKED_v1.md",
+  "verify_law": "The agent that fixes failures may not produce the PASS. Re-run from Railway or founder Mac, >=60s after deploy, full-body hash per page.",
   "positioning_ssot": "SourceA-landing/green-unified/data/sourcea-positioning-v1.json",
-  "receipt": "~/.sina/enforcement/sourcea-ui-mechanical-gate-receipt-v1.json",
+  "receipt": "reports/sourcea-ui-mechanical-gate-receipt-v1.json",
+  "receipt_mirror": "~/.sina/enforcement/sourcea-ui-mechanical-gate-receipt-v1.json",
   "gate": "scripts/sourcea_ui_mechanical_gate_v1.py",
   "validator": "scripts/validate-sourcea-ui-mechanical-v1.sh",
   "landing_root": "SourceA-landing/green-unified",
   "scan_pages": [
     "index.html",
+    "founder-home.html",
     "start.html",
     "platform.html",
     "pricing.html",
@@ -100,7 +105,92 @@
     {
       "id": "business_acquisition_systems_footer",
       "pattern": "Business Acquisition Systems — proof-backed engines",
-      "suggestion": "Footer: AI execution platform powered by Forge — proof built in."
+      "suggestion": "Footer: AI execution platform — proof built in."
+    },
+    {
+      "id": "unrendered_entity",
+      "pattern": "{ENTITY}",
+      "suggestion": "Replace {ENTITY} with Noetfield Systems Inc. — v2 additions locked."
+    },
+    {
+      "id": "unrendered_mustache",
+      "pattern": "{{",
+      "suggestion": "Unrendered mustache template — v2 additions locked."
+    },
+    {
+      "id": "unrendered_js_template",
+      "pattern": "${",
+      "suggestion": "Unrendered JS template literal — v2 additions locked."
+    },
+    {
+      "id": "intake_primary_hero",
+      "pattern": "data-sa-primary-cta href=\"/start\"",
+      "suggestion": "Primary hero CTA must be Forge Terminal per sourcea-positioning-v1.json cta_order."
+    }
+  ],
+  "regex_checks": [
+    {
+      "id": "placeholder_counter",
+      "severity": "FAIL",
+      "regex": "(?:—|--|N/A|TBD)\\s*(?:jobs|verified|clients|★|/100)",
+      "suggestion": "Em-dash placeholder stats on proof-branded pages — wire trust JSON or inline real counts."
+    },
+    {
+      "id": "unrendered_var",
+      "severity": "FAIL",
+      "regex": "\\{[A-Z_]{2,}\\}",
+      "suggestion": "Unrendered template variable — render before ship."
+    }
+  ],
+  "structural_checks": [
+    {
+      "id": "splat_url_guard",
+      "severity": "REJECT_ROW",
+      "rule": "never fetch paths containing '*'"
+    },
+    {
+      "id": "spa_fallback_detect",
+      "severity": "REJECT_ROW",
+      "rule": "body sha256 == homepage sha256 and path != '/' => SPA_FALLBACK"
+    },
+    {
+      "id": "live_vs_dist_diff",
+      "severity": "DRIFT",
+      "rule": "discover paths from live sitemap.xml + live link BFS; emit live_only/dist_only diff"
+    },
+    {
+      "id": "entity_consistency",
+      "severity": "FAIL",
+      "rule": "footer entity must be 'Noetfield Systems Inc.' on all pages"
+    },
+    {
+      "id": "nav_fingerprint",
+      "severity": "FAIL",
+      "rule": "primary nav link-set: max 2 distinct fingerprints site-wide"
+    },
+    {
+      "id": "price_drift",
+      "severity": "FAIL",
+      "rule": "every $ figure on any page must exist in canonical pricing table"
+    },
+    {
+      "id": "receipt_hygiene",
+      "severity": "FAIL",
+      "rule": "audit receipts under reports/ only; no /Users/ path leaks in receipt body"
+    }
+  ],
+  "reclassify": [
+    {
+      "pages": [
+        "/ai-value-governance",
+        "/enterprise-ai-control-plane",
+        "/sourcea/ai-value-governance",
+        "/sourcea/enterprise-ai-control-plane",
+        "/operating-brain-install"
+      ],
+      "finding_id": "no_contact_surface",
+      "severity": "FAIL",
+      "why": "commercial SKU landers — dead-end money pages"
     }
   ],
   "forbidden_poison": [
@@ -120,7 +210,7 @@
   "chatbot_required": [
     {
       "id": "execution_greet",
-      "pattern": "AI execution platform powered by Forge",
+      "pattern": "AI execution platform",
       "suggestion": "Brain greet must lead with execution platform positioning."
     },
     {

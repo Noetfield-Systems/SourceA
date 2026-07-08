@@ -42,4 +42,4 @@ https://sourcea.app/sourcea/forge/cursor-bridge
 
 When ready: `npm publish --access public` from `packages/mcp-sourcea-verify` with `@sourcea/mcp-verify` scope.
 
-Until npm live: install from GitHub `kazemnezhadsina144-dot/sourcea-boot` sibling repo or clone SourceA `packages/mcp-sourcea-verify`.
+Until npm live: install from GitHub `Noetfield-Systems/sourcea-boot` or clone SourceA `packages/mcp-sourcea-verify`.

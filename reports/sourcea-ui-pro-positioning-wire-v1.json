@@ -1,0 +1,43 @@
+{
+  "schema": "sourcea-ui-pro-positioning-wire-v1",
+  "at": "2026-07-06T14:41:29Z",
+  "batch": "B",
+  "workstream": "WS-02",
+  "steps": "UP-UI-013..024",
+  "positioning_version": "3.4.0",
+  "one_line": "SourceA is an AI execution platform \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.",
+  "hero_denylist_count": 7,
+  "disk_sha256_prefix": "1f30717d00383e98",
+  "wire_js": true,
+  "pages": {
+    "founder_home": {
+      "path": "sites/SourceA-landing/green-unified/founder-home.html",
+      "h1_present": false,
+      "taxonomy_present": true,
+      "wire_script": true,
+      "primary_cta_forge": true,
+      "denylist_hits_in_hero": [],
+      "legal_entity": true
+    },
+    "sourcea_index": {
+      "path": "sites/SourceA-landing/green-unified/index.html",
+      "h1_present": false,
+      "taxonomy_present": true,
+      "wire_script": true,
+      "primary_cta_forge": true,
+      "denylist_hits_in_hero": [],
+      "legal_entity": true
+    }
+  },
+  "live_positioning": {
+    "ok": false,
+    "matches_disk": null,
+    "note": "Deploy landing to sync live JSON"
+  },
+  "brain_rules_refresh": {
+    "ok": false,
+    "stdout": ""
+  },
+  "mechanical_gate": "hero_denylist mirrored in positioning SSOT; gate patterns unchanged",
+  "publish_note": "Disk ready \u2014 deploy landing for live H1 + JSON parity"
+}

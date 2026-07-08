@@ -3,6 +3,7 @@
  * POST Railway /api/cloud-forge-run/auto-tick/v1 — server-side PROVE → contract → SHIP
  */
 import { writeCronFired } from "./truth_log.js";
+import { upsertLoopLiveness } from "./loop_liveness.js";
 
 const DEFAULT_VERIFIER_BASE_URL =
   "https://sina-governance-ssot-advisory.kazemnezhadsina144.workers.dev";
@@ -42,6 +43,17 @@ export default {
                 ? "IDLE_NO_WORK"
                 : tick?.motor?.decision || tick?.decision || null,
           motor_invoked: tick?.motor_invoked !== false,
+        });
+        await upsertLoopLiveness(env, {
+          loop_id: "sourcea-cloud-auto-runtime-tick-v1",
+          trigger_host: "cloudflare",
+          schedule_cron: "*/10 * * * *",
+          interval_minutes: 10,
+          last_ok: Boolean(tick?.ok),
+          last_receipt: {
+            decision: tick?.decision || null,
+            motor_invoked: tick?.motor_invoked !== false,
+          },
         });
         return tick;
       })(),
@@ -332,8 +344,8 @@ function edgeIdleReceipt(env, precheck) {
 }
 
 function maxAdvanceCap(env) {
-  const n = parseInt(env.MAX_ADVANCE_PER_TICK || "10", 10);
-  return Number.isFinite(n) && n > 0 ? n : 10;
+  const n = parseInt(env.MAX_ADVANCE_PER_TICK || "1", 10);
+  return Number.isFinite(n) && n > 0 ? n : 1;
 }
 
 async function runTick(env, { proceed }) {

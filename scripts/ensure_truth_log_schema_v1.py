@@ -18,7 +18,9 @@ SQL_006 = ROOT / "infra/supabase/portfolio-spine/migrations/006_mac_spine_bridge
 SQL_007 = ROOT / "infra/supabase/portfolio-spine/migrations/007_agent_session_cost_v1.sql"
 SQL_012 = ROOT / "infra/supabase/portfolio-spine/migrations/012_gmail_inbox_signals_v1.sql"
 SQL_013 = ROOT / "infra/supabase/portfolio-spine/migrations/013_improvement_queue_v1.sql"
+SQL_014 = ROOT / "infra/supabase/portfolio-spine/migrations/014_workflow_census_v1.sql"
 MIGRATION_SQL = (SQL_002, SQL_005, SQL_006, SQL_007, SQL_012, SQL_013)
+CENSUS_TABLE = "workflow_census"
 NERVE_TABLES = ("improvement_queue", "nf_intake_submissions", "nerve_probe_receipts")
 GMAIL_TABLE = "gmail_inbox_signals"
 

@@ -2,7 +2,7 @@
   "schema": "cloud-forge-run-realistic-motor-law-v1",
   "version": "1.0.0",
   "locked": true,
-  "saved_at": "2026-07-05T15:58:00Z",
+  "saved_at": "2026-07-06T09:17:58Z",
   "supersedes": [
     "data/cloud-forge-run-hundred-rows-per-turn-vocabulary-v1.json",
     "brain-os/incidents/SINA_CLOUD_FORGE_RUN_HUNDRED_ROWS_VOCABULARY_INCIDENT_043_LOCKED_v1.md",
@@ -15,17 +15,17 @@
   "founder_display_motor": "Cloud Forge Run",
   "founder_display_scheduler": "Auto Runtime",
   "founder_vocabulary_ssot": "data/cloud-motor-founder-vocabulary-v1.json",
-  "one_law": "Auto Runtime (~10 min) → one Cloud Forge Run POST → up to N doable tasks (default 10). Each row = one recipe unit. No head advance without artifact + verify PASS in Supabase. Throughput = workers × real tasks — never counter theater.",
+  "one_law": "CF cron (~10 min) \u2192 one Railway POST \u2192 1 doable task(s) (one recipe per row). Proof gate + Supabase before advance.",
   "motor": {
     "cadence_minutes": 10,
     "cron": "*/10 * * * *",
-    "rows_per_turn_cap": 10,
-    "max_advance_per_tick": 10,
+    "rows_per_turn_cap": 1,
+    "max_advance_per_tick": 1,
     "tasks_per_row_default": 1,
     "external_posts_per_turn": 1,
     "internal_loop": "run_auto_runtime_pack",
     "parallelism_strategy": "scale_cloud_workers_not_row_quota",
-    "batch_tail_exception": "when fewer than cap rows remain, process all remaining — still zero skips on motor fail"
+    "batch_tail_exception": "when fewer than cap rows remain, process all remaining \u2014 still zero skips on motor fail"
   },
   "proof": {
     "proof_gate_required": true,
@@ -49,12 +49,12 @@
   },
   "definitions": {
     "turn": "One CF cron or one Cloud Workers Proceed tap",
-    "row": "One CLOUD-SEC queue slot — one doable task unit for one cloud worker",
-    "task": "Recipe execution bounded by worker timeout — default 1 per row",
+    "row": "One CLOUD-SEC queue slot \u2014 one doable task unit for one cloud worker",
+    "task": "Recipe execution bounded by worker timeout \u2014 default 1 per row",
     "shipped": "Motor PASS + advance_on_pass + proof gate satisfied",
     "valuable_ship": "Shipped row whose recipe done_when is verified and Supabase holds the proof artifact",
-    "processed": "Rows attempted this turn — NOT success by itself",
-    "skipped": "FORBIDDEN — motor fail halts turn (INCIDENT-044 no-skip survives)",
+    "processed": "Rows attempted this turn \u2014 NOT success by itself",
+    "skipped": "FORBIDDEN \u2014 motor fail halts turn (INCIDENT-044 no-skip survives)",
     "counter_theater": "Claiming autorun success from head movement or pack.processed alone"
   },
   "forbidden_founder_words": [
@@ -70,15 +70,15 @@
     "seed cycle counts as factory output"
   ],
   "mandatory_reply_lines": [
-    "Quote plan_id + recipe + Supabase artifact — not pack.processed alone.",
-    "Say Cloud Forge Run + Auto Runtime — never drain or loop.",
+    "Quote plan_id + recipe + Supabase artifact \u2014 not pack.processed alone.",
+    "Say Cloud Forge Run + Auto Runtime \u2014 never drain or loop.",
     "Throughput grows by adding cloud workers, not inflating rows_per_turn."
   ],
   "pass_turn_observer_shape": {
     "pack.max_advance": "<= rows_per_turn_cap",
     "pack.skipped": 0,
     "pack.processed": "<= max_advance",
-    "note": "PASS requires proof gate per row — processed count is hygiene only"
+    "note": "PASS requires proof gate per row \u2014 processed count is hygiene only"
   },
   "pairs": [
     "data/cloud-auto-runtime-v1.json",
@@ -91,5 +91,7 @@
     "queue": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/queue/v1",
     "observer": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/observer/v1",
     "cf_health": "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev/health"
-  }
+  },
+  "max_advance_per_tick": 1,
+  "rows_per_turn_cap": 1
 }

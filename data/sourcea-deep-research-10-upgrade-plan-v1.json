@@ -1,0 +1,281 @@
+{
+  "schema": "sourcea-deep-research-10-upgrade-plan-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-06T09:37:16Z",
+  "source": "/Users/sinakazemnezhad/Downloads/sourcea_deep_research_report.md",
+  "wave": "W1",
+  "gate_plan": "UP-DR-10",
+  "baseline": "PRODUCT_BETA",
+  "target": "WARM_COMMERCIAL_READY",
+  "critical_path": [
+    "UP-DR-01",
+    "UP-DR-02",
+    "UP-DR-03",
+    "UP-DR-10"
+  ],
+  "one_law": "One UP-DR plan = one CLOUD-SEC row \u00b7 one CF tick = one row \u00b7 Supabase proof gate",
+  "motor_law": "data/cloud-forge-run-realistic-motor-law-v1.json",
+  "pulse_script": "scripts/sourcea_deep_research_10_pulse_v1.py",
+  "validator": "scripts/validate-sourcea-deep-research-10-v1.sh",
+  "human_doc": "docs/SOURCEA_DEEP_RESEARCH_10_UPGRADE_PLANS_LOCKED_v1.md",
+  "upgrade_plans": [
+    {
+      "id": "UP-DR-01",
+      "wave": "W1",
+      "tier": "P0",
+      "theme": "claim-hygiene",
+      "title": "Claim hygiene \u2014 install/PyPI",
+      "goal": "Eval page and PyPI probe agree \u2014 no false install promise",
+      "done_when": "probe_sourcea_boot_pypi_v1.py ok OR eval copy says GitHub clone pending",
+      "verify": "cd ~/Desktop/SourceA && python3 scripts/probe_sourcea_boot_pypi_v1.py --json && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/eval --marker \"sourcea-boot\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count",
+      "proof_artifact": "https://sourcea.app/eval",
+      "client_demo": "Open /eval \u2014 show install line matches live PyPI or honest GitHub fallback",
+      "lane": "sourcea-site",
+      "work_path": "SourceA-landing/green-unified/eval.html",
+      "status": "done",
+      "steps": [
+        {
+          "sdr_id": "sdr-p0-001",
+          "title": "Fix public install/package claim vs PyPI reality",
+          "acceptance": "sdr-p0-001 verify PASS",
+          "status": "done"
+        }
+      ],
+      "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-01-claim-hygiene.md"
+    },
+    {
+      "id": "UP-DR-02",
+      "wave": "W1",
+      "tier": "P0",
+      "theme": "live-demo",
+      "title": "Live demo \u2014 Forge Terminal",
+      "goal": "Terminal shows online send path OR clear offline + forge@sourcea.app fallback",
+      "done_when": "Terminal page markers present; health/send path returns ok or offline banner",
+      "verify": "cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/sourcea/forge/terminal --marker \"Forge Terminal\" --marker \"data-sa-proof-cta\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count",
+      "proof_artifact": "https://sourcea.app/sourcea/forge/terminal",
+      "client_demo": "Send one prompt on terminal \u2014 response or explicit offline state",
+      "lane": "sourcea-site",
+      "work_path": "SourceA-landing/green-unified/sourcea/forge/terminal.html",
+      "status": "done",
+      "steps": [
+        {
+          "sdr_id": "sdr-p0-002",
+          "title": "Forge Terminal: fix Connecting\u2026 or show honest offline state",
+          "acceptance": "sdr-p0-002 verify PASS",
+          "status": "done"
+        }
+      ],
+      "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-02-live-demo.md"
+    },
+    {
+      "id": "UP-DR-03",
+      "wave": "W1",
+      "tier": "P0",
+      "theme": "lead-capture",
+      "title": "Lead capture \u2014 intake submit",
+      "goal": "Start/intake POST stores row in Supabase and shows success reference",
+      "done_when": "mvp-intake-config exposes worker URL; verify_mvp_intake_proof_v1 PASS",
+      "verify": "cd ~/Desktop/SourceA && python3 scripts/verify_mvp_intake_proof_v1.py --json && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count",
+      "proof_artifact": "supabase://mvp_intake_leads",
+      "client_demo": "Submit test lead on /start \u2014 show confirmation ID + Supabase row",
+      "lane": "sourcea-site",
+      "work_path": "cloud/workers/sourcea-mvp-intake-v1/",
+      "status": "done",
+      "steps": [
+        {
+          "sdr_id": "sdr-p0-003",
+          "title": "Verify intake submit: store lead + confirmation + notification",
+          "acceptance": "sdr-p0-003 verify PASS",
+          "status": "done"
+        }
+      ],
+      "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-03-lead-capture.md"
+    },
+    {
+      "id": "UP-DR-04",
+      "wave": "W1",
+      "tier": "P1",
+      "theme": "buyer-path",
+      "title": "Buyer path \u2014 primary CTA + hero",
+      "goal": "Homepage hero primary CTA = Request a 48-hour build; secondary See proof \u00b7 Hero matches research \u00a710 headline + subheadline",
+      "done_when": "Homepage has data-sa-primary-cta marker linking to /start or /offer \u00b7 Homepage contains Proof-backed MVPs and acquisition systems, shipped fast",
+      "verify": "cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/ --marker \"Request a 48-hour build\" --marker \"See proof\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count && cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/ --marker \"Proof-backed MVPs\" --marker \"acquisition systems\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count",
+      "proof_artifact": "https://sourcea.app/",
+      "client_demo": "10-second test: visitor names paid path without reading nav \u00b7 Read hero \u2014 ICP clear in one breath",
+      "lane": "sourcea-site",
+      "work_path": "SourceA-landing/green-unified/index.html",
+      "status": "done",
+      "steps": [
+        {
+          "sdr_id": "sdr-p1-001",
+          "title": "One primary CTA: Request a 48-hour build",
+          "acceptance": "sdr-p1-001 verify PASS",
+          "status": "done"
+        },
+        {
+          "sdr_id": "sdr-p1-006",
+          "title": "Homepage copy upgrade: proof-backed MVPs headline",
+          "acceptance": "sdr-p1-006 verify PASS",
+          "status": "done"
+        }
+      ],
+      "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-04-buyer-path.md"
+    },
+    {
+      "id": "UP-DR-05",
+      "wave": "W1",
+      "tier": "P1",
+      "theme": "commercial-ladder",
+      "title": "Commercial ladder \u2014 pricing",
+      "goal": "One ladder: 48h $1.5K\u2013$5K \u00b7 custom $3K\u2013$10K \u00b7 support from $2K/mo \u00b7 /pricing returns 200 and nav Pricing link resolves",
+      "done_when": "pricing.html offer.html start.html share same tier copy hash \u00b7 curl 200 on /pricing and validate-sourcea-contract-pages or link check PASS",
+      "verify": "cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/pricing --marker \"$1,500\" --marker \"$5,000\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count && cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/offer --marker \"48-hour\" --marker \"$1,500\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count && cd ~/Desktop/SourceA && curl -fsS -o /dev/null -w '%{http_code}' https://sourcea.app/pricing | grep -q 200 && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count",
+      "proof_artifact": "https://sourcea.app/pricing",
+      "client_demo": "Tab three pages \u2014 pricing matches \u00b7 Click nav Pricing \u2014 page loads",
+      "lane": "sourcea-site",
+      "work_path": "SourceA-landing/green-unified/pricing.html",
+      "status": "done",
+      "steps": [
+        {
+          "sdr_id": "sdr-p1-002",
+          "title": "Canonical pricing ladder across Offer/Start/Pricing",
+          "acceptance": "sdr-p1-002 verify PASS",
+          "status": "done"
+        },
+        {
+          "sdr_id": "sdr-p1-007",
+          "title": "Pricing page route reliability (200 + linked from nav)",
+          "acceptance": "sdr-p1-007 verify PASS",
+          "status": "done"
+        }
+      ],
+      "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-05-commercial-ladder.md"
+    },
+    {
+      "id": "UP-DR-06",
+      "wave": "W1",
+      "tier": "P1",
+      "theme": "intake-trust",
+      "title": "Intake trust \u2014 privacy note",
+      "goal": "Intake form shows no-resale privacy note above Submit",
+      "done_when": "Start page has data-sa-privacy-note marker before submit button",
+      "verify": "cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/start --marker \"no resale\" --marker \"data-sa-privacy-note\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count",
+      "proof_artifact": "https://sourcea.app/start",
+      "client_demo": "Scroll intake \u2014 privacy visible before Submit",
+      "lane": "sourcea-site",
+      "work_path": "SourceA-landing/green-unified/start.html",
+      "status": "done",
+      "steps": [
+        {
+          "sdr_id": "sdr-p1-003",
+          "title": "Privacy/data note visible before intake Submit",
+          "acceptance": "sdr-p1-003 verify PASS",
+          "status": "done"
+        }
+      ],
+      "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-06-intake-trust.md"
+    },
+    {
+      "id": "UP-DR-07",
+      "wave": "W1",
+      "tier": "P1",
+      "theme": "product-taxonomy",
+      "title": "Product taxonomy",
+      "goal": "One box: SourceA=product \u00b7 Forge=engine \u00b7 components named once",
+      "done_when": "Homepage has data-sa-taxonomy box with three-line explainer",
+      "verify": "cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/ --marker \"data-sa-taxonomy\" --marker \"Forge is the execution engine\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count",
+      "proof_artifact": "https://sourcea.app/",
+      "client_demo": "Read taxonomy box aloud \u2014 under 15 seconds",
+      "lane": "sourcea-site",
+      "work_path": "SourceA-landing/green-unified/index.html",
+      "status": "done",
+      "steps": [
+        {
+          "sdr_id": "sdr-p1-004",
+          "title": "Simplify product taxonomy box on homepage",
+          "acceptance": "sdr-p1-004 verify PASS",
+          "status": "done"
+        }
+      ],
+      "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-07-product-taxonomy.md"
+    },
+    {
+      "id": "UP-DR-08",
+      "wave": "W1",
+      "tier": "P1",
+      "theme": "proof-readability",
+      "title": "Proof readability",
+      "goal": "Live receipt page adds plain-English what-this-proves strip",
+      "done_when": "GET /sourcea/proof/live JSON + human strip on proof page",
+      "verify": "cd ~/Desktop/SourceA && curl -fsS https://sourcea.app/sourcea/proof/live | python3 -c \"import json,sys; d=json.load(sys.stdin); assert d.get('ok') or d.get('verdict')\" && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/proof --marker \"What this proves\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count",
+      "proof_artifact": "https://sourcea.app/sourcea/proof/live",
+      "client_demo": "Open receipt \u2014 non-technical line explains delivery proof",
+      "lane": "sourcea-site",
+      "work_path": "SourceA-landing/green-unified/proof.html",
+      "status": "done",
+      "steps": [
+        {
+          "sdr_id": "sdr-p1-005",
+          "title": "Buyer-readable proof: What this proves under live receipt",
+          "acceptance": "sdr-p1-005 verify PASS",
+          "status": "done"
+        }
+      ],
+      "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-08-proof-readability.md"
+    },
+    {
+      "id": "UP-DR-09",
+      "wave": "W1",
+      "tier": "P2",
+      "theme": "ecosystem-map",
+      "title": "Ecosystem map",
+      "goal": "Footer or about shows one-line relation map",
+      "done_when": "Footer contains data-sa-relation-map with four entities",
+      "verify": "cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/ --marker \"data-sa-relation-map\" --marker \"Noetfield\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count",
+      "proof_artifact": "https://sourcea.app/",
+      "client_demo": "Footer answers who-owns-what in 10s",
+      "lane": "sourcea-site",
+      "work_path": "SourceA-landing/green-unified/index.html",
+      "status": "done",
+      "steps": [
+        {
+          "sdr_id": "sdr-p2-001",
+          "title": "Footer relation map: SourceA \u00b7 Noetfield \u00b7 TrustField \u00b7 Gateway",
+          "acceptance": "sdr-p2-001 verify PASS",
+          "status": "done"
+        }
+      ],
+      "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-09-ecosystem-map.md"
+    },
+    {
+      "id": "UP-DR-10",
+      "wave": "W1",
+      "tier": "P2",
+      "theme": "share-gate",
+      "title": "Shareability + ship gate",
+      "goal": "og:title and og:description match research \u00a79 P2 copy",
+      "done_when": "index.html head has og:title Proof-backed AI execution systems",
+      "verify": "cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/ --marker \"og:title\" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count && bash scripts/validate-sourcea-deep-research-10-v1.sh",
+      "proof_artifact": "https://sourcea.app/",
+      "client_demo": "LinkedIn post inspector shows correct preview",
+      "lane": "sourcea-site",
+      "work_path": "SourceA-landing/green-unified/index.html",
+      "status": "done",
+      "steps": [
+        {
+          "sdr_id": "sdr-p2-002",
+          "title": "OpenGraph / LinkedIn share card",
+          "acceptance": "sdr-p2-002 verify PASS",
+          "status": "done"
+        }
+      ],
+      "prompt_path": "brain-os/plan-registry/sourcea-deep-research-v1/prompts/up-dr-10-share-gate.md"
+    }
+  ],
+  "cross_ref": {
+    "child_plans": "data/sourcea-deep-research-upgrade-plan-v1.json",
+    "registry": "brain-os/plan-registry/sourcea-deep-research-v1/REGISTRY.json",
+    "client_proof_queue": "data/client-proof-recipe-queue-v1.json",
+    "generator": "scripts/generate_sourcea_deep_research_plans_v1.py"
+  }
+}

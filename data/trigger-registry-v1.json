@@ -1,6 +1,6 @@
 {
   "schema": "trigger-registry-v1",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "system": "sourcea",
   "slo": {
     "freshness_target_minutes": 15,
@@ -145,8 +145,8 @@
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
-        "type": "wrangler_cron",
-        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+        "type": "dispatch_cron",
+        "dispatch_path": "data/loop-specialist-cron-dispatch-v1.json",
         "schedule": "30 */6 * * *"
       }
     },
@@ -231,8 +231,8 @@
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
-        "type": "wrangler_cron",
-        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+        "type": "dispatch_cron",
+        "dispatch_path": "data/loop-specialist-cron-dispatch-v1.json",
         "schedule": "0 8 * * *"
       }
     },
@@ -259,8 +259,8 @@
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
-        "type": "wrangler_cron",
-        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+        "type": "dispatch_cron",
+        "dispatch_path": "data/loop-specialist-cron-dispatch-v1.json",
         "schedule": "0 9 * * 0"
       }
     },
@@ -301,8 +301,8 @@
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
-        "type": "wrangler_cron",
-        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+        "type": "dispatch_cron",
+        "dispatch_path": "data/loop-specialist-cron-dispatch-v1.json",
         "schedule": "0 * * * *"
       }
     },
@@ -315,8 +315,8 @@
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
-        "type": "wrangler_cron",
-        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+        "type": "dispatch_cron",
+        "dispatch_path": "data/loop-specialist-cron-dispatch-v1.json",
         "schedule": "0 3 * * *"
       }
     },
@@ -329,8 +329,8 @@
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
-        "type": "wrangler_cron",
-        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml",
+        "type": "dispatch_cron",
+        "dispatch_path": "data/loop-specialist-cron-dispatch-v1.json",
         "schedule": "0 7 * * *"
       }
     },
@@ -358,8 +358,10 @@
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-tick-v1",
       "live_probe": {
-        "type": "wrangler_cron",
-        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml"
+        "type": "dispatch_cron",
+        "dispatch_path": "data/loop-specialist-cron-dispatch-v1.json",
+        "match_trigger_id": "SA-T-gmail-sweep-hourly",
+        "schedule": "0 * * * *"
       }
     },
     {
@@ -371,8 +373,10 @@
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-tick-v1",
       "live_probe": {
-        "type": "wrangler_cron",
-        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml"
+        "type": "dispatch_cron",
+        "dispatch_path": "data/loop-specialist-cron-dispatch-v1.json",
+        "match_trigger_id": "SA-T-ops-heartbeat-daily",
+        "schedule": "0 7 * * *"
       }
     },
     {
@@ -384,8 +388,10 @@
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-tick-v1",
       "live_probe": {
-        "type": "wrangler_cron",
-        "path": "cloud/workers/loop-specialist-tick-v1/wrangler.toml"
+        "type": "dispatch_cron",
+        "dispatch_path": "data/loop-specialist-cron-dispatch-v1.json",
+        "match_trigger_id": "SA-T-kaizen-nightly",
+        "schedule": "0 3 * * *"
       }
     },
     {
@@ -428,6 +434,33 @@
         "type": "gha_workflow",
         "path": ".github/workflows/ops-heartbeat-daily-v1.yml",
         "expects": ["workflow_dispatch"]
+      }
+    },
+    {
+      "trigger_id": "SA-T-workflow-census-weekly",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "0 10 * * 0",
+      "target": "Weekly WORKFLOW_CENSUS_v1 — judging layer → workflow_census + improvement_queue audit",
+      "valid_in_verified_window": true,
+      "owner_workflow": "loop-specialist-cron-dispatch",
+      "live_probe": {
+        "type": "dispatch_cron",
+        "dispatch_path": "data/loop-specialist-cron-dispatch-v1.json",
+        "schedule": "0 10 * * 0"
+      }
+    },
+    {
+      "trigger_id": "SA-T-deadman-loop-watch",
+      "system": "sourcea",
+      "kind": "schedule",
+      "schedule": "*/30 * * * *",
+      "target": "Independent deadman */30 loop_registry liveness (not piggyback)",
+      "valid_in_verified_window": true,
+      "owner_workflow": "sourcea-deadman-v1",
+      "live_probe": {
+        "type": "wrangler_cron",
+        "path": "cloud/workers/sourcea-deadman-v1/wrangler.toml"
       }
     }
   ]

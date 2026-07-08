@@ -53,7 +53,8 @@
       {"id": "runway_hero", "category": "commercial_video", "marginal_cost_usd": "high", "status": "pending_founder_approval", "roi_gate": "W1_film_hero"},
       {"id": "heygen_avatar", "category": "commercial_video", "marginal_cost_usd": "medium", "status": "pending_founder_approval", "roi_gate": "avatar_factory"},
       {"id": "datadog_mcp", "category": "observability", "marginal_cost_usd": "paid", "status": "pending_founder_approval", "blocked_by": "NO-CC"},
-      {"id": "cloudflare_paid_workers", "category": "edge", "marginal_cost_usd": "paid", "status": "pending_founder_approval", "note": "Vercel Gate K first"},
+      {"id": "cloudflare_paid_workers", "category": "edge", "marginal_cost_usd": 5, "status": "active", "wire": "founder_approved_2026-07-06", "ssot": "data/sourcea-paid-edge-stack-v1.json"},
+      {"id": "uptimerobot_free", "category": "observability", "marginal_cost_usd": 0, "status": "active", "wire": "founder_signed_up_2026-07-06", "ssot": "data/noos-external-monitors-v1.json"},
       {"id": "openrouter_paid", "category": "llm_paid", "marginal_cost_usd": "variable", "status": "pending_founder_approval", "roi_gate": "free_chain_exhausted"},
       {"id": "render_paid_db", "category": "infra", "marginal_cost_usd": "paid", "status": "pending_founder_approval", "blocked_by": "NO-CC"},
       {"id": "tavily_paid_tier", "category": "research", "marginal_cost_usd": "low", "status": "pending_founder_approval", "roi_gate": "research_volume"}

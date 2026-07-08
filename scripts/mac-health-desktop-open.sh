@@ -1,7 +1,19 @@
 #!/bin/zsh
 # Desktop launcher for Mac Health Guard — SSOT for double-click open.
 set -euo pipefail
-SA="${SINA_SOURCEA:-/Users/sinakazemnezhad/Desktop/SourceA}"
+SA="${SINA_SOURCEA:-}"
+if [[ -z "$SA" || ! -f "$SA/scripts/mac-health-guard-server.py" ]]; then
+  for candidate in \
+    "${HOME}/Desktop/Noetfield-Systems/SourceA" \
+    "$(cd "$(dirname "$0")/.." && pwd)" \
+    "${HOME}/Desktop/SourceA"; do
+    if [[ -f "${candidate}/scripts/mac-health-guard-server.py" ]]; then
+      SA="$candidate"
+      break
+    fi
+  done
+fi
+export SINA_SOURCEA="$SA"
 LOG="$HOME/.sina/mac-health-desktop-launch.log"
 PORT="${MAC_HEALTH_PORT:-13024}"
 export PATH="/opt/homebrew/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/Current/bin:/usr/bin:/bin:/usr/sbin:/sbin"

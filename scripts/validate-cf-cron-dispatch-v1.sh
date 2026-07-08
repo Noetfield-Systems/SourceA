@@ -32,8 +32,9 @@ m = re.search(r'crons\s*=\s*\[(.*?)\]', toml, re.S)
 if not m:
     raise SystemExit("wrangler.toml missing crons block")
 toml_crons = re.findall(r'"([^"]+)"', m.group(1))
-if sorted(toml_crons) != sorted(crons):
-    raise SystemExit(f"wrangler crons mismatch: {toml_crons} vs {crons}")
+wrangler_cron = d.get("wrangler_trigger_cron", "*/15 * * * *")
+if toml_crons != [wrangler_cron]:
+    raise SystemExit(f"wrangler must have single trigger {wrangler_cron!r}, got {toml_crons}")
 
 paths = set()
 for row in d.get("crons", []):
@@ -53,7 +54,13 @@ retired = [
     "repo-health-daily-v1.yml",
     "security-sweep-weekly-v1.yml",
     "determinism-gate.yml",
+    "autonomous-drain-cron-v1.yml",
 ]
+wf_dir = ssot.parent.parent / ".github" / "workflows"
+for wf in sorted(wf_dir.glob("*.yml")):
+    text = wf.read_text()
+    if re.search(r'^\s*schedule\s*:', text, re.M):
+        raise SystemExit(f"{wf.name} still has schedule: block — CF-only 24/7 law")
 for name in retired:
     wf = ssot.parent.parent / ".github" / "workflows" / name
     text = wf.read_text()
