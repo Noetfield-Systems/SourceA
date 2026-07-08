@@ -1,7 +1,7 @@
 ---
 lane: rules
 kind: rule
-updated: 2026-07-06T15:51:53Z
+updated: 2026-07-08T07:38:09Z
 source_path: data/brain-public-rules-v1.json
 public: true
 pinned: true
@@ -37,9 +37,9 @@ SourceA is an AI execution platform — real builds, automations, and agent work
 
 ## Positioning SSOT
 - one_line: SourceA is an AI execution platform — real builds, automations, and agent workflows, with a verifiable receipt on every run.
-- primary_cta: /sourcea/forge/terminal (Try Forge Terminal)
+- primary_cta: /start (Request a 48-hour build)
 - agentic_first_law: If the site can show it, strangers never need a founder call. Calls are optional escalation only.
-- hero_h1: Turn AI into real production work, with proof built in.
+- hero_h1: Proof-backed MVPs and acquisition systems, shipped fast.
 - hero_lead: Evaluate in five minutes with sourcea-boot — PASS or BLOCK on disk. Forge Terminal, live receipt, or Brain — no sales call required.
 - hero_denylist: Book a scope call; book a call; We show real work on a call; verify on a call; Watch before you book; Book proof demo
 

@@ -1,7 +1,7 @@
 {
   "schema": "sourcea-full-stack-100-fix-plan-v2",
   "version": "2.1.0",
-  "saved_at": "2026-06-24T08:37:08Z",
+  "saved_at": "2026-07-08T01:51:52Z",
   "law": "100 fix plans v2.1 \u2014 pulse wired \u00b7 outbound cross \u00b7 gate cart \u00b7 C4 decoupled",
   "parent_audit": "Brain chat full honest audit 2026-06-18",
   "human_doc": "docs/SOURCEA_FULL_STACK_100_FIX_PLAN_LOCKED_v1.md",
@@ -35,7 +35,9 @@
     "phase0_freemium_sandbox": "data/phase0-freemium-sandbox-reference-v1.json",
     "anti_theater_loop": "data/anti-theater-validator-loop-v1.json",
     "orchestrator": "scripts/plans_unified_upgrade_v1.py",
-    "ecosystem_mac_health_111": "data/ecosystem-mac-health-111-upgrade-plan-v1.json"
+    "ecosystem_mac_health_111": "data/ecosystem-mac-health-111-upgrade-plan-v1.json",
+    "sourcea_site_score_w2": "brain-os/plan-registry/sourcea-site-score-up-1000/REGISTRY.json",
+    "sourcea_deep_research_10": "data/sourcea-deep-research-10-upgrade-plan-v1.json"
   },
   "tier_counts": {
     "P0": 12,
@@ -284,7 +286,7 @@
       "parent_spec": "data/sourcea-full-stack-100-fix-plan-v1.json",
       "human_doc": "docs/SOURCEA_FULL_STACK_100_FIX_PLAN_LOCKED_v1.md",
       "pulse": "scripts/full_stack_fix_plan_pulse_v1.py",
-      "live_note": "last_worker_report fresh \u00b7 sa-1201"
+      "live_note": "last_worker_report fresh \u00b7 sa-9001"
     },
     {
       "id": "F003",
@@ -473,7 +475,7 @@
       "parent_spec": "data/sourcea-full-stack-100-fix-plan-v1.json",
       "human_doc": "docs/SOURCEA_FULL_STACK_100_FIX_PLAN_LOCKED_v1.md",
       "pulse": "scripts/full_stack_fix_plan_pulse_v1.py",
-      "live_note": "last_completed_sa cleared on idle unit"
+      "live_note": "last_completed_sa aligned with active queue"
     },
     {
       "id": "F012",
