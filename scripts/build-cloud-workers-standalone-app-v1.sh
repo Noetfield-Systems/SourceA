@@ -75,8 +75,8 @@ cat >"$STAGE/Contents/Info.plist" <<PLIST
   <key>CFBundleName</key><string>${APP_NAME}</string>
   <key>CFBundleDisplayName</key><string>${APP_NAME}</string>
   <key>CFBundlePackageType</key><string>APPL</string>
-  <key>CFBundleShortVersionString</key><string>1.1</string>
-  <key>CFBundleVersion</key><string>11</string>
+  <key>CFBundleShortVersionString</key><string>1.4</string>
+  <key>CFBundleVersion</key><string>14</string>
   <key>LSMinimumSystemVersion</key><string>12.0</string>
   <key>NSPrincipalClass</key><string>NSApplication</string>
   <key>NSHighResolutionCapable</key><true/>
@@ -130,7 +130,7 @@ if [[ "$COLD_OK" != "1" ]]; then
 fi
 
 echo ""
-echo "✓ ${APP_NAME} v1.1 — double-click only · Proceed full-pack"
+echo "✓ ${APP_NAME} v1.4 — double-click only · CF 24/7 motors wired"
 echo "  Desktop:       $DESKTOP"
 echo "  Applications:  $APPS_HOME"
 echo "  URL:           http://127.0.0.1:13027/"

@@ -12,7 +12,7 @@ description: >-
 **Saved:** 2026-06-25T12:00:00Z  
 **Live audit:** [sourcea.app](https://sourcea.app) · proof page · Brain worker  
 **Rubric:** `docs/SOURCEA_UI_STANDARD_RUBRIC_LOCKED_v1.md`  
-**Positioning SSOT:** `SourceA-landing/green-unified/data/sourcea-positioning-v1.json` v3.1.0  
+**Positioning SSOT:** `SourceA-landing/green-unified/data/sourcea-positioning-v1.json` v3.3.0  
 **One-line law:** `docs/SOURCEA_POSITIONING_ONE_LINE_LOCKED_v1.md`
 
 ---

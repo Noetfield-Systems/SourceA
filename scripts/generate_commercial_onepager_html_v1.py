@@ -320,7 +320,7 @@ def ab1_html() -> str:
     <blockquote class="quote">We run this stack on our own factory every day. Your loop gets the same receipts — what ran, what was blocked, what policy applied.</blockquote>
     <div class="cta-row no-print">
       <a class="btn btn-primary" href="mailto:hello@sourcea.app">Book discovery call</a>
-      <a class="btn btn-ghost" href="https://github.com/kazemnezhadsina144-dot/sourcea-boot">Try sourcea-boot</a>
+      <a class="btn btn-ghost" href="https://github.com/Noetfield-Systems/sourcea-boot">Try sourcea-boot</a>
     </div>
     <div class="stats">
       <div class="stat"><div class="num">Weeks</div><div class="lbl">Typical time to first live loop — not quarters</div></div>

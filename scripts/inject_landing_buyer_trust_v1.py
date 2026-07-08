@@ -17,7 +17,12 @@ LANDING = ROOT / "SourceA-landing" / "green-unified"
 DATA = LANDING / "data"
 SINA = Path.home() / ".sina"
 RECEIPT = SINA / "sourcea-buyer-trust-inject-v1.json"
-GITHUB_REPO = "kazemnezhadsina144-dot/sourcea-boot"
+if str(ROOT / "scripts") not in sys.path:
+    sys.path.insert(0, str(ROOT / "scripts"))
+from sourcea_public_github_ssot_v1 import boot_repo_slug, boot_repo_url  # noqa: E402
+
+GITHUB_REPO = boot_repo_slug()
+GITHUB_URL = boot_repo_url()
 
 
 def _now() -> str:
@@ -282,7 +287,7 @@ def build_trust_signals() -> dict:
         "receipt_metric_label": "Material governance events today",
         "valid_yes": valid.get("valid_yes"),
         "valid_yes_total": valid.get("valid_total"),
-        "github": {"ok": False, "skipped": True, "note": "buyer-facing PyPI-only"},
+        "github": github,
         "governance": gov,
         "factory_now_line": surf_line,
         "status_page": "/sourcea/status",
@@ -322,9 +327,13 @@ def hydrate_trust_html(row: dict) -> list[str]:
         new = text
         new = re.sub(r"data-trust-valid-yes>[^<]*<", f"data-trust-valid-yes>{checks}<", new, count=1)
         new = re.sub(r"data-trust-governance>[^<]*<", f"data-trust-governance>{gov}<", new, count=1)
-        new = re.sub(r'data-trust-github-link[^>]*href="[^"]*"[^>]*>[^<]*</a>', f'<a href="{PYPI_URL}" target="_blank" rel="noopener">PyPI eval</a>', new)
-        new = new.replace("kazemnezhadsina144-dot/sourcea-boot", "sourcea-boot on PyPI")
-        new = new.replace("https://github.com/kazemnezhadsina144-dot/sourcea-boot", PYPI_URL)
+        new = re.sub(
+            r'data-trust-github-link[^>]*href="[^"]*"[^>]*>[^<]*</a>',
+            f'<a href="{GITHUB_URL}" data-trust-github-link target="_blank" rel="noopener">GitHub</a>',
+            new,
+        )
+        new = new.replace("kazemnezhadsina144-dot/sourcea-boot", GITHUB_REPO)
+        new = new.replace("https://github.com/kazemnezhadsina144-dot/sourcea-boot", GITHUB_URL)
         if new != text:
             path.write_text(new, encoding="utf-8")
             changed.append(rel)

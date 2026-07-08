@@ -10,10 +10,19 @@ final class HeartLauncher {
     }
 
     static func sourceAPath() -> String {
-        if let env = ProcessInfo.processInfo.environment["SINA_SOURCEA"], !env.isEmpty { return env }
+        if let env = ProcessInfo.processInfo.environment["SINA_SOURCEA"], !env.isEmpty {
+            let script = env + "/scripts/mac-health-guard-server.py"
+            if FileManager.default.fileExists(atPath: script) { return env }
+        }
         let home = FileManager.default.homeDirectoryForCurrentUser.path
-        let script = home + "/Desktop/SourceA/scripts/mac-health-guard-server.py"
-        if FileManager.default.fileExists(atPath: script) { return home + "/Desktop/SourceA" }
+        let candidates = [
+            home + "/Desktop/Noetfield-Systems/SourceA",
+            home + "/Desktop/SourceA",
+        ]
+        for base in candidates {
+            let script = base + "/scripts/mac-health-guard-server.py"
+            if FileManager.default.fileExists(atPath: script) { return base }
+        }
         return bundleRoot().replacingOccurrences(of: "/Contents/Resources/mac-health-bundle", with: "")
     }
 

@@ -1,0 +1,29 @@
+{
+  "schema": "sourcea-ui-pro-ship-batches-abcd-v1",
+  "at": "2026-07-06T14:53:52Z",
+  "batches": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "steps": "UP-UI-001..048",
+  "disk": {
+    "audit_receipt": true,
+    "positioning_receipt": true,
+    "hero_console_receipt": true,
+    "forge_embed_js": true,
+    "terminal_embed_guard": true,
+    "frame_headers": true
+  },
+  "live": {
+    "positioning_h1": true,
+    "hero_tabs": true,
+    "hero_console_js": true,
+    "forge_embed_js": true,
+    "forge_embed_mount": true,
+    "positioning_v340": true,
+    "terminal_embed_param": true
+  },
+  "all_live_ok": true
+}
