@@ -63,6 +63,9 @@ receipts/*-receipt-v1.json
 receipts/*.png
 reports/sourcea-dirty-tree-lane-report-v1.json
 
+# Brain crawl mirror — regenerate locally; deploy SSOT is knowledge-bundle.json
+data/chatbot-knowledge/crawled/
+
 # Hub runtime projections — rebuilt by disk_live_wire_sync (do not commit drift)
 agent-control-panel/command-data.json
 agent-control-panel/command-data-runtime.json

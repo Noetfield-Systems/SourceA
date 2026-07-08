@@ -1,0 +1,15 @@
+{
+  "schema": "copilot-scheduled-automations-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-05T16:35:00Z",
+  "enabled": false,
+  "disabled_at": "2026-07-05T16:30:59Z",
+  "reason": "Superseded by SourceA Kaizen nightly + machine_safe queue \u2014 no Copilot scheduled agents",
+  "disable_script": "scripts/disable_copilot_scheduled_automations_v1.sh",
+  "targets": [
+    "github_copilot_coding_agent_schedules",
+    "cursor_automations_scheduled",
+    "data/autorun-kaizen-backlog-v1.json KZ-002 copilot_pilot"
+  ],
+  "law": "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md P7 unused until explicitly re-enabled"
+}

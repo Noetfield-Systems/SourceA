@@ -1,7 +1,7 @@
 {
   "schema": "bundle-wire-manifest-v1",
   "app": "cloud-workers",
-  "built_at": "2026-06-23T10:14:37Z",
+  "built_at": "2026-07-06T08:23:50Z",
   "cockpit": "http://127.0.0.1:13027/",
   "form_ui": "http://127.0.0.1:13023/form/",
   "proceed_api": "/api/cloud-forge-run/proceed/v1",

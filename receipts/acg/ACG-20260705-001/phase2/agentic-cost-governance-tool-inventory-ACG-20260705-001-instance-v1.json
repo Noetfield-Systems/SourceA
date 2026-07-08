@@ -1,0 +1,71 @@
+{
+  "schema": "agentic-cost-governance-tool-inventory-v1",
+  "version": "1.0.0",
+  "template": false,
+  "created_at": "2026-07-05T01:10:00Z",
+  "description": "AI tool usage inventory \u2014 what models, licenses, costs",
+  "audit_id": "ACG-20260705-001",
+  "client_name": "FOUNDER_FILL_COMPANY",
+  "survey_period": "2026-06-01 to 2026-06-30",
+  "tools": [
+    {
+      "tool_name": "ChatGPT",
+      "vendor": "OpenAI",
+      "current_license_tier": "Plus / Team / Enterprise",
+      "users_or_seats": "[number]",
+      "monthly_cost_actual": "$[X]",
+      "primary_workflows": "[support, content, analysis]",
+      "model_versions_used": [
+        "gpt-4",
+        "gpt-3.5-turbo"
+      ],
+      "api_or_ui": "UI + API",
+      "integration_points": "[list of apps/workflows using this]",
+      "usage_pattern": "[ad-hoc / scheduled / continuous]",
+      "last_updated": "2026-06-30"
+    },
+    {
+      "tool_name": "Claude (Anthropic)",
+      "vendor": "Anthropic",
+      "current_license_tier": "API pay-per-use",
+      "users_or_seats": "1",
+      "monthly_cost_actual": "$[X]",
+      "primary_workflows": "[code generation, analysis]",
+      "model_versions_used": [
+        "claude-3-sonnet",
+        "claude-3-opus"
+      ],
+      "api_or_ui": "API only",
+      "integration_points": "[list]",
+      "usage_pattern": "[ad-hoc]",
+      "last_updated": "2026-06-30"
+    },
+    {
+      "tool_name": "Google Gemini",
+      "vendor": "Google",
+      "current_license_tier": "Free / Paid API",
+      "users_or_seats": "[number]",
+      "monthly_cost_actual": "$[X]",
+      "primary_workflows": "[search, analysis]",
+      "model_versions_used": [
+        "gemini-pro"
+      ],
+      "api_or_ui": "UI",
+      "integration_points": "[list]",
+      "usage_pattern": "[trial]",
+      "last_updated": "2026-06-30"
+    }
+  ],
+  "summary": {
+    "total_tools": 3,
+    "total_monthly_spend": "$[sum]",
+    "tools_in_active_use": "[X]",
+    "tools_in_trial_or_unused": "[Y]",
+    "most_expensive_tool": "[ChatGPT]",
+    "most_used_tool": "[ChatGPT]"
+  },
+  "notes": "[Any additional context about tool usage]",
+  "prepared_at": "2026-07-05T17:00:20Z",
+  "phase": "audit_in_progress",
+  "status": "awaiting_client_reply"
+}

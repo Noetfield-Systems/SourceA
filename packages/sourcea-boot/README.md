@@ -1,6 +1,6 @@
 # sourcea-boot
 
-[![validate-sourcea-boot](https://github.com/kazemnezhadsina144-dot/sourcea-boot/actions/workflows/validate-sourcea-boot-v1.yml/badge.svg)](https://github.com/kazemnezhadsina144-dot/sourcea-boot/actions/workflows/validate-sourcea-boot-v1.yml)
+[![validate-sourcea-boot](https://github.com/Noetfield-Systems/sourcea-boot/actions/workflows/validate-sourcea-boot-v1.yml/badge.svg)](https://github.com/Noetfield-Systems/sourcea-boot/actions/workflows/validate-sourcea-boot-v1.yml)
 
 **One command. PASS or BLOCK before your agents run.**
 
@@ -14,7 +14,7 @@ sourcea-boot --json
 Or clone for editable install:
 
 ```bash
-git clone https://github.com/kazemnezhadsina144-dot/sourcea-boot.git
+git clone https://github.com/Noetfield-Systems/sourcea-boot.git
 cd sourcea-boot
 pip install -e .
 sourcea-boot --json
@@ -67,7 +67,7 @@ Works in any project. Optional config: `.sourcea-boot.json` in project root.
 
 ## Repository
 
-https://github.com/kazemnezhadsina144-dot/sourcea-boot
+https://github.com/Noetfield-Systems/sourcea-boot
 
 ## License
 

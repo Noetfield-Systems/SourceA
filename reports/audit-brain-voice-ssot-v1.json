@@ -1,0 +1,16 @@
+{
+  "schema": "audit-brain-voice-ssot-v1",
+  "at": "2026-07-06T15:10:11Z",
+  "verdict": "PASS",
+  "ssot_one_line": "SourceA is an AI execution platform \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.",
+  "manual_one_line": "SourceA is an AI execution platform \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.",
+  "bundle_public_one_line": "SourceA is an AI execution platform \u2014 real builds, automations, and agent workflows, with a verifiable receipt on every run.",
+  "bundle_chunk_count": 554,
+  "stale_chunk_count": 0,
+  "logic_checks": {
+    "identity_question_helper": true,
+    "bundle_public_one_line_in_prompt": true,
+    "rules_first_pipeline": true
+  },
+  "findings": []
+}

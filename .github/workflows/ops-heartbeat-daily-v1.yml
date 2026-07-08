@@ -1,0 +1,25 @@
+name: ops-heartbeat-daily
+
+# Manual backup only — 24/7: CF loop-specialist → Railway. Law: data/cf-only-24-7-execution-v1.json
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ops-heartbeat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 07:00 UTC ops heartbeat
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          TELEGRAM_PRIMARY_BOT_TOKEN: ${{ secrets.TELEGRAM_PRIMARY_BOT_TOKEN }}
+          TELEGRAM_OPS_CHAT_ID: ${{ secrets.TELEGRAM_OPS_CHAT_ID }}
+        run: python3 scripts/daily_ops_heartbeat_v1.py --json

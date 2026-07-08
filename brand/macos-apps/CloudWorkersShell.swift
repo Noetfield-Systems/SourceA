@@ -28,6 +28,19 @@ final class CloudWorkersLauncher {
         }
     }
 
+    static func resolveSourceA() -> String? {
+        let home = FileManager.default.homeDirectoryForCurrentUser
+        let candidates = [
+            home.appendingPathComponent("Desktop/Noetfield-Systems/SourceA", isDirectory: true),
+            home.appendingPathComponent("Desktop/SourceA", isDirectory: true),
+        ]
+        for c in candidates {
+            let marker = c.appendingPathComponent("data/cloud-workers-control-plane-v1.json")
+            if FileManager.default.fileExists(atPath: marker.path) { return c.path }
+        }
+        return nil
+    }
+
     static func pythonPath() -> String {
         let candidates = [
             "/usr/bin/python3",
@@ -71,9 +84,9 @@ final class CloudWorkersLauncher {
             env["CLOUD_WORKERS_BUNDLE_ROOT"] = bundleRoot()
             env["CLOUD_WORKERS_STANDALONE"] = "1"
             env["CLOUD_WORKERS_PORT"] = port
-            let sourceA = home.appendingPathComponent("Desktop/SourceA", isDirectory: true)
-            if FileManager.default.fileExists(atPath: sourceA.path) {
-                env["SINA_SOURCE_A"] = sourceA.path
+            let sourceA = resolveSourceA()
+            if let sa = sourceA {
+                env["SINA_SOURCE_A"] = sa
             }
             env["PATH"] = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
             proc.environment = env
