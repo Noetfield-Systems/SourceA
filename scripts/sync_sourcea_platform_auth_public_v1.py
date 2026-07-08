@@ -41,10 +41,16 @@ def sync() -> dict:
         "schema": "sourcea-platform-auth-config-v1",
         "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "configured": bool(url and anon),
+        "venture": "sourcea",
         "supabase_url": url,
         "supabase_anon_key": anon,
-        "redirect_path": "/sourcea/forge/terminal/signin",
+        "callback_path": "/auth/callback",
+        "redirect_path": "/auth/sign-in",
         "redirect_urls": [
+            "https://sourcea.app/auth/callback",
+            "https://sourcea.app/auth/sign-in",
+            "https://sourcea.app/auth/sign-up",
+            "https://sourcea.app/auth/sign-out",
             "https://sourcea.app/sourcea/forge/terminal/signin",
             "https://sourcea.app/sourcea/forge/terminal/signup",
             "https://sourcea.app/sourcea/forge/terminal/profile",
@@ -55,6 +61,7 @@ def sync() -> dict:
         "oauth_providers": ["google", "github"],
         "auth_features": ["oauth", "email_password", "magic_link", "password_reset"],
         "tier": "portfolio-spine",
+        "cross_domain_ssot": "data/cross-domain-auth-surfaces-v1.json",
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")

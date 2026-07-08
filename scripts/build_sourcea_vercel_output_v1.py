@@ -109,6 +109,12 @@ def build(*, clean: bool = True) -> dict:
         raise SystemExit(f"FAIL: root founder-home missing: {founder_src}")
     if platform_src.is_file():
         shutil.copy2(platform_src, DIST / "platform.html")
+    auth_src = GREEN / "auth"
+    if auth_src.is_dir():
+        auth_dest = DIST / "auth"
+        auth_dest.mkdir(parents=True, exist_ok=True)
+        for f in auth_src.glob("*.html"):
+            shutil.copy2(f, auth_dest / f.name)
     if eval_src.is_file():
         shutil.copy2(eval_src, DIST / "eval.html")
 
@@ -124,7 +130,8 @@ def build(*, clean: bool = True) -> dict:
     pulse_snippet = '<script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>\n'
     interact_snippet = '<script src="/sourcea/sourcea-site-interact-v1.js" defer></script>\n'
     segment_snippet = '<script src="/sourcea/sourcea-segment-router-v1.js" defer></script>\n'
-    shell_snippet = pulse_snippet + interact_snippet + segment_snippet
+    auth_nav_snippet = '<script src="/sourcea/sourcea-auth-nav-wire-v1.js" defer></script>\n'
+    shell_snippet = pulse_snippet + interact_snippet + segment_snippet + auth_nav_snippet
 
     def inject_shell(text: str) -> str:
         if "sourcea-site-interact-v1.js" in text and "sourcea-segment-router-v1.js" in text:

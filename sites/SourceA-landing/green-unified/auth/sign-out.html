@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0;url=/sourcea/forge/terminal/profile" />
+  <title>Signing out… · SourceA</title>
+  <meta name="robots" content="noindex" />
+</head>
+<body>
+<p>Signing out…</p>
+<script src="/sourcea/sourcea-platform-session-v1.js?v=1.5.0"></script>
+<script src="/sourcea/sourcea-platform-auth-v1.js?v=1.5.0"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var S = window.SourceAPlatformSession;
+  Promise.resolve()
+    .then(function () { return window.SourceAPlatformAuth.signOutSupabase(); })
+    .then(function () {
+      if (S) {
+        try { localStorage.removeItem("sourcea-platform-session-v1"); } catch (_) {}
+      }
+      window.location.replace("/auth/sign-in");
+    });
+});
+</script>
+</body>
+</html>
