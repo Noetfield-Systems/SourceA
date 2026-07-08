@@ -1,10 +1,42 @@
 /* sourcea.app — world-class root landing (2026) */
 .sa-root-home { --sa-home-glow: rgba(105, 212, 25, 0.35); }
 
+/* Stable hero — no 88vh void, no fade-in flash, clear fixed docks */
 .sa-root-home .sa-root-hero {
-  padding: clamp(3rem, 8vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4rem);
-  position: relative; overflow: hidden; min-height: 88vh;
+  padding: clamp(2rem, 5vw, 3.25rem) 0 clamp(2rem, 4vw, 2.75rem);
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
 }
+.sa-root-home .sa-hero-stable .sa-fade-up,
+.sa-root-home .sa-hero-stable .sa-line-reveal,
+.sa-root-home .sa-hero-stable.ar-visible {
+  opacity: 1 !important;
+  transform: none !important;
+  clip-path: none !important;
+  filter: none !important;
+  animation: none !important;
+}
+.sa-root-home .ar-hero-ref-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-bottom: 0.25rem;
+}
+.sa-root-home.sa-has-chatbot .ar-hero-ref-copy {
+  padding-bottom: 4.75rem;
+}
+.sa-root-home .sa-root-global-pill { margin-bottom: 0.35rem; }
+.sa-root-home .ar-kicker { margin-bottom: 0.25rem; }
+.sa-root-home .sa-category-tag { margin-bottom: 0.35rem; }
+.sa-root-home .ar-hero-actions { margin-top: 0.35rem !important; }
+.sa-root-home .sa-taxonomy-box { margin-top: 0.75rem !important; }
+.sa-root-home .sa-buyer-chips { margin-top: 0.5rem; }
+.sa-root-home .sa-pillar-chips { margin-top: 0.5rem; }
+.sa-root-home .sa-hero-scene { opacity: 0.42; }
+.sa-root-home .sa-aurora-canvas { display: none; }
+.sa-root-home .sa-hero-parallax-grid.is-parallax { transform: none !important; }
+
 .sa-root-home .sa-root-hero .ar-container { position: relative; z-index: 2; }
 .sa-root-home .sa-hero-grid { align-items: center; }
 
