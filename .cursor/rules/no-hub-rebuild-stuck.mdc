@@ -13,7 +13,7 @@ alwaysApply: false
 **Ship the task.** Not the hub.
 
 ```bash
-cd /Users/sinakazemnezhad/Desktop/SourceA/scripts
+cd /Users/sinakazemnezhad/Desktop/Noetfield-Systems/SourceA/scripts
 bash validate-super-fast-hub-v1.sh
 python3 hub_self_refresh_v1.py --json
 ```

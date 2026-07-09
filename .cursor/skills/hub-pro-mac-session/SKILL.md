@@ -53,4 +53,4 @@ read ~/.sina/hub-form-submit-receipt-v1.json
 | `~/.sina/cli-disabled-v1.flag` | No local CLI drain |
 | `~/.sina/api-disabled-v1.flag` | **must be absent** — Mac may call cloud APIs |
 
-Boot: `bash ~/Desktop/SourceA/scripts/enter-mac-control-plane-v1.sh`
+Boot: `bash ~/Desktop/Noetfield-Systems/SourceA/scripts/enter-mac-control-plane-v1.sh`

@@ -35,7 +35,7 @@ python3 scripts/cursor_agent_self_audit.py session-start
 ## Before claiming progress
 
 ```bash
-cd ~/Desktop/SourceA/scripts
+cd ~/Desktop/Noetfield-Systems/SourceA/scripts
 bash enforce-registry-hygiene-v1.sh
 python3 scripts/program-1000-honest-status-v1.py --write
 ```

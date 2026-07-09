@@ -60,7 +60,7 @@ bash witnessbc-commercial-film.sh --json                                # auto a
 ## Workflow — WitnessBC hero
 
 ```bash
-cd ~/Desktop/SourceA
+cd ~/Desktop/Noetfield-Systems/SourceA
 
 # 1. Validate routing
 bash scripts/validate-commercial-film-routing-v1.sh

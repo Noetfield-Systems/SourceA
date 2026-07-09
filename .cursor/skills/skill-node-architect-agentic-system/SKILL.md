@@ -187,7 +187,7 @@ Full table: charter §6.
 ## Proof ladder (HIGH PRO)
 
 ```bash
-cd ~/Desktop/SourceA
+cd ~/Desktop/Noetfield-Systems/SourceA
 bash scripts/validate-pipeline-node-graph-v1.sh
 python3 scripts/pipeline_node_graph_runner_v1.py --dry-run --json
 python3 scripts/pipeline_node_graph_runner_v1.py --json
