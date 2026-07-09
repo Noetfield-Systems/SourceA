@@ -98,15 +98,16 @@ def is_governance_sensitive(path: str, ssot: dict | None = None) -> bool:
 
 
 def has_conflict_markers(path: str) -> bool:
-    # Containment guard inlined: CodeQL only credits normpath+startswith
-    # barriers in the same function as the file operations they protect.
+    # Containment guard inlined: CodeQL only credits barriers in the same
+    # function as the file operations they protect.
     raw = path.replace("~/", str(Path.home()) + "/")
-    if not os.path.isabs(raw):
-        raw = os.path.join(str(ROOT), raw)
-    normalized = os.path.normpath(raw)
-    if normalized != str(ROOT) and not normalized.startswith(str(ROOT) + os.sep):
+    candidate = Path(raw) if os.path.isabs(raw) else (ROOT / raw)
+    try:
+        root_resolved = ROOT.resolve()
+        p = candidate.resolve(strict=False)
+        p.relative_to(root_resolved)
+    except (OSError, ValueError):
         return False
-    p = Path(normalized)
     if not p.is_file():
         return False
     try:
