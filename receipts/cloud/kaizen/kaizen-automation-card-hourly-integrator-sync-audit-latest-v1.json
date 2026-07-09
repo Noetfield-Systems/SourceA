@@ -1,0 +1,18 @@
+{
+  "cadence": "hourly",
+  "card_id": "hourly-integrator-sync-audit",
+  "checked_at": "2026-07-03T06:33:57.384568Z",
+  "focus": "integrator coordination audit",
+  "kind": "audit",
+  "ok": true,
+  "schema": "sourcea-automation-card-router-v1",
+  "sources": [
+    "data/worker-cost-tier-queue-v1.json",
+    "data/noetfield-copilot-runtime-v1.json",
+    "data/integration-leverage-registry-v1.json"
+  ],
+  "status": "mapped",
+  "target": "python3 scripts/sourcea_automation_card_router_v1.py --card hourly-integrator-sync-audit --json --write-receipt",
+  "title": "Hourly integrator sync audit",
+  "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml"
+}
