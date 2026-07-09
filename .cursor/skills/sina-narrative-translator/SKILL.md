@@ -81,7 +81,7 @@ PROOF: bash scripts/validate-narrative-bridge-v1.sh
 ## Proof
 
 ```bash
-cd ~/Desktop/SourceA
+cd ~/Desktop/Noetfield-Systems/SourceA
 bash scripts/validate-narrative-bridge-v1.sh
 ```
 

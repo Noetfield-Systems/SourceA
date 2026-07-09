@@ -20,7 +20,7 @@ Read `~/.sina/governance-brain-wire-v1.json` → `active_decisions[]` + `queue_h
 ## On `run inbox` (mandatory — do not wait for paste)
 
 ```bash
-cd ~/Desktop/SourceA
+cd ~/Desktop/Noetfield-Systems/SourceA
 bash scripts/worker_turn_entry_v1.sh
 python3 scripts/goal1_lane_broker.py pickup
 python3 scripts/worker_inject_lib.py --status

@@ -27,7 +27,7 @@ CHECK → ACT (if gap) → VERIFY → receipts/sa-XXXX-receipt.json → honest d
 ## Proof commands
 
 ```bash
-cd ~/Desktop/SourceA/scripts
+cd ~/Desktop/Noetfield-Systems/SourceA/scripts
 bash enforce-registry-hygiene-v1.sh
 bash validate-registry-honest-gate-v1.sh
 bash validate-closeout-gate-v1.sh

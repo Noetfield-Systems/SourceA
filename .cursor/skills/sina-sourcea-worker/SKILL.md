@@ -11,7 +11,7 @@ disable-model-invocation: true
 
 **Routine skills:** `@sina-conscious-recovery` (thin context / governance topics) · `@agent-self-audit-loop` (session-start/close) · `shared/truth-projection/SKILL.md` (Goal 1 drain)
 
-**Workspace:** `~/Desktop/SourceA` only · **You are not** maintainer, Brain, or broker chat.
+**Workspace:** `~/Desktop/Noetfield-Systems/SourceA` only · **You are not** maintainer, Brain, or broker chat.
 
 ## Load every session
 
@@ -53,7 +53,7 @@ FEASIBILITY → INBOX role (one) → EXECUTE → WORKER_ROUND_REPORT → broker 
 ## INBOX (disk SSOT)
 
 ```bash
-cd ~/Desktop/SourceA
+cd ~/Desktop/Noetfield-Systems/SourceA
 python3 scripts/worker_inject_lib.py --status
 ```
 
@@ -64,7 +64,7 @@ python3 scripts/worker_inject_lib.py --status
 
 - If `pending: true` → execute **disk** prompt (not chat memory).
 - Headless auto-run: Hub delivers INBOX; you may run via `run inbox` or agent CLI — same rules.
-- **Never** edit `~/Desktop/SourceA` hub (`agent-control-panel`, `sina-command-server.py`) — maintainer only.
+- **Never** edit `~/Desktop/Noetfield-Systems/SourceA` hub (`agent-control-panel`, `sina-command-server.py`) — maintainer only.
 
 ## Feasibility (before ACT)
 
@@ -103,7 +103,7 @@ python3 scripts/program-1000-honest-status-v1.py --write
 **Law:** `SOURCEA_COMMERCIAL_WORKER_LOOP_LOCKED_v1.md` · `WORKER_NO_SLOW_VERIFY_SHELL_LOCKED_v1.md` — never full `find_critical_bugs` on VERIFY (60–180s stall).
 
 ```bash
-cd ~/Desktop/SourceA/scripts
+cd ~/Desktop/Noetfield-Systems/SourceA/scripts
 bash worker_turn_entry_v1.sh   # gate + anti-staleness auto-heal
 bash worker_verify_ultra_v1.sh # probe + heal + hub check (~1–8s)
 ```
@@ -116,7 +116,7 @@ bash worker_verify_ultra_v1.sh # probe + heal + hub check (~1–8s)
 ## Session start (first edit)
 
 ```bash
-cd ~/Desktop/SourceA/scripts
+cd ~/Desktop/Noetfield-Systems/SourceA/scripts
 bash worker_turn_entry_v1.sh          # gate + anti-staleness auto-heal
 python3 brain_validate_goal1_v1.py --json
 # Full find_critical_bugs = Hub Safety only — never default on loop
