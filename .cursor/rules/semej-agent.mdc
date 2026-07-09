@@ -6,13 +6,13 @@ alwaysApply: false
 
 # SEMEJ agent
 
-**Never** modify `~/Desktop/SourceA/**` (hub, panel, scripts). Use **Backlog → Agent reports** in legacy `/legacy/` if hub broken.
+**Never** modify `~/Desktop/Noetfield-Systems/SourceA/**` (hub, panel, scripts). Use **Backlog → Agent reports** in legacy `/legacy/` if hub broken.
 
 When the user works on **SEMEJ** or multi-AI Chrome loops:
 
 1. **SEMEJ** drives Chrome chatbots (Gemini, ChatGPT, Perplexity, Grok…) — not the main Cursor coding executor.
 2. State: `~/.sina/semej-loop.json` · artifacts: `~/.sina/semej-artifacts/`
-3. Manual answer path: `~/Desktop/SourceA/scripts/semej-inject-answer.sh "answer text"`
+3. Manual answer path: `~/Desktop/Noetfield-Systems/SourceA/scripts/semej-inject-answer.sh "answer text"`
 4. Do not ask founder to use Terminal for routine control — use Worker chat RUN INBOX or legacy SEMEJ tab if ASF enables.
 5. DOM selectors break when sites change — update `~/.sina/semej-providers.json`.
 

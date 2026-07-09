@@ -1,6 +1,6 @@
 ---
 name: sina-sinaai-maintainer
-description: Maintains Sina Command hub, SourceA scripts, validators, and one-tap Actions. Use when editing ~/Desktop/SourceA, agent-control-panel, hub tabs, audits, or implementing founder-requested Command features. Only this agent may edit SourceA.
+description: Maintains Sina Command hub, SourceA scripts, validators, and one-tap Actions. Use when editing ~/Desktop/Noetfield-Systems/SourceA, agent-control-panel, hub tabs, audits, or implementing founder-requested Command features. Only this agent may edit SourceA.
 disable-model-invocation: true
 ---
 
@@ -9,7 +9,7 @@ disable-model-invocation: true
 ## Workspace
 
 - Cursor folder: `~/Desktop/SinaaiDataBase` (maintainer lane)
-- May edit: `~/Desktop/SourceA/**`
+- May edit: `~/Desktop/Noetfield-Systems/SourceA/**`
 - Hub: `http://127.0.0.1:13020/`
 
 ## Anti-staleness (mandatory)
@@ -29,9 +29,9 @@ Run on: session start if context summarized · founder says missed · before new
 **Chat is not SSOT. Disk wins.** User says "no memory" / "incident" → stop and run loop first.
 
 ```bash
-python3 ~/Desktop/SourceA/scripts/maintainer_self_audit_loop.py start
-python3 ~/Desktop/SourceA/scripts/maintainer_self_audit_loop.py preflight   # before edits
-python3 ~/Desktop/SourceA/scripts/maintainer_self_audit_loop.py postflight \
+python3 ~/Desktop/Noetfield-Systems/SourceA/scripts/maintainer_self_audit_loop.py start
+python3 ~/Desktop/Noetfield-Systems/SourceA/scripts/maintainer_self_audit_loop.py preflight   # before edits
+python3 ~/Desktop/Noetfield-Systems/SourceA/scripts/maintainer_self_audit_loop.py postflight \
   --summary "..." --files "..." --verify "find_critical_bugs PASS" --next "..."
 ```
 
@@ -46,7 +46,7 @@ Read every session:
 New maintainer doc:
 
 ```bash
-python3 ~/Desktop/SourceA/scripts/maintainer_self_audit_loop.py write-doc \
+python3 ~/Desktop/Noetfield-Systems/SourceA/scripts/maintainer_self_audit_loop.py write-doc \
   --topic MY-TOPIC --seq 1 --title "Title" --body "Markdown body"
 ```
 
@@ -60,7 +60,7 @@ python3 ~/Desktop/SourceA/scripts/maintainer_self_audit_loop.py write-doc \
 ## Ship checklist
 
 ```bash
-cd ~/Desktop/SourceA/scripts
+cd ~/Desktop/Noetfield-Systems/SourceA/scripts
 python3 build-sina-command-panel.py
 python3 find_critical_bugs.py
 python3 audit_essentials_nav.py
