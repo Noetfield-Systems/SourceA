@@ -1,17 +1,26 @@
 {
   "schema": "sourcea-site-score-up-1000-master-v1",
-  "version": "1.0.0",
-  "generated_at": "2026-06-25T09:23:55Z",
+  "version": "1.1.0",
+  "generated_at": "2026-07-06T06:35:00Z",
   "generator": "scripts/generate_sourcea_site_score_up_1000_plans_v1.py",
   "law_doc": "docs/SOURCEA_SITE_SCORE_UP_1000_PLANS_LOCKED_v1.md",
   "plan_count": 1000,
   "baseline_score": 76,
   "target_score": 95,
-  "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/sourcea-site-score-up-1000",
+  "pack": "brain-os/plan-registry/sourcea-site-score-up-1000",
   "phase_law": {
-    "NOW": "ranks 1\u201350 \u2014 self-serve proof \u00b7 polish \u00b7 commercial \u00b7 intake",
-    "NEXT": "ranks 51\u2013200",
-    "LATER": "ranks 201\u2013500",
-    "MOONSHOT": "ranks 501\u20131000"
-  }
+    "NOW": "ranks 1–50 — self-serve proof · polish · commercial · intake",
+    "NEXT": "ranks 51–200",
+    "LATER": "ranks 201–500",
+    "MOONSHOT": "ranks 501–1000"
+  },
+  "w2_execution": true,
+  "w2_pulse_script": "scripts/sourcea_site_score_w2_pulse_v1.py",
+  "w2_gate_plan": "UP-SA-W2-10",
+  "w2_critical_path": [
+    "UP-SA-W2-01",
+    "UP-SA-W2-07",
+    "UP-SA-W2-02",
+    "UP-SA-W2-10"
+  ]
 }

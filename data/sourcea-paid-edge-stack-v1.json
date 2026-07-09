@@ -1,0 +1,58 @@
+{
+  "schema": "sourcea-paid-edge-stack-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-06T06:30:00Z",
+  "founder_approval": {
+    "verb": "FOUNDER APPROVE TOOL: cloudflare_paid_workers + uptimerobot",
+    "at": "2026-07-06T06:30:00Z",
+    "status": "active"
+  },
+  "one_law": "24/7 scheduled motors: Cloudflare Workers only (data/cf-only-24-7-execution-v1.json). Paid edge: data/sourcea-paid-edge-stack-v1.json",
+  "roi_summary": {
+    "cloudflare_workers_paid_usd_month": 5,
+    "uptimerobot_free_usd_month": 0,
+    "unblocks": [
+      "30s CPU / parallel */15 dispatch jobs",
+      "10M requests + 30M CPU-ms included",
+      "UptimeRobot GET alerts without Telegram @Gateway_A"
+    ],
+    "defer_paid_until_revenue": [
+      "uptimerobot_solo_60s",
+      "openrouter_paid",
+      "datadog_mcp"
+    ]
+  },
+  "cloudflare_workers_paid": {
+    "status": "active",
+    "plan": "Workers Paid",
+    "usd_month": 5,
+    "account_id": "0d0b967b77e2e5535455d39ff3dae72c",
+    "workers": [
+      "sourcea-loop-specialist-tick-v1",
+      "sourcea-brain-chat-v1",
+      "sourcea-site-pulse-v1",
+      "sourcea-app-proxy-v1",
+      "sourcea-mvp-intake-v1",
+      "sourcea-hook-relay-v1",
+      "cloud-auto-runtime-tick-v1"
+    ],
+    "motor_worker": "sourcea-loop-specialist-tick-v1",
+    "cron_trigger": "*/15 * * * *",
+    "parallel_jobs_on_15m": true,
+    "deploy_script": "scripts/deploy_cf_cron_dispatch_v1.sh",
+    "cf_only_24_7": "data/cf-only-24-7-execution-v1.json",
+    "deploy_all_motors": "scripts/deploy_cf_all_motors_v1.sh"
+  },
+  "uptimerobot": {
+    "status": "founder_signed_up",
+    "dashboard": "https://dashboard.uptimerobot.com/",
+    "tier": "free",
+    "interval_seconds": 300,
+    "one_law": "GET health only — never POST /loop or trigger workflows",
+    "ssot_monitors": "data/noos-external-monitors-v1.json",
+    "sync_script": "scripts/uptimerobot_sync_monitors_v1.py",
+    "api_key_env": "UPTIMEROBOT_API_KEY",
+    "upgrade_when": "need 60s interval or >50 monitors — Solo ~$8/mo"
+  },
+  "telegram_law": "data/sourcea-telegram-lane-v1.json — UptimeRobot alerts founder email/SMS; SourceA ops Telegram separate"
+}

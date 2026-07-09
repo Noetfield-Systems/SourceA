@@ -6,8 +6,8 @@
   "root": "SourceA-landing/green-unified",
   "url": "http://127.0.0.1:5180/sourcea/",
   "ledger_md": "brain-os/law/enforcement/ui-upgrade-ledgers/SOURCEA_LANDING_UI_UPGRADE_LEDGER_LOCKED_v1.md",
-  "saved_at": "2026-06-24T08:37:58Z",
-  "baseline_version": "1.0.0",
+  "saved_at": "2026-07-06T06:35:00Z",
+  "baseline_version": "1.2.0",
   "frozen_inventory": [
     {
       "id": "buyer_toggle",
@@ -216,6 +216,37 @@
       ],
       "baseline_before": "1.0.0",
       "baseline_after": "1.1.0"
+    },
+    {
+      "upgrade_id": "UP-LANDING-001",
+      "saved_at": "2026-07-06T06:35:00Z",
+      "founder_trigger": "UP-SA-W2-10 ship gate — site-score-1000 W2",
+      "general_checklist": "UP-0..UP-7",
+      "app_checklist": "LAND-1..LAND-4",
+      "status": "shipped",
+      "quality_vs_last": "better",
+      "preserved": "buyer_toggle,hero_cta,trust_strip,proof_chain,brain_chat,pulse",
+      "changed": "W2 10×10 slice-01 execution; pricing /start CTAs; pulse proxy; FOUNDER_PULSE_KEY rotation doc; positioning v3.3.0",
+      "achieved": "sourcea.app W2 gate — 100/100 REGISTRY w2_execution steps done",
+      "founder_approval": "pending",
+      "machine_proof": {
+        "sourcea_site_score_w2_pulse_v1.py": "100/100",
+        "validate-sourcea-site-score-up-1000-v1.sh": "PASS"
+      },
+      "w2_plans": [
+        "UP-SA-W2-01",
+        "UP-SA-W2-02",
+        "UP-SA-W2-03",
+        "UP-SA-W2-04",
+        "UP-SA-W2-05",
+        "UP-SA-W2-06",
+        "UP-SA-W2-07",
+        "UP-SA-W2-08",
+        "UP-SA-W2-09",
+        "UP-SA-W2-10"
+      ],
+      "baseline_before": "1.1.0",
+      "baseline_after": "1.2.0"
     }
   ]
 }

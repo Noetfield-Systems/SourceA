@@ -1,0 +1,39 @@
+{
+  "schema": "workflow-census-loop-map-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-06T10:00:00Z",
+  "one_law": "Deterministic value_class from loop_key/name patterns — no vibes",
+  "value_classes": {
+    "REVENUE": "Touches lead, offer, or delivery",
+    "GUARD": "Protects a revenue surface (probes, deadman, deploy verify)",
+    "META": "System maintaining itself",
+    "NONE": "No named receipt in 14 days"
+  },
+  "rules": [
+    {
+      "match": ["intake", "mvp-intake", "nf_intake", "signal-factory/triage", "sf-triage", "offer", "buyer-surface", "deploy-sourcea-buyer", "traffic-intake"],
+      "value_class": "REVENUE",
+      "receipt_kind": "lead_or_conversion"
+    },
+    {
+      "match": ["deadman", "nerve-probe", "external-verify", "validate", "determinism", "deploy-verify", "repo-policy", "security-sweep", "site-pulse"],
+      "value_class": "GUARD",
+      "receipt_kind": "guard_receipt"
+    },
+    {
+      "match": ["kaizen", "repo-health", "ops-heartbeat", "workflow-census", "loop_registry", "gmail-sweep", "cloud-forge-run", "loop-specialist", "signal-factory-tick", "brain-chat"],
+      "value_class": "META",
+      "receipt_kind": "ops_receipt"
+    }
+  ],
+  "default_value_class": "META",
+  "cost_estimates_usd_monthly": {
+    "cloudflare_worker": 0.35,
+    "cloudflare_cron_slot": 0.15,
+    "railway_fbe_shared": 18.0,
+    "railway_job_amortized": 0.25,
+    "github_actions_event": 0.02,
+    "github_actions_manual": 0.0,
+    "supabase_row": 0.01
+  }
+}

@@ -37,18 +37,50 @@ SKIP_HTML_PARTS = {
 
 PINNED_STEMS = {
     "positioning-public",
+    "positioning-law",
     "pricing-matrix",
+    "offer-48h",
+    "sandbox-freemium",
     "forge-runtime",
+    "developer-tools",
     "products-catalog",
+    "kernel-overview",
     "site-map",
     "brain-public-rules",
+    "trust-signals-public-v1",
+    "sourcea-landing-cta-v1",
 }
+
+CURATED_DIR_MARKERS = (
+    "/distilled/",
+    "/manual/",
+    "/rules/",
+    "chatbot-knowledge/distilled/",
+    "chatbot-knowledge/manual/",
+    "chatbot-knowledge/rules/",
+)
+
+
+def is_curated_source(path: str) -> bool:
+    p = (path or "").replace("\\", "/").lower()
+    return any(m in p for m in CURATED_DIR_MARKERS)
+
+
+def source_file_hash(path: Path) -> str:
+    if not path.is_file():
+        return ""
+    return hashlib.sha256(path.read_bytes()).hexdigest()[:16]
 
 
 def strip_secrets(text: str) -> str:
     for pat in SECRET_PATTERNS:
         text = pat.sub("[REDACTED]", text)
     return text
+
+
+def scrub_public_voice(text: str) -> str:
+    """Sync-time only — prefer failing sync over silent rewrite at runtime."""
+    return str(text or "")
 
 
 def strip_html(html: str) -> str:

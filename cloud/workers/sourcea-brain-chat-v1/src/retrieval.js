@@ -52,6 +52,10 @@ export function tokenize(text) {
 export function classifyIntent(query) {
   const q = query.toLowerCase();
   if (/\b(invest|fund|raise|valuation|cap table)\b/.test(q)) return "investor";
+  if (/\b(what is sourcea|one sentence|one line|describe sourcea|tell me about sourcea)\b/.test(q)) {
+    return "core";
+  }
+  if (/\b(how does sourcea work)\b/.test(q)) return "core";
   if (/\b(cursor|developer|api|code|forge terminal|kernel|pypi|npm|deploy|ide|chat unify|unify)\b/.test(q)) {
     return "developer";
   }
@@ -59,6 +63,7 @@ export function classifyIntent(query) {
   if (/\b(price|pricing|cost|how much|\$|buy|sandbox|demo|proof|offer|build tier|rent|own|48)\b/.test(q)) {
     return "buyer";
   }
+  if (/\b(book|contact|talk to|email|hello@|get started|start)\b/.test(q)) return "buyer";
   if (/\b(partner|agency|procurement|enterprise)\b/.test(q)) return "partner";
   if (/\b(record|proof|receipt|just give me)\b/.test(q)) return "core";
   return "core";
@@ -143,6 +148,10 @@ export function inferPageContext(pagePath, saPage) {
     ctx.page_lane = "buyer";
     ctx.segments.push("sandbox", "start", "48h", "mvp");
   }
+  if (path.includes("operating-brain-install") || path.includes("ai-value-governance")) {
+    ctx.page_lane = "buyer";
+    ctx.segments.push("sku", "commercial");
+  }
   if (path.includes("scenario") || path === "/" || path.endsWith("/sourcea")) {
     ctx.page_lane = "core";
     ctx.segments.push("positioning", "founder-home", "scenario");
@@ -186,11 +195,54 @@ function pageBoost(c, pageCtx) {
   return boost;
 }
 
+function qualityBoost(c) {
+  const path = String(c.source_path || "").toLowerCase();
+  const out = String(c.id || "").toLowerCase();
+  if (path.includes("chatbot-knowledge/distilled/") || path.includes("/distilled/")) return 3.5;
+  if (path.includes("chatbot-knowledge/manual/") || path.includes("/manual/")) return 3;
+  if (path.includes("chatbot-knowledge/rules/") || c.lane === "rules") return 2.5;
+  if (path.includes("positioning") || out.includes("pricing-matrix") || out.includes("forge-runtime")) return 2.5;
+  if (path.includes("chatbot-knowledge/crawled/")) return -0.35;
+  return 0;
+}
+
+export function isIdentityQuestion(query) {
+  const q = String(query || "").toLowerCase();
+  return /\b(what is sourcea|who are you|one sentence|one line|in one sentence|describe sourcea)\b/.test(q);
+}
+
+function identityForcedHits(chunks, bundle) {
+  const out = [];
+  const oneLine = String(bundle?.public_one_line || "").trim();
+  for (const c of chunks) {
+    const id = String(c.id || "");
+    const path = String(c.source_path || "").toLowerCase();
+    if (id === "brain-public-rules-1" || id.startsWith("positioning-public-") || path.includes("positioning-public")) {
+      out.push({ ...c, score: 100, identity_forced: true });
+    }
+  }
+  if (!out.length && oneLine) {
+    out.push({
+      id: "bundle-public-one-line",
+      lane: "rules",
+      kind: "rule",
+      source_path: bundle?.positioning_ssot_path || "sourcea-positioning-v1.json",
+      www_url: "https://sourcea.app/",
+      content: `## One line\n${oneLine}`,
+      pinned: true,
+      score: 100,
+      identity_forced: true,
+    });
+  }
+  return out;
+}
+
 function scoreChunk(c, queryTokens, docTokens, df, N, avgdl, intent, pageCtx) {
   let s = bm25Score(queryTokens, docTokens, df, N, avgdl);
   const vectorScore = semanticScore(queryTokens, c, docTokens);
   s += vectorScore * 4.0;
-  if (c.pinned) s += 2;
+  if (c.pinned) s += 2.5;
+  s += qualityBoost(c);
   if (RULE_KINDS.has(c.kind) || c.lane === "rules") s += 1;
   if (c.lane === intent) s += 1.5;
   s += pageBoost(c, pageCtx);
@@ -277,7 +329,11 @@ export function brainRetrieve(bundle, query, opts = {}) {
     knowHits = knowledge.filter((c) => c.pinned).slice(0, 3).map((c) => ({ ...c, score: 1 }));
   }
 
-  const hits = dedupeHits([...ruleHits, ...knowHits]);
+  let hits = dedupeHits([...ruleHits, ...knowHits]);
+  if (isIdentityQuestion(query)) {
+    const forced = identityForcedHits(chunks, bundle);
+    hits = dedupeHits([...forced, ...hits]);
+  }
   const confidence = computeConfidence(hits);
   const sourcePaths = [...new Set(hits.map((h) => h.source_path).filter(Boolean))];
 
@@ -318,10 +374,12 @@ export function knowledgeMeta(bundle) {
   };
 }
 
-export function assembleBrainPrompt(baseCore, retrieval) {
+export function assembleBrainPrompt(baseCore, retrieval, bundle = null) {
   const hits = retrieval?.hits || [];
+  const publicOneLine = String(bundle?.public_one_line || "").trim();
   if (!hits.length) {
-    return { prompt: baseCore, citations: [], confidence: retrieval?.confidence || { level: "low" } };
+    const ssot = publicOneLine ? `\nCANONICAL ONE LINE (SSOT): ${publicOneLine}\n` : "";
+    return { prompt: baseCore + ssot, citations: [], confidence: retrieval?.confidence || { level: "low" } };
   }
 
   const rulesBlock = [];
@@ -349,9 +407,13 @@ export function assembleBrainPrompt(baseCore, retrieval) {
     ? `Visitor page: ${retrieval.page_path} (lane ${retrieval.page_lane || "core"}) — prefer matching sources.\n`
     : "";
 
+  const ssotBlock = publicOneLine
+    ? `CANONICAL PUBLIC ONE LINE (machine SSOT from ${bundle?.positioning_ssot_path || "sourcea-positioning-v1.json"}):\n${publicOneLine}\nFor identity questions, use this line verbatim unless the user asks for more detail.\n\n`
+    : "";
+
   const prompt = `${baseCore}
 
-${pageNote}BRAIN RETRIEVAL (${retrieval.sources_consulted || 0} live sources · confidence ${conf.level || "unknown"} · intent ${retrieval.intent} · vector semantic_hash_v1)
+${pageNote}${ssotBlock}BRAIN RETRIEVAL (${retrieval.sources_consulted || 0} live sources · confidence ${conf.level || "unknown"} · intent ${retrieval.intent} · vector semantic_hash_v1)
 Answer ONLY from the blocks below. If blocks lack detail, say so and link a relevant sourcea.app page.
 Never expose source_path, repo paths, file names, docs/*.md, JSON config names, model names, or internal implementation details to a visitor.
 When you provide a link, use a full copyable URL like https://sourcea.app/sourcea/forge/terminal — not markdown-only relative links.

@@ -1,0 +1,144 @@
+{
+  "schema": "sourcea-ui-pro-audit-baseline-v1",
+  "at": "2026-07-06T14:37:16Z",
+  "batch": "A",
+  "workstream": "WS-01",
+  "steps": "UP-UI-001..012",
+  "git_sha": "c9f4865abfa7",
+  "hero_parity": {
+    "disk": {
+      "home": {
+        "ok": true,
+        "path": "sites/SourceA-landing/green-unified/founder-home.html",
+        "h1": "Proof-backed MVPs and acquisition systems, \n              shipped fast.",
+        "has_sa_biz_tabs": true,
+        "has_sa_mock_panel": false,
+        "has_brain": true,
+        "has_pulse": true,
+        "has_interact": true,
+        "has_live_console": true,
+        "placeholder_dashes": true
+      },
+      "sourcea_index": {
+        "ok": true,
+        "path": "sites/SourceA-landing/green-unified/index.html",
+        "h1": "Proof-backed MVPs and acquisition systems,  shipped fast.",
+        "has_sa_biz_tabs": false,
+        "has_sa_mock_panel": false,
+        "has_brain": true,
+        "has_pulse": true,
+        "has_interact": false,
+        "has_live_console": false,
+        "placeholder_dashes": false
+      }
+    },
+    "live": {
+      "home": {
+        "has_biz_tabs": false,
+        "has_mock_only": true,
+        "placeholder_dashes": true
+      },
+      "sourcea": {
+        "has_biz_tabs": false,
+        "has_mock_only": false,
+        "placeholder_dashes": false
+      }
+    },
+    "parity_ok": true
+  },
+  "interactive_surfaces": [
+    {
+      "id": "brain",
+      "file": "sourcea-chatbot.js",
+      "surface": "FAB + chat panel"
+    },
+    {
+      "id": "tools",
+      "file": "sourcea-site-interact-v1.js",
+      "surface": "Tools dock + guided modal"
+    },
+    {
+      "id": "pulse",
+      "file": "sourcea-site-pulse-v1.js",
+      "surface": "Analytics + feedback FAB"
+    },
+    {
+      "id": "terminal",
+      "path": "/sourcea/forge/terminal",
+      "surface": "Forge Terminal page"
+    },
+    {
+      "id": "live_console",
+      "file": "sourcea-live-console.js",
+      "surface": "Hero command center"
+    },
+    {
+      "id": "trust_bar",
+      "file": "sourcea-trust-bar.js",
+      "surface": "Trust stat hydration"
+    },
+    {
+      "id": "boot_wire",
+      "file": "sourcea-boot-wire.js",
+      "surface": "Proof pack + eval links"
+    }
+  ],
+  "gaps_2026": [
+    {
+      "id": "product-hero",
+      "pattern": "Linear/Vercel",
+      "gap": "Hero mock panel without live tabs on /"
+    },
+    {
+      "id": "inline-demo",
+      "pattern": "Clerk/Neon",
+      "gap": "Forge Terminal not embedded in hero"
+    },
+    {
+      "id": "bento-proof",
+      "pattern": "Raycast",
+      "gap": "No bento grid with clickable proof tiles"
+    },
+    {
+      "id": "cmdk",
+      "pattern": "Raycast",
+      "gap": "No site command palette"
+    },
+    {
+      "id": "trust-ssr",
+      "pattern": "Mechanical RI-2",
+      "gap": "Em-dash placeholders in static HTML"
+    },
+    {
+      "id": "sku-contact",
+      "pattern": "Mechanical v2",
+      "gap": "SKU landers missing contact surface"
+    }
+  ],
+  "mechanical_gate_owners": {
+    "placeholder_counter": "WS-05",
+    "no_contact_surface": "WS-17",
+    "entity_consistency": "WS-36",
+    "spa_fallback_detect": "WS-30",
+    "missing_og": "WS-28"
+  },
+  "brain_baseline": {
+    "ok": true,
+    "status_http": 200
+  },
+  "site_pulse_note": "Counts via worker KV \u2014 public strip WS-12",
+  "lcp_note": "Run Lighthouse in cloud CI ship window; Mac founder session skips heavy perf",
+  "screenshot_note": "Deferred to cloud CI; disk+live HTML snapshot in this receipt",
+  "p0_scope": [
+    "WS-01 audit",
+    "WS-03..07 hero interactive (Batch B)",
+    "WS-05 trust SSR",
+    "WS-08 home unify"
+  ],
+  "batch_a_executed": [
+    "Interactive hero tabs on founder-home",
+    "Engine chips wire to console tabs",
+    "Console chrome opens proof/live",
+    "Audit receipt + stranger test JSON"
+  ]
+}

@@ -13,6 +13,11 @@
   const MODEL_KEY = "sourcea-platform-workspace-model-v1";
   const STATUS_TIMEOUT_MS = 12000;
 
+  function isAiReady(data) {
+    if (!data || typeof data !== "object") return false;
+    return Boolean(data.ai_model_ready ?? data.openrouter_ready);
+  }
+
   const $ = (id) => document.getElementById(id);
   let session = null;
   let apiUrl = DEFAULT_API;
@@ -200,7 +205,7 @@
         });
         if (orOnly.length) applyModels(orOnly, pub.default_model);
       }
-      setLive(st.openrouter_ready ? "Live · prompt forge on send" : "Offline — book a walkthrough", !!st.openrouter_ready);
+      setLive(isAiReady(st) ? "Live · prompt forge on send" : "Offline — book a walkthrough", isAiReady(st));
     } catch (_) {
       setLive("Offline — book a walkthrough", false);
     }
