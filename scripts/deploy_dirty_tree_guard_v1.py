@@ -18,6 +18,7 @@ SCOPE_PATHS: dict[str, list[str]] = {
         "scripts/brain_cli_v1.sh",
     ],
     "landing": [
+        "sites/SourceA-landing/green-unified/",
         "SourceA-landing/green-unified/",
         "scripts/inject_landing_aeg_proof_v1.py",
         "scripts/inject_sourcea_boot_terminal_v1.py",

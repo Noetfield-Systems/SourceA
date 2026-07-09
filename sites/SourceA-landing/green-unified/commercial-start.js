@@ -135,7 +135,16 @@
         }
         return;
       }
-      showDone(data.end_screen || config.end_screen);
+      showDone(
+        data.intake_id
+          ? "Reference " + data.intake_id + ". " + (data.end_screen || config.end_screen || "We'll respond in 2 hours with a scoped plan.")
+          : data.end_screen || config.end_screen
+      );
+      const refEl = document.getElementById("sa-start-ref-id");
+      if (refEl && data.intake_id) {
+        refEl.textContent = "Confirmation reference: " + data.intake_id;
+        refEl.hidden = false;
+      }
     } catch (err) {
       showError("Network error — email " + (config.contact_email || CONTACT) + " and we'll still respond in 2 hours.");
       if (btn) {

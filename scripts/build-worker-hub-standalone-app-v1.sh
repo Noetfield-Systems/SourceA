@@ -42,8 +42,8 @@ cat >"$STAGE/Contents/Info.plist" <<PLIST
   <key>CFBundleName</key><string>${APP_NAME}</string>
   <key>CFBundleDisplayName</key><string>${APP_NAME}</string>
   <key>CFBundlePackageType</key><string>APPL</string>
-  <key>CFBundleShortVersionString</key><string>1.0</string>
-  <key>CFBundleVersion</key><string>11</string>
+  <key>CFBundleShortVersionString</key><string>1.1</string>
+  <key>CFBundleVersion</key><string>12</string>
   <key>LSMinimumSystemVersion</key><string>12.0</string>
   <key>NSPrincipalClass</key><string>NSApplication</string>
   <key>NSHighResolutionCapable</key><true/>
@@ -93,6 +93,6 @@ done
 [[ "$COLD_OK" != "1" ]] && echo "WARN: cold-start failed — see ~/.sina/worker-hub-app-launch.log" >&2
 
 echo ""
-echo "✓ ${APP_NAME} v1.0 — double-click only (no Terminal)"
+echo "✓ ${APP_NAME} v1.1 — double-click · Noetfield-Systems/SourceA path"
 echo "  Desktop:       $DESKTOP"
 echo "  Applications:  $APPS_HOME"

@@ -9,7 +9,20 @@ final class HubLauncher {
         Bundle.main.bundlePath + "/Contents/Resources/worker-hub-bundle"
     }
 
-    static func sourceA() -> URL {
+    static func sourceA() -> URL? {
+        let home = FileManager.default.homeDirectoryForCurrentUser
+        let candidates = [
+            home.appendingPathComponent("Desktop/Noetfield-Systems/SourceA", isDirectory: true),
+            home.appendingPathComponent("Desktop/SourceA", isDirectory: true),
+        ]
+        for c in candidates {
+            let marker = c.appendingPathComponent("scripts/sina-command-server.py")
+            if FileManager.default.fileExists(atPath: marker.path) { return c }
+        }
+        return nil
+    }
+
+    static func sourceALegacy() -> URL {
         FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Desktop/SourceA", isDirectory: true)
     }
 
@@ -45,7 +58,10 @@ final class HubLauncher {
     static func bootScriptPath() -> String {
         let bundled = bundleRoot() + "/scripts/worker-hub-stack-boot.sh"
         if FileManager.default.fileExists(atPath: bundled) { return bundled }
-        return sourceA().appendingPathComponent("scripts/worker-hub-stack-boot.sh").path
+        if let sa = sourceA() {
+            return sa.appendingPathComponent("scripts/worker-hub-stack-boot.sh").path
+        }
+        return sourceALegacy().appendingPathComponent("scripts/worker-hub-stack-boot.sh").path
     }
 
     static func startStack(completion: @escaping (Bool) -> Void) {
@@ -65,7 +81,9 @@ final class HubLauncher {
             proc.executableURL = URL(fileURLWithPath: "/bin/bash")
             proc.arguments = [script]
             var env = ProcessInfo.processInfo.environment
-            env["SINA_SOURCE_A"] = sourceA().path
+            if let sa = sourceA() {
+                env["SINA_SOURCE_A"] = sa.path
+            }
             env["SINA_COMMAND_PORT"] = hubPort
             proc.environment = env
             do {

@@ -45,7 +45,13 @@ else:
     SCRIPTS_DIR = SOURCE_A / "scripts"
 
 PORT = int(os.environ.get("CLOUD_WORKERS_PORT", "13027"))
-UI_VERSION = "1.3.0"
+UI_VERSION = "1.4.0"
+
+CF_MOTOR_HEALTH_URLS = {
+    "loop_specialist": "https://sourcea-loop-specialist-tick-v1.sina-kazemnezhad-ca.workers.dev/health",
+    "auto_runtime": "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev/health",
+    "deadman": "https://sourcea-deadman-v1.sina-kazemnezhad-ca.workers.dev/health",
+}
 
 
 def _resolve_source_a() -> Path:
@@ -55,6 +61,7 @@ def _resolve_source_a() -> Path:
         if p.is_dir():
             return p
     for candidate in (
+        Path.home() / "Desktop" / "Noetfield-Systems" / "SourceA",
         Path.home() / "Desktop" / "SourceA",
         Path(__file__).resolve().parents[1],
     ):
@@ -108,6 +115,33 @@ def _railway_up() -> bool:
         return bool(deploy.get("ok")) and bool(health.get("ok"))
     except (OSError, json.JSONDecodeError):
         return False
+
+
+def _cf_motors_status() -> dict:
+    motors: dict[str, dict] = {}
+    ok_all = True
+    for name, url in CF_MOTOR_HEALTH_URLS.items():
+        row: dict = {"url": url, "ok": False}
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "SourceA-CloudWorkers/1.4"})
+            with urllib.request.urlopen(req, timeout=6.0) as resp:
+                body = json.loads(resp.read().decode("utf-8", errors="replace") or "{}")
+                row["ok"] = bool(body.get("ok"))
+                row["service"] = body.get("service")
+                if name == "auto_runtime":
+                    row["auto_proceed_ready"] = body.get("auto_proceed_ready")
+                if name == "loop_specialist":
+                    row["crons"] = (body.get("dispatch") or {}).get("crons") or body.get("crons")
+        except Exception as exc:
+            row["error"] = str(exc)[:120]
+        motors[name] = row
+        ok_all = ok_all and bool(row.get("ok"))
+    return {
+        "ok": ok_all,
+        "law": "data/cf-only-24-7-execution-v1.json",
+        "deploy_all": "scripts/deploy_cf_all_motors_v1.sh",
+        "motors": motors,
+    }
 
 
 def _dbg(hypothesis_id: str, location: str, message: str, data: dict | None = None) -> None:
@@ -259,6 +293,7 @@ class CloudWorkersHandler(BaseHTTPRequestHandler):
                     "legacy_hub_port": HUB_PORT,
                     "legacy_hub_live": _hub_up(),
                     "hub_required_for_proceed": False,
+                    "cf_motors_24_7": _cf_motors_status(),
                     "ui_contract": build_ui_contract("cloud_workers", port=PORT),
                 },
             )

@@ -1,10 +1,9 @@
 name: determinism-gate
 
-# L13 determinism — separate from L4 buyer-surface lane (never block L4 again).
+# Push CI only for determinism paths. Scheduled 24/7: CF loop-specialist 30 */6 * * *
+# EXECUTION LAW: data/cf-only-24-7-execution-v1.json — never add schedule: to this file.
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '30 */6 * * *'
   push:
     branches: [main]
     paths:

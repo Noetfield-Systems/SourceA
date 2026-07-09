@@ -14,16 +14,23 @@ if ! command -v yamllint >/dev/null 2>&1; then
 fi
 
 if ! command -v actionlint >/dev/null 2>&1; then
-  if [[ ! -x "${TOOLS}/actionlint" ]]; then
+  if [[ -x "${TOOLS}/actionlint" ]] && "${TOOLS}/actionlint" --version >/dev/null 2>&1; then
+    export PATH="${TOOLS}:$PATH"
+  else
+    os="$(uname -s)"
     arch="$(uname -m)"
-    case "$arch" in
-      arm64|aarch64) asset="actionlint_1.7.7_darwin_arm64.tar.gz" ;;
-      *) asset="actionlint_1.7.7_darwin_amd64.tar.gz" ;;
+    case "${os}:${arch}" in
+      Linux:aarch64|Linux:arm64) asset="actionlint_1.7.7_linux_arm64.tar.gz" ;;
+      Linux:*) asset="actionlint_1.7.7_linux_amd64.tar.gz" ;;
+      Darwin:arm64|Darwin:aarch64) asset="actionlint_1.7.7_darwin_arm64.tar.gz" ;;
+      Darwin:*) asset="actionlint_1.7.7_darwin_amd64.tar.gz" ;;
+      *) echo "FAIL: unsupported platform ${os}/${arch} for actionlint bootstrap" >&2; exit 1 ;;
     esac
     curl -sSfL "https://github.com/rhysd/actionlint/releases/download/v1.7.7/${asset}" \
       | tar -xz -C "$TOOLS" actionlint
+    chmod +x "${TOOLS}/actionlint"
+    export PATH="${TOOLS}:$PATH"
   fi
-  export PATH="${TOOLS}:$PATH"
 fi
 
 command -v yamllint >/dev/null || { echo "FAIL: yamllint unavailable" >&2; exit 1; }

@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 # Mac Health Guard — standalone mini app (:13024). Does NOT start Sina Command hub.
 set -euo pipefail
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+# shellcheck source=resolve_sourcea_root_v1.sh
+source "$SCRIPT_DIR/resolve_sourcea_root_v1.sh"
+ROOT="$(resolve_sourcea_root)"
+export SINA_SOURCEA="$ROOT"
 PORT="${MAC_HEALTH_PORT:-13024}"
 PIDFILE="${HOME}/.sina/mac-health-guard-server.pid"
 LOGFILE="${HOME}/.sina/mac-health-guard-server.log"

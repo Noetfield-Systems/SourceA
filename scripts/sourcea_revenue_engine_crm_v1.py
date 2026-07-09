@@ -19,6 +19,7 @@ VALID_STAGES = {
     "outreach_sent",
     "conversation",
     "meeting_booked",
+    "audit_discovery_scheduled",
     "proposal_sent",
     "won",
     "lost",
@@ -96,6 +97,8 @@ def cmd_add(args: argparse.Namespace) -> dict[str, Any]:
         prospect["deal_value_cad"] = int(args.deal)
     if args.sku:
         prospect["offer_sku"] = args.sku
+    if args.audit_id:
+        prospect["audit_id"] = args.audit_id.strip()
     if args.warmth:
         prospect["warmth"] = args.warmth
     if args.next_action:
@@ -133,6 +136,8 @@ def cmd_touch(args: argparse.Namespace) -> dict[str, Any]:
         prospect["deal_value_cad"] = int(args.deal)
     if args.next_action:
         prospect["next_action"] = args.next_action
+    if getattr(args, "audit_id", ""):
+        prospect["audit_id"] = args.audit_id.strip()
     for flag in ("case_study_sent", "offer_page_sent", "pureflow_link_sent"):
         if getattr(args, flag, False):
             prospect[flag] = True
@@ -231,6 +236,7 @@ def main() -> int:
     p_add.add_argument("--email", default="")
     p_add.add_argument("--deal", type=int, default=0)
     p_add.add_argument("--sku", default="SKU-48H-001")
+    p_add.add_argument("--audit-id", default="")
     p_add.add_argument("--warmth", choices=["warm", "cold"], default="warm")
     p_add.add_argument("--next-action", default="")
     p_add.add_argument("--note", default="")
@@ -243,6 +249,7 @@ def main() -> int:
     p_touch.add_argument("--deal", type=int)
     p_touch.add_argument("--next-action", default="")
     p_touch.add_argument("--note", default="")
+    p_touch.add_argument("--audit-id", default="")
     p_touch.add_argument("--case-study-sent", action="store_true")
     p_touch.add_argument("--offer-page-sent", action="store_true")
     p_touch.add_argument("--pureflow-link-sent", action="store_true")

@@ -42,6 +42,31 @@ jobs:
       - name: Install wrangler
         run: npm install -g wrangler@3
 
+      - name: Materialize SourceA CF token (GHA production)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
+            echo "FAIL: CLOUDFLARE_API_TOKEN secret missing — add to GitHub production environment"
+            exit 1
+          fi
+          mkdir -p ~/.sina
+          python3 -c "
+          import json, os
+          from pathlib import Path
+          p = Path.home() / '.sina' / 'cf-pages-token-v1.json'
+          p.write_text(json.dumps({
+            'schema': 'sourcea-cf-pages-token-v1',
+            'api_token': os.environ['CLOUDFLARE_API_TOKEN'],
+            'account_id': os.environ.get('CLOUDFLARE_ACCOUNT_ID', '0d0b967b77e2e5535455d39ff3dae72c'),
+            'zone_name': 'sourcea.com',
+            'project': 'sourcea-com',
+          }, indent=2) + '\n')
+          print('OK cf-pages-token materialized for publish')
+          "
+
       - name: Deploy buyer surfaces (Pages — verify deferred to workflow_run chain)
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -54,6 +79,7 @@ jobs:
             --project sourcea-com \
             --custom-domain \
             --no-inline-verify \
+            --skip-recipe \
             --json | tee "${{ runner.temp }}/deploy-buyer-surfaces.json"
           python3 -c "
           import json, sys
