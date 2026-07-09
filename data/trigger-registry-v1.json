@@ -512,32 +512,6 @@
       }
     },
     {
-      "trigger_id": "SA-T-automation-surface-daily",
-      "system": "sourcea",
-      "kind": "schedule",
-      "schedule": "11 6 * * *",
-      "target": "SourceA automation surface health daily sweep",
-      "valid_in_verified_window": true,
-      "owner_workflow": "sourcea-automation-surface-health",
-      "live_probe": {
-        "type": "gha_schedule",
-        "path": ".github/workflows/sourcea-automation-surface-health.yml"
-      }
-    },
-    {
-      "trigger_id": "SA-T-automation-surface-weekly",
-      "system": "sourcea",
-      "kind": "schedule",
-      "schedule": "19 7 * * 1",
-      "target": "SourceA automation surface weekly sweep",
-      "valid_in_verified_window": true,
-      "owner_workflow": "sourcea-automation-surface-health",
-      "live_probe": {
-        "type": "gha_schedule",
-        "path": ".github/workflows/sourcea-automation-surface-health.yml"
-      }
-    },
-    {
       "trigger_id": "SA-T-automation-surface-manual",
       "system": "sourcea",
       "kind": "manual",

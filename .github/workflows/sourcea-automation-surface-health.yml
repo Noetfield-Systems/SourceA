@@ -2,9 +2,6 @@ name: SourceA automation surface health
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "11 6 * * *"
-    - cron: "19 7 * * 1"
 
 jobs:
   automation-surface-health:
