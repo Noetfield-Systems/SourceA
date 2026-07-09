@@ -1,0 +1,53 @@
+{
+  "schema": "agentic-cost-governance-audit-log-v1",
+  "version": "1.0.0",
+  "template": true,
+  "created_at": "2026-07-05T12:35:00Z",
+  "description": "Immutable append-only audit log for API calls, policy checks, and approvals",
+  "audit_id": "[from intake]",
+  "client_name": "[Company name]",
+  "pricing_source": "audit_time_live_lookup",
+  "entries": [
+    {
+      "entry_type": "api_call",
+      "timestamp": "[ISO-8601]",
+      "call_id": "[uuid]",
+      "task_id": "[task id]",
+      "requester": "[email]",
+      "model": "[client-defined model or example]",
+      "model_class": "tier1_cheap | tier2_standard | tier3_premium",
+      "tier": 1,
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": "[computed at audit time]",
+      "workflow": "[workflow name]",
+      "status": "completed | blocked | escalated"
+    },
+    {
+      "entry_type": "policy_check",
+      "timestamp": "[ISO-8601]",
+      "decision": "allowed | escalated | blocked",
+      "model_class": "tier2_standard",
+      "reason": "[policy rule triggered]",
+      "policy_version": "[POLICY-id-v1]"
+    },
+    {
+      "entry_type": "approval_event",
+      "timestamp": "[ISO-8601]",
+      "approval_id": "[uuid]",
+      "requester": "[email]",
+      "approver": "[email]",
+      "decision": "approved | denied",
+      "business_case": "[optional]"
+    },
+    {
+      "entry_type": "spend_alert",
+      "timestamp": "[ISO-8601]",
+      "threshold_exceeded": "[70% | 90% | 100%]",
+      "cap_usd": "[amount]",
+      "current_spend_usd": "[amount]",
+      "action_taken": "[alert | require_approval | hard_stop]"
+    }
+  ],
+  "law": "Append-only — never edit prior entries; corrections are new entries with reference_id"
+}

@@ -185,6 +185,79 @@ def validate_status(data: dict[str, Any], *, clean_tree: bool) -> None:
         fail(f"active product/legal/entity paths do not belong in SourceA changes: {active_product_paths[:10]}")
 
 
+def validate_root_shims(data: dict[str, Any]) -> None:
+    root_symlink_map = data["working_tree"].get("root_symlink_map")
+    if not isinstance(root_symlink_map, dict) or not root_symlink_map:
+        fail("working_tree.root_symlink_map must be a non-empty object")
+
+    for root_name, canonical_target in root_symlink_map.items():
+        if not isinstance(root_name, str) or not isinstance(canonical_target, str):
+            fail("working_tree.root_symlink_map entries must be string-to-string pairs")
+
+        root_path = ROOT / root_name
+        canonical_path = ROOT / canonical_target
+
+        if not root_path.is_symlink():
+            fail(f"root shim must be a symlink: {root_name}")
+        if not canonical_path.exists():
+            fail(f"canonical root shim target is missing: {canonical_target}")
+
+        actual_target = root_path.readlink()
+        if actual_target.is_absolute():
+            fail(f"root shim must use a repo-relative target, not an absolute path: {root_name}")
+        if actual_target.as_posix() != canonical_target:
+            fail(
+                f"root shim target mismatch for {root_name}: "
+                f"expected {canonical_target}, got {actual_target.as_posix()}"
+            )
+        if root_path.resolve() != canonical_path.resolve():
+            fail(f"root shim does not resolve to canonical target: {root_name} -> {canonical_target}")
+
+
+def list_visible_root_entries() -> set[str]:
+    entries: set[str] = set()
+    for path in ROOT.iterdir():
+        if path.name.startswith("."):
+            continue
+        if path.is_symlink() or path.is_file():
+            entries.add(path.name)
+    return entries
+
+
+def require_string_list(name: str, value: object) -> list[str]:
+    if not isinstance(value, list) or not all(isinstance(item, str) for item in value):
+        fail(f"{name} must be a list of strings")
+    return value
+
+
+def validate_root_inventory(data: dict[str, Any]) -> None:
+    working_tree = data["working_tree"]
+    stay_root_files = set(require_string_list("working_tree.stay_root_files", working_tree.get("stay_root_files")))
+    root_symlink_map = working_tree["root_symlink_map"]
+    root_candidates_to_relocate = set(
+        require_string_list(
+            "working_tree.root_candidates_to_relocate",
+            working_tree.get("root_candidates_to_relocate"),
+        )
+    )
+
+    overlap = (stay_root_files & set(root_symlink_map)) | (stay_root_files & root_candidates_to_relocate) | (
+        set(root_symlink_map) & root_candidates_to_relocate
+    )
+    if overlap:
+        fail(f"root inventory categories must be disjoint: {sorted(overlap)}")
+
+    visible_root_entries = list_visible_root_entries()
+    expected_entries = stay_root_files | set(root_symlink_map) | root_candidates_to_relocate
+    missing_entries = sorted(visible_root_entries - expected_entries)
+    if missing_entries:
+        fail(f"visible root files/symlinks are missing inventory classification: {missing_entries}")
+
+    unknown_entries = sorted(expected_entries - visible_root_entries)
+    if unknown_entries:
+        fail(f"root inventory references entries not present at repo root: {unknown_entries}")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--clean-tree", action="store_true", help="Require git status --short to be empty.")
@@ -193,6 +266,8 @@ def main() -> int:
     data = load_policy()
     validate_policy(data)
     validate_status(data, clean_tree=args.clean_tree)
+    validate_root_shims(data)
+    validate_root_inventory(data)
 
     status_count = len(parse_status_paths())
     print(

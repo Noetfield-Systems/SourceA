@@ -1,0 +1,78 @@
+name: validate
+
+# Required status check on main — lightweight disk + policy gate (not validate-all-e2e marathon).
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/**'
+      - 'scripts/**'
+      - 'data/**'
+      - 'docs/commercial/ACG_*'
+      - 'docs/commercial/AGENTIC_*'
+      - 'docs/commercial/PREMIUM_*'
+      - 'docs/commercial/NOETFIELD_AGENTIC_*'
+      - 'brain-os/**'
+      - 'cloud/**'
+      - 'repo-policy.json'
+      - 'reports/locked-definitions-v1.json'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/**'
+      - 'scripts/**'
+      - 'data/**'
+      - 'brain-os/**'
+      - 'cloud/**'
+      - 'repo-policy.json'
+      - 'reports/locked-definitions-v1.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Repo boundary policy
+        run: python3 scripts/check_sourcea_repo_policy.py
+
+      - name: GitHub workflow lint (yamllint + actionlint)
+        run: bash scripts/validate-github-workflows-v1.sh
+
+      - name: Nerve probe law on disk
+        run: bash scripts/validate-noetfield-nerve-probe-v1.sh
+
+      - name: Realistic motor law on disk
+        run: bash scripts/validate-cloud-forge-run-realistic-motor-law-v1.sh
+
+      - name: Locked definitions anatomy
+        run: python3 scripts/validate_locked_definitions_anatomy_v1.py --json
+
+      - name: Trigger registry sweep
+        run: python3 scripts/sandbox_health_sweep_v1.py --json
+
+      - name: GHA improvement_queue wiring
+        run: bash scripts/validate-gha-improvement-queue-v1.sh
+
+      - name: CF-only 24/7 execution law
+        run: bash scripts/validate-cf-only-24-7-v1.sh
+
+      - name: Ops motors wiring
+        run: bash scripts/validate-ops-motors-v1.sh
+
+      - name: Ops motors go-live gate
+        run: bash scripts/validate-ops-motors-go-live-v1.sh

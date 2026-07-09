@@ -6,7 +6,9 @@ This file exists for **Cursor `@context` compatibility** with external advisor t
 
 **Do not grow this file.** Read the index instead:
 
-→ **`docs/CURSOR_CONTEXT_INDEX_LOCKED_v1.md`**
+→ **`docs/SOURCEA_GOVERNANCE_ENTRY_UNIFIED_LOCKED_v1.md`**
+
+Legacy router: `docs/CURSOR_CONTEXT_INDEX_LOCKED_v1.md` (superseded)
 
 Machine SSOT:
 

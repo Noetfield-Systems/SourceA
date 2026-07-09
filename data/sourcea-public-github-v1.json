@@ -1,0 +1,29 @@
+{
+  "schema": "sourcea-public-github-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-06T15:30:00Z",
+  "org": "Noetfield-Systems",
+  "repos": {
+    "SourceA": {
+      "slug": "Noetfield-Systems/SourceA",
+      "url": "https://github.com/Noetfield-Systems/SourceA",
+      "clone": "https://github.com/Noetfield-Systems/SourceA.git"
+    },
+    "sourcea-boot": {
+      "slug": "Noetfield-Systems/sourcea-boot",
+      "url": "https://github.com/Noetfield-Systems/sourcea-boot",
+      "clone": "https://github.com/Noetfield-Systems/sourcea-boot.git",
+      "monorepo_path": "packages/sourcea-boot",
+      "pypi": "https://pypi.org/project/sourcea-boot/"
+    },
+    "sourcea-sdk": {
+      "slug": "Noetfield-Systems/sourcea-sdk",
+      "url": "https://github.com/Noetfield-Systems/sourcea-sdk",
+      "clone": "https://github.com/Noetfield-Systems/sourcea-sdk.git"
+    }
+  },
+  "legacy_forbidden_public_slugs": [
+    "kazemnezhadsina144-dot/sourcea-boot",
+    "kazemnezhadsina144-dot/SourceA"
+  ]
+}

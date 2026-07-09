@@ -1,0 +1,112 @@
+{
+  "schema": "loop-specialist-cron-dispatch-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-05T18:15:00Z",
+  "one_law": "All scheduled loops: CF Worker */15 cron → isCronDue dispatch → Railway FBE. GHA schedule forbidden — workflow_dispatch backup only.",
+  "wrangler_trigger_cron": "*/15 * * * *",
+  "execution_plane": "cloudflare_cron_loop_specialist",
+  "railway_base_env": "FBE_CLOUD_WORKER_URL",
+  "crons": [
+    {
+      "cron": "*/15 * * * *",
+      "trigger_id": "SA-T-loop-specialist",
+      "label": "loop-specialist-15m",
+      "jobs": [
+        { "id": "loop-tick", "kind": "handler", "handler": "loop_specialist_tick" },
+        { "id": "sf-tick", "kind": "handler", "handler": "signal_factory_tick" },
+        { "id": "nerve-probe", "kind": "handler", "handler": "nerve_probe" },
+        { "id": "sg-watchdog", "kind": "handler", "handler": "gateway_watchdog" },
+        {
+          "id": "sf-triage",
+          "kind": "railway",
+          "path": "/api/fbe/signal-factory/triage/v1",
+          "body": { "max_batch": 10 }
+        }
+      ]
+    },
+    {
+      "cron": "0 * * * *",
+      "trigger_id": "SA-T-gmail-sweep-hourly",
+      "label": "gmail-sweep-hourly",
+      "jobs": [
+        {
+          "id": "gmail-sweep",
+          "kind": "railway",
+          "path": "/api/fbe/gmail-sweep/v1",
+          "body": { "max_per_mailbox": 25 }
+        }
+      ]
+    },
+    {
+      "cron": "0 3 * * *",
+      "trigger_id": "SA-T-kaizen-nightly",
+      "label": "kaizen-nightly",
+      "jobs": [
+        { "id": "kaizen", "kind": "railway", "path": "/api/fbe/kaizen/nightly/v1", "body": {} }
+      ]
+    },
+    {
+      "cron": "0 14 * * *",
+      "trigger_id": "SG-T-gateway-heartbeat-daily",
+      "label": "sg-gateway-heartbeat-0700pt",
+      "jobs": [
+        { "id": "sg-heartbeat", "kind": "handler", "handler": "gateway_heartbeat" }
+      ]
+    },
+    {
+      "cron": "0 7 * * *",
+      "trigger_id": "SA-T-ops-heartbeat-daily",
+      "label": "ops-heartbeat-daily",
+      "jobs": [
+        { "id": "ops-heartbeat", "kind": "railway", "path": "/api/fbe/ops/heartbeat/v1", "body": {} }
+      ]
+    },
+    {
+      "cron": "0 8 * * *",
+      "trigger_id": "SA-T-repo-health-daily",
+      "label": "repo-health-daily",
+      "jobs": [
+        {
+          "id": "repo-health",
+          "kind": "railway",
+          "path": "/api/fbe/repo-health/daily/v1",
+          "body": { "insert": true }
+        }
+      ]
+    },
+    {
+      "cron": "0 9 * * 0",
+      "trigger_id": "SA-T-security-sweep-weekly",
+      "label": "security-sweep-weekly",
+      "jobs": [
+        {
+          "id": "security-sweep",
+          "kind": "railway",
+          "path": "/api/fbe/security-sweep/weekly/v1",
+          "body": { "insert": true }
+        }
+      ]
+    },
+    {
+      "cron": "0 10 * * 0",
+      "trigger_id": "SA-T-workflow-census-weekly",
+      "label": "workflow-census-weekly",
+      "jobs": [
+        {
+          "id": "workflow-census",
+          "kind": "railway",
+          "path": "/api/fbe/workflow-census/weekly/v1",
+          "body": { "insert": true }
+        }
+      ]
+    },
+    {
+      "cron": "30 */6 * * *",
+      "trigger_id": "SA-T7-schedule",
+      "label": "determinism-gate-6h",
+      "jobs": [
+        { "id": "determinism-gate", "kind": "railway", "path": "/api/fbe/determinism/gate/v1", "body": {} }
+      ]
+    }
+  ]
+}

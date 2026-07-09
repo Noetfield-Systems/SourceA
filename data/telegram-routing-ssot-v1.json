@@ -1,0 +1,38 @@
+{
+  "schema": "telegram-routing-ssot-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-06T06:20:00Z",
+  "canonical_ssot": "data/sourcea-telegram-lane-v1.json",
+  "allowed_channels": [
+    {
+      "id": "sourcea_ops",
+      "env_chat_id_key": "TELEGRAM_OPS_CHAT_ID",
+      "env_token_keys": ["TELEGRAM_PRIMARY_BOT_TOKEN", "TELEGRAM_BOT_TOKEN"],
+      "bot_username": "TrustFieldBot",
+      "lane": "sourcea_nerve_fail_only",
+      "note": "Loop-specialist nerve probe RED only — never gateway"
+    }
+  ],
+  "forbidden_destinations": [
+    {
+      "id": "gateway_a",
+      "match": ["@Gateway_A", "Gateway_A", "gateway_a", "@gateway_a"],
+      "reason": "Sina Gateway owns its own Telegram — SourceA must never message this account"
+    }
+  ],
+  "forbidden_env_fallbacks": [
+    "TELEGRAM_ALERT_CHAT_ID",
+    "TELEGRAM_ALLOWED_CHAT_ID",
+    "TELEGRAM_NOETFIELD_OPS_BOT_TOKEN",
+    "TELEGRAM_SECONDARY_BOT_TOKEN",
+    "TELEGRAM_ALERT_BOT_TOKEN"
+  ],
+  "gateway_handlers_allowed": {
+    "dispatch_jobs": ["gateway_watchdog", "gateway_heartbeat"],
+    "transport": "HTTP probes only — no sendMessage"
+  },
+  "monitoring_law": {
+    "sina_gateway": "UptimeRobot HTTP GET + CF gateway_watchdog HTTP — data/noos-external-monitors-v1.json",
+    "never": ["sendMessage to @Gateway_A", "loop-specialist telegram on gateway RED/GREEN"]
+  }
+}

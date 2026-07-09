@@ -1,0 +1,68 @@
+{
+  "schema": "decision-language-machine-v1",
+  "version": "1.1.0",
+  "updated_at": "2026-07-07T07:25:00Z",
+  "machine_id": "decision_language_machine_v1",
+  "description": "SourceA-local runtime consumer: messy rows → plain English → SG canon check → cluster → classify → reduced sheet → optional apply map → stage receipts.",
+  "authority_boundary": {
+    "sg_owns": [
+      "Dictionary",
+      "Terminology",
+      "language_gate",
+      "Library canon",
+      "meaning rules",
+      "decision doctrine"
+    ],
+    "sourcea_owns": [
+      "scripts/decision_language_machine_v1.py",
+      "data/decision-language-machine-v1.json",
+      "data/decision-language-machine-form-official-fixture-v1.json",
+      "scripts/validate-decision-language-machine-v1.sh",
+      "receipts under ~/.sina/decision-language-machine/"
+    ],
+    "forbidden_in_sourcea": [
+      "modify SG canon",
+      "redefine Dictionary or Terminology",
+      "resubmit excluded rows",
+      "reopen shipped fixture rows as founder questions",
+      "treat machine recommendations as authority"
+    ],
+    "goal": "SourceA consumes the machine safely — not authority over the machine"
+  },
+  "sg_canon_consumers_read_only": {
+    "terminology": "scripts/founder_voice_terminology_v1.py::canvas_terminology",
+    "language_gate": "scripts/agent_report_language_gate_v1.py::scan_text",
+    "dictionary_archive": "archive/attachments/founder-language/dictionary.yaml",
+    "terminology_law": "docs/SOURCEA_TERMINOLOGY_AND_COMMERCIAL_TUNE_2026_LOCKED_v1.md",
+    "note": "Read-only consumption — SG remains authority; SourceA never writes these paths from DLM"
+  },
+  "stages": [
+    "ingest",
+    "rewrite_plain_english",
+    "extract_terms",
+    "sg_canon_check",
+    "cluster",
+    "classify",
+    "reduced_sheet",
+    "apply_map",
+    "receipt"
+  ],
+  "classifications": [
+    "MACHINE_VALIDATABLE",
+    "ADVISOR_REVIEW",
+    "FOUNDER_FACT",
+    "DEFER",
+    "DICTIONARY_FIX_NEEDED"
+  ],
+  "fixtures": {
+    "form_official_80": {
+      "path": "data/decision-language-machine-form-official-fixture-v1.json",
+      "expected_clusters": 12,
+      "expected_mapped_rows": 22,
+      "expected_excluded_rows": 58,
+      "partial_submit_done": true,
+      "open_remaining_expected": 58
+    }
+  },
+  "receipt_dir": "~/.sina/decision-language-machine"
+}

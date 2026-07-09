@@ -1,8 +1,8 @@
-# Canonical CF worker — sourcea-cloud-auto-runtime-tick-v1 (drain vocabulary retired)
 name = "sourcea-cloud-auto-runtime-tick-v1"
 main = "src/index.js"
 compatibility_date = "2024-06-01"
 account_id = "0d0b967b77e2e5535455d39ff3dae72c"
+# Workers Paid ($5/mo) — 24/7 Cloud Forge Run */10 · GHA schedule forbidden
 
 [triggers]
 crons = ["*/10 * * * *"]

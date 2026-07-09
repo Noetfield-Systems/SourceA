@@ -1,0 +1,103 @@
+{
+  "schema": "sourcea-ui-mechanical-gate-v2-additions-locked-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-06T12:20:00Z",
+  "locked": true,
+  "law": "L5: additive only. Merged into data/sourcea-ui-mechanical-gate-v1.json. No existing pattern removed or loosened.",
+  "merged_into": "data/sourcea-ui-mechanical-gate-v1.json",
+  "doc": "docs/SOURCEA_UI_MECHANICAL_GATE_V2_ADDITIONS_LOCKED_v1.md",
+  "at": "2026-07-06",
+  "evidence_basis": "All patterns below confirmed live on sourcea.app 2026-07-06 by external fetch",
+  "forbidden_primary_phrases_add": [
+    {
+      "id": "unrendered_entity",
+      "pattern": "{ENTITY}",
+      "why": "unrendered template var, live in /sourcea/pricing footer at 12:3xZ"
+    },
+    {
+      "id": "unrendered_mustache",
+      "pattern": "{{",
+      "why": "generic unrendered mustache guard"
+    },
+    {
+      "id": "unrendered_js_template",
+      "pattern": "${",
+      "why": "generic unrendered JS template guard (scan text nodes only if noisy)"
+    }
+  ],
+  "regex_checks_add": [
+    {
+      "id": "placeholder_counter",
+      "severity": "FAIL",
+      "regex": "(?:—|--|N/A|TBD)\\s*(?:jobs|verified|clients|★|/100)",
+      "why": "em-dash stats live on homepage of a proof-branded product"
+    },
+    {
+      "id": "unrendered_var",
+      "severity": "FAIL",
+      "regex": "\\{[A-Z_]{2,}\\}",
+      "why": "catches {ENTITY} class of leaks generically"
+    }
+  ],
+  "structural_checks_add": [
+    {
+      "id": "splat_url_guard",
+      "severity": "REJECT_ROW",
+      "rule": "never fetch paths containing '*'; a _redirects splat is a rule, not a page. Rows with '*' are excluded from pass/fail math.",
+      "why": "5 literal-splat rows SPA-fallbacked to homepage and counted PASS in v1 run"
+    },
+    {
+      "id": "spa_fallback_detect",
+      "severity": "REJECT_ROW",
+      "rule": "if body sha256 == homepage sha256 and path != '/', mark SPA_FALLBACK not PASS",
+      "why": "200-only on SPA fallbacks is non-discriminating"
+    },
+    {
+      "id": "live_vs_dist_diff",
+      "severity": "DRIFT",
+      "rule": "discover paths from live sitemap.xml + live link BFS; emit (live_only, dist_only) diff as DRIFT receipt each run",
+      "why": "path universe must not be controlled by the machine that built the site (L4/L12)"
+    },
+    {
+      "id": "entity_consistency",
+      "severity": "FAIL",
+      "rule": "footer legal entity string identical across all pages; expected 'Noetfield Systems Inc.'",
+      "why": "'Noetfield Systems Inc.' vs '{ENTITY}' live simultaneously"
+    },
+    {
+      "id": "nav_fingerprint",
+      "severity": "FAIL",
+      "rule": "primary nav link-set: max 2 distinct fingerprints site-wide (marketing + app shell)",
+      "why": "homepage nav != /sourcea/ subsite nav, confirmed live"
+    },
+    {
+      "id": "price_drift",
+      "severity": "FAIL",
+      "rule": "every $ figure on any page must exist in the canonical pricing table",
+      "why": "cross-page price consistency"
+    },
+    {
+      "id": "receipt_hygiene",
+      "severity": "FAIL",
+      "rule": "audit receipts written to repo reports/ only; receipt body must itself pass path_leak gate",
+      "why": "v1 receipt written to ~/.sina and contained /Users/sinakazemnezhad path"
+    }
+  ],
+  "reclassify": [
+    {
+      "pages": [
+        "/ai-value-governance",
+        "/enterprise-ai-control-plane",
+        "/sourcea/ai-value-governance",
+        "/sourcea/enterprise-ai-control-plane",
+        "/operating-brain-install"
+      ],
+      "from": "P3 warn (lumped with auth pages)",
+      "to": "P1",
+      "finding_id": "no_contact_surface",
+      "severity": "FAIL",
+      "why": "commercial SKU landers with zero contact surface = dead-end money pages, not sign-in screens"
+    }
+  ],
+  "verify_law": "The agent that fixes the 27 failures may not produce the PASS. Re-run from a different runner (Railway or founder Mac), >=60s after deploy, full-body hash per page."
+}
