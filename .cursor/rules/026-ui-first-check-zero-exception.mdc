@@ -27,7 +27,7 @@ alwaysApply: false
 ## Before ANY UI file touch (mandatory sequence)
 
 ```bash
-bash ~/Desktop/SourceA/scripts/wbc-ui-first-check.sh --path "<target>"
+bash ~/Desktop/Noetfield-Systems/SourceA/scripts/wbc-ui-first-check.sh --path "<target>"
 python3 scripts/ui_upgrade_first_check_v1.py --surface <surface_id> --ack --json
 python3 scripts/pre_write_guard_v1.py check --agent cursor --path "<target>" --json
 ```

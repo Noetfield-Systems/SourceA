@@ -34,7 +34,7 @@ Broker parses this block from your last reply. **No report = turn did not happen
 ## CHECK turn validators (read-only)
 
 ```bash
-cd ~/Desktop/SourceA/scripts
+cd ~/Desktop/Noetfield-Systems/SourceA/scripts
 python3 find_critical_bugs.py          # SINA_FCB_FAST=1 optional on CHECK
 python3 audit_hub_source_alignment.py
 bash validate-registry-honest-gate-v1.sh
@@ -54,7 +54,7 @@ Minimal diff · run task `.md` verify commands · no receipt-only closeout.
 ## VERIFY turn
 
 ```bash
-cd ~/Desktop/SourceA/scripts
+cd ~/Desktop/Noetfield-Systems/SourceA/scripts
 SINA_AUDIT_STRICT=1 python3 build-sina-command-panel.py
 python3 find_critical_bugs.py
 ```

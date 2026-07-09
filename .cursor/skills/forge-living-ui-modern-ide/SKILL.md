@@ -126,8 +126,8 @@ fixed 200px dock with no drag; duplicate Connect + IDE topbars in iframe
 ## E2E proof (Mac light)
 
 ```bash
-bash ~/Desktop/SourceA/scripts/validate-forge-terminal-living-desktop-e2e-v1.sh
-bash ~/Desktop/SourceA/scripts/validate-forge-terminal-desktop-e2e-v1.sh
+bash ~/Desktop/Noetfield-Systems/SourceA/scripts/validate-forge-terminal-living-desktop-e2e-v1.sh
+bash ~/Desktop/Noetfield-Systems/SourceA/scripts/validate-forge-terminal-desktop-e2e-v1.sh
 ```
 
 Receipts:
