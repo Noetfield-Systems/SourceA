@@ -97,9 +97,16 @@
     if (!S) return;
     const params = new URLSearchParams(global.location.search || "");
     const next = params.get("next");
-    if (next && next.startsWith("/") && next.indexOf("//") === -1) {
-      global.location.href = next;
-      return;
+    if (next) {
+      try {
+        const dest = new URL(next, global.location.origin);
+        if (dest.origin === global.location.origin) {
+          global.location.href = dest.pathname + dest.search + dest.hash;
+          return;
+        }
+      } catch (err) {
+        /* invalid next param — fall through to default routing */
+      }
     }
     const R = S.ROUTES;
     if (merged.project_name) {
