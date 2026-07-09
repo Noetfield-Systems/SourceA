@@ -1,0 +1,32 @@
+{
+  "test_id": "drill-test-001",
+  "timestamp": "2026-07-03T07:08:41.247474",
+  "finding": {
+    "id": "drill-test-001",
+    "path": "scripts/verify_autorun_zero_manual_v1.py",
+    "issue_type": "synthetic_drift",
+    "confidence": 0.75,
+    "description": "Drill test: synthetic finding to validate Layer 2 classification",
+    "is_drill": true
+  },
+  "classified_as": "founder_gated",
+  "expected_classification": "founder_gated",
+  "classification_correct": true,
+  "filing_receipt": {
+    "finding_id": "drill-test-001",
+    "path": "scripts/verify_autorun_zero_manual_v1.py",
+    "classification": "founder_gated",
+    "title": "\ud83d\udd12 Founder-gated: synthetic_drift in scripts/verify_autorun_zero_manual_v1.py (75%)",
+    "body": "**Finding Type:** synthetic_drift\n**Path:** `scripts/verify_autorun_zero_manual_v1.py`\n**Confidence:** 75%\n**Description:** Drill test: synthetic finding to validate Layer 2 classification\n\n**Classification:** `founder_gated`\n**Action:** Founder-gated issue: requires founder approval to proceed\n\n**Details:**\n{\n  \"id\": \"drill-test-001\",\n  \"path\": \"scripts/verify_autorun_zero_manual_v1.py\",\n  \"issue_type\": \"synthetic_drift\",\n  \"confidence\": 0.75,\n  \"description\": \"Drill test: synthetic finding to validate Layer 2 classification\",\n  \"is_drill\": true\n}",
+    "labels": [
+      "self-heal/founder_gated",
+      "type/founder-gated",
+      "security"
+    ],
+    "timestamp": "2026-07-03T07:08:41.247299",
+    "status": "filed",
+    "action_type": "issue",
+    "expected_result": "GitHub issue created and assigned to founder"
+  },
+  "status": "passed"
+}

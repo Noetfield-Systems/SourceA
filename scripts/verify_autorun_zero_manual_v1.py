@@ -22,6 +22,9 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
+WORKFLOW_CONFIG = ROOT / "data" / "cloud-auto-runtime-v1.json"
+KAIZEN_DIR = ROOT / "receipts" / "cloud" / "kaizen"
+KAIZEN_RECEIPT = KAIZEN_DIR / "kaizen-autorun-health-miss-latest-v1.json"
 CF_HEALTH = "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev/health"
 OBSERVER = "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/observer/v1"
 AUTONOMOUS = frozenset({"cloudflare_cron", "cloudflare_scheduled", "headless_cloud_auto_tick"})
@@ -71,6 +74,42 @@ def _parse_iso(iso: str) -> datetime | None:
         return datetime.fromisoformat(iso.replace("Z", "+00:00"))
     except ValueError:
         return None
+
+
+def _load_workflow_config() -> dict[str, Any]:
+    if not WORKFLOW_CONFIG.is_file():
+        return {}
+    try:
+        return json.loads(WORKFLOW_CONFIG.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def _write_kaizen_receipt(*, row: dict[str, Any], scores: dict[str, int], threshold_pct: int) -> None:
+    if row.get("ok") and scores.get("score_pct", 0) >= threshold_pct:
+        return
+    receipt = {
+        "schema": "kaizen-improvement-receipt-v1",
+        "version": "1.0.0",
+        "at": _now(),
+        "law": "governed-autorun L4/L13 · workflow-health miss",
+        "classification": "machine_safe",
+        "id": "kaizen-autorun-health-miss",
+        "diff_summary": "Autorun health now files a Kaizen proof receipt on SLO miss or drift.",
+        "expected_effect": "Keep heartbeat and zero-manual regressions visible in the proof chain.",
+        "expected_roi": "faster workflow recovery · tighter health telemetry",
+        "rollback_command": "remove the Kaizen receipt writer from scripts/verify_autorun_zero_manual_v1.py",
+        "files_touched": ["scripts/verify_autorun_zero_manual_v1.py", "data/cloud-auto-runtime-v1.json"],
+        "before": "SLO misses only surfaced in console output.",
+        "after": "SLO misses also file a Kaizen proof receipt under receipts/cloud/kaizen.",
+        "score_pct": scores.get("score_pct"),
+        "threshold_pct": threshold_pct,
+        "heartbeat_score_pct": scores.get("heartbeat_score_pct"),
+        "drift": not bool(row.get("ok")),
+        "ok": bool(row.get("ok")),
+    }
+    KAIZEN_DIR.mkdir(parents=True, exist_ok=True)
+    KAIZEN_RECEIPT.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
 
 
 def _truth_log_cron_count(*, since: datetime) -> dict[str, Any]:
@@ -159,6 +198,9 @@ def _heartbeat_today_local() -> dict[str, Any]:
 def verify(*, hours: float = 24.0) -> dict[str, Any]:
     since = datetime.now(timezone.utc) - timedelta(hours=hours)
     expected_min_cron = int((hours * 60) / 10) - 2  # */10 cadence, tolerance
+    workflow_cfg = _load_workflow_config()
+    slo_targets = workflow_cfg.get("slo_targets") if isinstance(workflow_cfg.get("slo_targets"), dict) else {}
+    threshold_pct = int(slo_targets.get("score_pass_threshold_pct") or 90)
 
     cf = _fetch_json(CF_HEALTH)
     observer = _fetch_json(OBSERVER)
@@ -227,48 +269,67 @@ def verify(*, hours: float = 24.0) -> dict[str, Any]:
     sink_every_cycle = len(missing_sink) == 0 and (latest_sink_ok if latest_autonomy else len(sink_blocked) == 0)
     heartbeat_ok = heartbeat.get("ok") or bool(observer.get("daily_heartbeat"))
 
+    scores = {
+        "cron_score_pct": min(100, round(100 * int(truth.get("count") or 0) / max(1, expected_min_cron))),
+        "zero_manual_score_pct": 100 if zero_manual else 0,
+        "sink_score_pct": 100 if sink_every_cycle else 0,
+        "heartbeat_score_pct": 100 if heartbeat_ok else 0,
+    }
+    score_pct = round(sum(scores.values()) / len(scores))
+    slo_ok = score_pct >= threshold_pct
+
     ok = (
         cf.get("ok")
         and observer.get("ok")
         and zero_manual
         and sink_every_cycle
         and heartbeat_ok
+        and slo_ok
     )
-
-    return {
+    row = {
         "schema": "autorun-zero-manual-verify-v1",
         "version": "1.0.0",
         "at": _now(),
         "commit_sha": _git_sha(),
         "window_hours": hours,
         "since": since.strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "score_pct": score_pct,
+        "threshold_pct": threshold_pct,
+        "heartbeat_score_pct": scores["heartbeat_score_pct"],
+        "scores": scores,
+        "slo_targets": slo_targets,
         "ok": ok,
         "cf_cron": {
             "health": cf,
             "expected_min_fires": max(1, expected_min_cron),
             "truth_log": truth,
             "pass": cron_ok,
+            "score_pct": scores["cron_score_pct"],
         },
         "zero_manual_proof": {
             "cycles_in_window": scheduled_in_window,
             "observer_cycles_in_window": observer_in_window,
             "manual_triggers": manual_triggers[:20],
             "pass": zero_manual,
+            "score_pct": scores["zero_manual_score_pct"],
         },
         "sink_invariant": {
             "missing_on_cycles": missing_sink[:20],
             "blocked_cycles": sink_blocked[:20],
             "pass": sink_every_cycle,
+            "score_pct": scores["sink_score_pct"],
         },
         "idle_no_work_receipts": idle_no_work,
         "daily_heartbeat": heartbeat,
         "observer_tail": cycles_observer[:5],
         "report_line": (
-            f"autorun {'PASS' if ok else 'FAIL'} · sha { _git_sha()[:8] } · "
-            f"cron_fires={truth.get('count', 'n/a')} · cycles={scheduled_in_window} · obs={observer_in_window} · "
-            f"manual={len(manual_triggers)} · heartbeat={'yes' if heartbeat_ok else 'no'}"
+            f"autorun {'PASS' if ok else 'FAIL'} · score={score_pct}% · heartbeat={scores['heartbeat_score_pct']}% · "
+            f"sha { _git_sha()[:8] } · cron_fires={truth.get('count', 'n/a')} · cycles={scheduled_in_window} · obs={observer_in_window} · "
+            f"manual={len(manual_triggers)}"
         ),
     }
+    _write_kaizen_receipt(row=row, scores={**scores, 'score_pct': score_pct}, threshold_pct=threshold_pct)
+    return row
 
 
 def main() -> int:
