@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Sign in · SourceA Platform</title>
+  <meta name="description" content="Sign in to SourceA — Forge Terminal, proof-backed builds, and governed agent workflows." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#044441" />
+  <link rel="stylesheet" href="/assets/agentrun.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea-platform-onboarding-v1.css?v=1.5.0" />
+<link rel="stylesheet" href="/sourcea/sourcea-cookie-consent-v1.css" />
+</head>
+<body class="ar-body sa-v2 sa-platform-onboard" data-sa-page="auth-sign-in" data-sa-venture="sourcea">
+<header class="ar-header sa-header">
+  <div class="ar-container ar-header-shell">
+    <div class="ar-header-inner sa-po-header-inner">
+      <a class="ar-logo" href="/">
+        <span class="ar-logo-text">Source<span class="ar-logo-run">A</span></span>
+      </a>
+      <div class="ar-header-actions">
+        <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/sourcea/forge/terminal">Try Forge</a>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="ar-container">
+  <section class="sa-po-card">
+    <h1>Sign in to SourceA</h1>
+    <p class="ar-lead">Forge Terminal, platform workspace, and proof-backed builds — one account on portfolio spine.</p>
+
+    <div class="sa-po-auth-banner" id="sa-po-supabase-banner" hidden>
+      <span class="sa-po-supabase-mark">Supabase</span>
+      <span id="sa-po-supabase-banner-text"><strong>Account auth</strong> — Google, GitHub, email, or magic link</span>
+    </div>
+
+    <div class="sa-po-oauth-row" id="sa-po-supabase-oauth">
+      <button type="button" class="sa-po-oauth sa-po-oauth-google" id="sa-po-google">
+        <span class="sa-po-oauth-icon" aria-hidden="true">G</span>
+        Sign in with Google
+      </button>
+      <button type="button" class="sa-po-oauth sa-po-oauth-github" id="sa-po-github">
+        <span class="sa-po-oauth-icon" aria-hidden="true">⌘</span>
+        Sign in with GitHub
+      </button>
+    </div>
+
+    <p class="sa-po-divider" id="sa-po-email-divider">or email &amp; password</p>
+
+    <form id="sa-po-signin-form">
+      <label class="sa-po-field">Email
+        <input type="email" id="sa-po-email" class="sa-po-input" autocomplete="username" placeholder="you@company.com" />
+      </label>
+      <label class="sa-po-field">Password
+        <input type="password" id="sa-po-password" class="sa-po-input" autocomplete="current-password" placeholder="Your password" minlength="8" />
+      </label>
+      <div class="sa-po-actions">
+        <button type="submit" class="ar-btn ar-btn-primary">Sign in →</button>
+      </div>
+    </form>
+
+    <p class="sa-po-auth-links">
+      <button type="button" class="sa-po-text-btn" id="sa-po-magic-link">Email me a magic link</button>
+      <span class="sa-po-auth-sep">·</span>
+      <button type="button" class="sa-po-text-btn" id="sa-po-forgot-password">Forgot password?</button>
+    </p>
+
+    <p class="sa-po-switch">Don&apos;t have an account? <a href="/auth/sign-up">Create account</a></p>
+    <p class="sa-po-switch sa-po-switch-muted"><a href="/">Back to home</a> · <a href="/sourcea/forge/terminal">Public demo</a> — no sign-in</p>
+    <p class="sa-po-status" id="sa-po-auth-status" hidden></p>
+  </section>
+</main>
+<script src="/sourcea/sourcea-platform-session-v1.js?v=1.5.0"></script>
+<script src="/sourcea/sourcea-platform-auth-v1.js?v=1.5.0"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  window.SourceAPlatformAuth.bootSignInPage();
+});
+</script>
+<script src="/sourcea/sourcea-cookie-consent-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-ux-v1.js" defer></script>
+<script src="/sourcea/sourcea-cookie-consent-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-ux-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-interact-v1.js" defer></script>
+<script src="/sourcea/sourcea-segment-router-v1.js" defer></script>
+<script src="/sourcea/sourcea-auth-nav-wire-v1.js" defer></script>
+</body>
+</html>
