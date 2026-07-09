@@ -7,7 +7,7 @@
 ## Boot (loop specialist session)
 
 ```bash
-cd ~/Desktop/SourceA
+cd ~/Desktop/Noetfield-Systems/SourceA
 python3 scripts/loop_specialist_tick_v1.py --json          # read-only tick receipt
 python3 scripts/phase_reconciler_v1.py --json              # desired vs observed
 python3 scripts/verify_autorun_zero_manual_v1.py --hours 24 --json   # ship window only

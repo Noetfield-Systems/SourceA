@@ -15,7 +15,7 @@
   },
   "campuses": {
     "sourcea": {
-      "repo_root": "~/Desktop/SourceA",
+      "repo_root": "~/Desktop/Noetfield-Systems/SourceA",
       "cursor_bootstrap_ledger": "data/cursor-bootstrap-ledger-v1.json",
       "suggestion_pack": "docs/suggestion-packs/SOURCEA_MCP_CHAIN_MOTOR_PLAN_LOCKED_v1.md",
       "mcp_servers": [
@@ -44,7 +44,7 @@
       "pick_command": "npm run mcp:chain:pick -- --step 031"
     },
     "noetfield": {
-      "repo_root": "~/Desktop/Noetfield/Noetfield-All-Documents/Noetfield",
+      "repo_root": "~/Desktop/Noetfield-Systems/Noetfield",
       "suggestion_pack": "docs/suggestion-packs/NOETFIELD_MCP_CLOUD_CHAIN_PLAN_LOCKED_v1.md",
       "copy_to": "os/plan-library/SOURCEA_SUGGESTION_MCP_CHAIN_LOCKED_v1.md",
       "mcp_servers": [
@@ -59,7 +59,7 @@
       "pick_command": "make mcp-chain-pick STEP=031"
     },
     "trustfield": {
-      "repo_root": "~/Desktop/TrustField Technologies",
+      "repo_root": "~/Desktop/Noetfield-Systems/TrustField-Technologies",
       "suggestion_pack": "docs/suggestion-packs/TRUSTFIELD_MCP_CLOUD_CHAIN_PLAN_LOCKED_v1.md",
       "copy_to": "os/plan-library/SOURCEA_SUGGESTION_MCP_CHAIN_LOCKED_v1.md",
       "mcp_servers": [

@@ -98,7 +98,7 @@ When a new advisor idea arrives:
 ## Validator
 
 ```bash
-cd ~/Desktop/SourceA
+cd ~/Desktop/Noetfield-Systems/SourceA
 bash scripts/validate-commercial-film-routing-v1.sh
 ```
 
