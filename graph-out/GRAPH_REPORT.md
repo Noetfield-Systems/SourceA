@@ -1,7 +1,7 @@
-# L0 Repo Graph Report — sina-governance-ssot
+# L0 Repo Graph Report — SourceA
 
-Generated (last indexed): `2026-07-09T06:47:58Z`
-Total files: 28061 · Total size: 432.0MB · Edges detected: 86974
+Generated (last indexed): `2026-07-09T08:11:11Z` · template `v1.1.0`
+Total files: 28066 · Total size: 432.0MB · Edges detected: 86976
 
 **Read this file first.** Do not spawn broad repo-reading agents ("understand the repo", "map subsystem X", "audit Y") until you have read this report and, if you need more detail, queried the index with `python3 scripts/query_repo_graph_v1.py <subsystem-or-keyword>`. This report + a query response should answer routing questions ("which files touch X", "how big is subsystem Y") without opening every file in the subsystem.
 
@@ -20,7 +20,7 @@ Total files: 28061 · Total size: 432.0MB · Edges detected: 86974
 | sites/ | 222 | 23.2MB | `sites/SourceA-landing/green-unified/assets/commercial-short-demo.mp4`, `sites/SourceA-landing/green-unified/assets/w1-demo-ingest.mp4`, `sites/SourceA-landing/green-unified/assets/w1-demo.mp4`, `sites/SourceA-landing/green-unified/downloads/chat-unify-mac-v1.dmg`, `sites/SourceA-landing/green-unified/sourcea.css`, `sites/SourceA-landing/green-unified/unify/terminal/terminal.js` |
 | scripts/ | 2587 | 18.9MB | `scripts/.tools/actionlint`, `scripts/sina_command_lib.py`, `scripts/system_roadmap.py`, `scripts/chat-unify-standalone/terminal/terminal.js`, `scripts/sina-command-server.py`, `scripts/commercial_short_film_v1.py` |
 | docs/ | 255 | 3.0MB | `docs/Source-A-Cloud-Kernel-v1.3.pdf`, `docs/FORGE_TERMINAL_BEST_UI_v1.4.0_REFERENCE_SCREENSHOT.png`, `docs/_archive/docx/FORGE_TERMINAL_BEST_UI_LOCKED_v1.4.0.docx`, `docs/SOURCEA_1000_STEP_MASTER_UPGRADE_PLAN15JUNE_LOCKED_v1.md`, `docs/PORTFOLIO_100_COMPARABLES_MARKET_REALITY_v1.md`, `docs/archive/superseded-law-v1/brain-os/law/SOURCEA_BLUEPRINT_COMPARISON_POSTMORTEM_v1.md` |
-| receipts/ | 1311 | 2.1MB | `receipts/packs/forge-bay/run-receipt-v1.zip`, `receipts/forge_v0.1_output.json`, `receipts/forge_v0.2/forge_v0.2_run.json`, `receipts/packs/forge-bay/pack-receipt-v1.json`, `receipts/partners/wil_ai_design_partner/design-partner-receipt-v1.zip`, `receipts/partners/trustfield/design-partner-receipt-v1.zip` |
+| receipts/ | 1316 | 2.1MB | `receipts/packs/forge-bay/run-receipt-v1.zip`, `receipts/forge_v0.1_output.json`, `receipts/forge_v0.2/forge_v0.2_run.json`, `receipts/packs/forge-bay/pack-receipt-v1.json`, `receipts/partners/wil_ai_design_partner/design-partner-receipt-v1.zip`, `receipts/partners/trustfield/design-partner-receipt-v1.zip` |
 | apps/ | 118 | 953.7KB | `apps/forge-terminal-connect-v1/terminal/terminal.js`, `apps/forge-terminal-v1/terminal.js`, `apps/forge-terminal-connect-v1/app.js`, `apps/forge-terminal-connect-v1/terminal/terminal.css`, `apps/forge-terminal-v1/terminal.css`, `apps/forge-terminal-connect-v1/index.html` |
 | imports/ | 4 | 950.3KB | `imports/iphone-cloud/iphone-cloud-manifest-20260604.jsonl`, `imports/iphone-cloud/iphone-cloud-inventory-20260604.csv`, `imports/iphone-cloud/777-consolidate-report.json`, `imports/iphone-cloud/iphone-cloud-move-report.txt` |
 | cloud/ | 66 | 833.0KB | `cloud/workers/sourcea-brain-chat-v1/src/knowledge-bundle.json`, `cloud/sync-inbox/fbe_bay_events.jsonl`, `cloud/seed/federated-run-v1.json`, `cloud/workers/sourcea-brain-chat-v1/src/index.js`, `cloud/workers/sourcea-brain-chat-v1/src/retrieval.js`, `cloud/workers/sourcea-brain-chat-v1/src/guardrails.js` |
@@ -59,7 +59,7 @@ Total files: 28061 · Total size: 432.0MB · Edges detected: 86974
 
 ## Dependency / reference edges
 
-86974 static repo-relative path references were detected across .py/.sh/.md/.json/.yaml/.yml/.jsonc files (best-effort regex scan, not a real import graph — this is a governance/docs-heavy repo, not a single-language codebase). Full edge list is in `graph_index_v1.json`; query by file or subsystem with the query script rather than reading it directly.
+86976 static repo-relative path references were detected across .py/.sh/.md/.json/.yaml/.yml/.jsonc files (best-effort regex scan, not a real import graph). Full edge list is in `graph_index_v1.json`; query by file or subsystem with the query script rather than reading it directly.
 
 ## Ignored directories
 
@@ -77,4 +77,4 @@ python3 scripts/query_repo_graph_v1.py <subsystem-name|keyword|path-fragment>
 python3 scripts/build_repo_graph_v1.py
 ```
 
-Rebuild whenever the file layout changes materially (new subsystem, large doc/data additions) — this report drifts from truth otherwise. See `docs/L0_REPO_GRAPH_MEMORY_v1.md` for the token budget rule and the broad-read prevention rule.
+Rebuild whenever the file layout changes materially (new subsystem, large doc/data additions). See `docs/L0_REPO_GRAPH_MEMORY_v1.md` for the token budget rule and the broad-read prevention rule.
