@@ -27,7 +27,7 @@ Read **`~/Desktop/MacLaw/MAC_HEALTH_AGENT_MANDATES_LOCKED.md`** every session wh
 ## Verify
 
 ```bash
-bash ~/Desktop/SourceA/scripts/validate-mac-health-agent-mandates-v1.sh
+bash ~/Desktop/Noetfield-Systems/SourceA/scripts/validate-mac-health-agent-mandates-v1.sh
 ```
 
 Law SSOT: `~/Desktop/MacLaw/MAC_HEALTH_AGENT_MANDATES_LOCKED.md`
