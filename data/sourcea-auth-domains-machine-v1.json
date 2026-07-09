@@ -1,0 +1,170 @@
+{
+  "schema": "sourcea-auth-domains-machine-v1",
+  "version": "1.0.0",
+  "at": "2026-07-08T07:05:00Z",
+  "loop_id": "sourcea_auth_domains_audit_v1",
+  "venture": "sourcea",
+  "scope": "SourceA domains only — not TrustField or Noetfield",
+  "identity_project": "portfolio-spine",
+  "identity_ref": "ldfruywifqnfpwsfgmdl",
+  "domains": [
+    {
+      "host": "sourcea.app",
+      "role": "canonical",
+      "auth_host": true,
+      "notes": "Primary — all /auth/* routes live here"
+    },
+    {
+      "host": "www.sourcea.app",
+      "role": "canonical_www",
+      "auth_host": false,
+      "notes": "Should redirect or mirror app"
+    },
+    {
+      "host": "sourcea.ca",
+      "role": "regional_ca",
+      "auth_host": false,
+      "contract_paths": ["/ai-value-governance"]
+    },
+    {
+      "host": "sourcea.uk",
+      "role": "regional_uk",
+      "auth_host": false,
+      "contract_paths": ["/enterprise-ai-control-plane"]
+    }
+  ],
+  "auth_routes": {
+    "sign_in": "/auth/sign-in",
+    "sign_up": "/auth/sign-up",
+    "callback": "/auth/callback",
+    "sign_out": "/auth/sign-out"
+  },
+  "product_routes": {
+    "platform_hub": "/platform",
+    "forge_sign_in": "/sourcea/forge/terminal/signin",
+    "forge_profile": "/sourcea/forge/terminal/profile",
+    "forge_workspace": "/sourcea/forge/terminal/workspace"
+  },
+  "tier0_public_paths": [
+    "/",
+    "/operating-brain-install",
+    "/ai-value-governance",
+    "/enterprise-ai-control-plane",
+    "/eval",
+    "/start",
+    "/sourcea/pricing",
+    "/sourcea/proof",
+    "/sourcea/offer"
+  ],
+  "tier1_auth_paths": [
+    "/auth/sign-in",
+    "/auth/sign-up",
+    "/auth/callback",
+    "/platform",
+    "/sourcea/forge/terminal/signin"
+  ],
+  "tier2_gated_paths": [
+    "/sourcea/forge/terminal/profile",
+    "/sourcea/forge/terminal/workspace"
+  ],
+  "dist_gates": {
+    "required_files": [
+      "auth/sign-in.html",
+      "auth/sign-up.html",
+      "auth/callback.html",
+      "auth/sign-out.html",
+      "sourcea/data/sourcea-platform-auth-config-v1.json",
+      "sourcea/sourcea-platform-auth-v1.js",
+      "sourcea/sourcea-auth-nav-wire-v1.js",
+      "index.html"
+    ],
+    "index_must_contain": ["/auth/sign-in", "sourcea-auth-nav-wire-v1.js"],
+    "auth_config_schema": "sourcea-platform-auth-config-v1",
+    "auth_config_venture": "sourcea",
+    "forbidden_in_tier0_dist": ["must sign in to view", "login required to access this page"],
+    "tier2_pages": [
+      {
+        "path": "sourcea/forge/terminal/profile.html",
+        "must_contain": [
+          "bootTier2HeadGuard(\"profile\")",
+          "routeGuardAsync(\"profile\")",
+          "data-sa-tier2=\"profile\"",
+          "sourcea-auth-tier"
+        ]
+      },
+      {
+        "path": "sourcea/forge/terminal/workspace.html",
+        "must_contain": [
+          "bootTier2HeadGuard(\"workspace\")",
+          "routeGuardAsync(\"workspace\")",
+          "data-sa-tier2=\"workspace\"",
+          "sourcea-auth-tier"
+        ]
+      }
+    ],
+    "session_js_must_contain": [
+      "signInUrl",
+      "bootTier2HeadGuard",
+      "?next="
+    ]
+  },
+  "live_gates": {
+    "tier0_expect_200": [
+      "https://sourcea.app/",
+      "https://sourcea.app/operating-brain-install",
+      "https://sourcea.app/ai-value-governance",
+      "https://sourcea.app/enterprise-ai-control-plane",
+      "https://sourcea.app/eval",
+      "https://sourcea.ca/ai-value-governance",
+      "https://sourcea.uk/enterprise-ai-control-plane"
+    ],
+    "auth_expect_200": [
+      "https://sourcea.app/auth/sign-in",
+      "https://sourcea.app/auth/sign-up",
+      "https://sourcea.app/auth/callback"
+    ],
+    "body_checks": [
+      {
+        "url": "https://sourcea.app/",
+        "must_contain": "/auth/sign-in",
+        "label": "home header auth"
+      },
+      {
+        "url": "https://sourcea.app/auth/sign-in",
+        "must_contain": "Sign in to SourceA",
+        "label": "sign-in page"
+      },
+      {
+        "url": "https://sourcea.app/auth/sign-up",
+        "must_contain": "Create your SourceA account",
+        "label": "sign-up page"
+      },
+      {
+        "url": "https://sourcea.app/sourcea/forge/terminal/profile",
+        "must_contain": "bootTier2HeadGuard",
+        "label": "tier2 profile gate"
+      },
+      {
+        "url": "https://sourcea.app/sourcea/forge/terminal/workspace",
+        "must_contain": "bootTier2HeadGuard",
+        "label": "tier2 workspace gate"
+      }
+    ]
+  },
+  "build_hooks": {
+    "post_build_script": "scripts/sourcea_auth_domains_audit_v1.py",
+    "post_build_args": ["--mode", "dist"],
+    "post_publish_args": ["--mode", "live"],
+    "fail_closed": true
+  },
+  "receipts": {
+    "latest_report": "reports/sourcea-auth-domains-audit-latest-v1.json",
+    "home_receipt": ".sina/sourcea-auth-domains-audit-receipt-v1.json"
+  },
+  "cadence": {
+    "on_every_build": true,
+    "on_every_publish": true,
+    "gha_workflow": "deploy-sourcea-buyer-surfaces-v1",
+    "external_verify_chain": true
+  }
+}

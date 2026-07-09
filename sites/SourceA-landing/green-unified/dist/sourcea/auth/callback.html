@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Signing in… · SourceA</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#044441" />
+  <link rel="stylesheet" href="/assets/agentrun.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea.css" />
+  <link rel="stylesheet" href="/sourcea/sourcea-platform-onboarding-v1.css?v=1.5.0" />
+<link rel="stylesheet" href="/sourcea/sourcea-cookie-consent-v1.css" />
+</head>
+<body class="ar-body sa-v2 sa-platform-onboard" data-sa-page="auth-callback" data-sa-venture="sourcea">
+<main class="ar-container" style="padding:4rem 1rem;text-align:center">
+  <p class="ar-lead" id="sa-auth-callback-status">Completing sign-in…</p>
+</main>
+<script src="/sourcea/sourcea-platform-session-v1.js?v=1.5.0"></script>
+<script src="/sourcea/sourcea-platform-auth-v1.js?v=1.5.0"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  window.SourceAPlatformAuth.bootCallbackPage();
+});
+</script>
+<script src="/sourcea/sourcea-cookie-consent-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-ux-v1.js" defer></script>
+<script src="/sourcea/sourcea-cookie-consent-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-ux-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-interact-v1.js" defer></script>
+<script src="/sourcea/sourcea-segment-router-v1.js" defer></script>
+<script src="/sourcea/sourcea-auth-nav-wire-v1.js" defer></script>
+</body>
+</html>

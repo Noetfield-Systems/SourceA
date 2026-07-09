@@ -6,12 +6,16 @@
   <title>Profile · Forge Terminal · SourceA</title>
   <meta name="description" content="Set up your Forge Terminal profile — organization, project, and shipping goal." />
   <meta name="robots" content="noindex" />
+  <meta name="sourcea-auth-tier" content="2" />
+  <script src="/sourcea/sourcea-platform-session-v1.js?v=1.5.0"></script>
+  <script>SourceAPlatformSession.bootTier2HeadGuard("profile");</script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="/assets/agentrun.css" />
   <link rel="stylesheet" href="/sourcea/sourcea.css" />
   <link rel="stylesheet" href="/sourcea/sourcea-platform-onboarding-v1.css?v=1.4.0" />
+<link rel="stylesheet" href="/sourcea/sourcea-cookie-consent-v1.css" />
 </head>
-<body class="ar-body sa-v2 sa-platform-onboard" data-sa-page="forge-terminal-profile">
+<body class="ar-body sa-v2 sa-platform-onboard" data-sa-page="forge-terminal-profile" data-sa-tier2="profile">
 <header class="ar-header sa-header">
   <div class="ar-container ar-header-shell">
     <div class="ar-header-inner sa-po-header-inner">
@@ -57,14 +61,14 @@
       </div>
       <div class="sa-po-actions">
         <button type="submit" class="ar-btn ar-btn-primary">Create workspace →</button>
-        <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/sourcea/forge/terminal/signin">Back</a>
+        <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/auth/sign-in">Back</a>
       </div>
     </form>
     <p class="sa-po-status" id="sa-po-profile-status" hidden></p>
   </section>
 </main>
-<script src="/sourcea/sourcea-platform-session-v1.js?v=1.4.0"></script>
-<script src="/sourcea/sourcea-platform-auth-v1.js?v=1.4.0"></script>
+<script src="/sourcea/sourcea-platform-session-v1.js?v=1.5.0"></script>
+<script src="/sourcea/sourcea-platform-auth-v1.js?v=1.5.0"></script>
 <script>
 document.addEventListener("DOMContentLoaded", async function () {
   const S = window.SourceAPlatformSession;
@@ -107,8 +111,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 <div class="sa-boot-wire-fallback" style="text-align:center;padding:1rem;font-size:0.85rem;color:var(--ar-text-muted)"><a href="/eval">sourcea-boot eval</a> · <a href="https://pypi.org/project/sourcea-boot/" data-trust-github-link target="_blank" rel="noopener">GitHub</a></div>
 <script src="/sourcea/sourcea-boot-wire.js" defer></script>
+<script src="/sourcea/sourcea-cookie-consent-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-ux-v1.js" defer></script>
+<script src="/sourcea/sourcea-cookie-consent-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-ux-v1.js" defer></script>
 <script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>
 <script src="/sourcea/sourcea-site-interact-v1.js" defer></script>
 <script src="/sourcea/sourcea-segment-router-v1.js" defer></script>
+<script src="/sourcea/sourcea-auth-nav-wire-v1.js" defer></script>
 </body>
 </html>
