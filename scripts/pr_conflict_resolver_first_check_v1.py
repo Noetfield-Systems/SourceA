@@ -71,16 +71,18 @@ def load_ssot() -> dict:
     return _read(SSOT)
 
 
-def _rel_path(path: str) -> str:
+def _resolve_contained(path: str) -> Path | None:
+    """Resolve a user-supplied path; refuse anything outside the repo root."""
     p = Path(path.replace("~/", str(Path.home()) + "/"))
     if not p.is_absolute():
-        p = (ROOT / p).resolve()
-    else:
-        p = p.resolve()
-    try:
-        return str(p.relative_to(ROOT))
-    except ValueError:
-        return str(p)
+        p = ROOT / p
+    p = p.resolve()
+    return p if p.is_relative_to(ROOT) else None
+
+
+def _rel_path(path: str) -> str:
+    p = _resolve_contained(path)
+    return str(p.relative_to(ROOT)) if p is not None else path
 
 
 def is_governance_sensitive(path: str, ssot: dict | None = None) -> bool:
@@ -93,10 +95,8 @@ def is_governance_sensitive(path: str, ssot: dict | None = None) -> bool:
 
 
 def has_conflict_markers(path: str) -> bool:
-    p = Path(path.replace("~/", str(Path.home()) + "/"))
-    if not p.is_absolute():
-        p = (ROOT / p).resolve()
-    if not p.is_file():
+    p = _resolve_contained(path)
+    if p is None or not p.is_file():
         return False
     try:
         text = p.read_text(encoding="utf-8", errors="replace")
