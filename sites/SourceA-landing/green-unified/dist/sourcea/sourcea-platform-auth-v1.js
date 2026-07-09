@@ -5,9 +5,10 @@
 (function (global) {
   "use strict";
 
-  const AUTH_VERSION = "1.4.0";
+  const AUTH_VERSION = "1.5.0";
   const CONFIG_URL = "/sourcea/data/sourcea-platform-auth-config-v1.json";
   const SUPABASE_CDN = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js";
+  const DEFAULT_VENTURE = "sourcea";
 
   let config = null;
   let client = null;
@@ -41,15 +42,28 @@
     return msg || "Sign-in failed";
   }
 
+  function ventureClaim() {
+    const body = document.body;
+    if (body && body.dataset && body.dataset.saVenture) return body.dataset.saVenture;
+    return (config && config.venture) || DEFAULT_VENTURE;
+  }
+
+  function callbackUrl() {
+    return global.location.origin + "/auth/callback";
+  }
+
   function redirectUrl() {
     const path = global.location.pathname || "";
-    if (path.indexOf("/signup") !== -1 || path.indexOf("/signin") !== -1) {
-      return global.location.origin + path;
+    if (path.indexOf("/auth/callback") !== -1) return callbackUrl();
+    if (path.indexOf("/signup") !== -1 || path.indexOf("/sign-up") !== -1) {
+      return global.location.origin + (path.indexOf("/auth/") === 0 ? path : "/auth/sign-up");
+    }
+    if (path.indexOf("/signin") !== -1 || path.indexOf("/sign-in") !== -1) {
+      return global.location.origin + (path.indexOf("/auth/") === 0 ? path : "/auth/sign-in");
     }
     const fallback =
-      (config && config.redirect_path) ||
-      (global.SourceAPlatformSession && global.SourceAPlatformSession.ROUTES.signin) ||
-      "/sourcea/forge/terminal/signin";
+      (config && config.callback_path) ||
+      "/auth/callback";
     return global.location.origin + fallback;
   }
 
@@ -81,6 +95,12 @@
   function routeAfterSignIn(merged) {
     const S = global.SourceAPlatformSession;
     if (!S) return;
+    const params = new URLSearchParams(global.location.search || "");
+    const next = params.get("next");
+    if (next && next.startsWith("/") && next.indexOf("//") === -1) {
+      global.location.href = next;
+      return;
+    }
     const R = S.ROUTES;
     if (merged.project_name) {
       global.location.href = R.workspace;
@@ -216,7 +236,14 @@
           if ((event === "SIGNED_IN" || event === "TOKEN_REFRESHED") && session && session.user) {
             const S = global.SourceAPlatformSession;
             const path = global.location.pathname || "";
-            if (S && (path.indexOf("signin") !== -1 || path.indexOf("signup") !== -1)) {
+            if (
+              S &&
+              (path.indexOf("signin") !== -1 ||
+                path.indexOf("sign-in") !== -1 ||
+                path.indexOf("signup") !== -1 ||
+                path.indexOf("sign-up") !== -1 ||
+                path.indexOf("/auth/callback") !== -1)
+            ) {
               afterAuth(session.user);
             }
           }
@@ -241,7 +268,7 @@
     const merged = await hydratePlatformSession();
     const S = global.SourceAPlatformSession;
     const path = global.location.pathname || "";
-    if (S && S.isSignedIn(merged) && (path.indexOf("signin") !== -1 || path.indexOf("signup") !== -1)) {
+    if (S && S.isSignedIn(merged) && (path.indexOf("signin") !== -1 || path.indexOf("sign-in") !== -1 || path.indexOf("signup") !== -1 || path.indexOf("sign-up") !== -1 || path.indexOf("/auth/callback") !== -1)) {
       routeAfterSignIn(merged);
     }
   }
@@ -258,7 +285,7 @@
     const sb = await getClient();
     const row = await sb.auth.signInWithOtp({
       email: email,
-      options: { emailRedirectTo: redirectUrl(), shouldCreateUser: true },
+      options: { emailRedirectTo: callbackUrl(), shouldCreateUser: true },
     });
     if (row.error) throw row.error;
     return { sent: true };
@@ -266,19 +293,20 @@
 
   async function sendPasswordReset(email) {
     const sb = await getClient();
-    const row = await sb.auth.resetPasswordForEmail(email, { redirectTo: redirectUrl() });
+    const row = await sb.auth.resetPasswordForEmail(email, { redirectTo: callbackUrl() });
     if (row.error) throw row.error;
     return { sent: true };
   }
 
   async function signUpWithPassword(email, password, name) {
     const sb = await getClient();
+    const venture = ventureClaim();
     const row = await sb.auth.signUp({
       email: email,
       password: password,
       options: {
-        data: { full_name: name, name: name },
-        emailRedirectTo: redirectUrl(),
+        data: { full_name: name, name: name, venture: venture },
+        emailRedirectTo: callbackUrl(),
       },
     });
     if (row.error) throw row.error;
@@ -294,8 +322,9 @@
     const row = await sb.auth.signInWithOAuth({
       provider: provider,
       options: {
-        redirectTo: redirectUrl(),
+        redirectTo: callbackUrl(),
         skipBrowserRedirect: false,
+        queryParams: { venture: ventureClaim() },
       },
     });
     if (row.error) throw row.error;
@@ -564,6 +593,27 @@
     bindLocalForgeStart();
   }
 
+  async function bootCallbackPage() {
+    const status = $("sa-auth-callback-status");
+    try {
+      const merged = await hydratePlatformSession();
+      const S = global.SourceAPlatformSession;
+      if (S && S.isSignedIn(merged)) {
+        routeAfterSignIn(merged);
+        return;
+      }
+      if (status) status.textContent = "Sign-in could not be completed — try again.";
+      setTimeout(function () {
+        global.location.href = "/auth/sign-in";
+      }, 2500);
+    } catch (e) {
+      if (status) status.textContent = friendlyAuthError(e);
+      setTimeout(function () {
+        global.location.href = "/auth/sign-in";
+      }, 3000);
+    }
+  }
+
   global.SourceAPlatformAuth = {
     VERSION: AUTH_VERSION,
     loadConfig: loadConfig,
@@ -575,6 +625,9 @@
     signOutSupabase: signOutSupabase,
     bootSignInPage: bootSignInPage,
     bootSignUpPage: bootSignUpPage,
+    bootCallbackPage: bootCallbackPage,
     friendlyAuthError: friendlyAuthError,
+    callbackUrl: callbackUrl,
+    ventureClaim: ventureClaim,
   };
 })(typeof window !== "undefined" ? window : globalThis);
