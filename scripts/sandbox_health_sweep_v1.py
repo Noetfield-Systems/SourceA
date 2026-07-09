@@ -233,6 +233,17 @@ def _probe_registry_entry(entry: dict[str, Any]) -> dict[str, Any]:
             "live_schedules": crons,
             "reason": None if ok else "schedule_mismatch",
         }
+    if probe_type == "piggyback_hook":
+        expects = probe.get("expects") if isinstance(probe.get("expects"), list) else []
+        missing = [e for e in expects if e not in text]
+        ok = not missing
+        return {
+            "trigger_id": trigger_id,
+            "ok": ok,
+            "path": rel_path,
+            "expects": expects,
+            "reason": None if ok else f"missing_hooks:{','.join(missing)}",
+        }
     if probe_type == "gha_schedule":
         parsed = _parse_gha_workflow(text)
         expected = str(probe.get("schedule") or entry.get("schedule") or "")
