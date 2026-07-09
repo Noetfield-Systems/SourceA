@@ -80,6 +80,9 @@
   }
 
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll(".sa-root-hero, #top.sa-hero-stable").forEach((el) => {
+    el.classList.add("ar-visible");
+  });
   if (!reduced) {
     const obs = new IntersectionObserver(
       (entries) => {

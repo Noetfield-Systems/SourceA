@@ -3,6 +3,7 @@
  * POST Railway /api/cloud-forge-run/auto-tick/v1 — server-side PROVE → contract → SHIP
  */
 import { writeCronFired } from "./truth_log.js";
+import { upsertLoopLiveness } from "./loop_liveness.js";
 
 const DEFAULT_VERIFIER_BASE_URL =
   "https://sina-governance-ssot-advisory.kazemnezhadsina144.workers.dev";
@@ -42,6 +43,17 @@ export default {
                 ? "IDLE_NO_WORK"
                 : tick?.motor?.decision || tick?.decision || null,
           motor_invoked: tick?.motor_invoked !== false,
+        });
+        await upsertLoopLiveness(env, {
+          loop_id: "sourcea-cloud-auto-runtime-tick-v1",
+          trigger_host: "cloudflare",
+          schedule_cron: "*/10 * * * *",
+          interval_minutes: 10,
+          last_ok: Boolean(tick?.ok),
+          last_receipt: {
+            decision: tick?.decision || null,
+            motor_invoked: tick?.motor_invoked !== false,
+          },
         });
         return tick;
       })(),
@@ -310,8 +322,8 @@ function edgeIdleReceipt(env, precheck) {
       skipped: 0,
       processed: 0,
       shipped: 0,
-      mandatory_quota: 100,
-      max_advance: 100,
+      mandatory_quota: maxAdvanceCap(env),
+      max_advance: maxAdvanceCap(env),
       batch_complete: true,
       batch_id: precheck.batch_id,
       head_now: head,
@@ -329,6 +341,11 @@ function edgeIdleReceipt(env, precheck) {
     cf_version: env.CF_VERSION_METADATA || null,
     pending_auto_note: "see observer.pending or receipts/cloud/autorun-pending/pending-latest-v1.json",
   };
+}
+
+function maxAdvanceCap(env) {
+  const n = parseInt(env.MAX_ADVANCE_PER_TICK || "1", 10);
+  return Number.isFinite(n) && n > 0 ? n : 1;
 }
 
 async function runTick(env, { proceed }) {
@@ -376,7 +393,7 @@ async function runTick(env, { proceed }) {
       body: JSON.stringify({
         trigger_source: "cloudflare_cron",
         full_pack: true,
-        max_advance: 100,
+        max_advance: maxAdvanceCap(env),
         auto_tick: true,
       }),
     });

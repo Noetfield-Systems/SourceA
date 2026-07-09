@@ -1,0 +1,97 @@
+{
+  "schema": "cloud-forge-run-realistic-motor-law-v1",
+  "version": "1.0.0",
+  "locked": true,
+  "saved_at": "2026-07-06T09:17:58Z",
+  "supersedes": [
+    "data/cloud-forge-run-hundred-rows-per-turn-vocabulary-v1.json",
+    "brain-os/incidents/SINA_CLOUD_FORGE_RUN_HUNDRED_ROWS_VOCABULARY_INCIDENT_043_LOCKED_v1.md",
+    "brain-os/incidents/SINA_CLOUD_FORGE_RUN_NO_SKIP_MANDATORY_SHIP_INCIDENT_044_LOCKED_v1.md",
+    "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_HUNDRED_ROWS_PER_TURN_TERMINOLOGY_LOCKED_v1.md"
+  ],
+  "incident_ref": "brain-os/incidents/SINA_CLOUD_FORGE_RUN_REALISTIC_MOTOR_SUPERSESSION_INCIDENT_045_LOCKED_v1.md",
+  "law_doc": "brain-os/law/enforcement/SOURCEA_CLOUD_FORGE_RUN_REALISTIC_MOTOR_LOCKED_v1.md",
+  "cursor_rule": ".cursor/rules/037-cloud-forge-run-hundred-rows-per-turn-v1.mdc",
+  "founder_display_motor": "Cloud Forge Run",
+  "founder_display_scheduler": "Auto Runtime",
+  "founder_vocabulary_ssot": "data/cloud-motor-founder-vocabulary-v1.json",
+  "one_law": "CF cron (~10 min) \u2192 one Railway POST \u2192 1 doable task(s) (one recipe per row). Proof gate + Supabase before advance.",
+  "motor": {
+    "cadence_minutes": 10,
+    "cron": "*/10 * * * *",
+    "rows_per_turn_cap": 1,
+    "max_advance_per_tick": 1,
+    "tasks_per_row_default": 1,
+    "external_posts_per_turn": 1,
+    "internal_loop": "run_auto_runtime_pack",
+    "parallelism_strategy": "scale_cloud_workers_not_row_quota",
+    "batch_tail_exception": "when fewer than cap rows remain, process all remaining \u2014 still zero skips on motor fail"
+  },
+  "proof": {
+    "proof_gate_required": true,
+    "advance_requires": [
+      "recipe_id_resolved",
+      "worker_execution_receipt",
+      "supabase_row_written",
+      "validator_result_PASS"
+    ],
+    "valuable_ship_requires": [
+      "recipe_done_when_verified",
+      "supabase_artifact_path",
+      "not_counter_only"
+    ],
+    "forbidden_success_claims": [
+      "processed_N_without_recipe",
+      "supabase_count_match_without_artifact_inspection",
+      "seed_only_cycle_as_factory_ship",
+      "mandatory_100_per_turn"
+    ]
+  },
+  "definitions": {
+    "turn": "One CF cron or one Cloud Workers Proceed tap",
+    "row": "One CLOUD-SEC queue slot \u2014 one doable task unit for one cloud worker",
+    "task": "Recipe execution bounded by worker timeout \u2014 default 1 per row",
+    "shipped": "Motor PASS + advance_on_pass + proof gate satisfied",
+    "valuable_ship": "Shipped row whose recipe done_when is verified and Supabase holds the proof artifact",
+    "processed": "Rows attempted this turn \u2014 NOT success by itself",
+    "skipped": "FORBIDDEN \u2014 motor fail halts turn (INCIDENT-044 no-skip survives)",
+    "counter_theater": "Claiming autorun success from head movement or pack.processed alone"
+  },
+  "forbidden_founder_words": [
+    "drain",
+    "loop"
+  ],
+  "forbidden_phrases": [
+    "100 rows mandatory",
+    "mandatory quota 100",
+    "100/100 shipped",
+    "autorun fixed because processed equals 100",
+    "counter matched so work shipped",
+    "seed cycle counts as factory output"
+  ],
+  "mandatory_reply_lines": [
+    "Quote plan_id + recipe + Supabase artifact \u2014 not pack.processed alone.",
+    "Say Cloud Forge Run + Auto Runtime \u2014 never drain or loop.",
+    "Throughput grows by adding cloud workers, not inflating rows_per_turn."
+  ],
+  "pass_turn_observer_shape": {
+    "pack.max_advance": "<= rows_per_turn_cap",
+    "pack.skipped": 0,
+    "pack.processed": "<= max_advance",
+    "note": "PASS requires proof gate per row \u2014 processed count is hygiene only"
+  },
+  "pairs": [
+    "data/cloud-auto-runtime-v1.json",
+    "data/cloud-forge-run-full-pack-pattern-v1.json",
+    "data/cloud-motor-founder-vocabulary-v1.json",
+    "scripts/cloud_auto_runtime_v1.py",
+    "cloud/workers/cloud-auto-runtime-tick-v1/src/index.js"
+  ],
+  "proof_urls": {
+    "queue": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/queue/v1",
+    "observer": "https://sourcea-fbe-runner-production.up.railway.app/api/cloud-forge-run/observer/v1",
+    "cf_health": "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev/health"
+  },
+  "max_advance_per_tick": 1,
+  "rows_per_turn_cap": 1
+}

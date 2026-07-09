@@ -21,5 +21,7 @@
 
 ## Not enabled until founder completes UI
 
-- Branch protection required checks (separate P4 step)
+- Branch protection required checks — applied via `scripts/apply_github_main_branch_protection_v1.sh` (context: `validate`)
+- GitHub Actions secrets — sync from `~/.sourcea-secrets/` via `scripts/sync_github_actions_secrets_v1.sh`
+
 - CODEOWNERS (P4 before Copilot Kaizen P7)

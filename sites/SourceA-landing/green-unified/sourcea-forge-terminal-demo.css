@@ -104,6 +104,16 @@
   margin-left: auto;
 }
 .sa-ft-status.is-live { color: var(--ft-accent); }
+.sa-ft-offline-banner {
+  margin: 0 1rem 0.75rem;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  background: rgba(220, 80, 60, 0.12);
+  border: 1px solid rgba(220, 80, 60, 0.35);
+  color: var(--ft-text, #e8eaed);
+}
+.sa-ft-offline-banner a { color: var(--ft-accent); }
 .sa-ft-thread {
   flex: 1;
   overflow-y: auto;
@@ -285,3 +295,38 @@
 }
 .sa-ft-chip:hover { border-color: var(--ft-accent); color: var(--ft-text); }
 .sa-ft-composer-chips { margin-bottom: 0.5rem; }
+
+/* embed=1 — hero iframe on founder-home (WS-04) */
+html.sa-ft-embed-mode,
+body.sa-ft-embed {
+  min-height: auto !important;
+  background: var(--ft-bg);
+}
+body.sa-ft-embed .sa-ft-aside,
+body.sa-ft-embed header.ar-header,
+body.sa-ft-embed .sa-ft-feedback {
+  display: none !important;
+}
+body.sa-ft-embed .sa-ft-shell {
+  display: block;
+  min-height: 280px;
+  grid-template-columns: 1fr;
+}
+body.sa-ft-embed .sa-ft-main {
+  min-height: 280px;
+  max-height: 480px;
+  overflow: auto;
+}
+body.sa-ft-embed .sa-ft-toolbar h1 {
+  font-size: 0.95rem;
+}
+body.sa-ft-embed .sa-ft-thread {
+  max-height: 180px;
+  overflow-y: auto;
+}
+body.sa-ft-embed .sa-ft-composer textarea {
+  min-height: 4.5rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  body.sa-ft-embed .sa-ft-bubble { animation: none !important; }
+}

@@ -99,9 +99,18 @@ def _write_vercel_json(staging: Path) -> None:
         "rewrites": vercel_rewrites(),
         "headers": [
             {
+                "source": "/sourcea/forge/terminal(.*)",
+                "headers": [
+                    {
+                        "key": "Content-Security-Policy",
+                        "value": "frame-ancestors 'self' https://sourcea.app https://www.sourcea.app",
+                    },
+                ],
+            },
+            {
                 "source": "/(.*)",
                 "headers": [
-                    {"key": "X-Frame-Options", "value": "DENY"},
+                    {"key": "X-Frame-Options", "value": "SAMEORIGIN"},
                     {"key": "X-Content-Type-Options", "value": "nosniff"},
                     {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"},
                 ],
@@ -115,6 +124,12 @@ def _write_vercel_json(staging: Path) -> None:
     (staging / "vercel.json").write_text(json.dumps(vercel, indent=2) + "\n", encoding="utf-8")
 
 
+FORGE_TERMINAL_EMBED_HEADERS = """
+/sourcea/forge/terminal*
+  Content-Security-Policy: frame-ancestors 'self' https://sourcea.app https://www.sourcea.app https://sourcea.ca https://www.sourcea.ca https://sourcea.uk https://www.sourcea.uk
+""".strip()
+
+
 def _write_pages_extras(staging: Path) -> None:
     """Cloudflare Pages — headers; _redirects from build (extensionless clean URLs)."""
     redirects = staging / "_redirects"
@@ -126,8 +141,10 @@ def _write_pages_extras(staging: Path) -> None:
     (staging / "_headers").write_text(
         "\n".join(
             [
+                FORGE_TERMINAL_EMBED_HEADERS,
+                "",
                 "/*",
-                "  X-Frame-Options: DENY",
+                "  X-Frame-Options: SAMEORIGIN",
                 "  X-Content-Type-Options: nosniff",
                 "  Referrer-Policy: strict-origin-when-cross-origin",
                 "",
@@ -262,20 +279,53 @@ def run_recipe() -> dict:
 
 
 def run_brain_corpus_refresh() -> dict:
-    """Refresh Brain knowledge bundle before landing build (P1-09)."""
+    """Refresh Brain knowledge — gated: skip by default, light on voice drift, full on HTML change."""
+    gate_proc = _run(
+        [sys.executable, str(ROOT / "scripts" / "brain_refresh_gate_v1.py"), "--json"],
+        cwd=ROOT,
+        timeout=30,
+    )
+    gate: dict = {}
+    if gate_proc.returncode == 0 and gate_proc.stdout:
+        try:
+            gate = json.loads(gate_proc.stdout)
+        except json.JSONDecodeError:
+            gate = {}
+    action = gate.get("action") or "skip"
+
+    if action == "skip":
+        return {
+            "ok": True,
+            "skipped": True,
+            "action": "skip",
+            "reason": gate.get("reason", "brain_fresh_enough"),
+            "gate": gate,
+        }
+
+    script = "brain_light_refresh_v1.sh" if action == "light" else "brain_chatbot_refresh_v1.sh"
     env = {**os.environ, "SKIP_BRAIN_EVAL": os.environ.get("SKIP_BRAIN_EVAL", "1")}
     proc = _run(
-        ["bash", str(ROOT / "scripts" / "brain_chatbot_refresh_v1.sh")],
+        ["bash", str(ROOT / "scripts" / script)],
         cwd=ROOT,
         timeout=240,
         env=env,
     )
     ok = proc.returncode == 0
+    if ok:
+        _run(
+            [sys.executable, str(ROOT / "scripts" / "brain_refresh_gate_v1.py"), "--save", "--json"],
+            cwd=ROOT,
+            timeout=15,
+        )
     return {
         "ok": ok,
+        "action": action,
+        "reason": gate.get("reason"),
+        "script": script,
         "returncode": proc.returncode,
         "stdout_tail": (proc.stdout or "")[-600:],
         "stderr_tail": (proc.stderr or "")[-400:],
+        "gate": gate,
     }
 
 

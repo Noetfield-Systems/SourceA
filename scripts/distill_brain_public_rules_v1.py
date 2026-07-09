@@ -33,7 +33,7 @@ def main() -> int:
 
     lines = [frontmatter(), "# Brain public rules (live SSOT)", ""]
     lines.append(f"## Identity\n{rules['identity']['role']}")
-    lines.append(f"\n## One line\n{rules.get('one_line') or pos.get('one_line', '')}")
+    lines.append(f"\n## One line\n{pos.get('one_line') or rules.get('one_line', '')}")
     lines.append("\n## Conversation rules")
     for r in rules.get("conversation_rules", []):
         lines.append(f"- **{r['id']}**: {r['rule']}")
@@ -44,6 +44,13 @@ def main() -> int:
         lines.append(f"\n## Positioning SSOT\n- one_line: {pos.get('one_line')}")
         lines.append(f"- primary_cta: {pos.get('primary_cta')} ({pos.get('primary_cta_label')})")
         lines.append(f"- agentic_first_law: {pos.get('agentic_first_law')}")
+        hero = pos.get("hero") or {}
+        if hero.get("h1_line1"):
+            lines.append(f"- hero_h1: {hero.get('h1_line1')} {hero.get('h1_accent', '')}".strip())
+        if hero.get("lead"):
+            lines.append(f"- hero_lead: {hero.get('lead')}")
+        if pos.get("hero_denylist"):
+            lines.append("- hero_denylist: " + "; ".join(pos.get("hero_denylist")[:6]))
     if law:
         for sec in chunk_text(law, max_chars=3000)[:2]:
             lines.append(f"\n{sec}")
