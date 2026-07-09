@@ -1,0 +1,18 @@
+{
+  "cadence": "weekly",
+  "card_id": "weekly-workflow-effectiveness",
+  "checked_at": "2026-07-03T06:34:22.296003Z",
+  "focus": "workflow portfolio effectiveness",
+  "kind": "audit",
+  "ok": true,
+  "schema": "sourcea-automation-card-router-v1",
+  "sources": [
+    "data/sourcea-automation-catalog-v1.json",
+    ".github/workflows/sourcea-automation-surface-health.yml",
+    "data/trigger-registry-v1.json"
+  ],
+  "status": "mapped",
+  "target": "python3 scripts/sourcea_automation_card_router_v1.py --card weekly-workflow-effectiveness --json --write-receipt",
+  "title": "Weekly workflow effectiveness",
+  "workflow_hint": ".github/workflows/sourcea-automation-surface-health.yml"
+}
