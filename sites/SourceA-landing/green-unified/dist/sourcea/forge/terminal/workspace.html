@@ -6,14 +6,18 @@
   <title>Workspace · Forge Terminal · SourceA</title>
   <meta name="description" content="Your Forge Terminal workspace — living chat with prompt forge, quality gates, and controlled agent execution." />
   <meta name="robots" content="noindex" />
-  <meta name="sourcea-platform-workspace-version" content="1.3.0" />
+  <meta name="sourcea-platform-workspace-version" content="1.5.0" />
+  <meta name="sourcea-auth-tier" content="2" />
+  <script src="/sourcea/sourcea-platform-session-v1.js?v=1.5.0"></script>
+  <script>SourceAPlatformSession.bootTier2HeadGuard("workspace");</script>
   <link rel="preconnect" href="https://sourcea-brain-chat-v1.sina-kazemnezhad-ca.workers.dev" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
   <link rel="stylesheet" href="/assets/agentrun.css" />
   <link rel="stylesheet" href="/sourcea/sourcea.css" />
   <link rel="stylesheet" href="/sourcea/sourcea-platform-onboarding-v1.css?v=1.4.0" />
+<link rel="stylesheet" href="/sourcea/sourcea-cookie-consent-v1.css" />
 </head>
-<body class="ar-body sa-v2 sa-platform-workspace" data-sa-page="forge-terminal-workspace">
+<body class="ar-body sa-v2 sa-platform-workspace" data-sa-page="forge-terminal-workspace" data-sa-tier2="workspace">
 <header class="ar-header sa-header">
   <div class="ar-container ar-header-shell sa-po-header-row">
     <a class="ar-logo" href="/sourcea/forge/terminal">
@@ -88,20 +92,28 @@
   </div>
 </div>
 
-<script src="/sourcea/sourcea-platform-session-v1.js?v=1.4.0"></script>
-<script src="/sourcea/sourcea-platform-auth-v1.js?v=1.4.0"></script>
-<script src="/sourcea/sourcea-platform-workspace-v1.js?v=1.4.0" defer></script>
+<script src="/sourcea/sourcea-platform-session-v1.js?v=1.5.0"></script>
+<script src="/sourcea/sourcea-platform-auth-v1.js?v=1.5.0"></script>
+<script src="/sourcea/sourcea-platform-workspace-v1.js?v=1.5.0" defer></script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  window.SourceAPlatformSession.mountStepNav(document.querySelector(".sa-po-steps"), "workspace");
+document.addEventListener("DOMContentLoaded", async function () {
+  const S = window.SourceAPlatformSession;
+  S.mountStepNav(document.querySelector(".sa-po-steps"), "workspace");
+  const cur = await S.routeGuardAsync("workspace");
+  if (!S.canAccess("workspace", cur)) return;
   window.SourceAPlatformWorkspace && window.SourceAPlatformWorkspace.init();
 });
 </script>
 
 <div class="sa-boot-wire-fallback" style="text-align:center;padding:1rem;font-size:0.85rem;color:var(--ar-text-muted)"><a href="/eval">sourcea-boot eval</a> · <a href="https://pypi.org/project/sourcea-boot/" data-trust-github-link target="_blank" rel="noopener">GitHub</a></div>
 <script src="/sourcea/sourcea-boot-wire.js" defer></script>
+<script src="/sourcea/sourcea-cookie-consent-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-ux-v1.js" defer></script>
+<script src="/sourcea/sourcea-cookie-consent-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-ux-v1.js" defer></script>
 <script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>
 <script src="/sourcea/sourcea-site-interact-v1.js" defer></script>
 <script src="/sourcea/sourcea-segment-router-v1.js" defer></script>
+<script src="/sourcea/sourcea-auth-nav-wire-v1.js" defer></script>
 </body>
 </html>

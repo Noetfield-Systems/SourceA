@@ -1,0 +1,54 @@
+---
+description: "PR conflict resolver mandatory — governance merge conflicts require skill + first-check ack before write"
+alwaysApply: false
+globs:
+  - "data/*_registry_v1.json"
+  - "data/trigger-registry-v1.json"
+  - "data/github-automation-governance-v1.json"
+  - "data/automation-*.json"
+  - "receipts/**/*.json"
+  - "brain-os/**/*LOCKED*.md"
+  - ".github/workflows/*.yml"
+---
+
+# PR Conflict Resolver — mandatory (governance merge conflicts)
+
+**Law:** `brain-os/law/enforcement/PR_CONFLICT_RESOLVER_MANDATORY_LOCKED_v1.md`  
+**Skill:** `~/Desktop/Noetfield-Systems/sina-governance-SSOT/skills/pr-conflict-resolver/SKILL.md`  
+**Eval app:** `~/Desktop/PR-Conflict-Resolver-Report.app`  
+**SSOT:** `data/pr-conflict-resolver-mandatory-v1.json`
+
+## Hard rule
+
+> Before resolving any governance-sensitive merge conflict — read skill, classify files, ack first-check. **Never** blind-pick registry JSON or LOCKED docs.
+
+## Before conflict resolution
+
+```bash
+python3 scripts/pr_conflict_resolver_first_check_v1.py --wire --json
+python3 scripts/pr_conflict_resolver_first_check_v1.py --ack --json
+```
+
+Read SG skill §0–§5. Open eval app if changing skill law.
+
+## Machine gates
+
+| Gate | Blocks |
+|---|---|
+| `pre_write_guard_v1.py` | Conflict markers on governance paths without ack |
+| `pr_conflict_resolver_first_check_v1.py --check` | Merge + sensitive path without ack |
+| `validate-pr-conflict-resolver-mandatory-v1.sh` | Missing wiring |
+
+## Stop and escalate (skill §3)
+
+- LOCKED ssot conflict
+- Same `task_cell` / registry key, different owners
+- Merge-ready claim without resolution receipt
+
+## After resolve
+
+```bash
+bash scripts/validate-pr-conflict-resolver-mandatory-v1.sh
+```
+
+Write `receipts/pr-conflict-resolution-<UTC>.json` — files, class, validators, open questions.

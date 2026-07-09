@@ -1,0 +1,55 @@
+{
+  "schema": "cross-domain-auth-handoffs-v1",
+  "version": "1.0.0",
+  "at": "2026-07-08T06:35:00Z",
+  "sourcea_status": "phase2_shipped",
+  "handoffs": [
+    {
+      "venture": "trustfield",
+      "repo": "TrustField-Technologies",
+      "agent": "trustfield_worker",
+      "phase": 1,
+      "priority": "highest_roi",
+      "tasks": [
+        "Wire /register + Partner Access to portfolio_spine Supabase Auth",
+        "Gate /partner-access with middleware getClaims()",
+        "Validate JWT on api.trustfield.ca portal routes",
+        "E2E: register → email verify → portal 200"
+      ],
+      "consume": "@noetfield/auth-core from SourceA shared/auth-core",
+      "redirect_allow": "https://www.trustfield.ca/auth/callback"
+    },
+    {
+      "venture": "noetfield",
+      "repo": "Noetfield",
+      "agent": "noetfield_website",
+      "phase": 3,
+      "tasks": [
+        "Start free sandbox CTA → /auth/sign-up with venture=noetfield",
+        "Align copy with diagnostic-first terminology audit"
+      ],
+      "consume": "@noetfield/auth-core",
+      "redirect_allow": "https://www.noetfield.com/auth/callback"
+    },
+    {
+      "venture": "noos",
+      "repo": "noetfeld-os",
+      "agent": "noos_agent",
+      "phase": 4,
+      "tasks": [
+        "JWT validation middleware on api.noetfield.com",
+        "Factory tables service-role only from GH Actions motors"
+      ]
+    },
+    {
+      "venture": "sg",
+      "repo": "sina-governance-ssot",
+      "agent": "sg_ssot_cursor",
+      "phase": 5,
+      "tasks": [
+        "Run scripts/verify_auth_surfaces_e2e_v1.sh on cadence",
+        "Registry row sg_auth_surface_probe_v1 — verify only, no auth UI"
+      ]
+    }
+  ]
+}

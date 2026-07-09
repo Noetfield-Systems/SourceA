@@ -1,0 +1,51 @@
+{
+  "schema": "sourcea-auth-upgrade-plan-v1",
+  "version": "1.1.0",
+  "at": "2026-07-08T07:35:00Z",
+  "scope": "sourcea.app · sourcea.ca · sourcea.uk only",
+  "north_star": "Tiered auth on SourceA domains — public SKUs stay open; machine audits every build and publish",
+  "phases": [
+    {
+      "id": "SA-AUTH-P0",
+      "title": "Canonical auth routes on sourcea.app",
+      "status": "done",
+      "done_when": "/auth/sign-in · sign-up · callback live; portfolio_spine config; nav wire on all pages",
+      "proof": "scripts/sourcea_auth_domains_audit_v1.py --mode live"
+    },
+    {
+      "id": "SA-AUTH-P1",
+      "title": "Build + publish machine (fail-closed)",
+      "status": "done",
+      "done_when": "post_build dist audit + post_publish live audit wired; receipt JSON; GHA chain",
+      "proof": "reports/sourcea-auth-domains-audit-latest-v1.json"
+    },
+    {
+      "id": "SA-AUTH-P2",
+      "title": "Regional mirrors stay Tier 0",
+      "status": "done",
+      "done_when": "sourcea.ca AIVG + sourcea.uk EACP 200 without session; contract markers present",
+      "proof": "live_gates in sourcea-auth-domains-machine-v1.json"
+    },
+    {
+      "id": "SA-AUTH-P3",
+      "title": "Tier 2 gates (workspace, profile)",
+      "status": "done",
+      "done_when": "forge profile/workspace redirect unsigned users to /auth/sign-in?next=; head guard + routeGuardAsync",
+      "proof": "sourcea-platform-session-v1.js v1.5 + tier2_pages in machine dist_gates"
+    },
+    {
+      "id": "SA-AUTH-P4",
+      "title": "identity_profiles migration applied",
+      "status": "pending",
+      "done_when": "008_identity_profiles_venture_rls_v1.sql on portfolio_spine; signup creates venture=sourcea row",
+      "proof": "scripts/verify_supabase_live_profiles_v1.py or auth probe"
+    }
+  ],
+  "machine": "data/sourcea-auth-domains-machine-v1.json",
+  "runner": "scripts/sourcea_auth_domains_audit_v1.py",
+  "do_not": [
+    "Login-wall contract SKU pages",
+    "Put TrustField or Noetfield auth in SourceA PR",
+    "Use getSession() alone on server for gated routes"
+  ]
+}

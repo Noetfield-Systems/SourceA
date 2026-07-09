@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/assets/agentrun.css" />
   <link rel="stylesheet" href="/sourcea/sourcea.css" />
   <link rel="stylesheet" href="/sourcea/sourcea-platform-onboarding-v1.css?v=1.4.0" />
+<link rel="stylesheet" href="/sourcea/sourcea-cookie-consent-v1.css" />
 </head>
 <body class="ar-body sa-v2 sa-platform-onboard" data-sa-page="forge-terminal-signup">
 <header class="ar-header sa-header">
@@ -20,7 +21,7 @@
         <span class="sa-ws-badge">Forge Terminal</span>
       </a>
       <div class="ar-header-actions">
-        <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/sourcea/forge/terminal/signin">Sign in</a>
+        <a class="ar-btn ar-btn-ghost ar-btn-sm" href="/auth/sign-in">Sign in</a>
       </div>
     </div>
   </div>
@@ -67,7 +68,7 @@
       </div>
     </form>
 
-    <p class="sa-po-switch">Already have an account? <a href="/sourcea/forge/terminal/signin">Sign in</a></p>
+    <p class="sa-po-switch">Already have an account? <a href="/auth/sign-in">Sign in</a></p>
     <p class="sa-po-status" id="sa-po-auth-status" hidden></p>
   </section>
 </main>
@@ -82,8 +83,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <div class="sa-boot-wire-fallback" style="text-align:center;padding:1rem;font-size:0.85rem;color:var(--ar-text-muted)"><a href="/eval">sourcea-boot eval</a> · <a href="https://pypi.org/project/sourcea-boot/" data-trust-github-link target="_blank" rel="noopener">GitHub</a></div>
 <script src="/sourcea/sourcea-boot-wire.js" defer></script>
+<script src="/sourcea/sourcea-cookie-consent-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-ux-v1.js" defer></script>
+<script src="/sourcea/sourcea-cookie-consent-v1.js" defer></script>
+<script src="/sourcea/sourcea-site-ux-v1.js" defer></script>
 <script src="/sourcea/sourcea-site-pulse-v1.js" defer></script>
 <script src="/sourcea/sourcea-site-interact-v1.js" defer></script>
 <script src="/sourcea/sourcea-segment-router-v1.js" defer></script>
+<script src="/sourcea/sourcea-auth-nav-wire-v1.js" defer></script>
 </body>
 </html>
