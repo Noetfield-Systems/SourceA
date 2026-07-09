@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """L0 repo graph indexer — builds a compact static map of this repo for agent memory.
 
-Pilot: L0_REPO_GRAPH_MEMORY_v1. Walks the repo once, writes a full JSON index
-plus a compact Markdown report. Agents should read graph-out/GRAPH_REPORT.md
-and use scripts/query_repo_graph_v1.py before spawning broad repo readers.
+CANONICAL TEMPLATE — do not hand-edit installed copies. Installed copies in each
+repo are RENDERED from this template by scripts/sync_l0_repo_graph_v1.py using the
+per-repo config in data/l0_repo_graph_registry_v1.json. To upgrade the logic,
+edit THIS file, bump L0_TEMPLATE_VERSION, test in sg-sandbox, then run the sync.
 
+Walks the repo once, writes a full JSON index plus a compact Markdown report.
 No network calls, no external DB, no LLM calls — stdlib only.
 """
 from __future__ import annotations
@@ -15,7 +17,10 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+L0_TEMPLATE_VERSION = "1.1.0"  # bumped by sync when the shared logic changes
+
 ROOT = Path(__file__).resolve().parents[1]
+REPO_NAME = ROOT.name  # self-naming — no longer hardcoded per repo
 OUT_DIR = ROOT / "graph-out"
 INDEX_PATH = OUT_DIR / "graph_index_v1.json"
 REPORT_PATH = OUT_DIR / "GRAPH_REPORT.md"
@@ -26,27 +31,29 @@ IGNORED_DIR_NAMES = {
     "dist", "build", ".cache", "venv", ".venv", ".noos_cache", "graph-out",
 }
 
-# Root-relative subsystem directories mapped individually. Anything else at
-# root becomes part of "_root".
+# === L0-SUBSYSTEM-CONFIG (rendered by sync_l0_repo_graph_v1.py from the registry — do not hand-edit) ===
 SUBSYSTEM_DIRS = [
-    # SourceA top-level subsystems (see docs/L0_REPO_GRAPH_MEMORY_v1.md)
     "agent-control-panel", "agent-pro-v1", "agent-skills", "apps",
     "architecture_audit", "archive", "brain-os", "brand",
     "cinematic-film-factory", "cloud", "commercial-video-factory", "config",
-    "cursor-plugin", "data", "demo", "docs", "entry", "founder",
-    "founder-light-v1", "imports", "infra", "internal", "internal-reference",
-    "investor", "knowledge-library", "labs", "launch", "launchers", "n8n",
-    "os", "packages", "plans", "product", "prompts", "receipts", "reports",
-    "runreceipt", "runtime", "scripts", "shared", "sina-bowl", "sites",
-    "templates", "tests", "witnessbc-site", ".github",
+    "cursor-plugin", "data", "demo", "docs",
+    "entry", "founder", "founder-light-v1", "imports",
+    "infra", "internal", "internal-reference", "investor",
+    "knowledge-library", "labs", "launch", "launchers",
+    "n8n", "os", "packages", "plans",
+    "product", "prompts", "receipts", "reports",
+    "runreceipt", "runtime", "scripts", "shared",
+    "sina-bowl", "sites", "templates", "tests",
+    "witnessbc-site", ".github",
 ]
+# === END L0-SUBSYSTEM-CONFIG ===
 
 # Extensions scanned for repo-relative path references (edges).
 EDGE_SCAN_EXTS = {".py", ".sh", ".md", ".json", ".yaml", ".yml", ".jsonc"}
 EDGE_SCAN_MAX_BYTES = 2_000_000  # skip pathologically large files when scanning for edges
 TOP_FILES_PER_SUBSYSTEM_IN_REPORT = 6
 
-_subsystem_pattern = "|".join(re.escape(s) for s in SUBSYSTEM_DIRS)
+_subsystem_pattern = "|".join(re.escape(s) for s in SUBSYSTEM_DIRS) or "__none__"
 PATH_REF_RE = re.compile(
     r"""(?:^|[\s"'`(\[])((?:%s)/[A-Za-z0-9_\-./]+\.(?:md|json|py|sh|yaml|yml|jsonc|txt))"""
     % _subsystem_pattern
@@ -62,13 +69,13 @@ def is_ignored_dir(name: str) -> bool:
 
 
 def iter_files(base: Path):
+    # Symlink-hardened: skip symlinks (often broken .bin shims / can point outside
+    # the repo / create cycles) and survive unreadable paths without crashing.
     try:
         entries = sorted(base.rglob("*"))
     except OSError:
         return
     for path in entries:
-        # Skip symlinks outright: they are often broken .bin shims or can point
-        # outside the repo / create cycles, and stat() on a broken link raises.
         if path.is_symlink():
             continue
         try:
@@ -95,7 +102,7 @@ def file_record(path: Path):
     }
 
 
-def subsystem_root_dirs() -> list[str]:
+def subsystem_root_dirs() -> list:
     present = []
     for name in SUBSYSTEM_DIRS:
         if (ROOT / name).is_dir():
@@ -135,7 +142,7 @@ def build_subsystems() -> dict:
     return subsystems
 
 
-def build_edges(subsystems: dict) -> list[dict]:
+def build_edges(subsystems: dict) -> list:
     edges = []
     seen = set()
     for subsystem in subsystems.values():
@@ -174,7 +181,8 @@ def main() -> int:
 
     index = {
         "schema": "l0_repo_graph_index_v1",
-        "repo": "sina-governance-ssot",
+        "template_version": L0_TEMPLATE_VERSION,
+        "repo": REPO_NAME,
         "generated_at": utc_now(),
         "root": ".",
         "ignored_dirs": sorted(IGNORED_DIR_NAMES),
@@ -192,7 +200,7 @@ def main() -> int:
     INDEX_PATH.write_text(json.dumps(index, indent=2) + "\n", encoding="utf-8")
     REPORT_PATH.write_text(render_report(index), encoding="utf-8")
 
-    print(f"L0 repo graph built @ {index['generated_at']}")
+    print(f"L0 repo graph built @ {index['generated_at']}  (template v{L0_TEMPLATE_VERSION})")
     print(f"  subsystems: {index['stats']['subsystem_count']}  files: {total_files}  edges: {len(edges)}")
     print(f"  index:  {INDEX_PATH.relative_to(ROOT)}")
     print(f"  report: {REPORT_PATH.relative_to(ROOT)}")
@@ -209,9 +217,9 @@ def human_bytes(n: int) -> str:
 
 def render_report(index: dict) -> str:
     lines = []
-    lines.append("# L0 Repo Graph Report — sina-governance-ssot")
+    lines.append(f"# L0 Repo Graph Report — {index['repo']}")
     lines.append("")
-    lines.append(f"Generated (last indexed): `{index['generated_at']}`")
+    lines.append(f"Generated (last indexed): `{index['generated_at']}` · template `v{index.get('template_version','?')}`")
     lines.append(f"Total files: {index['stats']['total_files']} · "
                  f"Total size: {human_bytes(index['stats']['total_bytes'])} · "
                  f"Edges detected: {index['stats']['total_edges']}")
@@ -251,8 +259,7 @@ def render_report(index: dict) -> str:
     lines.append(
         f"{index['stats']['total_edges']} static repo-relative path references were "
         "detected across .py/.sh/.md/.json/.yaml/.yml/.jsonc files (best-effort regex "
-        "scan, not a real import graph — this is a governance/docs-heavy repo, not a "
-        "single-language codebase). Full edge list is in `graph_index_v1.json`; "
+        "scan, not a real import graph). Full edge list is in `graph_index_v1.json`; "
         "query by file or subsystem with the query script rather than reading it directly."
     )
     lines.append("")
@@ -276,9 +283,8 @@ def render_report(index: dict) -> str:
     lines.append("")
     lines.append(
         "Rebuild whenever the file layout changes materially (new subsystem, large "
-        "doc/data additions) — this report drifts from truth otherwise. See "
-        "`docs/L0_REPO_GRAPH_MEMORY_v1.md` for the token budget rule and the "
-        "broad-read prevention rule."
+        "doc/data additions). See `docs/L0_REPO_GRAPH_MEMORY_v1.md` for the token "
+        "budget rule and the broad-read prevention rule."
     )
     lines.append("")
     return "\n".join(lines)
