@@ -146,6 +146,15 @@
       "allowed_context": ["ship_window", "cloud_ci"],
       "runner": "scripts/run_founder_proof_post_publish_v1.py --json --min-seconds-after-deploy 0"
     },
+    "sourcea_auth_domains": {
+      "label": "SourceA auth domains audit (app · ca · uk)",
+      "cadence": "every_build_and_publish",
+      "unified_tier": "T1_fast",
+      "est_wall_sec": 90,
+      "allowed_context": ["ship_window", "cloud_ci", "founder_session"],
+      "runner": "scripts/sourcea_auth_domains_audit_v1.py --mode live --json",
+      "dist_runner": "scripts/sourcea_auth_domains_audit_v1.py --mode dist --json"
+    },
     "locked_definitions_promote": {
       "label": "Locked definitions promotion gate",
       "cadence": "weekly",

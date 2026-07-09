@@ -1,12 +1,28 @@
 {
   "schema": "autorun-pending-v1",
   "version": "1.0.0",
-  "at": "2026-07-05T15:47:00Z",
-  "count": 0,
-  "p0_count": 0,
-  "items": [],
-  "oldest_id": "",
+  "at": "2026-07-08T01:51:42Z",
+  "count": 1,
+  "p0_count": 1,
+  "items": [
+    {
+      "id": "external_verify_l4",
+      "status": "pending",
+      "severity": "P0",
+      "law": "L4",
+      "reason": "external_verify_truth_log_stale_or_not_ok",
+      "evidence": {
+        "command": "GET /rest/v1/truth_log?event=eq.EXTERNAL_VERIFY_PASS",
+        "exit_code": 0,
+        "output": "{\"found\": true, \"path\": \"/Users/sinakazemnezhad/Desktop/Noetfield-Systems/SourceA/receipts/cloud/external-verify/external-verify-local-recovery-20260705T153305Z-v1.json\", \"ok\": true, \"at\": \"2026-07-05T15:33:05Z\", \"github_run_id\": \"local-recovery-20260705T153305Z\", \"github_sha\": \"e0eea1e28be0ac30fc5a9bddd7f255f226278732\", \"run_url\": \"https://github.com/Noetfield-Systems/SourceA/actions/runs/local-r",
+        "truth_log_id": null,
+        "run_url": "https://github.com/Noetfield-Systems/SourceA/actions/runs/local-recovery"
+      },
+      "action": "machine: read_action_runs_v1.py --dispatch --wait \u00b7 sink auto-updates on PASS"
+    }
+  ],
+  "oldest_id": "external_verify_l4",
   "age_seconds": 0,
-  "ok": true,
-  "report_line": "pending=0 \u00b7 autorun clear"
+  "ok": false,
+  "report_line": "pending=1 \u00b7 P0=1 \u00b7 head=external_verify_l4 \u00b7 external_verify_truth_log_stale_or_not_ok"
 }
