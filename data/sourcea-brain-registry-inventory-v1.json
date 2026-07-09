@@ -136,6 +136,112 @@
         "scripts/signal_factory_core_v1.py"
       ],
       "registration_receipt": "receipts/brain/signal-factory-v1-base-brain-registration-v1.json"
+    },
+    {
+      "asset_id": "cloud-auto-runtime-v1",
+      "asset_type": "config",
+      "current_location": "data/cloud-auto-runtime-v1.json",
+      "status": "live",
+      "owning_layer": "MOTOR",
+      "mutation_class": "GATED",
+      "last_modified": "2026-07-03",
+      "dependents": [
+        "sandbox-health-sweep-v1",
+        "autorun-zero-manual-verifier"
+      ]
+    },
+    {
+      "asset_id": "trigger-registry-v1",
+      "asset_type": "registry",
+      "current_location": "data/trigger-registry-v1.json",
+      "status": "live",
+      "owning_layer": "REGISTRY",
+      "mutation_class": "GATED",
+      "last_modified": "2026-07-03",
+      "dependents": [
+        "sandbox-health-sweep-v1",
+        "determinism-gate",
+        "cloud-auto-runtime-v1"
+      ]
+    },
+    {
+      "asset_id": "sandbox-health-sweep-v1",
+      "asset_type": "eval",
+      "current_location": "scripts/sandbox_health_sweep_v1.py",
+      "status": "live",
+      "owning_layer": "REGRESSION",
+      "mutation_class": "GATED",
+      "last_modified": "2026-07-03",
+      "dependents": [
+        "trigger-registry-v1",
+        "autorun-kaizen-backlog-v1"
+      ]
+    },
+    {
+      "asset_id": "autorun-zero-manual-verifier",
+      "asset_type": "eval",
+      "current_location": "scripts/verify_autorun_zero_manual_v1.py",
+      "status": "live",
+      "owning_layer": "REGRESSION",
+      "mutation_class": "GATED",
+      "last_modified": "2026-07-03",
+      "dependents": [
+        "cloud-auto-runtime-v1",
+        "autorun-kaizen-backlog-v1"
+      ]
+    },
+    {
+      "asset_id": "autorun-kaizen-backlog-v1",
+      "asset_type": "queue",
+      "current_location": "data/autorun-kaizen-backlog-v1.json",
+      "status": "live",
+      "owning_layer": "IMPROVEMENT",
+      "mutation_class": "GATED",
+      "last_modified": "2026-07-03",
+      "dependents": [
+        "scripts/autorun_kaizen_queue_v1.py",
+        "receipts/cloud/kaizen/"
+      ]
+    },
+    {
+      "asset_id": "sourcea-automation-catalog-v1",
+      "asset_type": "registry",
+      "current_location": "data/sourcea-automation-catalog-v1.json",
+      "status": "live",
+      "owning_layer": "REGISTRY",
+      "mutation_class": "GATED",
+      "last_modified": "2026-07-03",
+      "dependents": [
+        "scripts/validate_sourcea_automation_catalog_v1.py",
+        ".github/workflows/sourcea-automation-surface-health.yml"
+      ]
+    },
+    {
+      "asset_id": "sourcea-automation-surface-health",
+      "asset_type": "config",
+      "current_location": ".github/workflows/sourcea-automation-surface-health.yml",
+      "status": "live",
+      "owning_layer": "REGISTRY",
+      "mutation_class": "GATED",
+      "last_modified": "2026-07-03",
+      "dependents": [
+        "sourcea-automation-catalog-v1",
+        "sandbox-health-sweep-v1",
+        "autorun-zero-manual-verifier"
+      ]
+    },
+    {
+      "asset_id": "sourcea-automation-card-router-v1",
+      "asset_type": "script",
+      "current_location": "scripts/sourcea_automation_card_router_v1.py",
+      "status": "live",
+      "owning_layer": "REGRESSION",
+      "mutation_class": "GATED",
+      "last_modified": "2026-07-03",
+      "dependents": [
+        "sourcea-automation-catalog-v1",
+        "sourcea-automation-surface-health"
+      ]
     }
   ],
   "promotion_requirements": {
