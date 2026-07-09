@@ -1,19 +1,21 @@
 # SourceA — Cloud Forge Run full-pack pattern (LOCKED)
 
+> **Motor quota updated 2026-07-05 (INCIDENT-045).** `max_advance` cap is **10** per turn — see `SOURCEA_CLOUD_FORGE_RUN_REALISTIC_MOTOR_LOCKED_v1.md`. Retained below for chain/history.
+
 **Saved:** 2026-06-23 · **UTC:** 2026-06-23T11:05:00Z  
-**Incident:** INCIDENT-042 · **Vocabulary:** INCIDENT-043 · **SSOT:** `data/cloud-forge-run-full-pack-pattern-v1.json`  
-**Pair:** `data/hub-cloud-forge-run-proceed-v1.json` · `data/cloud-auto-runtime-v1.json` · `data/cloud-forge-run-hundred-rows-per-turn-vocabulary-v1.json`
+**Incident:** INCIDENT-042 · **Motor:** INCIDENT-045 · **SSOT:** `data/cloud-forge-run-full-pack-pattern-v1.json`  
+**Pair:** `data/hub-cloud-forge-run-proceed-v1.json` · `data/cloud-auto-runtime-v1.json` · `data/cloud-forge-run-realistic-motor-law-v1.json`
 
 ---
 
-## One law (ASF 2026-06-23 — same as batch 2)
+## One law (ASF 2026-07-05)
 
-> **One external trigger (~10 min) moves 100 queue rows down inside one Railway HTTP request — 100 is the mandatory quota per turn (NOT “up to 100”). `full_pack` is the internal-loop mode flag (INCIDENT-043).**
+> **One external trigger (~10 min) moves up to 10 doable queue rows inside one Railway HTTP request. Proof gate per row. `full_pack` is the internal-loop mode flag.**
 
 | Field | Value |
 |-------|--------|
 | `full_pack` | `true` |
-| `max_advance` | `100` |
+| `max_advance` | `10` (cap — INCIDENT-045) |
 | Trigger | Cloudflare cron `*/10` **or** Cloud Workers Proceed (`hub_proceed_pack`) |
 | Motor plane | Railway FBE headless only |
 | Mac | Cloud Workers.app `:13027` glance · **never** Mac FORGE motor for CLOUD-SEC |

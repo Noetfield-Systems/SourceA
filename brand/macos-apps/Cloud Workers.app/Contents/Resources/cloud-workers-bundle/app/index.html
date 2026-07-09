@@ -17,7 +17,7 @@
     <header class="cw-standalone-head">
       <div>
         <h1>Cloud Workers · Command Center</h1>
-        <p class="sub" id="cw-hub-line">Mac observe only · CF cron */10 full_pack×100 · terminal shows real output</p>
+        <p class="sub" id="cw-hub-line">Mac observe · CF 24/7 motors (*/15 loop · */10 Auto Runtime · */30 deadman) · terminal shows real output</p>
       </div>
       <div class="cw-hub-pill" id="cw-hub-pill">Railway …</div>
       <div class="cw-hub-pill warn" id="cw-auto-pill">Auto …</div>
@@ -49,11 +49,11 @@
       <div class="cloud-situation-line" id="cloud-situation-line">—</div>
       <div class="cloud-auto-banner" id="cw-auto-banner" hidden></div>
       <div class="cloud-mock-banner" id="cw-mock-banner" hidden>
-        <strong>Scaffold row at queue head</strong> — 24/7 cron auto-skips; manual override only when auto drain is OFF.
+        <strong>Scaffold row at queue head</strong> — 24/7 cron auto-skips; manual override only when Auto Runtime is OFF.
         <button type="button" class="primary" id="btn-cw-skip-mock">Skip scaffold rows →</button>
       </div>
       <div class="cloud-motor-fail-banner" id="cw-motor-fail-banner" hidden>
-        <strong>Motor blocked at head</strong> — Pipe LIVE · cron self-heals on next tick; manual skip only when auto drain is OFF.
+        <strong>Motor blocked at head</strong> — Pipe LIVE · cron self-heals on next tick; manual skip only when Auto Runtime is OFF.
         <button type="button" class="primary" id="btn-cw-skip-fail">Skip head · try next row →</button>
       </div>
       <p class="next" id="cloud-proceed-next">—</p>

@@ -52,7 +52,8 @@
 
   /* ── AgentGo: green aurora neural canvas ── */
   const canvas = document.getElementById("sa-aurora");
-  if (canvas && !reduced) {
+  const isRootHome = document.body.classList.contains("sa-root-home");
+  if (canvas && !reduced && !isRootHome) {
     const ctx = canvas.getContext("2d");
     let w = 0, h = 0, dpr = 1, mx = 0.5, my = 0.5, t = 0, active = true;
     const hub = { x: 0.5, y: 0.42 };
@@ -264,7 +265,7 @@
   }
 
   function engineChipPulse() {
-    const chips = document.querySelectorAll(".sa-engine-chip");
+    const chips = document.querySelectorAll(".sa-engine-chip:not([data-engine-tab])");
     if (!chips.length || reduced) return;
     const names = ["Outreach", "Prove", "Build", "Guard", "Expand"];
     let i = 0;
@@ -1056,9 +1057,11 @@
 
   if (document.querySelector(".sa-hero-cinematic")) {
     heroEntrance();
-    fleetTilt();
-    heroParallax();
-    scrollParallax();
+    if (!document.body.classList.contains("sa-root-home")) {
+      fleetTilt();
+      heroParallax();
+      scrollParallax();
+    }
   }
   if (document.querySelector(".sa-roster")) {
     rosterStagger();

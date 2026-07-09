@@ -349,6 +349,13 @@ def generate(now: str) -> dict:
         "phases": phases,
         "plans": entries,
     }
+    plans_by_id = {p["id"]: p for p in entries}
+    try:
+        from sourcea_site_score_w2_plan_v1 import build_w2_execution  # noqa: WPS433
+
+        registry["w2_execution"] = build_w2_execution(plans_by_id)
+    except Exception:
+        pass
     PACK_BASE.mkdir(parents=True, exist_ok=True)
     (PACK_BASE / "REGISTRY.json").write_text(json.dumps(registry, indent=2) + "\n", encoding="utf-8")
 
@@ -368,6 +375,8 @@ def generate(now: str) -> dict:
             "LATER": "ranks 201–500",
             "MOONSHOT": "ranks 501–1000",
         },
+        "w2_execution": True,
+        "w2_pulse_script": "scripts/sourcea_site_score_w2_pulse_v1.py",
     }
     master_path = SOURCEA_ROOT / "brain-os" / "plan-registry" / "SOURCEA_SITE_SCORE_UP_1000_MASTER_v1.json"
     master_path.write_text(json.dumps(master, indent=2) + "\n", encoding="utf-8")
@@ -382,7 +391,19 @@ def generate(now: str) -> dict:
 
 
 def main() -> None:
+    import argparse
+
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--write-w2", action="store_true", help="Merge w2_execution into existing REGISTRY only")
+    args = ap.parse_args()
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    if args.write_w2:
+        sys.path.insert(0, str(SOURCEA_ROOT / "scripts"))
+        from sourcea_site_score_w2_plan_v1 import merge_w2_into_registry  # noqa: WPS433
+
+        result = merge_w2_into_registry()
+        print(json.dumps({**result, "generated_at": now}, indent=2))
+        sys.exit(0 if result.get("ok") else 1)
     result = generate(now)
     print(json.dumps({"ok": result["ok"], "plan_count": result["count"], "generated_at": now}, indent=2))
     sys.exit(0 if result["ok"] else 1)

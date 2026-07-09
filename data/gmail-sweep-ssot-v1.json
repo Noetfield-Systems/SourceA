@@ -1,0 +1,35 @@
+{
+  "schema": "gmail-sweep-ssot-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-05T16:35:00Z",
+  "status": "live_verified",
+  "last_verified_at": "2026-07-05T17:00:00Z",
+  "e2e_receipt_path": "receipts/cloud/gmail-triage-e2e/gmail-triage-e2e-receipt-v1.json",
+  "copilot_replacement_note": "Kaizen improvement_queue replaces Copilot P7 scheduled automations (copilot-scheduled-automations-v1 enabled=false)",
+  "table": "gmail_inbox_signals",
+  "migration": "infra/supabase/portfolio-spine/migrations/012_gmail_inbox_signals_v1.sql",
+  "auth_modes": ["service_account", "imap_fallback"],
+  "service_account": {
+    "json_env": "GOOGLE_SERVICE_ACCOUNT_JSON",
+    "file_path": "~/.sourcea-secrets/gmail-service-account.json",
+    "delegated_user_env": "GMAIL_DELEGATED_USER",
+    "default_delegated_user": "hello@trustfield.ca",
+    "scopes": ["https://www.googleapis.com/auth/gmail.readonly"]
+  },
+  "imap_fallback": {
+    "vault_ssot": "data/portfolio-vault-email-tags-v1.json",
+    "vault_file": "~/.sina/secrets.env",
+    "max_messages_per_mailbox": 25
+  },
+  "sweep": {
+    "max_mailboxes_per_tick": 8,
+    "query": "is:unread newer_than:7d",
+    "railway_route": "/api/fbe/gmail-sweep/v1",
+    "cron": "0 * * * *"
+  },
+  "triage": {
+    "railway_route": "/api/fbe/signal-factory/triage/v1",
+    "max_batch": 10,
+    "telegram_on_all": true
+  }
+}

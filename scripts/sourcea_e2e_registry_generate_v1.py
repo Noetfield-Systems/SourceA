@@ -153,6 +153,21 @@ def _est_wall(unified: str, runtime_meta: dict) -> int:
     }.get(unified, 60)
 
 
+def _slo_defaults(*, cadence: str, est_wall_sec: int) -> dict[str, Any]:
+    freshness = {
+        "daily": 24 * 60,
+        "weekly": 7 * 24 * 60,
+        "monthly": 30 * 24 * 60,
+        "3day": 3 * 24 * 60,
+    }.get(cadence, 24 * 60)
+    latency = max(5, int(round(est_wall_sec / 60.0)) + 5)
+    return {
+        "freshness_target_minutes": freshness,
+        "success_rate_target": 0.99,
+        "latency_target_minutes": latency,
+    }
+
+
 def _discover_scripts() -> list[Path]:
     found: dict[str, Path] = {}
     patterns = [
@@ -201,6 +216,7 @@ def _row_for_path(path: Path, *, pressure: dict, runtime: dict, overrides: dict)
     unified = ov.get("unified_tier") or unified
     cadence = ov.get("cadence") or _cadence(unified, cid)
     bundle = ov.get("bundle")
+    slo = ov.get("slo") or _slo_defaults(cadence=cadence, est_wall_sec=ov.get("est_wall_sec") or _est_wall(unified, runtime_meta))
     return {
         "id": cid,
         "script": rel,
@@ -211,6 +227,7 @@ def _row_for_path(path: Path, *, pressure: dict, runtime: dict, overrides: dict)
         "runtime_tier": runtime_meta.get("tier"),
         "cadence": cadence,
         "est_wall_sec": ov.get("est_wall_sec") or _est_wall(unified, runtime_meta),
+        "slo": slo,
         "bundle": bundle,
         "allowed_context": ov.get("allowed_context") or _allowed_context(unified),
         "gated": _has_gate(path) if path.suffix == ".sh" else False,
@@ -237,6 +254,7 @@ def _hub_probe_rows(overrides: dict) -> list[dict[str, Any]]:
                 "runtime_tier": "probe",
                 "cadence": probe.get("cadence") or "daily",
                 "est_wall_sec": 5,
+                "slo": probe.get("slo") or _slo_defaults(cadence=str(probe.get("cadence") or "daily"), est_wall_sec=5),
                 "bundle": "mac_daily_smoke",
                 "allowed_context": ["founder_session", "ship_window", "cloud_ci"],
                 "gated": False,
@@ -266,9 +284,12 @@ def generate(*, write: bool = True) -> dict[str, Any]:
     for bid, bdef in bundle_defs.items():
         if not isinstance(bdef, dict):
             continue
+        est_wall_sec = int(bdef.get("est_wall_sec") or 60)
+        cadence = str(bdef.get("cadence") or _cadence("T3_heavy", bid))
         bundle_index[bid] = {
             **bdef,
             "id": bid,
+            "slo": bdef.get("slo") or _slo_defaults(cadence=cadence, est_wall_sec=est_wall_sec),
         }
         for cid in bdef.get("checks") or []:
             for row in checks:
@@ -283,6 +304,11 @@ def generate(*, write: bool = True) -> dict[str, Any]:
         "generator": "scripts/sourcea_e2e_registry_generate_v1.py",
         "overrides": "data/sourcea-e2e-check-registry-overrides-v1.json",
         "law": "brain-os/law/enforcement/SOURCEA_E2E_WEEKLY_CHECKLIST_LOCKED_v1.md",
+        "slo": {
+            "freshness_target_minutes": 24 * 60,
+            "success_rate_target": 0.99,
+            "latency_target_minutes": 60,
+        },
         "summary": {
             "total_checks": len(checks),
             "e2e_named": len(e2e_ids),

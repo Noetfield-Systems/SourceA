@@ -1,5 +1,7 @@
 # INCIDENT-044 — Cloud Forge Run NO SKIP · mandatory 100 shipped per turn
 
+> **SUPERSEDED 2026-07-05 (INCIDENT-045)** for `mandatory_shipped_per_turn: 100`. **No-skip on motor fail** below remains active.
+
 **Locked:** 2026-06-24T22:00:00Z  
 **Pairs:** INCIDENT-043 · `data/cloud-forge-run-hundred-rows-per-turn-vocabulary-v1.json` · `data/cloud-auto-runtime-v1.json`
 
