@@ -65,6 +65,7 @@ def check_pre_write(*, agent: str, path: str, explicit_order: str = "") -> dict:
     if bool(guard.get("allowed")) and not blockers:
         from ui_upgrade_baseline_guard_v1 import check_path, is_governed_ui_path  # noqa: WPS433
         from ui_upgrade_first_check_v1 import check_write as ui_first_check  # noqa: WPS433
+        from pr_conflict_resolver_first_check_v1 import check_write as pr_conflict_check  # noqa: WPS433
 
         ui_first = ui_first_check(path=path, explicit_order=explicit_order)
         if not ui_first.get("ok") and not ui_first.get("skipped"):
@@ -74,6 +75,11 @@ def check_pre_write(*, agent: str, path: str, explicit_order: str = "") -> dict:
             ui_baseline = check_path(path)
             if not ui_baseline.get("ok"):
                 blockers.append("UI_BASELINE_FAIL")
+        else:
+            pr_row = pr_conflict_check(path=path, explicit_order=explicit_order)
+            if not pr_row.get("ok") and not pr_row.get("skipped"):
+                blockers.append("PR_CONFLICT_RESOLVER_FIRST_CHECK_REQUIRED")
+                ui_baseline = pr_row
 
     allowed = bool(guard.get("allowed")) and not blockers
 
@@ -118,11 +124,15 @@ def check_pre_write(*, agent: str, path: str, explicit_order: str = "") -> dict:
                 ui_baseline.get("message")
                 if "UI_UPGRADE_FIRST_CHECK_REQUIRED" in blockers and isinstance(ui_baseline, dict)
                 else (
+                    ui_baseline.get("message")
+                    if "PR_CONFLICT_RESOLVER_FIRST_CHECK_REQUIRED" in blockers and isinstance(ui_baseline, dict)
+                    else (
                     "UI baseline fail — run: python3 scripts/ui_upgrade_baseline_guard_v1.py check --path \""
                     + path
                     + "\" --json"
                     if "UI_BASELINE_FAIL" in blockers
                     else (blockers[0] if blockers else guard.get("message") or "write blocked")
+                    )
                 )
             )
         ),
