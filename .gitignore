@@ -72,3 +72,8 @@ agent-control-panel/command-data-runtime.json
 agent-control-panel/command-data-shell.json
 agent-control-panel/command-data-canonical.json
 brain-os/plan-registry/SOURCEA-PRIORITY.md
+
+# L0 repo graph memory — full index is a large local cache (~20MB, 28k files);
+# rebuild on demand via scripts/build_repo_graph_v1.py (~5s). Only the compact
+# graph-out/GRAPH_REPORT.md is committed and read by agents.
+graph-out/graph_index_v1.json
