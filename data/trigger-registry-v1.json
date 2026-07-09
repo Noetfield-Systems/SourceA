@@ -512,32 +512,6 @@
       }
     },
     {
-      "trigger_id": "SA-T-automation-surface-daily",
-      "system": "sourcea",
-      "kind": "schedule",
-      "schedule": "11 6 * * *",
-      "target": "SourceA automation surface health daily sweep",
-      "valid_in_verified_window": true,
-      "owner_workflow": "sourcea-automation-surface-health",
-      "live_probe": {
-        "type": "gha_schedule",
-        "path": ".github/workflows/sourcea-automation-surface-health.yml"
-      }
-    },
-    {
-      "trigger_id": "SA-T-automation-surface-weekly",
-      "system": "sourcea",
-      "kind": "schedule",
-      "schedule": "19 7 * * 1",
-      "target": "SourceA automation surface weekly sweep",
-      "valid_in_verified_window": true,
-      "owner_workflow": "sourcea-automation-surface-health",
-      "live_probe": {
-        "type": "gha_schedule",
-        "path": ".github/workflows/sourcea-automation-surface-health.yml"
-      }
-    },
-    {
       "trigger_id": "SA-T-automation-surface-manual",
       "system": "sourcea",
       "kind": "manual",
@@ -548,98 +522,6 @@
       "live_probe": {
         "type": "gha_workflow",
         "path": ".github/workflows/sourcea-automation-surface-health.yml",
-        "expects": [
-          "workflow_dispatch"
-        ]
-      }
-    },
-    {
-      "trigger_id": "SA-T-layer2-audit",
-      "system": "sourcea",
-      "kind": "schedule",
-      "schedule": "*/30 * * * *",
-      "target": "Layer 2 audit trigger (30m) - cross-repo policy and drift scanning",
-      "valid_in_verified_window": true,
-      "owner_workflow": "layer2-audit",
-      "scope": "noetfield-os",
-      "actions_budget_minutes": 30,
-      "live_probe": {
-        "type": "gha_schedule",
-        "path": ".github/workflows/layer2-audit-v1.yml"
-      }
-    },
-    {
-      "trigger_id": "SA-T-layer2-heal",
-      "system": "sourcea",
-      "kind": "schedule",
-      "schedule": "*/60 * * * *",
-      "target": "Layer 2 heal trigger (60m) - auto-fix proposals via PR",
-      "valid_in_verified_window": true,
-      "owner_workflow": "layer2-heal",
-      "scope": "noetfield-os",
-      "actions_budget_minutes": 60,
-      "live_probe": {
-        "type": "gha_schedule",
-        "path": ".github/workflows/layer2-heal-v1.yml"
-      }
-    },
-    {
-      "trigger_id": "SA-T-layer2-research",
-      "system": "sourcea",
-      "kind": "schedule",
-      "schedule": "*/120 * * * *",
-      "target": "Layer 2 research trigger (120m) - deep cross-repo analysis",
-      "valid_in_verified_window": true,
-      "owner_workflow": "layer2-research",
-      "scope": "noetfield-os",
-      "actions_budget_minutes": 120,
-      "live_probe": {
-        "type": "gha_schedule",
-        "path": ".github/workflows/layer2-research-v1.yml"
-      }
-    },
-    {
-      "trigger_id": "SA-T-layer2-specialist",
-      "system": "sourcea",
-      "kind": "schedule",
-      "schedule": "*/240 * * * *",
-      "target": "Layer 2 specialist trigger (240m) - domain-specific healing",
-      "valid_in_verified_window": true,
-      "owner_workflow": "layer2-specialist",
-      "scope": "noetfield-os",
-      "actions_budget_minutes": 240,
-      "live_probe": {
-        "type": "gha_schedule",
-        "path": ".github/workflows/layer2-specialist-v1.yml"
-      }
-    },
-    {
-      "trigger_id": "SA-T-layer2-orchestrator",
-      "system": "sourcea",
-      "kind": "schedule",
-      "schedule": "*/360 * * * *",
-      "target": "Layer 2 orchestrator trigger (360m) - cross-repo coordination and filing",
-      "valid_in_verified_window": true,
-      "owner_workflow": "layer2-orchestrator",
-      "scope": "noetfield-os",
-      "actions_budget_minutes": 360,
-      "live_probe": {
-        "type": "gha_schedule",
-        "path": ".github/workflows/layer2-orchestrator-v1.yml"
-      }
-    },
-    {
-      "trigger_id": "SA-T-layer2-drill-test",
-      "system": "sourcea",
-      "kind": "manual",
-      "schedule": null,
-      "target": "Layer 2 drill test - validate founder_gated classification for protected paths",
-      "valid_in_verified_window": false,
-      "owner_workflow": "layer2-drill-test",
-      "scope": "noetfield-os",
-      "live_probe": {
-        "type": "gha_workflow",
-        "path": ".github/workflows/layer2-orchestrator-v1.yml",
         "expects": [
           "workflow_dispatch"
         ]
