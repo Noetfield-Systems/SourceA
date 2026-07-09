@@ -140,7 +140,7 @@ Before claiming DONE on any pipeline or node upgrade:
 ## 8. Proof commands (copy-paste)
 
 ```bash
-cd ~/Desktop/SourceA
+cd ~/Desktop/Noetfield-Systems/SourceA
 python3 scripts/agent_session_gate_run_v1.py --role worker --json
 bash scripts/validate-anti-staleness-vocabulary-gate-v1.sh
 bash scripts/validate-pipeline-node-graph-v1.sh

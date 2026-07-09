@@ -13,14 +13,14 @@ alwaysApply: true
 
 **Brain session start (once per Brain chat — or after context summarization):**
 ```bash
-cd ~/Desktop/SourceA && bash scripts/brain-session-start.sh
+cd ~/Desktop/Noetfield-Systems/SourceA && bash scripts/brain-session-start.sh
 ```
 
 **Every Brain turn after that:** read `~/.sina/brain_session_receipt_v1.json` + session gate receipt — **do not re-run** `brain-session-start.sh` mid-turn (INCIDENT-039).
 
 **Worker chat:**
 ```bash
-cd ~/Desktop/SourceA && python3 scripts/cursor_entry_gate.py --role worker
+cd ~/Desktop/Noetfield-Systems/SourceA && python3 scripts/cursor_entry_gate.py --role worker
 python3 scripts/cursor_agent_self_audit.py session-start
 ```
 

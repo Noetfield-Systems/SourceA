@@ -27,7 +27,7 @@ Read `~/Desktop/MacLaw/MAC_CONTROL_PLANE_LOCKED.md` when Mac, SourceA, factory, 
 ## Boot (Mac control panel only)
 
 ```bash
-bash ~/Desktop/SourceA/scripts/enter-mac-control-plane-v1.sh
+bash ~/Desktop/Noetfield-Systems/SourceA/scripts/enter-mac-control-plane-v1.sh
 open http://127.0.0.1:13020/
 open http://127.0.0.1:8780/
 open http://127.0.0.1:8781/
@@ -44,7 +44,7 @@ open http://127.0.0.1:8781/
 Optional read-only glance (not factory body):
 
 ```bash
-python3 ~/Desktop/SourceA/scripts/loop_specialist_tick_v1.py --json
+python3 ~/Desktop/Noetfield-Systems/SourceA/scripts/loop_specialist_tick_v1.py --json
 ```
 
 ASF override only — see MAC_CONTROL_PLANE_LOCKED.md.
