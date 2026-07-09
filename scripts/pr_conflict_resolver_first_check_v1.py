@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import fnmatch
 import json
+import os
 import re
 import subprocess
 import sys
@@ -72,12 +73,14 @@ def load_ssot() -> dict:
 
 
 def _resolve_contained(path: str) -> Path | None:
-    """Resolve a user-supplied path; refuse anything outside the repo root."""
-    p = Path(path.replace("~/", str(Path.home()) + "/"))
-    if not p.is_absolute():
-        p = ROOT / p
-    p = p.resolve()
-    return p if p.is_relative_to(ROOT) else None
+    """Normalize a user-supplied path; refuse anything outside the repo root."""
+    raw = path.replace("~/", str(Path.home()) + "/")
+    if not os.path.isabs(raw):
+        raw = os.path.join(str(ROOT), raw)
+    normalized = os.path.normpath(raw)
+    if normalized != str(ROOT) and not normalized.startswith(str(ROOT) + os.sep):
+        return None
+    return Path(normalized)
 
 
 def _rel_path(path: str) -> str:
