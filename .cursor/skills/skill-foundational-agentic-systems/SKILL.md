@@ -34,7 +34,7 @@ description: >-
 Quote live posture every substantive reply:
 
 ```bash
-cd ~/Desktop/SourceA
+cd ~/Desktop/Noetfield-Systems/SourceA
 python3 -c "import json; d=json.load(open('$HOME/.sina/agent-live-surfaces-v1.json')); print(d.get('factory_now_line')); print(d.get('sascip_line'))"
 ```
 
@@ -77,7 +77,7 @@ L3   Portfolio repos ............ TrustField · Noetfield · YA5 · Forge
 ## 3. Session start (mandatory — every agent)
 
 ```bash
-cd ~/Desktop/SourceA
+cd ~/Desktop/Noetfield-Systems/SourceA
 python3 scripts/agent_session_gate_run_v1.py --role <worker|brain|any> --json
 ```
 
@@ -182,7 +182,7 @@ Healthy: **ADMIT** · tier T1–T4 · `stranger: false` · Mac Health `:13024` t
 ## 10. Proof commands (foundation health)
 
 ```bash
-cd ~/Desktop/SourceA
+cd ~/Desktop/Noetfield-Systems/SourceA
 python3 scripts/agent_session_gate_run_v1.py --role worker --json
 bash scripts/validate-anti-staleness-vocabulary-gate-v1.sh
 bash scripts/validate-pipeline-node-graph-v1.sh

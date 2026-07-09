@@ -68,7 +68,7 @@ THORN P0 → TRUNK P1 → BRANCH P2 → BARK P3 → LEAF P4-6 → FALLEN P7
 ## Proof scripts
 
 ```bash
-cd ~/Desktop/SourceA
+cd ~/Desktop/Noetfield-Systems/SourceA
 python3 scripts/authority_root_coverage_audit.py
 bash scripts/validate-law-purity-ssot-v1.sh
 bash scripts/validate-no-archive-as-law-v1.sh

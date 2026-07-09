@@ -15,7 +15,7 @@ disable-model-invocation: true
 ## Session start
 
 ```bash
-cd ~/Desktop/SourceA
+cd ~/Desktop/Noetfield-Systems/SourceA
 python3 scripts/agent_truth_bundle_v1.py --json
 python3 scripts/factory_control_v1.py now
 ```

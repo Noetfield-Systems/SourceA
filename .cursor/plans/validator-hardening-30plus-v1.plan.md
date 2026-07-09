@@ -167,12 +167,12 @@ flowchart TD
 ## Ready-to-paste (after implementation)
 
 ```bash
-cd ~/Desktop/SourceA && bash scripts/validate-agent-runtime-mac-light-v1.sh
-cd ~/Desktop/SourceA && bash scripts/validate-agent-runtime-cloud-ci-v1.sh
+cd ~/Desktop/Noetfield-Systems/SourceA && bash scripts/validate-agent-runtime-mac-light-v1.sh
+cd ~/Desktop/Noetfield-Systems/SourceA && bash scripts/validate-agent-runtime-cloud-ci-v1.sh
 ```
 
 **Pre-write (every disk edit):**
 
 ```bash
-cd ~/Desktop/SourceA && python3 scripts/pre_write_guard_v1.py check --agent cursor --path "<target>" --json
+cd ~/Desktop/Noetfield-Systems/SourceA && python3 scripts/pre_write_guard_v1.py check --agent cursor --path "<target>" --json
 ```

@@ -22,7 +22,7 @@ UI: **Cloud Workers.app** → Proceed next cloud task (full-pack)
 
 **Founder deploy (you run — not agents):**
 ```bash
-cd ~/Desktop/SourceA && python3 scripts/deploy_fbe_railway_v1.py
+cd ~/Desktop/Noetfield-Systems/SourceA && python3 scripts/deploy_fbe_railway_v1.py
 ```
 
 Stale cloud (`No module named hub_cloud_forge_run_proceed_v1`) → deploy command + amber banner.
