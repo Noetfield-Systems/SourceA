@@ -1,10 +1,42 @@
 /* sourcea.app — world-class root landing (2026) */
 .sa-root-home { --sa-home-glow: rgba(105, 212, 25, 0.35); }
 
+/* Stable hero — no 88vh void, no fade-in flash, clear fixed docks */
 .sa-root-home .sa-root-hero {
-  padding: clamp(3rem, 8vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4rem);
-  position: relative; overflow: hidden; min-height: 88vh;
+  padding: clamp(2rem, 5vw, 3.25rem) 0 clamp(2rem, 4vw, 2.75rem);
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
 }
+.sa-root-home .sa-hero-stable .sa-fade-up,
+.sa-root-home .sa-hero-stable .sa-line-reveal,
+.sa-root-home .sa-hero-stable.ar-visible {
+  opacity: 1 !important;
+  transform: none !important;
+  clip-path: none !important;
+  filter: none !important;
+  animation: none !important;
+}
+.sa-root-home .ar-hero-ref-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-bottom: 0.25rem;
+}
+.sa-root-home.sa-has-chatbot .ar-hero-ref-copy {
+  padding-bottom: 4.75rem;
+}
+.sa-root-home .sa-root-global-pill { margin-bottom: 0.35rem; }
+.sa-root-home .ar-kicker { margin-bottom: 0.25rem; }
+.sa-root-home .sa-category-tag { margin-bottom: 0.35rem; }
+.sa-root-home .ar-hero-actions { margin-top: 0.35rem !important; }
+.sa-root-home .sa-taxonomy-box { margin-top: 0.75rem !important; }
+.sa-root-home .sa-buyer-chips { margin-top: 0.5rem; }
+.sa-root-home .sa-pillar-chips { margin-top: 0.5rem; }
+.sa-root-home .sa-hero-scene { opacity: 0.42; }
+.sa-root-home .sa-aurora-canvas { display: none; }
+.sa-root-home .sa-hero-parallax-grid.is-parallax { transform: none !important; }
+
 .sa-root-home .sa-root-hero .ar-container { position: relative; z-index: 2; }
 .sa-root-home .sa-hero-grid { align-items: center; }
 
@@ -145,3 +177,91 @@
   display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center;
 }
 .sa-root-home .sa-footer-bottom p { margin: 0; font-size: 0.85rem; color: var(--ar-text-muted); }
+
+/* Hero live console — mobile stack (WS-03) */
+@media (max-width: 900px) {
+  .sa-root-home .sa-hero-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .sa-root-home .ar-hero-ref-visual { order: 2; width: 100%; }
+  .sa-root-home .ar-hero-ref-copy { order: 1; }
+  .sa-root-home #sa-biz-command.sa-hero-console-v1 {
+    margin-top: 0.5rem;
+    max-width: 100%;
+  }
+  .sa-root-home .sa-biz-tabs {
+    flex-wrap: nowrap;
+    padding-bottom: 0.25rem;
+  }
+  .sa-root-home .sa-biz-panels { min-height: 11rem; }
+  .sa-root-home .sa-console-chrome {
+    flex-wrap: wrap;
+    row-gap: 0.35rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sa-root-home .sa-hero-console-v1 .sa-biz-panel { animation: none !important; }
+  .sa-root-home .sa-hero-console-v1.is-tab-switch .sa-fleet-stats,
+  .sa-root-home .sa-hero-console-v1.is-tab-switch .sa-roster { transition: none !important; }
+}
+
+/* Forge hero embed (WS-04) */
+.sa-forge-hero-embed {
+  margin-top: 1rem;
+  border: 1px solid rgba(4, 68, 65, 0.18);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(4, 68, 65, 0.08);
+}
+.sa-forge-hero-embed-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid rgba(4, 68, 65, 0.12);
+  font-size: 0.82rem;
+}
+.sa-forge-hero-embed-full {
+  font-weight: 600;
+  color: var(--ar-accent-deep, #044441);
+  text-decoration: none;
+}
+.sa-forge-hero-embed-shell {
+  min-height: 340px;
+  position: relative;
+  background: #0c0e12;
+}
+.sa-forge-hero-embed-launch {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: min(18rem, 90%);
+  height: 3rem;
+  border: 1px solid rgba(105, 212, 25, 0.45);
+  border-radius: 999px;
+  background: rgba(4, 68, 65, 0.85);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.sa-forge-hero-embed-frame {
+  display: block;
+  width: 100%;
+  min-height: 340px;
+  border: 0;
+  background: #0c0e12;
+}
+.sa-forge-hero-embed-offline {
+  padding: 1rem;
+  text-align: center;
+  color: #f07178;
+  font-size: 0.85rem;
+}
+@media (max-width: 768px) {
+  .sa-forge-hero-embed-shell { min-height: 280px; }
+  .sa-forge-hero-embed-frame { min-height: 280px; }
+}

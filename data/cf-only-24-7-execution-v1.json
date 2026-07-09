@@ -1,0 +1,54 @@
+{
+  "schema": "cf-only-24-7-execution-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-06T06:40:00Z",
+  "one_law": "All 24/7 scheduled/autonomous motors run on Cloudflare Workers cron only. GitHub Actions never owns schedule: — CI gates and workflow_dispatch manual backup only.",
+  "validator": "scripts/validate-cf-only-24-7-v1.sh",
+  "dispatch_ssot": "data/loop-specialist-cron-dispatch-v1.json",
+  "deploy_all": "scripts/deploy_cf_all_motors_v1.sh",
+  "cf_motors": [
+    {
+      "worker": "sourcea-loop-specialist-tick-v1",
+      "wrangler_cron": "*/15 * * * *",
+      "role": "loop · signal factory · nerve · gateway HTTP · hourly/daily/weekly dispatch via isCronDue",
+      "health": "https://sourcea-loop-specialist-tick-v1.sina-kazemnezhad-ca.workers.dev/health"
+    },
+    {
+      "worker": "sourcea-cloud-auto-runtime-tick-v1",
+      "wrangler_cron": "*/10 * * * *",
+      "role": "Cloud Forge Run auto-tick · brain verifier bundled",
+      "health": "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev/health"
+    },
+    {
+      "worker": "sourcea-deadman-v1",
+      "wrangler_cron": "*/30 * * * *",
+      "role": "loop_registry staleness · alert + one restart attempt · independent cron path",
+      "health": "https://sourcea-deadman-v1.sina-kazemnezhad-ca.workers.dev/health"
+    }
+  ],
+  "gha_allowed": {
+    "purpose": "ship_window_ci_and_manual_backup_only",
+    "forbidden_triggers": ["schedule", "repository_dispatch_as_primary_motor"],
+    "workflows": [
+      { "file": "validate.yml", "triggers": ["pull_request", "push", "workflow_dispatch"], "role": "PR/main disk policy gate" },
+      { "file": "external-verify.yml", "triggers": ["push", "workflow_dispatch", "workflow_run"], "role": "L4 buyer surface verify" },
+      { "file": "determinism-gate.yml", "triggers": ["push", "workflow_dispatch"], "role": "determinism on law-path push" },
+      { "file": "deploy-sourcea-buyer-surfaces-v1.yml", "triggers": ["push", "workflow_dispatch"], "role": "Pages deploy on push" },
+      { "file": "repo-policy-gate.yml", "triggers": ["pull_request", "push"], "role": "repo boundary" },
+      { "file": "validate-sourcea-boot-v1.yml", "triggers": ["pull_request", "push"], "role": "boot package" },
+      { "file": "autonomous-drain-cron-v1.yml", "triggers": ["workflow_dispatch"], "role": "manual Cloud Forge Run backup only" },
+      { "file": "gmail-sweep-hourly-v1.yml", "triggers": ["workflow_dispatch"], "role": "manual backup — CF owns 0 * * * *" },
+      { "file": "kaizen-nightly-v1.yml", "triggers": ["workflow_dispatch"], "role": "manual backup — CF owns 0 3 * * *" },
+      { "file": "ops-heartbeat-daily-v1.yml", "triggers": ["workflow_dispatch"], "role": "manual backup — CF owns 0 7 * * *" },
+      { "file": "repo-health-daily-v1.yml", "triggers": ["workflow_dispatch"], "role": "manual backup — CF owns 0 8 * * *" },
+      { "file": "security-sweep-weekly-v1.yml", "triggers": ["workflow_dispatch"], "role": "manual backup — CF owns 0 9 * * 0" }
+    ]
+  },
+  "deprecated_cf_workers_no_cron": [
+    "noetfield-nerve-probe-v1",
+    "sourcea-signal-factory-tick-v1"
+  ],
+  "uptime_monitors": "data/noos-external-monitors-v1.json",
+  "loop_liveness": "data/loop-registry-v1.json",
+  "trigger_inventory": "scripts/loop_trigger_host_inventory_v1.py --write"
+}

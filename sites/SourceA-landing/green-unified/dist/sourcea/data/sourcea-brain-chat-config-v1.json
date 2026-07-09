@@ -8,7 +8,7 @@
   "max_message_len": 2000,
   "public_domain": "https://sourcea.app",
   "fallback_chips": true,
-  "hint_offline": "Brain is offline right now — use the buttons below or book a call.",
+  "hint_offline": "Brain is offline right now — try Forge Terminal, /eval, or live proof below.",
   "settings_panel": "/sourcea/brain-chat-settings",
   "forge_terminal_demo": "/sourcea/forge/terminal"
 }

@@ -1,0 +1,13 @@
+name = "sourcea-deadman-v1"
+main = "src/index.js"
+compatibility_date = "2024-06-01"
+account_id = "0d0b967b77e2e5535455d39ff3dae72c"
+# Independent */30 path — watches loop_registry; never piggyback loop-specialist cron
+
+[triggers]
+crons = ["*/30 * * * *"]
+
+[observability]
+enabled = true
+
+# Secrets: SUPABASE_URL · SUPABASE_SERVICE_ROLE_KEY · TELEGRAM_OPS_CHAT_ID · TELEGRAM_PRIMARY_BOT_TOKEN

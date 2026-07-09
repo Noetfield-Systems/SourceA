@@ -1,0 +1,28 @@
+{
+  "schema": "gmail-triage-e2e-v1",
+  "ok": true,
+  "verdict": "PASS",
+  "at": "2026-07-06T07:22:55Z",
+  "dry_run": true,
+  "sweep": {
+    "ok": true,
+    "skipped": true
+  },
+  "triage": {
+    "ok": true,
+    "skipped": true
+  },
+  "checks": {
+    "supabase_row": true,
+    "processed": true,
+    "telegram_notified": true,
+    "verdict_valid": true
+  },
+  "sample_row_id": null,
+  "pass_definition": [
+    "supabase_row",
+    "processed",
+    "telegram_notified",
+    "verdict_valid"
+  ]
+}
