@@ -7,8 +7,8 @@ alwaysApply: true
 
 Read `/Users/sinakazemnezhad/.sina/agent-workspaces/semej/GOVERNANCE_LOCKED.md` every session.
 
-- **Code:** `/Users/sinakazemnezhad/Desktop/SourceA`
-- **Forbidden:** `/Users/sinakazemnezhad/Desktop/SourceA`
+- **Code:** `/Users/sinakazemnezhad/Desktop/Noetfield-Systems/SourceA`
+- **Forbidden:** `/Users/sinakazemnezhad/Desktop/Noetfield-Systems/SourceA`
 - **Private:** `/Users/sinakazemnezhad/.sina/agent-workspaces/semej`
 - **Never** edit `~/Desktop/SourceA`.
 

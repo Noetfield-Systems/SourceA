@@ -685,6 +685,22 @@ def run_gate(role: str = "any", *, scan_text: str = "", pre_ship: bool = False, 
             )
             ok = ok and step_ok
 
+            code, out = _run(
+                [PY, str(SCRIPTS / "pr_conflict_resolver_first_check_v1.py"), "--wire", "--json"]
+            )
+            pcr = json.loads(out[out.find("{") :]) if "{" in out else {}
+            step_ok = code == 0 and bool(pcr.get("wire_ok"))
+            steps.append(
+                {
+                    "step": "pr_conflict_resolver_first_check",
+                    "ok": step_ok,
+                    "exit": code,
+                    "pr_conflict_resolver_first_check_line": (pcr.get("line") or "")[:96],
+                    "wire_ok": pcr.get("wire_ok"),
+                }
+            )
+            ok = ok and step_ok
+
     conduct_role = CONDUCT_ROLE_MAP.get(role, role)
     main_problem_row: dict = {}
     if scan_text.strip():

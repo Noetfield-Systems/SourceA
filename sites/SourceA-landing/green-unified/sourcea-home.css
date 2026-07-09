@@ -1,41 +1,116 @@
-/* sourcea.app — world-class root landing (2026) */
+/* sourcea.app — root landing (stable hero UX) */
 .sa-root-home { --sa-home-glow: rgba(105, 212, 25, 0.35); }
 
-/* Stable hero — no 88vh void, no fade-in flash, clear fixed docks */
-.sa-root-home .sa-root-hero {
-  padding: clamp(2rem, 5vw, 3.25rem) 0 clamp(2rem, 4vw, 2.75rem);
-  position: relative;
-  overflow: hidden;
-  min-height: 0;
+/* Kill agentrun 120–160px hero void + cinematic jump */
+.sa-root-home .ar-hero.sa-root-hero {
+  padding: calc(4.75rem + env(safe-area-inset-top, 0px)) 0 2.25rem !important;
+  min-height: 0 !important;
+  overflow: visible;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(154, 231, 97, 0.12), transparent 42%),
+    linear-gradient(rgba(4, 68, 65, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(4, 68, 65, 0.03) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
 }
-.sa-root-home .sa-hero-stable .sa-fade-up,
-.sa-root-home .sa-hero-stable .sa-line-reveal,
-.sa-root-home .sa-hero-stable.ar-visible {
-  opacity: 1 !important;
-  transform: none !important;
-  clip-path: none !important;
-  filter: none !important;
-  animation: none !important;
+.sa-root-home .sa-hero-scene-lite {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  z-index: 0;
+}
+.sa-root-home .sa-hero-scene-lite .sa-grid-perspective {
+  animation: none;
+  opacity: 0.5;
+}
+.sa-root-home .sa-hero-content { position: relative; z-index: 1; }
+.sa-root-home .sa-hero-grid-stable {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  align-items: start;
+}
+@media (min-width: 960px) {
+  .sa-root-home .sa-hero-grid-stable {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
 }
 .sa-root-home .ar-hero-ref-copy {
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
+  max-width: 40rem;
+}
+.sa-root-home .ar-hero-ref-copy h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4.8vw, 3.35rem);
+  line-height: 1.08;
+}
+.sa-root-home .ar-hero-lead { margin: 0; max-width: 36rem; }
+.sa-root-home .sa-hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.65rem;
-  padding-bottom: 0.25rem;
+  margin-top: 0.25rem;
 }
-.sa-root-home.sa-has-chatbot .ar-hero-ref-copy {
-  padding-bottom: 4.75rem;
+.sa-root-home .sa-taxonomy-box {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(4, 68, 65, 0.16);
+  border-radius: 12px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  background: rgba(255, 255, 255, 0.72);
 }
-.sa-root-home .sa-root-global-pill { margin-bottom: 0.35rem; }
-.sa-root-home .ar-kicker { margin-bottom: 0.25rem; }
-.sa-root-home .sa-category-tag { margin-bottom: 0.35rem; }
-.sa-root-home .ar-hero-actions { margin-top: 0.35rem !important; }
-.sa-root-home .sa-taxonomy-box { margin-top: 0.75rem !important; }
-.sa-root-home .sa-buyer-chips { margin-top: 0.5rem; }
-.sa-root-home .sa-pillar-chips { margin-top: 0.5rem; }
-.sa-root-home .sa-hero-scene { opacity: 0.42; }
-.sa-root-home .sa-aurora-canvas { display: none; }
-.sa-root-home .sa-hero-parallax-grid.is-parallax { transform: none !important; }
+.sa-root-home .sa-taxonomy-box p { margin: 0; }
+.sa-root-home .ar-hero-ref-visual {
+  position: sticky;
+  top: calc(4.5rem + env(safe-area-inset-top, 0px));
+}
+.sa-root-home .sa-hero-console-stable {
+  max-height: min(28rem, 70vh);
+  overflow: auto;
+  transform: none !important;
+}
+.sa-root-home .sa-hero-console-stable.is-tab-switch .sa-fleet-stats,
+.sa-root-home .sa-hero-console-stable.is-tab-switch .sa-roster,
+.sa-root-home .sa-hero-console-stable.is-tab-switch .sa-biz-activity {
+  animation: none !important;
+  transition: none !important;
+}
+.sa-root-home .sa-biz-command::before { animation: none; opacity: 0.35; }
+.sa-root-home .sa-fleet-panel.is-tilt { transform: none !important; }
+.sa-root-home .sa-cursor-glow { display: none !important; }
+
+/* Fixed docks — clear hero copy */
+.sa-root-home .ar-hero-ref-copy {
+  padding-left: 0;
+  padding-bottom: 0.5rem;
+}
+@media (max-width: 720px) {
+  .sa-root-home .ar-hero-ref-copy {
+    padding-left: 3.25rem;
+    padding-bottom: 5.5rem;
+  }
+}
+.sa-root-home.sa-has-chatbot .ar-hero-ref-copy { padding-bottom: 0.5rem; }
+@media (max-width: 720px) {
+  .sa-root-home.sa-has-chatbot .ar-hero-ref-copy { padding-bottom: 5.5rem; }
+}
+.sa-root-home .sa-playbook-dock { bottom: 5.5rem; }
+.sa-root-home .sa-pulse-feedback-fab { bottom: 1.15rem; }
+
+/* No fade-in flash above fold */
+.sa-root-home .sa-root-hero .ar-visible,
+.sa-root-home .sa-root-hero .sa-fade-up,
+.sa-root-home .sa-root-hero .sa-line-reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+.sa-root-home .sa-hero-below-fold {
+  padding: 0 0 2rem;
+}
 
 .sa-root-home .sa-root-hero .ar-container { position: relative; z-index: 2; }
 .sa-root-home .sa-hero-grid { align-items: center; }

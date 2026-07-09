@@ -7,13 +7,19 @@
 
   const SCHEMA = "sourcea-platform-session-v1";
   const STORAGE_KEY = "sourcea-platform-session-v1";
+  const VERSION = "1.5.0";
   const STEPS = ["sign-in", "profile", "workspace"];
   const ROUTES = {
-    signin: "/sourcea/forge/terminal/signin",
-    signup: "/sourcea/forge/terminal/signup",
+    signin: "/auth/sign-in",
+    signup: "/auth/sign-up",
+    callback: "/auth/callback",
+    signout: "/auth/sign-out",
+    signinForge: "/sourcea/forge/terminal/signin",
+    signupForge: "/sourcea/forge/terminal/signup",
     profile: "/sourcea/forge/terminal/profile",
     workspace: "/sourcea/forge/terminal/workspace",
     demo: "/sourcea/forge/terminal",
+    platform: "/platform",
   };
 
   function emptySession() {
@@ -101,17 +107,50 @@
     });
   }
 
-  function redirectToSignin() {
-    if (typeof window !== "undefined" && !window.location.pathname.endsWith("/signin")) {
-      window.location.href = ROUTES.signin;
+  function currentPath() {
+    if (typeof window === "undefined") return "/";
+    return (window.location.pathname || "/") + (window.location.search || "");
+  }
+
+  function signInUrl(nextPath) {
+    var next = nextPath || currentPath();
+    var base = ROUTES.signin;
+    if (
+      !next ||
+      next.indexOf("/auth/sign-in") === 0 ||
+      next.indexOf("/auth/sign-up") === 0 ||
+      next.indexOf("/auth/callback") === 0
+    ) {
+      return base;
     }
+    return base + "?next=" + encodeURIComponent(next);
+  }
+
+  function redirectToSignin(nextPath) {
+    if (typeof window === "undefined") return;
+    var path = window.location.pathname || "";
+    if (path.indexOf("/sign-in") !== -1 || path.indexOf("/signin") !== -1 || path.indexOf("/auth/callback") !== -1) {
+      return;
+    }
+    window.location.replace(signInUrl(nextPath));
+  }
+
+  function bootTier2HeadGuard(step) {
+    if (typeof window === "undefined") return;
+    var s = readLocal();
+    if (canAccess(step, s)) return;
+    if (step === "workspace" && isSignedIn(s)) {
+      window.location.replace(ROUTES.profile);
+      return;
+    }
+    redirectToSignin();
   }
 
   function routeGuard(step) {
     const s = readLocal();
     if (canAccess(step, s)) return s;
     if (step === "workspace" && isSignedIn(s)) {
-      window.location.href = ROUTES.profile;
+      window.location.replace(ROUTES.profile);
       return s;
     }
     redirectToSignin();
@@ -125,7 +164,7 @@
     }
     if (canAccess(step, s)) return s;
     if (step === "workspace" && isSignedIn(s)) {
-      window.location.href = ROUTES.profile;
+      window.location.replace(ROUTES.profile);
       return s;
     }
     redirectToSignin();
@@ -199,7 +238,7 @@
       }
     }
     if (typeof window !== "undefined") {
-      window.location.href = ROUTES.signin;
+      window.location.href = ROUTES.signout;
     }
   }
 
@@ -211,6 +250,7 @@
   }
 
   global.SourceAPlatformSession = {
+    VERSION: VERSION,
     SCHEMA: SCHEMA,
     STEPS: STEPS,
     ROUTES: ROUTES,
@@ -218,8 +258,11 @@
     write: writeLocal,
     isSignedIn: isSignedIn,
     canAccess: canAccess,
+    signInUrl: signInUrl,
+    currentPath: currentPath,
     routeGuard: routeGuard,
     routeGuardAsync: routeGuardAsync,
+    bootTier2HeadGuard: bootTier2HeadGuard,
     stepIndex: stepIndex,
     syncToMac: syncToMac,
     provisionOnMac: provisionOnMac,

@@ -21,9 +21,11 @@
     "platform_neutral_world_model": "data/platform-neutral-world-model-v1.json",
     "phase0_freemium_sandbox": "data/phase0-freemium-sandbox-reference-v1.json",
     "anti_theater_loop": "data/anti-theater-validator-loop-v1.json",
-    "orchestrator": "scripts/plans_unified_upgrade_v1.py"
+    "orchestrator": "scripts/plans_unified_upgrade_v1.py",
+    "sourcea_site_score_w2": "brain-os/plan-registry/sourcea-site-score-up-1000/REGISTRY.json",
+    "sourcea_deep_research_10": "data/sourcea-deep-research-10-upgrade-plan-v1.json"
   },
-  "saved_at": "2026-06-24T08:37:08Z",
+  "saved_at": "2026-07-08T01:51:52Z",
   "upgrade_policy": {
     "phase_1": "exhaust free-tier tools first",
     "phase_2": "affordable AI tools \u2014 founder approval before wire",

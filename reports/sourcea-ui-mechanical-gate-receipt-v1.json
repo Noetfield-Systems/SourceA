@@ -1,6 +1,6 @@
 {
   "schema": "sourcea-ui-mechanical-gate-v1",
-  "at": "2026-07-06T15:51:53Z",
+  "at": "2026-07-08T07:38:09Z",
   "verdict": "PASS",
   "ok": true,
   "publish_allowed": true,
@@ -34,5 +34,5 @@
   "landing_root": "/Users/sinakazemnezhad/Desktop/Noetfield-Systems/SourceA/SourceA-landing/green-unified",
   "factory_now_line": "ui-mechanical · PASS · 19 assets · 0 findings",
   "next_action": "Ship allowed — UI mechanical gate PASS",
-  "receipt_checksum": "5425007a549d6250"
+  "receipt_checksum": "3e06d3630825ed25"
 }
