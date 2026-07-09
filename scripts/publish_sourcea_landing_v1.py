@@ -868,6 +868,32 @@ def refresh_outbound_packs() -> dict:
         return {"ok": proc.returncode == 0, "out": (proc.stdout or "")[-400:]}
 
 
+def run_sourcea_auth_domains_audit(*, mode: str = "live") -> dict[str, Any]:
+    """SourceA-only auth domains machine — app · ca · uk."""
+    proc = _run(
+        [
+            sys.executable,
+            str(ROOT / "scripts" / "sourcea_auth_domains_audit_v1.py"),
+            "--mode",
+            mode,
+            "--json",
+        ],
+        cwd=ROOT,
+        timeout=120,
+    )
+    try:
+        row = json.loads(proc.stdout)
+        return {
+            "ok": proc.returncode == 0 and bool(row.get("ok")),
+            "verdict": row.get("verdict"),
+            "pass_count": row.get("pass_count"),
+            "fail_count": row.get("fail_count"),
+            "receipt": str(ROOT / "reports" / "sourcea-auth-domains-audit-latest-v1.json"),
+        }
+    except json.JSONDecodeError:
+        return {"ok": False, "error": (proc.stderr or proc.stdout)[-400:]}
+
+
 def run_founder_proof_verify(*, min_seconds: int = 60) -> dict[str, Any]:
     """Public HTTPS verify of 15 founder recipes — fail-closed after Pages publish."""
     if min_seconds > 0:
@@ -1029,6 +1055,19 @@ def publish(
             "error": "brain_live_production BLOCK — production Brain smoke failed on sourcea.app",
         }
 
+    auth_domains = {"ok": True, "skipped": True, "reason": "ephemeral or non-pages deploy"}
+    if deploy_row.get("backend") in ("cloudflare_pages", "vercel") and not deploy_row.get("ephemeral"):
+        auth_domains = run_sourcea_auth_domains_audit(mode="live")
+    steps.append({"step": "sourcea_auth_domains_audit", **auth_domains})
+    if not auth_domains.get("ok") and not auth_domains.get("skipped"):
+        return {
+            "ok": False,
+            "schema": "sourcea-landing-publish-v1",
+            "at": _now(),
+            "steps": steps,
+            "error": "sourcea_auth_domains_audit BLOCK — SourceA app/ca/uk auth surface failed",
+        }
+
     founder_proof: dict = {"ok": True, "skipped": True, "reason": "not sourcea-com pages deploy"}
     if no_inline_verify:
         founder_proof = {
@@ -1059,7 +1098,11 @@ def publish(
     steps.append({"step": "outbound_refresh", **repair})
 
     row = {
-        "ok": (verify.get("ok", False) or bool(canonical_base and brain_live.get("ok"))) and brain_live.get("ok", False),
+        "ok": (
+            (verify.get("ok", False) or bool(canonical_base and brain_live.get("ok")))
+            and brain_live.get("ok", False)
+            and (auth_domains.get("ok", False) or auth_domains.get("skipped", False))
+        ),
         "schema": "sourcea-landing-publish-v1",
         "at": _now(),
         "base_url": public_base,

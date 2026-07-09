@@ -1,0 +1,192 @@
+{
+  "schema": "sa-runtime-surface-heal-v1",
+  "at": "2026-07-08T00:30:03Z",
+  "ok": true,
+  "work_id": "sa-runtime-surface-heal-v1",
+  "authority_order": [
+    "kill_flag_auto_run_disabled",
+    "runtime_controller_receipt",
+    "worker_prompt_inbox",
+    "phase_observed",
+    "factory_now",
+    "projection_surfaces"
+  ],
+  "canonical": {
+    "schema": "sa-runtime-canonical-state-v1",
+    "at": "2026-07-08T00:29:49Z",
+    "work_id": "sa-runtime-surface-heal-v1",
+    "authority_order": [
+      "kill_flag_auto_run_disabled",
+      "runtime_controller_receipt",
+      "worker_prompt_inbox",
+      "phase_observed",
+      "factory_now",
+      "projection_surfaces"
+    ],
+    "kill_flag": false,
+    "current_cloud_head": "CLOUD-SEC-8120",
+    "current_cloud_batch": 83,
+    "current_cloud_observed_at": "2026-07-07T14:01:41Z",
+    "current_worker_job": "sa-9001",
+    "current_worker_plan": "UP-DR-01",
+    "current_queue": {
+      "thread": "DEEP-RESEARCH-W1",
+      "phase": "phase-deep-research-w1-v1",
+      "pos": 1,
+      "total": 10,
+      "path": "/Users/sinakazemnezhad/.sina/healthy-queue-30-active.json"
+    },
+    "current_line": "factory-now \u00b7 Valid YES 1000 \u00b7 brain 1000 \u00b7 dual_proof True \u00b7 mode SINGLE_SA \u00b7 queue sa-9001 \u00b7 cloud CLOUD-SEC-8120",
+    "factory_mode": "SINGLE_SA",
+    "sprint_state": "paused_bounded_resume",
+    "resume_required": true,
+    "inbox_pending": true,
+    "inbox_delivered_at": "2026-07-08T00:05:41Z",
+    "runtime_controller_superseded": true,
+    "runtime_controller_receipt_at": "2026-07-07T09:19:52Z",
+    "drift_healed": {
+      "factory_line_was": "factory-now \u00b7 Valid YES 1000 \u00b7 brain 1000 \u00b7 dual_proof True \u00b7 mode SINGLE_SA \u00b7 queue sa-dlm-v1",
+      "factory_queue_sa_was": "sa-dns-public-v1",
+      "healthy_queue_pos_was": 3,
+      "monitor_here_sa_was": "sa-dlm-v1"
+    },
+    "next_allowed_action": "DISPATCH_WORKER_ONE_TURN",
+    "census_at": "2026-07-06T09:59:11Z"
+  },
+  "cf_proof_gap": {
+    "schema": "sa-cf-tick-proof-gap-v1",
+    "at": "2026-07-08T00:29:49Z",
+    "census_stale": true,
+    "census_at": "2026-07-06T09:59:11Z",
+    "loops": [
+      {
+        "name": "sourcea-cloud-auto-runtime-tick-v1",
+        "status": "RUNNING_PROOF_GAP",
+        "schedule_cron": "*/10 * * * *",
+        "last_receipt_at": null,
+        "census_at": "2026-07-06T09:59:11Z",
+        "value_class": "META"
+      },
+      {
+        "name": "sourcea-loop-specialist-tick-v1",
+        "status": "RUNNING_PROOF_GAP",
+        "schedule_cron": "*/15 * * * *",
+        "last_receipt_at": null,
+        "census_at": "2026-07-06T09:59:11Z",
+        "value_class": "META"
+      },
+      {
+        "name": "sourcea-signal-factory-tick-v1",
+        "status": "RUNNING_PROOF_GAP",
+        "schedule_cron": null,
+        "last_receipt_at": null,
+        "census_at": "2026-07-06T09:59:11Z",
+        "value_class": "META"
+      },
+      {
+        "name": "noetfield-nerve-probe-v1",
+        "status": "RUNNING_PROOF_GAP",
+        "schedule_cron": null,
+        "last_receipt_at": null,
+        "census_at": "2026-07-06T09:59:11Z",
+        "value_class": "GUARD"
+      }
+    ],
+    "follow_up_fix_items": [
+      "Wire tick receipt path for sourcea-cloud-auto-runtime-tick-v1 into workflow-census last_receipt_at",
+      "Wire tick receipt path for sourcea-loop-specialist-tick-v1 into workflow-census last_receipt_at",
+      "Wire tick receipt path for sourcea-signal-factory-tick-v1 into workflow-census last_receipt_at",
+      "Wire tick receipt path for noetfield-nerve-probe-v1 into workflow-census last_receipt_at"
+    ],
+    "law": "Do not claim PASS without receipt path"
+  },
+  "bounded_resume": {
+    "schema": "sa-bounded-resume-receipt-v1",
+    "at": "2026-07-08T00:29:49Z",
+    "resume_token_id": "2026-07-08T00:29:49Z",
+    "resumed_job": "sa-9001",
+    "resumed_plan": "UP-DR-01",
+    "allowed_scope": "one Worker turn \u00b7 sa-9001 \u00b7 UP-DR deep research lane only",
+    "max_steps": 1,
+    "max_turns": 1,
+    "stop_condition": "WORKER_ROUND_REPORT \u00b7 one bounded turn \u00b7 STOP",
+    "factory_mode": "SINGLE_SA",
+    "kill_flag": false,
+    "receipt_path": "/Users/sinakazemnezhad/.sina/founder-resume-drain-v1.json",
+    "heal_receipt_path": "/Users/sinakazemnezhad/Desktop/Noetfield-Systems/SourceA/receipts/sa_runtime_surface_heal_v1.json",
+    "law": "SINGLE_SA bounded resume \u2014 no unbounded drain",
+    "founder_resume_token": {
+      "ok": true,
+      "hub_projection_sync": {
+        "ok": false,
+        "caller": "resume_token",
+        "script": "align_command_data_ui_v1.py",
+        "returncode": 1,
+        "stdout_tail": "OK: /Users/sinakazemnezhad/Desktop/Noetfield-Systems/SourceA/sina-bowl/MASTER_ORDERS.json\nFAIL: align_command_data_ui_v1 \u2014 validate-ui-zero-drift-v1 FAIL\n",
+        "stderr_tail": ""
+      },
+      "schema": "founder-resume-drain-v1",
+      "at": "2026-07-08T00:29:49Z",
+      "trigger": "WORK: sa-runtime-surface-heal-v1",
+      "max_turns": 1,
+      "max_packs": 1,
+      "expires_at": "2026-07-08T00:59:49Z",
+      "set_by": "sa_runtime_surface_heal_v1",
+      "law": "bounded resume only \u2014 receipt required"
+    }
+  },
+  "surface_sync": {
+    "ok": true,
+    "steps": [
+      {
+        "step": "healthy_queue_state",
+        "ok": true,
+        "next_pos": 1
+      },
+      {
+        "step": "orchestrator",
+        "ok": true,
+        "expected_sa": "sa-9001"
+      },
+      {
+        "step": "factory_now",
+        "ok": true
+      },
+      {
+        "step": "monitor_live",
+        "ok": true
+      },
+      {
+        "step": "agent_live_surfaces",
+        "ok": true
+      },
+      {
+        "step": "active_now",
+        "ok": true,
+        "sa_id": "sa-9001",
+        "queue_role": "act",
+        "queue_pos": 1,
+        "queue_total": 10,
+        "hash8": "3ad3ae70"
+      },
+      {
+        "step": "active_now_fields",
+        "ok": true
+      },
+      {
+        "step": "runtime_controller_receipt",
+        "ok": true
+      },
+      {
+        "step": "run_inbox_truth",
+        "ok": true
+      }
+    ]
+  },
+  "outputs": {
+    "canonical": "receipts/sa_runtime_canonical_state_v1.json",
+    "cf_gap": "receipts/sa_cf_tick_proof_gap_v1.json",
+    "heal": "receipts/sa_runtime_surface_heal_v1.json",
+    "report": "docs/SA_RUNTIME_SURFACE_HEAL_REPORT_v1.md"
+  }
+}

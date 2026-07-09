@@ -43,11 +43,11 @@
 /sourcea/home/  /  301
 /sourcea/factories/try-factory-demo  /sourcea/sandbox  301
 /sourcea/factories/try-factory-demo/  /sourcea/sandbox  301
-/sourcea/platform/sign-in  /sourcea/forge/terminal/signin  301
-/sourcea/platform/sign-up  /sourcea/forge/terminal/signup  301
+/sourcea/platform/sign-in  /auth/sign-in  301
+/sourcea/platform/sign-up  /auth/sign-up  301
 /sourcea/platform/profile  /sourcea/forge/terminal/profile  301
 /sourcea/platform/workspace  /sourcea/forge/terminal/workspace  301
-/platform/sign-in  /sourcea/forge/terminal/signin  301
-/platform/sign-up  /sourcea/forge/terminal/signup  301
+/platform/sign-in  /auth/sign-in  301
+/platform/sign-up  /auth/sign-up  301
 /platform/profile  /sourcea/forge/terminal/profile  301
 /platform/workspace  /sourcea/forge/terminal/workspace  301
