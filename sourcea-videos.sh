@@ -1,1 +1,1 @@
-/Users/sinakazemnezhad/Desktop/SourceA/scripts/film/sourcea-videos.sh
+scripts/film/sourcea-videos.sh

@@ -63,11 +63,12 @@
       LINKS.map(function (l) {
         var cls = "official-link-tab" + (l.id === active ? " active" : "");
         if (l.agentPriority && l.id !== active) cls += " agent-priority";
+        var href = isStandaloneShell() ? "#" : l.href;
         return (
           '<a class="' +
           cls +
           '" href="' +
-          l.href +
+          href +
           '" data-sina-app="' +
           l.id +
           '" rel="noopener"><span class="dot"></span>' +

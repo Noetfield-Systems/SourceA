@@ -16,7 +16,7 @@ AGENTRUN = Path.home() / "Desktop/agentrun-app"
 
 SOURCEA_EMAIL = "hello@sourcea.app"
 SOURCEA_URL = "https://sourcea.app"
-GITHUB_BOOT = "https://github.com/kazemnezhadsina144-dot/sourcea-boot"
+GITHUB_BOOT = "https://github.com/Noetfield-Systems/sourcea-boot"
 
 
 def agentgo_html() -> str:

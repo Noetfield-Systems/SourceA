@@ -89,6 +89,36 @@ COPY scripts/fbe_cloud_loop_specialist_tick_v1.py scripts/fbe_cloud_loop_special
 COPY scripts/fbe_cloud_signal_factory_tick_v1.py scripts/fbe_cloud_signal_factory_tick_v1.py
 COPY scripts/signal_factory_core_v1.py scripts/signal_factory_core_v1.py
 COPY scripts/signal_factory_tick_v1.py scripts/signal_factory_tick_v1.py
+# Ops motors (Gmail sweep · SF triage · Kaizen nightly · ops heartbeat)
+COPY scripts/gmail_inbox_sweep_v1.py scripts/gmail_inbox_sweep_v1.py
+COPY scripts/signal_factory_triage_v1.py scripts/signal_factory_triage_v1.py
+COPY scripts/kaizen_nightly_tick_v1.py scripts/kaizen_nightly_tick_v1.py
+COPY scripts/daily_ops_heartbeat_v1.py scripts/daily_ops_heartbeat_v1.py
+COPY scripts/fbe_cloud_ops_motors_v1.py scripts/fbe_cloud_ops_motors_v1.py
+COPY scripts/fbe_cloud_scheduled_loops_v1.py scripts/fbe_cloud_scheduled_loops_v1.py
+COPY scripts/gha_repo_health_sweep_v1.py scripts/gha_repo_health_sweep_v1.py
+COPY scripts/gha_security_sweep_v1.py scripts/gha_security_sweep_v1.py
+COPY scripts/validate_locked_definitions_anatomy_v1.py scripts/validate_locked_definitions_anatomy_v1.py
+COPY scripts/verify_autorun_determinism_v1.py scripts/verify_autorun_determinism_v1.py
+COPY .github/workflows .github/workflows
+COPY scripts/telegram_alert_v1.py scripts/telegram_alert_v1.py
+COPY scripts/improvement_queue_insert_v1.py scripts/improvement_queue_insert_v1.py
+COPY scripts/kaizen_handler_pgrst_reload_v1.py scripts/kaizen_handler_pgrst_reload_v1.py
+COPY scripts/kaizen_handler_workflow_lint_v1.py scripts/kaizen_handler_workflow_lint_v1.py
+COPY scripts/kaizen_handler_repo_policy_v1.py scripts/kaizen_handler_repo_policy_v1.py
+COPY scripts/verify_client_proof_founder_review_v1.py scripts/verify_client_proof_founder_review_v1.py
+COPY scripts/check_sourcea_repo_policy.py scripts/check_sourcea_repo_policy.py
+COPY scripts/validate-github-workflows-v1.sh scripts/validate-github-workflows-v1.sh
+COPY data/client-proof-founder-review-pack-v1.json data/client-proof-founder-review-pack-v1.json
+COPY repo-policy.json repo-policy.json
+COPY scripts/portfolio_mail_hub_v1.py scripts/portfolio_mail_hub_v1.py
+COPY scripts/autorun_pending_v1.py scripts/autorun_pending_v1.py
+COPY scripts/sandbox_health_sweep_v1.py scripts/sandbox_health_sweep_v1.py
+COPY scripts/validate-noetfield-nerve-probe-v1.sh scripts/validate-noetfield-nerve-probe-v1.sh
+COPY scripts/build_external_verify_l4_receipt_v1.py scripts/build_external_verify_l4_receipt_v1.py
+COPY scripts/post_external_verify_l4_truth_v1.py scripts/post_external_verify_l4_truth_v1.py
+COPY scripts/ops_motors_status_v1.py scripts/ops_motors_status_v1.py
+COPY scripts/gmail_triage_e2e_v1.py scripts/gmail_triage_e2e_v1.py
 COPY scripts/founder_reply_translator_v1.py scripts/founder_reply_translator_v1.py
 COPY scripts/agent_report_language_gate_v1.py scripts/agent_report_language_gate_v1.py
 COPY data/founder-reply-glossary-v1.json data/founder-reply-glossary-v1.json
@@ -100,11 +130,18 @@ COPY data/signal-factory-v1.json data/signal-factory-v1.json
 COPY data/signal-factory-queue-v1.json data/signal-factory-queue-v1.json
 COPY data/signal-factory-synthetic-seed-v1.json data/signal-factory-synthetic-seed-v1.json
 COPY data/signal-factory-cloud-contract-v1.json data/signal-factory-cloud-contract-v1.json
+COPY data/gmail-sweep-ssot-v1.json data/gmail-sweep-ssot-v1.json
+COPY data/trigger-registry-v1.json data/trigger-registry-v1.json
+COPY data/kaizen-fix-handlers-v1.json data/kaizen-fix-handlers-v1.json
+COPY data/portfolio-vault-email-tags-v1.json data/portfolio-vault-email-tags-v1.json
+COPY data/copilot-scheduled-automations-v1.json data/copilot-scheduled-automations-v1.json
 COPY data/hub-cloud-forge-run-proceed-v1.json data/hub-cloud-forge-run-proceed-v1.json
 COPY data/cloud-auto-runtime-v1.json data/cloud-auto-runtime-v1.json
 COPY data/living-system-chain-registry-cloud-v1.json data/living-system-chain-registry-cloud-v1.json
 COPY scripts/hub_cloud_forge_run_proceed_v1.py scripts/hub_cloud_forge_run_proceed_v1.py
 COPY scripts/cloud_forge_run_queue_path_v1.py scripts/cloud_forge_run_queue_path_v1.py
+COPY packages/sourcea-sdk packages/sourcea-sdk
+RUN pip install --no-cache-dir ./packages/sourcea-sdk PyJWT cryptography
 COPY scripts/cloud_auto_runtime_v1.py scripts/cloud_auto_runtime_v1.py
 COPY scripts/cloud_auto_runtime_single_cycle_gate_v1.py scripts/cloud_auto_runtime_single_cycle_gate_v1.py
 COPY scripts/truth_layer_receipt_writer_v1.py scripts/truth_layer_receipt_writer_v1.py
@@ -121,7 +158,7 @@ COPY scripts/forge_cloud_env_load_v1.py scripts/forge_cloud_env_load_v1.py
 COPY scripts/task_plan_priority_v1.py scripts/task_plan_priority_v1.py
 COPY data/sourcea-competitor-1000-registry brain-os/plan-registry/sourcea-competitor-1000
 
-RUN mkdir -p /app/receipts/bays /app/receipts/packs /app/receipts/partners /app/receipts/cloud/autonomous-forge-run-cycles /tmp/fbe_artifacts /tmp/fbe_receipts /root/.sina
+RUN mkdir -p /app/receipts/bays /app/receipts/packs /app/receipts/partners /app/receipts/cloud/autonomous-forge-run-cycles /app/receipts/cloud/ops-heartbeat /app/receipts/cloud/kaizen/nightly /app/receipts/signal-factory/triage /tmp/fbe_artifacts /tmp/fbe_receipts /root/.sina
 
 COPY cloud/seed cloud/seed
 COPY scripts/fbe_cloud_motor_seed_v1.py scripts/fbe_cloud_motor_seed_v1.py

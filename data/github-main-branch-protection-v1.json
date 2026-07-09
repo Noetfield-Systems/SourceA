@@ -1,0 +1,15 @@
+{
+  "schema": "github-main-branch-protection-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-05T16:30:00Z",
+  "branch": "main",
+  "required_status_checks": {
+    "strict": true,
+    "contexts": ["validate"]
+  },
+  "enforce_admins": false,
+  "required_pull_request_reviews": null,
+  "restrictions": null,
+  "apply_script": "scripts/apply_github_main_branch_protection_v1.sh",
+  "notes": "Founder runs apply script once with gh auth admin:repo — enables validate as required check on main."
+}

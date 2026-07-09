@@ -1,1 +1,1 @@
-/Users/sinakazemnezhad/Desktop/SourceA/scripts/film/sourcea-film-build.sh
+scripts/film/sourcea-film-build.sh

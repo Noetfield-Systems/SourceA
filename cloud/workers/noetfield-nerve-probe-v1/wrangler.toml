@@ -1,0 +1,16 @@
+# DEPRECATED — nerve probes piggyback on loop-specialist-tick-v1 (INCIDENT-045 / SourceA-native).
+# Do not deploy this worker; cron removed to avoid registry drift.
+name = "noetfield-nerve-probe-v1"
+main = "src/index.js"
+compatibility_date = "2024-06-01"
+account_id = "0d0b967b77e2e5535455d39ff3dae72c"
+
+[observability]
+enabled = true
+
+# Secrets (Cloudflare dashboard — never commit):
+# SUPABASE_URL
+# SUPABASE_SERVICE_ROLE_KEY
+# TELEGRAM_BOT_TOKEN
+# TELEGRAM_ALERT_CHAT_ID
+# NERVE_PROBE_HEALTH_URL (optional self URL override)

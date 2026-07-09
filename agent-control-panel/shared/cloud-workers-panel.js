@@ -13,6 +13,8 @@
   }
 
   var CF_BASE = "https://sourcea-cloud-auto-runtime-tick-v1.sina-kazemnezhad-ca.workers.dev";
+  var CF_LOOP_BASE = "https://sourcea-loop-specialist-tick-v1.sina-kazemnezhad-ca.workers.dev";
+  var CF_DEADMAN_BASE = "https://sourcea-deadman-v1.sina-kazemnezhad-ca.workers.dev";
 
   function mountTerminal() {
     if (window.SinaMainTerminal && window.SinaMainTerminal.mount) window.SinaMainTerminal.mount();
@@ -28,12 +30,24 @@
   }
 
   async function fetchLiveChainFromCf() {
-    var out = { cf_health: null, cf_queue: null, cf_observer: null, errors: [] };
+    var out = { cf_health: null, cf_loop: null, cf_deadman: null, cf_queue: null, cf_observer: null, errors: [] };
     try {
       var hres = await fetch(CF_BASE + "/health", { cache: "no-store" });
       out.cf_health = await hres.json();
     } catch (e) {
       out.errors.push("cf_health: " + e.message);
+    }
+    try {
+      var lres = await fetch(CF_LOOP_BASE + "/health", { cache: "no-store" });
+      out.cf_loop = await lres.json();
+    } catch (e) {
+      out.errors.push("cf_loop: " + e.message);
+    }
+    try {
+      var dres = await fetch(CF_DEADMAN_BASE + "/health", { cache: "no-store" });
+      out.cf_deadman = await dres.json();
+    } catch (e) {
+      out.errors.push("cf_deadman: " + e.message);
     }
     try {
       var qres = await fetch(CF_BASE + "/queue", { cache: "no-store" });
@@ -63,7 +77,13 @@
       lines.push("  local head " + ((c.queue_local && c.queue_local.head) || "—") + " · batch " + ((c.queue_local && c.queue_local.batch_id) || "—"));
     }
     if (live) {
-      if (live.cf_health) lines.push("CF cron · " + (live.cf_health.cron || "*/10 * * * *") + " · service " + (live.cf_health.service || "—"));
+      if (live.cf_loop && live.cf_loop.ok) {
+        lines.push("CF loop-specialist · */15 · jobs " + ((live.cf_loop.dispatch && live.cf_loop.dispatch.job_count) || "—"));
+      }
+      if (live.cf_deadman && live.cf_deadman.ok) {
+        lines.push("CF deadman · " + (live.cf_deadman.cron || "*/30") + " · watches " + ((live.cf_deadman.watches && live.cf_deadman.watches.length) || "—"));
+      }
+      if (live.cf_health) lines.push("CF auto-runtime · " + (live.cf_health.cron || "*/10 * * * *") + " · proceed " + (live.cf_health.auto_proceed_ready ? "ON" : "off"));
       if (live.cf_queue && live.cf_queue.cloud_forge_run_head) {
         lines.push(
           "LIVE queue · head " +
@@ -76,7 +96,7 @@
       }
       if (live.cf_observer && live.cf_observer.last_pack) {
         var p = live.cf_observer.last_pack;
-        lines.push("LIVE last pack · processed " + (p.processed != null ? p.processed : "—") + "/" + (p.max_advance || 100));
+        lines.push("LIVE last pack · processed " + (p.processed != null ? p.processed : "—") + "/" + (p.max_advance || 1));
       } else if (live.cf_observer && live.cf_observer.cycles && live.cf_observer.cycles.length) {
         var tail = live.cf_observer.cycles[live.cf_observer.cycles.length - 1];
         var pk = tail.pack || {};
@@ -125,7 +145,7 @@
     if (nextEl) nextEl.textContent = "Next: " + tid + (title ? " · " + title : "");
     var lastEl = $("cloud-proceed-last");
     if (lastEl) {
-      var last = cp.last_line || "Mac observe — CF cron runs full_pack×100 (no Mac proceed)";
+      var last = cp.last_line || "Mac observe — CF cron runs full_pack×1 (no Mac proceed)";
       lastEl.textContent = last;
     }
   }
@@ -215,7 +235,7 @@
       autoBanner.hidden = !autoArmed;
       if (autoArmed) {
         autoBanner.textContent =
-          "CF cron */10 (primary) · full_pack×100 on Railway · Mac observe only — no Mac→Railway commands.";
+          "CF cron */10 (primary) · full_pack×1 on Railway · Mac observe only — no Mac→Railway commands.";
       }
     }
     var macObserve = situation.mac_observe_only === true || (cw.chain && cw.chain.mac_never_commands_railway);
@@ -337,7 +357,7 @@
     var ff = typeof j.for_founder === "string" ? { show_this: j.for_founder } : j.for_founder || {};
     var pack = j.pack || (j.cloud && j.cloud.pack) || (j.motor && j.motor.pack) || {};
     var parts = ["HTTP " + res.status];
-    if (pack.processed != null) parts.push("pack processed " + pack.processed + "/" + (pack.max_advance || 100));
+    if (pack.processed != null) parts.push("pack processed " + pack.processed + "/" + (pack.max_advance || 1));
     if (pack.advanced != null) parts.push("shipped " + pack.advanced);
     if (pack.skipped != null) parts.push("skipped " + pack.skipped);
     if (pack.head_now) parts.push("head " + pack.head_now);
@@ -452,7 +472,7 @@
         var out = $("cloud-proceed-result");
         $("btn-cloud-proceed").disabled = true;
         termStart("trigger_cf_pack", "Trigger CF full-pack (browser→cloud)");
-        termLog("POST " + CF_BASE + "/tick · full_pack×100 on Railway · Mac does NOT call Railway");
+        termLog("POST " + CF_BASE + "/tick · full_pack×1 on Railway · Mac does NOT call Railway");
         if (out) out.textContent = "Triggering CF cron full-pack via browser (not Mac server)…";
         try {
           var res = await fetchWithTimeout(

@@ -1,1 +1,1 @@
-/Users/sinakazemnezhad/Desktop/SourceA/scripts/film/runtime-wrapper-resume-demo.sh
+scripts/film/runtime-wrapper-resume-demo.sh

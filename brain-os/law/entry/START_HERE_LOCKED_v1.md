@@ -1,5 +1,7 @@
 # SourceA — START HERE (LOCKED v1)
 
+> **Governance entry (2026-07):** `docs/SOURCEA_GOVERNANCE_ENTRY_UNIFIED_LOCKED_v1.md` — read before this table for session read order.
+
 **Saved:** 2026-06-16T05:49:57Z · **Retrofit:** doc-datetime-law batch retrofit
 **Version:** 1.0 · **Locked:** 2026-06-07  
 **Path:** `~/Desktop/SourceA/`  

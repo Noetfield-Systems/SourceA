@@ -1,0 +1,12 @@
+{
+  "schema": "sourcea-ui-pro-stranger-5s-test-v1",
+  "at": "2026-07-06T14:37:16Z",
+  "script": [
+    "Land on https://sourcea.app/ \u2014 see hero console within 1s",
+    "Click a Plan/Verify engine chip \u2014 console tab changes",
+    "Click Live proof tab \u2014 see boot/AEG data",
+    "Open Tools dock \u2014 pick segment without calendar",
+    "Ask Brain one pricing question \u2014 in-chat answer with link"
+  ],
+  "pass_if": "All five without booking a call"
+}

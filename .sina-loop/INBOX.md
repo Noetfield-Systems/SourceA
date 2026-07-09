@@ -1,9 +1,20 @@
-<!-- WORKER_INBOX pending=0 source=cloud_forge_run_backlog head=CLOUD-SEC-6967 -->
-# SourceA Worker - no Worker INBOX task
+<!-- WORKER_INBOX pending=1 source=deep_research_up_dr queue=1/10 sa=sa-9041 -->
+# SourceA Worker — UP-DR deep research W1
 
-Cloud Workers.app / Cloudflare cron owns the all-plan backlog now.
+**Updated:** 2026-07-06T09:17:58Z
 
-- Head: `CLOUD-SEC-6967`
-- Batch: `71`
-- Shape: `100` Cloud Forge Run rows per trigger, `100` tasks per row
-- Queue file: `data/secondary-cloud-forge-run-batch-71-locked-v1.json`
+---
+
+WORK: sa-9041 — Claim hygiene — install/PyPI
+
+WORK: UP-DR-01 — Claim hygiene — install/PyPI
+Path: SourceA-landing/green-unified/eval.html
+Goal: Eval page and PyPI probe agree — no false install promise
+Done when: probe_sourcea_boot_pypi_v1.py ok OR eval copy says GitHub clone pending
+Verify: cd ~/Desktop/SourceA && python3 scripts/probe_sourcea_boot_pypi_v1.py --json && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/eval --marker "sourcea-boot" && cd ~/Desktop/SourceA && python3 scripts/cloud_forge_run_supabase_v1.py --query --count
+Proof: https://sourcea.app/eval
+One bounded turn · receipt + Supabase row · WORKER_ROUND_REPORT · STOP.
+
+---
+
+**Worker:** one UP-DR plan · verification built in · STOP.

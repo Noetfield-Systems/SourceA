@@ -1,1 +1,1 @@
-/Users/sinakazemnezhad/Desktop/SourceA/scripts/film/sourcea-commercial-film-ship.sh
+scripts/film/sourcea-commercial-film-ship.sh

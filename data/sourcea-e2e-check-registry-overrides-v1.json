@@ -185,6 +185,17 @@
       "est_wall_sec": 60,
       "allowed_context": ["ship_window", "cloud_ci"],
       "runner": "scripts/validate-sourcea-site-pulse-v1.sh"
+    },
+    "ops_motors_e2e": {
+      "label": "Ops motors Gmail sweep → triage e2e",
+      "cadence": "weekly",
+      "unified_tier": "T3_heavy",
+      "est_wall_sec": 300,
+      "allowed_context": ["cloud_ci", "ship_window"],
+      "runner": "scripts/validate-ops-motors-e2e-v1.sh",
+      "env": {
+        "OPS_MOTORS_E2E_LIVE": "1"
+      }
     }
   },
   "check_overrides": {
