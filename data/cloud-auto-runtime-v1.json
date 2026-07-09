@@ -98,5 +98,11 @@
     "sink_invariant": "supabase_count == railway_count every cycle or BLOCKED_WITH_REASON",
     "daily_heartbeat": "receipts/cloud/autonomous-forge-run-heartbeat/heartbeat-YYYY-MM-DD-v1.json",
     "verify_24h": "python3 scripts/verify_autorun_zero_manual_v1.py --hours 24 --json --write-receipt"
+  },
+  "slo_targets": {
+    "pass_threshold_pct": 90,
+    "heartbeat_hours": 24,
+    "zero_manual_hours": 24,
+    "sink_invariant_required": true
   }
 }
