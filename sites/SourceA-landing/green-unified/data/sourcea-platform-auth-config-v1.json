@@ -1,11 +1,20 @@
 {
   "schema": "sourcea-platform-auth-config-v1",
-  "at": "2026-07-08T00:36:29Z",
+  "at": "2026-07-08T07:45:02Z",
   "configured": true,
+  "venture": "sourcea",
   "supabase_url": "https://ldfruywifqnfpwsfgmdl.supabase.co",
   "supabase_anon_key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxkZnJ1eXdpZnFuZnB3c2ZnbWRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAwMzY3OTIsImV4cCI6MjA5NTYxMjc5Mn0.ETJQMWEO0eIgwDh9YSmtZ5C-jHGT31oXC1PdsUWR5RQ",
-  "redirect_path": "/sourcea/forge/terminal/signin",
+  "callback_path": "/auth/callback",
+  "redirect_path": "/auth/sign-in",
   "redirect_urls": [
+    "https://sourcea.app/auth/callback",
+    "https://sourcea.app/auth/sign-in",
+    "https://sourcea.app/auth/sign-up",
+    "https://sourcea.app/auth/sign-out",
+    "https://www.sourcea.app/auth/callback",
+    "https://sourcea.ca/auth/callback",
+    "https://sourcea.uk/auth/callback",
     "https://sourcea.app/sourcea/forge/terminal/signin",
     "https://sourcea.app/sourcea/forge/terminal/signup",
     "https://sourcea.app/sourcea/forge/terminal/profile",
@@ -23,5 +32,6 @@
     "magic_link",
     "password_reset"
   ],
-  "tier": "portfolio-spine"
+  "tier": "portfolio-spine",
+  "cross_domain_ssot": "data/cross-domain-auth-surfaces-v1.json"
 }

@@ -31,7 +31,7 @@
   }
 
   /* ── AgentGo: cursor glow ── */
-  if (finePointer && !reduced) {
+  if (finePointer && !reduced && !document.body.classList.contains("sa-root-home")) {
     const glow = document.createElement("div");
     glow.className = "sa-cursor-glow";
     document.body.appendChild(glow);
@@ -1067,7 +1067,7 @@
     rosterStagger();
     rosterCycle();
   }
-  if (document.getElementById("sa-factory-log") && !window.SourceALiveConsole) factoryLog();
+  if (document.getElementById("sa-factory-log") && !window.SourceALiveConsole && !document.body.classList.contains("sa-root-home")) factoryLog();
   if (document.getElementById("sa-agent-pill-text")) agentPillRotate();
   if (document.querySelector(".sa-engine-chip")) engineChipPulse();
   if (document.querySelector(".sa-agent-chip")) agentSwarmCycle();
@@ -1082,7 +1082,7 @@
   if (document.querySelector(".sa-matrix")) matrixReveal();
   if (document.querySelector(".sa-agent-chip[data-biz-role]")) agentChipInteract();
   if (document.getElementById("sa-orchestrator-meta")) orchestratorMetaRotate();
-  if (document.getElementById("sa-biz-command") && !window.SourceALiveConsole) businessCommandCenter();
+  if (document.getElementById("sa-biz-command") && !window.SourceALiveConsole && !document.body.classList.contains("sa-root-home")) businessCommandCenter();
   if (document.getElementById("sa-biz-orbit")) businessTeamOrbit();
   if (document.getElementById("sa-sandbox")) sandboxTheater();
   if (document.querySelector(".sa-growth-console")) growthSystem();
