@@ -11,7 +11,7 @@ alwaysApply: false
 ## Turn entry (every INBOX turn)
 
 ```bash
-cd /Users/sinakazemnezhad/Desktop/SourceA/scripts
+cd /Users/sinakazemnezhad/Desktop/Noetfield-Systems/SourceA/scripts
 bash worker_turn_entry_v1.sh
 ```
 
@@ -20,7 +20,7 @@ Gate + anti-staleness auto-heal (kill hung shells · sync inbox · light hub ref
 ## Worker VERIFY closeout
 
 ```bash
-cd /Users/sinakazemnezhad/Desktop/SourceA/scripts
+cd /Users/sinakazemnezhad/Desktop/Noetfield-Systems/SourceA/scripts
 bash worker_verify_ultra_v1.sh
 ```
 

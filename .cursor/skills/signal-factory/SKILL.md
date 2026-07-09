@@ -138,7 +138,7 @@ Do not implement adapter logic in v1 core.
 ## Commands
 
 ```bash
-cd ~/Desktop/SourceA
+cd ~/Desktop/Noetfield-Systems/SourceA
 
 # Analyze one signal
 python3 scripts/signal_factory_core_v1.py \
