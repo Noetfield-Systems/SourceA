@@ -18,7 +18,7 @@ disable-model-invocation: true
 ## Commands
 
 ```bash
-cd ~/Desktop/SourceA
+cd ~/Desktop/Noetfield-Systems/SourceA
 bash scripts/validate-anti-staleness-bundle-v1.sh
 python3 scripts/hub_projection_sync_v1.py --caller maintainer --json
 python3 scripts/align_command_data_ui_v1.py

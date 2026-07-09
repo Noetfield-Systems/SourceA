@@ -54,7 +54,7 @@ python3 scripts/heygen_avatar_setup_v1.py --check --json
 ## Commands
 
 ```bash
-cd ~/Desktop/SourceA
+cd ~/Desktop/Noetfield-Systems/SourceA
 
 # LinkedIn institutional anchor (~40s)
 bash avatar-pipeline.sh linkedin

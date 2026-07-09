@@ -74,7 +74,7 @@ From `witnessbc-commercial-film-beats-v5.json`:
 ## Workflow — flip v1 → v5
 
 ```bash
-cd ~/Desktop/SourceA
+cd ~/Desktop/Noetfield-Systems/SourceA
 
 # Diff beats (v5 derived from v1 + cinematic flags)
 diff <(python3 -c "import json;print(json.dumps(json.load(open('data/witnessbc-commercial-film-beats-v1.json'))['polish'],indent=2))") \

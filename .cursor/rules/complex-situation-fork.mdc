@@ -32,7 +32,7 @@ alwaysApply: false
 ## Quick commands
 
 ```bash
-cd ~/Desktop/SourceA/scripts
+cd ~/Desktop/Noetfield-Systems/SourceA/scripts
 python3 complex_situation_fork_machine_v1.py assess --role brain --json --write-receipt
 python3 complex_situation_fork_machine_v1.py template
 ```
