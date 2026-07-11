@@ -40,7 +40,7 @@ def evaluate(
     artifact: dict[str, Any],
     adapter: dict[str, Any] | None = None,
     rules: dict[str, Any] | None = None,
-    llm_mode: str = "shadow",
+    llm_mode: str = "off",
 ) -> dict[str, Any]:
     adapter = adapter or {}
     rules = rules or {}
@@ -151,7 +151,7 @@ def evaluate_files(
     adapter_path: Path | None,
     rules_path: Path | None,
     output_dir: Path,
-    llm_mode: str = "shadow",
+    llm_mode: str = "off",
 ) -> dict[str, Any]:
     artifact = _read_json(artifact_path)
     adapter = _read_json(adapter_path) if adapter_path else {}

@@ -1,0 +1,25 @@
+{
+  "schema": "sourcea-spine-freeze-receipt-v1",
+  "saved_at": "2026-07-11T06:30:00Z",
+  "package_version": "1.1.1",
+  "merged_sourcea_sha": "PENDING_MERGE",
+  "integrity_status": "AUTHORITATIVE_DEDUCTIVE_MACHINE",
+  "optional_llm_status": "WIRED_NON_BLOCKING_OPT_IN_ONLY",
+  "default_llm_mode": "off",
+  "supported_modes": ["off", "shadow", "advisory"],
+  "canonical_command": "python3 -m content_quality_spine evaluate --artifact <artifact.json> --adapter <adapter.json> --rules <rules.json> --llm-mode off --output <receipt-dir>",
+  "tests": {
+    "package_version": "PASS",
+    "deterministic_proof_bundle": "SHARED_QUALITY_SPINE_PROVEN",
+    "package_evaluate_off_mode": "PASS",
+    "llm_spot_check_shadow": "PASS"
+  },
+  "known_non_blocking_gaps": [
+    "token_usage and estimated_cost null on light_gate provider path — cost_status NOT_REPORTED_BY_PROVIDER_PATH",
+    "non-IVR artifacts use lightweight text_engine integrity not full core_v1 email/commercial gates",
+    "full 21-fixture LLM calibration not re-run at freeze time"
+  ],
+  "scheduled_jobs": "NONE",
+  "continuous_runtime": "DISABLED",
+  "freeze_policy": "Optional reusable capability — portfolio products may use when useful; not required for every artifact"
+}

@@ -8,7 +8,7 @@ from pathlib import Path
 
 from content_quality_spine.calibration import run_calibration
 from content_quality_spine.evaluate import evaluate_files
-from content_quality_spine.version import SPINE_VERSION, rules_hash
+from content_quality_spine.version import LLM_MODE_DEFAULT, SPINE_VERSION, rules_hash
 
 
 def main() -> int:
@@ -20,13 +20,13 @@ def main() -> int:
     ev.add_argument("--adapter", type=Path, default=None)
     ev.add_argument("--rules", type=Path, default=None)
     ev.add_argument("--output", required=True, type=Path)
-    ev.add_argument("--llm-mode", default="shadow", choices=["off", "shadow", "advisory"])
+    ev.add_argument("--llm-mode", default=LLM_MODE_DEFAULT, choices=["off", "shadow", "advisory"])
     ev.add_argument("--json", action="store_true")
 
     cal = sub.add_parser("calibrate", help="Run shadow excellence calibration fixtures")
     cal.add_argument("--output", required=True, type=Path)
     cal.add_argument("--sourceb-root", type=Path, default=None)
-    cal.add_argument("--llm-mode", default="shadow", choices=["off", "shadow", "advisory"])
+    cal.add_argument("--llm-mode", default="shadow", choices=["off", "shadow", "advisory"], help="calibration requires shadow or advisory")
     cal.add_argument("--json", action="store_true")
 
     ver = sub.add_parser("version", help="Print spine version and rules hash")

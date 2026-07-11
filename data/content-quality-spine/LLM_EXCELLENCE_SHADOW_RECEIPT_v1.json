@@ -2,7 +2,7 @@
   "schema": "llm-excellence-shadow-receipt-v1",
   "saved_at": "2026-07-11T06:12:00Z",
   "spine_version": "1.1.0",
-  "llm_mode_default": "shadow",
+  "llm_mode_default": "off",
   "final_status": "LLM_EXCELLENCE_SHADOW_PROVEN",
   "existing_language_assets_reused": {
     "scripts/chat_founder_loop_v1.py": "7-stage language layer orchestration",
