@@ -1,0 +1,83 @@
+{
+  "schema": "shared-content-quality-schema-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-11T05:45:00Z",
+  "canonical_repo": "Noetfield-Systems/SourceA",
+  "runtime": {
+    "core": "scripts/content_quality_spine_core_v1.py",
+    "runner": "scripts/content_quality_spine_run_v1.py",
+    "evidence_root": "data/content-quality-spine/"
+  },
+  "processing_model": [
+    "OBSERVE",
+    "CLASSIFY_ARTIFACT",
+    "AUTHOR_DRAFT",
+    "DETERMINISTIC_VERIFY",
+    "SEMANTIC_CRITIC",
+    "DOMAIN_BRAND_ADVISOR",
+    "TRUTH_EVIDENCE_VERIFY",
+    "ADVERSARIAL_SIMULATION_WHEN_RELEVANT",
+    "FINAL_MACHINE_JUDGE",
+    "TARGETED_HEAL",
+    "APPROVED_CONTENT_ARTIFACT",
+    "EXPENSIVE_GENERATION_OR_EXTERNAL_SEND",
+    "OUTPUT_QUALIFY",
+    "ARCHIVE_PUBLISH_SEND",
+    "LIVE_RECEIPT"
+  ],
+  "pass_types": [
+    "DETERMINISTIC_STRUCTURE_PASS",
+    "SEMANTIC_QUALITY_PASS",
+    "DOMAIN_POLICY_PASS",
+    "TRUTH_EVIDENCE_PASS",
+    "OUTPUT_ASSET_PASS",
+    "LIVE_SURFACE_PASS"
+  ],
+  "dimension_status_enum": ["NOT_EVALUATED", "EVALUATED", "SKIPPED"],
+  "dimension_row": {
+    "dimension": "string",
+    "status": "NOT_EVALUATED | EVALUATED | SKIPPED",
+    "score": "number | null",
+    "evaluator": "string | null"
+  },
+  "llm_receipt_required_fields": [
+    "provider",
+    "model",
+    "role",
+    "prompt_version",
+    "input_hash",
+    "structured_output",
+    "token_or_cost_estimate",
+    "timestamp"
+  ],
+  "artifact_adapters": {
+    "ivr_receptionist": {
+      "class": "E_ivr_receptionist",
+      "deterministic": "content_quality_spine_core_v1.deterministic_ivr",
+      "domain_packs": ["automotive", "field_service", "medical", "general_SMB"]
+    },
+    "commercial_film": {
+      "class": "A_commercial_vo",
+      "deterministic": "content_quality_spine_core_v1.deterministic_commercial_film",
+      "extends": "data/commercial-film-routing-v1.json"
+    },
+    "email": {
+      "class": "email_outreach",
+      "deterministic": "outbound_email_linter_v1.lint_email",
+      "extends": "data/outbound-email-oegcc-v1.json"
+    },
+    "landing_page": {
+      "class": "website_copy",
+      "deterministic": "content_quality_spine_core_v1.deterministic_website_copy",
+      "extends": "scripts/landing_commercial_copy_gate_v1.py"
+    }
+  },
+  "founder_escalation_triggers": [
+    "unresolved_material_ambiguity",
+    "conflicting_high_confidence_advisors",
+    "brand_or_business_judgment",
+    "legal_public_risk_decision",
+    "heal_attempts_exhausted",
+    "missing_authority_for_send_publish_spend_deploy"
+  ]
+}
