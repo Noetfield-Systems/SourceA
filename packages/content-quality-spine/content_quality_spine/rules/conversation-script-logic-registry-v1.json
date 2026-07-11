@@ -9,6 +9,7 @@
     "origin_commit": "e6051f4c7bab3b32ddbe312368349824519fafad",
     "origin_path": "data/voice-demo-scenarios/conversation-script-logic-v1.json",
     "absorbed_at": "2026-07-11T06:00:00Z",
+    "absorbed_into_sourcea_commit": "aa43ca89ed61771fbadd1a8cfa8e5068bee6b81d",
     "note": "R1-R16 single owner in SourceA; SourceB retains IVR adapter config only"
   },
   "artifact_class": "E_ivr_receptionist",
