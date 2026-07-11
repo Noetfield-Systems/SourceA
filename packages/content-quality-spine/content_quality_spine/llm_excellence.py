@@ -223,6 +223,11 @@ def _build_receipt(
     structured_hash = _hash_text(json.dumps(calibrated or {}, sort_keys=True))
     usage = (llm_raw or {}).get("usage") or {}
     gate = (llm_raw or {}).get("gate") or {}
+    has_usage = bool(usage)
+    token_usage = usage if has_usage else None
+    estimated_cost = usage.get("estimated_cost") if has_usage else None
+    actual_cost = usage.get("actual_cost") if has_usage else None
+    cost_status = "REPORTED" if estimated_cost is not None or actual_cost is not None else "NOT_REPORTED_BY_PROVIDER_PATH"
     return {
         "schema": "llm-excellence-receipt-v1",
         "evaluator": "llm_excellence_reviewer",
@@ -248,10 +253,11 @@ def _build_receipt(
             "prompt_version": PROMPT_VERSION,
             "input_hash": input_hash,
             "structured_output_hash": structured_hash if calibrated else None,
-            "token_usage": usage,
-            "estimated_cost": usage.get("estimated_cost"),
-            "actual_cost_if_available": usage.get("actual_cost"),
-            "cost_policy_pass": gate.get("mode") in ("light", "explicit_lock", "bypass", None) or status == "NOT_EVALUATED",
+            "token_usage": token_usage,
+            "estimated_cost": estimated_cost,
+            "actual_cost_if_available": actual_cost,
+            "cost_status": cost_status,
+            "cost_policy_pass": gate.get("mode") in ("light", "explicit_lock", "bypass", None) or status in ("NOT_EVALUATED", "SKIPPED"),
             "timestamp": _now(),
         },
         "sourcea_scripts_path": str(resolve_sourcea_scripts() or ""),
@@ -262,9 +268,9 @@ def evaluate_excellence(
     *,
     artifact: dict[str, Any],
     adapter: dict[str, Any],
-    llm_mode: str = "shadow",
+    llm_mode: str = "off",
 ) -> dict[str, Any]:
-    mode = (llm_mode or "shadow").lower()
+    mode = (llm_mode or "off").lower()
     if mode == "off":
         return _build_receipt(
             status="SKIPPED",
