@@ -5,8 +5,10 @@ import hashlib
 import json
 from importlib import resources
 
-SPINE_VERSION = "1.1.0"
+SPINE_VERSION = "1.1.1"
 PACKAGE_NAME = "content-quality-spine"
+LLM_MODE_DEFAULT = "off"
+SUPPORTED_LLM_MODES = ("off", "shadow", "advisory")
 
 
 def bundled_rules_path(name: str = "conversation-script-logic-registry-v1.json") -> str:
