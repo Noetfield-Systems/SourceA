@@ -18,6 +18,7 @@ UNSUPPORTED_PROMISE_PATTERNS = [
     (r"\barrive (?:at|by) \d", "R8", "promise.arrival_time"),
     (r"call you (?:back )?(?:within|in) \d+ (?:minute|hour)", "R8", "promise.callback_time"),
     (r"maintenance will call within", "R8", "promise.sla_unverified"),
+    (r"within thirty minutes", "R8", "promise.sla_unverified"),
     (r"\bdispatched emergency\b", "R1", "claim.dispatch_without_receipt"),
     (r"\bguaranteed\b", "R8", "promise.guaranteed"),
 ]
@@ -68,7 +69,7 @@ def parse_transcript(text: str) -> list[dict[str, Any]]:
 
 
 def cite(turns: list[dict[str, Any]], speaker: str | None, pattern: str | re.Pattern[str]) -> dict[str, Any] | None:
-    rx = re.compile(pattern) if isinstance(pattern, str) else pattern
+    rx = re.compile(pattern, re.I) if isinstance(pattern, str) else pattern
     for t in turns:
         if speaker and t["speaker"] != speaker:
             continue
@@ -127,6 +128,18 @@ def deterministic_ivr(
             if bad and re.search(bad, recv_only, re.I):
                 hit = cite(turns, "Receptionist", bad)
                 violations.append({**(hit or {}), "rule": "R10", "reason": f"Superseded value; expected {row.get('value')}"})
+
+    if re.search(r"cannot provide medical advice", low) and re.search(
+        r"\b(take|try|use|recommend)\b.+\b(aspirin|medicine|pill|dose|treatment)\b", low
+    ):
+        hit = cite(turns, "Receptionist", r"\b(take|try|use|recommend)\b")
+        violations.append({**(hit or {}), "rule": "R6", "reason": "Medical disclaimer followed by improvised advice"})
+
+    if summary.get("terminal_outcome") == "appointment_requested" and re.search(
+        r"appointment is confirmed|is booked", recv_text, re.I
+    ):
+        hit = cite(turns, "Receptionist", r"appointment is confirmed|is booked")
+        violations.append({**(hit or {}), "rule": "R15", "reason": "Transcript upgrades summary state"})
 
     ok = not violations
     return {
@@ -206,7 +219,7 @@ def semantic_preflight(
             )
 
     if re.search(r"cannot provide medical advice", all_text, re.I) and re.search(
-        r"\b(take|try|use|recommend)\b.+\b(medicine|pill|dose|treatment)\b", all_text, re.I
+        r"\b(take|try|use|recommend)\b.+\b(aspirin|medicine|pill|dose|treatment)\b", all_text, re.I
     ):
         hit = cite(turns, "Receptionist", r"\b(take|try|use|recommend)\b")
         _deduct(
@@ -220,7 +233,7 @@ def semantic_preflight(
             },
         )
 
-    if summary.get("terminal_outcome") == "callback_requested" and re.search(
+    if summary.get("terminal_outcome") == "appointment_requested" and re.search(
         r"appointment is confirmed|is booked", recv_text, re.I
     ):
         hit = cite(turns, "Receptionist", r"appointment is confirmed|is booked")
