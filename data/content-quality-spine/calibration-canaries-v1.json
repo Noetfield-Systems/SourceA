@@ -1,0 +1,146 @@
+{
+  "schema": "calibration-canaries-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-11T05:45:00Z",
+  "purpose": "Prove spine catches known bad patterns from SourceA and SourceB history",
+  "conversation_voice": [
+    {
+      "id": "drive_safe_after_brakes",
+      "artifact_type": "ivr_receptionist",
+      "bad_line": "Drive safe",
+      "violated_rule": "R6",
+      "correction": "Advise avoid driving if braking feels unsafe; do not dismiss with drive safe"
+    },
+    {
+      "id": "dispatch_without_receipt",
+      "pattern": "I dispatched emergency maintenance",
+      "violated_rule": "R1",
+      "correction": "State request submitted only with dispatch_receipt evidence"
+    },
+    {
+      "id": "sla_without_backing",
+      "pattern": "Maintenance will call within thirty minutes",
+      "violated_rule": "R8",
+      "correction": "Remove timed promise or cite verified SLA receipt"
+    },
+    {
+      "id": "policy_leak_pricing",
+      "pattern": "I cannot give pricing on this line",
+      "violated_rule": "R7",
+      "correction": "Offer quote callback or transfer without system-limitation language"
+    },
+    {
+      "id": "medical_disclaimer_then_advice",
+      "violated_rule": "R6",
+      "correction": "Use approved safety block only; no improvised medical advice"
+    },
+    {
+      "id": "calendar_without_lookup",
+      "violated_rule": "R1",
+      "correction": "Require calendar_lookup evidence before stating availability"
+    },
+    {
+      "id": "reservation_without_receipt",
+      "violated_rule": "R1",
+      "correction": "Require update_receipt before confirming reservation change"
+    },
+    {
+      "id": "internal_queue_language",
+      "pattern": "ticket created|queued|flagged",
+      "violated_rule": "R3",
+      "correction": "Replace with customer-facing phrasing"
+    },
+    {
+      "id": "state_upgrade",
+      "pattern": "appointment is confirmed without appointment_confirmed outcome",
+      "violated_rule": "R9",
+      "correction": "Match terminal_outcome to spoken state"
+    }
+  ],
+  "email": [
+    {
+      "id": "invented_personalization",
+      "pattern": "keynote at Acme Summit",
+      "violated_rule": "salvage_pattern",
+      "correction": "Remove unverified recipient-specific claims"
+    },
+    {
+      "id": "unsupported_claim",
+      "pattern": "receipt-native governance at scale",
+      "violated_rule": "forbidden_one",
+      "correction": "Translate architecture jargon to buyer language"
+    },
+    {
+      "id": "multiple_ctas",
+      "violated_rule": "cta_logic",
+      "correction": "Single primary ask"
+    },
+    {
+      "id": "excessive_length",
+      "violated_rule": "word_count",
+      "correction": "Trim to OEGCC soft limit 100 words"
+    },
+    {
+      "id": "casl_sensitive",
+      "note": "Requires relationship basis fields — blocked at send policy not linter alone"
+    }
+  ],
+  "website_copy": [
+    {
+      "id": "text_before_offer",
+      "violated_rule": "copy_density",
+      "correction": "Lead with offer; mark illustrative metrics"
+    },
+    {
+      "id": "unclear_cta",
+      "violated_rule": "cta_logic",
+      "correction": "One primary CTA above fold"
+    },
+    {
+      "id": "conflicting_prices",
+      "violated_rule": "pricing_truth",
+      "correction": "Single price truth per page"
+    },
+    {
+      "id": "architecture_jargon",
+      "violated_rule": "buyer_language",
+      "correction": "SMB buyer phrasing"
+    },
+    {
+      "id": "live_vs_planned",
+      "violated_rule": "feature_truth",
+      "correction": "Label planned features explicitly"
+    }
+  ],
+  "film_video": [
+    {
+      "id": "commercial_in_demo_format",
+      "violated_rule": "D1",
+      "correction": "Separate artifact_class A vs B before authoring"
+    },
+    {
+      "id": "platform_on_ivr",
+      "violated_rule": "D2",
+      "correction": "Customer business name only on line"
+    },
+    {
+      "id": "raw_digits_tts",
+      "violated_rule": "D4",
+      "correction": "spoken_forms for phone/money"
+    },
+    {
+      "id": "incomplete_arc",
+      "violated_rule": "D5",
+      "correction": "Complete interaction outcome before synthesis"
+    },
+    {
+      "id": "video_before_semantic_approval",
+      "note": "Enforced by commercial-film-render-frozen-v1.flag + ship gate"
+    }
+  ],
+  "wired_proof_canaries": [
+    "ivr_drive_safe_after_brakes",
+    "email_invented_personalization"
+  ],
+  "runner": "python3 scripts/content_quality_spine_run_v1.py --canaries --json"
+}
