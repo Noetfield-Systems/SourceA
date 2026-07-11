@@ -1,0 +1,123 @@
+{
+  "schema": "content-quality-reuse-map-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-11T05:45:00Z",
+  "sourcea_head": "061266a83ae8891f81734c4dc395f72d7f0c43cb",
+  "sourceb_main_head": "d786e21284d79bbd6760f6010cc714d846cc5998",
+  "sourceb_ca_release_head": "3449f56687e5ab4da924668184c04770e02f3e2a",
+  "sourceb_latest_lock": "AVAILABLE_IN_SOURCEB_CA_RELEASE",
+  "matrix": [
+    {
+      "capability": "artifact_classification",
+      "sourcea_asset": "data/commercial-film-routing-v1.json + content_quality_spine_core_v1",
+      "sourceb_rule": "voice-video-generation-factory-v1.json D1 classes A-E",
+      "overlap": "HIGH",
+      "gap": "SourceA lacked E_ivr until spine port",
+      "canonical_owner": "SourceA spine + SourceB class registry"
+    },
+    {
+      "capability": "brand_layer_separation",
+      "sourcea_asset": "commercial-film-routing founder_lock + landing_commercial_copy_gate_v1",
+      "sourceb_rule": "D2 platform brand never on customer line",
+      "overlap": "HIGH",
+      "gap": "Film VO vs IVR not unified before spine",
+      "canonical_owner": "SourceA"
+    },
+    {
+      "capability": "evidence_before_claims",
+      "sourcea_asset": "truth_layer_verifier_v1 + governance_critic_eval_v1",
+      "sourceb_rule": "R1 tool/workflow evidence",
+      "overlap": "MEDIUM",
+      "gap": "SourceA governance critic is intent/receipt not dialogue",
+      "canonical_owner": "SourceA spine (dialogue) + governance_critic (ops)"
+    },
+    {
+      "capability": "semantic_critic",
+      "sourcea_asset": "governance_critic_eval_v1 (deterministic) + chat_founder_loop critic stage",
+      "sourceb_rule": "golden-set-semantic-lib.mjs conversation_critic",
+      "overlap": "MEDIUM",
+      "gap": "SourceA had no IVR semantic critic",
+      "canonical_owner": "SourceA spine (ported SourceB patterns)"
+    },
+    {
+      "capability": "domain_advisor",
+      "sourcea_asset": "advisor_pre_call_email_loop_v1 + chat_founder_loop advisor",
+      "sourceb_rule": "golden-set-semantic-lib domainAdvisor",
+      "overlap": "LOW",
+      "gap": "Different artifact focus",
+      "canonical_owner": "SourceA per adapter"
+    },
+    {
+      "capability": "final_judge",
+      "sourcea_asset": "judge_center_run_v1 + outbound_email_judge_v1 + spine final_machine_judge",
+      "sourceb_rule": "orchestrator-v1.json score tiers",
+      "overlap": "MEDIUM",
+      "gap": "Judge center is chat audit not copy",
+      "canonical_owner": "SourceA spine for content; judge_center for ops"
+    },
+    {
+      "capability": "deterministic_gates",
+      "sourcea_asset": "outbound_email_linter_v1 + landing gates + commercial_film_critic_circle",
+      "sourceb_rule": "golden-set-deterministic-lib.mjs Layer A",
+      "overlap": "HIGH",
+      "gap": "SourceB rules not in SourceA until port",
+      "canonical_owner": "SourceA adapters delegating to existing scripts"
+    },
+    {
+      "capability": "heal_retry",
+      "sourcea_asset": "outbound_email_controller_v1 (max 3) + commercial render guard checkpoint",
+      "sourceb_rule": "on_fail targeted_revision + orchestrator heal tier",
+      "overlap": "MEDIUM",
+      "gap": "No unified heal across artifact types",
+      "canonical_owner": "SourceA controller pattern per adapter"
+    },
+    {
+      "capability": "quarantine",
+      "sourcea_asset": "quarantine-blocked-receipts-v1.py + spine QUARANTINED verdict",
+      "sourceb_rule": "approve_or_quarantine on_fail",
+      "overlap": "HIGH",
+      "gap": "None material",
+      "canonical_owner": "SourceA"
+    },
+    {
+      "capability": "receipts",
+      "sourcea_asset": "OEGCC receipts + ~/.sina/enforcement/* + spine run JSON",
+      "sourceb_rule": "SCRIPT_MACHINE_RECEIPT + ORCHESTRATOR_RECEIPT",
+      "overlap": "HIGH",
+      "gap": "Schema harmonization ongoing",
+      "canonical_owner": "SourceA spine schema v1"
+    },
+    {
+      "capability": "cost_model_routing",
+      "sourcea_asset": "model_dispatch.py + ai_unify_api_v1.py + cursor-cost-intelligence-routing",
+      "sourceb_rule": "orchestrator auto_ship 92+ (no LLM cost wire in lock)",
+      "overlap": "LOW",
+      "gap": "SourceB lock is score-tier not provider routing",
+      "canonical_owner": "SourceA model_dispatch"
+    },
+    {
+      "capability": "email_quality",
+      "sourcea_asset": "outbound-email-oegcc-v1.json full stack",
+      "sourceb_rule": "none in conversation lock",
+      "overlap": "N/A",
+      "gap": "SourceB needs OEGCC consumer wire",
+      "canonical_owner": "SourceA"
+    },
+    {
+      "capability": "website_copy_quality",
+      "sourcea_asset": "landing_commercial_copy_gate + landing_copy_depth_gate",
+      "sourceb_rule": "none",
+      "overlap": "N/A",
+      "gap": "SourceB marketing pages need adapter",
+      "canonical_owner": "SourceA"
+    },
+    {
+      "capability": "video_film_quality",
+      "sourcea_asset": "commercial_short_film_v1 + critic_circle + ship_gate",
+      "sourceb_rule": "D6 generate_qualify_ship + L0-L4 loops",
+      "overlap": "HIGH",
+      "gap": "SourceA post-render; SourceB pre-synthesis script gate",
+      "canonical_owner": "SourceA factory + spine pre-gen gate"
+    }
+  ]
+}

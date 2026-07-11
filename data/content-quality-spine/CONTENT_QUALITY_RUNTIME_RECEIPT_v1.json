@@ -1,0 +1,853 @@
+{
+  "runs": [
+    {
+      "fixture": "ivr_receptionist_good",
+      "result": {
+        "schema": "content-quality-spine-run-v1",
+        "run_id": "CQS-a610ccd45357",
+        "at": "2026-07-11T05:42:15Z",
+        "classification": {
+          "artifact_type": "ivr_receptionist",
+          "artifact_class": "E_ivr_receptionist",
+          "classifier": "content_quality_spine_core_v1.classify_artifact"
+        },
+        "domain_pack": "automotive",
+        "metadata": {
+          "fixture": "ivr_receptionist_good",
+          "proof": true
+        },
+        "draft_artifact": {
+          "text": "**Receptionist:** Parkside Auto Care. How can I help?\n\n**Caller:** My brakes are making a grinding noise.\n\n**Receptionist:** Understood. What vehicle is it?\n\n**Caller:** A 2019 Ford Escape.\n\n**Receptionist:** Has the braking performance changed, or are you mainly hearing the noise?\n\n**Caller:** Mainly the noise.\n\n**Receptionist:** What time would work best for you?\n\n**Caller:** Tomorrow morning.\n\n**Receptionist:** I'll ask the shop to confirm the earliest morning opening. May I have your name and number?\n\n**Caller:** Kevin Walsh — six oh four, eight one seven, two two nine oh.\n\n**Receptionist:** Thanks, Kevin. The shop will call or text with availability. If the braking changes or feels unsafe, avoid driving until it has been assessed.\n\n**Receptionist:** You're welcome. Goodbye.",
+          "input_hash": "9990ddf563a6e7bb"
+        },
+        "deterministic_receipt": {
+          "pass_type": "DETERMINISTIC_STRUCTURE_PASS",
+          "status": "PASS",
+          "evaluator": "ivr_deterministic_gates_v1",
+          "turns_parsed": 12,
+          "violations": []
+        },
+        "semantic_critic_receipt": {
+          "pass_type": "SEMANTIC_QUALITY_PASS",
+          "status": "PASS",
+          "evaluator": "rule_based_semantic_critic_v1",
+          "provider": null,
+          "model": null,
+          "role": "semantic_critic",
+          "prompt_version": "content-quality-spine-v1",
+          "input_hash": "9990ddf563a6e7bb",
+          "structured_output": {
+            "deductions": [],
+            "dimensions": [
+              {
+                "dimension": "naturalness",
+                "status": "EVALUATED",
+                "score": 20,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "tone",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "brand_separation",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "truthfulness",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "promise_discipline",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "grammar",
+                "status": "EVALUATED",
+                "score": 10,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "summary_alignment",
+                "status": "EVALUATED",
+                "score": 10,
+                "evaluator": "rule_based_semantic_critic_v1"
+              }
+            ]
+          },
+          "token_or_cost_estimate": 0,
+          "timestamp": "2026-07-11T05:42:15Z"
+        },
+        "domain_brand_advisor_receipt": {
+          "pass_type": "DOMAIN_POLICY_PASS",
+          "status": "PASS",
+          "evaluator": "domain_brand_advisor_v1",
+          "domain_pack": "automotive",
+          "issues": []
+        },
+        "truth_evidence_receipt": {
+          "pass_type": "TRUTH_EVIDENCE_PASS",
+          "status": "PASS",
+          "evaluator": "truth_evidence_verifier_v1",
+          "evidence_keys_required": [],
+          "issues": []
+        },
+        "final_judge_receipt": {
+          "pass_type": "SEMANTIC_QUALITY_PASS",
+          "status": "PASS",
+          "evaluator": "final_machine_judge_v1",
+          "verdict": "APPROVED",
+          "failed_stages": [],
+          "founder_escalation_required": false,
+          "timestamp": "2026-07-11T05:42:15Z"
+        },
+        "revision_history": [],
+        "final_artifact": {
+          "status": "APPROVED",
+          "text": "**Receptionist:** Parkside Auto Care. How can I help?\n\n**Caller:** My brakes are making a grinding noise.\n\n**Receptionist:** Understood. What vehicle is it?\n\n**Caller:** A 2019 Ford Escape.\n\n**Receptionist:** Has the braking performance changed, or are you mainly hearing the noise?\n\n**Caller:** Mainly the noise.\n\n**Receptionist:** What time would work best for you?\n\n**Caller:** Tomorrow morning.\n\n**Receptionist:** I'll ask the shop to confirm the earliest morning opening. May I have your name and number?\n\n**Caller:** Kevin Walsh — six oh four, eight one seven, two two nine oh.\n\n**Receptionist:** Thanks, Kevin. The shop will call or text with availability. If the braking changes or feels unsafe, avoid driving until it has been assessed.\n\n**Receptionist:** You're welcome. Goodbye.",
+          "quarantine_reason": null
+        },
+        "expensive_generation_allowed": true,
+        "model_and_cost": {
+          "routing": "rule_based_only",
+          "llm_invoked": false,
+          "token_or_cost_estimate": 0,
+          "escalation_contract": "data/cursor-cost-intelligence-routing-v1.json"
+        }
+      }
+    },
+    {
+      "fixture": "commercial_film_good",
+      "result": {
+        "schema": "content-quality-spine-run-v1",
+        "run_id": "CQS-ce9963f29b5d",
+        "at": "2026-07-11T05:42:15Z",
+        "classification": {
+          "artifact_type": "commercial_film",
+          "artifact_class": "A_commercial_vo",
+          "classifier": "content_quality_spine_core_v1.classify_artifact"
+        },
+        "domain_pack": "general_SMB",
+        "metadata": {
+          "fixture": "commercial_film_good",
+          "proof": true
+        },
+        "draft_artifact": {
+          "text": "VO: Your agents execute right now. Who stops the one that goes too far?\n\nVO: SourceA puts policy, BLOCK, and receipt on every loop — before spend, send, or deploy.\n\nVO: Book a fifteen-minute proof. See the gate logged, not in a slide deck.",
+          "input_hash": "16b6e9d4f4f6e534"
+        },
+        "deterministic_receipt": {
+          "pass_type": "DETERMINISTIC_STRUCTURE_PASS",
+          "status": "PASS",
+          "evaluator": "commercial_film_deterministic_gates_v1",
+          "violations": []
+        },
+        "semantic_critic_receipt": {
+          "pass_type": "SEMANTIC_QUALITY_PASS",
+          "status": "PASS",
+          "evaluator": "rule_based_semantic_critic_v1",
+          "provider": null,
+          "model": null,
+          "role": "semantic_critic",
+          "prompt_version": "content-quality-spine-v1",
+          "input_hash": "16b6e9d4f4f6e534",
+          "structured_output": {
+            "deductions": [],
+            "dimensions": [
+              {
+                "dimension": "naturalness",
+                "status": "EVALUATED",
+                "score": 20,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "tone",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "brand_separation",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "truthfulness",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "promise_discipline",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "grammar",
+                "status": "EVALUATED",
+                "score": 10,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "summary_alignment",
+                "status": "EVALUATED",
+                "score": 10,
+                "evaluator": "rule_based_semantic_critic_v1"
+              }
+            ]
+          },
+          "token_or_cost_estimate": 0,
+          "timestamp": "2026-07-11T05:42:15Z"
+        },
+        "domain_brand_advisor_receipt": {
+          "pass_type": "DOMAIN_POLICY_PASS",
+          "status": "PASS",
+          "evaluator": "domain_brand_advisor_v1",
+          "domain_pack": "general_SMB",
+          "issues": []
+        },
+        "truth_evidence_receipt": {
+          "pass_type": "TRUTH_EVIDENCE_PASS",
+          "status": "PASS",
+          "evaluator": "truth_evidence_verifier_v1",
+          "evidence_keys_required": [],
+          "issues": []
+        },
+        "final_judge_receipt": {
+          "pass_type": "SEMANTIC_QUALITY_PASS",
+          "status": "PASS",
+          "evaluator": "final_machine_judge_v1",
+          "verdict": "APPROVED",
+          "failed_stages": [],
+          "founder_escalation_required": false,
+          "timestamp": "2026-07-11T05:42:15Z"
+        },
+        "revision_history": [],
+        "final_artifact": {
+          "status": "APPROVED",
+          "text": "VO: Your agents execute right now. Who stops the one that goes too far?\n\nVO: SourceA puts policy, BLOCK, and receipt on every loop — before spend, send, or deploy.\n\nVO: Book a fifteen-minute proof. See the gate logged, not in a slide deck.",
+          "quarantine_reason": null
+        },
+        "expensive_generation_allowed": true,
+        "model_and_cost": {
+          "routing": "rule_based_only",
+          "llm_invoked": false,
+          "token_or_cost_estimate": 0,
+          "escalation_contract": "data/cursor-cost-intelligence-routing-v1.json"
+        }
+      }
+    },
+    {
+      "fixture": "email_good",
+      "result": {
+        "schema": "content-quality-spine-run-v1",
+        "run_id": "CQS-aac21f8cb231",
+        "at": "2026-07-11T05:42:15Z",
+        "classification": {
+          "artifact_type": "email",
+          "artifact_class": "email_outreach",
+          "classifier": "content_quality_spine_core_v1.classify_artifact"
+        },
+        "domain_pack": "general_SMB",
+        "metadata": {
+          "fixture": "email_good",
+          "proof": true
+        },
+        "draft_artifact": {
+          "text": "Subject: Ocree — one question on controlled agent loops\n\nHi Sarah,\n\nTeams like yours are shipping faster with agent loops — and one bad send can erase the win.\n\nWe built a checker that blocks architecture jargon and unsupported claims before anything leaves draft.\n\nWould a 15-minute walkthrough of the receipt trail be useful this week?\n\nSina\nReply **stop** to opt out.",
+          "input_hash": "d3dd00a4aea0d02c"
+        },
+        "deterministic_receipt": {
+          "pass_type": "DETERMINISTIC_STRUCTURE_PASS",
+          "status": "PASS",
+          "evaluator": "outbound_email_linter_v1",
+          "linter": {
+            "schema": "outbound-email-linter-v1",
+            "at": "2026-07-11T05:42:15Z",
+            "ok": true,
+            "subject": "",
+            "lane": "w3_canada",
+            "region": "canada",
+            "word_count": 48,
+            "word_soft_limit": 100,
+            "word_hard_limit": 140,
+            "failures": [],
+            "warnings": [],
+            "repair_lines": [],
+            "law": "docs/SOURCEA_OUTBOUND_EMAIL_GENERATOR_CHECKER_CONTROLLER_LOOP_LOCKED_v1.md",
+            "line": "outbound-linter · PASS · 48w"
+          }
+        },
+        "semantic_critic_receipt": {
+          "pass_type": "SEMANTIC_QUALITY_PASS",
+          "status": "PASS",
+          "evaluator": "rule_based_semantic_critic_v1",
+          "provider": null,
+          "model": null,
+          "role": "semantic_critic",
+          "prompt_version": "content-quality-spine-v1",
+          "input_hash": "d3dd00a4aea0d02c",
+          "structured_output": {
+            "deductions": [],
+            "dimensions": [
+              {
+                "dimension": "naturalness",
+                "status": "EVALUATED",
+                "score": 20,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "tone",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "brand_separation",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "truthfulness",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "promise_discipline",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "grammar",
+                "status": "EVALUATED",
+                "score": 10,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "summary_alignment",
+                "status": "EVALUATED",
+                "score": 10,
+                "evaluator": "rule_based_semantic_critic_v1"
+              }
+            ]
+          },
+          "token_or_cost_estimate": 0,
+          "timestamp": "2026-07-11T05:42:15Z"
+        },
+        "domain_brand_advisor_receipt": {
+          "pass_type": "DOMAIN_POLICY_PASS",
+          "status": "PASS",
+          "evaluator": "domain_brand_advisor_v1",
+          "domain_pack": "general_SMB",
+          "issues": []
+        },
+        "truth_evidence_receipt": {
+          "pass_type": "TRUTH_EVIDENCE_PASS",
+          "status": "PASS",
+          "evaluator": "truth_evidence_verifier_v1",
+          "evidence_keys_required": [],
+          "issues": []
+        },
+        "final_judge_receipt": {
+          "pass_type": "SEMANTIC_QUALITY_PASS",
+          "status": "PASS",
+          "evaluator": "final_machine_judge_v1",
+          "verdict": "APPROVED",
+          "failed_stages": [],
+          "founder_escalation_required": false,
+          "timestamp": "2026-07-11T05:42:15Z"
+        },
+        "revision_history": [],
+        "final_artifact": {
+          "status": "APPROVED",
+          "text": "Subject: Ocree — one question on controlled agent loops\n\nHi Sarah,\n\nTeams like yours are shipping faster with agent loops — and one bad send can erase the win.\n\nWe built a checker that blocks architecture jargon and unsupported claims before anything leaves draft.\n\nWould a 15-minute walkthrough of the receipt trail be useful this week?\n\nSina\nReply **stop** to opt out.",
+          "quarantine_reason": null
+        },
+        "expensive_generation_allowed": true,
+        "model_and_cost": {
+          "routing": "rule_based_only",
+          "llm_invoked": false,
+          "token_or_cost_estimate": 0,
+          "escalation_contract": "data/cursor-cost-intelligence-routing-v1.json"
+        }
+      }
+    },
+    {
+      "fixture": "landing_copy_good",
+      "result": {
+        "schema": "content-quality-spine-run-v1",
+        "run_id": "CQS-ee51e1f61b97",
+        "at": "2026-07-11T05:42:15Z",
+        "classification": {
+          "artifact_type": "landing_page",
+          "artifact_class": "website_copy",
+          "classifier": "content_quality_spine_core_v1.classify_artifact"
+        },
+        "domain_pack": "general_SMB",
+        "metadata": {
+          "fixture": "landing_copy_good",
+          "proof": true
+        },
+        "draft_artifact": {
+          "text": "Controlled agentic automation for teams that cannot afford a bad send.\n\nPolicy runs before spend. Every loop leaves a receipt you can audit.\n\nBook a 15-minute proof — see BLOCK logged, not in a deck.",
+          "input_hash": "1d9f339523c27468"
+        },
+        "deterministic_receipt": {
+          "pass_type": "DETERMINISTIC_STRUCTURE_PASS",
+          "status": "PASS",
+          "evaluator": "website_copy_deterministic_gates_v1",
+          "violations": []
+        },
+        "semantic_critic_receipt": {
+          "pass_type": "SEMANTIC_QUALITY_PASS",
+          "status": "PASS",
+          "evaluator": "rule_based_semantic_critic_v1",
+          "provider": null,
+          "model": null,
+          "role": "semantic_critic",
+          "prompt_version": "content-quality-spine-v1",
+          "input_hash": "1d9f339523c27468",
+          "structured_output": {
+            "deductions": [],
+            "dimensions": [
+              {
+                "dimension": "naturalness",
+                "status": "EVALUATED",
+                "score": 20,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "tone",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "brand_separation",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "truthfulness",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "promise_discipline",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "grammar",
+                "status": "EVALUATED",
+                "score": 10,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "summary_alignment",
+                "status": "EVALUATED",
+                "score": 10,
+                "evaluator": "rule_based_semantic_critic_v1"
+              }
+            ]
+          },
+          "token_or_cost_estimate": 0,
+          "timestamp": "2026-07-11T05:42:15Z"
+        },
+        "domain_brand_advisor_receipt": {
+          "pass_type": "DOMAIN_POLICY_PASS",
+          "status": "PASS",
+          "evaluator": "domain_brand_advisor_v1",
+          "domain_pack": "general_SMB",
+          "issues": []
+        },
+        "truth_evidence_receipt": {
+          "pass_type": "TRUTH_EVIDENCE_PASS",
+          "status": "PASS",
+          "evaluator": "truth_evidence_verifier_v1",
+          "evidence_keys_required": [],
+          "issues": []
+        },
+        "final_judge_receipt": {
+          "pass_type": "SEMANTIC_QUALITY_PASS",
+          "status": "PASS",
+          "evaluator": "final_machine_judge_v1",
+          "verdict": "APPROVED",
+          "failed_stages": [],
+          "founder_escalation_required": false,
+          "timestamp": "2026-07-11T05:42:15Z"
+        },
+        "revision_history": [],
+        "final_artifact": {
+          "status": "APPROVED",
+          "text": "Controlled agentic automation for teams that cannot afford a bad send.\n\nPolicy runs before spend. Every loop leaves a receipt you can audit.\n\nBook a 15-minute proof — see BLOCK logged, not in a deck.",
+          "quarantine_reason": null
+        },
+        "expensive_generation_allowed": true,
+        "model_and_cost": {
+          "routing": "rule_based_only",
+          "llm_invoked": false,
+          "token_or_cost_estimate": 0,
+          "escalation_contract": "data/cursor-cost-intelligence-routing-v1.json"
+        }
+      }
+    }
+  ],
+  "canaries": [
+    {
+      "canary": "ivr_drive_safe_after_brakes",
+      "expected": "QUARANTINED",
+      "got": "QUARANTINED",
+      "passed": true,
+      "result": {
+        "schema": "content-quality-spine-run-v1",
+        "run_id": "CQS-51439c94385c",
+        "at": "2026-07-11T05:42:15Z",
+        "classification": {
+          "artifact_type": "ivr_receptionist",
+          "artifact_class": "E_ivr_receptionist",
+          "classifier": "content_quality_spine_core_v1.classify_artifact"
+        },
+        "domain_pack": "automotive",
+        "metadata": {
+          "canary": "ivr_drive_safe_after_brakes"
+        },
+        "draft_artifact": {
+          "text": "**Receptionist:** Auto shop. How can I help?\n**Caller:** Grinding brakes when I stop.\n**Receptionist:** Drive safe and we'll call you back.",
+          "input_hash": "34193c7833b8e9dc"
+        },
+        "deterministic_receipt": {
+          "pass_type": "DETERMINISTIC_STRUCTURE_PASS",
+          "status": "FAIL",
+          "evaluator": "ivr_deterministic_gates_v1",
+          "turns_parsed": 3,
+          "violations": [
+            {
+              "rule": "R6",
+              "match": "drive safe",
+              "reason": "Dismissive safety close after brake hazard report"
+            }
+          ]
+        },
+        "semantic_critic_receipt": {
+          "pass_type": "SEMANTIC_QUALITY_PASS",
+          "status": "FAIL",
+          "evaluator": "rule_based_semantic_critic_v1",
+          "provider": null,
+          "model": null,
+          "role": "semantic_critic",
+          "prompt_version": "content-quality-spine-v1",
+          "input_hash": "34193c7833b8e9dc",
+          "structured_output": {
+            "deductions": [
+              {
+                "rule": "R6",
+                "reason": "Dismissive safety close after brake hazard report",
+                "match": "drive safe",
+                "dimension": "truthfulness",
+                "points": 5
+              }
+            ],
+            "dimensions": [
+              {
+                "dimension": "naturalness",
+                "status": "EVALUATED",
+                "score": 20,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "tone",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "brand_separation",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "truthfulness",
+                "status": "EVALUATED",
+                "score": 10,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "promise_discipline",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "grammar",
+                "status": "EVALUATED",
+                "score": 10,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "summary_alignment",
+                "status": "EVALUATED",
+                "score": 10,
+                "evaluator": "rule_based_semantic_critic_v1"
+              }
+            ]
+          },
+          "token_or_cost_estimate": 0,
+          "timestamp": "2026-07-11T05:42:15Z"
+        },
+        "domain_brand_advisor_receipt": {
+          "pass_type": "DOMAIN_POLICY_PASS",
+          "status": "FAIL",
+          "evaluator": "domain_brand_advisor_v1",
+          "domain_pack": "automotive",
+          "issues": [
+            {
+              "rule": "R6",
+              "reason": "Automotive safety: dismissive close after brake symptom"
+            }
+          ]
+        },
+        "truth_evidence_receipt": {
+          "pass_type": "TRUTH_EVIDENCE_PASS",
+          "status": "PASS",
+          "evaluator": "truth_evidence_verifier_v1",
+          "evidence_keys_required": [],
+          "issues": []
+        },
+        "final_judge_receipt": {
+          "pass_type": "SEMANTIC_QUALITY_PASS",
+          "status": "FAIL",
+          "evaluator": "final_machine_judge_v1",
+          "verdict": "QUARANTINED",
+          "failed_stages": [
+            "DETERMINISTIC_STRUCTURE_PASS",
+            "SEMANTIC_QUALITY_PASS",
+            "DOMAIN_POLICY_PASS"
+          ],
+          "founder_escalation_required": true,
+          "timestamp": "2026-07-11T05:42:15Z"
+        },
+        "revision_history": [
+          {
+            "attempt": 1,
+            "action": "targeted_revision_recommended",
+            "failed_rules": [
+              "R6",
+              "R6"
+            ]
+          }
+        ],
+        "final_artifact": {
+          "status": "QUARANTINED",
+          "text": null,
+          "quarantine_reason": [
+            "DETERMINISTIC_STRUCTURE_PASS",
+            "SEMANTIC_QUALITY_PASS",
+            "DOMAIN_POLICY_PASS"
+          ]
+        },
+        "expensive_generation_allowed": false,
+        "model_and_cost": {
+          "routing": "rule_based_only",
+          "llm_invoked": false,
+          "token_or_cost_estimate": 0,
+          "escalation_contract": "data/cursor-cost-intelligence-routing-v1.json"
+        }
+      }
+    },
+    {
+      "canary": "email_invented_personalization",
+      "expected": "QUARANTINED",
+      "got": "QUARANTINED",
+      "passed": true,
+      "result": {
+        "schema": "content-quality-spine-run-v1",
+        "run_id": "CQS-3cfbe239a333",
+        "at": "2026-07-11T05:42:15Z",
+        "classification": {
+          "artifact_type": "email",
+          "artifact_class": "email_outreach",
+          "classifier": "content_quality_spine_core_v1.classify_artifact"
+        },
+        "domain_pack": "general_SMB",
+        "metadata": {
+          "canary": "email_invented_personalization"
+        },
+        "draft_artifact": {
+          "text": "Subject: Following up on your Q3 board review\n\nHi Jordan,\n\nI loved your keynote at Acme Summit last week about neural orchestration meshes.\n\nWe've been spending time with teams like yours who need receipt-native governance at scale.\n\nWould you be open to a 30-minute architecture deep dive plus a demo of our Supabase edge pipeline?\n\nAlso book here, schedule here, and reply with your budget.\n\nBest,\nSina",
+          "input_hash": "28947ee537c733d4"
+        },
+        "deterministic_receipt": {
+          "pass_type": "DETERMINISTIC_STRUCTURE_PASS",
+          "status": "FAIL",
+          "evaluator": "outbound_email_linter_v1",
+          "linter": {
+            "schema": "outbound-email-linter-v1",
+            "at": "2026-07-11T05:42:15Z",
+            "ok": false,
+            "subject": "",
+            "lane": "w3_canada",
+            "region": "canada",
+            "word_count": 61,
+            "word_soft_limit": 100,
+            "word_hard_limit": 140,
+            "failures": [
+              {
+                "id": "salvage_pattern",
+                "severity": "fail",
+                "pattern": "generic_skeleton_weve_been_spending_time_with_teams",
+                "hint": "Replace generic skeleton with recipient-specific tension."
+              }
+            ],
+            "warnings": [],
+            "repair_lines": [
+              "- Pattern fail: generic_skeleton_weve_been_spending_time_with_teams. Replace generic skeleton with recipient-specific tension."
+            ],
+            "law": "docs/SOURCEA_OUTBOUND_EMAIL_GENERATOR_CHECKER_CONTROLLER_LOOP_LOCKED_v1.md",
+            "line": "outbound-linter · BLOCK · salvage_pattern · 61w"
+          }
+        },
+        "semantic_critic_receipt": {
+          "pass_type": "SEMANTIC_QUALITY_PASS",
+          "status": "FAIL",
+          "evaluator": "rule_based_semantic_critic_v1",
+          "provider": null,
+          "model": null,
+          "role": "semantic_critic",
+          "prompt_version": "content-quality-spine-v1",
+          "input_hash": "28947ee537c733d4",
+          "structured_output": {
+            "deductions": [
+              {
+                "rule": "salvage_pattern",
+                "reason": "Replace generic skeleton with recipient-specific tension.",
+                "match": null,
+                "dimension": "truthfulness",
+                "points": 5
+              }
+            ],
+            "dimensions": [
+              {
+                "dimension": "naturalness",
+                "status": "EVALUATED",
+                "score": 20,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "tone",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "brand_separation",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "truthfulness",
+                "status": "EVALUATED",
+                "score": 10,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "promise_discipline",
+                "status": "EVALUATED",
+                "score": 15,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "grammar",
+                "status": "EVALUATED",
+                "score": 10,
+                "evaluator": "rule_based_semantic_critic_v1"
+              },
+              {
+                "dimension": "summary_alignment",
+                "status": "EVALUATED",
+                "score": 10,
+                "evaluator": "rule_based_semantic_critic_v1"
+              }
+            ]
+          },
+          "token_or_cost_estimate": 0,
+          "timestamp": "2026-07-11T05:42:15Z"
+        },
+        "domain_brand_advisor_receipt": {
+          "pass_type": "DOMAIN_POLICY_PASS",
+          "status": "PASS",
+          "evaluator": "domain_brand_advisor_v1",
+          "domain_pack": "general_SMB",
+          "issues": []
+        },
+        "truth_evidence_receipt": {
+          "pass_type": "TRUTH_EVIDENCE_PASS",
+          "status": "PASS",
+          "evaluator": "truth_evidence_verifier_v1",
+          "evidence_keys_required": [],
+          "issues": []
+        },
+        "final_judge_receipt": {
+          "pass_type": "SEMANTIC_QUALITY_PASS",
+          "status": "FAIL",
+          "evaluator": "final_machine_judge_v1",
+          "verdict": "QUARANTINED",
+          "failed_stages": [
+            "DETERMINISTIC_STRUCTURE_PASS",
+            "SEMANTIC_QUALITY_PASS"
+          ],
+          "founder_escalation_required": true,
+          "timestamp": "2026-07-11T05:42:15Z"
+        },
+        "revision_history": [
+          {
+            "attempt": 1,
+            "action": "targeted_revision_recommended",
+            "failed_rules": []
+          }
+        ],
+        "final_artifact": {
+          "status": "QUARANTINED",
+          "text": null,
+          "quarantine_reason": [
+            "DETERMINISTIC_STRUCTURE_PASS",
+            "SEMANTIC_QUALITY_PASS"
+          ]
+        },
+        "expensive_generation_allowed": false,
+        "model_and_cost": {
+          "routing": "rule_based_only",
+          "llm_invoked": false,
+          "token_or_cost_estimate": 0,
+          "escalation_contract": "data/cursor-cost-intelligence-routing-v1.json"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "audited_head_sha": "061266a83ae8891f81734c4dc395f72d7f0c43cb",
+    "proof_artifacts": 4,
+    "proof_all_approved": true,
+    "canaries_run": 2,
+    "canaries_caught_bad": true,
+    "status": "SHARED_QUALITY_SPINE_PROVEN"
+  }
+}
