@@ -21,7 +21,7 @@ def artifact_decision(
 
     ex_status = excellence.get("status")
     ex_score = excellence.get("excellence_score")
-    mode = (llm_mode or "shadow").lower()
+    mode = (llm_mode or "off").lower()
 
     if ex_status in ("NOT_EVALUATED", "SKIPPED") or ex_score is None:
         decision = "APPROVED_WITH_EXCELLENCE_NOT_EVALUATED"
