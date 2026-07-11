@@ -5,7 +5,7 @@ import hashlib
 import json
 from importlib import resources
 
-SPINE_VERSION = "1.0.0"
+SPINE_VERSION = "1.1.0"
 PACKAGE_NAME = "content-quality-spine"
 
 
