@@ -1,0 +1,32 @@
+{
+  "schema": "llm-excellence-shadow-receipt-v1",
+  "saved_at": "2026-07-11T06:12:00Z",
+  "spine_version": "1.1.0",
+  "llm_mode_default": "off",
+  "final_status": "LLM_EXCELLENCE_SHADOW_PROVEN",
+  "existing_language_assets_reused": {
+    "scripts/chat_founder_loop_v1.py": "7-stage language layer orchestration",
+    "scripts/chat_founder_language_v1.py": "founder-facing language compose",
+    "scripts/ai_unify_api_v1.py": "dispatch_raw unified provider routing",
+    "scripts/model_dispatch.py": "forge model matrix + cost gate",
+    "data/cursor-cost-intelligence-routing-v1.json": "low-cost tier policy"
+  },
+  "language_role_mapping": {
+    "language": "spoken naturalness, grammar, customer-facing language",
+    "reasoning": "conversation progression, contradictions, missing steps",
+    "proof": "claim/evidence and tool-state interpretation",
+    "advisor": "domain fit and commercial usefulness",
+    "critic": "tone, realism, clarity, originality",
+    "close": "outcome-specific final expression",
+    "judge": "aggregate excellence score and targeted recommendation"
+  },
+  "llm_provider_and_model": {
+    "provider": "gemini_direct",
+    "model": "gemini-2.5-flash",
+    "routing": "ai_unify_api_v1.dispatch_raw light_gate"
+  },
+  "integrity_machine_unchanged": true,
+  "excellence_machine_status": "optional_additive_non_blocking",
+  "calibration_fixture_count": 21,
+  "synthesis_authority": "integrity_machine_only"
+}
