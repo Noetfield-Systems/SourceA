@@ -1,0 +1,77 @@
+{
+  "schema": "shared-content-quality-rules-v1",
+  "version": "1.0.0",
+  "saved_at": "2026-07-11T05:45:00Z",
+  "core_rules": {
+    "artifact_classification": {
+      "source": "SourceB-ca-release/data/voice-video-generation-factory-v1.json#artifact_classes",
+      "portable": true
+    },
+    "brand_layer_separation": {
+      "source": "SourceB D2 + data/commercial-film-routing-v1.json#founder_lock",
+      "rule": "Platform brand never on customer IVR or mis-tiered film VO"
+    },
+    "evidence_before_claims": {
+      "source": "SourceB R1 + scripts/truth_layer_verifier_v1.py",
+      "rule": "Action verbs require tool/workflow receipt keys"
+    },
+    "promise_discipline": {
+      "source": "SourceB R8 + outbound_email_linter_v1",
+      "rule": "No SLA/time/price/outcome without backing"
+    },
+    "customer_vs_internal_language": {
+      "source": "SourceB R3 + brain_core_v1/sanitizer.py + guardrails.js",
+      "rule": "No queue/ticket/workflow/receipt-native on buyer-facing lines"
+    },
+    "scoring_integrity": {
+      "source": "Phase F mandate",
+      "rule": "Dimensions start NOT_EVALUATED with score null until named evaluator runs"
+    }
+  },
+  "adapter_rules": {
+    "ivr_receptionist": {
+      "imported_from": "SourceB-ca-release/data/voice-demo-scenarios/conversation-script-logic-v1.json",
+      "rules": "R1-R16",
+      "runtime": "scripts/content_quality_spine_core_v1.py#deterministic_ivr"
+    },
+    "commercial_film": {
+      "imported_from": "data/commercial-film-routing-v1.json + data/video-quality-bar-v1.json",
+      "laws": "D1-D6",
+      "post_semantic": "scripts/commercial_film_critic_circle_v1.py"
+    },
+    "email": {
+      "imported_from": "data/outbound-email-oegcc-v1.json + data/factory-email-translation-v1.json",
+      "never_auto_send": true
+    },
+    "website_copy": {
+      "imported_from": "data/landing-commercial-copy-audience-v1.json + data/landing-copy-depth-gate-v1.json",
+      "ship_requires_both_gates": true
+    }
+  },
+  "domain_policy_packs": {
+    "automotive": ["brake_safety_close", "no_drive_safe_after_hazard"],
+    "medical": ["regulated_language_blocks"],
+    "financial": ["no_unverified_rate_claims"],
+    "general_SMB": ["buyer_language", "cta_clarity"]
+  },
+  "reused_sourcea_assets": [
+    "scripts/outbound_email_linter_v1.py",
+    "scripts/outbound_email_controller_v1.py",
+    "scripts/governance_critic_eval_v1.py",
+    "scripts/landing_commercial_copy_gate_v1.py",
+    "scripts/landing_copy_depth_gate_v1.py",
+    "scripts/commercial_film_critic_circle_v1.py",
+    "scripts/commercial_film_ship_gate_v1.py",
+    "scripts/brain_core_v1/gate.py",
+    "scripts/ai_unify_api_v1.py",
+    "scripts/model_dispatch.py",
+    "scripts/chat_founder_loop_v1.py",
+    "cloud/workers/sourcea-brain-chat-v1/src/guardrails.js"
+  ],
+  "sourceb_rules_absorbed": [
+    "conversation-script-logic-v1.json R1-R16",
+    "voice-video-generation-factory-v1.json D1-D6",
+    "golden-set-deterministic-lib.mjs patterns (ported to Python)",
+    "golden-set-semantic-lib.mjs evaluator roles (rule-based port)"
+  ]
+}
