@@ -1,0 +1,84 @@
+{
+  "schema": "conversation-script-logic-registry-v1",
+  "version": "1.0.0",
+  "status": "canonical",
+  "canonical_owner": "Noetfield-Systems/SourceA",
+  "provenance": {
+    "origin_repo": "Noetfield-Systems/SourceB",
+    "origin_branch": "upgrade/sourceb-ca-v1",
+    "origin_commit": "e6051f4c7bab3b32ddbe312368349824519fafad",
+    "origin_path": "data/voice-demo-scenarios/conversation-script-logic-v1.json",
+    "absorbed_at": "2026-07-11T06:00:00Z",
+    "note": "R1-R16 single owner in SourceA; SourceB retains IVR adapter config only"
+  },
+  "artifact_class": "E_ivr_receptionist",
+  "rules": [
+    { "id": "R1", "name": "evidence_before_claim", "summary": "Claim observations or completed actions only after tool/workflow evidence." },
+    { "id": "R2", "name": "explicit_outcome_state", "summary": "Declare one terminal outcome; close may not imply a stronger state." },
+    { "id": "R3", "name": "customer_language", "summary": "No internal workflow vocabulary on customer-facing lines." },
+    { "id": "R4", "name": "domain_minimum_intake", "summary": "Industry-specific required fields; name+phone alone is insufficient." },
+    { "id": "R5", "name": "urgency_discriminating_signal", "summary": "Urgency requires recorded approved signal, not category alone." },
+    { "id": "R6", "name": "safety_screen_before_escalation", "summary": "Smallest approved safety question; no invented advice." },
+    { "id": "R7", "name": "boundary_without_policy_leakage", "summary": "State useful next action; avoid system-limitation explanations." },
+    { "id": "R8", "name": "promise_discipline", "summary": "No time/price/outcome promises without policy, tool, SLA, or receipt." },
+    { "id": "R9", "name": "capability_state_consistency", "summary": "One coherent tool capability state; no incompatible claims." },
+    { "id": "R10", "name": "correction_canonicalization", "summary": "Discard superseded values; repeat and store corrected canonical value." },
+    { "id": "R11", "name": "outcome_specific_closing", "summary": "Close matches verified outcome; no forced anything-else on transfers." },
+    { "id": "R12", "name": "human_brevity", "summary": "One or two functions per receptionist line; prefer sequential turns." },
+    { "id": "R13", "name": "no_repeat_supplied_info", "summary": "Move to next missing field when intent is already clear." },
+    { "id": "R14", "name": "regulated_language_blocks", "summary": "Select approved blocks; do not invent disclaimers per script." },
+    { "id": "R15", "name": "transcript_summary_agreement", "summary": "Summary matches outcome, urgency, corrections; never upgrade state." },
+    { "id": "R16", "name": "grammar_naturalness_gate", "summary": "Independent grammar/TTS check before synthesis." }
+  ],
+  "terminal_outcomes": [
+    "information_provided",
+    "message_taken",
+    "callback_requested",
+    "quote_requested",
+    "appointment_requested",
+    "appointment_confirmed",
+    "reservation_updated",
+    "warm_transfer",
+    "emergency_request_submitted",
+    "dispatch_confirmed"
+  ],
+  "urgency_signals": [
+    "active_damage",
+    "safety_hazard",
+    "loss_of_essential_service",
+    "severe_symptom",
+    "time_sensitive_deadline",
+    "business_defined_priority"
+  ],
+  "capability_states": [
+    "NO_TOOL_ACCESS",
+    "LOOKUP_ONLY",
+    "LOOKUP_AND_REQUEST",
+    "LOOKUP_AND_UPDATE",
+    "DISPATCH_REQUEST",
+    "DISPATCH_CONFIRMED",
+    "TRANSFER_AVAILABLE",
+    "TRANSFER_COMPLETED"
+  ],
+  "system_language": [
+    "on this line",
+    "flagged",
+    "queued",
+    "ticket created",
+    "passed to scheduling",
+    "sent to on-call",
+    "workflow",
+    "database",
+    "escalation state"
+  ],
+  "evaluator_labels": {
+    "deterministic": "deterministic_verifier",
+    "semantic": "rule_based_semantic_preflight",
+    "domain": "domain_policy_preflight",
+    "truth": "truth_evidence_verifier",
+    "judge": "final_rule_judge",
+    "llm_critic": "llm_conversation_critic",
+    "llm_advisor": "llm_domain_advisor",
+    "llm_judge": "llm_final_judge"
+  }
+}

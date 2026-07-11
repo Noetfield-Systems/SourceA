@@ -73,5 +73,17 @@
     "voice-video-generation-factory-v1.json D1-D6",
     "golden-set-deterministic-lib.mjs patterns (ported to Python)",
     "golden-set-semantic-lib.mjs evaluator roles (rule-based port)"
-  ]
+  ],
+  "conversation_script_registry": {
+    "canonical_path": "packages/content-quality-spine/content_quality_spine/rules/conversation-script-logic-registry-v1.json",
+    "provenance": {
+      "origin_repo": "Noetfield-Systems/SourceB",
+      "origin_commit": "e6051f4c7bab3b32ddbe312368349824519fafad",
+      "rules_canonical_owner": "Noetfield-Systems/SourceA"
+    }
+  },
+  "portable_interface": {
+    "module": "python3 -m content_quality_spine evaluate",
+    "package_path": "packages/content-quality-spine"
+  }
 }
