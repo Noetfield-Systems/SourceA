@@ -13,21 +13,22 @@ from pathlib import Path
 from typing import Any
 
 from mac_health_version_v1 import MAC_HEALTH_VERSION  # noqa: E402
+from mac_health_edition_v1 import SINA  # noqa: E402
 
-STATE_DIR = Path.home() / ".sina" / "mac-health"
+STATE_DIR = SINA / "mac-health"
 SCAN_PATH = STATE_DIR / "last-scan.json"
 INSIGHTS_PATH = STATE_DIR / "agent-insights.jsonl"
 HEARTBEAT_PATH = STATE_DIR / "heartbeat-log-v1.jsonl"
 HEARTBEAT_MIN_SEC = 120
 HEARTBEAT_FORCE_DELTA = 2
 KNOWLEDGE_PATH = STATE_DIR / "knowledge-base.json"
-N8N_WEBHOOK_CFG = Path.home() / ".sina" / "mac-health-n8n-webhook-v1.json"
-GOVERNANCE_FINDINGS_PATH = Path.home() / ".sina" / "mac-health" / "governance-findings-v1.json"
+N8N_WEBHOOK_CFG = SINA / "mac-health-n8n-webhook-v1.json"
+GOVERNANCE_FINDINGS_PATH = SINA / "mac-health" / "governance-findings-v1.json"
 
 IMPORTANT_NOTE_PRIVACY = (
     "Agents do not connect to a private Apple Security API (that does not exist for third parties). "
     "They apply official Apple security guidance to local scans on your Mac only. "
-    "Data stays under ~/.sina/mac-health/ and never leaves the machine."
+    f"Data stays under ~/{SINA.relative_to(Path.home())}/mac-health/ and never leaves the machine."
 )
 IMPORTANT_NOTE_SCAN = (
     "After travel, new apps, or permission changes — tap Listen again in Mac Health Guard."
@@ -332,7 +333,7 @@ def _load_n8n_webhook_cfg() -> dict[str, Any]:
             return json.loads(N8N_WEBHOOK_CFG.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             pass
-    glue = Path.home() / ".sina" / "n8n-glue-config-v1.json"
+    glue = SINA / "n8n-glue-config-v1.json"
     if glue.is_file():
         try:
             g = json.loads(glue.read_text(encoding="utf-8"))
@@ -413,7 +414,7 @@ def _emit_n8n_signal(
 
 def _disk_live_wire_receipt_ok(*, max_age_sec: int = 3600) -> bool:
     """True when disk live wire receipt is fresh and ok — clears stale Heart findings."""
-    receipt = Path.home() / ".sina" / "disk-live-wire-receipt-v1.json"
+    receipt = SINA / "disk-live-wire-receipt-v1.json"
     if not receipt.is_file():
         return False
     try:
@@ -920,7 +921,7 @@ def apply_pressure_to_score(base: int, mp: dict | None) -> int:
         score -= 20
     elif bomb.get("level") == "warn":
         score -= 8
-    if mp.get("hub_online") and not mp.get("hub_health_ok"):
+    if mp.get("hub_online") and (not mp.get("hub_health_ok") or rt.get("hub_quarantined")):
         score -= 15
     if int(mp.get("stuck_log_reader_count") or 0) >= 1:
         score -= 10
@@ -1034,7 +1035,7 @@ def _ram_truth(
     except Exception:
         pass
 
-    quarantine_path = Path.home() / ".sina" / "sina-command-quarantine-v1.json"
+    quarantine_path = SINA / "sina-command-quarantine-v1.json"
     hub_quarantined = quarantine_path.is_file()
     if hub_quarantined:
         try:
@@ -1339,6 +1340,7 @@ def _machine_pressure() -> dict:
         except Exception:
             pass
         cpu_pct = float(pressure.get("cpu_pct") or pressure.get("load_pct") or 0)
+        pressure["cpu_pct"] = cpu_pct
         pressure["ok"] = ram_pct_early < 95 and cpu_pct < 120
         pressure["ram_truth"] = _ram_truth_lite_stub(pressure)
         pressure["cursor"] = {}
@@ -1447,10 +1449,21 @@ def _machine_pressure() -> dict:
     return pressure
 
 
+def _cart_pid_cmd_ok(cmd: str) -> bool:
+    """True when cmd still looks like a shell/terminal process, not a PID recycled by macOS."""
+    if not cmd:
+        return False
+    low = cmd.lower()
+    if "grep" in low or "pgrep" in low or "pkill" in low:
+        return False
+    return any(p in low for p in ("zsh", "bash", "/sh", "-sh", "fish", "tcsh", "csh", "dash", "login"))
+
+
 def cart_fleet_sweep() -> dict[str, Any]:
     """Close ghost Cursor terminals — Brain CART fleet sweep."""
     closed = 0
     patched = 0
+    skipped_pid_reused = 0
     term_root = Path.home() / ".cursor" / "projects"
     if term_root.is_dir():
         for proj in term_root.glob("*/terminals"):
@@ -1464,11 +1477,15 @@ def cart_fleet_sweep() -> dict[str, Any]:
                     m = re.search(r"^pid:\s*(\d+)", text, re.M)
                     if m:
                         pid = int(m.group(1))
-                        try:
-                            os.kill(pid, 15)
-                            closed += 1
-                        except (ProcessLookupError, PermissionError):
-                            pass
+                        ps_code, ps_out = _run(["ps", "-p", str(pid), "-o", "command="], timeout=3.0)
+                        if ps_code == 0 and _cart_pid_cmd_ok(ps_out.strip()):
+                            try:
+                                os.kill(pid, 15)
+                                closed += 1
+                            except (ProcessLookupError, PermissionError):
+                                pass
+                        elif ps_code == 0 and ps_out.strip():
+                            skipped_pid_reused += 1
                     tf.write_text(
                         text.rstrip()
                         + f"\n\n---\nexit_code: 0\nelapsed_ms: 1000\nended_at: {_now()}\n---\n",
@@ -1478,7 +1495,12 @@ def cart_fleet_sweep() -> dict[str, Any]:
                 except OSError:
                     continue
     ghost = _machine_pressure().get("ghost_terminals", 0)
-    return {"closed": closed, "patched": patched, "ghost_remaining": ghost}
+    return {
+        "closed": closed,
+        "patched": patched,
+        "skipped_pid_reused": skipped_pid_reused,
+        "ghost_remaining": ghost,
+    }
 
 
 def _queue_zombie_cmd_ok(cmd: str, pattern: str) -> bool:
@@ -1619,7 +1641,7 @@ def run_full_relief(*, standalone: bool = False, ram_purge: bool = True) -> dict
         ram_step["ram_pct"] = ram_pct
 
     report = build_report(rescan=True, standalone=standalone)
-    report["version"] = "2.8.2"
+    report["version"] = MAC_HEALTH_VERSION
     cart_p = cart.get("patched") or 0
     cart_c = cart.get("closed") or 0
     pipe_k = pipeline.get("killed") or 0
@@ -1744,7 +1766,7 @@ def run_ram_purge(*, standalone: bool = False) -> dict[str, Any]:
     free_gain = round((after.get("free_gb") or 0) - (before.get("free_gb") or 0), 2)
     inactive_drop = round((before.get("inactive_gb") or 0) - (after.get("inactive_gb") or 0), 2)
     report = build_report(rescan=False, standalone=standalone)
-    report["version"] = "2.8.1"
+    report["version"] = MAC_HEALTH_VERSION
     summary = (
         f"Purge complete · free {before.get('free_gb')} → {after.get('free_gb')} GB (+{free_gain}) · "
         f"inactive {before.get('inactive_gb')} → {after.get('inactive_gb')} GB (−{inactive_drop})"
@@ -1778,7 +1800,7 @@ def run_cpu_relief_action(action: str, *, standalone: bool = False) -> dict[str,
     before = build_report(rescan=False, standalone=standalone)
     relief = run_cpu_relief(action)
     report = build_report(rescan=True, standalone=standalone)
-    report["version"] = "2.6.0"
+    report["version"] = MAC_HEALTH_VERSION
     report["cpu_relief"] = relief
     report["heal"] = {
         "before_score": before.get("score"),
@@ -2238,7 +2260,10 @@ def _founder_narrative(
 
 
 def handle_action(body: dict) -> dict:
-    action = (body.get("action") or "report").strip().lower()
+    action = body.get("action") or "report"
+    if not isinstance(action, str):
+        action = "unknown"
+    action = action.strip().lower()
     standalone = bool(body.get("standalone"))
     if action == "live":
         from mac_health_live_v1 import build_live_snapshot  # noqa: WPS433

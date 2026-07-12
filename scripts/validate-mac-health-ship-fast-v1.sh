@@ -38,9 +38,10 @@ _mh_ensure_heart || { echo "FAIL: heart not up"; fail=1; exit 1; }
 
 curl -sf "${BASE}/health" | python3 -c "
 import json,sys
+from mac_health_version_v1 import MAC_HEALTH_VERSION
 d=json.load(sys.stdin)
 assert d.get('ok'), d
-assert str(d.get('version','')).startswith('4.0'), d
+assert str(d.get('version','')) == MAC_HEALTH_VERSION, d
 ui=d.get('ui_contract') or {}
 assert ui.get('ui_mode')=='founder_glance', ui
 assert ui.get('tab_count')==0, ui
