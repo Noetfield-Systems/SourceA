@@ -343,6 +343,10 @@ def _run_local(path: str, body: dict[str, Any]) -> dict[str, Any]:
         from fbe_cloud_signal_factory_tick_v1 import run_cloud_signal_factory_tick  # noqa: WPS433
 
         return run_cloud_signal_factory_tick(body)
+    if path == "/api/fbe/portfolio-spine/verify/v1":
+        from portfolio_spine_verify_v1 import run as run_portfolio_spine_verify  # noqa: WPS433
+
+        return run_portfolio_spine_verify(body)
     if path == "/api/fbe/gmail-sweep/v1":
         from fbe_cloud_ops_motors_v1 import run_cloud_gmail_sweep  # noqa: WPS433
 

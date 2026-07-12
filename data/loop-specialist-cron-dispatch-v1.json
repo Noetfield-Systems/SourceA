@@ -12,15 +12,40 @@
       "trigger_id": "SA-T-loop-specialist",
       "label": "loop-specialist-15m",
       "jobs": [
-        { "id": "loop-tick", "kind": "handler", "handler": "loop_specialist_tick" },
-        { "id": "sf-tick", "kind": "handler", "handler": "signal_factory_tick" },
-        { "id": "nerve-probe", "kind": "handler", "handler": "nerve_probe" },
-        { "id": "sg-watchdog", "kind": "handler", "handler": "gateway_watchdog" },
+        {
+          "id": "loop-tick",
+          "kind": "handler",
+          "handler": "loop_specialist_tick"
+        },
+        {
+          "id": "sf-tick",
+          "kind": "handler",
+          "handler": "signal_factory_tick"
+        },
+        {
+          "id": "nerve-probe",
+          "kind": "handler",
+          "handler": "nerve_probe"
+        },
+        {
+          "id": "sg-watchdog",
+          "kind": "handler",
+          "handler": "gateway_watchdog"
+        },
         {
           "id": "sf-triage",
           "kind": "railway",
           "path": "/api/fbe/signal-factory/triage/v1",
-          "body": { "max_batch": 10 }
+          "body": {
+            "max_batch": 10
+          }
+        },
+        {
+          "id": "portfolio-spine-verify",
+          "kind": "railway",
+          "path": "/api/fbe/portfolio-spine/verify/v1",
+          "body": {},
+          "note": "real buyer-proof + recipe-queue verification each tick; writes honest GREEN/RED cycle_receipts (closes the 2026-07-12 spine no-writer gap)"
         }
       ]
     },
@@ -33,7 +58,9 @@
           "id": "gmail-sweep",
           "kind": "railway",
           "path": "/api/fbe/gmail-sweep/v1",
-          "body": { "max_per_mailbox": 25 }
+          "body": {
+            "max_per_mailbox": 25
+          }
         }
       ]
     },
@@ -42,7 +69,12 @@
       "trigger_id": "SA-T-kaizen-nightly",
       "label": "kaizen-nightly",
       "jobs": [
-        { "id": "kaizen", "kind": "railway", "path": "/api/fbe/kaizen/nightly/v1", "body": {} }
+        {
+          "id": "kaizen",
+          "kind": "railway",
+          "path": "/api/fbe/kaizen/nightly/v1",
+          "body": {}
+        }
       ]
     },
     {
@@ -50,7 +82,11 @@
       "trigger_id": "SG-T-gateway-heartbeat-daily",
       "label": "sg-gateway-heartbeat-0700pt",
       "jobs": [
-        { "id": "sg-heartbeat", "kind": "handler", "handler": "gateway_heartbeat" }
+        {
+          "id": "sg-heartbeat",
+          "kind": "handler",
+          "handler": "gateway_heartbeat"
+        }
       ]
     },
     {
@@ -58,7 +94,12 @@
       "trigger_id": "SA-T-ops-heartbeat-daily",
       "label": "ops-heartbeat-daily",
       "jobs": [
-        { "id": "ops-heartbeat", "kind": "railway", "path": "/api/fbe/ops/heartbeat/v1", "body": {} }
+        {
+          "id": "ops-heartbeat",
+          "kind": "railway",
+          "path": "/api/fbe/ops/heartbeat/v1",
+          "body": {}
+        }
       ]
     },
     {
@@ -70,7 +111,9 @@
           "id": "repo-health",
           "kind": "railway",
           "path": "/api/fbe/repo-health/daily/v1",
-          "body": { "insert": true }
+          "body": {
+            "insert": true
+          }
         }
       ]
     },
@@ -83,7 +126,9 @@
           "id": "security-sweep",
           "kind": "railway",
           "path": "/api/fbe/security-sweep/weekly/v1",
-          "body": { "insert": true }
+          "body": {
+            "insert": true
+          }
         }
       ]
     },
@@ -96,7 +141,9 @@
           "id": "workflow-census",
           "kind": "railway",
           "path": "/api/fbe/workflow-census/weekly/v1",
-          "body": { "insert": true }
+          "body": {
+            "insert": true
+          }
         }
       ]
     },
@@ -105,7 +152,12 @@
       "trigger_id": "SA-T7-schedule",
       "label": "determinism-gate-6h",
       "jobs": [
-        { "id": "determinism-gate", "kind": "railway", "path": "/api/fbe/determinism/gate/v1", "body": {} }
+        {
+          "id": "determinism-gate",
+          "kind": "railway",
+          "path": "/api/fbe/determinism/gate/v1",
+          "body": {}
+        }
       ]
     }
   ]
