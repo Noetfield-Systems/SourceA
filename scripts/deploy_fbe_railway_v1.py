@@ -57,6 +57,8 @@ def _run_comprehension_verify(row: dict) -> None:
 
 # Minimal COPY set from cloud/Dockerfile.fbe-runner — avoids 413 on full-repo railway up.
 _STAGING_DATA_FILES = (
+    "client-proof-recipe-queue-v1.json",
+    "client-proof-recipe-rubric-v1.json",
     "fbe_node_graph_v1.json",
     "fbe_factory_builder_bundle_v1.json",
     "fbe_execution_contract_v1.json",
@@ -104,6 +106,8 @@ _STAGING_DATA_FILES = (
 )
 _STAGING_SCRIPT_FILES = (
     "fbe_cloud_worker_http_v1.py",
+    "portfolio_spine_verify_v1.py",
+    "verify_buyer_proof_hotfix_v1.py",
     "fbe_pipeline_runner_v1.py",
     "fbe_refinery_runner_v1.py",
     "fbe_verify_refinery_v1.py",
