@@ -94,10 +94,15 @@ def state_path(run_id: str) -> Path:
 def load_state(run_id: str) -> dict[str, Any] | None:
     if not RUN_ID_RE.fullmatch(str(run_id)):
         return None
-    path = STATE_DIR / os.path.basename(f"{run_id}.json")
-    if not path.is_file():
+    # The opened path is sourced from a directory listing (not from run_id): run_id is only used in a
+    # string-equality match, so no filesystem path is ever constructed from request input.
+    wanted = os.path.basename(f"{run_id}.json")
+    if not STATE_DIR.is_dir():
         return None
-    return json.loads(path.read_text(encoding="utf-8"))
+    for entry in STATE_DIR.iterdir():
+        if entry.name == wanted and entry.is_file():
+            return json.loads(entry.read_text(encoding="utf-8"))
+    return None
 
 
 def save_state(row: dict[str, Any]) -> dict[str, Any]:
