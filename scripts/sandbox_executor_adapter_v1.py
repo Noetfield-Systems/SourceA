@@ -25,6 +25,7 @@ REPO_RE = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
 SHA_RE = re.compile(r"^[0-9a-fA-F]{40}$")
 RUN_ID_RE = re.compile(r"^sx-[0-9a-f]{24}$")
 BRANCH_RE = re.compile(r"^(automation|codex|sandbox)/[A-Za-z0-9][A-Za-z0-9._/-]{0,180}$")
+BASE_BRANCH_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._/-]{0,180}$")
 TERMINAL = {"PASS", "FAIL", "BLOCKED"}
 _SECRET_ENV_KEYS = ("GITHUB_TOKEN", "GITHUB_PERSONAL_ACCESS_TOKEN", "FBE_INTERNAL_SECRET", "SOURCEA_SANDBOX_EXECUTOR_SECRET")
 _SANITIZE_ENV_KEYS = ("GITHUB_TOKEN", "GITHUB_PERSONAL_ACCESS_TOKEN", "FBE_INTERNAL_SECRET", "SOURCEA_SANDBOX_EXECUTOR_SECRET")
@@ -77,12 +78,21 @@ def run_id_for(job_id: str) -> str:
     return "sx-" + hashlib.sha256(job_id.encode("utf-8")).hexdigest()[:24]
 
 
+def _validated(pattern: "re.Pattern[str]", value: Any, error: str) -> str:
+    """Return the regex-matched (sanitized) value, or raise. Used so the *matched* value flows to
+    filesystem paths / subprocess args, which static analysis recognizes as sanitized."""
+    match = pattern.fullmatch(str(value if value is not None else ""))
+    if not match:
+        raise RuntimeError(error)
+    return match.group(0)
+
+
 def state_path(run_id: str) -> Path:
-    return STATE_DIR / f"{run_id}.json"
+    return STATE_DIR / f"{_validated(RUN_ID_RE, run_id, 'invalid_run_id')}.json"
 
 
 def load_state(run_id: str) -> dict[str, Any] | None:
-    if not RUN_ID_RE.match(str(run_id)):
+    if not RUN_ID_RE.fullmatch(str(run_id)):
         return None
     path = state_path(run_id)
     if not path.is_file():
@@ -117,8 +127,11 @@ def validate_request(body: dict[str, Any]) -> list[str]:
         errors.append("target_repository_invalid")
     elif repo not in _allowed_repos():
         errors.append("target_repository_not_allowed")
-    if not str(body.get("base_branch") or ""):
+    base_branch = str(body.get("base_branch") or "")
+    if not base_branch:
         errors.append("base_branch_required")
+    elif not BASE_BRANCH_RE.match(base_branch):
+        errors.append("base_branch_invalid")
     if not SHA_RE.match(str(body.get("base_sha") or "")):
         errors.append("base_sha_invalid")
     branch = str(body.get("working_branch") or "")
@@ -262,6 +275,11 @@ def execute(body: dict[str, Any]) -> dict[str, Any]:
         base.update({"completed_at": now(), "blocker": ",".join(errors)})
         return save_state(base)
     save_state({**base, "status": "RUNNING"})
+    safe_repo = _validated(REPO_RE, body.get("target_repository"), "target_repository_invalid")
+    safe_sha = _validated(SHA_RE, body.get("base_sha"), "base_sha_invalid")
+    safe_branch = _validated(BRANCH_RE, body.get("working_branch"), "working_branch_invalid")
+    safe_base = _validated(BASE_BRANCH_RE, body.get("base_branch"), "base_branch_invalid")
+    safe_job_id = _validated(JOB_RE, body.get("job_id"), "job_id_invalid")
     evidence: list[dict[str, Any]] = []
     work = WORK_ROOT / run_id
     try:
@@ -269,15 +287,15 @@ def execute(body: dict[str, Any]) -> dict[str, Any]:
         work.mkdir(parents=True, exist_ok=True)
         clone = work / "repo"
         git_env = _git_auth_env()
-        clone_row = _run(["git", "clone", "--no-checkout", _repo_url(str(body["target_repository"])), str(clone)], work, timeout=600, env=git_env)
+        clone_row = _run(["git", "clone", "--no-checkout", _repo_url(safe_repo), str(clone)], work, timeout=600, env=git_env)
         evidence.append({"step": "git_clone", **clone_row})
         if clone_row["returncode"] != 0:
             raise RuntimeError("git_clone_failed")
-        fetch = _run(["git", "fetch", "origin", str(body["base_sha"])], clone, timeout=300, env=git_env)
+        fetch = _run(["git", "fetch", "origin", safe_sha], clone, timeout=300, env=git_env)
         evidence.append({"step": "git_fetch_base_sha", **fetch})
         if fetch["returncode"] != 0:
             raise RuntimeError("git_fetch_base_sha_failed")
-        checkout = _run(["git", "checkout", "-B", str(body["working_branch"]), str(body["base_sha"])], clone)
+        checkout = _run(["git", "checkout", "-B", safe_branch, safe_sha], clone)
         evidence.append({"step": "git_checkout_working_branch", **checkout})
         if checkout["returncode"] != 0:
             raise RuntimeError("git_checkout_working_branch_failed")
@@ -310,18 +328,18 @@ def execute(body: dict[str, Any]) -> dict[str, Any]:
         _run(["git", "config", "user.email", os.environ.get("GIT_AUTHOR_EMAIL", "sourcea-executor@noetfield.systems")], clone)
         _run(["git", "config", "user.name", os.environ.get("GIT_AUTHOR_NAME", "SourceA Sandbox Executor")], clone)
         add = _run(["git", "add", "--"] + changed, clone); evidence.append({"step": "git_add", **add})
-        commit = _run(["git", "commit", "-m", f"Execute sandbox job {body['job_id']}"], clone); evidence.append({"step": "git_commit", **commit})
+        commit = _run(["git", "commit", "-m", f"Execute sandbox job {safe_job_id}"], clone); evidence.append({"step": "git_commit", **commit})
         if commit["returncode"] != 0:
             raise RuntimeError("git_commit_failed")
         sha = _run(["git", "rev-parse", "HEAD"], clone); evidence.append({"step": "git_rev_parse", **sha})
         base["commit_sha"] = sha["stdout"].strip()
         if os.environ.get("SOURCEA_SANDBOX_SKIP_PUSH") != "1":
-            push = _run(["git", "push", "origin", f"HEAD:{body['working_branch']}"], clone, timeout=300, env=git_env); evidence.append({"step": "git_push", **push})
+            push = _run(["git", "push", "origin", f"HEAD:{safe_branch}"], clone, timeout=300, env=git_env); evidence.append({"step": "git_push", **push})
             if push["returncode"] != 0:
                 raise RuntimeError("git_push_failed")
         else:
             evidence.append({"step": "git_push", "returncode": 0, "stdout": "skipped by SOURCEA_SANDBOX_SKIP_PUSH", "stderr": ""})
-        pr_url, pr_evidence = _open_pr(str(body["target_repository"]), str(body["working_branch"]), str(body["base_branch"]), f"Sandbox job {body['job_id']}", "Automated bounded SourceA SANDBOX execution.", clone)
+        pr_url, pr_evidence = _open_pr(safe_repo, safe_branch, safe_base, f"Sandbox job {safe_job_id}", "Automated bounded SourceA SANDBOX execution.", clone)
         evidence.extend(pr_evidence); base["pull_request_url"] = pr_url
         if not pr_url:
             raise RuntimeError("pull_request_create_failed")
