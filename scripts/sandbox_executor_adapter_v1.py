@@ -22,9 +22,11 @@ WORK_ROOT = Path(os.environ.get("SOURCEA_SANDBOX_EXECUTOR_WORK_ROOT", tempfile.g
 JOB_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{1,127}$")
 REPO_RE = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
 SHA_RE = re.compile(r"^[0-9a-fA-F]{40}$")
+RUN_ID_RE = re.compile(r"^sx-[0-9a-f]{24}$")
 BRANCH_RE = re.compile(r"^(automation|codex|sandbox)/[A-Za-z0-9][A-Za-z0-9._/-]{0,180}$")
 TERMINAL = {"PASS", "FAIL", "BLOCKED"}
 _SECRET_ENV_KEYS = ("GITHUB_TOKEN", "GITHUB_PERSONAL_ACCESS_TOKEN")
+_SANITIZE_ENV_KEYS = ("GITHUB_TOKEN", "GITHUB_PERSONAL_ACCESS_TOKEN", "FBE_INTERNAL_SECRET")
 
 
 def now() -> str:
@@ -40,6 +42,8 @@ def state_path(run_id: str) -> Path:
 
 
 def load_state(run_id: str) -> dict[str, Any] | None:
+    if not RUN_ID_RE.match(str(run_id)):
+        return None
     path = state_path(run_id)
     if not path.is_file():
         return None
@@ -123,6 +127,16 @@ def _redact_text(value: str, env: dict[str, str] | None = None) -> str:
 
 def _redact_cmd(cmd: list[str], env: dict[str, str] | None = None) -> list[str]:
     return [_redact_text(str(part), env) for part in cmd]
+
+
+def _sanitized_env(extra: dict[str, str] | None = None) -> dict[str, str]:
+    """Child env with secret env vars stripped, so request-run commands cannot read them."""
+    env = os.environ.copy()
+    for key in _SANITIZE_ENV_KEYS:
+        env.pop(key, None)
+    if extra:
+        env.update(extra)
+    return env
 
 
 def _run(cmd: list[str], cwd: Path, timeout: int = 300, env: dict[str, str] | None = None) -> dict[str, Any]:
@@ -217,7 +231,7 @@ def execute(body: dict[str, Any]) -> dict[str, Any]:
             raise RuntimeError("missing SOURCEA_SANDBOX_EXECUTOR_CMD")
         job_file = work / "sandbox_job.json"
         job_file.write_text(json.dumps(body, indent=2) + "\n", encoding="utf-8")
-        env = os.environ.copy(); env.update({"SANDBOX_JOB_FILE": str(job_file), "SANDBOX_REPO_DIR": str(clone), "SANDBOX_RUN_ID": run_id})
+        env = _sanitized_env({"SANDBOX_JOB_FILE": str(job_file), "SANDBOX_REPO_DIR": str(clone), "SANDBOX_RUN_ID": run_id})
         executor = _run(["bash", "-lc", cmd_tpl], clone, timeout=int(os.environ.get("SOURCEA_SANDBOX_EXECUTOR_TIMEOUT", "600")), env=env)
         evidence.append({"step": "coding_executor", **executor})
         if executor["returncode"] != 0:
@@ -231,7 +245,7 @@ def execute(body: dict[str, Any]) -> dict[str, Any]:
         for i, cmd in enumerate(verify_cmds):
             if not isinstance(cmd, str) or not cmd.strip():
                 raise RuntimeError("verification_command_invalid")
-            row = _run(["bash", "-lc", cmd], clone, timeout=300)
+            row = _run(["bash", "-lc", cmd], clone, timeout=300, env=_sanitized_env())
             evidence.append({"step": f"verification_{i+1}", **row})
             if row["returncode"] != 0:
                 raise RuntimeError("verification_failed")
