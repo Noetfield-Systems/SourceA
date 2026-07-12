@@ -111,6 +111,20 @@ def test_idempotency_persistent_state(isolated):
     assert sx.load_state(row1["run_id"])["blocker"] == "base_sha_invalid"
 
 
+def test_orphaned_running_state_is_recovered(isolated, tmp_path, monkeypatch):
+    remote, sha = init_remote(tmp_path)
+    monkeypatch.setattr(sx, "_repo_url", lambda repo: str(remote))
+    monkeypatch.setattr(sx, "_open_pr", lambda *a, **k: ("https://x/pull/10", [{"step": "fake_pr", "returncode": 0}]))
+    set_executor(monkeypatch)
+    body = job(job_id="job-stale", base_sha=sha, working_branch="automation/job-stale")
+    run_id = sx.run_id_for(body["job_id"])
+    sx.save_state({"run_id": run_id, "job_id": body["job_id"], "status": "RUNNING"})
+    code, row = sx.handle_post(body)
+    assert code == 200
+    assert row["status"] == "PASS"
+    assert row["accepted"] is True
+
+
 def test_missing_executor_argv_blocks(isolated, tmp_path, monkeypatch):
     remote, sha = init_remote(tmp_path)
     monkeypatch.setattr(sx, "_repo_url", lambda repo: str(remote))
