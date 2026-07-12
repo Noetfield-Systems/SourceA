@@ -380,6 +380,56 @@ def test_running_placeholder_exists_before_execute(isolated, monkeypatch):
     assert row["status"] == "PASS"
 
 
+def test_corrupt_state_blocks_rerun(isolated, monkeypatch):
+    run_id = sx.run_id_for("job-corrupt")
+    sx.STATE_DIR.mkdir(parents=True, exist_ok=True)
+    (sx.STATE_DIR / f"{run_id}.json").write_text("{not-json", encoding="utf-8")
+    row = sx.load_state(run_id)
+    assert row["status"] == "BLOCKED"
+    assert row["blocker"] == "state_corrupt"
+
+    def _boom(*_a, **_k):
+        raise AssertionError("execute must not run for corrupt state")
+
+    monkeypatch.setattr(sx, "execute", _boom)
+    code, out = sx.handle_post(job(job_id="job-corrupt"))
+    assert code == 409
+    assert out["status"] == "BLOCKED"
+
+
+def test_terminal_state_not_overwritten_by_placeholder(isolated, monkeypatch):
+    body = job(job_id="job-terminal-race")
+    run_id = sx.run_id_for(body["job_id"])
+    terminal = {
+        "run_id": run_id,
+        "job_id": body["job_id"],
+        "status": "PASS",
+        "commit_sha": "a" * 40,
+        "pull_request_url": "https://github.com/x/pull/1",
+        "completed_at": sx.now(),
+    }
+    sx.save_state(terminal)
+    calls = {"n": 0}
+    real_load = sx.load_state
+
+    def patched_load(rid: str):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            return None
+        return real_load(rid)
+
+    monkeypatch.setattr(sx, "load_state", patched_load)
+
+    def _boom(*_a, **_k):
+        raise AssertionError("execute must not run when terminal state exists")
+
+    monkeypatch.setattr(sx, "execute", _boom)
+    code, row = sx.handle_post(body)
+    assert code == 200
+    assert row["status"] == "PASS"
+    assert real_load(run_id)["status"] == "PASS"
+
+
 # ---------------------------------------------------------------- correction: traversal + HTTP e2e
 
 def test_load_state_rejects_traversal_and_bad_run_id(isolated):
