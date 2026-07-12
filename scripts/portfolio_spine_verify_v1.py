@@ -18,8 +18,6 @@ from __future__ import annotations
 
 import json
 import os
-import subprocess
-import sys
 import time
 import urllib.request
 from datetime import datetime, timezone
@@ -72,24 +70,27 @@ def supabase_post(base: str, key: str, table: str, row: dict[str, Any]) -> dict[
 
 
 def check_buyer_proof() -> dict[str, Any]:
-    """Run the real external buyer-proof verify; verdict from its exit/ok, never assumed."""
+    """Run the LAW-authoritative external buyer-proof checks (raw HTTPS fetch of the PUBLIC
+    hostnames). Container-safe: the workspace-hygiene parts of verify_all (dist greps,
+    repo-script gates) stay owned by the GHA external-verify path and are NOT re-run here."""
     started = time.monotonic()
     try:
-        proc = subprocess.run(
-            [sys.executable, str(ROOT / "scripts" / "verify_buyer_proof_hotfix_v1.py"), "--json"],
-            capture_output=True,
-            text=True,
-            timeout=VERIFY_TIMEOUT_SEC,
-            cwd=str(ROOT),
-        )
-        try:
-            row = json.loads(proc.stdout or "{}")
-        except json.JSONDecodeError:
-            row = {}
-        ok = proc.returncode == 0 and bool(row.get("ok"))
-        detail = "" if ok else (str(row.get("failures") or row.get("detail") or proc.stderr[-300:]))
-    except subprocess.TimeoutExpired:
-        ok, detail = False, f"verify timed out after {VERIFY_TIMEOUT_SEC}s"
+        from verify_buyer_proof_hotfix_v1 import verify_eval_live, verify_proof_live  # noqa: WPS433
+
+        hosts = ("https://sourcea.app", "https://www.sourcea.app")
+        rows = {}
+        for host in hosts:
+            rows[host] = {"eval": verify_eval_live(host), "proof": verify_proof_live(host)}
+        fails = [
+            f"{host}:{kind}"
+            for host, pair in rows.items()
+            for kind, row in pair.items()
+            if not row.get("ok")
+        ]
+        ok = not fails
+        detail = "" if ok else "live check failed: " + ",".join(fails)
+    except Exception as exc:  # noqa: BLE001 — a broken import/transport is a RED verdict, never a crash
+        ok, detail = False, f"buyer-proof verify unavailable: {exc}"
     return {"ok": ok, "detail": detail[:300], "duration_ms": int((time.monotonic() - started) * 1000)}
 
 
