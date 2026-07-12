@@ -126,6 +126,16 @@ def _allowed_repos() -> set[str]:
     return {x.strip() for x in raw.split(",") if x.strip()}
 
 
+def _allowed_path_prefixes() -> tuple[str, ...]:
+    """Server-side ceiling: request patterns may narrow these roots, never widen them."""
+    raw = os.environ.get(
+        "SOURCEA_SANDBOX_ALLOWED_PATH_PREFIXES",
+        "products/field-audit-compiler-v1/,products/sandbox-autorunner-v1/,"
+        "automation-canary/,receipts/sourceb-canary/",
+    )
+    return tuple(x.strip().strip("/") + "/" for x in raw.split(",") if x.strip())
+
+
 def validate_request(body: dict[str, Any]) -> list[str]:
     errors: list[str] = []
     if not JOB_RE.match(str(body.get("job_id") or "")):
@@ -173,7 +183,15 @@ def validate_request(body: dict[str, Any]) -> list[str]:
 
 
 def _safe_pattern(pattern: str) -> bool:
-    return bool(pattern and not pattern.startswith("/") and ".." not in Path(pattern).parts and not pattern.startswith(".git"))
+    if not pattern or pattern.startswith("/") or ".." in Path(pattern).parts or pattern.startswith(".git"):
+        return False
+    # A request cannot use a root wildcard or name a repo-control surface. It must remain under
+    # a server-configured canary prefix; only the server operator can widen this ceiling.
+    root = pattern.split("/", 1)[0]
+    if any(ch in root for ch in "*?[") or root in {".github", ".git"}:
+        return False
+    clean = pattern.strip("/")
+    return any(clean.startswith(prefix.rstrip("/")) for prefix in _allowed_path_prefixes())
 
 
 def _safe_branch(branch: str) -> bool:
@@ -319,7 +337,17 @@ def execute(body: dict[str, Any]) -> dict[str, Any]:
         if checkout["returncode"] != 0:
             raise RuntimeError("git_checkout_working_branch_failed")
         job_file = work / "sandbox_job.json"
-        job_file.write_text(json.dumps(body, indent=2) + "\n", encoding="utf-8")
+        # Persist only the executor contract. Unknown request fields and callback metadata are
+        # deliberately excluded so caller-supplied secrets cannot be copied into the worktree.
+        job_payload = {
+            key: body[key]
+            for key in (
+                "job_id", "target_repository", "base_branch", "base_sha", "working_branch",
+                "sandbox_job", "allowed_paths", "verification_contract",
+            )
+            if key in body
+        }
+        job_file.write_text(json.dumps(job_payload, indent=2) + "\n", encoding="utf-8")
         env = _sanitized_env({"SANDBOX_JOB_FILE": str(job_file), "SANDBOX_REPO_DIR": str(clone), "SANDBOX_RUN_ID": run_id})
         argv = _executor_argv({"{job_file}": str(job_file), "{repo_dir}": str(clone), "{run_id}": run_id})
         executor = _run(argv, clone, timeout=int(os.environ.get("SOURCEA_SANDBOX_EXECUTOR_TIMEOUT", "600")), env=env)
