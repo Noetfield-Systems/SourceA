@@ -8,6 +8,7 @@ on:
     paths:
       - '.github/workflows/**'
       - 'scripts/**'
+      - 'tests/sandbox_executor_adapter_v1/**'
       - 'data/**'
       - 'docs/commercial/ACG_*'
       - 'docs/commercial/AGENTIC_*'
@@ -49,6 +50,11 @@ jobs:
 
       - name: Repo boundary policy
         run: python3 scripts/check_sourcea_repo_policy.py
+
+      - name: Executor adapter focused tests
+        run: |
+          python3 -m pip install --disable-pip-version-check pytest
+          python3 -m pytest -q tests/sandbox_executor_adapter_v1
 
       - name: GitHub workflow lint (yamllint + actionlint)
         run: bash scripts/validate-github-workflows-v1.sh
