@@ -2,6 +2,7 @@
 """Mac Health — one-tap CPU relief actions (local only)."""
 from __future__ import annotations
 
+import json
 import os
 import re
 import signal
@@ -9,8 +10,12 @@ import subprocess
 import time
 from typing import Any
 
-# Scripts safe to kill when hogging CPU — never Cursor/WindowServer/mac-health.
-SAFE_KILL_PATTERNS = (
+from mac_health_edition_v1 import SINA, IS_PERSONAL
+
+# Personal-only: this maintainer's own factory/hub script names — never present
+# on a customer's machine. Commercial edition auto-kills nothing by name until
+# the user opts a process into their own custom watch-list via Settings.
+SOURCEA_SAFE_KILL_PATTERNS = (
     "align_command_data_ui_v1.py",
     "build_phase_strict_queue_v1.py",
     "find_critical_bugs",
@@ -21,7 +26,31 @@ SAFE_KILL_PATTERNS = (
     "hub_projection_sync_v1.py",
 )
 
-PROTECTED_PATTERNS = (
+CUSTOM_KILL_LIST_PATH = SINA / "config" / "mac-health-custom-kill-list-v1.json"
+
+
+def _custom_kill_list() -> tuple[str, ...]:
+    """User-opted-in process-name substrings from Settings — empty by default."""
+    if not CUSTOM_KILL_LIST_PATH.is_file():
+        return ()
+    try:
+        raw = json.loads(CUSTOM_KILL_LIST_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return ()
+    if not isinstance(raw, list):
+        return ()
+    return tuple(p for p in raw if isinstance(p, str) and p.strip())
+
+
+def _safe_kill_patterns() -> tuple[str, ...]:
+    """Scripts safe to kill when hogging CPU — never Cursor/WindowServer/mac-health.
+    SourceA's own factory scripts (personal edition only) plus whatever the user
+    opted into via Settings."""
+    extra = SOURCEA_SAFE_KILL_PATTERNS if IS_PERSONAL else ()
+    return extra + _custom_kill_list()
+
+
+GENERIC_PROTECTED_PATTERNS = (
     "mac-health-guard-server",
     "mac_health_guard",
     "mac_health_live",
@@ -31,6 +60,19 @@ PROTECTED_PATTERNS = (
     "/usr/sbin/screencapture",
     "screencaptureui",
     "Screenshot",
+)
+
+SOURCEA_PROTECTED_PATTERNS = (
+    "sina-command-server.py",
+    "cloud-workers-server.py",
+    "mac-law-server.py",
+    "routing-panel/server.py",
+    "chat-unify-server.py",
+    "portfolio-mail-server.py",
+)
+
+PROTECTED_PATTERNS = GENERIC_PROTECTED_PATTERNS + (
+    SOURCEA_PROTECTED_PATTERNS if IS_PERSONAL else ()
 )
 
 
@@ -44,7 +86,7 @@ def _run(cmd: list[str], *, timeout: float = 12.0) -> tuple[int, str]:
 
 
 def _top_cpu_rows(limit: int = 20) -> list[dict[str, Any]]:
-    code, out = _run(["ps", "-axo", "pid,pcpu,comm"], timeout=8.0)
+    code, out = _run(["ps", "-axo", "pid,pcpu,command"], timeout=8.0)
     if code != 0:
         return []
     rows: list[dict[str, Any]] = []
@@ -67,7 +109,7 @@ def _is_protected(comm: str) -> bool:
 
 
 def _matches_safe_kill(comm: str) -> str | None:
-    for pat in SAFE_KILL_PATTERNS:
+    for pat in _safe_kill_patterns():
         if pat in comm:
             return pat
     return None
@@ -331,10 +373,7 @@ def kill_playwright_browsers() -> dict[str, Any]:
 
 def run_wake_cool_down() -> dict[str, Any]:
     """Post-wake full stack: freeze factory + cool down at lower script threshold."""
-    from pathlib import Path
-
-    sina = Path.home() / ".sina"
-    freeze_flag = sina / "auto-run-disabled-v1.flag"
+    freeze_flag = SINA / "auto-run-disabled-v1.flag"
     before = snapshot_pressure()
     result: dict[str, Any] = {
         "ok": True,
@@ -376,7 +415,9 @@ def run_wake_cool_down() -> dict[str, Any]:
     time.sleep(1.2)
     after = snapshot_pressure()
     result["after"] = after
-    result["improved"] = (after.get("cpu_pct") or 999) < (before.get("cpu_pct") or 0) - 5
+    after_cpu = after.get("cpu_pct")
+    after_cpu = after_cpu if after_cpu is not None else 999
+    result["improved"] = after_cpu < (before.get("cpu_pct") or 0) - 5
     step_lines: list[str] = []
     for key, step in result.get("steps", {}).items():
         line = _step_summary(key, step)
@@ -480,7 +521,9 @@ def run_cpu_relief(action: str) -> dict[str, Any]:
     time.sleep(1.2)
     after = snapshot_pressure()
     result["after"] = after
-    result["improved"] = (after.get("cpu_pct") or 999) < (before.get("cpu_pct") or 0) - 5
+    after_cpu = after.get("cpu_pct")
+    after_cpu = after_cpu if after_cpu is not None else 999
+    result["improved"] = after_cpu < (before.get("cpu_pct") or 0) - 5
     step_lines: list[str] = []
     for key, step in result.get("steps", {}).items():
         line = _step_summary(key, step)

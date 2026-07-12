@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 # Install Mac Health Guard LaunchAgent — heart stays alive after login (no hub).
 set -euo pipefail
-SA="$(cd "$(dirname "$0")/.." && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+# shellcheck source=resolve_sourcea_root_v1.sh
+source "$SCRIPT_DIR/resolve_sourcea_root_v1.sh"
+SA="$(resolve_sourcea_root)"
 PLIST="$HOME/Library/LaunchAgents/com.sina.mac-health-guard.plist"
 WRAPPER="$HOME/.sina/start-mac-health-heart.sh"
 LOG="$HOME/.sina/mac-health-launchagent.log"
@@ -28,14 +31,20 @@ start_server() {
     lsof -t -iTCP:"${PORT}" -sTCP:LISTEN 2>/dev/null | xargs kill 2>/dev/null || true
     sleep 0.4
   fi
-  exec "$PYTHON" "$SOURCEA/scripts/mac-health-guard-server.py" >>"$LOG" 2>&1
+  "$PYTHON" "$SOURCEA/scripts/mac-health-guard-server.py" >>"$LOG" 2>&1 &
+  SERVER_PID=$!
+  echo "$SERVER_PID" >"${HOME}/.sina/mac-health-guard-server.pid"
 }
 
 # Keep launchd job alive — re-check every 20s and restart heart if :13024 dies
+SERVER_PID=""
 while true; do
   if health_ok; then
     sleep 20
     continue
+  fi
+  if [[ -n "${SERVER_PID}" ]] && kill -0 "$SERVER_PID" 2>/dev/null; then
+    kill "$SERVER_PID" 2>/dev/null || true
   fi
   start_server
 done

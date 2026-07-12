@@ -71,9 +71,11 @@ if [[ "${1:-}" == "--build" ]]; then
   done
   curl -sf "http://127.0.0.1:${MAC_HEALTH_PORT:-13024}/health" | python3 -c "
 import json,sys
+sys.path.insert(0, '$ROOT/scripts')
+from mac_health_version_v1 import MAC_HEALTH_VERSION
 d=json.load(sys.stdin)
 assert d.get('ok'), d
-assert str(d.get('version','')).startswith('3.3'), d
+assert str(d.get('version','')).startswith(MAC_HEALTH_VERSION), d
 print('PASS: cold-start /health after build')
 " || fail=1
 fi

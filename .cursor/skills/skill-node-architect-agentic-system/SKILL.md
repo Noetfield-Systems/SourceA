@@ -52,7 +52,7 @@ description: >-
 | New validator or live wire script | Register node · map validate-* · receipt path |
 | “Fragmented pipelines” / duplicate gate steps | Audit graph vs session gate · plan N03–N04 |
 | Upgrade node skills / HIGH PRO | Sync project + sina mirror · bump version |
-| Autonomous / scheduled execution | Tier + n8n manifest — never Cursor auto-paste |
+| Unattended / scheduled execution | Tier + n8n manifest — never Cursor auto-paste |
 | Hub node canvas (N07) | Graph read-only UI on `:13020` |
 | Wil↔SourceA parity question | Use §Wil parity map — do not edit Wil from SourceA |
 
