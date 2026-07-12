@@ -38,6 +38,8 @@ _DEFAULT_VERIFICATION_CHECKS: dict[str, list[str]] = {
 }
 _MAX_CONCURRENCY = max(1, int(os.environ.get("SOURCEA_SANDBOX_MAX_CONCURRENCY", "2") or "2"))
 _EXEC_SEMAPHORE = threading.BoundedSemaphore(_MAX_CONCURRENCY)
+_EXECUTION_GUARD = threading.Lock()
+_ACTIVE_RUN_IDS: set[str] = set()
 
 
 def _verification_registry() -> dict[str, list[str]]:
@@ -369,17 +371,42 @@ def execute(body: dict[str, Any]) -> dict[str, Any]:
     return save_state(base)
 
 
+def _http_result(row: dict[str, Any]) -> tuple[int, dict[str, Any]]:
+    """Return the synchronous terminal truth; never label FAIL/BLOCKED as accepted."""
+    status = str(row.get("status") or "")
+    run_id = str(row.get("run_id") or "")
+    payload = dict(row)
+    payload["accepted"] = status in {"RUNNING", "PASS"}
+    if run_id:
+        payload["status_url"] = f"/v1/executions/{run_id}"
+    code = {"PASS": 200, "RUNNING": 202, "FAIL": 422, "BLOCKED": 409}.get(status, 500)
+    return code, payload
+
+
 def handle_post(body: dict[str, Any]) -> tuple[int, dict[str, Any]]:
     errors = validate_request(body)
     if errors:
-        return 422, execute(body)
-    if not _EXEC_SEMAPHORE.acquire(blocking=False):
-        return 429, {"accepted": False, "error": "capacity_reached", "run_id": run_id_for(str(body.get("job_id") or ""))}
+        _, row = _http_result(execute(body))
+        return 422, row
+
+    run_id = run_id_for(str(body["job_id"]))
+    with _EXECUTION_GUARD:
+        existing = load_state(run_id)
+        if existing:
+            return _http_result(existing)
+        if run_id in _ACTIVE_RUN_IDS:
+            return 202, accepted(str(body["job_id"]))
+        if not _EXEC_SEMAPHORE.acquire(blocking=False):
+            return 429, {"accepted": False, "error": "capacity_reached"}
+        _ACTIVE_RUN_IDS.add(run_id)
+
     try:
-        execute(body)
+        row = execute(body)
     finally:
-        _EXEC_SEMAPHORE.release()
-    return 202, accepted(str(body["job_id"]))
+        with _EXECUTION_GUARD:
+            _ACTIVE_RUN_IDS.discard(run_id)
+            _EXEC_SEMAPHORE.release()
+    return _http_result(row)
 
 
 def main() -> int:
