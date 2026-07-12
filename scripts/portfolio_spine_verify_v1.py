@@ -50,6 +50,31 @@ def spine_cfg() -> tuple[str, str] | None:
     return url.rstrip("/"), key
 
 
+def supabase_get(base: str, key: str, table: str, query: str) -> list[dict[str, Any]]:
+    req = urllib.request.Request(
+        f"{base}/rest/v1/{table}?{query}",
+        headers={"apikey": key, "Authorization": f"Bearer {key}"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            rows = json.loads(resp.read().decode("utf-8"))
+            return rows if isinstance(rows, list) else []
+    except Exception:  # noqa: BLE001 — caller falls back
+        return []
+
+
+def latest_queue_head(base: str, key: str) -> str:
+    """Pass-through of the newest queue head (this loop observes, never moves the queue).
+    Mirrors the NOOS spine heartbeat; the cycle_receipts schema rejects null queue heads."""
+    rows = supabase_get(base, key, "truth_log", "select=queue_head&order=recorded_at.desc&limit=1")
+    if rows and rows[0].get("queue_head"):
+        return str(rows[0]["queue_head"])
+    rows = supabase_get(base, key, "cycle_receipts", "select=queue_head_after&order=created_at.desc&limit=1")
+    if rows and rows[0].get("queue_head_after"):
+        return str(rows[0]["queue_head_after"])
+    return "UNKNOWN"
+
+
 def supabase_post(base: str, key: str, table: str, row: dict[str, Any]) -> dict[str, Any]:
     req = urllib.request.Request(
         f"{base}/rest/v1/{table}",
@@ -116,15 +141,15 @@ def check_recipe_queue() -> dict[str, Any]:
     return {"ok": ok, "detail": detail[:300], "duration_ms": int((time.monotonic() - started) * 1000)}
 
 
-def build_cycle_row(*, execution_id: str, check: dict[str, Any], now: str) -> dict[str, Any]:
+def build_cycle_row(*, execution_id: str, check: dict[str, Any], now: str, queue_head: str) -> dict[str, Any]:
     verdict = "GREEN" if check["ok"] else "RED"
     return {
         "cycle_id": f"cycle-{execution_id}-{now}",
         "execution_id": execution_id,
         "verdict": verdict,
         "trigger_source": "cloudflare_cron",
-        "queue_head_before": None,
-        "queue_head_after": None,
+        "queue_head_before": queue_head,
+        "queue_head_after": queue_head,
         "created_at": now,
         "started_at": now,
         "finished_at": now,
@@ -144,16 +169,17 @@ def run(body: dict[str, Any] | None = None) -> dict[str, Any]:
         }
     base, key = cfg
     now = utc_now()
+    queue_head = latest_queue_head(base, key)
     buyer = check_buyer_proof()
     recipe = check_recipe_queue()
     writes = {
         "buyer_proof": supabase_post(
             base, key, "cycle_receipts",
-            build_cycle_row(execution_id="buyer-proof-hotfix-verify-v1", check=buyer, now=now),
+            build_cycle_row(execution_id="buyer-proof-hotfix-verify-v1", check=buyer, now=now, queue_head=queue_head),
         ),
         "recipe_queue": supabase_post(
             base, key, "cycle_receipts",
-            build_cycle_row(execution_id="client-proof-recipe-queue-v1", check=recipe, now=now),
+            build_cycle_row(execution_id="client-proof-recipe-queue-v1", check=recipe, now=now, queue_head=queue_head),
         ),
     }
     ok = all(w.get("ok") for w in writes.values())
@@ -179,6 +205,7 @@ def main() -> int:
     if args.dry_run:
         now = utc_now()
         buyer, recipe = check_buyer_proof(), check_recipe_queue()
+        queue_head = "DRY_RUN"
         row = {
             "schema": "portfolio-spine-verify-v1",
             "dry_run": True,
@@ -186,8 +213,8 @@ def main() -> int:
             "buyer_proof": buyer,
             "recipe_queue": recipe,
             "rows_preview": [
-                build_cycle_row(execution_id="buyer-proof-hotfix-verify-v1", check=buyer, now=now),
-                build_cycle_row(execution_id="client-proof-recipe-queue-v1", check=recipe, now=now),
+                build_cycle_row(execution_id="buyer-proof-hotfix-verify-v1", check=buyer, now=now, queue_head=queue_head),
+                build_cycle_row(execution_id="client-proof-recipe-queue-v1", check=recipe, now=now, queue_head=queue_head),
             ],
         }
     else:
