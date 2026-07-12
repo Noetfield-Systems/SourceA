@@ -41,15 +41,28 @@ def _json_response(handler: BaseHTTPRequestHandler, code: int, row: dict[str, An
     handler.wfile.write(body)
 
 
-_MAX_BODY_BYTES = 1_000_000  # 1 MB cap on request bodies (DoS guard)
+_MAX_BODY_BYTES = 1_000_000  # 1 MB cap on executor request bodies (DoS guard)
+
+
+def _executor_auth(handler: BaseHTTPRequestHandler) -> "tuple[int, str] | None":
+    """Fail-closed auth for /v1/executions ONLY (independent of legacy _auth_ok)."""
+    secret = os.environ.get("SOURCEA_SANDBOX_EXECUTOR_SECRET", "").strip()
+    if not secret:
+        return 503, "executor_not_configured"
+    auth = handler.headers.get("Authorization", "")
+    if not auth:
+        return 401, "unauthorized"
+    if not hmac.compare_digest(auth, f"Bearer {secret}"):
+        return 403, "forbidden"
+    return None
 
 
 def _auth_ok(handler: BaseHTTPRequestHandler) -> bool:
     secret = os.environ.get("FBE_INTERNAL_SECRET", "").strip()
     if not secret:
-        return False  # fail closed: refuse mutating routes when no secret is configured
+        return True
     auth = handler.headers.get("Authorization", "")
-    return hmac.compare_digest(auth, f"Bearer {secret}")
+    return auth == f"Bearer {secret}"
 
 
 def _single_cycle_gate(path: str, body: dict[str, Any] | None = None) -> dict[str, Any] | None:
@@ -403,8 +416,9 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
             )
             return
         if parsed.path.startswith("/v1/executions/"):
-            if not _auth_ok(self):
-                _json_response(self, 401, {"ok": False, "error": "unauthorized"})
+            gate = _executor_auth(self)
+            if gate is not None:
+                _json_response(self, gate[0], {"ok": False, "error": gate[1]})
                 return
             from sandbox_executor_adapter_v1 import load_state  # noqa: WPS433
 
@@ -616,27 +630,36 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
             row = run_cloud_auto_tick(body=body)
             _json_response(self, 200 if row.get("ok") else 422, row)
             return
+        if urlparse(self.path).path == "/v1/executions":
+            gate = _executor_auth(self)
+            if gate is not None:
+                _json_response(self, gate[0], {"ok": False, "error": gate[1]})
+                return
+            length = int(self.headers.get("Content-Length") or 0)
+            if length > _MAX_BODY_BYTES:
+                _json_response(self, 413, {"ok": False, "error": "payload_too_large"})
+                return
+            raw = self.rfile.read(length).decode("utf-8") if length else "{}"
+            try:
+                body = json.loads(raw) if raw.strip() else {}
+            except json.JSONDecodeError:
+                _json_response(self, 400, {"ok": False, "error": "invalid_json"})
+                return
+            from sandbox_executor_adapter_v1 import handle_post  # noqa: WPS433
+            code, row = handle_post(body if isinstance(body, dict) else {})
+            _json_response(self, code, row)
+            return
         if not _auth_ok(self):
             _json_response(self, 401, {"ok": False, "error": "unauthorized"})
             return
         parsed = urlparse(self.path)
         path = parsed.path
         length = int(self.headers.get("Content-Length") or 0)
-        if length > _MAX_BODY_BYTES:
-            _json_response(self, 413, {"ok": False, "error": "payload_too_large"})
-            return
         raw = self.rfile.read(length).decode("utf-8") if length else "{}"
         try:
             body = json.loads(raw) if raw.strip() else {}
         except json.JSONDecodeError:
             _json_response(self, 400, {"ok": False, "error": "invalid_json"})
-            return
-
-        if path == "/v1/executions":
-            from sandbox_executor_adapter_v1 import handle_post  # noqa: WPS433
-
-            code, row = handle_post(body if isinstance(body, dict) else {})
-            _json_response(self, code, row)
             return
 
         if path == "/api/sourcea/plan-registry/receipt-link/v1":

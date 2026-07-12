@@ -12,6 +12,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import threading
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -25,8 +26,47 @@ SHA_RE = re.compile(r"^[0-9a-fA-F]{40}$")
 RUN_ID_RE = re.compile(r"^sx-[0-9a-f]{24}$")
 BRANCH_RE = re.compile(r"^(automation|codex|sandbox)/[A-Za-z0-9][A-Za-z0-9._/-]{0,180}$")
 TERMINAL = {"PASS", "FAIL", "BLOCKED"}
-_SECRET_ENV_KEYS = ("GITHUB_TOKEN", "GITHUB_PERSONAL_ACCESS_TOKEN")
-_SANITIZE_ENV_KEYS = ("GITHUB_TOKEN", "GITHUB_PERSONAL_ACCESS_TOKEN", "FBE_INTERNAL_SECRET")
+_SECRET_ENV_KEYS = ("GITHUB_TOKEN", "GITHUB_PERSONAL_ACCESS_TOKEN", "FBE_INTERNAL_SECRET", "SOURCEA_SANDBOX_EXECUTOR_SECRET")
+_SANITIZE_ENV_KEYS = ("GITHUB_TOKEN", "GITHUB_PERSONAL_ACCESS_TOKEN", "FBE_INTERNAL_SECRET", "SOURCEA_SANDBOX_EXECUTOR_SECRET")
+
+# Server-controlled verification checks: check_id -> argv. Overridable via env (server config), never the request.
+_DEFAULT_VERIFICATION_CHECKS: dict[str, list[str]] = {
+    "fixture_schema": ["python3", "-c", "import glob, json; [json.load(open(f)) for f in glob.glob('**/*.json', recursive=True)]; print('fixture_schema_ok')"],
+    "targeted_tests": ["python3", "-m", "pytest", "-q"],
+}
+_MAX_CONCURRENCY = max(1, int(os.environ.get("SOURCEA_SANDBOX_MAX_CONCURRENCY", "2") or "2"))
+_EXEC_SEMAPHORE = threading.BoundedSemaphore(_MAX_CONCURRENCY)
+
+
+def _verification_registry() -> dict[str, list[str]]:
+    """Server-controlled check_id -> argv registry. The HTTP request never supplies argv."""
+    raw = os.environ.get("SOURCEA_SANDBOX_VERIFICATION_CHECKS_JSON", "").strip()
+    if raw:
+        try:
+            reg = json.loads(raw)
+        except json.JSONDecodeError:
+            return {}
+        if isinstance(reg, dict) and all(
+            isinstance(v, list) and v and all(isinstance(x, str) for x in v) for v in reg.values()
+        ):
+            return {str(k): [str(x) for x in v] for k, v in reg.items()}
+        return {}
+    return {k: list(v) for k, v in _DEFAULT_VERIFICATION_CHECKS.items()}
+
+
+def _executor_argv(subst: dict[str, str]) -> list[str]:
+    """Server-configured argv (SOURCEA_SANDBOX_EXECUTOR_ARGV_JSON). Only whole-token placeholders are
+    substituted as individual argv values; the request controls neither the executable nor argv structure."""
+    raw = os.environ.get("SOURCEA_SANDBOX_EXECUTOR_ARGV_JSON", "").strip()
+    if not raw:
+        raise RuntimeError("missing SOURCEA_SANDBOX_EXECUTOR_ARGV_JSON")
+    try:
+        tpl = json.loads(raw)
+    except json.JSONDecodeError:
+        raise RuntimeError("invalid SOURCEA_SANDBOX_EXECUTOR_ARGV_JSON")
+    if not (isinstance(tpl, list) and tpl and all(isinstance(x, str) for x in tpl)):
+        raise RuntimeError("invalid SOURCEA_SANDBOX_EXECUTOR_ARGV_JSON")
+    return [subst.get(token, token) for token in tpl]
 
 
 def now() -> str:
@@ -91,8 +131,23 @@ def validate_request(body: dict[str, Any]) -> list[str]:
         errors.append("allowed_paths_invalid")
     if not isinstance(body.get("sandbox_job"), dict):
         errors.append("sandbox_job_invalid")
-    if not isinstance(body.get("verification_contract"), dict):
+    vc = body.get("verification_contract")
+    if not isinstance(vc, dict):
         errors.append("verification_contract_invalid")
+    else:
+        if "commands" in vc:
+            errors.append("verification_contract_commands_forbidden")
+        checks = vc.get("checks")
+        if not isinstance(checks, list) or not checks or not all(isinstance(c, str) for c in checks):
+            errors.append("verification_contract_checks_invalid")
+        else:
+            registry = _verification_registry()
+            if not registry:
+                errors.append("verification_registry_unavailable")
+            else:
+                unknown = sorted({c for c in checks if c not in registry})
+                if unknown:
+                    errors.append("verification_check_unknown:" + ",".join(unknown))
     return errors
 
 
@@ -226,13 +281,11 @@ def execute(body: dict[str, Any]) -> dict[str, Any]:
         evidence.append({"step": "git_checkout_working_branch", **checkout})
         if checkout["returncode"] != 0:
             raise RuntimeError("git_checkout_working_branch_failed")
-        cmd_tpl = os.environ.get("SOURCEA_SANDBOX_EXECUTOR_CMD", "").strip()
-        if not cmd_tpl:
-            raise RuntimeError("missing SOURCEA_SANDBOX_EXECUTOR_CMD")
         job_file = work / "sandbox_job.json"
         job_file.write_text(json.dumps(body, indent=2) + "\n", encoding="utf-8")
         env = _sanitized_env({"SANDBOX_JOB_FILE": str(job_file), "SANDBOX_REPO_DIR": str(clone), "SANDBOX_RUN_ID": run_id})
-        executor = _run(["bash", "-lc", cmd_tpl], clone, timeout=int(os.environ.get("SOURCEA_SANDBOX_EXECUTOR_TIMEOUT", "600")), env=env)
+        argv = _executor_argv({"{job_file}": str(job_file), "{repo_dir}": str(clone), "{run_id}": run_id})
+        executor = _run(argv, clone, timeout=int(os.environ.get("SOURCEA_SANDBOX_EXECUTOR_TIMEOUT", "600")), env=env)
         evidence.append({"step": "coding_executor", **executor})
         if executor["returncode"] != 0:
             raise RuntimeError("coding_executor_failed")
@@ -241,12 +294,15 @@ def execute(body: dict[str, Any]) -> dict[str, Any]:
         bad = [p for p in changed if not _path_allowed(p, list(body["allowed_paths"]))]
         if bad:
             raise RuntimeError("allowed_path_violation:" + ",".join(bad))
-        verify_cmds = body.get("verification_contract", {}).get("commands") or []
-        for i, cmd in enumerate(verify_cmds):
-            if not isinstance(cmd, str) or not cmd.strip():
-                raise RuntimeError("verification_command_invalid")
-            row = _run(["bash", "-lc", cmd], clone, timeout=300, env=_sanitized_env())
-            evidence.append({"step": f"verification_{i+1}", **row})
+        registry = _verification_registry()
+        if not registry:
+            raise RuntimeError("verification_registry_unavailable")
+        for check_id in body.get("verification_contract", {}).get("checks") or []:
+            check_argv = registry.get(check_id)
+            if not check_argv:
+                raise RuntimeError("verification_check_unknown:" + str(check_id))
+            row = _run(list(check_argv), clone, timeout=300, env=_sanitized_env())
+            evidence.append({"step": "verification_" + str(check_id), **row})
             if row["returncode"] != 0:
                 raise RuntimeError("verification_failed")
         if not changed:
@@ -279,9 +335,13 @@ def execute(body: dict[str, Any]) -> dict[str, Any]:
 def handle_post(body: dict[str, Any]) -> tuple[int, dict[str, Any]]:
     errors = validate_request(body)
     if errors:
-        row = execute(body)
-        return 422, row
-    row = execute(body)
+        return 422, execute(body)
+    if not _EXEC_SEMAPHORE.acquire(blocking=False):
+        return 429, {"accepted": False, "error": "capacity_reached", "run_id": run_id_for(str(body.get("job_id") or ""))}
+    try:
+        execute(body)
+    finally:
+        _EXEC_SEMAPHORE.release()
     return 202, accepted(str(body["job_id"]))
 
 
