@@ -14,6 +14,8 @@ ENV CHURCH_ROOT=/opt/church
 ENV PYTHONUNBUFFERED=1
 
 # Kernel manifests (immutable graph hash baked in image)
+COPY data/client-proof-recipe-queue-v1.json data/client-proof-recipe-queue-v1.json
+COPY data/client-proof-recipe-rubric-v1.json data/client-proof-recipe-rubric-v1.json
 COPY data/fbe_node_graph_v1.json data/fbe_node_graph_v1.json
 COPY data/fbe_factory_builder_bundle_v1.json data/fbe_factory_builder_bundle_v1.json
 COPY data/fbe_execution_contract_v1.json data/fbe_execution_contract_v1.json
@@ -43,6 +45,8 @@ COPY data/forge-github-source-v02.json data/forge-github-source-v02.json
 COPY data/forge-mvp-router-rules-v0.1.json data/forge-mvp-router-rules-v0.1.json
 COPY data/forge-v02-cloud-contract-v1.json data/forge-v02-cloud-contract-v1.json
 COPY data/forge-real-blueprints-v01.json data/forge-real-blueprints-v01.json
+COPY scripts/portfolio_spine_verify_v1.py scripts/portfolio_spine_verify_v1.py
+COPY scripts/verify_buyer_proof_hotfix_v1.py scripts/verify_buyer_proof_hotfix_v1.py
 COPY scripts/cloud_worker_dispatch_v1.py scripts/cloud_worker_dispatch_v1.py
 COPY scripts/forge_v01_engine_v1.py scripts/forge_v01_engine_v1.py
 COPY scripts/forge_v02_github_v1.py scripts/forge_v02_github_v1.py
