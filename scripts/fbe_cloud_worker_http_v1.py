@@ -398,6 +398,16 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
                 },
             )
             return
+        if parsed.path.startswith("/v1/executions/"):
+            from sandbox_executor_adapter_v1 import load_state  # noqa: WPS433
+
+            run_id = parsed.path.rsplit("/", 1)[-1]
+            row = load_state(run_id)
+            if not row:
+                _json_response(self, 404, {"ok": False, "error": "not_found", "run_id": run_id})
+                return
+            _json_response(self, 200, row)
+            return
         if parsed.path.startswith("/receipts/"):
             rel = parsed.path[len("/receipts/") :].lstrip("/")
             if not rel or ".." in rel.split("/"):
@@ -610,6 +620,13 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
             body = json.loads(raw) if raw.strip() else {}
         except json.JSONDecodeError:
             _json_response(self, 400, {"ok": False, "error": "invalid_json"})
+            return
+
+        if path == "/v1/executions":
+            from sandbox_executor_adapter_v1 import handle_post  # noqa: WPS433
+
+            code, row = handle_post(body if isinstance(body, dict) else {})
+            _json_response(self, code, row)
             return
 
         if path == "/api/sourcea/plan-registry/receipt-link/v1":
