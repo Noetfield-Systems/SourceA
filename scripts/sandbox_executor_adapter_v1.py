@@ -221,7 +221,8 @@ def _run(cmd: list[str], cwd: Path, timeout: int = 300, env: dict[str, str] | No
     # False positive: all callers pass this argv list with strict-regex-validated values
     # (repo/base_sha/working_branch/job_id) or server-controlled values (executor argv / check registry),
     # and shell=False, so no command injection is possible. See PR #33 security review.
-    # codeql[py/command-line-injection]\n    proc = subprocess.run(cmd, cwd=str(cwd), text=True, capture_output=True, timeout=timeout, env=env)
+    # codeql[py/command-line-injection]
+    proc = subprocess.run(cmd, cwd=str(cwd), text=True, capture_output=True, timeout=timeout, env=env)
     return {
         "cmd": _redact_cmd(cmd, env),
         "returncode": proc.returncode,
