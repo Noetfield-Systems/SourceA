@@ -94,10 +94,14 @@ def state_path(run_id: str) -> Path:
 def load_state(run_id: str) -> dict[str, Any] | None:
     if not RUN_ID_RE.fullmatch(str(run_id)):
         return None
-    path = state_path(run_id)
-    if not path.is_file():
+    root = os.path.realpath(STATE_DIR)
+    resolved = os.path.realpath(os.path.join(root, f"{run_id}.json"))
+    if os.path.commonpath([root, resolved]) != root:
         return None
-    return json.loads(path.read_text(encoding="utf-8"))
+    target = Path(resolved)
+    if not target.is_file():
+        return None
+    return json.loads(target.read_text(encoding="utf-8"))
 
 
 def save_state(row: dict[str, Any]) -> dict[str, Any]:
@@ -316,10 +320,9 @@ def execute(body: dict[str, Any]) -> dict[str, Any]:
         if not registry:
             raise RuntimeError("verification_registry_unavailable")
         for check_id in body.get("verification_contract", {}).get("checks") or []:
-            check_argv = registry.get(check_id)
-            if not check_argv:
+            if check_id not in registry:
                 raise RuntimeError("verification_check_unknown:" + str(check_id))
-            row = _run(list(check_argv), clone, timeout=300, env=_sanitized_env())
+            row = _run(list(registry[check_id]), clone, timeout=300, env=_sanitized_env())
             evidence.append({"step": "verification_" + str(check_id), **row})
             if row["returncode"] != 0:
                 raise RuntimeError("verification_failed")
