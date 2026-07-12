@@ -203,7 +203,15 @@ def _path_allowed(path: str, patterns: list[str]) -> bool:
     clean = path.strip("/")
     if not clean or clean.startswith(".git/") or ".." in Path(clean).parts:
         return False
-    return any(fnmatch.fnmatch(clean, pat) or fnmatch.fnmatch(clean + "/", pat.rstrip("/") + "/") for pat in patterns)
+    for pattern in patterns:
+        normalized = pattern.strip("/")
+        if normalized.endswith("/**"):
+            prefix = normalized[:-3].rstrip("/") + "/"
+            if clean.startswith(prefix):
+                return True
+        elif fnmatch.fnmatchcase(clean, normalized):
+            return True
+    return False
 
 
 def _secret_values(env: dict[str, str] | None = None) -> list[str]:
@@ -305,6 +313,8 @@ def execute(body: dict[str, Any]) -> dict[str, Any]:
     run_id = _validated(RUN_ID_RE, run_id_for(str(body.get("job_id") or "")), "invalid_run_id")
     existing = load_state(run_id)
     if existing:
+        # job_id is the immutable idempotency key. Replaying it returns the recorded truth;
+        # a repair/retry must use a new job_id and working_branch to avoid duplicate side effects.
         return existing
     started = now()
     base = {"run_id": run_id, "job_id": body.get("job_id"), "status": "BLOCKED", "target_repository": body.get("target_repository"), "base_sha": body.get("base_sha"), "working_branch": body.get("working_branch"), "changed_paths": [], "commit_sha": None, "pull_request_url": None, "verification_evidence": [], "ci_check_references": [], "started_at": started, "completed_at": None, "blocker": None}
@@ -382,12 +392,12 @@ def execute(body: dict[str, Any]) -> dict[str, Any]:
             raise RuntimeError("git_commit_failed")
         sha = _run(["git", "rev-parse", "HEAD"], clone); evidence.append({"step": "git_rev_parse", **sha})
         base["commit_sha"] = sha["stdout"].strip()
-        if os.environ.get("SOURCEA_SANDBOX_SKIP_PUSH") != "1":
-            push = _run(["git", "push", "origin", f"HEAD:{safe_branch}"], clone, timeout=300, env=git_env); evidence.append({"step": "git_push", **push})
-            if push["returncode"] != 0:
-                raise RuntimeError("git_push_failed")
-        else:
-            evidence.append({"step": "git_push", "returncode": 0, "stdout": "skipped by SOURCEA_SANDBOX_SKIP_PUSH", "stderr": ""})
+        if os.environ.get("SOURCEA_SANDBOX_SKIP_PUSH") == "1":
+            evidence.append({"step": "git_push", "returncode": 1, "stdout": "", "stderr": "disabled by SOURCEA_SANDBOX_SKIP_PUSH"})
+            raise RuntimeError("push_disabled")
+        push = _run(["git", "push", "origin", f"HEAD:{safe_branch}"], clone, timeout=300, env=git_env); evidence.append({"step": "git_push", **push})
+        if push["returncode"] != 0:
+            raise RuntimeError("git_push_failed")
         pr_url, pr_evidence = _open_pr(safe_repo, safe_branch, safe_base, f"Sandbox job {safe_job_id}", "Automated bounded SourceA SANDBOX execution.", clone)
         evidence.extend(pr_evidence); base["pull_request_url"] = pr_url
         if not pr_url:
