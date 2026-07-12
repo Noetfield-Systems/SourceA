@@ -140,6 +140,16 @@ enum NativeActions {
         proc.standardOutput = pipe
         proc.standardError = pipe
         do {
+            var output = Data()
+            let outputLock = NSLock()
+            pipe.fileHandleForReading.readabilityHandler = { handle in
+                let chunk = handle.availableData
+                if !chunk.isEmpty {
+                    outputLock.lock()
+                    output.append(chunk)
+                    outputLock.unlock()
+                }
+            }
             try proc.run()
             let group = DispatchGroup()
             group.enter()
@@ -148,7 +158,10 @@ enum NativeActions {
                 group.leave()
             }
             _ = group.wait(timeout: .now() + timeout)
-            let data = pipe.fileHandleForReading.readDataToEndOfFile()
+            pipe.fileHandleForReading.readabilityHandler = nil
+            outputLock.lock()
+            let data = output
+            outputLock.unlock()
             return String(data: data, encoding: .utf8) ?? ""
         } catch {
             return "Error: \(error.localizedDescription)"

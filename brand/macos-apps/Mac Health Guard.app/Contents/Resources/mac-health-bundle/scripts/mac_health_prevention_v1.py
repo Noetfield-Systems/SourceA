@@ -16,7 +16,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-SINA = Path.home() / ".sina"
+from mac_health_edition_v1 import SINA
+
 CONFIG_PATH = SINA / "config" / "mac-health-prevention-v1.json"
 RECEIPT_PATH = SINA / "mac-health" / "prevention-latest-v1.json"
 HISTORY_PATH = SINA / "mac-health" / "prevention-history-v1.jsonl"
@@ -103,10 +104,12 @@ def _load_config() -> dict[str, Any]:
 def _uptime_minutes() -> float:
     try:
         out = subprocess.run(["uptime"], capture_output=True, text=True, timeout=5.0).stdout
-        m = re.search(r"up\s+(?:(\d+)\s+days?,?\s*)?(?:(\d+):(\d+)|(\d+)\s+mins?)", out)
+        m = re.search(r"up\s+(?:(\d+)\s+days?,?\s*)?(?:(\d+):(\d+)|(\d+)\s+mins?|(\d+)\s+secs?)", out)
         if not m:
             return 9999.0
         days = int(m.group(1) or 0)
+        if m.group(5):
+            return float(days * 24 * 60) + int(m.group(5)) / 60.0
         if m.group(4):
             return float(days * 24 * 60 + int(m.group(4)))
         hours, mins = int(m.group(2)), int(m.group(3))
