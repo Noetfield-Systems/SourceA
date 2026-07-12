@@ -271,7 +271,12 @@ def load_state(run_id: str) -> dict[str, Any] | None:
             try:
                 return json.loads(entry.read_text(encoding="utf-8"))
             except json.JSONDecodeError:
-                return None
+                return {
+                    "run_id": run_id,
+                    "status": "BLOCKED",
+                    "blocker": "state_corrupt",
+                    "completed_at": now(),
+                }
     return None
 
 
@@ -613,15 +618,20 @@ def handle_post(body: dict[str, Any]) -> tuple[int, dict[str, Any]]:
         return 409, {"accepted": False, "error": "run_in_progress"}
 
     try:
-        if had_orphan_running:
-            orphan = load_state(run_id)
-            if orphan and orphan.get("status") == "RUNNING":
-                row = _block_orphaned_running(orphan)
-            else:
-                row = execute(body, from_handle_post=True)
+        existing = load_state(run_id)
+        if existing and existing.get("status") in TERMINAL:
+            row = existing
+        elif had_orphan_running and existing and existing.get("status") == "RUNNING":
+            row = _block_orphaned_running(existing)
         else:
-            save_state(_running_placeholder(body, run_id))
-            row = execute(body, from_handle_post=True)
+            fresh = load_state(run_id)
+            if fresh and fresh.get("status") in TERMINAL:
+                row = fresh
+            elif fresh and fresh.get("status") == "RUNNING":
+                row = execute(body, from_handle_post=True)
+            else:
+                save_state(_running_placeholder(body, run_id))
+                row = execute(body, from_handle_post=True)
     finally:
         _release_run_claim(run_id)
         _release_capacity_slot(slot)
