@@ -20,6 +20,22 @@ check_no_stale_default() {
   fi
 }
 
+# Live installed plists drift silently from a fixed installer if never
+# regenerated — catch the stale short path there too, not just in source.
+check_no_stale_live_plist() {
+  local f="$1"
+  if [[ ! -f "$f" ]]; then
+    echo "SKIP: $f not installed"
+    return 0
+  fi
+  if grep -q '/Desktop/SourceA/' "$f"; then
+    echo "FAIL: $f (live plist) has stale /Desktop/SourceA/ path"
+    fail=1
+  else
+    echo "PASS: $f live plist path SSOT"
+  fi
+}
+
 echo "=== Mac Health path SSOT v1 ==="
 check test -f "$ROOT/scripts/resolve_sourcea_root_v1.sh"
 check grep -q 'resolve_sourcea_root' "$ROOT/scripts/serve-mac-health-guard.sh"
@@ -27,6 +43,9 @@ check grep -q 'resolve_sourcea_root' "$ROOT/scripts/install-mac-health-launchage
 check_no_stale_default "$ROOT/scripts/install-mac-health-launchagent-v1.sh"
 check_no_stale_default "$ROOT/scripts/install-mac-health-panic-hotkey-v1.sh"
 check_no_stale_default "$ROOT/scripts/install-mac-health-panic-listener-v1.sh"
+check_no_stale_live_plist "$HOME/Library/LaunchAgents/com.sina.mac-health-guard.plist"
+check_no_stale_live_plist "$HOME/Library/LaunchAgents/com.sina.mac-health-panic-hotkey.plist"
+check_no_stale_live_plist "$HOME/Library/LaunchAgents/com.sina.mac-health-panic-listener.plist"
 
 if [[ "$fail" -eq 0 ]]; then
   echo "validate-mac-health-path-ssot-v1: ALL PASS"

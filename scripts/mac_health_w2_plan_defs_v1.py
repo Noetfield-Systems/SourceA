@@ -3,6 +3,8 @@ from __future__ import annotations
 
 from typing import Any
 
+from mac_health_edition_v1 import IS_PERSONAL
+
 # (plan_id, title, epic, steps: list of (title, wired_to, acceptance))
 W2_PLAN_SPECS: list[tuple[str, str, str, list[tuple[str, str, str]]]] = [
     (
@@ -179,6 +181,8 @@ W2_PLAN_SPECS: list[tuple[str, str, str, list[tuple[str, str, str]]]] = [
 
 
 def build_w2_upgrades() -> list[dict[str, Any]]:
+    if not IS_PERSONAL:
+        return []
     out: list[dict[str, Any]] = []
     for plan_id, title, epic, steps in W2_PLAN_SPECS:
         out.append(

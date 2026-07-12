@@ -21,10 +21,9 @@ check node --check "$ROOT/scripts/mac-health-standalone/app.js"
 
 python3 <<'PY' || fail=1
 from mac_health_version_v1 import CSS_CACHE_BUSTER, MAC_HEALTH_VERSION, UI_SURFACE_ID
-assert MAC_HEALTH_VERSION == "4.0.0", MAC_HEALTH_VERSION
-assert CSS_CACHE_BUSTER == "4.0.0", CSS_CACHE_BUSTER
+assert CSS_CACHE_BUSTER == MAC_HEALTH_VERSION, (CSS_CACHE_BUSTER, MAC_HEALTH_VERSION)
 assert UI_SURFACE_ID == "founder_glance", UI_SURFACE_ID
-print("PASS: version SSOT 4.0.0 founder_glance")
+print(f"PASS: version SSOT {MAC_HEALTH_VERSION} founder_glance")
 PY
 
 python3 <<PY || fail=1
@@ -41,6 +40,8 @@ python3 <<PY || fail=1
 import json, urllib.error, urllib.request
 from pathlib import Path
 
+from mac_health_version_v1 import MAC_HEALTH_VERSION
+
 ROOT = Path("$ROOT")
 CONTRACT = ROOT / "data/mac-health-founder-glance-ui-contract-v1.json"
 BASE = "$BASE"
@@ -54,7 +55,7 @@ print("PASS: served HTML matches machine contract")
 
 health = json.loads(urllib.request.urlopen(f"{BASE}/health", timeout=10).read())
 v = health.get("version", "")
-assert v.startswith("4.0"), f"health version={v!r}"
+assert v == MAC_HEALTH_VERSION, f"health version={v!r} expected {MAC_HEALTH_VERSION!r}"
 ui = health.get("ui_contract") or {}
 assert ui.get("ui_mode") == "founder_glance", ui
 assert ui.get("primary_cta") == "Relieve pressure", ui

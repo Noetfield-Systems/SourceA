@@ -9,14 +9,19 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from mac_health_edition_v1 import IS_PERSONAL, SINA
+
 ROOT = Path(__file__).resolve().parents[1]
-SINA = Path.home() / ".sina"
 CONFIG_PATH = ROOT / "data" / "fbe_cloud_worker_config_v1.json"
 LAST_DISPATCH = SINA / "cloud-dispatch-last-receipt-v1.json"
 COMPREHENSION_RECEIPT = SINA / "cloud-comprehension-bay-receipt-v1.json"
 QUALITY_LOG = SINA / "agent-output-quality-log-v1.jsonl"
 RECEIPT_PATH = SINA / "mac-health-cloud-glance-v1.json"
 HUB_URL = "http://127.0.0.1:13020/"
+CF_LOOP_HEALTH = (
+    "https://sourcea-loop-specialist-tick-v1.sina-kazemnezhad-ca.workers.dev/health"
+)
+MAC_CONTROL_FLAG = SINA / "mac-control-plane-v1.flag"
 LOG_TAIL = 10
 
 
@@ -56,6 +61,49 @@ def _probe_railway(url: str, *, timeout: float = 5.0) -> dict[str, Any]:
         return {"ok": False, "status": exc.code, "error": "http_error", "url": url}
     except Exception as exc:
         return {"ok": False, "error": str(exc)[:160], "url": url}
+
+
+def _probe_cf_loop(*, timeout: float = 5.0) -> dict[str, Any]:
+    try:
+        req = urllib.request.Request(
+            CF_LOOP_HEALTH,
+            headers={"User-Agent": "mac-health-cloud-glance/1"},
+            method="GET",
+        )
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            raw = resp.read(4096).decode("utf-8", errors="replace")
+            body = json.loads(raw) if raw.strip() else {}
+            dispatch = body.get("dispatch") if isinstance(body.get("dispatch"), dict) else {}
+            return {
+                "ok": bool(body.get("ok")),
+                "status": resp.status,
+                "service": body.get("service"),
+                "cron_trigger": (body.get("crons") or [None])[0] if isinstance(body.get("crons"), list) else None,
+                "logical_crons": len(body.get("crons") or []) if isinstance(body.get("crons"), list) else dispatch.get("job_count"),
+                "dispatch_jobs": dispatch.get("job_count"),
+                "url": CF_LOOP_HEALTH,
+            }
+    except Exception as exc:
+        return {"ok": False, "error": str(exc)[:160], "url": CF_LOOP_HEALTH}
+
+
+def _mac_control_plane() -> dict[str, Any]:
+    flag = MAC_CONTROL_FLAG.is_file()
+    return {
+        "ok": flag,
+        "flag_path": str(MAC_CONTROL_FLAG),
+        "mode": "control_panel" if flag else "unknown",
+    }
+
+
+def _probe_hub(*, timeout: float = 2.0) -> dict[str, Any]:
+    try:
+        with urllib.request.urlopen(f"{HUB_URL}health", timeout=timeout) as resp:
+            raw = resp.read(1024).decode("utf-8", errors="replace")
+            body = json.loads(raw) if raw.strip() else {}
+            return {"ok": bool(body.get("ok")), "status": resp.status}
+    except Exception as exc:
+        return {"ok": False, "error": str(exc)[:120]}
 
 
 def _last_dispatch() -> dict[str, Any]:
@@ -137,9 +185,15 @@ def _founder_line(
     railway: dict[str, Any],
     dispatch: dict[str, Any],
     comprehension: dict[str, Any],
+    cf_loop: dict[str, Any],
+    control_plane: dict[str, Any],
+    hub: dict[str, Any],
 ) -> str:
-    rail = "Railway OK" if railway.get("ok") else "Railway unreachable"
-    parts = [f"Cloud · {rail}"]
+    rail = "Railway OK" if railway.get("ok") else "Railway down"
+    cf = "CF cron OK" if cf_loop.get("ok") else "CF cron down"
+    mac = "Mac control panel" if control_plane.get("ok") else "Mac mode?"
+    hub_bit = "Hub OK" if hub.get("ok") else "Hub off"
+    parts = [f"Cloud · {rail} · {cf} · {mac} · {hub_bit}"]
 
     verdict = comprehension.get("comprehension_last_verdict")
     cfg = comprehension.get("config_version")
@@ -167,11 +221,34 @@ def _founder_line(
 
 
 def probe(*, write_receipt: bool = True) -> dict[str, Any]:
+    if not IS_PERSONAL:
+        return {
+            "schema": "mac-health-cloud-glance-v1",
+            "ok": True,
+            "available": False,
+            "reason": "personal_edition_only",
+            "at": _now(),
+            "execution_plane": "read_only_mac_glance",
+            "railway_ok": False,
+            "last_plan_id": None,
+            "founder_line": "",
+            "for_founder": {"show_this": ""},
+        }
     url = _worker_url()
     railway = _probe_railway(url)
+    cf_loop = _probe_cf_loop()
+    control_plane = _mac_control_plane()
+    hub = _probe_hub()
     dispatch = _last_dispatch()
     comprehension = _comprehension_metrics()
-    founder_line = _founder_line(railway=railway, dispatch=dispatch, comprehension=comprehension)
+    founder_line = _founder_line(
+        railway=railway,
+        dispatch=dispatch,
+        comprehension=comprehension,
+        cf_loop=cf_loop,
+        control_plane=control_plane,
+        hub=hub,
+    )
     row: dict[str, Any] = {
         "schema": "mac-health-cloud-glance-v1",
         "ok": bool(railway.get("ok")),
@@ -179,6 +256,10 @@ def probe(*, write_receipt: bool = True) -> dict[str, Any]:
         "execution_plane": "read_only_mac_glance",
         "railway_ok": bool(railway.get("ok")),
         "railway": railway,
+        "cf_loop_ok": bool(cf_loop.get("ok")),
+        "cf_loop": cf_loop,
+        "mac_control_plane": control_plane,
+        "hub_glance": hub,
         "last_plan_id": dispatch.get("plan_id"),
         "last_dispatch_ok": dispatch.get("ok"),
         "last_show_this": dispatch.get("show_this"),
@@ -207,7 +288,7 @@ def main() -> int:
         print(json.dumps(row, indent=2))
     else:
         print(row.get("founder_line") or row)
-    return 0 if row.get("railway_ok") or row.get("last_plan_id") else 1
+    return 0 if row.get("railway_ok") else 1
 
 
 if __name__ == "__main__":
