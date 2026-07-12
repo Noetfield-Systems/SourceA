@@ -271,7 +271,10 @@ def _open_pr(repo: str, branch: str, base: str, title: str, body: str, cwd: Path
 
 def execute(body: dict[str, Any]) -> dict[str, Any]:
     errors = validate_request(body)
-    run_id = run_id_for(str(body.get("job_id") or ""))
+    # run_id is a sha256-derived id; re-validate through the regex barrier so the *matched* value
+    # (not the raw hash of request input) flows into the work/clone paths and git argv — CodeQL does
+    # not treat hashing as a command-injection sanitizer, but re.Match.group() is recognized.
+    run_id = _validated(RUN_ID_RE, run_id_for(str(body.get("job_id") or "")), "invalid_run_id")
     existing = load_state(run_id)
     if existing:
         return existing
