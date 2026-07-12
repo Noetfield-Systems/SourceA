@@ -1,6 +1,6 @@
 {
   "schema": "mac-health-founder-glance-ui-contract-v1",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "surface_id": "mac_health",
   "ui_mode": "founder_glance",
   "saved_at": "2026-06-20T19:30:00Z",
@@ -24,8 +24,8 @@
     "id=\"pressure-grid\"",
     "id=\"panel-more\"",
     "id=\"cloud-glance-strip\"",
-    "app.css?v=4.0.0",
-    "app.js?v=4.0.0"
+    "app.css?v=4.1.0",
+    "app.js?v=4.1.0"
   ],
   "dom_must_not_contain": [
     "mhg-seg-nav",

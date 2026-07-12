@@ -6,6 +6,7 @@ import json
 import mimetypes
 import os
 import sys
+import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlparse
@@ -26,10 +27,17 @@ os.environ.setdefault("MAC_HEALTH_STANDALONE", "1")
 
 from mac_health_version_v1 import MAC_HEALTH_VERSION  # noqa: E402
 from mac_health_debug_bab1ff_v1 import dbg  # noqa: E402
+from mac_health_edition_v1 import SINA, IS_PERSONAL  # noqa: E402
+
+
+ALLOWED_ORIGIN = f"http://127.0.0.1:{PORT}"
+
+# Serializes concurrent panic/emergency-stop requests so a double-click can't
+# race non-atomic flag writes in run_mac_health_emergency_stop.
+_panic_lock = threading.Lock()
 
 
 def cors_headers(handler: BaseHTTPRequestHandler) -> None:
-    handler.send_header("Access-Control-Allow-Origin", "*")
     handler.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
     handler.send_header("Access-Control-Allow-Headers", "Content-Type")
 
@@ -58,18 +66,20 @@ class MacHealthHandler(BaseHTTPRequestHandler):
         # #endregion
         if path == "/health":
             from mac_health_founder_glance_ui_v1 import build_ui_contract  # noqa: WPS433
-            from mac_health_cloud_glance_v1 import probe as cloud_glance_probe  # noqa: WPS433
 
             ui_contract = build_ui_contract(port=PORT)
-            try:
-                cg = cloud_glance_probe(write_receipt=False)
-                ui_contract["cloud_glance"] = {
-                    "founder_line": cg.get("founder_line"),
-                    "railway_ok": cg.get("railway_ok"),
-                    "last_plan_id": cg.get("last_plan_id"),
-                }
-            except Exception:
-                pass
+            if IS_PERSONAL:
+                from mac_health_cloud_glance_v1 import probe as cloud_glance_probe  # noqa: WPS433
+
+                try:
+                    cg = cloud_glance_probe(write_receipt=False)
+                    ui_contract["cloud_glance"] = {
+                        "founder_line": cg.get("founder_line"),
+                        "railway_ok": cg.get("railway_ok"),
+                        "last_plan_id": cg.get("last_plan_id"),
+                    }
+                except Exception:
+                    pass
             self._json(
                 200,
                 {
@@ -108,10 +118,20 @@ class MacHealthHandler(BaseHTTPRequestHandler):
             self._json(200, row)
             return
         if path == "/api/mac-health/panic":
+            # GET must never run emergency stop — accidental prefetch killed founder Terminal python.
             from mac_health_emergency_stop_v1 import run_mac_health_emergency_stop  # noqa: WPS433
 
-            row = run_mac_health_emergency_stop(trigger="api-get", fast=True, notify=True)
-            self._json(200, {"ok": True, "emergency_stop": row, "summary": row.get("summary")})
+            row = run_mac_health_emergency_stop(trigger="validate", fast=True, notify=False, dry_run=True)
+            self._json(
+                200,
+                {
+                    "ok": True,
+                    "dry_run": True,
+                    "method_required": "POST",
+                    "targets_before": row.get("targets_before"),
+                    "summary": "POST to run STOP — GET is preview only",
+                },
+            )
             return
         if path == "/api/mac-health":
             from mac_health_guard import build_report  # noqa: WPS433
@@ -141,21 +161,38 @@ class MacHealthHandler(BaseHTTPRequestHandler):
             data={"path": path},
         )
         # #endregion
+        origin = self.headers.get("Origin")
+        if origin and origin != ALLOWED_ORIGIN:
+            self._json(403, {"ok": False, "error": "origin_not_allowed"})
+            return
         if path == "/api/mac-health/panic":
             from mac_health_emergency_stop_v1 import run_mac_health_emergency_stop  # noqa: WPS433
 
-            row = run_mac_health_emergency_stop(trigger="ui", fast=False, notify=True)
-            self._json(200, {"ok": True, "emergency_stop": row, "summary": row.get("summary")})
+            if not _panic_lock.acquire(blocking=False):
+                self._json(200, {"ok": True, "already_running": True})
+                return
+            try:
+                row = run_mac_health_emergency_stop(trigger="ui", fast=False, notify=True)
+                self._json(200, {"ok": True, "emergency_stop": row, "summary": row.get("summary")})
+            finally:
+                _panic_lock.release()
             return
         if path == "/api/mac-health/panic/full":
             from mac_health_emergency_stop_v1 import run_mac_health_emergency_stop  # noqa: WPS433
 
-            row = run_mac_health_emergency_stop(trigger="full_stop", fast=False, notify=True)
-            self._json(200, {"ok": True, "emergency_stop": row, "summary": row.get("summary")})
+            if not _panic_lock.acquire(blocking=False):
+                self._json(200, {"ok": True, "already_running": True})
+                return
+            try:
+                row = run_mac_health_emergency_stop(trigger="full_stop", fast=False, notify=True)
+                self._json(200, {"ok": True, "emergency_stop": row, "summary": row.get("summary")})
+            finally:
+                _panic_lock.release()
             return
         if path == "/debug/agent-log":
-            length = int(self.headers.get("Content-Length", 0))
-            raw = self.rfile.read(length) if length else b"{}"
+            raw = self._read_body()
+            if raw is None:
+                return
             try:
                 payload = json.loads(raw.decode("utf-8"))
             except json.JSONDecodeError:
@@ -171,8 +208,9 @@ class MacHealthHandler(BaseHTTPRequestHandler):
         if path != "/api/mac-health":
             self._json(404, {"ok": False, "error": "not_found"})
             return
-        length = int(self.headers.get("Content-Length", 0))
-        raw = self.rfile.read(length) if length else b"{}"
+        raw = self._read_body()
+        if raw is None:
+            return
         try:
             body = json.loads(raw.decode("utf-8"))
         except json.JSONDecodeError:
@@ -196,6 +234,26 @@ class MacHealthHandler(BaseHTTPRequestHandler):
         )
         # #endregion
         self._json(200 if ok else 400, result)
+
+    def _read_body(self) -> bytes | None:
+        """Read the request body per Content-Length. Sends 400 and returns None on an invalid header."""
+        try:
+            length = int(self.headers.get("Content-Length", 0))
+        except ValueError:
+            length = -1
+        if length < 0:
+            self._json(400, {"ok": False, "error": "invalid_content_length"})
+            return None
+        return self.rfile.read(length) if length else b"{}"
+
+    def handle_error(self, request, client_address):
+        # Client disconnects mid-response (BrokenPipeError/ConnectionResetError/
+        # ConnectionAbortedError) are routine, not real errors — don't dump a
+        # full traceback into the health log for them.
+        exc_type = sys.exc_info()[0]
+        if exc_type and issubclass(exc_type, (BrokenPipeError, ConnectionResetError, ConnectionAbortedError)):
+            return
+        super().handle_error(request, client_address)
 
     def _serve_static(self, path: str) -> None:
         if path in ("", "/"):
@@ -272,7 +330,7 @@ def main() -> None:
     # #endregion
 
     def _pulse_loop() -> None:
-        log_path = Path.home() / ".sina" / "mac-health-guard-server.log"
+        log_path = SINA / "mac-health-guard-server.log"
         while True:
             interval = 8
             try:
