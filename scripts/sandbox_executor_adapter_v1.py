@@ -12,7 +12,6 @@ import shutil
 import subprocess
 import sys
 import tempfile
-import threading
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -37,9 +36,142 @@ _DEFAULT_VERIFICATION_CHECKS: dict[str, list[str]] = {
     "targeted_tests": ["python3", "-m", "pytest", "-q"],
 }
 _MAX_CONCURRENCY = max(1, int(os.environ.get("SOURCEA_SANDBOX_MAX_CONCURRENCY", "2") or "2"))
-_EXEC_SEMAPHORE = threading.BoundedSemaphore(_MAX_CONCURRENCY)
-_EXECUTION_GUARD = threading.Lock()
-_ACTIVE_RUN_IDS: set[str] = set()
+_CLAIM_DIR_NAME = "claims"
+_CAPACITY_DIR_NAME = "capacity-slots"
+_CLAIM_STALE_SECONDS = max(60, int(os.environ.get("SOURCEA_SANDBOX_CLAIM_STALE_SECONDS", "3600") or "3600"))
+
+
+def _claims_dir() -> Path:
+    return STATE_DIR / _CLAIM_DIR_NAME
+
+
+def _capacity_dir() -> Path:
+    return STATE_DIR / _CAPACITY_DIR_NAME
+
+
+def _safe_claim_name(run_id: str) -> str:
+    return os.path.basename(f"{_validated(RUN_ID_RE, run_id, 'invalid_run_id')}.claim")
+
+
+def _under_allowed_root(path: str, allowed_prefix: str) -> bool:
+    """Strict prefix boundary: path == root OR path.startswith(root + '/')."""
+    root = allowed_prefix.rstrip("/")
+    return path == root or path.startswith(root + "/")
+
+
+def _pattern_base_path(pattern: str) -> str:
+    clean = pattern.strip("/")
+    if clean.endswith("/**"):
+        return clean[:-3].rstrip("/")
+    wildcard_at = min((clean.find(ch) for ch in "*?[" if ch in clean), default=-1)
+    if wildcard_at >= 0:
+        return clean[:wildcard_at].rstrip("/")
+    return clean
+
+
+def _pid_alive(pid: int) -> bool:
+    if pid <= 0:
+        return False
+    try:
+        os.kill(pid, 0)
+    except OSError:
+        return False
+    return True
+
+
+def _claim_is_stale(claim_path: Path) -> bool:
+    try:
+        data = json.loads(claim_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return True
+    pid = data.get("pid")
+    if isinstance(pid, int) and _pid_alive(pid):
+        return False
+    at = str(data.get("at") or "")
+    if not at:
+        return True
+    try:
+        claimed_at = datetime.strptime(at, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    except ValueError:
+        return True
+    age = (datetime.now(timezone.utc) - claimed_at).total_seconds()
+    return age >= _CLAIM_STALE_SECONDS
+
+
+def _try_acquire_run_claim(run_id: str) -> tuple[bool, bool]:
+    """Cross-process atomic run claim via O_EXCL on the durable state backend."""
+    _claims_dir().mkdir(parents=True, exist_ok=True)
+    claim_path = _claims_dir() / _safe_claim_name(run_id)
+    if claim_path.exists() and not _claim_is_stale(claim_path):
+        return False, False
+    if claim_path.exists():
+        claim_path.unlink(missing_ok=True)
+    payload = json.dumps({"pid": os.getpid(), "run_id": run_id, "at": now()}).encode("utf-8")
+    try:
+        fd = os.open(str(claim_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+    except FileExistsError:
+        return False, False
+    try:
+        os.write(fd, payload)
+    finally:
+        os.close(fd)
+    existing = load_state(run_id)
+    resume_stale = bool(existing and existing.get("status") == "RUNNING")
+    return True, resume_stale
+
+
+def _release_run_claim(run_id: str) -> None:
+    claim_path = _claims_dir() / _safe_claim_name(run_id)
+    try:
+        claim_path.unlink(missing_ok=True)
+    except OSError:
+        pass
+
+
+def _acquire_capacity_slot(run_id: str) -> int | None:
+    """Cross-process concurrency cap via fixed O_EXCL slot files on the state backend."""
+    slot_dir = _capacity_dir()
+    slot_dir.mkdir(parents=True, exist_ok=True)
+    payload = json.dumps({"pid": os.getpid(), "run_id": run_id, "at": now()}).encode("utf-8")
+    for slot in range(_MAX_CONCURRENCY):
+        slot_path = slot_dir / f"slot-{slot}"
+        if slot_path.exists() and _claim_is_stale(slot_path):
+            slot_path.unlink(missing_ok=True)
+        try:
+            fd = os.open(str(slot_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        except FileExistsError:
+            continue
+        try:
+            os.write(fd, payload)
+        finally:
+            os.close(fd)
+        return slot
+    return None
+
+
+def _release_capacity_slot(slot: int | None) -> None:
+    if slot is None:
+        return
+    slot_path = _capacity_dir() / f"slot-{slot}"
+    try:
+        slot_path.unlink(missing_ok=True)
+    except OSError:
+        pass
+
+
+def _validation_error_payload(body: dict[str, Any], errors: list[str]) -> dict[str, Any]:
+    job_id = str(body.get("job_id") or "")
+    run_id = run_id_for(job_id) if JOB_RE.match(job_id) else None
+    payload: dict[str, Any] = {
+        "accepted": False,
+        "status": "BLOCKED",
+        "blocker": ",".join(errors),
+        "job_id": body.get("job_id"),
+    }
+    if run_id and RUN_ID_RE.fullmatch(run_id):
+        payload["run_id"] = run_id
+        payload["status_url"] = f"/v1/executions/{run_id}"
+    return payload
 
 
 def _verification_registry() -> dict[str, list[str]]:
@@ -190,8 +322,8 @@ def _safe_pattern(pattern: str) -> bool:
     root = pattern.split("/", 1)[0]
     if any(ch in root for ch in "*?[") or root in {".github", ".git"}:
         return False
-    clean = pattern.strip("/")
-    return any(clean.startswith(prefix.rstrip("/")) for prefix in _allowed_path_prefixes())
+    base = _pattern_base_path(pattern)
+    return any(_under_allowed_root(base, prefix) for prefix in _allowed_path_prefixes())
 
 
 def _safe_branch(branch: str) -> bool:
@@ -424,30 +556,30 @@ def _http_result(row: dict[str, Any]) -> tuple[int, dict[str, Any]]:
 def handle_post(body: dict[str, Any]) -> tuple[int, dict[str, Any]]:
     errors = validate_request(body)
     if errors:
-        _, row = _http_result(execute(body))
-        return 422, row
+        return 422, _validation_error_payload(body, errors)
 
     run_id = run_id_for(str(body["job_id"]))
-    resume_stale = False
-    with _EXECUTION_GUARD:
-        if run_id in _ACTIVE_RUN_IDS:
-            return 202, accepted(str(body["job_id"]))
+    existing = load_state(run_id)
+    if existing and existing.get("status") != "RUNNING":
+        return _http_result(existing)
+
+    slot = _acquire_capacity_slot(run_id)
+    if slot is None:
+        return 429, {"accepted": False, "error": "capacity_reached"}
+
+    claimed, resume_stale = _try_acquire_run_claim(run_id)
+    if not claimed:
+        _release_capacity_slot(slot)
         existing = load_state(run_id)
-        if existing:
-            if existing.get("status") != "RUNNING":
-                return _http_result(existing)
-            # RUNNING without an in-process owner is an orphan from a crashed worker.
-            resume_stale = True
-        if not _EXEC_SEMAPHORE.acquire(blocking=False):
-            return 429, {"accepted": False, "error": "capacity_reached"}
-        _ACTIVE_RUN_IDS.add(run_id)
+        if existing and existing.get("status") != "RUNNING":
+            return _http_result(existing)
+        return 202, accepted(str(body["job_id"]))
 
     try:
         row = execute(body, resume_stale=resume_stale)
     finally:
-        with _EXECUTION_GUARD:
-            _ACTIVE_RUN_IDS.discard(run_id)
-            _EXEC_SEMAPHORE.release()
+        _release_run_claim(run_id)
+        _release_capacity_slot(slot)
     return _http_result(row)
 
 
