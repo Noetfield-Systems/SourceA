@@ -305,16 +305,16 @@ def _open_pr(repo: str, branch: str, base: str, title: str, body: str, cwd: Path
         return "", evidence + [{"step": "github_api_pr_create", "returncode": 1, "stderr": str(exc)}]
 
 
-def execute(body: dict[str, Any]) -> dict[str, Any]:
+def execute(body: dict[str, Any], *, resume_stale: bool = False) -> dict[str, Any]:
     errors = validate_request(body)
     # run_id is a sha256-derived id; re-validate through the regex barrier so the *matched* value
     # (not the raw hash of request input) flows into the work/clone paths and git argv — CodeQL does
     # not treat hashing as a command-injection sanitizer, but re.Match.group() is recognized.
     run_id = _validated(RUN_ID_RE, run_id_for(str(body.get("job_id") or "")), "invalid_run_id")
     existing = load_state(run_id)
-    if existing:
-        # job_id is the immutable idempotency key. Replaying it returns the recorded truth;
-        # a repair/retry must use a new job_id and working_branch to avoid duplicate side effects.
+    if existing and not (resume_stale and existing.get("status") == "RUNNING"):
+        # job_id is the immutable idempotency key. Replaying terminal truth never repeats side
+        # effects. Only an orphaned RUNNING record may be resumed after the in-process owner is gone.
         return existing
     started = now()
     base = {"run_id": run_id, "job_id": body.get("job_id"), "status": "BLOCKED", "target_repository": body.get("target_repository"), "base_sha": body.get("base_sha"), "working_branch": body.get("working_branch"), "changed_paths": [], "commit_sha": None, "pull_request_url": None, "verification_evidence": [], "ci_check_references": [], "started_at": started, "completed_at": None, "blocker": None}
@@ -428,18 +428,22 @@ def handle_post(body: dict[str, Any]) -> tuple[int, dict[str, Any]]:
         return 422, row
 
     run_id = run_id_for(str(body["job_id"]))
+    resume_stale = False
     with _EXECUTION_GUARD:
-        existing = load_state(run_id)
-        if existing:
-            return _http_result(existing)
         if run_id in _ACTIVE_RUN_IDS:
             return 202, accepted(str(body["job_id"]))
+        existing = load_state(run_id)
+        if existing:
+            if existing.get("status") != "RUNNING":
+                return _http_result(existing)
+            # RUNNING without an in-process owner is an orphan from a crashed worker.
+            resume_stale = True
         if not _EXEC_SEMAPHORE.acquire(blocking=False):
             return 429, {"accepted": False, "error": "capacity_reached"}
         _ACTIVE_RUN_IDS.add(run_id)
 
     try:
-        row = execute(body)
+        row = execute(body, resume_stale=resume_stale)
     finally:
         with _EXECUTION_GUARD:
             _ACTIVE_RUN_IDS.discard(run_id)
