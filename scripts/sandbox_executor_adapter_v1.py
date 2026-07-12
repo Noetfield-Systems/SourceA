@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 STATE_DIR = Path(os.environ.get("SOURCEA_SANDBOX_EXECUTOR_STATE_DIR", ROOT / ".sourcea" / "sandbox-executions-v1"))
 WORK_ROOT = Path(os.environ.get("SOURCEA_SANDBOX_EXECUTOR_WORK_ROOT", tempfile.gettempdir())) / "sourcea-sandbox-executions-v1"
 JOB_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{1,127}$")
+PATH_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._/-]{0,255}$")
 REPO_RE = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
 SHA_RE = re.compile(r"^[0-9a-fA-F]{40}$")
 RUN_ID_RE = re.compile(r"^sx-[0-9a-f]{24}$")
@@ -331,7 +332,10 @@ def execute(body: dict[str, Any]) -> dict[str, Any]:
             raise RuntimeError("no_changes_made")
         _run(["git", "config", "user.email", os.environ.get("GIT_AUTHOR_EMAIL", "sourcea-executor@noetfield.systems")], clone)
         _run(["git", "config", "user.name", os.environ.get("GIT_AUTHOR_NAME", "SourceA Sandbox Executor")], clone)
-        add = _run(["git", "add", "--"] + changed, clone); evidence.append({"step": "git_add", **add})
+        # Flow regex-matched values (not raw git output) into argv so static analysis sees the
+        # sanitization barrier; these paths already passed _path_allowed above.
+        safe_changed = [_validated(PATH_RE, p, "changed_path_invalid") for p in changed]
+        add = _run(["git", "add", "--"] + safe_changed, clone); evidence.append({"step": "git_add", **add})
         commit = _run(["git", "commit", "-m", f"Execute sandbox job {safe_job_id}"], clone); evidence.append({"step": "git_commit", **commit})
         if commit["returncode"] != 0:
             raise RuntimeError("git_commit_failed")
