@@ -806,6 +806,9 @@ body {
   cursor: pointer;
   font: inherit;
   text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .mhg-cloud-glance-strip:hover {

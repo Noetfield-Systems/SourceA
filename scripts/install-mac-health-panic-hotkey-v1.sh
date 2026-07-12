@@ -25,8 +25,8 @@ if [[ ! -f "$CONFIG" ]]; then
   },
   "unattended": {
     "auto_panic_on_runaway": true,
-    "consecutive_unhealthy_pulses": 4,
-    "cursor_cpu_panic": 90
+    "consecutive_unhealthy_pulses": 24,
+    "cursor_cpu_panic": 280
   }
 }
 JSON

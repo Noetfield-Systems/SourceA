@@ -34,7 +34,7 @@ func sourceAPath() -> String {
     if let env = ProcessInfo.processInfo.environment["SINA_SOURCEA"], !env.isEmpty {
         return env
     }
-    return FileManager.default.homeDirectoryForCurrentUser.path + "/Desktop/SourceA"
+    return FileManager.default.homeDirectoryForCurrentUser.path + "/Desktop/Noetfield-Systems/SourceA"
 }
 
 func accessibilityTrusted(prompt: Bool) -> Bool {
