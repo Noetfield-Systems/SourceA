@@ -621,14 +621,21 @@ def handle_post(body: dict[str, Any]) -> tuple[int, dict[str, Any]]:
         existing = load_state(run_id)
         if existing and existing.get("status") in TERMINAL:
             row = existing
-        elif had_orphan_running and existing and existing.get("status") == "RUNNING":
+        elif existing and existing.get("blocker") == "state_corrupt":
+            row = existing
+        elif had_orphan_running:
+            orphan = existing if existing and existing.get("status") == "RUNNING" else _running_placeholder(body, run_id)
+            row = _block_orphaned_running(orphan)
+        elif existing and existing.get("status") == "RUNNING":
             row = _block_orphaned_running(existing)
         else:
             fresh = load_state(run_id)
             if fresh and fresh.get("status") in TERMINAL:
                 row = fresh
+            elif fresh and fresh.get("blocker") == "state_corrupt":
+                row = fresh
             elif fresh and fresh.get("status") == "RUNNING":
-                row = execute(body, from_handle_post=True)
+                row = _block_orphaned_running(fresh)
             else:
                 save_state(_running_placeholder(body, run_id))
                 row = execute(body, from_handle_post=True)
