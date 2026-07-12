@@ -176,3 +176,22 @@ def test_fbe_http_execution_routes_e2e(isolated, tmp_path, monkeypatch):
     finally:
         server.shutdown()
         thread.join(timeout=5)
+
+
+def test_load_state_rejects_traversal_and_bad_run_id(isolated):
+    # path traversal / malformed run_id must never reach a filesystem path expression
+    assert sx.load_state("../../etc/passwd") is None
+    assert sx.load_state("sx-not-hex-XXXX") is None
+    assert sx.load_state("") is None
+    assert sx.load_state("sx-" + "a" * 24) is None  # well-formed but absent -> None, no crash
+
+
+def test_sanitized_env_strips_secrets(monkeypatch):
+    monkeypatch.setenv("GITHUB_TOKEN", "ghs_should_not_reach_child")
+    monkeypatch.setenv("GITHUB_PERSONAL_ACCESS_TOKEN", "ghp_should_not_reach_child")
+    monkeypatch.setenv("FBE_INTERNAL_SECRET", "internal_secret")
+    env = sx._sanitized_env({"SANDBOX_RUN_ID": "sx-abc"})
+    assert "GITHUB_TOKEN" not in env
+    assert "GITHUB_PERSONAL_ACCESS_TOKEN" not in env
+    assert "FBE_INTERNAL_SECRET" not in env
+    assert env["SANDBOX_RUN_ID"] == "sx-abc"

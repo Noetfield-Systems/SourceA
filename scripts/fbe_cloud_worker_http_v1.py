@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hmac
 import json
 import os
 import sys
@@ -40,12 +41,15 @@ def _json_response(handler: BaseHTTPRequestHandler, code: int, row: dict[str, An
     handler.wfile.write(body)
 
 
+_MAX_BODY_BYTES = 1_000_000  # 1 MB cap on request bodies (DoS guard)
+
+
 def _auth_ok(handler: BaseHTTPRequestHandler) -> bool:
     secret = os.environ.get("FBE_INTERNAL_SECRET", "").strip()
     if not secret:
-        return True
+        return False  # fail closed: refuse mutating routes when no secret is configured
     auth = handler.headers.get("Authorization", "")
-    return auth == f"Bearer {secret}"
+    return hmac.compare_digest(auth, f"Bearer {secret}")
 
 
 def _single_cycle_gate(path: str, body: dict[str, Any] | None = None) -> dict[str, Any] | None:
@@ -399,6 +403,9 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
             )
             return
         if parsed.path.startswith("/v1/executions/"):
+            if not _auth_ok(self):
+                _json_response(self, 401, {"ok": False, "error": "unauthorized"})
+                return
             from sandbox_executor_adapter_v1 import load_state  # noqa: WPS433
 
             run_id = parsed.path.rsplit("/", 1)[-1]
@@ -615,6 +622,9 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
         parsed = urlparse(self.path)
         path = parsed.path
         length = int(self.headers.get("Content-Length") or 0)
+        if length > _MAX_BODY_BYTES:
+            _json_response(self, 413, {"ok": False, "error": "payload_too_large"})
+            return
         raw = self.rfile.read(length).decode("utf-8") if length else "{}"
         try:
             body = json.loads(raw) if raw.strip() else {}
