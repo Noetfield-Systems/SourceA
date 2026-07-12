@@ -7,8 +7,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+from mac_health_edition_v1 import IS_PERSONAL, SINA
+
 ROOT = Path(__file__).resolve().parents[1]
-SINA = Path.home() / ".sina"
 
 
 def _read_json(path: Path) -> dict:
@@ -111,6 +112,8 @@ def probe_step(plan_id: str, step: int, wired_to: str) -> bool:
 
 
 def pulse_w2(w2_upgrades: list[dict]) -> tuple[int, int]:
+    if not IS_PERSONAL:
+        return (0, 0)
     done = 0
     total = 0
     for plan in w2_upgrades:
@@ -133,6 +136,8 @@ def pulse_w2(w2_upgrades: list[dict]) -> tuple[int, int]:
 
 
 def write_receipts() -> None:
+    if not IS_PERSONAL:
+        return
     root = ""
     for candidate in (ROOT, Path.home() / "Desktop/Noetfield-Systems/SourceA"):
         if (candidate / "scripts/mac-health-guard-server.py").is_file():

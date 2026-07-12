@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Mac Health — auto heal for this Mac. Private. Local only." />
   <title>Mac Health</title>
-  <!-- v4.0.0 · Control Plane Glance -->
+  <!-- v4.1.0 · Control Plane Glance -->
   <meta name="sina-app-id" content="mac_health" />
-  <link rel="stylesheet" href="http://127.0.0.1:13020/shared/api-station-tab.css" />
-  <link rel="stylesheet" href="http://127.0.0.1:13020/shared/hub-pro-skills-tab.css" />
-  <link rel="stylesheet" href="http://127.0.0.1:13020/shared/official-links-bar.css" />
-  <link rel="stylesheet" href="app.css?v=4.0.0" />
+  <link rel="stylesheet" href="app.css?v=4.1.0" />
+  <link rel="stylesheet" href="http://127.0.0.1:13020/shared/api-station-tab.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="http://127.0.0.1:13020/shared/hub-pro-skills-tab.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="http://127.0.0.1:13020/shared/official-links-bar.css" media="print" onload="this.media='all'" />
 </head>
 <body>
   <nav class="official-links-bar" data-official-links aria-label="Official links"></nav>
@@ -114,7 +114,7 @@
         </div>
         <div class="mhg-more-block">
           <p class="mhg-more-label">References &amp; skills</p>
-          <p class="mhg-meta">Apple security sources · Hub Pro · Mac Law — for agents and founder.</p>
+          <p class="mhg-meta">Trusted Apple security sources, explained in plain language.</p>
           <div class="mhg-sources mhg-sources-grid" id="sources-grid"><p class="mhg-meta">Loading…</p></div>
         </div>
         <div class="mhg-more-block">
@@ -130,7 +130,7 @@
       </details>
 
       <footer class="mhg-founder-foot">
-        <p class="mhg-meta">Pulse every 8s · never closes Cursor · background factory only</p>
+        <p class="mhg-meta">Pulse every 8s · never closes Cursor · background processes only</p>
       </footer>
     </article>
 
@@ -160,9 +160,9 @@
       <button type="button" data-action="cpu_restart_cursor"></button>
     </div>
   </main>
-  <script src="http://127.0.0.1:13020/shared/official-links-bar.js" defer></script>
-  <script src="http://127.0.0.1:13020/shared/sina-view-mode.js" defer></script>
-  <script src="app.js?v=4.0.0" defer></script>
-  <script src="http://127.0.0.1:13020/shared/hub-pro-skills-tab.js" defer></script>
+  <script src="app.js?v=4.1.0" defer></script>
+  <script src="http://127.0.0.1:13020/shared/official-links-bar.js" defer onerror="this.remove()"></script>
+  <script src="http://127.0.0.1:13020/shared/sina-view-mode.js" defer onerror="this.remove()"></script>
+  <script src="http://127.0.0.1:13020/shared/hub-pro-skills-tab.js" defer onerror="this.remove()"></script>
 </body>
 </html>

@@ -9,8 +9,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from mac_health_edition_v1 import IS_PERSONAL, SINA
+
 ROOT = Path(__file__).resolve().parents[1]
-SINA = Path.home() / ".sina"
 CONFIG_PATH = ROOT / "data" / "fbe_cloud_worker_config_v1.json"
 LAST_DISPATCH = SINA / "cloud-dispatch-last-receipt-v1.json"
 COMPREHENSION_RECEIPT = SINA / "cloud-comprehension-bay-receipt-v1.json"
@@ -220,6 +221,19 @@ def _founder_line(
 
 
 def probe(*, write_receipt: bool = True) -> dict[str, Any]:
+    if not IS_PERSONAL:
+        return {
+            "schema": "mac-health-cloud-glance-v1",
+            "ok": True,
+            "available": False,
+            "reason": "personal_edition_only",
+            "at": _now(),
+            "execution_plane": "read_only_mac_glance",
+            "railway_ok": False,
+            "last_plan_id": None,
+            "founder_line": "",
+            "for_founder": {"show_this": ""},
+        }
     url = _worker_url()
     railway = _probe_railway(url)
     cf_loop = _probe_cf_loop()
@@ -274,7 +288,7 @@ def main() -> int:
         print(json.dumps(row, indent=2))
     else:
         print(row.get("founder_line") or row)
-    return 0 if row.get("railway_ok") or row.get("last_plan_id") else 1
+    return 0 if row.get("railway_ok") else 1
 
 
 if __name__ == "__main__":

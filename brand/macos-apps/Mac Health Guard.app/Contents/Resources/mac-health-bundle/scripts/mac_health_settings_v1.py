@@ -8,7 +8,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-SINA = Path.home() / ".sina"
+from mac_health_edition_v1 import SINA
+
 PANIC_PATH = SINA / "config" / "mac-health-panic-v1.json"
 PREVENTION_PATH = SINA / "config" / "mac-health-prevention-v1.json"
 SETTINGS_META_PATH = SINA / "config" / "mac-health-settings-meta-v1.json"
@@ -245,6 +246,8 @@ def save_settings(patch: dict[str, Any]) -> dict[str, Any]:
     warn_step = max(1, int(ag.get("warn_every_n_pulses") or 2))
     max_pulse = int(ag.get("pulses_before_stop") or 24)
     warn_streaks = list(range(warn_step, max_pulse, warn_step))
+    if not warn_streaks:
+        warn_streaks = [min(warn_step, max(1, max_pulse - 1))]
 
     panic_doc = _read_json(PANIC_PATH)
     panic_doc.setdefault("hotkey", {"enabled": True, "label": "⌃⌥⌘S"})
@@ -279,7 +282,7 @@ def save_settings(patch: dict[str, Any]) -> dict[str, Any]:
     _write_json(PANIC_PATH, panic_doc)
 
     prev_doc = _read_json(PREVENTION_PATH)
-    prev_block = prev_doc.get("prevention") or prev_doc
+    prev_block = prev_doc.get("prevention") or {}
     prev_block.update(
         {
             "enabled": bool(prev.get("enabled")),
