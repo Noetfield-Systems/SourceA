@@ -12,6 +12,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -85,8 +86,8 @@ def _claim_is_stale(claim_path: Path) -> bool:
     except (OSError, json.JSONDecodeError):
         return True
     pid = data.get("pid")
-    if isinstance(pid, int) and _pid_alive(pid):
-        return False
+    if isinstance(pid, int):
+        return not _pid_alive(pid)
     at = str(data.get("at") or "")
     if not at:
         return True
@@ -96,6 +97,43 @@ def _claim_is_stale(claim_path: Path) -> bool:
         return True
     age = (datetime.now(timezone.utc) - claimed_at).total_seconds()
     return age >= _CLAIM_STALE_SECONDS
+
+
+def _wait_for_state(run_id: str, *, attempts: int = 40, delay: float = 0.05) -> dict[str, Any] | None:
+    for _ in range(attempts):
+        row = load_state(run_id)
+        if row:
+            return row
+        time.sleep(delay)
+    return None
+
+
+def _running_placeholder(body: dict[str, Any], run_id: str) -> dict[str, Any]:
+    return {
+        "run_id": run_id,
+        "job_id": body.get("job_id"),
+        "status": "RUNNING",
+        "target_repository": body.get("target_repository"),
+        "base_sha": body.get("base_sha"),
+        "working_branch": body.get("working_branch"),
+        "changed_paths": [],
+        "commit_sha": None,
+        "pull_request_url": None,
+        "verification_evidence": [],
+        "ci_check_references": [],
+        "started_at": now(),
+        "completed_at": None,
+        "blocker": None,
+    }
+
+
+def _block_orphaned_running(existing: dict[str, Any]) -> dict[str, Any]:
+    return save_state({
+        **existing,
+        "status": "BLOCKED",
+        "blocker": "orphaned_running_not_resumable",
+        "completed_at": now(),
+    })
 
 
 def _try_acquire_run_claim(run_id: str) -> tuple[bool, bool]:
@@ -116,8 +154,8 @@ def _try_acquire_run_claim(run_id: str) -> tuple[bool, bool]:
     finally:
         os.close(fd)
     existing = load_state(run_id)
-    resume_stale = bool(existing and existing.get("status") == "RUNNING")
-    return True, resume_stale
+    had_orphan_running = bool(existing and existing.get("status") == "RUNNING")
+    return True, had_orphan_running
 
 
 def _release_run_claim(run_id: str) -> None:
@@ -160,18 +198,12 @@ def _release_capacity_slot(slot: int | None) -> None:
 
 
 def _validation_error_payload(body: dict[str, Any], errors: list[str]) -> dict[str, Any]:
-    job_id = str(body.get("job_id") or "")
-    run_id = run_id_for(job_id) if JOB_RE.match(job_id) else None
-    payload: dict[str, Any] = {
+    return {
         "accepted": False,
         "status": "BLOCKED",
         "blocker": ",".join(errors),
         "job_id": body.get("job_id"),
     }
-    if run_id and RUN_ID_RE.fullmatch(run_id):
-        payload["run_id"] = run_id
-        payload["status_url"] = f"/v1/executions/{run_id}"
-    return payload
 
 
 def _verification_registry() -> dict[str, list[str]]:
@@ -236,7 +268,15 @@ def load_state(run_id: str) -> dict[str, Any] | None:
         return None
     for entry in STATE_DIR.iterdir():
         if entry.name == wanted and entry.is_file():
-            return json.loads(entry.read_text(encoding="utf-8"))
+            try:
+                return json.loads(entry.read_text(encoding="utf-8"))
+            except json.JSONDecodeError:
+                return {
+                    "run_id": run_id,
+                    "status": "BLOCKED",
+                    "blocker": "state_corrupt",
+                    "completed_at": now(),
+                }
     return None
 
 
@@ -437,23 +477,25 @@ def _open_pr(repo: str, branch: str, base: str, title: str, body: str, cwd: Path
         return "", evidence + [{"step": "github_api_pr_create", "returncode": 1, "stderr": str(exc)}]
 
 
-def execute(body: dict[str, Any], *, resume_stale: bool = False) -> dict[str, Any]:
+def execute(body: dict[str, Any], *, from_handle_post: bool = False) -> dict[str, Any]:
     errors = validate_request(body)
     # run_id is a sha256-derived id; re-validate through the regex barrier so the *matched* value
     # (not the raw hash of request input) flows into the work/clone paths and git argv — CodeQL does
     # not treat hashing as a command-injection sanitizer, but re.Match.group() is recognized.
     run_id = _validated(RUN_ID_RE, run_id_for(str(body.get("job_id") or "")), "invalid_run_id")
     existing = load_state(run_id)
-    if existing and not (resume_stale and existing.get("status") == "RUNNING"):
-        # job_id is the immutable idempotency key. Replaying terminal truth never repeats side
-        # effects. Only an orphaned RUNNING record may be resumed after the in-process owner is gone.
-        return existing
+    if existing:
+        if existing.get("status") in TERMINAL:
+            return existing
+        if existing.get("status") == "RUNNING" and not from_handle_post:
+            return existing
     started = now()
     base = {"run_id": run_id, "job_id": body.get("job_id"), "status": "BLOCKED", "target_repository": body.get("target_repository"), "base_sha": body.get("base_sha"), "working_branch": body.get("working_branch"), "changed_paths": [], "commit_sha": None, "pull_request_url": None, "verification_evidence": [], "ci_check_references": [], "started_at": started, "completed_at": None, "blocker": None}
     if errors:
         base.update({"completed_at": now(), "blocker": ",".join(errors)})
         return save_state(base)
-    save_state({**base, "status": "RUNNING"})
+    if not (from_handle_post and existing and existing.get("status") == "RUNNING"):
+        save_state({**base, "status": "RUNNING"})
     safe_repo = _validated(REPO_RE, body.get("target_repository"), "target_repository_invalid")
     safe_sha = _validated(SHA_RE, body.get("base_sha"), "base_sha_invalid")
     safe_branch = _validated(BRANCH_RE, body.get("working_branch"), "working_branch_invalid")
@@ -567,16 +609,36 @@ def handle_post(body: dict[str, Any]) -> tuple[int, dict[str, Any]]:
     if slot is None:
         return 429, {"accepted": False, "error": "capacity_reached"}
 
-    claimed, resume_stale = _try_acquire_run_claim(run_id)
+    claimed, had_orphan_running = _try_acquire_run_claim(run_id)
     if not claimed:
         _release_capacity_slot(slot)
-        existing = load_state(run_id)
-        if existing and existing.get("status") != "RUNNING":
+        existing = _wait_for_state(run_id) or load_state(run_id)
+        if existing:
             return _http_result(existing)
-        return 202, accepted(str(body["job_id"]))
+        return 409, {"accepted": False, "error": "run_in_progress"}
 
     try:
-        row = execute(body, resume_stale=resume_stale)
+        existing = load_state(run_id)
+        if existing and existing.get("status") in TERMINAL:
+            row = existing
+        elif existing and existing.get("blocker") == "state_corrupt":
+            row = existing
+        elif had_orphan_running:
+            orphan = existing if existing and existing.get("status") == "RUNNING" else _running_placeholder(body, run_id)
+            row = _block_orphaned_running(orphan)
+        elif existing and existing.get("status") == "RUNNING":
+            row = _block_orphaned_running(existing)
+        else:
+            fresh = load_state(run_id)
+            if fresh and fresh.get("status") in TERMINAL:
+                row = fresh
+            elif fresh and fresh.get("blocker") == "state_corrupt":
+                row = fresh
+            elif fresh and fresh.get("status") == "RUNNING":
+                row = _block_orphaned_running(fresh)
+            else:
+                save_state(_running_placeholder(body, run_id))
+                row = execute(body, from_handle_post=True)
     finally:
         _release_run_claim(run_id)
         _release_capacity_slot(slot)

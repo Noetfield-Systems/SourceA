@@ -111,7 +111,7 @@ def test_idempotency_persistent_state(isolated):
     assert sx.load_state(row1["run_id"])["blocker"] == "base_sha_invalid"
 
 
-def test_orphaned_running_state_is_recovered(isolated, tmp_path, monkeypatch):
+def test_orphaned_running_state_is_blocked_fail_closed(isolated, tmp_path, monkeypatch):
     remote, sha = init_remote(tmp_path)
     monkeypatch.setattr(sx, "_repo_url", lambda repo: str(remote))
     monkeypatch.setattr(sx, "_open_pr", lambda *a, **k: ("https://x/pull/10", [{"step": "fake_pr", "returncode": 0}]))
@@ -120,9 +120,10 @@ def test_orphaned_running_state_is_recovered(isolated, tmp_path, monkeypatch):
     run_id = sx.run_id_for(body["job_id"])
     sx.save_state({"run_id": run_id, "job_id": body["job_id"], "status": "RUNNING"})
     code, row = sx.handle_post(body)
-    assert code == 200
-    assert row["status"] == "PASS"
-    assert row["accepted"] is True
+    assert code == 409
+    assert row["status"] == "BLOCKED"
+    assert row["blocker"] == "orphaned_running_not_resumable"
+    assert row["accepted"] is False
 
 
 def test_missing_executor_argv_blocks(isolated, tmp_path, monkeypatch):
@@ -306,6 +307,8 @@ def test_invalid_post_returns_422_without_execute_or_disk(isolated, monkeypatch)
     assert row["accepted"] is False
     assert row["status"] == "BLOCKED"
     assert "base_sha_invalid" in row["blocker"]
+    assert "status_url" not in row
+    assert "run_id" not in row
     assert called["execute"] == 0
     assert not list(sx.STATE_DIR.glob("*.json"))
 
@@ -340,11 +343,128 @@ def test_handle_post_duplicate_job_returns_accepted_without_second_execute(isola
 
     # valid body: second concurrent claim should not re-enter execute
     body_ok = job(job_id="job-dup-post-ok")
-    sx._try_acquire_run_claim(sx.run_id_for(body_ok["job_id"]))
+    run_id_ok = sx.run_id_for(body_ok["job_id"])
+    sx._try_acquire_run_claim(run_id_ok)
+    sx.save_state(sx._running_placeholder(body_ok, run_id_ok))
     code3, row3 = sx.handle_post(body_ok)
     assert code3 == 202 and row3["accepted"] is True
+    assert row3["status"] == "RUNNING"
+    assert sx.load_state(run_id_ok) is not None
     assert remote_calls["n"] == 0
-    sx._release_run_claim(sx.run_id_for(body_ok["job_id"]))
+    sx._release_run_claim(run_id_ok)
+
+
+def test_dead_pid_claim_is_stale_immediately(isolated, tmp_path):
+    run_id = sx.run_id_for("job-dead-pid")
+    claim_path = sx._claims_dir() / sx._safe_claim_name(run_id)
+    sx._claims_dir().mkdir(parents=True, exist_ok=True)
+    claim_path.write_text(json.dumps({"pid": 999999999, "run_id": run_id, "at": sx.now()}), encoding="utf-8")
+    assert sx._claim_is_stale(claim_path) is True
+    claimed, _ = sx._try_acquire_run_claim(run_id)
+    assert claimed is True
+    sx._release_run_claim(run_id)
+
+
+def test_running_placeholder_exists_before_execute(isolated, monkeypatch):
+    captured = {"before_execute": False}
+
+    def _capture_execute(body, **kwargs):
+        captured["before_execute"] = sx.load_state(sx.run_id_for(body["job_id"])) is not None
+        return {"run_id": sx.run_id_for(body["job_id"]), "status": "PASS", "job_id": body["job_id"]}
+
+    monkeypatch.setattr(sx, "execute", _capture_execute)
+    body = job(job_id="job-placeholder")
+    code, row = sx.handle_post(body)
+    assert captured["before_execute"] is True
+    assert code == 200
+    assert row["status"] == "PASS"
+
+
+def test_corrupt_state_blocks_rerun(isolated, monkeypatch):
+    run_id = sx.run_id_for("job-corrupt")
+    sx.STATE_DIR.mkdir(parents=True, exist_ok=True)
+    (sx.STATE_DIR / f"{run_id}.json").write_text("{not-json", encoding="utf-8")
+    row = sx.load_state(run_id)
+    assert row["status"] == "BLOCKED"
+    assert row["blocker"] == "state_corrupt"
+
+    def _boom(*_a, **_k):
+        raise AssertionError("execute must not run for corrupt state")
+
+    monkeypatch.setattr(sx, "execute", _boom)
+    code, out = sx.handle_post(job(job_id="job-corrupt"))
+    assert code == 409
+    assert out["status"] == "BLOCKED"
+
+
+def test_terminal_state_not_overwritten_by_placeholder(isolated, monkeypatch):
+    body = job(job_id="job-terminal-race")
+    run_id = sx.run_id_for(body["job_id"])
+    terminal = {
+        "run_id": run_id,
+        "job_id": body["job_id"],
+        "status": "PASS",
+        "commit_sha": "a" * 40,
+        "pull_request_url": "https://github.com/x/pull/1",
+        "completed_at": sx.now(),
+    }
+    sx.save_state(terminal)
+    calls = {"n": 0}
+    real_load = sx.load_state
+
+    def patched_load(rid: str):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            return None
+        return real_load(rid)
+
+    monkeypatch.setattr(sx, "load_state", patched_load)
+
+    def _boom(*_a, **_k):
+        raise AssertionError("execute must not run when terminal state exists")
+
+    monkeypatch.setattr(sx, "execute", _boom)
+    code, row = sx.handle_post(body)
+    assert code == 200
+    assert row["status"] == "PASS"
+    assert real_load(run_id)["status"] == "PASS"
+
+
+def test_foreign_running_state_is_blocked(isolated, monkeypatch):
+    body = job(job_id="job-foreign-run")
+    run_id = sx.run_id_for(body["job_id"])
+    sx.save_state(sx._running_placeholder(body, run_id))
+
+    def _boom(*_a, **_k):
+        raise AssertionError("execute must not rerun foreign RUNNING state")
+
+    monkeypatch.setattr(sx, "execute", _boom)
+    code, row = sx.handle_post(body)
+    assert code == 409
+    assert row["status"] == "BLOCKED"
+    assert row["blocker"] == "orphaned_running_not_resumable"
+
+
+def test_orphan_flag_blocks_when_state_disappears(isolated, monkeypatch):
+    body = job(job_id="job-orphan-vanish")
+    run_id = sx.run_id_for(body["job_id"])
+    real_try = sx._try_acquire_run_claim
+
+    def fake_try(rid: str):
+        sx.save_state({"run_id": rid, "job_id": body["job_id"], "status": "RUNNING"})
+        claimed, had_orphan = real_try(rid)
+        (sx.STATE_DIR / f"{rid}.json").unlink(missing_ok=True)
+        return claimed, True
+
+    monkeypatch.setattr(sx, "_try_acquire_run_claim", fake_try)
+
+    def _boom(*_a, **_k):
+        raise AssertionError("execute must not run when orphan flag is set")
+
+    monkeypatch.setattr(sx, "execute", _boom)
+    code, row = sx.handle_post(body)
+    assert code == 409
+    assert row["blocker"] == "orphaned_running_not_resumable"
 
 
 # ---------------------------------------------------------------- correction: traversal + HTTP e2e
