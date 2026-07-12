@@ -25,7 +25,7 @@ python3 "$ROOT/scripts/build_sina_icons.py" 2>/dev/null || true
 rm -rf "$STAGE"
 mkdir -p "$STAGE/Contents/MacOS" "$STAGE/Contents/Resources" "$BUNDLE_STAGE/scripts" "$BUNDLE_STAGE/app"
 
-for f in mac-health-guard-server.py mac_health_guard.py mac_health_live_v1.py mac_performance_snapshot.py mac_health_cpu_relief_v1.py mac_health_prevention_v1.py mac_health_emergency_stop_v1.py mac_health_settings_v1.py mac_health_version_v1.py mac_health_log_shield_v1.py n8n_glue_runner_v1.py n8n_glue_config_v1.py; do
+for f in mac-health-guard-server.py mac_health_guard.py mac_health_live_v1.py mac_performance_snapshot.py mac_health_cpu_relief_v1.py mac_health_prevention_v1.py mac_health_emergency_stop_v1.py mac_health_settings_v1.py mac_health_version_v1.py mac_health_log_shield_v1.py mac_health_debug_bab1ff_v1.py mac_health_agent_mandates_v1.py mac_health_cloud_glance_v1.py mac_health_founder_glance_ui_v1.py mac_health_founder_glance_wire_v1.py mac_health_never_again_v1.py mac_health_panic_listener_v1.py mac_health_ram_pressure_v1.py mac_health_edition_v1.py mac_health_license_v1.py n8n_glue_runner_v1.py n8n_glue_config_v1.py; do
   cp "$ROOT/scripts/$f" "$BUNDLE_STAGE/scripts/"
 done
 cp -R "$ROOT/scripts/mac-health-standalone/." "$BUNDLE_STAGE/app/"
@@ -36,6 +36,9 @@ chmod +x "$STAGE/Contents/MacOS/${EXEC_NAME}"
 if [[ -f "$ICNS" ]]; then
   cp "$ICNS" "$STAGE/Contents/Resources/AppIcon.icns"
 fi
+
+VERSION="$(python3 -c 'import sys; sys.path.insert(0, "'"$ROOT"'/scripts"); from mac_health_version_v1 import MAC_HEALTH_VERSION; print(MAC_HEALTH_VERSION)')"
+BUILD_NUM="${VERSION//./}"
 
 cat >"$STAGE/Contents/Info.plist" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>
@@ -50,8 +53,8 @@ cat >"$STAGE/Contents/Info.plist" <<PLIST
   <key>CFBundleName</key><string>${APP_NAME}</string>
   <key>CFBundleDisplayName</key><string>${APP_NAME}</string>
   <key>CFBundlePackageType</key><string>APPL</string>
-  <key>CFBundleShortVersionString</key><string>3.1.0</string>
-  <key>CFBundleVersion</key><string>310</string>
+  <key>CFBundleShortVersionString</key><string>${VERSION}</string>
+  <key>CFBundleVersion</key><string>${BUILD_NUM}</string>
   <key>LSMinimumSystemVersion</key><string>12.0</string>
   <key>NSHighResolutionCapable</key><true/>
   <key>NSAppTransportSecurity</key>
