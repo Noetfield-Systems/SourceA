@@ -88,20 +88,16 @@ def _validated(pattern: "re.Pattern[str]", value: Any, error: str) -> str:
 
 
 def state_path(run_id: str) -> Path:
-    return STATE_DIR / f"{_validated(RUN_ID_RE, run_id, 'invalid_run_id')}.json"
+    return STATE_DIR / os.path.basename(f"{_validated(RUN_ID_RE, run_id, 'invalid_run_id')}.json")
 
 
 def load_state(run_id: str) -> dict[str, Any] | None:
     if not RUN_ID_RE.fullmatch(str(run_id)):
         return None
-    root = os.path.realpath(STATE_DIR)
-    resolved = os.path.realpath(os.path.join(root, f"{run_id}.json"))
-    if os.path.commonpath([root, resolved]) != root:
+    path = STATE_DIR / os.path.basename(f"{run_id}.json")
+    if not path.is_file():
         return None
-    target = Path(resolved)
-    if not target.is_file():
-        return None
-    return json.loads(target.read_text(encoding="utf-8"))
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def save_state(row: dict[str, Any]) -> dict[str, Any]:
