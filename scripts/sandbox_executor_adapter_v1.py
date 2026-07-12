@@ -214,7 +214,14 @@ def _sanitized_env(extra: dict[str, str] | None = None) -> dict[str, str]:
 
 
 def _run(cmd: list[str], cwd: Path, timeout: int = 300, env: dict[str, str] | None = None) -> dict[str, Any]:
-    proc = subprocess.run(cmd, cwd=str(cwd), text=True, capture_output=True, timeout=timeout, env=env)
+    # Enforce the invariant the suppression below relies on: cmd is always an explicit argv list of
+    # strings, executed WITHOUT a shell. A string command (shell injection vector) is rejected outright.
+    if not isinstance(cmd, list) or not all(isinstance(part, str) for part in cmd):
+        raise TypeError("cmd_must_be_list_of_str")
+    # False positive: all callers pass this argv list with strict-regex-validated values
+    # (repo/base_sha/working_branch/job_id) or server-controlled values (executor argv / check registry),
+    # and shell=False, so no command injection is possible. See PR #33 security review.
+    proc = subprocess.run(cmd, cwd=str(cwd), text=True, capture_output=True, timeout=timeout, env=env)  # codeql[py/command-line-injection]
     return {
         "cmd": _redact_cmd(cmd, env),
         "returncode": proc.returncode,
