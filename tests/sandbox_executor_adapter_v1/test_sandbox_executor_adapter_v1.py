@@ -430,6 +430,43 @@ def test_terminal_state_not_overwritten_by_placeholder(isolated, monkeypatch):
     assert real_load(run_id)["status"] == "PASS"
 
 
+def test_foreign_running_state_is_blocked(isolated, monkeypatch):
+    body = job(job_id="job-foreign-run")
+    run_id = sx.run_id_for(body["job_id"])
+    sx.save_state(sx._running_placeholder(body, run_id))
+
+    def _boom(*_a, **_k):
+        raise AssertionError("execute must not rerun foreign RUNNING state")
+
+    monkeypatch.setattr(sx, "execute", _boom)
+    code, row = sx.handle_post(body)
+    assert code == 409
+    assert row["status"] == "BLOCKED"
+    assert row["blocker"] == "orphaned_running_not_resumable"
+
+
+def test_orphan_flag_blocks_when_state_disappears(isolated, monkeypatch):
+    body = job(job_id="job-orphan-vanish")
+    run_id = sx.run_id_for(body["job_id"])
+    real_try = sx._try_acquire_run_claim
+
+    def fake_try(rid: str):
+        sx.save_state({"run_id": rid, "job_id": body["job_id"], "status": "RUNNING"})
+        claimed, had_orphan = real_try(rid)
+        (sx.STATE_DIR / f"{rid}.json").unlink(missing_ok=True)
+        return claimed, True
+
+    monkeypatch.setattr(sx, "_try_acquire_run_claim", fake_try)
+
+    def _boom(*_a, **_k):
+        raise AssertionError("execute must not run when orphan flag is set")
+
+    monkeypatch.setattr(sx, "execute", _boom)
+    code, row = sx.handle_post(body)
+    assert code == 409
+    assert row["blocker"] == "orphaned_running_not_resumable"
+
+
 # ---------------------------------------------------------------- correction: traversal + HTTP e2e
 
 def test_load_state_rejects_traversal_and_bad_run_id(isolated):
