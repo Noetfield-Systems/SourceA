@@ -630,12 +630,19 @@ class FbeWorkerHandler(BaseHTTPRequestHandler):
             row = run_cloud_auto_tick(body=body)
             _json_response(self, 200 if row.get("ok") else 422, row)
             return
-        if urlparse(self.path).path == "/v1/executions":
+        if urlparse(self.path).path.rstrip("/") == "/v1/executions":
             gate = _executor_auth(self)
             if gate is not None:
                 _json_response(self, gate[0], {"ok": False, "error": gate[1]})
                 return
-            length = int(self.headers.get("Content-Length") or 0)
+            try:
+                length = int(self.headers.get("Content-Length") or 0)
+            except (TypeError, ValueError):
+                _json_response(self, 400, {"ok": False, "error": "invalid_content_length"})
+                return
+            if length < 0:
+                _json_response(self, 400, {"ok": False, "error": "invalid_content_length"})
+                return
             if length > _MAX_BODY_BYTES:
                 _json_response(self, 413, {"ok": False, "error": "payload_too_large"})
                 return
