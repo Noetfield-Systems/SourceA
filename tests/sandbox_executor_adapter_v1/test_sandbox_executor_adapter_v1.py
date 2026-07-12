@@ -271,14 +271,80 @@ def test_executor_auth_fails_closed_independently(monkeypatch):
 # ---------------------------------------------------------------- correction 4: concurrency
 
 def test_max_two_concurrent_and_third_gets_429(isolated):
-    assert sx._EXEC_SEMAPHORE.acquire(blocking=False) is True
-    assert sx._EXEC_SEMAPHORE.acquire(blocking=False) is True   # two concurrent allowed
+    slot0 = sx._acquire_capacity_slot("sx-" + "a" * 24)
+    slot1 = sx._acquire_capacity_slot("sx-" + "b" * 24)
+    assert slot0 is not None and slot1 is not None
     try:
-        code, row = sx.handle_post(job())                        # third -> capacity
+        code, row = sx.handle_post(job())  # third -> capacity
         assert code == 429 and row["error"] == "capacity_reached"
     finally:
-        sx._EXEC_SEMAPHORE.release()
-        sx._EXEC_SEMAPHORE.release()
+        sx._release_capacity_slot(slot0)
+        sx._release_capacity_slot(slot1)
+
+
+# ---------------------------------------------------------------- regression: three current review findings
+
+def test_path_prefix_boundary_rejects_lookalike_prefix(isolated):
+    evil = "products/field-audit-compiler-v1-evil/**"
+    assert "allowed_paths_invalid" in sx.validate_request(job(allowed_paths=[evil]))
+    assert not sx._safe_pattern(evil)
+    assert sx._safe_pattern("products/field-audit-compiler-v1/**")
+    assert sx._safe_pattern("products/field-audit-compiler-v1/nested/**")
+
+
+def test_invalid_post_returns_422_without_execute_or_disk(isolated, monkeypatch):
+    called = {"execute": 0}
+
+    def _boom(*_a, **_k):
+        called["execute"] += 1
+        raise AssertionError("execute must not run for invalid POST")
+
+    monkeypatch.setattr(sx, "execute", _boom)
+    body = job(base_sha="bad")
+    code, row = sx.handle_post(body)
+    assert code == 422
+    assert row["accepted"] is False
+    assert row["status"] == "BLOCKED"
+    assert "base_sha_invalid" in row["blocker"]
+    assert called["execute"] == 0
+    assert not list(sx.STATE_DIR.glob("*.json"))
+
+
+def test_durable_run_claim_blocks_cross_process_duplicate(isolated):
+    run_id = sx.run_id_for("job-dup-claim")
+    claimed1, _ = sx._try_acquire_run_claim(run_id)
+    claimed2, _ = sx._try_acquire_run_claim(run_id)
+    assert claimed1 is True
+    assert claimed2 is False
+    sx._release_run_claim(run_id)
+    claimed3, _ = sx._try_acquire_run_claim(run_id)
+    assert claimed3 is True
+    sx._release_run_claim(run_id)
+
+
+def test_handle_post_duplicate_job_returns_accepted_without_second_execute(isolated, monkeypatch):
+    remote_calls = {"n": 0}
+    original_execute = sx.execute
+
+    def counting_execute(body, **kwargs):
+        remote_calls["n"] += 1
+        return original_execute(body, **kwargs)
+
+    monkeypatch.setattr(sx, "execute", counting_execute)
+    body = job(job_id="job-dup-post", base_sha="bad")  # invalid -> fast 422, no execute
+    code1, row1 = sx.handle_post(body)
+    code2, row2 = sx.handle_post(body)
+    assert code1 == 422 and code2 == 422
+    assert remote_calls["n"] == 0
+    assert not list(sx.STATE_DIR.glob("*.json"))
+
+    # valid body: second concurrent claim should not re-enter execute
+    body_ok = job(job_id="job-dup-post-ok")
+    sx._try_acquire_run_claim(sx.run_id_for(body_ok["job_id"]))
+    code3, row3 = sx.handle_post(body_ok)
+    assert code3 == 202 and row3["accepted"] is True
+    assert remote_calls["n"] == 0
+    sx._release_run_claim(sx.run_id_for(body_ok["job_id"]))
 
 
 # ---------------------------------------------------------------- correction: traversal + HTTP e2e
