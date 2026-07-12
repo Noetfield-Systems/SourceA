@@ -19,7 +19,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-SINA = Path.home() / ".sina"
+from mac_health_edition_v1 import SINA, IS_PERSONAL
+
 SOURCE_A = Path(__file__).resolve().parents[1]
 FREEZE_FLAG = SINA / "auto-run-disabled-v1.flag"
 PANIC_FLAG = SINA / "mac-health-emergency-active-v1.flag"
@@ -32,14 +33,19 @@ LANDING_TUNNEL_PORT = 8190
 FULL_STOP_TRIGGERS: frozenset[str] = frozenset({"full_stop", "cli-full", "desktop-full"})
 
 # LaunchAgents that respawn killed agents — must pause on panic or STOP has zero effect.
-PAUSE_LAUNCH_AGENTS: tuple[str, ...] = (
+# Personal-only: this maintainer's own launchd jobs — a commercial install never
+# registers any of these labels, so PAUSE_LAUNCH_AGENTS/LAUNCH_AGENT_KILL_PATTERNS
+# stay empty there and the bootout/kill loops below simply no-op.
+SOURCEA_PAUSE_LAUNCH_AGENTS: tuple[str, ...] = (
     "com.sourcea.autorun-worker",
     "com.sourcea.hub",
     "com.sourcea.g7-governance-self-heal",
 )
 
+PAUSE_LAUNCH_AGENTS: tuple[str, ...] = SOURCEA_PAUSE_LAUNCH_AGENTS if IS_PERSONAL else ()
+
 # Per launchd label — pgrep patterns for running instances (bootout alone is not enough).
-LAUNCH_AGENT_KILL_PATTERNS: dict[str, tuple[str, ...]] = {
+SOURCEA_LAUNCH_AGENT_KILL_PATTERNS: dict[str, tuple[str, ...]] = {
     "com.sourcea.autorun-worker": (
         "autorun_dispatcher_v1",
         "auto_run_worker_batch",
@@ -57,10 +63,18 @@ LAUNCH_AGENT_KILL_PATTERNS: dict[str, tuple[str, ...]] = {
     ),
 }
 
+LAUNCH_AGENT_KILL_PATTERNS: dict[str, tuple[str, ...]] = (
+    SOURCEA_LAUNCH_AGENT_KILL_PATTERNS if IS_PERSONAL else {}
+)
+
 KILL_PORTS: tuple[int, ...] = (13020, 13030)
 
 # Factory / agent patterns — never Mac Health heart or panic hotkey daemon.
-KILL_PATTERNS: tuple[str, ...] = (
+# Personal-only: this maintainer's own automation stack — never present on a
+# customer's machine. Commercial edition starts empty; panic stop still freezes
+# the factory flag and kills anything on the user's own custom watch-list
+# (see CUSTOM_KILL_LIST_PATH / _load_custom_kill_list below).
+SOURCEA_KILL_PATTERNS: tuple[str, ...] = (
     "fbe_motor_delegate_v1",
     "agent_rules_loop_orchestrator",
     "anti_staleness_auto_wire_v1",
@@ -107,6 +121,26 @@ KILL_PATTERNS: tuple[str, ...] = (
     "wrangler deploy",
     "kill-sina-command",
 )
+
+EXTRA_PATTERNS: tuple[str, ...] = SOURCEA_KILL_PATTERNS if IS_PERSONAL else ()
+
+KILL_PATTERNS: tuple[str, ...] = EXTRA_PATTERNS
+
+CUSTOM_KILL_LIST_PATH = SINA / "config" / "mac-health-custom-kill-list-v1.json"
+
+
+def _load_custom_kill_list() -> tuple[str, ...]:
+    """User-opted-in process-name substrings from Settings — empty by default."""
+    if not CUSTOM_KILL_LIST_PATH.is_file():
+        return ()
+    try:
+        raw = json.loads(CUSTOM_KILL_LIST_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return ()
+    if not isinstance(raw, list):
+        return ()
+    return tuple(p for p in raw if isinstance(p, str) and p.strip())
+
 
 PROTECTED_SNIPPETS = (
     "mac-health-guard-server",
@@ -239,8 +273,11 @@ def _load_config() -> dict[str, Any]:
     return defaults
 
 
-def _is_protected_cmd(cmdline: str, *, trigger: str = "api") -> bool:
-    if any(p in cmdline for p in PROTECTED_SNIPPETS):
+def _is_protected_cmd(cmdline: str, *, trigger: str = "api", except_snippet: str | None = None) -> bool:
+    snippets = PROTECTED_SNIPPETS if except_snippet is None else tuple(
+        p for p in PROTECTED_SNIPPETS if p != except_snippet
+    )
+    if any(p in cmdline for p in snippets):
         return True
     if trigger == "unattended" and any(p in cmdline for p in HUB_KEEP_ALIVE_SNIPPETS + HEAL_KEEP_ALIVE_SNIPPETS):
         return True
@@ -254,10 +291,20 @@ def _is_protected_cmd(cmdline: str, *, trigger: str = "api") -> bool:
     return False
 
 
+# Patterns that are BOTH a sanctioned kill target (hub lingering instances after
+# launchd bootout — see _pause_launch_agents) AND listed in PROTECTED_SNIPPETS for
+# orphan-kill protection (INCIDENT-042). Searching for one of these exact patterns
+# must not have its own results self-filtered — only OTHER protected snippets
+# appearing in the matched cmdline (or the unattended/landing-tunnel checks) still apply.
+# Sourced from the full SOURCEA dict (not the edition-gated LAUNCH_AGENT_KILL_PATTERNS)
+# so this stays defined even when commercial edition zeroes that dict out.
+_HUB_SELF_SEARCH_PATTERNS: frozenset[str] = frozenset(
+    SOURCEA_LAUNCH_AGENT_KILL_PATTERNS["com.sourcea.hub"]
+)
+
+
 def _pgrep_full(pattern: str, *, trigger: str = "api") -> list[dict[str, Any]]:
     """Enumerate PIDs matching -f pattern (skips protected Mac Health heart)."""
-    if any(p in pattern for p in PROTECTED_SNIPPETS):
-        return []
     try:
         proc = subprocess.run(
             ["pgrep", "-fl", pattern],
@@ -268,12 +315,13 @@ def _pgrep_full(pattern: str, *, trigger: str = "api") -> list[dict[str, Any]]:
         if proc.returncode != 0:
             return []
         rows: list[dict[str, Any]] = []
+        except_snippet = pattern if pattern in _HUB_SELF_SEARCH_PATTERNS else None
         for line in (proc.stdout or "").splitlines():
             parts = line.split(None, 1)
             if len(parts) < 2:
                 continue
             pid_s, cmd = parts[0], parts[1]
-            if _is_protected_cmd(cmd, trigger=trigger):
+            if _is_protected_cmd(cmd, trigger=trigger, except_snippet=except_snippet):
                 continue
             try:
                 rows.append({"pid": int(pid_s), "cmdline": cmd[:220], "pattern": pattern})
@@ -289,7 +337,7 @@ def _enumerate_agent_pids(*, trigger: str = "api") -> list[dict[str, Any]]:
     seen: set[int] = set()
     rows: list[dict[str, Any]] = []
     protect_landing = _protect_landing_tunnel(trigger)
-    for pat in KILL_PATTERNS:
+    for pat in KILL_PATTERNS + _load_custom_kill_list():
         if protect_landing and pat == "cloudflared":
             continue
         for row in _pgrep_full(pat, trigger=trigger):
@@ -517,6 +565,18 @@ def _notify(title: str, body: str, *, modal: bool = False, sound: str = "Basso")
             return
     except Exception:
         return
+    safe = lambda s: str(s).replace("\\", "\\\\").replace('"', '\\"')[:400]  # noqa: E731
+    script = f'display notification "{safe(body)}" with title "{safe(title)}" sound name "{safe(sound)}"'
+    try:
+        subprocess.run(
+            ["osascript", "-e", script],
+            check=False,
+            timeout=5,
+            capture_output=True,
+            text=True,
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        pass
 
 
 def _write_flags(trigger: str) -> dict[str, Any]:
@@ -528,7 +588,23 @@ def _write_flags(trigger: str) -> dict[str, Any]:
 
 
 def _kill_sourcea_orphan_scripts(*, dry_run: bool = False, trigger: str = "api") -> list[dict[str, Any]]:
-    """Kill stray SourceA python/shell workers — never Mac Health heart."""
+    """Kill stray SourceA python/shell workers — never Mac Health heart.
+
+    In commercial edition SOURCE_A resolves to the app bundle's own scripts/
+    directory (see module docstring / mac_health_edition_v1), so this sweep's
+    blast radius includes Mac Health's own helper scripts. That's safe only
+    because every mac_health_*.py module the app ever launches as a separate
+    OS process (as opposed to importing in-process) is listed in
+    PROTECTED_SNIPPETS below. As of this writing that's exactly:
+    mac-health-guard-server, mac_health_emergency_stop, mac_health_panic_listener,
+    MacHealthShell, MacHealthPanicHotkey / "Mac Health Panic" — verified by
+    grepping every subprocess.run/Popen call in scripts/ and every launchd
+    plist installer. cpu_relief, ram_pressure, never_again, settings,
+    prevention, and log_shield are always imported as libraries, never
+    spawned standalone, so they don't need an entry. If you ever add a new
+    mac_health_*.py module that gets launched as its own subprocess/launchd
+    job, add its name to PROTECTED_SNIPPETS too or this sweep will kill it.
+    """
     sourcea_scripts = str(SOURCE_A / "scripts")
     kills: list[dict[str, Any]] = []
     try:
@@ -545,7 +621,7 @@ def _kill_sourcea_orphan_scripts(*, dry_run: bool = False, trigger: str = "api")
             if len(parts) < 2:
                 continue
             pid_s, cmd = parts[0], parts[1]
-            if sourcea_scripts not in cmd and "/SourceA/scripts/" not in cmd:
+            if sourcea_scripts not in cmd:
                 continue
             if _is_protected_cmd(cmd, trigger=trigger):
                 continue
