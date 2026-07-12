@@ -12,7 +12,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-SINA = Path.home() / ".sina"
+from mac_health_edition_v1 import SINA
+
 STATE_PATH = SINA / "mac-health" / "log-shield-state-v1.json"
 RECEIPT_PATH = SINA / "mac-health" / "log-shield-latest-v1.json"
 
@@ -140,13 +141,23 @@ def scan_sina_logs() -> dict[str, Any]:
     rows.sort(key=lambda r: r["bytes"], reverse=True)
     cmd_bytes = _file_size(COMMAND_LOG)
     level = "ok"
+    trigger_name = "command-server.log"
+    trigger_bytes = cmd_bytes
     if cmd_bytes >= CRITICAL_BYTES:
         level = "critical"
     elif cmd_bytes >= WARN_BYTES:
         level = "warn"
     for row in rows:
-        if not row["is_command_log"] and row["bytes"] >= OTHER_LOG_BYTES and level == "ok":
+        if row["is_command_log"]:
+            continue
+        if row["bytes"] >= CRITICAL_BYTES and level != "critical":
+            level = "critical"
+            trigger_name = row["name"]
+            trigger_bytes = row["bytes"]
+        elif row["bytes"] >= WARN_BYTES and level == "ok":
             level = "warn"
+            trigger_name = row["name"]
+            trigger_bytes = row["bytes"]
     prev = _load_state()
     growth_mb_per_min = None
     prev_bytes = int(prev.get("command_log_bytes") or 0)
@@ -167,6 +178,9 @@ def scan_sina_logs() -> dict[str, Any]:
         "level": level,
         "critical": level == "critical",
         "warn": level in ("warn", "critical"),
+        "trigger_name": trigger_name,
+        "trigger_bytes": trigger_bytes,
+        "trigger_human": _human_bytes(trigger_bytes),
         "log_growth_mb_per_min": growth_mb_per_min,
         "largest_sina_logs": rows[:8],
         "tail_snippet": _tail_text(COMMAND_LOG)[:500] if cmd_bytes > 0 else "",
@@ -280,8 +294,8 @@ def log_shield_findings(shield: dict[str, Any], hub: dict[str, Any], stuck: list
             {
                 "id": "log_shield_command_bomb",
                 "severity": "critical",
-                "title": f"Runaway hub log ({shield.get('command_log_human')})",
-                "detail": "command-server.log exceeds 1 GB — disk I/O and RAM cache pressure.",
+                "title": f"Runaway log ({shield.get('trigger_human')})",
+                "detail": f"{shield.get('trigger_name')} exceeds 1 GB — disk I/O and RAM cache pressure.",
                 "fix": "Mac Health → Relieve disk · or truncate log",
             }
         )
@@ -290,8 +304,8 @@ def log_shield_findings(shield: dict[str, Any], hub: dict[str, Any], stuck: list
             {
                 "id": "log_shield_command_warn",
                 "severity": "high",
-                "title": f"Large hub log ({shield.get('command_log_human')})",
-                "detail": "command-server.log is growing — rotate before it becomes a bomb.",
+                "title": f"Large log ({shield.get('trigger_human')})",
+                "detail": f"{shield.get('trigger_name')} is growing — rotate before it becomes a bomb.",
                 "fix": "Relieve disk in Log Shield",
             }
         )

@@ -8,7 +8,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-SINA = Path.home() / ".sina"
+from mac_health_edition_v1 import SINA
+
 LIVE_PULSE = SINA / "mac-health" / "live-pulse-v1.json"
 H1_BRIDGE = SINA / "mac-health-h1-bridge-v1.json"
 H1_BOOT = SINA / "worker-hub-boot-v1.json"
@@ -341,10 +342,20 @@ def _read_cached_live() -> dict[str, Any] | None:
 
 def refresh_live_display(row: dict[str, Any]) -> dict[str, Any]:
     """Refresh numbers for UI polls — no macOS notifications or auto-apply."""
-    from mac_health_guard import _machine_pressure  # noqa: WPS433
+    from mac_health_guard import _machine_pressure, _grade_for_score, apply_pressure_to_score  # noqa: WPS433
 
     mp = _machine_pressure()
     out = {**row, "machine_pressure": mp, "at": _now()}
+    security_score = row.get("security_score")
+    if isinstance(security_score, (int, float)):
+        score = apply_pressure_to_score(int(security_score), mp)
+        live_age = _iso_age_sec((row.get("wired") or {}).get("live_refreshed_at"))
+        pressure_age = _iso_age_sec(mp.get("at"))
+        out["score"] = score
+        out["grade"] = _grade_for_score(score)
+        out["live_status"] = _live_status(
+            live_age=live_age, pressure_age=pressure_age, score=score, mp=mp, heart_ok=True
+        )
     prev = row.get("prevention") if isinstance(row.get("prevention"), dict) else {}
     try:
         from mac_health_prevention_v1 import analyze_prevention  # noqa: WPS433
@@ -417,15 +428,7 @@ def get_live_api_row(*, sync_h1: bool = False) -> dict:
         pass
     path_taken = "build_snapshot"
     row = build_live_snapshot(sync_h1=sync_h1, side_effects=False)
-    try:
-        from mac_health_ram_pressure_v1 import skip_heavy_probes  # noqa: WPS433
-
-        if not skip_heavy_probes(mp=row.get("machine_pressure") or {}):
-            from cursor_session_relief_v1 import probe_cursor_session  # noqa: WPS433
-
-            row["cursor_session"] = probe_cursor_session()
-    except Exception:
-        pass
+    # cursor_session already probed once inside build_live_snapshot() — reuse it, don't re-probe.
     # #region agent log
     dbg(
         hypothesis_id="B",

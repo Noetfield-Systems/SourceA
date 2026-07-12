@@ -259,19 +259,19 @@
     const bomb = mp.sina_log_bomb || {};
     const hubBadge = mp.hub_truth_badge || "Down";
     if (badge) {
-      badge.textContent = "Hub · " + hubBadge;
+      badge.textContent = "Sync · " + hubBadge;
       badge.className =
         "mhg-badge mhg-hub-truth-badge " +
         (hubBadge === "Healthy" ? "ok" : hubBadge === "Port-only" ? "warn" : "bad");
     }
     const rows = [];
-    rows.push(["Hub log", bomb.human || "—"]);
+    rows.push(["Log size", bomb.human || "—"]);
     if (mp.log_growth_mb_per_min != null) {
       rows.push(["Log growth", mp.log_growth_mb_per_min + " MB/min"]);
     }
     rows.push(["Stuck readers", String(mp.stuck_log_reader_count || 0)]);
     const storm = (mp.factory_storm || {}).factory_storm;
-    rows.push(["Factory storm", storm ? "Yes — hub sick" : "No"]);
+    rows.push(["Background storm", storm ? "Yes — high load" : "No"]);
     const logs = mp.largest_sina_logs || [];
     logs.slice(0, 4).forEach((row) => {
       rows.push([row.name || "log", row.human || "—"]);
@@ -286,8 +286,8 @@
       if (bomb.critical || bomb.level === "warn") {
         bombBanner.hidden = false;
         bombLine.textContent = bomb.critical
-          ? `Log bomb: hub log is ${bomb.human}. Relieve disk to free space and stop I/O pressure.`
-          : `Large hub log (${bomb.human}). Relieve before it becomes a bomb.`;
+          ? `Log bomb: a log file is ${bomb.human}. Relieve disk to free space and stop I/O pressure.`
+          : `Large log file (${bomb.human}). Relieve before it becomes a bomb.`;
       } else {
         bombBanner.hidden = true;
       }
@@ -456,11 +456,11 @@
         h1el.hidden = true;
       } else if (h1.ok) {
         h1el.hidden = false;
-        h1el.textContent = `Hub · Valid ${h1.valid_yes ?? "—"}/1000`;
+        h1el.textContent = `Sync · Valid ${h1.valid_yes ?? "—"}/1000`;
         h1el.className = "mhg-meta mhg-h1-sync-line stale";
       } else {
         h1el.hidden = false;
-        h1el.textContent = "Hub offline — auto heal still runs here";
+        h1el.textContent = "Sync offline — auto heal still runs here";
         h1el.className = "mhg-meta mhg-h1-sync-line offline";
       }
     }
@@ -602,9 +602,9 @@
     }
     if (/filevault is off/i.test(t)) return "Your files are not encrypted at rest on this disk.";
     if (/disk live wire|validate-disk-live-wire|mirror inject/i.test(t)) {
-      if (/FAIL:/i.test(t)) return t.split("\n").find((l) => /FAIL:/i.test(l)) || "Disk live wire needs a sync — tap Brain heal.";
-      if (/OK:/i.test(t)) return "Disk truth bundle is synced — factory queue and mirror inject are healthy.";
-      return "Disk live wire — tap Brain heal to refresh truth bundle and queue.";
+      if (/FAIL:/i.test(t)) return t.split("\n").find((l) => /FAIL:/i.test(l)) || "Disk data needs a refresh — tap Relieve pressure.";
+      if (/OK:/i.test(t)) return "Disk data is synced and healthy.";
+      return "Disk data — tap Relieve pressure to refresh.";
     }
     if (t.length > 120 && t.includes("\n")) return t.split("\n")[0].slice(0, 120);
     return t;
@@ -718,7 +718,7 @@
       const b = rt.breakdown || {};
       summary.textContent =
         rt.founder_line ||
-        `Cursor ${b.cursor_gb ?? "?"} GB + hub ${b.hub_gb ?? 0} GB + other ${b.other_gb ?? "?"} GB = ${rt.ram_used_gb ?? "?"} GB total`;
+        `Cursor ${b.cursor_gb ?? "?"} GB + background ${b.hub_gb ?? 0} GB + other ${b.other_gb ?? "?"} GB = ${rt.ram_used_gb ?? "?"} GB total`;
     }
     const prevHogs = (lastRamSnapshot && lastRamSnapshot.hogs) || {};
     list.innerHTML = rt.hogs
@@ -1138,7 +1138,7 @@
     }
     if (fw.enabled) parts.push("Firewall is ON");
     else if (fw.founder_tap) parts.push(fw.founder_tap);
-    el.textContent = `Brain heal complete · ${parts.join(" · ")}.`;
+    el.textContent = `Relief complete · ${parts.join(" · ")}.`;
     el.className = "mhg-heal-msg" + (heal.improved || heal.ran_ok || fw.enabled ? "" : " warn");
     el.hidden = false;
   }
@@ -1521,13 +1521,13 @@
         : "⛔ Full stop — tunnel may already be off"
       : killCount > 0
         ? `⛔ Killed ${killCount} background process(es)`
-        : "⛔ Paused factory — Cursor still open";
+        : "⛔ Paused background agents — Cursor still open";
     showFlash(headline, flashCls);
     if (msg) {
       msg.textContent =
         line +
         (fullStop
-          ? " · Republish landing from Hub or publish script."
+          ? " · Restart any tunnel or hosting service you use."
           : " · NOT stopped: Cursor, Terminal, Claude. For IDE lag → Cool Down → Restart Cursor.");
       msg.className = killCount > 0 || coolDone.length ? "mhg-heal-msg" : "mhg-heal-msg warn";
     }
@@ -1576,7 +1576,7 @@
       const rec = data.emergency_stop || data;
       await paintPanicReceipt(rec, { fullStop: false });
     } catch (e) {
-      const err = "STOP failed — double-click ⛔ STOP AGENTS on Desktop";
+      const err = "Stop failed — try again in a moment.";
       if (flash) {
         flash.textContent = err;
         flash.className = "mhg-panic-flash fail";
@@ -1589,7 +1589,7 @@
 
   async function runFullStop() {
     const ok = window.confirm(
-      "Full stop kills the landing tunnel (cloudflared :8190) and all background agents.\n\nRepublish landing after. Continue?"
+      "Full stop kills all background agents and any active tunnels.\n\nYou may need to restart those services after. Continue?"
     );
     if (!ok) return;
     lastAction = "full_stop";
@@ -1622,7 +1622,7 @@
       const rec = data.emergency_stop || data;
       await paintPanicReceipt(rec, { fullStop: true });
     } catch (e) {
-      const err = "Full stop failed — try Desktop STOP AGENTS or touch ~/.sina/PANIC.now";
+      const err = "Full stop failed — try again in a moment, or restart the app.";
       if (flash) {
         flash.textContent = err;
         flash.className = "mhg-panic-flash fail";
@@ -1754,6 +1754,7 @@
       cg.for_founder?.show_this ||
       (cg.railway_ok ? "Cloud · Railway OK" : "Cloud · reading…");
     el.textContent = line;
+    el.title = line;
     el.className = "mhg-cloud-glance-strip";
     if (cg.last_dispatch_ok === false) el.classList.add("bad");
     else if (!cg.railway_ok) el.classList.add("warn");
