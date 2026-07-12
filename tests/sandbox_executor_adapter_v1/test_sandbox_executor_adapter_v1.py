@@ -83,6 +83,8 @@ def test_request_validation_and_prohibited_repo(isolated):
     assert "base_sha_invalid" in sx.validate_request(job(base_sha="bad"))
     assert "target_repository_not_allowed" in sx.validate_request(job(target_repository="Other/Repo"))
     assert "allowed_paths_invalid" in sx.validate_request(job(allowed_paths=["../secret/**"]))
+    assert "allowed_paths_invalid" in sx.validate_request(job(allowed_paths=["*"]))
+    assert "allowed_paths_invalid" in sx.validate_request(job(allowed_paths=[".github/**"]))
 
 
 def test_branch_naming(isolated):
