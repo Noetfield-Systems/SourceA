@@ -93,6 +93,17 @@ def test_branch_naming(isolated):
     assert not sx.validate_request(job(working_branch="automation/safe-branch"))
 
 
+def test_recursive_allowed_paths_are_explicit(isolated):
+    assert sx._path_allowed(
+        "products/field-audit-compiler-v1/nested/deep/output.json",
+        ["products/field-audit-compiler-v1/**"],
+    )
+    assert not sx._path_allowed(
+        "products/other/output.json",
+        ["products/field-audit-compiler-v1/**"],
+    )
+
+
 def test_idempotency_persistent_state(isolated):
     row1 = sx.execute(job(base_sha="bad"))
     row2 = sx.execute(job(base_sha="bad"))
@@ -132,7 +143,6 @@ def test_isolated_worktree_and_terminal_receipt_schema(isolated, tmp_path, monke
     monkeypatch.setattr(sx, "_repo_url", lambda repo: str(remote))
     monkeypatch.setattr(sx, "_open_pr", lambda *a, **k: ("https://github.com/Noetfield-Systems/SANDBOX/pull/1", [{"step": "fake_pr", "returncode": 0}]))
     set_executor(monkeypatch)
-    monkeypatch.setenv("SOURCEA_SANDBOX_SKIP_PUSH", "1")
     row = sx.execute(job(job_id="job-pass", base_sha=sha, working_branch="automation/job-pass"))
     assert row["status"] == "PASS"
     assert row["commit_sha"] and len(row["commit_sha"]) == 40
@@ -169,7 +179,6 @@ def test_registered_check_executes_without_a_shell(isolated, tmp_path, monkeypat
     monkeypatch.setattr(sx, "_open_pr", lambda *a, **k: ("https://x/pull/9", [{"step": "fake_pr", "returncode": 0}]))
     monkeypatch.setenv("SOURCEA_SANDBOX_VERIFICATION_CHECKS_JSON", json.dumps({"proof": ["python3", "-c", "print('CHECK_RAN')"]}))
     set_executor(monkeypatch)
-    monkeypatch.setenv("SOURCEA_SANDBOX_SKIP_PUSH", "1")
     row = sx.execute(job(job_id="job-check", base_sha=sha, working_branch="automation/job-check", verification_contract={"checks": ["proof"]}))
     assert row["status"] == "PASS"
     step = next(e for e in row["verification_evidence"] if e["step"] == "verification_proof")
@@ -194,7 +203,6 @@ def test_executor_argv_executes_without_a_shell(isolated, tmp_path, monkeypatch)
     monkeypatch.setattr(sx, "_repo_url", lambda repo: str(remote))
     monkeypatch.setattr(sx, "_open_pr", lambda *a, **k: ("https://x/pull/3", [{"step": "fake_pr", "returncode": 0}]))
     set_executor(monkeypatch)
-    monkeypatch.setenv("SOURCEA_SANDBOX_SKIP_PUSH", "1")
     row = sx.execute(job(job_id="job-argv", base_sha=sha, working_branch="automation/job-argv"))
     exec_step = next(e for e in row["verification_evidence"] if e["step"] == "coding_executor")
     assert exec_step["cmd"][0] == "python3" and "bash" not in exec_step["cmd"]
@@ -208,7 +216,6 @@ def test_secrets_absent_from_child_environment(isolated, tmp_path, monkeypatch):
     monkeypatch.setenv("SOURCEA_SANDBOX_EXECUTOR_SECRET", "exec_secret_leaktest")
     set_executor(monkeypatch, ["python3", "-c",
         "import os,json,pathlib;d=pathlib.Path('products/field-audit-compiler-v1');d.mkdir(parents=True,exist_ok=True);(d/'output.txt').write_text(json.dumps(sorted(os.environ.keys())))"])
-    monkeypatch.setenv("SOURCEA_SANDBOX_SKIP_PUSH", "1")
     row = sx.execute(job(job_id="job-env", base_sha=sha, working_branch="automation/job-env"))
     dumped = (sx.WORK_ROOT / row["run_id"] / "repo" / "products/field-audit-compiler-v1/output.txt").read_text()
     keys = json.loads(dumped)
@@ -275,7 +282,6 @@ def test_fbe_http_execution_routes_e2e(isolated, tmp_path, monkeypatch):
     monkeypatch.setattr(sx, "_open_pr", lambda *a, **k: ("https://github.com/Noetfield-Systems/SANDBOX/pull/2", [{"step": "fake_pr", "returncode": 0}]))
     monkeypatch.setitem(sys.modules, "sandbox_executor_adapter_v1", sx)
     set_executor(monkeypatch)
-    monkeypatch.setenv("SOURCEA_SANDBOX_SKIP_PUSH", "1")
     monkeypatch.setenv("SOURCEA_SANDBOX_EXECUTOR_SECRET", "exec-secret")
     server = ThreadingHTTPServer(("127.0.0.1", 0), FbeWorkerHandler)
     thread = threading.Thread(target=server.serve_forever, daemon=True)
