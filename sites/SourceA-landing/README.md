@@ -1,4 +1,4 @@
-# SourceA commercial landing (adapted layouts)
+# SourceA commercial landing
 
 **NOT Noetfield** — Buyer 1 · platform eng · Asset B DFY  
 **Law:** `SOURCEA_ASSET_B_GOVERNED_AGENTIC_AUTOMATION_LOCKED_v1.md` · `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md`
@@ -16,19 +16,9 @@ bash SourceA-landing/green-unified/open.sh
 Live: **http://127.0.0.1:5180/sourcea/** · Receipt: `~/.sina/sourcea-landing-run-receipt-v1.json`  
 Detail: `SourceA-landing/green-unified/README.md`
 
-| Layout | File | Clone source |
-|--------|------|--------------|
-| **Canonical (Agent Run)** | `green-unified/` | Nomotic/Zenity polish · 12 pages |
-| Zenity-style (light) | `zenity.html` | `C12/` |
-| Nomotic-style (dark) | `nomotic.html` | `C13/` · SourceA Asset B |
-
-## Open (legacy layouts)
-
-```bash
-bash SourceA-landing/open.sh          # Zenity + Nomotic static HTML
-open SourceA-landing/zenity.html
-open SourceA-landing/nomotic.html
-```
+| Layout | Path |
+|--------|------|
+| **Canonical (Agent Run)** | `green-unified/` |
 
 Witness BC (separate brand): `bash witnessbc-site/scripts/run-recipe.sh`
 
@@ -41,5 +31,4 @@ Witness BC (separate brand): `bash witnessbc-site/scripts/run-recipe.sh`
 
 ## Also on disk
 
-`~/.sina/sourcea-commercial-zenity-layout-v1.html` · `~/.sina/sourcea-commercial-nomotic-layout-v1.html`  
 **Desktop:** bootstrap once if paths missing, then `cd ~/Desktop/agentrun-app && ./serve.sh` → Agent Run :5180/sourcea/
