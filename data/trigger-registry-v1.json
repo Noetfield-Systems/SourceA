@@ -332,6 +332,23 @@
       }
     },
     {
+      "trigger_id": "SA-T--history-guard",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "UI study history/content guard on push/PR to main",
+      "valid_in_verified_window": true,
+      "owner_workflow": "-history-guard-v1",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/-history-guard-v1.yml",
+        "expects": [
+          "pull_request",
+          "push"
+        ]
+      }
+    },
+    {
       "trigger_id": "SA-T-gmail-sweep-hourly",
       "system": "sourcea",
       "kind": "schedule",
