@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Proof chain | SourceA</title>
-  <meta name="description" content="Every governed turn leaves a receipt — request, policy, verdict, replay, tamper-FAIL. Verify in your browser in under five minutes." />
+  <title>How verification works | SourceA</title>
+  <meta name="description" content="See what was built, what was checked, and how to replay it — verify in your browser in under five minutes." />
   <meta name="theme-color" content="#044441" />
   <meta property="og:title" content="SourceA — AI that proves its work" />
-  <meta property="og:description" content="One chain, six beats — verify request to receipt to replay in five minutes." />
+  <meta property="og:description" content="Walk through a live delivery check in five minutes — no sales call required." />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
   <link rel="stylesheet" href="/assets/agentrun.css" />
   <link rel="stylesheet" href="/sourcea/sourcea.css" />
@@ -54,15 +54,15 @@
   <section class="ar-section ar-page-hero sa-sub-hero ar-reveal">
     <div class="ar-container">
       <nav class="ar-breadcrumb" aria-label="Breadcrumb">
-        <a href="/sourcea/">Home</a><span class="ar-breadcrumb-sep">/</span><span>Proof chain</span>
+        <a href="/sourcea/">Home</a><span class="ar-breadcrumb-sep">/</span><span>Verification</span>
       </nav>
       <p class="ar-kicker">Verify it yourself</p>
-      <h1>One chain. <span class="ar-hero-accent">Six beats. Five minutes.</span></h1>
-      <p class="ar-lead">Skip the deck. Walk from request to receipt to replay — on your screen, verifiable without chat history or a sales call.</p>
+      <h1>See the work. <span class="ar-hero-accent">Five minutes on your screen.</span></h1>
+      <p class="ar-lead">Skip the deck. Walk from request to result to replay — verifiable without chat history or a sales call.</p>
       <div class="ar-hero-actions" style="margin-top:1.25rem">
-        <a class="ar-btn ar-btn-primary sa-btn-glow" href="/sourcea/proof/live">Live demo proof<span class="ar-btn-arrow">→</span></a>
-        <a class="ar-btn ar-btn-ghost" href="/eval">sourcea-boot eval</a>
-        <a class="ar-btn ar-btn-ghost" href="/sourcea/status">Factory status</a>
+        <a class="ar-btn ar-btn-primary sa-btn-glow" href="/sourcea/proof/live">Run live demo<span class="ar-btn-arrow">→</span></a>
+        <a class="ar-btn ar-btn-ghost" href="/eval">Try sourcea-boot</a>
+        <a class="ar-btn ar-btn-ghost" href="/sourcea/status">System status</a>
       </div>
     </div>
   </section>
@@ -70,7 +70,7 @@
   <section class="ar-section ar-section-muted ar-reveal" id="proof-embed" aria-label="Live proof receipt">
     <div class="ar-container">
       <p class="ar-kicker">Proof</p>
-      <h2>Don't take our word for it. <span class="ar-hero-accent">See the receipt.</span></h2>
+      <h2>Don't take our word for it. <span class="ar-hero-accent">See the delivery record.</span></h2>
       <p class="ar-lead" style="margin-bottom:1.25rem">Every job on SourceA looks like this. Verifiable, every time.</p>
       <div class="sa-proof-explainer" data-sa-proof-explainer style="max-width:36rem;margin:0 auto 1.25rem;padding:1rem 1.25rem;background:rgba(4,68,65,0.06);border-radius:12px;border-left:4px solid var(--ar-accent,#044441)">
         <h3 style="margin:0 0 0.5rem;font-size:1rem">What this proves</h3>
@@ -88,9 +88,9 @@
       </article>
       <div class="sa-trust-bar sa-trust-bar-page" data-sa-trust-bar>
         <article class="sa-trust-stat">
-          <span class="sa-trust-stat-label">Receipts on disk</span>
+          <span class="sa-trust-stat-label">Jobs completed</span>
           <strong class="sa-trust-stat-value" data-trust-receipts-lifetime>—</strong>
-          <span class="sa-trust-stat-hint"><span data-trust-receipts-lifetime-label>Governance receipts signed</span></span>
+          <span class="sa-trust-stat-hint"><span data-trust-receipts-lifetime-label>Logged and reviewable</span></span>
         </article>
         <article class="sa-trust-stat">
           <span class="sa-trust-stat-label">Proof checks</span>
@@ -100,7 +100,7 @@
         <article class="sa-trust-stat">
           <span class="sa-trust-stat-label">Rules check</span>
           <strong class="sa-trust-stat-value sa-trust-gov" data-trust-governance>—</strong>
-          <span class="sa-trust-stat-hint">PASS or BLOCK · four checks</span>
+          <span class="sa-trust-stat-hint">Pass or fail · four checks</span>
         </article>
         <article class="sa-trust-stat">
           <span class="sa-trust-stat-label">Proof sample</span>
@@ -126,19 +126,19 @@
         <span data-beat>replay</span><span class="arrow">→</span>
         <span data-beat class="bad">tamper-FAIL</span>
       </div>
-      <div class="sa-chain-beats ar-stagger" aria-label="Proof chain beats">
+      <div class="sa-chain-beats ar-stagger" aria-label="Verification steps">
         <article class="sa-chain-beat ar-reveal"><span class="sa-chain-beat-num">01</span><h4>Brief</h4><p>Scope the job and lock your rules.</p></article>
         <article class="sa-chain-beat ar-reveal"><span class="sa-chain-beat-num">02</span><h4>Dispatch</h4><p>Policy checked before any agent acts.</p></article>
         <article class="sa-chain-beat ar-reveal"><span class="sa-chain-beat-num">03</span><h4>Run</h4><p>Specialists execute under the gate.</p></article>
-        <article class="sa-chain-beat ar-reveal"><span class="sa-chain-beat-num">04</span><h4>Gate</h4><p>The gate refuses a bad move — BLOCK.</p></article>
+        <article class="sa-chain-beat ar-reveal"><span class="sa-chain-beat-num">04</span><h4>Check</h4><p>The system refuses a bad move — you see why.</p></article>
         <article class="sa-chain-beat ar-reveal"><span class="sa-chain-beat-num">05</span><h4>Receipt</h4><p>Signed evidence written to disk.</p></article>
         <article class="sa-chain-beat ar-reveal"><span class="sa-chain-beat-num">06</span><h4>Replay</h4><p>Client audits the whole run on site.</p></article>
       </div>
       <div class="sa-steps">
         <article class="sa-step ar-reveal" data-step="1"><span class="sa-step-num">01</span><h3>Something proposes action</h3><p>Outreach, ops, research — your loop asks to run.</p><code>scoped inbox → role check</code></article>
-        <article class="sa-step ar-reveal" data-step="2"><span class="sa-step-num">02</span><h3>Your rules load first</h3><p>Policy on disk, scope check, feasibility — before any model token spends.</p><code>rules check → PASS</code></article>
+        <article class="sa-step ar-reveal" data-step="2"><span class="sa-step-num">02</span><h3>Your rules load first</h3><p>Scope and safety checks — before the AI runs.</p><code>rules check → pass</code></article>
         <article class="sa-step ar-reveal" data-step="3" id="dispatch"><span class="sa-step-num">03</span><h3>Dispatch gate fires</h3><p>This action, this moment — not governance you discussed at kickoff.</p></article>
-        <article class="sa-step sa-step-active ar-reveal" data-step="4"><span class="sa-step-num">04</span><h3>Verdict lands on disk</h3><p>ALLOW or BLOCK — where replay can find it tomorrow.</p><code>PASS · BLOCK · tamper-FAIL</code></article>
+        <article class="sa-step sa-step-active ar-reveal" data-step="4"><span class="sa-step-num">04</span><h3>Result is saved</h3><p>Pass or fail — replay can find it tomorrow.</p><code>pass · fail · tamper alert</code></article>
         <article class="sa-step ar-reveal" data-step="5"><span class="sa-step-num">05</span><h3>The loop runs — or stops</h3><p>Blocked actions never touch production.</p></article>
         <article class="sa-step ar-reveal" data-step="6"><span class="sa-step-num">06</span><h3>You export proof</h3><p>Weekly bundle: HTML, PDF, replay script, handoff for your client.</p><code>export → replay → handoff</code></article>
       </div>
@@ -196,7 +196,7 @@
       <div class="ar-section-head ar-section-head-center">
         <p class="ar-kicker">Try it yourself</p>
         <h2>W1 demo film. <span class="ar-hero-accent">ALLOW · BLOCK · tamper-FAIL.</span></h2>
-        <p class="ar-section-copy">Five minutes in your browser — the same beats as the live terminal. No deck. Receipts on disk.</p>
+        <p class="ar-section-copy">Five minutes in your browser — the same steps as the live demo. No deck. Records you can show stakeholders.</p>
       </div>
       <div class="sa-demo-film ar-reveal">
         <div class="sa-demo-film-media">
@@ -244,7 +244,7 @@
   <section class="sa-cta-band ar-reveal">
     <div class="ar-container sa-cta-inner">
       <h2>See how we compare</h2>
-      <p>Builders, orchestrators, slide decks — mapped against what stakeholders actually need.</p>
+      <p>Builders, slide decks, and chat tools — compared to what stakeholders actually need.</p>
       <div class="sa-cta-actions">
         <a class="ar-btn ar-btn-primary sa-btn-glow" href="/sourcea/compare">Compare matrix →</a>
         <a class="ar-btn ar-btn-ghost" href="https://pypi.org/project/sourcea-boot/">Try sourcea-boot</a>
@@ -269,7 +269,7 @@
       <a href="/sourcea/team">Your team</a>
       <a href="/sourcea/growth">Growth system</a>
       <a href="/sourcea/scenario">Scenario</a>
-      <a href="/sourcea/proof">Proof chain</a>
+      <a href="/sourcea/proof">Verification</a>
       <a href="/sourcea/compare">Compare</a>
       <a href="/sourcea/pricing">Pricing</a>
     </nav>
