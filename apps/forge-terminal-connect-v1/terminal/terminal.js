@@ -4,6 +4,7 @@
   const FORGE_API = window.location.origin + "/api/forge-terminal/v1";
   const CU_IDE_API = window.location.origin + "/api/chat-unify-ide/v1";
   const CU_ENGINE_API = window.location.origin + "/api/chat-unify-engine/v1";
+  const PARENT_POST_ORIGIN = window.location.origin;
   let API = FORGE_API;
   let inChatUnifyShell = false;
   const AGENT_KEY = "forge_ide_agent_v1";
@@ -268,11 +269,11 @@
     if (!url) return;
     if (inChatUnifyShell && window.parent !== window) {
       if (/13023|:13023|chat.unify|chat_unify/i.test(url) || url === window.location.origin + "/") {
-        window.parent.postMessage({ type: "cu-goto-tab", tab: "home" }, "*");
+        window.parent.postMessage({ type: "cu-goto-tab", tab: "home" }, PARENT_POST_ORIGIN);
         return;
       }
       if (/13027|:13027|cloud/i.test(url)) {
-        window.parent.postMessage({ type: "sina-open-app", app: "cloud" }, "*");
+        window.parent.postMessage({ type: "sina-open-app", app: "cloud" }, PARENT_POST_ORIGIN);
         return;
       }
       return;
@@ -317,7 +318,7 @@
       hint.textContent = "Smart route · " + route.reasoning;
     }
     if (route.machine_tab && route.machine_tab !== "living-chat" && window.parent !== window) {
-      window.parent.postMessage({ type: "cu-goto-tab", tab: route.machine_tab }, "*");
+      window.parent.postMessage({ type: "cu-goto-tab", tab: route.machine_tab }, PARENT_POST_ORIGIN);
     }
     setStatus(route.reasoning || "Routed");
   }
@@ -1814,7 +1815,7 @@
       app ? app.offsetHeight : 0,
       window.innerHeight + 600
     );
-    window.parent.postMessage({ type: "forge-ide-height", height: h }, "*");
+    window.parent.postMessage({ type: "forge-ide-height", height: h }, PARENT_POST_ORIGIN);
   }
 
   function openGatePanel() {
@@ -2007,7 +2008,7 @@
       grid.querySelectorAll("[data-cu-tab]").forEach(function (btn) {
         btn.addEventListener("click", function () {
           const tab = btn.getAttribute("data-cu-tab");
-          if (tab) window.parent.postMessage({ type: "cu-goto-tab", tab: tab }, "*");
+          if (tab) window.parent.postMessage({ type: "cu-goto-tab", tab: tab }, PARENT_POST_ORIGIN);
         });
       });
       return;
@@ -3981,7 +3982,7 @@
   if (window.parent !== window) {
     ensureForgeToken().then(function () {
       if (forgeToken) {
-        window.parent.postMessage({ type: "forge-token-ready", token: forgeToken }, "*");
+        window.parent.postMessage({ type: "forge-token-ready", token: forgeToken }, PARENT_POST_ORIGIN);
       }
     });
   }

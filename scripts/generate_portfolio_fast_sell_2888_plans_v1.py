@@ -33,7 +33,7 @@ WEDGES = [
     ("w12-receipt-pdf", "Receipt / Proof Pack PDF"),
     ("w13-hub-action", "Hub one-tap Action"),
     ("w14-cloud-forge", "Cloud forge run + Supabase row"),
-    ("w15-feature-delivery-removed", "Ship differentiated feature slice"),
+    ("w15--", "Ship one differentiated feature slice from research"),
     ("w16-onboard", "Client onboard checklist"),
     ("w17-upsell", "Tier-1 → Tier-2 upsell motion"),
     ("w18-referral", "Partner / accountant channel"),

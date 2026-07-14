@@ -3,7 +3,7 @@
 **Horizon:** 12 months from June 2026  
 **Rule:** Every quarter, each active company has something **you can show** — URL, demo login, LOI, or signed program — not an internal PASS log.
 
-**Product factory (parallel, LOCKED):** MergePack — `MERGEPACK_10K_7DAY_LOCKED_v1.md` · north-star **$10K MRR by Day 7** · fail Day 7 &lt;$3K → pivot.
+**Product factory (parallel, LOCKED):** MergePack — `MERGEPACK_10K_7DAY_LOCKED_v1.md` · internal north-star **$10K MRR by Day 7** (not a public traction claim) · fail Day 7 &lt;$3K → pivot.
 
 ---
 
