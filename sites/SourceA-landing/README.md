@@ -1,4 +1,4 @@
-# SourceA commercial landing (adapted layouts)
+# SourceA commercial landing
 
 **NOT Noetfield** — Buyer 1 · platform eng · Asset B DFY  
 **Law:** `SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMATION_LOCKED_v1.md` · `SOURCEA_UNIFIED_PORTFOLIO_COMMERCIAL_SSOT_LOCKED_v3.1.md`
@@ -16,19 +16,9 @@ bash SourceA-landing/green-unified/open.sh
 Live: **http://127.0.0.1:5180/sourcea/** · Receipt: `~/.sina/sourcea-landing-run-receipt-v1.json`  
 Detail: `SourceA-landing/green-unified/README.md`
 
-| Layout | File | Clone source |
-|--------|------|--------------|
-| **Canonical (Agent Run)** | `green-unified/` | agent-aispm-vendor polish · 12 pages |
-| design- (light) | `[agent-aispm-vendor].html` | `C12/` |
-| [agent-aispm-vendor]-style (dark) | `[agent-aispm-vendor].html` | `C13/` · SourceA Asset B |
-
-## Open (legacy layouts)
-
-```bash
-bash SourceA-landing/open.sh          # [agent-aispm-vendor] + [agent-aispm-vendor] static HTML
-open SourceA-landing/[agent-aispm-vendor].html
-open SourceA-landing/[agent-aispm-vendor].html
-```
+| Layout | Path |
+|--------|------|
+| **Canonical (Agent Run)** | `green-unified/` |
 
 Witness BC (separate brand): `bash witnessbc-site/scripts/run-recipe.sh`
 
@@ -41,5 +31,4 @@ Witness BC (separate brand): `bash witnessbc-site/scripts/run-recipe.sh`
 
 ## Also logged
 
-`~/.sina/sourcea-commercial-[agent-aispm-vendor]-layout-v1.html` · `~/.sina/sourcea-commercial-[agent-aispm-vendor]-layout-v1.html`  
 **Desktop:** bootstrap once if paths missing, then `cd ~/Desktop/agentrun-app && ./serve.sh` → Agent Run :5180/sourcea/
