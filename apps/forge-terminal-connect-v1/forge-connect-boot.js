@@ -38,7 +38,7 @@
     if (frame) {
       frame.addEventListener("load", function () {
         try {
-          frame.contentWindow.postMessage({ type: "forge-parent-ready" }, "*");
+          frame.contentWindow.postMessage({ type: "forge-parent-ready" }, window.location.origin);
         } catch (e) { /* ignore */ }
       });
     }
