@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate commercial one-pager HTML (Noetfield NW1 + SourceA AB1 only). Witness BC → WitnessBC-landing/bundle_html.py"""
+"""Generate commercial one-pager HTML (Noetfield NW1 + SourceA AB1 only)."""
 
 from __future__ import annotations
 
@@ -13,10 +13,6 @@ SOURCEA = Path(__file__).resolve().parents[1]
 
 NOETFIELD_HTML = SINA / "noetfield-pilot-onepager-external-v1.html"
 AB1_HTML = SINA / "sourcea-ab1-governed-automation-onepager-v1.html"
-EXTERNAL_DESIGN_REF_HTML = SINA / "sourcea-[external-design-benchmark]-platform-onepager-v1.html"
-EXTERNAL_DESIGN_REF_ARCHIVE = SOURCEA / "archive/attachments/commercial/sourcea-[external-design-benchmark]-platform-onepager-v1.html"
-LANDING_DIR = SOURCEA / "SourceA-landing"
-C13_DIR = SOURCEA / "C13"
 
 SHARED_CSS = """
 :root {
@@ -403,30 +399,6 @@ def ab1_html() -> str:
     return _shell("SourceA — Governed Agentic Automation (Asset B)", body)
 
 
-def bundle_[external-design-benchmark]_layout_html() -> str:
-    """Self-contained SourceA landing — [external-design-benchmark].ai layout (fleet panel · pillars · matrix · 4-tier pricing)."""
-    html = (LANDING_DIR / "[external-design-benchmark].html").read_text(encoding="utf-8")
-    base_css = (C13_DIR / "styles.css").read_text(encoding="utf-8")
-    theme_css = (LANDING_DIR / "sourcea-theme.css").read_text(encoding="utf-8")
-    js = (C13_DIR / "main.js").read_text(encoding="utf-8")
-    fonts = (
-        '<link rel="preconnect" href="https://fonts.googleapis.com" />'
-        '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />'
-        '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700'
-        '&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />'
-    )
-    import re
-
-    html = re.sub(r'\s*<link rel="stylesheet" href="\.\./C13/styles\.css" />\s*', "", html)
-    html = re.sub(r'\s*<link rel="stylesheet" href="sourcea-theme\.css" />\s*', "", html)
-    html = re.sub(r'\s*<script src="\.\./C13/main\.js"></script>\s*', "", html)
-    html = html.replace("</head>", f"<style>{base_css}\n{theme_css}</style>\n</head>", 1)
-    html = html.replace("</body>", f"<script>{js}</script>\n</body>", 1)
-    if "fonts.googleapis.com" not in html:
-        html = html.replace("<head>", f"<head>\n  {fonts}", 1)
-    return html
-
-
 def write_all() -> dict[str, str]:
     SINA.mkdir(parents=True, exist_ok=True)
     paths = {}
@@ -434,12 +406,6 @@ def write_all() -> dict[str, str]:
     paths["noetfield"] = str(NOETFIELD_HTML)
     AB1_HTML.write_text(ab1_html(), encoding="utf-8")
     paths["ab1"] = str(AB1_HTML)
-    [external-design-benchmark] = bundle_[external-design-benchmark]_layout_html()
-    EXTERNAL_DESIGN_REF_HTML.write_text([external-design-benchmark], encoding="utf-8")
-    paths["[external-design-benchmark]"] = str(EXTERNAL_DESIGN_REF_HTML)
-    EXTERNAL_DESIGN_REF_ARCHIVE.parent.mkdir(parents=True, exist_ok=True)
-    EXTERNAL_DESIGN_REF_ARCHIVE.write_text([external-design-benchmark], encoding="utf-8")
-    paths["[external-design-benchmark]_archive"] = str(EXTERNAL_DESIGN_REF_ARCHIVE)
     return paths
 
 
@@ -452,7 +418,7 @@ def main() -> int:
     parser.add_argument(
         "target",
         nargs="?",
-        choices=["all", "noetfield", "ab1", "[external-design-benchmark]"],
+        choices=["all", "noetfield", "ab1"],
         default="all",
         help="Which one-pager to generate",
     )
@@ -462,8 +428,6 @@ def main() -> int:
 
     paths = write_all()
     selected = paths if args.target == "all" else {args.target: paths[args.target]}
-    if args.target == "[external-design-benchmark]":
-        selected = {"[external-design-benchmark]": paths["[external-design-benchmark]"], "[external-design-benchmark]_archive": paths["[external-design-benchmark]_archive"]}
 
     if args.json:
         import json

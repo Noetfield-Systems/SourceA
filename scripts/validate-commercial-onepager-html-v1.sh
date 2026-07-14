@@ -33,12 +33,5 @@ for key, *needles in checks:
             sys.exit(1)
     print(f"PASS: {path}")
 
-bench = Path("archive/attachments/commercial/EXTERNAL_DESIGN_BENCHMARK_2026-06-15_v1.md")
-for n in ("[external-design-benchmark].io", "notenic.ai", "fusegov.com", "witness.ai", "Overall", "Master scorecard"):
-    if n not in bench.read_text(encoding="utf-8"):
-        print(f"FAIL: benchmark missing {n}")
-        sys.exit(1)
-print(f"PASS: {bench}")
-
 print("validate-commercial-onepager-html-v1.sh: ALL PASS")
 PY
