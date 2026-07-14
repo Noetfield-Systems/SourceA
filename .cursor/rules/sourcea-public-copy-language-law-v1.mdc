@@ -1,0 +1,37 @@
+---
+description: SourceA public copy — internal language must not appear on customer pages
+globs: sites/SourceA-landing/**/*.html,sites/WitnessBC-landing/**/*.html,witnessbc-site/**/*.html
+alwaysApply: false
+---
+
+# SourceA public copy language law (LOCKED)
+
+Founder explanations, architecture notes, strategy, repo terminology, governance jargon, and agent instructions are **INTERNAL by default**.
+
+## Classify every source statement before editing public HTML
+
+| Class | Where it may appear |
+|-------|---------------------|
+| **INTERNAL** | `docs/`, `brain-os/`, `archive/`, `.cursor/`, `investor/` (private deck), comments, receipts |
+| **CUSTOMER-FACING** | Product + sales pages: `/`, `/sourcea/offer`, `/sourcea/pricing`, `/sourcea/platform`, `/sourcea/growth`, `/sourcea/team`, `/sourcea/proof`, `/start`, case studies |
+| **INVESTOR-FACING** | `/sourcea/investors` only — no UI clones, no fake traction; still avoid raw founder jargon |
+
+**Only CUSTOMER-FACING content on product and sales pages.**
+
+## Customer-facing writing rules
+
+- Buyer POV: problem → outcome → how it works → trust → cost → next step
+- Plain language; no assumption the reader knows Noetfield internals
+- Do **not** use on customer pages unless the page is explicitly for technical buyers **and** the term is necessary: motor, receipt (as jargon), promotion, control plane, verification, orchestration, governance layer, architecture, pipeline, agent lane, runtime state, Factory/Runtime/Proof stack names, PASS/BLOCK as product vocabulary, DFY, controlled, orchestrate, dispatch, logged
+- Do not paste research notes, internal comparisons, roadmap debates, or agent instructions into copy
+- If a section answers none of: (1) problem (2) result (3) how (4) trust (5) cost (6) next step — **remove it**
+
+## Technical-buyer exception
+
+`/sourcea/platform`, `/eval`, `/sourcea/kernel/`, API code samples: minimal necessary engineering terms only. Prefer buyer outcomes in headings; put API field names in `<code>` samples only.
+
+## Final law
+
+> Internal truth informs the page. Internal language must not appear on the page.
+
+Before ship: `bash scripts/verify-static-www.sh` when touching www; spot-check edited HTML for banned terms with `rg -i 'verification|governance receipt|orchestrat|control plane|agent lane|in the repository|PASS/BLOCK' sites/SourceA-landing/green-unified/*.html`
