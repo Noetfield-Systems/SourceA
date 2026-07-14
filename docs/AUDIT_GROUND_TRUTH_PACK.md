@@ -31,8 +31,6 @@
 
 | File | Change |
 |------|--------|
-| `sites/SourceA-landing/.html` | Removed “operates a self-healing factory daily”; added **pre-revenue**; Self-heal → Monitor/target language; Live → Demo |
-| `sites/SourceA-landing/.html` | Removed daily factory / self-healing claims; LIVE → TARGET; added **pre-revenue** |
 | `sites/SourceA-landing/green-unified/attach/agency-onepager.html` | Self-healing monitor → governed ops monitor (retainer target) |
 | `sites/SourceA-landing/green-unified/kernel/legacy-full-home-v1.html` | Same retainer wording fix |
 
@@ -79,7 +77,6 @@ HONEST:     Public pages no longer claim live self-healing factory or daily auto
 5. **Mac launchd** — only re-enable with ASF + correct `Noetfield-Systems/SourceA` path
 6. **brain-core-v1** — deploy gate when ready; until then keep “public chat live / deterministic gate offline”
 7. **Revenue** — first paid engagement + log `won` in CRM
-8. **Deploy** — push  HTML hygiene to production if not auto-deployed
 
 ---
 

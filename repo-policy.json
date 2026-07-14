@@ -79,8 +79,6 @@
     "root_symlink_map": {
       "AGENT_OUTPUT_CONTRACT_v1.yaml": "data/root-machine/AGENT_OUTPUT_CONTRACT_v1.yaml",
       "ASF_DECISIONS": "data/root-machine/ASF_DECISIONS",
-      "C12": "data/root-machine/C12",
-      "C13": "data/root-machine/C13",
       "ECOSYSTEM_GRAPH.json": "data/root-machine/ECOSYSTEM_GRAPH.json",
       "Source-A-Cloud-Kernel-v1.3.pdf": "docs/Source-A-Cloud-Kernel-v1.3.pdf",
       "PHASE2_EVALUATIONS.json": "data/root-machine/PHASE2_EVALUATIONS.json",
