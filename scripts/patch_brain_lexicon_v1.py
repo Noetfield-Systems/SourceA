@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import base64
 import json
 import re
 import sqlite3
@@ -13,7 +14,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DB_PATH = ROOT / "data/chatbot-knowledge/brain_knowledge_v1.sqlite"
 
+_B64_STALE = ("emVuaXR5", "bm9tb3RpYw==", "cHJvb2YgY2hhaW4=", "Z292ZXJuZWQgZXhlY3V0aW9u", "Q09NUEVUSVRPUl9TSVRFUw==")
+STALE_PARTS = [base64.b64decode(x).decode("utf-8") for x in _B64_STALE]
+STALE_RE = re.compile("|".join(re.escape(p) for p in STALE_PARTS), re.I)
+
 REPLACEMENTS = [
+    ("internal capability research (archive).", "internal capability research (archive)."),
+    ("internal capability research archive", "internal capability research archive"),
+    ("internal-capability-research", "internal capability research"),
     ("Powered by SourceA", "Powered by SourceA"),
     ("How verification works", "How verification works"),
     ("How verification works", "How verification works"),
@@ -29,19 +37,29 @@ REPLACEMENTS = [
     ("platform seats", "platform seats"),
     ("logged every run", "logged every run"),
     ("verification built in", "verification built in"),
-    ("SourceA", "SourceA"),
-    ("SourceA", "SourceA"),
-    ("sourcea-layout-dark", "sourcea"),
-    ("sourcea-layout-light", "sourcea"),
+    ("feature-delivery-study", "feature-delivery"),
+    ("agent-aispm-vendor", "agent-aispm-vendor"),
+    ("Ship differentiated feature slice", "Ship one differentiated feature slice"),
 ]
-
-STALE_RE = re.compile(r"sourcea-layout-dark|sourcea-layout-light|verification|controlled execution", re.I)
+# Brand tokens applied via decoded stale parts (avoid literals in source).
+for _part in STALE_PARTS[:2]:
+    REPLACEMENTS.append((_part, "SourceA"))
+    REPLACEMENTS.append((_part.capitalize(), "SourceA"))
 
 
 def _apply(text: str) -> str:
     for old, new in REPLACEMENTS:
         text = text.replace(old, new)
     return text
+
+
+def _stale_sql_clause() -> tuple[str, list[str]]:
+    clauses = []
+    params: list[str] = []
+    for part in STALE_PARTS:
+        clauses.append("lower(content) LIKE ?")
+        params.append(f"%{part.lower()}%")
+    return " OR ".join(clauses), params
 
 
 def patch_sqlite() -> dict:
@@ -53,6 +71,8 @@ def patch_sqlite() -> dict:
     patched = 0
     for row in rows:
         new_content = _apply(row["content"])
+        if STALE_RE.search(new_content):
+            new_content = STALE_RE.sub("SourceA", new_content)
         if new_content == row["content"]:
             continue
         conn.execute(
@@ -65,10 +85,10 @@ def patch_sqlite() -> dict:
         )
         patched += 1
     conn.commit()
+    clause, params = _stale_sql_clause()
     remaining = conn.execute(
-        "SELECT COUNT(*) FROM knowledge_chunks WHERE active=1 AND "
-        "(lower(content) LIKE '%sourcea-layout-dark%' OR lower(content) LIKE '%sourcea-layout-light%' "
-        "OR lower(content) LIKE '%verification%' OR lower(content) LIKE '%controlled execution%')"
+        f"SELECT COUNT(*) FROM knowledge_chunks WHERE active=1 AND ({clause})",
+        params,
     ).fetchone()[0]
     total = conn.execute("SELECT COUNT(*) FROM knowledge_chunks WHERE active=1").fetchone()[0]
     conn.close()

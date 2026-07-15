@@ -1,13 +1,13 @@
 {
   "schema": "portfolio-8888-master-manifest-v1",
   "version": "1.0.0",
-  "generated_at": "2026-06-24T14:20:45Z",
+  "generated_at": "2026-07-15T02:18:28Z",
   "law_doc": "docs/PORTFOLIO_TWO_TIER__PRO_ANALYSIS_LOCKED_v1.md",
   "analysis_doc": "docs/PORTFOLIO_TWO_TIER__PRO_ANALYSIS_LOCKED_v1.md",
-  "plan_count": 8888,
+  "plan_count": 8736,
   "breakdown": {
     "portfolio_next_6000": 6000,
-    "portfolio_fast_sell_2888": 2888
+    "portfolio_fast_sell_2888": 2736
   },
   "fast_sell_generator": "scripts/generate_portfolio_fast_sell_2888_plans_v1.py",
   "next_generator": "scripts/generate_portfolio_next_6000_plans_v1.py",
@@ -15,50 +15,50 @@
     {
       "lane": "sourcea",
       "label": "SourceA",
-      "count": 361,
-      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/portfolio-fast-sell-2888/sourcea"
+      "count": 342,
+      "pack": "/Users/sinakazemnezhad/Desktop/Noetfield-Systems/_wt-sa-investor-cleanup/brain-os/plan-registry/portfolio-fast-sell-2888/sourcea"
     },
     {
       "lane": "witnessbc",
       "label": "WitnessBC",
-      "count": 361,
-      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/portfolio-fast-sell-2888/witnessbc"
+      "count": 342,
+      "pack": "/Users/sinakazemnezhad/Desktop/Noetfield-Systems/_wt-sa-investor-cleanup/brain-os/plan-registry/portfolio-fast-sell-2888/witnessbc"
     },
     {
       "lane": "noetfield",
       "label": "Noetfield",
-      "count": 361,
-      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/portfolio-fast-sell-2888/noetfield"
+      "count": 342,
+      "pack": "/Users/sinakazemnezhad/Desktop/Noetfield-Systems/_wt-sa-investor-cleanup/brain-os/plan-registry/portfolio-fast-sell-2888/noetfield"
     },
     {
       "lane": "trustfield",
       "label": "TrustField",
-      "count": 361,
-      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/portfolio-fast-sell-2888/trustfield"
+      "count": 342,
+      "pack": "/Users/sinakazemnezhad/Desktop/Noetfield-Systems/_wt-sa-investor-cleanup/brain-os/plan-registry/portfolio-fast-sell-2888/trustfield"
     },
     {
       "lane": "virlux",
       "label": "VIRLUX",
-      "count": 361,
-      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/portfolio-fast-sell-2888/virlux"
+      "count": 342,
+      "pack": "/Users/sinakazemnezhad/Desktop/Noetfield-Systems/_wt-sa-investor-cleanup/brain-os/plan-registry/portfolio-fast-sell-2888/virlux"
     },
     {
       "lane": "mono",
       "label": "SinaaiMonoRepo",
-      "count": 361,
-      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/portfolio-fast-sell-2888/mono"
+      "count": 342,
+      "pack": "/Users/sinakazemnezhad/Desktop/Noetfield-Systems/_wt-sa-investor-cleanup/brain-os/plan-registry/portfolio-fast-sell-2888/mono"
     },
     {
       "lane": "agency-b",
       "label": "SourceA Agency Asset B",
-      "count": 361,
-      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/portfolio-fast-sell-2888/agency-b"
+      "count": 342,
+      "pack": "/Users/sinakazemnezhad/Desktop/Noetfield-Systems/_wt-sa-investor-cleanup/brain-os/plan-registry/portfolio-fast-sell-2888/agency-b"
     },
     {
       "lane": "gtm-sku",
       "label": "Vertical GTM SKUs",
-      "count": 361,
-      "pack": "/Users/sinakazemnezhad/Desktop/SourceA/brain-os/plan-registry/portfolio-fast-sell-2888/gtm-sku"
+      "count": 342,
+      "pack": "/Users/sinakazemnezhad/Desktop/Noetfield-Systems/_wt-sa-investor-cleanup/brain-os/plan-registry/portfolio-fast-sell-2888/gtm-sku"
     }
   ],
   "validation_errors": [],

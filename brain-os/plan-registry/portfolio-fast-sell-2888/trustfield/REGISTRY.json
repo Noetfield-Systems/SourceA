@@ -1,11 +1,11 @@
 {
   "schema": "portfolio-fast-sell-2888-registry-v1",
   "schema_version": 1,
-  "generated_at": "2026-06-24T14:20:45Z",
+  "generated_at": "2026-07-15T02:18:28Z",
   "repo": "trustfield",
   "repo_label": "TrustField",
-  "count": 361,
-  "grid": "19 wedges \u00d7 19 actions = 361",
+  "count": 342,
+  "grid": "18 wedges \u00d7 19 actions = 342",
   "external_repo": "~/Desktop/TrustField Technologies",
   "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
   "plans": [
@@ -4799,348 +4799,6 @@
     },
     {
       "id": "fs-tf-0267",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a01-research",
-      "action_label": "Research comp pricing page",
-      "tier": "T0",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 Research comp pricing page",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 267,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a01-research.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0267: Ship differentiated feature slice \u00b7 Research comp pricing page"
-    },
-    {
-      "id": "fs-tf-0268",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a02-copy",
-      "action_label": "Write buyer-facing copy",
-      "tier": "T0",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 Write buyer-facing copy",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 268,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a02-copy.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0268: Ship differentiated feature slice \u00b7 Write buyer-facing copy"
-    },
-    {
-      "id": "fs-tf-0269",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a03-wire",
-      "action_label": "Wire SKU on landing",
-      "tier": "T1",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 Wire SKU on landing",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 269,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a03-wire.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0269: Ship differentiated feature slice \u00b7 Wire SKU on landing"
-    },
-    {
-      "id": "fs-tf-0270",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a04-crm",
-      "action_label": "Add CRM / pipeline row",
-      "tier": "T1",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 Add CRM / pipeline row",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 270,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a04-crm.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0270: Ship differentiated feature slice \u00b7 Add CRM / pipeline row"
-    },
-    {
-      "id": "fs-tf-0271",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a05-email",
-      "action_label": "Outreach email draft",
-      "tier": "T1",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 Outreach email draft",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 271,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a05-email.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0271: Ship differentiated feature slice \u00b7 Outreach email draft"
-    },
-    {
-      "id": "fs-tf-0272",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a06-call",
-      "action_label": "Discovery call script",
-      "tier": "T2",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 Discovery call script",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 272,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a06-call.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0272: Ship differentiated feature slice \u00b7 Discovery call script"
-    },
-    {
-      "id": "fs-tf-0273",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a07-proposal",
-      "action_label": "1-page proposal PDF",
-      "tier": "T2",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 1-page proposal PDF",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 273,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a07-proposal.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0273: Ship differentiated feature slice \u00b7 1-page proposal PDF"
-    },
-    {
-      "id": "fs-tf-0274",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a08-contract",
-      "action_label": "SOW / order form",
-      "tier": "T2",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 SOW / order form",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 274,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a08-contract.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0274: Ship differentiated feature slice \u00b7 SOW / order form"
-    },
-    {
-      "id": "fs-tf-0275",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a09-build",
-      "action_label": "Ship smallest build slice",
-      "tier": "T1",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 Ship smallest build slice",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 275,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a09-build.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0275: Ship differentiated feature slice \u00b7 Ship smallest build slice"
-    },
-    {
-      "id": "fs-tf-0276",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a10-verify",
-      "action_label": "Verify PASS receipt",
-      "tier": "T0",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 Verify PASS receipt",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 276,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a10-verify.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0276: Ship differentiated feature slice \u00b7 Verify PASS receipt"
-    },
-    {
-      "id": "fs-tf-0277",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a11-seal",
-      "action_label": "Seal Proof Pack",
-      "tier": "T1",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 Seal Proof Pack",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 277,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a11-seal.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0277: Ship differentiated feature slice \u00b7 Seal Proof Pack"
-    },
-    {
-      "id": "fs-tf-0278",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a12-post",
-      "action_label": "LinkedIn proof post",
-      "tier": "T1",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 LinkedIn proof post",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 278,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a12-post.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0278: Ship differentiated feature slice \u00b7 LinkedIn proof post"
-    },
-    {
-      "id": "fs-tf-0279",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a13-form",
-      "action_label": "Founder decision form row",
-      "tier": "T2",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 Founder decision form row",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 279,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a13-form.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0279: Ship differentiated feature slice \u00b7 Founder decision form row"
-    },
-    {
-      "id": "fs-tf-0280",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a14-metrics",
-      "action_label": "Log W3 / NW economic signal",
-      "tier": "T1",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 Log W3 / NW economic signal",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 280,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a14-metrics.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0280: Ship differentiated feature slice \u00b7 Log W3 / NW economic signal"
-    },
-    {
-      "id": "fs-tf-0281",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a15-retain",
-      "action_label": "Retainer renewal touch",
-      "tier": "T2",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 Retainer renewal touch",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 281,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a15-retain.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0281: Ship differentiated feature slice \u00b7 Retainer renewal touch"
-    },
-    {
-      "id": "fs-tf-0282",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a16-template",
-      "action_label": "Save reusable template",
-      "tier": "T3",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 Save reusable template",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 282,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a16-template.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0282: Ship differentiated feature slice \u00b7 Save reusable template"
-    },
-    {
-      "id": "fs-tf-0283",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a17-train",
-      "action_label": "Client handoff doc",
-      "tier": "T2",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 Client handoff doc",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 283,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a17-train.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0283: Ship differentiated feature slice \u00b7 Client handoff doc"
-    },
-    {
-      "id": "fs-tf-0284",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a18-nps",
-      "action_label": "Ask for referral",
-      "tier": "T1",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 Ask for referral",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 284,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a18-nps.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0284: Ship differentiated feature slice \u00b7 Ask for referral"
-    },
-    {
-      "id": "fs-tf-0285",
-      "wedge": "w15-feature-delivery-removed",
-      "wedge_label": "Ship differentiated feature slice",
-      "action": "a19-archive",
-      "action_label": "Archive lesson to knowledge-library",
-      "tier": "T3",
-      "phase": "MOONSHOT",
-      "title": "Ship differentiated feature slice \u00b7 Archive lesson to knowledge-library",
-      "status": "open",
-      "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
-      "tier1_sku": "FINTRAC readiness scan",
-      "tier2_sku": "MSB program + settlement",
-      "priority_rank": 285,
-      "path": "prompts/phase-fs-tf-w15-feature-delivery-removed/a19-archive.md",
-      "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0285: Ship differentiated feature slice \u00b7 Archive lesson to knowledge-library"
-    },
-    {
-      "id": "fs-tf-0286",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a01-research",
@@ -5152,13 +4810,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 286,
+      "priority_rank": 267,
       "path": "prompts/phase-fs-tf-w16-onboard/a01-research.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0286: Client onboard checklist \u00b7 Research comp pricing page"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0267: Client onboard checklist \u00b7 Research comp pricing page"
     },
     {
-      "id": "fs-tf-0287",
+      "id": "fs-tf-0268",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a02-copy",
@@ -5170,13 +4828,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 287,
+      "priority_rank": 268,
       "path": "prompts/phase-fs-tf-w16-onboard/a02-copy.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0287: Client onboard checklist \u00b7 Write buyer-facing copy"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0268: Client onboard checklist \u00b7 Write buyer-facing copy"
     },
     {
-      "id": "fs-tf-0288",
+      "id": "fs-tf-0269",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a03-wire",
@@ -5188,13 +4846,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 288,
+      "priority_rank": 269,
       "path": "prompts/phase-fs-tf-w16-onboard/a03-wire.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0288: Client onboard checklist \u00b7 Wire SKU on landing"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0269: Client onboard checklist \u00b7 Wire SKU on landing"
     },
     {
-      "id": "fs-tf-0289",
+      "id": "fs-tf-0270",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a04-crm",
@@ -5206,13 +4864,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 289,
+      "priority_rank": 270,
       "path": "prompts/phase-fs-tf-w16-onboard/a04-crm.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0289: Client onboard checklist \u00b7 Add CRM / pipeline row"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0270: Client onboard checklist \u00b7 Add CRM / pipeline row"
     },
     {
-      "id": "fs-tf-0290",
+      "id": "fs-tf-0271",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a05-email",
@@ -5224,13 +4882,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 290,
+      "priority_rank": 271,
       "path": "prompts/phase-fs-tf-w16-onboard/a05-email.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0290: Client onboard checklist \u00b7 Outreach email draft"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0271: Client onboard checklist \u00b7 Outreach email draft"
     },
     {
-      "id": "fs-tf-0291",
+      "id": "fs-tf-0272",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a06-call",
@@ -5242,13 +4900,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 291,
+      "priority_rank": 272,
       "path": "prompts/phase-fs-tf-w16-onboard/a06-call.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0291: Client onboard checklist \u00b7 Discovery call script"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0272: Client onboard checklist \u00b7 Discovery call script"
     },
     {
-      "id": "fs-tf-0292",
+      "id": "fs-tf-0273",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a07-proposal",
@@ -5260,13 +4918,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 292,
+      "priority_rank": 273,
       "path": "prompts/phase-fs-tf-w16-onboard/a07-proposal.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0292: Client onboard checklist \u00b7 1-page proposal PDF"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0273: Client onboard checklist \u00b7 1-page proposal PDF"
     },
     {
-      "id": "fs-tf-0293",
+      "id": "fs-tf-0274",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a08-contract",
@@ -5278,13 +4936,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 293,
+      "priority_rank": 274,
       "path": "prompts/phase-fs-tf-w16-onboard/a08-contract.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0293: Client onboard checklist \u00b7 SOW / order form"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0274: Client onboard checklist \u00b7 SOW / order form"
     },
     {
-      "id": "fs-tf-0294",
+      "id": "fs-tf-0275",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a09-build",
@@ -5296,13 +4954,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 294,
+      "priority_rank": 275,
       "path": "prompts/phase-fs-tf-w16-onboard/a09-build.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0294: Client onboard checklist \u00b7 Ship smallest build slice"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0275: Client onboard checklist \u00b7 Ship smallest build slice"
     },
     {
-      "id": "fs-tf-0295",
+      "id": "fs-tf-0276",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a10-verify",
@@ -5314,13 +4972,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 295,
+      "priority_rank": 276,
       "path": "prompts/phase-fs-tf-w16-onboard/a10-verify.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0295: Client onboard checklist \u00b7 Verify PASS receipt"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0276: Client onboard checklist \u00b7 Verify PASS receipt"
     },
     {
-      "id": "fs-tf-0296",
+      "id": "fs-tf-0277",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a11-seal",
@@ -5332,13 +4990,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 296,
+      "priority_rank": 277,
       "path": "prompts/phase-fs-tf-w16-onboard/a11-seal.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0296: Client onboard checklist \u00b7 Seal Proof Pack"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0277: Client onboard checklist \u00b7 Seal Proof Pack"
     },
     {
-      "id": "fs-tf-0297",
+      "id": "fs-tf-0278",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a12-post",
@@ -5350,13 +5008,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 297,
+      "priority_rank": 278,
       "path": "prompts/phase-fs-tf-w16-onboard/a12-post.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0297: Client onboard checklist \u00b7 LinkedIn proof post"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0278: Client onboard checklist \u00b7 LinkedIn proof post"
     },
     {
-      "id": "fs-tf-0298",
+      "id": "fs-tf-0279",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a13-form",
@@ -5368,13 +5026,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 298,
+      "priority_rank": 279,
       "path": "prompts/phase-fs-tf-w16-onboard/a13-form.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0298: Client onboard checklist \u00b7 Founder decision form row"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0279: Client onboard checklist \u00b7 Founder decision form row"
     },
     {
-      "id": "fs-tf-0299",
+      "id": "fs-tf-0280",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a14-metrics",
@@ -5386,13 +5044,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 299,
+      "priority_rank": 280,
       "path": "prompts/phase-fs-tf-w16-onboard/a14-metrics.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0299: Client onboard checklist \u00b7 Log W3 / NW economic signal"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0280: Client onboard checklist \u00b7 Log W3 / NW economic signal"
     },
     {
-      "id": "fs-tf-0300",
+      "id": "fs-tf-0281",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a15-retain",
@@ -5404,13 +5062,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 300,
+      "priority_rank": 281,
       "path": "prompts/phase-fs-tf-w16-onboard/a15-retain.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0300: Client onboard checklist \u00b7 Retainer renewal touch"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0281: Client onboard checklist \u00b7 Retainer renewal touch"
     },
     {
-      "id": "fs-tf-0301",
+      "id": "fs-tf-0282",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a16-template",
@@ -5422,13 +5080,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 301,
+      "priority_rank": 282,
       "path": "prompts/phase-fs-tf-w16-onboard/a16-template.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0301: Client onboard checklist \u00b7 Save reusable template"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0282: Client onboard checklist \u00b7 Save reusable template"
     },
     {
-      "id": "fs-tf-0302",
+      "id": "fs-tf-0283",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a17-train",
@@ -5440,13 +5098,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 302,
+      "priority_rank": 283,
       "path": "prompts/phase-fs-tf-w16-onboard/a17-train.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0302: Client onboard checklist \u00b7 Client handoff doc"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0283: Client onboard checklist \u00b7 Client handoff doc"
     },
     {
-      "id": "fs-tf-0303",
+      "id": "fs-tf-0284",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a18-nps",
@@ -5458,13 +5116,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 303,
+      "priority_rank": 284,
       "path": "prompts/phase-fs-tf-w16-onboard/a18-nps.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0303: Client onboard checklist \u00b7 Ask for referral"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0284: Client onboard checklist \u00b7 Ask for referral"
     },
     {
-      "id": "fs-tf-0304",
+      "id": "fs-tf-0285",
       "wedge": "w16-onboard",
       "wedge_label": "Client onboard checklist",
       "action": "a19-archive",
@@ -5476,13 +5134,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 304,
+      "priority_rank": 285,
       "path": "prompts/phase-fs-tf-w16-onboard/a19-archive.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0304: Client onboard checklist \u00b7 Archive lesson to knowledge-library"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0285: Client onboard checklist \u00b7 Archive lesson to knowledge-library"
     },
     {
-      "id": "fs-tf-0305",
+      "id": "fs-tf-0286",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a01-research",
@@ -5494,13 +5152,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 305,
+      "priority_rank": 286,
       "path": "prompts/phase-fs-tf-w17-upsell/a01-research.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0305: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Research comp pricing page"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0286: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Research comp pricing page"
     },
     {
-      "id": "fs-tf-0306",
+      "id": "fs-tf-0287",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a02-copy",
@@ -5512,13 +5170,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 306,
+      "priority_rank": 287,
       "path": "prompts/phase-fs-tf-w17-upsell/a02-copy.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0306: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Write buyer-facing copy"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0287: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Write buyer-facing copy"
     },
     {
-      "id": "fs-tf-0307",
+      "id": "fs-tf-0288",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a03-wire",
@@ -5530,13 +5188,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 307,
+      "priority_rank": 288,
       "path": "prompts/phase-fs-tf-w17-upsell/a03-wire.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0307: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Wire SKU on landing"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0288: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Wire SKU on landing"
     },
     {
-      "id": "fs-tf-0308",
+      "id": "fs-tf-0289",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a04-crm",
@@ -5548,13 +5206,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 308,
+      "priority_rank": 289,
       "path": "prompts/phase-fs-tf-w17-upsell/a04-crm.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0308: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Add CRM / pipeline row"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0289: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Add CRM / pipeline row"
     },
     {
-      "id": "fs-tf-0309",
+      "id": "fs-tf-0290",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a05-email",
@@ -5566,13 +5224,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 309,
+      "priority_rank": 290,
       "path": "prompts/phase-fs-tf-w17-upsell/a05-email.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0309: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Outreach email draft"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0290: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Outreach email draft"
     },
     {
-      "id": "fs-tf-0310",
+      "id": "fs-tf-0291",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a06-call",
@@ -5584,13 +5242,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 310,
+      "priority_rank": 291,
       "path": "prompts/phase-fs-tf-w17-upsell/a06-call.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0310: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Discovery call script"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0291: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Discovery call script"
     },
     {
-      "id": "fs-tf-0311",
+      "id": "fs-tf-0292",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a07-proposal",
@@ -5602,13 +5260,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 311,
+      "priority_rank": 292,
       "path": "prompts/phase-fs-tf-w17-upsell/a07-proposal.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0311: Tier-1 \u2192 Tier-2 upsell motion \u00b7 1-page proposal PDF"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0292: Tier-1 \u2192 Tier-2 upsell motion \u00b7 1-page proposal PDF"
     },
     {
-      "id": "fs-tf-0312",
+      "id": "fs-tf-0293",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a08-contract",
@@ -5620,13 +5278,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 312,
+      "priority_rank": 293,
       "path": "prompts/phase-fs-tf-w17-upsell/a08-contract.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0312: Tier-1 \u2192 Tier-2 upsell motion \u00b7 SOW / order form"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0293: Tier-1 \u2192 Tier-2 upsell motion \u00b7 SOW / order form"
     },
     {
-      "id": "fs-tf-0313",
+      "id": "fs-tf-0294",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a09-build",
@@ -5638,13 +5296,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 313,
+      "priority_rank": 294,
       "path": "prompts/phase-fs-tf-w17-upsell/a09-build.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0313: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Ship smallest build slice"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0294: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Ship smallest build slice"
     },
     {
-      "id": "fs-tf-0314",
+      "id": "fs-tf-0295",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a10-verify",
@@ -5656,13 +5314,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 314,
+      "priority_rank": 295,
       "path": "prompts/phase-fs-tf-w17-upsell/a10-verify.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0314: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Verify PASS receipt"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0295: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Verify PASS receipt"
     },
     {
-      "id": "fs-tf-0315",
+      "id": "fs-tf-0296",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a11-seal",
@@ -5674,13 +5332,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 315,
+      "priority_rank": 296,
       "path": "prompts/phase-fs-tf-w17-upsell/a11-seal.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0315: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Seal Proof Pack"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0296: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Seal Proof Pack"
     },
     {
-      "id": "fs-tf-0316",
+      "id": "fs-tf-0297",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a12-post",
@@ -5692,13 +5350,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 316,
+      "priority_rank": 297,
       "path": "prompts/phase-fs-tf-w17-upsell/a12-post.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0316: Tier-1 \u2192 Tier-2 upsell motion \u00b7 LinkedIn proof post"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0297: Tier-1 \u2192 Tier-2 upsell motion \u00b7 LinkedIn proof post"
     },
     {
-      "id": "fs-tf-0317",
+      "id": "fs-tf-0298",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a13-form",
@@ -5710,13 +5368,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 317,
+      "priority_rank": 298,
       "path": "prompts/phase-fs-tf-w17-upsell/a13-form.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0317: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Founder decision form row"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0298: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Founder decision form row"
     },
     {
-      "id": "fs-tf-0318",
+      "id": "fs-tf-0299",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a14-metrics",
@@ -5728,13 +5386,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 318,
+      "priority_rank": 299,
       "path": "prompts/phase-fs-tf-w17-upsell/a14-metrics.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0318: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Log W3 / NW economic signal"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0299: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Log W3 / NW economic signal"
     },
     {
-      "id": "fs-tf-0319",
+      "id": "fs-tf-0300",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a15-retain",
@@ -5746,13 +5404,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 319,
+      "priority_rank": 300,
       "path": "prompts/phase-fs-tf-w17-upsell/a15-retain.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0319: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Retainer renewal touch"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0300: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Retainer renewal touch"
     },
     {
-      "id": "fs-tf-0320",
+      "id": "fs-tf-0301",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a16-template",
@@ -5764,13 +5422,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 320,
+      "priority_rank": 301,
       "path": "prompts/phase-fs-tf-w17-upsell/a16-template.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0320: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Save reusable template"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0301: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Save reusable template"
     },
     {
-      "id": "fs-tf-0321",
+      "id": "fs-tf-0302",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a17-train",
@@ -5782,13 +5440,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 321,
+      "priority_rank": 302,
       "path": "prompts/phase-fs-tf-w17-upsell/a17-train.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0321: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Client handoff doc"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0302: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Client handoff doc"
     },
     {
-      "id": "fs-tf-0322",
+      "id": "fs-tf-0303",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a18-nps",
@@ -5800,13 +5458,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 322,
+      "priority_rank": 303,
       "path": "prompts/phase-fs-tf-w17-upsell/a18-nps.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0322: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Ask for referral"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0303: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Ask for referral"
     },
     {
-      "id": "fs-tf-0323",
+      "id": "fs-tf-0304",
       "wedge": "w17-upsell",
       "wedge_label": "Tier-1 \u2192 Tier-2 upsell motion",
       "action": "a19-archive",
@@ -5818,13 +5476,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 323,
+      "priority_rank": 304,
       "path": "prompts/phase-fs-tf-w17-upsell/a19-archive.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0323: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Archive lesson to knowledge-library"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0304: Tier-1 \u2192 Tier-2 upsell motion \u00b7 Archive lesson to knowledge-library"
     },
     {
-      "id": "fs-tf-0324",
+      "id": "fs-tf-0305",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a01-research",
@@ -5836,13 +5494,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 324,
+      "priority_rank": 305,
       "path": "prompts/phase-fs-tf-w18-referral/a01-research.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0324: Partner / accountant channel \u00b7 Research comp pricing page"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0305: Partner / accountant channel \u00b7 Research comp pricing page"
     },
     {
-      "id": "fs-tf-0325",
+      "id": "fs-tf-0306",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a02-copy",
@@ -5854,13 +5512,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 325,
+      "priority_rank": 306,
       "path": "prompts/phase-fs-tf-w18-referral/a02-copy.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0325: Partner / accountant channel \u00b7 Write buyer-facing copy"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0306: Partner / accountant channel \u00b7 Write buyer-facing copy"
     },
     {
-      "id": "fs-tf-0326",
+      "id": "fs-tf-0307",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a03-wire",
@@ -5872,13 +5530,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 326,
+      "priority_rank": 307,
       "path": "prompts/phase-fs-tf-w18-referral/a03-wire.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0326: Partner / accountant channel \u00b7 Wire SKU on landing"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0307: Partner / accountant channel \u00b7 Wire SKU on landing"
     },
     {
-      "id": "fs-tf-0327",
+      "id": "fs-tf-0308",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a04-crm",
@@ -5890,13 +5548,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 327,
+      "priority_rank": 308,
       "path": "prompts/phase-fs-tf-w18-referral/a04-crm.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0327: Partner / accountant channel \u00b7 Add CRM / pipeline row"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0308: Partner / accountant channel \u00b7 Add CRM / pipeline row"
     },
     {
-      "id": "fs-tf-0328",
+      "id": "fs-tf-0309",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a05-email",
@@ -5908,13 +5566,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 328,
+      "priority_rank": 309,
       "path": "prompts/phase-fs-tf-w18-referral/a05-email.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0328: Partner / accountant channel \u00b7 Outreach email draft"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0309: Partner / accountant channel \u00b7 Outreach email draft"
     },
     {
-      "id": "fs-tf-0329",
+      "id": "fs-tf-0310",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a06-call",
@@ -5926,13 +5584,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 329,
+      "priority_rank": 310,
       "path": "prompts/phase-fs-tf-w18-referral/a06-call.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0329: Partner / accountant channel \u00b7 Discovery call script"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0310: Partner / accountant channel \u00b7 Discovery call script"
     },
     {
-      "id": "fs-tf-0330",
+      "id": "fs-tf-0311",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a07-proposal",
@@ -5944,13 +5602,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 330,
+      "priority_rank": 311,
       "path": "prompts/phase-fs-tf-w18-referral/a07-proposal.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0330: Partner / accountant channel \u00b7 1-page proposal PDF"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0311: Partner / accountant channel \u00b7 1-page proposal PDF"
     },
     {
-      "id": "fs-tf-0331",
+      "id": "fs-tf-0312",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a08-contract",
@@ -5962,13 +5620,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 331,
+      "priority_rank": 312,
       "path": "prompts/phase-fs-tf-w18-referral/a08-contract.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0331: Partner / accountant channel \u00b7 SOW / order form"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0312: Partner / accountant channel \u00b7 SOW / order form"
     },
     {
-      "id": "fs-tf-0332",
+      "id": "fs-tf-0313",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a09-build",
@@ -5980,13 +5638,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 332,
+      "priority_rank": 313,
       "path": "prompts/phase-fs-tf-w18-referral/a09-build.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0332: Partner / accountant channel \u00b7 Ship smallest build slice"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0313: Partner / accountant channel \u00b7 Ship smallest build slice"
     },
     {
-      "id": "fs-tf-0333",
+      "id": "fs-tf-0314",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a10-verify",
@@ -5998,13 +5656,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 333,
+      "priority_rank": 314,
       "path": "prompts/phase-fs-tf-w18-referral/a10-verify.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0333: Partner / accountant channel \u00b7 Verify PASS receipt"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0314: Partner / accountant channel \u00b7 Verify PASS receipt"
     },
     {
-      "id": "fs-tf-0334",
+      "id": "fs-tf-0315",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a11-seal",
@@ -6016,13 +5674,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 334,
+      "priority_rank": 315,
       "path": "prompts/phase-fs-tf-w18-referral/a11-seal.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0334: Partner / accountant channel \u00b7 Seal Proof Pack"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0315: Partner / accountant channel \u00b7 Seal Proof Pack"
     },
     {
-      "id": "fs-tf-0335",
+      "id": "fs-tf-0316",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a12-post",
@@ -6034,13 +5692,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 335,
+      "priority_rank": 316,
       "path": "prompts/phase-fs-tf-w18-referral/a12-post.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0335: Partner / accountant channel \u00b7 LinkedIn proof post"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0316: Partner / accountant channel \u00b7 LinkedIn proof post"
     },
     {
-      "id": "fs-tf-0336",
+      "id": "fs-tf-0317",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a13-form",
@@ -6052,13 +5710,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 336,
+      "priority_rank": 317,
       "path": "prompts/phase-fs-tf-w18-referral/a13-form.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0336: Partner / accountant channel \u00b7 Founder decision form row"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0317: Partner / accountant channel \u00b7 Founder decision form row"
     },
     {
-      "id": "fs-tf-0337",
+      "id": "fs-tf-0318",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a14-metrics",
@@ -6070,13 +5728,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 337,
+      "priority_rank": 318,
       "path": "prompts/phase-fs-tf-w18-referral/a14-metrics.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0337: Partner / accountant channel \u00b7 Log W3 / NW economic signal"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0318: Partner / accountant channel \u00b7 Log W3 / NW economic signal"
     },
     {
-      "id": "fs-tf-0338",
+      "id": "fs-tf-0319",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a15-retain",
@@ -6088,13 +5746,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 338,
+      "priority_rank": 319,
       "path": "prompts/phase-fs-tf-w18-referral/a15-retain.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0338: Partner / accountant channel \u00b7 Retainer renewal touch"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0319: Partner / accountant channel \u00b7 Retainer renewal touch"
     },
     {
-      "id": "fs-tf-0339",
+      "id": "fs-tf-0320",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a16-template",
@@ -6106,13 +5764,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 339,
+      "priority_rank": 320,
       "path": "prompts/phase-fs-tf-w18-referral/a16-template.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0339: Partner / accountant channel \u00b7 Save reusable template"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0320: Partner / accountant channel \u00b7 Save reusable template"
     },
     {
-      "id": "fs-tf-0340",
+      "id": "fs-tf-0321",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a17-train",
@@ -6124,13 +5782,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 340,
+      "priority_rank": 321,
       "path": "prompts/phase-fs-tf-w18-referral/a17-train.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0340: Partner / accountant channel \u00b7 Client handoff doc"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0321: Partner / accountant channel \u00b7 Client handoff doc"
     },
     {
-      "id": "fs-tf-0341",
+      "id": "fs-tf-0322",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a18-nps",
@@ -6142,13 +5800,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 341,
+      "priority_rank": 322,
       "path": "prompts/phase-fs-tf-w18-referral/a18-nps.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0341: Partner / accountant channel \u00b7 Ask for referral"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0322: Partner / accountant channel \u00b7 Ask for referral"
     },
     {
-      "id": "fs-tf-0342",
+      "id": "fs-tf-0323",
       "wedge": "w18-referral",
       "wedge_label": "Partner / accountant channel",
       "action": "a19-archive",
@@ -6160,13 +5818,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 342,
+      "priority_rank": 323,
       "path": "prompts/phase-fs-tf-w18-referral/a19-archive.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0342: Partner / accountant channel \u00b7 Archive lesson to knowledge-library"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0323: Partner / accountant channel \u00b7 Archive lesson to knowledge-library"
     },
     {
-      "id": "fs-tf-0343",
+      "id": "fs-tf-0324",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a01-research",
@@ -6178,13 +5836,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 343,
+      "priority_rank": 324,
       "path": "prompts/phase-fs-tf-w19-scale/a01-research.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0343: Repeatable playbook + template \u00b7 Research comp pricing page"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0324: Repeatable playbook + template \u00b7 Research comp pricing page"
     },
     {
-      "id": "fs-tf-0344",
+      "id": "fs-tf-0325",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a02-copy",
@@ -6196,13 +5854,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 344,
+      "priority_rank": 325,
       "path": "prompts/phase-fs-tf-w19-scale/a02-copy.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0344: Repeatable playbook + template \u00b7 Write buyer-facing copy"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0325: Repeatable playbook + template \u00b7 Write buyer-facing copy"
     },
     {
-      "id": "fs-tf-0345",
+      "id": "fs-tf-0326",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a03-wire",
@@ -6214,13 +5872,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 345,
+      "priority_rank": 326,
       "path": "prompts/phase-fs-tf-w19-scale/a03-wire.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0345: Repeatable playbook + template \u00b7 Wire SKU on landing"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0326: Repeatable playbook + template \u00b7 Wire SKU on landing"
     },
     {
-      "id": "fs-tf-0346",
+      "id": "fs-tf-0327",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a04-crm",
@@ -6232,13 +5890,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 346,
+      "priority_rank": 327,
       "path": "prompts/phase-fs-tf-w19-scale/a04-crm.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0346: Repeatable playbook + template \u00b7 Add CRM / pipeline row"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0327: Repeatable playbook + template \u00b7 Add CRM / pipeline row"
     },
     {
-      "id": "fs-tf-0347",
+      "id": "fs-tf-0328",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a05-email",
@@ -6250,13 +5908,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 347,
+      "priority_rank": 328,
       "path": "prompts/phase-fs-tf-w19-scale/a05-email.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0347: Repeatable playbook + template \u00b7 Outreach email draft"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0328: Repeatable playbook + template \u00b7 Outreach email draft"
     },
     {
-      "id": "fs-tf-0348",
+      "id": "fs-tf-0329",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a06-call",
@@ -6268,13 +5926,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 348,
+      "priority_rank": 329,
       "path": "prompts/phase-fs-tf-w19-scale/a06-call.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0348: Repeatable playbook + template \u00b7 Discovery call script"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0329: Repeatable playbook + template \u00b7 Discovery call script"
     },
     {
-      "id": "fs-tf-0349",
+      "id": "fs-tf-0330",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a07-proposal",
@@ -6286,13 +5944,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 349,
+      "priority_rank": 330,
       "path": "prompts/phase-fs-tf-w19-scale/a07-proposal.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0349: Repeatable playbook + template \u00b7 1-page proposal PDF"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0330: Repeatable playbook + template \u00b7 1-page proposal PDF"
     },
     {
-      "id": "fs-tf-0350",
+      "id": "fs-tf-0331",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a08-contract",
@@ -6304,13 +5962,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 350,
+      "priority_rank": 331,
       "path": "prompts/phase-fs-tf-w19-scale/a08-contract.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0350: Repeatable playbook + template \u00b7 SOW / order form"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0331: Repeatable playbook + template \u00b7 SOW / order form"
     },
     {
-      "id": "fs-tf-0351",
+      "id": "fs-tf-0332",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a09-build",
@@ -6322,13 +5980,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 351,
+      "priority_rank": 332,
       "path": "prompts/phase-fs-tf-w19-scale/a09-build.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0351: Repeatable playbook + template \u00b7 Ship smallest build slice"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0332: Repeatable playbook + template \u00b7 Ship smallest build slice"
     },
     {
-      "id": "fs-tf-0352",
+      "id": "fs-tf-0333",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a10-verify",
@@ -6340,13 +5998,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 352,
+      "priority_rank": 333,
       "path": "prompts/phase-fs-tf-w19-scale/a10-verify.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0352: Repeatable playbook + template \u00b7 Verify PASS receipt"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0333: Repeatable playbook + template \u00b7 Verify PASS receipt"
     },
     {
-      "id": "fs-tf-0353",
+      "id": "fs-tf-0334",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a11-seal",
@@ -6358,13 +6016,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 353,
+      "priority_rank": 334,
       "path": "prompts/phase-fs-tf-w19-scale/a11-seal.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0353: Repeatable playbook + template \u00b7 Seal Proof Pack"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0334: Repeatable playbook + template \u00b7 Seal Proof Pack"
     },
     {
-      "id": "fs-tf-0354",
+      "id": "fs-tf-0335",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a12-post",
@@ -6376,13 +6034,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 354,
+      "priority_rank": 335,
       "path": "prompts/phase-fs-tf-w19-scale/a12-post.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0354: Repeatable playbook + template \u00b7 LinkedIn proof post"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0335: Repeatable playbook + template \u00b7 LinkedIn proof post"
     },
     {
-      "id": "fs-tf-0355",
+      "id": "fs-tf-0336",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a13-form",
@@ -6394,13 +6052,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 355,
+      "priority_rank": 336,
       "path": "prompts/phase-fs-tf-w19-scale/a13-form.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0355: Repeatable playbook + template \u00b7 Founder decision form row"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0336: Repeatable playbook + template \u00b7 Founder decision form row"
     },
     {
-      "id": "fs-tf-0356",
+      "id": "fs-tf-0337",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a14-metrics",
@@ -6412,13 +6070,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 356,
+      "priority_rank": 337,
       "path": "prompts/phase-fs-tf-w19-scale/a14-metrics.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0356: Repeatable playbook + template \u00b7 Log W3 / NW economic signal"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0337: Repeatable playbook + template \u00b7 Log W3 / NW economic signal"
     },
     {
-      "id": "fs-tf-0357",
+      "id": "fs-tf-0338",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a15-retain",
@@ -6430,13 +6088,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 357,
+      "priority_rank": 338,
       "path": "prompts/phase-fs-tf-w19-scale/a15-retain.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0357: Repeatable playbook + template \u00b7 Retainer renewal touch"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0338: Repeatable playbook + template \u00b7 Retainer renewal touch"
     },
     {
-      "id": "fs-tf-0358",
+      "id": "fs-tf-0339",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a16-template",
@@ -6448,13 +6106,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 358,
+      "priority_rank": 339,
       "path": "prompts/phase-fs-tf-w19-scale/a16-template.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0358: Repeatable playbook + template \u00b7 Save reusable template"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0339: Repeatable playbook + template \u00b7 Save reusable template"
     },
     {
-      "id": "fs-tf-0359",
+      "id": "fs-tf-0340",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a17-train",
@@ -6466,13 +6124,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 359,
+      "priority_rank": 340,
       "path": "prompts/phase-fs-tf-w19-scale/a17-train.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0359: Repeatable playbook + template \u00b7 Client handoff doc"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0340: Repeatable playbook + template \u00b7 Client handoff doc"
     },
     {
-      "id": "fs-tf-0360",
+      "id": "fs-tf-0341",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a18-nps",
@@ -6484,13 +6142,13 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 360,
+      "priority_rank": 341,
       "path": "prompts/phase-fs-tf-w19-scale/a18-nps.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0360: Repeatable playbook + template \u00b7 Ask for referral"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0341: Repeatable playbook + template \u00b7 Ask for referral"
     },
     {
-      "id": "fs-tf-0361",
+      "id": "fs-tf-0342",
       "wedge": "w19-scale",
       "wedge_label": "Repeatable playbook + template",
       "action": "a19-archive",
@@ -6502,10 +6160,10 @@
       "comp_anchor": "Wise Business \u00b7 FINTRAC vendors",
       "tier1_sku": "FINTRAC readiness scan",
       "tier2_sku": "MSB program + settlement",
-      "priority_rank": 361,
+      "priority_rank": 342,
       "path": "prompts/phase-fs-tf-w19-scale/a19-archive.md",
       "lane": "trustfield",
-      "agent_prompt": "FAST SELL \u2014 fs-tf-0361: Repeatable playbook + template \u00b7 Archive lesson to knowledge-library"
+      "agent_prompt": "FAST SELL \u2014 fs-tf-0342: Repeatable playbook + template \u00b7 Archive lesson to knowledge-library"
     }
   ]
 }

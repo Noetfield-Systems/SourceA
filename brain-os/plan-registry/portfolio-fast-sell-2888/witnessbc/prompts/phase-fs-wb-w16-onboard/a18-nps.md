@@ -1,4 +1,4 @@
-# fs-wb-0303 — Fast-sell plan
+# fs-wb-0284 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T1 · **Phase:** MOONSHOT
 **Lane:** WitnessBC · **Wedge:** w16-onboard · Client onboard checklist
@@ -20,7 +20,7 @@ curl -sf https://witnessbc.com/health || test -f ~/Desktop/SourceA/witnessbc-sit
 
 ## Closeout
 
-1. `status: done` in REGISTRY.json for `fs-wb-0303`
+1. `status: done` in REGISTRY.json for `fs-wb-0284`
 2. Log economic signal if outreach closed (W3 / NW)
 3. Bounded path only — no cross-lane without EDIT ALLOWED
 

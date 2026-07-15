@@ -26,13 +26,13 @@
 | Copilot rolled out, board asks "who approved what?" | No procurement-grade receipt trail |
 | Purview shows activity — not admissibility | Audit log ≠ governance proof |
 | Policy updated — agents still act on old rules | **Governance latency** |
-| Securiti/[agent-aispm-vendor] sold data posture — board still wants **signed evidence** | Assessment ≠ ongoing enforcement |
+| Securiti / agent AISPM vendor sold data posture — board still wants **signed evidence** | Assessment ≠ ongoing enforcement |
 
 ---
 
 ## Noetfield vs alternatives (battle table)
 
-| | **Microsoft Purview** | **Securiti** | **[agent-aispm-vendor]** | **Noetfield** |
+| | **Microsoft Purview** | **Securiti** | **Agent AISPM vendor** | **Noetfield** |
 |---|----------------------|--------------|------------|---------------|
 | **Primary job** | M365 audit · retention · eDiscovery | Data discovery · Copilot readiness · labeling | Agent build-time + runtime security (AISPM/AIDR) | **Delivery records + re-brief on policy change** |
 | **Copilot audit** | Metadata in Unified Audit Log; full prompts via eDiscovery only | Readiness checklist · extends Purview gaps | Copilot Studio / Bedrock agent inventory | **TLE v1 + board PDF + procurement ZIP** |
@@ -61,7 +61,7 @@
 ## When to lose (honest)
 
 - Buyer needs full data estate discovery across 50 clouds → Securiti / Purview bundle wins on breadth.
-- Buyer needs Copilot Studio agent inventory at scale → [agent-aispm-vendor] AISPM is built for that UI.
+- Buyer needs Copilot Studio agent inventory at scale → agent AISPM category tools are built for that UI.
 - Buyer has zero Copilot deployment → sell **NF-QS** only; do not oversell NF-RD.
 
 ---
@@ -74,8 +74,8 @@
 **vs Securiti:**  
 > Securiti gets your data ready for Copilot. Noetfield keeps your **governance current after** Copilot is live — re-brief on every policy change, signed receipt on every material action.
 
-**vs [agent-aispm-vendor]:**  
-> [agent-aispm-vendor] secures how agents are **built**. Noetfield kills **governance latency** — stale policy cannot execute because the machine blocks until re-brief clears.
+**vs Agent AISPM vendor:**  
+> Agent security tools secure how agents are **built**. Noetfield kills **governance latency** — stale policy cannot execute because the machine blocks until re-brief clears.
 
 **bridge (engine — say once):**  
 > Under the hood this runs on the same controlled execution spine we use for regulated lanes — you buy Noetfield, not infrastructure plumbing.
@@ -128,7 +128,7 @@
 |-----------|----------|
 | "We have Purview." | "Keep it. Noetfield is the **board pack** Purview was not designed to produce — permitted vs merely logged." |
 | "We use Securiti for readiness." | "Perfect front door. Noetfield is **after go-live** — ongoing receipt + re-brief when legal updates policy." |
-| "[agent-aispm-vendor] covers our agents." | "[agent-aispm-vendor] watches agent build and runtime. We enforce **organizational policy version** in the repository before your governance agents run." |
+| "Agent AISPM vendor covers our agents." | "Agent security watches build and runtime. We enforce **organizational policy version** in the repository before your governance agents run." |
 | "Too early for us." | "NF-QS in 3–5 days — you'll know if you have a board gap before full pilot spend." |
 | "What's SourceA?" | "Internal engine name — irrelevant on your invoice. You buy **Noetfield**." |
 

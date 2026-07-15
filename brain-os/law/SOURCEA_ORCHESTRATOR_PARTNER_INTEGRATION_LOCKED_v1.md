@@ -152,7 +152,7 @@ Gate mode: `~/.sina/gate_mode_v1.txt` → `off` | `shadow` | `enforce`
 | **LangGraph** | Partner — inner agent graph |
 | **Inngest** | Partner — lighter TS alternative |
 | **Notenic** |  — same L6, different packaging |
-| **[agent-aispm-vendor]** |  on Copilot — different layer (agent security vs policy re-brief) |
+| **Agent AISPM vendor** |  on Copilot — different layer (agent security vs policy re-brief) |
 
 ---
 

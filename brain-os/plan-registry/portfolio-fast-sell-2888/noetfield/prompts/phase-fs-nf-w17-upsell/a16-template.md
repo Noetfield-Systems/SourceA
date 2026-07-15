@@ -1,4 +1,4 @@
-# fs-nf-0320 — Fast-sell plan
+# fs-nf-0301 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T3 · **Phase:** MOONSHOT
 **Lane:** Noetfield · **Wedge:** w17-upsell · Tier-1 → Tier-2 upsell motion
@@ -20,7 +20,7 @@ test -f ~/Desktop/SourceA/docs/NOETFIELD_INTELLIGENCE_613_PLAN_LOCKED_v1.md
 
 ## Closeout
 
-1. `status: done` in REGISTRY.json for `fs-nf-0320`
+1. `status: done` in REGISTRY.json for `fs-nf-0301`
 2. Log economic signal if outreach closed (W3 / NW)
 3. Bounded path only — no cross-lane without EDIT ALLOWED
 

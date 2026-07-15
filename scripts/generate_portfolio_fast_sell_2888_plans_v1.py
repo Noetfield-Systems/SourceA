@@ -14,9 +14,7 @@ from pathlib import Path
 SOURCEA_ROOT = Path(__file__).resolve().parents[1]
 GENERATOR_VERSION = 1
 PACK_BASE = SOURCEA_ROOT / "brain-os" / "plan-registry" / "portfolio-fast-sell-2888"
-PLANS_PER_LANE = 361  # 19 × 19
 LANE_COUNT = 8
-TOTAL = PLANS_PER_LANE * LANE_COUNT
 
 WEDGES = [
     ("w01-diagnostic", "Tier-1 diagnostic / audit wedge"),
@@ -33,7 +31,6 @@ WEDGES = [
     ("w12-receipt-pdf", "Receipt / Proof Pack PDF"),
     ("w13-hub-action", "Hub one-tap Action"),
     ("w14-cloud-forge", "Cloud forge run + Supabase row"),
-    ("w15--", "Ship one differentiated feature slice from research"),
     ("w16-onboard", "Client onboard checklist"),
     ("w17-upsell", "Tier-1 → Tier-2 upsell motion"),
     ("w18-referral", "Partner / accountant channel"),
@@ -61,6 +58,9 @@ ACTIONS = [
     ("a18-nps", "Ask for referral"),
     ("a19-archive", "Archive lesson to knowledge-library"),
 ]
+
+PLANS_PER_LANE = len(WEDGES) * len(ACTIONS)
+TOTAL = PLANS_PER_LANE * LANE_COUNT
 
 LANES = [
     {
@@ -273,7 +273,7 @@ def generate_lane(lane: dict, now: str) -> dict:
         "repo": lane["key"],
         "repo_label": lane["label"],
         "count": len(entries),
-        "grid": "19 wedges × 19 actions = 361",
+        "grid": f"{len(WEDGES)} wedges × {len(ACTIONS)} actions = {PLANS_PER_LANE}",
         "external_repo": lane["external_repo"],
         "comp_anchor": lane["comp_anchor"],
         "plans": entries,

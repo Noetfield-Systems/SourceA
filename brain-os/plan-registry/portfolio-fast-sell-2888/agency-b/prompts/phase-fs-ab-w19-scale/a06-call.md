@@ -1,4 +1,4 @@
-# fs-ab-0348 — Fast-sell plan
+# fs-ab-0329 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T2 · **Phase:** MOONSHOT
 **Lane:** SourceA Agency Asset B · **Wedge:** w19-scale · Repeatable playbook + template
@@ -20,7 +20,7 @@ test -f ~/Desktop/SourceA/brain-os/law/SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMA
 
 ## Closeout
 
-1. `status: done` in REGISTRY.json for `fs-ab-0348`
+1. `status: done` in REGISTRY.json for `fs-ab-0329`
 2. Log economic signal if outreach closed (W3 / NW)
 3. Bounded path only — no cross-lane without EDIT ALLOWED
 

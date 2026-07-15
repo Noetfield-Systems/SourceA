@@ -1,4 +1,4 @@
-# fs-gt-0345 — Fast-sell plan
+# fs-gt-0326 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T1 · **Phase:** MOONSHOT
 **Lane:** Vertical GTM SKUs · **Wedge:** w19-scale · Repeatable playbook + template
@@ -20,7 +20,7 @@ test -f ~/Desktop/SourceA/docs/PORTFOLIO_TWO_TIER__PRO_ANALYSIS_LOCKED_v1.md
 
 ## Closeout
 
-1. `status: done` in REGISTRY.json for `fs-gt-0345`
+1. `status: done` in REGISTRY.json for `fs-gt-0326`
 2. Log economic signal if outreach closed (W3 / NW)
 3. Bounded path only — no cross-lane without EDIT ALLOWED
 

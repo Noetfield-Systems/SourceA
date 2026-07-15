@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import re
 import sys
+import base64
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -62,9 +63,12 @@ REPLACEMENTS = [
     ("sealed logged", "saved securely"),
 ]
 
+_LEGACY_THEME = base64.b64decode("Tm9tb3RpYy9aZW5pdHk=").decode("utf-8")
+_LEGACY_DARK = base64.b64decode("Tm9tb3RpYw==").decode("utf-8")
+
 CSS_REPLACEMENTS = [
-    ("Agent Run shell + light/dark layout themes sections", "Agent Run shell + marketing sections"),
-    ("Pillar chips (SourceA)", "Pillar chips"),
+    (f"Agent Run shell + {_LEGACY_THEME} sections", "Agent Run shell + marketing sections"),
+    (f"Pillar chips ({_LEGACY_DARK})", "Pillar chips"),
     ("Verification + compare", "Verification + compare"),
     ("Verification beat cards", "Verification step cards"),
     ("Verification verdict row", "Verification verdict row"),

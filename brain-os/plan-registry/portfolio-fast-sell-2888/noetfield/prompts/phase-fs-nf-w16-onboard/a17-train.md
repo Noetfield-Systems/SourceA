@@ -1,4 +1,4 @@
-# fs-nf-0302 — Fast-sell plan
+# fs-nf-0283 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T2 · **Phase:** MOONSHOT
 **Lane:** Noetfield · **Wedge:** w16-onboard · Client onboard checklist
@@ -20,7 +20,7 @@ test -f ~/Desktop/SourceA/docs/NOETFIELD_INTELLIGENCE_613_PLAN_LOCKED_v1.md
 
 ## Closeout
 
-1. `status: done` in REGISTRY.json for `fs-nf-0302`
+1. `status: done` in REGISTRY.json for `fs-nf-0283`
 2. Log economic signal if outreach closed (W3 / NW)
 3. Bounded path only — no cross-lane without EDIT ALLOWED
 

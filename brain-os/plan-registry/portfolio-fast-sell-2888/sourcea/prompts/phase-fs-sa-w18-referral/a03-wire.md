@@ -1,4 +1,4 @@
-# fs-sa-0326 — Fast-sell plan
+# fs-sa-0307 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T1 · **Phase:** MOONSHOT
 **Lane:** SourceA · **Wedge:** w18-referral · Partner / accountant channel
@@ -20,7 +20,7 @@ python3 ~/Desktop/SourceA/scripts/sourcea_revenue_engine_crm_v1.py summary --jso
 
 ## Closeout
 
-1. `status: done` in REGISTRY.json for `fs-sa-0326`
+1. `status: done` in REGISTRY.json for `fs-sa-0307`
 2. Log economic signal if outreach closed (W3 / NW)
 3. Bounded path only — no cross-lane without EDIT ALLOWED
 

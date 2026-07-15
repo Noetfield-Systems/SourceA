@@ -1,4 +1,4 @@
-# fs-mx-0352 — Fast-sell plan
+# fs-mx-0333 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T0 · **Phase:** MOONSHOT
 **Lane:** SinaaiMonoRepo · **Wedge:** w19-scale · Repeatable playbook + template
@@ -20,7 +20,7 @@ test -f ~/Desktop/Noetfield/SinaaiMonoRepo/os/plan-library/mono-1000/REGISTRY.js
 
 ## Closeout
 
-1. `status: done` in REGISTRY.json for `fs-mx-0352`
+1. `status: done` in REGISTRY.json for `fs-mx-0333`
 2. Log economic signal if outreach closed (W3 / NW)
 3. Bounded path only — no cross-lane without EDIT ALLOWED
 

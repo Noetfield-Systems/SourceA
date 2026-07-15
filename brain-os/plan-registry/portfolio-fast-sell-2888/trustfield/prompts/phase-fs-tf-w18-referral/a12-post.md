@@ -1,4 +1,4 @@
-# fs-tf-0335 — Fast-sell plan
+# fs-tf-0316 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T1 · **Phase:** MOONSHOT
 **Lane:** TrustField · **Wedge:** w18-referral · Partner / accountant channel
@@ -20,7 +20,7 @@ test -d ~/Desktop/TrustField\ Technologies
 
 ## Closeout
 
-1. `status: done` in REGISTRY.json for `fs-tf-0335`
+1. `status: done` in REGISTRY.json for `fs-tf-0316`
 2. Log economic signal if outreach closed (W3 / NW)
 3. Bounded path only — no cross-lane without EDIT ALLOWED
 

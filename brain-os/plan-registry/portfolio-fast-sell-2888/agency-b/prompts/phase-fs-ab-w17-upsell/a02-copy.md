@@ -1,4 +1,4 @@
-# fs-ab-0306 — Fast-sell plan
+# fs-ab-0287 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T0 · **Phase:** MOONSHOT
 **Lane:** SourceA Agency Asset B · **Wedge:** w17-upsell · Tier-1 → Tier-2 upsell motion
@@ -20,7 +20,7 @@ test -f ~/Desktop/SourceA/brain-os/law/SOURCEA_ASSET_B_CONTROLLED_AGENTIC_AUTOMA
 
 ## Closeout
 
-1. `status: done` in REGISTRY.json for `fs-ab-0306`
+1. `status: done` in REGISTRY.json for `fs-ab-0287`
 2. Log economic signal if outreach closed (W3 / NW)
 3. Bounded path only — no cross-lane without EDIT ALLOWED
 

@@ -1,4 +1,4 @@
-# fs-vx-0316 — Fast-sell plan
+# fs-vx-0297 — Fast-sell plan
 
 **Version:** 1 · **Tier:** T1 · **Phase:** MOONSHOT
 **Lane:** VIRLUX · **Wedge:** w17-upsell · Tier-1 → Tier-2 upsell motion
@@ -20,7 +20,7 @@ test -d ~/Desktop/VIRLUX
 
 ## Closeout
 
-1. `status: done` in REGISTRY.json for `fs-vx-0316`
+1. `status: done` in REGISTRY.json for `fs-vx-0297`
 2. Log economic signal if outreach closed (W3 / NW)
 3. Bounded path only — no cross-lane without EDIT ALLOWED
 
