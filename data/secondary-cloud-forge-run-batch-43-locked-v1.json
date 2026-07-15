@@ -374,21 +374,6 @@
       "cloud_action": "Compare Stack AI PLG motion (Enterprise compliance GTM) vs our onboarding \u2014 one adoption fix on `30s sandbox demo \u2192 upgrade gate`"
     },
     {
-      "n": 26,
-      "id": "CLOUD-SEC-4216",
-      "maps_registry": "vx-mkt-0216",
-      "plane": "cloud_forge",
-      "batch_id": 43,
-      "stack": "virlux",
-      "mac_role": "none \u2014 batch dispatch POST optional \u00b7 read receipt after",
-      "mac_executes_plan_body": false,
-      "": "Stack AI",
-      "workstream": "ws-pricing",
-      "tier": "T2",
-      "cost_tier": "openrouter_cap",
-      "cloud_action": "Document why buyers pay per Stack AI: Need controlled agents without custom dev \u2014 tie to our offer in plain English"
-    },
-    {
       "n": 27,
       "id": "CLOUD-SEC-4217",
       "maps_registry": "vx-mkt-0217",

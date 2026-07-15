@@ -96,7 +96,7 @@ FORBIDDEN PHRASES (instant fail with INCIDENT-039):
 
 ---
 
-## 7. Remediatilocally (v1.0)
+## 7. Remediatiin the repository (v1.0)
 
 | Artifact | Fix |
 |----------|-----|

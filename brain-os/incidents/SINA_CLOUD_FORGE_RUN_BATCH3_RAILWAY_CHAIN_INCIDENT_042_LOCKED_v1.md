@@ -136,7 +136,7 @@ Symptom: `activate_batch` / `_cloud_plans()` → empty → `no_cloud_plans_in_ac
 
 ---
 
-## 7. Remediatilocally (shipped 2026-06-23)
+## 7. Remediatiin the repository (shipped 2026-06-23)
 
 | Artifact | Change |
 |----------|--------|

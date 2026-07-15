@@ -601,34 +601,6 @@
       }
     },
     {
-      "n": 28,
-      "id": "CLOUD-SEC-8086",
-      "maps_registry": "cpr-forge-terminal",
-      "plane": "cloud_forge",
-      "batch_id": 82,
-      "mac_executes_plan_body": false,
-      "library": "client-proof-recipe",
-      "": "SourceA client verification",
-      "workstream": "ws-client-proof",
-      "tier": "T1",
-      "cost_tier": "openrouter_cap",
-      "client_problem": "P2-onboard-friction",
-      "goal": "Buyer sees terminal UI and understands policy-before-send",
-      "done_when": "Forge terminal page has terminal UI markers (not SPA shell only)",
-      "verify": "cd ~/Desktop/SourceA && python3 scripts/verify_client_proof_artifact_v1.py --url https://sourcea.app/sourcea/forge/terminal && --marker \"Forge Terminal\" && --marker \"data-sa-proof-cta\"",
-      "proof_artifact": "https://sourcea.app/sourcea/forge/terminal",
-      "client_demo": "Walk ALLOW vs BLOCK beat on terminal page",
-      "proven": true,
-      "realistic": true,
-      "cloud_action": "Client proof recipe: Forge Terminal public surface loads with controlled send path \u00b7 DONE when Forge terminal page has terminal UI markers (not SPA shell only) \u00b7 demo: Walk ALLOW vs BLOCK beat on terminal page",
-      "recipe": {
-        "schema": "client-proof-recipe-v1",
-        "plan_id": "cpr-forge-terminal",
-        "prompt_path": null,
-        "source_registry": null
-      }
-    },
-    {
       "n": 29,
       "id": "CLOUD-SEC-8087",
       "maps_registry": "cpr-free-job-intake",

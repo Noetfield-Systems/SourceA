@@ -374,21 +374,6 @@
       "cloud_action": "Compare Gumloop PLG motion (PLG $37/mo wedge) vs our onboarding \u2014 one adoption fix on `30s sandbox demo \u2192 upgrade gate`"
     },
     {
-      "n": 26,
-      "id": "CLOUD-SEC-4116",
-      "maps_registry": "vx-mkt-0116",
-      "plane": "cloud_forge",
-      "batch_id": 42,
-      "stack": "virlux",
-      "mac_role": "none \u2014 batch dispatch POST optional \u00b7 read receipt after",
-      "mac_executes_plan_body": false,
-      "": "Gumloop",
-      "workstream": "ws-pricing",
-      "tier": "T2",
-      "cost_tier": "openrouter_cap",
-      "cloud_action": "Document why buyers pay per Gumloop: Controlled automation without engineering \u2014 tie to our offer in plain English"
-    },
-    {
       "n": 27,
       "id": "CLOUD-SEC-4117",
       "maps_registry": "vx-mkt-0117",

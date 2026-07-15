@@ -264,34 +264,6 @@
       }
     },
     {
-      "n": 16,
-      "id": "CLOUD-SEC-7472",
-      "maps_registry": "cpr-forge-terminal",
-      "plane": "cloud_forge",
-      "batch_id": 76,
-      "mac_executes_plan_body": false,
-      "library": "client-proof-recipe",
-      "": "SourceA client verification",
-      "workstream": "ws-client-proof",
-      "tier": "T1",
-      "cost_tier": "openrouter_cap",
-      "client_problem": "P2-onboard-friction",
-      "goal": "Buyer sees terminal UI and understands policy-before-send",
-      "done_when": "https://sourcea.app/forge/terminal returns 200",
-      "verify": "curl -fsS -o /dev/null -w '%{http_code}' https://sourcea.app/forge/terminal | grep -q 200",
-      "proof_artifact": "https://sourcea.app/forge/terminal",
-      "client_demo": "Walk ALLOW vs BLOCK beat on terminal page",
-      "proven": true,
-      "realistic": true,
-      "cloud_action": "Client proof recipe: Forge Terminal public surface loads with controlled send path \u00b7 DONE when https://sourcea.app/forge/terminal returns 200 \u00b7 demo: Walk ALLOW vs BLOCK beat on terminal page",
-      "recipe": {
-        "schema": "client-proof-recipe-v1",
-        "plan_id": "cpr-forge-terminal",
-        "prompt_path": null,
-        "source_registry": null
-      }
-    },
-    {
       "n": 17,
       "id": "CLOUD-SEC-7473",
       "maps_registry": "cpr-sandbox-intake",

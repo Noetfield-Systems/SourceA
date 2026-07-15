@@ -107,7 +107,7 @@ One plain sentence + path:
 
 ---
 
-## 6. Remediatilocally (v1.0)
+## 6. Remediatiin the repository (v1.0)
 
 | Artifact | Path |
 |----------|------|

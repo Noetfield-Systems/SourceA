@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply customer-facing copy normalize — delegates to sourcea_lexicon_normalize_repo_v1 pairs."""
+"""Apply customer-facing copy normalization — delegates to sourcea_lexicon_normalize_v1 pairs."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 GREEN = ROOT / "sites" / "SourceA-landing" / "green-unified"
-SCRUB = ROOT / "scripts" / "sourcea_lexicon_normalize_repo_v1.py"
+SCRUB = ROOT / "scripts" / "sourcea_lexicon_normalize_v1.py"
 
 SKIP_SUBSTRINGS = ("investors.html",)
 

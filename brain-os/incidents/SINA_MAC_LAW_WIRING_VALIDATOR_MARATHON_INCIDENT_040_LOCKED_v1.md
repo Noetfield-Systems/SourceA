@@ -110,7 +110,7 @@ FORBIDDEN:
 
 ---
 
-## 7. Remediatilocally (v1.0)
+## 7. Remediatiin the repository (v1.0)
 
 | Artifact | Path |
 |----------|------|

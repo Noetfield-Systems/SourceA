@@ -1124,21 +1124,6 @@
       "cloud_action": "Compare Gumloop PLG motion (PLG free tier \u2192 Pro $37) vs our onboarding \u2014 one adoption fix on `Founding cohort shadow parallel install SOW`"
     },
     {
-      "n": 76,
-      "id": "CLOUD-SEC-1466",
-      "maps_registry": "wb-mkt-0466",
-      "plane": "cloud_forge",
-      "batch_id": 15,
-      "stack": "witnessbc",
-      "mac_role": "none \u2014 batch dispatch POST optional \u00b7 read receipt after",
-      "mac_executes_plan_body": false,
-      "": "Gumloop",
-      "workstream": "ws-pricing",
-      "tier": "T2",
-      "cost_tier": "openrouter_cap",
-      "cloud_action": "Document why buyers pay per Gumloop: Non-dev teams need controlled AI automation \u2014 tie to our offer in plain English"
-    },
-    {
       "n": 77,
       "id": "CLOUD-SEC-1467",
       "maps_registry": "wb-mkt-0467",

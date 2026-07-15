@@ -482,21 +482,6 @@
       "cloud_action": "Add or update one public price card on `Worker Hub Next steps + factory-now line` inspired by Mastra packaging motion"
     },
     {
-      "n": 34,
-      "id": "CLOUD-SEC-424",
-      "maps_registry": "sa-mkt-0514",
-      "plane": "cloud_forge",
-      "batch_id": 5,
-      "mac_role": "none \u2014 batch dispatch POST optional \u00b7 read receipt after",
-      "mac_executes_plan_body": false,
-      "stack": "sourcea",
-      "": "Mastra",
-      "workstream": "ws-pricing",
-      "tier": "T1",
-      "cost_tier": "openrouter_cap",
-      "cloud_action": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt"
-    },
-    {
       "n": 35,
       "id": "CLOUD-SEC-425",
       "maps_registry": "sa-mkt-0515",
@@ -780,21 +765,6 @@
       "tier": "T1",
       "cost_tier": "openrouter_cap",
       "cloud_action": "Add checklist or wizard step on `Worker Hub Next steps + factory-now line` \u2014 no Terminal required"
-    },
-    {
-      "n": 54,
-      "id": "CLOUD-SEC-444",
-      "maps_registry": "sa-mkt-0534",
-      "plane": "cloud_forge",
-      "batch_id": 5,
-      "mac_role": "none \u2014 batch dispatch POST optional \u00b7 read receipt after",
-      "mac_executes_plan_body": false,
-      "stack": "sourcea",
-      "": "Mastra",
-      "workstream": "ws-onboard",
-      "tier": "T1",
-      "cost_tier": "openrouter_cap",
-      "cloud_action": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
     },
     {
       "n": 55,
@@ -1232,21 +1202,6 @@
       "cloud_action": "Add or update one public price card on `Worker Hub Next steps + factory-now line` inspired by Restate packaging motion"
     },
     {
-      "n": 84,
-      "id": "CLOUD-SEC-474",
-      "maps_registry": "sa-mkt-0564",
-      "plane": "cloud_forge",
-      "batch_id": 5,
-      "mac_role": "none \u2014 batch dispatch POST optional \u00b7 read receipt after",
-      "mac_executes_plan_body": false,
-      "stack": "sourcea",
-      "": "Restate",
-      "workstream": "ws-pricing",
-      "tier": "T1",
-      "cost_tier": "openrouter_cap",
-      "cloud_action": "Label free vs paid honestly (Controlled agent orchestration motor \u2014 not MSB product); never claim production without receipt"
-    },
-    {
       "n": 85,
       "id": "CLOUD-SEC-475",
       "maps_registry": "sa-mkt-0565",
@@ -1530,21 +1485,6 @@
       "tier": "T1",
       "cost_tier": "openrouter_cap",
       "cloud_action": "Add checklist or wizard step on `Worker Hub Next steps + factory-now line` \u2014 no Terminal required"
-    },
-    {
-      "n": 104,
-      "id": "CLOUD-SEC-494",
-      "maps_registry": "sa-mkt-0584",
-      "plane": "cloud_forge",
-      "batch_id": 5,
-      "mac_role": "none \u2014 batch dispatch POST optional \u00b7 read receipt after",
-      "mac_executes_plan_body": false,
-      "stack": "sourcea",
-      "": "Restate",
-      "workstream": "ws-onboard",
-      "tier": "T1",
-      "cost_tier": "openrouter_cap",
-      "cloud_action": "Freemium cap or trial label visible before first run (Controlled agent orchestration motor \u2014 not MSB product)"
     },
     {
       "n": 105,
