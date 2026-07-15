@@ -1,0 +1,15 @@
+name: history-content-guard-v1
+on:
+  push:
+  pull_request:
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Run external-policy history guard
+        env:
+          SOURCEA_HISTORY_GUARD_POLICY_B64: ${{ secrets.SOURCEA_HISTORY_GUARD_POLICY_B64 }}
+        run: bash scripts/validate-history-content-guard-v1.sh
