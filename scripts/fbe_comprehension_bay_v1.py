@@ -47,7 +47,7 @@ def _plain_block_reason(
     snap = snapshot or {}
     if snap.get("portfolio_line") and "RED" in str(snap["portfolio_line"]).upper():
         system_notes.append(
-            "A product site check is still failing in the repository — that may affect what agents say about email or launch."
+            "A product site check is still failing logged — that may affect what agents say about email or launch."
         )
     if snap.get("form_open", 0) > 0:
         system_notes.append(

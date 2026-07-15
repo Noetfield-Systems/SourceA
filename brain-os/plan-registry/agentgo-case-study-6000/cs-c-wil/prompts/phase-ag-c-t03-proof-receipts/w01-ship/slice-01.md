@@ -23,7 +23,7 @@ One shippable artifact only — no drive-by refactors.
 **Anti-drift:** Never sell AgentGo sign-in localhost:3001 as production.
 **Target path:** `~/.sina/agentgo-case-study-receipt-v1.json`
 **Success metric:** PASS/FAIL not vibes
-**Receipt:** file in the repository before `status: done`.
+**Receipt:** file logged before `status: done`.
 **Phase:** MOONSHOT · **Tier:** T0 · **Workstream:** Ship
 
 ## Verify

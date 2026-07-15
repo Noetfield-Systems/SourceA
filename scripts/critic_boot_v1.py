@@ -90,7 +90,7 @@ def _sync_briefing_sig(path: Path, brief: dict[str, Any], *, current_sig: str, c
 def check_ssot_brief(*, agent_id: str = "AGENT-AUTO-MONO") -> dict[str, Any]:
     """SSOT logged matches agent last briefed fingerprint."""
     if not CANONICAL_SSOT.is_file():
-        return {"id": "C1", "name": "ssot_brief", "ok": False, "reason": "canonical SSOT missing locally"}
+        return {"id": "C1", "name": "ssot_brief", "ok": False, "reason": "canonical SSOT missing logged"}
     body = CANONICAL_SSOT.read_text(encoding="utf-8", errors="replace")[:4000]
     ver_match = re.search(r"LOCKED v(\d+\.\d+)", body)
     current_ver = ver_match.group(1) if ver_match else "unknown"

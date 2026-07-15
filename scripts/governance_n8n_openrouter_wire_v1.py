@@ -210,7 +210,7 @@ def wire_all(*, run_fast: bool = True, openrouter_hook_only: bool = False) -> di
         "openrouter": or_lane,
         "integration_fabric": str(INTEGRATION_FABRIC),
         "steps": steps,
-        "founder_note": "n8n glue wired locally — import stubs into n8n UI when n8n is up · OpenRouter shadow until credits flag",
+        "founder_note": "n8n glue wired logged — import stubs into n8n UI when n8n is up · OpenRouter shadow until credits flag",
     }
     SINA.mkdir(parents=True, exist_ok=True)
     RECEIPT_PATH.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")

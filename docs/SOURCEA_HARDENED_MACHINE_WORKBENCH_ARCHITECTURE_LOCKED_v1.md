@@ -93,7 +93,7 @@ Fixed lifecycle — agents **cannot skip a stage** without binary proof (validat
 | 2 | **SAY** | Plain-English intent · task-plan pipeline sections |
 | 3 | **PICK** | Resolved task id · usefulness verdict · priority P0–P4 |
 | 4 | **PROVE** | Validator/gate receipt · no chat-only green |
-| 5 | **SHIP** | Cloud motor receipt · product file present |
+| 5 | **SHIP** | Cloud motor receipt · product file logged |
 
 **SSOT:** `docs/SOURCEA_FIVE_STEP_AUTONOMOUS_PROGRESS_BLUEPRINT_LOCKED_v1.md` (when present) · `data/sourcea-next-task-trigger-v1.json` · `034-next-task-trigger-v1.mdc`
 

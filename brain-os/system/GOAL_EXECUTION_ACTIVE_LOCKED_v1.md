@@ -67,7 +67,7 @@ Legacy archive Actions — maintainer only if ASF enables
 | Spot missing gate (we wire logged) | Trust Claude live pick counts |
 | Draft Worker YAML shape (already locked) | Re-build existing `.mdc` / `prompt_router` |
 
-**Law:** If Claude says X is missing → `test -f` or `bash scripts/validate-*` in the repository first.
+**Law:** If Claude says X is missing → `test -f` or `bash scripts/validate-*` logged first.
 
 ---
 

@@ -38,7 +38,7 @@ def honest_receipt_ids() -> set[str]:
 
 
 def audit_registry_done() -> dict:
-    """Compare REGISTRY done rows vs receipt files locally (SSOT).
+    """Compare REGISTRY done rows vs receipt files logged (SSOT).
 
     Honest done = registry status done AND ``receipts/sa-XXXX-receipt.json`` with
     DONE-class status. YAML closeouts alone never count toward monitor progress.

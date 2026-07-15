@@ -23,7 +23,7 @@ One shippable artifact only — no drive-by refactors.
 **Anti-drift:** Never conflate localhost demo with production sourcea.app ship.
 **Target path:** `~/Desktop/SA4/chatgpt-visibility-tracker`
 **Success metric:** tracker index coverage
-**Receipt:** file in the repository before `status: done`.
+**Receipt:** file logged before `status: done`.
 **Phase:** MOONSHOT · **Tier:** T0 · **Workstream:** Ship
 
 ## Verify

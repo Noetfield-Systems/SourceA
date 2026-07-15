@@ -461,7 +461,7 @@ def _artifact_row(account_id: str, *, existing: dict | None = None) -> dict:
     elif machine_pct:
         brain_artifact_note = f"brain lane avg {brain_pct}% (no per-email brain score logged)"
     else:
-        brain_artifact_note = "no body in the repository — compile stub only"
+        brain_artifact_note = "no body logged — compile stub only"
 
     approvals = _read_json(APPROVALS)
     acct_row = next((a for a in (approvals.get("accounts") or []) if a.get("id") == account_id), {})
@@ -561,7 +561,7 @@ def _artifact_row(account_id: str, *, existing: dict | None = None) -> dict:
                 "receiver_interest_pct ≥ 90 when Mode B (RIL)",
                 "sina_read_score_pct ≥ 90 (Sina human only — ship authority)",
                 "founder approves recipient + sends manually from Mail",
-                "confirm-sent in the repository — agents never send",
+                "confirm-sent logged — agents never send",
             ],
         },
     }

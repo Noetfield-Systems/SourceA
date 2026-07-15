@@ -246,7 +246,7 @@ def _classify_line(line: str) -> str:
         return "INSTRUCTION"
     if re.search(r"\b(probably|likely|assume|might|may|if .+ then)\b", low):
         return "ASSUMPTION"
-    if re.search(r"\b(pass|fail|wired|verified|complete|done|ready|fixed|exists in the repository)\b", low):
+    if re.search(r"\b(pass|fail|wired|verified|complete|done|ready|fixed|exists logged)\b", low):
         return "CLAIM"
     if re.search(r"\b(is |are |was |has |have |will |can )\b", low) and not re.search(r"\?", low):
         return "FACT"

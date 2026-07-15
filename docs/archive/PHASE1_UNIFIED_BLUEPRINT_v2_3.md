@@ -154,7 +154,7 @@ The distinction between the two systems remains valid. What changes is the ackno
 
 ### Governing Principles (v2)
 
-**P1 — Acknowledge the actual baseline.** Every decision starts from what is in the repository today, not from the intended architecture. Building on false assumptions compounds debt.
+**P1 — Acknowledge the actual baseline.** Every decision starts from what is logged today, not from the intended architecture. Building on false assumptions compounds debt.
 
 **P2 — Noetfield code is greenfield.** No Noetfield execution code exists. When building it, do not inherit `SinaaiRuntime`'s patterns by default — evaluate each choice against Noetfield's specific compliance requirements.
 

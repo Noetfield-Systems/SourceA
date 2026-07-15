@@ -25,7 +25,7 @@
       "active_compile": ["sourcea-factory"],
       "compile_queued": [],
       "compile_gate": "blocked_until_noetfield_and_trustfield_compiled",
-      "note": "Deferred after Noetfield ∥ TrustField — pack locally for later"
+      "note": "Deferred after Noetfield ∥ TrustField — pack logged for later"
     },
     "noetfield": {
       "brand": "Noetfield",

@@ -2138,7 +2138,7 @@ def founder_actions_flat() -> list[dict]:
             "icon": "📥",
             "kind": "healthy_drain_paste",
             "group": "drain",
-            "hint": "Writes .sina-loop/INBOX.md — prompt locally (no clipboard hijack)",
+            "hint": "Writes .sina-loop/INBOX.md — prompt logged (no clipboard hijack)",
         },
         {
             "id": "founder-start-worker-turn",
@@ -2265,7 +2265,7 @@ def founder_actions_grouped() -> list[dict]:
         ("portfolio", "Portfolio", "TrustField pilot and lane attests"),
         ("law", "Law & blockers", "Open the right file"),
         ("apps", "Apps", "Prompt OS and remote status"),
-        ("queue", "Next steps", "Live next 10 in the repository — optional direction commentary (auto-paste OFF)"),
+        ("queue", "Next steps", "Live next 10 logged — optional direction commentary (auto-paste OFF)"),
         ("automation", "Automation & n8n", "Start n8n · starter test · Runtime glue (optional)"),
     ]
     flat = [a for a in founder_actions_flat() if not a.get("hidden")]

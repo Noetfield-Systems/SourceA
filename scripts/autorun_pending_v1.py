@@ -283,7 +283,7 @@ def pending_snapshot(*, max_age_hours: float = 24.0) -> dict[str, Any]:
                 "status": "pending",
                 "severity": "P0",
                 "law": "L4",
-                "reason": "external-verify.yml not present locally",
+                "reason": "external-verify.yml not logged",
                 "evidence": {"path": ".github/workflows/external-verify.yml"},
                 "action": "restore workflow",
             }

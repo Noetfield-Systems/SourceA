@@ -392,7 +392,7 @@ def run_gate(
         "next_action": (
             "Ship allowed — commercial copy gate PASS"
             if ok
-            else "Fix findings locally (gate suggests rewrites — founder approves edits) — do not publish"
+            else "Fix findings logged (gate suggests rewrites — founder approves edits) — do not publish"
         ),
     }
     return _write_receipt(row)

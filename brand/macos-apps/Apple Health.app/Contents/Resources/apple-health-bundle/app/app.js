@@ -40,7 +40,7 @@ function renderGoals(goals) {
 function renderPlans(plans) {
   const el = document.getElementById("plans-list");
   if (!plans || !plans.length) {
-    el.innerHTML = '<li class="ahg-meta">No linked plans in the repository — open Worker Hub roadmaps or add SourceA.</li>';
+    el.innerHTML = '<li class="ahg-meta">No linked plans logged — open Worker Hub roadmaps or add SourceA.</li>';
     return;
   }
   el.innerHTML = plans

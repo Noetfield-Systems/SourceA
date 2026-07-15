@@ -23,7 +23,7 @@ During a **founder session on Mac**, while ASF asked to **wire Mac Law to machin
 
 > **Mac founder session: NEVER stuck in validators. Reply <30s → STOP. One light check ≤90s. No chains. No Await. 11 minutes = P0 harm. Wiring Mac Law = Read receipts + grep — NOT bash validate marathon.**
 
-**Severity:** **P0 RED FLAG** — Mac Law violation · founder time theft · CPU heat · conduct failure after law already present.
+**Severity:** **P0 RED FLAG** — Mac Law violation · founder time theft · CPU heat · conduct failure after law already logged.
 
 ---
 

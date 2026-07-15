@@ -42,7 +42,7 @@
 | Trigger | ledger bootstrap |
 | Preserved | Hub shell tabs, command-data pipeline, alignment audit |
 | Changed | Per-app upgrade ledger created |
-| Achieved | Frozen hub inventory + HUB checklist in repository |
+| Achieved | Frozen hub inventory + HUB checklist logged |
 | Quality vs last | baseline |
 | Founder approval | **pending** |
 

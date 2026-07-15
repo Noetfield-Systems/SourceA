@@ -125,7 +125,7 @@ def _read_eval_1b() -> dict:
     elif mode == "scaffold":
         closure = "Eval-1b scaffold FAIL — harness/packet weaker than raw logged tasks."
     else:
-        closure = f"Eval-1b locally ({mode}) — verify live_ok before dispatch."
+        closure = f"Eval-1b logged ({mode}) — verify live_ok before dispatch."
     return {
         "present": True,
         "path": str(EVAL_1B_REPORT),
@@ -206,7 +206,7 @@ def _stage_proof(*, draft: str, founder_message: str) -> dict:
         elif eval_row.get("mode") == "scaffold" and not eval_row.get("ok"):
             mismatch.append("Agent implies execution — Eval-1b scaffold FAIL logged.")
     elif re.search(r"\b(dispatch|factory ready|execution runtime)\b", low) and not eval_row.get("present"):
-        mismatch.append("Agent implies execution proof — Eval-1b report not present locally.")
+        mismatch.append("Agent implies execution proof — Eval-1b report not logged.")
     if not mismatch:
         mismatch.append("No obvious agent-vs-manifest mismatch from local checks.")
 

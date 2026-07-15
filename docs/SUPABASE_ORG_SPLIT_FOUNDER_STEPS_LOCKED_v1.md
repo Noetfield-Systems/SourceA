@@ -91,7 +91,7 @@ Tell the agent: **“Both paused + SourceA up”**
 
 ## Step B — VIRLUX out of Supabase (keep repo updates)
 
-**Already locally (nothing lost if you pause cloud):**
+**Already logged (nothing lost if you pause cloud):**
 
 - Migrations pointer: `SourceA/infra/supabase/labs-sandbox/`
 - Receipts: `VIRLUX/.virlux-receipts/` + `receipt-store.ts` (disk is primary)
@@ -115,7 +115,7 @@ Tell the agent: **“VIRLUX Supabase paused — repo-native”**
 
 ## Step C — 777 Foundation out of Supabase (keep repo updates)
 
-**Already locally (nothing lost if you pause cloud):**
+**Already logged (nothing lost if you pause cloud):**
 
 - All migrations: **`~/Desktop/The 777 Foundation/supabase/migrations/`** (001–014)  
 - Manifest: **`supabase/production.project.json`** (ref `mmdhnktybjpwlwdczgbq`)

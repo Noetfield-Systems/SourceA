@@ -497,7 +497,7 @@ Use **all 13 layers** before declaring paradox, conflict, or “which doc wins.�
 | **L9 — Accountability** | SHIP closeout per F §4? | F §4 · A §3.5 |
 | **L10 — Depth zoom** | 5-step only · +fork · +100-step? | A §4 · E §4 |
 | **L11 — Interface** | Law · prompt · UI · working mirror? | Pack manifest |
-| **L12 — Persistence** | What becomes SSOT in the repository after? | Track · LOCKED · Layer A |
+| **L12 — Persistence** | What becomes SSOT logged after? | Track · LOCKED · Layer A |
 
 **Judgment rule:** If layers **L1·L6·L7** conflict → **human–machine boundary** issue → apply §14. If **L10** conflict → zoom issue, not paradox. If **L11** conflict → **law beats UI beats working mirror**.
 

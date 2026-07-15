@@ -283,7 +283,7 @@ def run_gate(
         "next_action": (
             "Ship allowed — copy depth gate PASS"
             if ok
-            else "CUT or tighten flagged lines locally (founder approves) — do not publish"
+            else "CUT or tighten flagged lines logged (founder approves) — do not publish"
         ),
     }
     return _write_receipt(row)

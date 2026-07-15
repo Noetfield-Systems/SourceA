@@ -23,7 +23,7 @@ One shippable artifact only — no drive-by refactors.
 **Anti-drift:** Never claim live SaaS billing — SA4 is marketing surface proof.
 **Target path:** `scripts/sourcea_revenue_engine_crm_v1.py`
 **Success metric:** outreach_sent logged
-**Receipt:** file in the repository before `status: done`.
+**Receipt:** file logged before `status: done`.
 **Phase:** MOONSHOT · **Tier:** T0 · **Workstream:** Ship
 
 ## Verify

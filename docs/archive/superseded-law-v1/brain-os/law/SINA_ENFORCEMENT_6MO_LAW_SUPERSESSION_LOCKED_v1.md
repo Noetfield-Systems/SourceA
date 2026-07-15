@@ -44,7 +44,7 @@
 
 ---
 
-## 3. Superseded documents (still in the repository — read rules below)
+## 3. Superseded documents (still logged — read rules below)
 
 | Doc | Status | How to use |
 |-----|--------|------------|

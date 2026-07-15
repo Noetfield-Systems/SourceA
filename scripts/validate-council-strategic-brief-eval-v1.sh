@@ -54,7 +54,7 @@ for wid in ("eval-1", "eval-1b"):
     if not primary:
         errors.append(f"workstream {wid} missing validator")
     elif not (scripts / primary).is_file():
-        errors.append(f"workstream {wid} validator not present locally: {primary}")
+        errors.append(f"workstream {wid} validator not logged: {primary}")
 
 if errors:
     for e in errors:

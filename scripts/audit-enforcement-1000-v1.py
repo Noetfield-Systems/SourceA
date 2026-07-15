@@ -76,7 +76,7 @@ def _validator_ok(script: str, extra: list[str] | None = None) -> bool:
 
 
 def disk_done_t0_slots() -> set[tuple[str, int]]:
-    """(phase, slot) pairs proven in the repository — T0 only."""
+    """(phase, slot) pairs proven logged — T0 only."""
     done: set[tuple[str, int]] = set()
     demo_ok = _validator_ok("validate-demo-enforcement-v1.sh")
     tamper_ok = demo_ok and _validator_ok("validate-demo-enforcement-v1.sh", ["--tamper-test"])

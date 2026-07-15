@@ -75,7 +75,7 @@ REAL_SA = _resolve_source_a()
 os.environ.setdefault("SINA_SOURCE_A", str(REAL_SA))
 os.environ.setdefault("N8N_INTEGRATION_STANDALONE", "1")
 os.environ.setdefault("N8N_INTEGRATION_PORT", str(PORT))
-# Prefer live SourceA UI when repo is locally (avoids stale bundled v1.1 HTML).
+# Prefer live SourceA UI when repo is logged (avoids stale bundled v1.1 HTML).
 LIVE_APP = REAL_SA / "scripts" / "n8n-standalone"
 if LIVE_APP.is_dir() and (LIVE_APP / "index.html").is_file():
     APP_DIR = LIVE_APP

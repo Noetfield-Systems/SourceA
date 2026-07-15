@@ -969,7 +969,7 @@ def inject_worker_prompt(
         f"Worker chat {inj.get('conversation_id')} focused via agent --resume + INBOX logged. "
         "Batch run_turn executes in Worker chat only — never Brain."
         if inj.get("ok")
-        else f"INBOX in the repository — worker chat focus failed: {inj.get('error') or inj.get('stderr')}"
+        else f"INBOX logged — worker chat focus failed: {inj.get('error') or inj.get('stderr')}"
     )
     return result
 

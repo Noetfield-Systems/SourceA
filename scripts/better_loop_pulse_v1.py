@@ -350,7 +350,7 @@ def checkcart_template() -> dict:
                 "id": "RRL2",
                 "step": "RRL SSOT",
                 "command": "test -f data/response-reality-layer-v1.json",
-                "pass": "RRL law in repository",
+                "pass": "RRL law logged",
                 "owner": "executor",
             },
             {

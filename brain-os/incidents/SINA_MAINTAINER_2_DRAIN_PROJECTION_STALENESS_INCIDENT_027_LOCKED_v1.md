@@ -33,7 +33,7 @@
 
 **Maintainer 2 failure:** After form gate closed, Maintainer **continued to headline Cloud Forge Run** (`sa-0798`, `616/1000`, `Cloud Forge Run — max 1`, queue pos) in SCAN reports and session briefs — sourced from **hub projection** (`command-data.json` P0 line) and **stale SCAN templates** — while **not reading** `PROGRAM_PROGRESS.founder_open`, `SESSION_LOG` Maintainer-next, or live form §4 **RT-LIVE-GATE** as the sole open high blocker.
 
-**Severity:** **High** — same failure class as INCIDENT-022 (law in repository · wrong founder headline) and INCIDENT-020 (factory lane vs integrity lane conflation). Founder had to shout to break the loop.
+**Severity:** **High** — same failure class as INCIDENT-022 (law logged · wrong founder headline) and INCIDENT-020 (factory lane vs integrity lane conflation). Founder had to shout to break the loop.
 
 **One-line verdict:** Maintainer read **LAG projection** as **P0 law** and treated an **obsolete session brief** (`needs_asf_fill: true`) as live — after ASF had already filled form v2 and locked **hub repair until RT LIVE**.
 

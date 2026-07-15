@@ -29,7 +29,7 @@
 
 This section records verification of the disclosure research synthesis against live SSOT.
 
-### 1.1 VERIFIED — already present
+### 1.1 VERIFIED — already logged
 
 | Claim | Proof logged | Status |
 |-------|---------------|--------|

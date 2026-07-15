@@ -42,7 +42,7 @@ A controlled local execution OS with **101/1000** verify tasks done, **prompt_ro
 
 ---
 
-## Scale locally (SourceA)
+## Scale logged (SourceA)
 
 | Asset | Count |
 |-------|-------|

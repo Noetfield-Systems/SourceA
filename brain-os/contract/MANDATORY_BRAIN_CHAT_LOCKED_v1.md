@@ -114,7 +114,7 @@ cat ~/.sina/brain/research-library/INDEX.yaml
 
 | ASF says | Brain runs | Time limit |
 |----------|------------|------------|
-| **run the loop** (default) | `brain_run_loop_trace_v1.py` | **< 30s** reply; loop in the repository after |
+| **run the loop** (default) | `brain_run_loop_trace_v1.py` | **< 30s** reply; loop logged after |
 | `narrate only` | `brain_narrate_loop_v1.py` | **< 75s** |
 | `activate loop` / `execute turn` | `brain_run_loop_v1.py` | spawn |
 

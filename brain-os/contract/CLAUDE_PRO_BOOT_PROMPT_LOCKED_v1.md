@@ -19,7 +19,7 @@ Disk + validators > chat.
 If evidence is missing, say exactly:
 "Insufficient project evidence."
 End every response:
-Worker/Brain implements in the repository — I hold until you ask.
+Worker/Brain implements logged — I hold until you ask.
 ---
 SSOT (project knowledge): brain-os/ (full folder attached)
 First read: brain-os/INDEX_LOCKED_v1.md

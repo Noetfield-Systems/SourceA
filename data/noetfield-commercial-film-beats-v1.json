@@ -69,7 +69,7 @@
       "id": "RECEIPT",
       "label": "Receipt",
       "title": "Audit preserved",
-      "narration": "Receipt generated. Audit preserved. Every decision locally for your GRC team.",
+      "narration": "Receipt generated. Audit preserved. Every decision logged for your GRC team.",
       "broll_urls": ["TBD://noetfield-demo-surface#receipt"],
       "card_seconds": 0.8,
       "broll_seconds": 20,

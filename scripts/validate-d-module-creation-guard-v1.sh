@@ -42,7 +42,7 @@ on_disk = {
 extra = sorted(on_disk - AUTHORIZED)
 missing = sorted(AUTHORIZED - on_disk)
 assert not extra, f"unauthorized pre_llm modules: {extra}"
-assert not missing, f"authorized module missing locally: {missing}"
+assert not missing, f"authorized module missing logged: {missing}"
 
 syn = (ROOT / "brain-os/wtm/SINA_GPT_CLAUDE_WTM_SYNTHESIS_LOCKED_v1.md").read_text(encoding="utf-8")
 assert "D1–D16" in syn or "D1-D16" in syn, "synthesis must document D1-D16 stack"

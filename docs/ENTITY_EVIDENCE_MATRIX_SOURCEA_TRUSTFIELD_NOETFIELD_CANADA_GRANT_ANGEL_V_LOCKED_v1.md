@@ -281,7 +281,7 @@ python3 scripts/commit_intent_v1.py --demo-enforcement --case allow --json
 | ID | Item | Entity | Status | Notes |
 |----|------|--------|--------|-------|
 | TRD-01 | TrustField = evidence layer positioning frozen | TrustField | [x] | Not trading bot |
-| TRD-02 | Noetfield split from crypto outbound | Noetfield | [x] | Routing law in repository |
+| TRD-02 | Noetfield split from crypto outbound | Noetfield | [x] | Routing law logged |
 | TRD-03 | Priority A Ocree send | TrustField | [~] | Approved · champion pending |
 | TRD-04 | FINTRAC demo script filmed | TrustField | [ ] | 15-min live demo |
 | TRD-05 | Prop trader lane explicitly declined | All | [x] | AKIVA owns open-source |

@@ -122,7 +122,7 @@ Same family as **INCIDENT-013** (stale parrot), **INCIDENT-020** (wrong topic co
 
 | Row | Role | Obligation | Artifact | Validator | Status |
 |-----|------|------------|----------|-----------|--------|
-| F1 | **Worker** | On ASF no-hub phrases → set latch · never suggest hub-ui sa / hub refresh in reply | `worker_asf_directive_latch_v1.py` | latch file present | **shipped** |
+| F1 | **Worker** | On ASF no-hub phrases → set latch · never suggest hub-ui sa / hub refresh in reply | `worker_asf_directive_latch_v1.py` | latch file logged | **shipped** |
 | F2 | **Machine** | Inject ASF directive block into turn context | `agent_turn_context_v1.py` | import smoke | **shipped** |
 | F3 | **Maintainer** | Wire latch read on turn entry (future) | `worker_turn_entry_v1.sh` (optional) | — | open |
 | F6 | **Stairlift** | Incident + latch law in stairlift watch | `governance_stairlift_sync_v1.py` | `validate-incident-fix-ownership-v1.sh` | **shipped** |

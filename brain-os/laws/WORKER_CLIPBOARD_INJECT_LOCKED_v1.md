@@ -16,7 +16,7 @@ Disk-only delivery (`.cursor/rules/099-worker-inbox-active.mdc` + `INBOX.md`) **
 
 Then `inject_worker_prompt(..., delivery_mode=clipboard)`:
 
-1. Writes INBOX backup locally (audit + agent CLI path)
+1. Writes INBOX backup logged (audit + agent CLI path)
 2. Pastes full prompt into **focused** Cursor chat via `pbcopy` + `osascript` Cmd+V (same as Brain inject)
 
 ## Founder one-time setup

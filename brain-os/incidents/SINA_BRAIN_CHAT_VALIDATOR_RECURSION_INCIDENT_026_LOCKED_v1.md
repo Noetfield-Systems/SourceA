@@ -15,7 +15,7 @@
 A **Brain** Cursor session blocked founder chat **15–25+ minutes** by:
 
 1. Chaining slow validators in one shell (`cross-plan && closeout && hub_refresh`)
-2. Re-running the same **~138s** live-prompt E2E pipeline **6+ times** after receipts were already present
+2. Re-running the same **~138s** live-prompt E2E pipeline **6+ times** after receipts were already logged
 3. Using long `Await` on subprocess trees instead of replying **<30s** then STOP
 
 **Root cause:** **Agent conduct failure** — not Cursor, hub, or brain_sync infrastructure.

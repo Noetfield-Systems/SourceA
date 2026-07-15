@@ -119,7 +119,7 @@ Minimal example (1 prompt → landing + pricing):
 
 ---
 
-## Sandbox execution API (cloud — already present)
+## Sandbox execution API (cloud — already logged)
 
 | Surface | Path |
 |---------|------|

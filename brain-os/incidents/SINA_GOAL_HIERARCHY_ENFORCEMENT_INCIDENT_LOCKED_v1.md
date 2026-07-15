@@ -96,7 +96,7 @@
 
 1. First line when advising SourceA: **`INPUT CLASS: compare to GOAL_HIERARCHY_LOCKED_v1.md`**  
 2. Verdict: main goal vs parallel lane per locked table — **never** promote T2b to T0.  
-3. End: **“Worker/Brain implements in the repository — I hold until ASF orders.”**  
+3. End: **“Worker/Brain implements logged — I hold until ASF orders.”**  
 4. **Forbidden:** “Do commercial first for revenue” as default automation routing.
 
 ### 5.3 Worker / CLI / autorun — before ANY queue consume

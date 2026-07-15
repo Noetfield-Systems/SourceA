@@ -23,7 +23,7 @@ One shippable artifact only — no drive-by refactors.
 **Anti-drift:** Never conflate localhost demo with production sourcea.app ship.
 **Target path:** `SourceA-landing/green-unified/case-studies/agentgo.html`
 **Success metric:** commercial + depth gate PASS
-**Receipt:** file in the repository before `status: done`.
+**Receipt:** file logged before `status: done`.
 **Phase:** LATER · **Tier:** T0 · **Workstream:** Ship
 
 ## Verify

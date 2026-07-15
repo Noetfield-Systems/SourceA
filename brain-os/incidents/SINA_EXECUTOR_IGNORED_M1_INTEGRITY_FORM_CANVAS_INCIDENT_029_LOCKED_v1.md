@@ -109,7 +109,7 @@ On 2026-06-12, ASF gave a **direct imperative**: *"BRING THE FORM HERE UNTIL I S
 | Area | Impact |
 |------|--------|
 | **Founder trust** | High — explicit order failed; screenshot proves empty sidebar |
-| **M1 effort** | Appeared discarded; actually present but not surfaced |
+| **M1 effort** | Appeared discarded; actually logged but not surfaced |
 | **Live form program** | Risk that agents only write JSON, never show UI |
 | **Governance** | Low — picks logged remain valid; anti-staleness bundle still PASS |
 | **Execution** | Delayed W1/W3 focus with sidebar firefight |
@@ -166,7 +166,7 @@ On 2026-06-12, ASF gave a **direct imperative**: *"BRING THE FORM HERE UNTIL I S
 |-----|--------|
 | **One form, three layers** | UI = M1 Canvas · Law = LIVE_DECISION_FORM md · Machine = `live_founder_decision_form_v1.py --json` |
 | **Click agent name (future hub)** | Registry `CHAT_CANVAS_REGISTRY.yaml` — filter Gov/Brain/Commercial; Canvas v2 already has agent dropdown |
-| **Your picks are not lost** | 26 forks + v2 + Phase 2 in the repository — UI sync is Maintainer, not re-fill |
+| **Your picks are not lost** | 26 forks + v2 + Phase 2 logged — UI sync is Maintainer, not re-fill |
 | **“First form” frozen** | 6 questions archived — live = v2 + Canvas forks |
 | **Next patch** | Same M1 model — Phase 3 maintainer steps + new F/D rows only |
 | **If Canvas errors** | Read Show Details · fix **existing** file · never fork parallel form |

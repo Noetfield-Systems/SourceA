@@ -1486,7 +1486,7 @@ def _pre_llm_shipped_count() -> int:
 
 
 def _phase_d_complete() -> bool:
-    """True when all D1–D16 pre-LLM SSOT artifacts exist locally (sa-0012)."""
+    """True when all D1–D16 pre-LLM SSOT artifacts exist logged (sa-0012)."""
     return _pre_llm_shipped_count() == 16
 
 

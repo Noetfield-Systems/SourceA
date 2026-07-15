@@ -840,7 +840,7 @@
       const human = text.slice(0, idx).trim();
       const woId = workOrder?.id || "proposed";
       const blocked = workOrder?.dispatch_blocked ? "\n⚠ Dispatch blocked until Eval-1b proof passes." : "";
-      return `${human}\n\n[Work order ${woId} in the repository — tap WO to copy JSON]${blocked}`;
+      return `${human}\n\n[Work order ${woId} logged — tap WO to copy JSON]${blocked}`;
     }
     return text;
   }

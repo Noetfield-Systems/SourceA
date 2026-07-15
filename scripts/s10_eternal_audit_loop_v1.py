@@ -254,7 +254,7 @@ def _check_kill_flag_hub() -> dict:
             stale_autorun = True
             break
     if stale_autorun:
-        return _result("FAIL", "stale Cursor AUTO-RUN copy in the repository — purge projection (AS-01)")
+        return _result("FAIL", "stale Cursor AUTO-RUN copy logged — purge projection (AS-01)")
     if not freeze:
         return _result("PASS", "not frozen · no stale AUTO-RUN strings")
     return _result("PASS", "FREEZE active · hub projection clean")

@@ -23,7 +23,7 @@ A SourceA Worker auto-run session for **sa-0009** (Q16–Q18 CHECK→ACT→VERIF
 
 **One-line law for all future Workers:**
 
-> **Estimate turn time (CHECK ~60s · ACT ~30s · VERIFY ~90–150s) → tail log once → never block chat on long Await. Law in repository must match agent wrapper the same ship.**
+> **Estimate turn time (CHECK ~60s · ACT ~30s · VERIFY ~90–150s) → tail log once → never block chat on long Await. Law logged must match agent wrapper the same ship.**
 
 ---
 

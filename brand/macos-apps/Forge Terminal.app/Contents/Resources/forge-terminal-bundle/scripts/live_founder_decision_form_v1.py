@@ -324,7 +324,7 @@ OPEN_QUESTIONS_TEMPLATE = [
         "reply_template": (
             "ASF: FIVE-STEP — QUESTION on [Q-GRADE]\n"
             "C — factory spine and validators green · hub not RT LIVE yet · form v2 live\n"
-            "Effect: honest grade locally for Phase 1.10 closeout table"
+            "Effect: honest grade logged for Phase 1.10 closeout table"
         ),
     },
     {
@@ -731,7 +731,7 @@ PENDING_OUTSIDE_AS_OPEN: list[dict] = [
     {
         "id": "Q-FR-1013f0",
         "title": "When to close commercial track FR-1013f0",
-        "question": "Close when Week-3 signal locally (deposit, LOI, honest attempt) — YES, DEFER batch, or CANCEL?",
+        "question": "Close when Week-3 signal logged (deposit, LOI, honest attempt) — YES, DEFER batch, or CANCEL?",
         "blocks": "Commercial Track · Week-3 closure",
         "diskToday": "FR-1013f0 open · Week-3 honest $0 · outreach design logged",
         "recommended": "YES",

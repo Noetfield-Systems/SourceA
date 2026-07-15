@@ -20,7 +20,7 @@
 - only **one plan** runs per 10-minute tick,
 - **`full_pack` is a long-running background job** still executing across turns,
 - **`skipped`** means the turn did not run (it did — rows still moved),
-- **`batch`** (locked JSON file present) equals **`turn`** (10-minute cron trigger).
+- **`batch`** (locked JSON file logged) equals **`turn`** (10-minute cron trigger).
 
 Founder time was burned reconciling agents who cited the **same law files** but interpreted them differently. That is **conduct failure**, not a Railway bug.
 

@@ -20,7 +20,7 @@ A Cursor **Brain/maintainer agent** told the founder the **Goal 1 worker batch l
 
 ## 2. UNVALIDATED PROOF — what the assistant claimed vs what was true
 
-| # | Assistant claim (UNVALIDATED) | Verified truth locally (2026-06-07 ~05:53Z) |
+| # | Assistant claim (UNVALIDATED) | Verified truth logged (2026-06-07 ~05:53Z) |
 |---|------------------------------|---------------------------------------------|
 | 1 | “Worker batch STARTED pid 53404” = loop running | PID existed briefly; **no `goal1_worker_batch` or `agent -p` processes** at founder check time |
 | 2 | Batch log shows `AGENT START sa-0139` = turn in progress | Latest `~/.sina/goal1-worker-batch-latest.log` ends in **`WORKER_BATCH_TURN_FAIL`** JSON; turn **`exit_code: 143`** (SIGTERM); **`output_chars: 1`** in `goal1-worker-turn-runs.jsonl` |
@@ -97,7 +97,7 @@ Full PEV / Conductor analysis locked at `os/chat-handoffs/GOAL1_EXECUTION_SOLUTI
 
 ## 8. Founder expectation violated
 
-- **“Running”** means Worker is **executing or completing** a turn the founder can see advance in the repository — not a PID that died in 2 minutes.
+- **“Running”** means Worker is **executing or completing** a turn the founder can see advance logged — not a PID that died in 2 minutes.
 - **“CHECK AND FIX EVERYTHING”** requires **end-to-end proof**, not validator green pills.
 - Assistant must **not** close the task while queue is still on **sa-0139 act** with **FAILED** progress.
 

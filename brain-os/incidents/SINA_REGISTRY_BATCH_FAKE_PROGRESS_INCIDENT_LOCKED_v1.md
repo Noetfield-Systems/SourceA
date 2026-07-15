@@ -247,7 +247,7 @@ If any check fails → status is **INFLATED** or **STALE** — not done.
 
 ### Brain
 - **Never** recommend batch closeout or counter inflation paths  
-- **Never** ask founder to pick lanes when `GOAL_HIERARCHY` is locally (INCIDENT-004)  
+- **Never** ask founder to pick lanes when `GOAL_HIERARCHY` is logged (INCIDENT-004)  
 - Route: one `sa` · CHECK first · cite receipt path as proof  
 - Read this incident before any “how far along are we?” answer  
 

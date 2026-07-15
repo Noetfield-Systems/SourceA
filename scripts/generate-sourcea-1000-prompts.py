@@ -217,7 +217,7 @@ PHASE_TASKS: list[list[str]] = [
         "Cross-check MergePack KPI trio in command center payload",
         "Document lane P0 revenue bottleneck in strategic one_line",
         "Reject fabricated G3 or Track PASS in any script grep",
-        "Validate wire lane progress md exists in the repository for Wire agent",
+        "Validate wire lane progress md exists logged for Wire agent",
         "Compare ChatGPT commercial critique to PROGRAM_PROGRESS locks",
         "Ensure RunReceipt factory hook in command center P0 card",
         "Run update-program-progress wire_summary from locked_plan.json",

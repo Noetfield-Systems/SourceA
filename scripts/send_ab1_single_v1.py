@@ -29,7 +29,7 @@ VARIANTS: dict[str, dict[str, str]] = {
 
 Quick question for teams shipping Cursor agents for clients: when something goes wrong, can you prove what ran, what was blocked, and whether it is safe to run again tomorrow?
 
-We run a self-healing multi-agent factory every day — policy before execution, signed receipts in the repository — and build the same for clients:
+We run a self-healing multi-agent factory every day — policy before execution, signed receipts logged — and build the same for clients:
 
 • Agent Loop Build — one scoped loop live in 2–3 weeks ($3–10K project)
 • Agent Loop Retainer — weekly proof export + ongoing ops ($2–5K/month)

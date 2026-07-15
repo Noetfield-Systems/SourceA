@@ -10,7 +10,7 @@
 
 ## Law (one sentence)
 
-**Governance Specialist cannot claim fixed, PASS, or “not present locally” until governance meta-audit PASS — disk grep beats chat.**
+**Governance Specialist cannot claim fixed, PASS, or “not logged” until governance meta-audit PASS — disk grep beats chat.**
 
 ---
 
@@ -37,7 +37,7 @@ If meta-audit **FAIL** → `governance-center-receipt-v1.json` **`ok: false`** e
 
 ## Forbidden (Governance Specialist)
 
-- “Fixed” / “not present locally” without `governance-meta-audit-receipt-v1.json` **`ok: true`** attached
+- “Fixed” / “not logged” without `governance-meta-audit-receipt-v1.json` **`ok: true`** attached
 - PASS cart or E2E while museum founder-hero still steers Prompt feed / auto-send
 - Daily investigation of `/legacy/` or full `command-data.json` (Zone C — `SOURCEA_THREE_ZONE_HUB_SPINE_LOCKED_v1.md`)
 

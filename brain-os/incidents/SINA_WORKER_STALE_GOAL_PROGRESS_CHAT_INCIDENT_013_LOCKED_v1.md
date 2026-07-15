@@ -79,7 +79,7 @@ Agents conflated these. Founder saw **pending everywhere** and **157 forever**.
 
 Pack law: **each SA = CHECK + ACT + VERIFY** (30 turns for 10 SAs).
 
-For **sa-0084–0089**, implementation was **already present** from earlier sessions. Turns were **ceremony**:
+For **sa-0084–0089**, implementation was **already logged** from earlier sessions. Turns were **ceremony**:
 
 - CHECK: validators PASS, gap none  
 - ACT: idempotent, **no diff**  
@@ -276,7 +276,7 @@ print(i['queue_pos'], i['sa_id'], i['queue_role'])
 
 ## 11. Founder-facing summary (plain language)
 
-You were not wrong. The Worker kept saying **157/1000** because the agent **copied a stale number from the inbox prompt** instead of checking the real counter locally (**158/1000** now). The queue **was** advancing (turn 19 of 30), but each goal only moves **+1** when a full **VERIFY** closes — so three “run inbox” clicks often change the bar by one, not three. Many turns were **closing out work that was already built**, which feels like repetition even when validators are correct.
+You were not wrong. The Worker kept saying **157/1000** because the agent **copied a stale number from the inbox prompt** instead of checking the real counter logged (**158/1000** now). The queue **was** advancing (turn 19 of 30), but each goal only moves **+1** when a full **VERIFY** closes — so three “run inbox” clicks often change the bar by one, not three. Many turns were **closing out work that was already built**, which feels like repetition even when validators are correct.
 
 **Trust disk:** `goal-progress-v1.py` + receipt files + queue position — not the paragraph at the bottom of the inbox template.
 

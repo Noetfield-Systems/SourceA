@@ -13,7 +13,7 @@ if ! curl -sf "${BASE}/" >/dev/null 2>&1; then
 fi
 echo "OK: base ${BASE}"
 
-# Config + assets present (repo)
+# Config + assets logged (repo)
 for f in \
   SourceA-landing/green-unified/sourcea-site-pulse-v1.js \
   SourceA-landing/green-unified/sourcea-site-interact-v1.js \

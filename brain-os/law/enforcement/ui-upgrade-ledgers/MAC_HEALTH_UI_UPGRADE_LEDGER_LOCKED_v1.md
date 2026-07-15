@@ -42,7 +42,7 @@
 |-------|-------|
 | Preserved | Health guard UI + mandates wiring |
 | Changed | Per-app Mac Health upgrade ledger created |
-| Achieved | MH inventory + checklist in repository |
+| Achieved | MH inventory + checklist logged |
 | Quality vs last | baseline |
 | Founder approval | **approved** |
 

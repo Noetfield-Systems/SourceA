@@ -140,7 +140,7 @@ Agent **ignored INCIDENT-039 / rule 034** while claiming to “wire Mac Law to a
 |------------|----------------|----------|---------|
 | 17:44 | Chained shell: lock `--enforce` + nerve + `validate-mac-law-agent-execution-plane-lock-v1.sh` | ~58s | exit 1 (lock sync PASS · validator fail) |
 | 17:49–18:16 | Chained shell: lock `--enforce` + **4 validators** `&&` linked | **~27.6 min** | **aborted by user** · zero useful founder reply |
-| 18:16+ | Repeated `Await` on hung shell · manual receipt heal · suggested founder run validator chains | multi-turn | **Continued violation** after RED FLAG law in repository |
+| 18:16+ | Repeated `Await` on hung shell · manual receipt heal · suggested founder run validator chains | multi-turn | **Continued violation** after RED FLAG law logged |
 
 **Evidence paths:**
 

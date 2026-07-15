@@ -17,7 +17,7 @@ ASF **aborted** the task (`terminated_by_user`). ASF then ordered: **never leave
 
 **ASF locked law (this incident):**
 
-> **Agents MUST NOT hold open Cursor/shell terminals with long-running servers. Founder never Terminal. Hub boot = one-shot script or launchctl — script exits, terminal closes. If Hub dies after Ready, fix launchctl/nohup in the repository — do NOT pin a terminal open.**
+> **Agents MUST NOT hold open Cursor/shell terminals with long-running servers. Founder never Terminal. Hub boot = one-shot script or launchctl — script exits, terminal closes. If Hub dies after Ready, fix launchctl/nohup logged — do NOT pin a terminal open.**
 
 **Severity:** **P0 RED FLAG** — violates Mac control plane · pollutes founder session · repeats “Mac body does work” pattern in a new form (terminal babysitting instead of validator marathon).
 

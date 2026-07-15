@@ -128,7 +128,7 @@
 |-----------|----------|
 | "We have Purview." | "Keep it. Noetfield is the **board pack** Purview was not designed to produce — permitted vs merely logged." |
 | "We use Securiti for readiness." | "Perfect front door. Noetfield is **after go-live** — ongoing receipt + re-brief when legal updates policy." |
-| "Agent AISPM vendor covers our agents." | "Agent security watches build and runtime. We enforce **organizational policy version** in the repository before your governance agents run." |
+| "Agent AISPM vendor covers our agents." | "Agent security watches build and runtime. We enforce **organizational policy version** logged before your governance agents run." |
 | "Too early for us." | "NF-QS in 3–5 days — you'll know if you have a board gap before full pilot spend." |
 | "What's SourceA?" | "Internal engine name — irrelevant on your invoice. You buy **Noetfield**." |
 

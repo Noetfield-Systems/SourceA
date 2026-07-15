@@ -7,7 +7,7 @@ CHECK → ACT (only if gap found) → VERIFY → receipts/sa-XXXX-receipt.json �
 
 ## What counts as done
 
-- receipts/sa-XXXX-receipt.json exists in the repository
+- receipts/sa-XXXX-receipt.json exists logged
 - receipt.status = DONE / PASS / VERIFIED / CHECK_PASSED
 - receipt.source set (goal1_lane_broker / worker_inbox / api / maintainer_executor)
 - critical_bugs: 0 at closeout

@@ -11,7 +11,7 @@
 ## 1. Three gates (all mandatory — no skipping)
 
 ```text
-INJECT  → prompt locally (INBOX pending) — feasibility PASS
+INJECT  → prompt logged (INBOX pending) — feasibility PASS
 VALIDATE → machine validators + WORKER_ROUND_REPORT (Worker chat OR agent CLI output)
 ACTIVATE → agent -p -f actually runs (headless) OR Worker chat executes one full turn
 SYNC    → broker worker-submit + orchestrator poll_once → queue advances

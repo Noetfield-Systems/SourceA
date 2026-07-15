@@ -97,7 +97,7 @@ def agentgo_html() -> str:
         <span class="sa-pass">receipt</span><span>→</span><span>replay</span><span>→</span><span class="sa-fail">tamper-FAIL</span>
       </div>
       <div class="sa-pillar-grid">
-        <article><h3>Policy</h3><p>LOCKED SSOT at dispatch — law in repository.</p></article>
+        <article><h3>Policy</h3><p>LOCKED SSOT at dispatch — law logged.</p></article>
         <article><h3>Dispatch gate</h3><p>Session gate PASS · role-scoped execution.</p></article>
         <article><h3>Receipt ledger</h3><p>Signed record · export bundle on closeout.</p></article>
         <article><h3>Replay</h3><p>Cold-start replay without chat memory.</p></article>

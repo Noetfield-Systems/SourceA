@@ -240,7 +240,7 @@ echo "[render] hyperframes render @ ${FPS}fps"
 # Hyperframes occasionally hangs on Chromium shutdown *after* the output file
 # is successfully written (seen multiple times on 15–30s clips). Without a
 # guard the shell waits forever. This helper enforces a max wall-clock budget,
-# and if the output is already present when we hit it, treats the run as
+# and if the output is already logged when we hit it, treats the run as
 # successful and kills the zombie. Tune HF_TIMEOUT_S via env if needed.
 # Default SCALES with clip size: two parallel Chromium passes on a long clip
 # legitimately exceed a fixed 240s (a 38s/1151-frame render was killed at 244s

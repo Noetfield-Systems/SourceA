@@ -71,7 +71,7 @@ Buyers are tired of **agent demos without proof**, **AI projects that drift**, a
 
 ### Board / investor
 
-- *Governance in the repository — validators as truth, not chat as memory.*
+- *Governance logged — validators as truth, not chat as memory.*
 - *A founder operating system at scale — three parallel lanes, one engine.*
 - *986 controlled steps toward a thousand — honest counter, not marketing fiction.*
 - *Agentic trust infrastructure — before the model runs, after it ships.*
@@ -102,7 +102,7 @@ Buyers are tired of **agent demos without proof**, **AI projects that drift**, a
 ## Elevator pitches
 
 **30 seconds (SourceA spine)**  
-SourceA is a **Controlled Execution OS**: law in repository, validators as truth, workers as execution, receipts as proof. Every session identifies the agent, quarantines strangers, and runs parallel **node tiers** for safety and truth. We do not sell “trust the model” — we sell **prove every agent action**. The factory is at **986/1000 honest steps**; commercial lanes (Noetfield, TrustField) run **parallel**, not instead of the engine.
+SourceA is a **Controlled Execution OS**: law logged, validators as truth, workers as execution, receipts as proof. Every session identifies the agent, quarantines strangers, and runs parallel **node tiers** for safety and truth. We do not sell “trust the model” — we sell **prove every agent action**. The factory is at **986/1000 honest steps**; commercial lanes (Noetfield, TrustField) run **parallel**, not instead of the engine.
 
 **15 seconds (buyer)**  
 *Agentic trust infrastructure — identify, gate, receipt. Proof in JSON, not in chat.*

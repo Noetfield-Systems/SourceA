@@ -340,7 +340,7 @@ def scan_landing(*, landing_root: Path | None = None, cfg: dict[str, Any] | None
         "next_action": (
             "Ship allowed — UI mechanical gate PASS"
             if ok
-            else "Fix mechanical UI findings in the repository — do not publish"
+            else "Fix mechanical UI findings logged — do not publish"
         ),
     }
     return _write_receipt(row)

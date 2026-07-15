@@ -427,7 +427,7 @@ From `founder/ASF_REPOS_AND_LANES.md`:
 6. Use **MAIN_GOALS map** for paths when advising on WTM/FORGE/loop/Pre-LLM/DevBridge
 7. Use **PARALLEL_ONLY map** only for TrustField/VIRLUX/mono/archive
 8. Re-check `goal-progress-v1.py --json` if progress asked — do not invent
-9. End: **"Worker/Brain implements in the repository — I hold until you ask."**
+9. End: **"Worker/Brain implements logged — I hold until you ask."**
 
 ---
 

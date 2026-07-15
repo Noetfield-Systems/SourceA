@@ -10,7 +10,7 @@ from typing import Any
 CANONICAL_PROJECTION_SCHEMA = "hub-canonical-projection-v1"
 RUNTIME_PROJECTION_SCHEMA = "hub-runtime-projection-v1"
 
-# Derives from laws · skills · graph · catalog · queue truth locally (GPT P1 spec).
+# Derives from laws · skills · graph · catalog · queue truth logged (GPT P1 spec).
 # Fixed materializer stamp fields — not law content (closed set; not a growing exclude list).
 PROJECTION_META_KEYS = frozenset(
     {

@@ -27,7 +27,7 @@
 
 ## 1. Why SourceA needs a unified crawl–mirror pipeline
 
-| Problem in the repository today | What crawl–mirror fixes |
+| Problem logged today | What crawl–mirror fixes |
 |-----------------------|-------------------------|
 | Chat ≠ SSOT but chats hold intent | Crawl transcripts → extract decisions → mirror to disk rows |
 | 102+ LOCKED laws + hub + `.mdc` + validators | Crawl law graph → mirror seven surfaces together |

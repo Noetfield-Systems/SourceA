@@ -37,7 +37,7 @@ Self-Optimization v1 — observe → measure → compare → suggest → self_op
 
 ---
 
-## 2. Status (what is in the repository today)
+## 2. Status (what is logged today)
 
 | Layer | Status | Code / artifact |
 |-------|--------|-----------------|

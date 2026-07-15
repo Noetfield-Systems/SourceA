@@ -29,7 +29,7 @@ if missing:
     raise SystemExit(f"FAIL: important_docs_index missing {missing}")
 
 for p in required:
-    assert (Path(p)).is_file(), f"FAIL: doc not present locally {p}"
+    assert (Path(p)).is_file(), f"FAIL: doc not logged {p}"
 
 pp = json.loads(Path("PROGRAM_PROGRESS.json").read_text(encoding="utf-8"))
 mp = (pp.get("signals_auto") or {}).get("mergepack") or {}

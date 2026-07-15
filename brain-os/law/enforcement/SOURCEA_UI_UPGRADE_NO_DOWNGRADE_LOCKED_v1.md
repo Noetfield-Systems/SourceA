@@ -8,7 +8,7 @@
 
 ## 0. One sentence
 
-> **Agents must prove they hold the current controlled UI version in the repository before editing; removing baseline features while “upgrading” is a downgrade and is blocked.**
+> **Agents must prove they hold the current controlled UI version logged before editing; removing baseline features while “upgrading” is a downgrade and is blocked.**
 
 ---
 

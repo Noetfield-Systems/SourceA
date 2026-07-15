@@ -183,7 +183,7 @@
     "law": ".cursor/rules/027-agent-report-plan-story-v1.mdc",
     "required_shape": [
       "Thread opener — plan id · epic · founder ask arc",
-      "What changed in the repository — paths · ids · before→after",
+      "What changed logged — paths · ids · before→after",
       "Plan story beat — row position in active epic",
       "Validator truth — PASS/FAIL · RED stays RED",
       "Close — disk truth now (no invitation)"

@@ -34,7 +34,7 @@
 - **TAMPER** — hand-edit receipt logged → validator **HARD FAIL** on camera.
 - Factory honesty: controlled tasks with receipts; **zero** unproven-done (anti-fake-velocity).
 
-**Proof assets present today:**
+**Proof assets logged today:**
 
 - RT LIVE receipt ↔ spine bound (`validate-universe-invariants-v1.sh` PASS)
 - Copilot demo path (`validate-demo-enforcement-v1.sh` PASS)

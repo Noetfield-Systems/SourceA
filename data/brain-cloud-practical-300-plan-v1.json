@@ -4927,7 +4927,7 @@
       "phase": "P1-LOOP",
       "phase_label": "Auto Runtime cloud dispatch",
       "tier": "P0",
-      "title": "Cloudflare phase 2b contract wired locally",
+      "title": "Cloudflare phase 2b contract wired logged",
       "goal_alignment": "loop",
       "policy_refs": [
         "data/fbe_execution_contract_v1.json",
@@ -4938,7 +4938,7 @@
       "owner_role": "brain_route_worker",
       "execution_plane": "cloud_api_worker",
       "control_plane": "mac_hub",
-      "work_template": "WORK: C300-154 \u2014 Cloudflare phase 2b contract wired locally",
+      "work_template": "WORK: C300-154 \u2014 Cloudflare phase 2b contract wired logged",
       "acceptance": "Loop cloud \u00b7 receipt loop-specialist-tick-receipt-v1.json",
       "receipt_path": "~/.sina/loop-specialist-tick-receipt-v1.json",
       "blocker_if_skipped": "Cloud migration stall \u2014 loop keeps draining local Worker",

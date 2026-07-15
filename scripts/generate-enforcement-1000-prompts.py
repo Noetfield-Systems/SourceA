@@ -342,7 +342,7 @@ PHASE_TASKS: list[list[str]] = [
         "Append kernel harden milestone receipt",
     ],
     [  # e9 dec closeout
-        "Binary check W1: filmed demo exists in the repository",
+        "Binary check W1: filmed demo exists logged",
         "Binary check W2: validate-demo-enforcement-v1.sh PASS + tamper FAIL proven",
         "Binary check W3: LOI deposit or SOW signed",
         "Freeze enforcement scope Dec 1 — no new features",

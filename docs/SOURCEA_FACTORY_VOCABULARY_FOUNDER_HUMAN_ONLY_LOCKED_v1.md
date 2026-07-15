@@ -73,7 +73,7 @@ Five names — never substitute:
 
 **Founder trigger word `forge`** still runs `machine_forge_pipeline_v1.py` — agents label it **machine prove** in prose.
 
-**Deprecated paths (rename on sight):** see `data/sourcea-forge-vocabulary-disambiguation-v1.json` → `drift_watch.stale_terms` and `replacements` (full path table in the repository — do not resurrect old compile dir names).
+**Deprecated paths (rename on sight):** see `data/sourcea-forge-vocabulary-disambiguation-v1.json` → `drift_watch.stale_terms` and `replacements` (full path table logged — do not resurrect old compile dir names).
 
 ---
 

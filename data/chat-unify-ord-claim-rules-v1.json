@@ -207,7 +207,7 @@
       "requires_checkable_atoms": true,
       "verified_max": 0,
       "checkable_min": 3,
-      "message": "No checkable claims verified in the repository — treat entire reply as draft."
+      "message": "No checkable claims verified logged — treat entire reply as draft."
     }
   ],
   "disk_binders": {

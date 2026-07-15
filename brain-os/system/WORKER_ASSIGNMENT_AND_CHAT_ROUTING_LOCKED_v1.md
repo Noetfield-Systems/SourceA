@@ -8,7 +8,7 @@
 
 ---
 
-## 0. Why agents mis-routed (root causes in the repository — fixed here)
+## 0. Why agents mis-routed (root causes logged — fixed here)
 
 | Confusion | Old signal logged | Correct law (this file) |
 |-----------|-------------------|-------------------------|

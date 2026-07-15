@@ -31,7 +31,7 @@
       "id": "FREEZE",
       "label": "Beat 4 — kill switch",
       "title": "Factory freeze logged",
-      "narration": "The kill switch lives in the repository — not in chat memory. When auto-run is disabled, the factory stops. Human approval stays in the loop.",
+      "narration": "The kill switch lives logged — not in chat memory. When auto-run is disabled, the factory stops. Human approval stays in the loop.",
       "card_seconds": 3,
       "broll_seconds": 10
     }

@@ -30,7 +30,7 @@ FIELD_PRODUCERS: dict[str, list[str]] = {
     "provenance": ["D15"],
 }
 
-# Steps physically in the repository today (auto-updated as phases ship)
+# Steps physically logged today (auto-updated as phases ship)
 SHIPPED_PRODUCERS: set[str] = {
     "D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9", "D10", "D11", "D12", "D13", "D14", "D15", "D16",
 }

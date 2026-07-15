@@ -16,7 +16,7 @@ alwaysApply: false
 3. `SINA_AUTHORITY_INDEX_MAP_LOCKED_v1.md` — authority rows
 4. Module-specific SSOT under `docs/` or `labs/<module>/README.md`
 
-**Code and README are not structural authority** — declared law in repository wins.
+**Code and README are not structural authority** — declared law logged wins.
 
 ## Root sprawl cleanup (mandatory process)
 

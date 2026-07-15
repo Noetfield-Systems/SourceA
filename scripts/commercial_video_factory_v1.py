@@ -35,7 +35,7 @@ LANE_COPY: dict[str, dict[str, str]] = {
     "AB1": {
         "hook": "Can you prove what your agents ran last night?",
         "pain": "Logs aren't receipts — counsel can't file a chat transcript when execution has no signed gate.",
-        "proof_line": "PASS · BLOCK · tamper-FAIL — every gate logged and signed",
+        "proof_line": "PASS · BLOCK · tamper-FAIL — every gate signed logged",
         "scenario": "sourcea-boot",
         "cta": "Book 15-min live proof",
         "brand": "SourceA",

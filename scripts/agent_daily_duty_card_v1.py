@@ -39,7 +39,7 @@ def validate_card() -> dict:
     if len(items) < 26:
         missing.append(f"never_make_founder_repeat count={len(items)}")
     if not LOCKED_DOC.is_file():
-        missing.append("locked_doc missing locally")
+        missing.append("locked_doc missing logged")
     ids = {x.get("id") for x in items if isinstance(x, dict)}
     for i in range(1, 27):
         want = f"D{i:02d}"

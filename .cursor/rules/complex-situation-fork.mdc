@@ -25,7 +25,7 @@ alwaysApply: false
 
 1. **Triage disk** — ACTIVE_NOW · factory-now · PROGRAM_PROGRESS · incidents
 2. **Fork inventory** — each fork: Subject · Question · In the repository · 4 options or yes/no quad or text
-3. **Effect line** per option — what changes locally (never vague “confirm recommended”)
+3. **Effect line** per option — what changes logged (never vague “confirm recommended”)
 4. **Wait** for ASF order in `ASF: FORK-MACHINE — …` format before executing founder forks
 5. **Closeout** — RESULT_DRIVEN §4 + Fork inventory + Golden insight (Problem / Fixed / Founder next 3 actions)
 

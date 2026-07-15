@@ -36,7 +36,7 @@ T30 (remember everything)
 
 ## 2. Test readiness — honest gate (what “ready” means)
 
-### 1A — READY locally (materials for test day)
+### 1A — READY logged (materials for test day)
 
 | Artifact | Path | Status |
 |----------|------|--------|

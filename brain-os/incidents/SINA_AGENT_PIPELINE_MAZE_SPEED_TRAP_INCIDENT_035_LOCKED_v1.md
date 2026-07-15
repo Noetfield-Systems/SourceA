@@ -30,7 +30,7 @@
 - Governance chat “check incidents / clean layers” → agent silent 15+ minutes  
 - User: *“why stuck?”* · *“no nobody stuck in maze or pipelines”*  
 - Queue head moved during validator wall — looked like agent frozen  
-- Maze receipt `ok: false` 16/19 left in the repository — **optional passport**, not daily blocker, but agents treated it as mandatory
+- Maze receipt `ok: false` 16/19 left logged — **optional passport**, not daily blocker, but agents treated it as mandatory
 
 ---
 

@@ -19,7 +19,7 @@
 
 > **No factory output and no W3 send reaches a client until the artifact scores ≥ 90% clean on the Output Quality Gate (OQG).** The metric is **output cleanliness** — not founder approval rate.
 
-**Output clean** = complete · spec-faithful · validator-clean · claim-safe · no placeholders · receipt-proven — measured in the repository before ship.
+**Output clean** = complete · spec-faithful · validator-clean · claim-safe · no placeholders · receipt-proven — measured logged before ship.
 
 | Score | Meaning |
 |-------|---------|

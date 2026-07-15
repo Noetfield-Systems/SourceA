@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Validate E2E report discipline — last report schema, log dir, weekly law in repository.
+# Validate E2E report discipline — last report schema, log dir, weekly law logged.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"

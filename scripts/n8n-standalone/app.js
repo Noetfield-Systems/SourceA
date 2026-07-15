@@ -498,7 +498,7 @@
           const cl = $("n8-commercial-line");
           if (cl) {
             cl.textContent = result.ok
-              ? "🚀 Launch kit in the repository — Print SOW · send T01–T03 · wire Stripe"
+              ? "🚀 Launch kit logged — Print SOW · send T01–T03 · wire Stripe"
               : "Launch incomplete — see output";
             cl.className = "n8-quality-line n8-commercial-line " + (result.ok ? "n8-commercial-ready" : "n8-commercial-warn");
           }

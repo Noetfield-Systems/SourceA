@@ -146,7 +146,7 @@ Ten docs that govern **daily session conduct**, **human–machine loops**, and *
 | **X4** | Canvas “recommended” vs law “no vague confirm” | RECOMMENDED ≠ PICK · Batch 2 §14.3 |
 | **X5** | Governance §0 read order vs apex authority | Read order ≠ authority order · 0j > 0i > 0h |
 
-### 6.2 Contradictions (must fix in the repository — none open in cluster)
+### 6.2 Contradictions (must fix logged — none open in cluster)
 
 | ID | Check | Status |
 |----|-------|--------|
@@ -357,7 +357,7 @@ When unsure, ask: **“What topic is this?”** → look up row → that path is
 4. Agent **does not** invent rule from pack map, prompt, or newer draft  
 5. If two paths disagree on **same** topic → **index row wins** · other file must be wrong, superseded, or pointer-only  
 
-**What it does NOT mean:** every file present is law · the folder is law · the pack is one law · newest file wins.
+**What it does NOT mean:** every file logged is law · the folder is law · the pack is one law · newest file wins.
 
 ### 12.3 Three different “priority” systems — do not mix
 

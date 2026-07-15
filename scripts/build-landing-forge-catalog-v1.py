@@ -95,7 +95,7 @@ IF BLOCKED or ambiguous: STOP and tell me what's missing or which decision is mi
         </ul>
         <h2>Policy detects</h2>
         <p>Destructive shell patterns · multi-job inputs · missing founder decisions (naming, paths, provider choice). Forge surfaces warnings before you waste a Cursor turn.</p>
-        <h2>Law in repository</h2>
+        <h2>Law logged</h2>
         <p>SSOT v3: <code>brain-os/ssot/SOURCEA_LLM_AGENT_OPERATING_LAW_SSOT_v3.md</code> — Forge is the outbound machine that applies this law to what you send agents.</p>
     """,
     "chat-unify": """

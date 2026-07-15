@@ -195,7 +195,7 @@ This playbook consolidates **multiple Cursor arcs** from session `a53f3fa1` and 
 
 ---
 
-## Fixes shipped (implement — already present)
+## Fixes shipped (implement — already logged)
 
 | Fix | File / script | Lock recommendation |
 |-----|---------------|----------------------|

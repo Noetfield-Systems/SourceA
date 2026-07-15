@@ -249,7 +249,7 @@ def run_output_analyst(*, draft: str, issue_signals: list[dict]) -> dict:
         findings.append(
             {
                 "id": "queue_mismatch",
-                "plain": f"Queue mismatch locally (surfaces={q_surf} vs anti-staleness={q_anti}) — agent cites wrong task.",
+                "plain": f"Queue mismatch logged (surfaces={q_surf} vs anti-staleness={q_anti}) — agent cites wrong task.",
                 "disk": "queue_sa",
             }
         )
@@ -367,7 +367,7 @@ def _analyze_output(
     elif root == "DISK_POISON" and findings:
         verdict = "FIX_DISK"
         accepted = ""
-        agent_line = "Analyst: inject poison/stale vocabulary in the repository — scrub mirror before blaming agent."
+        agent_line = "Analyst: inject poison/stale vocabulary logged — scrub mirror before blaming agent."
         return_reasons = [f["plain"] for f in findings[:4]] + return_reasons[:2]
     elif root in ("DISK_STALE", "DISK_WRONG") and findings and draft_bad:
         verdict = "FIX_DISK"

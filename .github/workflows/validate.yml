@@ -59,10 +59,10 @@ jobs:
       - name: GitHub workflow lint (yamllint + actionlint)
         run: bash scripts/validate-github-workflows-v1.sh
 
-      - name: Nerve probe law in repository
+      - name: Nerve probe law logged
         run: bash scripts/validate-noetfield-nerve-probe-v1.sh
 
-      - name: Realistic motor law in repository
+      - name: Realistic motor law logged
         run: bash scripts/validate-cloud-forge-run-realistic-motor-law-v1.sh
 
       - name: Locked definitions anatomy

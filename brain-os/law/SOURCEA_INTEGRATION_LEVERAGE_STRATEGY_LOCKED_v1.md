@@ -184,7 +184,7 @@ Track in Linear + CRM mirror (not chat):
 
 ## What we tell the market (one paragraph)
 
-SourceA is the **governance receipt layer** for agentic execution — it runs above Temporal, LangGraph, and your IDE (Cursor), signing PASS/BLOCK/tamper-FAIL in the repository before irreversible actions execute. We integrate with the tools your team already uses (Linear for delivery visibility, Vercel for proof hosting, GitHub for ship traceability) — we do not replace your factory or your backlog.
+SourceA is the **governance receipt layer** for agentic execution — it runs above Temporal, LangGraph, and your IDE (Cursor), signing PASS/BLOCK/tamper-FAIL logged before irreversible actions execute. We integrate with the tools your team already uses (Linear for delivery visibility, Vercel for proof hosting, GitHub for ship traceability) — we do not replace your factory or your backlog.
 
 ---
 

@@ -15,7 +15,7 @@ python3 brain-os/scripts/brain_run_loop_trace_v1.py
 
 Steps 1–9 trace gates · **step 10 spawn** if READY · reply <30s · **STOP**
 
-Loop runs in **background** locally (`goal1_run_loop` → `agent -p -f`) — that is the goal.
+Loop runs in **background** logged (`goal1_run_loop` → `agent -p -f`) — that is the goal.
 
 ## Brain chat must NOT
 

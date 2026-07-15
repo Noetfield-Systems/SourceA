@@ -129,7 +129,7 @@ NOW_TASKS: dict[tuple[str, int], str] = {
     ("cs-c-wil", 7): "Governance row — agentgo_case_study_6000 active in manifest (no SSOT supersede of portfolio 6000)",
     ("cs-c-wil", 8): "CRM — portfolio/strategic buyer pitch using Wil demo + SourceA governance story",
     ("cs-c-wil", 9): "Compare case study #1 PureFlow · #2 AgentGo three-angle index page or offer subsection",
-    ("cs-c-wil", 10): "Seal case study law doc AGENTGO_SA4_CASE_STUDY_6000 in the repository — validator PASS",
+    ("cs-c-wil", 10): "Seal case study law doc AGENTGO_SA4_CASE_STUDY_6000 logged — validator PASS",
 }
 
 

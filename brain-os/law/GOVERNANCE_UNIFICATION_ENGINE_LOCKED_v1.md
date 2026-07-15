@@ -172,7 +172,7 @@ python3 build-sina-command-panel.py
 - Leave **two** active versions at root  
 - Paste critic tables into hub UI (INCIDENT-002)  
 - Change `CURRENT_*_STEP` from essay alone  
-- “Newest file present wins” — **authority index wins**
+- “Newest file logged wins” — **authority index wins**
 
 ---
 

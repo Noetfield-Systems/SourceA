@@ -2,7 +2,7 @@
 """Brain session guard — forbid long E2E shells; emit founder next action logged.
 
 Brain chat must NOT run validate-sourcea-e2e-full / standard (6+ min).
-Factory proof is already present; Brain routes Worker INBOX only.
+Factory proof is already logged; Brain routes Worker INBOX only.
 """
 from __future__ import annotations
 

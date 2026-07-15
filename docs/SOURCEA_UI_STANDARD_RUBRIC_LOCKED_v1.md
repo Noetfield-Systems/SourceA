@@ -87,7 +87,7 @@ The page must not fight Brain or the locked one-liner.
 | A3.4 | Dead chips / CTAs | link crawl (bounded) | Brain chips 404; primary CTA `href="#"` or mailto poison `hello@sourcea.com` |
 | A3.5 | Asset 200 | HEAD key assets | `sourcea.css`, `sourcea-chatbot.js`, `boot-proof.json` not 200 on production |
 
-### A4 — Copy gates (already present — wire, do not duplicate logic)
+### A4 — Copy gates (already logged — wire, do not duplicate logic)
 
 | ID | Gate | Script | Role in UI rubric |
 |----|------|--------|-------------------|
@@ -184,7 +184,7 @@ NEVER:
 
 ## What already exists vs. what to build
 
-### Already locally (keep wiring)
+### Already logged (keep wiring)
 
 | Asset | Status |
 |-------|--------|

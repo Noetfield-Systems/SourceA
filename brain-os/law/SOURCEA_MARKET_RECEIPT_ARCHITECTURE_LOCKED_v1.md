@@ -48,7 +48,7 @@ Today most tools answer with chat logs and hope. That fails NIST AI RMF audit-tr
 
 ---
 
-## What SourceA already has locally (honest)
+## What SourceA already has logged (honest)
 
 ### The spine (real — this is the product core)
 
@@ -120,7 +120,7 @@ Worker run
 2. Show validator command from receipt evidence row  
 3. Trace `VALIDATOR_PASS → TASK_CLOSED → BROKER_ACK` in closeout flow  
 4. Open one incident doc — “we document failures, not hide them”  
-5. Close: **“152 controlled runs in the repository — not chat logs.”**
+5. Close: **“152 controlled runs logged — not chat logs.”**
 
 ---
 
@@ -138,7 +138,7 @@ Worker run
 
 ## One-line gold
 
-> **The market pays for provable agent runs. SourceA already built the receipt-native governance spine in the repository — the 1000-pack is the factory floor that proves it scales; RunReceipt/FORGE is what you invoice.**
+> **The market pays for provable agent runs. SourceA already built the receipt-native governance spine logged — the 1000-pack is the factory floor that proves it scales; RunReceipt/FORGE is what you invoice.**
 
 ---
 

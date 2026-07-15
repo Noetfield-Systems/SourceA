@@ -71,7 +71,7 @@ python3 scripts/governance_center_run_v1.py --tier fast --text "<input>"
 
 | Forbidden | Required instead |
 |-----------|------------------|
-| "Fixed" / "not present locally" without proof | Attach `~/.sina/governance-meta-audit-receipt-v1.json` **`ok: true`** |
+| "Fixed" / "not logged" without proof | Attach `~/.sina/governance-meta-audit-receipt-v1.json` **`ok: true`** |
 | Deny Worker disk when grep fails | Cite failure `id` + path from meta-audit `failures[]` |
 | Daily audit of `/legacy/` or full command-data | Zone A only — `SOURCEA_THREE_ZONE_HUB_SPINE_LOCKED_v1.md` |
 

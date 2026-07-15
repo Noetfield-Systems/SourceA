@@ -122,4 +122,4 @@ Only the receipt logged is truth. Not chat output, not YAML blocks.
 
 ---
 
-Worker/Brain implements in the repository — I hold until you ask.
+Worker/Brain implements logged — I hold until you ask.

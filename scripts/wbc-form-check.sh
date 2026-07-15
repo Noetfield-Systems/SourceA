@@ -16,7 +16,7 @@ echo ""
 
 [[ -f "$REGISTRY" ]] || { echo "FAIL: missing incident registry"; exit 1; }
 incident_rows="$(grep -cE '^\| \*\*[0-9]' "$REGISTRY" || true)"
-echo "OK  incident registry in the repository — $incident_rows canonical rows (001–037)"
+echo "OK  incident registry logged — $incident_rows canonical rows (001–037)"
 [[ -f "$INCIDENT_037" ]] || { echo "FAIL: missing INCIDENT-037 body"; exit 1; }
 echo "OK  INCIDENT-037 body: docs/SOURCEA_INCIDENT_037_FORM_FOUNDER_SUPREMACY_LOCKED_v1.md"
 echo ""

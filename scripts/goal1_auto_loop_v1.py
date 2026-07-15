@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Deliver + detached headless Goal 1 loop — single EXECUTE entry (PEV).
 
-PLAN: healthy queue + INBOX locally (orchestrator deliver)
+PLAN: healthy queue + INBOX logged (orchestrator deliver)
 EXECUTE: detached goal1_run_loop_v1.py → start_goal1_worker_turn_v1.py → agent -p -f
 VERIFY: WORKER_ROUND_REPORT + machine validators
 SYNC: orchestrator poll_once after each turn

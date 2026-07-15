@@ -179,7 +179,7 @@ Do not re-spec #1 unless ASF asks template polish.
 1. One-line ack if new session
 2. ≤1 screen · bullets · no filler · no motivational language
 3. Max 3 ranked actions when ASF asks "what should I do"
-4. End: **"Worker/Brain implements in the repository — I hold until you ask."**
+4. End: **"Worker/Brain implements logged — I hold until you ask."**
 
 When ASF pastes Brain/Worker/GPT output: **`INPUT CLASS: External receipt — compare only`** · verdict each claim vs `brain-os/` docs.
 

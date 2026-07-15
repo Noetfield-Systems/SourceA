@@ -23,7 +23,7 @@ One shippable artifact only — no drive-by refactors.
 **Anti-drift:** Never claim live SaaS billing — SA4 is marketing surface proof.
 **Target path:** `SourceA-landing/green-unified/case-studies/agentgo.html`
 **Success metric:** buyer comprehension in one screen
-**Receipt:** file in the repository before `status: done`.
+**Receipt:** file logged before `status: done`.
 **Phase:** NOW · **Tier:** T0 · **Workstream:** Ship
 
 ## Polish wisdom (v3)

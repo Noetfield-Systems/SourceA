@@ -31,7 +31,7 @@
     "require_audio": true,
     "require_real_ui_pct": 70
   },
-  "frozen_until": "Screen Studio W1 five-beat master exists in the repository + critic circle S/A PASS",
+  "frozen_until": "Screen Studio W1 five-beat master exists logged + critic circle S/A PASS",
   "next_action_only": "Record Screen Studio master → bash sourcea-commercial-film-ship.sh or witnessbc-commercial-film-ship.sh",
   "ship_gate": {
     "script": "scripts/commercial_film_ship_gate_v1.py",

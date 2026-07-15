@@ -202,9 +202,9 @@ Audit rule:
 - [x] Archive mirror for hub backlog  
 - [x] Row in `AGENT_INCIDENTS_REGISTRY_LOCKED_v1.md`  
 - [x] Governance event `~/.sina/agent-governance-events.jsonl`  
-- [x] Anti-staleness plan in the repository — `SOURCEA_ANTI_STALENESS_MACHINE_ENFORCEMENT_PLAN_LOCKED_v1.md`  
+- [x] Anti-staleness plan logged — `SOURCEA_ANTI_STALENESS_MACHINE_ENFORCEMENT_PLAN_LOCKED_v1.md`  
 - [x] Hub P0 fix shipped (Phase 1 AS-01 — `founder_p0_next_action_v1.py` + validators)  
-- [x] Anti-staleness 10-phase bundle in the repository — Maintainer 2 2026-06-10  
+- [x] Anti-staleness 10-phase bundle logged — Maintainer 2 2026-06-10  
 - [x] v2 verify PASS — `find_critical_bugs` critical=0 · bundle 19 steps · monitor FREEZE demotion (2026-06-10)  
 - [x] Machine closeout receipt — `archive/attachments/2026-06-10/ANTI_STALENESS_V2_MACHINE_CLOSEOUT_2026-06-10.md`  
 - [ ] ASF disposition recorded (human sign-off — 015-CONDUCT disposition may block cadence drill)  

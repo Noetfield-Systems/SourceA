@@ -144,7 +144,7 @@ print('spine gate:', (row or {}).get('gate'))
 
 **Say:**
 
-> Organization-wide freeze is in the repository — not a slide. When we flag auto-run disabled, execution stops.
+> Organization-wide freeze is logged — not a slide. When we flag auto-run disabled, execution stops.
 
 **Show (if file exists):**
 

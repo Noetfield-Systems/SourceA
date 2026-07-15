@@ -36,7 +36,7 @@
     "row": "One CLOUD-SEC queue slot SHIPPED (motor PASS + advance_on_pass)",
     "full_pack": "Boolean flag: 100-row internal loop in this HTTP request only",
     "max_advance": "Mandatory row quota per turn — 100 — NOT a soft maximum",
-    "batch": "Locked secondary-cloud-forge-run-batch-N JSON in the repository — not a cron turn",
+    "batch": "Locked secondary-cloud-forge-run-batch-N JSON logged — not a cron turn",
     "processed": "equals shipped — must be 100 unless batch tail (INCIDENT-044: zero skips)",
     "shipped": "Motor PASS + advance_on_pass — mandatory quota 100/turn",
     "skipped": "FORBIDDEN — motor fail halts turn; skipped must always be 0"

@@ -131,7 +131,7 @@ Founder
 ## Part 12 — Rule-breaking diagnosis
 
 **Root causes:**
-1. Law in repository without pre-reply enforcement  
+1. Law logged without pre-reply enforcement  
 2. Contradictory founder docs (T0+T1 fixed)  
 3. Chat ≠ persistent memory  
 4. 141+ LOCKED files — easy to miss one  

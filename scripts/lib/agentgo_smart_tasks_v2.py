@@ -90,7 +90,7 @@ ANGLE_CTX: dict[str, dict] = {
 
 WS_PROGRESS: dict[str, list[dict]] = {
     "w01-ship": [
-        {"title": "Micro-ship", "verb": "Ship smallest buyer-visible slice of", "detail": "One shippable artifact only — no drive-by refactors.", "receipt": "file present"},
+        {"title": "Micro-ship", "verb": "Ship smallest buyer-visible slice of", "detail": "One shippable artifact only — no drive-by refactors.", "receipt": "file logged"},
         {"title": "Route wire", "verb": "Wire nav + breadcrumb for", "detail": "Link from offer + footer; PureFlow stays case #1.", "receipt": "grep link in offer.html"},
         {"title": "Gate add", "verb": "Add page to commercial + depth gates for", "detail": "Update landing-commercial-copy-audience + copy-depth JSON.", "receipt": "validate-landing-commercial-copy PASS"},
         {"title": "OG polish", "verb": "Polish OG title + meta for", "detail": "One sharp sentence — no ALLOW/BLOCK repetition.", "receipt": "depth gate PASS"},

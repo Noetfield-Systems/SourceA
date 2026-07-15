@@ -70,7 +70,7 @@ def _classify(meta: dict, *, symptom: str) -> list[str]:
     if any(x in sym for x in ("erased", "museum", "archive")):
         if "P4" not in classes:
             classes.append("P4")
-    if any(x in sym for x in ("not present locally", "still logged")):
+    if any(x in sym for x in ("not logged", "still logged")):
         if "P5" not in classes:
             classes.append("P5")
     if not classes and not meta.get("ok"):

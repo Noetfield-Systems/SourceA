@@ -54,7 +54,7 @@
       "quality_vs_last": "same",
       "preserved": "all frozen_inventory items",
       "changed": "Per-app WTM upgrade ledger created",
-      "achieved": "Tracked inventory + WTM-specific checklist in repository",
+      "achieved": "Tracked inventory + WTM-specific checklist logged",
       "founder_approval": "pending",
       "machine_proof": {"build-sina-command-panel.py": "audit OK"},
       "baseline_before": "v2.1-restored",

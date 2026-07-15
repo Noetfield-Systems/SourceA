@@ -91,7 +91,7 @@ Escalation requires `TIER_ESCALATION` receipt: `{from_tier, to_tier, reason, evi
 
 This pack lists **paths and contracts only** — no Cursor-specific hooks required. Any agent (Cursor, Copilot, cloud worker) that loads the manifest + runs session gate is boot-compliant.
 
-**Validator (ship window):** confirm manifest paths exist in the repository before merge.
+**Validator (ship window):** confirm manifest paths exist logged before merge.
 
 ---
 

@@ -408,7 +408,7 @@ def _verify_eval_receipt(atom: dict, disk: dict) -> tuple[str, str | None, str]:
     ref = str(Path.home() / ".sina" / "eval_packet_v1b_report.json")
     tl = (atom.get("text") or "").lower()
     if not eval_row:
-        return "unverified", ref, "eval-1b receipt missing locally"
+        return "unverified", ref, "eval-1b receipt missing logged"
     ok = eval_row.get("live_ok") if eval_row.get("mode") == "live" else eval_row.get("ok")
     claims_pass = bool(re.search(r"\b(green|pass|ok|100%)\b", tl))
     claims_fail = bool(re.search(r"\b(fail|red|broken)\b", tl))
@@ -444,7 +444,7 @@ def _verify_execution(atom: dict, _disk: dict) -> tuple[str, str | None, str]:
     rel = refs[0]
     if _path_exists(rel):
         return "unverified", rel, "file exists — git/commit not verified from hub"
-    return "mismatch", rel, "cited file missing locally"
+    return "mismatch", rel, "cited file missing logged"
 
 
 def _verify_repo_path(atom: dict, _disk: dict) -> tuple[str, str | None, str]:
@@ -460,7 +460,7 @@ def _verify_repo_path(atom: dict, _disk: dict) -> tuple[str, str | None, str]:
         return "mismatch", rel, "script path missing"
     if re.search(r"\b(exists|present|in the repository|matches)\b", tl):
         if _path_exists(rel):
-            return "verified", rel, "path exists in the repository"
+            return "verified", rel, "path exists logged"
         return "mismatch", rel, "path not found logged"
     if _path_exists(rel):
         return "unverified", rel, "path cited — existence not explicitly claimed"

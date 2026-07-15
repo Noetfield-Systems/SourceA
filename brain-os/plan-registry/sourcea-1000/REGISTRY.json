@@ -7324,12 +7324,12 @@
       "priority": "P0",
       "lane": "sourcea",
       "slot": 11,
-      "title": "Validate wire lane progress md exists in the repository for Wire agent",
+      "title": "Validate wire lane progress md exists logged for Wire agent",
       "path": "prompts/phase-s5-commercial-lanes/T0/sa-0512.md",
       "status": "done",
       "verify": "cd scripts && SINA_AUDIT_STRICT=1 python3 build-sina-command-panel.py && python3 find_critical_bugs.py",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0512: Validate wire lane progress md exists in the repository for Wire agent"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0512: Validate wire lane progress md exists logged for Wire agent"
     },
     {
       "id": "sa-0513",
@@ -7674,12 +7674,12 @@
       "priority": "P1",
       "lane": "sourcea",
       "slot": 11,
-      "title": "Validate wire lane progress md exists in the repository for Wire agent",
+      "title": "Validate wire lane progress md exists logged for Wire agent",
       "path": "prompts/phase-s5-commercial-lanes/T1/sa-0537.md",
       "status": "done",
       "verify": "cd scripts && bash validate-eval-packet-v1b-live.sh && bash validate-governance-fleet-v1.sh && python3 audit_hub_source_alignment.py",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0537: Validate wire lane progress md exists in the repository for Wire agent"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0537: Validate wire lane progress md exists logged for Wire agent"
     },
     {
       "id": "sa-0538",
@@ -8024,12 +8024,12 @@
       "priority": "P2",
       "lane": "sourcea",
       "slot": 11,
-      "title": "Validate wire lane progress md exists in the repository for Wire agent",
+      "title": "Validate wire lane progress md exists logged for Wire agent",
       "path": "prompts/phase-s5-commercial-lanes/T2/sa-0562.md",
       "status": "done",
       "verify": "cd scripts && python3 audit_backend_e2e.py && bash validate-spine-bridge-founder-v1.sh",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0562: Validate wire lane progress md exists in the repository for Wire agent"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0562: Validate wire lane progress md exists logged for Wire agent"
     },
     {
       "id": "sa-0563",
@@ -8374,12 +8374,12 @@
       "priority": "P3",
       "lane": "sourcea",
       "slot": 11,
-      "title": "Validate wire lane progress md exists in the repository for Wire agent",
+      "title": "Validate wire lane progress md exists logged for Wire agent",
       "path": "prompts/phase-s5-commercial-lanes/T3/sa-0587.md",
       "status": "done",
       "verify": "cd scripts && python3 find_critical_bugs.py",
       "agent_tag": "AGENT-AUTO-SOURCEA",
-      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0587: Validate wire lane progress md exists in the repository for Wire agent"
+      "agent_prompt": "PLAN WITH NO ASF \u2014 sa-0587: Validate wire lane progress md exists logged for Wire agent"
     },
     {
       "id": "sa-0588",

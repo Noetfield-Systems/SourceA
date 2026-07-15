@@ -74,7 +74,7 @@
     "root_causes": {
       "AGENT_DRAFT": "Draft quality problem — agent rewrites",
       "DISK_STALE": "Inject/surfaces/receipts stale — sync live wire + mirror",
-      "DISK_WRONG": "Contradictory queue/SSOT in the repository — unify before reply",
+      "DISK_WRONG": "Contradictory queue/SSOT logged — unify before reply",
       "DISK_POISON": "Meaningless or prohibition inject — scrub vocabulary + mirror",
       "MACHINE_STALE": "Factory/monitor/governance machines drift — heal tier session"
     },

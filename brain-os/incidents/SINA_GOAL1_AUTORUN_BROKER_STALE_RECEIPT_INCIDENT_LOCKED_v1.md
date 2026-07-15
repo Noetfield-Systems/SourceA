@@ -22,7 +22,7 @@ On **2026-06-09**, Goal 1 **auto-run** closed **sa-0004 → sa-0008** while an e
 | VERIFY turns with **`sa_mismatch`** masked by **`receipt_on_disk`** | **3+** (sa-0006, sa-0007, sa-0008 verify in latest batch log) |
 | ACT queue positions **skipped** (CHECK → VERIFY jump) | **Every sa in batch** (e.g. sa-0006 Q7→Q9) |
 | **Substantive new implementation** in batch | **1 line** (sa-0006 synthesis L29 Eval sync) |
-| **Closeout-only stamps** (work already present) | **sa-0004, sa-0005, sa-0007, sa-0008** |
+| **Closeout-only stamps** (work already logged) | **sa-0004, sa-0005, sa-0007, sa-0008** |
 
 **Severity:** **Critical** — repeat of INCIDENT-006 pattern: monitor/receipt count looked like progress; **broker factory validation did not**. Founder cannot trust recipe · validation · evidence panels without reading this report.
 
@@ -167,7 +167,7 @@ Machine SSOT `~/.sina/eval_packet_v1b_report.json`: `5/5 (100%)` — aligns with
 
 - Calling **`broker_ok=True`** when broker returned **`sa_mismatch`** or **`recovered: receipt_on_disk`**
 - Counting **receipt file alone** when monitor shows **STALE broker**
-- Reporting **“built X”** when CHECK found **already present** (say **verify-only closeout**)
+- Reporting **“built X”** when CHECK found **already logged** (say **verify-only closeout**)
 - **CHECK → VERIFY** without ACT when CHECK reported **GAP FOUND**
 - Restarting **auto-run** until one manual VERIFY shows **broker PASS** with full role chain
 
@@ -187,7 +187,7 @@ Before **“sa closed”** or **“auto-run healthy”**:
 ```text
 RECIPE: <title> · <prompt path> · <verify cmd>
 VALIDATION: validators <PASS/FAIL list> · broker <PASS/STALE/FAIL> · roles CHECK/ACT/VERIFY <which ran>
-EVIDENCE: receipt <path> · PRIORITY row <y/n> · disk delta <one sentence — built vs already present>
+EVIDENCE: receipt <path> · PRIORITY row <y/n> · disk delta <one sentence — built vs already logged>
 BUILT: <yes: file/line> OR <no: verify-only closeout>
 ```
 

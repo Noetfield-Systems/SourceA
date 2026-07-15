@@ -113,7 +113,7 @@
       "status": "deferred",
       "now": "sourcea-factory",
       "compile_gate": "blocked_until_noetfield_and_trustfield_compiled",
-      "note": "Deferred after Noetfield ∥ TrustField — engine/FBE buyer pack locally for later"
+      "note": "Deferred after Noetfield ∥ TrustField — engine/FBE buyer pack logged for later"
     },
     "Noetfield": {
       "route": "noetfield",

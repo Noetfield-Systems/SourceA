@@ -17,7 +17,7 @@ if rg -q "\\*\\*${INCIDENT_ID#INCIDENT-}\\*\\*" "$REG" 2>/dev/null; then
   exit 1
 fi
 if rg -q "$INCIDENT_ID" "$ROOT/brain-os/incidents/" "$ROOT"/SINA_*INCIDENT* 2>/dev/null; then
-  echo "FAIL: $INCIDENT_ID collision in the repository — rg found existing references" >&2
+  echo "FAIL: $INCIDENT_ID collision logged — rg found existing references" >&2
   exit 1
 fi
 echo "OK: validate-incident-filing-v1 · $INCIDENT_ID slot free"

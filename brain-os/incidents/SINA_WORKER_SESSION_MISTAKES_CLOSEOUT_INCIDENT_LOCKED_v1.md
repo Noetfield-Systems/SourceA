@@ -49,7 +49,7 @@ The founder’s corrections were **correct logged**. Shell validators PASS is **
 | `sa_mismatch` | INBOX meta ahead of `agent_cli` submit |
 | `receipt_on_disk` fake PASS | Broker rejected → auto-run recovered as success (**banned 2026-06-09**) |
 | ACT work on VERIFY turn | sa-0006 L29 edit on VERIFY illegally |
-| Verify-only stamped as build | sa-0004, 0005, 0007, 0008 — already present; agents did not say verify-only |
+| Verify-only stamped as build | sa-0004, 0005, 0007, 0008 — already logged; agents did not say verify-only |
 
 **Substantive new build in batch:** **one line** (sa-0006 synthesis Eval L29). Rest = closeout stamps.
 
@@ -191,7 +191,7 @@ Plus: `bash scripts/validate-monitor-honesty-v1.sh` — **cite STALE broker coun
 3. Never block founder chat on long Await — budget **4–6 min/sa**, tail log once at ~3 min.
 4. Never read batch log from **line 1** — `tail -20` only.
 5. Never restart auto-run until **one manual VERIFY** shows broker PASS + full template.
-6. Never claim **built** when CHECK found **already present** — say **verify-only closeout**.
+6. Never claim **built** when CHECK found **already logged** — say **verify-only closeout**.
 7. Always **Unstick** after hub STOP before next drain.
 
 ### Founder

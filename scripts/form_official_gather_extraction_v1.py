@@ -240,7 +240,7 @@ SESSION_GATHER_ROWS: list[dict] = [
     },
     {
         "id": "Q-SESSION-PHASE0-SPOT",
-        "title": "Phase0 13/13 in the repository — spot-check or trust?",
+        "title": "Phase0 13/13 logged — spot-check or trust?",
         "question": "Phase0 pulse shows 13/13 complete after WitnessBC P0-03/P0-08. Trust machine or you spot-check Proof Lab + Trust Center?",
         "blocks": "phase0-freemium-sandbox-reference-v1.json · pulse receipt",
         "diskToday": "13/13 marked · validators PASS on bays",

@@ -22,7 +22,7 @@
 > Every file, document, rule, spec, governance law, decision, receipt, or artifact created in SourceA must be saved to the correct tier immediately upon creation.  
 > A file that exists only in chat history does not exist.  
 > A file saved to the wrong tier is a governance violation.  
-> **If it is not present locally in the correct location, it is not real.**
+> **If it is not logged in the correct location, it is not real.**
 
 ## Core Principle
 

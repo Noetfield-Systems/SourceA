@@ -22,7 +22,7 @@ Read `~/.sina/governance-brain-wire-v1.json` each turn — **do not re-run** wir
 
 | Field | Rule |
 |-------|------|
-| `active_decisions[]` | Obey — Brain locked law in repository |
+| `active_decisions[]` | Obey — Brain locked law logged |
 | `queue_head.sa_id` | Current sa pick — not chat memory |
 | `reconciled_decision.stale=true` | **IGNORE** reconciled archaeology |
 
