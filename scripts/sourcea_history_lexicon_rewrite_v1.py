@@ -94,6 +94,31 @@ def _commit_callback_py(pairs: list[tuple[str, str]], catchalls: list[tuple[str,
     ).strip()
 
 
+def _blob_callback_py(pairs: list[tuple[str, str]], catchalls: list[tuple[str, str]]) -> str:
+    import textwrap
+
+    return textwrap.dedent(
+        f"""
+    pairs = {pairs!r}
+    catchalls = {catchalls!r}
+    data = blob.data
+    if not data:
+        return
+    try:
+        text = data.decode('utf-8')
+        for old, new in pairs + catchalls:
+            if old:
+                text = text.replace(old, new)
+        blob.data = text.encode('utf-8')
+    except UnicodeDecodeError:
+        for old, new in pairs + catchalls:
+            if old:
+                data = data.replace(old.encode('utf-8'), new.encode('utf-8'))
+        blob.data = data
+    """
+    ).strip()
+
+
 def apply_history(*, dry_run: bool = False) -> int:
     pairs_fn, catchalls_fn, _ = _load_lexicon()
     pairs = pairs_fn() + catchalls_fn()
@@ -103,6 +128,11 @@ def apply_history(*, dry_run: bool = False) -> int:
         _write_replace_text(replace_file, pairs)
         callback_file = Path(tmp) / "commit_callback.py"
         callback_file.write_text(_commit_callback_py(pairs_fn(), catchalls_fn()), encoding="utf-8")
+        blob_callback_file = Path(tmp) / "blob_callback.py"
+        blob_callback_file.write_text(
+            _blob_callback_py(pairs_fn(), catchalls_fn()),
+            encoding="utf-8",
+        )
 
         cmd = [
             sys.executable,
@@ -111,6 +141,7 @@ def apply_history(*, dry_run: bool = False) -> int:
             "--force",
             f"--replace-text={replace_file}",
             f"--commit-callback={callback_file}",
+            f"--blob-callback={blob_callback_file}",
         ]
         for drop in _paths_drop():
             cmd.append("--invert-paths")
