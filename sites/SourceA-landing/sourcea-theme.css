@@ -1,6 +1,6 @@
-/* SourceA brand overrides — [agent-aispm-vendor] (light) + [agent-aispm-vendor] (dark) layouts */
+/* SourceA brand overrides — light + dark layout themes */
 
-/* [agent-aispm-vendor] / light layout */
+/* Light layout */
 body.sa-light {
   --primary: #2563eb;
   --primary-dark: #1d4ed8;
@@ -8,7 +8,7 @@ body.sa-light {
   --gradient: linear-gradient(135deg, #2563eb 0%, #4d9fff 55%, #3ecf8e 100%);
 }
 
-/* [agent-aispm-vendor] / dark layout */
+/* Dark layout */
 body.sa-dark {
   --accent: #4d9fff;
   --accent-dim: rgba(77, 159, 255, 0.12);

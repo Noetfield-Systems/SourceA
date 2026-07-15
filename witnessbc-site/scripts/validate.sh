@@ -4,19 +4,14 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 python3 "$ROOT/scripts/build.py" --json >/dev/null
 
-FORBIDDEN='sourcea|[agent-aispm-vendor]|[agent-aispm-vendor]|notenic|witness bc'
-BRAND_ALLOW='witnessbc\.com|brand-disambiguation|operations@noetfield\.com|class="brand-other"|lane-router|noetfield\.com/copilot'
-for f in "$ROOT/index.html" "$ROOT/platform.html" "$ROOT/lifecycle.html" "$ROOT/proof.html" "$ROOT/compare.html" "$ROOT/policy.html" "$ROOT/pricing.html" "$ROOT/faq.html" "$ROOT/sources.html" "$ROOT/assets/styles.css" "$ROOT/assets/motion.css" "$ROOT/assets/tokens.css" "$ROOT/assets/site.js" "$ROOT/assets/proof-demo.js" "$ROOT/assets/control-plane.js" "$ROOT/data/references.json"; do
-  if [[ -f "$f" ]] && grep -iE "$FORBIDDEN" "$f" 2>/dev/null | grep -viE "$BRAND_ALLOW"; then
-    echo "FAIL: forbidden brand reference in $f"
-    exit 1
-  fi
-done
-
-if grep -iE 'witnessai|witness\.ai' "$ROOT/index.html" | grep -viE 'brand-disambiguation|brand-other|not WitnessAI'; then
-  echo "FAIL:  brand reference outside disambiguation on index.html"
-  exit 1
-fi
+BRAND_FILES=(
+  "$ROOT/index.html" "$ROOT/platform.html" "$ROOT/lifecycle.html" "$ROOT/proof.html"
+  "$ROOT/compare.html" "$ROOT/policy.html" "$ROOT/pricing.html" "$ROOT/faq.html"
+  "$ROOT/sources.html" "$ROOT/assets/styles.css" "$ROOT/assets/motion.css"
+  "$ROOT/assets/tokens.css" "$ROOT/assets/site.js" "$ROOT/assets/proof-demo.js"
+  "$ROOT/assets/control-plane.js" "$ROOT/data/references.json"
+)
+python3 "$ROOT/scripts/check_brand_forbidden_v1.py" "${BRAND_FILES[@]}" || exit 1
 
 if [[ ! -f "$ROOT/data/references.json" ]]; then
   echo "FAIL: missing data/references.json"

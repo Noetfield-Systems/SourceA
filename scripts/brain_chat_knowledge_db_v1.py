@@ -116,14 +116,26 @@ def load_md_chunks() -> list[dict]:
     return chunks, files
 
 
-def rebuild_db() -> dict:
+def rebuild_db(*, min_absolute: int = 400, min_ratio: float = 0.8) -> dict:
     started = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(DB_PATH)
     init_db(conn)
+    prior = conn.execute("SELECT COUNT(*) FROM knowledge_chunks WHERE active=1").fetchone()[0]
+    chunks, files = load_md_chunks()
+    threshold = max(min_absolute, int(prior * min_ratio)) if prior else min_absolute
+    if prior and len(chunks) < threshold:
+        conn.close()
+        return {
+            "ok": False,
+            "error": "rebuild_db_aborted_chunk_collapse",
+            "prior_chunk_count": prior,
+            "new_chunk_count": len(chunks),
+            "threshold": threshold,
+            "hint": "markdown-only ingest is smaller than live corpus; use patch_brain_lexicon_v1.py + sync --skip-rebuild",
+        }
     conn.execute("DELETE FROM knowledge_chunks")
     conn.execute("DELETE FROM knowledge_chunks_fts")
-    chunks, files = load_md_chunks()
     for c in chunks:
         conn.execute(
             """INSERT INTO knowledge_chunks
@@ -178,6 +190,9 @@ def main() -> int:
 
     if args.rebuild:
         payload = rebuild_db()
+        if not payload.get("ok", True):
+            print(json.dumps(payload, indent=2) if args.json else json.dumps(payload))
+            return 1
     elif args.search:
         payload = {"ok": True, "query": args.search, "hits": query_db(args.search)}
     else:

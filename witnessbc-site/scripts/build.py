@@ -10,21 +10,15 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from brand_guard_v1 import line_is_forbidden  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
 DIST = ROOT / "dist"
 DATA = ROOT / "data" / "references.json"
 SINA = Path.home() / ".sina"
 ARCHIVE = ROOT.parent / "archive" / "attachments" / "commercial"
-
-FORBIDDEN_LINE = re.compile(
-    r"sourcea|[agent-aispm-vendor]|[agent-aispm-vendor]|notenic|witness bc|witnessai|witness\.ai|noetfield",
-    re.I,
-)
-ALLOW_LINE = re.compile(
-    r"witnessbc\.com|brand-disambiguation|operations@noetfield\.com|class=\"brand-other\"|not WitnessAI|lane-router|noetfield\.com/copilot",
-    re.I,
-)
 CITE_RE = re.compile(r'href="(?:[^"]*#)?ref-(\d+)"')
 SEND_PAGES = {
     "proof": "proof.html",
@@ -115,7 +109,7 @@ def _inline_bundle(page: Path) -> str:
 
 def validate_html(html: str, label: str, *, require_gartner: bool = True) -> None:
     for line in html.splitlines():
-        if FORBIDDEN_LINE.search(line) and not ALLOW_LINE.search(line):
+        if line_is_forbidden(line):
             raise SystemExit(f"FAIL {label}: forbidden third-party brand reference found")
     _validate_ref_integrity(html, require_gartner=require_gartner)
 

@@ -8,15 +8,13 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from brand_guard_v1 import forbidden_in_ref_html  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "references.json"
 REFS_PARTIAL = ROOT / "partials" / "refs-list.html"
 PAGES_DATA = ROOT / "data" / "pages.json"
-
-FORBIDDEN = re.compile(
-    r"sourcea|noetfield|[agent-aispm-vendor]|[agent-aispm-vendor]|notenic|witnessai|witness\.ai|witness bc",
-    re.I,
-)
 
 START = "<!-- REFS_START -->"
 END = "<!-- REFS_END -->"
@@ -54,7 +52,7 @@ def validate_refs(html_pages: list[str], data: dict) -> None:
     for ref in data["refs"]:
         if not ref.get("url"):
             raise SystemExit(f"FAIL inject_refs: ref {ref['id']} missing url")
-        if FORBIDDEN.search(ref["cite_html"] + ref["url"]):
+        if forbidden_in_ref_html(ref["cite_html"], ref["url"]):
             raise SystemExit(f"FAIL inject_refs: forbidden brand in ref {ref['id']}")
 
     gartner = data.get("gartner_primary_url", "")

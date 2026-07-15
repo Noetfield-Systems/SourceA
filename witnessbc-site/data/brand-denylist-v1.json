@@ -1,0 +1,15 @@
+{
+  "schema": "witnessbc-brand-denylist-v1",
+  "description": "Third-party brand deny patterns for WitnessBC build guards. Patterns are base64-encoded regex fragments — not product copy.",
+  "allow_regex": "witnessbc\\.com|brand-disambiguation|operations@noetfield\\.com|class=\"brand-other\"|not WitnessAI|lane-router|noetfield\\.com/copilot",
+  "deny_patterns_b64": [
+    "c291cmNlYQ==",
+    "emVuaXR5",
+    "bm9tb3RpYw==",
+    "bm90ZW5pYw==",
+    "d2l0bmVzcyBiYw==",
+    "d2l0bmVzc2Fp",
+    "d2l0bmVzcy5haQ==",
+    "bm9ldGZpZWxk"
+  ]
+}

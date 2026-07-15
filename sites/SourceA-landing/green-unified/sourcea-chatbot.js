@@ -369,7 +369,7 @@
       options.innerHTML = "";
       if (feedback) {
         feedback.hidden = false;
-        feedback.textContent = `Final score: ${quizScore}/${SCENARIOS.length}. Same beats you verify on the live demo — in your browser.`;
+        feedback.textContent = `Final score: ${quizScore}/${SCENARIOS.length}. Same beats you verify in the live demo — in your browser.`;
         feedback.className = "sa-quiz-feedback is-win";
       }
       if (next) {

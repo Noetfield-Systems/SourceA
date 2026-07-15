@@ -51,6 +51,11 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--json", action="store_true")
     parser.add_argument("--check-only", action="store_true")
+    parser.add_argument(
+        "--skip-rebuild",
+        action="store_true",
+        help="Export bundles from existing SQLite only (never call rebuild_db).",
+    )
     args = parser.parse_args()
 
     manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
@@ -66,7 +71,12 @@ def main() -> int:
         print(json.dumps(payload, indent=2) if args.json else json.dumps(payload))
         return 0 if ok else 1
 
-    db_result = rebuild_db()
+    db_result = {"source_files": index.get("source_file_count", 0)}
+    if not args.skip_rebuild:
+        db_result = rebuild_db()
+        if not db_result.get("ok", True):
+            print(json.dumps(db_result, indent=2) if args.json else json.dumps(db_result))
+            return 1
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     rows = conn.execute("SELECT * FROM knowledge_chunks WHERE active=1").fetchall()
