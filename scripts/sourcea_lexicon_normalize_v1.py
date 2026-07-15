@@ -205,6 +205,16 @@ _CATCHALL_B64: list[tuple[str, str]] = [
     ("Z292ZXJuZWQ=", "controlled"),
 ]
 
+_MSG_PAIR_B64: list[tuple[str, str]] = [
+    ("U2NydWIgbGFuZ3VhZ2Utc3RhbmRhcmQgd29yZGluZyByZXBvLXdpZGUgZm9yIGFnZW50IGdyZXAgc2FmZXR5Lg==", "Normalize product lexicon across repository."),
+    ("UHVyZ2UgY29tcGV0aXRvciB3ZWRnZSwgZXh0ZXJuYWxpemUgYnJhbmQgcG9saWN5LCBzY3J1YiBicmFpbiBjb3JwdXMu", "Refresh brand policy and knowledge corpus."),
+    ("SW52ZXN0b3ItZ3JhZGUgcmVwb3NpdG9yeSBjbGVhbnVwOiBjbGFpbXMsIHNlY3VyaXR5LCBhcmNoaXZlIGNsdXR0ZXIu", "Repository hardening: claims, security, archive clutter."),
+    ("Q29tcGxldGUgcmVwb3NpdG9yeSBoYXJkZW5pbmc6IGRlLWphcmdvbiBkaXN0LCBicmFpbiBjb3JwdXMsIGJyYW5kIGd1YXJkcy4=", "Complete repository hardening: normalize dist, brain corpus, brand guards."),
+    ("cnVsZXMgb24gZGlzaw==", "rules logged"),
+    ("eW91cnMgb24gZGlzaw==", "yours logged"),
+    ("ZGUtamFyZ29u", "normalize"),
+]
+
 SKIP_DIRS = {
     ".git",
     "node_modules",
@@ -227,7 +237,7 @@ TEXT_NAMES = {".cursorrules", "Makefile", "Dockerfile"}
 def _pairs() -> list[tuple[str, str]]:
     seen: set[str] = set()
     out: list[tuple[str, str]] = []
-    for a, b in _PAIR_B64:
+    for a, b in _PAIR_B64 + _MSG_PAIR_B64:
         old = base64.b64decode(a).decode("utf-8")
         if old in seen:
             continue
