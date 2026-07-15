@@ -8,7 +8,7 @@
     "latency_target_minutes": 45
   },
   "spec_path": "docs/NOETFIELD_COHERENT_SYSTEM_SPEC_v1.md",
-  "law": "L14 T-REG \u2014 new trigger requires registry entry in same commit; sweep must pass pre-merge",
+  "law": "L14 T-REG — new trigger requires registry entry in same commit; sweep must pass pre-merge",
   "triggers": [
     {
       "trigger_id": "SA-T1",
@@ -28,7 +28,7 @@
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "*/15 * * * *",
-      "target": "Loop specialist tick \u2192 Railway dispatch",
+      "target": "Loop specialist tick → Railway dispatch",
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-tick",
       "live_probe": {
@@ -41,7 +41,7 @@
       "system": "sourcea",
       "kind": "piggyback",
       "schedule": "*/15 * * * *",
-      "target": "Signal factory tick via loop-specialist scheduled() \u2014 sole SF trigger (W-LBA-002)",
+      "target": "Signal factory tick via loop-specialist scheduled() — sole SF trigger (W-LBA-002)",
       "valid_in_verified_window": true,
       "owner_workflow": "signal-factory-tick",
       "parent_trigger_id": "SA-T-loop-specialist",
@@ -94,7 +94,7 @@
       "system": "sourcea",
       "kind": "chain",
       "schedule": null,
-      "target": "deploy-sourcea-buyer-surfaces-v1 success \u2192 external-verify workflow_run (PN-001)",
+      "target": "deploy-sourcea-buyer-surfaces-v1 success → external-verify workflow_run (PN-001)",
       "valid_in_verified_window": true,
       "owner_workflow": "external-verify",
       "parent_trigger_id": "SA-T-deploy-buyer-surfaces",
@@ -159,7 +159,7 @@
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "30 */6 * * *",
-      "target": "determinism-gate scheduled D1-D8 checks (CF cron \u2192 Railway)",
+      "target": "determinism-gate scheduled D1-D8 checks (CF cron → Railway)",
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
@@ -259,7 +259,7 @@
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "0 8 * * *",
-      "target": "Daily repo-health sweep \u2192 improvement_queue (CF cron \u2192 Railway)",
+      "target": "Daily repo-health sweep → improvement_queue (CF cron → Railway)",
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
@@ -273,7 +273,7 @@
       "system": "sourcea",
       "kind": "manual",
       "schedule": null,
-      "target": "Manual repo-health sweep \u2192 improvement_queue",
+      "target": "Manual repo-health sweep → improvement_queue",
       "valid_in_verified_window": true,
       "owner_workflow": "repo-health-daily",
       "live_probe": {
@@ -289,7 +289,7 @@
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "0 9 * * 0",
-      "target": "Weekly security sweep \u2192 improvement_queue (CF cron \u2192 Railway)",
+      "target": "Weekly security sweep → improvement_queue (CF cron → Railway)",
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
@@ -303,7 +303,7 @@
       "system": "sourcea",
       "kind": "manual",
       "schedule": null,
-      "target": "Manual security sweep \u2192 improvement_queue",
+      "target": "Manual security sweep → improvement_queue",
       "valid_in_verified_window": true,
       "owner_workflow": "security-sweep-weekly",
       "live_probe": {
@@ -332,28 +332,11 @@
       }
     },
     {
-      "trigger_id": "SA-T--history-guard",
-      "system": "sourcea",
-      "kind": "event",
-      "schedule": null,
-      "target": "UI study history/content guard on push/PR to main",
-      "valid_in_verified_window": true,
-      "owner_workflow": "-history-guard-v1",
-      "live_probe": {
-        "type": "gha_workflow",
-        "path": ".github/workflows/-history-guard-v1.yml",
-        "expects": [
-          "pull_request",
-          "push"
-        ]
-      }
-    },
-    {
       "trigger_id": "SA-T-gmail-sweep-hourly",
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "0 * * * *",
-      "target": "Gmail sweep \u2192 gmail_inbox_signals (CF cron \u2192 Railway)",
+      "target": "Gmail sweep → gmail_inbox_signals (CF cron → Railway)",
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
@@ -367,7 +350,7 @@
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "0 3 * * *",
-      "target": "Nightly Kaizen \u2014 one machine_safe improvement_queue item (CF cron \u2192 Railway)",
+      "target": "Nightly Kaizen — one machine_safe improvement_queue item (CF cron → Railway)",
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
@@ -381,7 +364,7 @@
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "0 7 * * *",
-      "target": "07:00 UTC SOURCEA_OPS_HEARTBEAT_v1 (CF cron \u2192 Railway)",
+      "target": "07:00 UTC SOURCEA_OPS_HEARTBEAT_v1 (CF cron → Railway)",
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
@@ -395,7 +378,7 @@
       "system": "sourcea",
       "kind": "piggyback",
       "schedule": "0 * * * *",
-      "target": "Loop-specialist piggyback gmail/triage/kaizen/heartbeat \u2192 Railway",
+      "target": "Loop-specialist piggyback gmail/triage/kaizen/heartbeat → Railway",
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-tick-v1",
       "parent_trigger_id": "SA-T-loop-specialist",
@@ -506,7 +489,7 @@
       "system": "sourcea",
       "kind": "schedule",
       "schedule": "0 10 * * 0",
-      "target": "Weekly WORKFLOW_CENSUS_v1 \u2014 judging layer \u2192 workflow_census + improvement_queue audit",
+      "target": "Weekly WORKFLOW_CENSUS_v1 — judging layer → workflow_census + improvement_queue audit",
       "valid_in_verified_window": true,
       "owner_workflow": "loop-specialist-cron-dispatch",
       "live_probe": {
@@ -541,6 +524,23 @@
         "path": ".github/workflows/sourcea-automation-surface-health.yml",
         "expects": [
           "workflow_dispatch"
+        ]
+      }
+    },
+    {
+      "trigger_id": "SA-T-history-content-guard",
+      "system": "sourcea",
+      "kind": "event",
+      "schedule": null,
+      "target": "External-policy history/content guard on push/PR",
+      "valid_in_verified_window": true,
+      "owner_workflow": "history-content-guard-v1",
+      "live_probe": {
+        "type": "gha_workflow",
+        "path": ".github/workflows/history-content-guard-v1.yml",
+        "expects": [
+          "pull_request",
+          "push"
         ]
       }
     }
