@@ -15,7 +15,7 @@ RECEIPT = SINA / "sourcea-boot-site-wire-v1.json"
 
 BOOT_FOOTER_SNIPPET = (
     ' · <a href="/eval">sourcea-boot eval</a>'
-    ' · <a href="https://github.com/Noetfield-Systems/sourcea-boot" data-trust-github-link target="_blank" rel="noopener">GitHub</a>'
+    ' · <a href="https://pypi.org/project/sourcea-boot/" target="_blank" rel="noopener">PyPI</a>'
 )
 WIRE_SCRIPT = '<script src="/sourcea/sourcea-boot-wire.js" defer></script>'
 TRUST_SCRIPT = '<script src="/sourcea/sourcea-trust-bar.js" defer></script>'
@@ -43,7 +43,7 @@ def _inject_footer(text: str) -> tuple[str, bool]:
         strip = (
             '\n<div class="sa-boot-wire-fallback" style="text-align:center;padding:1rem;font-size:0.85rem;color:var(--ar-text-muted)">'
             '<a href="/eval">sourcea-boot eval</a> · '
-            '<a href="https://github.com/Noetfield-Systems/sourcea-boot" data-trust-github-link target="_blank" rel="noopener">GitHub</a>'
+            '<a href="https://pypi.org/project/sourcea-boot/" target="_blank" rel="noopener">PyPI</a>'
             "</div>\n"
         )
         return text.replace("</body>", strip + "</body>", 1), True
