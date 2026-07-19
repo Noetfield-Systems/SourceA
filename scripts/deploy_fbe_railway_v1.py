@@ -154,6 +154,7 @@ _STAGING_SCRIPT_FILES = (
     "forge_critic_loop_v01.py",
     "forge_task_graph_emit_v01.py",
     "fbe_sign_work_order_v1.py",
+    "sandbox_executor_adapter_v1.py",
     "fbe_cloud_motor_seed_v1.py",
     "hub_cloud_forge_run_proceed_v1.py",
     "truth_log_v1.py",
