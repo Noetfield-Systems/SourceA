@@ -412,12 +412,25 @@ def proceed_on_cloud(body: dict[str, Any]) -> dict[str, Any]:
     }
 
     if full_motor and registry:
-        from portfolio__forge_dispatch_v1 import (  # noqa: WPS433
-            dispatch_pick,
-            enrich_pick,
-            load_registry,
-            resolve_stack,
-        )
+        try:
+            from portfolio__forge_dispatch_v1 import (  # noqa: WPS433
+                dispatch_pick,
+                enrich_pick,
+                load_registry,
+                resolve_stack,
+            )
+        except ImportError:
+            row.update(
+                {
+                    "ok": False,
+                    "error": "forge_dispatch_unavailable",
+                    "dispatch_lane": "full_forge_motor",
+                    "for_founder": {
+                        "show_this": "Full-motor forge dispatch lane is not shipped in this build.",
+                    },
+                }
+            )
+            return _truth_return(row, truth_ctx)
 
         stack_key = resolve_stack(str(body.get("stack") or "sourcea"))
         reg = load_registry(stack_key)

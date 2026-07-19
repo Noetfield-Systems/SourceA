@@ -52,7 +52,6 @@ COPY scripts/forge_v01_engine_v1.py scripts/forge_v01_engine_v1.py
 COPY scripts/forge_v02_github_v1.py scripts/forge_v02_github_v1.py
 COPY scripts/forge_v02_implement_v1.py scripts/forge_v02_implement_v1.py
 COPY scripts/implement_run_detail_slice_v1.py scripts/implement_run_detail_slice_v1.py
-COPY scripts/implement__evidence_slice_v1.py scripts/implement__evidence_slice_v1.py
 COPY scripts/forge_v02_status_v1.py scripts/forge_v02_status_v1.py
 COPY scripts/forge_v02_drain_v1.py scripts/forge_v02_drain_v1.py
 COPY scripts/forge_mvp_lib_v1.py scripts/forge_mvp_lib_v1.py
@@ -156,8 +155,6 @@ COPY scripts/cloud_forge_run_supabase_v1.py scripts/cloud_forge_run_supabase_v1.
 COPY scripts/sourcea_plan_registry_client_v1.py scripts/sourcea_plan_registry_client_v1.py
 COPY scripts/autonomous_drain_receipt_cloud_v1.py scripts/autonomous_drain_receipt_cloud_v1.py
 COPY scripts/living_system_chain_validate_v1.py scripts/living_system_chain_validate_v1.py
-COPY scripts/portfolio__forge_dispatch_v1.py scripts/portfolio__forge_dispatch_v1.py
-COPY scripts/portfolio__pick_lib.py scripts/portfolio__pick_lib.py
 COPY scripts/forge_cloud_env_load_v1.py scripts/forge_cloud_env_load_v1.py
 COPY scripts/task_plan_priority_v1.py scripts/task_plan_priority_v1.py
 COPY data/sourcea-1000-registry brain-os/plan-registry/sourcea-1000
