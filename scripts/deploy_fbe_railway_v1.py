@@ -288,11 +288,11 @@ def _stage_deploy_context() -> dict:
         shutil.copytree(plans_src, STAGING / "plans")
         copied.append("plans/")
 
-    reg_src = ROOT / "brain-os" / "plan-registry" / "sourcea--1000"
-    reg_dst = STAGING / "data" / "sourcea--1000-registry"
+    reg_src = ROOT / "brain-os" / "plan-registry" / "sourcea-1000"
+    reg_dst = STAGING / "data" / "sourcea-1000-registry"
     if reg_src.is_dir():
         shutil.copytree(reg_src, reg_dst)
-        copied.append("data/sourcea--1000-registry/")
+        copied.append("data/sourcea-1000-registry/")
 
     cloud_dir = STAGING / "cloud"
     cloud_dir.mkdir(parents=True)

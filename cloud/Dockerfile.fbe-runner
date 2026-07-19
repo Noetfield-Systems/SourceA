@@ -160,7 +160,7 @@ COPY scripts/portfolio__forge_dispatch_v1.py scripts/portfolio__forge_dispatch_v
 COPY scripts/portfolio__pick_lib.py scripts/portfolio__pick_lib.py
 COPY scripts/forge_cloud_env_load_v1.py scripts/forge_cloud_env_load_v1.py
 COPY scripts/task_plan_priority_v1.py scripts/task_plan_priority_v1.py
-COPY data/sourcea--1000-registry brain-os/plan-registry/sourcea--1000
+COPY data/sourcea-1000-registry brain-os/plan-registry/sourcea-1000
 
 RUN mkdir -p /app/receipts/bays /app/receipts/packs /app/receipts/partners /app/receipts/cloud/autonomous-forge-run-cycles /app/receipts/cloud/ops-heartbeat /app/receipts/cloud/kaizen/nightly /app/receipts/signal-factory/triage /tmp/fbe_artifacts /tmp/fbe_receipts /root/.sina
 
