@@ -46,6 +46,7 @@ SHORT_ALIASES: tuple[tuple[str, str], ...] = (
     ("/operating-brain-install", "/sourcea/operating-brain-install"),
     ("/ai-value-governance", "/sourcea/ai-value-governance"),
     ("/enterprise-ai-control-plane", "/sourcea/enterprise-ai-control-plane"),
+    ("/decision-brief", "/sourcea/decision-brief"),
 )
 
 # Contract SKU clean URLs — 200 rewrite (no 302 chain; regional + external monitors expect 200)
@@ -53,6 +54,7 @@ CONTRACT_REWRITE_200: tuple[tuple[str, str], ...] = (
     ("/operating-brain-install", "/sourcea/operating-brain-install.html"),
     ("/ai-value-governance", "/sourcea/ai-value-governance.html"),
     ("/enterprise-ai-control-plane", "/sourcea/enterprise-ai-control-plane.html"),
+    ("/decision-brief", "/sourcea/decision-brief.html"),
 )
 
 # Permanent redirects — retired duplicate URLs (ORD: URL-checkable)

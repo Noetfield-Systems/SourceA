@@ -86,6 +86,10 @@
     "forge/mission-template.html": { "audience": "technical_buyer", "commercial": true },
     "forge/cursor-bridge.html": { "audience": "technical_buyer", "commercial": true },
     "forge/chat-unify.html": { "audience": "technical_buyer", "commercial": true },
+    "operating-brain-install.html": { "audience": "platform_buyer", "commercial": true },
+    "ai-value-governance.html": { "audience": "platform_buyer", "commercial": true },
+    "enterprise-ai-control-plane.html": { "audience": "platform_buyer", "commercial": true },
+    "decision-brief.html": { "audience": "platform_buyer", "commercial": true },
     "offer.html": { "audience": "agency_reseller", "commercial": true },
     "case-studies/pureflow.html": { "audience": "agency_and_platform", "commercial": true },
     "case-studies/agentgo.html": { "audience": "agency_and_platform", "commercial": true }
