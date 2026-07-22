@@ -1,6 +1,6 @@
 # SourceA Website UI E2E Audit (v2)
 
-**At:** 2026-07-22T03:12:23Z  
+**At:** 2026-07-22T03:17:37Z  
 **Base:** https://sourcea.app  
 **Verdict:** `FAIL`  
 
@@ -8,7 +8,7 @@
 
 | Metric | Count |
 |--------|-------|
-| Live BFS paths | 56 |
+| Live BFS paths | 49 |
 | Dist paths | 122 |
 | Unique audited | 125 |
 | Counted (non-rejected) | 121 |

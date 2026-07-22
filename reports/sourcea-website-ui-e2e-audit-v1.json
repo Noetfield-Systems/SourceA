@@ -1,10 +1,10 @@
 {
   "schema": "sourcea-website-ui-e2e-audit-v2",
-  "at": "2026-07-22T03:12:23Z",
+  "at": "2026-07-22T03:17:37Z",
   "base": "https://sourcea.app",
   "verdict": "FAIL",
   "summary": {
-    "paths_live_bfs": 56,
+    "paths_live_bfs": 49,
     "paths_dist": 122,
     "paths_audited_unique": 125,
     "pages_fetched": 125,
@@ -15,7 +15,7 @@
     "rejected_spa_fallback": 4,
     "buyer_funnel_fail": 12,
     "live_only_count": 3,
-    "dist_only_count": 69
+    "dist_only_count": 76
   },
   "buyer_funnel": [
     {
@@ -1144,7 +1144,6 @@
       "/pricing",
       "/proof",
       "/pulse-founder",
-      "/sandbox",
       "/scenario",
       "/security",
       "/sourcea-boot",
@@ -1162,7 +1161,8 @@
       "/sourcea/factories/aml-screening-factory",
       "/sourcea/factories/cross-border-kyb-factory",
       "/sourcea/factories/governed-app-factory",
-      "/sourcea/factories/governed-exchange-factory"
+      "/sourcea/factories/governed-exchange-factory",
+      "/sourcea/factories/governed-web-product-factory"
     ]
   },
   "failures": [
