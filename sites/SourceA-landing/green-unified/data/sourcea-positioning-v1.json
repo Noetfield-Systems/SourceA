@@ -2,15 +2,15 @@
   "schema": "sourcea-positioning-v1",
   "version": "3.5.0",
   "saved_at": "2026-07-08T00:12:00Z",
-  "one_line": "SourceA is an AI execution platform — real builds, automations, and agent workflows, with a verifiable receipt on every run.",
-  "hero_eval_line": "Evaluate in 5 minutes — sourcea-boot PASS or BLOCK — no sales call",
+  "one_line": "SourceA is an AI execution platform that ships real builds with governance-safe receipts.",
+  "hero_eval_line": "Evaluate in 5 minutes with sourcea-boot — PASS or BLOCK on your browser and disk.",
   "legal_entity": "Noetfield Systems Inc.",
   "hero": {
     "kicker": "Proof-backed MVPs · acquisition systems, shipped fast",
     "category_tag": "AI execution platform — proof built in",
     "h1_line1": "Proof-backed MVPs and acquisition systems,",
     "h1_accent": "shipped fast.",
-    "lead": "Evaluate in five minutes with sourcea-boot — PASS or BLOCK on disk. Forge Terminal, live receipt, or Brain — no sales call required.",
+    "lead": "Choose a lane, run one bounded action, then get proof on disk. You can verify with Forge Terminal, sourcea-boot, or live proof without a calendar call.",
     "taxonomy_html": "<strong>SourceA</strong> is the product — AI execution platform with proof on every run. Forge is the execution engine — prompt forge, agents, and governed delivery desk."
   },
   "hero_denylist": [
@@ -47,11 +47,40 @@
     "Retention"
   ],
   "live_proof_url": "https://pureflow.sourcea.app/",
+  "commercial_offers": [
+    {
+      "lane": "startup",
+      "offer_name": "48-hour MVP build",
+      "sku": "start-48h",
+      "positioning": "first customer outcome, bounded scope",
+      "price_band": "$750",
+      "next_step": "/start?sku=startup-48h&source=positioning",
+      "proof": "receipt + run trace + replay pack"
+    },
+    {
+      "lane": "operator",
+      "offer_name": "Agent Loop Build",
+      "sku": "agent-loop",
+      "positioning": "recurring build + governance runbook",
+      "price_band": "$3,000–$10,000",
+      "next_step": "/start?sku=operator-loop&source=positioning",
+      "proof": "dispatch policy + workflow receipts + health log"
+    },
+    {
+      "lane": "enterprise",
+      "offer_name": "Enterprise AI control plane",
+      "sku": "enterprise-control-plane",
+      "positioning": "policy-as-code, compliance, and procurement-ready proof",
+      "price_band": "$2,000–$5,000/mo",
+      "next_step": "/enterprise-ai-control-plane?source=positioning",
+      "proof": "control-plane audit + procurement package"
+    }
+  ],
   "revenue_target_30d": {
     "customers": 3,
     "revenue_band_usd": "$3,000–$10,000"
   },
-  "primary_cta": "/start",
+  "primary_cta": "/start?lane=startup",
   "primary_cta_label": "Request a 48-hour build",
   "secondary_cta": "/sourcea/proof/live.html",
   "secondary_cta_label": "See proof",

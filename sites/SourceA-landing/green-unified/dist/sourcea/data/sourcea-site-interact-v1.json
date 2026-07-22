@@ -1,6 +1,6 @@
 {
   "schema": "sourcea-site-interact-v1",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "saved_at": "2026-07-01T23:45:00Z",
   "execution_first": true,
   "booking_url": "/start?source=interact-proof-intake",
@@ -8,10 +8,10 @@
   "booking_label": "Need proof-led escalation?",
   "use_cal_overlay": false,
   "playbook_label": "Tools",
-  "playbook_intro": "Pick your lane — each path ends with proof you can verify alone.",
+  "playbook_intro": "Pick your lane. Every path starts with proof and ends with a signed delivery step.",
   "guided_once_per_session": true,
-  "guided_title": "What brings you here?",
-  "guided_subtitle": "One question · real destination · no calendar required",
+  "guided_title": "Which outcome do you need first?",
+  "guided_subtitle": "Choose one lane, then we route you to proof-ready action.",
   "segments": [
     {
       "id": "startup",
@@ -21,18 +21,18 @@
       "track": "segment_startup"
     },
     {
-      "id": "vc-proof",
+      "id": "operator",
       "audience": "buyer",
-      "label": "VC-grade production proof",
-      "href": "/sourcea/proof/live.html",
-      "track": "segment_vc_proof"
+      "label": "Ops team shipping recurring AI automation",
+      "href": "/sourcea/platform",
+      "track": "segment_operator"
     },
     {
-      "id": "beginner",
-      "audience": "learner",
-      "label": "I'm new — show me how to start",
-      "href": "/learn",
-      "track": "segment_beginner"
+      "id": "enterprise",
+      "audience": "buyer",
+      "label": "Enterprise AI control plane / compliance",
+      "href": "/enterprise-ai-control-plane",
+      "track": "segment_enterprise"
     },
     {
       "id": "agency",
@@ -50,10 +50,10 @@
     }
   ],
   "guided_prompts": [
-    { "id": "startup", "audience": "buyer", "label": "Building a startup / agentic system", "href": "/start", "track": "segment_startup" },
-    { "id": "vc-proof", "audience": "buyer", "label": "VC-grade production proof", "href": "/sourcea/proof/live.html", "track": "segment_vc_proof" },
-    { "id": "beginner", "audience": "learner", "label": "I'm new — show me how to start", "href": "/learn", "track": "segment_beginner" },
-    { "id": "agency", "audience": "buyer", "label": "Agency / client work", "href": "/sourcea/case-studies/", "track": "segment_agency" },
+    { "id": "startup", "audience": "buyer", "label": "Launch a 48-hour MVP", "href": "/start?source=lane-startup", "track": "segment_startup" },
+    { "id": "operator", "audience": "buyer", "label": "Ship recurring operations workflows", "href": "/sourcea/platform?source=lane-operator", "track": "segment_operator" },
+    { "id": "enterprise", "audience": "buyer", "label": "Need controlled enterprise proof", "href": "/enterprise-ai-control-plane?source=lane-enterprise", "track": "segment_enterprise" },
+    { "id": "agency", "audience": "buyer", "label": "Build client revenue with SourceA", "href": "/sourcea/case-studies/?source=lane-agency", "track": "segment_agency" },
     { "id": "cursor", "audience": "technical", "label": "I use Cursor daily", "href": "/forge/terminal", "track": "segment_cursor" }
   ],
   "skills": [
@@ -120,6 +120,26 @@
       "href": "/start?source=interact-proof-intake",
       "technique": "commercial_intake",
       "icon": "◆"
+    }
+  ],
+  "sales_lanes": [
+    {
+      "id": "startup",
+      "label": "Startup / founder build",
+      "href": "/start?sku=startup-48h",
+      "copy": "48-hour bounded delivery with receipt, not a promise."
+    },
+    {
+      "id": "operator",
+      "label": "Operators / growth teams",
+      "href": "/sourcea/platform?sku=operator-loop",
+      "copy": "Cross-lane automation bundle, monthly ops support, measurable outcomes."
+    },
+    {
+      "id": "enterprise",
+      "label": "Enterprise platform",
+      "href": "/enterprise-ai-control-plane?sku=enterprise",
+      "copy": "Control plane, audit traces, and policy governance package."
     }
   ],
   "brain_extra_chips": [

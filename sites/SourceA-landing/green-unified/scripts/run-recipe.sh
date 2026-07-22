@@ -116,13 +116,15 @@ fi
 echo "OK: preflight · ${page_count} pages · green-unified on disk · SA4 + agentrun-app present"
 echo ""
 echo "=== step 1b: ui upgrade baseline (no downgrade) ==="
-python3 "$REPO/scripts/ui_upgrade_baseline_guard_v1.py" verify-all --json | python3 - <<'PY'
-import json, sys
-row = json.load(sys.stdin)
+baseline_payload="$(python3 "$REPO/scripts/ui_upgrade_baseline_guard_v1.py" verify-all --json)"
+python3 - "$baseline_payload" <<'PY'
+import json
+import sys
+row = json.loads(sys.argv[1])
 if not row.get("ok"):
     for f in row.get("failures") or []:
         print("FAIL:", f)
-    sys.exit(1)
+    raise SystemExit(1)
 print(f"OK: ui-upgrade-baseline v{row.get('baseline_version')} · {row.get('file_count')} files")
 PY
 echo ""
